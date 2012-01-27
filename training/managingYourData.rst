@@ -12,7 +12,7 @@ The OMERO.insight default view is made up of three sections: the Inspector Panel
 
 ..  image:: images/omero-insight-importer-iconlocation.png  
 
-(screenshot note-data manager labelled with all of these panel names)
+(screenshot1: data manager labelled with all of these panel names)
 
  
 
@@ -30,7 +30,7 @@ To create a new Project or Dataset select the icon and name the new Project or D
 
 ..  image:: images/omero-insight-importer-iconlocation.png  
 
-(joint screenshot note - tree with all of the expanded options of project, dataset, image and then highlighting the new project/dataset icon)
+(screenshot2 note - tree with all of the expanded options of project, dataset, image and then highlighting the new project/dataset icon)
 
 
 `Exercise 1`_
@@ -40,7 +40,7 @@ Cut/Copy/Paste/Delete
 
 There are the four basic operations that are available in the inspector panel. 
 
-.. image:: images/omero-insight-importer-selection.png (screenshot note: showing right click with the options)
+.. image:: images/omero-insight-importer-selection.png (screenshot 3 : This shows the right click with the Cut/Copy/Paste/Delete options)
 
 `Exercise 2`_
 
@@ -74,7 +74,7 @@ wild card searching. The search result is presented in the working area panel.
 .. image:: images/omero-insight-importer-selection.png 
 
 
-(screenshot note: Search results on Name, Comments,, Description, Tags with several images in the results.)
+(screenshot note: Search results on Name, Comments, Description, Tags with several images in the results.)
 
 
 The Working Area Panel
@@ -93,7 +93,7 @@ The working area toolbar controls the various options to filter, organise, and s
 
 
 The Metadata Browser Panel
--------------------
+--------------------------
 
 The metadata browser panel is made up of three tabs General, Acquisition, and Preview. 
 
