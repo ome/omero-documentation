@@ -23,12 +23,12 @@ Section 3 Getting Data In
 Section 4 Working through the Data Manager 
 
  - Inspector Panel
- - The Inspector Panel - Projects
- - The Inspector Panel - Screens 
- - The Inspector Panel - Attachments
- - The Inspector Panel - Tags 	
- - The Inspector Panel - Images
- - The Inspector Panel - Search  
+ - Projects
+ - Screens 
+ - Attachments
+ - Tags 	
+ - Images
+ - Search  
 
  - The Working Area Panel
 
@@ -70,6 +70,10 @@ Advanced Sections
 OMERO.Web Client 
 Editor?
 Scripts 
+import from existing folder 
+
+Advanced Viewer, playing movies, Advanced Render Settings?
+Collaborative viewing 
 
 
 OMERO Roadmap & Community
@@ -79,5 +83,4 @@ OMERO Roadmap & Community
   
 
 
-Record for Image Credits 
-
+Record for Image Credits
