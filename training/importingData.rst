@@ -10,7 +10,7 @@ Starting Import from OMERO.insight
 
 In order to begin the import of images into OMERO you need to click on the OMERO.insight importer icon. You are then presented with the OMERO.insight Importer Window
 
-(Screenshot import icon highlighted, with importer window open and files selected)
+ .. image:: training_screenshots/importingData_1.tif
 
 
 To import images with the OMERO.insight importer, the import process follows three steps of The File Selection, Location selection and Import.
@@ -25,7 +25,7 @@ Location selection
 Select the file(s) to import by pressing the right arrow icon when clicked on the location Selection window pops up as shown below. OMERO uses a Project/Dataset hierarchy structure and so a new Project/Dataset can be created for each import or if available an existing Project/Dataset can be selected.
 
 
-(A combined screenshot covering the three steps of The File Selection, Location selection and Import)
+.. image:: training_screenshots/importingData_2.tif
 
 
 Import
@@ -44,7 +44,7 @@ On import, the Import tab will open. The following information is presented in t
  
 On the completion of the import, the data is located in the Data Manager.
 
-(Screenshot of the imported data in the data manager )
+.. image:: training_screenshots/importingData_3.tif
 
 
 

@@ -12,6 +12,7 @@ The Measurement tool
 On select an image in the workspace panel and double clicking on the image to bring up the image viewer.
 In the image viewer toolbar click the  icon to bring up the Measurement Tool.
 
+.. image:: training_screenshots/analysingyourdata_1.tif
 (A screenshot with the measurement tool open and tool bar annotated with the list of ROI's that can be drawn)
 
 To create an ROI you can use the toolbar shown below to select what type of ROI is to be created.
@@ -24,7 +25,8 @@ ROI Manager
 
 Once ROIs are created, these appear in the ROI manager tab. The ROI manager tab is the default view of the ROI tool. Using the manager tab it is possible to select the individual ROIs. The visibility check box also allows you to toggle the visibility of the ROI in the image viewer.
 
-images/omero-insight-importer-iconlocation.png  (A group screenshot of all five tabs that are available under the ROI manager)
+.. image:: training_screenshots/analysingyourdata_1.tif  
+(A group screenshot of all five tabs that are available under the ROI manager)
 
 
 ROI Inspector - The ROI inspector is accessed by clicking on the inspector tab. The inspector panel allows you to edit various properties of the ROI.
