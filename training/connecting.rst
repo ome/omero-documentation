@@ -18,6 +18,6 @@ You will be required to configure it to point to the OMERO server.
 Locate the OMERO.insight icon |logo| on your desktop and double-click on it.
 
 
-.. |logo| image:: images/omero-insight-icon.png
+.. || image:: training_screenshots/connecting_1.tif
 
 
