@@ -14,7 +14,7 @@ In the metadata browser panel found on the right hand side, locate the icon. Cli
 .
 
 
-.. image:: graphx/gettingyourdataout_1.png
+.. image:: graphx/gettingyourdataout_publish.png
 
 
 Make Movie - Select this to create a movie from your multi-dimensional image data. You can specify the ranges of Z and T frames to use. You can choose whether to display a scale bar and/or any labels.
@@ -30,5 +30,5 @@ Thumbnail Figure - This creates a figure of thumbnails, either using the current
 
 Movie Figure -  This produces a figure of a movie, showing panels of different frames it then saves the figure as a jpg or png attached to the first image in the figure.
 
-.. image:: graphx/gettingyourdataout_2.png
+.. image:: graphx/gettingyourdataout_figureresults.png
 

@@ -18,6 +18,6 @@ You will be required to configure it to point to the OMERO server.
 Locate the OMERO.insight icon TO BE DECIDED on your desktop and double-click on it.
 
 
-.. image:: graphx/connecting_1.png
+.. image:: graphx/connecting_intro.png
 
 
