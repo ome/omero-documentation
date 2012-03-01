@@ -13,7 +13,7 @@ The OMERO.insight default view is made up of three sections: the Inspector Panel
 
 (screenshot 1: data manager labelled with all of these panel names)
 
-.. image:: training_screenshots/managingyourdata_1.tif
+.. image:: graphx/managingyourdata_1.png
  
 
 The Inspector Panel
@@ -24,7 +24,9 @@ The standardised  view of the image data is in the Project, Dataset, Image hiera
 
 To create a new Project or Dataset select the icon and name the new Project or Dataset.
 
-.. image:: training_screenshots/managingyourdata_2.tif
+.. image:: graphx/managingyourdata_2.png
+
+
 (screenshot 2 : tree with all of the expanded options of project, dataset, image and then highlighting the new project/dataset icon)
 
 
@@ -34,14 +36,16 @@ The Inspector Panel - Screens
 
 This will bring you a tree view to browse high content screening data in a hierarchy of screens and wells. Double clicking on the image will present the grid view of the wells, where individual images for the wells can be accessed.
 
-.. image:: training_screenshots/managingyourdata_3.tif
-(Screenshot 3: showing a Screen - Plate - Well hierarchy and the screen data )
+
+(Screenshot 3: NOTE I will need permission to import Screening data in order to show this.)
 
 
 Attachments
 This view allows you to browse all attachments present on the OMERO system.
 
-.. image:: training_screenshots/managingyourdata_4.tif
+.. image:: graphx/managingyourdata_4.png
+
+
 (Screenshot 4: showing a the attachments panel view with the range of attachments in the system.) 
 
 
@@ -50,7 +54,9 @@ Tags
 This panel allows you to view all the tags that you have created and used in OMERO.  
 A tag can belong to a parent object called a tag set. For example a typical arrangement can be: 
 
-.. image:: training_screenshots/managingyourdata_5.tif
+.. image:: graphx/managingyourdata_5.png
+
+
 (screenshot 5: a list of tags in a tag set with images shown in central panel.)
 
 
@@ -65,8 +71,11 @@ Search
 This panel allows you to search on the images within the OMERO system. The search term is entered in the field shown in highlighted area 1. The search field also supports multiple and single character wild card searching.
 The search context allows you to search on the range of Name, Comments, URL, Description, Tags, and Attachments. This is displayed in the spotlighted area 2. The results of the search are presented in the central working area panel. Additional information about the results is shown in the highlighted area 3.
  
-.. image:: training_screenshots/managingyourdata_6.tif
- (screenshot 6: Search results on Name, Comments, Description, Tags with several images in the results.)
+
+.. image:: graphx/managingyourdata_6.png
+
+
+ 
 
 
 
@@ -75,7 +84,7 @@ The Working Area Panel
 
 The working area toolbar controls the various options to filter, organise, and sort images.  
 
-.. image:: training_screenshots/managingyourdata_7.tif
+.. image:: graphx/managingyourdata_7.png
 
    
 1 - Filter elements displayed in the workspace.      7 - Order images by acquisition date.
@@ -112,8 +121,11 @@ Additional information about the Project Dataset or Image can be added under Ann
  * Attachment
  * Comments
  
-.. image:: training_screenshots/managingyourdata_8.tif
-  (screenshot 9:  highlighting general and annotations fields )
+
+.. image:: graphx/managingyourdata_8.png
+
+
+
 
 
 1 - Save changes back to the server.      5 - Display the publishing options.
@@ -134,8 +146,8 @@ This includes information on:
  * Exposure times 
 
 
-.. image:: training_screenshots/managingyourdata_10.tif
-  (NOTE: I will need a rich metadata image to complete this )
+
+(NOTE:No screenshot as I will need a rich metadata image to complete this )
 
 
 
@@ -144,7 +156,9 @@ Preview
 The preview panel displays a partial view of the image rendering settings. Within this panel the rendering 
 settings for one image can be applied to all other images in the dataset by using the option apply to all. 
 
-.. image:: training_screenshots/managingyourdata_11.tif
+.. image:: graphx/managingyourdata_11.png
+
+
 (screenshot 12:highlight on toggle for channel settings, the slider for changing z,t for changing rendering and finally apply to all button)
 
 

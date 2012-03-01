@@ -15,9 +15,9 @@ Accessing for the first time
 
 You will be required to configure it to point to the OMERO server.
 
-Locate the OMERO.insight icon |logo| on your desktop and double-click on it.
+Locate the OMERO.insight icon TO BE DECIDED on your desktop and double-click on it.
 
 
-.. || image:: training_screenshots/connecting_1.tif
+.. image:: graphx/connecting_1.png
 
 

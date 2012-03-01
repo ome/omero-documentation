@@ -12,7 +12,9 @@ The Measurement tool
 On select an image in the workspace panel and double clicking on the image to bring up the image viewer.
 In the image viewer toolbar click the  icon to bring up the Measurement Tool.
 
-.. image:: training_screenshots/analysingyourdata_1.tif
+.. image:: graphx/analysingyourdata_1.png
+
+
 (A screenshot with the measurement tool open and tool bar annotated with the list of ROI's that can be drawn)
 
 To create an ROI you can use the toolbar shown below to select what type of ROI is to be created.
@@ -25,28 +27,30 @@ ROI Manager
 
 Once ROIs are created, these appear in the ROI manager tab. The ROI manager tab is the default view of the ROI tool. Using the manager tab it is possible to select the individual ROIs. The visibility check box also allows you to toggle the visibility of the ROI in the image viewer.
 
-.. image:: training_screenshots/analysingyourdata_2.tif  
-(NOTE: I have taken 5 seperate screenshots of all five tabs that are available under the ROI manager)
+.. image:: graphx/analysingyourdata_2.png
+
+
+(NOTE: I have taken 5 separate screenshots of all five tabs that are available under the ROI manager)
 
 
 ROI Inspector - The ROI inspector is accessed by clicking on the inspector tab. The inspector panel allows you to edit various properties of the ROI.
 
-.. image:: training_screenshots/analysingyourdata_3.tif 
+.. image:: graphx/analysingyourdata_3.png
 
 
 ROI Results - The ROI results are accessed by clicking on the results tab. This panel contains the various geometrical properties for the ROI.
 
-.. image:: training_screenshots/analysingyourdata_4.tif 
+.. image:: graphx/analysingyourdata_4.png
 
 ROI Graph Pane -The ROI graph pane is accessed by clicking on the graph pane tab. The graph pane panel will display the histogram for the selected ROI.
 
-.. image:: training_screenshots/analysingyourdata_5.tif 
+.. image:: graphx/analysingyourdata_5.png
 
 ROI Intensity View - The ROI intensity view is accessed by clicking on the intensity view tab.This panel displays various statistics about the intensity values contained in an ROI. 
 
-.. image:: training_screenshots/analysingyourdata_6.tif 
+.. image:: graphx/analysingyourdata_6.png 
 
 
 ROI Intensity Results View - The ROI intensity view is accessed by clicking on the intensity view tab.This panel presents an alternative view of the previous intensity view values. The information can again be exported to Excel.
 
-.. image:: training_screenshots/analysingyourdata_7.tif
+.. image:: graphx/analysingyourdata_7.png

@@ -31,7 +31,7 @@ Server
 OMERO (OME Remote Objects) is a Java Enterprise application that provides integration, visualisation, management, and analysis facilities for biological image data. Support for microscopy, HCS, and graphics image data is built-in, and full data query and search facilities are enabled. Data are stored in a relational database modeled on the OME data model and binary files. All data in OMERO are accessible by any OMERO client through an API (*Application Programming Interface*) in Java, Python, Matlab and C++. The same API is used by all "clients" from simple code samples up to full GUI applications (see below). A single OMERO.server installation can support the image data requirements of a laboratory or an imaging facility.
 
 
-.. figure:: training_screenshots/api_figure.png
+.. figure:: graphx/apifigure.png
    :scale: 50%
    :alt: API
    :align: center
