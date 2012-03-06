@@ -13,7 +13,12 @@ Training: Clients documentation
 .. toctree::
    :titlesonly:
 
-   overview
-   connecting
-   importingData
+	Contents For Training </training/contentsForTraining>
+    Overview </training/overview>
+	Connecting </training/connecting>
+	Importing Data </training/importingData>
+	Managing Your Data </training/contentManagingYourData>
+	Viewing Your Data </training/viewingYourData>
+	Analysing Your Data </training/analysingYourData>
+	Getting Your Data Out </training/gettingYourDataOut>
 
