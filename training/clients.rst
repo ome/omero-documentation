@@ -10,15 +10,15 @@ Training: Clients documentation
     You can search, tag, annotate and generally organize your data, perform a variety of 
     analyses directly and/or launch analysis scripts running server side.
 
-.. toctree::
-   :titlesonly:
+	.. toctree::
+	   :titlesonly:
 
-	Contents For Training </training/contentsForTraining>
-    Overview </training/overview>
-	Connecting </training/connecting>
-	Importing Data </training/importingData>
-	Managing Your Data </training/managingYourData>
-	Viewing Your Data </training/viewingYourData>
-	Analysing Your Data </training/analysingYourData>
-	Getting Your Data Out </training/gettingYourDataOut>
+		Contents For Training </training/contentsForTraining>
+	    Overview </training/overview>
+		Connecting </training/connecting>
+		Importing Data </training/importingData>
+		Managing Your Data </training/managingYourData>
+		Viewing Your Data </training/viewingYourData>
+		Analysing Your Data </training/analysingYourData>
+		Getting Your Data Out </training/gettingYourDataOut>
 
