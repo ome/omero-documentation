@@ -17,7 +17,7 @@ Training: Clients documentation
     Overview </training/overview>
 	Connecting </training/connecting>
 	Importing Data </training/importingData>
-	Managing Your Data </training/contentManagingYourData>
+	Managing Your Data </training/managingYourData>
 	Viewing Your Data </training/viewingYourData>
 	Analysing Your Data </training/analysingYourData>
 	Getting Your Data Out </training/gettingYourDataOut>

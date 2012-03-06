@@ -27,6 +27,7 @@ Training
 
 .. toctree::
    :maxdepth: 10
+   
    training/clients
     
 

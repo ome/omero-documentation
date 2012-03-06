@@ -11,9 +11,9 @@ The Data Manager
 
 The OMERO.insight default view is made up of three sections: the Inspector Panel, the Working Area Panel and the Metadata Browser Panel. 
 
+(screenshot 1: data manager labelled with all of these panel names)
 
-
-.. image:: graphx/managingyourdata_intro.png
+.. image:: graphx/managingyourdata_1.png
  
 
 The Inspector Panel
@@ -24,11 +24,10 @@ The standardised  view of the image data is in the Project, Dataset, Image hiera
 
 To create a new Project or Dataset select the icon and name the new Project or Dataset.
 
-
-.. image:: graphx/managingyourdata_newproject.png
-
+.. image:: graphx/managingyourdata_2.png
 
 
+(screenshot 2 : tree with all of the expanded options of project, dataset, image and then highlighting the new project/dataset icon)
 
 
 
@@ -44,11 +43,10 @@ This will bring you a tree view to browse high content screening data in a hiera
 Attachments
 This view allows you to browse all attachments present on the OMERO system.
 
-
-.. image:: graphx/managingyourdata_attachements.png
-
+.. image:: graphx/managingyourdata_4.png
 
 
+(Screenshot 4: showing a the attachments panel view with the range of attachments in the system.) 
 
 
 Tags   
@@ -56,7 +54,7 @@ Tags
 This panel allows you to view all the tags that you have created and used in OMERO.  
 A tag can belong to a parent object called a tag set. For example a typical arrangement can be: 
 
-.. image:: graphx/managingyourdata_tags.png
+.. image:: graphx/managingyourdata_5.png
 
 
 (screenshot 5: a list of tags in a tag set with images shown in central panel.)
@@ -74,7 +72,7 @@ This panel allows you to search on the images within the OMERO system. The searc
 The search context allows you to search on the range of Name, Comments, URL, Description, Tags, and Attachments. This is displayed in the spotlighted area 2. The results of the search are presented in the central working area panel. Additional information about the results is shown in the highlighted area 3.
  
 
-.. image:: graphx/managingyourdata_search.png
+.. image:: graphx/managingyourdata_6.png
 
 
  
@@ -86,7 +84,7 @@ The Working Area Panel
 
 The working area toolbar controls the various options to filter, organise, and sort images.  
 
-.. image:: graphx/managingyourdata_workingarea.png
+.. image:: graphx/managingyourdata_7.png
 
    
 1 - Filter elements displayed in the workspace.      7 - Order images by acquisition date.
@@ -124,7 +122,7 @@ Additional information about the Project Dataset or Image can be added under Ann
  * Comments
  
 
-.. image:: graphx/managingyourdata_general.png
+.. image:: graphx/managingyourdata_8.png
 
 
 
@@ -158,7 +156,7 @@ Preview
 The preview panel displays a partial view of the image rendering settings. Within this panel the rendering 
 settings for one image can be applied to all other images in the dataset by using the option apply to all. 
 
-.. image:: graphx/managingyourdata_preview.png
+.. image:: graphx/managingyourdata_11.png
 
 
 (screenshot 12:highlight on toggle for channel settings, the slider for changing z,t for changing rendering and finally apply to all button)
