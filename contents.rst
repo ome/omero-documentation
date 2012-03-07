@@ -27,7 +27,8 @@ Training
 
 .. toctree::
    :maxdepth: 10
-   
+   :hidden:
+
    training/clients
     
 
