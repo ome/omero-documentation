@@ -2,13 +2,13 @@ Managing Your Data
 ==================
 
 Overview
-
+========
    This page describes the OMERO.insight Client Data Manager.
 
 
 
 The Data Manager
-
+----------------
 The OMERO.insight default view is made up of three sections: the Inspector Panel, the Working Area Panel and the Metadata Browser Panel. 
 
 (screenshot 1: data manager labelled with all of these panel names)
@@ -17,7 +17,7 @@ The OMERO.insight default view is made up of three sections: the Inspector Panel
  
 
 The Inspector Panel
-
+-------------------
 Navigating and Managing the Hierarchies
 The standardised  view of the image data is in the Project, Dataset, Image hierarchy. Expanding the navigation tree allows you to see this structure. 
 
@@ -27,47 +27,49 @@ To create a new Project or Dataset select the icon and name the new Project or D
 .. image:: graphx/managingyourdata_2.png
 
 
-(screenshot 2 : tree with all of the expanded options of project, dataset, image and then highlighting the new project/dataset icon)
+..Comment(screenshot 2 : tree with all of the expanded options of project, dataset, image and then highlighting the new project/dataset icon).
 
 
 
 
 The Inspector Panel - Screens   
-
+-----------------------------
 This will bring you a tree view to browse high content screening data in a hierarchy of screens and wells. Double clicking on the image will present the grid view of the wells, where individual images for the wells can be accessed.
 
 
-(Screenshot 3: NOTE I will need permission to import Screening data in order to show this.)
+..Comment(Screenshot 3: NOTE I will need permission to import Screening data in order to show this).
 
 
 Attachments
+-----------
 This view allows you to browse all attachments present on the OMERO system.
 
 .. image:: graphx/managingyourdata_4.png
 
 
-(Screenshot 4: showing a the attachments panel view with the range of attachments in the system.) 
+..Comment(Screenshot 4: showing a the attachments panel view with the range of attachments in the system). 
 
 
 Tags   
-
+----
 This panel allows you to view all the tags that you have created and used in OMERO.  
 A tag can belong to a parent object called a tag set. For example a typical arrangement can be: 
 
 .. image:: graphx/managingyourdata_5.png
 
 
-(screenshot 5: a list of tags in a tag set with images shown in central panel.)
+..Comment(screenshot 5: a list of tags in a tag set with images shown in central panel).
 
 
 Images
+------
 This panel keeps a history of your imported images. It is possible to retrieve images based on the date that they where imported in the OMERO system.
 
-[NOTE: There is currently no Screenshot as I am unsure if this is a piece of functionality that we 
-      wish to promote given that is is scheduled to be updated.]
+..[NOTE: There is currently no Screenshot as I am unsure if this is a piece of functionality that we wish to promote given that is is scheduled to be updated.].
+
 
 Search  
-
+------
 This panel allows you to search on the images within the OMERO system. The search term is entered in the field shown in highlighted area 1. The search field also supports multiple and single character wild card searching.
 The search context allows you to search on the range of Name, Comments, URL, Description, Tags, and Attachments. This is displayed in the spotlighted area 2. The results of the search are presented in the central working area panel. Additional information about the results is shown in the highlighted area 3.
  
@@ -76,12 +78,8 @@ The search context allows you to search on the range of Name, Comments, URL, Des
 
 
  
-
-
-
 The Working Area Panel
-
-
+----------------------
 The working area toolbar controls the various options to filter, organise, and sort images.  
 
 .. image:: graphx/managingyourdata_7.png
@@ -98,14 +96,12 @@ The working area toolbar controls the various options to filter, organise, and s
 
 
 The Metadata Browser Panel
-
-
+--------------------------
 The metadata browser panel is made up of three tabs General, Acquisition, and Preview. 
 
 
 General
-
-
+--------
 The general tab contains information about your image such as:
  
  * Name 
@@ -137,7 +133,7 @@ Additional information about the Project Dataset or Image can be added under Ann
 
 
 Acquisition 
-
+------------
 The acquisition tab information provides all the acquisition information available in the original file. 
 This includes information on:
 
@@ -147,12 +143,12 @@ This includes information on:
 
 
 
-(NOTE:No screenshot as I will need a rich metadata image to complete this )
+..(NOTE:No screenshot as I will need a rich metadata image to complete this).
 
 
 
 Preview
-
+--------
 The preview panel displays a partial view of the image rendering settings. Within this panel the rendering 
 settings for one image can be applied to all other images in the dataset by using the option apply to all. 
 
