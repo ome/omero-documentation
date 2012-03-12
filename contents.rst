@@ -21,14 +21,9 @@ Projects documentation
 Training
 ---------
 
-* :doc:`Using the Clients<training/clients>` 
-   **target:** *users*
-* Download PDF/download individual chapters
-
 .. toctree::
-   :maxdepth: 10
-   :hidden:
+   :maxdepth: 1
 
-   training/clients
+   Using the Clients<training/clients>
     
 

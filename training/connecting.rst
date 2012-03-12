@@ -19,5 +19,8 @@ Locate the OMERO.insight icon TO BE DECIDED on your desktop and double-click on 
 
 
 .. image:: graphx/connecting_intro.png
+    :width: 250px
+    :align: center
+    :height: 250px
 
 

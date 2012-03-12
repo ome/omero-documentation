@@ -10,19 +10,16 @@ Training: Clients documentation
     You can search, tag, annotate and generally organise your data, perform a variety of 
     analyses directly and/or launch analysis scripts running server side.
 
-	.. toctree::
-	   :titlesonly:
+.. toctree::
+  :titlesonly:
         
-
-		Contents For Training </training/contentsForTraining>
-	    Overview </training/overview>
-		Connecting </training/connecting>
-		Importing Data </training/importingData>
-		Managing Your Data </training/managingYourData>
-		Viewing Your Data </training/viewingYourData>
-		Analysing Your Data </training/analysingYourData>
-		Getting Your Data Out </training/gettingYourDataOut>
-		Scripts </training/scripts>
-		webClient </training/webClient>
-		
-		
+   Contents For Training <contentsForTraining>
+   Overview <overview>
+   Connecting <connecting>
+   Importing Data <importingData>
+   Managing Your Data <managingYourData>
+   Viewing Your Data <viewingYourData>
+   Analysing Your Data <analysingYourData>
+   Getting Your Data Out <gettingYourDataOut>
+   Scripts <scripts>
+   webClient <webClient>
