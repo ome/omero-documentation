@@ -21,10 +21,13 @@ To import images with the importer, the import process follows the three steps o
 
 The File & Location Selection 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The right panel allow you to located and select your images, you can use shift to 
+
 Use the File Chooser to browse and select the images.
 
-Select the file(s) to import by pressing the right arrow icon when clicked on the location Selection window pops up as shown below. OMERO uses a Project/Dataset hierarchy structure and so a new Project/Dataset can be created for each import or if available an existing Project/Dataset can be selected.
+Once selected the file(s) to import by pressing the right arrow icon when clicked on the location Selection window pops up as shown below. OMERO uses a Project/Dataset hierarchy structure and so a new Project/Dataset can be created for each import or if available an existing Project/Dataset can be selected.
 
+When ready the image files can now be imported by clicking the import button. Illustrated by point (3)
 
 .. image:: graphx/importingData_locationselection.png
     :width: 700px
@@ -34,7 +37,6 @@ Select the file(s) to import by pressing the right arrow icon when clicked on th
 
 Import
 ^^^^^^
-When ready the image files can now be imported by clicking the import button.
 
 On import, the Import tab will open. The following information is presented in the Import tab:
 

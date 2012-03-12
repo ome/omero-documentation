@@ -16,24 +16,30 @@ Publishing Options
 In the metadata browser panel found on the right hand side, locate the icon. Clicking on this icon will reveal a drop-down menu of publishing tools as shown below.
 
 .. image:: graphx/gettingyourdataout_publish.png
+    :width: 700px
+    :align: center
+    :height: 700px
 
 
 Make Movie
 ^^^^^^^^^^
 Select this to create a movie from your multi-dimensional image data. You can specify the ranges of Z and T frames to use. You can choose whether to display a scale bar and/or any labels.
 
+
 Split View Figure
 ^^^^^^^^^^^^^^^^^
 Choose one or more images to be arranged in a split-channel view figure with one image per row. When making the figure, for each image you can select which channels should be shown individually and which are included in the merged panel for that row.
 
 ..
-  [BE CAREFUL OF INTERCHANGEABLY USING FIGURE & IMAGE - I'VE ALSO ADDED PANEL HERE TO TRY AND HELP - IT CAN   
+  COMMENT: BE CAREFUL OF INTERCHANGEABLY USING FIGURE & IMAGE - I'VE ALSO ADDED PANEL HERE TO TRY AND HELP - IT CAN   
   EASILY.BECOME VERY CONFUSING] [I need to ensure that when I say figure I mean a figure created by OMERO of the 
-  chosen images. So a figure is not equal to an image in this instance].
+  chosen images. So a figure is not equal to an image in this instance.
+
 
 ROI Split Figure
 ^^^^^^^^^^^^^^^^^
 If a rectangle ROI has been defined for an image (or images), then you can create a figure that displays the ROI as a larger panel to the right of the main image, zoomed by a chosen factor. The zoomed ROI can be split into selected channels, as for the split-view figure. Images can be labeled with their name, the name of their dataset(s) or associated tags.
+
 
 Thumbnail Figure
 ^^^^^^^^^^^^^^^^
@@ -46,4 +52,6 @@ This produces a figure of a movie, showing panels of different frames it then sa
 .. COMMENT:this image figure results will be annotated with the information from above.
 
 .. image:: graphx/gettingyourdataout_figureresults.png
-
+    :width: 700px
+    :align: center
+    :height: 700px
