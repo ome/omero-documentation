@@ -15,9 +15,13 @@ On select an image in the workspace panel and double clicking on the image to br
 In the image viewer toolbar click the  icon to bring up the Measurement Tool.
 
 .. image:: graphx/analysingyourdata_measurementtool.png
- 
+    :width: 300px
+    :align: center
+    :height: 300px
 
-(A screenshot with the measurement tool open and tool bar annotated with the list of ROI's that can be drawn)
+
+.. COMMENT:A screenshot with the measurement tool open and tool bar annotated with the list of ROI's that can be drawn).
+
 
 To create an ROI you can use the toolbar shown below to select what type of ROI is to be created.
 
@@ -32,7 +36,7 @@ Once ROIs are created, these appear in the ROI manager tab. The ROI manager tab 
 .. image:: graphx/analysingyourdata_manager.png
 
 
-..(Comment - I have taken 5 separate screenshots of all five tabs that are available under the ROI manager).
+.. COMMENT:I have taken 5 separate screenshots of all five tabs that are available under the ROI manager.
 
 
 ROI Inspector

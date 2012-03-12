@@ -2,7 +2,7 @@ Managing Your Data
 ==================
 
 Overview
-========
+--------
    This page describes the OMERO.insight Client Data Manager.
 
 
@@ -11,7 +11,7 @@ The Data Manager
 ----------------
 The OMERO.insight default view is made up of three sections: the Inspector Panel, the Working Area Panel and the Metadata Browser Panel. 
 
-(screenshot 1: data manager labelled with all of these panel names)
+.. COMMENT:screenshot 1: data manager labelled with all of these panel names.
 
 .. image:: graphx/managingyourdata_1.png
  
@@ -27,7 +27,7 @@ To create a new Project or Dataset select the icon and name the new Project or D
 .. image:: graphx/managingyourdata_2.png
 
 
-..Comment(screenshot 2 : tree with all of the expanded options of project, dataset, image and then highlighting the new project/dataset icon).
+.. COMMENT:screenshot 2 : tree with all of the expanded options of project, dataset, image and then highlighting the new project/dataset icon.
 
 
 
@@ -37,7 +37,7 @@ The Inspector Panel - Screens
 This will bring you a tree view to browse high content screening data in a hierarchy of screens and wells. Double clicking on the image will present the grid view of the wells, where individual images for the wells can be accessed.
 
 
-..Comment(Screenshot 3: NOTE I will need permission to import Screening data in order to show this).
+.. COMMENT:Screenshot 3: NOTE I will need permission to import Screening data in order to show this.
 
 
 Attachments
@@ -47,7 +47,7 @@ This view allows you to browse all attachments present on the OMERO system.
 .. image:: graphx/managingyourdata_4.png
 
 
-..Comment(Screenshot 4: showing a the attachments panel view with the range of attachments in the system). 
+.. COMMENT:Screenshot 4: showing a the attachments panel view with the range of attachments in the system. 
 
 
 Tags   
@@ -58,14 +58,14 @@ A tag can belong to a parent object called a tag set. For example a typical arra
 .. image:: graphx/managingyourdata_5.png
 
 
-..Comment(screenshot 5: a list of tags in a tag set with images shown in central panel).
+.. COMMENT:screenshot 5: a list of tags in a tag set with images shown in central panel.
 
 
 Images
 ------
 This panel keeps a history of your imported images. It is possible to retrieve images based on the date that they where imported in the OMERO system.
 
-..[NOTE: There is currently no Screenshot as I am unsure if this is a piece of functionality that we wish to promote given that is is scheduled to be updated.].
+.. COMMENT:There is currently no Screenshot as I am unsure if this is a piece of functionality that we wish to promote given that is is scheduled to be updated..
 
 
 Search  
@@ -143,7 +143,7 @@ This includes information on:
 
 
 
-..(NOTE:No screenshot as I will need a rich metadata image to complete this).
+.. COMMENT:No screenshot as I will need a rich metadata image to complete this.
 
 
 
@@ -155,6 +155,6 @@ settings for one image can be applied to all other images in the dataset by usin
 .. image:: graphx/managingyourdata_11.png
 
 
-(screenshot 12:highlight on toggle for channel settings, the slider for changing z,t for changing rendering and finally apply to all button)
+.. COMMENT:screenshot 12:highlight on toggle for channel settings, the slider for changing z,t for changing rendering and finally apply to all button.
 
 

@@ -3,7 +3,7 @@ Getting Your Data Out of OMERO
 
 Overview
 ========
-The ability to export the data from OMERO has already been shown in the sections of the image viewer and data manager with the options of exporting to OME-TIFF, export a tag report, save the displayed thumbnails, and saving an image. This section now focuses specifically on the publishing options of OMERO for producing figures. The publishing tools allow you to export images as figures, based on their annotations, metadata, ROIs etc. All figures are saved as attachments to the appropriate Project, Dataset or Image, and are also available to download. A figure legend is generated for each figure (downloaded as text file) which contains additional details for each image, such as name, ID, scale bar size, rendering settings, projected planes, pixel size, etc.
+The ability to export the data from OMERO has already been shown in the sections of the image viewer and data manager with the options of exporting to OME-TIFF, export a tag report, save the displayed thumbnails, and saving an image. This section now focuses specifically on the publishing options of OMERO for producing figures. The feature allows you to export images as figures, based on their annotations, metadata, and regions of interest on the image. All figures are saved as attachments to the appropriate Project, Dataset or Image, and are also present to download. A figure legend is generated for each figure and available is to download as a text file which contains additional details for each image, such as name, ID, scale bar size, rendering settings, projected planes, pixel size, etc. 
 
 ..
    [Comment - YOU TEND TO ALTERNATE SOME SUB-HEADINGS WITH CAPITALS FOR ALL FIRST LETTERS AND OTHERS ALL LOWER CASE. 
@@ -43,8 +43,7 @@ Movie Figure
 ^^^^^^^^^^^^
 This produces a figure of a movie, showing panels of different frames it then saves the figure as a jpg or png attached to the first image in the figure.
 
-..
-   Comment - this image figure results will be annotated with the information from above.
+.. COMMENT:this image figure results will be annotated with the information from above.
 
 .. image:: graphx/gettingyourdataout_figureresults.png
 

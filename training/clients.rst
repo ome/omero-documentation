@@ -6,12 +6,13 @@ Training: Clients documentation
     OMERO has two main client options for managing and accessing remotely 
     any data that you have stored on an installation of the OMERO server: 
     a web application OMERO.web and a downloadable desktop application OMERO.insight.  
-    Both clients enable you to visualize and interact with multi-dimensional image data.
-    You can search, tag, annotate and generally organize your data, perform a variety of 
+    Both clients enable you to visualise and interact with multi-dimensional image data.
+    You can search, tag, annotate and generally organise your data, perform a variety of 
     analyses directly and/or launch analysis scripts running server side.
 
 	.. toctree::
 	   :titlesonly:
+        
 
 		Contents For Training </training/contentsForTraining>
 	    Overview </training/overview>
@@ -21,4 +22,7 @@ Training: Clients documentation
 		Viewing Your Data </training/viewingYourData>
 		Analysing Your Data </training/analysingYourData>
 		Getting Your Data Out </training/gettingYourDataOut>
-
+		Scripts </training/scripts>
+		webClient </training/webClient>
+		
+		
