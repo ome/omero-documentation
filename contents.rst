@@ -24,6 +24,8 @@ Training
 .. toctree::
    :maxdepth: 1
 
+
    Using the Clients<training/clients>
+
     
 
