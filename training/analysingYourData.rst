@@ -2,8 +2,8 @@ Analysing Your Data in OMERO
 ============================
 
 
-Overview
---------
+.. topic:: Overview
+
    This page describes the measurement tool in OMERO.  
    
 

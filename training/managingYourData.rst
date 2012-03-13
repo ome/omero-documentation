@@ -1,8 +1,8 @@
 Managing Your Data
 ==================
 
-Overview
---------
+.. topic:: Overview
+
    This page describes the OMERO.insight Client Data Manager.
 
 

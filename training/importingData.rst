@@ -1,8 +1,8 @@
 Importing Data into OMERO 
 =========================
 
-Overview
---------
+.. topic:: Overview
+
 This page describes how to import your data to OMERO.
 
 

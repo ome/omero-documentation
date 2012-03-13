@@ -1,9 +1,9 @@
 Viewing Your Data 
 =================
 
-Overview
---------
-This page describes the Image Viewer in OMERO.The images in OMERO as previously demonstrated in the data manager section are viewable from the thumbnail view, alternatively, via the preview panel in the right hand panel. This section now looks at the central way of viewing your images in OMERO through the image viewer. 
+.. topic:: Overview
+
+   This page describes the Image Viewer in OMERO.The images in OMERO as previously demonstrated in the data manager section are viewable from the thumbnail view, alternatively, via the preview panel in the right hand panel. This section now looks at the central way of viewing your images in OMERO through the image viewer. 
 
 
 The Image Viewer

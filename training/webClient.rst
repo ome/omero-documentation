@@ -2,8 +2,8 @@ Web Client
 ================
 
 
-Overview
---------
+.. topic:: Overview
+
    This page describes the online version of OMERO, the OMERO.web client.   
    
 
