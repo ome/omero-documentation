@@ -3,7 +3,7 @@ Importing Data into OMERO
 
 .. topic:: Overview
 
-This page describes how to import your data to OMERO.
+   This page describes how to import your data to OMERO.
 
 
 Starting Import From OMERO.insight
