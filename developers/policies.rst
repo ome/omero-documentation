@@ -182,11 +182,7 @@ Google Docs and Calendars
 In addition to the services hosted in Dundee, the team also makes use of several Google resources due to the improved real-time collaboration that they provide. A single Google collection “OME Docs” is made available to all team members. Anything placed in the collection is automatically editable by everyone.
 
 
-For example, the primary contact information for all team members is available in the DevContactList spreadsheet:
-
-
-    https://spreadsheets.google.com/spreadsheet/ccc?key=0AuHdV7GT-8hmcDBjMldqTEJ4OHRuQVZGbS03UkcwWUE&hl=en_GB#gid=0
-
+For example, the primary contact information for all team members is available in the `DevContactList spreadsheet`_.
 
 .. _devcontactlist_screenshot:
 .. figure:: images/10000000000004490000024DCCB6EC99.png
@@ -436,4 +432,4 @@ Satellite collaboration templates:
 
 .. _addresses: https://www.openmicroscopy.org/site/team/addresses
 .. _new start tasklist: https://www.openmicroscopy.org/site/team/new-start-tasklist
-
+.. _DevContactList spreadsheet: https://spreadsheets.google.com/spreadsheet/ccc?key=0AuHdV7GT-8hmcDBjMldqTEJ4OHRuQVZGbS03UkcwWUE&hl=en_GB#gid=0

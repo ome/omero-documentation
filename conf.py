@@ -41,7 +41,7 @@ master_doc = 'contents'
 
 # General information about the project.
 project = u'OME'
-copyright = u'2012, The Open Microscopy Environment'
+copyright = u'2000-2012, The Open Microscopy Environment'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

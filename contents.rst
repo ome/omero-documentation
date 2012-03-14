@@ -19,7 +19,7 @@ Projects documentation
 ======================
 
 Developers
----------
+----------
 
 .. toctree::
    :maxdepth: 1
