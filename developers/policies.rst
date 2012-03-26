@@ -348,6 +348,8 @@ Once tasks are placed in a sprint choosing between them is more or less arbitrar
 * Near the end of the sprint if you have completed your tasks, you should help others complete tasks that they may not be able to complete.
 
 
+.. _branch-process-label:
+
 Branch process (Month-to-month)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -412,15 +414,87 @@ Subgroup processes
 To see how a specific group works together you might take a look at the web process which is defined under ticket 4772: https://trac.openmicroscopy.org.uk/ome/ticket/4772
 While numerous new “sub-groups” are getting up-to-speed, we will obviously need to find ways to keep communication and collaboration simple for everyone.
 
-Blogs/etc.:
------------
+See also
+~~~~~~~~~
 
 * http://scottchacon.com/2011/08/31/github-flow.html
 * http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
 * http://en.wikipedia.org/wiki/Technical_debt
 
-Satellite collaboration templates:
-----------------------------------
+
+
+Code contributions
+------------------
+
+In order to expedite the contribution of code to the OME project, whether
+individual files or entire modules such as a service or web application,
+we've put together the following guidelines. If you have issues with any
+of the below, please let us know.
+
+
+File headers
+~~~~~~~~~~~~
+
+The official `header templates`_ for each file type (Java, Python, HTML, etc.)
+can be found in the docs/headers.txt file of the source repository. The
+correct template should be applied at the top of all newly created files. The
+header of existing files should not be modified without previous discussion
+except with regard to keeping the year line up to date, for example changing
+"2008-2011" to "2008-2012".
+
+
+Copyrights
+~~~~~~~~~~
+
+The copyright line for a newly created file is based on the institution of
+the creator of the file and will remain unchanged even if copied or moved.
+Before redistribution of code can take place, an agreement must be reached
+between the OME team and the copyright holder.
+
+
+Licenses
+~~~~~~~~
+
+The licenses of any files intended for redistribution with OME must be
+compatible with the GPL and more restrictively for the web components with the
+AGPL. Some files in the code-base (the schema, etc.) are released under more
+liberal licenses but are still compatible with the GPL.
+
+
+Distribution
+~~~~~~~~~~~~
+
+For a block of work to be considered for redistribution with OME, the code must
+further be made available in one of the following formats.
+
+ **Patches/Pull requests**
+    Smaller changes to the existing code base can be submitted to the team
+    either as patches, or preferably as pull requests on github. You can read
+    the more about pull requests under :ref:`branch-process-label`.
+
+    The idea is that such smaller changes are reviewed line-by-line and then
+    maintained by the core team.
+
+ **Submodules**
+    Larger submissions, which cannot be effectively reviewed so intensively,
+    should be submitted as `git submodules`_. Such submodules provide a
+    unique way to describe to a component version, which becomes linked into
+    the main codebase. During checkout, all submodules are downloaded into the
+    OME directory; and during the build process, submodules are compiled into
+    the official distribution.
+
+
+The OME team cannot maintain or ship code which is only available as a
+long-living branch (a fork) of the code base, and we'd encourage submitters
+to use one of the above methods.
+
+
+Examples of contribution templates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are any number of other projects which have setup similar practices
+for code contributions. If you would like to read more on the rationale,
+please see:
 
 * http://dojofoundation.org/about
 * http://dojofoundation.org/about/cla
@@ -433,3 +507,8 @@ Satellite collaboration templates:
 .. _addresses: https://www.openmicroscopy.org/site/team/addresses
 .. _new start tasklist: https://www.openmicroscopy.org/site/team/new-start-tasklist
 .. _DevContactList spreadsheet: https://spreadsheets.google.com/spreadsheet/ccc?key=0AuHdV7GT-8hmcDBjMldqTEJ4OHRuQVZGbS03UkcwWUE&hl=en_GB#gid=0
+.. _header templates: https://github.com/openmicroscopy/openmicroscopy/blob/develop/docs/headers.txt
+.. _git submodules: http://book.git-scm.com/5_submodules.html
+
+..
+    vim: spell
