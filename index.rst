@@ -22,7 +22,6 @@ Developers
 ----------
 
 .. toctree::
-   :maxdepth: 1
-
+   :maxdepth: 3
 
    Developer Policies<developers/policies>
