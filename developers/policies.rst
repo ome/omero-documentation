@@ -498,8 +498,6 @@ please see:
 
 * http://dojofoundation.org/about
 * http://dojofoundation.org/about/cla
-* http://jakarta.apache.org/site/contributing.htm
-* http://jakarta.apache.org/site/understandingopensource.html
 * http://incubator.apache.org/
 * http://www.apache.org/foundation/how-it-works.html
 
