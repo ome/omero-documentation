@@ -1,4 +1,5 @@
-Title: OMERO Platform v4 Description: Overview of OMERO
+OMERO Platform v4 Description: Overview of OMERO
+================================================
 
 OME Remote Objects (OMERO) is a modern client-server software platform
 for visualising, managing, and annotating scientific image data. OMERO

@@ -24,8 +24,7 @@ You can find more information about FastCGI and where to get modules or
 packages for your distribution
 `here <http://www.fastcgi.com/drupal/node/3>`_.
 
-**\ If you need help configuring your firewall rules, see the
-`Security <security>`_ page.\ **
+** If you need help configuring your firewall rules, see the `Security <security>`_ page. **
 
 Prerequisites
 -------------
@@ -235,11 +234,11 @@ to access OMERO.webadmin or the OMERO.webclient:
 -  **http://your\_host/omero** OR, for development server:
    **http://localhost:4080**
 
-   .. figure:: installation-images/login.png
-      :align: center
-      :alt: OMERO.webadmin login
+	.. figure:: installation-images/login.png
+	   :align: center
+	   :alt: OMERO.webadmin login
 
-      OMERO.webadmin login
+	   OMERO.webadmin login
 
     **NOTE:** This starts the server in the foreground. It is your
     responsibility to place it in the background, if required, and

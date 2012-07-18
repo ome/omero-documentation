@@ -1,4 +1,5 @@
-Title: editor
+editor
+======
 
 This tool is designed to facilitate recording of experimental metadata,
 for annotation of images in OMERO.

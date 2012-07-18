@@ -1,4 +1,5 @@
-Title: importer
+importer
+========
 
 OMERO.importer is a standalone application that allows a user to import
 proprietary image data files from a filesystem accessed from the user's
