@@ -1,4 +1,5 @@
-Title: Client Overview
+Client Overview
+###############
 
 OMERO ships as a server application *OMERO.server* and a series of
 clients *OMERO.insight, OMERO.importer, OMERO.web and OMERO.editor* that
