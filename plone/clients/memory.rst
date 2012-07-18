@@ -1,4 +1,5 @@
-Title: Adjusting Client Memory Requirements
+Adjusting Client Memory Requirements
+====================================
 
 By default, the omero clients allocate a certain amount of memory for
 themselves during the startup process which should be sufficient for
@@ -12,8 +13,8 @@ factors: the operating system and the client you're using. Also note
 that this guide does not cover OMERO.web, which uses a different
 server-based configuration setup.
 
-### Macintosh Importer & Insight ###
-------------------------------------
+Macintosh Importer & Insight
+----------------------------
 
 -  Locate the ``OMERO.importer.app`` or ``OMERO.insight.app`` and right
    click (or control+click) on it, choose ''Show Package Contents''
@@ -41,8 +42,8 @@ server-based configuration setup.
    :align: center
    :alt: 
 
-### Windows Importer & Insight ###
-----------------------------------
+Windows Importer & Insight
+--------------------------
 
 -  To alter the memory allocation of the Windows clients, you must add
    an optional parameter file to the same folder as the application. For
@@ -63,8 +64,8 @@ server-based configuration setup.
    :align: center
    :alt: 
 
-### Unix/Linux Importer & Insight ###
--------------------------------------
+Unix/Linux Importer & Insight
+-----------------------------
 
 -  Changing either the importer or insight memory allocation under Unix
    requires you to edit the startup script located with the clients

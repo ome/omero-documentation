@@ -1,4 +1,5 @@
-Title: web
+web
+===
 
 OMERO in your browser
 ---------------------

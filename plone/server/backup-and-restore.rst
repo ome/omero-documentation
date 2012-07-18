@@ -1,5 +1,3 @@
-Title: Maintenance, Backup and Restore
-
 Maintenance tasks for OMERO
 ===========================
 

@@ -1,4 +1,5 @@
-Title: Virtual Appliance Description:
+Virtual Appliance 
+=================
 
 Virtualisation enables canned, ready to run software environments to be
 created and used, in the form of Virtual Machines (VM), or to be

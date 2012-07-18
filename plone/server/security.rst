@@ -1,4 +1,5 @@
-Title: Security
+Security
+========
 
 General
 -------

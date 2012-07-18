@@ -1,4 +1,5 @@
-Title: Getting Started Description:
+Getting Started
+===============
 
 Overview
 --------

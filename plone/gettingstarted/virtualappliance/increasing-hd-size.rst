@@ -1,4 +1,7 @@
-Title: Increasing HD Size Description: Image data can become very large
+Increasing HD Size 
+==================
+
+Image data can become very large
 and can easily fill available hard-drive space. The OMERO virtual
 appliance (VA) is similar to a non-virtualised installation in that the
 amount of disk space available is limited. By default, the OMERO virtual
