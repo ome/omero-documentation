@@ -1,0 +1,41 @@
+Title: web
+
+<h2>OMERO in your browser</h2>
+
+OMERO ships with a web-based client for users who want to access their data in the browser. This offers a similar view to the OMERO.insight Java client. Developers can use the <a href="http://trac.openmicroscopy.org.uk/ome/wiki/OmeroWeb">OMERO.web</a> framework to build their own views on OMERO data.
+
+
+<h2>OMERO.web 4.4</h2>
+<div style="clear:both"></div>
+
+<p style="float:right">
+<img style="float:right; margin-right:15px"  src="/site/products/omero/images/OmeroWeb_44.png" width='500px'/><br />
+The OMERO 4.4 web client. Images from <a href="http://www.openmicroscopy.org/site/about/licensing-attribution/attribution" />JCB Data Viewer</a>.
+</p>
+
+<p>
+In OMERO 4.4, we have made significant changes to the OMERO.web client. This includes a much nicer looking UI, improvements to the usability of the User Interface (UI) and other features in the underlying OMERO.web framework. The web-client also supports Java Webstart of the OMERO.insight client, allowing users to access its additional functionality, such as image import and ROI drawing.
+</p>
+
+<div style="clear:both"></div>
+
+<h3>Better for users</h3>
+<p>
+The old webclient UI has received a lot of "polish" to bring consistent styling across the application. You'll also notice that the UI behaves better in a number of ways.
+<ul>
+<li>Hot-key support on the tree navigation: You can traverse the Project, Dataset, Image hierarchy using up, down, left, right keys, expanding & collapsing containers etc. </li>
+<li>'Sticky' tabs: The right-hand tabs will stay on the selected tab when you select a different Image etc. For example, you can show the 'Preview' tab for an image, then use the hotkeys to move through all images in the Dataset, showing the Preview for each in turn.</li>
+<li>Keep session alive: The webclient now 'pings' the server so that your session is kept alive and you're not logged out when idle for a short time.</li>
+<li>Dialog boxes: No more 'alerts' to confirm delete etc.</li>
+</ul>
+</p>
+
+<h3>Better for developers</h3>
+<p>
+Much of the html and javascript code has been refactored to clean things up and make it easier to extend the OMERO.web client. We've also improved various parts of the Python code.
+<ul>
+<li>OMERO Connection handling: A new decorator for handling connections to OMERO, with hooks for customising (see <a href="http://trac.openmicroscopy.org.uk/ome/wiki/OmeroWeb/WritingViews" />documentation</a>)</li>
+<li>Public user: Configure a 'public user' who is always logged-in automatically, allowing your OMERO.web to support public data (see <a href="https://www.openmicroscopy.org/site/support/omero4/server/install_web#section-8" />web settings</a>)</li>
+<li>Web 'plugins': Extend the OMERO.web framework to customise the display of data from OMERO, then bring this into the existing web client.</li>
+</ul>
+</p>
