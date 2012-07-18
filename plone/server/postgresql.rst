@@ -1,0 +1,231 @@
+OMERO and PostgreSQL
+====================
+
+Contents
+
+In order to be installed, OMERO.server requires a running PostgreSQL
+instance that is configured to accept connections over TCP. The
+following explains how to ensure that you have the correct PostgreSQL
+version and that it is installed and configured correctly. For
+Windows-specific installation instructions, first see the
+`Windows <install-windows>`_ install page.
+
+Ensuring you have a valid PostgreSQL version
+--------------------------------------------
+
+For OMERO 4.4, PostgreSQL 8.4 or higher is required (see `"Known
+limitations" <known-limitations>`_ for more information.)
+
+You can check which version of PostgreSQL you have installed with any of
+the following commands:
+
+::
+
+           #
+           # Unix
+           #
+           $ createuser -V
+           createuser (PostgreSQL) 9.1.4
+           $ psql -V
+           psql (PostgreSQL) 9.1.4
+           $ createdb -V
+           createdb (PostgreSQL) 9.1.4
+       
+
+8.3 and earlier
+~~~~~~~~~~~~~~~
+
+PostgreSQL 8.3 is missing SQL2003 window functions, required by OMERO.
+
+PostgreSQL 8.1 is missing the functions pg\_advisory\_lock and
+pg\_advisory\_unlock which may lead to infrequent exceptions on insert.
+
+If your default PostgreSQL installation is version 8.3 or earlier, you
+will need to upgrade to a more up-to-date version. We suggest the
+installer from `EnterpriseDB <http://www.enterprisedb.com/>`_. Versions
+8.4, 9.0 and 9.1 are known to work with OMERO 4.4.
+
+Compatibility matrix
+~~~~~~~~~~~~~~~~~~~~
+
+*PostgreSQL*
+
+OMERO 4.1
+
+OMERO 4.2
+
+OMERO 4.3
+
+OMERO 4.4
+
+7.4
+
+OK
+
+Not suggested; see
+`#4902 <http://trac.openmicroscopy.org.uk/ome/ticket/4902>`_
+
+Unsupported; see
+`#4902 <http://trac.openmicroscopy.org.uk/ome/ticket/4902>`_
+
+Unsupported; see
+`#7813 <http://trac.openmicroscopy.org.uk/ome/ticket/7813>`_
+
+8.1
+
+OK
+
+Not suggested; see
+`#5861 <http://trac.openmicroscopy.org.uk/ome/ticket/5861>`_
+
+Unsupported; see
+`#4902 <http://trac.openmicroscopy.org.uk/ome/ticket/4902>`_
+
+Unsupported; see
+`#7813 <http://trac.openmicroscopy.org.uk/ome/ticket/7813>`_
+
+8.2
+
+OK
+
+OK
+
+Not suggested; see
+`#5861 <http://trac.openmicroscopy.org.uk/ome/ticket/5861>`_
+
+Unsupported; see
+`#7813 <http://trac.openmicroscopy.org.uk/ome/ticket/7813>`_
+
+8.3
+
+OK
+
+OK
+
+OK
+
+Unsupported; see
+`#7813 <http://trac.openmicroscopy.org.uk/ome/ticket/7813>`_
+
+8.4
+
+OK
+
+OK
+
+OK
+
+OK
+
+9.x
+
+Configuration may be necessary; see
+`#5662 <http://trac.openmicroscopy.org.uk/ome/ticket/5662>`_
+
+Configuration may be necessary; see
+`#5662 <http://trac.openmicroscopy.org.uk/ome/ticket/5662>`_
+
+Configuration may be necessary; see
+`#5662 <http://trac.openmicroscopy.org.uk/ome/ticket/5662>`_
+
+OK
+
+Checking PostgreSQL port listening status
+-----------------------------------------
+
+You can check if PostgreSQL is listening on the default port
+(``TCP/5432``) by running the following command:
+
+::
+
+    #
+    # Unix
+    #
+    $ netstat -an | egrep '5432.*LISTEN'
+    tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN
+    tcp        0      0 :::5432                 :::*                    LISTEN
+
+    #
+    # Windows
+    #
+    C:\> netstat -an | find "5432"
+
+**NOTE:** The exact output of this command *will* vary. The important
+thing to recognize is whether or not a process is listening on
+``TCP/5432``.
+
+If you cannot find a process listening on ``TCP/5432`` you will need to
+find your ``postgresql.conf`` file and enable PostgreSQL's TCP listening
+mode. The exact location of the ``postgresql.conf`` file varies between
+installations. It may be helpful to locate it using the package manager
+(``rpm`` or ``dpkg``) or by utilizing the ``find`` command. Usually, the
+PostgreSQL data directory (which houses the ``postgresql.conf`` file, is
+located under ``/var`` or ``/usr``:
+
+::
+
+    #
+    # Unix
+    #
+    $ sudo find /usr -name 'postgresql.conf'
+    $ sudo find /var -name 'postgresql.conf'
+    /var/lib/postgresql/data/postgresql.conf
+
+**NOTE:** The PostgreSQL data directory is usually only readable by the
+user ``postgres`` so you will likely have to be ``root`` in order to
+find it.
+
+Once you have found the location of the ``postgresql.conf`` file on your
+particular installation, you will need to enable TCP listening:
+
+For PostgreSQL 8.4 and 9.x, the area of the configuration file you're
+concerned about should look like this:
+
+::
+
+    #listen_addresses = 'localhost'         # what IP address(es) to listen on;
+                                        # comma-separated list of addresses;
+                                        # defaults to 'localhost', '*' = all
+    #port = 5432
+    max_connections = 100
+    # note: increasing max_connections costs ~400 bytes of shared memory per
+    # connection slot, plus lock space (see max_locks_per_transaction).  You
+    # might also need to raise shared_buffers to support more connections.
+    #superuser_reserved_connections = 2
+    #unix_socket_directory = *
+    #unix_socket_group = *
+    #unix_socket_permissions = 0777         # octal
+    #bonjour_name = *                      # defaults to the computer name
+
+You can find out more about PostgreSQL client configuration on the
+[http://www.postgresql.org PostgreSQL website].
+
+PostgreSQL HBA (host based authentication)
+------------------------------------------
+
+The final piece of the PostgreSQL authentication and authorization
+puzzle is the so called *host based authentication* file,
+``pg_hba.conf``. OMERO.server must have permissions to connect to
+databases that have been created in your PostgreSQL instance. You can
+make sure that it does by examining the contents of the ``pg_hba.conf``
+file itself. It's important that you have at least one line allowing
+connections from the loopback address (``127.0.0.1``) as follows:
+
+::
+
+    # TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
+    # IPv4 local connections:
+    host    all         all         127.0.0.1/32          md5
+
+**NOTE:** The other lines that are in your ``pg_hba.conf`` are important
+either for PostgreSQL internal commands to work or for existing
+applications you may have; *DO NOT* delete them unless you know what you
+are doing.
+
+Further Reading
+---------------
+
+-  PostgreSQL 9.1 Interactive Manual
+   (`HTML <http://www.postgresql.org/docs/9.1/interactive/index.html>`_)
+-  PostgreSQL 9.1 Interactive Manual (`Chapter 19: Client
+   Authentication <http://www.postgresql.org/docs/9.1/interactive/client-authentication.html>`_)
