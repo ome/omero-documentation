@@ -1,8 +1,3 @@
-Install - Unix
-==============
-
-Contents
-
 OMERO.server Installation for UNIX-Based Platforms (including Mac OS X)
 =======================================================================
 

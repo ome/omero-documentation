@@ -8,6 +8,6 @@ Plone
    gettingstarted
    gettingstarted/*
    gettingstarted/virtualappliance/*
-   server/*
+   server
    client-overview
    clients/*

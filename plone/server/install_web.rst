@@ -1,11 +1,6 @@
 OMERO.web deployment
 ====================
 
-Contents
-
-OMERO.web Install and Configuration
-===================================
-
 OMERO.web is the web application component of the OMERO platform which
 allows for the management, visualisation (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also

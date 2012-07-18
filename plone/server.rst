@@ -1,0 +1,7 @@
+Server
+----------
+
+.. toctree::   
+   :glob:
+
+   server/*

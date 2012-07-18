@@ -9,9 +9,6 @@ Contents
 The instructions and scripts provided here depend on Homebrew 0.9 or
 later, including support for the ``brew tap`` command.
 
-Installation
-============
-
 Prerequisites
 -------------
 

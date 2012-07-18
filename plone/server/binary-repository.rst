@@ -1,9 +1,6 @@
 Binary Repository
 =================
 
-OMERO.server Binary Repository
-==============================
-
 About
 -----
 

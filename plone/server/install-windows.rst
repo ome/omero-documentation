@@ -1,8 +1,3 @@
-Install - Windows
-=================
-
-Contents
-
 OMERO.server Installation for Microsoft Windows
 ===============================================
 
