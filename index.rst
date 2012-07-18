@@ -24,6 +24,6 @@ Developers
 .. toctree::
    :maxdepth: 3
 
-   Client Overview<plone/client-overview>
+   Plone <plone/index>
 
    Developer Policies<developers/policies>
