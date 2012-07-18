@@ -48,87 +48,40 @@ installer from `EnterpriseDB <http://www.enterprisedb.com/>`_. Versions
 Compatibility matrix
 ~~~~~~~~~~~~~~~~~~~~
 
-*PostgreSQL*
+Versions of PostgreSQL which are compatible with OMERO are shown in
+the table below.
 
-OMERO 4.1
++------------+-----------+-----------+-----------+-----------+
+| PostgreSQL | OMERO 4.1 | OMERO 4.2 | OMERO 4.3 | OMERO 4.4 |
++============+===========+===========+===========+===========+
+| 7.4        | YES       | NO (1)    | NO (1)    | NO (4)    |
++------------+-----------+-----------+-----------+-----------+
+| 8.1        | YES       | NO (3)    | NO (1)    | NO (4)    |
++------------+-----------+-----------+-----------+-----------+
+| 8.2        | YES       | YES       | NO (3)    | NO (4)    |
++------------+-----------+-----------+-----------+-----------+
+| 8.3        | YES       | YES       | YES       | NO (4)    |
++------------+-----------+-----------+-----------+-----------+
+| 8.4        | YES       | YES       | YES       | YES       |
++------------+-----------+-----------+-----------+-----------+
+| 9.x        | YES (2)   | YES (2)   | YES (2)   | YES       |
++------------+-----------+-----------+-----------+-----------+
 
-OMERO 4.2
 
-OMERO 4.3
-
-OMERO 4.4
-
-7.4
-
-OK
-
-Not suggested; see
+1. Not suggested; see
 `#4902 <http://trac.openmicroscopy.org.uk/ome/ticket/4902>`_
 
-Unsupported; see
-`#4902 <http://trac.openmicroscopy.org.uk/ome/ticket/4902>`_
+2. Configuration may be necessary; see
+`#5662 <http://trac.openmicroscopy.org.uk/ome/ticket/5662>`_
 
-Unsupported; see
-`#7813 <http://trac.openmicroscopy.org.uk/ome/ticket/7813>`_
-
-8.1
-
-OK
-
-Not suggested; see
+3. Not suggested; see
 `#5861 <http://trac.openmicroscopy.org.uk/ome/ticket/5861>`_
 
-Unsupported; see
-`#4902 <http://trac.openmicroscopy.org.uk/ome/ticket/4902>`_
-
-Unsupported; see
+4. Unsupported; see
 `#7813 <http://trac.openmicroscopy.org.uk/ome/ticket/7813>`_
 
-8.2
 
-OK
 
-OK
-
-Not suggested; see
-`#5861 <http://trac.openmicroscopy.org.uk/ome/ticket/5861>`_
-
-Unsupported; see
-`#7813 <http://trac.openmicroscopy.org.uk/ome/ticket/7813>`_
-
-8.3
-
-OK
-
-OK
-
-OK
-
-Unsupported; see
-`#7813 <http://trac.openmicroscopy.org.uk/ome/ticket/7813>`_
-
-8.4
-
-OK
-
-OK
-
-OK
-
-OK
-
-9.x
-
-Configuration may be necessary; see
-`#5662 <http://trac.openmicroscopy.org.uk/ome/ticket/5662>`_
-
-Configuration may be necessary; see
-`#5662 <http://trac.openmicroscopy.org.uk/ome/ticket/5662>`_
-
-Configuration may be necessary; see
-`#5662 <http://trac.openmicroscopy.org.uk/ome/ticket/5662>`_
-
-OK
 
 Checking PostgreSQL port listening status
 -----------------------------------------
