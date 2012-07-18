@@ -10,4 +10,4 @@ Plone
    gettingstarted/virtualappliance/*
    server
    client-overview
-   clients/*
+   clients
