@@ -1,4 +1,5 @@
-Title: insight
+insight
+=======
 
 OMERO.insight provides a number of tools for accessing and using data in
 an OMERO Server.

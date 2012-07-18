@@ -1,5 +1,3 @@
-Title: LDAP
-
 OMERO LDAP Authentication
 =========================
 
