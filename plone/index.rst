@@ -6,8 +6,7 @@ Plone
 
    platform
    gettingstarted
-   gettingstarted/*
-   gettingstarted/virtualappliance/*
+   gettingstarted/index
    server
    client-overview
    clients
