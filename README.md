@@ -36,3 +36,7 @@ Every `.rst` file should begin with a title. The convention applied here follow 
  * `-`, for subsections
  * `^`, for subsubsections
  * `"`, for paragraphs
+
+## Images vs. Captions ##
+
+RST allows for two types of image embedding: using the `image` and `figure` directive. If no caption is needed for an image, use the former.
