@@ -31,7 +31,7 @@ PostgreSQL 8.4
 ~~~~~~~~~~~~~~
 
 Download PostgreSQL from
-`here <http://www.postgresql.org/download/macosx>`_. Download PostgreSQL
+`here <http://www.postgresql.org/download/macosx>`__. Download PostgreSQL
 8.4 or later. Run the postgres installer, choosing the default port of
 5432. To add the PostgreSQL to the PATH, you need to edit the profile of
 the bash shell (Terminal).
@@ -117,12 +117,12 @@ needed for the PyTables functionality currently being developed.
 I installed PIL using `these
 instructions <http://www.p16blog.com/p16/2008/05/appengine-installing-pil-on-os-x-1053.html>`_,
 downloading from
-`here <http://pythonmac.org/packages/py25-fat/index.html>`_.
+`here <http://pythonmac.org/packages/py25-fat/index.html>`__.
 
 To get matplotlib, go to their
 `web-site <http://matplotlib.sourceforge.net/>`_ and click the download
 button, which takes you
-`here <http://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-0.99.1/>`_.
+`here <http://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-0.99.1/>`__.
 I downloaded the matplotlib-0.99.1.1-py2.5-macosx10.5.dmg and installed
 from there.
 

@@ -51,8 +51,8 @@ Install VirtualBox
 ------------------
 
 In order to use the OMERO.server virtual appliance you need to install
-VirtualBox. Download VirtualBox from
-`here <http://www.virtualbox.org/wiki/Downloads>`_ and follow the
+VirtualBox. Download VirtualBox from the
+`Downloads page <http://www.virtualbox.org/wiki/Downloads>`_ and follow the
 installation process for your platform. If in doubt you should download,
 or upgrade to, the latest version of VirtualBox. Once VirtualBox is
 installed run the application. Depending upon your platform & version,

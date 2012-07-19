@@ -593,15 +593,15 @@ of the additional services and optional installs would be of use to you.
 
 -  **Python Imaging Library** (for OMERO.web and Figure Export
    functionality only) Packages should be available for your
-   distribution from `here <http://www.pythonware.com/products/pil/>`_
+   distribution from `here <http://www.pythonware.com/products/pil/>`__
 
 -  **Matplot Lib** (for OMERO.web only) Packages should be available for
-   your distribution from `here <http://matplotlib.sourceforge.net/>`_
+   your distribution from `here <http://matplotlib.sourceforge.net/>`__
 
 -  **NumPy Lib** (for scripting services) This package may already have
    been installed as a dependency of Matplot Lib, above, but if not you
    will need to install it to use scripting services. NumPy is available
-   from `here <http://numpy.scipy.org/>`_
+   from `here <http://numpy.scipy.org/>`__
 
 -  **OMERO.tables** can be installed by following the
    `OmeroTables <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroTables>`_
@@ -609,7 +609,7 @@ of the additional services and optional installs would be of use to you.
 
 -  **Security** By default, OMERO clients only need to connect to two
    TCP ports for communication with your OMERO.server: 4063 (unsecured)
-   and 4064 (ssl). For more details please see `here <security>`_.
+   and 4064 (ssl). For more details please see `here <security>`__.
 
 4.0.x to 4.1.x
 ~~~~~~~~~~~~~~
@@ -708,10 +708,10 @@ that may point to the wrong location.
 3.2.x to 4.0.0
 ~~~~~~~~~~~~~~
 
-**\ If your server is anything other than a Beta 3.2 series, you will
+** If your server is anything other than a Beta 3.2 series, you will
 first need to follow all required upgrades on the `OMERO
 Trac <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroUpgrade>`_
-before proceeding with these instructions.\ **
+before proceeding with these instructions. **
 
 Unlike previous upgrades, migrating from the 3.2.x series to 4.0.0 is
 essentially a full re-install but re-using your existing database and

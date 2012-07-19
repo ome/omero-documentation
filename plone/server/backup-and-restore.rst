@@ -103,8 +103,7 @@ command. Here is an example backup script that can be placed in
     su $DATABASE_ADMIN -c "pg_dump -Fc -f $OUTPUT_DIRECTORY/$DATABASE.$DATE.pg_dump"
 
 Other database backup configurations are outside the scope of this
-document but can be researched on the PostgreSQL website
-`here <http://www.postgresql.org/docs/9.1/interactive/backup.html>`_
+document but can be researched on the `PostgreSQL website <http://www.postgresql.org/docs/9.1/interactive/backup.html>`_
 *(Chapter 24. Backup and Restore)*.
 
 Backing up your binary data store
@@ -151,8 +150,7 @@ machine:
 
 More advanced ``rdiff-backup`` configurations are beyond the scope of
 this document. If you want to know more you are encouraged to read the
-documentation available on the ``rdiff-backup`` website
-`here <http://www.nongnu.org/rdiff-backup/docs.html>`_.
+documentation available on the ``rdiff-backup`` `website <http://www.nongnu.org/rdiff-backup/docs.html>`_.
 
 Restoring OMERO
 ---------------

@@ -4,12 +4,15 @@ scientists & end users.
  Getting Additional Help
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-• For answers to commonly asked questions, try our
-`FAQ </site/support/faq>`_.
- • Join one of our `Mailing lists </site/community/mailing-lists>`_ for
+• For answers to commonly asked questions, try our `FAQ </site/support/faq>`_.
+
+• Join one of our `Mailing lists </site/community/mailing-lists>`_ for
 end users or developers.
- • Visit the `forums </community>`_ for more discussions.
- • Report bugs with our `QA Tracking
+
+• Visit the `forums </community>`_ for more discussions.
+
+• Report bugs with our `QA Tracking
+
 System <http://qa.openmicroscopy.org.uk>`_.
 
 Basic Concepts

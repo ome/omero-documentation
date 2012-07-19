@@ -70,8 +70,8 @@ You also need Java which comes as standard on OS X.
 Homebrew installation
 ---------------------
 
-Follow the instructions for installing Homebrew available
-[`here <https://github.com/mxcl/homebrew/wiki/installation>`_\ ]. All
+Follow the instructions for installing Homebrew available on the
+[`Wiki <https://github.com/mxcl/homebrew/wiki/installation>`_\ ]. All
 requirements for OMERO will be installed in this location (e.g.
 /usr/local). For example:
 
@@ -165,8 +165,8 @@ Macports/Fink
 
     Warning: It appears you have MacPorts or Fink installed.
 
-Follow uninstall instructions
-[`here <http://guide.macports.org/chunked/installing.macports.uninstalling.html>`_\ ].
+Follow uninstall instructions from the
+[`Macports guide <http://guide.macports.org/chunked/installing.macports.uninstalling.html>`_\ ].
 
 Postgresql
 ~~~~~~~~~~
@@ -313,7 +313,7 @@ get an error like the following:
     connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
 
 make sure ``$BREW_DIR/bin`` is at the beginning of your PATH (see also
-[`here <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_\ ]).
+[`here <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`__\ ]).
 
 Database creation
 -----------------

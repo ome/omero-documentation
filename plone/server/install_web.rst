@@ -165,8 +165,8 @@ WSGI <http://code.google.com/p/isapi-wsgi/>`_ handler for OMERO.web
 working with your IIS deployment.
 
 -  Ensure that the ISAPI for IIS options are installed
--  Download and install `ISAPI
-   WSGI <http://code.google.com/p/isapi-wsgi/downloads/list>`_ (we
+-  Download and install `an ISAPI
+   WSGI Installer <http://code.google.com/p/isapi-wsgi/downloads/list>`_ (we
    suggest the *Windows Installer*)
 -  For extended compatibility with multiple IIS versions ISAPI WSGI uses
    the IIS 5/6 WMI interface to interact with your IIS deployment. If

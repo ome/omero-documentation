@@ -37,8 +37,7 @@ computer(icegrid node) running the script.
 You can find windows installs for mencoder at
 `http://sourceforge.net/projects/mplayer-win32/files/MPlayer%20\_%20MEncoder/revision%2029355/MPlayer-p4-svn-29355.7z/download <http://sourceforge.net/projects/mplayer-win32/files/MPlayer%20_%20MEncoder/revision%2029355/MPlayer-p4-svn-29355.7z/download>`_
 
-We have Mac OSX installs for
-`mencoder <http://cvs.openmicroscopy.org.uk/snapshots/mencoder/mac/>`_
+We have `Mac OSX installs for mencoder <http://cvs.openmicroscopy.org.uk/snapshots/mencoder/mac/>`_
 which were originally provided
 `here <http://stefpause.com/apple/mac/mplayer-os-x-10rc1-and-mencoder-binaries/>`_.
 Unzip and put the mencoder in the PATH available to the server, e.g.
