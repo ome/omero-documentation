@@ -17,14 +17,14 @@ OMERO.server Installation for UNIX-Based Platforms (including Mac OS X)
 
 -  Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) have provided `this
    guide
-   (pdf) <http://cvs.openmicroscopy.org.uk/snapshots/omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`_
+   (pdf) <http://cvs.openmicroscopy.org.uk/snapshots/omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`__
    for users wishing to install OMERO 4.1 on Mac OS 10.6, including
    details on how to build all dependencies from source. The OMERO 4.4
    and 4.3 installs are almost identical to 4.2 and 4.1 (except for web
    client), so this guide will still be useful.
 -  Caterina Strambio De Castillia and Vanni Galli (University of
    Geneva/SUPSI in Lugano) have provided `this guide
-   (pdf) <http://cvs.openmicroscopy.org.uk/snapshots/omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`_
+   (pdf) <http://cvs.openmicroscopy.org.uk/snapshots/omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`__
    for users wishing to install OMERO 4.1.1 or 4.2.0 on CentOS.
 
 --------------
@@ -111,20 +111,20 @@ experienced users.
 
 -  **Python Imaging Library** (for OMERO.web and Figure Export
    functionality only) Packages should be available for your
-   distribution from `here <http://www.pythonware.com/products/pil/>`_
+   distribution from `here <http://www.pythonware.com/products/pil/>`__
 
 -  **Matplot Lib** (for OMERO.web only) Packages should be available for
-   your distribution from `here <http://matplotlib.sourceforge.net/>`_
+   your distribution from `here <http://matplotlib.sourceforge.net/>`__
 
 -  **NumPy Lib version 1.2.0 or later** (for scripting services) This
    package may already have been installed as a dependency of Matplot
    Lib, above, but if not, you will need to install it to use scripting
-   services. NumPy is available from `here <http://numpy.scipy.org/>`_
+   services. NumPy is available from `here <http://numpy.scipy.org/>`__
 
 -  **PyTables Lib version 2.1 or later** (for
    `OMERO.tables <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroTables>`_)
    PyTables is available from
-   `here <http://www.pytables.org/moin/Downloads>`_
+   `here <http://www.pytables.org/moin/Downloads>`__
 
 -  **scipy.ndimage** allows larger volumes to be viewed in the `Volume
    Viewer <products/omero/volume-viewer-in-omero.web>`_. See
@@ -303,7 +303,7 @@ Location for the your OMERO binary repository
    binary data:
 
 -  You can read more about the OMERO binary repository
-   `here <binary-repository>`_.
+   `here <binary-repository>`__.
 
    ::
 
@@ -404,9 +404,7 @@ Installation
 OMERO.web and Administration
 ----------------------------
 
-    **\ In order to deploy OMERO.web in a production environment such as
-    Apache or IIS please follow the instructions under `"Web on
-    Production" <http://www.openmicroscopy.org/site/support/omero4/server/install_web>`_.\ **
+.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under `"Web on Production" <http://www.openmicroscopy.org/site/support/omero4/server/install_web>`_.
 
 Once you have deployed and started the server you can use your browser
 to access the OMERO.webadmin administration interface.
