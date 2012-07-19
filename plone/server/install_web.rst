@@ -22,7 +22,7 @@ with:
 
 You can find more information about FastCGI and where to get modules or
 packages for your distribution
-`here <http://www.fastcgi.com/drupal/node/3>`_.
+`here <http://www.fastcgi.com/drupal/node/3>`__.
 
 ** If you need help configuring your firewall rules, see the `Security <security>`_ page. **
 
@@ -38,10 +38,10 @@ Prerequisites
 
    -  Python Imaging Library Packages should be available for your
       distribution from
-      `here <http://www.pythonware.com/products/pil/>`_
+      `here <http://www.pythonware.com/products/pil/>`__
 
    -  Matplot Lib Packages should be available for your distribution
-      from `here <http://matplotlib.sourceforge.net/>`_
+      from `here <http://matplotlib.sourceforge.net/>`__
 
 -  A FastCGI capable web server
 
