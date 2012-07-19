@@ -269,11 +269,10 @@ Creating a database
       setting the omero.db.name and omero.db.pass properties (below).
 
    .. |newrolename| image:: install-windows-screenshots/pgadmin-05newrole-name.png
-
-
+	  :alt: New role name
 
    .. |newrolepassword| image:: install-windows-screenshots/pgadmin-06newrole-passwd.png
-
+	  :alt: New role password
 
    +---------------+-------------------+
    | |newrolename| | |newrolepassword| |
