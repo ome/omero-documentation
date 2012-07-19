@@ -40,3 +40,7 @@ Every `.rst` file should begin with a title. The convention applied here follow 
 ## Images vs. Captions ##
 
 RST allows for two types of image embedding: using the `image` and `figure` directive. If no caption is needed for an image, use the former.
+
+## Indentation ##
+
+Most RST directives don't need indentation, unless arguments have to be supplied. For consistency, please use 4 space indentation whenever possible.
