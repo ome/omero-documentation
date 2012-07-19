@@ -10,7 +10,7 @@ OMERO.server Installation for Microsoft Windows
 Limitations
 -----------
 
-.. figure:: https://www.openmicroscopy.org/site/support/omero4/server/installation-images/win7-runasadmin-highlight.png
+.. figure:: installation-images/win7-runasadmin-highlight.png
    :align: center
    :alt: 
 
@@ -79,31 +79,29 @@ Prerequisites
    -  *Python for Windows extensions*
 
       The installer is available from
-      `here <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
+      `this page <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
 
    -  *Python Imaging Library* (only for OMERO.web and Figure creation
       functionality in Insight)
 
       Packages should be available for **32-bit Python 2.6** from
-      `here <http://www.pythonware.com/products/pil/>`_.
+      `the PIL page <http://www.pythonware.com/products/pil/>`_.
 
    -  *Matplot Lib* (for OMERO.web only)
 
       Packages should be available for **32-bit Python 2.6**
-      distribution from
-      `here <http://sourceforge.net/projects/matplotlib/files/matplotlib/>`_.
+      distribution from `the Matplotlib website <http://sourceforge.net/projects/matplotlib/files/matplotlib/>`_.
 
    -  *Numpy Lib version 1.2.0 or later* (for scripting services)
 
-      NumPy is available at the main NumPy website
-      `here <http://sourceforge.net/projects/numpy/files/NumPy/>`_. **It
+      NumPy is available at `the main NumPy website <http://sourceforge.net/projects/numpy/files/NumPy/>`_. **It
       is highly recommended you use numpy 1.4.0 or later**.
 
    -  *PyTables Lib version 2.1 or later* (for
       `OMERO.tables <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroTables>`_)
 
       PyTables is available from
-      `here <http://www.pytables.org/moin/Downloads>`_.
+      `the PyTables Downloads page <http://www.pytables.org/moin/Downloads>`_.
 
    -  *scipy.ndimage* allows larger volumes to be viewed in the `Volume
       Viewer <products/omero/volume-viewer-in-omero.web>`_.
@@ -148,7 +146,17 @@ PYTHONPATH **system** environment variables must be configured.
       add a brand new *System* environment variable called
       ``PYTHONPATH`` pointing to the Ice installation 'python' location:
 
-      |PATH variable| |image45| |PYTHONPATH variable|
+      .. |PATH variable| image:: installation-images/path-variable.png
+         :alt: Path variable
+
+      .. |PATH variable 2| image:: installation-images/path-variable2.png
+         :alt: Path variable
+
+      .. |PYTHONPATH variable| image:: installation-images/pythonpath-variable.png
+         :alt: PythonPath variable
+
+
+      |PATH variable| |PATH variable 2| |PYTHONPATH variable|
 
    #. ***Restart your computer***. For environment changes to take
       effect in background services, a restart is unfortunately
@@ -181,7 +189,6 @@ Installing PostgreSQL
       :align: center
       :alt: 1
 
-      1
 #. You may be prompted for permission to continue with a "user account
    control" dialog. Click "yes" to continue.
 
@@ -189,21 +196,18 @@ Installing PostgreSQL
       :align: center
       :alt: 1
 
-      1
 #. The installer will now start.
 
    .. figure:: install-windows-screenshots/pginstall-03start.png
       :align: center
       :alt: 1
 
-      1
 #. Choose the installation directory. The default is fine.
 
    .. figure:: install-windows-screenshots/pginstall-04bindir.png
       :align: center
       :alt: 1
 
-      1
 #. Choose the data directory. The default is fine, but if you want to
    keep the data in a specific location, you may choose an alternative
    location here.
@@ -212,7 +216,6 @@ Installing PostgreSQL
       :align: center
       :alt: 1
 
-      1
 #. Enter a password for the special "postgres" system account. OMERO
    does not use this account, but you will need to remember the password
    for creating the database, below.
@@ -221,25 +224,28 @@ Installing PostgreSQL
       :align: center
       :alt: 1
 
-      1
 #. Enter the port number for PostgreSQL to listen on for incoming
    connections. The default, 5432, is fine and should not be changed.
 
    .. figure:: install-windows-screenshots/pginstall-07port.png
       :align: center
-      :alt: 1
+      :alt: PostgreSQL port
 
-      1
 #. Select the locale. The default here is fine.
 
    .. figure:: install-windows-screenshots/pginstall-08locale.png
       :align: center
-      :alt: 1
+      :alt: PostgreSQL locale
 
-      1
 #. PostgreSQL will now be installed and started.
 
-   |1| |image48|
+   .. |pginstall-begincopy| image:: install-windows-screenshots/pginstall-09begincopy.png
+      :alt: PostgreSQL Begin copy
+
+   .. |pginstall-complete| image:: install-windows-screenshots/pginstall-10complete.png
+      :alt: PostgreSQL Complete
+
+   |pginstall-begincopy| |pginstall-complete|
 
 Creating a database
 -------------------
@@ -252,8 +258,16 @@ Creating a database
       choose *Connect*) and provide your *postgres* user login password
       set during the installation, above.
 
-      |Run pgAdmin III| |Connect to the database server| |Enter
-      password|
+      .. |pgadmin-start| image:: install-windows-screenshots/pgadmin-01start.png
+         :alt: Run pgAdmin III
+
+      .. |pgadmin-initialview| image:: install-windows-screenshots/pgadmin-02initialview.png
+         :alt: Connect to the database server
+
+      .. |pgadmin-connect| image:: 	install-windows-screenshots/pgadmin-03connect.png
+         :alt: Enter password
+
+      |pgadmin-start| |pgadmin-initialview| |pgadmin-connect|
 
    #. Right-click on *Login Roles* and select *New Login Role...*
 
@@ -301,7 +315,13 @@ Creating a database
    #. First, go to *File → Options* select the *Browser* tab and
       activate the *Languages* option:
 
-      |Options menu| |Enable display of installed languages|
+      .. |pgadmin-optionsmenu| image:: install-windows-screenshots/pgadmin-09optionsmenu.png
+         :alt: Options menu
+
+      .. |pgadmin-viewlanguages| image:: install-windows-screenshots/pgadmin-10viewlanguages.png
+         :alt: Enable display of installed languages
+
+      |pgadmin-optionsmenu| |pgadmin-viewlanguages|
 
    #. Navigate back to your database, expand the database's tree view
       and finally expand the now available *Languages* item:
@@ -320,7 +340,13 @@ Creating a database
       menu. Finally, add the ``plpgsql`` language, accepting all
       defaults.
 
-      |Add new language| |New language name|
+      .. |pgadmin-newlanguage-context| image:: install-windows-screenshots/pgadmin-12newlanguage-context.png
+         :alt: Add new language
+
+      .. |pgadmin-newlanguage-name| image:: install-windows-screenshots/pgadmin-13newlanguage-name.png
+         :alt: New language name
+
+      |pgadmin-newlanguage-context| |pgadmin-newlanguage-name|
 
 Location for the your OMERO binary repository
 ---------------------------------------------
@@ -478,9 +504,7 @@ and is ideal for developing and testing OMERO.web. However, this server
 is only designed to run in a local environment, and will not deal with
 the pressures of a production server used by many people concurrently.
 
-    **\ In order to deploy OMERO.web in a production environment such as
-    Apache or IIS please follow the instructions under `"Web on
-    Production" <http://www.openmicroscopy.org/site/support/omero4/server/install_web>`_.\ **
+.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under `"Web on Production" <http://www.openmicroscopy.org/site/support/omero4/server/install_web>`_.
 
 Otherwise please give a try of the internal webserver and setup:
 
