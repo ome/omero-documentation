@@ -1,5 +1,6 @@
+####################################
 Adjusting Client Memory Requirements
-====================================
+####################################
 
 By default, the omero clients allocate a certain amount of memory for
 themselves during the startup process which should be sufficient for
@@ -13,24 +14,23 @@ factors: the operating system and the client you're using. Also note
 that this guide does not cover OMERO.web, which uses a different
 server-based configuration setup.
 
+****************************
 Macintosh Importer & Insight
-----------------------------
+****************************
 
 -  Locate the ``OMERO.importer.app`` or ``OMERO.insight.app`` and right
    click (or control+click) on it, choose ''Show Package Contents''
 
-.. figure:: ../screenshots/images/memory_mac01.png/image_preview
+.. image:: ../images/memory_mac01.png
    :align: center
-   :alt: 
 
 -  Navigate to the ``Contents`` folder
 -  Right-click on the ``Info.plist`` file, this should open the file in
    the either Xcode (if you have that installed), or the Property List
    Editor
 
-.. figure:: ../screenshots/images/memory_mac02.png/image_preview
+.. image:: ../images/memory_mac02.png
    :align: center
-   :alt: 
 
 -  Within Xcode/Property List Editor, click and open the ``Java`` node
 -  Under ``VMOptions``, you will see a line such as ``-Xmx512M``. This
@@ -38,13 +38,12 @@ Macintosh Importer & Insight
    use. Increase this to something like ``-Xmx1024M`` if you wish to
    increase the allocated size to 1024 Megabytes
 
-.. figure:: ../screenshots/images/memory_mac03.png/image_preview
+.. image:: ../images/memory_mac03.png
    :align: center
-   :alt: 
 
+**************************
 Windows Importer & Insight
---------------------------
-
+**************************
 -  To alter the memory allocation of the Windows clients, you must add
    an optional parameter file to the same folder as the application. For
    the ``OMERO.importer.exe`` application, this file should be named
@@ -60,12 +59,12 @@ Windows Importer & Insight
    file in any text editor (such as notepad.exe) and change the value as
    described in the 'Macintosh Importer & Insight' entry above.
 
-.. figure:: ../screenshots/images/memory_win.png/image_preview
+.. image:: ../images/memory_win.png
    :align: center
-   :alt: 
 
+*****************************
 Unix/Linux Importer & Insight
------------------------------
+*****************************
 
 -  Changing either the importer or insight memory allocation under Unix
    requires you to edit the startup script located with the clients
@@ -85,8 +84,5 @@ Unix/Linux Importer & Insight
    number (as described in the Macintosh Importer & Insight' entry
    above).
 
-.. figure:: ../screenshots/images/memory_unix.png/image_preview
+.. image:: ../images/memory_unix.png
    :align: center
-   :alt: 
-
-

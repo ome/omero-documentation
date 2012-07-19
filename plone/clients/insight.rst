@@ -1,12 +1,13 @@
+#######
 insight
-=======
+#######
 
 OMERO.insight provides a number of tools for accessing and using data in
 an OMERO Server.
 To find out more, see our [OMERO.insight Getting Started Guide]
 (../getting-started/tutorial/getting-started).
 
-`|OMERO.insight| <../screenshots/images/omero_insight_screenshot_4_4.png/image_view_fullscreen>`_
+.. image:: ../images/omero_insight_screenshot_4_4.png
 
 -  DataManager, a traditional tree-based view of the data hierarchies in
    an OMERO Server. DataManager supports access to all image metadata,
@@ -31,5 +32,3 @@ To find out more, see our [OMERO.insight Getting Started Guide]
 OMERO.importer and OMERO.insight are written in Java and require Java
 1.5 (or higher) to be installed on the user's computer (automatically
 installed on most up-to-date OS X and Windows XP systems).
-
-.. |OMERO.insight| image:: ../screenshots/images/omero_insight_screenshot_4_4.png/image_preview

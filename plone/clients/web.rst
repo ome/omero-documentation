@@ -13,10 +13,9 @@ framework to build their own views on OMERO data.
 OMERO.web 4.4
 -------------
 
-|image0|
-	The OMERO 4.4 web client. Images from ` <http://www.openmicroscopy.org/site/about/licensing-attribution/attribution>`_\ JCB
-
- 	Data Viewer.
+.. figure:: ../images/OmeroWeb_44.png
+   
+   The OMERO 4.4 web client. Images from ` <http://www.openmicroscopy.org/site/about/licensing-attribution/attribution>`_\ JCB Data Viewer.
 
 In OMERO 4.4, we have made significant changes to the OMERO.web client.
 This includes a much nicer looking UI, improvements to the usability of
@@ -61,5 +60,3 @@ improved various parts of the Python code.
 -  Web 'plugins': Extend the OMERO.web framework to customise the
    display of data from OMERO, then bring this into the existing web
    client.
-
-.. |image0| image:: /site/products/omero/images/OmeroWeb_44.png

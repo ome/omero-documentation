@@ -1,5 +1,6 @@
+######
 editor
-======
+######
 
 This tool is designed to facilitate recording of experimental metadata,
 for annotation of images in OMERO.
@@ -16,9 +17,6 @@ The OMERO.editor is part of the OMERO.insight client, but can also run
 as a stand-alone application. OMERO.editor saves files as XML documents,
 which makes it possible for them to be read by other software.
 
-|image0|
+.. image:: ../images/EditorParamsContext.png
 
-For more information, see the `OMERO.editor
-pages </site/support/omero4/getting-started/tutorial/omero.editor>`_.
-
-.. |image0| image:: /site/support/omero4/screenshots/images/EditorParamsContext.png
+For more information, see the :doc:`tutorial/editor` pages.
