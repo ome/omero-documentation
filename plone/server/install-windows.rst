@@ -268,7 +268,16 @@ Creating a database
       need to configure OMERO to use your username and password by
       setting the omero.db.name and omero.db.pass properties (below).
 
-      |New role name| |New role password|
+   .. |newrolename| image:: install-windows-screenshots/pgadmin-05newrole-name.png
+
+
+
+   .. |newrolepassword| image:: install-windows-screenshots/pgadmin-06newrole-passwd.png
+
+
+   +---------------+-------------------+
+   | |newrolename| | |newrolepassword| |
+   +---------------+-------------------+
 
 -  Create an ``omero_database`` database:
 
