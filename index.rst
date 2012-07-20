@@ -24,6 +24,11 @@ Developers
 .. toctree::
    :maxdepth: 3
 
-   Plone <plone/index>
+   platform
+   gettingstarted
+   gettingstarted/index
+   server
+   client-overview
+   clients
 
    Developer Policies<developers/policies>
