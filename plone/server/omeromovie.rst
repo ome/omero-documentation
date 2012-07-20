@@ -3,9 +3,8 @@ OmeroMovie
 
 A short decription on how to create movies from OMERO.
 
-Creating a movie from OMERO\ `
- <https://trac.openmicroscopy.org.uk/omero/wiki/OmeroMovie#CreatingamoviefromOMERO>`_
-=====================================================================================
+Creating a movie from OMERO\ `<https://trac.openmicroscopy.org.uk/omero/wiki/OmeroMovie#CreatingamoviefromOMERO>`_
+-------------------------------------------------------------------------------------------------------------------
 
 Omero provides a script to make Mpeg or Quicktime movies from any image
 in the server. These movies are created by a script called makemovie.py,
@@ -16,9 +15,8 @@ overlayed over the image: z-section, scale bar and timing.
 The resulting movie will then be uploaded to the server by the script
 and become a file attachment to the source image.
 
-Viewing the Movie\ `
- <https://trac.openmicroscopy.org.uk/omero/wiki/OmeroMovie#ViewingtheMovie>`_
------------------------------------------------------------------------------
+Viewing the Movie\ ` <https://trac.openmicroscopy.org.uk/omero/wiki/OmeroMovie#ViewingtheMovie>`_
+-------------------------------------------------------------------------------------------------
 
 The make movie script allows you to save the movie in two different
 formats, a DivX encoded AVI and Quicktime movie. To view the AVI you may
@@ -50,9 +48,8 @@ Make movie also uses\ ` Python Imaging
 Library <http://www.pythonware.com/products/pil/>`_ and
 ` numpy <http://www.scipy.org/Download>`_.
 
-Make Movie command arguments\ `
- <https://trac.openmicroscopy.org.uk/omero/wiki/OmeroMovie#MakeMoviecommandarguments>`_
----------------------------------------------------------------------------------------
+Make Movie command arguments\ `<https://trac.openmicroscopy.org.uk/omero/wiki/OmeroMovie#MakeMoviecommandarguments>`_
+---------------------------------------------------------------------------------------------------------------------
 
 A detailed list of the commands accepted by the script are:
 
