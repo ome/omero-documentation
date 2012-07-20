@@ -19,4 +19,4 @@ which makes it possible for them to be read by other software.
 
 .. image:: ../images/EditorParamsContext.png
 
-For more information, see the :doc:`tutorial/editor` pages.
+For more information, see the tutorial/editor pages.
