@@ -156,9 +156,7 @@ The main actions available include, but are not limited to:
 Actions available for you on someone else in your group's data will
 depend both on the permissions of the group you are working in, and what
 sort of User you are. See the two tables below for a quick reference
-guide to permissions available on other people's data `sorted by the
-group permissions <#table-ordered-by-group>`_ and `by user
-type <#table-ordered-by-user>`_ .
+guide to permissions available on other people's data `Ordered by Group Permissions`_ and `Ordered by User Type`_ .
 
 Some of these policies may evolve as the permissions functionality
 matures in response to user feedback. Please let us know any comments or

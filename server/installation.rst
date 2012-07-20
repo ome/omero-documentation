@@ -121,8 +121,7 @@ experienced users.
    Lib, above, but if not, you will need to install it to use scripting
    services. NumPy is available from `here <http://numpy.scipy.org/>`__
 
--  **PyTables Lib version 2.1 or later** (for
-   `OMERO.tables <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroTables>`_)
+-  **PyTables Lib version 2.1 or later** (for :wiki:`OMEROTables`)
    PyTables is available from
    `here <http://www.pytables.org/moin/Downloads>`__
 
@@ -420,9 +419,7 @@ gives details on how to enable them.
 OMERO.tables
 ------------
 
-OMERO.tables can be installed by following the
-`OmeroTables <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroTables>`_
-install guide.
+OMERO.tables can be installed by following the :wiki:`OmeroTables` install guide.
 
 --------------
 
@@ -464,9 +461,7 @@ Update Notification
 Your OMERO.server installation will check for updates each time it is
 started from the *Open Microscopy Environment* update server. If you
 wish to disable this functionality you should do so now as outlined on
-the
-`UpgradeCheck <https://trac.openmicroscopy.org.uk/omero/wiki/UpgradeCheck>`_
-page.
+the :wiki: `UpgradeCheck` page.
 
 Troubleshooting
 ~~~~~~~~~~~~~~~

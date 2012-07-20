@@ -6,24 +6,20 @@ Contents
 The OME team is committed to providing frequent, project-wide upgrades
 both with bug fixes and new functionality. We try to make the schedule
 for these releases as public as possible. You may want to take a look at
-the `server <http://trac.openmicroscopy.org.uk/omero/roadmap>`_ and
-`client <http://trac.openmicroscopy.org.uk/shoola/roadmap>`_ roadmaps
+the :wiki:`roadmap`
 for exactly what will go into a release. We always inform our `mailing
 lists </site/community>`_ of the development status. Finally, all the
 products check themselves with the
-`OMERO.registry <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroRegistry>`_
+:wiki:`OmeroRegistry`
 for update notifications on startup. If you wish to disable this
-functionality you should do so now as outlined on the
-`UpgradeCheck <http://trac.openmicroscopy.org.uk/omero/wiki/UpgradeCheck>`_
+functionality you should do so now as outlined on the :wiki:`UpgradeCheck`
 page.
 
 If you encounter errors during a OMERO upgrade, database upgrade, etc.
 you should retain as much log information as possible and notify the
 OMERO.server team via the mailing lists available on the
 `community </site/community>`_ page. More experienced users may wish to
-examine the
-`DbUpgrade <http://trac.openmicroscopy.org.uk/omero/wiki/DbUpgrade>`_
-page for technical information about OMERO.server database upgrades and
+examine the :wiki:`DbUpgrade` page for technical information about OMERO.server database upgrades and
 how to troubleshoot errors themselves.
 
 General HOWTOs
@@ -603,8 +599,7 @@ of the additional services and optional installs would be of use to you.
    will need to install it to use scripting services. NumPy is available
    from `here <http://numpy.scipy.org/>`__
 
--  **OMERO.tables** can be installed by following the
-   `OmeroTables <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroTables>`_
+-  **OMERO.tables** can be installed by following the :wiki:`OmeroTables`
    install guide.
 
 -  **Security** By default, OMERO clients only need to connect to two
@@ -709,8 +704,7 @@ that may point to the wrong location.
 ~~~~~~~~~~~~~~
 
 ** If your server is anything other than a Beta 3.2 series, you will
-first need to follow all required upgrades on the `OMERO
-Trac <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroUpgrade>`_
+first need to follow all required upgrades on the :wiki:`OmeroUpgrade`
 before proceeding with these instructions. **
 
 Unlike previous upgrades, migrating from the 3.2.x series to 4.0.0 is

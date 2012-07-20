@@ -26,8 +26,7 @@ Limitations
 -  Installation on Windows XP is not explicitly supported, especially
    for OMERO.web. Significant testing has taken place on Windows Server
    2008 and we recommend this version.
--  `OMERO.movie <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroMovie>`_
-   does not work on Windows at present.
+-  :wiki:`OMERO.movie` does not work on Windows at present.
 -  Spaces are not currently supported in installation path names.
    **Note:** default user paths on Windows usually contain spaces so you
    will need to ensure the path has no spaces, ``C:\omero_dist`` for
@@ -65,8 +64,7 @@ Prerequisites
    page <http://www.zeroc.com/download.html>`_ and will be called
    something like ``Ice-3.4.2.msi`` (for Ice 3.4.2). If you plan to
    develop for C++, be sure to read the instructions on the
-   `OmeroCpp <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroCpp>`_
-   trac page.
+   :wiki:`OmeroCpp` trac page.
 
 -  **Python 2.6.x installed**
 
@@ -97,8 +95,7 @@ Prerequisites
       NumPy is available at `the main NumPy website <http://sourceforge.net/projects/numpy/files/NumPy/>`_. **It
       is highly recommended you use numpy 1.4.0 or later**.
 
-   -  *PyTables Lib version 2.1 or later* (for
-      `OMERO.tables <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroTables>`_)
+   -  *PyTables Lib version 2.1 or later* (for :wiki:`OmeroTables`)
 
       PyTables is available from
       `the PyTables Downloads page <http://www.pytables.org/moin/Downloads>`_.
@@ -582,8 +579,7 @@ your server.
 
 **Please Note** We are currently looking for a clean and easy way to
 install and enable OMERO.tables under Windows using released packages.
-You may have some success following the
-`OmeroTables <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroTables>`_
+You may have some success following the :wiki:`OmeroTables`
 wiki page, but currently we do not recommend you use this additional
 feature on Windows. As always, please contact us on our forums if you
 have any additional questions.
@@ -594,9 +590,7 @@ Update Notification
 Your OMERO.server installation will check for updates each time it is
 started from the *Open Microscopy Environment* update server. If you
 wish to disable this functionality you should do so now as outlined on
-the
-`UpgradeCheck <https://trac.openmicroscopy.org.uk/omero/wiki/UpgradeCheck>`_
-page.
+the :wiki:`UpgradeCheck` page.
 
 Troubleshooting
 ~~~~~~~~~~~~~~~

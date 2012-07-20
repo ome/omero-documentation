@@ -215,5 +215,4 @@ ExtendingOmero
 
 Finally, if configuration does not suffice, there are also options to
 extending OMERO with your own code. These are described on the
-development site under
-`"ExtendingOmero" <http://trac.openmicroscopy.org.uk/ome/wiki/ExtendingOmero>`_.
+development site under :wiki:`ExtendingOmero`.

@@ -100,9 +100,7 @@ the value of "new\_user\_group", which can have five separate meanings:
    place holders.
 -  If prefixed with "**:bean:**\ ", then the rest of the string is the
    name of a Spring bean which implements the NewUserGroupBean
-   interface. See the `developer
-   documentation <https://trac.openmicroscopy.org.uk/omero/wiki/OmeroLdap>`_
-   for more info.
+   interface. See the developer documentation :wiki:`OmeroLdap` for more info.
 -  If not prefixed at all, then the value is simply the name of a group
    which all users from LDAP should be added to.
 
@@ -228,9 +226,7 @@ See also
 
 -  `OMERO.server Installation <installation>`_
 -  `OMERO.server Security and Firewalls <security>`_
--  The `developer
-   document <https://trac.openmicroscopy.org.uk/omero/wiki/OmeroLdap>`_
-   on extending the LDAP plugin yourself.
+-  The developer document :wiki:`OmeroLdap` on extending the LDAP plugin yourself.
 
 **If you have LDAP requirements that are not covered by the above
 configuration, please see the forum discussion `"What are your LDAP

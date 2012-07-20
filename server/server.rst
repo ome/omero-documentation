@@ -50,6 +50,4 @@ in a separate process but is co-ordinated centrally.
 
 If you are interested in building components for the server, modifying
 an existing component, or just looking for more background information,
-the best starting point is the
-`ServerDesign <http://trac.openmicroscopy.org.uk/omero/wiki/ServerDesign>`_
-page on the server's developer trac.
+the best starting point is the :wiki:`ServerDesign` page on the server's developer trac.
