@@ -44,3 +44,19 @@ RST allows for two types of image embedding: using the `image` and `figure` dire
 ## Indentation ##
 
 Most RST directives don't need indentation, unless arguments have to be supplied. For consistency, please use 4 space indentation whenever possible.
+
+## Substitutions, aliases and hyperlinks ##
+
+RST allows for using substitutions in cases where a piece of markup is used more than once, e.g.
+
+	Please visit Python.org_
+	
+	...
+	
+	.. _Python.org: http://python.org
+	
+If a hyperlink appears only once, please use anonymous, "one-off" hyperlinks (two underscores):
+
+	`RFC 2396 <http://www.rfc-editor.org/rfc/rfc2396.txt>`__ and `RFC
+	2732 <http://www.rfc-editor.org/rfc/rfc2732.txt>`__ together
+	define the syntax of URIs.
