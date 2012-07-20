@@ -54,31 +54,27 @@ the table below.
 +------------+-----------+-----------+-----------+-----------+
 | PostgreSQL | OMERO 4.1 | OMERO 4.2 | OMERO 4.3 | OMERO 4.4 |
 +============+===========+===========+===========+===========+
-| 7.4        | YES       | NO (1)    | NO (1)    | NO (4)    |
+| 7.4        | YES       | NO [1]_   | NO [1]_   | NO [4]_   |
 +------------+-----------+-----------+-----------+-----------+
-| 8.1        | YES       | NO (3)    | NO (1)    | NO (4)    |
+| 8.1        | YES       | NO [3]_   | NO [1]_   | NO [4]_   |
 +------------+-----------+-----------+-----------+-----------+
-| 8.2        | YES       | YES       | NO (3)    | NO (4)    |
+| 8.2        | YES       | YES       | NO [3]_   | NO [4]_   |
 +------------+-----------+-----------+-----------+-----------+
-| 8.3        | YES       | YES       | YES       | NO (4)    |
+| 8.3        | YES       | YES       | YES       | NO [4]_   |
 +------------+-----------+-----------+-----------+-----------+
 | 8.4        | YES       | YES       | YES       | YES       |
 +------------+-----------+-----------+-----------+-----------+
-| 9.x        | YES (2)   | YES (2)   | YES (2)   | YES       |
+| 9.x        | YES [2]_  | YES [2]_  | YES [2]_  | YES       |
 +------------+-----------+-----------+-----------+-----------+
 
 
-1. Not suggested; see
-`#4902 <http://trac.openmicroscopy.org.uk/ome/ticket/4902>`_
+.. [1]  Not suggested; see `#4902 <http://trac.openmicroscopy.org.uk/ome/ticket/4902>`_
 
-2. Configuration may be necessary; see
-`#5662 <http://trac.openmicroscopy.org.uk/ome/ticket/5662>`_
+.. [2]  Configuration may be necessary; see `#5662 <http://trac.openmicroscopy.org.uk/ome/ticket/5662>`_
 
-3. Not suggested; see
-`#5861 <http://trac.openmicroscopy.org.uk/ome/ticket/5861>`_
+.. [3]  Not suggested; see `#5861 <http://trac.openmicroscopy.org.uk/ome/ticket/5861>`_
 
-4. Unsupported; see
-`#7813 <http://trac.openmicroscopy.org.uk/ome/ticket/7813>`_
+.. [4]  Unsupported; see `#7813 <http://trac.openmicroscopy.org.uk/ome/ticket/7813>`_
 
 
 
