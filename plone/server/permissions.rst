@@ -178,151 +178,39 @@ the restrictions of the permissions detailed in these tables.
 Ordered by Group Permissions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Private Group
-
-Read-only
-
-Read-annotate
-
-Action on other user's data
-
-Group member
-
-Group owner
-
-Admin
-
-Group member
-
-Group owner
-
-Admin
-
-Group member
-
-Group owner
-
-Admin
-
-View data / View and draw ROIs
-
-N
-
-Y
-
-Y
-
-Y
-
-Y
-
-Y
-
-Y
-
-Y
-
-Y
-
-Annotate / Create & save ROIs / Render
-
-N
-
-N
-
-N
-
-N
-
-Y
-
-Y
-
-Y
-
-Y
-
-Y
-
-Delete / De-annotate / ROI delete
-
-N
-
-Y
-
-Y
-
-N
-
-Y
-
-Y
-
-N
-
-Y
-
-Y
-
-Edit name
-
-N
-
-N
-
-N
-
-N
-
-Y
-
-Y
-
-N
-
-Y
-
-Y
-
-Move data between groups
-
-N
-
-N
-
-Y
-
-N
-
-N
-
-Y
-
-N
-
-N
-
-Y
-
-Remove annotations made by others on your data
-
-N
-
-Y
-
-Y
-
-N
-
-Y
-
-Y
-
-N
-
-Y
-
-Y
+.. |gm| replace::  Group member
+.. |go| replace::  Group owner
+.. |ad| replace::  Admin
+
+.. |pg| replace:: Private Group
+.. |ro| replace:: Read-only
+.. |ra| replace:: Read-annotate
+
+.. |Act| replace:: Action on other user's data 
+.. |Vie| replace:: View data / View and draw ROIs
+.. |Ann| replace:: Annotate / Create & save ROIs / Render
+.. |Del| replace:: Delete / De-annotate / ROI delete
+.. |Edi| replace:: Edit name
+.. |Mov| replace:: Move data between groups
+.. |Rem| replace:: Remove annotations made by others on your data
+
+======= ====== ====== ====== ====== ====== ====== ====== ====== ======                                            	 
+ \              |pg|                 |ro|                |ra|
+------- -------------------- -------------------- --------------------
+ |Act|   |gm|   |go|   |ad|   |gm|   |go|   |ad|   |gm|   |go|   |ad| 
+======= ====== ====== ====== ====== ====== ====== ====== ====== ====== 
+ |Vie|    N      Y      Y      Y      Y      Y      Y      Y      Y    
+------- ------ ------ ------ ------ ------ ------ ------ ------ ------
+ |Ann|    N      N      N      N      Y      Y      Y      Y      Y    
+------- ------ ------ ------ ------ ------ ------ ------ ------ ------
+ |Del|    N      Y      Y      N      Y      Y      N      Y      Y
+------- ------ ------ ------ ------ ------ ------ ------ ------ ------
+ |Edi|    N      N      N      N      Y      Y      N      Y      Y
+------- ------ ------ ------ ------ ------ ------ ------ ------ ------
+ |Mov|    N      N      Y      N      N      Y      N      N      Y
+------- ------ ------ ------ ------ ------ ------ ------ ------ ------
+ |Rem|    N      Y      Y      N      Y      Y      N      Y      Y
+======= ====== ====== ====== ====== ====== ====== ====== ====== ======
 
 Ordered by User Type
 ~~~~~~~~~~~~~~~~~~~~
