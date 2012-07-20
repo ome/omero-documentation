@@ -192,8 +192,7 @@ Ice
     Error: Failed executing: cd cpp && make M PP_HOME=/Users/sebastien/apps/    OMERO.libs/Cellar/mcpp/2.7.2 DB_HOME=/Users/sebastien/apps/OMERO.libs/Cellar/berkeley-    db46/4.6.21 OPTIMIZE=yes prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 embedded_runpath_prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 install
 
 We have had problems building zeroc-ice33 under MacOS 10.7.3 and 10.6.8
-[`see ticket
-#8075 <http://trac.openmicroscopy.org.uk/ome/ticket/8075>`_\ ]. If you
+(see :ticket:`8075`). If you
 will be developing OMERO rather than installing omero, you can try
 installing ``ice`` (Ice 3.4) instead. If you decide to go with
 zeroc-ice33, make sure that you don't have ``DYLD_LIBRARY_PATH`` set to

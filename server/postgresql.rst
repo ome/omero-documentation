@@ -68,13 +68,13 @@ the table below.
 +------------+-----------+-----------+-----------+-----------+
 
 
-.. [1]  Not suggested; see `#4902 <http://trac.openmicroscopy.org.uk/ome/ticket/4902>`_
+.. [1]  Not suggested; see :ticket:`4902`
 
-.. [2]  Configuration may be necessary; see `#5662 <http://trac.openmicroscopy.org.uk/ome/ticket/5662>`_
+.. [2]  Configuration may be necessary; see :ticket:`5662`
 
-.. [3]  Not suggested; see `#5861 <http://trac.openmicroscopy.org.uk/ome/ticket/5861>`_
+.. [3]  Not suggested; see :ticket:`5861`
 
-.. [4]  Unsupported; see `#7813 <http://trac.openmicroscopy.org.uk/ome/ticket/7813>`_
+.. [4]  Unsupported; see :ticket:`7813`
 
 
 

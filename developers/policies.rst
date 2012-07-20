@@ -411,7 +411,7 @@ Specific external groups interested in such previews should be integrated into t
 Subgroup processes
 ~~~~~~~~~~~~~~~~~~
 
-To see how a specific group works together you might take a look at the web process which is defined under ticket 4772: https://trac.openmicroscopy.org.uk/ome/ticket/4772
+To see how a specific group works together you might take a look at the web process which is defined under :ticket:`4772`.
 While numerous new “sub-groups” are getting up-to-speed, we will obviously need to find ways to keep communication and collaboration simple for everyone.
 
 See also
