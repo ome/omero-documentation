@@ -29,14 +29,14 @@ Installation **will require a "root" level account** for which you know the pass
 Prerequisites
 -------------
 
-**NOTE:** The installation of these prerequisite applications is outside the scope of this document. For Linux distributions you should use the default package manager. For Mac OS X there are additional notes for :ref:`Mac OS X 10.5 <rst_install_manual>`, :ref:`MacPorts on Mac OS X 10.6 <rst_install_macports>` and :ref:`Homebrew on Mac OS X 10.7 <rst_install_homebrew>` for less experienced users.
+.. note: The installation of these prerequisite applications is outside the scope of this document. For Linux distributions you should use the default package manager. For Mac OS X there are additional notes for :ref:`Mac OS X 10.5 <rst_install_manual>`, :ref:`MacPorts on Mac OS X 10.6 <rst_install_macports>` and :ref:`Homebrew on Mac OS X 10.7 <rst_install_homebrew>` for less experienced users.
 
     **The following are necessary:**
 
 -  **PostgreSQL 8.4 or higher installed and configured with PL/pgSQL and to accept TCP connections.** 8.3 and earlier are not supported. See `Known Limitations <known-limitations>`_. See :ref:`OMERO and PostreSQL <rst_postgresql>` for specifics about each version.
 
 -  **Java 1.5 SE Development Kit (JDK) or higher installed**
-   `http://java.sun.com/javase/downloads/index.jsp <http://java.sun.com/javase/downloads/index.jsp>`_
+   `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 
    ::
 
@@ -187,8 +187,7 @@ slowed down. To get round this for the OMERO.server you can define an
 located on the local file system (e.g. ``/tmp/``).
 
 If you are running OMERO on Mac OS X then details of the required
-environment variables can be found on the `install OMERO on Mac
-walkthrough </site/support/omero4/server/install-omero-on-mac-os-x-10.5>`_.
+environment variables can be found on the :ref:`rst_install_macports`.
 
 Creating a database as root
 ---------------------------
@@ -262,8 +261,7 @@ Location for the your OMERO binary repository
    it is a *separate* directory that OMERO.server will use to store
    binary data:
 
--  You can read more about the OMERO binary repository
-   `here <binary-repository>`__.
+-  You can read more about the :ref:`OMERO binary repository <rst_binary-repository>`.
 
    ::
 
@@ -307,7 +305,7 @@ Installation
         $ bin/omero config set omero.db.pass 'db_password'
 
 -  If you have chosen a non-standard
-   `OmeroBinaryRepository <binary-repository>`_ location above, be sure
+   :ref:`OMERO binary repository <rst_binary-repository>` location above, be sure
    to configure the ``omero.data.dir`` property.
 
 -  Create the OMERO database initialization script. You will be asked

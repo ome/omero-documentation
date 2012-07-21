@@ -1,3 +1,5 @@
+.. _rst_binary-repository:
+
 Binary Repository
 =================
 
