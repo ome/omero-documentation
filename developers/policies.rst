@@ -28,7 +28,7 @@ Jabber: Instant messaging
 On a day-to-day level, the team meets in a Jabber chatroom. (See the list of `addresses`_ for the specifics) You’re welcome to join via your own Jabber account, but one will likely be provided to you, in which case that account should be preferred. To get started using Adium:
 
 
-* File > Join Group Chat (Select your GTalk or Jabber Account in the drop-down menu)
+* :menuselection:`File --> Join Group Chat` (Select your GTalk or Jabber Account in the drop-down menu)
 * Use either your GTalk or LifeSci LDAP Account Credentials
 * Enter the "Chat Room Name" and "Server"
 

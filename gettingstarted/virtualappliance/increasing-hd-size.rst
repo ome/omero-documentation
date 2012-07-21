@@ -98,8 +98,7 @@ Ubuntu.
 
 Select try Ubuntu and you should be presented with a graphical desktop.
 
-Start the gparted tool using the menu option under System ->
-Administration -> GParted Partition Editor
+Start the gparted tool using the menu option under :menuselection:`System --> Administration --> GParted Partition Editor`.
 
 The GParted GUI will display:
 
@@ -121,8 +120,8 @@ then 'Add'.
 
 Up until this point we haven't actually applied any of our changes to
 the hdd, we have only specified a list of changes that should be made.
-We can now go ahead and apply them by selecting the Edit -> Apply All
-Operations menu item then clicking 'Apply' in the confirmation dialog
+We can now go ahead and apply them by selecting the :menuselection:`Edit --> Apply All
+Operations` menu item then clicking 'Apply' in the confirmation dialog
 box.
 
 When the operations have completed dismiss the dialog with the 'Close'

@@ -44,7 +44,7 @@ xcode_3.2.6_and_ios_sdk_4.3.dmg  10.6.8
 Xcode 4.3.2                      10.7.3
 ================================ ================
 
-.. note:: for Xcode 4.3.2, make sure that the Command line tools are installed (Preferences > Downloads > Components)
+.. note:: for Xcode 4.3.2, make sure that the Command line tools are installed (:menuselection:`Preferences --> Downloads --> Components`)
 
 Python (>=2.4)
 ~~~~~~~~~~~~~~

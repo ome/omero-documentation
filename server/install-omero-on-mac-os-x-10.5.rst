@@ -17,13 +17,12 @@ Prerequisites
 ~~~~~~~~~~~~~
 
 On a completely clean machine the first step is to install Xcode from
-Apple
-`http://developer.apple.com/TOOLS/ <http://developer.apple.com/TOOLS/>`_.
+`Apple <http://developer.apple.com/technologies/tools/>`_.
 
 Starting with the basics, you need a text editor. I downloaded
 TextWrangler from
 `http://www.barebones.com/products/TextWrangler/ <http://www.barebones.com/products/TextWrangler/>`_.
-If you go to the menu TextWrangler > Install Command Line Tools... this
+If you go to the menu :menuselection:`TextWrangler --> Install Command Line Tools...` this
 will allow you to use the 'edit' command in the Terminal.
 
 You also need Java (at least 1.5), which comes as standard on OS X 10.6
