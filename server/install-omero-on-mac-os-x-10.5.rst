@@ -1,3 +1,5 @@
+.. _rst_install_manual:
+
 Install OMERO.server on Mac OSX 10.6
 ====================================
 

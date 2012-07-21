@@ -1,3 +1,5 @@
+.. _rst_ldap:
+
 OMERO LDAP Authentication
 =========================
 

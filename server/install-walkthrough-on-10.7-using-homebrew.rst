@@ -1,3 +1,5 @@
+.. _rst_install_homebrew:
+
 Install - Walkthrough on 10.7 using Homebrew
 ============================================
 

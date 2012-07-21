@@ -1,3 +1,5 @@
+.. _rst_install_macports:
+
 Install - Walkthrough on 10.6 using MacPorts.
 =============================================
 

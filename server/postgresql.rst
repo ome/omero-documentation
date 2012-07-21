@@ -1,3 +1,5 @@
+.. _rst_postgresql:
+
 OMERO and PostgreSQL
 ====================
 

@@ -1,58 +1,38 @@
+.. _rst_install_unix:
+
 OMERO.server Installation for UNIX-Based Platforms (including Mac OS X)
 =======================================================================
 
--  If you are **upgrading** your OMERO.server installation you should
-   follow instructions on the `upgrade <upgrade>`_ page.
--  If you are attempting a **Microsoft Windows** install please see the
-   `Microsoft Windows <install-windows>`_ install page.
+-  If you are **upgrading** your OMERO.server installation you should follow instructions on the :ref:`rst_upgrade` page.
+-  If you are attempting a **Microsoft Windows** install please see :ref:`rst_install_windows`.
 -  Additional walkthroughs give more details on specific platforms:
 
-   -  Using `MacPorts on Mac OS X
-      10.6 <install-walkthrough-on-10.6-using-macports>`_
-   -  Using `Homebrew on Mac OS X
-      10.7 <install-walkthrough-on-10.7-using-homebrew>`_
-   -  Using manual downloads on `Mac OS X 10.6 and
-      10.5 <install-omero-on-mac-os-x-10.5>`_
-   -  `Linux Debian/Ubuntu <debianwalkthrough>`_
+   - :ref:`rst_install_macports`
+   - :ref:`rst_install_homebrew`
+   - :ref:`rst_install_manual`
+   - :ref:`rst_install_debian`
 
--  Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) have provided `this
-   guide
-   (pdf) <http://cvs.openmicroscopy.org.uk/snapshots/omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`__
+-  Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) have provided `this guide (pdf) <http://cvs.openmicroscopy.org.uk/snapshots/omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`__
    for users wishing to install OMERO 4.1 on Mac OS 10.6, including
    details on how to build all dependencies from source. The OMERO 4.4
    and 4.3 installs are almost identical to 4.2 and 4.1 (except for web
    client), so this guide will still be useful.
--  Caterina Strambio De Castillia and Vanni Galli (University of
-   Geneva/SUPSI in Lugano) have provided `this guide
+-  Caterina Strambio De Castillia and Vanni Galli (University of Geneva/SUPSI in Lugano) have provided `this guide
    (pdf) <http://cvs.openmicroscopy.org.uk/snapshots/omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`__
    for users wishing to install OMERO 4.1.1 or 4.2.0 on CentOS.
 
 --------------
 
-Installation **will require a "root" level account** for which you know
-the password. If you are unsure of what it means to have a "root" level
-account, or if you are generally having issues with the various
-users/passwords described in this install guide, please see `"Which
-password do I use where?" under
-"Troubleshooting" <troubleshooting#section-3>`_.
+Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see `"Which password do I use where?" under "Troubleshooting" <troubleshooting#section-3>`_.
 
 Prerequisites
 -------------
 
-**NOTE:** The installation of these prerequisite applications is outside
-the scope of this document. For Linux distributions you should use the
-default package manager. For Mac OS X there are additional notes for
-`Mac OS X 10.5 <install-omero-on-mac-os-x-10.5>`_, `MacPorts on Mac OS X
-10.6 <install-walkthrough-on-10.6-using-macports>`_ and `Homebrew on Mac
-OS X 10.7 <install-walkthrough-on-10.7-using-homebrew>`_ for less
-experienced users.
+**NOTE:** The installation of these prerequisite applications is outside the scope of this document. For Linux distributions you should use the default package manager. For Mac OS X there are additional notes for :ref:`Mac OS X 10.5 <rst_install_manual>`, :ref:`MacPorts on Mac OS X 10.6 <rst_install_macports>` and :ref:`Homebrew on Mac OS X 10.7 <rst_install_homebrew>` for less experienced users.
 
     **The following are necessary:**
 
--  **PostgreSQL 8.4 or higher installed and configured with PL/pgSQL and
-   to accept TCP connections.** 8.3 and earlier are not supported. See
-   `Known Limitations <known-limitations>`_. See `OMERO and
-   PostreSQL <postgresql>`_ for specifics about each version.
+-  **PostgreSQL 8.4 or higher installed and configured with PL/pgSQL and to accept TCP connections.** 8.3 and earlier are not supported. See `Known Limitations <known-limitations>`_. See :ref:`OMERO and PostreSQL <rst_postgresql>` for specifics about each version.
 
 -  **Java 1.5 SE Development Kit (JDK) or higher installed**
    `http://java.sun.com/javase/downloads/index.jsp <http://java.sun.com/javase/downloads/index.jsp>`_
@@ -76,20 +56,12 @@ experienced users.
        $ javac -version
        javac 1.6.0
 
-   -  On systems with `OpenJDK <http://openjdk.java.net/>`_ installed by
-      default, it will be necessary to unselect it and select the Sun
-      version. See `this
-      thread <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>`_
-      for more information.
+   -  On systems with `OpenJDK <http://openjdk.java.net/>`_ installed by default, it will be necessary to unselect it and select the Sun version. See `this thread <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>`_ for more information.
 
 -  **Zeroc Ice 3.3.x installed**
 
    UNIX source downloads and binary packages are available from ZeroC.
-   The latest compatible distribution is the `3.3.1
-   release <http://www.zeroc.com/download_3_3_1.html>`_. ZeroC does not
-   provide binaries which work out of the box for Snow Leopard (Mac
-   OSX). Glencoe Software has made its version available for the
-   community:
+   The latest compatible distribution is the `3.3.1 release <http://www.zeroc.com/download_3_3_1.html>`_. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). Glencoe Software has made its version available for the community:
    `Ice-3.3.1-64.tar.bz2 <http://www.glencoesoftware.com/mac/10.6/Ice-3.3.1-64.tar.bz2>`_
    (sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) **Note:** This
    version was compiled with the mcpp from MacPorts, which you will need
@@ -106,33 +78,21 @@ experienced users.
    Installation
    page <http://docs.djangoproject.com/en/1.1/intro/install/>`_).
 
-    **The following are optional depending on what services you
-    require:**
+    **The following are optional depending on what services you require:**
 
--  **Python Imaging Library** (for OMERO.web and Figure Export
-   functionality only) Packages should be available for your
-   distribution from `here <http://www.pythonware.com/products/pil/>`__
+-  **Python Imaging Library** (for OMERO.web and Figure Export functionality only) Packages should be available for your distribution from `here <http://www.pythonware.com/products/pil/>`__
 
--  **Matplot Lib** (for OMERO.web only) Packages should be available for
-   your distribution from `here <http://matplotlib.sourceforge.net/>`__
+-  **Matplot Lib** (for OMERO.web only) Packages should be available for your distribution from `here <http://matplotlib.sourceforge.net/>`__
 
--  **NumPy Lib version 1.2.0 or later** (for scripting services) This
-   package may already have been installed as a dependency of Matplot
-   Lib, above, but if not, you will need to install it to use scripting
-   services. NumPy is available from `here <http://numpy.scipy.org/>`__
+-  **NumPy Lib version 1.2.0 or later** (for scripting services) This package may already have been installed as a dependency of Matplot Lib, above, but if not, you will need to install it to use scripting services. NumPy is available from `here <http://numpy.scipy.org/>`__
 
--  **PyTables Lib version 2.1 or later** (for :wiki:`OMEROTables`)
-   PyTables is available from
-   `here <http://www.pytables.org/moin/Downloads>`__
+-  **PyTables Lib version 2.1 or later** (for :wiki:`OMERO.Tables <OmeroTables>`) PyTables is available from `here <http://www.pytables.org/moin/Downloads>`__
 
--  **scipy.ndimage** allows larger volumes to be viewed in the `Volume
-   Viewer <products/omero/volume-viewer-in-omero.web>`_. See
-   `scipy <http://numpy.scipy.org/>`_.
+-  **scipy.ndimage** allows larger volumes to be viewed in the `Volume Viewer <products/omero/volume-viewer-in-omero.web>`_. See `scipy <http://numpy.scipy.org/>`_.
 
     **Finally, you need the OMERO server:**
 
--  **OMERO.server *tar.bz2*** available from the `OMERO
-   downloads <../downloads>`_ page.
+-  **OMERO.server *tar.bz2*** available from the `OMERO downloads <../downloads>`_ page.
 
 Environment Variables
 ---------------------
@@ -403,23 +363,20 @@ Installation
 OMERO.web and Administration
 ----------------------------
 
-.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under `"Web on Production" <http://www.openmicroscopy.org/site/support/omero4/server/install_web>`_.
+.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :ref:`rst_install_web`.
 
-Once you have deployed and started the server you can use your browser
-to access the OMERO.webadmin administration interface.
+Once you have deployed and started the server you can use your browser to access the OMERO.webadmin administration interface.
 
 Enabling Movie creation from OMERO.
 -----------------------------------
 
 OMERO has the facility to create AVI/MPEG Movies from Images, which can
-be called from Insight. The page
-`OmeroMovie <http://www.openmicroscopy.org/site/support/omero4/server/omeromovie>`_
-gives details on how to enable them.
+be called from Insight. The page :ref:`rst_omeromovie` gives details on how to enable them.
 
 OMERO.tables
 ------------
 
-OMERO.tables can be installed by following the :wiki:`OmeroTables` install guide.
+OMERO.tables can be installed by following the :wiki:`OMERO.Tables <OmeroTables>` install guide.
 
 --------------
 
@@ -437,7 +394,7 @@ step.
 Security
 ~~~~~~~~
 
-It is also now recommended that you read the `Security <security>`_ page
+It is also now recommended that you read the :ref:`rst_security` page
 to get a good idea as to what you need to do to get OMERO clients
 speaking to your newly installed OMERO.server in accordance with your
 institution or company's security policy.
@@ -446,36 +403,29 @@ Advanced configuration
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Once you have the base server running, you may want to try enabling some
-of the advanced features such as `FS <fs>`_ or `LDAP <install-ldap>`_.
+of the advanced features such as :ref:`rst_fs` or :ref:`rst_ldap`.
 If you have ***Flex data***, you may want to watch `the HCS
 configuration
 screencast <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`_.
 See the `Feature list </site/products/feature-list>`_ for more advanced
-features you may want to use, and `Advanced
-configuration <advanced-configuration>`_ on how to get the most out of
+features you may want to use, and :ref:`rst_advanced-configuration` on how to get the most out of
 your server.
 
 Update Notification
 ~~~~~~~~~~~~~~~~~~~
 
-Your OMERO.server installation will check for updates each time it is
-started from the *Open Microscopy Environment* update server. If you
-wish to disable this functionality you should do so now as outlined on
-the :wiki: `UpgradeCheck` page.
+Your OMERO.server installation will check for updates each time it is started from the *Open Microscopy Environment* update server. If you wish to disable this functionality you should do so now as outlined on the :wiki:`UpgradeCheck` page.
 
 Troubleshooting
 ~~~~~~~~~~~~~~~
 
-My OMERO install doesn't work! What do I do now!?! Examine the
-`Troubleshooting <troubleshooting>`_ page and if all else fails post a
-message to our ``ome-users`` mailing list discussed on the
-OmeroCommunity page.
+My OMERO install doesn't work! What do I do now!?! Examine the `Troubleshooting <troubleshooting>`_ page and if all else fails post a
+message to our ``ome-users`` mailing list discussed on the OmeroCommunity page.
 
 OMERO Diagnostics
 ~~~~~~~~~~~~~~~~~
 
-If you want help with your server installation, please include the
-output of the diagnostics command:
+If you want help with your server installation, please include the output of the diagnostics command:
 
 ::
 

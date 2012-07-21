@@ -1,3 +1,5 @@
+.. _rst_install_windows:
+
 OMERO.server Installation for Microsoft Windows
 ===============================================
 
