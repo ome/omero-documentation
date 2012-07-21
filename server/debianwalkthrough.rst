@@ -269,8 +269,7 @@ to **~/apps/OMERO/OMERO.server**. If you change the location that you
 wish to install OMERO to then you will also have to alter your
 **OMERO\_HOME** environment variable to reflect this.
 
-Release versions of OMERO.server can downloaded from
-http://cvs.openmicroscopy.org.uk/snapshots/omero/ where the current
+Release versions of OMERO.server can downloaded from :snapshot:`omero` where the current
 release, at time of writing, is 4.3.4
 
 ::

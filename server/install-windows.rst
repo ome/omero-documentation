@@ -571,9 +571,7 @@ Advanced configuration
 
 Once you have the base server running, you may want to try enabling some
 of the advanced features such as `FS <fs>`_ or `LDAP <install-ldap>`_.
-If you have ***Flex data***, you may want to watch `the HCS
-configuration
-screencast <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`_.
+If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
 See the `Feature list </site/products/feature-list>`_ for more advanced
 features you may want to use, and `Advanced
 configuration <advanced-configuration>`_ on how to get the most out of

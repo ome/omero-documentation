@@ -12,8 +12,7 @@ Contents
 It is not a substitute for the general `install <installation>`_ page
 but is here to give a feel for the process.
 
-There is an accompanying video available
-`here <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/SnowInstall.mov>`_.
+There is an accompanying video available :snapshot:`here <movies/omero-4-1/mov/SnowInstall.mov>`.
 This shows the install of OMERO 4.1 onto 10.6 using the version of
 MacPorts available at the time.
 

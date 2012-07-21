@@ -130,8 +130,7 @@ from there.
 
 For the movie export to work, you need the mencoder command installed.
 Follow the instructions for Mac on the `movie page <omeromovie>`_. I
-unzipped the
-`mencoder.zip <http://cvs.openmicroscopy.org.uk/snapshots/mencoder/mac/>`_
+unzipped the :snapshot:`mencoder.zip <mencoder/mac/>`
 in my Downloads folder, then moved it to usr/local/bin:
 
 ::

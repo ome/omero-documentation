@@ -12,13 +12,14 @@ OMERO.server Installation for UNIX-Based Platforms (including Mac OS X)
    - :ref:`rst_install_manual`
    - :ref:`rst_install_debian`
 
--  Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) have provided `this guide (pdf) <http://cvs.openmicroscopy.org.uk/snapshots/omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`__
+-  Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) have provided
+   :snapshot:`this guide (pdf) <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
    for users wishing to install OMERO 4.1 on Mac OS 10.6, including
    details on how to build all dependencies from source. The OMERO 4.4
    and 4.3 installs are almost identical to 4.2 and 4.1 (except for web
    client), so this guide will still be useful.
--  Caterina Strambio De Castillia and Vanni Galli (University of Geneva/SUPSI in Lugano) have provided `this guide
-   (pdf) <http://cvs.openmicroscopy.org.uk/snapshots/omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`__
+-  Caterina Strambio De Castillia and Vanni Galli (University of Geneva/SUPSI in Lugano) have provided
+   :snapshot:`this guide (pdf) <omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`
    for users wishing to install OMERO 4.1.1 or 4.2.0 on CentOS.
 
 --------------
@@ -404,9 +405,7 @@ Advanced configuration
 
 Once you have the base server running, you may want to try enabling some
 of the advanced features such as :ref:`rst_fs` or :ref:`rst_ldap`.
-If you have ***Flex data***, you may want to watch `the HCS
-configuration
-screencast <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`_.
+If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
 See the `Feature list </site/products/feature-list>`_ for more advanced
 features you may want to use, and :ref:`rst_advanced-configuration` on how to get the most out of
 your server.
