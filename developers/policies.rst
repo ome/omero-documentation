@@ -262,7 +262,7 @@ Stories
 Requirements are made up of stories, which should take days to weeks to complete. A large number of stories will be put into any one sprint , the two-week period that is visible on the Trac whiteboard at a given time. This is the standard unit of work for the team. After a sprint, the stories that were chosen for the sprint, should be closed if possible, and there should be some evidence of the work (screenshots, screencasts, etc) available from the milestone page:
 
 
-    https://trac.openmicroscopy.org.uk/ome/milestone/OMERO-Beta4.4
+    https://trac.openmicroscopy.org.uk/ome/milestone
 
 
 .. _storyexample_screenshot:
@@ -364,7 +364,7 @@ Particularly of importance for this document is the section on “Branch managem
 Release process
 ~~~~~~~~~~~~~~~
 
-A release is primarily defined on the Trac milestone page, e.g. http://trac.openmicroscopy.org.uk/ome/milestone/OMERO-Beta4.4
+A release is primarily defined on the Trac milestone page, e.g. http://trac.openmicroscopy.org.uk/ome/milestone
 
 
 .. _milestone_screenshot:

@@ -110,7 +110,7 @@ This is the most collaborative group:
 
 +-------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
-| :snapshot:`Insight Permissions update in OMERO 4.4 <movies/omero-4-4/mov/InsightMultiGroups-4.4.mov>` | :snapshot:`Web Permissions update in OMERO 4.4 <omero-4-4/mov/WebMultiGroups-4.4.mov>` |
+| :snapshot:`Insight Permissions update in OMERO 4.4 <movies/omero-4-4/mov/InsightMultiGroups-4.4.mov>` | :snapshot:`Web Permissions update in OMERO 4.4 <movies/omero-4-4/mov/WebMultiGroups-4.4.mov>` |
 
 +-------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 

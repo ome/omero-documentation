@@ -8,7 +8,7 @@ Contents
 The OME team is committed to providing frequent, project-wide upgrades
 both with bug fixes and new functionality. We try to make the schedule
 for these releases as public as possible. You may want to take a look at
-the :wiki:`roadmap`
+the <http://trac.openmicroscopy.org.uk/ome/roadmap>_
 for exactly what will go into a release. We always inform our `mailing
 lists </site/community>`_ of the development status. Finally, all the
 products check themselves with the

@@ -28,7 +28,7 @@ Limitations
 -  Installation on Windows XP is not explicitly supported, especially
    for OMERO.web. Significant testing has taken place on Windows Server
    2008 and we recommend this version.
--  :wiki:`OMERO.movie` does not work on Windows at present.
+-  :wiki:`OmeroMovie` does not work on Windows at present.
 -  Spaces are not currently supported in installation path names.
    **Note:** default user paths on Windows usually contain spaces so you
    will need to ensure the path has no spaces, ``C:\omero_dist`` for

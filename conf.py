@@ -246,3 +246,9 @@ texinfo_documents = [
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
 #texinfo_show_urls = 'footnote'
+
+# -- Options for the linkcheck builder ----------------------------------------
+
+# Regular expressions that match URIs that should not be checked when doing a linkcheck build
+linkcheck_ignore = [r'http://localhost:\d+/', r'http://localhost/',
+        r'https://www.openmicroscopy.org/site/team/*']
