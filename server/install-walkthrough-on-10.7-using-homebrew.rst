@@ -313,7 +313,7 @@ get an error like the following:
     connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
 
 make sure ``$BREW_DIR/bin`` is at the beginning of your PATH (see also
-[`here <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`__\ ]).
+[`this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`__\ ]).
 
 Database creation
 -----------------

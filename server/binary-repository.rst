@@ -3,14 +3,13 @@
 Binary Repository
 =================
 
-About
------
+.. topic:: About
 
-The OMERO.server binary data repository is a fundamental piece of
-server-side functionality. It provides optimized and indexed storage of
-original file, pixel and thumbnail data, attachments and full text
-indexes. Its structure is based on
-`OMEIS </site/support/legacy/ome-server/system-overview/ome-image-server/>`_.
+	The OMERO.server binary data repository is a fundamental piece of
+	server-side functionality. It provides optimized and indexed storage of
+	original file, pixel and thumbnail data, attachments and full text
+	indexes. Its structure is based on
+	`OMEIS </site/support/legacy/ome-server/system-overview/ome-image-server/>`_.
 
 Layout
 ------
@@ -89,7 +88,9 @@ instance back up. For example:
     bin\omero config set omero.data.dir D:\\OMERO
     bin/omero admin start
 
-**NOTE:** It is **strongly** recommended that you make all changes to
-your OMERO binary repository with the server shut down. Changing the
-``omero.data.dir`` configuration does **not** move the repository for
-you, you must do this yourself.
+.. note::
+
+	It is **strongly** recommended that you make all changes to
+	your OMERO binary repository with the server shut down. Changing the
+	``omero.data.dir`` configuration does **not** move the repository for
+	you, you must do this yourself.

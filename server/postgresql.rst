@@ -3,14 +3,14 @@
 OMERO and PostgreSQL
 ====================
 
-Contents
+.. contents::
 
 In order to be installed, OMERO.server requires a running PostgreSQL
 instance that is configured to accept connections over TCP. The
 following explains how to ensure that you have the correct PostgreSQL
 version and that it is installed and configured correctly. For
-Windows-specific installation instructions, first see the
-:ref:`Windows <rst_install-windows>` install page.
+Windows-specific installation instructions, first see
+:ref:`rst_install-windows`.
 
 Ensuring you have a valid PostgreSQL version
 --------------------------------------------
@@ -101,9 +101,10 @@ You can check if PostgreSQL is listening on the default port
     #
     C:\> netstat -an | find "5432"
 
-**NOTE:** The exact output of this command *will* vary. The important
-thing to recognize is whether or not a process is listening on
-``TCP/5432``.
+.. note::  
+	The exact output of this command *will* vary. The important
+	thing to recognize is whether or not a process is listening on
+	``TCP/5432``.
 
 If you cannot find a process listening on ``TCP/5432`` you will need to
 find your ``postgresql.conf`` file and enable PostgreSQL's TCP listening
@@ -122,9 +123,10 @@ located under ``/var`` or ``/usr``:
     $ sudo find /var -name 'postgresql.conf'
     /var/lib/postgresql/data/postgresql.conf
 
-**NOTE:** The PostgreSQL data directory is usually only readable by the
-user ``postgres`` so you will likely have to be ``root`` in order to
-find it.
+.. note:: 
+	The PostgreSQL data directory is usually only readable by the
+	user ``postgres`` so you will likely have to be ``root`` in order to
+	find it.
 
 Once you have found the location of the ``postgresql.conf`` file on your
 particular installation, you will need to enable TCP listening:
@@ -146,7 +148,7 @@ concerned about should look like this:
     #unix_socket_directory = *
     #unix_socket_group = *
     #unix_socket_permissions = 0777         # octal
-    #bonjour_name = *                      # defaults to the computer name
+	#bonjour_name = *                      # defaults to the computer name
 
 You can find out more about PostgreSQL client configuration on the
 [http://www.postgresql.org PostgreSQL website].
@@ -168,15 +170,16 @@ connections from the loopback address (``127.0.0.1``) as follows:
     # IPv4 local connections:
     host    all         all         127.0.0.1/32          md5
 
-**NOTE:** The other lines that are in your ``pg_hba.conf`` are important
-either for PostgreSQL internal commands to work or for existing
-applications you may have; *DO NOT* delete them unless you know what you
-are doing.
+.. note:: 
+	The other lines that are in your ``pg_hba.conf`` are important
+   	either for PostgreSQL internal commands to work or for existing
+	applications you may have; *DO NOT* delete them unless you know what you
+	are doing.
 
-Further Reading
----------------
+.. seealso::
 
--  PostgreSQL 9.1 Interactive Manual
-   (`HTML <http://www.postgresql.org/docs/9.1/interactive/index.html>`_)
--  PostgreSQL 9.1 Interactive Manual (`Chapter 19: Client
-   Authentication <http://www.postgresql.org/docs/9.1/interactive/client-authentication.html>`_)
+	`PostgreSQL 9.1  <http://www.postgresql.org/docs/9.1/interactive/index.html>`_ 
+		Interactive Documentation for PostgreSQL 9.1
+		
+	`Client Authentication <http://www.postgresql.org/docs/9.1/interactive/client-authentication.html>`_.
+		Chapter of the PostgreSQL Documentation about Client Authentification

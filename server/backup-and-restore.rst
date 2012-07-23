@@ -83,6 +83,8 @@ Note: If you have edited ``etc/grid/(win)default.xml`` directly for any
 reason then you will also need to copy that file to somewhere safe, such
 as ``/OMERO/backup``.
 
+.. _backup-and-restore_postgresql:
+
 Backing up your PostgreSQL database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -123,7 +125,7 @@ File system backup is often a very personal and controversial topic
 amongst systems administrators and as such the OMERO project does not
 make any explicit recommendations about backup software. In the interest
 of providing a working example we will use open source ``rdiff-backup``
-project and like *Backing up your PostgreSQL database* above, provide a
+project and like :ref:`backup-and-restore_postgresql` above, provide a
 backup script which can be placed in ``/etc/cron.daily`` to perform
 daily ``/OMERO`` backups:
 
@@ -203,13 +205,15 @@ All that remains once you have restored your Java preferences and
 PostgreSQL database is to restore your ``/OMERO`` :ref:`binary data
 store <rst_binary-repository>` backup.
 
-Further reading
----------------
 
--  Wikipedia (`list of backup
-   software <http://en.wikipedia.org/wiki/List_of_backup_software>`_)
--  PostgreSQL 9.1 Interactive Manual (`Chapter 24. Backup and
-   Restore <http://www.postgresql.org/docs/9.1/interactive/backup.html>`_)
--  ``rdiff-backup``
-   (`website <http://www.nongnu.org/rdiff-backup/docs.html>`_)
+.. seealso::
+
+	`List of backup software <http://en.wikipedia.org/wiki/List_of_backup_software>`_
+		Wikipedia page listing the backup softwares.
+	
+	`PostgreSQL 9.1 Interactive Manual <http://www.postgresql.org/docs/9.1/interactive/backup.html>`_
+ 		Chapter 24: Backup and Restore
+
+	`rdiff-backup documentation <http://www.nongnu.org/rdiff-backup/docs.html>`_
+		Online documentation of rdiff-backup project
 

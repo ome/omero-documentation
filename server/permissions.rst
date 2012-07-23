@@ -166,8 +166,8 @@ guide to permissions available on other people's data `Ordered by Group Permissi
 
 Some of these policies may evolve as the permissions functionality
 matures in response to user feedback. Please let us know any comments or
-suggestions you have via our `mailing lists or through the
-forums <http://www.openmicroscopy.org/site/community/>`_.
+suggestions you have via our :oo:`mailing lists <site/community/mailing-lists>` 
+or through the :oo:`forums <community>`.
 
 Permissions Tables
 ------------------
@@ -182,7 +182,8 @@ the restrictions of the permissions detailed in these tables.
 Ordered by Group Permissions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. |gm| replace::  Group member
+.. |gm| class:: centered  
+	Group member
 .. |go| replace::  Group owner
 .. |ad| replace::  Admin
 

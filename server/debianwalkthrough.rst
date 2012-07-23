@@ -4,11 +4,13 @@ Linux Install Walkthrough
 =========================
 
 This page walks through the process of installing OMERO.server on a
-machine using a Debian-based Linux distribution. NB. This page is
-generally applicable to Debian 6.0 (codename: Squeeze) and Ubuntu 10.x &
-11.x (codenames: Lucid Lynx, Maverick Meerkat, Natty Narwhal, Oneiric
-Ocelot) installations although there are some small differences which
-are noted when applicable during the walk-through.
+machine using a Debian-based Linux distribution. 
+
+.. note:: 
+	This page is gerally applicable to Debian 6.0 (codename: Squeeze) 
+	and Ubuntu 10.x & 11.x (codenames: Lucid Lynx, Maverick Meerkat, Natty Narwhal, 
+	Oneiric Ocelot) installations although there are some small differences which
+	are noted when applicable during the walk-through.
 
 Distributions
 -------------
@@ -20,40 +22,18 @@ between releases of Ubuntu and Debian, there are some restrictions over
 which version of OMERO can be easily installed using the package manager
 to install and manage the OMERO prerequisites.
 
-**Debian 6.0**
+================== ================= ==============
+Distribution       ZeroC Ice version OMERO version
+================== ================= ==============
+Debian 6.0               3.3          4.3.x, 4.4.x
+------------------ ----------------- --------------
+Ubuntu 10.04 (LTS)       3.3          4.3.x, 4.4.x
+Ubuntu 11.04             3.3          4.3.x, 4.4.x
+Ubuntu 11.10             3.4              4.4.x
+================== ================= ==============
 
-Zeroc Ice Version:
-
--  3.3
-
-Omero Versions:
-
--  4.3.x Release
--  4.4 Develop
-
-**Ubuntu 10.04 (LTS) - Ubuntu 11.04**
-
-Zeroc Ice Version:
-
--  3.3
-
-Omero Versions:
-
--  4.3.x Release
--  4.4 Develop
-
-**Ubuntu 11.10**
-
-Zeroc Ice Version:
-
--  3.4
-
-Omero Versions:
-
--  4.4 Develop
-
-**NB** ZeroC Ice can always be built from source code for specific
-platforms.
+.. note:: 
+	ZeroC Ice can always be built from source code for specific platforms.
 
 In the remainder of this guide you should adjust version numbers to suit
 the distribution that you are targetting.
@@ -76,12 +56,13 @@ First we need to enable the contrib & Non-Free repositories by opening
       deb http://ftp.uk.debian.org/debian/ squeeze non-free
       deb-src http://ftp.uk.debian.org/debian/ squeeze non-free
 
-*NB.* For Ubuntu the repository names & locations are different to
-Debian but you need to enable the **main**, **restricted**, **universe**
-& **multiverse** repositories. You can do this either by editing
-**/etc/apt/sources.list** directly, in which case the entries already
-exist but are commented out, or using Synaptic (10.04 & 10.10) or Ubuntu
-Software Center (11.04 onwards).
+.. note:: 
+	For Ubuntu the repository names & locations are different to
+	Debian but you need to enable the **main**, **restricted**, **universe**
+	& **multiverse** repositories. You can do this either by editing
+	**/etc/apt/sources.list** directly, in which case the entries already
+	exist but are commented out, or using Synaptic (10.04 & 10.10) or Ubuntu
+	Software Center (11.04 onwards).
 
 Now we need to update our package lists to ensure that we get the latest
 packages including those from the repositories that we just enabled:
@@ -128,14 +109,15 @@ packages:
       $ sudo apt-get install postgresql 
       $ sudo apt-get install apache2 libapache2-mod-fastcgi
 
-*NB. On Ubuntu some of the packages are slightly different & do not
-necessarily install ALL of the same software as Debian. For example,
-python-tables on Ubuntu does not install . As a result, on Ubuntu we may
-also need to install liblzo otherwise OMERO.tables will fail to start:*
+.. note::
+	On Ubuntu some of the packages are slightly different & do not
+	necessarily install ALL of the same software as Debian. For example,
+	python-tables on Ubuntu does not install . As a result, on Ubuntu we may
+	also need to install liblzo otherwise OMERO.tables will fail to start:
 
-::
+	::
 
-      $ sudo apt-get install liblzo2-2
+	      $ sudo apt-get install liblzo2-2
 
 We also need to ensure that the Sun/Oracle JDK is the active one as we
 end up with the OpenJDK also installed to satisfy dependencies along the
@@ -200,9 +182,10 @@ the following dummy data for the user account:
       P: db_password
       DB: omero_database
 
-*NB. For a live or public server install these values should be altered
-to reflect your security requirements. You should also consider locking
-down your server machine but that is outwith the scope of this document*
+.. note::
+	For a live or public server install these values should be altered
+	to reflect your security requirements. You should also consider locking
+	down your server machine but that is outwith the scope of this document
 
 Setup postgresql:
 
@@ -212,7 +195,7 @@ Setup postgresql:
       $ sudo -u postgres createdb -O db_user omero_database
       $ sudo -u postgres createlang plpgsql omero_database
 
-NB. Check that a database called "omerodb" has been created:
+Check that a database called "omerodb" has been created:
 
 ::
 
@@ -226,8 +209,9 @@ connections:
       $ sudo sed '/127.0.0.1/s/md5/trust/' /etc/postgresql/8.4/main/pg_hba.conf \
         > pg_hba.conf && sudo mv pg_hba.conf /etc/postgresql/8.4/main/pg_hba.conf
 
-\_NB. The backslash '' in the sed command above is used merely to
-indicate a line-break & should not be included in the executed command\_
+.. note::
+	The backslash '' in the sed command above is used merely to
+	indicate a line-break & should not be included in the executed command
 
 Restart postgresql:
 
@@ -264,10 +248,11 @@ apps in my home directory as follows:
       $ mkdir OMERO
       $ cd OMERO
 
-NB. Recall that earlier we set the **OMERO\_HOME** environment variable
-to **~/apps/OMERO/OMERO.server**. If you change the location that you
-wish to install OMERO to then you will also have to alter your
-**OMERO\_HOME** environment variable to reflect this.
+.. note::
+	Recall that earlier we set the **OMERO\_HOME** environment variable
+	to **~/apps/OMERO/OMERO.server**. If you change the location that you
+	wish to install OMERO to then you will also have to alter your
+	**OMERO\_HOME** environment variable to reflect this.
 
 Release versions of OMERO.server can downloaded from :snapshot:`omero` where the current
 release, at time of writing, is 4.3.4
@@ -276,11 +261,12 @@ release, at time of writing, is 4.3.4
 
       $ wget http://cvs.openmicroscopy.org.uk/snapshots/omero/OMERO.server-Beta-4.3.4.zip
 
-**NB.** If you want the development version of OMERO.server which is
-currently version 4.4 then you can clone the src code from the project's
-GitHub account at https://github.com/openmicroscopy/openmicroscopy to
-build locally or download a daily build from our build server
-http://hudson.openmicroscopy.org.uk/job/OMERO-trunk/lastSuccessfulBuild/artifact/
+.. note::
+	If you want the development version of OMERO.server which is
+	currently version 4.4 then you can clone the src code from the project's
+	GitHub account at https://github.com/openmicroscopy/openmicroscopy to
+	build locally or download a daily build from our build server
+	http://hudson.openmicroscopy.org.uk/job/OMERO-trunk/lastSuccessfulBuild/artifact/
 
 Assuming that you downloaded a release version of OMERO.server, extract
 it from the zip archive:
@@ -309,8 +295,9 @@ database:
       $ omero config set omero.db.user 'db_user'
       $ omero config set omero.db.pass 'db_password'
 
-*NB. If you altered any of these values earlier then you will need to
-change them to reflect your requirements*
+.. note::
+	If you altered any of these values earlier then you will need to
+	change them to reflect your requirements
 
 You can also check the values that have been set using:
 
