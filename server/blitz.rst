@@ -14,7 +14,7 @@ Metadata
 ~~~~~~~~
 
 Metadata stored in an object-relational database is mapped into the
-OMERO :wiki:`ObjectModel` via `Hibernate <http://hibernate.org>`_. Hibernate Query Language (HQL)
+OMERO :wiki:`ObjectModel` via `Hibernate <http://www.hibernate.org>`_. Hibernate Query Language (HQL)
 calls can be made against the server and have all ownership information
 automatically taken into account.
 
