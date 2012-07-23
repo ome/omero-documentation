@@ -27,8 +27,8 @@ Developers
    platform
    gettingstarted
    gettingstarted/index
-   server
+   server-index
    client-overview
-   clients
+   clients-index
 
    Developer Policies<developers/policies>
