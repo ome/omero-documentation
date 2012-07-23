@@ -23,11 +23,11 @@ section, the following guides to administering your installation of
 OMERO.server may be of interest:
 
 -  `OMERO.server Troubleshooting <../troubleshooting>`_
--  `OMERO.server Security and Firewalls <security>`_
--  `OMERO.server LDAP <install-ldap>`_
--  `OMERO.server Backup and Restore <backup-and-restore>`_
--  `OMERO.server Binary Repository <binary-repository>`_
--  `OMERO.server and PostgreSQL <postgresql>`_
+-  :ref:`OMERO.server Security and Firewalls <rst_security>`
+-  :ref:`OMERO.server LDAP <rst_ldap>`
+-  :ref:`OMERO.server Backup and Restore <rst_backup-and-restore>`
+-  :ref:`OMERO.server Binary Repository <rst_binary-repository>`
+-  :ref:`OMERO.server and PostgreSQL <rst_postgresql>`
 
 Developer Documentation
 -----------------------
@@ -35,16 +35,16 @@ Developer Documentation
 The server system is composed of several components, each of which runs
 in a separate process but is co-ordinated centrally.
 
--  `OMERO.blitz <blitz>`_ - The data server provides access to metadata
+-  :ref:`OMERO.blitz <rst_blitz>` - The data server provides access to metadata
    stored in a relational database as well as the binary image data on
    disk.
--  `OMERO.fs <fs>`_ - A filesystem watcher which notifes the server of
+-  :ref:`OMERO.fs <rst_fs>` - A filesystem watcher which notifes the server of
    newly uploaded or modified files.
--  `OMERO.dropbox <fs>`_ - Utilizes fs to find newly uploaded files and
+-  :ref:`OMERO.dropbox <dropbox>` - Utilizes fs to find newly uploaded files and
    run a fully automatic import.
--  `OMERO.processor <processor>`_ - Processors provide background
+-  :ref:`OMERO.processor <rst_processor>` - Processors provide background
    execution of Python and Matlab scripts.
--  `OMERO.renderingengine <rendering>`_ - The RenderingEngine provides
+-  :ref:`OMERO.rendering engine <rst_rendering>` - The RenderingEngine provides
    server-side processing of raw image data for visualization on low-end
    client machines.
 

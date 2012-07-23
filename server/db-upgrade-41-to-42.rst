@@ -1,3 +1,5 @@
+.. _rst_db-upgrade-41-to-42:
+
 Database Upgrade: -41-to-42
 ===========================
 

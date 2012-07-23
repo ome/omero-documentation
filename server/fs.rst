@@ -53,6 +53,8 @@ Prerequisites
    operating system. Watching a network-attached share (NAS) is strictly
    ***not*** supported.
 
+.. _dropbox:
+
 OMERO DropBox
 -------------
 

@@ -26,17 +26,17 @@ You can find more information about FastCGI and where to get modules or
 packages for your distribution
 `here <http://www.fastcgi.com/drupal/node/3>`__.
 
-** If you need help configuring your firewall rules, see the `Security <security>`_ page. **
+** If you need help configuring your firewall rules, see the :ref:`rst_security` page. **
 
 Prerequisites
 -------------
 
--  `OMERO 4.4.0 and its prerequisites <../server/installation>`_
+-  :ref:`OMERO 4.4.0 and its prerequisites <rst_installation>`
 
 -  Python version from 2.4 to 2.7 (due to backwards incompatibilities in
    Python 3.0, Django does not currently work with Python 3.0; for more
    information see the `Django Installation
-   page <http://docs.djangoproject.com/en/1.1/intro/install/>`_).
+   page <https://docs.djangoproject.com/en/1.1/intro/install/>`_).
 
    -  Python Imaging Library Packages should be available for your
       distribution from

@@ -1,10 +1,10 @@
-.. _rst_install_unix:
+.. _rst_installation:
 
 OMERO.server Installation for UNIX-Based Platforms (including Mac OS X)
 =======================================================================
 
 -  If you are **upgrading** your OMERO.server installation you should follow instructions on the :ref:`rst_upgrade` page.
--  If you are attempting a **Microsoft Windows** install please see :ref:`rst_install_windows`.
+-  If you are attempting a **Microsoft Windows** install please see :ref:`rst_install-windows`.
 -  Additional walkthroughs give more details on specific platforms:
 
    - :ref:`rst_install_macports`
@@ -77,7 +77,7 @@ Prerequisites
    (due to backwards incompatibilities in Python 3.0, Django does not
    currently work with Python 3.0; for more information see the `Django
    Installation
-   page <http://docs.djangoproject.com/en/1.1/intro/install/>`_).
+   page <https://docs.djangoproject.com/en/1.1/intro/install/>`_).
 
     **The following are optional depending on what services you require:**
 
@@ -247,7 +247,7 @@ user or use sudo as below:
        (4 rows)
 
 If you have problems, especially with the last step, take a look at
-`Omero and PostgreSQL <postgresql>`_ since the authentication mechanism
+:ref:`rst_postgresql` since the authentication mechanism
 is probably not properly configured.
 
 Location for the your OMERO binary repository
@@ -386,8 +386,8 @@ Post-installation items
 ~~~~~~~~~~~~~~
 
 One of your first steps after putting your OMERO server into production
-should be deciding on when and how you are going to `backup your
-database and binary data <backup-and-restore>`_. Please do not omit this
+should be deciding on when and how you are going to :ref:`backup your
+database and binary data <rst_backup-and-restore>`. Please do not omit this
 step.
 
 Security

@@ -130,7 +130,7 @@ your server after changing them.
 
 To do this, you will need to configure several server properties,
 similar to the properties you configured during
-`installation <./installation>`_ (`Windows <./install-windows>`_).
+:ref:`installation <rst_installation>` (:ref:`Windows <rst_install-windows>`).
 
 -  key store path
 
@@ -218,4 +218,4 @@ respectively, and can be modified with command:
 
 --------------
 
-See also: `LDAP <./install-ldap>`_
+.. seealso:: :ref:`rst_ldap`

@@ -6,28 +6,24 @@ This page list the upgrades for old versions of the OMERO.server
 Contents
 
 To get the latest upgrades of OMERO.server, visit the
-`Upgrade <upgrade>`_ page.
+:ref:`rst_upgrade` page.
 
 The OME team is committed to providing frequent, project-wide upgrades
 both with bug fixes and new functionality. We try to make the schedule
 for these releases as public as possible. You may want to take a look at
-the `server <http://trac.openmicroscopy.org.uk/omero/roadmap>`_ and
-`client <http://trac.openmicroscopy.org.uk/shoola/roadmap>`_ roadmaps
+the `roadmap <http://trac.openmicroscopy.org.uk/ome/roadmap>`_
 for exactly what will go into a release. We always inform our `mailing
-lists </site/community>`_ of the development status. Finally, all the
-products check themselves with the
-`OMERO.registry <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroRegistry>`_
+lists <http://www.openmicroscopy.org/site/community>`_ of the development status. Finally, all the
+products check themselves with the :wiki:`OMERO.registry <OmeroRegistry>`
 for update notifications on startup. If you wish to disable this
-functionality you should do so now as outlined on the
-`UpgradeCheck <http://trac.openmicroscopy.org.uk/omero/wiki/UpgradeCheck>`_
+functionality you should do so now as outlined on the :wiki:`UpgradeCheck <UpgradeCheck>`
 page.
 
 If you encounter errors during a OMERO upgrade, database upgrade, etc.
 you should retain as much log information as possible and notify the
 OMERO.server team via the mailing lists available on the
-`community </site/community>`_ page. More experienced users may wish to
-examine the
-`DbUpgrade <http://trac.openmicroscopy.org.uk/omero/wiki/DbUpgrade>`_
+`community <http://www.openmicroscopy.org/site/community/>`_ page. More experienced users may wish to
+examine the :wiki:`DbUpgrade`
 page for technical information about OMERO.server database upgrades and
 how to troubleshoot errors themselves.
 
@@ -146,7 +142,7 @@ Per version upgrade instructions
     **LDAP users Read This: Password Provider Change** In this minor
     release, the LDAP plugin changed. You can manually choose the
     previous version of the plugin for backwards compatibility. See the
-    section `*Legacy Password Providers* <install-ldap>`_
+    section :ref:`legacy_password_providers`
 
 -  Stop your old server, and replace it with the new binaries:
 
@@ -201,7 +197,7 @@ Per version upgrade instructions
     **LDAP users Read This: Password Provider Change** In this minor
     release, the LDAP plugin changed. You can manually choose the
     previous version of the plugin for backwards compatibility. See the
-    section `*Legacy Password Providers* <install-ldap>`_
+    section :ref:`legacy_password_providers`
 
 -  Stop your old server, and replace it with the new binaries:
 
@@ -322,7 +318,7 @@ Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-`installation <installation>`_. Once begun, the upgrade can take
+:ref:`installation <rst_installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 1 or 2 hours), please be
 patient and ensure you have performed a database backup as outlined
 under "First steps".
@@ -418,8 +414,8 @@ Following a successful db upgrade, you can start the 4.3 server.
 -  Configuration for ***OMERO.web*** changed significantly in 4.2.1 to
    ease many of the deployment issues on both Unix and Windows
    platforms. Therefore, it is not necessarily, or possible to copy your
-   web settings.py, but rather you should see the `"Web on
-   Production" <install_web>`_ page for more information on setting up
+   web settings.py, but rather you should see the :ref:`rst_install_web` 
+   page for more information on setting up
    your web server. This can safely be done after the OMERO server is
    running.
 
@@ -457,7 +453,7 @@ Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-`installation <installation>`_. Once begun, the upgrade can take
+:ref:`installation <rst_installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 2 or 3 hours), please be
 patient and ensure you have performed a database backup as outlined
 under "First steps".
@@ -465,7 +461,7 @@ under "First steps".
     **Warning:**: Unlike previous database upgrades, the move to
     ``OMERO4.2__0`` may require manual intervention. After some initial
     processing, a report is run which checks for possible permission
-    issues. `More Info Here <db-upgrade-41-to-42>`_. If it finds any, an
+    issues. :ref:`More Info Here <rst_db-upgrade-41-to-42>`. If it finds any, an
     error message will be printed:
 
 ::
@@ -508,8 +504,8 @@ OMERO.web upgrade
 Configuration for ***OMERO.web*** changed significantly in 4.2.1 to ease
 many of the deployment issues on both Unix and Windows platforms.
 Therefore, it is not necessarily, or possible to copy your web
-settings.py, but rather you should see the `"Web on
-Production" <install_web>`_ page for more information on setting up your
+settings.py, but rather you should see the :ref:`rst_install_web`
+page for more information on setting up your
 web server. This can safely be done after the OMERO server is running.
 
 Additional (Optional) Services
@@ -530,13 +526,12 @@ of the additional services and optional installs would be of use to you.
    will need to install it to use scripting services. NumPy is available
    from `here <http://numpy.scipy.org/>`__
 
--  **OMERO.tables** can be installed by following the
-   `OmeroTables <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroTables>`_
+-  **OMERO.tables** can be installed by following the :wiki:`OmeroTables`
    install guide.
 
 -  **Security** By default, OMERO clients only need to connect to two
    TCP ports for communication with your OMERO.server: 4063 (unsecured)
-   and 4064 (ssl). For more details please see `here <security>`__.
+   and 4064 (ssl). For more details please see :ref:`rst_security`.
 
 4.0.x to 4.1.x
 ~~~~~~~~~~~~~~
@@ -585,7 +580,7 @@ Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-`installation <installation>`_. Once begun, the upgrade can take
+:ref:`installation <rst_installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 2 or 3 hours), please be
 patient and ensure you have performed a database backup as outlined
 under "First steps".
@@ -636,14 +631,14 @@ that may point to the wrong location.
 ~~~~~~~~~~~~~~
 
 ** If your server is anything other than a Beta 3.2 series, you will
-first need to follow all required upgrades on the `OMERO
-Trac <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroUpgrade>`_
+first need to follow all required upgrades on the :wiki:`OMERO
+Trac <OmeroUpgrade>`
 before proceeding with these instructions. **
 
 Unlike previous upgrades, migrating from the 3.2.x series to 4.0.0 is
 essentially a full re-install but re-using your existing database and
 data files. Nevertheless, all the instructions under
-`install <installation>`_ should be followed before beginning with these
+:ref:`install <rst_installation>` should be followed before beginning with these
 instructions. In fact, starting with a bare database may be advisable to
 test out your installation. Also, be sure to put aside a **significant**
 amount of time for upgrading larger databases.
@@ -667,7 +662,7 @@ Step 2: Update your database
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-`installation <installation>`_. Once begun, the upgrade can take
+:ref:`installation <rst_installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 2 or 3 hours), please be
 patient and ensure you have performed a database backup as above.
 
@@ -690,7 +685,6 @@ Step 3: Configuring server
 
 If the ``omero.db.user`` and ``omero.db.pass`` for the ``omero3``
 database are different then those for the database you created during
-`installation <installation>`_, then those should be configured as well.
+:ref:`installation <rst_installation>`, then those should be configured as well.
 
-To get the latest upgrades of OMERO.server, visit the
-`Upgrade <upgrade>`_ page.
+To get the latest upgrades of OMERO.server, visit the :ref:`rst_upgrade` page.

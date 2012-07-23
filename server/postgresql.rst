@@ -10,7 +10,7 @@ instance that is configured to accept connections over TCP. The
 following explains how to ensure that you have the correct PostgreSQL
 version and that it is installed and configured correctly. For
 Windows-specific installation instructions, first see the
-`Windows <install-windows>`_ install page.
+:ref:`Windows <rst_install-windows>` install page.
 
 Ensuring you have a valid PostgreSQL version
 --------------------------------------------

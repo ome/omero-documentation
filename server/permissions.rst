@@ -165,7 +165,7 @@ guide to permissions available on other people's data `Ordered by Group Permissi
 Some of these policies may evolve as the permissions functionality
 matures in response to user feedback. Please let us know any comments or
 suggestions you have via our `mailing lists or through the
-forums </site/community>`_.
+forums <http://www.openmicroscopy.org/site/community/>`_.
 
 Permissions Tables
 ------------------

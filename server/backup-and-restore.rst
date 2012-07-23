@@ -1,3 +1,5 @@
+.. _rst_backup-and-restore:
+
 Maintenance tasks for OMERO
 ===========================
 
@@ -61,7 +63,7 @@ Understanding backup sources
 OMERO.server has three main backup sources:
 
 1. PostgreSQL database (assumed to be ``omero``)
-2. OMERO.server `binary data store <binary-repository>`_ (assumed to be
+2. OMERO.server :ref:`binary data store <rst_binary-repository>` (assumed to be
    ``/OMERO``)
 3. OMERO.server configuration
 
@@ -110,8 +112,8 @@ Backing up your binary data store
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To simplify backup locations we have, in this document, located all
-database and configuration backups under ``/OMERO``, your `binary data
-store <binary-repository>`_. The entire contents of ``/OMERO`` should be
+database and configuration backups under ``/OMERO``, your :ref:`binary data
+store <rst_binary-repository>`. The entire contents of ``/OMERO`` should be
 backed up regularly as this will, especially if this document's
 conventions are followed, contain all the relevant data to restore your
 OMERO.server installation in the unlikely event of a system failure,
@@ -178,7 +180,7 @@ preferences by running:
     $ bin/omero config load /OMERO/backup/omero.config
 
 You should then follow the *Reconfiguration* steps of
-`install <installation>`_.
+:ref:`install <rst_installation>`.
 
 Restoring your PostgreSQL database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -186,7 +188,7 @@ Restoring your PostgreSQL database
 If you have had a PostgreSQL crash and database users are missing from
 your configuration, you should follow the first two (*Create a
 non-superuser database user* and *Create a database for OMERO data to
-reside in*) steps of `install <installation>`_. Once you have ensured
+reside in*) steps of :ref:`install <rst_installation>`. Once you have ensured
 that the database user and empty database exist, you can restore the
 ``pg_dump`` file as follows:
 
@@ -198,8 +200,8 @@ Restoring your OMERO.server binary data store
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All that remains once you have restored your Java preferences and
-PostgreSQL database is to restore your ``/OMERO`` `binary data
-store <binary-repository>`_ backup.
+PostgreSQL database is to restore your ``/OMERO`` :ref:`binary data
+store <rst_binary-repository>` backup.
 
 Further reading
 ---------------

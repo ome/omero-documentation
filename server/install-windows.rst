@@ -1,12 +1,12 @@
-.. _rst_install_windows:
+.. _rst_install-windows:
 
 OMERO.server Installation for Microsoft Windows
 ===============================================
 
 -  If you are **upgrading** your OMERO.server installation you should
-   follow instructions on the `upgrade <upgrade>`_ page.
+   follow instructions on the :ref:`rst_upgrade` page.
 -  If you are attempting a **UNIX Based Platform install (Linux, Mac OS
-   X, etc.)** please see the `UNIX Based Platform <installation>`_
+   X, etc.)** please see the :ref:`UNIX Based Platform <rst_installation>`
    install page.
 
 Limitations
@@ -45,8 +45,8 @@ Prerequisites
 
    PostgreSQL 8.3 and earlier releases are not supported. See `Known
    Limitations <known-limitations>`_. We suggest using 9.1, and it is
-   assumed throughout these instructions. See `OMERO and
-   PostreSQL <postgresql>`_ for specifics about each version. The
+   assumed throughout these instructions. See :ref:`rst_postgresql` 
+   for specifics about each version. The
    Windows *One click installer* can be found on the `PostgreSQL Windows
    download page <http://www.postgresql.org/download/windows>`_. You
    will need the postgres user's password later in the install.
@@ -56,7 +56,7 @@ Prerequisites
       supported but are outside the scope of this document.
 
 -  **Java 1.5 SE Development Kit (JDK) or higher installed**
-   `http://java.sun.com/javase/downloads/index.jsp <http://java.sun.com/javase/downloads/index.jsp>`_
+   `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 
    Be sure to download the JDK SE version (nor "JRE" nor "EE" versions).
 
@@ -358,7 +358,7 @@ Location for the your OMERO binary repository
       installed, it is a *separate* directory that OMERO.server will use
       to store binary data:
    -  You can read more about the OMERO binary repository
-      `here <binary-repository>`_.
+      :ref:`here <rst_binary-repository>`.
 
 --------------
 
@@ -387,8 +387,8 @@ Installation
        bin\omero config set omero.db.user db_user
        bin\omero config set omero.db.pass db_password
 
--  If you have chosen a non-standard
-   `OmeroBinaryRepository <binary-repository>`_ location above, be sure
+-  If you have chosen a non-standard :ref:`rst_binary-repository`
+   location above, be sure
    to configure the ``omero.data.dir`` property. When using ``C:\``
    style file paths it is necessary to "escape" the backslashes. For
    example:
@@ -554,14 +554,14 @@ Post-installation items
 ~~~~~~~~~~~~~~
 
 One of your first steps after putting your OMERO server into production
-should be deciding on when and how you are going to `backup your
-database and binary data <backup-and-restore>`_. Please do not omit this
+should be deciding on when and how you are going to :ref:`backup your
+database and binary data <rst_backup-and-restore>`. Please do not omit this
 step.
 
 Security
 ~~~~~~~~
 
-It is now recommended that you read the `Security <security>`_ page to
+It is now recommended that you read the :ref:`rst_security` page to
 get a good idea as to what you need to do to get OMERO clients speaking
 to your newly installed OMERO.server in accordance with your institution
 or company's security policy.
@@ -570,11 +570,10 @@ Advanced configuration
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Once you have the base server running, you may want to try enabling some
-of the advanced features such as `FS <fs>`_ or `LDAP <install-ldap>`_.
+of the advanced features such as :ref:`FS <rst_fs>` or :ref:`LDAP <rst_ldap>`.
 If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
 See the `Feature list </site/products/feature-list>`_ for more advanced
-features you may want to use, and `Advanced
-configuration <advanced-configuration>`_ on how to get the most out of
+features you may want to use, and :ref:`rst_advanced-configuration` on how to get the most out of
 your server.
 
 **Please Note** We are currently looking for a clean and easy way to

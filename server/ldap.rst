@@ -173,7 +173,7 @@ LDAP over SSL
 
 If you are connecting to your server over **SSL**, that is, if your URL
 is of the form "ldaps://ldap.example.com:636" you will need to configure
-a key and trust store for Java. See the `Security <./security>`_ page
+a key and trust store for Java. See the :ref:`rst_security` page
 for more information.
 
 Synchronising LDAP on user login
@@ -193,6 +193,8 @@ in LDAP.
     <property name="omero.ldap.sync_on_login" value="true"/>
 
     bin/omero config set omero.ldap.sync_on_login true
+
+.. _legacy_password_providers:
 
 Legacy Password Providers
 -------------------------
@@ -226,8 +228,8 @@ kept in LDAP. To enable it, use:
 See also
 --------
 
--  `OMERO.server Installation <installation>`_
--  `OMERO.server Security and Firewalls <security>`_
+-  :ref:`OMERO.server Installation <rst_installation>`
+-  :ref:`OMERO.server Security and Firewalls <rst_security>`
 -  The developer document :wiki:`OmeroLdap` on extending the LDAP plugin yourself.
 
 **If you have LDAP requirements that are not covered by the above
