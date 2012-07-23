@@ -105,7 +105,7 @@ Bio-Formats
 
 .. _About: http://loci.wisc.edu/bio-formats/about
 .. _Overview: /site/support/bio-formats
-.. _`Supported Formats`: http://loci.wisc.edu/bio-formats/format
+.. _`Supported Formats`: http://loci.wisc.edu/bio-formats/formats
 .. _bfDownloads: http://loci.wisc.edu/bio-formats/downloads
 
 ========== ============= ==================== =============
