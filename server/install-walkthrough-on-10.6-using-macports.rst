@@ -9,7 +9,7 @@ PIL & Matplot for Python 2.6.
 
 Contents
 
-It is not a substitute for the general `install <installation>`_ page
+It is not a substitute for the general :ref:`install <rst_installation>` page
 but is here to give a feel for the process.
 
 There is an accompanying video available :snapshot:`here <movies/omero-4-1/mov/SnowInstall.mov>`.

@@ -23,7 +23,7 @@ client including:
 The OMERO team treats the security of all components with care and
 attention. If you have a security issue to report please do not hesitate
 to contact us using any one of the mechanisms found on the
-`community <../../../community>`_ page.
+`community <http://www.openmicroscopy.org/site/community>`_ page.
 
 Firewall Configuration
 ----------------------
@@ -41,7 +41,7 @@ Important OMERO ports:
 -  **TCP/4063**
 -  **TCP/4064**
 
-If you are using `OMERO.web <install_web>`_, then you will also need to
+If you are using :ref:`OMERO.web <rst_install_web>`, then you will also need to
 make your HTTP and HTTPS ports available. These are usually 80 and 443.
 
 Important OMERO.web ports:
@@ -123,8 +123,8 @@ Java Key- and Trust stores.
 
 If your server is connecting to another server over SSL, you will need
 to configure both a keystore and a truststore for the Java process. This
-happens, for example, when your LDAP server uses SSL. See the `LDAP
-plugin <./install-ldap>`_ for information on how to configure the LDAP
+happens, for example, when your LDAP server uses SSL. See the :ref:`LDAP
+plugin <rst_ldap>` for information on how to configure the LDAP
 urls. As with all configuration properties, you will need to restart
 your server after changing them.
 

@@ -10,14 +10,14 @@ This walkthrough is a list of the commands used to install OMERO on a
 clean Mac OS 10.6 Snow Leopard (or 10.5 Leopard) by manually downloading
 and configuring the required components.
 
-It is not a substitute for the general `install <installation>`_ page
+It is not a substitute for the general :ref:`install <rst_installation>` page
 but is here to give a feel for the process.
 
 Prerequisites
 ~~~~~~~~~~~~~
 
 On a completely clean machine the first step is to install Xcode from
-`Apple <http://developer.apple.com/technologies/tools/>`_.
+`Apple <https://developer.apple.com/technologies/tools/>`_.
 
 Starting with the basics, you need a text editor. I downloaded
 TextWrangler from
@@ -128,7 +128,7 @@ I downloaded the matplotlib-0.99.1.1-py2.5-macosx10.5.dmg and installed
 from there.
 
 For the movie export to work, you need the mencoder command installed.
-Follow the instructions for Mac on the `movie page <omeromovie>`_. I
+Follow the instructions for Mac on the :ref:`movie page <rst_omeromovie>`. I
 unzipped the :snapshot:`mencoder.zip <mencoder/mac/>`
 in my Downloads folder, then moved it to usr/local/bin:
 

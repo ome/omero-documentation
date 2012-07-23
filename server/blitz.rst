@@ -7,8 +7,7 @@ The OMERO.blitz server is responsible for providing secure access to
 data and metadata via user sessions (:wiki:`OmeroSessions`)
 and cleaning up all resources when they are no longer being used.
 Various server capabilities are accessed via a multitude services
-collectively known as the `OMERO
-API <https://trac.openmicroscopy.org.uk/omero/wiki/OmeroApi>`_.
+collectively known as the :wiki:`OMERO API <OmeroApi>`.
 
 Metadata
 ~~~~~~~~
@@ -22,4 +21,4 @@ Image data
 ~~~~~~~~~~
 
 The binary image data can either be accessed in its raw form via the
-RawPixelsStore service, or can be rendered by the `RenderingEngine <rendering>`_ service.
+RawPixelsStore service, or can be rendered by the :ref:`rst_rendering` service.

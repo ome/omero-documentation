@@ -506,7 +506,7 @@ please see:
 .. _new start tasklist: https://www.openmicroscopy.org/site/team/new-start-tasklist
 .. _DevContactList spreadsheet: https://spreadsheets.google.com/spreadsheet/ccc?key=0AuHdV7GT-8hmcDBjMldqTEJ4OHRuQVZGbS03UkcwWUE&hl=en_GB#gid=0
 .. _header templates: https://github.com/openmicroscopy/openmicroscopy/blob/develop/docs/headers.txt
-.. _git submodules: http://book.git-scm.com/5_submodules.html
+.. _git submodules: http://git-scm.com/book/en/Git-Tools-Submodules
 
 ..
     vim: spell

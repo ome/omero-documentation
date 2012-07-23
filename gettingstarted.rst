@@ -31,11 +31,9 @@ process. Detailed instructions are available for installing and
 upgrading.
 
 -  `OMERO.server downloads <../downloads>`_
--  `OMERO.server clean install on UNIX Based Platforms (includes Mac OS
-   X) <../server/installation>`_
--  `OMERO.server clean install on Microsoft
-   Windows <../server/install-windows>`_
--  `OMERO.server upgrading <../server/upgrade>`_
+-  :ref:`rst_installation`
+-  :ref:`rst_install-windows`
+-  :ref:`rst_upgrade`
 
 --------------
 
