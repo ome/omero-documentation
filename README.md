@@ -45,6 +45,7 @@ RST allows for two types of image embedding: using the `image` and `figure` dire
 
 Most RST directives don't need indentation, unless arguments have to be supplied. For consistency, please use 4 space indentation whenever possible.
 
+
 ## Substitutions, aliases and hyperlinks ##
 
 RST allows for using substitutions in cases where a piece of markup is used more than once, e.g.
@@ -60,3 +61,22 @@ If a hyperlink appears only once, please use anonymous, "one-off" hyperlinks (tw
 	`RFC 2396 <http://www.rfc-editor.org/rfc/rfc2396.txt>`__ and `RFC
 	2732 <http://www.rfc-editor.org/rfc/rfc2732.txt>`__ together
 	define the syntax of URIs.
+
+### Page labels and references ###
+
+Every RST document should start with a label that matches the name of the document:
+
+    .. _rst_name_of_the page:
+    
+    Title of the page
+    =================
+
+This label allows the page to be referenced in the rest of the documentation. To do so, use the following syntax ``:ref:`rst_name_of_the_page` `` or `` :ref:`link to my page <rst_name_of_the_page>` ``.
+
+### Common URLs ###
+
+Some URLs are widely used across the OME documentation. Using the sphinx extlinks extension, a dictionary of aliases to base URLs has been defined for the following:
+
+* Wiki sections: `` :wiki:`Section/Page` ``
+* Trac tickets: `` :ticket:`3442` ``, displayed as <a>#3442</a>
+* Snapshots: `` :snapshot:`omero/myzip.zip` ``
