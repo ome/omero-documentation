@@ -24,7 +24,7 @@ OMERO.server Installation for UNIX-Based Platforms (including Mac OS X)
 
 --------------
 
-Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see `"Which password do I use where?" under "Troubleshooting" <troubleshooting#section-3>`_.
+Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see `"Which password do I use where?" under :ref:`troubleshooting_password`.
 
 Prerequisites
 -------------
@@ -33,7 +33,7 @@ Prerequisites
 
 The following are necessary:
 
--  **PostgreSQL 8.4 or higher installed and configured with PL/pgSQL and to accept TCP connections.** 8.3 and earlier are not supported. See `Known Limitations <known-limitations>`_. See :ref:`OMERO and PostreSQL <rst_postgresql>` for specifics about each version.
+-  **PostgreSQL 8.4 or higher installed and configured with PL/pgSQL and to accept TCP connections.** 8.3 and earlier are not supported. See :ref:`rst_limitations`. See :ref:`OMERO and PostreSQL <rst_postgresql>` for specifics about each version.
 
 -  **Java 1.5 SE Development Kit (JDK) or higher installed**
    `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
@@ -64,14 +64,20 @@ The following are necessary:
    UNIX source downloads and binary packages are available from ZeroC.
    The latest compatible distribution is the `3.3.1 release <http://www.zeroc.com/download_3_3_1.html>`_. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). Glencoe Software has made its version available for the community:
    `Ice-3.3.1-64.tar.bz2 <http://www.glencoesoftware.com/mac/10.6/Ice-3.3.1-64.tar.bz2>`_
-   (sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) **Note:** This
-   version was compiled with the mcpp from MacPorts, which you will need
-   to use these bindings. **OMERO 4.4 supports Ice3.4**, but this
-   requires the correct version of OMERO.server (see
-   `Downloads <../downloads>`_). See `"Do I use Ice 3.3 or Ice
-   3.4?" <https://www.openmicroscopy.org/site/support/faq/omero/do-i-use-ice-3.3-or-ice-3.4>`_
-   in the FAQ. If you have further questions, consult the
-   `Forums <https://www.openmicroscopy.org/community>`_.
+   (sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) 
+
+   .. note::
+
+      This version was compiled with the mcpp from MacPorts, which you will need to use these bindings. 
+
+   .. note::
+
+      **OMERO 4.4 supports Ice3.4**, but this
+      requires the correct version of OMERO.server (see
+      `Downloads <../downloads>`_). See `"Do I use Ice 3.3 or Ice
+      3.4?" <https://www.openmicroscopy.org/site/support/faq/omero/do-i-use-ice-3.3-or-ice-3.4>`_
+      in the FAQ. If you have further questions, consult the
+      `Forums <https://www.openmicroscopy.org/community>`_.
 
 -  **Python 2.4.x or higher installed.** Python version from 2.4 to 2.7
    (due to backwards incompatibilities in Python 3.0, Django does not
@@ -416,7 +422,7 @@ Your OMERO.server installation will check for updates each time it is started fr
 Troubleshooting
 ~~~~~~~~~~~~~~~
 
-My OMERO install doesn't work! What do I do now!?! Examine the `Troubleshooting <troubleshooting>`_ page and if all else fails post a
+My OMERO install doesn't work! What do I do now!?! Examine the :ref:`rst_troubleshooting` page and if all else fails post a
 message to our ``ome-users`` mailing list discussed on the OmeroCommunity page.
 
 OMERO Diagnostics

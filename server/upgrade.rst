@@ -3,7 +3,8 @@
 Upgrade
 =======
 
-Contents
+.. contents::
+	:depth: 3
 
 The OME team is committed to providing frequent, project-wide upgrades
 both with bug fixes and new functionality. We try to make the schedule
@@ -44,8 +45,7 @@ upgraded. See the :ref:`rst_upgrade_441` section for detailed steps.
 Upgrade from 4.3.x server to 4.4.1 server
 -----------------------------------------
 
-    **NOTE:** The passwords and logins used here are examples. Please
-    consult the :ref:`rst_troubleshooting` section for explanation.
+.. note:: The passwords and logins used here are examples. Please consult the :ref:`rst_troubleshooting` section for explanation.
 
 Perform a database backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -164,7 +164,7 @@ the new version. To generate the relevant configuration, please run
 server.
 
 Restart your database
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 -  Following a successful db upgrade, you can start the 4.4.1 server.
 
@@ -184,7 +184,7 @@ Restart your database
        $ bin/omero web start
 
 Restore a database backup
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If the upgraded database or the new server version do not work for you,
 or you otherwise need to rollback to a previous database backup, you may
@@ -221,16 +221,18 @@ and configure your server to use it.
 Upgrade from 4.4.0 server to 4.4.1 server
 -----------------------------------------
 
-    **NOTE:** This section only concerns users who upgraded to 4.4.0
+.. note::
+
+    This section only concerns users who upgraded to 4.4.0
     server. The 4.4.1 version is only necessary if you are having
     trouble with big images (SVS, etc) or Flex file types. If not, you
     may continue using your 4.4.0 clients and servers. See issues
-    `#9372 <https://trac.openmicroscopy.org.uk/ome/ticket/9372>`_ and
-    `#9377 <https://trac.openmicroscopy.org.uk/ome/ticket/9377>`_ for
-    more information.
+    :ticket:`9372` and :ticket:`9377` for more information.
 
-    **NOTE:** The passwords and logins used here are exemplary. Please
-    consult the `Troubleshooting <../troubleshooting#section-3>`_ page
+.. note::
+
+    The passwords and logins used here are exemplary. Please
+    consult the :ref:`troubleshooting_password` page
     for explanation.
 
 Copy new binaries
@@ -286,8 +288,7 @@ Restart your server
 
        $ bin/omero web start
 
-Previous upgrades
------------------
-
-Upgrade instructions for previous versions of the OMERO server can be
-found in the :ref:`rst_legacy_upgrade` section.
+.. seealso::
+    
+    :ref:`rst_legacy_upgrade`
+        Upgrade instructions for previous versions of the OMERO server.

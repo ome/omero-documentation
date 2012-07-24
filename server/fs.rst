@@ -153,149 +153,152 @@ Each property takes the form of a single item or a semi-colon separated
 list of items. Where the item is a list values within that list should
 be comma separated.
 
-The importUsers is either ``default`` for the standard DropBox
-configuration or a list of OMERO user names. The default is default.
+importUsers
 
-::
+	The importUsers is either ``default`` for the standard DropBox
+	configuration or a list of OMERO user names. The default is default.
 
-        <property name="omero.fs.importUsers"  value="default"/>
+	::
 
---------------
+	        <property name="omero.fs.importUsers"  value="default"/>
 
-The absolute directory path of interest for each user. The default is
-empty.
 
-::
+watchDir
 
-        <property name="omero.fs.watchDir"  value=""/>
+	The absolute directory path of interest for each user. The default is
+	empty.
 
---------------
+	::
 
-For automatic import Creation and Modification events are monitored. It
-is also possible to monitor Deletion events though these are not used by
-DropBox. The default is Creation,Modification
+	        <property name="omero.fs.watchDir"  value=""/>
 
-::
+eventTypes
 
-        <property name="omero.fs.eventTypes"  value="Creation,Modification"/>
+	For automatic import Creation and Modification events are monitored. It
+	is also possible to monitor Deletion events though these are not used by
+	DropBox. The default is Creation,Modification
 
---------------
+	::
 
-By default existing and newly created subdirectories are monitored. It
-is possible to restrict monitoring to a single directory ("Flat"), only
-existing subdirectories ("Recurse"), or all subdirectories ("Follow").
-For DropBox to function correctly the mode should be Follow. The default
-is Follow
+	        <property name="omero.fs.eventTypes"  value="Creation,Modification"/>
 
-::
+pathMode
 
-        <property name="omero.fs.pathMode"  value="Follow"/>
+	By default existing and newly created subdirectories are monitored. It
+	is possible to restrict monitoring to a single directory ("Flat"), only
+	existing subdirectories ("Recurse"), or all subdirectories ("Follow").
+	For DropBox to function correctly the mode should be Follow. The default
+	is Follow
 
---------------
+	::
 
-A list of file extensions of interest. An empty list implies all file
-extensions are monitored. The default is an empty list.
+	        <property name="omero.fs.pathMode"  value="Follow"/>
 
-::
+whitelist
 
-        <property name="omero.fs.whitelist"  value=""/>
+	A list of file extensions of interest. An empty list implies all file
+	extensions are monitored. The default is an empty list.
 
---------------
+	::
 
-A list of subdirectories to ignore. Not currently supported.
+	        <property name="omero.fs.whitelist"  value=""/>
 
-::
+blacklist
 
-        <property name="omero.fs.blacklist"  value=""/>
+	A list of subdirectories to ignore. Not currently supported.
 
---------------
+	::
 
-This timeout in seconds is used by one-shot monitors. This property is
-not used by DropBox.
+	        <property name="omero.fs.blacklist"  value=""/>
 
-::
+timeout
 
-        <property name="omero.fs.timeout"  value="0.0"/>
+	This timeout in seconds is used by one-shot monitors. This property is
+	not used by DropBox.
 
---------------
+	::
 
-The number of events that should be propagated to DropBox in one go.
-Zero implies all events possible. The default is zero.
+	        <property name="omero.fs.timeout"  value="0.0"/>
 
-::
+blockSize
 
-        <property name="omero.fs.blockSize"  value="0"/>
+	The number of events that should be propagated to DropBox in one go.
+	Zero implies all events possible. The default is zero.
 
---------------
+	::
 
-If this is True events concerning system files, such as filenames
-beginning with a dot or default new folder names, are ignored. The exact
-events ignored will be OS-dependent. The default is True
+	        <property name="omero.fs.blockSize"  value="0"/>
 
-::
+ignoreSysFiles
 
-        <property name="omero.fs.ignoreSysFiles"  value="True"/>
+	If this is True events concerning system files, such as filenames
+	beginning with a dot or default new folder names, are ignored. The exact
+	events ignored will be OS-dependent. The default is True
 
---------------
+	::
 
-If this is True then the creation and modification of subdirectories is
-not reported to DropBox. The default is True
+	        <property name="omero.fs.ignoreSysFiles"  value="True"/>
 
-::
+ignoreDirEvents
 
-        <property name="omero.fs.ignoreDirEvents"  value="True"/>
+	If this is True then the creation and modification of subdirectories is
+	not reported to DropBox. The default is True
 
---------------
+	::
 
-The time in seconds that DropBox should wait after being notified of a
-file before starting an import on that file. This allows for companion
-files or filesets to be copied. If a new file is added to a fileset
-during this wait period DropBox begins waiting again. The default is 60
-seconds.
+	        <property name="omero.fs.ignoreDirEvents"  value="True"/>
 
-::
+dirImportWait
 
-        <property name="omero.fs.dirImportWait"  value="60"/>
+	The time in seconds that DropBox should wait after being notified of a
+	file before starting an import on that file. This allows for companion
+	files or filesets to be copied. If a new file is added to a fileset
+	during this wait period DropBox begins waiting again. The default is 60
+	seconds.
 
---------------
+	::
 
-The number of files that can be copied in before processing the batch.
-In cases where there are large numbers of files in a typical file set it
-may be more efficient to set this value higher. The default is 10.
+	        <property name="omero.fs.dirImportWait"  value="60"/>
 
-::
+fileBatch
 
-        <property name="omero.fs.fileBatch"  value="10"/>
+	The number of files that can be copied in before processing the batch.
+	In cases where there are large numbers of files in a typical file set it
+	may be more efficient to set this value higher. The default is 10.
 
---------------
+	::
 
-The time in seconds that DropBox should wait after initiating an import
-before initiating a second import. If imports are started too close
-together connection issues can arise. The default is 10 seconds.
+	        <property name="omero.fs.fileBatch"  value="10"/>
 
-::
+throttleImport
 
-        <property name="omero.fs.throttleImport"  value="10"/>
+	The time in seconds that DropBox should wait after initiating an import
+	before initiating a second import. If imports are started too close
+	together connection issues can arise. The default is 10 seconds.
 
---------------
+	::
 
-A file of readers. If this is a valid file then it is used to filter
-those events that are of interest. Only files corresponding to a reader
-in the file will be imported. The default is empty.
+	        <property name="omero.fs.throttleImport"  value="10"/>
 
-::
+readers
 
-        <property name="omero.fs.readers"  value=""/>
+	A file of readers. If this is a valid file then it is used to filter
+	those events that are of interest. Only files corresponding to a reader
+	in the file will be imported. The default is empty.
 
---------------
+	::
 
-A string of extra arguments supplied to the importer. This could
-include, for example, an email address to report failed imports to:
-``--report --send -email=test@example.com`` The default is empty.
+	        <property name="omero.fs.readers"  value=""/>
 
-::
+importArgs
 
-        <property name="omero.fs.importArgs"  value=""/>
+	A string of extra arguments supplied to the importer. This could
+	include, for example, an email address to report failed imports to:
+	``--report --send -email=test@example.com`` The default is empty.
+
+	::
+
+	        <property name="omero.fs.importArgs"  value=""/>
 
 Example
 ~~~~~~~

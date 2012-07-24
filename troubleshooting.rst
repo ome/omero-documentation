@@ -22,7 +22,7 @@ Known Operating System issues
    (`OME forum topic <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=640>`__)
    and :ref:`rst_limitations`
 
---------------
+.. _troubleshooting_password:
 
 Which password do I use where?
 ------------------------------
@@ -30,124 +30,13 @@ Which password do I use where?
 Example accounts table. These are the example usernames and passwords
 used in various install pages:
 
-.. raw:: html
-
-   <table align=center border='1'>
-    <tr>
-     <th>
-
-Account
-
-.. raw:: html
-
-   </th>
-     <th>
-
-Type
-
-.. raw:: html
-
-   </th>
-     <th>
-
-Username
-
-.. raw:: html
-
-   </th>
-     <th>
-
-Password
-
-.. raw:: html
-
-   </th>
-    </tr>
-    <tr>
-     <td>
-
-Install
-
-.. raw:: html
-
-   </td>
-     <td>
-
-Machine
-
-.. raw:: html
-
-   </td>
-     <td>
-
-omero\_user
-
-.. raw:: html
-
-   </td>
-     <td></td>
-    </tr>
-    <tr>
-     <td>
-
-Postgres
-
-.. raw:: html
-
-   </td>
-     <td>
-
-Database
-
-.. raw:: html
-
-   </td>
-     <td>
-
-db\_user
-
-.. raw:: html
-
-   </td>
-     <td>
-
-db\_password
-
-.. raw:: html
-
-   </td>
-    </tr>
-    <tr>
-     <td>
-
-OMERO root
-
-.. raw:: html
-
-   </td>
-     <td>
-
-OMERO
-
-.. raw:: html
-
-   </td>
-     <td>
-
-root
-
-.. raw:: html
-
-   </td>
-     <td>
-
-root\_password
-
-.. raw:: html
-
-   </td>
-    </tr>
-   </table>
+========== ======== ========== =============
+Account    Type     Username   Password
+========== ======== ========== =============
+Install    Machine  omero_user                
+Postgres   Database db_user    db_password
+OMERO root OMERO    root       root_password
+========== ======== ========== =============
 
 There are a total of three types of user accounts which are important
 during the installation process.
@@ -155,10 +44,10 @@ during the installation process.
 -  The first type includes **accounts on your machine**. There is one
    regular account (either your own or one you created specially for
    running OMERO, we'll call it "omero\_user" here); there is the user
-   called a "root-level user" on the `Unix installation
-   page <server/installation>`_ (which includes Mac OS X) and
-   "administrator-level user" on the `Windows installation
-   page <server/install-windows>`_; and there may be a special
+   called a "root-level user" on the :ref:`Unix installation
+   page <rst_installation>` (which includes Mac OS X) and
+   "administrator-level user" on the :ref:`Windows installation
+   page <rst_install-windows>`; and there may be a special
    "postgres" user who controls the database server. The regular
    "omero\_user" account runs the server, and owns the files uploaded to
    OMERO. This account must have permission to write to the /OMERO/
@@ -199,8 +88,6 @@ Other OMERO users can be created via the web admin tool. In no case, do
 any of the passwords have to be the same (or should they **unless you
 are using the LDAP plugin**...)
 
---------------
-
 OutOfMemoryError / PermGen space errors in OMERO.server logs
 ------------------------------------------------------------
 
@@ -239,8 +126,6 @@ Java Virtual Machine including `Bug ID:
 4724038 <http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4724038>`_.
 A 64-bit platform for your OMERO.server is **HIGHLY** recommended.
 
---------------
-
 SocketException: Network is unreachable errors in your OMERO.server log on Debian
 ---------------------------------------------------------------------------------
 
@@ -257,8 +142,6 @@ Quick fix for users hit by this:
 There is an OMERO `forum
 post <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=415>`_
 for comments on the issue.
-
---------------
 
 Import error when running ``bin/omero ...``
 -------------------------------------------
@@ -281,8 +164,6 @@ most likely cause is that your PYTHONPATH is not properly set.
    environment variable. See the Ice installation instructions for more
    information.
 
---------------
-
 Remote clients can't connect to my OMERO installation!
 ------------------------------------------------------
 
@@ -298,31 +179,27 @@ password into the OMERO.insight dialog):
 
 This often because of firewall misconfiguration on the machine that runs
 your OMERO server which affects the ability of remote clients to locate
-it. Please see the `OMERO security page <server/security>`_.
-
---------------
+it. Please see the :ref:`OMERO security page <rst_security>`.
 
 Server fails to start
 ---------------------
 
 1. Check that you are able to successfully connect to your PostgreSQL
-   installation as outlined on the `PostgreSQL
-   page <server/postgresql>`_.
+   installation as outlined on the :ref:`PostgreSQL
+   page <rst_postgresql>`.
 2. Check the permissions on your ``omero.data.dir`` (``/OMERO`` by
-   default) as outlined on the `OMERO Install <server/installation>`_
+   default) as outlined on the :ref:`OMERO Install <rst_installation>`
    page, in the ''Pre-Installation'' section.
-3. Are you on a laptop? If you see an error message mentioning `"node
-   master couldn't be
-   reached" <https://trac.openmicroscopy.org.uk/ome/ticket/7325>`_, you
+3. Are you on a laptop? If you see an error message mentioning 
+   :ticket:`"node master couldn't be reached" <7325>`, you
    may be suffering from a network address swap. Ice does not like to
    have its network changed as can happen if the server is running on a
    laptop on wireless. If you lose connectivty to icegridnode, you may
    have to kill it manually via ``kill PID`` or ``killall icegridnode``
    (under Unix).
 4. If you see an error message mentioning
-   `"Freeze::DatabaseException" <https://trac.openmicroscopy.org.uk/ome/ticket/5576>`_
-   or `"could not lock file:
-   var/registry/\_\_Freeze/lock" <https://trac.openmicroscopy.org.uk/ome/ticket/7325>`_,
+   :ticket:`"Freeze::DatabaseException" <5576>` or 
+   :ticket"`"could not lock file: var/registry/\_\_Freeze/lock" <7325>`,
    your icegrid registry may have become corrupted. This is not a
    problem, but it will be necessary to stop OMERO and delete the
    ``var/master`` directory (e.g. ``rm -rf var/master``). When
@@ -404,7 +281,6 @@ period (seconds) between retries in ``etc/grid/templates.xml``
     <property name="omero.fs.maxRetries"  value="5"/>
     <property name="omero.fs.retryInterval"  value="3"/>
 
---------------
 
 OMERO.web and "ImportError: No module named rtypes."
 ----------------------------------------------------
@@ -421,134 +297,24 @@ To avoid that error please change the following in your settings.py:
     import omero
     import omero.clients
 
-+------+
-| ##   |
-| OMER |
-| O.we |
-| b    |
-| is   |
-| not  |
-| acce |
-| ssib |
-| le   |
-| from |
-| remo |
-| te   |
-| comp |
-| uter |
-| .    |
-| ##   |
-+------+
-| \*   |
-| If   |
-| you  |
-| requ |
-| ire  |
-| to   |
-| conf |
-| igur |
-| e    |
-| the  |
-| out  |
-| of   |
-| the  |
-| box  |
-| setu |
-| p    |
-| to   |
-| list |
-| en   |
-| for  |
-| weba |
-| dmin |
-| and  |
-| webc |
-| lien |
-| t    |
-| conn |
-| ecti |
-| ons  |
-| on   |
-| diff |
-| eren |
-| t    |
-| host |
-| run  |
-| by:  |
-+------+
-| c:\_ |
-| dist |
-| >    |
-| bin/ |
-| omer |
-| o    |
-| web  |
-| star |
-| t    |
-| 'hos |
-| t'   |
-| 'por |
-| t'   |
-| Star |
-| ting |
-| djan |
-| go   |
-| deve |
-| lopm |
-| ent  |
-| webs |
-| erve |
-| r... |
-| Vali |
-| dati |
-| ng   |
-| mode |
-| ls.. |
-| .    |
-| 0    |
-| erro |
-| rs   |
-| foun |
-| d    |
-+------+
-| Djan |
-| go   |
-| vers |
-| ion  |
-| 1.1. |
-| 1,   |
-| usin |
-| g    |
-| sett |
-| ings |
-| 'ome |
-| rowe |
-| b.se |
-| ttin |
-| gs'  |
-| Deve |
-| lopm |
-| ent  |
-| serv |
-| er   |
-| is   |
-| runn |
-| ing  |
-| at   |
-| http |
-| ://h |
-| ost: |
-| port |
-| /    |
-| Quit |
-| the  |
-| serv |
-| er   |
-| with |
-| CONT |
-| ROL- |
-| C.   |
-+------+
+OMERO.web is not accessible from remote computer.
+-------------------------------------------------
+	
+
+
+If you require to configure the out of the box setup to listen for 
+webadmin and webclient connections on different host run by:
+
+::
+
+	c:\omero_dist> bin/omero web start 'host' 'port'
+	Starting django development webserver... 
+	Validating models...
+	0 errors found
+
+	Django version 1.1.1, using settings 'omeroweb.settings'
+	Development server is running at http://host:port/
+	Quit the server with CONTROL-C.
 
 OMERO.web did not start on the production.
 ------------------------------------------
@@ -590,8 +356,6 @@ matches log directory.
        mkdir /home/omero/weblog
        chown apache_user:apache_group /home/omero/weblog
 
---------------
-
 OMERO.web 'Drive space' does not generate pie chart/'My account' does not show markup picture and crop the picture.
 -------------------------------------------------------------------------------------------------------------------
 
@@ -605,9 +369,7 @@ more details. There are few already known possibilities:
    - packages should be available for your distribution from
    `here <http://www.pythonware.com/products/pil/>`__. Also double check
    if all of the prerequisites were installed from
-   `here <../omero4/server/install_web>`__
-
---------------
+   :ref:`here <rst_install_web>`.
 
 Mod\_python error: "PythonHandler django.core.handlers.modpython"
 -----------------------------------------------------------------
@@ -617,8 +379,6 @@ Double check if apache\_user has enough permissions to:
 '/home/omero/omero\_dir/lib/python/django',
 '/home/omero/omero\_dir/lib/python/omeroweb',
 '/home/omero/omero\_dir/var/lib'.
-
---------------
 
 OMERO.scripts fails with "MarshalException" when using PostgreSQL 9.0
 ---------------------------------------------------------------------
@@ -642,10 +402,8 @@ PostgreSQL 9.0 with an error like:
    </pre>
 
 then most likely the bytea\_output setting of your database needs to be
-changed. See `"OMERO and PostgreSQL" <server/postgresql>`_ for how to do
-this and, optionally, `ticket
-#5662 <http://trac.openmicroscopy.org.uk/ome/ticket/5662>`_ for more
-technical details.
+changed. See :ref:`rst_postgresql` for how to do
+this and, optionally, :ticket:`5662` for more technical details.
 
 Too many open files
 ~~~~~~~~~~~~~~~~~~~

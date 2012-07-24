@@ -20,8 +20,7 @@ Limitations
    which you know the password. If you are unsure of what it means to
    have a "administrator" level account, or if you are generally having
    issues with the various users/passwords described in this install
-   guide, please see `"Which password do I use where?" under
-   "Troubleshooting" <troubleshooting#section-3>`_. Unless you are clear
+   guide, please see :ref:`troubleshooting_password`. Unless you are clear
    on the differences, **you should also open all consoles as an
    administrator to prevent file permission issues.** (See screenshot)
 
@@ -43,8 +42,8 @@ Prerequisites
 -  **PostgreSQL 8.4 or higher (9.1 recommended) installed and configured
    with PL/pgSQL and to accept TCP connections.**
 
-   PostgreSQL 8.3 and earlier releases are not supported. See `Known
-   Limitations <known-limitations>`_. We suggest using 9.1, and it is
+   PostgreSQL 8.3 and earlier releases are not supported. See 
+   :ref:`rst_limitations`. We suggest using 9.1, and it is
    assumed throughout these instructions. See :ref:`rst_postgresql` 
    for specifics about each version. The
    Windows *One click installer* can be found on the `PostgreSQL Windows
@@ -596,7 +595,7 @@ Troubleshooting
 ~~~~~~~~~~~~~~~
 
 My OMERO install doesn't work! What do I do now!?! Examine the
-`Troubleshooting <troubleshooting>`_ page and if all else fails post a
+:ref:`rst_troubleshooting` page and if all else fails post a
 message to our ``ome-users`` mailing list discussed on the
 :oo:`community <site/community>` page.
 

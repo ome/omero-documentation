@@ -15,8 +15,7 @@ Windows-specific installation instructions, first see
 Ensuring you have a valid PostgreSQL version
 --------------------------------------------
 
-For OMERO 4.4, PostgreSQL 8.4 or higher is required (see `"Known
-limitations" <known-limitations>`_ for more information.)
+For OMERO 4.4, PostgreSQL 8.4 or higher is required (see :ref:`rst_limitations` for more information.)
 
 You can check which version of PostgreSQL you have installed with any of
 the following commands:

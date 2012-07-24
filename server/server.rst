@@ -20,11 +20,11 @@ it does require installing several software systems, and more advanced
 usage including backups, integrated logins, etc. requires a
 knowledgeable system administrator.
 
-After working through the `Getting Started <../getting-started>`_
+After working through the :ref:`rst_gettingstarted`
 section, the following guides to administering your installation of
 OMERO.server may be of interest:
 
--  `OMERO.server Troubleshooting <../troubleshooting>`_
+-  :ref:`OMERO.server Troubleshooting <rst_troubleshooting>`
 -  :ref:`OMERO.server Security and Firewalls <rst_security>`
 -  :ref:`OMERO.server LDAP <rst_ldap>`
 -  :ref:`OMERO.server Backup and Restore <rst_backup-and-restore>`
