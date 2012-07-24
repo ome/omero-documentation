@@ -27,9 +27,9 @@ Developers
    platform
    gettingstarted
    gettingstarted/index
-   server
+   server-index
    client-overview
-   clients
+   clients-index
    troubleshooting
    limitations
 

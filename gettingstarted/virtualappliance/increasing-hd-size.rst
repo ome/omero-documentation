@@ -1,3 +1,5 @@
+.. _rst_increasing-hd-size:
+
 Increasing HD Size 
 ==================
 

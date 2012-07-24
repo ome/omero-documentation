@@ -90,7 +90,8 @@ extlinks = {
     'wiki' : ('http://trac.openmicroscopy.org.uk/ome/wiki/'+ '%s', ''),
     'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/'+ '%s', '#'),
     'snapshot' : ('http://cvs.openmicroscopy.org.uk/snapshots/'+ '%s', ''),
-    'plone' : ('http://www.openmicroscopy.org/site/'+ '%s', '')
+    'plone' : ('http://www.openmicroscopy.org/site/'+ '%s', ''),
+    'oo' : ('http://www.openmicroscopy.org/' + '%s', '')
     }
 
 
@@ -251,5 +252,5 @@ texinfo_documents = [
 # -- Options for the linkcheck builder ----------------------------------------
 
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
-linkcheck_ignore = [r'http://localhost:\d+/', r'http://localhost/',
-        r'https://www.openmicroscopy.org/site/team/*']
+linkcheck_ignore = [r'http://localhost:\d+/', 'http://localhost/', 'http://www.hibernate.org',
+        'https://www.openmicroscopy.org/site/team/']

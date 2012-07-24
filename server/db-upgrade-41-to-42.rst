@@ -9,7 +9,7 @@ Background
 In OMERO 4.2, we have exposed the User-Group features of OMERO to
 support data sharing between users in the same group. Group permissions
 determine the level of data sharing between users in the same group, as
-described on the `permissions <permissions>`_ page.
+described on the :ref:`rst_permissions` page.
 
 This means that all data objects that are linked in the OMERO database
 must be in the same group (can't link between data in different groups).
@@ -29,7 +29,7 @@ It is also possible that databases created **before** OMERO 4.0 (March
 Upgrade to 4.2
 --------------
 
-The 4.1 to 4.2 upgrade procedure described on the `upgrade <upgrade>`_
+The 4.1 to 4.2 upgrade procedure described on the :ref:`rst_upgrade`
 page, explains how to attempt the upgrade and what you will see if any
 data is found to be linked between different groups.
 

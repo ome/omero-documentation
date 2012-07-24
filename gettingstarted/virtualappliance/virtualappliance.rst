@@ -29,8 +29,8 @@ clients.
 30GB in size and you should probably keep track of the amount of this
 space that you have consumed and, if necessary, delete data that is not
 required. If your data is likely to exceed this space whilst you are
-evaluating OMERO then it is worthwhile going through the `"Increasing HD
-Size procedure" <increasing-hd-size>`_ before you start working with
+evaluating OMERO then it is worthwhile going through the 
+:ref:`rst_increasing-hd-size` before you start working with
 OMERO in earnest.
 
 Getting Started
@@ -52,7 +52,7 @@ Install VirtualBox
 
 In order to use the OMERO.server virtual appliance you need to install
 VirtualBox. Download VirtualBox from the
-`Downloads page <http://www.virtualbox.org/wiki/Downloads>`_ and follow the
+`Downloads page <https://www.virtualbox.org/wiki/Downloads>`_ and follow the
 installation process for your platform. If in doubt you should download,
 or upgrade to, the latest version of VirtualBox. Once VirtualBox is
 installed run the application. Depending upon your platform & version,
@@ -63,7 +63,7 @@ Download the OMERO.server Virtual Appliance
 -------------------------------------------
 
 The virtual appliance can be downloaded from
-`here <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm.ova>`_
+the `hudson job <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm-latest-build.ova>`_
 and should have a filename similar to, e.g. omero-vm.ova
 
 Import OMERO Virtual Appliance into VirtualBox
@@ -680,8 +680,8 @@ the recommended courses of action are either:
 2. Increase the size of your virtual HDD. If you have filled your
    existing HDD then it is likely that the volume of data that you are
    storing in the OMERO VM is too big for the default HDD. You should
-   follow the instructions on the `"Increasing HD Size
-   procedure" <increasing-hd-size>`_ page to ensure that the size of
+   follow the instructions on the :ref:`rst_increasing-hd-size`
+   page to ensure that the size of
    virtual HDD you have available is commensurate with the volumes of
    data that you are collecting.
 

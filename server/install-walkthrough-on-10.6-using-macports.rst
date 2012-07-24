@@ -3,13 +3,16 @@
 Install - Walkthrough on 10.6 using MacPorts.
 =============================================
 
-This walkthrough is a list of the commands used to install OMERO on a
-clean Mac OS 10.6 SnowLeopard using MacPorts to install Postgres 8.4,
-PIL & Matplot for Python 2.6.
+.. topic:: Overview
 
-Contents
+	This walkthrough is a list of the commands used to install OMERO on a
+	clean Mac OS 10.6 SnowLeopard using MacPorts to install Postgres 8.4,
+	PIL & Matplot for Python 2.6.
 
-It is not a substitute for the general `install <installation>`_ page
+.. contents::
+	:depth: 2
+
+It is not a substitute for the general :ref:`rst_installation` page
 but is here to give a feel for the process.
 
 There is an accompanying video available :snapshot:`here <movies/omero-4-1/mov/SnowInstall.mov>`.

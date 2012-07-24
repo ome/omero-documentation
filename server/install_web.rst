@@ -26,24 +26,22 @@ You can find more information about FastCGI and where to get modules or
 packages for your distribution
 `here <http://www.fastcgi.com/drupal/node/3>`__.
 
-** If you need help configuring your firewall rules, see the :ref:`rst_security` page. **
+If you need help configuring your firewall rules, see the :ref:`rst_security` page.
 
 Prerequisites
 -------------
 
--  :ref:`OMERO 4.4.0 and its prerequisites <rst_installation>`
+-  OMERO 4.4.0 and its prerequisites (see :ref:`Unix <rst_installation>`
+   or :ref:`Windows <rst_install-windows>` installation page).
 
 -  Python version from 2.4 to 2.7 (due to backwards incompatibilities in
    Python 3.0, Django does not currently work with Python 3.0; for more
    information see the `Django Installation
    page <https://docs.djangoproject.com/en/1.1/intro/install/>`_).
 
-   -  Python Imaging Library Packages should be available for your
-      distribution from
-      `here <http://www.pythonware.com/products/pil/>`__
+   -  `Python Imaging Library <http://www.pythonware.com/products/pil/>`_ should be available for your distribution
 
-   -  Matplot Lib Packages should be available for your distribution
-      from `here <http://matplotlib.sourceforge.net/>`__
+   -  `Matplot Lib <http://matplotlib.sourceforge.net/>`_ should be available for your distribution.
 
 -  A FastCGI capable web server
 
@@ -242,20 +240,28 @@ to access OMERO.webadmin or the OMERO.webclient:
 
 	   OMERO.webadmin login
 
-    **NOTE:** This starts the server in the foreground. It is your
-    responsibility to place it in the background, if required, and
-    manage its shutdown.
+.. note::
+	This starts the server in the foreground. It is your
+	responsibility to place it in the background, if required, and
+	manage its shutdown.
 
 Customising your OMERO.web installation
 ---------------------------------------
 
-    **NOTE:** Please use double quotes instead of single quotes and a
-    proper escape sequence on Windows to specify options with multiple
-    values.
+.. note::
+	Please use double quotes instead of single quotes and a
+	proper escape sequence on Windows to specify options with multiple
+	values.
 
-    **NOTE:** For clarity, some edge-case/in-development options may not
-    be documented below. For the full list see: $ bin/omero web -h OR
-    look in lib/python/omeroweb/settings.py
+.. note::
+	For clarity, some edge-case/in-development options may not
+	be documented below. For the full list see: 
+
+	::
+	
+		$ bin/omero web -h 
+
+	OR look in lib/python/omeroweb/settings.py
 
 -  A list of servers the Web client can connect to. Default:
    ``[["localhost", 4064, "omero"]]``.

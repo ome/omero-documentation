@@ -3,10 +3,13 @@
 Advanced Configuration
 ======================
 
-Describes configuration options that not everyone will need, but may be
-useful for optimizing, customizing, or monitoring your server.
+.. topic:: Overview
 
-Contents
+	Describes configuration options that not everyone will need, but may be
+	useful for optimizing, customizing, or monitoring your server.
+
+.. contents::
+	:depth: 2
 
 The OMERO server provides several different configuration/extension
 points that you may want to make use of.

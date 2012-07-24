@@ -225,13 +225,17 @@ kept in LDAP. To enable it, use:
 
         bin/omero config set omero.security.password_provider chainedPasswordProvider431
 
-See also
---------
+.. seealso::
 
--  :ref:`OMERO.server Installation <rst_installation>`
--  :ref:`OMERO.server Security and Firewalls <rst_security>`
--  The developer document :wiki:`OmeroLdap` on extending the LDAP plugin yourself.
+	:ref:`rst_installation`
+		Installation guide for OMERO.server under UNIX-based platforms
+	
+	:ref:`OMERO.server Security and Firewalls <rst_security>`
+		Security pages for OMERO.server
+	
+	:wiki:`OmeroLdap <OmeroLdap>`
+		Developer document on extending the LDAP plugin yourself.
 
-**If you have LDAP requirements that are not covered by the above
-configuration, please see the forum discussion `"What are your LDAP
-requirements?" <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=14>`_**
+	If you have LDAP requirements that are not covered by the above
+	configuration, please see the forum discussion `What are your LDAP
+	requirements? <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=14>`_
