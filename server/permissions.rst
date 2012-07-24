@@ -7,31 +7,31 @@ Permissions
 	:depth: 2
 
 In the 4.4 release of OMERO, the groups and permissions system has been
-revamped to allow users to share data with more control. **Users can now
+revamped to allow Users to share data with more control. **Users can now
 copy data between groups that they are a member of**.
 
 Overview
 --------
 
-A user may belong to one or more groups, and the data in a group may now
-**at most** be shared with users in the same group on the same OMERO
-server. The degree to which their data is available to other members of
-the group depends on the permissions settings for that group. Whenever a
-user logs on to an OMERO server, he/she is connected under one of
-his/her groups. All data he/she imports and any work that is done is
-assigned to the current group, however now in 4.4 the User can easily
-copy their data into another group.
+A User may belong to one or more groups, and the data in a group may
+now **at most** be shared with Users in the same group on the same
+OMERO server. The degree to which their data is available to other
+members of the group depends on the permissions settings for that
+group. Whenever a User logs on to an OMERO server, they are connected
+under one of their groups. All data they import and any work that is
+done is assigned to the current group, however now in 4.4 the User can
+easily copy their data into another group.
 
 Users
 -----
 
 -  **Administrator**: Your OMERO server will have one or more
    administrators. Each group can be administrated by any of your server
-   administrators. The administrator(s) control all settings for groups.
+   administrators. The administrators control all settings for groups.
 -  **Group Owner**: Your group may have one or more owners. The group
    owner has some additional rights within each group than a standard
    group member, including the ability to add other members to the
-   group(s).
+   group.
 -  **Group Member**: This is the standard user.
 
 Groups and Users must be created by the server administrator. Users can
@@ -80,19 +80,19 @@ Read-only
 ~~~~~~~~~
 
 This group is the intermediate option that allows visibility of other
-users and their data, but minimal ability to annotate their data:
+Users and their data, but minimal ability to annotate their data:
 
--  Read-only group owner can control group members as above and can
+-  The group owner can control group members as above and can
    perform some annotations on the other group members data.
 -  Members can see who other members are and view their data, but they
-   cannot annotate another users data at all.
+   cannot annotate another Users' data at all.
 
 **Potential Use-Cases:**
 
 -  A scientist might move data into a read-only group when they want
    other group members to access and view their data. Other members can
    view, while the group owners can annotate and/or add ROIs to the
-   other user's images.
+   other User's images.
 -  For an institutional repository where data are being archived and
    then available for other group members in the institute to view; this
    could be standard storage of all original data, or for data that is
@@ -103,8 +103,8 @@ Read-annotate
 
 This is the most collaborative group:
 
--  Group members can view other users, their data and can make
-   annotations on those other users' data.
+-  Group members can view other Users, their data and can make
+   annotations on those other Users' data.
 
 **Potential Use-Cases:**
 
@@ -117,11 +117,11 @@ This is the most collaborative group:
 
 +-------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
-Changing a Groups Permissions
------------------------------
+Changing Group Permissions
+--------------------------
 
 It is possible for the group owner or server administrator to change the
-permissions level on a group after it has been created and populated
+permissions level on a group after it has been created and filled
 with data, with the following limitations:
 
 -  It is not possible to 'reduce' permissions to 'Private'. Once links
@@ -133,7 +133,7 @@ with data, with the following limitations:
 
 **Known Issue**
 
-Please be very careful before downgrading a groups permission level. If
+Please be very careful before downgrading a group's permission level. If
 a User has annotated another User's data and the group is downgraded,
 any links to annotations that are not permitted with the new permissions
 setting will be lost.
@@ -249,7 +249,7 @@ Key (Actions Available)
 Action                        Description
 ============================= ===================================================================================
 View data                     View ROIs added by others
-View and draw ROIs            Draw ROIs on the other user's data, but they cannot be saved
+View and draw ROIs            Draw ROIs on another user's data, but they cannot be saved
 ----------------------------- -----------------------------------------------------------------------------------
 Annotate                      Add annotations (rating, tag, attachment, comment ROI) to another user's data
 Create & save ROIs            Save ROIs that you draw on another user's data
@@ -271,8 +271,8 @@ Issues to be Aware of
 ROIs
 ~~~~
 
--  You can never edit (change text or move) another user's ROI.
--  Any ROIs added to another user's data will not affect ROIs added by
+-  You can never edit (change text or move) another User's ROI.
+-  Any ROIs added to another User's data will not affect ROIs added by
    the owner.
 
 Tags & Attachments
