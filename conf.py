@@ -90,6 +90,7 @@ extlinks = {
     'wiki' : ('http://trac.openmicroscopy.org.uk/ome/wiki/'+ '%s', ''),
     'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/'+ '%s', '#'),
     'snapshot' : ('http://cvs.openmicroscopy.org.uk/snapshots/'+ '%s', ''),
+    'plone' : ('http://www.openmicroscopy.org/site/'+ '%s', '')
     }
 
 

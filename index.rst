@@ -30,5 +30,7 @@ Developers
    server
    client-overview
    clients
+   troubleshooting
+   limitations
 
    Developer Policies<developers/policies>
