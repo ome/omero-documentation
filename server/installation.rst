@@ -95,7 +95,7 @@ The following are optional depending on what services you require:
 
 -  **PyTables Lib version 2.1 or later** (for :wiki:`OMERO.Tables <OmeroTables>`) PyTables is available from `here <http://www.pytables.org/moin/Downloads>`__
 
--  **scipy.ndimage** allows larger volumes to be viewed in the `Volume Viewer <products/omero/volume-viewer-in-omero.web>`_. See `scipy <http://numpy.scipy.org/>`_.
+-  **scipy.ndimage** allows larger volumes to be viewed in the :plone:`Volume Viewer <products/omero/volume-viewer-in-omero.web>`. See `scipy <http://numpy.scipy.org/>`_.
 
 Finally, you need the OMERO server:
 
@@ -435,7 +435,7 @@ If you want help with your server installation, please include the output of the
     $ bin/omero admin diagnostics
 
     ================================================================================
-    OMERO Diagnostics 4.4.0
+    OMERO Diagnostics 4.4.1
     ================================================================================
 
     Commands:   java -version                  1.6.0     (/usr/bin/java)
@@ -457,7 +457,7 @@ If you want help with your server installation, please include the output of the
     Server:     Tables-0                       active (pid = 28974, enabled)
     Server:     TestDropBox                    inactive (enabled)
 
-    Log dir:    /home/omero/OMERO.server-4.4.0-RC2-147-00d69bc-ice33-b3025/var/log exists
+    Log dir:    /home/omero/OMERO.server-4.4
 
     Log files:  Blitz-0.log                    360.0 MB      errors=9    warnings=2458
     Log files:  DropBox.log                    3.0 KB        errors=0    warnings=1
