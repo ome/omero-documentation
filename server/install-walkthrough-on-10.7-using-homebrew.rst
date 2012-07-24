@@ -249,7 +249,7 @@ OMERO installation
 At this point you have a choice:
 
 -  If you just want a deployment of the current release of OMERO.server
-   (4.4.1) then a simple homebrew install is sufficient, e.g.
+   (4.4) then a simple homebrew install is sufficient, e.g.
 
    ::
 
@@ -301,7 +301,7 @@ Environment variables
 
 Edit your .profile as appropriate. The following are indicators of 
 required entries and correspond to a  Homebrew installation of 
-OMERO 4.4.1:
+OMERO 4.4:
 
 ::
 
