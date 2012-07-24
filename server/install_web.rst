@@ -31,7 +31,7 @@ If you need help configuring your firewall rules, see the :ref:`rst_security` pa
 Prerequisites
 -------------
 
--  OMERO 4.4.0 and its prerequisites (see :ref:`Unix <rst_installation>`
+-  OMERO 4.4.1 and its prerequisites (see :ref:`Unix <rst_installation>`
    or :ref:`Windows <rst_install-windows>` installation page).
 
 -  Python version from 2.4 to 2.7 (due to backwards incompatibilities in
@@ -132,6 +132,73 @@ OMERO.web is quite straightforward.
 
        Alias /static /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static
        Alias /omero "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi/"
+
+-  OR nginx:
+
+   ::
+
+       jrs-macbookpro-25107:OMERO will$ omero web config nginx
+       # 
+       # nginx userland template
+       # this configuration is designed for running nginx as the omero user or similar
+       # nginx -c etc/nginx.conf
+       # for inclusion in a system-wide nginx configuration see omero web config nginx --system
+       #
+       pid /Users/will/Desktop/OMERO/dist/var/pid.nginx;
+       error_log /Users/will/Desktop/OMERO/dist/var/log/nginx_error.log;
+       worker_processes  5;
+       working_directory /Users/will/Desktop/OMERO/dist/var;
+
+       events {
+           worker_connections  1024;
+       }
+
+
+       http {
+           access_log    /Users/will/Desktop/OMERO/dist/var/log/nginx_access.log;
+           include       /Users/will/Desktop/OMERO/dist/etc/mime.types;
+           default_type  application/octet-stream;
+           client_body_temp_path /Users/will/Desktop/OMERO/dist/var/nginx_tmp;
+
+           keepalive_timeout  65;
+
+           server {
+               listen       8080;
+               server_name  _;
+               fastcgi_temp_path /Users/will/Desktop/OMERO/dist/var/nginx_tmp;
+               proxy_temp_path /Users/will/Desktop/OMERO/dist/var/nginx_tmp;
+
+                # weblitz django apps serve static content from here
+               location /static {
+                   alias /Users/will/Desktop/OMERO/dist/lib/python/omeroweb/static;
+               }
+
+               location / {
+                   if (-f /Users/will/Desktop/OMERO/dist/var/maintenance.html) {
+                      error_page 503 /maintenance.html;
+                      return 503;
+                   }
+                   fastcgi_pass 0.0.0.0:4080;
+                   fastcgi_param PATH_INFO $fastcgi_script_name;
+                   fastcgi_param REQUEST_METHOD $request_method;
+                   fastcgi_param QUERY_STRING $query_string;
+                   fastcgi_param CONTENT_TYPE $content_type;
+                   fastcgi_param CONTENT_LENGTH $content_length;
+                   fastcgi_param SERVER_NAME $server_name;
+                   fastcgi_param SERVER_PROTOCOL $server_protocol;
+                   fastcgi_param SERVER_PORT $server_port;
+                   fastcgi_pass_header Authorization;
+                   fastcgi_intercept_errors on;
+                   fastcgi_read_timeout 300;
+               }
+
+               location /maintenance.html {
+                   root /Users/will/Desktop/OMERO/dist/var;
+               }
+
+           }
+
+       }
 
 -  Start the Django FastCGI workers:
 
