@@ -1,3 +1,5 @@
+.. _rst_legacy_upgrade:
+
 Legacy upgrade
 ==============
 
