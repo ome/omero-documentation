@@ -1,8 +1,11 @@
-Client Documentation This document focuses on OMERO documentation for
+Client Documentation
+====================
+
+This document focuses on OMERO documentation for
 scientists & end users.
 
  Getting Additional Help
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 • For answers to commonly asked questions, try our `FAQ </site/support/faq>`_.
 
@@ -117,9 +120,5 @@ __ bfDownloads_
 Other Pages of Interest
 -----------------------
 
-.. _Future: /site/support/omero4/future-development
-.. _`OMERO Copyleft Licensing`: /site/about/licensing
-
-======== ===========================
-Future_  `OMERO Copyleft Licensing`_
-======== ===========================
+- :plone:`Future development <support/omero4/future-development>`
+- :plone:`OMERO Copyleft Licensing <about/licensing>`
