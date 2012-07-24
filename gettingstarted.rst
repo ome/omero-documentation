@@ -1,3 +1,5 @@
+.. _rst_gettingstarted:
+
 Getting Started
 ===============
 
@@ -20,7 +22,7 @@ OMERO Server Documentation
 --------------------------
 
 If you are a OMERO.server administrator or developer, head over to the
-[OMERO Trac] (http://trac.openmicroscopy.org.uk/ome) website for all our
+`OMERO Trac <http://trac.openmicroscopy.org.uk/ome>`_ website for all our
 admin and dev documentation.
 
 OMERO.server Installation
@@ -336,15 +338,11 @@ Extending OMERO
 Developers documentation is available on
 `Trac <http://trac.openmicroscopy.org.uk/omero/wiki>`_. There are
 extension points to add OMERO server functionality as described on the
-[Extending OMERO]
-(http://trac.openmicroscopy.org.uk/omero/wiki/ExtendingOmero) page as
+:wiki:`Extending OMERO <ExtendingOmero>` page as
 well as add to agents to OMERO.insight. See
-`"OmeroInsightArchitecture" <http://trac.openmicroscopy.org.uk/shoola/wiki/OmeroInsightArchitecture>`_
-for more information.
+:wiki:`OmeroInsightArchitecture` for more information.
 
-Instructions on writing your own
-`OmeroClients <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroClients>`_
-or scripts that work via the `OMERO
-API <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroApi>`_, in a
+Instructions on writing your own :wiki:`OmeroClients` or 
+scripts that work via the :wiki:`OMERO API <OmeroApi>`, in a
 number of languages are listed as part of the [analysis]
 (support/omero4/analysis) page.

@@ -222,8 +222,6 @@ feature off as follows:
 You can read more about the problems surrounding TCP window scaling
 `here <http://kerneltrap.org/node/6723>`__.
 
---------------
-
 My Server Crashes With...
 -------------------------
 
@@ -238,8 +236,6 @@ by using the ``-x`` flag as follows:
 ::
 
     ssh -x my_server.examples.com
-
---------------
 
 Server or clients print "WARNING: Prefs file removed in background..."
 ----------------------------------------------------------------------
@@ -258,7 +254,6 @@ this
 `thread <http://lists.openmicroscopy.org.uk/pipermail/ome-users/2009-March/001465.html>`_
 on our mailing list for more information.
 
---------------
 
 DropBox fails to start: Failed to get session
 ---------------------------------------------
@@ -406,7 +401,7 @@ changed. See :ref:`rst_postgresql` for how to do
 this and, optionally, :ticket:`5662` for more technical details.
 
 Too many open files
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 This is caused by the number of opened files exceeding the limit imposed
 by your operating system. It might be due to OMERO leaking file
