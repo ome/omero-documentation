@@ -10,7 +10,7 @@ This walkthrough is a list of the commands used to install OMERO on a
 clean Mac OS 10.6 Snow Leopard (or 10.5 Leopard) by manually downloading
 and configuring the required components.
 
-It is not a substitute for the general :ref:`install <rst_installation>` page
+It is not a substitute for the general :ref:`rst_installation` page
 but is here to give a feel for the process.
 
 Prerequisites
@@ -31,9 +31,9 @@ and 10.5.
 PostgreSQL 8.4
 ~~~~~~~~~~~~~~
 
-Download PostgreSQL from
-`here <http://www.postgresql.org/download/macosx>`__. Download PostgreSQL
-8.4 or later. Run the postgres installer, choosing the default port of
+Download PostgreSQL 8.4 or later from
+`the PostgreSQL downloads page <http://www.postgresql.org/download/macosx>`_.
+Run the postgres installer, choosing the default port of
 5432. To add the PostgreSQL to the PATH, you need to edit the profile of
 the bash shell (Terminal).
 

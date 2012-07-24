@@ -3,7 +3,8 @@
 Permissions
 ===========
 
-Contents
+.. contents::
+	:depth: 2
 
 In the 4.4 release of OMERO, the groups and permissions system has been
 revamped to allow users to share data with more control. **Users can now
@@ -182,8 +183,7 @@ the restrictions of the permissions detailed in these tables.
 Ordered by Group Permissions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. |gm| class:: centered  
-	Group member
+.. |gm| replace::  Group member
 .. |go| replace::  Group owner
 .. |ad| replace::  Admin
 

@@ -121,7 +121,7 @@ PYTHONPATH **system** environment variables must be configured.
 -  **Update your Windows environment variables: (REQUIRES RESTART!)**
 
    #. Locate the *System* control panel page on the Start Menu under
-      *Settings → Control Panel*, open it and navigate to the *Advanced*
+      :menuselection:`Settings --> Control Panel`, open it and navigate to the *Advanced*
       tab (on Windows Vista the dialog will be visible after clicking
       the *Change settings* link on the *System* control panel page):
 
@@ -157,10 +157,9 @@ PYTHONPATH **system** environment variables must be configured.
 
       |PATH variable| |PATH variable 2| |PYTHONPATH variable|
 
-   #. ***Restart your computer***. For environment changes to take
+   #. **Restart your computer**. For environment changes to take
       effect in background services, a restart is unfortunately
-      necessary. See
-      `http://support.microsoft.com/kb/821761 <http://support.microsoft.com/kb/821761>`_
+      necessary. See `<http://support.microsoft.com/kb/821761>`_
       for more information.
 
 When performing some operations the clients make use of temporary file
@@ -251,7 +250,7 @@ Creating a database
 
 -  Create a non-superuser database user (make sure to note down the name
    and password) using **pgAdmin III**. You can find *pgAdmin III* on
-   the Start Menu under *Programs → PostgreSQL 9.1 → pgAdmin III*:
+   the Start Menu under :menuselection:`Programs --> PostgreSQL 9.1 --> pgAdmin III`:
 
    #. Double-click on the *PostgreSQL 9.1* database (or right-click and
       choose *Connect*) and provide your *postgres* user login password
@@ -311,7 +310,7 @@ Creating a database
 
 -  Confirm PL/pgSQL language support in your newly created database
 
-   #. First, go to *File → Options* select the *Browser* tab and
+   #. First, go to :menuselection:`File --> Options` select the *Browser* tab and
       activate the *Languages* option:
 
       .. |pgadmin-optionsmenu| image:: install-windows-screenshots/pgadmin-09optionsmenu.png
@@ -366,8 +365,9 @@ Installation
 ------------
 
 -  Extract the OMERO ZIP and note its location. Below it is referred to
-   as: ``C:\omero_dist``. **Note:** Directory names containing spaces
-   are **not** supported!
+   as: ``C:\omero_dist``.
+
+   .. note:: Directory names containing spaces are **not** supported!
 
 -  Optionally, review ``C:\omero_dist\etc\omero.properties`` which
    contains all default settings. You will need to open the file with
@@ -415,8 +415,8 @@ Installation
 
 -  Initialize your database with the script.
 
-   #. Launch *SQL Shell (psql)* from the Start Menu under *Programs →
-      PostgreSQL 9.1 → SQL Shell (psql)*
+   #. Launch *SQL Shell (psql)* from the Start Menu under :menuselection:`Programs -->
+      PostgreSQL 9.1 --> SQL Shell (psql)`
 
       ::
 
@@ -576,12 +576,13 @@ See the `Feature list </site/products/feature-list>`_ for more advanced
 features you may want to use, and :ref:`rst_advanced-configuration` on how to get the most out of
 your server.
 
-**Please Note** We are currently looking for a clean and easy way to
-install and enable OMERO.tables under Windows using released packages.
-You may have some success following the :wiki:`OmeroTables`
-wiki page, but currently we do not recommend you use this additional
-feature on Windows. As always, please contact us on our forums if you
-have any additional questions.
+.. note::
+	We are currently looking for a clean and easy way to
+	install and enable OMERO.tables under Windows using released packages.
+	You may have some success following the :wiki:`OmeroTables`
+	wiki page, but currently we do not recommend you use this additional
+	feature on Windows. As always, please contact us on our forums if you
+	have any additional questions.
 
 Update Notification
 ~~~~~~~~~~~~~~~~~~~
@@ -597,7 +598,7 @@ Troubleshooting
 My OMERO install doesn't work! What do I do now!?! Examine the
 `Troubleshooting <troubleshooting>`_ page and if all else fails post a
 message to our ``ome-users`` mailing list discussed on the
-`Community <community>`_ page.
+:oo:`community <site/community>` page.
 
 OMERO Diagnostics
 ~~~~~~~~~~~~~~~~~

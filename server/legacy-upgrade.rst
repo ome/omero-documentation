@@ -3,7 +3,8 @@ Legacy upgrade
 
 This page list the upgrades for old versions of the OMERO.server
 
-Contents
+.. contents::
+	:depth: 3
 
 To get the latest upgrades of OMERO.server, visit the
 :ref:`rst_upgrade` page.
@@ -85,7 +86,8 @@ Per version upgrade instructions
 4.3.x to 4.3.4
 ~~~~~~~~~~~~~~
 
-    **Note:** You should *always* backup your database before performing
+.. note::
+    You should *always* backup your database before performing
     an upgrade as outlined under the steps for upgrading from 3.2.x to
     4.0.0 (found at the bottom of this page).
 
@@ -135,10 +137,12 @@ Per version upgrade instructions
 4.3.x to 4.3.3
 ~~~~~~~~~~~~~~
 
-    **Note:** You should *always* backup your database before performing
+.. note::
+    You should *always* backup your database before performing
     an upgrade as outlined under the steps for upgrading from 3.2.x to
     4.0.0 (found at the bottom of this page).
 
+.. note::
     **LDAP users Read This: Password Provider Change** In this minor
     release, the LDAP plugin changed. You can manually choose the
     previous version of the plugin for backwards compatibility. See the
@@ -190,10 +194,12 @@ Per version upgrade instructions
 4.3.x to 4.3.2
 ~~~~~~~~~~~~~~
 
-    **Note:** You should *always* backup your database before performing
+.. note::
+    You should *always* backup your database before performing
     an upgrade as outlined under the steps for upgrading from 3.2.x to
     4.0.0 (found at the bottom of this page).
 
+.. note::
     **LDAP users Read This: Password Provider Change** In this minor
     release, the LDAP plugin changed. You can manually choose the
     previous version of the plugin for backwards compatibility. See the
@@ -245,7 +251,8 @@ Per version upgrade instructions
 4.3.x to 4.3.1
 ~~~~~~~~~~~~~~
 
-    **Note:** You should *always* backup your database before performing
+.. note::
+    You should *always* backup your database before performing
     an upgrade as outlined under the steps for upgrading from 3.2.x to
     4.0.0 (found at the bottom of this page).
 
@@ -295,7 +302,8 @@ Per version upgrade instructions
 4.2.x to 4.3.0
 ~~~~~~~~~~~~~~
 
-    **Note:** You should *always* backup your database before performing
+.. note::
+    You should *always* backup your database before performing
     an upgrade as outlined under the steps for upgrading from 3.2.x to
     4.0.0 (found at the bottom of this page).
 
@@ -372,7 +380,8 @@ Following a successful db upgrade, you can start the 4.3 server.
 4.2.x patch releases
 ~~~~~~~~~~~~~~~~~~~~
 
-    **Note:** You should *always* backup your database before performing
+.. note::
+    You should *always* backup your database before performing
     an upgrade as outlined under the steps for upgrading from 3.2.x to
     4.0.0 (found at the bottom of this page).
 
@@ -431,7 +440,8 @@ Following a successful db upgrade, you can start the 4.3 server.
 4.1.x to 4.2.1+
 ~~~~~~~~~~~~~~~
 
-    **Note:** You should *always* backup your database before performing
+.. note::
+    You should *always* backup your database before performing
     an upgrade as outlined under the steps for upgrading from 3.2.x to
     4.0.0 (found at the bottom of this page).
 
@@ -536,7 +546,8 @@ of the additional services and optional installs would be of use to you.
 4.0.x to 4.1.x
 ~~~~~~~~~~~~~~
 
-    **Note:** You should *always* backup your database before performing
+.. note::
+    You should *always* backup your database before performing
     an upgrade as outlined under the steps for upgrading from 3.2.x to
     4.0.0 (found at the bottom of this page).
 
@@ -596,7 +607,8 @@ under "First steps".
 4.0.x patch releases
 ~~~~~~~~~~~~~~~~~~~~
 
-    **Note:** You should *always* backup your database before performing
+.. note::
+    You should *always* backup your database before performing
     an upgrade as outlined under the steps for upgrading from 3.2.x to
     4.0.0 (found at the bottom of this page).
 
@@ -687,4 +699,7 @@ If the ``omero.db.user`` and ``omero.db.pass`` for the ``omero3``
 database are different then those for the database you created during
 :ref:`installation <rst_installation>`, then those should be configured as well.
 
-To get the latest upgrades of OMERO.server, visit the :ref:`rst_upgrade` page.
+.. seealso::
+
+	:ref:`rst_upgrade`
+		Latest upgrades of OMERO.server

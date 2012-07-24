@@ -29,9 +29,9 @@ Installation **will require a "root" level account** for which you know the pass
 Prerequisites
 -------------
 
-.. note: The installation of these prerequisite applications is outside the scope of this document. For Linux distributions you should use the default package manager. For Mac OS X there are additional notes for :ref:`Mac OS X 10.5 <rst_install_manual>`, :ref:`MacPorts on Mac OS X 10.6 <rst_install_macports>` and :ref:`Homebrew on Mac OS X 10.7 <rst_install_homebrew>` for less experienced users.
+.. note:: The installation of these prerequisite applications is outside the scope of this document. For Linux distributions you should use the default package manager. For Mac OS X there are additional notes for :ref:`Mac OS X 10.5 <rst_install_manual>`, :ref:`MacPorts on Mac OS X 10.6 <rst_install_macports>` and :ref:`Homebrew on Mac OS X 10.7 <rst_install_homebrew>` for less experienced users.
 
-    **The following are necessary:**
+The following are necessary:
 
 -  **PostgreSQL 8.4 or higher installed and configured with PL/pgSQL and to accept TCP connections.** 8.3 and earlier are not supported. See `Known Limitations <known-limitations>`_. See :ref:`OMERO and PostreSQL <rst_postgresql>` for specifics about each version.
 
@@ -57,7 +57,7 @@ Prerequisites
        $ javac -version
        javac 1.6.0
 
-   -  On systems with `OpenJDK <http://openjdk.java.net/>`_ installed by default, it will be necessary to unselect it and select the Sun version. See `this thread <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>`_ for more information.
+   .. note:: On systems with `OpenJDK <http://openjdk.java.net/>`_ installed by default, it will be necessary to unselect it and select the Sun version. See `this thread <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>`_ for more information.
 
 -  **Zeroc Ice 3.3.x installed**
 
@@ -79,7 +79,7 @@ Prerequisites
    Installation
    page <https://docs.djangoproject.com/en/1.1/intro/install/>`_).
 
-    **The following are optional depending on what services you require:**
+The following are optional depending on what services you require:
 
 -  **Python Imaging Library** (for OMERO.web and Figure Export functionality only) Packages should be available for your distribution from `here <http://www.pythonware.com/products/pil/>`__
 
@@ -91,7 +91,7 @@ Prerequisites
 
 -  **scipy.ndimage** allows larger volumes to be viewed in the `Volume Viewer <products/omero/volume-viewer-in-omero.web>`_. See `scipy <http://numpy.scipy.org/>`_.
 
-    **Finally, you need the OMERO server:**
+Finally, you need the OMERO server:
 
 -  **OMERO.server *tar.bz2*** available from the `OMERO downloads <../downloads>`_ page.
 
