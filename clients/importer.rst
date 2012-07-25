@@ -1,7 +1,7 @@
 .. _rst_clients_importer:
 
-importer
-========
+OMERO.importer
+==============
 
 OMERO.importer is a standalone application that allows a user to import proprietary image data files from a filesystem accessed from the user's computer to a running OMERO Server. This tool uses a standard file browser to help the user find and specify files for import into the server and then uploads the files to an OMERO Server.
 

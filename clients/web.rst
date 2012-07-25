@@ -1,7 +1,7 @@
 .. _rst_clients_web:
 
-web
-===
+OMERO.web
+=========
 
 OMERO in your browser
 ---------------------
@@ -52,12 +52,10 @@ up and make it easier to extend the OMERO.web client. We've also
 improved various parts of the Python code.
 
 -  OMERO Connection handling: A new decorator for handling connections
-   to OMERO, with hooks for customising (see
-   ` <http://trac.openmicroscopy.org.uk/ome/wiki/OmeroWeb/WritingViews>`_\ documentation)
+   to OMERO, with hooks for customising (see :wiki:`documentation <OmeroWeb/WritingViews>`)
 -  Public user: Configure a 'public user' who is always logged-in
-   automatically, allowing your OMERO.web to support public data (see
-   ` <https://www.openmicroscopy.org/site/support/omero4/server/install_web#section-8>`_\ web
-   settings)
+   automatically, allowing your OMERO.web to support public data (see :ref:`web
+   settings <install_web_public_user>`)
 -  Web 'plugins': Extend the OMERO.web framework to customise the
    display of data from OMERO, then bring this into the existing web
    client.

@@ -1,22 +1,12 @@
-######
-editor
-######
+OMERO.editor
+============
 
-This tool is designed to facilitate recording of experimental metadata,
-for annotation of images in OMERO.
+This tool is designed to facilitate recording of experimental metadata, for annotation of images in OMERO.
 
-OMERO.editor is an editing tool, where users can create a "template"
-(for example, to describe a protocol) and then use this template to
-create individual "experiment" files, which contain the experimental
-metadata. A summary of the experiment can be viewed alongside annotated
-images in OMERO.insight. This workflow makes it easy to reuse protocols,
-and to build up a detailed description of an experiment by combining
-several smaller protocols.
+OMERO.editor is an editing tool, where users can create a "template" (for example, to describe a protocol) and then use this template to create individual "experiment" files, which contain the experimental metadata. A summary of the experiment can be viewed alongside annotated images in OMERO.insight. This workflow makes it easy to reuse protocols, and to build up a detailed description of an experiment by combining several smaller protocols.
 
-The OMERO.editor is part of the OMERO.insight client, but can also run
-as a stand-alone application. OMERO.editor saves files as XML documents,
-which makes it possible for them to be read by other software.
+The OMERO.editor is part of the OMERO.insight client, but can also run as a stand-alone application. OMERO.editor saves files as XML documents, which makes it possible for them to be read by other software.
 
 .. image:: ../images/EditorParamsContext.png
 
-For more information, see the tutorial/editor pages.
+For more information, see the :ref:`rst_tutorial_editor` page.

@@ -149,8 +149,8 @@ concerned about should look like this:
     #unix_socket_permissions = 0777         # octal
 	#bonjour_name = *                      # defaults to the computer name
 
-You can find out more about PostgreSQL client configuration on the
-[http://www.postgresql.org PostgreSQL website].
+You can find out more about PostgreSQL client configuration on the 
+`PostgreSQL website <http://www.postgresql.org>`_.
 
 PostgreSQL HBA (host based authentication)
 ------------------------------------------

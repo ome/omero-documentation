@@ -480,8 +480,7 @@ interact with it.
    case you must have an SSH client installed on your host machine that
    you will then use to connect to the OMERO.server.
 
-**NB.** The following example assume that the OMERO VM is up & running
-on the same machine that you are working on.
+.. note:: The following example assume that the OMERO VM is up & running on the same machine that you are working on.
 
 OMERO.web
 ~~~~~~~~~
@@ -489,7 +488,8 @@ OMERO.web
 Go directly to http://localhost:8080/webclient to log in with user:
 "root" / pw: "omero".
 
-    **Note:** If you receive a 502 nginx error on first attempting to
+.. note::
+    If you receive a 502 nginx error on first attempting to
     connect to the web app on http://localhost:8080/webclient/ please
     try restarting the virtual machine and try again.
 

@@ -53,7 +53,8 @@ More information is available under
 
 
 As for Skype, being online is not required but it is often beneficial to have it on during the day. Regardless, everyone should have a skype account. Register and download software from http://www.skype.com.
-Note: your Skype account name along with all of your contact details should be added to DevContactList on Google Docs. See below.)
+
+.. note:: your Skype account name along with all of your contact details should be added to DevContactList on Google Docs. See below.
 
 Trac: Developer docs
 ~~~~~~~~~~~~~~~~~~~~
@@ -174,7 +175,7 @@ There are a number of servers and services inside of the University of Dundee sy
 
 
 
-Note : *For anyone who has been hired to work at the University of Dundee, you will be provided with another list which itemizes all the things that need to be done to get you setup in RL (building access, a chair, etc.)* See: `new start tasklist`_
+.. note:: Note : For anyone who has been hired to work at the University of Dundee, you will be provided with another list which itemizes all the things that need to be done to get you setup in RL (building access, a chair, etc.)* See: `new start tasklist`_
 
 Google Docs and Calendars
 ~~~~~~~~~~~~~~~~~~~~~~~~~

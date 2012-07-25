@@ -10,7 +10,7 @@ management, and annotation to users from remote locations.
 users access to their data in the *OMERO.server*.
 
 For more detailed information on the OMERO clients, please see the
-:doc:`clients/clients` page.
+:ref:`rst_gettingstarted_clientdocumentation`.
 
 Most laboratories use a number of different imaging platforms and thus
 require tools to manage, visualise and analyse heterogeneous sets of

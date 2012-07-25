@@ -405,6 +405,8 @@ Customising your OMERO.web installation
           $ bin/omero config set omero.web.scripts_to_ignore '[]'
           $ bin/omero config set omero.web.scripts_to_ignore '["/omero/my_scripts/really_buggy.py", ... ]'
 
+.. _install_web_public_user:
+
 -  Enabling a public user:
 
    -  Since OMERO 4.4.0, OMERO.web has the ability to automatically log
