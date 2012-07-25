@@ -1,3 +1,5 @@
+.. _rst_clients_web:
+
 web
 ===
 
