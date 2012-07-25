@@ -101,8 +101,8 @@ Prerequisites
       PyTables is available from
       `the PyTables Downloads page <http://www.pytables.org/moin/Downloads>`_.
 
-   -  *scipy.ndimage* allows larger volumes to be viewed in the `Volume
-      Viewer <products/omero/volume-viewer-in-omero.web>`_.
+   -  *scipy.ndimage* allows larger volumes to be viewed in the :plone:`Volume
+      Viewer <products/omero/volume-viewer-in-omero.web>`.
 
       See `scipy <http://numpy.scipy.org/>`_.
 
@@ -476,10 +476,10 @@ Installation
 
    ::
 
-       C:\OMERO.server-Beta-4.4.0>bin\omero admin start
+       C:\OMERO.server-4.4>bin\omero admin start
        Found default value: c:\omero_dist\var\master
        Attempting to correct...
-       Converting from c:\omero_dist to C:\OMERO.server-Beta-4.4.0
+       Converting from c:\omero_dist to C:\OMERO.server-4.4
        Changes made: 6
        No descriptor given. Using etc\grid\windefault.xml
        [SC] CreateService SUCCESS
@@ -603,45 +603,61 @@ OMERO Diagnostics
 ~~~~~~~~~~~~~~~~~
 
 If you want help with your server installation, please include the
-output of the diagnostics command: C:omero\_dist> binomero admin
-diagnostics
+output of the diagnostics command: ``C:omero\_dist> bin\\omero admin
+diagnostics``
 
 ::
 
         ================================================================================
-        OMERO Diagnostics Beta-4.2.0-GA
+        OMERO Diagnostics 4.4.1
         ================================================================================
-
-        Commands:   java -version                  1.6.0     (C:\WINDOWS\system32\java.EXE -- 3 others)
-        Commands:   python -V                      2.5       (C:\Python25\python.EXE)
-        Commands:   icegridnode --version          3.3       (C:\Ice-3.3.1\bin\x64\icegridnode.EXE -- 2 others)
-        Commands:   icegridadmin --version         3.3       (C:\Ice-3.3.1\bin\x64\icegridadmin.EXE -- 2 others)
-        Commands:   psql --version                 8.3       (C:\Program Files (x86)\PostgreSQL\8.3\bin\psql.EXE -- 2 others)
-
+                
+        Commands:   java -version                  1.6.0     (C:\Windows\system32\java.EXE -- 2 others)
+        Commands:   python -V                      2.5.5     (C:\Python25\python.EXE)
+        Commands:   icegridnode --version          3.3.1     (c:\Ice-3.3.1\bin\icegridnode.EXE)
+        Commands:   icegridadmin --version         3.3.1     (c:\Ice-3.3.1\bin\icegridadmin.EXE)
+        Commands:   psql --version                 not found
+        
         Server:     icegridnode                    running
-        Server:     Blitz-0                        active (pid = 7704, enabled)
-        Server:     DropBox                        active (pid = 8008, enabled)
-        Server:     FSServer                       active (pid = 7088, enabled)
-        Server:     Indexer-0                      active (pid = 4728, enabled)
-        Server:     OMERO.Glacier2                 active (pid = 5456, enabled)
-        Server:     OMERO.IceStorm                 active (pid = 800, enabled)
-        Server:     Processor-0                    active (pid = 7316, enabled)
-        Server:     Tables-0                       active (pid = 4420, enabled)
+        Server:     Blitz-0                        active (pid = 3004, enabled)
+        Server:     DropBox                        inactive (disabled)
+        Server:     FileServer                     active (pid = 2916, enabled)
+        Server:     Indexer-0                      active (pid = 1684, enabled)
+        Server:     MonitorServer                  active (pid = 3584, enabled)
+        Server:     OMERO.Glacier2                 active (pid = 2676, enabled)
+        Server:     OMERO.IceStorm                 active (pid = 2220, enabled)
+        Server:     PixelData-0                    active (pid = 3784, enabled)
+        Server:     Processor-0                    active (pid = 3688, enabled)
+        Server:     Tables-0                       active (pid = 344, enabled)
         Server:     TestDropBox                    inactive (enabled)
-        Server:     Web                            inactive (enabled)
-
-        Log dir:    C:\hudson\trunk\dist\var\log   exists
-
-        Log files:  Blitz-0.log                    10.0 MB       errors=4    warnings=26
-        Log files:  DropBox.log                    2.0 KB
-        Log files:  FSServer.log                   1.0 KB
-        Log files:  Indexer-0.log                  8.0 MB        errors=18   warnings=1870
-        Log files:  OMEROweb.log                   n/a
-        Log files:  Processor-0.log                0.0 KB
-        Log files:  Tables-0.log                   0.0 KB
+        
+        Log dir:    c:\OMERO-CURRENT\var\log       exists
+        
+        Log files:  Blitz-0.log                    38.0 MB       errors=26   warnings=104
+        Log files:  DropBox.log                    3.0 KB        errors=4    warnings=2
+        Log files:  FileServer.log                 0.0 KB
+        Log files:  Indexer-0.log                  12.0 KB       errors=48   warnings=3
+        Log files:  MonitorServer.log              0.0 KB
+        Log files:  OMEROweb.log                   235.0 KB
+        Log files:  OMEROweb_request.log           0.0 KB
+        Log files:  PixelData-0.log                74.0 KB       errors=11   warnings=65
+        Log files:  Processor-0.log                4.0 KB        errors=1    warnings=7
+        Log files:  Tables-0.log                   4.0 KB        errors=1    warnings=7
         Log files:  TestDropBox.log                n/a
         Log files:  master.err                     0.0 KB
         Log files:  master.out                     0.0 KB
-        Log files:  Total size                     18.94 MB
-
-        C:\omero_dist>
+        Log files:  Total size                     38.72 MB
+        
+        Parsing Blitz-0.log:[line:30] => Server restarted <=
+        
+        Environment:OMERO_HOME=(unset)
+        Environment:OMERO_NODE=(unset)
+        Environment:OMERO_MASTER=(unset)
+        Environment:PATH=C:\Python25\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0
+        ome\AppData\Roaming\Python\Scripts
+        Environment:ICE_HOME=c:\Ice-3.3.1
+        Environment:LD_LIBRARY_PATH=(unset)
+        Environment:DYLD_LIBRARY_PATH=(unset)
+        
+        OMERO data dir: '/OMERO'        Exists? True    Is writable? True
+        OMERO.web status... [NOT STARTED]
