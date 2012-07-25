@@ -14,9 +14,9 @@ Windows.
 OMERO Client Documentation
 --------------------------
 
-All our 'for scientists' documentation, `downloads <../downloads>`_, and
-install instructions can be found from the `Client
-Documentation <client-documentation>`_ page.
+All our 'for scientists' documentation, :plone:`downloads
+<support/omero4/downloads>`, and install instructions can be found
+from the :ref:`rst_gettingstarted_clientdocumentation` page.
 
 OMERO Server Documentation
 --------------------------

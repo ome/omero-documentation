@@ -1,3 +1,5 @@
+.. _rst_gettingstarted_clientdocumentation:
+
 Client Documentation
 ====================
 
