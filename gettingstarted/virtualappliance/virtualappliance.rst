@@ -1,6 +1,11 @@
 Virtual Appliance 
 =================
 
+The OMERO virtual appliance is a quick, easy, & low-cost way to try
+out OMERO.server on your laptop or desktop. This enables you to make
+an informed decision about whether committing to an OMERO.server
+install is right for you.
+
 Virtualisation enables canned, ready to run software environments to be
 created and used, in the form of Virtual Machines (VM), or to be
 distributed for others to use, in the form of Virtual Appliances. A
@@ -481,6 +486,10 @@ OMERO.web
 
 Go directly to http://localhost:8080/webclient to log in with user:
 "root" / pw: "omero".
+
+    **Note:** If you receive a 502 nginx error on first attempting to
+    connect to the web app on http://localhost:8080/webclient/ please
+    try restarting the virtual machine and try again.
 
 OMERO.insight
 ~~~~~~~~~~~~~
