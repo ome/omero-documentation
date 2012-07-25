@@ -147,7 +147,7 @@ Shortly before release, we tested a file with two entire screens,
 several plates, and many cross linked reagents which failed. This is a
 very unlikely scenario, and we know of no files that contain this level
 of data, but if you have issues getting screening data imported in the
-OME-XML format, please `let us know </site/community>`_.
+OME-XML format, please :plone:`let us know <site/community>`.
 
 Binary delete on Windows servers
 --------------------------------

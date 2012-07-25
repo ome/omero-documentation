@@ -1,4 +1,7 @@
+.. _rst_tutorial_insight-managing-data:
+
 Managing Data
+=============
 
 Back to OMERO.insight,
 

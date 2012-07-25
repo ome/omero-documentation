@@ -1,4 +1,7 @@
+.. _rst_tutorial_editor-getting-started:
+
 Getting Started with OMERO.editor
+=================================
 
 This is a very quick guide on how to begin working with the OMERO.editor
 tool.

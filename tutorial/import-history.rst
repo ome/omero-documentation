@@ -1,4 +1,7 @@
+.. _rst_tutorial_import-history:
+
 Import History
+==============
 
 OMERO.importer includes a feature to record your import history, saving
 this information on the OMERO.server you are connected to. This feature
@@ -19,8 +22,7 @@ OMERO.server, and if this feature is not installed, your importer's
 History tab (along the top) will be grayed out.
 
 Instructions for how to enable this feature can be found at the
-`OMERO.tables
-page <http://trac.openmicroscopy.org.uk/omero/wiki/OmeroTables>`_.
+:wiki:`OMERO.tables page <OmeroTables>`.
 
 Using the History Feature
 -------------------------
@@ -33,7 +35,7 @@ The importer History tab is divided into two general areas:
 
 The Date Filter allows you to search for imports between a given date
 range, which you can either enter manually using the YY/MM/DD format, or
-by using the calender pop-up available by pressing the down arrow
+by using the calendar pop-up available by pressing the down arrow
 button. After you have selected a date range, hitting the 'Search'
 button will display all imports between those dates.
 

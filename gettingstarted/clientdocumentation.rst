@@ -38,19 +38,19 @@ Insight:
 
 - :ref:`Introduction <rst_clients_insight>`
 - :plone:`OMERO.Insight Introduction <support/omero4/getting-started/tutorial/getting-started>`
-- :plone:`Insight Client Importer <support/omero4/getting-started/tutorial/insight-importer>`
-- :plone:`Data Manager <support/omero4/getting-started/tutorial/managing-data>`
-- :plone:`Viewing Images <support/omero4/getting-started/tutorial/viewing-images>`
-- :plone:`Measurement Tool <support/omero4/getting-started/tutorial/measuring>`
-- :plone:`Running Scripts <support/omero4/getting-started/tutorial/running-scripts>`
+- :ref:`rst_tutorial_insight-import`
+- :ref:`rst_tutorial_insight-managing-data`
+- :ref:`rst_tutorial_insight-view-images`
+- :ref:`rst_tutorial_insight-measuring`
+- :ref:`rst_tutorial_insight-scripts`
 
 Editor:
 ^^^^^^^
 
-- :plone:`OMERO.Editor Introduction <support/omero4/getting-started/tutorial/omero.editor>`
-- :plone:`Insight Editor <support/omero4/getting-started/tutorial/latest-omero.editor-features>`
-- :plone:`GettingStarted <support/omero4/getting-started/tutorial/getting-started-with-omero.editor>`
-- `Online Protocols Tutorial <http://trac.openmicroscopy.org.uk/ome/wiki/OnlineProtocolsTutorial>`_
+- :ref:`rst_tutorial_editor`
+- :ref:`rst_tutorial_editor-latest-features`
+- :ref:`rst_tutorial_editor-getting-started`
+- :wiki:`Online Protocols Tutorial <OnlineProtocolsTutorial>`
 
 Web:
 ^^^^
@@ -63,10 +63,10 @@ Importer:
 ^^^^^^^^^
 
 - :ref:`Introduction <rst_clients_importer>`
-- :plone:`Importing Images <support/omero4/getting-started/tutorial/importing-images>`
-- :plone:`Import History <support/omero4/getting-started/tutorial/import-history>`
-- :plone:`Handling Import Errors <support/omero4/getting-started/tutorial/handling-import-errors>`
-- :plone:`ImporterCLI <support/omero4/getting-started/tutorial/command-line-import>`
+- :ref:`rst_tutorial_import-images`
+- :ref:`rst_tutorial_import-history`
+- :ref:`rst_tutorial_insight-errors`
+- :ref:`rst_tutorial_command-line-import`
 - `Supported Format <http://www.loci.wisc.edu/software/bio-formats>`_
 
 OME-XML & OME-TIFF

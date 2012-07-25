@@ -1,4 +1,7 @@
+.. _rst_tutorial_insight-export-figures:
+
 Exporting Figures from OMERO.insight
+====================================
 
 A new feature in OMERO 4.2 is the ability to export images as figures,
 based on their annotations, metadata, ROIs etc. All figures are saved as

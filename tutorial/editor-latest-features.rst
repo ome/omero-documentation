@@ -1,4 +1,7 @@
+.. _rst_tutorial_editor-latest-features:
+
 Latest Features in OMERO.editor
+===============================
 
 This page details the latest version Beta-4 edition of the OMERO.editor.
 
@@ -18,7 +21,7 @@ icon ![Editor Icon] (images/omeroEditorLink2.png) in the toolbar.
 
 In OMERO.insight, you can open any OMERO.editor file by double clicking
 it, either when you find it attached to a Project, Dataset or Image, or
-by browsing under View > Attachments (see screen shot).
+by browsing under :menuselection:`View --> Attachments` (see screen shot).
 
 .. raw:: html
 

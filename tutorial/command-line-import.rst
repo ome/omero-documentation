@@ -1,4 +1,7 @@
+.. _rst_tutorial_command-line-import:
+
 The Command Line Import
+=======================
 
 The Command Line Importer tool (CLI) allows you to add images into an
 OMERO.server from the command line, and is ideally suited for anyone
@@ -6,8 +9,7 @@ wanting to use a shell-scripted or web-based front-end interface for
 importing. Based upon the same set of libraries as the standard
 importer, the command line version supports the same files formats and
 functions in much the same way. (For a full list of supported file
-types, see: [LOCI bio-formats library]
-(http://www.loci.wisc.edu/ome/formats.html)).
+types, see: `LOCI bio-formats library <http://www.loci.wisc.edu/software/bio-formats>`_).
 
 Starting the Command Line Importer
 ----------------------------------

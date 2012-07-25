@@ -10,8 +10,7 @@ computer to a running OMERO Server. This tool uses a standard file
 browser to help the user find and specify files for import into the
 server and then uploads the files to an OMERO Server.
 
-To learn more about OMERO.importer see the `OMERO.importer Getting
-Started Guide <../getting-started/tutorial/importing-images>`_
+To learn more about OMERO.importer see the :ref:`rst_tutorial_import-images`
 
 .. image:: ../images/omero_importer_4_4.png
 
@@ -22,10 +21,8 @@ The OMERO.importer has a detailed list of the supported `File
 Formats <http://www.loci.wisc.edu/ome/formats.html>`_.
 
 For hints and guidelines on importing various file formats, also check
-out the `Format
-Guide <https://trac.openmicroscopy.org.uk/omero/wiki/ImporterHowTo>`_
+out the :wiki:`Format Guide <ImporterHowTo>`
 
 There is also a command line version of the importer available since
 version Beta 4.0 which you can find more information about by visiting
-`CLI
-Importer <http://trac.openmicroscopy.org.uk/omero/wiki/ImporterCLI>`_
+:wiki:`CLI Importer <ImporterCLI>`

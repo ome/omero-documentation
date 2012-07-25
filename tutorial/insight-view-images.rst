@@ -1,4 +1,7 @@
+.. _rst_tutorial_insight-view-images:
+
 Viewing Images
+==============
 
 Launch a Viewer
 ---------------

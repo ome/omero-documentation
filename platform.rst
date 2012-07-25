@@ -31,14 +31,14 @@ anytime the user is connected to the internet.
 There are a number of demonstration videos available on the :plone:`Features
 List <products/feature-list>` page providing an overview of the
 applications. For an initial impression please browse out
-`screenshots <screenshots>`_. For a detailed overview of the OMERO
-clients, see the `OMERO.clients <clients>`_.
+:plone:`screenshots <support/omero4/screenshots>`. For a detailed overview of the OMERO
+clients, see the :ref:`OMERO.clients <rst_client-overview>`.
 
 This documentation is for the latest version of the OMERO Platform. We
-also have archived versions available for `legacy versions of
-OMERO </site/support/legacy/>`_.
+also have archived versions available for :plone:`legacy versions of
+OMERO <support/omero4/screenshots>`.
 
 Most other **technical documentation** is located on the developer
 maintained Trac systems for either the
-`server <http://trac.openmicroscopy.org.uk/omero/>`_ or
-`clients <http://trac.openmicroscopy.org.uk/shoola/>`_.
+`server <http://trac.openmicroscopy.org.uk/ome/>`_ or
+`clients <http://trac.openmicroscopy.org.uk/ome/>`_.

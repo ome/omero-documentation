@@ -1,3 +1,5 @@
+.. _rst_tutorial_editor:
+
 OMERO.editor Introduction
 =========================
 
@@ -5,18 +7,13 @@ This tool can operate as a standalone application or as part of the
 OMERO.insight client. In both cases, it saves metadata as XML files that
 can be used to annotate images, datasets, etc, in OMERO. If used as part
 of OMERO.insight, the files can be saved to an OMERO server. For
-features that are new to the Beta-4 OMERO.editor (March 2009), see
-[Latest Features in OMERO.editor] (latest-omero.editor-features).
+features that are new to the Beta-4 OMERO.editor (March 2009), 
+see :ref:`rst_tutorial_editor-latest-features`.
 
-OMERO.editor is a Java tool and requires [Java 1.5]
-(http://java.com/en/download/). The latest release of OMERO.editor can
-be downloaded as part of the OMERO clients package from our [ downloads
-page] (http://www.openmicroscopy.org/site/support/omero4/downloads).
+OMERO.editor is a Java tool and requires `Java 1.5 <http://java.com/en/download/>`_. The latest release of OMERO.editor can
+be downloaded as part of the OMERO clients package from our :plone:`downloads page <support/omero4/downloads>`.
 
-A [demo movie]
-(http://cvs.openmicroscopy.org.uk/snapshots/omero/editor/movies/OMERO.editor-Beta4.mov)
-of the Beta-4 software gives an introduction to the Editor and
-illustrates some of its functionalities.
+A :snapshot:`demo movie <omero/editor/movies/OMERO.editor-Beta4.mov>` of the Beta-4 software gives an introduction to the Editor and illustrates some of its functionalities.
 
 The OMERO.editor has been designed to achieve two key functions:
 
@@ -30,7 +27,7 @@ largest central panel. To the left, an outline of the protocol can be
 used for navigation and the panel on the right of the window is used for
 display and editing of parameter details. The central panel can be used
 to view the protocol in a 'Text View' (below) or in a 'Tree View' as
-described under [latest features] (latest-omero.editor-features).
+described under :ref:`rst_tutorial_editor-latest-features`.
 
 .. raw:: html
 

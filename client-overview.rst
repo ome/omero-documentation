@@ -1,3 +1,5 @@
+.. _rst_client-overview:
+
 ###############
 Client Overview
 ###############

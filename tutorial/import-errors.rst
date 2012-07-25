@@ -1,4 +1,7 @@
+.. _rst_tutorial_insight-errors:
+
 Handling Import Errors
+======================
 
 Although the OMERO.importer supports a large number of file formats,
 sometimes errors will occur in the import process. When this happens,
