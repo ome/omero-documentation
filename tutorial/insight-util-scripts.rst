@@ -19,7 +19,7 @@ It is also possible to export an entire Z or T series or range (E.g. to
 make a time-course figure) for each image.
 
 **OME-TIFF export and projection**
- From the 4.3.2 release, this script also supports export of images as
+From the 4.3.2 release, this script also supports export of images as
 OME-TIFFs. If this format is chosen, the entire image is exported as a
 single file, including all planes. Any Z or T selections are ignored.
 Maximum Intensity Projection of images is also supported in 4.3.2. Users
@@ -63,10 +63,9 @@ Combine Images
    :alt: Combine\_Images screen-shot
 
    Combine\_Images screen-shot
-`MOVIE: Combine Images
-demo <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/Combine_Images.mov>`_.
-Slightly older movie
-`here <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-2/mov/Scripting1.mov>`_.
+
+`MOVIE: Combine Images demo <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/Combine_Images.mov>`_.
+Slightly older movie `here <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-2/mov/Scripting1.mov>`_.
 
 This script takes a number of single-plane images or image Z-stacks,
 identified either by Image\_ID or by the ID of the Dataset that contains

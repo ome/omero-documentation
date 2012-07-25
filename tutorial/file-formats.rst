@@ -14,6 +14,6 @@ on how much test data we have.
 As always, contributions of sample data will help to ensure that the
 OMERO accurately supports a wide range of formats, and any contributions
 you may wish to make are always welcome by contacting us on our forums
-`here <http://www.openmicroscopy.org/community/viewforum.php?f=4>`_, or
+`here <http://www.openmicroscopy.org/community/viewforum.php?f=4>`__, or
 our user mailing list
-`here <http://lists.openmicroscopy.org.uk/mailman/listinfo/ome-users/>`_.
+`here <http://lists.openmicroscopy.org.uk/mailman/listinfo/ome-users/>`__.
