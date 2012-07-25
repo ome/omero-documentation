@@ -1,4 +1,5 @@
 Importing Images in Insight
+===========================
 
 To get the list of file formats currently supported in OMERO, go to
 [LOCI bio-formats library] (http://www.loci.wisc.edu/ome/formats.html).

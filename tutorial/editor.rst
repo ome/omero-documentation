@@ -1,4 +1,5 @@
 OMERO.editor Introduction
+=========================
 
 This tool can operate as a standalone application or as part of the
 OMERO.insight client. In both cases, it saves metadata as XML files that

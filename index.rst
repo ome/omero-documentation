@@ -33,5 +33,6 @@ Developers
    clients-index
    troubleshooting
    limitations
+   tutorial-index
 
    Developer Policies<developers/policies>
