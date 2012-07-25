@@ -1,0 +1,117 @@
+Running Util Scripts
+
+Instructions for running 'Util Scripts' from OMERO.insight through the scripting service, as released with OMERO 4.2.
+
+<h2>Batch Image Export</h2>
+
+<p><a href="http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/BatchImageExport-4.3.mov">MOVIE: Batch Image Export demo</a>
+</p>
+<p>The Batch Image Export script saves multiple planes of selected images in a zip folder for download. These can be used for creating your own figures. By default, the script exports a png file for each individual channels and a 'merged' view of selected images. The rendering settings used are the currently saved rendering settings in OMERO. E.g. if you want all the images to have the same rendering settings, then these should be applied and saved before running the script. 
+</p>
+<p>It is also possible to export an entire Z or T series or range (E.g. to make a time-course figure) for each image.
+</p>
+<p><b>OME-TIFF export and projection</b><br />
+From the 4.3.2 release, this script also supports export of images as OME-TIFFs. If this format is chosen, the entire image is exported as a single file, including all planes. Any Z or T selections are ignored. 
+Maximum Intensity Projection of images is also supported in 4.3.2. Users should be aware that both these options have the potential to make heavier processing demands on the server. If admins wish to turn off these options, they can comment out the appropriate options in the script: rstring('OME-TIFF') and/or rstring('Max projection').
+</p>
+
+<h2>Channel Offsets</h2>
+<p><a href="http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/ChannelOffsets-4.3.mov">MOVIE: channel offsets demo</a>
+</p>
+<p>The Channel Offsets script allows you to apply X, Y and Z offsets to individual channels in an image, creating a new image in the process. You can pick which of the channels from the source image to combine in the new image (up to the first 4 channels). The script can process several images at once, placing the new images in the same Dataset as the source images by default, or in a new Dataset if the "New Dataset Name" parameter is filled out. 
+</p>
+
+<h2>Dataset to Plate</h2>
+<p><a href="http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/Dataset_To_Plate-4.3.2.mov">MOVIE: Dataset to Plate demo</a></p>
+<p>This script allows you to create a "Plate" from an ordered set of images in a Dataset, assigning images to a row and column based on their sequence by name. You can arrange images by row or column, choose the size of the row or column and how they are named.</p>
+<p>View the movie above to see a demonstration of this script</p>
+
+<h2>Combine Images</h2>
+<p><img src="images/Combine_Images.png" alt="Combine_Images screen-shot" />
+</p>
+<p><a href="http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/Combine_Images.mov">MOVIE: Combine Images demo</a>. Slightly older movie <a href="http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-2/mov/Scripting1.mov">here</a>. 
+</p>
+<p>This script takes a number of single-plane images or image Z-stacks, identified either by Image_ID or by the ID of the Dataset that contains them.
+   All input images should have the same X, Y and Z dimensions and are expected to have a single channel &amp; time-point. If you want to use a subset of the images, choose the "Filter Names" option by entering some text. Only image names that contain this text will be used.<br />
+
+</p>
+<p>There are 2 alternative methods you can use to define which images are assigned to which Z, T or C index in the new image and how big the new dimensions are (see below).
+
+</p>
+<p>Optionally you can specify colours and names for the channels in the new image.<br />
+
+</p>
+
+<h4>Auto Define Dimensions</h4>
+<p>This option is chosen by default. This method uses the names of each image to try and identify the Z, T or C index. The user should choose the naming pattern for each dimension. For example, if you want to combine images named like these: 
+</p>
+<ul>
+ <li>
+     image001_C01_Z01.tiff
+ </li>
+
+ <li>
+     image001_C01_Z02.tiff
+ </li>
+</ul>
+<p>you should choose:
+    * Channel Name Pattern: "_C"
+    * Z Name Pattern: "_Z"
+    * Time Name Pattern: "None" (optional)
+</p>
+<p>If the input images are Z stacks, then the 'Z Name Pattern' will be ignored and the Z-size of the first image will be used instead (NB: assumed that all images have the same Z size). 
+</p>
+
+<h4>Manually Define Dimensions</h4>
+<p>With this option, the images are combined in the same order that they appear when sorted alphabetically (default in Insight). If you want to stitch the planes in a single dimension (E.g. time) then you only need to choose "Time" as the Dimension 1 value and this will do the job. 
+</p>
+<p>If you want to stitch the planes across 2 or more dimensions, you need to specify the dimensions in the order that they change in the list of input images. For example, images named like this:
+</p>
+
+<ul>
+ <li>
+     image001_C01_Z01.tiff
+ </li>
+
+ <li>
+     image001_C01_Z02.tiff
+ </li>
+
+ <li>
+     image001_C01_Z03.tiff
+ </li>
+
+ <li>
+     image001_C01-Z04.tiff
+ </li>
+
+ <li>
+     image001_C01-Z05.tiff
+ </li>
+
+ <li>
+     image001_C02-Z01.tiff
+ </li>
+
+ <li>
+     image001_C02-Z02.tiff
+ </li>
+
+ <li>
+     image001_C02-Z03.tiff
+ </li>
+
+ <li>
+     image001_C02-Z04.tiff
+ </li>
+
+ <li>
+     image001_C02-Z05.tiff
+ </li>
+</ul>
+<p>The first dimension to change is Z (changes between images 1,2,3,4,5 in the list) and the second dimension to change is Channel (changes between images 5 and 6). 
+</p>
+<p>You must specify the Dimensions that these images represent in the combined image, in the order that they change in the sorted list. In the above example, Dimension_1 would be "Z", since this changes first, and Dimension_2 is "Channel". It is also necessary to specify the Size of the dimensions. In this case, "size Z" is 5 and "size C" is 2. (It is possible to omit the size of the last dimension since this can be calculated by the script). 
+</p>
+<p>If the input images are Z stacks, you don't need to specify a Z dimension (it will be ignored if you do).
+</p>

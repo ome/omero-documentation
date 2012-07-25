@@ -1,0 +1,21 @@
+Handling Import Errors
+
+Although the OMERO.importer supports a large number of file formats, sometimes errors will occur in the import process. When this happens, OMERO.importer will generally present you with an error dialog and to alert you of the problem.
+
+<img src="images/ImportErrorsPopup.png" alt="Import Error Popup">
+
+## Examining Your Errors ##
+
+When an error does occur, you can usually get a technical overview of the problem by examining the Debug Text Tab. This may give you hints as to why your import failed, which can often be attributed to misplaced or renamed files, corrupted images, unsupported formats, or other easily fixed problems. For even more technical information you can also examine the importer's log file by choosing the "Show log file location" option under the "Help" menu. Opening this log file in a text editor will show you all the technical information collected during your import.
+
+## The Import Errors Tab ##
+
+In cases where a file has failed to import, the error message generated is also added to the Error Message Queue, which can be found by clicking on the Import Errors Tab. From this tab, you can review all the import errors collected during the import session, as well as select which image files you wish to send us by using the check-box beside each error.
+
+<img src="images/ImportErrorsTab.png" alt="Import Errors Tab">
+
+## Submitting Errors ##
+
+You can submit your errors to us using the "Send Feedback" button at the bottom of the Import Errors Tab, which will display a feedback dialog so you can include an optional message and email address. The bottom of this dialog also gives you a chance to opt out of sending us your images and log file should you so desire, however providing us with this information will allow us to more accurately duplicate and fix your problem, thereby improving the reliability of our software as a whole.
+
+<img src="images/ImportErrorsFeedback.png" alt="Import Errors Feedback">
