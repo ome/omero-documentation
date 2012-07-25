@@ -17,41 +17,41 @@ client, "DropBox", which can automatically import data into OMERO.
 Prerequisites
 -------------
 
--  OMERO.fs has the following general requirements:
+-   OMERO.fs has the following general requirements:
 
-   -  **Ice 3.3**
-   -  **Python 2.4 or above**
+    -   **Ice 3.3**
+    -  **Python 2.4 or above**
 
--  OMERO.fs is built on underlying OS file-notification system, and so
-   is only available for specific versions of certain operating systems.
-   OMERO.fs will currently function on the following systems:
+-   OMERO.fs is built on underlying OS file-notification system, and so
+    is only available for specific versions of certain operating systems.
+    OMERO.fs will currently function on the following systems:
 
-   -  Linux with kernel 2.6.13 and higher.
-   -  Mac OS 10.5 and above.
-   -  Windows XP and Windows Server 2003.
+    -   Linux with kernel 2.6.13 and higher.
+    -   Mac OS 10.5 and above.
+    -   Windows XP and Windows Server 2003.
 
--  In addition some platforms require further Python packages to be
-   available:
+-   In addition some platforms require further Python packages to be
+    available:
 
-   -  Linux servers 4.2.x or earlier require `Pyinotify
-      0.7.x <http://pyinotify.sourceforge.net/>`_ or `Pyinotify
-      0.8.x <http://trac.dbzteam.org/pyinotify/>`_. Some Linux
-      distributions have one or other of these packages pre-installed.
-      Some distributions of Pyinotify versions 0.8.6 and 0.8.7 are not
-      compatible with Python 2.4. If your system runs Python 2.4
-      Pyinotify 0.8.5 or lower is recommended.
-   -  Linux systems running Python 2.4 also requires ctypes (bundled
-      with Python 2.5+) which is available from
-      `http://python.net/crew/theller/ctypes/ <http://python.net/crew/theller/ctypes/>`_
-   -  Mac OS systems that use a macports install of Python will need to
-      have FSEvents available in the PYTHONPATH. This will require a
-      path of the form
-      /System/Library/Frameworks/Python.framework/Versions/2.X/Extras/lib/python/PyObjC/
-      to be added, according to the version of Python used.
+    -   Linux servers 4.2.x or earlier require `Pyinotify
+        0.7.x <http://pyinotify.sourceforge.net/>`_ or `Pyinotify
+        0.8.x <http://trac.dbzteam.org/pyinotify/>`_. Some Linux
+        distributions have one or other of these packages pre-installed.
+        Some distributions of Pyinotify versions 0.8.6 and 0.8.7 are not
+        compatible with Python 2.4. If your system runs Python 2.4
+        Pyinotify 0.8.5 or lower is recommended.
+    -   Linux systems running Python 2.4 also requires ctypes (bundled
+        with Python 2.5+) which is available from
+        `http://python.net/crew/theller/ctypes/ <http://python.net/crew/theller/ctypes/>`_
+    -   Mac OS systems that use a macports install of Python will need to
+        have FSEvents available in the PYTHONPATH. This will require a
+        path of the form
+        /System/Library/Frameworks/Python.framework/Versions/2.X/Extras/lib/python/PyObjC/
+        to be added, according to the version of Python used.
 
--  The filesystem which OMERO.fs watches must be local to the given
-   operating system. Watching a network-attached share (NAS) is strictly
-   ***not*** supported.
+-   The filesystem which OMERO.fs watches must be local to the given
+    operating system. Watching a network-attached share (NAS) is strictly
+    ***not*** supported.
 
 .. _dropbox:
 
@@ -94,9 +94,7 @@ the last required file of a set is copied into the directory.
 Acquisition systems can then be configured to drop a user's images into
 a given dropbox.
 
-Important note: the DropBox system is designed for images filesets to be
-copied in at normal acquisition rates. Copying numbers of files en masse
-may result in files failing to import.
+.. note:: the DropBox system is designed for images filesets to be copied in at normal acquisition rates. Copying numbers of files en masse may result in files failing to import.
 
 Log files
 ~~~~~~~~~
@@ -127,8 +125,8 @@ monitored, one for user ``amy`` and one for ``zak``:
 
 ::
 
-        <property name="omero.fs.importUsers"  value="amy;zak"/>
-        <property name="omero.fs.watchDir"  value="/home/amy/myData;/home/zak/work/data"/>
+    <property name="omero.fs.importUsers"  value="amy;zak"/>
+    <property name="omero.fs.watchDir"  value="/home/amy/myData;/home/zak/work/data"/>
 
 The remaining properties have been left at their default values for both
 users.
@@ -138,7 +136,7 @@ the following property can be set,
 
 ::
 
-        <property name="omero.fs.readers"  value="/home/amy/my_readers.txt;"/>
+    <property name="omero.fs.readers"  value="/home/amy/my_readers.txt;"/>
 
 Here only the image types listed in ``my_readers.txt`` will be imported
 for the user ``amy`` while the system-wide ``readers.txt`` will be used
@@ -155,150 +153,150 @@ be comma separated.
 
 importUsers
 
-	The importUsers is either ``default`` for the standard DropBox
-	configuration or a list of OMERO user names. The default is default.
+    The importUsers is either ``default`` for the standard DropBox
+    configuration or a list of OMERO user names. The default is default.
 
-	::
+    ::
 
-	        <property name="omero.fs.importUsers"  value="default"/>
+        <property name="omero.fs.importUsers"  value="default"/>
 
 
 watchDir
 
-	The absolute directory path of interest for each user. The default is
-	empty.
+    The absolute directory path of interest for each user. The default is
+    empty.
 
-	::
+    ::
 
-	        <property name="omero.fs.watchDir"  value=""/>
+        <property name="omero.fs.watchDir"  value=""/>
 
 eventTypes
 
-	For automatic import Creation and Modification events are monitored. It
-	is also possible to monitor Deletion events though these are not used by
-	DropBox. The default is Creation,Modification
+    For automatic import Creation and Modification events are monitored. It
+    is also possible to monitor Deletion events though these are not used by
+    DropBox. The default is Creation,Modification
 
-	::
+    ::
 
-	        <property name="omero.fs.eventTypes"  value="Creation,Modification"/>
+        <property name="omero.fs.eventTypes"  value="Creation,Modification"/>
 
 pathMode
 
-	By default existing and newly created subdirectories are monitored. It
-	is possible to restrict monitoring to a single directory ("Flat"), only
-	existing subdirectories ("Recurse"), or all subdirectories ("Follow").
-	For DropBox to function correctly the mode should be Follow. The default
-	is Follow
+    By default existing and newly created subdirectories are monitored. It
+    is possible to restrict monitoring to a single directory ("Flat"), only
+    existing subdirectories ("Recurse"), or all subdirectories ("Follow").
+    For DropBox to function correctly the mode should be Follow. The default
+    is Follow
 
-	::
+    ::
 
-	        <property name="omero.fs.pathMode"  value="Follow"/>
+        <property name="omero.fs.pathMode"  value="Follow"/>
 
 whitelist
 
-	A list of file extensions of interest. An empty list implies all file
-	extensions are monitored. The default is an empty list.
+    A list of file extensions of interest. An empty list implies all file
+    extensions are monitored. The default is an empty list.
 
-	::
+    ::
 
-	        <property name="omero.fs.whitelist"  value=""/>
+        <property name="omero.fs.whitelist"  value=""/>
 
 blacklist
 
-	A list of subdirectories to ignore. Not currently supported.
+    A list of subdirectories to ignore. Not currently supported.
 
-	::
+    ::
 
-	        <property name="omero.fs.blacklist"  value=""/>
+        <property name="omero.fs.blacklist"  value=""/>
 
 timeout
 
-	This timeout in seconds is used by one-shot monitors. This property is
-	not used by DropBox.
+    This timeout in seconds is used by one-shot monitors. This property is
+    not used by DropBox.
 
-	::
+    ::
 
-	        <property name="omero.fs.timeout"  value="0.0"/>
+        property name="omero.fs.timeout"  value="0.0"/>
 
 blockSize
 
-	The number of events that should be propagated to DropBox in one go.
-	Zero implies all events possible. The default is zero.
+    The number of events that should be propagated to DropBox in one go.
+    Zero implies all events possible. The default is zero.
 
-	::
+    ::
 
-	        <property name="omero.fs.blockSize"  value="0"/>
+        <property name="omero.fs.blockSize"  value="0"/>
 
 ignoreSysFiles
 
-	If this is True events concerning system files, such as filenames
-	beginning with a dot or default new folder names, are ignored. The exact
-	events ignored will be OS-dependent. The default is True
+    If this is True events concerning system files, such as filenames
+    beginning with a dot or default new folder names, are ignored. The exact
+    events ignored will be OS-dependent. The default is True
 
-	::
+    ::
 
-	        <property name="omero.fs.ignoreSysFiles"  value="True"/>
+        <property name="omero.fs.ignoreSysFiles"  value="True"/>
 
 ignoreDirEvents
 
-	If this is True then the creation and modification of subdirectories is
-	not reported to DropBox. The default is True
+    If this is True then the creation and modification of subdirectories is
+    not reported to DropBox. The default is True
 
-	::
+    ::
 
-	        <property name="omero.fs.ignoreDirEvents"  value="True"/>
+        <property name="omero.fs.ignoreDirEvents"  value="True"/>
 
 dirImportWait
 
-	The time in seconds that DropBox should wait after being notified of a
-	file before starting an import on that file. This allows for companion
-	files or filesets to be copied. If a new file is added to a fileset
-	during this wait period DropBox begins waiting again. The default is 60
-	seconds.
+    The time in seconds that DropBox should wait after being notified of a
+    file before starting an import on that file. This allows for companion
+    files or filesets to be copied. If a new file is added to a fileset
+    during this wait period DropBox begins waiting again. The default is 60
+    seconds.
 
-	::
+    ::
 
-	        <property name="omero.fs.dirImportWait"  value="60"/>
+        <property name="omero.fs.dirImportWait"  value="60"/>
 
 fileBatch
 
-	The number of files that can be copied in before processing the batch.
-	In cases where there are large numbers of files in a typical file set it
-	may be more efficient to set this value higher. The default is 10.
+    The number of files that can be copied in before processing the batch.
+    In cases where there are large numbers of files in a typical file set it
+    may be more efficient to set this value higher. The default is 10.
 
-	::
+    ::
 
-	        <property name="omero.fs.fileBatch"  value="10"/>
+        <property name="omero.fs.fileBatch"  value="10"/>
 
 throttleImport
 
-	The time in seconds that DropBox should wait after initiating an import
-	before initiating a second import. If imports are started too close
-	together connection issues can arise. The default is 10 seconds.
+    The time in seconds that DropBox should wait after initiating an import
+    before initiating a second import. If imports are started too close
+    together connection issues can arise. The default is 10 seconds.
 
-	::
+    ::
 
-	        <property name="omero.fs.throttleImport"  value="10"/>
+        <property name="omero.fs.throttleImport"  value="10"/>
 
 readers
 
-	A file of readers. If this is a valid file then it is used to filter
-	those events that are of interest. Only files corresponding to a reader
-	in the file will be imported. The default is empty.
+    A file of readers. If this is a valid file then it is used to filter
+    those events that are of interest. Only files corresponding to a reader
+    in the file will be imported. The default is empty.
 
-	::
+    ::
 
-	        <property name="omero.fs.readers"  value=""/>
+        <property name="omero.fs.readers"  value=""/>
 
 importArgs
 
-	A string of extra arguments supplied to the importer. This could
-	include, for example, an email address to report failed imports to:
-	``--report --send -email=test@example.com`` The default is empty.
+    A string of extra arguments supplied to the importer. This could
+    include, for example, an email address to report failed imports to:
+    ``--report --send -email=test@example.com`` The default is empty.
 
-	::
+    ::
 
-	        <property name="omero.fs.importArgs"  value=""/>
+        <property name="omero.fs.importArgs"  value=""/>
 
 Example
 ~~~~~~~
@@ -307,18 +305,18 @@ Here's a full example of a configuration for two users:
 
 ::
 
-        <property name="omero.fs.importUsers"     value="amy;zak"/>
-        <property name="omero.fs.watchDir"        value="/home/amy/myData;/home/zak/work/data"/>
-        <property name="omero.fs.eventTypes"      value="Creation,Modification;Creation,Modification"/>
-        <property name="omero.fs.pathMode"        value="Follow;Follow"/>
-        <property name="omero.fs.whitelist"       value=";"/>
-        <property name="omero.fs.blacklist"       value=";"/>
-        <property name="omero.fs.timeout"         value="0.0;0.0"/>
-        <property name="omero.fs.blockSize"       value="0;0"/>
-        <property name="omero.fs.ignoreSysFiles"  value="True;True"/>
-        <property name="omero.fs.ignoreDirEvents" value="True;True"/>
-        <property name="omero.fs.dirImportWait"   value="60;60"/>
-        <property name="omero.fs.fileBatch"       value="10;10"/>
-        <property name="omero.fs.throttleImport"  value="10;10"/>
-        <property name="omero.fs.readers"         value="/home/amy/my_readers.txt;"/>
-        <property name="omero.fs.importArgs"      value="-report;-report -send -email=zak@example.com"/>
+    <property name="omero.fs.importUsers"     value="amy;zak"/>
+    <property name="omero.fs.watchDir"        value="/home/amy/myData;/home/zak/work/data"/>
+    <property name="omero.fs.eventTypes"      value="Creation,Modification;Creation,Modification"/>
+    <property name="omero.fs.pathMode"        value="Follow;Follow"/>
+    <property name="omero.fs.whitelist"       value=";"/>
+    <property name="omero.fs.blacklist"       value=";"/>
+    <property name="omero.fs.timeout"         value="0.0;0.0"/>
+    <property name="omero.fs.blockSize"       value="0;0"/>
+    <property name="omero.fs.ignoreSysFiles"  value="True;True"/>
+    <property name="omero.fs.ignoreDirEvents" value="True;True"/>
+    <property name="omero.fs.dirImportWait"   value="60;60"/>
+    <property name="omero.fs.fileBatch"       value="10;10"/>
+    <property name="omero.fs.throttleImport"  value="10;10"/>
+    <property name="omero.fs.readers"         value="/home/amy/my_readers.txt;"/>
+    <property name="omero.fs.importArgs"      value="-report;-report -send -email=zak@example.com"/>

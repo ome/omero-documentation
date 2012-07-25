@@ -195,6 +195,8 @@ located on the local file system (e.g. ``/tmp/``).
 If you are running OMERO on Mac OS X then details of the required
 environment variables can be found on the :ref:`rst_install_macports`.
 
+.. _installation_database_creation:
+
 Creating a database as root
 ---------------------------
 

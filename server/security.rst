@@ -168,6 +168,8 @@ similar to the properties you configured during
 
        bin/omero config set omero.security.trustStorePassword secret
 
+.. _security_ssl:
+
 SSL
 ---
 
