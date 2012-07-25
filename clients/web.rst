@@ -8,8 +8,7 @@ OMERO in your browser
 
 OMERO ships with a web-based client for users who want to access their
 data in the browser. This offers a similar view to the OMERO.insight
-Java client. Developers can use the
-`OMERO.web <http://trac.openmicroscopy.org.uk/ome/wiki/OmeroWeb>`_
+Java client. Developers can use the :wiki:`OMERO.web <OmeroWeb>`
 framework to build their own views on OMERO data.
 
 OMERO.web 4.4

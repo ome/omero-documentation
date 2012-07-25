@@ -61,7 +61,7 @@ Trac: Developer docs
 The two major development tools that the OME project runs are Trac and Jenkins.
 
 
-The Trac server is available under https://trac.openmicroscopy.org.uk/ome and uses your LDAP account for authentication. Trac provides a wiki where we put all the development documentation (as opposed to the official user document under http://openmicroscopy.org).
+The Trac server is available under https://trac.openmicroscopy.org.uk/ome and uses your LDAP account for authentication. Trac provides a wiki where we put all the development documentation (as opposed to the official user document under http://www.openmicroscopy.org).
 
 .. _plone_screenshot:
 .. figure:: images/10000000000003EF00000209A486215A.png
@@ -73,7 +73,7 @@ Each section of the code base (OMERO, Bio-Formats, the Data Model) has a landing
     http://trac.openmicroscopy.org.uk/ome/wiki/OmeroHome
 
 
-In addition, Trac is used to record all tickets (i.e. “bugs” or “issues”) as well as hierarchical groups of “tasks” in “requirements” and “stories”. This functionality is provided by a plugin for Trac named “Agilo” (http://agile42.com/) which you may want to read more about. Most importantly it provides a whiteboard where tickets are arranged per story into 3 columns: new, accepted, and closed.
+In addition, Trac is used to record all tickets (i.e. “bugs” or “issues”) as well as hierarchical groups of “tasks” in “requirements” and “stories”. This functionality is provided by a plugin for Trac named “Agilo” (http://agile42.com/en/) which you may want to read more about. Most importantly it provides a whiteboard where tickets are arranged per story into 3 columns: new, accepted, and closed.
 
 
 .. _trac_screenshot:
@@ -115,7 +115,7 @@ Feedback from the OME community happens primarily on 2 public mailing lists (ome
 as well as on the PhpBB forums
 
 
-    http://openmicroscopy.org/community
+    http://www.openmicroscopy.org/community
 
 
 an alternative to the mailing lists since some users prefer the forum interface to the mailing list one, and vice versa.
@@ -161,7 +161,7 @@ There are a number of servers and services inside of the University of Dundee sy
 * **squig.openmicroscopy.org** is the shared, team-wide repository for data which can be mounted if you are on VPN or within the UoD system. It contains test data for various file formats.
 
 
-* The official OME website is run using Plone (https://www.openmicroscopy.org) (LDAP-based)
+* The official OME website is run using Plone (https://www.openmicroscopy.org/site) (LDAP-based)
 
 
 * The university provides an Alfresco instance (https://alfresco.lifesci.dundee.ac.uk) (LDAP-based) for collaborating on documents.
@@ -262,7 +262,7 @@ Stories
 Requirements are made up of stories, which should take days to weeks to complete. A large number of stories will be put into any one sprint , the two-week period that is visible on the Trac whiteboard at a given time. This is the standard unit of work for the team. After a sprint, the stories that were chosen for the sprint, should be closed if possible, and there should be some evidence of the work (screenshots, screencasts, etc) available from the milestone page:
 
 
-    https://trac.openmicroscopy.org.uk/ome/milestone
+    https://trac.openmicroscopy.org.uk/ome/roadmap
 
 
 .. _storyexample_screenshot:
@@ -364,7 +364,7 @@ Particularly of importance for this document is the section on “Branch managem
 Release process
 ~~~~~~~~~~~~~~~
 
-A release is primarily defined on the Trac milestone page, e.g. http://trac.openmicroscopy.org.uk/ome/milestone
+A release is primarily defined on the Trac milestone page, e.g. http://trac.openmicroscopy.org.uk/ome/roadmap
 
 
 .. _milestone_screenshot:
@@ -496,7 +496,7 @@ There are any number of other projects which have setup similar practices
 for code contributions. If you would like to read more on the rationale,
 please see:
 
-* http://dojofoundation.org/about
+* http://dojofoundation.org/about/get-involved
 * http://dojofoundation.org/about/cla
 * http://incubator.apache.org/
 * http://www.apache.org/foundation/how-it-works.html

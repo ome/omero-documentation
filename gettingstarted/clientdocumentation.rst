@@ -3,16 +3,14 @@
 Client Documentation
 ====================
 
-This document focuses on OMERO documentation for
-scientists & end users.
+This document focuses on OMERO documentation for scientists & end users.
 
  Getting Additional Help
 ------------------------
 
 - For answers to commonly asked questions, try our :plone:`FAQ <support/faq>`.
 
-- Join one of our :plone:`Mailing lists <community/mailing-lists>` for
-  end users or developers.
+- Join one of our :plone:`Mailing lists <community/mailing-lists>` for end users or developers.
 
 - Visit the :plone:`forums <community>` for more discussions.
 
@@ -28,7 +26,7 @@ The core concepts that provide an overview to OMERO are addressed below.
 - :plone:`Feature List  <products/feature-list>`
 - :plone:`System Requirements <support/omero4/system-requirements>`
 - :plone:`Downloads <support/omero4/downloads>`
-- :plone:`Known Limitations <support/omero4/known-limitations>`
+- :ref:`rst_limitations`
 
 OMERO.clients
 -------------

@@ -128,7 +128,7 @@ your modifications. Doing this, however, is not as simple as copying the
 directory over since the core developers will have also improved these
 scripts. In order to facilitate saving your work, we've turned the
 scripts into a Git submodule which can be found at
-<https://github.com/ome/scripts>_. For more information on how to use Git
+`<https://github.com/ome/scripts>`_. For more information on how to use Git
 submodules, please consult the
 :plone:`FAQ <support/faq/omero/how-do-i-make-lib-scripts-a-git-repository>`.
 
