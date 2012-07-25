@@ -24,6 +24,7 @@ Developers
 .. toctree::
    :maxdepth: 2
 
+   overview
    platform
    gettingstarted
    gettingstarted/index
