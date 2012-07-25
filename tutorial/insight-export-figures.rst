@@ -151,10 +151,10 @@ Split-view figures:
 
 Examples:
 
--  http://jcb.rupress.org/cgi/content/full/168/4/599/FIG3
--  http://jcb.rupress.org/cgi/content/full/168/4/607/FIG5
--  http://jcb.rupress.org/cgi/content/full/168/5/747/FIG8 (Panel E)
--  http://jcb.rupress.org/cgi/content/full/168/5/775/FIG2
+-  http://jcb.rupress.org/content/168/4/599/F3.expansion
+-  http://jcb.rupress.org/content/168/4/607/F5.expansion
+-  http://jcb.rupress.org/content/168/5/747/F8.expansion (Panel E)
+-  http://jcb.rupress.org/content/168/5/775/F2.expansion
 
 Grid of Images
 --------------
@@ -162,16 +162,16 @@ Grid of Images
 -  All panels different conditions with panels named with Name (or Tag)
    in white:
 
-   -  http://jcb.rupress.org/cgi/content/full/168/4/599/FIG2
-   -  http://jcb.rupress.org/cgi/content/full/168/5/801/FIG6
-   -  http://jcb.rupress.org/cgi/content/full/168/6/855/FIG2
+   -  http://jcb.rupress.org/content/168/4/599/F2.expansion
+   -  http://jcb.rupress.org/content/168/5/801/F6.expansion
+   -  http://jcb.rupress.org/content/168/6/855/F2.expansion
 
 -  Arranged in rows and cols. E.g. Choose a project: Columns are
    datasets and rows are tags:
 
-   -  http://jcb.rupress.org/cgi/content/full/168/5/747/FIG5
-   -  http://jcb.rupress.org/cgi/content/full/168/5/747/FIG8 (Panel A)
-   -  http://jcb.rupress.org/cgi/content/full/172/1/139/FIG7
+   -  http://jcb.rupress.org/content/168/5/747/F5.expansion
+   -  http://jcb.rupress.org/content/168/5/747/F8.expansion (Panel A)
+   -  http://jcb.rupress.org/content/172/1/139/F7.expansion
 
 Movie
 -----
@@ -179,12 +179,12 @@ Movie
 -  Options to choose frames interval (e.g. 30 mins) or to split movie
    over a fixed number of frames:
 
-   -  http://jcb.rupress.org/cgi/content/full/168/4/567/FIG4
+   -  http://jcb.rupress.org/content/168/4/567/F4.expansion
    -  http://www.nature.com/ncb/journal/v11/n11/fig_tab/ncb1973_F3.html
-   -  http://jcb.rupress.org/cgi/content/full/172/1/27/FIG3
-   -  http://jcb.rupress.org/cgi/content/full/188/1/49/FIG5
-   -  http://jcb.rupress.org/cgi/content/full/187/6/831/FIG1
-   -  http://jcb.rupress.org/cgi/content/full/187/6/781
+   -  http://jcb.rupress.org/content/172/1/27/F3.expansion
+   -  http://jcb.rupress.org/content/188/1/49/F5.expansion
+   -  http://jcb.rupress.org/content/187/6/831/F1.expansion
+   -  http://jcb.rupress.org/content/187/6/781
 
 ROI-Zoom Splitview
 ------------------
@@ -195,25 +195,25 @@ by chosen factor (e.g. 4x). Options to display zoom:
 
 -  as sibling panel (same size as parent):
 
-   -  http://jcb.rupress.org/cgi/content/full/168/4/619/FIG5
-   -  http://jcb.rupress.org/cgi/content/full/168/4/619/FIG2
-   -  http://jcb.rupress.org/cgi/content/full/168/4/619/FIG1
-   -  http://jcb.rupress.org/cgi/content/full/168/4/587/FIG2
+   -  http://jcb.rupress.org/content/168/4/619/F5.expansion
+   -  http://jcb.rupress.org/content/168/4/619/F2.expansion
+   -  http://jcb.rupress.org/content/168/4/619/F1.expansion
+   -  http://jcb.rupress.org/content/168/4/587/F2.expansion
 
 -  overlay partially:
 
-   -  http://jcb.rupress.org/cgi/content/full/168/5/747/FIG6
-   -  http://jcb.rupress.org/cgi/content/full/168/5/747/FIG8 (C)
-   -  http://jcb.rupress.org/cgi/content/full/168/5/747/FIG9
+   -  http://jcb.rupress.org/content/168/5/747/F6.expansion
+   -  http://jcb.rupress.org/content/168/5/747/F8.expansion (C)
+   -  http://jcb.rupress.org/content/168/5/747/F9.expansion
 
 -  overlay into corner:
 
-   -  http://jcb.rupress.org/cgi/content/full/168/5/735/FIG2
+   -  http://jcb.rupress.org/content/168/5/735/F2.expansion
 
 ROI-Zoom movie
 --------------
 
--  http://jcb.rupress.org/cgi/content/full/168/4/599/FIG4
+-  http://jcb.rupress.org/content/168/4/599/F4.expansion
 
 Kymograph
 ---------
@@ -223,6 +223,6 @@ Kymograph
 -  http://download.cell.com/mmcs/journals/0092-8674/PIIS0092867408015213.mmc4.mov
 -  http://www.nature.com/ncb/journal/v10/n10/fig_tab/ncb1777_F5.html
 -  http://www.jove.com/index/details.stp?id=1144
--  http://jcb.rupress.org/cgi/content/full/187/6/831/FIG2
--  http://jcb.rupress.org/content/194/2/187/F3.expansion.html
+-  http://jcb.rupress.org/content/187/6/831/F2.expansion
+-  http://jcb.rupress.org/content/194/2/187/F3.expansion
 

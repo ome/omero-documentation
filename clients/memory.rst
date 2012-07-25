@@ -50,8 +50,8 @@ Windows Importer & Insight
    ``OMERO.importer.vmoptions``, for the ``OMERO.insight.exe``
    application, this file should be named ``OMERO.insight.vmoptions``.
 -  The easiest way to get this file is to download either the
-   `OMERO.insight <support-files/OMERO.insight.vmoptions>`_ or
-   `OMERO.importer <support/omero4/clients/support-files/OMERO.importer.vmoptions>`_
+   :plone:`OMERO.insight <support/omero4/clients/support-files/OMERO.insight.vmoptions>` or
+   :plone:`OMERO.importer <support/omero4/clients/support-files/OMERO.importer.vmoptions>`
    file attachment to this document, and copy it into the same directory
    as your exe file (either ``OMERO.importer.exe`` or
    ``OMERO.insight.exe``). The default file increases the memory

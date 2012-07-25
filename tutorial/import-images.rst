@@ -4,7 +4,7 @@ Importing Images
 ================
 
 To get the list of file formats currently supported in OMERO, go to
-`LOCI bio-formats library <http://www.loci.wisc.edu/software/bio-formats>`_
+`LOCI bio-formats library <http://loci.wisc.edu/software/bio-formats>`_
 
 In order to import images into an OMERO server, you need to:
 

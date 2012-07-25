@@ -9,7 +9,7 @@ wanting to use a shell-scripted or web-based front-end interface for
 importing. Based upon the same set of libraries as the standard
 importer, the command line version supports the same files formats and
 functions in much the same way. (For a full list of supported file
-types, see: `LOCI bio-formats library <http://www.loci.wisc.edu/software/bio-formats>`_).
+types, see: `LOCI bio-formats library <http://loci.wisc.edu/software/bio-formats>`_).
 
 Starting the Command Line Importer
 ----------------------------------

@@ -25,7 +25,7 @@ Download an Ubuntu Linux ISO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Download an `Ubuntu Linux
-iso <http://www.ubuntu.com/download/ubuntu/download>`_. The default,
+iso <http://www.ubuntu.com/download/desktop>`_. The default,
 currently Ubuntu 11.10 32bit, is fine. We will need this later in the
 process. ### Backup your VM ### Before we do anything else we should
 create a clone of the omero-vm and subsequently work on the copy. This

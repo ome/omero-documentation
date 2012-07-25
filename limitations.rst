@@ -16,7 +16,7 @@ users add their own "official scripts", they too will be stored under
 lib/scripts. When we release a new OMERO version, there will be some
 difficulties merging the two directories.
 
-A github repository is now available under http://github.com/ome/scripts
+A github repository is now available under <https://github.com/ome/scripts>_
 which provides help for merging your lib/scripts directories. For more
 information, see `"How do I make lib/scripts a git
 repository?" <https://www.openmicroscopy.org/site/support/faq/omero/how-do-i-make-lib-scripts-a-git-repository>`_

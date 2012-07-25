@@ -104,6 +104,8 @@ VirtualBox Host-Only NAT address. Using this address is the simplest way
 to distribute a virtual appliance when you do not know the setup of a
 user's network.
 
+.. _virtualappliance_portforwarding:
+
 Port-Forwarding Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -644,8 +646,7 @@ OMERO.server in the host OS.
        $ omero admin stop
 
 -  \*\* SOLUTION 2: \*\* Alter the port-forwarding settings for your
-   OMERO.VM as described in the `port-forwarding
-   section </site/support/omero4/getting-started/demo/virtual_appliance#portforwarding>`_
+   OMERO.VM as described in the :ref:`virtualappliance_portforwarding`
    section. For example, increment the host port settings for omero-ssl,
    omero-unsec, and omero-web. NB. We are assuming that your host OS is
    not already running services on those ports. You can check whether

@@ -41,5 +41,5 @@ OMERO <support/legacy/>`.
 
 Most other **technical documentation** is located on the developer
 maintained Trac systems for either the
-`server <http://trac.openmicroscopy.org.uk/omero/>`_ or
-`clients <http://trac.openmicroscopy.org.uk/shoola/>`_.
+`server <http://trac.openmicroscopy.org.uk/ome/>`_ or
+`clients <http://trac.openmicroscopy.org.uk/ome/>`_.

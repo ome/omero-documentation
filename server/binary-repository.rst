@@ -9,7 +9,7 @@ Binary Repository
 	server-side functionality. It provides optimized and indexed storage of
 	original file, pixel and thumbnail data, attachments and full text
 	indexes. Its structure is based on
-	`OMEIS </site/support/legacy/ome-server/system-overview/ome-image-server/>`_.
+	:plone:`OMEIS <support/legacy/ome-server/system-overview/ome-image-server/>`.
 
 Layout
 ------
