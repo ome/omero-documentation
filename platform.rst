@@ -6,8 +6,8 @@ for visualising, managing, and annotating scientific image data. OMERO
 also provides components for image importing, archiving, protocol
 recording, and user administration. OMERO consists of a Java server,
 several Java client applications, as well as Python and C++ bindings and
-a Django-based web application. See the OMERO `feature
-list <products/feature-list>`_.
+a Django-based web application. See the OMERO :plone:`feature
+list <products/feature-list>`.
 
 The OMERO server is built as a set of separate but linked subsystems.
 All imported image data is split into two types: binary pixel data is
@@ -28,8 +28,8 @@ server — the location of the server is specified at login. Since this
 connection utilises a standard network connection, the client can be run
 anytime the user is connected to the internet.
 
-There are a number of demonstration videos available on the `Features
-List <products/feature-list>`_ page providing an overview of the
+There are a number of demonstration videos available on the :plone:`Features
+List <products/feature-list>` page providing an overview of the
 applications. For an initial impression please browse out
 `screenshots <screenshots>`_. For a detailed overview of the OMERO
 clients, see the `OMERO.clients <clients>`_.
