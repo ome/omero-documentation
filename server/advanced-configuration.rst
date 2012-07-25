@@ -5,14 +5,13 @@ Advanced Configuration
 
 .. topic:: Overview
 
-	Describes configuration options that not everyone will need, but may be
-	useful for optimizing, customizing, or monitoring your server.
+    Describes configuration options that not everyone will need, but may be
+    useful for optimizing, customizing, or monitoring your server.
 
 .. contents::
-	:depth: 2
+    :depth: 2
 
-The OMERO server provides several different configuration/extension
-points that you may want to make use of.
+The OMERO server provides several different configuration/extension points that you may want to make use of.
 
 First step: Configuration properties
 ------------------------------------
@@ -47,7 +46,7 @@ change the default, for example, to 1 hour use:
 
 ::
 
-        $ bin/omero config set omero.sessions.timeout 3600000
+	$ bin/omero config set omero.sessions.timeout 3600000
 
 omero.db.poolsize
 ~~~~~~~~~~~~~~~~~
@@ -57,7 +56,7 @@ will be used by OMERO (default is 10):
 
 ::
 
-        $ bin/omero config set omero.db.poolsize 50
+	$ bin/omero config set omero.db.poolsize 50
 
 Your database installation will need to be configured to accept *at
 least* as many, preferably more, connections as the value of
@@ -82,9 +81,9 @@ looks up the default **application descriptor** for your platform:
 
 ::
 
-    ~/git/dist $ bin/omero admin start
-    No descriptor given. Using etc/grid/default.xml
-    Waiting on startup. Use CTRL-C to exit
+	~/git/dist $ bin/omero admin start
+	No descriptor given. Using etc/grid/default.xml
+	Waiting on startup. Use CTRL-C to exit
 
 The "start" and "deploy" command, however, take several other
 parameters:
@@ -194,7 +193,7 @@ Changing ports / Multiple servers on a single host
 
 Since changing all the references to port numbers (4061, 4063, 4064,
 etc) in the grid configuration can be cumbersome, a bin/omero admin
-command is provided to make the modifications for you. See the "SSL"
+command is provided to make the modifications for you. See the :ref:`security_ssl`
 section of the :ref:`rst_security` page for more information.
 
 By modifying the default OMERO ports, it is possible to run multiple
@@ -215,8 +214,8 @@ OMERO servers on the same physical machine.
 Clients will need to use the appropriate port (either 14064 or 24064) to
 connect to OMERO.
 
-ExtendingOmero
---------------
+Extending Omero
+---------------
 
 Finally, if configuration does not suffice, there are also options to
 extending OMERO with your own code. These are described on the

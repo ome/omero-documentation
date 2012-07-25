@@ -5,14 +5,12 @@ Install - Walkthrough on 10.7 using Homebrew
 
 .. topic:: Overview
 
-	This walkthrough is a list of the commands used to install OMERO on a
-	clean Mac OS 10.7 Lion using Homebrew.
+    This walkthrough is a list of the commands used to install OMERO on a clean Mac OS X 10.7 Lion using Homebrew.
 
 .. contents::
-	:depth: 2
+    :depth: 2
 
-The instructions and scripts provided here depend on Homebrew 0.9 or
-later, including support for the ``brew tap`` command.
+The instructions and scripts provided here depend on Homebrew 0.9 or later, including support for the ``brew tap`` command.
 
 Prerequisites
 -------------
@@ -20,8 +18,7 @@ Prerequisites
 OS X
 ~~~~
 
-This procedure has been tested on the following Mac OS X versions and
-hardware:
+This procedure has been tested on the following Mac OS X versions and hardware:
 
 ===================================================== ================
 Model identifier                                      Mac OS X version
@@ -36,8 +33,7 @@ MacBookPro8,2 (Intel Core i7, 2.3 GHz, 8 GB RAM)      10.7.4
 Xcode
 ~~~~~
 
-Install OS X Developer Tools. This procedure has been tested with the
-the following Xcode distributions:
+Install OS X `Developer Tools <https://developer.apple.com/technologies/tools/>`_. This procedure has been tested with the the following Xcode distributions:
 
 ================================ ================
 Xcode version                    Mac OS X version
@@ -74,18 +70,15 @@ You also need Java which comes as standard on OS X.
 Homebrew installation
 ---------------------
 
-Follow the installation instructions on the
-`Homebrew wiki <https://github.com/mxcl/homebrew/wiki/installation>`_. All
-requirements for OMERO will be installed in this location (e.g.
-/usr/local). For example:
+Follow the installation instructions on the `Homebrew wiki <https://github.com/mxcl/homebrew/wiki/installation>`_. All
+requirements for OMERO will be installed to ``/usr/local``.
 
 ::
 
     $ ruby -e "$(curl -fsSLk https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
     $ brew install git
 
-If you are having issues with curl, see the the :ref:`install_homebrew_curl` section under
-:ref:`install_homebrew_common_issues`.
+If you are having issues with curl, see the the :ref:`install_homebrew_curl` section under :ref:`install_homebrew_common_issues`.
 
 OMERO requirements installation
 -------------------------------
@@ -108,190 +101,75 @@ Run the script to install OMERO requirements:
 
 .. note::
 
-	The omero\_homebrew.sh script may need to be run several times
-	before it completes, albeit successfully. This is due to the homebrew
-	script pulling code archives from many different places as it retrieves
-	the various components that you have asked it to install. Occasionally
-	the remote repositories are temporarily unavailable and can cause the
-	script to fail. Under normal circumstances simply rerunning the script
-	should be sufficient. Occasionally you may have to wait for a short
-	period then try running the script again. Rarely you may have to find a
-	different location for the remote repository (NB. This should involve
-	getting in touch with the homebrew project/OMERO team members so that
-	homebrew formulae can be updated in the event of a permanent failure of
-	a resource).
+    The omero\_homebrew.sh script may need to be run several times
+    before it completes, albeit successfully. This is due to the homebrew
+    script pulling code archives from many different places as it retrieves
+    the various components that you have asked it to install. Occasionally
+    the remote repositories are temporarily unavailable and can cause the
+    script to fail. Under normal circumstances simply rerunning the script
+    should be sufficient. Occasionally you may have to wait for a short
+    period then try running the script again. Rarely you may have to find a
+    different location for the remote repository (NB. This should involve
+    getting in touch with the homebrew project/OMERO team members so that
+    homebrew formulae can be updated in the event of a permanent failure of
+    a resource).
+    
+If you encounter problems with the installation script, please take a look at :ref:`install_homebrew_common_issues`.
 
 PostgreSQL
 ~~~~~~~~~~
 
-Install PostgreSQL if you do not have another PostgreSQL installation
-that you can use.
+Install PostgreSQL if you do not have another PostgreSQL installation that you can use.
 
 ::
 
     $ brew install postgresql
 
-.. _install_homebrew_common_issues:
-
-Common issues
--------------
-
-If you run into problems with Homebrew, you can always run
-
-::
-
-    $ brew doctor
-
-Below is a non-exhaustive list of errors/warnings. Some if not all of
-them could be possible avoided by removing any previous OMERO
-installation artifacts from your system.
-
-.. _install_homebrew_curl:
-
-curl (Mac 10.5 only)
-~~~~~~~~~~~~~~~~~~~~
-
-::
-
-    curl: (60) SSL certificate problem, verify that the CA cert is OK. Details:
-    error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed
-
-Use \`\ ``export GIT_SSL_NO_VERIFY=1``` before running failing brew
-commands.
-
-Xcode
-~~~~~
-
-::
-
-    Warning: Xcode is not installed! Builds may fail!
-
-Install Xcode using `Mac App store <https://developer.apple.com/technologies/tools/>`_.
-
-Macports/Fink
-~~~~~~~~~~~~~
-
-::
-
-    Warning: It appears you have MacPorts or Fink installed.
-
-Follow uninstall instructions from the
-`Macports guide <http://guide.macports.org/chunked/installing.macports.uninstalling.html>`_.
-
-Postgresql
-~~~~~~~~~~
-
-::
-
-    ==> Installing postgresql dependency: readline
-    Error: No such file or directory - /usr/bin/cc
-
-For Xcode 4.3.2 make sure Xcode Command Line Tools are installed
-(`see comment <https://github.com/mxcl/homebrew/issues/10244#issuecomment-4013781>`_).
-
-::
-
-    Error: You must ``brew link ossp-uuid' before postgresql can be installed
-
-Try `brew cleanup` then `brew link ossp-uuid`.
-
-Ice
-~~~
-
-::
-
-    Error: Failed executing: cd cpp && make M PP_HOME=/Users/sebastien/apps/    OMERO.libs/Cellar/mcpp/2.7.2 DB_HOME=/Users/sebastien/apps/OMERO.libs/Cellar/berkeley-    db46/4.6.21 OPTIMIZE=yes prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 embedded_runpath_prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 install
-
-We have had problems building zeroc-ice33 under MacOS 10.7.3 and 10.6.8
-(see :ticket:`8075`). If you
-will be developing OMERO rather than installing omero, you can try
-installing ``ice`` (Ice 3.4) instead. If you decide to go with
-zeroc-ice33, make sure that you don't have ``DYLD_LIBRARY_PATH`` set to
-an existing Ice's installation lib directory path. In essence your
-``.bash_profile`` shouldn't have any OMERO-related environment variables
-set before executing the installation script.
-
-szip
-~~~~
-
-::
-
-    ==> Installing hdf5 dependency: szip
-    ==> Downloading http://www.hdfgroup.org/ftp/lib-external/szip/2.1/src/szip-2.1.tar.gz
-    Already downloaded: /Library/Caches/Homebrew/szip-2.1.tar.gz
-    Error: MD5 mismatch
-    Expected: 902f831bcefb69c6b635374424acbead
-    Got: 0d6a55bb7787f9ff8b9d608f23ef5be0
-    Archive: /Library/Caches/Homebrew/szip-2.1.tar.gz
-    (To retry an incomplete download, remove the file above.)
-
-Manually remove the archived version located under
-/Library/Caches/Homebrew since the maintainer may have updated the file.
-
-numexpr (and other Python packages)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you encounter an issue related to numexpr complaining about NumPy
-having a too low version number, verify that you have not before
-installed any Python packages using pip. In the case where pip has been
-installed before homebrew, uninstall it:
-
-::
-
-    $ sudo pip uninstall pip
-
-After that try running omero\_homebrew.sh again. That should install pip
-via homebrew and put the Python packages in correct folders.
 
 OMERO installation
 ------------------
 
-At this point you have a choice:
+At this point you have three choices:
 
--  If you just want a deployment of the current release of OMERO.server
-   (4.4) then a simple homebrew install is sufficient, e.g.
+-   If you just want a deployment of the current release of OMERO.server (4.4) then a simple homebrew install is sufficient, e.g.
 
-   ::
+    ::
 
-       $ brew install omero
+        $ brew install omero
 
--  If you want to install the 4.3.4 version of OMERO.server, you can use
-   the omero43 formula
+-   If you want to install the 4.3.4 version of OMERO.server, you can use the omero43 formula
 
-   ::
+    ::
 
-       $ brew install omero43
+        $ brew install omero43
 
--  However if you wish to pull OMERO.server from the git repo for
-   development purposes then it is worth setting up OMERO.server
-   manually rather than using homebrew. Prepare a place for your OMERO
-   code to live, e.g.
+-   However if you wish to pull OMERO.server from the git repo for development purposes then it is worth setting up OMERO.server manually rather than using homebrew. Prepare a place for your OMERO code to live, e.g.
 
-   ::
+    ::
 
-       $ mkdir -p ~/code/projects/OMERO
-       $ cd ~/code/projects/OMERO
+        $ mkdir -p ~/code/projects/OMERO
+        $ cd ~/code/projects/OMERO
 
-   Now clone the OMERO github repository:
+    Now clone the OMERO github repository:
 
-   ::
+    ::
 
-       $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
+        $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
 
-   .. note::
-	   If you have a github account & you plan to develop code for OMERO
-	   then you should make a fork into your own account then clone to your
-	   local development machine, e.g.
+    .. note::
+        If you have a github account & you plan to develop code for OMERO
+        then you should make a fork into your own account then clone to your
+        local development machine, e.g.
 
-	   ::
+        ::
 
-	       $ git clone --recursive git://github.com/YOURNAMEHERE/openmicroscopy
+            $ git clone --recursive git://github.com/YOURNAMEHERE/openmicroscopy
 
-   Then build
+    Then build
 
-   ::
+    ::
 
-       $ cd openmicroscopy && ./build.py
+        $ cd openmicroscopy && ./build.py
 
 Configuration
 -------------
@@ -299,9 +177,7 @@ Configuration
 Environment variables
 ~~~~~~~~~~~~~~~~~~~~~
 
-Edit your .profile as appropriate. The following are indicators of 
-required entries and correspond to a  Homebrew installation of 
-OMERO 4.4:
+Edit your .profile as appropriate. The following are indicators of required entries and correspond to a  Homebrew installation of  OMERO 4.4:
 
 ::
 
@@ -314,22 +190,21 @@ OMERO 4.4:
     export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$ICE_HOME/python:$DYLD_LIBRARY_PATH
 
 .. note::
-	On Mac OS X Lion, a version of postgres is already installed. If you
-	get an error like the following:
+    On Mac OS X Lion, a version of PostgreSQL is already installed. If you get an error like the following:
 
-	::
+    ::
 
-	    psql: could not connect to server: Permission denied
-	    Is the server running locally and accepting
-	    connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+        psql: could not connect to server: Permission denied
+        Is the server running locally and accepting
+        connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
 
-	make sure ``$BREW_DIR/bin`` is at the beginning of your PATH (see also
-	`this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_ ).
+    make sure ``$BREW_DIR/bin`` is at the beginning of your PATH (see also
+    `this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_ ).
 
 Database creation
 ~~~~~~~~~~~~~~~~~
 
-Start the PostgresQL server.
+Start the PostgreSQL server.
 
 ::
 
@@ -384,8 +259,7 @@ Now tell OMERO.server about our database.
     Please re-enter password for new OMERO root user:      # root_password
     Saving to ~/OMERO4.4__0.sql
 
-Then enter the name of the .sql (see last line above) in the next
-command, to create the database:
+Then enter the name of the .sql (see last line above) in the next command, to create the database:
 
 ::
 
@@ -415,8 +289,7 @@ Now start the OMERO.server
 
     $ omero admin start
 
-Now connect to your OMERO.server using insight with the following
-credentials:
+Now connect to your OMERO.server using insight with the following credentials:
 
 ::
 
@@ -433,7 +306,7 @@ You can setup the internal web server
     $ omero config set omero.web.application_server development
     $ omero config set omero.web.debug True
 
-Then start the webserver with
+Then start the webserver with:
 
 ::
 
@@ -445,3 +318,105 @@ Then start the webserver with
     Django version 1.1.1, using settings 'omeroweb.settings'
     Development server is running at http://0.0.0.0:4080/
     Quit the server with CONTROL-C.
+
+.. _install_homebrew_common_issues:
+
+Common issues
+-------------
+
+General considerations
+~~~~~~~~~~~~~~~~~~~~~~
+
+If you run into problems with Homebrew, you can always run:
+
+::
+
+    $ brew update
+    $ brew doctor
+
+Also, please check the Homebrew `Bug Fixing Checklist <https://github.com/mxcl/homebrew/wiki/Bug-Fixing-Checklist>`_.
+
+Below is a non-exhaustive list of errors/warnings specific to the OMERO installation. Some if not all of them could be possible avoided by removing any previous OMERO installation artifacts from your system.
+
+.. _install_homebrew_curl:
+
+curl (Mac 10.5 only)
+~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    curl: (60) SSL certificate problem, verify that the CA cert is OK. Details:
+    error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed
+
+Use \`\ ``export GIT_SSL_NO_VERIFY=1``` before running failing brew commands.
+
+Xcode
+~~~~~
+
+::
+
+    Warning: Xcode is not installed! Builds may fail!
+
+Install Xcode using `Mac App store <https://developer.apple.com/technologies/tools/>`_.
+
+Macports/Fink
+~~~~~~~~~~~~~
+
+::
+
+    Warning: It appears you have MacPorts or Fink installed.
+
+Follow uninstall instructions from the `Macports guide <http://guide.macports.org/chunked/installing.macports.uninstalling.html>`_.
+
+Postgresql
+~~~~~~~~~~
+
+::
+
+    ==> Installing postgresql dependency: readline
+    Error: No such file or directory - /usr/bin/cc
+
+For Xcode 4.3.2 make sure Xcode Command Line Tools are installed (`see comment <https://github.com/mxcl/homebrew/issues/10244#issuecomment-4013781>`_).
+
+::
+
+    Error: You must ``brew link ossp-uuid' before postgresql can be installed
+
+Try ``brew cleanup`` then ``brew link ossp-uuid``.
+
+Ice
+~~~
+
+::
+
+    Error: Failed executing: cd cpp && make M PP_HOME=/Users/sebastien/apps/    OMERO.libs/Cellar/mcpp/2.7.2 DB_HOME=/Users/sebastien/apps/OMERO.libs/Cellar/berkeley-    db46/4.6.21 OPTIMIZE=yes prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 embedded_runpath_prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 install
+
+We have had problems building zeroc-ice33 under MacOS 10.7.3 and 10.6.8 (see :ticket:`8075`). If you will be developing OMERO rather than installing omero, you can try installing ``ice`` (Ice 3.4) instead. If you decide to go with zeroc-ice33, make sure that you don't have ``DYLD_LIBRARY_PATH`` set to an existing Ice's installation lib directory path. In essence your ``.bash_profile`` shouldn't have any OMERO-related environment variables set before executing the installation script.
+
+szip
+~~~~
+
+::
+
+    ==> Installing hdf5 dependency: szip
+    ==> Downloading http://www.hdfgroup.org/ftp/lib-external/szip/2.1/src/szip-2.1.tar.gz
+    Already downloaded: /Library/Caches/Homebrew/szip-2.1.tar.gz
+    Error: MD5 mismatch
+    Expected: 902f831bcefb69c6b635374424acbead
+    Got: 0d6a55bb7787f9ff8b9d608f23ef5be0
+    Archive: /Library/Caches/Homebrew/szip-2.1.tar.gz
+    (To retry an incomplete download, remove the file above.)
+
+Manually remove the archived version located under /Library/Caches/Homebrew since the maintainer may have updated the file.
+
+numexpr (and other Python packages)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you encounter an issue related to numexpr complaining about NumPy having a too low version number, verify that you have not before installed any Python packages using pip. In the case where pip has been installed before homebrew, uninstall it:
+
+::
+
+    $ sudo pip uninstall pip
+
+After that try running omero\_homebrew.sh again. That should install pip via homebrew and put the Python packages in correct folders.
+

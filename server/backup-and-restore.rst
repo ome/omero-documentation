@@ -46,7 +46,7 @@ OMERO.server log file location
 ------------------------------
 
 The log file directory may also be relocated to different storage by
-modifying the \`etc/grid/default.xml file:
+modifying the ``etc/grid/default.xml`` file:
 
 ::
 
@@ -62,14 +62,14 @@ Understanding backup sources
 
 OMERO.server has three main backup sources:
 
-1. PostgreSQL database (assumed to be ``omero``)
-2. OMERO.server :ref:`binary data store <rst_binary-repository>` (assumed to be
-   ``/OMERO``)
-3. OMERO.server configuration
+1.  PostgreSQL database (assumed to be ``omero_database``)
+2.  OMERO.server :ref:`binary data store <rst_binary-repository>` (assumed to be
+    ``/OMERO``)
+3.  OMERO.server configuration
 
-    **NOTE:** Since 4.2.0, the lib/scripts directory should also be
-    backed up, but restoring it may pose issues. See [Software
-    Limitations] (troubleshooting#section-18)
+    .. note::
+        Since 4.2.0, the lib/scripts directory should also be
+        backed up, but restoring it may pose issues. See :ref:`limitations_scripts`.
 
 *(1)* and *(2)* should be backed up regularly and *(3)* really only
 needs backing up before you make changes. You can ensure it is kept safe
@@ -166,8 +166,9 @@ system failure:
 2. PostgreSQL database (assumed to be ``omero``)
 3. OMERO.server binary data store (assumed to be ``/OMERO``)
 
-**NOTE:** It is important that restoration steps are done in this order
-unless you are absolutely sure what you are doing.
+.. note::
+    It is important that restoration steps are done in this order
+    unless you are absolutely sure what you are doing.
 
 Restoring your configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -190,7 +191,7 @@ Restoring your PostgreSQL database
 If you have had a PostgreSQL crash and database users are missing from
 your configuration, you should follow the first two (*Create a
 non-superuser database user* and *Create a database for OMERO data to
-reside in*) steps of :ref:`install <rst_installation>`. Once you have ensured
+reside in*) steps of :ref:`installation_database_creation`. Once you have ensured
 that the database user and empty database exist, you can restore the
 ``pg_dump`` file as follows:
 
@@ -208,12 +209,12 @@ store <rst_binary-repository>` backup.
 
 .. seealso::
 
-	`List of backup software <http://en.wikipedia.org/wiki/List_of_backup_software>`_
-		Wikipedia page listing the backup softwares.
-	
-	`PostgreSQL 9.1 Interactive Manual <http://www.postgresql.org/docs/9.1/interactive/backup.html>`_
- 		Chapter 24: Backup and Restore
+    `List of backup software <http://en.wikipedia.org/wiki/List_of_backup_software>`_
+        Wikipedia page listing the backup softwares.
+    
+    `PostgreSQL 9.1 Interactive Manual <http://www.postgresql.org/docs/9.1/interactive/backup.html>`_
+        Chapter 24: Backup and Restore
 
-	`rdiff-backup documentation <http://www.nongnu.org/rdiff-backup/docs.html>`_
-		Online documentation of rdiff-backup project
+    `rdiff-backup documentation <http://www.nongnu.org/rdiff-backup/docs.html>`_
+        Online documentation of rdiff-backup project
 

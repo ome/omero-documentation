@@ -4,6 +4,8 @@
 Known limitations
 =================
 
+.. _limitations_scripts:
+
 Synchronization of lib/scripts
 ------------------------------
 
