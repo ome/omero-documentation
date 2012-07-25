@@ -174,7 +174,7 @@ Restoring your configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once you have retrieved an OMERO.server package from the
-`download <../downloads>`_ page that **matches** the version you
+:plone:`downloads <support/omero4/downloads>` page that **matches** the version you
 originally had installed, all that is required is to restore your backup
 preferences by running:
 

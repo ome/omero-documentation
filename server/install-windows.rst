@@ -108,8 +108,7 @@ Prerequisites
 
     **Finally, you need the OMERO server:**
 
--  **OMERO.server *ZIP*** available from the `OMERO
-   downloads <../downloads>`_ page.
+-  **OMERO.server *ZIP*** available from the :plone:`OMERO downloads <support/omero4/downloads>` page.
 
 Environment variables
 ---------------------

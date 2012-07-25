@@ -74,7 +74,7 @@ The following are necessary:
 
       **OMERO 4.4 supports Ice3.4**, but this
       requires the correct version of OMERO.server (see
-      `Downloads <../downloads>`_). See `"Do I use Ice 3.3 or Ice
+      :plone:`Downloads <support/omero4/downloads>`). See `"Do I use Ice 3.3 or Ice
       3.4?" <https://www.openmicroscopy.org/site/support/faq/omero/do-i-use-ice-3.3-or-ice-3.4>`_
       in the FAQ. If you have further questions, consult the
       `Forums <https://www.openmicroscopy.org/community>`_.
@@ -99,7 +99,7 @@ The following are optional depending on what services you require:
 
 Finally, you need the OMERO server:
 
--  **OMERO.server *tar.bz2*** available from the `OMERO downloads <../downloads>`_ page.
+-  **OMERO.server *tar.bz2*** available from the :plone:`OMERO downloads <support/omero4/downloads>` page.
 
 Environment Variables
 ---------------------

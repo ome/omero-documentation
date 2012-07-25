@@ -32,7 +32,7 @@ As a full server product, installing OMERO.server is a more technical
 process. Detailed instructions are available for installing and
 upgrading.
 
--  `OMERO.server downloads <../downloads>`_
+-  :plone:`OMERO.server downloads <support/omero4/downloads>`
 -  :ref:`rst_installation`
 -  :ref:`rst_install-windows`
 -  :ref:`rst_upgrade`
