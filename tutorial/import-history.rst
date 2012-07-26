@@ -48,6 +48,10 @@ failed files in your imported file set. Selecting any of these import
 sets will automatically populate the right hand search results table
 with the files from that import session.
 
+.. figure:: ../images/import-history.png
+   :align: center
+   :alt:
+
 Re-Importing Your Images
 ------------------------
 
