@@ -8,6 +8,10 @@ sometimes errors will occur in the import process. When this happens,
 OMERO.importer will generally present you with an error dialog and to
 alert you of the problem.
 
+.. figure:: ../images/import-error-popup.png
+   :align: center
+   :alt:
+
 Examining Your Errors
 ---------------------
 
@@ -30,6 +34,10 @@ errors collected during the import session, as well as select which
 image files you wish to send us by using the check-box beside each
 error.
 
+.. figure:: ../images/import-error-tab.png
+   :align: center
+   :alt:
+
 Submitting Errors
 -----------------
 
@@ -40,3 +48,7 @@ this dialog also gives you a chance to opt out of sending us your images
 and log file should you so desire, however providing us with this
 information will allow us to more accurately duplicate and fix your
 problem, thereby improving the reliability of our software as a whole.
+
+.. figure:: ../images/import-error-feedback.png
+   :align: center
+   :alt:
