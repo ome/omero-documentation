@@ -14,6 +14,12 @@ below.
 
 See the demo movie here.
 
+.. figure:: ../images/insight-export-publishingoptions.png
+   :align: center
+   :alt: Publishing options
+
+   Publishing options.
+
 All figure generating options are available from the top-right toolbar
 in Insight and will try to use the currently selected images or datasets
 in the chosen figure (see screen-shot).
@@ -27,41 +33,17 @@ is displayed on the figure, and it is also possible to choose a list of
 tags to sort the images by. If an image is tagged by multiple tags, it
 will appear more than once in the figure.
 
-.. raw:: html
+.. figure:: ../images/insight-export-thumbnail-figure.png
+   :align: center
+   :alt: Four datasets
 
-   <table cellspacing="20">
-   <tr>
-   <td>
-      
+   Four datasets.
 
-.. raw:: html
+.. figure:: ../images/insight-export-thumbnail-figure2.png
+   :align: center
+   :alt: Two datasets, with thumbnails sorted by 4 tags
 
-   <p>
-      
-
-Four datasets
-
-.. raw:: html
-
-   </p>
-   </td>
-   <td>
-      
-
-.. raw:: html
-
-   <p>
-
-Two datasets, with thumbnails sorted by 4 tags
-
-.. raw:: html
-
-   </p>
-   </td>
-   </tr>
-
-
-   </table>
+   Two datasets, with thumbnails sorted by 4 tags.
 
 Split-view Figure
 -----------------
@@ -74,8 +56,12 @@ you want the split channels to be coloured or greyscale. Images can be
 labeled with their name, the name of their dataset(s) or associated
 tags.
 
-**Split-View Figure** of 3 images with 4 channels, showing 2 channels in
-the merged panel. Images are labeled with their Tags.
+.. figure:: ../images/insight-export-splitview-figure.png
+   :align: center
+   :alt: Split-View Figure of 3 images with 4 channels
+
+   Split-View Figure of 3 images with 4 channels, showing 2 channels
+   in the merged panel. Images are labeled with their Tags.
 
 Movie Figure
 ------------
@@ -85,9 +71,13 @@ on a single row. If timing metadata is available, the time of each frame
 is displayed. Images can be labeled with their name, the name of their
 dataset(s) or associated tags.
 
-**Movie figure** showing 3 images, labeled with image name. The 3rd
-movie does not have timing metadata (frame numbers shown instead), and
-has fewer frames than the top 2 movies.
+.. figure:: ../images/insight-export-movie-figure.png
+   :align: center
+   :alt: Movie figure showing three images, labeled with image name
+
+   Movie figure showing three images, labeled with image name. The
+   third movie does not have timing metadata (frame numbers shown
+   instead), and has fewer frames than the top 2 movies.
 
 ROI Figure
 ----------
@@ -99,10 +89,14 @@ into selected channels, as for the split-view figure. Images can be
 labeled with their name, the name of their dataset(s) or associated
 tags.
 
-**ROI figure of with split view** showing a ROI zoom of 4.0 from the
-original pixels. NB. In this figure, the rendering settings are the same
-for all 3 images (as noted in the figure legend), allowing a direct
-comparison between them.
+.. figure:: ../images/insight-export-split-roi-figure.png
+   :align: center
+   :alt: ROI figure with split view
+
+   ROI figure with split view showing a ROI zoom of 4.0 from the
+   original pixels. NB. In this figure, the rendering settings are the
+   same for all 3 images (as noted in the figure legend), allowing a
+   direct comparison between them.
 
 ROI Movie Figure
 ----------------
@@ -111,8 +105,13 @@ For movies that have an ROI, this script will display the ROI region for
 every time point that the ROI exists. If the ROI for a particular time
 point spans several Z-sections, these will be projected.
 
-**ROI figure from 2 movies.** The number of frames is determined by the
-ROI for each image and images are labeled on the left with their Tags.
+.. figure:: ../images/insight-export-roi-movie-figure.png
+   :align: center
+   :alt: ROI figure from 2 movies
+
+   ROI figure from 2 movies. The number of frames is determined by the
+   ROI for each image and images are labeled on the left with their
+   Tags.
 
 Reference Example Figures (from outside sources)
 ================================================

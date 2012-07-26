@@ -29,106 +29,14 @@ file for it before importing.
 
 Some examples of file formats with multiple files include:
 
-.. raw:: html
-
-   <div class="alt-table">
-     <table>
-       <thead>
-         <tr>
-           <th align="left" valign="bottom" bgcolor="#FFFFFF" style="border-bottom: 1px solid" width="200">
-             
-
-Format
-
-.. raw:: html
-
-   </th>
-           <th align="left" valign="bottom" bgcolor="#FFFFFF" style="border-bottom: 1px solid">
-             
-
-Main Extension
-
-.. raw:: html
-
-   </th>
-         </tr>
-       </thead>
-       <tbody>
-         <tr>
-           <td>
-             
-
-Flex
-
-.. raw:: html
-
-   </td>
-           <td>
-             
-
-.mea or .res
-
-.. raw:: html
-
-   </td>
-         </tr>
-         <tr>
-           <td>
-             
-
-InCell 1000
-
-.. raw:: html
-
-   </td>
-           <td>
-             
-
-.xdce
-
-.. raw:: html
-
-   </td>
-         </tr>
-         <tr>
-           <td>
-             
-
-Metamorph
-
-.. raw:: html
-
-   </td>
-           <td>
-             
-
-.nd or .stk
-
-.. raw:: html
-
-   </td>
-         </tr>
-         <tr>
-           <td>
-             
-
-Zeiss Laser Scanning Microscopy
-
-.. raw:: html
-
-   </td>
-           <td>
-             
-
-.lsm
-
-.. raw:: html
-
-   </td>
-         </tr>
-       </tbody>
-     </table>
-   </div>
+============= ====================
+*Format*      *Main Extension*
+------------- --------------------
+Flex          ``.mea`` or ``.res``
+InCell 1000   ``.xdce``
+Metamorph     ``.nd`` or ``.stk``
+Zeiss LSM     ``.lsm`` or ``.mdb``
+============= ====================
 
 Single Image Formats vs. Screening Formats
 ------------------------------------------
@@ -149,9 +57,18 @@ apart before continuing.
 Import Image
 ------------
 
+.. figure:: ../images/importer-filequeue.png
+   :align: center
+   :alt:
+
 -  User the File Chooser panel to browser and select the images.
 -  Add the selected images to the Import Queue by pressing the icon.
 -  The ``Import`` window pops up (see below).
+
+.. figure:: ../images/importer-settings.png
+   :align: center
+   :alt:
+
 
 Where and How
 -------------
