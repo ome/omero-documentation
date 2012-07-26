@@ -145,5 +145,5 @@ locally using options in the File menu.
    </p>
 
 .. |www folder| image:: ../images/folder_http.png
-.. |Add Icon| image:: ../images/add16.png
+.. |Add Icon| image:: ../images/nuvola_add16.png
 .. |Add Parameter Icon| image:: ../images/nuvola_addNumber16.png
