@@ -8,181 +8,91 @@ To get the list of file formats currently supported in OMERO, go to
 
 In order to begin the import of images into an OMERO server, you need to:
 
--  Click the OMERO.Insight importer icon.
+-  Click the OMERO.insight importer icon.
 
--  You are then presented with the OMERO.Insight Importer Window
+.. figure:: ../images/insight-import-1icon.png
+   :align: center
+   :alt: OMERO.insight importer icon
 
-.. raw:: html
+-  You will be presented with the OMERO.insight Importer Window
 
-   <p>
+.. figure:: ../images/insight-import-2clientimporter.png
+   :align: center
+   :alt: OMERO.insight importer window
 
-.. raw:: html
+To import images with the OMERO.insight importer, the import process
+follows three steps:
 
-   </p>
-
-To import images with the OMERO.insight importer, the import process follows three steps:
-
-.. raw:: html
-
-   <h2>
-
-Step 1 File Selection
-
-.. raw:: html
-
-   </h2>
+Step 1: File Selection
+----------------------
 
 -  Use the File Chooser panel to browse and select the images.
 
-.. raw:: html
+.. figure:: ../images/insight-import-3filechooser.png
+   :align: center
+   :alt: OMERO.insight file chooser
 
-   <p>
+- Add the selected images to the Files to Import by pressing the |right| icon.
+- Single Image files can be removed from Files to Import using the |left| icon.
+- Alternatively the |doubleleft| button can be used to remove all the
+  image files from the import queue.
 
-.. raw:: html
+Step 2: Location selection
+--------------------------
 
-   </p>
+- On the selection of the file(s) to import by pressing the |right|
+  icon the Location Selection window pops up.
 
-.. raw:: html
+- It is at this point of the process that the destination of the
+  import is determined.
 
-   <p>
-   <ul>
-   <li>
+- OMERO uses a Project/Dataset hierarchy structure and so a new
+  Project/Dataset can be created for each import or if available an
+  existing Project/Dataset can be selected.
 
-Add the selected images to the Files to Import by pressing the icon.
+.. figure:: ../images/insight-import-4location.png
+   :align: center
+   :alt: OMERO.insight location selection
 
-.. raw:: html
-
-   </li>
-   <li>
-
-Single Image files can be removed from Files to Import using the icon.
-
-.. raw:: html
-
-   </li>
-   <li>
-
-Alternatively the button can be used to remove all the image files from
-the import queue.
-
-.. raw:: html
-
-   </li>
-   </ul>
-
-   </p>
-
-   <h2>
-
-Step 2 Location selection
-
-.. raw:: html
-
-   </h2>
-
-   <ul>
-      <li> 
-
-On the selection of the file(s) to import by pressing the icon the
-Location Selection window pops up.
-
-.. raw:: html
-
-   </li>
-      <li> 
-
-It is at this point of the process that the destination of the import is
-determined.
-
-.. raw:: html
-
-   </li>
-      <li> 
-
-OMERO uses a Project/Dataset hierarchy structure and so a new
-Project/Dataset can be created for each import or if available an
-existing Project/Dataset can be selected.
-
-.. raw:: html
-
-   </li>
-
-.. raw:: html
-
-   </ul>
-
-.. raw:: html
-
-   <ul>
-     <li>
 
 Existing Project Selection.
 
-.. raw:: html
-
-   </li>
-     
-
-.. raw:: html
-
-   <li>
+.. figure:: ../images/insight-import-5project.png
+   :align: center
+   :alt: OMERO.insight project selection
 
 Once the specific Project has been chosen the existing Dataset's
 available are shown under the chosen Project.
 
-.. raw:: html
-
-   <li> 
+.. figure:: ../images/insight-import-6dataset.png
+   :align: center
+   :alt: OMERO.insight dataset selection
 
 Alternatively a new Project and/or Dataset can be created
 
-.. raw:: html
-
-   <p>
-
-.. raw:: html
-
-   </p>
-   </li>
-
-   <p>
+.. figure:: ../images/insight-import-7newproject.png
+   :align: center
+   :alt: OMERO.insight new project
 
 Once the Project/Dataset has been created the selected images will
 reside in the import queue panel with the details of the files/folder
 the size of the file and its location within the chosen Project/Dataset.
 
-.. raw:: html
-
-   </p>  
-
-.. raw:: html
-
-   <h2> 
+.. figure:: ../images/insight-import-8queue.png
+   :align: center
+   :alt: OMERO.insight import queue
 
 New From Folder Import
-
-.. raw:: html
-
-   </h2>
-
-   <ul>
-      <li> 
+^^^^^^^^^^^^^^^^^^^^^^
 
 The client importer also supports the ability for the chosen Dataset to
 reflect the chosen folder name. This is demonstrated in the case below
 where the folder 27-06-11 has been selected with the option --New From
 Folder-- in the Dataset selection.
 
-.. raw:: html
-
-   </li>
-
-   <p>
-
-.. raw:: html
-
-   </p>
-   <p> 
+.. figure:: ../images/insight-import-9newdataset.png
+   :align: center
+   :alt: OMERO.insight new dataset
 
 With this selection made when added to the import queue the Dataset
 created now takes on the folder name. In this screenshot below, the
@@ -191,249 +101,107 @@ in the import queue panel with the information shown in the
 Project/Dataset and the information set in the tick box for folder as
 Dataset.
 
-.. raw:: html
+.. figure:: ../images/insight-import-10folderimport.png
+   :align: center
+   :alt: OMERO.insight folder import
 
-   </p>
-
-   <p>
-
-.. raw:: html
-
-   </p>
-
-   <h2> 
-
-Step 3 Import
-
-.. raw:: html
-
-   </h2> 
-   <ul>
-   <li> 
+Step 3: Import
+--------------
 
 When ready the image files can now be imported by clicking the import
 button.
 
-.. raw:: html
-
-   <p>
-
-.. raw:: html
-
-   </p>
-   <li>
-   <p>
+.. figure:: ../images/insight-import-11startimport.png
+   :align: center
+   :alt: OMERO.insight start import
 
 On import, the Import tab will open as displayed below. The following
 information is presented in the Import tab:
 
-.. raw:: html
+- the number of files/folders imported
 
-   <ul>
-          <li> 
+- when the import started and the duration of the import
 
-the number of files/folders imported
-
-.. raw:: html
-
-   </li>
-          <li> 
-
-when the import started and the duration of the import.
-
-.. raw:: html
-
-   </li>
-   </ul>
-   </p>
-   <p>
-
-.. raw:: html
-
-   </p>
-    <p>
+.. figure:: ../images/insight-import-12importprogress.png
+   :align: center
+   :alt: OMERO.insight import progress
 
 On completion of the import, an hyperlink indicating the location of the
 import is displayed allowing users to browse the dataset.
 
-.. raw:: html
+.. figure:: ../images/insight-import-13importcomplete.png
+   :align: center
+   :alt: OMERO.insight import complete
 
-   </p>
-    <p>
-
-::
-
-    <img src="../images/completed-import3-client-importer.png" alt="Insight Importer"> 
-     </p>
-
-.. raw:: html
-
-   <p>
-
-.. raw:: html
-
-   </p>
-
-.. raw:: html
-
-   <p> 
-   <li> 
+.. figure:: ../images/insight-import-14projectbrowser.png
+   :align: center
+   :alt: OMERO.insight project browser
 
 The import tab also displays the image thumbnail, double-clicking on it
 launches the Image Viewer. If no thumbnail displayed, a View Button will
 be available, just click to launch the viewer.
 
-.. raw:: html
+.. figure:: ../images/insight-import-15thumbnail.png
+   :align: center
+   :alt: OMERO.insight import thumbnails
 
-   </li>
+.. figure:: ../images/insight-import-16viewer.png
+   :align: center
+   :alt: OMERO.insight image viewer
 
-   </p>
-   <p>
-
-.. raw:: html
-
-   </p>
-   <p>
-
-.. raw:: html
-
-   </p>
-   </ul>
-
-
-   <h2> 
 
 Options
-
-.. raw:: html
-
-   </h2>
-
-   <h3> 
+-------
 
 File Naming
+^^^^^^^^^^^
 
-.. raw:: html
-
-   </h3> 
-   <ul> 
-   <li> 
-
-Select or Add a project and dataset where to import the images.
-
-.. raw:: html
-
-   </li>
-   <li> 
-
-The File Naming section allows to select the name of the imported images
-
-.. raw:: html
-
-   </li>
-   <li> 
-
-Partial Version + Files Name - This is a short version e.g. myImage.tiff
-
-.. raw:: html
-
-   </li>
-   <li> 
-
-Full Path + Files Name = This is a full version e.g.
-C:ScientificImages/Images/myImage.tiff
-
-.. raw:: html
-
-   </li>
-   <li> 
-
-Directories before a file - This is a customised version i.e. the short
-version plus a number of leading directories e.g. Images/myImage.tiff
-
-.. raw:: html
-
-   </li>
-   <li> 
-
-Click on Import to Add to Queue button.
-
-.. raw:: html
-
-   </li>
-   </ul> 
-   <h3> 
+- Select or Add a project and dataset where to import the images.
+- The File Naming section allows to select the name of the imported
+  images
+- Partial Version + Files Name - This is a short version
+  e.g. myImage.tiff
+- Full Path + Files Name = This is a full version e.g.
+  C:\\ScientificImages\\Images\\myImage.tiff
+- Directories before a file - This is a customised version i.e. the
+  short version plus a number of leading directories
+  e.g. Images/myImage.tiff
+- Click on Import to Add to Queue button.
 
 Tagging on Import
+^^^^^^^^^^^^^^^^^
 
-.. raw:: html
-
-   </h3>
-   <p> 
-
-The OMERO.Insight supports Tagging on Import. This feature can be found
+The OMERO.insight supports Tagging on Import. This feature can be found
 through
 the options setting.
 
-.. raw:: html
-
-   </p>
-
-.. raw:: html
-
-   <ul> 
-     
-
-.. raw:: html
-
-   <li> 
+.. figure:: ../images/insight-import-17addtags.png
+   :align: center
+   :alt: OMERO.insight add tags
 
 Once the tags have been added they may be viewed to from the list.
 
-.. raw:: html
-
-   </li>
-
-.. raw:: html
-
-   <li> 
+.. figure:: ../images/insight-import-18viewtags.png
+   :align: center
+   :alt: OMERO.insight view tags
 
 On the completion of import, the tags will then be shown under the
 annotations panel in the Right-hand panel in the Data Manager.
 
-.. raw:: html
-
-   </li>
-
-.. raw:: html
-
-   </ul>
-
-
-   <h3> 
+.. figure:: ../images/insight-import-19viewannotations.png
+   :align: center
+   :alt: OMERO.insight view annotations
 
 Toggle between Single Image Formats vs. Screening Formats
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. raw:: html
+- The client also now supports toggling between single - or
+  project-based images that typically go into 'datasets' or
+  screen-based image sets that typically go into 'screens'.
+- To toggle between these two views in the importer clicking on the
+  Location icon will switch the view.
 
-   </h3>
-   <ul>
-   <li> 
-
-The client also now supports toggling between single - or project-based
-images that typically go into 'datasets' or screen-based image sets that
-typically go into 'screens'.
-
-.. raw:: html
-
-   </li>
-   <li> 
-
-To toggle between these two views in the importer clicking on the
-Location icon will switch the view.
-
-.. raw:: html
-
-   </li>
-
+.. |left| image:: ../images/icons/leftarrow.png
+.. |right| image:: ../images/icons/rightarrow.png
+.. |doubleleft| image:: ../images/icons/doubleleftarrow.png
 
