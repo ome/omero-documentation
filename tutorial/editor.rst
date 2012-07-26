@@ -29,12 +29,6 @@ display and editing of parameter details. The central panel can be used
 to view the protocol in a 'Text View' (below) or in a 'Tree View' as
 described under :ref:`rst_tutorial_editor-latest-features`.
 
-.. raw:: html
-
-   <p class="CenterImage">
-
-.. raw:: html
-
-   </p>
-
-
+.. figure:: ../images/EditorParamsContext.png
+   :align: center
+   :alt:
