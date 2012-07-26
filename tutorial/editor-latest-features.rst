@@ -17,7 +17,7 @@ You can run the OMERO.editor as a standalone application (no server
 connection) OR via OMERO.insight.
 
 In OMERO.insight, you start OMERO.editor by clicking the OMERO.editor
-icon ![Editor Icon] (images/omeroEditorLink2.png) in the toolbar.
+icon ![Editor Icon] (../images/omeroEditorLink2.png) in the toolbar.
 
 In OMERO.insight, you can open any OMERO.editor file by double clicking
 it, either when you find it attached to a Project, Dataset or Image, or
@@ -117,4 +117,4 @@ with the appropriate controls in the table (see below).
 
    </p>
 
-.. |Add Table Button| image:: images/nuvola_add_table16.png
+.. |Add Table Button| image:: ../images/nuvola_add_table16.png

@@ -263,7 +263,7 @@ import is displayed allowing users to browse the dataset.
 
 ::
 
-    <img src="images/completed-import3-client-importer.png" alt="Insight Importer"> 
+    <img src="../images/completed-import3-client-importer.png" alt="Insight Importer"> 
      </p>
 
 .. raw:: html

@@ -17,7 +17,7 @@ Start Blank Protocol
 --------------------
 
 To start a blank protocol, click the 'new-file' icon ![new file]
-(images/filenew.png) in the tool bar. The following screen will appear:
+(../images/filenew.png) in the tool bar. The following screen will appear:
 
 .. raw:: html
 
@@ -144,6 +144,6 @@ locally using options in the File menu.
 
    </p>
 
-.. |www folder| image:: images/folder_http.png
-.. |Add Icon| image:: images/add16.png
-.. |Add Parameter Icon| image:: images/nuvola_addNumber16.png
+.. |www folder| image:: ../images/folder_http.png
+.. |Add Icon| image:: ../images/add16.png
+.. |Add Parameter Icon| image:: ../images/nuvola_addNumber16.png
