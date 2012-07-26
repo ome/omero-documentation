@@ -16,7 +16,7 @@ the memory allocation to the clients as outlined below.
     server-based configuration setup.
 
 Macintosh Importer & Insight
---------------------------
+----------------------------
 
 
 -   Locate the ``OMERO.importer.app`` or ``OMERO.insight.app`` and right
@@ -64,7 +64,7 @@ Windows Importer & Insight
     :align: center
 
 Unix/Linux Importer & Insight
---------------------------
+-----------------------------
 
 -   Changing either the importer or insight memory allocation under Unix
     requires you to edit the startup script located with the clients
