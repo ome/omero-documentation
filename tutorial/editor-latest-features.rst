@@ -17,19 +17,15 @@ You can run the OMERO.editor as a standalone application (no server
 connection) OR via OMERO.insight.
 
 In OMERO.insight, you start OMERO.editor by clicking the OMERO.editor
-icon ![Editor Icon] (../images/omeroEditorLink2.png) in the toolbar.
+icon |Editor Icon| in the toolbar.
 
 In OMERO.insight, you can open any OMERO.editor file by double clicking
 it, either when you find it attached to a Project, Dataset or Image, or
 by browsing under :menuselection:`View --> Attachments` (see screen shot).
 
-.. raw:: html
-
-   <p class="CenterImage">
-
-.. raw:: html
-
-   </p>
+.. figure:: ../images/insight-editor.png
+   :align: center
+   :alt:
 
 UI Layout
 ---------
@@ -52,19 +48,13 @@ in the "Tree" view, which resembles the older (Beta-3) OMERO.editor
 layout (below Right). You can switch between these views by using the
 tabs at the top of the page.
 
-.. raw:: html
+.. figure:: ../images/editor-textview.png
+   :align: center
+   :alt:
 
-   <p class="CenterImage">
-
-.. raw:: html
-
-   </p>
-
-   <p class="CenterImage">
-
-.. raw:: html
-
-   </p>
+.. figure:: ../images/editor-ui.png
+   :align: center
+   :alt:
 
 Multiple 'parameters' per step
 ------------------------------
@@ -76,19 +66,13 @@ step (see screen-shots below). Placing parameters in context with
 descriptions also allows a more natural way of combining multiple
 parameters and removes the need to give every parameter a description.
 
-.. raw:: html
+.. figure:: ../images/editor-paramscontext.png
+   :align: center
+   :alt:
 
-   <p class="CenterImage">
-
-.. raw:: html
-
-   </p>
-
-   <p class="CenterImage">
-
-.. raw:: html
-
-   </p>
+.. figure:: ../images/editor-paramstree.png
+   :align: center
+   :alt:
 
 Screen-shots of multiple parameters in the Text view (left) and the Tree
 view (right). In both cases, parameters can be seen in the context of
@@ -109,12 +93,9 @@ is represented by a column, with the column name displaying the name of
 each parameter. 'Drop-down' and 'Check-box' parameters are represented
 with the appropriate controls in the table (see below).
 
-.. raw:: html
-
-   <p class="CenterImage">
-
-.. raw:: html
-
-   </p>
+.. figure:: ../images/editor-paramstable.png
+   :align: center
+   :alt:
 
 .. |Add Table Button| image:: ../images/nuvola_add_table16.png
+.. |Editor Icon| image:: ../images/icons/editor.png
