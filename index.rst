@@ -9,7 +9,6 @@ can be found on the :wiki:`OME wiki <>`.
    :maxdepth: 2
 
    overview
-   platform
    gettingstarted/index
    server/index
    clients/index
@@ -17,4 +16,4 @@ can be found on the :wiki:`OME wiki <>`.
    limitations
    tutorial/index
 
-   Developer Policies<developers/policies>
+   developers/policies
