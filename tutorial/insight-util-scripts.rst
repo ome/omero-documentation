@@ -1,5 +1,8 @@
-Running Util Scripts Instructions for running 'Util Scripts' from
-OMERO.insight through the scripting service, as released with OMERO 4.2.
+Running Utility Scripts
+=======================
+
+Instructions for running 'Util Scripts' from OMERO.insight through the
+scripting service, as released with OMERO 4.2.
 
 Batch Image Export
 ------------------
@@ -89,8 +92,8 @@ image to try and identify the Z, T or C index. The user should choose
 the naming pattern for each dimension. For example, if you want to
 combine images named like these:
 
--  image001\_C01\_Z01.tiff
--  image001\_C01\_Z02.tiff
+-  ``image001_C01_Z01.tiff``
+-  ``image001_C01_Z02.tiff``
 
 you should choose: \* Channel Name Pattern: "\_C" \* Z Name Pattern:
 "\_Z" \* Time Name Pattern: "None" (optional)
@@ -111,16 +114,16 @@ If you want to stitch the planes across 2 or more dimensions, you need
 to specify the dimensions in the order that they change in the list of
 input images. For example, images named like this:
 
--  image001\_C01\_Z01.tiff
--  image001\_C01\_Z02.tiff
--  image001\_C01\_Z03.tiff
--  image001\_C01-Z04.tiff
--  image001\_C01-Z05.tiff
--  image001\_C02-Z01.tiff
--  image001\_C02-Z02.tiff
--  image001\_C02-Z03.tiff
--  image001\_C02-Z04.tiff
--  image001\_C02-Z05.tiff
+-  ``image001_C01_Z01.tiff``
+-  ``image001_C01_Z02.tiff``
+-  ``image001_C01_Z03.tiff``
+-  ``image001_C01-Z04.tiff``
+-  ``image001_C01-Z05.tiff``
+-  ``image001_C02-Z01.tiff``
+-  ``image001_C02-Z02.tiff``
+-  ``image001_C02-Z03.tiff``
+-  ``image001_C02-Z04.tiff``
+-  ``image001_C02-Z05.tiff``
 
 The first dimension to change is Z (changes between images 1,2,3,4,5 in
 the list) and the second dimension to change is Channel (changes between
