@@ -17,6 +17,12 @@ status. Finally, all the products check themselves with the
 to disable this functionality you should do so now as outlined on the
 :wiki:`UpgradeCheck` page.
 
+    **Note:** Before starting the upgrade, please ensure that you have
+    obtained all the prerequisites for installation, documented for
+    Unix and Windows. In particular, ensure that you are running a
+    suitable version of PostgreSQL to enable successful upgrading of
+    the database.
+
 If you encounter errors during a OMERO upgrade, database upgrade, etc.
 you should retain as much log information as possible and notify the
 OMERO.server team via the mailing lists available on the
