@@ -212,16 +212,6 @@ and configure your server to use it.
 
     $ bin/omero config omero.db.name omero_from_backup
 
-.. raw:: html
-
-   <p>
-
- 
-
-.. raw:: html
-
-   </p>
-
 .. _rst_upgrade_441:
 
 Upgrade from 4.4.0 server to 4.4.1 server

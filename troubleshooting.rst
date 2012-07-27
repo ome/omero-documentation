@@ -377,9 +377,8 @@ OMERO.scripts fails with "MarshalException" when using PostgreSQL 9.0
 If all script executions fail after a upgrading your database to
 PostgreSQL 9.0 with an error like:
 
-.. raw:: html
+:: 
 
-   <pre>
    Caused by: org.openmicroscopy.shoola.env.data.ProcessException: Cannot run script with ID:52
        at org.openmicroscopy.shoola.env.data.OMEROGateway.runScript(OMEROGateway.java:514)
        at org.openmicroscopy.shoola.env.data.OMEROGateway.createMovie(OMEROGateway.java:5750)
@@ -390,7 +389,6 @@ PostgreSQL 9.0 with an error like:
                                at IceInternal.BasicStream.typeToClass(BasicStream.java:2403)
                                at IceInternal.BasicStream.findClass(BasicStream.java:2320)
                                at IceInternal.BasicStream.loadObjectFactory(BasicStream.java:2187)
-   </pre>
 
 then most likely the bytea\_output setting of your database needs to be
 changed. See :ref:`rst_postgresql` for how to do
