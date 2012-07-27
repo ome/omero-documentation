@@ -7,13 +7,17 @@ Launch a Viewer
 ---------------
 
 -  From the Data Manager or Working Area, select an image and click on
-   the icon.
+   the |viewer| icon.
 -  From the Data Manager or Working Area, double-click on the image.
 
 Note that you can have multiple viewers opened at the time.
 
 Tool Bar explained
 ------------------
+
+.. figure:: ../images/insight-viewer-1toolbar.png
+   :align: center
+   :alt: OMERO.insight viewer toolbar
 
 Image View
 ----------
@@ -22,7 +26,7 @@ The Image View tab is the default view.
 
 To modify the rendering settings:
 
--  Click on on the icon.
+-  Click on on the |render| icon.
 -  Then go the panel displayed on the Right-hand side of the image (see
    image below) to
 
@@ -32,8 +36,16 @@ To modify the rendering settings:
    -  view if other users have viewed the image and view how the
       settings they used
 
+.. figure:: ../images/insight-viewer-2rendering.png
+   :align: center
+   :alt: OMERO.insight viewer toolbar rendering settings
+
 To modify Z-section, Time, Channels Exploration, Color control etc, see
 below
+
+.. figure:: ../images/insight-viewer-3mainwindow.png
+   :align: center
+   :alt: OMERO.insight viewer main window
 
 Projection View
 ---------------
@@ -48,7 +60,15 @@ Projection View tab.
 -  Preview the result before creating the projected image.
 -  Click on the ``Project...`` button for setting final settings.
 
+.. figure:: ../images/insight-viewer-4projection.png
+   :align: center
+   :alt: OMERO.insight viewer z projection
+
 Magnify Area of image, movie player, save image.
+
+.. figure:: ../images/insight-viewer-5magnify.png
+   :align: center
+   :alt: OMERO.insight viewer magnification
 
 Split View
 ----------
@@ -61,3 +81,9 @@ It is possible to:
 -  Switch between color model and grey scale.
 -  etc.
 
+.. figure:: ../images/insight-viewer-6split.png
+   :align: center
+   :alt: OMERO.insight viewer split view
+
+.. |viewer| image:: ../images/icons/viewer.png
+.. |render| image:: ../images/icons/render.png
