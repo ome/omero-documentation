@@ -12,38 +12,54 @@ Once successfully logged in, the default view of the Data Manager will
 pop up on screen. The Data Manager serves as the major portal for the
 user into his/her data hierarchies.
 
+.. figure:: ../images/insight-data-manager-1overview.png
+   :align: center
+   :alt: OMERO.insight data manager
+
 Create Objects
 --------------
+
+.. figure:: ../images/insight-data-manager-2toolbar.png
+   :align: center
+   :alt: Create projects and datasets
 
 To create a new Project (resp. Dataset),
 
 -  Expand the Hierarchies browser
--  Click on the icon.
+-  Click on the |filenew| icon.
 
 The following window will pop up on screen
 
+.. figure:: ../images/insight-data-manager-3createproject.png
+   :align: center
+   :alt: Creating a project
+
 After pressing the ``Create`` button, a new Project (resp. Dataset)
-``e.g. Monday Acquisition`` is created in the OMERO server, and
-displayed in the Inspector
+e.g.  ``Monday Acquisition`` is created in the OMERO server, and
+displayed in the Inspector.
 
 To add a new Dataset to the Project ``Monday Acquisition``:
 
--  Select the Project, then either
+-  Select the Project, then either:
 
--  Right-click on the selected Project. Then select New Dataset... from
-   the pop-up menu.
--  Or click on the icon.
+   -  Right-click on the selected Project. Then select New Dataset... from
+      the pop-up menu.
+   -  Or click on the |filenew| icon.
 
 -  The ``Create`` dialog will pop up.
 -  Once created, the new Dataset will appear under the selected Project.
 
 To create:
 
--  Tag or Tag Set, expand the Tags browser and click on the icon.
--  Plate, expand the Screens browser and click on the icon.
+-  Tag or Tag Set, expand the Tags browser and click on the |filenew| icon.
+-  Plate, expand the Screens browser and click on the |filenew| icon.
 
 Manage
 ------
+
+.. figure:: ../images/insight-data-manager-4toolbar.png
+   :align: center
+   :alt: Cut, copy, paste and delete
 
 Using the Inspector, the user can
 
@@ -57,12 +73,16 @@ Using the Inspector, the user can
    Image) to handle.
 -  Delete Project, Dataset, Image, etc.
 
-Same options are available for Plate, Screen, Tag Set and Tag.
+The same options are available for Plate, Screen, Tag Set and Tag.
 
 Working Area
 ------------
 
 The Working area is built and displayed when browsing data e.g. a Plate
+
+.. figure:: ../images/insight-data-manager-5toolbar.png
+   :align: center
+   :alt: Working area
 
 -  Browsing a Project (resp. Dataset, Plate):
 
@@ -73,7 +93,15 @@ The Working area is built and displayed when browsing data e.g. a Plate
 
 Working Area tool bar explained
 
+.. figure:: ../images/insight-data-manager-6toolbar.png
+   :align: center
+   :alt: Working area toolbar
+
 The user can then filter the displayed images.
+
+.. figure:: ../images/insight-data-manager-7filter.png
+   :align: center
+   :alt: Filter data
 
 Handle Metadata and Edit Object
 -------------------------------
@@ -91,6 +119,10 @@ How to add, view metadata
    or Working Area
 -  Go to the Metadata Browser i.e. Right-hand side.
 
+.. figure:: ../images/insight-data-manager-8metadata.png
+   :align: center
+   :alt: The metadata browser
+
 -  To Edit the image's name, click on the icon next to the name.
 
 Managing Image Attachments
@@ -101,11 +133,19 @@ double arrow beside each one. Note that unlinking an attachment from an
 image will remove the link between the two, but will NOT delete the
 attachment from the server.
 
+.. figure:: ../images/insight-data-manager-9annotation.png
+   :align: center
+   :alt: Managing attachments
+
 View Acquisition Metadata
 -------------------------
 
 The acquisition metadata read at import is displayed in the Right-hand
 panel under the Acquisition tab.
+
+.. figure:: ../images/insight-data-manager-10acquisition.png
+   :align: center
+   :alt: Acquisition metadata
 
 Image Preview
 -------------
@@ -114,8 +154,18 @@ The Preview tab on the Right-hand panel provides a mini preview window
 of your image and allows you to tune some of the rendering settings
 without having to launch the full image viewer.
 
+.. figure:: ../images/insight-data-manager-11preview.png
+   :align: center
+   :alt: Image preview
+
 Search
 ------
 
 Full text searching. You can also use wild-cards in your search e.g.
 \*.dv will find all files ending with '.dv'.
+
+.. figure:: ../images/insight-data-manager-12search.png
+   :align: center
+   :alt: Searching
+
+.. |filenew| image:: ../images/icons/filenew.png
