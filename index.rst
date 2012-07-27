@@ -10,10 +10,8 @@ can be found on the :wiki:`OME wiki <>`.
 
    overview
    platform
-   gettingstarted
    gettingstarted/index
-   server-index
-   client-overview
+   server/index
    clients/index
    troubleshooting
    limitations

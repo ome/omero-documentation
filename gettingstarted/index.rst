@@ -1,9 +1,10 @@
+***************
 Getting Started
-===============
+***************
 
 .. toctree::   
-   :glob:
 
+   overview
    clientdocumentation
    clienttutorial
    virtualappliance

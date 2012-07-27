@@ -1,8 +1,7 @@
 .. _rst_client-overview:
 
-###############
 Client Overview
-###############
+===============
 
 OMERO ships as a server application called *OMERO.server* and a series of clients: *OMERO.insight, OMERO.importer, OMERO.web and OMERO.editor*. All run on the major operating systems and provide image visualisation,
 management, and annotation to users from remote locations.
@@ -22,24 +21,24 @@ We have designed and built several OMERO client applications for use
 with the OMERO Server.
 
 OMERO.webclient [1]_
-""""""""""""""""""""
+--------------------
 
-.. image:: images/omero_web_4_4.png
+.. image:: ../images/omero_web_4_4.png
 
 OMERO.editor
-""""""""""""
+------------
 
-.. image:: images/omero_editor_4_4.png
+.. image:: ../images/omero_editor_4_4.png
 
 OMERO.importer
-""""""""""""""
+--------------
 
-.. image:: images/omero_importer_4_4.png
+.. image:: ../images/omero_importer_4_4.png
 
 OMERO.insight [2]_
-""""""""""""""""""
+------------------
 
-.. image:: images/omero_insight_4_4_viewer.png
+.. image:: ../images/omero_insight_4_4_viewer.png
 
 .. rubric:: Citation
 
