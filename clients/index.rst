@@ -5,6 +5,9 @@ Clients
 -------
 
 .. toctree::   
-   :glob:
 
-   clients/*
+   web
+   editor
+   importer
+   insight
+   memory

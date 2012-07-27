@@ -14,7 +14,7 @@ can be found on the :wiki:`OME wiki <>`.
    gettingstarted/index
    server-index
    client-overview
-   clients-index
+   clients/index
    troubleshooting
    limitations
    tutorial/index
