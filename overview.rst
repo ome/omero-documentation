@@ -18,6 +18,10 @@ Service. The database is a representation of the :plone:`OME Data
 Model <support/file-formats>` and is mapped to objects via
 `Hibernate <http://www.hibernate.org>`_.
 
+.. figure:: images/omero-overview.png
+   :align: center
+   :alt:
+
 The suite of Java-based tools for data visualisation and management, the
 OMERO clients, is cross-platform. To run on your computer they require
 Java 1.5 or 1.6 be installed. This is included with most modern systems

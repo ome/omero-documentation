@@ -1,17 +1,17 @@
 .. _rst_troubleshooting:
 
-Troubleshooting an OMERO Installation
-=====================================
+***************
+Troubleshooting
+***************
 
-
-FAQ
----
+Frequently Asked Questions
+==========================
 
 If you can't find what you are looking for here, you might also peruse
 the :plone:`FAQ <support/faq>`.
 
 Known Operating System issues
------------------------------
+=============================
 
 -  Gentoo requires a special patch for compiling Ice (link requested)
 -  Ubuntu 08.04 has issues with older Ice packages (`ome-users
@@ -25,7 +25,7 @@ Known Operating System issues
 .. _troubleshooting_password:
 
 Which password do I use where?
-------------------------------
+==============================
 
 Example accounts table. These are the example usernames and passwords
 used in various install pages:
@@ -89,7 +89,7 @@ any of the passwords have to be the same (or should they **unless you
 are using the LDAP plugin**...)
 
 OutOfMemoryError / PermGen space errors in OMERO.server logs
-------------------------------------------------------------
+============================================================
 
 Out of memory or permanent generation (PermGen) errors can be caused by
 many things. Fundamentally you may be asking too much of the server and
@@ -127,7 +127,7 @@ Java Virtual Machine including `Bug ID:
 A 64-bit platform for your OMERO.server is **HIGHLY** recommended.
 
 SocketException: Network is unreachable errors in your OMERO.server log on Debian
----------------------------------------------------------------------------------
+=================================================================================
 
 This is a Debian specific
 `bug <http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=560044>`_.
@@ -144,7 +144,7 @@ post <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=415>`_
 for comments on the issue.
 
 Import error when running ``bin/omero ...``
--------------------------------------------
+===========================================
 
 ::
 
@@ -165,7 +165,7 @@ most likely cause is that your PYTHONPATH is not properly set.
    information.
 
 Remote clients can't connect to my OMERO installation!
-------------------------------------------------------
+======================================================
 
 The OMERO WebAdmin appears to work fine and you may or may not have
 created some users but no matter what you do remote clients won't speak
@@ -182,7 +182,7 @@ your OMERO server which affects the ability of remote clients to locate
 it. Please see the :ref:`OMERO security page <rst_security>`.
 
 Server fails to start
----------------------
+=====================
 
 1. Check that you are able to successfully connect to your PostgreSQL
    installation as outlined on the :ref:`PostgreSQL
@@ -205,10 +205,8 @@ Server fails to start
    ``var/master`` directory (e.g. ``rm -rf var/master``). When
    restarting OMERO, the registry will be automatically re-created.
 
---------------
-
 Connection Problems and TCP Window Scaling
-------------------------------------------
+==========================================
 
 Later versions of the 2.6 Linux kernel, specifically 2.6.17, have TCP
 window scaling enabled by default. If you're having initial logins never
@@ -223,7 +221,7 @@ You can read more about the problems surrounding TCP window scaling
 `here <http://kerneltrap.org/node/6723>`__.
 
 My Server Crashes With...
--------------------------
+=========================
 
 -  ``X11 connection rejected because of wrong authentication``
 -  ``X connection to localhost:10.0 broken (explicit kill or server shutdown).``
@@ -238,7 +236,7 @@ by using the ``-x`` flag as follows:
     ssh -x my_server.examples.com
 
 Server or clients print "WARNING: Prefs file removed in background..."
-----------------------------------------------------------------------
+======================================================================
 
 ::
 
@@ -256,7 +254,7 @@ on our mailing list for more information.
 
 
 DropBox fails to start: Failed to get session
----------------------------------------------
+=============================================
 
 If the main server starts but DropBox fails with the following entry in
 ``var/log/DropBox.log``,
@@ -278,7 +276,7 @@ period (seconds) between retries in ``etc/grid/templates.xml``
 
 
 OMERO.web and "ImportError: No module named rtypes."
-----------------------------------------------------
+====================================================
 
 To avoid that error please change the following in your settings.py:
 
@@ -293,9 +291,7 @@ To avoid that error please change the following in your settings.py:
     import omero.clients
 
 OMERO.web is not accessible from remote computer.
--------------------------------------------------
-	
-
+=================================================
 
 If you require to configure the out of the box setup to listen for 
 webadmin and webclient connections on different host run by:
@@ -312,7 +308,7 @@ webadmin and webclient connections on different host run by:
 	Quit the server with CONTROL-C.
 
 OMERO.web did not start on the production.
-------------------------------------------
+==========================================
 
 The user opening OMEROweb.log files needs write permissions to the
 directory containing the logs file. So, bee sure you have a "log"
@@ -351,8 +347,8 @@ matches log directory.
        mkdir /home/omero/weblog
        chown apache_user:apache_group /home/omero/weblog
 
-OMERO.web 'Drive space' does not generate pie chart/'My account' does not show markup picture and crop the picture.
--------------------------------------------------------------------------------------------------------------------
+OMERO.web 'Drive space' does not generate pie chart/'My account' does not show markup picture and crop the picture
+===================================================================================================================
 
 Error message says: 'Piechart could not be displayed. Please check log
 file to solve the problem'. Please check ``var/log/OMEROweb.log`` for
@@ -367,7 +363,7 @@ more details. There are few already known possibilities:
    :ref:`here <rst_install_web>`.
 
 Mod\_python error: "PythonHandler django.core.handlers.modpython"
------------------------------------------------------------------
+=================================================================
 
 Double check if apache\_user has enough permissions to:
 '/home/omero/omero\_dir/lib/python/',
@@ -376,7 +372,7 @@ Double check if apache\_user has enough permissions to:
 '/home/omero/omero\_dir/var/lib'.
 
 OMERO.scripts fails with "MarshalException" when using PostgreSQL 9.0
----------------------------------------------------------------------
+=====================================================================
 
 If all script executions fail after a upgrading your database to
 PostgreSQL 9.0 with an error like:
@@ -401,7 +397,7 @@ changed. See :ref:`rst_postgresql` for how to do
 this and, optionally, :ticket:`5662` for more technical details.
 
 Too many open files
--------------------
+===================
 
 This is caused by the number of opened files exceeding the limit imposed
 by your operating system. It might be due to OMERO leaking file
