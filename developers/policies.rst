@@ -40,10 +40,10 @@ Jabber: Instant messaging
 -------------------------
 
 On a day-to-day level, the team meets in a Jabber chatroom. (See the
-list of `addresses`_ for the specifics) You’re welcome to join via
-your own Jabber account, but one will likely be provided to you, in
-which case that account should be preferred. To get started using
-Adium:
+list of :plone:`addresses <team/addresses>` for the specifics) You’re
+welcome to join via your own Jabber account, but one will likely be
+provided to you, in which case that account should be preferred. To
+get started using Adium:
 
 
 * :menuselection:`File --> Join Group Chat` (Select your GTalk or Jabber Account in the drop-down menu)
@@ -69,9 +69,8 @@ teamspeak.openmicroscopy.org.uk.
    :align:  center
 
 
-More information is available under
-
-    http://www.openmicroscopy.org/site/community/minutes/conference-calls
+More information is available under :plone:`conference-calls
+<community/minutes/conference-calls>`.
 
 As for Skype, being online is not required but it is often beneficial
 to have it on during the day. Regardless, everyone should have a skype
@@ -201,7 +200,8 @@ also:
 
 * a number of mail-aliases reserved for automated messages from
   various pieces of development machinery so do not send mail directly
-  to these `addresses`_, instead use ome-nitpick.
+  to these :plone:`addresses <team/addresses>`, instead use
+  ome-nitpick.
 
 Internal Servers
 ----------------
@@ -237,7 +237,8 @@ available in case you do.
   Note: For anyone who has been hired to work at the University of
   Dundee, you will be provided with another list which itemizes all
   the things that need to be done to get you setup in RL (building
-  access, a chair, etc.)* See: `new start tasklist`_
+  access, a chair, etc.)* See: :plone:`new start tasklist
+  <team/new-start-tasklist>`.
 
 Google Docs and Calendars
 -------------------------
@@ -271,28 +272,23 @@ Meetings
 --------
 
 Weekly meetings are held online with all members of the team. Agendas
-are posted on the appropriate page under
-
-    https://www.openmicroscopy.org/site/community/minutes/conference-calls
-
-before hand. Notes are taken collaboratively in a Google doc in the
-“OME Docs > Notes” collection. Once finished, they are added to the
-page on Plone, and anyone who missed the meeting is expected to review
-the notes and raise any issues during the next meeting. You should
-also send an email to ome-nitpick if you will not be attending the
-meeting since it may change what others can discuss for that week.
+are posted on the appropriate page under :plone:`conference-calls
+<community/minutes/conference-calls>` before hand. Notes are taken
+collaboratively in a Google doc in the “OME Docs > Notes”
+collection. Once finished, they are added to the page on Plone, and
+anyone who missed the meeting is expected to review the notes and
+raise any issues during the next meeting. You should also send an
+email to ome-nitpick if you will not be attending the meeting since it
+may change what others can discuss for that week.
 
 Periodically, a technical presentation is held during the weekly
 meeting. This can be used to either introduce an external tool for
 suggested use by the team or as a peer review of in-progress work.
-
-See https://www.openmicroscopy.org/site/team/meetings for more information.
+See :plone:`meetings <team/meetings>` for more information.
 
 Minigroup meetings can either be regularly scheduled (e.g. weekly) or
 on an as-needed basis. Notes from such meetings, however, should be
-posted centrally to
-
-    https://www.openmicroscopy.org/site/community/minutes/minigroup
+posted centrally to :plone:`minigroup <community/minutes/minigroup>`.
 
 .. _minigroups_screenshot:
 .. figure:: images/10000000000004490000024DA6F6B2C8.png
@@ -657,8 +653,6 @@ the rationale, please see:
 * http://incubator.apache.org/
 * http://www.apache.org/foundation/how-it-works.html
 
-.. _addresses: https://www.openmicroscopy.org/site/team/addresses
-.. _new start tasklist: https://www.openmicroscopy.org/site/team/new-start-tasklist
 .. _DevContactList spreadsheet: https://spreadsheets.google.com/spreadsheet/ccc?key=0AuHdV7GT-8hmcDBjMldqTEJ4OHRuQVZGbS03UkcwWUE&hl=en_GB#gid=0
 .. _header templates: https://github.com/openmicroscopy/openmicroscopy/blob/develop/docs/headers.txt
 .. _git submodules: http://git-scm.com/book/en/Git-Tools-Submodules
