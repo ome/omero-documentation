@@ -501,7 +501,9 @@ and is ideal for developing and testing OMERO.web. However, this server
 is only designed to run in a local environment, and will not deal with
 the pressures of a production server used by many people concurrently.
 
-.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under `"Web on Production" <http://www.openmicroscopy.org/site/support/omero4/server/install_web>`_.
+.. note:: In order to deploy OMERO.web in a production environment
+   such as Apache or IIS please follow the instructions in the
+   :ref:`rst_install_web` section.
 
 Otherwise please give a try of the internal webserver and setup:
 
