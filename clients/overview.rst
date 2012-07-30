@@ -46,5 +46,5 @@ The screenshots make use of data from the JCB DataViewer under the
 Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported
 License. For more information see Attribution.
 
-.. [1] Dantas, et al., JCB, DOI: 10.1083/jcb.201012093
-.. [2] Snider, et al., JCB, DOI: 10.1083/jcb.201102142
+.. [1] :doi:`Dantas, et al., JCB <10.1083/jcb.201012093>`
+.. [2] :doi:`Snider, et al., JCB <10.1083/jcb.201102142>`

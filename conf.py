@@ -91,7 +91,8 @@ extlinks = {
     'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/'+ '%s', '#'),
     'snapshot' : ('http://cvs.openmicroscopy.org.uk/snapshots/'+ '%s', ''),
     'plone' : ('http://www.openmicroscopy.org/site/'+ '%s', ''),
-    'oo' : ('http://www.openmicroscopy.org/' + '%s', '')
+    'oo' : ('http://www.openmicroscopy.org/' + '%s', ''),
+    'doi' : ('http://dx.doi.org/' + '%s', '')
     }
 
 
