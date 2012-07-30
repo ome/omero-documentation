@@ -7,19 +7,19 @@ Permissions
 	:depth: 2
 
 In the 4.4 release of OMERO, the groups and permissions system has been
-revamped to allow Users to share data with more control. **Users can now
+revamped to allow users to share data with more control. **Users can now
 copy data between groups that they are a member of**.
 
 Overview
 --------
 
-A User may belong to one or more groups, and the data in a group may
-now **at most** be shared with Users in the same group on the same
+A user may belong to one or more groups, and the data in a group may
+now **at most** be shared with users in the same group on the same
 OMERO server. The degree to which their data is available to other
 members of the group depends on the permissions settings for that
-group. Whenever a User logs on to an OMERO server, they are connected
+group. Whenever a user logs on to an OMERO server, they are connected
 under one of their groups. All data they import and any work that is
-done is assigned to the current group, however now in 4.4 the User can
+done is assigned to the current group, however now in 4.4 the user can
 easily copy their data into another group.
 
 Users
@@ -28,13 +28,13 @@ Users
 -  **Administrator**: Your OMERO server will have one or more
    administrators. Each group can be administrated by any of your server
    administrators. The administrators control all settings for groups.
--  **Group Owner**: Your group may have one or more owners. The group
+-  **Group owner**: Your group may have one or more owners. The group
    owner has some additional rights within each group than a standard
    group member, including the ability to add other members to the
    group.
--  **Group Member**: This is the standard user.
+-  **Group member**: This is the standard user.
 
-Groups and Users must be created by the server administrator. Users can
+Groups and users must be created by the server administrator. Users can
 then be added by the administrator or by one of the group owners
 assigned by the administrator. This would typically be the PI of the
 lab. The group's owners or server administrator can also choose the
@@ -80,19 +80,19 @@ Read-only
 ~~~~~~~~~
 
 This group is the intermediate option that allows visibility of other
-Users and their data, but minimal ability to annotate their data:
+users and their data, but minimal ability to annotate their data:
 
 -  The group owner can control group members as above and can
    perform some annotations on the other group members data.
 -  Members can see who other members are and view their data, but they
-   cannot annotate another Users' data at all.
+   cannot annotate another users' data at all.
 
 **Potential Use-Cases:**
 
 -  A scientist might move data into a read-only group when they want
    other group members to access and view their data. Other members can
    view, while the group owners can annotate and/or add ROIs to the
-   other User's images.
+   other user's images.
 -  For an institutional repository where data are being archived and
    then available for other group members in the institute to view; this
    could be standard storage of all original data, or for data that is
@@ -103,8 +103,8 @@ Read-annotate
 
 This is the most collaborative group:
 
--  Group members can view other Users, their data and can make
-   annotations on those other Users' data.
+-  Group members can view other users, their data and can make
+   annotations on those other users' data.
 
 **Potential Use-Cases:**
 
@@ -134,7 +134,7 @@ with data, with the following limitations:
 **Known Issue**
 
 Please be very careful before downgrading a group's permission level. If
-a User has annotated another User's data and the group is downgraded,
+a user has annotated another user's data and the group is downgraded,
 any links to annotations that are not permitted with the new permissions
 setting will be lost.
 
@@ -143,7 +143,7 @@ Permissions On Your & Other Users' Data
 
 **What Can you Do with Your Data?**
 
-All OMERO Users in all groups can perform all actions to their own data.
+All OMERO users in all groups can perform all actions to their own data.
 
 The main actions available include, but are not limited to:
 
@@ -162,7 +162,7 @@ The main actions available include, but are not limited to:
 
 Actions available for you on someone else in your group's data will
 depend both on the permissions of the group you are working in, and what
-sort of User you are. See the two tables below for a quick reference
+sort of user you are. See the two tables below for a quick reference
 guide to permissions available on other people's data `Ordered by Group Permissions`_ and `Ordered by User Type`_ .
 
 Some of these policies may evolve as the permissions functionality
@@ -175,9 +175,9 @@ Permissions Tables
 
 The following are the permissions available to other users on other
 group members data, depending on the group permissions and on your user
-type. Note: No User can ever create projects or datasets, or import data
-into another User's space. Note: Although all Users can run scripts on
-other Users' data, the actions within those scripts will be subject to
+type. Note: No user can ever create projects or datasets, or import data
+into another user's space. Note: Although all users can run scripts on
+other users' data, the actions within those scripts will be subject to
 the restrictions of the permissions detailed in these tables.
 
 Ordered by Group Permissions
@@ -187,7 +187,7 @@ Ordered by Group Permissions
 .. |go| replace::  Group owner
 .. |ad| replace::  Admin
 
-.. |pg| replace:: Private Group
+.. |pg| replace:: Private group
 .. |ro| replace:: Read-only
 .. |ra| replace:: Read-annotate
 
@@ -271,8 +271,8 @@ Issues to be Aware of
 ROIs
 ~~~~
 
--  You can never edit (change text or move) another User's ROI.
--  Any ROIs added to another User's data will not affect ROIs added by
+-  You can never edit (change text or move) another user's ROI.
+-  Any ROIs added to another user's data will not affect ROIs added by
    the owner.
 
 Tags & Attachments
@@ -289,6 +289,6 @@ Tags & Attachments
 Scripts
 ~~~~~~~
 
--  Although all Users can run scripts on other Users' data, the actions
+-  Although all users can run scripts on other users' data, the actions
    within those scripts will be subject to the restrictions of the
    permissions detailed in the tables above.

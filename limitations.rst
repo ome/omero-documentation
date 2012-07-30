@@ -139,7 +139,7 @@ LDAP alone.
 Moving data between groups
 ==========================
 
-Prior to OMERO 4.4, users cannot move data between Groups. We
+Prior to OMERO 4.4, users cannot move data between groups. We
 encourage users to be aware of their **working group** at all times,
 especially when importing.
 
