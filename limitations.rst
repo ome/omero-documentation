@@ -9,7 +9,7 @@ Known limitations
 Synchronization of lib/scripts
 ==============================
 
-As described under `OMERO.scripts <server/scripts>`_, 4.2.0 includes a
+As described under :plone:`OMERO.scripts <support/omero4/server/scripts>`, 4.2.0 includes a
 significantly improved scripting system. Several official scripts are
 shipped under lib/scripts in the deployment directory. If any of your
 users add their own "official scripts", they too will be stored under
