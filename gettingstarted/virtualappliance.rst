@@ -64,6 +64,10 @@ installed run the application. Depending upon your platform & version,
 the VirtualBox interface should look similar to the following
 screenshot:
 
+.. figure:: ../images/virtual-appliance-1vboxinstall.jpg
+   :align: center
+   :alt: 
+
 Download the OMERO.server Virtual Appliance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -82,8 +86,16 @@ Import OMERO Virtual Appliance into VirtualBox
 
 This process is indicated in the following screenshot:
 
+.. figure:: ../images/virtual-appliance-2import-selection.jpg
+   :align: center
+   :alt: 
+
 -  Click **continue**. You will be presented with a range of options for
    the VM that will be built from the appliance.
+
+.. figure:: ../images/virtual-appliance-3import-settings.jpg
+   :align: center
+   :alt: 
 
 -  You can accept the defaults by clicking **Done**.
 
@@ -138,6 +150,10 @@ ssh         TCP        127.0.0.1 2222        10.0.2.15  22
 When correctly setup in VirtualBox your port forwarding settings should
 look like this:
 
+.. figure:: ../images/virtual-appliance-4portforwarding.jpg
+   :align: center
+   :alt: 
+
 If you are on Linux or Mac OS X then you can either use our port
 forwarding setup script or else you can set up port forwarding settings
 manually. NB. On Microsoft Windows systems you will have to set up port
@@ -160,10 +176,19 @@ settings.
 Now we are ready to start our VM. Select the VM in the VirtualBox VM
 library then click **start**.
 
+.. figure:: ../images/virtual-appliance-5library.jpg
+   :align: center
+   :alt: 
+
+
 A window should open containing a console for your VM which should now
 be going through it's standard boot process. OMERO.server is
 automatically started at boot time which means that you should be able
 to interact with OMERO without further setup.
+
+.. figure:: ../images/virtual-appliance-7boot.jpg
+   :align: center
+   :alt: 
 
 Credentials
 ^^^^^^^^^^^
@@ -243,12 +268,24 @@ to connect to the VM.
 -  Click the spanner icon situated above the password box so that we can
    enter the server settings box which looks like this:
 
+.. figure:: ../images/virtual-appliance-8server-addresses.png
+   :align: center
+   :alt: 
+
 -  Use the *+* icon to add a new server entry with the address
    *localhost* and the port *4064* then click apply
 -  You can now use the login credentials given above to log into insight
    using the following window (user: "root" / pw: "omero"):
 
+.. figure:: ../images/virtual-appliance-9login.png
+   :align: center
+   :alt: 
+
 -  Insight should now load up & look like so:
+
+.. figure:: ../images/virtual-appliance-10insight.png
+   :align: center
+   :alt: 
 
 You can now use insight to import & manage images on a locally running
 virtual server just like you could using a remote server.
