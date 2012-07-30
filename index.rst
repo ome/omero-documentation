@@ -14,6 +14,7 @@ can be found on the :wiki:`OME wiki <>`.
    clients/index
    troubleshooting
    limitations
+   future
    tutorial/index
 
    developers/policies
