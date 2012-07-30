@@ -54,8 +54,6 @@ Web:
 ^^^^
 
 - :ref:`Introduction <rst_clients_web>`
-- :plone:`4.3 Demo Movie & Big Images <products/omero/improved-web-client>`
-
 
 Importer:
 ^^^^^^^^^
