@@ -173,6 +173,10 @@ similar to the properties you configured during
 SSL
 ---
 
+.. figure:: installation-images/secure-login.png
+   :align: right
+   :alt: Secure Login
+
 Especially if you are going to use LDAP authentication to your server,
 it is important to encrypt the transport channel between clients and the
 Glacier2 router to keep your passwords safe.
