@@ -9,6 +9,7 @@ can be found on the :wiki:`OME wiki <>`.
    :maxdepth: 2
 
    overview
+   system-requirements
    gettingstarted/index
    server/index
    clients/index
