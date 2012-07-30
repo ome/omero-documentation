@@ -138,14 +138,14 @@ it is best to double check that these settings are correctly set up:
 If the table in the window that appears is empty then port forwarding is
 not setup. The required port-forwarding settings are as follows:
 
-=========== ========== ========= =========== ========== ============
-*Name*      *Protocol* *Host IP* *Host Port* *Guest IP* *Guest Port*
------------ ---------- --------- ----------- ---------- ------------
-omero-ssl   TCP        127.0.0.1 4064        10.0.2.15  4064
-omero-unsec TCP        127.0.0.1 4063        10.0.2.15  4063
-omero-web   TCP        127.0.0.1 8080        10.0.2.15  4080
-ssh         TCP        127.0.0.1 2222        10.0.2.15  22
-=========== ========== ========= =========== ========== ============
+=========== ======== ========= ========= ========= ==========
+Name        Protocol Host IP   Host Port Guest IP  Guest Port
+=========== ======== ========= ========= ========= ==========
+omero-ssl   TCP      127.0.0.1 4064      10.0.2.15  4064
+omero-unsec TCP      127.0.0.1 4063      10.0.2.15  4063
+omero-web   TCP      127.0.0.1 8080      10.0.2.15  4080
+ssh         TCP      127.0.0.1 2222      10.0.2.15  22
+=========== ======== ========= ========= ========= ==========
 
 When correctly setup in VirtualBox your port forwarding settings should
 look like this:
@@ -202,21 +202,21 @@ software as the OMERO.server **root** user
 Virtual Appliance OS Credentials
 """"""""""""""""""""""""""""""""
 
-========== ==========
-*Username* *Password*
----------- ----------
-root       swordfish
+======== =========
+Username Password
+======== =========
+root     swordfish
 omero      omero
-========== ==========
+======== =========
 
 OMERO.server Credentials
 """"""""""""""""""""""""
 
-========== ==========
-*Username* *Password*
----------- ----------
-root       omero
-========== ==========
+======== ========
+Username Password
+======== ========
+root     omero
+======== ========
 
 You can use this administrative account to create as many user level
 accounts as you require in the usual way.
@@ -324,6 +324,11 @@ the first time that you log into the VM you will be asked to confirm
 that wish to continue connecting. If you get the following message after
 you invoke ssh:
 
+.. figure:: ../images/virtual-appliance-cli-fingerprint-warning.png
+   :align: center
+   :alt: 
+
+
 then you can remove the old fingerprints with the following command
 typed into the terminal:
 
@@ -333,15 +338,31 @@ typed into the terminal:
 
 as illustrated in this screenshot:
 
+.. figure:: ../images/virtual-appliance-cli-fingerprint-remove-old.png
+   :align: center
+   :alt: 
+
 The first time that you log into the VM you will also be asked to
 confirm that you wish to connect to this machine by a message similar to
 the following:
 
+.. figure:: ../images/virtual-appliance-cli-fingerprint.png
+   :align: center
+   :alt: 
+
 You should confirm that you wish to continue connecting, after which you
 will be prompted for your password as usual:
 
+.. figure:: ../images/virtual-appliance-cli-password-prompt.png
+   :align: center
+   :alt: 
+
 After which, if all has gone well, you should have a prompt indicating
 that you have a shell open and logged into the VM:
+
+.. figure:: ../images/virtual-appliance-cli-afterlogin.png
+   :align: center
+   :alt: 
 
 Log into the VM directly
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -357,11 +378,23 @@ starts up, just like with a real piece of hardware. Once the boot
 process has finished you will see a prompt displayed in this window like
 so:
 
+.. figure:: ../images/virtual-appliance-cli-login.png
+   :align: center
+   :alt: 
+
 you can log into the console of the VM directly using the user account
 credentials above.
 
+.. figure:: ../images/virtual-appliance-cli-password.png
+   :align: center
+   :alt: 
+
 There is no GUI on the current OMERO virtual appliance so you will have
 to be happy using the Bash shell which looks like this:
+
+.. figure:: ../images/virtual-appliance-cli-vmconsole.png
+   :align: center
+   :alt: 
 
 From here you can interact with OMERO.server via the `OMERO command line
 interface <http://trac.openmicroscopy.org.uk/ome/wiki/OmeroCli>`_. You
@@ -447,6 +480,11 @@ use the down arrow followed by return to select the following entry:
         Ubuntu, with Linux 3.0.0-12-generic (recovery mode)
 
 as seen in this screenshot:
+
+.. figure:: ../images/virtual-appliance-cli-recovery-console.png
+   :align: center
+   :alt: 
+
 
 Don't worry if your VM has a kernel number different to
 3.0.0-12-generic, the important thing is that you select the entry
