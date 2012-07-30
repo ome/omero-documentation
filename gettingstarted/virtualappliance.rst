@@ -186,7 +186,7 @@ be going through it's standard boot process. OMERO.server is
 automatically started at boot time which means that you should be able
 to interact with OMERO without further setup.
 
-.. figure:: ../images/virtual-appliance-7boot.jpg
+.. figure:: ../images/virtual-appliance-6boot.jpg
    :align: center
    :alt: 
 
@@ -268,7 +268,7 @@ to connect to the VM.
 -  Click the spanner icon situated above the password box so that we can
    enter the server settings box which looks like this:
 
-.. figure:: ../images/virtual-appliance-8server-addresses.png
+.. figure:: ../images/virtual-appliance-7server-addresses.png
    :align: center
    :alt: 
 
@@ -277,13 +277,13 @@ to connect to the VM.
 -  You can now use the login credentials given above to log into insight
    using the following window (user: "root" / pw: "omero"):
 
-.. figure:: ../images/virtual-appliance-9login.png
+.. figure:: ../images/virtual-appliance-8login.png
    :align: center
    :alt: 
 
 -  Insight should now load up & look like so:
 
-.. figure:: ../images/virtual-appliance-10insight.png
+.. figure:: ../images/virtual-appliance-9insight.png
    :align: center
    :alt: 
 
