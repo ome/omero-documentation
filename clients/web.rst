@@ -15,6 +15,10 @@ OMERO.web 4.4
 -------------
 
 .. figure:: ../images/OmeroWeb_44.png
+    :align: center
+    :alt: OMERO.web
+
+    OMERO.web
    
     The OMERO 4.4 web client. Images from :plone:`JCB Data Viewer
     <about/licensing-attribution/attribution>`.

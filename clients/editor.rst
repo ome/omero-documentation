@@ -7,6 +7,10 @@ OMERO.editor is an editing tool, where users can create a "template" (for exampl
 
 The OMERO.editor is part of the OMERO.insight client, but can also run as a stand-alone application. OMERO.editor saves files as XML documents, which makes it possible for them to be read by other software.
 
-.. image:: ../images/EditorParamsContext.png
+.. figure:: ../images/EditorParamsContext.png
+    :align: center
+    :alt: OMERO.editor
+
+    OMERO.editor
 
 For more information, see the :ref:`rst_tutorial_editor` page.

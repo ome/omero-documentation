@@ -13,8 +13,10 @@ To learn more about OMERO.importer see the
 :ref:`rst_tutorial_import-images` section.
 
 .. figure:: ../images/omero_importer_4_4.png
+    :align: center
+    :alt: OMERO.importer
 
-   OMERO.importer
+    OMERO.importer
 
 OMERO.importer uses Bio-Formats for translation of proprietary file
 formats in preparation for upload to an OMERO Server.

@@ -6,9 +6,13 @@ OMERO.insight
 OMERO.insight provides a number of tools for accessing and using data in an OMERO Server.
 To find out more, see the :ref:`rst_insight-getting-started` section.
 
-.. figure:: ../images/omero_insight_screenshot_4_4.png
+.. _rst_clients_insight_figure:
 
-   OMERO.insight
+.. figure:: ../images/omero_insight_screenshot_4_4.png
+    :align: center
+    :alt: OMERO.insight
+
+    OMERO.insight
 
 -  DataManager, a traditional tree-based view of the data hierarchies in
    an OMERO Server. DataManager supports access to all image metadata,
