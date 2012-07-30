@@ -72,12 +72,12 @@ The following are necessary:
 
    .. note::
 
-      **OMERO 4.4 supports Ice3.4**, but this
-      requires the correct version of OMERO.server (see
-      :plone:`Downloads <support/omero4/downloads>`). See `"Do I use Ice 3.3 or Ice
-      3.4?" <https://www.openmicroscopy.org/site/support/faq/omero/do-i-use-ice-3.3-or-ice-3.4>`_
-      in the FAQ. If you have further questions, consult the
-      `Forums <https://www.openmicroscopy.org/community>`_.
+      **OMERO 4.4 supports Ice3.4**, but this requires the correct
+      version of OMERO.server (see :plone:`Downloads
+      <support/omero4/downloads>`). See :plone:`"Do I use Ice 3.3 or
+      Ice 3.4?" <support/faq/omero/do-i-use-ice-3.3-or-ice-3.4>` in
+      the FAQ. If you have further questions, consult the `Forums
+      <https://www.openmicroscopy.org/community>`_.
 
 -  **Python 2.4.x or higher installed.** Python version from 2.4 to 2.7
    (due to backwards incompatibilities in Python 3.0, Django does not

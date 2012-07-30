@@ -13,19 +13,19 @@ To get the latest upgrades of OMERO.server, visit the
 
 The OME team is committed to providing frequent, project-wide upgrades
 both with bug fixes and new functionality. We try to make the schedule
-for these releases as public as possible. You may want to take a look at
-the `roadmap <http://trac.openmicroscopy.org.uk/ome/roadmap>`_
-for exactly what will go into a release. We always inform our `mailing
-lists <http://www.openmicroscopy.org/site/community>`_ of the development status. Finally, all the
-products check themselves with the :wiki:`OMERO.registry <OmeroRegistry>`
-for update notifications on startup. If you wish to disable this
-functionality you should do so now as outlined on the :wiki:`UpgradeCheck <UpgradeCheck>`
-page.
+for these releases as public as possible. You may want to take a look
+at the `roadmap <http://trac.openmicroscopy.org.uk/ome/roadmap>`_ for
+exactly what will go into a release. We always inform our
+:plone:`mailing lists <community>` of the development status. Finally,
+all the products check themselves with the :wiki:`OMERO.registry
+<OmeroRegistry>` for update notifications on startup. If you wish to
+disable this functionality you should do so now as outlined on the
+:wiki:`UpgradeCheck <UpgradeCheck>` page.
 
 If you encounter errors during a OMERO upgrade, database upgrade, etc.
 you should retain as much log information as possible and notify the
 OMERO.server team via the mailing lists available on the
-`community <http://www.openmicroscopy.org/site/community/>`_ page. More experienced users may wish to
+:plone:`community <community>` page. More experienced users may wish to
 examine the :wiki:`DbUpgrade`
 page for technical information about OMERO.server database upgrades and
 how to troubleshoot errors themselves.
