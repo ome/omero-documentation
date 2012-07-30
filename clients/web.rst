@@ -16,7 +16,8 @@ OMERO.web 4.4
 
 .. figure:: ../images/OmeroWeb_44.png
    
-   The OMERO 4.4 web client. Images from ` <http://www.openmicroscopy.org/site/about/licensing-attribution/attribution>`_\ JCB Data Viewer.
+    The OMERO 4.4 web client. Images from :plone:`JCB Data Viewer
+    <about/licensing-attribution/attribution>`.
 
 In OMERO 4.4, we have made significant changes to the OMERO.web client.
 This includes a much nicer looking UI, improvements to the usability of
