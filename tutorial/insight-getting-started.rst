@@ -1,3 +1,5 @@
+.. _rst_insight-getting-started:
+
 Getting Started with OMERO.insight
 ==================================
 
@@ -9,8 +11,8 @@ server <http://trac.openmicroscopy.org.uk/ome>`_ installed. You need to
 download and install the version of OMERO.insight or OMERO.importer
 compatible with your OMERO.server version.
 
-The latest versions are available for download from the `Milestone
-Download </site/support/omero4/downloads>`_ page. Once downloaded,
+The latest versions are available for download from the 
+:plone:`Milestone Download <support/omero4/downloads>` page. Once downloaded,
 double-click the package to start the install process.
 
 Logging in

@@ -208,7 +208,7 @@ interact with it.
    allow you to import data via a GUI and manage that data once
    imported. To do so, download the :plone:`insight client <support/omero4/downloads>`
    and follow the instructions below. More information can be found
-   under the `"Getting Started" <../tutorial/getting-started>`_ section
+   under the :ref:`rst_insight-getting-started` section
    which details how to use the OMERO.clients.
 -  Alternatively, you can interact with the server command line
    interface by SSH'ing into the guest VM or by opening a console within
@@ -238,7 +238,7 @@ the server in the VM. Our example uses OMERO.insight running on Mac OS X
 to connect to the VM.
 
 -  `Download <https://www.openmicroscopy.org/site/support/omero4/downloads>`_
-   & `install <../tutorial/getting-started>`_ OMERO.insight
+   & :ref:`install <rst_insight-getting-started>` OMERO.insight
 -  Start OMERO.insight
 -  Click the spanner icon situated above the password box so that we can
    enter the server settings box which looks like this:
