@@ -105,6 +105,14 @@ Every RST document should start with a label that matches the name of the docume
 
 This label allows the page to be referenced in the rest of the documentation. To do so, use the following syntax ``:ref:`rst_name_of_the_page` `` or `` :ref:`link to my page <rst_name_of_the_page>` ``.
 
+## Common markups ##
+
+
+* Notes should be formatted using the note directive: `` .. note::``
+* Definition lists can be created and cross-referenced using the glossary directive: `` .. glossary::``
+* References to external documentation can be formatted using : `` .. seealso::``
+* Menu selections should be marked using the menuselection role: `` :menuselection:`Start --> Programs` ``
+
 ### Common URLs ###
 
 Some URLs are widely used across the OME documentation. Using the sphinx extlinks extension, a dictionary of aliases to base URLs has been defined for the following:
