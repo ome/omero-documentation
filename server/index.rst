@@ -16,7 +16,6 @@ Server
     install_web
     upgrade
     legacy-upgrade
-    db-upgrade-41-to-42
     security
     ldap
     postgresql
