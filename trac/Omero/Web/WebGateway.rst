@@ -1,19 +1,7 @@
 WebGateway
-----------
+==========
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `WebGateway <#WebGateway>`_
-#. `Web Services <#WebServices>`_
-
-   #. `Images <#Images>`_
-   #. `Rendering <#Rendering>`_
-   #. `JSON methods <#JSONmethods>`_
-   #. `Saving etc <#Savingetc>`_
-   #. `ImgData <#ImgData>`_
-
-#. `Getting a connection <#Gettingaconnection>`_
+.. contents::
 
 WebGateway is a Django app within the `OmeroWeb </ome/wiki/OmeroWeb>`_
 framework. It provides a web API for rendering images and accessing data

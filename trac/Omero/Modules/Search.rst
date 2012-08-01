@@ -9,22 +9,7 @@ more information). The index is stored under /OMERO/FullText (or the
 ``FullText`` subdirectory of your ${omero.data.dir}, and can be searched
 with Google-like queries.
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Field names <#Fieldnames>`_
-#. `Queries <#Queries>`_
-#. `Indexing <#Indexing>`_
-#. `Information for developers and system
-   administrators <#Informationfordevelopersandsystemadministrators>`_
-
-   #. `Scheduling indexing <#Schedulingindexing>`_
-   #. `ome.api.IQuery <#ome.api.IQuery>`_
-   #. `ome.api.Search <#ome.api.Search>`_
-
-      #. `Leading wildcard searches <#Leadingwildcardsearches>`_
-
-   #. `Extension points <#Extensionpoints>`_
+.. contents::
 
 Field names
 -----------

@@ -1,20 +1,7 @@
-OMERO Commandline Interface
-===========================
+OMERO Command Line Interface
+============================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Overview <#Overview>`_
-#. `System Administration Commands <#SystemAdministrationCommands>`_
-
-   #. `db <#db>`_
-   #. `config <#config>`_
-   #. `admin <#admin>`_
-
-#. `User commands <#Usercommands>`_
-#. `Extensions <#Extensions>`_
-
-   #. `Thread-safety <#Thread-safety>`_
+.. contents::
 
 Overview
 --------

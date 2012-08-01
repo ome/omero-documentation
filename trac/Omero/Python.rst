@@ -1,21 +1,7 @@
 OMERO Python Language Bindings
 ==============================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Using the OmeroPy libraries <#UsingtheOmeroPylibraries>`_
-#. `Connect to OMERO <#ConnecttoOMERO>`_
-#. `Read Data <#ReadData>`_
-#. `Groups & Permissions <#GroupsPermissions>`_
-#. `Raw Data Access <#RawDataAccess>`_
-#. `Write Data <#WriteData>`_
-#. `OMERO tables <#OMEROtables>`_
-#. `ROIs <#ROIs>`_
-#. `Delete Data <#DeleteData>`_
-#. `Render Images <#RenderImages>`_
-#. `Create Image <#CreateImage>`_
-#. `Python OMERO.scripts <#PythonOMERO.scripts>`_
+.. contents::
 
 In addition to the auto-generated Python libraries of the core `OMERO
 API </ome/wiki/OmeroApi>`_, we have developed a more user-friendly

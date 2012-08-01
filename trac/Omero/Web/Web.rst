@@ -2,7 +2,7 @@
 components| </ome/attachment/wiki/OmeroWeb/OmeroWeb.png>`_
 
 OMERO.web Framework
--------------------
+===================
 
 ` MOVIE introduction to
 OmeroWeb <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`_

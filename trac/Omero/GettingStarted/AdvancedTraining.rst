@@ -30,8 +30,7 @@ OMERO server and client libraries you use are the same OMERO version.
 You may wish to work with the most recent OMERO release, or
 alternatively you can use the latest development code. Instructions on
 how to download or check out the code can be found on the main
-` downloads
-page <http://www.openmicroscopy.org.uk/site/support/omero4/downloads>`_.
+:plone:` downloads page <site/support/omero4/downloads>`_.
 
 Regular builds of the server are performed by
 ` Jenkins <http://jenkins-ci.org/>`_ (formerly known as hudson) and all

@@ -1,5 +1,5 @@
-`OmeroGrid </ome/wiki/OmeroGrid>`_
-==================================
+OMERO Grid
+==========
 
 To unify the various components of OMERO,
 `OmeroGrid </ome/wiki/OmeroGrid>`_ was developed to monitor and control
@@ -9,32 +9,7 @@ processes over numerous remote systems. Based on
 distributed background processing, log handling, and several other
 features.
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Deployment descriptors <#Deploymentdescriptors>`_
-#. `Getting started <#Gettingstarted>`_
-#. `How it works <#Howitworks>`_
-#. `Adding a processor <#Addingaprocessor>`_
-#. `Running a script <#Runningascript>`_
-#. `Uploading secure scripts <#Uploadingsecurescripts>`_
-#. `Secure descriptors <#Securedescriptors>`_
-
-   #. `Firewall <#Firewall>`_
-   #. `SSL <#SSL>`_
-   #. `Permissions Verifier <#PermissionsVerifier>`_
-   #. `Unique node names <#Uniquenodenames>`_
-   #. `Absolute paths <#Absolutepaths>`_
-
-#. `Technical information <#Technicalinformation>`_
-
-   #. `Things to look at <#Thingstolookat>`_
-   #. `Workflow <#Workflow>`_
-   #. `Processes <#Processes>`_
-   #. `Targets <#Targets>`_
-   #. ```Ice.MessageSizeMax`` <#Ice.MessageSizeMax>`_
-   #. `Logging <#Logging>`_
-   #. `Topics to be discussed <#Topicstobediscussed>`_
+.. contents::
 
 Deployment descriptors
 ----------------------

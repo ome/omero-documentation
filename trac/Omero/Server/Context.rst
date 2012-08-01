@@ -1,3 +1,5 @@
+OmeroContext
+============
 
 The entire OMERO application (on a single JVM) resides in a single
 ome.system.\ `OmeroContext </ome/wiki/OmeroContext>`_. Each call belongs
@@ -5,8 +7,6 @@ additionally to a single org.hibernate.Session (which can span over
 multiple calls) and to a single ome.model.meta.Event (which is
 restricted to a single task).
 
-`OmeroContext </ome/wiki/OmeroContext>`_
-========================================
 
 The container for all Omero applications is the
 `OmeroContext </ome/wiki/OmeroContext>`_
@@ -20,7 +20,7 @@ simplifies this usage for the client. See
 information.
 
 Hibernate Sessions
-==================
+------------------
 
 A ``Hibernate Session`` comprises a
 ` Unit-of-Work <http://www.martinfowler.com/eaaCatalog/unitOfWork.html>`_

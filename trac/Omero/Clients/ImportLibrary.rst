@@ -1,13 +1,9 @@
 OMERO Import Library
 ====================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
+.. contents::
 
-#. `Components <#Components>`_
-#. `Example <#Example>`_
-
-The `ImportLibrary </ome/wiki/ImportLibrary>`_ is a re-usable framework
+The Import Library is a re-usable framework
 for building import clients. Several are provided by the OMERO team
 directly:
 

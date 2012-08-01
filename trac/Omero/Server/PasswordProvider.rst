@@ -1,3 +1,6 @@
+Password Provider
+=================
+
 A `PasswordProvider </ome/wiki/PasswordProvider>`_ is an implementation
 of the Java interface
 `ome.security.auth.PasswordProvider </ome/browser/ome.git/components/server/src/ome/security/auth/PasswordProvider.java>`_.

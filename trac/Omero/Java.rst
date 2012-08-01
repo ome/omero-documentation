@@ -1,21 +1,7 @@
 OMERO Java Language Bindings
 ============================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Using the ``omero_client.jar`` <#Usingtheomero_client.jar>`_
-#. `Extended classpath <#Extendedclasspath>`_
-#. `Connect to OMERO <#ConnecttoOMERO>`_
-#. `Read Data <#ReadData>`_
-#. `Raw Data Access <#RawDataAccess>`_
-#. `Write Data <#WriteData>`_
-#. `How to use OMERO tables <#HowtouseOMEROtables>`_
-#. `ROIs <#ROIs>`_
-#. `Delete data <#Deletedata>`_
-#. `Render Images <#RenderImages>`_
-#. `Create Image <#CreateImage>`_
-#. `Further information <#Furtherinformation>`_
+.. contents::
 
 Using the ` Ice Java language
 mapping <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.4.4.html>`_ from

@@ -1,4 +1,4 @@
-Omero Build System
+OMERO Build System
 ==================
 
 .. topic:: Overview

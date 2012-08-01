@@ -1,21 +1,11 @@
 OMERO Training
 ==============
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Overview <#Overview>`_
-#. `OMERO API <#OMEROAPI>`_
-#. `Which Language to use? <#WhichLanguagetouse>`_
-#. `Python <#Python>`_
-
-   #. `Getting connected <#Gettingconnected>`_
-
-#. `Server Side Scripting <#ServerSideScripting>`_
-
 This page provides a list of tasks to get a new developer familiar with
 OMERO. It is presented here as a schedule for an OMERO workshop training
 day.
+
+.. contents::
 
 Overview
 --------

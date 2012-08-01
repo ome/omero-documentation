@@ -12,22 +12,7 @@ be satisfied. In particular:
 -  Configuration: Extraction and editing **local.properties** under
    `OmeroInstall#Installation </ome/wiki/OmeroInstall#Installation>`_
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `OmeroGrid requirements (platform
-   specific) <#OmeroGridrequirementsplatformspecific>`_
-
-   #. `Supported platforms <#Supportedplatforms>`_
-   #. `Platforms requiring Ice
-      compilation <#PlatformsrequiringIcecompilation>`_
-   #. `Unsupported/untested platforms <#Unsupporteduntestedplatforms>`_
-
-#. `Installation <#Installation>`_
-#. `Shortcuts <#Shortcuts>`_
-#. `Symbolic linking <#Symboliclinking>`_
-#. `Running as root <#Runningasroot>`_
-#. `Starting on boot <#Startingonboot>`_
+.. contents::
 
 `OmeroGrid </ome/wiki/OmeroGrid>`_ requirements (platform specific)
 -------------------------------------------------------------------

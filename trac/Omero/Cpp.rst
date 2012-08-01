@@ -1,19 +1,7 @@
 OMERO C++ Language Bindings
 ===========================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Prepairing to build <#Prepairingtobuild>`_
-#. `Building the library <#Buildingthelibrary>`_
-#. `Further build configuration <#Furtherbuildconfiguration>`_
-#. `Using the library <#Usingthelibrary>`_
-#. `A trivial example:
-   ``yourcode.cpp`` <#Atrivialexample:yourcode.cpp>`_
-#. `Compiling and running ``yourcode`` <#Compilingandrunningyourcode>`_
-#. `Notes for Mac users <#NotesforMacusers>`_
-#. `Notes for Visual Studio users <#NotesforVisualStudiousers>`_
-#. `Further information <#Furtherinformation>`_
+.. contents::
 
 Using the ` Ice C++ language
 mapping <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.4.3.html>`_ from

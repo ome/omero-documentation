@@ -1,5 +1,5 @@
 Contributing to OMERO.insight
------------------------------
+=============================
 
 Getting Started with OMERO.insight
 ----------------------------------

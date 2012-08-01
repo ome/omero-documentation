@@ -1,16 +1,7 @@
 Exception Handling
 ==================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Client Exceptions <#ClientExceptions>`_
-#. `Server Exceptions <#ServerExceptions>`_
-
-   #. `Interceptor <#Interceptor>`_
-   #. `Hierarchy <#Hierarchy>`_
-   #. `Discussion <#Discussion>`_
-   #. `Questions <#Questions>`_
+.. contents::
 
 Client Exceptions
 -----------------

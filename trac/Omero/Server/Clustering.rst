@@ -1,6 +1,6 @@
 (**Experimental**)
-
---------------
+Clustering
+==========
 
 Clustering an OMERO instance consists of starting multiple
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_ servers with each allocating user

@@ -1,5 +1,5 @@
-`OmeroSessions </ome/wiki/OmeroSessions>`_
-==========================================
+OMERO Sessions
+==============
 
 Beginning with OMERO-3.0-Beta3, the OMERO server has unified the
 handling of login sessions among both the JBoss and the

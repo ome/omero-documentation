@@ -1,15 +1,7 @@
 Scaling Omero
 =============
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Concurrent invocations <#Concurrentinvocations>`_
-
-   #. `Database connections <#Databaseconnections>`_
-   #. `Server threads <#serverthreads>`_
-
-#. `Total throughput <#Totalthroughput>`_
+.. contents::
 
 There are several ways that OMERO, or any server system, can scale.
 Optimizing your system for more than one of these factors is

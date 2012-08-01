@@ -1,68 +1,7 @@
-Developting `OmeroBlitz </ome/wiki/OmeroBlitz>`_ Clients
+Developing `OmeroBlitz </ome/wiki/OmeroBlitz>`_ Clients
 ========================================================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Introduction <#Introduction>`_
-#. `Distributed computing <#Distributedcomputing>`_
-#. `Objects <#Objects>`_
-
-   #. `"Slice" mapping language <#Slicemappinglanguage>`_
-   #. `Primitives <#Primitives>`_
-   #. `Sequences, Dictionaries, Enums, and
-      Constants <#SequencesDictionariesEnumsandConstants>`_
-   #. `RTypes <#RTypes>`_
-   #. `OMERO Model Objects <#OMEROModelObjects>`_
-   #. `Details <#Details>`_
-   #. `ObjectFactory and Casting <#ObjectFactoryandCasting>`_
-   #. `Visibility and Loadedness <#VisibilityandLoadedness>`_
-   #. `Collections <#Collections>`_
-   #. `"Interfaces" <#Interfaces>`_
-   #. `Language-specific behavior <#Language-specificbehavior>`_
-   #. `Smart pointers (C++ only) <#SmartpointersConly>`_
-   #. ```__getattr__`` & ``__setattr__`` (Python
-      only) <#__getattr____setattr__Pythononly>`_
-   #. `Method inspection & Code completion (Matlab &
-      Python) <#MethodinspectionCodecompletionMatlabPython>`_
-
-#. `Services Overview <#ServicesOverview>`_
-
-   #. `OmeroClient? and Configuration <#OmeroClientandConfiguration>`_
-   #. `What *is* a ServiceFactory? <#WhatisaServiceFactory>`_
-   #. `It produces services! <#Itproducesservices>`_
-
-      #. `Stateless vs. Stateful <#Statelessvs.Stateful>`_
-
-   #. `What are timeouts? <#Whataretimeouts>`_
-   #. `Exceptions <#Exceptions>`_
-
-#. `IQuery <#IQuery>`_
-#. `IUpdate <#IUpdate>`_
-#. `Examples <#Examples>`_
-
-   #. ```TreeList`` <#TreeList>`_
-   #. `Proposed <#Proposed>`_
-
-#. `Advanced topics <#Advancedtopics>`_
-
-   #. `Sudo <#Sudo>`_
-   #. `Proposed <#Proposed1>`_
-
-#. `Porting from OMERO Beta3.x <#PortingfromOMEROBeta3.x>`_
-
-   #. `Model changes <#Modelchanges>`_
-   #. `JBoss/RMI <#JBossRMI>`_
-   #. `Blitz in 3.2 <#Blitzin3.2>`_
-
-#. `Planned improvements & Known
-   issues <#PlannedimprovementsKnownissues>`_
-
-   #. `Topics to be added <#Topicstobeadded>`_
-   #. `Code generation <#Codegeneration>`_
-   #. `Lazy loading & caching <#Lazyloadingcaching>`_
-   #. `Helper classes <#Helperclasses>`_
-   #. `Other <#Other>`_
+.. contents::
 
 **NOTE:**
 

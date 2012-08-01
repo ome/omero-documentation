@@ -1,21 +1,7 @@
 Deleting in OMERO
 -----------------
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Deleting in OMERO <#DeletinginOMERO>`_
-#. `Delete Behavior (Technical) <#DeleteBehaviorTechnical>`_
-
-   #. `Delete Image <#DeleteImage>`_
-   #. `Delete Dataset or Project <#DeleteDatasetorProject>`_
-   #. `Delete Screen, Plate or Plate
-      Acquisition <#DeleteScreenPlateorPlateAcquisition>`_
-   #. `Delete Tag/Attachment <#DeleteTagAttachment>`_
-   #. `Delete in Collaborative Group <#DeleteinCollaborativeGroup>`_
-   #. `Group owner rights <#Groupownerrights>`_
-   #. `Edge Cases <#EdgeCases>`_
-   #. `Binary Data <#BinaryData>`_
+.. contents::
 
 Deleting data in OMERO is complex due to the highly linked nature of
 data in the database. For example, an Image has links to Datasets,

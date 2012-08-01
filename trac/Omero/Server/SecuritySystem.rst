@@ -1,38 +1,7 @@
 Omero Security System
 =====================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Concepts <#Concepts>`_
-#. `Participants <#Participants>`_
-
-   #. `Top-level and Build <#Top-levelandBuild>`_
-
-      #. `JBoss-only <#JBoss-only>`_
-      #. `OmeroGrid only <#OmeroGridonly>`_
-
-   #. `Client & Common <#ClientCommon>`_
-
-      #. `JBoss-only <#JBoss-only1>`_
-      #. `OmeroGrid-only <#OmeroGrid-only>`_
-
-   #. `Server side <#Serverside>`_
-
-#. `End-to-end <#End-to-end>`_
-
-   #. `Build system <#Buildsystem>`_
-   #. `Client-side <#Client-side>`_
-   #. `Application server <#Applicationserver>`_
-   #. `Server code <#Servercode>`_
-   #. `Interceptors <#Interceptors>`_
-   #. `Services <#Services>`_
-   #. `Hibernate <#Hibernate>`_
-   #. `Security System <#SecuritySystem>`_
-
-#. `Logging in (client-side) <#Logginginclient-side>`_
-#. `Logging in (server-side) <#Logginginserver-side>`_
-#. `4.2 Design dicsussion <#a4.2Designdicsussion>`_
+.. contents::
 
 The Omero security system is intended to be as transparent as possible
 while permitting users to configure the visibility of their data. For

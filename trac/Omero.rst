@@ -1,15 +1,12 @@
-`OmeroHome </ome/wiki/OmeroHome>`_
-==================================
+OMERO Home Page
+===============
 
-**Welcome to the OMERO wiki!** This is the home page of the OMERO
+Welcome to the OMERO wiki!** This is the home page of the OMERO
 developer documentation wiki.
 
-*Instructions on
-` downloading <http://www.openmicroscopy.org.uk/site/support/omero4/downloads>`_,
-` installing <http://www.openmicroscopy.org.uk/site/support/omero4/server/installation>`_
-and administering OMERO can be found under the ` server
-section <http://www.openmicroscopy.org.uk/site/support/omero4/server>`_
-of the main site.*
+Instructions on :plone:` downloading <support/omero4/downloads>`,
+:ref:`rst_installation` and administering OMERO can be found under 
+the :ref:`rst_server` of the main site.
 
 `|image1| </ome/attachment/wiki/OmeroHome/api-figure.png>`_
 

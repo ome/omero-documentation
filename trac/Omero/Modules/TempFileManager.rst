@@ -14,12 +14,7 @@ lockable write-access (See `#1653 </ome/ticket/1653>`_):
    ``System.getProperty("java.io.tmpdir")`` and in Python
    ``tempfile.gettempdir()``
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Creating temporary files <#Creatingtemporaryfiles>`_
-#. `Removing files <#Removingfiles>`_
-#. `Creating directories <#Creatingdirectories>`_
+.. contents::
 
 Creating temporary files
 ------------------------

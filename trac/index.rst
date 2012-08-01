@@ -12,28 +12,23 @@ Trac
     Omero/Build
     Omero/Clients/ImportLibrary
     Omero/CommandLine
-    Omero/Cpp
     Omero/GatewayApi
     Omero/GettingStarted
     Omero/GettingStarted/*
     Omero/Grid
-    Omero/Insight
-    Omero/Insight/*
-    Omero/Insight/HowTo/*
+    Omero/Insight/index
+    Omero/Python
+    Omero/Python/*
     Omero/Java
     Omero/Matlab
+    Omero/Cpp
     Omero/Model
     Omero/Modules/*
     Omero/Modules/Scripts/*
     Omero/Modules/Search/*
-    Omero/Python
-    Omero/Python/*
     Omero/Search/*
-    Omero/Server
-    Omero/Server/*
-    Omero/Server/Grid/*
-    Omero/Web
-    Omero/Web/*
+    Omero/Server/index
+    Omero/Web/index
     Omero/WhyBeta
     
     

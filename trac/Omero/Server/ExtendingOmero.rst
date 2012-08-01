@@ -1,7 +1,7 @@
-Extending Omero
+Extending OMERO
 ===============
 
---------------
+.. topic:: Overview
 
     Despite all the effort put into building OMERO, it will never
     satisfy the requirements of every group. Where we have seen it
@@ -12,42 +12,8 @@ Extending Omero
     extension points. Please contact ome-devel with any such
     suggestions.
 
---------------
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Other starting points <#Otherstartingpoints>`_
-
-   #. `Clients <#Clients>`_
-   #. `List of Extension points <#ListofExtensionpoints>`_
-
-#. `Main topics <#Maintopics>`_
-
-   #. `Model <#Model>`_
-
-      #. `Structured Annotations <#StructuredAnnotations>`_
-      #. `Code generation <#Codegeneration>`_
-      #. `Measurement results <#Measurementresults>`_
-
-   #. `Services <#Services>`_
-
-      #. `Add a slice definition <#Addaslicedefinition>`_
-      #. `Warning: Exceptions <#Warning:Exceptions>`_
-      #. `Java Implementation using
-         ``_Disp`` <#JavaImplementationusing_Disp>`_
-      #. `Java Implementation using
-         ``_Tie`` <#JavaImplementationusing_Tie>`_
-      #. `Java Configuration <#JavaConfiguration>`_
-      #. `Java Deployment <#JavaDeployment>`_
-      #. `Future topics <#Futuretopics>`_
-
-   #. `Non-service beans <#Non-servicebeans>`_
-   #. `Servers <#Servers>`_
-
-      #. `server element <#serverelement>`_
-      #. `server-template & seerver-instance
-         elements <#server-templateseerver-instanceelements>`_
+.. contents::
 
 Other starting points
 ---------------------

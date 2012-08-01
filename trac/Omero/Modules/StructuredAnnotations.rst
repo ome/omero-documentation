@@ -1,20 +1,7 @@
 Structured Annotations
 ======================
 
-#. `Structured Annotations <#StructuredAnnotations>`_
-
-   #. `Annotated & Annotating types <#AnnotatedAnnotatingtypes>`_
-
-      #. `Annotation hierarchy <#Annotationhierarchy>`_
-
-   #. `Names and Namespaces <#NamesandNamespaces>`_
-   #. `Descriptions <#Descriptions>`_
-   #. `Immutability <#Immutability>`_
-   #. `Examples <#Examples>`_
-
-      #. `Basics <#Basics>`_
-      #. `Attaching a tag <#Attachingatag>`_
-      #. `Attaching a file <#Attachingafile>`_
+.. contents::
 
 Structured annotations permit the attachment of data and metadata
 outside the OMERO data model to certain types within the model. The

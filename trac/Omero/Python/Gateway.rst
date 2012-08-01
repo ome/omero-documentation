@@ -1,21 +1,7 @@
 A Python interface to OMERO
 ===========================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. 
-
-   #. `Dependancies <#Dependancies>`_
-
-#. `Installing <#Installing>`_
-#. `Creating a connection <#Creatingaconnection>`_
-#. `The Gateway Methods <#TheGatewayMethods>`_
-#. `Access to the OMERO API services <#AccesstotheOMEROAPIservices>`_
-#. `Stateful services, reconnection, error handling
-   etc <#Statefulservicesreconnectionerrorhandlingetc>`_
-#. `Overwriting and extending omero.gateway
-   classes <#Overwritingandextendingomero.gatewayclasses>`_
+.. contents::
 
 ` MOVIE: introduction to Blitz
 Gateway <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/BlitzGatewayIntro-4.3.mov>`_

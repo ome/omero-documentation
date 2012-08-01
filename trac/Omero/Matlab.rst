@@ -1,7 +1,7 @@
 .. rst_Matlab::
 
-A Matlab interface to OMERO.blitz
-=================================
+OMERO Matlab Language Bindings
+==============================
 
 See `DevelopingOmeroClients </ome/wiki/DevelopingOmeroClients>`_ and
 `ObjectModel </ome/wiki/ObjectModel>`_, for an introduction about
@@ -156,15 +156,14 @@ again, use the ``omero.client`` object directly:
     >> c = omero.client(arg3,arg4);
     >> s = c.createSession();
 
---------------
 
 Code in Action
-==============
+--------------
 
 Follow several code samples showing how to interact with some objects.
 
 Connect to OMERO
-----------------
+~~~~~~~~~~~~~~~~
 
 -  **Connect to server**.
 
@@ -196,7 +195,7 @@ Remember to close the session.
     unsecureClient.closeSession();
 
 Read Data
----------
+~~~~~~~~~
 
 The ``IContainer`` service provides method to load the data management
 hierarchy in OMERO -- Projects, Datasets, Etc. A list of examples
@@ -339,7 +338,7 @@ Given a plate ID, load the wells. You will have to use the
     end 
 
 Raw Data access
----------------
+~~~~~~~~~~~~~~~
 
 You can retrieve data, plane by plane or retrieve a stack.
 
@@ -452,7 +451,7 @@ This is useful when you need the pixels intensity.
     store.close();
 
 Write Data
-----------
+~~~~~~~~~~
 
 -  **Create a Dataset** and link it to an existing Project.
 
@@ -588,7 +587,7 @@ First load the annotation, cf. above.
     store.close();
 
 How to use OMERO tables
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **Create a table**. In the following example, we create a table with
    2 columns.
@@ -641,7 +640,7 @@ How to use OMERO tables
     tablePrx.close(); % Important to close when done.
 
 ROIs
-----
+~~~~
 
 To learn about the model see
 `http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi <http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi>`_
@@ -743,7 +742,7 @@ to an image.
     end
 
 Delete data
------------
+~~~~~~~~~~~
 
 It is possible to delete Projects, Datasets, Images, ROIs etc and
 objects linked to them depending on the specified options (see
@@ -772,7 +771,7 @@ In the following example, we create an Image and delete it.
     prx = session.getDeleteService().queueDelete(list);
 
 Render Images
--------------
+~~~~~~~~~~~~~
 
 -  **Initialize the rendering engine and render an Image.**
 
@@ -851,7 +850,7 @@ Render Images
     end
 
 Create Image
-------------
+~~~~~~~~~~~~
 
 The following example shows how to create an Image from an Image already
 in OMERO. Similar approach can be applied when uploading an image.

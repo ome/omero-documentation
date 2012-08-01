@@ -1,5 +1,5 @@
 Organisation
-------------
+============
 
 The source code is organised as follows. All classes share a common base
 namespace:

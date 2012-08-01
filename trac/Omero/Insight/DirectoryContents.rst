@@ -1,5 +1,5 @@
 Directory Contents
-------------------
+==================
 
 The repository of the software artifacts is organised as follows:
 
