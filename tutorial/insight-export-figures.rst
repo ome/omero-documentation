@@ -15,10 +15,10 @@ below.
 See the demo movie here.
 
 .. figure:: ../images/insight-export-publishingoptions.png
-   :align: center
-   :alt: Publishing options
+    :align: center
+    :alt: Publishing options
 
-   Publishing options.
+    Publishing options.
 
 All figure generating options are available from the top-right toolbar
 in Insight and will try to use the currently selected images or datasets
@@ -34,16 +34,16 @@ tags to sort the images by. If an image is tagged by multiple tags, it
 will appear more than once in the figure.
 
 .. figure:: ../images/insight-export-thumbnail-figure.png
-   :align: center
-   :alt: Four datasets
+    :align: center
+    :alt: Four datasets
 
-   Four datasets.
+    Four datasets.
 
 .. figure:: ../images/insight-export-thumbnail-figure2.png
-   :align: center
-   :alt: Two datasets, with thumbnails sorted by 4 tags
+    :align: center
+    :alt: Two datasets, with thumbnails sorted by 4 tags
 
-   Two datasets, with thumbnails sorted by 4 tags.
+    Two datasets, with thumbnails sorted by 4 tags.
 
 Split-view Figure
 -----------------
@@ -57,11 +57,11 @@ labeled with their name, the name of their dataset(s) or associated
 tags.
 
 .. figure:: ../images/insight-export-splitview-figure.png
-   :align: center
-   :alt: Split-View Figure of 3 images with 4 channels
+    :align: center
+    :alt: Split-View Figure of 3 images with 4 channels
 
-   Split-View Figure of 3 images with 4 channels, showing 2 channels
-   in the merged panel. Images are labeled with their Tags.
+    Split-View Figure of 3 images with 4 channels, showing 2 channels
+    in the merged panel. Images are labeled with their Tags.
 
 Movie Figure
 ------------
@@ -72,12 +72,12 @@ is displayed. Images can be labeled with their name, the name of their
 dataset(s) or associated tags.
 
 .. figure:: ../images/insight-export-movie-figure.png
-   :align: center
-   :alt: Movie figure showing three images, labeled with image name
+    :align: center
+    :alt: Movie figure showing three images, labeled with image name
 
-   Movie figure showing three images, labeled with image name. The
-   third movie does not have timing metadata (frame numbers shown
-   instead), and has fewer frames than the top 2 movies.
+    Movie figure showing three images, labeled with image name. The
+    third movie does not have timing metadata (frame numbers shown
+    instead), and has fewer frames than the top 2 movies.
 
 ROI Figure
 ----------
@@ -90,13 +90,16 @@ labeled with their name, the name of their dataset(s) or associated
 tags.
 
 .. figure:: ../images/insight-export-split-roi-figure.png
-   :align: center
-   :alt: ROI figure with split view
+    :align: center
+    :alt: ROI figure with split view
 
-   ROI figure with split view showing a ROI zoom of 4.0 from the
-   original pixels. NB. In this figure, the rendering settings are the
-   same for all 3 images (as noted in the figure legend), allowing a
-   direct comparison between them.
+    ROI figure with split view showing a ROI zoom of 4.0 from the
+    original pixels. 
+
+.. note::
+    In this figure, the rendering settings are the
+    same for all 3 images (as noted in the figure legend), allowing a
+    direct comparison between them.
 
 ROI Movie Figure
 ----------------
@@ -106,12 +109,12 @@ every time point that the ROI exists. If the ROI for a particular time
 point spans several Z-sections, these will be projected.
 
 .. figure:: ../images/insight-export-roi-movie-figure.png
-   :align: center
-   :alt: ROI figure from 2 movies
+    :align: center
+    :alt: ROI figure from 2 movies
 
-   ROI figure from 2 movies. The number of frames is determined by the
-   ROI for each image and images are labeled on the left with their
-   Tags.
+    ROI figure from 2 movies. The number of frames is determined by the
+    ROI for each image and images are labeled on the left with their
+    Tags.
 
 Reference Example Figures (from outside sources)
 ================================================
@@ -161,16 +164,16 @@ Grid of Images
 -  All panels different conditions with panels named with Name (or Tag)
    in white:
 
-   -  http://jcb.rupress.org/content/168/4/599/F2.expansion
-   -  http://jcb.rupress.org/content/168/5/801/F6.expansion
-   -  http://jcb.rupress.org/content/168/6/855/F2.expansion
+    -  http://jcb.rupress.org/content/168/4/599/F2.expansion
+    -  http://jcb.rupress.org/content/168/5/801/F6.expansion
+    -  http://jcb.rupress.org/content/168/6/855/F2.expansion
 
 -  Arranged in rows and cols. E.g. Choose a project: Columns are
    datasets and rows are tags:
 
-   -  http://jcb.rupress.org/content/168/5/747/F5.expansion
-   -  http://jcb.rupress.org/content/168/5/747/F8.expansion (Panel A)
-   -  http://jcb.rupress.org/content/172/1/139/F7.expansion
+    -  http://jcb.rupress.org/content/168/5/747/F5.expansion
+    -  http://jcb.rupress.org/content/168/5/747/F8.expansion (Panel A)
+    -  http://jcb.rupress.org/content/172/1/139/F7.expansion
 
 Movie
 -----

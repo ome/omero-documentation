@@ -99,8 +99,9 @@ you should choose: \* Channel Name Pattern: "\_C" \* Z Name Pattern:
 "\_Z" \* Time Name Pattern: "None" (optional)
 
 If the input images are Z stacks, then the 'Z Name Pattern' will be
-ignored and the Z-size of the first image will be used instead (NB:
-assumed that all images have the same Z size).
+ignored and the Z-size of the first image will be used instead.
+
+.. note:: It is assumed that all images have the same Z size.
 
 Manually Define Dimensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

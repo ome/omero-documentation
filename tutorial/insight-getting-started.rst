@@ -47,7 +47,8 @@ You can either:
    |edit| icon.
 3. Same as 2., then click on the port.
 
-    Note: The default port is ``4064``, you should not have to modify this value. If you have to, your system administrator will give you the new value.
+   ..note::
+       The default port is ``4064``, you should not have to modify this value. If you have to, your system administrator will give you the new value.
                                                                                                                                                         
 
 You can also indicate the speed of your network connection:
@@ -65,8 +66,9 @@ render images on the server and transfer to the client application. i.e.
 
 Then click the ``Apply`` button.
 
-Note: The name of the selected server and the connection's speed are
-displayed in the ``Login Dialog``.
+.. note:: 
+    The name of the selected server and the connection's speed are
+    displayed in the ``Login Dialog``.
 
 Secure Data Transfer
 --------------------

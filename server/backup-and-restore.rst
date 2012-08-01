@@ -79,9 +79,10 @@ copying it into ``/OMERO/backup``:
 
     $ bin/omero config get > /OMERO/backup/omero.config
 
-Note: If you have edited ``etc/grid/(win)default.xml`` directly for any
-reason then you will also need to copy that file to somewhere safe, such
-as ``/OMERO/backup``.
+.. note::
+    If you have edited ``etc/grid/(win)default.xml`` directly for any
+    reason then you will also need to copy that file to somewhere safe, such
+    as ``/OMERO/backup``.
 
 .. _backup-and-restore_postgresql:
 

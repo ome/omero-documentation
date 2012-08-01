@@ -583,8 +583,9 @@ follow the following upgrade procedure:
    If you wish to configure OMERO.web you should follow the instruction
    on :ref:`rst_install_web`.
 
-    **Note:** It is **not recommended** to use any older settings.py
-    files with the 4.1.x.
+   .. note::
+      It is **not recommended** to use any older settings.py 
+      files with the 4.1.x.
 
 You should also change any environment variables or directory references
 that may point to the wrong location.

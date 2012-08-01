@@ -17,7 +17,8 @@ status. Finally, all the products check themselves with the
 to disable this functionality you should do so now as outlined on the
 :wiki:`UpgradeCheck` page.
 
-    **Note:** Before starting the upgrade, please ensure that you have
+.. note:: 
+    Before starting the upgrade, please ensure that you have
     obtained all the prerequisites for installation, documented for
     Unix and Windows. In particular, ensure that you are running a
     suitable version of PostgreSQL to enable successful upgrading of

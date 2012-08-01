@@ -133,11 +133,7 @@ Setup Environment
 -----------------
 
 Edit your **.bashrc** file, e.g. **$ vim ~/.bashrc** and add the
-following (NB - you may wish to check postgres and python versions by
-checking the directories themselves, since they may not correspond to
-those listed below). In particular check the version of python that is
-installed. Newer versions of Ubuntu are installing python2.7 by default
-now from APT:
+following:
 
 ::
 
@@ -148,6 +144,13 @@ now from APT:
       export PATH=$PATH:$JAVA_HOME/bin:$ICE_HOME:$POSTGRES_HOME/bin:$OMERO_HOME/bin
       export PYTHONPATH=/usr/lib/pymodules/python2.6:$PYTHONPATH
       export LD_LIBRARY_PATH=/usr/share/java:/usr/lib:$LD_LIBRARY_PATH
+
+.. note::
+	You may wish to check postgres and python versions by
+	checking the directories themselves, since they may not correspond to
+	those listed above. In particular check the version of python that is
+	installed. Newer versions of Ubuntu are installing python2.7 by default
+	now from APT.
 
 Now we need to make those changes take effect by getting our shell to
 apply them using the **source** built in command:

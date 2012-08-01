@@ -175,10 +175,16 @@ Permissions Tables
 
 The following are the permissions available to other users on other
 group members data, depending on the group permissions and on your user
-type. Note: No user can ever create projects or datasets, or import data
-into another user's space. Note: Although all users can run scripts on
-other users' data, the actions within those scripts will be subject to
-the restrictions of the permissions detailed in these tables.
+type. 
+
+..note::
+    No user can ever create projects or datasets, or import data
+    into another user's space. 
+
+.. note::
+    Although all users can run scripts on
+    other users' data, the actions within those scripts will be subject to
+    the restrictions of the permissions detailed in these tables.
 
 Ordered by Group Permissions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

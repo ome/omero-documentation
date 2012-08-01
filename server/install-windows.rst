@@ -29,9 +29,11 @@ Limitations
    2008 and we recommend this version.
 -  :wiki:`OmeroMovie` does not work on Windows at present.
 -  Spaces are not currently supported in installation path names.
-   **Note:** default user paths on Windows usually contain spaces so you
-   will need to ensure the path has no spaces, ``C:\omero_dist`` for
-   example.
+   
+   .. note:: 
+      The default user paths on Windows usually contain spaces so you
+      will need to ensure the path has no spaces, ``C:\omero_dist`` for
+      example.
 -  A reboot is required after installing the prerequisites.
 
 Prerequisites

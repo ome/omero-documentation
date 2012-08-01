@@ -156,7 +156,9 @@ look like this:
 
 If you are on Linux or Mac OS X then you can either use our port
 forwarding setup script or else you can set up port forwarding settings
-manually. NB. On Microsoft Windows systems you will have to set up port
+manually. 
+
+On Microsoft Windows systems you will have to set up port
 forwarding manually as the script requires a bash shell. The script can
 be downloaded from here and is run by opening a shell and executing the
 following command:
@@ -165,8 +167,10 @@ following command:
 
        $ bash setup_port_forwarding.sh $VMNAME
 
-where $VMNAME is the name of your VM. NB. By default the scripts create
-a VM named **omerovm** and the pre-built appliance is named **omero-vm**
+where $VMNAME is the name of your VM. 
+
+.. note:: By default the scripts create a VM named **omerovm** and the 
+	pre-built appliance is named **omero-vm**
 
 Adding port forwarding manually is achieved by editing the port
 forwarding table that we displayed before. Use the **+** to add a new
@@ -455,15 +459,19 @@ OMERO.server in the host OS.
 -  \*\* SOLUTION 2: \*\* Alter the port-forwarding settings for your
    OMERO.VM as described in the :ref:`virtualappliance_portforwarding`
    section. For example, increment the host port settings for omero-ssl,
-   omero-unsec, and omero-web. NB. We are assuming that your host OS is
-   not already running services on those ports. You can check whether
-   something is already listening on any of these ports by running the
-   following commands (Mac OS X) which should return the prompt without
-   any further output if there is nothing listening:
+   omero-unsec, and omero-web. 
 
-   ::
+   .. note:: 
 
-       $ lsof -nP | grep -E '(:4063)|(:4064)'
+	   We are assuming that your host OS is
+	   not already running services on those ports. You can check whether
+	   something is already listening on any of these ports by running the
+	   following commands (Mac OS X) which should return the prompt without
+	   any further output if there is nothing listening:
+
+	   ::
+
+	       $ lsof -nP | grep -E '(:4063)|(:4064)'
 
 VM won't boot because the HDD is full
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -536,12 +544,22 @@ Download an Ubuntu Linux ISO
 Download an `Ubuntu Linux
 iso <http://www.ubuntu.com/download/desktop>`_. The default,
 currently Ubuntu 11.10 32bit, is fine. We will need this later in the
-process. ### Backup your VM ### Before we do anything else we should
+process.  
+
+Backup your VM
+"""""""""""""" 
+
+Before we do anything else we should
 create a clone of the omero-vm and subsequently work on the copy. This
 way if something gets broken we can always start again. The easiest way
-to do this is from the command line. **NB.** If you are on Windows then
-you should navigate to C:\\Program Files\\Oracle\\VirtualBox\\ because
-the VBoxManage tools are not added to your path by default. So, start a
+to do this is from the command line. 
+
+.. note:: 
+
+	If you are on Windows then you should navigate to `C:\\Program Files\\
+	Oracle\\VirtualBox\\` because the VBoxManage tools are not added to your path by default. 
+
+So, start a
 shell and, assuming that your VM has the default name of omero-vm, use
 the following command:
 

@@ -110,7 +110,7 @@ Run the script to install OMERO requirements:
     script to fail. Under normal circumstances simply rerunning the script
     should be sufficient. Occasionally you may have to wait for a short
     period then try running the script again. Rarely you may have to find a
-    different location for the remote repository (NB. This should involve
+    different location for the remote repository (This should involve
     getting in touch with the homebrew project/OMERO team members so that
     homebrew formulae can be updated in the event of a permanent failure of
     a resource).
