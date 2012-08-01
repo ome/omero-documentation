@@ -1,3 +1,6 @@
+SqlAction
+=========
+
 Internal server interface used to wrap all calls which speak JDBC
 directly. This allows special logic to be introduced where necessary for
 each RDBM.

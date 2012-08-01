@@ -1,26 +1,4 @@
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Installing and Configuring <#InstallingandConfiguring>`_
-
-   #. `Installing the OmeroMatlab
-      Toolbox <#InstallingtheOmeroMatlabToolbox>`_
-   #. `Configuring the OmeroMatlab
-      connection <#ConfiguringtheOmeroMatlabconnection>`_
-   #. `Using the OmeroMatlab
-      omero.client <#UsingtheOmeroMatlabomero.client>`_
-   #. `Keeping your session alive <#Keepingyoursessionalive>`_
-   #. `Closing & unloading OMERO <#ClosingunloadingOMERO>`_
-
-#. `Connect to OMERO <#ConnecttoOMERO>`_
-#. `Read Data <#ReadData>`_
-#. `Raw Data access <#RawDataaccess>`_
-#. `Write Data <#WriteData>`_
-#. `How to use OMERO tables <#HowtouseOMEROtables>`_
-#. `ROIs <#ROIs>`_
-#. `Delete data <#Deletedata>`_
-#. `Render Images <#RenderImages>`_
-#. `Create Image <#CreateImage>`_
+.. rst_Matlab::
 
 A Matlab interface to OMERO.blitz
 =================================
@@ -29,6 +7,8 @@ See `DevelopingOmeroClients </ome/wiki/DevelopingOmeroClients>`_ and
 `ObjectModel </ome/wiki/ObjectModel>`_, for an introduction about
 **Object**.
 
+.. contents::
+
 Installing and Configuring
 --------------------------
 
@@ -36,13 +16,13 @@ Installing the `OmeroMatlab </ome/wiki/OmeroMatlab>`_ Toolbox
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Download the desired version. For the latest build see,
-   ` http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/ <http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/>`_
+   `<http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/>`_
    and download the `OmeroMatlab </ome/wiki/OmeroMatlab>`_ zip file. For
-   the latest released version visit the main download page,
-   `http://www.openmicroscopy.org/site/support/omero4/downloads <http://www.openmicroscopy.org/site/support/omero4/downloads>`_
+   the latest released version visit the main `download page
+   <http://www.openmicroscopy.org/site/support/omero4/downloads>`_
 -  Unzip the directory anywhere on your system.
 -  In Matlab, change to the newly unzipped directory.
--  Run ``loadOmero;``
+-  Run :command:`loadOmero;`
 -  The MATLAB files are now on your path, and the necessary jars are on
    your java classpath. You can change directories and still have access
    to OMERO.
@@ -78,9 +58,9 @@ equivalent:
 
 ::
 
-    >>> [client1, session1] = loadOmero('localhost');
-    >>> client2 = loadOmero('localhost');
-    >>> session2 = client2.createSession()
+    >> [client1, session1] = loadOmero('localhost');
+    >> client2 = loadOmero('localhost');
+    >> session2 = client2.createSession()
 
 Using the `OmeroMatlab </ome/wiki/OmeroMatlab>`_ omero.client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

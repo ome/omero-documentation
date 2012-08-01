@@ -1,29 +1,14 @@
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Build tools <#Buildtools>`_
-
-   #. `Structure of the build <#Structureofthebuild>`_
-   #. `Code generation <#Codegeneration>`_
-   #. `OmeroTools <#OmeroTools>`_
-   #. `Ant-based builds <#ant>`_
-   #. `Ice-based builds <#ice>`_
-   #. `SCons-based builds <#scons>`_
-
-#. `Creating binary distribution <#Creatingbinarydistribution>`_
-
-   #. `Hudson <#Hudson>`_
-
-#. `Comments on Ivy <#CommentsonIvy>`_
-#. `Comments on build.py <#Commentsonbuild.py>`_
-
 Omero Build System
 ==================
 
-**The page goes into details about how the build system is configured.
-You may want to visit the
-`OmeroContributing </ome/wiki/OmeroContributing>`_ page if you are
-simply interested in building from source.**
+.. topic:: Overview
+
+	The page goes into details about how the build system is configured.
+	You may want to visit the
+	`OmeroContributing </ome/wiki/OmeroContributing>`_ page if you are
+	simply interested in building from source.
+
+.. contents::
 
 Build tools
 -----------

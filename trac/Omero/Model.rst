@@ -1,39 +1,7 @@
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Improving generated data objects <#Improvinggenerateddataobjects>`_
-
-   #. `Constructors <#Constructors>`_
-   #. `Details <#Details>`_
-   #. `Interfaces <#interfaces>`_
-   #. `Inheritance <#Inheritance>`_
-   #. `Model report objects <#Modelreportobjects>`_
-   #. `Dynamic methods <#dynamic>`_
-
-      #. `fieldSet / putAt / retrieve <#fieldSetputAtretrieve>`_
-      #. `acceptFilter <#acceptFilter>`_
-      #. `Limitations <#Limitations>`_
-
-#. `Entity lifecycle <#Entitylifecycle>`_
-
-   #. `States <#States>`_
-   #. `Identity, References, and
-      Versions <#IdentityReferencesandVersions>`_
-
-#. `Working with the Object Model <#WorkingwiththeObjectModel>`_
-
-   #. `Writing <#Writing>`_
-   #. `Reading <#Reading>`_
-   #. `Reading **&** Writing <#ReadingWriting>`_
-   #. `Lazy loading <#Lazyloading>`_
-   #. `Collections <#Collections>`_
-   #. `Links <#Links>`_
-   #. `Synchronization <#Synchronization>`_
-
-#. `Future topics <#Futuretopics>`_
-
 OME-Remote Objects
 ==================
+
+.. contents::
 
 At the core of the work on the Open Microscopy Environment is the
 definition of a vocabulary for working with microscopic data. This
