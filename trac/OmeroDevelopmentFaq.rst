@@ -1,4 +1,287 @@
-[Broken import]
+Development FAQ
+===============
 
+Table of Contents
+^^^^^^^^^^^^^^^^^
+
+#. `Build <#Build>`_
+
+   #. `How to add new jars to build <#Howtoaddnewjarstobuild>`_
+   #. `Eclipse projects have errors <#Eclipseprojectshaveerrors>`_
+   #. `Failure because JUnit is
+      missing <#FailurebecauseJUnitismissing>`_
+   #. `Fails with
+      ``java.lang.StackOverflowError`` <#Failswithjava.lang.StackOverflowError>`_
+   #. `Fails with an ``OutOfMemoryError``
+      exception <#FailswithanOutOfMemoryErrorexception>`_
+
+#. `Deployment <#Deployment>`_
+
+   #. `Server start or deployment fails with "Trying to install an
+      already
+      … <#ServerstartordeploymentfailswithTryingtoinstallanalreadyregisteredmbean>`_
+
+#. `OmeroBlitz <#OmeroBlitz>`_
+
+   #. `Method fails with \`Ice.UnknownLocalException?: "unknown =
+      … <#MethodfailswithIce.UnknownLocalException:unknownIce.MemoryLimitException>`_
+   #. `Method fails with
+      ``Ice.MemoryLimitException`` <#MethodfailswithIce.MemoryLimitException>`_
+   #. `Python dies with
+      ``SyscallException: Too many open files`` <#PythondieswithSyscallException:Toomanyopenfiles>`_
+   #. `Python dies with ``BusError`` on Mac or segfaults on
+      Linux <#PythondieswithBusErroronMacorsegfaultsonLinux>`_
+
+Build
+-----
+
+How to add new jars to build
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To add a jar to the repository, copy it to lib/repository with a name
+matching: NAME-VERSION.jar (where NAME and VERSION can have hypens).
+Then add a line to the appropriate ivy.xml which matches that jar. In
+general, a dependency should be added at the highest (or "latest" in the
+dependency graph) level possible, while still allowing all code to build
+and all tests to run.
+
+Eclipse projects have errors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Eclipse projects in the git repository rely on the build system to
+function properly. I.e. they are not completely standalone. If you open
+the projects from a clean checkout, you will see errors like this:
+
+`|image1| </ome/attachment/wiki/OmeroDevelopmentFaq/eclipse_errors.png>`_
+
+To use Eclipse, first build from source:
+
+::
+
+    $ java omero quick build
+    Buildfile: build.xml
+
+    BUILD FAILED
+    /private/tmp/eclipse-test/components/antlib/resources/dependencies.xml:69: missing !
+
+    ===============================================================================   
+    Please run "java omero setup" to configure your site.
+    ===============================================================================
+
+    Total time: 1 second
+    josh@josh-moores-computer:/tmp/eclipse-test$ touch etc/local.properties
+    josh@josh-moores-computer:/tmp/eclipse-test$ java omero quick build
+    Buildfile: build.xml
+
+    deps-buildlist:
+    :: Ivy 2.0.0-beta1 - 20071206070608 :: http://ant.apache.org/ivy/ ::
+    :: loading settings :: file = /private/tmp/eclipse-test/etc/ivysettings.xml
+
+    deps-retrieve:
+    Created dir: /private/tmp/eclipse-test/components/dsl/target/libs
+    :: Ivy 2.0.0-beta1 - 20071206070608 :: http://ant.apache.org/ivy/ ::
+    :: loading settings :: file = /private/tmp/eclipse-test/etc/ivysettings.xml
+    :: resolving dependencies :: omero#dsl;working@josh-moores-computer.local
+            confs: [core, build, test]
+            found ant#ant;1.6.5 in repo
+            found commons-collections#commons-collections;3.1 in repo
+            found commons-logging#commons-logging;1.0.4 in nested_repo
+            found groovy#groovy;all-1.0 in nested_repo
+    ...
+    deps-publish-local:
+    :: delivering :: omero#app;working@josh-moores-computer.local :: 3.0-Beta3 :: integration :: Tue Jun 10 12:11:17 CEST 2008
+            delivering ivy file to /private/tmp/eclipse-test/components/app/target/app.xml
+    :: publishing :: omero#app
+            published app to /private/tmp/eclipse-test/etc/../lib/repository/omero/app/3.0-Beta3/app-3.0-Beta3.ear
+            published ivy to /private/tmp/eclipse-test/etc/../lib/repository/omero/app/3.0-Beta3/ivy.xml
+
+    BUILD SUCCESSFUL
+    Total time: 2 minutes 44 seconds
+
+Here you can see how the dependecies are being resolved by
+` Ivy <http://ant.apache.org/ivy>`_.
+
+Once the build is finished, update your Eclipse project.
+
+Failure because JUnit is missing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    BUILD FAILED
+    .../OMERO/build.xml:102: The following error occurred while executing this line:
+    .../OMERO/components/antlib/resources/macros.xml:49: The following error occurred while executing this line:
+    .../OMERO/components/antlib/resources/macros.xml:59: The following error occurred while executing this line:
+    .../OMERO/components/antlib/resources/macros.xml:83: The following error occurred while executing this line:
+    .../OMERO/components/antlib/resources/lifecycle.xml:104: Could not create task or type of type: junit.
+
+****\*****\ **Use ``java omero`` rather than ``ant`` for building. JUnit
+is handled specially in ``omero.class``.**
+
+Fails with ``java.lang.StackOverflowError``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    $ ant clean cleantools
+    Buildfile: build.xml
+
+    deps-configure:
+
+    deps-buildlist:
+    [ivy:buildlist] :: Ivy 2.0.0-beta1 - 20071206070608 :: http://ant.apache.org/ivy/ ::
+    :: loading settings :: file = /home/callan/OMERO3/etc/ivysettings.xml
+
+    BUILD FAILED
+    java.lang.StackOverflowError
+
+    Total time: 1 second
+
+****\*****\ **Try ``unset CLASSPATH``.**
+
+Fails with an ``OutOfMemoryError`` exception
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    BUILD FAILED
+    /usr/local/omero-3.0-M2/components/antlib/resources/global.xml:209: The following error occurred while executing this line:
+    /usr/local/omero-3.0-M2/components/antlib/resources/macros.xml:82: The following error occurred while executing this line:
+    /usr/local/omero-3.0-M2/components/common/build.xml:63: The following error occurred while executing this line:
+    /usr/local/omero-3.0-M2/components/antlib/resources/macros.xml:169: org.hibernate.tool.hbm2x.ExporterException: 
+    MethodInvocationException while processing template Pojo. Invocation of method 'get' in  class 
+    org.hibernate.tool.hbm2x.TemplateHelper$Templates threw exception class java.lang.OutOfMemoryError : 
+    Java heap space
+
+****\*****\ **Use ``java -Xmx200M omero ...`` rather than just
+``java omero ...``. On some platform/JVM combinations, the creation of
+the Hibernate ``SessionFactory`` from within ant is too much for the
+default memory (can be as low as 2MB). This commands sets the minimum
+heap to **200MB**.**
+
+Deployment
+----------
+
+Server start or deployment fails with "Trying to install an already registered mbean"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    --- Incompletely deployed packages ---
+    org.jboss.deployment.DeploymentInfo@3c90a00e { url=file:/Local/josh/jboss-4.0.4.GA/server/default/deploy/omero.ear }
+      deployer: org.jboss.deployment.EARDeployer@41e80761
+      status: Deployment FAILED reason: Trying to install an already registered mbean: omero:service=LoginConfig
+      state: FAILED
+      watch: file:/Local/josh/jboss-4.0.4.GA/server/default/deploy/omero.ear
+      altDD: null
+      lastDeployed: 1165396302921
+      lastModified: 1165396288000
+      mbeans:
+
+****\*****\ **Two or more ear files produced by the OMERO build system
+have been deployed to your JBoss. This happened intentionally between
+3.0-M3 and 3.0-Beta1 when the named changed from ``app-3.0-M3.ear`` to
+``omero.ear``. Simply remove the *app-...ear* file or any other
+application archives (*.ear*) which you do not want running in your
+JBoss instance.**
+
+`OmeroBlitz </ome/wiki/OmeroBlitz>`_
+------------------------------------
+
+Method fails with ``Ice.UnknownLocalException: "unknown = Ice.MemoryLimitException"``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Ice.UnknownLocalException: exception ::Ice::UnknownLocalException
+    {
+        unknown = Ice.MemoryLimitException
+        reason = (null)
+            at IceInternal.BasicStream.expand(BasicStream.java:1956)
+            at IceInternal.BasicStream.writeInt(BasicStream.java:818)
+            at IceInternal.BasicStream.writeObject(BasicStream.java:1268)
+            at omero.api.IObjectListHelper.write(IObjectListHelper.java:28)
+            at omero.api._IQueryDisp.___findAll(_IQueryDisp.java:211)
+            at omero.api._IQueryDisp.__dispatch(_IQueryDisp.java:463)
+            at IceInternal.Incoming.invoke(Incoming.java:147)
+            at Ice.ConnectionI.invokeAll(ConnectionI.java:2249)
+            at Ice.ConnectionI.message(ConnectionI.java:1362)
+            at IceInternal.ThreadPool.run(ThreadPool.java:782)
+            at IceInternal.ThreadPool.access$100(ThreadPool.java:12)
+            at IceInternal.ThreadPool$EventHandlerThread.run(ThreadPool.java:1242)
+
+    }
+
+****\*****\ **The ``Ice.MessageSizeMax`` is too small for the method
+invocation which is being attempted. The ``UnknownException`` implies
+that the server is throwing the ``MemoryLimitException`` and so it's
+configuration needs to be changed. See below for what the client
+exceptions looks like.**
+
+Method fails with ``Ice.MemoryLimitException``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Ice.MemoryLimitException: exception ::Ice::MemoryLimitException
+    {
+        reason = 
+    }
+
+****\*****\ **The ``Ice.MessageSizeMax`` in ``ice.config`` is too small
+for the method invocation which is being attempted.**
+
+Python dies with ``SyscallException: Too many open files``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Exception in thread s38:
+    Traceback (most recent call last):
+      File "/opt/local/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/threading.py", line 486, in __bootstrap_inner
+        self.run()
+      File "./s2.py", line 31, in run
+        u = omero.client("localhost")
+      File "/Users/josh/code/git/dist/lib/omero/__init__.py", line 104, in __init__
+        self._initData(id)
+      File "/Users/josh/code/git/dist/lib/omero/__init__.py", line 210, in _initData
+        self.__oa = self.__ic.createObjectAdapter("omero.ClientCallback")
+      File "/opt/local/var/macports/build/_opt_local_var_macports_sources_rsync.macports.org_release_ports_devel_ice-python25/work/destroot/opt/local/lib/python2.5/site-packages/Ice.py", line 306, in createObjectAdapter
+        adapter = self._impl.createObjectAdapter(name)
+    SyscallException: Ice.SyscallException:
+    Too many open files
+
+****\*****\ **Starting too many Python clients can quickly use up all of
+a processes available file descriptors. Use ``ulimit -n <large number``
+to increase the available number.**
+
+Python dies with ``BusError`` on Mac or segfaults on Linux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+****\*****\ **Before accessing services which have a separate .ice file
+(Gateway.ice and IScript.ice) be sure to also import that file:**
+
+::
+
+    import omero
+    import omero_api_Gateway_ice # <-- Without this Python dies!
+    # ...
+    sf.createGateway()
+
+See ` http://tinyurl.com/icebuserror <http://tinyurl.com/icebuserror>`_
+for more information
+
+--------------
+
+See also: `OmeroCommunity </ome/wiki/OmeroCommunity>`_,
+`OmeroContributing </ome/wiki/OmeroContributing>`_,
+`OmeroDevelopment </ome/wiki/OmeroDevelopment>`_
+
+Attachments
+~~~~~~~~~~~
+
+-  `eclipse\_errors.png </ome/attachment/wiki/OmeroDevelopmentFaq/eclipse_errors.png>`_
+   `|Download| </ome/raw-attachment/wiki/OmeroDevelopmentFaq/eclipse_errors.png>`_
+   (168.2 KB) - added by *jmoore* `4
+   years </ome/timeline?from=2008-06-10T11%3A15%3A29%2B01%3A00&precision=second>`_
    ago.
-
