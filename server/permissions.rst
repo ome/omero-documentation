@@ -177,7 +177,7 @@ The following are the permissions available to other users on other
 group members data, depending on the group permissions and on your user
 type. 
 
-..note::
+.. note::
     No user can ever create projects or datasets, or import data
     into another user's space. 
 
@@ -198,11 +198,11 @@ Ordered by Group Permissions
 .. |ra| replace:: Read-annotate
 
 .. |Act| replace:: Action on other user's data 
-.. |Vie| replace:: View data / View and draw ROIs
-.. |Ann| replace:: Annotate / Create & save ROIs / Render
-.. |Del| replace:: Delete / De-annotate / ROI delete
-.. |Edi| replace:: Edit name
-.. |Mov| replace:: Move data between groups
+.. |Vie| replace:: :term:`View data` / :term:`View and draw ROIs`
+.. |Ann| replace:: :term:`Annotate` / :term:`Create & save ROIs` / :term:`Render`
+.. |Del| replace:: :term:`Delete` / :term:`De-annotate` / :term:`ROI delete`
+.. |Edi| replace:: :term:`Edit name`
+.. |Mov| replace:: :term:`Move data between groups`
 .. |Rem| replace:: Remove annotations made by others on your data
 
 ======= ====== ====== ====== ====== ====== ====== ====== ====== ======                                            	 
@@ -247,29 +247,44 @@ Ordered by User Type
 Key (Actions Available)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. |Deann-desc| replace:: Remove annotations (tag, attachment, comment) made by others. [Note that you should always be able to remove annotations (e.g. tag) that you linked to other users' data (you own the link). The link can be deleted, but the tag itself will not be deleted.]  
+.. glossary::
 
-.. |Mov-desc| replace:: Only the admin has the right to move another user’s data between groups. NOTE: the admin does not have to be member of the destination group. 
+	View data                     
+		View ROIs added by others
+		
+	View and draw ROIs
+		Draw ROIs on another user's data, but they cannot be saved
 
-============================= ===================================================================================
-Action                        Description
-============================= ===================================================================================
-View data                     View ROIs added by others
-View and draw ROIs            Draw ROIs on another user's data, but they cannot be saved
------------------------------ -----------------------------------------------------------------------------------
-Annotate                      Add annotations (rating, tag, attachment, comment ROI) to another user's data
-Create & save ROIs            Save ROIs that you draw on another user's data
-Render                        Create your own rendering settings (this will not modify the settings of the owner)
------------------------------ -----------------------------------------------------------------------------------
-Delete                        Delete data e.g. image or ROI
-De-annotate                   |Deann-desc|
-ROI delete                    Ability to delete ROIs added by others or yourself 
------------------------------ -----------------------------------------------------------------------------------
-Edit name                     Modify the name or description of someone else’s object e.g. image
------------------------------ -----------------------------------------------------------------------------------
-Move data between groups      |Mov-desc|
-============================= ===================================================================================
+	Annotate                      
+		Add annotations (rating, tag, attachment, comment ROI) to another user's data
 
+	Create & save ROIs            
+		Save ROIs that you draw on another user's data
+
+	Render                        
+		Create your own rendering settings (this will not modify the settings of the owner)
+
+	Delete                        
+		Delete data e.g. image or ROI
+
+	De-annotate                   
+		Remove annotations (tag, attachment, comment) made by others. 
+		
+		.. note::
+			You should always be able to remove annotations (e.g. tag) that you linked to other users' data (you own the link).
+			The link can be deleted, but the tag itself will not be deleted.
+
+	ROI delete                    
+		Ability to delete ROIs added by others or yourself 
+
+	Edit name                     
+		Modify the name or description of someone else’s object e.g. image
+
+	Move data between groups      
+		Only the admin has the right to move another user’s data between groups.
+		
+		.. note:: 
+			The admin does not have to be member of the destination group. 
 
 Issues to be Aware of
 ---------------------
