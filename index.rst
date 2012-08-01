@@ -7,6 +7,7 @@ can be found on the :wiki:`OME wiki <>`.
 
 .. toctree::
    :maxdepth: 2
+   :titlesonly:
 
    overview
    system-requirements
