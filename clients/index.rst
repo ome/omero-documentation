@@ -5,11 +5,12 @@ Clients
 *******
 
 .. toctree::   
+    :titlesonly:
+    
+    overview
 
-   overview
-
-   web
-   editor
-   importer
-   insight
-   memory
+    web
+    editor
+    importer
+    insight
+    memory
