@@ -6,17 +6,18 @@ not yet covered. More documentation about the project and this package
 can be found on the :wiki:`OME wiki <>`.
 
 .. toctree::
-   :maxdepth: 2
-   :titlesonly:
+    :maxdepth: 2
+    :titlesonly:
 
-   overview
-   system-requirements
-   gettingstarted/index
-   server/index
-   clients/index
-   troubleshooting
-   limitations
-   future
-   tutorial/index
+    overview
+    system-requirements
+    gettingstarted/index
+    server/index
+    clients/index
+    troubleshooting
+    limitations
+    future
+    tutorial/index
 
-   developers/policies
+    developers/policies
+    trac/index
