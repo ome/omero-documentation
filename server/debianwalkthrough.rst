@@ -1,7 +1,7 @@
 .. _rst_install_debian:
 
-Linux Install Walkthrough
-=========================
+OMERO.server Linux Installation Walkthrough
+===========================================
 
 This page walks through the process of installing OMERO.server on a
 machine using a Debian-based Linux distribution. 

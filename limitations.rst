@@ -1,7 +1,7 @@
 .. _rst_limitations:
 
 *****************
-Known limitations
+Known Limitations
 *****************
 
 .. _limitations_scripts:

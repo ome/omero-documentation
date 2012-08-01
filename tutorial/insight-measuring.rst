@@ -1,6 +1,6 @@
 .. _rst_tutorial_insight-measuring:
 
-Taking image measurements
+Taking Image Measurements
 =========================
 
 How To Launch a Measurement Tool

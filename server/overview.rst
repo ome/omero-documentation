@@ -1,7 +1,7 @@
 .. _rst_server:
 
-Server Overview
-===============
+OMERO.server Overview
+=====================
 
 The OMERO server system provides storage and processing of image data
 which conforms to the :plone:`OME Specification <support/file-formats>`.

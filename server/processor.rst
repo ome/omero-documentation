@@ -1,7 +1,7 @@
 .. _rst_processor:
 
-Processor
-=========
+OMERO.processor
+===============
 
 The Processor is a python process-launcher which can be run on any Unix
 system to execute scripts for a user. This makes use of the :wiki:`OmeroScripts`

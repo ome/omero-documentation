@@ -1,14 +1,13 @@
 .. _rst_install_manual:
 
-Install OMERO.server on Mac OSX 10.6
-====================================
+OMERO.server Mac OS X Manual Installation Walkthrough
+=====================================================
 
-Instructions on how to do a manual install of the OMERO.server on Mac OS
-10.6.
+.. topic:: Overview
 
-This walkthrough is a list of the commands used to install OMERO on a
-clean Mac OS 10.6 Snow Leopard (or 10.5 Leopard) by manually downloading
-and configuring the required components.
+    This walkthrough is a list of the commands used to install OMERO on a
+    clean Mac OS 10.6 Snow Leopard (or 10.5 Leopard) by manually downloading
+    and configuring the required components.
 
 It is not a substitute for the general :ref:`rst_installation` page
 but is here to give a feel for the process.

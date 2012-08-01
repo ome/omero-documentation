@@ -1,7 +1,7 @@
 .. _rst_upgrade:
 
-Upgrade
-=======
+OMERO.server Upgrade
+====================
 
 .. contents::
 	:depth: 3

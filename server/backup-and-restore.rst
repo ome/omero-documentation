@@ -1,7 +1,7 @@
 .. _rst_backup-and-restore:
 
-Maintenance tasks for OMERO
-===========================
+Maintenance, Backup and Restore
+===============================
 
 Cleaning up your binary repository
 ----------------------------------

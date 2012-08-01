@@ -1,7 +1,7 @@
 .. _rst_installation:
 
-OMERO.server Installation for UNIX-Based Platforms (including Mac OS X)
-=======================================================================
+OMERO.server Installation for UNIX-Based Platforms
+==================================================
 
 -  If you are **upgrading** your OMERO.server installation you should follow instructions on the :ref:`rst_upgrade` page.
 -  If you are attempting a **Microsoft Windows** install please see :ref:`rst_install-windows`.
@@ -24,7 +24,7 @@ OMERO.server Installation for UNIX-Based Platforms (including Mac OS X)
 
 --------------
 
-Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see `"Which password do I use where?" under :ref:`troubleshooting_password`.
+Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :ref:`troubleshooting_password`.
 
 Prerequisites
 -------------
@@ -390,8 +390,8 @@ OMERO.tables can be installed by following the :wiki:`OMERO.Tables <OmeroTables>
 Post-installation items
 -----------------------
 
-**Backup !!!**
-~~~~~~~~~~~~~~
+Backup
+~~~~~~
 
 One of your first steps after putting your OMERO server into production
 should be deciding on when and how you are going to :ref:`backup your

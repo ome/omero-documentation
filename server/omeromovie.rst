@@ -1,7 +1,7 @@
 .. _rst_omeromovie:
 
-OmeroMovie
-==========
+OMERO Movie
+===========
 
 A short decription on how to create movies from OMERO.
 

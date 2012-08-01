@@ -1,7 +1,7 @@
 .. _rst_binary-repository:
 
-Binary Repository
-=================
+OMERO.server Binary Repository
+==============================
 
 .. topic:: About
 

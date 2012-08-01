@@ -1,6 +1,6 @@
 .. _rst_install_web:
 
-OMERO.web deployment
+OMERO.web Deployment
 ====================
 
 OMERO.web is the web application component of the OMERO platform which

@@ -1,7 +1,7 @@
 .. _rst_install_macports:
 
-Install - Walkthrough on 10.6 using MacPorts.
-=============================================
+OMERO.server Mac OS X Installation Walkthrough with MacPorts
+============================================================
 
 .. topic:: Overview
 

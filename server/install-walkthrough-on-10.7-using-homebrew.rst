@@ -1,7 +1,8 @@
 .. _rst_install_homebrew:
 
-Install - Walkthrough on 10.7 using Homebrew
-============================================
+OMERO.server Mac OS X Installation Walkthrough with Homebrew 
+============================================================
+
 
 .. topic:: Overview
 

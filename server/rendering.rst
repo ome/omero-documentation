@@ -1,10 +1,7 @@
 .. _rst_rendering:
 
-Rendering
-=========
-
 OMERO.server Image Rendering
-----------------------------
+============================
 
 A major requirement for any image data application is the ability to
 display images. In most applications, this is achieved by reading pixel

@@ -1,7 +1,7 @@
 .. _rst_ldap:
 
-OMERO LDAP Authentication
-=========================
+OMERO.server LDAP Authentication
+================================
 
 `LDAP <http://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol>`_
 is an open standard for querying and modifying directory services that

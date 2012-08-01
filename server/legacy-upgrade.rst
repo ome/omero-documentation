@@ -1,7 +1,7 @@
 .. _rst_legacy_upgrade:
 
-Legacy upgrade
-==============
+OMERO.server Legacy Upgrade
+===========================
 
 This page list the upgrades for old versions of the OMERO.server
 

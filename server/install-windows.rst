@@ -550,8 +550,8 @@ gives details on how to enable them.
 Post-installation items
 -----------------------
 
-**Backup !!!**
-~~~~~~~~~~~~~~
+Backup
+~~~~~~
 
 One of your first steps after putting your OMERO server into production
 should be deciding on when and how you are going to :ref:`backup your

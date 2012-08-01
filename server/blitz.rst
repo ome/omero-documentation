@@ -1,7 +1,7 @@
 .. _rst_blitz:
 
-Blitz
-=====
+OMERO.blitz
+===========
 
 The OMERO.blitz server is responsible for providing secure access to
 data and metadata via user sessions (:wiki:`OmeroSessions`)

@@ -234,7 +234,7 @@ available in case you do.
 
 .. note::
 
-  Note: For anyone who has been hired to work at the University of
+  For anyone who has been hired to work at the University of
   Dundee, you will be provided with another list which itemizes all
   the things that need to be done to get you setup in RL (building
   access, a chair, etc.)* See: :plone:`new start tasklist
@@ -569,12 +569,16 @@ the web process which is defined under :ticket:`4772`.  While numerous
 new “sub-groups” are getting up-to-speed, we will obviously need to
 find ways to keep communication and collaboration simple for everyone.
 
-See also
---------
+.. seealso::
 
-* http://scottchacon.com/2011/08/31/github-flow.html
-* http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
-* http://en.wikipedia.org/wiki/Technical_debt
+	http://scottchacon.com/2011/08/31/github-flow.html
+		Issues with github flow
+		
+	http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+		Best practices for git commit message formatting
+	
+	http://en.wikipedia.org/wiki/Technical_debt
+		Wikipedia article on Technical debt
 
 Code contributions
 ==================
