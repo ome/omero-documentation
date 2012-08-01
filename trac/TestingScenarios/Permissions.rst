@@ -1,0 +1,40 @@
+19. Permissions
+~~~~~~~~~~~~~~~
+
+Includes stuff from
+` Permissions1.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-2/mov/Permissions1.mov>`_
+
+    **Prerequisites: Make sure User1 and User2 are a member of group
+    'Private' and Owner is owner of the group**
+
+-  Import data as User1 in group 'Private':
+
+   -  create Project1/Dataset1 and import there Image1 and Image2
+   -  Log in as User2. You should have no access to User1's data
+   -  Log in as Owner. You should be able to access User1's data
+
+-  Make sure User1 and User2 are a member of group 'Collaborative
+   read-only'
+-  Import data as User1 in group 'Collaborative read-only':
+
+   -  create Project2/Dataset2 and import there Image3 and Image4
+   -  Log in as User2, browse and manage User1 data. You should only be
+      able to view data, no editing, annotating, attaching.
+
+-  Make sure User1 and User2 are a member of group 'Collaborative'
+-  Import data as User1 in group 'Collaborative':
+
+   -  create Project3/Dataset3 and import there Image5 and Image6
+   -  Log in as User2, browse and manage User1 data. What you can do is
+      listed
+      ` https://www.openmicroscopy.org.uk/site/support/omero4/server/permissions/ <https://www.openmicroscopy.org.uk/site/support/omero4/server/permissions/>`_
+
+      -  comment Image5
+      -  tag Image5 by 'permission tag'
+
+-  All the above steps are now required to be repeated from within the
+   client-importer.
+
+   -  This is testing the same permission groups of private
+      Collaborative read only, and Collaborative but importing the data
+      from within the insight client-importer,

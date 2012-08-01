@@ -1,0 +1,13 @@
+OMERO.fs
+========
+
+The `OmeroFs </ome/wiki/OmeroFs>`_ service runs somewhere within
+`OmeroGrid </ome/wiki/OmeroGrid>`_ and is responsible for watching a
+particular filesystem directory for changes. These change events are
+then signaled to any observers, who can optionally begin reading the
+file once updated.
+
+One critical use of `OmeroFs </ome/wiki/OmeroFs>`_ is watching a
+directory and kicking off an automatic import. Another is allowing
+system administrators to point OMERO at an existing directory without
+requiring the data duplication required by a traditional import.

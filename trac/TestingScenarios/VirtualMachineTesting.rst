@@ -1,0 +1,129 @@
+36. Virtual Machine Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Documentation for working with the Virtual Appliance is to be found
+here:
+` https://www.openmicroscopy.org.uk/site/support/omero432/getting-started/demo/virtual\_appliance <https://www.openmicroscopy.org.uk/site/support/omero432/getting-started/demo/virtual_appliance>`_
+This is especially useful for instructions on setting up port forwarding
+after appliance install. **You should also be aware that the OVA is
+~1.1GB so if you are testing from home it might be worth downloading the
+OVA from the office before heading out, (up to 2 hours if less than
+200Kb/sec)**
+
+Appliance Import Testing
+------------------------
+
+-  If you do not have VirtualBox installed then download it from
+   ` http://www.virtualbox.org/wiki/Downloads <http://www.virtualbox.org/wiki/Downloads>`_
+   & follow the installation instructions.
+-  Download the last QA virtual appliance which should be named
+   omero-vm.ova from
+   ` http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm.ova <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm.ova>`_.
+-  Start VirtualBox and select File >> Import Appliance
+-  Accept the defaults offered by VirtualBox and follow the on screen
+   prompts until your appliance is imported. At this point there should
+   be a new virtual machine located in your virtual machine library.
+-  Select the omero-vm virtual machine then click the start button from
+   the menu bar.
+-  NB. Check port forwarding. If no port forwarding is set up then use
+   the script (from here:
+   ` http://www.openmicroscopy.org.uk/site/support/omero432/getting-started/demo/scripts/setup\_port\_forwarding.sh <http://www.openmicroscopy.org.uk/site/support/omero432/getting-started/demo/scripts/setup_port_forwarding.sh>`_)
+   to set up port forwarding, e.g.
+
+        $ bash setup\_port\_forwarding.sh omero-vm
+
+-  Your VM should now boot. This completes the first phase of the VM
+   testing.
+
+The following two scenarios assume that the appliance import phase has
+completed successfully.
+
+Virtualised OMERO.server Testing (A) Using an OMERO.client
+----------------------------------------------------------
+
+-  Start your omero VM
+-  Connect to your VM using OMERO.insight in your host environment
+   [SERVER ADDRESS=localhost SERVER PORT=4064, USERNAME=root,
+   PASSWORD=omero]
+-  Import a couple of test images into your virtual OMERO.server using
+   insight importer as usual.
+
+Virtualised OMERO.server Testing (B) Using the CLI
+--------------------------------------------------
+
+-  Log into your Omero VM using SSH. In a shell run:
+
+        $ ssh -p 2222 omero@localhost
+
+-  Use password "omero" when prompted.
+-  This should give you a shell on the VM.
+-  Run the Omero diagnostics command. Assuming that OMERO.server is
+   correctly installed this should work as expected for a native
+   install.
+
+        $ omero admin diagnostics
+
+You should see in terminal
+
+::
+
+    ================================================================================
+    OMERO Diagnostics $OMERO_Version
+    ================================================================================
+
+Then after 20 seconds
+
+::
+
+    Commands:   java -version                  1.6.0     (/usr/bin/java)
+    Commands:   python -V                      2.6.6     (/usr/bin/python)
+    Commands:   icegridnode --version          3.3.1     (/usr/bin/icegridnode)
+    Commands:   icegridadmin --version         3.3.1     (/usr/bin/icegridadmin)
+    Commands:   psql --version                 8.4.8     (/usr/bin/psql -- 2 others)
+
+    Server:     icegridnode                    running
+    Server:     Blitz-0                        active (pid = 982, enabled)
+    Server:     DropBox                        active (pid = 1249, enabled)
+    Server:     FileServer                     active (pid = 996, enabled)
+    Server:     Indexer-0                      active (pid = 1002, enabled)
+    Server:     MonitorServer                  active (pid = 1003, enabled)
+    Server:     OMERO.Glacier2                 active (pid = 1004, enabled)
+    Server:     OMERO.IceStorm                 active (pid = 1005, enabled)
+    Server:     PixelData-0                    active (pid = 1006, enabled)
+    Server:     Processor-0                    active (pid = 1007, enabled)
+    Server:     Tables-0                       active (pid = 1010, enabled)
+    Server:     TestDropBox                    inactive (enabled)
+
+    Log dir:    /home/omero/OMERO.server/var/log exists
+
+    Log files:  .Blitz-0.log.swp               16.0 KB      
+    Log files:  Blitz-0.log                    165.0 KB      errors=6    warnings=6   
+    Log files:  DropBox.log                    8.0 KB        errors=2    warnings=3   
+    Log files:  FileServer.log                 1.0 KB       
+    Log files:  Indexer-0.log                  66.0 KB       errors=2    warnings=1   
+    Log files:  MonitorServer.log              4.0 KB        errors=0    warnings=2   
+    Log files:  OMEROweb.log                   0.0 KB       
+    Log files:  PixelData-0.log                17.0 KB       errors=2    warnings=0   
+    Log files:  Processor-0.log                4.0 KB        errors=0    warnings=1   
+    Log files:  Tables-0.log                   4.0 KB        errors=0    warnings=1   
+    Log files:  TestDropBox.log                n/a
+    Log files:  master.err                     2.0 KB       
+    Log files:  master.out                     0.0 KB       
+    Log files:  Total size                     0.29 MB
+
+    Parsing Blitz-0.log:[line:105] => Server restarted <= 
+    Parsing Blitz-0.log:[line:486] => Server restarted <= 
+    Parsing Blitz-0.log:[line:684] Your postgres hostname and/or port is invalid 
+    Parsing Blitz-0.log:[line:783] => Server restarted <= 
+    Parsing Blitz-0.log:[line:1082] => Server restarted <= 
+
+    Environment:OMERO_HOME=(unset)             
+    Environment:OMERO_NODE=(unset)             
+    Environment:OMERO_MASTER=(unset)           
+    Environment:PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-6-sun/bin:/usr/lib/jvm/java-6-sun/bin:/usr/share/Ice-3.3.1:/usr/lib/postgresql/8.4/bin:/home/omero/OMERO.server/bin 
+    Environment:ICE_HOME=/usr/share/Ice-3.3.1  
+    Environment:LD_LIBRARY_PATH=/usr/share/java:/usr/lib: 
+    Environment:DYLD_LIBRARY_PATH=/usr/share/java:/usr/lib: 
+
+    OMERO data dir: '/home/omero/OMERO.data'    Exists? True    Is writable? True
+    OMERO.web status... [NOT STARTED]

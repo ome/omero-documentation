@@ -1,0 +1,251 @@
+Table of Contents
+^^^^^^^^^^^^^^^^^
+
+#. `Build tools <#Buildtools>`_
+
+   #. `Structure of the build <#Structureofthebuild>`_
+   #. `Code generation <#Codegeneration>`_
+   #. `OmeroTools <#OmeroTools>`_
+   #. `Ant-based builds <#ant>`_
+   #. `Ice-based builds <#ice>`_
+   #. `SCons-based builds <#scons>`_
+
+#. `Creating binary distribution <#Creatingbinarydistribution>`_
+
+   #. `Hudson <#Hudson>`_
+
+#. `Comments on Ivy <#CommentsonIvy>`_
+#. `Comments on build.py <#Commentsonbuild.py>`_
+
+Omero Build System
+==================
+
+**The page goes into details about how the build system is configured.
+You may want to visit the
+`OmeroContributing </ome/wiki/OmeroContributing>`_ page if you are
+simply interested in building from source.**
+
+Build tools
+-----------
+
+OMERO mostly uses an ` ant <http://ant.apache.org>`_-based build with
+dependency management provided by ` Ivy <http://ant.apache.org/ivy>`_.
+`Native code </ome/wiki/OmeroCpp>`_ is built using
+` SCons <http://scons.org>`_ and Python uses the traditional
+distutils/setuptools tools.
+
+Structure of the build
+~~~~~~~~~~~~~~~~~~~~~~
+
+This is an (abbreviated) snapshot of the structure of the filesystem for
+OMERO:
+
+::
+
+      OMERO_HOME
+      |
+      |-- build.xml .......................... Top-level build driver
+      |
+      |-- build.py ........................... Python wrapper to handle OS-specific configuration
+      |
+      |-- omero.class ........................ Self-contained Ant launcher
+      |
+      |--etc/ ................................ All configuration
+      |   |-- grid/* ......................... Deployment files
+      |   |-- ivysettings.xml
+      |   |-- hibernate.properties
+      |   |-- local.properties.example
+      |   |-- log4j.xml
+      |   |-- omero.properties
+      |   \-- profiles
+      |
+      |-- examples ............................ User examples, explained under:
+      |                                         http://trac.openmicroscopy.org.uk/omero/wiki/OmeroClients
+      |
+      \components
+        |
+        |
+        |--<component-name> ................... Each component has this same basic structure.
+        |    |-- build.xml                      Main scripts
+        |    |-- ivy.xml                        Jar dependencies
+        |    |-- test.xml                       Test dependencies
+        |    |-- src                            Source code
+        |    |-- resources                      Other files of interest
+        |    |-- test                           Test source code and test resources
+        |    \-- target                         Output of build (deleted on clean)
+        |
+        |-- model ............................. The model component is special in that in produces
+        |                                       a jar specific to your database choice: model-psql.jar
+        |                                       The generated `ome.model.*` files contain Hibernate
+        |                                       annotations for object-relational mapping.
+        |
+        |-- blitz ............................. The blitz component also performs code generation
+        |    |                                  producing artifacts for Java, Python, and C++.
+        |    |
+        |    \ blitz_tools.py ................. OMERO-specific SCons Environment definition
+        |                                       and other build tools.
+        |     
+        |--tools .............................. Other server-components with special build needs.
+        |    |--build.xml
+        |    \--<tool-name>
+        |         |--build.xml
+        |         `--ivy.xml
+        |
+        \--antlib ............................. Special component which is not built, but referenced by the build
+            |
+            \--resources
+                |--global.xml
+                |--directories.xml
+                |--lifecycle.xml
+                \--depdendencies.xml
+
+Each of the components can also be built directly. For example,
+
+::
+
+    ./build.py -f components/server/build.xml
+
+Code generation
+~~~~~~~~~~~~~~~
+
+Unfortunately, just the above snapshot of the code repository omits some
+of the most important code. Many MB of source code is generated both by
+our own `DSLTask </ome/browser/ome.git/components/dsl>`_ as well as by
+the ` Ice <http://zeroc.com>`_ ``slice2java``, ``slice2cpp``, and
+``slice2py`` code generators. These take an intermediate representation
+of the ` OME-Model <http://www.ome-xml.org>`_ and generate our
+`ObjectModel </ome/wiki/ObjectModel>`_. This code is node available in
+git, but once built, can be found in all the directories named
+"generated".
+
+`OmeroTools </ome/wiki/OmeroTools>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Similarly, the ant build alone is not enough to describe all the
+products which get built. Namely, the builds for the non-Java components
+stored under
+`source:ome.git/components/tools </ome/browser/ome.git/components/tools>`_
+are a bit more complex. Each tools component installs its artifacts to
+the tools/target directory which is copied **on top of** the
+OMERO\_HOME/dist top-level distribution directory. Current tools
+include:
+
+    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
+    |                                                | `Ant-based </ome/wiki/OmeroTools#ant>`_   | `Ice-based </ome/wiki/OmeroTools#ice>`_   | `Scons-based </ome/wiki/OmeroTools#scons>`_   |
+    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
+    | `OmeroCpp </ome/wiki/OmeroCpp>`_               |                                           |                                           | X                                             |
+    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
+    | `OmeroWeb </ome/wiki/OmeroWeb>`_               | X                                         |                                           |                                               |
+    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
+    | `OmeroFs </ome/wiki/OmeroFs>`_                 |                                           | X                                         |                                               |
+    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
+    | `OmeroPy </ome/wiki/OmeroPy>`_                 |                                           | X                                         |                                               |
+    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
+    | `LicenseService </ome/wiki/LicenseService>`_   | X                                         |                                           | X                                             |
+    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
+
+Ant-based builds
+~~~~~~~~~~~~~~~~
+
+Some of the tools also contain Java code which imports files from
+``antlib/resources`` and then proceeds like the other regular
+components.
+
+Ice-based builds
+~~~~~~~~~~~~~~~~
+
+An Ice-based build requires further invocations of ``slice2*`` code
+generation. Currently this
+
+SCons-based builds
+~~~~~~~~~~~~~~~~~~
+
+Builds which have C++ targets are based generally on
+` Scons <http://www.scons.org>`_. See `OmeroCpp </ome/wiki/OmeroCpp>`_
+for more information.
+
+Creating binary distribution
+----------------------------
+
+The default ant target ("build-default") will build the OMERO system and
+copy the necessary components for a binary distribution to the /dist
+directory. Below is a comparison of what is taken from the build, where
+it is put, and what role it plays in the distribution. **Note: by
+default, `OmeroCpp </ome/wiki/OmeroCpp>`_ is not built. Use
+``build-all`` for that.**
+
++--------------------------------------+---------------------------+----------------------------------------------------------+
+| **OMERO\_HOME**                      | **OMERO\_HOME/dist**      | Comments                                                 |
++--------------------------------------+---------------------------+----------------------------------------------------------+
+| components/blitz/target/blitz.jar    | lib/server                | Primary Ice servants                                     |
++--------------------------------------+---------------------------+----------------------------------------------------------+
+| components/blitz/target/server.jar   | lib/server                | Primary server logic                                     |
++--------------------------------------+---------------------------+----------------------------------------------------------+
+| components/tools/OmeroCpp/lib\*      | lib/                      | Native shared libraries                                  |
++--------------------------------------+---------------------------+----------------------------------------------------------+
+| components/tools/OmeroPy/build/lib   | lib/python                | Python libraries                                         |
++--------------------------------------+---------------------------+----------------------------------------------------------+
+| lib/repository/<some>                | lib/client & lib/server   | Libraries needed for the build                           |
++--------------------------------------+---------------------------+----------------------------------------------------------+
+| etc/                                 | etc/                      | Configuration                                            |
++--------------------------------------+---------------------------+----------------------------------------------------------+
+| sql//\*.sql                          | sql/                      | SQL scripts to prepare the database                      |
++--------------------------------------+---------------------------+----------------------------------------------------------+
+| <javadoc/>                           | docs/api                  | (Optional) Javadocs produced with "java omero javadoc"   |
++--------------------------------------+---------------------------+----------------------------------------------------------+
+
+These files are then zipped to OMERO.server-<version>.zip via "java
+omero release-zip"
+
+Hudson
+~~~~~~
+
+The OME project currently uses ` Hudson <http://hudson.dev.java.net>`_
+as a continuous integration server available at
+` http://hudson.openmicroscopy.org.uk <http://hudson.openmicroscopy.org.uk>`_
+so many binary packages can be downloaded without compiling them
+yourself . OMERO.server is built by the "OMERO" job at
+` http://hudson.openmicroscopy.org.uk/job/OMERO <http://hudson.openmicroscopy.org.uk/job/OMERO>`_
+.
+
+Hudson checks for git changes every 15 minutes and executes:
+
+::
+
+    (cd docs/hudson; python launcher.py)
+
+which invokes the "build-all", "javadoc" "findbugs", "coverage", and
+"release-zip" targets.
+
+The Javadocs are always made available at
+` http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/>`_
+as well as several build metrics.
+
+Comments on Ivy
+---------------
+
+-  Resolvers are key to how Ivy functions. Currently, the default
+   resolver is called "omero-resolver" and simply looks in our
+   repository (``./lib/repository``) for the jars which were downloaded
+   from git. Multi-resolvers can be defined (as granular as for an
+   individual jar) in order to pick up the latest version of whatever
+   library from HTTP, SSH, or from the local file system.
+
+-  OMERO\_HOME/lib/cache : in order to determine the transitive closure
+   of all dependencies, Ivy "resolves" each ivy.xml and stores the
+   resolved ivy.xml in its cache (in our build, ``./lib/cache``) to
+   speed up other processes. However, when changing the Ivy
+   configuration (``./etc/ivyconf.xml``) or version number
+   (``etc/omero.properties->omero.version``) the cache can become stale.
+   This should not happen, but currently does. It may be beneficial for
+   the time being to call ``ant clean`` from the top-level build which
+   will delete the cache.
+
+Comments on build.py
+--------------------
+
+``./build.py`` is a complete replacement for your local ant install. In
+many cases on and on most OSes, you'll be fine running ``ant``. If you
+have any issues (for example ``OutOfMemory``) , please use
+``./build.py`` instead. **\*However**\ \*, only use one or the other. Do
+not mix calls between the two.

@@ -1,0 +1,75 @@
+New Gateway Proposal
+====================
+
+The OMERO API has many stateless and statefull services with a large
+number of methods. We also have additional client-side Python and Java
+libraries that provide helpers or wrappers on top of the core API.
+
+As part of API unification
+` http://trac.openmicroscopy.org.uk/ome/ticket/4278 <http://trac.openmicroscopy.org.uk/ome/ticket/4278>`_
+we are working to align the Python and Java library APIs. In doing so,
+we are also discussing the consolidation of the core OMERO API into a
+single stateless service, removing unused methods and combining the
+functionality of others. As part of this work, the current usage of
+`stateless services </ome/wiki/Api/DeprecationCandidates>`_ and
+`stateful services </ome/wiki/Api/DeprecationCandidatesStateful>`_ has
+been documented.
+
+The methods of this service will be outlined here - initially in wiki
+format. Following meeting
+` http://www.openmicroscopy.org.uk/site/community/minutes/minigroup/api-unification-meetings/2011.03.14 <http://www.openmicroscopy.org.uk/site/community/minutes/minigroup/api-unification-meetings/2011.03.14>`_
+it has been decided to implement these methods in the Python Blitz
+gateway (returning wrapped objects - See
+`Api/BlitzGateway </ome/wiki/Api/BlitzGateway>`_). This will allow
+stabilisation of the Blitz API and the methods can be pushed to the
+server later, with the blitz gateway delegating to the server and simply
+wrapping the returned objects.
+
+Methods all return omero.model objects. It is envisioned that these will
+be wrapped in Python and Java client objects. Current behavior in Python
+is lazy loading - which should still be supported if linked objects are
+not loaded? But wrappers should attempt to return pre-loaded objects
+first.
+
+Generic Methods
+---------------
+
+-  getObjects(obj\_type, ids=None, params=None, attributes=None)
+
+   -  obj\_type: "Project", "Dataset", "Image", "Screen", "Plate",
+      "Group", "Annotation", "TagAnnotation?"... etc
+   -  ids: If None, then this method acts like a 'list' or 'find'
+      objects
+   -  params: omero.sys.Parameters. Passed to the iQuery query. Can be
+      used to specify object owner
+   -  attributes: map of attributes to filter by. E.g. {'name':
+      "imageName.tiff"}
+
+Objects returned by getObjects have details.owner and
+details.creationEvent loaded. Also other linked objects may be loaded,
+different for each object type.
+
+-  getAnnotationLinks (parent\_type, parent\_ids=None, ann\_ids=None,
+   ns=None, params=None)
+
+   -  parent\_type: "Project", "Dataset", "Image", "Screen", "Plate"
+   -  parent\_ids: Filter by annotation links on particular parent
+      objects
+   -  ann\_ids: Filter by particular annotations
+   -  ns: Filter by annotation namespace
+   -  params: omero.sys.Parameters. Passed to the iQuery query. Can be
+      used to specify link owner
+
+Returns annotation links with both the parent AND child loaded,
+including details.creationEvent and details.owner for the link and the
+child.
+
+Loading Strategy
+----------------
+
+The graph that is loaded for a particular object type should be hard
+coded for each object type. It was considered too complex to allow the
+user to specify the graph for each object type.
+
+Client wrapper objects may wish to provide 'lazy loading' as in the
+Python blitz gateway.

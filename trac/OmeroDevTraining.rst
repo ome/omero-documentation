@@ -1,0 +1,109 @@
+OMERO Training
+==============
+
+Table of Contents
+^^^^^^^^^^^^^^^^^
+
+#. `Overview <#Overview>`_
+#. `OMERO API <#OMEROAPI>`_
+#. `Which Language to use? <#WhichLanguagetouse>`_
+#. `Python <#Python>`_
+
+   #. `Getting connected <#Gettingconnected>`_
+
+#. `Server Side Scripting <#ServerSideScripting>`_
+
+This page provides a list of tasks to get a new developer familiar with
+OMERO. It is presented here as a schedule for an OMERO workshop training
+day.
+
+Overview
+--------
+
+`|image1| </ome/attachment/wiki/OmeroHome/api-figure.png>`_
+
+Key Points:
+
+-  OMERO is client-server platform
+-  Data is stored on the server in relational database and binary files
+-  The database is modeled on the OME data model. E.g. Project, Dataset,
+   Image, Annotation etc.
+-  Clients talk to the server through API in Java, Python, C++, (Matlab)
+-  OMERO uses Bio-Formats to read proprietary file formats
+
+For more introduction to OMERO, see `OmeroHome </ome/wiki/OmeroHome>`_.
+
+Do:
+
+-  Browse the ` OMERO
+   model <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model.html>`_
+   for 'Image' to see its attributes 'DataMembers?'.
+-  E.g. Name, DatasetImageLinks?, Instrument, Pixels.
+
+OMERO API
+---------
+
+Key Points:
+
+-  API is the same in Python, Java, C++, Matlab
+-  Additional client-side code adds convenience API for Python (Blitz
+   Gateway).
+-  OMERO model objects (E.g. omero.model.ImageI) and Services
+-  Data flow is: Database -> Server-side Objects -> ICE Objects ->
+   Client-side Objects (language-specific)
+
+See `OmeroApi </ome/wiki/OmeroApi>`_ for more info
+
+Do:
+
+-  Lookup methods on Stateful service (E.g RawPixelsStore) vv Stateless
+   service (E.g. QueryService), starting from the
+   `OmeroApi </ome/wiki/OmeroApi>`_ or ` Java
+   Doc <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api.html>`_
+   pages.
+
+Client Side Scripting
+=====================
+
+For detailed info on writing client code see:
+
+-  OMERO Java Language Bindings - `OmeroJava </ome/wiki/OmeroJava>`_
+-  OMERO Python Language Bindings - `OmeroPy </ome/wiki/OmeroPy>`_
+-  Blitz Gateway for Python -
+   `OmeroPy/Gateway </ome/wiki/OmeroPy/Gateway>`_
+-  OMERO C++ Language Bindings - `OmeroCpp </ome/wiki/OmeroCpp>`_
+-  A Matlab Interface - `OmeroMatlab </ome/wiki/OmeroMatlab>`_
+
+Which Language to use?
+----------------------
+
+-  Do you have any existing Java/Matlab?/C++ code (E.g. for Analysis)
+   that you want to interact with OMERO?
+-  If not, probably easiest to use Python
+-  Python can be used for "client-side" scripts as well as "server-side"
+   scripts that run on the server and can be called from Insight or the
+   Web client.
+
+Python
+------
+
+Getting connected
+~~~~~~~~~~~~~~~~~
+
+-  Open the source-code folder
+-  Find python/Connection.py
+-  Edit the 'host', 'username' and 'password' fields with your login
+   details
+-  Now open a command line terminal, change into the python directory
+   and run the Connection.py script
+
+   ::
+
+       $ cd Desktop/Training/python
+       $ python Connection.py
+       # should print user details and group 
+
+Server Side Scripting
+---------------------
+
+    3.1 OMERO scripting service API 3.2 Scripting service guide

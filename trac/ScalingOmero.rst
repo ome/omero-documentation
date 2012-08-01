@@ -1,0 +1,73 @@
+Scaling Omero
+=============
+
+Table of Contents
+^^^^^^^^^^^^^^^^^
+
+#. `Concurrent invocations <#Concurrentinvocations>`_
+
+   #. `Database connections <#Databaseconnections>`_
+   #. `Server threads <#serverthreads>`_
+
+#. `Total throughput <#Totalthroughput>`_
+
+There are several ways that OMERO, or any server system, can scale.
+Optimizing your system for more than one of these factors is
+non-trivial, but we try to lay out some guidelines below for what has
+worked, what almost certainly won't work, and what -- under the right
+circumstances -- might be optimal.
+
+Concurrent invocations
+----------------------
+
+The bottlenecks for concurrent invocations are:
+
+-  database connections
+-  server threads
+-  the router
+
+Database connections
+~~~~~~~~~~~~~~~~~~~~
+
+Database servers, in general, have a maximum number of allowed
+connections. In postgres, the default ``max_connections`` is 100, though
+in many cases this will be significantly lower due to the available
+shared memory (SHMMAX). If OMERO were to user direct connections to the
+database, after ``max_connections`` invocations, all further attempts to
+connect to the server would fail with "too many connection" exceptions.
+Instead, OMERO users a **connection pool** in front of Postgres, which
+manages many more simultaneous attempts to connect to the database.
+Currently, ` c3p0 <http://mchange.com/projects/c3p0>`_ is the connection
+pool used, and is configured in
+`source:ome.git/etc/c3p0.properties </ome/browser/ome.git/etc/c3p0.properties>`_.
+The c3p0 configuration should be kept roughly in sync with your postgres
+configuration.
+
+With the default ``c3p0.properties`` and ``max_connection`` set to 64,
+it is possible to execute 500 queries simultaneously without database
+exceptions. Instead, one recieves server exceptions.
+
+Server threads
+~~~~~~~~~~~~~~
+
+In `OmeroBlitz </ome/wiki/OmeroBlitz>`_, too many (500+ on the default
+configuration) simultaneous invocations will result in
+``ConnectionLost`` exceptions. We are currently working on ways to
+extend the number of single invocations on one server, but a simpler
+solution is to start another `OmeroBlitz </ome/wiki/OmeroBlitz>`_
+server.
+
+Total throughput
+----------------
+
+The bottlenecks for throughput are:
+
+-  maximum message size
+-  server memory
+-  IO
+-  network
+
+--------------
+
+See also: `OmeroAndPostgres </ome/wiki/OmeroAndPostgres>`_,
+`OmeroGrid </ome/wiki/OmeroGrid>`_, `ticket:906 </ome/ticket/906>`_

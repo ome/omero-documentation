@@ -1,0 +1,111 @@
+Architecture
+------------
+
+Logical View
+~~~~~~~~~~~~
+
+OMERO.insight is logically organised in two layers
+
+`|image1| </ome/attachment/wiki/OmeroInsightArchitecture/layers2.png>`_
+
+The **Agents** layer contains the logic to manage user interaction. It
+contains coarse grained components which we call **agents**, that are
+each responsible for a specific aspect of the application's
+functionality:
+
+-  The Data Manager? provides the user with the GUI functionality to
+   access their data, metadata and visualise large image sets.
+-  The Viewer? is a tool to visualise and tune 5D images.
+-  The Measurement Tool? is a tool to perform basic measurement.
+
+Note: If you want to add a new agent, go to `How To Build An
+Agent </ome/wiki/OmeroInsightHowToBuildAgent>`_.
+
+These agents are internally organised according to the MVC
+(` Model-View-Controller <http://en.wikipedia.org/wiki/Model-view-controller>`_)
+pattern, PAC
+(` Presentation-Abstraction-Control <http://en.wikipedia.org/wiki/Presentation-abstraction-control>`_)
+pattern, or a combination of the two. They rely on the services provided
+by the bottom layer, the **Container**, to accomplish their tasks.
+
+The **Container** layer manages the agents life-cycle and provides them
+with services to:
+
+-  Communicate without having to know each other (`event
+   bus </ome/wiki/OmeroInsightEventBus>`_).
+-  Access the OMERO Server (data management and image services).
+-  Transform entries in configuration files into objects and then access
+   them (`registry </ome/wiki/OmeroInsightConfiguration>`_).
+-  Log messages (log service) and notify the user (user notification
+   service) of runtime errors.
+-  Cache data (cache service).
+-  Provide a common top level window to plug their GUI's (`Task
+   bar </ome/wiki/OmeroInsightTaskBar>`_).
+
+Initialisation of Agents
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Agents let the container create them and then manage their life-cycle.
+This is achieved through the use of a common interface, ``Agent``, that
+all agents have to implement and by requiring every agent to have a
+public no-arguments constructor. The Agent interface plays the role of a
+Separated Interface (` Fow <http://martinfowler.com/books.html>`_),
+decoupling the container from knowledge of concrete agents. This way,
+new agents can be plugged in.
+
+At start-up the container finds out which are the agents' implementation
+classes from its configuration file, instantiates every agent by
+reflection (using the no-arguments constructor) and then reads each
+agent's configuration file
+(` Fow <http://martinfowler.com/books.html>`_). The configuration
+entries in this file are turned into objects and collected into a
+map-like object, which is then passed to the agent. This map object also
+contains pointers to the container's services. We can think of this
+object as a Registry (` Fow <http://martinfowler.com/books.html>`_).
+
+There is one Registry containing pointers to the container's services.
+for each agent, so configuration entries are private to each agent -
+container's services are shared among all agents though. Agents access
+the Registry object through the Registry interface.
+
+The life-cycle of an agent is as follow:
+
+`|image2| </ome/attachment/wiki/OmeroInsightArchitecture/agentsLifeCycle.png>`_
+
+Interaction among Agents
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Interactions among agents are event-driven. Agents communicate by using
+a shared `event bus </ome/wiki/OmeroInsightEventBus>`_ provided by the
+container. The event bus is an event propagation mechanism loosely based
+on the
+` Publisher-Subscriber <http://en.wikipedia.org/wiki/Publish/subscribe>`_
+pattern and can be regarded as a time-ordered event queue - if event A
+is posted on the bus before event B, then event A is also delivered
+before event B.
+
+Process View
+~~~~~~~~~~~~
+
+All agents run synchronously within the *Swing* dispatching thread. All
+container’s services are called within Swing event handlers and thus run
+within the *Swing* dispatching thread. To see how to retrieve data from
+an OMERO server, go to the `Retrieve
+Data </ome/wiki/OmeroInsightHowToRetrieveData>`_ page.
+
+--------------
+
+See `Code organisation </ome/wiki/OmeroInsightImplementationView>`_,
+`Event Bus </ome/wiki/OmeroInsightEventBus>`_
+
+Attachments
+~~~~~~~~~~~
+
+-  `agentsLifeCycle.png </ome/attachment/wiki/OmeroInsightArchitecture/agentsLifeCycle.png>`_
+   `|Download| </ome/raw-attachment/wiki/OmeroInsightArchitecture/agentsLifeCycle.png>`_
+   (19.0 KB) - added by *bwzloranger* `18
+   ago.
+-  `layers2.png </ome/attachment/wiki/OmeroInsightArchitecture/layers2.png>`_
+   `|image4| </ome/raw-attachment/wiki/OmeroInsightArchitecture/layers2.png>`_
+   (53.4 KB) - added by *bwzloranger* `18
+   ago.

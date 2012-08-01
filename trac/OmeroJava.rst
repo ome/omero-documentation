@@ -1,0 +1,924 @@
+OMERO Java Language Bindings
+============================
+
+Table of Contents
+^^^^^^^^^^^^^^^^^
+
+#. `Using the ``omero_client.jar`` <#Usingtheomero_client.jar>`_
+#. `Extended classpath <#Extendedclasspath>`_
+#. `Connect to OMERO <#ConnecttoOMERO>`_
+#. `Read Data <#ReadData>`_
+#. `Raw Data Access <#RawDataAccess>`_
+#. `Write Data <#WriteData>`_
+#. `How to use OMERO tables <#HowtouseOMEROtables>`_
+#. `ROIs <#ROIs>`_
+#. `Delete data <#Deletedata>`_
+#. `Render Images <#RenderImages>`_
+#. `Create Image <#CreateImage>`_
+#. `Further information <#Furtherinformation>`_
+
+Using the ` Ice Java language
+mapping <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.4.4.html>`_ from
+` http://zeroc.com <http://zeroc.com>`_, OMERO provides access to your
+data within an `OmeroBlitz </ome/wiki/OmeroBlitz>`_ server from Java
+code.
+
+Using the ``omero_client.jar``
+------------------------------
+
+The ``omero_client.jar`` is a combination of all necessary Java OMERO
+class as well as the Ice classes needed to write a complete Java client
+for `OmeroBlitz </ome/wiki/OmeroBlitz>`_.
+
+The library is placed under OMERO\_HOME/dist/lib/client by the build, or
+is alternatively available from Hudson at:
+` http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/ <http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/>`_
+
+To use `OmeroJava </ome/wiki/OmeroJava>`_, setup you'll need to setup
+your CLASSPATH:
+
+::
+
+      CLASSPATH=path/omero_client.jar
+      javac mycode
+
+Extended classpath
+------------------
+
+To access all the functionality available in omero\_client.jar or to use
+the importer, you'll of course need more jar files. To see all the
+current requirements, take a look at the ` hudson
+workspace <http://hudson.openmicroscopy.org.uk/job/OMERO/ws/src/dist/lib/client/>`_,
+or alternatively examine the dependencies in the ivy.xml files (e.g.
+`source:ome.git/components/tools/OmeroImporter/ivy.xml </ome/browser/ome.git/components/tools/OmeroImporter/ivy.xml>`_)
+
+Connect to OMERO
+----------------
+
+-  **Connect to the server**. Remember to close the session.
+
+::
+
+    client client = new client(hostName, port);
+    ServiceFactoryPrx entry = client.createSession(userName, password);
+    // if you want to have the data transfer encrypted then you can 
+    // use the entry variable otherwise use the following 
+    client unsecureClient = client.createClient(false);
+    ServiceFactoryPrx entryUnencrypted = unsecureClient.getSession();
+
+    //Retrieve the user id.         
+    long userId = entryUnencrypted.getAdminService().getEventContext().userId;
+                
+    long groupId = entryUnencrypted.getAdminService().getEventContext().groupId;
+
+-  **Close connection**. **IMPORTANT**
+
+::
+
+    client.closeSession();
+    //if unsecure client exists.
+    if (unsecureClient != null) unsecureClient.closeSession();
+
+Read Data
+---------
+
+The IContainer service provides method to load the data management
+hierarchy in OMERO. A list of examples follows, indicating how to load
+Project, Dataset, Screen, etc.
+
+-  **Retrieve the projects** owned by the user currently logged in.
+
+If a Project contains Datasets, the Datasets will automatically be
+loaded.
+
+::
+
+    IContainerPrx proxy = entryUnencrypted.getContainerService();
+    ParametersI param = new ParametersI();
+    long userId = entryUnencrypted.getAdminService().getEventContext().userId;
+    param.exp(omero.rtypes.rlong(userId));
+    param.leaves(); //indicate to load the images
+    //param.noLeaves(); //no images loaded, this is the default value.
+    List<IObject> results = proxy.loadContainerHierarchy(
+    Project.class.getName(), new ArrayList<Long>(), param);
+    //You can directly interact with the IObject or the Pojos object.
+    //Follow interaction with the Pojos.
+    Iterator<IObject> i = results.iterator();
+    ProjectData project;
+    Set<DatasetData> datasets;
+    Iterator<DatasetData> j;
+    DatasetData dataset;
+    while (i.hasNext()) {
+      project = new ProjectData((Project) i.next());
+      datasets = project.getDatasets();
+      j = datasets.iterator();
+      while (j.hasNext()) {
+        dataset = j.next();
+        //Do something here
+        //If images loaded.
+        //dataset.getImages();
+     }
+    }
+
+-  **Retrieve the Datasets** owned by the user currently logged in.
+
+::
+
+    IContainerPrx proxy = entryUnencrypted.getContainerService();
+    ParametersI param = new ParametersI();
+    long userId = entryUnencrypted.getAdminService().getEventContext().userId;
+    param.exp(omero.rtypes.rlong(userId));
+
+    //indicate to load the images
+    param.leaves(); 
+    List<IObject> results = proxy.loadContainerHierarchy(Dataset.class.getName(), new ArrayList<Long>(), param);
+    //You can directly interact with the IObject or the Pojos object.
+    //Follow interaction with the Pojos.
+    Iterator<IObject> i = results.iterator();
+    DatasetData dataset;
+    Set<ImageData> images;
+    Iterator<ImageData> j;
+    ImageData image;
+    while (i.hasNext()) {
+      dataset = new DatasetData((Dataset) i.next());
+      images = dataset.getImages();
+      j = images.iterator();
+      while (j.hasNext()) {
+        image = j.next();
+        //Do something
+      }
+    }
+
+-  **Retrieve the Images** contained in a Dataset.
+
+::
+
+    IContainerPrx proxy = entryUnencrypted.getContainerService();
+    ParametersI param = new ParametersI();
+    param.leaves(); //indicate to load the images
+
+    List<IObject> results = proxy.loadContainerHierarchy(Dataset.class.getName(), Arrays.asList(datasetId), param);
+            
+    if (results.size() == 0) return;
+    //You can directly interact with the IObject or the Pojos object.
+    //Follow interaction with the Pojos.
+
+    DatasetData dataset = new DatasetData((Dataset) results.get(0));
+    Set<ImageData> images = dataset.getImages();
+    Iterator<ImageData> j = images.iterator();
+    ImageData image;
+    while (j.hasNext()) {
+      image = j.next();
+      //Do something
+    }
+
+-  **Retrieve an Image** if the identifier is known.
+
+::
+
+    IContainerPrx proxy = entryUnencrypted.getContainerService();
+    List<Image> results = proxy.getImages(Image.class.getName(), Arrays.asList(imageId), new ParametersI());
+
+    if (results.size() == 0) return;
+    //You can directly interact with the IObject or the Pojos object.
+    //Follow interaction with the Pojos.
+    ImageData image = new ImageData(results.get(0));
+
+-  **Access information about the image** for example to draw it.
+
+The model is as follows: Image-Pixels i.e. to access valuable data about
+the image you need to use the pixels object. We now only support one set
+of pixels per image (it used to be more!).
+
+::
+
+    PixelsData pixels = image.getDefaultPixels();
+    int sizeZ = pixels.getSizeZ(); // The number of z-sections.
+    int sizeT = pixels.getSizeT(); // The number of timepoints.
+    int sizeC = pixels.getSizeC(); // The number of channels.
+    int sizeX = pixels.getSizeX(); // The number of pixels along the X-axis.
+    int sizeY = pixels.getSizeY(); // The number of pixels along the Y-axis.
+
+-  **Retrieve Screening data** owned by the user currently logged
+   in\ **.**
+
+To learn about the model go to
+`ScreenPlateWell </ome/wiki/ScreenPlateWell>`_. Note that the wells are
+not loaded.
+
+::
+
+    IContainerPrx proxy = entryUnencrypted.getContainerService();
+    ParametersI param = new ParametersI();
+    long userId = entryUnencrypted.getAdminService().getEventContext().userId;
+    param.exp(omero.rtypes.rlong(userId));
+            
+    List<IObject> results = proxy.loadContainerHierarchy(Screen.class.getName(), new ArrayList(), param);
+    //You can directly interact with the IObject or the Pojos object.
+    //Follow interaction with the Pojos.
+    Iterator<IObject> i = results.iterator();
+    ScreenData screen;
+    Set<PlateData> plates;
+    Iterator<PlateData> j;
+    PlateData plate;
+    while (i.hasNext()) {
+      screen = new ScreenData((Screen) i.next());
+      plates = screen.getPlates();
+      j = plates.iterator();
+      while (j.hasNext()) {
+        plate = j.next();
+      }
+    }
+
+-  **Retrieve Wells within a Plate**, see
+   `ScreenPlateWell </ome/wiki/ScreenPlateWell>`_.
+
+Given a plate ID, load the wells. You will have to use the
+``findAllByQuery`` method from the ``IQuery`` service.
+
+::
+
+    IQueryPrx proxy = entryUnencrypted.getQueryService();
+    StringBuilder sb = new StringBuilder();
+    ParametersI param = new ParametersI();
+    param.addLong("plateID", plateId);
+    sb.append("select well from Well as well ");
+    sb.append("left outer join fetch well.plate as pt ");
+    sb.append("left outer join fetch well.wellSamples as ws ");
+    sb.append("left outer join fetch ws.plateAcquisition as pa ");
+    sb.append("left outer join fetch ws.image as img ");
+    sb.append("left outer join fetch img.pixels as pix ");
+    sb.append("left outer join fetch pix.pixelsType as pt ");
+    sb.append("where well.plate.id = :plateID");
+    if (plateAcquisitionId > 0) {
+      sb.append(" and pa.id = :acquisitionID");
+      param.addLong("acquisitionID", plateAcquisitionId);
+    }
+    List<IObject> results = proxy.findAllByQuery(sb.toString(), param);
+    Iterator<IObject> i = results.iterator();
+    WellData well;
+    while (i.hasNext()) {
+      well = new WellData((Well) i.next());
+      //Do something
+    }
+
+Raw Data Access
+---------------
+
+-  **Retrieve a given plane**.
+
+This is useful when you need the pixels intensity.
+
+::
+
+    //To retrieve the image, see above.
+    PixelsData pixels = image.getDefaultPixels();
+    int sizeZ = pixels.getSizeZ();
+    int sizeT = pixels.getSizeT();
+    int sizeC = pixels.getSizeC();
+    long pixelsId = pixels.getId();
+    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore(); 
+    store.setPixelsId(pixelsId, false);
+    for (int z = 0; z < sizeZ; z++) {
+      for (int t = 0; t < sizeT; t++) {
+        for (int c = 0; c < sizeC; c++) {
+          byte[] plane = store.getPlane(z, c, t);
+          //Do something
+        }
+      }
+    }
+    store.close();
+
+-  **Retrieve a given tile.**
+
+::
+
+    //To retrieve the image, see above.
+    PixelsData pixels = image.getDefaultPixels();
+    int sizeZ = pixels.getSizeZ();
+    int sizeT = pixels.getSizeT();
+    int sizeC = pixels.getSizeC();
+    long pixelsId = pixels.getId();
+    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore(); 
+    store.setPixelsId(pixelsId, false);
+    //tile is the top-left corner
+    int x = 0;
+    int y = 0;
+    int width = pixels.getSizeX()/2;
+    int height = pixels.getSizeY()/2;
+    for (int z = 0; z < sizeZ; z++) {
+      for (int t = 0; t < sizeT; t++) {
+        for (int c = 0; c < sizeC; c++) {
+          byte[] plane = store.getPlane(z, c, t, x, y, width, height);
+          //Do something
+        }
+      }
+    }
+    store.close();
+
+-  **Retrieve a given stack.**
+
+This is useful when you need the pixels intensity.
+
+::
+
+    //To retrieve the image, see above.
+    PixelsData pixels = image.getDefaultPixels();
+    int sizeT = pixels.getSizeT();
+    int sizeC = pixels.getSizeC();
+    long pixelsId = pixels.getId();
+    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore(); 
+    store.setPixelsId(pixelsId, false);
+    for (int t = 0; t < sizeT; t++) {
+      for (int c = 0; c < sizeC; c++) {
+        byte[] plane = store.getStack(c, t);
+        //Do something
+      }
+    }
+    store.close();
+
+-  **Retrieve a given hypercube.**
+
+This is useful when you need the pixels intensity.
+
+::
+
+    //To retrieve the image, see above.
+    PixelsData pixels = image.getDefaultPixels();
+    long pixelsId = pixels.getId();
+    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
+    store.setPixelsId(pixelsId, false);
+    // offset values in each dimension XYZCT
+    List<Integer> offset = new ArrayList<Integer>();
+    offset.add(0);
+    offset.add(0);
+    offset.add(0);
+    offset.add(0);
+    offset.add(0);
+
+    List<Integer> size = new ArrayList<Integer>();
+    size.add(pixels.getSizeX());
+    size.add(pixels.getSizeY());
+    size.add(pixels.getSizeZ());
+    size.add(pixels.getSizeC());
+    size.add(pixels.getSizeT());
+
+    // indicate the step in each direction, step = 1, 
+    //will return values at index 0, 1, 2.
+    //step = 2, values at index 0, 2, 4 etc.
+    List<Integer> step = new ArrayList<Integer>();
+    step.add(1);
+    step.add(1);
+    step.add(1);
+    step.add(1);
+    step.add(1);
+    byte[] values = store.getHypercube(offset, size, step);
+    //Do something
+    store.close();
+
+Write Data
+----------
+
+-  **Create a dataset and link it to an existing project.**
+
+::
+
+    //Using IObject directly
+    Dataset dataset = new DatasetI();
+    dataset.setName(omero.rtypes.rstring("new Name 1"));
+    dataset.setDescription(omero.rtypes.rstring("new description 1"));
+            
+    //Using pojo object
+    DatasetData datasetData = new DatasetData();
+    datasetData.setName("new Name 2");
+    datasetData.setDescription("new description 2");
+            
+    ProjectDatasetLink link = new ProjectDatasetLinkI();
+    link.setChild(dataset);
+    link.setParent(new ProjectI(projectId, false));
+    IObject r = entryUnencrypted.getUpdateService().saveAndReturnObject(link);
+
+    //With pojo
+    link = new ProjectDatasetLinkI();
+    link.setChild(datasetData.asDataset());
+    link.setParent(new ProjectI(projectId, false));
+    r = entryUnencrypted.getUpdateService().saveAndReturnObject(link);
+
+-  **Create a tag (tag annotation) and link it to an existing project.**
+
+::
+
+    //Using the IObject.
+    TagAnnotation tag = new TagAnnotationI();
+    tag.setTextValue(omero.rtypes.rstring("new tag 1"));
+    tag.setDescription(omero.rtypes.rstring("new tag 1"));
+            
+    //Using the Pojo
+    TagAnnotationData tagData = new TagAnnotationData("new tag 2");
+    tagData.setTagDescription("new tag 2");
+            
+    //link project and annotation
+    ProjectAnnotationLink link = new ProjectAnnotationLinkI();
+    link.setChild(tag);
+    link.setParent(new ProjectI(projectId, false));
+
+    IObject r = entryUnencrypted.getUpdateService().saveAndReturnObject(link);
+
+    //With pojo
+
+    link = new ProjectAnnotationLinkI();
+    link.setChild(tagData.asAnnotation());
+    link.setParent(new ProjectI(projectId, false));
+    r = entryUnencrypted.getUpdateService().saveAndReturnObject(link);
+
+-  **Create a file annotation and link to an image.**
+
+To attach a file to an object e.g. an image, few objects need to be
+created:
+
+#. an ``OriginalFile``
+#. a ``FileAnnotation``
+#. a link between the ``Image`` and the ``FileAnnotation``.
+
+::
+
+    // To retrieve the image see above.
+    int INC = 262144;
+    File file = new File(fileToUpload);
+    String name = file.getName();
+    String absolutePath = file.getAbsolutePath();
+    String path = absolutePath.substring(0, 
+      absolutePath.length()-name.length());
+
+    IUpdatePrx iUpdate = entryUnencrypted.getUpdateService(); // service used to write object
+    // create the original file object.
+    OriginalFile originalFile = new OriginalFileI();
+    originalFile.setName(omero.rtypes.rstring(name));
+    originalFile.setPath(omero.rtypes.rstring(path));
+    originalFile.setSize(omero.rtypes.rlong(file.length()));
+    originalFile.setSha1(omero.rtypes.rstring(generatedSha1));
+    originalFile.setMimetype(omero.rtypes.rstring(fileMimeType)); // or "application/octet-stream"
+    // now we save the originalFile object
+    originalFile = (OriginalFile) iUpdate.saveAndReturnObject(originalFile);
+
+    // Initialize the service to load the raw data
+    RawFileStorePrx rawFileStore = entryUnencrypted.createRawFileStore();
+    rawFileStore.setFileId(originalFile.getId().getValue());
+
+    FileInputStream stream = new FileInputStream(file);
+    long pos = 0;
+    int rlen;
+    byte[] buf = new byte[INC];
+    ByteBuffer bbuf;
+    while ((rlen = stream.read(buf)) > 0) {
+      rawFileStore.write(buf, pos, rlen);
+      pos += rlen;
+      bbuf = ByteBuffer.wrap(buf);
+      bbuf.limit(rlen);
+    }
+    stream.close();
+
+    originalFile = rawFileStore.save();
+    // Important to close the service
+    rawFileStore.close();
+
+    //now we have an original File in DB and raw data uploaded.
+    // We now need to link the Original file to the image using 
+    // the File annotation object. That's the way to do it.
+    FileAnnotation fa = new FileAnnotationI();
+    fa.setFile(originalFile);
+    fa.setDescription(omero.rtypes.rstring(description));
+    fa.setNs(omero.rtypes.rstring(NAME_SPACE_TO_SET)); // The name space you have set to identify the file annotation.
+
+    // save the file annotation.
+    fa = (FileAnnotation) iUpdate.saveAndReturnObject(fa);
+
+    // now link the image and the annotation
+    ImageAnnotationLink link = new ImageAnnotationLinkI();
+    link.setChild(fa);
+    link.setParent(image.asImage());
+    // save the link back to the server.
+    link = (ImageAnnotationLink) iUpdate.saveAndReturnObject(link);
+    // To attach to a Dataset use DatasetAnnotationLink;
+
+-  **Load all the annotations with a given namespace linked to images.**
+
+::
+
+    long userId = entryUnencrypted.getAdminService().getEventContext().userId;
+    List<String> nsToInclude = new ArrayList<String>();
+    nsToInclude.add(NAME_SPACE_TO_SET);
+    List<String> nsToExclude = new ArrayList<String>();
+    ParametersI param = new ParametersI();
+    param.exp(omero.rtypes.rlong(userId)); //load the annotation for a given user.
+    IMetadataPrx proxy = entryUnencrypted.getMetadataService();
+    // retrieve the annotations linked to images, for datasets use: omero.model.Dataset.class
+    List<Annotation> annotations = proxy.loadSpecifiedAnnotations(FileAnnotation.class.getName(), nsToInclude, nsToExclude, param);
+    //Do something with annotations.
+
+-  **Read the attachment**.
+
+First load the annotations, cf. above.
+
+::
+
+    Iterator<Annotation> j = annotations.iterator();
+    Annotation annotation;
+    FileAnnotationData fa;
+    RawFileStorePrx store = entryUnencrypted.createRawFileStore();
+    int index = 0;
+    File file = new File(downloadFileName); //This file should be there.
+    FileOutputStream stream = new FileOutputStream(file);
+    OriginalFile of;
+    while (j.hasNext()) {
+      annotation = j.next();
+      if (annotation instanceof FileAnnotation && index == 0) { //read the first one.
+        fa = new FileAnnotationData((FileAnnotation) annotation);
+        //The id of the original file
+        of = getOriginalFile(fa.getFileID());
+        store.setFileId(fa.getFileID());
+        int offset = 0;
+        long size = of.getSize().getValue();
+        //name of the file
+        //of.getName().getValue();
+        try {
+        for (offset = 0; (offset+INC) < size;) {
+          stream.write(store.read(offset, INC));
+          offset += INC;
+        }   
+        } finally {
+        stream.write(store.read(offset, (int) (size-offset))); 
+        stream.close();
+        }
+        break;
+      }
+    }
+
+    store.close();
+
+How to use OMERO tables
+-----------------------
+
+-  **Create a table**.
+
+In the following example, we create a table with 2 columns.
+
+::
+
+    /**
+     * Creates a number of empty rows.
+     * 
+     * @param rows The number of rows.
+     * @return See above.
+     */
+    private Column[] createColumns(int rows) 
+    {
+      Column[] newColumns = new Column[2];
+      newColumns[0] = new LongColumn("Uid", "", new long[rows]);
+      newColumns[1] = new LongColumn("MyLongColumn", "", 
+                    new long[rows]);
+      return newColumns;
+    }
+
+    int rows = 1;
+    String name = UUID.randomUUID().toString();
+    Column[] columns = createColumns(rows);
+
+    //create a new table.
+    TablePrx table = entryUnencrypted.sharedResources().newTable(1, name);
+
+    //initialize the table
+    table.initialize(columns);
+    //add data to the table.
+    rows = 2;
+    Column[] newRow = createColumns(rows);
+
+    LongColumn uids = (LongColumn) newRow[0];
+    LongColumn myLongs = (LongColumn) newRow[1];
+    for (int i = 0; i < rows; i++) {
+      uids.values[i] = i;
+      myLongs.values[i] = i;
+    }
+
+    table.addData(newRow);
+    OriginalFile file = table.getOriginalFile(); // if you need to interact with the table
+
+-  **Read the contents of the table.**
+
+::
+
+    file = new OriginalFileI(file.getId(), false); 
+    table = entryUnencrypted.sharedResources().openTable(file);
+
+    //read headers
+    Column[] cols = table.getHeaders();
+            
+    for (int i = 0; i < cols.length; i++) {
+      String colName = cols[i].name;
+    }
+
+    // Depending on size of table, you may only want to read some blocks.
+    long[] columnsToRead = new long[cols.length];
+    for (int i = 0; i < cols.length; i++) {
+      columnsToRead[i] = i;
+    } 
+            
+    // The number of columns we wish to read.
+    long[] rowSubset = new long[(int) (table.getNumberOfRows()-1)];
+    for (int j = 0; j < rowSubset.length; j++) {
+      rowSubset[j] = j;
+    }
+    Data data = table.slice(columnsToRead, rowSubset); // read the data.
+    cols = data.columns;
+    for (int j = 0; j < cols.length; j++) {
+      Column c = cols[j];
+    }
+    table.close();
+
+ROIs
+----
+
+To learn about the model see
+`http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi <http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi>`_
+. Note that annotation can be linked to ROI.
+
+-  **Create ROI.**
+
+In this example, we create an ROI with a rectangular shape and attach it
+to an image.
+
+::
+
+    //to retrieve he image see above.
+    Roi roi = new RoiI();
+    roi.setImage(image);
+    Rect rect;
+    rect = new RectI();
+    rect.setX(omero.rtypes.rdouble(10));
+    rect.setY(omero.rtypes.rdouble(10));
+    rect.setWidth(omero.rtypes.rdouble(10));
+    rect.setHeight(omero.rtypes.rdouble(10));
+    rect.setTheZ(omero.rtypes.rint(0));
+    rect.setTheT(omero.rtypes.rint(0));
+
+    //Add the shape
+    roi.addShape(rect);
+
+    //Create an ellipse.
+    EllipseI ellipse = new EllipseI();
+    ellipse.setCx(omero.rtypes.rdouble(10));
+    ellipse.setCy(omero.rtypes.rdouble(10));
+    ellipse.setRx(omero.rtypes.rdouble(10));
+    ellipse.setRy(omero.rtypes.rdouble(10));
+    ellipse.setTheZ(omero.rtypes.rint(0));
+    ellipse.setTheT(omero.rtypes.rint(0));
+    ellipse.setTextValue(omero.rtypes.rstring("ellipse text"));
+
+    //Add the shape
+    roi.addShape(ellipse);
+    //Save ROI and shape
+    roi = (Roi) entryUnencrypted.getUpdateService().saveAndReturnObject(roi);
+            
+    //now check that the shape has been added.
+    ROIData roiData = new ROIData(roi);
+    //Retrieve the shape on plane )z, t) = (0, 0)
+    List<ShapeData> shapes = roiData.getShapes(0, 0);
+    Iterator<ShapeData> i = shapes.iterator();
+    while (i.hasNext()) {
+      ShapeData shape = i.next();
+    //plane info
+      int z = shape.getZ();
+      int t = shape.getT();
+      long id = shape.getId();
+      if (shape instanceof RectangleData) {
+        RectangleData rectData = (RectangleData) shape;
+       //Handle rectangle
+      } else if (shape instanceof EllipseData) {
+        EllipseData ellipseData = (EllipseData) shape;
+        //Handle ellipse
+      } else if (shape instanceof LineData) {
+        LineData lineData = (LineData) shape;
+        //Handle line
+      } else if (shape instanceof PointData) {
+        PointData pointData = (PointData) shape;
+        //Handle point
+      }
+    }
+
+-  **Retrieve ROIs linked to an Image.**
+
+::
+
+    // Retrieve the roi linked to an image
+    RoiResult r = entryUnencrypted.getRoiService().findByImage(image.getId().getValue(), new RoiOptions());
+    if (r == null) return;
+    List<Roi> rois = r.rois;
+    List<Shape> list;
+    Iterator<Roi> j = rois.iterator();
+    while (j.hasNext()) {
+      roi = j.next();
+      list = roi.copyShapes();
+      //Do something
+    }
+
+-  **Remove a shape from ROI.**
+
+::
+
+    // Retrieve the roi linked to an image
+    RoiResult r = entryUnencrypted.getRoiService().findByImage(image.getId().getValue(), new RoiOptions());
+    List<Roi> rois = r.rois;
+    List<Shape> list;
+    Iterator<Roi> j = rois.iterator();
+    while (j.hasNext()) {
+      roi = j.next();
+      list = roi.copyShapes();
+      //remove the first shape.
+      if (list.size() > 0) {
+        roi.removeShape(list.get(0));
+        //update the roi.
+        entryUnencrypted.getUpdateService().saveAndReturnObject(roi);
+      }
+    }
+
+Delete data
+-----------
+
+It is possible to delete Projects, datasets, images, ROIs etc and
+objects linked to them depending on the specified options (see
+`Delete </ome/wiki/Delete>`_).
+
+-  **Delete Image**.
+
+In the following example, we create an image and delete it.
+
+::
+
+    //First create an image.
+    Image img = new ImageI();
+    img.setName(omero.rtypes.rstring("image1"));
+    img.setDescription(omero.rtypes.rstring("descriptionImage1"));
+    img.setAcquisitionDate(omero.rtypes.rtime(1000000));
+    img = (Image) entryUnencrypted.getUpdateService().saveAndReturnObject(img);
+            
+    DeleteCommand[] cmds = new DeleteCommand[1];
+    //Command to delete the image.
+    cmds[0] = new DeleteCommand("/Image", img.getId().getValue(), null);
+    DeleteHandlePrx handle = entryUnencrypted.getDeleteService().queueDelete(cmds);
+
+    //If you want to interact with call-back and handle.
+    DeleteCallbackI cb = new DeleteCallbackI(client, handle);
+    DeleteReport[] reports = handle.report();
+    for (int i = 0; i < reports.length; i++) {
+      DeleteReport report = reports[i];
+      String error = report.error;
+    }
+
+Render Images
+-------------
+
+-  **Initialize the rendering engine and render an image.**
+
+::
+
+    //See above how to load the image.
+    PixelsData pixels = image.getDefaultPixels();
+    long pixelsId = pixels.getId();
+    RenderingEnginePrx proxy = entryUnencrypted.createRenderingEngine();
+    proxy.lookupPixels(pixelsId);
+    if (!(proxy.lookupRenderingDef(pixelsId))) {
+      proxy.resetDefaults();
+      proxy.lookupRenderingDef(pixelsId);
+    }
+    proxy.load();
+    // Now can interact with the rendering engine.
+    proxy.setActive(0, Boolean.valueOf(false));
+    // to render the image uncompressed
+    PlaneDef pDef = new PlaneDef();
+    pDef.z = 0;
+    pDef.t = 0;
+    pDef.slice = omero.romio.XY.value;
+    //render the data uncompressed.
+    int[] uncompressed = proxy.renderAsPackedInt(pDef);
+    byte[] compressed = proxy.renderCompressed(pDef);
+
+    //Create a buffered image
+    ByteArrayInputStream stream = new ByteArrayInputStream(compressed);
+    BufferedImage image = ImageIO.read(stream);
+
+    // Close
+    proxy.close();
+
+-  **Retrieves thumbnails**
+
+::
+
+    //See above how to load the image.
+    PixelsData pixels = image.getDefaultPixels();
+    ThumbnailStorePrx store = entryUnencrypted.createThumbnailStore();
+    PixelsData pixels = image.getDefaultPixels();
+    Map<Long, byte[]> map = store.getThumbnailByLongestSideSet(
+       omero.rtypes.rint(96), Arrays.asList(pixels.getId()));
+    //Convert the byte array
+    Entry entry;
+    Iterator i = map.entrySet().iterator();
+    ByteArrayInputStream stream;
+    //Create a buffered image to display
+    Map<Long, BufferedImage> results = new HashMap<Long, BufferedImage>();
+    while (i.hasNext()) {
+      entry = (Entry) i.next();
+      stream = new ByteArrayInputStream((byte[]) entry.getValue());
+      results.put((Long) entry.getKey(), ImageIO.read(stream));
+    }
+
+Create Image
+------------
+
+The following example shows how to create an Image from an Image already
+in OMERO. Similar approach can be applied when uploading an image.
+
+::
+
+    //See above how to load an image.
+    PixelsData pixels = image.getDefaultPixels();
+    int sizeZ = pixels.getSizeZ();
+    int sizeT = pixels.getSizeT();
+    int sizeC = pixels.getSizeC();
+    int sizeX = pixels.getSizeX();
+    int sizeY = pixels.getSizeY();
+    long pixelsId = pixels.getId();
+
+    //Read the pixels from the source image.
+    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
+    store.setPixelsId(pixelsId, false);
+
+    Map<Integer, byte[]> map = new HashMap<Integer, byte[]>();
+            
+    for (int z = 0; z < sizeZ; z++) {
+        for (int t = 0; t < sizeT; t++) {
+           //linearize does sizeZ*t+z
+            map.put(linearize(z, t, sizeZ), store.getPlane(z, 0, t));
+        }
+    }
+            
+    //Better to close to free space.
+    store.close();
+            
+    //Now we are going to create the new image.
+    IPixelsPrx proxy = entryUnencrypted.getPixelsService();
+    List<IObject> l = proxy.getAllEnumerations(PixelsType.class.getName());
+    Iterator<IObject> i = l.iterator();
+    PixelsType type = null;
+    String original = pixels.getPixelType();
+    while (i.hasNext()) {
+        PixelsType o =  (PixelsType) i.next();
+        String value = o.getValue().getValue();
+        if (value.equals(original)) {
+        type = o;
+        break;
+        }
+    }
+    if (type == null)
+      throw new Exception("Pixels Type not valid.");
+        
+    String name = "newImageFrom"+image.getId();
+    RLong idNew = proxy.createImage(sizeX, sizeY, sizeZ, sizeT, Arrays.asList(0), type, name,
+            "From Image ID: "+image.getId());
+    if (idNew == null)
+        throw new Exception("New image could not be created.");
+    ImageData newImage = loadImage(idNew.getValue());
+            
+    //link the new image and the dataset hosting the source image.
+    DatasetImageLink link = new DatasetImageLinkI();
+    link.setParent(new DatasetI(datasetId, false));
+    link.setChild(new ImageI(newImage.getId(), false));
+    entryUnencrypted.getUpdateService().saveAndReturnObject(link);
+            
+    //Write the data.
+    store = entryUnencrypted.createRawPixelsStore();
+    store.setPixelsId(newImage.getDefaultPixels().getId(), false);
+    int index = 0;
+    for (int z = 0; z < sizeZ; z++) {
+        for (int t = 0; t < sizeT; t++) {
+        index = linearize(z, t, sizeZ);
+        store.setPlane(map.get(index), z, 0, t);
+        }
+    }
+
+    //Save the data
+    store.save();
+
+    store.close();
+
+Further information
+-------------------
+
+For the details behind writing, configuring, and executing a client,
+please see `OmeroClients </ome/wiki/OmeroClients>`_.
+
+--------------
+
+See also: ` http://zeroc.com <http://zeroc.com>`_,
+`OmeroBlitz </ome/wiki/OmeroBlitz>`_,
+`OmeroGrid </ome/wiki/OmeroGrid>`_,
+`OmeroTools </ome/wiki/OmeroTools>`_, `OmeroApi </ome/wiki/OmeroApi>`_

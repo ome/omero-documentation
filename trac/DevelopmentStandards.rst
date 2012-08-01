@@ -1,0 +1,299 @@
+Table of Contents
+^^^^^^^^^^^^^^^^^
+
+#. 
+
+   #. `Rationale and Vision <#RationaleandVision>`_
+   #. `Code cleanliness <#Codecleanliness>`_
+   #. `Security <#Security>`_
+   #. `Communication <#Communication>`_
+   #. `Under consideration <#Underconsideration>`_
+
+      #. `Client Interface <#ClientInterface>`_
+      #. `Structure <#Structure>`_
+      #. `Coding <#Coding>`_
+      #. `Licensing <#Licensing>`_
+      #. `Testing <#Testing>`_
+      #. `Documentation <#Documentation>`_
+      #. `Installation depends on the environment how to do
+         it? <#Installationdependsontheenvironmenthowtodoit>`_
+      #. `Updates <#Updates>`_
+      #. `Internal communication <#Internalcommunication>`_
+      #. `Publicity <#Publicity>`_
+      #. `Agile Practices <#AgilePractices>`_
+
+--------------
+
+Development Standards
+=====================
+
+Rationale and Vision
+~~~~~~~~~~~~~~~~~~~~
+
+Various developers have been working on the OMERO project for up to 5
+years. Each time the team grows\ :sup:`a`, we are reminded that the
+project's development practices must be more mature and transparent. The
+initial learning curve for new developers must be minimized.
+
+In order for any of the aforementioned goals to be achieved there must
+be better communication, better division of work and better management
+and ownership of certain parts of the codebase.
+
+These ideals are not just a function of project size, but a culmination
+of factors including: geographically disperse developers (at least 9
+time zones), increasing numbers of new developers, complexity of our
+code base and the sheer amount of commit activity. In addition, we have
+also seen increasing numbers of external developers who want to
+*plug-in* to OME technology, maintainership gives them a clear
+understanding of who to come to for support and direction.
+
+Code cleanliness
+~~~~~~~~~~~~~~~~
+
+There is absolutely nothing worse or more infuriating than attempting to
+review or look at messy code. Messy code is an absolute pain to debug or
+review and just shows disrespect for other developers time. In short:
+
+-  Intent should be clear
+-  Methods should be well documented (yes, with Javadoc)
+-  No one should require 1600x1200 resolution to read your code
+-  Anyone should be able to see the entire method in one or two pages of
+   text
+
+All sounds rather vague doesn't it? What about <insert specific question
+here>?
+
+Well, we will have a *house* set of coding style guidelines that
+everyone will adhere to without exceptions; you are not developing Perl
+scripts in your basement to sort photos of your grandmother. This
+*house* set of style guidlines will evolve over the next few weeks.
+People are welcome to speak up for things that they would prefer or pet
+peeves that they have. I will be pulling general wisdom from the
+following:
+
+-  ` Mozilla Coding Style
+   Guide <http://www.mozilla.org/hacking/mozilla-style-guide.html>`_
+-  ` Mono Coding
+   Guidelines <http://www.mono-project.com/Coding_Guidelines>`_
+-  ` GNU Coding
+   Standards <http://www.gnu.org/prep/standards/html_node/index.html>`_
+-  ` Linux Kernel Coding
+   Style <http://kerneltrap.org/files/Jeremy/CodingStyle.txt>`_
+-  ...
+
+First versions of our coding styles are available from git at:
+
+-  ` http://git.openmicroscopy.org/?p=ome.git;a=tree;f=docs/styles <http://git.openmicroscopy.org/?p=ome.git;a=tree;f=docs/styles>`_
+
+Eventually all code will be formatted using these settings and the
+` Eclipse 3.1+ <http://eclipse.org>`_ formatter.
+
+Security
+~~~~~~~~
+
+Security is a both a personal interest of mine (Chris) and something
+that I believe to be extremely important in software design. Moving to a
+new set of frameworks and technology also gives us an opportunity to
+rethink some of our priorities, security in particular. For almost the
+duration of the OME project, security practices (access control, user
+management, database authentication, etc.) have been poor or
+non-existent. Now is the time to change that. Over the next few weeks I
+will be adding to this page relevant talks and suggestions as well as
+integrating these concepts into the code style guide.
+
+For now, a few talks (okay... just one for now) from some Java security
+professionals:
+
+Marc Schoenefeld
+(` http://www.illegalaccess.org/ <http://www.illegalaccess.org/>`_)
+
+-  ` XCon 2005
+   Talk <http://xcon.xfocus.org/archives/2005/Xcon2005_Marc_Schoenefeld.pdf>`_
+
+Communication
+~~~~~~~~~~~~~
+
+Without good communication, all the other concepts fall down. To this
+end, several weekly or monthly conference calls are arranged to report
+on status. See
+`http://www.openmicroscopy.org/site/community/minutes/conference-calls <http://www.openmicroscopy.org/site/community/minutes/conference-calls>`_
+for times and login information.
+
+--------------
+
+Under consideration
+~~~~~~~~~~~~~~~~~~~
+
+This list was initially a starting point for discussion for the
+`http://www.openmicroscopy.org/site/community/minutes/meetings/september-2008-dundee-developer <http://www.openmicroscopy.org/site/community/minutes/meetings/september-2008-dundee-developer>`_:
+
+    The following topics are all **completely open** for anyone to add
+    or veto (please don't delete). Some we already do, some are highly
+    questionable. It is also unlikely that we would even be able to
+    implement all such "standards" at once, but it would be good to have
+    some guidelines as well as a list of things we would like to try for
+    moving forward.
+
+Client Interface
+^^^^^^^^^^^^^^^^
+
+-  icons (list of used icons to reuses)
+-  communicates, warnings, buttons
+
+   -  dialog boxes
+   -  phrasing messages - options available, wording of buttons (yes/no;
+      ok/cancel)
+
+-  windows
+-  style sheets
+-  menu layout, title and content
+-  keyboard shortcuts
+-  use of hyperlinks (phrasing of link text, appearance, behaviour in
+   terms of how the destination page/document is displayed)
+-  tooltips
+-  cursor appearance and behaviour
+-  right click menus
+-  single click, double click behaviour
+-  drag/drop behaviour (if we ever use this?)
+
+Structure
+^^^^^^^^^
+
+-  directory structure of the projects
+-  how/where to store libraries and how to build ivy.xml
+-  naming of package, file, etc. (conventions)
+
+Coding
+^^^^^^
+
+-  templates (see in Insight/CodeTemplate? file)
+-  logging
+-  changes for the new version
+-  Web validation: covering HTML, CSS, use of emerging Ajax-y type
+   standards such as WAI-ARIA)
+-  Java standards
+
+   -  serialVersionUID
+   -  equals/hashCode
+   -  Mutability, thread-safety
+
+-  Development process
+
+   -  No new feature is coded without a ticket or wiki
+   -  twitter is kept uptodate on which ticket or wiki page you are
+      working on
+   -  testing
+   -  something about reading all new documentation and commenting if
+      you don't understand or know if it pertains
+   -  respond to hudson
+   -  Checkin process **ticket or wiki is referenced from all commits in
+      the form "wiki:link : ..."**
+
+Licensing
+^^^^^^^^^
+
+-  README, license files (see in Insight/legal)
+-  external licenses
+
+Testing
+^^^^^^^
+
+-  how to build test story and report
+-  web interface evaluation: list of user agents to test with
+
+Documentation
+^^^^^^^^^^^^^
+
+-  creating docs (see in Insight/docgen)
+-  creating video How-tos (and associated transcripts, captions.)
+-  case studies (i.e. stories of users using the relevant application to
+   do something more efficiently, or do something new)
+-  Documentation page for each feature with: video, documentation,
+   "cite-as" statement.
+
+Installation depends on the environment how to do it?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  Environment - variable and requirement to prepare OS, for example:
+   environmental variables, external software/packages, hardware,
+   changes in the structure of directories, etc.
+-  Dependencies - Any dependencies on other PI or Reference Data Request
+-  Configuration - configuration and parametrization (properties files)
+-  Database
+-  Functional Instructions - Any functional instructions which should be
+   done by administrator
+-  Compilation - How people should compile
+-  Run
+-  Comments - Any comments
+
+Updates
+^^^^^^^
+
+-  as above install
+
+Internal communication
+^^^^^^^^^^^^^^^^^^^^^^
+
+-  meetings
+-  email responses/cc all involved (open communication)
+-  no finger-pointing
+
+Publicity
+^^^^^^^^^
+
+-  Outlets
+
+   -  Twitter: used for X
+   -  Blog : used for Y
+   -  Website
+
+-  Topics
+
+   -  new version
+   -  beta
+   -  RC
+   -  GA
+
+Agile Practices
+^^^^^^^^^^^^^^^
+
+See **Agile Adoption Practices**, Elssamadisy
+
+-  goal
+-  cycle
+-  iteration
+-  kickoff mtg
+-  backlog
+-  planning poker
+-  stand-up meeting
+-  done state
+-  demo
+-  retrospective
+-  release often
+-  co-located team
+-  self-organizing team
+-  cross-functional team
+-  customer part of team
+-  evocative document
+-  user story
+-  use case
+-  information radiator
+-  automated developer tests
+-  test-last development
+-  test-first development
+-  refactoring
+-  continuous integration
+-  simple design
+-  functional tests
+-  collective code ownership
+-  pair programming
+-  coach
+-  engage the community
+-  reading circle
+-  workshop
+-  classroom training
+
+--------------
+
+:sup:`a`: As for September 2008, roughly a dozen developers were working
+on OMERO.

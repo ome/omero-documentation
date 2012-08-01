@@ -1,0 +1,374 @@
+Table of Contents
+^^^^^^^^^^^^^^^^^
+
+#. `Pull Request (PR) Review <#PullRequestPRReview>`_
+#. `Model <#Model>`_
+#. `DB Upgrade <#DBUpgrade>`_
+#. `Feature Freeze (bug fixing only) <#FeatureFreezebugfixingonly>`_
+#. `Testing <#Testing>`_
+#. `Bio-Formats Freeze (no jar
+   changes) <#Bio-FormatsFreezenojarchanges>`_
+#. `Documentation <#Documentation>`_
+#. `4.4.0 Things left to test/discuss <#a4.4.0Thingslefttotestdiscuss>`_
+#. `All Documentation tickets <#AllDocumentationtickets>`_
+#. `Release Candidates <#ReleaseCandidates>`_
+#. `Schema Pre-Release Checklist <#SchemaPre-ReleaseChecklist>`_
+#. `Release <#Release>`_
+#. `Branching <#Branching>`_
+#. `Post release <#Postrelease>`_
+#. `Demo server <#Demoserver>`_
+
+This page describes the actions points and step to follow before major
+releases. There are various time-dependencies, so read the whole page
+before beginning any work. It may be sensible to create tickets for some
+if not many of the following points.
+
+Pull Request (PR) Review
+------------------------
+
+See `git and github </ome/wiki/WorkingWithOmero/UsingGit>`_, for more
+information about our usage of git and github. Before merging code to
+develop, each PR is reviewed. Follow a list of "best practices" in order
+to speed up the review.
+
+-  Persons who work on the code
+
+   -  Add to the ticket or to the PR what must be tested e.g. click
+      view, check that the viewer opens.
+   -  If a Bio-Formats change, add to the PR the command that can be
+      used to test the reader, the images to use and where to find them
+      (if necessary), etc. (``-Dtestng.directory=$DATA ... ``)
+   -  If UI changes, add to the ticket a screenshot before implementing
+      the feature and one after. For new feature a movie can be more
+      suitable.
+
+-  PR opening.
+
+   -  Add a comment
+
+      -  with a list of tickets to be tested, use hyperlink.
+      -  the potential tester(s) e.g. ``@qidane, @jburel``
+      -  The merge-blue build to use
+
+-  PR review
+
+   -  indicate the merge-blue build number (several builds might have
+      happened since)
+   -  list the tickets that worked, use hyperlink
+   -  list the tickets that did not work, use hyperlink. If necessary
+      add more feedback to the ticket or the PR.
+
+Model
+-----
+
+-  Beginning of milestone: Create a log ticket to record every ticket
+   number corresponding to a model change.
+-  Prepare upgrade stylesheet before freeze.
+-  Freeze model **at least 3 weeks** before DB Upgrade freeze. To allow
+   the propagation of those changes through the stack i.e. B-F, DB,
+   tests, etc.
+-  Prepare downgrade stylesheet.
+
+DB Upgrade
+----------
+
+-  List of proposed changes to DB should be submitted **at the latest 3
+   weeks** before code freeze. To allow enough time to adjust DB.
+-  Preliminary testing phase.
+
+Feature Freeze (bug fixing only)
+--------------------------------
+
+-  Freeze **at least 4 weeks** before the scheduled release date.
+-  Code freeze should correspond if possible to the end of sprint or to
+   the middle of sprint (usually Thursday)
+-  All changes in API incompatibilities and changes to public strings
+   (re: i18n) should be finalized.
+
+Testing
+-------
+
+-  Review tests
+
+   -  Hudson Linux & Windows "start" jobs **should be passing**
+   -  See:
+      ` http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-components/ <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-components/>`_
+
+-  `BioFormats </ome/wiki/BioFormats>`_
+
+   -  During development phase, keep track of files failing to import
+      submitted to the team.
+   -  Confirmation all the appropriate images are in squig in test
+      images good.
+   -  The evolution of test image good, this requires reviewing the
+      submitted images from qa that had previously failed but are now
+      successfully importing.
+   -  The creation of the testing user story and file format tickets all
+      assigned with the correct details before testing starts.
+   -  Email sent out with full list of images to test for that release.
+
+      -  The confirmation and validation of any specific file formats
+         that require additional tests for specific fixes in the
+         release.
+
+-  Scenarios
+
+   -  Small scale scenarios reviewed by the team once a month outside of
+      the testing process.
+   -  The scenarios will be reviewed 2 weeks before the code freeze
+      checking the enhancements and new features.
+   -  `Testing Scenarios </ome/wiki/TestingScenarios>`_ should be
+      up-to-date when code freeze.
+   -  Stories (scenario and file formats) and tasks created. One Task
+      per scenario.
+   -  Stories (scenario and file formats) to collect bugs created.
+   -  Time window to go through the testing tasks (scenario and file
+      formats): **2 working days**, e.g. if testing starts on Monday,
+      all the testing tasks should be completed by the end of Tuesday.
+   -  Update testing server, only one person in charge
+   -  update server every morning. (**Suggestion**: Unix & Windows!)
+   -  notify team by e-mail indicating builds to use (clients, server,
+      B-F) server address etc.
+
+-  Recording BUG:
+
+   -  Ticket summary must start with the work BUG:
+   -  Add ticket to the story corresponding to the testing phase.
+   -  Add ticket to the current milestone
+   -  Add ticket to the correct component e.g. insight, web etc.
+
+-  Review daily tickets w/o time or owner.
+-  Set time to test section w/o integration tests e.g. matlab support,
+   CellProfiler
+-  Include testing of upgrades from previous versions.
+-  Review/Update known limitations through testing
+-  Hudson **MUST** report all logs at ``ERROR`` level as failures.
+
+Bio-Formats Freeze (no jar changes)
+-----------------------------------
+
+-  Freeze Bio-Formats **at least 1 week** before the actual release
+
+Documentation
+-------------
+
+-  Website
+
+   -  [STRIKEOUT:Copy snapshot of documentation **before** any new
+      documentation is added.]
+
+      -  [STRIKEOUT:This requires duplicating the main website
+         documentation]
+      -  [STRIKEOUT:e.g.
+         ` https://www.openmicroscopy.org/site/support/copy\_of\_omero4 <https://www.openmicroscopy.org/site/support/copy_of_omero4>`_]
+
+   -  If necessary, begin editing that private location. (Note this
+      requires more work). Apply all changes here in preparation for
+      release. Key Pages to review:
+
+      -  `Main Page <http://www.openmicroscopy.org/site>`_ (no copy.
+         Update on Release)
+      -  Products
+
+         -  [STRIKEOUT:`Feature List
+            Page <http://www.openmicroscopy.org/site/products/copy_of_feature-list>`_]
+            Waiting for movie links
+         -  `Big Images
+            Support <http://www.openmicroscopy.org/site/products/copy_of_omero/big-images-support>`_
+         -  `Import in
+            OMERO.insight <http://www.openmicroscopy.org/site/products/copy_of_omero/import-in-omero.insight>`_
+         -  `Improved Web
+            Client <http://www.openmicroscopy.org/site/products/copy_of_omero/improved-web-client>`_
+         -  `About
+            Omero <http://www.openmicroscopy.org/site/products/copy_of_omero/omero-platform-v4>`_
+         -  `Volume Viewer in
+            OMERO.web <http://www.openmicroscopy.org/site/products/copy_of_omero/volume-viewer-in-omero.web>`_
+            - to be removed?
+
+      -  Support
+
+         -  [STRIKEOUT:`Downloads <http://www.openmicroscopy.org/site/support/copy_of_omero4/downloads>`_]
+         -  [STRIKEOUT:`Install -
+            Unix <http://www.openmicroscopy.org/site/support/copy_of_omero4/server/installation>`_]
+         -  [STRIKEOUT:`Install -
+            Windows <http://www.openmicroscopy.org/site/support/copy_of_omero4/server/install-windows>`_]
+            (ActiveState? Python 2.5 or 2.7?)
+         -  [STRIKEOUT:`Web on
+            Production <http://www.openmicroscopy.org/site/support/copy_of_omero4/server/install_web>`_]
+         -  [STRIKEOUT:`FAQ <http://www.openmicroscopy.org/site/support/faq>`_
+            Edited in place (no copy)]
+         -  [STRIKEOUT:`Future
+            Development <http://www.openmicroscopy.org/site/support/copy_of_omero4/future-development>`_]
+         -  [STRIKEOUT:`OMERO.blitz <http://www.openmicroscopy.org/site/support/copy_of_omero4/omero.blitz>`_]
+         -  [STRIKEOUT:`OMERO.web <http://www.openmicroscopy.org/site/support/copy_of_omero4/omero.web>`_]
+         -  [STRIKEOUT:`Analysis <http://www.openmicroscopy.org/site/support/copy_of_omero4/analysis>`_]
+         -  [STRIKEOUT:`Clients <http://www.openmicroscopy.org/site/support/copy_of_omero4/clients>`_]
+         -  [STRIKEOUT:`Importer <http://www.openmicroscopy.org/site/support/copy_of_omero4/clients/importer>`_]
+            - to be removed?
+         -  [STRIKEOUT:`Insight <http://www.openmicroscopy.org/site/support/copy_of_omero4/clients/insight>`_]
+         -  [STRIKEOUT:`Web <http://www.openmicroscopy.org/site/support/copy_of_omero4/clients/web>`_]
+         -  `Known
+            limitations <http://www.openmicroscopy.org/site/support/copy_of_omero4/known-limitations>`_
+         -  [STRIKEOUT:`Getting
+            started <http://www.openmicroscopy.org/site/support/copy_of_omero4/getting-started>`_]
+            - all the pages underneath need a quick review (changes
+            between 4.3 and 4.4)
+         -  `Client
+            documentation <http://www.openmicroscopy.org/site/support/copy_of_omero4/getting-started/client-documentation>`_
+         -  [STRIKEOUT:`Virtual
+            appliance <http://www.openmicroscopy.org/site/support/copy_of_omero4/getting-started/demo/virtual_appliance>`_]
+         -  [STRIKEOUT:`Screenshots
+            page <http://www.openmicroscopy.org/site/support/copy_of_omero4/screenshots>`_]
+         -  [STRIKEOUT:`Backup and
+            Restore <http://www.openmicroscopy.org/site/support/copy_of_omero4/server/backup-and-restore>`_]
+
+      -  `Contributors <http://www.openmicroscopy.org/site/about/contributers>`_
+      -  Road map page:
+
+         -  `Roadmap <http://www.openmicroscopy.org/site/about/roadmap>`_
+         -  `Version
+            history <http://www.openmicroscopy.org/site/about/project-history/omero-version-history>`_
+
+      -  Movies page ?
+      -  [STRIKEOUT:`About
+         OMERO <http://www.openmicroscopy.org/site/about/what-omero>`_]
+         (waiting on movie links)
+      -  Downloads page (see below)
+      -  Upgrade page
+
+         -  i.e. add section to
+            `Upgrade <http://www.openmicroscopy.org/site/support/copy_of_omero4/server/upgrade>`_
+            including db upgrades, etc.
+
+-  [STRIKEOUT:Videos. Indicate the following at the beginning of the
+   movie:]
+
+   -  [STRIKEOUT:Your name]
+   -  [STRIKEOUT:version of the software]
+   -  [STRIKEOUT:subject of the movie.]
+   -  [STRIKEOUT:If your video uses the terminal, format your terminal
+      to use Monaco 22pt, yes THAT BIG, pick colours with a good
+      contrast and turn off window transparency!]
+   -  [STRIKEOUT:For video formatting instructions see:
+      `VideoFormatForOmeMovies </ome/wiki/VideoFormatForOmeMovies>`_]
+
+-  Documentation of all API/model changes
+
+4.4.0 Things left to test/discuss
+---------------------------------
+
+-  VS 2010 build with Scons 2.x
+-  [STRIKEOUT:Review apache documentation instructions with new
+   "bin/omero web config apache" command]
+-  ` https://www.openmicroscopy.org/site/support/imagej <https://www.openmicroscopy.org/site/support/imagej>`_
+-  [STRIKEOUT:**Review doc tickets**: `#6866 </ome/ticket/6866>`_,
+   `#8686 </ome/ticket/8686>`_, `#9304 </ome/ticket/9304>`_,
+   `#8494 </ome/ticket/8494>`_, `#8364 </ome/ticket/8364>`_]
+
+All Documentation tickets
+-------------------------
+
+Open doc tickets in milestone: 0
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `Ticket </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&desc=1&order=id>`_   | `Summary </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&order=summary>`_   | `Status </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&order=status>`_   | `Owner </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&order=owner>`_   | `Priority </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&order=priority>`_   | `Reporter </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&order=reporter>`_   |
++==================================================================================================================================================================================================================================+=================================================================================================================================================================================================================================+===============================================================================================================================================================================================================================+=============================================================================================================================================================================================================================+===================================================================================================================================================================================================================================+===================================================================================================================================================================================================================================+
+| No tickets found                                                                                                                                                                                                                 |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Release Candidates
+------------------
+
+-  Give new clients to internal/external testers XX weeks before release
+-  Set up a testing server for internal/external testers.
+-  Upgrade local production server XX weeks before release.
+-  Test all components from official zips (ImageJ, etc.)
+-  Check that all clients properly detect compatible server versions
+
+Schema Pre-Release Checklist
+----------------------------
+
+-  XsdFu code generation
+-  Upgrade online validator
+-  Update fetch\_content\_from\_git.sh
+-  Change develop URLs to master (FIXME)
+
+Release
+-------
+
+-  **No pre-meeting releases**; Need at least X week(s) before a major
+   event.
+-  Update version numbers for release (There should only be a **single**
+   commit with this version number)
+
+   -  Tag the SHA1 of that single commit for release:
+      ``git tag -u "Josh Moore (Glencoe Software, Inc.) <josh@glencoesoftware.com>" -m "Release version 4.4.0" v.4.4.0``
+   -  Push the tag to the official repository:
+      ``git push origin v.4.4.0``
+   -  Checkout master: ``git checkout master``
+   -  Merge the newly created tag: ``git merge v.4.4.0``
+   -  Push to the official repository: ``git push origin master``
+   -  Update version number for the
+      `UpgradeCheck </ome/wiki/UpgradeCheck>`_. This is currently done
+      by connecting to the “feedback” database on necromancer. Following
+      info also under `UpgradeCheck </ome/wiki/UpgradeCheck>`_:
+
+      -  ``select * from registry_version;``
+      -  ``update registry_version set version = '4.4.0';``
+
+-  Create builds with hudson
+
+   -  ``git push origin v.4.4.0 develop`` assuming the commit isn’t
+      present.
+   -  If commit is present, just click on “Build” on Hudson
+   -  Mark build as “QA”\ [STRIKEOUT:, eventually as “Release”]
+   -  Copy builds to /snapshots (currently manual)
+   -  This kicks off the VM build (automatically published to
+      /snapshots)
+   -  Rename the "latest-build" VMs.
+
+-  Publish website
+
+   -  Archive Main Website Documentation for previous release (i.e. Move
+      old documentation to versioned URL)
+   -  Move “copy\_of\_” documentation to be active
+
+-  Announce on mailing lists and in news
+
+Branching
+---------
+
+-  Rename "\*-trunk" hudson jobs to "\*-<RELEASE\_NAME>"
+-  Add bioformats branches to /hudson/bioformats.git/git-fetch.sh and
+   hooks/post-receive
+
+Post release
+------------
+
+-  Change reports in left-bar of trac
+-  Update any deployed servers (ask Josh)
+-  Update online validator (See `#8640 </ome/ticket/8640>`_ for an
+   example)
+
+Demo server
+-----------
+
+-  Contact KIT if they are willing to do upgrade.
+-  Notify demo users when upgrade will take place.
+-  Submit any necessary configuration options while upgrading.
+-  Test demo server.
+-  Email announcement.
+
+--------------
+
+::
+
+    == Items in progress ==
+    Unpolished TODOs for review/expansion:
+
+    == Later ==
+     * Remove branch 
+
+    == TBD ==
+     * Branching policy
+     * Integration/propagation of release to Glencoe

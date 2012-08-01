@@ -1,0 +1,3 @@
+Deprecated Page
+
+example

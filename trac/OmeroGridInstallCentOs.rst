@@ -1,0 +1,40 @@
+Installing `OmeroGrid </ome/wiki/OmeroGrid>`_ on CentOS
+=======================================================
+
+Prerequisites
+-------------
+
+Installing on CentOS 4 or CentOS 5 is straight-forward due to the rpms
+provided by ` ZeroC <http://zeroc.com>`_.
+
+From Yum Repository
+~~~~~~~~~~~~~~~~~~~
+
+As root:
+
+::
+
+      cd /etc/yum.repos.d
+      wget http://zeroc.com/download/Ice/3.2/rhel4/zeroc-ice.repo
+      yum install ice-python  # Installs other dependencies
+
+From binaries
+~~~~~~~~~~~~~
+
+::
+
+    wget http://zeroc.com/download/Ice/3.2/Ice-3.2.1-bin-rhel-i386.tar.gz
+    tar xzf Ice-3.2.1-bin-rhel-i386.tar.gz
+
+    export ICE_HOME=Ice-3.2.1
+    export PATH=$ICE_HOME/bin:$PATH
+    export LD_LIBRARY_PATH=$ICE_HOME/lib
+    export PYTHONPATH=$ICE_HOME/python
+
+Starting on boot
+----------------
+
+--------------
+
+See also: `OmeroInstall </ome/wiki/OmeroInstall>`_,
+`OmeroGridInstall </ome/wiki/OmeroGridInstall>`_
