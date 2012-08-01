@@ -115,8 +115,11 @@ Like many pieces of OMERO.server configuration, LDAP-specific
 configuration is done by specifying extra properties during
 installation. The default values for the LDAP properties are listed in
 the **etc/omero.properties** file inside your OMERO installation
-directory. **NOTE:** Please remember that once a change has been made, a
-server restart will be needed.
+directory.
+ 
+.. note::
+    Please remember that once a change has been made, a
+    server restart will be needed.
 
 Change any settings that are necessary via bin/omero config.
 
@@ -132,8 +135,9 @@ Change any settings that are necessary via bin/omero config.
 
        bin/omero config set omero.ldap.urls ldap://ldap.example.com:389
 
-       NOTE: A SSL URL above should look like this:
-       ldaps://ldap.example.com:636
+       .. note::
+          A SSL URL above should look like this:
+          ldaps://ldap.example.com:636
 
 -  LDAP server bind DN (if required; can be empty)
 

@@ -30,13 +30,14 @@ from having to install OMERO.server yourself, and letting you
 concentrate on evaluating the functionality of the OMERO.server and its
 clients.
 
-**NOTE:** The virtual hard-drive used by the OMERO virtual appliance is
-30GB in size and you should probably keep track of the amount of this
-space that you have consumed and, if necessary, delete data that is not
-required. If your data is likely to exceed this space whilst you are
-evaluating OMERO then it is worthwhile going through the 
-:ref:`rst_increasing-hd-size` before you start working with
-OMERO in earnest.
+.. note:: 
+    The virtual hard-drive used by the OMERO virtual appliance is
+    30GB in size and you should probably keep track of the amount of this
+    space that you have consumed and, if necessary, delete data that is not
+    required. If your data is likely to exceed this space whilst you are
+    evaluating OMERO then it is worthwhile going through the 
+    :ref:`rst_increasing-hd-size` before you start working with
+    OMERO in earnest.
 
 Getting Started
 ---------------
@@ -371,7 +372,8 @@ that you have a shell open and logged into the VM:
 Log into the VM directly
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **NOTE:** Due to the frequent changes in the VirtualBox Guest
+.. note::
+    Due to the frequent changes in the VirtualBox Guest
     Additions, key mappings between the host and guest OS do not always
     work. We recommend using SSH as the primary way of interacting with
     the Virtual Appliance CLI.

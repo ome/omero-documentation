@@ -211,9 +211,10 @@ OMERO.web is quite straightforward.
        735 static files copied to '/Users/omero/Desktop/omero/lib/python/omeroweb/static'.
        Starting OMERO.web... [OK]
 
-       **NOTE:** The Django FastCGI workers are managed **separately**
-       from other OMERO.server processes. You can check their status or
-       stop them using the following commands:
+       .. note::
+           The Django FastCGI workers are managed **separately**
+           from other OMERO.server processes. You can check their status or
+           stop them using the following commands:
 
    ::
 
