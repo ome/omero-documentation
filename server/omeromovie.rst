@@ -69,3 +69,17 @@ A detailed list of the commands accepted by the script are:
 -  format: The format of the movie to be created currently supports 'video/mpeg', 'video/quicktime'
 -  overlayColour: The colour of the overlays, scalebar, time, as int(RGB)
 -  fileAnnotation: The fileAnnotation id of the uploaded movie. (return value from script)
+
+Platform-specific notes
+-----------------------
+
+Windows
+~~~~~~~
+
+For Windows, you can download a "MPlayer-rtm-svm-<version>" bundle from
+` http://sourceforge.net/projects/mplayer-win32/ <http://sourceforge.net/projects/mplayer-win32/>`_.
+The latest version as of Nov. 2009 is available
+` here <http://downloads.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/revision%2029851/MPlayer-rtm-svn-29851.7z?use_mirror=dfn>`_.
+You will need ` 7zip <http://www.7-zip.org/download.html>`_ to open the
+bundle. Then you will need to add the directory containing
+"mencoder.exe" to your system path and restart.
