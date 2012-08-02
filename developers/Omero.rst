@@ -1,4 +1,4 @@
-.. _developers/Omero/Home:
+.. _developers/Omero:
 
 OMERO Home Page
 ===============

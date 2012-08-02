@@ -104,7 +104,7 @@ rst_epilog = """
 .. |OmeroApi| replace:: :ref:`developers/Omero/Modules/Api`
 .. |OmeroWeb| replace:: :ref:`developers/Omero/Web`
 .. |OmeroClients| replace:: :ref:`developers/Omero/GettingStarted`
-.. |OmeroInsight| replace:: :ref:`developers/Insight`
+.. |OmeroInsight| replace:: :ref:`developers/Omero/Insight`
 .. |ExtendingOmero| replace:: :ref:`developers/Server/ExtendingOmero`
 """
 

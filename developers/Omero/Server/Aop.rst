@@ -29,7 +29,7 @@ not produce an advised object, which can in turn will not function
 properly if at all. Instead, an advised objects can only be acquired
 from the Spring ((Omero Context\|context)).
 
-By and large, only the :ref:`API service methods </developers/Omero/Module/Api>` 
+By and large, only the :ref:`API service methods <developers/Omero/Modules/Api>` 
 are advised in OMERO.
 
 Why

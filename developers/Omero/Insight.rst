@@ -1,4 +1,4 @@
-.. _developers/Insight:
+.. _developers/Omero/Insight:
 
 OMERO.insight Developer Links
 =============================
