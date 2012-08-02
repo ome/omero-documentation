@@ -106,6 +106,7 @@ rst_epilog = """
 .. |OmeroClients| replace:: :ref:`developers/Omero/GettingStarted`
 .. |OmeroInsight| replace:: :ref:`developers/Omero/Insight`
 .. |ExtendingOmero| replace:: :ref:`developers/Server/ExtendingOmero`
+.. |BlitzGateway| replace:: :ref:`developers/Omero/Python/Gateway`
 """
 
 # -- Options for HTML output ---------------------------------------------------
