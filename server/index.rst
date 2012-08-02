@@ -1,8 +1,6 @@
-.. _rst_server:
-
-******
-Server
-******
+********************
+Server Documentation
+********************
 
 .. toctree::
     :titlesonly:

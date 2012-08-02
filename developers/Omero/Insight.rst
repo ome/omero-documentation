@@ -1,3 +1,5 @@
+.. _developers/Insight:
+
 OMERO.insight Developer Links
 =============================
 
@@ -10,14 +12,14 @@ user documentation for all of the OMERO products, go
 .. toctree::
 	:titlesonly:
 	
-	Architecture
-	Configuration
-	Contributing
-	DirectoryContents
-	EventBus
-	Evolution
-	HowTo/BuildAgent
-	HowTo/BuildAgentView
-	HowTo/RetrieveData
-	ImplementationView
-	TaskBar
+	Insight/Architecture
+	Insight/Configuration
+	Insight/Contributing
+	Insight/DirectoryContents
+	Insight/EventBus
+	Insight/Evolution
+	Insight/HowTo/BuildAgent
+	Insight/HowTo/BuildAgentView
+	Insight/HowTo/RetrieveData
+	Insight/ImplementationView
+	Insight/TaskBar

@@ -1,3 +1,5 @@
+.. _developers/Server/ExtendingOmero:
+
 Extending OMERO
 ===============
 
@@ -22,7 +24,7 @@ Clients
 ~~~~~~~
 
 To write you own clients or scripts against the OMERO API, see the
-`OmeroClients </ome/wiki/OmeroClients>`_ page. Though writing your own
+|OmeroClients| page. Though writing your own
 client is a form of extending OMERO, the topics that follow are for
 extending the server and do not cover clients. For information specific
 to Insight, please see the client trac:
@@ -44,7 +46,7 @@ point you back to this page for packaging and deploying your new code.
    Java handler for failed login attempts
 -  `ObjectFactoryRegistry </ome/wiki/ObjectFactoryRegistry>`_: Write
    server-side handlers for your Ice implementations
--  `OmeroCli </ome/wiki/OmeroCli>`_: Write drop in Python extensions for
+-  |OmeroCli|: Write drop in Python extensions for
    the command-line
 -  `OmeroScripts </ome/wiki/OmeroScripts>`_: Write python scripts to
    process data server-side
@@ -172,8 +174,7 @@ The easiest possible service definition in slice is:
 This should be added to any existing or a new ``*.ice`` file under the
 ``blitz/resources/omero`` directory. After the next ant build, stubs
 will be created for all the `OmeroBlitz </ome/wiki/OmeroBlitz>`_
-languages, i.e. `OmeroJava </ome/wiki/OmeroJava>`_,
-`OmeroPy </ome/wiki/OmeroPy>`_, and :ref:`OmeroCpp  <developers/Omero/Cpp>`.
+languages, i.e.  |OmeroJava|, |OmeroPy|, and |OmeroCpp|.
 
 **Note:** Once you have gotten your code working, it is most re-usable
 if you can put it all in a single directory under tools/. These
@@ -272,6 +273,8 @@ and
 `source:ome.git/components/server/resources/ome/services </ome/browser/ome.git/components/server/resources/ome/services>`_
 for all the available objects.
 
+.. _developers/Server/ExtendingOmero#JavaDeployment:
+
 Java Deployment
 ^^^^^^^^^^^^^^^
 
@@ -365,7 +368,7 @@ Servers
 With the `OmeroGrid </ome/wiki/OmeroGrid>`_ infrastructure, it is
 possible to have your own processes managed by the OMERO infrastructure.
 For example, at some sites, ` Nginx <http://wiki.nginx.org/Main>`_ is
-started to host `OmeroWeb </ome/wiki/OmeroWeb>`_. Better integration is
+started to host |OmeroWeb|. Better integration is
 possible, however, if your server also uses the
 ` Ice <http://www.zeroc.com>`_ remoting framework.
 

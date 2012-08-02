@@ -1,11 +1,12 @@
+.. _developers/Omero/Python:
+
 OMERO Python Language Bindings
 ==============================
 
 .. contents::
 
-In addition to the auto-generated Python libraries of the core `OMERO
-API </ome/wiki/OmeroApi>`_, we have developed a more user-friendly
-'`Blitz Gateway </ome/wiki/OmeroPy/Gateway>`_\ ' Python module that
+In addition to the auto-generated Python libraries of the core |OmeroApi|, 
+we have developed a more user-friendly |BlitzGateway| Python module that
 facilitates several aspects of working with the Python API, such as
 connection handling, object graph traversal and lazy loading.
 

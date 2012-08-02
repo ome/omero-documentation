@@ -7,7 +7,7 @@ The OMERO.blitz server is responsible for providing secure access to
 data and metadata via user sessions (:wiki:`OmeroSessions`)
 and cleaning up all resources when they are no longer being used.
 Various server capabilities are accessed via a multitude services
-collectively known as the :wiki:`OMERO API <OmeroApi>`.
+collectively known as the |OmeroApi|.
 
 Metadata
 ~~~~~~~~

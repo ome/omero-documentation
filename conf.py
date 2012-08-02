@@ -95,6 +95,18 @@ extlinks = {
     'doi' : ('http://dx.doi.org/' + '%s', '')
     }
 
+rst_epilog = """
+.. |OmeroPy| replace:: :ref:`OmeroPy <developers/Omero/Python>`
+.. |OmeroCpp| replace:: :ref:`OmeroCpp <developers/Omero/Cpp>`
+.. |OmeroJava| replace:: :ref:`OmeroJava <developers/Omero/Java>`
+.. |OmeroMatlab| replace:: :ref:`OmeroMatlab <developers/Omero/Matlab>`
+.. |OmeroCli| replace:: :ref:`developers/Omero/CommandLine`
+.. |OmeroApi| replace:: :ref:`developers/Omero/Modules/Api`
+.. |OmeroWeb| replace:: :ref:`developers/Omero/Web`
+.. |OmeroClients| replace:: :ref:`developers/Omero/GettingStarted`
+.. |OmeroInsight| replace:: :ref:`developers/Insight`
+.. |ExtendingOmero| replace:: :ref:`developers/Server/ExtendingOmero`
+"""
 
 # -- Options for HTML output ---------------------------------------------------
 

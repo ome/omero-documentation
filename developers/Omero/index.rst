@@ -6,7 +6,7 @@ OMERO Developer Documentation
     :glob:
     :titlesonly:
 
-    Home
+    ../Omero
 
     Build
     Clients/ImportLibrary
@@ -15,7 +15,7 @@ OMERO Developer Documentation
     GettingStarted
     GettingStarted/*
     Grid
-    Insight/index
+    Insight
     Python
     Python/*
     Java

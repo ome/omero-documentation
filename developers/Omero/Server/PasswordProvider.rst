@@ -30,7 +30,7 @@ To write your own provider, you can either subclass from
 as the providers above do, or write your own implementation from
 scratch. You will need to define your object in a Spring XML file
 matching the pattern ``ome/services/db-*.xml``. See
-`ExtendingOmero </ome/wiki/ExtendingOmero>`_ more for information.
+|ExtendingOmero| more for information.
 
 Things to keep in mind
 ----------------------

@@ -5,10 +5,9 @@ How To Create A Service
 	These instructions are for core developers only and may be
 	slightly out of date. They will eventually be revised, but if you are
 	looking for general instructions on extending OMERO with a service, see
-	`ExtendingOmero </ome/wiki/ExtendingOmero>`_. If you would indeed like
-	to create a core service, please contact the `ome-devel
-	mailing <http://www.openmicroscopy.org/site/community/mailing-lists>`_
-	list
+	|ExtendingOmero|. If you would indeed like to create a core service, 
+	please contact the `ome-devel mailing 
+	<http://www.openmicroscopy.org/site/community/mailing-lists>`_ list
 
 --------------
 

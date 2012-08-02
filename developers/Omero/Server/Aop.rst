@@ -29,8 +29,8 @@ not produce an advised object, which can in turn will not function
 properly if at all. Instead, an advised objects can only be acquired
 from the Spring ((Omero Context\|context)).
 
-By and large, only the `API service methods </ome/wiki/OmeroApi>`_ are
-advised in OMERO.
+By and large, only the :ref:`API service methods </developers/Omero/Module/Api>` 
+are advised in OMERO.
 
 Why
 ---

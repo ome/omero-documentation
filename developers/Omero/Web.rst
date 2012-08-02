@@ -1,8 +1,10 @@
-`|OmeroWeb infrastructure
-components| </ome/attachment/wiki/OmeroWeb/OmeroWeb.png>`_
+.. _developers/Omero/Web:
 
 OMERO.web Framework
 ===================
+
+`|OmeroWeb infrastructure
+components| </ome/attachment/wiki/OmeroWeb/OmeroWeb.png>`_
 
 ` MOVIE introduction to
 OmeroWeb <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`_
@@ -27,7 +29,7 @@ OMERO Python API
 ~~~~~~~~~~~~~~~~
 
 The OMERO.web framework is all based on the OMERO Python API, using the
-Blitz Gateway (see `OmeroPy </ome/wiki/OmeroPy>`_). The web framework
+Blitz Gateway (see |OmeroPy|). The web framework
 provides functionality for creating and retrieving connections to OMERO
 (see example below &
 `OmeroWeb/WritingViews </ome/wiki/OmeroWeb/WritingViews>`_ for more

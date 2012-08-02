@@ -1,3 +1,5 @@
+.. _developers/Omero/Java:
+
 OMERO Java Language Bindings
 ============================
 
@@ -20,8 +22,7 @@ The library is placed under OMERO\_HOME/dist/lib/client by the build, or
 is alternatively available from Hudson at:
 ` http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/ <http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/>`_
 
-To use `OmeroJava </ome/wiki/OmeroJava>`_, setup you'll need to setup
-your CLASSPATH:
+To use  |OmeroJava|, setup you'll need to setup your CLASSPATH:
 
 ::
 
@@ -900,7 +901,7 @@ Further information
 -------------------
 
 For the details behind writing, configuring, and executing a client,
-please see `OmeroClients </ome/wiki/OmeroClients>`_.
+please see |OmeroClients|.
 
 --------------
 
@@ -913,4 +914,4 @@ please see `OmeroClients </ome/wiki/OmeroClients>`_.
 	
 	`OmeroTools </ome/wiki/OmeroTools>`_, 
 	
-	`OmeroApi </ome/wiki/OmeroApi>`_
+	|OmeroApi|

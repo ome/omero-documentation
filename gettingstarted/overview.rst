@@ -68,11 +68,9 @@ Extending OMERO
 Developers documentation is available on
 `Trac <http://trac.openmicroscopy.org.uk/ome/wiki>`_. There are
 extension points to add OMERO server functionality as described on the
-:wiki:`Extending OMERO <ExtendingOmero>` page as
-well as add to agents to OMERO.insight. See
+|ExtendingOmero| page as well as add to agents to OMERO.insight. See
 :wiki:`OmeroInsightArchitecture` for more information.
 
-Instructions on writing your own :wiki:`OmeroClients` or 
-scripts that work via the :wiki:`OMERO API <OmeroApi>`, in a
-number of languages are listed as part of the [analysis]
-(support/omero4/analysis) page.
+Instructions on writing your own |OmeroClients| or scripts that work 
+via the |OmeroApi|, in a number of languages are listed as part of the 
+:plone:`analysis <support/omero4/analysis>` page.

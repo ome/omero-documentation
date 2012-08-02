@@ -70,4 +70,4 @@ getExperimenter/getGroup/lookupExperimenter/lookupGroup.
 
 --------------
 
-See also : `OmeroApi </ome/wiki/OmeroApi>`_
+See also : |OmeroApi|

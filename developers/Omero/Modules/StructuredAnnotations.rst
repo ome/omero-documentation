@@ -161,7 +161,8 @@ All write changes are intended to occur through the IUpdate interface,
 whereas searching should be significantly easier through ome.api.Search
 than IQuery.
 
---------------
 
-See also: `original proposal </ome/wiki/proposals/Attributes>`_,
-`ExtendingOmero </ome/wiki/ExtendingOmero>`_
+.. seealso::
+    `original proposal </ome/wiki/proposals/Attributes>`_,
+
+    |ExtendingOmero|

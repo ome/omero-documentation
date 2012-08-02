@@ -239,7 +239,7 @@ And a simple example file might looking something like the following
 
 This code doesn't do much. It creates a server session, loads a few
 services, and prints the user's name. For serious examples, see
-`OmeroClients </ome/wiki/OmeroClients>`_.
+|OmeroClients|.
 
 Compiling and running ``yourcode``
 ----------------------------------
@@ -293,13 +293,13 @@ Further information
 -------------------
 
 For the details behind writing, configuring, and executing a client,
-please see `OmeroClients </ome/wiki/OmeroClients>`_.
+please see |OmeroClients|.
 
 --------------
 
 See also: ` http://zeroc.com <http://zeroc.com>`_,
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_,
-`OmeroGrid </ome/wiki/OmeroGrid>`_, `OmeroApi </ome/wiki/OmeroApi>`_,
+`OmeroGrid </ome/wiki/OmeroGrid>`_, |OmeroApi|,
 :ref:`developers/Omero/Build`, `#1596 </ome/ticket/1596>`_ which
 added 64bit support
 

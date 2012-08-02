@@ -1,5 +1,7 @@
-A Python interface to OMERO
-===========================
+.. _developers/Omero/Python/Gateway:
+
+Blitz Gateway
+=============
 
 .. contents::
 
@@ -10,9 +12,6 @@ Gateway <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/BlitzGa
 working with the OMERO API and model objects. It facilitates many
 aspects of working with the API, such as handling connections, creating
 services, loading objects and traversing object graphs.
-
-This page is a 'quick-start' guide to the Blitz gateway. More info can
-be found at `OmeroPy/GatewayInfo </ome/wiki/OmeroPy/GatewayInfo>`_.
 
 The Gateway consists of wrapper objects around the OMERO connection and
 the various model objects, providing more convenient methods in many
@@ -134,9 +133,11 @@ Access to the OMERO API services
 --------------------------------
 
 If you need access to API methods that are not provided by the gateway
-library, you can get hold of the `OMERO API
-services </ome/wiki/OmeroApi>`_. NB. These services will always work
-with omero.model objects and not the gateway wrapper objects.
+library, you can get hold of the |OmeroApi|. 
+
+.. note:: 
+    These services will always work
+    with omero.model objects and not the gateway wrapper objects.
 
 The gateway handles creation and reuse of the API services, so that new
 ones are not created unnecessarily. Services can be accessed using the
@@ -171,8 +172,7 @@ call to server (no lazy loading)
 Stateful services, reconnection, error handling etc
 ---------------------------------------------------
 
-The Blitz gateway was designed for use in the
-`OmeroWeb </ome/wiki/OmeroWeb>`_ framework and it is not expected that
+The Blitz gateway was designed for use in the |OmeroWeb| framework and it is not expected that
 stateful services will be maintained on the client for significant time.
 There is various error-handling functionality in the Blitz gateway that
 will close existing services and recreate them in order to maintain a
@@ -255,12 +255,11 @@ This page provides some background information on the OMERO Python
 client 'gateway' (omero.gateway module) and describes work to improve
 the API, beginning with the OMERO 4.3 release.
 
-The `OmeroPy/Gateway </ome/wiki/OmeroPy/Gateway>`_, known as the 'Blitz'
-gateway, is a Python client-side library that facilitates working with
-the OMERO API, handling connection to the server, loading of data
+The |BlitzGateway| is a Python client-side library that facilitates working 
+with the OMERO API, handling connection to the server, loading of data
 objects and providing convenience methods to access the data. It was
-originally designed as part of the `OmeroWeb </ome/wiki/OmeroWeb>`_
-framework, to provide connection and data retrieval services to various
+originally designed as part of the |OmeroWeb| framework, 
+to provide connection and data retrieval services to various
 web clients. However, we have now decided to encourage it's use for all
 access to the OMERO Python API.
 
@@ -350,9 +349,8 @@ Wrapper Coverage
 ~~~~~~~~~~~~~~~~
 
 The OMERO data model has a large number of objects, not all of which are
-used by the `OmeroWeb </ome/wiki/OmeroWeb>`_ framework. For this reason,
-the Blitz gateway (which was originally built for
-`OmeroWeb </ome/wiki/OmeroWeb>`_) has not yet been extended to wrap
+used by the |OmeroWeb| framework. For this reason, the Blitz gateway (which was 
+originally built for |OmeroWeb|) has not yet been extended to wrap
 every omero.model object with a specific Blitz Object Wrapper. The
 current list of object wrappers can be found in the omero.gateway module
 ` 4.2
@@ -366,7 +364,7 @@ Gateway Evolution
 -----------------
 
 As mentioned above, the Blitz gateway was originally designed for
-`OmeroWeb </ome/wiki/OmeroWeb>`_, but is now being developed as a
+|OmeroWeb|, but is now being developed as a
 general purpose Python client library. Various changes are in the
 pipeline:
 

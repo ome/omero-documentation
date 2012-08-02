@@ -1,4 +1,4 @@
-.. _developers/Omero/Home::
+.. _developers/Omero/Home:
 
 OMERO Home Page
 ===============
@@ -17,12 +17,11 @@ What is OMERO?
 
 **OMERO** is an open source client/server system written for
 visualizing, managing, and annotating microscope images and metadata.
-The `OMERO server API </ome/wiki/OmeroApi>`_ allows clients to be
-written in `Java </ome/wiki/OmeroJava>`_, `Python </ome/wiki/OmeroPy>`_,
-:ref:`C++ <developers/Omero/Cpp>` or `MATLAB </ome/wiki/OmeroMatlab>`_. OMERO
-releases include a web client `OMERO.web </ome/wiki/OmeroWeb>`_ and
-command line interface `OMERO.cli </ome/wiki/OmeroCli>`_ which use the
-Python API and a Java client `OMERO.Insight </ome/wiki/OmeroInsight>`_.
+The |OmeroApi| allows clients to be
+written in :ref:`Java <developers/Omero/Java>`, :ref:`Python <developers/Omero/Python>`,
+:ref:`C++ <developers/Omero/Cpp>` or :ref:`MATLAB <developers/Omero/Matlab>`. OMERO
+releases include a web client :ref:`OMERO.web <developers/Omero/Web>` and |OmeroCli| which 
+use the Python API and a Java client :ref:`OMERO.Insight <developers/Omero/Insight>`.
 There is also an ImageJ plugin. OMERO can be extended by modifying these
 clients or by `writing your own </ome/wiki/DevelopingOmeroClients>`_ in
 any of the supported languages (see figure). OMERO also supports a
@@ -91,8 +90,7 @@ On this, you'll find links to a range of movies that demonstrate
 features of the OMERO software. After that you will likely want to
 :ref:` install the server <rst_installation>` and
 ` clients <https://www.openmicroscopy.org/site/support/omero4/clients>`_:
-Insight, Web. Play with it, test data. You can also try out the
-`CLI </ome/wiki/OmeroCli>`_.
+Insight, Web. Play with it, test data. You can also try out the |OmeroCli|.
 
 After that, the `WorkingWithOmero </ome/wiki/WorkingWithOmero>`_ page is
 probably a good next step. It describes various tools and resources you
@@ -122,9 +120,9 @@ Getting Your Hand's Dirty
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  `Working with OMERO </ome/wiki/WorkingWithOmero>`_
--  `Extending OMERO </ome/wiki/ExtendingOmero>`_
--  `Java Language Bindings </ome/wiki/OmeroJava>`_
--  `Python Language Bindings </ome/wiki/OmeroPy>`_
+-  |ExtendingOmero|
+-  :ref:`developers/Omero/Java`
+-  :ref:`developers/Omero/Python`
 -  `Developing Clients using
    OmeroBlitz </ome/wiki/DevelopingOmeroClients>`_
 -  `Developing Scripts </ome/wiki/OmeroScripts>`_
@@ -138,20 +136,19 @@ OMERO Architecture (From a programmer's perspective)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  `OMERO Model </ome/wiki/OmeroModel>`_
--  ` OMERO API <http://trac.openmicroscopy.org.uk/ome/wiki/OmeroApi>`_
+-  |OmeroApi|
 
 More pages can be found on the `SiteMap </ome/wiki/SiteMap>`_.
 
 Further Reading
 ^^^^^^^^^^^^^^^
 
-#. `OmeroApi </ome/wiki/OmeroApi>`_: OMERO Application Programming
-   Interface
-#. `OmeroCli </ome/wiki/OmeroCli>`_: OMERO Commandline Interface
+#. |OmeroApi|
+#. |OmeroCli|
 #. `OmeroModel </ome/wiki/OmeroModel>`_: Model Documentation
 #. `DevelopingOmeroClients </ome/wiki/DevelopingOmeroClients>`_:
    Developting OmeroBlitz Clients
-#. `ExtendingOmero </ome/wiki/ExtendingOmero>`_: Extending Omero
+#. |ExtendingOmero|
 
 Current Development Cycle
 -------------------------

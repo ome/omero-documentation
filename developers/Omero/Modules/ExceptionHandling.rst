@@ -17,8 +17,7 @@ at ``omero::ClientError`` is defined in
 non-remote) invocations, including issues during configuration.
 
 For a better understanding of how to handle exceptions, please read both
-of the ``*.ice`` files carefully, and see
-`OmeroClients </ome/wiki/OmeroClients>`_ for examples of exception
+of the ``*.ice`` files carefully, and see |OmeroClients| for examples of exception
 handling.
 
 ::
@@ -332,7 +331,7 @@ Due to the strict API boundary enforced by Ice, the client and server
 exception hierarchies, though related, are distinct. The discussion
 below is possibly of interest for server developers only. Client
 developers should refer to the information about as well as to the
-examples under `OmeroClients </ome/wiki/OmeroClients>`_.
+examples under |OmeroClients|.
 
 Interceptor
 ~~~~~~~~~~~

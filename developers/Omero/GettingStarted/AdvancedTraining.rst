@@ -5,9 +5,7 @@ This page describes various tools and resources useful for working with
 the OMERO API, as well as some tips on setting up your working
 environment. It should be useful to client developers working in any of
 the supported languages. For language specific info, see the following
-links: `OmeroJava </ome/wiki/OmeroJava>`_,
-`OmeroPy </ome/wiki/OmeroPy>`_, :ref:`OmeroCpp <developers/Omero/Cpp>`,
-`OmeroMatlab </ome/wiki/OmeroMatlab>`_. Although this page will
+links: |OmeroJava|, |OmeroPy|, |OmeroCpp|, |OmeroMatlab|. Although this page will
 initially be from the perspective of a single developer, hopefully it
 will evolve to include the advice of more developers. Apologies if this
 is too Unix (Mac) biased - I hope that the info is still useful to
@@ -30,7 +28,7 @@ OMERO server and client libraries you use are the same OMERO version.
 You may wish to work with the most recent OMERO release, or
 alternatively you can use the latest development code. Instructions on
 how to download or check out the code can be found on the main
-:plone:` downloads page <site/support/omero4/downloads>`_.
+:plone:`downloads page <site/support/omero4/downloads>`.
 
 Regular builds of the server are performed by
 ` Jenkins <http://jenkins-ci.org/>`_ (formerly known as hudson) and all
@@ -68,7 +66,7 @@ the following variables:
 
        export PYTHONPATH=$PYTHONPATH:$OMERO_HOME/lib/python/
 
-Now checkout the OMERO `command line interface </ome/wiki/OmeroCli>`_.
+Now checkout the |OmeroCli|.
 
 ::
 
@@ -176,7 +174,7 @@ Objects that you wish to work with on the client must be loaded from
 OMERO, with the query defining the extent of any data graph that is
 "fetched".
 
-The `OMERO API </ome/wiki/OmeroApi>`_ supports 2 principle ways of
+The |OmeroApi| supports 2 principle ways of
 querying OMERO and retrieving the objects. You can write SQL-like
 queries using the query service (uses "HQL") or you can use one of the
 other services that already has suitable queries. Using the query
@@ -206,8 +204,7 @@ Or use the Container Service like this:
     for dataset in project.linkedDatasetList:
         print dataset.getName().getValue()
 
-For a list of the available services, see the
-`OmeroApi </ome/wiki/OmeroApi>`_ page.
+For a list of the available services, see the |OmeroApi| page.
 
 Examples
 --------

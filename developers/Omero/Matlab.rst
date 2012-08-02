@@ -1,4 +1,4 @@
-.. rst_Matlab::
+.. _developers/Omero/Matlab:
 
 OMERO Matlab Language Bindings
 ==============================
@@ -12,12 +12,12 @@ See `DevelopingOmeroClients </ome/wiki/DevelopingOmeroClients>`_ and
 Installing and Configuring
 --------------------------
 
-Installing the `OmeroMatlab </ome/wiki/OmeroMatlab>`_ Toolbox
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installing the OmeroMatlab Toolbox
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Download the desired version. For the latest build see,
    `<http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/>`_
-   and download the `OmeroMatlab </ome/wiki/OmeroMatlab>`_ zip file. For
+   and download the |OmeroMatlab| zip file. For
    the latest released version visit the main `download page
    <http://www.openmicroscopy.org/site/support/omero4/downloads>`_
 -  Unzip the directory anywhere on your system.
@@ -27,21 +27,21 @@ Installing the `OmeroMatlab </ome/wiki/OmeroMatlab>`_ Toolbox
    your java classpath. You can change directories and still have access
    to OMERO.
 
-Configuring the `OmeroMatlab </ome/wiki/OmeroMatlab>`_ connection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configuring the OmeroMatlab connection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As described under `OmeroClients </ome/wiki/OmeroClients>`_, there are
+As described under |OmeroClients|, there are
 several ways to configure your connection to an OMERO server.
-`OmeroMatlab </ome/wiki/OmeroMatlab>`_ comes with a few conveniences for
+|OmeroMatlab| comes with a few conveniences for
 making this work.
 
 If you run ``client = loadOmero;`` (i.e. loadOmero with a return value),
-then `OmeroMatlab </ome/wiki/OmeroMatlab>`_ will try to configure the
+then |OmeroMatlab| will try to configure the
 ``omero.client`` object for you. First, it checks the ``ICE_CONFIG``
 environment variable. If set, it will let the ``omero.client``
 constructor initialize itself. Otherwise, it looks for the file
 ``ice.config`` in the current directory. The
-`OmeroMatlab </ome/wiki/OmeroMatlab>`_ toolbox comes with a default
+|OmeroMatlab| toolbox comes with a default
 ice.config file pointing at localhost, which you can edit for your
 server.
 
@@ -62,18 +62,18 @@ equivalent:
     >> client2 = loadOmero('localhost');
     >> session2 = client2.createSession()
 
-Using the `OmeroMatlab </ome/wiki/OmeroMatlab>`_ omero.client
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using the OmeroMatlab omero.client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once an active session is available in your workspace, you can acquire
 services, make queries, and load binary data. In short, anything the
-`OmeroApi </ome/wiki/OmeroApi>`_ can do. Helper functions and demos are
+|OmeroApi| can do. Helper functions and demos are
 available for getting a feel for the API.
 
 **TODO: Review the links** See the examples under
 `source:ome.git/examples </ome/browser/ome.git/examples>`_ or
 `source:ome.git/components/tools/OmeroM/demo </ome/browser/ome.git/components/tools/OmeroM/demo>`_
-on what you can do with `OmeroMatlab </ome/wiki/OmeroMatlab>`_.
+on what you can do with |OmeroMatlab|.
 
 Keeping your session alive
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -130,7 +130,7 @@ Then if you would like, you can unload OMERO as well:
     Warning: Objects of omero/client class exist - not clearing java
     > In unloadOmero at 6
 
-This means that there is still an `OmeroMatlab </ome/wiki/OmeroMatlab>`_
+This means that there is still an |OmeroMatlab|
 object in your workspace. Use "who" to find such objects, and "clear" to
 remove them. After that, run ``clear java``:
 
@@ -146,7 +146,7 @@ remove them. After that, run ``clear java``:
     >> clear java
 
 **You should also unload OMERO before installing a new version of
-`OmeroMatlab </ome/wiki/OmeroMatlab>`_ or calling ``loadOmero`` again.**
+|OmeroMatlab| or calling ``loadOmero`` again.**
 If you need to create another session without unloading/loading OMERO
 again, use the ``omero.client`` object directly:
 

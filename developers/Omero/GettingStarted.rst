@@ -1,3 +1,5 @@
+.. _developers/Omero/GettingStarted:
+
 OMERO.clients
 =============
 
@@ -16,17 +18,14 @@ their own, customized clients.
    `DevelopingOmeroClients </ome/wiki/DevelopingOmeroClients>`_.
 
 Examples for all the `OmeroBlitz </ome/wiki/OmeroBlitz>`_ languages
-(`OmeroPy </ome/wiki/OmeroPy>`_, `OmeroJava </ome/wiki/OmeroJava>`_,
-:ref:`OmeroCpp <developers/Omero/Cpp>`, and
-`OmeroMatlab </ome/wiki/OmeroMatlab>`_) are provided under:
+(|OmeroPy|, |OmeroJava|, |OmeroCpp|, and |OmeroMatlab|) are provided under:
 
 -  `source:ome.git/examples </ome/browser/ome.git/examples>`_
 
 The examples under the ``OmeroClients`` directory are more thoroughly
-discussed on the `OmeroClients </ome/wiki/OmeroClients>`_ page. This is
+discussed on the |OmeroClients| page. This is
 a good starting point for anyone interested in working with the
-`OmeroApi </ome/wiki/OmeroApi>`_ or the
-`ObjectModel </ome/wiki/ObjectModel>`_.
+|OmeroApi| or the `ObjectModel </ome/wiki/ObjectModel>`_.
 
 Examples with Java source code are available under:
 `Examples </ome/browser/ome.git/components/insight/TEST/org/openmicroscopy/shoola/examples>`_

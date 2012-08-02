@@ -16,8 +16,7 @@ be found on the `OmeroScripts </ome/wiki/OmeroScripts>`_ page.
 In addition to this guide, you may find the following pages useful for
 more information on using the OMERO Python API:
 `PythonClientBeginners </ome/wiki/PythonClientBeginners>`_,
-`OmeroClients </ome/wiki/OmeroClients>`_,
-`OmeroPy/Gateway </ome/wiki/OmeroPy/Gateway>`_.
+|OmeroClients|, |BlitzGateway|.
 
 Some example code
 `PythonClientCodeExamples </ome/wiki/PythonClientCodeExamples>`_ are
@@ -78,9 +77,8 @@ OMERO.insight (as discussed on the
 The script is well documented and should get you started. A few points
 to note:
 
-Since the OMERO 4.3 release, if you are using the `Blitz
-Gateway </ome/wiki/OmeroPy/Gateway>`_ you can get a connection wrapper
-like this:
+Since the OMERO 4.3 release, if you are using the |BlitzGateway|,
+you can get a connection wrapper like this:
 
 ::
 

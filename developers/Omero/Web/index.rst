@@ -1,9 +1,9 @@
 OMERO.web Developer Links
-=============================
+=========================
 .. toctree::
 	:titlesonly:
 	
-	Web	
+	../Web	
 	WebGateway
 
 	WritingTemplates

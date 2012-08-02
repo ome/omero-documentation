@@ -1,3 +1,5 @@
+.. _developers/Omero/CommandLine:
+
 OMERO Command Line Interface
 ============================
 
@@ -257,7 +259,7 @@ Extensions
 
 Plugins can be written and put in the ``lib/python/omero/plugins``
 directory. On execution, all plugins in that directory are registered
-with the `OmeroCli </ome/wiki/OmeroCli>`_. Alternatively, the "--path"
+with the |OmeroCli|. Alternatively, the "--path"
 argument can be used to point to other plugin files or directories.
 
 Thread-safety
@@ -270,10 +272,9 @@ will only take place in the current thread. The cli instance itself,
 however, can be passed between multiple threads, as long as only one
 accesses it sequentially, possibly via locking.
 
---------------
-
-See also: `OmeroCliDesign </ome/wiki/OmeroCliDesign>`_ and for other
-extensions to OMERO, see `ExtendingOmero </ome/wiki/ExtendingOmero>`_.
+.. seealso::
+    |ExtendingOmero|
+        Other extensions to OMERO
 
 The following should be considered a design document. A portion of the
 functionality is included in the milestone:OMERO-Beta4 and later

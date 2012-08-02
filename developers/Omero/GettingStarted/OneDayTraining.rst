@@ -21,7 +21,7 @@ Key Points:
 -  Clients talk to the server through API in Java, Python, C++, (Matlab)
 -  OMERO uses Bio-Formats to read proprietary file formats
 
-For more introduction to OMERO, see :ref:`developers/Omero/Home`.
+For more introduction to OMERO, see :ref:`developers/Omero`.
 
 Do:
 
@@ -42,13 +42,12 @@ Key Points:
 -  Data flow is: Database -> Server-side Objects -> ICE Objects ->
    Client-side Objects (language-specific)
 
-See `OmeroApi </ome/wiki/OmeroApi>`_ for more info
+See |OmeroApi| for more info
 
 Do:
 
 -  Lookup methods on Stateful service (E.g RawPixelsStore) vv Stateless
-   service (E.g. QueryService), starting from the
-   `OmeroApi </ome/wiki/OmeroApi>`_ or ` Java
+   service (E.g. QueryService), starting from the |OmeroApi| or ` Java
    Doc <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api.html>`_
    pages.
 
@@ -57,12 +56,11 @@ Client Side Scripting
 
 For detailed info on writing client code see:
 
--  OMERO Java Language Bindings - `OmeroJava </ome/wiki/OmeroJava>`_
--  OMERO Python Language Bindings - `OmeroPy </ome/wiki/OmeroPy>`_
--  Blitz Gateway for Python -
-   `OmeroPy/Gateway </ome/wiki/OmeroPy/Gateway>`_
+-  :ref:`developers/Omero/Java`
+-  :ref:`developers/Omero/Python`
+-  |BlitzGateway|
 -  OMERO C++ Language Bindings - :ref:`OmeroCpp <developers/Omero/Cpp>`
--  A Matlab Interface - `OmeroMatlab </ome/wiki/OmeroMatlab>`_
+-  :ref:`developers/Omero/Matlab`
 
 Which Language to use?
 ----------------------

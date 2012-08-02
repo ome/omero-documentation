@@ -1,7 +1,7 @@
 `TempFileManager </ome/wiki/TempFileManager>`_
 ==============================================
 
-Class to be used by `OmeroClients </ome/wiki/OmeroClients>`_ and server
+Class to be used by |OmeroClients| and server
 components to allow a uniform creation of temporary files and folders
 with a best-effort guarantee of deleting the resources on exit. The
 manager searches three locations in order, taking the first which allows

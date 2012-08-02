@@ -1,3 +1,5 @@
+.. _developers/Omero/Modules/Api:
+
 OMERO Application Programming Interface
 =======================================
 
