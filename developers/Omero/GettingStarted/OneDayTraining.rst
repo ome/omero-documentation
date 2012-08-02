@@ -21,7 +21,7 @@ Key Points:
 -  Clients talk to the server through API in Java, Python, C++, (Matlab)
 -  OMERO uses Bio-Formats to read proprietary file formats
 
-For more introduction to OMERO, see `OmeroHome </ome/wiki/OmeroHome>`_.
+For more introduction to OMERO, see :ref:`developers/Omero/Home`.
 
 Do:
 
@@ -61,7 +61,7 @@ For detailed info on writing client code see:
 -  OMERO Python Language Bindings - `OmeroPy </ome/wiki/OmeroPy>`_
 -  Blitz Gateway for Python -
    `OmeroPy/Gateway </ome/wiki/OmeroPy/Gateway>`_
--  OMERO C++ Language Bindings - `OmeroCpp </ome/wiki/OmeroCpp>`_
+-  OMERO C++ Language Bindings - :ref:`OmeroCpp <developers/Omero/Cpp>`
 -  A Matlab Interface - `OmeroMatlab </ome/wiki/OmeroMatlab>`_
 
 Which Language to use?

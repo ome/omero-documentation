@@ -6,7 +6,7 @@ the OMERO API, as well as some tips on setting up your working
 environment. It should be useful to client developers working in any of
 the supported languages. For language specific info, see the following
 links: `OmeroJava </ome/wiki/OmeroJava>`_,
-`OmeroPy </ome/wiki/OmeroPy>`_, `OmeroCpp </ome/wiki/OmeroCpp>`_,
+`OmeroPy </ome/wiki/OmeroPy>`_, :ref:`OmeroCpp <developers/Omero/Cpp>`,
 `OmeroMatlab </ome/wiki/OmeroMatlab>`_. Although this page will
 initially be from the perspective of a single developer, hopefully it
 will evolve to include the advice of more developers. Apologies if this

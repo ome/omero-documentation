@@ -17,7 +17,7 @@ libraries and can be used in both the server and the RMI clients.
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_ uses a `second
 mapping </ome/browser/ome.git/components/blitz/resources/templates>`_ to
 generate OmeroJ, `OmeroPy </ome/wiki/OmeroPy>`_, and
-`OmeroCpp </ome/wiki/OmeroCpp>`_ classes, which can be
+:ref:`OmeroCpp <developers/Omero/Cpp>` classes, which can be
 `mapped </ome/browser/ome.git/components/blitz/src/omero/util/IceMapper.java>`_
 back and forth to the server object model. *Here we'll discuss only the
 server object-model and how it is used internally.*

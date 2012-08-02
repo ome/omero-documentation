@@ -1,27 +1,7 @@
 OMERO Application Programming Interface
 =======================================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Services List <#ServicesList>`_
-
-   #. `Service Level 1 (direct DB and hibernate
-      connections) <#ServiceLevel1directDBandhibernateconnections>`_
-   #. `Service Level 2 <#ServiceLevel2>`_
-   #. `Stateful/Binary? Services <#StatefulBinaryServices>`_
-
-#. `Discussion <#Discussion>`_
-
-   #. `Reads and Writes <#ReadsandWrites>`_
-   #. `Administation <#Administation>`_
-   #. `Pojos <#Pojos>`_
-
-#. `Examples <#Examples>`_
-#. `Stateless versus Stateful
-   Services <#StatelessversusStatefulServices>`_
-#. `How to write a service <#Howtowriteaservice>`_
-#. `Omero Annotations for Validation <#OmeroAnnotationsforValidation>`_
+.. contents::
 
 All interaction with the OMERO server takes place via several API
 services available from a `ServiceFactory </ome/wiki/ServiceFactory>`_.
@@ -62,82 +42,82 @@ Service Level 1 (direct DB and hibernate connections)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  AdminService:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IAdmin.java>`_,
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IAdmin.html#IAdmin>`_
+   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IAdmin.java>`__,
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IAdmin.html#IAdmin>`__
    for working with Experimenters, Groups and the current Context
    (switching groups etc).
 -  ConfigService:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IConfig.java>`_,
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IConfig.html#IConfig>`_
+   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IConfig.java>`__,
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IConfig.html#IConfig>`__
    for getting and setting config parameters.
 -  ContainerService:
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IContainer.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IContainer.html>`__
    for loading Project, Dataset and Image hierarchies.
 -  DeleteService:
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IDelete.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IDelete.html>`__
    for deleting objects asynchronously (delete queue).
 -  MetadataService:
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IMetadata.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IMetadata.html>`__
    for working with Annotations.
 -  PixelsService:
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IPixels.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IPixels.html>`__
    for pixels stats and creating Images with existing or new Pixels.
 -  ProjectionService
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IProjection.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IProjection.html>`__
 -  QueryService:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IQuery.java>`_,
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/IQuery.html>`_
+   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IQuery.java>`__,
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/IQuery.html>`__
    for custom SQL-like queries.
 -  RenderingSettingsService
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IRenderingSettings.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IRenderingSettings.html>`__
    for copying, pasting & resetting rendering settings.
 -  RepositoryInfo
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IRepositoryInfo.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IRepositoryInfo.html>`__
    disk space stats.
 -  RoiService
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IRoi.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IRoi.html>`__
    working with ROIs.
 -  ScriptService
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IScript.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IScript.html>`__
    for uploading and launching Python scripts.
 -  SessionService
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/ISession.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/ISession.html>`__
    for creating and working with OMERO sessions.
 -  ShareService
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IShare.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IShare.html>`__
 -  TimelineService
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/ITimeline.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/ITimeline.html>`__
    for queries based on time.
 -  TypesService
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/ITypes.html>`_
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/ITypes.html>`__
    for Enumerations.
 -  UpdateService:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IUpdate.java>`_,
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/IUpdate.html>`_
+   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IUpdate.java>`__,
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/IUpdate.html>`__
    for saving and deleting omero.model objects.
 
 Service Level 2
 ~~~~~~~~~~~~~~~
 
--  ` IPojos <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IPojos.java>`_
+-  ` IPojos <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IPojos.java>`__
 -  ` ITypes <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/ITypes.java>`_
 
 Stateful/Binary? Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  RawFileStore:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/RawFileStore.java>`_,
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/RawFileStore.html>`_
+   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/RawFileStore.java>`__,
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/RawFileStore.html>`__
 -  RawPixelsStore:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/RawPixelsStore.java>`_,
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/RawPixelsStore.html>`_
+   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/RawPixelsStore.java>`__,
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/RawPixelsStore.html>`__
 -  RenderingEngine:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/omeis/re/providers/RenderingEngine.java>`_,
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/RenderingEngine.html#RenderingEngine>`_
+   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/omeis/re/providers/RenderingEngine.java>`__,
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/RenderingEngine.html#RenderingEngine>`__
    (see `RenderingEngine </ome/wiki/RenderingEngine>`_ for more)
 -  ThumbnailStore:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/Thumbnail.store>`_,
-   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/ThumbnailStore.html>`_
+   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/Thumbnail.store>`__,
+   ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/ThumbnailStore.html>`__
 -  ` IScale <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IScale.java>`_
 
 A complete list of service APIs can be found
@@ -191,7 +171,7 @@ Pojos
 Certain operations, like those deailing with data management and
 viewing, happen more frequently than others (like defining microscopes).
 Those have been collected in the
-`IPojos </ome/browser/ome.git/components/common/src/ome/api/IPojos.java>`_
+`IPojos </ome/browser/ome.git/components/common/src/ome/api/IPojos.java>`__
 interface. IPojos simplify a few very common queries, and there is a
 related package ("pojos.\*") for working with the returned graphs. The
 `Java Client </ome/wiki/OmeroInsight>`_ works almost exclusively with
@@ -235,7 +215,7 @@ How to write a service
 A tutorial is available on to write a service at
 wiki/HowToCreateAService. In general, if a properly annotated service is
 placed in any JAR of the OMERO EAR file (see
-`OmeroBuild </ome/wiki/OmeroBuild>`_ for more) then the service will be
+:ref:`developers/Omero/Build` for more) then the service will be
 deployed to the server. In the case of
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_, the service must be properly
 defined under

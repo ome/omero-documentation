@@ -1,3 +1,5 @@
+.. _developers/Omero/Cpp:
+
 OMERO C++ Language Bindings
 ===========================
 
@@ -150,7 +152,7 @@ code are placed under OMERO\_HOME/target with other zip artifacts.
 Using the library
 -----------------
 
-To use `OmeroCpp </ome/wiki/OmeroCpp>`_ it is necessary to point your
+To use :ref:`OmeroCpp <developers/Omero/Cpp>` it is necessary to point your
 compiler and linker at the mentioned directories above. A simple Gnu
 ` Makefile <http://www.gnu.org/software/make/>`_ might look like this
 (`download </ome/attachment/wiki/OmeroCpp/Makefile>`_
@@ -274,7 +276,7 @@ Mac OS X, change all instances of "LD\_LIBRARY\_PATH" to
 Notes for Visual Studio users
 -----------------------------
 
-The SConstruct build file in `OmeroCpp/ </ome/wiki/OmeroCpp>`_ defines a
+The SConstruct build file in :ref:`OmeroCpp <developers/Omero/Cpp>` defines a
 target "msproj" which can be used to generate an MS VS project and
 solution. There is also a similarly named ant target:
 
@@ -298,7 +300,7 @@ please see `OmeroClients </ome/wiki/OmeroClients>`_.
 See also: ` http://zeroc.com <http://zeroc.com>`_,
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_,
 `OmeroGrid </ome/wiki/OmeroGrid>`_, `OmeroApi </ome/wiki/OmeroApi>`_,
-`OmeroBuild </ome/wiki/OmeroBuild>`_, `#1596 </ome/ticket/1596>`_ which
+:ref:`developers/Omero/Build`, `#1596 </ome/ticket/1596>`_ which
 added 64bit support
 
 Attachments

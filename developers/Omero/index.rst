@@ -6,7 +6,8 @@ OMERO Developer Documentation
     :glob:
     :titlesonly:
 
-    Omero
+    Home
+
     Build
     Clients/ImportLibrary
     CommandLine

@@ -3,8 +3,11 @@ OMERO.web Developer Links
 .. toctree::
 	:titlesonly:
 	
-	Web
-	
+	Web	
 	WebGateway
+
+	WritingTemplates
+	WritingViews
 	CreateApp
 	ViewPort
+	WebPublic

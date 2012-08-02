@@ -1,3 +1,5 @@
+.. _developers/Omero/Build:
+
 OMERO Build System
 ==================
 
@@ -15,8 +17,8 @@ Build tools
 
 OMERO mostly uses an ` ant <http://ant.apache.org>`_-based build with
 dependency management provided by ` Ivy <http://ant.apache.org/ivy>`_.
-`Native code </ome/wiki/OmeroCpp>`_ is built using
-` SCons <http://scons.org>`_ and Python uses the traditional
+:ref:`Native code <developers/Omero/Cpp>` is built using
+` SCons <http://scons.org>`__ and Python uses the traditional
 distutils/setuptools tools.
 
 Structure of the build
@@ -118,7 +120,7 @@ include:
     +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
     |                                                | `Ant-based </ome/wiki/OmeroTools#ant>`_   | `Ice-based </ome/wiki/OmeroTools#ice>`_   | `Scons-based </ome/wiki/OmeroTools#scons>`_   |
     +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
-    | `OmeroCpp </ome/wiki/OmeroCpp>`_               |                                           |                                           | X                                             |
+    | :ref:`OmeroCpp  <developers/Omero/Cpp>`        |                                           |                                           | X                                             |
     +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
     | `OmeroWeb </ome/wiki/OmeroWeb>`_               | X                                         |                                           |                                               |
     +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
@@ -146,7 +148,7 @@ SCons-based builds
 ~~~~~~~~~~~~~~~~~~
 
 Builds which have C++ targets are based generally on
-` Scons <http://www.scons.org>`_. See `OmeroCpp </ome/wiki/OmeroCpp>`_
+` Scons <http://www.scons.org>`__. See :ref:`developers/Omero/Cpp` 
 for more information.
 
 Creating binary distribution
@@ -156,7 +158,7 @@ The default ant target ("build-default") will build the OMERO system and
 copy the necessary components for a binary distribution to the /dist
 directory. Below is a comparison of what is taken from the build, where
 it is put, and what role it plays in the distribution. **Note: by
-default, `OmeroCpp </ome/wiki/OmeroCpp>`_ is not built. Use
+default, :ref:`OmeroCpp <developers/Omero/Cpp>`  is not built. Use
 ``build-all`` for that.**
 
 +--------------------------------------+---------------------------+----------------------------------------------------------+

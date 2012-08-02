@@ -46,7 +46,7 @@ bridge classes which will be passed to
 See
 `ExtendingOmero#JavaDeployment </ome/wiki/ExtendingOmero#JavaDeployment>`_
 for how to have your bridge classes included on the server's classpath
-if it doesn't get built by the `OmeroBuild </ome/wiki/OmeroBuild>`_.
+if it doesn't get built by the :ref:`developers/Omero/Build`.
 
 Available bridges
 -----------------

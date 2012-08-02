@@ -904,7 +904,13 @@ please see `OmeroClients </ome/wiki/OmeroClients>`_.
 
 --------------
 
-See also: ` http://zeroc.com <http://zeroc.com>`_,
-`OmeroBlitz </ome/wiki/OmeroBlitz>`_,
-`OmeroGrid </ome/wiki/OmeroGrid>`_,
-`OmeroTools </ome/wiki/OmeroTools>`_, `OmeroApi </ome/wiki/OmeroApi>`_
+.. seealso::
+	` http://zeroc.com <http://zeroc.com>`_,
+	
+	`OmeroBlitz </ome/wiki/OmeroBlitz>`_,
+	
+	`OmeroGrid </ome/wiki/OmeroGrid>`_,
+	
+	`OmeroTools </ome/wiki/OmeroTools>`_, 
+	
+	`OmeroApi </ome/wiki/OmeroApi>`_

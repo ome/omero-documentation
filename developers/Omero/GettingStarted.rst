@@ -17,7 +17,7 @@ their own, customized clients.
 
 Examples for all the `OmeroBlitz </ome/wiki/OmeroBlitz>`_ languages
 (`OmeroPy </ome/wiki/OmeroPy>`_, `OmeroJava </ome/wiki/OmeroJava>`_,
-`OmeroCpp </ome/wiki/OmeroCpp>`_, and
+:ref:`OmeroCpp <developers/Omero/Cpp>`, and
 `OmeroMatlab </ome/wiki/OmeroMatlab>`_) are provided under:
 
 -  `source:ome.git/examples </ome/browser/ome.git/examples>`_

@@ -1,3 +1,5 @@
+.. _developers/Omero/Home::
+
 OMERO Home Page
 ===============
 
@@ -17,7 +19,7 @@ What is OMERO?
 visualizing, managing, and annotating microscope images and metadata.
 The `OMERO server API </ome/wiki/OmeroApi>`_ allows clients to be
 written in `Java </ome/wiki/OmeroJava>`_, `Python </ome/wiki/OmeroPy>`_,
-`C++ </ome/wiki/OmeroCpp>`_ or `MATLAB </ome/wiki/OmeroMatlab>`_. OMERO
+:ref:`C++ <developers/Omero/Cpp>` or `MATLAB </ome/wiki/OmeroMatlab>`_. OMERO
 releases include a web client `OMERO.web </ome/wiki/OmeroWeb>`_ and
 command line interface `OMERO.cli </ome/wiki/OmeroCli>`_ which use the
 Python API and a Java client `OMERO.Insight </ome/wiki/OmeroInsight>`_.
@@ -87,9 +89,7 @@ You may want to start by ` watching "OMERO, the
 movie(s)" <https://www.openmicroscopy.org/site/products/feature-list>`_.
 On this, you'll find links to a range of movies that demonstrate
 features of the OMERO software. After that you will likely want to
-` install the
-server <https://www.openmicroscopy.org/site/support/omero4/server/installation>`_
-and
+:ref:` install the server <rst_installation>` and
 ` clients <https://www.openmicroscopy.org/site/support/omero4/clients>`_:
 Insight, Web. Play with it, test data. You can also try out the
 `CLI </ome/wiki/OmeroCli>`_.

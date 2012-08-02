@@ -173,7 +173,7 @@ This should be added to any existing or a new ``*.ice`` file under the
 ``blitz/resources/omero`` directory. After the next ant build, stubs
 will be created for all the `OmeroBlitz </ome/wiki/OmeroBlitz>`_
 languages, i.e. `OmeroJava </ome/wiki/OmeroJava>`_,
-`OmeroPy </ome/wiki/OmeroPy>`_, and `OmeroCpp </ome/wiki/OmeroCpp>`_.
+`OmeroPy </ome/wiki/OmeroPy>`_, and :ref:`OmeroCpp  <developers/Omero/Cpp>`.
 
 **Note:** Once you have gotten your code working, it is most re-usable
 if you can put it all in a single directory under tools/. These
@@ -185,7 +185,7 @@ Warning: Exceptions
 ^^^^^^^^^^^^^^^^^^^
 
 You will need to think carefully about what exceptions to handle. Ice
-(especially `OmeroCpp </ome/wiki/OmeroCpp>`_) does not handle exceptions
+(especially :ref:`OmeroCpp  <developers/Omero/Cpp>`) does not handle exceptions
 well that are not strictly defined. In general, if you would like to add
 your own exception type, feel free to do so, but either 1) subclass
 ``omero::ServerError`` or 2) add it the appropriate ``throws`` clauses.
