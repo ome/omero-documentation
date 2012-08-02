@@ -3,6 +3,7 @@ OMERO Developer Documentation
 *****************************
 
 .. toctree::  
+    :glob:
     :titlesonly:
 
     Omero
@@ -20,7 +21,9 @@ OMERO Developer Documentation
     Matlab
     Cpp
     Model
+    Model/*
     Modules/*
+    Modules/Api/*
     Modules/Scripts/*
     Modules/Search/*
     Search/*
