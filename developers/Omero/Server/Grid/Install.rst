@@ -148,8 +148,7 @@ Running as root
 One exception to this rule is that starting
 `OmeroGrid </ome/wiki/OmeroGrid>`_ as root may actually delegate to
 another user, if the "user" attribute is set on the ``<server/>``
-elements in
-`source:ome.git/etc/grid/templates.xml </ome/browser/ome.git/etc/grid/templates.xml>`_.
+elements in :source:`etc/grid/templates.xml`.
 (This holds only for Unix-based platforms including MacOsX. See
 `OmeroGridInstallWindowsXp </ome/wiki/OmeroGridInstallWindowsXp>`_ for
 information on changing the server user under Windows.)

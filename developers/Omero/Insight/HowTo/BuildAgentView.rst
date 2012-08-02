@@ -4,7 +4,7 @@ How to Build an Agent's View
 In this section, we explain how a view of the agent is created. All our
 agents follow the same approach. If you want to see the code while
 reading the notes, go to
-`source:ome.git/components/insight/SRC/org/openmicroscopy/shoola/agents/treeviewer/view </ome/browser/ome.git/components/insight/SRC/org/openmicroscopy/shoola/agents/treeviewer/view>`_.
+:source:`components/insight/SRC/org/openmicroscopy/shoola/agents/treeviewer/view`.
 
 Let's go back to our example ``MyBrowserAgent`` (see `How To Build An
 Agent </ome/wiki/OmeroInsightHowToBuildAgent>`_).

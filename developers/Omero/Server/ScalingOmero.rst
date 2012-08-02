@@ -30,8 +30,7 @@ connect to the server would fail with "too many connection" exceptions.
 Instead, OMERO users a **connection pool** in front of Postgres, which
 manages many more simultaneous attempts to connect to the database.
 Currently, ` c3p0 <http://mchange.com/projects/c3p0>`_ is the connection
-pool used, and is configured in
-`source:ome.git/etc/c3p0.properties </ome/browser/ome.git/etc/c3p0.properties>`_.
+pool used, and is configured in :source:`etc/c3p0.properties`.
 The c3p0 configuration should be kept roughly in sync with your postgres
 configuration.
 

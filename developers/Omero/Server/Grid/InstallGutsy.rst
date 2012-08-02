@@ -35,8 +35,7 @@ Pre-Installation
     sudo cp postgresql.conf /etc/postgresql/8.2/main/
     sudo /etc/init.d/postgresql restart
 
-The files used here are available under
-`ome.git/docs/install/gutsy </ome/browser/ome.git/docs/install/gutsy>`_
+The files used here are available under :source:`docs/install/gutsy`.
 
 Starting on boot
 ----------------

@@ -8,7 +8,7 @@ of both parts of the object model. To allow users to easily define new
 types we need a simple domain specific language (or little language)
 which can be mapped to Hibernate mapping files. See an example at:
 
--  `source:ome.git/components/model/resources/mappings/acquisition.ome.xml </ome/browser/ome.git/components/model/resources/mappings/acquisition.ome.xml>`_
+-  :source:`components/model/resources/mappings/acquisition.ome.xml`
 
 From this DSL, various artifacts can be generated: XML Schema, Java
 classes, SQL for generating tables, etc. The ultimate goal is to have no

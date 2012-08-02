@@ -10,7 +10,7 @@ restricted to a single task).
 
 The container for all Omero applications is the
 `OmeroContext </ome/wiki/OmeroContext>`_
-(`source:ome.git/components/common/src/ome/system/OmeroContext.java </ome/browser/ome.git/components/common/src/ome/system/OmeroContext.java>`_).
+(:source:`components/common/src/ome/system/OmeroContext.java`).
 Based on the ` Spring <http://www.springframework.org>`_ configuration
 backing the context, it can be one of : ``client``, ``internal``, or
 ``managed``. The use of a
@@ -32,7 +32,7 @@ changes can be persisted.
 A session can span multiple calls by being disconnected from the
 underlying database transaction and, then, reconnected to a new
 transaction on the next call (See
-`source:ome.git/components/server/src/ome/tools/hibernate/SessionHandler.java </ome/browser/ome.git/components/server/src/ome/tools/hibernate/SessionHandler.java>`_
+:source:`components/server/src/ome/tools/hibernate/SessionHandler.java`
 for the implementation).
 
 ! Event

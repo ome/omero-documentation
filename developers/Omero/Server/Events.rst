@@ -7,8 +7,7 @@ What is an Event
 As described under `OmeroContext </ome/wiki/OmeroContext>`_, each method
 call takes place within a single application context (always the same),
 session, and event. Of these, only event is guaranteed to be unique for
-every task\*. The
-`source:ome.git/components/server/src/ome/security/basic/EventHandler.java </ome/browser/ome.git/components/server/src/ome/security/basic/EventHandler.java>`_
+every task\*. The :source:`components/server/src/ome/security/basic/EventHandler.java`
 creates a new
 
 Events as Audit Log

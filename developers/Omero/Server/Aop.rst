@@ -11,8 +11,8 @@ where to find the advisors (in the case of OMERO solely interceptors).
 
 In ` Spring <http://www.springframework.org>`_, advisors are declared in
 the bean definition files (under
-`source:ome.git/components/server/resources/ome/services </ome/browser/ome.git/components/server/resources/ome/services>`_]\ :sub:``source:ome.git/components/server/resources/ome/services/services.xml </ome/browser/ome.git/components/server/resources/ome/services/services.xml>`_,
-`source:ome.git/components/server/resources/ome/services/hibernate.xml </ome/browser/ome.git/components/server/resources/ome/services/hibernate.xml>`_,
+:source:`components/server/resources/ome/services` : :source:`services.xml <components/server/resources/ome/services/services.xml>`,
+:source:`hibernate.xml <components/server/resources/ome/services/hibernate.xml>`,
 and others.`
 
 In these configuration files, various Spring beans (shared objects) are

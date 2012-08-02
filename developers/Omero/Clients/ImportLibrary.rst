@@ -20,23 +20,23 @@ Components
 The primary classes which make up the
 `ImportLibrary </ome/wiki/ImportLibrary>`_ are:
 
--  ` ImportLibrary.java <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/blitz/src/ome/formats/importer/ImportLibrary.java;hb=master>`_,
+-  :source:` ImportLibrary.java <components/blitz/src/ome/formats/importer/ImportLibrary.java>`,
    itself, which is the main driver
--  ` ImportCandidates.java <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/blitz/src/ome/formats/importer/ImportCandidates.java;hb=master>`_
+-  :source:` ImportCandidates.java <components/blitz/src/ome/formats/importer/ImportCandidates.java>`
    which takes file paths and determines the proper files to import
--  ` ImportConfig.java <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/blitz/src/ome/formats/importer/ImportConfig.java;hb=master>`_,
+-  :source:` ImportConfig.java <components/blitz/src/ome/formats/importer/ImportConfig.java>`,
    an extensible mechanism for storing the
--  ` ImportEvent.java <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/blitz/src/ome/formats/importer/ImportEvent.java;hb=master>`_,
+-  :source:` ImportEvent.java <components/blitz/src/ome/formats/importer/ImportEvent.java>`,
    the various events raised during import to ``IObserver``\ and
    ``IObservable`` implementations
--  ` OMEROMetadataStoreClient.java <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/blitz/src/ome/formats/OMEROMetadataStoreClient.java;hb=master>`_,
+-  :source:` OMEROMetadataStoreClient.java <components/blitz/src/ome/formats/OMEROMetadataStoreClient.java>`,
    the low-level connection to the server
--  ` OMEROWrapper.java <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/blitz/src/ome/formats/importer/OMEROWrapper.java;hb=master>`_,
+-  :source:` OMEROWrapper.java <components/blitz/src/ome/formats/importer/OMEROWrapper.java>`,
    the OMERO adapter for the Bio-Formats ``ImageReaders`` class
 -  In Insight, the main entry point is the importImage method of
-   ` OMEROGateway.java <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/insight/SRC/org/openmicroscopy/shoola/env/data/OMEROGateway.java;hb=master>`_.
+   :source:` OMEROGateway.java <components/insight/SRC/org/openmicroscopy/shoola/env/data/OMEROGateway.java>`.
 -  In the CLI, the main entry point is the
-   ` CommandLineImporter <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/tools/OmeroImporter/src/ome/formats/importer/cli/CommandLineImporter.java;hb=master>`_
+   :source:` CommandLineImporter <components/tools/OmeroImporter/src/ome/formats/importer/cli/CommandLineImporter.java>`
    class.
 
 Example

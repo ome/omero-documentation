@@ -5,7 +5,7 @@ The one central interface for administering the Omero security system is
 IAdmin. Though several of the methods are restricted to system users
 (root and other administrators), many are also for general use. (The
 ``@javax.ejb.security.RolesAllowed`` annotations on the
-`AdminBean </ome/browser/ome.git/components/server/src/ome/impl/AdminBean.java>`_
+:source:`AdminBean <components/server/src/ome/impl/AdminBean.java>`
 class define who can use which methods)
 
 Actions available through IAdmin and IUpdate

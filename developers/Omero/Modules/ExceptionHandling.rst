@@ -8,11 +8,11 @@ Client Exceptions
 
 The exceptions which can be received by a client due to a remote call on
 the OMERO server are all defined in
-`source:ome.git/components/blitz/resources/omero/ServerErrors.ice </ome/browser/ome.git/components/blitz/resources/omero/ServerErrors.ice>`_
+:source:`components/blitz/resources/omero/ServerErrors.ice`
 (included below). This file contains two separate hierarchies rooted at
 ``Ice::Exception`` and ``omero::ServerError``. A third hierarchy rooted
 at ``omero::ClientError`` is defined in
-`source:ome.git/components/blitz/resources/omero/ClientErrors.ice </ome/browser/ome.git/components/blitz/resources/omero/ClientErrors.ice>`_
+:source:`components/blitz/resources/omero/ClientErrors.ice`
 (not included below). These exceptions are thrown due to local (i.e.
 non-remote) invocations, including issues during configuration.
 
@@ -337,23 +337,23 @@ Interceptor
 ~~~~~~~~~~~
 
 Exception handling in the OMERO is centralized in an
-`OmeroAop </ome/wiki/OmeroAop>`_ interceptor (`source
-code </ome/browser/ome.git/components/server/src/ome/services/util/ServiceHandler.java>`_).
+`OmeroAop </ome/wiki/OmeroAop>`_ interceptor (:source:`source
+code </components/server/src/ome/services/util/ServiceHandler.java>`).
 All exceptions thrown by code are caught in a
 ``try {} catch (Throwable t) {}`` block. Exceptions which don't subclass
-`ome.conditions.RootException </ome/browser/ome.git/components/model/src/ome/conditions/RootException.java>`_
+:source:`ome.conditions.RootException <components/model/src/ome/conditions/RootException.java>`
 are wrapped in an
-`ome.conditions.InternalException </ome/browser/ome.git/components/model/src/ome/conditions/InternalException.java>`_.
+:source:`ome.conditions.InternalException <components/model/src/ome/conditions/InternalException.java>`.
 
 The only exceptions to this are any interceptors which may be run before
 the exception handler is run. The order of interceptors is defined in
-`services.xml </ome/browser/ome.git/components/server/resources/ome/services/services.xml>`_.
+:source:`services.xml <components/server/resources/ome/services/services.xml>`.
 
 Hierarchy
 ~~~~~~~~~
 
 The current exception hierarchy (package
-`ome.conditions </ome/browser/ome.git/components/model/src/ome/conditions>`_)
+:source:`ome.conditions <components/model/src/ome/conditions>`)
 used is as follows:
 
 -  RootException

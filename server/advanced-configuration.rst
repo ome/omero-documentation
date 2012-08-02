@@ -21,8 +21,7 @@ properties, stored in etc/grid/config.xml and read on server startup.
 Backing and copying these properties is as easy as moving this file to a
 new server version.
 
-The
-`etc/omero.properties <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=etc/omero.properties;hb=master>`_
+The :source:`etc/omero.properties`
 file of your distribution defines all the default configuration
 properties used by the server. Changes made to the file are *not*
 recognized by the server. Instead, the "bin/omero config" command is
@@ -33,9 +32,7 @@ Examples of doing this are on the main :ref:`Unix <rst_installation>` and
 installation <rst_ldap>` page.
 
 Here we list some options which you are most likely to want to modify.
-See
-`etc/omero.properties <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=etc/omero.properties;hb=master>`_
-for more details.
+See :source:`etc/omero.properties` for more details.
 
 omero.sessions.timeout
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -68,8 +65,7 @@ Last resort: Grid configuration
 In some cases, the configuration properties will not suffice to fully
 configure your server. In that case, it may be necessary to make use of
 IceGrid's XML configuration files. Like the config.xml file mentioned
-above, these are stored under
-`etc/grid <http://git.openmicroscopy.org/?p=ome.git;a=tree;f=etc/grid;hb=master>`_.
+above, these are stored under :source:`etc/grid`.
 "default.xml" is used on Unix systems, and "windefault.xml" is used on
 Windows systems. Both, make use of "templates.xml".
 

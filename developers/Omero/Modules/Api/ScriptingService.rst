@@ -11,7 +11,7 @@ OMERO clients can upload, edit, list and run scripts on the OMERO server
 using the Scripting Service API.
 
 These methods (discussed below) are implemented in
-`source:ome.git/examples/ScriptingService/adminWorkflow.py </ome/browser/ome.git/examples/ScriptingService/adminWorkflow.py>`_.
+:source:`examples/ScriptingService/adminWorkflow.py`.
 This sample script allows these functions to be called from the command
 line and can be used as an example for writing your own clients.
 
@@ -22,7 +22,7 @@ which is the preferred way of accessing the scripting service for script
 writers.
 
 Having downloaded
-`source:ome.git/examples/ScriptingService/adminWorkflow.py </ome/browser/ome.git/examples/ScriptingService/adminWorkflow.py>`_,
+:source:`examples/ScriptingService/adminWorkflow.py`,
 you can get some instructions for using the script by typing:
 
 ::
@@ -86,7 +86,7 @@ testing.
 
 Alternatively, you could edit adminWorkflow.py to 'hard-code' a set of
 input parameters for a particular script (this strategy is used by
-`source:ome.git/examples/ScriptingService/runHelloWorld.py </ome/browser/ome.git/examples/ScriptingService/runHelloWorld.py>`_.
+:source:`examples/ScriptingService/runHelloWorld.py`.
 The code below shows a more complex example parameter map. This strategy
 might save you time if you want to be able to rapidly run and re-run a
 script you are working on. Of course, it is also possible to run scripts

@@ -8,7 +8,7 @@ all of your metadata for later searching. If, however, there is more
 metadata that you would like to add to the index, you can implement the
 ``org.hibernate.search.bridge.FieldBridge`` interface yourself, or
 subclass the helper class
-`source:ome.git/components/server/src/ome/services/fulltext/BridgeHelper.java </ome/browser/ome.git/components/server/src/ome/services/fulltext/BridgeHelper.java>`_
+:source:`components/server/src/ome/services/fulltext/BridgeHelper.java`
 
 Example
 -------
@@ -41,7 +41,7 @@ overridden via the ` standard configuration
 mechanisms <https://www.openmicroscopy.org/site/support/omero4/server/installation>`_.
 The **omero.search.bridges** property defines a comma-separated list of
 bridge classes which will be passed to
-`source:ome.git/components/server/src/ome/services/fulltext/FullTextBridge.java </ome/browser/ome.git/components/server/src/ome/services/fulltext/FullTextBridge.java>`_.
+:source:`components/server/src/ome/services/fulltext/FullTextBridge.java`.
 
 See :ref:`developers/Server/ExtendingOmero#JavaDeployment`
 for how to have your bridge classes included on the server's classpath
@@ -50,8 +50,7 @@ if it doesn't get built by the :ref:`developers/Omero/Build`.
 Available bridges
 -----------------
 
-See
-`source:ome.git/components/server/src/ome/services/fulltext/bridges </ome/browser/ome.git/components/server/src/ome/services/fulltext/bridges>`_
+See :source:`components/server/src/ome/services/fulltext/bridges`
 for a list of provided (example) bridges.
 
 Re-indexing

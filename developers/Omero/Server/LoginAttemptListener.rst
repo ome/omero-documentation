@@ -3,15 +3,14 @@ LoginAttemptListener
 
 All the `PasswordProvider </ome/wiki/PasswordProvider>`_ implementations
 provided by default publish a
-"`LoginAttemptMessage </ome/browser/ome.git/components/server/src/ome/services/messages/LoginAttemptMessage.java>`_\ "
+":source:`LoginAttemptMessage <components/server/src/ome/services/messages/LoginAttemptMessage.java>`\ "
 every time they check a password value. This permits any
 ``org.springframework.context.ApplicationListener<LoginAttemptMessage>``
 to react to the login. Only one implementation is active by default (as
 of 4.2.1):
-`ome.security.auth.LoginAttemptListener </ome/browser/ome.git/components/server/src/ome/security/auth/LoginAttemptListener.java>`_
+:source:`ome.security.auth.LoginAttemptListener <components/server/src/ome/security/auth/LoginAttemptListener.java>`
 which throttles logins after a given number of failed attempts.
-Configuration for this listener is available in
-`source:ome.git/etc/omero.properties </ome/browser/ome.git/etc/omero.properties>`_:
+Configuration for this listener is available in :source:`etc/omero.properties`:
 
 ::
 

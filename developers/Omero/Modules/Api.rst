@@ -32,8 +32,7 @@ A service factory is obtained from the client connection. E.g. Python:
 Services List
 -------------
 
-The
-` ome.api <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api>`_
+The :source:`ome.api <components/common/src/ome/api>`
 package in the common component defines the central "verbs" of the Omero
 system. All external interactions with the system should happen with
 these verbs, or services. Each OMERO service belongs to a particular
@@ -44,12 +43,12 @@ Service Level 1 (direct DB and hibernate connections)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  AdminService:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IAdmin.java>`__,
+   :source:`src <components/common/src/ome/api/IAdmin.java>`,
    ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IAdmin.html#IAdmin>`__
    for working with Experimenters, Groups and the current Context
    (switching groups etc).
 -  ConfigService:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IConfig.java>`__,
+   :source:` src <components/common/src/ome/api/IConfig.java>`,
    ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IConfig.html#IConfig>`__
    for getting and setting config parameters.
 -  ContainerService:
@@ -67,7 +66,7 @@ Service Level 1 (direct DB and hibernate connections)
 -  ProjectionService
    ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IProjection.html>`__
 -  QueryService:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IQuery.java>`__,
+   :source:` src <components/common/src/ome/api/IQuery.java>`,
    ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/IQuery.html>`__
    for custom SQL-like queries.
 -  RenderingSettingsService
@@ -94,33 +93,33 @@ Service Level 1 (direct DB and hibernate connections)
    ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/ITypes.html>`__
    for Enumerations.
 -  UpdateService:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IUpdate.java>`__,
+   :source:` src <components/common/src/ome/api/IUpdate.java>`,
    ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/IUpdate.html>`__
    for saving and deleting omero.model objects.
 
 Service Level 2
 ~~~~~~~~~~~~~~~
 
--  ` IPojos <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IPojos.java>`__
--  ` ITypes <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/ITypes.java>`_
+-  :source:` IPojos <components/common/src/ome/api/IPojos.java>`
+-  :source:` ITypes <components/common/src/ome/api/ITypes.java>`
 
 Stateful/Binary? Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  RawFileStore:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/RawFileStore.java>`__,
+   :source:` src <components/common/src/ome/api/RawFileStore.java>`,
    ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/RawFileStore.html>`__
 -  RawPixelsStore:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/RawPixelsStore.java>`__,
+   :source:` src <components/common/src/ome/api/RawPixelsStore.java>`,
    ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/RawPixelsStore.html>`__
 -  RenderingEngine:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/omeis/re/providers/RenderingEngine.java>`__,
+   :source:` src <components/common/src/omeis/re/providers/RenderingEngine.java>`,
    ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/RenderingEngine.html#RenderingEngine>`__
    (see `RenderingEngine </ome/wiki/RenderingEngine>`_ for more)
 -  ThumbnailStore:
-   ` src <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/Thumbnail.store>`__,
+   :source:` src <components/common/src/ome/api/Thumbnail.store>`,
    ` API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/api/ThumbnailStore.html>`__
--  ` IScale <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/common/src/ome/api/IScale.java>`_
+-  :source:` IScale <components/common/src/ome/api/IScale.java>`
 
 A complete list of service APIs can be found
 ` here <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api.html>`_
@@ -141,7 +140,7 @@ design is to make wildly separate definitions of queries (templates,
 db-stored , Java code, C# code, ...) runnable on the server.
 
 IUpdate takes any graph composed of
-`IObject </ome/browser/ome.git/components/common/src/ome/model/IObject.java>`_
+:source:`IObject <components/common/src/ome/model/IObject.java>`
 objects and checks them for dirtiness. All changes to the graph are
 stored in the database if the user calling IUpdate has the proper
 permissions, otherwise an exception is thrown.
@@ -161,8 +160,7 @@ Dirty checks follow the Three Commandments:
 Administation
 ~~~~~~~~~~~~~
 
-The
-`IAdmin </ome/browser/ome.git/components/common/src/ome/api/IAdmin.java>`_
+The :source:`IAdmin <components/common/src/ome/api/IAdmin.java>`
 interface defines all the actions necessary to administer the `security
 system </ome/wiki/OmeroSecurity>`_ . It is explained further on the
 `AdminInterface </ome/wiki/AdminInterface>`_ page.
@@ -173,7 +171,7 @@ Pojos
 Certain operations, like those deailing with data management and
 viewing, happen more frequently than others (like defining microscopes).
 Those have been collected in the
-`IPojos </ome/browser/ome.git/components/common/src/ome/api/IPojos.java>`__
+:source:`IPojos <components/common/src/ome/api/IPojos.java>`
 interface. IPojos simplify a few very common queries, and there is a
 related package ("pojos.\*") for working with the returned graphs. The
 `Java Client </ome/wiki/OmeroInsight>`_ works almost exclusively with
@@ -220,8 +218,7 @@ placed in any JAR of the OMERO EAR file (see
 :ref:`developers/Omero/Build` for more) then the service will be
 deployed to the server. In the case of
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_, the service must be properly
-defined under
-`source:ome.git/components/blitz/resources/ </ome/browser/ome.git/components/blitz/resources>`_.
+defined under :source:`components/blitz/resources`.
 
 Omero Annotations for Validation
 --------------------------------

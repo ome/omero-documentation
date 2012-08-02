@@ -141,3 +141,4 @@ Some URLs are widely used across the OME documentation. Using the sphinx extlink
 * Snapshots: `` :snapshot:`omero/myzip.zip` ``
 * Plone pages: `` :plone:`Downloads <support/omero4/downloads>` ``
 * DOIs: `` :doi:`Dantas, et al., JCB <10.1083/jcb.201012093>` ``
+* Github source code, e.g. `` :source:`etc/omero.properties` ``

@@ -91,8 +91,7 @@ Code generation
 
 Since it is prohibitive to model full objects with the SAs, one
 alternative is to add types directly to the code-generated. By adding a
-file named ``*.ome.xml`` to
-`source:ome.git/components/model/resources/mappings </ome/browser/ome.git/components/model/resources/mappings>`_
+file named ``*.ome.xml`` to :source:`components/model/resources/mappings`
 and running a full-build, it is possible to have new objects generated
 in all `OmeroBlitz </ome/wiki/OmeroBlitz>`_ languages. Supported fields
 include:
@@ -145,13 +144,12 @@ Services
 ~~~~~~~~
 
 Traditionally, services were added via Java interfaces in the
-`source:ome.git/components/common/src/ome/api </ome/browser/ome.git/components/common/src/ome/api>`_
+:source:`components/common/src/ome/api`
 package. The creation of such "core" services is described under
 `wiki:HowToCreateAService </ome/wiki/HowToCreateAService>`_. However,
 with the introduction of `OmeroBlitz </ome/wiki/OmeroBlitz>`_, it's also
 possible to write blitz-only services which are defined by a slice
-definition under
-`source:ome.git/components/blitz/resources/omero </ome/browser/ome.git/components/blitz/resources/omero>`_.
+definition under :source:`components/blitz/resources/omero`.
 
 A core service is required when server internal code should also make
 use of the interface. Since this is very rarely the case for third-party
@@ -229,7 +227,7 @@ Rather than subclassing the ``_Disp`` object, it is also possible to
 implement the ``_Tie`` inteface for your new service. This allows
 wrapping and testing your implementation more easily at the cost of a
 little indirection. You can see how such an object is configured in
-[` http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/blitz/resources/ome/services/blitz-servantDefinitions.xml;h=d226413e64182c87e3efa121fb0556d163a4ac3b;hb=604839c5c8b0c9f9b54dd128c312ce95cfa2abc4#l36 <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/blitz/resources/ome/services/blitz-servantDefinitions.xml;h=d226413e64182c87e3efa121fb0556d163a4ac3b;hb=604839c5c8b0c9f9b54dd128c312ce95cfa2abc4#l36>`_
+:source:`components/blitz/resources/ome/services/blitz-servantDefinitions.xml#L36`
 blitz-servantDefinitions.
 
 Java Configuration
@@ -267,10 +265,8 @@ The three patterns which are available are:
    `PasswordProvider </ome/wiki/PasswordProvider>`_ and similar should
    be included at this level.
 
-See
-`source:ome.git/components/blitz/resources/ome/services </ome/browser/ome.git/components/blitz/resources/ome/services>`_
-and
-`source:ome.git/components/server/resources/ome/services </ome/browser/ome.git/components/server/resources/ome/services>`_
+See :source:`components/blitz/resources/ome/services`
+and :source:`components/server/resources/ome/services`
 for all the available objects.
 
 .. _developers/Server/ExtendingOmero#JavaDeployment:
@@ -380,8 +376,7 @@ to add it to the "application descriptor" for your site. When using:
 
       bin/omero admin start
 
-the application descriptor used is
-`source:ome.git/etc/grid/default.xml </ome/browser/ome.git/etc/grid/default.xml>`_.
+the application descriptor used is :source:`etc/grid/default.xml`.
 The ``<application>`` element contains various ``<node>``\ s. Each node
 is a single daemon process that can start and stop other processes.
 Inside the nodes, you can either directly add a ``<server>`` element, or

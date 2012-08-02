@@ -16,7 +16,7 @@ Deployment descriptors
 
 All the resources for a single OMERO site are described by one
 **application descriptor**. OMERO ships with several example descriptors
-under `source:ome.git/etc/grid </ome/browser/ome.git/etc/grid>`_ . These
+under :source:`etc/grid` . These
 descriptors describe what processes will be started on what nodes,
 identified by simple names. For example the default descriptor, used if
 no other file is specified, defines three node -- "master", "node1",
@@ -98,12 +98,12 @@ of all your computing resources.
 
 The deployment descriptors provided define which "servers" are started
 on which "nodes". For example the
-`default </ome/browser/ome.git/etc/grid/default.xml>`_ descriptor
+:source:`default <etc/grid/default.xml>` descriptor
 configures the "master" node to start the
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_ server, the Glacier2 router for
 firewalling, as well as a single processor "Processor0". The master node
 is also configured via
-`master.cfg </ome/browser/ome.git/etc/master.cfg>`_ to host the
+:source:`master.cfg <etc/master.cfg>` to host the
 registry, though this process can be started elsewhere.
 
 The master node must be started first to provide the registry. This is
@@ -129,8 +129,7 @@ Adding a processor
 ------------------
 
 The most common change that you will want to make to your application
-descriptor is to add another processor. Take a look at
-`ome.git/etc/grid/default.xml </ome/browser/ome.git/etc/grid/default.xml>`_.
+descriptor is to add another processor. Take a look at :source:`etc/grid/default.xml`.
 There are two nodes which are defined: **node1** and **node2**. To add
 another processing node, simply copy the node element:
 
@@ -252,8 +251,7 @@ to
 
     Ice.Default.Router=OMERO.Glacier2/router:ssl -p 4064 -h 127.0.0.1
 
-in
-`source:ome.git/etc/ice.config </ome/browser/ome.git/etc/ice.config>`_.
+in :source:`etc/ice.config`.
 
 Permissions Verifier
 ~~~~~~~~~~~~~~~~~~~~
@@ -263,7 +261,7 @@ authenticating users. SSL-based authentication, however, can be
 difficult to configure especially for within the firewall, and so
 instead you may want to configure a "permissions verifier" to prevent
 non-trusted users from accessing a system within your firewall. From
-`source:ome.git/etc/master.cfg </ome/browser/ome.git/etc/master.cfg>`_:
+:source:`etc/master.cfg`:
 
 ::
 
@@ -335,10 +333,10 @@ Technical information
 Things to look at
 ~~~~~~~~~~~~~~~~~
 
--  `source:ome.git/components/blitz/resources/omero/Scripts.ice </ome/browser/ome.git/components/blitz/resources/omero/Scripts.ice>`_
--  `source:ome.git/components/blitz/src/omero/grid/InteractiveProcessorI.java </ome/browser/ome.git/components/blitz/src/omero/grid/InteractiveProcessorI.java>`_
--  `source:ome.git/components/tools/OmeroPy/src/omero/processor.py </ome/browser/ome.git/components/tools/OmeroPy/src/omero/processor.py>`_
--  `source:ome.git/components/tools/OmeroPy/test/integration/ping.py </ome/browser/ome.git/components/tools/OmeroPy/test/integration/ping.py>`_
+-  :source:`components/blitz/resources/omero/Scripts.ice`
+-  :source:`components/blitz/src/omero/grid/InteractiveProcessorI.java`
+-  :source:`components/tools/OmeroPy/src/omero/processor.py`
+-  :source:`components/tools/OmeroPy/test/integration/ping.py`
 
 Workflow
 ~~~~~~~~
@@ -404,9 +402,9 @@ Multiple targets can be enabled at the same time:
 
 Ice imposes an upper limit on all method invocations. This limit,
 ``Ice.MessageSizeMax``, is configured in your application descriptor
-(e.g. `templates.xml </ome/browser/ome.git/etc/grid/templates.xml>`_)
+(e.g. :source:`templates.xml <etc/grid/templates.xml>`)
 and configuration files (e.g.
-`ice.config </ome/browser/ome.git/etc/ice.config>`_). The setting must
+:source:`ice.config <etc/ice.config>`). The setting must
 be applied to all servers which will be handling the invocation. For
 example, a call to ``InteractiveProcessor.execute(omero::RMap inputs)``
 which passes the inputs all the way down to **processor.py** will need

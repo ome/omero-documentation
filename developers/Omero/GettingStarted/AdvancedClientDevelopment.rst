@@ -21,7 +21,7 @@ Developing `OmeroBlitz </ome/wiki/OmeroBlitz>`_ Clients
 --------------
 
 For developers, there are many examples listed below, all of which are
-stored under: `ome.git/examples/ </ome/browser/ome.git/examples>`_ and
+stored under: :source:`examples` and
 buildable/runnable via ` scons <http://www.scons.org>`_:
 
 ::
@@ -120,9 +120,7 @@ language as would be expected. Aliases like "Ice::Long" are available
 for C++ to handle both 32 and 64 bit architectures.
 
 A simple struct can then be built out of any combination of these types.
-From
-`source:ome.git/components/blitz/resources/omero/System.ice </ome/browser/ome.git/components/blitz/resources/omero/System.ice>`_
-:
+From :source:`components/blitz/resources/omero/System.ice`:
 
 ::
 
@@ -145,8 +143,7 @@ only provides 4 built-in building blocks for creating a type hierarchy.
 
 -  **Sequences.** & **Dictionaries** : Most of the sequences and
    dictionaries in use by the |OmeroApi| are
-   defined in
-   `source:ome.git/components/blitz/resources/omero/Collections.ice </ome/browser/ome.git/components/blitz/resources/omero/Collections.ice>`_.
+   defined in :source:`components/blitz/resources/omero/Collections.ice`.
    Each sequence or dictionary must be defined before it can be used in
    any class. By default a sequence will map to an array of the given
    type in Java or a vector in C++, but these mappings can be changed
@@ -155,7 +152,7 @@ only provides 4 built-in building blocks for creating a type hierarchy.
 
 -  **Constants.** : Most of the enumerations for
    |OmeroApi| are defined in
-   `source:ome.git/components/blitz/resources/omero/Constants.ice </ome/browser/ome.git/components/blitz/resources/omero/Constants.ice>`_.
+   :source:`components/blitz/resources/omero/Constants.ice`.
    These are values which can be defined once and then referenced in
    each of the supported programming languages. The only real surprise
    when working with enumerations is that in Java each constant is
@@ -174,8 +171,7 @@ only provides 4 built-in building blocks for creating a type hierarchy.
         std::cout << (CONNECTTIMEOUT / 1000) << " seconds for a connection" << std::endl;
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/constants.cpp <../browser/ome.git/examples/OmeroClients/constants.cpp>`_
+Example: :source:`examples/OmeroClients/constants.cpp`
 
 ::
 
@@ -184,8 +180,7 @@ only provides 4 built-in building blocks for creating a type hierarchy.
     disp(sprintf('By default, no method call can pass more than %d kb',sz));
     disp(sprintf('By default, client.createSession() will wait %d seconds for a connection', to));
 
-    `Example:
-    ome.git/examples/OmeroClients/constants.m <../browser/ome.git/examples/OmeroClients/constants.m>`_
+Example: :source:`examples/OmeroClients/constants.m`
 
 ::
 
@@ -193,8 +188,7 @@ only provides 4 built-in building blocks for creating a type hierarchy.
     print "By default, no method call can pass more than %s kb" % MESSAGESIZEMAX
     print "By default, client.createSession() will wait %s seconds for a connection" % (CONNECTTIMEOUT/1000)
 
-    `Example:
-    ome.git/examples/OmeroClients/constants.py <../browser/ome.git/examples/OmeroClients/constants.py>`_
+Example: :source:`examples/OmeroClients/constants.py`
 
 ::
 
@@ -210,8 +204,7 @@ only provides 4 built-in building blocks for creating a type hierarchy.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/constants.java <../browser/ome.git/examples/OmeroClients/constants.java>`_
+Example: :source:`examples/OmeroClients/constants.java`
 
 -  **Enums.** Finally, enumerations which are less used through
    |OmeroApi|, but which can be useful for
@@ -228,16 +221,14 @@ only provides 4 built-in building blocks for creating a type hierarchy.
         std::cout << std::endl;
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/enumerations.cpp <../browser/ome.git/examples/OmeroClients/enumerations.cpp>`_
+Example: :source:`examples/OmeroClients/enumerations.cpp`
 
 ::
 
     v=omero.constants.projection.ProjectionType.MAXIMUMINTENSITY.value();
     disp(sprintf('IProjection takes arguments of the form: %s', v));
 
-    `Example:
-    ome.git/examples/OmeroClients/enumerations.m <../browser/ome.git/examples/OmeroClients/enumerations.m>`_
+Example: :source:`examples/OmeroClients/enumerations.m`
 
 ::
 
@@ -245,8 +236,7 @@ only provides 4 built-in building blocks for creating a type hierarchy.
     import omero_Constants_ice
     print "IProjection takes arguments of the form: %s" % omero.constants.projection.ProjectionType.MAXIMUMINTENSITY
 
-    `Example:
-    ome.git/examples/OmeroClients/enumerations.py <../browser/ome.git/examples/OmeroClients/enumerations.py>`_
+Example: :source:`examples/OmeroClients/enumerations.py`
 
 ::
 
@@ -258,8 +248,7 @@ only provides 4 built-in building blocks for creating a type hierarchy.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/enumerations.java <../browser/ome.git/examples/OmeroClients/enumerations.java>`_
+Example: :source:`examples/OmeroClients/enumerations.java`
 
 RTypes
 ~~~~~~
@@ -271,8 +260,7 @@ or collection([]) rather than null.
 
 However, the database and OMERO support nullable values and so
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_ defines a hierarchy of types which
-wraps the primitives:
-`RTypes </ome/browser/ome.git/components/blitz/resources/omero/RTypes.ice>`_
+wraps the primitives: :source:`RTypes <components/blitz/resources/omero/RTypes.ice>`
 Since Ice allows references to be nulled as opposed to primitives, it's
 possible to send null strings, integers, etc.
 
@@ -287,8 +275,7 @@ possible to send null strings, integers, etc.
         omero::RIntPtr i = rint(1);
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/primitives.cpp <../browser/ome.git/examples/OmeroClients/primitives.cpp>`_
+Example: :source:`examples/OmeroClients/primitives.cpp`
 
 ::
 
@@ -298,8 +285,7 @@ possible to send null strings, integers, etc.
     l = rtypes.rlong(1);
     i = rtypes.rint(1);
 
-    `Example:
-    ome.git/examples/OmeroClients/primitives.m <../browser/ome.git/examples/OmeroClients/primitives.m>`_
+Example: :source:`examples/OmeroClients/primitives.m`
 
 ::
 
@@ -309,8 +295,7 @@ possible to send null strings, integers, etc.
     l = rlong(1)
     i = rint(1)
 
-    `Example:
-    ome.git/examples/OmeroClients/primitives.py <../browser/ome.git/examples/OmeroClients/primitives.py>`_
+Example: :source:`examples/OmeroClients/primitives.py`
 
 ::
 
@@ -324,8 +309,7 @@ possible to send null strings, integers, etc.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/primitives.java <../browser/ome.git/examples/OmeroClients/primitives.java>`_
+Example: :source:`examples/OmeroClients/primitives.java`
 
 The same works for collections. The RCollection subclass of RType holds
 a sequence of any other RType.
@@ -341,8 +325,7 @@ a sequence of any other RType.
                                      // No-varargs (#1242)
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/rcollection.cpp <../browser/ome.git/examples/OmeroClients/rcollection.cpp>`_
+Example: :source:`examples/OmeroClients/rcollection.cpp`
 
 ::
 
@@ -356,8 +339,7 @@ a sequence of any other RType.
     ja(2) = omero.rtypes.rint(2);
     set = omero.rtypes.rset(ja)
 
-    `Example:
-    ome.git/examples/OmeroClients/rcollection.m <../browser/ome.git/examples/OmeroClients/rcollection.m>`_
+Example: :source:`examples/OmeroClients/rcollection.m`
 
 ::
 
@@ -367,8 +349,7 @@ a sequence of any other RType.
     list = rlist(rstring("a"), rstring("b"));
     set = rset(rint(1), rint(2));
 
-    `Example:
-    ome.git/examples/OmeroClients/rcollection.py <../browser/ome.git/examples/OmeroClients/rcollection.py>`_
+Example: :source:`examples/OmeroClients/rcollection.py`
 
 ::
 
@@ -381,8 +362,7 @@ a sequence of any other RType.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/rcollection.java <../browser/ome.git/examples/OmeroClients/rcollection.java>`_
+Example: :source:`examples/OmeroClients/rcollection.java`
 
 A further benefit of the RTypes is that they support **polymorphism**.
 The original |OmeroApi| was designed strictly for
@@ -443,8 +423,7 @@ any values which are not permitted, will result in a
         details->getUpdateEvent();
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/details.cpp <../browser/ome.git/examples/OmeroClients/details.cpp>`_
+Example: :source:`examples/OmeroClients/details.cpp`
 
 ::
 
@@ -463,8 +442,7 @@ any values which are not permitted, will result in a
     details_.getCreationEvent();
     details_.getUpdateEvent();
 
-    `Example:
-    ome.git/examples/OmeroClients/details.m <../browser/ome.git/examples/OmeroClients/details.m>`_
+Example: :source:`examples/OmeroClients/details.m`
 
 ::
 
@@ -485,8 +463,7 @@ any values which are not permitted, will result in a
     details.getCreationEvent()
     details.getUpdateEvent()
 
-    `Example:
-    ome.git/examples/OmeroClients/details.py <../browser/ome.git/examples/OmeroClients/details.py>`_
+Example: :source:`examples/OmeroClients/details.py`
 
 ::
 
@@ -515,8 +492,7 @@ any values which are not permitted, will result in a
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/details.java <../browser/ome.git/examples/OmeroClients/details.java>`_
+Example: :source:`examples/OmeroClients/details.java`
 
 ObjectFactory and Casting
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -543,8 +519,7 @@ generation. For each slice-defined and Ice-generated class
         image->linkDataset(dataset);
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/constructors.cpp <../browser/ome.git/examples/OmeroClients/constructors.cpp>`_
+Example: :source:`examples/OmeroClients/constructors.cpp`
 
 ::
 
@@ -553,8 +528,7 @@ generation. For each slice-defined and Ice-generated class
     dataset = DatasetI(1, false);
     image.linkDataset(dataset)
 
-    `Example:
-    ome.git/examples/OmeroClients/constructors.m <../browser/ome.git/examples/OmeroClients/constructors.m>`_
+Example: :source:`examples/OmeroClients/constructors.m`
 
 ::
 
@@ -564,8 +538,7 @@ generation. For each slice-defined and Ice-generated class
     dataset = omero.model.DatasetI(long(1), False)
     image.linkDataset(dataset)
 
-    `Example:
-    ome.git/examples/OmeroClients/constructors.py <../browser/ome.git/examples/OmeroClients/constructors.py>`_
+Example: :source:`examples/OmeroClients/constructors.py`
 
 ::
 
@@ -584,8 +557,7 @@ generation. For each slice-defined and Ice-generated class
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/constructors.java <../browser/ome.git/examples/OmeroClients/constructors.java>`_
+Example: :source:`examples/OmeroClients/constructors.java`
 
 When `ObjectModel </ome/wiki/ObjectModel>`_ instances are serialized
 over the wire and arrive in the client, the Ice runtime must determine
@@ -618,8 +590,7 @@ form of iteration for that language.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/iterators.cpp <../browser/ome.git/examples/OmeroClients/iterators.cpp>`_
+Example: :source:`examples/OmeroClients/iterators.cpp`
 
 ::
 
@@ -632,8 +603,7 @@ form of iteration for that language.
        it.next().getChild().getName()
     end
 
-    `Example:
-    ome.git/examples/OmeroClients/iterators.m <../browser/ome.git/examples/OmeroClients/iterators.m>`_
+Example: :source:`examples/OmeroClients/iterators.m`
 
 ::
 
@@ -647,8 +617,7 @@ form of iteration for that language.
     for link in image.iterateDatasetLinks():
         link.getChild().getName();
 
-    `Example:
-    ome.git/examples/OmeroClients/iterators.py <../browser/ome.git/examples/OmeroClients/iterators.py>`_
+Example: :source:`examples/OmeroClients/iterators.py`
 
 ::
 
@@ -670,8 +639,7 @@ form of iteration for that language.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/iterators.java <../browser/ome.git/examples/OmeroClients/iterators.java>`_
+Example: :source:`examples/OmeroClients/iterators.java`
 
 ]
 
@@ -687,16 +655,14 @@ forms.
             std::cout << omero::model::ImageI::DATASETLINKS << std::endl;
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/staticfields.cpp <../browser/ome.git/examples/OmeroClients/staticfields.cpp>`_
+Example: :source:`examples/OmeroClients/staticfields.cpp`
 
 ::
 
     disp(omero.model.ImageI.NAME);
     disp(omero.model.ImageI.DATASETLINKS);
 
-    `Example:
-    ome.git/examples/OmeroClients/staticfields.m <../browser/ome.git/examples/OmeroClients/staticfields.m>`_
+Example: :source:`examples/OmeroClients/staticfields.m`
 
 ::
 
@@ -705,8 +671,7 @@ forms.
     print ImageI.NAME
     print ImageI.DATASETLINKS
 
-    `Example:
-    ome.git/examples/OmeroClients/staticfields.py <../browser/ome.git/examples/OmeroClients/staticfields.py>`_
+Example: :source:`examples/OmeroClients/staticfields.py`
 
 ::
 
@@ -718,8 +683,7 @@ forms.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/staticfields.java <../browser/ome.git/examples/OmeroClients/staticfields.java>`_
+Example: :source:`examples/OmeroClients/staticfields.java`
 
 Visibility and Loadedness
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -756,8 +720,7 @@ the database if there weren't some way to "snip-off" sections.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/unloaded.cpp <../browser/ome.git/examples/OmeroClients/unloaded.cpp>`_
+Example: :source:`examples/OmeroClients/unloaded.cpp
 
 ::
 
@@ -774,8 +737,7 @@ the database if there weren't some way to "snip-off" sections.
         % OK
     end
 
-    `Example:
-    ome.git/examples/OmeroClients/unloaded.m <../browser/ome.git/examples/OmeroClients/unloaded.m>`_
+Example: :source:`examples/OmeroClients/unloaded.m`
 
 ::
 
@@ -793,8 +755,7 @@ the database if there weren't some way to "snip-off" sections.
     except:
         pass
 
-    `Example:
-    ome.git/examples/OmeroClients/unloaded.py <../browser/ome.git/examples/OmeroClients/unloaded.py>`_
+Example: :source:`examples/OmeroClients/unloaded.py`
 
 ::
 
@@ -816,8 +777,7 @@ the database if there weren't some way to "snip-off" sections.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/unloaded.java <../browser/ome.git/examples/OmeroClients/unloaded.java>`_
+Example: :source:`examples/OmeroClients/unloaded.java`
 
 When saving objects that have unloaded instances in their graph, the
 server will automatically fill in the values. So, if your ``Dataset``
@@ -903,8 +863,7 @@ collections are hidden behind several methods.
         image->removePixels( image->getPixels(0) );
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/collectionmethods.cpp <../browser/ome.git/examples/OmeroClients/collectionmethods.cpp>`_
+Example: :source:`examples/OmeroClients/collectionmethods.cpp`
 
 ::
 
@@ -957,8 +916,7 @@ collections are hidden behind several methods.
     image.getPrimaryPixels(); % Same thing
     image.removePixels( image.getPixels(0) );
 
-    `Example:
-    ome.git/examples/OmeroClients/collectionmethods.m <../browser/ome.git/examples/OmeroClients/collectionmethods.m>`_
+Example: :source:`examples/OmeroClients/collectionmethods.m`
 
 ::
 
@@ -1016,8 +974,7 @@ collections are hidden behind several methods.
     image.getPrimaryPixels() # Same thing
     image.removePixels( image.getPixels(0) )
 
-    `Example:
-    ome.git/examples/OmeroClients/collectionmethods.py <../browser/ome.git/examples/OmeroClients/collectionmethods.py>`_
+Example: :source:`examples/OmeroClients/collectionmethods.py`
 
 ::
 
@@ -1083,8 +1040,7 @@ collections are hidden behind several methods.
        }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/collectionmethods.java <../browser/ome.git/examples/OmeroClients/collectionmethods.java>`_
+Example: :source:`examples/OmeroClients/collectionmethods.java`
 
 These methods prevent clients from accessing the collections directly,
 and any improper access will lead to an ``omero.ClientError``.
@@ -1142,8 +1098,7 @@ next-best option.
         % deleteAnnotations(someObject);
     end
 
-    `Example:
-    ome.git/examples/OmeroClients/interfaces.m <../browser/ome.git/examples/OmeroClients/interfaces.m>`_
+Example: :source:`examples/OmeroClients/interfaces.m`
 
 ::
 
@@ -1157,8 +1112,7 @@ next-best option.
     assert ExperimenterI().isAnnotated()
     assert GroupExperimenterMapI().isLink()
 
-    `Example:
-    ome.git/examples/OmeroClients/interfaces.py <../browser/ome.git/examples/OmeroClients/interfaces.py>`_
+Example: :source:`examples/OmeroClients/interfaces.py`
 
 ::
 
@@ -1183,8 +1137,7 @@ next-best option.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/interfaces.java <../browser/ome.git/examples/OmeroClients/interfaces.java>`_
+Example: :source:`examples/OmeroClients/interfaces.java`
 
 Improvement of this situation by adding abstract classes is planned.
 However, the entire functionality will not be achievable because of
@@ -1233,8 +1186,7 @@ the destructor when the reference count hits zero.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/smartpointers.cpp <../browser/ome.git/examples/OmeroClients/smartpointers.cpp>`_
+Example: :source:`examples/OmeroClients/smartpointers.cpp`
 
 ::
 
@@ -1295,8 +1247,7 @@ be left open on the server, and 2) your client may hang on exit.
         // Client was destroyed via RAII
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/clientpointer.cpp <../browser/ome.git/examples/OmeroClients/clientpointer.cpp>`_
+Example: :source:`examples/OmeroClients/clientpointer.cpp`
 
 ::
 
@@ -1355,8 +1306,7 @@ noted, however, that the accessors will perform marginally faster)
     except AttributeError, ae:
         pass
 
-    `Example:
-    ome.git/examples/OmeroClients/getsetattr.py <../browser/ome.git/examples/OmeroClients/getsetattr.py>`_
+Example: :source:`examples/OmeroClients/getsetattr.py`
 
 ::
 
@@ -1495,8 +1445,7 @@ really only the beginning.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/configuration.cpp <../browser/ome.git/examples/OmeroClients/configuration.cpp>`_
+Example: :source:`examples/OmeroClients/configuration.cpp`
 
 ::
 
@@ -1538,8 +1487,7 @@ really only the beginning.
     client5.createSession();
     client5.closeSession();
 
-    `Example:
-    ome.git/examples/OmeroClients/configuration.m <../browser/ome.git/examples/OmeroClients/configuration.m>`_
+Example: :source:`examples/OmeroClients/configuration.m`
 
 ::
 
@@ -1596,8 +1544,7 @@ really only the beginning.
     except Ice.ConnectionRefusedException:
         pass # Bad address or port?
 
-    `Example:
-    ome.git/examples/OmeroClients/configuration.py <../browser/ome.git/examples/OmeroClients/configuration.py>`_
+Example: :source:`examples/OmeroClients/configuration.py`
 
 ::
 
@@ -1666,12 +1613,10 @@ really only the beginning.
       }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/configuration.java <../browser/ome.git/examples/OmeroClients/configuration.java>`_
+Example: :source:`examples/OmeroClients/configuration.java`
 
 To find out more about using the ``Ice.Config`` file for configuration,
-see
-`source:ome.git/etc/ice.config </ome/browser/ome.git/etc/ice.config>`_
+see :source:`etc/ice.config`.
 
 What *is* a `ServiceFactory </ome/wiki/ServiceFactory>`_?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1697,9 +1642,9 @@ accessing services.
 
 The collection of all services provided by OMERO are known as the
 |OmeroApi|. Each service is defined in a slice file under
-`source:ome.git/components/blitz/resources/omero </ome/browser/ome.git/components/blitz/resources/omero>`_.
+:source:`components/blitz/resources/omero`.
 The central definitions are in
-`source:ome.git/components/blitz/resources/omero/API.ice </ome/browser/ome.git/components/blitz/resources/omero/API.ice>`_,
+:source:`components/blitz/resources/omero/API.ice`,
 along with the definition of
 `ServiceFactory </ome/wiki/ServiceFactory>`_ itself:
 
@@ -1798,8 +1743,7 @@ happens within every timeout window.
     time.sleep(IDLETIME * 2)
     keepAlive.stop = True
 
-    `Example:
-    ome.git/examples/OmeroClients/timeout.py <../browser/ome.git/examples/OmeroClients/timeout.py>`_
+Example: :source:`examples/OmeroClients/timeout.py`
 
 ::
 
@@ -1850,8 +1794,7 @@ happens within every timeout window.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/timeout.java <../browser/ome.git/examples/OmeroClients/timeout.java>`_
+Example: :source:`examples/OmeroClients/timeout.java`
 
 Exceptions
 ~~~~~~~~~~
@@ -1909,8 +1852,7 @@ this is by using IQuery and the Hibernate Query Language (HQL).
         omero::api::IObjectList results = q->findAllByQuery(query_string, p);
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/queries.cpp <../browser/ome.git/examples/OmeroClients/queries.cpp>`_
+Example: :source:`examples/OmeroClients/queries.cpp`
 
 ::
 
@@ -1926,8 +1868,7 @@ this is by using IQuery and the Hibernate Query Language (HQL).
         client.closeSession();
     end
 
-    `Example:
-    ome.git/examples/OmeroClients/queries.m <../browser/ome.git/examples/OmeroClients/queries.m>`_
+Example: :source:`examples/OmeroClients/queries.m`
 
 ::
 
@@ -1947,8 +1888,7 @@ this is by using IQuery and the Hibernate Query Language (HQL).
     finally:
         client.closeSession()
 
-    `Example:
-    ome.git/examples/OmeroClients/queries.py <../browser/ome.git/examples/OmeroClients/queries.py>`_
+Example: :source:`examples/OmeroClients/queries.py`
 
 ::
 
@@ -1977,8 +1917,7 @@ this is by using IQuery and the Hibernate Query Language (HQL).
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/queries.java <../browser/ome.git/examples/OmeroClients/queries.java>`_
+Example: :source:`examples/OmeroClients/queries.java`
 
 The ``query_string`` is an example of HQL. It looks a lot like SQL, but
 works with objects and fields rather than tables and columns (though in
@@ -2015,8 +1954,7 @@ your own. Below is a simple example of creating an image object:
         i = omero::model::ImagePtr::dynamicCast( u->saveAndReturnObject( i ) );
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/updates.cpp <../browser/ome.git/examples/OmeroClients/updates.cpp>`_
+Example: :source:`examples/OmeroClients/updates.cpp`
 
 ::
 
@@ -2033,9 +1971,7 @@ your own. Below is a simple example of creating an image object:
         client.closeSession();
     end
 
-    `Example:
-    ome.git/examples/OmeroClients/updates.m <../browser/ome.git/examples/OmeroClients/updates.m>`_
-
+Example: :source:`examples/OmeroClients/updates.m`
 ::
 
     import sys
@@ -2054,8 +1990,7 @@ your own. Below is a simple example of creating an image object:
     finally:
         client.closeSession()
 
-    `Example:
-    ome.git/examples/OmeroClients/updates.py <../browser/ome.git/examples/OmeroClients/updates.py>`_
+Example: :source:`examples/OmeroClients/updates.py`
 
 ::
 
@@ -2081,8 +2016,7 @@ your own. Below is a simple example of creating an image object:
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/updates.java <../browser/ome.git/examples/OmeroClients/updates.java>`_
+Example: :source:`examples/OmeroClients/updates.java`
 
 --------------
 
@@ -2111,8 +2045,7 @@ us know any ideas you may have.
     p.add('name', omero.rtypes.rstring(username));
     projects = query.findAllByQuery(q, p);
 
-    `Example:
-    ome.git/examples/TreeList/AllProjects.m <../browser/ome.git/examples/TreeList/AllProjects.m>`_
+Example: :source:`examples/TreeList/AllProjects.m`
 
 ::
 
@@ -2124,8 +2057,7 @@ us know any ideas you may have.
                 "select p from Project p join fetch p.datasetLinks dil join fetch dil.child where p.details.owner.omeName = :name",
                 ParametersI().add("name", rstring(username)))
 
-    `Example:
-    ome.git/examples/TreeList/AllProjects.py <../browser/ome.git/examples/TreeList/AllProjects.py>`_
+Example: :source:`examples/TreeList/AllProjects.py`
 
 ::
 
@@ -2143,8 +2075,7 @@ us know any ideas you may have.
         }
     }
 
-    `Example:
-    ome.git/examples/TreeList/AllProjects.java <../browser/ome.git/examples/TreeList/AllProjects.java>`_
+Example: :source:`examples/TreeList/AllProjects.java`
 
 ::
 
@@ -2170,8 +2101,7 @@ us know any ideas you may have.
         end
     end
 
-    `Example:
-    ome.git/examples/TreeList/PrintProjects.m <../browser/ome.git/examples/TreeList/PrintProjects.m>`_
+Example: :source:`examples/TreeList/PrintProjects.m`
 
 ::
 
@@ -2182,8 +2112,7 @@ us know any ideas you may have.
                 dataset = pdl.getChild()
                 print "  " + dataset.getName().val
 
-    `Example:
-    ome.git/examples/TreeList/PrintProjects.py <../browser/ome.git/examples/TreeList/PrintProjects.py>`_
+Example: :source:`examples/TreeList/PrintProjects.py`
 
 ::
 
@@ -2203,8 +2132,7 @@ us know any ideas you may have.
         }
     }
 
-    `Example:
-    ome.git/examples/TreeList/PrintProjects.java <../browser/ome.git/examples/TreeList/PrintProjects.java>`_
+Example: :source:`examples/TreeList/PrintProjects.java`
 
 ::
 
@@ -2234,8 +2162,7 @@ us know any ideas you may have.
         return rc;
     }
 
-    `Example:
-    ome.git/examples/TreeList/Main.cpp <../browser/ome.git/examples/TreeList/Main.cpp>`_
+Example: :source:`examples/TreeList/Main.cpp`
 
 ::
 
@@ -2254,8 +2181,7 @@ us know any ideas you may have.
     PrintProjects(projects);
     client.closeSession();
 
-    `Example:
-    ome.git/examples/TreeList/Main.m <../browser/ome.git/examples/TreeList/Main.m>`_
+Example: :source:`examples/TreeList/Main.m`
 
 ::
 
@@ -2278,8 +2204,7 @@ us know any ideas you may have.
         finally:
             client.closeSession()
 
-    `Example:
-    ome.git/examples/TreeList/Main.py <../browser/ome.git/examples/TreeList/Main.py>`_
+Example: :source:`examples/TreeList/Main.py`
 
 ::
 
@@ -2308,8 +2233,7 @@ us know any ideas you may have.
         }
     }
 
-    `Example:
-    ome.git/examples/TreeList/Main.java <../browser/ome.git/examples/TreeList/Main.java>`_
+Example: :source:`examples/TreeList/Main.java`
 
 Proposed
 ~~~~~~~~
@@ -2362,8 +2286,7 @@ create sessions for other users and carry out actions on their behalf.
         std::cout << sudoAdminSvc->getEventContext()->userName;
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/sudo.cpp <../browser/ome.git/examples/OmeroClients/sudo.cpp>`_
+Example: :source:`examples/OmeroClients/sudo.cpp`
 
 ::
 
@@ -2385,8 +2308,7 @@ create sessions for other users and carry out actions on their behalf.
         client.closeSession();
     end
 
-    `Example:
-    ome.git/examples/OmeroClients/sudo.m <../browser/ome.git/examples/OmeroClients/sudo.m>`_
+Example: :source:`examples/OmeroClients/sudo.m`
 
 ::
 
@@ -2410,8 +2332,7 @@ create sessions for other users and carry out actions on their behalf.
         sudoClient.closeSession()
         client.closeSession()
 
-    `Example:
-    ome.git/examples/OmeroClients/sudo.py <../browser/ome.git/examples/OmeroClients/sudo.py>`_
+Example: :source:`examples/OmeroClients/sudo.py`
 
 ::
 
@@ -2443,8 +2364,7 @@ create sessions for other users and carry out actions on their behalf.
         }
     }
 
-    `Example:
-    ome.git/examples/OmeroClients/sudo.java <../browser/ome.git/examples/OmeroClients/sudo.java>`_
+Example: :source:`examples/OmeroClients/sudo.java`
 
 Proposed
 ~~~~~~~~
@@ -2776,7 +2696,7 @@ Though not directly relevant to writing a client, it's important to note
 that much of the code for |OmeroPy|, |OmeroCpp|, and |OmeroJava|
 is code generated by the `BlitzBuild </ome/wiki/BlitzBuild>`_. Therefore
 many of the imported and included files in the examples above, cannot
-actually be found in `git </ome/browser/ome.git>`_.
+actually be found in :source:`github <>`_.
 
 We plan to include packages of the generated source code in future
 releases. Until then, it's possible to find the latest version of those

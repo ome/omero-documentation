@@ -71,8 +71,7 @@ services, make queries, and load binary data. In short, anything the
 available for getting a feel for the API.
 
 **TODO: Review the links** See the examples under
-`source:ome.git/examples </ome/browser/ome.git/examples>`_ or
-`source:ome.git/components/tools/OmeroM/demo </ome/browser/ome.git/components/tools/OmeroM/demo>`_
+:source:`examples` or :source:`components/tools/OmeroM/demo`
 on what you can do with |OmeroMatlab|.
 
 Keeping your session alive
@@ -81,7 +80,7 @@ Keeping your session alive
 For executing any long running task, you will need a background thread
 which keeps your session alive. If you are familiar with Matlab
 ``Timers`` you can use
-`omeroKeepAlive.m </ome/browser/ome.git/components/tools/OmeroM/functions/omeroKeepAlive.m>`_
+:source:`omeroKeepAlive.m <components/tools/OmeroM/functions/omeroKeepAlive.m>`
 directly or modify it to your liking.
 
 ::

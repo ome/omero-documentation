@@ -97,7 +97,7 @@ Code generation
 
 Unfortunately, just the above snapshot of the code repository omits some
 of the most important code. Many MB of source code is generated both by
-our own `DSLTask </ome/browser/ome.git/components/dsl>`_ as well as by
+our own :source:`DSLTask <components/dsl>` as well as by
 the ` Ice <http://zeroc.com>`_ ``slice2java``, ``slice2cpp``, and
 ``slice2py`` code generators. These take an intermediate representation
 of the ` OME-Model <http://www.ome-xml.org>`_ and generate our
@@ -110,8 +110,7 @@ git, but once built, can be found in all the directories named
 
 Similarly, the ant build alone is not enough to describe all the
 products which get built. Namely, the builds for the non-Java components
-stored under
-`source:ome.git/components/tools </ome/browser/ome.git/components/tools>`_
+stored under :source:`components/tools`
 are a bit more complex. Each tools component installs its artifacts to
 the tools/target directory which is copied **on top of** the
 OMERO\_HOME/dist top-level distribution directory. Current tools

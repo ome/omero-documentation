@@ -8,6 +8,5 @@ system to execute scripts for a user. This makes use of the :wiki:`OmeroScripts`
 functionality described under `OMERO.analyis <support/omero4/analysis>`. As many
 processor nodes can be started as physical computers are available.
 
--  Source code:
-   `http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/tools/OmeroPy/src/omero/processor.py <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/tools/OmeroPy/src/omero/processor.py>`_
+-  Source code: :source: `components/tools/OmeroPy/src/omero/processor.py`
 -  Documentation: :wiki:`OmeroGrid`

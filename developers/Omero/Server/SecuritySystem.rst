@@ -64,34 +64,34 @@ security.
 Top-level and Build
 ~~~~~~~~~~~~~~~~~~~
 
-`etc/local.properties </ome/browser/ome.git/etc/local.properties>`_
+:source:`etc/local.properties`
     contains login and connection information for the DB and Omero.
 
-`local.properties.example </ome/browser/ome.git/etc/local.properties.example>`_
+:source:`local.properties.example <etc/local.properties.example>`
     contains the default root password. This can be overriden with your
     own ``etc/local.properties`` file.
 
-`hibernate.properties </ome/browser/ome.git/etc/hibernate.properties>`_
+:source:`hibernate.properties <etc/hibernate.properties>`
     contains default connection information for the database, this
     includes the user name and if necessary the user password. These
     values can be overridden in local.properties.
 
-`omero.properties </ome/browser/ome.git/etc/omero.properties>`_
+:source:`omero.properties <etc/omero.properties>`
     contains a default user group, event type, and connection
     information for logging in from the client side, if no Login or
     Server is specified to `ServiceFactory </ome/wiki/ServiceFactory>`_.
     These values can be overridden in local.properties.
 
-`mapping.vm </ome/browser/ome.git/components/dsl/resources/ome/dsl/mapping.vm>`_
+:source:`mapping.vm <components/dsl/resources/ome/dsl/mapping.vm>`
     specifies the default permissions that all objects will have after
     construction, as well as attaches the security filter to all classes
     and collections.
 
-`data.vm </ome/browser/ome.git/components/dsl/resources/ome/dsl/data.vm>`_
+:source:`data.vm <components/dsl/resources/ome/dsl/data.vm>`
     used by DSLTask to generate data.sql which is used to bootstrap the
     db security system (root et al)
 
-`common/build.xml </ome/browser/ome.git/components/common/build.xml>`_
+:source:`common/build.xml <components/common/build.xml>`
     contains an ant target (adduser) which will create a user and empty
     password from the commandline. This target can also be called from
     the top-level (java omero adduser).
@@ -99,7 +99,7 @@ Top-level and Build
 JBoss-only
 ^^^^^^^^^^
 
-`etc/jndi.properties </ome/browser/ome.git/etc/jndi.properties>`_
+:source:`etc/jndi.properties <etc/jndi.properties>`
     defines the JNDI implementation to use. In the case of JBoss, it
     uses an InitialContext? which automatically passes the security
     Principal on service lookup. These values can be overridden in
@@ -111,25 +111,25 @@ JBoss-only
 Client & Common
 ~~~~~~~~~~~~~~~
 
-`ome/client/spring.xml </ome/browser/ome.git/components/client/resources/ome/client/spring.xml>`_
+:source:`ome/client/spring.xml <components/client/resources/ome/client/spring.xml>`
     uses the information in /etc/local.properties to create a Login
     object. If no Login, Server, or Properties is provided to the
     `ServiceFactory </ome/wiki/ServiceFactory>`_ constructor, the empty
     properties defined in
-    `ome/client/internal.xml </ome/browser/ome.git/components/client/resources/ome/client/internal.xml>`_
+    :source:`ome/client/internal.xml <components/client/resources/ome/client/internal.xml>`
     is used.
 
-`IAdmin.java </ome/browser/ome.git/components/common/src/ome/api/IAdmin.java>`_
+:source:`IAdmin.java <components/common/src/ome/api/IAdmin.java>`
     main interface for administering accounts and privileges. See
     `AdminInterface </ome/wiki/AdminInterface>`_ for more.
 
-`ITypes.java </ome/browser/ome.git/components/common/src/ome/api/ITypes.java>`_
+:source:`ITypes.java <components/common/src/ome/api/ITypes.java>`
     only related to security by necessity. The security system disallows
     the creation of certain "System-Types". Enumerations are one of
     these. ITypes, however, provides a createEnumeration method with
     general access.
 
-`GraphHolder.java </ome/browser/ome.git/components/common/src/ome/model/internal/GraphHolder.java>`_
+:source:`GraphHolder.java <components/common/src/ome/model/internal/GraphHolder.java>`
     all model objects (implementations of IObject have a never-null
     GraphHolder instance available. This graph holder is responsible for
     various Omero & Hibernate internal processes. One of these is the
@@ -137,44 +137,45 @@ Client & Common
     within the GraphHolder? grants certain privileges to that IObject.
     This logic is encapsulated within the SecuritySystem.
 
-`Details.java </ome/browser/ome.git/components/common/src/ome/model/internal/Details.java>`_
+:source:`Details.java <components/common/src/ome/model/internal/Details.java>`
     contains all the fields necessary to perform
     `AccessControl </ome/wiki/AccessControl>`_, such as owner, group,
     and permissions.
 
-`Permissions </ome/browser/ome.git/components/common/src/ome/model/internal/Permissions>`_
+:source:`Permissions <components/common/src/ome/model/internal/Permissions>`
     representation of rights and roles. For more information, see
     `PermissionsAndUmasks </ome/wiki/PermissionsAndUmasks>`_.
 
-`Token.java </ome/browser/ome.git/components/common/src/ome/model/internal/Token.java>`_
+:source:`Token.java <components/common/src/ome/model/internal/Token.java>`
     an extremely simple class ("public class Token {}") which is only
     significant when it is equivalent ("==") to a privileged Token
     stored within the SecuritySystem.
 
-`IEnum.java </ome/browser/ome.git/components/common/src/ome/model/IEnum.java>`_
+:source:`IEnum.java <components/common/src/ome/model/IEnum.java>`
     the only non-access control related types which are considered
     "System-Types" are enumerations. IEnum is a marker interface for all
     enumerations and creation of IEnum implementations can only be
     performed through ITypes.
 
-`SecurityViolation.java </ome/browser/ome.git/components/common/src/ome/conditions/SecurityViolation.java>`_
+:source:`SecurityViolation.java <components/common/src/ome/conditions/SecurityViolation.java>`
     the exception thrown by the
     `SecuritySystem </ome/wiki/SecuritySystem>`_ at the first hint of
     misdoings.
 
-`Principal.java </ome/browser/ome.git/components/common/src/ome/system/Principal.java>`_
+:source:`Principal.java <components/common/src/ome/system/Principal.java>`
     an Omero-speciific implementation of the java.security.Principal
     interface. Carries in addition to the typical name field,
     information about the user group, the event type, and the session
     umasks.
-`meta.ome.xml </ome/browser/ome.git/components/common/resources/mappings/meta.ome.xml>`_
+
+:source:`meta.ome.xml <components/common/resources/mappings/meta.ome.xml>`
 
 JBoss-only
 ^^^^^^^^^^
 
-`ServiceFactory.java </ome/browser/ome.git/components/common/src/ome/system/ServiceFactory.java>`_
-`Login.java </ome/browser/ome.git/components/common/src/ome/system/Login.java>`_
-`Server.java </ome/browser/ome.git/components/common/src/ome/system/Server.java>`_
+:source:`ServiceFactory.java <components/common/src/ome/system/ServiceFactory.java>`
+:source:`Login.java <components/common/src/ome/system/Login.java>`
+:source:`Server.java <components/common/src/ome/system/Server.java>`
 
 `OmeroGrid </ome/wiki/OmeroGrid>`_-only
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -182,33 +183,33 @@ JBoss-only
 Server side
 ~~~~~~~~~~~
 
-`AdminImpl.java </ome/browser/ome.git/components/server/src/ome/logic/AdminImpl.java>`_
-`CurrentDetails.java </ome/browser/ome.git/components/server/src/ome/security/CurrentDetails.java>`_
-`SecureAction.java </ome/browser/ome.git/components/server/src/ome/security/SecureAction.java>`_
-`SecuritySystem.java </ome/browser/ome.git/components/server/src/ome/security/SecuritySystem.java>`_
-`BasicSecuritySystem.java </ome/browser/ome.git/components/server/src/ome/security/BasicSecuritySystem.java>`_
-`ACLEventListener.java </ome/browser/ome.git/components/server/src/ome/security/ACLEventListener.java>`_
-`EventDiffHolder.java </ome/browser/ome.git/components/server/src/ome/tools/hibernate/EventDiffHolder.java>`_
-`EventHandler.java </ome/browser/ome.git/components/server/src/ome/tools/hibernate/EventHandler.java>`_
-`MergeEventListener.java </ome/browser/ome.git/components/server/src/ome/tools/hibernate/MergeEventListener.java>`_
-`OmeroInterceptor.java </ome/browser/ome.git/components/server/src/ome/tools/hibernate/OmeroInterceptor.java>`_
-`SessionHandler.java </ome/browser/ome.git/components/server/src/ome/tools/hibernate/SessionHandler.java>`_
-`SecurityFilter.java </ome/browser/ome.git/components/server/src/ome/tools/hibernate/SecurityFilter.java>`_
-`EventLogListener.java </ome/browser/ome.git/components/server/src/ome/tools/hibernate/EventLogListener.java>`_
-`EventListenersFactoryBean.java </ome/browser/ome.git/components/server/src/ome/tools/hibernate/EventListenersFactoryBean.java>`_
-`LocalAdmin.java </ome/browser/ome.git/components/server/src/ome/api/local/LocalAdmin.java>`_
-`aop.xml </ome/browser/ome.git/components/server/resources/ome/services/aop.xml>`_
-`hibernate.xml </ome/browser/ome.git/components/server/resources/ome/services/hibernate.xml>`_
-`security.xml </ome/browser/ome.git/components/server/resources/ome/services/security.xml>`_
-`services.xml </ome/browser/ome.git/components/server/resources/ome/services/services.xml>`_
-`AbstractBean.java </ome/browser/ome.git/components/ejb/src/ome/ro/ejb/AbstractBean.java>`_
+:source:`AdminImpl.java <components/server/src/ome/logic/AdminImpl.java>`
+:source:`CurrentDetails.java <components/server/src/ome/security/CurrentDetails.java>`
+:source:`SecureAction.java <components/server/src/ome/security/SecureAction.java>`
+:source:`SecuritySystem.java <components/server/src/ome/security/SecuritySystem.java>`
+:source:`BasicSecuritySystem.java <components/server/src/ome/security/BasicSecuritySystem.java>`
+:source:`ACLEventListener.java <components/server/src/ome/security/ACLEventListener.java>`
+:source:`EventDiffHolder.java <components/server/src/ome/tools/hibernate/EventDiffHolder.java>`
+:source:`EventHandler.java <components/server/src/ome/tools/hibernate/EventHandler.java>`
+:source:`MergeEventListener.java <components/server/src/ome/tools/hibernate/MergeEventListener.java>`
+:source:`OmeroInterceptor.java <components/server/src/ome/tools/hibernate/OmeroInterceptor.java>`
+:source:`SessionHandler.java <components/server/src/ome/tools/hibernate/SessionHandler.java>`
+:source:`SecurityFilter.java <components/server/src/ome/tools/hibernate/SecurityFilter.java>`
+:source:`EventLogListener.java <components/server/src/ome/tools/hibernate/EventLogListener.java>`
+:source:`EventListenersFactoryBean.java <components/server/src/ome/tools/hibernate/EventListenersFactoryBean.java>`
+:source:`LocalAdmin.java <components/server/src/ome/api/local/LocalAdmin.java>`
+:source:`aop.xml <components/server/resources/ome/services/aop.xml>`
+:source:`hibernate.xml <components/server/resources/ome/services/hibernate.xml>`
+:source:`security.xml <components/server/resources/ome/services/security.xml>`
+:source:`services.xml <components/server/resources/ome/services/services.xml>`
+:source:`AbstractBean.java <components/ejb/src/ome/ro/ejb/AbstractBean.java>`
     contains the wrap() method used by all concrete session beans to
     before the necessary context prep for login in EventHandler.
-`\*Bean.java </ome/browser/ome.git/components/server/src/ome/services>`_
+:source:`\*Bean.java <components/server/src/ome/services>`
     All the concrete beans are responsible for defining the
     @javax.ejb.security.RolesAllowed? annotation to support
     `SecurityRoles </ome/wiki/SecurityRoles>`_.
-`AOPAdapter.java </ome/browser/ome.git/components/ejb/src/ome/ro/ejb/AOPAdapter.java>`_
+:source:`AOPAdapter.java <components/ejb/src/ome/ro/ejb/AOPAdapter.java>`
     applies the Spring-defined interceptors (including EventHandler) to
     the session beans.
 
@@ -390,7 +391,7 @@ When using the client library and the
 need only set several System properties or place them in an
 omero.properties file somewhere on the classpath. MoreToCome?.
 Internally, Spring takes the System properties and creates an
-`ome.system.Principal </ome/browser/ome.git/components/common/src/ome/system/Principal.java>`_
+`ome.system.Principal <components/common/src/ome/system/Principal.java>`_
 instance. This is then passed to the server on each invocation of a
 proxy obtained from JNDI.
 
@@ -401,7 +402,7 @@ Much of this infrastructure is not available to server-side code (no
 ome/client/spring.xml, no `ServiceFactory </ome/wiki/ServiceFactory>`_,
 etc.). As such, the Principal needs to be manually created iand provided
 to the server-side
-`SecuritySystem.java </ome/browser/ome.git/components/serversrc/ome/security/SecuritySystem.java>`_.
+`SecuritySystem.java <components/serversrc/ome/security/SecuritySystem.java>`_.
 
 Basically it amounts to this:
 
@@ -411,15 +412,15 @@ Basically it amounts to this:
       securitySystem.login( p );
 
 This must be run otherwise the
-`EventHandler </ome/browser/ome.git/components/server/src/ome/tools/hibernate/EventHandler.java>`_
+`EventHandler <components/server/src/ome/tools/hibernate/EventHandler.java>`_
 will throw a security exception. Note: the code above is being run in a
 secure context (i.e. you are root.) Pease be careful.
 
 For examples see:
 
--  `source:ome.git/components/client/resources/ome/client/spring.xml </ome/browser/ome.git/components/client/resources/ome/client/spring.xml>`_
+-  :source:`components/client/resources/ome/client/spring.xml`
    for how a Principal instance is created.
--  `source:ome.git/components/server/src/ome/services/util/OmeroAroundInvoke.java </ome/browser/ome.git/components/server/src/ome/services/util/OmeroAroundInvoke.java>`_]
+-  :source:`components/server/src/ome/services/util/OmeroAroundInvoke.java`
    for how the Principal instance is used.
 
 4.2 Design dicsussion

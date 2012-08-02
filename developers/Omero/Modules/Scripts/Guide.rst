@@ -55,9 +55,8 @@ Download / Edit script
 
 The easiest way to get started is to take an existing script and edit it
 for your needs. An example created for the purpose of this tutorial can
-be found at
-` Edit\_Descriptions.py <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=examples/ScriptingService/Edit_Descriptions.py;hb=develop>`_,
-` DOWNLOAD <http://git.openmicroscopy.org/src/develop/examples/ScriptingService/Edit_Descriptions.py>`_.
+be found at 
+:source:`Edit_Descriptions.py <examples/ScriptingService/Edit_Descriptions.py>`.
 You should organise your scripts on your local machine in a way that
 makes sense to users, since your local file paths will be mimicked on
 the server and used to organise script menus in Insight (see screen-shot

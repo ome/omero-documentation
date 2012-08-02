@@ -37,7 +37,7 @@ the importer, you'll of course need more jar files. To see all the
 current requirements, take a look at the ` hudson
 workspace <http://hudson.openmicroscopy.org.uk/job/OMERO/ws/src/dist/lib/client/>`_,
 or alternatively examine the dependencies in the ivy.xml files (e.g.
-`source:ome.git/components/tools/OmeroImporter/ivy.xml </ome/browser/ome.git/components/tools/OmeroImporter/ivy.xml>`_)
+:source:`components/tools/OmeroImporter/ivy.xml`)
 
 Connect to OMERO
 ----------------

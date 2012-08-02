@@ -28,17 +28,16 @@ read-only. On creation of an `OmeroContext </ome/wiki/OmeroContext>`_,
 the lookup for properties is (first wins):
 
 -  Properties passed into the constructor (if none, then the default
-   properties in
-   `internal.xml </ome/browser/ome.git/components/client/resources/ome/client/internal.xml>`_)
+   properties in :source:`internal.xml <components/client/resources/ome/client/internal.xml>`)
 -  System.properties set via "java -Dproperty=value"
 -  Configuration files in order listed.
 
 This ordering is defined for the various components via "placeholder
 configurers" in:
 
--  `source:ome.git/components/server/resources/ome/services/config-local.xml </ome/browser/ome.git/components/server/resources/ome/services/config-local.xml>`_
--  `source:ome.git/components/client/resources/ome/client/spring.xml </ome/browser/ome.git/components/client/resources/ome/client/spring.xml>`_
--  `source:ome.git/components/blitz/resources/omero/client.xml </ome/browser/ome.git/components/blitz/resources/omero/client.xml>`_
+-  :source:`components/server/resources/ome/services/config-local.xml`
+-  :source:`components/client/resources/ome/client/spring.xml`
+-  :source:`components/blitz/resources/omero/client.xml`
 
 Once configured at start, all values declared in one of the mentioned
 ways can be used in Spring configurations via the syntax:

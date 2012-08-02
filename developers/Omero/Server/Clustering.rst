@@ -34,7 +34,7 @@ Installation
 ------------
 
 If you are using the default `OmeroGrid </ome/wiki/OmeroGrid>`_
-`application descriptor </ome/browser/ome.git/etc/grid/default.xml>`_
+:source:`application descriptor <etc/grid/default.xml>`
 quickly enabling clustering is as simple as executing:
 
 ::

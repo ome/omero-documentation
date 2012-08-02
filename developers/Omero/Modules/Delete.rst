@@ -32,7 +32,7 @@ Delete Behavior (Technical)
 
 Configuring what gets delete, is done using an XML file. The technical
 specification of delete behavior can be found
-`source:ome.git/components/server/resources/ome/services/delete/spec.xml </ome/browser/ome.git/components/server/resources/ome/services/delete/spec.xml>`_
+:source:`components/server/resources/ome/services/delete/spec.xml`
 
 Delete Image
 ~~~~~~~~~~~~

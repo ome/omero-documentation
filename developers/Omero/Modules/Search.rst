@@ -141,8 +141,8 @@ Indexing
 --------
 
 Successful searching depends on understanding how the text is indexed.
-The default analyzer used is `the
-FullTextAnalyzer </ome/browser/ome.git/components/server/src/ome/services/fulltext/FullTextAnalyzer.java>`_.
+The default analyzer used is :source:`the
+FullTextAnalyzer <components/server/src/ome/services/fulltext/FullTextAnalyzer.java>`.
 
 ::
 
@@ -349,7 +349,7 @@ quick straight-forward.
 
 Simiarly, `SearchBridges </ome/wiki/SearchBridges>`_ provide a mechanism
 for parsing all metadata entering the system. One built in bridge (the
-`FullTextBridge </ome/browser/ome.git/component/server/src/ome/services/fulltext/FullTextBridge.java>`_)
+:source:`FullTextBridge <component/server/src/ome/services/fulltext/FullTextBridge.java>`)
 parses out the fields mentioned above, but by creating your own bridge
 it is possible to extract more information specific to your site.
 

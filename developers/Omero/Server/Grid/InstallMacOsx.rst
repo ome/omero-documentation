@@ -23,8 +23,7 @@ README file, it's necessary to set several environment variables:
       export LD_LIBRARY_PATH=$ICE_HOME/lib
       export DYLD_LIBRARY_PATH=$ICE_HOME/lib
 
-An example of this is provided in
-`source:ome.git/docs/install/macosx10.4/env.sh </ome/browser/ome.git/docs/install/macosx10.4/env.sh>`_
+An example of this is provided in :source:`docs/install/macosx10.4/env.sh`
 
 Macports
 ~~~~~~~~

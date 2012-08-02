@@ -17,9 +17,7 @@ If you want instructions on how to get started with OMERO scripts, see
 the link above or the
 `OmeroPy/ScriptingServiceGuide </ome/wiki/OmeroPy/ScriptingServiceGuide>`_.
 
-Most of the points below are implemented in the example
-` Edit\_Descriptions.py <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=examples/ScriptingService/Edit_Descriptions.py;hb=develop>`_:
-` DOWNLOAD <http://git.openmicroscopy.org/src/develop/examples/ScriptingService/Edit_Descriptions.py>`_.
+Most of the points below are implemented in the example :source:`Edit_Descriptions.py <examples/ScriptingService/Edit_Descriptions.py>`.
 
 Script Naming & file path
 -------------------------

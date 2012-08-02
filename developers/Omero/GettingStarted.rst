@@ -20,7 +20,7 @@ their own, customized clients.
 Examples for all the `OmeroBlitz </ome/wiki/OmeroBlitz>`_ languages
 (|OmeroPy|, |OmeroJava|, |OmeroCpp|, and |OmeroMatlab|) are provided under:
 
--  `source:ome.git/examples </ome/browser/ome.git/examples>`_
+-  :source:`examples`
 
 The examples under the ``OmeroClients`` directory are more thoroughly
 discussed on the |OmeroClients| page. This is
@@ -28,4 +28,4 @@ a good starting point for anyone interested in working with the
 |OmeroApi| or the `ObjectModel </ome/wiki/ObjectModel>`_.
 
 Examples with Java source code are available under:
-`Examples </ome/browser/ome.git/components/insight/TEST/org/openmicroscopy/shoola/examples>`_
+:source:`Examples <components/insight/TEST/org/openmicroscopy/shoola/examples>`

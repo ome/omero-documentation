@@ -92,7 +92,8 @@ extlinks = {
     'snapshot' : ('http://cvs.openmicroscopy.org.uk/snapshots/'+ '%s', ''),
     'plone' : ('http://www.openmicroscopy.org/site/'+ '%s', ''),
     'oo' : ('http://www.openmicroscopy.org/' + '%s', ''),
-    'doi' : ('http://dx.doi.org/' + '%s', '')
+    'doi' : ('http://dx.doi.org/' + '%s', ''),
+    'source' : ('https://github.com/openmicroscopy/openmicroscopy/blob/develop/' + '%s', '')
     }
 
 rst_epilog = """

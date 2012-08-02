@@ -63,7 +63,7 @@ Standard LDAP plugin functioning works so:
 -------------------------
 
 The interface described for the ":bean:" "new\_user\_group\_ prefix, is
-` ome.security.auth.NewUserGroupBean <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/server/src/ome/security/auth/NewUserGroupBean.java>`_.
+:source:`ome.security.auth.NewUserGroupBean <components/server/src/ome/security/auth/NewUserGroupBean.java>`.
 It defines a single method: ``groups(..., AttributeSet set)`` which
 returns a list of ``ExperimenterGroup`` ids (``List<Long>``) which the
 user should be added to.
@@ -72,9 +72,9 @@ Other prefix handlers also implement the interface as examples. In the
 same package are:
 
 -  ":attribute:" -
-   ` AttributeNewUserGroupBean.java <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/server/src/ome/security/auth/AttributeNewUserGroupBean.java>`_
+   :source:` AttributeNewUserGroupBean.java <components/server/src/ome/security/auth/AttributeNewUserGroupBean.java>`
 -  ":query:" -
-   ` QueryNewUserGroupBean <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/server/src/ome/security/auth/QueryNewUserGroupBean.java>`_
+   :source:` QueryNewUserGroupBean <components/server/src/ome/security/auth/QueryNewUserGroupBean.java>`
 
 --------------
 

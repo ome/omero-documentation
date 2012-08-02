@@ -10,14 +10,14 @@ specification <http://www.openmicroscopy.org/site/support/file-formats>`_,
 in the database (the data model), and in code. This last representation
 is the object model with which we will concern ourselves here.
 
-Because of its complexity, the object model is generated from a `central
-definition </ome/browser/ome.git/components/model>`_ using our own
-`code-generator </ome/browser/ome.git/components/dsl>`_. It relies on no
+Because of its complexity, the object model is generated from a :source:`central
+definition <components/model>` using our own
+:source:`code-generator <components/dsl>`. It relies on no
 libraries and can be used in both the server and the RMI clients.
-`OmeroBlitz </ome/wiki/OmeroBlitz>`_ uses a `second
-mapping </ome/browser/ome.git/components/blitz/resources/templates>`_ to
+`OmeroBlitz </ome/wiki/OmeroBlitz>`_ uses a :source:`second
+mapping <components/blitz/resources/templates>` to
 generate OmeroJ, |OmeroPy|, and |OmeroCpp| classes, which can be
-`mapped </ome/browser/ome.git/components/blitz/src/omero/util/IceMapper.java>`_
+:source:`mapped <components/blitz/src/omero/util/IceMapper.java>`
 back and forth to the server object model. *Here we'll discuss only the
 server object-model and how it is used internally.*
 
@@ -181,7 +181,7 @@ Inheritance
 Inheritance is supported in the object model. The superclass
 relationships can be defined simply in the mapping files. One example is
 the annotation hierarchy in
-`ome.git/components/model/resources/mappings/annotations.xml </ome/browser/ome.git/components/model/resources/mappings/annotations.xml>`_.
+:source:`components/model/resources/mappings/annotations.xml`.
 Hibernate supports this polymorophism, and will search all subclasses
 when a super class is returned. *However*, due to Hibernate's use of
 bytecode-generated proxies, testing for class equality is not always
@@ -192,7 +192,7 @@ perform much of its magic. For these bytecode generated objects, the
 getClass() method return something of the form
 "ome.model.core.Image\_$$\_javassist" which cannot be passed back into
 Hibernate. Instead, we must first parse that class String with
-`Utils#trueClass() </ome/browser/ome.git/components/common/src/ome/util/Utils.java>`_).
+:source:`Utils#trueClass() <components/common/src/ome/util/Utils.java>`).
 
 Model report objects
 ~~~~~~~~~~~~~~~~~~~~
@@ -509,7 +509,7 @@ the sizeOf method will return a value less than zero:
 
 This is why it is necessary to specify all "join fetch" clauses for
 instances which are required on the client-side. See
-`ProxyCleanupFilter </ome/browser/ome.git/components/server/src/ome/tools/hibernate/ProxyCleanupFilter.java>`_
+:source:`ProxyCleanupFilter <components/server/src/ome/tools/hibernate/ProxyCleanupFilter.java>`
 for the implementation.
 
 Collections

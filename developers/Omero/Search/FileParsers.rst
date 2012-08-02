@@ -11,7 +11,7 @@ Configuration
 -------------
 
 Currently, configuration takes places solely in
-` service-ome.api.Search.xml <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/server/resources/ome/services/service-ome.api.Search.xml>`_.
+:source:` service-ome.api.Search.xml <components/server/resources/ome/services/service-ome.api.Search.xml>`.
 Eventually, it should be able to replace file parsers at configuration
 or even runtime.
 
@@ -35,7 +35,7 @@ How to
 
 For the necessary changes that need to be made, see r2260. The base
 class for `FileParsers </ome/wiki/FileParsers>`_ are:
-` FileParser.java <http://git.openmicroscopy.org/?p=ome.git;a=blob;f=components/server/src/ome/services/fulltext/FileParser.java>`_
+:source:` FileParser.java <components/server/src/ome/services/fulltext/FileParser.java>`
 
 --------------
 

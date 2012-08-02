@@ -11,18 +11,18 @@ aspects with links into the rest of the
 
 -  A `request </ome/wiki/OmeroClientLibrary>`_ reaches the server over
    one of the two remoting protocols: RMI or ICE. First, the
-   `Principal </ome/browser/ome.git/components/common/src/ome/system/Principal.java>`_
+   :source:`Principal <components/common/src/ome/system/Principal.java>`
    is examined for a valid `session </ome/wiki/OmeroSessions>`_ which
-   was created via `ISession.createSession(String username, String
-   password) </ome/browser/ome.git/components/common/src/ome/api/ISession.java>`_.
+   was created via :source:`ISession.createSession(String username, String
+   password) <components/common/src/ome/api/ISession.java>`.
 
 -  These values are checked against the ``experimenter``,
    ``experimentergroup`` and ``password`` tables. A valid login consists
    of a user name which is to be found in the ``omename`` column of
    ``experimenter``. This row from ``experimenter`` must also be
    contained in the "user" experimenter group which is done via the
-   mapping table ``groupexperimentermap``. (See `this SQL
-   template </ome/browser/ome.git/components/dsl/resources/ome/dsl/data.vm>`_
+   mapping table ``groupexperimentermap``. (See :source:`this SQL
+   template <components/dsl/resources/ome/dsl/data.vm>`
    for how ``root`` and the intial groups are setup.)
 
 -  If the server is configured for LDAP, an ``Experimenter`` may be
@@ -47,13 +47,13 @@ aspects with links into the rest of the
    ((Omero Context\|application context)).
 
 -  The actual service implementation (from
-   `ome.logic </ome/browser/ome.git/components/server/src/ome/logic>`_
+   :source:`ome.logic <components/server/src/ome/logic>`
    or
-   `ome.services </ome/browser/ome.git/components/server/src/ome/services>`_)
+   :source:`ome.services <components/server/src/ome/services>`)
    will be either read-only
-   (`IQuery </ome/browser/ome.git/components/common/src/ome/api/IQuery.java>`_-based)
+   (:source:`IQuery <components/common/src/ome/api/IQuery.java>`-based)
    or a read-write
-   (`IUpdate </ome/browser/ome.git/components/common/src/ome/api/IUpdate.java>`_-based).
+   (:source:`IUpdate <components/common/src/ome/api/IUpdate.java>`-based).
 
 -  In the case of a read-only action, the implementation asks the
    database layer for the needed object graph, transforms them where
@@ -112,8 +112,7 @@ Server Design
    :align: center
    :alt: ServerDesign
 
-The server logic resides in the
-`source:ome.git/components/server </ome/browser/ome.git/components/server>`_
+The server logic resides in the :source:components/server`
 component. From there it is distributed as either
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_ or as
 `OmeroEar </ome/wiki/OmeroEar>`_.
