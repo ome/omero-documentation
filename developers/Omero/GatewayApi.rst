@@ -5,8 +5,7 @@ The OMERO API has many stateless and statefull services with a large
 number of methods. We also have additional client-side Python and Java
 libraries that provide helpers or wrappers on top of the core API.
 
-As part of API unification
-` http://trac.openmicroscopy.org.uk/ome/ticket/4278 <http://trac.openmicroscopy.org.uk/ome/ticket/4278>`_
+As part of API unification :ticket:`4278`,
 we are working to align the Python and Java library APIs. In doing so,
 we are also discussing the consolidation of the core OMERO API into a
 single stateless service, removing unused methods and combining the

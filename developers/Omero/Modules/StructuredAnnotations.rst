@@ -106,7 +106,7 @@ file value, etc -- is immutable. Links to and from the annotation,
 however, can be modified.
 
 Currently the namespace field of annotations is mutable. See
-`#878 </ome/ticket/878>`_ for discussion.
+:ticket:`878` for discussion.
 
 --------------
 

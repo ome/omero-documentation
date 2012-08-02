@@ -11,9 +11,7 @@ deleted with the image (since it has no other relevance).
 
 In the 4.2.1 release of OMERO, an improved deleting service was
 introduced to fix several problems or requirements related to the delete
-functionality (see
-` omero#2615 <http://trac.openmicroscopy.org.uk/omero/ticket/2615>`_ for
-tickets):
+functionality (see :ticket:`2615 ` for tickets):
 
 -  Need a better way to define what gets deleted when certain data gets
    deleted (e.g. Image case above)
@@ -27,8 +25,7 @@ tickets):
 -  Binary data (pixels, thumbnails, files etc) was not removed at delete
    time - required sysadmin to clean up later
 
-Future releases will continue this work (see
-` omero#2911 <http://trac.openmicroscopy.org.uk/omero/ticket/2911>`_).
+Future releases will continue this work (see :ticket:`2911`).
 
 Delete Behavior (Technical)
 ---------------------------

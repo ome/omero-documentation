@@ -14,7 +14,7 @@ How To Create A Service
 --------------
 
 
-To fulfill `#306 </ome/ticket/306>`_, r905 provides all the classes and
+To fulfill :ticket:`306`, r905 provides all the classes and
 modifications needed to create a new stateless service (where this
 varies from stateful services is also detailed). In brief, a service
 provider must create an
@@ -27,7 +27,7 @@ as well as modify the `client
 configuration </ome/browser/ome.git/components/client/resources/ome/client/spring.xml>`_
 and the central `service
 factory </ome/browser/ome.git/components/common/src/ome/system/ServiceFactory.java>`_
-(These last two points stand to change with `#314 </ome/ticket/314>`_).
+(These last two points stand to change with :ticket:`314`).
 
 **Note:** With the creation of `OmeroBlitz </ome/wiki/OmeroBlitz>`_,
 there are several other locations which need to be modified. These are
@@ -67,8 +67,8 @@ Files to Create
     interface, but all of which support
     `throttling </ome/wiki/OmeroThrottling>`_.
 
-Files to Edit (not strictly necessary, see `#314 </ome/ticket/314>`_)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Files to Edit (not strictly necessary, see :ticket:`314`)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `ome.git/components/common/src/ome/system/ServiceFactory.java </ome/browser/ome.git/components/common/src/ome/system/ServiceFactory.java>`_
     our central API factory, needs an additional method for looking up

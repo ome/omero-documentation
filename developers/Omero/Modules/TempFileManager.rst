@@ -5,7 +5,7 @@ Class to be used by |OmeroClients| and server
 components to allow a uniform creation of temporary files and folders
 with a best-effort guarantee of deleting the resources on exit. The
 manager searches three locations in order, taking the first which allows
-lockable write-access (See `#1653 </ome/ticket/1653>`_):
+lockable write-access (See :ticket:`1653`):
 
 -  The environment property setting ``OMERO_TEMPDIR``
 -  The user's home directory, for example specified in Java via
@@ -71,4 +71,4 @@ and
 
 --------------
 
--  See: `#1534 </ome/ticket/1534>`_
+-  See: :ticket:`1534`

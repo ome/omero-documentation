@@ -2723,7 +2723,7 @@ several changes are necessary to port your code to
            p2.projectPixels(1L, pixelsType2, ProjectionType.MAXIMUMINTENSITY, ...);
 
 -  All ``PojoOptions`` usages are now replaced by
-   ``omero.sys.ParametersI`` (`#67 </ome/ticket/67>`_)
+   ``omero.sys.ParametersI`` (:ticket:`67`)
 
 -  `ExceptionHandling </ome/wiki/ExceptionHandling>`_
 

@@ -14,7 +14,7 @@ Limitations
 -  This has only been tested on 32bit installations.
 -  The processor.py functionality will not be available on Windows in
    `milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_. See
-   `#1004 </ome/ticket/1004>`_ for more information.
+   :ticket:`1004` for more information.
 
 Requirements
 ------------

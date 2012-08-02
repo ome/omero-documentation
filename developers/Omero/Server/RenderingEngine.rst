@@ -21,15 +21,15 @@ Optimizations
 Here we have a listing of the various rendering engine optimizations
 that have taken place over time:
 
--  Packed Integers (`#449 </ome/ticket/449>`_)
--  Region Based Rendering (`#450 </ome/ticket/450>`_)
--  Removal of RGB Rendering Model (`#452 </ome/ticket/452>`_)
+-  Packed Integers (:ticket:`449`)
+-  Region Based Rendering (:ticket:`450`)
+-  Removal of RGB Rendering Model (:ticket:`452`)
 
 Compression
 -----------
 
 With r1744 and r1748, the rendering engine now supports compression.
-(`#6 </ome/ticket/6>`_)
+(:ticket:`6`)
 
 Design
 ------

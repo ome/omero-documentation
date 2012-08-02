@@ -19,5 +19,4 @@ Configuration for this listener is available in
     omero.security.login_failure_throttle_time=3000 # Time in milliseconds
 
 A more sophisticated listener would lock the user's account until an
-administrator intervenes. This is the goal of
-`#3139 </ome/ticket/3139>`_.
+administrator intervenes. This is the goal of :ticket:`3139`.

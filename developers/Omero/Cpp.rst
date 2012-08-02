@@ -300,7 +300,7 @@ please see |OmeroClients|.
 See also: ` http://zeroc.com <http://zeroc.com>`_,
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_,
 `OmeroGrid </ome/wiki/OmeroGrid>`_, |OmeroApi|,
-:ref:`developers/Omero/Build`, `#1596 </ome/ticket/1596>`_ which
+:ref:`developers/Omero/Build`, :ticket:`1596` which
 added 64bit support
 
 Attachments

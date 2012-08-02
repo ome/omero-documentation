@@ -348,7 +348,7 @@ sometimes, but guarantee that our data is never corrupted. (Note: as of
 `milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_, there is one
 exception to this discussed below under
 `Links </ome/wiki/ObjectModel#links>`_. See that section or
-`ticket:1001 </ome/ticket/1001>`_ for more information.)
+:ticket:`1001` for more information.)
 
 --------------
 
@@ -466,7 +466,7 @@ multi-threads, but simply to stale state. (Note: as of
 `milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_, there is an issue in
 the multi-user setting in which a ``SecurityViolation`` is thrown
 instead of an ``OptimisticLockException``. See
-`ticket:1001 </ome/ticket/1001>`_ for more information).
+:ticket:`1001` for more information).
 
 Various techniques can help to manage these duplications are:
 

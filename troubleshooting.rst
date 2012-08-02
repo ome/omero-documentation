@@ -199,7 +199,7 @@ Server fails to start
    (under Unix).
 4. If you see an error message mentioning
    :ticket:`"Freeze::DatabaseException" <5576>` or 
-   :ticket"`"could not lock file: var/registry/\_\_Freeze/lock" <7325>`,
+   :ticket:`"could not lock file: var/registry/\_\_Freeze/lock" <7325>`,
    your icegrid registry may have become corrupted. This is not a
    problem, but it will be necessary to stop OMERO and delete the
    ``var/master`` directory (e.g. ``rm -rf var/master``). When

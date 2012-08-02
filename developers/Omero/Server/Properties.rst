@@ -2,7 +2,7 @@ Properties
 ==========
 
 **As of `milestone:OMERO-Beta4 </ome/milestone/OMERO-Beta4>`_
-(`#800 </ome/ticket/800>`_), client usage of these properties has
+(:ticket:`800`), client usage of these properties has
 significantly changed. Please see the ` user
 documentation <https://www.openmicroscopy.org/site/documents/data-management/omero4/server>`_
 for how to configuration your server installation**

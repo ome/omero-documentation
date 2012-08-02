@@ -59,7 +59,7 @@ Change list
    CategoryGroup i.e. similar to Tag Bundles.
 -  Add way auto complete feature.
 -  Add option create/add image to categories. To declassify the image
-   and to browse the category (cf. ticket `#359 </ome/ticket/359>`_).
+   and to browse the category (cf. :ticket:`359`).
 -  In TreeViewer, Images Explorer TabbedPane, use smart folders to
    filter images.
 -  Introduce the concept of local rendering history. Allow users to undo

@@ -298,7 +298,7 @@ Services
 Finally execution has reached the Omero services and can begin to
 perform logic. Because of these layers, almost no special logic (other
 than eviction and not calling write methods from within read methods.
-see `#223 </ome/ticket/223>`_) needs to be considered. There are,
+see :ticket:`223`) needs to be considered. There are,
 however, a few special cases.
 
 IQuery (within the application server), for example will always return a
@@ -375,12 +375,11 @@ as much as it can, and if not specifically needed should be ignored.
 However, before one attempts to manually check security, by all means
 use the security system, and for that, it may need to be acquired from
 the server-side `OmeroContext </ome/wiki/OmeroContext>`_. Currently,
-there is no client-side security system. See
-`ticket:234 </ome/ticket/234>`_.
+there is no client-side security system. See :ticket:`234`.
 
 The `SecuritySystem </ome/wiki/SecuritySystem>`_ and its currently only
 implementation BasicSecuritySystem? are somewhat inert and expect
-well-defined and trusted (see `ticket:235 </ome/ticket/235>`_) methods
+well-defined and trusted (see :ticket:`235`) methods
 to invoke callbacks during the proper Hibernate phase.
 
 Logging in (client-side)

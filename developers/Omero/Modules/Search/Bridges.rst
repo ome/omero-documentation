@@ -138,7 +138,7 @@ indexed, all related objects are simultaneously added to the backlog,
 which will be processed in the next cycle, but **their** indexing will
 not add any new values to the backlog.
 
-See `#955 </ome/ticket/955>`_ and `#1102 </ome/ticket/1102>`_
+See :ticket:`955` and :ticket:`1102`
 
 --------------
 
