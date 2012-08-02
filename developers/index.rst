@@ -1,14 +1,14 @@
-.. _rst_trac:
-
-****
-Trac
-****
+************************
+Developers Documentation
+************************
 
 .. toctree::  
     :glob: 
     :titlesonly:
 
-    Omero
+	policies
+	
+    Omero/Omero
     Omero/Build
     Omero/Clients/ImportLibrary
     Omero/CommandLine

@@ -19,5 +19,4 @@ can be found on the :wiki:`OME wiki <>`.
     future
     tutorial/index
 
-    developers/policies
-    trac/index
+    developers/index
