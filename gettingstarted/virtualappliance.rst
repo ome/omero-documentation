@@ -299,9 +299,7 @@ Secure Shell
 ^^^^^^^^^^^^
 
 You can log into your VM using Secure Shell (SSH) which will give you a
-command line interface to the VM from where you can use the OMERO.server
-`command line
-interface <http://trac.openmicroscopy.org.uk/ome/wiki/OmeroCli>`_. In
+command line interface to the VM from where you can use the |OmeroCli|. In
 the following example, we assume that you have an SSH client installed
 on your host machine and also that your VM is up and running.
 
@@ -402,8 +400,7 @@ to be happy using the Bash shell which looks like this:
    :align: center
    :alt: 
 
-From here you can interact with OMERO.server via the `OMERO command line
-interface <http://trac.openmicroscopy.org.uk/ome/wiki/OmeroCli>`_. You
+From here you can interact with OMERO.server via the |OmeroCli|. You
 will need to login as the 'omero' user to access the OMERO CLI (user:
 "omero" / pw: "omero"). Logout using Ctrl-D.
 

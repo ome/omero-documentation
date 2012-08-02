@@ -2,7 +2,7 @@
 content| </ome/attachment/wiki/OmeroWeb/WritingTemplates/webtest-base_header.png>`_
 
 Writing Page Templates in OMERO.web
------------------------------------
+===================================
 
 This page documents the various base templates that are used by the
 webclient and describes how to extend these to create your own pages

@@ -431,8 +431,7 @@ Customising your OMERO.web installation
          expression <http://docs.python.org/library/re.html>`_). You
          probably don't want the whole webclient UI to be publicly
          visible (although you could do this). The idea is that you can
-         create the public pages yourself (see `OMERO.web developers
-         page <http://trac.openmicroscopy.org.uk/ome/wiki/OmeroWeb>`_
+         create the public pages yourself (see |OmeroWeb|
          since we don't provide public pages. E.g. to only allow urls
          that start with '/my\_web\_public' you'd use:
 

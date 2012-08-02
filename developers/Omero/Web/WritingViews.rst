@@ -1,5 +1,5 @@
 Writing OMERO.web Views
------------------------
+=======================
 
 This page contains info on how to write your own views.py code,
 including documentation on the webclient/views.py and

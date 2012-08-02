@@ -113,6 +113,25 @@ This label allows the page to be referenced in the rest of the documentation. To
 * References to external documentation can be formatted using : `` .. seealso::``
 * Menu selections should be marked using the menuselection role: `` :menuselection:`Start --> Programs` ``
 
+### Global substitution ###
+
+Some substitutions have been implemented using `rst_epilog` in conf.py. They can be used in all pages of the documentation.
+
+Name			 | 	Path
+-----------------|----------------------------
+|OmeroPy|  		 |	developers/Omero/Python
+|OmeroCpp| 		 |	developers/Omero/Cpp
+|OmeroJava| 	 |	developers/Omero/Java
+|OmeroMatlab|	 |	developers/Omero/Matlab
+|OmeroCli| 		 |	developers/Omero/CommandLine
+|OmeroApi| 		 |	developers/Omero/Modules/Api
+|OmeroWeb| 		 |	developers/Omero/Web
+|OmeroClients|	 |	developers/Omero/GettingStarted
+|OmeroInsight| 	 |	developers/Omero/Insight
+|ExtendingOmero| |	developers/Server/ExtendingOmero
+|BlitzGateway| 	 |	developers/Omero/Python/Gateway`
+
+
 ### Common URLs ###
 
 Some URLs are widely used across the OME documentation. Using the sphinx extlinks extension, a dictionary of aliases to base URLs has been defined for the following:

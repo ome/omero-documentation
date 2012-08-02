@@ -1,5 +1,5 @@
 Embedding OMERO.web viewport to your website
---------------------------------------------
+============================================
 
 Insert the following: **WARNING**: Please note that you are giving plane
 password and everyone can read from your html source code!

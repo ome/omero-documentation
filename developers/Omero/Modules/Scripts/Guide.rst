@@ -1,5 +1,5 @@
 Scripting Service User Guide
-----------------------------
+============================
 
 `|Browsing scripts in
 Insight| </ome/attachment/wiki/OmeroPy/ScriptingServiceGuide/scripts.png>`_
