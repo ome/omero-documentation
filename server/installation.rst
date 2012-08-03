@@ -7,10 +7,10 @@ OMERO.server Installation for UNIX-Based Platforms
 -  If you are attempting a **Microsoft Windows** install please see :ref:`server/install-windows`.
 -  Additional walkthroughs give more details on specific platforms:
 
-   - :ref:`rst_install_macports`
-   - :ref:`rst_install_homebrew`
-   - :ref:`rst_install_manual`
-   - :ref:`rst_install_debian`
+   - :ref:`server/install_macports`
+   - :ref:`server/install_homebrew`
+   - :ref:`server/install_macosx`
+   - :ref:`server/install_linux`
 
 -  Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) have provided
    :snapshot:`this guide (pdf) <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
@@ -31,7 +31,7 @@ Installation **will require a "root" level account** for which you know the pass
 Prerequisites
 -------------
 
-.. note:: The installation of these prerequisite applications is outside the scope of this document. For Linux distributions you should use the default package manager. For Mac OS X there are additional notes for :ref:`Mac OS X 10.5 <rst_install_manual>`, :ref:`MacPorts on Mac OS X 10.6 <rst_install_macports>` and :ref:`Homebrew on Mac OS X 10.7 <rst_install_homebrew>` for less experienced users.
+.. note:: The installation of these prerequisite applications is outside the scope of this document. For Linux distributions you should use the default package manager. For Mac OS X there are additional notes for :ref:`Mac OS X 10.5 <server/install_macosx>`, :ref:`MacPorts on Mac OS X 10.6 <server/install_macports>` and :ref:`Homebrew on Mac OS X 10.7 <server/install_homebrew>` for less experienced users.
 
 The following are necessary:
 
@@ -195,7 +195,7 @@ slowed down. To get round this for the OMERO.server you can define an
 located on the local file system (e.g. ``/tmp/``).
 
 If you are running OMERO on Mac OS X then details of the required
-environment variables can be found on the :ref:`rst_install_macports`.
+environment variables can be found on the :ref:`server/install_macports`.
 
 .. _installation_database_creation:
 

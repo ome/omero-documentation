@@ -1,4 +1,4 @@
-.. _rst_install_homebrew:
+.. _server/install_homebrew:
 
 OMERO.server Mac OS X Installation Walkthrough with Homebrew 
 ============================================================

@@ -1,4 +1,4 @@
-.. _rst_install_debian:
+.. _server/install_linux:
 
 OMERO.server Linux Installation Walkthrough
 ===========================================

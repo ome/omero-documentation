@@ -1,4 +1,4 @@
-.. _rst_install_manual:
+.. _server/install_macosx:
 
 OMERO.server Mac OS X Manual Installation Walkthrough
 =====================================================

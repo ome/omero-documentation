@@ -1,4 +1,4 @@
-.. _rst_install_macports:
+.. _server/install_macports:
 
 OMERO.server Mac OS X Installation Walkthrough with MacPorts
 ============================================================
