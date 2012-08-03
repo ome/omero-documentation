@@ -416,7 +416,7 @@ Advanced configuration
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Once you have the base server running, you may want to try enabling some
-of the advanced features such as :ref:`rst_fs` or :ref:`rst_ldap`.
+of the advanced features such as :ref:`rst_fs` or :ref:`server/ldap`.
 If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
 See the :plone:`Feature list <products/feature-list>` for more advanced
 features you may want to use, and :ref:`rst_advanced-configuration` on how to get the most out of

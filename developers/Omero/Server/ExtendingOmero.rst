@@ -50,7 +50,7 @@ point you back to this page for packaging and deploying your new code.
    the command-line
 -  `OmeroScripts </ome/wiki/OmeroScripts>`_: Write python scripts to
    process data server-side
--  `OmeroLdap </ome/wiki/OmeroLdap>`_: Write a Java authentication
+-  :ref:`developers/Omero/Server/Ldap`: Write a Java authentication
    plugin
 -  `PasswordProvider </ome/wiki/PasswordProvider>`_: Write a Java
    password backend

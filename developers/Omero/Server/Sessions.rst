@@ -1,3 +1,5 @@
+.. _developers/Omero/Server/Sessions:
+
 OMERO Sessions
 ==============
 
@@ -17,8 +19,7 @@ several reason:
 Blitz did not suffer from these problems, but the login functionality
 was largely outside of the core server code and sessions were more
 volatile: a loss of an Ice connection caused all resources to be lost.
-With `OmeroSessions </ome/wiki/OmeroSessions>`_, both login systems have
-been brought together and simplified.
+With |OmeroSessions|, both login systems have been brought together and simplified.
 
 In short, Sessions …
 --------------------
@@ -134,14 +135,13 @@ will want to make use of the session API and catch session exceptions to
 have a finer control of the client lifecycle.
 
 Similarly, no changes are needed in `OmeroBlitz </ome/wiki/OmeroBlitz>`_
-client code since Glacier2 sessions now delegate to
-`OmeroSessions </ome/wiki/OmeroSessions>`_. Clients can access the
-ISession service when necessary. Exceptions thrown are still Ice-based.
+client code since Glacier2 sessions now delegate to |OmeroSessions|. 
+Clients can access the ISession service when necessary. 
+Exceptions thrown are still Ice-based.
 
 --------------
 
-See also : `OmeroBlitz </ome/wiki/OmeroBlitz>`_,
-`OmeroSecurity </ome/wiki/OmeroSecurity>`_
+See also : `OmeroSecurity </ome/wiki/OmeroSecurity>`_
 
 Attachments
 ~~~~~~~~~~~

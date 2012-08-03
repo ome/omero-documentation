@@ -29,7 +29,7 @@ used to change those properties that you would like to customize.
 
 Examples of doing this are on the main :ref:`Unix <server/installation>` and
 :ref:`Windows <server/install-windows>` pages, as well as the :ref:`LDAP
-installation <rst_ldap>` page.
+installation <server/ldap>` page.
 
 Here we list some options which you are most likely to want to modify.
 See :source:`etc/omero.properties` for more details.

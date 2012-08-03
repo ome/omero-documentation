@@ -15,7 +15,7 @@ Several implementations exist currently:
 -  :source:`ome.security.auth.LdapPasswordProvider <components/server/src/ome/security/auth/LdapPasswordProvider.java>`
    is a highly configurable provider which provides READ-ONLY access to
    an LDAP server and can create users and groups on the fly. See
-   `OmeroLdap </ome/wiki/OmeroLdap>`_ for more information.
+   :ref:`developers/Omero/Server/Ldap` for more information.
 
 The "chainedPasswordProvider"
 (:source:`ome.security.auth.PasswordProviders <components/server/src/ome/security/auth/PasswordProviders.java>`)

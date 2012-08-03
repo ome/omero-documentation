@@ -124,7 +124,7 @@ Java Key- and Trust stores.
 If your server is connecting to another server over SSL, you will need
 to configure both a keystore and a truststore for the Java process. This
 happens, for example, when your LDAP server uses SSL. See the :ref:`LDAP
-plugin <rst_ldap>` for information on how to configure the LDAP
+plugin <server/ldap>` for information on how to configure the LDAP
 urls. As with all configuration properties, you will need to restart
 your server after changing them.
 
@@ -224,4 +224,4 @@ respectively, and can be modified with command:
 
 --------------
 
-.. seealso:: :ref:`rst_ldap`
+.. seealso:: :ref:`server/ldap`
