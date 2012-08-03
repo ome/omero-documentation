@@ -158,5 +158,5 @@ Binary delete on Windows servers
 ================================
 
 On Windows servers not all binary files corresponding to a delete may
-be removed from the binary repository. See :wiki:`Delete: Binary Data
-<Delete#BinaryData>` for more details.
+be removed from the binary repository. See 
+:ref:`developers/Omero/Modules/Delete#BinaryData` for more details.

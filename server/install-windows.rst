@@ -27,7 +27,7 @@ Limitations
 -  Installation on Windows XP is not explicitly supported, especially
    for OMERO.web. Significant testing has taken place on Windows Server
    2008 and we recommend this version.
--  :wiki:`OmeroMovie` does not work on Windows at present.
+-  :ref:`server/omeromovie` does not work on Windows at present.
 -  Spaces are not currently supported in installation path names.
    
    .. note:: 
@@ -67,7 +67,7 @@ Prerequisites
    page <http://www.zeroc.com/download.html>`_ and will be called
    something like ``Ice-3.4.2.msi`` (for Ice 3.4.2). If you plan to
    develop for C++, be sure to read the instructions on the
-   :wiki:`OmeroCpp` trac page.
+   :ref:`developers/Omero/Cpp` page.
 
 -  **Python 2.6.x installed**
 

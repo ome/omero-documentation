@@ -1,3 +1,5 @@
+.. _developers/Omero/Modules/Delete:
+
 Deleting in OMERO
 -----------------
 
@@ -132,6 +134,8 @@ most). These will be resolved in future depending on priority.
 
        Project p1 contains two Datasets d1 and d2, Project p2 contains Dataset d1. 
        If the Project p1 is deleted, the Dataset d1 is only unlinked from p1 and not completely deleted.
+
+.. _developers/Omero/Modules/Delete#BinaryData:
 
 Binary Data
 ~~~~~~~~~~~
