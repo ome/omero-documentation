@@ -48,7 +48,7 @@ point you back to this page for packaging and deploying your new code.
    server-side handlers for your Ice implementations
 -  |OmeroCli|: Write drop in Python extensions for
    the command-line
--  `OmeroScripts </ome/wiki/OmeroScripts>`_: Write python scripts to
+-  :ref:`developers/Omero/Modules/Scripts`: Write python scripts to
    process data server-side
 -  :ref:`developers/Omero/Server/Ldap`: Write a Java authentication
    plugin

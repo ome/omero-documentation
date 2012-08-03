@@ -27,7 +27,7 @@ use the Python API and a Java client |OmeroInsight|.
 There is also an ImageJ plugin. OMERO can be extended by modifying these
 clients or by :ref:`writing your own <developers/Omero/GettingStarted/AdvancedClientDevelopment>` in
 any of the supported languages (see figure). OMERO also supports a
-`Scripting Service </ome/wiki/OmeroScripts>`_ which allows Python
+:ref:`Scripting Service <developers/Omero/Modules/Scripts>` which allows Python
 scripts to be run on the server & called from any of the other clients.
 
 **OMERO** is designed, developed and released by the ` Open Microscopy
@@ -128,7 +128,7 @@ Getting Your Hand's Dirty
 -  |OmeroJava|
 -  |OmeroPy|
 -  |DevelopingOmeroClients|
--  `Developing Scripts </ome/wiki/OmeroScripts>`_
+-  :ref:`Developing Scripts <developers/Omero/Modules/Scripts>`
 
    -  :ref:`developers/Omero/Modules/Scripts/Guide`
    -  :ref:`developers/Omero/Modules/Scripts/StyleGuide`
