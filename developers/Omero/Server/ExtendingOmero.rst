@@ -52,9 +52,9 @@ point you back to this page for packaging and deploying your new code.
    process data server-side
 -  :ref:`developers/Omero/Server/Ldap`: Write a Java authentication
    plugin
--  `PasswordProvider </ome/wiki/PasswordProvider>`_: Write a Java
+-  :ref:`developers/Omero/Server/PasswordProvider`: Write a Java
    password backend
--  `SearchBridges </ome/wiki/SearchBridges>`_: Write Java Lucene parsers
+-  :ref:`developers/Omero/Modules/Search/Bridges`: Write Java Lucene parsers
    to extend search
 
 --------------
@@ -76,7 +76,7 @@ Structured Annotations
 ^^^^^^^^^^^^^^^^^^^^^^
 
 The primary extension point for including external data are the
-`StructuredAnnotations </ome/wiki/StructuredAnnotations>`_ (SAs). SAs
+:ref:`developers/Omero/Modules/StructuredAnnotations` (SAs). SAs
 are designed as email-like attachments which can be associated with
 various core metadata types. In general, they should like to information
 outside of the OME model, i.e. information of which OMERO clients and
@@ -191,7 +191,7 @@ your own exception type, feel free to do so, but either 1) subclass
 And regardless, if you are accessing any internal OMERO API, add
 ``omero::ServerError`` to your ``throws`` clause.
 
-See `ExceptionHandling </ome/wiki/ExceptionHandling>`_ for more
+See :ref:`developers/Omero/Modules/ExceptionHandling` for more
 information.
 
 Java Implementation using ``_Disp``
@@ -262,7 +262,7 @@ The three patterns which are available are:
 -  ``ome/services/db-*.xml`` : base connection and security objects.
    These will be included in background java process like the index and
    pixeldata handlers. **NB:**
-   `PasswordProvider </ome/wiki/PasswordProvider>`_ and similar should
+   :ref:`developers/Omero/Server/PasswordProvider` and similar should
    be included at this level.
 
 See :source:`components/blitz/resources/ome/services`

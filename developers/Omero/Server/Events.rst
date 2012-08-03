@@ -4,7 +4,7 @@ Omero Events and Provenance
 What is an Event
 ----------------
 
-As described under `OmeroContext </ome/wiki/OmeroContext>`_, each method
+As described under :ref:`developers/Omero/Server/Context`, each method
 call takes place within a single application context (always the same),
 session, and event. Of these, only event is guaranteed to be unique for
 every task\*. The :source:`components/server/src/ome/security/basic/EventHandler.java`

@@ -113,7 +113,7 @@ Stateful/Binary? Services
 -  RenderingEngine:
    :source:` src <components/common/src/omeis/providers/re/RenderingEngine.java>`,
    :javadoc:` API <slice2html/omero/api/RenderingEngine.html#RenderingEngine>`
-   (see `RenderingEngine </ome/wiki/RenderingEngine>`_ for more)
+   (see :ref:`developers/Omero/Server/RenderingEngine` for more)
 -  ThumbnailStore:
    :source:` src <components/common/src/ome/api/Thumbnail.store>`,
    :javadoc:` API <ome/api/ThumbnailStore.html>`
@@ -241,8 +241,4 @@ is implemented as
 
          pojos.findContainerHierarchies(@NotNull Class, @NotNull @Validate(Integer.class) Set, Map)
 
---------------
-
-See also: `OmeroQueries </ome/wiki/OmeroQueries>`_ \| PixelService? \|
-`RenderingEngine </ome/wiki/RenderingEngine>`_ \|
-`ExceptionHandling </ome/wiki/ExceptionHandling>`_
+.. seealso:: :ref:`developers/Omero/Server/Queries`, :ref:`developers/Omero/Server/RenderingEngine`, :ref:`developers/Omero/Modules/ExceptionHandling`

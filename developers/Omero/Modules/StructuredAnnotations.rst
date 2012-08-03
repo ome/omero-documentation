@@ -1,3 +1,5 @@
+.. _developers/Omero/Modules/StructuredAnnotations:
+
 Structured Annotations
 ======================
 

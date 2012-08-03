@@ -1,7 +1,9 @@
+.. _developers/Omero/Server/PasswordProvider:
+
 Password Provider
 =================
 
-A `PasswordProvider </ome/wiki/PasswordProvider>`_ is an implementation
+A :ref:`developers/Omero/Server/PasswordProvider` is an implementation
 of the Java interface
 :source:`ome.security.auth.PasswordProvider <components/server/src/ome/security/auth/PasswordProvider.java>`.
 Several implementations exist currently:

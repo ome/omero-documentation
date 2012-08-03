@@ -1,7 +1,7 @@
 LoginAttemptListener
 ====================
 
-All the `PasswordProvider </ome/wiki/PasswordProvider>`_ implementations
+All the :ref:`developers/Omero/Server/PasswordProvider` implementations
 provided by default publish a
 ":source:`LoginAttemptMessage <components/server/src/ome/services/messages/LoginAttemptMessage.java>`\ "
 every time they check a password value. This permits any

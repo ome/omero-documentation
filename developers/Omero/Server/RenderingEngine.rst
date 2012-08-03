@@ -1,3 +1,5 @@
+.. _developers/Omero/Server/RenderingEngine:
+
 OMERO Rendering Engine
 ======================
 

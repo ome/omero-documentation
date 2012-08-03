@@ -1,3 +1,5 @@
+.. _developers/Omero/Clients/ImportLibrary:
+
 OMERO Import Library
 ====================
 
@@ -10,15 +12,14 @@ directly:
 -  [STRIKEOUT:The `standalone GUI
    importer <http://www.openmicroscopy.org/site/support/omero4/getting-started/tutorial/importing-images>`_]
    (deprecated)
--  The integrated :ref:`developers/Omero/Insight`_ importer
+-  The integrated :ref:`developers/Omero/Insight` importer
 -  The ` command-line
    importer <http://www.openmicroscopy.org.uk/site/support/omero4/getting-started/tutorial/command-line-import>`_
 
 Components
 ----------
 
-The primary classes which make up the
-`ImportLibrary </ome/wiki/ImportLibrary>`_ are:
+The primary classes which make up the :ref:`developers/Omero/Clients/ImportLibrary` are:
 
 -  :source:` ImportLibrary.java <components/blitz/src/ome/formats/importer/ImportLibrary.java>`,
    itself, which is the main driver

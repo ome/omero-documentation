@@ -349,7 +349,7 @@ configuring the map of Formats (roughly mime-types) of files to parser
 instances, extracting information from attached binary files can be made
 quick straight-forward.
 
-Simiarly, `SearchBridges </ome/wiki/SearchBridges>`_ provide a mechanism
+Similarly, :ref:`developers/Omero/Modules/Search/Bridges` provide a mechanism
 for parsing all metadata entering the system. One built in bridge (the
 :source:`FullTextBridge <components/server/src/ome/services/fulltext/FullTextBridge.java>`)
 parses out the fields mentioned above, but by creating your own bridge
@@ -357,8 +357,8 @@ it is possible to extract more information specific to your site.
 
 --------------
 
-See also: `StructuredAnnotations </ome/wiki/StructuredAnnotations>`_,
-`SearchBridges </ome/wiki/SearchBridges>`_,
+See also: :ref:`developers/Omero/Modules/StructuredAnnotations`,
+:ref:`developers/Omero/Modules/Search/Bridges`,
 `FileParsers </ome/wiki/FileParsers>`_, ` Query Parser
 Syntax <http://lucene.apache.org/java/2_2_0/queryparsersyntax.html>`_,
 ` Luke <http://www.getopt.org/luke/>`_ a Java application which you can

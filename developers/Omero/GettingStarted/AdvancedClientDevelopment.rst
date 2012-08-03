@@ -1794,7 +1794,7 @@ Probably the most critical thing to realize is that any call on a proxy,
 which includes ``ServiceFactoryPrx`` or any of the \*Prx service classes
 is a remote invocation on the server. Therefore proper exception
 handling is critical. The definition of the various exceptions is
-outlined on the `ExceptionHandling </ome/wiki/ExceptionHandling>`_ page
+outlined on the :ref:`developers/Omero/Modules/ExceptionHandling` page
 and so won't be repeated here. However, how are these sensibly used?
 
 One easy rule is that every ``omero.client`` object which you
@@ -2636,7 +2636,7 @@ several changes are necessary to port your code to
 -  All ``PojoOptions`` usages are now replaced by
    ``omero.sys.ParametersI`` (:ticket:`67`)
 
--  `ExceptionHandling </ome/wiki/ExceptionHandling>`_
+-  :ref:`developers/Omero/Modules/ExceptionHandling`
 
    -  all access : throws ServerError?
    -  IllegalState?, EJB --> ServerError? \| Ice.\*

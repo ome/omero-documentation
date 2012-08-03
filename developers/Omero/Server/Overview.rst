@@ -68,7 +68,7 @@ aspects with links into the rest of the
 
 -  After execution, the OMERO runtime is reset, the method call is
    logged, and either the successful results are returned or an
-   `exception </ome/wiki/ExceptionHandling>`_ is thrown.
+   :ref:`exception <developers/Omero/Modules/ExceptionHandling>` is thrown.
 
 Technologies
 ------------
@@ -120,7 +120,7 @@ component. From there it is distributed as either
 Topics
 ~~~~~~
 
--  `ExceptionHandling </ome/wiki/ExceptionHandling>`_
+-  :ref:`developers/Omero/Modules/ExceptionHandling`
 -  |OmeroModel|
 -  `OmeroClientLibrary </ome/wiki/OmeroClientLibrary>`_
 -  :ref:`server/security`

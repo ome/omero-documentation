@@ -1,3 +1,5 @@
+.. _developers/Omero/Context/SecuritySystem:
+
 Omero Security System
 =====================
 
@@ -159,7 +161,7 @@ Client & Common
 
 :source:`SecurityViolation.java <components/model/src/ome/conditions/SecurityViolation.java>`
     the exception thrown by the
-    `SecuritySystem </ome/wiki/SecuritySystem>`_ at the first hint of
+    :ref:`developers/Omero/Context/SecuritySystem` at the first hint of
     misdoings.
 
 :source:`Principal.java <components/common/src/ome/system/Principal.java>`
@@ -243,7 +245,7 @@ at anytime.
 
 The values are converted to java.util.Properties which are merged with
 the properties from the \*.properties files from /etc to create the
-client OmeroContext (also known as the "application context"). The
+client :ref:`developers/Omero/Server/Context` (also known as the "application context"). The
 context contains a Principal and user credentials (password, etc.) which
 are associated with the thread before each method execution in a
 specialized TargetSource. Finally, these objects are serialized to the
@@ -375,7 +377,7 @@ interface which encapsulates all logic regarding security. It also hides
 as much as it can, and if not specifically needed should be ignored.
 However, before one attempts to manually check security, by all means
 use the security system, and for that, it may need to be acquired from
-the server-side `OmeroContext </ome/wiki/OmeroContext>`_. Currently,
+the server-side :ref:`developers/Omero/Server/Context`. Currently,
 there is no client-side security system. See :ticket:`234`.
 
 The `SecuritySystem </ome/wiki/SecuritySystem>`_ and its currently only

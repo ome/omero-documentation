@@ -24,7 +24,7 @@ OMERO.server:
       etc/local.properties             - Local overrides for other properties (used by build only)
 
 During the build, these files get stored in the ``blitz.jar`` and are
-read-only. On creation of an `OmeroContext </ome/wiki/OmeroContext>`_,
+read-only. On creation of an :ref:`developers/Omero/Server/Context`,
 the lookup for properties is (first wins):
 
 -  Properties passed into the constructor (if none, then the default
