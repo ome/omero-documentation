@@ -10,7 +10,9 @@ Instructions on :plone:` downloading <support/omero4/downloads>`,
 :ref:`rst_installation` and administering OMERO can be found under 
 the :ref:`rst_server` of the main site.
 
-`|image1| </ome/attachment/wiki/OmeroHome/api-figure.png>`_
+.. figure:: ../images/developer-api-figure.png
+   :align: center
+   :alt: 
 
 What is OMERO?
 ~~~~~~~~~~~~~~
@@ -45,7 +47,9 @@ mailing lists <http://www.openmicroscopy.org.uk/site/community>`_.
 OMERO Basics
 ~~~~~~~~~~~~
 
-`|image2| </ome/attachment/wiki/OmeroHome/model-pdi.png>`_
+.. figure:: ../images/developer-model-pdi.png
+   :align: center
+   :alt: 
 
 OMERO is based on the OME data model which can appear overly complex for
 new users. However, the core entities you need for getting started are
