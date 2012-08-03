@@ -189,8 +189,7 @@ as a continuous integration server available at
 ` http://hudson.openmicroscopy.org.uk <http://hudson.openmicroscopy.org.uk>`_
 so many binary packages can be downloaded without compiling them
 yourself . OMERO.server is built by the "OMERO" job at
-` http://hudson.openmicroscopy.org.uk/job/OMERO <http://hudson.openmicroscopy.org.uk/job/OMERO>`_
-.
+`http://hudson.openmicroscopy.org.uk/job/OMERO-trunk`_.
 
 Hudson checks for git changes every 15 minutes and executes:
 

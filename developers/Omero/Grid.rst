@@ -1,3 +1,5 @@
+.. _developers/Omero/Grid:
+
 OMERO Grid
 ==========
 
