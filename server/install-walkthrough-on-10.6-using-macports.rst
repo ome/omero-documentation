@@ -12,7 +12,7 @@ OMERO.server Mac OS X Installation Walkthrough with MacPorts
 .. contents::
 	:depth: 2
 
-It is not a substitute for the general :ref:`rst_installation` page
+It is not a substitute for the general :ref:`server/installation` page
 but is here to give a feel for the process.
 
 There is an accompanying video available :snapshot:`here <movies/omero-4-1/mov/SnowInstall.mov>`.

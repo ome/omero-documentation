@@ -130,7 +130,7 @@ your server after changing them.
 
 To do this, you will need to configure several server properties,
 similar to the properties you configured during
-:ref:`installation <rst_installation>` (:ref:`Windows <rst_install-windows>`).
+:ref:`installation <server/installation>` (:ref:`Windows <server/install-windows>`).
 
 -  key store path
 

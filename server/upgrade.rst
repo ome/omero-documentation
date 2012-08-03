@@ -94,7 +94,7 @@ Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-:ref:`rst_installation`. The 4.4 upgrade script should execute in
+:ref:`server/installation`. The 4.4 upgrade script should execute in
 a short time.
 
 ::

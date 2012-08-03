@@ -36,6 +36,6 @@ From binaries
 Starting on boot
 ----------------
 
---------------
 
-See also: `OmeroInstall </ome/wiki/OmeroInstall>`_, :ref:`developers/Server/Grid/Install`
+
+.. seealso:: :ref:`server/installation`, :ref:`developers/Server/Grid/Install`

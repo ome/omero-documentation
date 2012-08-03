@@ -45,9 +45,9 @@ during the installation process.
    regular account (either your own or one you created specially for
    running OMERO, we'll call it "omero\_user" here); there is the user
    called a "root-level user" on the :ref:`Unix installation
-   page <rst_installation>` (which includes Mac OS X) and
+   page <server/installation>` (which includes Mac OS X) and
    "administrator-level user" on the :ref:`Windows installation
-   page <rst_install-windows>`; and there may be a special
+   page <server/install-windows>`; and there may be a special
    "postgres" user who controls the database server. The regular
    "omero\_user" account runs the server, and owns the files uploaded to
    OMERO. This account must have permission to write to the /OMERO/
@@ -188,7 +188,7 @@ Server fails to start
    installation as outlined on the :ref:`PostgreSQL
    page <rst_postgresql>`.
 2. Check the permissions on your ``omero.data.dir`` (``/OMERO`` by
-   default) as outlined on the :ref:`OMERO Install <rst_installation>`
+   default) as outlined on the :ref:`OMERO Install <server/installation>`
    page, in the ''Pre-Installation'' section.
 3. Are you on a laptop? If you see an error message mentioning 
    :ticket:`"node master couldn't be reached" <7325>`, you

@@ -328,7 +328,7 @@ Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-:ref:`installation <rst_installation>`. Once begun, the upgrade can take
+:ref:`installation <server/installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 1 or 2 hours), please be
 patient and ensure you have performed a database backup as outlined
 under "First steps".
@@ -465,7 +465,7 @@ Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-:ref:`installation <rst_installation>`. Once begun, the upgrade can take
+:ref:`installation <server/installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 2 or 3 hours), please be
 patient and ensure you have performed a database backup as outlined
 under "First steps".
@@ -659,7 +659,7 @@ Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-:ref:`installation <rst_installation>`. Once begun, the upgrade can take
+:ref:`installation <server/installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 2 or 3 hours), please be
 patient and ensure you have performed a database backup as outlined
 under "First steps".
@@ -718,7 +718,7 @@ before proceeding with these instructions. **
 Unlike previous upgrades, migrating from the 3.2.x series to 4.0.0 is
 essentially a full re-install but re-using your existing database and
 data files. Nevertheless, all the instructions under
-:ref:`install <rst_installation>` should be followed before beginning with these
+:ref:`install <server/installation>` should be followed before beginning with these
 instructions. In fact, starting with a bare database may be advisable to
 test out your installation. Also, be sure to put aside a **significant**
 amount of time for upgrading larger databases.
@@ -742,7 +742,7 @@ Step 2: Update your database
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-:ref:`installation <rst_installation>`. Once begun, the upgrade can take
+:ref:`installation <server/installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 2 or 3 hours), please be
 patient and ensure you have performed a database backup as above.
 
@@ -765,7 +765,7 @@ Step 3: Configuring server
 
 If the ``omero.db.user`` and ``omero.db.pass`` for the ``omero3``
 database are different then those for the database you created during
-:ref:`installation <rst_installation>`, then those should be configured as well.
+:ref:`installation <server/installation>`, then those should be configured as well.
 
 .. seealso::
 

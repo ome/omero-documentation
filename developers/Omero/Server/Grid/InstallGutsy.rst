@@ -42,8 +42,7 @@ The files used here are available under :source:`docs/install/gutsy`.
 Starting on boot
 ----------------
 
-Following
-`OmeroInstall#Installation </ome/wiki/OmeroInstall#Installation>`_,
+Following :ref:`server/installation#Installation`,
 execute the following as root:
 
 ::
@@ -71,4 +70,4 @@ execute the following as root:
     #
     sudo /etc/init.d/omero-admin stop
 
-.. seealso:: `OmeroInstall </ome/wiki/OmeroInstall>`_, `OmeroGridInstall </ome/wiki/OmeroGridInstall>`_
+.. seealso:: :ref:`server/installation`, :ref:`developers/Server/Grid/Install`

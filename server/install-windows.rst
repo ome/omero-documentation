@@ -1,4 +1,4 @@
-.. _rst_install-windows:
+.. _server/install-windows:
 
 OMERO.server Installation for Microsoft Windows
 ===============================================
@@ -6,7 +6,7 @@ OMERO.server Installation for Microsoft Windows
 -  If you are **upgrading** your OMERO.server installation you should
    follow instructions on the :ref:`rst_upgrade` page.
 -  If you are attempting a **UNIX Based Platform install (Linux, Mac OS
-   X, etc.)** please see the :ref:`UNIX Based Platform <rst_installation>`
+   X, etc.)** please see the :ref:`UNIX Based Platform <server/installation>`
    install page.
 
 Limitations

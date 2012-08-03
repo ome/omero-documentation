@@ -9,7 +9,7 @@ OMERO.server Mac OS X Manual Installation Walkthrough
     clean Mac OS 10.6 Snow Leopard (or 10.5 Leopard) by manually downloading
     and configuring the required components.
 
-It is not a substitute for the general :ref:`rst_installation` page
+It is not a substitute for the general :ref:`server/installation` page
 but is here to give a feel for the process.
 
 Prerequisites

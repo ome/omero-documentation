@@ -184,7 +184,7 @@ preferences by running:
     $ bin/omero config load /OMERO/backup/omero.config
 
 You should then follow the *Reconfiguration* steps of
-:ref:`install <rst_installation>`.
+:ref:`install <server/installation>`.
 
 Restoring your PostgreSQL database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

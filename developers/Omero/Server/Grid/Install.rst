@@ -4,15 +4,13 @@ OMERO Grid Install
 ==================
 
 Before attempting to install |OmeroGrid|, the
-requirements listed under `OmeroInstall </ome/wiki/OmeroInstall>`_ must
+requirements listed under :ref:`server/installation` must
 be satisfied. In particular:
 
--  `OmeroInstall#Prerequisites </ome/wiki/OmeroInstall#Prerequisites>`_:
-   Java and Postgres
--  `OmeroInstall#Pre-installation </ome/wiki/OmeroInstall#Pre-installation>`_:
-   Creating users and directories
+-  :ref:`server/installation#Prerequisites`: Java and Postgres
+-  :ref:`server/installation#PreInstallation`: Creating users and directories
 -  Configuration: Extraction and editing **local.properties** under
-   `OmeroInstall#Installation </ome/wiki/OmeroInstall#Installation>`_
+   :ref:`server/installation#Installation`
 
 .. contents::
 
@@ -68,8 +66,7 @@ Unsupported/untested platforms
 Installation
 ------------
 
-Once JBoss is running according to
-`OmeroInstall#Installation </ome/wiki/OmeroInstall#Installation>`_, a
+Once JBoss is running according to :ref:`server/installation#Installation`, a
 few further steps are necessary to start |OmeroGrid|, which in turns starts
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_ and various other processes:
 

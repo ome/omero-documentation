@@ -21,10 +21,9 @@ Limitations
 Requirements
 ------------
 
-First, all of the requirements on
-`OmeroInstallWindows </ome/wiki/OmeroInstallWindows>`_ should be
-fulfilled. The JBoss server should be able to contact a Postgres
-installation with an OMERO database. Then,
+First, all of the requirements on :ref:`server/install-windows`
+should be fulfilled. The JBoss server should be able to contact 
+a Postgres installation with an OMERO database. Then,
 
 -  Install Ice 3.2.1 from
    ` ZeroC <http://www.zeroc.com/download_3_2_1.html>`_. The test

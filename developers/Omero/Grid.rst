@@ -443,4 +443,4 @@ Instead, it must be started separately via $JBOSS\_HOME/bin/run.sh
 
 See also: `OmeroBlitz </ome/wiki/OmeroBlitz>`_,
 `OmeroSessions </ome/wiki/OmeroSessions>`_,
-:ref:`developers/Server/Grid/Install`_
+:ref:`developers/Server/Grid/Install`

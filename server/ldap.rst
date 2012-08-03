@@ -231,7 +231,7 @@ kept in LDAP. To enable it, use:
 
 .. seealso::
 
-	:ref:`rst_installation`
+	:ref:`server/installation`
 		Installation guide for OMERO.server under UNIX-based platforms
 	
 	:ref:`OMERO.server Security and Firewalls <rst_security>`
