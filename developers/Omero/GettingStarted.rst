@@ -15,7 +15,7 @@ their own, customized clients.
    website <https://www.openmicroscopy.org/site/support/omero4/getting-started/client-documentation>`_.
 
 -  **Developers** interested in writing custom OMERO clients should See
-   `DevelopingOmeroClients </ome/wiki/DevelopingOmeroClients>`_.
+   |DevelopingOmeroClients|.
 
 Examples for all the `OmeroBlitz </ome/wiki/OmeroBlitz>`_ languages
 (|OmeroPy|, |OmeroJava|, |OmeroCpp|, and |OmeroMatlab|) are provided under:

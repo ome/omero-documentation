@@ -1,5 +1,7 @@
-Developing `OmeroBlitz </ome/wiki/OmeroBlitz>`_ Clients
-========================================================
+.. _developers/Omero/GettingStarted/AdvancedClientDevelopment:
+
+Developing OMERO Clients
+========================
 
 .. contents::
 
@@ -36,14 +38,6 @@ This is done periodically by the omero-examples Hudson job:
 
 Other examples (in Python) can be found at
 `PythonClientCodeExamples </ome/wiki/PythonClientCodeExamples>`_.
-
-If you would prefer to only see the examples for a particular language,
-reload this page with the following links:
-
--  `Java-only </ome/wiki/DevelopingOmeroClients?onlyjava>`_
--  `Python-only </ome/wiki/DevelopingOmeroClients?onlypy>`_
--  `C++-only </ome/wiki/DevelopingOmeroClients?onlycpp>`_
--  `Matlab-only </ome/wiki/DevelopingOmeroClients?onlym>`_
 
 --------------
 
@@ -84,7 +78,7 @@ all apply, and the developer must be aware of concurrency and latency
 issues, as well as complete loss of connectivity, all of which we'll
 discuss below.
 
---------------
+.. _developers/Omero/GettingStarted/AdvancedClientDevelopment#Objects:
 
 Objects
 -------
@@ -1264,8 +1258,7 @@ Example: :source:`examples/OmeroClients/clientpointer.cpp`
 ``__getattr__`` & ``__setattr__`` (Python only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Like smart pointers for :ref:`OmeroCpp <developers/Omero/Cpp>`, the
-`OmeroPy </ome/wiki/OmeroPy>`_ SDK defines ``__getattr__`` and
+Like smart pointers for |OmeroCpp|, the |OmeroPy| SDK defines ``__getattr__`` and
 ``__setattr__`` methods for all `ObjectModel </ome/wiki/ObjectModel>`_
 classes. Rather than explicitly calling the ``getFoo()`` and
 ``setFoo()`` methods, field-like access can be used. (It should be

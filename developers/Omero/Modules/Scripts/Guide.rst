@@ -1,3 +1,5 @@
+.. _developers/Omero/Modules/Scripts/Guide:
+
 Scripting Service User Guide
 ============================
 
@@ -25,8 +27,7 @@ scripts.
 
 Scripts can be run from Insight, using a UI generated from the script.
 The script results can also be handled by Insight. Scripts should
-conform to the
-`OmeroPy/ScriptingStyleGuide </ome/wiki/OmeroPy/ScriptingStyleGuide>`_
+conform to the :ref:`developers/Omero/Modules/Scripts/StyleGuide`
 in order to improve usability of the script.
 
 The basic steps in a script-writing workflow are:
@@ -70,8 +71,7 @@ above).
 The action of this script (editing Image descriptions) is trivial but it
 demonstrates a number of features that you may find useful, including
 conventions for inputs and outputs to improve interaction with
-OMERO.insight (as discussed on the
-`OmeroPy/ScriptingStyleGuide </ome/wiki/OmeroPy/ScriptingStyleGuide>`_).
+OMERO.insight (as discussed on the `developers/Omero/Modules/Scripts/StyleGuide`).
 
 The script is well documented and should get you started. A few points
 to note:
@@ -156,8 +156,7 @@ Run Script
 You can run the script from OMERO.insight by browsing the scripts (see
 screen-shot above). A UI will be generated from the chosen script and
 the currently selected images or datasets will be populated if the
-script supports this (see
-`OmeroPy/ScriptingStyleGuide </ome/wiki/OmeroPy/ScriptingStyleGuide>`_).
+script supports this (see `developers/Omero/Modules/Scripts/StyleGuide`).
 
 Or launch the script from the command line, specifying the script ID.
 You will be asked to provide input for any non-optional parameters that

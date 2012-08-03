@@ -292,8 +292,8 @@ OMERO model objects, E.g. omero.model.Project, omero.model.Pixels etc
 (see :javadoc:` full list <slice2html/omero/model.html>`)
 are code-generated and mapped to the OMERO database schema. They are
 language agnostic and their data is in the form of omero.rtypes as
-described: ` about model
-objects <http://trac.openmicroscopy.org.uk/ome/wiki/DevelopingOmeroClients#Objects>`_).
+described: :ref:` about model
+objects <developers/Omero/GettingStarted/AdvancedClientDevelopment#Objects>`).
 
 ::
 

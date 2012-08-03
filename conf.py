@@ -98,10 +98,10 @@ extlinks = {
     }
 
 rst_epilog = """
-.. |OmeroPy| replace:: :ref:`OmeroPy <developers/Omero/Python>`
-.. |OmeroCpp| replace:: :ref:`OmeroCpp <developers/Omero/Cpp>`
-.. |OmeroJava| replace:: :ref:`OmeroJava <developers/Omero/Java>`
-.. |OmeroMatlab| replace:: :ref:`OmeroMatlab <developers/Omero/Matlab>`
+.. |OmeroPy| replace:: :ref:`developers/Omero/Python`
+.. |OmeroCpp| replace:: :ref:`developers/Omero/Cpp`
+.. |OmeroJava| replace:: :ref:`developers/Omero/Java`
+.. |OmeroMatlab| replace:: :ref:`developers/Omero/Matlab`
 .. |OmeroCli| replace:: :ref:`developers/Omero/CommandLine`
 .. |OmeroApi| replace:: :ref:`developers/Omero/Modules/Api`
 .. |OmeroWeb| replace:: :ref:`developers/Omero/Web`
@@ -109,6 +109,7 @@ rst_epilog = """
 .. |OmeroInsight| replace:: :ref:`developers/Omero/Insight`
 .. |ExtendingOmero| replace:: :ref:`developers/Server/ExtendingOmero`
 .. |BlitzGateway| replace:: :ref:`developers/Omero/Python/Gateway`
+.. |DevelopingOmeroClients| replace:: :ref:`developers/Omero/GettingStarted/AdvancedClientDevelopment`
 """
 
 # -- Options for HTML output ---------------------------------------------------

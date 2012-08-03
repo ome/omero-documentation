@@ -20,10 +20,10 @@ visualizing, managing, and annotating microscope images and metadata.
 The |OmeroApi| allows clients to be
 written in :ref:`Java <developers/Omero/Java>`, :ref:`Python <developers/Omero/Python>`,
 :ref:`C++ <developers/Omero/Cpp>` or :ref:`MATLAB <developers/Omero/Matlab>`. OMERO
-releases include a web client :ref:`OMERO.web <developers/Omero/Web>` and |OmeroCli| which 
-use the Python API and a Java client :ref:`OMERO.Insight <developers/Omero/Insight>`.
+releases include a web client |OmeroWeb| and |OmeroCli| which 
+use the Python API and a Java client |OmeroInsight|.
 There is also an ImageJ plugin. OMERO can be extended by modifying these
-clients or by `writing your own </ome/wiki/DevelopingOmeroClients>`_ in
+clients or by :ref:`writing your own <developers/Omero/GettingStarted/AdvancedClientDevelopment>` in
 any of the supported languages (see figure). OMERO also supports a
 `Scripting Service </ome/wiki/OmeroScripts>`_ which allows Python
 scripts to be run on the server & called from any of the other clients.
@@ -121,14 +121,13 @@ Getting Your Hand's Dirty
 
 -  `Working with OMERO </ome/wiki/WorkingWithOmero>`_
 -  |ExtendingOmero|
--  :ref:`developers/Omero/Java`
--  :ref:`developers/Omero/Python`
--  `Developing Clients using
-   OmeroBlitz </ome/wiki/DevelopingOmeroClients>`_
+-  |OmeroJava|
+-  |OmeroPy|
+-  |DevelopingOmeroClients|
 -  `Developing Scripts </ome/wiki/OmeroScripts>`_
 
-   -  `The Scripting Service </ome/wiki/OmeroPy/ScriptingServiceGuide>`_
-   -  `Scripting Style Guide </ome/wiki/OmeroPy/ScriptingStyleGuide>`_
+   -  :ref:`developers/Omero/Modules/Scripts/Guide`
+   -  :ref:`developers/Omero/Modules/Scripts/StyleGuide`
 
 -  `Developing WebApps </ome/wiki/OmeroWeb/CreateApp>`_
 
@@ -146,8 +145,7 @@ Further Reading
 #. |OmeroApi|
 #. |OmeroCli|
 #. `OmeroModel </ome/wiki/OmeroModel>`_: Model Documentation
-#. `DevelopingOmeroClients </ome/wiki/DevelopingOmeroClients>`_:
-   Developting OmeroBlitz Clients
+#. |DevelopingOmeroClients|
 #. |ExtendingOmero|
 
 Current Development Cycle

@@ -147,8 +147,7 @@ SCons-based builds
 ~~~~~~~~~~~~~~~~~~
 
 Builds which have C++ targets are based generally on
-` Scons <http://www.scons.org>`__. See :ref:`developers/Omero/Cpp` 
-for more information.
+` Scons <http://www.scons.org>`__. See |OmeroCpp| for more information.
 
 Creating binary distribution
 ----------------------------
@@ -157,8 +156,7 @@ The default ant target ("build-default") will build the OMERO system and
 copy the necessary components for a binary distribution to the /dist
 directory. Below is a comparison of what is taken from the build, where
 it is put, and what role it plays in the distribution. **Note: by
-default, :ref:`OmeroCpp <developers/Omero/Cpp>`  is not built. Use
-``build-all`` for that.**
+default, |OmeroCpp| is not built. Use ``build-all`` for that.**
 
 +--------------------------------------+---------------------------+----------------------------------------------------------+
 | **OMERO\_HOME**                      | **OMERO\_HOME/dist**      | Comments                                                 |

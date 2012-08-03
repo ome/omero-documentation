@@ -152,7 +152,7 @@ code are placed under OMERO\_HOME/target with other zip artifacts.
 Using the library
 -----------------
 
-To use :ref:`OmeroCpp <developers/Omero/Cpp>` it is necessary to point your
+To use |OmeroCpp| it is necessary to point your
 compiler and linker at the mentioned directories above. A simple Gnu
 ` Makefile <http://www.gnu.org/software/make/>`_ might look like this
 (`download </ome/attachment/wiki/OmeroCpp/Makefile>`_
@@ -276,7 +276,7 @@ Mac OS X, change all instances of "LD\_LIBRARY\_PATH" to
 Notes for Visual Studio users
 -----------------------------
 
-The SConstruct build file in :ref:`OmeroCpp <developers/Omero/Cpp>` defines a
+The SConstruct build file in |OmeroCpp| defines a
 target "msproj" which can be used to generate an MS VS project and
 solution. There is also a similarly named ant target:
 

@@ -184,7 +184,7 @@ Warning: Exceptions
 ^^^^^^^^^^^^^^^^^^^
 
 You will need to think carefully about what exceptions to handle. Ice
-(especially :ref:`OmeroCpp  <developers/Omero/Cpp>`) does not handle exceptions
+(especially |OmeroCpp|) does not handle exceptions
 well that are not strictly defined. In general, if you would like to add
 your own exception type, feel free to do so, but either 1) subclass
 ``omero::ServerError`` or 2) add it the appropriate ``throws`` clauses.

@@ -2,8 +2,7 @@ Scripting Service API
 ---------------------
 
 **The recommended way of working with the scripting service is via the
-command line as described on the
-`OmeroPy/ScriptingServiceGuide </ome/wiki/OmeroPy/ScriptingServiceGuide>`_
+command line as described on the :ref:`developers/Omero/Modules/Scripts/Guide`
 page. The information on this page is only useful if you want to access
 the Scripting service from your own client-side Python code.**
 
@@ -17,7 +16,7 @@ line and can be used as an example for writing your own clients.
 
 Most functions of the adminWorkflow.py script are also implemented in
 the omero command line interface described on the
-`OmeroPy/ScriptingServiceGuide </ome/wiki/OmeroPy/ScriptingServiceGuide>`_,
+:ref:`developers/Omero/Modules/Scripts/Guide`,
 which is the preferred way of accessing the scripting service for script
 writers.
 

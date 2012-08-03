@@ -3,7 +3,7 @@
 OMERO Matlab Language Bindings
 ==============================
 
-See `DevelopingOmeroClients </ome/wiki/DevelopingOmeroClients>`_ and
+See |DevelopingOmeroClients| and
 `ObjectModel </ome/wiki/ObjectModel>`_, for an introduction about
 **Object**.
 

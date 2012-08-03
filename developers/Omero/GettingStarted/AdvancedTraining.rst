@@ -164,7 +164,7 @@ Working with the OMERO model objects
 ------------------------------------
 
 For detailed information see the `ObjectModel </ome/wiki/ObjectModel>`_
-and `DevelopingOmeroClients </ome/wiki/DevelopingOmeroClients>`_ pages.
+and |DevelopingOmeroClients| pages.
 
 Objects that you wish to work with on the client must be loaded from
 OMERO, with the query defining the extent of any data graph that is

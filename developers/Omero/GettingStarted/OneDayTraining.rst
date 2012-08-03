@@ -54,11 +54,11 @@ Client Side Scripting
 
 For detailed info on writing client code see:
 
--  :ref:`developers/Omero/Java`
--  :ref:`developers/Omero/Python`
+-  |OmeroJava|
+-  |OmeroPy|
 -  |BlitzGateway|
--  OMERO C++ Language Bindings - :ref:`OmeroCpp <developers/Omero/Cpp>`
--  :ref:`developers/Omero/Matlab`
+-  |OmeroCpp|
+-  |OmeroMatlab|
 
 Which Language to use?
 ----------------------

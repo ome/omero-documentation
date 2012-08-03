@@ -21,7 +21,8 @@ The publishing button allows you make movies or create various views of your ima
 Upload Scripts
 --------------
 
-Use the upload scripts dialog to upload scripts to the server. For user guide about scripting, see :wiki:`Scripting Service Guide <OmeroPy/ScriptingServiceGuide>`.
+Use the upload scripts dialog to upload scripts to the server. For user guide about scripting, 
+see :ref:`developers/Omero/Modules/Scripts/Guide`.
 
 .. figure:: ../images/insight-scripting-3upload.png
    :align: center

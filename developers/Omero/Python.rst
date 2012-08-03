@@ -1079,5 +1079,4 @@ Python OMERO.scripts
 It is relatively straight-forward to take the code samples above and
 re-use them in OMERO.scripts. This allows the code to be run on the
 OMERO server and called from either the OMERO.insight client or
-OMERO.web by any users of the server. See
-`OmeroPy/ScriptingServiceGuide </ome/wiki/OmeroPy/ScriptingServiceGuide>`_.
+OMERO.web by any users of the server. See :ref:`developers/Omero/Modules/Scripts/Guide`.
