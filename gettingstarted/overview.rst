@@ -33,8 +33,8 @@ process. Detailed instructions are available for installing and
 upgrading.
 
 -  :plone:`OMERO.server downloads <support/omero4/downloads>`
--  :ref:`rst_installation`
--  :ref:`rst_install-windows`
+-  :ref:`server/installation`
+-  :ref:`server/install-windows`
 -  :ref:`rst_upgrade`
 
 --------------

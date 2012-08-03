@@ -1,5 +1,7 @@
-Installing `OmeroGrid </ome/wiki/OmeroGrid>`_ on Mac OS X
-=========================================================
+.. _developers/Server/Grid/InstallMacOsx:
+
+Installing OMERO Grid on Mac OS X
+==================================
 
 Ice
 ---

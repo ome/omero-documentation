@@ -105,8 +105,8 @@ JBoss-only
     Principal on service lookup. These values can be overridden in
     local.properties.
 
-`OmeroGrid </ome/wiki/OmeroGrid>`_ only
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+|OmeroGrid| only
+^^^^^^^^^^^^^^^^
 
 Client & Common
 ~~~~~~~~~~~~~~~
@@ -129,7 +129,7 @@ Client & Common
     these. ITypes, however, provides a createEnumeration method with
     general access.
 
-:source:`GraphHolder.java <components/common/src/ome/model/internal/GraphHolder.java>`
+:source:`GraphHolder.java <components/model/src/ome/model/internal/GraphHolder.java>`
     all model objects (implementations of IObject have a never-null
     GraphHolder instance available. This graph holder is responsible for
     various Omero & Hibernate internal processes. One of these is the
@@ -137,27 +137,27 @@ Client & Common
     within the GraphHolder? grants certain privileges to that IObject.
     This logic is encapsulated within the SecuritySystem.
 
-:source:`Details.java <components/common/src/ome/model/internal/Details.java>`
+:source:`Details.java <components/model/src/ome/model/internal/Details.java>`
     contains all the fields necessary to perform
     `AccessControl </ome/wiki/AccessControl>`_, such as owner, group,
     and permissions.
 
-:source:`Permissions <components/common/src/ome/model/internal/Permissions>`
+:source:`Permissions.java <components/model/src/ome/model/internal/Permissions.java>`
     representation of rights and roles. For more information, see
     `PermissionsAndUmasks </ome/wiki/PermissionsAndUmasks>`_.
 
-:source:`Token.java <components/common/src/ome/model/internal/Token.java>`
+:source:`Token.java <components/model/src/ome/model/internal/Token.java>`
     an extremely simple class ("public class Token {}") which is only
     significant when it is equivalent ("==") to a privileged Token
     stored within the SecuritySystem.
 
-:source:`IEnum.java <components/common/src/ome/model/IEnum.java>`
+:source:`IEnum.java <components/model/src/ome/model/IEnum.java>`
     the only non-access control related types which are considered
     "System-Types" are enumerations. IEnum is a marker interface for all
     enumerations and creation of IEnum implementations can only be
     performed through ITypes.
 
-:source:`SecurityViolation.java <components/common/src/ome/conditions/SecurityViolation.java>`
+:source:`SecurityViolation.java <components/model/src/ome/conditions/SecurityViolation.java>`
     the exception thrown by the
     `SecuritySystem </ome/wiki/SecuritySystem>`_ at the first hint of
     misdoings.
@@ -177,26 +177,26 @@ JBoss-only
 :source:`Login.java <components/common/src/ome/system/Login.java>`
 :source:`Server.java <components/common/src/ome/system/Server.java>`
 
-`OmeroGrid </ome/wiki/OmeroGrid>`_-only
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+|OmeroGrid|-only
+^^^^^^^^^^^^^^^^
 
 Server side
 ~~~~~~~~~~~
 
 :source:`AdminImpl.java <components/server/src/ome/logic/AdminImpl.java>`
-:source:`CurrentDetails.java <components/server/src/ome/security/CurrentDetails.java>`
+:source:`CurrentDetails.java <components/server/src/ome/security/basic/CurrentDetails.java>`
 :source:`SecureAction.java <components/server/src/ome/security/SecureAction.java>`
 :source:`SecuritySystem.java <components/server/src/ome/security/SecuritySystem.java>`
-:source:`BasicSecuritySystem.java <components/server/src/ome/security/BasicSecuritySystem.java>`
+:source:`BasicSecuritySystem.java <components/server/src/ome/security/basic/BasicSecuritySystem.java>`
 :source:`ACLEventListener.java <components/server/src/ome/security/ACLEventListener.java>`
-:source:`EventDiffHolder.java <components/server/src/ome/tools/hibernate/EventDiffHolder.java>`
-:source:`EventHandler.java <components/server/src/ome/tools/hibernate/EventHandler.java>`
-:source:`MergeEventListener.java <components/server/src/ome/tools/hibernate/MergeEventListener.java>`
-:source:`OmeroInterceptor.java <components/server/src/ome/tools/hibernate/OmeroInterceptor.java>`
+:source:`EventDiffHolder.java <components/server/src/ome/security/basic/EventDiffHolder.java>`
+:source:`EventHandler.java <components/server/src/ome/security/basic/EventHandler.java>`
+:source:`MergeEventListener.java <components/server/src/ome/security/basic/MergeEventListener.java>`
+:source:`OmeroInterceptor.java <components/server/src/ome/security/basic/OmeroInterceptor.java>`
 :source:`SessionHandler.java <components/server/src/ome/tools/hibernate/SessionHandler.java>`
-:source:`SecurityFilter.java <components/server/src/ome/tools/hibernate/SecurityFilter.java>`
-:source:`EventLogListener.java <components/server/src/ome/tools/hibernate/EventLogListener.java>`
-:source:`EventListenersFactoryBean.java <components/server/src/ome/tools/hibernate/EventListenersFactoryBean.java>`
+:source:`SecurityFilter.java <components/server/src/ome/security/SecurityFilter.java>`
+:source:`EventLogListener.java <components/server/src/ome/security/basic/EventLogListener.java>`
+:source:`EventListenersFactoryBean.java <components/server/src/ome/security/basic/EventListenersFactoryBean.java>`
 :source:`LocalAdmin.java <components/server/src/ome/api/local/LocalAdmin.java>`
 :source:`aop.xml <components/server/resources/ome/services/aop.xml>`
 :source:`hibernate.xml <components/server/resources/ome/services/hibernate.xml>`
@@ -412,7 +412,7 @@ Basically it amounts to this:
       securitySystem.login( p );
 
 This must be run otherwise the
-`EventHandler <components/server/src/ome/tools/hibernate/EventHandler.java>`_
+:source:`EventHandler <components/server/src/ome/security/basic/EventHandler.java>`
 will throw a security exception. Note: the code above is being run in a
 secure context (i.e. you are root.) Pease be careful.
 

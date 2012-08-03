@@ -1,4 +1,4 @@
-.. _rst_install-windows:
+.. _server/install-windows:
 
 OMERO.server Installation for Microsoft Windows
 ===============================================
@@ -6,7 +6,7 @@ OMERO.server Installation for Microsoft Windows
 -  If you are **upgrading** your OMERO.server installation you should
    follow instructions on the :ref:`rst_upgrade` page.
 -  If you are attempting a **UNIX Based Platform install (Linux, Mac OS
-   X, etc.)** please see the :ref:`UNIX Based Platform <rst_installation>`
+   X, etc.)** please see the :ref:`UNIX Based Platform <server/installation>`
    install page.
 
 Limitations
@@ -572,7 +572,7 @@ Advanced configuration
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Once you have the base server running, you may want to try enabling some
-of the advanced features such as :ref:`FS <rst_fs>` or :ref:`LDAP <rst_ldap>`.
+of the advanced features such as :ref:`FS <rst_fs>` or :ref:`LDAP <server/ldap>`.
 If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
 See the :plone:`Feature list <products/feature-list>` for more advanced
 features you may want to use, and :ref:`rst_advanced-configuration` on how to get the most out of

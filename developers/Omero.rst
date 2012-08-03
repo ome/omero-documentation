@@ -7,7 +7,7 @@ Welcome to the OMERO wiki!** This is the home page of the OMERO
 developer documentation wiki.
 
 Instructions on :plone:` downloading <support/omero4/downloads>`,
-:ref:`rst_installation` and administering OMERO can be found under 
+:ref:`server/installation` and administering OMERO can be found under 
 the :ref:`rst_server` of the main site.
 
 .. figure:: ../images/developer-api-figure.png
@@ -92,7 +92,7 @@ You may want to start by ` watching "OMERO, the
 movie(s)" <https://www.openmicroscopy.org/site/products/feature-list>`_.
 On this, you'll find links to a range of movies that demonstrate
 features of the OMERO software. After that you will likely want to
-:ref:` install the server <rst_installation>` and
+:ref:` install the server <server/installation>` and
 ` clients <https://www.openmicroscopy.org/site/support/omero4/clients>`_:
 Insight, Web. Play with it, test data. You can also try out the |OmeroCli|.
 

@@ -1,11 +1,13 @@
+.. _developers/Omero/Grid:
+
 OMERO Grid
 ==========
 
 To unify the various components of OMERO,
-`OmeroGrid </ome/wiki/OmeroGrid>`_ was developed to monitor and control
+|OmeroGrid| was developed to monitor and control
 processes over numerous remote systems. Based on
 ` ZeroC's <http://zeroc.com>`_ IceGrid framework,
-`OmeroGrid </ome/wiki/OmeroGrid>`_ provides an administration gui,
+|OmeroGrid| provides an administration gui,
 distributed background processing, log handling, and several other
 features.
 
@@ -29,14 +31,14 @@ Getting started
 First it is necessary to get a binary distribution. The best way to do
 this is to download the latest released version from
 `MilestoneDownloads </ome/wiki/MilestoneDownloads>`_. Note: for
-`OmeroGrid </ome/wiki/OmeroGrid>`_ functionality you will need at least
+|OmeroGrid| functionality you will need at least
 a 3.0-Beta3 server. Alternatively you can build one yourself
 (`OmeroContributing </ome/wiki/OmeroContributing>`_) or download the
 latest build from hudson
 (` http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/ <http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/>`_).
 
-**More information on installing `OmeroGrid </ome/wiki/OmeroGrid>`_ is
-available under `OmeroGridInstall </ome/wiki/OmeroGridInstall>`_.**
+**More information on installing |OmeroGrid| is
+available under :ref:`developers/Server/Grid/Install`.**
 
 ::
 
@@ -90,10 +92,10 @@ How it works
 
 ` IceGrid <http://zeroc.com>`_ is a location and activation service,
 which functions as a central registry to manage all your OMERO server
-processes. `OmeroGrid </ome/wiki/OmeroGrid>`_ provides server components
+processes. |OmeroGrid| provides server components
 which use the registry to communicate with one another. Other than a
 minimal amount of configuration and starting a single daemon on each
-host machine, `OmeroGrid </ome/wiki/OmeroGrid>`_ manages the complexity
+host machine, |OmeroGrid| manages the complexity
 of all your computing resources.
 
 The deployment descriptors provided define which "servers" are started
@@ -118,7 +120,7 @@ users.
 
 The configuration of your grid, however, is very much up to you. Based
 on the example descriptor files (\*.xml) and configuration files
-(\*.cfg), it is possible to develop `OmeroGrid </ome/wiki/OmeroGrid>`_
+(\*.cfg), it is possible to develop |OmeroGrid|
 installations completely tailored to your computing resources.
 
 The whole grid can be shutdown by stopping the master node via:
@@ -224,7 +226,7 @@ Firewall
 ~~~~~~~~
 
 The simplest and most effective way of preventing unauthorized access is
-to have all `OmeroGrid </ome/wiki/OmeroGrid>`_ resources behind a
+to have all |OmeroGrid| resources behind a
 firewall. Only the Glacier2 router has a port visible to machines
 outside the firewall. If this is possible in your configuration, then
 you can leave the internal endpoints unsecured.
@@ -318,7 +320,7 @@ Absolute paths
 
 Except under Windows, the example application descriptors shippied with
 OMERO, all use relative paths to make installation easier. Once you are
-comfortable with configuring `OmeroGrid </ome/wiki/OmeroGrid>`_, it
+comfortable with configuring |OmeroGrid|, it
 would most likely be safer to configure absolute paths. For example,
 specifying that nodes execute under ``/usr/lib/omero`` requires that who
 ever starts the node have access to that directory. Therefore, as long
@@ -336,7 +338,7 @@ Things to look at
 -  :source:`components/blitz/resources/omero/Scripts.ice`
 -  :source:`components/blitz/src/omero/grid/InteractiveProcessorI.java`
 -  :source:`components/tools/OmeroPy/src/omero/processor.py`
--  :source:`components/tools/OmeroPy/test/integration/ping.py`
+-  :source:`components/tools/OmeroPy/test/scriptstest/ping.py`
 
 Workflow
 ~~~~~~~~
@@ -417,7 +419,7 @@ The default is currently set to 4096 kilobytes, or about 4 megs.
 Logging
 ~~~~~~~
 
-Currently all logging output from `OmeroGrid </ome/wiki/OmeroGrid>`_ are
+Currently all logging output from |OmeroGrid| are
 stored in ``$OMERO_HOME/var/log/master.out`` with error messages going
 to ``...log/master.err``. This is sub-optimal, but will hopefully be
 improved in future versions. (See ` this
@@ -433,12 +435,9 @@ Topics to be discussed
 
 --------------
 
-Note: In the `milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_ release,
-JBoss is not under the control of `OmeroGrid </ome/wiki/OmeroGrid>`_.
-Instead, it must be started separately via $JBOSS\_HOME/bin/run.sh
+.. note:: 
+    In the `milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_ release,
+    JBoss is not under the control of |OmeroGrid|.
+    Instead, it must be started separately via $JBOSS\_HOME/bin/run.sh
 
---------------
-
-See also: `OmeroBlitz </ome/wiki/OmeroBlitz>`_,
-`OmeroSessions </ome/wiki/OmeroSessions>`_,
-`OmeroGridInstall </ome/wiki/OmeroGridInstall>`_
+.. seealso:: |OmeroSessions|, :ref:`developers/Server/Grid/Install`

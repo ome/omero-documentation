@@ -1,9 +1,10 @@
+.. _developers/Omero/Server/Ldap:
+
 OMERO LDAP Authentication
 =========================
 
 **The official user documentation for the OMERO LDAP plugin has moved to
-`http://www.openmicroscopy.org/site/support/omero4/server/install-ldap <http://www.openmicroscopy.org/site/support/omero4/server/install-ldap>`_.**
-What remains here is the developer documentation on the design of the
+:ref:`server/ldap`. What remains here is the developer documentation on the design of the
 LDAP plugin as well as how to write your own LDAP extension for OMERO.
 
 LDAP Design
@@ -76,7 +77,4 @@ same package are:
 -  ":query:" -
    :source:` QueryNewUserGroupBean <components/server/src/ome/security/auth/QueryNewUserGroupBean.java>`
 
---------------
-
-See also: `OmeroInstall </ome/wiki/OmeroInstall>`_,
-`OmeroSecurity </ome/wiki/OmeroSecurity>`_
+.. seealso:: :ref:`server/installation`, `OmeroSecurity </ome/wiki/OmeroSecurity>`_

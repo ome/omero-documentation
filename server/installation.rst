@@ -1,10 +1,10 @@
-.. _rst_installation:
+.. _server/installation:
 
 OMERO.server Installation for UNIX-Based Platforms
 ==================================================
 
 -  If you are **upgrading** your OMERO.server installation you should follow instructions on the :ref:`rst_upgrade` page.
--  If you are attempting a **Microsoft Windows** install please see :ref:`rst_install-windows`.
+-  If you are attempting a **Microsoft Windows** install please see :ref:`server/install-windows`.
 -  Additional walkthroughs give more details on specific platforms:
 
    - :ref:`rst_install_macports`
@@ -25,6 +25,8 @@ OMERO.server Installation for UNIX-Based Platforms
 --------------
 
 Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :ref:`troubleshooting_password`.
+
+.. _server/installation#Prerequisites:
 
 Prerequisites
 -------------
@@ -197,6 +199,8 @@ environment variables can be found on the :ref:`rst_install_macports`.
 
 .. _installation_database_creation:
 
+.. _server/installation#PreInstallation:
+
 Creating a database as root
 ---------------------------
 
@@ -286,6 +290,8 @@ Location for the your OMERO binary repository
        $ whoami
        callan
        $ sudo chown -R callan /OMERO
+
+.. _server/installation#Installation:
 
 Installation
 ------------
@@ -410,7 +416,7 @@ Advanced configuration
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Once you have the base server running, you may want to try enabling some
-of the advanced features such as :ref:`rst_fs` or :ref:`rst_ldap`.
+of the advanced features such as :ref:`rst_fs` or :ref:`server/ldap`.
 If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
 See the :plone:`Feature list <products/feature-list>` for more advanced
 features you may want to use, and :ref:`rst_advanced-configuration` on how to get the most out of

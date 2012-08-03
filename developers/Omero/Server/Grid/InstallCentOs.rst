@@ -1,5 +1,7 @@
-Installing `OmeroGrid </ome/wiki/OmeroGrid>`_ on CentOS
-=======================================================
+.. _developers/Server/Grid/InstallCentOs:
+
+Installing OMERO Grid on CentOS
+================================
 
 Prerequisites
 -------------
@@ -34,7 +36,6 @@ From binaries
 Starting on boot
 ----------------
 
---------------
 
-See also: `OmeroInstall </ome/wiki/OmeroInstall>`_,
-`OmeroGridInstall </ome/wiki/OmeroGridInstall>`_
+
+.. seealso:: :ref:`server/installation`, :ref:`developers/Server/Grid/Install`

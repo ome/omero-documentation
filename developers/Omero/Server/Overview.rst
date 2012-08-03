@@ -12,7 +12,7 @@ aspects with links into the rest of the
 -  A `request </ome/wiki/OmeroClientLibrary>`_ reaches the server over
    one of the two remoting protocols: RMI or ICE. First, the
    :source:`Principal <components/common/src/ome/system/Principal.java>`
-   is examined for a valid `session </ome/wiki/OmeroSessions>`_ which
+   is examined for a valid :ref:`session <developers/Omero/Server/Sessions>` which
    was created via :source:`ISession.createSession(String username, String
    password) <components/common/src/ome/api/ISession.java>`.
 
@@ -127,8 +127,7 @@ Topics
 -  `TypeLanguage </ome/wiki/TypeLanguage>`_
 
 
-See also : `OmeroBlitz </ome/wiki/OmeroBlitz>`_,
-`OmeroGrid </ome/wiki/OmeroGrid>`_, `OmeroEar </ome/wiki/OmeroEar>`_
+.. seealso:: `OmeroBlitz </ome/wiki/OmeroBlitz>`_, |OmeroGrid|, `OmeroEar </ome/wiki/OmeroEar>`_
 
 Attachments
 ~~~~~~~~~~~

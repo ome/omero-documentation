@@ -27,9 +27,9 @@ properties used by the server. Changes made to the file are *not*
 recognized by the server. Instead, the "bin/omero config" command is
 used to change those properties that you would like to customize.
 
-Examples of doing this are on the main :ref:`Unix <rst_installation>` and
-:ref:`Windows <rst_install-windows>` pages, as well as the :ref:`LDAP
-installation <rst_ldap>` page.
+Examples of doing this are on the main :ref:`Unix <server/installation>` and
+:ref:`Windows <server/install-windows>` pages, as well as the :ref:`LDAP
+installation <server/ldap>` page.
 
 Here we list some options which you are most likely to want to modify.
 See :source:`etc/omero.properties` for more details.

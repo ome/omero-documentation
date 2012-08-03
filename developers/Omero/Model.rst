@@ -192,7 +192,7 @@ perform much of its magic. For these bytecode generated objects, the
 getClass() method return something of the form
 "ome.model.core.Image\_$$\_javassist" which cannot be passed back into
 Hibernate. Instead, we must first parse that class String with
-:source:`Utils#trueClass() <components/common/src/ome/util/Utils.java>`).
+:source:`Utils#trueClass() <components/model/src/ome/util/Utils.java>`).
 
 Model report objects
 ~~~~~~~~~~~~~~~~~~~~

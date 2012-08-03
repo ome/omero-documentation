@@ -12,7 +12,7 @@ Availability
 
 Having the ability to have two servers up at the same time implies that
 even if you have to restart one of the servers, there should be no
-down-time. Currently, `OmeroSessions </ome/wiki/OmeroSessions>`_ are
+down-time. Currently, |OmeroSessions| are
 sticky to a cluster node and so it's not possible shutdown a node at any
 time, but all new sessions can be redirected to the server which is to
 be left turned on, then when all active sessions have completed, the
@@ -33,7 +33,7 @@ further extend throughput, you will need to parallelize these.
 Installation
 ------------
 
-If you are using the default `OmeroGrid </ome/wiki/OmeroGrid>`_
+If you are using the default |OmeroGrid|
 :source:`application descriptor <etc/grid/default.xml>`
 quickly enabling clustering is as simple as executing:
 

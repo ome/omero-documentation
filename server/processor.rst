@@ -9,4 +9,4 @@ functionality described under `OMERO.analyis <support/omero4/analysis>`. As many
 processor nodes can be started as physical computers are available.
 
 -  Source code: :source: `components/tools/OmeroPy/src/omero/processor.py`
--  Documentation: :wiki:`OmeroGrid`
+-  Documentation: |OmeroGrid|

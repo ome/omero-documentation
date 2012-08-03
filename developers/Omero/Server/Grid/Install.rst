@@ -1,21 +1,21 @@
-`OmeroGridInstall </ome/wiki/OmeroGridInstall>`_
-================================================
+.. _developers/Server/Grid/Install:
 
-Before attempting to install `OmeroGrid </ome/wiki/OmeroGrid>`_, the
-requirements listed under `OmeroInstall </ome/wiki/OmeroInstall>`_ must
+OMERO Grid Install
+==================
+
+Before attempting to install |OmeroGrid|, the
+requirements listed under :ref:`server/installation` must
 be satisfied. In particular:
 
--  `OmeroInstall#Prerequisites </ome/wiki/OmeroInstall#Prerequisites>`_:
-   Java and Postgres
--  `OmeroInstall#Pre-installation </ome/wiki/OmeroInstall#Pre-installation>`_:
-   Creating users and directories
+-  :ref:`server/installation#Prerequisites`: Java and Postgres
+-  :ref:`server/installation#PreInstallation`: Creating users and directories
 -  Configuration: Extraction and editing **local.properties** under
-   `OmeroInstall#Installation </ome/wiki/OmeroInstall#Installation>`_
+   :ref:`server/installation#Installation`
 
 .. contents::
 
-`OmeroGrid </ome/wiki/OmeroGrid>`_ requirements (platform specific)
--------------------------------------------------------------------
+OMERO Grid requirements (platform specific)
+--------------------------------------------
 
 The main additional requirements for running the grid are the ` Ice
 framework <http://zeroc.com/>`_ and ` Python <http://python.org>`_,
@@ -37,14 +37,10 @@ under
 Supported platforms
 ~~~~~~~~~~~~~~~~~~~
 
--  Ubuntu Gutsy. See
-   `OmeroGridInstallGutsy </ome/wiki/OmeroGridInstallGutsy>`_
--  CentOS 4 and 5. See
-   `OmeroGridInstallCentOs </ome/wiki/OmeroGridInstallCentOs>`_
--  Mac OS X 10.4 and 10.5. See
-   `OmeroGridInstallMacOsx </ome/wiki/OmeroGridInstallMacOsx>`_
--  Windows XP. See
-   `OmeroGridInstallWindowsXp </ome/wiki/OmeroGridInstallWindowsXp>`_
+-  Ubuntu Gutsy. See :ref:`developers/Server/Grid/InstallGutsy`
+-  CentOS 4 and 5. See :ref:`developers/Server/Grid/InstallCentOs`
+-  Mac OS X 10.4 and 10.5. See :ref:`developers/Server/Grid/InstallMacOsx`
+-  Windows XP. See :ref:`developers/Server/Grid/InstallWindowsXp`
 
 Platforms requiring Ice compilation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -70,10 +66,8 @@ Unsupported/untested platforms
 Installation
 ------------
 
-Once JBoss is running according to
-`OmeroInstall#Installation </ome/wiki/OmeroInstall#Installation>`_, a
-few further steps are necessary to start
-`OmeroGrid </ome/wiki/OmeroGrid>`_, which in turns starts
+Once JBoss is running according to :ref:`server/installation#Installation`, a
+few further steps are necessary to start |OmeroGrid|, which in turns starts
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_ and various other processes:
 
 ::
@@ -88,7 +82,7 @@ descriptor. For example,
 
     bin/omero admin deploy etc/grid/my-site.xml target1 target2
 
-See `OmeroGrid </ome/wiki/OmeroGrid>`_ for more information.
+See |OmeroGrid| for more information.
 
 Shortcuts
 ---------
@@ -138,7 +132,7 @@ or
        # Assuming $HOME/bin is on your path
        ln -s $OMERO_HOME/bin/omero $HOME/bin/omero
 
-This means that `OmeroGrid </ome/wiki/OmeroGrid>`_ can be unpacked
+This means that |OmeroGrid| can be unpacked
 anywhere, and as long as the user invoking the commands has the proper
 permissions on the ``$OMERO_HOME`` directory, it will function normally.
 
@@ -146,28 +140,24 @@ Running as root
 ---------------
 
 One exception to this rule is that starting
-`OmeroGrid </ome/wiki/OmeroGrid>`_ as root may actually delegate to
+|OmeroGrid| as root may actually delegate to
 another user, if the "user" attribute is set on the ``<server/>``
 elements in :source:`etc/grid/templates.xml`.
 (This holds only for Unix-based platforms including MacOsX. See
-`OmeroGridInstallWindowsXp </ome/wiki/OmeroGridInstallWindowsXp>`_ for
+:ref:`developers/Server/Grid/InstallWindowsXP` for
 information on changing the server user under Windows.)
 
 Starting on boot
 ----------------
 
-Configuring `OmeroGrid </ome/wiki/OmeroGrid>`_ to start on boot is a
+Configuring |OmeroGrid| to start on boot is a
 platform-specific configuration. Please see your platforms instructions.
 
 --------------
 
-See also: `OmeroGrid </ome/wiki/OmeroGrid>`_
+See also: |OmeroGrid|
 
--  Ubuntu Gutsy. See
-   `OmeroGridInstallGutsy </ome/wiki/OmeroGridInstallGutsy>`_
--  CentOS 4 and 5. See
-   `OmeroGridInstallCentOs </ome/wiki/OmeroGridInstallCentOs>`_
--  Mac OS X 10.4 and 10.5. See
-   `OmeroGridInstallMacOsx </ome/wiki/OmeroGridInstallMacOsx>`_
--  Windows XP. See
-   `OmeroGridInstallWindowsXp </ome/wiki/OmeroGridInstallWindowsXp>`_
+-  Ubuntu Gutsy. See :ref:`developers/Server/Grid/InstallGutsy`
+-  CentOS 4 and 5. See :ref:`developers/Server/Grid/InstallCentOs`
+-  Mac OS X 10.4 and 10.5. See :ref:`developers/Server/Grid/InstallMacOsx`
+-  Windows XP. See :ref:`developers/Server/Grid/InstallWindowsXp`

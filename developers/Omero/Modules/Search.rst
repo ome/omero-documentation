@@ -349,7 +349,7 @@ quick straight-forward.
 
 Simiarly, `SearchBridges </ome/wiki/SearchBridges>`_ provide a mechanism
 for parsing all metadata entering the system. One built in bridge (the
-:source:`FullTextBridge <component/server/src/ome/services/fulltext/FullTextBridge.java>`)
+:source:`FullTextBridge <components/server/src/ome/services/fulltext/FullTextBridge.java>`)
 parses out the fields mentioned above, but by creating your own bridge
 it is possible to extract more information specific to your site.
 
