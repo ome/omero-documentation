@@ -1,4 +1,4 @@
-.. _rst_binary-repository:
+.. _server/binary-repository:
 
 OMERO.server Binary Repository
 ==============================

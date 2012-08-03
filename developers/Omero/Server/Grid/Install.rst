@@ -36,10 +36,10 @@ under :ref:`developers/Omero/Server/Grid/Install#Installation`.
 Supported platforms
 ~~~~~~~~~~~~~~~~~~~
 
--  Ubuntu Gutsy. See :ref:`developers/Server/Grid/InstallGutsy`
--  CentOS 4 and 5. See :ref:`developers/Server/Grid/InstallCentOs`
--  Mac OS X 10.4 and 10.5. See :ref:`developers/Server/Grid/InstallMacOsx`
--  Windows XP. See :ref:`developers/Server/Grid/InstallWindowsXp`
+-  Ubuntu Gutsy. See :ref:`developers/Omero/Server/Grid/InstallGutsy`
+-  CentOS 4 and 5. See :ref:`developers/Omero/Server/Grid/InstallCentOs`
+-  Mac OS X 10.4 and 10.5. See :ref:`developers/Omero/Server/Grid/InstallMacOsx`
+-  Windows XP. See :ref:`developers/Omero/Server/Grid/InstallWindowsXp`
 
 Platforms requiring Ice compilation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -62,14 +62,14 @@ Unsupported/untested platforms
 -  openSuSE 10.3
 -  Windows Vista
 
-.. _developers/Server/Grid/Install#Installation:
+.. _developers/Omero/Server/Grid/Install#Installation:
 
 Installation
 ------------
 
 Once JBoss is running according to :ref:`server/installation#Installation`, a
 few further steps are necessary to start |OmeroGrid|, which in turns starts
-OmeroBlitz and various other processes:
+:ref:`server/blitz` and various other processes:
 
 ::
 
@@ -145,7 +145,7 @@ One exception to this rule is that starting
 another user, if the "user" attribute is set on the ``<server/>``
 elements in :source:`etc/grid/templates.xml`.
 (This holds only for Unix-based platforms including MacOsX. See
-:ref:`developers/Server/Grid/InstallWindowsXP` for
+:ref:`developers/Omero/Server/Grid/InstallWindowsXP` for
 information on changing the server user under Windows.)
 
 Starting on boot
@@ -158,7 +158,7 @@ platform-specific configuration. Please see your platforms instructions.
 
 See also: |OmeroGrid|
 
--  Ubuntu Gutsy. See :ref:`developers/Server/Grid/InstallGutsy`
--  CentOS 4 and 5. See :ref:`developers/Server/Grid/InstallCentOs`
--  Mac OS X 10.4 and 10.5. See :ref:`developers/Server/Grid/InstallMacOsx`
--  Windows XP. See :ref:`developers/Server/Grid/InstallWindowsXp`
+-  Ubuntu Gutsy. See :ref:`developers/Omero/Server/Grid/InstallGutsy`
+-  CentOS 4 and 5. See :ref:`developers/Omero/Server/Grid/InstallCentOs`
+-  Mac OS X 10.4 and 10.5. See :ref:`developers/Omero/Server/Grid/InstallMacOsx`
+-  Windows XP. See :ref:`developers/Omero/Server/Grid/InstallWindowsXp`

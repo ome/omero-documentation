@@ -10,7 +10,7 @@ all of your metadata for later searching. If, however, there is more
 metadata that you would like to add to the index, you can implement the
 ``org.hibernate.search.bridge.FieldBridge`` interface yourself, or
 subclass the helper class
-:source:`components/server/src/ome/services/fulltext/BridgeHelper.java`
+:source:`components/server/permissionssrc/ome/services/fulltext/BridgeHelper.java`
 
 Example
 -------
@@ -39,8 +39,7 @@ Configuration
 -------------
 
 Custom bridges are configured in etc/omero.properties but can be
-overridden via the ` standard configuration
-mechanisms <https://www.openmicroscopy.org/site/support/omero4/server/installation>`_.
+overridden via the :ref:` standard configuration mechanisms <server/installation>`.
 The **omero.search.bridges** property defines a comma-separated list of
 bridge classes which will be passed to
 :source:`components/server/src/ome/services/fulltext/FullTextBridge.java`.

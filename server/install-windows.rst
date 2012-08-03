@@ -357,7 +357,7 @@ Location for the your OMERO binary repository
       installed, it is a *separate* directory that OMERO.server will use
       to store binary data:
    -  You can read more about the OMERO binary repository
-      :ref:`here <rst_binary-repository>`.
+      :ref:`here <server/binary-repository>`.
 
 --------------
 
@@ -387,7 +387,7 @@ Installation
        bin\omero config set omero.db.user db_user
        bin\omero config set omero.db.pass db_password
 
--  If you have chosen a non-standard :ref:`rst_binary-repository`
+-  If you have chosen a non-standard :ref:`server/binary-repository`
    location above, be sure
    to configure the ``omero.data.dir`` property. When using ``C:\``
    style file paths it is necessary to "escape" the backslashes. For
@@ -543,9 +543,7 @@ Enabling Movie creation from OMERO.
 -----------------------------------
 
 OMERO has the facility to create AVI/MPEG Movies from Images which can
-be called from Insight. The page
-`OmeroMovie <http://www.openmicroscopy.org/site/support/omero4/server/omeromovie>`_
-gives details on how to enable them.
+be called from Insight. The page :ref:`server/omeromovie` gives details on how to enable them.
 
 --------------
 

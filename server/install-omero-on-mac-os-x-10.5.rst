@@ -127,7 +127,7 @@ I downloaded the matplotlib-0.99.1.1-py2.5-macosx10.5.dmg and installed
 from there.
 
 For the movie export to work, you need the mencoder command installed.
-Follow the instructions for Mac on the :ref:`movie page <rst_omeromovie>`. I
+Follow the instructions for Mac on the :ref:`movie page <server/omeromovie>`. I
 unzipped the :snapshot:`mencoder.zip <mencoder/mac/>`
 in my Downloads folder, then moved it to usr/local/bin:
 

@@ -8,14 +8,14 @@ OMERO Java Language Bindings
 Using the ` Ice Java language
 mapping <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.4.4.html>`_ from
 ` http://zeroc.com <http://zeroc.com>`_, OMERO provides access to your
-data within an OmeroBlitz server from Java code.
+data within an :ref:`server/blitz` server from Java code.
 
 Using the ``omero_client.jar``
 ------------------------------
 
 The ``omero_client.jar`` is a combination of all necessary Java OMERO
 class as well as the Ice classes needed to write a complete Java client
-for OmeroBlitz.
+for :ref:`server/blitz`.
 
 The library is placed under OMERO\_HOME/dist/lib/client by the build, or
 is alternatively available from Hudson at:

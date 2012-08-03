@@ -41,11 +41,11 @@ exceptions. Instead, one recieves server exceptions.
 Server threads
 ~~~~~~~~~~~~~~
 
-In OmeroBlitz, too many (500+ on the default
+In :ref:`server/blitz`, too many (500+ on the default
 configuration) simultaneous invocations will result in
 ``ConnectionLost`` exceptions. We are currently working on ways to
 extend the number of single invocations on one server, but a simpler
-solution is to start another OmeroBlitz server.
+solution is to start another :ref:`server/blitz` server.
 
 Total throughput
 ----------------

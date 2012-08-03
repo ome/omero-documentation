@@ -17,7 +17,7 @@ their own, customized clients.
 -  **Developers** interested in writing custom OMERO clients should See
    |DevelopingOmeroClients|.
 
-Examples for all the OmeroBlitz languages
+Examples for all the :ref:`server/blitz` languages
 (|OmeroPy|, |OmeroJava|, |OmeroCpp|, and |OmeroMatlab|) are provided under:
 
 -  :source:`examples`

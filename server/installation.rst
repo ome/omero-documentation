@@ -273,7 +273,7 @@ Location for the your OMERO binary repository
    it is a *separate* directory that OMERO.server will use to store
    binary data:
 
--  You can read more about the :ref:`OMERO binary repository <rst_binary-repository>`.
+-  You can read more about the :ref:`OMERO binary repository <server/binary-repository>`.
 
    ::
 
@@ -319,7 +319,7 @@ Installation
         $ bin/omero config set omero.db.pass 'db_password'
 
 -  If you have chosen a non-standard
-   :ref:`OMERO binary repository <rst_binary-repository>` location above, be sure
+   :ref:`OMERO binary repository <server/binary-repository>` location above, be sure
    to configure the ``omero.data.dir`` property.
 
 -  Create the OMERO database initialization script. You will be asked
@@ -384,7 +384,7 @@ Enabling Movie creation from OMERO.
 -----------------------------------
 
 OMERO has the facility to create AVI/MPEG Movies from Images, which can
-be called from Insight. The page :ref:`rst_omeromovie` gives details on how to enable them.
+be called from Insight. The page :ref:`server/omeromovie` gives details on how to enable them.
 
 OMERO.tables
 ------------

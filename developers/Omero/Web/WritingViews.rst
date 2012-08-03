@@ -69,8 +69,8 @@ to study the code itself, you may find it useful to understand the logic
 that is used (see Flow Diagram). As mentioned above, we start with a
 http request (top left) and either a connection is returned (bottom
 left) OR we are redirected to login page (right) NB: options to
-configure a "public user" are described on the `web configuration
-page <http://www.openmicroscopy.org/site/support/omero4/server/install_web>`_.
+configure a "public user" are described on the :ref:`web configuration
+page <server/install_web>`.
 
 Extending login\_required
 ^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -210,11 +210,12 @@ How to write a service
 ----------------------
 
 A tutorial is available on to write a service at
-wiki/HowToCreateAService. In general, if a properly annotated service is
+:ref:`developers/Omero/Server/HowToCreateAService`. 
+In general, if a properly annotated service is
 placed in any JAR of the OMERO EAR file (see
 :ref:`developers/Omero/Build` for more) then the service will be
 deployed to the server. In the case of
-OmeroBlitz, the service must be properly
+:ref:`server/blitz`, the service must be properly
 defined under :source:`components/blitz/resources`.
 
 Omero Annotations for Validation

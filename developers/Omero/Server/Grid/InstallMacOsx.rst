@@ -1,4 +1,4 @@
-.. _developers/Server/Grid/InstallMacOsx:
+.. _developers/Omero/Server/Grid/InstallMacOsx:
 
 Installing OMERO Grid on Mac OS X
 ==================================

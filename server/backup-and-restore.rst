@@ -63,7 +63,7 @@ Understanding backup sources
 OMERO.server has three main backup sources:
 
 1.  PostgreSQL database (assumed to be ``omero_database``)
-2.  OMERO.server :ref:`binary data store <rst_binary-repository>` (assumed to be
+2.  OMERO.server :ref:`binary data store <server/binary-repository>` (assumed to be
     ``/OMERO``)
 3.  OMERO.server configuration
 
@@ -116,7 +116,7 @@ Backing up your binary data store
 
 To simplify backup locations we have, in this document, located all
 database and configuration backups under ``/OMERO``, your :ref:`binary data
-store <rst_binary-repository>`. The entire contents of ``/OMERO`` should be
+store <server/binary-repository>`. The entire contents of ``/OMERO`` should be
 backed up regularly as this will, especially if this document's
 conventions are followed, contain all the relevant data to restore your
 OMERO.server installation in the unlikely event of a system failure,
@@ -205,7 +205,7 @@ Restoring your OMERO.server binary data store
 
 All that remains once you have restored your Java preferences and
 PostgreSQL database is to restore your ``/OMERO`` :ref:`binary data
-store <rst_binary-repository>` backup.
+store <server/binary-repository>` backup.
 
 
 .. seealso::

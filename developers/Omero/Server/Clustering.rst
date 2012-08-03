@@ -3,7 +3,7 @@ Clustering
 ==========
 
 Clustering an OMERO instance consists of starting multiple
-OmeroBlitz servers with each allocating user
+:ref:`server/blitz` servers with each allocating user
 sessions based on some criteria. There are at least two reasons one may
 want to cluster the OMERO server: availability and throughput.
 
@@ -23,7 +23,7 @@ Throughput
 
 The other main reason to have other servers running is to service more
 user sessions simultaneously. Out of the box, each
-OmeroBlitz process is configured for 400MB of
+:ref:`server/blitz` process is configured for 400MB of
 memory. When dealing with memory intensive operations like rendering,
 each added server can benefit make a difference. This is only a part if
 the story, since much of the bottleneck is not the server itself but
@@ -43,7 +43,7 @@ quickly enabling clustering is as simple as executing:
      bin/omero node backup start
 
 This starts a second node, named "backup", which contains a second
-OmeroBlitz server, "Blitz-1". By default, this
+:ref:`server/blitz` server, "Blitz-1". By default, this
 newly created server will not be used until sessions are manually
 redirected to it.
 

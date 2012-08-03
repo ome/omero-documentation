@@ -1,4 +1,4 @@
-.. _rst_permissions:
+.. _server/permissions:
 
 Permissions
 ===========

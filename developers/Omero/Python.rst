@@ -312,7 +312,7 @@ Groups & Permissions
 
 This will be determined by group permissions. E.g. in Read-Only or
 Read-Annotate groups, this will include other users' data See
-`http://www.openmicroscopy.org/site/support/omero4/server/permissions/ <http://www.openmicroscopy.org/site/support/omero4/server/permissions/>`_
+:ref:`server/permissions`.
 
 ::
 

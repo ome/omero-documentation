@@ -104,8 +104,7 @@ Delete in Collaborative Group
 
 Some more discussion of delete issues in a collaborative group, where
 your data are linked to data of other users, can be found on the
-` permissions <https://www.openmicroscopy.org/site/support/omero4/server/permissions>`_
-page.
+:ref:`server/permissions` page.
 
 -  A user cannot remove Images from another user's Dataset, or remove
    Datasets (resp. Plates) from Projects (resp. Screens).
@@ -139,8 +138,7 @@ Binary Data
 
 When Images, Plates or File Annotations have been successfully deleted
 from the database the corresponding binary data is deleted from the
-`binary
-repository <http://www.openmicroscopy.org/site/support/omero4/server/binary-repository>`_.
+:ref:`server/binary-repository`.
 It is possible that some files may not be successfully deleted if they
 are locked for any reason. This is a known problem on Windows servers.
 In this case the undeleted files can be removed manually via

@@ -1,4 +1,4 @@
-.. _rst_blitz:
+.. _server/blitz:
 
 OMERO.blitz
 ===========

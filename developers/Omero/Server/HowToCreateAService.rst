@@ -1,3 +1,5 @@
+.. _developers/Omero/Server/HowToCreateAService:
+
 How To Create A Service
 =======================
 
@@ -30,7 +32,7 @@ factory <components/common/src/ome/system/ServiceFactory.java>`
 (These last two points stand to change with :ticket:`314`).
 
 .. note::
-    With the creation of OmeroBlitz, there are several other locations 
+    With the creation of :ref:`server/blitz`, there are several other locations 
     which need to be modified. These are also listed below.
 
 Files to Create

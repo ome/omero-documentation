@@ -28,8 +28,8 @@ OMERO.server may be of interest:
 -  :ref:`OMERO.server Security and Firewalls <server/security>`
 -  :ref:`OMERO.server LDAP <server/ldap>`
 -  :ref:`OMERO.server Backup and Restore <rst_backup-and-restore>`
--  :ref:`OMERO.server Binary Repository <rst_binary-repository>`
--  :ref:`OMERO.server and PostgreSQL <server/postgresql>`
+-  :ref:`server/binary-repository`
+-  :ref:`server/postgresql`
 
 Developer Documentation
 -----------------------
@@ -37,7 +37,7 @@ Developer Documentation
 The server system is composed of several components, each of which runs
 in a separate process but is co-ordinated centrally.
 
--  :ref:`OMERO.blitz <rst_blitz>` - The data server provides access to metadata
+-  :ref:`server/blitz` - The data server provides access to metadata
    stored in a relational database as well as the binary image data on
    disk.
 -  :ref:`OMERO.fs <rst_fs>` - A filesystem watcher which notifes the server of

@@ -114,7 +114,7 @@ Server Design
 
 The server logic resides in the :source:components/server`
 component. From there it is distributed as either
-OmeroBlitz or as `OmeroEar </ome/wiki/OmeroEar>`_.
+:ref:`server/blitz` or as `OmeroEar </ome/wiki/OmeroEar>`_.
 
 Topics
 ~~~~~~

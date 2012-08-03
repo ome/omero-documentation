@@ -45,7 +45,7 @@ Introduction
 ------------
 
 A Blitz client is any application which uses the
-|OmeroApi| to talk to the OmeroBlitz server in any of the supported
+|OmeroApi| to talk to the :ref:`server/blitz` server in any of the supported
 languages, like :ref:`Python <developers/Omero/Python>`,
 :ref:`C++ <developers/Omero/Cpp>`, :ref:`Java <developers/Omero/Java>`, or
 `Matlab <developers/Omero/Matlab>`_. A general understanding of the
@@ -252,7 +252,7 @@ collections and arrays, Ice goes so far as to send an empty string ("")
 or collection([]) rather than null.
 
 However, the database and OMERO support nullable values and so
-OmeroBlitz defines a hierarchy of types which
+:ref:`server/blitz` defines a hierarchy of types which
 wraps the primitives: :source:`RTypes <components/blitz/resources/omero/RTypes.ice>`
 Since Ice allows references to be nulled as opposed to primitives, it's
 possible to send null strings, integers, etc.
@@ -1341,7 +1341,7 @@ Services Overview
 
 After discussing the many types and how to create them, the next obvious
 question is what one can actually do with them. For that, we have to
-look at what services are provided by OmeroBlitz, how they are obtained, 
+look at what services are provided by :ref:`server/blitz`, how they are obtained, 
 used, and cleaned up.
 
 OmeroClient? and Configuration
@@ -2385,7 +2385,7 @@ JBoss/RMI
 ~~~~~~~~~
 
 If you have already written code to interact with the JBoss server,
-several changes are necessary to port your code to OmeroBlitz.
+several changes are necessary to port your code to :ref:`server/blitz`.
 
 -  All services have moved from ``ome.api`` to ``omero.api`` (with the
    exception of ``omeis.providers.re.RenderingEngine`` which also moved
@@ -2592,9 +2592,9 @@ several changes are necessary to port your code to OmeroBlitz.
    "connection" was really only a
    `ServiceFactory </ome/wiki/ServiceFactory>`_ holding on to your user
    name and user password and/or session id in order to re-authenticate
-   on every method call. With OmeroBlitz, this
+   on every method call. With :ref:`server/blitz`, this
    does not happen. The Ice runtime establishes a stateful connection to
-   OmeroBlitz and the ServiceFactoryPrx is a
+   :ref:`server/blitz` and the ServiceFactoryPrx is a
    facade around this connection.
 
 -  The methods for accessing collections have changed somewhat. All

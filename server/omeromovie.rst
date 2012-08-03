@@ -1,4 +1,4 @@
-.. _rst_omeromovie:
+.. _server/omeromovie:
 
 OMERO Movie
 ===========

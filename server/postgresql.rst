@@ -1,7 +1,7 @@
 .. _server/postgresql:
 
-OMERO and PostgreSQL
-====================
+OMERO.server and PostgreSQL
+===========================
 
 .. contents::
 

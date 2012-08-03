@@ -9,7 +9,7 @@ OMERO.Scripts
 OMERO.scripts <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/ScriptingWorkflow-4.3.mov>`_
 
 :ref:`developers/Omero/Modules/Scripts` is the scripting service for scripting in OMERO.
-OmeroBlitz provides a service to run scripts
+:ref:`server/blitz` provides a service to run scripts
 on the server. The scripts are then passed on to a grid of processors
 called OMERO.grid that executes the script and returns the result to the
 server which in turn passes the result onto the caller. All scripts
