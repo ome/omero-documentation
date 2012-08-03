@@ -133,7 +133,7 @@ Getting Your Hand's Dirty
    -  :ref:`developers/Omero/Modules/Scripts/Guide`
    -  :ref:`developers/Omero/Modules/Scripts/StyleGuide`
 
--  `Developing WebApps </ome/wiki/OmeroWeb/CreateApp>`_
+-  :ref:`developers/Omero/Web/CreateApp`
 
 OMERO Architecture (From a programmer's perspective)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

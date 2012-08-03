@@ -425,7 +425,7 @@ Following a successful db upgrade, you can start the 4.3 server.
 -  Configuration for ***OMERO.web*** changed significantly in 4.2.1 to
    ease many of the deployment issues on both Unix and Windows
    platforms. Therefore, it is not necessarily, or possible to copy your
-   web settings.py, but rather you should see the :ref:`rst_install_web` 
+   web settings.py, but rather you should see the :ref:`server/install_web` 
    page for more information on setting up
    your web server. This can safely be done after the OMERO server is
    running.
@@ -517,7 +517,7 @@ OMERO.web upgrade
 Configuration for ***OMERO.web*** changed significantly in 4.2.1 to ease
 many of the deployment issues on both Unix and Windows platforms.
 Therefore, it is not necessarily, or possible to copy your web
-settings.py, but rather you should see the :ref:`rst_install_web`
+settings.py, but rather you should see the :ref:`server/install_web`
 page for more information on setting up your
 web server. This can safely be done after the OMERO server is running.
 
@@ -646,7 +646,7 @@ follow the following upgrade procedure:
 -  4.0.x to 4.1.0:
 
    If you wish to configure OMERO.web you should follow the instruction
-   on :ref:`rst_install_web`.
+   on :ref:`server/install_web`.
 
    .. note::
       It is **not recommended** to use any older settings.py 

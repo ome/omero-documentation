@@ -1,3 +1,5 @@
+.. _developers/Omero/Web/CreateApp:
+
 Creating an App
 ===============
 
@@ -16,8 +18,7 @@ Getting set up
 You will need to have an OMERO server running that you can connect to.
 This will typically be on your own machine, although it does not
 necessarily have to be. If you want to connect to another server (not
-localhost) you can edit the server list as described on the ` web
-configuration <http://www.openmicroscopy.org.uk/site/support/omero4/server/install_web>`_
+localhost) you can edit the server list as described on the :ref:`server/install_web`
 page and choose that server when you log in. That page also describes
 how to set debug to 'True' which is important when developing with
 OMERO.web and you should also be using the Django 'development' server.

@@ -1,4 +1,4 @@
-.. _developers/Server/Grid/Install:
+.. _developers/Omero/Server/Grid/Install:
 
 OMERO Grid Install
 ==================
@@ -31,8 +31,7 @@ and both binary and source distributions. Several distros also provide
 packages.
 
 Once you have installed the requirements for your platform, continue
-under
-`OmeroGridInstall#Installation </ome/wiki/OmeroGridInstall#Installation>`_.
+under :ref:`developers/Omero/Server/Grid/Install#Installation`.
 
 Supported platforms
 ~~~~~~~~~~~~~~~~~~~
@@ -62,6 +61,8 @@ Unsupported/untested platforms
 
 -  openSuSE 10.3
 -  Windows Vista
+
+.. _developers/Server/Grid/Install#Installation:
 
 Installation
 ------------

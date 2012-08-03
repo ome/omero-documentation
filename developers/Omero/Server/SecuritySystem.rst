@@ -45,7 +45,7 @@ Hibernate Filters
     functionality with our own logic.
 
 Handler/interceptor
-    as outlined in `OmeroAop </ome/wiki/OmeroAop>`_, Omero makes
+    as outlined in :ref:`developers/Omero/Server/Aop`, Omero makes
     extensive use of method interceptors to relieve the developer of
     some coding burden. Transactions, session management, and,
     naturally, security are handled largely by our interceptors (or

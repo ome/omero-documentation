@@ -41,7 +41,7 @@ Important OMERO ports:
 -  **TCP/4063**
 -  **TCP/4064**
 
-If you are using :ref:`OMERO.web <rst_install_web>`, then you will also need to
+If you are using :ref:`OMERO.web <server/install_web>`, then you will also need to
 make your HTTP and HTTPS ports available. These are usually 80 and 443.
 
 Important OMERO.web ports:

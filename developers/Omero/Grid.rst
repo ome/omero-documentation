@@ -222,6 +222,8 @@ More than just making sure no malicious code enters your grid, it is
 critical to prevent unauthorized access via the application descriptors
 (\*.xml) and configuration (\*.cfg) as mentioned above.
 
+.. _developers/Omero/Grid#Firewall:
+
 Firewall
 ~~~~~~~~
 
@@ -325,7 +327,7 @@ would most likely be safer to configure absolute paths. For example,
 specifying that nodes execute under ``/usr/lib/omero`` requires that who
 ever starts the node have access to that directory. Therefore, as long
 as you control the boxes which can attached to your endpoints (see
-`Firewall </ome/wiki/OmeroGrid#Firewall>`_ above), then you can be
+:ref:`developers/Omero/Grid#Firewall`), then you can be
 relatively certain that no tampering can occur with the installed
 binaries.
 

@@ -505,7 +505,7 @@ the pressures of a production server used by many people concurrently.
 
 .. note:: In order to deploy OMERO.web in a production environment
    such as Apache or IIS please follow the instructions in the
-   :ref:`rst_install_web` section.
+   :ref:`server/install_web` section.
 
 Otherwise please give a try of the internal webserver and setup:
 

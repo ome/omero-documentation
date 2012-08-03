@@ -376,7 +376,7 @@ Installation
 OMERO.web and Administration
 ----------------------------
 
-.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :ref:`rst_install_web`.
+.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :ref:`server/install_web`.
 
 Once you have deployed and started the server you can use your browser to access the OMERO.webadmin administration interface.
 

@@ -145,8 +145,8 @@ Example Matlab scripts
 ----------------------
 
 Below are some sample scripts showing Matlab being launched from
-OMERO.scripts. Matlab functions can also call the
-`OmeroJava </ome/wiki/OmeroJava>`_ interface to access the server from
+OMERO.scripts. Matlab functions can also call the |OmeroJava| 
+interface to access the server from
 the Matlab functions.
 
 Calling a simple Matlab function

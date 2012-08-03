@@ -18,7 +18,7 @@ to provide modular web tools, such as the webclient (working with image
 data) and webadmin (administrator management). This modular framework
 makes it possible to extend OmeroWeb with your own apps.
 
-One of the apps, `webgateway </ome/wiki/OmeroWeb/WebGateway>`_, provides
+One of the apps, :ref:`developers/Omero/Web/WebGateway`, provides
 utility methods for accessing data and rendering images, as well as
 handling the connection to OMERO server.
 
@@ -31,8 +31,7 @@ OMERO Python API
 The OMERO.web framework is all based on the OMERO Python API, using the
 Blitz Gateway (see |OmeroPy|). The web framework
 provides functionality for creating and retrieving connections to OMERO
-(see example below &
-`OmeroWeb/WritingViews </ome/wiki/OmeroWeb/WritingViews>`_ for more
+(see example below & :ref:`developers/Omero/Web/WritingViews` for more
 details).
 
 Web Gateway
@@ -42,8 +41,7 @@ The webgateway is a Django app that provides utility functionality for
 the other web components. This includes a full image viewer, as well as
 methods for rendering images etc. You can browse the :javadoc:` webgateway
 urls <epydoc/omeroweb.webgateway.urls-module.html>`,
-or see the `OmeroWeb/WebGateway </ome/wiki/OmeroWeb/WebGateway>`_ wiki
-page for more info.
+or see the `developers/Omero/Web/WebGateway` page for more info.
 
 Web Apps
 ~~~~~~~~
@@ -57,7 +55,7 @@ other apps in development:
    info <https://www.openmicroscopy.org.uk/site/support/omero4/clients/web>`_
 -  webadmin: For administration of user and group settings.
 -  webgateway: A web services interface, providing rendered images and
-   data. See `OmeroWeb/WebGateway </ome/wiki/OmeroWeb/WebGateway>`_
+   data. See :ref:`developers/Omero/Web/WebGateway`
 -  webtest: A sample app for testing, that can also be used as a basis
    for creating your own app.
 
@@ -67,9 +65,8 @@ Getting Started
 All your development should be in a new 'app'. Django apps provide a
 nice way for you to keep all your code in one place and make it much
 easier to port your app to new OMERO releases or share it with other
-users. To get started, see
-`OmeroWeb/CreateApp </ome/wiki/OmeroWeb/CreateApp>`_. But if you want to
-have a quick look at some example code, see below...
+users. To get started, see :ref:`developers/Omero/Web/CreateApp`. 
+But if you want to have a quick look at some example code, see below...
 
 Quick Example - webtest
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -100,8 +97,7 @@ This maps the url 'webtest/dataset/<datasetId>/' to the View function
 
 -  **View** function, in omeroweb/webtest/views.py. NB: @login\_required
    decorator retrieves connection to OMERO as 'conn' passed in args to
-   method. See
-   `OmeroWeb/WritingViews </ome/wiki/OmeroWeb/WritingViews>`_ for more
+   method. See :ref:`developers/Omero/Web/WritingViews` for more
    details.
 
    ::
@@ -132,8 +128,7 @@ This maps the url 'webtest/dataset/<datasetId>/' to the View function
 
        </body></html>
 
--  Next: Get started by `Creating your own
-   App </ome/wiki/OmeroWeb/CreateApp>`_....
+-  Next: Get started by :ref:`developers/Omero/Web/CreateApp`....
 
 Attachments
 ~~~~~~~~~~~

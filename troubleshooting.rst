@@ -360,7 +360,7 @@ more details. There are few already known possibilities:
    - packages should be available for your distribution from
    `here <http://www.pythonware.com/products/pil/>`__. Also double check
    if all of the prerequisites were installed from
-   :ref:`here <rst_install_web>`.
+   :ref:`here <server/install_web>`.
 
 Mod\_python error: "PythonHandler django.core.handlers.modpython"
 =================================================================

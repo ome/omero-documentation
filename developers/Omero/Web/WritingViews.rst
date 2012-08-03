@@ -1,3 +1,5 @@
+.. _developers/Omero/Web/WritingViews:
+
 Writing OMERO.web Views
 =======================
 

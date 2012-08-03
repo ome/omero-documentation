@@ -1,4 +1,4 @@
-.. _rst_install_web:
+.. _server/install_web:
 
 OMERO.web Deployment
 ====================
