@@ -95,7 +95,9 @@ database, which can be achieved with a number of tools. E.g.
 OMERO model
 -----------
 
-`|image1| </ome/attachment/wiki/WorkingWithOmero/model-pdi.png>`_
+.. figure:: ../../../images/developer-model-pdi2.png
+   :align: center
+   :alt:
 
 You can browse the OMERO model in a number of ways, one of which is by
 looking at the database itself (see above). Another is via the on-line
@@ -134,7 +136,9 @@ unique ID).
 Images
 ~~~~~~
 
-`|image2| </ome/attachment/wiki/WorkingWithOmero/model-img.png>`_
+.. figure:: ../../../images/developer-model-img.png
+   :align: center
+   :alt: 
 
 Images in OMERO are made up many entities. These include core image
 components such as
@@ -301,15 +305,3 @@ permissions of that login.
     bin/omero hql -q --limit=10 "select id, textValue, file from Annotation a order by a.id desc"
     bin/omero hql -q --limit=10 "select id, textValue from TagAnnotation a order by a.id desc"
     bin/omero hql -q --limit=100 "select id, owner.id, started, userAgent from Session where closed is null"
-
-Attachments
-~~~~~~~~~~~
-
--  `model-pdi.png </ome/attachment/wiki/WorkingWithOmero/model-pdi.png>`_
-   `|Download| </ome/raw-attachment/wiki/WorkingWithOmero/model-pdi.png>`_
-   (21.0 KB) - added by *wmoore* `15
-   ago.
--  `model-img.png </ome/attachment/wiki/WorkingWithOmero/model-img.png>`_
-   `|image4| </ome/raw-attachment/wiki/WorkingWithOmero/model-img.png>`_
-   (45.4 KB) - added by *wmoore* `15
-   ago.

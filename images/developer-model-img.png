@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+	  <!-- New body template to add a custom footer block : ajp, Fri 10 Jun 2011 13:48:56 BST -->
+
+
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/ome/chrome/agilo/stylesheet/agilo_theme.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="/ome/chrome/agilo/stylesheet/print.css" />
+    <title>
+      model-img.png on WorkingWithOmero – Attachment
+     – OME
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="search" href="/ome/search" />
+        <link rel="help" href="/ome/wiki/TracGuide" />
+        <link rel="alternate" href="/ome/raw-attachment/wiki/WorkingWithOmero/model-img.png" type="image/png; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="/ome/wiki/WorkingWithOmero" title="WorkingWithOmero" />
+        <link rel="start" href="/ome/wiki" />
+        <link rel="stylesheet" href="/ome/chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="/ome/chrome/agilo_common/css/licenseNotifier.css" type="text/css" /><link rel="stylesheet" href="/ome/chrome/agilo_pro/css/agilo_pro.css" type="text/css" /><link rel="stylesheet" href="/ome/chrome/agilo/stylesheet/agilo.css" type="text/css" />
+        <link rel="shortcut icon" href="/ome/chrome/site/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/ome/chrome/site/favicon.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="/ome/search/opensearch" title="Search OME" />
+    <script type="text/javascript" src="/ome/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/ome/chrome/common/js/babel.js"></script><script type="text/javascript" src="/ome/chrome/common/js/trac.js"></script><script type="text/javascript" src="/ome/chrome/common/js/search.js"></script><script type="text/javascript" src="/ome/chrome/agilo_common/js/licenseNotifier.js"></script><script type="text/javascript" src="/ome/chrome/agilo/js/sidebar.js"></script><script type="text/javascript" src="/ome/chrome/agilo/js/cookies.js"></script><script type="text/javascript" src="/ome/chrome/agilo/js/settings.js"></script><script type="text/javascript" src="/ome/chrome/agilo/js/collapse.js"></script><script type="text/javascript" src="/ome/chrome/agilo/js/ie-patches.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/ome/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="/ome/chrome/common/js/folding.js"></script><script type="text/javascript">
+        jQuery(document).ready(function($) {
+          $('#preview table.code').enableCollapsibleColumns($('#preview table.code thead th.content'));
+        });
+      </script>
+	<script type="text/javascript" src="/ome/chrome/agilo/js/lib/jquery.form.js"></script>
+    <script type="text/javascript" src="/ome/chrome/agilo/js/lib/jquery.cookie.js"></script>
+	<script type="text/javascript" src="/ome/chrome/agilo/js/third_parties_hacks.js"></script>
+	<script type="text/javascript" src="/ome/chrome/agilo/js/utilities.js"></script>
+	<script type="text/javascript">
+	//<![CDATA[
+		// Initialize the variables right at the start, so other js can use it in document.ready handlers
+		BASE_URL = "/ome";
+		CHROME_URL = "/ome/chrome";
+		// Normalise base url pattern so it also works with mod_python which can hickup on double slashes...
+		if ((/\/$/).test(BASE_URL))
+			BASE_URL = BASE_URL.slice(0, -1);
+		// No caching of ajax. Ever. Especially in IE 7!
+		$.ajaxSetup({cache: false});
+		// If we use metadata we want to put json into the data attribute
+		if ($.metadata)
+			$.metadata.setType('attr', 'data');
+		// Disable selection on the navigation
+		$(document).ready(function() {
+			setTimeout('if ($.fn.disableSelection) $(".menu").disableSelection()',500);
+		});
+	//]]>
+	</script>
+	    <link rel="stylesheet" type="text/css" href="/ome/chrome/site/style.css" />
+	  </head>
+	<body>
+	<div class="menu">
+	<form class="search" id="search_form" action="/ome/search" method="get">
+	<label>Search</label>
+	<input type="text" id="proj-search" name="q" size="18" value="" />
+	</form>
+        <div id="project_logo_container">
+            <a id="logo" href="http://trac.openmicroscopy.org.uk/ome">
+                <img src="/ome/chrome/site/my_logo.png" alt="OME" />
+            </a>
+        </div>
+        <ul class="button group mainnav">
+		                <li class="active"><a href="/ome/wiki" class="iconWiki">Wiki</a></li>
+		                <li><a href="/ome/timeline" class="iconTimeline">Timeline</a></li>
+		                <li><a href="/ome/roadmap" class="iconRoadmap">Roadmap</a></li>
+		                <li><a href="/ome/browser" class="iconBrowser">Browse Source</a></li>
+		                <li><a href="/ome/report" class="iconTickets">View Tickets</a></li>
+		                <li><a href="/ome/search" class="iconSearch">Search</a></li>
+		                <li><a href="/ome/admin" title="Administration" class="iconAdmin">Admin</a></li>
+		                <li><a href="/ome/agilo-pro/sprints/2012-08-14%20%282%29/whiteboard" class="iconWhiteboard">Whiteboard</a></li>
+		                <li><a href="/ome/team" class="iconTeams">Teams</a></li>
+		                <li><a href="/ome/dashboard" class="iconDashboard">Dashboard</a></li>
+		</ul>
+        <ul class="button group metanav">
+		                <li>logged in as rleigh</li>
+		                <li><a href="/ome/logout" class="iconLogout">Logout</a></li>
+		                <li><a href="/ome/agilo-help">Help/Guide</a></li>
+		                <li><a href="/ome/about" class="iconAbout">About Trac</a></li>
+		                <li><a href="/ome/rpc" class="iconRpc">RPC API</a></li>
+		                <li><a href="/ome/prefs" class="iconPrefs">Preferences</a></li>
+			<li><a href="http://www.agile42.com/">agile42</a></li>
+		</ul>
+	</div>
+	<div class="sidebar"><!-- TODO: make this a harmonica, or add an all toggle -->
+	<!-- TODO: fix the empty space at the bottom. -->
+		<label>Actions</label>
+		<ul class="tree">
+			
+    <li>
+        <a href="/ome/newticket?type=requirement">
+           New Requirement
+        </a>
+    </li><li>
+        <a href="/ome/newticket?type=task">
+           New Task
+        </a>
+    </li><li>
+        <a href="/ome/newticket?type=story">
+           New User Story
+        </a>
+    </li><li>
+        <a href="/ome/newticket?type=bug">
+           New Bug
+        </a>
+    </li>
+
+		</ul>
+		<label>Backlogs</label>
+		<ul class="backlogs tree">
+			
+      <!-- global backlog -->
+        <li>
+          <a href="/ome/backlog/Product%20Backlog">Product Backlog</a>
+        </li>
+      <!-- sprint backlog -->
+        <li class="inlinebuttons">
+          Sprint Backlog for sprint:
+          <form name="sprint_view" action="/ome/backlog/Sprint%20Backlog" method="get">
+            <select name="bscope" onChange="$(this.form).submit()">
+              <optgroup label="Running (by Start Date)">
+                        <option>2012-08-14 (2)</option>
+              </optgroup><optgroup label="Closed (by End Date)">
+                        <option>2012-07-31 (1)</option><option>2012-07-17 (19)</option><option>2012-07-03 (18)</option><option>2012-06-19 (17)</option><option>2012-06-05 (16)</option>
+              </optgroup>
+            </select>
+                <input type="submit" name="view" value="View" />
+          </form>
+        </li>
+      <!-- milestone backlog -->
+        <li class="inlinebuttons">
+          Release Backlog for milestone:
+          <form name="milestone_view" action="/ome/backlog/Release%20Backlog" method="GET">
+            <select name="bscope" onChange="this.form.submit()">
+              <optgroup label="Open (by Due Date)">
+                        <option>OMERO-4.4.2</option><option>OMERO-4.5</option>
+              </optgroup><optgroup label="Open (no Due Date)">
+                        <option>Blocked</option><option>Cleanup</option><option>Future</option><option>GatherReqs</option><option>OMERO-4.4.x</option><option>Testing</option><option>Unscheduled</option><option>Usability Backlog</option><option>Work in Progress</option>
+              </optgroup><optgroup label="Closed">
+                        <option>OMERO-Beta4.3.1</option><option>OMERO-Beta4.3.2</option><option>OMERO-Beta4.3.3</option><option>OMERO-4.4</option><option>OMERO-4.4.1</option>
+              </optgroup>
+            </select>
+                <input type="submit" name="view" value="View" />
+          </form>
+        </li>
+
+		</ul>
+		<label>Tickets</label>
+		<ul class="tickets tree">
+		</ul>
+    <label>Wiki</label>
+	<ul class="wiki tree">
+	</ul>
+	</div>
+	<div class="main"><!-- Main Content -->
+	<div id="ctxtnav" class="nav">
+	<h2>Context Navigation</h2>
+	<ul>
+		<li class="first last"><a href="/ome/wiki/WorkingWithOmero">Back to WorkingWithOmero</a></li>
+	</ul>
+	<hr />
+	</div>
+    <div id="content" class="attachment">
+        <h1><a href="/ome/wiki/WorkingWithOmero">WorkingWithOmero</a>: model-img.png</h1>
+        <table id="info" summary="Description">
+          <tbody>
+            <tr>
+              <th scope="col">File model-img.png,
+                <span title="46519 bytes">45.4 KB</span>
+                (added by wmoore, <a class="timeline" href="/ome/timeline?from=2011-05-21T21%3A32%3A36%2B01%3A00&amp;precision=second" title="2011-05-21T21:32:36+01:00 in Timeline">15 months</a> ago)</th>
+            </tr>
+            <tr>
+              <td class="message searchable">
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="preview" class="searchable">
+          
+  <div class="image-file"><img src="/ome/raw-attachment/wiki/WorkingWithOmero/model-img.png" alt="model-img.png" /></div>
+
+        </div>
+          <div class="buttons">
+            <form method="get" action="">
+              <div id="delete">
+                <input type="hidden" name="action" value="delete" />
+                <input type="submit" value="Delete attachment" />
+              </div>
+            </form>
+          </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="/ome/raw-attachment/wiki/WorkingWithOmero/model-img.png">Original Format</a>
+        </li>
+      </ul>
+    </div>
+	<div id="bottom">
+	<p><span class="agilo_version">1.3.2-PRO</span> © 2008-2010
+	<a href="http://www.agile42.com/" target="_blank">agile42</a> all
+	rights reserved
+        (this page was served in: 1.353109 sec.)
+    </p>
+	</div>
+	</div>
+		<div class="ome-footer">
+			<p>
+			  <acronym title="Copyright">©</acronym> 2000-2012 University of
+			  Dundee &amp; Open Microscopy Environment. All Rights Reserved.
+			  <a href="/ome/wiki/CopyrightAndLicense">…</a><br />
+			  OME source code is available under the <a href="/ome/wiki/CopyrightAndLicense">
+			  GNU General public license</a> or through commercial license from
+			<a href="http://www.glencoesoftware.com/">Glencoe Software</a>
+		  </p>
+		</div>
+		<div class="left-ribbon-holder">
+			<img id="left-hire-ribbon" src="https://www.openmicroscopy.org/site/art/were-hiring-ribbon-100x100.png" usemap="#left-hire-ribbon-map" />
+			<map id="_left-hire-ribbon-map" name="left-hire-ribbon-map">
+				<area shape="poly" coords="0,63,63,0,87,0,0,87," href="https://www.openmicroscopy.org/site/community/jobs" alt="We're Hiring!" title="OME Jobs" />
+				<area shape="poly" coords="0,0,0,60,60,0," href="/ome" />
+				<area shape="poly" coords="90,0,100,0,100,70,28,70," href="/ome" />
+			</map>
+		</div>
+	  </body>
+</html>
