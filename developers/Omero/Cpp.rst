@@ -152,90 +152,22 @@ code are placed under OMERO\_HOME/target with other zip artifacts.
 Using the library
 -----------------
 
-To use |OmeroCpp| it is necessary to point your
-compiler and linker at the mentioned directories above. A simple Gnu
-` Makefile <http://www.gnu.org/software/make/>`_ might look like this
-(`download </ome/attachment/wiki/OmeroCpp/Makefile>`_
-`|Download| </ome/raw-attachment/wiki/OmeroCpp/Makefile>`_):
+To use |OmeroCpp| it is necessary to point your compiler and linker at
+the mentioned directories above. A simple `GNU make
+<http://www.gnu.org/software/make/>`_ Makefile might look like this:
 
-::
-
-    #
-    # MAKEFILE:
-    #
-    # Where the OMERO C++ distribution was installed.
-    OMERO_DIST?=/opt/OMERO.cpp-64dbg
-
-    # Where the Ice lib/ and include/ directories are to be found
-    ICE_HOME?=/usr
-
-    INCLUDES=-I$(OMERO_DIST)/include -I$(ICE_HOME)/include 
-
-    LIBS=-L$(OMERO_DIST)/lib -L$(ICE_HOME)/lib -L$(ICE_HOME)/lib64 \
-         -lIce -lIceUtil -lGlacier2 -lomero_client -lstdc++
-
-    LIBPATH=$(LD_LIBRARY_PATH):$(ICE_HOME)/lib:$(ICE_HOME)/lib64:$(OMERO_DIST)/lib
-
-    .PHONY: clean run
-
-    yourcode.o: yourcode.cpp
-            $(CXX) $(CXXFLAGS) -c -o $@ $< $(INCLUDES)
-
-    yourcode: yourcode.o
-            $(CXX) -o $@ $^ $(LIBS)
-
-    run:  yourcode
-            LD_LIBRARY_PATH="$(LIBPATH)" ./yourcode --Ice.Config=../etc/ice.config
-
-    clean:
-            rm -f yourcode *.o *~ core 
+.. literalinclude:: ../../examples/omerocpp/Makefile
+   :language: make
+   :linenos:
 
 A trivial example: ``yourcode.cpp``
 -----------------------------------
 
-And a simple example file might looking something like the following
-(`download </ome/attachment/wiki/OmeroCpp/yourcode.cpp>`_
-`|image2| </ome/raw-attachment/wiki/OmeroCpp/yourcode.cpp>`_):
+And a simple example file might looking something like the following:
 
-::
-
-    //
-    // yourcode.cpp:
-    //
-
-    // Domain
-    #include <omero/client.h>
-    #include <omero/api/IAdmin.h>
-    // Std
-    #include <iostream>
-    #include <cassert>
-    #include <vector>
-    #include <time.h>
-    #include <map>
-
-    using namespace std;
-
-    /*
-     * Pass "--Ice.Config=your_config_file" to the executable, or
-     * set the ICE_CONFIG environment variable.
-     */
-    int main(int argc, char* argv[])
-    {
-        omero::client omero(argc, argv);
-        omero::api::ServiceFactoryPrx sf = omero.createSession();
-
-        // IAdmin is responsible for all user/group creation, password changing, etc.
-        omero::api::IAdminPrx  admin  = sf->getAdminService();
-
-        // Who you are logged in as.
-        cout << admin->getEventContext()->userName << endl;
-
-        // These two services are used for database access
-        omero::api::IQueryPrx  query  = sf->getQueryService();
-        omero::api::IUpdatePrx update = sf->getUpdateService();
-
-        return 0; // session is closed by destructor. or call omero.closeSession();
-    }
+.. literalinclude:: ../../examples/omerocpp/yourcode.cpp
+   :language: c++
+   :linenos:
 
 This code doesn't do much. It creates a server session, loads a few
 services, and prints the user's name. For serious examples, see
