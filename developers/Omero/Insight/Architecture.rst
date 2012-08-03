@@ -1,3 +1,5 @@
+.. _developers/Omero/Insight/Architecture:
+
 Architecture
 ------------
 
@@ -18,8 +20,7 @@ functionality:
 -  The Viewer? is a tool to visualise and tune 5D images.
 -  The Measurement Tool? is a tool to perform basic measurement.
 
-Note: If you want to add a new agent, go to `How To Build An
-Agent </ome/wiki/OmeroInsightHowToBuildAgent>`_.
+Note: If you want to add a new agent, go to :ref:`developers/Omero/Insight/HowTo/BuildAgent`.
 
 These agents are internally organised according to the MVC
 (` Model-View-Controller <http://en.wikipedia.org/wiki/Model-view-controller>`_)
@@ -31,16 +32,16 @@ by the bottom layer, the **Container**, to accomplish their tasks.
 The **Container** layer manages the agents life-cycle and provides them
 with services to:
 
--  Communicate without having to know each other (`event
-   bus </ome/wiki/OmeroInsightEventBus>`_).
+-  Communicate without having to know each other 
+   (:ref:`developers/Omero/Insight/EventBus`).
 -  Access the OMERO Server (data management and image services).
 -  Transform entries in configuration files into objects and then access
-   them (`registry </ome/wiki/OmeroInsightConfiguration>`_).
+   them (:ref:`developers/Omero/Insight/Configuration`).
 -  Log messages (log service) and notify the user (user notification
    service) of runtime errors.
 -  Cache data (cache service).
--  Provide a common top level window to plug their GUI's (`Task
-   bar </ome/wiki/OmeroInsightTaskBar>`_).
+-  Provide a common top level window to plug their GUI's 
+   (:ref:`developers/Omero/Insight/TaskBar`).
 
 Initialisation of Agents
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -76,7 +77,7 @@ Interaction among Agents
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Interactions among agents are event-driven. Agents communicate by using
-a shared `event bus </ome/wiki/OmeroInsightEventBus>`_ provided by the
+a shared :ref:`developers/Omero/Insight/EventBus` provided by the
 container. The event bus is an event propagation mechanism loosely based
 on the
 ` Publisher-Subscriber <http://en.wikipedia.org/wiki/Publish/subscribe>`_
@@ -90,13 +91,11 @@ Process View
 All agents run synchronously within the *Swing* dispatching thread. All
 container’s services are called within Swing event handlers and thus run
 within the *Swing* dispatching thread. To see how to retrieve data from
-an OMERO server, go to the `Retrieve
-Data </ome/wiki/OmeroInsightHowToRetrieveData>`_ page.
+an OMERO server, go to the :ref:`developers/Omero/Insight/HowTo/RetrieveData` page.
 
---------------
-
-See `Code organisation </ome/wiki/OmeroInsightImplementationView>`_,
-`Event Bus </ome/wiki/OmeroInsightEventBus>`_
+.. seealso:: 
+    :ref:`developers/Omero/Insight/ImplementationView`, 
+    :ref:`developers/Omero/Insight/EventBus`
 
 Attachments
 ~~~~~~~~~~~

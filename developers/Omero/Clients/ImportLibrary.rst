@@ -10,7 +10,7 @@ directly:
 -  [STRIKEOUT:The `standalone GUI
    importer <http://www.openmicroscopy.org/site/support/omero4/getting-started/tutorial/importing-images>`_]
    (deprecated)
--  The integrated `OmeroInsight </ome/wiki/OmeroInsight>`_ importer
+-  The integrated :ref:`developers/Omero/Insight`_ importer
 -  The ` command-line
    importer <http://www.openmicroscopy.org.uk/site/support/omero4/getting-started/tutorial/command-line-import>`_
 

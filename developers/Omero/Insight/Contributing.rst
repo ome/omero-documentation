@@ -39,9 +39,8 @@ Ant
 The compilation, testing, launch, and delivery of the application are
 automated by means of an Ant
 (` http://ant.apache.org/ <http://ant.apache.org/>`_) build file,
-located under the ``build`` directory (See `Directory
-Contents </ome/wiki/OmeroInsightDirectoryContents>`_). Move to the build
-directory and, from the command line, enter:
+located under the ``build`` directory (See :ref:`developers/Omero/Insight/DirectoryContents`). 
+Move to the build directory and, from the command line, enter:
 
 ::
 
