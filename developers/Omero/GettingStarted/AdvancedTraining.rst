@@ -163,8 +163,7 @@ are different) and that this is the April 2010 schema.
 Working with the OMERO model objects
 ------------------------------------
 
-For detailed information see the `ObjectModel </ome/wiki/ObjectModel>`_
-and |DevelopingOmeroClients| pages.
+For detailed information see |OmeroModel| and |DevelopingOmeroClients| pages.
 
 Objects that you wish to work with on the client must be loaded from
 OMERO, with the query defining the extent of any data graph that is
@@ -213,10 +212,11 @@ HQL examples
 
 HQL is used for Query Service queries (see above). Some examples,
 coupled with a knowledge of the OMERO model should get you going, along
-with notes about object loading on the
-`ObjectModel </ome/wiki/ObjectModel>`_ page. NB: If possible, it is
-advisable to use an existing API method from one of the other services
-(as for the container service above).
+with notes about object loading on the |OmeroModel|  page. 
+
+.. note::
+    If possible, it is advisable to use an existing API method from one 
+    of the other services (as for the container service above).
 
 Although possible to place query parameters directly into the string, it
 is preferable (particularly for type-checking) to use the

@@ -66,7 +66,7 @@ Model
 ~~~~~
 
 The OME Data Model and its OMERO representation, the
-`ObjectModel </ome/wiki/ObjectModel>`_, intentionally draw lines between
+|OmeroModel| , intentionally draw lines between
 what metadata can be supported and what can't. Though we are always
 examining new fields for inclusion (as of Summer 2009 two examples of
 these are lifetime and electron microscopy), it's not possible to

@@ -1,7 +1,7 @@
 OMERO Type Language
 ===================
 
-The OMERO `ObjectModel </ome/wiki/ObjectModel>`_ has two general parts:
+The |OmeroModel| has two general parts:
 first, the long studied and well-established core model and second, the
 user-specified portion. It is vital that there is a central definition
 of both parts of the object model. To allow users to easily define new
@@ -34,6 +34,4 @@ include:
 -  Additions: umasks, caching, DTD,
 -  Namespaces
 
---------------
-
-See also : `ObjectModel </ome/wiki/ObjectModel>`_
+.. seealso:: |OmeroModel| 

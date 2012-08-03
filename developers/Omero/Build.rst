@@ -100,8 +100,8 @@ of the most important code. Many MB of source code is generated both by
 our own :source:`DSLTask <components/dsl>` as well as by
 the ` Ice <http://zeroc.com>`_ ``slice2java``, ``slice2cpp``, and
 ``slice2py`` code generators. These take an intermediate representation
-of the ` OME-Model <http://www.ome-xml.org>`_ and generate our
-`ObjectModel </ome/wiki/ObjectModel>`_. This code is node available in
+of the ` OME-Model <http://www.ome-xml.org>`_ and generate our |OmeroModel|. 
+This code is node available in
 git, but once built, can be found in all the directories named
 "generated".
 

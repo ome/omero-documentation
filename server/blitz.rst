@@ -4,7 +4,7 @@ OMERO.blitz
 ===========
 
 The OMERO.blitz server is responsible for providing secure access to
-data and metadata via user sessions (:wiki:`OmeroSessions`)
+data and metadata via user sessions (:ref:`developers/Omero/Server/Sessions`)
 and cleaning up all resources when they are no longer being used.
 Various server capabilities are accessed via a multitude services
 collectively known as the |OmeroApi|.
@@ -13,7 +13,7 @@ Metadata
 ~~~~~~~~
 
 Metadata stored in an object-relational database is mapped into the
-OMERO :wiki:`ObjectModel` via `Hibernate <http://www.hibernate.org>`_. Hibernate Query Language (HQL)
+OMERO :ref:`developers/Omero/Model` via `Hibernate <http://www.hibernate.org>`_. Hibernate Query Language (HQL)
 calls can be made against the server and have all ownership information
 automatically taken into account.
 

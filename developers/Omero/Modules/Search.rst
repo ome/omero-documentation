@@ -1,5 +1,7 @@
-`OmeroSearch </ome/wiki/OmeroSearch>`_
-======================================
+.. _developers/Omero/Modules/Search:
+
+OMERO Search
+============
 
 Beginning with 3.0-Beta3, the OMERO server will use
 ` Lucene <http://lucene.apache.org>`_ to index all string and timestamp

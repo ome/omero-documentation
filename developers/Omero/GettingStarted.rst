@@ -25,7 +25,7 @@ Examples for all the `OmeroBlitz </ome/wiki/OmeroBlitz>`_ languages
 The examples under the ``OmeroClients`` directory are more thoroughly
 discussed on the |OmeroClients| page. This is
 a good starting point for anyone interested in working with the
-|OmeroApi| or the `ObjectModel </ome/wiki/ObjectModel>`_.
+|OmeroApi| or the |OmeroModel|.
 
 Examples with Java source code are available under:
 :source:`Examples <components/insight/TEST/org/openmicroscopy/shoola/examples>`

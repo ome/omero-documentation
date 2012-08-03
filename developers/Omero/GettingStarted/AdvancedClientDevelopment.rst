@@ -380,9 +380,8 @@ OMERO Model Objects
 ~~~~~~~~~~~~~~~~~~~
 
 With these components -- rtypes, primitives, constants, etc -- it's
-possible to define the core nouns of OME, the
-`ObjectModel </ome/wiki/ObjectModel>`_. The OMERO
-`ObjectModel </ome/wiki/ObjectModel>`_ is a translation of the ` OME XML
+possible to define the core nouns of OME, the |OmeroModel| . The OMERO
+|OmeroModel| is a translation of the ` OME XML
 specification <http://www.ome-xml.org>`_ into objects for use by the
 server, built out of RTypes, sequences and dictionaries, and Details.
 
@@ -553,7 +552,7 @@ Example: :source:`examples/OmeroClients/constructors.py`
 
 Example: :source:`examples/OmeroClients/constructors.java`
 
-When `ObjectModel </ome/wiki/ObjectModel>`_ instances are serialized
+When |OmeroModel|  instances are serialized
 over the wire and arrive in the client, the Ice runtime must determine
 which constructor to call. It consults with the ObjectFactory, also
 provided by OMERO, to create the new classes. If you would like to have
@@ -689,7 +688,7 @@ used to create the ``Dataset`` instance linked to the new ``Image``. The
 Objects and collections can be created unloaded as a pointer to an
 actual instance or they may be returned unloaded from the server when
 they are not actively accessed in a query. Because of the
-interconnectedness of the `ObjectModel </ome/wiki/ObjectModel>`_,
+interconnectedness of the |OmeroModel| ,
 loading one object could conceivably require downloading a large part of
 the database if there weren't some way to "snip-off" sections.
 
@@ -781,7 +780,7 @@ had tried to set a value on one of the ``Image``\ s, you will get an
 exception.
 
 To prevent errors when working with unloaded objects, all the
-`ObjectModel </ome/wiki/ObjectModel>`_ classes are marked as protected?
+|OmeroModel|  classes are marked as protected?
 in the slice definitions which causes the implementations in each
 language to try to hide the fields. In Java and C++ this results in
 fields with "protected" visibility. In Python, an underscore is prefixed
@@ -796,8 +795,7 @@ Collections
 Just as an entire object can be unloaded, any collection field can also
 be unloaded. However, as mentioned above, since it is not possible to
 send a null collection over the wire with Ice and working with RTypes
-can be inefficient, all the `ObjectModel </ome/wiki/ObjectModel>`_
-collections are hidden behind several methods.
+can be inefficient, all the |OmeroModel| collections are hidden behind several methods.
 
 ::
 
@@ -1045,7 +1043,7 @@ and any improper access will lead to an ``omero.ClientError``.
 As mentioned above, one of the Java features which is missing from the
 slice definition language is the ability to have concrete classes
 implement **multiple** interfaces. Much of the
-`ObjectModel </ome/wiki/ObjectModel>`_ in the RMI-based types
+|OmeroModel|  in the RMI-based types
 (``ome.model``) was based on the use of interfaces.
 
 -  :javadoc:` IObject <ome/model/IObject.html>`
@@ -1144,7 +1142,7 @@ Smart pointers (C++ only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An important consideration when working with C++ is that the
-`ObjectModel </ome/wiki/ObjectModel>`_ classes themselves have no
+|OmeroModel|  classes themselves have no
 copy-constructors and no assignment operator (operator=), and so cannot
 be allocated on the stack. Combined with smart pointers this effectively
 prevents memory leaks.
@@ -1202,7 +1200,7 @@ For more information, see ` 6.14.6 Smart Pointers for
 Classes <http://zeroc.com/doc/Ice-3.3.0/manual/Cpp.7.14.html>`_ in the
 Ice manual, which also describes the ``Ice.GC.Interval`` parameter which
 determines how often garbage collection runs in C++ to reap objects.
-This is necessary with the OMERO `ObjectModel </ome/wiki/ObjectModel>`_
+This is necessary with the |OmeroModel| 
 since there are inherently cycles in the object graph.
 
 Another point type which may be of use is ``omero::client_ptr``. It also
@@ -1259,7 +1257,7 @@ Example: :source:`examples/OmeroClients/clientpointer.cpp`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Like smart pointers for |OmeroCpp|, the |OmeroPy| SDK defines ``__getattr__`` and
-``__setattr__`` methods for all `ObjectModel </ome/wiki/ObjectModel>`_
+``__setattr__`` methods for all |OmeroModel| 
 classes. Rather than explicitly calling the ``getFoo()`` and
 ``setFoo()`` methods, field-like access can be used. (It should be
 noted, however, that the accessors will perform marginally faster)
@@ -2676,8 +2674,7 @@ Topics to be added
 Obviously, this introduction is still not exhaustive by any means. Some
 topics which we would like to see added here in the near future include:
 
--  more examples of working with the
-   `ObjectModel </ome/wiki/ObjectModel>`_
+-  more examples of working with the |OmeroModel| 
 -  examples of all services
 -  security and ownership
 -  performance

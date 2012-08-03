@@ -1,3 +1,5 @@
+.. _developers/Omero/Model:
+
 OME-Remote Objects
 ==================
 
@@ -115,8 +117,7 @@ The main methods on Details are:
         ExternalInfo getExternalInfo();
 
 though some of the methods will return null, if that column is not
-available for the given object. See
-`Interfaces </ome/wiki/ObjectModel#interfaces>`_ below for more
+available for the given object. See :ref:`developers/Omero/Model#Interfaces` below for more
 information.
 
 Consumers of the API are encouraged to pass around Details instances
@@ -134,6 +135,8 @@ ACL rather than the current filesystem-like
 
 Because it is a field on every type, Details is also on the list of
 Keywords for the `TypeLanguage </ome/wiki/TypeLanguage>`_.
+
+.. _developers/Omero/Model#Interfaces:
 
 Interfaces
 ~~~~~~~~~~

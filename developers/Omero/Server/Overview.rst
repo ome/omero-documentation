@@ -121,7 +121,7 @@ Topics
 ~~~~~~
 
 -  `ExceptionHandling </ome/wiki/ExceptionHandling>`_
--  `ObjectModel </ome/wiki/ObjectModel>`_
+-  |OmeroModel|
 -  `OmeroClientLibrary </ome/wiki/OmeroClientLibrary>`_
 -  `OmeroSecurity </ome/wiki/OmeroSecurity>`_
 -  `TypeLanguage </ome/wiki/TypeLanguage>`_

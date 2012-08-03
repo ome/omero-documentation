@@ -3,7 +3,7 @@ Search Bridges
 
 A "bridge" is the mapping between your metadata and how it is stored in
 the ` Lucene <http://lucene.apache.org>`_ index.
-`OmeroSearch </ome/wiki/OmeroSearch>`_ uses one internal bridge to parse
+:ref:`developers/Omero/Modules/Search` uses one internal bridge to parse
 all of your metadata for later searching. If, however, there is more
 metadata that you would like to add to the index, you can implement the
 ``org.hibernate.search.bridge.FieldBridge`` interface yourself, or
@@ -141,4 +141,4 @@ See :ticket:`955` and :ticket:`1102`
 
 --------------
 
-See also : `OmeroSearch </ome/wiki/OmeroSearch>`_
+.. seealso:: :ref:`developers/Omero/Modules/Search`
