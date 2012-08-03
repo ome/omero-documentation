@@ -2,7 +2,7 @@ OMERO.fs
 ========
 
 The `OmeroFs </ome/wiki/OmeroFs>`_ service runs somewhere within
-`OmeroGrid </ome/wiki/OmeroGrid>`_ and is responsible for watching a
+|OmeroGrid| and is responsible for watching a
 particular filesystem directory for changes. These change events are
 then signaled to any observers, who can optionally begin reading the
 file once updated.

@@ -1,8 +1,10 @@
-Installing `OmeroGrid </ome/wiki/OmeroGrid>`_ on Windows XP
-===========================================================
+.. _developers/Server/Grid/InstallWindowsXP:
+
+Installing OMERO Grid on Windows XP
+====================================
 
 Unlike all other supported platforms, the ``bin/omero`` script and
-`OmeroGrid </ome/wiki/OmeroGrid>`_ are not responsible for starting and
+|OmeroGrid| are not responsible for starting and
 stopping the `OmeroBlitz </ome/wiki/OmeroBlitz>`_ server and other
 processes. Instead, that job is delegated to the native Windows service
 system. A brief explanation of doing this via the ``sc`` command is
@@ -36,7 +38,7 @@ installation with an OMERO database. Then,
 Configuration
 -------------
 
-Because all `OmeroGrid </ome/wiki/OmeroGrid>`_ paths must be absolute
+Because all |OmeroGrid| paths must be absolute
 under Windows, several files must be two files must be edited for server
 to start properly:
 
@@ -45,7 +47,7 @@ to start properly:
     executable on Windows. Contains paths for log output, and for
     finding ``templates.xml``.
 **templates.xml**
-    Shared templates used in all `OmeroGrid </ome/wiki/OmeroGrid>`_
+    Shared templates used in all |OmeroGrid|
     applications. The path definitions for both
     `OmeroBlitz </ome/wiki/OmeroBlitz>`_ and for ``processor.py`` must
     be made absolute.
@@ -64,7 +66,7 @@ installation directory:
        ...
        python bin\omero admin stop
 
-The first command installs `OmeroGrid </ome/wiki/OmeroGrid>`_ as a
+The first command installs |OmeroGrid| as a
 Windows service with the name ``OMERO.master``, and then calls
 ``start``. Any further calls to ``admin start`` will fail since the
 application is already installed as a Windows service. Simiarly,

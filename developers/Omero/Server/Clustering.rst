@@ -33,7 +33,7 @@ further extend throughput, you will need to parallelize these.
 Installation
 ------------
 
-If you are using the default `OmeroGrid </ome/wiki/OmeroGrid>`_
+If you are using the default |OmeroGrid|
 :source:`application descriptor <etc/grid/default.xml>`
 quickly enabling clustering is as simple as executing:
 

@@ -344,7 +344,7 @@ Executed before starting the server to detect possible issues.
     search   
     status      
     submit [/path/to/file] [3]_ [4]_
-        Submit a file of OmeroCli commands to OmeroGrid for execution, or from stdin if the file is missing, or drop the user into a submission shell if stdin is missing.
+        Submit a file of |OmeroCli| commands to |OmeroGrid| for execution, or from stdin if the file is missing, or drop the user into a submission shell if stdin is missing.
         
     q[uit]      
     h[elp]  

@@ -63,6 +63,6 @@ The bottlenecks for throughput are:
 .. seealso::
     `OmeroAndPostgres </ome/wiki/OmeroAndPostgres>`_
 
-    `OmeroGrid </ome/wiki/OmeroGrid>`_
+    |OmeroGrid|
 
     :ticket:`906`

@@ -1,5 +1,7 @@
-Installing `OmeroGrid </ome/wiki/OmeroGrid>`_ on Ubuntu Gutsy
-=============================================================
+.. _developers/Server/Grid/InstallGutsy:
+
+Installing OMERO Grid on Ubuntu Gutsy
+======================================
 
 OS Installation
 ---------------
@@ -69,7 +71,4 @@ execute the following as root:
     #
     sudo /etc/init.d/omero-admin stop
 
---------------
-
-See also: `OmeroInstall </ome/wiki/OmeroInstall>`_,
-`OmeroGridInstall </ome/wiki/OmeroGridInstall>`_
+.. seealso:: `OmeroInstall </ome/wiki/OmeroInstall>`_, `OmeroGridInstall </ome/wiki/OmeroGridInstall>`_

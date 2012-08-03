@@ -127,8 +127,7 @@ Topics
 -  `TypeLanguage </ome/wiki/TypeLanguage>`_
 
 
-See also : `OmeroBlitz </ome/wiki/OmeroBlitz>`_,
-`OmeroGrid </ome/wiki/OmeroGrid>`_, `OmeroEar </ome/wiki/OmeroEar>`_
+.. seealso:: `OmeroBlitz </ome/wiki/OmeroBlitz>`_, |OmeroGrid|, `OmeroEar </ome/wiki/OmeroEar>`_
 
 Attachments
 ~~~~~~~~~~~

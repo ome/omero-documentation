@@ -105,8 +105,8 @@ JBoss-only
     Principal on service lookup. These values can be overridden in
     local.properties.
 
-`OmeroGrid </ome/wiki/OmeroGrid>`_ only
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+|OmeroGrid| only
+^^^^^^^^^^^^^^^^
 
 Client & Common
 ~~~~~~~~~~~~~~~
@@ -177,8 +177,8 @@ JBoss-only
 :source:`Login.java <components/common/src/ome/system/Login.java>`
 :source:`Server.java <components/common/src/ome/system/Server.java>`
 
-`OmeroGrid </ome/wiki/OmeroGrid>`_-only
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+|OmeroGrid|-only
+^^^^^^^^^^^^^^^^
 
 Server side
 ~~~~~~~~~~~

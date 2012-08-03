@@ -910,7 +910,7 @@ please see |OmeroClients|.
 	
 	`OmeroBlitz </ome/wiki/OmeroBlitz>`_,
 	
-	`OmeroGrid </ome/wiki/OmeroGrid>`_,
+	|OmeroGrid|
 	
 	`OmeroTools </ome/wiki/OmeroTools>`_, 
 	

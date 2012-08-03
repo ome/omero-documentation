@@ -361,7 +361,7 @@ Putting ``MyLoginAttemptListener.class`` and
 Servers
 ~~~~~~~
 
-With the `OmeroGrid </ome/wiki/OmeroGrid>`_ infrastructure, it is
+With the |OmeroGrid| infrastructure, it is
 possible to have your own processes managed by the OMERO infrastructure.
 For example, at some sites, ` Nginx <http://wiki.nginx.org/Main>`_ is
 started to host |OmeroWeb|. Better integration is
@@ -369,7 +369,7 @@ possible, however, if your server also uses the
 ` Ice <http://www.zeroc.com>`_ remoting framework.
 
 On way or the other, to have your server started, monitored, and
-eventually shutdown by `OmeroGrid </ome/wiki/OmeroGrid>`_, you will need
+eventually shutdown by |OmeroGrid|, you will need
 to add it to the "application descriptor" for your site. When using:
 
 ::
