@@ -25,7 +25,7 @@ section, the following guides to administering your installation of
 OMERO.server may be of interest:
 
 -  :ref:`OMERO.server Troubleshooting <rst_troubleshooting>`
--  :ref:`OMERO.server Security and Firewalls <rst_security>`
+-  :ref:`OMERO.server Security and Firewalls <server/security>`
 -  :ref:`OMERO.server LDAP <server/ldap>`
 -  :ref:`OMERO.server Backup and Restore <rst_backup-and-restore>`
 -  :ref:`OMERO.server Binary Repository <rst_binary-repository>`

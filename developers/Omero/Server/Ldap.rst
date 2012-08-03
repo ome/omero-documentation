@@ -77,4 +77,4 @@ same package are:
 -  ":query:" -
    :source:` QueryNewUserGroupBean <components/server/src/ome/security/auth/QueryNewUserGroupBean.java>`
 
-.. seealso:: :ref:`server/installation`, `OmeroSecurity </ome/wiki/OmeroSecurity>`_
+.. seealso:: :ref:`server/installation`, :ref:`server/security`

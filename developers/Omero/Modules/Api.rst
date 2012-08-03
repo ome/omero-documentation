@@ -158,8 +158,8 @@ Administation
 ~~~~~~~~~~~~~
 
 The :source:`IAdmin <components/common/src/ome/api/IAdmin.java>`
-interface defines all the actions necessary to administer the `security
-system </ome/wiki/OmeroSecurity>`_ . It is explained further on the
+interface defines all the actions necessary to administer the 
+:ref:`server/security` . It is explained further on the
 `AdminInterface </ome/wiki/AdminInterface>`_ page.
 
 Pojos

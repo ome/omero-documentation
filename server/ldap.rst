@@ -177,7 +177,7 @@ LDAP over SSL
 
 If you are connecting to your server over **SSL**, that is, if your URL
 is of the form "ldaps://ldap.example.com:636" you will need to configure
-a key and trust store for Java. See the :ref:`rst_security` page
+a key and trust store for Java. See the :ref:`server/security` page
 for more information.
 
 Synchronising LDAP on user login
@@ -234,7 +234,7 @@ kept in LDAP. To enable it, use:
 	:ref:`server/installation`
 		Installation guide for OMERO.server under UNIX-based platforms
 	
-	:ref:`OMERO.server Security and Firewalls <rst_security>`
+	:ref:`OMERO.server Security and Firewalls <server/security>`
 		Security pages for OMERO.server
 	
 	:ref:`developers/Omero/Server/Ldap`

@@ -134,7 +134,7 @@ ACL rather than the current filesystem-like
 `AccessControl </ome/wiki/AccessControl>`_.
 
 Because it is a field on every type, Details is also on the list of
-Keywords for the `TypeLanguage </ome/wiki/TypeLanguage>`_.
+Keywords for the :ref:`developers/Omero/Model/TypeLanguage`.
 
 .. _developers/Omero/Model#Interfaces:
 

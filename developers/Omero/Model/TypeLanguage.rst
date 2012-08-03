@@ -1,3 +1,5 @@
+.. _developers/Omero/Model/TypeLanguage:
+
 OMERO Type Language
 ===================
 

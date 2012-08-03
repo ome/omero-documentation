@@ -138,7 +138,7 @@ Getting Your Hand's Dirty
 OMERO Architecture (From a programmer's perspective)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  `OMERO Model </ome/wiki/OmeroModel>`_
+-  |OmeroModel|
 -  |OmeroApi|
 
 More pages can be found on the `SiteMap </ome/wiki/SiteMap>`_.
@@ -148,7 +148,7 @@ Further Reading
 
 #. |OmeroApi|
 #. |OmeroCli|
-#. `OmeroModel </ome/wiki/OmeroModel>`_: Model Documentation
+#. |OmeroModel|
 #. |DevelopingOmeroClients|
 #. |ExtendingOmero|
 
