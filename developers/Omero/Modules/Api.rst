@@ -214,7 +214,7 @@ wiki/HowToCreateAService. In general, if a properly annotated service is
 placed in any JAR of the OMERO EAR file (see
 :ref:`developers/Omero/Build` for more) then the service will be
 deployed to the server. In the case of
-`OmeroBlitz </ome/wiki/OmeroBlitz>`_, the service must be properly
+OmeroBlitz, the service must be properly
 defined under :source:`components/blitz/resources`.
 
 Omero Annotations for Validation

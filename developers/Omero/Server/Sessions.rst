@@ -5,7 +5,7 @@ OMERO Sessions
 
 Beginning with OMERO-3.0-Beta3, the OMERO server has unified the
 handling of login sessions among both the JBoss and the
-`OmeroBlitz </ome/wiki/OmeroBlitz>`_ servers. Previously JBoss logins
+OmeroBlitz servers. Previously JBoss logins
 were handled via the standard
 ` JAAS <http://java.sun.com/javase/technologies/security/>`_ mechanisms,
 using a modified ``DatabaseLoginModule``. This proved problematic for
@@ -100,7 +100,7 @@ the session via:
 Existing sessions
 ~~~~~~~~~~~~~~~~~
 
-In `OmeroBlitz </ome/wiki/OmeroBlitz>`_, once the connection to a
+In OmeroBlitz, once the connection to a
 ``ServiceFactoryPrx`` (a Glacier2.Session subclass) was lost, it was not
 possible to reconnect to any of the services created using that
 connection. Now it is possible to reacquire the session if it is still
@@ -134,7 +134,7 @@ a session before the first service call is made. Eventually, clients
 will want to make use of the session API and catch session exceptions to
 have a finer control of the client lifecycle.
 
-Similarly, no changes are needed in `OmeroBlitz </ome/wiki/OmeroBlitz>`_
+Similarly, no changes are needed in OmeroBlitz
 client code since Glacier2 sessions now delegate to |OmeroSessions|. 
 Clients can access the ISession service when necessary. 
 Exceptions thrown are still Ice-based.

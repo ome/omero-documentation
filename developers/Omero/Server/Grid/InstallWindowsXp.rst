@@ -5,7 +5,7 @@ Installing OMERO Grid on Windows XP
 
 Unlike all other supported platforms, the ``bin/omero`` script and
 |OmeroGrid| are not responsible for starting and
-stopping the `OmeroBlitz </ome/wiki/OmeroBlitz>`_ server and other
+stopping the OmeroBlitz server and other
 processes. Instead, that job is delegated to the native Windows service
 system. A brief explanation of doing this via the ``sc`` command is
 provided below.
@@ -48,8 +48,7 @@ to start properly:
 **templates.xml**
     Shared templates used in all |OmeroGrid|
     applications. The path definitions for both
-    `OmeroBlitz </ome/wiki/OmeroBlitz>`_ and for ``processor.py`` must
-    be made absolute.
+    OmeroBlitz and for ``processor.py`` must be made absolute.
     `|image1| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_templates.xml.png>`_
 
 Installation

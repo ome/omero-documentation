@@ -93,8 +93,7 @@ Since it is prohibitive to model full objects with the SAs, one
 alternative is to add types directly to the code-generated. By adding a
 file named ``*.ome.xml`` to :source:`components/model/resources/mappings`
 and running a full-build, it is possible to have new objects generated
-in all `OmeroBlitz </ome/wiki/OmeroBlitz>`_ languages. Supported fields
-include:
+in all OmeroBlitz languages. Supported fields include:
 
 -  boolean
 -  string
@@ -147,7 +146,7 @@ Traditionally, services were added via Java interfaces in the
 :source:`components/common/src/ome/api`
 package. The creation of such "core" services is described under
 `wiki:HowToCreateAService </ome/wiki/HowToCreateAService>`_. However,
-with the introduction of `OmeroBlitz </ome/wiki/OmeroBlitz>`_, it's also
+with the introduction of OmeroBlitz, it's also
 possible to write blitz-only services which are defined by a slice
 definition under :source:`components/blitz/resources/omero`.
 
@@ -171,8 +170,7 @@ The easiest possible service definition in slice is:
 
 This should be added to any existing or a new ``*.ice`` file under the
 ``blitz/resources/omero`` directory. After the next ant build, stubs
-will be created for all the `OmeroBlitz </ome/wiki/OmeroBlitz>`_
-languages, i.e.  |OmeroJava|, |OmeroPy|, and |OmeroCpp|.
+will be created for all the OmeroBlitz languages, i.e.  |OmeroJava|, |OmeroPy|, and |OmeroCpp|.
 
 **Note:** Once you have gotten your code working, it is most re-usable
 if you can put it all in a single directory under tools/. These
@@ -288,7 +286,7 @@ Future topics
 Information on:
 
 -  implementation, configuration, and deploy in other
-   `OmeroBlitz </ome/wiki/OmeroBlitz>`_ languages
+   OmeroBlitz languages
 -  Subclassing from existing servant implementation
 -  Using AMD to reduce server contention
 

@@ -229,8 +229,7 @@ please see |OmeroClients|.
 
 --------------
 
-See also: ` http://zeroc.com <http://zeroc.com>`_,
-`OmeroBlitz </ome/wiki/OmeroBlitz>`_, |OmeroGrid|, |OmeroApi|,
+See also: ` http://zeroc.com <http://zeroc.com>`_, |OmeroGrid|, |OmeroApi|,
 :ref:`developers/Omero/Build`, :ticket:`1596` which
 added 64bit support
 

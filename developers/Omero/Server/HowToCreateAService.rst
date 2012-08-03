@@ -29,9 +29,9 @@ and the central :source:`service
 factory <components/common/src/ome/system/ServiceFactory.java>`
 (These last two points stand to change with :ticket:`314`).
 
-**Note:** With the creation of `OmeroBlitz </ome/wiki/OmeroBlitz>`_,
-there are several other locations which need to be modified. These are
-also listed below.
+.. note::
+    With the creation of OmeroBlitz, there are several other locations 
+    which need to be modified. These are also listed below.
 
 Files to Create
 ~~~~~~~~~~~~~~~

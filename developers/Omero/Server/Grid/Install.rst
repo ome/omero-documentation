@@ -69,7 +69,7 @@ Installation
 
 Once JBoss is running according to :ref:`server/installation#Installation`, a
 few further steps are necessary to start |OmeroGrid|, which in turns starts
-`OmeroBlitz </ome/wiki/OmeroBlitz>`_ and various other processes:
+OmeroBlitz and various other processes:
 
 ::
 

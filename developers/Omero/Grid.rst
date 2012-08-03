@@ -101,8 +101,7 @@ of all your computing resources.
 The deployment descriptors provided define which "servers" are started
 on which "nodes". For example the
 :source:`default <etc/grid/default.xml>` descriptor
-configures the "master" node to start the
-`OmeroBlitz </ome/wiki/OmeroBlitz>`_ server, the Glacier2 router for
+configures the "master" node to start the OmeroBlitz server, the Glacier2 router for
 firewalling, as well as a single processor "Processor0". The master node
 is also configured via
 :source:`master.cfg <etc/master.cfg>` to host the
@@ -169,7 +168,7 @@ or with the environment variable ``OMERO_NODE``:
        OMERO_NODE=MyNewNode bin/omero node start
 
 For the `milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_, the single
-node which is executing beside `OmeroBlitz </ome/wiki/OmeroBlitz>`_ on
+node which is executing beside OmeroBlitz on
 the master will probably suffice for your processing needs. In the
 following milestones, the number and location of processors and nodes in
 general will become increasingly important.
@@ -293,7 +292,7 @@ where these values come from using openssl:
     TN7CjkTVoDnb2
     OpenSSL> 
 
-Another possibility is to use the `OmeroBlitz </ome/wiki/OmeroBlitz>`_
+Another possibility is to use the OmeroBlitz
 permissions verifier, so that anyone with a proper OMERO account can
 access the server. (We are currently looking into providing a root- or
 admin-only permissions verifier for public use.)
@@ -381,7 +380,7 @@ Targets
 In application descriptors, it is possible to surround sections of the
 description with ``<target/>`` elements. For example, in
 ``etc/grid/default.xml`` the section which defines the main
-`OmeroBlitz </ome/wiki/OmeroBlitz>`_ server includes:
+OmeroBlitz server includes:
 
 ::
 
@@ -413,8 +412,7 @@ be applied to all servers which will be handling the invocation. For
 example, a call to ``InteractiveProcessor.execute(omero::RMap inputs)``
 which passes the inputs all the way down to **processor.py** will need
 to have a sufficiently large ``Ice.MessageSizeMax`` for: the client, the
-Glacier2 router, the `OmeroBlitz </ome/wiki/OmeroBlitz>`_ server, and
-the Processor.
+Glacier2 router, the OmeroBlitz server, and the Processor.
 
 The default is currently set to 4096 kilobytes, or about 4 megs.
 

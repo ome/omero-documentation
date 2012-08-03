@@ -16,9 +16,9 @@ Because of its complexity, the object model is generated from a :source:`central
 definition <components/model>` using our own
 :source:`code-generator <components/dsl>`. It relies on no
 libraries and can be used in both the server and the RMI clients.
-`OmeroBlitz </ome/wiki/OmeroBlitz>`_ uses a :source:`second
+OmeroBlitz uses a :source:`second
 mapping <components/blitz/resources/templates>` to
-generate OmeroJ, |OmeroPy|, and |OmeroCpp| classes, which can be
+generate |OmeroJava|, |OmeroPy|, and |OmeroCpp| classes, which can be
 :source:`mapped <components/blitz/src/omero/util/IceMapper.java>`
 back and forth to the server object model. *Here we'll discuss only the
 server object-model and how it is used internally.*
@@ -240,7 +240,7 @@ Limitations
 -  The filter methods override all standard checks such as
    IObject#isLoaded and so null-pointer exceptions et al. may be thrown.
 -  The types stored in the dynamic map currently don't propagate to the
-   `OmeroBlitz </ome/wiki/OmeroBlitz>`_ model objects, since not all
+   OmeroBlitz model objects, since not all
    java.lang.Objects can be converted.
 
 --------------
@@ -362,7 +362,7 @@ With these states in mind, it is possible to start looking at how to
 actually use model objects. From the point of view of the server,
 everything is either an assertion of an object graph (a "write") or a
 request for an object graph (a "read"), whether they are coming from an
-RMI client, an `OmeroBlitz </ome/wiki/OmeroBlitz>`_ client, or even
+RMI client, an OmeroBlitz client, or even
 being generated internally.
 
 Writing
@@ -629,8 +629,7 @@ Future topics
    quickly) be verified by the database. See
    `wiki:proposals/Validation </ome/wiki/proposals/Validation>`_
 -  Versioning/Locking?
--  ObjectFactory? for wrapping model objects from
-   `OmeroBlitz </ome/wiki/OmeroBlitz>`_
+-  ObjectFactory? for wrapping model objects from OmeroBlitz
 -  Links to external models
 -  Client cache
 -  Document collection methods

@@ -3,8 +3,7 @@ Omero Throttling
 
 Throttling consists of reducing the total number of resources that one
 user or group can consume at a given time. The throttling service is a
-new component of `OmeroBlitz </ome/wiki/OmeroBlitz>`_ which should
-ensure a more fair usage.
+new component of OmeroBlitz which should ensure a more fair usage.
 
 For example, each blitz server has a pre-defined maximum number of
 server threads. Any calls beyond this number must wait on a currently
