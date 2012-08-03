@@ -338,7 +338,7 @@ Things to look at
 -  :source:`components/blitz/resources/omero/Scripts.ice`
 -  :source:`components/blitz/src/omero/grid/InteractiveProcessorI.java`
 -  :source:`components/tools/OmeroPy/src/omero/processor.py`
--  :source:`components/tools/OmeroPy/test/integration/ping.py`
+-  :source:`components/tools/OmeroPy/test/scriptstest/ping.py`
 
 Workflow
 ~~~~~~~~

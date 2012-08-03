@@ -80,7 +80,7 @@ Keeping your session alive
 For executing any long running task, you will need a background thread
 which keeps your session alive. If you are familiar with Matlab
 ``Timers`` you can use
-:source:`omeroKeepAlive.m <components/tools/OmeroM/functions/omeroKeepAlive.m>`
+:source:`omeroKeepAlive.m <components/tools/OmeroM/src/omeroKeepAlive.m>`
 directly or modify it to your liking.
 
 ::

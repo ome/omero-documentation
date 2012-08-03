@@ -111,7 +111,7 @@ Stateful/Binary? Services
    :source:` src <components/common/src/ome/api/RawPixelsStore.java>`,
    :javadoc:` API <ome/api/RawPixelsStore.html>`
 -  RenderingEngine:
-   :source:` src <components/common/src/omeis/re/providers/RenderingEngine.java>`,
+   :source:` src <components/common/src/omeis/providers/re/RenderingEngine.java>`,
    :javadoc:` API <slice2html/omero/api/RenderingEngine.html#RenderingEngine>`
    (see `RenderingEngine </ome/wiki/RenderingEngine>`_ for more)
 -  ThumbnailStore:
