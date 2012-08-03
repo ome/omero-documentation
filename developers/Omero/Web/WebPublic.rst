@@ -168,7 +168,6 @@ Known limitations
 -  Some matching issues with ``http`` vs. ``https`` URLs
 -  Only the **first** OMERO.web configured OMERO host is supported
 
---------------
 
-See also: `OmeroWeb </ome/wiki/OmeroWeb>`_, ` OMERO.webpublic
-epydoc <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk/javadoc/epydoc/omeroweb.webpublic-module.html>`_
+.. seealso:: |OmeroWeb|, :javadoc:` OMERO.webpublic
+epydoc <epydoc/omeroweb.webpublic-module.html>`

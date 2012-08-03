@@ -25,8 +25,7 @@ For more introduction to OMERO, see :ref:`developers/Omero`.
 
 Do:
 
--  Browse the ` OMERO
-   model <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model.html>`_
+-  Browse the :javadoc:` OMERO model <slice2html/omero/model.html>`
    for 'Image' to see its attributes 'DataMembers?'.
 -  E.g. Name, DatasetImageLinks?, Instrument, Pixels.
 
@@ -47,9 +46,8 @@ See |OmeroApi| for more info
 Do:
 
 -  Lookup methods on Stateful service (E.g RawPixelsStore) vv Stateless
-   service (E.g. QueryService), starting from the |OmeroApi| or ` Java
-   Doc <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api.html>`_
-   pages.
+   service (E.g. QueryService), starting from the |OmeroApi| or :javadoc:` Java
+   Doc <slice2html/omero/api.html>` pages.
 
 Client Side Scripting
 =====================

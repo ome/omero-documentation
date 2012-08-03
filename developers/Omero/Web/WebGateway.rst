@@ -13,8 +13,8 @@ Web Services
 ------------
 
 This list of urls below may be incomplete or out of date. For a complete
-list of urls, see the latest API, ` latest
-API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/epydoc/omeroweb.webgateway.urls-module.html>`_
+list of urls, see the latest API, :javadoc:` latest
+API <epydoc/omeroweb.webgateway.urls-module.html>`
 and try the urls out for yourself!
 
 The http request will need to include login details for creating or
@@ -207,8 +207,7 @@ Getting a connection
 --------------------
 
 WebGateway method ``getBlitzConnection(request)`` returns an instance of
-` BlitzGateway
-connection <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/epydoc/omero.gateway._BlitzGateway-class.html>`_,
+:javadoc:` BlitzGateway connection <epydoc/omero.gateway._BlitzGateway-class.html>`,
 either by creating a connection from the login details in the http
 request, or by retrieving an existing connection.
 

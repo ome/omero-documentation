@@ -203,8 +203,7 @@ Hudson checks for git changes every 15 minutes and executes:
 which invokes the "build-all", "javadoc" "findbugs", "coverage", and
 "release-zip" targets.
 
-The Javadocs are always made available at
-` http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/>`_
+The Javadocs are always made available :javadoc:`here <>`
 as well as several build metrics.
 
 Comments on Ivy

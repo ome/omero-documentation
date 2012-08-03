@@ -99,17 +99,15 @@ The Gateway Methods
 -------------------
 
 The epydoc-generated documentation of methods provided by OMERO Gateway
-is available showing ` wrapper
-classes <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/epydoc/omero.gateway-module.html>`_.
+is available showing :javadoc:` wrapper classes <epydoc/omero.gateway-module.html>`.
 
 Specifically, the API for the 'conn' connection wrapper created above is
-` here <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/epydoc/omero.gateway._BlitzGateway-class.html>`_.
+:javadoc:` here <epydoc/omero.gateway._BlitzGateway-class.html>`.
 
-When working with ` OMERO model
-objects <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model.html>`_
+When working with :javadoc:` OMERO model objects <slice2html/omero/model.html>`
 (omero.model.Image etc) the Gateway will wrap these objects in classes
 such as
-` omero.gateway.ImageWrapper <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/epydoc/omero.gateway._ImageWrapper-class.html>`_
+:javadoc:` omero.gateway.ImageWrapper <epydoc/omero.gateway._ImageWrapper-class.html>`
 to handle object loading and hierarchy traversal. For example:
 
 ::
@@ -141,20 +139,20 @@ library, you can get hold of the |OmeroApi|.
 
 The gateway handles creation and reuse of the API services, so that new
 ones are not created unnecessarily. Services can be accessed using the
-methods of the underlying ` Service
-Factory <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/ServiceFactory.html#ServiceFactory>`_
+methods of the underlying :javadoc:` Service
+Factory <slice2html/omero/api/ServiceFactory.html#ServiceFactory>`
 with the Gateway handling reuse as needed. Stateless services (those
 retrieved with get.... methods E.g.
-` getQueryService <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/ServiceFactory.html#getQueryService>`_)
+:javadoc:` getQueryService <slice2html/omero/api/ServiceFactory.html#getQueryService>`)
 are always reused for each call, E.g. blitzon.getQueryService() whereas
 stateful services E.g.
-` createRenderingEngine <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/ServiceFactory.html#createRenderingEngine>`_
+:javadoc:` createRenderingEngine <slice2html/omero/api/ServiceFactory.html#createRenderingEngine>`
 may be created each time.
 
 Not all methods of the service factory are currently supported in the
 gateway. You can get an idea of the currently supported services by
 looking at the source code under the
-` \_createProxies <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/epydoc/omero.gateway-pysrc.html#_BlitzGateway._createProxies>`_
+:javadoc:` \_createProxies <epydoc/omero.gateway-pysrc.html#_BlitzGateway._createProxies>`
 method.
 
 Example: ContainerService can load Projects and Datasets in a single
@@ -185,9 +183,9 @@ Overwriting and extending omero.gateway classes
 -----------------------------------------------
 
 When working with
-` omero.gateway <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/epydoc/omero.gateway._BlitzGateway-class.html>`_
+:javadoc:` omero.gateway <epydoc/omero.gateway._BlitzGateway-class.html>`
 or wrapper classes such as
-` omero.gateway.ImageWrapper <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/epydoc/omero.gateway._ImageWrapper-class.html>`_
+:javadoc:` omero.gateway.ImageWrapper <epydoc/omero.gateway._ImageWrapper-class.html>`
 you might want to add your own functionality or customize an existing
 one. NB: Note the call to ``omero.gateway.refreshWrappers()`` to ensure
 that your subclasses are returned by calls to getObjects() For example:
@@ -271,8 +269,7 @@ The Gateway consists of a number of wrapper objects:
 Connection Wrapper
 ~~~~~~~~~~~~~~~~~~
 
-The BlitzGateway class (see ` API of development
-code <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/epydoc/omero.gateway._BlitzGateway-class.html>`_)
+The BlitzGateway class (see :javadoc:` API of development code <epydoc/omero.gateway._BlitzGateway-class.html>`)
 is a wrapper for the OMERO client and session objects. It provides
 various methods for connecting to the OMERO server, querying the status
 or context of the current connection and as a starting point for
@@ -292,8 +289,7 @@ Model Object Wrappers
 ~~~~~~~~~~~~~~~~~~~~~
 
 OMERO model objects, E.g. omero.model.Project, omero.model.Pixels etc
-(see ` full
-list <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model.html>`_)
+(see :javadoc:` full list <slice2html/omero/model.html>`)
 are code-generated and mapped to the OMERO database schema. They are
 language agnostic and their data is in the form of omero.rtypes as
 described: ` about model
@@ -355,8 +351,7 @@ every omero.model object with a specific Blitz Object Wrapper. The
 current list of object wrappers can be found in the omero.gateway module
 ` 4.2
 API <http://hudson.openmicroscopy.org.uk/view/Beta4.2/job/OMERO-Beta4.2/javadoc/epydoc/omero.gateway-module.html>`_,
-` development code
-API <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/epydoc/omero.gateway-module.html>`_.
+:javadoc:` development code API <epydoc/omero.gateway-module.html>`_.
 As more functionality is provided by the Blitz Gateway, the coverage of
 object wrappers will increase accordingly.
 

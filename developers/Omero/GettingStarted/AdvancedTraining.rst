@@ -34,8 +34,7 @@ Regular builds of the server are performed by
 ` Jenkins <http://jenkins-ci.org/>`_ (formerly known as hudson) and all
 results are available at
 ` http://hudson.openmicroscopy.org.uk/job/OMERO/ <http://hudson.openmicroscopy.org.uk/job/OMERO/>`_
-, including generated
-` ''Javadocs'' <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/>`_.
+, including generated:javadoc:` ''Javadocs'' <>`.
 
 Environment variables
 ---------------------
@@ -100,9 +99,7 @@ OMERO model
 
 You can browse the OMERO model in a number of ways, one of which is by
 looking at the database itself (see above). Another is via the on-line
-` OMERO
-model <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model.html>`_
-docs.
+:javadoc:` OMERO model <slice2html/omero/model.html>` docs.
 
 However, due to the complexity of the OMERO model, it is helpful to have
 some starting points (follow links below to the docs themselves). NB:
@@ -112,26 +109,25 @@ objects.
 Projects, Datasets and Images
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-` Projects <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/Project.html#Project>`_
+:javadoc:` Projects <slice2html/omero/model/Project.html#Project>`
 and
-` Datasets <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/Dataset.html#Dataset>`_
+:javadoc:` Datasets <slice2html/omero/model/Dataset.html#Dataset>`
 are many-to-many containers for
-` Images <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/Image.html#Image>`_
+:javadoc:` Images <slice2html/omero/model/Image.html#Image>`
 (linked by
-` ProjectDatasetLinks <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/ProjectDatasetLink.html#ProjectDatasetLink>`_
+:javadoc:` ProjectDatasetLinks <slice2html/omero/model/ProjectDatasetLink.html#ProjectDatasetLink>`
 and
-` DatasetImageLinks <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/DatasetImageLink.html#DatasetImageLink>`_
+:javadoc:` DatasetImageLinks <slice2html/omero/model/DatasetImageLink.html#DatasetImageLink>`
 respectively).
 
 Projects, Datasets, Images and a number of other entities can be linked
-to Annotations ` (abstract
-superclass) <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/Annotation.html#Annotation>`_
+to Annotations :javadoc:` (abstract superclass) <slice2html/omero/model/Annotation.html#Annotation>`
 via specific links
-(` ProjectAnnotationLink <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/ProjectAnnotationLink.html#ProjectAnnotationLink>`_,
-` DatasetAnnotationLink <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/DatasetAnnotationLink.html#DatasetAnnotationLink>`_
+(:javadoc:` ProjectAnnotationLink <slice2html/omero/model/ProjectAnnotationLink.html#ProjectAnnotationLink>`,
+:javadoc:` DatasetAnnotationLink <slice2html/omero/model/DatasetAnnotationLink.html#DatasetAnnotationLink>`
 etc). Annotation subclasses such as
-` CommentAnnotation <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/CommentAnnotation.html#CommentAnnotation>`_,
-` FileAnnotation <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/FileAnnotation.html#FileAnnotation>`_
+:javadoc:` CommentAnnotation <slice2html/omero/model/CommentAnnotation.html#CommentAnnotation>`,
+:javadoc:` FileAnnotation <slice2html/omero/model/FileAnnotation.html#FileAnnotation>`
 etc are stored in a single DB table in OMERO (all Annotations have
 unique ID).
 
@@ -142,8 +138,8 @@ Images
 
 Images in OMERO are made up many entities. These include core image
 components such as
-` Pixels <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/Pixels.html#Pixels>`_,
-` Channels <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/model/Channel.html#Channel>`_
+:javadoc:` Pixels <slice2html/omero/model/Pixels.html#Pixels>`,
+:javadoc:` Channels <slice2html/omero/model/Channel.html#Channel>`
 etc as well as a large number of additional metadata objects such as
 Instrument (microscope), Objective, Filters, Light Sources, Detectors
 etc. Image pixels data is stored as a single file, numbered by Pixels ID

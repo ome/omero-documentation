@@ -1054,15 +1054,15 @@ implement **multiple** interfaces. Much of the
 `ObjectModel </ome/wiki/ObjectModel>`_ in the RMI-based types
 (``ome.model``) was based on the use of interfaces.
 
--  ` IObject <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/model/IObject.html>`_
+-  :javadoc:` IObject <ome/model/IObject.html>`
    is the root interface for all object types. **Methods**: ``getId()``,
    ``getDetails()``, ...
--  ` IEnum <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/model/IEnum.html>`_
+-  :javadoc:` IEnum <ome/model/IEnum.html>`
    is an enumeration value. **Methods**: ``getValue()``
--  ` ILink <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/model/ILink.html>`_
+-  :javadoc:` ILink <ome/model/ILink.html>`
    is a link between two other types. **Methods**: ``getParent()``,
    ``getChild()``
--  ` IMutable <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/ome/model/IMutable.html>`_
+-  :javadoc:` IMutable <ome/model/IMutable.html>`
    is an instance for changes will be persisted. **Methods**:
    ``getVersion()``
 
