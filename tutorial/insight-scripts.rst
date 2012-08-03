@@ -3,7 +3,7 @@
 Running Scripts
 ===============
 
-Through OMERO's scripting service (see :wiki:`OMERO scripts <OmeroScripts>`), OMERO.insight allows you to create specialized views of your images for publishing and for running simple analysis against your data.
+Through OMERO's scripting service (see :ref:`developers/Omero/Modules/Scripts`), OMERO.insight allows you to create specialized views of your images for publishing and for running simple analysis against your data.
 
 .. figure:: ../images/insight-scripting-1features.png
    :align: center

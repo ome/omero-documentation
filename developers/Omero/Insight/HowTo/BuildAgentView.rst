@@ -1,3 +1,5 @@
+.. _developers/Omero/Insight/HowTo/BuildAgentView:
+
 How to Build an Agent's View
 ============================
 
@@ -6,8 +8,7 @@ agents follow the same approach. If you want to see the code while
 reading the notes, go to
 :source:`components/insight/SRC/org/openmicroscopy/shoola/agents/treeviewer/view`.
 
-Let's go back to our example ``MyBrowserAgent`` (see `How To Build An
-Agent </ome/wiki/OmeroInsightHowToBuildAgent>`_).
+Let's go back to our example ``MyBrowserAgent`` (see :ref:`developers/Omero/Insight/HowTo/BuildAgent`).
 
 #. Create a ``view`` package in the ``mybrowser`` package.
 #. Create the following classes ``MyBrowser`` (I/F),

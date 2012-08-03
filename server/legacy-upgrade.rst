@@ -544,7 +544,7 @@ of the additional services and optional installs would be of use to you.
 
 -  **Security** By default, OMERO clients only need to connect to two
    TCP ports for communication with your OMERO.server: 4063 (unsecured)
-   and 4064 (ssl). For more details please see :ref:`rst_security`.
+   and 4064 (ssl). For more details please see :ref:`server/security`.
 
 
 .. _db-upgrade-41-to-42:

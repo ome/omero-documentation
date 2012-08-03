@@ -29,9 +29,9 @@ client is a form of extending OMERO, the topics that follow are for
 extending the server and do not cover clients. For information specific
 to Insight, please see the client trac:
 
--  `OmeroInsightHowToBuildAgent </ome/wiki/OmeroInsightHowToBuildAgent>`_
--  `OmeroInsightHowToBuildAgentView </ome/wiki/OmeroInsightHowToBuildAgentView>`_
--  `OmeroInsightHowToRetrieveData </ome/wiki/OmeroInsightHowToRetrieveData>`_
+-  :ref:`developers/Omero/Insight/HowTo/BuildAgent`
+-  :ref:`developers/Omero/Insight/HowTo/BuildAgentView`
+-  :ref:`developers/Omero/Insight/HowTo/RetrieveData`
 
 List of Extension points
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -48,7 +48,7 @@ point you back to this page for packaging and deploying your new code.
    server-side handlers for your Ice implementations
 -  |OmeroCli|: Write drop in Python extensions for
    the command-line
--  `OmeroScripts </ome/wiki/OmeroScripts>`_: Write python scripts to
+-  :ref:`developers/Omero/Modules/Scripts`: Write python scripts to
    process data server-side
 -  :ref:`developers/Omero/Server/Ldap`: Write a Java authentication
    plugin

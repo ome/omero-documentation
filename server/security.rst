@@ -1,4 +1,4 @@
-.. _rst_security:
+.. _server/security:
 
 Security
 ========

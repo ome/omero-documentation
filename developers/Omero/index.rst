@@ -27,7 +27,6 @@ OMERO Developer Documentation
     Modules/Api/*
     Modules/Scripts/*
     Modules/Search/*
-    Scripts
     Search/*
     Server/index
     Web/index

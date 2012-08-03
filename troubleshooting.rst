@@ -179,7 +179,7 @@ password into the OMERO.insight dialog):
 
 This often because of firewall misconfiguration on the machine that runs
 your OMERO server which affects the ability of remote clients to locate
-it. Please see the :ref:`OMERO security page <rst_security>`.
+it. Please see the :ref:`OMERO security page <server/security>`.
 
 Server fails to start
 =====================

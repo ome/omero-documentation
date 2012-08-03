@@ -407,7 +407,7 @@ step.
 Security
 ~~~~~~~~
 
-It is also now recommended that you read the :ref:`rst_security` page
+It is also now recommended that you read the :ref:`server/security` page
 to get a good idea as to what you need to do to get OMERO clients
 speaking to your newly installed OMERO.server in accordance with your
 institution or company's security policy.

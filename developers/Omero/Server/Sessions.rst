@@ -139,9 +139,7 @@ client code since Glacier2 sessions now delegate to |OmeroSessions|.
 Clients can access the ISession service when necessary. 
 Exceptions thrown are still Ice-based.
 
---------------
-
-See also : `OmeroSecurity </ome/wiki/OmeroSecurity>`_
+.. seealso:: :ref:`server/security`
 
 Attachments
 ~~~~~~~~~~~

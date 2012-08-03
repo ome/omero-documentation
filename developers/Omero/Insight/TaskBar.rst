@@ -1,3 +1,5 @@
+.. _developers/Omero/Insight/TaskBar:
+
 Task Bar
 ========
 

@@ -1,35 +1,19 @@
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Getting Started <#GettingStarted>`_
-#. `The iScript Service <#TheiScriptService>`_
-#. `Debugging the Scripts <#DebuggingtheScripts>`_
-#. `Sample Scripts <#SampleScripts>`_
-
-   #. `Ping script <#Pingscript>`_
-   #. `Access the pixels object from the
-      server. <#Accessthepixelsobjectfromtheserver.>`_
-
-#. `Installing Mlabwrap <#InstallingMlabwrap>`_
-#. `Example Matlab scripts <#ExampleMatlabscripts>`_
-
-   #. `Calling a simple Matlab
-      function <#CallingasimpleMatlabfunction>`_
-   #. `Using the OmeroJ interface inside
-      Matlab <#UsingtheOmeroJinterfaceinsideMatlab>`_
+.. _developers/Omero/Modules/Scripts:
 
 OMERO.Scripts
 =============
 
+.. contents:
+
 ` MOVIE: introduction to
 OMERO.scripts <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/ScriptingWorkflow-4.3.mov>`_
 
-OmeroScripts is the scripting service for scripting in OMERO.
+:ref:`developers/Omero/Modules/Scripts` is the scripting service for scripting in OMERO.
 `OmeroBlitz </ome/wiki/OmeroBlitz>`_ provides a service to run scripts
 on the server. The scripts are then passed on to a grid of processors
 called OMERO.grid that executes the script and returns the result to the
 server which in turn passes the result onto the caller. All scripts
-which run on OmeroScripts are of the form
+which run on :ref:`developers/Omero/Modules/Scripts` are of the form
 
 ::
 
@@ -56,7 +40,7 @@ Getting Started
 ---------------
 
 For a tutorial on how to get started with the scripting service, see
-`OmeroPy/ScriptingServiceGuide </ome/wiki/OmeroPy/ScriptingServiceGuide>`_.
+:ref:`developers/Omero/Modules/Scripts/Guide`.
 
 The iScript Service
 -------------------
@@ -66,8 +50,7 @@ methods to upload, delete, query and runscripts. To access these methods
 a session needs to be created and the script service started. However,
 you may find it more convenient to use the command line
 `` bin/omero script `` or the OMERO.insight client to work with scripts
-as described on the
-`OmeroPy/ScriptingServiceGuide </ome/wiki/OmeroPy/ScriptingServiceGuide>`_.
+as described on the :ref:`developers/Omero/Modules/Scripts/Guide`.
 The methods of the script service are below (bottom of page).
 
 Debugging the Scripts
@@ -88,7 +71,7 @@ Sample Scripts
 --------------
 
 Below are a set of sample scripts. You can find more under the
-` OmeroPy/scripts <http://git.openmicroscopy.org/?p=ome.git;a=tree;f=components/tools/OmeroPy/scripts;hb=develop>`_
+:source:` OmeroPy/scripts <components/tools/OmeroPy/scripts>`
 source code directory or download from OMERO.insight (from the
 bottom-left of any run-script dialog).
 

@@ -190,7 +190,7 @@ Changing ports / Multiple servers on a single host
 Since changing all the references to port numbers (4061, 4063, 4064,
 etc) in the grid configuration can be cumbersome, a bin/omero admin
 command is provided to make the modifications for you. See the :ref:`security_ssl`
-section of the :ref:`rst_security` page for more information.
+section of the :ref:`server/security` page for more information.
 
 By modifying the default OMERO ports, it is possible to run multiple
 OMERO servers on the same physical machine.

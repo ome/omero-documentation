@@ -158,8 +158,8 @@ Administation
 ~~~~~~~~~~~~~
 
 The :source:`IAdmin <components/common/src/ome/api/IAdmin.java>`
-interface defines all the actions necessary to administer the `security
-system </ome/wiki/OmeroSecurity>`_ . It is explained further on the
+interface defines all the actions necessary to administer the 
+:ref:`server/security` . It is explained further on the
 `AdminInterface </ome/wiki/AdminInterface>`_ page.
 
 Pojos
@@ -171,7 +171,7 @@ Those have been collected in the
 :source:`IPojos <components/common/src/ome/api/IPojos.java>`
 interface. IPojos simplify a few very common queries, and there is a
 related package ("pojos.\*") for working with the returned graphs. The
-`Java Client </ome/wiki/OmeroInsight>`_ works almost exclusively with
+:ref:`developers/Omero/Insight` works almost exclusively with
 the IPojos interface for its non-binary needs.
 
 Examples

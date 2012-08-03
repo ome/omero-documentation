@@ -123,8 +123,8 @@ Topics
 -  `ExceptionHandling </ome/wiki/ExceptionHandling>`_
 -  |OmeroModel|
 -  `OmeroClientLibrary </ome/wiki/OmeroClientLibrary>`_
--  `OmeroSecurity </ome/wiki/OmeroSecurity>`_
--  `TypeLanguage </ome/wiki/TypeLanguage>`_
+-  :ref:`server/security`
+-  :ref:`developers/Omero/Model/TypeLanguage`
 
 
 .. seealso:: `OmeroBlitz </ome/wiki/OmeroBlitz>`_, |OmeroGrid|, `OmeroEar </ome/wiki/OmeroEar>`_

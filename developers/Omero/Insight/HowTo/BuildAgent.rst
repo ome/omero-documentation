@@ -1,3 +1,5 @@
+.. _developers/Omero/Insight/HowTo/BuildAgent:
+
 How To Build An Agent
 =====================
 
@@ -152,7 +154,7 @@ The ``MyBrowserAgent`` handles the event
 Create An Agent's View
 ~~~~~~~~~~~~~~~~~~~~~~
 
-See `Build an Agent View </ome/wiki/OmeroInsightHowToBuildAgentView>`_
+See :ref:`developers/Omero/Insight/HowTo/BuildAgentView`
 
 Declare The Agent
 -----------------
@@ -161,7 +163,7 @@ What we need to do now, we need to declare ``MyBrowserAgent`` in the
 ``container.xml``
 
 -  Open the ``container.xml`` located in the ``config`` folder (see
-   `Directory Contents </ome/wiki/OmeroInsightDirectoryContents>`_)
+   :ref:`developers/Omero/Insight/DirectoryContents`)
 -  Add the following:
 
    ::
@@ -223,7 +225,5 @@ What we need to do now, we need to declare ``MyBrowserAgent`` in the
    The file ``mybrowser.xml`` allows the agent to define specific
    parameters.
 
---------------
-
-See `Code organisation </ome/wiki/OmeroInsightImplementationView>`_,
-`Retrieve Data From Server </ome/wiki/OmeroInsightHowToRetrieveData>`_
+.. seealso:: :ref:`developers/Omero/Insight/ImplementationView`,
+:ref:`developers/Omero/Insight/HowTo/RetrieveData`

@@ -13,7 +13,7 @@ extra functionality to be added to an OMERO server.
 
 This is a guide to getting started with the scripting service, without
 going into the 'behind the scenes' details. More technical details can
-be found on the `OmeroScripts </ome/wiki/OmeroScripts>`_ page.
+be found on the :ref:`developers/Omero/Modules/Scripts` page.
 
 In addition to this guide, you may find the following pages useful for
 more information on using the OMERO Python API:

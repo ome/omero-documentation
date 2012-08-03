@@ -1,3 +1,5 @@
+.. _developers/Omero/Insight/Configuration:
+
 Configuration
 =============
 
@@ -256,9 +258,7 @@ configuration entries are private to each agent. However, the container
 configures all ``RegistryImpl`` objects with the same references to its
 services.
 
---------------
-
-See `Directory Contents </ome/wiki/OmeroInsightDirectoryContents>`_
+.. seealso:: :ref:`developers/Omero/Insight/DirectoryContents`
 
 Attachments
 ~~~~~~~~~~~

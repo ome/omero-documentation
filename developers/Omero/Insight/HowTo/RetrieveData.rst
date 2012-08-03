@@ -1,3 +1,5 @@
+.. _developers/Omero/Insight/HowTo/RetrieveData:
+
 Retrieve Data From Server
 =========================
 
@@ -191,9 +193,7 @@ be created in ``env.data.views`` and declared in
 ``DataViewsFactory.makeNew(Class)``. The method returns an
 implementation of the corresponding view.
 
---------------
-
-See `Directory Contents </ome/wiki/OmeroInsightDirectoryContents>`_
+.. seealso:: :ref:`developers/Omero/Insight/DirectoryContents`
 
 Attachments
 ~~~~~~~~~~~
