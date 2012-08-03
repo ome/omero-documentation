@@ -8,7 +8,7 @@ developer documentation wiki.
 
 Instructions on :plone:` downloading <support/omero4/downloads>`,
 :ref:`server/installation` and administering OMERO can be found under 
-the :ref:`rst_server` of the main site.
+the :ref:`server/overview` of the main site.
 
 .. figure:: ../images/developer-api-figure.png
    :align: center

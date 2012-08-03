@@ -1,4 +1,4 @@
-.. _rst_advanced-configuration:
+.. _server/advanced-configuration:
 
 Advanced Configuration
 ======================

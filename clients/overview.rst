@@ -1,4 +1,4 @@
-.. _rst_client-overview:
+.. _clients/overview:
 
 Client Overview
 ===============

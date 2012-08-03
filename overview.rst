@@ -36,8 +36,7 @@ There are a number of demonstration videos available on the
 :plone:`Features List <products/feature-list>` page providing an
 overview of the applications. For an initial impression please browse
 our :plone:`screenshots <support/omero4/screenshots>`. For a detailed
-overview of the OMERO clients, see the :ref:`OMERO.clients
-<rst_clients>`.
+overview of the OMERO clients, see the :ref:`clients/overview`.
 
 This documentation is for the latest version of the OMERO Platform. We
 also have archived versions available for :plone:`legacy versions of

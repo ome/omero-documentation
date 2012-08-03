@@ -1,4 +1,4 @@
-.. _rst_rendering:
+.. _server/rendering:
 
 OMERO.server Image Rendering
 ============================

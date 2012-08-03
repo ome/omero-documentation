@@ -1,4 +1,4 @@
-.. _rst_upgrade:
+.. _server/upgrade:
 
 OMERO.server Upgrade
 ====================
@@ -46,13 +46,13 @@ additional details.
 
 If you are upgrading your OMERO.server from 4.4.0 to 4.4.1, the
 workflow is almost identical except the database doesn't need to be
-upgraded. See the :ref:`rst_upgrade_441` section for detailed steps.
+upgraded. See the :ref:`server/upgrade#441` section for detailed steps.
 
 
 Upgrade from 4.3.x server to 4.4.1 server
 -----------------------------------------
 
-.. note:: The passwords and logins used here are examples. Please consult the :ref:`rst_troubleshooting` section for explanation.
+.. note:: The passwords and logins used here are examples. Please consult the :ref:`troubleshooting` section for explanation.
 
 Perform a database backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -213,7 +213,7 @@ and configure your server to use it.
 
     $ bin/omero config omero.db.name omero_from_backup
 
-.. _rst_upgrade_441:
+.. _server/upgrade#441:
 
 Upgrade from 4.4.0 server to 4.4.1 server
 -----------------------------------------
@@ -287,5 +287,5 @@ Restart your server
 
 .. seealso::
     
-    :ref:`rst_legacy_upgrade`
+    :ref:`server/legacy_upgrade`
         Upgrade instructions for previous versions of the OMERO server.

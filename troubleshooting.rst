@@ -1,4 +1,4 @@
-.. _rst_troubleshooting:
+.. _troubleshooting:
 
 ***************
 Troubleshooting
@@ -20,7 +20,7 @@ Known Operating System issues
    thread <http://lists.openmicroscopy.org.uk/pipermail/ome-users/2009-June/001830.html>`__)
 -  Windows XP does not run 'Development Server' version of OMERO.web
    (`OME forum topic <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=640>`__)
-   and :ref:`rst_limitations`
+   and :ref:`limitations`
 
 .. _troubleshooting_password:
 
@@ -179,7 +179,7 @@ password into the OMERO.insight dialog):
 
 This often because of firewall misconfiguration on the machine that runs
 your OMERO server which affects the ability of remote clients to locate
-it. Please see the :ref:`OMERO security page <server/security>`.
+it. Please see the :ref:`server/security` page.
 
 Server fails to start
 =====================

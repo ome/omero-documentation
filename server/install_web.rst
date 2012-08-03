@@ -520,6 +520,6 @@ Troubleshooting
 ---------------
 
 My OMERO install doesn't work! What do I do now!?! Examine the
-:ref:`rst_troubleshooting` page and if all else fails post a
+:ref:`troubleshooting` page and if all else fails post a
 message to our forums or ``ome-users`` mailing list or discussed on the
 :plone:`Community <site/community>` page.

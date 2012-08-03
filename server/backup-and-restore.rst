@@ -1,6 +1,6 @@
-.. _rst_backup-and-restore:
+.. _server/backup-and-restore:
 
-Maintenance, Backup and Restore
+OMERO.server Backup and Restore
 ===============================
 
 Cleaning up your binary repository

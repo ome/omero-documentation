@@ -9,8 +9,8 @@ pathology. The 4.4.0 release substantially updates our permissions
 system, allowing users to have much better control on how their data
 is shared with other users.
 
-We are, in a stepwise fashion, bringing in our :ref:`rst_fs` and are
-driving the development of :ref:`OMERO.clients <rst_clients>`. This
+We are, in a stepwise fashion, bringing in our :ref:`server/fs` and are
+driving the development of :ref:`clients/overview`. This
 includes improved support for ImageJ in OMERO.insight, support for
 WebStart for OMERO.insight, and a new design for OMERO.web.
 

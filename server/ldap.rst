@@ -234,7 +234,7 @@ kept in LDAP. To enable it, use:
 	:ref:`server/installation`
 		Installation guide for OMERO.server under UNIX-based platforms
 	
-	:ref:`OMERO.server Security and Firewalls <server/security>`
+	:ref:`server/security`
 		Security pages for OMERO.server
 	
 	:ref:`developers/Omero/Server/Ldap`

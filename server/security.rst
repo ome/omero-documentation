@@ -1,7 +1,7 @@
 .. _server/security:
 
-Security
-========
+OMERO.server Security and Firewalls
+===================================
 
 General
 -------

@@ -1,4 +1,4 @@
-.. _rst_clients_importer:
+.. _clients/importer:
 
 OMERO.importer
 ==============

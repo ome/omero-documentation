@@ -1,4 +1,4 @@
-.. _rst_clients_web:
+.. _clients/web:
 
 OMERO.web
 =========

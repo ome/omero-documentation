@@ -9,10 +9,10 @@ Server Documentation
 
     installation
     install-windows
-    install-omero-on-mac-os-x-10.5
-    install-walkthrough-on-10.6-using-macports
-    install-walkthrough-on-10.7-using-homebrew
-    debianwalkthrough
+    install_macosx
+    install_macports
+    install_homebrew
+    install_linux
     install_web
     upgrade
     legacy-upgrade

@@ -1,4 +1,4 @@
-.. _rst_clients_insight:
+.. _clients/insight:
 
 OMERO.insight
 =============
@@ -6,7 +6,7 @@ OMERO.insight
 OMERO.insight provides a number of tools for accessing and using data in an OMERO Server.
 To find out more, see the :ref:`rst_insight-getting-started` section.
 
-.. _rst_clients_insight_figure:
+.. _clients/insight#figure:
 
 .. figure:: ../images/omero_insight_screenshot_4_4.png
     :align: center

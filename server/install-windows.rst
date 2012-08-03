@@ -4,7 +4,7 @@ OMERO.server Installation for Microsoft Windows
 ===============================================
 
 -  If you are **upgrading** your OMERO.server installation you should
-   follow instructions on the :ref:`rst_upgrade` page.
+   follow instructions on the :ref:`server/upgrade` page.
 -  If you are attempting a **UNIX Based Platform install (Linux, Mac OS
    X, etc.)** please see the :ref:`UNIX Based Platform <server/installation>`
    install page.
@@ -45,7 +45,7 @@ Prerequisites
    with PL/pgSQL and to accept TCP connections.**
 
    PostgreSQL 8.3 and earlier releases are not supported. See 
-   :ref:`rst_limitations`. We suggest using 9.1, and it is
+   :ref:`limitations`. We suggest using 9.1, and it is
    assumed throughout these instructions. See :ref:`server/postgresql` 
    for specifics about each version. The
    Windows *One click installer* can be found on the `PostgreSQL Windows
@@ -555,7 +555,7 @@ Backup
 
 One of your first steps after putting your OMERO server into production
 should be deciding on when and how you are going to :ref:`backup your
-database and binary data <rst_backup-and-restore>`. Please do not omit this
+database and binary data <server/backup-and-restore>`. Please do not omit this
 step.
 
 Security
@@ -570,10 +570,10 @@ Advanced configuration
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Once you have the base server running, you may want to try enabling some
-of the advanced features such as :ref:`FS <rst_fs>` or :ref:`LDAP <server/ldap>`.
+of the advanced features such as :ref:`server/fs` or :ref:`LDAP <server/ldap>`.
 If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
 See the :plone:`Feature list <products/feature-list>` for more advanced
-features you may want to use, and :ref:`rst_advanced-configuration` on how to get the most out of
+features you may want to use, and :ref:`server/advanced-configuration` on how to get the most out of
 your server.
 
 .. note::
@@ -596,7 +596,7 @@ Troubleshooting
 ~~~~~~~~~~~~~~~
 
 My OMERO install doesn't work! What do I do now!?! Examine the
-:ref:`rst_troubleshooting` page and if all else fails post a
+:ref:`troubleshooting` page and if all else fails post a
 message to our ``ome-users`` mailing list discussed on the
 :oo:`community <site/community>` page.
 

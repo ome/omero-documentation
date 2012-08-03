@@ -5,8 +5,8 @@ OMERO Movie
 
 A short decription on how to create movies from OMERO.
 
-:wiki:`Creating a movie from OMERO <OmeroMovie#CreatingamoviefromOMERO>`
-------------------------------------------------------------------------
+Creating a movie from OMERO
+---------------------------
 
 Omero provides a script to make Mpeg or Quicktime movies from any image
 in the server. These movies are created by a script called makemovie.py,
@@ -17,8 +17,8 @@ overlayed over the image: z-section, scale bar and timing.
 The resulting movie will then be uploaded to the server by the script
 and become a file attachment to the source image.
 
-:wiki:`Viewing the Movie <OmeroMovie#Viewing the Movie>`
---------------------------------------------------------
+Viewing the Movie
+-----------------
 
 The make movie script allows you to save the movie in two different
 formats, a DivX encoded AVI and Quicktime movie. To view the AVI you may
@@ -49,8 +49,8 @@ Make movie also uses\ ` Python Imaging
 Library <http://www.pythonware.com/products/pil/>`_ and
 ` numpy <http://www.scipy.org/Download>`_.
 
-:wiki:`Make Movie command arguments <OmeroMovie#MakeMoviecommandarguments>`
----------------------------------------------------------------------------
+Make Movie command arguments
+----------------------------
 
 A detailed list of the commands accepted by the script are:
 

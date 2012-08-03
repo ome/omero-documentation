@@ -3,7 +3,7 @@
 OMERO.server Installation for UNIX-Based Platforms
 ==================================================
 
--  If you are **upgrading** your OMERO.server installation you should follow instructions on the :ref:`rst_upgrade` page.
+-  If you are **upgrading** your OMERO.server installation you should follow instructions on the :ref:`server/upgrade` page.
 -  If you are attempting a **Microsoft Windows** install please see :ref:`server/install-windows`.
 -  Additional walkthroughs give more details on specific platforms:
 
@@ -35,7 +35,7 @@ Prerequisites
 
 The following are necessary:
 
--  **PostgreSQL 8.4 or higher installed and configured with PL/pgSQL and to accept TCP connections.** 8.3 and earlier are not supported. See :ref:`rst_limitations`. See :ref:`OMERO and PostreSQL <server/postgresql>` for specifics about each version.
+-  **PostgreSQL 8.4 or higher installed and configured with PL/pgSQL and to accept TCP connections.** 8.3 and earlier are not supported. See :ref:`limitations`. See :ref:`OMERO and PostreSQL <server/postgresql>` for specifics about each version.
 
 -  **Java 1.5 SE Development Kit (JDK) or higher installed**
    `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
@@ -401,7 +401,7 @@ Backup
 
 One of your first steps after putting your OMERO server into production
 should be deciding on when and how you are going to :ref:`backup your
-database and binary data <rst_backup-and-restore>`. Please do not omit this
+database and binary data <server/backup-and-restore>`. Please do not omit this
 step.
 
 Security
@@ -416,10 +416,10 @@ Advanced configuration
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Once you have the base server running, you may want to try enabling some
-of the advanced features such as :ref:`rst_fs` or :ref:`server/ldap`.
+of the advanced features such as :ref:`server/fs` or :ref:`server/ldap`.
 If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
 See the :plone:`Feature list <products/feature-list>` for more advanced
-features you may want to use, and :ref:`rst_advanced-configuration` on how to get the most out of
+features you may want to use, and :ref:`server/advanced-configuration` on how to get the most out of
 your server.
 
 Update Notification
@@ -430,7 +430,7 @@ Your OMERO.server installation will check for updates each time it is started fr
 Troubleshooting
 ~~~~~~~~~~~~~~~
 
-My OMERO install doesn't work! What do I do now!?! Examine the :ref:`rst_troubleshooting` page and if all else fails post a
+My OMERO install doesn't work! What do I do now!?! Examine the :ref:`troubleshooting` page and if all else fails post a
 message to our ``ome-users`` mailing list discussed on the OmeroCommunity page.
 
 OMERO Diagnostics

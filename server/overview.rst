@@ -1,4 +1,4 @@
-.. _rst_server:
+.. _server/overview:
 
 OMERO.server Overview
 =====================
@@ -24,10 +24,10 @@ After working through the :ref:`rst_gettingstarted`
 section, the following guides to administering your installation of
 OMERO.server may be of interest:
 
--  :ref:`OMERO.server Troubleshooting <rst_troubleshooting>`
--  :ref:`OMERO.server Security and Firewalls <server/security>`
--  :ref:`OMERO.server LDAP <server/ldap>`
--  :ref:`OMERO.server Backup and Restore <rst_backup-and-restore>`
+-  :ref:`troubleshooting`
+-  :ref:`server/security`
+-  :ref:`server/ldap`
+-  :ref:`server/backup-and-restore`
 -  :ref:`server/binary-repository`
 -  :ref:`server/postgresql`
 
@@ -40,13 +40,13 @@ in a separate process but is co-ordinated centrally.
 -  :ref:`server/blitz` - The data server provides access to metadata
    stored in a relational database as well as the binary image data on
    disk.
--  :ref:`OMERO.fs <rst_fs>` - A filesystem watcher which notifes the server of
+-  :ref:`server/fs` - A filesystem watcher which notifes the server of
    newly uploaded or modified files.
--  :ref:`OMERO.dropbox <dropbox>` - Utilizes fs to find newly uploaded files and
+-  :ref:`server/fs#dropbox` - Utilizes fs to find newly uploaded files and
    run a fully automatic import.
--  :ref:`OMERO.processor <rst_processor>` - Processors provide background
+-  :ref:`server/processor` - Processors provide background
    execution of Python and Matlab scripts.
--  :ref:`OMERO.rendering engine <rst_rendering>` - The RenderingEngine provides
+-  :ref:`server/rendering` - The RenderingEngine provides
    server-side processing of raw image data for visualization on low-end
    client machines.
 

@@ -26,7 +26,7 @@ The core concepts that provide an overview to OMERO are addressed below.
 - :plone:`Feature List  <products/feature-list>`
 - :plone:`System Requirements <support/omero4/system-requirements>`
 - :plone:`Downloads <support/omero4/downloads>`
-- :ref:`rst_limitations`
+- :ref:`limitations`
 
 OMERO.clients
 -------------
@@ -34,7 +34,7 @@ OMERO.clients
 Insight:
 ^^^^^^^^
 
-- :ref:`Introduction <rst_clients_insight>`
+- :ref:`Introduction <clients/insight>`
 - :plone:`OMERO.Insight Introduction <support/omero4/getting-started/tutorial/getting-started>`
 - :ref:`rst_tutorial_insight-import`
 - :ref:`rst_tutorial_insight-managing-data`
@@ -53,12 +53,12 @@ Editor:
 Web:
 ^^^^
 
-- :ref:`Introduction <rst_clients_web>`
+- :ref:`Introduction <clients/web>`
 
 Importer:
 ^^^^^^^^^
 
-- :ref:`Introduction <rst_clients_importer>`
+- :ref:`Introduction <clients/importer>`
 - :ref:`rst_tutorial_import-images`
 - :ref:`rst_tutorial_import-history`
 - :ref:`rst_tutorial_insight-errors`

@@ -1,4 +1,4 @@
-.. _rst_processor:
+.. _server/processor:
 
 OMERO.processor
 ===============

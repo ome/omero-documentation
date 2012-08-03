@@ -21,4 +21,4 @@ Image data
 ~~~~~~~~~~
 
 The binary image data can either be accessed in its raw form via the
-RawPixelsStore service, or can be rendered by the :ref:`rst_rendering` service.
+RawPixelsStore service, or can be rendered by the :ref:`server/rendering` service.

@@ -1,4 +1,4 @@
-.. _rst_legacy_upgrade:
+.. _server/legacy_upgrade:
 
 OMERO.server Legacy Upgrade
 ===========================
@@ -9,7 +9,7 @@ This page list the upgrades for old versions of the OMERO.server
 	:depth: 3
 
 To get the latest upgrades of OMERO.server, visit the
-:ref:`rst_upgrade` page.
+:ref:`server/upgrade` page.
 
 The OME team is committed to providing frequent, project-wide upgrades
 both with bug fixes and new functionality. We try to make the schedule
@@ -769,5 +769,5 @@ database are different then those for the database you created during
 
 .. seealso::
 
-	:ref:`rst_upgrade`
+	:ref:`server/upgrade`
 		Latest upgrades of OMERO.server

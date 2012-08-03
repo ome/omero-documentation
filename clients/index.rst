@@ -1,5 +1,3 @@
-.. _rst_clients:
-
 *******
 Clients
 *******

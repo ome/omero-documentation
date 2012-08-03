@@ -35,7 +35,7 @@ upgrading.
 -  :plone:`OMERO.server downloads <support/omero4/downloads>`
 -  :ref:`server/installation`
 -  :ref:`server/install-windows`
--  :ref:`rst_upgrade`
+-  :ref:`server/upgrade`
 
 --------------
 

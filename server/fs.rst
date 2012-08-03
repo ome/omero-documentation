@@ -1,10 +1,10 @@
-.. _rst_fs:
+.. _server/fs:
 
 OMERO.fs
 ========
 
 OMERO.fs is planned as a system of services for accessing image data on
-server filesystems from the :ref:`OMERO.server <rst_server>` without the need to
+server filesystems from the :ref:`OMERO.server <server/overview>` without the need to
 import the pixel data into the server. The underlying OMERO.fs servers
 are file system monitors which notify interested OMERO.fs clients of
 newly created, modified or deleted files in a particular part of a file
@@ -53,7 +53,7 @@ Prerequisites
     operating system. Watching a network-attached share (NAS) is strictly
     ***not*** supported.
 
-.. _dropbox:
+.. _server/fs#dropbox:
 
 OMERO DropBox
 -------------
