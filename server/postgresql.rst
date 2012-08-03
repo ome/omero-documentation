@@ -1,4 +1,4 @@
-.. _rst_postgresql:
+.. _server/postgresql:
 
 OMERO and PostgreSQL
 ====================

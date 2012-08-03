@@ -60,7 +60,7 @@ The bottlenecks for throughput are:
 --------------
 
 .. seealso::
-    `OmeroAndPostgres </ome/wiki/OmeroAndPostgres>`_
+    :ref:`server/postgresql`
 
     |OmeroGrid|
 

@@ -65,7 +65,7 @@ Files to Create
     a ` Ice <http://zeroc.com/>`_ "servant" implementation which can use
     on of several methods for delegating to the ``ome.api.IConfig``
     interface, but all of which support
-    `throttling </ome/wiki/OmeroThrottling>`_.
+    :ref:`throttling <developers/Omero/Server/Throttling>`.
 
 Files to Edit (not strictly necessary, see :ticket:`314`)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

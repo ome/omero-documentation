@@ -186,7 +186,7 @@ Server fails to start
 
 1. Check that you are able to successfully connect to your PostgreSQL
    installation as outlined on the :ref:`PostgreSQL
-   page <rst_postgresql>`.
+   page <server/postgresql>`.
 2. Check the permissions on your ``omero.data.dir`` (``/OMERO`` by
    default) as outlined on the :ref:`OMERO Install <server/installation>`
    page, in the ''Pre-Installation'' section.
@@ -391,7 +391,7 @@ PostgreSQL 9.0 with an error like:
                                at IceInternal.BasicStream.loadObjectFactory(BasicStream.java:2187)
 
 then most likely the bytea\_output setting of your database needs to be
-changed. See :ref:`rst_postgresql` for how to do
+changed. See :ref:`server/postgresql` for how to do
 this and, optionally, :ticket:`5662` for more technical details.
 
 Too many open files

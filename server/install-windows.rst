@@ -46,7 +46,7 @@ Prerequisites
 
    PostgreSQL 8.3 and earlier releases are not supported. See 
    :ref:`rst_limitations`. We suggest using 9.1, and it is
-   assumed throughout these instructions. See :ref:`rst_postgresql` 
+   assumed throughout these instructions. See :ref:`server/postgresql` 
    for specifics about each version. The
    Windows *One click installer* can be found on the `PostgreSQL Windows
    download page <http://www.postgresql.org/download/windows>`_. You

@@ -105,8 +105,8 @@ This code is node available in
 git, but once built, can be found in all the directories named
 "generated".
 
-`OmeroTools </ome/wiki/OmeroTools>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OmeroTools
+~~~~~~~~~~~
 
 Similarly, the ant build alone is not enough to describe all the
 products which get built. Namely, the builds for the non-Java components
@@ -116,38 +116,35 @@ the tools/target directory which is copied **on top of** the
 OMERO\_HOME/dist top-level distribution directory. Current tools
 include:
 
-    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
-    |                                                | `Ant-based </ome/wiki/OmeroTools#ant>`_   | `Ice-based </ome/wiki/OmeroTools#ice>`_   | `Scons-based </ome/wiki/OmeroTools#scons>`_   |
-    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
-    | |OmeroCpp|                                     |                                           |                                           | X                                             |
-    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
-    | |OmeroWeb|                                     | X                                         |                                           |                                               |
-    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
-    | `OmeroFs </ome/wiki/OmeroFs>`_                 |                                           | X                                         |                                               |
-    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
-    |  |OmeroPy|                                     |                                           | X                                         |                                               |
-    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
-    | `LicenseService </ome/wiki/LicenseService>`_   | X                                         |                                           | X                                             |
-    +------------------------------------------------+-------------------------------------------+-------------------------------------------+-----------------------------------------------+
+.. |OmeroFs| replace:: :ref:`developers/Omero/Server/FS`
+.. |LicenseService| replace:: `LicenseService </ome/wiki/LicenseService>`_
+.. |ant| replace:: :term:`Ant-based builds`
+.. |ice| replace:: :term:`Ice-based builds`
+.. |scons| replace:: :term:`Scons-based builds`
 
-Ant-based builds
-~~~~~~~~~~~~~~~~
++------------------+-------+-------+---------+
+|                  | |ant| | |ice| | |scons| |
++------------------+-------+-------+---------+
+|    |OmeroCpp|    |       |       |    X    |
++------------------+-------+-------+---------+
+|    |OmeroWeb|    |   X   |       |         |   
++------------------+-------+-------+---------+
+|    |OmeroFs|     |       |   X   |         |   
++------------------+-------+-------+---------+
+|    |OmeroPy|     |       |   X   |         |   
++------------------+-------+-------+---------+
+| |LicenseService| |   X   |       |    X    |
++------------------+-------+-------+---------+
 
-Some of the tools also contain Java code which imports files from
-``antlib/resources`` and then proceeds like the other regular
-components.
+.. glossary::
+	Ant-based builds
+		Some of the tools also contain Java code which imports files from ``antlib/resources`` and then proceeds like the other regular components.
 
-Ice-based builds
-~~~~~~~~~~~~~~~~
+	Ice-based builds
+		An Ice-based build requires further invocations of ``slice2*`` code generation. Currently this
 
-An Ice-based build requires further invocations of ``slice2*`` code
-generation. Currently this
-
-SCons-based builds
-~~~~~~~~~~~~~~~~~~
-
-Builds which have C++ targets are based generally on
-` Scons <http://www.scons.org>`__. See |OmeroCpp| for more information.
+	Scons-based builds
+		Builds which have C++ targets are based generally on ` Scons <http://www.scons.org>`__. See |OmeroCpp| for more information.
 
 Creating binary distribution
 ----------------------------

@@ -39,8 +39,7 @@ for the implementation).
 
 ! Event
 
-For more information about Events see
-`OmeroEvents </ome/wiki/OmeroEvents>`_.
+For more information about Events see :ref:`developers/Omero/Server/Events`.
 
 `|image1| </ome/attachment/wiki/OmeroContext/contexts.png>`_
 

@@ -35,7 +35,7 @@ Prerequisites
 
 The following are necessary:
 
--  **PostgreSQL 8.4 or higher installed and configured with PL/pgSQL and to accept TCP connections.** 8.3 and earlier are not supported. See :ref:`rst_limitations`. See :ref:`OMERO and PostreSQL <rst_postgresql>` for specifics about each version.
+-  **PostgreSQL 8.4 or higher installed and configured with PL/pgSQL and to accept TCP connections.** 8.3 and earlier are not supported. See :ref:`rst_limitations`. See :ref:`OMERO and PostreSQL <server/postgresql>` for specifics about each version.
 
 -  **Java 1.5 SE Development Kit (JDK) or higher installed**
    `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
@@ -259,7 +259,7 @@ user or use sudo as below:
        (4 rows)
 
 If you have problems, especially with the last step, take a look at
-:ref:`rst_postgresql` since the authentication mechanism
+:ref:`server/postgresql` since the authentication mechanism
 is probably not properly configured.
 
 Location for the your OMERO binary repository

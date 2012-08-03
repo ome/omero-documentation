@@ -1,3 +1,5 @@
+.. _developers/Omero/Server/Events:
+
 Omero Events and Provenance
 ===========================
 
