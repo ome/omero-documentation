@@ -96,14 +96,14 @@ If a hyperlink appears only once, please use anonymous, "one-off" hyperlinks (tw
 
 ### Page labels and references ###
 
-Every RST document should start with a label that matches the name of the document:
+Every RST document should start with a label that matches the path and name of the document:
 
-    .. _rst_name_of_the page:
+    .. _path/name_of_the page:
     
     Title of the page
     =================
 
-This label allows the page to be referenced in the rest of the documentation. To do so, use the following syntax ``:ref:`rst_name_of_the_page` `` or `` :ref:`link to my page <rst_name_of_the_page>` ``.
+This label allows the page to be uniquely referenced in the rest of the documentation. To do so, use the following syntax ``:ref:`path/name_of_the_page` `` or `` :ref:`link to my page <path/name_of_the_page>` ``.
 
 ## Common markups ##
 
@@ -136,7 +136,6 @@ Name			 | 	Path
 
 Some URLs are widely used across the OME documentation. Using the sphinx extlinks extension, a dictionary of aliases to base URLs has been defined for the following:
 
-* Wiki sections: `` :wiki:`Section/Page` ``
 * Trac tickets: `` :ticket:`3442` ``, displayed as <a>#3442</a>
 * Snapshots: `` :snapshot:`omero/myzip.zip` ``
 * Plone pages: `` :plone:`Downloads <support/omero4/downloads>` ``
