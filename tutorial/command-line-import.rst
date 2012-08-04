@@ -1,4 +1,4 @@
-.. _rst_tutorial_command-line-import:
+.. _tutorial/command-line-import:
 
 The Command Line Import
 =======================

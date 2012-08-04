@@ -1,4 +1,4 @@
-.. _rst_tutorial_import-history:
+.. _tutorial/import-history:
 
 Import History
 ==============

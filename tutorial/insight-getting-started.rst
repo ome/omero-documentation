@@ -1,4 +1,4 @@
-.. _rst_insight-getting-started:
+.. _tutorial/insight-getting-started:
 
 Getting Started with OMERO.insight
 ==================================

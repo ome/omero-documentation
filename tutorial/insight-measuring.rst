@@ -1,4 +1,4 @@
-.. _rst_tutorial_insight-measuring:
+.. _tutorial/insight-measuring:
 
 Taking Image Measurements
 =========================

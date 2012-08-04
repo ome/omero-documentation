@@ -1,3 +1,5 @@
+.. _gettingstarted/virtualappliance:
+
 Virtual Appliance
 =================
 
@@ -36,7 +38,7 @@ clients.
     space that you have consumed and, if necessary, delete data that is not
     required. If your data is likely to exceed this space whilst you are
     evaluating OMERO then it is worthwhile going through the 
-    :ref:`rst_increasing-hd-size` before you start working with
+    :ref:`gettingstarted/virtualappliance#increasing-hd-size` before you start working with
     OMERO in earnest.
 
 Getting Started
@@ -238,7 +240,7 @@ interact with it.
    allow you to import data via a GUI and manage that data once
    imported. To do so, download the :plone:`insight client <support/omero4/downloads>`
    and follow the instructions below. More information can be found
-   under the :ref:`rst_insight-getting-started` section
+   under the :ref:`tutorial/insight-getting-started` section
    which details how to use the OMERO.clients.
 -  Alternatively, you can interact with the server command line
    interface by SSH'ing into the guest VM or by opening a console within
@@ -268,7 +270,7 @@ the server in the VM. Our example uses OMERO.insight running on Mac OS X
 to connect to the VM.
 
 -  `Download <https://www.openmicroscopy.org/site/support/omero4/downloads>`_
-   & :ref:`install <rst_insight-getting-started>` OMERO.insight
+   & :ref:`install <tutorial/insight-getting-started>` OMERO.insight
 -  Start OMERO.insight
 -  Click the spanner icon situated above the password box so that we can
    enter the server settings box which looks like this:
@@ -509,12 +511,12 @@ the recommended courses of action are either:
 2. Increase the size of your virtual HDD. If you have filled your
    existing HDD then it is likely that the volume of data that you are
    storing in the OMERO VM is too big for the default HDD. You should
-   follow the instructions on the :ref:`rst_increasing-hd-size`
+   follow the instructions on the :ref:`gettingstarted/virtualappliance#increasing-hd-size`
    page to ensure that the size of
    virtual HDD you have available is commensurate with the volumes of
    data that you are collecting.
 
-.. _rst_increasing-hd-size:
+.. _gettingstarted/virtualappliance#increasing-hd-size:
 
 Increasing HD Size 
 ------------------

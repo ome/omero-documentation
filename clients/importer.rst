@@ -10,7 +10,7 @@ standard file browser to help the user find and specify files for
 import into the server and then uploads the files to an OMERO Server.
 
 To learn more about OMERO.importer see the
-:ref:`rst_tutorial_import-images` section.
+:ref:`tutorial/import-images` section.
 
 .. figure:: ../images/omero_importer_4_4.png
     :align: center

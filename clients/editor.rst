@@ -13,4 +13,4 @@ The OMERO.editor is part of the OMERO.insight client, but can also run as a stan
 
     OMERO.editor
 
-For more information, see the :ref:`rst_tutorial_editor` page.
+For more information, see the :ref:`tutorial/editor` page.

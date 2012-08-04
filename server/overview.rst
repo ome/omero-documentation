@@ -20,7 +20,7 @@ it does require installing several software systems, and more advanced
 usage including backups, integrated logins, etc. requires a
 knowledgeable system administrator.
 
-After working through the :ref:`rst_gettingstarted`
+After working through the :ref:`gettingstarted/overview`
 section, the following guides to administering your installation of
 OMERO.server may be of interest:
 

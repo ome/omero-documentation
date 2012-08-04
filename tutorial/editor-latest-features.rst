@@ -1,4 +1,4 @@
-.. _rst_tutorial_editor-latest-features:
+.. _tutorial/editor-latest-features:
 
 Latest Features in OMERO.editor
 ===============================

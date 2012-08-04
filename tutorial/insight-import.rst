@@ -1,4 +1,4 @@
-.. _rst_tutorial_insight-import:
+.. _tutorial/insight-import:
 
 Importing Images in Insight
 ===========================

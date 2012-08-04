@@ -1,4 +1,4 @@
-.. _rst_tutorial_insight-managing-data:
+.. _tutorial/insight-managing-data:
 
 Managing Data
 =============

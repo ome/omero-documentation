@@ -1,4 +1,4 @@
-.. _rst_tutorial_insight-scripts:
+.. _tutorial/insight-scripts:
 
 Running Scripts
 ===============
@@ -12,7 +12,7 @@ Through OMERO's scripting service (see :ref:`developers/Omero/Modules/Scripts`),
 Publishing Options
 ------------------
 
-The publishing button allows you make movies or create various views of your images for publishing. To find out more about the publishing scripts, go to :ref:`rst_tutorial_insight-export-figures`.
+The publishing button allows you make movies or create various views of your images for publishing. To find out more about the publishing scripts, go to :ref:`tutorial/insight-export-figures`.
 
 .. figure:: ../images/insight-scripting-2options.png
    :align: center

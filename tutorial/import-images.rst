@@ -1,4 +1,4 @@
-.. _rst_tutorial_import-images:
+.. _tutorial/import-images:
 
 Importing Images
 ================
@@ -9,7 +9,7 @@ To get the list of file formats currently supported in OMERO, go to
 In order to import images into an OMERO server, you need to:
 
 -  Launch the OMERO.importer application.
--  Connect to the server (see :ref:`rst_insight-getting-started`).
+-  Connect to the server (see :ref:`tutorial/insight-getting-started`).
 
 Images Selection
 ----------------

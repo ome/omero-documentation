@@ -1,4 +1,4 @@
-.. _rst_tutorial_insight-errors:
+.. _tutorial/insight-errors:
 
 Handling Import Errors
 ======================

@@ -1,4 +1,4 @@
-.. _rst_tutorial_editor-getting-started:
+.. _tutorial/editor-getting-started:
 
 Getting Started with OMERO.editor
 =================================

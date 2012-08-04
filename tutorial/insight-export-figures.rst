@@ -1,4 +1,4 @@
-.. _rst_tutorial_insight-export-figures:
+.. _tutorial/insight-export-figures:
 
 Exporting Figures from OMERO.insight
 ====================================

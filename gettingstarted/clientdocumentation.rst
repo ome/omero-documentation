@@ -1,4 +1,4 @@
-.. _rst_gettingstarted_clientdocumentation:
+.. _gettingstarted/clientdocumentation:
 
 Client Documentation
 ====================
@@ -36,18 +36,18 @@ Insight:
 
 - :ref:`Introduction <clients/insight>`
 - :plone:`OMERO.Insight Introduction <support/omero4/getting-started/tutorial/getting-started>`
-- :ref:`rst_tutorial_insight-import`
-- :ref:`rst_tutorial_insight-managing-data`
-- :ref:`rst_tutorial_insight-view-images`
-- :ref:`rst_tutorial_insight-measuring`
-- :ref:`rst_tutorial_insight-scripts`
+- :ref:`tutorial/insight-import`
+- :ref:`tutorial/insight-managing-data`
+- :ref:`tutorial/insight-view-images`
+- :ref:`tutorial/insight-measuring`
+- :ref:`tutorial/insight-scripts`
 
 Editor:
 ^^^^^^^
 
-- :ref:`rst_tutorial_editor`
-- :ref:`rst_tutorial_editor-latest-features`
-- :ref:`rst_tutorial_editor-getting-started`
+- :ref:`tutorial/editor`
+- :ref:`tutorial/editor-latest-features`
+- :ref:`tutorial/editor-getting-started`
 - :wiki:`Online Protocols Tutorial <OnlineProtocolsTutorial>`
 
 Web:
@@ -59,10 +59,10 @@ Importer:
 ^^^^^^^^^
 
 - :ref:`Introduction <clients/importer>`
-- :ref:`rst_tutorial_import-images`
-- :ref:`rst_tutorial_import-history`
-- :ref:`rst_tutorial_insight-errors`
-- :ref:`rst_tutorial_command-line-import`
+- :ref:`tutorial/import-images`
+- :ref:`tutorial/import-history`
+- :ref:`tutorial/insight-errors`
+- :ref:`tutorial/command-line-import`
 - `Supported Format <http://www.loci.wisc.edu/software/bio-formats>`_
 
 OME-XML & OME-TIFF

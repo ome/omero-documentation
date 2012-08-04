@@ -1,4 +1,4 @@
-.. _rst_tutorial_insight-view-images:
+.. _tutorial/insight-view-images:
 
 Viewing Images
 ==============
