@@ -732,7 +732,7 @@ Delete data
 
 It is possible to delete Projects, datasets, images, ROIs etc and
 objects linked to them depending on the specified options (see
-`Delete </ome/wiki/Delete>`_).
+:ref:`developers/Omero/Modules/Delete`).
 
 -  **Delete Image**.
 
@@ -909,6 +909,6 @@ please see |OmeroClients|.
 	
 	|OmeroGrid|
 	
-	`OmeroTools </ome/wiki/OmeroTools>`_, 
+	:ref:`developers/Omero/Build#OmeroTools`, 
 	
 	|OmeroApi|

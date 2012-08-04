@@ -17,9 +17,9 @@ mechanisms for allowing restricted operations when the time comes.
 Other links which may be of use:
 
 -  `AccessControl </ome/wiki/AccessControl>`_
--  `AdminInterface </ome/wiki/AdminInterface>`_
+-  :ref:`developers/Omero/Modules/Api/AdminInterface`
 -  `SecurityUseCases </ome/wiki/SecurityUseCases>`_
--  `SecurityRoles </ome/wiki/SecurityRoles>`_
+-  :ref:`developers/Omero/Server/SecurityRoles`
 -  `PermissionsAndUmasks </ome/wiki/PermissionsAndUmasks>`_
 
 Concepts
@@ -123,7 +123,7 @@ Client & Common
 
 :source:`IAdmin.java <components/common/src/ome/api/IAdmin.java>`
     main interface for administering accounts and privileges. See
-    `AdminInterface </ome/wiki/AdminInterface>`_ for more.
+    :ref:`developers/Omero/Modules/Api/AdminInterface` for more.
 
 :source:`ITypes.java <components/common/src/ome/api/ITypes.java>`
     only related to security by necessity. The security system disallows
@@ -210,7 +210,7 @@ Server side
 :source:`\*Bean.java <components/server/src/ome/services>`
     All the concrete beans are responsible for defining the
     @javax.ejb.security.RolesAllowed? annotation to support
-    `SecurityRoles </ome/wiki/SecurityRoles>`_.
+    :ref:`developers/Omero/Server/SecurityRoles`.
 :source:`AOPAdapter.java <components/ejb/src/ome/ro/ejb/AOPAdapter.java>`
     applies the Spring-defined interceptors (including EventHandler) to
     the session beans.
@@ -231,7 +231,7 @@ creates all of the enumeration values, but that's rather unimportant for
 security).
 
 Note: the password table is not mapped into Hibernate, and is only
-accessible via the `AdminInterface </ome/wiki/AdminInterface>`_.
+accessible via the :ref:`developers/Omero/Modules/Api/AdminInterface`.
 
 Client-side
 ~~~~~~~~~~~

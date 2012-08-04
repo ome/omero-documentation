@@ -1,3 +1,5 @@
+.. _developers/Omero/Modules/Api/AdminInterface:
+
 Omero Admin Interface
 =====================
 

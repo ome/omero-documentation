@@ -1,3 +1,5 @@
+.. _developers/Omero/Server/LoginAttemptListener:
+
 LoginAttemptListener
 ====================
 

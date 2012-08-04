@@ -105,6 +105,8 @@ This code is node available in
 git, but once built, can be found in all the directories named
 "generated".
 
+.. _developers/Omero/Build#OmeroTools:
+
 OmeroTools
 ~~~~~~~~~~~
 

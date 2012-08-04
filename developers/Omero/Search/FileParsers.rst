@@ -1,3 +1,5 @@
+.. _developers/Omero/Search/FileParsers:
+
 File Parsers
 ============
 
@@ -34,7 +36,7 @@ How to
 ------
 
 For the necessary changes that need to be made, see r2260. The base
-class for `FileParsers </ome/wiki/FileParsers>`_ are:
+class for :ref:`developers/Omero/Search/FileParsers` are:
 :source:` FileParser.java <components/server/src/ome/services/fulltext/FileParser.java>`
 
 .. seealso:: :ref:`developers/Omero/Modules/Search`

@@ -40,9 +40,9 @@ To get a feeling for what type of extension points are available, you
 might want to take a look at the following pages. Many of them will
 point you back to this page for packaging and deploying your new code.
 
--  `FileParsers </ome/wiki/FileParsers>`_: Write Java file parsers to
+-  :ref:`developers/Omero/Search/FileParsers`: Write Java file parsers to
    further extend search
--  `LoginAttemptListener </ome/wiki/LoginAttemptListener>`_: Write a
+-  :ref:`developers/Omero/Server/LoginAttemptListener`: Write a
    Java handler for failed login attempts
 -  `ObjectFactoryRegistry </ome/wiki/ObjectFactoryRegistry>`_: Write
    server-side handlers for your Ice implementations

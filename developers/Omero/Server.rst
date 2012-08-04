@@ -8,8 +8,7 @@ OMERO Sequence Narrative
 
 Trying to understand all of what goes on with the server can be a bit
 complicated. This short narrative tries to touch on the most critical
-aspects with links into the rest of the
-`ServerDesign </ome/wiki/ServerDesign>`_ pages.
+aspects.
 
 -  A `request </ome/wiki/OmeroClientLibrary>`_ reaches the server over
    one of the two remoting protocols: RMI or ICE. First, the
@@ -115,8 +114,7 @@ Server Design
    :alt: ServerDesign
 
 The server logic resides in the :source:components/server`
-component. From there it is distributed as either
-:ref:`server/blitz` or as `OmeroEar </ome/wiki/OmeroEar>`_.
+component.
 
 Topics
 ~~~~~~
@@ -128,7 +126,7 @@ Topics
 -  :ref:`developers/Omero/Model/TypeLanguage`
 
 
-.. seealso:: |OmeroGrid|, `OmeroEar </ome/wiki/OmeroEar>`_
+.. seealso:: |OmeroGrid|
 
 Attachments
 ~~~~~~~~~~~

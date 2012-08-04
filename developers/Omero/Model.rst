@@ -178,6 +178,8 @@ type of object, you will either need to have admin privileges, or in
 some cases, use the ``ome.api.IAdmin`` interface directly. (In the case
 of enums, you will need to use the ``ome.api.ITypes`` interface.)
 
+.. _developers/Omero/Model#Inheritance:
+
 Inheritance
 ~~~~~~~~~~~
 
@@ -200,7 +202,7 @@ Hibernate. Instead, we must first parse that class String with
 Model report objects
 ~~~~~~~~~~~~~~~~~~~~
 
-To support the `CollectionCounts </ome/wiki/CollectionCounts>`_
+To support the :ref:`developers/Omero/Server/CollectionCounts`
 requirement in which users would like to know how many objects are in a
 collection by owner, it was necessary to add read-only
 ``Map<String, Long>`` fields to all objects with links. See the
@@ -295,10 +297,11 @@ assumed to be non-persistent (i.e. transient).
 
 Though the id cannot be the sole decider of equality (there are issues
 with the Java definition of equals() and hashCode(). See the discussion
-at `ToBeDone </ome/wiki/ToBeDone>`_), we often perform lookups based on
+at :ref:`developers/Omero/Model/TypeLanguage#ToBeDone`), 
+we often perform lookups based on
 the class and id of an instance. Here again caution must also be taken
 to not unintentionally use a possibly bytecode-generated subclass. See
-the discussion under `Inheritance </ome/wiki/ObjectModel#inheritance>`_
+the discussion under :ref:`developers/Omero/Model#Inheritance`
 above.
 
 Class/id-based lookup is in fact so useful that it is possible to take
@@ -350,7 +353,7 @@ Identity and versioning make working with the object model difficult
 sometimes, but guarantee that our data is never corrupted. (Note: as of
 `milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_, there is one
 exception to this discussed below under
-`Links </ome/wiki/ObjectModel#links>`_. See that section or
+:ref:`developers/Omero/Model#Links`. See that section or
 :ticket:`1001` for more information.)
 
 --------------
@@ -537,6 +540,8 @@ responsibility to know what state a collection is in. In the case of
 links, discussed below, one solution is to use the link objects
 directly, even if they are largely hidden with the API, but the problem
 remains for 1-N collections.
+
+.. _developers/Omero/Model#Links:
 
 Links
 ~~~~~

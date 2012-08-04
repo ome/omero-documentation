@@ -27,8 +27,10 @@ include:
 -  details
 -  ... any SQL keyword
 
-`ToBeDone </ome/wiki/ToBeDone>`_
-================================
+.. _developers/Omero/Model/TypeLanguage#ToBeDone:
+
+ToBeDone
+========
 
 -  Generation from xsd-fu
 -  metamodel

@@ -6,7 +6,7 @@ OMERO Search
 Beginning with 3.0-Beta3, the OMERO server will use
 ` Lucene <http://lucene.apache.org>`_ to index all string and timestamp
 information in the database, as well as all ``OriginalFiles`` which can
-be parsed to simple text (see `FileParsers </ome/wiki/FileParsers>`_ for
+be parsed to simple text (see :ref:`developers/Omero/Search/FileParsers` for
 more information). The index is stored under /OMERO/FullText (or the
 ``FullText`` subdirectory of your ${omero.data.dir}, and can be searched
 with Google-like queries.
@@ -112,8 +112,7 @@ file.contents
 
 For ``FileAnnotations`` and objects they are attached to **as well as
 the ``OriginalFile`` itself**, the file contents themselves if their
-``Format`` is configured with the
-`FileParsers </ome/wiki/FileParsers>`_.
+``Format`` is configured with the :ref:`developers/Omero/Search/FileParsers`.
 
 **Internal**
 
@@ -344,7 +343,7 @@ Extension points
 ~~~~~~~~~~~~~~~~
 
 Two extension points are currently available for searching. The first
-are the `FileParsers </ome/wiki/FileParsers>`_ mentioned above. By
+are the :ref:`developers/Omero/Search/FileParsers` mentioned above. By
 configuring the map of Formats (roughly mime-types) of files to parser
 instances, extracting information from attached binary files can be made
 quick straight-forward.
@@ -359,7 +358,7 @@ it is possible to extract more information specific to your site.
 
 See also: :ref:`developers/Omero/Modules/StructuredAnnotations`,
 :ref:`developers/Omero/Modules/Search/Bridges`,
-`FileParsers </ome/wiki/FileParsers>`_, ` Query Parser
+:ref:`developers/Omero/Search/FileParsers`, ` Query Parser
 Syntax <http://lucene.apache.org/java/2_2_0/queryparsersyntax.html>`_,
 ` Luke <http://www.getopt.org/luke/>`_ a Java application which you can
 download and point at your ``/OMERO/FullText`` directory to get a better
