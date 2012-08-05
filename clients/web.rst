@@ -56,7 +56,7 @@ up and make it easier to extend the OMERO.web client. We've also
 improved various parts of the Python code.
 
 -  OMERO Connection handling: A new decorator for handling connections
-   to OMERO, with hooks for customising (see :wiki:`documentation <OmeroWeb/WritingViews>`)
+   to OMERO, with hooks for customising (see :ref:`developers/Omero/Web/WritingViews`)
 -  Public user: Configure a 'public user' who is always logged-in
    automatically, allowing your OMERO.web to support public data (see :ref:`web
    settings <install_web_public_user>`)

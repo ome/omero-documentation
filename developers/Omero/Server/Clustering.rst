@@ -47,6 +47,4 @@ This starts a second node, named "backup", which contains a second
 newly created server will not be used until sessions are manually
 redirected to it.
 
---------------
-
-See also : `ScalingOmero </ome/wiki/ScalingOmero>`_
+.. seealso:: :ref:`developers/Omero/Server/ScalingOmero`

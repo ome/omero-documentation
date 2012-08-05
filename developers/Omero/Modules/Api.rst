@@ -6,7 +6,7 @@ OMERO Application Programming Interface
 .. contents::
 
 All interaction with the OMERO server takes place via several API
-services available from a `ServiceFactory </ome/wiki/ServiceFactory>`_.
+services available from a ServiceFactory.
 A service factory is obtained from the client connection. E.g. Python:
 
 ::
@@ -200,8 +200,7 @@ Stateless versus Stateful Services
 
 A stateless service has no client-noticeable lifecycle and all instances
 can be treated equally. A new stateful service, on the other hand, will
-be created for each client-side proxy (see the
-`ServiceFactory.create\* </ome/wiki/ServiceFactory>`_ methods). Once
+be created for each client-side proxy (see the ServiceFactory.create\* methods). Once
 obtained, a stateful service proxy can only be used by a single user.
 After task completion, the service should be closed (proxy.close()) to
 free up server resources.

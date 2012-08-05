@@ -1,5 +1,5 @@
-`TempFileManager </ome/wiki/TempFileManager>`_
-==============================================
+TempFileManager
+===============
 
 Class to be used by |OmeroClients| and server
 components to allow a uniform creation of temporary files and folders

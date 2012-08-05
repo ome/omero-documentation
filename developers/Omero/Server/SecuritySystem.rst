@@ -1,4 +1,4 @@
-.. _developers/Omero/Context/SecuritySystem:
+.. _developers/Omero/Server/SecuritySystem:
 
 Omero Security System
 =====================
@@ -16,11 +16,10 @@ mechanisms for allowing restricted operations when the time comes.
 
 Other links which may be of use:
 
--  `AccessControl </ome/wiki/AccessControl>`_
 -  :ref:`developers/Omero/Modules/Api/AdminInterface`
 -  `SecurityUseCases </ome/wiki/SecurityUseCases>`_
 -  :ref:`developers/Omero/Server/SecurityRoles`
--  `PermissionsAndUmasks </ome/wiki/PermissionsAndUmasks>`_
+-  :ref:`server/permissions`
 
 Concepts
 --------
@@ -81,7 +80,7 @@ Top-level and Build
 :source:`omero.properties <etc/omero.properties>`
     contains a default user group, event type, and connection
     information for logging in from the client side, if no Login or
-    Server is specified to `ServiceFactory </ome/wiki/ServiceFactory>`_.
+    Server is specified to ServiceFactory.
     These values can be overridden in local.properties.
 
 :source:`mapping.vm <components/dsl/resources/ome/dsl/mapping.vm>`
@@ -116,7 +115,7 @@ Client & Common
 :source:`ome/client/spring.xml <components/client/resources/ome/client/spring.xml>`
     uses the information in /etc/local.properties to create a Login
     object. If no Login, Server, or Properties is provided to the
-    `ServiceFactory </ome/wiki/ServiceFactory>`_ constructor, the empty
+    ServiceFactory constructor, the empty
     properties defined in
     :source:`ome/client/internal.xml <components/client/resources/ome/client/internal.xml>`
     is used.
@@ -140,13 +139,12 @@ Client & Common
     This logic is encapsulated within the SecuritySystem.
 
 :source:`Details.java <components/model/src/ome/model/internal/Details.java>`
-    contains all the fields necessary to perform
-    `AccessControl </ome/wiki/AccessControl>`_, such as owner, group,
+    contains all the fields necessary to perform access control, such as owner, group,
     and permissions.
 
 :source:`Permissions.java <components/model/src/ome/model/internal/Permissions.java>`
     representation of rights and roles. For more information, see
-    `PermissionsAndUmasks </ome/wiki/PermissionsAndUmasks>`_.
+    :ref:`server/permissions`.
 
 :source:`Token.java <components/model/src/ome/model/internal/Token.java>`
     an extremely simple class ("public class Token {}") which is only
@@ -161,7 +159,7 @@ Client & Common
 
 :source:`SecurityViolation.java <components/model/src/ome/conditions/SecurityViolation.java>`
     the exception thrown by the
-    :ref:`developers/Omero/Context/SecuritySystem` at the first hint of
+    :ref:`developers/Omero/Server/SecuritySystem` at the first hint of
     misdoings.
 
 :source:`Principal.java <components/common/src/ome/system/Principal.java>`
@@ -239,7 +237,7 @@ Client-side
 To begin the runtime security process, a user logs in by providing a
 Login and/or a Server instance to ServiceFactory. These types are
 immutable and their values remain constant for the lifetime of the
-`ServiceFactory </ome/wiki/ServiceFactory>`_. The user can also set the
+ServiceFactory. The user can also set the
 umask property on ServiceFactory\_. This value is mutable and can be set
 at anytime.
 
@@ -380,7 +378,7 @@ use the security system, and for that, it may need to be acquired from
 the server-side :ref:`developers/Omero/Server/Context`. Currently,
 there is no client-side security system. See :ticket:`234`.
 
-The `SecuritySystem </ome/wiki/SecuritySystem>`_ and its currently only
+The :ref:`developers/Omero/Server/SecuritySystem` and its currently only
 implementation BasicSecuritySystem? are somewhat inert and expect
 well-defined and trusted (see :ticket:`235`) methods
 to invoke callbacks during the proper Hibernate phase.
@@ -389,7 +387,7 @@ Logging in (client-side)
 ------------------------
 
 When using the client library and the
-`ServiceFactory </ome/wiki/ServiceFactory>`_, logging in is trivial. One
+ServiceFactory, logging in is trivial. One
 need only set several System properties or place them in an
 omero.properties file somewhere on the classpath. MoreToCome?.
 Internally, Spring takes the System properties and creates an
@@ -401,7 +399,7 @@ Logging in (server-side)
 ------------------------
 
 Much of this infrastructure is not available to server-side code (no
-ome/client/spring.xml, no `ServiceFactory </ome/wiki/ServiceFactory>`_,
+ome/client/spring.xml, no ServiceFactory,
 etc.). As such, the Principal needs to be manually created iand provided
 to the server-side
 `SecuritySystem.java <components/serversrc/ome/security/SecuritySystem.java>`_.

@@ -1607,14 +1607,13 @@ Example: :source:`examples/OmeroClients/configuration.java`
 To find out more about using the ``Ice.Config`` file for configuration,
 see :source:`etc/ice.config`.
 
-What *is* a `ServiceFactory </ome/wiki/ServiceFactory>`_?
+What *is* a ServiceFactory?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In each of the examples above, the result of configuration was the
 ability to call ``createSession`` which returns a ``ServiceFactoryPrx``.
 
-The `ServiceFactory </ome/wiki/ServiceFactory>`_ is the clients
-representation of the user's :ref:`server-side
+The ServiceFactory is the clients representation of the user's :ref:`server-side
 session <developers/Omero/Server/Sessions>`, which multiple clients can connect
 to it simultaneously. A ServiceFactoryPrx? object is acquired on login
 via the ``createSession`` method, and persists until either it is closed
@@ -1626,7 +1625,7 @@ It produces services!
 ~~~~~~~~~~~~~~~~~~~~~
 
 Once a client has been configured properly, and has an active in
-`ServiceFactory </ome/wiki/ServiceFactory>`_ in hand, it's time to start
+ServiceFactory in hand, it's time to start
 accessing services.
 
 The collection of all services provided by OMERO are known as the
@@ -1635,7 +1634,7 @@ The collection of all services provided by OMERO are known as the
 The central definitions are in
 :source:`components/blitz/resources/omero/API.ice`,
 along with the definition of
-`ServiceFactory </ome/wiki/ServiceFactory>`_ itself:
+ServiceFactory itself:
 
 ::
 
@@ -1657,7 +1656,7 @@ IAdminPrx. **Any call on that object is a remote invocation.**
 Stateless vs. Stateful
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Most methods on the `ServiceFactory </ome/wiki/ServiceFactory>`_ return
+Most methods on the ServiceFactory return
 either a stateless or a stateful service factory. Stateless services are
 those returned by calls to "getSomeNameService()". They implement
 ``omero.api.ServiceInterface`` but not its subinterface
@@ -2588,9 +2587,9 @@ several changes are necessary to port your code to :ref:`server/blitz`.
            import omero.constants.CLASSIFICATIONME;
            someMethod(CLASSIFICATIONME.value);      // underscores are not allowed in slice names
 
--  With Java/RMI, a `ServiceFactory </ome/wiki/ServiceFactory>`_
+-  With Java/RMI, a ServiceFactory
    "connection" was really only a
-   `ServiceFactory </ome/wiki/ServiceFactory>`_ holding on to your user
+   ServiceFactory holding on to your user
    name and user password and/or session id in order to re-authenticate
    on every method call. With :ref:`server/blitz`, this
    does not happen. The Ice runtime establishes a stateful connection to

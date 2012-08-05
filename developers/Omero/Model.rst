@@ -101,8 +101,7 @@ Details works something like unix's ``stat``:
     Change: 2006-01-25 20:40:30.000000000 +0100
 
 though it can also store arbitrary other attributes (meta-metadata, so
-to speak) about our model instances. See `Dyanmic
-methods </ome/wiki/ObjectModel#dyanmic>`_ below for more information.
+to speak) about our model instances. See :ref:`developers/Omero/Model#dynamic` below for more information.
 
 The main methods on Details are:
 
@@ -130,8 +129,7 @@ rather than specifying particulars, like:
       if (project.getDetails().getPermissions().isGranted(USER,READ) && project.getDetails().getOwner().getId( myId )) {...}
 
 This should hopefully save a good deal of re-coding if we move to true
-ACL rather than the current filesystem-like
-`AccessControl </ome/wiki/AccessControl>`_.
+ACL rather than the current filesystem-like access control.
 
 Because it is a field on every type, Details is also on the list of
 Keywords for the :ref:`developers/Omero/Model/TypeLanguage`.
@@ -207,6 +205,8 @@ requirement in which users would like to know how many objects are in a
 collection by owner, it was necessary to add read-only
 ``Map<String, Long>`` fields to all objects with links. See the
 CollectionsCount? page for more information.
+
+.. _developers/Omero/Model#dynamic:
 
 Dynamic methods
 ~~~~~~~~~~~~~~~

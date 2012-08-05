@@ -63,6 +63,4 @@ Terminology
    non-strict policy will "borrow" someone else's slot for the duration
    of one execution.
 
---------------
-
-See also: `ScalingOmero </ome/wiki/ScalingOmero>`_
+.. seealso:: :ref:`developers/Omero/Server/ScalingOmero`

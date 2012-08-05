@@ -53,7 +53,7 @@ Object-level
     the **EventHandler**, a second login takes place to authorize the
     user with the Omero security system. This second authorization
     process takes into account the group that (can be) passed into the
-    client **`ServiceFactory </ome/wiki/ServiceFactory>`_\ (Login)** via
+    client **ServiceFactory\ (Login)** via
     **Login(String,String,String,String)**. If a user has not set the
     group name or the default "user" group has been set, then the
     default group for that user will be used. (A user is not allowed to
