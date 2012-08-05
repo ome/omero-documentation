@@ -10,7 +10,7 @@ all of your metadata for later searching. If, however, there is more
 metadata that you would like to add to the index, you can implement the
 ``org.hibernate.search.bridge.FieldBridge`` interface yourself, or
 subclass the helper class
-:source:`components/server/permissionssrc/ome/services/fulltext/BridgeHelper.java`
+:source:`components/server/src/ome/services/fulltext/BridgeHelper.java`
 
 Example
 -------

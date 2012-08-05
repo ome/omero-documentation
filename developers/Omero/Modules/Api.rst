@@ -137,7 +137,7 @@ design is to make wildly separate definitions of queries (templates,
 db-stored , Java code, C# code, ...) runnable on the server.
 
 IUpdate takes any graph composed of
-:source:`IObject <components/common/src/ome/model/IObject.java>`
+:source:`IObject <components/model/src/ome/model/IObject.java>`
 objects and checks them for dirtiness. All changes to the graph are
 stored in the database if the user calling IUpdate has the proper
 permissions, otherwise an exception is thrown.

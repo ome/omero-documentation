@@ -168,7 +168,7 @@ Client & Common
     information about the user group, the event type, and the session
     umasks.
 
-:source:`meta.ome.xml <components/common/resources/mappings/meta.ome.xml>`
+:source:`meta.ome.xml <components/model/resources/mappings/meta.ome.xml>`
 
 JBoss-only
 ^^^^^^^^^^
