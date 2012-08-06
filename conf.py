@@ -99,6 +99,10 @@ extlinks = {
     }
 
 rst_epilog = """
+.. _Hibernate: http://www.hibernate.org
+.. _ZeroC: http://www.zeroc.com
+.. _Ice: http://www.zeroc.com
+
 .. |OmeroPy| replace:: :ref:`developers/Omero/Python`
 .. |OmeroCpp| replace:: :ref:`developers/Omero/Cpp`
 .. |OmeroJava| replace:: :ref:`developers/Omero/Java`

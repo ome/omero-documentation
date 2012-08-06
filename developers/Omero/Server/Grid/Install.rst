@@ -17,16 +17,15 @@ be satisfied. In particular:
 OMERO Grid requirements (platform specific)
 --------------------------------------------
 
-The main additional requirements for running the grid are the ` Ice
-framework <http://zeroc.com/>`_ and ` Python <http://python.org>`_,
-which are platform specific.
+The main additional requirements for running the grid are the `Ice_
+framework and `Python <http://python.org>`_, which are platform specific.
 
 On all the supported platforms below, the appropriate Python version
 comes pre-installed. Using versions of Python other than the OS default
 will require additional build steps to have Ice work properly with
 Python.
 
-ZeroC provides Ice rpms for installation as well as Windows installers,
+ZeroC_ provides Ice rpms for installation as well as Windows installers,
 and both binary and source distributions. Several distros also provide
 packages.
 

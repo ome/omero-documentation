@@ -33,7 +33,7 @@ filtering* can be done quite easily. By default, OMERO clients only need
 to connect to two TCP ports for communication with your OMERO.server:
 4063 (unsecured) and 4064 (ssl). These are the
 `IANA <http://www.iana.org/assignments/port-numbers>`_ assigned port for
-the Glacier2 router from `ZeroC <http://zeroc.com>`_. Both of these
+the Glacier2 router from ZeroC_. Both of these
 values, however, are completely up to you, see SSL below.
 
 Important OMERO ports:

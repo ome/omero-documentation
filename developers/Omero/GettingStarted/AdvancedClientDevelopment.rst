@@ -63,7 +63,7 @@ The first hurdle when beginning to work with OMERO is to realize that
 building distributed-object systems is different from both building
 standalone clients and writing web applications in frameworks like
 mod\_perl, django, or Ruby on Rails. The remoting framework used by
-OMERO is named ` Ice <http://zeroc.com/>`_ from ZeroC. Ice is comparable
+OMERO is named Ice_ from ZeroC. Ice is comparable
 to CORBA in many ways, but is typically easier to use. For ZeroC's
 comparison of Ice to CORBA, see
 ` http://www.zeroc.com/iceVsCorba.html <http://www.zeroc.com/iceVsCorba.html>`_.

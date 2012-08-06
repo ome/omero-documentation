@@ -1,6 +1,6 @@
 .. _developers/Omero/Server/SecurityRoles:
 
-Omero Roles
+OMERO Roles
 ===========
 
     There are two areas where roles are used. The first is in
@@ -51,7 +51,7 @@ Object-level
 
     Object-level security is more complicated. When execution reaches
     the **EventHandler**, a second login takes place to authorize the
-    user with the Omero security system. This second authorization
+    user with the OMERO security system. This second authorization
     process takes into account the group that (can be) passed into the
     client **ServiceFactory\ (Login)** via
     **Login(String,String,String,String)**. If a user has not set the

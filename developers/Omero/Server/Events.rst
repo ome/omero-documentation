@@ -1,6 +1,6 @@
 .. _developers/Omero/Server/Events:
 
-Omero Events and Provenance
+OMERO Events and Provenance
 ===========================
 
 What is an Event
@@ -22,7 +22,7 @@ the method call (in ``UpdateImpl``).
 Relationship to ModuleExecutions
 --------------------------------
 
-The Omero Event plays a similar role to the ``ModuleExecution`` in the
+The OMERO Event plays a similar role to the ``ModuleExecution`` in the
 OME 2 system. They both contain time of create/update/deletion, status,
 and type information. Event, however, has lost its ACL/permissions role.
 These values have been moved to embedded values represented by the

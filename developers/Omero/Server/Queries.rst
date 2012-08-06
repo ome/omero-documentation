@@ -15,7 +15,7 @@ definition, multiple formats (Velocity templates, DB values, class
 files), and transparent lookup is critical.
 
 Lookup happens among all ``QuerySources`` that are registered with the
-``QueryFactory`` instance present in Omero services. The first non-null
+``QueryFactory`` instance present in OMERO services. The first non-null
 Query instance returned by a ``QuerySource`` for a given String id is
 used.
 

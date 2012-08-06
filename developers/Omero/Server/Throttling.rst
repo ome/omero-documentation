@@ -1,6 +1,6 @@
 .. _developers/Omero/Server/Throttling:
 
-Omero Throttling
+OMERO Throttling
 ================
 
 Throttling consists of reducing the total number of resources that one

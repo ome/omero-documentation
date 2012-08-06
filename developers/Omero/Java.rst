@@ -7,7 +7,7 @@ OMERO Java Language Bindings
 
 Using the ` Ice Java language
 mapping <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.4.4.html>`_ from
-` http://zeroc.com <http://zeroc.com>`_, OMERO provides access to your
+ZeroC_, OMERO provides access to your
 data within an :ref:`server/blitz` server from Java code.
 
 Using the ``omero_client.jar``
@@ -905,10 +905,4 @@ please see |OmeroClients|.
 --------------
 
 .. seealso::
-	` http://zeroc.com <http://zeroc.com>`_,
-	
-	|OmeroGrid|
-	
-	:ref:`developers/Omero/Build#OmeroTools`, 
-	
-	|OmeroApi|
+	ZeroC_, |OmeroGrid|, :ref:`developers/Omero/Build#OmeroTools`, |OmeroApi|

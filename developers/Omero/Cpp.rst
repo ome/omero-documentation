@@ -7,7 +7,7 @@ OMERO C++ Language Bindings
 
 Using the ` Ice C++ language
 mapping <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.4.3.html>`_ from
-` http://zeroc.com <http://zeroc.com>`_, OMERO provides native access to
+ZeroC_, OMERO provides native access to
 your data from C++ code. The "build-cpp" build target produces a
 platform-dependent shared library which can be linked to your
 application.
@@ -226,6 +226,6 @@ please see |OmeroClients|.
 
 --------------
 
-See also: ` http://zeroc.com <http://zeroc.com>`_, |OmeroGrid|, |OmeroApi|,
+See also: Ice_, |OmeroGrid|, |OmeroApi|,
 :ref:`developers/Omero/Build`, :ticket:`1596` which
 added 64bit support

@@ -19,7 +19,7 @@ exceptions in the model.
 Keywords
 --------
 
-Some words are not allowed as properties/fields of Omero types. These
+Some words are not allowed as properties/fields of OMERO types. These
 include:
 
 -  id

@@ -7,7 +7,7 @@ Prerequisites
 -------------
 
 Installing on CentOS 4 or CentOS 5 is straight-forward due to the rpms
-provided by ` ZeroC <http://zeroc.com>`_.
+provided by ZeroC_.
 
 From Yum Repository
 ~~~~~~~~~~~~~~~~~~~

@@ -61,7 +61,7 @@ Files to Create
     file (see below).
 
 :source:`components/blitz/src/ome/services/blitz/impl/ConfigI.java`
-    a ` Ice <http://zeroc.com/>`_ "servant" implementation which can use
+    a Ice_ "servant" implementation which can use
     on of several methods for delegating to the ``ome.api.IConfig``
     interface, but all of which support
     :ref:`throttling <developers/Omero/Server/Throttling>`.
@@ -78,7 +78,7 @@ Files to Edit (not strictly necessary, see :ticket:`314`)
     which makes the use of JNDI and JAAS significantly simpler.
 
 :source:`components/blitz/resources/omero/API.ice` (**blitz**)
-    a ` http://www.zeroc.com <http://www.zeroc.com>`_ slice definition
+    a ZeroC_ slice definition
     file, which provides cross-language mappings. Add the same service
     method to ``ServiceFactoryI`` as to ``ServiceFactory.java``.
 
@@ -87,7 +87,7 @@ Files to Edit (not strictly necessary, see :ticket:`314`)
     defines a mapping between Ice servants and Java services.
 
 :source:`components/blitz/resources/omero/Constants.ice` (**blitz**)
-    a ` http://www.zeroc.com <http://www.zeroc.com>`_ slice definition
+    a ZeroC_ slice definition
     file, which provides constants needed for looking up services, etc.
 
 :source:`components/blitz/src/ome/services/blitz/impl/ServiceFactoryI.java` (**blitz**)

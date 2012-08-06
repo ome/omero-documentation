@@ -43,4 +43,4 @@ data size to the client.
 
 The OMERO Rendering Engine is accessed by OMERO client applications
 written in Java, C++, or Python via a binary protocol (ICE) provided by
-`ZeroC <http://zeroc.com>`_.
+ZeroC_.

@@ -16,7 +16,7 @@ and other services while all experimental and image metadata are stored
 within a relational database and accessed through the OMERO Metadata
 Service. The database is a representation of the :plone:`OME Data
 Model <support/file-formats>` and is mapped to objects via
-`Hibernate <http://www.hibernate.org>`_.
+Hibernate_.
 
 .. figure:: images/omero-overview.png
    :align: center

@@ -8,7 +8,7 @@ A short decription on how to create movies from OMERO.
 Creating a movie from OMERO
 ---------------------------
 
-Omero provides a script to make Mpeg or Quicktime movies from any image
+OMERO provides a script to make Mpeg or Quicktime movies from any image
 in the server. These movies are created by a script called makemovie.py,
 this script has a number of options: these include: selecting a range of
 Z,T planes, the channels to display. The movie can also show information

@@ -63,7 +63,7 @@ The following are necessary:
 
 -  **Zeroc Ice 3.3.x installed**
 
-   UNIX source downloads and binary packages are available from ZeroC.
+   UNIX source downloads and binary packages are available from ZeroC_.
    The latest compatible distribution is the `3.3.1 release <http://www.zeroc.com/download_3_3_1.html>`_. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). Glencoe Software has made its version available for the community:
    `Ice-3.3.1-64.tar.bz2 <http://www.glencoesoftware.com/mac/10.6/Ice-3.3.1-64.tar.bz2>`_
    (sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) 
