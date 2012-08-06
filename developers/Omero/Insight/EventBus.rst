@@ -11,14 +11,14 @@ pattern and can be regarded as a time-ordered event queue - if event A
 is posted on the bus before event B, then event A is also delivered
 before event B.
 
-Events are fired by creating an instance of a subclass of ``AgentEvent``
+Events are fired by creating an instance of a subclass of :term:`AgentEvent`
 and by posting it on the event bus. Agents interested in receiving
-notification of ``AgentEvent`` occurrences implement the
-``AgentEventListener`` interface and register with the event bus. This
+notification of :term:`AgentEvent` occurrences implement the
+:term:`AgentEventListener` interface and register with the event bus. This
 interface has a callback method, ``eventFired``, that the event bus
 invokes in order to dispatch an event. A listener typically registers
 interest only for some given events - by specifying a list of
-``AgentEvent`` subclasses when registering with the event bus. The event
+:term:`AgentEvent` subclasses when registering with the event bus. The event
 bus will then take care of event de-multiplexing - an event is
 eventually dispatched to a listener only if the listener registered for
 that kind of event.
@@ -28,33 +28,35 @@ Structure
 
 `|image1| </ome/attachment/wiki/OmeroInsightEventBus/eventBus.png>`_
 
-``EventBus``
+.. glossary::
 
--  Defines how client classes access the event bus service.
--  A client object (subscriber) makes/cancels a subscription by calling
-   ``register()``/``remove()``.
--  A client object (publisher) fires an event by calling
-   ``postEvent()``.
+    EventBus
 
-``AgentEvent``
+	    -  Defines how client classes access the event bus service.
+	    -  A client object (subscriber) makes/cancels a subscription by calling
+	       ``register()``/``remove()``.
+	    -  A client object (publisher) fires an event by calling
+	       ``postEvent()``.
 
--  Ancestor of all classes that represent events.
--  Source field is meant to be a reference to the publisher that fired
-   the event.
--  An event is "published" by adding its class to the events package
-   within the agents package.
+    AgentEvent
 
-``AgentEventListener``
+	    -  Ancestor of all classes that represent events.
+	    -  Source field is meant to be a reference to the publisher that fired
+	       the event.
+	    -  An event is "published" by adding its class to the events package
+	       within the agents package.
 
--  Represents a subscriber to the event bus.
--  Defines a callback method, ``eventFired``, that the event bus invokes
-   in order to dispatch an event.
+    AgentEventListener
 
-``EventBusListener``
+	    -  Represents a subscriber to the event bus.
+	    -  Defines a callback method, ``eventFired``, that the event bus invokes
+	       in order to dispatch an event.
 
--  Concrete implementation of the event bus.
--  Maintains a de-multiplex table to keep track of what events have to
-   be dispatched to which subscribers.
+    EventBusListener
+
+	    -  Concrete implementation of the event bus.
+	    -  Maintains a de-multiplex table to keep track of what events have to
+	       be dispatched to which subscribers.
 
 In Action
 ~~~~~~~~~
@@ -89,12 +91,12 @@ We devise two common categories of events:
 In the first category fall those events that an agent posts on the event
 bus to notify other agents of a change in its internal state. Events in
 the second category are meant to support asynchronous communication
-between agents and internal engine. The ``AgentEvent`` class, which
+between agents and internal engine. The :term:`AgentEvent` class, which
 represents the generic event type, is sub-classed in order to create a
 hierarchy that represents the above categories. Thus, on one hand we
-have an abstract ``StateChangeEvent`` class from which agents derive
+have an abstract :term:`StateChangeEvent` class from which agents derive
 concrete classes to represent state change notifications. On the other
-hand, the ``RequestEvent`` and ``ResponseEvent`` abstract classes are
+hand, the :term:`RequestEvent` and :term:`ResponseEvent` abstract classes are
 sub-classed by the container in order to define, respectively, how to
 request the asynchronous execution of an operation and how to represent
 its completion. We use the Asynchronous Completion Token pattern to
@@ -103,38 +105,32 @@ asynchronous operations.
 
 `|image3| </ome/attachment/wiki/OmeroInsightEventBus/events.png>`_
 
-``AgentEvent``
+.. glossary::
 
--  Ancestor of all classes that represent events.
--  Source field is meant to be a reference to the publisher that fired
-   the event.
--  An event is "published" by adding its class to the events package
-   within the agents package.
+	StateChangeEvent
 
-``StateChangeEvent``
+		-  Ancestor of all classes that represent state change notifications.
+		-  Its state field can be used to carry all state-change information.
 
--  Ancestor of all classes that represent state change notifications.
--  Its state field can be used to carry all state-change information.
+	RequestEvent
 
-``RequestEvent``
+		-  Abstractly represents a request to execute an asynchronous operation.
+		-  A concrete subclass encapsulates the actual request.
+		-  Knows how and which processing action to dispatch upon completion of
+		   the asynchronous operation.
 
--  Abstractly represents a request to execute an asynchronous operation.
--  A concrete subclass encapsulates the actual request.
--  Knows how and which processing action to dispatch upon completion of
-   the asynchronous operation.
+	CompletionHandler
 
-``CompletionHandler``
+		-  Represents a processing action.
+		-  Allows for all processing action to be treated uniformly.
 
--  Represents a processing action.
--  Allows for all processing action to be treated uniformly.
+	ResponseEvent
 
-``ResponseEvent``
-
--  Abstractly represents the completion of an asynchronous operation.
--  A concrete subclass encapsulates the result of the operation, if any.
--  Knows the ``RequestEvent`` object that originated it.
--  Knows how to activate the de-multiplexing of a completion event to
-   the processing action.
+		-  Abstractly represents the completion of an asynchronous operation.
+		-  A concrete subclass encapsulates the result of the operation, if any.
+		-  Knows the :term:`RequestEvent` object that originated it.
+		-  Knows how to activate the de-multiplexing of a completion event to
+		   the processing action.
 
 In Action
 ~~~~~~~~~
@@ -157,7 +153,7 @@ Follow a concrete example:
         if (e instanceof ViewImage) handleViewImage((ViewImage) e);
     }
 
-A concrete ``RequestEvent`` encapsulates a request to execute an
+A concrete :term:`RequestEvent` encapsulates a request to execute an
 asynchronous operation. Asynchrony involves a separation in space and
 time between invocation and processing of the result of an operation: we
 request the execution of the operation at some point in time within a
@@ -166,13 +162,13 @@ it on the event bus). Then, at a later point in time and within another
 call stack (``eventFired`` method), we receive a notification that the
 execution has completed and we have to handle this completion event -
 which mainly boils down to doing something with the result, if any, of
-the operation. Recall that the ``ResponseEvent`` class is used for
+the operation. Recall that the :term:`ResponseEvent` class is used for
 representing a completion event and a concrete subclass carries the
 result of the operation, if any. After the operation has completed, a
-concrete ``ResponseEvent`` is put on the event bus so that the object
+concrete :term:`ResponseEvent` is put on the event bus so that the object
 which initially made the request (often an agent, but, in this context,
 we will refer to it as the initiator, which is obviously required to
-implement the ``AgentEventListener`` interface and register with the
+implement the :term:`AgentEventListener` interface and register with the
 event bus) can be notified that execution has completed and possibly
 handle the result. Thus, at some point in time the initiator’s
 eventFired method is called passing in the response object.
@@ -184,8 +180,8 @@ cannot relinquish the original call stack (``methodX`` is gone). The
 solution is to require that a response be linked to the original request
 and that the initiator link a request to a completion handler (which
 encapsulates the processing action) before posting it on the event bus
-(this explains the fancy arrangement of the ``RequestEvent``,
-``ResponseEvent`` and ``CompletionHandler``).
+(this explains the fancy arrangement of the :term:`RequestEvent`,
+:term:`ResponseEvent` and :term:`CompletionHandler`).
 
 This way de-multiplexing matters are made very easy for the initiator.
 Upon reception of a completion event notification, all what the
