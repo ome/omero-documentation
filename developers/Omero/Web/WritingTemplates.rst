@@ -1,12 +1,15 @@
-`|The base\_header.html template extended in webtest with dummy
-content| </ome/attachment/wiki/OmeroWeb/WritingTemplates/webtest-base_header.png>`_
-
 Writing Page Templates in OMERO.web
 ===================================
 
 This page documents the various base templates that are used by the
 webclient and describes how to extend these to create your own pages
 with the OMERO.web look and feel.
+
+.. figure:: ../../../images/webtest-base-header.png
+  :align: center
+  :alt: Base header
+
+  The ``base\_header.html`` template extended in webtest with dummy content
 
 Django templates
 ----------------
@@ -21,10 +24,10 @@ with more details below:
 -  **base\_html.html**. This provides the base <html> template with
    blocks for 'link'(for css) 'title' 'script' and 'body'. It is
    extended by every other template. Usage:
-   `` {% extends "common/base/base_html.html" %} ``
+   ``{% extends "common/base/base_html.html" %}``
 -  **base\_frame.html**. This adds jQuery and jQuery-ui libraries to a
    blank page. Used for popup windows etc. Usage:
-   `` {% extends "common/base/base_frame.html" %} ``
+   ``{% extends "common/base/base_frame.html" %}``
 -  **base\_header.html**. This also extends base\_html.html adding all
    the header and footer components that are used by the webclient. See
    screen-shot above. More details below.
@@ -33,8 +36,11 @@ with more details below:
    body of the page. They are used by the webclient for many pages. See
    screen-shot below.
 
-`|base/container3.html extended in webtest with dummy
-content| </ome/attachment/wiki/OmeroWeb/WritingTemplates/webtest-container3.png>`_
+.. figure:: ../../../images/webtest-container.png
+  :align: center
+  :alt: Base container
+
+  The ``base\_container3.html`` template extended in webtest with dummy content
 
 Extending templates
 -------------------
@@ -209,22 +215,5 @@ and includes are in omeroweb/webclient/templates/base/.
 Configuring tabs
 ----------------
 
-Tweeking css
+Tweaking css
 ------------
-
-Attachments
-~~~~~~~~~~~
-
--  `webtest-base\_header.png </ome/attachment/wiki/OmeroWeb/WritingTemplates/webtest-base_header.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroWeb/WritingTemplates/webtest-base_header.png>`_
-   (121.4 KB) - added by *wmoore* `7
-   ago. The base\_header.html template extended in webtest with dummy
-   content
--  `webtest-container3.png </ome/attachment/wiki/OmeroWeb/WritingTemplates/webtest-container3.png>`_
-   `|image4| </ome/raw-attachment/wiki/OmeroWeb/WritingTemplates/webtest-container3.png>`_
-   (125.5 KB) - added by *wmoore* `7
-   ago. base/container3.html extended in webtest with dummy content
--  `webtest-header\_links.png </ome/attachment/wiki/OmeroWeb/WritingTemplates/webtest-header_links.png>`_
-   `|image5| </ome/raw-attachment/wiki/OmeroWeb/WritingTemplates/webtest-header_links.png>`_
-   (165.2 KB) - added by *wmoore* `7
-   ago. Extending base\_header.html in webtest, removing a toolbar.
