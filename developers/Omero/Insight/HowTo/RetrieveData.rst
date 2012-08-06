@@ -177,7 +177,11 @@ call is mapped onto a command, the command is transferred to a processor
 for asynchronous execution, a handle to the call is returned to to
 invoker.
 
-`|image1| </ome/attachment/wiki/OmeroInsightHowToRetrieveData/invocation.gif>`_
+.. figure:: ../../../../images/omeroinsight-retrievedata-invocation.png
+  :align: center
+  :alt: Retrieving data
+
+  Retrieving data invocation
 
 Initialisation
 ~~~~~~~~~~~~~~
@@ -194,11 +198,3 @@ be created in ``env.data.views`` and declared in
 implementation of the corresponding view.
 
 .. seealso:: :ref:`developers/Omero/Insight/DirectoryContents`
-
-Attachments
-~~~~~~~~~~~
-
--  `invocation.gif </ome/attachment/wiki/OmeroInsightHowToRetrieveData/invocation.gif>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroInsightHowToRetrieveData/invocation.gif>`_
-   (17.4 KB) - added by *bwzloranger* `18
-   ago.
