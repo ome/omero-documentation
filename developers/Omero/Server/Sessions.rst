@@ -21,6 +21,12 @@ was largely outside of the core server code and sessions were more
 volatile: a loss of an Ice connection caused all resources to be lost.
 With |OmeroSessions|, both login systems have been brought together and simplified.
 
+.. figure:: ../../../images/omero-BlitzSessionCreationDestruction.png
+  :align: center
+  :alt: Blitz session creation and destruction
+
+  Blitz session creation and destruction
+
 In short, Sessions …
 --------------------
 
@@ -140,11 +146,3 @@ Clients can access the ISession service when necessary.
 Exceptions thrown are still Ice-based.
 
 .. seealso:: :ref:`server/security`
-
-Attachments
-~~~~~~~~~~~
-
--  `BlitzSessionCreationDestruction.png </ome/attachment/wiki/OmeroSessions/BlitzSessionCreationDestruction.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroSessions/BlitzSessionCreationDestruction.png>`_
-   (106.4 KB) - added by *jmoore* `4
-   ago.
