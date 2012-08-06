@@ -100,13 +100,17 @@ or to test only C++:
 Information on installing Boost on Windows is available at
 ` http://www.boost.org/doc/libs/1\_39\_0/more/getting\_started/windows.html <http://www.boost.org/doc/libs/1_39_0/more/getting_started/windows.html>`_
 
-**Note:** If you would like to work on just the C++ code without
-worrying about the rest of the build, you can install ``scons`` and use
-it directly. Alternatively, you can use the scons version which comes
-with the OMERO source code:
-``cd components/tools/OmeroCpp && python ../../../target/scons/scons.py test``.
-This **does** require having run the top-level build (``build.py``) at
-least once.
+.. note::
+    If you would like to work on just the C++ code without
+    worrying about the rest of the build, you can install ``scons`` and use
+    it directly. Alternatively, you can use the scons version which comes
+    with the OMERO source code:
+    ::
+    
+        cd components/tools/OmeroCpp && python ../../../target/scons/scons.py test
+    
+    This **does** require having run the top-level build (``build.py``) at
+    least once.
 
 Further build configuration
 ---------------------------

@@ -44,7 +44,7 @@ server with
     Development server is running at http://0.0.0.0:4080/
     Quit the server with CONTROL-C.
 
-NB: Port number is 4080.
+.. note:: Port number is 4080.
 
 When you edit and save the code, under lib/python/omeroweb/, Django
 automatically detects this and you only need to refresh your browser to
@@ -65,8 +65,10 @@ need to follow a few steps (commands are shown below):
 -  Make sure that the Django libraries that are under the build:
    dist/lib/python/django are on your PYTHONPATH.
 -  Remove the built omeroweb folder, otherwise this will get used
-   instead of the source omeroweb (NB: you have to do this again if you
-   build the server)
+   instead of the source omeroweb 
+
+   .. note:: you have to do this again if you build the server
+
 -  From the source omeroweb/ folder, manually run the Django development
    server
 
@@ -87,7 +89,7 @@ need to follow a few steps (commands are shown below):
     Development server is running at http://127.0.0.1:8000/
     Quit the server with CONTROL-C.
 
-NB: Default port number is 8000.
+.. note:: Default port number is 8000.
 
 You should make sure that you can access the webclient and webadmin on
 your local machine before starting to develop your own code. Be sure to
@@ -171,13 +173,15 @@ registered etc.
 
     $ bin/omero config set omero.web.apps '["<your-app>"]'
 
-NB: For releases before 4.4, you need to 'register' your app with Django
-manually by adding it to the INSTALLED\_APPS list in
-omeroweb/settings.py following the pattern of existing apps there. You
-also need to edit omeroweb/urls.py to add your app's urls.py file to the
-list of "urlpatterns". Again, you should be able to follow the existing
-examples there. You can also specify at this point the url under which
-your app will be found.
+.. note::
+
+    For releases before 4.4, you need to 'register' your app with Django
+    manually by adding it to the INSTALLED\_APPS list in
+    omeroweb/settings.py following the pattern of existing apps there. You
+    also need to edit omeroweb/urls.py to add your app's urls.py file to the
+    list of "urlpatterns". Again, you should be able to follow the existing
+    examples there. You can also specify at this point the url under which
+    your app will be found.
 
 Now you can view the home-page we created above (NB: you will need to
 restart the web server for the config settings to take effect)
@@ -212,9 +216,12 @@ Let's create a simple "stack preview" for an Image with multiple
 Z-sections. We're going to display the image name and 5 planes evenly
 spaced across the Z-stack. You should be able to add the appropriate
 code to urls.py, views.py that you created above, and add a template
-under /omeroweb/<your-app>/templates/<your-app>/ **NB:** note that
-/<your-app>/ appears twice in that path (need an extra folder under
-templates). This example can be found in webtest.
+under /omeroweb/<your-app>/templates/<your-app>/ 
+
+.. note::
+
+   note that /<your-app>/ appears twice in that path (need an extra folder 
+   under templates). This example can be found in webtest.
 
 -  **urls.py**
 

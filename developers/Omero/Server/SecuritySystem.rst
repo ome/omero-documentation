@@ -227,8 +227,10 @@ creates a password table and sets the root password to "ome". (It also
 creates all of the enumeration values, but that's rather unimportant for
 security).
 
-Note: the password table is not mapped into Hibernate, and is only
-accessible via the :ref:`developers/Omero/Modules/Api/AdminInterface`.
+.. note::
+
+    the password table is not mapped into Hibernate, and is only
+    accessible via the :ref:`developers/Omero/Modules/Api/AdminInterface`.
 
 Client-side
 ~~~~~~~~~~~
@@ -412,8 +414,11 @@ Basically it amounts to this:
 
 This must be run otherwise the
 :source:`EventHandler <components/server/src/ome/security/basic/EventHandler.java>`
-will throw a security exception. Note: the code above is being run in a
-secure context (i.e. you are root.) Pease be careful.
+will throw a security exception. 
+
+.. note::
+
+    The code above is being run in a secure context (i.e. you are root.) Pease be careful.
 
 For examples see:
 
@@ -422,7 +427,7 @@ For examples see:
 -  :source:`components/server/src/ome/services/util/OmeroAroundInvoke.java`
    for how the Principal instance is used.
 
-4.2 Design dicsussion
+4.2 Design discussion
 ---------------------
 
 A target of the `4.2 milestone <http://trac.openmicroscopy.org.uk/ome/milestone/OMERO-Beta4.2>`_ is

@@ -172,11 +172,13 @@ This should be added to any existing or a new ``*.ice`` file under the
 ``blitz/resources/omero`` directory. After the next ant build, stubs
 will be created for all the :ref:`server/blitz` languages, i.e.  |OmeroJava|, |OmeroPy|, and |OmeroCpp|.
 
-**Note:** Once you have gotten your code working, it is most re-usable
-if you can put it all in a single directory under tools/. These
-components also have their ``resources/*.ice`` files turned into code,
-and they can produce their own artifacts which you can distribute
-without modifying the main code base.
+.. note::
+
+    Once you have gotten your code working, it is most re-usable
+    if you can put it all in a single directory under tools/. These
+    components also have their ``resources/*.ice`` files turned into code,
+    and they can produce their own artifacts which you can distribute
+    without modifying the main code base.
 
 Warning: Exceptions
 ^^^^^^^^^^^^^^^^^^^
@@ -259,9 +261,12 @@ The three patterns which are available are:
    not have access to ``blitz-*.xml`` objects.
 -  ``ome/services/db-*.xml`` : base connection and security objects.
    These will be included in background java process like the index and
-   pixeldata handlers. **NB:**
-   :ref:`developers/Omero/Server/PasswordProvider` and similar should
-   be included at this level.
+   pixeldata handlers. 
+
+   .. note::
+
+      :ref:`developers/Omero/Server/PasswordProvider` and similar should
+      be included at this level.
 
 See :source:`components/blitz/resources/ome/services`
 and :source:`components/server/resources/ome/services`

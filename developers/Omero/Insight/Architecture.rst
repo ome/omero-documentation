@@ -20,7 +20,9 @@ functionality:
 -  The Viewer? is a tool to visualise and tune 5D images.
 -  The Measurement Tool? is a tool to perform basic measurement.
 
-Note: If you want to add a new agent, go to :ref:`developers/Omero/Insight/HowTo/BuildAgent`.
+.. note::
+
+    If you want to add a new agent, go to :ref:`developers/Omero/Insight/HowTo/BuildAgent`.
 
 These agents are internally organised according to the MVC
 (` Model-View-Controller <http://en.wikipedia.org/wiki/Model-view-controller>`_)
@@ -93,7 +95,8 @@ container’s services are called within Swing event handlers and thus run
 within the *Swing* dispatching thread. To see how to retrieve data from
 an OMERO server, go to the :ref:`developers/Omero/Insight/HowTo/RetrieveData` page.
 
-.. seealso:: 
+.. seealso::
+
     :ref:`developers/Omero/Insight/ImplementationView`, 
     :ref:`developers/Omero/Insight/EventBus`
 

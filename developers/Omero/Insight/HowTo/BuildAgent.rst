@@ -190,7 +190,9 @@ What we need to do now, we need to declare ``MyBrowserAgent`` in the
            </structuredEntry>
          </agents>
 
-    **Note**: The ``active`` tag will be added from Beta3.1
+    .. note::
+
+        The ``active`` tag will be added from Beta3.1
 
 -  Create a ``mybrowser.xml`` and add it to the ``config`` directory
 

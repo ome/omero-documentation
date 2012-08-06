@@ -39,7 +39,6 @@ This is done periodically by the omero-examples Jenkins job
 Other examples (in Python) can be found :wiki:`here
 <PythonClientCodeExamples>`.
 
---------------
 
 Introduction
 ------------
@@ -48,7 +47,7 @@ A Blitz client is any application which uses the
 |OmeroApi| to talk to the :ref:`server/blitz` server in any of the supported
 languages, like :ref:`Python <developers/Omero/Python>`,
 :ref:`C++ <developers/Omero/Cpp>`, :ref:`Java <developers/Omero/Java>`, or
-:ref:`Matlab <developers/Omero/Matlab>`_. A general understanding of the
+:ref:`Matlab <developers/Omero/Matlab>`. A general understanding of the
 :ref:`developers/Omero/Server` may make what's happening
 behind the scenes more transparent, but is not necessary. The points
 below outline all that an application writer is expected to know with
@@ -2459,8 +2458,10 @@ several changes are necessary to port your code to :ref:`server/blitz`.
 
                     someObject().getField().val
 
-            **Note:** neither ``intValue()`` nor ``val`` is properly
-            checking for a null ``field`` value.
+            .. note::
+
+                neither ``intValue()`` nor ``val`` is properly
+                checking for a null ``field`` value.
 
 -  The Permissions class now uses concrete accessors and does not rely
    on the enumerations ``Roles`` and ``Rights``.
@@ -2608,8 +2609,9 @@ several changes are necessary to port your code to :ref:`server/blitz`.
 
           TBD
 
-**Note:** The ``CBlock`` construct has not (yet) been ported to the
-``omero.model`` objects, so there are no collectX or eachY methods.
+.. note::
+    The ``CBlock`` construct has not (yet) been ported to the
+    ``omero.model`` objects, so there are no collectX or eachY methods.
 
 -  The enumeration for projections moved from an int in the IProjections
    interface to an enumeration in Constants.ice:
@@ -2650,16 +2652,17 @@ Though Blitz was not widely publicized, there were a number of
 applications written against it in the 3.2 series. Here we also took the
 major upgrade to 4.0 to correct some problems in the previous version.
 
--  The largest change is that all ``omero.model`` state is now
-   protected. Rather than ``image.id.val`` it is necessary to use
-   ``image.getId().getValue()``. The old invocation will continue to
-   work in Python, but will use the accessors behind the scenes. **Note:
-   it is still possible in Python to access fields directly using
-   ``image.__id``. DO THIS AT YOUR OWN RISK! The state was hidden for a
-   reason, namely keeping collections et al. in sync manually can lead
-   to strange errors.**
+-   The largest change is that all ``omero.model`` state is now
+    protected. Rather than ``image.id.val`` it is necessary to use
+    ``image.getId().getValue()``. The old invocation will continue to
+    work in Python, but will use the accessors behind the scenes. 
 
---------------
+    .. note::
+
+        it is still possible in Python to access fields directly using
+        ``image.__id``. DO THIS AT YOUR OWN RISK! The state was hidden for a
+        reason, namely keeping collections et al. in sync manually can lead
+        to strange errors.
 
 Planned improvements & Known issues
 -----------------------------------

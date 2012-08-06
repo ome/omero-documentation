@@ -367,12 +367,14 @@ From this point on, the user and admin workflows are the same, except
 for a couple of options that are not available to regular users. Also
 see below.
 
-NB. Because non-official scripts do not have a unique path name, you
-will be able to run the upload command multiple times on the same file.
-This will create multiple copies of a file in OMERO and then you will
-have to choose the most recent one (highest ID) if you want to run the
-latest script. It is best to avoid this and use the 'replace' command as
-for official scripts.
+.. note::
+
+    Because non-official scripts do not have a unique path name, you
+    will be able to run the upload command multiple times on the same file.
+    This will create multiple copies of a file in OMERO and then you will
+    have to choose the most recent one (highest ID) if you want to run the
+    latest script. It is best to avoid this and use the 'replace' command as
+    for official scripts.
 
 To list user scripts:
 

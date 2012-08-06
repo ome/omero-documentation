@@ -29,12 +29,14 @@ Getting started
 
 First it is necessary to get a binary distribution. The best way to do
 this is to download the latest released version from
-`MilestoneDownloads <http://trac.openmicroscopy.org.uk/ome/wiki/MilestoneDownloads>`_. Note: for
-|OmeroGrid| functionality you will need at least
-a 3.0-Beta3 server. Alternatively you can build one yourself
-(`OmeroContributing </ome/wiki/OmeroContributing>`_) or download the
-latest build from hudson
-(:jenkins:`here <job/OMERO/lastSuccessfulBuild/>`).
+`MilestoneDownloads <http://trac.openmicroscopy.org.uk/ome/wiki/MilestoneDownloads>`_. 
+
+.. note::
+
+    for |OmeroGrid| functionality you will need at least
+    a 3.0-Beta3 server. Alternatively you can build one yourself
+    (`OmeroContributing </ome/wiki/OmeroContributing>`_) or download the
+    latest build from hudson (:jenkins:`here <job/OMERO/lastSuccessfulBuild/>`).
 
 **More information on installing |OmeroGrid| is
 available under :ref:`developers/Server/Grid/Install`.**
@@ -434,7 +436,8 @@ Topics to be discussed
 
 --------------
 
-.. note:: 
+.. note::
+ 
     In the `milestone:3.0-Beta3 <http://trac.openmicroscopy.org.uk/ome/milestone/3.0-Beta3>`_ release,
     JBoss is not under the control of |OmeroGrid|.
     Instead, it must be started separately via $JBOSS\_HOME/bin/run.sh
