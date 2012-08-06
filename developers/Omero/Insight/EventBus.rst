@@ -26,7 +26,11 @@ that kind of event.
 Structure
 ~~~~~~~~~
 
-`|image1| </ome/attachment/wiki/OmeroInsightEventBus/eventBus.png>`_
+.. figure:: ../../../images/omeroinsight-event-bus.png
+  :align: center
+  :alt: Event bus
+
+  OMERO.insight event bus
 
 .. glossary::
 
@@ -72,7 +76,11 @@ In Action
 -  Dispatching loop runs within same thread that runs the agents
    (*Swing* dispatching thread).
 
-`|image2| </ome/attachment/wiki/OmeroInsightEventBus/eventDispatching.png>`_
+.. figure:: ../../../images/omeroinsight-event-dispatching.png
+  :align: center
+  :alt: Event dispatching
+
+  OMERO.insight event dispatching
 
 Event
 -----
@@ -103,7 +111,11 @@ its completion. We use the Asynchronous Completion Token pattern to
 dispatch processing actions in response to the completion of
 asynchronous operations.
 
-`|image3| </ome/attachment/wiki/OmeroInsightEventBus/events.png>`_
+.. figure:: ../../../images/omeroinsight-events.png
+  :align: center
+  :alt: Events
+
+  OMERO.insight events
 
 .. glossary::
 
@@ -199,19 +211,3 @@ made available to the completion handler. This is enough to provide the
 completion handler with a suitable execution context - all the needed
 information from the original call stack is now available to the
 processing action.
-
-Attachments
-~~~~~~~~~~~
-
--  `eventBus.png </ome/attachment/wiki/OmeroInsightEventBus/eventBus.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroInsightEventBus/eventBus.png>`_
-   (17.9 KB) - added by *bwzloranger* `18
-   ago.
--  `eventDispatching.png </ome/attachment/wiki/OmeroInsightEventBus/eventDispatching.png>`_
-   `|image5| </ome/raw-attachment/wiki/OmeroInsightEventBus/eventDispatching.png>`_
-   (18.5 KB) - added by *bwzloranger* `18
-   ago.
--  `events.png </ome/attachment/wiki/OmeroInsightEventBus/events.png>`_
-   `|image6| </ome/raw-attachment/wiki/OmeroInsightEventBus/events.png>`_
-   (19.3 KB) - added by *bwzloranger* `18
-   ago.
