@@ -98,7 +98,7 @@ Code generation
 Unfortunately, just the above snapshot of the code repository omits some
 of the most important code. Many MB of source code is generated both by
 our own :source:`DSLTask <components/dsl>` as well as by
-the ` Ice <http://zeroc.com>`_ ``slice2java``, ``slice2cpp``, and
+the Ice_ ``slice2java``, ``slice2cpp``, and
 ``slice2py`` code generators. These take an intermediate representation
 of the ` OME-Model <http://www.ome-xml.org>`_ and generate our |OmeroModel|. 
 This code is node available in

@@ -25,7 +25,7 @@ server object-model and how it is used internally.*
 
 Instances of the object model have no direct interaction with the
 database, rather the mapping is handled externally by the O/R framework,
-` Hibernate <http://hibernate.org>`_. That means, by and large,
+Hibernate_. That means, by and large,
 generated classes are data objects, composed only of getter and setter
 fields for fields representing columns in the database, and contain no
 business logic. However, to make working with the model easier and,

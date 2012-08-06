@@ -363,8 +363,7 @@ With the |OmeroGrid| infrastructure, it is
 possible to have your own processes managed by the OMERO infrastructure.
 For example, at some sites, ` Nginx <http://wiki.nginx.org/Main>`_ is
 started to host |OmeroWeb|. Better integration is
-possible, however, if your server also uses the
-` Ice <http://www.zeroc.com>`_ remoting framework.
+possible, however, if your server also uses the Ice_ remoting framework.
 
 On way or the other, to have your server started, monitored, and
 eventually shutdown by |OmeroGrid|, you will need

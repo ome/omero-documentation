@@ -132,7 +132,7 @@ Reads and Writes
 
 IQuery and IUpdate are the basic building blocks for the rest of the
 (non-binary) API. IQuery is based on QuerySources? and QueryParemeters?
-which are explained under ((OMERO Queries\|Queries)). The goal of this
+which are explained under :ref:`developers/Omero/Server/Queries`. The goal of this
 design is to make wildly separate definitions of queries (templates,
 db-stored , Java code, C# code, ...) runnable on the server.
 
@@ -221,7 +221,8 @@ OMERO Annotations for Validation
 --------------------------------
 
 The server-side implementation of these interfaces makes use of ((JDK5))
-((OMERO Annotations)) and an ((OMERO AOP\|AOP)) interceptor to validate
+:ref:`developers/Omero/Modules/StructuredAnnotations` and an
+:ref:`AOP <developers/Omero/Server/Aop>` interceptor to validate
 all method parameters. Calls to pojos.findContainerHierarches are first
 caught by a method interceptor, which checks for annotations on the
 parameters and, if available, performs the necessary checks. The

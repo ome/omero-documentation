@@ -25,9 +25,8 @@ First, all of the requirements on :ref:`server/install-windows`
 should be fulfilled. The JBoss server should be able to contact 
 a Postgres installation with an OMERO database. Then,
 
--  Install Ice 3.2.1 from
-   ` ZeroC <http://www.zeroc.com/download_3_2_1.html>`_. The test
-   installation used the
+-  Install `Ice 3.2.1 <http://www.zeroc.com/download_3_2_1.html>`_from
+   ZeroC_. The test installation used the
    ` Ice-3.2.1-VC80.msi <http://www.zeroc.com/download/Ice/3.2/Ice-3.2.1-VC80.msi>`_
    package.
 -  Install Python. The test installation used Python 2.5 from ` Active

@@ -5,8 +5,7 @@ OMERO Grid
 
 To unify the various components of OMERO,
 |OmeroGrid| was developed to monitor and control
-processes over numerous remote systems. Based on
-` ZeroC's <http://zeroc.com>`_ IceGrid framework,
+processes over numerous remote systems. Based on ZeroC_ IceGrid framework,
 |OmeroGrid| provides an administration gui,
 distributed background processing, log handling, and several other
 features.

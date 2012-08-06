@@ -39,13 +39,16 @@ aspects.
    "system" methods.
 
 -  If authorization occurs, the request finally reaches a
-   container-managed stateful or stateless ((OMERO API\|service)). The
-   service will ((OMERO AOP\|prepare)) the OMERO runtime for the
-   particular user -- checking method parameters, creating a new ((OMERO
-   Events\|event)), initializing the ((OMERO Security System\|security
-   system)), etc. -- and pass execution onto the method implementation.
+   container-managed stateful or stateless 
+   :ref:`service <developers/Omero/Modules/Api>` The
+   service will :ref:`prepare <developers/Omero/Server/Aop>`
+   the OMERO runtime for the
+   particular user -- checking method parameters, creating a new 
+   :ref:`event <developers/Omero/Server/Events>`, initializing the
+   :ref:`security system <developers/Omero/Server/SecuritySystem>`, 
+   etc. -- and pass execution onto the method implementation.
    This is done using references acquired (or injected) from the Spring
-   ((OMERO Context\|application context)).
+   :ref:`application context <developers/Omero/Server/Context>`.
 
 -  The actual service implementation (from
    :source:`ome.logic <components/server/src/ome/logic>`
@@ -94,7 +97,7 @@ concepts which are of importance.
    don't need to be hard-coded.
 
 -  Object-relational mapping (ORM) is the process of mapping relational
-   tables to object-oriented classes. Currently OMERO uses ((Hibernate))
+   tables to object-oriented classes. Currently OMERO uses Hibernate_
    to provide this functionality. ORM allows the developer to work in a
    known environment, here the type-safe world of Java, rather than
    writing difficult to debug sql.

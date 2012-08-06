@@ -29,7 +29,7 @@ implementation used by OMERO only allows for the advising of interfaces.
 Simply creating a new service implementation via "new QueryImpl?()" will
 not produce an advised object, which can in turn will not function
 properly if at all. Instead, an advised objects can only be acquired
-from the Spring ((OMERO Context\|context)).
+from the Spring :ref:`context <developers/Omero/Server/Context>`..
 
 By and large, only the :ref:`API service methods <developers/Omero/Modules/Api>` 
 are advised in OMERO.
