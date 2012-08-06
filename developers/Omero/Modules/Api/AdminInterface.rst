@@ -1,9 +1,9 @@
 .. _developers/Omero/Modules/Api/AdminInterface:
 
-Omero Admin Interface
+OMERO Admin Interface
 =====================
 
-The one central interface for administering the Omero security system is
+The one central interface for administering the OMERO security system is
 IAdmin. Though several of the methods are restricted to system users
 (root and other administrators), many are also for general use. (The
 ``@javax.ejb.security.RolesAllowed`` annotations on the

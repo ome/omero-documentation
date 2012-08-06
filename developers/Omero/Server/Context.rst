@@ -4,13 +4,13 @@ OmeroContext
 ============
 
 The entire OMERO application (on a single JVM) resides in a single
-ome.system.\ :ref:`developers/Omero/Server/Context`. Each call belongs
+ome.system.OmeroContext. Each call belongs
 additionally to a single org.hibernate.Session (which can span over
 multiple calls) and to a single ome.model.meta.Event (which is
 restricted to a single task).
 
 
-The container for all Omero applications is the
+The container for all OMERO applications is the
 :ref:`developers/Omero/Server/Context`
 (:source:`components/common/src/ome/system/OmeroContext.java`).
 Based on the ` Spring <http://www.springframework.org>`_ configuration

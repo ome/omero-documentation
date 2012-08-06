@@ -1,11 +1,11 @@
 .. _developers/Omero/Server/SecuritySystem:
 
-Omero Security System
+OMERO Security System
 =====================
 
 .. contents::
 
-The Omero security system is intended to be as transparent as possible
+The OMERO security system is intended to be as transparent as possible
 while permitting users to configure the visibility of their data. For
 the user, this means that with no special actions, data and metadata
 created will be readable by both members of the same group and by other
@@ -25,7 +25,7 @@ Concepts
 --------
 
 Several concepts and/or components from our and other code bases play a
-staring role in Omero security.
+staring role in OMERO security.
 
 ` Hibernate Listeners and Events <http://www.hibernate.org/hib_docs/v3/reference/en/html/events.html>`_
     listeners and events are the two extension points provided by
@@ -42,7 +42,7 @@ staring role in Omero security.
     functionality with our own logic.
 
 Handler/interceptor
-    as outlined in :ref:`developers/Omero/Server/Aop`, Omero makes
+    as outlined in :ref:`developers/Omero/Server/Aop`, OMERO makes
     extensive use of method interceptors to relieve the developer of
     some coding burden. Transactions, session management, and,
     naturally, security are handled largely by our interceptors (or
@@ -64,7 +64,7 @@ Top-level and Build
 ~~~~~~~~~~~~~~~~~~~
 
 :source:`etc/local.properties`
-    contains login and connection information for the DB and Omero.
+    contains login and connection information for the DB and OMERO.
 
 :source:`local.properties.example <etc/local.properties.example>`
     contains the default root password. This can be overriden with your
@@ -131,7 +131,7 @@ Client & Common
 :source:`GraphHolder.java <components/model/src/ome/model/internal/GraphHolder.java>`
     all model objects (implementations of IObject have a never-null
     GraphHolder instance available. This graph holder is responsible for
-    various Omero & Hibernate internal processes. One of these is the
+    various OMERO & Hibernate internal processes. One of these is the
     exchange of Tokens. For the server, the existance of a special token
     within the GraphHolder? grants certain privileges to that IObject.
     This logic is encapsulated within the SecuritySystem.
@@ -261,12 +261,12 @@ InvocationContext.
 Server code
 ~~~~~~~~~~~
 
-Execution then passes to Omero code, specifically to the interceptors
+Execution then passes to OMERO code, specifically to the interceptors
 and lifecycle methods defined on our session beans. This intercepting
-code checks the passed Principal for Omero-specific information. If this
+code checks the passed Principal for OMERO-specific information. If this
 information is available, it is passed into the SecuritySystem through
 the login method. Finally, execution is returned to the actual bean
-which can either delegate to Omero services or perform logic themselves.
+which can either delegate to OMERO services or perform logic themselves.
 
 Interceptors
 ~~~~~~~~~~~~
@@ -295,7 +295,7 @@ In stack order they are:
 Services
 ~~~~~~~~
 
-Finally execution has reached the Omero services and can begin to
+Finally execution has reached the OMERO services and can begin to
 perform logic. Because of these layers, almost no special logic (other
 than eviction and not calling write methods from within read methods.
 see :ticket:`223`) needs to be considered. There are,

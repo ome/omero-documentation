@@ -45,7 +45,7 @@ For a tutorial on how to get started with the scripting service, see
 The iScript Service
 -------------------
 
-The Omero.blitz server provides a service call iScript that provides
+The OMERO.blitz server provides a service call iScript that provides
 methods to upload, delete, query and runscripts. To access these methods
 a session needs to be created and the script service started. However,
 you may find it more convenient to use the command line
