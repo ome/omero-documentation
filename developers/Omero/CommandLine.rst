@@ -77,14 +77,15 @@ sub-commands:
     bin/omero admin -h
     bin/omero admin start -h 
 
-NB: The 'help' command can be used to get info on other commands or
-options.
+.. note::
 
-::
+    The 'help' command can be used to get info on other commands or options.
 
-    bin/omero help
-    bin/omero help debug       # debug is an option
-    bin/omero help admin       # same as bin/omero admin -h
+    ::
+
+        bin/omero help
+        bin/omero help debug       # debug is an option
+        bin/omero help admin       # same as bin/omero admin -h
 
 System Administration Commands
 ------------------------------

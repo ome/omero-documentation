@@ -103,9 +103,11 @@ looking at the database itself (see above). Another is via the on-line
 :javadoc:` OMERO model <slice2html/omero/model.html>` docs.
 
 However, due to the complexity of the OMERO model, it is helpful to have
-some starting points (follow links below to the docs themselves). NB:
-Figures to the right show highly simplified outline of various model
-objects.
+some starting points (follow links below to the docs themselves).
+
+.. note::
+
+    Figures to the right show highly simplified outline of various model objects.
 
 Projects, Datasets and Images
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -147,11 +149,15 @@ etc as well as a large number of additional metadata objects such as
 Instrument (microscope), Objective, Filters, Light Sources, Detectors
 etc. Image pixels data is stored as a single file, numbered by Pixels ID
 in the OMERO repository under /OMERO/Pixels/ and can be accessed using
-the Raw Pixels Store. NB: Some features of the model are due to
-historical changes and are not exercised in practice. For example: an
-Image can have multiple sets of Pixels although only 1 is typically
-used. Also, Logical Channel and Channel can be considered a single
-entity (as they are now in the OME-model).
+the Raw Pixels Store. 
+
+.. note::
+
+    Some features of the model are due to
+    historical changes and are not exercised in practice. For example: an
+    Image can have multiple sets of Pixels although only 1 is typically
+    used. Also, Logical Channel and Channel can be considered a single
+    entity (as they are now in the OME-model).
 
 More Figures
 ~~~~~~~~~~~~
@@ -294,9 +300,12 @@ bin/omero hql
 ~~~~~~~~~~~~~
 
 You can use the omero hql command to query a remote OMERO db, entering
-your login details when requested. NB: because you will be querying the
-DB under a particular login, the entries returned will be subject to the
-permissions of that login.
+your login details when requested. 
+
+..note::
+
+    Because you will be querying the DB under a particular login, the entries 
+    returned will be subject to the permissions of that login.
 
 ::
 

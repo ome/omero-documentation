@@ -31,13 +31,14 @@ fields for fields representing columns in the database, and contain no
 business logic. However, to make working with the model easier and,
 perhaps, more powerful, there are several features which we've built-in.
 
-**Note: The discussion here of object types is still relevant but uses
-the ome.model.\* objects for examples. These are server internal types
-which may lead to some confusion. Clients work with omero.model.\*
-objects. This documentation will eventually be updated to reflect both
-hierarchies.**
+.. note::
 
---------------
+    The discussion here of object types is still relevant but uses
+    the ome.model.\* objects for examples. These are server internal types
+    which may lead to some confusion. Clients work with omero.model.\*
+    objects. This documentation will eventually be updated to reflect both
+    hierarchies.**
+
 
 Improving generated data objects
 --------------------------------
@@ -652,10 +653,6 @@ Future topics
    -  replace ST definition ("ST is immutable") with locking meechanism
    -  possibly versioning
 
---------------
-
-See also: CodeAnnotation?, PixelSets?, RoiFiveDee?, Containers,
-Enumerations, FilterPattern?, ModelMapping?
 
 Attachments
 ~~~~~~~~~~~

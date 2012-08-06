@@ -25,8 +25,9 @@ tasks such as login (getting connection to OMERO server) etc.
 @login\_required()
 ~~~~~~~~~~~~~~~~~~
 
-**NB: Before 4.4, this was called @isUserConnected and had similar
-functionality**
+.. note::
+
+   Before 4.4, this was called @isUserConnected and had similar functionality.
 
 The login\_required decorator uses parameters in the 'request' object to
 retrieve an existing connection to OMERO. In the case where the user is
@@ -35,14 +36,16 @@ will be redirected back to the page that they originally tried to view.
 The method that is wrapped by this decorator will be passed a 'conn'
 Blitz Gateway connection to OMERO.
 
-**NB:** login\_required is a class-based decorator with several methods
-that can be overwritten to customise it's functionality (see below).
-This means that the decorator **MUST** be instantiated when used with
-the @ notation, ie:
+.. note::
 
-::
+    login\_required is a class-based decorator with several methods
+    that can be overwritten to customise it's functionality (see below).
+    This means that the decorator **MUST** be instantiated when used with
+    the @ notation, ie:
 
-    @login_required()     NOT  @login_required    # this will give you strange error messages
+    ::
+
+        @login_required()     NOT  @login_required    # this will give you strange error messages
 
 A simple example of @login\_required() usage (in webtest/views.py). Note
 the Blitz Gateway connection "conn" retrieved by @login\_required() is
@@ -71,9 +74,9 @@ to retrieve or create connections to OMERO. Although it is not necessary
 to study the code itself, you may find it useful to understand the logic
 that is used (see Flow Diagram). As mentioned above, we start with a
 http request (top left) and either a connection is returned (bottom
-left) OR we are redirected to login page (right) NB: options to
-configure a "public user" are described on the :ref:`web configuration
-page <server/install_web>`.
+left) OR we are redirected to login page (right).
+
+.. note:: options to configure a "public user" are described on the :ref:`web configuration page <server/install_web>`.
 
 Extending login\_required
 ^^^^^^^^^^^^^^^^^^^^^^^^^

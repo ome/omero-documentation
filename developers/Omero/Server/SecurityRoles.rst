@@ -40,11 +40,13 @@ Service-level
     "user" or "system", and no special action needs to be taken by the
     user or client developer.
 
-    **Note**: though currently all methods in the session beans are
-    labelled as ``@RolesAllowed("user")`` or
-    ``@RolesAllowed("system")``, there is nothing stopping a developer
-    from writing a service method which accepts another role, as long as
-    that role has been created in the ExperimenterGroup table.
+    .. note::
+
+        though currently all methods in the session beans are
+        labelled as ``@RolesAllowed("user")`` or
+        ``@RolesAllowed("system")``, there is nothing stopping a developer
+        from writing a service method which accepts another role, as long as
+        that role has been created in the ExperimenterGroup table.
 
 Object-level
 ------------

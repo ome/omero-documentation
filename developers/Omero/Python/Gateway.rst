@@ -133,7 +133,8 @@ Access to the OMERO API services
 If you need access to API methods that are not provided by the gateway
 library, you can get hold of the |OmeroApi|. 
 
-.. note:: 
+.. note::
+ 
     These services will always work
     with omero.model objects and not the gateway wrapper objects.
 
@@ -351,7 +352,7 @@ extended to wrap every omero.model object with a specific Blitz Object
 Wrapper. The current list of object wrappers can be found in the
 omero.gateway module :jenkins:`4.2 API
 <view/Beta4.2/job/OMERO-Beta4.2/javadoc/epydoc/omero.gateway-module.html>`,
-:javadoc:` development code API <epydoc/omero.gateway-module.html>`_.
+:javadoc:` development code API <epydoc/omero.gateway-module.html>`.
 As more functionality is provided by the Blitz Gateway, the coverage
 of object wrappers will increase accordingly.
 

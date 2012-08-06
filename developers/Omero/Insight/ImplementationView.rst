@@ -45,10 +45,9 @@ The ``env`` package is also broken down into further sub-packages:
 -  ``rnd``: The image data provider.
 -  ``ui``: The top frame window and the user notification widgets.
 
-Note: Two extra packages are part of the project for convenience reason
-only:
+.. note::
 
--  ``svc``: Provides general services e.g. transport service using
-   *HTTP*.
--  ``util``: Collection of classes that be used outside the OMERO
-   structure
+	Two extra packages are part of the project for convenience reason only:
+
+    - ``svc``: Provides general services e.g. transport service using *HTTP*.
+    - ``util``: Collection of classes that be used outside the OMERO structure

@@ -67,8 +67,10 @@ and
 
     TempFileManager.create_path("omero", ".tmp", true);
 
-**Note:** all contents of the generated directory will be deleted.
+.. note::
 
---------------
+    All contents of the generated directory will be deleted.
 
--  See: :ticket:`1534`
+.. seealso::
+
+    :ticket:`1534`

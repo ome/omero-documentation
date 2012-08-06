@@ -73,12 +73,15 @@ Content Blocks
 --------------
 
 These blocks can be used to add content to specific points in the page.
-NB: It is important to consider using `` {{ block.super }} `` if you
-want to include the content from the parent template. This is critical
-for the "link" and "script" blocks, which are used to add <link> and
-<script> elements to the head of the page. If you forget to use
-`` {{ block.super }} `` then you will remove all the css and javascript
-links required by the parent template.
+
+.. note::
+ 
+    It is important to consider using `` {{ block.super }} `` if you
+    want to include the content from the parent template. This is critical
+    for the "link" and "script" blocks, which are used to add <link> and
+    <script> elements to the head of the page. If you forget to use
+    `` {{ block.super }} `` then you will remove all the css and javascript
+    links required by the parent template.
 
 base\_header.html
 ~~~~~~~~~~~~~~~~~
