@@ -351,7 +351,7 @@ users don't simultaneously edit the same object. That works so:
 
 Identity and versioning make working with the object model difficult
 sometimes, but guarantee that our data is never corrupted. (Note: as of
-`milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_, there is one
+`milestone:3.0-Beta3 <http://trac.openmicroscopy.org.uk/ome/milestone/3.0-Beta3>`_, there is one
 exception to this discussed below under
 :ref:`developers/Omero/Model#Links`. See that section or
 :ticket:`1001` for more information.)
@@ -469,7 +469,7 @@ if a user tries to change an older reference to an entity. Similar
 problems also arise in multi-user settings, when 2 users try to access
 the same object, but it is not purely due to multi-users or even
 multi-threads, but simply to stale state. (Note: as of
-`milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_, there is an issue in
+`milestone:3.0-Beta3 <http://trac.openmicroscopy.org.uk/ome/milestone/3.0-Beta3>`_, there is an issue in
 the multi-user setting in which a ``SecurityViolation`` is thrown
 instead of an ``OptimisticLockException``. See
 :ticket:`1001` for more information).

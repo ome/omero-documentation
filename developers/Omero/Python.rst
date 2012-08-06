@@ -615,7 +615,7 @@ OMERO tables
 
 -  **Table API**
 
-    See also: :jenkins:`javadoc <job/OMERO/javadoc/slice2html/omero/grid/Table.html>`
+    .. seealso:: :jenkins:`javadoc <job/OMERO/javadoc/slice2html/omero/grid/Table.html>`
 
 ::
 

@@ -153,9 +153,7 @@ Starting on boot
 Configuring |OmeroGrid| to start on boot is a
 platform-specific configuration. Please see your platforms instructions.
 
---------------
-
-See also: |OmeroGrid|
+.. seealso:: |OmeroGrid|
 
 -  Ubuntu Gutsy. See :ref:`developers/Omero/Server/Grid/InstallGutsy`
 -  CentOS 4 and 5. See :ref:`developers/Omero/Server/Grid/InstallCentOs`

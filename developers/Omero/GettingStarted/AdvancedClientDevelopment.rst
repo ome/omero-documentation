@@ -48,7 +48,7 @@ A Blitz client is any application which uses the
 |OmeroApi| to talk to the :ref:`server/blitz` server in any of the supported
 languages, like :ref:`Python <developers/Omero/Python>`,
 :ref:`C++ <developers/Omero/Cpp>`, :ref:`Java <developers/Omero/Java>`, or
-`Matlab <developers/Omero/Matlab>`_. A general understanding of the
+:ref:`Matlab <developers/Omero/Matlab>`_. A general understanding of the
 :ref:`developers/Omero/Server` may make what's happening
 behind the scenes more transparent, but is not necessary. The points
 below outline all that an application writer is expected to know with

@@ -354,15 +354,14 @@ for parsing all metadata entering the system. One built in bridge (the
 parses out the fields mentioned above, but by creating your own bridge
 it is possible to extract more information specific to your site.
 
---------------
+.. seealso::
+    :ref:`developers/Omero/Modules/StructuredAnnotations`,
+    :ref:`developers/Omero/Modules/Search/Bridges`,
+    :ref:`developers/Omero/Search/FileParsers`, 
+    ` Query Parser Syntax <http://lucene.apache.org/java/2_2_0/queryparsersyntax.html>`_,
 
-See also: :ref:`developers/Omero/Modules/StructuredAnnotations`,
-:ref:`developers/Omero/Modules/Search/Bridges`,
-:ref:`developers/Omero/Search/FileParsers`, ` Query Parser
-Syntax <http://lucene.apache.org/java/2_2_0/queryparsersyntax.html>`_,
-` Luke <http://www.getopt.org/luke/>`_ a Java application which you can
-download and point at your ``/OMERO/FullText`` directory to get a better
-feeling for Lucene queries.
+    ` Luke <http://www.getopt.org/luke/>`_ 
+        a Java application which you can download and point at your ``/OMERO/FullText`` directory to get a better feeling for Lucene queries.
 
 Attachments
 ~~~~~~~~~~~

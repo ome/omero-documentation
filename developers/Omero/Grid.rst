@@ -29,7 +29,7 @@ Getting started
 
 First it is necessary to get a binary distribution. The best way to do
 this is to download the latest released version from
-`MilestoneDownloads </ome/wiki/MilestoneDownloads>`_. Note: for
+`MilestoneDownloads <http://trac.openmicroscopy.org.uk/ome/wiki/MilestoneDownloads>`_. Note: for
 |OmeroGrid| functionality you will need at least
 a 3.0-Beta3 server. Alternatively you can build one yourself
 (`OmeroContributing </ome/wiki/OmeroContributing>`_) or download the
@@ -166,7 +166,7 @@ or with the environment variable ``OMERO_NODE``:
 
        OMERO_NODE=MyNewNode bin/omero node start
 
-For the `milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_, the single
+For the `milestone:3.0-Beta3 <http://trac.openmicroscopy.org.uk/ome/milestone/3.0-Beta3>`_, the single
 node which is executing beside :ref:`server/blitz` on
 the master will probably suffice for your processing needs. In the
 following milestones, the number and location of processors and nodes in
@@ -236,7 +236,7 @@ SSL
 
 Though it's probably unnecessary to use transport encryption within a
 firewall, encryption from clients to the Glacier2 router will often be
-necessary. For the `milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_
+necessary. For the `milestone:3.0-Beta3 <http://trac.openmicroscopy.org.uk/ome/milestone/3.0-Beta3>`_
 reelase, no example SSL configuration is provided, but see ` Section
 42.3
 IceSSL <http://www.zeroc.com/doc/Ice-3.2.1/manual/IceSSL.43.3.html#63966>`_
@@ -435,7 +435,7 @@ Topics to be discussed
 --------------
 
 .. note:: 
-    In the `milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_ release,
+    In the `milestone:3.0-Beta3 <http://trac.openmicroscopy.org.uk/ome/milestone/3.0-Beta3>`_ release,
     JBoss is not under the control of |OmeroGrid|.
     Instead, it must be started separately via $JBOSS\_HOME/bin/run.sh
 

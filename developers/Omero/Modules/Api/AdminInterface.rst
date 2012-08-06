@@ -70,6 +70,5 @@ reduces code duplication, which is especially useful when one wants the
 entire user/group graph as provided by
 getExperimenter/getGroup/lookupExperimenter/lookupGroup.
 
---------------
-
-See also : |OmeroApi|
+.. seealso:: 
+    |OmeroApi|

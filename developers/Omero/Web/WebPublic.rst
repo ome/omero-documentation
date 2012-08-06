@@ -33,7 +33,7 @@ Overview
 
 The OMERO.webpublic extension works predominantly by exploiting the
 added permissions functionality of
-`milestone:OMERO-Beta4.2 </ome/milestone/OMERO-Beta4.2>`_. The
+`milestone:OMERO-Beta4.2 <http://trac.openmicroscopy.org.uk/ome/milestone/OMERO-Beta4.2>`_. The
 administrator adds a new *public* user which when added to any existing
 **collaborative** (at least read-only) OMERO experimenter group allows
 users with in that group to *publicise* OMERO.web URLs. When a URL is
