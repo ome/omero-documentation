@@ -153,28 +153,44 @@ Creating binary distribution
 The default ant target ("build-default") will build the OMERO system and
 copy the necessary components for a binary distribution to the /dist
 directory. Below is a comparison of what is taken from the build, where
-it is put, and what role it plays in the distribution. **Note: by
-default, |OmeroCpp| is not built. Use ``build-all`` for that.**
+it is put, and what role it plays in the distribution.
 
-+--------------------------------------+---------------------------+----------------------------------------------------------+
-| **OMERO\_HOME**                      | **OMERO\_HOME/dist**      | Comments                                                 |
-+--------------------------------------+---------------------------+----------------------------------------------------------+
-| components/blitz/target/blitz.jar    | lib/server                | Primary Ice servants                                     |
-+--------------------------------------+---------------------------+----------------------------------------------------------+
-| components/blitz/target/server.jar   | lib/server                | Primary server logic                                     |
-+--------------------------------------+---------------------------+----------------------------------------------------------+
-| components/tools/OmeroCpp/lib\*      | lib/                      | Native shared libraries                                  |
-+--------------------------------------+---------------------------+----------------------------------------------------------+
-| components/tools/OmeroPy/build/lib   | lib/python                | Python libraries                                         |
-+--------------------------------------+---------------------------+----------------------------------------------------------+
-| lib/repository/<some>                | lib/client & lib/server   | Libraries needed for the build                           |
-+--------------------------------------+---------------------------+----------------------------------------------------------+
-| etc/                                 | etc/                      | Configuration                                            |
-+--------------------------------------+---------------------------+----------------------------------------------------------+
-| sql//\*.sql                          | sql/                      | SQL scripts to prepare the database                      |
-+--------------------------------------+---------------------------+----------------------------------------------------------+
-| <javadoc/>                           | docs/api                  | (Optional) Javadocs produced with "java omero javadoc"   |
-+--------------------------------------+---------------------------+----------------------------------------------------------+
+.. note::
+    By default, |OmeroCpp| is not built. Use ``build-all`` for that.
+
+.. list-table::
+    :header-rows: 1
+
+    * - OMERO_HOME
+      - OMERO\_HOME/dist
+      - Comments
+    * - components/blitz/target/blitz.jar
+      - lib/server
+      - Primary Ice servants
+    * - components/blitz/target/blitz.jar
+      - lib/server
+      - Primary Ice servants
+    * - components/blitz/target/server.jar
+      - lib/server
+      - Primary server logic
+    * - components/tools/OmeroCpp/lib*
+      - lib/
+      - Native shared libraries
+    * - components/tools/OmeroPy/build/lib
+      - lib/python
+      - Python libraries
+    * - lib/repository/<some>
+      - lib/client & lib/server
+      - Libraries needed for the build
+    * - etc/
+      - etc/
+      - Configuration
+    * - sql/\*.sql
+      - sql/
+      - SQL scripts to prepare the database
+    * - <javadoc/>
+      - docs/api
+      - (Optional) Javadocs produced with "java omero javadoc"
 
 These files are then zipped to OMERO.server-<version>.zip via "java
 omero release-zip"
