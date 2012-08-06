@@ -3,7 +3,7 @@
 OMERO LDAP Authentication
 =========================
 
-**The official user documentation for the OMERO LDAP plugin has moved to
+The official user documentation for the OMERO LDAP plugin has moved to
 :ref:`server/ldap`. What remains here is the developer documentation on the design of the
 LDAP plugin as well as how to write your own LDAP extension for OMERO.
 

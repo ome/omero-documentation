@@ -119,7 +119,6 @@ OMERO\_HOME/dist top-level distribution directory. Current tools
 include:
 
 .. |OmeroFs| replace:: :ref:`developers/Omero/Server/FS`
-.. |LicenseService| replace:: `LicenseService </ome/wiki/LicenseService>`_
 .. |ant| replace:: :term:`Ant-based builds`
 .. |ice| replace:: :term:`Ice-based builds`
 .. |scons| replace:: :term:`Scons-based builds`
@@ -135,7 +134,7 @@ include:
 +------------------+-------+-------+---------+
 |    |OmeroPy|     |       |   X   |         |   
 +------------------+-------+-------+---------+
-| |LicenseService| |   X   |       |    X    |
+|  LicenseService  |   X   |       |    X    |
 +------------------+-------+-------+---------+
 
 .. glossary::

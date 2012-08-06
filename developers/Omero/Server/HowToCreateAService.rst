@@ -4,16 +4,13 @@ How To Create A Service
 =======================
 
 .. topic:: Overview
-	These instructions are for core developers only and may be
-	slightly out of date. They will eventually be revised, but if you are
-	looking for general instructions on extending OMERO with a service, see
-	|ExtendingOmero|. If you would indeed like to create a core service, 
-	please contact the `ome-devel mailing 
-	<http://www.openmicroscopy.org/site/community/mailing-lists>`_ list
 
---------------
-
---------------
+    These instructions are for core developers only and may be
+    slightly out of date. They will eventually be revised, but if you are
+    looking for general instructions on extending OMERO with a service, see
+    |ExtendingOmero|. If you would indeed like to create a core service, 
+    please contact the `ome-devel mailing 
+    <http://www.openmicroscopy.org/site/community/mailing-lists>`_ list
 
 
 To fulfill :ticket:`306`, r905 provides all the classes and
@@ -80,24 +77,20 @@ Files to Edit (not strictly necessary, see :ticket:`314`)
     client ` Spring <http://www.springframework.org>`_ configuration,
     which makes the use of JNDI and JAAS significantly simpler.
 
-:source:`components/blitz/resources/omero/API.ice`
-(**blitz**)
+:source:`components/blitz/resources/omero/API.ice` (**blitz**)
     a ` http://www.zeroc.com <http://www.zeroc.com>`_ slice definition
     file, which provides cross-language mappings. Add the same service
     method to ``ServiceFactoryI`` as to ``ServiceFactory.java``.
 
-:source:`components/blitz/resources/ome/services/blitz-servantDefinitions.xml`
-(**blitz**)
+:source:`components/blitz/resources/ome/services/blitz-servantDefinitions.xml` (**blitz**)
     a ` Spring <http://www.springframework.org>`_ configuration, which
     defines a mapping between Ice servants and Java services.
 
-:source:`components/blitz/resources/omero/Constants.ice`
-(**blitz**)
+:source:`components/blitz/resources/omero/Constants.ice` (**blitz**)
     a ` http://www.zeroc.com <http://www.zeroc.com>`_ slice definition
     file, which provides constants needed for looking up services, etc.
 
-:source:`components/blitz/src/ome/services/blitz/impl/ServiceFactoryI.java`
-(**blitz**)
+:source:`components/blitz/src/ome/services/blitz/impl/ServiceFactoryI.java` (**blitz**)
     the central session in a blitz. Should always be edited parallel to
     ``ServiceFactory.java``. Also optional in that
     ``MyServicePrxHelper.uncheckedCast( serviceFactoryI.getByName(String) )``
@@ -107,10 +100,11 @@ Files Involved
 ~~~~~~~~~~~~~~
 
 :source:`components/client/resources/beanRefContext.xml`
+
 :source:`components/server/resources/beanRefContext.xml`
+
 :source:`components/blitz/resources/beanRefContext.xml`
-    ` Singleton
-    definitions <http://static.springframework.org/spring/docs/2.0.x/reference/beans.html#d0e5298>`_
+    ` Singleton definitions <http://static.springframework.org/spring/docs/2.0.x/reference/beans.html#d0e5298>`_
     which allow for the static location of the active context. These do
     not need to be edited, but in the case of the server
     :source:`beanRefContext.xml <components/server/resources/beanRefContext.xml>`,

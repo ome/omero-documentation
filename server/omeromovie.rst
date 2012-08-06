@@ -38,7 +38,7 @@ You can find windows installs for mencoder at
 
 We have :snapshot:`Mac OSX installs for mencoder <mencoder/mac/>`
 which were originally provided
-`here <http://stefpause.com/apple/mac/mplayer-os-x-10rc1-and-mencoder-binaries/>`_.
+`here <http://stefpause.com/apple/mac/mplayer-os-x-10rc1-and-mencoder-binaries/>`__.
 Unzip and put the mencoder in the PATH available to the server, e.g.
 /usr/local/bin/ . You may need to restart the server for this to take
 effect.
@@ -79,7 +79,7 @@ Windows
 For Windows, you can download a "MPlayer-rtm-svm-<version>" bundle from
 ` http://sourceforge.net/projects/mplayer-win32/ <http://sourceforge.net/projects/mplayer-win32/>`_.
 The latest version as of Nov. 2009 is available
-` here <http://downloads.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/revision%2029851/MPlayer-rtm-svn-29851.7z?use_mirror=dfn>`_.
+` here <http://downloads.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/revision%2029851/MPlayer-rtm-svn-29851.7z?use_mirror=dfn>`__.
 You will need ` 7zip <http://www.7-zip.org/download.html>`_ to open the
 bundle. Then you will need to add the directory containing
 "mencoder.exe" to your system path and restart.

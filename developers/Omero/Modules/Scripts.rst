@@ -138,8 +138,11 @@ Installing Mlabwrap
 To install MlabWrap? follow the installation guide at
 ` http://www.scipy.org/MlabWrap <http://www.scipy.org/MlabWrap>`_ and
 make sure that the paths are set for the environment variables:
- LD\_LIBRARY\_PATH=$MATLABROOT/bin/Platform
- MLABRAW\_CMD\_STR=$MATLABROOT/bin/matlab
+
+::
+
+    LD_LIBRARY_PATH=$MATLABROOT/bin/Platform
+    MLABRAW_CMD_STR=$MATLABROOT/bin/matlab
 
 Example Matlab scripts
 ----------------------

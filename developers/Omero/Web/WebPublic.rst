@@ -169,5 +169,7 @@ Known limitations
 -  Only the **first** OMERO.web configured OMERO host is supported
 
 
-.. seealso:: |OmeroWeb|, :javadoc:` OMERO.webpublic
-epydoc <epydoc/omeroweb.webpublic-module.html>`
+.. seealso:: 
+    |OmeroWeb|, 
+    :javadoc:` OMERO.webpublic,
+    epydoc <epydoc/omeroweb.webpublic-module.html>`

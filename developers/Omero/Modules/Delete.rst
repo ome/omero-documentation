@@ -13,7 +13,7 @@ deleted with the image (since it has no other relevance).
 
 In the 4.2.1 release of OMERO, an improved deleting service was
 introduced to fix several problems or requirements related to the delete
-functionality (see :ticket:`2615 ` for tickets):
+functionality (see :ticket:`2615` for tickets):
 
 -  Need a better way to define what gets deleted when certain data gets
    deleted (e.g. Image case above)

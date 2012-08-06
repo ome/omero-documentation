@@ -225,5 +225,6 @@ What we need to do now, we need to declare ``MyBrowserAgent`` in the
    The file ``mybrowser.xml`` allows the agent to define specific
    parameters.
 
-.. seealso:: :ref:`developers/Omero/Insight/ImplementationView`,
-:ref:`developers/Omero/Insight/HowTo/RetrieveData`
+.. seealso:: 
+    :ref:`developers/Omero/Insight/ImplementationView`,
+    :ref:`developers/Omero/Insight/HowTo/RetrieveData`
