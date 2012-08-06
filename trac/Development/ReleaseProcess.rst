@@ -90,11 +90,11 @@ Testing
 
 -  Review tests
 
-   -  Hudson Linux & Windows "start" jobs **should be passing**
+   -  Jenkins Linux & Windows "start" jobs **should be passing**
    -  See:
-      ` http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-components/ <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-components/>`_
+      :jenkins:`<job/OMERO-trunk-components/>`.
 
--  `BioFormats </ome/wiki/BioFormats>`_
+-  :wiki:`BioFormats <BioFormats>`.
 
    -  During development phase, keep track of files failing to import
       submitted to the team.
@@ -142,7 +142,7 @@ Testing
    CellProfiler
 -  Include testing of upgrades from previous versions.
 -  Review/Update known limitations through testing
--  Hudson **MUST** report all logs at ``ERROR`` level as failures.
+-  Jenkins **MUST** report all logs at ``ERROR`` level as failures.
 
 Bio-Formats Freeze (no jar changes)
 -----------------------------------
@@ -316,11 +316,11 @@ Release
       -  ``select * from registry_version;``
       -  ``update registry_version set version = '4.4.0';``
 
--  Create builds with hudson
+-  Create builds with jenkins
 
    -  ``git push origin v.4.4.0 develop`` assuming the commit isn’t
       present.
-   -  If commit is present, just click on “Build” on Hudson
+   -  If commit is present, just click on “Build” on Jenkins
    -  Mark build as “QA”\ [STRIKEOUT:, eventually as “Release”]
    -  Copy builds to /snapshots (currently manual)
    -  This kicks off the VM build (automatically published to
@@ -338,7 +338,7 @@ Release
 Branching
 ---------
 
--  Rename "\*-trunk" hudson jobs to "\*-<RELEASE\_NAME>"
+-  Rename "\*-trunk" jenkins jobs to "\*-<RELEASE\_NAME>"
 -  Add bioformats branches to /hudson/bioformats.git/git-fetch.sh and
    hooks/post-receive
 

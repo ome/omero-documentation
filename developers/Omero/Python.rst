@@ -615,18 +615,15 @@ OMERO tables
 
 -  **Table API**
 
+    See also: :jenkins:`javadoc <job/OMERO/javadoc/slice2html/omero/grid/Table.html>`
+
 ::
 
-    # See: [http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/grid/Table.html]
     openTable = conn.c.sf.sharedResources().openTable(orig_file) 
-
-::
 
     print "Table Columns:"
     for col in openTable.getHeaders():
         print "   ", col.name 
-
-::
 
     rowCount = openTable.getNumberOfRows()
     print "Row count:", rowCount 

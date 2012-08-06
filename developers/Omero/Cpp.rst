@@ -12,18 +12,15 @@ your data from C++ code. The "build-cpp" build target produces a
 platform-dependent shared library which can be linked to your
 application.
 
-As of milestone:Beta4.1, **binaries are not provided** and so it will be
-necessary to compile your own. Test versions are, however, built on a
-small handful of platforms:
+As of milestone:Beta4.1, **binaries are not provided** and so it will
+be necessary to compile your own. Test versions are, however, built by
+Jenkins on a small handful of platforms:
 
--  Windows Server 2003 (32 bit):
-   ` http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-components/component=cpp,label=x86-windows/ <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-components/component=cpp,label=x86-windows/>`_
--  Linux:
-   ` http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-components/component=cpp,label=linux/ <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-components/component=cpp,label=linux/>`_
--  MacOSX:
-   ` http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-components/component=cpp,label=macosx/ <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-components/component=cpp,label=macosx/>`_
+- :jenkins:`Windows Server 2003 (32 bit) <job/OMERO-trunk-components/component=cpp,label=x86-windows/>`
+- :jenkins:`Linux <job/OMERO-trunk-components/component=cpp,label=linux/>`
+- :jenkins:`MacOSX <job/OMERO-trunk-components/component=cpp,label=macosx/>`
 
-Prepairing to build
+Preparing to build
 -------------------
 
 Begin by following the instructions under
@@ -232,17 +229,3 @@ please see |OmeroClients|.
 See also: ` http://zeroc.com <http://zeroc.com>`_, |OmeroGrid|, |OmeroApi|,
 :ref:`developers/Omero/Build`, :ticket:`1596` which
 added 64bit support
-
-Attachments
-~~~~~~~~~~~
-
--  `Makefile </ome/attachment/wiki/OmeroCpp/Makefile>`_
-   `|image3| </ome/raw-attachment/wiki/OmeroCpp/Makefile>`_ (681 bytes)
-   - added by *jmoore* `3
-   years </ome/timeline?from=2009-08-31T18%3A44%3A14%2B01%3A00&precision=second>`_
-   ago. Example Makefile
--  `yourcode.cpp </ome/attachment/wiki/OmeroCpp/yourcode.cpp>`_
-   `|image4| </ome/raw-attachment/wiki/OmeroCpp/yourcode.cpp>`_ (877
-   bytes) - added by *jmoore* `3
-   years </ome/timeline?from=2009-08-31T18%3A44%3A33%2B01%3A00&precision=second>`_
-   ago. Example source code

@@ -344,16 +344,16 @@ E.g.
 Wrapper Coverage
 ~~~~~~~~~~~~~~~~
 
-The OMERO data model has a large number of objects, not all of which are
-used by the |OmeroWeb| framework. For this reason, the Blitz gateway (which was 
-originally built for |OmeroWeb|) has not yet been extended to wrap
-every omero.model object with a specific Blitz Object Wrapper. The
-current list of object wrappers can be found in the omero.gateway module
-` 4.2
-API <http://hudson.openmicroscopy.org.uk/view/Beta4.2/job/OMERO-Beta4.2/javadoc/epydoc/omero.gateway-module.html>`_,
+The OMERO data model has a large number of objects, not all of which
+are used by the |OmeroWeb| framework. For this reason, the Blitz
+gateway (which was originally built for |OmeroWeb|) has not yet been
+extended to wrap every omero.model object with a specific Blitz Object
+Wrapper. The current list of object wrappers can be found in the
+omero.gateway module :jenkins:`4.2 API
+<view/Beta4.2/job/OMERO-Beta4.2/javadoc/epydoc/omero.gateway-module.html>`,
 :javadoc:` development code API <epydoc/omero.gateway-module.html>`_.
-As more functionality is provided by the Blitz Gateway, the coverage of
-object wrappers will increase accordingly.
+As more functionality is provided by the Blitz Gateway, the coverage
+of object wrappers will increase accordingly.
 
 Gateway Evolution
 -----------------

@@ -74,8 +74,8 @@ screenshot:
 Download the OMERO.server Virtual Appliance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The virtual appliance can be downloaded from
-the `hudson job <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm-latest-build.ova>`_
+The virtual appliance can be downloaded from :jenkins:`here
+<job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm-latest-build.ova>`,
 and should have a filename similar to, e.g. omero-vm.ova
 
 Import OMERO Virtual Appliance into VirtualBox

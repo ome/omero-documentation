@@ -179,15 +179,14 @@ default, |OmeroCpp| is not built. Use ``build-all`` for that.**
 These files are then zipped to OMERO.server-<version>.zip via "java
 omero release-zip"
 
-Hudson
-~~~~~~
+Jenkins
+~~~~~~~
 
-The OME project currently uses ` Hudson <http://hudson.dev.java.net>`_
-as a continuous integration server available at
-` http://hudson.openmicroscopy.org.uk <http://hudson.openmicroscopy.org.uk>`_
-so many binary packages can be downloaded without compiling them
-yourself . OMERO.server is built by the "OMERO" job at
-`http://hudson.openmicroscopy.org.uk/job/OMERO-trunk`_.
+The OME project currently uses `Jenkins <http://jenkins-ci.org/>`_ as
+a continuous integration server available :jenkins:`here <>`, so many
+binary packages can be downloaded without compiling them yourself.
+OMERO.server is built by the "OMERO" job at
+:jenkins:`job/OMERO-trunk`.
 
 Hudson checks for git changes every 15 minutes and executes:
 

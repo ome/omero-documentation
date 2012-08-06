@@ -116,14 +116,13 @@ arranged per story into 3 columns: new, accepted, and closed.
 Jenkins: Continuous integration
 -------------------------------
 
-Our Jenkins server (http://jenkins-ci.org) is available under
-http://hudson.openmicroscopy.org.uk and also uses LDAP
-authentication. The name “Hudson” comes from before the Jenkins fork
-after Sun’s acquisition by Oracle and that’s what the team refers to
-it as. Hudson provides a mechanism to run arbitrary tasks (“jobs”) on
-one or more platforms after particular events (time of day, git push,
-etc.) These jobs build all of the binaries released by the team, and
-also run automated testing.
+Our Jenkins server (http://jenkins-ci.org) is available :jenkins:`here
+<>` and also uses LDAP authentication. The name “Hudson” comes from
+before the Jenkins fork after Sun’s acquisition by Oracle and that’s
+what the team refers to it as. Jenkins provides a mechanism to run
+arbitrary tasks (“jobs”) on one or more platforms after particular
+events (time of day, git push, etc.) These jobs build all of the
+binaries released by the team, and also run automated testing.
 
 .. _jenkins_screenshot:
 .. figure:: images/10000000000003EF000002093F36F067.png

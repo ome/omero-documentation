@@ -14,11 +14,10 @@ Installing and Configuring
 Installing the OmeroMatlab Toolbox
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Download the desired version. For the latest build see,
-   `<http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/>`_
-   and download the |OmeroMatlab| zip file. For
-   the latest released version visit the main `download page
-   <http://www.openmicroscopy.org/site/support/omero4/downloads>`_
+-  Download the desired version. For the latest build see
+   :jenkins:`here <job/OMERO/lastSuccessfulBuild/>`, and download the
+   |OmeroMatlab| zip file. For the latest released version visit the
+   main :plone:`download page <support/omero4/downloads>`
 -  Unzip the directory anywhere on your system.
 -  In Matlab, change to the newly unzipped directory.
 -  Run :command:`loadOmero;`

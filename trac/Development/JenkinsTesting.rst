@@ -1,5 +1,5 @@
-Testing on Hudson
-=================
+Testing on Jenkins
+==================
 
 This website contains examples which are used by
 hudson.openmicroscopy.org.uk to run tests against OMERO products.
@@ -7,8 +7,8 @@ hudson.openmicroscopy.org.uk to run tests against OMERO products.
 Environment
 -----------
 
-Hudson environment is available
-` here <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-components/component=start,label=linux/lastSuccessfulBuild/artifact/src/hudson.log>`_
+Jenkins environment is available :jenkins:`here
+<job/OMERO-trunk-components/component=start,label=linux/lastSuccessfulBuild/artifact/src/hudson.log>`.
 
 Your test
 ---------
@@ -49,8 +49,8 @@ Your test
             os.environ['ICE_CONFIG'] = ice_config is None and str(self.ctx.dir / "etc" / "ice.config") or str(ice_config)
             os.environ['PATH'] = str(os.environ.get('PATH', '.') + ':' + self.ctx.dir / 'bin')
 
-Hudson scripts
---------------
+Jenkins scripts
+---------------
 
 If you are executing your tests via **bin/omero myapp unittest**
 (settled on component/tools/OmeroPy/src/omero/plugin) $ICE\_CONFIG will

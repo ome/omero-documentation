@@ -105,10 +105,10 @@ service interfaces and a type hierarchy:
    -  ``omero.grid.LongColumn``, ``DoubleColumn``, ``BoolColumn``, etc.
       are simply value columns for representing your data.
 
-Further documentation on the API is available at :
-` http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/grid/Table.html#Table <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/grid/Table.html#Table>`_
-Several examples are linked below, but these are only the beginning of
-what can be done with `OmeroTables </ome/wiki/OmeroTables>`_. Future
+Further documentation on the API is available :jenkins:`here
+<job/OMERO/javadoc/slice2html/omero/grid/Table.html#Table>`.  Several
+examples are linked below, but these are only the beginning of what
+can be done with `OmeroTables </ome/wiki/OmeroTables>`_. Future
 methods and services can provide functionality for merging tables,
 searching in parallel, and mathematical analysis, for example.
 
@@ -180,11 +180,12 @@ The Tables API itself provides little more than a remotely accessible
 store, think of it as a server for Excel-like spreadsheets. We're
 currently looking into the facilities that can be built on top of it,
 and are **very** open to suggestions. For example, the IRoi interface
-(` documentation <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/slice2html/omero/api/IRoi.html#IRoi>`_,
-`wiki page </ome/wiki/RegionsOfInterest>`_) has been extended to filter
-ROIs by a given measurement. This allows seeing only those results from
-a particular analysis run. The following example shows how to setup such
-a measurement and retrieve its results:
+(:jenkins:`documentation
+<job/OMERO/javadoc/slice2html/omero/api/IRoi.html#IRoi>`, :wiki:`wiki
+<RegionsOfInterest>`) has been extended to filter ROIs by a given
+measurement. This allows seeing only those results from a particular
+analysis run. The following example shows how to setup such a
+measurement and retrieve its results:
 
 ` iroi.py <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/examples/OmeroTables/iroi.py>`_
 

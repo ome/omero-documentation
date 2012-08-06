@@ -266,10 +266,11 @@ release, at time of writing, is 4.3.4
 
 .. note::
 	If you want the development version of OMERO.server which is
-	currently version 4.4 then you can clone the src code from the project's
-	GitHub account at https://github.com/openmicroscopy/openmicroscopy to
-	build locally or download a daily build from our build server
-	http://hudson.openmicroscopy.org.uk/job/OMERO-trunk/lastSuccessfulBuild/artifact/
+	currently version 4.4 then you can clone the src code from the
+	project's GitHub account at
+	https://github.com/openmicroscopy/openmicroscopy to build
+	locally or download a daily build from our :jenkins:`build
+	server <job/OMERO-trunk/lastSuccessfulBuild/artifact/>`
 
 Assuming that you downloaded a release version of OMERO.server, extract
 it from the zip archive:

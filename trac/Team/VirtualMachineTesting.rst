@@ -18,7 +18,7 @@ Appliance Import Testing
    & follow the installation instructions.
 -  Download the last QA virtual appliance which should be named
    omero-vm.ova from
-   ` http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm.ova <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm.ova>`_.
+   :jenkins:`here <job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm.ova>`.
 -  Start VirtualBox and select File >> Import Appliance
 -  Accept the defaults offered by VirtualBox and follow the on screen
    prompts until your appliance is imported. At this point there should
@@ -26,8 +26,8 @@ Appliance Import Testing
 -  Select the omero-vm virtual machine then click the start button from
    the menu bar.
 -  NB. Check port forwarding. If no port forwarding is set up then use
-   the script (from here:
-   ` http://www.openmicroscopy.org.uk/site/support/omero432/getting-started/demo/scripts/setup\_port\_forwarding.sh <http://www.openmicroscopy.org.uk/site/support/omero432/getting-started/demo/scripts/setup_port_forwarding.sh>`_)
+   the script (from
+   :plone:`here <support/omero432/getting-started/demo/scripts/setup_port_forwarding.sh>`)
    to set up port forwarding, e.g.
 
         $ bash setup\_port\_forwarding.sh omero-vm

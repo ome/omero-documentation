@@ -49,7 +49,7 @@ The main developer documentation page is here:
 
 Some of the more useful pieces of documentation are:
 
--  ` Javadocs <http://hudson.openmicroscopy.org.uk/job/BIOFORMATS-trunk/javadoc/>`_
+-  :jenkins:`Javadocs <job/BIOFORMATS-trunk/javadoc/>`
 -  ` Short examples of exporting images using
    Bio-Formats <http://trac.openmicroscopy.org.uk/ome/wiki/BioFormats-Export>`_
 -  ` More thorough examples of exporting images and

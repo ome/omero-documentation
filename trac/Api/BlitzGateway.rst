@@ -3,13 +3,15 @@ Blitz Gateway API
 
 The API for the Python Blitz Gateway is being reworked extensively in
 the OMERO 4.3 release. This page will document which methods from the
-` 4.2
-API <http://hudson.openmicroscopy.org.uk/view/Beta4.2/job/OMERO-Beta4.2/javadoc/epydoc/omero.gateway-module.html>`_
+:jenkins:`4.2 API
+<view/Beta4.2/job/OMERO-Beta4.2/javadoc/epydoc/omero.gateway-module.html>`
 are deprecated and provide examples on how to access the same
 functionality from other methods.
 
-Changes to the BlitzGateway (connection wrapper) ` 4.2 methods <http://hudson.openmicroscopy.org.uk/view/Beta4.2/job/OMERO-Beta4.2/javadoc/epydoc/omero.gateway._BlitzGateway-class.html>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Changes to the BlitzGateway (connection wrapper)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:jenkins:`4.2 methods <view/Beta4.2/job/OMERO-Beta4.2/javadoc/epydoc/omero.gateway._BlitzGateway-class.html>`.
 
 -  Deprecated methods are listed below as bullet points. Commits for
    these changes are on ticket `#4681 </ome/ticket/4681>`_".

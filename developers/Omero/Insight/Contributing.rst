@@ -64,17 +64,15 @@ For more details, see `Software Build and
 Deployment </ome/attachment/wiki/OmeroInsightContributing/sbdd.pdf>`_
 `|Download| </ome/raw-attachment/wiki/OmeroInsightContributing/sbdd.pdf>`_.
 
-Hudson
-^^^^^^
+Jenkins
+^^^^^^^
 
-The OME project currently uses ` Hudson <http://hudson.dev.java.net>`_
-as a continuous integration server available at
-` http://hudson.openmicroscopy.org.uk <http://hudson.openmicroscopy.org.uk>`_
-. OMERO.insight is built by the "INSIGHT" job at
-` http://hudson.openmicroscopy.org.uk/job/INSIGHT-trunk <http://hudson.openmicroscopy.org.uk/job/INSIGHT-trunk>`_
-.
+The OME project currently uses `Jenkins <http://jenkins-ci.org/>`_
+(formerly known as hudson) as a continuous integration server
+available :jenkins:`here <>` . OMERO.insight is built by the "INSIGHT"
+job :jenkins:`here <job/INSIGHT-trunk>`.
 
-Hudson checks for SVN changes every 15 minutes and executes:
+Jenkins checks for SVN changes every 15 minutes and executes:
 
 ::
 
@@ -102,14 +100,5 @@ Hudson checks for SVN changes every 15 minutes and executes:
     rm -f OMERO.insight-build*.zip
     java -Domero.version=build$BUILD_NUMBER omero zip
 
-The Javadocs are available at
-` http://hudson.openmicroscopy.org.uk/job/INSIGHT-trunk/javadoc <http://hudson.openmicroscopy.org.uk/job/INSIGHT-trunk/javadoc>`_
+The Javadocs are available :jenkins:`here <job/INSIGHT-trunk/javadoc>`,
 as well as several build metrics.
-
-Attachments
-~~~~~~~~~~~
-
--  `sbdd.pdf </ome/attachment/wiki/OmeroInsightContributing/sbdd.pdf>`_
-   `|image2| </ome/raw-attachment/wiki/OmeroInsightContributing/sbdd.pdf>`_
-   (102.7 KB) - added by *bwzloranger* `18
-   ago.
