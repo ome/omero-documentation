@@ -652,13 +652,3 @@ Future topics
       etc.)
    -  replace ST definition ("ST is immutable") with locking meechanism
    -  possibly versioning
-
-
-Attachments
-~~~~~~~~~~~
-
--  `ObjectStates.png </ome/attachment/wiki/ObjectModel/ObjectStates.png>`_
-   `|Download| </ome/raw-attachment/wiki/ObjectModel/ObjectStates.png>`_
-   (71.8 KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-06-05T08%3A57%3A17%2B01%3A00&precision=second>`_
-   ago.

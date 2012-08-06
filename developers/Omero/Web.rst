@@ -129,17 +129,3 @@ This maps the url 'webtest/dataset/<datasetId>/' to the View function
        </body></html>
 
 -  Next: Get started by :ref:`developers/Omero/Web/CreateApp`....
-
-Attachments
-~~~~~~~~~~~
-
--  `OmeroWeb.png </ome/attachment/wiki/OmeroWeb/OmeroWeb.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroWeb/OmeroWeb.png>`_ (179.7
-   KB) - added by *wmoore* `21
-   months </ome/timeline?from=2010-11-18T12%3A45%3A03Z&precision=second>`_
-   ago. `OmeroWeb </ome/wiki/OmeroWeb>`_ infrastructure components
--  `webtest-dataset.png </ome/attachment/wiki/OmeroWeb/webtest-dataset.png>`_
-   `|image4| </ome/raw-attachment/wiki/OmeroWeb/webtest-dataset.png>`_
-   (73.9 KB) - added by *wmoore* `14
-   months </ome/timeline?from=2011-06-09T10%3A32%3A55%2B01%3A00&precision=second>`_
-   ago. Screen-shot of the webtest/dataset/ example
