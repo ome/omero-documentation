@@ -48,7 +48,12 @@ to start properly:
     Shared templates used in all |OmeroGrid|
     applications. The path definitions for both
     :ref:`server/blitz` and for ``processor.py`` must be made absolute.
-    `|image1| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_templates.xml.png>`_
+
+.. figure:: ../../../../images/omerogrid-winxp-templates.xml.png
+  :align: center
+  :alt: Templates
+
+  Templates
 
 Installation
 ------------
@@ -92,78 +97,85 @@ Once the ``python bin\omero admin start`` command has installed the
 **OMERO.master** service, you can use Windows service tools:
 
 -  From the Control Panel
-   `|image2| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_controlpanel.png>`_
--  Open the Administration Tools (here in Classic View)
-   `|image3| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_admintools.png>`_
+
+.. figure:: ../../../../images/omerogrid-winxp-controlpanel.png
+  :align: center
+  :alt: Control Panel
+
+  Control Panel
+
+.. figure:: ../../../../images/omerogrid-winxp-admintools.png
+  :align: center
+  :alt: Administration Tools
+
+  Administration Tools
 
 Services Tool
 ~~~~~~~~~~~~~
 
--  Then open the Services executable
-   `|image4| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_services.png>`_
--  Here you can see OMERO.master running and also stop it
-   `|image5| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_masterrunning.png>`_
--  And can edit its runtime properties
-   `|image6| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_masterproperties.png>`_
--  Like which user it starts as
-   `|image7| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_masterlogon.png>`_
+- Then open the Services executable
 
-Event Viewier Tools
+.. figure:: ../../../../images/omerogrid-winxp-services.png
+  :align: center
+  :alt: Services
+
+  Services
+
+-  Here you can see OMERO.master running and also stop it
+
+.. figure:: ../../../../images/omerogrid-winxp-masterrunning.png
+  :align: center
+  :alt: OMERO.master running
+
+  OMERO.master running
+
+-  And can edit its runtime properties
+
+.. figure:: ../../../../images/omerogrid-winxp-masterproperties.png
+  :align: center
+  :alt: OMERO.master properties
+
+  OMERO.master properties
+
+-  Such as which user it starts as
+
+.. figure:: ../../../../images/omerogrid-winxp-masterlogon.png
+  :align: center
+  :alt: OMERO.master logon
+
+  OMERO.master logon
+
+Event Viewer Tools
 ~~~~~~~~~~~~~~~~~~~
 
 -  Then go back to the Administration Tool window and open the Event
    Viewer
-   `|image8| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_eventviewer.png>`_
+
+.. figure:: ../../../../images/omerogrid-winxp-eventviewer.png
+  :align: center
+  :alt: Event viewer
+
+  Event viewer
+
 -  where status events from OMERO.master will registered (though the log
    output from the server is in the configured directory)
    `|image9| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_applicationevents.png>`_
+
+.. figure:: ../../../../images/omerogrid-winxp-applicationevents.png
+  :align: center
+  :alt: Application events
+
+  Application events
+
 -  The server's running.
    `|image10| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_blitzactive.png>`_
+
+.. figure:: ../../../../images/omerogrid-winxp-blitzactive.png
+  :align: center
+  :alt: Running server
+
+  Running server
 
 However, a bug in Windows will prevent the OMERO.master service from
 being removed while the service GUI is open. Close the GUI to finish the
 operation.
-
-Attachments
-~~~~~~~~~~~
-
--  `winxp\_controlpanel.png </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_controlpanel.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroGridInstallWindowsXp/winxp_controlpanel.png>`_
-   (369.7 KB) - added by *jmoore* `4
-   ago.
--  `winxp\_admintools.png </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_admintools.png>`_
-   `|image12| </ome/raw-attachment/wiki/OmeroGridInstallWindowsXp/winxp_admintools.png>`_
-   (111.1 KB) - added by *jmoore* `4
-   ago.
--  `winxp\_services.png </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_services.png>`_
-   `|image13| </ome/raw-attachment/wiki/OmeroGridInstallWindowsXp/winxp_services.png>`_
-   (76.0 KB) - added by *jmoore* `4
-   ago.
--  `winxp\_masterrunning.png </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_masterrunning.png>`_
-   `|image14| </ome/raw-attachment/wiki/OmeroGridInstallWindowsXp/winxp_masterrunning.png>`_
-   (71.5 KB) - added by *jmoore* `4
-   ago.
--  `winxp\_masterproperties.png </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_masterproperties.png>`_
-   `|image15| </ome/raw-attachment/wiki/OmeroGridInstallWindowsXp/winxp_masterproperties.png>`_
-   (84.3 KB) - added by *jmoore* `4
-   ago.
--  `winxp\_masterlogon.png </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_masterlogon.png>`_
-   `|image16| </ome/raw-attachment/wiki/OmeroGridInstallWindowsXp/winxp_masterlogon.png>`_
-   (84.4 KB) - added by *jmoore* `4
-   ago.
--  `winxp\_eventviewer.png </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_eventviewer.png>`_
-   `|image17| </ome/raw-attachment/wiki/OmeroGridInstallWindowsXp/winxp_eventviewer.png>`_
-   (75.8 KB) - added by *jmoore* `4
-   ago.
--  `winxp\_applicationevents.png </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_applicationevents.png>`_
-   `|image18| </ome/raw-attachment/wiki/OmeroGridInstallWindowsXp/winxp_applicationevents.png>`_
-   (71.9 KB) - added by *jmoore* `4
-   ago.
--  `winxp\_blitzactive.png </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_blitzactive.png>`_
-   `|image19| </ome/raw-attachment/wiki/OmeroGridInstallWindowsXp/winxp_blitzactive.png>`_
-   (77.4 KB) - added by *jmoore* `4
-   ago.
--  `winxp\_templates.xml.png </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_templates.xml.png>`_
-   `|image20| </ome/raw-attachment/wiki/OmeroGridInstallWindowsXp/winxp_templates.xml.png>`_
-   (29.7 KB) - added by *jmoore* `4
-   ago.
