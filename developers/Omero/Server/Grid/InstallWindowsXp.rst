@@ -15,7 +15,7 @@ Limitations
 
 -  This has only been tested on 32bit installations.
 -  The processor.py functionality will not be available on Windows in
-   `milestone:3.0-Beta3 </ome/milestone/3.0-Beta3>`_. See
+   `milestone:3.0-Beta3 <http://trac.openmicroscopy.org.uk/ome/milestone/3.0-Beta3>`_. See
    :ticket:`1004` for more information.
 
 Requirements

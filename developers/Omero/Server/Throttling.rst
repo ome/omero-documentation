@@ -21,7 +21,7 @@ Planning
 --------
 
 Planned for milestone:3.0-Beta4, the infrastructure for throttling was
-committed to `milestone:3.0-Beta3.1 </ome/milestone/3.0-Beta3.1>`_ with
+committed to `milestone:3.0-Beta3.1 <http://trac.openmicroscopy.org.uk/ome/milestone/3.0-Beta3.1>`_ with
 the in-thread strategy, which uses the calling thread for execution.
 This provides the same semantics as the current blitz server.
 

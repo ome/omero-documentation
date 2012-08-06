@@ -390,7 +390,7 @@ ServiceFactory, logging in is trivial. One
 need only set several System properties or place them in an
 omero.properties file somewhere on the classpath. MoreToCome?.
 Internally, Spring takes the System properties and creates an
-`ome.system.Principal <components/common/src/ome/system/Principal.java>`_
+:source:`ome.system.Principal <components/common/src/ome/system/Principal.java>`
 instance. This is then passed to the server on each invocation of a
 proxy obtained from JNDI.
 
@@ -401,7 +401,7 @@ Much of this infrastructure is not available to server-side code (no
 ome/client/spring.xml, no ServiceFactory,
 etc.). As such, the Principal needs to be manually created iand provided
 to the server-side
-`SecuritySystem.java <components/serversrc/ome/security/SecuritySystem.java>`_.
+:source:`SecuritySystem.java <components/server/src/ome/security/SecuritySystem.java>`.
 
 Basically it amounts to this:
 
@@ -425,7 +425,7 @@ For examples see:
 4.2 Design dicsussion
 ---------------------
 
-A target of the `4.2 milestone </ome/milestone/OMERO-Beta4.2>`_ is
+A target of the `4.2 milestone <http://trac.openmicroscopy.org.uk/ome/milestone/OMERO-Beta4.2>`_ is
 significantly rework the permissions system in order to reduce some
 complications which arise from users' being in multiple groups. The
 points which follow are the beginning of that design discussion. They

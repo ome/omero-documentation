@@ -137,7 +137,7 @@ Local apis
 Several services implement a server-side subclass of the **ome.api**
 interface rather than the interface itself. These interfaces are
 typically in
-`ome.api.local </ome/browser/trunk/components/server/src/ome/api/local>`_.
+:source:`ome.api.local <components/server/src/ome/api/local>`.
 Such local interfaces can provide methods that should not be made
 available to clients, but which are needed within the server. Though not
 currently used, the **@Local()** annotation on the implementation can
@@ -152,4 +152,4 @@ Currently all stateful services are in their own component
 (:source:`components/rendering` and :source:`components/romio`) 
 but their interface will still need to be under
 :source:`components/common`
-for them to be accessible to clients. `ToBeDone </ome/wiki/ToBeDone>`_
+for them to be accessible to clients. To be done.
