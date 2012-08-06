@@ -24,13 +24,39 @@ using a current server connection. This will be true for any request
 made after logging in to the server, E.g. Login using webclient or
 webadmin login pages then go to webgateway/... E.g, if you have logged
 in to a server at
-` http://ome.org.uk/webclient <http://ome.org.uk/webclient>`_ then go to
+`http://ome.example.com/webclient <http://ome.example.com/webclient>`_ then go to
 E.g.
-` http://ome.org.uk/webgateway/render\_image/ <http://ome.org.uk/webgateway/render_image/>`_\ <imageid>/<z>/<t>/
+`http://ome.example.com/webgateway/render\_image/ <http://ome.example.com/webgateway/render_image/>`_\ <imageid>/<z>/<t>/
 
-`|image1| </ome/attachment/wiki/OmeroWeb/WebGateway/render_image.jpg>`_
-`|image2| </ome/attachment/wiki/OmeroWeb/WebGateway/render_split_channel.jpg>`_
-`|image3| </ome/attachment/wiki/OmeroWeb/WebGateway/render_row_plot.gif>`_
+.. figure:: ../../../images/webgateway-render-image.jpg
+  :align: center
+  :alt: Rendered image
+
+  Rendered image
+
+.. figure:: ../../../images/webgateway-render-split-channel.jpg
+  :align: center
+  :alt: Rendered split channel image
+
+  Rendered split channel image
+
+.. figure:: ../../../images/webgateway-render-row-plot.png
+  :align: center
+  :alt: Rendered row plot
+
+  Rendered row plot
+
+.. figure:: ../../../images/webgateway-render-col-plot.png
+  :align: center
+  :alt: Rendered column plot
+
+  Rendered column plot
+
+.. figure:: ../../../images/webgateway-thumbnail.jpg
+  :align: center
+  :alt: Rendered thumbnail
+
+  Rendered thumbnail
 
 Images
 ~~~~~~
@@ -123,14 +149,14 @@ JSON methods
 ~~~~~~~~~~~~
 
 -  List of projects. E.g
-   ``[{"description": "", "id": 269, "name": "Aurora"}, {"description": "", "id": 269, "name": "Drugs"} ] ``
+   ``[{"description": "", "id": 269, "name": "Aurora"}, {"description": "", "id": 269, "name": "Drugs"} ]``
 
    ::
 
        webgateway/proj/list/
 
 -  Project info
-   ``   {"description": "", "type": "Project", "id": 269, "name": "CenpA"} ``
+   ``{"description": "", "type": "Project", "id": 269, "name": "CenpA"}``
 
    ::
 
@@ -220,27 +246,3 @@ request, or by retrieving an existing connection.
     from omeroweb.webgateway.views import getBlitzConnection
 
     conn = getBlitzConnection (request)
-
-Attachments
-~~~~~~~~~~~
-
--  `render\_image.jpg </ome/attachment/wiki/OmeroWeb/WebGateway/render_image.jpg>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroWeb/WebGateway/render_image.jpg>`_
-   (26.3 KB) - added by *wmoore* `23
-   ago.
--  `render\_split\_channel.jpg </ome/attachment/wiki/OmeroWeb/WebGateway/render_split_channel.jpg>`_
-   `|image5| </ome/raw-attachment/wiki/OmeroWeb/WebGateway/render_split_channel.jpg>`_
-   (110.6 KB) - added by *wmoore* `23
-   ago.
--  `render\_col\_plot.gif </ome/attachment/wiki/OmeroWeb/WebGateway/render_col_plot.gif>`_
-   `|image6| </ome/raw-attachment/wiki/OmeroWeb/WebGateway/render_col_plot.gif>`_
-   (34.8 KB) - added by *wmoore* `23
-   ago.
--  `render\_row\_plot.gif </ome/attachment/wiki/OmeroWeb/WebGateway/render_row_plot.gif>`_
-   `|image7| </ome/raw-attachment/wiki/OmeroWeb/WebGateway/render_row_plot.gif>`_
-   (40.8 KB) - added by *wmoore* `23
-   ago.
--  `thumbnail.jpg </ome/attachment/wiki/OmeroWeb/WebGateway/thumbnail.jpg>`_
-   `|image8| </ome/raw-attachment/wiki/OmeroWeb/WebGateway/thumbnail.jpg>`_
-   (2.9 KB) - added by *wmoore* `23
-   ago.

@@ -3,7 +3,11 @@
 Queries
 =======
 
-`|image1| </ome/attachment/wiki/OmeroQueries/QueryFactory-collaboration.png>`_
+.. figure:: ../../../images/omero-queries-queryfactory-collaboration.png
+  :align: center
+  :alt: omero.services.query
+
+  omero.services.query
 
 Introduction
 ------------
@@ -104,11 +108,3 @@ in your ``QuerySource``. This would allow you to write Velocity (or
 Freemarker/Ruby/Python/Groovy?...) ``QuerySources`` which use some form
 of templating or scripting to generate HQL queries. (There is code for
 this in SVN.)
-
-Attachments
-~~~~~~~~~~~
-
--  `QueryFactory-collaboration.png </ome/attachment/wiki/OmeroQueries/QueryFactory-collaboration.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroQueries/QueryFactory-collaboration.png>`_
-   (28.6 KB) - added by *jmoore* `4
-   ago.
