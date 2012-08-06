@@ -159,17 +159,3 @@ We are currently working on the Beta4.4 build, which should be
 considered **Beta** software. The last build milestone (Beta4.3.3) was a
 maintenance release. The current build milestone (Beta4.4) is focusing
 on stability and reliability.
-
-Attachments
-~~~~~~~~~~~
-
--  `api-figure.png </ome/attachment/wiki/OmeroHome/api-figure.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroHome/api-figure.png>`_
-   (179.2 KB) - added by *wmoore* `15
-   months </ome/timeline?from=2011-05-06T11%3A32%3A15%2B01%3A00&precision=second>`_
-   ago.
--  `model-pdi.png </ome/attachment/wiki/OmeroHome/model-pdi.png>`_
-   `|image4| </ome/raw-attachment/wiki/OmeroHome/model-pdi.png>`_ (27.1
-   KB) - added by *wmoore* `15
-   months </ome/timeline?from=2011-05-21T12%3A26%3A02%2B01%3A00&precision=second>`_
-   ago.

@@ -109,7 +109,7 @@ concepts which are of importance.
 Server Design
 -------------
 
-.. figure:: ../attachment/wiki/ServerDesign/ServerDesign.png?format=raw
+.. figure:: ../../images/server-design.png
    :align: center
    :alt: ServerDesign
 
