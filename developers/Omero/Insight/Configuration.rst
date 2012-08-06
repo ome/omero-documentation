@@ -178,7 +178,11 @@ sets of related entries together, as shown above.
 The classes that encompass the machinery for parsing configuration files
 and building registries are depicted by the following UML class diagram.
 
-`|image1| </ome/attachment/wiki/OmeroInsightConfiguration/configuration.png>`_
+.. figure:: ../../../images/omeroinsight-configuration.png
+  :align: center
+  :alt: OMERO.insight configuration
+
+  OMERO.insight configuration
 
 The ``Entry`` abstract class sits at the base of a hierarchy of classes
 that represent entries in configuration files. It represents a
@@ -219,7 +223,11 @@ Dynamics
 How a configuration file is parsed and the corresponding Registry is
 built:
 
-`|image2| </ome/attachment/wiki/OmeroInsightConfiguration/parsingConfigFiles.png>`_
+.. figure:: ../../../images/omeroinsight-parsing-config-files.png
+  :align: center
+  :alt: Parsing configuration files
+
+  Parsing configuration files
 
 A ``RegistryImpl`` object is created with an empty map. Then a
 ``Parser`` object is created passing the path to the configuration file
@@ -259,15 +267,3 @@ configures all ``RegistryImpl`` objects with the same references to its
 services.
 
 .. seealso:: :ref:`developers/Omero/Insight/DirectoryContents`
-
-Attachments
-~~~~~~~~~~~
-
--  `configuration.png </ome/attachment/wiki/OmeroInsightConfiguration/configuration.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroInsightConfiguration/configuration.png>`_
-   (37.1 KB) - added by *bwzloranger* `18
-   ago.
--  `parsingConfigFiles.png </ome/attachment/wiki/OmeroInsightConfiguration/parsingConfigFiles.png>`_
-   `|image4| </ome/raw-attachment/wiki/OmeroInsightConfiguration/parsingConfigFiles.png>`_
-   (24.2 KB) - added by *bwzloranger* `18
-   ago.
