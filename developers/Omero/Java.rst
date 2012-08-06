@@ -17,11 +17,10 @@ The ``omero_client.jar`` is a combination of all necessary Java OMERO
 class as well as the Ice classes needed to write a complete Java client
 for :ref:`server/blitz`.
 
-The library is placed under OMERO\_HOME/dist/lib/client by the build, or
-is alternatively available from Hudson at:
-` http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/ <http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/>`_
-
-To use  |OmeroJava|, setup you'll need to setup your CLASSPATH:
+The library is placed under OMERO\_HOME/dist/lib/client by the build,
+or is alternatively available from Jenkins :jenkins:`here
+<job/OMERO/lastSuccessfulBuild/>`.  To use |OmeroJava|, setup you'll
+need to setup your CLASSPATH:
 
 ::
 
@@ -31,11 +30,11 @@ To use  |OmeroJava|, setup you'll need to setup your CLASSPATH:
 Extended classpath
 ------------------
 
-To access all the functionality available in omero\_client.jar or to use
-the importer, you'll of course need more jar files. To see all the
-current requirements, take a look at the ` hudson
-workspace <http://hudson.openmicroscopy.org.uk/job/OMERO/ws/src/dist/lib/client/>`_,
-or alternatively examine the dependencies in the ivy.xml files (e.g.
+To access all the functionality available in omero\_client.jar or to
+use the importer, you'll of course need more jar files. To see all the
+current requirements, take a look at the :jenkins:`jenkins workspace
+<job/OMERO/ws/src/dist/lib/client/>`, or alternatively examine the
+dependencies in the ivy.xml files (e.g.
 :source:`components/tools/OmeroImporter/ivy.xml`)
 
 Connect to OMERO

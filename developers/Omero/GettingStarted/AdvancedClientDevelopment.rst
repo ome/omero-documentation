@@ -33,11 +33,11 @@ buildable/runnable via ` scons <http://www.scons.org>`_:
       cd omero-src/examples
       python ../target/scons/scons.py
 
-This is done periodically by the omero-examples Hudson job:
-` http://hudson.openmicroscopy.org.uk/job/omero-examples/ <http://hudson.openmicroscopy.org.uk/job/omero-examples/>`_
+This is done periodically by the omero-examples Jenkins job
+:jenkins:`here <job/omero-examples/>`.
 
-Other examples (in Python) can be found at
-`PythonClientCodeExamples </ome/wiki/PythonClientCodeExamples>`_.
+Other examples (in Python) can be found :wiki:`here
+<PythonClientCodeExamples>`.
 
 --------------
 
@@ -2685,16 +2685,14 @@ many of the imported and included files in the examples above, cannot
 actually be found in :source:`github <>`.
 
 We plan to include packages of the generated source code in future
-releases. Until then, it's possible to find the latest version of those
-files on hudson:
-
--  ` http://hudson.openmicroscopy.org.uk/job/OMERO/ws/trunk/components/blitz/target/generated/ <http://hudson.openmicroscopy.org.uk/job/OMERO/ws/trunk/components/blitz/target/generated/>`_
-
+releases. Until then, it's possible to find the latest version of
+those files on
+:jenkins:`job/OMERO/ws/trunk/components/blitz/target/generated/>`,
 though some of the generated files are later overwrriten by hand-written
 versions:
 
--  ` http://hudson.openmicroscopy.org.uk/job/OMERO/ws/trunk/components/tools/OmeroCpp/src/omero/model/ <http://hudson.openmicroscopy.org.uk/job/OMERO/ws/trunk/components/tools/OmeroCpp/src/omero/model/>`_
--  ` http://hudson.openmicroscopy.org.uk/job/OMERO/ws/trunk/components/tools/OmeroPy/src/ <http://hudson.openmicroscopy.org.uk/job/OMERO/ws/trunk/components/tools/OmeroPy/src/>`_
+-  :jenkins:`model <job/OMERO/ws/trunk/components/tools/OmeroCpp/src/omero/model/>`
+-  :jenkins:`OmeroPy <job/OMERO/ws/trunk/components/tools/OmeroPy/src/>`
 
 Lazy loading & caching
 ~~~~~~~~~~~~~~~~~~~~~~

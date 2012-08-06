@@ -30,11 +30,10 @@ alternatively you can use the latest development code. Instructions on
 how to download or check out the code can be found on the main
 :plone:`downloads page <site/support/omero4/downloads>`.
 
-Regular builds of the server are performed by
-` Jenkins <http://jenkins-ci.org/>`_ (formerly known as hudson) and all
-results are available at
-` http://hudson.openmicroscopy.org.uk/job/OMERO/ <http://hudson.openmicroscopy.org.uk/job/OMERO/>`_
-, including generated:javadoc:` ''Javadocs'' <>`.
+Regular builds of the server are performed by `Jenkins
+<http://jenkins-ci.org/>`_ (formerly known as hudson) and all results
+are available here :jenkins:`here <job/OMERO/>`, including generated
+:javadoc:`javadocs <>`.
 
 Environment variables
 ---------------------

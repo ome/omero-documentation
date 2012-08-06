@@ -2375,7 +2375,7 @@ Appliance Import Testing
    & follow the installation instructions.
 -  Download the last QA virtual appliance which should be named
    omero-vm.ova from
-   ` http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm.ova <http://hudson.openmicroscopy.org.uk/job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm.ova>`_.
+   :jenkins:`here <job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm.ova>`.
 -  Start VirtualBox and select File >> Import Appliance
 -  Accept the defaults offered by VirtualBox and follow the on screen
    prompts until your appliance is imported. At this point there should
