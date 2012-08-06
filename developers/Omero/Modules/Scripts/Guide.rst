@@ -3,8 +3,11 @@
 Scripting Service User Guide
 ============================
 
-`|Browsing scripts in
-Insight| </ome/attachment/wiki/OmeroPy/ScriptingServiceGuide/scripts.png>`_
+.. figure:: ../../../../images/omero-scripting-context.png
+  :align: center
+  :alt: OMERO script context menu
+
+  OMERO script context menu
 
 Since the 4.2 release, OMERO allows Python scripts to be uploaded to the
 server and registered in the server database. These scripts can then be
@@ -330,8 +333,13 @@ any package imports required by the script should be available on the
 client machine.
 
 The first step is to connect to the server and set up the processor on
-the client (See diagram to the right). `|User Processor
-diagram| </ome/attachment/wiki/OmeroPy/ScriptingServiceGuide/Picture%204.png>`_
+the client (see diagram, below).
+
+.. figure:: ../../../../images/omero-scripting-workflow.png
+  :align: center
+  :alt: OMERO scripting workflow
+
+  OMERO scripting workflow
 
 -  You need to download 'Ice' from ZeroC and set the environment
    variables, as described
@@ -398,18 +406,3 @@ user ID as described above:
 User scripts can be run from Insight. They will be found under 'User
 Scripts' in the scripts menu. Remember, for user scripts you will need
 to have the User-Processor running.
-
-Attachments
-~~~~~~~~~~~
-
--  `Picture
-   4.png </ome/attachment/wiki/OmeroPy/ScriptingServiceGuide/Picture%204.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroPy/ScriptingServiceGuide/Picture%204.png>`_
-   (39.6 KB) - added by *wmoore* `2
-   years </ome/timeline?from=2010-06-07T11%3A03%3A30%2B01%3A00&precision=second>`_
-   ago. User Processor diagram
--  `scripts.png </ome/attachment/wiki/OmeroPy/ScriptingServiceGuide/scripts.png>`_
-   `|image4| </ome/raw-attachment/wiki/OmeroPy/ScriptingServiceGuide/scripts.png>`_
-   (59.3 KB) - added by *wmoore* `2
-   years </ome/timeline?from=2010-07-07T16%3A01%3A22%2B01%3A00&precision=second>`_
-   ago. Browsing scripts in Insight
