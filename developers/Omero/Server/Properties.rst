@@ -1,11 +1,10 @@
 Properties
 ==========
 
-**As of `milestone:OMERO-Beta4 </ome/milestone/OMERO-Beta4>`_
+As of `milestone:OMERO-Beta4 <http://trac.openmicroscopy.org.uk/ome/milestone/OMERO-Beta4>`_
 (:ticket:`800`), client usage of these properties has
-significantly changed. Please see the ` user
-documentation <https://www.openmicroscopy.org/site/documents/data-management/omero4/server>`_
-for how to configuration your server installation**
+significantly changed. Please see the :ref:`user documentation <server/overview>`
+for how to configuration your server installation
 
 Under the ``etc/`` directory in both the source and the binary
 distributions, several files are provided which help to configure
