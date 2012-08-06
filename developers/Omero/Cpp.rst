@@ -224,8 +224,5 @@ Further information
 For the details behind writing, configuring, and executing a client,
 please see |OmeroClients|.
 
---------------
-
-See also: Ice_, |OmeroGrid|, |OmeroApi|,
-:ref:`developers/Omero/Build`, :ticket:`1596` which
-added 64bit support
+.. seealso::
+    Ice_, |OmeroGrid|, |OmeroApi|, :ref:`developers/Omero/Build`, :ticket:`1596` which added 64bit support

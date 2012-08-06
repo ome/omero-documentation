@@ -416,7 +416,5 @@ server-template & seerver-instance elements
         <server-instance id="emailer-template" user="ann"> 
       </node>
 
---------------
-
--  See also: ` the ome-devel
-   thread <http://lists.openmicroscopy.org.uk/pipermail/ome-devel/2009-July/001332.html>`_
+.. seealso::
+    ` the ome-devel thread <http://lists.openmicroscopy.org.uk/pipermail/ome-devel/2009-July/001332.html>`_

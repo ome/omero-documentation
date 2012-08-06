@@ -39,5 +39,5 @@ action.
 
 --------------
 
-See also: ` Hibernate
-events <http://www.hibernate.org/hib_docs/v3/reference/en/html/events.html>`_
+.. seealso:: 
+    ` Hibernate events <http://www.hibernate.org/hib_docs/v3/reference/en/html/events.html>`_
