@@ -8,7 +8,11 @@ Logical View
 
 OMERO.insight is logically organised in two layers
 
-`|image1| </ome/attachment/wiki/OmeroInsightArchitecture/layers2.png>`_
+.. figure:: ../../../images/omero-insight-architecture-agents.png
+  :align: center
+  :alt: OMERO.insight agents and containers
+
+  OMERO.insight agents and containers
 
 The **Agents** layer contains the logic to manage user interaction. It
 contains coarse grained components which we call **agents**, that are
@@ -73,7 +77,11 @@ the Registry object through the Registry interface.
 
 The life-cycle of an agent is as follow:
 
-`|image2| </ome/attachment/wiki/OmeroInsightArchitecture/agentsLifeCycle.png>`_
+.. figure:: ../../../images/omero-insight-architecture-agent-lifecycle.png
+  :align: center
+  :alt: OMERO.insight agent lifecycle
+
+  OMERO.insight agent lifecycle
 
 Interaction among Agents
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -99,15 +107,3 @@ an OMERO server, go to the :ref:`developers/Omero/Insight/HowTo/RetrieveData` pa
 
     :ref:`developers/Omero/Insight/ImplementationView`, 
     :ref:`developers/Omero/Insight/EventBus`
-
-Attachments
-~~~~~~~~~~~
-
--  `agentsLifeCycle.png </ome/attachment/wiki/OmeroInsightArchitecture/agentsLifeCycle.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroInsightArchitecture/agentsLifeCycle.png>`_
-   (19.0 KB) - added by *bwzloranger* `18
-   ago.
--  `layers2.png </ome/attachment/wiki/OmeroInsightArchitecture/layers2.png>`_
-   `|image4| </ome/raw-attachment/wiki/OmeroInsightArchitecture/layers2.png>`_
-   (53.4 KB) - added by *bwzloranger* `18
-   ago.
