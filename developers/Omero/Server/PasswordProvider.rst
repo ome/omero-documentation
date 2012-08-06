@@ -37,7 +37,7 @@ Things to keep in mind
 ----------------------
 
 -  All the existing implementations take care to publish a
-   :source: `LoginAttemptMessage <components/server/src/ome/services/messages/LoginAttemptMessage.java>`
+   :source:`LoginAttemptMessage <components/server/src/ome/services/messages/LoginAttemptMessage.java>`
    so that any :ref:`developers/Omero/Server/LoginAttemptListener`
    implementation can properly react to failed logins. Your
    implementation should probably do the same

@@ -302,7 +302,7 @@ bin/omero hql
 You can use the omero hql command to query a remote OMERO db, entering
 your login details when requested. 
 
-..note::
+.. note::
 
     Because you will be querying the DB under a particular login, the entries 
     returned will be subject to the permissions of that login.

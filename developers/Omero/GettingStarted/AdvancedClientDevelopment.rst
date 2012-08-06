@@ -2690,12 +2690,12 @@ actually be found in :source:`github <>`.
 We plan to include packages of the generated source code in future
 releases. Until then, it's possible to find the latest version of
 those files on
-:jenkins:`job/OMERO/ws/trunk/components/blitz/target/generated/>`,
+:jenkins:`job/OMERO/ws/src/components/blitz/target/generated/>`,
 though some of the generated files are later overwrriten by hand-written
 versions:
 
--  :jenkins:`model <job/OMERO/ws/trunk/components/tools/OmeroCpp/src/omero/model/>`
--  :jenkins:`OmeroPy <job/OMERO/ws/trunk/components/tools/OmeroPy/src/>`
+-  :jenkins:`model <job/OMERO/ws/src/components/tools/OmeroCpp/src/omero/model/>`
+-  :jenkins:`OmeroPy <job/OMERO/ws/src/components/tools/OmeroPy/src/>`
 
 Lazy loading & caching
 ~~~~~~~~~~~~~~~~~~~~~~
