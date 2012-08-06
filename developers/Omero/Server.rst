@@ -112,11 +112,19 @@ concepts which are of importance.
 Server Design
 -------------
 
+.. figure:: ../../images/server-arch.png
+   :align: center
+   :alt: Server Architecture
+
+   Server Architecture
+
 .. figure:: ../../images/server-design.png
    :align: center
-   :alt: ServerDesign
+   :alt: Server Design
 
-The server logic resides in the :source:components/server`
+   Server Design
+
+The server logic resides in the :source:`components/server`
 component.
 
 Topics
@@ -130,18 +138,3 @@ Topics
 
 
 .. seealso:: |OmeroGrid|
-
-Attachments
-~~~~~~~~~~~
-
--  `ServerArchitecture.png </ome/attachment/wiki/ServerDesign/ServerArchitecture.png>`_
-   `|Download| </ome/raw-attachment/wiki/ServerDesign/ServerArchitecture.png>`_
-   (101.7 KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-06-04T20%3A19%3A24%2B01%3A00&precision=second>`_
-   ago.
--  `ServerDesign.png </ome/attachment/wiki/ServerDesign/ServerDesign.png>`_
-   `|image2| </ome/raw-attachment/wiki/ServerDesign/ServerDesign.png>`_
-   (258.5 KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-08-29T16%3A17%3A17%2B01%3A00&precision=second>`_
-   ago.
-
