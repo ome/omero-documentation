@@ -1,8 +1,8 @@
 Testing on Jenkins
 ==================
 
-This website contains examples which are used by
-hudson.openmicroscopy.org.uk to run tests against OMERO products.
+This website contains examples which are used by Jenkins to run tests
+against OMERO products.
 
 Environment
 -----------

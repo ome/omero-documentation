@@ -46,7 +46,7 @@ the @ notation, ie:
 
 A simple example of @login\_required() usage (in webtest/views.py). Note
 the Blitz Gateway connection "conn" retrieved by @login\_required() is
-passed to the function via the optional parameter `` conn=None ``.
+passed to the function via the optional parameter ``conn=None``.
 
 ::
 
@@ -57,8 +57,11 @@ passed to the function via the optional parameter `` conn=None ``.
         ds = conn.getObject("Dataset", datasetId)
         return render_to_response('webtest/dataset.html', {'dataset': ds})
 
-`|Logic flow for retrieving Blitz Gateway connection from http
-request| </ome/attachment/wiki/OmeroWeb/WritingViews/GetBlitzConnectionFlow.png>`_
+.. figure:: ../../../images/web-get-blitz-connection-flow.png
+  :align: center
+  :alt: Blitz Connection Flow
+
+  Logic flow for retrieving Blitz Gateway connection from http request.
 
 login\_required logic
 ^^^^^^^^^^^^^^^^^^^^^
@@ -184,13 +187,3 @@ box for the user (not rendered as html).
         else:
             ...   # render err_msg with a custom template
             return HttpResponseServerError(content)
-
-Attachments
-~~~~~~~~~~~
-
--  `GetBlitzConnectionFlow.png </ome/attachment/wiki/OmeroWeb/WritingViews/GetBlitzConnectionFlow.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroWeb/WritingViews/GetBlitzConnectionFlow.png>`_
-   (71.9 KB) - added by *wmoore* `3
-   weeks </ome/timeline?from=2012-07-11T10%3A19%3A02%2B01%3A00&precision=second>`_
-   ago. Logic flow for retrieving Blitz Gateway connection from http
-   request

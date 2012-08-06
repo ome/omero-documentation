@@ -34,7 +34,7 @@ this is to download the latest released version from
 a 3.0-Beta3 server. Alternatively you can build one yourself
 (`OmeroContributing </ome/wiki/OmeroContributing>`_) or download the
 latest build from hudson
-(` http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/ <http://hudson.openmicroscopy.org.uk/job/OMERO/lastSuccessfulBuild/>`_).
+(:jenkins:`here <job/OMERO/lastSuccessfulBuild/>`).
 
 **More information on installing |OmeroGrid| is
 available under :ref:`developers/Server/Grid/Install`.**
