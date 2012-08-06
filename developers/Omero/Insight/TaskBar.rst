@@ -20,15 +20,30 @@ Structure and Dynamics
 
 The following diagram shows the classes that provide the taskbar service
 and their relationships:
-`|image1| </ome/attachment/wiki/OmeroInsightTaskBar/structure.gif>`_
+
+.. figure:: ../../../images/omeroinsight-taskbar-structure.png
+  :align: center
+  :alt: Taskbar structure
+
+  Taskbar structure
 
 The following diagram shows how some utility classes that can be used to
 link windows to the ``TaskBar`` and to manage their display on screen:
-`|image2| </ome/attachment/wiki/OmeroInsightTaskBar/utility.gif>`_
+
+.. figure:: ../../../images/omeroinsight-taskbar-utility.png
+  :align: center
+  :alt: Taskbar utility classes
+
+  Taskbar utility classes
 
 The following diagram shows how the display state of a top window is
 managed by the ``TopWindowManager``:
-`|image3| </ome/attachment/wiki/OmeroInsightTaskBar/window_management.gif>`_
+
+.. figure:: ../../../images/omeroinsight-taskbar-window-management.png
+  :align: center
+  :alt: Taskbar window management
+
+  Taskbar window management
 
 How To
 ------
@@ -210,19 +225,3 @@ Follows the code:
         }
         
     }
-
-Attachments
-~~~~~~~~~~~
-
--  `structure.gif </ome/attachment/wiki/OmeroInsightTaskBar/structure.gif>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroInsightTaskBar/structure.gif>`_
-   (14.6 KB) - added by *bwzloranger* `18
-   ago.
--  `utility.gif </ome/attachment/wiki/OmeroInsightTaskBar/utility.gif>`_
-   `|image5| </ome/raw-attachment/wiki/OmeroInsightTaskBar/utility.gif>`_
-   (20.4 KB) - added by *bwzloranger* `18
-   ago.
--  `window\_management.gif </ome/attachment/wiki/OmeroInsightTaskBar/window_management.gif>`_
-   `|image6| </ome/raw-attachment/wiki/OmeroInsightTaskBar/window_management.gif>`_
-   (18.5 KB) - added by *bwzloranger* `18
-   ago.
