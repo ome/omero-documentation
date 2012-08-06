@@ -41,76 +41,43 @@ Engine. Designed initially for the client-side, much of this information
 needs to be updated. Textual explanations are included as notes in each
 diagram.
 
-`|image1| </ome/attachment/wiki/RenderingEngine/23.png>`_
 
-`|image2| </ome/attachment/wiki/RenderingEngine/24.png>`_
+.. figure:: ../../../images/server-rendering-engine1.png
+   :align: center
+   :alt: Server Rendering Engine (1)
 
-`|image3| </ome/attachment/wiki/RenderingEngine/25.png>`_
+.. figure:: ../../../images/server-rendering-engine2.png
+   :align: center
+   :alt: Server Rendering Engine (2)
 
-`|image4| </ome/attachment/wiki/RenderingEngine/26.png>`_
+.. figure:: ../../../images/server-rendering-engine3.png
+   :align: center
+   :alt: Server Rendering Engine (3)
 
-`|image5| </ome/attachment/wiki/RenderingEngine/27.png>`_
+.. figure:: ../../../images/server-rendering-engine4.png
+   :align: center
+   :alt: Server Rendering Engine (4)
 
-`|image6| </ome/attachment/wiki/RenderingEngine/28.png>`_
+.. figure:: ../../../images/server-rendering-engine5.png
+   :align: center
+   :alt: Server Rendering Engine (5)
 
-`|image7| </ome/attachment/wiki/RenderingEngine/29.png>`_
+.. figure:: ../../../images/server-rendering-engine6.png
+   :align: center
+   :alt: Server Rendering Engine (6)
 
-`|image8| </ome/attachment/wiki/RenderingEngine/30.png>`_
+.. figure:: ../../../images/server-rendering-engine7.png
+   :align: center
+   :alt: Server Rendering Engine (7)
 
-`|image9| </ome/attachment/wiki/RenderingEngine/31.png>`_
+.. figure:: ../../../images/server-rendering-engine8.png
+   :align: center
+   :alt: Server Rendering Engine (8)
 
-`|image10| </ome/attachment/wiki/RenderingEngine/32.png>`_
+.. figure:: ../../../images/server-rendering-engine9.png
+   :align: center
+   :alt: Server Rendering Engine (9)
 
-Attachments
-~~~~~~~~~~~
-
--  `23.png </ome/attachment/wiki/RenderingEngine/23.png>`_
-   `|Download| </ome/raw-attachment/wiki/RenderingEngine/23.png>`_ (46.2
-   KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-09-16T09%3A19%3A09%2B01%3A00&precision=second>`_
-   ago.
--  `24.png </ome/attachment/wiki/RenderingEngine/24.png>`_
-   `|image12| </ome/raw-attachment/wiki/RenderingEngine/24.png>`_ (30.7
-   KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-09-16T09%3A19%3A25%2B01%3A00&precision=second>`_
-   ago.
--  `25.png </ome/attachment/wiki/RenderingEngine/25.png>`_
-   `|image13| </ome/raw-attachment/wiki/RenderingEngine/25.png>`_ (29.9
-   KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-09-16T09%3A20%3A31%2B01%3A00&precision=second>`_
-   ago.
--  `26.png </ome/attachment/wiki/RenderingEngine/26.png>`_
-   `|image14| </ome/raw-attachment/wiki/RenderingEngine/26.png>`_ (28.7
-   KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-09-16T09%3A21%3A01%2B01%3A00&precision=second>`_
-   ago.
--  `27.png </ome/attachment/wiki/RenderingEngine/27.png>`_
-   `|image15| </ome/raw-attachment/wiki/RenderingEngine/27.png>`_ (47.4
-   KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-09-16T09%3A21%3A43%2B01%3A00&precision=second>`_
-   ago.
--  `28.png </ome/attachment/wiki/RenderingEngine/28.png>`_
-   `|image16| </ome/raw-attachment/wiki/RenderingEngine/28.png>`_ (35.8
-   KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-09-16T09%3A21%3A57%2B01%3A00&precision=second>`_
-   ago.
--  `29.png </ome/attachment/wiki/RenderingEngine/29.png>`_
-   `|image17| </ome/raw-attachment/wiki/RenderingEngine/29.png>`_ (45.7
-   KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-09-16T09%3A22%3A11%2B01%3A00&precision=second>`_
-   ago.
--  `30.png </ome/attachment/wiki/RenderingEngine/30.png>`_
-   `|image18| </ome/raw-attachment/wiki/RenderingEngine/30.png>`_ (42.2
-   KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-09-16T09%3A22%3A55%2B01%3A00&precision=second>`_
-   ago.
--  `31.png </ome/attachment/wiki/RenderingEngine/31.png>`_
-   `|image19| </ome/raw-attachment/wiki/RenderingEngine/31.png>`_ (33.3
-   KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-09-16T09%3A23%3A09%2B01%3A00&precision=second>`_
-   ago.
--  `32.png </ome/attachment/wiki/RenderingEngine/32.png>`_
-   `|image20| </ome/raw-attachment/wiki/RenderingEngine/32.png>`_ (27.8
-   KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-09-16T09%3A23%3A21%2B01%3A00&precision=second>`_
-   ago.
+.. figure:: ../../../images/server-rendering-engine10.png
+   :align: center
+   :alt: Server Rendering Engine (10)
