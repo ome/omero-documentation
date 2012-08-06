@@ -22,7 +22,11 @@ Let's go back to our example ``MyBrowserAgent`` (see :ref:`developers/Omero/Insi
    only created if none of the tracked ones is displaying the data
    otherwise the existing component is recycled.
 
-`|image1| </ome/attachment/wiki/OmeroInsightHowToBuildAgentView/AgentView.png>`_
+.. figure:: ../../../../images/omeroinsight-agent-view.png
+  :align: center
+  :alt: Agent view
+
+  OMERO.insight agent view
 
 Typical life-cycle of an Agent View
 -----------------------------------
@@ -85,16 +89,8 @@ invoked and the object transitions to the ``MyBrowser#DISCARDED`` state.
 At which point, all clients should de-reference the component to allow
 for garbage collection.
 
-`|image2| </ome/attachment/wiki/OmeroInsightHowToBuildAgentView/AgentViewInit.png>`_
+.. figure:: ../../../../images/omeroinsight-agent-view-init.png
+  :align: center
+  :alt: Agent view initialisation
 
-Attachments
-~~~~~~~~~~~
-
--  `AgentView.png </ome/attachment/wiki/OmeroInsightHowToBuildAgentView/AgentView.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroInsightHowToBuildAgentView/AgentView.png>`_
-   (61.5 KB) - added by *bwzloranger* `17
-   ago.
--  `AgentViewInit.png </ome/attachment/wiki/OmeroInsightHowToBuildAgentView/AgentViewInit.png>`_
-   `|image4| </ome/raw-attachment/wiki/OmeroInsightHowToBuildAgentView/AgentViewInit.png>`_
-   (49.4 KB) - added by *bwzloranger* `17
-   ago.
+  OMERO.insight agent view initialisation
