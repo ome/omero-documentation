@@ -63,7 +63,7 @@ security.
 Top-level and Build
 ~~~~~~~~~~~~~~~~~~~
 
-:source:`etc/local.properties`
+:source:`omero.properties <etc/omero.properties>`
     contains login and connection information for the DB and OMERO.
 
 :source:`local.properties.example <etc/local.properties.example>`
@@ -81,28 +81,19 @@ Top-level and Build
     Server is specified to ServiceFactory.
     These values can be overridden in local.properties.
 
-:source:`mapping.vm <components/dsl/resources/ome/dsl/mapping.vm>`
+:source:`mapping.vm <components/dsl/resources/ome/dsl/object.vm>`
     specifies the default permissions that all objects will have after
     construction, as well as attaches the security filter to all classes
     and collections.
 
-:source:`data.vm <components/dsl/resources/ome/dsl/data.vm>`
-    used by DSLTask to generate data.sql which is used to bootstrap the
-    db security system (root et al)
+:source:`data.vm <components/dsl/resources/ome/dsl/psql-footer.vm>`
+    used by DSLTask to generate psql-footer.sql which is used to   
+    bootstrap the db security system (root et al)
 
 :source:`common/build.xml <components/common/build.xml>`
     contains an ant target (adduser) which will create a user and empty
     password from the commandline. This target can also be called from
     the top-level (java omero adduser).
-
-JBoss-only
-^^^^^^^^^^
-
-:source:`etc/jndi.properties <etc/jndi.properties>`
-    defines the JNDI implementation to use. In the case of JBoss, it
-    uses an InitialContext? which automatically passes the security
-    Principal on service lookup. These values can be overridden in
-    local.properties.
 
 |OmeroGrid| only
 ^^^^^^^^^^^^^^^^
@@ -187,7 +178,6 @@ Server side
 :source:`SecuritySystem.java <components/server/src/ome/security/SecuritySystem.java>`
 :source:`BasicSecuritySystem.java <components/server/src/ome/security/basic/BasicSecuritySystem.java>`
 :source:`ACLEventListener.java <components/server/src/ome/security/ACLEventListener.java>`
-:source:`EventDiffHolder.java <components/server/src/ome/security/basic/EventDiffHolder.java>`
 :source:`EventHandler.java <components/server/src/ome/security/basic/EventHandler.java>`
 :source:`MergeEventListener.java <components/server/src/ome/security/basic/MergeEventListener.java>`
 :source:`OmeroInterceptor.java <components/server/src/ome/security/basic/OmeroInterceptor.java>`
@@ -196,21 +186,9 @@ Server side
 :source:`EventLogListener.java <components/server/src/ome/security/basic/EventLogListener.java>`
 :source:`EventListenersFactoryBean.java <components/server/src/ome/security/basic/EventListenersFactoryBean.java>`
 :source:`LocalAdmin.java <components/server/src/ome/api/local/LocalAdmin.java>`
-:source:`aop.xml <components/server/resources/ome/services/aop.xml>`
 :source:`hibernate.xml <components/server/resources/ome/services/hibernate.xml>`
-:source:`security.xml <components/server/resources/ome/services/security.xml>`
+:source:`sec-system.xml <components/server/resources/ome/services/sec-system.xml>`
 :source:`services.xml <components/server/resources/ome/services/services.xml>`
-
-:source:`AbstractBean.java <components/ejb/src/ome/ro/ejb/AbstractBean.java>`
-    contains the wrap() method used by all concrete session beans to
-    before the necessary context prep for login in EventHandler.
-:source:`\*Bean.java <components/server/src/ome/services>`
-    All the concrete beans are responsible for defining the
-    @javax.ejb.security.RolesAllowed? annotation to support
-    :ref:`developers/Omero/Server/SecurityRoles`.
-:source:`AOPAdapter.java <components/ejb/src/ome/ro/ejb/AOPAdapter.java>`
-    applies the Spring-defined interceptors (including EventHandler) to
-    the session beans.
 
 End-to-end
 ----------
@@ -424,8 +402,6 @@ For examples see:
 
 -  :source:`components/client/resources/ome/client/spring.xml`
    for how a Principal instance is created.
--  :source:`components/server/src/ome/services/util/OmeroAroundInvoke.java`
-   for how the Principal instance is used.
 
 4.2 Design discussion
 ---------------------
