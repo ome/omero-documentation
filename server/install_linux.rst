@@ -26,6 +26,7 @@ to install and manage the OMERO prerequisites.
 Distribution       ZeroC Ice version OMERO version
 ================== ================= ==============
 Debian 6.0               3.3          4.3.x, 4.4.x
+Debian 7.0               3.4              4.4.x
 ------------------ ----------------- --------------
 Ubuntu 10.04 (LTS)       3.3          4.3.x, 4.4.x
 Ubuntu 11.04             3.3          4.3.x, 4.4.x
@@ -258,11 +259,11 @@ apps in my home directory as follows:
 	**OMERO\_HOME** environment variable to reflect this.
 
 Release versions of OMERO.server can downloaded from :snapshot:`omero` where the current
-release, at time of writing, is 4.3.4
+release, at time of writing, is 4.4.1
 
 ::
 
-      $ wget http://cvs.openmicroscopy.org.uk/snapshots/omero/OMERO.server-Beta-4.3.4.zip
+      $ wget http://cvs.openmicroscopy.org.uk/snapshots/omero/OMERO.server-4.4.1-ice33-b3035.zip
 
 .. note::
 	If you want the development version of OMERO.server which is
@@ -277,7 +278,7 @@ it from the zip archive:
 
 ::
 
-      $ unzip OMERO.server-Beta-4.3.1.zip
+      $ unzip OMERO.server-4.4.1-ice33-b3035.zip
 
 Give your OMERO software install a nice local name to save some typing
 later, to reflect what we set **OMERO\_HOME** to, & to make it easy to
@@ -285,7 +286,7 @@ manage the installation of newer versions of the server at a later date:
 
 ::
 
-      $ ln -s OMERO.server-Beta-4.3.1 OMERO.server
+      $ ln -s OMERO.server-4.4.1-ice33-b3035  OMERO.server
 
 Configure OMERO.server
 ----------------------

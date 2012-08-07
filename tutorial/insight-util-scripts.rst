@@ -7,8 +7,8 @@ scripting service, as released with OMERO 4.2.
 Batch Image Export
 ------------------
 
-`MOVIE: Batch Image Export
-demo <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/BatchImageExport-4.3.mov>`_
+:snapshot:`MOVIE: Batch Image Export demo
+<movies/omero-4-3/mov/BatchImageExport-4.3.mov>`
 
 The Batch Image Export script saves multiple planes of selected images
 in a zip folder for download. These can be used for creating your own
@@ -34,8 +34,8 @@ script: rstring('OME-TIFF') and/or rstring('Max projection').
 Channel Offsets
 ---------------
 
-`MOVIE: channel offsets
-demo <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/ChannelOffsets-4.3.mov>`_
+:snapshot:`MOVIE: channel offsets demo
+<movies/omero-4-3/mov/ChannelOffsets-4.3.mov>`
 
 The Channel Offsets script allows you to apply X, Y and Z offsets to
 individual channels in an image, creating a new image in the process.
@@ -48,8 +48,8 @@ Name" parameter is filled out.
 Dataset to Plate
 ----------------
 
-`MOVIE: Dataset to Plate
-demo <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/Dataset_To_Plate-4.3.2.mov>`_
+:snapshot:`MOVIE: Dataset to Plate demo
+<movies/omero-4-3/mov/Dataset_To_Plate-4.3.2.mov>`
 
 This script allows you to create a "Plate" from an ordered set of images
 in a Dataset, assigning images to a row and column based on their
@@ -67,8 +67,9 @@ Combine Images
 
    Combine\_Images screen-shot
 
-`MOVIE: Combine Images demo <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/Combine_Images.mov>`_.
-Slightly older movie `here <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-2/mov/Scripting1.mov>`_.
+:snapshot:`MOVIE: Combine Images demo
+<movies/omero-4-3/mov/Combine_Images.mov>`.  Slightly older movie
+:snapshot:`here <movies/omero-4-2/mov/Scripting1.mov>`.
 
 This script takes a number of single-plane images or image Z-stacks,
 identified either by Image\_ID or by the ID of the Dataset that contains

@@ -5,8 +5,8 @@ OMERO.Scripts
 
 .. contents:
 
-` MOVIE: introduction to
-OMERO.scripts <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/ScriptingWorkflow-4.3.mov>`_
+:snapshot:`MOVIE: introduction to OMERO.scripts
+<movies/omero-4-3/mov/ScriptingWorkflow-4.3.mov>`
 
 :ref:`developers/Omero/Modules/Scripts` is the scripting service for scripting in OMERO.
 :ref:`server/blitz` provides a service to run scripts
