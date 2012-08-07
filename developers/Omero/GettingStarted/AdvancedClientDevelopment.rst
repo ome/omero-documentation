@@ -3,28 +3,25 @@
 Developing OMERO Clients
 ========================
 
-.. contents::
+:note:
 
-**NOTE:**
+   - If you are only interested in **using** our OMERO clients, please
+     see the :ref:`gettingstarted/clientdocumentation` section, which
+     will point you to user guides, demo videos, and download sites.
 
--  If you are only interested in **using** our OMERO clients, please
-   visit `the main OME
-   website <http://www.openmicroscopy.org/site/support/omero4/getting-started/client-documentation>`_,
-   which will point you to user guides, demo videos, and download sites.
-
--  This page is intended for developers already familiar with
-   client/server programming. If you are not, **your best starting point
-   is to read the ` Hello
-   World <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.html#22064>`_
-   chapter of the Ice manual (or more)**. A deeper understanding of Ice
-   might not be necessary, but certainly understanding the Ice basics
-   will make reading this guide **much** easier.
+   - This page is intended for developers already familiar with
+     client/server programming. If you are not, **your best starting
+     point is to read the `Hello World
+     <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.html#22064>`_
+     chapter of the Ice manual (or more)**. A deeper understanding of
+     Ice might not be necessary, but certainly understanding the Ice
+     basics will make reading this guide **much** easier.
 
 --------------
 
 For developers, there are many examples listed below, all of which are
 stored under: :source:`examples` and
-buildable/runnable via ` scons <http://www.scons.org>`_:
+buildable/runnable via `scons <http://www.scons.org>`_:
 
 ::
 
@@ -65,7 +62,7 @@ mod\_perl, django, or Ruby on Rails. The remoting framework used by
 OMERO is named Ice_ from ZeroC. Ice is comparable
 to CORBA in many ways, but is typically easier to use. For ZeroC's
 comparison of Ice to CORBA, see
-` http://www.zeroc.com/iceVsCorba.html <http://www.zeroc.com/iceVsCorba.html>`_.
+`http://www.zeroc.com/iceVsCorba.html <http://www.zeroc.com/iceVsCorba.html>`_.
 
 A good first step is to be aware of the difference between remote and
 local invocations. Any invocation on a proxy (``<class_name>Prx``,
@@ -379,7 +376,7 @@ OMERO Model Objects
 
 With these components -- rtypes, primitives, constants, etc -- it's
 possible to define the core nouns of OME, the |OmeroModel| . The OMERO
-|OmeroModel| is a translation of the ` OME XML
+|OmeroModel| is a translation of the `OME XML
 specification <http://www.ome-xml.org>`_ into objects for use by the
 server, built out of RTypes, sequences and dictionaries, and Details.
 

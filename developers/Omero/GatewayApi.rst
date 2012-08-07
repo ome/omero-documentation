@@ -5,24 +5,23 @@ The OMERO API has many stateless and statefull services with a large
 number of methods. We also have additional client-side Python and Java
 libraries that provide helpers or wrappers on top of the core API.
 
-As part of API unification :ticket:`4278`,
-we are working to align the Python and Java library APIs. In doing so,
-we are also discussing the consolidation of the core OMERO API into a
-single stateless service, removing unused methods and combining the
-functionality of others. As part of this work, the current usage of
-`stateless services </ome/wiki/Api/DeprecationCandidates>`_ and
-`stateful services </ome/wiki/Api/DeprecationCandidatesStateful>`_ has
-been documented.
+As part of API unification :ticket:`4278`, we are working to align the
+Python and Java library APIs. In doing so, we are also discussing the
+consolidation of the core OMERO API into a single stateless service,
+removing unused methods and combining the functionality of others. As
+part of this work, the current usage of :wiki:`stateless services
+<Api/DeprecationCandidates>` and :wiki:`stateful services
+<Api/DeprecationCandidatesStateful>` has been documented.
 
-The methods of this service will be outlined here - initially in wiki
-format. Following meeting
-` http://www.openmicroscopy.org.uk/site/community/minutes/minigroup/api-unification-meetings/2011.03.14 <http://www.openmicroscopy.org.uk/site/community/minutes/minigroup/api-unification-meetings/2011.03.14>`_
-it has been decided to implement these methods in the Python Blitz
-gateway (returning wrapped objects - See
-`Api/BlitzGateway </ome/wiki/Api/BlitzGateway>`_). This will allow
-stabilisation of the Blitz API and the methods can be pushed to the
-server later, with the blitz gateway delegating to the server and simply
-wrapping the returned objects.
+The methods of this service will be outlined here.  Following
+:plone:`this meeting
+<community/minutes/minigroup/api-unification-meetings/2011.03.14>` it
+has been decided to implement these methods in the Python Blitz
+gateway (returning wrapped objects, see
+:wiki:`<Api/BlitzGateway>`). This will allow stabilisation of the
+Blitz API and the methods can be pushed to the server later, with the
+blitz gateway delegating to the server and simply wrapping the
+returned objects.
 
 Methods all return omero.model objects. It is envisioned that these will
 be wrapped in Python and Java client objects. Current behavior in Python

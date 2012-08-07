@@ -9,12 +9,9 @@ The Import Library is a re-usable framework
 for building import clients. Several are provided by the OMERO team
 directly:
 
--  [STRIKEOUT:The `standalone GUI
-   importer <http://www.openmicroscopy.org/site/support/omero4/getting-started/tutorial/importing-images>`_]
-   (deprecated)
--  The integrated :ref:`developers/Omero/Insight` importer
--  The ` command-line
-   importer <http://www.openmicroscopy.org.uk/site/support/omero4/getting-started/tutorial/command-line-import>`_
+-  [:ref:`tutorial/import-images`] (deprecated)
+-  The integrated :ref:`tutorial/insight-import` importer
+-  The :ref:`tutorial/command-line-import` tool
 
 Components
 ----------
