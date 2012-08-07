@@ -95,7 +95,9 @@ extlinks = {
     'doi' : ('http://dx.doi.org/' + '%s', ''),
     'source' : ('https://github.com/openmicroscopy/openmicroscopy/blob/develop/' + '%s', ''),
     'javadoc' : ('http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/' + '%s', ''),
-    'jenkins' : ('http://hudson.openmicroscopy.org.uk/' + '%s', '')
+    'jenkins' : ('http://hudson.openmicroscopy.org.uk/' + '%s', ''),
+    'mailinglist' : ('http://lists.openmicroscopy.org.uk/mailman/listinfo/' + '%s', ''),
+    'forum' : ('http://www.openmicroscopy.org/community/' + '%s', '')
     }
 
 rst_epilog = """

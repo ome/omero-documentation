@@ -19,4 +19,5 @@ can be found on the :wiki:`OME wiki <>`.
     future
     tutorial/index
 
+    community/resources
     developers/index

@@ -65,8 +65,7 @@ Java 1.5 SE Development Kit (JDK) or higher installed. Available from:
 Extending OMERO
 ---------------
 
-Developers documentation is available on
-`Trac <http://trac.openmicroscopy.org.uk/ome/wiki>`_. There are
+Developers documentation is available on :wiki:`trac <>`. There are
 extension points to add OMERO server functionality as described on the
 |ExtendingOmero| page as well as add to agents to OMERO.insight. See
 :ref:`developers/Omero/Insight/Architecture` for more information.
