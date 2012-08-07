@@ -120,7 +120,7 @@ As mentioned above, the C++ bindings use
 several hooks into its operation.
 
 The following environment variables as defined in
-:source:`components/blitz/build_tools.py`
+:source:`components/blitz/blitz_tools.py`
 are considered:
 
 -  ARCH - Either "x86" or "x64". "x64" will be used by default on a

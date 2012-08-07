@@ -30,9 +30,6 @@ buildable/runnable via `scons <http://www.scons.org>`_:
       cd omero-src/examples
       python ../target/scons/scons.py
 
-This is done periodically by the omero-examples Jenkins job
-:jenkins:`here <job/omero-examples/>`.
-
 Other examples (in Python) can be found :wiki:`here
 <PythonClientCodeExamples>`.
 
@@ -1041,15 +1038,15 @@ implement **multiple** interfaces. Much of the
 |OmeroModel|  in the RMI-based types
 (``ome.model``) was based on the use of interfaces.
 
--  :javadoc:` IObject <ome/model/IObject.html>`
+-  :source:` IObject <components/model/src/ome/model/IObject.java>`
    is the root interface for all object types. **Methods**: ``getId()``,
    ``getDetails()``, ...
--  :javadoc:` IEnum <ome/model/IEnum.html>`
+-  :source:` IEnum <components/model/src/ome/model/IEnum.java>`
    is an enumeration value. **Methods**: ``getValue()``
--  :javadoc:` ILink <ome/model/ILink.html>`
+-  :source:` ILink <components/model/src/ome/model/ILink.java>`
    is a link between two other types. **Methods**: ``getParent()``,
    ``getChild()``
--  :javadoc:` IMutable <ome/model/IMutable.html>`
+-  :source:` IMutable <components/model/src/ome/model/IMutable.java>`
    is an instance for changes will be persisted. **Methods**:
    ``getVersion()``
 
@@ -2687,7 +2684,7 @@ actually be found in :source:`github <>`.
 We plan to include packages of the generated source code in future
 releases. Until then, it's possible to find the latest version of
 those files on
-:jenkins:`job/OMERO/ws/src/components/blitz/target/generated/>`,
+:jenkins:`jenkins <job/OMERO/ws/src/components/blitz/target/generated/>`,
 though some of the generated files are later overwrriten by hand-written
 versions:
 
