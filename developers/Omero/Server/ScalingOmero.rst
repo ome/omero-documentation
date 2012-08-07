@@ -31,14 +31,10 @@ database, after ``max_connections`` invocations, all further attempts to
 connect to the server would fail with "too many connection" exceptions.
 Instead, OMERO users a **connection pool** in front of Postgres, which
 manages many more simultaneous attempts to connect to the database.
-Currently, ` c3p0 <http://mchange.com/projects/c3p0>`_ is the connection
-pool used, and is configured in :source:`etc/c3p0.properties`.
-The c3p0 configuration should be kept roughly in sync with your postgres
-configuration.
 
-With the default ``c3p0.properties`` and ``max_connection`` set to 64,
+With the default ``max_connection`` set to 64,
 it is possible to execute 500 queries simultaneously without database
-exceptions. Instead, one recieves server exceptions.
+exceptions. Instead, one receives server exceptions.
 
 Server threads
 ~~~~~~~~~~~~~~

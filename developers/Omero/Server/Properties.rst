@@ -34,9 +34,8 @@ the lookup for properties is (first wins):
 This ordering is defined for the various components via "placeholder
 configurers" in:
 
--  :source:`components/server/resources/ome/services/config-local.xml`
+-  :source:`components/server/resources/ome/services/services.xml`
 -  :source:`components/client/resources/ome/client/spring.xml`
--  :source:`components/blitz/resources/omero/client.xml`
 
 Once configured at start, all values declared in one of the mentioned
 ways can be used in Spring configurations via the syntax:
