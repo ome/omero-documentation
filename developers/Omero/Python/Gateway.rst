@@ -5,8 +5,8 @@ Blitz Gateway
 
 .. contents::
 
-` MOVIE: introduction to Blitz
-Gateway <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/BlitzGatewayIntro-4.3.mov>`_
+:snapshot:`MOVIE: introduction to Blitz Gateway
+<movies/omero-4-3/mov/BlitzGatewayIntro-4.3.mov>`
 
 **omero.gateway** (known as the 'Blitz' gateway) is a Python module for
 working with the OMERO API and model objects. It facilitates many

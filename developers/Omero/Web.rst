@@ -6,8 +6,8 @@ OMERO.web Framework
 `|OmeroWeb infrastructure
 components| </ome/attachment/wiki/OmeroWeb/OmeroWeb.png>`_
 
-` MOVIE introduction to
-OmeroWeb <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`_
+:snapshot:`MOVIE introduction to OmeroWeb
+<movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`
 
 OMERO.web is a framework for building web applications for OMERO. It
 uses ` Django <http://www.djangoproject.com/>`_ to generate html pages
@@ -74,12 +74,14 @@ Quick Example - webtest
 `|Screen-shot of the webtest/dataset/
 example| </ome/attachment/wiki/OmeroWeb/webtest-dataset.png>`_
 
-This tiny example gives you a feel for how the OMERO.web framework gets
-data from OMERO and displays it on a web page. You can find this and
-other examples in the 'webtest' app. Also see the ` OmeroWeb demo
-movie <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`_
-**BUT note:** some details of this code have changed in the OMERO 4.4
-release - see below).
+This tiny example gives you a feel for how the OMERO.web framework
+gets data from OMERO and displays it on a web page. You can find this
+and other examples in the 'webtest' app. Also, see the
+:snapshot:`OmeroWeb demo movie
+<movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`.
+
+:note: Some details of this code have changed in the OMERO 4.4
+  release - see below).
 
 There are 3 parts to each page: url, view and template. For example,
 this code below is for generating an html page of a Dataset (see

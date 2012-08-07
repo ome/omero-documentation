@@ -47,9 +47,9 @@ server with
 .. note:: Port number is 4080.
 
 When you edit and save the code, under lib/python/omeroweb/, Django
-automatically detects this and you only need to refresh your browser to
-see the changes. You can see this in the ` OmeroWeb intro
-movie <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`_.
+automatically detects this and you only need to refresh your browser
+to see the changes. You can see this in the :snapshot:`OmeroWeb intro
+movie <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`.
 
 Option 2: Working from source code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
