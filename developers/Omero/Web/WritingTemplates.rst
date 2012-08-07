@@ -82,7 +82,7 @@ These blocks can be used to add content to specific points in the page.
 
 .. note::
  
-    It is important to consider using `` {{ block.super }} `` if you
+    It is important to consider using ``{{ block.super }}`` if you
     want to include the content from the parent template. This is critical
     for the "link" and "script" blocks, which are used to add <link> and
     <script> elements to the head of the page. If you forget to use
