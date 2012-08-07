@@ -321,12 +321,3 @@ it is possible to extract more information specific to your site.
 
     ` Luke <http://www.getopt.org/luke/>`_ 
         a Java application which you can download and point at your ``/OMERO/FullText`` directory to get a better feeling for Lucene queries.
-
-Attachments
-~~~~~~~~~~~
-
--  `OmeroSearch.png </ome/attachment/wiki/OmeroSearch/OmeroSearch.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroSearch/OmeroSearch.png>`_
-   (76.0 KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-05-07T08%3A31%3A35%2B01%3A00&precision=second>`_
-   ago. Simple diagram of how search works

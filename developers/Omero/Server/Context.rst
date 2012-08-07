@@ -41,12 +41,3 @@ for the implementation).
 For more information about Events see :ref:`developers/Omero/Server/Events`.
 
 `|image1| </ome/attachment/wiki/OmeroContext/contexts.png>`_
-
-Attachments
-~~~~~~~~~~~
-
--  `contexts.png </ome/attachment/wiki/OmeroContext/contexts.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroContext/contexts.png>`_
-   (89.4 KB) - added by *jmoore* `4
-   years </ome/timeline?from=2008-09-15T16%3A35%3A39%2B01%3A00&precision=second>`_
-   ago.
