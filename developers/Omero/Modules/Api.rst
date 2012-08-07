@@ -98,8 +98,8 @@ Service Level 1 (direct DB and hibernate connections)
 Service Level 2
 ~~~~~~~~~~~~~~~
 
--  :source:` IPojos <components/common/src/ome/api/IPojos.java>`
--  :source:` ITypes <components/common/src/ome/api/ITypes.java>`
+-  :source:`IContainer <components/common/src/ome/api/IContainer.java>`
+-  :source:`ITypes <components/common/src/ome/api/ITypes.java>`
 
 Stateful/Binary? Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -115,7 +115,7 @@ Stateful/Binary? Services
    :javadoc:` API <slice2html/omero/api/RenderingEngine.html#RenderingEngine>`
    (see :ref:`developers/Omero/Server/RenderingEngine` for more)
 -  ThumbnailStore:
-   :source:` src <components/common/src/ome/api/Thumbnail.store>`,
+   :source:` src <components/common/src/ome/api/ThumbnailStore.java>`,
    :javadoc:` API <ome/api/ThumbnailStore.html>`
 -  :source:` IScale <components/common/src/ome/api/IScale.java>`
 
@@ -168,11 +168,11 @@ Pojos
 Certain operations, like those deailing with data management and
 viewing, happen more frequently than others (like defining microscopes).
 Those have been collected in the
-:source:`IPojos <components/common/src/ome/api/IPojos.java>`
-interface. IPojos simplify a few very common queries, and there is a
-related package ("pojos.\*") for working with the returned graphs. The
+:source:`IContainer <components/common/src/ome/api/IContainer.java>`
+interface. IContainer simplifies a few very common queries, and there is
+a related package ("pojos.\*") for working with the returned graphs. The
 :ref:`developers/Omero/Insight` works almost exclusively with
-the IPojos interface for its non-binary needs.
+the IContainer interface for its non-binary needs.
 
 Examples
 --------

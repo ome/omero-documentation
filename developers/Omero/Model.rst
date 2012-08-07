@@ -184,8 +184,7 @@ Inheritance
 
 Inheritance is supported in the object model. The superclass
 relationships can be defined simply in the mapping files. One example is
-the annotation hierarchy in
-:source:`components/model/resources/mappings/annotations.xml`.
+the annotation hierarchy in :source:`components/model/resources/mappings/annotations.ome.xml`.
 Hibernate supports this polymorophism, and will search all subclasses
 when a super class is returned. *However*, due to Hibernate's use of
 bytecode-generated proxies, testing for class equality is not always

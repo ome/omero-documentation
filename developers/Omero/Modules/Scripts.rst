@@ -71,9 +71,8 @@ Sample Scripts
 --------------
 
 Below are a set of sample scripts. You can find more under the
-:source:` OmeroPy/scripts <components/tools/OmeroPy/scripts>`
-source code directory or download from OMERO.insight (from the
-bottom-left of any run-script dialog).
+`scripts repository <https://github.com/ome/scripts>`_ or download from
+OMERO.insight (from the bottom-left of any run-script dialog).
 
 Ping script
 ~~~~~~~~~~~

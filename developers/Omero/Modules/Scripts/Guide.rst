@@ -342,8 +342,8 @@ the client (see diagram, below).
   OMERO scripting workflow
 
 -  You need to download 'Ice' from ZeroC and set the environment
-   variables, as described
-   ` here <http://www.openmicroscopy.org.uk/site/support/omero4/server/install-omero-4.1-on-mac-os-x-10.5>`_.
+   variables, as described :plone:`here
+   <support/omero4/server/install-omero-on-mac-os-x-10.5>`.
 -  You also need the OMERO server download. Go to the `OMERO
    downloads <http://www.openmicroscopy.org/site/support/omero4/downloads>`_
    page and get the appropriate server package (Version must be OMERO

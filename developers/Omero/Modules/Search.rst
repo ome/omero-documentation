@@ -317,7 +317,7 @@ it is possible to extract more information specific to your site.
     :ref:`developers/Omero/Modules/StructuredAnnotations`,
     :ref:`developers/Omero/Modules/Search/Bridges`,
     :ref:`developers/Omero/Search/FileParsers`, 
-    ` Query Parser Syntax <http://lucene.apache.org/java/2_2_0/queryparsersyntax.html>`_,
+    `Query Parser Syntax <http://lucene.apache.org/core/3_6_0/queryparsersyntax.html>`_,
 
     ` Luke <http://www.getopt.org/luke/>`_ 
         a Java application which you can download and point at your ``/OMERO/FullText`` directory to get a better feeling for Lucene queries.

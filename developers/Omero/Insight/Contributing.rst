@@ -69,8 +69,7 @@ Jenkins
 
 The OME project currently uses `Jenkins <http://jenkins-ci.org/>`_
 (formerly known as hudson) as a continuous integration server
-available :jenkins:`here <>` . OMERO.insight is built by the "INSIGHT"
-job :jenkins:`here <job/INSIGHT-trunk>`.
+available :jenkins:`here <>` . OMERO.insight is built as part of the "OMERO-trunk" job :jenkins:`here <job/OMERO-trunk>`.
 
 Jenkins checks for SVN changes every 15 minutes and executes:
 
@@ -99,6 +98,3 @@ Jenkins checks for SVN changes every 15 minutes and executes:
     #
     rm -f OMERO.insight-build*.zip
     java -Domero.version=build$BUILD_NUMBER omero zip
-
-The Javadocs are available :jenkins:`here <job/INSIGHT-trunk/javadoc>`,
-as well as several build metrics.

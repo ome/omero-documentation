@@ -12,11 +12,7 @@ The exceptions which can be received by a client due to a remote call on
 the OMERO server are all defined in
 :source:`components/blitz/resources/omero/ServerErrors.ice`
 (included below). This file contains two separate hierarchies rooted at
-``Ice::Exception`` and ``omero::ServerError``. A third hierarchy rooted
-at ``omero::ClientError`` is defined in
-:source:`components/blitz/resources/omero/ClientErrors.ice`
-(not included below). These exceptions are thrown due to local (i.e.
-non-remote) invocations, including issues during configuration.
+``Ice::Exception`` and ``omero::ServerError``. 
 
 For a better understanding of how to handle exceptions, please read both
 of the ``*.ice`` files carefully, and see |OmeroClients| for examples of exception
