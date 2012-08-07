@@ -8,22 +8,27 @@ on-line, so that other users can access them directly via OMERO.editor.
    using an ` FTP
    client <http://en.wikipedia.org/wiki/Comparison_of_FTP_clients>`_.
    For example, the default folder used for OMERO.editor demo files is
-   ` http://cvs.openmicroscopy.org.uk/snapshots/omero/editor/demoFiles/beta4/ <http://cvs.openmicroscopy.org.uk/snapshots/omero/editor/demoFiles/beta4/>`_
+   :snapshot:`here omero/editor/demoFiles/beta4/>`
 
--  If you want to present the files nicely, in a web page with file
-   descriptions, links etc. you can use the one at
-   ` http://cvs.openmicroscopy.org.uk/snapshots/omero/editor/demoFiles/beta4/index.html <http://cvs.openmicroscopy.org.uk/snapshots/omero/editor/demoFiles/beta4/index.html>`_
-   as a starting point. It's easiest to put this in the same folder as
-   the protocol files, but as long as the links work, it doesn't matter.
+- If you want to present the files nicely, in a web page with file
+   descriptions, links etc. you can use the one :snapshot:`here
+   omero/editor/demoFiles/beta4/index.html>` as a starting point. It's
+   easiest to put this in the same folder as the protocol files, but
+   as long as the links work, it doesn't matter.
 
 -  Users who want to access these files directly through OMERO.editor
    need to edit their Editor configuration:
 
    -  Go to the OMERO-clients/config folder and open the editor.xml file
       in a text editor.
-   -  Find the lines: <!-- The 'home page' of online demo files -->
+   -  Find the lines:
+
+::
+      <!-- The 'home page' of online demo files -->
       <entry
-      name="/demo/index">\ ` http://cvs.openmicroscopy.org.uk/snapshots/omero/editor/demoFiles/beta4/index.html <http://cvs.openmicroscopy.org.uk/snapshots/omero/editor/demoFiles/beta4/index.html>`_\ </entry>
+      name="/demo/index">http://cvs.openmicroscopy.org.uk/snapshots/omero/editor/demoFiles/beta4/index.html
+      </entry>
+
    -  Edit the URL in the second line, to point to the folder or web
       page that you just created. Save the file.
 

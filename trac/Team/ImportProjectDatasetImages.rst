@@ -1,7 +1,7 @@
 1. Import Project/Dataset Images
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-` OMEROimporter.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-3-0/mov/OMEROimporter.mov>`_
+:snapshot:`OMEROimporter.mov <movies/omero-3-0/mov/OMEROimporter.mov>`
 
 -  Already installed importer
 -  Add server using + button

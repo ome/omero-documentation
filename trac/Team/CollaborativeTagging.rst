@@ -1,7 +1,7 @@
 20. Collaborative Tagging
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-` Permissions2.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-2/mov/Permissions2.mov>`_
+:snapshot:`Permissions2.mov <movies/omero-4-2/mov/Permissions2.mov>`
 
 -  **Prerequisite Need a 'Collaborative' group with at least 2 users.
    User1 has an image that has been tagged by User1 with their own tag.

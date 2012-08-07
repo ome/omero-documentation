@@ -1,7 +1,7 @@
 10. Editor
 ~~~~~~~~~~
 
-` EditorNewExperiment.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/EditorNewExperiment.mov>`_
+:snapshot:`EditorNewExperiment.mov <movies/omero-4-1/mov/EditorNewExperiment.mov>`
 ` fix&stain.pdf <http://www.lamondlab.com/pdf/fix&stain.pdf>`_
 
 -  Dataset: Attachment [+] -> New Experiment.

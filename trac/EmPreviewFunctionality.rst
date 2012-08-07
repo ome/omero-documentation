@@ -40,19 +40,18 @@ interactions fall into 2 main categories:
 -  Adding EMAN2 and Spider functionality to OMERO for image processing
    on the server.
 
-You can view a ` demonstration
-movie <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-2/mov/Scripting4.mov>`_
-of server-side processing with this workflow, and more demo movies on
-the ` features
-page <http://www.openmicroscopy.org.uk/site/products/feature-list>`_.
-All of the work described below makes use of Python scripts to connect
-EMAN2 and Spider functionality to OMERO (see
-`OmeroPy </ome/wiki/OmeroPy>`_). Scripts that upload or download EM data
-to and from the OMERO server are run on the client and require EMAN2
-and/or Spider installed on the client. Other scripts that process images
-on the OMERO server are run on the server itself, using the `OMERO
-scripting service </ome/wiki/OmeroPy/ScriptingServiceGuide>`_ and
-require the server admin to install EMAN2 / Spider on the server.
+You can view a :snapshot:`demonstration movie
+<movies/omero-4-2/mov/Scripting4.mov>` of server-side processing with
+this workflow, and more demo movies on the :plone:`features page
+<products/feature-list>`.  All of the work described below makes use
+of Python scripts to connect EMAN2 and Spider functionality to OMERO
+(see `OmeroPy </ome/wiki/OmeroPy>`_). Scripts that upload or download
+EM data to and from the OMERO server are run on the client and require
+EMAN2 and/or Spider installed on the client. Other scripts that
+process images on the OMERO server are run on the server itself, using
+the `OMERO scripting service
+</ome/wiki/OmeroPy/ScriptingServiceGuide>`_ and require the server
+admin to install EMAN2 / Spider on the server.
 
 Using EM software to process data on the OMERO server has the advantage
 that no image data has to be transferred down the wire from the server

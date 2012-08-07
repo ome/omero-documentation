@@ -1,7 +1,7 @@
 8. Attach
 ~~~~~~~~~
 
-` AttachingFiles.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/AttachingFiles.mov>`_
+:snapshot:`AttachingFiles.mov <movies/omero-4-1/mov/AttachingFiles.mov>`
 
 +-----------+--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+
 | Insight   | Web                                                                                              |

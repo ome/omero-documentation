@@ -1,7 +1,7 @@
 4. Manage and Organise
 ~~~~~~~~~~~~~~~~~~~~~~
 
-` ManagingImages.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/ManagingImages.mov>`_
+:snapshot:`ManagingImages.mov <movies/omero-4-1/mov/ManagingImages.mov>`
 NB. Important to test browsers (IE, FF, Chrome) on Windows. See
 `#4899 </ome/ticket/4899>`_.
 

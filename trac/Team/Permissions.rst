@@ -2,7 +2,7 @@
 ~~~~~~~~~~~~~~~
 
 Includes stuff from
-` Permissions1.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-2/mov/Permissions1.mov>`_
+:snapshot:`Permissions1.mov <movies/omero-4-2/mov/Permissions1.mov>`
 
     **Prerequisites: Make sure User1 and User2 are a member of group
     'Private' and Owner is owner of the group**
@@ -26,8 +26,7 @@ Includes stuff from
 
    -  create Project3/Dataset3 and import there Image5 and Image6
    -  Log in as User2, browse and manage User1 data. What you can do is
-      listed
-      ` https://www.openmicroscopy.org.uk/site/support/omero4/server/permissions/ <https://www.openmicroscopy.org.uk/site/support/omero4/server/permissions/>`_
+      listed :plone:`here <support/omero4/server/permissions>`
 
       -  comment Image5
       -  tag Image5 by 'permission tag'

@@ -1,7 +1,7 @@
 5. Cross Platform
 ~~~~~~~~~~~~~~~~~
 
-` ConnectBrowse.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/ConnectBrowse.mov>`_
+:snapshot:`ConnectBrowse.mov <movies/omero-4-1/mov/ConnectBrowse.mov>`
 
 **Prerequisites: the software must be ready for release and available
 for download from the OME web site.**

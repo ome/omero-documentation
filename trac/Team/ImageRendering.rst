@@ -1,7 +1,7 @@
 6. Image Rendering
 ~~~~~~~~~~~~~~~~~~
 
-    ` Insight1-rendering.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-0/mov/Insight1-rendering.mov>`_
+    :snapshot:`Insight1-rendering.mov <movies/omero-4-0/mov/Insight1-rendering.mov>`
 
 +-----------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------------+
 | Insight   | Web                                                       |

@@ -1,8 +1,7 @@
 12. Measuring ROIs
 ~~~~~~~~~~~~~~~~~~
 
-[` http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-0/mov/MeasurementTool-Taking%20Measurments.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-0/mov/MeasurementTool-Taking%20Measurments.mov>`_
-MeasurementTool?-Taking Measurments.mov]
+:snapshot:`Measurements <movies/omero-4-0/mov/MeasurementTool-Taking%20Measurments.mov>`
 
 -  Draw a couple of ellipses. Look at the 'Results' tab (x, y etc)
 -  Click 'Results Wizard': Remove Length, Angle: OK. Check they're gone

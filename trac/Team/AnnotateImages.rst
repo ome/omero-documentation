@@ -1,7 +1,7 @@
 7. Annotate Images
 ~~~~~~~~~~~~~~~~~~
 
-` AnnotatingImages.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/AnnotatingImages.mov>`_
+:snapshot:`AnnotatingImages.mov <movies/omero-4-1/mov/AnnotatingImages.mov>`
 
 +-----------+--------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------+
 | Insight   | Web                                                                            |

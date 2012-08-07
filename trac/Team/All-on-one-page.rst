@@ -10,7 +10,7 @@ MAKE ANY EDITS ON THE OTHER PAGES
 1. Import Project/Dataset Images
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-` OMEROimporter.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-3-0/mov/OMEROimporter.mov>`_
+:snapshot:`OMEROimporter.mov <movies/omero-3-0/mov/OMEROimporter.mov>`
 
 -  Already installed importer
 -  Add server using + button
@@ -193,7 +193,7 @@ imported tests this scenario requires images from squig:**
 4. Manage and Organise
 ~~~~~~~~~~~~~~~~~~~~~~
 
-` ManagingImages.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/ManagingImages.mov>`_
+:snapshot:`ManagingImages.mov <movies/omero-4-1/mov/ManagingImages.mov>`
 NB. Important to test browsers (IE, FF, Chrome) on Windows. See
 `#4899 </ome/ticket/4899>`_.
 
@@ -303,7 +303,7 @@ Delete Project
 5. Cross Platform
 ~~~~~~~~~~~~~~~~~
 
-` ConnectBrowse.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/ConnectBrowse.mov>`_
+:snapshot:`ConnectBrowse.mov <movies/omero-4-1/mov/ConnectBrowse.mov>`
 
 **Prerequisites: the software must be ready for release and available
 for download from the OME web site.**
@@ -326,7 +326,7 @@ for download from the OME web site.**
 6. Image Rendering
 ~~~~~~~~~~~~~~~~~~
 
-    ` Insight1-rendering.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-0/mov/Insight1-rendering.mov>`_
+    :snapshot:`Insight1-rendering.mov <movies/omero-4-0/mov/Insight1-rendering.mov>`
 
 +-----------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------------+
 | Insight   | Web                                                       |
@@ -354,7 +354,7 @@ for download from the OME web site.**
 7. Annotate Images
 ~~~~~~~~~~~~~~~~~~
 
-` AnnotatingImages.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/AnnotatingImages.mov>`_
+:snapshot:`AnnotatingImages.mov <movies/omero-4-1/mov/AnnotatingImages.mov>`
 
 +-----------+--------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------+
 | Insight   | Web                                                                            |
@@ -397,7 +397,7 @@ for download from the OME web site.**
 8. Attach
 ~~~~~~~~~
 
-` AttachingFiles.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/AttachingFiles.mov>`_
+:snapshot:`AttachingFiles.mov <movies/omero-4-1/mov/AttachingFiles.mov>`
 
 +-----------+--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+
 | Insight   | Web                                                                                              |
@@ -439,7 +439,7 @@ for download from the OME web site.**
 9. Tagging
 ~~~~~~~~~~
 
-` Insight2-tags.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-0/mov/Insight2-tags.mov>`_
+:snapshot:`Insight2-tags.mov <movies/omero-4-0/mov/Insight2-tags.mov>`
 
 Web changes being addressed in `#4615 </ome/ticket/4615>`_ web
 pre-requirement 5 datasets defined with and 3 projects defined.
@@ -508,7 +508,7 @@ Delete Tag  `#2995 </ome/ticket/2995>`_
 10. Editor
 ~~~~~~~~~~
 
-` EditorNewExperiment.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/EditorNewExperiment.mov>`_
+:snapshot:`EditorNewExperiment.mov movies/omero-4-1/mov/EditorNewExperiment.mov>`
 ` fix&stain.pdf <http://www.lamondlab.com/pdf/fix&stain.pdf>`_
 
 -  Dataset: Attachment [+] -> New Experiment.
@@ -556,7 +556,7 @@ Delete Tag  `#2995 </ome/ticket/2995>`_
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 For insight movie, see:
-` MeasurementTool-DrawingROI.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-0/mov/MeasurementTool-DrawingROI.mov>`_
+:snapshot:`MeasurementTool-DrawingROI.mov <movies/omero-4-0/mov/MeasurementTool-DrawingROI.mov>`
 
 +-----------+---------------------------------------------+------------------------------------------------------+
 | Insight   | Web                                         |
@@ -596,8 +596,7 @@ For insight movie, see:
 12. Measuring ROIs
 ~~~~~~~~~~~~~~~~~~
 
-[` http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-0/mov/MeasurementTool-Taking%20Measurments.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-0/mov/MeasurementTool-Taking%20Measurments.mov>`_
-MeasurementTool?-Taking Measurments.mov]
+:snapshot:`Measurements movie <movies/omero-4-0/mov/MeasurementTool-Taking%20Measurments.mov>`
 
 -  Draw a couple of ellipses. Look at the 'Results' tab (x, y etc)
 -  Click 'Results Wizard': Remove Length, Angle: OK. Check they're gone
@@ -660,7 +659,7 @@ Delete ROI
 14. Sharing (web)
 ~~~~~~~~~~~~~~~~~
 
-` ShareImages.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/ShareImages.mov>`_
+:snapshot:`ShareImages.mov <movies/omero-4-1/mov/ShareImages.mov>`
 
 -  Add images to your basket by clicking the 'cart' icon beside several
    images
@@ -695,7 +694,7 @@ the option archived original file set.**
 | **d.**    | Use it to connect to the OMERO server and view an image                  | Use it to connect to the OMERO server and view an image                               |
 +-----------+--------------------------------------------------------------------------+---------------------------------------------------------------------------------------+
 
-` ExportImageJ.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/ExportImageJ.mov>`_
+:snapshot:`ExportImageJ.mov <movies/omero-4-1/mov/ExportImageJ.mov>`
 
 15.1 `Export/ImageJ user workflow </ome/wiki/TestingScenarios/ExportImagejUserWorkflow>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -910,7 +909,7 @@ OMERO 4.3
 ~~~~~~~~~~~~~~~
 
 Includes stuff from
-` Permissions1.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-2/mov/Permissions1.mov>`_
+:snapshot:`Permissions1.mov <movies/omero-4-2/mov/Permissions1.mov>`
 
     **Prerequisites: Make sure User1 and User2 are a member of group
     'Private' and Owner is owner of the group**
@@ -981,7 +980,7 @@ For further background information please see wiki/Delete
 20. Collaborative Tagging
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-` Permissions2.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-2/mov/Permissions2.mov>`_
+:snapshot:`Permissions2.mov <movies/omero-4-2/mov/Permissions2.mov>`
 
 -  **Prerequisite Need a 'Collaborative' group with at least 2 users.
    User1 has an image that has been tagged by User1 with their own tag.

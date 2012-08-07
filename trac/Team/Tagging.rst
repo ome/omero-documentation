@@ -1,7 +1,7 @@
 9. Tagging
 ~~~~~~~~~~
 
-` Insight2-tags.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-0/mov/Insight2-tags.mov>`_
+:snapshot:`Insight2-tags.mov <movies/omero-4-0/mov/Insight2-tags.mov>`
 
 Web changes being addressed in `#4615 </ome/ticket/4615>`_ web
 pre-requirement 5 datasets defined with and 3 projects defined.

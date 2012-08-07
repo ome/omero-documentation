@@ -1,7 +1,7 @@
 14. Sharing (web)
 ~~~~~~~~~~~~~~~~~
 
-` ShareImages.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/ShareImages.mov>`_
+:snapshot: `ShareImages.mov <movies/omero-4-1/mov/ShareImages.mov>`
 
 -  Add images to your basket by clicking the 'cart' icon beside several
    images

@@ -16,4 +16,4 @@ the option archived original file set.**
 | **d.**    | Use it to connect to the OMERO server and view an image                  | Use it to connect to the OMERO server and view an image                               |
 +-----------+--------------------------------------------------------------------------+---------------------------------------------------------------------------------------+
 
-` ExportImageJ.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/ExportImageJ.mov>`_
+:snapshot:`ExportImageJ.mov <movies/omero-4-1/mov/ExportImageJ.mov>`

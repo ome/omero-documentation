@@ -2,7 +2,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 For insight movie, see:
-` MeasurementTool-DrawingROI.mov <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-0/mov/MeasurementTool-DrawingROI.mov>`_
+:snapshot:`MeasurementTool-DrawingROI.mov <movies/omero-4-0/mov/MeasurementTool-DrawingROI.mov>`
 
 +-----------+---------------------------------------------+------------------------------------------------------+
 | Insight   | Web                                         |
