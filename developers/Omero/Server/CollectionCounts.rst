@@ -4,7 +4,7 @@ Collection Counts
 =================
 
 The
-:source:`IPojos <components/common/src/ome/api/IPojos.java>`
+:source:`IContainer <components/common/src/ome/api/IContainer.java>`
 interface has always provided a method for returning the count of some
 collection types via ``getDetails().getCounts()``. Previous to
 3.0-Beta3, the counting process was fairly time intensive, and has been
@@ -36,11 +36,9 @@ they are continually re-generated.
 Pojo Options
 ------------
 
-The
-:source:`PojoOptions <components/model/src/ome/util/builders/PojoOptions.java>`
-configuration of what elements are counted has been removed from the
-API. Instead, the returned map contains all values for all users, and
-can be summed to acquire the total count.
+The PojoOptions configuration of what elements are counted has been
+removed from the API. Instead, the returned map contains all values for
+all users, and can be summed to acquire the total count.
 
 Restrictions
 ------------

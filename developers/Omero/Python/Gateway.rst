@@ -22,7 +22,7 @@ Dependancies
 ~~~~~~~~~~~~
 
 -  OMERO python libs. Included in the server package
-   ` download <https://www.openmicroscopy.org/site/documents/data-management/omero4/downloads>`_.
+   ` download <https://www.openmicroscopy.org/site/support/omero4/downloads/>`_.
 -  Ice 3.3.1
 -  Python 2.4 or higher.
 
@@ -350,8 +350,8 @@ are used by the |OmeroWeb| framework. For this reason, the Blitz
 gateway (which was originally built for |OmeroWeb|) has not yet been
 extended to wrap every omero.model object with a specific Blitz Object
 Wrapper. The current list of object wrappers can be found in the
-omero.gateway module :jenkins:`4.2 API
-<view/Beta4.2/job/OMERO-Beta4.2/javadoc/epydoc/omero.gateway-module.html>`,
+omero.gateway module :jenkins:`4.4 API
+<job/OMERO-trunk/javadoc/epydoc/omero.gateway-module.html>`,
 :javadoc:` development code API <epydoc/omero.gateway-module.html>`.
 As more functionality is provided by the Blitz Gateway, the coverage
 of object wrappers will increase accordingly.

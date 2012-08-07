@@ -15,10 +15,8 @@ The container for all OMERO applications is the
 (:source:`components/common/src/ome/system/OmeroContext.java`).
 Based on the ` Spring <http://www.springframework.org>`_ configuration
 backing the context, it can be one of : ``client``, ``internal``, or
-``managed``. The use of a ServiceFactory (` code <http://cvs.openmicroscopy.org.uk/svn/omero/trunk/components/client/src/ome/client/ServiceFactory.javasource>`_)
-simplifies this usage for the client. See
-`OmeroClientLibrary </ome/wiki/OmeroClientLibrary>`_ for more
-information.
+``managed``. The use of a ServiceFactory simplifies this usage for the client. See `OmeroClientLibrary </ome/wiki/OmeroClientLibrary>`_ for
+more information.
 
 Hibernate Sessions
 ------------------

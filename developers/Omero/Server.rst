@@ -23,7 +23,7 @@ aspects.
    ``experimenter``. This row from ``experimenter`` must also be
    contained in the "user" experimenter group which is done via the
    mapping table ``groupexperimentermap``. (See :source:`this SQL
-   template <components/dsl/resources/ome/dsl/data.vm>`
+   template <components/dsl/resources/ome/dsl/psql-footer.vm>`
    for how ``root`` and the intial groups are setup.)
 
 -  If the server is configured for LDAP, an ``Experimenter`` may be
