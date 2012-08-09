@@ -31,7 +31,7 @@ extensions = ['sphinx.ext.extlinks']
 templates_path = ['_templates']
 
 # The suffix of source filenames.
-source_suffix = '.rst'
+source_suffix = '.txt'
 
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
@@ -280,4 +280,5 @@ texinfo_documents = [
 
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
 linkcheck_ignore = [r'http://localhost:\d+/', 'http://localhost/', 'http://www.hibernate.org',
-        'https://www.openmicroscopy.org/site/team/']
+        r'^https?://www\.openmicroscopy\.org/site/team/.*', r'.*[.]?example\.com/.*', r'.*\.host.*',
+        r'.*serverName.*']

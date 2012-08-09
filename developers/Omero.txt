@@ -96,9 +96,9 @@ features of the OMERO software. After that you will likely want to
 ` clients <https://www.openmicroscopy.org/site/support/omero4/clients>`_:
 Insight, Web. Play with it, test data. You can also try out the |OmeroCli|.
 
-After that, the `WorkingWithOmero </ome/wiki/WorkingWithOmero>`_ page is
-probably a good next step. It describes various tools and resources you
-will find useful when working with OMERO.
+After that, the :ref:`developers/Omero/GettingStarted/AdvancedTraining`
+page is probably a good next step. It describes various tools and
+resources you will find useful when working with OMERO.
 
 Then, the following wiki pages are meant to provide you with a trail
 through the available documentation so that you can get started with

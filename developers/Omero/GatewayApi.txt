@@ -18,7 +18,7 @@ The methods of this service will be outlined here.  Following
 <community/minutes/minigroup/api-unification-meetings/2011.03.14>` it
 has been decided to implement these methods in the Python Blitz
 gateway (returning wrapped objects, see
-:wiki:`<Api/BlitzGateway>`). This will allow stabilisation of the
+:wiki:`Api/BlitzGateway`). This will allow stabilisation of the
 Blitz API and the methods can be pushed to the server later, with the
 blitz gateway delegating to the server and simply wrapping the
 returned objects.
