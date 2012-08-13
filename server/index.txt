@@ -9,11 +9,11 @@ Server Documentation
 
     installation
     install-windows
-    install_macosx
-    install_macports
-    install_homebrew
-    install_linux
-    install_web
+    install-macosx
+    install-macports
+    install-homebrew
+    install-linux
+    install-web
     upgrade
     legacy-upgrade
     security
