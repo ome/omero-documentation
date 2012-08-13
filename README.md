@@ -84,7 +84,8 @@ alphanumeric characters and the `-` (minus) symbol.
 ## Indentation ##
 
 Most Sphinx directives don't need indentation, unless arguments have to be
-supplied. For consistency, please use 4 space indentation whenever needed.
+supplied. For consistency, please use 4 space indentation whenever needed. Do
+not use indentation for directives (start them at the edge of the new line).
 
 Example:
     
@@ -164,11 +165,29 @@ Example:
     
     And some text.
     
+## Page labels and references ##
+
+Every reST document should start with a label that matches the path and name
+of the document:
+    
+    .. _path/name-of-the-page:
+    
+    *****************
+    Title of the page
+    *****************
+    
+This label allows the page to be uniquely referenced in the rest of the
+documentation. To do so, use the following syntax
+``:ref:`path/name-of-the-page` `` or `` :ref:`link to my page <path/name-of-the-page>` ``.
+
 ## Images vs. Figures ##
 
 reST allows for two types of image embedding: using the `image` and `figure`
 directive. It is recommended to use the latter, as legends and captions can be
 added easier.
+
+All images referenced in a reST document shall be placed in an `images` folder
+in the same directory as the reST file.
 
 ## Substitutions, aliases and hyperlinks ##
 
@@ -191,20 +210,6 @@ Finally, please avoid using `here` as the hyperlink name, as in:
     
     (...) go `here <http://www.google.com>`_.
     
-### Page labels and references ###
-
-Every reST document should start with a label that matches the path and name
-of the document:
-    
-    .. _path/name_of_the page:
-    
-    Title of the page
-    =================
-    
-This label allows the page to be uniquely referenced in the rest of the
-documentation. To do so, use the following syntax
-``:ref:`path/name_of_the_page` `` or `` :ref:`link to my page <path/name_of_the_page>` ``.
-
 ## Common markups ##
 
  * Notes should be formatted using the note directive: `` .. note::``
@@ -222,7 +227,7 @@ can be used in all pages of the documentation.
     
     Name             |    Path
     -----------------+------------------------------------
-    |OmeroPy|            |    developers/Omero/Python
+    |OmeroPy|        |    developers/Omero/Python
     |OmeroCpp|       |    developers/Omero/Cpp
     |OmeroJava|      |    developers/Omero/Java
     |OmeroMatlab|    |    developers/Omero/Matlab

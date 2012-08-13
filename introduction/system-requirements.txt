@@ -1,8 +1,12 @@
+.. _limitations/system-requirements:
+
+*******************
 System Requirements
-===================
+*******************
+
 
 OMERO.server
-------------
+============
 
 The system requirements for OMERO.server vary greatly depending on image
 size and number of users. At a minimum we suggest:
@@ -49,7 +53,7 @@ Summary: Depending on hardware layout 2 x 4, 2 x 6 system core count
 should be more than enough.
 
 OMERO.insight, OMERO.editor and OMERO.importer
-----------------------------------------------
+==============================================
 
 -  Mac OS X 10.5 or later; Windows XP or later; Ubuntu 8.10 or
    later/Centos 5/Debian Lenny or other Linux distro
@@ -61,11 +65,10 @@ OMERO.insight, OMERO.editor and OMERO.importer
 Large imports may require 4GB RAM.
 
 OpenGL versions of OMERO.insight
---------------------------------
+================================
 
 NOTE: These are suggested requirements based on limited testing. Your
 mileage may vary. Any OpenGL 1.3 capable card *should* work.
 
 -  NVIDIA 7xxx or later GPU; ATI 4xxx or later GPU
 -  2GB RAM
-

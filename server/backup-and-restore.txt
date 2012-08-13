@@ -69,7 +69,7 @@ OMERO.server has three main backup sources:
 
     .. note::
         Since 4.2.0, the lib/scripts directory should also be
-        backed up, but restoring it may pose issues. See :ref:`limitations_scripts`.
+        backed up, but restoring it may pose issues. See :ref:`limitations`.
 
 *(1)* and *(2)* should be backed up regularly and *(3)* really only
 needs backing up before you make changes. You can ensure it is kept safe

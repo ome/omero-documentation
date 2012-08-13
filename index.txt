@@ -1,23 +1,44 @@
+###################
 OMERO Documentation
-===================
+###################
 
 This documentation is a work in progress and many aspects of OMERO are
 not yet covered. More documentation about the project and this package
 can be found on the :wiki:`OME wiki <>`.
 
+************
+Introduction
+************
+
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :titlesonly:
 
-    overview
-    system-requirements
+    introduction/overview
+    introduction/system-requirements
+    community/resources
+
+************
+Installation
+************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
     gettingstarted/index
     server/index
     clients/index
-    troubleshooting
     limitations
+    troubleshooting
     future
-    tutorial/index
 
-    community/resources
-    developers/index
+*********
+Tutorials
+*********
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    tutorial/index
