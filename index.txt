@@ -42,3 +42,13 @@ Tutorials
     :titlesonly:
 
     tutorial/index
+
+***********************
+Developer documentation
+***********************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    developers/index
