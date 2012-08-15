@@ -83,20 +83,23 @@ alphanumeric characters and the `-` (minus) symbol.
 
 ## Indentation ##
 
-Most Sphinx directives don't need indentation, unless arguments have to be
-supplied. For consistency, please use 4 space indentation whenever needed. Do
-not use indentation for directives (start them at the edge of the new line).
+Most reST directives don't need indentation, unless contents or options have
+to be supplied. For consistency, please use 4 space indentation whenever
+needed. Do not use indentation for the start of directives (start them at the
+edge of the new line). Any content under a reST directive has to be indented
+the same way as the options.
 
 Example:
     
     .. toctree::
         :maxdepth: 2
-    ^
-    |___ (4 spaces indentation)
+        
+        Some content here...
     
 ## Line wrapping ##
 
-reST source files should use 78 lines for wrapping text.
+reST source files should use 78 lines for wrapping text. Please consult the
+manual of your favourite text editor to see how to switch on text wrapping.
 
 ## Blank lines ##
 
@@ -118,7 +121,7 @@ Example:
     
 ## Title headings ##
 
-Every reST source file should begin with a title.
+Every reST source file should begin with an H2 (level two) title. H1 titles are reserved for the index files (`index.txt`).
 
 Titles should be capitalised (see [http://grammar.about.com](http://grammar.about.com/od/grammarfaq/f/capitalstitle.htm) for a discussion about capitalisation styles).
 
