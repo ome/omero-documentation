@@ -15,8 +15,18 @@ Introduction
     :titlesonly:
 
     introduction/overview
-    introduction/system-requirements
+   
     community/resources
+
+**********
+Quickstart
+**********
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    gettingstarted/virtual-appliance
+
 
 ************
 Installation
@@ -26,20 +36,32 @@ Installation
     :maxdepth: 1
     :titlesonly:
 
+    introduction/system-requirements
+    limitations
+
     gettingstarted/index
     server/index
-    clients/index
-    limitations
     troubleshooting
+    clients/index
+   
+    server/upgrade 
+
     future
 
 *********
 Tutorials
 *********
 
+=======================
+Administrator Tutorials
+=======================
+
+=======================
+Client Tutorials
+=======================
+
 .. toctree::
-    :maxdepth: 1
-    :titlesonly:
+    :maxdepth: 2
 
     tutorial/index
 

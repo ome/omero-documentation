@@ -1,9 +1,7 @@
 .. _tutorial/index:
- 
-*********
-Tutorials
-*********
 
+Insight
+=======
 .. toctree::   
     :titlesonly:
 
@@ -16,9 +14,19 @@ Tutorials
     insight-view-images
     insight-export-figures
 
+Editor
+======
+.. toctree::   
+    :titlesonly:
+
     editor
     editor-latest-features
     editor-getting-started
+
+Importer
+========
+.. toctree::   
+    :titlesonly:
 
     import-images
     import-history
