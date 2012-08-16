@@ -127,12 +127,12 @@ Titles should be capitalised (see [http://grammar.about.com](http://grammar.abou
 
 The following symbols should be used to create headings:
  
- * `#` with top line
- * `*` with top line
- * `=`
- * `-`
- * `^`
- * `"`
+ * `#` with top line for parts
+ * `*` with top line for chapters
+ * `=` for sections
+ * `-` for subsections
+ * `^` for subsubsections
+ * `"` for paragraphs
  
 Example:
     
@@ -182,6 +182,10 @@ of the document:
 This label allows the page to be uniquely referenced in the rest of the
 documentation. To do so, use the following syntax
 ``:ref:`path/name-of-the-page` `` or `` :ref:`link to my page <path/name-of-the-page>` ``.
+
+References to labels above tables and images are also encourages. The `:ref:`
+directive is advised over standard reST links, as it works across files and
+reference names are automatically generated (e.g. from caption of an image).
 
 ## Images vs. Figures ##
 
