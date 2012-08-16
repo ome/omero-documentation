@@ -19,7 +19,7 @@ Known Operating System issues
 -  OpenSuSE 10.1 has issues with Python 2.4/2.5 and Ice (`ome-users
    thread <http://lists.openmicroscopy.org.uk/pipermail/ome-users/2009-June/001830.html>`__)
 -  Windows XP does not run 'Development Server' version of OMERO.web
-   (`OME forum topic <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=640>`__)
+   (:forum:`OME forum topic <viewtopic.php?f=5&t=640>`)
    and :ref:`limitations`
 
 .. _troubleshooting_password:
@@ -139,8 +139,7 @@ Quick fix for users hit by this:
         sudo sed -i 's/net.ipv6.bindv6only\ =\ 1/net.ipv6.bindv6only\ =\ 0/' \
         /etc/sysctl.d/bindv6only.conf && sudo invoke-rc.d procps restart
 
-There is an OMERO `forum
-post <http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=415>`_
+There is an OMERO :forum:`forum post <viewtopic.php?f=5&t=415>`
 for comments on the issue.
 
 Import error when running ``bin/omero ...``

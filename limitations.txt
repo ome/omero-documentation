@@ -79,9 +79,8 @@ The development server included with OMERO.web does not work under
 Windows XP. This server is included to allow you to easily evaluate
 and develop the OMERO.web component. As it should not be used in a
 production environment, while an inconvenience, this should not stop
-the deployment of a production version of OMERO.web. See `OME forum
-topic
-<http://www.openmicroscopy.org/community/viewtopic.php?f=5&t=640>`_
+the deployment of a production version of OMERO.web. See :forum:`OME forum
+topic <viewtopic.php?f=5&t=640>`.
 
 OMERO.importer and number of files to import
 ============================================
