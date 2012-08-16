@@ -3,6 +3,29 @@
 OMERO.server Installation
 =========================
 
+.. seealso::
+
+    :ref:`server/upgrade`
+         Instructions for **upgrading** your OMERO.server installation.
+
+    :ref:`server/install_linux`
+        A walkthrough for users wishing to install OMERO 4.4.x on Debian.
+
+    :ref:`server/install_homebrew`
+        A walkthrough for users wishing to install OMERO 4.4.x on Mac OS X using
+        Homebrew.
+
+    :snapshot:`OMERO Installation for Mac OS X Snow Leopard (10.6) <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
+        A guide provided by Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) 
+        for users wishing to install OMERO 4.1 on Mac OS 10.6, including
+        details on how to build all dependencies from source. The OMERO 4.4
+        and 4.3 installs are almost identical to 4.2 and 4.1 (except for web
+        client), so this guide will still be useful.
+
+    :snapshot:`Omero Server Beta 4.2.0 -­ Installation on CentOS <omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`
+        A guide provided by Caterina Strambio De Castillia and Vanni Galli (University of Geneva/SUPSI in Lugano) for users wishing to install OMERO 4.1.1 or 4.2.0 on CentOS.
+
+
 Limitations
 -----------
 
@@ -762,27 +785,3 @@ If you want help with your server installation, please include the output of the
 
     OMERO data dir: '/OMERO'    Exists? True    Is writable? True
     OMERO.web status... [RUNNING] (PID 28736)
-
-
-.. seealso::
-
-    :ref:`server/upgrade`
-         Instructions for **upgrading** your OMERO.server installation.
-
-    :ref:`server/install_linux`
-        A walkthrough for users wishing to install OMERO 4.4.x on Debian.
-
-    :ref:`server/install_homebrew`
-        A walkthrough for users wishing to install OMERO 4.4.x on Mac OS X using
-        Homebrew.
-
-    :snapshot:`OMERO Installation for Mac OS X Snow Leopard(10.6) <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
-        A guide provided by Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) 
-        for users wishing to install OMERO 4.1 on Mac OS 10.6, including
-        details on how to build all dependencies from source. The OMERO 4.4
-        and 4.3 installs are almost identical to 4.2 and 4.1 (except for web
-        client), so this guide will still be useful.
-
-    :snapshot:`Omero Server Beta 4.2.0 -­ Installation on CentOS <omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`
-        A guide provided by Caterina Strambio De Castillia and Vanni Galli (University of Geneva/SUPSI in Lugano) for users wishing to install OMERO 4.1.1 or 4.2.0 on CentOS.
-
