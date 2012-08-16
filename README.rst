@@ -8,9 +8,10 @@ Getting started with Sphinx
 
 Sphinx depends on the ``sphinx-build`` Python script. As such, it can be
 installed on any system with a working Python installation and PIP. On
-Windows, make sure that the ``Scripts`` directory under the Python installation
-directory (e.g. ``C:\Python26\Scripts``) is configured in your PATH. On
-OS X/Linux, ``sphinx-build`` has to be accessible from the command line.
+Windows, make sure that the ``Scripts`` directory under the Python
+installation directory (e.g. ``C:\Python26\Scripts``) is configured in your
+PATH. On OS X/Linux, ``sphinx-build`` has to be accessible from the command
+line.
 
 The Sphinx documentation system can be obtained by issuing::
     
@@ -197,7 +198,7 @@ of the document::
     
 This label allows the page to be uniquely referenced in the rest of the
 documentation. To do so, use the following syntax
-``:ref:\`path/name-of-the-page\``` or ``:ref:\`link to my page <path/name-of-the-page>\```.
+``:ref: `path/name-of-the-page``` or ``:ref: `link to my page <path/name-of-the-page>```.
 
 References to labels above tables and images are also encouraged. The
 ``:ref:`` Sphinx role is advised over standard reST links, as it works across
@@ -246,7 +247,7 @@ Common markups
 * References to external documentation can be formatted using:
   ``.. seealso::``
 * Menu selections should be marked using the appropriate role:
-  ``:menuselection:\`Start --> Programs\```
+  ``:menuselection: `Start --> Programs```
 
 Global substitution
 -------------------
@@ -283,12 +284,12 @@ Some URLs are widely used across the OME documentation. Using the Sphinx
 ``extlinks`` extension, a dictionary of aliases to base URLs has been defined
 for the following:
  
-* Trac tickets: ``:ticket:\`3442\```, displayed as ``<a>#3442</a>``
-* Snapshots: ``:snapshot:\`omero/myzip.zip\```
-* Plone pages: ``:plone:\`Downloads <support/omero4/downloads>\```
-* DOIs: ``:doi:\`Dantas, et al., JCB <10.1083/jcb.201012093>\```
-* Github source code, e.g. ``:source:\`etc/omero.properties\```
-* OME Forums: ``:forum:\`viewforum.php?f=3\```
+* Trac tickets: ``:ticket: `3442```, displayed as ``<a>#3442</a>``
+* Snapshots: ``:snapshot: `omero/myzip.zip```
+* Plone pages: ``:plone: `Downloads <support/omero4/downloads>```
+* DOIs: ``:doi: `Dantas, et al., JCB <10.1083/jcb.201012093>```
+* Github source code, e.g. ``:source: `etc/omero.properties```
+* OME Forums: ``:forum: `viewforum.php?f=3```
 
 For the most up-to-date list, please consult ``conf.py`` (section
 ``extlinks``).
