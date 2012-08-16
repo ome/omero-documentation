@@ -121,16 +121,16 @@ before H1 and H2. One new line in any other case.
 
 Example::
     
-    ###################
-    Document title (H1)
-    ###################
+    ###############
+    Part title (H1)
+    ###############
     
     Introduction text.
     (blank)
     (blank)
-    **************
-    A section (H2)
-    **************
+    ******************
+    Chapter title (H2)
+    ******************
     
 Title headings
 ==============
@@ -152,35 +152,35 @@ The following symbols should be used to create headings:
  
 Example::
     
-    ##################
-    H1: document title
-    ##################
+    ###############
+    Part title (H1)
+    ###############
     
-    Introduction text.
-    
-    
-    *********
-    Sample H2
-    *********
-    
-    Sample content.
+    H1 only in indexes.
     
     
-    **********
-    Another H2
-    **********
+    ******************
+    Chapter title (H2)
+    ******************
     
-    Sample H3
-    =========
+    Sample file content.
     
-    Sample H4
-    ---------
     
-    Sample H5
-    ^^^^^^^^^
+    ********************
+    Another chapter (H2)
+    ********************
     
-    Sample H6
-    """""""""
+    Section title (H3)
+    ==================
+    
+    Subsection title (H4)
+    ---------------------
+    
+    Subsubsection title (H5)
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+    
+    Paragraph title (H6)
+    """"""""""""""""""""
     
     And some text.
     
