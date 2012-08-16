@@ -258,5 +258,6 @@ for the following:
  * Plone pages: `` :plone:`Downloads <support/omero4/downloads>` ``
  * DOIs: `` :doi:`Dantas, et al., JCB <10.1083/jcb.201012093>` ``
  * Github source code, e.g. `` :source:`etc/omero.properties` ``
- 
+ * OME Forums: `` :forum:viewforum.php?f=3` ``
+
 For the most up-to-date list, please consult `conf.py` (section `extlinks`).
