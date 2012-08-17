@@ -241,7 +241,7 @@ working with your IIS deployment.
    you are using IIS 7 you must enable the IIS 6 WMI backwards
    compatibility options, as shown on the figure:
 
-.. figure:: installation-images/IIS7Requirements.png
+.. figure:: /images/installation-images/IIS7Requirements.png
    :align: center
    :alt: IIS 7 configuration options
 
@@ -253,7 +253,7 @@ working with your IIS deployment.
    Settings...* for the *Application Pool* assigned to your default
    *Site*. You can do this in the *IIS Manager* as follows:
 
-.. figure:: installation-images/IIS7ApplicationPool.png
+.. figure:: /images/installation-images/IIS7ApplicationPool.png
    :align: center
    :alt: IIS 7 Application Pool Advanced Settings
 
@@ -302,7 +302,7 @@ to access OMERO.webadmin or the OMERO.webclient:
 -  **http://your\_host/omero** OR, for development server:
    **http://localhost:4080**
 
-	.. figure:: installation-images/login.png
+	.. figure:: /images/installation-images/login.png
 	   :align: center
 	   :alt: OMERO.webadmin login
 

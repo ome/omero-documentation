@@ -1,4 +1,4 @@
-.. _introduction/overview:
+.. _users/overview:
 
 *****************
 Overview of OMERO
@@ -21,7 +21,7 @@ Service. The database is a representation of the :plone:`OME Data
 Model <support/file-formats>` and is mapped to objects via
 Hibernate_.
 
-.. figure:: images/omero-overview.png
+.. figure:: /images/omero-overview.png
    :align: center
    :alt:
 

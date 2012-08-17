@@ -14,7 +14,7 @@ Introduction
     :maxdepth: 1
     :titlesonly:
 
-    introduction/overview
+    users/overview
    
     community/resources
 
@@ -25,7 +25,7 @@ Quickstart
     :maxdepth: 1
     :titlesonly:
 
-    gettingstarted/virtual-appliance
+    users/virtual-appliance
 
 
 ************
@@ -40,8 +40,8 @@ Installation
     limitations
 
     gettingstarted/index
-    users/installation/server
-    troubleshooting
+    sysadmins/server-installation
+    sysadmins/troubleshooting
     clients/index
    
     server/upgrade 

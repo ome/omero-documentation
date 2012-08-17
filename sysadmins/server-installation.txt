@@ -1,4 +1,4 @@
-.. _users/installation/server:
+.. _sysadmins/server-installation:
 
 OMERO.server Installation
 =========================
@@ -29,14 +29,14 @@ OMERO.server Installation
 Limitations
 -----------
 
-Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :ref:`troubleshooting_password`.
+Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :ref:`sysadmins/troubleshooting/password`.
 
 For Windows:
 
 -  Unless you are clear on the differences, **you should also open all 
    consoles as an administrator to prevent file permission issues.**
 
-    .. figure:: ../../server/installation-images/win7-runasadmin-highlight.png
+    .. figure:: /images/installation-images/win7-runasadmin-highlight.png
        :align: center
        :alt:
 
@@ -189,26 +189,26 @@ will need the postgres user's password later in the install.
 
 #. Run the downloaded installer:
 
-   .. figure:: ../../server/install-windows-screenshots/pginstall-01explorer.png
+   .. figure:: /images/install-windows-screenshots/pginstall-01explorer.png
       :align: center
       :alt: 1
 
 #. You may be prompted for permission to continue with a "user account
    control" dialog. Click "yes" to continue.
 
-   .. figure:: ../../server/install-windows-screenshots/pginstall-02uac.png
+   .. figure:: /images/install-windows-screenshots/pginstall-02uac.png
       :align: center
       :alt: 1
 
 #. The installer will now start.
 
-   .. figure:: ../../server/install-windows-screenshots/pginstall-03start.png
+   .. figure:: /images/install-windows-screenshots/pginstall-03start.png
       :align: center
       :alt: 1
 
 #. Choose the installation directory. The default is fine.
 
-   .. figure:: ../../server/install-windows-screenshots/pginstall-04bindir.png
+   .. figure:: /images/install-windows-screenshots/pginstall-04bindir.png
       :align: center
       :alt: 1
 
@@ -216,7 +216,7 @@ will need the postgres user's password later in the install.
    keep the data in a specific location, you may choose an alternative
    location here.
 
-   .. figure:: ../../server/install-windows-screenshots/pginstall-05datadir.png
+   .. figure:: /images/install-windows-screenshots/pginstall-05datadir.png
       :align: center
       :alt: 1
 
@@ -224,29 +224,29 @@ will need the postgres user's password later in the install.
    does not use this account, but you will need to remember the password
    for creating the database, below.
 
-   .. figure:: ../../server/install-windows-screenshots/pginstall-06passwd.png
+   .. figure:: /images/install-windows-screenshots/pginstall-06passwd.png
       :align: center
       :alt: 1
 
 #. Enter the port number for PostgreSQL to listen on for incoming
    connections. The default, 5432, is fine and should not be changed.
 
-   .. figure:: ../../server/install-windows-screenshots/pginstall-07port.png
+   .. figure:: /images/install-windows-screenshots/pginstall-07port.png
       :align: center
       :alt: PostgreSQL port
 
 #. Select the locale. The default here is fine.
 
-   .. figure:: ../../server/install-windows-screenshots/pginstall-08locale.png
+   .. figure:: /images/install-windows-screenshots/pginstall-08locale.png
       :align: center
       :alt: PostgreSQL locale
 
 #. PostgreSQL will now be installed and started.
 
-   .. |pginstall-begincopy| image:: ../../server/ install-windows-screenshots/pginstall-09begincopy.png
+   .. |pginstall-begincopy| image:: /images/ install-windows-screenshots/pginstall-09begincopy.png
       :alt: PostgreSQL Begin copy
 
-   .. |pginstall-complete| image:: ../../server/install-windows-screenshots/pginstall-10complete.png
+   .. |pginstall-complete| image:: /images/install-windows-screenshots/pginstall-10complete.png
       :alt: PostgreSQL Complete
 
    |pginstall-begincopy| |pginstall-complete|
@@ -342,7 +342,7 @@ Windows
       tab (on Windows Vista the dialog will be visible after clicking
       the *Change settings* link on the *System* control panel page):
 
-      .. figure:: ../../server/installation-images/system-properties.png
+      .. figure:: /images/installation-images/system-properties.png
          :align: center
          :alt: Advanced System Properties
 
@@ -350,7 +350,7 @@ Windows
    #. Open the *Environment Variables* dialog by clicking on the
       *Environment Variables...* button of the above dialog:
 
-      .. figure:: ../../server/installation-images/environment-variables.png
+      .. figure:: /images/installation-images/environment-variables.png
          :align: center
          :alt: Environment Variables
 
@@ -362,13 +362,13 @@ Windows
       add a brand new *System* environment variable called
       ``PYTHONPATH`` pointing to the Ice installation 'python' location:
 
-      .. |PATH variable| image:: ../../server/installation-images/path-variable.png
+      .. |PATH variable| image:: /images/installation-images/path-variable.png
          :alt: Path variable
 
-      .. |PATH variable 2| image:: ../../server/installation-images/path-variable2.png
+      .. |PATH variable 2| image:: /images/installation-images/path-variable2.png
          :alt: Path variable
 
-      .. |PYTHONPATH variable| image:: ../../server/installation-images/pythonpath-variable.png
+      .. |PYTHONPATH variable| image:: /images/installation-images/pythonpath-variable.png
          :alt: PythonPath variable
 
 
@@ -474,20 +474,20 @@ Windows
       choose *Connect*) and provide your *postgres* user login password
       set during the installation, above.
 
-      .. |pgadmin-start| image:: ../../server/install-windows-screenshots/pgadmin-01start.png
+      .. |pgadmin-start| image:: /images/install-windows-screenshots/pgadmin-01start.png
          :alt: Run pgAdmin III
 
-      .. |pgadmin-initialview| image:: ../../server/install-windows-screenshots/pgadmin-02initialview.png
+      .. |pgadmin-initialview| image:: /images/install-windows-screenshots/pgadmin-02initialview.png
          :alt: Connect to the database server
 
-      .. |pgadmin-connect| image::  ../../server/install-windows-screenshots/pgadmin-03connect.png
+      .. |pgadmin-connect| image::  /images/install-windows-screenshots/pgadmin-03connect.png
          :alt: Enter password
 
       |pgadmin-start| |pgadmin-initialview| |pgadmin-connect|
 
    #. Right-click on *Login Roles* and select *New Login Role...*
 
-      .. figure:: ../../server/install-windows-screenshots/pgadmin-04newrole-context.png
+      .. figure:: /images/install-windows-screenshots/pgadmin-04newrole-context.png
          :align: center
          :alt: New login role
 
@@ -498,10 +498,10 @@ Windows
       need to configure OMERO to use your username and password by
       setting the omero.db.name and omero.db.pass properties (below).
 
-   .. |newrolename| image:: ../../server/install-windows-screenshots/pgadmin-05newrole-name.png
+   .. |newrolename| image:: /images/install-windows-screenshots/pgadmin-05newrole-name.png
       :alt: New role name
 
-   .. |newrolepassword| image:: ../../server/install-windows-screenshots/pgadmin-06newrole-passwd.png
+   .. |newrolepassword| image:: /images/install-windows-screenshots/pgadmin-06newrole-passwd.png
       :alt: New role password
 
    +---------------+-------------------+
@@ -512,7 +512,7 @@ Windows
 
    #. Right-click on *Databases* and select *New Database...*
 
-      .. figure:: ../../server/install-windows-screenshots/pgadmin-07newdatabase-context.png
+      .. figure:: /images/install-windows-screenshots/pgadmin-07newdatabase-context.png
          :align: center
          :alt: New database
 
@@ -520,7 +520,7 @@ Windows
    #. Create a new database with the *Name* ``omero_database`` and
       *Owner* ``db_user`` (this may take a few moments)
 
-      .. figure:: ../../server/install-windows-screenshots/pgadmin-08newdatabase-name.png
+      .. figure:: /images/install-windows-screenshots/pgadmin-08newdatabase-name.png
          :align: center
          :alt: New database name
 
@@ -531,10 +531,10 @@ Windows
    #. First, go to :menuselection:`File --> Options` select the *Browser* tab and
       activate the *Languages* option:
 
-      .. |pgadmin-optionsmenu| image:: ../../server/install-windows-screenshots/pgadmin-09optionsmenu.png
+      .. |pgadmin-optionsmenu| image:: /images/install-windows-screenshots/pgadmin-09optionsmenu.png
          :alt: Options menu
 
-      .. |pgadmin-viewlanguages| image:: ../../server/install-windows-screenshots/pgadmin-10viewlanguages.png
+      .. |pgadmin-viewlanguages| image:: /images/install-windows-screenshots/pgadmin-10viewlanguages.png
          :alt: Enable display of installed languages
 
       |pgadmin-optionsmenu| |pgadmin-viewlanguages|
@@ -542,7 +542,7 @@ Windows
    #. Navigate back to your database, expand the database's tree view
       and finally expand the now available *Languages* item:
 
-      .. figure:: ../../server/install-windows-screenshots/pgadmin-11installedlanguages.png
+      .. figure:: /images/install-windows-screenshots/pgadmin-11installedlanguages.png
          :align: center
          :alt: View installed languages
 
@@ -556,10 +556,10 @@ Windows
       menu. Finally, add the ``plpgsql`` language, accepting all
       defaults.
 
-      .. |pgadmin-newlanguage-context| image:: ../../server/install-windows-screenshots/pgadmin-12newlanguage-context.png
+      .. |pgadmin-newlanguage-context| image:: /images/install-windows-screenshots/pgadmin-12newlanguage-context.png
          :alt: Add new language
 
-      .. |pgadmin-newlanguage-name| image:: ../../server/install-windows-screenshots/pgadmin-13newlanguage-name.png
+      .. |pgadmin-newlanguage-name| image:: /images/install-windows-screenshots/pgadmin-13newlanguage-name.png
          :alt: New language name
 
       |pgadmin-newlanguage-context| |pgadmin-newlanguage-name|
@@ -827,7 +827,7 @@ to access the OMERO.web interface:
 
 -  `http://localhost:4080/ <http://localhost:4080/>`_
 
-   .. figure:: ../../server/installation-images/login.png
+   .. figure:: /images/installation-images/login.png
       :align: center
       :alt: OMERO.webadmin login
 
@@ -877,7 +877,7 @@ Your OMERO.server installation will check for updates each time it is started fr
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-My OMERO install doesn't work! What do I do now!?! Examine the :ref:`troubleshooting` page and if all else fails post a
+My OMERO install doesn't work! What do I do now!?! Examine the :ref:`sysadmins/troubleshooting` page and if all else fails post a
 message to our ``ome-users`` mailing list discussed on the OmeroCommunity page.
 
 OMERO Diagnostics

@@ -1,4 +1,4 @@
-.. _troubleshooting:
+.. _sysadmins/troubleshooting:
 
 ***************
 Troubleshooting
@@ -22,7 +22,7 @@ Known Operating System issues
    (:forum:`OME forum topic <viewtopic.php?f=5&t=640>`)
    and :ref:`limitations`
 
-.. _troubleshooting_password:
+.. _sysadmins/troubleshooting/password:
 
 Which password do I use where?
 ==============================
@@ -172,7 +172,7 @@ to OMERO. OMERO.insight gives you an error message similar to the
 following (and you know that you've put the correct username and
 password into the OMERO.insight dialog):
 
-.. figure:: images/login_failure.png
+.. figure:: /images/login_failure.png
    :align: center
    :alt: Login failure
 
