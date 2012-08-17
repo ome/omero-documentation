@@ -398,9 +398,7 @@ slowed down. To get round this for the OMERO.server you can define an
 ``OMERO_TEMPDIR`` environment variable pointing to a temporary directory
 located on the local file system e.g. ``/tmp`` (resp. ``C:\tmp\``).
 
-.. _installation_database_creation:
-
-.. _server/installation#PreInstallation:
+.. _sysadmins/server-installation#PreInstallation:
 
 Creating a database as root
 ---------------------------
@@ -593,7 +591,7 @@ Location for the your OMERO binary repository
        ome
        $ sudo chown -R ome /OMERO
 
-.. _server/installation#Installation:
+.. _sysadmins/server-installation#Installation:
 
 Installation
 ------------

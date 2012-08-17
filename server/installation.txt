@@ -24,7 +24,7 @@ OMERO.server Installation for UNIX-Based Platforms
 
 --------------
 
-Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :ref:`troubleshooting_password`.
+Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :ref:`sysadmins/troubleshooting/password`.
 
 .. _server/installation#Prerequisites:
 
@@ -429,7 +429,7 @@ Your OMERO.server installation will check for updates each time it is started fr
 Troubleshooting
 ~~~~~~~~~~~~~~~
 
-My OMERO install doesn't work! What do I do now!?! Examine the :ref:`troubleshooting` page and if all else fails post a
+My OMERO install doesn't work! What do I do now!?! Examine the :ref:`sysadmins/troubleshooting` page and if all else fails post a
 message to our ``ome-users`` mailing list discussed on the OmeroCommunity page.
 
 OMERO Diagnostics

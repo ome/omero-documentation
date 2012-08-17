@@ -52,7 +52,7 @@ upgraded. See the :ref:`server/upgrade#441` section for detailed steps.
 Upgrade from 4.3.x server to 4.4.1 server
 -----------------------------------------
 
-.. note:: The passwords and logins used here are examples. Please consult the :ref:`troubleshooting` section for explanation.
+.. note:: The passwords and logins used here are examples. Please consult the :ref:`sysadmins/troubleshooting` section for explanation.
 
 Perform a database backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -229,7 +229,7 @@ Upgrade from 4.4.0 server to 4.4.1 server
 .. note::
 
     The passwords and logins used here are exemplary. Please
-    consult the :ref:`troubleshooting_password` page
+    consult the :ref:`sysadmins/troubleshooting/password` page
     for explanation.
 
 Copy new binaries
