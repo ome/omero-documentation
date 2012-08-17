@@ -1,0 +1,53 @@
+Logging
+-------
+
+At present, there are uses of System.out.println throughout the code
+base. These are being removed. Apache logging is used and should be
+throughout and consistently. Also, the following should NOT be used.
+
+::
+
+     log.debug("My output text");
+
+The log statements should be wrapped with checking logic for appropriate
+warning LEVEL configuration. This is done like so.
+
+::
+
+     if (isDebugEnabled()) {
+       log.debug("My output text will work if debug LEVEL logging is on.");
+     }
+
+When you're logging statements are wrapped, all logging can be turned on
+or off very easily in the configuration file(s). Before you can use a
+logger you will need to declare one at the top of each class like so.
+
+::
+
+     private static Log log = LogFactory.getLog(YourSpecificClassName.class);
+
+Exception Handling
+------------------
+
+As we all know, the easy thing to do in a catch block is to use the
+printStackTrace method. Do not leave these. We are removing these and
+replacing them with something similar to this below.
+
+::
+
+     catch (IOException ioex) {
+        log.error("Could not write to file", ioex);
+     }
+
+The getCause() method is used to pass the Throwable exception to the
+log. Any stacktrace output will be sent to the log. Please remember that
+sometimes a new Exception is thrown, possibly to support the method or a
+ResourceError is created. The ResourceError is handled like so.
+
+::
+
+     catch (IOException e)
+     {
+       log.error("Could not read from file", e);
+       throw new ResourceError(e.getMessage() + " Please check server log.");
+     }

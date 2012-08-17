@@ -1,0 +1,291 @@
+.. _server/upgrade:
+
+OMERO.server Upgrade
+====================
+
+.. contents::
+	:depth: 3
+
+The OME team is committed to providing frequent, project-wide upgrades
+both with bug fixes and new functionality. We try to make the schedule
+for these releases as public as possible. You may want to take a look
+at the `roadmap <http://trac.openmicroscopy.org.uk/ome/roadmap>`_ for
+exactly what will go into a release. We always inform our
+:plone:`mailing lists <community>` of the development
+status. Finally, all the products check themselves with the
+:wiki:`OmeroRegistry` for update notifications on startup. If you wish
+to disable this functionality you should do so now as outlined on the
+:wiki:`UpgradeCheck` page.
+
+.. note:: 
+    Before starting the upgrade, please ensure that you have
+    obtained all the prerequisites for installation, documented for
+    Unix and Windows. In particular, ensure that you are running a
+    suitable version of PostgreSQL to enable successful upgrading of
+    the database.
+
+If you encounter errors during a OMERO upgrade, database upgrade, etc.
+you should retain as much log information as possible and notify the
+OMERO.server team via the mailing lists available on the
+:plone:`community <community>` page. More experienced users may wish to
+examine the :wiki:`DbUpgrade` page for technical information about OMERO.server database upgrades and
+how to troubleshoot errors themselves.
+
+For all users, the basic worflow for upgrading your OMERO.server from
+4.3.x or 4.4.0 to 4.4.1 is listed below. Please refer to each section for
+additional details.
+
+#. Perform a database backup
+#. Copy binaries
+#. Update your database
+#. (Optional) Optimize an upgraded database
+#. Merge script changes
+#. Update your environment variables
+#. Restart your database
+#. (Optional - if something goes wrong) Restore a database backup
+
+If you are upgrading your OMERO.server from 4.4.0 to 4.4.1, the
+workflow is almost identical except the database doesn't need to be
+upgraded. See the :ref:`server/upgrade#441` section for detailed steps.
+
+
+Upgrade from 4.3.x server to 4.4.1 server
+-----------------------------------------
+
+.. note:: The passwords and logins used here are examples. Please consult the :ref:`troubleshooting` section for explanation.
+
+Perform a database backup
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The first thing to do before **any** upgrade activity is to backup your
+database.
+
+::
+
+    $ pg_dump -h localhost -U db_user -Fc -f before_upgrade.db.dump omero_database
+
+Copy new binaries
+^^^^^^^^^^^^^^^^^
+
+Before copying the new binaries, stop the existing server.
+
+::
+
+    $ cd OMERO.server
+    $ bin/omero web stop
+    $ bin/omero admin stop
+
+Your OMERO 4.3 configuration is stored using ``config.xml`` in the
+``etc/grid`` directory under your OMERO.server directory. Assuming you
+have not made any file changes within your OMERO.server distribution
+directory, you are safe to follow the following upgrade procedure:
+
+::
+
+    $ cd ..
+    $ mv OMERO.server OMERO.server-old
+    $ unzip OMERO.server-4.4.1-ice3x-b3035.zip
+    $ cp OMERO.server-old/etc/grid/config.xml OMERO.server-4.4.1-ice3x-b3035/etc/grid
+
+where ``ice3x`` **needs to be replaced** by the appropriate Ice version of
+OMERO.server.
+
+Update your database
+^^^^^^^^^^^^^^^^^^^^
+
+You **must** use the same username and password you have defined during
+:ref:`server/installation`. The 4.4 upgrade script should execute in
+a short time.
+
+::
+
+    $ cd OMERO.server-4.4.1-ice3x-b3035
+    $ psql -h localhost -U db_user omero_database < sql/psql/OMERO4.4__0/OMERO4.3__0.sql
+    Password for user db_user:
+    ...
+    ...
+                               status                                
+    ---------------------------------------------------------------------
+                                                                        +
+                                                                        +
+                                                                        +
+     YOU HAVE SUCCESSFULLY UPGRADED YOUR DATABASE TO VERSION OMERO4.4__0+
+                                                                        +
+                                                                        +
+
+    (1 row)
+
+Optimize an upgraded database (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After you have run the upgrade script, you may want to optimize your
+database which can both save disk space and speed up access times.
+
+::
+
+    $ psql -h localhost -U db_user omero_database -c "REINDEX DATABASE omero_database FORCE;"
+    $ psql -h localhost -U db_user omero_database -c "VACUUM FULL VERBOSE ANALYZE;"
+
+Merge script changes
+^^^^^^^^^^^^^^^^^^^^
+
+If any new official scripts have been added under ``lib/scripts`` or if
+you've modified any of the existing ones, then you will need to backup
+your modifications. Doing this, however, is not as simple as copying the
+directory over since the core developers will have also improved these
+scripts. In order to facilitate saving your work, we've turned the
+scripts into a Git submodule which can be found at
+`<https://github.com/ome/scripts>`_. For more information on how to use Git
+submodules, please consult the
+:plone:`FAQ <support/faq/omero/how-do-i-make-lib-scripts-a-git-repository>`.
+
+If you would like help merging the two repositories, please contact the
+OME developers.
+
+Update your environment variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Environment variables
+"""""""""""""""""""""
+
+If you changed the directory name where the 4.4.1 server code resides,
+make sure to update any system environment variables. Before restarting
+the server, make sure your PATH and PYTHONPATH system environment
+variables are pointing to the new locations.
+
+Changes to OMERO.web URLs
+"""""""""""""""""""""""""
+
+In order to ease deployment and avoid errors for IIS (Windows production
+deployment) and Apache (notably CentOS/RHEL 5 and 6) OMERO.web now
+defaults to being "mounted on ``/omero``". The new OMERO.web web server
+stanzas have redirects in them with the notable exception of IIS.
+Depending on your web server configuration you may need to visit your
+OMERO.web instance at
+`http://example.com/omero/ <http://example.com/omero/>`_.
+
+As a result of this your web server configuration stanza generated by
+the previous version of ``bin/omero web config`` has to be replaced with
+the new version. To generate the relevant configuration, please run
+``bin/omero web config <webserver>``, update and restart your web
+server.
+
+Restart your database
+^^^^^^^^^^^^^^^^^^^^^
+
+-  Following a successful db upgrade, you can start the 4.4.1 server.
+
+   ::
+
+       $ cd OMERO.server-4.4.1-ice3x-b3035/
+       $ bin/omero admin start
+
+-  If anything goes wrong, please send the output of
+   ``bin/omero admin diagnostics`` to
+   ome-users@lists.openmicroscopy.org.uk.
+
+-  Start OMERO.web with the following command:
+
+   ::
+
+       $ bin/omero web start
+
+Restore a database backup
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the upgraded database or the new server version do not work for you,
+or you otherwise need to rollback to a previous database backup, you may
+want to restore a database backup. To do so, create a new database,
+
+::
+
+    $ createdb -h localhost -U postgres -O db_user omero_from_backup
+
+restore the previous archive into this new database,
+
+::
+
+    $ pg_restore -Fc -d omero_from_backup before_upgrade.db.dump
+
+and configure your server to use it.
+
+::
+
+    $ bin/omero config omero.db.name omero_from_backup
+
+.. _server/upgrade#441:
+
+Upgrade from 4.4.0 server to 4.4.1 server
+-----------------------------------------
+
+.. note::
+
+    This section only concerns users who upgraded to 4.4.0
+    server. The 4.4.1 version is only necessary if you are having
+    trouble with big images (SVS, etc) or Flex file types. If not, you
+    may continue using your 4.4.0 clients and servers. See issues
+    :ticket:`9372` and :ticket:`9377` for more information.
+
+.. note::
+
+    The passwords and logins used here are exemplary. Please
+    consult the :ref:`troubleshooting_password` page
+    for explanation.
+
+Copy new binaries
+^^^^^^^^^^^^^^^^^
+
+Before copying the new binaries, stop the existing server.
+
+::
+
+    $ cd OMERO.server
+    $ bin/omero web stop
+    $ bin/omero admin stop
+
+Your OMERO 4.4.0 configuration is stored using ``config.xml`` in the
+``etc/grid`` directory under your OMERO.server directory. Assuming you
+have not made any file changes within your OMERO.server distribution
+directory, you are safe to follow the following upgrade procedure:
+
+::
+
+    $ cd ..
+    $ mv OMERO.server OMERO.server-old
+    $ unzip OMERO.server-4.4.1-ice3x-b3035.zip
+    $ cp OMERO.server-old/etc/grid/config.xml OMERO.server-4.4.1-ice3x-b3035/etc/grid
+
+where ``ice3x`` **needs to replaced** by the adequate Ice version of
+OMERO.server.
+
+Merge script changes
+^^^^^^^^^^^^^^^^^^^^
+
+As with the migration from 4.3.x, if you upgraded your scripts for
+4.4.0, you'll need to do the same for 4.4.1. See the instructions above
+for more information.
+
+Restart your server
+^^^^^^^^^^^^^^^^^^^
+
+-  You can start the 4.4.1 server.
+
+   ::
+
+       $ cd OMERO.server-4.4.1-ice3x-b3035/
+       $ bin/omero admin start
+
+-  If anything goes wrong, please send the output of
+   ``bin/omero admin diagnostics`` to
+   ome-users@lists.openmicroscopy.org.uk.
+
+-  Start OMERO.web with the following command:
+
+   ::
+
+       $ bin/omero web start
+
+.. seealso::
+    
+    :ref:`server/legacy_upgrade`
+        Upgrade instructions for previous versions of the OMERO server.

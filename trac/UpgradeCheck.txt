@@ -1,0 +1,101 @@
+OMERO Upgrade Checks
+====================
+
+On each startup the OMERO server checks for available upgrades via the
+`UpgradeCheck
+class </ome/browser/ome.git/components/common/src/ome/system/UpgradeCheck.java>`_.
+An HTTP GET call is made to the URL configured in
+``etc/omero.properties`` as ``omero.upgrades.url``, currently
+` http://upgrade.openmicroscopy.org.uk <http://upgrade.openmicroscopy.org.uk>`_
+by default. (Viewing this page in your browser will redirect you to this
+page).
+
+Actions
+-------
+
+Currently the only action taken when an upgrade is necessary is a log
+statement at WARN level.
+
+::
+
+    2011-09-01 12:21:32,070 WARN  [                 ome.system.UpgradeCheck] (      main) UPGRADE AVAILABLE:Please upgrade to Beta-4.3.3 See http://trac.openmicroscopy.org.uk/omero for the latest version
+
+Future versions may also send emails and/or IMs to administrators. In
+the case of critical upgrades, the server may refuse to start.
+
+Privacy
+-------
+
+Currently, the only information which is being transmitted to the server
+is:
+
+-  Java virtual machine version
+-  operating system details (architecture, version and name)
+-  current server version
+-  poll frequency (for determining statistics)
+-  your IP address (standard HTTP header information)
+
+**NOTE:** Currently the "poll" property is unused.
+
+If this is a problem for your site, please see *Disabling* below.
+
+Disabling
+---------
+
+If you would prefer to have no checks made, the check can be disabled by
+setting the omero.upgrades.url property to an empty string:
+
+::
+
+    omero.upgrades.url=
+
+--------------
+
+Developers
+----------
+
+To use the `UpgradeCheck </ome/wiki/UpgradeCheck>`_ class from your own
+code, it is necessary to have ``common.jar`` on your classpath. Then,
+
+::
+
+        ResourceBundle bundle = ResourceBundle.getBundle("omero")
+        String version = bundle.getString("omero.version");
+        String url = bundle.getString("omero.upgrades.url");
+        ome.system.UpgradeCheck check = new UpgradeCheck(
+          url, version, "insight"); // Or "importer", etc.
+        check.run();
+        check.isUpgradeNeeded();
+        // optionally
+        check.isExceptionThrown();
+
+will connect to the server and check your current version against the
+latest release.
+
+Updating the registry version after a release
+---------------------------------------------
+
+::
+
+    $ psql -h localhost -U postgres feedback
+
+    feedback=# select * from registry_version;
+     id |  version   
+    ----+------------
+      1 | Beta-4.2.2
+    (1 row)
+
+    feedback=# select now();
+                  now              
+    -------------------------------
+     2011-06-27 16:01:30.749654+01
+    (1 row)
+
+    feedback=# update registry_version set version = 'Beta-4.3.0' where id = 1;
+    UPDATE 1
+
+--------------
+
+See also: `OmeroInstall </ome/wiki/OmeroInstall>`_,
+`OmeroUpgrade </ome/wiki/OmeroUpgrade>`_,
+`OmeroSecurity </ome/wiki/OmeroSecurity>`_

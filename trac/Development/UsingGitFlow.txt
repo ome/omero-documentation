@@ -1,0 +1,194 @@
+gitflow
+~~~~~~~
+
+We follow the git-flow style of naming and managing branch. Info about
+the idea can be found under
+` http://nvie.com/posts/a-successful-git-branching-model/ <http://nvie.com/posts/a-successful-git-branching-model/>`_.
+There's also a ` screencast <http://vimeo.com/16018419>`_ available on
+Vimeo. **Note:** *since we are now using Pull Requests on github rather
+than all pushing directly to develop, the git-flow style tools and
+naming are less necessary. How merging takes place, however, is still
+largley based on git-flow.*
+`|http://nvie.com/img/2009/12/Screen-shot-2009-12-24-at-11.32.03.png| <http://nvie.com/img/2009/12/Screen-shot-2009-12-24-at-11.32.03.png>`_
+
+-  If you did not use the OMERO-setup script below, you will need to
+   install git-flow manually and initialise it for OMERO:
+
+   ::
+
+           git flow init
+
+-  Similarly, if you did not use the script above, you will need to
+   configure a few branch properties. Edit the OMERO git configuration
+   (.git/config) to add `` rebase = true `` and
+   `` mergeoptions = --no-ff `` to the develop and master branches.
+   ``--no-ff`` means that when you use "merge" it won't just
+   fast-forward (add individual commits to the log) but will make an
+   extra merge commit, preserving the branch history.
+
+::
+
+    [branch "master"]
+       remote = origin
+       merge = refs/heads/master
+       rebase = true
+       mergeoptions = --no-ff
+
+    [branch "develop"]
+       remote = origin
+       merge = refs/heads/develop
+       rebase = true
+       mergeoptions = --no-ff
+
+If you would like to do this for all branches, use
+``git config --add merge.ff false``
+
+-  To start work on a new feature or ticket that will consist of several
+   commits, create a branch (feature) E.g. "export"
+
+   ::
+
+           git flow feature start export
+
+-  You will now be in the new branch. At this point you can work and
+   commit to this branch, switch branch etc. If you want to update this
+   branch to remote changes, first make sure your local develop is up to
+   date with remote develop:
+
+   ::
+
+           git checkout develop 
+           git fetch
+           git rebase origin/develop
+
+Now you can update the feature branch with these changes
+
+::
+
+        git checkout feature/export
+        git rebase develop
+
+-  [STRIKEOUT:When you have finished working on the feature, close the
+   branch and push changes]. **Note: At the moment, the OME team is
+   experimenting with github pull requests. At this point, you should
+   file a pull request for your branch rather than using
+   ``git flow feature finish``**
+
+   ::
+
+           git checkout feature/export  # move to branch if you're not there already
+           git flow feature finish export   # you'll be moved back to 'develop'
+
+Changes are applied to 'develop'. Now push changes to remote
+'origin/develop' as described above.
+
+OMERO-script setup
+~~~~~~~~~~~~~~~~~~
+
+The following script does a little more than the quickstart section
+above including installing git-flow and configuring it for you.
+
+-  Make a new directory for your git repository. E.g. '~/OMERO'
+
+   ::
+
+           mkdir ~/OMERO
+
+-  To automate your set-up, copy the script below to a new file,
+   getting\_started.sh saving it in the same folder as 'OMERO' (not in
+   OMERO itself).
+
+   ::
+
+       #!/bin/bash
+
+       set -e
+       set -u
+       set -x
+
+       git --version | grep "git version 1.7"
+
+       ORIGIN=origin
+       WHERE=$1
+
+       git clone --origin $ORIGIN git://github.com/openmicroscopy/openmicroscopy.git $WHERE
+       cd $WHERE
+
+       git checkout -t -b 4_2 $ORIGIN/4_2
+       git checkout -t -b 4_1 $ORIGIN/4_1
+       git checkout -t -b 4_1_custom $ORIGIN/4_1_custom
+
+       git checkout -t -b dev_4_2 $ORIGIN/dev_4_2
+       git checkout -t -b dev_4_1 $ORIGIN/dev_4_1
+       git checkout -t -b dev_4_1_custom $ORIGIN/dev_4_1_custom
+
+       git checkout -t -b develop $ORIGIN/develop
+
+       # Local install of gitflow
+       git clone git://github.com/nvie/gitflow.git
+       cd gitflow
+       git submodule init
+       git submodule update
+       export PATH=$PATH:`pwd`
+
+       cd ..
+       cat >> .git/config << EOF
+
+       [gitflow "branch"]
+           master = master
+           develop = develop
+
+       [gitflow "prefix"]
+           feature = feature/
+           release = release/
+           hotfix = hotfix/
+           support = support/
+           versiontag = v.
+
+       [color]
+           ui = true
+           diff = auto
+           graph = auto
+           status = auto
+           branch = auto
+
+       [alias]
+           graph = log --date-order --graph --decorate --oneline
+           ws = rebase --whitespace=strip
+
+       [branch "master"]
+           remote = origin
+           merge = refs/heads/master
+           rebase = true
+           mergeoptions = --no-ff
+
+       [branch "develop"]
+           remote = origin
+           merge = refs/heads/develop
+           rebase = true
+           mergeoptions = --no-ff
+
+       EOF
+
+-  Now, run the script passing in the new directory E.g.'~/OMERO'.
+
+::
+
+        sh ./getting_started.sh ~/OMERO
+
+The following tasks have been carried out by the script above:
+
+-  cloned git repository (this may take some time)
+-  created several local branches, which 'track' remote branches.
+   'develop' is the branch you will use for current work
+-  downloaded and initialised gitflow. We use this for branch
+   management.
+-  written some gitflow configuration to the .git/config file.
+
+You may want to move gitflow to another location so that it doesn't get
+confused with the OMERO repository: Copy the gitflow directory to
+another location and update your PATH variable to point there: E.g.
+
+::
+
+    export PATH=$PATH:/Applications/gitflow/

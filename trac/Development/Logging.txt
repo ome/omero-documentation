@@ -1,0 +1,111 @@
+Omero Logging
+=============
+
+Table of Contents
+^^^^^^^^^^^^^^^^^
+
+#. `Java clients <#Javaclients>`_
+#. `Java servers <#Javaservers>`_
+#. `Python servers <#Pythonservers>`_
+#. `stdout & stderr <#stdoutstderr>`_
+#. `Windows stdout & stderr <#Windowsstdoutstderr>`_
+#. `Developer info <#Developerinfo>`_
+#. `Upcoming documentation on logging in
+   omero: <#Upcomingdocumentationonlogginginomero:>`_
+
+All OMERO components written in Java use
+` Log4J <http://logging.apache.org/>`_ (mostly via
+` Commons-Logging <http://commons.apache.org/logging/>`_); all
+components written in python use the built-in ``logging`` module.
+
+Java clients
+------------
+
+Java clients log to ``$HOME/omero/log``. The number of files and their
+size are limited.
+
+Logging is configured by log4j properties files contained within the
+jars themselves. For `OmeroImporter </ome/wiki/OmeroImporter>`_, the
+file is here:
+`ome.git/components/tools/OmeroImporter/resources/log4j.properties </ome/browser/ome.git/components/tools/OmeroImporter/resources/log4j.properties>`_,
+which delegates to
+`LogAppenderProxy </ome/browser/ome.git/components/tools/OmeroImporter/src/ome/formats/importer/util/LogAppenderProxy.java>`_
+for much of the configuration.
+
+Another file in that directory --
+`log4j-cli.properties </ome/browser/ome.git/components/tools/OmeroImporter/resources/log4j-cli.properties>`_
+controls the output for the
+`CommandLineImporter </ome/wiki/CommandLineImporter>`_: all logging goes
+to standard err, while useful output (pixel ids, or used files) goes to
+standard out.
+
+Java servers
+------------
+
+Java server components are configured by passing
+``-Dlog4j.configuration=etc/log4j.xml`` to each Java process.
+`Entry.java </ome/browser/ome.git/components/blitz/src/ome/services/blitz/Entry.java>`_
+guarantees that the `log4j.xml </ome/browser/ome.git/etc/log4j.xml>`_
+file is read periodically so that changes to your logging configuration
+do not require a restart.
+
+By default, the output from log4j is sent to:
+``var/log/<servername>.log``. Once files reach a size of 500MB, they are
+rolled over to ``<servername>.log.1``, ``<servername>.log.2``, etc. Once
+the files have rolled over, you can safely delete or compress (bzip2,
+gzip, zip) them. Alternatively, once you are comfortable with the
+stability of your server, you can either reduce logging or the number
+and size of the files kept. **Note:** if something goes wrong with your
+server installation, the log files can be very useful in tracking down
+issues.
+
+Python servers
+--------------
+
+Python servers are configured by a call to
+``omero.util.configure_server_logging(props)``. The property values are
+taken from the configuration file passed to the server via icegridnode.
+For example, the config file for Processor-0 can be found in
+``var/master/servers/Processor-0/config/config``. These values come from
+the `templates.xml </ome/browser/ome.git/etc/grid/templates.xml>`_.
+
+All the "omero.logging.\*" properties can be overwritten in your
+`ome.git/etc/grid/default.xml </ome/browser/ome.git/etc/grid/default.xml>`_
+file (or on Windows,
+`ome.git/etc/grid/windefault.xml </ome/browser/ome.git/etc/grid/windefault.xml>`_).
+See the "Profile" properties block for how to configure for your site.
+
+Similar to log4j, logging is configured to be written to
+``var/log/<servername>.log`` and to maintain 9 backups of at most 500MB.
+
+stdout & stderr
+---------------
+
+Though all components try to avoid it, some output will still go to
+stdout/stderr. On non-Windows systems, all of this output will be sent
+to the ``var/log/master.out`` and ``var/log/master.err`` files.
+
+Windows stdout & stderr
+-----------------------
+
+On Windows, the state of stdout and stderr is somewhat different. No
+information will be written to master.out, master.err, or similar files.
+Instead, what logging is produced will go to the Windows Event Viewer,
+but finding error situations can be considerably more challenging. (See
+`#1449 </ome/ticket/1449>`_ for more information)
+
+Developer info
+--------------
+
+-  Refrain from calling ``logging.basicConfig()`` anywhere in your
+   module except in ``if __name__ == "__main__"`` blocks.
+
+--------------
+
+Upcoming documentation on logging in omero:
+-------------------------------------------
+
+-  --debug / --report / --email / --upload
+-  tracing & warning settings
+-  zipping logs for feedback
+-  `OmeroCli </ome/wiki/OmeroCli>`_

@@ -1,0 +1,123 @@
+The OMERO Development Process
+=============================
+
+As decided at the May meeting in Dundee, the OMERO team is going to test
+a new development process loosely based on Agile and XP methods.
+**Stories**, **tasks**, and **defects** (our *ticket\_type*\ s) will be
+entered into trac as necessary. These will be scheduled into **cycles**,
+each of which consists of six **sprints** (a two week period). After
+each bi-weekly period, we will schedule user-supplied stories, developer
+supplied tasks, and outstanding defects to the upcoming iteration during
+the **review meeting**.
+
+A **Task** is a developer item (a "Todo") that will be scheduled by the
+developer for technical reasons. **Stories** and **defects** are
+scheduled jointly to a particular **milestone** (**cycle** & **sprint**)
+and *will always be closed* by a successful **Test**.
+
+**Tests** should be of the **Acceptance Test** form. The ticket number
+for which a test is being written should be added in the
+` testng <http://testng.org>`_ annotations (@Test( groups =
+"`ticket:60 </ome/ticket/60>`_\ " )). This works at either the method
+level (see
+`SetsAndLinksTest#L73 </ome/browser/ome.git/components/common/test/ome/model/utests/SetsAndLinksTest.java?rev=662#L73>`_)
+or the class level (see
+`UniqueResultTest#L15 </ome/browser/ome.git/components/server/test/ome/server/itests/query/UniqueResultTest.java?rev=661#L15>`_).
+
+If for any reason, a developer cannot fulfill the assigned stories/tasks
+for an iteration, ... *that's ok*. It's two weeks, right? But by raising
+a flag, we can get a feeling for our planning strategy. During the next
+sprint, we should take that into account.
+
+General Notes
+-------------
+
+-  Review meetings are a learning process.
+-  Use views like `{9} </ome/report/9>`_ and `{11} </ome/report/11>`_ to
+   get a feeling for what's going on.
+-  Broad items can be left scheduled to the cycle.
+-  Backlogged items are rescheduled.
+-  The articulation of stories is critical; not too big, not too little.
+-  Bigger stories can be left at the cycle level.
+-  But, usually a story should be a testable piece of functionality.
+-  Also, usually a stakeholder should write the story in order to push
+   it forward.
+-  Mid-sprint status by e-mail.
+-  Generate material (movies/screenshots) at the end of a sprint.
+   Movies/screenshots are attached to stories and to the corresponding
+   milestone `milestone:OMERO-Beta4.3 </ome/milestone/OMERO-Beta4.3>`_
+
+Development
+-----------
+
+-  `Standards </ome/wiki/DevelopmentStandards>`_
+-  `Generic Process </ome/wiki/DevelopmentGenericProcess>`_ Process
+   template.
+-  [`OmeroPyGatewayProcess </ome/wiki/OmeroPyGatewayProcess>`_\ ] The
+   specific details of the `OmeroPy </ome/wiki/OmeroPy>`_ gateway
+   process development practices.
+-  `Release Process </ome/wiki/ReleaseProcess>`_ List of actions prior
+   to release
+
+Review Meetings How To
+----------------------
+
+-  Before Meeting
+
+   -  Try to close everything, or explain why still open.
+   -  Review unscheduled and upcoming (next iteration) tickets.
+   -  Move unscheduled tickets to cycle where sensible.
+   -  Move cycle-unscheduled tickets to next iteration where sensible.
+
+-  Scheduling
+
+   -  Discuss what new came out of the closed tickets.
+   -  Discuss why open tickets are open.
+   -  Evaluate how well the previous iteration was planned.
+   -  Move backlog (unfinished tickets) to next iteration or unschedule.
+   -  Move other tickets to next iteration
+   -  If next iteration is too full, prioritize and reschedule.
+
+-  After Meeting
+
+   -  Place review notes at
+      ` http://trac.openmicroscopy.org.uk/omero/milestone/ <http://trac.openmicroscopy.org.uk/omero/milestone/>`_\ <your-cycle-here>
+
+Acknowledgement
+---------------
+
+-  Maintain a list of contributors, similar to ` loci
+   authors <http://loci.wisc.edu/bio-formats/authors>`_ and
+   ` contributors <http://openmicroscopy.org/site/about/contributers>`_.
+-  When a script is submitted:
+
+   ::
+
+       Script approved by <name of team member who validates> on <date>.
+       Tested on OMERO <version. Script behaves as described.
+       Expected to work on all <version> servers. 
+
+-  Merge or Integrate a patch:
+
+   -  ``<commit text> (modified/based/adapted from patch by <name of contributor>``
+      e.g.
+      ` commit <http://git.openmicroscopy.org/?p=bioformats.git;a=commit;h=1d14c75d91988bcbff445e9860d084e2604fc63a>`_,
+      ` commit <http://git.openmicroscopy.org/?p=bioformats.git;a=commit;h=1d14c75d91988bcbff445e9860d084e2604fc63a>`_
+      or
+      ` commit <http://git.openmicroscopy.org/?p=bioformats.git;a=commit;h=650b0f42fd429580da06c39d7846e8126cf26491>`_
+
+-  When fixing a problem:
+
+   -  \*
+      ``<commit text> as pointed out by/courtesy of <name of contributor>``
+      e.g.
+      ` commit <http://git.openmicroscopy.org/?p=bioformats.git;a=commit;h=77cc88a747b664b0e6435d294f5f6ee3e4a2148b>`_
+      or
+      ` commit <http://git.openmicroscopy.org/?p=bioformats.git;a=commit;h=08a1543e95df781b547eac2ce487b036f5a51343>`_
+
+Future directions
+-----------------
+
+It's possible that we add time estimates to the trac tickets and
+beginning measuring our **velocity**. Currently, there is no way to do
+this in trac.
