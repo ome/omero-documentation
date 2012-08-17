@@ -1,0 +1,59 @@
+#!/bin/zsh
+
+set -e
+
+cat traclist | while read file; do
+#for file in WorkPlan/OME-XML/Linkage; do
+    dir="output/$(dirname "$file")"
+    source=$(basename "$file")
+    dest="${source}.rst"
+
+    if [ -e "$dir/$dest" ]; then
+	echo "Already done $dest"
+	continue;
+    fi
+
+    echo -n "Making $dest..."
+    if wget -q "https://trac.openmicroscopy.org.uk/ome/wiki/$file"; then
+	echo -n "downloaded "
+    else
+	echo "download failed"
+	continue
+    fi
+    pandoc -f html -t rst "$source" > "$dest"
+    rm "$source"
+    if grep -q '^Download in other formats:' "$dest"; then
+	echo -n "stripping footer "
+	sed -n '/Download in other formats:/q;p' "$dest" > "$dest.new"
+	mv "$dest.new" $dest
+    fi
+    if grep -q 'days </ome' "$dest"; then
+        echo -n "stripping header 1 "
+        sed -n '/days <\/ome/,$p' "$dest" | \
+            sed '/days <\/ome/d' > "$dest.new"
+        mv "$dest.new" $dest
+    fi
+    if grep -q 'months </ome' "$dest"; then
+          echo -n "stripping header 1 "
+          sed -n '/months <\/ome/,$p' "$dest" | \
+            sed '/months <\/ome/d' > "$dest.new"
+          mv "$dest.new" $dest
+    fi
+    if grep -q 'years </ome' "$dest"; then
+	echo -n "stripping header 1 "
+	sed -n '/years <\/ome/,$p' "$dest" | \
+	    sed '/years <\/ome/d' > "$dest.new"
+	mv "$dest.new" $dest
+    fi
+    if grep -q 'Last modified </ome' "$dest"; then
+	echo -n "stripping header 2 "
+	sed -n '/Last modified <\/ome/,$p' "$dest" | \
+	    sed '/Last modified <\/ome/d' > "$dest.new"
+	mv "$dest.new" $dest
+    fi
+    if [ ! -d "$dir" ]; then
+	mkdir -p "$dir"
+	fi
+    mv "$dest" "$dir"
+    echo "done"
+done

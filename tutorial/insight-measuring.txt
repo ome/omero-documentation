@@ -1,0 +1,37 @@
+.. _tutorial/insight-measuring:
+
+Taking Image Measurements
+=========================
+
+How To Launch a Measurement Tool
+--------------------------------
+
+-  From the Viewer, click on the icon.
+
+What Can I Do
+-------------
+
+Draw Regions of Interest of your images and measure distances.
+
+.. figure:: ../images/insight-measurements-1viewer.png
+   :align: center
+   :alt: OMERO.insight viewer with ROIs
+
+Manage the Regions of Interest.
+
+.. figure:: ../images/insight-measurements-2manage-roi.png
+   :align: center
+   :alt: OMERO.insight ROI manager
+
+Intensity values histograms of the intensity of pixels contained in the
+Regions Of Interest
+
+.. figure:: ../images/insight-measurements-3graph.png
+   :align: center
+   :alt: OMERO.insight intensity histogram
+
+Basic statistics.
+
+.. figure:: ../images/insight-measurements-4stats.png
+   :align: center
+   :alt: OMERO.insight measurement statistics

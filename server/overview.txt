@@ -1,0 +1,55 @@
+.. _server/overview:
+
+OMERO.server Overview
+=====================
+
+The OMERO server system provides storage and processing of image data
+which conforms to the :plone:`OME Specification <support/file-formats>`.
+It can be run on commodity hardware to provide your own storage needs,
+or run site-wide to provide a large-scale collaborative environment.
+
+.. figure:: ../images/server-arch.png
+   :align: center
+   :alt: 
+
+Administration
+--------------
+
+Though getting started with the server is relatively straight-forward,
+it does require installing several software systems, and more advanced
+usage including backups, integrated logins, etc. requires a
+knowledgeable system administrator.
+
+After working through the :ref:`gettingstarted/overview`
+section, the following guides to administering your installation of
+OMERO.server may be of interest:
+
+-  :ref:`troubleshooting`
+-  :ref:`server/security`
+-  :ref:`server/ldap`
+-  :ref:`server/backup-and-restore`
+-  :ref:`server/binary-repository`
+-  :ref:`server/postgresql`
+
+Developer Documentation
+-----------------------
+
+The server system is composed of several components, each of which runs
+in a separate process but is co-ordinated centrally.
+
+-  :ref:`server/blitz` - The data server provides access to metadata
+   stored in a relational database as well as the binary image data on
+   disk.
+-  :ref:`server/fs` - A filesystem watcher which notifes the server of
+   newly uploaded or modified files.
+-  :ref:`server/fs#dropbox` - Utilizes fs to find newly uploaded files and
+   run a fully automatic import.
+-  :ref:`server/processor` - Processors provide background
+   execution of Python and Matlab scripts.
+-  :ref:`server/rendering` - The RenderingEngine provides
+   server-side processing of raw image data for visualization on low-end
+   client machines.
+
+If you are interested in building components for the server, modifying
+an existing component, or just looking for more background information,
+the best starting point is the :ref:`developers/Omero/Server` page.

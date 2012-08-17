@@ -1,0 +1,255 @@
+Developing with OMERO
+=====================
+
+**In order to use these instructions, you will need to first clone the
+git repository and have all requirements properly installed as described
+on `OmeroContributing </ome/wiki/OmeroContributing>`_.**
+
+Table of Contents
+^^^^^^^^^^^^^^^^^
+
+#. `Using Eclipse <#UsingEclipse>`_
+#. `Unit-Testing <#Unit-Testing>`_
+#. `Integration-Testing <#Integration-Testing>`_
+
+   #. `Running all tests <#Runningalltests>`_
+   #. `Component tests <#Componenttests>`_
+   #. `Individual tests <#Individualtests>`_
+   #. `Failing tests <#Failingtests>`_
+
+#. `Writing your own tests <#Writingyourowntests>`_
+
+   #. `OmeroJava <#OmeroJava>`_
+   #. `OmeroPy <#OmeroPy>`_
+   #. `OmeroCpp <#OmeroCpp>`_
+   #. `Internal server tests <#Internalservertests>`_
+
+#. `Documenting server code <#Documentingservercode>`_
+#. `Debugging a running OMERO
+   instance <#DebuggingarunningOMEROinstance>`_
+
+Using Eclipse
+-------------
+
+There are currently ``.project`` and ``.classpath-template`` files
+stored in git in each component directory (e.g. `common's
+.classpath </ome/browser/ome.git/components/common/.classpath-template>`_
+and `common's
+.project </ome/browser/ome.git/components/common/.project>`_). There is
+also a top-level .classpath and .project file which contains the entire
+project, but:
+
+-  requires more memory
+-  doesn't clearly differentiate the classpaths, and so can lead to
+   confusion.
+
+All the Eclipse projects require a successful build to have taken place:
+
+::
+
+       ./build.py
+
+This is for two reasons. One, the Eclipse projects are not configured to
+perform the code-generation needed. This creates the directory:
+
+::
+
+        COMPONENT/target
+
+which will be missing from any Eclipse project you open before building
+the source.
+
+Also, Ivy is used to copy all the jar dependencies from
+``OMERO_HOME/lib/repository`` to ``COMPONENT/target/libs``, which is
+then used in the Eclipse ``.classpath`` files.
+
+If Eclipse ever gets out of sync after the first build,
+``./build.py build-eclipse`` can be used to quickly synchronize.
+
+Unit-Testing
+------------
+
+The unit testing framework is fairly simple. Only methods which contain
+logic written within the OMERO are tested. This means that framework
+functionality like remoting is not tested. Neither is Hibernate
+functionality; this is a part of integration testing. (see below)
+
+Therefore, most of the code which is unit tested lies in the logic
+packages of the server component. This is done using jMock.
+
+You can run the unit tests for any component from its directory by
+entering:
+
+::
+
+    ./build.py -f components/<component>/build.xml test
+
+The same can be done for all components using from the top-level
+directory with the command:
+
+::
+
+    ./build.py test-unit
+
+Integration-Testing
+-------------------
+
+Integration testing is a bit more complex because of the reliance on a
+database (which is not easily mockable), all Hibernate related classes
+are tested in integration mode.
+
+Running all tests
+~~~~~~~~~~~~~~~~~
+
+To run all the integration tests, use ``./build.py test-integration``
+like the ``./build.py test-unit`` command above.
+
+Running all the integration tests places several restrictions on the
+environment:
+
+-  There must be a running OMERO database.
+-  An OMERO server instance must be running.
+
+These tests could break for a number of reasons. Patience is needed.
+
+Component tests
+~~~~~~~~~~~~~~~
+
+It is probably more straight-forward to run the tests for an individual
+component. This can be done explicitly via:
+
+::
+
+     ./build.py -f components/<component>/build.xml integration
+
+Results are placed in ``components/<component>/target/reports``.
+
+Individual tests
+~~~~~~~~~~~~~~~~
+
+Alternatively, you can run individual tests which you may currently be
+working on. This can be done by setting the "test" attribute. For
+example:
+
+::
+
+     ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/AdminTest
+     ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test.t_permissions
+
+Failing tests
+~~~~~~~~~~~~~
+
+"test.with.fail" is the property which will
+
+Writing your own tests
+----------------------
+
+For more information on writing tests in general see
+` http://testng.org <http://testng.org>`_. For a test to be an
+"integration" test, place it in the "integration" testng-group. If a
+test is temporarily broken, add it to the "broken" or "ignore" group:
+
+::
+
+     @Test(groups = {"integration","broken"}
+     public void testMyStuff() {
+
+     }
+
+`OmeroJava </ome/wiki/OmeroJava>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The tests under ``components/OmeroJava/test`` will be the starting point
+for most Java client-developers coming to OMERO.
+
+These tests should assume that:
+
+-  ICE\_CONFIG has been properly set. This means that
+   ``omero.client client = new omero.client(); client.createSession()``
+   should be usable with no further configuration needed.
+-  A Blitz server instance is running on the host and port specified in
+   the ICE\_CONFIG file(s).
+
+::
+
+    @Test(groups = "integration")
+    public class MyTest {
+
+      omero.client client;
+
+      @BeforeClass
+      protected void setup() throws Exception {
+        client = new omero.client();
+        client.createSession();
+      }
+
+      @AfterClass
+      protected void tearDown() throws Exception {
+        client.closeSession();
+      }
+
+      @Test
+      public void testSimple() throws Exception {
+        client.getSession().getAdminService().getEventContext();
+      }
+
+    }
+
+`OmeroPy </ome/wiki/OmeroPy>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Similar to the `OmeroJava </ome/wiki/OmeroJava>`_ tests, the tests under
+``components/OmeroPy/test`` will be the starting point for most Python
+client-developers coming to OMERO.
+
+`OmeroCpp </ome/wiki/OmeroCpp>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TBD.
+
+Internal server tests
+~~~~~~~~~~~~~~~~~~~~~
+
+In addition to the external integration tests, there are a number of
+internal tests in the "internal" component. These do not need to have a
+running server and instead use an embedded Hibernate instance for
+talking to the database. These tests require a significantly different
+style, and are intended only for server developers. For more
+information, please contact the list.
+
+Documenting server code
+-----------------------
+
+The definitive documentation for all `OmeroApi </ome/wiki/OmeroApi>`_
+code are the slice definition files. The Ice manual describes how to
+write method and class comments:
+` http://zeroc.com/doc/Ice-3.3.1/manual/Slice.5.23.html <http://zeroc.com/doc/Ice-3.3.1/manual/Slice.5.23.html>`_
+
+Debugging a running OMERO instance
+----------------------------------
+
+By using the "debug" target from templates.xml, it is possible to have
+OMERO listen on port 8787 for a debugging connection.
+
+::
+
+      bin/omero admin stop
+      bin/omero admin start debug
+
+Then in Eclipse, you can create a new "Debug" configuration by clicking
+on "Remote Java Application", and setting the port to 8787. (These
+values are arbitrary and can be changed locally)
+
+**Keep in mind**:
+
+-  The server won't start up until you have connected with Eclipse. This
+   is due to the ",suspend=y" clause in templates.xml. If you would like
+   the server to startup without your connecting, use "suspend=n"
+-  If you take too much time examining your threads, your calls may
+   throw timeout exceptions.
+
+--------------
+
+See also: `OmeroInstall </ome/wiki/OmeroInstall>`_,
+`OmeroContributing </ome/wiki/OmeroContributing>`_,
+`OmeroCommunity </ome/wiki/OmeroCommunity>`_

@@ -1,0 +1,31 @@
+.. _developers/Omero/GettingStarted:
+
+OMERO.clients
+=============
+
+OMERO.clients use a common 'gateway' to communicate with an OMERO.server
+installation and allow the user to import, display, edit, and manage
+server data. The OMERO team has developed a suite of clients, but the
+open source nature of the OMERO project also allows developers to create
+their own, customized clients.
+
+-  **End users and scientists** interested in using our OMERO client
+   software should see the client documentation page located at ` the
+   main OME
+   website <https://www.openmicroscopy.org/site/support/omero4/getting-started/client-documentation>`_.
+
+-  **Developers** interested in writing custom OMERO clients should See
+   |DevelopingOmeroClients|.
+
+Examples for all the :ref:`server/blitz` languages
+(|OmeroPy|, |OmeroJava|, |OmeroCpp|, and |OmeroMatlab|) are provided under:
+
+-  :source:`examples`
+
+The examples under the ``OmeroClients`` directory are more thoroughly
+discussed on the |OmeroClients| page. This is
+a good starting point for anyone interested in working with the
+|OmeroApi| or the |OmeroModel|.
+
+Examples with Java source code are available under:
+:source:`Examples <components/insight/TEST/org/openmicroscopy/shoola/examples>`
