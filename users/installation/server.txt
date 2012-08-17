@@ -61,11 +61,10 @@ Prerequisites
 
 The following are necessary:
 
-Java
-^^^^
+Java SE Development Kit (JDK) (1.5 or higher) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Java 1.5 SE Development Kit (JDK) or higher**  needs to be installed
-   `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
+Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 
 On UNIX systems, you can check which version of Java is 
 currently available to you via your $PATH as follows:
@@ -91,10 +90,8 @@ installed and available via your $PATH as follows...
 
 .. note:: On systems with `OpenJDK <http://openjdk.java.net/>`_ installed by default, it will be necessary to unselect it and select the Sun version. See :forum:`this thread <viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>` for more information.
 
-Python
-^^^^^^
-
-**Python 2.4.x or higher installed.** 
+Python (2.4 or higher)
+^^^^^^^^^^^^^^^^^^^^^^
 
 For UNIX-based platforms, check you have Python (and what version) by typing:
 
@@ -118,18 +115,41 @@ download the **correct bitness and Python version**:
 
 The following are optional depending on what services you require:
 
--  **Python Imaging Library** (for OMERO.web and Figure Export functionality only) Packages should be available for your distribution from `here <http://www.pythonware.com/products/pil/>`__
+.. list-table::
+    :header-rows: 1
 
--  **Matplot Lib** (for OMERO.web only) Packages should be available for your distribution from `here <http://matplotlib.sourceforge.net/>`__
+    * - Package
+      - Functionality
+      - Downloads
 
--  **NumPy Lib version 1.2.0 or later** (for scripting services) This package may already have been installed as a dependency of Matplot Lib, above, but if not, you will need to install it to use scripting services. NumPy is available from `here <http://numpy.scipy.org/>`__
+    * - Python Imaging Library
+      - OMERO.web and Figure Export
+      - `PIL page <http://www.pythonware.com/products/pil/>`_
 
--  **PyTables Lib version 2.1 or later** (for :wiki:`OMERO.Tables <OmeroTables>`) PyTables is available from `here <http://www.pytables.org/moin/Downloads>`__
+    * - Matplotlib [1]_
+      - OMERO.web
+      - `Matplotlib page <http://matplotlib.sourceforge.net/>`_
 
--  **scipy.ndimage** allows larger volumes to be viewed in the :plone:`Volume Viewer <products/omero/volume-viewer-in-omero.web>`. See `scipy <http://numpy.scipy.org/>`_.
+    * - NumPy (1.2.0 or higher)
+      - Scripting
+      - `Numpy page <http://numpy.scipy.org/>`_
 
-Ice
-^^^^
+    * - PyTables (2.1.0 or higher)
+      - :wiki:`OMERO.Tables <OmeroTables>`
+      - `PyTables page <http://www.pytables.org/moin/Downloads>`_
+
+    * - scipy.ndimage
+      - :plone:`Volume Viewer <products/omero/volume-viewer-in-omero.web>` [2]_
+      - `Scipy page <http://numpy.scipy.org/>`_
+
+.. [1] May already have been installed as a dependency of Matplot Lib.
+
+.. [2] Allows larger volumes to be viewed in the :plone:`Volume Viewer   <products/omero/volume-viewer-in-omero.web>`.
+
+
+Ice (3.3.x or higher)
+^^^^^^^^^^^^^^^^^^^^^
+
 .. note::
 
     **OMERO 4.4 supports Ice3.4**, but this requires the correct
@@ -154,10 +174,10 @@ something like ``Ice-3.4.2.msi`` (for Ice 3.4.2). If you plan to
 develop for C++, be sure to read the instructions on the
 :ref:`developers/Omero/Cpp` page.
 
-PostgreSQL
-^^^^^^^^^^
+PostgreSQL (8.4 or higher)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**PostgreSQL 8.4 or higher** installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :ref:`limitations`. See :ref:`server/postgresql` for specifics about each version.
+PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :ref:`limitations`. See :ref:`server/postgresql` for specifics about each version.
 
 For Windows, the *One click installer* can be found on the `PostgreSQL Windows
 download page <http://www.postgresql.org/download/windows>`_. You
@@ -232,10 +252,11 @@ will need the postgres user's password later in the install.
    |pginstall-begincopy| |pginstall-complete|
 
 
-OMERO.server
-^^^^^^^^^^^^
+OMERO.server 4.4.x
+^^^^^^^^^^^^^^^^^^
 
-The **OMERO.server** zip and *tar.bz2* is available from the :plone:`OMERO downloads <support/omero4/downloads>` page.
+The **OMERO.server** zip and *tar.bz2* is available from the 
+:plone:`OMERO downloads <support/omero4/downloads>` page.
 
 Environment Variables
 ---------------------
@@ -279,11 +300,6 @@ variable you can execute the following command:
 ::
 
         $ which icegridnode
-
-which should give output similar to the following:
-
-::
-
         /Users/ome/apps/OMERO.libs/bin/icegridnode
 
 You can now set the ICE\_HOME path to something similar to
@@ -583,14 +599,16 @@ Installation
 ------------
 
 -   Extract the OMERO tarball and note its location. Below it is referred
-    to as: ``~/Desktop/omero``
+    to as: ``~/Desktop/omero`` for Linux/Mac OS X and ``C:\omero_dist`` for Windows.
 
--   Optionally, review ``~/Desktop/omero/etc/omero.properties`` which
+-   Optionally, review ``~/Desktop/omero/etc/omero.properties`` (resp.
+    ``C:\omero_dist\etc\omero.properties``) which
     contains all default settings. You will need to open the file with a
     text editor. Don't edit the file. Any configuration settings you
     would like to change can be changed in the next step.
 
--   Change any settings that are necessary using ``bin/omero config``,
+-   Change any settings that are necessary using ``bin/omero config``
+    (resp. ``bin\omero config``),
     including the name and/or password for the 'db\_user' database user
     you chose above or the database name if it is not "omero\_database".
     (Quotes are only necessary if the value could be misinterpreted by
@@ -624,7 +642,7 @@ Installation
 
     ::
 
-        bin\omero config set omero.data.dir C:\\OMERO
+        C:\> bin\omero config set omero.data.dir C:\\OMERO
 
 -   Create the OMERO database initialization script. You will be asked
     for the version of the script which you would like to generate, where
