@@ -293,3 +293,11 @@ for the following:
 
 For the most up-to-date list, please consult ``conf.py`` (section
 ``extlinks``).
+
+Inclusion of content
+--------------------
+
+When a specific type of content (e.g. code snippet) repeats itself among many
+pages, it is advised to store it in a seperate file without the default
+``.txt`` extension. This file can then be later included using the
+``literalinclude`` directive.
