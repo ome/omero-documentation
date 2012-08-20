@@ -31,26 +31,26 @@ Limitations
 
 Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :ref:`sysadmins/troubleshooting/password`.
 
-For Windows:
+.. only:: windows
 
--  Unless you are clear on the differences, **you should also open all 
-   consoles as an administrator to prevent file permission issues.**
+    -  Unless you are clear on the differences, **you should also open all 
+       consoles as an administrator to prevent file permission issues.**
 
-    .. figure:: /images/installation-images/win7-runasadmin-highlight.png
-       :align: center
-       :alt:
+        .. figure:: /images/installation-images/win7-runasadmin-highlight.png
+           :align: center
+           :alt:
 
--  Installation on Windows XP is not explicitly supported, especially
-   for OMERO.web. Significant testing has taken place on Windows Server
-   2008 and we recommend this version.
--  :ref:`server/omeromovie` does not work on Windows at present.
--  Spaces are not currently supported in installation path names.
+    -  Installation on Windows XP is not explicitly supported, especially
+       for OMERO.web. Significant testing has taken place on Windows Server
+       2008 and we recommend this version.
+    -  :ref:`server/omeromovie` does not work on Windows at present.
+    -  Spaces are not currently supported in installation path names.
 
-   .. note:: 
-      The default user paths on Windows usually contain spaces so you
-      will need to ensure the path has no spaces, ``C:\omero_dist`` for
-      example.
--  A reboot is required after installing the prerequisites.
+       .. note:: 
+          The default user paths on Windows usually contain spaces so you
+          will need to ensure the path has no spaces, ``C:\omero_dist`` for
+          example.
+    -  A reboot is required after installing the prerequisites.
 
 .. _users/installation/server#Prerequisites:
 
@@ -66,52 +66,62 @@ Java SE Development Kit (JDK) (1.5 or higher)
 
 Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 
-On UNIX systems, you can check which version of Java is 
-currently available to you via your $PATH as follows:
+.. only:: unix
+    
+    UNIX systems, you can check which version of Java is 
+    currently available to you via your $PATH as follows:
 
-::
+    ::
 
-    $ which java
-    /usr/bin/java
-    $ java -version
-    java version "1.6.0"
-    Java(TM) SE Runtime Environment (build 1.6.0-b105)
-    Java HotSpot(TM) Server VM (build 1.6.0-b105, mixed mode)
+        $ which java
+        /usr/bin/java
+        $ java -version
+        java version "1.6.0"
+        Java(TM) SE Runtime Environment (build 1.6.0-b105)
+        Java HotSpot(TM) Server VM (build 1.6.0-b105, mixed mode)
 
-Further, you can see if you have the Java compiler (Java SDK)
-installed and available via your $PATH as follows...
+    Further, you can see if you have the Java compiler (Java SDK)
+    installed and available via your $PATH as follows...
 
-::
+    ::
 
-    $ which javac
-    /usr/bin/javac
-    $ javac -version
-    javac 1.6.0
+        $ which javac
+        /usr/bin/javac
+        $ javac -version
+        javac 1.6.0
 
-.. note:: On systems with `OpenJDK <http://openjdk.java.net/>`_ installed by default, it will be necessary to unselect it and select the Sun version. See :forum:`this thread <viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>` for more information.
+    .. note:: 
+
+        On systems with `OpenJDK <http://openjdk.java.net/>`_ installed 
+        by default, it will be necessary to unselect it and select the Sun 
+        version. For more information, see :forum:`this thread  <viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>` .
 
 Python (2.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^
 
-For UNIX-based platforms, check you have Python (and what version) by typing:
+.. only:: unix
 
-::
+    Check you have Python (and what version) by typing:
 
-    $ python --version
-    Python 2.5.1
+    ::
+
+        $ python --version
+        Python 2.5.1
 
 Due to backwards incompatibilities in Python 3.0, Django does not
 currently work with Python 3.0; for more information see the `Django
 Installation page <https://docs.djangoproject.com/en/1.1/intro/install/>`_.
 
-Ice 3.4.x requires Python 2.6.x. You must download the 32-bit version
-from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
-As this is the "vanilla" python distribution (no extra libraries),
-you will need to install further dependencies, making sure to
-download the **correct bitness and Python version**:
+.. only:: windows
 
-*Python for Windows extensions*:  The installer is available from
-`this page <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
+    Ice 3.4.x requires Python 2.6.x. You must download the 32-bit version
+    from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
+    As this is the "vanilla" python distribution (no extra libraries),
+    you will need to install further dependencies, making sure to
+    download the **correct bitness and Python version**:
+
+    *Python for Windows extensions*:  The installer is available from
+    `this page <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
 
 The following are optional depending on what services you require:
 
@@ -159,97 +169,103 @@ Ice (3.3.x or higher)
     the FAQ. If you have further questions, consult the `Forums
     <https://www.openmicroscopy.org/community>`_.
 
-UNIX source downloads and binary packages are available from ZeroC_.
-The latest compatible distribution is the `3.3.1 release <http://www.zeroc.com/download_3_3_1.html>`_. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). Glencoe Software has made its version available for the community:
-`Ice-3.3.1-64.tar.bz2 <http://www.glencoesoftware.com/mac/10.6/Ice-3.3.1-64.tar.bz2>`_
-(sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) 
+.. only:: unix
 
-.. note::
+    UNIX source downloads and binary packages are available from ZeroC_.
+    The latest compatible distribution is the `3.3.1 release <http://www.zeroc.com/download_3_3_1.html>`_. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). Glencoe Software has made its version available for the community:
+    `Ice-3.3.1-64.tar.bz2 <http://www.glencoesoftware.com/mac/10.6/Ice-3.3.1-64.tar.bz2>`_
+    (sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) 
 
-    This version was compiled with the mcpp from MacPorts, which you will need to use these bindings. 
+    .. note::
 
-Windows installers can be found on the `ZeroC download
-page <http://www.zeroc.com/download.html>`_ and will be called
-something like ``Ice-3.4.2.msi`` (for Ice 3.4.2). If you plan to
-develop for C++, be sure to read the instructions on the
-:ref:`developers/Omero/Cpp` page.
+        This version was compiled with the mcpp from MacPorts, which you will need to use these bindings. 
+
+.. only:: windows
+
+    Windows installers can be found on the `ZeroC download
+    page <http://www.zeroc.com/download.html>`_ and will be called
+    something like ``Ice-3.4.2.msi`` (for Ice 3.4.2). If you plan to
+    develop for C++, be sure to read the instructions on the
+    :ref:`developers/Omero/Cpp` page.
 
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :ref:`limitations`. See :ref:`server/postgresql` for specifics about each version.
 
-For Windows, the *One click installer* can be found on the `PostgreSQL Windows
-download page <http://www.postgresql.org/download/windows>`_. You
-will need the postgres user's password later in the install.
+.. only:: windows
 
--  You must install PostgreSQL as a service if you want to follow
-   this document; other PostgreSQL installation environments are
-   supported but are outside the scope of this document.
+    The *One click installer* can be found on the `PostgreSQL Windows
+    download page <http://www.postgresql.org/download/windows>`_. You
+    will need the postgres user's password later in the install.
 
-#. Run the downloaded installer:
+    -  You must install PostgreSQL as a service if you want to follow
+       this document; other PostgreSQL installation environments are
+       supported but are outside the scope of this document.
 
-   .. figure:: /images/install-windows-screenshots/pginstall-01explorer.png
-      :align: center
-      :alt: 1
+    #. Run the downloaded installer:
 
-#. You may be prompted for permission to continue with a "user account
-   control" dialog. Click "yes" to continue.
+       .. figure:: /images/install-windows-screenshots/pginstall-01explorer.png
+          :align: center
+          :alt: 1
 
-   .. figure:: /images/install-windows-screenshots/pginstall-02uac.png
-      :align: center
-      :alt: 1
+    #. You may be prompted for permission to continue with a "user account
+       control" dialog. Click "yes" to continue.
 
-#. The installer will now start.
+       .. figure:: /images/install-windows-screenshots/pginstall-02uac.png
+          :align: center
+          :alt: 1
 
-   .. figure:: /images/install-windows-screenshots/pginstall-03start.png
-      :align: center
-      :alt: 1
+    #. The installer will now start.
 
-#. Choose the installation directory. The default is fine.
+       .. figure:: /images/install-windows-screenshots/pginstall-03start.png
+          :align: center
+          :alt: 1
 
-   .. figure:: /images/install-windows-screenshots/pginstall-04bindir.png
-      :align: center
-      :alt: 1
+    #. Choose the installation directory. The default is fine.
 
-#. Choose the data directory. The default is fine, but if you want to
-   keep the data in a specific location, you may choose an alternative
-   location here.
+       .. figure:: /images/install-windows-screenshots/pginstall-04bindir.png
+          :align: center
+          :alt: 1
 
-   .. figure:: /images/install-windows-screenshots/pginstall-05datadir.png
-      :align: center
-      :alt: 1
+    #. Choose the data directory. The default is fine, but if you want to
+       keep the data in a specific location, you may choose an alternative
+       location here.
 
-#. Enter a password for the special "postgres" system account. OMERO
-   does not use this account, but you will need to remember the password
-   for creating the database, below.
+       .. figure:: /images/install-windows-screenshots/pginstall-05datadir.png
+          :align: center
+          :alt: 1
 
-   .. figure:: /images/install-windows-screenshots/pginstall-06passwd.png
-      :align: center
-      :alt: 1
+    #. Enter a password for the special "postgres" system account. OMERO
+       does not use this account, but you will need to remember the password
+       for creating the database, below.
 
-#. Enter the port number for PostgreSQL to listen on for incoming
-   connections. The default, 5432, is fine and should not be changed.
+       .. figure:: /images/install-windows-screenshots/pginstall-06passwd.png
+          :align: center
+          :alt: 1
 
-   .. figure:: /images/install-windows-screenshots/pginstall-07port.png
-      :align: center
-      :alt: PostgreSQL port
+    #. Enter the port number for PostgreSQL to listen on for incoming
+       connections. The default, 5432, is fine and should not be changed.
 
-#. Select the locale. The default here is fine.
+       .. figure:: /images/install-windows-screenshots/pginstall-07port.png
+          :align: center
+          :alt: PostgreSQL port
 
-   .. figure:: /images/install-windows-screenshots/pginstall-08locale.png
-      :align: center
-      :alt: PostgreSQL locale
+    #. Select the locale. The default here is fine.
 
-#. PostgreSQL will now be installed and started.
+       .. figure:: /images/install-windows-screenshots/pginstall-08locale.png
+          :align: center
+          :alt: PostgreSQL locale
 
-   .. |pginstall-begincopy| image:: /images/ install-windows-screenshots/pginstall-09begincopy.png
-      :alt: PostgreSQL Begin copy
+    #. PostgreSQL will now be installed and started.
 
-   .. |pginstall-complete| image:: /images/install-windows-screenshots/pginstall-10complete.png
-      :alt: PostgreSQL Complete
+       .. |pginstall-begincopy| image:: /images/ install-windows-screenshots/pginstall-09begincopy.png
+          :alt: PostgreSQL Begin copy
 
-   |pginstall-begincopy| |pginstall-complete|
+       .. |pginstall-complete| image:: /images/install-windows-screenshots/pginstall-10complete.png
+          :alt: PostgreSQL Complete
+
+       |pginstall-begincopy| |pginstall-complete|
 
 
 OMERO.server 4.4.x
@@ -268,74 +284,72 @@ they should be set for you. If not correctly configured or if you
 installed manually to /opt/Ice-... or a similar location, you will need
 to set the values yourself.
 
-Linux/Mac OS X
-^^^^^^^^^^^^^^
+.. only:: unix
 
-If you are running a Linux distribution such as Debian or Ubuntu and
-have used APT to install the prerequisites then the installed software
-will have been installed to locations in your file system according to
-the Debian Policy Manual for software packaging. You can explicitly set
-your environment variables to reflect these install locations by editing
-the .bashrc (if on Linux) or .profile (if on Mac OS X) file which can be
-found within your home directory. For example, as of writing, on Debian
-& Ubuntu the following environment variables should be set:
+    If you are running a Linux distribution such as Debian or Ubuntu and
+    have used APT to install the prerequisites then the installed software
+    will have been installed to locations in your file system according to
+    the Debian Policy Manual for software packaging. You can explicitly set
+    your environment variables to reflect these install locations by editing
+    the .bashrc (if on Linux) or .profile (if on Mac OS X) file which can be
+    found within your home directory. For example, as of writing, on Debian
+    & Ubuntu the following environment variables should be set:
 
-::
+    ::
 
-        export JAVA_HOME=/usr/lib/jvm/java-6-sun
-        export JRE_HOME=/usr/lib/jvm/java-6-sun
-        export ICE_HOME=/usr/share/Ice-3.3.1
-        export POSTGRES_HOME=/usr/lib/postgresql/8.4
-        export PYTHONPATH=/usr/lib/pymodules/python2.6:$PYTHONPATH
-        export DYLD_LIBRARY_PATH=/usr/share/java:/usr/lib/:$DYLD_LIBRARY_PATH
-        export LD_LIBRARY_PATH=/usr/share/java:/usr/lib:$LD_LIBRARY_PATH
-        export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin:$ICE_HOME/bin:$POSTGRES_HOME/bin
+            export JAVA_HOME=/usr/lib/jvm/java-6-sun
+            export JRE_HOME=/usr/lib/jvm/java-6-sun
+            export ICE_HOME=/usr/share/Ice-3.3.1
+            export POSTGRES_HOME=/usr/lib/postgresql/8.4
+            export PYTHONPATH=/usr/lib/pymodules/python2.6:$PYTHONPATH
+            export DYLD_LIBRARY_PATH=/usr/share/java:/usr/lib/:$DYLD_LIBRARY_PATH
+            export LD_LIBRARY_PATH=/usr/share/java:/usr/lib:$LD_LIBRARY_PATH
+            export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin:$ICE_HOME/bin:$POSTGRES_HOME/bin
 
-Please note that the precise details of these environment variables can
-change as new versions of software are released. You can retrieve the
-pathname for a file by using the which command. So if you are unsure
-what path to use in your environment variables, e.g. for the ICE\_HOME
-variable you can execute the following command:
+    Please note that the precise details of these environment variables can
+    change as new versions of software are released. You can retrieve the
+    pathname for a file by using the which command. So if you are unsure
+    what path to use in your environment variables, e.g. for the ICE\_HOME
+    variable you can execute the following command:
 
-::
+    ::
 
-        $ which icegridnode
-        /Users/ome/apps/OMERO.libs/bin/icegridnode
+            $ which icegridnode
+            /Users/ome/apps/OMERO.libs/bin/icegridnode
 
-You can now set the ICE\_HOME path to something similar to
-**/Users/ome/apps/OMERO.libs/bin** based upon the output from which,
-e.g.
+    You can now set the ICE\_HOME path to something similar to
+    **/Users/ome/apps/OMERO.libs/bin** based upon the output from which,
+    e.g.
 
-::
+    ::
 
-        export ICE_HOME=/Users/ome/apps/OMERO.libs/bin/icegridnode
+            export ICE_HOME=/Users/ome/apps/OMERO.libs/bin/icegridnode
 
-As a last ditch effort, on a Linux or Mac OS X machine you can use the
-find command to help you discover whereabouts something is located in
-your filesystem. e.g.
+    As a last ditch effort, on a Linux or Mac OS X machine you can use the
+    find command to help you discover whereabouts something is located in
+    your filesystem. e.g.
 
-::
+    ::
 
-        $ find / -name "icegridnode" 2>/dev/null
+            $ find / -name "icegridnode" 2>/dev/null
 
-However this might take a long time to run, especially on a big
-filesystem, so you might get a more timely solution by going to the
-OMERO forums.
+    However this might take a long time to run, especially on a big
+    filesystem, so you might get a more timely solution by going to the
+    OMERO forums.
 
-If the command gives no output then perhaps Ice is not installed, in
-which case you should see the section above on installing Ice.
+    If the command gives no output then perhaps Ice is not installed, in
+    which case you should see the section above on installing Ice.
 
-You can also add your OMERO bin directory to your path like so:
+    You can also add your OMERO bin directory to your path like so:
 
-::
+    ::
 
-        export PATH=$PATH:path-to-your-omero-install-directory/bin
+            export PATH=$PATH:path-to-your-omero-install-directory/bin
 
 
-Windows
-^^^^^^^
+.. only:: windows
 
--  **Update your Windows environment variables: (REQUIRES RESTART!)**
+   **Update your Windows environment variables: (REQUIRES RESTART!)**
 
    #. Locate the *System* control panel page on the Start Menu under
       :menuselection:`Settings --> Control Panel`, open it and navigate to the *Advanced*
@@ -406,161 +420,159 @@ Creating a database as root
 Probably the most important step towards having a working server system
 is having a properly configured database.
 
-Linux / Mac OS X
-^^^^^^^^^^^^^^^^
+.. only:: unix
 
-On most systems, a "postgres" user will be created which has admin
-privileges, while the UNIX ``root`` user itself does *not* have admin
-privileges. Therefore it is necessary to either become the ``postgres``
-user or use sudo as below:
+    On most systems, a "postgres" user will be created which has admin
+    privileges, while the UNIX ``root`` user itself does *not* have admin
+    privileges. Therefore it is necessary to either become the ``postgres``
+    user or use sudo as below:
 
--  Create a non-superuser database user and record the name and
-   password. The default name and password for the user are "db\_user"
-   and "db\_password" respectively. Note that you should use your own
-   choice of username and password here. You will need to configure
-   OMERO to use your username and password by setting the omero.db.name
-   and omero.db.pass properties (below).
+    -  Create a non-superuser database user and record the name and
+       password. The default name and password for the user are "db\_user"
+       and "db\_password" respectively. Note that you should use your own
+       choice of username and password here. You will need to configure
+       OMERO to use your username and password by setting the omero.db.name
+       and omero.db.pass properties (below).
 
-   ::
+       ::
 
-       # For PostgreSQL 8.4.x and later
-       $ sudo -u postgres createuser -P -D -R -S db_user
-       Enter password for new role:       # db_password
-       Enter it again:       # db_password
+           # For PostgreSQL 8.4.x and later
+           $ sudo -u postgres createuser -P -D -R -S db_user
+           Enter password for new role:       # db_password
+           Enter it again:       # db_password
 
--  Create a database for OMERO to reside in
+    -  Create a database for OMERO to reside in
 
-   ::
+       ::
 
-       $ sudo -u postgres createdb -O db_user omero_database
+           $ sudo -u postgres createdb -O db_user omero_database
 
--  Add the PL/pgSQL language to your database
+    -  Add the PL/pgSQL language to your database
 
-   ::
+       ::
 
-       $ sudo -u postgres createlang plpgsql omero_database
+           $ sudo -u postgres createlang plpgsql omero_database
 
--  Check to make sure the database has been created, you have PostgreSQL
-   client authentication correctly set up and the database is owned by
-   the **db\_user** user.
+    -  Check to make sure the database has been created, you have PostgreSQL
+       client authentication correctly set up and the database is owned by
+       the **db\_user** user.
 
-   ::
+       ::
 
-       $ psql -h localhost -U db_user -l
-       Password for user db_user: 
-               List of databases
-          Name         |  Owner   | Encoding  
-       ----------------+----------+-----------
-        omero_database | db_user  | SQL_ASCII
-        postgres       | postgres | SQL_ASCII
-        template0      | postgres | SQL_ASCII
-        template1      | postgres | SQL_ASCII
-       (4 rows)
+           $ psql -h localhost -U db_user -l
+           Password for user db_user: 
+                   List of databases
+              Name         |  Owner   | Encoding  
+           ----------------+----------+-----------
+            omero_database | db_user  | SQL_ASCII
+            postgres       | postgres | SQL_ASCII
+            template0      | postgres | SQL_ASCII
+            template1      | postgres | SQL_ASCII
+           (4 rows)
 
-If you have problems, especially with the last step, take a look at
-:ref:`server/postgresql` since the authentication mechanism
-is probably not properly configured.
+    If you have problems, especially with the last step, take a look at
+    :ref:`server/postgresql` since the authentication mechanism
+    is probably not properly configured.
 
-Windows
-^^^^^^^
+.. only:: windows
 
--  Create a non-superuser database user (make sure to note down the name
-   and password) using **pgAdmin III**. You can find *pgAdmin III* on
-   the Start Menu under :menuselection:`Programs --> PostgreSQL 9.1 --> pgAdmin III`:
+    -  Create a non-superuser database user (make sure to note down the name
+       and password) using **pgAdmin III**. You can find *pgAdmin III* on
+       the Start Menu under :menuselection:`Programs --> PostgreSQL 9.1 --> pgAdmin III`:
 
-   #. Double-click on the *PostgreSQL 9.1* database (or right-click and
-      choose *Connect*) and provide your *postgres* user login password
-      set during the installation, above.
+       #. Double-click on the *PostgreSQL 9.1* database (or right-click and
+          choose *Connect*) and provide your *postgres* user login password
+          set during the installation, above.
 
-      .. |pgadmin-start| image:: /images/install-windows-screenshots/pgadmin-01start.png
-         :alt: Run pgAdmin III
+          .. |pgadmin-start| image:: /images/install-windows-screenshots/pgadmin-01start.png
+             :alt: Run pgAdmin III
 
-      .. |pgadmin-initialview| image:: /images/install-windows-screenshots/pgadmin-02initialview.png
-         :alt: Connect to the database server
+          .. |pgadmin-initialview| image:: /images/install-windows-screenshots/pgadmin-02initialview.png
+             :alt: Connect to the database server
 
-      .. |pgadmin-connect| image::  /images/install-windows-screenshots/pgadmin-03connect.png
-         :alt: Enter password
+          .. |pgadmin-connect| image::  /images/install-windows-screenshots/pgadmin-03connect.png
+             :alt: Enter password
 
-      |pgadmin-start| |pgadmin-initialview| |pgadmin-connect|
+          |pgadmin-start| |pgadmin-initialview| |pgadmin-connect|
 
-   #. Right-click on *Login Roles* and select *New Login Role...*
+       #. Right-click on *Login Roles* and select *New Login Role...*
 
-      .. figure:: /images/install-windows-screenshots/pgadmin-04newrole-context.png
-         :align: center
-         :alt: New login role
+          .. figure:: /images/install-windows-screenshots/pgadmin-04newrole-context.png
+             :align: center
+             :alt: New login role
 
-         New login role
-   #. Create a new role with the *Role name* ``db_user`` and a
-      *Password* ``db_password``. Note that these are examples, and you
-      should use your own choice of username and password here. You will
-      need to configure OMERO to use your username and password by
-      setting the omero.db.name and omero.db.pass properties (below).
+             New login role
+       #. Create a new role with the *Role name* ``db_user`` and a
+          *Password* ``db_password``. Note that these are examples, and you
+          should use your own choice of username and password here. You will
+          need to configure OMERO to use your username and password by
+          setting the omero.db.name and omero.db.pass properties (below).
 
-   .. |newrolename| image:: /images/install-windows-screenshots/pgadmin-05newrole-name.png
-      :alt: New role name
+       .. |newrolename| image:: /images/install-windows-screenshots/pgadmin-05newrole-name.png
+          :alt: New role name
 
-   .. |newrolepassword| image:: /images/install-windows-screenshots/pgadmin-06newrole-passwd.png
-      :alt: New role password
+       .. |newrolepassword| image:: /images/install-windows-screenshots/pgadmin-06newrole-passwd.png
+          :alt: New role password
 
-   +---------------+-------------------+
-   | |newrolename| | |newrolepassword| |
-   +---------------+-------------------+
+       +---------------+-------------------+
+       | |newrolename| | |newrolepassword| |
+       +---------------+-------------------+
 
--  Create an ``omero_database`` database:
+    -  Create an ``omero_database`` database:
 
-   #. Right-click on *Databases* and select *New Database...*
+       #. Right-click on *Databases* and select *New Database...*
 
-      .. figure:: /images/install-windows-screenshots/pgadmin-07newdatabase-context.png
-         :align: center
-         :alt: New database
+          .. figure:: /images/install-windows-screenshots/pgadmin-07newdatabase-context.png
+             :align: center
+             :alt: New database
 
-         New database
-   #. Create a new database with the *Name* ``omero_database`` and
-      *Owner* ``db_user`` (this may take a few moments)
+             New database
+       #. Create a new database with the *Name* ``omero_database`` and
+          *Owner* ``db_user`` (this may take a few moments)
 
-      .. figure:: /images/install-windows-screenshots/pgadmin-08newdatabase-name.png
-         :align: center
-         :alt: New database name
+          .. figure:: /images/install-windows-screenshots/pgadmin-08newdatabase-name.png
+             :align: center
+             :alt: New database name
 
-         New database name
+             New database name
 
--  Confirm PL/pgSQL language support in your newly created database
+    -  Confirm PL/pgSQL language support in your newly created database
 
-   #. First, go to :menuselection:`File --> Options` select the *Browser* tab and
-      activate the *Languages* option:
+       #. First, go to :menuselection:`File --> Options` select the *Browser* tab and
+          activate the *Languages* option:
 
-      .. |pgadmin-optionsmenu| image:: /images/install-windows-screenshots/pgadmin-09optionsmenu.png
-         :alt: Options menu
+          .. |pgadmin-optionsmenu| image:: /images/install-windows-screenshots/pgadmin-09optionsmenu.png
+             :alt: Options menu
 
-      .. |pgadmin-viewlanguages| image:: /images/install-windows-screenshots/pgadmin-10viewlanguages.png
-         :alt: Enable display of installed languages
+          .. |pgadmin-viewlanguages| image:: /images/install-windows-screenshots/pgadmin-10viewlanguages.png
+             :alt: Enable display of installed languages
 
-      |pgadmin-optionsmenu| |pgadmin-viewlanguages|
+          |pgadmin-optionsmenu| |pgadmin-viewlanguages|
 
-   #. Navigate back to your database, expand the database's tree view
-      and finally expand the now available *Languages* item:
+       #. Navigate back to your database, expand the database's tree view
+          and finally expand the now available *Languages* item:
 
-      .. figure:: /images/install-windows-screenshots/pgadmin-11installedlanguages.png
-         :align: center
-         :alt: View installed languages
+          .. figure:: /images/install-windows-screenshots/pgadmin-11installedlanguages.png
+             :align: center
+             :alt: View installed languages
 
-         View installed languages
-   #. If the ``plpgsql`` language is missing, right-click on the
-      *Extensions* item and select the *New extension...* option in the
-      menu. Finally, add the ``plpgsql`` extension, accepting all
-      defaults. This will add both the extension and the language. In
-      older PostgreSQL versions without extensions, right-click on the
-      *Languages* item and select the *New language...* option in the
-      menu. Finally, add the ``plpgsql`` language, accepting all
-      defaults.
+             View installed languages
+       #. If the ``plpgsql`` language is missing, right-click on the
+          *Extensions* item and select the *New extension...* option in the
+          menu. Finally, add the ``plpgsql`` extension, accepting all
+          defaults. This will add both the extension and the language. In
+          older PostgreSQL versions without extensions, right-click on the
+          *Languages* item and select the *New language...* option in the
+          menu. Finally, add the ``plpgsql`` language, accepting all
+          defaults.
 
-      .. |pgadmin-newlanguage-context| image:: /images/install-windows-screenshots/pgadmin-12newlanguage-context.png
-         :alt: Add new language
+          .. |pgadmin-newlanguage-context| image:: /images/install-windows-screenshots/pgadmin-12newlanguage-context.png
+             :alt: Add new language
 
-      .. |pgadmin-newlanguage-name| image:: /images/install-windows-screenshots/pgadmin-13newlanguage-name.png
-         :alt: New language name
+          .. |pgadmin-newlanguage-name| image:: /images/install-windows-screenshots/pgadmin-13newlanguage-name.png
+             :alt: New language name
 
-      |pgadmin-newlanguage-context| |pgadmin-newlanguage-name|
+          |pgadmin-newlanguage-context| |pgadmin-newlanguage-name|
 
 Location for the your OMERO binary repository
 ---------------------------------------------
@@ -596,14 +608,30 @@ Location for the your OMERO binary repository
 Installation
 ------------
 
--   Extract the OMERO tarball and note its location. Below it is referred
-    to as: ``~/Desktop/omero`` for Linux/Mac OS X and ``C:\omero_dist`` for Windows.
+-   .. only:: unix
 
--   Optionally, review ``~/Desktop/omero/etc/omero.properties`` (resp.
-    ``C:\omero_dist\etc\omero.properties``) which
-    contains all default settings. You will need to open the file with a
-    text editor. Don't edit the file. Any configuration settings you
-    would like to change can be changed in the next step.
+        Extract the OMERO tarball and note its location. Below it is referred  
+        to as: ``~/Desktop/omero``
+
+    .. only:: windows
+
+        Extract the OMERO tarball and note its location. Below it is referred   
+        to as: ``C:\omero_dist``
+
+-   .. only:: unix
+
+        Optionally, review ``~/Desktop/omero/etc/omero.properties`` which
+        contains all default settings.
+
+    .. only:: windows
+
+        Optionally, review ``C:\omero_dist\etc\omero.properties`` which
+        contains all default settings
+        Optionally, review ``~/Desktop/omero/etc/omero.properties`` (resp.
+    
+    You will need to open the file with a text editor. Don't edit the file. 
+    Any configuration settings you would like to change can be changed in the 
+    next step.
 
 -   Change any settings that are necessary using ``bin/omero config``
     (resp. ``bin\omero config``),
@@ -612,35 +640,35 @@ Installation
     (Quotes are only necessary if the value could be misinterpreted by
     the shell. See :forum:`link <viewtopic.php?f=5&t=360#p922>`)
 
-    For Linux/Mac OS X,
-    ::
+    .. only:: unix
 
-        $ cd ~/Desktop/omero
-        $ bin/omero config set omero.db.name 'omero_database'
-        $ bin/omero config set omero.db.user 'db_user'
-        $ bin/omero config set omero.db.pass 'db_password'
+        ::
 
-   
-    For Windows, 
-    ::
+            $ cd ~/Desktop/omero
+            $ bin/omero config set omero.db.name 'omero_database'
+            $ bin/omero config set omero.db.user 'db_user'
+            $ bin/omero config set omero.db.pass 'db_password'
 
-        C:\> cd C:\omero_dist
-        C:\omero_dist\> bin\omero config set omero.db.name omero_database
-        C:\omero_dist\> bin\omero config set omero.db.user db_user
-        C:\omero_dist\> bin\omero config set omero.db.pass db_password
+    .. only:: windows   
 
+        ::
 
--   If you have chosen a non-standard
-    :ref:`OMERO binary repository <server/binary-repository>` location above, be sure
-    to configure the ``omero.data.dir`` property.
+            C:\> cd C:\omero_dist
+            C:\omero_dist\> bin\omero config set omero.db.name omero_database
+            C:\omero_dist\> bin\omero config set omero.db.user db_user
+            C:\omero_dist\> bin\omero config set omero.db.pass db_password
 
-    For Windows, When using ``C:\``
-    style file paths it is necessary to "escape" the backslashes. For
-    example:
+-   If you have chosen a non-standard :ref:`OMERO binary repository <server/binary-repository>` 
+    location above, be sure to configure the ``omero.data.dir`` property.
 
-    ::
+    .. only:: windows 
+    
+        When using ``C:\`` style file paths it is necessary to "escape" the 
+        backslashes. For example:
 
-        C:\> bin\omero config set omero.data.dir C:\\OMERO
+        ::
+
+            C:\> bin\omero config set omero.data.dir C:\\OMERO
 
 -   Create the OMERO database initialization script. You will be asked
     for the version of the script which you would like to generate, where
@@ -648,129 +676,137 @@ Installation
     confirm password for your newly created OMERO root user (this should
     **not** be the same as your Linux/Mac/Windows root user!)
 
-    ::
+    .. only:: unix
 
-        $ cd ~/Desktop/omero 
-        $ bin/omero db script
-        Please enter omero.db.version [OMERO4.4]: 
-        Please enter omero.db.patch [0]: 
-        Please enter password for new OMERO root user:       # root_password
-        Please re-enter password for new OMERO root user:      # root_password
-        Saving to ~/Desktop/omero/OMERO4.4__0.sql
+        ::
 
-    ::
+            $ cd ~/Desktop/omero 
+            $ bin/omero db script
+            Please enter omero.db.version [OMERO4.4]: 
+            Please enter omero.db.patch [0]: 
+            Please enter password for new OMERO root user: # root_password
+            Please re-enter password for new OMERO root user: # root_password
+            Saving to ~/Desktop/omero/OMERO4.4__0.sql
 
-        C:\> cd C:\omero_dist\
-        C:\omero_dist> bin\omero db script
-        Please enter omero.db.version [OMERO4.4]: 
-        Please enter omero.db.patch [0]: 
-        Please enter password for new OMERO root user: 
-        Please re-enter password for new OMERO root user: 
-        Saving to C:\omero_dist\OMERO4.4__0.sql
+    .. only:: windows
+
+        ::
+
+            C:\> cd C:\omero_dist\
+            C:\omero_dist> bin\omero db script
+            Please enter omero.db.version [OMERO4.4]: 
+            Please enter omero.db.patch [0]: 
+            Please enter password for new OMERO root user: # root_password
+            Please re-enter password for new OMERO root user: # root_password
+            Saving to C:\omero_dist\OMERO4.4__0.sql
 
 -   Initialize your database with the script.
 
-    For Linux/Mac OS X,
+    .. only:: unix
     
-    ::
+        ::
 
-        $ psql -h localhost -U db_user omero_database < OMERO4.4__0.sql
+            $ psql -h localhost -U db_user omero_database < OMERO4.4__0.sql
 
-    For Windows,
+    .. only:: windows
+    
+        #. Launch *SQL Shell (psql)* from the Start Menu under 
+        :menuselection:`Programs --> PostgreSQL 9.1 --> SQL Shell (psql)`
 
-    #. Launch *SQL Shell (psql)* from the Start Menu under :menuselection:`Programs -->
-       PostgreSQL 9.1 --> SQL Shell (psql)`
+           ::
 
-       ::
+               Server [localhost]:
+               Database [postgres]: omero_database
+               Port [5432]:
+               Username [postgres]: db_user
+               Password for user db_user:
+               Welcome to psql 9.1.4, the PostgreSQL interactive terminal.
 
-           Server [localhost]:
-           Database [postgres]: omero_database
-           Port [5432]:
-           Username [postgres]: db_user
-           Password for user db_user:
-           Welcome to psql 9.1.4, the PostgreSQL interactive terminal.
+               Type:  \copyright for distribution terms
+                      \h for help with SQL commands
+                      \? for help with psql commands
+                      \g or terminate with semicolon to execute query
+                      \q to quit
 
-           Type:  \copyright for distribution terms
-                  \h for help with SQL commands
-                  \? for help with psql commands
-                  \g or terminate with semicolon to execute query
-                  \q to quit
+               Warning: Console code page (437) differs from Windows code page (1252)
+                        8-bit characters might not work correctly. See psql reference
+                        page "Notes for Windows users" for details.
 
-           Warning: Console code page (437) differs from Windows code page (1252)
-                    8-bit characters might not work correctly. See psql reference
-                    page "Notes for Windows users" for details.
+        #. Execute run the following to populate your database:
 
-    #. Execute run the following to populate your database:
+           ::
 
-       ::
-
-           omero=> \i C:/omero_dist/OMERO4.4__0.sql
-           ...
-           ...
-           omero=> \q
-
-
+               omero=> \i C:/omero_dist/OMERO4.4__0.sql
+               ...
+               ...
+               omero=> \q
 
 -   Before starting the OMERO.server we should run the OMERO diagnostics
     script so that we check that all of our settings are correct, e.g.
 
-    ::
+    .. only:: unix
 
-        $ bin/omero admin diagnostics
+        ::
 
-    ::
+            $ bin/omero admin diagnostics
 
-        C:\omero_dist\> bin\\omero admin diagnostics
+    .. only:: windows
+
+        ::
+
+            C:\omero_dist\> bin\\omero admin diagnostics
 
 -   You can now start the server using:
 
-    For Linux/Mac OS X
-    ::
+    .. only:: unix
 
-         $ bin/omero admin start
-         Creating var/master
-         Initializing var/log
-         Creating var/registry
-         No descriptor given. Using etc/grid/default.xml
+        ::
 
-    For Windows,
-	::
+             $ bin/omero admin start
+             Creating var/master
+             Initializing var/log
+             Creating var/registry
+             No descriptor given. Using etc/grid/default.xml
 
-	    C:\omero_dist> bin\omero admin start
-	    Creating var\master
-	    Initializing var\log
-	    Creating var\registry
-	    No descriptor given. Using etc\grid\default.xml
-	    C:\omero_dist>
-	    [SC] CreateService SUCCESS
+    .. only:: windows
+
+        ::
+
+            C:\omero_dist> bin\omero admin start
+            Creating var\master
+            Initializing var\log
+            Creating var\registry
+            No descriptor given. Using etc\grid\default.xml
+            C:\omero_dist>
+            [SC] CreateService SUCCESS
 
 
-	    SERVICE_NAME: OMERO.master
-	            TYPE               : 10  WIN32_OWN_PROCESS
-	            STATE              : 2  START_PENDING
-	                                    (NOT_STOPPABLE,NOT_PAUSABLE,IGNORES_SHUTDOWN)
-	            WIN32_EXIT_CODE    : 0  (0x0)
-	            SERVICE_EXIT_CODE  : 0  (0x0)
-	            CHECKPOINT         : 0x0
-	            WAIT_HINT          : 0x7d0
-	            PID                : 2312
-	            FLAGS              :
+            SERVICE_NAME: OMERO.master
+                    TYPE               : 10  WIN32_OWN_PROCESS
+                    STATE              : 2  START_PENDING
+                                            (NOT_STOPPABLE,NOT_PAUSABLE,IGNORES_SHUTDOWN)
+                    WIN32_EXIT_CODE    : 0  (0x0)
+                    SERVICE_EXIT_CODE  : 0  (0x0)
+                    CHECKPOINT         : 0x0
+                    WAIT_HINT          : 0x7d0
+                    PID                : 2312
+                    FLAGS              :
 
-	    Waiting on startup. Use CTRL-C to exit
+            Waiting on startup. Use CTRL-C to exit
 
--  If you've chosen a non-default install directory (other than
-   ``C:\omero_dist``), the output will look like this:
+        If you've chosen a non-default install directory (other than
+        ``C:\omero_dist``), the output will look like this:
 
-   ::
+        ::
 
-       C:\OMERO.server-4.4> bin\omero admin start
-       Found default value: C:\omero_dist\var\master
-       Attempting to correct...
-       Converting from C:\omero_dist to C:\OMERO.server-4.4
-       Changes made: 6
-       No descriptor given. Using etc\grid\windefault.xml
-       [SC] CreateService SUCCESS
-       ...
+            C:\OMERO.server-4.4> bin\omero admin start
+            Found default value: C:\omero_dist\var\master
+            Attempting to correct...
+            Converting from C:\omero_dist to C:\OMERO.server-4.4
+            Changes made: 6
+            No descriptor given. Using etc\grid\windefault.xml
+            [SC] CreateService SUCCESS
+            ...
 
 -  If you would like to move the directory again, see
    ``bin\winconfig.bat --help``, which gets called automatically on an
@@ -779,20 +815,23 @@ Installation
 -  You can now test that you can log-in as "root", either with the
    OMERO.insight client or command-line:
 
-   ::
+    .. only:: unix
 
-       $ bin/omero login
-       Server: [localhost]
-       Username: [root]
-       Password:          # root_password
+        ::
 
+            $ bin/omero login
+            Server: [localhost]
+            Username: [root]
+            Password:         # root_password
 
-   ::
+    .. only:: windows
 
-       C:\OMERO.server-4.4> bin\omero login
-       Server: [localhost]
-       Username: [root]
-       Password:          # root_password
+        ::
+
+            C:\OMERO.server-4.4> bin\omero login
+            Server: [localhost]
+            Username: [root]
+            Password:         # root_password
 
 OMERO.web and Administration
 ----------------------------
@@ -801,24 +840,47 @@ OMERO.web and Administration
 
 Otherwise please give a try of the internal webserver and setup:
 
-::
+.. only:: unix
 
-    c:\omero_dist> bin\omero config set omero.web.application_server development
-    c:\omero_dist> bin\omero config set omero.web.session_engine "django.contrib.sessions.backends.cache"
-    c:\omero_dist> bin\omero config set omero.web.cache_backend "file://C:/windows/temp/"
+	::
 
-then start/stop by
+	    $ bin/omero config set omero.web.application_server development
 
-::
+.. only:: windows
 
-    c:\omero_dist> bin\omero web start\stop
-    Starting django development webserver... 
-    Validating models...
-    0 errors found
+	::
 
-    Django version 1.1.1, using settings 'omeroweb.settings'
-    Development server is running at http://0.0.0.0:4080/
-    Quit the server with CONTROL-C.
+	    c:\omero_dist> bin\omero config set omero.web.application_server development
+	    c:\omero_dist> bin\omero config set omero.web.session_engine "django.contrib.sessions.backends.cache"
+	    c:\omero_dist> bin\omero config set omero.web.cache_backend "file://C:/windows/temp/"
+
+then start by
+
+.. only:: unix
+
+	::
+
+	    $ bin/omero web start
+	    Starting django development webserver... 
+	    Validating models...
+	    0 errors found
+
+	    Django version 1.1.1, using settings 'omeroweb.settings'
+	    Development server is running at http://0.0.0.0:4080/
+	    Quit the server with CONTROL-C.
+	
+.. only:: windows
+
+	::
+
+	    c:\omero_dist> bin\omero web start
+	    Starting django development webserver... 
+	    Validating models...
+	    0 errors found
+
+	    Django version 1.1.1, using settings 'omeroweb.settings'
+	    Development server is running at http://0.0.0.0:4080/
+	    Quit the server with CONTROL-C.
 
 Once you have deployed and started the server you can use your browser
 to access the OMERO.web interface:
@@ -882,6 +944,7 @@ OMERO Diagnostics
 ^^^^^^^^^^^^^^^^^
 
 If you want help with your server installation, please include the output of the diagnostics command:
+
 
 ::
 
