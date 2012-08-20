@@ -585,7 +585,7 @@ Location for the your OMERO binary repository
    it is a *separate* directory that OMERO.server will use to store
    binary data:
 
--  You can read more about the :ref:`OMERO binary repository <server/binary-repository>`.
+-  You can read more about the :ref:`OMERO binary repository <sysadmins/server-binary-repository>`.
 
    ::
 
@@ -658,7 +658,7 @@ Installation
             C:\omero_dist\> bin\omero config set omero.db.user db_user
             C:\omero_dist\> bin\omero config set omero.db.pass db_password
 
--   If you have chosen a non-standard :ref:`OMERO binary repository <server/binary-repository>` 
+-   If you have chosen a non-standard :ref:`OMERO binary repository <sysadmins/server-binary-repository>` 
     location above, be sure to configure the ``omero.data.dir`` property.
 
     .. only:: windows 
