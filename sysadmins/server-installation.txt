@@ -187,7 +187,7 @@ Ice (3.3.x or higher)
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :ref:`limitations`. See :ref:`server/postgresql` for specifics about each version.
+PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :ref:`limitations`. See :doc:`server-postgresql` for specifics about each version.
 
 .. only:: windows
 
@@ -466,7 +466,7 @@ is having a properly configured database.
            (4 rows)
 
     If you have problems, especially with the last step, take a look at
-    :ref:`server/postgresql` since the authentication mechanism
+    :doc:`server-postgresql` since the authentication mechanism
     is probably not properly configured.
 
 .. only:: windows
