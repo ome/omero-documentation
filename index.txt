@@ -43,7 +43,8 @@ UNIX Installation
     unix/sysadmins/server-installation
     unix/sysadmins/troubleshooting
     unix/sysadmins/server-binary-repository
-   
+    unix/sysadmins/server-postgresql
+
     server/upgrade 
 
     future
@@ -63,6 +64,7 @@ Windows Installation
     windows/sysadmins/server-installation
     windows/sysadmins/troubleshooting
     windows/sysadmins/server-binary-repository
+    windows/sysadmins/server-postgresql
 
     server/upgrade 
 

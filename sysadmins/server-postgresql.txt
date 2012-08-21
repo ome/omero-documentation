@@ -6,23 +6,25 @@ OMERO.server and PostgreSQL
 In order to be installed, OMERO.server requires a running PostgreSQL
 instance that is configured to accept connections over TCP. The
 following explains how to ensure that you have the correct PostgreSQL
-version and that it is installed and configured correctly. For
-Windows-specific installation instructions, first see
-:ref:`server/install-windows`.
+version and that it is installed and configured correctly.
+
+.. only:: windows
+
+    For Windows-specific installation instructions, first see 
+    :doc:`server-installation`.
 
 Ensuring you have a valid PostgreSQL version
 --------------------------------------------
 
 For OMERO 4.4, PostgreSQL 8.4 or higher is required (see :ref:`limitations` for more information.)
 
-You can check which version of PostgreSQL you have installed with any of
-the following commands:
+.. only:: unix
 
-::
+    You can check which version of PostgreSQL you have installed with any of
+    the following commands:
 
-           #
-           # Unix
-           #
+    ::
+
            $ createuser -V
            createuser (PostgreSQL) 9.1.4
            $ psql -V
@@ -84,24 +86,24 @@ Checking PostgreSQL port listening status
 You can check if PostgreSQL is listening on the default port
 (``TCP/5432``) by running the following command:
 
-::
+.. only:: unix
 
-    #
-    # Unix
-    #
-    $ netstat -an | egrep '5432.*LISTEN'
-    tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN
-    tcp        0      0 :::5432                 :::*                    LISTEN
+    ::
 
-    #
-    # Windows
-    #
-    C:\> netstat -an | find "5432"
+        $ netstat -an | egrep '5432.*LISTEN'
+        tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN
+        tcp        0      0 :::5432                 :::*                    LISTEN
+
+.. only:: windows
+
+    ::
+
+        C:\> netstat -an | find "5432"
 
 .. note::  
-	The exact output of this command *will* vary. The important
-	thing to recognize is whether or not a process is listening on
-	``TCP/5432``.
+    The exact output of this command *will* vary. The important
+    thing to recognize is whether or not a process is listening on
+    ``TCP/5432``.
 
 If you cannot find a process listening on ``TCP/5432`` you will need to
 find your ``postgresql.conf`` file and enable PostgreSQL's TCP listening
@@ -111,19 +113,18 @@ installations. It may be helpful to locate it using the package manager
 PostgreSQL data directory (which houses the ``postgresql.conf`` file, is
 located under ``/var`` or ``/usr``:
 
-::
+.. only:: unix
 
-    #
-    # Unix
-    #
-    $ sudo find /usr -name 'postgresql.conf'
-    $ sudo find /var -name 'postgresql.conf'
-    /var/lib/postgresql/data/postgresql.conf
+    ::
 
-.. note:: 
-	The PostgreSQL data directory is usually only readable by the
-	user ``postgres`` so you will likely have to be ``root`` in order to
-	find it.
+        $ sudo find /usr -name 'postgresql.conf'
+        $ sudo find /var -name 'postgresql.conf'
+        /var/lib/postgresql/data/postgresql.conf
+
+    .. note:: 
+        The PostgreSQL data directory is usually only readable by the
+        user ``postgres`` so you will likely have to be ``root`` in order to
+        find it.
 
 Once you have found the location of the ``postgresql.conf`` file on your
 particular installation, you will need to enable TCP listening:
@@ -145,7 +146,7 @@ concerned about should look like this:
     #unix_socket_directory = *
     #unix_socket_group = *
     #unix_socket_permissions = 0777         # octal
-	#bonjour_name = *                      # defaults to the computer name
+    #bonjour_name = *                      # defaults to the computer name
 
 You can find out more about PostgreSQL client configuration on the 
 `PostgreSQL website <http://www.postgresql.org>`_.
@@ -168,15 +169,15 @@ connections from the loopback address (``127.0.0.1``) as follows:
     host    all         all         127.0.0.1/32          md5
 
 .. note:: 
-	The other lines that are in your ``pg_hba.conf`` are important
-   	either for PostgreSQL internal commands to work or for existing
-	applications you may have; *DO NOT* delete them unless you know what you
-	are doing.
+    The other lines that are in your ``pg_hba.conf`` are important
+    either for PostgreSQL internal commands to work or for existing
+    applications you may have; *DO NOT* delete them unless you know what you
+    are doing.
 
 .. seealso::
 
-	`PostgreSQL 9.1  <http://www.postgresql.org/docs/9.1/interactive/index.html>`_ 
-		Interactive Documentation for PostgreSQL 9.1
-		
-	`Client Authentication <http://www.postgresql.org/docs/9.1/interactive/client-authentication.html>`_.
-		Chapter of the PostgreSQL Documentation about Client Authentification
+    `PostgreSQL 9.1  <http://www.postgresql.org/docs/9.1/interactive/index.html>`_ 
+        Interactive Documentation for PostgreSQL 9.1
+        
+    `Client Authentication <http://www.postgresql.org/docs/9.1/interactive/client-authentication.html>`_.
+        Chapter of the PostgreSQL Documentation about Client Authentification
