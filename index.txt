@@ -28,9 +28,9 @@ Quickstart
     users/virtual-appliance
 
 
-************
-Installation
-************
+*****************
+UNIX Installation
+*****************
 
 .. toctree::
     :maxdepth: 1
@@ -40,15 +40,33 @@ Installation
     limitations
 
     gettingstarted/index
-    sysadmins/server-installation
-    sysadmins/troubleshooting
-    sysadmins/server-binary-repository
-    clients/index
+    unix/sysadmins/server-installation
+    unix/sysadmins/troubleshooting
+    unix/sysadmins/server-binary-repository
    
     server/upgrade 
 
     future
 
+********************
+Windows Installation
+********************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    system-requirements
+    limitations
+
+    gettingstarted/index
+    windows/sysadmins/server-installation
+    windows/sysadmins/troubleshooting
+    windows/sysadmins/server-binary-repository
+
+    server/upgrade 
+
+    future
 *********
 Tutorials
 *********
