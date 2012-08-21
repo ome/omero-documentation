@@ -27,7 +27,7 @@ OMERO.server Installation
 Limitations
 -----------
 
-Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :doc:`sysadmins/troubleshooting/password`.
+Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :ref:`sysadmins/troubleshooting/password`.
 
 .. only:: windows
 
