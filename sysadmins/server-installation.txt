@@ -1,5 +1,3 @@
-.. _sysadmins/server-installation:
-
 OMERO.server Installation
 =========================
 
@@ -29,7 +27,7 @@ OMERO.server Installation
 Limitations
 -----------
 
-Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :ref:`sysadmins/troubleshooting/password`.
+Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :doc:`sysadmins/troubleshooting/password`.
 
 .. only:: windows
 
@@ -51,8 +49,6 @@ Installation **will require a "root" level account** for which you know the pass
           will need to ensure the path has no spaces, ``C:\omero_dist`` for
           example.
     -  A reboot is required after installing the prerequisites.
-
-.. _users/installation/server#Prerequisites:
 
 Prerequisites
 -------------
@@ -412,7 +408,6 @@ slowed down. To get round this for the OMERO.server you can define an
 ``OMERO_TEMPDIR`` environment variable pointing to a temporary directory
 located on the local file system e.g. ``/tmp`` (resp. ``C:\tmp\``).
 
-.. _sysadmins/server-installation#PreInstallation:
 
 Creating a database as root
 ---------------------------
@@ -585,7 +580,7 @@ Location for the your OMERO binary repository
    it is a *separate* directory that OMERO.server will use to store
    binary data:
 
--  You can read more about the :ref:`OMERO binary repository <sysadmins/server-binary-repository>`.
+-  You can read more about the :doc:`OMERO binary repository <server-binary-repository>`.
 
    ::
 
@@ -603,7 +598,6 @@ Location for the your OMERO binary repository
        ome
        $ sudo chown -R ome /OMERO
 
-.. _sysadmins/server-installation#Installation:
 
 Installation
 ------------
@@ -658,7 +652,7 @@ Installation
             C:\omero_dist\> bin\omero config set omero.db.user db_user
             C:\omero_dist\> bin\omero config set omero.db.pass db_password
 
--   If you have chosen a non-standard :ref:`OMERO binary repository <sysadmins/server-binary-repository>` 
+-   If you have chosen a non-standard :doc:`OMERO binary repository <server-binary-repository>` 
     location above, be sure to configure the ``omero.data.dir`` property.
 
     .. only:: windows 
@@ -937,7 +931,7 @@ Your OMERO.server installation will check for updates each time it is started fr
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-My OMERO install doesn't work! What do I do now!?! Examine the :ref:`sysadmins/troubleshooting` page and if all else fails post a
+My OMERO install doesn't work! What do I do now!?! Examine the :doc:`troubleshooting` page and if all else fails post a
 message to our ``ome-users`` mailing list discussed on the OmeroCommunity page.
 
 OMERO Diagnostics
