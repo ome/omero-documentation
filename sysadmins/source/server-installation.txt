@@ -931,7 +931,7 @@ Your OMERO.server installation will check for updates each time it is started fr
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-My OMERO install doesn't work! What do I do now!?! Examine the :doc:`troubleshooting` page and if all else fails post a
+My OMERO install doesn't work! What do I do now!?! Examine the :ref:`sysadmins/troubleshooting` page and if all else fails post a
 message to our ``ome-users`` mailing list discussed on the OmeroCommunity page.
 
 OMERO Diagnostics
