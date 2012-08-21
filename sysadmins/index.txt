@@ -1,0 +1,25 @@
+======================================
+UNIX & UNIX-like platform instructions
+======================================
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    
+    unix/server-installation
+    unix/troubleshooting
+    unix/server-binary-repository
+    unix/server-postgresql
+
+====================
+Windows instructions
+====================
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    windows/server-installation
+    windows/troubleshooting
+    windows/server-binary-repository
+    windows/server-postgresql

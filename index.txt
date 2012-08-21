@@ -33,38 +33,14 @@ UNIX Installation
 *****************
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :titlesonly:
 
     system-requirements
     limitations
 
     gettingstarted/index
-    sysadmins/unix/server-installation
-    sysadmins/unix/troubleshooting
-    sysadmins/unix/server-binary-repository
-    sysadmins/unix/server-postgresql
-
-    server/upgrade 
-
-    future
-
-********************
-Windows Installation
-********************
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    system-requirements
-    limitations
-
-    gettingstarted/index
-    sysadmins/windows/server-installation
-    sysadmins/windows/troubleshooting
-    sysadmins/windows/server-binary-repository
-    sysadmins/windows/server-postgresql
+    sysadmins/index
 
     server/upgrade 
 
