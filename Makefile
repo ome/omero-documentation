@@ -45,10 +45,8 @@ clean:
 html:
 	rm -rf unix && mkdir unix
 	ln -s $(PWD)/sysadmins unix/sysadmins
-	ln -s $(PWD)/images unix/images
 	rm -rf windows && mkdir windows
 	ln -s $(PWD)/sysadmins windows/sysadmins
-	ln -s $(PWD)/images windows/images
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS)  $(BUILDDIR)/html
 	@echo "Building Unix."
 	$(SPHINXBUILD) -t unix -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html unix/sysadmins/*.txt
