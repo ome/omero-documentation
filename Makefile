@@ -43,17 +43,15 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 
 html:
-	rm -rf unix && mkdir unix
-	ln -s $(PWD)/sysadmins unix/sysadmins
-	rm -rf windows && mkdir windows
-	ln -s $(PWD)/sysadmins windows/sysadmins
+	cp sysadmins/source/*.txt sysadmins/unix
+	cp sysadmins/source/*.txt sysadmins/windows
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS)  $(BUILDDIR)/html
-	@echo "Building Unix."
-	$(SPHINXBUILD) -t unix -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html unix/sysadmins/*.txt
-	@echo "Building Windows."
-	$(SPHINXBUILD) -t windows -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html windows/sysadmins/*.txt
-	rm -rf unix
-	rm -rf windows
+	@echo "Building Unix-specific pages."
+	$(SPHINXBUILD) -t unix -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html sysadmins/unix/*.txt
+	@echo "Building Windows-specific pages."
+	$(SPHINXBUILD) -t windows -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html sysadmins/windows/*.txt
+	rm -rf sysadmins/unix/*.txt
+	rm -rf sysadmins/windows/*.txt
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 

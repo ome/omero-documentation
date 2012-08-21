@@ -40,10 +40,10 @@ UNIX Installation
     limitations
 
     gettingstarted/index
-    unix/sysadmins/server-installation
-    unix/sysadmins/troubleshooting
-    unix/sysadmins/server-binary-repository
-    unix/sysadmins/server-postgresql
+    sysadmins/unix/server-installation
+    sysadmins/unix/troubleshooting
+    sysadmins/unix/server-binary-repository
+    sysadmins/unix/server-postgresql
 
     server/upgrade 
 
@@ -61,10 +61,10 @@ Windows Installation
     limitations
 
     gettingstarted/index
-    windows/sysadmins/server-installation
-    windows/sysadmins/troubleshooting
-    windows/sysadmins/server-binary-repository
-    windows/sysadmins/server-postgresql
+    sysadmins/windows/server-installation
+    sysadmins/windows/troubleshooting
+    sysadmins/windows/server-binary-repository
+    sysadmins/windows/server-postgresql
 
     server/upgrade 
 
