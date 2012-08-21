@@ -64,7 +64,7 @@ release = '4.4.2'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'trac']
+exclude_patterns = ['_build', 'trac' ,'developers']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None

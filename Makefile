@@ -2,6 +2,7 @@
 #
 
 # You can set these variables from the command line.
+PWD = $(shell pwd)
 SPHINXOPTS    := $(SPHINXOPTS)
 SPHINXBUILD   = sphinx-build
 PAPER         =
@@ -42,13 +43,19 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 
 html:
-	cp -r sysadmins unix/
-	cp -r sysadmins windows/
+	rm -rf unix && mkdir unix
+	ln -s $(PWD)/sysadmins unix/sysadmins
+	ln -s $(PWD)/images unix/images
+	rm -rf windows && mkdir windows
+	ln -s $(PWD)/sysadmins windows/sysadmins
+	ln -s $(PWD)/images windows/images
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS)  $(BUILDDIR)/html
-	cd unix && $(SPHINXBUILD) -b html $(ALLSPHINXOPTS) ../$(BUILDDIR)/html/unix
-	cd windows && $(SPHINXBUILD) -b html $(ALLSPHINXOPTS) ../$(BUILDDIR)/html/windows
-	rm -rf unix/sysadmins
-	rm -rf windows/sysadmins
+	@echo "Building Unix."
+	$(SPHINXBUILD) -t unix -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html unix/sysadmins/*.txt
+	@echo "Building Windows."
+	$(SPHINXBUILD) -t windows -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html windows/sysadmins/*.txt
+	rm -rf unix
+	rm -rf windows
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
