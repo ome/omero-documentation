@@ -58,6 +58,19 @@ E.g.
 
   Rendered thumbnail
 
+
+Image Viewer
+~~~~~~~~~~~~
+
+-   Provides a full image viewer, with controls for scrolling Z & T, editing
+    rendering settings etc.
+
+    ::
+    
+        webgateway/img_detail/<imageid>/
+
+
+
 Images
 ~~~~~~
 
