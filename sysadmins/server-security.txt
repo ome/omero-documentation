@@ -41,7 +41,7 @@ Important OMERO ports:
 -  **TCP/4063**
 -  **TCP/4064**
 
-If you are using :ref:`OMERO.web <server/install_web>`, then you will also need to
+If you are using :ref:`OMERO.web <sysadmins/install-web>`, then you will also need to
 make your HTTP and HTTPS ports available. These are usually 80 and 443.
 
 Important OMERO.web ports:
@@ -130,7 +130,7 @@ your server after changing them.
 
 To do this, you will need to configure several server properties,
 similar to the properties you configured during
-:ref:`installation <server/installation>` (:ref:`Windows <server/install-windows>`).
+:doc:`installation <unix/server-installation>` (:ref:`Windows <windows/server-installation>`).
 
 -  key store path
 
