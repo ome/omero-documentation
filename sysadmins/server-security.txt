@@ -123,14 +123,14 @@ Java Key- and Trust stores.
 
 If your server is connecting to another server over SSL, you will need
 to configure both a keystore and a truststore for the Java process. This
-happens, for example, when your LDAP server uses SSL. See the :ref:`LDAP
-plugin <server/ldap>` for information on how to configure the LDAP
+happens, for example, when your LDAP server uses SSL. See the :doc:`LDAP
+plugin <server-ldap>` for information on how to configure the LDAP
 urls. As with all configuration properties, you will need to restart
 your server after changing them.
 
 To do this, you will need to configure several server properties,
 similar to the properties you configured during
-:doc:`installation <unix/server-installation>` (:ref:`Windows <windows/server-installation>`).
+:doc:`installation <unix/server-installation>` (:doc:`Windows <windows/server-installation>`).
 
 -  key store path
 
@@ -224,4 +224,4 @@ respectively, and can be modified with command:
 
 --------------
 
-.. seealso:: :ref:`server/ldap`
+.. seealso:: :doc:`server-ldap`

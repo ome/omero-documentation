@@ -25,9 +25,9 @@ properties used by the server. Changes made to the file are *not*
 recognized by the server. Instead, the "bin/omero config" command is
 used to change those properties that you would like to customize.
 
-Examples of doing this are on the main :ref:`Unix <server/installation>` and
-:ref:`Windows <server/install-windows>` pages, as well as the :ref:`LDAP
-installation <server/ldap>` page.
+Examples of doing this are on the main :doc:`Unix <unix/server-installation>` and
+:doc:`Windows <windows/server-installation>` pages, as well as the :doc:`LDAP
+installation <server-ldap>` page.
 
 Here we list some options which you are most likely to want to modify.
 See :source:`etc/omero.properties` for more details.
@@ -188,7 +188,7 @@ Changing ports / Multiple servers on a single host
 Since changing all the references to port numbers (4061, 4063, 4064,
 etc) in the grid configuration can be cumbersome, a bin/omero admin
 command is provided to make the modifications for you. See the :ref:`security_ssl`
-section of the :ref:`server/security` page for more information.
+section of the :ref:`sysadmins/server-security` page for more information.
 
 By modifying the default OMERO ports, it is possible to run multiple
 OMERO servers on the same physical machine.

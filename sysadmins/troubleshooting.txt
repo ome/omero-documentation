@@ -44,10 +44,10 @@ during the installation process.
 -  The first type includes **accounts on your machine**. There is one
    regular account (either your own or one you created specially for
    running OMERO, we'll call it "omero\_user" here); there is the user
-   called a "root-level user" on the :ref:`Unix installation
-   page <server/installation>` (which includes Mac OS X) and
-   "administrator-level user" on the :ref:`Windows installation
-   page <server/install-windows>`; and there may be a special
+   called a "root-level user" on the :doc:`Unix installation
+   page <unix/server-installation>` (which includes Mac OS X) and
+   "administrator-level user" on the :doc:`Windows installation
+   page <windows/server-installation>`; and there may be a special
    "postgres" user who controls the database server. The regular
    "omero\_user" account runs the server, and owns the files uploaded to
    OMERO. This account must have permission to write to the /OMERO/
@@ -178,16 +178,16 @@ password into the OMERO.insight dialog):
 
 This often because of firewall misconfiguration on the machine that runs
 your OMERO server which affects the ability of remote clients to locate
-it. Please see the :ref:`server/security` page.
+it. Please see the :ref:`sysadmins/server-security` page.
 
 Server fails to start
 =====================
 
 1. Check that you are able to successfully connect to your PostgreSQL
-   installation as outlined on the :ref:`PostgreSQL
-   page <server/postgresql>`.
+   installation as outlined on the :doc:`PostgreSQL
+   page <unix/server-postgresql>`.
 2. Check the permissions on your ``omero.data.dir`` (``/OMERO`` by
-   default) as outlined on the :ref:`OMERO Install <server/installation>`
+   default) as outlined on the :doc:`unix/server-installation`
    page, in the ''Pre-Installation'' section.
 3. Are you on a laptop? If you see an error message mentioning 
    :ticket:`"node master couldn't be reached" <7325>`, you
@@ -359,7 +359,7 @@ more details. There are few already known possibilities:
    - packages should be available for your distribution from
    `here <http://www.pythonware.com/products/pil/>`__. Also double check
    if all of the prerequisites were installed from
-   :ref:`here <server/install_web>`.
+   :ref:`here <sysadmins/install-web>`.
 
 Mod\_python error: "PythonHandler django.core.handlers.modpython"
 =================================================================
@@ -390,7 +390,7 @@ PostgreSQL 9.0 with an error like:
                                at IceInternal.BasicStream.loadObjectFactory(BasicStream.java:2187)
 
 then most likely the bytea\_output setting of your database needs to be
-changed. See :ref:`server/postgresql` for how to do
+changed. See :doc:`unix/server-postgresql` for how to do
 this and, optionally, :ticket:`5662` for more technical details.
 
 Too many open files
