@@ -6,6 +6,7 @@ This documentation is a work in progress and many aspects of OMERO are
 not yet covered. More documentation about the project and this package
 can be found on the :wiki:`OME wiki <>`.
 
+
 ************
 Introduction
 ************
@@ -14,46 +15,67 @@ Introduction
     :maxdepth: 1
     :titlesonly:
 
-    introduction/overview
-    introduction/system-requirements
+    users/overview
     community/resources
+
+
+**********
+Quickstart
+**********
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    users/virtual-appliance
+
 
 ************
 Installation
 ************
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :titlesonly:
 
+    users/system-requirements
+    users/limitations
+
     gettingstarted/index
-    server/index
-    clients/index
-    limitations
-    troubleshooting
+    sysadmins/server-overview
+    users/server-permissions
+    sysadmins/unix/index
+    sysadmins/windows/index	
+    sysadmins/install-web
+    sysadmins/troubleshooting
+    sysadmins/server-advanced-configuration
+    sysadmins/server-ldap
+    sysadmins/server-fs
+    sysadmins/server-security
+    sysadmins/server-backup-and-restore
+    sysadmins/server-upgrade
+    sysadmins/server-legacy-upgrade
+    sysadmins/omeromovie
+
+    users/clients-index
+   
     future
+
 
 *********
 Tutorials
 *********
 
+Administrator Tutorials
+=======================
+
+Client Tutorials
+=======================
+
 .. toctree::
-    :maxdepth: 1
-    :titlesonly:
+    :maxdepth: 2
 
     tutorial/index
 
-***********************
-Developer Documentation
-***********************
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    developers/index
-
-.. only:: html
 
 ****************
 Online Resources

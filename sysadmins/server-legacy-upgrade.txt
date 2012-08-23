@@ -1,15 +1,12 @@
-.. _server/legacy_upgrade:
+.. _sysadmins/server-legacy-upgrade:
 
 OMERO.server Legacy Upgrade
 ===========================
 
 This page list the upgrades for old versions of the OMERO.server
 
-.. contents::
-	:depth: 3
-
 To get the latest upgrades of OMERO.server, visit the
-:ref:`server/upgrade` page.
+:doc:`server-upgrade` page.
 
 The OME team is committed to providing frequent, project-wide upgrades
 both with bug fixes and new functionality. We try to make the schedule
@@ -328,7 +325,7 @@ Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-:ref:`installation <server/installation>`. Once begun, the upgrade can take
+:doc:`installation <unix/server-installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 1 or 2 hours), please be
 patient and ensure you have performed a database backup as outlined
 under "First steps".
@@ -425,7 +422,7 @@ Following a successful db upgrade, you can start the 4.3 server.
 -  Configuration for ***OMERO.web*** changed significantly in 4.2.1 to
    ease many of the deployment issues on both Unix and Windows
    platforms. Therefore, it is not necessarily, or possible to copy your
-   web settings.py, but rather you should see the :ref:`server/install_web` 
+   web settings.py, but rather you should see the :doc:`install-web` 
    page for more information on setting up
    your web server. This can safely be done after the OMERO server is
    running.
@@ -465,7 +462,7 @@ Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-:ref:`installation <server/installation>`. Once begun, the upgrade can take
+:doc:`installation <unix/server-installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 2 or 3 hours), please be
 patient and ensure you have performed a database backup as outlined
 under "First steps".
@@ -517,7 +514,7 @@ OMERO.web upgrade
 Configuration for ***OMERO.web*** changed significantly in 4.2.1 to ease
 many of the deployment issues on both Unix and Windows platforms.
 Therefore, it is not necessarily, or possible to copy your web
-settings.py, but rather you should see the :ref:`server/install_web`
+settings.py, but rather you should see the :doc:`install-web`
 page for more information on setting up your
 web server. This can safely be done after the OMERO server is running.
 
@@ -544,7 +541,7 @@ of the additional services and optional installs would be of use to you.
 
 -  **Security** By default, OMERO clients only need to connect to two
    TCP ports for communication with your OMERO.server: 4063 (unsecured)
-   and 4064 (ssl). For more details please see :ref:`server/security`.
+   and 4064 (ssl). For more details please see :doc:`server-security`.
 
 
 .. _db-upgrade-41-to-42:
@@ -555,7 +552,7 @@ Database Upgrade: 4.1 to 4.2
 In OMERO 4.2, we have exposed the User-Group features of OMERO to
 support data sharing between users in the same group. Group permissions
 determine the level of data sharing between users in the same group, as
-described on the :ref:`server/permissions` page.
+described on the :ref:`users/server-permissions` page.
 
 This means that all data objects that are linked in the OMERO database
 must be in the same group (can't link between data in different groups).
@@ -646,7 +643,7 @@ follow the following upgrade procedure:
 -  4.0.x to 4.1.0:
 
    If you wish to configure OMERO.web you should follow the instruction
-   on :ref:`server/install_web`.
+   on :ref:`sysadmins/install-web`.
 
    .. note::
       It is **not recommended** to use any older settings.py 
@@ -659,7 +656,7 @@ Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-:ref:`installation <server/installation>`. Once begun, the upgrade can take
+:doc:`installation <unix/server-installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 2 or 3 hours), please be
 patient and ensure you have performed a database backup as outlined
 under "First steps".
@@ -718,7 +715,7 @@ before proceeding with these instructions. **
 Unlike previous upgrades, migrating from the 3.2.x series to 4.0.0 is
 essentially a full re-install but re-using your existing database and
 data files. Nevertheless, all the instructions under
-:ref:`install <server/installation>` should be followed before beginning with these
+:doc:`install <unix/server-installation>` should be followed before beginning with these
 instructions. In fact, starting with a bare database may be advisable to
 test out your installation. Also, be sure to put aside a **significant**
 amount of time for upgrading larger databases.
@@ -742,7 +739,7 @@ Step 2: Update your database
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-:ref:`installation <server/installation>`. Once begun, the upgrade can take
+:doc:`installation <unix/server-installation>`. Once begun, the upgrade can take
 *significant* time on large databases (up to 2 or 3 hours), please be
 patient and ensure you have performed a database backup as above.
 
@@ -765,9 +762,9 @@ Step 3: Configuring server
 
 If the ``omero.db.user`` and ``omero.db.pass`` for the ``omero3``
 database are different then those for the database you created during
-:ref:`installation <server/installation>`, then those should be configured as well.
+:doc:`installation <unix/server-installation>`, then those should be configured as well.
 
 .. seealso::
 
-	:ref:`server/upgrade`
+	:ref:`sysadmins/server-upgrade`
 		Latest upgrades of OMERO.server
