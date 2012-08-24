@@ -22,6 +22,8 @@ One of the apps, :ref:`developers/Omero/Web/WebGateway`, provides
 utility methods for accessing data and rendering images, as well as
 handling the connection to OMERO server.
 
+The OMERO.web framework can be used for making data publicly available via the web: See :ref:`developers/Omero/Web/PublicData`. 
+
 OMERO.web infrastructure
 ------------------------
 
