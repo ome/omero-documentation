@@ -1,10 +1,8 @@
-.. _server/upgrade:
+.. _sysadmins/server-upgrade:
 
 OMERO.server Upgrade
 ====================
 
-.. contents::
-	:depth: 3
 
 The OME team is committed to providing frequent, project-wide upgrades
 both with bug fixes and new functionality. We try to make the schedule
@@ -46,13 +44,13 @@ additional details.
 
 If you are upgrading your OMERO.server from 4.4.0 to 4.4.1, the
 workflow is almost identical except the database doesn't need to be
-upgraded. See the :ref:`server/upgrade#441` section for detailed steps.
+upgraded. See the :ref:`sysadmins/server-upgrade#441` section for detailed steps.
 
 
 Upgrade from 4.3.x server to 4.4.1 server
 -----------------------------------------
 
-.. note:: The passwords and logins used here are examples. Please consult the :ref:`troubleshooting` section for explanation.
+.. note:: The passwords and logins used here are examples. Please consult the :ref:`sysadmins/troubleshooting` section for explanation.
 
 Perform a database backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -94,7 +92,7 @@ Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-:ref:`server/installation`. The 4.4 upgrade script should execute in
+:doc:`unix/server-installation`. The 4.4 upgrade script should execute in
 a short time.
 
 ::
@@ -213,7 +211,7 @@ and configure your server to use it.
 
     $ bin/omero config omero.db.name omero_from_backup
 
-.. _server/upgrade#441:
+.. _sysadmins/server-upgrade#441:
 
 Upgrade from 4.4.0 server to 4.4.1 server
 -----------------------------------------
@@ -229,7 +227,7 @@ Upgrade from 4.4.0 server to 4.4.1 server
 .. note::
 
     The passwords and logins used here are exemplary. Please
-    consult the :ref:`troubleshooting_password` page
+    consult the :ref:`sysadmins/troubleshooting/password` page
     for explanation.
 
 Copy new binaries
@@ -287,5 +285,5 @@ Restart your server
 
 .. seealso::
     
-    :ref:`server/legacy_upgrade`
+    :ref:`sysadmins/server-legacy-upgrade`
         Upgrade instructions for previous versions of the OMERO server.

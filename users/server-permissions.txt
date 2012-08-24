@@ -1,10 +1,7 @@
-.. _server/permissions:
+.. _users/server-permissions:
 
 Permissions
 ===========
-
-.. contents::
-	:depth: 2
 
 In the 4.4 release of OMERO, the groups and permissions system has been
 revamped to allow users to share data with more control. **Users can now

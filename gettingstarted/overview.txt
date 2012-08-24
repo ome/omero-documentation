@@ -33,9 +33,9 @@ process. Detailed instructions are available for installing and
 upgrading.
 
 -  :plone:`OMERO.server downloads <support/omero4/downloads>`
--  :ref:`server/installation`
--  :ref:`server/install-windows`
--  :ref:`server/upgrade`
+-  :doc:`../sysadmins/unix/server-installation`
+-  :doc:`../sysadmins/windows/server-installation`
+-  :ref:`sysadmins/server-upgrade`
 
 --------------
 

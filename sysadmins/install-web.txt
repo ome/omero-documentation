@@ -1,4 +1,4 @@
-.. _server/install_web:
+.. _sysadmins/install-web:
 
 OMERO.web Deployment
 ====================
@@ -26,13 +26,13 @@ You can find more information about FastCGI and where to get modules or
 packages for your distribution
 `here <http://www.fastcgi.com/drupal/node/3>`__.
 
-If you need help configuring your firewall rules, see the :ref:`server/security` page.
+If you need help configuring your firewall rules, see the :ref:`sysadmins/server-security` page.
 
 Prerequisites
 -------------
 
--  OMERO 4.4.1 and its prerequisites (see :ref:`Unix <server/installation>`
-   or :ref:`Windows <server/install-windows>` installation page).
+-  OMERO 4.4.1 and its prerequisites (see :doc:`Unix <unix/server-installation>`
+   or :doc:`Windows <windows/server-installation>` installation page).
 
 -  Python version from 2.4 to 2.7 (due to backwards incompatibilities in
    Python 3.0, Django does not currently work with Python 3.0; for more
@@ -241,7 +241,7 @@ working with your IIS deployment.
    you are using IIS 7 you must enable the IIS 6 WMI backwards
    compatibility options, as shown on the figure:
 
-.. figure:: installation-images/IIS7Requirements.png
+.. figure:: /images/installation-images/IIS7Requirements.png
    :align: center
    :alt: IIS 7 configuration options
 
@@ -253,7 +253,7 @@ working with your IIS deployment.
    Settings...* for the *Application Pool* assigned to your default
    *Site*. You can do this in the *IIS Manager* as follows:
 
-.. figure:: installation-images/IIS7ApplicationPool.png
+.. figure:: /images/installation-images/IIS7ApplicationPool.png
    :align: center
    :alt: IIS 7 Application Pool Advanced Settings
 
@@ -302,7 +302,7 @@ to access OMERO.webadmin or the OMERO.webclient:
 -  **http://your\_host/omero** OR, for development server:
    **http://localhost:4080**
 
-	.. figure:: installation-images/login.png
+	.. figure:: /images/installation-images/login.png
 	   :align: center
 	   :alt: OMERO.webadmin login
 
@@ -520,6 +520,6 @@ Troubleshooting
 ---------------
 
 My OMERO install doesn't work! What do I do now!?! Examine the
-:ref:`troubleshooting` page and if all else fails post a
+:ref:`sysadmins/troubleshooting` page and if all else fails post a
 message to our forums or ``ome-users`` mailing list or discussed on the
 :plone:`Community <site/community>` page.
