@@ -1,7 +1,11 @@
 .. _tutorial/editor:
 
-OMERO.editor Introduction
+OMERO.editor
 =========================
+
+Introduction
+------------
+
 
 This tool can operate as a standalone application or as part of the
 OMERO.insight client. In both cases, it saves metadata as XML files that
@@ -29,6 +33,6 @@ display and editing of parameter details. The central panel can be used
 to view the protocol in a 'Text View' (below) or in a 'Tree View' as
 described under :ref:`tutorial/editor-latest-features`.
 
-.. figure:: ../images/EditorParamsContext.png
+.. figure:: ../../images/EditorParamsContext.png
    :align: center
    :alt:

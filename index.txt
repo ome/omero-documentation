@@ -74,7 +74,9 @@ Client Tutorials
 .. toctree::
     :maxdepth: 2
 
-    tutorial/index
+    client-tutorials/insight/index
+    client-tutorials/importer/index
+    client-tutorials/editor/index
 
 
 ****************
