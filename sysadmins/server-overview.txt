@@ -41,12 +41,12 @@ Developer Documentation
 The server system is composed of several components, each of which runs
 in a separate process but is co-ordinated centrally.
 
--  :ref:`server/blitz` - The data server provides access to metadata
+-  :wiki:`OmeroBlitz` - The data server provides access to metadata
    stored in a relational database as well as the binary image data on
    disk.
--  :ref:`server/fs` - A filesystem watcher which notifes the server of
+-  :ref:`sysadmins/server-fs` - A filesystem watcher which notifes the server of
    newly uploaded or modified files.
--  :ref:`server/fs#dropbox` - Utilizes fs to find newly uploaded files and
+-  :ref:`sysadmins/server-fs#dropbox` - Utilizes fs to find newly uploaded files and
    run a fully automatic import.
 -  :ref:`server/processor` - Processors provide background
    execution of Python and Matlab scripts.
@@ -56,4 +56,4 @@ in a separate process but is co-ordinated centrally.
 
 If you are interested in building components for the server, modifying
 an existing component, or just looking for more background information,
-the best starting point is the :ref:`developers/Omero/Server` page.
+the best starting point is the :wiki:`ServerOverview` page.
