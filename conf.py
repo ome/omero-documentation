@@ -64,7 +64,7 @@ release = '4.4.3'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'trac' , 'sysadmins/source' ]
+exclude_patterns = ['_build', 'trac' , 'sysadmins/source' , 'developers']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
@@ -105,21 +105,6 @@ rst_epilog = """
 .. _ZeroC: http://www.zeroc.com
 .. _Ice: http://www.zeroc.com
 
-.. |OmeroPy| replace:: :ref:`developers/Omero/Python`
-.. |OmeroCpp| replace:: :ref:`developers/Omero/Cpp`
-.. |OmeroJava| replace:: :ref:`developers/Omero/Java`
-.. |OmeroMatlab| replace:: :ref:`developers/Omero/Matlab`
-.. |OmeroCli| replace:: :ref:`developers/Omero/CommandLine`
-.. |OmeroApi| replace:: :ref:`developers/Omero/Modules/Api`
-.. |OmeroWeb| replace:: :ref:`developers/Omero/Web`
-.. |OmeroClients| replace:: :ref:`developers/Omero/GettingStarted`
-.. |OmeroInsight| replace:: :ref:`developers/Omero/Insight`
-.. |OmeroGrid| replace:: :ref:`developers/Omero/Grid`
-.. |OmeroSessions| replace:: :ref:`developers/Omero/Server/Sessions`
-.. |OmeroModel| replace:: :ref:`developers/Omero/Model`
-.. |ExtendingOmero| replace:: :ref:`developers/Server/ExtendingOmero`
-.. |BlitzGateway| replace:: :ref:`developers/Omero/Python/Gateway`
-.. |DevelopingOmeroClients| replace:: :ref:`developers/Omero/GettingStarted/AdvancedClientDevelopment`
 """
 
 # -- Options for HTML output ---------------------------------------------------
