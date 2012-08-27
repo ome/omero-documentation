@@ -67,9 +67,9 @@ Extending OMERO
 
 Developers documentation is available on :wiki:`trac <>`. There are
 extension points to add OMERO server functionality as described on the
-|ExtendingOmero| page as well as add to agents to OMERO.insight. See
-:ref:`developers/Omero/Insight/Architecture` for more information.
+:wiki:`ExtendingOmero` page as well as add to agents to OMERO.insight. See
+:wiki:`OmeroInsightArchitecture` for more information.
 
-Instructions on writing your own |OmeroClients| or scripts that work 
-via the |OmeroApi|, in a number of languages are listed as part of the 
+Instructions on writing your own :wiki:`OmeroClients` or scripts that work 
+via the :wiki:`OmeroApi`, in a number of languages are listed as part of the 
 :plone:`analysis <support/omero4/analysis>` page.
