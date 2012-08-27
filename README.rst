@@ -213,7 +213,11 @@ reST allows for two types of image embedding: using the ``image`` and
 captions can be added easier.
 
 All images referenced in a reST document shall be placed in an ``images``
-folder in the same directory as the reST file.
+folder in the top-level directory of the documentation.
+
+Please do not use relative (``../../../images/foo.jpg``) paths to refer to
+images. Sphinx does a good job at creating paths, so one can use
+``images/foo.jpg``
 
 Substitutions, aliases and hyperlinks
 =====================================
