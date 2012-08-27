@@ -1,7 +1,7 @@
 .. _server/overview:
 
-OMERO.server Overview
-=====================
+Server Overview
+===============
 
 The OMERO server system provides storage and processing of image data
 which conforms to the :plone:`OME Specification <support/file-formats>`.
@@ -25,11 +25,15 @@ section, the following guides to administering your installation of
 OMERO.server may be of interest:
 
 -  :ref:`sysadmins/troubleshooting`
--  :ref:`server/security`
--  :ref:`server/ldap`
--  :ref:`server/backup-and-restore`
--  :ref:`server/binary-repository`
--  :ref:`server/postgresql`
+-  :ref:`sysadmins/server-security`
+-  :ref:`sysadmins/server-ldap`
+-  :ref:`sysadmins/server-backup-and-restore`
+- Unix:
+    -  :doc:`unix/server-binary-repository`
+    -  :doc:`unix/server-postgresql`
+- Windows:
+    -  :doc:`windows/server-binary-repository`
+    -  :doc:`windows/server-postgresql`
 
 Developer Documentation
 -----------------------
