@@ -8,7 +8,7 @@ OMERO in your browser
 
 OMERO ships with a web-based client for users who want to access their
 data in the browser. This offers a similar view to the OMERO.insight
-Java client. Developers can use the |OmeroWeb| to build their own views on OMERO data.
+Java client. Developers can use the :wiki:`OmeroWeb` to build their own views on OMERO data.
 
 OMERO.web 4.4
 -------------
@@ -56,7 +56,7 @@ up and make it easier to extend the OMERO.web client. We've also
 improved various parts of the Python code.
 
 -  OMERO Connection handling: A new decorator for handling connections
-   to OMERO, with hooks for customising (see :ref:`developers/Omero/Web/WritingViews`)
+   to OMERO, with hooks for customising (see :wiki:`OmeroWeb/WritingViews`)
 -  Public user: Configure a 'public user' who is always logged-in
    automatically, allowing your OMERO.web to support public data (see :ref:`web
    settings <install_web_public_user>`)
