@@ -10,13 +10,13 @@ In order to begin the import of images into an OMERO server, you need to:
 
 -  Click the OMERO.insight importer icon.
 
-.. figure:: ../images/insight-import-1icon.png
+.. figure:: /images/insight-import-1icon.png
    :align: center
    :alt: OMERO.insight importer icon
 
 -  You will be presented with the OMERO.insight Importer Window
 
-.. figure:: ../images/insight-import-2clientimporter.png
+.. figure:: /images/insight-import-2clientimporter.png
    :align: center
    :alt: OMERO.insight importer window
 
@@ -28,7 +28,7 @@ Step 1: File Selection
 
 -  Use the File Chooser panel to browse and select the images.
 
-.. figure:: ../images/insight-import-3filechooser.png
+.. figure:: /images/insight-import-3filechooser.png
    :align: center
    :alt: OMERO.insight file chooser
 
@@ -50,27 +50,27 @@ Step 2: Location selection
   Project/Dataset can be created for each import or if available an
   existing Project/Dataset can be selected.
 
-.. figure:: ../images/insight-import-4location.png
+.. figure:: /images/insight-import-4location.png
    :align: center
    :alt: OMERO.insight location selection
 
 
 Existing Project Selection.
 
-.. figure:: ../images/insight-import-5project.png
+.. figure:: /images/insight-import-5project.png
    :align: center
    :alt: OMERO.insight project selection
 
 Once the specific Project has been chosen the existing Dataset's
 available are shown under the chosen Project.
 
-.. figure:: ../images/insight-import-6dataset.png
+.. figure:: /images/insight-import-6dataset.png
    :align: center
    :alt: OMERO.insight dataset selection
 
 Alternatively a new Project and/or Dataset can be created
 
-.. figure:: ../images/insight-import-7newproject.png
+.. figure:: /images/insight-import-7newproject.png
    :align: center
    :alt: OMERO.insight new project
 
@@ -78,7 +78,7 @@ Once the Project/Dataset has been created the selected images will
 reside in the import queue panel with the details of the files/folder
 the size of the file and its location within the chosen Project/Dataset.
 
-.. figure:: ../images/insight-import-8queue.png
+.. figure:: /images/insight-import-8queue.png
    :align: center
    :alt: OMERO.insight import queue
 
@@ -90,7 +90,7 @@ reflect the chosen folder name. This is demonstrated in the case below
 where the folder 27-06-11 has been selected with the option --New From
 Folder-- in the Dataset selection.
 
-.. figure:: ../images/insight-import-9newdataset.png
+.. figure:: /images/insight-import-9newdataset.png
    :align: center
    :alt: OMERO.insight new dataset
 
@@ -101,7 +101,7 @@ in the import queue panel with the information shown in the
 Project/Dataset and the information set in the tick box for folder as
 Dataset.
 
-.. figure:: ../images/insight-import-10folderimport.png
+.. figure:: /images/insight-import-10folderimport.png
    :align: center
    :alt: OMERO.insight folder import
 
@@ -111,7 +111,7 @@ Step 3: Import
 When ready the image files can now be imported by clicking the import
 button.
 
-.. figure:: ../images/insight-import-11startimport.png
+.. figure:: /images/insight-import-11startimport.png
    :align: center
    :alt: OMERO.insight start import
 
@@ -122,18 +122,18 @@ information is presented in the Import tab:
 
 - when the import started and the duration of the import
 
-.. figure:: ../images/insight-import-12importprogress.png
+.. figure:: /images/insight-import-12importprogress.png
    :align: center
    :alt: OMERO.insight import progress
 
 On completion of the import, an hyperlink indicating the location of the
 import is displayed allowing users to browse the dataset.
 
-.. figure:: ../images/insight-import-13importcomplete.png
+.. figure:: /images/insight-import-13importcomplete.png
    :align: center
    :alt: OMERO.insight import complete
 
-.. figure:: ../images/insight-import-14projectbrowser.png
+.. figure:: /images/insight-import-14projectbrowser.png
    :align: center
    :alt: OMERO.insight project browser
 
@@ -141,11 +141,11 @@ The import tab also displays the image thumbnail, double-clicking on it
 launches the Image Viewer. If no thumbnail displayed, a View Button will
 be available, just click to launch the viewer.
 
-.. figure:: ../images/insight-import-15thumbnail.png
+.. figure:: /images/insight-import-15thumbnail.png
    :align: center
    :alt: OMERO.insight import thumbnails
 
-.. figure:: ../images/insight-import-16viewer.png
+.. figure:: /images/insight-import-16viewer.png
    :align: center
    :alt: OMERO.insight image viewer
 
@@ -175,20 +175,20 @@ The OMERO.insight supports Tagging on Import. This feature can be found
 through
 the options setting.
 
-.. figure:: ../images/insight-import-17addtags.png
+.. figure:: /images/insight-import-17addtags.png
    :align: center
    :alt: OMERO.insight add tags
 
 Once the tags have been added they may be viewed to from the list.
 
-.. figure:: ../images/insight-import-18viewtags.png
+.. figure:: /images/insight-import-18viewtags.png
    :align: center
    :alt: OMERO.insight view tags
 
 On the completion of import, the tags will then be shown under the
 annotations panel in the Right-hand panel in the Data Manager.
 
-.. figure:: ../images/insight-import-19viewannotations.png
+.. figure:: /images/insight-import-19viewannotations.png
    :align: center
    :alt: OMERO.insight view annotations
 
@@ -201,7 +201,7 @@ Toggle between Single Image Formats vs. Screening Formats
 - To toggle between these two views in the importer clicking on the
   Location icon will switch the view.
 
-.. |left| image:: ../images/icons/leftarrow.png
-.. |right| image:: ../images/icons/rightarrow.png
-.. |doubleleft| image:: ../images/icons/doubleleftarrow.png
+.. |left| image:: /images/icons/leftarrow.png
+.. |right| image:: /images/icons/rightarrow.png
+.. |doubleleft| image:: /images/icons/doubleleftarrow.png
 

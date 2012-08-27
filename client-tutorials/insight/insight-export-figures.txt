@@ -14,7 +14,7 @@ below.
 
 See the demo movie here.
 
-.. figure:: ../images/insight-export-publishingoptions.png
+.. figure:: /images/insight-export-publishingoptions.png
     :align: center
     :alt: Publishing options
 
@@ -33,13 +33,13 @@ is displayed on the figure, and it is also possible to choose a list of
 tags to sort the images by. If an image is tagged by multiple tags, it
 will appear more than once in the figure.
 
-.. figure:: ../images/insight-export-thumbnail-figure.png
+.. figure:: /images/insight-export-thumbnail-figure.png
     :align: center
     :alt: Four datasets
 
     Four datasets.
 
-.. figure:: ../images/insight-export-thumbnail-figure2.png
+.. figure:: /images/insight-export-thumbnail-figure2.png
     :align: center
     :alt: Two datasets, with thumbnails sorted by 4 tags
 
@@ -56,7 +56,7 @@ you want the split channels to be coloured or greyscale. Images can be
 labeled with their name, the name of their dataset(s) or associated
 tags.
 
-.. figure:: ../images/insight-export-splitview-figure.png
+.. figure:: /images/insight-export-splitview-figure.png
     :align: center
     :alt: Split-View Figure of 3 images with 4 channels
 
@@ -71,7 +71,7 @@ on a single row. If timing metadata is available, the time of each frame
 is displayed. Images can be labeled with their name, the name of their
 dataset(s) or associated tags.
 
-.. figure:: ../images/insight-export-movie-figure.png
+.. figure:: /images/insight-export-movie-figure.png
     :align: center
     :alt: Movie figure showing three images, labeled with image name
 
@@ -89,7 +89,7 @@ into selected channels, as for the split-view figure. Images can be
 labeled with their name, the name of their dataset(s) or associated
 tags.
 
-.. figure:: ../images/insight-export-split-roi-figure.png
+.. figure:: /images/insight-export-split-roi-figure.png
     :align: center
     :alt: ROI figure with split view
 
@@ -108,7 +108,7 @@ For movies that have an ROI, this script will display the ROI region for
 every time point that the ROI exists. If the ROI for a particular time
 point spans several Z-sections, these will be projected.
 
-.. figure:: ../images/insight-export-roi-movie-figure.png
+.. figure:: /images/insight-export-roi-movie-figure.png
     :align: center
     :alt: ROI figure from 2 movies
 

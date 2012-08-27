@@ -26,7 +26,7 @@ authentication connection to the server is ALWAYS secured.
 
 The log-in procedure is the same for OMERO.importer and OMERO.insight.
 
-.. figure:: ../images/omero_insight_4_4_login.png
+.. figure:: /images/omero_insight_4_4_login.png
    :align: center
    :alt: 
 
@@ -36,7 +36,7 @@ Select server
 To enter the address of the server, click on the icon in the top-right
 corner of the login window. A ``Servers`` dialog will pop up.
 
-.. figure:: ../images/omero_insight_4_4_servers.png
+.. figure:: /images/omero_insight_4_4_servers.png
    :align: center
    :alt:
 
@@ -80,7 +80,7 @@ the data transfer will be slower but more secure.
 -  To encrypt the transfer, click on |encrypted| .
 -  By default, the data transfer is not encrypted i.e. |decrypted| .
 
-.. |add| image:: ../images/nuvola_add16.png
-.. |edit| image:: ../images/nuvola_ksig16.png
-.. |encrypted| image:: ../images/nuvola_encrypted_grey24.png
-.. |decrypted| image:: ../images/nuvola_decrypted_grey24.png
+.. |add| image:: /images/nuvola_add16.png
+.. |edit| image:: /images/nuvola_ksig16.png
+.. |encrypted| image:: /images/nuvola_encrypted_grey24.png
+.. |decrypted| image:: /images/nuvola_decrypted_grey24.png
