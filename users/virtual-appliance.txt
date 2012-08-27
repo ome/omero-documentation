@@ -417,12 +417,12 @@ to allocate an IP address to the OS in the guest VM. This means that
 OMERO.clients, such as OMERO.Insight, cannot connect to the OMERO.server
 in the VM.
 
--  \*\* CAUSE: \*\* We believe that this is an intermittent VirtualBox
+-  **CAUSE:** We believe that this is an intermittent VirtualBox
    bug that resurfaces across many versions `VirtualBox
    #4038 <https://www.virtualbox.org/ticket/4038>`_ & previously
    `VirtualBox #3655 <https://www.virtualbox.org/ticket/3655>`_
 
--  \*\* DIAGNOSIS: \*\* Check whether the guest VM has been allocated
+-  **DIAGNOSIS:** Check whether the guest VM has been allocated
    the reserved host-only NAT IP address. If 10.0.2.15 does not appear
    in the output from ifconfig then this issue has occurred. The easiest
    way to verify this is to log into the guest VM console and check the
@@ -432,7 +432,7 @@ in the VM.
 
        $ ifconfig
 
--  \*\* SOLUTION: \*\* An easy, but unreliable, fix is to reboot the
+-  **SOLUTION:** An easy, but unreliable, fix is to reboot the
    guest VM. The preferred fix is to log into the guest VM console and
    execute the following commands which will cause the guest OS to
    release it's IP lease before requesting a new lease:
@@ -450,14 +450,14 @@ OS then there will be a conflict due to the ports assigned to VirtualBox
 port-forwarding being the same as those already in use by the
 OMERO.server in the host OS.
 
--  \*\* SOLUTION 1: \*\* Turn off the OMERO.server in the host
+-  **SOLUTION 1:** Turn off the OMERO.server in the host
    environment by issuing the following command:
 
    ::
 
        $ omero admin stop
 
--  \*\* SOLUTION 2: \*\* Alter the port-forwarding settings for your
+-  **SOLUTION 2:** Alter the port-forwarding settings for your
    OMERO.VM as described in the :ref:`virtualappliance_portforwarding`
    section. For example, increment the host port settings for omero-ssl,
    omero-unsec, and omero-web. 
