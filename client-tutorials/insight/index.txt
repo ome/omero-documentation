@@ -1,0 +1,17 @@
+.. _client-tutorials/insight/index:
+
+OMERO.Insight
+=======
+.. toctree::   
+    :titlesonly:
+    :maxdepth: 2
+
+    insight-getting-started
+    insight-import
+    insight-managing-data
+    insight-view-images
+    insight-measuring
+    insight-export-figures
+    insight-scripts
+    insight-util-scripts
+    

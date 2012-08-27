@@ -23,7 +23,7 @@ In OMERO.insight, you can open any OMERO.editor file by double clicking
 it, either when you find it attached to a Project, Dataset or Image, or
 by browsing under :menuselection:`View --> Attachments` (see screen shot).
 
-.. figure:: ../images/insight-editor.png
+.. figure:: /images/insight-editor.png
    :align: center
    :alt:
 
@@ -48,11 +48,11 @@ in the "Tree" view, which resembles the older (Beta-3) OMERO.editor
 layout (below Right). You can switch between these views by using the
 tabs at the top of the page.
 
-.. figure:: ../images/editor-textview.png
+.. figure:: /images/editor-textview.png
    :align: center
    :alt:
 
-.. figure:: ../images/editor-ui.png
+.. figure:: /images/editor-ui.png
    :align: center
    :alt:
 
@@ -66,11 +66,11 @@ step (see screen-shots below). Placing parameters in context with
 descriptions also allows a more natural way of combining multiple
 parameters and removes the need to give every parameter a description.
 
-.. figure:: ../images/editor-paramscontext.png
+.. figure:: /images/editor-paramscontext.png
    :align: center
    :alt:
 
-.. figure:: ../images/editor-paramstree.png
+.. figure:: /images/editor-paramstree.png
    :align: center
    :alt:
 
@@ -93,9 +93,9 @@ is represented by a column, with the column name displaying the name of
 each parameter. 'Drop-down' and 'Check-box' parameters are represented
 with the appropriate controls in the table (see below).
 
-.. figure:: ../images/editor-paramstable.png
+.. figure:: /images/editor-paramstable.png
    :align: center
    :alt:
 
-.. |Add Table Button| image:: ../images/nuvola_add_table16.png
-.. |Editor Icon| image:: ../images/icons/editor.png
+.. |Add Table Button| image:: /images/nuvola_add_table16.png
+.. |Editor Icon| image:: /images/icons/editor.png
