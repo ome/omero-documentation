@@ -1,3 +1,4 @@
+.. _users/memory:
 
 Adjusting Client Memory Requirements
 ====================================
@@ -22,7 +23,7 @@ Macintosh Importer & Insight
 -   Locate the ``OMERO.importer.app`` or ``OMERO.insight.app`` and right
     click (or control+click) on it, choose ''Show Package Contents''
 
-.. image:: ../images/memory_mac01.png
+.. image:: /images/memory_mac01.png
     :align: center
 
 -   Navigate to the ``Contents`` folder
@@ -30,7 +31,7 @@ Macintosh Importer & Insight
     the either Xcode (if you have that installed), or the Property List
     Editor
 
-.. image:: ../images/memory_mac02.png
+.. image:: /images/memory_mac02.png
     :align: center
 
 -   Within Xcode/Property List Editor, click and open the ``Java`` node
@@ -39,7 +40,7 @@ Macintosh Importer & Insight
     use. Increase this to something like ``-Xmx1024M`` if you wish to
     increase the allocated size to 1024 Megabytes
 
-.. image:: ../images/memory_mac03.png
+.. image:: /images/memory_mac03.png
     :align: center
 
 Windows Importer & Insight
@@ -60,7 +61,7 @@ Windows Importer & Insight
     file in any text editor (such as notepad.exe) and change the value as
     described in the 'Macintosh Importer & Insight' entry above.
 
-.. image:: ../images/memory_win.png
+.. image:: /images/memory_win.png
     :align: center
 
 Unix/Linux Importer & Insight
@@ -84,5 +85,5 @@ Unix/Linux Importer & Insight
     number (as described in the Macintosh Importer & Insight' entry
     above).
 
-.. image:: ../images/memory_unix.png
+.. image:: /images/memory_unix.png
     :align: center
