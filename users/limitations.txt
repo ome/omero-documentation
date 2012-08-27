@@ -70,7 +70,7 @@ format for bytea\_output which OMERO uses for storing script and share
 data in the DB. This causes problems with OMERO 4.3 and earlier, which
 can't understand this format. OMERO 4.4 works with both formats
 without problems. A workaround is available under
-:doc:`sysadmins/unix/server-postgresql`. See :ticket:`5662`.
+:doc:`../sysadmins/unix/server-postgresql`. See :ticket:`5662`.
 
 OMERO.web 'development server' does not work under Windows XP
 =============================================================
