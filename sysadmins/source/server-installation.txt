@@ -230,7 +230,7 @@ Creating a database as root
 Probably the most important step towards having a working server system
 is having a properly configured database.
 
-.. include:: create_postgresql_database
+.. include:: create-postgresql-database
 
 Location for the your OMERO binary repository
 ---------------------------------------------
