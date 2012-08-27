@@ -17,6 +17,7 @@ Introduction
 
     users/overview
     community/resources
+    future
 
 
 **********
@@ -30,43 +31,15 @@ Quickstart
 
 
 ************
-Installation
+Client Usage
 ************
 
 .. toctree::
     :maxdepth: 2
     :titlesonly:
 
-    users/system-requirements
-    users/limitations
-
-    gettingstarted/index
-    sysadmins/server-overview
-    users/server-permissions
-    sysadmins/unix/index
-    sysadmins/windows/index	
-    sysadmins/install-web
-    sysadmins/troubleshooting
-    sysadmins/server-advanced-configuration
-    sysadmins/server-ldap
-    sysadmins/server-fs
-    sysadmins/server-security
-    sysadmins/server-backup-and-restore
-    sysadmins/server-upgrade
-    sysadmins/server-legacy-upgrade
-    sysadmins/omeromovie
-
     users/clients-index
-   
-    future
 
-
-*********
-Tutorials
-*********
-
-Administrator Tutorials
-=======================
 
 Client Tutorials
 =======================
@@ -77,6 +50,63 @@ Client Tutorials
     client-tutorials/insight/index
     client-tutorials/importer/index
     client-tutorials/editor/index
+
+
+*****************
+Server Background
+*****************
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    sysadmins/server-overview
+    users/system-requirements
+    users/limitations
+    gettingstarted/index
+
+
+*******************
+Server Installation
+*******************
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    sysadmins/unix/index
+    sysadmins/windows/index
+    sysadmins/install-web
+    sysadmins/troubleshooting
+    sysadmins/server-security
+    sysadmins/omeromovie
+
+
+******************
+Server Maintenance
+******************
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    sysadmins/server-backup-and-restore
+    sysadmins/server-upgrade
+    sysadmins/server-legacy-upgrade
+
+
+***************
+Advanced topics
+***************
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    users/server-permissions
+    sysadmins/server-advanced-configuration
+    sysadmins/server-fs
+    sysadmins/server-ldap
 
 
 ****************
