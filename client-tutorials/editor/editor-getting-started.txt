@@ -19,7 +19,7 @@ Start Blank Protocol
 To start a blank protocol, click the |New File| icon in the tool
 bar. The following screen will appear:
 
-.. figure:: ../../images/editor-1newfile.png
+.. figure:: /images/editor-1newfile.png
    :align: center
    :alt:
 
@@ -27,14 +27,14 @@ The first 'step' of the protocol has been added. This is the "Title
 Step" of the protocol and it's name can be edited in the top of the
 right panel.
 
-.. figure:: ../../images/editor-2title.png
+.. figure:: /images/editor-2title.png
    :align: center
    :alt:
 
 To add additional steps to the protocol, click the |Add Icon| icon in
 the tool bar. Steps will be added below the currently selected step.
 
-.. figure:: ../../images/editor-3addstep.png
+.. figure:: /images/editor-3addstep.png
    :align: center
    :alt:
 
@@ -47,14 +47,14 @@ protocol available as a
 `PDF <http://www.lamondlab.com/pdf/fix&stain.pdf>`_ described
 `here <http://www.lamondlab.com/f7immunostainprotocol.htm>`_.
 
-.. figure:: ../../images/editor-4pastetext.png
+.. figure:: /images/editor-4pastetext.png
    :align: center
    :alt:
 
 After adding another step, pasting some more text, and editing the name
 of the step, the file looks like this:
 
-.. figure:: ../../images/editor-5addstep2.png
+.. figure:: /images/editor-5addstep2.png
    :align: center
    :alt:
 
@@ -66,7 +66,7 @@ Parameters can be defined from existing text by highlighting the text,
 and clicking the "Add Parameter" icon |Add Parameter Icon| beside the
 text.
 
-.. figure:: ../../images/editor-6addparam.png
+.. figure:: /images/editor-6addparam.png
    :align: center
    :alt:
 
@@ -75,7 +75,7 @@ parameter has been named using that text. The parameter name can be seen
 and edited in the panel to the right. It is also possible to set a
 default value and change the "type" of parameter here.
 
-.. figure:: ../../images/editor-7addparam2.png
+.. figure:: /images/editor-7addparam2.png
    :align: center
    :alt:
 
@@ -85,7 +85,7 @@ panel. Now enter some options for the parameter (separated by commas)
 e.g. "Methanol, Paraformaldehyde". If you wish, you can now choose one
 of these options as a default value for this parameter.
 
-.. figure:: ../../images/editor-8editparam.png
+.. figure:: /images/editor-8editparam.png
    :align: center
    :alt:
 
@@ -93,18 +93,18 @@ Click "Save" to save the current file. If you are connected to the
 server, you will have a choice of saving the file to the server, or
 saving the file locally to your computer.
 
-.. figure:: ../../images/editor-9save.png
+.. figure:: /images/editor-9save.png
    :align: center
    :alt:
 
 It is also possible to save any file as a new file to the server or
 locally using options in the File menu.
 
-.. figure:: ../../images/editor-10filemenu.png
+.. figure:: /images/editor-10filemenu.png
    :align: center
    :alt:
 
-.. |www folder| image:: ../../images/folder_http.png
-.. |Add Icon| image:: ../../images/nuvola_add16.png
-.. |Add Parameter Icon| image:: ../../images/nuvola_addNumber16.png
-.. |New File| image:: ../../images/filenew.png
+.. |www folder| image:: /images/folder_http.png
+.. |Add Icon| image:: /images/nuvola_add16.png
+.. |Add Parameter Icon| image:: /images/nuvola_addNumber16.png
+.. |New File| image:: /images/filenew.png
