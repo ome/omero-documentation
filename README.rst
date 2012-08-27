@@ -217,7 +217,7 @@ folder in the top-level directory of the documentation.
 
 Please do not use relative (``../../../images/foo.jpg``) paths to refer to
 images. Sphinx does a good job at creating paths, so one can use
-``images/foo.jpg``
+``/images/foo.jpg``
 
 Substitutions, aliases and hyperlinks
 =====================================
