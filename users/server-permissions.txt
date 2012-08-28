@@ -39,11 +39,14 @@ permission level for that group. See the insight and web admin movies
 below for more information about groups and how to administrate them in
 OMERO.
 
-+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+.. seealso::
 
-| :snapshot:`Insight Admin update in OMERO 4.4 <movies/omero-4-4/mov/InsightAdmin-4.4.mov>`   | :snapshot:`Web Admin update in OMERO 4.4 <movies/omero-4-4/mov/WebAdmin-4.4.mov>` |
+    :snapshot:`Insight Admin update in OMERO 4.4 <movies/omero-4-4/mov/InsightAdmin-4.4.mov>`
+        Movie describing the administration tools update under Insight for OMERO 4.4
 
-+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+    :snapshot:`Web Admin update in OMERO 4.4 <movies/omero-4-4/mov/WebAdmin-4.4.mov>`
+        Movie describing the administration tools update under Web for OMERO 4.4
+
 
 Group Permission Levels
 -----------------------
@@ -108,11 +111,13 @@ This is the most collaborative group:
 -  This could be used by a group of scientists working together with
    data for a publication.
 
-+-------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+.. seealso::
 
-| :snapshot:`Insight Permissions update in OMERO 4.4 <movies/omero-4-4/mov/InsightMultiGroups-4.4.mov>` | :snapshot:`Web Permissions update in OMERO 4.4 <movies/omero-4-4/mov/WebMultiGroups-4.4.mov>` |
+    :snapshot:`Insight Permissions update in OMERO 4.4 <movies/omero-4-4/mov/InsightMultiGroups-4.4.mov>`
+       Movie describing the permissions update under Insight in OMERO 4.4
 
-+-------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+    :snapshot:`Web Permissions update in OMERO 4.4 <movies/omero-4-4/mov/WebMultiGroups-4.4.mov>`
+    Movie describing the permissions update under Web in OMERO 4.4
 
 Changing Group Permissions
 --------------------------
