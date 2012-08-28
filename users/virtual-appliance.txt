@@ -67,7 +67,7 @@ installed run the application. Depending upon your platform & version,
 the VirtualBox interface should look similar to the following
 screenshot:
 
-.. figure:: ../images/virtual-appliance-1vboxinstall.jpg
+.. figure:: /images/virtual-appliance-1vboxinstall.jpg
    :align: center
    :alt: 
 
@@ -89,14 +89,14 @@ Import OMERO Virtual Appliance into VirtualBox
 
 This process is indicated in the following screenshot:
 
-.. figure:: ../images/virtual-appliance-2import-selection.jpg
+.. figure:: /images/virtual-appliance-2import-selection.jpg
    :align: center
    :alt: 
 
 -  Click **continue**. You will be presented with a range of options for
    the VM that will be built from the appliance.
 
-.. figure:: ../images/virtual-appliance-3import-settings.jpg
+.. figure:: /images/virtual-appliance-3import-settings.jpg
    :align: center
    :alt: 
 
@@ -153,7 +153,7 @@ ssh         TCP      127.0.0.1 2222      10.0.2.15  22
 When correctly setup in VirtualBox your port forwarding settings should
 look like this:
 
-.. figure:: ../images/virtual-appliance-4portforwarding.jpg
+.. figure:: /images/virtual-appliance-4portforwarding.jpg
    :align: center
    :alt: 
 
@@ -183,7 +183,7 @@ settings.
 Now we are ready to start our VM. Select the VM in the VirtualBox VM
 library then click **start**.
 
-.. figure:: ../images/virtual-appliance-5library.jpg
+.. figure:: /images/virtual-appliance-5library.jpg
    :align: center
    :alt: 
 
@@ -193,7 +193,7 @@ be going through it's standard boot process. OMERO.server is
 automatically started at boot time which means that you should be able
 to interact with OMERO without further setup.
 
-.. figure:: ../images/virtual-appliance-6boot.jpg
+.. figure:: /images/virtual-appliance-6boot.jpg
    :align: center
    :alt: 
 
@@ -275,7 +275,7 @@ to connect to the VM.
 -  Click the spanner icon situated above the password box so that we can
    enter the server settings box which looks like this:
 
-.. figure:: ../images/virtual-appliance-7server-addresses.png
+.. figure:: /images/virtual-appliance-7server-addresses.png
    :align: center
    :alt: 
 
@@ -284,13 +284,13 @@ to connect to the VM.
 -  You can now use the login credentials given above to log into insight
    using the following window (user: "root" / pw: "omero"):
 
-.. figure:: ../images/virtual-appliance-8login.png
+.. figure:: /images/virtual-appliance-8login.png
    :align: center
    :alt: 
 
 -  Insight should now load up & look like so:
 
-.. figure:: ../images/virtual-appliance-9insight.png
+.. figure:: /images/virtual-appliance-9insight.png
    :align: center
    :alt: 
 
@@ -329,7 +329,7 @@ the first time that you log into the VM you will be asked to confirm
 that wish to continue connecting. If you get the following message after
 you invoke ssh:
 
-.. figure:: ../images/virtual-appliance-cli-fingerprint-warning.png
+.. figure:: /images/virtual-appliance-cli-fingerprint-warning.png
    :align: center
    :alt: 
 
@@ -343,7 +343,7 @@ typed into the terminal:
 
 as illustrated in this screenshot:
 
-.. figure:: ../images/virtual-appliance-cli-fingerprint-remove-old.png
+.. figure:: /images/virtual-appliance-cli-fingerprint-remove-old.png
    :align: center
    :alt: 
 
@@ -351,21 +351,21 @@ The first time that you log into the VM you will also be asked to
 confirm that you wish to connect to this machine by a message similar to
 the following:
 
-.. figure:: ../images/virtual-appliance-cli-fingerprint.png
+.. figure:: /images/virtual-appliance-cli-fingerprint.png
    :align: center
    :alt: 
 
 You should confirm that you wish to continue connecting, after which you
 will be prompted for your password as usual:
 
-.. figure:: ../images/virtual-appliance-cli-password-prompt.png
+.. figure:: /images/virtual-appliance-cli-password-prompt.png
    :align: center
    :alt: 
 
 After which, if all has gone well, you should have a prompt indicating
 that you have a shell open and logged into the VM:
 
-.. figure:: ../images/virtual-appliance-cli-afterlogin.png
+.. figure:: /images/virtual-appliance-cli-afterlogin.png
    :align: center
    :alt: 
 
@@ -384,21 +384,21 @@ starts up, just like with a real piece of hardware. Once the boot
 process has finished you will see a prompt displayed in this window like
 so:
 
-.. figure:: ../images/virtual-appliance-cli-login.png
+.. figure:: /images/virtual-appliance-cli-login.png
    :align: center
    :alt: 
 
 you can log into the console of the VM directly using the user account
 credentials above.
 
-.. figure:: ../images/virtual-appliance-cli-password.png
+.. figure:: /images/virtual-appliance-cli-password.png
    :align: center
    :alt: 
 
 There is no GUI on the current OMERO virtual appliance so you will have
 to be happy using the Bash shell which looks like this:
 
-.. figure:: ../images/virtual-appliance-cli-vmconsole.png
+.. figure:: /images/virtual-appliance-cli-vmconsole.png
    :align: center
    :alt: 
 
@@ -490,7 +490,7 @@ use the down arrow followed by return to select the following entry:
 
 as seen in this screenshot:
 
-.. figure:: ../images/virtual-appliance-cli-recovery-console.png
+.. figure:: /images/virtual-appliance-cli-recovery-console.png
    :align: center
    :alt: 
 

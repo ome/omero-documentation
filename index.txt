@@ -16,7 +16,7 @@ Introduction
     :titlesonly:
 
     users/overview
-    community/resources
+    users/community-resources
     future
 
 
@@ -42,7 +42,7 @@ Client Usage
 
 
 Client Tutorials
-=======================
+================
 
 .. toctree::
     :maxdepth: 2
@@ -63,7 +63,6 @@ Server Background
     sysadmins/server-overview
     users/system-requirements
     users/limitations
-    gettingstarted/index
 
 
 *******************
