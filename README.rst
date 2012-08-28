@@ -253,6 +253,34 @@ Common markups
 * Menu selections should be marked using the appropriate role:
   ``:menuselection: `Start --> Programs```
 
+Global substitution
+-------------------
+
+Some substitutions have been implemented using ``rst_epilog`` in ``conf.py``.
+They can be used in all pages of the documentation.
+    
+==================  ================================
+Name                Path
+==================  ================================
+\|OmeroPy\|         developers/Omero/Python
+\|OmeroCpp\|        developers/Omero/Cpp
+\|OmeroJava\|       developers/Omero/Java
+\|OmeroMatlab\|     developers/Omero/Matlab
+\|OmeroCli\|        developers/Omero/CommandLine
+\|OmeroApi\|        developers/Omero/Modules/Api
+\|OmeroWeb\|        developers/Omero/Web
+\|OmeroClients\|    developers/Omero/GettingStarted
+\|OmeroInsight\|    developers/Omero/Insight
+\|OmeroGrid\|       developers/Omero/Grid
+\|OmeroSessions\|   developers/Omero/Server/Sessions
+\|OmeroModel\|      developers/Omero/Model
+\|ExtendingOmero\|  developers/Server/ExtendingOmero
+\|BlitzGateway\|    developers/Omero/Python/Gateway
+==================  ================================
+    
+For the most up-to-date list, please consult ``conf.py`` (section
+``rst_epilog``).
+
 Common URLs
 -----------
 

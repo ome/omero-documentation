@@ -19,7 +19,7 @@ Other links which may be of use:
 -  :ref:`developers/Omero/Modules/Api/AdminInterface`
 -  `SecurityUseCases </ome/wiki/SecurityUseCases>`_
 -  :ref:`developers/Omero/Server/SecurityRoles`
--  :ref:`server/permissions`
+-  :ref:`users/server-permissions`
 
 Concepts
 --------
@@ -133,7 +133,7 @@ Client & Common
 
 :source:`Permissions.java <components/model/src/ome/model/internal/Permissions.java>`
     representation of rights and roles. For more information, see
-    :ref:`server/permissions`.
+    :ref:`users/server-permissions`.
 
 :source:`Token.java <components/model/src/ome/model/internal/Token.java>`
     an extremely simple class ("public class Token {}") which is only

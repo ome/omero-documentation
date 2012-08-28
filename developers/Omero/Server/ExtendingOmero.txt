@@ -1,4 +1,4 @@
-.. _developers/Server/ExtendingOmero:
+.. _developers/Omero/Server/ExtendingOmero:
 
 Extending OMERO
 ===============
@@ -272,7 +272,7 @@ See :source:`components/blitz/resources/ome/services`
 and :source:`components/server/resources/ome/services`
 for all the available objects.
 
-.. _developers/Server/ExtendingOmero#JavaDeployment:
+.. _developers/Omero/Server/ExtendingOmero#JavaDeployment:
 
 Java Deployment
 ^^^^^^^^^^^^^^^
