@@ -42,7 +42,7 @@ The files used here are available under :source:`docs/install/gutsy`.
 Starting on boot
 ----------------
 
-Following :ref:`server/installation#Installation`,
+Following :doc:`/sysadmins/unix/server-installation`,
 execute the following as root:
 
 ::
@@ -70,4 +70,4 @@ execute the following as root:
     #
     sudo /etc/init.d/omero-admin stop
 
-.. seealso:: :ref:`server/installation`, :ref:`developers/Omero/Server/Grid/Install`
+.. seealso:: :doc:`/sysadmins/unix/server-installation`, :ref:`developers/Omero/Server/Grid/Install`

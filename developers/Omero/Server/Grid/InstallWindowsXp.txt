@@ -21,7 +21,7 @@ Limitations
 Requirements
 ------------
 
-First, all of the requirements on :ref:`server/install-windows`
+First, all of the requirements on :doc:`/sysadmins/windows/server-installation`
 should be fulfilled. The JBoss server should be able to contact 
 a Postgres installation with an OMERO database. Then,
 

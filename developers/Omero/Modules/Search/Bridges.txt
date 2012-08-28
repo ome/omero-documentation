@@ -39,7 +39,7 @@ Configuration
 -------------
 
 Custom bridges are configured in etc/omero.properties but can be
-overridden via the :ref:` standard configuration mechanisms <server/installation>`.
+overridden via the :doc:` standard configuration mechanisms </sysadmins/unix/server-installation>`.
 The **omero.search.bridges** property defines a comma-separated list of
 bridge classes which will be passed to
 :source:`components/server/src/ome/services/fulltext/FullTextBridge.java`.
