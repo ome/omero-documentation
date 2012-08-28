@@ -142,7 +142,7 @@ Binary Data
 
 When Images, Plates or File Annotations have been successfully deleted
 from the database the corresponding binary data is deleted from the
-:ref:`server/binary-repository`.
+:doc:`/sysadmins/unix/server-binary-repository`.
 It is possible that some files may not be successfully deleted if they
 are locked for any reason. This is a known problem on Windows servers.
 In this case the undeleted files can be removed manually via
