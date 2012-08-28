@@ -192,44 +192,50 @@ type.
 Group administrator
 ~~~~~~~~~~~~~~~~~~~
 
-======== ======= ========= =============
-Action   Private Read-only Read-annotate
--------- ------- --------- -------------
-View        Y         Y          Y
-Annotate    N         Y          Y
-Delete      Y         Y          Y
-Edit        N         Y          Y
-Move        Y         Y          Y
-Remove      Y         Y          Y
-======== ======= ========= =============
+.. tabularcolumns:: |l|c|c|c|
+
+================ ======= ========= =============
+:term:`Action`   Private Read-only Read-annotate
+---------------- ------- --------- -------------
+:term:`View`        Y         Y          Y
+:term:`Annotate`    N         Y          Y
+:term:`Delete`      Y         Y          Y
+:term:`Edit`        N         Y          Y
+:term:`Move`        Y         Y          Y
+:term:`Remove`      Y         Y          Y
+================ ======= ========= =============
 
 Group owner
 ~~~~~~~~~~~
 
-======== ======= ========= =============
-Action   Private Read-only Read-annotate
--------- ------- --------- -------------
-View        Y        Y           Y
-Annotate    N        Y           Y
-Delete      Y        Y           Y
-Edit        N        Y           Y
-Move        N        N           N
-Remove      Y        Y           Y
-======== ======= ========= =============
+.. tabularcolumns:: |l|c|c|c|
+
+================ ======= ========= =============
+:term:`Action`   Private Read-only Read-annotate
+---------------- ------- --------- -------------
+:term:`View`        Y        Y           Y
+:term:`Annotate`    N        Y           Y
+:term:`Delete`      Y        Y           Y
+:term:`Edit`        N        Y           Y
+:term:`Move`        N        N           N
+:term:`Remove`      Y        Y           Y
+================ ======= ========= =============
 
 Group member
 ~~~~~~~~~~~~
 
-======== ======= ========= =============
-Action   Private Read-only Read-annotate
--------- ------- --------- -------------
-View        N        Y           Y
-Annotate    N        N           Y
-Delete      N        N           N
-Edit        N        N           N
-Move        N        N           N
-Remove      N        N           N
-======== ======= ========= =============
+.. tabularcolumns:: |l|c|c|c|
+
+================ ======= ========= =============
+:term:`Action`   Private Read-only Read-annotate
+---------------- ------- --------- -------------
+:term:`View`        N        Y           Y
+:term:`Annotate`    N        N           Y
+:term:`Delete`      N        N           N
+:term:`Edit`        N        N           N
+:term:`Move`        N        N           N
+:term:`Remove`      N        N           N
+================ ======= ========= =============
 
 Key
 ~~~
