@@ -44,7 +44,7 @@ The **omero.search.bridges** property defines a comma-separated list of
 bridge classes which will be passed to
 :source:`components/server/src/ome/services/fulltext/FullTextBridge.java`.
 
-See :ref:`developers/Server/ExtendingOmero#JavaDeployment`
+See :ref:`developers/Omero/Server/ExtendingOmero#JavaDeployment`
 for how to have your bridge classes included on the server's classpath
 if it doesn't get built by the :ref:`developers/Omero/Build`.
 
