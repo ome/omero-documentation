@@ -72,7 +72,7 @@ Unix/Linux Importer & Insight
     (either ``importer-cli``, ``OMEROimporter_unix.sh``, or
     ``OMEROinsight_unix.sh`` file).
 -   For Insight and the Importer GUI, you will need to edit the
-    ``OMEROinsight_unix.sh``\ or ``OMEROimporter_unix.sh`` file
+    ``OMEROinsight_unix.sh`` or ``OMEROimporter_unix.sh`` file
     respectively and change the
     ``java -Xms128000000 -Xmx256000000 -jar omero.insight.jar`` line with
     new minimum and preferred memory options (see the Java online
