@@ -49,7 +49,7 @@ installer from `EnterpriseDB <http://www.enterprisedb.com/>`_. Versions
 Compatibility matrix
 ~~~~~~~~~~~~~~~~~~~~
 
-Versions of PostgreSQL which are compatible with OMERO are shown in
+Versions of PostgreSQL compatible with OMERO are shown in
 the table below.
 
 +------------+-----------+-----------+-----------+-----------+
@@ -110,7 +110,7 @@ find your ``postgresql.conf`` file and enable PostgreSQL's TCP listening
 mode. The exact location of the ``postgresql.conf`` file varies between
 installations. It may be helpful to locate it using the package manager
 (``rpm`` or ``dpkg``) or by utilizing the ``find`` command. Usually, the
-PostgreSQL data directory (which houses the ``postgresql.conf`` file, is
+PostgreSQL data directory (which houses the ``postgresql.conf`` file), is
 located under ``/var`` or ``/usr``:
 
 .. only:: unix
@@ -129,7 +129,7 @@ located under ``/var`` or ``/usr``:
 Once you have found the location of the ``postgresql.conf`` file on your
 particular installation, you will need to enable TCP listening:
 
-For PostgreSQL 8.4 and 9.x, the area of the configuration file you're
+For PostgreSQL 8.4 and 9.x, the area of the configuration file you are
 concerned about should look like this:
 
 ::
@@ -159,7 +159,7 @@ puzzle is the so called *host based authentication* file,
 ``pg_hba.conf``. OMERO.server must have permissions to connect to
 databases that have been created in your PostgreSQL instance. You can
 make sure that it does by examining the contents of the ``pg_hba.conf``
-file itself. It's important that you have at least one line allowing
+file itself. It is important that you have at least one line allowing
 connections from the loopback address (``127.0.0.1``) as follows:
 
 ::
