@@ -8,7 +8,6 @@ allows for the management, visualisation (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
 includes OMERO.webadmin for managing users and groups.
 
---------------
 
 OMERO.web is an integral part of the OMERO platform and can be deployed
 with:
@@ -23,15 +22,15 @@ with:
    only)
 
 You can find more information about FastCGI and where to get modules or
-packages for your distribution
-`here <http://www.fastcgi.com/drupal/node/3>`__.
+packages for your distribution on the
+`FastCGI website <http://www.fastcgi.com/drupal/node/3>`_.
 
 If you need help configuring your firewall rules, see the :ref:`sysadmins/server-security` page.
 
 Prerequisites
 -------------
 
--  OMERO 4.4.1 and its prerequisites (see :doc:`Unix <unix/server-installation>`
+-  OMERO 4.4.3 and its prerequisites (see :doc:`Unix <unix/server-installation>`
    or :doc:`Windows <windows/server-installation>` installation page).
 
 -  Python version from 2.4 to 2.7 (due to backwards incompatibilities in
@@ -515,11 +514,3 @@ Customising your OMERO.web installation
       ::
 
           $ bin/omero config set omero.web.apps '["<app name>"]'
-
-Troubleshooting
----------------
-
-My OMERO install doesn't work! What do I do now!?! Examine the
-:ref:`sysadmins/troubleshooting` page and if all else fails post a
-message to our forums or ``ome-users`` mailing list or discussed on the
-:plone:`Community <site/community>` page.

@@ -1,4 +1,4 @@
-.. _clients/importer:
+.. _users/importer:
 
 OMERO.importer
 ==============
@@ -12,7 +12,7 @@ import into the server and then uploads the files to an OMERO Server.
 To learn more about OMERO.importer see the
 :ref:`tutorial/import-images` section.
 
-.. figure:: ../images/omero_importer_4_4.png
+.. figure:: /images/omero_importer_4_4.png
     :align: center
     :alt: OMERO.importer
 

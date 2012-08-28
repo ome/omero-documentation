@@ -213,7 +213,11 @@ reST allows for two types of image embedding: using the ``image`` and
 captions can be added easier.
 
 All images referenced in a reST document shall be placed in an ``images``
-folder in the same directory as the reST file.
+folder in the top-level directory of the documentation.
+
+Please do not use relative (``../../../images/foo.jpg``) paths to refer to
+images. Sphinx does a good job at creating paths, so one can use
+``/images/foo.jpg``
 
 Substitutions, aliases and hyperlinks
 =====================================
@@ -248,34 +252,6 @@ Common markups
   ``.. seealso::``
 * Menu selections should be marked using the appropriate role:
   ``:menuselection: `Start --> Programs```
-
-Global substitution
--------------------
-
-Some substitutions have been implemented using ``rst_epilog`` in ``conf.py``.
-They can be used in all pages of the documentation.
-    
-==================  ================================
-Name                Path
-==================  ================================
-\|OmeroPy\|         developers/Omero/Python
-\|OmeroCpp\|        developers/Omero/Cpp
-\|OmeroJava\|       developers/Omero/Java
-\|OmeroMatlab\|     developers/Omero/Matlab
-\|OmeroCli\|        developers/Omero/CommandLine
-\|OmeroApi\|        developers/Omero/Modules/Api
-\|OmeroWeb\|        developers/Omero/Web
-\|OmeroClients\|    developers/Omero/GettingStarted
-\|OmeroInsight\|    developers/Omero/Insight
-\|OmeroGrid\|       developers/Omero/Grid
-\|OmeroSessions\|   developers/Omero/Server/Sessions
-\|OmeroModel\|      developers/Omero/Model
-\|ExtendingOmero\|  developers/Server/ExtendingOmero
-\|BlitzGateway\|    developers/Omero/Python/Gateway
-==================  ================================
-    
-For the most up-to-date list, please consult ``conf.py`` (section
-``rst_epilog``).
 
 Common URLs
 -----------
