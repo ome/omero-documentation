@@ -4,8 +4,8 @@ OMERO.server and PostgreSQL
 .. contents::
 
 In order to be installed, OMERO.server requires a running PostgreSQL
-instance that is configured to accept connections over TCP. The
-following explains how to ensure that you have the correct PostgreSQL
+instance that is configured to accept connections over TCP. This
+section explains how to ensure that you have the correct PostgreSQL
 version and that it is installed and configured correctly.
 
 .. only:: windows
@@ -32,19 +32,11 @@ For OMERO 4.4, PostgreSQL 8.4 or higher is required (see :ref:`users/limitations
            $ createdb -V
            createdb (PostgreSQL) 9.1.4
        
-
-8.3 and earlier
-~~~~~~~~~~~~~~~
-
-PostgreSQL 8.3 is missing SQL2003 window functions, required by OMERO.
-
-PostgreSQL 8.1 is missing the functions pg\_advisory\_lock and
-pg\_advisory\_unlock which may lead to infrequent exceptions on insert.
-
 If your default PostgreSQL installation is version 8.3 or earlier, you
 will need to upgrade to a more up-to-date version. We suggest the
 installer from `EnterpriseDB <http://www.enterprisedb.com/>`_. Versions
-8.4, 9.0 and 9.1 are known to work with OMERO 4.4.
+8.4, 9.0 and 9.1 are known to work with OMERO 4.4; 9.1 is recommended.
+
 
 Compatibility matrix
 ~~~~~~~~~~~~~~~~~~~~
@@ -69,15 +61,16 @@ the table below.
 +------------+-----------+-----------+-----------+-----------+
 
 
-.. [1]  Not suggested; see :ticket:`4902`
+.. [1] Not suggested. PostgreSQL 8.1 is missing the functions
+   `pg_advisory_lock` and `pg_advisory_unlock`, which may lead to
+   infrequent exceptions on insert; see :ticket:`4902`
 
 .. [2]  Configuration may be necessary; see :ticket:`5662`
 
 .. [3]  Not suggested; see :ticket:`5861`
 
-.. [4]  Unsupported; see :ticket:`7813`
-
-
+.. [4] Unsupported. PostgreSQL 8.3 and earlier are missing SQL2003
+   window functions, required by OMERO; see :ticket:`7813`
 
 
 Checking PostgreSQL port listening status
@@ -101,22 +94,32 @@ You can check if PostgreSQL is listening on the default port
         C:\> netstat -an | find "5432"
 
 .. note::  
-    The exact output of this command *will* vary. The important
+    The exact output of this command will vary. The important
     thing to recognize is whether or not a process is listening on
     ``TCP/5432``.
 
 If you cannot find a process listening on ``TCP/5432`` you will need to
 find your ``postgresql.conf`` file and enable PostgreSQL's TCP listening
 mode. The exact location of the ``postgresql.conf`` file varies between
+<<<<<<< HEAD
 installations. It may be helpful to locate it using the package manager
 (``rpm`` or ``dpkg``) or by utilizing the ``find`` command. Usually, the
 PostgreSQL data directory (which houses the ``postgresql.conf`` file), is
 located under ``/var`` or ``/usr``:
+=======
+installations.
+>>>>>>> openmicroscopy/master
 
 .. only:: unix
 
+    It may be helpful to locate it using the package manager (``rpm``
+    or ``dpkg``) or by utilizing the ``find`` command. Usually, the
+    PostgreSQL data directory (which houses the ``postgresql.conf``
+    file, is located under ``/var`` or ``/usr``:
+
     ::
 
+        $ sudo find /etc -name 'postgresql.conf'
         $ sudo find /usr -name 'postgresql.conf'
         $ sudo find /var -name 'postgresql.conf'
         /var/lib/postgresql/data/postgresql.conf
@@ -126,11 +129,17 @@ located under ``/var`` or ``/usr``:
         user ``postgres`` so you will likely have to be ``root`` in order to
         find it.
 
+<<<<<<< HEAD
 Once you have found the location of the ``postgresql.conf`` file on your
 particular installation, you will need to enable TCP listening:
 
 For PostgreSQL 8.4 and 9.x, the area of the configuration file you are
 concerned about should look like this:
+=======
+Once you have found the location of the ``postgresql.conf`` file on
+your particular installation, you will need to enable TCP listening.
+For PostgreSQL 8.4 and 9.x, the area of the configuration file you're
+concerned about should look similar to this:
 
 ::
 
@@ -148,8 +157,6 @@ concerned about should look like this:
     #unix_socket_permissions = 0777         # octal
     #bonjour_name = *                      # defaults to the computer name
 
-You can find out more about PostgreSQL client configuration on the 
-`PostgreSQL website <http://www.postgresql.org>`_.
 
 PostgreSQL HBA (host based authentication)
 ------------------------------------------
@@ -161,6 +168,13 @@ databases that have been created in your PostgreSQL instance. You can
 make sure that it does by examining the contents of the ``pg_hba.conf``
 file itself. It is important that you have at least one line allowing
 connections from the loopback address (``127.0.0.1``) as follows:
+=======
+OMERO.server must have permission to connect to the database that has
+been created in your PostgreSQL instance.  This is configured in the
+*host based authentication* file, ``pg_hba.conf``.  Check the
+configuration by examining the contents of ``pg_hba.conf``. It is
+important that at least one line allows connections from the loopback
+address (``127.0.0.1``) as follows:
 
 ::
 
@@ -171,13 +185,15 @@ connections from the loopback address (``127.0.0.1``) as follows:
 .. note:: 
     The other lines that are in your ``pg_hba.conf`` are important
     either for PostgreSQL internal commands to work or for existing
-    applications you may have; *DO NOT* delete them unless you know what you
-    are doing.
+    applications you may have. **Do not delete them**.
 
 .. seealso::
 
-    `PostgreSQL 9.1  <http://www.postgresql.org/docs/9.1/interactive/index.html>`_ 
-        Interactive Documentation for PostgreSQL 9.1
-        
-    `Client Authentication <http://www.postgresql.org/docs/9.1/interactive/client-authentication.html>`_.
-        Chapter of the PostgreSQL Documentation about Client Authentification
+    `PostgreSQL <http://www.postgresql.org/docs/current/interactive/index.html>`_ 
+        Interactive documentation for the current release of PostgreSQL.
+
+    `Connections and Authentication <http://www.postgresql.org/docs/current/interactive/runtime-config-connection.html>`_
+        Section of the PostgreSQL documentation about configuring the server using `postgresql.conf`.
+
+    `Client Authentication <http://www.postgresql.org/docs/current/interactive/client-authentication.html>`_
+        Chapter of the PostgreSQL documentation about configuring client authentication with `pg_hba.conf`.

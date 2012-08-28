@@ -3,8 +3,7 @@
 Importing Images in Insight
 ===========================
 
-To get the list of file formats currently supported in OMERO, go to
-`LOCI bio-formats library <http://loci.wisc.edu/software/bio-formats>`_.
+For more information on the file formats currently supported in OMERO see :ref:`tutorial/file-formats`.
 
 In order to begin the import of images into an OMERO server, you need to:
 

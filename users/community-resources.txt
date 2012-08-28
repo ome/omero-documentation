@@ -1,8 +1,7 @@
-.. _community/resources:
+.. _users/community-resources:
 
-*******************
 Community Resources
-*******************
+===================
 
 The Open Microscopy Environment provides a number of resources for
 both our user and developer communities to assist in use and
@@ -12,7 +11,7 @@ and forums are always welcome.
 .. _community/resources/web:
 
 Web
-===
+---
 
 Our main website is at :oo:`www.openmicroscopy.org <>`.  Bio-Formats
 is at `<http://www.loci.wisc.edu/ome/formats.html>`_.
@@ -21,7 +20,7 @@ is at `<http://www.loci.wisc.edu/ome/formats.html>`_.
 .. _community/resources/mailinglists:
 
 Mailing Lists
-=============
+-------------
 
 The following lists are provided:
 
@@ -43,7 +42,7 @@ We also provide a private list for internal use:
 .. _community/resources/forums:
 
 Forums
-======
+------
 
 Discussion on a number topics is also available through our
 :forum:`forums <>`.  Forums include:
@@ -70,7 +69,7 @@ Discussion on a number topics is also available through our
 .. _community/resources/wiki:
 
 Wiki
-====
+----
 
 Documentation for developers is available on our :wiki:`trac wiki<>`.
 Over time, most of this content will be integrated into our Sphinx

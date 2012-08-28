@@ -1,8 +1,7 @@
 .. _users/overview:
 
-*****************
 Overview of OMERO
-*****************
+=================
 
 OME Remote Objects (OMERO) is a modern client-server software platform
 for visualising, managing, and annotating scientific image data. OMERO
@@ -15,7 +14,7 @@ and a Django-based web application. See the OMERO :plone:`feature list
 The OMERO server is built as a set of separate but linked subsystems.
 All imported image data is split into two types: binary pixel data is
 stored in an image repository and accessed through the Rendering Engine
-and other services while all experimental and image metadata are stored
+and other services, while all experimental and image metadata are stored
 within a relational database and accessed through the OMERO Metadata
 Service. The database is a representation of the :plone:`OME Data
 Model <support/file-formats>` and is mapped to objects via
@@ -39,13 +38,11 @@ There are a number of demonstration videos available on the
 :plone:`Features List <products/feature-list>` page providing an
 overview of the applications. For an initial impression please browse
 our :plone:`screenshots <support/omero4/screenshots>`. For a detailed
-overview of the OMERO clients, see the :ref:`clients/overview`.
+overview of the OMERO clients, see the :ref:`users/clients-overview`.
 
 This documentation is for the latest version of the OMERO Platform. We
 also have archived versions available for :plone:`legacy versions of
 OMERO <support/legacy/>`.
 
 Most other **technical documentation** is located on the developer
-maintained Trac systems for either the
-`server <http://trac.openmicroscopy.org.uk/ome/>`_ or
-`clients <http://trac.openmicroscopy.org.uk/ome/>`_.
+maintained `Trac system <http://trac.openmicroscopy.org.uk/ome/>`_.
