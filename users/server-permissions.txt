@@ -192,6 +192,8 @@ type.
 Group administrator
 ~~~~~~~~~~~~~~~~~~~
 
+.. tabularcolumns:: |l|c|c|c|
+
 ================ ======= ========= =============
 :term:`Action`   Private Read-only Read-annotate
 ---------------- ------- --------- -------------
@@ -206,6 +208,8 @@ Group administrator
 Group owner
 ~~~~~~~~~~~
 
+.. tabularcolumns:: |l|c|c|c|
+
 ================ ======= ========= =============
 :term:`Action`   Private Read-only Read-annotate
 ---------------- ------- --------- -------------
@@ -219,6 +223,8 @@ Group owner
 
 Group member
 ~~~~~~~~~~~~
+
+.. tabularcolumns:: |l|c|c|c|
 
 ================ ======= ========= =============
 :term:`Action`   Private Read-only Read-annotate
