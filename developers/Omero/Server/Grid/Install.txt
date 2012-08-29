@@ -4,13 +4,12 @@ OMERO Grid Install
 ==================
 
 Before attempting to install |OmeroGrid|, the
-requirements listed under :ref:`server/installation` must
+requirements listed under :doc:`/sysadmins/unix/server-installation` must
 be satisfied. In particular:
 
--  :ref:`server/installation#Prerequisites`: Java and Postgres
--  :ref:`server/installation#PreInstallation`: Creating users and directories
--  Configuration: Extraction and editing **local.properties** under
-   :ref:`server/installation#Installation`
+-  Java and Postgres
+-  Creating users and directories
+-  Configuration: Extraction and editing **local.properties** 
 
 .. contents::
 
@@ -66,8 +65,8 @@ Unsupported/untested platforms
 Installation
 ------------
 
-Once JBoss is running according to :ref:`server/installation#Installation`, a
-few further steps are necessary to start |OmeroGrid|, which in turns starts
+Once JBoss is running according to :doc:`/sysadmins/unix/server-installation`, 
+a few further steps are necessary to start |OmeroGrid|, which in turns starts
 :ref:`server/blitz` and various other processes:
 
 ::

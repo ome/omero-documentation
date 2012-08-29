@@ -76,7 +76,7 @@ that is used (see Flow Diagram). As mentioned above, we start with a
 http request (top left) and either a connection is returned (bottom
 left) OR we are redirected to login page (right).
 
-.. note:: options to configure a "public user" are described on the :ref:`web configuration page <server/install_web>`.
+.. note:: options to configure a "public user" are described on the :ref:`web configuration page <sysadmins/install-web>`.
 
 Extending login\_required
 ^^^^^^^^^^^^^^^^^^^^^^^^^

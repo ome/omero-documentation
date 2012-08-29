@@ -4,7 +4,7 @@ OMERO LDAP Authentication
 =========================
 
 The official user documentation for the OMERO LDAP plugin has moved to
-:ref:`server/ldap`. What remains here is the developer documentation on the design of the
+:ref:`sysadmins/server-ldap`. What remains here is the developer documentation on the design of the
 LDAP plugin as well as how to write your own LDAP extension for OMERO.
 
 LDAP Design
@@ -77,4 +77,4 @@ same package are:
 -  ":query:" -
    :source:` QueryNewUserGroupBean <components/server/src/ome/security/auth/QueryNewUserGroupBean.java>`
 
-.. seealso:: :ref:`server/installation`, :ref:`server/security`
+.. seealso:: :doc:`/sysadmins/unix/server-installation`, :ref:`sysadmins/server-security`

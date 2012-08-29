@@ -22,7 +22,8 @@ Upload Scripts
 --------------
 
 Use the upload scripts dialog to upload scripts to the server. 
-For user guide about scripting, see :wiki:`OmeroPy/ScriptingStyleGuide`.
+For user guide about scripting, see 
+:ref:`developers/Omero/Modules/Scripts/StyleGuide`.
 
 .. figure:: /images/insight-scripting-3upload.png
    :align: center
