@@ -61,10 +61,13 @@ PostgreSQL OMERO 4.1       OMERO 4.2       OMERO 4.3       OMERO 4.4
 
     [1]
         Not suggested; see :ticket:`4902`
+
     [2]
         Configuration may be necessary; see :ticket:`5662`
+
     [3]
         Not suggested; see :ticket:`5861`
+
     [4]
         Unsupported; see :ticket:`7813`
 

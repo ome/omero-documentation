@@ -117,13 +117,18 @@
       menu. Finally, add the ``plpgsql`` language, accepting all
       defaults.
 
-      .. image:: /images/install-windows-screenshots/pgadmin-12newlanguage-context.png
+      .. figure:: /images/install-windows-screenshots/pgadmin-12newlanguage-context.png
          :figwidth: 65%
          :width: 60%
          :align: center
          :alt: Add new language
-      .. image:: /images/install-windows-screenshots/pgadmin-13newlanguage-name.png
+
+	 Add new language
+
+      .. figure:: /images/install-windows-screenshots/pgadmin-13newlanguage-name.png
          :figwidth: 45%
          :width: 40%
          :align: center
          :alt: New language name
+
+	 New language name
