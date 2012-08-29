@@ -1,7 +1,6 @@
 Documentation files to be linked under the ``docs/sphinx`` directory of
 http://github.com/openmicroscopy/openmicroscopy.
 
-
 ***************************
 Getting started with Sphinx
 ***************************
@@ -306,3 +305,10 @@ When a specific type of content (e.g. code snippet) repeats itself among many
 pages, it is advised to store it in a seperate file without the default
 ``.txt`` extension. This file can then be later included using the
 ``literalinclude`` directive.
+
+*******************
+Writing conventions
+*******************
+
+* Do not use contractions (can't, isn't, I'll, etc.) in the documentation.
+* Use American English spelling.
