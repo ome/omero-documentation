@@ -330,10 +330,21 @@ the first time that you log into the VM you will be asked to confirm
 that wish to continue connecting. If you get the following message after
 you invoke ssh:
 
-.. figure:: /images/virtual-appliance-cli-fingerprint-warning.png
-   :align: center
-   :alt: 
+::
 
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+    Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+    It is also possible that the RSA host key has just been changed.
+    The fingerprint for the RSA key sent by the remote host is
+    60:e0:d2:e8:fb:25:bf:09:53:9d:9d:59:59:45:cf:aa.
+    Please contact your system administrator.
+    Add correct host key in /Users/rleigh/.ssh/known_hosts to get rid of this message.
+    Offending key in /Users/rleigh/.ssh/known_hosts:14
+    RSA host key for localhost has changed and you have requested strict checking.
+    Host key verification failed.
 
 then you can remove the old fingerprints with the following command
 typed into the terminal:
@@ -344,31 +355,48 @@ typed into the terminal:
 
 as illustrated in this screenshot:
 
-.. figure:: /images/virtual-appliance-cli-fingerprint-remove-old.png
-   :align: center
-   :alt: 
+::
+
+    $ ssh-keygen -R [localhost]:2222 -f ~/.ssh/known_hosts 
+    /Users/rleigh/.ssh/known_hosts updated.
+    Original contents retained as /Users/rleigh/.ssh/known_hosts.old
 
 The first time that you log into the VM you will also be asked to
 confirm that you wish to connect to this machine by a message similar to
 the following:
 
-.. figure:: /images/virtual-appliance-cli-fingerprint.png
-   :align: center
-   :alt: 
+::
+
+    $ ssh omero@localhost -p 2222
+    The authenticity of host '[localhost]:2222 ([127.0.0.1]:2222)' can't be established.
+    RSA key fingerprint is 60:e0:d2:e8:fb:25:bf:09:53:9d:9d:59:59:45:cf:aa.
+    Are you sure you want to continue connecting (yes/no)?
 
 You should confirm that you wish to continue connecting, after which you
 will be prompted for your password as usual:
 
-.. figure:: /images/virtual-appliance-cli-password-prompt.png
-   :align: center
-   :alt: 
+::
+
+    Are you sure you want to continue connecting (yes/no)? yes
+    Warning: Permanently added '[localhost]:2222' (RSA) to the list of known hosts.
+    omero@localhost's password:
 
 After which, if all has gone well, you should have a prompt indicating
 that you have a shell open and logged into the VM:
 
-.. figure:: /images/virtual-appliance-cli-afterlogin.png
-   :align: center
-   :alt: 
+::
+
+    omero@localhost's password: 
+    Linux omerovm 3.2.0-2-amd64 #1 SMP Mon Jun 11 17:24:18 UTC 2012 x86_64
+
+    The programs included with the Debian GNU/Linux system are free software;
+    the exact distribution terms for each program are described in the
+    individual files in /usr/share/doc/*/copyright.
+
+    Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+    permitted by applicable law.
+    Last login: Thu Apr  5 10:32:18 2012 from 10.0.2.2
+    omero@omerovm:~$ _
 
 Log into the VM directly
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -385,23 +413,28 @@ starts up, just like with a real piece of hardware. Once the boot
 process has finished you will see a prompt displayed in this window like
 so:
 
-.. figure:: /images/virtual-appliance-cli-login.png
-   :align: center
-   :alt: 
+::
+
+   [System startup messages]
+
+   Debian GNU/Linux 6.0 omerovm tty1
+
+   omerovm login: _
 
 you can log into the console of the VM directly using the user account
 credentials above.
 
-.. figure:: /images/virtual-appliance-cli-password.png
-   :align: center
-   :alt: 
+::
+
+   omerovm login: omero
+   Password: _
 
 There is no GUI on the current OMERO virtual appliance so you will have
 to be happy using the Bash shell which looks like this:
 
-.. figure:: /images/virtual-appliance-cli-vmconsole.png
-   :align: center
-   :alt: 
+::
+
+   omero@omerovm:~$ _
 
 From here you can interact with OMERO.server via the 
 :ref:`developers/Omero/CommandLine`. You will need to login as the 'omero' 
