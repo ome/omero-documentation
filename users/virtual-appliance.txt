@@ -387,7 +387,7 @@ that you have a shell open and logged into the VM:
 ::
 
     omero@localhost's password: 
-    Linux omerovm 3.2.0-2-amd64 #1 SMP Mon Jun 11 17:24:18 UTC 2012 x86_64
+    Linux omerovm 2.6.32-5-686 #1 SMP Mon Jun 11 17:24:18 UTC 2012 i686
 
     The programs included with the Debian GNU/Linux system are free software;
     the exact distribution terms for each program are described in the
@@ -525,16 +525,39 @@ use the down arrow followed by return to select the following entry:
 
 as seen in this screenshot:
 
+.. Does not work with pdflatex (try xelatex).  Lack of unicode support for box drawing.
+..
+.. ::
+.. 
+..                       GNU GRUB  version 1.98+20100804-14
+..   ┌────────────────────────────────────────────────────────────────────────┐
+..   │Debian GNU/Linux, with Linux 2.6.32-5-686                               │
+..   │Debian GNU/Linux, with Linux 2.6.32-5-686 (recovery mode)               │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   └────────────────────────────────────────────────────────────────────────┘
+ 
+
 .. figure:: /images/virtual-appliance-cli-recovery-console.png
    :align: center
-   :alt: 
+   :alt: Recovery console
+
+   Recovery console
 
 
-Don't worry if your VM has a kernel number different to
-3.0.0-12-generic, the important thing is that you select the entry
-labelled recovery mode. At this point the VM should rapidly boot into
-the recovery mode which will enable you to log in using the root
-password *swordfish*.
+Don't worry if your VM has a kernel number different to 2.6.32-5-686,
+the important thing is that you select the entry labelled "recovery
+mode". At this point the VM should rapidly boot into the recovery mode
+which will enable you to log in using the root password *swordfish*.
 
 Once you have logged in you have a number of things that you can do but
 the recommended courses of action are either:
