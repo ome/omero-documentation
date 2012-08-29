@@ -1,0 +1,653 @@
+.. _developers/Model:
+
+OME-Remote Objects
+==================
+
+.. contents::
+
+At the core of the work on the Open Microscopy Environment is the
+definition of a vocabulary for working with microscopic data. This
+vocabulary has a representation in the `XML
+specification <http://www.openmicroscopy.org/site/support/file-formats>`_,
+in the database (the data model), and in code. This last representation
+is the object model with which we will concern ourselves here.
+
+Because of its complexity, the object model is generated from a :source:`central
+definition <components/model>` using our own
+:source:`code-generator <components/dsl>`. It relies on no
+libraries and can be used in both the server and the RMI clients.
+:ref:`server/blitz` uses a :source:`second
+mapping <components/blitz/resources/templates>` to
+generate |OmeroJava|, |OmeroPy|, and |OmeroCpp| classes, which can be
+:source:`mapped <components/blitz/src/omero/util/IceMapper.java>`
+back and forth to the server object model. *Here we'll discuss only the
+server object-model and how it is used internally.*
+
+Instances of the object model have no direct interaction with the
+database, rather the mapping is handled externally by the O/R framework,
+Hibernate_. That means, by and large,
+generated classes are data objects, composed only of getter and setter
+fields for fields representing columns in the database, and contain no
+business logic. However, to make working with the model easier and,
+perhaps, more powerful, there are several features which we've built-in.
+
+.. note::
+
+    The discussion here of object types is still relevant but uses
+    the ome.model.\* objects for examples. These are server internal types
+    which may lead to some confusion. Clients work with omero.model.\*
+    objects. This documentation will eventually be updated to reflect both
+    hierarchies.**
+
+
+Improving generated data objects
+--------------------------------
+
+Constructors
+~~~~~~~~~~~~
+
+Two special constructors are generated for each model object. One is for
+creating proxy instances, and the other is for filling all NOT-NULL
+fields:
+
+::
+
+        Pixels p_proxy  = new Pixels(Long, boolean);
+        Pixels p_filled = new Pixels(ome.model.core.Image, ome.model.enums.PixelsType, 
+               java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Integer, 
+               java.lang.String, ome.model.enums.DimensionOrder, ome.model.core.PixelsDimensions);
+
+The first should almost always be used as: ``new Pixels(5L, false)``.
+Passing in an argument of ``true`` would imply that this object is
+actually loaded, and therefore the server would attempt to null all the
+fields on your object. See below for a discussion on loadedness.
+
+In the special case of wiki:Enumerations?, a constructor is generated
+which takes the ``value`` field for the enumartion:
+
+::
+
+       Format file_format = new Format("text/plain");
+
+Further, this is the only example of a managed object which will be
+loaded by the server **without** its id. This allows applications to
+record only the string "text/plain" and not need to know the actual id
+value for "text/plain". See wiki:Enumerations? for more information.
+
+Details
+~~~~~~~
+
+Each table in the database has several columns handling low-level
+matters such as security, ownership, and provenance. To hide some of
+these details in the object model, each IObject instance contains an
+ome.model.internal.Details instance.
+
+Details works something like unix's ``stat``:
+
+::
+
+    /Types/Images>ls -ltrAG
+    total 0
+    -rw-------  1 josh 0 2006-01-25 20:40 Image1
+    -rw-------  1 josh 0 2006-01-25 20:40 Image2
+    -rw-------  1 josh 0 2006-01-25 20:40 Image3
+    -rw-r--r--  1 josh 0 2006-01-25 20:40 Image100
+    /Types/Images>stat Image1
+      File: `Image1'
+      Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+    Device: 1602h/5634d     Inode: 376221      Links: 1
+    Access: (0600/-rw-------)  Uid: ( 1003/    josh)   Gid: ( 1001/ ome)
+    Access: 2006-01-25 20:40:30.000000000 +0100
+    Modify: 2006-01-25 20:40:30.000000000 +0100
+    Change: 2006-01-25 20:40:30.000000000 +0100
+
+though it can also store arbitrary other attributes (meta-metadata, so
+to speak) about our model instances. See :ref:`developers/Model#dynamic` below for more information.
+
+The main methods on Details are:
+
+::
+
+        Permissions Details.getPermissions();
+        List Details.getUpdates();
+        Event Details.getCreationEvent();
+        EventDetails.getUpdatEvent();
+        Experimenter Details.getOwner();
+        ExperimenterGroup Details.getGroup();
+        ExternalInfo getExternalInfo();
+
+though some of the methods will return null, if that column is not
+available for the given object. See :ref:`developers/Model#Interfaces` below for more
+information.
+
+Consumers of the API are encouraged to pass around Details instances
+rather than specifying particulars, like:
+
+::
+
+      if (securitySystem.allowLoad(Project.class, project.getDetails())) {}
+      // and not
+      if (project.getDetails().getPermissions().isGranted(USER,READ) && project.getDetails().getOwner().getId( myId )) {...}
+
+This should hopefully save a good deal of re-coding if we move to true
+ACL rather than the current filesystem-like access control.
+
+Because it is a field on every type, Details is also on the list of
+Keywords for the :ref:`developers/Model/TypeLanguage`.
+
+.. _developers/Model#Interfaces:
+
+Interfaces
+~~~~~~~~~~
+
+To help work with the generated objects, several interfaces are added to
+their "implements" clause:
+
++------------------------+---------------------------+--------------+-------------+
+| Property               | Applies\_to               | Interface    | Notes       |
++------------------------+---------------------------+--------------+-------------+
+| Base                   |                                                        |
++------------------------+---------------------------+--------------+-------------+
+| owner                  | ! global                  |              | need sudo   |
++------------------------+---------------------------+--------------+-------------+
+| group                  | ! global                  |              | need sudo   |
++------------------------+---------------------------+--------------+-------------+
+| version                | ! immutable               |              |             |
++------------------------+---------------------------+--------------+-------------+
+| creationEvent          | ! global                  |              |             |
++------------------------+---------------------------+--------------+-------------+
+| updateEvent            | ! global && ! immutable   |              |             |
++------------------------+---------------------------+--------------+-------------+
+| permissions            |                           |              |             |
++------------------------+---------------------------+--------------+-------------+
+| externalInfo           |                           |              |             |
++------------------------+---------------------------+--------------+-------------+
+| Other                  |                                                        |
++------------------------+---------------------------+--------------+-------------+
+| name                   |                           | Named        |             |
++------------------------+---------------------------+--------------+-------------+
+| description            |                           | Described    |             |
++------------------------+---------------------------+--------------+-------------+
+| linkedAnnotationList   |                           | IAnnotated   |             |
++------------------------+---------------------------+--------------+-------------+
+
+For example, ``ome.model.meta.Experimenter`` is a "global" type,
+therefore it has no ``Details.owner`` field. In order to create this
+type of object, you will either need to have admin privileges, or in
+some cases, use the ``ome.api.IAdmin`` interface directly. (In the case
+of enums, you will need to use the ``ome.api.ITypes`` interface.)
+
+.. _developers/Model#Inheritance:
+
+Inheritance
+~~~~~~~~~~~
+
+Inheritance is supported in the object model. The superclass
+relationships can be defined simply in the mapping files. One example is
+the annotation hierarchy in :source:`components/model/resources/mappings/annotations.ome.xml`.
+Hibernate supports this polymorophism, and will search all subclasses
+when a super class is returned. *However*, due to Hibernate's use of
+bytecode-generated proxies, testing for class equality is not always
+straight-forwards.
+
+Hibernate uses CGLIB and Javassist and similar bytecode generation to
+perform much of its magic. For these bytecode generated objects, the
+getClass() method return something of the form
+"ome.model.core.Image\_$$\_javassist" which cannot be passed back into
+Hibernate. Instead, we must first parse that class String with
+:source:`Utils#trueClass() <components/model/src/ome/util/Utils.java>`).
+
+Model report objects
+~~~~~~~~~~~~~~~~~~~~
+
+To support the :ref:`developers/Server/CollectionCounts`
+requirement in which users would like to know how many objects are in a
+collection by owner, it was necessary to add read-only
+``Map<String, Long>`` fields to all objects with links. See the
+CollectionsCount? page for more information.
+
+.. _developers/Model#dynamic:
+
+Dynamic methods
+~~~~~~~~~~~~~~~
+
+Finally, because not all programming fits into the static programming
+frame, the object model provides several methods for working dynamically
+with all IObject subclasses.
+
+fieldSet / putAt / retrieve
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Each model class contains a public final static String for each field in
+that class. (Superclass fields are omitted.) A copy of all these fields
+is available through fieldSet(). This field identifier can be used in
+combination with the putAt and retrieve methods to store arbitrary data
+a class instance. Calls to putAt/retrieve with a string found in
+fieldSet delegate to the traditional getters/setters. Otherwise, the
+value is stored in lazily-initialized Map. (If no data is stored, the
+map is null).
+
+acceptFilter
+^^^^^^^^^^^^
+
+An automation of calls to putAt / retrieve can be achieved by
+implementing an ome.util.Filter?. A Filter is a VisitorPatter?-like
+interface which not only visits every field of an object, but also has
+the chance to replace the field value with an arbitrary other value.
+Much of the internal functionality in OMERO is achieved through filters.
+
+Limitations
+^^^^^^^^^^^
+
+-  The filter methods override all standard checks such as
+   IObject#isLoaded and so null-pointer exceptions et al. may be thrown.
+-  The types stored in the dynamic map currently don't propagate to the
+   :ref:`server/blitz` model objects, since not all
+   java.lang.Objects can be converted.
+
+--------------
+
+Entity lifecycle
+----------------
+
+These additions make certain operations on the model objects easier and
+cleaner, but they do not save the developer from understanding how each
+object interacts with Hibernate. Each object has a defined lifecycle and
+it is important to know both the origin (client, server, or backend) as
+well as its current state to understand what will and can happen with
+it.
+
+States
+~~~~~~
+
+Each instance can be found in one of several states. Quickly, they are:
+
+**transient**
+    the entity has been created ("new Image()") and not yet shown to the
+    backend
+**persistent**
+    the entity has been stored in the DB and has a non-null id
+    (IObject.getId()). Here Hibernate differentiates between detached,
+    managed, and deleted entities. Detached entities don't take part in
+    lazy-loading or dirty detection like managed entities do. They can,
+    however, be re-attached (made "managed"). Deleted entities cannot
+    take part in most of the ORM activities, and exceptions will be
+    thrown if they are encountered.
+**unloaded** (a reference, or proxy)
+    to solve the common problem of lazy loading exceptions found in many
+    Hibernate applications, we've introduced the concept of unloaded
+    proxy objects which are objects with all fields nulled other than
+    the id. Attempts to get or set any other property will result in an
+    exception. The backend detects these proxies and restores their
+    value before operating on the graph. (There are two related states
+    for collections -- null which is completely unloaded and filtered in
+    which certain items have been removed. More on this below.)
+
+`|image1| </ome/attachment/wiki/ObjectModel/ObjectStates.png>`_
+
+Identity, References, and Versions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Critical for understanding these states is understanding the concepts of
+identity and versioning as it relates to ORM. Every object has an id
+field that if created by the backend will not be null. (However, every
+table does not have a primary key field -- subclasses contain a foreign
+key link to their superclass). Therefore all objects without an id are
+assumed to be non-persistent (i.e. transient).
+
+Though the id cannot be the sole decider of equality (there are issues
+with the Java definition of equals() and hashCode(). See the discussion
+at :ref:`developers/Model/TypeLanguage#ToBeDone`), 
+we often perform lookups based on
+the class and id of an instance. Here again caution must also be taken
+to not unintentionally use a possibly bytecode-generated subclass. See
+the discussion under :ref:`developers/Model#Inheritance`
+above.
+
+Class/id-based lookup is in fact so useful that it is possible to take
+an model object and call obj.unload() to have a "reference" --
+essentially a placeholder for a model object that contains only an id.
+Calls to any accessors other than get/setId will throw an exception. An
+object can be tested for loadedness with obj.isLoaded().
+
+A client can use unloaded instances to inform the backend that a certain
+information is not available and should be filled in server-side. For
+example, a user can do the following:
+
+::
+
+      Project p = new Project();
+      Dataset d = new Dataset( new Long(1), false); // this means create an already unloaded instance
+      p.linkDataset(d);
+      iUpdate.saveObject(p);
+
+The server, in turn, also uses references to replace backend proxies
+that would otherwise through ``LazyIniitalizationExceptions`` on
+serialization. Clients, therefore, must code with the expectation that
+the leaves in an object graph may be unloaded. Extending a query with
+"outer join fetch" will cause these objects to be loaded as well. For
+example:
+
+::
+
+       select p from Project p left outer join fetch p.datasetLinks as links left outer join fetch links.child as dataset"
+
+but eventually in the complex OME metadata graph, it is certain that
+something will remain unloaded.
+
+Versions are the last piece to understanding object identity. Two
+entities with the same id should not be considered equal if they have
+differening versions. On each write operation, the version of an entity
+is incremented. This allows us to perform optimistic locking so that two
+users don't simultaneously edit the same object. That works so:
+
+#. User A and User B retrieve Object X id=1, version=0.
+#. User A edits Object X and saves it. Version is incremented to 1.
+#. User B edits Object X and tries to save it. The SQL generated is:
+   UPDATE table SET value = newvalue WHERE id = 1 and version = 0; which
+   upates no rows.
+#. The fact that no rows were altered is seen by the backend and an
+   OptimisticLockException? is thrown.
+
+Identity and versioning make working with the object model difficult
+sometimes, but guarantee that our data is never corrupted. (Note: as of
+`milestone:3.0-Beta3 <http://trac.openmicroscopy.org.uk/ome/milestone/3.0-Beta3>`_, there is one
+exception to this discussed below under
+:ref:`developers/Model#Links`. See that section or
+:ticket:`1001` for more information.)
+
+--------------
+
+Working with the Object Model
+-----------------------------
+
+With these states in mind, it is possible to start looking at how to
+actually use model objects. From the point of view of the server,
+everything is either an assertion of an object graph (a "write") or a
+request for an object graph (a "read"), whether they are coming from an
+RMI client, an :ref:`server/blitz` client, or even
+being generated internally.
+
+Writing
+~~~~~~~
+
+Creating new objects is as simple as instantiating objects and linking
+them together. If all NOT-NULL fields are not filled, then a
+``ValidationException`` will be thrown by the server:
+
+::
+
+       IUpdate update = new ServiceFactory().getUpdateService();
+       Image i = new Image();
+       try {
+            update.saveObject(i);
+       catch (ValidationException ve) {
+            // not ok.
+       }
+       i.setName("image");
+       return update.saveAndReturnObject(i); // ok.
+
+Otherwise, the returned value will be the Image with its id field
+filled. This works on arbitrarily complex graphs of objects:
+
+::
+
+       Image i = new Image("image-name"); // This constructor exists because "name" is the only required field.
+       Dataset d = new Dataset("dataset-name");
+       TagAnnotation tag = new TagAnnotation();
+       tag.setTextValue("some-tag");
+       i.linkDataset(d);
+       i.linkAnnotation(tag);
+       update.saveAndReturnObject(i);   
+
+Reading
+~~~~~~~
+
+Reading is a similarly straight-forward operation. From a simple id
+based lookup, ``iQuery.get(Experimenter.class, 1L)`` to a search for an
+arbitrarily complex graph:
+
+::
+
+       Image i = iQuery.findByQuery("select i from Image i "+
+             "join fetch i.datasetLinks as dlinks "+
+             "join fetch i.annotationLinks as alinks "+
+             "join fetch i.details.owner as owner "+
+             "join fetch owner.details.creationEvent "+
+             "where i.id = :id", new Parameters().addId(1L));
+
+In the return graph, you are guaranteed that any two instances of the
+same class with the same id are the same object. For example:
+
+::
+
+       Image i = ...; // From query
+       Dataset d = i.linkedDatasetList().get(0);
+       Image i2 = d.linkedImageList().get(0);
+       if (i.getId().equals(i2.getId()) {
+         assert i == i2 : "Instances must be referentially equal";
+       }
+
+Reading **&** Writing
+~~~~~~~~~~~~~~~~~~~~~
+
+Complications arise when one tries to mix objects from different read
+operations because of the difference in equality. In all but the most
+straight-forward applications, references to IObject instances from
+different return graphs will start to intermingle. For example, when a
+user logins in, you might query for all Projects belonging to the user:
+
+::
+
+      List<Project> projects = iQuery.findAllByQuery("select p from Project p where p.details.owner.omeName = someUser", null);
+      Project p = projects.get(0);
+      Long id = p.getId();
+
+Later you might query for Datasets, and be returned some of the same
+Projects again within the same graph. You've now possibly got two
+versions of the Project with a given id within your application. And if
+one of those Projects has a new Dataset reference, then Hibernate would
+not know whether the object should be removed or not.
+
+::
+
+       Project oldProject = ...; // Acquired from first query
+       // Do some other work
+       Dataset dataset = iQuery.findByQuery("select d from Dataset d "+
+               "join fetch d.projectsLinks links "+
+               "join fetch links.parent "+
+               "where d.id = :id", new Parameters().addId(5L));
+       Project newProject = dataset.linkedProjectList().get(0);
+       assert newProject.getId().equals(oldProject.getId()) : "same object";
+       assert newProject.sizeOfDatasetLinks() == oldProject.sizeOfDatasetLinks() :
+              "if this is false, then saving oldProject is a problem";
+
+Without optimistic locks, return oldProject, trying to save oldProject
+would cause whatever Datasets were missing from it to be removed from
+newProject as well. Instead, an ``OptimisticLockExceptions`` is thrown
+if a user tries to change an older reference to an entity. Similar
+problems also arise in multi-user settings, when 2 users try to access
+the same object, but it is not purely due to multi-users or even
+multi-threads, but simply to stale state. (Note: as of
+`milestone:3.0-Beta3 <http://trac.openmicroscopy.org.uk/ome/milestone/3.0-Beta3>`_, there is an issue in
+the multi-user setting in which a ``SecurityViolation`` is thrown
+instead of an ``OptimisticLockException``. See
+:ticket:`1001` for more information).
+
+Various techniques can help to manage these duplications are:
+
+-  Copy all data to your own model.
+-  Return unloaded objects wherever possible.
+-  Be very careful about the operations you commit and about the order
+   they take place in.
+-  Use a ClientSession?
+
+Lazy loading
+~~~~~~~~~~~~
+
+An issue related to identity is lazy loading. When an object graph is
+requested, Hibernate only loads the objects which are directly
+requested. All others are replaced with proxy objects. Within the
+Hibernate session, these objects are "active", and if accessed, they
+will be automatically loaded. This is taken care of by the first-level
+cache, and is also the reason that referential equality is guaranteed
+within the Hibernate session. Outside of the session, however, the
+proxies can no longer be loaded and so they cannot be serialized to the
+client.
+
+Instead, as the return value passes through OMERO's AOP layer, they get
+disconnected. Single-valued fields are replaced by an unloaded version:
+
+::
+
+      OriginalFile ofile = ...; // Object to test
+      if ( ! Hibernate.isInitialized( ofile.getFormat() ) {
+        ofile.setFormat( new Format( ofile.getFormat().getId(), false) );
+      }
+
+Multi-valued fields, or collections, are simply nulled. In this case,
+the sizeOf method will return a value less than zero:
+
+::
+
+       Dataset d = ...; // Dataset obtained from a query. Didn't request Projects
+       assert d.sizeOfProjects() < 0 : "Projects should not be loaded";
+
+This is why it is necessary to specify all "join fetch" clauses for
+instances which are required on the client-side. See
+:source:`ProxyCleanupFilter <components/server/src/ome/tools/hibernate/ProxyCleanupFilter.java>`
+for the implementation.
+
+Collections
+~~~~~~~~~~~
+
+More than just the nulling during serialization, collections pose
+several interesting problems.
+
+For example, a collection may filtered on retrieval:
+
+::
+
+       Dataset d = iQuery.findByQuery("select d from Dataset d "+
+               "join fetch d.projectLinks links "+
+               "where links.parent.id > 2000", null);
+
+Some ``ProjectDatasetLink`` instances have been filtered from the
+projectLinks collection. If the client decides to save this collection
+back, there's no way to know that it is incomplete, and Hibernate will
+remove the missing Projects from the Dataset. It is the developer's
+responsibility to know what state a collection is in. In the case of
+links, discussed below, one solution is to use the link objects
+directly, even if they are largely hidden with the API, but the problem
+remains for 1-N collections.
+
+.. _developers/Model#Links:
+
+Links
+~~~~~
+
+Links, a special form of which, collection model the many-to-many
+relationship between two other objects. A Project can contain any number
+of Datasets, and a Dataset can be in any number of Projects. This is
+achieved by ``ProjectDatasetLinks``, which have a Project "parent" and a
+Dataset "child". (The parent/child terms are somewhat arbitrary but are
+intended to fit roughly with the users' expectations for those types.)
+
+It is possible to both add and remove a link directly:
+
+::
+
+        ProjectDatasetLink link = new ProjectDatasetLink();
+        link.setParent( someProject );
+        link.setChild(  someDataset );
+        link = update.saveAndReturnObject( link );
+
+        // someDataset is now included in someProject
+
+        update.deleteObject(link);
+        // or update.deleteObject(new ProjectDatasetLink(link.getId(), false)); // a proxy
+
+        // Now they the Dataset is not included,
+        // __unless__ there was already another link.
+        
+
+However, it is also possible to have the links managed for you:
+
+::
+
+        someProject.linkDataset( someDataset ); // This creates the link
+        update.saveObject( someProject ); // Notices added link, and saves it
+
+        someProject.unlinkDataset( someDataset );
+        update.saveObject( someProject ); // Notices removal, and deletes it
+
+The difficulty with this approach is that ``unlinkDataset()`` will fail
+if the someDataset which you are trying to remove is not referentially
+equal. That is:
+
+::
+
+        someProject.linkDataset( someDataset );
+        updatedProject = update.saveAndReturnObject( someProject );
+
+        updatedProject.unlinkDataset( someDataset );
+        update.saveObject( updateProject ); // will no __nothing__ !
+
+does not work since someDataset is not included in updatedProject, but
+rather updatedDataset with the same id is. Therefore, it would be
+necessary to do something along the following lines:
+
+::
+
+        updatedProject = ...; // As before
+        for (Dataset updatedDataset : updatedProject.linkedDatasetList() ) {
+            if (updatedDataset.getId().equals( someDataset.getId() )) {
+                updatedProject.unlinkDataset( updatedDataset );
+            }
+        }
+
+The unlink method in this case, removes the link from both the
+Project.datasetLinks collection as well as from the Dataset.projectLinks
+collection. Hibernate notices that both collections are in agreement,
+and deletes the ProjectDatasetLink?. (This is achieved via the
+"delete-orphan" annotation in Hibernate). If only one side of the
+collection has had its link removed, an exception will be thrown.
+
+Synchronization
+~~~~~~~~~~~~~~~
+
+Another important point is that the model objects are in no way
+synchronized. All synchronization must occur within application code.
+
+--------------
+
+Future topics
+-------------
+
+-  Validation: Since the accessor methods themselves are largely
+   logic-less, the work of validating the objects has been offset to
+   validation objects and the Hibernate system. For each given object, a
+   validation method can be specified which will check instance fields.
+   (TODO: the null-policy should be configurable based on whether or not
+   the object is currently in a session) Validation is intended to
+   verify the specification constraints which can not (easily and/or
+   quickly) be verified by the database. See
+   `wiki:proposals/Validation </ome/wiki/proposals/Validation>`_
+-  Versioning/Locking?
+-  ObjectFactory? for wrapping model objects from :ref:`server/blitz`
+-  Links to external models
+-  Client cache
+-  Document collection methods
+-  Add info on the ILink interface to the section above.
+-  In addition to the extended functionality of the new object model,
+   there are some changes to the actual structure, the specification,
+   that are needed.
+
+   -  image\_id ==> pixel\_id where appropriate
+   -  plane\_info
+   -  ACL (getting ownership in each table not MEX)
+   -  one table ; one class
+   -  cleaning up container relationships (project, category, screen,
+      etc.)
+   -  replace ST definition ("ST is immutable") with locking meechanism
+   -  possibly versioning

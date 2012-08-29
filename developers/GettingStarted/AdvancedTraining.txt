@@ -1,0 +1,317 @@
+.. _developers/GettingStarted/AdvancedTraining:
+
+Working With OMERO
+==================
+
+This page describes various tools and resources useful for working with
+the OMERO API, as well as some tips on setting up your working
+environment. It should be useful to client developers working in any of
+the supported languages. For language specific info, see the following
+links: |OmeroJava|, |OmeroPy|, |OmeroCpp|, |OmeroMatlab|. Although this page will
+initially be from the perspective of a single developer, hopefully it
+will evolve to include the advice of more developers. Apologies if this
+is too Unix (Mac) biased - I hope that the info is still useful to
+Windows users.
+
+OMERO server
+------------
+
+Although most interactions with OMERO can be achieved remotely, you will
+generally find it easier to have the server installed on your
+development machine, particularly if you are going to be doing a lot of
+OMERO development. This gives you local access to the database, binary
+repository, logs etc and means you can work 'off-line'.
+
+Even if the server you are connecting to is remote, you will still want
+to have the server package available locally, so as to give you the
+command line tools, Python libraries, etc. It is important that all
+OMERO server and client libraries you use are the same OMERO version.
+
+You may wish to work with the most recent OMERO release, or
+alternatively you can use the latest development code. Instructions on
+how to download or check out the code can be found on the main
+:plone:`downloads page <site/support/omero4/downloads>`.
+
+Regular builds of the server are performed by `Jenkins
+<http://jenkins-ci.org/>`_ (formerly known as hudson) and all results
+are available here :jenkins:`here <job/OMERO/>`, including generated
+:javadoc:`javadocs <>`.
+
+Environment variables
+---------------------
+
+In addition to the install instructions, you might find it useful to set
+the following variables:
+
+-  OMERO\_HOME: should be set to the directory containing the OMERO
+   distribution or build.
+
+   ::
+
+       # E.g if you built the server yourself
+       export OMERO_HOME=~/Desktop/OMERO/dist
+       # Or you downloaded a release package
+       export OMERO_HOME=~/Desktop/OMERO.server-Beta-4.2.2
+
+-  Add the /bin/ directory to you PATH - allows you to call the 'omero'
+   command from anywhere.
+
+   ::
+
+       export PATH=$PATH:$OMERO_HOME/bin/
+
+-  For Python developers, set your PYTHONPATH as follows
+
+   ::
+
+       export PYTHONPATH=$PYTHONPATH:$OMERO_HOME/lib/python/
+
+Now checkout the |OmeroCli|.
+
+::
+
+    $ omero -h
+
+Database access
+---------------
+
+It is useful to be able to directly query or browse the OMERO PostgreSQL
+database, which can be achieved with a number of tools. E.g.
+
+-  psql. This command line tool you should already have installed.
+   Depending on your permissions, you may need to connect as the
+   'postgres' user:
+
+   ::
+
+       $ sudo -u postgres psql omero
+       Password:       # sudo password
+       omero=# \d;     # gives a complete list of tables and views
+       omero=# \d annotation;         # list all the columns in a particular table
+       omero=# select id, discriminator, ns, textValue, file from annotation order by id desc;   # query
+
+-  ` pgAdmin <http://www.pgadmin.org/>`_ is a free, cross platform GUI
+   tool for working with PostgreSQL
+
+OMERO model
+-----------
+
+.. figure:: /images/developer-model-pdi2.png
+   :align: center
+   :alt:
+
+You can browse the OMERO model in a number of ways, one of which is by
+looking at the database itself (see above). Another is via the on-line
+:javadoc:` OMERO model <slice2html/omero/model.html>` docs.
+
+However, due to the complexity of the OMERO model, it is helpful to have
+some starting points (follow links below to the docs themselves).
+
+.. note::
+
+    Figures to the right show highly simplified outline of various model objects.
+
+Projects, Datasets and Images
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:javadoc:` Projects <slice2html/omero/model/Project.html#Project>`
+and
+:javadoc:` Datasets <slice2html/omero/model/Dataset.html#Dataset>`
+are many-to-many containers for
+:javadoc:` Images <slice2html/omero/model/Image.html#Image>`
+(linked by
+:javadoc:` ProjectDatasetLinks <slice2html/omero/model/ProjectDatasetLink.html#ProjectDatasetLink>`
+and
+:javadoc:` DatasetImageLinks <slice2html/omero/model/DatasetImageLink.html#DatasetImageLink>`
+respectively).
+
+Projects, Datasets, Images and a number of other entities can be linked
+to Annotations :javadoc:` (abstract superclass) <slice2html/omero/model/Annotation.html#Annotation>`
+via specific links
+(:javadoc:` ProjectAnnotationLink <slice2html/omero/model/ProjectAnnotationLink.html#ProjectAnnotationLink>`,
+:javadoc:` DatasetAnnotationLink <slice2html/omero/model/DatasetAnnotationLink.html#DatasetAnnotationLink>`
+etc). Annotation subclasses such as
+:javadoc:` CommentAnnotation <slice2html/omero/model/CommentAnnotation.html#CommentAnnotation>`,
+:javadoc:` FileAnnotation <slice2html/omero/model/FileAnnotation.html#FileAnnotation>`
+etc are stored in a single DB table in OMERO (all Annotations have
+unique ID).
+
+Images
+~~~~~~
+
+.. figure:: /images/developer-model-img.png
+   :align: center
+   :alt: 
+
+Images in OMERO are made up many entities. These include core image
+components such as
+:javadoc:` Pixels <slice2html/omero/model/Pixels.html#Pixels>`,
+:javadoc:` Channels <slice2html/omero/model/Channel.html#Channel>`
+etc as well as a large number of additional metadata objects such as
+Instrument (microscope), Objective, Filters, Light Sources, Detectors
+etc. Image pixels data is stored as a single file, numbered by Pixels ID
+in the OMERO repository under /OMERO/Pixels/ and can be accessed using
+the Raw Pixels Store. 
+
+.. note::
+
+    Some features of the model are due to
+    historical changes and are not exercised in practice. For example: an
+    Image can have multiple sets of Pixels although only 1 is typically
+    used. Also, Logical Channel and Channel can be considered a single
+    entity (as they are now in the OME-model).
+
+More Figures
+~~~~~~~~~~~~
+
+This `page of the main
+site <http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/model-overview-2010-04>`_
+has some additional diagrams for other parts of the OME model, which you
+may find useful. However, there are some differences arising from the
+fact that this is the OME-XML model (references & 'top level objects'
+are different) and that this is the April 2010 schema.
+
+Working with the OMERO model objects
+------------------------------------
+
+For detailed information see |OmeroModel| and |DevelopingOmeroClients| pages.
+
+Objects that you wish to work with on the client must be loaded from
+OMERO, with the query defining the extent of any data graph that is
+"fetched".
+
+The |OmeroApi| supports 2 principle ways of
+querying OMERO and retrieving the objects. You can write SQL-like
+queries using the query service (uses "HQL") or you can use one of the
+other services that already has suitable queries. Using the query
+service is very flexible but it requires detailed knowledge of the OMERO
+model (see above) and is susceptible to any change in the model.
+
+For example: to load a specific Project and it's linked Datasets you
+could write a query like this:
+
+::
+
+    queryService = session.getQueryService()
+    params = omero.sys.Parameters()
+    params.map = {"pid": rlong(projectId)}
+    query = "select p from Project p left outer join fetch p.datasetLinks as links left 
+                outer join fetch links.child as dataset where p.id=:pid"
+    project = queryService.findByQuery(query, params)
+    for dataset in project.linkedDatasetList:
+        print dataset.getName().getValue()
+
+Or use the Container Service like this:
+
+::
+
+    containerService = session.getContainerService()
+    project = containerService.loadContainerHierarchy("Project", [projectId], True)
+    for dataset in project.linkedDatasetList:
+        print dataset.getName().getValue()
+
+For a list of the available services, see the |OmeroApi| page.
+
+Examples
+--------
+
+Here's a list of examples and links that may get re-organised and moved
+elsewhere as it grows...
+
+HQL examples
+~~~~~~~~~~~~
+
+HQL is used for Query Service queries (see above). Some examples,
+coupled with a knowledge of the OMERO model should get you going, along
+with notes about object loading on the |OmeroModel|  page. 
+
+.. note::
+    If possible, it is advisable to use an existing API method from one 
+    of the other services (as for the container service above).
+
+Although possible to place query parameters directly into the string, it
+is preferable (particularly for type-checking) to use the
+omero.sys.Parameters object).
+
+::
+
+    queryService.findByQuery("from PixelsType as p where p.value='%s'" % pType, None)
+
+    # better to do
+    params = omero.sys.Parameters()
+    params.map = {"pType": rstring(pType)}
+    queryService.findByQuery("from PixelsType as p where p.value=:pType", params)
+
+psql queries
+~~~~~~~~~~~~
+
+Below is a number of example psql database queries
+
+::
+
+    # list any images that don't have pixels:
+    omero=#select id, name from Image i where i.id not in (select image from Pixels where image is not null) order by i.id desc;
+
+    omero=# select id, name, ome_perms(permissions) from experimentergroup;
+     id  |                        name                        | ome_perms 
+    -----+----------------------------------------------------+-----------
+       0 | system                                             | -rw----
+       1 | user                                               | -rwr-r-
+       2 | guest                                              | -rw----
+       3 | JRS-private                                        | -rw----
+       4 | JRS-read-only                                      | -rwr---
+
+    omero=# select id, name, path, owner_id, group_id, ome_perms(permissions) from originalfile order by id desc limit 100;
+     id |       name                        |          path                                         | owner_id | group_id | ome_perms 
+    ----+-----------------------------------+-------------------------------------------------------+----------+----------+-----------
+     56 | GFP-FRAP.cpe.xml                  | /Users/will/omero/editor/GFP-FRAP.cpe.xml             |        4 |        5 | -rwr---
+
+    omero=# \x
+    Expanded display is on.
+    omero=# select id, discriminator, ns, textValue, file from annotation where id=369;
+    -[ RECORD 1 ]-+----------------------------------------------
+    id            | 369
+    discriminator | /type/OriginalFile/
+    ns            | openmicroscopy.org/omero/import/companionFile
+    textvalue     | 
+    file          | 570
+
+    omero=# \x
+    Expanded display is off.
+    omero=# select * from joboriginalfilelink where parent = 7;
+     id | permissions | version | child | creation_id | external_id | group_id | owner_id | update_id | parent 
+    ----+-------------+---------+-------+-------------+-------------+----------+----------+-----------+--------
+     14 |        -103 |         |   110 |         891 |             |      208 |      207 |       891 |      7
+     17 |        -103 |         |   113 |         926 |             |      208 |      207 |       926 |      7
+    (2 rows)
+
+    omero=# select id, name, path, owner_id, group_id, ome_perms(permissions) from originalfile where id in (110,113) order by id desc limit 100;
+     id  |       name        |                             path                             | owner_id | group_id | ome_perms 
+    -----+-------------------+--------------------------------------------------------------+----------+----------+-----------
+     113 | stdout            | /Users/will/omero/tmp/omero_will/75270/processuLq8fd.dir/out |      207 |      208 | -rw----
+     110 | imagesFromRois.py | ScriptName061ea79c-f98c-447b-b720-d17003d6a72f               |        0 |        0 | -rw----
+    (2 rows)
+
+    # find all annotations on Image ID=2
+    omero=# select * from annotation where id in (select child from imageannotationlink where parent = 2) ;
+
+    # trouble-shooting postgres
+    omero=# select * from pg_stat_activity ;
+
+bin/omero hql
+~~~~~~~~~~~~~
+
+You can use the omero hql command to query a remote OMERO db, entering
+your login details when requested. 
+
+.. note::
+
+    Because you will be querying the DB under a particular login, the entries 
+    returned will be subject to the permissions of that login.
+
+::
+
+    bin/omero hql -q --limit=10 "select name from OriginalFile where id=4106"
+    bin/omero hql -q --limit=10 "select id, textValue, file from Annotation a order by a.id desc"
+    bin/omero hql -q --limit=10 "select id, textValue from TagAnnotation a order by a.id desc"
+    bin/omero hql -q --limit=100 "select id, owner.id, started, userAgent from Session where closed is null"

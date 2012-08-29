@@ -1,15 +1,37 @@
-:orphan:
+*****************************
+OMERO Developer Documentation
+*****************************
 
-************************
-Developers Documentation
-************************
-
-.. toctree::  
+.. toctree::
+    :glob:
     :titlesonly:
 
-    policies
+    Omero
+    Build
+    Clients/ImportLibrary
+    CommandLine
+    GatewayApi
+    GettingStarted
+    GettingStarted/*
+    Grid
+    Insight
+    Python
+    Python/*
+    Java
+    Matlab
+    Cpp
+    Model
+    Model/*
+    Modules/*
+    Modules/Api/*
+    Modules/Scripts/*
+    Modules/Search/*
+    Search/*
+    Server/index
+    Web/index
+    WhyBeta
 
-    Omero/index
+    policies
 
     extending-omero    
 
