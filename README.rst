@@ -218,6 +218,13 @@ Please do not use relative (``../../../images/foo.jpg``) paths to refer to
 images. Sphinx does a good job at creating paths, so one can use
 ``/images/foo.jpg``
 
+Tables
+======
+
+Please do not use tables for collections of links and figures, and leave them 
+solely for use as actual tables. While it can be used in HTML to shoehorn 
+content into boxes, it doesn't work too well for other output, e.g. latex.
+
 Substitutions, aliases and hyperlinks
 =====================================
 
