@@ -154,13 +154,12 @@ concerned about should look like this:
 PostgreSQL HBA (host based authentication)
 ------------------------------------------
 
-The final piece of the PostgreSQL authentication and authorization
-puzzle is the so called *host based authentication* file,
-``pg_hba.conf``. OMERO.server must have permissions to connect to
-databases that have been created in your PostgreSQL instance. You can
-make sure that it does by examining the contents of the ``pg_hba.conf``
-file itself. It is important that you have at least one line allowing
-connections from the loopback address (``127.0.0.1``) as follows:
+OMERO.server must have permission to connect to the database that has
+been created in your PostgreSQL instance.  This is configured in the
+*host based authentication* file, ``pg_hba.conf``. Check the
+configuration by examining the contents of ``pg_hba.conf``. It is
+important that at least one line allows connections from the loopback
+address (``127.0.0.1``) as follows:
 
 ::
 
