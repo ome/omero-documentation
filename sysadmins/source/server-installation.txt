@@ -291,7 +291,7 @@ Installation
 -   Change any settings that are necessary using ``bin/omero config``
     (resp. ``bin\omero config``),
     including the name and/or password for the ``db_user`` database user
-    you chose above or the database name if it is not "omero\_database".
+    you chose above or the database name if it is not ``omero_database``.
     (Quotes are only necessary if the value could be misinterpreted by
     the shell. See :forum:`link <viewtopic.php?f=5&t=360#p922>`)
 
