@@ -179,7 +179,7 @@ Ice (3.3.x or higher)
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You need to have PostgreSQL installed, configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :ref:`users/limitations`. See :doc:`server-postgresql` for specifics about each version.
+PostgreSQL must be installed, configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :ref:`users/limitations`. See :doc:`server-postgresql` for specifics about each version.
 
 .. only:: windows
 
