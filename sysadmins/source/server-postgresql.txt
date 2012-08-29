@@ -108,7 +108,6 @@ PostgreSQL data directory (which houses the ``postgresql.conf`` file), is
 located under ``/var`` or ``/usr``:
 =======
 installations.
->>>>>>> openmicroscopy/master
 
 .. only:: unix
 
@@ -129,7 +128,6 @@ installations.
         user ``postgres`` so you will likely have to be ``root`` in order to
         find it.
 
-<<<<<<< HEAD
 Once you have found the location of the ``postgresql.conf`` file on your
 particular installation, you will need to enable TCP listening:
 
