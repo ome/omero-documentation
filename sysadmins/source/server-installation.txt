@@ -495,19 +495,22 @@ OMERO.web and Administration
 
 .. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :ref:`sysadmins/install-web`.
 
-Otherwise please give a try of the internal webserver and setup:
+Otherwise, the internal Django webserver can be used for evaluation and development. In this case, we need to
+turn debugging on, in order that static files can be served by Django:
 
 .. only:: unix
 
 	::
 
 	    $ bin/omero config set omero.web.application_server development
+	    $ bin/omero config set omero.web.debug True
 
 .. only:: windows
 
 	::
 
 	    c:\omero_dist> bin\omero config set omero.web.application_server development
+	    c:\omero_dist> bin\omero config set omero.web.debug True
 	    c:\omero_dist> bin\omero config set omero.web.session_engine "django.contrib.sessions.backends.cache"
 	    c:\omero_dist> bin\omero config set omero.web.cache_backend "file://C:/windows/temp/"
 
