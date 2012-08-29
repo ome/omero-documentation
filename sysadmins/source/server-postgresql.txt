@@ -44,33 +44,29 @@ Compatibility matrix
 Versions of PostgreSQL which are compatible with OMERO are shown in
 the table below.
 
-+------------+-----------+-----------+-----------+-----------+
-| PostgreSQL | OMERO 4.1 | OMERO 4.2 | OMERO 4.3 | OMERO 4.4 |
-+============+===========+===========+===========+===========+
-| 7.4        | YES       | NO [1]_   | NO [1]_   | NO [4]_   |
-+------------+-----------+-----------+-----------+-----------+
-| 8.1        | YES       | NO [3]_   | NO [1]_   | NO [4]_   |
-+------------+-----------+-----------+-----------+-----------+
-| 8.2        | YES       | YES       | NO [3]_   | NO [4]_   |
-+------------+-----------+-----------+-----------+-----------+
-| 8.3        | YES       | YES       | YES       | NO [4]_   |
-+------------+-----------+-----------+-----------+-----------+
-| 8.4        | YES       | YES       | YES       | YES       |
-+------------+-----------+-----------+-----------+-----------+
-| 9.x        | YES [2]_  | YES [2]_  | YES [2]_  | YES       |
-+------------+-----------+-----------+-----------+-----------+
+.. tabularcolumns:: |l|l|l|l|l|
 
+========== =============== =============== =============== ==============
+PostgreSQL OMERO 4.1       OMERO 4.2       OMERO 4.3       OMERO 4.4
+---------- --------------- --------------- --------------- --------------
+7.4        YES             NO :term:`[1]`  NO :term:`[1]`  NO :term:`[4]`
+8.1        YES             NO :term:`[3]`  NO :term:`[1]`  NO :term:`[4]`
+8.2        YES             YES             NO :term:`[3]`  NO :term:`[4]`
+8.3        YES             YES             YES             NO :term:`[4]`
+8.4        YES             YES             YES             YES
+9.x        YES :term:`[2]` YES :term:`[2]` YES :term:`[2]` YES
+========== =============== =============== =============== ==============
 
-.. [1] Not suggested. PostgreSQL 8.1 is missing the functions
-   `pg_advisory_lock` and `pg_advisory_unlock`, which may lead to
-   infrequent exceptions on insert; see :ticket:`4902`
+.. glossary::
 
-.. [2]  Configuration may be necessary; see :ticket:`5662`
-
-.. [3]  Not suggested; see :ticket:`5861`
-
-.. [4] Unsupported. PostgreSQL 8.3 and earlier are missing SQL2003
-   window functions, required by OMERO; see :ticket:`7813`
+    [1]
+        Not suggested; see :ticket:`4902`
+    [2]
+        Configuration may be necessary; see :ticket:`5662`
+    [3]
+        Not suggested; see :ticket:`5861`
+    [4]
+        Unsupported; see :ticket:`7813`
 
 
 Checking PostgreSQL port listening status
