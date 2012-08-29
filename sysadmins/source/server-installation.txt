@@ -39,8 +39,7 @@ Installation **will require a "root" level account** for which you know the pass
 
        .. note:: 
           The default user paths on Windows usually contain spaces so you
-          will need to ensure the path has no spaces, ``C:\omero_dist`` for
-          example.
+          will need to ensure the path has no spaces e.g. ``C:\omero_dist``.
     -  A reboot is required after installing the prerequisites.
 
 Prerequisites
@@ -180,7 +179,7 @@ Ice (3.3.x or higher)
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :ref:`users/limitations`. See :doc:`server-postgresql` for specifics about each version.
+PostgreSQL must be installed, configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :ref:`users/limitations`. See :doc:`server-postgresql` for specifics about each version.
 
 .. only:: windows
 
@@ -214,7 +213,7 @@ stored on a network, possibly NFS mounted (or similar), then these
 temporary files are being written and read over the network. This can
 slow access down.
 
-The OMERO.server also access the ``$HOME/omero/tmp`` and
+The OMERO.server also accesses the ``$HOME/omero/tmp`` and
 ``$HOME/omero/log`` folders of **the user the server process is running
 as** (resp. ``$HOME\omero\tmp`` and ``$HOME\omero\log``). 
 As the server makes heavier use of these folders than the clients,
@@ -283,8 +282,7 @@ Installation
     .. only:: windows
 
         Optionally, review ``C:\omero_dist\etc\omero.properties`` which
-        contains all default settings
-        Optionally, review ``~/Desktop/omero/etc/omero.properties`` (resp.
+        contains all default settings.
     
     You will need to open the file with a text editor. Don't edit the file. 
     Any configuration settings you would like to change can be changed in the 
@@ -292,8 +290,8 @@ Installation
 
 -   Change any settings that are necessary using ``bin/omero config``
     (resp. ``bin\omero config``),
-    including the name and/or password for the 'db\_user' database user
-    you chose above or the database name if it is not "omero\_database".
+    including the name and/or password for the ``db_user`` database user
+    you chose above or the database name if it is not ``omero_database``.
     (Quotes are only necessary if the value could be misinterpreted by
     the shell. See :forum:`link <viewtopic.php?f=5&t=360#p922>`)
 
@@ -329,7 +327,7 @@ Installation
 
 -   Create the OMERO database initialization script. You will be asked
     for the version of the script which you would like to generate, where
-    both defaults can be accepted. Finally, you'll be asked to enter and
+    both defaults can be accepted. Finally, you will be asked to enter and
     confirm password for your newly created OMERO root user (this should
     **not** be the same as your Linux/Mac/Windows root user!)
 
@@ -451,7 +449,7 @@ Installation
 
             Waiting on startup. Use CTRL-C to exit
 
-        If you've chosen a non-default install directory (other than
+        If you have chosen a non-default install directory (other than
         ``C:\omero_dist``), the output will look like this:
 
         ::
@@ -555,7 +553,7 @@ Enabling Movie creation from OMERO.
 -----------------------------------
 
 OMERO has the facility to create AVI/MPEG Movies from Images, which can
-be called from Insight. The page :ref:`sysadmins/omeromovie` gives details on how to enable them.
+be called from both OMERO clients. The page :ref:`sysadmins/omeromovie` gives details on how to enable them.
 
 Post-installation items
 -----------------------
@@ -565,7 +563,7 @@ Backup
 
 One of your first steps after putting your OMERO server into production
 should be deciding on when and how you are going to :ref:`backup your
-database and binary data <sysadmins/server-backup-and-restore>`. Please do not omit this
+database and binary data <sysadmins/server-backup-and-restore>`. Please **do not** omit this
 step.
 
 Security
@@ -581,7 +579,7 @@ Advanced configuration
 
 Once you have the base server running, you may want to try enabling some
 of the advanced features such as :ref:`sysadmins/server-fs` or :ref:`sysadmins/server-ldap`.
-If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
+If you have **Flex data**, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
 See the :plone:`Feature list <products/feature-list>` for more advanced
 features you may want to use, and :ref:`sysadmins/server-advanced-configuration` on how to get the most out of
 your server.
@@ -595,7 +593,7 @@ Troubleshooting
 ^^^^^^^^^^^^^^^
 
 My OMERO install doesn't work! What do I do now!?! Examine the :ref:`sysadmins/troubleshooting` page and if all else fails post a
-message to our ``ome-users`` mailing list discussed on the OmeroCommunity page.
+message to our :mailinglist:`ome-users <ome-users/>` mailing or visit :forum:`Omero Community <>`.
 
 OMERO Diagnostics
 ^^^^^^^^^^^^^^^^^

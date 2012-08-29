@@ -41,7 +41,7 @@ installer from `EnterpriseDB <http://www.enterprisedb.com/>`_. Versions
 Compatibility matrix
 ~~~~~~~~~~~~~~~~~~~~
 
-Versions of PostgreSQL which are compatible with OMERO are shown in
+Versions of PostgreSQL compatible with OMERO are shown in
 the table below.
 
 +------------+-----------+-----------+-----------+-----------+
@@ -62,7 +62,7 @@ the table below.
 
 
 .. [1] Not suggested. PostgreSQL 8.1 is missing the functions
-   `pg_advisory_lock` and `pg_advisory_unlock`, which may lead to
+   ``pg_advisory_lock`` and ``pg_advisory_unlock``, which may lead to
    infrequent exceptions on insert; see :ticket:`4902`
 
 .. [2]  Configuration may be necessary; see :ticket:`5662`
@@ -103,6 +103,12 @@ find your ``postgresql.conf`` file and enable PostgreSQL's TCP listening
 mode. The exact location of the ``postgresql.conf`` file varies between
 installations.
 
+It may be helpful to locate it using the package manager
+(``rpm`` or ``dpkg``) or by utilizing the ``find`` command. Usually, the
+PostgreSQL data directory (which houses the ``postgresql.conf`` file), is
+located under ``/var`` or ``/usr``:
+
+
 .. only:: unix
 
     It may be helpful to locate it using the package manager (``rpm``
@@ -122,10 +128,11 @@ installations.
         user ``postgres`` so you will likely have to be ``root`` in order to
         find it.
 
-Once you have found the location of the ``postgresql.conf`` file on
-your particular installation, you will need to enable TCP listening.
-For PostgreSQL 8.4 and 9.x, the area of the configuration file you're
-concerned about should look similar to this:
+Once you have found the location of the ``postgresql.conf`` file on your
+particular installation, you will need to enable TCP listening.
+
+For PostgreSQL 8.4 and 9.x, the area of the configuration file you are
+concerned about should look like this:
 
 ::
 
@@ -149,8 +156,8 @@ PostgreSQL HBA (host based authentication)
 
 OMERO.server must have permission to connect to the database that has
 been created in your PostgreSQL instance.  This is configured in the
-*host based authentication* file, ``pg_hba.conf``.  Check the
-configuration by examining the contents of ``pg_hba.conf``. It's
+*host based authentication* file, ``pg_hba.conf``. Check the
+configuration by examining the contents of ``pg_hba.conf``. It is
 important that at least one line allows connections from the loopback
 address (``127.0.0.1``) as follows:
 
