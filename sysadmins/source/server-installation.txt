@@ -6,21 +6,29 @@ OMERO.server Installation
     :ref:`sysadmins/server-upgrade`
          Instructions for **upgrading** your OMERO.server installation.
 
-    :snapshot:`OMERO Installation for Mac OS X Snow Leopard (10.6) <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
+    :snapshot:`OMERO Installation for Mac OS X Snow Leopard (10.6)
+    <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
+
         A guide provided by Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) 
         for users wishing to install OMERO 4.1 on Mac OS 10.6, including
         details on how to build all dependencies from source. The OMERO 4.4
         and 4.3 installs are almost identical to 4.2 and 4.1 (except for web
         client), so this guide will still be useful.
 
-    :snapshot:`Omero Server Beta 4.2.0 -­ Installation on CentOS <omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`
-        A guide provided by Caterina Strambio De Castillia and Vanni Galli (University of Geneva/SUPSI in Lugano) for users wishing to install OMERO 4.1.1 or 4.2.0 on CentOS.
+    :snapshot:`Omero Server Beta 4.2.0 installation on CentOS <omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`
+        A guide provided by Caterina Strambio De Castillia and Vanni
+        Galli (University of Geneva/SUPSI in Lugano) for users wishing
+        to install OMERO 4.1.1 or 4.2.0 on CentOS.
 
 
 Limitations
 -----------
 
-Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :ref:`sysadmins/troubleshooting/password`.
+Installation **will require a "root" level account** for which you
+know the password. If you are unsure of what it means to have a "root"
+level account, or if you are generally having issues with the various
+users/passwords described in this install guide, please see
+:ref:`sysadmins/troubleshooting/password`.
 
 .. only:: windows
 
