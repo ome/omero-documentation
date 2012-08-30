@@ -1,7 +1,7 @@
 .. _server/overview:
 
-OMERO.server Overview
-=====================
+Server Overview
+===============
 
 The OMERO server system provides storage and processing of image data
 which conforms to the :plone:`OME Specification <support/file-formats>`.
@@ -20,16 +20,20 @@ it does require installing several software systems, and more advanced
 usage including backups, integrated logins, etc. requires a
 knowledgeable system administrator.
 
-After working through the :ref:`gettingstarted/overview`
+After working through the :ref:`users/clients-overview`
 section, the following guides to administering your installation of
 OMERO.server may be of interest:
 
 -  :ref:`sysadmins/troubleshooting`
--  :ref:`server/security`
--  :ref:`server/ldap`
--  :ref:`server/backup-and-restore`
--  :ref:`server/binary-repository`
--  :ref:`server/postgresql`
+-  :ref:`sysadmins/server-security`
+-  :ref:`sysadmins/server-ldap`
+-  :ref:`sysadmins/server-backup-and-restore`
+- Unix:
+    -  :doc:`unix/server-binary-repository`
+    -  :doc:`unix/server-postgresql`
+- Windows:
+    -  :doc:`windows/server-binary-repository`
+    -  :doc:`windows/server-postgresql`
 
 Developer Documentation
 -----------------------
@@ -37,18 +41,20 @@ Developer Documentation
 The server system is composed of several components, each of which runs
 in a separate process but is co-ordinated centrally.
 
--  :ref:`server/blitz` - The data server provides access to metadata
+-  :wiki:`OmeroBlitz` - The data server provides access to metadata
    stored in a relational database as well as the binary image data on
    disk.
--  :ref:`server/fs` - A filesystem watcher which notifes the server of
-   newly uploaded or modified files.
--  :ref:`server/fs#dropbox` - Utilizes fs to find newly uploaded files and
-   run a fully automatic import.
--  :ref:`server/processor` - Processors provide background
-   execution of Python and Matlab scripts.
--  :ref:`server/rendering` - The RenderingEngine provides
-   server-side processing of raw image data for visualization on low-end
-   client machines.
+-  :ref:`sysadmins/server-fs` - A filesystem watcher which notifes the server    
+   of newly uploaded or modified files.
+-  :ref:`sysadmins/server-fs#dropbox` - Utilizes fs to find newly uploaded 
+   files and run a fully automatic import.
+
+..
+    -  :ref:`server/processor` - Processors provide background
+       execution of Python and Matlab scripts.
+    -  :ref:`server/rendering` - The RenderingEngine provides
+       server-side processing of raw image data for visualization on low-end
+       client machines.
 
 If you are interested in building components for the server, modifying
 an existing component, or just looking for more background information,
