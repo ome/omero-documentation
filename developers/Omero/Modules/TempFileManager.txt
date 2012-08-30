@@ -14,8 +14,6 @@ lockable write-access (See :ticket:`1653`):
    ``System.getProperty("java.io.tmpdir")`` and in Python
    ``tempfile.gettempdir()``
 
-.. contents::
-
 Creating temporary files
 ------------------------
 
