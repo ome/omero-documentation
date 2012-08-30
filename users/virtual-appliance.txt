@@ -521,7 +521,7 @@ use the down arrow followed by return to select the following entry:
 
 ::
 
-        Ubuntu, with Linux 3.0.0-12-generic (recovery mode)
+        Debian GNU/Linux, with Linux 2.6.32-5-686 (recovery mode)
 
 as seen in this screenshot:
 
@@ -549,6 +549,8 @@ as seen in this screenshot:
 
 .. figure:: /images/virtual-appliance-cli-recovery-console.png
    :align: center
+   :figwidth: 65%
+   :width: 60%
    :alt: Recovery console
 
    Recovery console
