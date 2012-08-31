@@ -215,7 +215,7 @@ captions can be added easier.
 All images referenced in a reST document shall be placed in an ``images``
 folder in the top-level directory of the documentation.
 
-Please do not use relative (``/images/foo.jpg``) paths to refer to
+Please do not use relative (``../../../images/foo.jpg``) paths to refer to
 images. Sphinx does a good job at creating paths, so one can use
 ``/images/foo.jpg``
 
@@ -252,6 +252,34 @@ Common markups
   ``.. seealso::``
 * Menu selections should be marked using the appropriate role:
   ``:menuselection: `Start --> Programs```
+
+Global substitution
+-------------------
+
+Some substitutions have been implemented using ``rst_epilog`` in ``conf.py``.
+They can be used in all pages of the documentation.
+
+==================  ================================
+Name                Path
+==================  ================================
+\|OmeroPy\|         developers/Python
+\|OmeroCpp\|        developers/Cpp
+\|OmeroJava\|       developers/Java
+\|OmeroMatlab\|     developers/Matlab
+\|OmeroCli\|        developers/CommandLine
+\|OmeroApi\|        developers/Modules/Api
+\|OmeroWeb\|        developers/Web
+\|OmeroClients\|    developers/GettingStarted
+\|OmeroInsight\|    developers/Insight
+\|OmeroGrid\|       developers/Grid
+\|OmeroSessions\|   developers/Server/Sessions
+\|OmeroModel\|      developers/Model
+\|ExtendingOmero\|  developers/ExtendingOmero
+\|BlitzGateway\|    developers/Python/Gateway
+==================  ================================
+
+For the most up-to-date list, please consult ``conf.py`` (section
+``rst_epilog``).
 
 Common URLs
 -----------
