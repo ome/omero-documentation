@@ -29,8 +29,8 @@ file for it before importing.
 Some examples of file formats with multiple files include:
 
 ============= ====================
-*Format*      *Main Extension*
-------------- --------------------
+Format        Main Extension
+============= ====================
 Flex          ``.mea`` or ``.res``
 InCell 1000   ``.xdce``
 Metamorph     ``.nd`` or ``.stk``

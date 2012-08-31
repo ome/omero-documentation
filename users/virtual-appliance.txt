@@ -69,7 +69,11 @@ screenshot:
 
 .. figure:: /images/virtual-appliance-1vboxinstall.jpg
    :align: center
-   :alt: 
+   :figwidth: 60%
+   :width: 60%
+   :alt: VirtualBox installation
+
+   VirtualBox installation
 
 Download the OMERO.server Virtual Appliance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -91,14 +95,22 @@ This process is indicated in the following screenshot:
 
 .. figure:: /images/virtual-appliance-2import-selection.jpg
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: Import of the OMERO virtual appliance
+
+   Import of the OMERO virtual appliance
 
 -  Click **continue**. You will be presented with a range of options for
    the VM that will be built from the appliance.
 
 .. figure:: /images/virtual-appliance-3import-settings.jpg
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: Virtual appliance import settings
+
+   Virtual appliance import settings
 
 -  You can accept the defaults by clicking **Done**.
 
@@ -155,7 +167,11 @@ look like this:
 
 .. figure:: /images/virtual-appliance-4portforwarding.jpg
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: VirtualBox port forwarding
+
+   VirtualBox port forwarding
 
 If you are on Linux or Mac OS X then you can either use our port
 forwarding setup script or else you can set up port forwarding settings
@@ -185,8 +201,11 @@ library then click **start**.
 
 .. figure:: /images/virtual-appliance-5library.jpg
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: VirtualBox VM manager
 
+   VirtualBox VM manager
 
 A window should open containing a console for your VM which should now
 be going through it's standard boot process. OMERO.server is
@@ -195,7 +214,11 @@ to interact with OMERO without further setup.
 
 .. figure:: /images/virtual-appliance-6boot.jpg
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: Booting the virtual appliance
+
+   Booting the virtual appliance
 
 Credentials
 ^^^^^^^^^^^
@@ -277,7 +300,11 @@ to connect to the VM.
 
 .. figure:: /images/virtual-appliance-7server-addresses.png
    :align: center
-   :alt: 
+   :figwidth: 45%
+   :width: 40%
+   :alt: Setting OMERO.insight server address and port number
+
+   Setting OMERO.insight server address and port number
 
 -  Use the *+* icon to add a new server entry with the address
    *localhost* and the port *4064* then click apply
@@ -286,13 +313,21 @@ to connect to the VM.
 
 .. figure:: /images/virtual-appliance-8login.png
    :align: center
-   :alt: 
+   :figwidth: 45%
+   :width: 40%
+   :alt: OMERO.insight login window
+
+   OMERO.insight login window
 
 -  Insight should now load up & look like so:
 
 .. figure:: /images/virtual-appliance-9insight.png
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: OMERO.insight main window
+
+   OMERO.insight main window
 
 You can now use insight to import & manage images on a locally running
 virtual server just like you could using a remote server.
