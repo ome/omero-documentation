@@ -39,11 +39,14 @@ permission level for that group. See the insight and web admin movies
 below for more information about groups and how to administrate them in
 OMERO.
 
-+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+.. seealso::
 
-| :snapshot:`Insight Admin update in OMERO 4.4 <movies/omero-4-4/mov/InsightAdmin-4.4.mov>`   | :snapshot:`Web Admin update in OMERO 4.4 <movies/omero-4-4/mov/WebAdmin-4.4.mov>` |
+    :snapshot:`Insight Admin update in OMERO 4.4 <movies/omero-4-4/mov/InsightAdmin-4.4.mov>`
+        Movie describing the administration tools update under Insight for OMERO 4.4
 
-+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+    :snapshot:`Web Admin update in OMERO 4.4 <movies/omero-4-4/mov/WebAdmin-4.4.mov>`
+        Movie describing the administration tools update under Web for OMERO 4.4
+
 
 Group Permission Levels
 -----------------------
@@ -108,11 +111,13 @@ This is the most collaborative group:
 -  This could be used by a group of scientists working together with
    data for a publication.
 
-+-------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+.. seealso::
 
-| :snapshot:`Insight Permissions update in OMERO 4.4 <movies/omero-4-4/mov/InsightMultiGroups-4.4.mov>` | :snapshot:`Web Permissions update in OMERO 4.4 <movies/omero-4-4/mov/WebMultiGroups-4.4.mov>` |
+    :snapshot:`Insight Permissions update in OMERO 4.4 <movies/omero-4-4/mov/InsightMultiGroups-4.4.mov>`
+       Movie describing the permissions update under Insight in OMERO 4.4
 
-+-------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+    :snapshot:`Web Permissions update in OMERO 4.4 <movies/omero-4-4/mov/WebMultiGroups-4.4.mov>`
+    Movie describing the permissions update under Web in OMERO 4.4
 
 Changing Group Permissions
 --------------------------
@@ -159,8 +164,8 @@ The main actions available include, but are not limited to:
 
 Actions available for you on someone else in your group's data will
 depend both on the permissions of the group you are working in, and what
-sort of user you are. See the two tables below for a quick reference
-guide to permissions available on other people's data `Ordered by Group Permissions`_ and `Ordered by User Type`_ .
+sort of user you are. See the table below for a quick reference
+guide to permissions available on other people's data.
 
 Some of these policies may evolve as the permissions functionality
 matures in response to user feedback. Please let us know any comments or
@@ -183,105 +188,105 @@ type.
     other users' data, the actions within those scripts will be subject to
     the restrictions of the permissions detailed in these tables.
 
-Ordered by Group Permissions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. |gm| replace::  Group member
-.. |go| replace::  Group owner
-.. |ad| replace::  Admin
+Group administrator
+~~~~~~~~~~~~~~~~~~~
 
-.. |pg| replace:: Private group
-.. |ro| replace:: Read-only
-.. |ra| replace:: Read-annotate
+.. tabularcolumns:: |l|c|c|c|
 
-.. |Act| replace:: Action on other user's data 
-.. |Vie| replace:: :term:`View data` / :term:`View and draw ROIs`
-.. |Ann| replace:: :term:`Annotate` / :term:`Create & save ROIs` / :term:`Render`
-.. |Del| replace:: :term:`Delete` / :term:`De-annotate` / :term:`ROI delete`
-.. |Edi| replace:: :term:`Edit name`
-.. |Mov| replace:: :term:`Move data between groups`
-.. |Rem| replace:: Remove annotations made by others on your data
+================ ======= ========= =============
+:term:`Action`   Private Read-only Read-annotate
+---------------- ------- --------- -------------
+:term:`View`        Y         Y          Y
+:term:`Annotate`    N         Y          Y
+:term:`Delete`      Y         Y          Y
+:term:`Edit`        N         Y          Y
+:term:`Move`        Y         Y          Y
+:term:`Remove`      Y         Y          Y
+================ ======= ========= =============
 
-======= ====== ====== ====== ====== ====== ====== ====== ====== ======                                            	 
- \              |pg|                 |ro|                |ra|
-------- -------------------- -------------------- --------------------
- |Act|   |gm|   |go|   |ad|   |gm|   |go|   |ad|   |gm|   |go|   |ad| 
-======= ====== ====== ====== ====== ====== ====== ====== ====== ====== 
- |Vie|    N      Y      Y      Y      Y      Y      Y      Y      Y    
-------- ------ ------ ------ ------ ------ ------ ------ ------ ------
- |Ann|    N      N      N      N      Y      Y      Y      Y      Y    
-------- ------ ------ ------ ------ ------ ------ ------ ------ ------
- |Del|    N      Y      Y      N      Y      Y      N      Y      Y
-------- ------ ------ ------ ------ ------ ------ ------ ------ ------
- |Edi|    N      N      N      N      Y      Y      N      Y      Y
-------- ------ ------ ------ ------ ------ ------ ------ ------ ------
- |Mov|    N      N      Y      N      N      Y      N      N      Y
-------- ------ ------ ------ ------ ------ ------ ------ ------ ------
- |Rem|    N      Y      Y      N      Y      Y      N      Y      Y
-======= ====== ====== ====== ====== ====== ====== ====== ====== ======
+Group owner
+~~~~~~~~~~~
 
-Ordered by User Type
-~~~~~~~~~~~~~~~~~~~~
+.. tabularcolumns:: |l|c|c|c|
 
-======= ====== =========== ====== =========== ====== ====== ======
- \             |ad|               |go|                |gm|
-------- ------------------ ------------------ --------------------
- |Act|   |pg|   |ro| /|ra|   |pg|   |ro|/|ra|   |pg|   |ro|   |ra| 
-======= ====== =========== ====== =========== ====== ====== ======
- |Vie|    Y         Y        Y         Y        N      Y      Y   
-------- ------ ----------- ------ ----------- ------ ------ ------
- |Ann|    N         Y        N         Y        N      N      Y    
-------- ------ ----------- ------ ----------- ------ ------ ------
- |Del|    Y         Y        Y         Y        N      N      N   
-------- ------ ----------- ------ ----------- ------ ------ ------
- |Edi|    N         Y        N         Y        N      N      N   
-------- ------ ----------- ------ ----------- ------ ------ ------
- |Mov|    Y         Y        N         N        N      N      N   
-------- ------ ----------- ------ ----------- ------ ------ ------
- |Rem|    Y         Y        Y         Y        N      N      N   
-======= ====== =========== ====== =========== ====== ====== ======
+================ ======= ========= =============
+:term:`Action`   Private Read-only Read-annotate
+---------------- ------- --------- -------------
+:term:`View`        Y        Y           Y
+:term:`Annotate`    N        Y           Y
+:term:`Delete`      Y        Y           Y
+:term:`Edit`        N        Y           Y
+:term:`Move`        N        N           N
+:term:`Remove`      Y        Y           Y
+================ ======= ========= =============
 
-Key (Actions Available)
-~~~~~~~~~~~~~~~~~~~~~~~
+Group member
+~~~~~~~~~~~~
+
+.. tabularcolumns:: |l|c|c|c|
+
+================ ======= ========= =============
+:term:`Action`   Private Read-only Read-annotate
+---------------- ------- --------- -------------
+:term:`View`        N        Y           Y
+:term:`Annotate`    N        N           Y
+:term:`Delete`      N        N           N
+:term:`Edit`        N        N           N
+:term:`Move`        N        N           N
+:term:`Remove`      N        N           N
+================ ======= ========= =============
+
+Key
+~~~
 
 .. glossary::
 
-	View data                     
-		View ROIs added by others
-		
-	View and draw ROIs
-		Draw ROIs on another user's data, but they cannot be saved
+	Action
+		Action on other user's data
 
-	Annotate                      
-		Add annotations (rating, tag, attachment, comment ROI) to another user's data
+	View
+		View ROIs added by others.  Draw ROIs on another
+		user's data, but they cannot be saved.
 
-	Create & save ROIs            
-		Save ROIs that you draw on another user's data
+	Annotate
+		Add annotations (rating, tag, attachment, comment ROI)
+		to another user's data.  Also create & save ROIs (save
+		ROIs that you draw on another user's data).
 
-	Render                        
-		Create your own rendering settings (this will not modify the settings of the owner)
+	Render
+		Create your own rendering settings (this will not
+		modify the settings of the owner)
 
-	Delete                        
-		Delete data e.g. image or ROI
+	Delete
 
-	De-annotate                   
-		Remove annotations (tag, attachment, comment) made by others. 
+		Delete data e.g. images or ROIs.  ROIs may have been
+		added by others or yourself.  This also covers
+		de-annotation; the removal of annotations (tag,
+		attachment, comment) made by others.
 		
 		.. note::
-			You should always be able to remove annotations (e.g. tag) that you linked to other users' data (you own the link).
-			The link can be deleted, but the tag itself will not be deleted.
+			You should always be able to remove
+			annotations (e.g. tag) that you linked to
+			other users' data (you own the link).  The
+			link can be deleted, but the tag itself will
+			not be deleted.
 
-	ROI delete                    
-		Ability to delete ROIs added by others or yourself 
+	Edit
+		Modify the name or description of someone else’s
+		object e.g. image.
 
-	Edit name                     
-		Modify the name or description of someone else’s object e.g. image
+	Move
+		Only the admin has the right to move another user’s
+		data between groups.
 
-	Move data between groups      
-		Only the admin has the right to move another user’s data between groups.
-		
-		.. note:: 
-			The admin does not have to be member of the destination group. 
+		.. note::
+			The admin does not have to be member of the
+			destination group.
+
+	Remove
+		Remove annotations made by others on your data.
+
 
 Issues to be Aware of
 ---------------------

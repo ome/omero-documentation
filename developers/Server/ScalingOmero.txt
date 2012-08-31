@@ -3,8 +3,6 @@
 Scaling Omero
 =============
 
-.. contents::
-
 There are several ways that OMERO, or any server system, can scale.
 Optimizing your system for more than one of these factors is
 non-trivial, but we try to lay out some guidelines below for what has

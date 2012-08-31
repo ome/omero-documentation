@@ -3,8 +3,6 @@
 OMERO Application Programming Interface
 =======================================
 
-.. contents::
-
 All interaction with the OMERO server takes place via several API
 services available from a ServiceFactory.
 A service factory is obtained from the client connection. E.g. Python:

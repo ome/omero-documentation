@@ -6,21 +6,29 @@ OMERO.server Installation
     :ref:`sysadmins/server-upgrade`
          Instructions for **upgrading** your OMERO.server installation.
 
-    :snapshot:`OMERO Installation for Mac OS X Snow Leopard (10.6) <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
+    :snapshot:`OMERO Installation for Mac OS X Snow Leopard (10.6)
+    <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
+
         A guide provided by Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) 
         for users wishing to install OMERO 4.1 on Mac OS 10.6, including
         details on how to build all dependencies from source. The OMERO 4.4
         and 4.3 installs are almost identical to 4.2 and 4.1 (except for web
         client), so this guide will still be useful.
 
-    :snapshot:`Omero Server Beta 4.2.0 -­ Installation on CentOS <omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`
-        A guide provided by Caterina Strambio De Castillia and Vanni Galli (University of Geneva/SUPSI in Lugano) for users wishing to install OMERO 4.1.1 or 4.2.0 on CentOS.
+    :snapshot:`Omero Server Beta 4.2.0 installation on CentOS <omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`
+        A guide provided by Caterina Strambio De Castillia and Vanni
+        Galli (University of Geneva/SUPSI in Lugano) for users wishing
+        to install OMERO 4.1.1 or 4.2.0 on CentOS.
 
 
 Limitations
 -----------
 
-Installation **will require a "root" level account** for which you know the password. If you are unsure of what it means to have a "root" level account, or if you are generally having issues with the various users/passwords described in this install guide, please see :ref:`sysadmins/troubleshooting/password`.
+Installation **will require a "root" level account** for which you
+know the password. If you are unsure of what it means to have a "root"
+level account, or if you are generally having issues with the various
+users/passwords described in this install guide, please see
+:ref:`sysadmins/troubleshooting/password`.
 
 .. only:: windows
 
@@ -113,6 +121,8 @@ Installation page <https://docs.djangoproject.com/en/1.1/intro/install/>`_.
     `this page <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
 
 The following are optional depending on what services you require:
+
+.. tabularcolumns:: |l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -495,19 +505,22 @@ OMERO.web and Administration
 
 .. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :ref:`sysadmins/install-web`.
 
-Otherwise please give a try of the internal webserver and setup:
+Otherwise, the internal Django webserver can be used for evaluation and development. In this case, we need to
+turn debugging on, in order that static files can be served by Django:
 
 .. only:: unix
 
 	::
 
 	    $ bin/omero config set omero.web.application_server development
+	    $ bin/omero config set omero.web.debug True
 
 .. only:: windows
 
 	::
 
 	    c:\omero_dist> bin\omero config set omero.web.application_server development
+	    c:\omero_dist> bin\omero config set omero.web.debug True
 	    c:\omero_dist> bin\omero config set omero.web.session_engine "django.contrib.sessions.backends.cache"
 	    c:\omero_dist> bin\omero config set omero.web.cache_backend "file://C:/windows/temp/"
 

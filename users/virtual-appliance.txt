@@ -69,7 +69,11 @@ screenshot:
 
 .. figure:: /images/virtual-appliance-1vboxinstall.jpg
    :align: center
-   :alt: 
+   :figwidth: 60%
+   :width: 60%
+   :alt: VirtualBox installation
+
+   VirtualBox installation
 
 Download the OMERO.server Virtual Appliance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -91,14 +95,22 @@ This process is indicated in the following screenshot:
 
 .. figure:: /images/virtual-appliance-2import-selection.jpg
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: Import of the OMERO virtual appliance
+
+   Import of the OMERO virtual appliance
 
 -  Click **continue**. You will be presented with a range of options for
    the VM that will be built from the appliance.
 
 .. figure:: /images/virtual-appliance-3import-settings.jpg
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: Virtual appliance import settings
+
+   Virtual appliance import settings
 
 -  You can accept the defaults by clicking **Done**.
 
@@ -155,7 +167,11 @@ look like this:
 
 .. figure:: /images/virtual-appliance-4portforwarding.jpg
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: VirtualBox port forwarding
+
+   VirtualBox port forwarding
 
 If you are on Linux or Mac OS X then you can either use our port
 forwarding setup script or else you can set up port forwarding settings
@@ -185,8 +201,11 @@ library then click **start**.
 
 .. figure:: /images/virtual-appliance-5library.jpg
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: VirtualBox VM manager
 
+   VirtualBox VM manager
 
 A window should open containing a console for your VM which should now
 be going through it's standard boot process. OMERO.server is
@@ -195,7 +214,11 @@ to interact with OMERO without further setup.
 
 .. figure:: /images/virtual-appliance-6boot.jpg
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: Booting the virtual appliance
+
+   Booting the virtual appliance
 
 Credentials
 ^^^^^^^^^^^
@@ -277,7 +300,11 @@ to connect to the VM.
 
 .. figure:: /images/virtual-appliance-7server-addresses.png
    :align: center
-   :alt: 
+   :figwidth: 45%
+   :width: 40%
+   :alt: Setting OMERO.insight server address and port number
+
+   Setting OMERO.insight server address and port number
 
 -  Use the *+* icon to add a new server entry with the address
    *localhost* and the port *4064* then click apply
@@ -286,13 +313,21 @@ to connect to the VM.
 
 .. figure:: /images/virtual-appliance-8login.png
    :align: center
-   :alt: 
+   :figwidth: 45%
+   :width: 40%
+   :alt: OMERO.insight login window
+
+   OMERO.insight login window
 
 -  Insight should now load up & look like so:
 
 .. figure:: /images/virtual-appliance-9insight.png
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: OMERO.insight main window
+
+   OMERO.insight main window
 
 You can now use insight to import & manage images on a locally running
 virtual server just like you could using a remote server.
@@ -330,10 +365,21 @@ the first time that you log into the VM you will be asked to confirm
 that wish to continue connecting. If you get the following message after
 you invoke ssh:
 
-.. figure:: /images/virtual-appliance-cli-fingerprint-warning.png
-   :align: center
-   :alt: 
+::
 
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+    Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+    It is also possible that the RSA host key has just been changed.
+    The fingerprint for the RSA key sent by the remote host is
+    60:e0:d2:e8:fb:25:bf:09:53:9d:9d:59:59:45:cf:aa.
+    Please contact your system administrator.
+    Add correct host key in /Users/rleigh/.ssh/known_hosts to get rid of this message.
+    Offending key in /Users/rleigh/.ssh/known_hosts:14
+    RSA host key for localhost has changed and you have requested strict checking.
+    Host key verification failed.
 
 then you can remove the old fingerprints with the following command
 typed into the terminal:
@@ -344,31 +390,48 @@ typed into the terminal:
 
 as illustrated in this screenshot:
 
-.. figure:: /images/virtual-appliance-cli-fingerprint-remove-old.png
-   :align: center
-   :alt: 
+::
+
+    $ ssh-keygen -R [localhost]:2222 -f ~/.ssh/known_hosts 
+    /Users/rleigh/.ssh/known_hosts updated.
+    Original contents retained as /Users/rleigh/.ssh/known_hosts.old
 
 The first time that you log into the VM you will also be asked to
 confirm that you wish to connect to this machine by a message similar to
 the following:
 
-.. figure:: /images/virtual-appliance-cli-fingerprint.png
-   :align: center
-   :alt: 
+::
+
+    $ ssh omero@localhost -p 2222
+    The authenticity of host '[localhost]:2222 ([127.0.0.1]:2222)' can't be established.
+    RSA key fingerprint is 60:e0:d2:e8:fb:25:bf:09:53:9d:9d:59:59:45:cf:aa.
+    Are you sure you want to continue connecting (yes/no)?
 
 You should confirm that you wish to continue connecting, after which you
 will be prompted for your password as usual:
 
-.. figure:: /images/virtual-appliance-cli-password-prompt.png
-   :align: center
-   :alt: 
+::
+
+    Are you sure you want to continue connecting (yes/no)? yes
+    Warning: Permanently added '[localhost]:2222' (RSA) to the list of known hosts.
+    omero@localhost's password:
 
 After which, if all has gone well, you should have a prompt indicating
 that you have a shell open and logged into the VM:
 
-.. figure:: /images/virtual-appliance-cli-afterlogin.png
-   :align: center
-   :alt: 
+::
+
+    omero@localhost's password: 
+    Linux omerovm 2.6.32-5-686 #1 SMP Mon Jun 11 17:24:18 UTC 2012 i686
+
+    The programs included with the Debian GNU/Linux system are free software;
+    the exact distribution terms for each program are described in the
+    individual files in /usr/share/doc/*/copyright.
+
+    Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+    permitted by applicable law.
+    Last login: Thu Apr  5 10:32:18 2012 from 10.0.2.2
+    omero@omerovm:~$ _
 
 Log into the VM directly
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -385,23 +448,28 @@ starts up, just like with a real piece of hardware. Once the boot
 process has finished you will see a prompt displayed in this window like
 so:
 
-.. figure:: /images/virtual-appliance-cli-login.png
-   :align: center
-   :alt: 
+::
+
+   [System startup messages]
+
+   Debian GNU/Linux 6.0 omerovm tty1
+
+   omerovm login: _
 
 you can log into the console of the VM directly using the user account
 credentials above.
 
-.. figure:: /images/virtual-appliance-cli-password.png
-   :align: center
-   :alt: 
+::
+
+   omerovm login: omero
+   Password: _
 
 There is no GUI on the current OMERO virtual appliance so you will have
 to be happy using the Bash shell which looks like this:
 
-.. figure:: /images/virtual-appliance-cli-vmconsole.png
-   :align: center
-   :alt: 
+::
+
+   omero@omerovm:~$ _
 
 From here you can interact with OMERO.server via the 
 :ref:`developers/CommandLine`. You will need to login as the 'omero' 
@@ -488,20 +556,45 @@ use the down arrow followed by return to select the following entry:
 
 ::
 
-        Ubuntu, with Linux 3.0.0-12-generic (recovery mode)
+        Debian GNU/Linux, with Linux 2.6.32-5-686 (recovery mode)
 
 as seen in this screenshot:
 
+.. Does not work with pdflatex (try xelatex).  Lack of unicode support for box drawing.
+..
+.. ::
+.. 
+..                       GNU GRUB  version 1.98+20100804-14
+..   ┌────────────────────────────────────────────────────────────────────────┐
+..   │Debian GNU/Linux, with Linux 2.6.32-5-686                               │
+..   │Debian GNU/Linux, with Linux 2.6.32-5-686 (recovery mode)               │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   │                                                                        │
+..   └────────────────────────────────────────────────────────────────────────┘
+ 
+
 .. figure:: /images/virtual-appliance-cli-recovery-console.png
    :align: center
-   :alt: 
+   :figwidth: 65%
+   :width: 60%
+   :alt: Recovery console
+
+   Recovery console
 
 
-Don't worry if your VM has a kernel number different to
-3.0.0-12-generic, the important thing is that you select the entry
-labelled recovery mode. At this point the VM should rapidly boot into
-the recovery mode which will enable you to log in using the root
-password *swordfish*.
+Don't worry if your VM has a kernel number different to 2.6.32-5-686,
+the important thing is that you select the entry labelled "recovery
+mode". At this point the VM should rapidly boot into the recovery mode
+which will enable you to log in using the root password *swordfish*.
 
 Once you have logged in you have a number of things that you can do but
 the recommended courses of action are either:

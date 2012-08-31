@@ -3,8 +3,6 @@
 Deleting in OMERO
 -----------------
 
-.. contents::
-
 Deleting data in OMERO is complex due to the highly linked nature of
 data in the database. For example, an Image has links to Datasets,
 Comments, Tags, Instrument, Acquisition metadata etc. If the image is

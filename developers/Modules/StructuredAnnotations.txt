@@ -3,8 +3,6 @@
 Structured Annotations
 ======================
 
-.. contents::
-
 Structured annotations permit the attachment of data and metadata
 outside the OMERO data model to certain types within the model. The
 annotations are designed for individualized use by both sites and tools.
