@@ -1,8 +1,6 @@
 OMERO.server and PostgreSQL
 ===========================
 
-.. contents::
-
 In order to be installed, OMERO.server requires a running PostgreSQL
 instance that is configured to accept connections over TCP. This
 section explains how to ensure that you have the correct PostgreSQL
