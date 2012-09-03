@@ -26,18 +26,20 @@ Team
 
 -  Working with version control :doc:`git and github <Development/UsingGit>`
 -  Steps to follow prior to release :doc:`Development/ReleaseProcess`
--  How to make your video :doc:`/trac/Team/VideoFormatForOmeMovies`
 -  :doc:`Development/Process`
 -  `OmeroDevelopment </ome/wiki/OmeroDevelopment>`_
 -  :doc:`Development/CodingStandard` (To be reviewed)
 -  :doc:`/users/community-resources`
 
-Code
-----
+.. 
+    -  How to make your video :doc:`/trac/Team/VideoFormatForOmeMovies`
 
--  `Omero/GatewayApi </ome/wiki/Omero/GatewayApi>`_
--  `Api/DeprecationCandidates </ome/wiki/Api/DeprecationCandidates>`_
--  `Api/DeprecationCandidatesStateful </ome/wiki/Api/DeprecationCandidatesStateful>`_
--  `JobSubmission </ome/wiki/JobSubmission>`_
--  `Test-SchemalTicketsList </ome/wiki/Test-SchemalTicketsList>`_?
--  `XsdFu </ome/wiki/XsdFu>`_
+    Code
+    ----
+
+    -  `Omero/GatewayApi </ome/wiki/Omero/GatewayApi>`_
+    -  `Api/DeprecationCandidates </ome/wiki/Api/DeprecationCandidates>`_
+    -  `Api/DeprecationCandidatesStateful </ome/wiki/Api/DeprecationCandidatesStateful>`_
+    -  `JobSubmission </ome/wiki/JobSubmission>`_
+    -  `Test-SchemalTicketsList </ome/wiki/Test-SchemalTicketsList>`_?
+    -  `XsdFu </ome/wiki/XsdFu>`_
