@@ -27,10 +27,10 @@ a Postgres installation with an OMERO database. Then,
 
 -  Install `Ice 3.2.1 <http://www.zeroc.com/download_3_2_1.html>`_from
    ZeroC_. The test installation used the
-   ` Ice-3.2.1-VC80.msi <http://www.zeroc.com/download/Ice/3.2/Ice-3.2.1-VC80.msi>`_
+   `Ice-3.2.1-VC80.msi <http://download.zeroc.com/Ice/3.2/Ice-3.2.1-VC80.msi>`_
    package.
--  Install Python. The test installation used Python 2.5 from ` Active
-   State <http://www.activestate.com/store/activepython/download/>`_.
+-  Install Python. The test installation used Python 2.5 from `Active
+   State <http://www.activestate.com/activepython/downloads>`_.
    2.5 is required.
 
 Configuration

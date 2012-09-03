@@ -53,7 +53,7 @@ discussed above, as well as released tools (webadmin, webclient) and
 other apps in development:
 
 -  webclient: Main web client for viewing images, annotating etc. ` more
-   info <https://www.openmicroscopy.org.uk/site/support/omero4/clients/web>`_
+   info <https://www.openmicroscopy.org/site/support/omero4/clients/web>`_
 -  webadmin: For administration of user and group settings.
 -  webgateway: A web services interface, providing rendered images and
    data. See :ref:`developers/Web/WebGateway`

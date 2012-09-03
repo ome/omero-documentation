@@ -15,9 +15,6 @@ services as well as the Blitz Gateway code.
 Using the OmeroPy libraries
 ---------------------------
 
-For Python beginners, or those who prefer more detailed instructions,
-see the `PythonClientBeginners </ome/wiki/PythonClientBeginners>`_ page.
-
 To use OmeroPy, you'll need to download the libraries (E.g. as part of
 the server package) and setup your PYTHONPATH to include them:
 
