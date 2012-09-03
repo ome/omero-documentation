@@ -53,8 +53,6 @@ to start properly:
   :align: center
   :alt: Templates
 
-  Templates
-
 Installation
 ------------
 
@@ -102,13 +100,9 @@ Once the ``python bin\omero admin start`` command has installed the
   :align: center
   :alt: Control Panel
 
-  Control Panel
-
 .. figure:: /images/omerogrid-winxp-admintools.png
   :align: center
   :alt: Administration Tools
-
-  Administration Tools
 
 Services Tool
 ~~~~~~~~~~~~~
@@ -119,15 +113,11 @@ Services Tool
   :align: center
   :alt: Services
 
-  Services
-
 -  Here you can see OMERO.master running and also stop it
 
 .. figure:: /images/omerogrid-winxp-masterrunning.png
   :align: center
   :alt: OMERO.master running
-
-  OMERO.master running
 
 -  And can edit its runtime properties
 
@@ -135,15 +125,11 @@ Services Tool
   :align: center
   :alt: OMERO.master properties
 
-  OMERO.master properties
-
 -  Such as which user it starts as
 
 .. figure:: /images/omerogrid-winxp-masterlogon.png
   :align: center
   :alt: OMERO.master logon
-
-  OMERO.master logon
 
 Event Viewer Tools
 ~~~~~~~~~~~~~~~~~~~
@@ -154,8 +140,6 @@ Event Viewer Tools
 .. figure:: /images/omerogrid-winxp-eventviewer.png
   :align: center
   :alt: Event viewer
-
-  Event viewer
 
 -  where status events from OMERO.master will registered (though the log
    output from the server is in the configured directory)
@@ -169,8 +153,6 @@ Event Viewer Tools
 .. figure:: /images/omerogrid-winxp-blitzactive.png
   :align: center
   :alt: Running server
-
-  Running server
 
 However, a bug in Windows will prevent the OMERO.master service from
 being removed while the service GUI is open. Close the GUI to finish the
