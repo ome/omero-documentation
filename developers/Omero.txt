@@ -107,22 +107,20 @@ to read, but should get you started...
 The Development Process
 ^^^^^^^^^^^^^^^^^^^^^^^
 
--  `Git Usage for OMERO
-   developers </ome/wiki/WorkingWithOmero/UsingGit>`_ gives an overview
+-  :doc:`/developers/Development/UsingGit` gives an overview
    of the development process that we currently use which utilises Git &
    Git-Flow (NB. For more information about git see the ` git
    movies <http://users.openmicroscopy.org.uk/~jmoore/git/>`_ that Josh
    prepared.
 -  `Developing With OMERO </ome/wiki/OmeroDevelopment>`_
--  `Development Standards </ome/wiki/DevelopmentStandards>`_
--  `Process Overview (Generic) </ome/wiki/DevelopmentGenericProcess>`_
--  `Process Overview (OMERO specific) </ome/wiki/OmeroProcess>`_
--  `Coding Standards </ome/wiki/OmeroCodingStandard>`_
+-  :doc:`/developers/Development/Standards`
+-  :doc:`/developers/Development/Process`
+-  :doc:`/developers/Development/CodingStandard`
 
 Getting Your Hand's Dirty
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  `Working with OMERO </ome/wiki/WorkingWithOmero>`_
+-  :doc:`GettingStarted/AdvancedTraining`
 -  |ExtendingOmero|
 -  |OmeroJava|
 -  |OmeroPy|
@@ -139,8 +137,6 @@ OMERO Architecture (From a programmer's perspective)
 
 -  |OmeroModel|
 -  |OmeroApi|
-
-More pages can be found on the `SiteMap </ome/wiki/SiteMap>`_.
 
 Further Reading
 ^^^^^^^^^^^^^^^
