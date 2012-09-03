@@ -12,32 +12,25 @@ General
 -  **TESTING INFORMATION**
 
    -  If you think of an improvement for the scenarios please create a
-      ticket and add it to the user story `#6498 </ome/ticket/6498>`_.
+      ticket and add it to the user story :ticket:`6498`.
 
 -  **USER FEEDBACK INFORMATION**
 
    -  If you see an usability issue please create a ticket and add it to
-      the appropriate user story `#2818 </ome/ticket/2818>`_ under the
+      the appropriate user story :ticket:`2818` under the
       insight client requirements or a user story
-      `#6195 </ome/ticket/6195>`_ for the web client requirements.
+      :ticket:`6195` for the web client requirements.
 
 Team
 ----
 
--  Working with version control `git and
-   github </ome/wiki/WorkingWithOmero/UsingGit>`_
--  Steps to follow prior to release
-   `ReleaseProcess </ome/wiki/ReleaseProcess>`_
--  How to make your video
-   `VideoFormatForOmeMovies </ome/wiki/VideoFormatForOmeMovies>`_
--  `OmeroProcess </ome/wiki/OmeroProcess>`_
+-  Working with version control :doc:`git and github <Development/UsingGit>`
+-  Steps to follow prior to release :doc:`Development/ReleaseProcess`
+-  How to make your video :doc:`/trac/Team/VideoFormatForOmeMovies`
+-  :doc:`Development/Process`
 -  `OmeroDevelopment </ome/wiki/OmeroDevelopment>`_
--  `OmeroCodingStandard </ome/wiki/OmeroCodingStandard>`_ (To be
-   reviewed)
--  `OmeroCommunity </ome/wiki/OmeroCommunity>`_
--  Testing prior to release
-   `TestingScenarios </ome/wiki/TestingScenarios>`_
--  `UserFeedback </ome/wiki/UserFeedback>`_
+-  :doc:`Development/CodingStandard` (To be reviewed)
+-  :doc:`/users/community-resources`
 
 Code
 ----

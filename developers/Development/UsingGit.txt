@@ -1,56 +1,6 @@
 Git Usage for OMERO developers
 ==============================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Git resources <#Gitresources>`_
-#. `Getting started <#Gettingstarted>`_
-
-   #. `Code locations <#Codelocations>`_
-
-      #. `Bio-Formats <#Bio-Formats>`_
-      #. `OME <#OME>`_
-
-   #. `Git quickstart <#Gitquickstart>`_
-   #. `Installing git <#Installinggit>`_
-   #. `Configuration <#Configuration>`_
-
-#. `Getting started with github <#Gettingstartedwithgithub>`_
-
-   #. `Github remotes <#Githubremotes>`_
-   #. `Pushing to github <#Pushingtogithub>`_
-   #. `Tracking others branches <#Trackingothersbranches>`_
-   #. `Cleaning up your github
-      branches <#Cleaningupyourgithubbranches>`_
-
-#. `Common Git Commands <#CommonGitCommands>`_
-
-   #. `Collaborating via ``git rebase`` <#Collaboratingviagitrebase>`_
-
-#. `Working with submodules <#Workingwithsubmodules>`_
-#. `Technical bits <#Technicalbits>`_
-
-   #. `Commit messages <#Commitmessages>`_
-   #. `Rebasing to keep code clean <#Rebasingtokeepcodeclean>`_
-   #. `'team.git' <#team.git>`_
-
-#. `Advanced: Branch management <#Advanced:Branchmanagement>`_
-
-   #. `Branch types <#Branchtypes>`_
-
-      #. `Investigations <#Investigations>`_
-      #. `WIPs <#WIPs>`_
-      #. `Deliverables <#Deliverables>`_
-      #. `The Backlog <#TheBacklog>`_
-
-   #. `Branch workflow <#Branchworkflow>`_
-
-      #. `Merge branches <#Mergebranches>`_
-      #. `Code reviews and comments <#Codereviewsandcomments>`_
-      #. `Pull Requests <#PullRequests>`_
-      #. `Pull Request Conflicts <#PullRequestConflicts>`_
-
 This page is primarily designed for the core OME developers who are
 contributing to our code base using git. It should contain all the
 useful commands and configuration you need for doing most git tasks.

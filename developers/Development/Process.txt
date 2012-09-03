@@ -18,7 +18,7 @@ and *will always be closed* by a successful **Test**.
 **Tests** should be of the **Acceptance Test** form. The ticket number
 for which a test is being written should be added in the
 ` testng <http://testng.org>`_ annotations (@Test( groups =
-"`ticket:60 </ome/ticket/60>`_\ " )). This works at either the method
+":ticket:`60` " )). This works at either the method
 level (see
 `SetsAndLinksTest#L73 </ome/browser/ome.git/components/common/test/ome/model/utests/SetsAndLinksTest.java?rev=662#L73>`_)
 or the class level (see
@@ -50,13 +50,8 @@ General Notes
 Development
 -----------
 
--  `Standards </ome/wiki/DevelopmentStandards>`_
--  `Generic Process </ome/wiki/DevelopmentGenericProcess>`_ Process
-   template.
--  [`OmeroPyGatewayProcess </ome/wiki/OmeroPyGatewayProcess>`_\ ] The
-   specific details of the `OmeroPy </ome/wiki/OmeroPy>`_ gateway
-   process development practices.
--  `Release Process </ome/wiki/ReleaseProcess>`_ List of actions prior
+-  :doc:`/developers/Development/Standards`
+-  :doc:`/developers/Development/ReleaseProcess` List of actions prior
    to release
 
 Review Meetings How To
@@ -101,19 +96,18 @@ Acknowledgement
 
    -  ``<commit text> (modified/based/adapted from patch by <name of contributor>``
       e.g.
-      ` commit <http://git.openmicroscopy.org/?p=bioformats.git;a=commit;h=1d14c75d91988bcbff445e9860d084e2604fc63a>`_,
-      ` commit <http://git.openmicroscopy.org/?p=bioformats.git;a=commit;h=1d14c75d91988bcbff445e9860d084e2604fc63a>`_
+      ` commit 1d14c75d91 <https://github.com/openmicroscopy/bioformats/commit/1d14c75d91988bcbff445e9860d084e2604fc63a>`_
       or
-      ` commit <http://git.openmicroscopy.org/?p=bioformats.git;a=commit;h=650b0f42fd429580da06c39d7846e8126cf26491>`_
+      ` commit 650b0f42fd <https://github.com/openmicroscopy/bioformats/commit/650b0f42fd429580da06c39d7846e8126cf26491>`_
 
 -  When fixing a problem:
 
    -  \*
       ``<commit text> as pointed out by/courtesy of <name of contributor>``
       e.g.
-      ` commit <http://git.openmicroscopy.org/?p=bioformats.git;a=commit;h=77cc88a747b664b0e6435d294f5f6ee3e4a2148b>`_
+      ` commit 77cc88a747 <https://github.com/openmicroscopy/bioformats/commit/77cc88a747b664b0e6435d294f5f6ee3e4a2148b>`_
       or
-      ` commit <http://git.openmicroscopy.org/?p=bioformats.git;a=commit;h=08a1543e95df781b547eac2ce487b036f5a51343>`_
+      ` commit 08a1543e95 <https://github.com/openmicroscopy/bioformats/commit/08a1543e95df781b547eac2ce487b036f5a51343>`_
 
 Future directions
 -----------------

@@ -1,18 +1,6 @@
 Omero Logging
 =============
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Java clients <#Javaclients>`_
-#. `Java servers <#Javaservers>`_
-#. `Python servers <#Pythonservers>`_
-#. `stdout & stderr <#stdoutstderr>`_
-#. `Windows stdout & stderr <#Windowsstdoutstderr>`_
-#. `Developer info <#Developerinfo>`_
-#. `Upcoming documentation on logging in
-   omero: <#Upcomingdocumentationonlogginginomero:>`_
-
 All OMERO components written in Java use
 ` Log4J <http://logging.apache.org/>`_ (mostly via
 ` Commons-Logging <http://commons.apache.org/logging/>`_); all
