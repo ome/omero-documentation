@@ -11,7 +11,7 @@ complicate an initial examination of the code. Therefore, it's important
 to be aware of what portions of the OMERO code base are "advised" and
 where to find the advisors (in the case of OMERO solely interceptors).
 
-In ` Spring <http://www.springframework.org>`_, advisors are declared in
+In ` Spring <http://www.springsource.org/>`_, advisors are declared in
 the bean definition files (under
 :source:`components/server/resources/ome/services` : :source:`services.xml <components/server/resources/ome/services/services.xml>`,
 :source:`hibernate.xml <components/server/resources/ome/services/hibernate.xml>`,
@@ -73,14 +73,17 @@ one just writes:
             // your code goes here
         }
 
-References:
------------
+.. see also::
 
--  ` http://static.springframework.org/spring/docs/2.0.x/reference/aop.html <http://static.springframework.org/spring/docs/2.0.x/reference/aop.html>`_
-   -- Spring AOP documentation
--  ` http://aopalliance.sourceforge.net/ <http://aopalliance.sourceforge.net/>`_
-   -- Joint project defining interfaces for various AOP implementations.
--  ` http://eclipse.org/aspectj/ <http://eclipse.org/aspectj/>`_ -- The
-   arguable leader in Java/AOP development. Not used in Omero, but a
-   good starting point.
--  ` http://en.wikipedia.org/wiki/Aspect-oriented\_programming <http://en.wikipedia.org/wiki/Aspect-oriented_programming>`_
+    `Aspect Oriented Programming <http://static.springsource.org/spring/docs/2.0.x/reference/aop.html>`_
+        Chapter of the Spring documentation    
+
+    `AOP Alliance  <http://aopalliance.sourceforge.net/>`_
+        Joint project defining interfaces for various AOP implementations
+     
+    `AspectJ <http://eclipse.org/aspectj/>`_ 
+        The arguable leader in Java/AOP development. Not used in Omero, but a
+        good starting point.
+
+    `Aspect-oriented programming <http://en.wikipedia.org/wiki/Aspect-oriented_programming>`_
+        Wikipedia page on AOP
