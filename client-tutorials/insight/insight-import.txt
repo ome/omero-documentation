@@ -162,10 +162,10 @@ File Naming
 - Partial Version + Files Name - This is a short version
   e.g. myImage.tiff
 - Full Path + Files Name = This is a full version e.g.
-  C:\\ScientificImages\\Images\\myImage.tiff
+  ``C:\\ScientificImages\\Images\\myImage.tiff``
 - Directories before a file - This is a customised version i.e. the
   short version plus a number of leading directories
-  e.g. Images/myImage.tiff
+  e.g. ``Images/myImage.tiff``
 - Click on Import to Add to Queue button.
 
 Tagging on Import
@@ -192,8 +192,8 @@ annotations panel in the Right-hand panel in the Data Manager.
    :align: center
    :alt: OMERO.insight view annotations
 
-Toggle between Single Image Formats vs. Screening Formats
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Toggle between Single Image Formats versus Screening Formats
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - The client also now supports toggling between single - or
   project-based images that typically go into 'datasets' or
@@ -204,4 +204,16 @@ Toggle between Single Image Formats vs. Screening Formats
 .. |left| image:: /images/icons/leftarrow.png
 .. |right| image:: /images/icons/rightarrow.png
 .. |doubleleft| image:: /images/icons/doubleleftarrow.png
+
+Feedback
+^^^^^^^^
+
+As always, contributions of sample data will help to ensure that the
+OMERO accurately supports a wide range of formats, and any
+contributions you may wish to make are always welcome by contacting us
+on our :forum:`User Discussion forum <viewforum.php?f=4>`, or our
+:mailinglist:`user mailing list <ome-users/>`.
+
+If an error occurs, we strongly encourage users to submit the files alongside the error
+so we can improve the quality and reliability of the software.
 
