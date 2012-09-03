@@ -159,16 +159,12 @@ Event Viewer Tools
 
 -  where status events from OMERO.master will registered (though the log
    output from the server is in the configured directory)
-   `|image9| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_applicationevents.png>`_
 
 .. figure:: /images/omerogrid-winxp-applicationevents.png
   :align: center
   :alt: Application events
 
-  Application events
-
 -  The server's running.
-   `|image10| </ome/attachment/wiki/OmeroGridInstallWindowsXp/winxp_blitzactive.png>`_
 
 .. figure:: /images/omerogrid-winxp-blitzactive.png
   :align: center
