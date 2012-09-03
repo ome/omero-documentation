@@ -10,7 +10,7 @@ Trying to understand all of what goes on with the server can be a bit
 complicated. This short narrative tries to touch on the most critical
 aspects.
 
--  A `request </ome/wiki/OmeroClientLibrary>`_ reaches the server over
+-  A request reaches the server over
    one of the two remoting protocols: RMI or ICE. First, the
    :source:`Principal <components/common/src/ome/system/Principal.java>`
    is examined for a valid :ref:`session <developers/Server/Sessions>` which
@@ -132,7 +132,6 @@ Topics
 
 -  :ref:`developers/Modules/ExceptionHandling`
 -  |OmeroModel|
--  `OmeroClientLibrary </ome/wiki/OmeroClientLibrary>`_
 -  :doc:`/sysadmins/server-security`
 -  :ref:`developers/Model/TypeLanguage`
 
