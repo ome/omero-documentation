@@ -33,7 +33,3 @@ To find out more, see the :ref:`tutorial/insight-getting-started` section.
    image data.
 -  Administrate users
 -  Import image. Feature added in 4.3.0.
-
-OMERO.importer and OMERO.insight are written in Java and require Java
-1.5 (or higher) to be installed on the user's computer (automatically
-installed on most up-to-date OS X and Windows XP systems).

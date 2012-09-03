@@ -4,11 +4,16 @@ OMERO Clients
 =============
 
 OMERO ships as a server application called *OMERO.server* and a series of
-clients: *OMERO.insight*, *OMERO.importer*, *OMERO.web* and *OMERO.editor*.
+clients: *OMERO.web*, *OMERO.insight*, *OMERO.editor* and *OMERO.importer*.
 All run on the major operating systems and provide image visualisation,
 management, and annotation to users from remote locations.
+
 *OMERO.clients* is our collective term for our applications that allows
-users access to their data in the *OMERO.server*.
+users access to their data in the *OMERO.server*. 
+
+OMERO.insight (.editor, .importer) are desktop applications written in Java and require Java
+1.5 (or higher) to be installed on the user's computer (automatically
+installed on most up-to-date OS X and Windows XP systems).
 
 Most laboratories use a number of different imaging platforms and thus
 require tools to manage, visualise and analyse heterogeneous sets of
@@ -16,7 +21,7 @@ image data recorded in a range of file formats. Ideally a single set of
 applications, running on a user's laptop or workstation, could access
 all sets of data, and provide easy-to-use access to this data.
 
-With over 1900 OMERO.server instances up and running worldwide, OMERO
+With a large  number of OMERO.server installations worldwide, OMERO
 has been shown to be relatively easy to install and get running.
 
 We have designed and built several OMERO client applications for use
@@ -26,6 +31,11 @@ OMERO.webclient [1]_
 --------------------
 
 .. image:: /images/omero_web_4_4.png
+
+OMERO.insight [2]_
+------------------
+
+.. image:: /images/omero_insight_4_4_viewer.png
 
 OMERO.editor
 ------------
@@ -37,14 +47,11 @@ OMERO.importer
 
 .. image:: /images/omero_importer_4_4.png
 
-OMERO.insight [2]_
-------------------
 
-.. image:: /images/omero_insight_4_4_viewer.png
 
 .. rubric:: Citation
 
-The screenshots make use of data from the JCB DataViewer under the
+The screenshots make use of data from the `JCB DataViewer <http://jcb-dataviewer.rupress.org/>`_ under the
 Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported
 License. For more information see :plone:`Attribution
 <about/licensing-attribution/attribution>`.
