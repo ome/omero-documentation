@@ -390,15 +390,18 @@ Any remaining changes that you want to discard can be reverted by
 When committing the code you’ve just modified/merged your commit message
 should refer to related tickets. E.g. "See :ticket:`1111`"
 will link the commit to the ticket on trac, and "Fixes
-`:ticket:`2222` will link and close the ticket on trac. NB:
-If you want to add more than a short one-line message, you can omit the
--m "message" and git will open your specified editor, where you should
-add a single line summary followed by line space and then a paragraph of
-more text. See "Commit message" for more discussion.
+`:ticket:`2222`"" will link and close the ticket on trac.
 
 ::
 
         git commit  -m "Add message here and refer to the ticket number. See #1234. Fixes #5678"
+
+.. note::
+
+    If you want to add more than a short one-line message, you can omit the
+    -m "message" and git will open your specified editor, where you should
+    add a single line summary followed by line space and then a paragraph of
+    more text. See :ref:`usinggit/commitmessages` for more discussion.
 
 After you’ve committed, you can keep working and committing as above -
 the changes are only saved to your local git.
@@ -413,12 +416,13 @@ different feature. To see a list branches:
 Add the ``-a`` to list remote branches too.
 
 To simply move between branches, use git checkout. All the files on your
-file-system will be updated to the new branch. NB: make sure they are
-refreshed if you have files open in an editor or IDE
+file-system will be updated to the new branch.
 
 ::
 
         git checkout dev_4_2
+
+.. note:: Make sure they are refreshed if you have files open in an editor or IDE
 
 If you’ve forgotten what you did one a particular branch, you can use
 “git log”. Add the “-p” flag to see the actual diff for each commit.
@@ -630,20 +634,23 @@ command:
         git add bioformats
         git commit -m "Move to latest bioformats"
 
-NB: Be careful NOT to add a trailing slash when adding the submodule,
-the following command would want to delete the submodule and add all the
-files in the submodule directory.
+.. warning::
 
-::
+    Be careful NOT to add a trailing slash when adding the submodule,
+    the following command would want to delete the submodule and add all the
+    files in the submodule directory:
 
-        git add components/bioformats/
+    ::
+
+            git add components/bioformats/
 
 There are git hooks available to make working with submodules safer. See
-` https://github.com/chaitanyagupta/gitutils/blob/master/submodule-hooks/post-merge-checkout <https://github.com/chaitanyagupta/gitutils/blob/master/submodule-hooks/post-merge-checkout>`_
-for an example.
+` post-merge-checkout <https://github.com/chaitanyagupta/gitutils/blob/master/submodule-hooks/post-merge-checkout>`_ for an example.
 
 Technical bits
 --------------
+
+.. _usinggit/commitmessages:
 
 Commit messages
 ~~~~~~~~~~~~~~~
