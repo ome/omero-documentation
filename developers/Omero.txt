@@ -9,7 +9,7 @@ developer documentation wiki.
 Instructions on :plone:` downloading <support/omero4/downloads>`,
 :doc:`/sysadmins/unix/server-installation` and administering OMERO can be found under the :ref:`server/overview` of the main site.
 
-.. figure:: ../images/developer-api-figure.png
+.. figure:: /images/developer-api-figure.png
    :align: center
    :alt: 
 
@@ -46,7 +46,7 @@ mailing lists <http://www.openmicroscopy.org.uk/site/community>`_.
 OMERO Basics
 ~~~~~~~~~~~~
 
-.. figure:: ../images/developer-model-pdi.png
+.. figure:: /images/developer-model-pdi.png
    :align: center
    :alt: 
 
