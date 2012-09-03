@@ -1,4 +1,4 @@
-.. _tutorial/command-line-import:
+.. _users/command-line-import:
 
 The Command Line Import
 =======================
@@ -8,8 +8,7 @@ OMERO.server from the command line, and is ideally suited for anyone
 wanting to use a shell-scripted or web-based front-end interface for
 importing. Based upon the same set of libraries as the standard
 importer, the command line version supports the same files formats and
-functions in much the same way. Visit `File Formats
-<http://loci.wisc.edu/software/bio-formats>`_ for a detailed list of supported formats.
+functions in much the same way. Visit :bioformats:`File Formats <>` for a detailed list of supported formats.
 
 Starting the Command Line Importer
 ----------------------------------

@@ -7,9 +7,8 @@ The Import Library is a re-usable framework
 for building import clients. Several are provided by the OMERO team
 directly:
 
--  [:ref:`tutorial/import-images`] (deprecated)
 -  The integrated :ref:`tutorial/insight-import` importer
--  The :ref:`tutorial/command-line-import` tool
+-  The :ref:`users/command-line-import` tool
 
 Components
 ----------

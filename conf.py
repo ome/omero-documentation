@@ -97,7 +97,8 @@ extlinks = {
     'javadoc' : ('http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/' + '%s', ''),
     'jenkins' : ('http://hudson.openmicroscopy.org.uk/' + '%s', ''),
     'mailinglist' : ('http://lists.openmicroscopy.org.uk/mailman/listinfo/' + '%s', ''),
-    'forum' : ('http://www.openmicroscopy.org/community/' + '%s', '')
+    'forum' : ('http://www.openmicroscopy.org/community/' + '%s', ''),
+    'bioformats' : ('http://loci.wisc.edu/software/bio-formats' + '%s', '')
     }
 
 rst_epilog = """

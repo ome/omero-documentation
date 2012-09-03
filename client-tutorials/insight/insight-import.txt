@@ -3,8 +3,8 @@
 Importing Images in Insight
 ===========================
 
-For more information on the file formats currently supported in OMERO see `File Formats
-<http://loci.wisc.edu/software/bio-formats>`_.
+For more information on the file formats currently supported in OMERO see
+:bioformats:`File Formats <>`.
 
 In order to begin the import of images into an OMERO server, you need to:
 
@@ -206,7 +206,7 @@ Toggle between Single Image Formats versus Screening Formats
 .. |doubleleft| image:: /images/icons/doubleleftarrow.png
 
 Feedback
-^^^^^^^^
+--------
 
 As always, contributions of sample data will help to ensure that the
 OMERO accurately supports a wide range of formats, and any
