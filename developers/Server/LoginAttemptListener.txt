@@ -1,0 +1,23 @@
+.. _developers/Server/LoginAttemptListener:
+
+LoginAttemptListener
+====================
+
+All the :ref:`developers/Server/PasswordProvider` implementations
+provided by default publish a
+":source:`LoginAttemptMessage <components/server/src/ome/services/messages/LoginAttemptMessage.java>`\ "
+every time they check a password value. This permits any
+``org.springframework.context.ApplicationListener<LoginAttemptMessage>``
+to react to the login. Only one implementation is active by default (as
+of 4.2.1):
+:source:`ome.security.auth.LoginAttemptListener <components/server/src/ome/security/auth/LoginAttemptListener.java>`
+which throttles logins after a given number of failed attempts.
+Configuration for this listener is available in :source:`etc/omero.properties`:
+
+::
+
+    omero.security.login_failure_throttle_count=1 # Number of failed attempts before throttling begins
+    omero.security.login_failure_throttle_time=3000 # Time in milliseconds
+
+A more sophisticated listener would lock the user's account until an
+administrator intervenes. This is the goal of :ticket:`3139`.

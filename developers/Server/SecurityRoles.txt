@@ -1,0 +1,78 @@
+.. _developers/Server/SecurityRoles:
+
+OMERO Roles
+===========
+
+    There are two areas where roles are used. The first is in
+    service-level security (**deciding who can make what calls**) and
+    the second is in object-level security (**who can read and edit
+    individual objects**). Both of these sets of roles are composed of
+    "ExperimenterGroups".
+
+Setting roles
+-------------
+
+    An Experimenter is given a role by being a member of an
+    ExperimenterGroup. (Specifically, this means that there exists a
+    GroupExperimenterMap where child == the experimenter id and parent
+    == the experimenter group id). Creating a GroupExperimenterMap is
+    generally done transparently by ``IAdmin`` service. Instead,
+    administrators call:
+
+-  **IAdmin.createUser(user)**
+-  **IAdmin.createGroup(group)**
+-  **IAdmin.addGroups(user,group, group, ...)**
+-  **IAdmin.removeGroups(user,group,group,...)**
+-  **IAdmin.createSystemUser(user)**
+
+Service-level
+-------------
+
+    The two main roles that are distinguised at the service-level are
+    "system" and "user" groups. These groups are created during
+    installation and mustn't be configured by administrators. All users
+    added through **IAdmin.createUser(user)** are automatically added to
+    the "user" group, and all users added through
+    **IAdmin.createSystemUser(user)** are added to both "system" and
+    "user" groups.
+
+    During login, a user is checked against all groups for membership in
+    "user" or "system", and no special action needs to be taken by the
+    user or client developer.
+
+    .. note::
+
+        though currently all methods in the session beans are
+        labelled as ``@RolesAllowed("user")`` or
+        ``@RolesAllowed("system")``, there is nothing stopping a developer
+        from writing a service method which accepts another role, as long as
+        that role has been created in the ExperimenterGroup table.
+
+Object-level
+------------
+
+    Object-level security is more complicated. When execution reaches
+    the **EventHandler**, a second login takes place to authorize the
+    user with the OMERO security system. This second authorization
+    process takes into account the group that (can be) passed into the
+    client **ServiceFactory\ (Login)** via
+    **Login(String,String,String,String)**. If a user has not set the
+    group name or the default "user" group has been set, then the
+    default group for that user will be used. (A user is not allowed to
+    use the "user" group for object updates.) If the group is set to
+    "system", then the "system" group **will** be used, and a user is
+    granted admin privileges for object updates. This means that a user
+    could be authorized to call a method by being in the "system" group,
+    but if the "system" group is not specified, **SecurityViolations**
+    will most likely be thrown.
+
+Special privileges for PIs
+--------------------------
+
+    There is one other special, implicit role which is group leader. The
+    user listed as "owner" for a group is considered the group leader,
+    also known as the PI (principal investigator) of that group. For all
+    objects that are assigned to that group, the PI has near-admin
+    access. Objects which are set to unreadable ("-wu-wu-wu") will still
+    be visible to the PI. The same objects can also be updated
+    regardless of the permissions set.

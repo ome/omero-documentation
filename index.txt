@@ -108,6 +108,17 @@ Advanced topics
     sysadmins/server-ldap
 
 
+************************
+Developers Documentation
+************************
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    developers/index
+
+
 ****************
 Online Resources
 ****************

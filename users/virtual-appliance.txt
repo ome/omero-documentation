@@ -337,7 +337,7 @@ Secure Shell
 
 You can log into your VM using Secure Shell (SSH) which will give you a
 command line interface to the VM from where you can use the 
-:ref:`developers/Omero/CommandLine`. 
+:ref:`developers/CommandLine`. 
 In the following example, we assume that you have an SSH client installed
 on your host machine and also that your VM is up and running.
 
@@ -472,7 +472,7 @@ to be happy using the Bash shell which looks like this:
    omero@omerovm:~$ _
 
 From here you can interact with OMERO.server via the 
-:ref:`developers/Omero/CommandLine`. You will need to login as the 'omero' 
+:ref:`developers/CommandLine`. You will need to login as the 'omero' 
 user to access the OMERO CLI (user: "omero" / pw: "omero"). Logout using 
 Ctrl-D.
 
