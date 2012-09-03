@@ -258,26 +258,26 @@ Global substitution
 
 Some substitutions have been implemented using ``rst_epilog`` in ``conf.py``.
 They can be used in all pages of the documentation.
-    
+
 ==================  ================================
 Name                Path
 ==================  ================================
-\|OmeroPy\|         developers/Omero/Python
-\|OmeroCpp\|        developers/Omero/Cpp
-\|OmeroJava\|       developers/Omero/Java
-\|OmeroMatlab\|     developers/Omero/Matlab
-\|OmeroCli\|        developers/Omero/CommandLine
-\|OmeroApi\|        developers/Omero/Modules/Api
-\|OmeroWeb\|        developers/Omero/Web
-\|OmeroClients\|    developers/Omero/GettingStarted
-\|OmeroInsight\|    developers/Omero/Insight
-\|OmeroGrid\|       developers/Omero/Grid
-\|OmeroSessions\|   developers/Omero/Server/Sessions
-\|OmeroModel\|      developers/Omero/Model
-\|ExtendingOmero\|  developers/Server/ExtendingOmero
-\|BlitzGateway\|    developers/Omero/Python/Gateway
+\|OmeroPy\|         developers/Python
+\|OmeroCpp\|        developers/Cpp
+\|OmeroJava\|       developers/Java
+\|OmeroMatlab\|     developers/Matlab
+\|OmeroCli\|        developers/CommandLine
+\|OmeroApi\|        developers/Modules/Api
+\|OmeroWeb\|        developers/Web
+\|OmeroClients\|    developers/GettingStarted
+\|OmeroInsight\|    developers/Insight
+\|OmeroGrid\|       developers/Grid
+\|OmeroSessions\|   developers/Server/Sessions
+\|OmeroModel\|      developers/Model
+\|ExtendingOmero\|  developers/ExtendingOmero
+\|BlitzGateway\|    developers/Python/Gateway
 ==================  ================================
-    
+
 For the most up-to-date list, please consult ``conf.py`` (section
 ``rst_epilog``).
 
