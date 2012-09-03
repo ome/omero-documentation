@@ -3,8 +3,9 @@
 OMERO.web Framework
 ===================
 
-`|OmeroWeb infrastructure
-components| </ome/attachment/wiki/OmeroWeb/OmeroWeb.png>`_
+.. figure:: /images/OmeroWeb.png
+  :align: center
+  :alt: OmeroWeb infrastructure components
 
 :snapshot:`MOVIE introduction to OmeroWeb
 <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`
@@ -71,8 +72,9 @@ But if you want to have a quick look at some example code, see below...
 Quick Example - webtest
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-`|Screen-shot of the webtest/dataset/
-example| </ome/attachment/wiki/OmeroWeb/webtest-dataset.png>`_
+.. figure:: /images/webtest-dataset.png
+  :align: center
+  :alt: Screen-shot of the webtest/dataset/example
 
 This tiny example gives you a feel for how the OMERO.web framework
 gets data from OMERO and displays it on a web page. You can find this
