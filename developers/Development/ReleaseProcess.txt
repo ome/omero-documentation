@@ -21,7 +21,7 @@ to speed up the review.
 
    -  If a Bio-Formats change, add to the PR the command that can be
       used to test the reader, the images to use and where to find them
-      (if necessary), etc. (``-Dtestng.directory=$DATA ... ``)
+      (if necessary), etc. (``-Dtestng.directory=$DATA ...``)
 
    -  If UI changes, add to the ticket a screenshot before implementing
       the feature and one after. For new feature a movie can be more
