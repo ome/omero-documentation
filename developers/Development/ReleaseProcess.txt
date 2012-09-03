@@ -246,9 +246,8 @@ Documentation
 -  [STRIKEOUT:Review apache documentation instructions with new
    "bin/omero web config apache" command]
 -  ` https://www.openmicroscopy.org/site/support/imagej <https://www.openmicroscopy.org/site/support/imagej>`_
--  [STRIKEOUT:**Review doc tickets**: `#6866 </ome/ticket/6866>`_,
-   `#8686 </ome/ticket/8686>`_, `#9304 </ome/ticket/9304>`_,
-   `#8494 </ome/ticket/8494>`_, `#8364 </ome/ticket/8364>`_]
+-  [STRIKEOUT:**Review doc tickets**: :ticket:`6866`,
+   :ticket:`8686`, :ticket:`9304`, :ticket:`8494`, :ticket:`8364`]
 
 All Documentation tickets
 -------------------------
@@ -328,8 +327,7 @@ Post release
 
 -  Change reports in left-bar of trac
 -  Update any deployed servers (ask Josh)
--  Update online validator (See `#8640 </ome/ticket/8640>`_ for an
-   example)
+-  Update online validator (See :ticket:`8640` for an example)
 
 Demo server
 -----------
