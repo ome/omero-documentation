@@ -23,13 +23,10 @@ To find out more, see the :ref:`tutorial/insight-getting-started` section.
    standard workstations (e.g. scrolling through space and time),
    without requiring installation of high-powered graphics cards. Most
    importantly, image viewing at remote locations is enable. Image
-   rendering settings are saved and chosen by user ID, (e.g. a I can see
-   an image with the same rendering settings used by a student).
+   rendering settings are saved and chosen by user ID.
 -  Measurement Tool, a sub-application of ImageViewer that enables size
    and intensity measurements of defined regions-of-interest (ROIs).
-   Definition of ROIs is currently completely manual, but will be
-   automated in the future.
 -  Working Area, for viewing, annotating, and manipulating large sets of
    image data.
--  Administrate users
--  Import image. Feature added in 4.3.0.
+-  Administrate users.
+-  Import image.
