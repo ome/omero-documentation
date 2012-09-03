@@ -13,17 +13,14 @@ Java clients log to ``$HOME/omero/log``. The number of files and their
 size are limited.
 
 Logging is configured by log4j properties files contained within the
-jars themselves. For `OmeroImporter </ome/wiki/OmeroImporter>`_, the
-file is here:
-`ome.git/components/tools/OmeroImporter/resources/log4j.properties </ome/browser/ome.git/components/tools/OmeroImporter/resources/log4j.properties>`_,
+jars themselves. For OmeroImport, the file is here:
+:source:`log4j.properties <components/tools/OmeroImporter/resources/log4j.properties>`,
 which delegates to
-`LogAppenderProxy </ome/browser/ome.git/components/tools/OmeroImporter/src/ome/formats/importer/util/LogAppenderProxy.java>`_
-for much of the configuration.
+:source:`LogAppenderProxy <components/tools/OmeroImporter/src/ome/formats/importer/util/LogAppenderProxy.java>` for much of the configuration.
 
 Another file in that directory --
-`log4j-cli.properties </ome/browser/ome.git/components/tools/OmeroImporter/resources/log4j-cli.properties>`_
-controls the output for the
-`CommandLineImporter </ome/wiki/CommandLineImporter>`_: all logging goes
+:source:`log4j-cli.properties <components/tools/OmeroImporter/resources/log4j-cli.properties>`
+controls the output for the command line importer: all logging goes
 to standard err, while useful output (pixel ids, or used files) goes to
 standard out.
 
@@ -32,8 +29,8 @@ Java servers
 
 Java server components are configured by passing
 ``-Dlog4j.configuration=etc/log4j.xml`` to each Java process.
-`Entry.java </ome/browser/ome.git/components/blitz/src/ome/services/blitz/Entry.java>`_
-guarantees that the `log4j.xml </ome/browser/ome.git/etc/log4j.xml>`_
+:source:`Entry.java <components/blitz/src/ome/services/blitz/Entry.java>`
+guarantees that the `log4j.xml <etc/log4j.xml>`
 file is read periodically so that changes to your logging configuration
 do not require a restart.
 
@@ -55,12 +52,11 @@ Python servers are configured by a call to
 taken from the configuration file passed to the server via icegridnode.
 For example, the config file for Processor-0 can be found in
 ``var/master/servers/Processor-0/config/config``. These values come from
-the `templates.xml </ome/browser/ome.git/etc/grid/templates.xml>`_.
+the :source:`templates.xml <etc/grid/templates.xml>`.
 
 All the "omero.logging.\*" properties can be overwritten in your
-`ome.git/etc/grid/default.xml </ome/browser/ome.git/etc/grid/default.xml>`_
-file (or on Windows,
-`ome.git/etc/grid/windefault.xml </ome/browser/ome.git/etc/grid/windefault.xml>`_).
+:source:`default.xml <etc/grid/default.xml>` file (or on Windows,
+:source:`etc/grid/windefault.xml <etc/grid/windefault.xml>`).
 See the "Profile" properties block for how to configure for your site.
 
 Similar to log4j, logging is configured to be written to
@@ -80,7 +76,7 @@ On Windows, the state of stdout and stderr is somewhat different. No
 information will be written to master.out, master.err, or similar files.
 Instead, what logging is produced will go to the Windows Event Viewer,
 but finding error situations can be considerably more challenging. (See
-`#1449 </ome/ticket/1449>`_ for more information)
+:ticket:`1449` for more information)
 
 Developer info
 --------------
@@ -96,4 +92,4 @@ Upcoming documentation on logging in omero:
 -  --debug / --report / --email / --upload
 -  tracing & warning settings
 -  zipping logs for feedback
--  `OmeroCli </ome/wiki/OmeroCli>`_
+-  :doc:`/developers/CommandLine`
