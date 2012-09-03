@@ -4,9 +4,8 @@ Git Usage for OMERO developers
 This page is primarily designed for the core OME developers who are
 contributing to our code base using git. It should contain all the
 useful commands and configuration you need for doing most git tasks.
-`UsingGitFlow </ome/wiki/WorkingWithOmero/UsingGitFlow>`_ describes our
-earlier use of git-flow which may still be useful for understanding our
-branch naming ("master" v. "develop").
+:doc:`UsingGitFlow` describes our earlier use of git-flow which may still be 
+useful for understanding our branch naming ("master" v. "develop").
 
 Git resources
 -------------
@@ -353,7 +352,7 @@ Create a branch from the “develop” branch:
 
         git checkout -b feature/foo origin/develop
 
-or `using git-flow </ome/wiki/WorkingWithOmero/UsingGitFlow>`_:
+or :doc:`using git-flow <UsingGitFlow>`:
 
 ::
 
@@ -389,9 +388,9 @@ Any remaining changes that you want to discard can be reverted by
         git checkout -- path/to/file.txt
 
 When committing the code you’ve just modified/merged your commit message
-should refer to related tickets. E.g. "See `#1111 </ome/ticket/1111>`_"
+should refer to related tickets. E.g. "See :ticket:`1111`"
 will link the commit to the ticket on trac, and "Fixes
-`#2222 </ome/ticket/2222>`_" will link and close the ticket on trac. NB:
+`:ticket:`2222` will link and close the ticket on trac. NB:
 If you want to add more than a short one-line message, you can omit the
 -m "message" and git will open your specified editor, where you should
 add a single line summary followed by line space and then a paragraph of
@@ -780,8 +779,9 @@ To make working with a larger number of branches easily, we’ll initially
 introduce some terminology. Branches should typically be in one of three
 states: investigations, works-in-progress (WIP), or deliverables.
 
-`|Description of branch
-types| </ome/attachment/wiki/WorkingWithOmero/UsingGit/Deliverables.png>`_
+.. figure:: /images/Deliverables.png
+   :align: center
+   :alt: Description of branch types
 
 Investigations
 ^^^^^^^^^^^^^^
@@ -1030,12 +1030,3 @@ Your branch should now be able to merge back into develop. This should
 only be done at the very end of a pull request just before it's merged
 into origin/develop. Multiple "pull origin/develop" messages in a branch
 would be very bad style.
-
-Attachments
-~~~~~~~~~~~
-
--  `Deliverables.png </ome/attachment/wiki/WorkingWithOmero/UsingGit/Deliverables.png>`_
-   `|Download| </ome/raw-attachment/wiki/WorkingWithOmero/UsingGit/Deliverables.png>`_
-   (186.3 KB) - added by *jmoore* `9
-   months </ome/timeline?from=2011-10-26T12%3A12%3A19%2B01%3A00&precision=second>`_
-   ago. Description of branch types
