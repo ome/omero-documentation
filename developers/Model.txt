@@ -628,8 +628,7 @@ Future topics
    (TODO: the null-policy should be configurable based on whether or not
    the object is currently in a session) Validation is intended to
    verify the specification constraints which can not (easily and/or
-   quickly) be verified by the database. See
-   `wiki:proposals/Validation </ome/wiki/proposals/Validation>`_
+   quickly) be verified by the database.
 -  Versioning/Locking?
 -  ObjectFactory? for wrapping model objects from :ref:`server/blitz`
 -  Links to external models

@@ -373,9 +373,9 @@ OMERO Model Objects
 
 With these components -- rtypes, primitives, constants, etc -- it's
 possible to define the core nouns of OME, the |OmeroModel| . The OMERO
-|OmeroModel| is a translation of the `OME XML
-specification <http://www.ome-xml.org>`_ into objects for use by the
-server, built out of RTypes, sequences and dictionaries, and Details.
+|OmeroModel| is a translation of the `OME XML specification <http://www.openmicroscopy.org/site/support/file-formats>`_ into objects for 
+use by the server, built out of RTypes, sequences and dictionaries, and 
+Details.
 
 Details
 ~~~~~~~
@@ -2716,5 +2716,4 @@ Other
 -  Annotation-link-loading can behave strangely if
    ``AnnotationLink.child`` is not loaded.
 -  Python applications can segfault under certain orderings of imports:
-   See
-   ` http://tinyurl.com/icebuserror <http://tinyurl.com/icebuserror>`_
+   See `Bus Error under Mac OX 10.4 and IcePy 3.3.0 <http://www.zeroc.com/forums/bug-reports/3883-bus-error-under-mac-ox-10-4-icepy-3-3-0-a.html>`_

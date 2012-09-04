@@ -41,8 +41,6 @@ point you back to this page for packaging and deploying your new code.
    further extend search
 -  :ref:`developers/Server/LoginAttemptListener`: Write a
    Java handler for failed login attempts
--  `ObjectFactoryRegistry </ome/wiki/ObjectFactoryRegistry>`_: Write
-   server-side handlers for your Ice implementations
 -  |OmeroCli|: Write drop in Python extensions for
    the command-line
 -  :ref:`developers/Modules/Scripts`: Write python scripts to

@@ -33,8 +33,7 @@ this is to download the latest released version from
 
     for |OmeroGrid| functionality you will need at least
     a 3.0-Beta3 server. Alternatively you can build one yourself
-    (`OmeroContributing </ome/wiki/OmeroContributing>`_) or download the
-    latest build from hudson (:jenkins:`here <job/OMERO/lastSuccessfulBuild/>`).
+    or download the latest build from hudson (:jenkins:`here <job/OMERO/lastSuccessfulBuild/>`).
 
 **More information on installing |OmeroGrid| is
 available under :ref:`developers/Server/Grid/Install`.**
