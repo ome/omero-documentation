@@ -11,8 +11,8 @@ substantially in this release. We note some points below where these
 changes will break existing code.
 
 Although we aim to provide some useful notes and examples here, you will
-find the best source of examples is ` the code
-itself <http://github.com/openmicroscopy/openmicroscopy/blob/develop/components/tools/OmeroWeb/omeroweb/webclient/views.py>`_.
+find the best source of examples is :source:`the code
+itself <components/tools/OmeroWeb/omeroweb/webclient/views.py>`.
 
 @Decorators
 -----------

@@ -52,9 +52,9 @@ aspects.
    :ref:`application context <developers/Server/Context>`.
 
 -  The actual service implementation (from
-   :source:`ome.logic <components/server/src/ome/logic>`
+   :sourcedir:`ome.logic <components/server/src/ome/logic>`
    or
-   :source:`ome.services <components/server/src/ome/services>`)
+   :sourcedir:`ome.services <components/server/src/ome/services>`)
    will be either read-only
    (:source:`IQuery <components/common/src/ome/api/IQuery.java>`-based)
    or a read-write
@@ -125,7 +125,7 @@ Server Design
 
    Server Design
 
-The server logic resides in the :source:`components/server`
+The server logic resides in the :sourcedir:`components/server`
 component.
 
 Topics

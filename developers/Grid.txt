@@ -15,7 +15,7 @@ Deployment descriptors
 
 All the resources for a single OMERO site are described by one
 **application descriptor**. OMERO ships with several example descriptors
-under :source:`etc/grid` . These
+under :sourcedir:`etc/grid` . These
 descriptors describe what processes will be started on what nodes,
 identified by simple names. For example the default descriptor, used if
 no other file is specified, defines three node -- "master", "node1",

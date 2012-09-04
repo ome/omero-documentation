@@ -349,7 +349,7 @@ Hierarchy
 ~~~~~~~~~
 
 The current exception hierarchy (package
-:source:`ome.conditions <components/model/src/ome/conditions>`)
+:sourcedir:`ome.conditions <components/model/src/ome/conditions>`)
 used is as follows:
 
 -  RootException

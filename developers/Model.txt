@@ -10,11 +10,11 @@ specification <http://www.openmicroscopy.org/site/support/file-formats>`_,
 in the database (the data model), and in code. This last representation
 is the object model with which we will concern ourselves here.
 
-Because of its complexity, the object model is generated from a :source:`central
-definition <components/model>` using our own
-:source:`code-generator <components/dsl>`. It relies on no
+Because of its complexity, the object model is generated from a 
+:sourcedir:`central definition <components/model>` using our own
+:sourcedir:`code-generator <components/dsl>`. It relies on no
 libraries and can btee used in both the server and the RMI clients.
-:ref:`server/blitz` uses a :source:`second
+:ref:`server/blitz` uses a :sourcedir:`second
 mapping <components/blitz/resources/templates>` to
 generate |OmeroJava|, |OmeroPy|, and |OmeroCpp| classes, which can be
 :source:`mapped <components/blitz/src/omero/util/IceMapper.java>`

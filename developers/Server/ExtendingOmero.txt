@@ -86,7 +86,7 @@ Code generation
 
 Since it is prohibitive to model full objects with the SAs, one
 alternative is to add types directly to the code-generated. By adding a
-file named ``*.ome.xml`` to :source:`components/model/resources/mappings`
+file named ``*.ome.xml`` to :sourcedir:`components/model/resources/mappings`
 and running a full-build, it is possible to have new objects generated
 in all :ref:`server/blitz` languages. Supported fields include:
 
@@ -138,12 +138,12 @@ Services
 ~~~~~~~~
 
 Traditionally, services were added via Java interfaces in the
-:source:`components/common/src/ome/api`
+:sourcedir:`components/common/src/ome/api`
 package. The creation of such "core" services is described under
 :ref:`developers/Server/HowToCreateAService`. However,
 with the introduction of :ref:`server/blitz`, it's also
 possible to write blitz-only services which are defined by a slice
-definition under :source:`components/blitz/resources/omero`.
+definition under :sourcedir:`components/blitz/resources/omero`.
 
 A core service is required when server internal code should also make
 use of the interface. Since this is very rarely the case for third-party
@@ -263,8 +263,8 @@ The three patterns which are available are:
       :ref:`developers/Server/PasswordProvider` and similar should
       be included at this level.
 
-See :source:`components/blitz/resources/ome/services`
-and :source:`components/server/resources/ome/services`
+See :sourcedir:`components/blitz/resources/ome/services`
+and :sourcedir:`components/server/resources/ome/services`
 for all the available objects.
 
 .. _developers/Server/ExtendingOmero#JavaDeployment:
