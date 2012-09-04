@@ -1,15 +1,22 @@
-gitflow
-~~~~~~~
+Using git-flow
+==============
 
 We follow the git-flow style of naming and managing branch. Info about
 the idea can be found under
-` http://nvie.com/posts/a-successful-git-branching-model/ <http://nvie.com/posts/a-successful-git-branching-model/>`_.
+` A successful Git branching model  <http://nvie.com/posts/a-successful-git-branching-model/>`_.
 There's also a ` screencast <http://vimeo.com/16018419>`_ available on
-Vimeo. **Note:** *since we are now using Pull Requests on github rather
-than all pushing directly to develop, the git-flow style tools and
-naming are less necessary. How merging takes place, however, is still
-largley based on git-flow.*
-`|http://nvie.com/img/2009/12/Screen-shot-2009-12-24-at-11.32.03.png| <http://nvie.com/img/2009/12/Screen-shot-2009-12-24-at-11.32.03.png>`_
+Vimeo.
+
+.. note:: 
+
+	since we are now using Pull Requests on github rather than all pushing 
+	directly to develop, the git-flow style tools and naming are less 
+	necessary. How merging takes place, however, is still largley based on 
+	git-flow.
+
+.. image:: /images/GitBranchingModel.png
+    :align: center
+    :alt: Branching Model
 
 -  If you did not use the OMERO-setup script below, you will need to
    install git-flow manually and initialise it for OMERO:

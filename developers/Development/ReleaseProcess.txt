@@ -1,22 +1,5 @@
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Pull Request (PR) Review <#PullRequestPRReview>`_
-#. `Model <#Model>`_
-#. `DB Upgrade <#DBUpgrade>`_
-#. `Feature Freeze (bug fixing only) <#FeatureFreezebugfixingonly>`_
-#. `Testing <#Testing>`_
-#. `Bio-Formats Freeze (no jar
-   changes) <#Bio-FormatsFreezenojarchanges>`_
-#. `Documentation <#Documentation>`_
-#. `4.4.0 Things left to test/discuss <#a4.4.0Thingslefttotestdiscuss>`_
-#. `All Documentation tickets <#AllDocumentationtickets>`_
-#. `Release Candidates <#ReleaseCandidates>`_
-#. `Schema Pre-Release Checklist <#SchemaPre-ReleaseChecklist>`_
-#. `Release <#Release>`_
-#. `Branching <#Branching>`_
-#. `Post release <#Postrelease>`_
-#. `Demo server <#Demoserver>`_
+Release Process
+===============
 
 This page describes the actions points and step to follow before major
 releases. There are various time-dependencies, so read the whole page
@@ -26,7 +9,7 @@ if not many of the following points.
 Pull Request (PR) Review
 ------------------------
 
-See `git and github </ome/wiki/WorkingWithOmero/UsingGit>`_, for more
+See :doc:`/developers/Development/UsingGit`, for more
 information about our usage of git and github. Before merging code to
 develop, each PR is reviewed. Follow a list of "best practices" in order
 to speed up the review.
@@ -35,9 +18,11 @@ to speed up the review.
 
    -  Add to the ticket or to the PR what must be tested e.g. click
       view, check that the viewer opens.
+
    -  If a Bio-Formats change, add to the PR the command that can be
       used to test the reader, the images to use and where to find them
-      (if necessary), etc. (``-Dtestng.directory=$DATA ... ``)
+      (if necessary), etc. (``-Dtestng.directory=$DATA ...``)
+
    -  If UI changes, add to the ticket a screenshot before implementing
       the feature and one after. For new feature a movie can be more
       suitable.
@@ -91,8 +76,7 @@ Testing
 -  Review tests
 
    -  Jenkins Linux & Windows "start" jobs **should be passing**
-   -  See:
-      :jenkins:`<job/OMERO-trunk-components/>`.
+   -  See: :jenkins:`job/OMERO-trunk-components>`.
 
 -  :wiki:`BioFormats <BioFormats>`.
 
@@ -230,7 +214,7 @@ Documentation
             history <http://www.openmicroscopy.org/site/about/project-history/omero-version-history>`_
 
       -  Movies page ?
-      -  [STRIKEOUT:`About
+      -  [STRIKEOUT:`What
          OMERO <http://www.openmicroscopy.org/site/about/what-omero>`_]
          (waiting on movie links)
       -  Downloads page (see below)
@@ -261,20 +245,15 @@ Documentation
 -  [STRIKEOUT:Review apache documentation instructions with new
    "bin/omero web config apache" command]
 -  ` https://www.openmicroscopy.org/site/support/imagej <https://www.openmicroscopy.org/site/support/imagej>`_
--  [STRIKEOUT:**Review doc tickets**: `#6866 </ome/ticket/6866>`_,
-   `#8686 </ome/ticket/8686>`_, `#9304 </ome/ticket/9304>`_,
-   `#8494 </ome/ticket/8494>`_, `#8364 </ome/ticket/8364>`_]
+-  [STRIKEOUT:**Review doc tickets**: :ticket:`6866`,
+   :ticket:`8686`, :ticket:`9304`, :ticket:`8494`, :ticket:`8364`]
 
 All Documentation tickets
 -------------------------
 
 Open doc tickets in milestone: 0
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `Ticket </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&desc=1&order=id>`_   | `Summary </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&order=summary>`_   | `Status </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&order=status>`_   | `Owner </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&order=owner>`_   | `Priority </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&order=priority>`_   | `Reporter </ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&order=reporter>`_   |
-+==================================================================================================================================================================================================================================+=================================================================================================================================================================================================================================+===============================================================================================================================================================================================================================+=============================================================================================================================================================================================================================+===================================================================================================================================================================================================================================+===================================================================================================================================================================================================================================+
-| No tickets found                                                                                                                                                                                                                 |
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+`<https://trac.openmicroscopy.org.uk/ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&desc=1&order=id%3E>`_ 
 
 Release Candidates
 ------------------
@@ -347,8 +326,7 @@ Post release
 
 -  Change reports in left-bar of trac
 -  Update any deployed servers (ask Josh)
--  Update online validator (See `#8640 </ome/ticket/8640>`_ for an
-   example)
+-  Update online validator (See :ticket:`8640` for an example)
 
 Demo server
 -----------
