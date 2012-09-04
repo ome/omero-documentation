@@ -15,7 +15,7 @@ Django templates
 ----------------
 
 We use Django templates for the OMERO.web pages. See docs here:
-` http://docs.djangoproject.com/en/dev/ref/templates/ <http://docs.djangoproject.com/en/dev/ref/templates/>`_.
+` https://docs.djangoproject.com/en/dev/ref/templates/ <https://docs.djangoproject.com/en/dev/ref/templates/>`_.
 We have designed a number of OMERO.web base templates that you can
 extend. These live in the 'common' app under
 omeroweb/common/templates/common/base. Here's a list of the templates

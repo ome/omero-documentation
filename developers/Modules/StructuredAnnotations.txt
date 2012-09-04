@@ -27,11 +27,9 @@ Currently, these are:
 -  ``PlaneInfo``
 -  ``Roi``
 -  ``Channel``
--  ``Annotation`` and all annotation subtypes in order to form
-   hierarchies
--  `ScreenPlateWell </ome/wiki/ScreenPlateWell>`_: ``Screen``,
-   ``ScreenAcquisition``, ``Plate``, ``Well``, ``WellSample``,
-   ``Reagent``
+-  ``Annotation`` and all annotation subtypes in order to form hierarchies
+-  ScreenPlateWell: ``Screen``, ``ScreenAcquisition``, ``Plate``, ``Well``, 
+   ``WellSample``, ``Reagent``
 -  ...
 
 Annotation hierarchy

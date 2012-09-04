@@ -281,9 +281,7 @@ of pixels per image (it used to be more!).
 
 -  **Retrieve Screening data owned by the user currently logged in**.
 
-To learn about the model go to
-`ScreenPlateWell </ome/wiki/ScreenPlateWell>`_. Note that the wells are
-not loaded.
+Note that the wells are not loaded.
 
 ::
 
@@ -304,8 +302,7 @@ not loaded.
         end
     end
 
--  **Retrieve Wells within a Plate**, see
-   `ScreenPlateWell </ome/wiki/ScreenPlateWell>`_.
+-  **Retrieve Wells within a Plate**.
 
 Given a plate ID, load the wells. You will have to use the
 ``findAllByQuery`` method.

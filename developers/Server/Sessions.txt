@@ -3,13 +3,13 @@
 OMERO Sessions
 ==============
 
-Beginning with OMERO-3.0-Beta3, the OMERO server has unified the
-handling of login sessions among both the JBoss and the
-:ref:`server/blitz` servers. Previously JBoss logins
-were handled via the standard
-` JAAS <http://java.sun.com/javase/technologies/security/>`_ mechanisms,
-using a modified ``DatabaseLoginModule``. This proved problematic for
-several reason:
+.. _JAAS: http://www.oracle.com/technetwork/java/javase/tech/index-jsp-136007.html
+
+Beginning with OMERO-3.0-Beta3, the OMERO server has unified the handling of 
+login sessions among both the JBoss and the :ref:`server/blitz` servers. 
+Previously JBoss logins were handled via the standard `JAAS`_ mechanisms, 
+using a modified ``DatabaseLoginModule``. This proved problematic for several 
+reasons:
 
 #. exceptions thrown during login could not easily be caught or
    specified
@@ -24,8 +24,6 @@ With |OmeroSessions|, both login systems have been brought together and simplifi
 .. figure:: /images/omero-BlitzSessionCreationDestruction.png
   :align: center
   :alt: Blitz session creation and destruction
-
-  Blitz session creation and destruction
 
 In short, Sessions …
 --------------------

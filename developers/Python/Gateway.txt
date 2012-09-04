@@ -376,8 +376,7 @@ E.g.
     conn.findProject("Project Name")                                # OMERO 4.2
     conn.getObject("Project", attributes={'name':"Project Name"})   # OMERO 4.3
 
-These changes have begun in the 4.3 release. Full details are `available
-here </ome/wiki/Api/BlitzGateway>`_.
+These changes have begun in the 4.3 release.
 
 Blitz Object Wrapper API
 ~~~~~~~~~~~~~~~~~~~~~~~~

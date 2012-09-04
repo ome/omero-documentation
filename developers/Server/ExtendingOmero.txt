@@ -231,7 +231,7 @@ Java Configuration
 ^^^^^^^^^^^^^^^^^^
 
 Configuration in the Java servers takes place via
-` Spring <http://springframework.org>`_. One or more files matching a
+` Spring <http://www.springsource.org/>`_. One or more files matching a
 pattern like ``ome/services/blitz-*.xml`` should be added to your
 application.
 

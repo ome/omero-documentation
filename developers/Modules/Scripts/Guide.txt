@@ -19,14 +19,7 @@ going into the 'behind the scenes' details. More technical details can
 be found on the :ref:`developers/Modules/Scripts` page.
 
 In addition to this guide, you may find the following pages useful for
-more information on using the OMERO Python API:
-`PythonClientBeginners </ome/wiki/PythonClientBeginners>`_,
-|OmeroClients|, |BlitzGateway|.
-
-Some example code
-`PythonClientCodeExamples </ome/wiki/PythonClientCodeExamples>`_ are
-provided, which can be used in client scripts or scripting-service
-scripts.
+more information on using the OMERO Python API: |OmeroClients|, |BlitzGateway|.
 
 Scripts can be run from Insight, using a UI generated from the script.
 The script results can also be handled by Insight. Scripts should
