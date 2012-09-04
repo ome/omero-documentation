@@ -117,10 +117,9 @@ Stateful/Binary? Services
    :javadoc:` API <ome/api/ThumbnailStore.html>`
 -  :source:` IScale <components/common/src/ome/api/IScale.java>`
 
-A complete list of service APIs can be found :javadoc:` here <slice2html/omero/api.html>`
-and some examples of `API use in
-Python </ome/wiki/PythonClientCodeExamples>`_ are provided. Java or C++
-code can use the same API in a very similar manner.
+A complete list of service APIs can be found :javadoc:` here 
+<slice2html/omero/api.html>` and some examples of API use in Python are 
+provided. Java or C++ code can use the same API in a very similar manner.
 
 Discussion
 ----------

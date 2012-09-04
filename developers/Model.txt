@@ -281,7 +281,9 @@ Each instance can be found in one of several states. Quickly, they are:
     for collections -- null which is completely unloaded and filtered in
     which certain items have been removed. More on this below.)
 
-`|image1| </ome/attachment/wiki/ObjectModel/ObjectStates.png>`_
+.. figure:: /images/ObjectStates.png
+    :align: center
+    :alt: Object states
 
 Identity, References, and Versions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

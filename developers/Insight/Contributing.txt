@@ -4,9 +4,8 @@ Contributing to OMERO.insight
 Getting Started with OMERO.insight
 ----------------------------------
 
-Getting started with OMERO.insight entails that you have an
-` OMERO.server <http://trac.openmicroscopy.org.uk/omero>`_ already
-deployed.
+Getting started with OMERO.insight entails that you have an 
+:doc:`OMERO.server </sysadmins/server-overview>` already deployed.
 
 Installing From Source
 ----------------------
@@ -19,16 +18,15 @@ out code using
 Requirements
 ~~~~~~~~~~~~
 
--  Install a Java 5 Development Kit (JDK), available from ` Java SE
-   Downloads <http://java.sun.com/javase/downloads/index.jsp>`_ and
-   required for both the OMERO server and client code. Set the
-   ``JAVA_HOME`` environment variable to your JDK installation.
+-  Install a Java 5 Development Kit (JDK), available from `Java SE Downloads 
+   <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_ and
+   required for both the OMERO server and client code. Set the ``JAVA_HOME`` 
+   environment variable to your JDK installation.
 
 Running Code
 ~~~~~~~~~~~~
 
-It is helpful to setup the project in
-` Eclipse <http://www.eclipse.org>`_.
+It is helpful to setup the project in `Eclipse <http://www.eclipse.org>`_.
 
 Build system
 ~~~~~~~~~~~~
@@ -37,8 +35,7 @@ Ant
 ^^^
 
 The compilation, testing, launch, and delivery of the application are
-automated by means of an Ant
-(` http://ant.apache.org/ <http://ant.apache.org/>`_) build file,
+automated by means of an `Ant <http://ant.apache.org/>`_ build file,
 located under the ``build`` directory (See :ref:`developers/Insight/DirectoryContents`). 
 Move to the build directory and, from the command line, enter:
 
@@ -60,9 +57,7 @@ you wish to use Ant instead, you can still do it by using the
 some dependencies to satisfy before; these are clearly documented in the
 ``build.xml`` file itself.
 
-For more details, see `Software Build and
-Deployment </ome/attachment/wiki/OmeroInsightContributing/sbdd.pdf>`_
-`|Download| </ome/raw-attachment/wiki/OmeroInsightContributing/sbdd.pdf>`_.
+For more details, see :download:`Software Build and Deployment </downloads/sbdd.pdf>`.
 
 Jenkins
 ^^^^^^^

@@ -52,11 +52,13 @@ with services to:
 Initialisation of Agents
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. _Fow: http://martinfowler.com/books
+
 Agents let the container create them and then manage their life-cycle.
 This is achieved through the use of a common interface, ``Agent``, that
 all agents have to implement and by requiring every agent to have a
 public no-arguments constructor. The Agent interface plays the role of a
-Separated Interface (` Fow <http://martinfowler.com/books.html>`_),
+Separated Interface (`Fow`_),
 decoupling the container from knowledge of concrete agents. This way,
 new agents can be plugged in.
 
@@ -64,11 +66,11 @@ At start-up the container finds out which are the agents' implementation
 classes from its configuration file, instantiates every agent by
 reflection (using the no-arguments constructor) and then reads each
 agent's configuration file
-(` Fow <http://martinfowler.com/books.html>`_). The configuration
+(`Fow`_). The configuration
 entries in this file are turned into objects and collected into a
 map-like object, which is then passed to the agent. This map object also
 contains pointers to the container's services. We can think of this
-object as a Registry (` Fow <http://martinfowler.com/books.html>`_).
+object as a Registry (`Fow`_).
 
 There is one Registry containing pointers to the container's services.
 for each agent, so configuration entries are private to each agent -

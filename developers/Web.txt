@@ -3,14 +3,15 @@
 OMERO.web Framework
 ===================
 
-`|OmeroWeb infrastructure
-components| </ome/attachment/wiki/OmeroWeb/OmeroWeb.png>`_
+.. figure:: /images/OmeroWeb.png
+  :align: center
+  :alt: OmeroWeb infrastructure components
 
 :snapshot:`MOVIE introduction to OmeroWeb
 <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`
 
 OMERO.web is a framework for building web applications for OMERO. It
-uses ` Django <http://www.djangoproject.com/>`_ to generate html pages
+uses ` Django <https://www.djangoproject.com/>`_ to generate html pages
 from data retrieved from the OMERO server. OmeroWeb acts as a Python
 client of the OMERO server using the OMERO API, as well as being a web
 server itself (see 'infrastructure' info below). It uses Django 'apps'
@@ -52,7 +53,7 @@ discussed above, as well as released tools (webadmin, webclient) and
 other apps in development:
 
 -  webclient: Main web client for viewing images, annotating etc. ` more
-   info <https://www.openmicroscopy.org.uk/site/support/omero4/clients/web>`_
+   info <https://www.openmicroscopy.org/site/support/omero4/clients/web>`_
 -  webadmin: For administration of user and group settings.
 -  webgateway: A web services interface, providing rendered images and
    data. See :ref:`developers/Web/WebGateway`
@@ -71,8 +72,9 @@ But if you want to have a quick look at some example code, see below...
 Quick Example - webtest
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-`|Screen-shot of the webtest/dataset/
-example| </ome/attachment/wiki/OmeroWeb/webtest-dataset.png>`_
+.. figure:: /images/webtest-dataset.png
+  :align: center
+  :alt: Screen-shot of the webtest/dataset/example
 
 This tiny example gives you a feel for how the OMERO.web framework
 gets data from OMERO and displays it on a web page. You can find this

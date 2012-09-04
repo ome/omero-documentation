@@ -35,6 +35,8 @@ factory <components/common/src/ome/system/ServiceFactory.java>`
 Files to Create
 ~~~~~~~~~~~~~~~
 
+.. _Spring: http://www.springsource.org/
+
 :source:`components/common/src/ome/api/IConfig.java`
     the interface which will be made available to client and server
     alike (which is why all interfaces must be located in the
@@ -50,7 +52,7 @@ Files to Create
     metadata (annotations) necessary to properly deploy the service.
 
 :source:`components/server/resources/ome/services/service-ome.api.IConfig.xml`
-    a ` Spring <http://www.springframework.org>`_ configuration file,
+    a `Spring`_ configuration file,
     which can "inject" any value available in the server (Omero)context
     into the implementation. Two short definitions are the minimum.
     (Currently not definable with annotations.) As explained in the
@@ -73,18 +75,17 @@ Files to Edit (not strictly necessary, see :ticket:`314`)
     our central API factory, needs an additional method for looking up
     the new interface (**get<interface name>Service()**)
 
-:source:`components/client/resources/ome/client/spring.xml`
-    client ` Spring <http://www.springframework.org>`_ configuration,
-    which makes the use of JNDI and JAAS significantly simpler.
+:source:`components/client/resources/ome/client/spring.xml` client `Spring`_   
+    configuration, which makes the use of JNDI and JAAS significantly simpler.
 
 :source:`components/blitz/resources/omero/API.ice` (**blitz**)
     a ZeroC_ slice definition
     file, which provides cross-language mappings. Add the same service
     method to ``ServiceFactoryI`` as to ``ServiceFactory.java``.
 
-:source:`components/blitz/resources/ome/services/blitz-servantDefinitions.xml` (**blitz**)
-    a ` Spring <http://www.springframework.org>`_ configuration, which
-    defines a mapping between Ice servants and Java services.
+:source:`components/blitz/resources/ome/services/blitz-servantDefinitions.xml`  (**blitz**)
+    a `Spring`_ configuration, which defines a mapping between Ice servants 
+    and Java services.
 
 :source:`components/blitz/resources/omero/Constants.ice` (**blitz**)
     a ZeroC_ slice definition
@@ -104,7 +105,7 @@ Files Involved
 :source:`components/server/resources/beanRefContext.xml`
 
 :source:`components/blitz/resources/beanRefContext.xml`
-    ` Singleton definitions <http://static.springframework.org/spring/docs/2.0.x/reference/beans.html#d0e5298>`_
+    ` Singleton definitions <http://static.springsource.org/spring/docs/2.0.x/reference/beans.html#d0e5298>`_
     which allow for the static location of the active context. These do
     not need to be edited, but in the case of the server
     :source:`beanRefContext.xml <components/server/resources/beanRefContext.xml>`,
