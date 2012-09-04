@@ -89,6 +89,8 @@ pygments_style = 'sphinx'
 extlinks = {
     'wiki' : ('http://trac.openmicroscopy.org.uk/ome/wiki/'+ '%s', ''),
     'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/'+ '%s', '#'),
+    'milestone' : ('http://trac.openmicroscopy.org.uk/ome/milestone/'+ '%s', ''),
+    'report' : ('http://trac.openmicroscopy.org.uk/ome/report/'+ '%s', ''),
     'snapshot' : ('http://cvs.openmicroscopy.org.uk/snapshots/'+ '%s', ''),
     'plone' : ('http://www.openmicroscopy.org/site/'+ '%s', ''),
     'oo' : ('http://www.openmicroscopy.org/' + '%s', ''),

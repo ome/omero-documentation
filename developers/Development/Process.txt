@@ -34,7 +34,7 @@ General Notes
 -------------
 
 -  Review meetings are a learning process.
--  Use views like `{9} <http://trac.openmicroscopy.org.uk/ome/report/9>`_ and `{11} <http://trac.openmicroscopy.org.uk/ome/report/11>`_ to
+-  Use views like reports :report:`9` and :report:`11` to
    get a feeling for what's going on.
 -  Broad items can be left scheduled to the cycle.
 -  Backlogged items are rescheduled.
@@ -46,7 +46,7 @@ General Notes
 -  Mid-sprint status by e-mail.
 -  Generate material (movies/screenshots) at the end of a sprint.
    Movies/screenshots are attached to stories and to the corresponding
-   milestone `milestone:OMERO-Beta4.3 <http://trac.openmicroscopy.org.uk/ome/milestone/OMERO-Beta4.3>`_
+   milestone :milestone:`OMERO-Beta4.3`
 
 Development
 -----------
