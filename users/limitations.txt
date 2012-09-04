@@ -114,6 +114,15 @@ Leopard) can fail with "ld: symbol(s) not found". You can find further
 details, a potential solution and make any comments on your experience
 with the problem on :ticket:`3210`.
 
+Web Start problems on Mac OS X 10.8 (Mountain Lion)
+===================================================
+
+The new security features in Mac OS X 10.8 prevent users from launching
+OMERO.insight via Java Web Start using the standard system security
+settings. The system wide setting needs to be changed in preferences,
+and this would have security implications. We are looking into code 
+signing to resolve this issue.
+
 Non-LDAP user password security
 ===============================
 
