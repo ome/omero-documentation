@@ -1,12 +1,10 @@
-.. _developers/Modules/Search:
-
 OMERO Search
 ============
 
 Beginning with 3.0-Beta3, the OMERO server will use
 ` Lucene <http://lucene.apache.org>`_ to index all string and timestamp
 information in the database, as well as all ``OriginalFiles`` which can
-be parsed to simple text (see :ref:`developers/Search/FileParsers` for
+be parsed to simple text (see :doc:`/developers/Search/FileParsers` for
 more information). The index is stored under /OMERO/FullText (or the
 ``FullText`` subdirectory of your ${omero.data.dir}, and can be searched
 with Google-like queries.
@@ -75,7 +73,7 @@ term with the field name followed by a colon. For example,
     * - file.contents
       - For ``FileAnnotations`` and objects they are attached to **as well as
         the ``OriginalFile`` itself**, the file contents themselves if their
-        ``Format`` is configured with the :ref:`developers/Search/FileParsers`.
+        ``Format`` is configured with the :doc:`/developers/Search/FileParsers`.
     * - **Internal**
       -
     * - combined\_fields
@@ -300,21 +298,21 @@ Extension points
 ~~~~~~~~~~~~~~~~
 
 Two extension points are currently available for searching. The first
-are the :ref:`developers/Search/FileParsers` mentioned above. By
+are the :doc:`/developers/Search/FileParsers` mentioned above. By
 configuring the map of Formats (roughly mime-types) of files to parser
 instances, extracting information from attached binary files can be made
 quick straight-forward.
 
-Similarly, :ref:`developers/Modules/Search/Bridges` provide a mechanism
+Similarly, :doc:`/developers/Modules/Search/Bridges` provide a mechanism
 for parsing all metadata entering the system. One built in bridge (the
 :source:`FullTextBridge <components/server/src/ome/services/fulltext/FullTextBridge.java>`)
 parses out the fields mentioned above, but by creating your own bridge
 it is possible to extract more information specific to your site.
 
 .. seealso::
-    :ref:`developers/Modules/StructuredAnnotations`,
-    :ref:`developers/Modules/Search/Bridges`,
-    :ref:`developers/Search/FileParsers`, 
+    :doc:`/developers/Modules/StructuredAnnotations`,
+    :doc:`/developers/Modules/Search/Bridges`,
+    :doc:`/developers/Search/FileParsers`, 
     `Query Parser Syntax <http://lucene.apache.org/core/3_6_0/queryparsersyntax.html>`_,
 
     ` Luke <http://www.getopt.org/luke/>`_ 

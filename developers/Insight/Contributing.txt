@@ -35,7 +35,7 @@ Ant
 
 The compilation, testing, launch, and delivery of the application are
 automated by means of an `Ant <http://ant.apache.org/>`_ build file,
-located under the ``build`` directory (See :ref:`developers/Insight/DirectoryContents`). 
+located under the ``build`` directory (See :doc:`/developers/Insight/DirectoryContents`). 
 Move to the build directory and, from the command line, enter:
 
 ::

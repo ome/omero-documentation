@@ -1,5 +1,3 @@
-.. _developers/Python/Gateway:
-
 Blitz Gateway
 =============
 
@@ -291,8 +289,7 @@ OMERO model objects, E.g. omero.model.Project, omero.model.Pixels etc
 (see :javadoc:` full list <slice2html/omero/model.html>`)
 are code-generated and mapped to the OMERO database schema. They are
 language agnostic and their data is in the form of omero.rtypes as
-described: :ref:` about model
-objects <developers/GettingStarted/AdvancedClientDevelopment#Objects>`).
+described: :ref:` about model objects <AdvancedClientDevelopment#Objects>`).
 
 ::
 

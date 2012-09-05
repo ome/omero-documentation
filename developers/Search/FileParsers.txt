@@ -1,5 +1,3 @@
-.. _developers/Search/FileParsers:
-
 File Parsers
 ============
 
@@ -36,7 +34,7 @@ How to
 ------
 
 For the necessary changes that need to be made, see r2260. The base
-class for :ref:`developers/Search/FileParsers` are:
+class for :doc:`/developers/Search/FileParsers` are:
 :source:` FileParser.java <components/server/src/ome/services/fulltext/FileParser.java>`
 
-.. seealso:: :ref:`developers/Modules/Search`
+.. seealso:: :doc:`/developers/Modules/Search`

@@ -1,5 +1,3 @@
-.. _developers/Server/Context:
-
 OmeroContext
 ============
 
@@ -11,7 +9,7 @@ restricted to a single task).
 
 
 The container for all OMERO applications is the
-:ref:`developers/Server/Context`
+:doc:`/developers/Server/Context`
 (:source:`components/common/src/ome/system/OmeroContext.java`).
 Based on the ` Spring <http://www.springsource.org/>`_ configuration
 backing the context, it can be one of : ``client``, ``internal``, or
@@ -35,7 +33,7 @@ for the implementation).
 
 ! Event
 
-For more information about Events see :ref:`developers/Server/Events`.
+For more information about Events see :doc:`/developers/Server/Events`.
 
 .. figure:: /images/contexts.png
     :align: center

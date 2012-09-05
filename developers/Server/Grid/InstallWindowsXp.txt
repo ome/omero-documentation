@@ -1,11 +1,9 @@
-.. _developers/Server/Grid/InstallWindowsXP:
-
 Installing OMERO Grid on Windows XP
 ====================================
 
 Unlike all other supported platforms, the ``bin/omero`` script and
 |OmeroGrid| are not responsible for starting and
-stopping the :ref:`server/blitz` server and other
+stopping the :doc:`/developers/server-blitz` server and other
 processes. Instead, that job is delegated to the native Windows service
 system. A brief explanation of doing this via the ``sc`` command is
 provided below.
@@ -46,7 +44,7 @@ to start properly:
 **templates.xml**
     Shared templates used in all |OmeroGrid|
     applications. The path definitions for both
-    :ref:`server/blitz` and for ``processor.py`` must be made absolute.
+    :doc:`/developers/server-blitz` and for ``processor.py`` must be made absolute.
 
 .. figure:: /images/omerogrid-winxp-templates.png
   :align: center

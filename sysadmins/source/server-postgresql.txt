@@ -14,7 +14,7 @@ version and that it is installed and configured correctly.
 Ensuring you have a valid PostgreSQL version
 --------------------------------------------
 
-For OMERO 4.4, PostgreSQL 8.4 or higher is required (see :ref:`users/limitations` for more information.)
+For OMERO 4.4, PostgreSQL 8.4 or higher is required (see :doc:`/users/limitations` for more information.)
 
 .. only:: unix
 

@@ -1,5 +1,3 @@
-.. _developers/Server/SecuritySystem:
-
 OMERO Security System
 =====================
 
@@ -14,9 +12,9 @@ mechanisms for allowing restricted operations when the time comes.
 
 Other links which may be of use:
 
--  :ref:`developers/Modules/Api/AdminInterface`
--  :ref:`developers/Server/SecurityRoles`
--  :ref:`users/server-permissions`
+-  :doc:`/developers/Modules/Api/AdminInterface`
+-  :doc:`/developers/Server/SecurityRoles`
+-  :doc:`/users/server-permissions`
 
 Concepts
 --------
@@ -39,7 +37,7 @@ staring role in OMERO security.
     functionality with our own logic.
 
 Handler/interceptor
-    as outlined in :ref:`developers/Server/Aop`, OMERO makes
+    as outlined in :doc:`/developers/Server/Aop`, OMERO makes
     extensive use of method interceptors to relieve the developer of
     some coding burden. Transactions, session management, and,
     naturally, security are handled largely by our interceptors (or
@@ -108,7 +106,7 @@ Client & Common
 
 :source:`IAdmin.java <components/common/src/ome/api/IAdmin.java>`
     main interface for administering accounts and privileges. See
-    :ref:`developers/Modules/Api/AdminInterface` for more.
+    :doc:`/developers/Modules/Api/AdminInterface` for more.
 
 :source:`ITypes.java <components/common/src/ome/api/ITypes.java>`
     only related to security by necessity. The security system disallows
@@ -130,7 +128,7 @@ Client & Common
 
 :source:`Permissions.java <components/model/src/ome/model/internal/Permissions.java>`
     representation of rights and roles. For more information, see
-    :ref:`users/server-permissions`.
+    :doc:`/users/server-permissions`.
 
 :source:`Token.java <components/model/src/ome/model/internal/Token.java>`
     an extremely simple class ("public class Token {}") which is only
@@ -145,7 +143,7 @@ Client & Common
 
 :source:`SecurityViolation.java <components/model/src/ome/conditions/SecurityViolation.java>`
     the exception thrown by the
-    :ref:`developers/Server/SecuritySystem` at the first hint of
+    :doc:`/developers/Server/SecuritySystem` at the first hint of
     misdoings.
 
 :source:`Principal.java <components/common/src/ome/system/Principal.java>`
@@ -205,7 +203,7 @@ security).
 .. note::
 
     the password table is not mapped into Hibernate, and is only
-    accessible via the :ref:`developers/Modules/Api/AdminInterface`.
+    accessible via the :doc:`/developers/Modules/Api/AdminInterface`.
 
 Client-side
 ~~~~~~~~~~~
@@ -219,7 +217,7 @@ at anytime.
 
 The values are converted to java.util.Properties which are merged with
 the properties from the \*.properties files from /etc to create the
-client :ref:`developers/Server/Context` (also known as the "application context"). The
+client :doc:`/developers/Server/Context` (also known as the "application context"). The
 context contains a Principal and user credentials (password, etc.) which
 are associated with the thread before each method execution in a
 specialized TargetSource. Finally, these objects are serialized to the
@@ -351,10 +349,10 @@ interface which encapsulates all logic regarding security. It also hides
 as much as it can, and if not specifically needed should be ignored.
 However, before one attempts to manually check security, by all means
 use the security system, and for that, it may need to be acquired from
-the server-side :ref:`developers/Server/Context`. Currently,
+the server-side :doc:`/developers/Server/Context`. Currently,
 there is no client-side security system. See :ticket:`234`.
 
-The :ref:`developers/Server/SecuritySystem` and its currently only
+The :doc:`/developers/Server/SecuritySystem` and its currently only
 implementation BasicSecuritySystem? are somewhat inert and expect
 well-defined and trusted (see :ticket:`235`) methods
 to invoke callbacks during the proper Hibernate phase.

@@ -1,5 +1,3 @@
-.. _developers/Server/ScalingOmero:
-
 Scaling Omero
 =============
 
@@ -37,11 +35,11 @@ exceptions. Instead, one receives server exceptions.
 Server threads
 ~~~~~~~~~~~~~~
 
-In :ref:`server/blitz`, too many (500+ on the default
+In :doc:`/developers/server-blitz`, too many (500+ on the default
 configuration) simultaneous invocations will result in
 ``ConnectionLost`` exceptions. We are currently working on ways to
 extend the number of single invocations on one server, but a simpler
-solution is to start another :ref:`server/blitz` server.
+solution is to start another :doc:`/developers/server-blitz` server.
 
 Total throughput
 ----------------

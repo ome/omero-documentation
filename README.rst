@@ -187,18 +187,18 @@ Example::
 Page labels and references
 ==========================
 
-Every reST document should start with a label that matches the path and name
-of the document::
+Every page can be uniquely referenced using the sphinx doc directive. Like 
+other directives, you can use the absolute file path, i.e. relative to the 
+top-level directory:
+``:doc: `/path/name-of-the-page``` or ``:doc: `link to my page </path/name-of-the-page>```.
+
+Any document can also start with a label
     
-    .. _path/name-of-the-page:
+    .. _page-label:
     
     *****************
     Title of the page
     *****************
-    
-This label allows the page to be uniquely referenced in the rest of the
-documentation. To do so, use the following syntax
-``:ref: `path/name-of-the-page``` or ``:ref: `link to my page <path/name-of-the-page>```.
 
 References to labels above tables and images are also encouraged. The
 ``:ref:`` Sphinx role is advised over standard reST links, as it works across

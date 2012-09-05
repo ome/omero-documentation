@@ -1,5 +1,3 @@
-.. _users/importer:
-
 OMERO.importer
 ==============
 
@@ -18,4 +16,4 @@ formats in preparation for upload to an OMERO Server. Visit :bioformats:`File Fo
 
     OMERO.importer
 
-See also :ref:`tutorial/insight-import`.
+See also :doc:`/client-tutorials/insight/insight-import`.

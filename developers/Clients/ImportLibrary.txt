@@ -1,5 +1,3 @@
-.. _developers/Clients/ImportLibrary:
-
 OMERO Import Library
 ====================
 
@@ -7,13 +5,13 @@ The Import Library is a re-usable framework
 for building import clients. Several are provided by the OMERO team
 directly:
 
--  The integrated :ref:`tutorial/insight-import` importer
--  The :ref:`users/command-line-import` tool
+-  The integrated :doc:`/client-tutorials/insight/insight-import` importer
+-  The :doc:`/users/command-line-import` tool
 
 Components
 ----------
 
-The primary classes which make up the :ref:`developers/Clients/ImportLibrary` are:
+The primary classes which make up the Import Library are:
 
 -  :source:` ImportLibrary.java <components/blitz/src/ome/formats/importer/ImportLibrary.java>`,
    itself, which is the main driver

@@ -1,5 +1,3 @@
-.. _sysadmins/server-fs:
-
 OMERO.fs
 ========
 
@@ -53,7 +51,7 @@ Prerequisites
     operating system. Watching a network-attached share (NAS) is strictly
     ***not*** supported.
 
-.. _sysadmins/server-fs#dropbox:
+.. _dropbox:
 
 OMERO DropBox
 -------------

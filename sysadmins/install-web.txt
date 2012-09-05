@@ -1,5 +1,3 @@
-.. _sysadmins/install-web:
-
 OMERO.web Deployment
 ====================
 
@@ -25,7 +23,7 @@ You can find more information about FastCGI and where to get modules or
 packages for your distribution on the
 `FastCGI website <http://www.fastcgi.com/drupal/node/3>`_.
 
-If you need help configuring your firewall rules, see the :ref:`sysadmins/server-security` page.
+If you need help configuring your firewall rules, see the :doc:`/sysadmins/server-security` page.
 
 Prerequisites
 -------------
@@ -430,7 +428,7 @@ Customising your OMERO.web installation
          expression <http://docs.python.org/library/re.html>`_). You
          probably don't want the whole webclient UI to be publicly
          visible (although you could do this). The idea is that you can
-         create the public pages yourself (see :ref:`developers/Web`
+         create the public pages yourself (see :doc:`/developers/Web`
          since we don't provide public pages. E.g. to only allow urls
          that start with '/my\_web\_public' you'd use:
 

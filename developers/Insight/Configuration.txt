@@ -1,5 +1,3 @@
-.. _developers/Insight/Configuration:
-
 Configuration
 =============
 
@@ -266,4 +264,4 @@ configuration entries are private to each agent. However, the container
 configures all ``RegistryImpl`` objects with the same references to its
 services.
 
-.. seealso:: :ref:`developers/Insight/DirectoryContents`
+.. seealso:: :doc:`/developers/Insight/DirectoryContents`
