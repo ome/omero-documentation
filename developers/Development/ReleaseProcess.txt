@@ -166,7 +166,7 @@ Documentation
       -  What OMERO <http://www.openmicroscopy.org/site/about/what-omero>`_
       -  Upgrade page
 
-         -  i.e. add section to :ref:`sysadmins/server-upgrade`
+         -  i.e. add section to :doc:`/sysadmins/server-upgrade`
             including db upgrades, etc.
 
 -  Videos. Indicate the following at the beginning of the movie:

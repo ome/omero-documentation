@@ -10,12 +10,12 @@ open source nature of the OMERO project also allows developers to create
 their own, customized clients.
 
 -  **End users and scientists** interested in using our OMERO client
-   software should see the :ref:`users/clients-overview`
+   software should see the :doc:`/users/clients-overview`
 
 -  **Developers** interested in writing custom OMERO clients should See
    |DevelopingOmeroClients|.
 
-Examples for all the :ref:`server/blitz` languages
+Examples for all the :doc:`/server/blitz` languages
 (|OmeroPy|, |OmeroJava|, |OmeroCpp|, and |OmeroMatlab|) are provided under:
 
 -  :sourcedir:`examples`
