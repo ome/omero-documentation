@@ -3,8 +3,7 @@ OMERO |release| Documentation
 #############################
 
 This documentation is a work in progress and many aspects of OMERO are
-not yet covered. More documentation about the project and this package
-can be found on the :wiki:`OME wiki <>`.
+not yet covered. The first three sections of this documentation cover the basic usage of OMERO as well as training material suitable for most end-users. System administrators wanting to install an OMERO server will be more interested by the :ref:`serverinstallation` and subsequent sections. The first part of this document covers the user documentation. Finally, developers can find more specific information about OMERO in the :ref:`developerdocumentation`.
 
 
 ************
@@ -63,6 +62,7 @@ Server Background
     users/system-requirements
     users/limitations
 
+.. _serverinstallation:
 
 *******************
 Server Installation
@@ -116,6 +116,7 @@ Advanced topics
     developers/Server/Grid/InstallMacOsx
     developers/Server/Grid/InstallWindowsXp
 
+.. _developerdocumentation:
 
 ************************
 Developers Documentation
