@@ -1,5 +1,5 @@
-OMERO.server LDAP Authentication
-================================
+LDAP Authentication
+===================
 
 `LDAP <http://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol>`_
 is an open standard for querying and modifying directory services that
@@ -32,8 +32,8 @@ user is added to any groups which match the new\_user\_group setting.
 
 On subsequent logins, the user filter and the password are again checked
 the LDAP server, and if there is no longer a match, login is refused. If
-you would prefer to only have the user\_filter applied during user
-creation and not on every login, see “Legacy Password Providers” below.
+you would prefer to only have the ``user_filter`` applied during user
+creation and not on every login, see "`Legacy Password Providers`_ below.
 
 LDAP Properties
 ---------------

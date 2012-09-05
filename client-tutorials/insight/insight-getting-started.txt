@@ -18,7 +18,7 @@ Logging in
 
 The administrator who set the OMERO server will provide you with a
 username, a password and the address of the OMERO server where your data
-will be stored. If the administrator opted to use LDAP authentication,
+will be stored. If the administrator opted to use :ref:`sysadmins/server-ldap`
 you should be able to use your usual username and password. The
 authentication connection to the server is ALWAYS secured.
 
