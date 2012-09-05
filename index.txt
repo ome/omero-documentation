@@ -78,6 +78,8 @@ Server Installation
     sysadmins/troubleshooting
     sysadmins/server-security
     sysadmins/omeromovie
+    developers/server-install-homebrew
+    developers/server-install-linux
 
 
 ******************
@@ -91,6 +93,7 @@ Server Maintenance
     sysadmins/server-backup-and-restore
     sysadmins/server-upgrade
     sysadmins/server-legacy-upgrade
+    developers/CommandLine
 
 
 ***************
@@ -106,6 +109,12 @@ Advanced topics
     sysadmins/server-advanced-configuration
     sysadmins/server-fs
     sysadmins/server-ldap
+    developers/Grid
+    developers/Server/Grid/Install
+    developers/Server/Grid/InstallCentOs
+    developers/Server/Grid/InstallGutsy
+    developers/Server/Grid/InstallMacOsx
+    developers/Server/Grid/InstallWindowsXp
 
 
 ************************
@@ -113,10 +122,21 @@ Developers Documentation
 ************************
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :titlesonly:
 
     developers/index
+    developers/Omero
+    developers/Python
+    developers/Modules/Scripts
+    developers/Web
+    developers/Insight
+    developers/GettingStarted/AdvancedClientDevelopment
+    developers/Model
+    developers/Modules/Search
+    developers/Server/PasswordProvider
+    developers/Server
+    developers/Development
 
 
 ****************
