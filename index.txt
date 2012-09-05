@@ -121,10 +121,20 @@ Developers Documentation
 ************************
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :titlesonly:
 
     developers/index
+    developers/Omero
+    developers/Python
+    developers/Modules/Scripts
+    developers/Web
+    developers/Insight
+    developers/GettingStarted/AdvancedClientDevelopment
+    developers/Model
+    developers/Server/PasswordProvider
+    developers/Server
+    developers/Development
 
 
 ****************
