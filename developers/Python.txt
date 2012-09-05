@@ -23,8 +23,8 @@ the server package) and setup your PYTHONPATH to include them:
       OMERO_HOME=~/Desktop/OMERO.server-4.4.1-ice34-b3035       # for example
       PYTHONPATH=$OMERO_HOME/lib/python
 
-All the code examples below can be found at
-` http://github.com/openmicroscopy/openmicroscopy/tree/develop/examples/Training/python <http://github.com/openmicroscopy/openmicroscopy/tree/develop/examples/Training/python>`_
+All the code examples below can be found at 
+:sourcedir:`examples/Training/python`.
 
 Connect to OMERO
 ----------------

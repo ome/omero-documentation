@@ -276,7 +276,7 @@ accesses it sequentially, possibly via locking.
         Other extensions to OMERO
 
 The following should be considered a design document. A portion of the
-functionality is included in the milestone:OMERO-Beta4 and later
+functionality is included in the milestone :milestone:`OMERO-Beta4` and later
 releases, but more functionality will continually be added. If you would
 like to vote for a particular function, please open a ticket.
 
