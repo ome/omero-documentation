@@ -78,39 +78,36 @@ account. Register and download software from http://www.skype.com.
 
 .. note:: your Skype account name along with all of your contact details should be added to DevContactList on Google Docs. See below.
 
-Trac: Developer docs
---------------------
+The three major development tools that the OME project runs are Trac, the 
+developer documentation and Jenkins.
 
-The two major development tools that the OME project runs are Trac and
-Jenkins.
+Trac
+----
 
-The Trac server is available under
-https://trac.openmicroscopy.org.uk/ome and uses your LDAP account for
-authentication. Trac provides a wiki where we put all the development
-documentation (as opposed to the official user document under
-http://www.openmicroscopy.org/site).
+The Trac server is available under https://trac.openmicroscopy.org.uk/ome and 
+uses your LDAP account for authentication. Trac is used to record all tickets (i.e. “bugs” or “issues”) as well as hierarchical groups of “tasks” in “requirements” and “stories”. This functionality is provided by a plugin for Trac named “Agilo” (http://agile42.com/en/) which you may want to read more about. Most importantly it provides a whiteboard where tickets are arranged per story into 3 columns: new, accepted, and closed.
+
+.. _trac_screenshot:
+.. figure:: images/10000000000005000000032056C4DB6C.png
+   :align:  center 
+
+
+Developer documentation
+-----------------------
+
+The developer documentation is maintained under version control, generated using Sphinx and hosted on https://www.openmicroscopy.org/site/support/.
 
 .. _plone_screenshot:
 .. figure:: images/10000000000003EF00000209A486215A.png
    :align: center
 
-Each section of the code base (OMERO, Bio-Formats, the Data Model) has
-a landing page on the wiki that will direct you to all the "**Getting
-Started**" documentation that you might need. For example, the page
-for OMERO is
+Each section of the code base (OMERO, Bio-Formats) has a landing page that will direct you to all the Developer documentation that you might need. For example, the page for OMERO is
 
-    http://trac.openmicroscopy.org.uk/ome/wiki/OmeroHome
+    http://www.openmicroscopy.org/site/support/omero4
 
-In addition, Trac is used to record all tickets (i.e. “bugs” or
-“issues”) as well as hierarchical groups of “tasks” in “requirements”
-and “stories”. This functionality is provided by a plugin for Trac
-named “Agilo” (http://agile42.com/en/) which you may want to read more
-about. Most importantly it provides a whiteboard where tickets are
-arranged per story into 3 columns: new, accepted, and closed.
+and the page for Bio-Formats is
 
-.. _trac_screenshot:
-.. figure:: images/10000000000005000000032056C4DB6C.png
-   :align:  center
+    https://www.openmicroscopy.org/site/support/bio-formats
 
 
 Jenkins: Continuous integration
@@ -134,9 +131,7 @@ Git and Github: Source code
 Commits take place primarily on github currently. To be aware of
 what’s really going on, your best option is to become familiar with
 git, github, and the repositories of all the team members. Information
-on doing that is available under
-
-    https://trac.openmicroscopy.org.uk/ome/wiki/WorkingWithOmero/UsingGit
+on doing that is available under :doc:`/developers/Development/UsingGit`
 
 .. _github_screenshot:
 .. figure:: images/10000000000003EF000002096AD7CA41.png
@@ -475,9 +470,7 @@ Branch process (Month-to-month)
 
 The output of your daily and weekly work will almost always be the
 production of a branch. That process is described in (perhaps too
-much) detail under
-
-    https://trac.openmicroscopy.org.uk/ome/wiki/WorkingWithOmero/UsingGit
+much) detail under :doc:`/developers/Development/UsingGit`
 
 Particularly of importance for this document is the section on “Branch
 management”. The general idea is that branches also have a lifecycle
@@ -531,8 +524,7 @@ Checklist
 ^^^^^^^^^
 
 A checklist of all the things that should be done as the release date
-approaches is available under
-https://trac.openmicroscopy.org.uk/ome/wiki/ReleaseProcess
+approaches is available under :doc:`/developers/Development/ReleaseProcess`
 
 Yearly meetings
 ---------------
