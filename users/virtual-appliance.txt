@@ -261,7 +261,7 @@ interact with it.
    http://localhost:8080/webclient.
 -  You can **use OMERO.clients from within your host OS.** This will
    allow you to import data via a GUI and manage that data once
-   imported. To do so, download the :plone:`insight client <support/omero4/downloads>`
+   imported. To do so, download the :omero_plone:`insight client <downloads>`
    and follow the instructions below. More information can be found
    under the :ref:`tutorial/insight-getting-started` section
    which details how to use the OMERO.clients.
