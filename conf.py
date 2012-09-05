@@ -87,21 +87,30 @@ pygments_style = 'sphinx'
 #modindex_common_prefix = []
 
 extlinks = {
-    'wiki' : ('http://trac.openmicroscopy.org.uk/ome/wiki/'+ '%s', ''),
-    'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/'+ '%s', '#'),
-    'milestone' : ('http://trac.openmicroscopy.org.uk/ome/milestone/'+ '%s', ''),
-    'report' : ('http://trac.openmicroscopy.org.uk/ome/report/'+ '%s', ''),
-    'snapshot' : ('http://cvs.openmicroscopy.org.uk/snapshots/'+ '%s', ''),
-    'plone' : ('http://www.openmicroscopy.org/site/'+ '%s', ''),
-    'oo' : ('http://www.openmicroscopy.org/' + '%s', ''),
-    'doi' : ('http://dx.doi.org/' + '%s', ''),
-    'source' : ('https://github.com/openmicroscopy/openmicroscopy/blob/develop/' + '%s', ''),
-    'sourcedir' : ('https://github.com/openmicroscopy/openmicroscopy/tree/develop/' + '%s', ''),
-    'javadoc' : ('http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/' + '%s', ''),
-    'jenkins' : ('http://hudson.openmicroscopy.org.uk/' + '%s', ''),
-    'mailinglist' : ('http://lists.openmicroscopy.org.uk/mailman/listinfo/' + '%s', ''),
-    'forum' : ('http://www.openmicroscopy.org/community/' + '%s', ''),
-    'bioformats' : ('http://loci.wisc.edu/software/bio-formats' + '%s', '')
+    'wiki' : ('http://trac.openmicroscopy.org.uk/ome/wiki/%s', ''),
+    'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/%s', '#'),
+    'milestone' : ('http://trac.openmicroscopy.org.uk/ome/milestone/%s', ''),
+    'report' : ('http://trac.openmicroscopy.org.uk/ome/report/%s', ''),
+    'snapshot' : ('http://cvs.openmicroscopy.org.uk/snapshots/%s', ''),
+    'doi' : ('http://dx.doi.org/%s', ''),
+    'source' : ('https://github.com/openmicroscopy/openmicroscopy/blob/develop/%s', ''),
+    'sourcedir' : ('https://github.com/openmicroscopy/openmicroscopy/tree/develop/%s', ''),
+    'javadoc' : ('http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/%s', ''),
+    'jenkins' : ('http://hudson.openmicroscopy.org.uk/%s', ''),
+    'mailinglist' : ('http://lists.openmicroscopy.org.uk/mailman/listinfo/%s', ''),
+    'forum' : ('http://www.openmicroscopy.org/community/%s', ''),
+    'bioformats' : ('http://loci.wisc.edu/software/bio-formats/%s', ''),
+    # Plone links. Separating them out so that we can add prefixes and
+    # suffixes during testing.
+    'community_plone' : ('http://www.openmicroscopy.org/site/community/%s', ''),
+    'features_plone' : ('http://www.openmicroscopy.org/site/products/features-list/%s', ''),
+    'formats_plone' : ('http://www.openmicroscopy.org/site/support/file-formats/%s', ''),
+    'legacy_plone' : ('http://www.openmicroscopy.org/site/support/legacy/%s', ''),
+    'about_plone' : ('http://www.openmicroscopy.org/site/about/%s', ''),
+    'team_plone' : ('http://www.openmicroscopy.org/site/team/%s', ''),
+    'faq_plone' : ('http://www.openmicroscopy.org/site/support/faq/%s', ''),
+    'omero_plone' : ('http://www.openmicroscopy.org/site/products/omero4/%s', ''),
+    'bf_plone' : ('http://www.openmicroscopy.org/site/products/bio-formats/%s', ''),
     }
 
 rst_epilog = """
