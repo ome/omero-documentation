@@ -9,7 +9,7 @@ both with bug fixes and new functionality. We try to make the schedule
 for these releases as public as possible. You may want to take a look
 at the `roadmap <http://trac.openmicroscopy.org.uk/ome/roadmap>`_ for
 exactly what will go into a release. We always inform our
-:plone:`mailing lists <community>` of the development
+:community_plone:`mailing lists <>` of the development
 status. Finally, all the products check themselves with the
 :wiki:`OmeroRegistry` for update notifications on startup. If you wish
 to disable this functionality you should do so now as outlined on the
@@ -25,7 +25,7 @@ to disable this functionality you should do so now as outlined on the
 If you encounter errors during a OMERO upgrade, database upgrade, etc.
 you should retain as much log information as possible and notify the
 OMERO.server team via the mailing lists available on the
-:plone:`community <community>` page. More experienced users may wish to
+:community_plone:`community <>` page. More experienced users may wish to
 examine the :wiki:`DbUpgrade` page for technical information about OMERO.server database upgrades and
 how to troubleshoot errors themselves.
 
@@ -135,7 +135,7 @@ scripts. In order to facilitate saving your work, we've turned the
 scripts into a Git submodule which can be found at
 `<https://github.com/ome/scripts>`_. For more information on how to use Git
 submodules, please consult the
-:plone:`FAQ <support/faq/omero/how-do-i-make-lib-scripts-a-git-repository>`.
+:faq_plone:`FAQ <omero/how-do-i-make-lib-scripts-a-git-repository>`.
 
 If you would like help merging the two repositories, please contact the
 OME developers.

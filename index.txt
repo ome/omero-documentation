@@ -143,9 +143,7 @@ Developers Documentation
 Online Resources
 ****************
 
-.. toctree::
-
-    Downloads <https://www.openmicroscopy.org/site/support/omero4/downloads>
-    Features <https://www.openmicroscopy.org/site/products/feature-list>
-    Screenshots <https://www.openmicroscopy.org/site/support/omero4/screenshots>
-    Security Vulnerabilities <https://www.openmicroscopy.org/site/support/omero4/secvuln>
+ - :omero_plone:`Downloads <downloads>`
+ - :feature_plone:`Features <>`
+ - :omero_plone:`Screenshots <screenshots>`
+ - :omero_plone:`Security Vulnerabilities <secvuln>`

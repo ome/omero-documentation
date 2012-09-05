@@ -42,8 +42,8 @@ interactions fall into 2 main categories:
 
 You can view a :snapshot:`demonstration movie
 <movies/omero-4-2/mov/Scripting4.mov>` of server-side processing with
-this workflow, and more demo movies on the :plone:`features page
-<products/feature-list>`.  All of the work described below makes use
+this workflow, and more demo movies on the :feature_plone:`features page
+<>`.  All of the work described below makes use
 of Python scripts to connect EMAN2 and Spider functionality to OMERO
 (see `OmeroPy </ome/wiki/OmeroPy>`_). Scripts that upload or download
 EM data to and from the OMERO server are run on the client and require

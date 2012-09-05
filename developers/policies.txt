@@ -40,7 +40,7 @@ Jabber: Instant messaging
 -------------------------
 
 On a day-to-day level, the team meets in a Jabber chatroom. (See the
-list of :plone:`addresses <team/addresses>` for the specifics) You’re
+list of :team_plone:`addresses <addresses>` for the specifics) You’re
 welcome to join via your own Jabber account, but one will likely be
 provided to you, in which case that account should be preferred. To
 get started using Adium:
@@ -69,8 +69,8 @@ teamspeak.openmicroscopy.org.uk.
    :align:  center
 
 
-More information is available under :plone:`conference-calls
-<community/minutes/conference-calls>`.
+More information is available under :community_plone:`conference-calls
+<minutes/conference-calls>`.
 
 As for Skype, being online is not required but it is often beneficial
 to have it on during the day. Regardless, everyone should have a skype
@@ -199,7 +199,7 @@ also:
 
 * a number of mail-aliases reserved for automated messages from
   various pieces of development machinery so do not send mail directly
-  to these :plone:`addresses <team/addresses>`, instead use
+  to these :team_plone:`addresses <addresses>`, instead use
   ome-nitpick.
 
 Internal Servers
@@ -236,8 +236,8 @@ available in case you do.
   For anyone who has been hired to work at the University of
   Dundee, you will be provided with another list which itemizes all
   the things that need to be done to get you setup in RL (building
-  access, a chair, etc.)* See: :plone:`new start tasklist
-  <team/new-start-tasklist>`.
+  access, a chair, etc.)* See: :team_plone:`new start tasklist
+  <new-start-tasklist>`.
 
 Google Docs and Calendars
 -------------------------
@@ -271,8 +271,8 @@ Meetings
 --------
 
 Weekly meetings are held online with all members of the team. Agendas
-are posted on the appropriate page under :plone:`conference-calls
-<community/minutes/conference-calls>` before hand. Notes are taken
+are posted on the appropriate page under :community_plone:`conference-calls
+<minutes/conference-calls>` before hand. Notes are taken
 collaboratively in a Google doc in the “OME Docs > Notes”
 collection. Once finished, they are added to the page on Plone, and
 anyone who missed the meeting is expected to review the notes and
@@ -283,11 +283,11 @@ may change what others can discuss for that week.
 Periodically, a technical presentation is held during the weekly
 meeting. This can be used to either introduce an external tool for
 suggested use by the team or as a peer review of in-progress work.
-See :plone:`meetings <team/meetings>` for more information.
+See :team_plone:`meetings <meetings>` for more information.
 
 Minigroup meetings can either be regularly scheduled (e.g. weekly) or
 on an as-needed basis. Notes from such meetings, however, should be
-posted centrally to :plone:`minigroup <community/minutes/minigroup>`.
+posted centrally to :community_plone:`minigroup <minutes/minigroup>`.
 
 .. _minigroups_screenshot:
 .. figure:: images/10000000000004490000024DA6F6B2C8.png

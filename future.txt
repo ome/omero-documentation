@@ -22,9 +22,9 @@ file systems. A few highlights scheduled for the remainder 2012:
 - Extension of the functionality for OMERO.fs, to continue to drive
   flexible access to image data.
 
-- Updating of the :plone:`OME data model <support/file-formats>` to
-  allow support of :plone:`N-dimensional data
-  <support/file-formats/working-with-ome-xml/6d-7d-and-8d-storage>`.
+- Updating of the :formats_plone:`OME data model <>` to
+  allow support of :formats_plone:`N-dimensional data
+  <working-with-ome-xml/6d-7d-and-8d-storage>`.
 
 - Improved visualization tools for large images sets (e.g. HCS and
   FLIM)-- heatmaps, etc.
@@ -34,4 +34,4 @@ file systems. A few highlights scheduled for the remainder 2012:
 
 As always, our `roadmaps
 <http://trac.openmicroscopy.org.uk/ome/roadmap>`_ are available. We
-welcome queries and comments. :plone:`Get involved! <community>`
+welcome queries and comments. :community_plone:`Get involved! <>`

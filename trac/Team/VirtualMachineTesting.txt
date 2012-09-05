@@ -27,7 +27,7 @@ Appliance Import Testing
    the menu bar.
 -  NB. Check port forwarding. If no port forwarding is set up then use
    the script (from
-   :plone:`here <support/omero432/getting-started/demo/scripts/setup_port_forwarding.sh>`)
+   :omero_plone:`here <getting-started/demo/scripts/setup_port_forwarding.sh>`)
    to set up port forwarding, e.g.
 
         $ bash setup\_port\_forwarding.sh omero-vm

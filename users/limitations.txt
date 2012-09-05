@@ -8,7 +8,7 @@ Known Limitations
 Synchronisation of lib/scripts
 ==============================
 
-As described under :plone:`OMERO.scripts <support/omero4/server/scripts>`, 4.2.0 includes a
+As described under :omero_plone:`OMERO.scripts <server/scripts>`, 4.2.0 includes a
 significantly improved scripting system. Several official scripts are
 shipped under lib/scripts in the deployment directory. If any of your
 users add their own "official scripts", they too will be stored under
@@ -158,8 +158,8 @@ The import of some, complicated OME-XML files may not work with
 screens, several plates, and many cross linked reagents which
 failed. This is a very unlikely scenario, and we know of no files that
 contain this level of data, but if you have issues getting screening
-data imported in the OME-XML format, please :plone:`let us know
-<site/community>`.
+data imported in the OME-XML format, please :community_plone:`let us know
+<>`.
 
 Binary delete on Windows servers
 ================================
