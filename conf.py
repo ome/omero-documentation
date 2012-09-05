@@ -124,21 +124,21 @@ rst_epilog = """
 .. _ZeroC: http://www.zeroc.com
 .. _Ice: http://www.zeroc.com
 
-.. |OmeroPy| replace:: :ref:`developers/Python`
-.. |OmeroCpp| replace:: :ref:`developers/Cpp`
-.. |OmeroJava| replace:: :ref:`developers/Java`
-.. |OmeroMatlab| replace:: :ref:`developers/Matlab`
-.. |OmeroCli| replace:: :ref:`developers/CommandLine`
-.. |OmeroApi| replace:: :ref:`developers/Modules/Api`
-.. |OmeroWeb| replace:: :ref:`developers/Web`
-.. |OmeroClients| replace:: :ref:`developers/GettingStarted`
-.. |OmeroInsight| replace:: :ref:`developers/Insight`
-.. |OmeroGrid| replace:: :ref:`developers/Grid`
-.. |OmeroSessions| replace:: :ref:`developers/Server/Sessions`
-.. |OmeroModel| replace:: :ref:`developers/Model`
-.. |ExtendingOmero| replace:: :ref:`developers/Server/ExtendingOmero`
-.. |BlitzGateway| replace:: :ref:`developers/Python/Gateway`
-.. |DevelopingOmeroClients| replace:: :ref:`developers/GettingStarted/AdvancedClientDevelopment`
+.. |OmeroPy| replace:: :doc:`/developers/Python`
+.. |OmeroCpp| replace:: :doc:`/developers/Cpp`
+.. |OmeroJava| replace:: :doc:`/developers/Java`
+.. |OmeroMatlab| replace:: :doc:`/developers/Matlab`
+.. |OmeroCli| replace:: :doc:`/developers/CommandLine`
+.. |OmeroApi| replace:: :doc:`/developers/Modules/Api`
+.. |OmeroWeb| replace:: :doc:`/developers/Web`
+.. |OmeroClients| replace:: :doc:`/developers/GettingStarted`
+.. |OmeroInsight| replace:: :doc:`/developers/Insight`
+.. |OmeroGrid| replace:: :doc:`/developers/Grid`
+.. |OmeroSessions| replace:: :doc:`/developers/Server/Sessions`
+.. |OmeroModel| replace:: :doc:`/developers/Model`
+.. |ExtendingOmero| replace:: :doc:`/developers/Server/ExtendingOmero`
+.. |BlitzGateway| replace:: :doc:`/developers/Python/Gateway`
+.. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
 """
 
 # -- Options for HTML output ---------------------------------------------------
