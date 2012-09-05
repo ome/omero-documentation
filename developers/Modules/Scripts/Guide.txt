@@ -338,7 +338,7 @@ the client (see diagram, below).
    variables, as described :omero_plone:`here
    <server/install-omero-on-mac-os-x-10.5>`.
 -  You also need the OMERO server download. Go to the :omero_plone:`OMERO
-   downloads <downloads>`_
+   downloads <downloads>`
    page and get the appropriate server package (Version must be OMERO
    4.2 or later and match the server you are connecting to). Unzip the
    package in a suitable location.

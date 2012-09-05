@@ -53,7 +53,7 @@ discussed above, as well as released tools (webadmin, webclient) and
 other apps in development:
 
 -  webclient: Main web client for viewing images, annotating etc. :doc:`more
-   info <user/web>`_
+   info </users/web>`
 -  webadmin: For administration of user and group settings.
 -  webgateway: A web services interface, providing rendered images and
    data. See :ref:`developers/Web/WebGateway`
