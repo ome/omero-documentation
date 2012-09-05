@@ -98,7 +98,6 @@ More on API Usage
     Modules/Api
     Modules/Api/AdminInterface
     Modules/Delete
-    Modules/Search
     Clients/ImportLibrary
     Modules/TempFileManager
     Modules/ExceptionHandling
@@ -115,6 +114,19 @@ The OME Data Model
     Model
     Model/TypeLanguage
     Modules/StructuredAnnotations
+
+
+*********
+Searching
+*********
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Modules/Search
+    Search/FileParsers
+    Modules/Search/Bridges
 
 
 *************************
@@ -146,14 +158,11 @@ Extending OMERO Server
     server-blitz
     server-processor
     server-rendering
-    Search/FileParsers
-    Modules/Search/Bridges
     Server/Clustering
     Server/CollectionCounts
     Server/HowToCreateAService
     Server/Sessions
     Server/Aop
-
     Server/Context
     Server/Events
     Server/Properties
