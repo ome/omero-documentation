@@ -64,11 +64,7 @@ Discussion on a number topics is also available through our
 
   + :forum:`Code Submissions <viewforum.php?f=16>`
 
-.. _community/resources/wiki:
+Developer Documentation
+-----------------------
 
-Wiki
-----
-
-Documentation for developers is available on our :wiki:`trac wiki<>`.
-Over time, most of this content will be integrated into our Sphinx
-documentation in git.
+Documentation for developers is available on :doc:`this page </developers/index>`.
