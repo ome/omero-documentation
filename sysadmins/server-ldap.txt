@@ -99,9 +99,22 @@ the value of ``new_user_group``, which can have several different values:
    the group "TheLab".
 -  If prefixed with ``:attribute:``, then the rest of the string is
    taken to be an attribute all of whose values will be taken as group
-   names. For example, "omero.ldap.new\_user\_group=:attribute:memberOf"
-   would add a user to all the groups named by memberOf.
--  If prefixed with "**:query:**\ ", then the rest of the value is taken
+   names. For example, ``omero.ldap.new_user_group=:attribute:memberOf``
+   would add a user to all the groups named by memberOf. You can prefix
+   this value with ``filtered_`` to have the ``group_filter`` to the
+   attribute values, i.e. ``:filtered_attribute:memberOf`` will mean
+   that only the values of memberOf which match ``group_filter`` will
+   be considered.
+-  If prefixed with ``:dn_attribute:``, then the rest of the string is
+   taken to be an attribute all of whose values will be taken as group
+   distinguished names. For example, ``omero.ldap.new_user_group=:dn_attribute:memberOf``
+   would add a user to all the groups named by memberOf, where the name
+   of the group is mapped via ``group_mapping``. You can prefix
+   this value with ``filtered_`` to have the ``group_filter`` to the
+   attribute values, i.e. ``:filtered_attribute:memberOf`` will mean
+   that only the values of memberOf which match ``group_filter`` will
+   be considered.
+-  If prefixed with ``:query:``, then the rest of the value is taken
    as a query to be AND'ed to the group filter. In the query, values
    from the user such as "@{cn}", "@{email}", or "@{dn}" can be used as
    place holders.
