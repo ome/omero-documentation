@@ -109,8 +109,8 @@ extlinks = {
     'about_plone' : ('http://www.openmicroscopy.org/site/about/%s', ''),
     'team_plone' : ('http://www.openmicroscopy.org/site/team/%s', ''),
     'faq_plone' : ('http://www.openmicroscopy.org/site/support/faq/%s', ''),
-    'omero_plone' : ('http://www.openmicroscopy.org/site/products/omero4/%s', ''),
-    'bf_plone' : ('http://www.openmicroscopy.org/site/products/bio-formats/%s', ''),
+    'omero_plone' : ('http://www.openmicroscopy.org/site/products/omero/%s/', ''),
+    'bf_plone' : ('http://www.openmicroscopy.org/site/products/bio-formats%s/', ''),
     }
 
 rst_epilog = """
