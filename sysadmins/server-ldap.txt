@@ -31,7 +31,7 @@ password matches, a new user with the given username is created, and the
 user is added to any groups which match the ``new_user_group`` setting.
 
 On subsequent logins, the user filter and the password are again checked
-the LDAP server, and if there is no longer a match, login is refused. If
+against the LDAP server, and if there is no longer a match, login is refused. If
 you would prefer to only have the ``user_filter`` applied during user
 creation and not on every login, see "`Legacy Password Providers`_ below.
 
@@ -39,22 +39,24 @@ LDAP Properties
 ---------------
 
 The LDAP plugin is configured via several configuration properties, all
-starting with "omero.ldap.". The default values for these properties is
+starting with "omero.ldap.". The default values for these properties are
 set in the file **etc/omero.properties**.
 
 --------------
 
 ::
 
-        omero.ldap.config=false
+        omero.ldap.config=true
         omero.ldap.urls=ldap://localhost:389
         omero.ldap.username=
         omero.ldap.password=
         omero.ldap.base=ou=example,o=com
 
-These properties are the base requirements for logging in to LDAP. After
-having configured your connection, you can turn the LDAP on and off
-between restarts by setting "omero.ldap.config" to false.
+These properties are the minimum requirements for logging in to LDAP. After
+having configured your connection, you can turn LDAP on and off
+between restarts by setting "omero.ldap.config" to false. The ``base`` property
+determines where in the LDAP tree searches will begin. No users or groups will
+be found if they are not under the base provided.
 
 --------------
 
@@ -63,12 +65,12 @@ between restarts by setting "omero.ldap.config" to false.
         omero.ldap.user_filter=(objectClass=person)
         omero.ldap.user_mapping=omeName=cn,firstName=givenName,lastName=sn,email=mail
 
-These two user properties are used to look up users by login name and,
+Two user properties are used to look up users by login name and,
 if necessary, create new users based on the information in LDAP.
-"omero.ldap.user\_filter" will be AND'ed to the username query, and can
+``omero.ldap.user_filter will be AND'ed to the username query, and can
 contain any valid LDAP filter string. The username query is taken from
 the LDAP attribute which gets mapped to "omeName" by
-"omero.ldap.user\_mapping". Here, the "cn" is mapped to omeName, so the
+``omero.ldap.user_mapping``. Here, the "cn" is mapped to omeName, so the
 username query is ``(cn=[login name])``. The final query is
 ``(&(objectClass=person)(cn=[login name]))``, which must return a single
 result to be considered valid.
@@ -81,16 +83,19 @@ result to be considered valid.
         omero.ldap.group_mapping=name=cn
         omero.ldap.new_user_group=default
 
-The final set of properties are all concerned with what groups a user
+Three group properties are all concerned with what groups a user
 will be placed in on creation. The group filter and group mapping work
-just as the user filter and mapping do, but may not be used depending on
-the value of "new\_user\_group", which can have five separate meanings:
+just as the user filter and mapping do, in that the groupname query
+will be AND'd with the ``group_filter``. In this case, the final query
+would be ``(&(objectClass=groupOfNames)(cn=[group name]))``. However,
+these properties may not be used depending on
+the value of ``new_user_group``, which can have several different values:
 
--  If equal to "**:ou:**\ ", then a user's last organizational unit will
+-  If equal to ``:ou:``, then a user's last organizational unit will
    be used as his or her group. For example, the user with the dn
    "cn=frank,ou=TheLab,ou=LifeSciences,o=TheCollege" will be placed in
    the group "TheLab".
--  If prefixed with "**:attribute:**\ ", then the rest of the string is
+-  If prefixed with ``:attribute:``, then the rest of the string is
    taken to be an attribute all of whose values will be taken as group
    names. For example, "omero.ldap.new\_user\_group=:attribute:memberOf"
    would add a user to all the groups named by memberOf.
@@ -98,7 +103,7 @@ the value of "new\_user\_group", which can have five separate meanings:
    as a query to be AND'ed to the group filter. In the query, values
    from the user such as "@{cn}", "@{email}", or "@{dn}" can be used as
    place holders.
--  If prefixed with "**:bean:**\ ", then the rest of the string is the
+-  If prefixed with ``:bean:``, then the rest of the string is the
    name of a Spring bean which implements the NewUserGroupBean
    interface. See the developer documentation :doc:`/developers/Server/Ldap` for more info.
 -  If not prefixed at all, then the value is simply the name of a group
@@ -192,8 +197,6 @@ in LDAP.
 
 ::
 
-    <property name="omero.ldap.sync_on_login" value="true"/>
-
     bin/omero config set omero.ldap.sync_on_login true
 
 .. _legacy_password_providers:
@@ -204,7 +207,7 @@ Legacy Password Providers
 The primary component of the LDAP plugin is the LdapPasswordProvider,
 which is responsible for creating users, checking their passwords, and
 adding them to or removing them from groups. The default password
-provider is the “chainedPasswordProvider” which first checks LDAP if
+provider is the ``chainedPasswordProvider`` which first checks LDAP if
 LDAP is enabled, and then checks JDBC. This can explicitly be enabled by
 executing the system admin command
 
