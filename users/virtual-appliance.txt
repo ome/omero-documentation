@@ -292,7 +292,7 @@ You can run regular OMERO clients on your host machine and connect to
 the server in the VM. Our example uses OMERO.insight running on Mac OS X
 to connect to the VM.
 
--  `Download <https://www.openmicroscopy.org/site/support/omero4/downloads>`_
+-  :omero_plone:`Download <downloads>`_
    & :ref:`install <tutorial/insight-getting-started>` OMERO.insight
 -  Start OMERO.insight
 -  Click the spanner icon situated above the password box so that we can

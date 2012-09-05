@@ -103,7 +103,7 @@ extlinks = {
     # Plone links. Separating them out so that we can add prefixes and
     # suffixes during testing.
     'community_plone' : ('http://www.openmicroscopy.org/site/community/%s', ''),
-    'features_plone' : ('http://www.openmicroscopy.org/site/products/features-list/%s', ''),
+    'feature_plone' : ('http://www.openmicroscopy.org/site/products/feature-list/%s', ''),
     'formats_plone' : ('http://www.openmicroscopy.org/site/support/file-formats/%s', ''),
     'legacy_plone' : ('http://www.openmicroscopy.org/site/support/legacy/%s', ''),
     'about_plone' : ('http://www.openmicroscopy.org/site/about/%s', ''),

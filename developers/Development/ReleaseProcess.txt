@@ -152,8 +152,8 @@ Documentation
          -  `Improved Web Client <http://www.openmicroscopy.org/site/products/omero/improved-web-client>`_
          -  `About Omero <http://www.openmicroscopy.org/site/products/omero/omero-platform-v4>`_
          -  `Volume Viewer in OMERO.web <http://www.openmicroscopy.org/site/products/omero/volume-viewer-in-omero.web>`_
-         -  `Downloads <http://www.openmicroscopy.org/site/products/omero4/downloads>`_
-         -  `Screenshots page <http://www.openmicroscopy.org/site/products/omero4/screenshots>`_
+         -  :omero_plone:`Downloads <downloads>`_
+         -  :omero_plone:`Screenshots page <screenshots>`_
 
       -  `Contributors <http://www.openmicroscopy.org/site/about/contributers>`_
       -  Road map page:
@@ -166,8 +166,7 @@ Documentation
       -  What OMERO <http://www.openmicroscopy.org/site/about/what-omero>`_
       -  Upgrade page
 
-         -  i.e. add section to
-            `Upgrade <http://www.openmicroscopy.org/site/support/omero4/server/upgrade>`_
+         -  i.e. add section to :ref:`sysadmins/server-upgrade`
             including db upgrades, etc.
 
 -  Videos. Indicate the following at the beginning of the movie:

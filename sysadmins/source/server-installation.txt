@@ -595,7 +595,7 @@ Advanced configuration
 Once you have the base server running, you may want to try enabling some
 of the advanced features such as :ref:`sysadmins/server-fs` or :ref:`sysadmins/server-ldap`.
 If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
-See the :features_plone:`Feature list <>` for more advanced
+See the :feature_plone:`Feature list <>` for more advanced
 features you may want to use, and :ref:`sysadmins/server-advanced-configuration` on how to get the most out of
 your server.
 
