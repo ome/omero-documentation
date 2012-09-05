@@ -93,7 +93,6 @@ pygments_style = 'sphinx'
 #modindex_common_prefix = []
 
 extlinks = {
-    'wiki' : ('http://trac.openmicroscopy.org.uk/ome/wiki/%s', ''),
     'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/%s', '#'),
     'milestone' : ('http://trac.openmicroscopy.org.uk/ome/milestone/%s', ''),
     'report' : ('http://trac.openmicroscopy.org.uk/ome/report/%s', ''),
