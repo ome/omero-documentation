@@ -1,5 +1,3 @@
-.. _developers/Modules/Scripts/Guide:
-
 Scripting Service User Guide
 ============================
 
@@ -16,14 +14,14 @@ extra functionality to be added to an OMERO server.
 
 This is a guide to getting started with the scripting service, without
 going into the 'behind the scenes' details. More technical details can
-be found on the :ref:`developers/Modules/Scripts` page.
+be found on the :doc:`/developers/Modules/Scripts` page.
 
 In addition to this guide, you may find the following pages useful for
 more information on using the OMERO Python API: |OmeroClients|, |BlitzGateway|.
 
 Scripts can be run from Insight, using a UI generated from the script.
 The script results can also be handled by Insight. Scripts should
-conform to the :ref:`developers/Modules/Scripts/StyleGuide`
+conform to the :doc:`/developers/Modules/Scripts/StyleGuide`
 in order to improve usability of the script.
 
 The basic steps in a script-writing workflow are:

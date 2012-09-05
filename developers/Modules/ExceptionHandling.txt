@@ -1,5 +1,3 @@
-.. _developers/Modules/ExceptionHandling:
-
 Exception Handling
 ==================
 
@@ -333,7 +331,7 @@ Interceptor
 ~~~~~~~~~~~
 
 Exception handling in the OMERO is centralized in an
-:ref:`developers/Server/Aop` interceptor (:source:`source
+:doc:`/developers/Server/Aop` interceptor (:source:`source
 code </components/server/src/ome/services/util/ServiceHandler.java>`).
 All exceptions thrown by code are caught in a
 ``try {} catch (Throwable t) {}`` block. Exceptions which don't subclass

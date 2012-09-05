@@ -1,5 +1,3 @@
-.. _users/limitations:
-
 *****************
 Known Limitations
 *****************
@@ -166,4 +164,4 @@ Binary delete on Windows servers
 
 On Windows servers not all binary files corresponding to a delete may
 be removed from the binary repository. See 
-:ref:`developers/Modules/Delete#BinaryData` for more details.
+:ref:`DeleteBinaryData` for more details.

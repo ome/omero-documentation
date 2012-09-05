@@ -1,5 +1,3 @@
-.. _developers/Omero:
-
 OMERO Home Page
 ===============
 
@@ -7,7 +5,7 @@ Welcome to the OMERO wiki!** This is the home page of the OMERO
 developer documentation wiki.
 
 Instructions on :omero_plone:`downloading <downloads>`,
-:doc:`/sysadmins/unix/server-installation` and administering OMERO can be found under the :ref:`server/overview` of the main site.
+:doc:`/sysadmins/unix/server-installation` and administering OMERO can be found under the :doc:`/sysadmins/server-overview` of the main site.
 
 .. figure:: /images/developer-api-figure.png
    :align: center
@@ -19,14 +17,14 @@ What is OMERO?
 **OMERO** is an open source client/server system written for
 visualizing, managing, and annotating microscope images and metadata.
 The |OmeroApi| allows clients to be
-written in :ref:`Java <developers/Java>`, :ref:`Python <developers/Python>`,
-:ref:`C++ <developers/Cpp>` or :ref:`MATLAB <developers/Matlab>`. OMERO
+written in :doc:`Java </developers/Java>`, :doc:`Python </developers/Python>`,
+:doc:`C++ </developers/Cpp>` or :doc:`MATLAB </developers/Matlab>`. OMERO
 releases include a web client |OmeroWeb| and |OmeroCli| which 
 use the Python API and a Java client |OmeroInsight|.
 There is also an ImageJ plugin. OMERO can be extended by modifying these
-clients or by :ref:`writing your own <developers/GettingStarted/AdvancedClientDevelopment>` in
+clients or by :doc:`writing your own </developers/GettingStarted/AdvancedClientDevelopment>` in
 any of the supported languages (see figure). OMERO also supports a
-:ref:`Scripting Service <developers/Modules/Scripts>` which allows Python
+:doc:`Scripting Service </developers/Modules/Scripts>` which allows Python
 scripts to be run on the server & called from any of the other clients.
 
 **OMERO** is designed, developed and released by the ` Open Microscopy
@@ -95,7 +93,7 @@ features of the OMERO software. After that you will likely want to
 :doc:`clients </users/clients-overview>`:
 Insight, Web. Play with it, test data. You can also try out the |OmeroCli|.
 
-After that, the :ref:`developers/GettingStarted/AdvancedTraining`
+After that, the :doc:`/developers/GettingStarted/AdvancedTraining`
 page is probably a good next step. It describes various tools and
 resources you will find useful when working with OMERO.
 
@@ -125,12 +123,12 @@ Getting Your Hand's Dirty
 -  |OmeroJava|
 -  |OmeroPy|
 -  |DevelopingOmeroClients|
--  :ref:`Developing Scripts <developers/Modules/Scripts>`
+-  :doc:`Developing Scripts </developers/Modules/Scripts>`
 
-   -  :ref:`developers/Modules/Scripts/Guide`
-   -  :ref:`developers/Modules/Scripts/StyleGuide`
+   -  :doc:`/developers/Modules/Scripts/Guide`
+   -  :doc:`/developers/Modules/Scripts/StyleGuide`
 
--  :ref:`developers/Web/CreateApp`
+-  :doc:`/developers/Web/CreateApp`
 
 OMERO Architecture (From a programmer's perspective)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,5 +1,3 @@
-.. _users/editor:
-
 OMERO.editor
 ============
 
@@ -13,4 +11,4 @@ The OMERO.editor is part of the OMERO.insight client, but can also run as a stan
 
     OMERO.editor
 
-See also the :ref:`tutorial/editor` tutorial page.
+See also the :doc:`/client-tutorials/editor/editor` tutorial page.

@@ -1,5 +1,3 @@
-.. _developers/Insight/HowTo/BuildAgentView:
-
 How to Build an Agent's View
 ============================
 
@@ -8,7 +6,7 @@ agents follow the same approach. If you want to see the code while
 reading the notes, go to
 :sourcedir:`components/insight/SRC/org/openmicroscopy/shoola/agents/treeviewer/view`.
 
-Let's go back to our example ``MyBrowserAgent`` (see :ref:`developers/Insight/HowTo/BuildAgent`).
+Let's go back to our example ``MyBrowserAgent`` (see :doc:`/developers/Insight/HowTo/BuildAgent`).
 
 #. Create a ``view`` package in the ``mybrowser`` package.
 #. Create the following classes ``MyBrowser`` (I/F),

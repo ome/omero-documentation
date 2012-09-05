@@ -1,5 +1,3 @@
-.. _sysadmins/server-ldap:
-
 OMERO.server LDAP Authentication
 ================================
 
@@ -102,7 +100,7 @@ the value of "new\_user\_group", which can have five separate meanings:
    place holders.
 -  If prefixed with "**:bean:**\ ", then the rest of the string is the
    name of a Spring bean which implements the NewUserGroupBean
-   interface. See the developer documentation :ref:`developers/Server/Ldap` for more info.
+   interface. See the developer documentation :doc:`/developers/Server/Ldap` for more info.
 -  If not prefixed at all, then the value is simply the name of a group
    which all users from LDAP should be added to.
 
@@ -237,7 +235,7 @@ kept in LDAP. To enable it, use:
 	:doc:`server-security`
 		Security pages for OMERO.server
 	
-	:ref:`developers/Server/Ldap`
+	:doc:`/developers/Server/Ldap`
 		Developer documentation on extending the LDAP plugin yourself.
 
 	If you have LDAP requirements that are not covered by the above

@@ -3,7 +3,7 @@ Properties
 
 As of milestone :milestone:`OMERO-Beta4`
 (:ticket:`800`), client usage of these properties has
-significantly changed. Please see the :ref:`user documentation <server/overview>`
+significantly changed. Please see the :doc:`user documentation </sysadmins/server-overview>`
 for how to configuration your server installation
 
 Under the ``etc/`` directory in both the source and the binary
@@ -23,7 +23,7 @@ OMERO.server:
       etc/local.properties             - Local overrides for other properties (used by build only)
 
 During the build, these files get stored in the ``blitz.jar`` and are
-read-only. On creation of an :ref:`developers/Server/Context`,
+read-only. On creation of an :doc:`/developers/Server/Context`,
 the lookup for properties is (first wins):
 
 -  Properties passed into the constructor (if none, then the default

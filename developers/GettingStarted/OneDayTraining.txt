@@ -20,7 +20,7 @@ Key Points:
 -  Clients talk to the server through API in Java, Python, C++, (Matlab)
 -  OMERO uses Bio-Formats to read proprietary file formats
 
-For more introduction to OMERO, see :ref:`developers/Omero`.
+For more introduction to OMERO, see :doc:`/developers/Omero`.
 
 Do:
 

@@ -1,5 +1,3 @@
-.. _developers/Server/Grid/InstallGutsy:
-
 Installing OMERO Grid on Ubuntu Gutsy
 ======================================
 
@@ -70,4 +68,4 @@ execute the following as root:
     #
     sudo /etc/init.d/omero-admin stop
 
-.. seealso:: :doc:`/sysadmins/unix/server-installation`, :ref:`developers/Server/Grid/Install`
+.. seealso:: :doc:`/sysadmins/unix/server-installation`, :doc:`Install`

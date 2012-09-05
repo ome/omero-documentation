@@ -1,5 +1,3 @@
-.. _developers/Server/HowToCreateAService:
-
 How To Create A Service
 =======================
 
@@ -29,7 +27,7 @@ factory <components/common/src/ome/system/ServiceFactory.java>`
 (These last two points stand to change with :ticket:`314`).
 
 .. note::
-    With the creation of :ref:`server/blitz`, there are several other locations 
+    With the creation of :doc:`/developers/server-blitz`, there are several other locations 
     which need to be modified. These are also listed below.
 
 Files to Create
@@ -66,7 +64,7 @@ Files to Create
     a Ice_ "servant" implementation which can use
     on of several methods for delegating to the ``ome.api.IConfig``
     interface, but all of which support
-    :ref:`throttling <developers/Server/Throttling>`.
+    :doc:`throttling </developers/Server/Throttling>`.
 
 Files to Edit (not strictly necessary, see :ticket:`314`)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

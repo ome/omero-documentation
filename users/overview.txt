@@ -1,5 +1,3 @@
-.. _users/overview:
-
 Overview of OMERO
 =================
 
@@ -42,7 +40,8 @@ There are a number of demonstration videos available on the
 :feature_plone:`Features List <>` page providing an
 overview of the applications. For an initial impression please browse
 our :omero_plone:`screenshots <screenshots>`. For a detailed
-overview of the OMERO clients, see the :ref:`users/clients-overview`.
+overview of the OMERO clients, see the :doc:`/users/clients-overview`.
+>>>>>>> Replace all page references using the doc directive
 
 This documentation is for the latest version of the OMERO Platform. We
 also have archived versions available for :legacy_plone:`legacy versions of

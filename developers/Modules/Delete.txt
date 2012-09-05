@@ -1,5 +1,3 @@
-.. _developers/Modules/Delete:
-
 Deleting in OMERO
 -----------------
 
@@ -104,7 +102,7 @@ Delete in Collaborative Group
 
 Some more discussion of delete issues in a collaborative group, where
 your data are linked to data of other users, can be found on the
-:ref:`users/server-permissions` page.
+:doc:`/users/server-permissions` page.
 
 -  A user cannot remove Images from another user's Dataset, or remove
    Datasets (resp. Plates) from Projects (resp. Screens).
@@ -133,7 +131,7 @@ most). These will be resolved in future depending on priority.
        Project p1 contains two Datasets d1 and d2, Project p2 contains Dataset d1. 
        If the Project p1 is deleted, the Dataset d1 is only unlinked from p1 and not completely deleted.
 
-.. _developers/Modules/Delete#BinaryData:
+.. _DeleteBinaryData:
 
 Binary Data
 ~~~~~~~~~~~

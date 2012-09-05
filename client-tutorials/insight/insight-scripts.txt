@@ -1,5 +1,3 @@
-.. _tutorial/insight-scripts:
-
 Running Scripts
 ===============
 
@@ -12,7 +10,7 @@ Through OMERO's scripting service, OMERO.insight allows you to create specialize
 Publishing Options
 ------------------
 
-The publishing button allows you make movies or create various views of your images for publishing. To find out more about the publishing scripts, go to :ref:`tutorial/insight-export-figures`.
+The publishing button allows you make movies or create various views of your images for publishing. To find out more about the publishing scripts, go to :doc:`insight-export-figures`.
 
 .. figure:: /images/insight-scripting-2options.png
    :align: center
@@ -23,7 +21,7 @@ Upload Scripts
 
 Use the upload scripts dialog to upload scripts to the server. 
 For user guide about scripting, see 
-:ref:`developers/Modules/Scripts/StyleGuide`.
+:doc:`/developers/Modules/Scripts/StyleGuide`.
 
 .. figure:: /images/insight-scripting-3upload.png
    :align: center

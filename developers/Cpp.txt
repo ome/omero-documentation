@@ -1,5 +1,3 @@
-.. _developers/Cpp:
-
 OMERO C++ Language Bindings
 ===========================
 
@@ -227,4 +225,4 @@ For the details behind writing, configuring, and executing a client,
 please see |OmeroClients|.
 
 .. seealso::
-    Ice_, |OmeroGrid|, |OmeroApi|, :ref:`developers/Build`, :ticket:`1596` which added 64bit support
+    Ice_, |OmeroGrid|, |OmeroApi|, :doc:`/developers/Build`, :ticket:`1596` which added 64bit support

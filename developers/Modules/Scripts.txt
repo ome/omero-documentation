@@ -1,17 +1,15 @@
-.. _developers/Modules/Scripts:
-
 OMERO.Scripts
 =============
 
 :snapshot:`MOVIE: introduction to OMERO.scripts
 <movies/omero-4-3/mov/ScriptingWorkflow-4.3.mov>`
 
-:ref:`developers/Modules/Scripts` is the scripting service for scripting in OMERO.
-:ref:`server/blitz` provides a service to run scripts
+OMERO.Scripts is the scripting service for scripting in OMERO.
+:doc:`/developers/server-blitz` provides a service to run scripts
 on the server. The scripts are then passed on to a grid of processors
 called OMERO.grid that executes the script and returns the result to the
 server which in turn passes the result onto the caller. All scripts
-which run on :ref:`developers/Modules/Scripts` are of the form
+which run on :doc:`/developers/Modules/Scripts` are of the form
 
 ::
 
@@ -38,7 +36,7 @@ Getting Started
 ---------------
 
 For a tutorial on how to get started with the scripting service, see
-:ref:`developers/Modules/Scripts/Guide`.
+:doc:`/developers/Modules/Scripts/Guide`.
 
 The iScript Service
 -------------------
@@ -48,7 +46,7 @@ methods to upload, delete, query and runscripts. To access these methods
 a session needs to be created and the script service started. However,
 you may find it more convenient to use the command line
 `` bin/omero script `` or the OMERO.insight client to work with scripts
-as described on the :ref:`developers/Modules/Scripts/Guide`.
+as described on the :doc:`/developers/Modules/Scripts/Guide`.
 The methods of the script service are below (bottom of page).
 
 Debugging the Scripts
