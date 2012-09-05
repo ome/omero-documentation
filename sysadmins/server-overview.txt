@@ -39,9 +39,9 @@ Developer Documentation
 The server system is composed of several components, each of which runs
 in a separate process but is co-ordinated centrally.
 
--  :wiki:`OmeroBlitz` - The data server provides access to metadata
-   stored in a relational database as well as the binary image data on
-   disk.
+-  :doc:`/developers/server-blitz` - The data server provides access to 
+   metadata stored in a relational database as well as the binary image data 
+   on disk.
 -  :doc:`/sysadmins/server-fs` - A filesystem watcher which notifes the server    
    of newly uploaded or modified files.
 -  :ref:`dropbox` - Utilizes fs to find newly uploaded 
