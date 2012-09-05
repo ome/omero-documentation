@@ -86,10 +86,8 @@ service must be started on each machine.*
 The Interface
 -------------
 
-The ` slice definition
-file <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/blitz/resources/omero/Tables.ice>`_
-for the `OmeroTables </ome/wiki/OmeroTables>`_ API primarily defines two
-service interfaces and a type hierarchy:
+The :source:`slice definition file <components/blitz/resources/omero/Tables.ice>`
+for the OMERO.tables API primarily defines two service interfaces and a type hierarchy:
 
 -  ``omero.grid.Table`` is the central service for dealing with tabular
    data.
@@ -97,7 +95,7 @@ service interfaces and a type hierarchy:
    services, and can be ignored for almost all purposes.
 -  ``omero.grid.Column`` is the base class for a number of column types
    which permit returning arrays of columnar values
-   (` Ice <http://zeroc.com>`_ doesn't provide an "Any" type, so it's
+   (_Ice doesn't provide an "Any" type, so it's
    necessary to group values of the same type.)
 
    -  ``omero.grid.WellColumn``, ``ImageColumn``, ``RoiColumn``, etc.
@@ -116,15 +114,13 @@ Examples
 --------
 
 -  Hello World:
-   `ome.git/examples/OmeroTables/first.py </ome/browser/ome.git/examples/OmeroTables/first.py>`_
+   :source:`examples/OmeroTables/first.py <examples/OmeroTables/first.py>`
 -  Creating a Measurement Table:
-   `ome.git/examples/OmeroTables/creating.py </ome/browser/ome.git/examples/OmeroTables/creating.py>`_
+   :source:`examples/OmeroTables/creating.py <examples/OmeroTables/creating.py>`
    (see "Going forward" below)
 -  Querying a Table:
-   `ome.git/examples/OmeroTables/creating.py </ome/browser/ome.git/examples/OmeroTables/creating.py>`_
+   :source:`examples/OmeroTables/creating.py <examples/OmeroTables/creating.py>`
    (See "Going forward" below)
--  Also see the
-   `OmeroTablesCodeExamples </ome/wiki/OmeroTablesCodeExamples>`_ page.
 
 The Implementation
 ------------------
@@ -198,10 +194,17 @@ data type will be added in future versions.**
 The IRoi interface has been integrated into the Insight, allowing for
 the visualization and export of `OmeroTables </ome/wiki/OmeroTables>`_:
 
-`|Choice between multiple
-measurements| </ome/attachment/wiki/OmeroTables/MeasurementListSep09.png>`_
-`|Prototype of table results in
-Insight| </ome/attachment/wiki/OmeroTables/MeasurementToolSep09.png>`_
+.. figure:: /images/MeasurementListSep09.png
+    :align: center
+    :alt: Choice between multiple measurements
+
+    Choice between multiple measurements
+
+.. figure:: /images/MeasurementToolSep09.png
+    :align: center
+    :alt: Table results in Insight
+
+    Table results in Insight
 
 Links
 -----
@@ -254,17 +257,3 @@ Linux
     $ export LD_LIBRARY_PATH=$HOME/virtualenv/lib
     $ . $HOME/virtualenv/bin/activate
     $ easy_install tables
-
-Attachments
-~~~~~~~~~~~
-
--  `MeasurementToolSep09.png </ome/attachment/wiki/OmeroTables/MeasurementToolSep09.png>`_
-   `|Download| </ome/raw-attachment/wiki/OmeroTables/MeasurementToolSep09.png>`_
-   (513.8 KB) - added by *jmoore* `3
-   years </ome/timeline?from=2009-09-17T08%3A04%3A34%2B01%3A00&precision=second>`_
-   ago. Prototype of table results in Insight
--  `MeasurementListSep09.png </ome/attachment/wiki/OmeroTables/MeasurementListSep09.png>`_
-   `|image4| </ome/raw-attachment/wiki/OmeroTables/MeasurementListSep09.png>`_
-   (455.0 KB) - added by *jmoore* `3
-   years </ome/timeline?from=2009-09-17T08%3A39%3A43%2B01%3A00&precision=second>`_
-   ago. Choice between multiple measurements
