@@ -138,54 +138,22 @@ Documentation
 
 -  Website
 
-   -  [STRIKEOUT:Copy snapshot of documentation **before** any new
-      documentation is added.]
-
-      -  [STRIKEOUT:This requires duplicating the main website
-         documentation]
-      -  [STRIKEOUT:e.g.
-         ` https://www.openmicroscopy.org/site/support/copy\_of\_omero4 <https://www.openmicroscopy.org/site/support/omero4>`_]
-
+   -  Copy snapshot of documentation under products **before** any new documentation is added.
    -  If necessary, begin editing that private location. (Note this
       requires more work). Apply all changes here in preparation for
       release. Key Pages to review:
 
-      -  `Main Page <http://www.openmicroscopy.org/site>`_ (no copy.
-         Update on Release)
+      -  `Main Page <http://www.openmicroscopy.org/site>`_ (no copy. Update on Release)
       -  Products
 
          -  `Feature List Page <http://www.openmicroscopy.org/site/products/feature-list>`_
-            Waiting for movie links
          -  `Big Images Support <http://www.openmicroscopy.org/site/products/omero/big-images-support>`_
          -  `Import in OMERO.insight <http://www.openmicroscopy.org/site/products/omero/import-in-omero.insight>`_
+         -  `Improved Web Client <http://www.openmicroscopy.org/site/products/omero/improved-web-client>`_
          -  `About Omero <http://www.openmicroscopy.org/site/products/omero/omero-platform-v4>`_
          -  `Volume Viewer in OMERO.web <http://www.openmicroscopy.org/site/products/omero/volume-viewer-in-omero.web>`_
-            - to be removed?
-
-      -  Support
-
-         -  Downloads <http://www.openmicroscopy.org/site/support/omero4/downloads>`
-         -  `Install - Unix <http://www.openmicroscopy.org/site/support/omero4/server/installation>`_
-         -  `Install - Windows <http://www.openmicroscopy.org/site/support/omero4/server/install-windows>`_
-            (ActiveState? Python 2.5 or 2.7?)
-         -  `Web on Production <http://www.openmicroscopy.org/site/support/omero4/server/install_web>`_
-         -  `FAQ <http://www.openmicroscopy.org/site/support/faq>`_
-         -  `Future Development <http://www.openmicroscopy.org/site/support/omero4/future-development>`_
-         -  `OMERO.web <http://www.openmicroscopy.org/site/support/omero4/omero.web>`_
-         -  `Analysis <http://www.openmicroscopy.org/site/support/omero4/analysis>`_
-         -  `Clients <http://www.openmicroscopy.org/site/support/omero4/clients>`_
-         -  `Importer <http://www.openmicroscopy.org/site/support/omero4/clients/importer>`_]
-            - to be removed?
-         -  `Insight <http://www.openmicroscopy.org/site/support/omero4/clients/insight>`_
-         -  :`Web <http://www.openmicroscopy.org/site/support/omero4/clients/web>`_
-         -  `Known limitations <http://www.openmicroscopy.org/site/support/omero4/known-limitations>`_
-         -  `Getting started <http://www.openmicroscopy.org/site/support/omero4/getting-started>`_
-            - all the pages underneath need a quick review (changes
-            between 4.3 and 4.4)
-         -  `Client documentation <http://www.openmicroscopy.org/site/support/omero4/getting-started/client-documentation>`_
-         -  `Virtual appliance <http://www.openmicroscopy.org/site/support/omero4/getting-started/demo/virtual_appliance>`_]
-         -  `Screenshots page <http://www.openmicroscopy.org/site/support/omero4/screenshots>`_]
-         -  `Backup and Restore <http://www.openmicroscopy.org/site/support/omero4/server/backup-and-restore>`_]
+         -  `Downloads <http://www.openmicroscopy.org/site/products/omero4/downloads>`_
+         -  `Screenshots page <http://www.openmicroscopy.org/site/products/omero4/screenshots>`_
 
       -  `Contributors <http://www.openmicroscopy.org/site/about/contributers>`_
       -  Road map page:
@@ -195,28 +163,26 @@ Documentation
             history <http://www.openmicroscopy.org/site/about/project-history/omero-version-history>`_
 
       -  Movies page ?
-      -  `What OMERO <http://www.openmicroscopy.org/site/about/what-omero>`_
-         (waiting on movie links)
-      -  Downloads page (see below)
+      -  What OMERO <http://www.openmicroscopy.org/site/about/what-omero>`_
       -  Upgrade page
 
          -  i.e. add section to
             `Upgrade <http://www.openmicroscopy.org/site/support/omero4/server/upgrade>`_
             including db upgrades, etc.
 
--  [STRIKEOUT:Videos. Indicate the following at the beginning of the
-   movie:]
+-  Videos. Indicate the following at the beginning of the movie:
 
-   -  [STRIKEOUT:Your name]
-   -  [STRIKEOUT:version of the software]
-   -  [STRIKEOUT:subject of the movie.]
-   -  [STRIKEOUT:If your video uses the terminal, format your terminal
+   -  Your name
+   -  version of the software
+   -  subject of the movie.
+   -  If your video uses the terminal, format your terminal
       to use Monaco 22pt, yes THAT BIG, pick colours with a good
-      contrast and turn off window transparency!]
-   -  [STRIKEOUT:For video formatting instructions see:
-      `VideoFormatForOmeMovies </ome/wiki/VideoFormatForOmeMovies>`_]
+      contrast and turn off window transparency!
+   -  For video formatting instructions see:
+      `VideoFormatForOmeMovies </ome/wiki/VideoFormatForOmeMovies>`_
 
 -  Documentation of all API/model changes
+-  All sphinx documentation
 
 4.4.0 Things left to test/discuss
 ---------------------------------
