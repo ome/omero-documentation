@@ -1,0 +1,45 @@
+OME Development Resources
+=========================
+
+This section of the trac is the location of various resources for the
+OME team. These include 'standard procedure' for various tasks such as
+testing, documentation and release, investigations into new work or just
+internal documents that may be of interest to a wider audience.
+
+General
+-------
+
+-  **TESTING INFORMATION**
+
+   -  If you think of an improvement for the scenarios please create a
+      ticket and add it to the user story :ticket:`6498`.
+
+-  **USER FEEDBACK INFORMATION**
+
+   -  If you see an usability issue please create a ticket and add it to
+      the appropriate user story :ticket:`2818` under the
+      insight client requirements or a user story
+      :ticket:`6195` for the web client requirements.
+
+Team
+----
+
+-  Working with version control :doc:`git and github <Development/UsingGit>`
+-  Steps to follow prior to release :doc:`Development/ReleaseProcess`
+-  :doc:`Development/Process`
+-  `OmeroDevelopment </ome/wiki/OmeroDevelopment>`_
+-  :doc:`Development/CodingStandard` (To be reviewed)
+-  :doc:`/users/community-resources`
+
+.. 
+    -  How to make your video :doc:`/trac/Team/VideoFormatForOmeMovies`
+
+    Code
+    ----
+
+    -  `Omero/GatewayApi </ome/wiki/Omero/GatewayApi>`_
+    -  `Api/DeprecationCandidates </ome/wiki/Api/DeprecationCandidates>`_
+    -  `Api/DeprecationCandidatesStateful </ome/wiki/Api/DeprecationCandidatesStateful>`_
+    -  `JobSubmission </ome/wiki/JobSubmission>`_
+    -  `Test-SchemalTicketsList </ome/wiki/Test-SchemalTicketsList>`_?
+    -  `XsdFu </ome/wiki/XsdFu>`_

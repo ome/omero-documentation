@@ -1,62 +1,11 @@
 Git Usage for OMERO developers
 ==============================
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Git resources <#Gitresources>`_
-#. `Getting started <#Gettingstarted>`_
-
-   #. `Code locations <#Codelocations>`_
-
-      #. `Bio-Formats <#Bio-Formats>`_
-      #. `OME <#OME>`_
-
-   #. `Git quickstart <#Gitquickstart>`_
-   #. `Installing git <#Installinggit>`_
-   #. `Configuration <#Configuration>`_
-
-#. `Getting started with github <#Gettingstartedwithgithub>`_
-
-   #. `Github remotes <#Githubremotes>`_
-   #. `Pushing to github <#Pushingtogithub>`_
-   #. `Tracking others branches <#Trackingothersbranches>`_
-   #. `Cleaning up your github
-      branches <#Cleaningupyourgithubbranches>`_
-
-#. `Common Git Commands <#CommonGitCommands>`_
-
-   #. `Collaborating via ``git rebase`` <#Collaboratingviagitrebase>`_
-
-#. `Working with submodules <#Workingwithsubmodules>`_
-#. `Technical bits <#Technicalbits>`_
-
-   #. `Commit messages <#Commitmessages>`_
-   #. `Rebasing to keep code clean <#Rebasingtokeepcodeclean>`_
-   #. `'team.git' <#team.git>`_
-
-#. `Advanced: Branch management <#Advanced:Branchmanagement>`_
-
-   #. `Branch types <#Branchtypes>`_
-
-      #. `Investigations <#Investigations>`_
-      #. `WIPs <#WIPs>`_
-      #. `Deliverables <#Deliverables>`_
-      #. `The Backlog <#TheBacklog>`_
-
-   #. `Branch workflow <#Branchworkflow>`_
-
-      #. `Merge branches <#Mergebranches>`_
-      #. `Code reviews and comments <#Codereviewsandcomments>`_
-      #. `Pull Requests <#PullRequests>`_
-      #. `Pull Request Conflicts <#PullRequestConflicts>`_
-
 This page is primarily designed for the core OME developers who are
 contributing to our code base using git. It should contain all the
 useful commands and configuration you need for doing most git tasks.
-`UsingGitFlow </ome/wiki/WorkingWithOmero/UsingGitFlow>`_ describes our
-earlier use of git-flow which may still be useful for understanding our
-branch naming ("master" v. "develop").
+:doc:`UsingGitFlow` describes our earlier use of git-flow which may still be 
+useful for understanding our branch naming ("master" v. "develop").
 
 Git resources
 -------------
@@ -403,7 +352,7 @@ Create a branch from the “develop” branch:
 
         git checkout -b feature/foo origin/develop
 
-or `using git-flow </ome/wiki/WorkingWithOmero/UsingGitFlow>`_:
+or :doc:`using git-flow <UsingGitFlow>`:
 
 ::
 
@@ -439,17 +388,20 @@ Any remaining changes that you want to discard can be reverted by
         git checkout -- path/to/file.txt
 
 When committing the code you’ve just modified/merged your commit message
-should refer to related tickets. E.g. "See `#1111 </ome/ticket/1111>`_"
+should refer to related tickets. E.g. "See :ticket:`1111`"
 will link the commit to the ticket on trac, and "Fixes
-`#2222 </ome/ticket/2222>`_" will link and close the ticket on trac. NB:
-If you want to add more than a short one-line message, you can omit the
--m "message" and git will open your specified editor, where you should
-add a single line summary followed by line space and then a paragraph of
-more text. See "Commit message" for more discussion.
+`:ticket:`2222`"" will link and close the ticket on trac.
 
 ::
 
         git commit  -m "Add message here and refer to the ticket number. See #1234. Fixes #5678"
+
+.. note::
+
+    If you want to add more than a short one-line message, you can omit the
+    -m "message" and git will open your specified editor, where you should
+    add a single line summary followed by line space and then a paragraph of
+    more text. See :ref:`usinggit/commitmessages` for more discussion.
 
 After you’ve committed, you can keep working and committing as above -
 the changes are only saved to your local git.
@@ -464,12 +416,13 @@ different feature. To see a list branches:
 Add the ``-a`` to list remote branches too.
 
 To simply move between branches, use git checkout. All the files on your
-file-system will be updated to the new branch. NB: make sure they are
-refreshed if you have files open in an editor or IDE
+file-system will be updated to the new branch.
 
 ::
 
         git checkout dev_4_2
+
+.. note:: Make sure they are refreshed if you have files open in an editor or IDE
 
 If you’ve forgotten what you did one a particular branch, you can use
 “git log”. Add the “-p” flag to see the actual diff for each commit.
@@ -681,20 +634,23 @@ command:
         git add bioformats
         git commit -m "Move to latest bioformats"
 
-NB: Be careful NOT to add a trailing slash when adding the submodule,
-the following command would want to delete the submodule and add all the
-files in the submodule directory.
+.. warning::
 
-::
+    Be careful NOT to add a trailing slash when adding the submodule,
+    the following command would want to delete the submodule and add all the
+    files in the submodule directory:
 
-        git add components/bioformats/
+    ::
+
+            git add components/bioformats/
 
 There are git hooks available to make working with submodules safer. See
-` https://github.com/chaitanyagupta/gitutils/blob/master/submodule-hooks/post-merge-checkout <https://github.com/chaitanyagupta/gitutils/blob/master/submodule-hooks/post-merge-checkout>`_
-for an example.
+` post-merge-checkout <https://github.com/chaitanyagupta/gitutils/blob/master/submodule-hooks/post-merge-checkout>`_ for an example.
 
 Technical bits
 --------------
+
+.. _usinggit/commitmessages:
 
 Commit messages
 ~~~~~~~~~~~~~~~
@@ -830,8 +786,9 @@ To make working with a larger number of branches easily, we’ll initially
 introduce some terminology. Branches should typically be in one of three
 states: investigations, works-in-progress (WIP), or deliverables.
 
-`|Description of branch
-types| </ome/attachment/wiki/WorkingWithOmero/UsingGit/Deliverables.png>`_
+.. figure:: /images/Deliverables.png
+   :align: center
+   :alt: Description of branch types
 
 Investigations
 ^^^^^^^^^^^^^^
@@ -1080,12 +1037,3 @@ Your branch should now be able to merge back into develop. This should
 only be done at the very end of a pull request just before it's merged
 into origin/develop. Multiple "pull origin/develop" messages in a branch
 would be very bad style.
-
-Attachments
-~~~~~~~~~~~
-
--  `Deliverables.png </ome/attachment/wiki/WorkingWithOmero/UsingGit/Deliverables.png>`_
-   `|Download| </ome/raw-attachment/wiki/WorkingWithOmero/UsingGit/Deliverables.png>`_
-   (186.3 KB) - added by *jmoore* `9
-   months </ome/timeline?from=2011-10-26T12%3A12%3A19%2B01%3A00&precision=second>`_
-   ago. Description of branch types
