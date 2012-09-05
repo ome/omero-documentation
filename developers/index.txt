@@ -1,42 +1,185 @@
-*****************************
+#############################
 OMERO Developer Documentation
-*****************************
+#############################
+
+
+*********************
+Introduction to OMERO
+*********************
 
 .. toctree::
-    :glob:
+    :maxdepth: 1
     :titlesonly:
 
     Omero
-    Build
-    Clients/ImportLibrary
-    CommandLine
     GettingStarted
-    GettingStarted/*
-    Development
-    Development/*
-    Grid
-    Insight
+    GettingStarted/OneDayTraining
+    GettingStarted/AdvancedTraining
+    Build
+
+
+*******************
+Using the OMERO API
+*******************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
     Python
-    Python/*
+    Python/Gateway
     Java
     Matlab
     Cpp
+
+
+*****************
+Scripting Service
+*****************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Modules/Scripts
+    Modules/Scripts/Guide
+    Modules/Scripts/StyleGuide
+    Modules/Api/ScriptingService
+
+
+*******************
+OMERO.web Framework
+*******************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Web
+    Web/CreateApp
+    Web/WebGateway
+    Web/ViewPort
+    Web/WritingViews
+    Web/WritingTemplates
+    Web/PublicData
+
+
+***********************
+Extending OMERO.insight
+***********************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Insight
+    Insight/Architecture
+    Insight/Configuration
+    Insight/Contributing
+    Insight/DirectoryContents
+    Insight/EventBus
+    Insight/Evolution
+    Insight/HowTo/BuildAgent
+    Insight/HowTo/BuildAgentView
+    Insight/HowTo/RetrieveData
+    Insight/ImplementationView
+    Insight/TaskBar
+
+
+*****************
+More on API Usage
+*****************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    GettingStarted/AdvancedClientDevelopment
+    Modules/Api
+    Modules/Api/AdminInterface
+    Modules/Delete
+    Modules/Search
+    Clients/ImportLibrary
+    Modules/TempFileManager
+    Modules/ExceptionHandling
+
+
+******************
+The OME Data Model
+******************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
     Model
-    Model/*
-    Modules/*
-    Modules/Api/*
-    Modules/Scripts/*
-    Modules/Search/*
-    Search/*
-    Server/index
-    Web/index
+    Model/TypeLanguage
+    Modules/StructuredAnnotations
 
-    policies
 
-    extending-omero    
+*************************
+Authentication & Security
+*************************
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Server/PasswordProvider
+    Server/LoginAttemptListener
+    Server/Ldap
+    Server/SecurityRoles
+    Server/SecuritySystem
+
+
+**********************
+Extending OMERO Server
+**********************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Server
+    Server/ExtendingOmero
+    extending-omero
     server-blitz
-    server-install-homebrew
-    server-install-linux
     server-processor
     server-rendering
+    Search/FileParsers
+    Modules/Search/Bridges
+    Server/Clustering
+    Server/CollectionCounts
+    Server/HowToCreateAService
+    Server/Sessions
+    Server/Aop
+
+    Server/Context
+    Server/Events
+    Server/Properties
+    Server/Queries
+    Server/Throttling
+    Server/RenderingEngine
+    Server/ScalingOmero
+    Server/SqlAction
+    Server/FS
+
+
+*******************
+Development Process
+*******************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Development
+    policies
+    Development/Process
+    Development/CodingStandard
+    Development/JenkinsTesting
+    Development/Logging
+    Development/ReleaseProcess
+    Development/Standards
+    Development/UsingGit
+    Development/UsingGitFlow
