@@ -6,7 +6,7 @@ OMERO.server Binary Repository
     The OMERO.server binary data repository is a fundamental piece of   
     server-side functionality. It provides optimized and indexed storage of
     original file, pixel and thumbnail data, attachments and full text 
-    indexes. Its structure is based on :plone:`OMEIS <support/legacy/ome-server/system-overview/ome-image-server/>`.
+    indexes. Its structure is based on :legacy_plone:`OMEIS <ome-server/system-overview/ome-image-server/>`.
 
 Layout
 ------

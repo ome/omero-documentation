@@ -8,16 +8,16 @@ for visualising, managing, and annotating scientific image data. OMERO
 also provides components for image importing, archiving, protocol
 recording, and user administration. OMERO consists of a Java server,
 several Java client applications, as well as Python and C++ bindings
-and a Django-based web application. See the OMERO :plone:`feature list
-<products/feature-list>`.
+and a Django-based web application. See the OMERO :features_plone:`feature list
+<>`.
 
 The OMERO server is built as a set of separate but linked subsystems.
 All imported image data is split into two types: binary pixel data is
 stored in an image repository and accessed through the Rendering Engine
 and other services, while all experimental and image metadata are stored
 within a relational database and accessed through the OMERO Metadata
-Service. The database is a representation of the :plone:`OME Data
-Model <support/file-formats>` and is mapped to objects via
+Service. The database is a representation of the :formats_plone:`OME Data
+Model <>` and is mapped to objects via
 Hibernate_.
 
 .. figure:: /images/omero-overview.png
@@ -39,13 +39,13 @@ connection utilises a standard network connection, the client can be run
 anytime the user is connected to the internet.
 
 There are a number of demonstration videos available on the
-:plone:`Features List <products/feature-list>` page providing an
+:features_plone:`Features List <>` page providing an
 overview of the applications. For an initial impression please browse
 our :omero_plone:`screenshots <screenshots>`. For a detailed
 overview of the OMERO clients, see the :ref:`users/clients-overview`.
 
 This documentation is for the latest version of the OMERO Platform. We
-also have archived versions available for :plone:`legacy versions of
+also have archived versions available for :legacy_plone:`legacy versions of
 OMERO <support/legacy/>`.
 
 Most other **technical documentation** is located on the developer

@@ -163,8 +163,8 @@ Ice (3.3.x or higher)
 
     **OMERO 4.4 supports Ice3.4**, but this requires the correct
     version of OMERO.server (see :omero_plone:`Downloads
-    <downloads>`). See :plone:`"Do I use Ice 3.3 or
-    Ice 3.4?" <support/faq/omero/do-i-use-ice-3.3-or-ice-3.4>` in
+    <downloads>`). See :faq_plone:`"Do I use Ice 3.3 or
+    Ice 3.4?" <omero/do-i-use-ice-3.3-or-ice-3.4>` in
     the FAQ. If you have further questions, consult the `Forums
     <https://www.openmicroscopy.org/community>`_.
 
@@ -595,7 +595,7 @@ Advanced configuration
 Once you have the base server running, you may want to try enabling some
 of the advanced features such as :ref:`sysadmins/server-fs` or :ref:`sysadmins/server-ldap`.
 If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
-See the :plone:`Feature list <products/feature-list>` for more advanced
+See the :features_plone:`Feature list <>` for more advanced
 features you may want to use, and :ref:`sysadmins/server-advanced-configuration` on how to get the most out of
 your server.
 

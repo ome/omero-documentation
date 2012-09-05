@@ -14,8 +14,8 @@ part of this work, the current usage of :wiki:`stateless services
 <Api/DeprecationCandidatesStateful>` has been documented.
 
 The methods of this service will be outlined here.  Following
-:plone:`this meeting
-<community/minutes/minigroup/api-unification-meetings/2011.03.14>` it
+:community_plone:`this meeting
+<minutes/minigroup/api-unification-meetings/2011.03.14>` it
 has been decided to implement these methods in the Python Blitz
 gateway (returning wrapped objects, see
 :wiki:`Api/BlitzGateway`). This will allow stabilisation of the
