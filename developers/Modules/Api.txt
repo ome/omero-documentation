@@ -1,5 +1,3 @@
-.. _developers/Modules/Api:
-
 OMERO Application Programming Interface
 =======================================
 
@@ -111,7 +109,7 @@ Stateful/Binary? Services
 -  RenderingEngine:
    :source:` src <components/common/src/omeis/providers/re/RenderingEngine.java>`,
    :javadoc:` API <slice2html/omero/api/RenderingEngine.html#RenderingEngine>`
-   (see :ref:`developers/Server/RenderingEngine` for more)
+   (see :doc:`/developers/Server/RenderingEngine` for more)
 -  ThumbnailStore:
    :source:` src <components/common/src/ome/api/ThumbnailStore.java>`,
    :javadoc:` API <ome/api/ThumbnailStore.html>`
@@ -129,7 +127,7 @@ Reads and Writes
 
 IQuery and IUpdate are the basic building blocks for the rest of the
 (non-binary) API. IQuery is based on QuerySources? and QueryParemeters?
-which are explained under :ref:`developers/Server/Queries`. The goal of this
+which are explained under :doc:`/developers/Server/Queries`. The goal of this
 design is to make wildly separate definitions of queries (templates,
 db-stored , Java code, C# code, ...) runnable on the server.
 
@@ -156,8 +154,8 @@ Administation
 
 The :source:`IAdmin <components/common/src/ome/api/IAdmin.java>`
 interface defines all the actions necessary to administer the 
-:ref:`sysadmins/server-security` . It is explained further on the
-:ref:`developers/Modules/Api/AdminInterface` page.
+:doc:`/sysadmins/server-security` . It is explained further on the
+:doc:`/developers/Modules/Api/AdminInterface` page.
 
 Pojos
 ~~~~~
@@ -168,7 +166,7 @@ Those have been collected in the
 :source:`IContainer <components/common/src/ome/api/IContainer.java>`
 interface. IContainer simplifies a few very common queries, and there is
 a related package ("pojos.\*") for working with the returned graphs. The
-:ref:`developers/Insight` works almost exclusively with
+:doc:`/developers/Insight` works almost exclusively with
 the IContainer interface for its non-binary needs.
 
 Examples
@@ -206,20 +204,20 @@ How to write a service
 ----------------------
 
 A tutorial is available on to write a service at
-:ref:`developers/Server/HowToCreateAService`. 
+:doc:`/developers/Server/HowToCreateAService`. 
 In general, if a properly annotated service is
 placed in any JAR of the OMERO EAR file (see
-:ref:`developers/Build` for more) then the service will be
+:doc:`/developers/Build` for more) then the service will be
 deployed to the server. In the case of
-:ref:`server/blitz`, the service must be properly
+:doc:`/developers/server-blitz`, the service must be properly
 defined under :sourcedir:`components/blitz/resources`.
 
 OMERO Annotations for Validation
 --------------------------------
 
 The server-side implementation of these interfaces makes use of ((JDK5))
-:ref:`developers/Modules/StructuredAnnotations` and an
-:ref:`AOP <developers/Server/Aop>` interceptor to validate
+:doc:`/developers/Modules/StructuredAnnotations` and an
+:doc:`AOP </developers/Server/Aop>` interceptor to validate
 all method parameters. Calls to pojos.findContainerHierarches are first
 caught by a method interceptor, which checks for annotations on the
 parameters and, if available, performs the necessary checks. The
@@ -239,4 +237,4 @@ is implemented as
 
          pojos.findContainerHierarchies(@NotNull Class, @NotNull @Validate(Integer.class) Set, Map)
 
-.. seealso:: :ref:`developers/Server/Queries`, :ref:`developers/Server/RenderingEngine`, :ref:`developers/Modules/ExceptionHandling`
+.. seealso:: :doc:`/developers/Server/Queries`, :doc:`/developers/Server/RenderingEngine`, :doc:`/developers/Modules/ExceptionHandling`

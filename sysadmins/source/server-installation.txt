@@ -3,7 +3,7 @@ OMERO.server Installation
 
 .. seealso::
 
-    :ref:`sysadmins/server-upgrade`
+    :doc:`/sysadmins/server-upgrade`
          Instructions for **upgrading** your OMERO.server installation.
 
     :snapshot:`OMERO Installation for Mac OS X Snow Leopard (10.6)
@@ -28,7 +28,7 @@ Installation **will require a "root" level account** for which you
 know the password. If you are unsure of what it means to have a "root"
 level account, or if you are generally having issues with the various
 users/passwords described in this install guide, please see
-:ref:`sysadmins/troubleshooting/password`.
+:ref:`troubleshooting-password`.
 
 .. only:: windows
 
@@ -42,7 +42,7 @@ users/passwords described in this install guide, please see
     -  Installation on Windows XP is not explicitly supported, especially
        for OMERO.web. Significant testing has taken place on Windows Server
        2008 and we recommend this version.
-    -  :ref:`sysadmins/omeromovie` does not work on Windows at present.
+    -  :doc:`/sysadmins/omeromovie` does not work on Windows at present.
     -  Spaces are not currently supported in installation path names.
 
        .. note:: 
@@ -190,7 +190,7 @@ Ice (3.3.x or higher)
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :ref:`users/limitations`. See :doc:`server-postgresql` for specifics about each version.
+PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :doc:`/users/limitations`. See :doc:`server-postgresql` for specifics about each version.
 
 .. only:: windows
 
@@ -503,7 +503,7 @@ Installation
 OMERO.web and Administration
 ----------------------------
 
-.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :ref:`sysadmins/install-web`.
+.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :doc:`/sysadmins/install-web`.
 
 Otherwise, the internal Django webserver can be used for evaluation and development. In this case, we need to
 turn debugging on, in order that static files can be served by Django:
@@ -568,7 +568,7 @@ Enabling Movie creation from OMERO.
 -----------------------------------
 
 OMERO has the facility to create AVI/MPEG Movies from Images, which can
-be called from Insight. The page :ref:`sysadmins/omeromovie` gives details on how to enable them.
+be called from Insight. The page :doc:`/sysadmins/omeromovie` gives details on how to enable them.
 
 Post-installation items
 -----------------------
@@ -577,14 +577,14 @@ Backup
 ^^^^^^
 
 One of your first steps after putting your OMERO server into production
-should be deciding on when and how you are going to :ref:`backup your
-database and binary data <sysadmins/server-backup-and-restore>`. Please do not omit this
+should be deciding on when and how you are going to :doc:`backup your
+database and binary data </sysadmins/server-backup-and-restore>`. Please do not omit this
 step.
 
 Security
 ^^^^^^^^
 
-It is also now recommended that you read the :ref:`sysadmins/server-security` page
+It is also now recommended that you read the :doc:`/sysadmins/server-security` page
 to get a good idea as to what you need to do to get OMERO clients
 speaking to your newly installed OMERO.server in accordance with your
 institution or company's security policy.
@@ -593,10 +593,10 @@ Advanced configuration
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Once you have the base server running, you may want to try enabling some
-of the advanced features such as :ref:`sysadmins/server-fs` or :ref:`sysadmins/server-ldap`.
+of the advanced features such as :doc:`/sysadmins/server-fs` or :doc:`/sysadmins/server-ldap`.
 If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
 See the :feature_plone:`Feature list <>` for more advanced
-features you may want to use, and :ref:`sysadmins/server-advanced-configuration` on how to get the most out of
+features you may want to use, and :doc:`/sysadmins/server-advanced-configuration` on how to get the most out of
 your server.
 
 Update Notification
@@ -607,7 +607,7 @@ Your OMERO.server installation will check for updates each time it is started fr
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-My OMERO install doesn't work! What do I do now!?! Examine the :ref:`sysadmins/troubleshooting` page and if all else fails post a
+My OMERO install doesn't work! What do I do now!?! Examine the :doc:`/sysadmins/troubleshooting` page and if all else fails post a
 message to our ``ome-users`` mailing list discussed on the OmeroCommunity page.
 
 OMERO Diagnostics

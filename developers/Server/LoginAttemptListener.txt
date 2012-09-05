@@ -1,9 +1,7 @@
-.. _developers/Server/LoginAttemptListener:
-
 LoginAttemptListener
 ====================
 
-All the :ref:`developers/Server/PasswordProvider` implementations
+All the :doc:`/developers/Server/PasswordProvider` implementations
 provided by default publish a
 ":source:`LoginAttemptMessage <components/server/src/ome/services/messages/LoginAttemptMessage.java>`\ "
 every time they check a password value. This permits any

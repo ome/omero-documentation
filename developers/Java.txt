@@ -1,19 +1,17 @@
-.. _developers/Java:
-
 OMERO Java Language Bindings
 ============================
 
 Using the ` Ice Java language
 mapping <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.4.4.html>`_ from
 ZeroC_, OMERO provides access to your
-data within an :ref:`server/blitz` server from Java code.
+data within an :doc:`/developers/server-blitz` server from Java code.
 
 Using the ``omero_client.jar``
 ------------------------------
 
 The ``omero_client.jar`` is a combination of all necessary Java OMERO
 class as well as the Ice classes needed to write a complete Java client
-for :ref:`server/blitz`.
+for :doc:`/developers/server-blitz`.
 
 The library is placed under OMERO\_HOME/dist/lib/client by the build,
 or is alternatively available from Jenkins :jenkins:`here
@@ -726,7 +724,7 @@ Delete data
 
 It is possible to delete Projects, datasets, images, ROIs etc and
 objects linked to them depending on the specified options (see
-:ref:`developers/Modules/Delete`).
+:doc:`/developers/Modules/Delete`).
 
 -  **Delete Image**.
 
@@ -899,4 +897,4 @@ please see |OmeroClients|.
 --------------
 
 .. seealso::
-	ZeroC_, |OmeroGrid|, :ref:`developers/Build#OmeroTools`, |OmeroApi|
+	ZeroC_, |OmeroGrid|, :ref:`build#OmeroTools`, |OmeroApi|

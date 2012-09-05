@@ -1,12 +1,10 @@
-.. _tutorial/insight-managing-data:
-
 Managing Data
 =============
 
 Back to OMERO.insight,
 
 -  Launch the OMERO.insight application.
--  Connect to the server, see :ref:`tutorial/insight-getting-started`.
+-  Connect to the server, see :doc:`insight-getting-started`.
 
 Once successfully logged in, the default view of the Data Manager will
 pop up on screen. The Data Manager serves as the major portal for the

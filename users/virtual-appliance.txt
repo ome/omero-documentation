@@ -1,5 +1,3 @@
-.. _users/virtual-appliance:
-
 OMERO Virtual Appliance
 =======================
 
@@ -38,7 +36,7 @@ clients.
     space that you have consumed and, if necessary, delete data that is not
     required. If your data is likely to exceed this space whilst you are
     evaluating OMERO then it is worthwhile going through the 
-    :ref:`gettingstarted/virtualappliance#increasing-hd-size` before you start working with
+    :ref:`increasing-hd-size` before you start working with
     OMERO in earnest.
 
 Getting Started
@@ -263,7 +261,7 @@ interact with it.
    allow you to import data via a GUI and manage that data once
    imported. To do so, download the :omero_plone:`insight client <downloads>`
    and follow the instructions below. More information can be found
-   under the :ref:`tutorial/insight-getting-started` section
+   under the :doc:`/client-tutorials/insight/insight-getting-started` section
    which details how to use the OMERO.clients.
 -  Alternatively, you can interact with the server command line
    interface by SSH'ing into the guest VM or by opening a console within
@@ -293,7 +291,7 @@ the server in the VM. Our example uses OMERO.insight running on Mac OS X
 to connect to the VM.
 
 -  :omero_plone:`Download <downloads>`
-   & :ref:`install <tutorial/insight-getting-started>` OMERO.insight
+ & :doc:`install </client-tutorials/insight/insight-getting-started>` OMERO.insight
 -  Start OMERO.insight
 -  Click the spanner icon situated above the password box so that we can
    enter the server settings box which looks like this:
@@ -337,7 +335,7 @@ Secure Shell
 
 You can log into your VM using Secure Shell (SSH) which will give you a
 command line interface to the VM from where you can use the 
-:ref:`developers/CommandLine`. 
+:doc:`/developers/CommandLine`. 
 In the following example, we assume that you have an SSH client installed
 on your host machine and also that your VM is up and running.
 
@@ -472,7 +470,7 @@ to be happy using the Bash shell which looks like this:
    omero@omerovm:~$ _
 
 From here you can interact with OMERO.server via the 
-:ref:`developers/CommandLine`. You will need to login as the 'omero' 
+:doc:`/developers/CommandLine`. You will need to login as the 'omero' 
 user to access the OMERO CLI (user: "omero" / pw: "omero"). Logout using 
 Ctrl-D.
 
@@ -606,12 +604,12 @@ the recommended courses of action are either:
 2. Increase the size of your virtual HDD. If you have filled your
    existing HDD then it is likely that the volume of data that you are
    storing in the OMERO VM is too big for the default HDD. You should
-   follow the instructions on the :ref:`gettingstarted/virtualappliance#increasing-hd-size`
-   page to ensure that the size of
+   follow the instructions on the :ref:`increasing-hd-size`
+   section to ensure that the size of
    virtual HDD you have available is commensurate with the volumes of
    data that you are collecting.
 
-.. _gettingstarted/virtualappliance#increasing-hd-size:
+.. _increasing-hd-size:
 
 Increasing HD Size 
 ------------------

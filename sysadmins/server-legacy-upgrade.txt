@@ -1,5 +1,3 @@
-.. _sysadmins/server-legacy-upgrade:
-
 OMERO.server Legacy Upgrade
 ===========================
 
@@ -552,7 +550,7 @@ Database Upgrade: 4.1 to 4.2
 In OMERO 4.2, we have exposed the User-Group features of OMERO to
 support data sharing between users in the same group. Group permissions
 determine the level of data sharing between users in the same group, as
-described on the :ref:`users/server-permissions` page.
+described on the :doc:`/users/server-permissions` page.
 
 This means that all data objects that are linked in the OMERO database
 must be in the same group (can't link between data in different groups).
@@ -643,7 +641,7 @@ follow the following upgrade procedure:
 -  4.0.x to 4.1.0:
 
    If you wish to configure OMERO.web you should follow the instruction
-   on :ref:`sysadmins/install-web`.
+   on :doc:`/sysadmins/install-web`.
 
    .. note::
       It is **not recommended** to use any older settings.py 
@@ -766,5 +764,5 @@ database are different then those for the database you created during
 
 .. seealso::
 
-	:ref:`sysadmins/server-upgrade`
+	:doc:`/sysadmins/server-upgrade`
 		Latest upgrades of OMERO.server

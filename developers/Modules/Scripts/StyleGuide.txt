@@ -1,5 +1,3 @@
-.. _developers/Modules/Scripts/StyleGuide:
-
 Style Guidelines for OMERO Scripts
 ==================================
 
@@ -9,8 +7,8 @@ Style Guidelines for OMERO Scripts
 
   Scripting movie ROI figure
 
-This page describes guidelines for writing Python scripts for the :ref:`OMERO
-scripting service <developers/Modules/Scripts>` (Starting in OMERO 4.2).
+This page describes guidelines for writing Python scripts for the :doc:`OMERO
+scripting service </developers/Modules/Scripts>` (Starting in OMERO 4.2).
 
 These guidelines are designed to improve the interaction of the scripts
 with OMERO clients so that they can
@@ -19,7 +17,7 @@ with OMERO clients so that they can
 -  handle the script results appropriately
 
 If you want instructions on how to get started with OMERO scripts, see
-the link above or the :ref:`developers/Modules/Scripts/Guide`.
+the link above or the :doc:`/developers/Modules/Scripts/Guide`.
 
 Most of the points below are implemented in the example :source:`Edit_Descriptions.py <examples/ScriptingService/Edit_Descriptions.py>`.
 

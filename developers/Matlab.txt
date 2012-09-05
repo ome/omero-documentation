@@ -1,5 +1,3 @@
-.. _developers/Matlab:
-
 OMERO Matlab Language Bindings
 ==============================
 
@@ -738,7 +736,7 @@ Delete data
 
 It is possible to delete Projects, Datasets, Images, ROIs etc and
 objects linked to them depending on the specified options (see
-:ref:`developers/Modules/Delete`).
+:doc:`/developers/Modules/Delete`).
 
 -  **Delete Image**.
 

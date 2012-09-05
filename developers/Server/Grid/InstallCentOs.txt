@@ -1,5 +1,3 @@
-.. _developers/Server/Grid/InstallCentOs:
-
 Installing OMERO Grid on CentOS
 ================================
 
@@ -38,4 +36,4 @@ Starting on boot
 
 
 
-.. seealso:: :doc:`/sysadmins/unix/server-installation`, :ref:`developers/Server/Grid/Install`
+.. seealso:: :doc:`/sysadmins/unix/server-installation`, :doc:`/developers/Server/Grid/Install`
