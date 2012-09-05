@@ -10,11 +10,11 @@ useful for understanding our branch naming ("master" v. "develop").
 Git resources
 -------------
 
--  ` http://progit.org/book/ <http://progit.org/book/>`_
--  ` http://progit.org/book/ch3-6.html <http://progit.org/book/ch3-6.html>`_
--  ` http://nvie.com/posts/a-successful-git-branching-model/ <http://nvie.com/posts/a-successful-git-branching-model/>`_
+-  `<http://git-scm.com/book>`_
+-  `<http://git-scm.com/book/ch3-6.html>`_
+-  `A successfule Git branching model <http://nvie.com/posts/a-successful-git-branching-model/>`_
    We use the git-flow model for branch management.
--  ` http://users.openmicroscopy.org.uk/~jmoore/git/ <http://users.openmicroscopy.org.uk/~jmoore/git/>`_
+-  `http://users.openmicroscopy.org.uk/~jmoore/git/ <http://users.openmicroscopy.org.uk/~jmoore/git/>`_
    If you have some time to spend on this, you may find Josh's git
    movies useful. Covers a lot of the workflows below, as well as being
    an intro for when the team was moving from svn to git (before we got
@@ -35,24 +35,24 @@ Bio-Formats
 The Bio-Formats repository is available from:
 
 -  git@…:bio-formats.git (read/write; requires gitosis configuration)
--  ` git://openmicroscopy.org/bioformats.git <git://openmicroscopy.org/bioformats.git>`_
--  ` https://github.com/openmicroscopy/bioformats <https://github.com/openmicroscopy/bioformats>`_
--  ` git://dev.loci.wisc.edu/bio-formats.git <git://dev.loci.wisc.edu/bio-formats.git>`_
+-  git://openmicroscopy.org/bioformats.git
+-  `<https://github.com/openmicroscopy/bioformats>`_
+-  git://dev.loci.wisc.edu/bio-formats.git
 
 OME
 ^^^
 
 The main repository, known as ome.git, is available from:
 
--  ` https://github.com/openmicroscopy/openmicroscopy.git <https://github.com/openmicroscopy/openmicroscopy.git>`_
+-  `<https://github.com/openmicroscopy/openmicroscopy.git>`_
    and
--  ` git://openmicroscopy.org/ome.git <git://openmicroscopy.org/ome.git>`_
+-  git://openmicroscopy.org/ome.git
 
 Most of these repositories are read-only locations which are kept in
 sync for public consumption. A third centrally available location is
 also available though not publicly:
 
--  ` ssh://git.openmicroscopy.org/home/git/team.git <ssh://git.openmicroscopy.org/home/git/team.git>`_
+-  ssh://git.openmicroscopy.org/home/git/team.git
 
 ``team.git`` is useful for team-internal branches which are not yet
 ready for public consumption. Changes that are not ready to be reviewed
@@ -118,8 +118,8 @@ Unix-style environment that includes git. You can also use
 integration. You may also want to consider installing
 ` VirtualBox <https://www.virtualbox.org/>`_ with a Linux guest OS to
 make your life easier. Lastly, when using git on Windows, please be
-aware of the ` CRLF conversion
-issue <http://help.github.com/line-endings/>`_.
+aware of the `CRLF conversion
+issue <https://help.github.com/articles/dealing-with-line-endings>`_.
 
 Configuration
 ~~~~~~~~~~~~~
@@ -305,9 +305,7 @@ The flip-side of pushing your own branches is being aware that other OME
 developers will also be pushing theirs. Github provides a number of ways
 of monitoring either a user or a repository. Notifications about what
 watched users and repositories are doing can be seen in your github
-inbox or via RSS feeds. See
-` http://help.github.com/be-social/ <http://help.github.com/be-social/>`_
-for more information.
+inbox or via RSS feeds. See `Be social <https://help.github.com/articles/be-social>`_ for more information.
 
 Even if you don't feel able to watch the everyone's repository, you will
 likely want to periodically check in on the current ` Pull Requests
@@ -989,8 +987,8 @@ then the target user need only click on a button. If not, then there may
 be some back-and-forth on the work done, similar to the code reviews of
 a deliverable branch. For background, see
 
--  ` http://help.github.com/send-pull-requests/ <http://help.github.com/send-pull-requests/>`_
--  ` https://github.com/blog/712-pull-requests-2-0 <https://github.com/blog/712-pull-requests-2-0>`_
+-  `Using Pull Requests <https://help.github.com/articles/using-pull-requests>`_
+-  `Pull Requests 2.0 <https://github.com/blog/712-pull-requests-2-0>`_
 
 If you’ve discovered that something in the proposed branch needs
 changing (and you don’t have write access to the branch itself), then

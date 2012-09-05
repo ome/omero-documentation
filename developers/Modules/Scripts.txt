@@ -125,8 +125,7 @@ Matlab and Scripting
 ====================
 
 The scripting service can run matlab scripts too. This is done using the
-python package Mlabwrap,
-` http://www.scipy.org/MlabWrap <http://www.scipy.org/MlabWrap>`_, this
+python package `Mlabwrap <http://mlabwrap.sourceforge.net>`_, this
 allows access to Matlab functions from OMERO.blitz scripts.
 
 Installing Mlabwrap

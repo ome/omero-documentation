@@ -81,7 +81,7 @@ term with the field name followed by a colon. For example,
     * - combined\_fields
       - The default field prefix.
     * - \_hibernate\_class
-      - Used by ` Hibernate Search <http://search.hibernate.org>`_ to record the
+      - Used by `Hibernate Search <http://www.hibernate.org/subprojects/search.html>`_ to record the
         entity type. The class value, e.g. ``ome.model.core.Image`` is also
         entered in ``combined_fields``. **Unimportant for the casual users**
     * - id

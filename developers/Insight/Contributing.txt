@@ -10,10 +10,9 @@ Getting started with OMERO.insight entails that you have an
 Installing From Source
 ----------------------
 
-Since January 2011, OMERO.insight code base is part of the OMERO code
-base. See `OmeroContributing </ome/wiki/OmeroContributing>`_, to check
-out code using
-` http://git.openmicroscopy.org/ <http://git.openmicroscopy.org/>`_
+Since January 2011, OMERO.insight code base is part of the OMERO code base. 
+See :doc:`/developers/Development/UsingGit`, to check out code using 
+`<http://git.openmicroscopy.org/>`_
 
 Requirements
 ~~~~~~~~~~~~

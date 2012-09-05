@@ -51,7 +51,7 @@ if it doesn't get built by the :ref:`developers/Build`.
 Available bridges
 -----------------
 
-See :source:`components/server/src/ome/services/fulltext/bridges`
+See :sourcedir:`components/server/src/ome/services/fulltext/bridges`
 for a list of provided (example) bridges.
 
 Re-indexing

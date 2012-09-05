@@ -403,7 +403,7 @@ For examples see:
 4.2 Design discussion
 ---------------------
 
-A target of the `4.2 milestone <http://trac.openmicroscopy.org.uk/ome/milestone/OMERO-Beta4.2>`_ is
+A target of the :milestone:`4.2 <OMERO-Beta4.2>` milestone is
 significantly rework the permissions system in order to reduce some
 complications which arise from users' being in multiple groups. The
 points which follow are the beginning of that design discussion. They

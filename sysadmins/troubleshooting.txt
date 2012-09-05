@@ -216,9 +216,6 @@ feature off as follows:
 
     # echo 0 > /proc/sys/net/ipv4/tcp_window_scaling
 
-You can read more about the problems surrounding TCP window scaling
-`here <http://kerneltrap.org/node/6723>`__.
-
 My Server Crashes With...
 =========================
 

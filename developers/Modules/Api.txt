@@ -28,7 +28,7 @@ A service factory is obtained from the client connection. E.g. Python:
 Services List
 -------------
 
-The :source:`ome.api <components/common/src/ome/api>`
+The :sourcedir:`ome.api <components/common/src/ome/api>`
 package in the common component defines the central "verbs" of the Omero
 system. All external interactions with the system should happen with
 these verbs, or services. Each OMERO service belongs to a particular
@@ -212,7 +212,7 @@ placed in any JAR of the OMERO EAR file (see
 :ref:`developers/Build` for more) then the service will be
 deployed to the server. In the case of
 :ref:`server/blitz`, the service must be properly
-defined under :source:`components/blitz/resources`.
+defined under :sourcedir:`components/blitz/resources`.
 
 OMERO Annotations for Validation
 --------------------------------
