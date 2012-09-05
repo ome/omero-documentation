@@ -50,7 +50,7 @@ copyright = u'2000-2012, ' + author
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
-print os.environ.get('OMERO_RELEASE')
+
 if "OMERO_RELEASE" in os.environ:
     release = os.environ.get('OMERO_RELEASE')
     split_release =  re.split("^([0-9]\.[0-9])(\.[0-9]+)(.*?)$",release)
@@ -96,14 +96,19 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
+if "MERGE_BRANCH" in os.environ:
+    branch = os.environ.get('MERGE_BRANCH')
+else:
+    branch = 'develop'
+
 extlinks = {
     'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/%s', '#'),
     'milestone' : ('http://trac.openmicroscopy.org.uk/ome/milestone/%s', ''),
     'report' : ('http://trac.openmicroscopy.org.uk/ome/report/%s', ''),
     'snapshot' : ('http://cvs.openmicroscopy.org.uk/snapshots/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
-    'source' : ('https://github.com/openmicroscopy/openmicroscopy/blob/develop/%s', ''),
-    'sourcedir' : ('https://github.com/openmicroscopy/openmicroscopy/tree/develop/%s', ''),
+    'source' : ('https://github.com/openmicroscopy/openmicroscopy/blob/'+ branch + '/%s', ''),
+    'sourcedir' : ('https://github.com/openmicroscopy/openmicroscopy/tree/'+ branch + '/%s', ''),
     'omedocs' : ('https://github.com/openmicroscopy/ome-documentation/%s', ''),
     'javadoc' : ('http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/%s', ''),
     'jenkins' : ('http://hudson.openmicroscopy.org.uk/%s', ''),
