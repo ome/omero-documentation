@@ -28,6 +28,7 @@ buildable/runnable via `scons <http://www.scons.org>`_:
       cd omero-src/examples
       python ../target/scons/scons.py
 
+Other examples (in Python) can be found :doc:`here </developers/Python>`.
 
 Introduction
 ------------
