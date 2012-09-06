@@ -116,7 +116,7 @@ the value of ``new_user_group``, which can have several different values:
   would add a user to all the groups named by memberOf, where the name of the
   group is mapped via ``group_mapping``. You can prefix this value with 
   ``filtered_`` to have the ``group_filter`` applied to the attribute values,
-  i.e. ``:filtered_attribute:memberOf`` will mean that only the values of
+  i.e. ``:filtered_dn_attribute:memberOf`` will mean that only the values of
   memberOf which match ``group_filter`` will be considered.
 - If prefixed with ``:query:``, then the rest of the value is taken as a query
   to be AND'ed to the group filter. In the query, values from the user such as
