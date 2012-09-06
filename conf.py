@@ -123,6 +123,7 @@ rst_epilog = """
 .. _ZeroC: http://www.zeroc.com
 .. _Ice: http://www.zeroc.com
 .. _Jenkins: http://jenkins-ci.org
+.. _roadmap: https://trac.openmicroscopy.org.uk/ome/roadmap
 
 .. |OmeroPy| replace:: :doc:`/developers/Python`
 .. |OmeroCpp| replace:: :doc:`/developers/Cpp`

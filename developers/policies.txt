@@ -134,7 +134,8 @@ Forums and mailing list
 
 Feedback from the OME community happens primarily on 2 public mailing
 lists that are further described under :mailinglist:`ome-users` and 
-:mailinglist:`ome-devel` as well as on the :community_plone:`PhpBB forums <>`, an alternative to the mailing lists since some users prefer the forum
+:mailinglist:`ome-devel` as well as on the :forum:`PhpBB forums <>`, 
+an  alternative to the mailing lists since some users prefer the forum
 interface to the mailing list one, and vice versa.
 
 You should add yourself to all three and be aware of and scan all
@@ -204,7 +205,7 @@ available in case you do.
   (https://alfresco.lifesci.dundee.ac.uk) (LDAP-based) for
   collaborating on documents.
 
-* The OME QA system (http://qa.openmicroscopy.org.uk/) is an in-house
+* The OME `QA <http://qa.openmicroscopy.org.uk/>`_ system is an in-house
   system for collecting feedback from users, including failing files,
   stack traces, etc. Like our community feedback, QA feedback should
   be turned into a ticket in a timely manner.
@@ -322,10 +323,8 @@ to complete. A large number of stories will be put into any one sprint
 , the two-week period that is visible on the Trac whiteboard at a
 given time. This is the standard unit of work for the team. After a
 sprint, the stories that were chosen for the sprint, should be closed
-if possible, and there should be some evidence of the work
-(screenshots, screencasts, etc) available from the milestone page:
-
-    https://trac.openmicroscopy.org.uk/ome/roadmap
+if possible, and there should be some evidence of the work 
+(screenshots, screencasts, etc) available from the roadmap_ page:
 
 .. _storyexample_screenshot:
 .. figure:: images/10000000000003EF00000209C184C65E.png
@@ -361,11 +360,9 @@ chosen not to use this feature, since it unduly complicates the
 workflow (e.g. they are treated as container and one must create a bug
 inside the bug to do anything with it).
 
-Instead, “Bug:” is pre-pended to the ticket summary to indicate a
-bug. A list of all current such bugs can be viewed via the “BUGS!
-EEK!!” report in the left hand panel:
-
-    https://trac.openmicroscopy.org.uk/ome/report/8
+Instead, “Bug:” is pre-pended to the ticket summary to indicate a bug. A list 
+of all current such bugs can be viewed via the :report`BUGS! EEK!! <8>` report 
+in the left hand panel:
 
 .. _bugs_screenshot:
 .. figure:: images/10000000000003EF0000020903157559.png
@@ -470,8 +467,7 @@ involved in.
 Release process
 ---------------
 
-A release is primarily defined on the Trac milestone page,
-e.g. http://trac.openmicroscopy.org.uk/ome/roadmap
+A release is primarily defined on the Trac roadmap_ page
 
 .. _milestone_screenshot:
 .. figure:: images/10000000000004490000024DBC85F470.png

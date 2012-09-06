@@ -144,24 +144,24 @@ Documentation
       -  `Main Page <http://www.openmicroscopy.org/site>`_ (no copy. Update on Release)
       -  Products
 
-         -  `Feature List Page <http://www.openmicroscopy.org/site/products/feature-list>`_
-         -  `Big Images Support <http://www.openmicroscopy.org/site/products/omero/big-images-support>`_
-         -  `Import in OMERO.insight <http://www.openmicroscopy.org/site/products/omero/import-in-omero.insight>`_
-         -  `Improved Web Client <http://www.openmicroscopy.org/site/products/omero/improved-web-client>`_
-         -  `About Omero <http://www.openmicroscopy.org/site/products/omero/omero-platform-v4>`_
-         -  `Volume Viewer in OMERO.web <http://www.openmicroscopy.org/site/products/omero/volume-viewer-in-omero.web>`_
+         -  :feature_plone:`Feature List Page <>`
+         -  :omero_plone:`Big Images Support <big-images-support>`
+         -  :omero_plone:`Import in OMERO.insight <import-in-omero.insight>`
+         -  :omero_plone:`Improved Web Client <improved-web-client>`
+         -  :omero_plone:`About Omero <omero-platform-v4>`
+         -  :omero_plone:`Volume Viewer in OMERO.web <volume-viewer-in-omero.web>`
          -  :omero_plone:`Downloads <downloads>`
          -  :omero_plone:`Screenshots page <screenshots>`
 
-      -  `Contributors <http://www.openmicroscopy.org/site/about/contributers>`_
+      -  :about_plone:`Roadmap <Contributors <contributers>`
       -  Road map page:
 
-         -  `Roadmap <http://www.openmicroscopy.org/site/about/roadmap>`_
-         -  `Version
-            history <http://www.openmicroscopy.org/site/about/project-history/omero-version-history>`_
+         -  :about_plone:`Roadmap <roadmap>`
+         -  :about_plone:`Version
+            history <project-history/omero-version-history>`
 
       -  Movies page ?
-      -  What OMERO <http://www.openmicroscopy.org/site/about/what-omero>`_
+      -  :about_plone:`What OMERO <what-omero>`
       -  Upgrade page
 
          -  i.e. add section to :doc:`/sysadmins/server-upgrade`
