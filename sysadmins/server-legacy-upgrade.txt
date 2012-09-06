@@ -530,8 +530,8 @@ of the additional services and optional installs would be of use to you.
    will need to install it to use scripting services. NumPy is available
    from `here <http://numpy.scipy.org/>`__
 
--  **OMERO.tables** can be installed by following the :wiki:`OmeroTables`
-   install guide.
+-  **OMERO.tables** can be installed by following the 
+   `OmeroTables </ome/wiki/OmeroTables>`_ install guide.
 
 -  **Security** By default, OMERO clients only need to connect to two
    TCP ports for communication with your OMERO.server: 4063 (unsecured)
