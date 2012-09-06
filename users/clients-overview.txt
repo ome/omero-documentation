@@ -22,8 +22,8 @@ and require Java 1.5 (or higher) to be installed on the user's computer
 
 .. _omero-web:
 
-OMERO.web [1]_
---------------
+OMERO.web
+---------
 
 OMERO.web is a web-based client for users who wish to access their data in the
 browser. This offers a similar view to the OMERO.insight desktop client.
@@ -34,20 +34,20 @@ Developers can use the |OmeroWeb| to build customised views.
     :align: center
     :alt: OMERO.web user interface
     
-    OMERO.web user interface
+    OMERO.web user interface [2]_
 
 .. figure:: /images/omero_web_4_4.png
     :width: 60%
     :align: center
     :alt: OMERO.web in action
     
-    OMERO.web in action
+    OMERO.web in action [4]_
     
 
 .. _omero-insight:
 
-OMERO.insight [2]_
-------------------
+OMERO.insight
+-------------
 
 OMERO.insight provides a number of tools for accessing and using data in an
 OMERO Server. To find out more, see the
@@ -58,14 +58,14 @@ OMERO Server. To find out more, see the
     :width: 60%
     :alt: OMERO.insight ImageViewer
     
-    OMERO.insight ImageViewer
+    OMERO.insight ImageViewer [1]_
     
 .. figure:: /images/omero_insight_screenshot_4_4.png
     :align: center
     :width: 60%
     :alt: OMERO.insight
     
-    OMERO.insight
+    OMERO.insight [3]_
 
 Among many features, the noteworthy OMERO.insight elements are:
 
@@ -149,4 +149,6 @@ Attribution-Noncommercial-Share Alike 3.0 Unported License. For more
 information see :about_plone:`Attribution <licensing-attribution/attribution>`.
 
 .. [1] :doi:`Dantas, et al., JCB <10.1083/jcb.201012093>`
-.. [2] :doi:`Snider, et al., JCB <10.1083/jcb.201102142>`
+.. [2] :doi:`Krenn, et al., JCB <10.1083/jcb.201110013>`
+.. [3] :doi:`Roscioli, et al., JCB <10.1083/jcb.201109104>`
+.. [4] :doi:`Snider, et al., JCB <10.1083/jcb.201102142>`
