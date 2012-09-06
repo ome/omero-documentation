@@ -4,6 +4,16 @@ OMERO Home Page
 Welcome to the OMERO wiki!** This is the home page of the OMERO
 developer documentation wiki.
 
+.. toctree::
+    :titlesonly:
+    :maxdepth: 1
+
+    GettingStarted
+    GettingStarted/OneDayTraining
+    GettingStarted/AdvancedTraining
+    Build
+
+
 Instructions on :omero_plone:`downloading <downloads>`,
 :doc:`/sysadmins/unix/server-installation` and administering OMERO can be found under the :doc:`/sysadmins/server-overview` of the main site.
 

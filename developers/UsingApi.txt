@@ -1,0 +1,20 @@
+Using the OMERO API
+===================
+
+OMERO API is available in Python, Java, Matlab and C++. 
+The API is the same for each language, although we have developed some additional
+client-side libraries to make working with the API easier. E.g. Python 'Blitz Gateway'.
+
+This section provides numerous code samples in the various languages to get you started.
+More details on client-side coding and the OMERO API can be found elsewhere.
+
+.. toctree::
+    :titlesonly:
+    :maxdepth: 1
+
+    Python
+    Python/Gateway
+    Java
+    Matlab
+    Cpp
+
