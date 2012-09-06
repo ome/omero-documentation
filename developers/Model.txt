@@ -58,7 +58,7 @@ Passing in an argument of ``true`` would imply that this object is
 actually loaded, and therefore the server would attempt to null all the
 fields on your object. See below for a discussion on loadedness.
 
-In the special case of wiki:Enumerations?, a constructor is generated
+In the special case of Enumerations, a constructor is generated
 which takes the ``value`` field for the enumartion:
 
 ::
@@ -68,7 +68,7 @@ which takes the ``value`` field for the enumartion:
 Further, this is the only example of a managed object which will be
 loaded by the server **without** its id. This allows applications to
 record only the string "text/plain" and not need to know the actual id
-value for "text/plain". See wiki:Enumerations? for more information.
+value for "text/plain".
 
 Details
 ~~~~~~~

@@ -1,8 +1,7 @@
 OMERO Home Page
 ===============
 
-Welcome to the OMERO wiki!** This is the home page of the OMERO
-developer documentation wiki.
+This is the home page of the OMERO developer documentation.
 
 Instructions on :omero_plone:`downloading <downloads>`,
 :doc:`/sysadmins/unix/server-installation` and administering OMERO can be found under the :doc:`/sysadmins/server-overview` of the main site.
@@ -97,7 +96,7 @@ After that, the :doc:`/developers/GettingStarted/AdvancedTraining`
 page is probably a good next step. It describes various tools and
 resources you will find useful when working with OMERO.
 
-Then, the following wiki pages are meant to provide you with a trail
+Then, the following pages are meant to provide you with a trail
 through the available documentation so that you can get started with
 OMERO development. Note that this is not everything that you will need
 to read, but should get you started...

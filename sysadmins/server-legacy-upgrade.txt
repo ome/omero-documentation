@@ -12,18 +12,14 @@ for these releases as public as possible. You may want to take a look
 at the `roadmap <http://trac.openmicroscopy.org.uk/ome/roadmap>`_ for
 exactly what will go into a release. We always inform our
 :community_plone:`mailing lists <>` of the development status. Finally,
-all the products check themselves with the :wiki:`OMERO.registry
-<OmeroRegistry>` for update notifications on startup. If you wish to
+all the products check themselves with the OMERO.registry for update notifications on startup. If you wish to
 disable this functionality you should do so now as outlined on the
-:wiki:`UpgradeCheck <UpgradeCheck>` page.
+:doc:`/sysadmins/UpgradeCheck` page.
 
 If you encounter errors during a OMERO upgrade, database upgrade, etc.
 you should retain as much log information as possible and notify the
 OMERO.server team via the mailing lists available on the
-:community_plone:`community <>` page. More experienced users may wish to
-examine the :wiki:`DbUpgrade`
-page for technical information about OMERO.server database upgrades and
-how to troubleshoot errors themselves.
+:community_plone:`community <>` page. 
 
 General HOWTOs
 --------------
@@ -704,11 +700,6 @@ that may point to the wrong location.
 
 3.2.x to 4.0.0
 ~~~~~~~~~~~~~~
-
-** If your server is anything other than a Beta 3.2 series, you will
-first need to follow all required upgrades on the :wiki:`OMERO
-Trac <OmeroUpgrade>`
-before proceeding with these instructions. **
 
 Unlike previous upgrades, migrating from the 3.2.x series to 4.0.0 is
 essentially a full re-install but re-using your existing database and

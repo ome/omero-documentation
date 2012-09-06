@@ -101,8 +101,6 @@ Testing
       the testing process.
    -  The scenarios will be reviewed 2 weeks before the code freeze
       checking the enhancements and new features.
-   -  `Testing Scenarios </ome/wiki/TestingScenarios>`_ should be
-      up-to-date when code freeze.
    -  Stories (scenario and file formats) and tasks created. One Task
       per scenario.
    -  Stories (scenario and file formats) to collect bugs created.
@@ -232,10 +230,10 @@ Release
    -  Checkout master: ``git checkout master``
    -  Merge the newly created tag: ``git merge v.4.4.0``
    -  Push to the official repository: ``git push origin master``
-   -  Update version number for the
-      `UpgradeCheck </ome/wiki/UpgradeCheck>`_. This is currently done
+   -  Update version number for the :doc:
+      `UpgradeCheck </sysadmins/UpgradeCheck>`. This is currently done
       by connecting to the “feedback” database on necromancer. Following
-      info also under `UpgradeCheck </ome/wiki/UpgradeCheck>`_:
+      info also under :doc:`/sysadmins/UpgradeCheck`:
 
       -  ``select * from registry_version;``
       -  ``update registry_version set version = '4.4.0';``
