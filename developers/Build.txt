@@ -79,6 +79,9 @@ OMERO:
                 |--lifecycle.xml
                 \--depdendencies.xml
 
+.. note::
+    User examples are explained under :doc:`/developers/GettingStarted`
+
 Each of the components can also be built directly. For example,
 
 ::
