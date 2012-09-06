@@ -142,22 +142,22 @@ inside your OMERO installation directory.
 
 Change any settings that are necessary via bin/omero config.
 
-- Enable or disable LDAP (true/false)
+-  Enable or disable LDAP (true/false)
 
    ::
 
        bin/omero config set omero.ldap.config true
 
-- LDAP server URL string
-    
-    .. note::
+-  LDAP server URL string
 
-        A SSL URL above should look like this:
-        ldaps://ldap.example.com:636
+   ::
 
-    ::
+       bin/omero config set omero.ldap.urls ldap://ldap.example.com:389
 
-        bin/omero config set omero.ldap.urls ldap://ldap.example.com:389
+   .. note::
+
+       A SSL URL above should look like this:
+       ldaps://ldap.example.com:636
 
 -  LDAP server bind DN (if required; can be empty)
 

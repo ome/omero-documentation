@@ -1,4 +1,5 @@
 LDAP Plugin Design
+==================
 
 Once configured, :doc:`/sysadmins/server-ldap` allows sysadmins to control
 OMERO's user and group creation via an external, locally-maintained LDAP
@@ -16,7 +17,7 @@ The LDAP plugin follows these steps:
 #. Once LDAP is enabled, any OMERO user who has a non-null ``dn`` in the
    ``password`` table will have their password checked against LDAP and
    **not** against OMERO (changing the password via OMERO is *not* supported).
-   This functionality is provided by the :ref:`developers/Server/PasswordProvider`.
+   This functionality is provided by the :doc:`/developers/Server/PasswordProvider`.
 #. If there is no OMERO user for a given name, the LDAP plugin will use
    ``omero.ldap.user_filter`` and ``omero.ldap.user_mapping`` to look for a
    valid user:
@@ -37,7 +38,7 @@ The LDAP plugin follows these steps:
    ``omero.ldap.user_mapping``.
 #. Then the user will be placed in groups according to the value of
    ``omero.ldap.new_user_group``, which are created if necessary. Details of
-   the various options can be found under :ref:`sysadmins/server-ldap`. Each
+   the various options can be found under :doc:`/sysadmins/server-ldap`. Each
    option is handled by a different ``NewUserGroupBean`` implementation.
 
 ``NewUserGroupBean.java``
