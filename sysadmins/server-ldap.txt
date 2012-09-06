@@ -196,7 +196,7 @@ LDAP over SSL
 -------------
 
 If you are connecting to your server over :abbr:`SSL (Secure Socket Layer)`,
-that is, if your URL is of the form "ldaps://ldap.example.com:636" you will
+that is, if your URL is of the form ``ldaps://ldap.example.com:636`` you will
 need to configure a key and trust store for Java. See the
 :doc:`server-security` page for more information.
 
@@ -257,6 +257,5 @@ enable it, use:
     :doc:`/developers/Server/Ldap`
         Developer documentation on extending the LDAP plugin yourself.
 
-    If you have LDAP requirements that are not covered by the above
-    configuration, please see the forum discussion :forum:`What are your LDAP
-    requirements? <viewtopic.php?f=5&t=14>`.
+    :forum:`What are your LDAP requirements? <viewtopic.php?f=5&t=14>`
+        Forum discussion if you have LDAP requirements that are not covered by the above configuration
