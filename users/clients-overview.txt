@@ -27,21 +27,24 @@ OMERO.web
 
 OMERO.web is a web-based client for users who wish to access their data in the
 browser. This offers a similar view to the OMERO.insight desktop client.
-Developers can use the |OmeroWeb| to build customised views.
+Figures :ref:`omeroweb_44` and :ref:`omero_web_4_4` present the user
+interface [2]_ [4]_. Developers can use the |OmeroWeb| to build customised views.
 
+.. _omeroweb_44:
 .. figure:: /images/OmeroWeb_44.png
     :width: 60%
     :align: center
     :alt: OMERO.web user interface
     
-    OMERO.web user interface [2]_
+    OMERO.web user interface
 
+.. _omero_web_4_4:
 .. figure:: /images/omero_web_4_4.png
     :width: 60%
     :align: center
-    :alt: OMERO.web in action
+    :alt: OMERO.web image viewer
     
-    OMERO.web in action [4]_
+    OMERO.web image viewer
     
 
 .. _omero-insight:
@@ -50,22 +53,26 @@ OMERO.insight
 -------------
 
 OMERO.insight provides a number of tools for accessing and using data in an
-OMERO Server. To find out more, see the
+OMERO Server. The figure :ref:`omero_insight_4_4_viewer` presents the
+OMERO.insight image viewer, whereas figure :ref:`omero_insight_screenshot_4_4`
+presents the user interface [1]_ [3]_. To find out more, see the
 :doc:`client-tutorials/insight/insight-getting-started` section.
 
+.. _omero_insight_4_4_viewer:
 .. figure:: /images/omero_insight_4_4_viewer.png
     :align: center
     :width: 60%
     :alt: OMERO.insight ImageViewer
     
-    OMERO.insight ImageViewer [1]_
+    OMERO.insight ImageViewer
     
+.. _omero_insight_screenshot_4_4:    
 .. figure:: /images/omero_insight_screenshot_4_4.png
     :align: center
     :width: 60%
     :alt: OMERO.insight
     
-    OMERO.insight [3]_
+    OMERO.insight
 
 Among many features, the noteworthy OMERO.insight elements are:
 
