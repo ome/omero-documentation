@@ -78,7 +78,7 @@ Testing
    -  Jenkins Linux & Windows "start" jobs **should be passing**
    -  See: :jenkins:`job/OMERO-trunk-components`.
 
--  :wiki:`BioFormats <BioFormats>`.
+-  :bfdoc_plone:`BioFormats <>`.
 
    -  During development phase, keep track of files failing to import
       submitted to the team.

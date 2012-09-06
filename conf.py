@@ -109,13 +109,14 @@ extlinks = {
     # suffixes during testing.
     'community_plone' : ('http://www.openmicroscopy.org/site/community/%s', ''),
     'feature_plone' : ('http://www.openmicroscopy.org/site/products/feature-list/%s', ''),
+    'bfdoc_plone' : ('http://www.openmicroscopy.org/site/support/bio-formats/%s', ''),
     'formats_plone' : ('http://www.openmicroscopy.org/site/support/file-formats/%s', ''),
     'legacy_plone' : ('http://www.openmicroscopy.org/site/support/legacy/%s', ''),
     'about_plone' : ('http://www.openmicroscopy.org/site/about/%s', ''),
     'team_plone' : ('http://www.openmicroscopy.org/site/team/%s', ''),
     'faq_plone' : ('http://www.openmicroscopy.org/site/support/faq/%s', ''),
     'omero_plone' : ('http://www.openmicroscopy.org/site/products/omero/%s/', ''),
-    'bf_plone' : ('http://www.openmicroscopy.org/site/products/bio-formats%s/', ''),
+    'bf_plone' : ('http://www.openmicroscopy.org/site/products/bio-formats/%s/', ''),
     }
 
 rst_epilog = """
