@@ -50,11 +50,11 @@ folders named 'web....'. These include webgateway & webtest, as
 discussed above, as well as released tools (webadmin, webclient) and
 other apps in development:
 
--  webclient: Main web client for viewing images, annotating etc. :doc:`more
-   info </users/clients-overview>`
+-  webclient: Main web client for viewing images, annotating etc. More
+   information available under :ref:`OMERO.web <omero-web>`.
 -  webadmin: For administration of user and group settings.
 -  webgateway: A web services interface, providing rendered images and
-   data. See :doc:`/developers/Web/WebGateway`
+   data. See :doc:`/developers/Web/WebGateway`.
 -  webtest: A sample app for testing, that can also be used as a basis
    for creating your own app.
 
