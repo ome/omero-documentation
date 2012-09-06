@@ -24,7 +24,8 @@ aspects.
    template <components/dsl/resources/ome/dsl/psql-footer.vm>`
    for how ``root`` and the intial groups are setup.)
 
--  If the server is configured for LDAP, an ``Experimenter`` may be
+-  If the server is configured for :doc:`LDAP Authentication
+   </sysadmins/server-ldap>`, an ``Experimenter`` may be
    created when ISessions attempts to check the password via
    ``IAdmin.checkPassword()``.
 
