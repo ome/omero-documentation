@@ -122,6 +122,7 @@ rst_epilog = """
 .. _Hibernate: http://www.hibernate.org
 .. _ZeroC: http://www.zeroc.com
 .. _Ice: http://www.zeroc.com
+.. _Jenkins: http://jenkins-ci.org
 
 .. |OmeroPy| replace:: :doc:`/developers/Python`
 .. |OmeroCpp| replace:: :doc:`/developers/Cpp`

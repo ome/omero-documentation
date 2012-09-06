@@ -95,31 +95,23 @@ uses your LDAP account for authentication. Trac is used to record all tickets (i
 Developer documentation
 -----------------------
 
-The developer documentation is maintained under version control, generated using Sphinx and hosted on https://www.openmicroscopy.org/site/support/.
+The developer documentation is maintained under version control, generated using Sphinx and hosted on https://www.openmicroscopy.org.
 
 .. _plone_screenshot:
 .. figure:: images/10000000000003EF00000209A486215A.png
    :align: center
 
-Each section of the code base (OMERO, Bio-Formats) has a landing page that will direct you to all the Developer documentation that you might need. For example, the page for OMERO is
-
-    http://www.openmicroscopy.org/site/support/omero4
-
-and the page for Bio-Formats is
-
-    https://www.openmicroscopy.org/site/support/bio-formats
-
+Each section of the code base (OMERO, Bio-Formats) has a landing page that will direct you to all the Developer documentation that you might need. For example, the Developer page for OMERO is :doc:`here </developers/index>`.
 
 Jenkins: Continuous integration
 -------------------------------
 
-Our Jenkins server (http://jenkins-ci.org) is available :jenkins:`here
-<>` and also uses LDAP authentication. The name “Hudson” comes from
-before the Jenkins fork after Sun’s acquisition by Oracle and that’s
-what the team refers to it as. Jenkins provides a mechanism to run
-arbitrary tasks (“jobs”) on one or more platforms after particular
-events (time of day, git push, etc.) These jobs build all of the
-binaries released by the team, and also run automated testing.
+Our Jenkins_ server is available :jenkins:`here <>` and also uses LDAP 
+authentication. The name “Hudson” comes from before the Jenkins fork after
+Sun’s acquisition by Oracle and that’s what the team refers to it as. Jenkins 
+provides a mechanism to run arbitrary tasks (“jobs”) on one or more platforms
+after particular events (time of day, git push, etc.) These jobs build all of 
+the binaries released by the team, and also run automated testing.
 
 .. _jenkins_screenshot:
 .. figure:: images/10000000000003EF000002093F36F067.png
@@ -141,15 +133,8 @@ Forums and mailing list
 -----------------------
 
 Feedback from the OME community happens primarily on 2 public mailing
-lists (ome-users and ome-devel) that are further described under
-
-    http://www.openmicroscopy.org/site/community/mailing-lists
-
-as well as on the PhpBB forums
-
-    http://www.openmicroscopy.org/community
-
-an alternative to the mailing lists since some users prefer the forum
+lists that are further described under :mailinglist:`ome-users` and 
+:mailinglist:`ome-devel` as well as on the :community_plone:`PhpBB forums <>`, an alternative to the mailing lists since some users prefer the forum
 interface to the mailing list one, and vice versa.
 
 You should add yourself to all three and be aware of and scan all
@@ -506,9 +491,7 @@ extensive testing.
 Scenarios
 ^^^^^^^^^
 
-Testing is largely performed through a number of “scenarios” which are
-organized on the Trac:
-https://trac.openmicroscopy.org.uk/ome/wiki/TestingScenarios Such
+Testing is largely performed through a number of “scenarios”. Such
 scenarios should be defined as you develop new features, and the team
 will periodically review and test the scenarios even before
 release. So-called “Scenario days” are listed on the front page of the

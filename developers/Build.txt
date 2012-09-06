@@ -193,7 +193,7 @@ omero release-zip"
 Jenkins
 ~~~~~~~
 
-The OME project currently uses `Jenkins <http://jenkins-ci.org/>`_ as
+The OME project currently uses Jenkins_ as
 a continuous integration server available :jenkins:`here <>`, so many
 binary packages can be downloaded without compiling them yourself.
 OMERO.server is built by the "OMERO" job at
