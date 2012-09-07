@@ -2,23 +2,24 @@
 Developer Documentation
 #######################
 
-This is the home page of the OMERO developer documentation. OMERO is an open 
-source client/server system written for visualizing,  managing, and annotating 
-microscope images and metadata. The OMERO server API allows clients to be 
-written in :doc:`Python </developers/Python>`, :doc:`Java </developers/Java>`,
-:doc:`MATLAB </developers/Matlab>` or :doc:`C++ </developers/Cpp>`. OMERO 
-releases include a web client |OmeroWeb| and command line interface OMERO.cli 
-which use the Python API and a Java client OMERO.insight. OMERO also supports 
-a Scripting Service which allows Python scripts to be run on the server & 
-called from any of the other clients.
-
-Instructions on downloading, installing, and administering OMERO can be found 
-under the :doc:`/sysadmins/index`.
+The following documentation is for developers wishing to write OMERO client code or extend the OMERO server. Instructions on :omero_plone:`downloading <downloads>`,
+installation and administering OMERO can be found under the :doc:`/sysadmins/index` of the main site.
 
 .. figure:: /images/developer-api-figure.png
    :align: center
-   :width: 60%
-   :alt:
+   :alt: 
+
+**OMERO** is an open source client/server system written in Java for
+visualizing, managing, and annotating microscope images and metadata.
+The |OmeroApi| allows clients to be
+written in :doc:`Java </developers/Java>`, :doc:`Python </developers/Python>`,
+:doc:`C++ </developers/Cpp>` or :doc:`MATLAB </developers/Matlab>`. OMERO
+releases include a Java client OMERO.insight, a Python-based web client 
+OMERO.web and |OmeroCli|, which also uses Python. There is also an ImageJ 
+plugin. OMERO can be extended by modifying these clients or by writing your 
+own in any of the supported languages (see figure). OMERO also supports a
+:doc:`Scripting Service </developers/Modules/Scripts>` which allows Python
+scripts to be run on the server & called from any of the other clients.
 
 OMERO is designed, developed and released by the |OME|, with contributions 
 from |Glencoe| OMERO is released under the `GNU General Public License (GPL)`_ 
