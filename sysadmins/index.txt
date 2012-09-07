@@ -14,9 +14,9 @@ Server Background
     /users/system-requirements
     /users/limitations
 
-*******************
-Server Installation
-*******************
+*************************
+Basic Server Installation
+*************************
 
 .. toctree::
     :maxdepth: 2
@@ -27,10 +27,21 @@ Server Installation
     install-web
     troubleshooting
     server-security
-    omeromovie
     /developers/server-install-homebrew
     /developers/server-install-linux
 
+****************************
+Advanced Server Installation
+****************************
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    server-advanced-configuration
+    server-ldap
+    server-tables
+    omeromovie
 
 ******************
 Server Maintenance
@@ -56,7 +67,6 @@ Advanced topics
     :titlesonly:
 
     /users/server-permissions
-    server-analysis
     server-advanced-configuration
     server-fs
     server-ldap

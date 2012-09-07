@@ -193,10 +193,9 @@ Going forward
 The Tables API itself provides little more than a remotely accessible
 store, think of it as a server for Excel-like spreadsheets. We're
 currently looking into the facilities that can be built on top of it,
-and are **very** open to suggestions. For example, the IRoi interface
-(:jenkins:`documentation
-<job/OMERO/javadoc/slice2html/omero/api/IRoi.html#IRoi>`, :wiki:`wiki
-<RegionsOfInterest>`) has been extended to filter ROIs by a given
+and are **very** open to suggestions. For example, the
+:jenkins:`IRoi interface <job/OMERO/javadoc/slice2html/omero/api/IRoi.html#IRoi>`
+has been extended to filter ROIs by a given
 measurement. This allows seeing only those results from a particular
 analysis run. The following example shows how to setup such a
 measurement and retrieve its results:
