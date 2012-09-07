@@ -78,51 +78,40 @@ account. Register and download software from http://www.skype.com.
 
 .. note:: your Skype account name along with all of your contact details should be added to DevContactList on Google Docs. See below.
 
-Trac: Developer docs
---------------------
+The three major development tools that the OME project runs are Trac, the 
+developer documentation and Jenkins.
 
-The two major development tools that the OME project runs are Trac and
-Jenkins.
+Trac
+----
 
-The Trac server is available under
-https://trac.openmicroscopy.org.uk/ome and uses your LDAP account for
-authentication. Trac provides a wiki where we put all the development
-documentation (as opposed to the official user document under
-http://www.openmicroscopy.org/site).
+The Trac server is available under https://trac.openmicroscopy.org.uk/ome and 
+uses your LDAP account for authentication. Trac is used to record all tickets (i.e. “bugs” or “issues”) as well as hierarchical groups of “tasks” in “requirements” and “stories”. This functionality is provided by a plugin for Trac named “Agilo” (http://agile42.com/en/) which you may want to read more about. Most importantly it provides a whiteboard where tickets are arranged per story into 3 columns: new, accepted, and closed.
+
+.. _trac_screenshot:
+.. figure:: images/10000000000005000000032056C4DB6C.png
+   :align:  center 
+
+
+Developer documentation
+-----------------------
+
+The developer documentation is maintained under version control, generated using Sphinx and hosted on https://www.openmicroscopy.org.
 
 .. _plone_screenshot:
 .. figure:: images/10000000000003EF00000209A486215A.png
    :align: center
 
-Each section of the code base (OMERO, Bio-Formats, the Data Model) has
-a landing page on the wiki that will direct you to all the "**Getting
-Started**" documentation that you might need. For example, the page
-for OMERO is
-
-    http://trac.openmicroscopy.org.uk/ome/wiki/OmeroHome
-
-In addition, Trac is used to record all tickets (i.e. “bugs” or
-“issues”) as well as hierarchical groups of “tasks” in “requirements”
-and “stories”. This functionality is provided by a plugin for Trac
-named “Agilo” (http://agile42.com/en/) which you may want to read more
-about. Most importantly it provides a whiteboard where tickets are
-arranged per story into 3 columns: new, accepted, and closed.
-
-.. _trac_screenshot:
-.. figure:: images/10000000000005000000032056C4DB6C.png
-   :align:  center
-
+Each section of the code base (OMERO, Bio-Formats) has a landing page that will direct you to all the Developer documentation that you might need. For example, the Developer page for OMERO is :doc:`here </developers/index>`.
 
 Jenkins: Continuous integration
 -------------------------------
 
-Our Jenkins server (http://jenkins-ci.org) is available :jenkins:`here
-<>` and also uses LDAP authentication. The name “Hudson” comes from
-before the Jenkins fork after Sun’s acquisition by Oracle and that’s
-what the team refers to it as. Jenkins provides a mechanism to run
-arbitrary tasks (“jobs”) on one or more platforms after particular
-events (time of day, git push, etc.) These jobs build all of the
-binaries released by the team, and also run automated testing.
+Our Jenkins_ server is available :jenkins:`here <>` and also uses LDAP 
+authentication. The name “Hudson” comes from before the Jenkins fork after
+Sun’s acquisition by Oracle and that’s what the team refers to it as. Jenkins 
+provides a mechanism to run arbitrary tasks (“jobs”) on one or more platforms
+after particular events (time of day, git push, etc.) These jobs build all of 
+the binaries released by the team, and also run automated testing.
 
 .. _jenkins_screenshot:
 .. figure:: images/10000000000003EF000002093F36F067.png
@@ -134,9 +123,7 @@ Git and Github: Source code
 Commits take place primarily on github currently. To be aware of
 what’s really going on, your best option is to become familiar with
 git, github, and the repositories of all the team members. Information
-on doing that is available under
-
-    https://trac.openmicroscopy.org.uk/ome/wiki/WorkingWithOmero/UsingGit
+on doing that is available under :doc:`/developers/Development/UsingGit`
 
 .. _github_screenshot:
 .. figure:: images/10000000000003EF000002096AD7CA41.png
@@ -146,15 +133,9 @@ Forums and mailing list
 -----------------------
 
 Feedback from the OME community happens primarily on 2 public mailing
-lists (ome-users and ome-devel) that are further described under
-
-    http://www.openmicroscopy.org/site/community/mailing-lists
-
-as well as on the PhpBB forums
-
-    http://www.openmicroscopy.org/community
-
-an alternative to the mailing lists since some users prefer the forum
+lists that are further described under :mailinglist:`ome-users` and 
+:mailinglist:`ome-devel` as well as on the :forum:`PhpBB forums <>`, 
+an  alternative to the mailing lists since some users prefer the forum
 interface to the mailing list one, and vice versa.
 
 You should add yourself to all three and be aware of and scan all
@@ -224,7 +205,7 @@ available in case you do.
   (https://alfresco.lifesci.dundee.ac.uk) (LDAP-based) for
   collaborating on documents.
 
-* The OME QA system (http://qa.openmicroscopy.org.uk/) is an in-house
+* The OME `QA <http://qa.openmicroscopy.org.uk/>`_ system is an in-house
   system for collecting feedback from users, including failing files,
   stack traces, etc. Like our community feedback, QA feedback should
   be turned into a ticket in a timely manner.
@@ -342,10 +323,8 @@ to complete. A large number of stories will be put into any one sprint
 , the two-week period that is visible on the Trac whiteboard at a
 given time. This is the standard unit of work for the team. After a
 sprint, the stories that were chosen for the sprint, should be closed
-if possible, and there should be some evidence of the work
-(screenshots, screencasts, etc) available from the milestone page:
-
-    https://trac.openmicroscopy.org.uk/ome/roadmap
+if possible, and there should be some evidence of the work 
+(screenshots, screencasts, etc) available from the roadmap_ page:
 
 .. _storyexample_screenshot:
 .. figure:: images/10000000000003EF00000209C184C65E.png
@@ -381,11 +360,9 @@ chosen not to use this feature, since it unduly complicates the
 workflow (e.g. they are treated as container and one must create a bug
 inside the bug to do anything with it).
 
-Instead, “Bug:” is pre-pended to the ticket summary to indicate a
-bug. A list of all current such bugs can be viewed via the “BUGS!
-EEK!!” report in the left hand panel:
-
-    https://trac.openmicroscopy.org.uk/ome/report/8
+Instead, “Bug:” is pre-pended to the ticket summary to indicate a bug. A list 
+of all current such bugs can be viewed via the :report`BUGS! EEK!! <8>` report 
+in the left hand panel:
 
 .. _bugs_screenshot:
 .. figure:: images/10000000000003EF0000020903157559.png
@@ -475,9 +452,7 @@ Branch process (Month-to-month)
 
 The output of your daily and weekly work will almost always be the
 production of a branch. That process is described in (perhaps too
-much) detail under
-
-    https://trac.openmicroscopy.org.uk/ome/wiki/WorkingWithOmero/UsingGit
+much) detail under :doc:`/developers/Development/UsingGit`
 
 Particularly of importance for this document is the section on “Branch
 management”. The general idea is that branches also have a lifecycle
@@ -492,8 +467,7 @@ involved in.
 Release process
 ---------------
 
-A release is primarily defined on the Trac milestone page,
-e.g. http://trac.openmicroscopy.org.uk/ome/roadmap
+A release is primarily defined on the Trac roadmap_ page
 
 .. _milestone_screenshot:
 .. figure:: images/10000000000004490000024DBC85F470.png
@@ -513,9 +487,7 @@ extensive testing.
 Scenarios
 ^^^^^^^^^
 
-Testing is largely performed through a number of “scenarios” which are
-organized on the Trac:
-https://trac.openmicroscopy.org.uk/ome/wiki/TestingScenarios Such
+Testing is largely performed through a number of “scenarios”. Such
 scenarios should be defined as you develop new features, and the team
 will periodically review and test the scenarios even before
 release. So-called “Scenario days” are listed on the front page of the
@@ -531,8 +503,7 @@ Checklist
 ^^^^^^^^^
 
 A checklist of all the things that should be done as the release date
-approaches is available under
-https://trac.openmicroscopy.org.uk/ome/wiki/ReleaseProcess
+approaches is available under :doc:`/developers/Development/ReleaseProcess`
 
 Yearly meetings
 ---------------

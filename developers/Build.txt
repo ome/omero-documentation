@@ -40,8 +40,7 @@ OMERO:
       |   |-- omero.properties
       |   \-- profiles
       |
-      |-- examples ............................ User examples, explained under:
-      |                                         http://trac.openmicroscopy.org.uk/omero/wiki/OmeroClients
+      |-- examples ............................ User examples
       |
       \components
         |
@@ -79,6 +78,9 @@ OMERO:
                 |--directories.xml
                 |--lifecycle.xml
                 \--depdendencies.xml
+
+.. note::
+    User examples are explained under :doc:`/developers/GettingStarted`
 
 Each of the components can also be built directly. For example,
 
@@ -191,7 +193,7 @@ omero release-zip"
 Jenkins
 ~~~~~~~
 
-The OME project currently uses `Jenkins <http://jenkins-ci.org/>`_ as
+The OME project currently uses Jenkins_ as
 a continuous integration server available :jenkins:`here <>`, so many
 binary packages can be downloaded without compiling them yourself.
 OMERO.server is built by the "OMERO" job at

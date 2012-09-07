@@ -2,8 +2,7 @@ OMERO Upgrade Checks
 ====================
 
 On each startup the OMERO server checks for available upgrades via the
-`UpgradeCheck
-class </ome/browser/ome.git/components/common/src/ome/system/UpgradeCheck.java>`_.
+:source:`UpgradeCheck class <components/common/src/ome/system/UpgradeCheck.java>`.
 An HTTP GET call is made to the URL configured in
 ``etc/omero.properties`` as ``omero.upgrades.url``, currently
 ` http://upgrade.openmicroscopy.org.uk <http://upgrade.openmicroscopy.org.uk>`_
@@ -35,7 +34,7 @@ is:
 -  poll frequency (for determining statistics)
 -  your IP address (standard HTTP header information)
 
-**NOTE:** Currently the "poll" property is unused.
+.. note:: Currently the "poll" property is unused.
 
 If this is a problem for your site, please see *Disabling* below.
 
@@ -49,12 +48,10 @@ setting the omero.upgrades.url property to an empty string:
 
     omero.upgrades.url=
 
---------------
-
 Developers
 ----------
 
-To use the `UpgradeCheck </ome/wiki/UpgradeCheck>`_ class from your own
+To use the UpgradeCheck class from your own
 code, it is necessary to have ``common.jar`` on your classpath. Then,
 
 ::
@@ -94,8 +91,10 @@ Updating the registry version after a release
     feedback=# update registry_version set version = 'Beta-4.3.0' where id = 1;
     UPDATE 1
 
---------------
+.. seealso:: 
 
-See also: `OmeroInstall </ome/wiki/OmeroInstall>`_,
-`OmeroUpgrade </ome/wiki/OmeroUpgrade>`_,
-`OmeroSecurity </ome/wiki/OmeroSecurity>`_
+	:doc:`/sysadmins/unix/server-installation`
+
+    :doc:`/sysadmins/server-upgrade`
+
+    :doc:`/sysadmins/server-security`

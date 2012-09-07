@@ -93,7 +93,6 @@ pygments_style = 'sphinx'
 #modindex_common_prefix = []
 
 extlinks = {
-    'wiki' : ('http://trac.openmicroscopy.org.uk/ome/wiki/%s', ''),
     'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/%s', '#'),
     'milestone' : ('http://trac.openmicroscopy.org.uk/ome/milestone/%s', ''),
     'report' : ('http://trac.openmicroscopy.org.uk/ome/report/%s', ''),
@@ -116,13 +115,15 @@ extlinks = {
     'team_plone' : ('http://www.openmicroscopy.org/site/team/%s', ''),
     'faq_plone' : ('http://www.openmicroscopy.org/site/support/faq/%s', ''),
     'omero_plone' : ('http://www.openmicroscopy.org/site/products/omero/%s/', ''),
-    'bf_plone' : ('http://www.openmicroscopy.org/site/products/bio-formats%s/', ''),
+    'bf_plone' : ('http://www.openmicroscopy.org/site/products/bio-formats/%s/', ''),
     }
 
 rst_epilog = """
 .. _Hibernate: http://www.hibernate.org
 .. _ZeroC: http://www.zeroc.com
 .. _Ice: http://www.zeroc.com
+.. _Jenkins: http://jenkins-ci.org
+.. _roadmap: https://trac.openmicroscopy.org.uk/ome/roadmap
 
 .. |OmeroPy| replace:: :doc:`/developers/Python`
 .. |OmeroCpp| replace:: :doc:`/developers/Cpp`

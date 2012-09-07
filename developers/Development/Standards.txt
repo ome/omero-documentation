@@ -150,15 +150,14 @@ Coding
 
 -  Development process
 
-   -  No new feature is coded without a ticket or wiki
-   -  twitter is kept uptodate on which ticket or wiki page you are
-      working on
+   -  No new feature is coded without a ticket
+   -  twitter is kept uptodate on which ticket you are working on
    -  testing
    -  something about reading all new documentation and commenting if
       you don't understand or know if it pertains
    -  respond to hudson
-   -  Checkin process **ticket or wiki is referenced from all commits in
-      the form "wiki:link : ..."**
+   -  Checkin process **ticket is referenced from all commits in
+      the form "ticket:link : ..."**
 
 Licensing
 ^^^^^^^^^

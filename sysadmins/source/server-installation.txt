@@ -144,7 +144,7 @@ The following are optional depending on what services you require:
       - `Numpy page <http://numpy.scipy.org/>`_
 
     * - PyTables (2.1.0 or higher)
-      - :wiki:`OMERO.Tables <OmeroTables>`
+      - `OmeroTables </ome/wiki/OmeroTables>`
       - `PyTables page <http://www.pytables.org/moin/Downloads>`_
 
     * - scipy.ndimage
@@ -602,7 +602,7 @@ your server.
 Update Notification
 ^^^^^^^^^^^^^^^^^^^
 
-Your OMERO.server installation will check for updates each time it is started from the *Open Microscopy Environment* update server. If you wish to disable this functionality you should do so now as outlined on the :wiki:`UpgradeCheck` page.
+Your OMERO.server installation will check for updates each time it is started from the *Open Microscopy Environment* update server. If you wish to disable this functionality you should do so now as outlined on the :doc:`/sysadmins/UpgradeCheck` page.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
