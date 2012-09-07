@@ -61,9 +61,9 @@ For more details, see :download:`Software Build and Deployment </downloads/sbdd.
 Jenkins
 ^^^^^^^
 
-The OME project currently uses `Jenkins <http://jenkins-ci.org/>`_
-(formerly known as hudson) as a continuous integration server
-available :jenkins:`here <>` . OMERO.insight is built as part of the "OMERO-trunk" job :jenkins:`here <job/OMERO-trunk>`.
+The OME project currently uses Jenkins_ (formerly known as hudson) as a 
+continuous integration server available :jenkins:`here <>`. OMERO.insight is 
+built as part of the "OMERO-trunk" job :jenkins:`here <job/OMERO-trunk>`.
 
 Jenkins checks for SVN changes every 15 minutes and executes:
 

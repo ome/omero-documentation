@@ -1,10 +1,10 @@
 Extending OMERO
 ===============
 
-Developers documentation is available on :wiki:`trac <>`. There are
-extension points to add OMERO server functionality as described on the
-:doc:`/developers/Server/ExtendingOmero` page as well as add to agents 
-to OMERO.insight. See :doc:`/developers/Insight/Architecture` for more 
+Developers documentation is available on :doc:`here </developers/index>`. 
+There are extension points to add OMERO server functionality as described on 
+the :doc:`/developers/Server/ExtendingOmero` page as well as add to agents to 
+OMERO.insight. See :doc:`/developers/Insight/Architecture` for more 
 information.
 
 Instructions on writing your own :doc:`/developers/GettingStarted` or 

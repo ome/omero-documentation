@@ -78,7 +78,7 @@ Testing
    -  Jenkins Linux & Windows "start" jobs **should be passing**
    -  See: :jenkins:`job/OMERO-trunk-components`.
 
--  :wiki:`BioFormats <BioFormats>`.
+-  BioFormats
 
    -  During development phase, keep track of files failing to import
       submitted to the team.
@@ -101,8 +101,6 @@ Testing
       the testing process.
    -  The scenarios will be reviewed 2 weeks before the code freeze
       checking the enhancements and new features.
-   -  `Testing Scenarios </ome/wiki/TestingScenarios>`_ should be
-      up-to-date when code freeze.
    -  Stories (scenario and file formats) and tasks created. One Task
       per scenario.
    -  Stories (scenario and file formats) to collect bugs created.
@@ -146,24 +144,24 @@ Documentation
       -  `Main Page <http://www.openmicroscopy.org/site>`_ (no copy. Update on Release)
       -  Products
 
-         -  `Feature List Page <http://www.openmicroscopy.org/site/products/feature-list>`_
-         -  `Big Images Support <http://www.openmicroscopy.org/site/products/omero/big-images-support>`_
-         -  `Import in OMERO.insight <http://www.openmicroscopy.org/site/products/omero/import-in-omero.insight>`_
-         -  `Improved Web Client <http://www.openmicroscopy.org/site/products/omero/improved-web-client>`_
-         -  `About Omero <http://www.openmicroscopy.org/site/products/omero/omero-platform-v4>`_
-         -  `Volume Viewer in OMERO.web <http://www.openmicroscopy.org/site/products/omero/volume-viewer-in-omero.web>`_
+         -  :feature_plone:`Feature List Page <>`
+         -  :omero_plone:`Big Images Support <big-images-support>`
+         -  :omero_plone:`Import in OMERO.insight <import-in-omero.insight>`
+         -  :omero_plone:`Improved Web Client <improved-web-client>`
+         -  :omero_plone:`About Omero <omero-platform-v4>`
+         -  :omero_plone:`Volume Viewer in OMERO.web <volume-viewer-in-omero.web>`
          -  :omero_plone:`Downloads <downloads>`
          -  :omero_plone:`Screenshots page <screenshots>`
 
-      -  `Contributors <http://www.openmicroscopy.org/site/about/contributers>`_
+      -  :about_plone:`Roadmap <Contributors <contributers>`
       -  Road map page:
 
-         -  `Roadmap <http://www.openmicroscopy.org/site/about/roadmap>`_
-         -  `Version
-            history <http://www.openmicroscopy.org/site/about/project-history/omero-version-history>`_
+         -  :about_plone:`Roadmap <roadmap>`
+         -  :about_plone:`Version
+            history <project-history/omero-version-history>`
 
       -  Movies page ?
-      -  What OMERO <http://www.openmicroscopy.org/site/about/what-omero>`_
+      -  :about_plone:`What OMERO <what-omero>`
       -  Upgrade page
 
          -  i.e. add section to :doc:`/sysadmins/server-upgrade`
@@ -177,8 +175,7 @@ Documentation
    -  If your video uses the terminal, format your terminal
       to use Monaco 22pt, yes THAT BIG, pick colours with a good
       contrast and turn off window transparency!
-   -  For video formatting instructions see:
-      `VideoFormatForOmeMovies </ome/wiki/VideoFormatForOmeMovies>`_
+   -  For video formatting instructions see :doc:`VideoFormatForOmeMovies`
 
 -  Documentation of all API/model changes
 -  All sphinx documentation
@@ -232,10 +229,10 @@ Release
    -  Checkout master: ``git checkout master``
    -  Merge the newly created tag: ``git merge v.4.4.0``
    -  Push to the official repository: ``git push origin master``
-   -  Update version number for the
-      `UpgradeCheck </ome/wiki/UpgradeCheck>`_. This is currently done
+   -  Update version number for the :doc:
+      `UpgradeCheck </sysadmins/UpgradeCheck>`. This is currently done
       by connecting to the “feedback” database on necromancer. Following
-      info also under `UpgradeCheck </ome/wiki/UpgradeCheck>`_:
+      info also under :doc:`/sysadmins/UpgradeCheck`:
 
       -  ``select * from registry_version;``
       -  ``update registry_version set version = '4.4.0';``
