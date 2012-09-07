@@ -192,7 +192,7 @@ other directives, you can use the absolute file path, i.e. relative to the
 top-level directory:
 ``:doc: `/path/name-of-the-page``` or ``:doc: `link to my page </path/name-of-the-page>```.
 
-Any document can also start with a label
+Only when a good reason exists, a document can also start with a label::
     
     .. _page-label:
     
@@ -200,10 +200,10 @@ Any document can also start with a label
     Title of the page
     *****************
 
-References to labels above tables and images are also encouraged. The
-``:ref:`` Sphinx role is advised over standard reST links, as it works across
-files and reference names are automatically generated (e.g. from caption of an
-image).
+Use of labels to refer to whole files is discouraged. References to labels
+above tables and images are encouraged. The ``:ref:`` Sphinx role is advised
+over standard reST links, as it works across files and reference names are
+automatically generated (e.g. from caption of an image).
 
 Images vs. Figures
 ==================
