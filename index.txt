@@ -3,141 +3,25 @@ OMERO |release| Documentation
 #############################
 
 This documentation is a work in progress and many aspects of OMERO are
-not yet covered. The first three sections of this documentation cover the basic usage of OMERO as well as training material suitable for most end-users. System administrators wanting to install an OMERO server will be more interested by the :ref:`serverinstallation` and subsequent sections. The first part of this document covers the user documentation. Finally, developers can find more specific information about OMERO in the :ref:`developerdocumentation`.
+not yet covered.
 
-
-************
-Introduction
-************
+The OMERO documentation is divided into three parts. The :doc:`users/index` 
+covers the basic usage of OMERO as well as training material suitable for most 
+end-users. System administrators wanting to install an OMERO server will be 
+more interested by the :doc:`sysadmins/index` and subsequent sections. 
+Finally, developers can find more specific information about OMERO in the 
+:doc:`developers/index`.
 
 .. toctree::
+    :hidden:
     :maxdepth: 1
     :titlesonly:
-
-    users/omero-overview
-    users/community-resources
-    future
-
-
-**********
-Quickstart
-**********
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    users/virtual-appliance
-
-
-************
-Client Usage
-************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    users/clients-overview
-    users/client-tutorials/insight/index
-    users/client-tutorials/editor/index
-    users/command-line-import
-    users/clients-memory
-
-
-*****************
-Server Background
-*****************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    sysadmins/server-overview
-    users/system-requirements
-    users/limitations
-
-.. _serverinstallation:
-
-*******************
-Server Installation
-*******************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    sysadmins/unix/index
-    sysadmins/windows/index
-    sysadmins/install-web
-    sysadmins/troubleshooting
-    sysadmins/server-security
-    sysadmins/omeromovie
-    developers/server-install-homebrew
-    developers/server-install-linux
-
-
-******************
-Server Maintenance
-******************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    sysadmins/server-backup-and-restore
-    sysadmins/server-upgrade
-    sysadmins/UpgradeCheck
-    sysadmins/server-legacy-upgrade
-    developers/CommandLine
-
-
-***************
-Advanced topics
-***************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    users/server-permissions
-    sysadmins/server-analysis
-    sysadmins/server-advanced-configuration
-    sysadmins/server-fs
-    sysadmins/server-ldap
-    developers/Grid
-    developers/Server/Grid/Install
-    developers/Server/Grid/InstallCentOs
-    developers/Server/Grid/InstallGutsy
-    developers/Server/Grid/InstallMacOsx
-    developers/Server/Grid/InstallWindowsXp
-
-.. _developerdocumentation:
-
-************************
-Developers Documentation
-************************
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
+ 
+    users/index
+    sysadmins/index
     developers/index
-    developers/Omero
-    developers/Python
-    developers/Modules/Scripts
-    developers/Web
-    developers/Insight
-    developers/GettingStarted/AdvancedClientDevelopment
-    developers/Model
-    developers/Modules/Search
-    developers/Server/PasswordProvider
-    developers/Server
-    developers/Development
 
-
-****************
-Online Resources
-****************
+Additional online resources can be found at:
 
  - :omero_plone:`Downloads <downloads>`
  - :feature_plone:`Features <>`
