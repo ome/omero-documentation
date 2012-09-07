@@ -14,7 +14,7 @@ Introduction
     :maxdepth: 1
     :titlesonly:
 
-    users/overview
+    users/omero-overview
     users/community-resources
     future
 
@@ -37,17 +37,11 @@ Client Usage
     :maxdepth: 2
     :titlesonly:
 
-    users/clients-index
-
-
-Client Tutorials
-================
-
-.. toctree::
-    :maxdepth: 2
-
-    client-tutorials/insight/index
-    client-tutorials/editor/index
+    users/clients-overview
+    users/client-tutorials/insight/index
+    users/client-tutorials/editor/index
+    users/command-line-import
+    users/clients-memory
 
 
 *****************
