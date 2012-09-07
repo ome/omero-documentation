@@ -269,7 +269,7 @@ Name                Path
 \|OmeroCli\|        developers/CommandLine
 \|OmeroApi\|        developers/Modules/Api
 \|OmeroWeb\|        developers/Web
-\|OmeroClients\|    developers/GettingStarted
+\|OmeroClients\|    users/clients-overview
 \|OmeroInsight\|    developers/Insight
 \|OmeroGrid\|       developers/Grid
 \|OmeroSessions\|   developers/Server/Sessions
