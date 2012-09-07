@@ -1,10 +1,8 @@
-OMERO Home Page
-===============
+OMERO Overview
+==============
 
-This is the home page of the OMERO developer documentation.
-
-Instructions on :omero_plone:`downloading <downloads>`,
-:doc:`/sysadmins/unix/server-installation` and administering OMERO can be found under the :doc:`/sysadmins/server-overview` of the main site.
+The following documentation is for developers wishing to write OMERO client code or extend the OMERO server. Instructions on :omero_plone:`downloading <downloads>`,
+installation and administering OMERO can be found under the :doc:`/sysadmins/index` of the main site.
 
 .. figure:: /images/developer-api-figure.png
    :align: center
@@ -13,15 +11,15 @@ Instructions on :omero_plone:`downloading <downloads>`,
 What is OMERO?
 ~~~~~~~~~~~~~~
 
-**OMERO** is an open source client/server system written for
+**OMERO** is an open source client/server system written in Java for
 visualizing, managing, and annotating microscope images and metadata.
 The |OmeroApi| allows clients to be
 written in :doc:`Java </developers/Java>`, :doc:`Python </developers/Python>`,
 :doc:`C++ </developers/Cpp>` or :doc:`MATLAB </developers/Matlab>`. OMERO
-releases include a web client |OmeroWeb| and |OmeroCli| which 
-use the Python API and a Java client |OmeroInsight|.
+releases include a Java client |OmeroInsight|, a Python-based web client |OmeroWeb| 
+and |OmeroCli|, which also uses Python.
 There is also an ImageJ plugin. OMERO can be extended by modifying these
-clients or by :doc:`writing your own </developers/GettingStarted/AdvancedClientDevelopment>` in
+clients or by writing your own in
 any of the supported languages (see figure). OMERO also supports a
 :doc:`Scripting Service </developers/Modules/Scripts>` which allows Python
 scripts to be run on the server & called from any of the other clients.
@@ -92,62 +90,40 @@ features of the OMERO software. After that you will likely want to
 :doc:`clients </users/clients-overview>`:
 Insight, Web. Play with it, test data. You can also try out the |OmeroCli|.
 
-After that, the :doc:`/developers/GettingStarted/AdvancedTraining`
-page is probably a good next step. It describes various tools and
-resources you will find useful when working with OMERO.
 
-Then, the following pages are meant to provide you with a trail
-through the available documentation so that you can get started with
-OMERO development. Note that this is not everything that you will need
-to read, but should get you started...
+Client-side Coding
+^^^^^^^^^^^^^^^^^^
+
+If you're interested in writing your own client-side code, using the 
+OMERO API, you can go directly to one of the language-specific pages:
+:doc:`Java </developers/Java>`, :doc:`Python </developers/Python>`,
+:doc:`C++ </developers/Cpp>` or :doc:`MATLAB </developers/Matlab>`.
+The :doc:`/developers/GettingStarted/AdvancedTraining`
+page describes various tips, tools and resources you may find useful.
+
+
+Once you have a feel for client-side coding, you may want to extend the
+existing |OmeroInsight| (Java), the :doc:`OMERO.web client </developers/Web>` (Python)
+or write :doc:`server-side scripts </developers/Modules/Scripts>` (Python) that can be called from these clients.
+
+
+See |DevelopingOmeroClients| and pages that
+follow for a more in-depth look at client-side coding.
+
+
+Extending the OMERO server
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For server-side developers, see :doc:`/developers/Server/ExtendingOmero` or 
+:doc:`developers/Server`.
+
 
 The Development Process
 ^^^^^^^^^^^^^^^^^^^^^^^
 
--  :doc:`/developers/Development/UsingGit` gives an overview
-   of the development process that we currently use which utilises Git &
-   Git-Flow (NB. For more information about git see the ` git
-   movies <http://users.openmicroscopy.org.uk/~jmoore/git/>`_ that Josh
-   prepared.
--  `Developing With OMERO <:doc:`/developers/Development/OmeroDevelopment>`_
+-  :doc:`/developers/Development/OmeroDevelopment`
 -  :doc:`/developers/Development/Standards`
 -  :doc:`/developers/Development/Process`
 -  :doc:`/developers/Development/CodingStandard`
+-  :doc:`/developers/Development/UsingGit`
 
-Getting Your Hand's Dirty
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
--  :doc:`GettingStarted/AdvancedTraining`
--  |ExtendingOmero|
--  |OmeroJava|
--  |OmeroPy|
--  |DevelopingOmeroClients|
--  :doc:`Developing Scripts </developers/Modules/Scripts>`
-
-   -  :doc:`/developers/Modules/Scripts/Guide`
-   -  :doc:`/developers/Modules/Scripts/StyleGuide`
-
--  :doc:`/developers/Web/CreateApp`
-
-OMERO Architecture (From a programmer's perspective)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
--  |OmeroModel|
--  |OmeroApi|
-
-Further Reading
-^^^^^^^^^^^^^^^
-
-#. |OmeroApi|
-#. |OmeroCli|
-#. |OmeroModel|
-#. |DevelopingOmeroClients|
-#. |ExtendingOmero|
-
-Current Development Cycle
--------------------------
-
-We are currently working on the Beta4.4 build, which should be
-considered **Beta** software. The last build milestone (Beta4.3.3) was a
-maintenance release. The current build milestone (Beta4.4) is focusing
-on stability and reliability.
