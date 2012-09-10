@@ -75,12 +75,12 @@ Your OMERO 4.3 configuration is stored using ``config.xml`` in the
 have not made any file changes within your OMERO.server distribution
 directory, you are safe to follow the following upgrade procedure:
 
-::
+.. parsed-literal::
 
     $ cd ..
     $ mv OMERO.server OMERO.server-old
-    $ unzip OMERO.server-4.4.4-ice3x-byy.zip
-    $ cp OMERO.server-old/etc/grid/config.xml OMERO.server-4.4.4-ice3x-byy/etc/grid
+    $ unzip |OMEROserverzip|
+    $ cp OMERO.server-old/etc/grid/config.xml |OMEROserverzip|/etc/grid
 
 .. note::
     ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice 
@@ -92,9 +92,9 @@ Update your database
 You **must** use the same username and password you have defined during
 :doc:`unix/server-installation`. The |version| upgrade script should execute in a short time.
 
-::
+.. parsed-literal::
 
-    $ cd OMERO.server-4.4.4-ice3x-byy
+    $ cd |OMEROserverzip|
     $ psql -h localhost -U db_user omero_database < sql/psql/OMERO4.4__0/OMERO4.3__0.sql
     Password for user db_user:
     ...
@@ -172,9 +172,9 @@ Restart your database
 
 -  Following a successful db upgrade, you can start the |release| server.
 
-   ::
+   .. parsed-literal::
 
-       $ cd OMERO.server-4.4.4-ice3x-byy/
+       $ cd |OMEROserverzip|
        $ bin/omero admin start
 
 -  If anything goes wrong, please send the output of
@@ -241,12 +241,12 @@ Your OMERO |version|.x configuration is stored using ``config.xml`` in the
 have not made any file changes within your OMERO.server distribution
 directory, you are safe to follow the following upgrade procedure:
 
-::
+.. parsed-literal::
 
     $ cd ..
     $ mv OMERO.server OMERO.server-old
-    $ unzip OMERO.server-4.4.4-ice3x-byy.zip
-    $ cp OMERO.server-old/etc/grid/config.xml OMERO.server-4.4.4-ice3x-byy/etc/grid
+    $ unzip |OMEROserverzip|
+    $ cp OMERO.server-old/etc/grid/config.xml |OMEROserverzip|/etc/grid
 
 .. note::
     ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice 
@@ -264,9 +264,9 @@ Restart your server
 
 -  You can start the |release| server.
 
-   ::
+   .. parsed-literal::
 
-       $ cd OMERO.server-4.4.4-ice3x-byy/
+       $ cd |OMEROserverzip|/
        $ bin/omero admin start
 
 -  If anything goes wrong, please send the output of
@@ -278,6 +278,8 @@ Restart your server
    ::
 
        $ bin/omero web start
+
+.. |OMEROserverzip| replace:: OMERO.server-|release|-ice3x-byy.zip
 
 .. seealso::
     
