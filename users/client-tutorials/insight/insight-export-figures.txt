@@ -33,12 +33,14 @@ will appear more than once in the figure.
 
 .. figure:: /images/insight-export-thumbnail-figure.png
     :align: center
+    :width: 100%
     :alt: Four datasets
 
     Four datasets.
 
 .. figure:: /images/insight-export-thumbnail-figure2.png
     :align: center
+    :width: 50%
     :alt: Two datasets, with thumbnails sorted by 4 tags
 
     Two datasets, with thumbnails sorted by 4 tags.
@@ -56,6 +58,7 @@ tags.
 
 .. figure:: /images/insight-export-splitview-figure.png
     :align: center
+    :width: 100%
     :alt: Split-View Figure of 3 images with 4 channels
 
     Split-View Figure of 3 images with 4 channels, showing 2 channels
@@ -71,6 +74,7 @@ dataset(s) or associated tags.
 
 .. figure:: /images/insight-export-movie-figure.png
     :align: center
+    :width: 100%
     :alt: Movie figure showing three images, labeled with image name
 
     Movie figure showing three images, labeled with image name. The
@@ -89,6 +93,7 @@ tags.
 
 .. figure:: /images/insight-export-split-roi-figure.png
     :align: center
+    :width: 100%
     :alt: ROI figure with split view
 
     ROI figure with split view showing a ROI zoom of 4.0 from the
@@ -108,6 +113,7 @@ point spans several Z-sections, these will be projected.
 
 .. figure:: /images/insight-export-roi-movie-figure.png
     :align: center
+    :width: 100%
     :alt: ROI figure from 2 movies
 
     ROI figure from 2 movies. The number of frames is determined by the

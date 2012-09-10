@@ -47,12 +47,14 @@ layout (below Right). You can switch between these views by using the
 tabs at the top of the page.
 
 .. figure:: /images/editor-textview.png
-   :align: center
-   :alt:
+    :width: 100%
+    :align: center
+    :alt:
 
 .. figure:: /images/editor-ui.png
-   :align: center
-   :alt:
+    :width: 100%
+    :align: center
+    :alt:
 
 Multiple 'parameters' per step
 ------------------------------
@@ -65,12 +67,14 @@ descriptions also allows a more natural way of combining multiple
 parameters and removes the need to give every parameter a description.
 
 .. figure:: /images/editor-paramscontext.png
-   :align: center
-   :alt:
+    :width: 100%
+    :align: center
+    :alt:
 
 .. figure:: /images/editor-paramstree.png
-   :align: center
-   :alt:
+    :width: 100%
+    :align: center
+    :alt:
 
 Screen-shots of multiple parameters in the Text view (left) and the Tree
 view (right). In both cases, parameters can be seen in the context of
@@ -92,8 +96,9 @@ each parameter. 'Drop-down' and 'Check-box' parameters are represented
 with the appropriate controls in the table (see below).
 
 .. figure:: /images/editor-paramstable.png
-   :align: center
-   :alt:
+    :width: 100%
+    :align: center
+    :alt:
 
 .. |Add Table Button| image:: /images/nuvola_add_table16.png
 .. |Editor Icon| image:: /images/icons/editor.png

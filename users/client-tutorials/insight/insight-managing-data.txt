@@ -11,8 +11,9 @@ pop up on screen. The Data Manager serves as the major portal for the
 user into his/her data hierarchies.
 
 .. figure:: /images/insight-data-manager-1overview.png
-   :align: center
-   :alt: OMERO.insight data manager
+    :width: 100%
+    :align: center
+    :alt: OMERO.insight data manager
 
 Create Objects
 --------------
@@ -118,8 +119,9 @@ How to add, view metadata
 -  Go to the Metadata Browser i.e. Right-hand side.
 
 .. figure:: /images/insight-data-manager-8metadata.png
-   :align: center
-   :alt: The metadata browser
+    :width: 100%
+    :align: center
+    :alt: The metadata browser
 
 -  To Edit the image's name, click on the icon next to the name.
 
@@ -163,7 +165,8 @@ Full text searching. You can also use wild-cards in your search e.g.
 \*.dv will find all files ending with '.dv'.
 
 .. figure:: /images/insight-data-manager-12search.png
-   :align: center
-   :alt: Searching
+    :width: 100%
+    :align: center
+    :alt: Searching
 
 .. |filenew| image:: /images/icons/filenew.png
