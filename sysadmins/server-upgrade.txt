@@ -25,7 +25,7 @@ OMERO.server team via the mailing lists available on the
 :community_plone:`community <>` page. 
 
 For all users, the basic worflow for upgrading your OMERO.server from
-4.3.x to |release| is listed below. Please refer to each section for
+|43release| to |release| is listed below. Please refer to each section for
 additional details.
 
 #. Perform a database backup
@@ -42,8 +42,8 @@ workflow is almost identical except the database doesn't need to be
 upgraded. See the :ref:`upgrade44x` section for detailed steps.
 
 
-Upgrade from 4.3.x server to |release| server
----------------------------------------------
+Upgrade from |43release| server to |release| server
+----------------------------------------------------
 
 .. note:: 
     The passwords and logins used here are examples. Please consult the 
@@ -70,8 +70,8 @@ Before copying the new binaries, stop the existing server.
     $ bin/omero web stop
     $ bin/omero admin stop
 
-Your OMERO 4.3 configuration is stored using ``config.xml`` in the
-``etc/grid`` directory under your OMERO.server directory. Assuming you
+Your OMERO |43release| configuration is stored using ``config.xml`` in 
+the``etc/grid`` directory under your OMERO.server directory. Assuming you
 have not made any file changes within your OMERO.server distribution
 directory, you are safe to follow the following upgrade procedure:
 
@@ -255,8 +255,8 @@ directory, you are safe to follow the following upgrade procedure:
 Merge script changes
 ^^^^^^^^^^^^^^^^^^^^
 
-As with the migration from 4.3.x, if you upgraded your scripts for
-|version|.x, you'll need to do the same for |release|. 
+As with the migration from |43release|, if you upgraded your scripts 
+for |version|.x, you'll need to do the same for |release|. 
 See the :ref:`instructions above <upgrademergescript>` for more information.
 
 Restart your server
@@ -280,6 +280,7 @@ Restart your server
        $ bin/omero web start
 
 .. |OMEROserverzip| replace:: OMERO.server-|release|-ice3x-byy.zip
+.. |43release| replace:: 4.3.x
 
 .. seealso::
     
