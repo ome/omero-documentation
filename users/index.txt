@@ -34,7 +34,32 @@ Client Usage
     :titlesonly:
 
     clients-overview
-    client-tutorials/insight/index
-    client-tutorials/editor/index
     command-line-import
     clients-memory
+
+OMERO.insight tutorials
+=======================
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    client-tutorials/insight/insight-getting-started
+    client-tutorials/insight/insight-import
+    client-tutorials/insight/insight-managing-data
+    client-tutorials/insight/insight-view-images
+    client-tutorials/insight/insight-measuring
+    client-tutorials/insight/insight-export-figures
+    client-tutorials/insight/insight-scripts
+    client-tutorials/insight/insight-util-scripts
+
+OMERO.editor tutorials
+=======================
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    client-tutorials/editor/editor
+    client-tutorials/editor/editor-getting-started
+    client-tutorials/editor/editor-latest-features
