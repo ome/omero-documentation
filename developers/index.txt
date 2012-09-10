@@ -3,15 +3,38 @@ Developer Documentation
 #######################
 
 
+This is the home page of the OMERO developer documentation.
+
+Instructions on downloading, installing, and administering OMERO can be found 
+under the :doc:`/sysadmins/index`.
+
+.. figure:: /images/developer-api-figure.png
+   :align: center
+   :width: 60%
+   :alt:
+
+For help with any aspect of OMERO, see details of our `forums and
+mailing lists <http://www.openmicroscopy.org/site/community>`_.
+
 *********************
 Introduction to OMERO
 *********************
+
+OMERO is an open source client/server system written for
+visualizing, managing, and annotating microscope images and metadata.
+
+OMERO is designed, developed and released by the `Open Microscopy
+Environment <http://www.openmicroscopy.org/site>`_, with contributions from
+`Glencoe Software, Inc. <http://www.glencoesoftware.com>`_ OMERO is
+released under the ` GNU General Public License
+(GPL) <http://www.gnu.org/copyleft/gpl.html>`_ with commercial licenses
+and customization available from `Glencoe
+Software <http://www.glencoesoftware.com>`_.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
-    Omero
     GettingStarted
     GettingStarted/OneDayTraining
     GettingStarted/AdvancedTraining
@@ -21,6 +44,8 @@ Introduction to OMERO
 *******************
 Using the OMERO API
 *******************
+
+The |OmeroApi| allows clients to be written in :doc:`Java </developers/Java>`, :doc:`Python </developers/Python>`, :doc:`C++ </developers/Cpp>` or :doc:`MATLAB </developers/Matlab>`.
 
 .. toctree::
     :maxdepth: 1
@@ -48,6 +73,10 @@ Analysis
 Scripting Service
 *****************
 
+OMERO also supports a Scripting Service which allows Python
+scripts to be run on the server & called from any of the other clients.
+
+
 .. toctree::
     :maxdepth: 1
     :titlesonly:
@@ -61,6 +90,8 @@ Scripting Service
 *******************
 OMERO.web Framework
 *******************
+
+OMERO releases include a web client |OmeroWeb| and |OmeroCli| which  use the Python API.
 
 .. toctree::
     :maxdepth: 1
@@ -78,6 +109,8 @@ OMERO.web Framework
 ***********************
 Extending OMERO.insight
 ***********************
+
+ and a Java client |OmeroInsight|.
 
 .. toctree::
     :maxdepth: 1
@@ -101,6 +134,8 @@ Extending OMERO.insight
 More on API Usage
 *****************
 
+OMERO can be extended by modifying these clients or by `writing your own </developers/GettingStarted/AdvancedClientDevelopment>` in any of the supported languages (see figure).
+
 .. toctree::
     :maxdepth: 1
     :titlesonly:
@@ -117,6 +152,46 @@ More on API Usage
 ******************
 The OME Data Model
 ******************
+
+OMERO is based on the OME data model which can appear overly complex for
+new users. However, the core entities you need for getting started are
+much simpler.
+
+.. figure:: /images/developer-model-pdi.png
+   :align: center
+   :width: 60%
+   :alt:
+
+Images in OMERO are organised into a many-to-many container hierarchy:
+"Project" -> "Dataset" -> "Image". These containers (and various other
+objects) can be annotated to link various types of data. Annotation
+types include Comment (string), Tag (short string), Boolean, Long, Xml,
+File attachment etc.
+
+Images are represented as Pixels with 5 dimensions: X, Y, Z, Channel,
+Time.
+
+The OMERO model is implemented as a relational PostgreSQL database on
+the OMERO server and mapped to code-generated model objects used by the
+clients in the various supported languages (see above). The OMERO API
+consists of a number of services for working with these objects and
+associated binary data. Typically, clients will use various stateless
+services to query the OMERO model and then use the stateful services for
+exchange of binary data or image rendering.
+
+A typical client interaction might have an outline such as:
+
+-  Log in to OMERO, obtaining connection and 'service factory'
+-  Use the stateless 'Query Service' or 'Container Service' to traverse
+   Projects, Datasets and Images
+-  Use the stateful 'Rendering Engine' or 'Thumbnail Service' to view
+   images.
+-  Use the stateful 'Raw Pixels Service' or 'Raw File Store' to retrieve
+   pixel or file data for analysis
+-  Create new Annotations or other objects and save them with the
+   stateless 'Update Service'
+-  Close stateful services to free resources and close the connection
+
 
 .. toctree::
     :maxdepth: 1
@@ -188,6 +263,10 @@ Extending OMERO Server
 *******************
 Development Process
 *******************
+
+The following pages are meant to provide you with a trail through the 
+available documentation so that you can get started with OMERO development. 
+Note that this is not everything that you will need to read, but should getyou started...
 
 .. toctree::
     :maxdepth: 1
