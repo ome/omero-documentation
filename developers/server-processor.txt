@@ -3,7 +3,7 @@ OMERO.processor
 
 The Processor is a python process-launcher which can be run on any Unix
 system to execute scripts for a user. This makes use of the :doc:`/developers/Modules/Scripts`
-functionality described under :omero_plone:`OMERO.analyis <analysis>`. As many
+functionality described under :doc:`OMERO.analyis </developers/analysis>`. As many
 processor nodes can be started as physical computers are available.
 
 -  Source code: :source:`components/tools/OmeroPy/src/omero/processor.py`

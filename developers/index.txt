@@ -33,6 +33,17 @@ Using the OMERO API
     Cpp
 
 
+********
+Analysis
+********
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    analysis
+
+
 *****************
 Scripting Service
 *****************
