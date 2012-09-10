@@ -39,7 +39,10 @@ xcode_3.2.6_and_ios_sdk_4.3.dmg  10.6.8
 Xcode 4.3.2                      10.7.3
 ================================ ================
 
-.. note:: for Xcode 4.3.2, make sure that the Command line tools are installed (:menuselection:`Preferences --> Downloads --> Components`)
+.. note:: 
+
+    For Xcode 4.3.2, make sure that the Command line tools are installed 
+    (:menuselection:`Preferences --> Downloads --> Components`)
 
 Python (>=2.4)
 ~~~~~~~~~~~~~~
@@ -71,7 +74,7 @@ requirements for OMERO will be installed to ``/usr/local``.
 
 ::
 
-    $ ruby -e "$(curl -fsSLk https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+    $ ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
     $ brew install git
 
 If you are having issues with curl, see the the :ref:`install_homebrew_curl` section under :ref:`install_homebrew_common_issues`.
@@ -344,7 +347,7 @@ curl (Mac 10.5 only)
     curl: (60) SSL certificate problem, verify that the CA cert is OK. Details:
     error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed
 
-Use \`\ ``export GIT_SSL_NO_VERIFY=1``` before running failing brew commands.
+Use ``export GIT_SSL_NO_VERIFY=1`` before running failing brew commands.
 
 Xcode
 ~~~~~
@@ -372,7 +375,7 @@ Postgresql
     ==> Installing postgresql dependency: readline
     Error: No such file or directory - /usr/bin/cc
 
-For Xcode 4.3.2 make sure Xcode Command Line Tools are installed (`see comment <https://github.com/mxcl/homebrew/issues/10244#issuecomment-4013781>`_).
+For Xcode 4.3.2 make sure Xcode Command Line Tools are installed (see `comment <https://github.com/mxcl/homebrew/issues/10244#issuecomment-4013781>`_).
 
 ::
 
@@ -403,7 +406,8 @@ szip
     Archive: /Library/Caches/Homebrew/szip-2.1.tar.gz
     (To retry an incomplete download, remove the file above.)
 
-Manually remove the archived version located under /Library/Caches/Homebrew since the maintainer may have updated the file.
+Manually remove the archived version located under 
+``/Library/Caches/Homebrew`` since the maintainer may have updated the file.
 
 numexpr (and other Python packages)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
