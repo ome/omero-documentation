@@ -25,7 +25,7 @@ OMERO.server team via the mailing lists available on the
 :community_plone:`community <>` page. 
 
 For all users, the basic worflow for upgrading your OMERO.server from
-4.3.x or 4.4.0 to 4.4.1 is listed below. Please refer to each section for
+4.3.x to |release| is listed below. Please refer to each section for
 additional details.
 
 #. Perform a database backup
@@ -37,15 +37,17 @@ additional details.
 #. Restart your database
 #. (Optional - if something goes wrong) Restore a database backup
 
-If you are upgrading your OMERO.server from 4.4.0 to 4.4.1, the
+If you are upgrading your OMERO.server from |version|.x to |release|, the
 workflow is almost identical except the database doesn't need to be
-upgraded. See the :ref:`upgrade440` section for detailed steps.
+upgraded. See the :ref:`upgrade44x` section for detailed steps.
 
 
-Upgrade from 4.3.x server to 4.4.1 server
------------------------------------------
+Upgrade from 4.3.x server to |release| server
+---------------------------------------------
 
-.. note:: The passwords and logins used here are examples. Please consult the :doc:`/sysadmins/troubleshooting` section for explanation.
+.. note:: 
+    The passwords and logins used here are examples. Please consult the 
+    :ref:`troubleshooting-password` section for explanation.
 
 Perform a database backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -77,22 +79,22 @@ directory, you are safe to follow the following upgrade procedure:
 
     $ cd ..
     $ mv OMERO.server OMERO.server-old
-    $ unzip OMERO.server-4.4.1-ice3x-b3035.zip
-    $ cp OMERO.server-old/etc/grid/config.xml OMERO.server-4.4.1-ice3x-b3035/etc/grid
+    $ unzip OMERO.server-4.4.4-ice3x-byy.zip
+    $ cp OMERO.server-old/etc/grid/config.xml OMERO.server-4.4.4-ice3x-byy/etc/grid
 
-where ``ice3x`` **needs to be replaced** by the appropriate Ice version of
-OMERO.server.
+.. note::
+    ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice 
+    version and build number of OMERO.server.
 
 Update your database
 ^^^^^^^^^^^^^^^^^^^^
 
 You **must** use the same username and password you have defined during
-:doc:`unix/server-installation`. The 4.4 upgrade script should execute in
-a short time.
+:doc:`unix/server-installation`. The |version| upgrade script should execute in a short time.
 
 ::
 
-    $ cd OMERO.server-4.4.1-ice3x-b3035
+    $ cd OMERO.server-4.4.4-ice3x-byy
     $ psql -h localhost -U db_user omero_database < sql/psql/OMERO4.4__0/OMERO4.3__0.sql
     Password for user db_user:
     ...
@@ -119,6 +121,8 @@ database which can both save disk space and speed up access times.
     $ psql -h localhost -U db_user omero_database -c "REINDEX DATABASE omero_database FORCE;"
     $ psql -h localhost -U db_user omero_database -c "VACUUM FULL VERBOSE ANALYZE;"
 
+.. _upgrademergescript:
+
 Merge script changes
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -141,7 +145,7 @@ Update your environment variables
 Environment variables
 """""""""""""""""""""
 
-If you changed the directory name where the 4.4.1 server code resides,
+If you changed the directory name where the |release| server code resides,
 make sure to update any system environment variables. Before restarting
 the server, make sure your PATH and PYTHONPATH system environment
 variables are pointing to the new locations.
@@ -166,11 +170,11 @@ server.
 Restart your database
 ^^^^^^^^^^^^^^^^^^^^^
 
--  Following a successful db upgrade, you can start the 4.4.1 server.
+-  Following a successful db upgrade, you can start the |release| server.
 
    ::
 
-       $ cd OMERO.server-4.4.1-ice3x-b3035/
+       $ cd OMERO.server-4.4.4-ice3x-byy/
        $ bin/omero admin start
 
 -  If anything goes wrong, please send the output of
@@ -206,21 +210,17 @@ and configure your server to use it.
 
     $ bin/omero config omero.db.name omero_from_backup
 
-.. _upgrade440:
+.. _upgrade44x:
 
-Upgrade from 4.4.0 server to 4.4.1 server
------------------------------------------
-
-.. note::
-
-    This section only concerns users who upgraded to 4.4.0
-    server. The 4.4.1 version is only necessary if you are having
-    trouble with big images (SVS, etc) or Flex file types. If not, you
-    may continue using your 4.4.0 clients and servers. See issues
-    :ticket:`9372` and :ticket:`9377` for more information.
+Upgrade from |version|.x server to |release| server
+---------------------------------------------------
 
 .. note::
+    This section only concerns users who upgraded to a |version|.x server. 
+    Full details of |release| features can be found in the 
+    :omero_plone:`downloads`, page.
 
+.. note::
     The passwords and logins used here are exemplary. Please
     consult the :ref:`troubleshooting-password` page
     for explanation.
@@ -236,7 +236,7 @@ Before copying the new binaries, stop the existing server.
     $ bin/omero web stop
     $ bin/omero admin stop
 
-Your OMERO 4.4.0 configuration is stored using ``config.xml`` in the
+Your OMERO |version|.x configuration is stored using ``config.xml`` in the
 ``etc/grid`` directory under your OMERO.server directory. Assuming you
 have not made any file changes within your OMERO.server distribution
 directory, you are safe to follow the following upgrade procedure:
@@ -245,27 +245,28 @@ directory, you are safe to follow the following upgrade procedure:
 
     $ cd ..
     $ mv OMERO.server OMERO.server-old
-    $ unzip OMERO.server-4.4.1-ice3x-b3035.zip
-    $ cp OMERO.server-old/etc/grid/config.xml OMERO.server-4.4.1-ice3x-b3035/etc/grid
+    $ unzip OMERO.server-4.4.4-ice3x-byy.zip
+    $ cp OMERO.server-old/etc/grid/config.xml OMERO.server-4.4.4-ice3x-byy/etc/grid
 
-where ``ice3x`` **needs to replaced** by the adequate Ice version of
-OMERO.server.
+.. note::
+    ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice 
+    version and build number of OMERO.server..
 
 Merge script changes
 ^^^^^^^^^^^^^^^^^^^^
 
 As with the migration from 4.3.x, if you upgraded your scripts for
-4.4.0, you'll need to do the same for 4.4.1. See the instructions above
-for more information.
+|version|.x, you'll need to do the same for |release|. 
+See the :ref:`instructions above <upgrademergescript>` for more information.
 
 Restart your server
 ^^^^^^^^^^^^^^^^^^^
 
--  You can start the 4.4.1 server.
+-  You can start the |release| server.
 
    ::
 
-       $ cd OMERO.server-4.4.1-ice3x-b3035/
+       $ cd OMERO.server-4.4.4-ice3x-byy/
        $ bin/omero admin start
 
 -  If anything goes wrong, please send the output of
@@ -280,5 +281,5 @@ Restart your server
 
 .. seealso::
     
-    :doc:`/sysadmins/server-legacy-upgrade`
+    :doc:`server-legacy-upgrade`
         Upgrade instructions for previous versions of the OMERO server.
