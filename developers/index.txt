@@ -106,13 +106,13 @@ OMERO releases include a web client |OmeroWeb| which use the Python API.
 Extending OMERO.insight
 ***********************
 
-OMERO releases include a  and a Java client |OmeroInsight|.
+OMERO releases include a Java client OMERO.insight
+(previous known by its internal development name *Shoola*).
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
-    Insight
     Insight/Architecture
     Insight/Configuration
     Insight/Contributing

@@ -140,7 +140,6 @@ rst_epilog = """
 .. |OmeroApi| replace:: :doc:`/developers/Modules/Api`
 .. |OmeroWeb| replace:: :doc:`/developers/Web`
 .. |OmeroClients| replace:: :doc:`/developers/GettingStarted`
-.. |OmeroInsight| replace:: :doc:`/developers/Insight`
 .. |OmeroGrid| replace:: :doc:`/developers/Grid`
 .. |OmeroSessions| replace:: :doc:`/developers/Server/Sessions`
 .. |OmeroModel| replace:: :doc:`/developers/Model`
