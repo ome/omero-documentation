@@ -204,8 +204,6 @@ measurement and retrieve its results:
 
 To see an example of production code that parses out such measurements,
 see :source:`populate_roi.py <components/tools/OmeroPy/src/omero/util/populate_roi.py>`.
-**Note: the use of the FileAnnotation is provisional: a "Measurement"
-data type will be added in future versions.**
 
 The IRoi interface has been integrated into the Insight, allowing for
 the visualization and export of OMERO.tables:
