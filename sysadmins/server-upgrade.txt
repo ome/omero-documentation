@@ -71,7 +71,7 @@ Before copying the new binaries, stop the existing server.
     $ bin/omero admin stop
 
 Your OMERO |previousversion| configuration is stored using ``config.xml`` in 
-the``etc/grid`` directory under your OMERO.server directory. Assuming you
+the``etc/grid`` directory uwnder your OMERO.server directory. Assuming you
 have not made any file changes within your OMERO.server distribution
 directory, you are safe to follow the following upgrade procedure:
 
@@ -95,7 +95,7 @@ You **must** use the same username and password you have defined during
 .. parsed-literal::
 
     $ cd |OMEROserverzip|
-    $ psql -h localhost -U db_user omero_database < sql/psql/OMERO4.4__0/OMERO4.3__0.sql
+    $ psql -h localhost -U db_user omero_database < sql/psql/OMERO\ |version|\_\_0/OMERO |previousversion|\_\_0.sql
     Password for user db_user:
     ...
     ...
@@ -104,7 +104,7 @@ You **must** use the same username and password you have defined during
                                                                         +
                                                                         +
                                                                         +
-     YOU HAVE SUCCESSFULLY UPGRADED YOUR DATABASE TO VERSION OMERO4.4__0+
+    YOU HAVE SUCCESSFULLY UPGRADED YOUR DATABASE TO VERSION OMERO |version|\_\_0+
                                                                         +
                                                                         +
 
