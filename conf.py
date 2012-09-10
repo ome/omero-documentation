@@ -127,7 +127,11 @@ rst_epilog = """
 .. _Ice: http://www.zeroc.com
 .. _Jenkins: http://jenkins-ci.org
 .. _roadmap: https://trac.openmicroscopy.org.uk/ome/roadmap
+.. _Open Microscopy Environment: http://www.openmicroscopy.org/site
+.. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
 
+.. |OME| replace:: `Open Microscopy Environment`_
+.. |Glencoe| replace:: `Glencoe Software, Inc.`_
 .. |OmeroPy| replace:: :doc:`/developers/Python`
 .. |OmeroCpp| replace:: :doc:`/developers/Cpp`
 .. |OmeroJava| replace:: :doc:`/developers/Java`

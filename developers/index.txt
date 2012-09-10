@@ -2,7 +2,6 @@
 Developer Documentation
 #######################
 
-
 This is the home page of the OMERO developer documentation.
 
 Instructions on downloading, installing, and administering OMERO can be found 
@@ -13,23 +12,21 @@ under the :doc:`/sysadmins/index`.
    :width: 60%
    :alt:
 
-For help with any aspect of OMERO, see details of our `forums and
-mailing lists <http://www.openmicroscopy.org/site/community>`_.
+For help with any aspect of OMERO, see details of our 
+'community_plone':`forums and mailing lists <>`.
 
 *********************
 Introduction to OMERO
 *********************
 
-OMERO is an open source client/server system written for
-visualizing, managing, and annotating microscope images and metadata.
+OMERO is an open source client/server system written for visualizing, 
+managing, and annotating microscope images and metadata.
 
-OMERO is designed, developed and released by the `Open Microscopy
-Environment <http://www.openmicroscopy.org/site>`_, with contributions from
-`Glencoe Software, Inc. <http://www.glencoesoftware.com>`_ OMERO is
-released under the ` GNU General Public License
-(GPL) <http://www.gnu.org/copyleft/gpl.html>`_ with commercial licenses
-and customization available from `Glencoe
-Software <http://www.glencoesoftware.com>`_.
+OMERO is designed, developed and released by the |OME|, with contributions 
+from |Glencoe| OMERO is released under the `GNU General Public License (GPL)`_ 
+with commercial licenses and customization available from |Glencoe|.
+
+.. _GNU General Public License (GPL): http://www.gnu.org/copyleft/gpl.html
 
 .. toctree::
     :maxdepth: 1
@@ -45,7 +42,7 @@ Software <http://www.glencoesoftware.com>`_.
 Using the OMERO API
 *******************
 
-The |OmeroApi| allows clients to be written in :doc:`Java </developers/Java>`, :doc:`Python </developers/Python>`, :doc:`C++ </developers/Cpp>` or :doc:`MATLAB </developers/Matlab>`.
+The |OmeroApi| allows clients to be written in :doc:`Python </developers/Python>`, :doc:`Java </developers/Java>`, :doc:`MATLAB </developers/Matlab>` or :doc:`C++ </developers/Cpp>`.
 
 .. toctree::
     :maxdepth: 1
@@ -73,8 +70,7 @@ Analysis
 Scripting Service
 *****************
 
-OMERO also supports a Scripting Service which allows Python
-scripts to be run on the server & called from any of the other clients.
+OMERO also supports a Scripting Service which allows Python scripts to be run on the server & called from any of the other clients.
 
 
 .. toctree::
@@ -91,7 +87,7 @@ scripts to be run on the server & called from any of the other clients.
 OMERO.web Framework
 *******************
 
-OMERO releases include a web client |OmeroWeb| and |OmeroCli| which  use the Python API.
+OMERO releases include a web client |OmeroWeb| which use the Python API.
 
 .. toctree::
     :maxdepth: 1
@@ -110,7 +106,7 @@ OMERO releases include a web client |OmeroWeb| and |OmeroCli| which  use the Pyt
 Extending OMERO.insight
 ***********************
 
- and a Java client |OmeroInsight|.
+OMERO releases include a  and a Java client |OmeroInsight|.
 
 .. toctree::
     :maxdepth: 1
@@ -134,7 +130,7 @@ Extending OMERO.insight
 More on API Usage
 *****************
 
-OMERO can be extended by modifying these clients or by `writing your own </developers/GettingStarted/AdvancedClientDevelopment>` in any of the supported languages (see figure).
+OMERO can be extended by modifying these clients or by writing your own in any of the supported languages.
 
 .. toctree::
     :maxdepth: 1
