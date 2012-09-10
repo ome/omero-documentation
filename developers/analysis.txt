@@ -64,6 +64,7 @@ Images or Datasets created by the script, or download files or images.
   :align: center
   :alt: Scripts Running and completed
 
+.. _omerotables:
 
 Storing tabular data in OMERO.tables
 ------------------------------------
@@ -147,12 +148,11 @@ The Implementation
 ~~~~~~~~~~~~~~~~~~
 
 Currently, each table is backed by a single HDF table. Since PyTables
-(and HDF in the general case) don't support concurrent access,
-`OmeroTables </ome/wiki/OmeroTables>`_ provides a global locking
-mechanism which permits multiple views of the same data. Each
-"OMERO.tables" file (registerd as an ``OriginalFile`` in the database),
-is composed of a single HDF table with any number of certain limited
-column types.
+(and HDF in the general case) don't support concurrent access, OMERO.tables 
+provides a global locking mechanism which permits multiple views of the same 
+data. Each "OMERO.tables" file (registered as an ``OriginalFile`` in the 
+database), is composed of a single HDF table with any number of certain 
+limited column types.
 
 The query language mentioned above is *currently* the PyTables
 `condition syntax <http://pytables.github.com/usersguide/condition_syntax.html>`_.
