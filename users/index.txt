@@ -34,6 +34,7 @@ Client Usage
     :titlesonly:
 
     clients-overview
+    clients-getting-started
     command-line-import
     clients-memory
 
@@ -44,7 +45,6 @@ OMERO.insight tutorials
     :maxdepth: 2
     :titlesonly:
 
-    client-tutorials/insight/insight-getting-started
     client-tutorials/insight/insight-import
     client-tutorials/insight/insight-managing-data
     client-tutorials/insight/insight-view-images
