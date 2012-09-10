@@ -3,12 +3,9 @@ privileges, while the UNIX ``root`` user itself does *not* have admin
 privileges. Therefore it is necessary to either become the ``postgres``
 user or use sudo as below:
 
--  Create a non-superuser database user and record the name and
-   password. The default name and password for the user are "db\_user"
-   and "db\_password" respectively. Note that you should use your own
-   choice of username and password here. You will need to configure
-   OMERO to use your username and password by setting the omero.db.name
-   and omero.db.pass properties (below).
+-  Create a non-superuser database user and record the name and password. You 
+   will need to configure OMERO to use your username and  password by setting 
+   the omero.db.name and omero.db.pass properties (below).
 
    ::
 
@@ -16,6 +13,12 @@ user or use sudo as below:
        $ sudo -u postgres createuser -P -D -R -S db_user
        Enter password for new role:       # db_password
        Enter it again:       # db_password
+
+   .. warning:: 	 
+       For illustrative purposes, the default name and password for the user 
+       are ``db\_user``  and ``db\_password`` respectively. However, you 
+       should not use these defaults values for your installation but use 
+       your own choice of username and password instead.
 
 -  Create a database for OMERO to reside in
 
