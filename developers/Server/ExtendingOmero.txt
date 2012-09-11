@@ -128,9 +128,8 @@ code-generation extensions are ideal. SAs cannot easily be aggregated,
 and code-generation would generate too many types. This is particularly
 clear in the storage and management of HCS analysis results.
 
-To solve this problem, we provide the
-`OmeroTables </ome/wiki/OmeroTables>`_ API for storing tabular data
-indexed via Roi, Well, or Image id.
+To solve this problem, we provide the :ref:`OMERO.tables <omerotables>` API 
+for storing tabular data indexed via Roi, Well, or Image id.
 
 Services
 ~~~~~~~~
