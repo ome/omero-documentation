@@ -275,7 +275,7 @@ Name                Path
 \|OmeroSessions\|   developers/Server/Sessions
 \|OmeroModel\|      developers/Model
 \|ExtendingOmero\|  developers/ExtendingOmero
-\|BlitzGateway\|    developers/Python/Gateway
+\|BlitzGateway\|    developers/Python
 ==================  ================================
 
 For the most up-to-date list, please consult ``conf.py`` (section
