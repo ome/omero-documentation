@@ -1,6 +1,3 @@
-Analysis
-========
-
 For all developer tutorials and documentation, please see :doc:`/developers/index`.
 
 OMERO supports analysis via a rich application programming interface
@@ -10,7 +7,7 @@ These are the same APIs that both the desktop and web clients use to
 access your data when stored inside OMERO.
 
 Local analysis
---------------
+==============
 
 If you are interested in running your analysis locally and storing the
 results to the server, then your first step is to become familiar with
@@ -30,7 +27,7 @@ the developer documention.
 
 
 Distributed analysis via OMERO.scripts
---------------------------------------
+======================================
 
 Once you have your local analysis working, you can push it onto the server for 
 background processing. 
@@ -66,7 +63,7 @@ Images or Datasets created by the script, or download files or images.
 
 
 Storing tabular data in OMERO.tables
-------------------------------------
+====================================
 
 The OMERO.tables API unifies the storage of columnar data
 from various sources, such as automated analysis results or script-based
@@ -84,7 +81,7 @@ For installation instructions, see :doc:`/sysadmins/server-tables`
 
 
 The Interface
-~~~~~~~~~~~~~
+-------------
 
 The :source:`slice definition file <components/blitz/resources/omero/Tables.ice>`
 for the OMERO.tables API primarily defines two service interfaces and a type hierarchy:
@@ -131,7 +128,7 @@ can be done with OMERO.tables.
 
 
 Examples
-~~~~~~~~
+--------
 
 -  Hello World:
    :source:`examples/OmeroTables/first.py <examples/OmeroTables/first.py>`
@@ -144,7 +141,7 @@ Examples
 
 
 The Implementation
-~~~~~~~~~~~~~~~~~~
+------------------
 
 Currently, each table is backed by a single HDF table. Since PyTables
 (and HDF in the general case) don't support concurrent access,
@@ -188,7 +185,7 @@ and the following functions:
 
 
 Going forward
-~~~~~~~~~~~~~
+-------------
 
 The Tables API itself provides little more than a remotely accessible
 store, think of it as a server for Excel-like spreadsheets. We're
@@ -234,7 +231,7 @@ the visualization and export of OMERO.tables:
 
 
 Third-party analysis and OMERO.tables
--------------------------------------
+=====================================
 
 Support has been added for some third-party analysis data, which gets 
 converted in OMERO into a common format. These formats include:
@@ -259,7 +256,7 @@ associated image:
 
 
 Other high-content screening (HCS) data
----------------------------------------
+=======================================
 
 In addition to the Flex, Mias, and InCell 100 file formats, BD Pathway, 
 Olympus ScanR, and native OME-XML/TIFF files files can all be imported as HCS 
