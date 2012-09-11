@@ -1,6 +1,27 @@
 OMERO.clients
 =============
 
+The OMERO model is implemented as a relational PostgreSQL database on
+the OMERO server and mapped to code-generated model objects used by the
+clients in the various supported languages (see above). The OMERO API
+consists of a number of services for working with these objects and
+associated binary data. Typically, clients will use various stateless
+services to query the OMERO model and then use the stateful services for
+exchange of binary data or image rendering.
+
+A typical client interaction might have an outline such as:
+
+-  Log in to OMERO, obtaining connection and 'service factory'
+-  Use the stateless 'Query Service' or 'Container Service' to traverse
+   Projects, Datasets and Images
+-  Use the stateful 'Rendering Engine' or 'Thumbnail Service' to view
+   images.
+-  Use the stateful 'Raw Pixels Service' or 'Raw File Store' to retrieve
+   pixel or file data for analysis
+-  Create new Annotations or other objects and save them with the
+   stateless 'Update Service'
+-  Close stateful services to free resources and close the connection
+
 OMERO.clients use a common 'gateway' to communicate with an OMERO.server
 installation and allow the user to import, display, edit, and manage
 server data. The OMERO team has developed a suite of clients, but the
