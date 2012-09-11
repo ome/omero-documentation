@@ -1,6 +1,24 @@
 OME-Remote Objects
 ==================
 
+.. figure:: /images/developer-model-pdi.png
+   :align: left
+   :width: 60%
+   :alt:
+
+OMERO is based on the OME data model which can appear overly complex for
+new users. However, the core entities you need for getting started are
+much simpler.
+
+Images in OMERO are organised into a many-to-many container hierarchy:
+"Project" -> "Dataset" -> "Image". These containers (and various other
+objects) can be annotated to link various types of data. Annotation
+types include Comment (string), Tag (short string), Boolean, Long, Xml,
+File attachment etc.
+
+Images are represented as Pixels with 5 dimensions: X, Y, Z, Channel,
+Time.
+
 At the core of the work on the `Open Microscopy Environment`_ is the
 definition of a vocabulary for working with microscopic data. This
 vocabulary has a representation in the `XML
