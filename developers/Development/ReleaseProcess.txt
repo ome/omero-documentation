@@ -183,18 +183,7 @@ Documentation
 ---------------------------------
 
 -  VS 2010 build with Scons 2.x
--  [STRIKEOUT:Review apache documentation instructions with new
-   "bin/omero web config apache" command]
 -  ImageJ support
--  [STRIKEOUT:**Review doc tickets**: :ticket:`6866`,
-   :ticket:`8686`, :ticket:`9304`, :ticket:`8494`, :ticket:`8364`]
-
-All Documentation tickets
--------------------------
-
-Open doc tickets in milestone: 0
-
-`<https://trac.openmicroscopy.org.uk/ome/query?status=accepted&status=new&status=reopened&component=Documentation&type=task&milestone=OMERO-4.4.4&group=priority&max=0&col=id&col=summary&col=status&col=owner&col=priority&col=reporter&desc=1&order=id%3E>`_ 
 
 Release Candidates
 ------------------
@@ -241,7 +230,7 @@ Release
    -  ``git push origin v.4.4.0 develop`` assuming the commit isn’t
       present.
    -  If commit is present, just click on “Build” on Jenkins
-   -  Mark build as “QA”\ [STRIKEOUT:, eventually as “Release”]
+   -  Mark build as “QA”\, eventually as “Release”
    -  Copy builds to /snapshots (currently manual)
    -  This kicks off the VM build (automatically published to
       /snapshots)
