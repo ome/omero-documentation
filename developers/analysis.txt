@@ -16,12 +16,10 @@ If you are interested in running your analysis locally and storing the
 results to the server, then your first step is to become familiar with
 the developer documention.
 
--  The :doc:`/developers/GettingStarted` provides numerous examples in each 
-   language with explanations and tries to be a starting point for anyone who 
-   wants to write code which talks to the OMERO server.
 -  Most of the :doc:`/developers/Modules/Api` is covered by the
    `Javadocs <http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/>`_.
--  Each of the languages has extra information on its own page:
+-  Each of the languages has extra information on its own page and tries to be a starting point for         
+    anyone who wants to write code which talks to the OMERO server.
 
    -  |OmeroCpp|
    -  |OmeroJava|
