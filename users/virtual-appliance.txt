@@ -671,7 +671,7 @@ omero-vm if we break anything. From now on **only** make changes to
 omero-vm-2.
 
 Extending the HDD
-"""""""""""""""""
+^^^^^^^^^^^^^^^^^
 
 By default our virtual hard drive attached to omero-vm-2 is of a type
 which cannot be extended; so we need to change this by cloning our HDD
@@ -738,33 +738,29 @@ Reallocating space on the VA HDD
 
 Start the omero-vm-2 VM. Ubuntu linux should boot and you should
 eventually see a welcome screen giving you the option to try or install
-Ubuntu.
+Ubuntu. We will now start the GParted software and resize our partitions.
 
 #. Select try Ubuntu and you should be presented with a graphical desktop.
 #. Start the `gparted` tool using the menu option under :menuselection:`System --> Administration --> GParted Partition Editor`.
 #. The GParted GUI will display information similar to :ref:`va-hdd-step02`.
-
-.. _va-hdd-step02:
-.. figure:: /images/va-hdd-step02.png
-    :width: 60%
-    :align: center
-    :alt: Virtual Appliance HDD in GParted
-    
-    Virtual Appliance HDD in GParted
-
 #. Right-click the entry for :guilabel:`/dev/sda5` and select
    :guilabel:`Swapoff`.
 #. Right click on :guilabel:`/dev/sda5` and click :guilabel:`Delete` to remove
    the swap partition.
 #. Delete :guilabel:`/dev/sda2` in the same way. This should leave two
    entries, one for :guilabel:`/dev/sda1` and one for unallocated space.
-
-We now need to resize our /dev/sda1 partition. 
-
 #. Right-click :guilabel:`/dev/sda1` and select :guilabel:`Resize`. Now drag
    the right arrow to the right until the entry for :guilabel:`Free space following (MiB)` is about 2000 then click :guilabel:`Resize/Move`.
 #. Right click the entry for unallocated space and select :guilabel:`New` from
    the pop-up menu. Select :guilabel:`linux-swap` from the :guilabel:`File system` drop-down menu then :guilabel:`Add`.
+
+.. _va-hdd-step02:
+.. figure:: /images/va-hdd-step02.png
+   :width: 60%
+   :align: center
+   :alt: Virtual Appliance HDD in GParted
+
+   Virtual Appliance HDD in GParted
 
 Up until this point we haven't actually applied any of our changes to the HDD,
 we have only specified a list of changes that should be made. We can now go
