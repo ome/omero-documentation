@@ -144,7 +144,7 @@ The following are optional depending on what services you require:
       - `Numpy page <http://numpy.scipy.org/>`_
 
     * - PyTables (2.1.0 or higher)
-      - `OmeroTables </ome/wiki/OmeroTables>`
+      - :doc:`OMERO.tables </sysadmins/server-tables>`
       - `PyTables page <http://www.pytables.org/moin/Downloads>`_
 
     * - scipy.ndimage

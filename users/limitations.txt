@@ -14,11 +14,10 @@ for more details.
 Synchronisation of lib/scripts
 ==============================
 
-As described under :omero_plone:`OMERO.scripts <server/scripts>`, 4.2.0 includes a
-significantly improved scripting system. Several official scripts are
-shipped under lib/scripts in the deployment directory. If any of your
-users add their own "official scripts", they too will be stored under
-lib/scripts. When we release a new OMERO version, there will be some
+Since 4.2.0, OMERO includes a significantly improved scripting system. Several 
+official scripts are shipped under lib/scripts in the deployment directory. If 
+any of your users add their own "official scripts", they too will be stored 
+under lib/scripts. When we release a new OMERO version, there will be some
 difficulties merging the two directories.
 
 A github repository is now available under
