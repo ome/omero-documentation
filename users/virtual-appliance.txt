@@ -180,12 +180,11 @@ as the script requires a Bash shell.
 
 .. only:: html
 
-    The script is in a file named :download:`setup_port_forwarding.sh </downloads/setup_port_forwarding.sh>` and is bundled with the online
-    version of this document.
+    The script is in a file named :download:`setup_port_forwarding.sh </downloads/setup_port_forwarding.sh>` and is bundled with this document.
 
 .. only:: latex
 
-    The script can be downloaded from the current chapter of the online
+    The script can be downloaded from the current chapter in the online
     version of the OMERO documentation.
 
 After obtaining the script, it can be used in the following manner:
@@ -757,8 +756,8 @@ Ubuntu.
    :guilabel:`Swapoff`.
 #. Right click on :guilabel:`/dev/sda5` and click :guilabel:`Delete` to remove
    the swap partition.
-#. Delete /dev/sda2 in the same way. This should leave two entries, one for
-   /dev/sda1 and one for unallocated space.
+#. Delete :guilabel:`/dev/sda2` in the same way. This should leave two
+   entries, one for :guilabel:`/dev/sda1` and one for unallocated space.
 
 We now need to resize our /dev/sda1 partition. 
 
@@ -785,9 +784,9 @@ select :guilabel:`Remove Controller` then click :guilabel:`OK` to return the
 VirtualBox VM library.
 
 Start the omero-vm-2 VM and allow it to boot. Log in as root then issue the
-`df -h` command. Verify that the size of the /dev/sda1 is approximately what
+`df -h` command. Verify that the size of the `/dev/sda1` is approximately what
 you expect, e.g. if you allocated a 60GB virtual HDD then after size
-conversions and swap allocation we should end up with /dev/sda1 reported as
+conversions and swap allocation we should end up with `/dev/sda1` reported as
 being around 56GB.
 
 Within the VM we need to add the UUID of the new swap partition to the
