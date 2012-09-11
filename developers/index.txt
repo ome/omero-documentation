@@ -12,8 +12,6 @@ Introduction to OMERO
     :titlesonly:
 
     Omero
-    GettingStarted
-    GettingStarted/OneDayTraining
     GettingStarted/AdvancedTraining
     Build
 
@@ -27,7 +25,6 @@ Using the OMERO API
     :titlesonly:
 
     Python
-    Python/Gateway
     Java
     Matlab
     Cpp
@@ -194,6 +191,7 @@ Development Process
     :titlesonly:
 
     Development
+    Development/OmeroDevelopment
     policies
     Development/Process
     Development/CodingStandard

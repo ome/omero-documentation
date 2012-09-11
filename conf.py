@@ -135,13 +135,13 @@ rst_epilog = """
 .. |OmeroCli| replace:: :doc:`/developers/CommandLine`
 .. |OmeroApi| replace:: :doc:`/developers/Modules/Api`
 .. |OmeroWeb| replace:: :doc:`/developers/Web`
-.. |OmeroClients| replace:: :doc:`/developers/GettingStarted`
+.. |OmeroClients| replace:: :doc:`/users/clients-overview`
 .. |OmeroInsight| replace:: :doc:`/developers/Insight`
 .. |OmeroGrid| replace:: :doc:`/developers/Grid`
 .. |OmeroSessions| replace:: :doc:`/developers/Server/Sessions`
 .. |OmeroModel| replace:: :doc:`/developers/Model`
 .. |ExtendingOmero| replace:: :doc:`/developers/Server/ExtendingOmero`
-.. |BlitzGateway| replace:: :doc:`/developers/Python/Gateway`
+.. |BlitzGateway| replace:: :doc:`/developers/Python`
 .. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
 """
 

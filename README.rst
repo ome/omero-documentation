@@ -269,13 +269,13 @@ Name                Path
 \|OmeroCli\|        developers/CommandLine
 \|OmeroApi\|        developers/Modules/Api
 \|OmeroWeb\|        developers/Web
-\|OmeroClients\|    developers/GettingStarted
+\|OmeroClients\|    users/clients-overview
 \|OmeroInsight\|    developers/Insight
 \|OmeroGrid\|       developers/Grid
 \|OmeroSessions\|   developers/Server/Sessions
 \|OmeroModel\|      developers/Model
 \|ExtendingOmero\|  developers/ExtendingOmero
-\|BlitzGateway\|    developers/Python/Gateway
+\|BlitzGateway\|    developers/Python
 ==================  ================================
 
 For the most up-to-date list, please consult ``conf.py`` (section
