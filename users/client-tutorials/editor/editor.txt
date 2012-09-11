@@ -81,10 +81,7 @@ Text View of protocols
 
 In order to make protocols appear more familiar to users, files can now
 be viewed in a :ref:`"Text" view" <editor-textview>`, which displays the 
-title, description and parameters in a page layout. Protocols can also be 
-viewed in the :ref:`"Tree" view <editor-treeview>`, which resembles the older 
-(Beta-3) OMERO.editor layout. You can switch between these views by using the
-tabs at the top of the page.
+title, description and parameters in a page layout.
 
 .. _editor-textview:
 
@@ -93,8 +90,10 @@ tabs at the top of the page.
     :align: center
     :alt: Protocols Text View
    
-    Protocols Text View
-   
+Protocols can also be  viewed in the :ref:`"Tree" view <editor-treeview>`, 
+which resembles the older (Beta-3) OMERO.editor layout. You can switch between 
+these views by using the tabs at the top of the page.
+
 .. _editor-treeview:
 
 .. figure:: /images/editor-ui.png
@@ -102,7 +101,6 @@ tabs at the top of the page.
     :align: center
     :alt: Protocols Tree view
 
-    Protocols Tree view
 
 Multiple 'parameters' per step
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -114,25 +112,22 @@ step (see screenshots below). Placing parameters in context with
 descriptions also allows a more natural way of combining multiple
 parameters and removes the need to give every parameter a description.
 
+In both cases, parameters can be seen in the context of the step description, 
+which can be edited in the page layout of  the Text view
+
 .. figure:: /images/editor-paramscontext.png
     :width: 100%
     :align: center
     :alt: Parameters Text View
-   
-    Parameters Text View
+
+or the right panel of the Tree view.
 
 .. figure:: /images/editor-paramstree.png
     :width: 100%
     :align: center
     :alt: Parameters Tree View
 
-    Parameters Tree View
-
-Screen-shots of multiple parameters in the Text view (left) and the Tree
-view (right). In both cases, parameters can be seen in the context of
-the step description, which can be edited in the right panel of the Tree
-view, or the page layout of the Text view. Parameters can be edited in
-the right panel of both views.
+Parameters can be edited in the right panel of both views.
 
 Table of parameter values
 ^^^^^^^^^^^^^^^^^^^^^^^^^
