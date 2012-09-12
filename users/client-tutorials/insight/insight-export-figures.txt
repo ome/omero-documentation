@@ -1,7 +1,7 @@
-Exporting Figures from OMERO.insight
-====================================
+Exporting Figures
+=================
 
-A new feature in OMERO 4.2 is the ability to export images as figures,
+Since OMERO 4.2, OMERO.insight offers the ability to export images as figures,
 based on their annotations, metadata, ROIs etc. All figures are saved as
 attachments to the appropriate Project, Dataset or Image, and are also
 available to download. A figure legend is generated for each figure
