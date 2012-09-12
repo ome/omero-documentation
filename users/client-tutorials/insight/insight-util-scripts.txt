@@ -14,22 +14,22 @@ The Batch Image Export script saves multiple planes of selected images
 in a zip folder for download. These can be used for creating your own
 figures. By default, the script exports a png file for each individual
 channels and a 'merged' view of selected images. The rendering settings
-used are the currently saved rendering settings in OMERO. E.g. if you
+used are the currently saved rendering settings in OMERO. For example, if you
 want all the images to have the same rendering settings, then these
 should be applied and saved before running the script.
 
-It is also possible to export an entire Z or T series or range (E.g. to
+It is also possible to export an entire Z or T series or range (e.g. to
 make a time-course figure) for each image.
 
 **OME-TIFF export and projection**
 From the 4.3.2 release, this script also supports export of images as
 OME-TIFFs. If this format is chosen, the entire image is exported as a
 single file, including all planes. Any Z or T selections are ignored.
-Maximum Intensity Projection of images is also supported in 4.3.2. Users
+Maximum Intensity Projection of images is also supported since 4.3.2. Users
 should be aware that both these options have the potential to make
 heavier processing demands on the server. If admins wish to turn off
 these options, they can comment out the appropriate options in the
-script: rstring('OME-TIFF') and/or rstring('Max projection').
+script: `rstring('OME-TIFF')` and/or `rstring('Max projection')`.
 
 Channel Offsets
 ---------------
@@ -72,7 +72,7 @@ Combine Images
 :snapshot:`here <movies/omero-4-2/mov/Scripting1.mov>`.
 
 This script takes a number of single-plane images or image Z-stacks,
-identified either by Image\_ID or by the ID of the Dataset that contains
+identified either by `Image_ID` or by the ID of the Dataset that contains
 them. All input images should have the same X, Y and Z dimensions and
 are expected to have a single channel & time-point. If you want to use a
 subset of the images, choose the "Filter Names" option by entering some
@@ -108,8 +108,8 @@ Manually Define Dimensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 With this option, the images are combined in the same order that they
-appear when sorted alphabetically (default in Insight). If you want to
-stitch the planes in a single dimension (E.g. time) then you only need
+appear when sorted alphabetically (default in OMERO.insight). If you want to
+stitch the planes in a single dimension (e.g. time) then you only need
 to choose "Time" as the Dimension 1 value and this will do the job.
 
 If you want to stitch the planes across 2 or more dimensions, you need
@@ -139,5 +139,5 @@ the dimensions. In this case, "size Z" is 5 and "size C" is 2. (It is
 possible to omit the size of the last dimension since this can be
 calculated by the script).
 
-If the input images are Z stacks, you don't need to specify a Z
+If the input images are Z stacks, you do not need to specify a Z
 dimension (it will be ignored if you do).

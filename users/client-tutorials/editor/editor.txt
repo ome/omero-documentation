@@ -4,18 +4,14 @@ OMERO.editor
 Introduction
 ------------
 
-
-This tool can operate as a standalone application or as part of the
+OMERO.editor is a Java tool that requires `Java 1.5 <http://java.com/en/download/>`_
+and can operate as a stand-alone application or as part of the
 OMERO.insight client. In both cases, it saves metadata as XML files that
 can be used to annotate images, datasets, etc, in OMERO. If used as part
-of OMERO.insight, the files can be saved to an OMERO server. For
-features that are new to the Beta-4 OMERO.editor (March 2009), 
-see :ref:`editor-latest-features`.
+of OMERO.insight, the files can be saved to an OMERO server.
 
-OMERO.editor is a Java tool and requires `Java 1.5 <http://java.com/en/download/>`_. The latest release of OMERO.editor can
-be downloaded as part of the OMERO clients package from our :omero_plone:`downloads page <downloads>`.
-
-A :snapshot:`demo movie <omero/editor/movies/OMERO.editor-Beta4.mov>` of the Beta-4 software gives an introduction to the Editor and illustrates some of its functionalities.
+A :snapshot:`demo movie <omero/editor/movies/OMERO.editor-Beta4.mov>` of the OMERO.editor
+illustrates some of its functionalities.
 
 The OMERO.editor has been designed to achieve two key functions:
 
@@ -24,41 +20,13 @@ The OMERO.editor has been designed to achieve two key functions:
 -  Enable important parameters to be distinguished from the main text,
    e.g. to summarise the experiment in a concise form.
 
-The workspace of the editor displays the complete protocol in the
-largest central panel. To the left, an outline of the protocol can be
-used for navigation and the panel on the right of the window is used for
-display and editing of parameter details. The central panel can be used
-to view the protocol in a 'Text View' (below) or in a 'Tree View' as
-described under :ref:`editor-latest-features`.
+Start OMERO.editor from OMERO.insight
+-------------------------------------
 
-.. figure:: /images/EditorParamsContext.png
-    :align: center
-    :width: 100%
-    :alt:
-
-.. _editor-latest-features:
-
-Latest Features
----------------
-
-This page details the latest version Beta-4 edition of the OMERO.editor.
-
-OMERO.editor can be run from within the Insight client but can also run
-as a stand-alone application (without connecting to OMERO) saving files
-locally. The stand-alone OMERO.editor can be found in the clients
-download package.
-
-Start OMERO.editor via OMERO.insight
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-You can run the OMERO.editor as a standalone application (no server
-connection) OR via OMERO.insight (see :doc:`/users/clients-getting-started`).
-
-In OMERO.insight, you start OMERO.editor by clicking the OMERO.editor
-icon |Editor Icon| in the toolbar.
-
-In OMERO.insight, you can open any OMERO.editor file by double clicking
-it, either when you find it attached to a Project, Dataset or Image, or
+You can start the editor tool by clicking the following
+icon |Editor Icon| in the toolbar. You can then open any editor file 
+by double-clicking it, either when you find it attached to a Project, 
+Dataset or Image, or
 by browsing under :menuselection:`View --> Attachments` (see screen shot).
 
 .. figure:: /images/insight-editor.png
@@ -66,7 +34,7 @@ by browsing under :menuselection:`View --> Attachments` (see screen shot).
    :alt:
 
 UI Layout
-^^^^^^^^^
+---------
 
 The OMERO.editor displays a single file per window, which will typically
 be split into 3 panels.
@@ -76,12 +44,15 @@ be used for navigating large files. The center is the main display of
 the file for editing experimental variables and the right panel is for
 editing the protocol 'template'.
 
-Text View of protocols
-^^^^^^^^^^^^^^^^^^^^^^
+The workspace of the editor displays the complete protocol in the
+largest central panel. To the left, an outline of the protocol can be
+used for navigation and the panel on the right of the window is used for
+display and editing of parameter details. In order to make protocols appear
+more familiar to users, the central panel can be used
+to view the protocol in a 'Text View' or in a 'Tree View', see below.
+You can switch between the two views by using the tabs at the top of the page.
 
-In order to make protocols appear more familiar to users, files can now
-be viewed in a :ref:`"Text" view" <editor-textview>`, which displays the 
-title, description and parameters in a page layout.
+The **Text View** displays the title, description and parameters in a page layout.
 
 .. _editor-textview:
 
@@ -90,9 +61,7 @@ title, description and parameters in a page layout.
     :align: center
     :alt: Protocols Text View
    
-Protocols can also be  viewed in the :ref:`"Tree" view <editor-treeview>`, 
-which resembles the older (Beta-3) OMERO.editor layout. You can switch between 
-these views by using the tabs at the top of the page.
+Protocols can also be  viewed in the **Tree View**. 
 
 .. _editor-treeview:
 
@@ -103,11 +72,11 @@ these views by using the tabs at the top of the page.
 
 
 Multiple 'parameters' per step
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------
 
 In order to record a single step of a protocol that has multiple
 variables, e.g. "Incubate cells with {Antibody} at a dilution of {1:500}
-for {60 minutes}", OMERO.editor now supports multiple parameters per
+for {60 minutes}", OMERO.editor supports multiple parameters per
 step (see screenshots below). Placing parameters in context with
 descriptions also allows a more natural way of combining multiple
 parameters and removes the need to give every parameter a description.

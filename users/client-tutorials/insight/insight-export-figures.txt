@@ -1,7 +1,7 @@
-Exporting Figures from OMERO.insight
-====================================
+Exporting Figures
+=================
 
-A new feature in OMERO 4.2 is the ability to export images as figures,
+Since OMERO 4.2, OMERO.insight offers the ability to export images as figures,
 based on their annotations, metadata, ROIs etc. All figures are saved as
 attachments to the appropriate Project, Dataset or Image, and are also
 available to download. A figure legend is generated for each figure
@@ -121,7 +121,7 @@ point spans several Z-sections, these will be projected.
     Tags.
 
 Reference Example Figures (from outside sources)
-================================================
+------------------------------------------------
 
 This is a list of the types of figures that are common in the Cell
 Biology literature (JCB archive), serving as a basis for scripts that
@@ -144,10 +144,8 @@ In general:
 The following examples have been gathered from various sources to
 illustrate what the various figures should look like.
 
-Split-View figure
------------------
-
-Split-view figures:
+Split-view figure
+^^^^^^^^^^^^^^^^^
 
 -  takes a number of images and makes each into a split-view on separate
    rows.
@@ -163,7 +161,7 @@ Examples:
 -  http://jcb.rupress.org/content/168/5/775/F2.expansion
 
 Grid of Images
---------------
+^^^^^^^^^^^^^^^
 
 -  All panels different conditions with panels named with Name (or Tag)
    in white:
@@ -180,7 +178,7 @@ Grid of Images
     -  http://jcb.rupress.org/content/172/1/139/F7.expansion
 
 Movie
------
+^^^^^
 
 -  Options to choose frames interval (e.g. 30 mins) or to split movie
    over a fixed number of frames:
@@ -192,8 +190,8 @@ Movie
    -  http://jcb.rupress.org/content/187/6/831/F1.expansion
    -  http://jcb.rupress.org/content/187/6/781
 
-ROI-Zoom Splitview
-------------------
+ROI-Zoom Split-view
+^^^^^^^^^^^^^^^^^^^
 
 Choose a rectangle ROI and display the contents as a zoom panel
 alongside it's parent. Options to zoom to same height as parent OR zoom
@@ -217,12 +215,12 @@ by chosen factor (e.g. 4x). Options to display zoom:
    -  http://jcb.rupress.org/content/168/5/735/F2.expansion
 
 ROI-Zoom movie
---------------
+^^^^^^^^^^^^^^
 
 -  http://jcb.rupress.org/content/168/4/599/F4.expansion
 
 Kymograph
----------
+^^^^^^^^^
 
 -  http://jcb.rupress.org/content/173/3/373.full
 -  http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2172449/figure/fig1/
