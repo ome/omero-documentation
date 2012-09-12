@@ -33,12 +33,9 @@ to speed up the review.
 
       -  with a list of tickets to be tested, use hyperlink.
       -  the potential tester(s) e.g. ``@qidane, @jburel``
-      -  The merge-blue build to use
 
 -  PR review
 
-   -  indicate the merge-blue build number (several builds might have
-      happened since)
    -  list the tickets that worked, use hyperlink
    -  list the tickets that did not work, use hyperlink. If necessary
       add more feedback to the ticket or the PR.
@@ -84,7 +81,7 @@ Testing
       submitted to the team.
    -  Confirmation all the appropriate images are in squig in test
       images good.
-   -  The evolution of test image good, this requires reviewing the
+   -  The evolution of `test_image_good`, this requires reviewing the
       submitted images from qa that had previously failed but are now
       successfully importing.
    -  The creation of the testing user story and file format tickets all
@@ -95,23 +92,6 @@ Testing
          that require additional tests for specific fixes in the
          release.
 
--  Scenarios
-
-   -  Small scale scenarios reviewed by the team once a month outside of
-      the testing process.
-   -  The scenarios will be reviewed 2 weeks before the code freeze
-      checking the enhancements and new features.
-   -  Stories (scenario and file formats) and tasks created. One Task
-      per scenario.
-   -  Stories (scenario and file formats) to collect bugs created.
-   -  Time window to go through the testing tasks (scenario and file
-      formats): **2 working days**, e.g. if testing starts on Monday,
-      all the testing tasks should be completed by the end of Tuesday.
-   -  Update testing server, only one person in charge
-   -  update server every morning. (**Suggestion**: Unix & Windows!)
-   -  notify team by e-mail indicating builds to use (clients, server,
-      B-F) server address etc.
-
 -  Recording BUG:
 
    -  Ticket summary must start with the work BUG:
@@ -120,8 +100,6 @@ Testing
    -  Add ticket to the correct component e.g. insight, web etc.
 
 -  Review daily tickets w/o time or owner.
--  Set time to test section w/o integration tests e.g. matlab support,
-   CellProfiler
 -  Include testing of upgrades from previous versions.
 -  Review/Update known limitations through testing
 -  Jenkins **MUST** report all logs at ``ERROR`` level as failures.

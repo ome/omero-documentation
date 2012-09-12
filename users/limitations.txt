@@ -16,7 +16,7 @@ Synchronisation of lib/scripts
 
 Since 4.2.0, OMERO includes a significantly improved scripting system. Several 
 official scripts are shipped under lib/scripts in the deployment directory. If 
-any of your users add their own "official scripts", they too will be stored 
+any of your users adds their own "official scripts", they too will be stored 
 under lib/scripts. When we release a new OMERO version, there will be some
 difficulties merging the two directories.
 
@@ -77,14 +77,14 @@ production environment, while an inconvenience, this should not stop
 the deployment of a production version of OMERO.web. See :forum:`OME forum
 topic <viewtopic.php?f=5&t=640>`.
 
-OMERO.importer and number of files to import
-============================================
+Importing using desktop clients and number of files to import
+=============================================================
 
 It is preferable not to import more than 1000 image files in a single
 import.
 
-OMERO.importer on Ubuntu
-========================
+Importing using desktop clients on Ubuntu
+=========================================
 
 Under older Ubuntu installations the 'import folder' option currently
 does not work.
@@ -109,11 +109,11 @@ Leopard) can fail with "ld: symbol(s) not found". You can find further
 details, a potential solution and make any comments on your experience
 with the problem on :ticket:`3210`.
 
-Web Start problems on Mac OS X 10.8 (Mountain Lion)
-===================================================
+Webstart problems on Mac OS X 10.8 (Mountain Lion)
+==================================================
 
 The new security features in Mac OS X 10.8 prevent users from launching
-OMERO.insight via Java Web Start using the standard system security
+OMERO.insight via Java Webstart using the standard system security
 settings. The system wide setting needs to be changed in preferences,
 and this would have security implications. We are looking into code 
 signing to resolve this issue.
