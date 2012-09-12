@@ -52,7 +52,7 @@ Most of these repositories are read-only locations which are kept in
 sync for public consumption. A third centrally available location is
 also available though not publicly:
 
--  ssh://git.openmicroscopy.org/home/git/team.git
+-  ssh\:\/\/git.openmicroscopy.org/home/git/team.git
 
 ``team.git`` is useful for team-internal branches which are not yet
 ready for public consumption. Changes that are not ready to be reviewed
