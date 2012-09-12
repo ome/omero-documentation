@@ -19,10 +19,10 @@ Importer & Insight on OS X
 --------------------------
 
 - Locate the :file:`OMERO.importer.app` or :file:`OMERO.insight.app` in Finder
-  and right click (or control+click) on it, choose :guilabel:`Show Package Contents`
+  and right click (or control+click) on it, choose :guilabel:`Show Package Contents` (see :ref:`memory_mac01`)
 - Navigate to the :file:`Contents` folder
 - Right-click on the :file:`Info.plist` file, and select to open it in either
-  Xcode (if installed) or the Property List Editor
+  Xcode (if installed) or the Property List Editor (see :ref:`memory_mac02`)
 - Within Xcode/Property List Editor, click and open the :guilabel:`Java` node.
   See :ref:`memory_mac03`
 - Under :guilabel:`VMOptions`, you will see a line such as
@@ -31,10 +31,26 @@ Importer & Insight on OS X
   :guilabel:`-Xmx2048M`` if you wish to increase the allocated size to 2048
   Megabytes
 
+.. _memory_mac01:
+.. figure:: /images/memory_mac01.png
+    :align: center
+    :width: 50%
+    :alt: Opening the package contents on OS X
+
+    Opening the package contents on OS X
+
+.. _memory_mac02:
+.. figure:: /images/memory_mac02.png
+    :align: center
+    :width: 50%
+    :alt: Opening the .plist file
+
+    Opening the .plist file
+
 .. _memory_mac03:
 .. figure:: /images/memory_mac03.png
     :align: center
-    :width: 60%
+    :width: 50%
     :alt: Client memory adjustment on OS X
     
     Client memory adjustment on OS X
