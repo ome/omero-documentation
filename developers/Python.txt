@@ -57,10 +57,10 @@ data IDs before editing and running the code samples.
 
 
 Code Samples
-************
+------------
 
 Connect to OMERO
-----------------
+^^^^^^^^^^^^^^^^
 
 ::
 
@@ -160,7 +160,7 @@ Connect to OMERO
         conn._closeSession() 
 
 Read Data
----------
+^^^^^^^^^
 
 -  **Create a connection**
 
@@ -301,7 +301,7 @@ Read Data
     conn._closeSession() 
 
 Groups & Permissions
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 -  **Create a connection**
 
@@ -383,7 +383,7 @@ Read-Annotate groups, this will include other users' data See
     conn._closeSession() 
 
 Raw Data Access
----------------
+^^^^^^^^^^^^^^^
 
 -  **Create a connection**
 
@@ -463,7 +463,7 @@ Raw Data Access
     conn._closeSession() 
 
 Write Data
-----------
+^^^^^^^^^^
 
 -  **Create a connection**
 
@@ -574,7 +574,7 @@ Write Data
     conn._closeSession() 
 
 OMERO tables
-------------
+^^^^^^^^^^^^
 
 -  **Create a connection**
 
@@ -715,7 +715,7 @@ OMERO tables
     conn._closeSession() 
 
 ROIs
-----
+^^^^
 
 -  **Create a connection**
 
@@ -853,7 +853,7 @@ ROIs
     conn._closeSession() 
 
 Delete Data
------------
+^^^^^^^^^^^
 
 -  **Create a connection**
 
@@ -918,7 +918,7 @@ Delete Data
     conn._closeSession() 
 
 Render Images
--------------
+^^^^^^^^^^^^^
 
 -  **Create a connection**
 
@@ -1010,7 +1010,7 @@ Render Images
     conn._closeSession() 
 
 Create Image
-------------
+^^^^^^^^^^^^
 
 -  **Create a connection**
 
@@ -1099,7 +1099,7 @@ Create Image
     conn._closeSession() 
 
 Python OMERO.scripts
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 It is relatively straight-forward to take the code samples above and
 re-use them in OMERO.scripts. This allows the code to be run on the
@@ -1110,7 +1110,7 @@ OMERO.web by any users of the server. See :doc:`/developers/Modules/Scripts/Guid
 .. _Python#Blitz:
 
 Blitz Gateway Documentation
-***************************
+---------------------------
 
 The epydoc-generated documentation of methods provided by OMERO Gateway
 is available showing :javadoc:` wrapper classes <epydoc/omero.gateway-module.html>`.
@@ -1142,7 +1142,7 @@ to handle object loading and hierarchy traversal. For example:
        survivin
 
 Access to the OMERO API services
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you need access to API methods that are not provided by the gateway
 library, you can get hold of the |OmeroApi|. 
@@ -1183,7 +1183,7 @@ call to server (no lazy loading)
             print d.getName().getValue()
 
 Stateful services, reconnection, error handling etc
----------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Blitz gateway was designed for use in the |OmeroWeb| framework and it is not expected that
 stateful services will be maintained on the client for significant time.
@@ -1195,7 +1195,7 @@ this a little better in due course, but our general advice is to create,
 use and close the stateful services in the shortest practicable time.
 
 Overwriting and extending omero.gateway classes
------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When working with
 :javadoc:` omero.gateway <epydoc/omero.gateway._BlitzGateway-class.html>`
@@ -1277,12 +1277,12 @@ web clients. However, we have now decided to encourage it's use for all
 access to the OMERO Python API.
 
 Wrapper Objects
----------------
+^^^^^^^^^^^^^^^
 
 The Gateway consists of a number of wrapper objects:
 
 Connection Wrapper
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 The BlitzGateway class (see :javadoc:` API of development code <epydoc/omero.gateway._BlitzGateway-class.html>`)
 is a wrapper for the OMERO client and session objects. It provides
@@ -1301,7 +1301,7 @@ retrieving data objects from OMERO.
         print p.name
 
 Model Object Wrappers
-~~~~~~~~~~~~~~~~~~~~~
+"""""""""""""""""""""
 
 OMERO model objects, E.g. omero.model.Project, omero.model.Pixels etc
 (see :javadoc:` full list <slice2html/omero/model.html>`)
@@ -1356,7 +1356,7 @@ E.g.
             print "Dataset", d.name
 
 Wrapper Coverage
-~~~~~~~~~~~~~~~~
+""""""""""""""""
 
 The OMERO data model has a large number of objects, not all of which
 are used by the |OmeroWeb| framework. For this reason, the Blitz
