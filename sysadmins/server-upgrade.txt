@@ -75,7 +75,7 @@ Before copying the new binaries, stop the existing server.
     $ bin/omero admin stop
 
 Your OMERO |previousversion| configuration is stored using ``config.xml`` in 
-the``etc/grid`` directory uwnder your OMERO.server directory. Assuming you
+the``etc/grid`` directory under your OMERO.server directory. Assuming you
 have not made any file changes within your OMERO.server distribution
 directory, you are safe to follow the following upgrade procedure:
 
