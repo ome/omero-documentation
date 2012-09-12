@@ -12,7 +12,7 @@
          :align: center
          :alt: Connect to the database server
 
-	 Connect to the database server
+     Connect to the database server
 
       .. figure::  /images/install-windows-screenshots/pgadmin-03connect.png
          :figwidth: 45%
@@ -20,7 +20,7 @@
          :align: center
          :alt: Enter password
 
-	 Enter password
+     Enter password
 
    #. Right-click on *Login Roles* and select *New Login Role...*
 
@@ -32,11 +32,15 @@
 
          New login role
 
-   #. Create a new role with the *Role name* ``db_user`` and a
-      *Password* ``db_password``. Note that these are examples, and you
-      should use your own choice of username and password here. You will
-      need to configure OMERO to use your username and password by
-      setting the omero.db.name and omero.db.pass properties.
+   #. Create a new role and record the name and password. You will need to 
+      configure OMERO to use your username and password by setting the 
+      omero.db.name and omero.db.pass properties.
+
+      .. warning::
+          For illustrative purposes, the default name and password for the 
+          role are ``db\_user``  and ``db\_password`` respectively. However, 
+          you should not use these default values for your installation but 
+          use your own choice of username and password instead.
 
    .. figure:: /images/install-windows-screenshots/pgadmin-05newrole-name.png
       :figwidth: 45%
@@ -88,7 +92,7 @@
          :align: center
          :alt: Options menu
 
-	 Options menu
+     Options menu
 
       .. figure:: /images/install-windows-screenshots/pgadmin-10viewlanguages.png
          :figwidth: 45%
@@ -96,7 +100,7 @@
          :align: center
          :alt: Enable display of installed languages
 
-	 Enable display of installed languages
+     Enable display of installed languages
 
    #. Navigate back to your database, expand the database's tree view
       and finally expand the now available *Languages* item:
@@ -123,7 +127,7 @@
          :align: center
          :alt: Add new language
 
-	 Add new language
+     Add new language
 
       .. figure:: /images/install-windows-screenshots/pgadmin-13newlanguage-name.png
          :figwidth: 45%
@@ -131,4 +135,4 @@
          :align: center
          :alt: New language name
 
-	 New language name
+     New language name
