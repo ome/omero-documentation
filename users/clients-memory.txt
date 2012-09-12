@@ -13,8 +13,8 @@ the memory allocation to the clients as outlined below.
     that this guide does **not** cover OMERO.web, which uses a different
     server-based configuration set-up.
 
-Macintosh Importer & Insight
-----------------------------
+Macintosh OMERO.insight & OMERO.importer
+----------------------------------------
 
 
 -   Locate the ``OMERO.importer.app`` or ``OMERO.insight.app`` and right
@@ -39,8 +39,8 @@ Macintosh Importer & Insight
 .. image:: /images/memory_mac03.png
     :align: center
 
-Windows Importer & Insight
---------------------------
+Windows OMERO.insight & OMERO.importer
+--------------------------------------
 
 -   To alter the memory allocation of the Windows clients, you must add
     an optional parameter file to the same folder as the application. For
@@ -53,15 +53,15 @@ Windows Importer & Insight
     (resp. ``OMERO.importer.exe``). The default file increases the memory
     allocation to 2048 Megabytes, however you may if you choose, open the
     file in any text editor (such as ``notepad.exe``) and change the value as
-    described in the 'Macintosh Importer & Insight' entry above.
+    described in the 'Macintosh OMERO.insight & OMERO.importer' entry above.
 
 .. image:: /images/memory_win.png
     :align: center
 
-Unix/Linux Importer & Insight
------------------------------
+Unix/Linux OMERO.insight & OMERO.importer
+-----------------------------------------
 
--   Changing either the importer or insight memory allocation under Unix
+-   Changing either the memory allocation under Unix
     requires you to edit the start-up script located with the clients
     (either ``importer-cli``, ``OMEROimporter_unix.sh``, or
     ``OMEROinsight_unix.sh`` file).
@@ -76,7 +76,7 @@ Unix/Linux Importer & Insight
 -   For the Importer CLI, the required memory requirements are listed
     near the top of the ``importer-cli`` script, and should look like
     this: ``JAVA_ARGS="-Xmx1024M"``. Simply update the value to a larger
-    number (as described in the Macintosh Importer & Insight' entry
+    number (as described in the 'Macintosh OMERO.insight & OMERO.importer' entry
     above).
 
 .. image:: /images/memory_unix.png
