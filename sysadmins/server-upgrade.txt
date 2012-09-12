@@ -24,9 +24,13 @@ you should retain as much log information as possible and notify the
 OMERO.server team via the mailing lists available on the
 :community_plone:`community <>` page. 
 
-For all users, the basic worflow for upgrading your OMERO.server from
-|previousversion|.x to |release| is listed below. Please refer to each section for
-additional details.
+The main goals of the |release| release is to improve the OMERO documentation 
+and fix various bugs. See the full details of |release| features in the 
+:forum:`Announcements <viewforum.php?f=11>` forum.
+
+For all users, the basic worflow for upgrading your OMERO.server from 
+|previousversion|.x to |release| is listed below. Please refer to each section 
+for additional details.
 
 #. Perform a database backup
 #. Copy binaries
@@ -39,7 +43,7 @@ additional details.
 
 If you are upgrading your OMERO.server from |version|.x to |release|, the
 workflow is almost identical except the database doesn't need to be
-upgraded. See the :ref:`upgrade44x` section for detailed steps.
+upgraded. See the :ref:`upgrade-sameversion` section for detailed steps.
 
 
 Upgrade from |previousversion|.x server to |release| server
@@ -210,16 +214,14 @@ and configure your server to use it.
 
     $ bin/omero config omero.db.name omero_from_backup
 
-.. _upgrade44x:
+.. _upgrade-sameversion:
 
 Upgrade from |version|.x server to |release| server
 ---------------------------------------------------
 
 .. note::
     This section only concerns users who upgraded to a |version|.x server. 
-    Full details of |release| features can be found in the 
-    :omero_plone:`downloads`, page.
-
+	
 .. note::
     The passwords and logins used here are exemplary. Please
     consult the :ref:`troubleshooting-password` page
