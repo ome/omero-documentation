@@ -345,7 +345,7 @@ Installation
 	.. warning:: 
 
 	    For illustrative purposes, the default password for the OMERO rootuser 
-	    is ``root_password``. However, you should not use this defaults value 
+	    is ``root_password``. However, you should not use this default value 
 	    for your installation but use your own choice of password instead.
 
 	    This should **not** be the same password as your Linux/Mac/Windows 
