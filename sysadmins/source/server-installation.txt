@@ -35,7 +35,7 @@ users/passwords described in this install guide, please see
     -  Unless you are clear on the differences, **you should also open all 
        consoles as an administrator to prevent file permission issues.**
 
-        .. figure:: /images/installation-images/win7-runasadmin-highlight.png
+       .. figure:: /images/installation-images/win7-runasadmin-highlight.png
            :align: center
            :alt:
 
@@ -135,11 +135,11 @@ The following are optional depending on what services you require:
       - OMERO.web and Figure Export
       - `PIL page <http://www.pythonware.com/products/pil/>`_
 
-    * - Matplotlib [1]_
+    * - Matplotlib
       - OMERO.web
       - `Matplotlib page <http://matplotlib.sourceforge.net/>`_
 
-    * - NumPy (1.2.0 or higher)
+    * - NumPy (1.2.0 or higher) [1]_
       - Scripting
       - `Numpy page <http://numpy.scipy.org/>`_
 
