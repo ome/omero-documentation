@@ -2,15 +2,12 @@
 OMERO |release| Documentation
 #############################
 
-This documentation is a work in progress and many aspects of OMERO are
-not yet covered.
-
-The OMERO documentation is divided into three parts. The :doc:`users/index` 
-covers the basic usage of OMERO as well as training material suitable for most 
-end-users. System administrators wanting to install an OMERO server will be 
-more interested by the :doc:`sysadmins/index` and subsequent sections. 
-Finally, developers can find more specific information about OMERO in the 
-:doc:`developers/index`.
+The OMERO |release| documentation is divided into three parts. The 
+:doc:`users/index` covers the basic usage of OMERO as well as training 
+material suitable for most end-users. System administrators wanting to install 
+an OMERO server will be more interested by the :doc:`sysadmins/index` and 
+subsequent sections. Finally, developers can find more specific information 
+about OMERO in the :doc:`developers/index`.
 
 .. toctree::
     :maxdepth: 1
@@ -26,3 +23,10 @@ Additional online resources can be found at:
  - :feature_plone:`Features <>`
  - :omero_plone:`Screenshots <screenshots>`
  - :omero_plone:`Security Vulnerabilities <secvuln>`
+
+This documentation is a work in progress and many aspects of OMERO are not yet 
+covered. The source code is hosted on Github. To propose changes and fix 
+errors, go to the :omedocs:`documentation repository <>`, fork it, edit the 
+file contents and propose your file changes to the OME team using `Pull Requests`_.
+
+.. _Pull Requests: https://help.github.com/articles/using-pull-requests
