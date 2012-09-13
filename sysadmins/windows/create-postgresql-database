@@ -12,7 +12,7 @@
          :align: center
          :alt: Connect to the database server
 
-     Connect to the database server
+         Connect to the database server
 
       .. figure::  /images/install-windows-screenshots/pgadmin-03connect.png
          :figwidth: 45%
@@ -20,7 +20,7 @@
          :align: center
          :alt: Enter password
 
-     Enter password
+         Enter password
 
    #. Right-click on *Login Roles* and select *New Login Role...*
 
