@@ -1,41 +1,14 @@
 Developing with OMERO
 =====================
 
-**In order to use these instructions, you will need to first clone the
-git repository and have all requirements properly installed as described
-on `OmeroContributing </ome/wiki/OmeroContributing>`_.**
-
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-#. `Using Eclipse <#UsingEclipse>`_
-#. `Unit-Testing <#Unit-Testing>`_
-#. `Integration-Testing <#Integration-Testing>`_
-
-   #. `Running all tests <#Runningalltests>`_
-   #. `Component tests <#Componenttests>`_
-   #. `Individual tests <#Individualtests>`_
-   #. `Failing tests <#Failingtests>`_
-
-#. `Writing your own tests <#Writingyourowntests>`_
-
-   #. `OmeroJava <#OmeroJava>`_
-   #. `OmeroPy <#OmeroPy>`_
-   #. `OmeroCpp <#OmeroCpp>`_
-   #. `Internal server tests <#Internalservertests>`_
-
-#. `Documenting server code <#Documentingservercode>`_
-#. `Debugging a running OMERO
-   instance <#DebuggingarunningOMEROinstance>`_
 
 Using Eclipse
 -------------
 
 There are currently ``.project`` and ``.classpath-template`` files
-stored in git in each component directory (e.g. `common's
-.classpath </ome/browser/ome.git/components/common/.classpath-template>`_
-and `common's
-.project </ome/browser/ome.git/components/common/.project>`_). There is
+stored in git in each component directory (e.g. :source:`common's
+.classpath <components/common/.classpath-template>` and 
+:source:`common's .project </components/common/.project>`). There is
 also a top-level .classpath and .project file which contains the entire
 project, but:
 
@@ -144,10 +117,10 @@ Failing tests
 Writing your own tests
 ----------------------
 
-For more information on writing tests in general see
-` http://testng.org <http://testng.org>`_. For a test to be an
-"integration" test, place it in the "integration" testng-group. If a
-test is temporarily broken, add it to the "broken" or "ignore" group:
+For more information on writing tests in general see `<http://testng.org>`_. 
+For a test to be an "integration" test, place it in the "integration" 
+testng-group. If a test is temporarily broken, add it to the "broken" or 
+"ignore" group:
 
 ::
 
@@ -156,8 +129,8 @@ test is temporarily broken, add it to the "broken" or "ignore" group:
 
      }
 
-`OmeroJava </ome/wiki/OmeroJava>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OmeroJava
+~~~~~~~~~
 
 The tests under ``components/OmeroJava/test`` will be the starting point
 for most Java client-developers coming to OMERO.
@@ -195,15 +168,15 @@ These tests should assume that:
 
     }
 
-`OmeroPy </ome/wiki/OmeroPy>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OmeroPy
+~~~~~~~
 
-Similar to the `OmeroJava </ome/wiki/OmeroJava>`_ tests, the tests under
+Similar to the OmeroJava tests, the tests under
 ``components/OmeroPy/test`` will be the starting point for most Python
 client-developers coming to OMERO.
 
-`OmeroCpp </ome/wiki/OmeroCpp>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OmeroCpp
+~~~~~~~~
 
 TBD.
 
@@ -220,10 +193,10 @@ information, please contact the list.
 Documenting server code
 -----------------------
 
-The definitive documentation for all `OmeroApi </ome/wiki/OmeroApi>`_
+The definitive documentation for all |OmeroApi|
 code are the slice definition files. The Ice manual describes how to
 write method and class comments:
-` http://zeroc.com/doc/Ice-3.3.1/manual/Slice.5.23.html <http://zeroc.com/doc/Ice-3.3.1/manual/Slice.5.23.html>`_
+`<http://zeroc.com/doc/Ice-3.3.1/manual/Slice.5.23.html>`_
 
 Debugging a running OMERO instance
 ----------------------------------
@@ -247,9 +220,3 @@ values are arbitrary and can be changed locally)
    the server to startup without your connecting, use "suspend=n"
 -  If you take too much time examining your threads, your calls may
    throw timeout exceptions.
-
---------------
-
-See also: `OmeroInstall </ome/wiki/OmeroInstall>`_,
-`OmeroContributing </ome/wiki/OmeroContributing>`_,
-`OmeroCommunity </ome/wiki/OmeroCommunity>`_
