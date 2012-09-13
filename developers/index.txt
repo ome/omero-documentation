@@ -4,7 +4,13 @@ Developer Documentation
 
 This is the home page of the OMERO developer documentation. OMERO is an open 
 source client/server system written for visualizing,  managing, and annotating 
-microscope images and metadata.
+microscope images and metadata. The OMERO server API allows clients to be 
+written in :doc:`Python </developers/Python>`, :doc:`Java </developers/Java>`,
+:doc:`MATLAB </developers/Matlab>` or :doc:`C++ </developers/Cpp>`. OMERO 
+releases include a web client |OmeroWeb| and command line interface OMERO.cli 
+which use the Python API and a Java client OMERO.insight. OMERO also supports 
+a Scripting Service which allows Python scripts to be run on the server & 
+called from any of the other clients.
 
 Instructions on downloading, installing, and administering OMERO can be found 
 under the :doc:`/sysadmins/index`.
@@ -41,8 +47,6 @@ Introduction to OMERO
 Using the OMERO API
 *******************
 
-The |OmeroApi| allows clients to be written in :doc:`Python </developers/Python>`, :doc:`Java </developers/Java>`, :doc:`MATLAB </developers/Matlab>` or :doc:`C++ </developers/Cpp>`.
-
 .. toctree::
     :maxdepth: 1
     :titlesonly:
@@ -68,9 +72,6 @@ Analysis
 Scripting Service
 *****************
 
-OMERO also supports a Scripting Service which allows Python scripts to be run on the server & called from any of the other clients.
-
-
 .. toctree::
     :maxdepth: 1
     :titlesonly:
@@ -85,7 +86,6 @@ OMERO also supports a Scripting Service which allows Python scripts to be run on
 OMERO.web Framework
 *******************
 
-OMERO releases include a web client |OmeroWeb| which use the Python API.
 
 .. toctree::
     :maxdepth: 1
@@ -103,9 +103,6 @@ OMERO releases include a web client |OmeroWeb| which use the Python API.
 ***********************
 Extending OMERO.insight
 ***********************
-
-OMERO releases include a Java client OMERO.insight
-(previous known by its internal development name *Shoola*).
 
 .. toctree::
     :maxdepth: 1
