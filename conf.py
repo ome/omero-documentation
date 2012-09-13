@@ -38,14 +38,29 @@ source_suffix = '.txt'
 #source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'index'
+if "DOCTYPE" in os.environ:
+    doctype = os.environ.get('DOCTYPE')
+    if doctype == 'user':
+        master_doc = 'users/index'
+    elif doctype == 'sysadmin':
+        master_doc = 'sysadmins/index'
+    elif doctype == 'developer':
+        master_doc = 'developers/index'
+    else:
+        raise Exception('Unrecognized documentation type')
+else:
+    doctype = ''
+    master_doc = 'index'
 
 # General information about the project.
 project = u'OMERO'
-title = u'OMERO Documentation'
+if doctype:
+    title = project + ' ' +doctype[0].upper() + doctype[1:]
+else:
+    title = project
+title += u' Documentation'
 author = u'The Open Microscopy Environment'
 copyright = u'2000-2012, ' + author
-target = 'OMEROdocs'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -247,8 +262,13 @@ latex_elements = {
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
+if doctype:
+    target = project + '-' + doctype
+else:
+    target = project
+target += '-' + release + '.tex'
 latex_documents = [
-  (master_doc, target + '.tex', title, author, 'manual'),
+  (master_doc, target, title, author, 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -257,7 +277,8 @@ latex_logo = 'images/ome-tight.pdf'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
-latex_use_parts = True
+if not doctype:
+    latex_use_parts = True
 
 # If true, show page references after internal links.
 #latex_show_pagerefs = False
@@ -290,7 +311,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, target, title, author, 'omedocs', 'One line description of project.',
+  (master_doc, project, title, author, 'omedocs', 'One line description of project.',
    'Miscellaneous'),
 ]
 
