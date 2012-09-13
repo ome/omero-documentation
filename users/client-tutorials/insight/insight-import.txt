@@ -1,5 +1,5 @@
-Importing Images in Insight
-===========================
+Importing Images
+================
 
 For more information on the file formats currently supported in OMERO see
 :bioformats:`File Formats <>`.
@@ -38,8 +38,8 @@ Step 1: File Selection
 Step 2: Location selection
 --------------------------
 
-- On the selection of the file(s) to import by pressing the |right|
-  icon the Location Selection window pops up.
+- When the selection of the file(s) is complete, move the file(s) to the import queue panel by pressing the |right|
+  icon, the Location Selection window pops up.
 
 - It is at this point of the process that the destination of the
   import is determined.
@@ -85,8 +85,8 @@ New From Folder Import
 
 The client importer also supports the ability for the chosen Dataset to
 reflect the chosen folder name. This is demonstrated in the case below
-where the folder 27-06-11 has been selected with the option --New From
-Folder-- in the Dataset selection.
+where the folder 27-06-11 has been selected with the option `--New From
+Folder--` in the Dataset selection.
 
 .. figure:: /images/insight-import-9newdataset.png
    :align: center
@@ -94,10 +94,10 @@ Folder-- in the Dataset selection.
 
 With this selection made when added to the import queue the Dataset
 created now takes on the folder name. In this screenshot below, the
-Dataset name is pngstack. The confirmation of this action is displayed
+Dataset name is `pngstack`. The confirmation of this action is displayed
 in the import queue panel with the information shown in the
-Project/Dataset and the information set in the tick box for folder as
-Dataset.
+Project/Dataset and the information set in the tick box for `Folder as
+Dataset`.
 
 .. figure:: /images/insight-import-10folderimport.png
    :align: center
@@ -106,7 +106,7 @@ Dataset.
 Step 3: Import
 --------------
 
-When ready the image files can now be imported by clicking the import
+When ready the image files can now be imported by clicking the `import`
 button.
 
 .. figure:: /images/insight-import-11startimport.png
@@ -164,7 +164,6 @@ File Naming
 - Directories before a file - This is a customised version i.e. the
   short version plus a number of leading directories
   e.g. ``Images/myImage.tiff``
-- Click on Import to Add to Queue button.
 
 Tagging on Import
 ^^^^^^^^^^^^^^^^^
@@ -206,7 +205,7 @@ Toggle between Single Image Formats versus Screening Formats
 Feedback
 --------
 
-As always, contributions of sample data will help to ensure that the
+As always, contributions of sample data will help to ensure that
 OMERO accurately supports a wide range of formats, and any
 contributions you may wish to make are always welcome by contacting us
 on our :forum:`User Discussion forum <viewforum.php?f=4>`, or our
@@ -214,4 +213,3 @@ on our :forum:`User Discussion forum <viewforum.php?f=4>`, or our
 
 If an error occurs, we strongly encourage users to submit the files alongside the error
 so we can improve the quality and reliability of the software.
-

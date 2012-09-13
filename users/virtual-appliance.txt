@@ -270,7 +270,7 @@ interact with it.
    allow you to import data via a GUI and manage that data once
    imported. To do so, download the :omero_plone:`insight client <downloads>`
    and follow the instructions below. More information can be found
-   under the :doc:`client-tutorials/insight/insight-getting-started` section
+   under the :doc:`clients-getting-started` section
    which details how to use the OMERO.clients.
 -  Alternatively, you can interact with the server command line
    interface by SSH'ing into the guest VM or by opening a console within
@@ -299,7 +299,7 @@ You can run regular OMERO clients on your host machine and connect to
 the server in the VM. Our example uses OMERO.insight running on Mac OS X
 to connect to the VM.
 
--  :omero_plone:`Download <downloads>` & :doc:`install <client-tutorials/insight/insight-getting-started>` OMERO.insight
+-  :omero_plone:`Download <downloads>` & :doc:`install <clients-getting-started>` OMERO.insight
 -  Start OMERO.insight
 -  Click the spanner icon situated above the password box so that we can
    enter the server settings box which looks like this:

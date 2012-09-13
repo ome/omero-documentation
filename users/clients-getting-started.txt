@@ -1,20 +1,21 @@
-Getting Started with OMERO.insight
+Getting Started with OMERO clients
 ==================================
 
-Download
---------
+OMERO.insight
+-------------
 
-First of, you MUST have an `OMERO
-server <http://trac.openmicroscopy.org.uk/ome>`_ installed. You need to
-download and install the version of OMERO.insight or OMERO.importer
-compatible with your OMERO.server version.
+Download
+^^^^^^^^
+
+First of, you MUST have an :doc:`OMERO server </sysadmins/server-overview>` 
+installed. You need to download and install the version of OMERO.insight compatible with your OMERO.server version.
 
 The latest versions are available for download from the 
-:omero_plone:`Download <downloads>` page. Once downloaded,
+:omero_plone:`Downloads <downloads>` page. Once downloaded,
 double-click the package to start the install process.
 
 Logging in
-----------
+^^^^^^^^^^
 
 The administrator who set the OMERO server will provide you with a
 username, a password and the address of the OMERO server where your data
@@ -22,14 +23,12 @@ will be stored. If the administrator opted to use :doc:`/sysadmins/server-ldap`
 you should be able to use your usual username and password. The
 authentication connection to the server is ALWAYS secured.
 
-The log-in procedure is the same for OMERO.importer and OMERO.insight.
-
 .. figure:: /images/omero_insight_4_4_login.png
    :align: center
    :alt: 
 
 Select server
--------------
+^^^^^^^^^^^^^
 
 To enter the address of the server, click on the icon in the top-right
 corner of the login window. A ``Servers`` dialog will pop up.
@@ -45,7 +44,7 @@ You can either:
    |edit| icon.
 3. Same as 2., then click on the port.
 
-   ..note::
+   .. note::
        The default port is ``4064``, you should not have to modify this value. If you have to, your system administrator will give you the new value.
                                                                                                                                                         
 
@@ -69,7 +68,7 @@ Then click the ``Apply`` button.
     displayed in the ``Login Dialog``.
 
 Secure Data Transfer
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 The connection to the server is always secured. Nevertheless, it is
 possible to select to encrypt the data transfer if desired. If selected,
@@ -82,3 +81,37 @@ the data transfer will be slower but more secure.
 .. |edit| image:: /images/nuvola_ksig16.png
 .. |encrypted| image:: /images/nuvola_encrypted_grey24.png
 .. |decrypted| image:: /images/nuvola_decrypted_grey24.png
+
+OMERO.editor
+------------
+
+You can run the OMERO.editor as a standalone application (no server
+connection) OR via OMERO.insight.
+
+Start OMERO.editor as a standalone application
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+OMERO.editor is a Java tool and requires `Java 1.5 <http://java.com/en/download/>`_. The latest release of OMERO.editor can
+be downloaded as part of the OMERO clients package from our :omero_plone:`downloads page <downloads>`.
+
+
+Start OMERO.editor via OMERO.insight
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In OMERO.insight, you start OMERO.editor by clicking the OMERO.editor
+icon |Editor Icon| in the toolbar.
+
+In OMERO.insight, you can open any OMERO.editor file by double clicking
+it, either when you find it attached to a Project, Dataset or Image, or
+by browsing under :menuselection:`View --> Attachments` (see screen shot).
+
+.. figure:: /images/insight-editor.png
+   :align: center
+   :alt:
+
+OMERO.web
+---------
+pending..
+
+
+.. |Editor Icon| image:: /images/icons/editor.png
