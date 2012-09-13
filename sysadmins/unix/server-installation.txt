@@ -30,27 +30,6 @@ level account, or if you are generally having issues with the various
 users/passwords described in this install guide, please see
 :ref:`troubleshooting-password`.
 
-.. only:: windows
-
-    -  Unless you are clear on the differences, **you should also open all 
-       consoles as an administrator to prevent file permission issues.**
-
-       .. figure:: /images/installation-images/win7-runasadmin-highlight.png
-           :align: center
-           :alt:
-
-    -  Installation on Windows XP is not explicitly supported, especially
-       for OMERO.web. Significant testing has taken place on Windows Server
-       2008 and we recommend this version.
-    -  :doc:`/sysadmins/omeromovie` does not work on Windows at present.
-    -  Spaces are not currently supported in installation path names.
-
-       .. note:: 
-          The default user paths on Windows usually contain spaces so you
-          will need to ensure the path has no spaces, ``C:\omero_dist`` for
-          example.
-    -  A reboot is required after installing the prerequisites.
-
 Prerequisites
 -------------
 
@@ -63,62 +42,47 @@ Java SE Development Kit (JDK) (1.5 or higher)
 
 Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 
-.. only:: unix
-    
-    UNIX systems, you can check which version of Java is 
-    currently available to you via your $PATH as follows:
+UNIX systems, you can check which version of Java is 
+currently available to you via your $PATH as follows:
 
-    ::
+::
 
-        $ which java
-        /usr/bin/java
-        $ java -version
-        java version "1.6.0"
-        Java(TM) SE Runtime Environment (build 1.6.0-b105)
-        Java HotSpot(TM) Server VM (build 1.6.0-b105, mixed mode)
+    $ which java
+    /usr/bin/java
+    $ java -version
+    java version "1.6.0"
+    Java(TM) SE Runtime Environment (build 1.6.0-b105)
+    Java HotSpot(TM) Server VM (build 1.6.0-b105, mixed mode)
 
-    Further, you can see if you have the Java compiler (Java SDK)
-    installed and available via your $PATH as follows...
+Further, you can see if you have the Java compiler (Java SDK)
+installed and available via your $PATH as follows...
 
-    ::
+::
 
-        $ which javac
-        /usr/bin/javac
-        $ javac -version
-        javac 1.6.0
+    $ which javac
+    /usr/bin/javac
+    $ javac -version
+    javac 1.6.0
 
-    .. note:: 
+.. note:: 
 
-        On systems with `OpenJDK <http://openjdk.java.net/>`_ installed 
-        by default, it will be necessary to unselect it and select the Sun 
-        version. For more information, see :forum:`this thread  <viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>` .
+    On systems with `OpenJDK <http://openjdk.java.net/>`_ installed 
+    by default, it will be necessary to unselect it and select the Sun 
+    version. For more information, see :forum:`this thread  <viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>` .
 
 Python (2.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. only:: unix
+Check you have Python (and what version) by typing:
 
-    Check you have Python (and what version) by typing:
+::
 
-    ::
-
-        $ python --version
-        Python 2.5.1
+    $ python --version
+    Python 2.5.1
 
 Due to backwards incompatibilities in Python 3.0, Django does not
 currently work with Python 3.0; for more information see the `Django
 Installation page <https://docs.djangoproject.com/en/1.1/intro/install/>`_.
-
-.. only:: windows
-
-    Ice 3.4.x requires Python 2.6.x. You must download the 32-bit version
-    from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
-    As this is the "vanilla" python distribution (no extra libraries),
-    you will need to install further dependencies, making sure to
-    download the **correct bitness and Python version**:
-
-    *Python for Windows extensions*:  The installer is available from
-    `this page <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
 
 The following are optional depending on what services you require:
 
@@ -168,34 +132,20 @@ Ice (3.3.x or higher)
     the FAQ. If you have further questions, consult the `Forums
     <https://www.openmicroscopy.org/community>`_.
 
-.. only:: unix
 
-    UNIX source downloads and binary packages are available from ZeroC_.
-    The latest compatible distribution is the `3.3.1 release <http://www.zeroc.com/download_3_3_1.html>`_. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). |Glencoe| has made its version available for the community:
-    `Ice-3.3.1-64.tar.bz2 <http://www.glencoesoftware.com/mac/10.6/Ice-3.3.1-64.tar.bz2>`_
-    (sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) 
+UNIX source downloads and binary packages are available from ZeroC_.
+The latest compatible distribution is the `3.3.1 release <http://www.zeroc.com/download_3_3_1.html>`_. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). |Glencoe| has made its version available for the community:
+`Ice-3.3.1-64.tar.bz2 <http://www.glencoesoftware.com/mac/10.6/Ice-3.3.1-64.tar.bz2>`_
+(sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) 
 
-    .. note::
+.. note::
 
-        This version was compiled with the mcpp from MacPorts, which you will need to use these bindings. 
-
-.. only:: windows
-
-    Windows installers can be found on the `ZeroC download
-    page <http://www.zeroc.com/download.html>`_ and will be called
-    something like ``Ice-3.4.2.msi`` (for Ice 3.4.2). If you plan to
-    develop for C++, be sure to read the instructions on the
-    |OmeroCpp| page.
+    This version was compiled with the mcpp from MacPorts, which you will need to use these bindings. 
 
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :doc:`/users/limitations`. See :doc:`server-postgresql` for specifics about each version.
-
-.. only:: windows
-
-    .. include:: install-postgresql
-
 
 OMERO.server 4.4.x
 ^^^^^^^^^^^^^^^^^^
@@ -275,27 +225,12 @@ Location for the your OMERO binary repository
 Installation
 ------------
 
--   .. only:: unix
+-   Extract the OMERO tarball and note its location. Below it is referred  
+    to as: ``~/Desktop/omero``
 
-        Extract the OMERO tarball and note its location. Below it is referred  
-        to as: ``~/Desktop/omero``
+-   Optionally, review ``~/Desktop/omero/etc/omero.properties`` which
+    contains all default settings.
 
-    .. only:: windows
-
-        Extract the OMERO tarball and note its location. Below it is referred   
-        to as: ``C:\omero_dist``
-
--   .. only:: unix
-
-        Optionally, review ``~/Desktop/omero/etc/omero.properties`` which
-        contains all default settings.
-
-    .. only:: windows
-
-        Optionally, review ``C:\omero_dist\etc\omero.properties`` which
-        contains all default settings
-        Optionally, review ``~/Desktop/omero/etc/omero.properties`` (resp.
-    
     You will need to open the file with a text editor. Don't edit the file. 
     Any configuration settings you would like to change can be changed in the 
     next step.
@@ -307,35 +242,15 @@ Installation
     (Quotes are only necessary if the value could be misinterpreted by
     the shell. See :forum:`link <viewtopic.php?f=5&t=360#p922>`)
 
-    .. only:: unix
+    ::
 
-        ::
-
-            $ cd ~/Desktop/omero
-            $ bin/omero config set omero.db.name 'omero_database'
-            $ bin/omero config set omero.db.user 'db_user'
-            $ bin/omero config set omero.db.pass 'db_password'
-
-    .. only:: windows   
-
-        ::
-
-            C:\> cd C:\omero_dist
-            C:\omero_dist\> bin\omero config set omero.db.name omero_database
-            C:\omero_dist\> bin\omero config set omero.db.user db_user
-            C:\omero_dist\> bin\omero config set omero.db.pass db_password
+        $ cd ~/Desktop/omero
+        $ bin/omero config set omero.db.name 'omero_database'
+        $ bin/omero config set omero.db.user 'db_user'
+        $ bin/omero config set omero.db.pass 'db_password'
 
 -   If you have chosen a non-standard :doc:`OMERO binary repository <server-binary-repository>` 
     location above, be sure to configure the ``omero.data.dir`` property.
-
-    .. only:: windows 
-    
-        When using ``C:\`` style file paths it is necessary to "escape" the 
-        backslashes. For example:
-
-        ::
-
-            C:\> bin\omero config set omero.data.dir C:\\OMERO
 
 -   Create the OMERO database initialization script. You will be asked
     for the version of the script which you would like to generate, where
@@ -351,137 +266,40 @@ Installation
 	    This should **not** be the same password as your Linux/Mac/Windows 
 	    root user!
 	
-    .. only:: unix
+    ::
 
-        ::
-
-            $ cd ~/Desktop/omero 
-            $ bin/omero db script
-            Please enter omero.db.version [OMERO4.4]: 
-            Please enter omero.db.patch [0]: 
-            Please enter password for new OMERO root user: # root_password
-            Please re-enter password for new OMERO root user: # root_password
-            Saving to ~/Desktop/omero/OMERO4.4__0.sql
-
-    .. only:: windows
-
-        ::
-
-            C:\> cd C:\omero_dist\
-            C:\omero_dist> bin\omero db script
-            Please enter omero.db.version [OMERO4.4]: 
-            Please enter omero.db.patch [0]: 
-            Please enter password for new OMERO root user: # root_password
-            Please re-enter password for new OMERO root user: # root_password
-            Saving to C:\omero_dist\OMERO4.4__0.sql
+        $ cd ~/Desktop/omero 
+        $ bin/omero db script
+        Please enter omero.db.version [OMERO4.4]: 
+        Please enter omero.db.patch [0]: 
+        Please enter password for new OMERO root user: # root_password
+        Please re-enter password for new OMERO root user: # root_password
+        Saving to ~/Desktop/omero/OMERO4.4__0.sql
 
 -   Initialize your database with the script.
 
-    .. only:: unix
-    
-        ::
+    ::
 
-            $ psql -h localhost -U db_user omero_database < OMERO4.4__0.sql
+        $ psql -h localhost -U db_user omero_database < OMERO4.4__0.sql
 
-    .. only:: windows
-    
-        #. Launch *SQL Shell (psql)* from the Start Menu under 
-        :menuselection:`Programs --> PostgreSQL 9.1 --> SQL Shell (psql)`
-
-           ::
-
-               Server [localhost]:
-               Database [postgres]: omero_database
-               Port [5432]:
-               Username [postgres]: db_user
-               Password for user db_user:
-               Welcome to psql 9.1.4, the PostgreSQL interactive terminal.
-
-               Type:  \copyright for distribution terms
-                      \h for help with SQL commands
-                      \? for help with psql commands
-                      \g or terminate with semicolon to execute query
-                      \q to quit
-
-               Warning: Console code page (437) differs from Windows code page (1252)
-                        8-bit characters might not work correctly. See psql reference
-                        page "Notes for Windows users" for details.
-
-        #. Execute run the following to populate your database:
-
-           ::
-
-               omero=> \i C:/omero_dist/OMERO4.4__0.sql
-               ...
-               ...
-               omero=> \q
 
 -   Before starting the OMERO.server we should run the OMERO diagnostics
     script so that we check that all of our settings are correct, e.g.
 
-    .. only:: unix
+    ::
 
-        ::
-
-            $ bin/omero admin diagnostics
-
-    .. only:: windows
-
-        ::
-
-            C:\omero_dist\> bin\\omero admin diagnostics
+        $ bin/omero admin diagnostics
 
 -   You can now start the server using:
 
-    .. only:: unix
+    ::
 
-        ::
+         $ bin/omero admin start
+         Creating var/master
+         Initializing var/log
+         Creating var/registry
+         No descriptor given. Using etc/grid/default.xml
 
-             $ bin/omero admin start
-             Creating var/master
-             Initializing var/log
-             Creating var/registry
-             No descriptor given. Using etc/grid/default.xml
-
-    .. only:: windows
-
-        ::
-
-            C:\omero_dist> bin\omero admin start
-            Creating var\master
-            Initializing var\log
-            Creating var\registry
-            No descriptor given. Using etc\grid\default.xml
-            C:\omero_dist>
-            [SC] CreateService SUCCESS
-
-
-            SERVICE_NAME: OMERO.master
-                    TYPE               : 10  WIN32_OWN_PROCESS
-                    STATE              : 2  START_PENDING
-                                            (NOT_STOPPABLE,NOT_PAUSABLE,IGNORES_SHUTDOWN)
-                    WIN32_EXIT_CODE    : 0  (0x0)
-                    SERVICE_EXIT_CODE  : 0  (0x0)
-                    CHECKPOINT         : 0x0
-                    WAIT_HINT          : 0x7d0
-                    PID                : 2312
-                    FLAGS              :
-
-            Waiting on startup. Use CTRL-C to exit
-
-        If you've chosen a non-default install directory (other than
-        ``C:\omero_dist``), the output will look like this:
-
-        ::
-
-            C:\OMERO.server-4.4> bin\omero admin start
-            Found default value: C:\omero_dist\var\master
-            Attempting to correct...
-            Converting from C:\omero_dist to C:\OMERO.server-4.4
-            Changes made: 6
-            No descriptor given. Using etc\grid\windefault.xml
-            [SC] CreateService SUCCESS
-            ...
 
 -  If you would like to move the directory again, see
    ``bin\winconfig.bat --help``, which gets called automatically on an
@@ -490,23 +308,12 @@ Installation
 -  You can now test that you can log-in as "root", either with the
    OMERO.insight client or command-line:
 
-    .. only:: unix
+    ::
 
-        ::
-
-            $ bin/omero login
-            Server: [localhost]
-            Username: [root]
-            Password:         # root_password
-
-    .. only:: windows
-
-        ::
-
-            C:\OMERO.server-4.4> bin\omero login
-            Server: [localhost]
-            Username: [root]
-            Password:         # root_password
+        $ bin/omero login
+        Server: [localhost]
+        Username: [root]
+        Password:         # root_password
 
 OMERO.web and Administration
 ----------------------------
@@ -516,50 +323,24 @@ OMERO.web and Administration
 Otherwise, the internal Django webserver can be used for evaluation and development. In this case, we need to
 turn debugging on, in order that static files can be served by Django:
 
-.. only:: unix
+::
 
-	::
-
-	    $ bin/omero config set omero.web.application_server development
-	    $ bin/omero config set omero.web.debug True
-
-.. only:: windows
-
-	::
-
-	    c:\omero_dist> bin\omero config set omero.web.application_server development
-	    c:\omero_dist> bin\omero config set omero.web.debug True
-	    c:\omero_dist> bin\omero config set omero.web.session_engine "django.contrib.sessions.backends.cache"
-	    c:\omero_dist> bin\omero config set omero.web.cache_backend "file://C:/windows/temp/"
+    $ bin/omero config set omero.web.application_server development
+    $ bin/omero config set omero.web.debug True
 
 then start by
 
-.. only:: unix
+::
 
-	::
+    $ bin/omero web start
+    Starting django development webserver... 
+    Validating models...
+    0 errors found
 
-	    $ bin/omero web start
-	    Starting django development webserver... 
-	    Validating models...
-	    0 errors found
-
-	    Django version 1.1.1, using settings 'omeroweb.settings'
-	    Development server is running at http://0.0.0.0:4080/
-	    Quit the server with CONTROL-C.
+    Django version 1.1.1, using settings 'omeroweb.settings'
+    Development server is running at http://0.0.0.0:4080/
+    Quit the server with CONTROL-C.
 	
-.. only:: windows
-
-	::
-
-	    c:\omero_dist> bin\omero web start
-	    Starting django development webserver... 
-	    Validating models...
-	    0 errors found
-
-	    Django version 1.1.1, using settings 'omeroweb.settings'
-	    Development server is running at http://0.0.0.0:4080/
-	    Quit the server with CONTROL-C.
-
 Once you have deployed and started the server you can use your browser
 to access the OMERO.web interface:
 
