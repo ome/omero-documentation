@@ -111,7 +111,23 @@ by browsing under :menuselection:`View --> Attachments` (see screen shot).
 
 OMERO.web
 ---------
-pending..
+
+.. warning::
+
+    To use the OMERO.web client, the web functionality of OMERO must have been 
+    set up by your system administrator. See :doc:`/sysadmins/install-web` 
+    for more information.
+
+You can start OMERO.web from your browser (Firefox, Chrome, Safari, 
+Internet Explorer). Use the server address supplied by your system 
+administrator. For example, to connect to a local server, type 
+http://localhost:4080/omero in the navigation bar of your browser.
+
+
+.. figure:: /images/OmeroWeb-login.png
+   :align: center
+   :width: 80%
+   :alt: OMERO.web login 
 
 
 .. |Editor Icon| image:: /images/icons/editor.png
