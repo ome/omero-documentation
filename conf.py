@@ -103,6 +103,7 @@ extlinks = {
     'doi' : ('http://dx.doi.org/%s', ''),
     'source' : ('https://github.com/openmicroscopy/openmicroscopy/blob/develop/%s', ''),
     'sourcedir' : ('https://github.com/openmicroscopy/openmicroscopy/tree/develop/%s', ''),
+    'omedocs' : ('https://github.com/openmicroscopy/ome-documentation/%s', ''),
     'javadoc' : ('http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/%s', ''),
     'jenkins' : ('http://hudson.openmicroscopy.org.uk/%s', ''),
     'mailinglist' : ('http://lists.openmicroscopy.org.uk/mailman/listinfo/%s', ''),
