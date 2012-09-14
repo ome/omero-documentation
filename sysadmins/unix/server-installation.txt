@@ -6,9 +6,13 @@ OMERO.server Installation
     :doc:`/sysadmins/server-upgrade`
          Instructions for **upgrading** your OMERO.server installation.
 
-    :snapshot:`OMERO Installation for Mac OS X Snow Leopard (10.6)
-    <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
+    :doc:`server-install-homebrew`
+        Instructions for installing your OMERO.server on Mac OS X using Homebrew.
 
+    :doc:`server-install-linux`
+        Instructions for installing your OMERO.server on Debian/Ubuntu.
+
+    :snapshot:`OMERO Installation for Mac OS X Snow Leopard (10.6) <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
         A guide provided by Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) 
         for users wishing to install OMERO 4.1 on Mac OS 10.6, including
         details on how to build all dependencies from source. The OMERO 4.4
