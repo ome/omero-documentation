@@ -6,7 +6,7 @@ pop up on screen. The Data Manager serves as the major portal for the
 user into his/her data hierarchies.
 
 .. figure:: /images/insight-data-manager-1overview.png
-    :width: 100%
+    :width: 55%
     :align: center
     :alt: OMERO.insight data manager
 
@@ -15,6 +15,7 @@ Create Objects
 
 .. figure:: /images/insight-data-manager-2toolbar.png
    :align: center
+   :width: 35%
    :alt: Create projects and datasets
 
 To create a new Project (resp. Dataset),
@@ -26,6 +27,7 @@ The following window will pop up on screen
 
 .. figure:: /images/insight-data-manager-3createproject.png
    :align: center
+   :width: 35%
    :alt: Creating a project
 
 After pressing the ``Create`` button, a new Project (resp. Dataset)
@@ -53,6 +55,7 @@ Manage
 
 .. figure:: /images/insight-data-manager-4toolbar.png
    :align: center
+   :width: 35%
    :alt: Cut, copy, paste and delete
 
 Using the Inspector, the user can
@@ -76,6 +79,7 @@ The Working area is built and displayed when browsing data e.g. a Plate
 
 .. figure:: /images/insight-data-manager-5toolbar.png
    :align: center
+   :width: 35%
    :alt: Working area
 
 -  Browsing a Project (resp. Dataset, Plate):
@@ -89,12 +93,14 @@ Working Area tool bar explained
 
 .. figure:: /images/insight-data-manager-6toolbar.png
    :align: center
+   :width: 35%
    :alt: Working area toolbar
 
 The user can then filter the displayed images.
 
 .. figure:: /images/insight-data-manager-7filter.png
    :align: center
+   :width: 35%
    :alt: Filter data
 
 Handle Metadata and Edit Object
@@ -114,7 +120,7 @@ How to add, view metadata
 -  Go to the Metadata Browser i.e. Right-hand side.
 
 .. figure:: /images/insight-data-manager-8metadata.png
-    :width: 100%
+    :width: 55%
     :align: center
     :alt: The metadata browser
 
@@ -130,6 +136,7 @@ attachment from the server.
 
 .. figure:: /images/insight-data-manager-9annotation.png
    :align: center
+   :width: 35%
    :alt: Managing attachments
 
 View Acquisition Metadata
@@ -140,6 +147,7 @@ panel under the Acquisition tab.
 
 .. figure:: /images/insight-data-manager-10acquisition.png
    :align: center
+   :width: 55%
    :alt: Acquisition metadata
 
 Image Preview
@@ -151,6 +159,7 @@ without having to launch the full image viewer.
 
 .. figure:: /images/insight-data-manager-11preview.png
    :align: center
+   :width: 35%
    :alt: Image preview
 
 Search
@@ -160,7 +169,7 @@ Full text searching. You can also use wild-cards in your search e.g.
 \*.dv will find all files ending with '.dv'.
 
 .. figure:: /images/insight-data-manager-12search.png
-    :width: 100%
+    :width: 55%
     :align: center
     :alt: Searching
 

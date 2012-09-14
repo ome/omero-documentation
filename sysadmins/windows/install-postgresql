@@ -10,6 +10,7 @@ will need the postgres user's password later in the install.
 
    .. figure:: /images/install-windows-screenshots/pginstall-01explorer.png
       :align: center
+      :width: 55%
       :alt: 1
 
 #. You may be prompted for permission to continue with a "user account
@@ -17,18 +18,21 @@ will need the postgres user's password later in the install.
 
    .. figure:: /images/install-windows-screenshots/pginstall-02uac.png
       :align: center
+      :width: 35%
       :alt: 1
 
 #. The installer will now start.
 
    .. figure:: /images/install-windows-screenshots/pginstall-03start.png
       :align: center
+      :width: 55%
       :alt: 1
 
 #. Choose the installation directory. The default is fine.
 
    .. figure:: /images/install-windows-screenshots/pginstall-04bindir.png
       :align: center
+      :width: 55%
       :alt: 1
 
 #. Choose the data directory. The default is fine, but if you want to
@@ -37,6 +41,7 @@ will need the postgres user's password later in the install.
 
    .. figure:: /images/install-windows-screenshots/pginstall-05datadir.png
       :align: center
+      :width: 55%
       :alt: 1
 
 #. Enter a password for the special "postgres" system account. OMERO
@@ -45,6 +50,7 @@ will need the postgres user's password later in the install.
 
    .. figure:: /images/install-windows-screenshots/pginstall-06passwd.png
       :align: center
+      :width: 55%
       :alt: 1
 
 #. Enter the port number for PostgreSQL to listen on for incoming
@@ -52,12 +58,14 @@ will need the postgres user's password later in the install.
 
    .. figure:: /images/install-windows-screenshots/pginstall-07port.png
       :align: center
+      :width: 55%
       :alt: PostgreSQL port
 
 #. Select the locale. The default here is fine.
 
    .. figure:: /images/install-windows-screenshots/pginstall-08locale.png
       :align: center
+      :width: 55%
       :alt: PostgreSQL locale
 
 #. PostgreSQL will now be installed and started.

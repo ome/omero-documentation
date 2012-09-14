@@ -31,6 +31,7 @@ by browsing under :menuselection:`View --> Attachments` (see screen shot).
 
 .. figure:: /images/insight-editor.png
    :align: center
+   :width: 35%
    :alt:
 
 UI Layout
@@ -57,7 +58,7 @@ The **Text View** displays the title, description and parameters in a page layou
 .. _editor-textview:
 
 .. figure:: /images/editor-textview.png
-    :width: 100%
+    :width: 55%
     :align: center
     :alt: Protocols Text View
    
@@ -66,7 +67,7 @@ Protocols can also be  viewed in the **Tree View**.
 .. _editor-treeview:
 
 .. figure:: /images/editor-ui.png
-    :width: 100%
+    :width: 55%
     :align: center
     :alt: Protocols Tree view
 
@@ -85,14 +86,14 @@ In both cases, parameters can be seen in the context of the step description,
 which can be edited in the page layout of  the Text view
 
 .. figure:: /images/editor-paramscontext.png
-    :width: 100%
+    :width: 55%
     :align: center
     :alt: Parameters Text View
 
 or the right panel of the Tree view.
 
 .. figure:: /images/editor-paramstree.png
-    :width: 100%
+    :width: 55%
     :align: center
     :alt: Parameters Tree View
 
@@ -112,7 +113,7 @@ each parameter. 'Drop-down' and 'Check-box' parameters are represented
 with the appropriate controls in the table (see below).
 
 .. figure:: /images/editor-paramstable.png
-    :width: 100%
+    :width: 55%
     :align: center
     :alt:
 

@@ -7,6 +7,7 @@
 
    .. figure:: /images/installation-images/system-properties.png
       :align: center
+      :width: 35%
       :alt: Advanced System Properties
 
       Advanced System Properties
@@ -15,6 +16,7 @@
 
    .. figure:: /images/installation-images/environment-variables.png
       :align: center
+      :width: 35%
       :alt: Environment Variables
 
       Environment Variables
@@ -26,12 +28,15 @@
    ``PYTHONPATH`` pointing to the Ice installation 'python' location:
 
    .. |PATH variable| image:: /images/installation-images/path-variable.png
+      :width: 35%
       :alt: Path variable
 
    .. |PATH variable 2| image:: /images/installation-images/path-variable2.png
+      :width: 35%
       :alt: Path variable
 
    .. |PYTHONPATH variable| image:: /images/installation-images/pythonpath-variable.png
+      :width: 35%
       :alt: PythonPath variable
 
 

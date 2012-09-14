@@ -172,6 +172,7 @@ password into the OMERO.insight dialog):
 
 .. figure:: /images/login_failure.png
    :align: center
+   :width: 35%
    :alt: Login failure
 
 This often because of firewall misconfiguration on the machine that runs

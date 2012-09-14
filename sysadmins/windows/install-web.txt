@@ -110,6 +110,7 @@ working with your IIS deployment.
 
 .. figure:: /images/installation-images/IIS7Requirements.png
    :align: center
+   :width: 35%
    :alt: IIS 7 configuration options
 
    IIS 7 configuration options
@@ -122,6 +123,7 @@ working with your IIS deployment.
 
 .. figure:: /images/installation-images/IIS7ApplicationPool.png
    :align: center
+   :width: 35%
    :alt: IIS 7 Application Pool Advanced Settings
 
    IIS 7 Application Pool Advanced Settings
@@ -171,6 +173,7 @@ to access OMERO.webadmin or the OMERO.webclient:
 
 	.. figure:: /images/installation-images/login.png
 	   :align: center
+	   :width: 55%
 	   :alt: OMERO.webadmin login
 
 	   OMERO.webadmin login
