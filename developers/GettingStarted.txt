@@ -3,8 +3,8 @@ OMERO.clients
 
 The OMERO model is implemented as a relational PostgreSQL database on
 the OMERO server and mapped to code-generated model objects used by the
-clients in the various supported languages (see above). The OMERO API
-consists of a number of services for working with these objects and
+clients in the various supported languages (see :doc:`/developers/index`). The 
+OMERO API consists of a number of services for working with these objects and
 associated binary data. Typically, clients will use various stateless
 services to query the OMERO model and then use the stateful services for
 exchange of binary data or image rendering.

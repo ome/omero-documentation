@@ -17,7 +17,7 @@ going into the 'behind the scenes' details. More technical details can
 be found on the :doc:`/developers/Modules/Scripts` page.
 
 In addition to this guide, you may find the following pages useful for
-more information on using the OMERO Python API: |OmeroClients|, |BlitzGateway|.
+more information on using the OMERO Python API: |OmeroClients|, |OmeroPy|.
 
 Scripts can be run from Insight, using a UI generated from the script.
 The script results can also be handled by Insight. Scripts should
@@ -70,7 +70,7 @@ OMERO.insight (as discussed on the `developers/Modules/Scripts/StyleGuide`).
 The script is well documented and should get you started. A few points
 to note:
 
-Since the OMERO 4.3 release, if you are using the |BlitzGateway|,
+Since the OMERO 4.3 release, if you are using the 'Blitz Gateway',
 you can get a connection wrapper like this:
 
 ::
