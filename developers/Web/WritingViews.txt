@@ -74,7 +74,10 @@ that is used (see Flow Diagram). As mentioned above, we start with a
 http request (top left) and either a connection is returned (bottom
 left) OR we are redirected to login page (right).
 
-.. note:: options to configure a "public user" are described on the :doc:`web configuration page </sysadmins/unix/install-web>`.
+.. note:: 
+    Options to configure a "public user" are described on the OMERO.web 
+    configuration page (see :doc:`Unix </sysadmins/unix/install-web>` or 
+    :doc:`Windows </sysadmins/windows/install-web>` version).
 
 Extending login\_required
 ^^^^^^^^^^^^^^^^^^^^^^^^^

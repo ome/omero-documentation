@@ -93,8 +93,14 @@ Updating the registry version after a release
 
 .. seealso:: 
 
+
 	:doc:`/sysadmins/unix/server-installation`
+        Instructions for installing OMERO.server on UNIX & UNIX-like platforms
+
+    :doc:`/sysadmins/windows/server-installation`
+        Instructions for installing OMERO.server on Windows platforms
 
     :doc:`/sysadmins/server-upgrade`
+        Instructions for upgrading OMERO.server 
 
     :doc:`/sysadmins/server-security`

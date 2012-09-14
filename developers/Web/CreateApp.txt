@@ -16,10 +16,12 @@ Getting set up
 You will need to have an OMERO server running that you can connect to.
 This will typically be on your own machine, although it does not
 necessarily have to be. If you want to connect to another server (not
-localhost) you can edit the server list as described on the :doc:`/sysadmins/unix/install-web`
-page and choose that server when you log in. That page also describes
-how to set debug to 'True' which is important when developing with
-OMERO.web and you should also be using the Django 'development' server.
+localhost) you can edit the server list as described on the OMERO.web 
+deployment page (see :doc:`Unix </sysadmins/unix/install-web>` or 
+:doc:`Windows </sysadmins/windows/install-web>` version) and choose that 
+server when you log in. That page also describes how to set debug to 'True' 
+which is important when developing with OMERO.web and you should also be using 
+the Django 'development' server.
 
 You need the omeroweb code. Your options are to run against a released
 OMERO.server build, or run directly from the OMERO.web source code:
