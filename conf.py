@@ -133,6 +133,7 @@ rst_epilog = """
 .. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
 .. _Python Imaging Library: http://www.pythonware.com/products/pil/
 .. _Matplotlib: http://matplotlib.org/
+.. _Python: http://python.org
 
 .. |OME| replace:: `Open Microscopy Environment`_
 .. |Glencoe| replace:: `Glencoe Software, Inc.`_
