@@ -6,29 +6,22 @@ instance that is configured to accept connections over TCP. This
 section explains how to ensure that you have the correct PostgreSQL
 version and that it is installed and configured correctly.
 
-.. only:: windows
-
-    For Windows-specific installation instructions, first see 
-    :doc:`server-installation`.
-
 Ensuring you have a valid PostgreSQL version
 --------------------------------------------
 
 For OMERO 4.4, PostgreSQL 8.4 or higher is required (see :doc:`/users/limitations` for more information.)
 
-.. only:: unix
+You can check which version of PostgreSQL you have installed with any of
+the following commands:
 
-    You can check which version of PostgreSQL you have installed with any of
-    the following commands:
+::
 
-    ::
-
-           $ createuser -V
-           createuser (PostgreSQL) 9.1.4
-           $ psql -V
-           psql (PostgreSQL) 9.1.4
-           $ createdb -V
-           createdb (PostgreSQL) 9.1.4
+       $ createuser -V
+       createuser (PostgreSQL) 9.1.4
+       $ psql -V
+       psql (PostgreSQL) 9.1.4
+       $ createdb -V
+       createdb (PostgreSQL) 9.1.4
        
 If your default PostgreSQL installation is version 8.3 or earlier, you
 will need to upgrade to a more up-to-date version. We suggest the
@@ -76,19 +69,12 @@ Checking PostgreSQL port listening status
 You can check if PostgreSQL is listening on the default port
 (``TCP/5432``) by running the following command:
 
-.. only:: unix
+::
 
-    ::
+    $ netstat -an | egrep '5432.*LISTEN'
+    tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN
+    tcp        0      0 :::5432                 :::*                    LISTEN
 
-        $ netstat -an | egrep '5432.*LISTEN'
-        tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN
-        tcp        0      0 :::5432                 :::*                    LISTEN
-
-.. only:: windows
-
-    ::
-
-        C:\> netstat -an | find "5432"
 
 .. note::  
     The exact output of this command will vary. The important
@@ -100,24 +86,22 @@ find your ``postgresql.conf`` file and enable PostgreSQL's TCP listening
 mode. The exact location of the ``postgresql.conf`` file varies between
 installations.
 
-.. only:: unix
+It may be helpful to locate it using the package manager (``rpm``
+or ``dpkg``) or by utilizing the ``find`` command. Usually, the
+PostgreSQL data directory (which houses the ``postgresql.conf``
+file, is located under ``/var`` or ``/usr``:
 
-    It may be helpful to locate it using the package manager (``rpm``
-    or ``dpkg``) or by utilizing the ``find`` command. Usually, the
-    PostgreSQL data directory (which houses the ``postgresql.conf``
-    file, is located under ``/var`` or ``/usr``:
+::
 
-    ::
+    $ sudo find /etc -name 'postgresql.conf'
+    $ sudo find /usr -name 'postgresql.conf'
+    $ sudo find /var -name 'postgresql.conf'
+    /var/lib/postgresql/data/postgresql.conf
 
-        $ sudo find /etc -name 'postgresql.conf'
-        $ sudo find /usr -name 'postgresql.conf'
-        $ sudo find /var -name 'postgresql.conf'
-        /var/lib/postgresql/data/postgresql.conf
-
-    .. note:: 
-        The PostgreSQL data directory is usually only readable by the
-        user ``postgres`` so you will likely have to be ``root`` in order to
-        find it.
+.. note:: 
+    The PostgreSQL data directory is usually only readable by the
+    user ``postgres`` so you will likely have to be ``root`` in order to
+    find it.
 
 Once you have found the location of the ``postgresql.conf`` file on
 your particular installation, you will need to enable TCP listening.

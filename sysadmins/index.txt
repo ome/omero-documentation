@@ -14,19 +14,40 @@ Server Background
     /users/system-requirements
     /users/limitations
 
-*************************
-Basic Server Installation
-*************************
+******************************
+Basic UNIX Server Installation
+******************************
+
+This chapter contains the instructions to install OMERO.server on 
+UNIX & UNIX-like platforms.
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :titlesonly:
 
-    unix/index
-    windows/index
-    install-web
-    troubleshooting
-    server-security
+    unix/server-installation
+    unix/server-binary-repository
+    unix/server-postgresql
+
+    unix/server-install-homebrew
+    unix/server-install-linux
+    unix/install-web
+
+*********************************
+Basic Windows Server Installation
+*********************************
+
+This chapter contains the instructions to install OMERO.server on 
+Windows platforms.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    windows/server-installation
+    windows/server-binary-repository
+    windows/server-postgresql
+    windows/install-web
 
 ****************************
 Advanced Server Installation
@@ -36,6 +57,8 @@ Advanced Server Installation
     :maxdepth: 2
     :titlesonly:
 
+    troubleshooting
+    server-security
     server-advanced-configuration
     server-ldap
     server-tables
