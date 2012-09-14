@@ -308,7 +308,8 @@ texinfo_documents = [
 # -- Options for the linkcheck builder ----------------------------------------
 
 # Timeout value, in seconds, for the linkcheck builder
-linkcheck_timeout = 30
+if not (sys.version_info[0] == 2 and sys.version_info[1] <= 5):
+    linkcheck_timeout = 30
 
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
 linkcheck_ignore = [r'http://localhost:\d+/', 'http://localhost/', 'http://www.hibernate.org',
