@@ -144,7 +144,7 @@ rst_epilog = """
 .. |OmeroApi| replace:: :doc:`/developers/Modules/Api`
 .. |OmeroWeb| replace:: :doc:`/developers/Web`
 .. |OmeroClients| replace:: :doc:`/developers/GettingStarted`
-.. |OmeroGrid| replace:: :doc:`/developers/Grid`
+.. |OmeroGrid| replace:: :doc:`/sysadmins/grid`
 .. |OmeroSessions| replace:: :doc:`/developers/Server/Sessions`
 .. |OmeroModel| replace:: :doc:`/developers/Model`
 .. |ExtendingOmero| replace:: :doc:`/developers/Server/ExtendingOmero`
