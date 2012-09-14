@@ -268,7 +268,7 @@ interact with it.
    http://localhost:8080/webclient.
 -  You can **use OMERO.clients from within your host OS.** This will
    allow you to import data via a GUI and manage that data once
-   imported. To do so, download the :omero_plone:`insight client <downloads>`
+   imported. To do so, download the :omero_plone:`OMERO.insight client <downloads>`
    and follow the instructions below. More information can be found
    under the :doc:`clients-getting-started` section
    which details how to use the OMERO.clients.
@@ -314,7 +314,7 @@ to connect to the VM.
 
 -  Use the *+* icon to add a new server entry with the address
    *localhost* and the port *4064* then click apply
--  You can now use the login credentials given above to log into insight
+-  You can now use the login credentials given above to log into OMERO.insight
    using the following window (user: "root" / pw: "omero"):
 
 .. figure:: /images/virtual-appliance-8login.png
@@ -325,7 +325,7 @@ to connect to the VM.
 
    OMERO.insight login window
 
--  Insight should now load up & look like so:
+-  OMERO.insight should now load up & look like so:
 
 .. figure:: /images/virtual-appliance-9insight.png
    :align: center
@@ -335,7 +335,7 @@ to connect to the VM.
 
    OMERO.insight main window
 
-You can now use insight to import & manage images on a locally running
+You can now use OMERO.insight to import & manage images on a locally running
 virtual server just like you could using a remote server.
 
 Secure Shell
@@ -488,7 +488,7 @@ Networking Not Working
 
 Occasionally, during the boot process, the VirtualBox DHCP server fails
 to allocate an IP address to the OS in the guest VM. This means that
-OMERO.clients, such as OMERO.Insight, cannot connect to the OMERO.server
+OMERO.clients, such as OMERO.insight, cannot connect to the OMERO.server
 in the VM.
 
 -  **CAUSE:** We believe that this is an intermittent VirtualBox

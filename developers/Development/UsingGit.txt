@@ -856,7 +856,7 @@ branch, then the related stories and possibly requirement should be
 flushed out. The design of the work should be checked against the other
 parts of OME. For example, a GUI addition should fit into other existing
 workflows, and the implications on the other client (i.e. web’s impact
-on insight, or the other way around) should be evaluated.
+on OMERO.insight, or the other way around) should be evaluated.
 
 At this point, the branch will most likely be considered a
 work-in-progress and will need to start getting ready for release. The

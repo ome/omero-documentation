@@ -24,12 +24,12 @@ Most of the points below are implemented in the example :source:`Edit_Descriptio
 Script Naming & file path
 -------------------------
 
--  Script Name. This should be in the form 'Script\_Name.py'. Insight
+-  Script Name. This should be in the form 'Script\_Name.py'. OMERO.insight
    will replace underscores with spaces in the script selection menu.
 -  File path. OMERO.insight will use the parent folder to build a
    scripts menu, capitalising and removing underscores. E.g. a script
    uploaded from /omero/export\_scripts/Batch\_Image\_Export.py will be
-   displayed in Insight under "Export Scripts".
+   displayed in OMERO.insight under "Export Scripts".
 -  Script Descriptions. Descriptions should give a brief summary of what
    the script does. If a longer description or instructions for using
    the script are desired, it is suggested that a url is included. The
@@ -41,7 +41,7 @@ Parameters
 
 -  Parameter Names. These should be in the form 'Parameter\_Name'.
    Underscores will be replaced by spaces in the UI generated in
-   Insight.
+   OMERO.insight.
 -  Where applicable, Parameters should be supplied with a list of
    options. For example:
 
@@ -84,12 +84,12 @@ parameters will be disabled and will not be passed to the script.
     scripts.Int("Scalebar_Size", grouping="10.1"),
     scripts.String("Scalebar_Colour", grouping="10.2"),
 
-Pick selected Images, Datasets or Projects from Insight
--------------------------------------------------------
+Pick selected Images, Datasets or Projects from OMERO.insight
+-------------------------------------------------------------
 
-Starting in OMERO 4.3, Insight will recognise and populate a pair of
+Starting in OMERO 4.3, OMERO.insight will recognise and populate a pair of
 fields named 'Data\_Type' (string) and 'IDs' (Long list) with the
-currently selected objects in Insight when the script is launched. You
+currently selected objects in OMERO.insight when the script is launched. You
 should specify the 'Data\_Type' options that your script should accept.
 E.g.
 
@@ -107,14 +107,14 @@ Script outputs
 
 -  Scripts may return a short message to report success or failure. This
    should use the key: 'Message' in the output map. This will be
-   displayed in Insight when the script completes.
+   displayed in OMERO.insight when the script completes.
 
    ::
 
        client.setOutput("Message", rstring("Script generated new Image"))
 
 -  Scripts that generate an Image should return the ImageI object.
-   Insight will provide a link to view the Image. The key that is used
+   OMERO.insight will provide a link to view the Image. The key that is used
    ("Image" in this example) is not important for this to work, but
    'image' should be an omero.model.ImageI object.
 
@@ -123,7 +123,7 @@ Script outputs
            client.setOutput("Image",robject(image))
 
 -  Scripts that generate a File Annotation or Original File should
-   return these objects. Insight will give users the option of
+   return these objects. OMERO.insight will give users the option of
    downloading the File, and may also allow viewing of the file if it's
    a suitable type. This should be set as the mimetype of the File
    Annotation (E.g. 'plain/text', 'image/jpeg' etc). In this example,

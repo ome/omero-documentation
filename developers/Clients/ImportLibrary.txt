@@ -26,7 +26,7 @@ The primary classes which make up the Import Library are:
    the low-level connection to the server
 -  :source:` OMEROWrapper.java <components/blitz/src/ome/formats/importer/OMEROWrapper.java>`,
    the OMERO adapter for the Bio-Formats ``ImageReaders`` class
--  In Insight, the main entry point is the importImage method of
+-  In OMERO.insight, the main entry point is the importImage method of
    :source:` OMEROGateway.java <components/insight/SRC/org/openmicroscopy/shoola/env/data/OMEROGateway.java>`.
 -  In the CLI, the main entry point is the
    :source:` CommandLineImporter <components/tools/OmeroImporter/src/ome/formats/importer/cli/CommandLineImporter.java>`

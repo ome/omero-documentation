@@ -89,7 +89,7 @@ input parameters for a particular script (this strategy is used by
 The code below shows a more complex example parameter map. This strategy
 might save you time if you want to be able to rapidly run and re-run a
 script you are working on. Of course, it is also possible to run scripts
-from Insight!
+from OMERO.insight!
 
 ::
 
