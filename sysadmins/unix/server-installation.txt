@@ -95,11 +95,11 @@ The following are optional depending on what services you require:
       - Functionality
       - Downloads
 
-    * - Python Imaging Library
+    * - `Python Imaging Library`_
       - OMERO.web and Figure Export
       - `PIL page <http://www.pythonware.com/products/pil/>`_
 
-    * - Matplotlib
+    * - Matplotlib_
       - OMERO.web
       - `Matplotlib page <http://matplotlib.sourceforge.net/>`_
 

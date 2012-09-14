@@ -34,9 +34,9 @@ Prerequisites
    information see the `Django Installation
    page <https://docs.djangoproject.com/en/1.1/intro/install/>`_).
 
-   -  `Python Imaging Library <http://www.pythonware.com/products/pil/>`_ should be available for your distribution
+   -  `Python Imaging Library`_ should be available for your distribution
 
-   -  `Matplot Lib <http://matplotlib.sourceforge.net/>`_ should be available for your distribution.
+   -  Matplotlib_ should be available for your distribution.
 
 -  A FastCGI capable web server
 
