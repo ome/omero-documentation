@@ -318,7 +318,7 @@ Installation
 OMERO.web and Administration
 ----------------------------
 
-.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :doc:`/sysadmins/install-web`.
+.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :doc:`install-web`.
 
 Otherwise, the internal Django webserver can be used for evaluation and development. In this case, we need to
 turn debugging on, in order that static files can be served by Django:

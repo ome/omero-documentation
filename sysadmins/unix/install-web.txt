@@ -28,8 +28,7 @@ If you need help configuring your firewall rules, see the :doc:`/sysadmins/serve
 Prerequisites
 -------------
 
--  OMERO 4.4.3 and its prerequisites (see :doc:`Unix <unix/server-installation>`
-   or :doc:`Windows <windows/server-installation>` installation page).
+-  OMERO 4.4.3 and its prerequisites (see :doc:`server-installation`).
 
 -  Python version from 2.4 to 2.7 (due to backwards incompatibilities in
    Python 3.0, Django does not currently work with Python 3.0; for more

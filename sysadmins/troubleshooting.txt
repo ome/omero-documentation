@@ -353,8 +353,9 @@ more details. There are few already known possibilities:
 -  'ImportError: No module named Image'. Install Python Imaging Library
    - packages should be available for your distribution from
    `here <http://www.pythonware.com/products/pil/>`__. Also double check
-   if all of the prerequisites were installed from
-   :doc:`here </sysadmins/install-web>`.
+   if all of the prerequisites were installed from OMERO.web deployment 
+   (:doc:`UNIX instructions <unix/install-web>` or :doc:`Windows instructions 
+   <windows/install-web>`).
 
 Mod\_python error: "PythonHandler django.core.handlers.modpython"
 =================================================================
