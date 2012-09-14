@@ -118,7 +118,7 @@ OMERO.web
     set up by your system administrator. See :doc:`/sysadmins/install-web` 
     for more information.
 
-You can start OMERO.web from your browser (Firefox, Chrome, Safari, 
+You can start from your favorite browser (e.g. Firefox, Chrome, Safari, 
 Internet Explorer). Use the server address supplied by your system 
 administrator. For example, to connect to a local server, type 
 http://localhost:4080/omero in the navigation bar of your browser.
