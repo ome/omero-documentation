@@ -147,7 +147,7 @@ rst_epilog = """
 .. |OmeroSessions| replace:: :doc:`/developers/Server/Sessions`
 .. |OmeroModel| replace:: :doc:`/developers/Model`
 .. |ExtendingOmero| replace:: :doc:`/developers/Server/ExtendingOmero`
-.. |BlitzGateway| replace:: :doc:`/developers/Python/Gateway`
+.. |BlitzGateway| replace:: :doc:`/developers/Python`
 .. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
 """
 rst_epilog += """.. |previousversion| replace:: %s""" % previousversion
