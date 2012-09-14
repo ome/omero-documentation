@@ -93,6 +93,12 @@ steps is required to get the `ISAPI
 WSGI <http://code.google.com/p/isapi-wsgi/>`_ handler for OMERO.web
 working with your IIS deployment.
 
+-  Choose between FastCGI TCP (recommended) or FastCGI (advanced):
+
+   ::
+
+       C:\omero_dist>bin\omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
+
 -  Ensure that the ISAPI for IIS options are installed
 -  Download and install `an ISAPI
    WSGI Installer <http://code.google.com/p/isapi-wsgi/downloads/list>`_ (we
@@ -139,14 +145,14 @@ Debugging on and start the server up:
 
 ::
 
-    $ bin/omero config set omero.web.application_server development
-    $ bin/omero config set omero.web.debug True
-    $ bin/omero web start
-    Copying '/Users/omero/Desktop/omero/lib/python/omeroweb/feedback/static/feedback/css/layout.css'
+    C:\omero_dist>bin\omero config set omero.web.application_server development
+    C:\omero_dist>bin\omero config set omero.web.debug True
+    C:\omero_dist>bin\omero web start
+    Copying 'C:\omero_dist\lib\python\omeroweb\feedback\static\feedback\css\layout.css'
     .....
-    Copying '/Users/omero/Desktop/omero/lib/python/omeroweb/webstart/static/webstart/img/icon-omero-web.png'
+    Copying 'C:\omero_dist\lib\python\omeroweb\webstart\static\webstart\img\icon-omero-web.png'
 
-    735 static files copied to '/Users/omero/Desktop/omero/lib/python/omeroweb/static'.
+    735 static files copied to 'C:\omero_dist\lib\python\omeroweb\webstart\static'.
     Starting OMERO.web... Validating models...
 
     0 errors found
