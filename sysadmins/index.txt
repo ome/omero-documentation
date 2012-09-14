@@ -11,8 +11,8 @@ Server Background
     :titlesonly:
 
     server-overview
-    /users/system-requirements
-    /users/limitations
+    system-requirements
+    limitations
 
 ******************************
 Basic UNIX Server Installation
@@ -75,7 +75,7 @@ Server Maintenance
     server-backup-and-restore
     server-upgrade
     UpgradeCheck
-    /developers/CommandLine
+    CommandLine
 
 
 ***************
@@ -86,7 +86,7 @@ Advanced topics
     :maxdepth: 2
     :titlesonly:
 
-    /users/server-permissions
+    server-permissions
     server-advanced-configuration
     server-fs
     server-ldap

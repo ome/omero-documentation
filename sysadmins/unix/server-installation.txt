@@ -149,7 +149,7 @@ The latest compatible distribution is the `3.3.1 release <http://www.zeroc.com/d
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :doc:`/users/limitations`. See :doc:`server-postgresql` for specifics about each version.
+PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :doc:`/sysadmins/limitations`. See :doc:`server-postgresql` for specifics about each version.
 
 OMERO.server 4.4.x
 ^^^^^^^^^^^^^^^^^^
