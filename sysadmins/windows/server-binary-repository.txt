@@ -53,58 +53,28 @@ Your repository is not
 
 Changing your repository location
 ---------------------------------
-
-.. only:: windows
     
-	Your repository location can be changed from its ``C:\OMERO`` default by 
-	modifying your OMERO.server configuration as follows:
+Your repository location can be changed from its ``C:\OMERO`` default by 
+modifying your OMERO.server configuration as follows:
 
-.. only:: unix
+Remember that ``C:\`` style paths must have backslashes escaped.
 
-	Your repository location can be changed from its ``/OMERO`` default by 
-	modifying your OMERO.server configuration as follows:
+::
 
-.. only:: windows
-
-    Remember that ``C:\`` style paths must have backslashes escaped.
-
-.. only:: unix
-
-    ::
-
-        cd omero-Beta4.0.0
-        bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
-
-.. only:: windows
-
-    ::
-
-        cd C:\omero-Beta4.0.0
-        bin\omero config set omero.data.dir D:\\OMERO
+    cd C:\omero-Beta4.0.0
+    bin\omero config set omero.data.dir D:\\OMERO
 
 The suggested procedure is to shut down your OMERO.server instance, move
 your repository, change your ``omero.data.dir`` and then start the
 instance back up. For example:
 
-.. only:: unix
+::
 
-    ::
-
-        cd omero-Beta4.0.0
-        bin/omero admin stop
-        mv /OMERO /mnt/really_big_disk
-        bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
-        bin/omero admin start
-
-.. only:: windows
-
-    ::
-    
-        cd C:\omero-Beta4.0.0
-        bin\omero admin stop
-        move C:\OMERO D:\
-        bin\omero config set omero.data.dir D:\\OMERO
-        bin\omero admin start
+    cd C:\omero-Beta4.0.0
+    bin\omero admin stop
+    move C:\OMERO D:\
+    bin\omero config set omero.data.dir D:\\OMERO
+    bin\omero admin start
 
 .. note::
 

@@ -333,8 +333,10 @@ the client (see diagram, below).
   OMERO scripting workflow
 
 -  You need to download 'Ice' from ZeroC and set the environment
-   variables, as described in the :doc:`/sysadmins/unix/server-installation` 
-   page.
+   variables, as described in the server installation page (see 
+   :doc:`Unix </sysadmins/unix/server-installation>` and 
+   :doc:`Windows </sysadmins/windows/server-installation>` versions).
+   page .
 -  You also need the OMERO server download. Go to the :omero_plone:`OMERO
    downloads <downloads>`
    page and get the appropriate server package (Version must be OMERO
