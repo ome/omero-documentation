@@ -115,7 +115,7 @@ OMERO.web
 .. warning::
 
     To use the OMERO.web client, the web functionality of OMERO must have been 
-    set up by your system administrator. See :doc:`/sysadmins/install-web` 
+    set up by your system administrator. See the :doc:`/sysadmins/index` 
     for more information.
 
 You can start from your favorite browser (e.g. Firefox, Chrome, Safari, 
