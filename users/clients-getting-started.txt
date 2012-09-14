@@ -115,14 +115,16 @@ OMERO.web
 .. warning::
 
     To use the OMERO.web client, the web functionality of OMERO must have been 
-    set up by your system administrator. See the :doc:`/sysadmins/index` 
+    set up by your OMERO administrator. See the :doc:`/sysadmins/index` 
     for more information.
 
-You can start from your favorite browser (e.g. Firefox, Chrome, Safari, 
-Internet Explorer). Use the server address supplied by your system 
-administrator. For example, to connect to a local server, type 
-http://localhost:4080/omero in the navigation bar of your browser.
+    You will also need a web address (URL) provided by your OMERO 
+    administrator.
 
+You can start from your favorite browser (e.g. Firefox, Chrome, Safari, 
+Internet Explorer). Type the web address supplied by your OMERO 
+administrator in the navigation bar. Log in to the OMERO.web client using the 
+same username and password used for the OMERO Insight client.
 
 .. figure:: /images/OmeroWeb-login.png
    :align: center
