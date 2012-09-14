@@ -48,6 +48,7 @@ Windows platforms.
     windows/server-binary-repository
     windows/server-postgresql
     windows/install-web
+    windows/service-tools
 
 ****************************
 Advanced Server Installation
@@ -91,4 +92,3 @@ Advanced topics
     server-fs
     server-ldap
     grid
-    /developers/Server/Grid/InstallWindowsXp

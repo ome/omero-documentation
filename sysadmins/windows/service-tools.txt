@@ -1,0 +1,78 @@
+Using Windows GUI tools
+=======================
+
+Once the ``python bin\omero admin start`` command has installed the
+**OMERO.master** service, you can use Windows service tools:
+
+-  From the Control Panel
+
+.. figure:: /images/omerogrid-winxp-controlpanel.png
+  :align: center
+  :width: 55%
+  :alt: Control Panel
+
+.. figure:: /images/omerogrid-winxp-admintools.png
+  :align: center
+  :width: 55%
+  :alt: Administration Tools
+
+Services Tool
+-------------
+
+- Then open the Services executable
+
+.. figure:: /images/omerogrid-winxp-services.png
+  :align: center
+  :width: 55%
+  :alt: Services
+
+-  Here you can see OMERO.master running and also stop it
+
+.. figure:: /images/omerogrid-winxp-masterrunning.png
+  :align: center
+  :width: 55%
+  :alt: OMERO.master running
+
+-  And can edit its runtime properties
+
+.. figure:: /images/omerogrid-winxp-masterproperties.png
+  :align: center
+  :width: 55%
+  :alt: OMERO.master properties
+
+-  Such as which user it starts as
+
+.. figure:: /images/omerogrid-winxp-masterlogon.png
+  :align: center
+  :width: 55%
+  :alt: OMERO.master logon
+
+Event Viewer Tools
+------------------
+
+-  Then go back to the Administration Tool window and open the Event
+   Viewer
+
+.. figure:: /images/omerogrid-winxp-eventviewer.png
+  :align: center
+  :width: 55%
+  :alt: Event viewer
+
+-  where status events from OMERO.master will registered (though the log
+   output from the server is in the configured directory)
+
+.. figure:: /images/omerogrid-winxp-applicationevents.png
+  :align: center
+  :width: 55%
+  :alt: Application events
+
+-  The server's running.
+
+.. figure:: /images/omerogrid-winxp-blitzactive.png
+  :align: center
+  :width: 55%
+  :alt: Running server
+
+However, a bug in Windows will prevent the OMERO.master service from
+being removed while the service GUI is open. Close the GUI to finish the
+operation.
