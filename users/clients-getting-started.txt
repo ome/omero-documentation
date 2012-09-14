@@ -111,7 +111,25 @@ by browsing under :menuselection:`View --> Attachments` (see screen shot).
 
 OMERO.web
 ---------
-pending..
+
+.. warning::
+
+    To use the OMERO.web client, the web functionality of OMERO must have been 
+    set up by your OMERO administrator. See the :doc:`/sysadmins/index` 
+    for more information.
+
+    You will also need a web address (URL) provided by your OMERO 
+    administrator.
+
+You can start from your favorite browser (e.g. Firefox, Chrome, Safari, 
+Internet Explorer). Type the web address supplied by your OMERO 
+administrator in the navigation bar. Log in to the OMERO.web client using the 
+same username and password used for the OMERO Insight client.
+
+.. figure:: /images/OmeroWeb-login.png
+   :align: center
+   :width: 80%
+   :alt: OMERO.web login 
 
 
 .. |Editor Icon| image:: /images/icons/editor.png
