@@ -10,7 +10,6 @@ includes OMERO.webadmin for managing users and groups.
 OMERO.web is an integral part of the OMERO platform and can be deployed
 with:
 
--  IIS 5.1, 6.0 or 7.0 on Microsoft Windows (since OMERO 4.2.1)
 -  FastCGI using a FastCGI capable web server such as
    `Apache <http://httpd.apache.org/>`_ (with
    `mod\_fastcgi <http://www.fastcgi.com/>`_ enabled),
@@ -51,10 +50,7 @@ Configuration options can be set using the ``bin/omero`` command:
     $ bin/omero config set <parameter> <value>
 
 When supplying a value with spaces or multiple elements, use **single
-quotes** (Unix, Linux) or **double quotes** (Windows). The quotes will
-not be saved as part of the value (see below). Please use the **escape
-sequence** ``\"`` for nesting double quotes on Windows (e.g.
-``"[\"foo\", \"bar\"]"``).
+quotes**. The quotes will not be saved as part of the value (see below).
 
 To remove a configuration option (to return to default values where
 mentioned), simply omit the value:
@@ -220,57 +216,11 @@ OMERO.web is quite straightforward.
        Stopping OMERO.web... [OK]
        Django FastCGI workers (PID 59217) killed.
 
-Using IIS (Windows)
-~~~~~~~~~~~~~~~~~~~
-
-Once you have IIS installed on your system, a straightforward set of
-steps is required to get the `ISAPI
-WSGI <http://code.google.com/p/isapi-wsgi/>`_ handler for OMERO.web
-working with your IIS deployment.
-
--  Ensure that the ISAPI for IIS options are installed
--  Download and install `an ISAPI
-   WSGI Installer <http://code.google.com/p/isapi-wsgi/downloads/list>`_ (we
-   suggest the *Windows Installer*)
--  For extended compatibility with multiple IIS versions ISAPI WSGI uses
-   the IIS 5/6 WMI interface to interact with your IIS deployment. If
-   you are using IIS 7 you must enable the IIS 6 WMI backwards
-   compatibility options, as shown on the figure:
-
-.. figure:: /images/installation-images/IIS7Requirements.png
-   :align: center
-   :alt: IIS 7 configuration options
-
-   IIS 7 configuration options
-
--  OMERO.web and ISAPI WSGI are **32-bit** applications on Windows at
-   present. If you are attempting to run OMERO.web on a 64-bit version
-   of Windows, you must enable 32-bit compatibility in the *Advanced
-   Settings...* for the *Application Pool* assigned to your default
-   *Site*. You can do this in the *IIS Manager* as follows:
-
-.. figure:: /images/installation-images/IIS7ApplicationPool.png
-   :align: center
-   :alt: IIS 7 Application Pool Advanced Settings
-
-   IIS 7 Application Pool Advanced Settings
-
--  Configure OMERO.web bindings for IIS
-
-   ::
-
-       C:\omero_dist>bin\omero config set omero.web.session_engine "django.contrib.sessions.backends.cache"
-
-       C:\omero_dist>bin\omero config set omero.web.cache_backend "file://C:/windows/temp/"
-
-       C:\omero_dist>bin\omero web iis
-
-Using the lightweight development server (UNIX or Windows)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using the lightweight development server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All that is required to use the Django lightweight development server
-(on UNIX or Windows) is to set the *omero.web.application\_server*
-configuration option, turn Debugging on and start the server up:
+is to set the *omero.web.application\_server* configuration option, turn Debugging on and start the server up:
 
 ::
 
@@ -313,11 +263,6 @@ Customising your OMERO.web installation
 ---------------------------------------
 
 .. note::
-	Please use double quotes instead of single quotes and a
-	proper escape sequence on Windows to specify options with multiple
-	values.
-
-.. note::
 	For clarity, some edge-case/in-development options may not
 	be documented below. For the full list see: 
 
@@ -330,17 +275,10 @@ Customising your OMERO.web installation
 -  A list of servers the Web client can connect to. Default:
    ``[["localhost", 4064, "omero"]]``.
 
-   -  Unix
+   ::
 
-      ::
+       $ bin/omero config set omero.web.server_list '[["prod.example.com", 4064, "prod"], ["dev.example.com", 4064, "dev"]]'
 
-          $ bin/omero config set omero.web.server_list '[["prod.example.com", 4064, "prod"], ["dev.example.com", 4064, "dev"]]'
-
-   -  Windows
-
-      ::
-
-          C:\\OMERO.server\bin>omero config set omero.web.server_list "[[\"prod.example.com\", 4064, \"prod\"], [\"dev.example.com\", 4064, \"dev\"]]"
 
 -  Email server and notification:
 
