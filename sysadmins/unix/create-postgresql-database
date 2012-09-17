@@ -16,7 +16,7 @@ user or use sudo as below:
 
    .. warning:: 	 
        For illustrative purposes, the default name and password for the user 
-       are ``db\_user``  and ``db\_password`` respectively. However, you 
+       are ``db_user``  and ``db_password`` respectively. However, you 
        should not use these default values for your installation but use 
        your own choice of username and password instead.
 

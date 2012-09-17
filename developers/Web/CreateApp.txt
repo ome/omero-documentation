@@ -48,14 +48,14 @@ server with
 
 When you edit and save the code, under lib/python/omeroweb/, Django
 automatically detects this and you only need to refresh your browser
-to see the changes. You can see this in the :snapshot:`OmeroWeb intro
+to see the changes. You can see this in the :snapshot:`OMERO.web intro
 movie <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`.
 
 Option 2: Working from source code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Alternatively,if you have checked out the OMERO.server source code and
-are building from source, you will have 2 copies of the OmeroWeb code -
+are building from source, you will have 2 copies of the OMERO.web code -
 source code is under components/tools/OmeroWeb/omeroweb and the server
 build is under dist/lib/python/omeroweb. You should be editing the
 source code since any edits to the build code will get wiped out each
@@ -184,7 +184,7 @@ registered etc.
     your app will be found.
 
 Now you can view the home-page we created above (NB: you will need to
-restart the web server for the config settings to take effect)
+restart the OMERO.web server for the config settings to take effect)
 
 ::
 
@@ -271,8 +271,7 @@ Resources for writing your own code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The webtest app has a number of examples. If you go to the webtest
-homepage E.g.
-` http://localhost:8000/webtest <http://localhost:8000/webtest>`_ you'll
+homepage E.g. `<http://localhost:8000/webtest>`_ you'll
 see an introduction to some of them. This page tries to find random
 image and dataset from your OMERO server to use in the webtest examples.
 
@@ -289,7 +288,7 @@ components (links, logout etc), so you can make changes to all your
 pages at once. See ` Django docs: template
 inheritance <https://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance>`_.
 
-OMERO web plugins (OMERO 4.4)
+OMERO.web plugins (OMERO 4.4)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **This functionality is under development:**

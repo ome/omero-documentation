@@ -45,14 +45,14 @@ Technical info and API details can be found on the
 The :doc:`/developers/Modules/Scripts/Guide` should help you get started with 
 the scripting service, without going into the 'behind the scenes' details.
 
-Scripts can be run from OMERO.Insight, using a UI generated from the script. 
-The script results can also be handled by OMERO.Insight, allowing users to 
+Scripts can be run from OMERO.insight, using a UI generated from the script. 
+The script results can also be handled by OMERO.insight, allowing users to 
 view OMERO Images or Datasets created by the script, or download files or 
 images.
 
 .. figure:: /images/scripts.png
   :align: center
-  :alt: Scripts in OMERO.Insight
+  :alt: Scripts in OMERO.insight
 
 .. figure:: /images/scriptActivity.png
   :align: center
@@ -203,7 +203,7 @@ measurement and retrieve its results:
 For an example of production code that parses out such measurements,
 see :source:`populate_roi.py <components/tools/OmeroPy/src/omero/util/populate_roi.py>`.
 
-The `IRoi` interface has been integrated into OMERO.Insight, allowing for
+The `IRoi` interface has been integrated into OMERO.insight, allowing for
 the visualization and export of OMERO.tables:
 
 .. figure:: /images/MeasurementListSep09.png

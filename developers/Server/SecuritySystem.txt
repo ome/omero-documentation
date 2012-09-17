@@ -14,7 +14,7 @@ Other links which may be of use:
 
 -  :doc:`/developers/Modules/Api/AdminInterface`
 -  :doc:`/developers/Server/SecurityRoles`
--  :doc:`/users/server-permissions`
+-  :doc:`/sysadmins/server-permissions`
 
 Concepts
 --------
@@ -128,7 +128,7 @@ Client & Common
 
 :source:`Permissions.java <components/model/src/ome/model/internal/Permissions.java>`
     representation of rights and roles. For more information, see
-    :doc:`/users/server-permissions`.
+    :doc:`/sysadmins/server-permissions`.
 
 :source:`Token.java <components/model/src/ome/model/internal/Token.java>`
     an extremely simple class ("public class Token {}") which is only

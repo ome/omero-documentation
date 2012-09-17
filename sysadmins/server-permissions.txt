@@ -33,17 +33,17 @@ Groups and users must be created by the server administrator. Users can
 then be added by the administrator or by one of the group owners
 assigned by the administrator. This would typically be the PI of the
 lab. The group's owners or server administrator can also choose the
-permission level for that group. See the insight and web admin movies
-below for more information about groups and how to administrate them in
+permission level for that group. See the OMERO.insight and OMERO.web admin 
+movies below for more information about groups and how to administrate them in
 OMERO.
 
 .. seealso::
 
-    :snapshot:`Insight Admin update in OMERO 4.4 <movies/omero-4-4/mov/InsightAdmin-4.4.mov>`
-        Movie describing the administration tools update under Insight for OMERO 4.4
+    :snapshot:`OMERO.insight Admin update in OMERO 4.4 <movies/omero-4-4/mov/InsightAdmin-4.4.mov>`
+        Movie describing the administration tools update under OMERO.insight for OMERO 4.4
 
-    :snapshot:`Web Admin update in OMERO 4.4 <movies/omero-4-4/mov/WebAdmin-4.4.mov>`
-        Movie describing the administration tools update under Web for OMERO 4.4
+    :snapshot:`OMERO.web Admin update in OMERO 4.4 <movies/omero-4-4/mov/WebAdmin-4.4.mov>`
+        Movie describing the administration tools update under OMERO.web for OMERO 4.4
 
 
 Group Permission Levels
@@ -111,8 +111,8 @@ This is the most collaborative group:
 
 .. seealso::
 
-    :snapshot:`Insight Permissions update in OMERO 4.4 <movies/omero-4-4/mov/InsightMultiGroups-4.4.mov>`
-       Movie describing the permissions update under Insight in OMERO 4.4
+    :snapshot:`OMERO.insight Permissions update in OMERO 4.4 <movies/omero-4-4/mov/InsightMultiGroups-4.4.mov>`
+       Movie describing the permissions update under OMERO.insight in OMERO 4.4
 
     :snapshot:`Web Permissions update in OMERO 4.4 <movies/omero-4-4/mov/WebMultiGroups-4.4.mov>`
     Movie describing the permissions update under Web in OMERO 4.4

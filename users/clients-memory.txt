@@ -15,8 +15,8 @@ clients as outlined below.
 
 .. _importer_insight_os_x:
 
-Importer & Insight on OS X
---------------------------
+OMERO.importer & OMERO.insight on OS X
+--------------------------------------
 
 - Locate the :file:`OMERO.importer.app` or :file:`OMERO.insight.app` in Finder
   and right click (or control+click) on it, choose :guilabel:`Show Package Contents` (see :ref:`memory_mac01`)
@@ -55,8 +55,8 @@ Importer & Insight on OS X
     
     Client memory adjustment on OS X
 
-Importer & Insight on Windows
------------------------------
+OMERO.importer & OMERO.insight on Windows
+-----------------------------------------
 
 To alter the memory allocation of the Windows clients, you must add an
 optional parameter file to the same folder as the application. For the
@@ -84,15 +84,15 @@ you may if you choose, open the file in any text editor (such as
 :file:`notepad.exe`) and change the value as described in
 :ref:`importer_insight_os_x`.
 
-Importer & Insight on Unix/Linux
---------------------------------
+OMERO.importer & OMERO.insight on Unix/Linux
+--------------------------------------------
 
-Changing either the importer or insight memory allocation under Unix requires
-you to edit the start-up script located with the clients (either
+Changing either the OMERO.importer or OMERO.insight memory allocation under 
+Unix requires you to edit the start-up script located with the clients (either
 :file:`importer-cli`, :file:`OMEROimporter_unix.sh`, or
 :file:`OMEROinsight_unix.sh` file).
 
-For Insight and Importer GUI, you will need to edit the
+For OMERO.insight and OMERO.importer GUI, you will need to edit the
 :file:`OMEROinsight_unix.sh` or :file:`OMEROimporter_unix.sh` file
 respectively and change the ``java -Xms256000000 -Xmx1024000000 -jar
 omero.insight.jar`` line with new minimum and preferred memory options (see
