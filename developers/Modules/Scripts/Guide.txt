@@ -19,8 +19,8 @@ be found on the :doc:`/developers/Modules/Scripts` page.
 In addition to this guide, you may find the following pages useful for
 more information on using the OMERO Python API: |OmeroClients|, |OmeroPy|.
 
-Scripts can be run from Insight, using a UI generated from the script.
-The script results can also be handled by Insight. Scripts should
+Scripts can be run from OMERO.insight, using a UI generated from the script.
+The script results can also be handled by OMERO.insight. Scripts should
 conform to the :doc:`/developers/Modules/Scripts/StyleGuide`
 in order to improve usability of the script.
 
@@ -54,7 +54,7 @@ be found at
 :source:`Edit_Descriptions.py <examples/ScriptingService/Edit_Descriptions.py>`.
 You should organise your scripts on your local machine in a way that
 makes sense to users, since your local file paths will be mimicked on
-the server and used to organise script menus in Insight (see screen-shot
+the server and used to organise script menus in OMERO.insight (see screen-shot
 above).
 
 ::
@@ -208,7 +208,7 @@ the ID of the file to replace.
 
     $ omero script replace 301 examples/Edit_Descriptions.py
 
-Finally, you can upload and run your scripts from Insight.
+Finally, you can upload and run your scripts from OMERO.insight.
 
 Other 'script' commands
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -396,6 +396,6 @@ user ID as described above:
     $ omero user list
     $ omero script list user=5
 
-User scripts can be run from Insight. They will be found under 'User
+User scripts can be run from OMERO.insight. They will be found under 'User
 Scripts' in the scripts menu. Remember, for user scripts you will need
 to have the User-Processor running.

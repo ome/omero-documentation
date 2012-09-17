@@ -22,7 +22,7 @@ To write you own clients or scripts against the OMERO API, see the
 |OmeroClients| page. Though writing your own
 client is a form of extending OMERO, the topics that follow are for
 extending the server and do not cover clients. For information specific
-to Insight, please see the client trac:
+to OMERO.insight, please see the client trac:
 
 -  :doc:`/developers/Insight/HowTo/BuildAgent`
 -  :doc:`/developers/Insight/HowTo/BuildAgentView`

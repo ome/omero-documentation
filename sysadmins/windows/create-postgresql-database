@@ -38,7 +38,7 @@
 
       .. warning::
           For illustrative purposes, the default name and password for the 
-          role are ``db\_user``  and ``db\_password`` respectively. However, 
+          role are ``db_user``  and ``db_password`` respectively. However, 
           you should not use these default values for your installation but 
           use your own choice of username and password instead.
 

@@ -11,8 +11,8 @@ Server Background
     :titlesonly:
 
     server-overview
-    /users/system-requirements
-    /users/limitations
+    system-requirements
+    limitations
 
 ******************************
 Basic UNIX Server Installation
@@ -48,6 +48,7 @@ Windows platforms.
     windows/server-binary-repository
     windows/server-postgresql
     windows/install-web
+    windows/service-tools
 
 ****************************
 Advanced Server Installation
@@ -75,7 +76,7 @@ Server Maintenance
     server-backup-and-restore
     server-upgrade
     UpgradeCheck
-    /developers/CommandLine
+    CommandLine
 
 
 ***************
@@ -86,13 +87,8 @@ Advanced topics
     :maxdepth: 2
     :titlesonly:
 
-    /users/server-permissions
+    server-permissions
     server-advanced-configuration
     server-fs
     server-ldap
-    /developers/Grid
-    /developers/Server/Grid/Install
-    /developers/Server/Grid/InstallCentOs
-    /developers/Server/Grid/InstallGutsy
-    /developers/Server/Grid/InstallMacOsx
-    /developers/Server/Grid/InstallWindowsXp
+    grid

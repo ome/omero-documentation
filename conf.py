@@ -133,6 +133,7 @@ rst_epilog = """
 .. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
 .. _Python Imaging Library: http://www.pythonware.com/products/pil/
 .. _Matplotlib: http://matplotlib.org/
+.. _Python: http://python.org
 
 .. |OME| replace:: `Open Microscopy Environment`_
 .. |Glencoe| replace:: `Glencoe Software, Inc.`_
@@ -140,11 +141,11 @@ rst_epilog = """
 .. |OmeroCpp| replace:: :doc:`/developers/Cpp`
 .. |OmeroJava| replace:: :doc:`/developers/Java`
 .. |OmeroMatlab| replace:: :doc:`/developers/Matlab`
-.. |OmeroCli| replace:: :doc:`/developers/CommandLine`
+.. |OmeroCli| replace:: :doc:`/sysadmins/CommandLine`
 .. |OmeroApi| replace:: :doc:`/developers/Modules/Api`
 .. |OmeroWeb| replace:: :doc:`/developers/Web`
 .. |OmeroClients| replace:: :doc:`/developers/GettingStarted`
-.. |OmeroGrid| replace:: :doc:`/developers/Grid`
+.. |OmeroGrid| replace:: :doc:`/sysadmins/grid`
 .. |OmeroSessions| replace:: :doc:`/developers/Server/Sessions`
 .. |OmeroModel| replace:: :doc:`/developers/Model`
 .. |ExtendingOmero| replace:: :doc:`/developers/Server/ExtendingOmero`

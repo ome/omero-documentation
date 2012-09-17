@@ -10,11 +10,11 @@ useful for understanding our branch naming ("master" v. "develop").
 Git resources
 -------------
 
--  `<http://git-scm.com/book>`_
+-  `Pro Git book <http://git-scm.com/book>`_
 -  `<http://git-scm.com/book/ch3-6.html>`_
--  `A successfule Git branching model <http://nvie.com/posts/a-successful-git-branching-model/>`_
+-  `A successful Git branching model <http://nvie.com/posts/a-successful-git-branching-model/>`_
    We use the git-flow model for branch management.
--  `http://users.openmicroscopy.org.uk/~jmoore/git/ <http://users.openmicroscopy.org.uk/~jmoore/git/>`_
+-  `<http://users.openmicroscopy.org.uk/~jmoore/git/>`_
    If you have some time to spend on this, you may find Josh's git
    movies useful. Covers a lot of the workflows below, as well as being
    an intro for when the team was moving from svn to git (before we got
@@ -60,11 +60,11 @@ by the public can be exchanged via team. This allows you to internally
 collaborate on a branch or simply to back-up your work.
 
 After that, each member of the github openmicroscopy organization
-(` https://github.com/openmicroscopy <https://github.com/openmicroscopy>`_)
+(`<https://github.com/openmicroscopy>`_)
 as well as anyone else who has clicked the “Fork” button will have their
 own repository. These are listed here:
 
--  ` https://github.com/openmicroscopy/openmicroscopy/network/members <https://github.com/openmicroscopy/openmicroscopy/network/members>`_
+-  `<https://github.com/openmicroscopy/openmicroscopy/network/members>`_
 
 Git quickstart
 ~~~~~~~~~~~~~~
@@ -85,41 +85,44 @@ have something you can start looking at. Read on for more.
 Installing git
 ~~~~~~~~~~~~~~
 
-In general, see the git web site's ` downloads
-page <http://git-scm.com/download>`_ for installation options.
+In general, see the Git `downloads page <http://git-scm.com/download>`_ for installation options.
 
-**Linux:** Most flavors of Linux have git available through the package
-manager. E.g., on Debian/Ubuntu?:
+Linux 
+^^^^^
+
+Most flavors of Linux have git available through the package manager. E.g., on 
+Debian/Ubuntu:
 
 ::
 
         sudo apt-get install git
 
-**Mac OS X:** You can install git using
-` MacPorts <http://www.macports.org/>`_:
+Mac OS X
+^^^^^^^^
 
-::
-
-        sudo port install git-core +svn
-
-Or using ` Homebrew <http://mxcl.github.com/homebrew/>`_:
+You can install git using `Homebrew <http://mxcl.github.com/homebrew/>`_:
 
 ::
 
         brew install git
 
-Or you can ` use the binary installer <http://git-scm.com/download>`_.
+Or you can use the `binary installer <http://git-scm.com/download>`_.
 
-**Windows:** We recommend using either
-` msysGit <http://code.google.com/p/msysgit/>`_ for a basic git
-installation, or ` Cygwin <http://www.cygwin.com/>`_ for a full-featured
-Unix-style environment that includes git. You can also use
-` TortoiseGit <http://code.google.com/p/tortoisegit/>`_ for git shell
-integration. You may also want to consider installing
-` VirtualBox <https://www.virtualbox.org/>`_ with a Linux guest OS to
-make your life easier. Lastly, when using git on Windows, please be
-aware of the `CRLF conversion
-issue <https://help.github.com/articles/dealing-with-line-endings>`_.
+
+Windows
+^^^^^^^
+
+We recommend using either msysGit_ for a basic git installation, or Cygwin_ 
+for a full-featured Unix-style environment that includes git. You can also use
+TortoiseGit_ for git shell integration. You may also want to consider 
+installing VirtualBox_ with a Linux guest OS to make your life easier. Lastly, 
+when using git on Windows, please be aware of the `CRLF conversion issue`_.
+
+.. _msysGit: http://code.google.com/p/msysgit
+.. _Cygwin: http://www.cygwin.com/
+.. _TortoiseGit: http://code.google.com/p/tortoisegit/
+.. _VirtualBox: https://www.virtualbox.org/
+.. _CRLF conversion issue: https://help.github.com/articles/dealing-with-line-endings
 
 Configuration
 ~~~~~~~~~~~~~
@@ -165,8 +168,7 @@ that is often used among the OME team is "graph":
 
          git config --global alias.graph "log --date-order --graph --decorate --oneline"
 
-See
-` http://www.arthurkoziel.com/2008/05/02/git-configuration/ <http://www.arthurkoziel.com/2008/05/02/git-configuration/>`_
+See `<http://www.arthurkoziel.com/2008/05/02/git-configuration/>`_
 for even more examples.
 
 Getting started with github
@@ -199,8 +201,7 @@ Alternatively, with version 1.6.5 of git and later, you can pass the
 
 The natural workflow when using github is to not to just download
 someone else’s repository, but also to create a personal working copy.
-Go to the repository page at
-` https://github.com/openmicroscopy/openmicroscopy <https://github.com/openmicroscopy/openmicroscopy>`_
+Go to the repository page at `<https://github.com/openmicroscopy/openmicroscopy>`_
 and click on “Fork”. This will create a copy of the repository in one's
 own personal space:
 
@@ -215,8 +216,7 @@ which can be added to your local repository as another remote:
         git remote add gh git@github.com:YOURNAME/openmicroscopy.git
 
 Note: for the SSH transport to work, you’ll need to follow some of the
-instructions under
-` https://github.com/account/ssh <https://github.com/account/ssh>`_
+instructions under `<https://github.com/account/ssh>`_
 
 Depending on which repository you cloned first, either origin/develop or
 gh/develop will be the “develop” branch of your own fork of
@@ -249,8 +249,7 @@ can follow what they’re doing.
 If you’d like to work more closely with someone, via pushing directly to
 their branch or they from yours, then you can have them add you as a
 collaborator on their repository or do the same for them on yours. This
-is done under
-` https://github.com/account/repositories <https://github.com/account/repositories>`_
+is done under `<https://github.com/account/repositories>`_
 
 If you haven’t made such a repository yet as a remote, then you should
 do so using the SSH protocol:
@@ -308,7 +307,7 @@ watched users and repositories are doing can be seen in your github
 inbox or via RSS feeds. See `Be social <https://help.github.com/articles/be-social>`_ for more information.
 
 Even if you don't feel able to watch the everyone's repository, you will
-likely want to periodically check in on the current ` Pull Requests
+likely want to periodically check in on the current `Pull Requests
 (PRs) <https://github.com/openmicroscopy/openmicroscopy/pulls>`_. These
 will contain screenshots and other updates about what the team is
 working on. As the PRs have been sufficiently reviewed, they will be
@@ -350,7 +349,7 @@ Create a branch from the “develop” branch:
 
         git checkout -b feature/foo origin/develop
 
-or :doc:`using git-flow <UsingGitFlow>`:
+or :doc:`UsingGitFlow`:
 
 ::
 
@@ -388,7 +387,7 @@ Any remaining changes that you want to discard can be reverted by
 When committing the code you’ve just modified/merged your commit message
 should refer to related tickets. E.g. "See :ticket:`1111`"
 will link the commit to the ticket on trac, and "Fixes
-`:ticket:`2222`"" will link and close the ticket on trac.
+:ticket:`2222`"" will link and close the ticket on trac.
 
 ::
 
@@ -642,8 +641,10 @@ command:
 
             git add components/bioformats/
 
-There are git hooks available to make working with submodules safer. See
-` post-merge-checkout <https://github.com/chaitanyagupta/gitutils/blob/master/submodule-hooks/post-merge-checkout>`_ for an example.
+There are git hooks available to make working with submodules safer. See 
+post-merge-checkout_ for an example.
+
+.. _post-merge-checkout: https://github.com/chaitanyagupta/gitutils/blob/master/submodule-hooks/post-merge-checkout
 
 Technical bits
 --------------
@@ -665,11 +666,12 @@ text.
 
 Many git tools expect exactly this format, not the least of which is
 github. If you would like to see how these commit messages are rendered
-on github, take a look at the repository
-` https://github.com/kneath/commits <https://github.com/kneath/commits>`_
+on github, take a look at the repository 
+`<https://github.com/kneath/commits>`_
 
-You can read more about commit messages at
-` http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html <http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html>`_
+You can read more about commit messages at `A Note About Git Commit Messages`_.
+
+.. _A Note About Git Commit Messages: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
 
 Rebasing to keep code clean
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -786,6 +788,7 @@ states: investigations, works-in-progress (WIP), or deliverables.
 
 .. figure:: /images/Deliverables.png
    :align: center
+   :width: 85%
    :alt: Description of branch types
 
 Investigations
@@ -855,8 +858,8 @@ After it’s clear that there’s some interest in your investigation
 branch, then the related stories and possibly requirement should be
 flushed out. The design of the work should be checked against the other
 parts of OME. For example, a GUI addition should fit into other existing
-workflows, and the implications on the other client (i.e. web’s impact
-on insight, or the other way around) should be evaluated.
+workflows, and the implications on the other client (i.e. OMERO.web’s impact
+on OMERO.insight, or the other way around) should be evaluated.
 
 At this point, the branch will most likely be considered a
 work-in-progress and will need to start getting ready for release. The
@@ -970,12 +973,12 @@ On the flip-side, a major advantage to having the above branching
 workflow is that is far easier to review the entire impact and style of
 a deliverable before it is integrated into the mainline. Any commit or
 even line which is being proposed for release can be commented on
-` https://github.com/features/projects/codereview <https://github.com/features/projects/codereview>`_
+`<https://github.com/features/projects/codereview>`_
 
 If you would like to include other users beyond just the branch owner in
 the discussion, you can use a twitter-style name to invite them
 (“@SOMEUSER”):
-` https://github.com/blog/821-mention-somebody-they-re-notified <https://github.com/blog/821-mention-somebody-they-re-notified>`_
+`<https://github.com/blog/821-mention-somebody-they-re-notified>`_
 
 Pull Requests
 ^^^^^^^^^^^^^

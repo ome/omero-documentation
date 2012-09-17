@@ -9,7 +9,7 @@ with the OMERO.web look and feel.
   :align: center
   :alt: Base header
 
-  The ``base\_header.html`` template extended in webtest with dummy content
+  The ``base_header.html`` template extended in webtest with dummy content
 
 Django templates
 ----------------
@@ -40,7 +40,7 @@ with more details below:
   :align: center
   :alt: Base container
 
-  The ``base\_container3.html`` template extended in webtest with dummy content
+  The ``base_container3.html`` template extended in webtest with dummy content
 
 Extending templates
 -------------------

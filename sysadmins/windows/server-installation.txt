@@ -121,7 +121,7 @@ develop for C++, be sure to read the instructions on the
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :doc:`/users/limitations`. See :doc:`server-postgresql` for specifics about each version.
+PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :doc:`/sysadmins/limitations`. See :doc:`server-postgresql` for specifics about each version.
 
 .. include:: install-postgresql
 
@@ -402,7 +402,7 @@ Enabling Movie creation from OMERO.
 -----------------------------------
 
 OMERO has the facility to create AVI/MPEG Movies from Images, which can
-be called from Insight. The page :doc:`/sysadmins/omeromovie` gives details on how to enable them.
+be called from OMERO.insight. The page :doc:`/sysadmins/omeromovie` gives details on how to enable them.
 
 Post-installation items
 -----------------------
