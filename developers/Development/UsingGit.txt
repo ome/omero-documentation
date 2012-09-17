@@ -85,8 +85,7 @@ have something you can start looking at. Read on for more.
 Installing git
 ~~~~~~~~~~~~~~
 
-In general, see the git web site's ` downloads
-page <http://git-scm.com/download>`_ for installation options.
+In general, see the git website's `downloads page <http://git-scm.com/download>`_ for installation options.
 
 **Linux:** Most flavors of Linux have git available through the package
 manager. E.g., on Debian/Ubuntu?:
@@ -855,7 +854,7 @@ After it’s clear that there’s some interest in your investigation
 branch, then the related stories and possibly requirement should be
 flushed out. The design of the work should be checked against the other
 parts of OME. For example, a GUI addition should fit into other existing
-workflows, and the implications on the other client (i.e. web’s impact
+workflows, and the implications on the other client (i.e. OMERO.web’s impact
 on OMERO.insight, or the other way around) should be evaluated.
 
 At this point, the branch will most likely be considered a

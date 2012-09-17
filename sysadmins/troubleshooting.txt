@@ -82,7 +82,7 @@ during the installation process.
        Please re-enter password for new OMERO root user:      # root_password
        Saving to ~/OMERO4.4__0.sql
 
-Other OMERO users can be created via the web admin tool. In no case, do
+Other OMERO users can be created via the OMERO.web admin tool. In no case, do
 any of the passwords have to be the same (or should they **unless you
 are using the LDAP plugin**...)
 

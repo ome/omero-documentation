@@ -10,12 +10,12 @@ OMERO.web Framework
 
 OMERO.web is a framework for building web applications for OMERO. It
 uses ` Django <https://www.djangoproject.com/>`_ to generate html pages
-from data retrieved from the OMERO server. OmeroWeb acts as a Python
+from data retrieved from the OMERO server.  OMERO.web acts as a Python
 client of the OMERO server using the OMERO API, as well as being a web
 server itself (see 'infrastructure' info below). It uses Django 'apps'
 to provide modular web tools, such as the webclient (working with image
 data) and webadmin (administrator management). This modular framework
-makes it possible to extend OmeroWeb with your own apps.
+makes it possible to extend OMERO.web with your own apps.
 
 One of the apps, :doc:`/developers/Web/WebGateway`, provides
 utility methods for accessing data and rendering images, as well as
@@ -28,7 +28,7 @@ OMERO Python API
 ~~~~~~~~~~~~~~~~
 
 The OMERO.web framework is all based on the OMERO Python API, using the
-Blitz Gateway (see |OmeroPy|). The web framework
+Blitz Gateway (see |OmeroPy|). The  OMERO.web framework
 provides functionality for creating and retrieving connections to OMERO
 (see example below & :doc:`/developers/Web/WritingViews` for more
 details)
@@ -77,7 +77,7 @@ Quick Example - webtest
 This tiny example gives you a feel for how the OMERO.web framework
 gets data from OMERO and displays it on a web page. You can find this
 and other examples in the 'webtest' app. Also, see the
-:snapshot:`OmeroWeb demo movie
+:snapshot:`OMERO.web demo movie
 <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`.
 
 :note: Some details of this code have changed in the OMERO 4.4
@@ -85,7 +85,7 @@ and other examples in the 'webtest' app. Also, see the
 
 There are 3 parts to each page: url, view and template. For example,
 this code below is for generating an html page of a Dataset (see
-screen-shot). If you have OMERO web running, you can view the page under
+screen-shot). If you have OMERO.web running, you can view the page under
 ` http://serverName/webtest/dataset/ <http://serverName/webtest/dataset/>`_\ <datasetId>.
 
 -  **Url**, goes in omeroweb/webtest/urls.py
