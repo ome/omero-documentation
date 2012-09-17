@@ -71,9 +71,11 @@ will need the postgres user's password later in the install.
 #. PostgreSQL will now be installed and started.
 
    .. |pginstall-begincopy| image:: /images/ install-windows-screenshots/pginstall-09begincopy.png
+      :width: 55%
       :alt: PostgreSQL Begin copy
 
    .. |pginstall-complete| image:: /images/install-windows-screenshots/pginstall-10complete.png
+      :width: 55%
       :alt: PostgreSQL Complete
 
    |pginstall-begincopy| |pginstall-complete|
