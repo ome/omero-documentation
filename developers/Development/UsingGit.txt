@@ -100,13 +100,7 @@ Debian/Ubuntu:
 Mac OS X
 ^^^^^^^^
 
-You can install git using `MacPorts <http://www.macports.org/>`_:
-
-::
-
-        sudo port install git-core +svn
-
-Or using `Homebrew <http://mxcl.github.com/homebrew/>`_:
+You can install git using `Homebrew <http://mxcl.github.com/homebrew/>`_:
 
 ::
 
