@@ -48,6 +48,7 @@ to start properly:
 
 .. figure:: /images/omerogrid-winxp-templates.png
   :align: center
+  :width: 55%
   :alt: Templates
 
 Installation
@@ -95,10 +96,12 @@ Once the ``python bin\omero admin start`` command has installed the
 
 .. figure:: /images/omerogrid-winxp-controlpanel.png
   :align: center
+  :width: 55%
   :alt: Control Panel
 
 .. figure:: /images/omerogrid-winxp-admintools.png
   :align: center
+  :width: 55%
   :alt: Administration Tools
 
 Services Tool
@@ -108,24 +111,28 @@ Services Tool
 
 .. figure:: /images/omerogrid-winxp-services.png
   :align: center
+  :width: 55%
   :alt: Services
 
 -  Here you can see OMERO.master running and also stop it
 
 .. figure:: /images/omerogrid-winxp-masterrunning.png
   :align: center
+  :width: 55%
   :alt: OMERO.master running
 
 -  And can edit its runtime properties
 
 .. figure:: /images/omerogrid-winxp-masterproperties.png
   :align: center
+  :width: 55%
   :alt: OMERO.master properties
 
 -  Such as which user it starts as
 
 .. figure:: /images/omerogrid-winxp-masterlogon.png
   :align: center
+  :width: 55%
   :alt: OMERO.master logon
 
 Event Viewer Tools
@@ -136,6 +143,7 @@ Event Viewer Tools
 
 .. figure:: /images/omerogrid-winxp-eventviewer.png
   :align: center
+  :width: 55%
   :alt: Event viewer
 
 -  where status events from OMERO.master will registered (though the log
@@ -143,12 +151,14 @@ Event Viewer Tools
 
 .. figure:: /images/omerogrid-winxp-applicationevents.png
   :align: center
+  :width: 55%
   :alt: Application events
 
 -  The server's running.
 
 .. figure:: /images/omerogrid-winxp-blitzactive.png
   :align: center
+  :width: 55%
   :alt: Running server
 
 However, a bug in Windows will prevent the OMERO.master service from

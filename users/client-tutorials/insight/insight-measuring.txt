@@ -13,12 +13,14 @@ Draw Regions of Interest of your images and measure distances.
 
 .. figure:: /images/insight-measurements-1viewer.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight viewer with ROIs
 
 Manage the Regions of Interest.
 
 .. figure:: /images/insight-measurements-2manage-roi.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight ROI manager
 
 Intensity values histograms of the intensity of pixels contained in the
@@ -26,10 +28,12 @@ Regions Of Interest
 
 .. figure:: /images/insight-measurements-3graph.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight intensity histogram
 
 Basic statistics.
 
 .. figure:: /images/insight-measurements-4stats.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight measurement statistics

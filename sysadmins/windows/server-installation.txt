@@ -20,6 +20,7 @@ users/passwords described in this install guide, please see
 
    .. figure:: /images/installation-images/win7-runasadmin-highlight.png
        :align: center
+       :width: 35%
        :alt:
 
 -  Installation on Windows XP is not explicitly supported, especially
@@ -391,6 +392,7 @@ to access the OMERO.web interface:
 
    .. figure:: /images/installation-images/login.png
       :align: center
+      :width: 55%
       :alt: OMERO.webadmin login
 
       OMERO.webadmin login

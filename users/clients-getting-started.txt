@@ -25,6 +25,7 @@ authentication connection to the server is ALWAYS secured.
 
 .. figure:: /images/omero_insight_4_4_login.png
    :align: center
+   :width: 35%
    :alt: 
 
 Select server
@@ -35,6 +36,7 @@ corner of the login window. A ``Servers`` dialog will pop up.
 
 .. figure:: /images/omero_insight_4_4_servers.png
    :align: center
+   :width: 35%
    :alt:
 
 You can either:
@@ -107,6 +109,7 @@ by browsing under :menuselection:`View --> Attachments` (see screen shot).
 
 .. figure:: /images/insight-editor.png
    :align: center
+   :width: 35%
    :alt:
 
 OMERO.web
@@ -128,7 +131,7 @@ same username and password used for the OMERO Insight client.
 
 .. figure:: /images/OmeroWeb-login.png
    :align: center
-   :width: 80%
+   :width: 55%
    :alt: OMERO.web login 
 
 
