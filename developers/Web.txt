@@ -10,7 +10,7 @@ OMERO.web Framework
 
 OMERO.web is a framework for building web applications for OMERO. It
 uses ` Django <https://www.djangoproject.com/>`_ to generate html pages
-from data retrieved from the OMERO server.  OMERO.web acts as a Python
+from data retrieved from the OMERO server. OMERO.web acts as a Python
 client of the OMERO server using the OMERO API, as well as being a web
 server itself (see 'infrastructure' info below). It uses Django 'apps'
 to provide modular web tools, such as the webclient (working with image
@@ -28,7 +28,7 @@ OMERO Python API
 ~~~~~~~~~~~~~~~~
 
 The OMERO.web framework is all based on the OMERO Python API, using the
-Blitz Gateway (see |OmeroPy|). The  OMERO.web framework
+Blitz Gateway (see |OmeroPy|). The OMERO.web framework
 provides functionality for creating and retrieving connections to OMERO
 (see example below & :doc:`/developers/Web/WritingViews` for more
 details)
