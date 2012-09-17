@@ -5,6 +5,7 @@ Through OMERO's scripting service, OMERO.insight allows you to create specialize
 
 .. figure:: /images/insight-scripting-1features.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight scripting features
 
 Publishing Options
@@ -14,6 +15,7 @@ The publishing button allows you make movies or create various views of your ima
 
 .. figure:: /images/insight-scripting-2options.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight publishing options
 
 Upload Scripts
@@ -25,6 +27,7 @@ For user guide about scripting, see
 
 .. figure:: /images/insight-scripting-3upload.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight script upload
 
 Display Scripts
@@ -34,4 +37,5 @@ All the scripts accessible to you on the server are accessible via the Display S
 
 .. figure:: /images/insight-scripting-4display.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight display scripts

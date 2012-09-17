@@ -10,12 +10,14 @@ In order to begin the import of images into an OMERO server, you need to:
 
 .. figure:: /images/insight-import-1icon.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight importer icon
 
 -  You will be presented with the OMERO.insight Importer Window
 
 .. figure:: /images/insight-import-2clientimporter.png
    :align: center
+   :width: 50%
    :alt: OMERO.insight importer window
 
 To import images with the OMERO.insight importer, the import process
@@ -28,6 +30,7 @@ Step 1: File Selection
 
 .. figure:: /images/insight-import-3filechooser.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight file chooser
 
 - Add the selected images to the Files to Import by pressing the |right| icon.
@@ -50,6 +53,7 @@ Step 2: Location selection
 
 .. figure:: /images/insight-import-4location.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight location selection
 
 
@@ -57,6 +61,7 @@ Existing Project Selection.
 
 .. figure:: /images/insight-import-5project.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight project selection
 
 Once the specific Project has been chosen the existing Dataset's
@@ -64,12 +69,14 @@ available are shown under the chosen Project.
 
 .. figure:: /images/insight-import-6dataset.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight dataset selection
 
 Alternatively a new Project and/or Dataset can be created
 
 .. figure:: /images/insight-import-7newproject.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight new project
 
 Once the Project/Dataset has been created the selected images will
@@ -78,6 +85,7 @@ the size of the file and its location within the chosen Project/Dataset.
 
 .. figure:: /images/insight-import-8queue.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight import queue
 
 New From Folder Import
@@ -90,6 +98,7 @@ Folder--` in the Dataset selection.
 
 .. figure:: /images/insight-import-9newdataset.png
    :align: center
+   :width: 35%
    :alt: OMERO.insight new dataset
 
 With this selection made when added to the import queue the Dataset
@@ -101,6 +110,7 @@ Dataset`.
 
 .. figure:: /images/insight-import-10folderimport.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight folder import
 
 Step 3: Import
@@ -111,6 +121,7 @@ button.
 
 .. figure:: /images/insight-import-11startimport.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight start import
 
 On import, the Import tab will open as displayed below. The following
@@ -122,6 +133,7 @@ information is presented in the Import tab:
 
 .. figure:: /images/insight-import-12importprogress.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight import progress
 
 On completion of the import, an hyperlink indicating the location of the
@@ -129,10 +141,12 @@ import is displayed allowing users to browse the dataset.
 
 .. figure:: /images/insight-import-13importcomplete.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight import complete
 
 .. figure:: /images/insight-import-14projectbrowser.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight project browser
 
 The import tab also displays the image thumbnail, double-clicking on it
@@ -141,10 +155,12 @@ be available, just click to launch the viewer.
 
 .. figure:: /images/insight-import-15thumbnail.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight import thumbnails
 
 .. figure:: /images/insight-import-16viewer.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight image viewer
 
 
@@ -174,12 +190,14 @@ the options setting.
 
 .. figure:: /images/insight-import-17addtags.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight add tags
 
 Once the tags have been added they may be viewed to from the list.
 
 .. figure:: /images/insight-import-18viewtags.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight view tags
 
 On the completion of import, the tags will then be shown under the
@@ -187,6 +205,7 @@ annotations panel in the Right-hand panel in the Data Manager.
 
 .. figure:: /images/insight-import-19viewannotations.png
    :align: center
+   :width: 55%
    :alt: OMERO.insight view annotations
 
 Toggle between Single Image Formats versus Screening Formats
