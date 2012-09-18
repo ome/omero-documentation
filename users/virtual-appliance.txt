@@ -273,10 +273,10 @@ interact with it.
    under the :doc:`clients-getting-started` section
    which details how to use the OMERO.clients.
 -  Alternatively, you can interact with the server command line
-   interface by SSH'ing into the guest VM or by opening a console within
+   interface by |SSH|'ing into the guest VM or by opening a console within
    the VM itself. Administrators may need to use one of these methods to
    restart the server and/or change configuration parameters. In this
-   case you must have an SSH client installed on your host machine that
+   case you must have an |SSH| client installed on your host machine that
    you will then use to connect to the OMERO.server.
 
 .. note:: The following example assume that the OMERO VM is up & running on the same machine that you are working on.
@@ -341,9 +341,9 @@ virtual server just like you could using a remote server.
 Secure Shell
 ^^^^^^^^^^^^
 
-You can log into your VM using Secure Shell (SSH) which will give you a
+You can log into your VM using |SSH| which will give you a
 command line interface to the VM from where you can use the |OmeroCli|. 
-In the following example, we assume that you have an SSH client installed
+In the following example, we assume that you have an |SSH| client installed
 on your host machine and also that your VM is up and running.
 
 You can log into the VM using the above credentials and the following
@@ -353,10 +353,10 @@ command typed into a terminal:
 
     $ ssh omero@localhost -p 2222
 
-This invokes the SSH program telling it to login to the localhost on
+This invokes the |SSH| program telling it to login to the localhost on
 port 2222 using the username *omero*. Remember that earlier we set up
 port forwarding to forward port 2222 on the host machine to port 22 (the
-default SSH port) on the guest VM. If all goes well you will be prompted
+default |SSH| port) on the guest VM. If all goes well you will be prompted
 for a password. Once you have successfully entered your password you
 should be greeted by a prompt similar to the following:
 
@@ -365,7 +365,7 @@ should be greeted by a prompt similar to the following:
     omero@omerovm:~$
 
 There are two potential complications to this method, (1) if you have
-used a VM before then there could be old SSH fingerprints set up, (2)
+used a VM before then there could be old |SSH| fingerprints set up, (2)
 the first time that you log into the VM you will be asked to confirm
 that wish to continue connecting. If you get the following message after
 you invoke ssh:
@@ -444,7 +444,7 @@ Log into the VM directly
 .. note::
     Due to the frequent changes in the VirtualBox Guest
     Additions, key mappings between the host and guest OS do not always
-    work. We recommend using SSH as the primary way of interacting with
+    work. We recommend using |SSH| as the primary way of interacting with
     the Virtual Appliance CLI.
 
 When you start your VM using the Virtual Box GUI, as outlined above, a

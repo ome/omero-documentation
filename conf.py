@@ -135,6 +135,8 @@ rst_epilog = """
 .. _Matplotlib: http://matplotlib.org/
 .. _Python: http://python.org
 
+.. |SSH| replace:: :abbr:`SSH (Secure Shell)`
+
 .. |OME| replace:: `Open Microscopy Environment`_
 .. |Glencoe| replace:: `Glencoe Software, Inc.`_
 .. |OmeroPy| replace:: :doc:`/developers/Python`

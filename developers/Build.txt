@@ -219,7 +219,7 @@ Comments on Ivy
    repository (``./lib/repository``) for the jars which were downloaded
    from git. Multi-resolvers can be defined (as granular as for an
    individual jar) in order to pick up the latest version of whatever
-   library from HTTP, SSH, or from the local file system.
+   library from HTTP, |SSH|, or from the local file system.
 
 -  OMERO\_HOME/lib/cache : in order to determine the transitive closure
    of all dependencies, Ivy "resolves" each ivy.xml and stores the

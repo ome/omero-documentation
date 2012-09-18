@@ -215,7 +215,7 @@ which can be added to your local repository as another remote:
 
         git remote add gh git@github.com:YOURNAME/openmicroscopy.git
 
-Note: for the SSH transport to work, you’ll need to follow some of the
+Note: for the |SSH| transport to work, you’ll need to follow some of the
 instructions under `<https://github.com/account/ssh>`_
 
 Depending on which repository you cloned first, either origin/develop or
@@ -252,7 +252,7 @@ collaborator on their repository or do the same for them on yours. This
 is done under `<https://github.com/account/repositories>`_
 
 If you haven’t made such a repository yet as a remote, then you should
-do so using the SSH protocol:
+do so using the |SSH| protocol:
 
 ::
 

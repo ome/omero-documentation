@@ -222,8 +222,8 @@ My Server Crashes With...
 -  ``X connection to localhost:10.0 broken (explicit kill or server shutdown).``
 
 OMERO uses image scaling and processing techniques that may be
-interfered with when used with SSH X11-forwarding. You should disable
-SSH X11-forwarding in the SSH session you will use to start OMERO.server
+interfered with when used with |SSH| X11-forwarding. You should disable
+|SSH| X11-forwarding in the |SSH| session you will use to start OMERO.server
 by using the ``-x`` flag as follows:
 
 ::
