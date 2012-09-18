@@ -165,7 +165,7 @@ Change any settings that are necessary via bin/omero config.
 
    .. note::
 
-       A SSL URL above should look like this:
+       A |SSL| URL above should look like this:
        ldaps://ldap.example.com:636
 
 -  LDAP server bind DN (if required; can be empty)
@@ -201,10 +201,10 @@ Change any settings that are necessary via bin/omero config.
 
        bin/omero config set omero.ldap.referral follow
 
-LDAP over SSL
--------------
+LDAP over |SSL|
+---------------
 
-If you are connecting to your server over :abbr:`SSL (Secure Socket Layer)`,
+If you are connecting to your server over |SSL|,
 that is, if your URL is of the form ``ldaps://ldap.example.com:636`` you will
 need to configure a key and trust store for Java. See the
 :doc:`server-security` page for more information.

@@ -363,12 +363,12 @@ firewall. Only the Glacier2 router has a port visible to machines
 outside the firewall. If this is possible in your configuration, then
 you can leave the internal endpoints unsecured.
 
-SSL
-^^^
+|SSL| 
+^^^^^
 
 Though it's probably unnecessary to use transport encryption within a
 firewall, encryption from clients to the Glacier2 router will often be
-necessary. For the :milestone:`3.0-Beta3` release, no example SSL 
+necessary. For the :milestone:`3.0-Beta3` release, no example |SSL|  
 configuration is provided, but see `Section 42.3
 IceSSL <http://www.zeroc.com/doc/Ice-3.2.1/manual/IceSSL.43.3.html#63966>`_
 of the Ice manual for more information. Once your server is properly
@@ -390,7 +390,7 @@ Permissions Verifier
 ^^^^^^^^^^^^^^^^^^^^
 
 The IceSSL plugin can be used both for encrypting the channel as well as
-authenticating users. SSL-based authentication, however, can be
+authenticating users. |SSL|-based authentication, however, can be
 difficult to configure especially for within the firewall, and so
 instead you may want to configure a "permissions verifier" to prevent
 non-trusted users from accessing a system within your firewall. From
