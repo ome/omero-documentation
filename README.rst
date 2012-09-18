@@ -317,3 +317,4 @@ Writing conventions
 * Do not use contractions (can't, isn't, I'll, etc.) in the documentation.
 * Use American English spelling.
 * The first word and all proper nouns of the titles should be capitalized.
+* Use the full product name, e.g. OMERO.insight instead of Insight
