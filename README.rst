@@ -137,9 +137,6 @@ Title headings
 Every reST source file should begin with an H2 (level two) title. H1 titles
 are reserved for the index files (``index.txt``).
 
-Titles should be capitalised (see `http://grammar.about.com <http://grammar.about.com/od/grammarfaq/f/capitalstitle.htm>`_
-for a discussion about capitalisation styles).
-
 The following symbols should be used to create headings:
  
 * ``#`` with top line for parts
@@ -319,3 +316,4 @@ Writing conventions
 
 * Do not use contractions (can't, isn't, I'll, etc.) in the documentation.
 * Use American English spelling.
+* The first word and all proper nouns of the titles should be capitalized.
