@@ -366,7 +366,7 @@ you can leave the internal endpoints unsecured.
 |SSL| 
 ^^^^^
 
-Though it's probably unnecessary to use transport encryption within a
+Though it is probably unnecessary to use transport encryption within a
 firewall, encryption from clients to the Glacier2 router will often be
 necessary. For the :milestone:`3.0-Beta3` release, no example |SSL|  
 configuration is provided, but see `Section 42.3

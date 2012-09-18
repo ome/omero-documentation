@@ -548,8 +548,8 @@ OMERO.server in the host OS.
 
 	       $ lsof -nP | grep -E '(:4063)|(:4064)'
 
-|VM| won't boot because the HDD is full
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+|VM| will not boot because the HDD is full
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you manage to fill the virtual HDD used by your |VM| then you will
 likely discover that the |OS| is unable to boot and you cannot therefore
