@@ -19,9 +19,9 @@ machine. One way to think of this is as though you had an entire
 computer in a window on your desktop.
 
 When using virtualisation software, the |OS| that is running the
-virtualisation software is referred to as the "**host |OS|**\ ". When you
+virtualisation software is referred to as the "**host OS**\ ". When you
 use virtualisation, the |OS| running within a virtual machine is referred
-to as the "**guest |OS|**\ ". This allows us to be explicit about which |OS|
+to as the "**guest OS**\ ". This allows us to be explicit about which |OS|
 we are working in.
 
 Effectively this means that the OME Project can distribute a canned,
