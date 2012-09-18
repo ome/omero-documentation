@@ -548,10 +548,10 @@ OMERO.server in the host OS.
 
 	       $ lsof -nP | grep -E '(:4063)|(:4064)'
 
-|VM| will not boot because the HDD is full
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+|VM| will not boot because the |HDD| is full
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you manage to fill the virtual HDD used by your |VM| then you will
+If you manage to fill the virtual |HDD| used by your |VM| then you will
 likely discover that the |OS| is unable to boot and you cannot therefore
 get access to your OMERO.server install. If this occurs you may also get
 a "errno 28: no space left on device" message. To log into your |VM| you
@@ -607,12 +607,12 @@ the recommended courses of action are either:
    *rm* to make space for the |VM| to boot normally then use your favoured
    OMERO client to login and delete more files. A useful place to start
    might be by deleting the logs stored in /var/logs.
-2. Increase the size of your virtual HDD. If you have filled your
-   existing HDD then it is likely that the volume of data that you are
-   storing in the OMERO |VM| is too big for the default HDD. You should
+2. Increase the size of your virtual |HDD|. If you have filled your
+   existing |HDD| then it is likely that the volume of data that you are
+   storing in the OMERO |VM| is too big for the default |HDD|. You should
    follow the instructions on the :ref:`increasing-hd-size`
    section to ensure that the size of
-   virtual HDD you have available is commensurate with the volumes of
+   virtual |HDD| you have available is commensurate with the volumes of
    data that you are collecting.
 
 .. _increasing-hd-size:
@@ -667,8 +667,8 @@ alterations to. This means that we can always return to the original
 omero-vm if we break anything. From now on **only** make changes to
 omero-vm-2.
 
-Extending the HDD
-^^^^^^^^^^^^^^^^^
+Extending the |HDD|
+^^^^^^^^^^^^^^^^^^^
 
 By default our virtual hard drive attached to omero-vm-2 is of a type
 which cannot be extended; so we need to change this by cloning our HDD
@@ -678,16 +678,16 @@ from the VDMK type to VDI type:
 
     $ VBoxManage clonehd omero-vm-2-disk1.vmdk omero-vm-2-disk1.vdi --format VDI
 
-We now need to increase the size of our virtual HDD. In the following
-command I am resizing the HDD to 60GB but you should select a size to
+We now need to increase the size of our virtual |HDD|. In the following
+command I am resizing the |HDD| to 60GB but you should select a size to
 suit the amount of data you plan to store in OMERO:
 
 ::
 
     $ VBoxManage modifyhd omero-vm-2-disk1.vdi --resize 60000
 
-Adding the extended HDD to the |VM| clone
-""""""""""""""""""""""""""""""""""""""""""
+Adding the extended |HDD| to the |VM| clone
+"""""""""""""""""""""""""""""""""""""""""""
 
 We now need to tell VirtualBox to use :file:`omero-vm-2-disk1.vdi`
 instead of :file:`omero-vm-2-disk1.vmdk` which is currently attached to
@@ -728,10 +728,10 @@ selected ensure that the storage details match what you expect, e.g.
 omero-vm-2-disk1.vdi is connected to your SATA Port 0. The size for this
 disk should also more or less match what you specified earlier with the
 `VBoxManage modifyhd` command. The reported numbers do not exactly
-matchup, e.g. a virtualised HDD of 60GB size will be reported as 58.59GB.
+matchup, e.g. a virtualised |HDD| of 60GB size will be reported as 58.59GB.
 
-Reallocating space on the VA HDD
-""""""""""""""""""""""""""""""""
+Reallocating space on the VA |HDD|
+""""""""""""""""""""""""""""""""""
 
 Start the omero-vm-2 |VM|. Ubuntu linux should boot and you should
 eventually see a welcome screen giving you the option to try or install
@@ -757,18 +757,19 @@ Ubuntu. We will now start the GParted software and resize our partitions.
    :align: center
    :alt: Virtual Appliance HDD in GParted
 
-   Virtual Appliance HDD in GParted
+   Virtual Appliance |HDD| in GParted
 
-Up until this point we haven't actually applied any of our changes to the HDD,
-we have only specified a list of changes that should be made. We can now go
-ahead and apply them by selecting the :menuselection:`Edit --> Apply All Operations` menu item then clicking :guilabel:`Apply` in the confirmation
+Up until this point we haven't actually applied any of our changes to the 
+|HDD|, we have only specified a list of changes that should be made. We can 
+now go ahead and apply them by selecting the :menuselection:`Edit --> Apply 
+All Operations` menu item then clicking :guilabel:`Apply` in the confirmation
 dialog box.
 
 When the operations have completed dismiss the dialog with the
 :guilabel:`Close` button, close GParted, then shutdown the |VM|.
 
-Changing HDD settings inside the VA
-"""""""""""""""""""""""""""""""""""
+Changing |HDD| settings inside the VA
+""""""""""""""""""""""""""""""""""""""
 
 We no longer need the Ubuntu ISO so we can detach it from our |VM|. Ensure 
 that omero-vm-2 is selected then click :guilabel:`Settings` and select the
@@ -778,7 +779,7 @@ VirtualBox |VM| library.
 
 Start the omero-vm-2 |VM| and allow it to boot. Log in as root then issue the
 `df -h` command. Verify that the size of the `/dev/sda1` is approximately what
-you expect, e.g. if you allocated a 60GB virtual HDD then after size
+you expect, e.g. if you allocated a 60GB virtual |HDD| then after size
 conversions and swap allocation we should end up with `/dev/sda1` reported as
 being around 56GB.
 
@@ -824,4 +825,4 @@ Now reboot your |VM| with
     $ shutdown -r now
 
 Once your |VM| has rebooted you should now have a working |VM| with a larger
-virtual HDD.
+virtual |HDD|.

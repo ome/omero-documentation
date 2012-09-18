@@ -293,6 +293,7 @@ Name     Abbreviation  Explanation
 \|VM\|    VM           Virtual Machine
 \|OS\|    OS           Operating System
 \|SSL\|   SSL          Secure Socket Layer
+\|HDD\|   HDD          Hard Disk Drive
 =======  ============= ===================
 
 Page references
