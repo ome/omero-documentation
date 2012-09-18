@@ -136,6 +136,7 @@ rst_epilog = """
 .. _Python: http://python.org
 
 .. |SSH| replace:: :abbr:`SSH (Secure Shell)`
+.. |VM| replace:: :abbr:`VM (Virtual Machine)`
 
 .. |OME| replace:: `Open Microscopy Environment`_
 .. |Glencoe| replace:: `Glencoe Software, Inc.`_
