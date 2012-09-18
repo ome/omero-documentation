@@ -1,7 +1,7 @@
-Viewing Images
+Viewing images
 ==============
 
-Launch a Viewer
+Launch a viewer
 ---------------
 
 -  From the Data Manager or Working Area, select an image and click on
@@ -10,7 +10,7 @@ Launch a Viewer
 
 Note that you can have multiple viewers opened at the time.
 
-Tool Bar explained
+Toolbar explained
 ------------------
 
 .. figure:: /images/insight-viewer-1toolbar.png
@@ -18,7 +18,7 @@ Tool Bar explained
    :width: 35%
    :alt: OMERO.insight viewer toolbar
 
-Image View
+Image view
 ----------
 
 The Image View tab is the default view.
@@ -48,7 +48,7 @@ below
    :width: 55%
    :alt: OMERO.insight viewer main window
 
-Projection View
+Projection view
 ---------------
 
 If you image has several z-sections, to project the image, go to the
@@ -73,7 +73,7 @@ Magnify Area of image, movie player, save image.
     :align: center
     :alt: OMERO.insight viewer magnification
 
-Split View
+Split view
 ----------
 
 The Split View allows the user to see each channel as a separate image.

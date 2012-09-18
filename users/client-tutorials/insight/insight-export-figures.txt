@@ -1,4 +1,4 @@
-Exporting Figures
+Exporting figures
 =================
 
 Since OMERO 4.2, OMERO.insight offers the ability to export images as figures,
@@ -23,7 +23,7 @@ All figure generating options are available from the top-right toolbar
 in OMERO.insight and will try to use the currently selected images or datasets
 in the chosen figure (see screen-shot).
 
-Thumbnail Figure
+Thumbnail figure
 ----------------
 
 This creates a figure of thumbnails, either using the currently selected
@@ -46,7 +46,7 @@ will appear more than once in the figure.
 
     Two datasets, with thumbnails sorted by 4 tags.
 
-Split-view Figure
+Split-view figure
 -----------------
 
 Choose one or more images to be arranged in a split-view with one image
@@ -65,7 +65,7 @@ tags.
     Split-View Figure of 3 images with 4 channels, showing 2 channels
     in the merged panel. Images are labeled with their Tags.
 
-Movie Figure
+Movie figure
 ------------
 
 This figure displays selected frames from one or more movies, laid out
@@ -82,7 +82,7 @@ dataset(s) or associated tags.
     third movie does not have timing metadata (frame numbers shown
     instead), and has fewer frames than the top 2 movies.
 
-ROI Figure
+ROI figure
 ----------
 
 If a rectangle ROI has previously been defined for an image (or images),
@@ -105,7 +105,7 @@ tags.
     same for all 3 images (as noted in the figure legend), allowing a
     direct comparison between them.
 
-ROI Movie Figure
+ROI movie figure
 ----------------
 
 For movies that have an ROI, this script will display the ROI region for
@@ -121,7 +121,7 @@ point spans several Z-sections, these will be projected.
     ROI for each image and images are labeled on the left with their
     Tags.
 
-Reference Example Figures (from outside sources)
+Reference example figures (from outside sources)
 ------------------------------------------------
 
 This is a list of the types of figures that are common in the Cell
@@ -161,7 +161,7 @@ Examples:
 -  http://jcb.rupress.org/content/168/5/747/F8.expansion (Panel E)
 -  http://jcb.rupress.org/content/168/5/775/F2.expansion
 
-Grid of Images
+Grid of images
 ^^^^^^^^^^^^^^^
 
 -  All panels different conditions with panels named with Name (or Tag)
@@ -191,7 +191,7 @@ Movie
    -  http://jcb.rupress.org/content/187/6/831/F1.expansion
    -  http://jcb.rupress.org/content/187/6/781
 
-ROI-Zoom Split-view
+ROI-zoom split-view
 ^^^^^^^^^^^^^^^^^^^
 
 Choose a rectangle ROI and display the contents as a zoom panel
@@ -215,7 +215,7 @@ by chosen factor (e.g. 4x). Options to display zoom:
 
    -  http://jcb.rupress.org/content/168/5/735/F2.expansion
 
-ROI-Zoom movie
+ROI-zoom movie
 ^^^^^^^^^^^^^^
 
 -  http://jcb.rupress.org/content/168/4/599/F4.expansion

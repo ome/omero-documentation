@@ -1,4 +1,4 @@
-Managing Data
+Managing data
 =============
 
 Once successfully logged in, the default view of the Data Manager will
@@ -10,7 +10,7 @@ user into his/her data hierarchies.
     :align: center
     :alt: OMERO.insight data manager
 
-Create Objects
+Create objects
 --------------
 
 .. figure:: /images/insight-data-manager-2toolbar.png
@@ -72,7 +72,7 @@ Using the Inspector, the user can
 
 The same options are available for Plate, Screen, Tag Set and Tag.
 
-Working Area
+Working area
 ------------
 
 The Working area is built and displayed when browsing data e.g. a Plate
@@ -103,7 +103,7 @@ The user can then filter the displayed images.
    :width: 35%
    :alt: Filter data
 
-Handle Metadata and Edit Object
+Handle metadata and edit object
 -------------------------------
 
 OMERO offers the option to handle various types of annotation.
@@ -126,7 +126,7 @@ How to add, view metadata
 
 -  To Edit the image's name, click on the icon next to the name.
 
-Managing Image Attachments
+Managing image attachments
 --------------------------
 
 Attachments can be downloaded, viewed, and deleted by clicking the
@@ -139,7 +139,7 @@ attachment from the server.
    :width: 35%
    :alt: Managing attachments
 
-View Acquisition Metadata
+View acquisition metadata
 -------------------------
 
 The acquisition metadata read at import is displayed in the Right-hand
@@ -150,7 +150,7 @@ panel under the Acquisition tab.
    :width: 55%
    :alt: Acquisition metadata
 
-Image Preview
+Image preview
 -------------
 
 The Preview tab on the Right-hand panel provides a mini preview window
