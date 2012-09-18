@@ -39,7 +39,7 @@ clients.
     :ref:`increasing-hd-size` before you start working with
     OMERO in earnest.
 
-Getting Started
+Getting started
 ---------------
 
 To use the virtual appliance you should do the following:
@@ -131,7 +131,7 @@ user's network.
 
 .. _virtualappliance_portforwarding:
 
-Port-Forwarding Settings
+Port-forwarding settings
 """"""""""""""""""""""""
 
 Your host OS cannot connect directly to 10.0.2.15 but needs to use
@@ -215,7 +215,7 @@ library then click **start**.
    VirtualBox VM manager
 
 A window should open containing a console for your VM which should now
-be going through it's standard boot process. OMERO.server is
+be going through its standard boot process. OMERO.server is
 automatically started at boot time which means that you should be able
 to interact with OMERO without further setup.
 
@@ -236,7 +236,7 @@ as either the **root** user or the **omero** user. There is also a
 single OMERO.server account which is used to access the OMERO.server
 software as the OMERO.server **root** user
 
-Virtual Appliance OS Credentials
+Virtual Appliance OS credentials
 """"""""""""""""""""""""""""""""
 
 ======== =========
@@ -246,7 +246,7 @@ root     swordfish
 omero      omero
 ======== =========
 
-OMERO.server Credentials
+OMERO.server credentials
 """"""""""""""""""""""""
 
 ======== ========
@@ -480,10 +480,10 @@ From here you can interact with OMERO.server via the |OmeroCli|. You will need
 to login as the 'omero' user to access the OMERO CLI (user: "omero" / pw: 
 "omero"). Logout using Ctrl-D.
 
-Known Issues
+Known issues
 ------------
 
-Networking Not Working
+Networking not working
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Occasionally, during the boot process, the VirtualBox DHCP server fails
@@ -617,7 +617,7 @@ the recommended courses of action are either:
 
 .. _increasing-hd-size:
 
-Increasing HD Size 
+Increasing HD size 
 ------------------
 
 Image data can become very large
@@ -635,7 +635,7 @@ Please bear in mind that this is not a risk-free procedure and that you
 should ensure that you have a backup of your Virtual Machine (VM) before
 proceeding.
 
-Preliminary Steps
+Preliminary steps
 ^^^^^^^^^^^^^^^^^
 
 Acquiring a Ubuntu Linux ISO

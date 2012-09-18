@@ -1,4 +1,4 @@
-Importing Images
+Importing images
 ================
 
 For more information on the file formats currently supported in OMERO see
@@ -23,7 +23,7 @@ In order to begin the import of images into an OMERO server, you need to:
 To import images with the OMERO.insight importer, the import process
 follows three steps:
 
-Step 1: File Selection
+Step 1: File selection
 ----------------------
 
 -  Use the File Chooser panel to browse and select the images.
@@ -88,7 +88,7 @@ the size of the file and its location within the chosen Project/Dataset.
    :width: 55%
    :alt: OMERO.insight import queue
 
-New From Folder Import
+New from folder import
 ^^^^^^^^^^^^^^^^^^^^^^
 
 The client importer also supports the ability for the chosen Dataset to
@@ -167,7 +167,7 @@ be available, just click to launch the viewer.
 Options
 -------
 
-File Naming
+File naming
 ^^^^^^^^^^^
 
 - Select or Add a project and dataset where to import the images.
@@ -181,7 +181,7 @@ File Naming
   short version plus a number of leading directories
   e.g. ``Images/myImage.tiff``
 
-Tagging on Import
+Tagging on import
 ^^^^^^^^^^^^^^^^^
 
 The OMERO.insight supports Tagging on Import. This feature can be found
@@ -208,7 +208,7 @@ annotations panel in the Right-hand panel in the Data Manager.
    :width: 55%
    :alt: OMERO.insight view annotations
 
-Toggle between Single Image Formats versus Screening Formats
+Toggle between single image formats versus screening formats
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - The client also now supports toggling between single - or
