@@ -316,5 +316,9 @@ Writing conventions
 
 * Do not use contractions (can't, isn't, I'll, etc.) in the documentation.
 * Use American English spelling.
-* The first word and all proper nouns of the titles should be capitalized.
+* All headings should begin with a capital letter for the first word and all 
+nouns in the title.
+* All sub-headings should begin with a capital letter for the first word and 
+continue in lowercase, except where they refer to terms which are abbreviated 
+in the text e.g. Virtual Machine.
 * Use the full product name, e.g. OMERO.insight instead of Insight
