@@ -40,7 +40,7 @@ This can also be used to detect what a command ''would'' import.
 will print on standard out a list of all the files which would be
 imported in groups separated by "#" comments.
 
-Command Line Options
+Command Line options
 --------------------
 
 The Command Line Importer tool takes a number of mandatory and optional
