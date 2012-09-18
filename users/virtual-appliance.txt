@@ -11,17 +11,17 @@ created and used, in the form of |VM|, or to be
 distributed for others to use, in the form of Virtual Appliances. A
 Virtual Appliance is essentially a file that describes how to create a
 new Virtual Machine on demand. The virtualised software environment can
-contain an entire operating system (OS), such as Windows or Linux, and
-any other software that runs in that OS, such as, in this case,
+contain an entire |OS|, such as Windows or Linux, and
+any other software that runs in that |OS|, such as, in this case,
 OMERO.server and its associated software prerequisites. Once created and
-started, you can log into the OS and use it as though it were a real
+started, you can log into the |OS| and use it as though it were a real
 machine. One way to think of this is as though you had an entire
 computer in a window on your desktop.
 
-When using virtualisation software, the OS that is running the
-virtualisation software is referred to as the "**host OS**\ ". When you
-use virtualisation, the OS running within a virtual machine is referred
-to as the "**guest OS**\ ". This allows us to be explicit about which OS
+When using virtualisation software, the |OS| that is running the
+virtualisation software is referred to as the "**host |OS|**\ ". When you
+use virtualisation, the |OS| running within a virtual machine is referred
+to as the "**guest |OS|**\ ". This allows us to be explicit about which |OS|
 we are working in.
 
 Effectively this means that the OME Project can distribute a canned,
@@ -134,7 +134,7 @@ user's network.
 Port-forwarding settings
 """"""""""""""""""""""""
 
-Your host OS cannot connect directly to 10.0.2.15 but needs to use
+Your host |OS| cannot connect directly to 10.0.2.15 but needs to use
 port-forwarding. This means that you connect to your localhost on a
 specific port and the communications to and from that port are forwarded
 to specified ports on the guest |VM|.
@@ -231,13 +231,13 @@ Credentials
 ^^^^^^^^^^^
 
 There are a number of accounts that are preconfigured in the OMERO
-virtual appliance. Two of these are OS accounts, for logging into the |VM|
+virtual appliance. Two of these are |OS| accounts, for logging into the |VM|
 as either the **root** user or the **omero** user. There is also a
 single OMERO.server account which is used to access the OMERO.server
 software as the OMERO.server **root** user
 
-Virtual Appliance OS credentials
-""""""""""""""""""""""""""""""""
+Virtual Appliance |OS| credentials
+""""""""""""""""""""""""""""""""""
 
 ======== =========
 Username Password
@@ -443,7 +443,7 @@ Log into the |VM| directly
 
 .. note::
     Due to the frequent changes in the VirtualBox Guest
-    Additions, key mappings between the host and guest OS do not always
+    Additions, key mappings between the host and guest |OS| do not always
     work. We recommend using |SSH| as the primary way of interacting with
     the Virtual Appliance CLI.
 
@@ -487,7 +487,7 @@ Networking not working
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Occasionally, during the boot process, the VirtualBox DHCP server fails
-to allocate an IP address to the OS in the guest |VM|. This means that
+to allocate an IP address to the |OS| in the guest |VM|. This means that
 OMERO.clients, such as OMERO.insight, cannot connect to the OMERO.server
 in the |VM|.
 
@@ -508,7 +508,7 @@ in the |VM|.
 
 -  **SOLUTION:** An easy, but unreliable, fix is to reboot the
    guest |VM|. The preferred fix is to log into the guest |VM| console and
-   execute the following commands which will cause the guest OS to
+   execute the following commands which will cause the guest |OS| to
    release it's IP lease before requesting a new lease:
 
    ::
@@ -520,7 +520,7 @@ Port conflict when OMERO.server already running in Host OS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you are already running an instance of the OMERO.server in your host
-OS then there will be a conflict due to the ports assigned to VirtualBox
+|OS| then there will be a conflict due to the ports assigned to VirtualBox
 port-forwarding being the same as those already in use by the
 OMERO.server in the host OS.
 
@@ -538,7 +538,7 @@ OMERO.server in the host OS.
 
    .. note:: 
 
-	   We are assuming that your host OS is
+	   We are assuming that your host |OS| is
 	   not already running services on those ports. You can check whether
 	   something is already listening on any of these ports by running the
 	   following commands (Mac OS X) which should return the prompt without
@@ -552,7 +552,7 @@ OMERO.server in the host OS.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you manage to fill the virtual HDD used by your |VM| then you will
-likely discover that the OS is unable to boot and you cannot therefore
+likely discover that the |OS| is unable to boot and you cannot therefore
 get access to your OMERO.server install. If this occurs you may also get
 a "errno 28: no space left on device" message. To log into your |VM| you
 will need to use the recovery mode. Start the |VM| and at the Grub screen,
