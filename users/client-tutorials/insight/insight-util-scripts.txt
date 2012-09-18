@@ -1,10 +1,10 @@
-Running Utility Scripts
+Running utility scripts
 =======================
 
 Instructions for running 'Util Scripts' from OMERO.insight through the
 scripting service, as released with OMERO 4.2.
 
-Batch Image Export
+Batch image export
 ------------------
 
 :snapshot:`MOVIE: Batch Image Export demo
@@ -31,7 +31,7 @@ heavier processing demands on the server. If admins wish to turn off
 these options, they can comment out the appropriate options in the
 script: `rstring('OME-TIFF')` and/or `rstring('Max projection')`.
 
-Channel Offsets
+Channel offsets
 ---------------
 
 :snapshot:`MOVIE: channel offsets demo
@@ -45,7 +45,7 @@ several images at once, placing the new images in the same Dataset as
 the source images by default, or in a new Dataset if the "New Dataset
 Name" parameter is filled out.
 
-Dataset to Plate
+Dataset to plate
 ----------------
 
 :snapshot:`MOVIE: Dataset to Plate demo
@@ -58,7 +58,7 @@ size of the row or column and how they are named.
 
 View the movie above to see a demonstration of this script
 
-Combine Images
+Combine images
 --------------
 
 .. figure:: /images/Combine_Images.png
@@ -86,7 +86,7 @@ dimensions are (see below).
 Optionally you can specify colours and names for the channels in the new
 image.
 
-Auto Define Dimensions
+Auto define dimensions
 ^^^^^^^^^^^^^^^^^^^^^^
 
 This option is chosen by default. This method uses the names of each
@@ -105,7 +105,7 @@ ignored and the Z-size of the first image will be used instead.
 
 .. note:: It is assumed that all images have the same Z size.
 
-Manually Define Dimensions
+Manually define dimensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 With this option, the images are combined in the same order that they
