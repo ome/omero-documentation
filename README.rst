@@ -324,3 +324,4 @@ in the text e.g. Virtual Machine.
 * Use the full product name, e.g. OMERO.insight instead of Insight.
 * Avoid using resp. in brackets to refer to alternative file names etc. Just 
 use 'or'.
+* Use full words rather than symbols in headings if possible, e.g. use 'and' rather than '&'
