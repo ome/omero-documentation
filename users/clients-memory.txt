@@ -60,24 +60,24 @@ OMERO.importer & OMERO.insight on Windows
 
 To alter the memory allocation of the Windows clients, you must add an
 optional parameter file to the same folder as the application. For the
-:file:`OMERO.insight.exe` (resp. :file:`OMERO.importer.exe`) application
-this file should be named :file:`OMERO.insight.vmoptions` (resp.
-:file:`OMERO.importer.vmoptions`).
+:file:`OMERO.insight.exe` and :file:`OMERO.importer.exe` applications
+this file should be named :file:`OMERO.insight.vmoptions` or
+:file:`OMERO.importer.vmoptions` respectively.
 
 .. only:: html
 
     The easiest way to get this file is to download
     :download:`OMERO.insight.vmoptions </downloads/OMERO.insight.vmoptions>`
-    (resp. :download:`OMERO.importer.vmoptions </downloads/OMERO.importer.vmoptions>`) and copy it into the same directory as
-    your :file:`OMERO.insight.exe` file (resp. :file:`OMERO.importer.exe`).
+    (or :download:`OMERO.importer.vmoptions </downloads/OMERO.importer.vmoptions>`) and copy it into the same directory as
+    your :file:`OMERO.insight.exe` file (or :file:`OMERO.importer.exe`).
 
 .. only:: latex
 
     The easiest way to get this file is to download
-    :file:`OMERO.insight.vmoptions` (resp. :file:`OMERO.importer.vmoptions`)
+    :file:`OMERO.insight.vmoptions` (or :file:`OMERO.importer.vmoptions`)
     from the current chapter in the online version of the OMERO documentation
     and copy it into the same directory as your :file:`OMERO.insight.exe` file
-    (resp. :file:`OMERO.importer.exe`). 
+    (or :file:`OMERO.importer.exe`). 
 
 The default file increases the memory allocation to 2048 Megabytes, however
 you may if you choose, open the file in any text editor (such as

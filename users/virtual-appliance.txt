@@ -509,7 +509,7 @@ in the |VM|.
 -  **SOLUTION:** An easy, but unreliable, fix is to reboot the
    guest |VM|. The preferred fix is to log into the guest |VM| console and
    execute the following commands which will cause the guest |OS| to
-   release it's IP lease before requesting a new lease:
+   release its IP lease before requesting a new lease:
 
    ::
 
