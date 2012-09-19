@@ -1,9 +1,9 @@
-LDAP Authentication
+LDAP authentication
 ===================
 
 `LDAP <http://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol>`_
 is an open standard for querying and modifying directory services that
-is commonly used for authentication, authorization and accounting (AAA).
+is commonly used for authentication, authorisation and accounting (AAA).
 OMERO.server supports the use of an LDAP server to query (but not
 modify) AAA information for the purposes of automatic user creation.
 
@@ -41,7 +41,7 @@ against the LDAP server, and if there is no longer a match, login is refused.
 If you would prefer to only have the ``user_filter`` applied during user
 creation and not on every login, see :ref:`legacy_password_providers`.
 
-LDAP Properties
+LDAP properties
 ---------------
 
 The LDAP plugin is configured via several configuration properties, all
@@ -136,7 +136,7 @@ the value of ``new_user_group``, which can have several different values:
 
 .. _ldap_configuration_overview:
 
-LDAP Configuration Overview
+LDAP configuration overview
 ---------------------------
 
 Like many pieces of OMERO.server configuration, LDAP-specific configuration is
@@ -226,7 +226,7 @@ unless such a link is made in LDAP.
 
 .. _legacy_password_providers:
 
-Legacy Password Providers
+Legacy password providers
 -------------------------
 
 The primary component of the LDAP plugin is the LdapPasswordProvider, which is

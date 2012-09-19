@@ -1,4 +1,4 @@
-Server Overview
+Server overview
 ===============
 
 The OMERO server system provides storage and processing of image data
@@ -34,7 +34,7 @@ OMERO.server may be of interest:
     -  :doc:`windows/server-binary-repository`
     -  :doc:`windows/server-postgresql`
 
-Developer Documentation
+Developer documentation
 -----------------------
 
 The server system is composed of several components, each of which runs

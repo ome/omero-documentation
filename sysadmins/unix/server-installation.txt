@@ -1,7 +1,7 @@
-OMERO.server Installation
+OMERO.server installation
 =========================
 
-.. seealso::
+.. see also::
 
     :doc:`/sysadmins/server-upgrade`
          Instructions for **upgrading** your OMERO.server installation.
@@ -157,7 +157,7 @@ OMERO.server 4.4.x
 The **OMERO.server** zip and *tar.bz2* is available from the 
 :omero_plone:`OMERO downloads <downloads>` page.
 
-Environment Variables
+Environment variables
 ---------------------
 
 For the prerequisite software to run properly, your PATH, PYTHONPATH,
@@ -319,7 +319,7 @@ Installation
         Username: [root]
         Password:         # root_password
 
-OMERO.web and Administration
+OMERO.web and administration
 ----------------------------
 
 .. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :doc:`install-web`.
@@ -358,7 +358,7 @@ to access the OMERO.web interface:
       OMERO.webadmin login
 
 
-Enabling Movie creation from OMERO.
+Enabling movie creation from OMERO.
 -----------------------------------
 
 OMERO has the facility to create AVI/MPEG Movies from Images, which can
@@ -393,7 +393,7 @@ See the :feature_plone:`Feature list <>` for more advanced
 features you may want to use, and :doc:`/sysadmins/server-advanced-configuration` on how to get the most out of
 your server.
 
-Update Notification
+Update notification
 ^^^^^^^^^^^^^^^^^^^
 
 Your OMERO.server installation will check for updates each time it is started from the *Open Microscopy Environment* update server. If you wish to disable this functionality you should do so now as outlined on the :doc:`/sysadmins/UpgradeCheck` page.
@@ -404,7 +404,7 @@ Troubleshooting
 My OMERO install doesn't work! What do I do now!?! Examine the :doc:`/sysadmins/troubleshooting` page and if all else fails post a
 message to our :mailinglist:`ome-users` mailing list discussed on the :doc:`/users/community-resources` page.
 
-OMERO Diagnostics
+OMERO diagnostics
 ^^^^^^^^^^^^^^^^^
 
 If you want help with your server installation, please include the output of the diagnostics command:
