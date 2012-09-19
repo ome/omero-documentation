@@ -253,30 +253,72 @@ Common markups
 * Menu selections should be marked using the appropriate role:
   ``:menuselection: `Start --> Programs```
 
-Global substitution
--------------------
+Global substitutions
+--------------------
 
 Some substitutions have been implemented using ``rst_epilog`` in ``conf.py``.
 They can be used in all pages of the documentation.
 
-==================  ================================
+Hyperlinks
+==========
+
+The table below lists targets for common hyperlinks.
+
+=========================== ==============================================
+Target name                 Link
+=========================== ==============================================
+Python                      http://python.org
+Matplotlib                  http://matplotlib.org/
+Python Imaging Library      http://www.pythonware.com/products/pil/
+Hibernate:                  http://www.hibernate.org
+ZeroC                       http://www.zeroc.com
+Ice                         http://www.zeroc.com
+Jenkins                     http://jenkins-ci.org
+roadmap                     https://trac.openmicroscopy.org.uk/ome/roadmap
+Open Microscopy Environment http://www.openmicroscopy.org/site
+Glencoe Software, Inc.      http://www.glencoesoftware.com/
+=========================== ==============================================
+
+Abbreviations
+=============
+
+The table below lists substitutions for common abbreviations. These 
+substitutions use the ``:abbr:`` Sphinx role meaning they are shown as 
+tool-tip in HTML and output only once in LaTeX.
+
+======= ============= ===================
+Name    Abbreviation  Explanation
+======= ============= ===================
+\|SSH\| SSH           Secure Shell
+\|VM\|  VM            Virtual Machine
+\|OS\|  OS            Operating System
+\|SSL\| SSL           Secure Socket Layer
+\|HDD\| HDD           Hard Disk Drive
+======= ============= ===================
+
+Page references
+===============
+
+The table below lists substitutions that can be used to create references to 
+sections of the OMERO documentation.
+
+==================  ===========================
 Name                Path
-==================  ================================
+==================  ===========================
 \|OmeroPy\|         developers/Python
 \|OmeroCpp\|        developers/Cpp
 \|OmeroJava\|       developers/Java
 \|OmeroMatlab\|     developers/Matlab
-\|OmeroCli\|        developers/CommandLine
+\|OmeroCli\|        sysadmins/CommandLine
 \|OmeroApi\|        developers/Modules/Api
 \|OmeroWeb\|        developers/Web
 \|OmeroClients\|    developers/GettingStarted
-\|OmeroInsight\|    developers/Insight
-\|OmeroGrid\|       developers/Grid
+\|OmeroGrid\|       sysadmins/grid
 \|OmeroSessions\|   developers/Server/Sessions
 \|OmeroModel\|      developers/Model
 \|ExtendingOmero\|  developers/ExtendingOmero
 \|BlitzGateway\|    developers/Python
-==================  ================================
+==================  ===========================
 
 For the most up-to-date list, please consult ``conf.py`` (section
 ``rst_epilog``).

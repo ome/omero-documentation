@@ -8,8 +8,8 @@ OMERO has been built with security in mind. Various standard security
 practices have been adhered to during the development of the server and
 client including:
 
--  Encryption of all passwords between client and server via SSL
--  Full encryption of all data when requested via SSL
+-  Encryption of all passwords between client and server via |SSL|
+-  Full encryption of all data when requested via |SSL|
 -  User and group based access control
 -  Authentication via LDAP
 -  Limited visible TCP ports to ease firewalling
@@ -29,10 +29,10 @@ Firewall Configuration
 Securing your OMERO system with so called *firewalling* or *packet
 filtering* can be done quite easily. By default, OMERO clients only need
 to connect to two TCP ports for communication with your OMERO.server:
-4063 (unsecured) and 4064 (ssl). These are the
+4063 (unsecured) and 4064 (|SSL|). These are the
 `IANA <http://www.iana.org/assignments/port-numbers>`_ assigned port for
 the Glacier2 router from ZeroC_. Both of these
-values, however, are completely up to you, see SSL below.
+values, however, are completely up to you, see |SSL| below.
 
 Important OMERO ports:
 
@@ -119,9 +119,9 @@ for you:
 Java Key- and Trust stores.
 ---------------------------
 
-If your server is connecting to another server over SSL, you will need
+If your server is connecting to another server over |SSL|, you will need
 to configure both a keystore and a truststore for the Java process. This
-happens, for example, when your LDAP server uses SSL. See the :doc:`LDAP
+happens, for example, when your LDAP server uses |SSL|. See the :doc:`LDAP
 plugin <server-ldap>` for information on how to configure the LDAP
 urls. As with all configuration properties, you will need to restart
 your server after changing them.
@@ -168,8 +168,8 @@ similar to the properties you configured during
 
 .. _security_ssl:
 
-SSL
----
+|SSL|
+-----
 
 .. figure:: /images/installation-images/secure-login.png
    :align: right
@@ -180,7 +180,7 @@ Especially if you are going to use LDAP authentication to your server,
 it is important to encrypt the transport channel between clients and the
 Glacier2 router to keep your passwords safe.
 
-By default, all logins to OMERO occur over SSL using an anonymous
+By default, all logins to OMERO occur over |SSL| using an anonymous
 handshake. After the initial connection, clients can request to have
 communication un-encrypted to speed up image loading by clicking on the
 lock symbol. An unlocked symbol means that non-password related
@@ -189,7 +189,7 @@ will be unencrypted, and the only critical connection which is passed in
 the clear is your session id.
 
 Administrators can configure OMERO such that unencrypted connections are
-not allowed, and the user's choice will be silently ignored. The SSL and
+not allowed, and the user's choice will be silently ignored. The |SSL| and
 non-SSL ports are configured in the etc/grid/default.xml and
 windefault.xml files, and as described above, default to 4064 and 4063
 respectively, and can be modified with command:
