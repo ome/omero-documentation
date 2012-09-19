@@ -679,7 +679,7 @@ from the VDMK type to VDI type:
     $ VBoxManage clonehd omero-vm-2-disk1.vmdk omero-vm-2-disk1.vdi --format VDI
 
 We now need to increase the size of our virtual |HDD|. In the following
-command I am resizing the |HDD| to 60GB but you should select a size to
+command we are resizing the |HDD| to 60GB but you should select a size to
 suit the amount of data you plan to store in OMERO:
 
 ::
