@@ -40,7 +40,7 @@ the ZeroC_ manual. Specific commands can also be executed:
       bin/omero admin ice server list
 
 Further, by running ``java -jar ice-gridgui.jar``
-the GUI provided Zeroc_ can be used to administer |OmeroGrid|. This
+the GUI provided ZeroC_ can be used to administer |OmeroGrid|. This
 jar is provided in the OMERO source code under lib/repository.
 
 .. seealso::
@@ -53,7 +53,7 @@ jar is provided in the OMERO source code under lib/repository.
 .. _grid_installation_windows_xp:
 
 
-OMERO.Grid on Windows XP
+OMERO.grid on Windows XP
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Unlike all other supported platforms, the ``bin/omero`` script and
@@ -129,20 +129,21 @@ Deployment commands
 ^^^^^^^^^^^^^^^^^^^
 
 The master node must be started first to provide the registry. This is
-done via the ``./omero admin start`` command which uses default.xml.
+done via the ``bin/omero admin start`` command which uses default.xml:
 
 ::
 
     bin/omero admin start
 
 The deploy command looks for any changes to the defined descriptor
-and restarts only those servers which have modifications.
+and restarts only those servers which have modifications:
 
 ::
+
     bin/omero admin deploy
 
 Both ``start`` and ``deploy`` can optionally take a path to an application
-descriptor which must be passed on every invocation. For example,
+descriptor which must be passed on every invocation:
 
 ::
 
@@ -152,6 +153,7 @@ Two other nodes, then, each provide a single processor, "Processor1" and
 "Processor2". These are started via:
 
 ::
+
     bin/omero node start NAME
 
 at which point they connect to the registry to announce their presence. Now,
@@ -236,7 +238,7 @@ you can leave the internal endpoints unsecured.
 
 Though it is probably unnecessary to use transport encryption within a
 firewall, encryption from clients to the Glacier2 router will often be
-necessary. For more information on |SSL|, see :ref:_security_ssl.
+necessary. For more information on |SSL|, see :ref:`security_ssl`.
 
 Permissions Verifier
 ^^^^^^^^^^^^^^^^^^^^
@@ -377,7 +379,7 @@ Logging
 
 Currently all output from |OmeroGrid| is
 stored in ``$OMERO_HOME/var/log/master.out`` with error messages going
-to ``...log/master.err``. Individual services may also create their
+to ``$OMERO_HOME/var/log/master.err``. Individual services may also create their
 own log files.
 
 Shortcuts
