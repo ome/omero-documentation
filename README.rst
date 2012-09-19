@@ -262,11 +262,11 @@ They can be used in all pages of the documentation.
 Hyperlinks
 ==========
 
-The following table lists targets for common hyperlinks.
+The table below lists targets for common hyperlinks.
 
-=========================== =============================================
+=========================== ==============================================
 Target name                 Link
-=========================== =============================================
+=========================== ==============================================
 Python                      http://python.org
 Matplotlib                  http://matplotlib.org/
 Python Imaging Library      http://www.pythonware.com/products/pil/
@@ -282,19 +282,19 @@ Glencoe Software, Inc.      http://www.glencoesoftware.com/
 Abbreviations
 =============
 
-The following table lists substitutions for common abbreviations. These 
+The table below lists substitutions for common abbreviations. These 
 substitutions use the ``:abbr:`` Sphinx role meaning they are shown as 
 tool-tip in HTML and output only once in LaTeX.
 
-=======  ============= ==================
-Name     Abbreviation  Explanation
-=======  ============= ==================
-\|SSH\|   SSH          Secure Shell
-\|VM\|    VM           Virtual Machine
-\|OS\|    OS           Operating System
-\|SSL\|   SSL          Secure Socket Layer
-\|HDD\|   HDD          Hard Disk Drive
-=======  ============= ===================
+======= ============= ===================
+Name    Abbreviation  Explanation
+======= ============= ===================
+\|SSH\| SSH           Secure Shell
+\|VM\|  VM            Virtual Machine
+\|OS\|  OS            Operating System
+\|SSL\| SSL           Secure Socket Layer
+\|HDD\| HDD           Hard Disk Drive
+======= ============= ===================
 
 Page references
 ===============
