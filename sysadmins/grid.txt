@@ -3,137 +3,45 @@ OMERO.grid
 
 To unify the various components of OMERO,
 |OmeroGrid| was developed to monitor and control
-processes over numerous remote systems. Based on ZeroC_ IceGrid framework,
+processes over numerous remote systems. Based on ZeroC_'s IceGrid framework,
 |OmeroGrid| provides an administration gui,
 distributed background processing, log handling, and several other
 features.
 
-Deployment descriptors
-----------------------
-
-All the resources for a single OMERO site are described by one
-**application descriptor**. OMERO ships with several example descriptors
-under :sourcedir:`etc/grid` . These
-descriptors describe what processes will be started on what nodes,
-identified by simple names. For example the default descriptor, used if
-no other file is specified, defines three node -- "master", "node1",
-"node2". As you'll see, these files are critical both for the correct
-functioning of your server as well as its security.
 
 Getting started
 ---------------
 
-
 Requirements
 ^^^^^^^^^^^^
 
-Before attempting to install |OmeroGrid|, the requirements listed under OMERO.server installation (see :doc:`Unix <unix/server-installation>` and :doc:`Windows <windows/server-installation>` instructions) must be satisfied. In particular:
+|OmeroGrid| is the basis of the regular OMERO installation.
+If you have followed the instructions under  :doc:`Unix <unix/server-installation>`
+or :doc:`Windows <windows/server-installation>`, then you
+will have everything you need to start working with |OmeroGrid|.
 
--  Java and Postgres
--  Creating users and directories
--  Configuration: Extraction and editing **local.properties** 
+IceGrid Tools
+^^^^^^^^^^^^^
 
-The main requirements for running the grid are the Ice_ framework 
-and Python_, which are platform specific.
-
-Installation
-^^^^^^^^^^^^
-
-First it is necessary to get a binary distribution. The best way to do this is 
-to download the latest released version from :omero_plone:`Downloads <downloads>`. 
-
-.. note::
-
-    For |OmeroGrid| functionality you will need at least
-    a 3.0-Beta3 server. Alternatively you can build one yourself
-    or download the latest build from hudson (:jenkins:`here <job/OMERO/lastSuccessfulBuild/>`).
-
-Once JBoss is running according to :doc:`/sysadmins/unix/server-installation`, 
-a few further steps are necessary to start |OmeroGrid|, which in turns starts
-:doc:`/developers/server-blitz` and various other processes:
-
-::
-
-    bin/omero admin start
-    bin/omero admin deploy
-
-The deploy command can optionally take a path to an application
-descriptor. For example,
-
-::
-
-    bin/omero admin deploy etc/grid/my-site.xml target1 target2
-
-Shortcuts
-^^^^^^^^^
-
-If the ``bin/omero`` script is copied or symlinked to another name, then
-the script will separate the name on hypens and execute ``bin/omero``
-with the second and later parts **prepended** to the argument list.
-
-For example,
-
-::
-
-      ln -s bin/omero bin/omero-admin
-      bin/omero-admin start
-
-works identically to:
-
-::
-
-      bin/omero admin start
-
-Symbolic linking
-^^^^^^^^^^^^^^^^
-
-Shortcuts allow the ``bin/omero`` script to function as a init.d script
-when named "**omero-admin**\ ", and need only be copied to
-``/etc/init.d/`` to function properly. It will resolve its installation
-directory, and execute from there unless ``OMERO_HOME`` is set.
-
-For example,
-
-::
-
-       ln -s $OMERO_HOME/bin/omero /etc/init.d/omero-admin
-       /etc/init.d/omero-admin start
-
-The same works for putting ``bin/omero`` on your path, either via:
-
-::
-
-       PATH=$OMERO_HOME/bin:$PATH
-
-or
-
-::
-
-       # Assuming $HOME/bin is on your path
-       ln -s $OMERO_HOME/bin/omero $HOME/bin/omero
-
-This means that |OmeroGrid| can be unpacked
-anywhere, and as long as the user invoking the commands has the proper
-permissions on the ``$OMERO_HOME`` directory, it will function normally.
-
-Running as root
-^^^^^^^^^^^^^^^
-
-One exception to this rule is that starting |OmeroGrid| as root may actually 
-delegate to another user, if the "user" attribute is set on the ``<server/>``
-elements in :source:`etc/grid/templates.xml`.
-(This holds only for Unix-based platforms including MacOsX. See
-:ref:`grid_installation_windows_xp` for
-information on changing the server user under Windows.)
-
-Currently, ``bin/omero`` does not provide facilities to undeploy or
-update a deployed application. However, using:
+If you would like to exploring your IceGrid configuration, use
 
 ::
 
       bin/omero admin ice
 
-you have full access to the ``icegridadmin``. 
+It provides full access to the ``icegridadmin`` console described in.
+the ZeroC_ manual. Specific commands can also be executed:
+
+::
+
+      bin/omero admin ice help
+      bin/omero admin ice application list
+      bin/omero admin ice application describe etc/grid/default.xml
+      bin/omero admin ice server list
+
+Further, by running ``java -jar ice-gridgui.jar``
+the GUI provided Zeroc_ can be used to administer |OmeroGrid|. This
+jar is provided in the OMERO source code under lib/repository.
 
 .. seealso::
 
@@ -144,49 +52,16 @@ you have full access to the ``icegridadmin``.
 
 .. _grid_installation_windows_xp:
 
-Installing OMERO.Grid on Windows XP
------------------------------------
+
+OMERO.Grid on Windows XP
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Unlike all other supported platforms, the ``bin/omero`` script and
-|OmeroGrid| are not responsible for starting and
+|OmeroGrid| are not directly responsible for starting and
 stopping the :doc:`/developers/server-blitz` server and other
 processes. Instead, that job is delegated to the native Windows service
 system. A brief explanation of doing this via the ``sc`` command is
 provided below.
-
-Limitations
-^^^^^^^^^^^
-
--  This has only been tested on 32bit installations.
--  The processor.py functionality will not be available on Windows in
-   milestone :milestone:`3.0-Beta3`. See :ticket:`1004` for more information.
-
-Configuration
-^^^^^^^^^^^^^
-
-Because all |OmeroGrid| paths must be absolute
-under Windows, several files must be two files must be edited for server
-to start properly:
-
-**etc\\Windows.cfg**
-    Configuration file appended to the ``icegridnode --Ice.Config=...``
-    executable on Windows. Contains paths for log output, and for
-    finding ``templates.xml``.
-**templates.xml**
-    Shared templates used in all |OmeroGrid|
-    applications. The path definitions for both
-    :doc:`/developers/server-blitz` and for ``processor.py`` must be made absolute.
-
-.. figure:: /images/omerogrid-winxp-templates.png
-  :align: center
-  :width: 55%
-  :alt: Templates
-
-Installation
-^^^^^^^^^^^^
-
-Installation is similar to the non-Windows platforms. From the
-installation directory:
 
 ::
 
@@ -200,9 +75,8 @@ Windows service with the name ``OMERO.master``, and then calls
 ``start``. Any further calls to ``admin start`` will fail since the
 application is already installed as a Windows service. Simiarly,
 ``admin stop`` first stops the service, and then calls ``uninstall``.
-This can also only be done once.
 
-**All other interaction with the Windows service should take place via
+Further interactions with the Windows service can take place via
 ``sc``.**
 
 ::
@@ -215,7 +89,7 @@ This can also only be done once.
 More information on the permissions necessary for the service, changing
 the user it runs as, etc. are available under ``WINDOWS_SERVICE.txt``
 under your Ice installation, most likely
-``C:\Ice-3.2.1\WINDOWS_SERVICE.txt``
+``C:\Ice-3.3.1\WINDOWS_SERVICE.txt``
 
 
 How it works
@@ -229,6 +103,19 @@ minimal amount of configuration and starting a single daemon on each
 host machine, |OmeroGrid| manages the complexity
 of all your computing resources.
 
+
+Deployment descriptors
+^^^^^^^^^^^^^^^^^^^^^^
+
+All the resources for a single OMERO site are described by one
+**application descriptor**. OMERO ships with several example descriptors
+under :sourcedir:`etc/grid` . These
+descriptors describe what processes will be started on what nodes,
+identified by simple names. For example the default descriptor, used if
+no other file is specified, defines three node -- "master", "node1",
+"node2". As you'll see, these files are critical both for the correct
+functioning of your server as well as its security.
+
 The deployment descriptors provided define which "servers" are started
 on which "nodes". For example the
 :source:`default <etc/grid/default.xml>` descriptor
@@ -238,15 +125,39 @@ is also configured via
 :source:`master.cfg <etc/master.cfg>` to host the
 registry, though this process can be started elsewhere.
 
+Deployment commands
+^^^^^^^^^^^^^^^^^^^
+
 The master node must be started first to provide the registry. This is
-done via the ``./omero admin start`` command.
+done via the ``./omero admin start`` command which uses default.xml.
+
+::
+
+    bin/omero admin start
+
+The deploy command looks for any changes to the defined descriptor
+and restarts only those servers which have modifications.
+
+::
+    bin/omero admin deploy
+
+Both ``start`` and ``deploy`` can optionally take a path to an application
+descriptor which must be passed on every invocation. For example,
+
+::
+
+    bin/omero admin deploy etc/grid/my-site.xml target1 target2
 
 Two other nodes, then, each provide a single processor, "Processor1" and
-"Processor2". These are started via TBD, at which point they connect to
-the registry to announce their presence. Now, jobs can be run on any of
-the 3 processors. If a node with the same name is already started, then
-registration will fail, which is important to prevent unauthorized
-users.
+"Processor2". These are started via:
+
+::
+    bin/omero node start NAME
+
+at which point they connect to the registry to announce their presence. Now,
+jobs can be run on any of the 3 processors. If a node with the same name is
+already started, then registration will fail, which is important to prevent
+unauthorized users.
 
 The configuration of your grid, however, is very much up to you. Based
 on the example descriptor files (\*.xml) and configuration files
@@ -257,8 +168,9 @@ The whole grid can be shutdown by stopping the master node via:
 ``./omero admin stop``. Each individual node can also be shutdown via:
 ``./omero node stop`` on that particular node.
 
-Adding a processor
-------------------
+
+Modifying deployments
+^^^^^^^^^^^^^^^^^^^^^
 
 The most common change that you will want to make to your application
 descriptor is to add another processor. Take a look at :source:`etc/grid/default.xml`.
@@ -298,55 +210,11 @@ or with the environment variable ``OMERO_NODE``:
 
        OMERO_NODE=MyNewNode bin/omero node start
 
-For the milestone :milestone:`3.0-Beta3`, the single
-node which is executing beside :doc:`/developers/server-blitz` on
-the master will probably suffice for your processing needs. In the
-following milestones, the number and location of processors and nodes in
-general will become increasingly important.
+For far more information on using scripts, see the :doc:`/developers/Modules/Scripts`.
 
-Running a script
-----------------
 
-Once at least a single processor is running, it is possible to execute
-python scripts on the grid. After starting python with
-
-::
-
-      PYTHONPATH=lib ICE_CONFIG=etc/ice.config,etc/local.properties python
-
-execute something like the following:
-
-::
-
-        import omero
-        c = omero.client()
-        sf = c.createSession()
-
-        // Obtain your script file
-
-        job = omero.model.ScriptJobI()
-        job.linkOriginalFile( file )
-
-        proc = sf.acquireProcessor(job, 10) # Wait no more than 10 seconds for a processor
-        if proc:
-            process = proc.execute(None)
-            if process:
-                process.wait()
-                results = proc.getResults(process)
-
-Uploading secure scripts
-------------------------
-
-This requires, however, that a script already be present. The IScript
-service provides simple upload facilities. The uploaded script, however,
-must currently belong to root in order to be executable. This is
-critical for the security of your grid. System administrators should
-carefully check all scripts and their origins before uploading them as
-root. Once on the grid, **they have full access to the user account on
-the remote host**.
-
-Secure descriptors
-------------------
+Securing grid resources
+-----------------------
 
 More than just making sure no malicious code enters your grid, it is
 critical to prevent unauthorized access via the application descriptors
@@ -363,28 +231,12 @@ firewall. Only the Glacier2 router has a port visible to machines
 outside the firewall. If this is possible in your configuration, then
 you can leave the internal endpoints unsecured.
 
-|SSL| 
+|SSL|
 ^^^^^
 
 Though it is probably unnecessary to use transport encryption within a
 firewall, encryption from clients to the Glacier2 router will often be
-necessary. For the :milestone:`3.0-Beta3` release, no example |SSL|  
-configuration is provided, but see `Section 42.3
-IceSSL <http://www.zeroc.com/doc/Ice-3.2.1/manual/IceSSL.43.3.html#63966>`_
-of the Ice manual for more information. Once your server is properly
-configured the client configuration amounts to changing:
-
-::
-
-    Ice.Default.Router=OMERO.Glacier2/router:tcp -p 4063 -h 127.0.0.1
-
-to
-
-::
-
-    Ice.Default.Router=OMERO.Glacier2/router:ssl -p 4064 -h 127.0.0.1
-
-in :source:`etc/ice.config`.
+necessary. For more information on |SSL|, see :ref:_security_ssl.
 
 Permissions Verifier
 ^^^^^^^^^^^^^^^^^^^^
@@ -427,7 +279,7 @@ permissions verifier, so that anyone with a proper OMERO account can
 access the server. (We are currently looking into providing a root- or
 admin-only permissions verifier for public use.)
 
-See ` Section 39.11.2 Access
+See `Section 39.11.2 Access
 Control <http://www.zeroc.com/doc/Ice-3.2.1/manual/IceGrid.40.11.html#108430>`_
 of the Ice manual for more information.
 
@@ -460,43 +312,17 @@ as you control the boxes which can attached to your endpoints (see
 relatively certain that no tampering can occur with the installed
 binaries.
 
-Technical information
----------------------
 
-Things to look at
-^^^^^^^^^^^^^^^^^
-
--  :source:`components/blitz/resources/omero/Scripts.ice`
--  :source:`components/blitz/src/omero/grid/InteractiveProcessorI.java`
--  :source:`components/tools/OmeroPy/src/omero/processor.py`
--  :source:`components/tools/OmeroPy/test/scriptstest/ping.py`
-
-Workflow
-^^^^^^^^
-
-#. **Coder** writes Script, and specifies parameters in script
-#. **Coder** provides **Admin** with Script
-#. **Admin** uses IScript to upload that Script to the server
-#. **User** uses IScript to find an appropriate Script
-#. **User** acquires Processor from ServiceFactoryI.acquireProcessor by
-   passing Script
-#. **User** calls execute(RMap) on Processor and receives back a Process
-#. **User** uses either Process.poll() or Process.wait() or
-   Process.registerCallback() to wait for results
-#. **User** retrieves results via Processor.getResults()
+Technical information and other tips
+------------------------------------
 
 Processes
 ^^^^^^^^^
 
 It's important to understand just what processes will be running on your
-servers. When you run TBD, ``icegridnode`` is executed which starts a
-controlling daemon. If you haven't run this before, then it essentially
-does nothing except waits for your to connect and tell it what to do.
-
-Running ``bin/install`` installs the ``etc/grid/default.xml``
-"application" into the grid, the configuration of which is persisted
-under var/master and var/registry so that on subsequent starts it is not
-necessary to run ``bin/install`` again.
+servers. When you run ``start``, ``icegridnode`` is executed which starts a
+controlling daemon and deploys the proper descriptor. This confiruation
+is persisted under var/master and var/registry.
 
 Once the application is loaded, the ``icegridnode`` daemon process
 starts up all the servers which are configured in the descriptor. If one
@@ -544,29 +370,71 @@ which passes the inputs all the way down to **processor.py** will need
 to have a sufficiently large ``Ice.MessageSizeMax`` for: the client, the
 Glacier2 router, the :doc:`/developers/server-blitz` server, and the Processor.
 
-The default is currently set to 4096 kilobytes, or about 4 megs.
+The default is currently set to 65536 kilobytes, or about 64 megs.
 
 Logging
 ^^^^^^^
 
-Currently all logging output from |OmeroGrid| are
+Currently all output from |OmeroGrid| is
 stored in ``$OMERO_HOME/var/log/master.out`` with error messages going
-to ``...log/master.err``. This is sub-optimal, but will hopefully be
-improved in future versions. (See ` this
-thread <http://www.zeroc.com/forums/help-center/3588-logging-java-process-icegrid.html>`_
-on the ZeroC forums for more information.)
+to ``...log/master.err``. Individual services may also create their
+own log files.
 
-Topics to be discussed
-^^^^^^^^^^^^^^^^^^^^^^
+Shortcuts
+^^^^^^^^^
 
--  User-mapping, see ` 39.22 server
-   activation <http://www.zeroc.com/doc/Ice-3.2.1/manual/IceGrid.40.22.html#106613>`_
--  ``IceGridAdmin console``
+If the ``bin/omero`` script is copied or symlinked to another name, then
+the script will separate the name on hypens and execute ``bin/omero``
+with the second and later parts **prepended** to the argument list.
 
-.. note::
- 
-    In the :milestone:`3.0-Beta3` release,
-    JBoss is not under the control of |OmeroGrid|.
-    Instead, it must be started separately via $JBOSS\_HOME/bin/run.sh
+For example,
+
+::
+
+      ln -s bin/omero bin/omero-admin
+      bin/omero-admin start
+
+works identically to:
+
+::
+
+      bin/omero admin start
+
+
+Symbolic linking
+^^^^^^^^^^^^^^^^
+
+Shortcuts allow the ``bin/omero`` script to function as a init.d script
+when named "**omero-admin**\ ", and need only be copied to
+``/etc/init.d/`` to function properly. It will resolve its installation
+directory, and execute from there unless ``OMERO_HOME`` is set.
+
+For example,
+
+::
+
+       ln -s $OMERO_HOME/bin/omero /usr/local/bin/omero
+       omero-admin start
+
+The same works for putting ``bin/omero`` on your path:
+
+::
+
+       PATH=$OMERO_HOME/bin:$PATH
+
+This means that |OmeroGrid| can be unpacked
+anywhere, and as long as the user invoking the commands has the proper
+permissions on the ``$OMERO_HOME`` directory, it will function normally.
+
+
+Running as root
+^^^^^^^^^^^^^^^
+
+One exception to this rule is that starting |OmeroGrid| as root may actually 
+delegate to another user, if the "user" attribute is set on the ``<server/>``
+elements in :source:`etc/grid/templates.xml`.
+(This holds only for Unix-based platforms including MacOsX. See
+:ref:`grid_installation_windows_xp` for
+information on changing the server user under Windows.)
 
 .. seealso:: |OmeroSessions|
