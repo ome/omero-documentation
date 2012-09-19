@@ -7,21 +7,21 @@ an informed decision about whether committing to an OMERO.server
 install is right for you.
 
 Virtualisation enables canned, ready to run software environments to be
-created and used, in the form of Virtual Machines (VM), or to be
+created and used, in the form of |VM|, or to be
 distributed for others to use, in the form of Virtual Appliances. A
 Virtual Appliance is essentially a file that describes how to create a
 new Virtual Machine on demand. The virtualised software environment can
-contain an entire operating system (OS), such as Windows or Linux, and
-any other software that runs in that OS, such as, in this case,
+contain an entire |OS|, such as Windows or Linux, and
+any other software that runs in that |OS|, such as, in this case,
 OMERO.server and its associated software prerequisites. Once created and
-started, you can log into the OS and use it as though it were a real
+started, you can log into the |OS| and use it as though it were a real
 machine. One way to think of this is as though you had an entire
 computer in a window on your desktop.
 
-When using virtualisation software, the OS that is running the
+When using virtualisation software, the |OS| that is running the
 virtualisation software is referred to as the "**host OS**\ ". When you
-use virtualisation, the OS running within a virtual machine is referred
-to as the "**guest OS**\ ". This allows us to be explicit about which OS
+use virtualisation, the |OS| running within a virtual machine is referred
+to as the "**guest OS**\ ". This allows us to be explicit about which |OS|
 we are working in.
 
 Effectively this means that the OME Project can distribute a canned,
@@ -100,7 +100,7 @@ This process is indicated in the following screenshot:
    Import of the OMERO virtual appliance
 
 -  Click **continue**. You will be presented with a range of options for
-   the VM that will be built from the appliance.
+   the |VM| that will be built from the appliance.
 
 .. figure:: /images/virtual-appliance-3import-settings.jpg
    :align: center
@@ -116,15 +116,15 @@ You should now see a progress bar as your new virtual machine is built
 from the appliance. This import process can take a few minutes depending
 upon your hardware. Feel free to make a coffee whilst you are waiting ;)
 
-When the import procedure is complete your new VM should appear in the
-VirtualBox VM library ready for use.
+When the import procedure is complete your new |VM| should appear in the
+VirtualBox |VM| library ready for use.
 
 Networking
 ^^^^^^^^^^
 
 Our virtual appliance is distributed with VirtualBox's built in
 Host-Only Network Address Translation (NAT) preconfigured. This means
-that the IP address for the VM is 10.0.2.15 which is the default
+that the IP address for the |VM| is 10.0.2.15 which is the default
 VirtualBox Host-Only NAT address. Using this address is the simplest way
 to distribute a virtual appliance when you do not know the setup of a
 user's network.
@@ -134,16 +134,16 @@ user's network.
 Port-forwarding settings
 """"""""""""""""""""""""
 
-Your host OS cannot connect directly to 10.0.2.15 but needs to use
+Your host |OS| cannot connect directly to 10.0.2.15 but needs to use
 port-forwarding. This means that you connect to your localhost on a
 specific port and the communications to and from that port are forwarded
-to specified ports on the guest VM.
+to specified ports on the guest |VM|.
 
 Our virtual appliance should be preconfigured with the correct
 port-forwarding setting configured during the import process. However,
 it is best to double check that these settings are correctly set up:
 
--  Select your VM in the VirtualBox VM Library
+-  Select your |VM| in the VirtualBox |VM| Library
 -  Click on **Settings** then select the **Network** tab
 -  Click on **Advanced**
 -  Click on **Port Forwarding**
@@ -192,10 +192,10 @@ After obtaining the script, it can be used in the following manner:
 
     $ bash setup_port_forwarding.sh $VMNAME
 
-where $VMNAME is the name of your VM. 
+where $VMNAME is the name of your |VM|. 
 
 .. note:: 
-    By default the scripts create a VM named **omerovm** and the
+    By default the scripts create a |VM| named **omerovm** and the
     pre-built appliance is named **omero-vm**
 
 Adding port forwarding manually is achieved by editing the port
@@ -203,7 +203,7 @@ forwarding table that we displayed before. Use the **+** to add a new
 row to the table then clicking in each cell and typing in the required
 settings.
 
-Now we are ready to start our VM. Select the VM in the VirtualBox VM
+Now we are ready to start our |VM|. Select the |VM| in the VirtualBox |VM|
 library then click **start**.
 
 .. figure:: /images/virtual-appliance-5library.jpg
@@ -212,9 +212,9 @@ library then click **start**.
    :width: 60%
    :alt: VirtualBox VM manager
 
-   VirtualBox VM manager
+   VirtualBox |VM| manager
 
-A window should open containing a console for your VM which should now
+A window should open containing a console for your |VM| which should now
 be going through its standard boot process. OMERO.server is
 automatically started at boot time which means that you should be able
 to interact with OMERO without further setup.
@@ -231,13 +231,13 @@ Credentials
 ^^^^^^^^^^^
 
 There are a number of accounts that are preconfigured in the OMERO
-virtual appliance. Two of these are OS accounts, for logging into the VM
+virtual appliance. Two of these are |OS| accounts, for logging into the |VM|
 as either the **root** user or the **omero** user. There is also a
 single OMERO.server account which is used to access the OMERO.server
 software as the OMERO.server **root** user
 
-Virtual Appliance OS credentials
-""""""""""""""""""""""""""""""""
+Virtual Appliance |OS| credentials
+""""""""""""""""""""""""""""""""""
 
 ======== =========
 Username Password
@@ -261,7 +261,7 @@ accounts as you require in the usual way.
 Working with the OMERO.VM
 -------------------------
 
-Now that your VM is up and running you have a choice about how to
+Now that your |VM| is up and running you have a choice about how to
 interact with it.
 
 -  You can connect to OMERO.web from your host browser. Go to
@@ -273,13 +273,13 @@ interact with it.
    under the :doc:`clients-getting-started` section
    which details how to use the OMERO.clients.
 -  Alternatively, you can interact with the server command line
-   interface by SSH'ing into the guest VM or by opening a console within
-   the VM itself. Administrators may need to use one of these methods to
+   interface by |SSH|'ing into the guest |VM| or by opening a console within
+   the |VM| itself. Administrators may need to use one of these methods to
    restart the server and/or change configuration parameters. In this
-   case you must have an SSH client installed on your host machine that
+   case you must have an |SSH| client installed on your host machine that
    you will then use to connect to the OMERO.server.
 
-.. note:: The following example assume that the OMERO VM is up & running on the same machine that you are working on.
+.. note:: The following example assume that the OMERO |VM| is up & running on the same machine that you are working on.
 
 OMERO.web
 ^^^^^^^^^
@@ -296,8 +296,8 @@ OMERO.insight
 ^^^^^^^^^^^^^
 
 You can run regular OMERO clients on your host machine and connect to
-the server in the VM. Our example uses OMERO.insight running on Mac OS X
-to connect to the VM.
+the server in the |VM|. Our example uses OMERO.insight running on Mac OS X
+to connect to the |VM|.
 
 -  :omero_plone:`Download <downloads>` & :doc:`install <clients-getting-started>` OMERO.insight
 -  Start OMERO.insight
@@ -341,22 +341,22 @@ virtual server just like you could using a remote server.
 Secure Shell
 ^^^^^^^^^^^^
 
-You can log into your VM using Secure Shell (SSH) which will give you a
-command line interface to the VM from where you can use the |OmeroCli|. 
-In the following example, we assume that you have an SSH client installed
-on your host machine and also that your VM is up and running.
+You can log into your |VM| using |SSH| which will give you a
+command line interface to the |VM| from where you can use the |OmeroCli|. 
+In the following example, we assume that you have an |SSH| client installed
+on your host machine and also that your |VM| is up and running.
 
-You can log into the VM using the above credentials and the following
+You can log into the |VM| using the above credentials and the following
 command typed into a terminal:
 
 ::
 
     $ ssh omero@localhost -p 2222
 
-This invokes the SSH program telling it to login to the localhost on
+This invokes the |SSH| program telling it to login to the localhost on
 port 2222 using the username *omero*. Remember that earlier we set up
 port forwarding to forward port 2222 on the host machine to port 22 (the
-default SSH port) on the guest VM. If all goes well you will be prompted
+default |SSH| port) on the guest |VM|. If all goes well you will be prompted
 for a password. Once you have successfully entered your password you
 should be greeted by a prompt similar to the following:
 
@@ -365,8 +365,8 @@ should be greeted by a prompt similar to the following:
     omero@omerovm:~$
 
 There are two potential complications to this method, (1) if you have
-used a VM before then there could be old SSH fingerprints set up, (2)
-the first time that you log into the VM you will be asked to confirm
+used a |VM| before then there could be old |SSH| fingerprints set up, (2)
+the first time that you log into the |VM| you will be asked to confirm
 that wish to continue connecting. If you get the following message after
 you invoke ssh:
 
@@ -401,7 +401,7 @@ as illustrated in this screenshot:
     /Users/rleigh/.ssh/known_hosts updated.
     Original contents retained as /Users/rleigh/.ssh/known_hosts.old
 
-The first time that you log into the VM you will also be asked to
+The first time that you log into the |VM| you will also be asked to
 confirm that you wish to connect to this machine by a message similar to
 the following:
 
@@ -422,7 +422,7 @@ will be prompted for your password as usual:
     omero@localhost's password:
 
 After which, if all has gone well, you should have a prompt indicating
-that you have a shell open and logged into the VM:
+that you have a shell open and logged into the |VM|:
 
 ::
 
@@ -438,16 +438,16 @@ that you have a shell open and logged into the VM:
     Last login: Thu Apr  5 10:32:18 2012 from 10.0.2.2
     omero@omerovm:~$ _
 
-Log into the VM directly
-^^^^^^^^^^^^^^^^^^^^^^^^
+Log into the |VM| directly
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
     Due to the frequent changes in the VirtualBox Guest
-    Additions, key mappings between the host and guest OS do not always
-    work. We recommend using SSH as the primary way of interacting with
+    Additions, key mappings between the host and guest |OS| do not always
+    work. We recommend using |SSH| as the primary way of interacting with
     the Virtual Appliance CLI.
 
-When you start your VM using the Virtual Box GUI, as outlined above, a
+When you start your |VM| using the Virtual Box GUI, as outlined above, a
 window will be displayed showing the boot process for the machine as it
 starts up, just like with a real piece of hardware. Once the boot
 process has finished you will see a prompt displayed in this window like
@@ -461,7 +461,7 @@ so:
 
     omerovm login: _
 
-you can log into the console of the VM directly using the user account
+you can log into the console of the |VM| directly using the user account
 credentials above.
 
 ::
@@ -487,19 +487,19 @@ Networking not working
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Occasionally, during the boot process, the VirtualBox DHCP server fails
-to allocate an IP address to the OS in the guest VM. This means that
+to allocate an IP address to the |OS| in the guest |VM|. This means that
 OMERO.clients, such as OMERO.insight, cannot connect to the OMERO.server
-in the VM.
+in the |VM|.
 
 -  **CAUSE:** We believe that this is an intermittent VirtualBox
    bug that resurfaces across many versions `VirtualBox
    #4038 <https://www.virtualbox.org/ticket/4038>`_ & previously
    `VirtualBox #3655 <https://www.virtualbox.org/ticket/3655>`_
 
--  **DIAGNOSIS:** Check whether the guest VM has been allocated
+-  **DIAGNOSIS:** Check whether the guest |VM| has been allocated
    the reserved host-only NAT IP address. If 10.0.2.15 does not appear
    in the output from ifconfig then this issue has occurred. The easiest
-   way to verify this is to log into the guest VM console and check the
+   way to verify this is to log into the guest |VM| console and check the
    output from executing the following command:
 
    ::
@@ -507,8 +507,8 @@ in the VM.
        $ ifconfig
 
 -  **SOLUTION:** An easy, but unreliable, fix is to reboot the
-   guest VM. The preferred fix is to log into the guest VM console and
-   execute the following commands which will cause the guest OS to
+   guest |VM|. The preferred fix is to log into the guest |VM| console and
+   execute the following commands which will cause the guest |OS| to
    release it's IP lease before requesting a new lease:
 
    ::
@@ -520,7 +520,7 @@ Port conflict when OMERO.server already running in Host OS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you are already running an instance of the OMERO.server in your host
-OS then there will be a conflict due to the ports assigned to VirtualBox
+|OS| then there will be a conflict due to the ports assigned to VirtualBox
 port-forwarding being the same as those already in use by the
 OMERO.server in the host OS.
 
@@ -538,7 +538,7 @@ OMERO.server in the host OS.
 
    .. note:: 
 
-	   We are assuming that your host OS is
+	   We are assuming that your host |OS| is
 	   not already running services on those ports. You can check whether
 	   something is already listening on any of these ports by running the
 	   following commands (Mac OS X) which should return the prompt without
@@ -548,14 +548,14 @@ OMERO.server in the host OS.
 
 	       $ lsof -nP | grep -E '(:4063)|(:4064)'
 
-VM won't boot because the HDD is full
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+|VM| will not boot because the |HDD| is full
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you manage to fill the virtual HDD used by your VM then you will
-likely discover that the OS is unable to boot and you cannot therefore
+If you manage to fill the virtual |HDD| used by your |VM| then you will
+likely discover that the |OS| is unable to boot and you cannot therefore
 get access to your OMERO.server install. If this occurs you may also get
-a "errno 28: no space left on device" message. To log into your VM you
-will need to use the recovery mode. Start the VM and at the Grub screen,
+a "errno 28: no space left on device" message. To log into your |VM| you
+will need to use the recovery mode. Start the |VM| and at the Grub screen,
 use the down arrow followed by return to select the following entry:
 
 ::
@@ -595,24 +595,24 @@ as seen in this screenshot:
    Recovery console
 
 
-Don't worry if your VM has a kernel number different to 2.6.32-5-686,
+Don't worry if your |VM| has a kernel number different to 2.6.32-5-686,
 the important thing is that you select the entry labelled "recovery
-mode". At this point the VM should rapidly boot into the recovery mode
+mode". At this point the |VM| should rapidly boot into the recovery mode
 which will enable you to log in using the root password *swordfish*.
 
 Once you have logged in you have a number of things that you can do but
 the recommended courses of action are either:
 
 1. Delete unneeded files using standard Linux command line tools like
-   *rm* to make space for the VM to boot normally then use your favoured
+   *rm* to make space for the |VM| to boot normally then use your favoured
    OMERO client to login and delete more files. A useful place to start
    might be by deleting the logs stored in /var/logs.
-2. Increase the size of your virtual HDD. If you have filled your
-   existing HDD then it is likely that the volume of data that you are
-   storing in the OMERO VM is too big for the default HDD. You should
+2. Increase the size of your virtual |HDD|. If you have filled your
+   existing |HDD| then it is likely that the volume of data that you are
+   storing in the OMERO |VM| is too big for the default |HDD|. You should
    follow the instructions on the :ref:`increasing-hd-size`
    section to ensure that the size of
-   virtual HDD you have available is commensurate with the volumes of
+   virtual |HDD| you have available is commensurate with the volumes of
    data that you are collecting.
 
 .. _increasing-hd-size:
@@ -632,8 +632,7 @@ page is a step-by-step guide that demonstrates how to increase your
 virtual hard-drive.
 
 Please bear in mind that this is not a risk-free procedure and that you
-should ensure that you have a backup of your Virtual Machine (VM) before
-proceeding.
+should ensure that you have a backup of your |VM| before proceeding.
 
 Preliminary steps
 ^^^^^^^^^^^^^^^^^
@@ -644,8 +643,8 @@ Acquiring a Ubuntu Linux ISO
 Download an `Ubuntu Linux ISO <http://www.ubuntu.com/download/desktop>`_. The
 most up-to-date version is fine. We will need this later in the process.  
 
-Backing up your VM
-""""""""""""""""""
+Backing up your |VM|
+""""""""""""""""""""
 
 Before we do anything else we should
 create a clone of the omero-vm and subsequently work on the copy. This
@@ -656,20 +655,20 @@ to do this is from the command line.
     If you are on Windows then you should navigate to :file:`C:\\Program Files\\Oracle\\VirtualBox\\` because the VBoxManage tools are not added
     to your path by default. 
 
-Start a shell and, assuming that your VM has the default name of
+Start a shell and, assuming that your |VM| has the default name of
 omero-vm, use the following command:
 
 ::
 
     $ VBoxManage clonevm omero-vm --mode machine --options keepallmacs --name omero-vm-2 --register
 
-This will create a copy of our VM called omero-vm-2 which we will make
+This will create a copy of our |VM| called omero-vm-2 which we will make
 alterations to. This means that we can always return to the original
 omero-vm if we break anything. From now on **only** make changes to
 omero-vm-2.
 
-Extending the HDD
-^^^^^^^^^^^^^^^^^
+Extending the |HDD|
+^^^^^^^^^^^^^^^^^^^
 
 By default our virtual hard drive attached to omero-vm-2 is of a type
 which cannot be extended; so we need to change this by cloning our HDD
@@ -679,25 +678,25 @@ from the VDMK type to VDI type:
 
     $ VBoxManage clonehd omero-vm-2-disk1.vmdk omero-vm-2-disk1.vdi --format VDI
 
-We now need to increase the size of our virtual HDD. In the following
-command I am resizing the HDD to 60GB but you should select a size to
+We now need to increase the size of our virtual |HDD|. In the following
+command we are resizing the |HDD| to 60GB but you should select a size to
 suit the amount of data you plan to store in OMERO:
 
 ::
 
     $ VBoxManage modifyhd omero-vm-2-disk1.vdi --resize 60000
 
-Adding the extended HDD to the VM clone
-"""""""""""""""""""""""""""""""""""""""
+Adding the extended |HDD| to the |VM| clone
+"""""""""""""""""""""""""""""""""""""""""""
 
 We now need to tell VirtualBox to use :file:`omero-vm-2-disk1.vdi`
 instead of :file:`omero-vm-2-disk1.vmdk` which is currently attached to
-the VM. Whilst we are on the :guilabel:`Storage` tab we will also attach the
-Ubuntu ISO that we downloaded earlier to our VM. We are going to temporarily
+the |VM|. Whilst we are on the :guilabel:`Storage` tab we will also attach the
+Ubuntu ISO that we downloaded earlier to our |VM|. We are going to temporarily
 use the tools that ship with Ubuntu to make changes to the filesystem within
-our VM.
+our |VM|.
 
-#. Start VirtualBox and select omero-vm-2 in the VM library.
+#. Start VirtualBox and select omero-vm-2 in the |VM| library.
 #. Right-click :menuselection:`Settings` then select the :guilabel:`Storage`
    tab.
 #. Right-click on :guilabel:`omero-vm-2-disk1.vmdk` and select
@@ -714,7 +713,7 @@ our VM.
    :menuselection:`Choose Disk`. Navigate to the location of your Ubuntu
    ISO, select it and click :menuselection:`OK`.
 
-The storage for your OMERO VM should now look similar to :ref:`va-hdd-step01`.
+The storage for your OMERO |VM| should now look similar to :ref:`va-hdd-step01`.
 
 .. _va-hdd-step01:
 .. figure:: /images/va-hdd-step01.png
@@ -724,17 +723,17 @@ The storage for your OMERO VM should now look similar to :ref:`va-hdd-step01`.
     
     Virtual Appliance storage settings
 
-Click :guilabel:`OK` to return to the VirtualBox VM library. With omero-vm-2
+Click :guilabel:`OK` to return to the VirtualBox |VM| library. With omero-vm-2
 selected ensure that the storage details match what you expect, e.g.
 omero-vm-2-disk1.vdi is connected to your SATA Port 0. The size for this
 disk should also more or less match what you specified earlier with the
 `VBoxManage modifyhd` command. The reported numbers do not exactly
-matchup, e.g. a virtualised HDD of 60GB size will be reported as 58.59GB.
+matchup, e.g. a virtualised |HDD| of 60GB size will be reported as 58.59GB.
 
-Reallocating space on the VA HDD
-""""""""""""""""""""""""""""""""
+Reallocating space on the VA |HDD|
+""""""""""""""""""""""""""""""""""
 
-Start the omero-vm-2 VM. Ubuntu linux should boot and you should
+Start the omero-vm-2 |VM|. Ubuntu linux should boot and you should
 eventually see a welcome screen giving you the option to try or install
 Ubuntu. We will now start the GParted software and resize our partitions.
 
@@ -758,32 +757,33 @@ Ubuntu. We will now start the GParted software and resize our partitions.
    :align: center
    :alt: Virtual Appliance HDD in GParted
 
-   Virtual Appliance HDD in GParted
+   Virtual Appliance |HDD| in GParted
 
-Up until this point we haven't actually applied any of our changes to the HDD,
-we have only specified a list of changes that should be made. We can now go
-ahead and apply them by selecting the :menuselection:`Edit --> Apply All Operations` menu item then clicking :guilabel:`Apply` in the confirmation
+Up until this point we haven't actually applied any of our changes to the 
+|HDD|, we have only specified a list of changes that should be made. We can 
+now go ahead and apply them by selecting the :menuselection:`Edit --> Apply 
+All Operations` menu item then clicking :guilabel:`Apply` in the confirmation
 dialog box.
 
 When the operations have completed dismiss the dialog with the
-:guilabel:`Close` button, close GParted, then shutdown the VM.
+:guilabel:`Close` button, close GParted, then shutdown the |VM|.
 
-Changing HDD settings inside the VA
-"""""""""""""""""""""""""""""""""""
+Changing |HDD| settings inside the VA
+""""""""""""""""""""""""""""""""""""""
 
-We no longer need the Ubuntu ISO so we can detach it from our VM. Ensure that
-omero-vm-2 is selected then click :guilabel:`Settings` and select the
+We no longer need the Ubuntu ISO so we can detach it from our |VM|. Ensure 
+that omero-vm-2 is selected then click :guilabel:`Settings` and select the
 :guilabel:`Storage` tab. Right-click the :guilabel:`IDE Controller` entry and
 select :guilabel:`Remove Controller` then click :guilabel:`OK` to return the
-VirtualBox VM library.
+VirtualBox |VM| library.
 
-Start the omero-vm-2 VM and allow it to boot. Log in as root then issue the
+Start the omero-vm-2 |VM| and allow it to boot. Log in as root then issue the
 `df -h` command. Verify that the size of the `/dev/sda1` is approximately what
-you expect, e.g. if you allocated a 60GB virtual HDD then after size
+you expect, e.g. if you allocated a 60GB virtual |HDD| then after size
 conversions and swap allocation we should end up with `/dev/sda1` reported as
 being around 56GB.
 
-Within the VM we need to add the UUID of the new swap partition to the
+Within the |VM| we need to add the UUID of the new swap partition to the
 :file:`/etc/fstab` file because we deleted the old one & created a new swap
 which means that the IDs will no longer match.
 
@@ -818,11 +818,11 @@ Save your file and quit VIM:
 
     [Command Mode] :wq <return>
 
-Now reboot your VM with
+Now reboot your |VM| with
 
 ::
 
     $ shutdown -r now
 
-Once your VM has rebooted you should now have a working VM with a larger
-virtual HDD.
+Once your |VM| has rebooted you should now have a working |VM| with a larger
+virtual |HDD|.

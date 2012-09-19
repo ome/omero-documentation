@@ -210,9 +210,9 @@ Release
    -  If commit is present, just click on “Build” on Jenkins
    -  Mark build as “QA”\, eventually as “Release”
    -  Copy builds to /snapshots (currently manual)
-   -  This kicks off the VM build (automatically published to
+   -  This kicks off the |VM| build (automatically published to
       /snapshots)
-   -  Rename the "latest-build" VMs.
+   -  Rename the "latest-build" |VM|.
 
 -  Publish website
 

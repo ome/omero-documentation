@@ -154,7 +154,7 @@ without problems. A workaround is available under
 Non-LDAP user password security
 -------------------------------
 
-Encrypted login and communication, via SSL, has been available in
+Encrypted login and communication, via |SSL|, has been available in
 OMERO for some time. However, under some circumstances it is possible
 for passwords to end up on the wire in the clear. Further details and
 status can be found on :ticket:`3232`. Users who have their
