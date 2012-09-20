@@ -25,17 +25,17 @@ functionality (see :ticket:`2615` for tickets):
 
 Future releases will continue this work (see :ticket:`2911`).
 
-Delete Behavior (Technical)
----------------------------
+Delete behaviour (technical)
+----------------------------
 
 Configuring what gets delete, is done using an XML file. The technical
-specification of delete behavior can be found
+specification of delete behaviour can be found
 :source:`components/server/resources/ome/services/spec.xml`
 
 Delete Image
 ~~~~~~~~~~~~
 
-The general delete behavior for deleting an Image is to remove every
+The general delete behaviour for deleting an Image is to remove every
 piece of data from the database that was added when the image was
 imported, removed pixel data and thumbnails from disk. In addition, the
 following data is deleted:
@@ -59,14 +59,14 @@ Delete Dataset or Project
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When deleting a Project or Dataset, you have the option to also delete
-tags and annotations (as for image above). You also can choose whether
-to 'delete contents'. This will delete any Datasets (resp. Images) that
-are contained in the Project (resp. Dataset). However, Datasets and
+tags and annotations (as for Image above). You also can choose whether
+to 'delete contents'. This will delete any Datasets (or Images) that
+are contained in the Project (or Dataset). However, Datasets and
 Images will not get deleted if they are also contained in other Projects
 or Datasets respectively.
 
 If a user decides to delete/keep the annotations (see **Optional**\ **
-above) when deleting a Project (resp. Dataset) and its contents, the
+above) when deleting a Project (or Dataset) and its contents, the
 rule associated to the annotation will be apply to all objects.
 
 Delete Screen, Plate or Plate Acquisition
@@ -97,7 +97,7 @@ Tag/Attachment where they have used it, before you can delete it.
 the group (e.g. PI), they will be able to delete their Tag/Attachment,
 even if others have used it.
 
-Delete in Collaborative Group
+Delete in collaborative group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Some more discussion of delete issues in a collaborative group, where
@@ -114,7 +114,7 @@ Group owner rights
     An owner of the group, usually a PI, can delete anything that
     belongs to other members of the group.
 
-Edge Cases
+Edge cases
 ~~~~~~~~~~
 
 These are 'known issues' that may cause problems for some users (not for
@@ -133,7 +133,7 @@ most). These will be resolved in future depending on priority.
 
 .. _DeleteBinaryData:
 
-Binary Data
+Binary data
 ~~~~~~~~~~~
 
 When Images, Plates or File Annotations have been successfully deleted

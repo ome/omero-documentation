@@ -1,13 +1,13 @@
-OMERO Matlab Language Bindings
+OMERO Matlab language bindings
 ==============================
 
 See |DevelopingOmeroClients| and |OmeroModel|, for an introduction about
 **Object**.
 
-Installing and Configuring
+Installing and configuring
 --------------------------
 
-Installing the OmeroMatlab Toolbox
+Installing the OmeroMatlab toolbox
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Download the desired version. For the latest build see
@@ -92,8 +92,8 @@ but it is not configurable from within Matlab:
     >> c.enableKeepAlive(60); % Calls session.keepAlive() every 60 seconds
     >> c.closeSession();      % Close session to end the keep-alive
 
-Closing & unloading OMERO
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Closing and unloading OMERO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When you are done with OMERO, it is critical that you close your
 connection to save resources.
@@ -150,7 +150,7 @@ again, use the ``omero.client`` object directly:
     >> s = c.createSession();
 
 
-Code in Action
+Code in action
 --------------
 
 Follow several code samples showing how to interact with some objects.
@@ -187,7 +187,7 @@ Remember to close the session.
     client.closeSession();
     unsecureClient.closeSession();
 
-Read Data
+Read data
 ~~~~~~~~~
 
 The ``IContainer`` service provides method to load the data management
@@ -327,7 +327,7 @@ Given a plate ID, load the wells. You will have to use the
         end
     end 
 
-Raw Data access
+Raw data access
 ~~~~~~~~~~~~~~~
 
 You can retrieve data, plane by plane or retrieve a stack.
@@ -440,7 +440,7 @@ This is useful when you need the pixels intensity.
     % close the store
     store.close();
 
-Write Data
+Write data
 ~~~~~~~~~~
 
 -  **Create a Dataset** and link it to an existing Project.

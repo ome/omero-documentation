@@ -1,8 +1,8 @@
-Available Transformation
+Available transformation
 ========================
 
 ====================== ========== ==================
-Available Transforms   Direction  Status
+Available transforms   Direction  Status
 ====================== ========== ==================
 2003-FC-to-2007-06.xsl upgrade    excellent
 2003-FC-to-2008-09.xsl upgrade    excellent
@@ -20,7 +20,7 @@ Available Transforms   Direction  Status
 2012-06-to-2011-06.xsl downgrade  good
 ====================== ========== ==================
 
-Quality of Transformations
+Quality of transformations
 --------------------------
 
 .. figure:: /images/small-xslt-matrix.*
@@ -42,7 +42,7 @@ Key to quality
    values can still be lost if there are completely incompatible with
    the new schema
 
-Matrix of Transformation Paths
+Matrix of transformation paths
 ------------------------------
 This shows the sequence of transformations used to convert one version of the schema to another version.
 

@@ -1,7 +1,7 @@
 Architecture
 ------------
 
-Logical View
+Logical view
 ~~~~~~~~~~~~
 
 OMERO.insight is logically organised in two layers
@@ -95,7 +95,7 @@ pattern and can be regarded as a time-ordered event queue - if event A
 is posted on the bus before event B, then event A is also delivered
 before event B.
 
-Process View
+Process view
 ~~~~~~~~~~~~
 
 All agents run synchronously within the *Swing* dispatching thread. All

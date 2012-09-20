@@ -1,4 +1,4 @@
-How To Build An Agent
+How to build an agent
 =====================
 
 An agent is created and managed by the container. Building an agent is
@@ -10,14 +10,14 @@ done in two steps:
 
 The agent intercepts the events posted on the event bus.
 
-Important Note
+Important note
 --------------
 
 When a new version of the software is delivered, make sure to keep the
 ``container.xml`` shipped with the application and add to this
 ``container.xml``, the new agent entry.
 
-Writing Code
+Writing code
 ------------
 
 Let's create a concrete agent: ``MyBrowserAgent``
@@ -80,7 +80,7 @@ Let's create a concrete agent: ``MyBrowserAgent``
 
     }
 
-**Where to Create** the ``BrowseImage`` event
+**Where to create** the ``BrowseImage`` event
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Create a ``myBrowser`` package in the ``agents.events`` package
@@ -149,12 +149,12 @@ The ``MyBrowserAgent`` handles the event
             }
         }
 
-Create An Agent's View
+Create an agent's view
 ~~~~~~~~~~~~~~~~~~~~~~
 
 See :doc:`/developers/Insight/HowTo/BuildAgentView`
 
-Declare The Agent
+Declare the agent
 -----------------
 
 What we need to do now, we need to declare ``MyBrowserAgent`` in the

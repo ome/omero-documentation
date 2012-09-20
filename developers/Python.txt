@@ -1,4 +1,4 @@
-OMERO Python Language Bindings
+OMERO Python language bindings
 ==============================
 
 :snapshot:`MOVIE: introduction to Blitz Gateway
@@ -56,7 +56,7 @@ Images etc. You can use the OMERO.insight or OMERO.web client to choose suitable
 data IDs before editing and running the code samples. 
 
 
-Code Samples
+Code samples
 ------------
 
 Connect to OMERO
@@ -159,7 +159,7 @@ Connect to OMERO
         # When you're done, close the session to free up server resources.
         conn._closeSession() 
 
-Read Data
+Read data
 ^^^^^^^^^
 
 -  **Create a connection**
@@ -300,8 +300,8 @@ Read Data
     # When you're done, close the session to free up server resources.
     conn._closeSession() 
 
-Groups & Permissions
-^^^^^^^^^^^^^^^^^^^^
+Groups and permissions
+^^^^^^^^^^^^^^^^^^^^^^
 
 -  **Create a connection**
 
@@ -382,7 +382,7 @@ Read-Annotate groups, this will include other users' data See
     # When you're done, close the session to free up server resources.
     conn._closeSession() 
 
-Raw Data Access
+Raw data access
 ^^^^^^^^^^^^^^^
 
 -  **Create a connection**
@@ -462,7 +462,7 @@ Raw Data Access
     # When you're done, close the session to free up server resources.
     conn._closeSession() 
 
-Write Data
+Write data
 ^^^^^^^^^^
 
 -  **Create a connection**
@@ -852,7 +852,7 @@ ROIs
     # When you're done, close the session to free up server resources.
     conn._closeSession() 
 
-Delete Data
+Delete data
 ^^^^^^^^^^^
 
 -  **Create a connection**
@@ -1109,7 +1109,7 @@ OMERO.web by any users of the server. See :doc:`/developers/Modules/Scripts/Guid
 
 .. _Python#Blitz:
 
-Blitz Gateway Documentation
+Blitz Gateway documentation
 ---------------------------
 
 The epydoc-generated documentation of methods provided by OMERO Gateway
@@ -1276,12 +1276,12 @@ to provide connection and data retrieval services to various
 web clients. However, we have now decided to encourage it's use for all
 access to the OMERO Python API.
 
-Wrapper Objects
+Wrapper objects
 ^^^^^^^^^^^^^^^
 
 The Gateway consists of a number of wrapper objects:
 
-Connection Wrapper
+Connection wrapper
 """"""""""""""""""
 
 The BlitzGateway class (see :javadoc:` API of development code <epydoc/omero.gateway._BlitzGateway-class.html>`)
@@ -1300,7 +1300,7 @@ retrieving data objects from OMERO.
     for p in conn.listProjects():
         print p.name
 
-Model Object Wrappers
+Model object wrappers
 """""""""""""""""""""
 
 OMERO model objects, E.g. omero.model.Project, omero.model.Pixels etc
@@ -1355,7 +1355,7 @@ E.g.
         for dataset in p.listChildren():   # lazy loading of datasets, wrapped in DatasetWrapper
             print "Dataset", d.name
 
-Wrapper Coverage
+Wrapper coverage
 """"""""""""""""
 
 The OMERO data model has a large number of objects, not all of which

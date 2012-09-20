@@ -1,4 +1,4 @@
-Task Bar
+Task bar
 ========
 
 The container provides a top-level window, the ``taskbar``, to let users
@@ -13,7 +13,7 @@ agents can ignore the taskbar altogether. Some utility classes provide
 agents with functionality to link their top-level windows to the taskbar
 and to manage the display of those windows on screen.
 
-Structure and Dynamics
+Structure and dynamics
 ----------------------
 
 The following diagram shows the classes that provide the taskbar service
@@ -43,7 +43,7 @@ managed by the ``TopWindowManager``:
 
   Taskbar window management
 
-How To
+How to
 ------
 
 Agents can use the taskbar directly to add entries to the various menus

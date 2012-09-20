@@ -32,13 +32,13 @@ which run on :doc:`/developers/Modules/Scripts` are of the form
     VARIABLENAME = client.getInput("VARIABLENAME");
     client.setOutput("VARIABLENAME", value);
 
-Getting Started
+Getting started
 ---------------
 
 For a tutorial on how to get started with the scripting service, see
 :doc:`/developers/Modules/Scripts/Guide`.
 
-The iScript Service
+The iScript service
 -------------------
 
 The OMERO.blitz server provides a service call iScript that provides
@@ -49,7 +49,7 @@ you may find it more convenient to use the command line
 as described on the :doc:`/developers/Modules/Scripts/Guide`.
 The methods of the script service are below (bottom of page).
 
-Debugging the Scripts
+Debugging the scripts
 ---------------------
 
 The stderr and stdout from running a script should always be returned to
@@ -63,7 +63,7 @@ executed is uploaded as a new OriginalFile, and the standard error,
 standard out are saved as the next two OriginalFiles after that. These
 files can be opened in a text editor to examine contents.
 
-Sample Scripts
+Sample scripts
 --------------
 
 Below are a set of sample scripts. You can find more under the
@@ -88,8 +88,8 @@ This script echos the input parameters as outputs.
     for key in keys:
           client.setOutput(key, client.getInput(key))
 
-Access the pixels object from the server.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Access the pixels object from the server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This method shows an example of accessing the iPixels service on the
 server to get the pixels description of pixels supplied as a parameter.
@@ -119,7 +119,7 @@ server to get the pixels description of pixels supplied as a parameter.
     #print the height of the pixels.
     print pixels.sizeY.val
 
-Matlab and Scripting
+Matlab and scripting
 ====================
 
 The scripting service can run matlab scripts too. This is done using the

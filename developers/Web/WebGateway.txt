@@ -6,7 +6,7 @@ It provides a web API for rendering images and accessing data
 on the OMERO server via urls. It also provides methods for creating or
 retrieving an OMERO server connection (see :ref:`Gettingaconnection`).
 
-Web Services
+Web services
 ------------
 
 This list of urls below may be incomplete or out of date. For a complete
@@ -54,7 +54,7 @@ E.g.
   Rendered thumbnail
 
 
-Image Viewer
+Image viewer
 ~~~~~~~~~~~~
 
 -   Provides a full image viewer, with controls for scrolling Z & T, editing

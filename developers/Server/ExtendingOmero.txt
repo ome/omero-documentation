@@ -28,7 +28,7 @@ to OMERO.insight, please see the client trac:
 -  :doc:`/developers/Insight/HowTo/BuildAgentView`
 -  :doc:`/developers/Insight/HowTo/RetrieveData`
 
-List of Extension points
+List of extension points
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 To get a feeling for what type of extension points are available, you
@@ -65,7 +65,7 @@ examining new fields for inclusion (as of Summer 2009 two examples of
 these are lifetime and electron microscopy), it's not possible to
 represent everyone's model within OME.
 
-Structured Annotations
+Structured annotations
 ^^^^^^^^^^^^^^^^^^^^^^
 
 The primary extension point for including external data are the
@@ -172,7 +172,7 @@ will be created for all the :doc:`/developers/server-blitz` languages, i.e.  |Om
     and they can produce their own artifacts which you can distribute
     without modifying the main code base.
 
-Warning: Exceptions
+Warning: exceptions
 ^^^^^^^^^^^^^^^^^^^
 
 You will need to think carefully about what exceptions to handle. Ice
@@ -186,7 +186,7 @@ And regardless, if you are accessing any internal OMERO API, add
 See :doc:`/developers/Modules/ExceptionHandling` for more
 information.
 
-Java Implementation using ``_Disp``
+Java implementation using ``_Disp``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To implement your service, create a class subclassing
@@ -212,7 +212,7 @@ or
 The next step "Java Configuration" will take care of how those objects
 get injected.
 
-Java Implementation using ``_Tie``
+Java implementation using ``_Tie``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Rather than subclassing the ``_Disp`` object, it is also possible to
@@ -222,7 +222,7 @@ little indirection. You can see how such an object is configured in
 :source:`components/blitz/resources/ome/services/blitz-servantDefinitions.xml#L36`
 blitz-servantDefinitions.
 
-Java Configuration
+Java configuration
 ^^^^^^^^^^^^^^^^^^
 
 Configuration in the Java servers takes place via
@@ -266,7 +266,7 @@ for all the available objects.
 
 .. _JavaDeployment:
 
-Java Deployment
+Java deployment
 ^^^^^^^^^^^^^^^
 
 Finally, these resources:
@@ -382,7 +382,7 @@ application which should watch for newly created Images and send you an
 email: ``mail_on_import.py``. To add this, either of the following would
 work:
 
-server element
+Server element
 ^^^^^^^^^^^^^^
 
 ::
@@ -395,7 +395,7 @@ server element
         </server>
       </node>
 
-server-template & seerver-instance elements
+Server-template & seerver-instance elements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
