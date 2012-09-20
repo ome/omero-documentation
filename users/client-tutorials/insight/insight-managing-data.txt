@@ -18,7 +18,7 @@ Create objects
    :width: 35%
    :alt: Create projects and datasets
 
-To create a new Project (resp. Dataset),
+To create a new Project (or Dataset),
 
 -  Expand the Hierarchies browser
 -  Click on the |filenew| icon.
@@ -30,7 +30,7 @@ The following window will pop up on screen
    :width: 35%
    :alt: Creating a project
 
-After pressing the ``Create`` button, a new Project (resp. Dataset)
+After pressing the ``Create`` button, a new Project (or Dataset)
 e.g.  ``Monday Acquisition`` is created in the OMERO server, and
 displayed in the Inspector.
 
@@ -60,13 +60,13 @@ Manage
 
 Using the Inspector, the user can
 
--  Cut (i.e. unlink) Datasets (resp. Images) from a Project (resp.
+-  Cut (i.e. unlink) Datasets (or Images) from a Project (or
    Dataset).
--  Copy or Paste Datasets (resp. Images) to a Project (resp. Dataset).
-   This is NOT a deep copy i.e. a link between the Dataset (resp. Image)
-   and the Project (resp. Dataset) is created. We view the possibility
-   as a feature. The user can add the same Dataset (resp. Image) to
-   several Projects (resp. Datasets) and only have one Dataset (resp.
+-  Copy or Paste Datasets (or Images) to a Project (or Dataset).
+   This is NOT a deep copy i.e. a link between the Dataset (or Image)
+   and the Project (or Dataset) is created. We view the possibility
+   as a feature. The user can add the same Dataset (or Image) to
+   several Projects (or Datasets) and only have one Dataset (or
    Image) to handle.
 -  Delete Project, Dataset, Image, etc.
 
@@ -82,9 +82,9 @@ The Working area is built and displayed when browsing data e.g. a Plate
    :width: 35%
    :alt: Working area
 
--  Browsing a Project (resp. Dataset, Plate):
+-  Browsing a Project (or Dataset, Plate):
 
-   -  Select the Project (resp. Dataset, Plate) in the Inspector.
+   -  Select the Project (or Dataset, Plate) in the Inspector.
    -  Click on the icon.
 
 -  Expanding a Dataset, a Tag or a time interval.
