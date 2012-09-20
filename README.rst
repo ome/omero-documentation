@@ -36,6 +36,9 @@ found at `http://sphinx.pocoo.org <http://sphinx.pocoo.org/tutorial.html>`_.
 Building the documentation
 ==========================
 
+Basic build commands
+--------------------
+
 To clean the build directory of any previous builds, use::
     
     make clean
@@ -75,7 +78,24 @@ The output should look something like::
       linkcheck  to check all external links for integrity
       doctest    to run all doctests embedded in the documentation (if
                  enabled)
+
+OMERO release number
+--------------------
+
+The release number of OMERO is set to UNKNOWN by default. There are two ways 
+to set this release number.
+
+* Either clone http://github.com/openmicroscopy/openmicroscopy, initiate the 
+submodules (including this repository) and run at the top-level::
+
+    ./build.py release-docs
+
+This target will read the latest tag using ``git-describe`` and build the 
+Sphinx documentation using the current OMERO release number.
+
+* Or set the environment variable `OMERO_RELEASE`, e.g.::
     
+    OMERO_RELEASE=4.4.4 make clean html
     
 ****************
 Conventions used
