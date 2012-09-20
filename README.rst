@@ -257,13 +257,13 @@ Common markups
   ``:menuselection: `Start --> Programs```
 
 Global substitutions
---------------------
+====================
 
 Some substitutions have been implemented using ``rst_epilog`` in ``conf.py``.
 They can be used in all pages of the documentation.
 
 Hyperlinks
-==========
+----------
 
 The table below lists targets for common hyperlinks.
 
@@ -273,7 +273,7 @@ Target name                 Link
 Python                      http://python.org
 Matplotlib                  http://matplotlib.org/
 Python Imaging Library      http://www.pythonware.com/products/pil/
-Hibernate:                  http://www.hibernate.org
+Hibernate                   http://www.hibernate.org
 ZeroC                       http://www.zeroc.com
 Ice                         http://www.zeroc.com
 Jenkins                     http://jenkins-ci.org
@@ -283,7 +283,7 @@ Glencoe Software, Inc.      http://www.glencoesoftware.com/
 =========================== ==============================================
 
 Abbreviations
-=============
+-------------
 
 The table below lists substitutions for common abbreviations. These 
 substitutions use the ``:abbr:`` Sphinx role meaning they are shown as 
@@ -300,7 +300,7 @@ Name    Abbreviation  Explanation
 ======= ============= ===================
 
 Page references
-===============
+---------------
 
 The table below lists substitutions that can be used to create references to 
 sections of the OMERO documentation.
@@ -327,7 +327,7 @@ For the most up-to-date list, please consult ``conf.py`` (section
 ``rst_epilog``).
 
 Common URLs
------------
+===========
 
 Some URLs are widely used across the OME documentation. Using the Sphinx
 ``extlinks`` extension, a dictionary of aliases to base URLs has been defined
@@ -339,13 +339,13 @@ for the following:
 * DOIs: ``:doi: `Dantas, et al., JCB <10.1083/jcb.201012093>```
 * Github source code, e.g. ``:source: `etc/omero.properties```
 * OME Forums: ``:forum: `viewforum.php?f=3```
-* Mailing lists: ``:mailinglist:`ome-users/`
+* Mailing lists: ``:mailinglist:`ome-users/```
 
 For the most up-to-date list, please consult ``conf.py`` (section
 ``extlinks``).
 
 Inclusion of content
---------------------
+====================
 
 When a specific type of content (e.g. code snippet) repeats itself among many
 pages, it is advised to store it in a seperate file without the default
