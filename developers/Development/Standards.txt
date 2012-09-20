@@ -1,7 +1,7 @@
-Development Standards
+Development standards
 =====================
 
-Rationale and Vision
+Rationale and vision
 ~~~~~~~~~~~~~~~~~~~~
 
 Various developers have been working on the OMERO project for up to 5
@@ -105,7 +105,7 @@ This list was initially a starting point for discussion for the
     some guidelines as well as a list of things we would like to try for
     moving forward.
 
-Client Interface
+Client interface
 ^^^^^^^^^^^^^^^^
 
 -  icons (list of used icons to reuses)
@@ -181,8 +181,8 @@ Documentation
 -  Documentation page for each feature with: video, documentation,
    "cite-as" statement.
 
-Installation depends on the environment how to do it?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Installation depends on the environment: how to do it?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Environment - variable and requirement to prepare OS, for example:
    environmental variables, external software/packages, hardware,
@@ -224,7 +224,7 @@ Publicity
    -  RC
    -  GA
 
-Agile Practices
+Agile practices
 ^^^^^^^^^^^^^^^
 
 See **Agile Adoption Practices**, Elssamadisy

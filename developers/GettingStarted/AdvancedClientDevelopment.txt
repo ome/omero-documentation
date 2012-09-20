@@ -1,4 +1,4 @@
-Developing OMERO Clients
+Developing OMERO clients
 ========================
 
 :note:
@@ -364,7 +364,7 @@ the category that ``omero::RObject`` and ``omero::RMap`` fall into.
 They are identical to ``omero::RLong`` and ``omero::RString``,
 respectively, but are provided as type safe variants.
 
-OMERO Model Objects
+OMERO model objects
 ~~~~~~~~~~~~~~~~~~~
 
 With these components -- rtypes, primitives, constants, etc -- it's
@@ -475,7 +475,7 @@ Example: :source:`examples/OmeroClients/details.py`
 
 Example: :source:`examples/OmeroClients/details.java`
 
-ObjectFactory and Casting
+ObjectFactory and casting
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the previous examples, you may have noticed how there are two classes
@@ -666,7 +666,7 @@ Example: :source:`examples/OmeroClients/staticfields.py`
 
 Example: :source:`examples/OmeroClients/staticfields.java`
 
-Visibility and Loadedness
+Visibility and loadedness
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the constructor example above, a constructor with two arguments was
@@ -1291,7 +1291,7 @@ Example: :source:`examples/OmeroClients/getsetattr.py`
 
     # No java example
 
-Method inspection & Code completion (Matlab & Python)
+Method inspection & code completion (Matlab & Python)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ice generates a number of internal (private) methods which are not
@@ -1325,7 +1325,7 @@ method beginning with an underscore or with ``ice_``. For example,
 
 --------------
 
-Services Overview
+Services overview
 -----------------
 
 After discussing the many types and how to create them, the next obvious
@@ -1333,8 +1333,8 @@ question is what one can actually do with them. For that, we have to
 look at what services are provided by :doc:`/developers/server-blitz`, how they are obtained, 
 used, and cleaned up.
 
-OmeroClient? and Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OmeroClient and configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first step in accessing the |OmeroApi| and
 therefore the first thing to plan when writing an OMERO client is the
@@ -1642,7 +1642,7 @@ which in Ice's definition language represents return-by-proxy. When a
 client calls, serviceFactory.getAdminService() it will receive an
 IAdminPrx. **Any call on that object is a remote invocation.**
 
-Stateless vs. Stateful
+Stateless vs. stateful
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Most methods on the ServiceFactory return
@@ -2655,8 +2655,8 @@ major upgrade to 4.0 to correct some problems in the previous version.
         reason, namely keeping collections et al. in sync manually can lead
         to strange errors.
 
-Planned improvements & Known issues
------------------------------------
+Planned improvements and Known issues
+-------------------------------------
 
 Topics to be added
 ~~~~~~~~~~~~~~~~~~
@@ -2688,8 +2688,8 @@ versions:
 -  :jenkins:`model <job/OMERO/ws/src/components/tools/OmeroCpp/src/omero/model/>`
 -  :jenkins:`OmeroPy <job/OMERO/ws/src/components/tools/OmeroPy/src/>`
 
-Lazy loading & caching
-~~~~~~~~~~~~~~~~~~~~~~
+Lazy loading and caching
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Separate method calls will often return one and the same object, say
 ``Dataset#123``. Your application, however, will not necessarily

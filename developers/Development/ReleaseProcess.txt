@@ -1,4 +1,4 @@
-Release Process
+Release process
 ===============
 
 This page describes the actions points and step to follow before major
@@ -6,7 +6,7 @@ releases. There are various time-dependencies, so read the whole page
 before beginning any work. It may be sensible to create tickets for some
 if not many of the following points.
 
-Pull Request (PR) Review
+Pull Request (PR) review
 ------------------------
 
 See :doc:`/developers/Development/UsingGit`, for more
@@ -51,14 +51,14 @@ Model
    tests, etc.
 -  Prepare downgrade stylesheet.
 
-DB Upgrade
+DB upgrade
 ----------
 
 -  List of proposed changes to DB should be submitted **at the latest 3
    weeks** before code freeze. To allow enough time to adjust DB.
 -  Preliminary testing phase.
 
-Feature Freeze (bug fixing only)
+Feature freeze (bug fixing only)
 --------------------------------
 
 -  Freeze **at least 4 weeks** before the scheduled release date.
@@ -104,7 +104,7 @@ Testing
 -  Review/Update known limitations through testing
 -  Jenkins **MUST** report all logs at ``ERROR`` level as failures.
 
-Bio-Formats Freeze (no jar changes)
+Bio-Formats freeze (no jar changes)
 -----------------------------------
 
 -  Freeze Bio-Formats **at least 1 week** before the actual release
@@ -163,7 +163,7 @@ Documentation
 -  VS 2010 build with Scons 2.x
 -  ImageJ support
 
-Release Candidates
+Release candidates
 ------------------
 
 -  Give new clients to internal/external testers XX weeks before release
@@ -172,7 +172,7 @@ Release Candidates
 -  Test all components from official zips (ImageJ, etc.)
 -  Check that all clients properly detect compatible server versions
 
-Schema Pre-Release Checklist
+Schema pre-release checklist
 ----------------------------
 
 -  XsdFu code generation

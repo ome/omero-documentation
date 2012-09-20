@@ -39,7 +39,7 @@ then used in the Eclipse ``.classpath`` files.
 If Eclipse ever gets out of sync after the first build,
 ``./build.py build-eclipse`` can be used to quickly synchronize.
 
-Unit-Testing
+Unit testing
 ------------
 
 The unit testing framework is fairly simple. Only methods which contain
@@ -64,7 +64,7 @@ directory with the command:
 
     ./build.py test-unit
 
-Integration-Testing
+Integration testing
 -------------------
 
 Integration testing is a bit more complex because of the reliance on a
