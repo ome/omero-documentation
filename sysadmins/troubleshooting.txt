@@ -270,7 +270,7 @@ period (seconds) between retries in ``etc/grid/templates.xml``
     <property name="omero.fs.retryInterval"  value="3"/>
 
 
-OMERO.web and "ImportError: no module named rtypes."
+OMERO.web and "ImportError: No module named rtypes."
 ====================================================
 
 To avoid that error please change the following in your settings.py:

@@ -37,7 +37,7 @@ permission level for that group. See the OMERO.insight and OMERO.web admin
 movies below for more information about groups and how to administrate them in
 OMERO.
 
-.. see also::
+.. seealso::
 
     :snapshot:`OMERO.insight Admin update in OMERO 4.4 <movies/omero-4-4/mov/InsightAdmin-4.4.mov>`
         Movie describing the administration tools update under OMERO.insight for OMERO 4.4
@@ -138,8 +138,8 @@ a user has annotated another user's data and the group is downgraded,
 any links to annotations that are not permitted with the new permissions
 setting will be lost.
 
-Permissions on your & other users' data
----------------------------------------
+Permissions on your and other users' data
+-----------------------------------------
 
 **What can you do with your data?**
 
