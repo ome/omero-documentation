@@ -315,7 +315,6 @@ Writing conventions
 *******************
 
 * Do not use contractions (can't, isn't, I'll, etc.) in the documentation.
-* Use American English spelling.
 * All headings should begin with a capital letter for the first word and all 
 nouns in the title.
 * All sub-headings should begin with a capital letter for the first word and 
