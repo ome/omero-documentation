@@ -86,12 +86,12 @@ The release number of OMERO is set to UNKNOWN by default. There are two ways
 to set this release number.
 
 * Either clone http://github.com/openmicroscopy/openmicroscopy, initiate the 
-submodules (including this repository) and run at the top-level::
+  submodules (including this repository) and run at the top-level::
 
     ./build.py release-docs
 
-This target will read the latest tag using ``git-describe`` and build the 
-Sphinx documentation using the current OMERO release number.
+  This target will read the latest tag using ``git-describe`` and build the 
+  Sphinx documentation using the current OMERO release number.
 
 * Or set the environment variable `OMERO_RELEASE`, e.g.::
     
