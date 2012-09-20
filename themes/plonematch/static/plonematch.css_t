@@ -168,6 +168,11 @@ div.related {
 	text-align: left;
 }
 
+pre {
+    /* Override the style applied to pre by ploneCustom.css */
+    max-width: none !important;
+}
+
 }
 
 @media print{
