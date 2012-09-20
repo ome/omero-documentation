@@ -1,7 +1,6 @@
 Documentation files to be linked under the ``docs/sphinx`` directory of
 http://github.com/openmicroscopy/openmicroscopy.
 
-
 ***************************
 Getting started with Sphinx
 ***************************
@@ -138,9 +137,6 @@ Title headings
 Every reST source file should begin with an H2 (level two) title. H1 titles
 are reserved for the index files (``index.txt``).
 
-Titles should be capitalised (see `http://grammar.about.com <http://grammar.about.com/od/grammarfaq/f/capitalstitle.htm>`_
-for a discussion about capitalisation styles).
-
 The following symbols should be used to create headings:
  
 * ``#`` with top line for parts
@@ -218,6 +214,13 @@ folder in the top-level directory of the documentation.
 Please do not use relative (``../../../images/foo.jpg``) paths to refer to
 images. Sphinx does a good job at creating paths, so one can use
 ``/images/foo.jpg``
+
+Tables
+======
+
+Please do not use tables for collections of links and figures, and leave them 
+solely for use as actual tables. While it can be used in HTML to shoehorn 
+content into boxes, it doesn't work too well for other output, e.g. latex.
 
 Substitutions, aliases and hyperlinks
 =====================================
@@ -336,6 +339,7 @@ for the following:
 * DOIs: ``:doi: `Dantas, et al., JCB <10.1083/jcb.201012093>```
 * Github source code, e.g. ``:source: `etc/omero.properties```
 * OME Forums: ``:forum: `viewforum.php?f=3```
+* Mailing lists: ``:mailinglist:`ome-users/`
 
 For the most up-to-date list, please consult ``conf.py`` (section
 ``extlinks``).
@@ -347,3 +351,18 @@ When a specific type of content (e.g. code snippet) repeats itself among many
 pages, it is advised to store it in a seperate file without the default
 ``.txt`` extension. This file can then be later included using the
 ``literalinclude`` directive.
+
+*******************
+Writing conventions
+*******************
+
+* Do not use contractions (can't, isn't, I'll, etc.) in the documentation.
+* All headings should begin with a capital letter for the first word and all 
+nouns in the title.
+* All sub-headings should begin with a capital letter for the first word and 
+continue in lowercase, except where they refer to terms which are abbreviated 
+in the text e.g. Virtual Machine.
+* Use the full product name, e.g. OMERO.insight instead of Insight.
+* Avoid using resp. in brackets to refer to alternative file names etc. Just 
+use 'or'.
+* Use full words rather than symbols in headings if possible, e.g. use 'and' rather than '&'
