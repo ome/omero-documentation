@@ -443,7 +443,7 @@ same class with the same id are the same object. For example:
        }
 
 Reading and writing
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 Complications arise when one tries to mix objects from different read
 operations because of the difference in equality. In all but the most
