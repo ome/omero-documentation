@@ -1,4 +1,4 @@
-OMERO.web Deployment
+OMERO.web deployment
 ====================
 
 OMERO.web is the web application component of the OMERO platform which
@@ -82,7 +82,7 @@ A final useful option of ``bin\omero`` is:
 which will allow for editing the configuration in a system-default text
 editor.
 
-Quick Start
+Quick start
 -----------
 
 Using IIS

@@ -1,4 +1,4 @@
-OMERO.server Backup and Restore
+OMERO.server backup and restore
 ===============================
 
 Cleaning up your binary repository
@@ -52,7 +52,7 @@ modifying the ``etc/grid/default.xml`` file:
     <variable name="OMERO_LOGS"    value="var/log/"/>
     ...
 
-Backing Up OMERO
+Backing up OMERO
 ----------------
 
 Understanding backup sources

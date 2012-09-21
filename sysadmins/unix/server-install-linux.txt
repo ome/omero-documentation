@@ -1,4 +1,4 @@
-OMERO.server Linux Installation Walkthrough
+OMERO.server Linux installation walkthrough
 ===========================================
 
 This page walks through the process of installing OMERO.server on a
@@ -37,7 +37,7 @@ Ubuntu 11.10             3.4              4.4.x
 In the remainder of this guide you should adjust version numbers to suit
 the distribution that you are targetting.
 
-Prerequisites: The Base Software Install
+Prerequisites: the base software install
 ----------------------------------------
 
 You require at least a clean minimal Debian or Ubuntu installation and a
@@ -128,7 +128,7 @@ way:
 
 and select the correct java from the displayed list.
 
-Setup Environment
+Setup environment
 -----------------
 
 Edit your **.bashrc** file, e.g. **$ vim ~/.bashrc** and add the
@@ -171,7 +171,7 @@ should give output similar to the following:
 
       ~/apps/OMERO/OMERO.server
 
-Configure Software
+Configure software
 ------------------
 
 Now we need to configure our prerequisites so that they are ready for

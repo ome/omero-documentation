@@ -1,4 +1,4 @@
-OMERO Command Line Interface
+OMERO command line interface
 ============================
 
 Overview
@@ -83,7 +83,7 @@ sub-commands:
         bin/omero help debug       # debug is an option
         bin/omero help admin       # same as bin/omero admin -h
 
-System Administration Commands
+System administration commands
 ------------------------------
 
 When first beginning to work with the OMERO server, the ``db``,

@@ -203,7 +203,7 @@ Server fails to start
    ``var/master`` directory (e.g. ``rm -rf var/master``). When
    restarting OMERO, the registry will be automatically re-created.
 
-Connection Problems and TCP Window Scaling
+Connection problems and TCP window scaling
 ==========================================
 
 Later versions of the 2.6 Linux kernel, specifically 2.6.17, have TCP
@@ -215,7 +215,7 @@ feature off as follows:
 
     # echo 0 > /proc/sys/net/ipv4/tcp_window_scaling
 
-My Server Crashes With...
+My server crashes with...
 =========================
 
 -  ``X11 connection rejected because of wrong authentication``
@@ -248,7 +248,7 @@ this
 on our mailing list for more information.
 
 
-DropBox fails to start: Failed to get session
+DropBox fails to start: failed to get session
 =============================================
 
 If the main server starts but DropBox fails with the following entry in
@@ -285,8 +285,8 @@ To avoid that error please change the following in your settings.py:
     import omero
     import omero.clients
 
-OMERO.web is not accessible from remote computer.
-=================================================
+OMERO.web is not accessible from remote computer
+================================================
 
 If you require to configure the out of the box setup to listen for 
 webadmin and webclient connections on different host run by:
@@ -302,11 +302,11 @@ webadmin and webclient connections on different host run by:
 	Development server is running at http://host:port/
 	Quit the server with CONTROL-C.
 
-OMERO.web did not start on the production.
-==========================================
+OMERO.web did not start on the production
+=========================================
 
 The user opening OMEROweb.log files needs write permissions to the
-directory containing the logs file. So, bee sure you have a "log"
+directory containing the logs file. So, be sure you have a "log"
 directory with the correct ownership and correct path set in LOGDIR
 matches log directory.
 

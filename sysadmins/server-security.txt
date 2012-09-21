@@ -1,4 +1,4 @@
-Server Security and Firewalls
+Server security and firewalls
 =============================
 
 General
@@ -23,7 +23,7 @@ attention. If you have a security issue to report please do not hesitate
 to contact us using any one of the mechanisms found on the
 :community_plone:`community <>` page.
 
-Firewall Configuration
+Firewall configuration
 ----------------------
 
 Securing your OMERO system with so called *firewalling* or *packet
@@ -116,7 +116,7 @@ for you:
     UPDATE password SET hash = 'vvFwuczAmpyoRC0Nsv8FCw==' WHERE experimenter_id = 0;
     $ 
 
-Java Key- and Trust stores.
+Java key- and truststores.
 ---------------------------
 
 If your server is connecting to another server over |SSL|, you will need
@@ -130,7 +130,7 @@ To do this, you will need to configure several server properties,
 similar to the properties you configured during
 :doc:`installation <unix/server-installation>` (:doc:`Windows <windows/server-installation>`).
 
--  key store path
+-  keystore path
 
    ::
 
@@ -140,13 +140,13 @@ similar to the properties you configured during
        X.509 certificate chains authenticating the corresponding public
        keys.
 
--  key store password
+-  keystore password
 
    ::
 
        bin/omero config set omero.security.keyStorePassword secret
 
--  trust store path
+-  truststore path
 
    ::
 
@@ -160,7 +160,7 @@ similar to the properties you configured during
        (confidential) data. This file must contain the public key
        certificates of the CA and the client's public key certificate.
 
--  trust store password
+-  truststore password
 
    ::
 

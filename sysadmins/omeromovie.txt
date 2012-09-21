@@ -15,7 +15,7 @@ overlayed over the image: z-section, scale bar and timing.
 The resulting movie will then be uploaded to the server by the script
 and become a file attachment to the source image.
 
-Viewing the Movie
+Viewing the movie
 -----------------
 
 The make movie script allows you to save the movie in two different
@@ -46,7 +46,7 @@ There are also macports, rpms and debs for mencoder.
 Make movie also uses\ `Python Imaging
 Library`_ and `numpy <http://www.scipy.org/Download>`_.
 
-Make Movie command arguments
+Make movie command arguments
 ----------------------------
 
 A detailed list of the commands accepted by the script are:
