@@ -117,7 +117,7 @@ From :source:`components/blitz/resources/omero/System.ice`:
           bool   isAdmin;
           ...
 
-Sequences, Dictionaries, Enums, and Constants
+Sequences, dictionaries, enums, and constants
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Other than the "user-defined classes" which we'll get to below, slice
@@ -1025,8 +1025,8 @@ Example: :source:`examples/OmeroClients/collectionmethods.java`
 These methods prevent clients from accessing the collections directly,
 and any improper access will lead to an ``omero.ClientError``.
 
-"Interfaces"
-~~~~~~~~~~~~
+Interfaces
+~~~~~~~~~~
 
 As mentioned above, one of the Java features which is missing from the
 slice definition language is the ability to have concrete classes
@@ -1291,8 +1291,8 @@ Example: :source:`examples/OmeroClients/getsetattr.py`
 
     # No java example
 
-Method inspection & code completion (Matlab & Python)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Method inspection and code completion (Matlab & Python)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ice generates a number of internal (private) methods which are not
 intended for general consumption. Unfortunately, Matlab's
@@ -1333,8 +1333,8 @@ question is what one can actually do with them. For that, we have to
 look at what services are provided by :doc:`/developers/server-blitz`, how they are obtained, 
 used, and cleaned up.
 
-OmeroClient and configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Omero client configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first step in accessing the |OmeroApi| and
 therefore the first thing to plan when writing an OMERO client is the
@@ -2655,7 +2655,7 @@ major upgrade to 4.0 to correct some problems in the previous version.
         reason, namely keeping collections et al. in sync manually can lead
         to strange errors.
 
-Planned improvements and Known issues
+Planned improvements and known issues
 -------------------------------------
 
 Topics to be added

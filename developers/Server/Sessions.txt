@@ -24,7 +24,6 @@ With |OmeroSessions|, both login systems have been brought together and simplifi
   :alt: Blitz session creation and destruction
 
 In short, sessions:
--------------------
 
 -  are a replacement for the standard JavaEE security infrastructure.
 -  unify the Blitz and RMI session handling,or better put, make, working

@@ -80,8 +80,8 @@ Let's create a concrete agent: ``MyBrowserAgent``
 
     }
 
-**Where to create** the ``BrowseImage`` event
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Where to create the ``BrowseImage`` event
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Create a ``myBrowser`` package in the ``agents.events`` package
 -  Create a ``BrowseImage`` event in the ``myBrowser`` package

@@ -353,7 +353,7 @@ something will remain unloaded.
 
 Versions are the last piece to understanding object identity. Two
 entities with the same id should not be considered equal if they have
-differening versions. On each write operation, the version of an entity
+differing versions. On each write operation, the version of an entity
 is incremented. This allows us to perform optimistic locking so that two
 users don't simultaneously edit the same object. That works so:
 
@@ -442,7 +442,7 @@ same class with the same id are the same object. For example:
          assert i == i2 : "Instances must be referentially equal";
        }
 
-Reading **and** Writing
+Reading and writing
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Complications arise when one tries to mix objects from different read

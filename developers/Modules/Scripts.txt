@@ -88,8 +88,8 @@ This script echos the input parameters as outputs.
     for key in keys:
           client.setOutput(key, client.getInput(key))
 
-Access the pixels object from the server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Accessing the pixels object from the server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This method shows an example of accessing the iPixels service on the
 server to get the pixels description of pixels supplied as a parameter.
