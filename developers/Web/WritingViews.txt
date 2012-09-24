@@ -1,4 +1,4 @@
-Writing OMERO.web Views
+Writing OMERO.web views
 =======================
 
 This page contains info on how to write your own views.py code,
@@ -89,10 +89,10 @@ this. See webclient/decorators.py to see how the base
 omeroweb.decorators.login\_required has been extended to configure the
 conn connection upon login, handle login failure differently etc.
 
-Style Guides
+Style guides
 ------------
 
-Tips on good pracitice in views.py methods and their corresponding urls.
+Tips on good practice in views.py methods and their corresponding urls.
 
 -  Include any required arguments in the function parameter list.
    Although many views.py methods use the **kwargs parameter to accept
@@ -115,7 +115,7 @@ and reverse function:
     >>> from django.core.urlresolvers import reverse
     >>> reverse('url_name', kwargs={'object_id': 1})
 
-OMERO.web error Handling
+OMERO.web error handling
 ------------------------
 
 Django comes with some nice error handling functionality. We have
@@ -158,7 +158,7 @@ feedback to our QA system. If the request is AJAX, we return the stack
 trace is displayed in a dialog which also allows the error to be
 submitted to QA.
 
-Custom Error handling
+Custom error handling
 ~~~~~~~~~~~~~~~~~~~~~
 
 If you want to handle certain exceptions in particular ways you should

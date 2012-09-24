@@ -1,4 +1,4 @@
-Omero Logging
+Omero logging
 =============
 
 All OMERO components written in Java use
@@ -62,15 +62,15 @@ See the "Profile" properties block for how to configure for your site.
 Similar to log4j, logging is configured to be written to
 ``var/log/<servername>.log`` and to maintain 9 backups of at most 500MB.
 
-stdout & stderr
----------------
+stdout and stderr
+-----------------
 
 Though all components try to avoid it, some output will still go to
 stdout/stderr. On non-Windows systems, all of this output will be sent
 to the ``var/log/master.out`` and ``var/log/master.err`` files.
 
-Windows stdout & stderr
------------------------
+Windows stdout and stderr
+-------------------------
 
 On Windows, the state of stdout and stderr is somewhat different. No
 information will be written to master.out, master.err, or similar files.

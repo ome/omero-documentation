@@ -23,7 +23,7 @@ A service factory is obtained from the client connection. E.g. Python:
    need the :javadoc:`API for these objects <slice2html/omero/model.html>`.
    E.g. Dataset, Image, Pixels etc.
 
-Services List
+Services list
 -------------
 
 The :sourcedir:`ome.api <components/common/src/ome/api>`
@@ -122,7 +122,7 @@ provided. Java or C++ code can use the same API in a very similar manner.
 Discussion
 ----------
 
-Reads and Writes
+Reads and writes
 ~~~~~~~~~~~~~~~~
 
 IQuery and IUpdate are the basic building blocks for the rest of the
@@ -190,7 +190,7 @@ Examples
 Other topics
 ============
 
-Stateless versus Stateful Services
+Stateless versus stateful services
 ----------------------------------
 
 A stateless service has no client-noticeable lifecycle and all instances
@@ -212,7 +212,7 @@ deployed to the server. In the case of
 :doc:`/developers/server-blitz`, the service must be properly
 defined under :sourcedir:`components/blitz/resources`.
 
-OMERO Annotations for Validation
+OMERO annotations for validation
 --------------------------------
 
 The server-side implementation of these interfaces makes use of ((JDK5))
@@ -225,7 +225,7 @@ interceptor also makes proactive checks. For a range of parameters types
 (such as Java Collections) it requires that annotations exist and will
 refuse to proceed if not implemented.
 
-An api call of the form:
+An API call of the form:
 
 ::
 

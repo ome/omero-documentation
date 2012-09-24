@@ -1,4 +1,4 @@
-Aspect-Oriented Programming
+Aspect-oriented programming
 ===========================
 
 Aspect-oriented programming is, among other things, the attempt to
@@ -32,8 +32,8 @@ from the Spring :doc:`context </developers/Server/Context>`..
 By and large, only the :doc:`API service methods </developers/Modules/Api>` 
 are advised in OMERO.
 
-Why
----
+Why?
+----
 
 Often, when implementing or adding code, it becomes clear just how many
 requirements are placed by libraries, the application server, and

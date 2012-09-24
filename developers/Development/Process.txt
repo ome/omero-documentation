@@ -1,4 +1,4 @@
-The OMERO Development Process
+The OMERO development process
 =============================
 
 As decided at the May meeting in Dundee, the OMERO team is going to test
@@ -30,7 +30,7 @@ for an iteration, ... *that's ok*. It's two weeks, right? But by raising
 a flag, we can get a feeling for our planning strategy. During the next
 sprint, we should take that into account.
 
-General Notes
+General notes
 -------------
 
 -  Review meetings are a learning process.
@@ -55,10 +55,10 @@ Development
 -  :doc:`/developers/Development/ReleaseProcess` List of actions prior
    to release
 
-Review Meetings How To
+Review meetings how to
 ----------------------
 
--  Before Meeting
+-  Before meeting
 
    -  Try to close everything, or explain why still open.
    -  Review unscheduled and upcoming (next iteration) tickets.
@@ -74,7 +74,7 @@ Review Meetings How To
    -  Move other tickets to next iteration
    -  If next iteration is too full, prioritize and reschedule.
 
--  After Meeting
+-  After meeting
 
    -  Place review notes at
       `<http://trac.openmicroscopy.org.uk/ome/milestone/>`_\ <your-cycle-here>

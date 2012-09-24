@@ -1,4 +1,4 @@
-OMERO.web Framework
+OMERO.web framework
 ===================
 
 .. figure:: /images/OmeroWeb.png
@@ -33,7 +33,7 @@ provides functionality for creating and retrieving connections to OMERO
 (see example below & :doc:`/developers/Web/WritingViews` for more
 details)
 
-Web Gateway
+Web gateway
 ~~~~~~~~~~~
 
 The webgateway is a Django app that provides utility functionality for
@@ -42,7 +42,7 @@ methods for rendering images etc. You can browse the :javadoc:` webgateway
 urls <epydoc/omeroweb.webgateway.urls-module.html>`,
 or see the `developers/Web/WebGateway` page for more info.
 
-Web Apps
+Web apps
 ~~~~~~~~
 
 The OMERO.web framework consists of several Django apps denoted by
@@ -58,7 +58,7 @@ other apps in development:
 -  webtest: A sample app for testing, that can also be used as a basis
    for creating your own app.
 
-Getting Started
+Getting started
 ---------------
 
 All your development should be in a new 'app'. Django apps provide a
@@ -67,7 +67,7 @@ easier to port your app to new OMERO releases or share it with other
 users. To get started, see :doc:`/developers/Web/CreateApp`. 
 But if you want to have a quick look at some example code, see below...
 
-Quick Example - webtest
+Quick example - webtest
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: /images/webtest-dataset.png

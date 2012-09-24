@@ -1,4 +1,4 @@
-Git Usage for OMERO developers
+Git usage for OMERO developers
 ==============================
 
 This page is primarily designed for the core OME developers who are
@@ -821,7 +821,7 @@ involved. And when ready a small number (mostly likely just one) will be
 finalized and merged into “develop” at a time. This represents the
 post-sprint “demo” concept that has been discussed elsewhere.
 
-The Backlog
+The backlog
 ^^^^^^^^^^^
 
 One non-branch type that should also be kept in mind is the backlog.
@@ -1006,7 +1006,7 @@ Pull Request.
         git push gh new_stuff
         # Now go to the new_stuff branch on github.com and open the PR
 
-Pull Request Conflicts
+Pull Request conflicts
 ^^^^^^^^^^^^^^^^^^^^^^
 
 When issuing a pull request, usually you will the following message

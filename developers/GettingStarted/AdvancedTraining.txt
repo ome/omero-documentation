@@ -1,4 +1,4 @@
-Working With OMERO
+Working with OMERO
 ==================
 
 This page describes various tools and resources useful for working with
@@ -108,7 +108,7 @@ some starting points (follow links below to the docs themselves).
 
     Figures to the right show highly simplified outline of various model objects.
 
-Projects, Datasets and Images
+Projects, datasets and images
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :javadoc:` Projects <slice2html/omero/model/Project.html#Project>`
@@ -158,7 +158,7 @@ the Raw Pixels Store.
     used. Also, Logical Channel and Channel can be considered a single
     entity (as they are now in the OME-model).
 
-More Figures
+More figures
 ~~~~~~~~~~~~
 
 This `page of the main

@@ -80,10 +80,10 @@ Positional parameters of the form
 
     are not supported.
 
-Adding Queries
+Adding queries
 --------------
 
-Subclassing Query
+Subclassing query
 ~~~~~~~~~~~~~~~~~
 
 Other than by defining String queries via ``new QueryDef()`` TBD, the

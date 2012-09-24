@@ -7,7 +7,7 @@ Developer Policies
     The OMERO development team has put a number of policies and
     channels into place to facilitate interaction.
 
-OME Project Standards
+OME project standards
 =====================
 
 The purpose of this document is to outline for both current and new
@@ -28,7 +28,7 @@ oversight. Speak up, and it can be added.
 You’re welcome to skip through to sections that interest you, but the
 intent is that it should be readable from start to finish.
 
-Team Collaboration
+Team collaboration
 ==================
 
 For anyone completely new to the project, it’s most important to know
@@ -167,7 +167,7 @@ example, internally the team often uses OmniGraffle documents to
 illustrate concepts, but these are kept privately to prevent any
 confusion.
 
-Internal Mailing Lists
+Internal mailing lists
 ----------------------
 
 In addition to the two public mailing lists mentioned above, there are
@@ -183,7 +183,7 @@ also:
   to these :team_plone:`addresses <addresses>`, instead use
   ome-nitpick.
 
-Internal Servers
+Internal servers
 ----------------
 
 There are a number of servers and services inside of the University of
@@ -291,7 +291,7 @@ on particulars of how the team works, but since most of the current
 developers will expect for things to work in this way, it’s far more
 effective if you can follow along.
 
-Ticket types (Day-to-Day)
+Ticket types (day-to-day)
 -------------------------
 
 Any activities on a day-to-day level will be most accurately and
@@ -384,7 +384,7 @@ support for X” lets the client developer(s) know that such a feature
 would be useful. The ticket does not contain the necessary technical
 details, however, to be a story, though it can be turned into one.
 
-Sprint process (Week-to-week)
+Sprint process (week-to-week)
 -----------------------------
 
 Sprints begin at one weekly meeting and terminate two weeks
@@ -414,7 +414,7 @@ necessary to be aware of which sprint you are looking at:
    :align:  center
 
 
-Definition of Done
+Definition of done
 ^^^^^^^^^^^^^^^^^^
 
 For stories to be considered “done”, they should include tests,
@@ -447,7 +447,7 @@ less arbitrary. Where possible you should prefer to work on:
 
 .. _branch-process-label:
 
-Branch process (Month-to-month)
+Branch process (month-to-month)
 -------------------------------
 
 The output of your daily and weekly work will almost always be the

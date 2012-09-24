@@ -1,4 +1,4 @@
-Structured Annotations
+Structured annotations
 ======================
 
 Structured annotations permit the attachment of data and metadata
@@ -11,8 +11,8 @@ all unknown namespaces. Further, to prevent users from overwriting or
 editing important information, annotations are immutable, but editing
 can be simulated via copy and delete.
 
-Annotated & Annotating types
-----------------------------
+Annotated and annotating types
+------------------------------
 
 Each type which can be annotated implements ``ome.model.IAnnotated``.
 Currently, these are:
@@ -58,7 +58,7 @@ validation of the input string and/or file.
 
        A* = abstract
 
-Names and Namespaces
+Names and namespaces
 --------------------
 
 Since arbitrary blobs or clobs can be attached to an entity, it is

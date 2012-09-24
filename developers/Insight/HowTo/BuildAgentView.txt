@@ -1,4 +1,4 @@
-How to Build an Agent's View
+How to build an agent's view
 ============================
 
 In this section, we explain how a view of the agent is created. All our
@@ -26,7 +26,7 @@ Let's go back to our example ``MyBrowserAgent`` (see :doc:`/developers/Insight/H
 
   OMERO.insight agent view
 
-Typical life-cycle of an Agent View
+Typical life-cycle of an agent view
 -----------------------------------
 
 The object is first created using the ``MyBrowserFactory``
