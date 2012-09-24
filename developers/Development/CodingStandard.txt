@@ -1,4 +1,4 @@
-Coding Standard
+Coding standard
 ===============
 
 Logging
@@ -29,7 +29,7 @@ logger you will need to declare one at the top of each class like so.
 
      private static Log log = LogFactory.getLog(YourSpecificClassName.class);
 
-Exception Handling
+Exception handling
 ------------------
 
 As we all know, the easy thing to do in a catch block is to use the

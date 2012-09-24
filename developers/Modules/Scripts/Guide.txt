@@ -1,4 +1,4 @@
-Scripting Service User Guide
+Scripting service user guide
 ============================
 
 .. figure:: /images/omero-scripting-context.png
@@ -88,7 +88,7 @@ can get a service factory like this:
     session = client.getSession()
     # now you can do E.g. session.getQueryService() etc. 
 
-More Example Scripts
+More example scripts
 ~~~~~~~~~~~~~~~~~~~~
 
 Several official scripts are included in the release of OMERO and can be
@@ -102,7 +102,7 @@ future releases of these scripts from OMERO. If you think that your
 changes should be included as part of future released scripts, please
 let us know.
 
-Upload Script
+Upload script
 ~~~~~~~~~~~~~
 
 You can use the command line, OMERO.insight or the server file system to
@@ -144,7 +144,7 @@ Any folders in the script path are created on the server under
 The ID of the script is printed after upload and can also be determined
 by listing scripts (see below).
 
-Run Script
+Run script
 ~~~~~~~~~~
 
 You can run the script from OMERO.insight by browsing the scripts (see
@@ -198,7 +198,7 @@ Parameter values can also be specified in the command.
     # can also specify additional parameters
     $ omero script launch 301 Data_Type='Image' IDs=15652,15653 New_Description="Adding description from script to Image"
 
-Edit and Replace
+Edit and replace
 ~~~~~~~~~~~~~~~~
 
 Edit the script and upload it to replace the previous copy, specifying
@@ -210,8 +210,8 @@ the ID of the file to replace.
 
 Finally, you can upload and run your scripts from OMERO.insight.
 
-Other 'script' commands
-~~~~~~~~~~~~~~~~~~~~~~~
+Other script commands
+~~~~~~~~~~~~~~~~~~~~~
 
 Start by printing help for the script command:
 
@@ -312,7 +312,7 @@ the inputs.
         Values: Dataset, Image
     outputs:
 
-Regular User workflow
+Regular user workflow
 ---------------------
 
 If you are using a server for which you do not have admin access, you

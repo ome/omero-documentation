@@ -15,7 +15,7 @@ Based on the ` Spring <http://www.springsource.org/>`_ configuration
 backing the context, it can be one of : ``client``, ``internal``, or
 ``managed``. The use of a ServiceFactory simplifies this usage for the client. 
 
-Hibernate Sessions
+Hibernate sessions
 ------------------
 
 A ``Hibernate Session`` comprises a

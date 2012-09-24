@@ -1,4 +1,4 @@
-Writing Page Templates in OMERO.web
+Writing page templates in OMERO.web
 ===================================
 
 This page documents the various base templates that are used by the
@@ -52,8 +52,8 @@ templates, then you will find it easier to change things in future. For
 example, any changes in our 'common' templates will only require you to
 edit your own base templates.
 
-Extending base\_header.html & container3.html
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Extending base\_header.html and container3.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These templates are going to be your main points of extension if you
 want pages to resemble the existing OMERO.web pages (webclient,
@@ -62,7 +62,7 @@ container2.html and container3.html templates. These extend
 base\_header.html and therefore also contain the various base\_header
 blocks described here:
 
-webtest examples
+Webtest examples
 ~~~~~~~~~~~~~~~~
 
 You can find examples of how to extend the base templates in the webtest
@@ -75,7 +75,7 @@ contains links to all the other webtest examples. These pages indicate
 the names of the various template "blocks" that have been used to add
 content to different parts of the page (also see below for block names).
 
-Content Blocks
+Content blocks
 --------------
 
 These blocks can be used to add content to specific points in the page.
@@ -150,7 +150,7 @@ template details)
 -  center: The middle column
 -  right: The right column
 
-Section Blocks
+Section blocks
 --------------
 
 All of the main sections of base\_header.html are contained within

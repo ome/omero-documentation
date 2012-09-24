@@ -1,4 +1,4 @@
-OMERO Java Language Bindings
+OMERO Java language bindings
 ============================
 
 Using the ` Ice Java language
@@ -60,7 +60,7 @@ Connect to OMERO
     //if unsecure client exists.
     if (unsecureClient != null) unsecureClient.closeSession();
 
-Read Data
+Read data
 ---------
 
 The IContainer service provides method to load the data management
@@ -240,7 +240,7 @@ Given a plate ID, load the wells. You will have to use the
       //Do something
     }
 
-Raw Data Access
+Raw data access
 ---------------
 
 -  **Retrieve a given plane**.
@@ -354,7 +354,7 @@ This is useful when you need the pixels intensity.
     //Do something
     store.close();
 
-Write Data
+Write data
 ----------
 
 -  **Create a dataset and link it to an existing project.**

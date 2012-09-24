@@ -301,7 +301,7 @@ Each instance can be found in one of several states. Quickly, they are:
     :align: center
     :alt: Object states
 
-Identity, References, and Versions
+Identity, references, and versions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Critical for understanding these states is understanding the concepts of
@@ -353,7 +353,7 @@ something will remain unloaded.
 
 Versions are the last piece to understanding object identity. Two
 entities with the same id should not be considered equal if they have
-differening versions. On each write operation, the version of an entity
+differing versions. On each write operation, the version of an entity
 is incremented. This allows us to perform optimistic locking so that two
 users don't simultaneously edit the same object. That works so:
 
@@ -372,7 +372,7 @@ below under :ref:`Model#Links`. See that section or :ticket:`1001` for more
 information.)
 
 
-Working with the Object Model
+Working with the object model
 -----------------------------
 
 With these states in mind, it is possible to start looking at how to
@@ -442,8 +442,8 @@ same class with the same id are the same object. For example:
          assert i == i2 : "Instances must be referentially equal";
        }
 
-Reading **&** Writing
-~~~~~~~~~~~~~~~~~~~~~
+Reading and writing
+~~~~~~~~~~~~~~~~~~~
 
 Complications arise when one tries to mix objects from different read
 operations because of the difference in equality. In all but the most

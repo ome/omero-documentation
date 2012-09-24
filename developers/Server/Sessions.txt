@@ -1,4 +1,4 @@
-OMERO Sessions
+OMERO sessions
 ==============
 
 .. _JAAS: http://www.oracle.com/technetwork/java/javase/tech/index-jsp-136007.html
@@ -23,8 +23,7 @@ With |OmeroSessions|, both login systems have been brought together and simplifi
   :align: center
   :alt: Blitz session creation and destruction
 
-In short, Sessions …
---------------------
+In short, sessions:
 
 -  are a replacement for the standard JavaEE security infrastructure.
 -  unify the Blitz and RMI session handling,or better put, make, working

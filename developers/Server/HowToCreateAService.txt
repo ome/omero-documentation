@@ -1,4 +1,4 @@
-How To Create A Service
+How To create a service
 =======================
 
 .. topic:: Overview
@@ -30,7 +30,7 @@ factory <components/common/src/ome/system/ServiceFactory.java>`
     With the creation of :doc:`/developers/server-blitz`, there are several other locations 
     which need to be modified. These are also listed below.
 
-Files to Create
+Files to create
 ~~~~~~~~~~~~~~~
 
 .. _Spring: http://www.springsource.org/
@@ -66,7 +66,7 @@ Files to Create
     interface, but all of which support
     :doc:`throttling </developers/Server/Throttling>`.
 
-Files to Edit (not strictly necessary, see :ticket:`314`)
+Files to edit (not strictly necessary, see :ticket:`314`)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :source:`components/common/src/ome/system/ServiceFactory.java`
@@ -95,7 +95,7 @@ Files to Edit (not strictly necessary, see :ticket:`314`)
     ``MyServicePrxHelper.uncheckedCast( serviceFactoryI.getByName(String) )``
     can be used instead.
 
-Files Involved
+Files involved
 ~~~~~~~~~~~~~~
 
 :source:`components/client/resources/beanRefContext.xml`
@@ -130,7 +130,7 @@ And don't forget the tests
 Things to be aware of
 ~~~~~~~~~~~~~~~~~~~~~
 
-Local apis
+Local APIs
 ^^^^^^^^^^
 
 Several services implement a server-side subclass of the **ome.api**

@@ -1,4 +1,4 @@
-Style Guidelines for OMERO Scripts
+Style guidelines for OMERO scripts
 ==================================
 
 .. figure:: /images/omero-scripting-movie-roi.png
@@ -21,8 +21,8 @@ the link above or the :doc:`/developers/Modules/Scripts/Guide`.
 
 Most of the points below are implemented in the example :source:`Edit_Descriptions.py <examples/ScriptingService/Edit_Descriptions.py>`.
 
-Script Naming & file path
--------------------------
+Script naming and file path
+---------------------------
 
 -  Script Name. This should be in the form 'Script\_Name.py'. OMERO.insight
    will replace underscores with spaces in the script selection menu.
@@ -134,7 +134,7 @@ Script outputs
 
            client.setOutput("File_Annotation",robject(fileAnnotation))
 
-More Tips
+More tips
 ---------
 
 -  Use the 'unwrap()' function from omero.rtypes to unwrap rtypes from

@@ -1,7 +1,7 @@
-OMERO.server Overview
+OMERO.server overview
 =====================
 
-OMERO Sequence Narrative
+OMERO sequence narrative
 ------------------------
 
 Trying to understand all of what goes on with the server can be a bit
@@ -109,7 +109,7 @@ concepts which are of importance.
    logging , transactions , security , etc. , also reduces the overall
    complexity of the code.
 
-Server Design
+Server design
 -------------
 
 .. figure:: /images/server-arch.png

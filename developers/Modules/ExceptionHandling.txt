@@ -1,7 +1,7 @@
-Exception Handling
+Exception handling
 ==================
 
-Client Exceptions
+Client exceptions
 -----------------
 
 The exceptions which can be received by a client due to a remote call on
@@ -314,7 +314,7 @@ handling.
     };
     #endif // OMERO_SERVERERRORS_ICE
 
-Server Exceptions
+Server exceptions
 -----------------
 
 Due to the strict API boundary enforced by Ice, the client and server

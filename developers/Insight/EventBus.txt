@@ -1,4 +1,4 @@
-Event Bus
+Event bus
 ---------
 
 Interactions among agents are event-driven. Agents communicate by using
@@ -60,7 +60,7 @@ Structure
 	    -  Maintains a de-multiplex table to keep track of what events have to
 	       be dispatched to which subscribers.
 
-In Action
+In action
 ~~~~~~~~~
 
 -  When a subscriber invokes the register or remove method, the
@@ -142,7 +142,7 @@ asynchronous operations.
 		-  Knows how to activate the de-multiplexing of a completion event to
 		   the processing action.
 
-In Action
+In action
 ~~~~~~~~~
 
 Follow a concrete example:

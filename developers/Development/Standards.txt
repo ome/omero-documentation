@@ -1,7 +1,7 @@
-Development Standards
+Development standards
 =====================
 
-Rationale and Vision
+Rationale and vision
 ~~~~~~~~~~~~~~~~~~~~
 
 Various developers have been working on the OMERO project for up to 5
@@ -40,7 +40,7 @@ here>?
 Well, we will have a *house* set of coding style guidelines that
 everyone will adhere to without exceptions; you are not developing Perl
 scripts in your basement to sort photos of your grandmother. This
-*house* set of style guidlines will evolve over the next few weeks.
+*house* set of style guidelines will evolve over the next few weeks.
 People are welcome to speak up for things that they would prefer or pet
 peeves that they have. I will be pulling general wisdom from the
 following:
@@ -105,7 +105,7 @@ This list was initially a starting point for discussion for the
     some guidelines as well as a list of things we would like to try for
     moving forward.
 
-Client Interface
+Client interface
 ^^^^^^^^^^^^^^^^
 
 -  icons (list of used icons to reuses)
@@ -151,7 +151,7 @@ Coding
 -  Development process
 
    -  No new feature is coded without a ticket
-   -  twitter is kept uptodate on which ticket you are working on
+   -  twitter is kept up to date on which ticket you are working on
    -  testing
    -  something about reading all new documentation and commenting if
       you don't understand or know if it pertains
@@ -181,8 +181,8 @@ Documentation
 -  Documentation page for each feature with: video, documentation,
    "cite-as" statement.
 
-Installation depends on the environment how to do it?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Installation depends on the environment: how to do it?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Environment - variable and requirement to prepare OS, for example:
    environmental variables, external software/packages, hardware,
@@ -224,7 +224,7 @@ Publicity
    -  RC
    -  GA
 
-Agile Practices
+Agile practices
 ^^^^^^^^^^^^^^^
 
 See **Agile Adoption Practices**, Elssamadisy

@@ -82,7 +82,7 @@ basic filtering and selecting.
 For installation instructions, see :doc:`/sysadmins/server-tables`
 
 
-The Interface
+The interface
 -------------
 
 The :source:`slice definition file <components/blitz/resources/omero/Tables.ice>`
@@ -142,7 +142,7 @@ Examples
    (See "Going forward" below)
 
 
-The Implementation
+The implementation
 ------------------
 
 Currently, each table is backed by a single HDF table. Since PyTables

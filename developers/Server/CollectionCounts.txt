@@ -1,4 +1,4 @@
-Collection Counts
+Collection counts
 =================
 
 The
@@ -31,7 +31,7 @@ collections. These are accessed through HQL directly, such as:
 Values written to the map will not be persisted to the database, since
 they are continually re-generated.
 
-Pojo Options
+Pojo options
 ------------
 
 The PojoOptions configuration of what elements are counted has been
