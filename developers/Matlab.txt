@@ -7,12 +7,12 @@ See |DevelopingOmeroClients| and |OmeroModel|, for an introduction about
 Installing and configuring
 --------------------------
 
-Installing the OmeroMatlab toolbox
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installing the OMERO.matlab toolbox
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Download the desired version. For the latest build see
    :jenkins:`here <job/OMERO/lastSuccessfulBuild/>`, and download the
-   |OmeroMatlab| zip file. For the latest released version visit the
+   OMERO.matlab zip file. For the latest released version visit the
    main :omero_plone:`download page <downloads>`
 -  Unzip the directory anywhere on your system.
 -  In Matlab, change to the newly unzipped directory.
@@ -21,22 +21,21 @@ Installing the OmeroMatlab toolbox
    your java classpath. You can change directories and still have access
    to OMERO.
 
-Configuring the OmeroMatlab connection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configuring the OMERO.matlab connection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As described under |OmeroClients|, there are
 several ways to configure your connection to an OMERO server.
-|OmeroMatlab| comes with a few conveniences for
+OMERO.matlab comes with a few conveniences for
 making this work.
 
 If you run ``client = loadOmero;`` (i.e. loadOmero with a return value),
-then |OmeroMatlab| will try to configure the
+then OMERO.matlab will try to configure the
 ``omero.client`` object for you. First, it checks the ``ICE_CONFIG``
 environment variable. If set, it will let the ``omero.client``
 constructor initialize itself. Otherwise, it looks for the file
-``ice.config`` in the current directory. The
-|OmeroMatlab| toolbox comes with a default
-ice.config file pointing at localhost, which you can edit for your
+``ice.config`` in the current directory. The OMERO.matlab toolbox comes with a 
+default ice.config file pointing at localhost, which you can edit for your 
 server.
 
 Alternatively, you can pass the same parameters to ``loadOmero;`` that
@@ -56,8 +55,8 @@ equivalent:
     >> client2 = loadOmero('localhost');
     >> session2 = client2.createSession()
 
-Using the OmeroMatlab omero.client
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using the OMERO.matlab omero.client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once an active session is available in your workspace, you can acquire
 services, make queries, and load binary data. In short, anything the
@@ -66,7 +65,7 @@ available for getting a feel for the API.
 
 **TODO: Review the links** See the examples under
 :sourcedir:`examples` or :sourcedir:`components/tools/OmeroM/demo`
-on what you can do with |OmeroMatlab|.
+on what you can do with OMERO.matlab.
 
 Keeping your session alive
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,7 +122,7 @@ Then if you would like, you can unload OMERO as well:
     Warning: Objects of omero/client class exist - not clearing java
     > In unloadOmero at 6
 
-This means that there is still an |OmeroMatlab|
+This means that there is still an OMERO.matlab
 object in your workspace. Use "who" to find such objects, and "clear" to
 remove them. After that, run ``clear java``:
 
@@ -138,8 +137,10 @@ remove them. After that, run ``clear java``:
     >> clear omero_client
     >> clear java
 
-**You should also unload OMERO before installing a new version of
-|OmeroMatlab| or calling ``loadOmero`` again.**
+.. warning::
+    You should also unload OMERO before installing a new version of
+    OMERO.matlab or calling ``loadOmero`` again.
+
 If you need to create another session without unloading/loading OMERO
 again, use the ``omero.client`` object directly:
 
