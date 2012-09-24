@@ -242,6 +242,7 @@ loaded.
 
     proxy = session.getContainerService();
     ids = java.util.ArrayList();
+    datasetId = java.lang.Long(dId);
     ids.add(datasetId); %add the id of the dataset.
     param = omero.sys.ParametersI();
     param.leaves(); % indicate to load the images.
