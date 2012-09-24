@@ -1,4 +1,4 @@
-Advanced Configuration
+Advanced configuration
 ======================
 
 .. topic:: Overview
@@ -9,7 +9,7 @@ Advanced Configuration
 
 The OMERO server provides several different configuration/extension points that you may want to make use of.
 
-First step: Configuration properties
+First step: configuration properties
 ------------------------------------
 
 The primary form of configuration is via the use of key/value
@@ -55,7 +55,7 @@ Your database installation will need to be configured to accept *at
 least* as many, preferably more, connections as the value of
 "omero.db.poolsize"
 
-Last resort: Grid configuration
+Last resort: grid configuration
 -------------------------------
 
 In some cases, the configuration properties will not suffice to fully
@@ -106,7 +106,7 @@ the default application descriptors in place.
     merging your local changes. You should be prepared to re-make
     whatever changes you perform directly on the new files.
 
-JVM Memory settings
+JVM memory settings
 ^^^^^^^^^^^^^^^^^^^
 
 The most likely change you will need to make to your application
@@ -156,7 +156,7 @@ Debugging
 Here, the "debug" target allows increasing the logging output of the
 Python servers without modifying any files.
 
-JMX Configuration
+JMX configuration
 ^^^^^^^^^^^^^^^^^
 
 ::
@@ -180,7 +180,7 @@ The JMX target activates the monitoring of the Blitz server via JMX. If
 you need to modify the "jmxport" or "jmxhost" variables, you will need
 to do so directly in the application descriptor XML.
 
-Changing ports / Multiple servers on a single host
+Changing ports / multiple servers on a single host
 --------------------------------------------------
 
 Since changing all the references to port numbers (4061, 4063, 4064,
