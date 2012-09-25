@@ -2,7 +2,7 @@ Documentation files to be linked under the ``docs/sphinx`` directory of
 http://github.com/openmicroscopy/openmicroscopy.
 
 ***************************
-Getting started with Sphinx
+Getting Started With Sphinx
 ***************************
 
 Sphinx depends on the ``sphinx-build`` Python script. As such, it can be
@@ -98,7 +98,7 @@ to set this release number.
     OMERO_RELEASE=4.4.4 make clean html
     
 ****************
-Conventions used
+Conventions Used
 ****************
 
 Part of the conventions used here is based on work by
@@ -169,14 +169,14 @@ The following symbols should be used to create headings:
 Example::
     
     ###############
-    Part title (H1)
+    Part Title (H1)
     ###############
     
     H1 only in indexes.
     
     
     ******************
-    Chapter title (H2)
+    Chapter Title (H2)
     ******************
     
     Sample file content.
@@ -212,16 +212,16 @@ Only when a good reason exists, a document can also start with a label::
     
     .. _page-label:
     
-    *****************
-    Title of the page
-    *****************
+    
+    Title Of The Page
+    =================
 
 Use of labels to refer to whole files is discouraged. References to labels
 above tables and images are encouraged. The ``:ref:`` Sphinx role is advised
 over standard reST links, as it works across files and reference names are
 automatically generated (e.g. from caption of an image).
 
-Images vs. Figures
+Images vs. figures
 ==================
 
 reST allows for two types of image embedding: using the ``image`` and
@@ -373,17 +373,17 @@ pages, it is advised to store it in a seperate file without the default
 ``literalinclude`` directive.
 
 *******************
-Writing conventions
+Writing Conventions
 *******************
 
-* Do not use contractions (can't, isn't, I'll, etc.) in the documentation.
-* All headings should begin with a capital letter for the first word and all
-  nouns in the title.
-* All sub-headings should begin with a capital letter for the first word and
+* Do not use contractions (can't, isn't, I'll, etc.) or '&' in the documentation.
+* All H1 and H2 level headings should have a capital letter at the start of each word.
+* All sub-headings (H3 +) should begin with a capital letter for the first word and
   continue in lowercase, except where they refer to terms which are
   abbreviated in the text e.g. Virtual Machine.
 * Use the full product name, e.g. OMERO.insight instead of Insight.
 * Avoid using resp. in brackets to refer to alternative file names etc. Just
   use 'or'.
-* Use full words rather than symbols in headings if possible, e.g. use 'and'
-  rather than '&'.
+* Use full words rather than symbols in headings if possible.
+* When giving instructions, address the user as 'you' and try to maintain a professional
+  attitude - i.e. no random asides about making coffee or smilies!
