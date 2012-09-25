@@ -212,9 +212,9 @@ Only when a good reason exists, a document can also start with a label::
     
     .. _page-label:
     
-    *****************
+    
     Title Of The Page
-    *****************
+    =================
 
 Use of labels to refer to whole files is discouraged. References to labels
 above tables and images are encouraged. The ``:ref:`` Sphinx role is advised
