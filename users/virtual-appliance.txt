@@ -110,11 +110,11 @@ This process is indicated in the following screenshot:
 
    Virtual appliance import settings
 
--  You can accept the defaults by clicking **Done**.
+-  You can accept the defaults by clicking **Import**.
 
 You should now see a progress bar as your new virtual machine is built
 from the appliance. This import process can take a few minutes depending
-upon your hardware. Feel free to make a coffee whilst you are waiting ;)
+upon your hardware.
 
 When the import procedure is complete your new |VM| should appear in the
 VirtualBox |VM| library ready for use.
@@ -199,11 +199,11 @@ where $VMNAME is the name of your |VM|.
     pre-built appliance is named **omero-vm**
 
 Adding port forwarding manually is achieved by editing the port
-forwarding table that we displayed before. Use the **+** to add a new
+forwarding table that was displayed before. Use the **+** to add a new
 row to the table then clicking in each cell and typing in the required
 settings.
 
-Now we are ready to start our |VM|. Select the |VM| in the VirtualBox |VM|
+Now you are ready to start your |VM|. Select the |VM| in the VirtualBox |VM|
 library then click **start**.
 
 .. figure:: /images/virtual-appliance-5library.jpg
@@ -335,7 +335,7 @@ to connect to the |VM|.
 
    OMERO.insight main window
 
-You can now use OMERO.insight to import & manage images on a locally running
+You can now use OMERO.insight to import and manage images on a locally running
 virtual server just like you could using a remote server.
 
 Secure Shell
@@ -354,7 +354,7 @@ command typed into a terminal:
     $ ssh omero@localhost -p 2222
 
 This invokes the |SSH| program telling it to login to the localhost on
-port 2222 using the username *omero*. Remember that earlier we set up
+port 2222 using the username *omero*. Remember that earlier you set up
 port forwarding to forward port 2222 on the host machine to port 22 (the
 default |SSH| port) on the guest |VM|. If all goes well you will be prompted
 for a password. Once you have successfully entered your password you
@@ -368,7 +368,7 @@ There are two potential complications to this method, (1) if you have
 used a |VM| before then there could be old |SSH| fingerprints set up, (2)
 the first time that you log into the |VM| you will be asked to confirm
 that wish to continue connecting. If you get the following message after
-you invoke ssh:
+you invoke SSH:
 
 ::
 
@@ -421,7 +421,7 @@ will be prompted for your password as usual:
     Warning: Permanently added '[localhost]:2222' (RSA) to the list of known hosts.
     omero@localhost's password:
 
-After which, if all has gone well, you should have a prompt indicating
+After which, you should have a prompt indicating
 that you have a shell open and logged into the |VM|:
 
 ::
@@ -551,12 +551,11 @@ OMERO.server in the host OS.
 |VM| will not boot because the |HDD| is full
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you manage to fill the virtual |HDD| used by your |VM| then you will
-likely discover that the |OS| is unable to boot and you cannot therefore
-get access to your OMERO.server install. If this occurs you may also get
-a "errno 28: no space left on device" message. To log into your |VM| you
-will need to use the recovery mode. Start the |VM| and at the Grub screen,
-use the down arrow followed by return to select the following entry:
+If you manage to fill the virtual |HDD| used by your |VM| then you will likely 
+discover that the |OS| is unable to boot and you cannot get access to your OMERO.server 
+install. If this occurs you may also get a "errno 28: no space left on device" message. 
+To log into your |VM| you will need to use the recovery mode. Start the |VM| and at the 
+Grub screen, use the down arrow followed by return to select the following entry:
 
 ::
 
@@ -646,9 +645,9 @@ most up-to-date version is fine. We will need this later in the process.
 Backing up your |VM|
 """"""""""""""""""""
 
-Before we do anything else we should
+Before you do anything else you should
 create a clone of the omero-vm and subsequently work on the copy. This
-way if something gets broken we can always start again. The easiest way
+way if something gets broken you can always start again. The easiest way
 to do this is from the command line. 
 
 .. note:: 
@@ -662,24 +661,24 @@ omero-vm, use the following command:
 
     $ VBoxManage clonevm omero-vm --mode machine --options keepallmacs --name omero-vm-2 --register
 
-This will create a copy of our |VM| called omero-vm-2 which we will make
-alterations to. This means that we can always return to the original
-omero-vm if we break anything. From now on **only** make changes to
+This will create a copy of your |VM| called omero-vm-2 which you can make
+alterations to. This means that you can always return to the original
+omero-vm if you break anything. From now on **only** make changes to
 omero-vm-2.
 
 Extending the |HDD|
 ^^^^^^^^^^^^^^^^^^^
 
-By default our virtual hard drive attached to omero-vm-2 is of a type
-which cannot be extended; so we need to change this by cloning our HDD
+By default your virtual hard drive attached to omero-vm-2 is of a type
+which cannot be extended; so you need to change this by cloning your HDD
 from the VDMK type to VDI type:
 
 ::
 
     $ VBoxManage clonehd omero-vm-2-disk1.vmdk omero-vm-2-disk1.vdi --format VDI
 
-We now need to increase the size of our virtual |HDD|. In the following
-command we are resizing the |HDD| to 60GB but you should select a size to
+You now need to increase the size of your virtual |HDD|. In the following
+command you are resizing the |HDD| to 60GB but you should select a size to
 suit the amount of data you plan to store in OMERO:
 
 ::
@@ -689,12 +688,12 @@ suit the amount of data you plan to store in OMERO:
 Adding the extended |HDD| to the |VM| clone
 """""""""""""""""""""""""""""""""""""""""""
 
-We now need to tell VirtualBox to use :file:`omero-vm-2-disk1.vdi`
+You now need to tell VirtualBox to use :file:`omero-vm-2-disk1.vdi`
 instead of :file:`omero-vm-2-disk1.vmdk` which is currently attached to
-the |VM|. Whilst we are on the :guilabel:`Storage` tab we will also attach the
-Ubuntu ISO that we downloaded earlier to our |VM|. We are going to temporarily
+the |VM|. Whilst you are on the :guilabel:`Storage` tab you will also attach the
+Ubuntu ISO that you downloaded earlier to your |VM|. You are going to temporarily
 use the tools that ship with Ubuntu to make changes to the filesystem within
-our |VM|.
+your |VM|.
 
 #. Start VirtualBox and select omero-vm-2 in the |VM| library.
 #. Right-click :menuselection:`Settings` then select the :guilabel:`Storage`
@@ -735,7 +734,7 @@ Reallocating space on the VA |HDD|
 
 Start the omero-vm-2 |VM|. Ubuntu linux should boot and you should
 eventually see a welcome screen giving you the option to try or install
-Ubuntu. We will now start the GParted software and resize our partitions.
+Ubuntu. You can now start the GParted software and resize your partitions.
 
 #. Select try Ubuntu and you should be presented with a graphical desktop.
 #. Start the `gparted` tool using the menu option under :menuselection:`System --> Administration --> GParted Partition Editor`.
@@ -759,8 +758,8 @@ Ubuntu. We will now start the GParted software and resize our partitions.
 
    Virtual Appliance |HDD| in GParted
 
-Up until this point we haven't actually applied any of our changes to the 
-|HDD|, we have only specified a list of changes that should be made. We can 
+Up until this point you haven't actually applied any of your changes to the 
+|HDD|, you have only specified a list of changes that should be made. You can 
 now go ahead and apply them by selecting the :menuselection:`Edit --> Apply 
 All Operations` menu item then clicking :guilabel:`Apply` in the confirmation
 dialog box.
@@ -771,7 +770,7 @@ When the operations have completed dismiss the dialog with the
 Changing |HDD| settings inside the VA
 """"""""""""""""""""""""""""""""""""""
 
-We no longer need the Ubuntu ISO so we can detach it from our |VM|. Ensure 
+You no longer need the Ubuntu ISO so you can detach it from your |VM|. Ensure 
 that omero-vm-2 is selected then click :guilabel:`Settings` and select the
 :guilabel:`Storage` tab. Right-click the :guilabel:`IDE Controller` entry and
 select :guilabel:`Remove Controller` then click :guilabel:`OK` to return the
@@ -783,8 +782,8 @@ you expect, e.g. if you allocated a 60GB virtual |HDD| then after size
 conversions and swap allocation we should end up with `/dev/sda1` reported as
 being around 56GB.
 
-Within the |VM| we need to add the UUID of the new swap partition to the
-:file:`/etc/fstab` file because we deleted the old one & created a new swap
+Within the |VM| you need to add the UUID of the new swap partition to the
+:file:`/etc/fstab` file because you deleted the old one and created a new swap
 which means that the IDs will no longer match.
 
 ::
@@ -804,8 +803,8 @@ so that the entry looks similar to the following:
 
     UUID= none swap sw 0 0
 
-and place your cursor after the equals sign. We will now issue a command
-from within the VIM editor to insert our new swap UUID into the :file:`fstab`
+and place your cursor after the equals sign. You can now issue a command
+from within the VIM editor to insert your new swap UUID into the :file:`fstab`
 file.
 
 ::
