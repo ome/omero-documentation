@@ -9,13 +9,11 @@ an OMERO server will be more interested by the :doc:`sysadmins/index` and
 subsequent sections. Finally, developers can find more specific information 
 about OMERO in the :doc:`developers/index`.
 
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
- 
-    users/index
-    sysadmins/index
-    developers/index
+.. only:: html
+
+    - :doc:`users/index`
+    - :doc:`sysadmins/index`
+    - :doc:`developers/index`
 
 Additional online resources can be found at:
 
@@ -30,3 +28,12 @@ errors, go to the :omedocs:`documentation repository <>`, fork it, edit the
 file contents and propose your file changes to the OME team using `Pull Requests`_.
 
 .. _Pull Requests: https://help.github.com/articles/using-pull-requests
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    users/index
+    sysadmins/index
+    developers/index
+
