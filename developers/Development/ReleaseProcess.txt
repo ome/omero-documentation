@@ -157,12 +157,6 @@ Documentation
 -  Documentation of all API/model changes
 -  All sphinx documentation
 
-4.4.0 Things left to test/discuss
----------------------------------
-
--  VS 2010 build with Scons 2.x
--  ImageJ support
-
 Release candidates
 ------------------
 
@@ -182,6 +176,7 @@ Schema pre-release checklist
 
 Release
 -------
+.. |releasetag| replace:: v.\ |release|
 
 -  **No pre-meeting releases**; Need at least X week(s) before a major
    event.
@@ -189,24 +184,51 @@ Release
    commit with this version number)
 
    -  Tag the SHA1 of that single commit for release:
-      ``git tag -u "Josh Moore (Glencoe Software, Inc.) <josh@glencoesoftware.com>" -m "Release version 4.4.0" v.4.4.0``
+
+      .. parsed-literal::
+
+         git tag -u "Josh Moore (Glencoe Software, Inc.) <josh@glencoesoftware.com>" -m "Release version \ |release|" |releasetag|
+
    -  Push the tag to the official repository:
-      ``git push origin v.4.4.0``
-   -  Checkout master: ``git checkout master``
-   -  Merge the newly created tag: ``git merge v.4.4.0``
-   -  Push to the official repository: ``git push origin master``
+
+      .. parsed-literal::
+
+         git push origin |releasetag|
+
+   -  Checkout master:
+
+      ::
+
+         git checkout master
+
+   -  Merge the newly created tag:
+
+      .. parsed-literal::
+
+          $ git merge |releasetag|
+
+   -  Push to the official repository:
+
+      ::
+
+         git push origin master
+
    -  Update version number for the :doc:
       `UpgradeCheck </sysadmins/UpgradeCheck>`. This is currently done
       by connecting to the “feedback” database on necromancer. Following
       info also under :doc:`/sysadmins/UpgradeCheck`:
 
-      -  ``select * from registry_version;``
-      -  ``update registry_version set version = '4.4.0';``
+      .. parsed-literal::
+         select * from registry_version;
+         update registry_version set version = '\ |release|';
 
 -  Create builds with jenkins
 
-   -  ``git push origin v.4.4.0 develop`` assuming the commit isn’t
-      present.
+   -  Assuming the commit isn’t present.
+
+      .. parsed-literal::
+         git push origin |releasetag| develop
+
    -  If commit is present, just click on “Build” on Jenkins
    -  Mark build as “QA”\, eventually as “Release”
    -  Copy builds to /snapshots (currently manual)
