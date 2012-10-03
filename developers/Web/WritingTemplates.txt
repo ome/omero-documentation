@@ -11,66 +11,144 @@ with the OMERO.web look and feel.
 
   The ``base_header.html`` template extended in webtest with dummy content
 
+
+You can use these templates in a number of ways, but there are 2 general scenarios that are detailed below:
+
+- You want a page header to look like the webclient, but you don't need any data or connection to OMERO.
+- You want a page that looks and behaves like it's part of the webclient application, including data from the OMERO server.
+
+
 Django templates
 ----------------
 
 We use Django templates for the OMERO.web pages. See docs here:
-` https://docs.djangoproject.com/en/dev/ref/templates/ <https://docs.djangoproject.com/en/dev/ref/templates/>`_.
+` https://docs.djangoproject.com/en/dev/ref/templates/ <https://docs.djangoproject.com/en/dev/ref/templates/>`_ and ` template
+inheritance <https://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance>`_.
 We have designed a number of OMERO.web base templates that you can
-extend. These live in the 'common' app under
-omeroweb/common/templates/common/base. Here's a list of the templates
-with more details below:
+extend. The base templates live in the 'webgateway' app under
+omeroweb/webgateway/templates/webgateway/base. You can use these to make pages that don't require an OMERO login (E.g. public home page) etc.
 
--  **base\_html.html**. This provides the base <html> template with
-   blocks for 'link'(for css) 'title' 'script' and 'body'. It is
-   extended by every other template. Usage:
-   ``{% extends "common/base/base_html.html" %}``
--  **base\_frame.html**. This adds jQuery and jQuery-ui libraries to a
-   blank page. Used for popup windows etc. Usage:
-   ``{% extends "common/base/base_frame.html" %}``
--  **base\_header.html**. This also extends base\_html.html adding all
-   the header and footer components that are used by the webclient. See
-   screen-shot above. More details below.
--  **container2.html, container3.html**. These templates extend the
-   base\_header.html template, adding a 2 or 3 column layout in the main
-   body of the page. They are used by the webclient for many pages. See
-   screen-shot below.
+If you want your pages to extend the webclient application, you can use templates from omeroweb/webclient/templates/webclient/base.
 
-.. figure:: /images/webtest-container.png
+These templates are described in more detail below.
+
+
+Getting Started
+---------------
+
+Within your :doc:`OMERO web app </developers/Web/CreateApp>`, create a new page template and add this line at
+the top:
+
+::
+
+    {% extends "webgateway/base/base_header.html" %}
+
+Now add the page content in a 'content' block like this:
+
+::
+
+    {% block content %}
+        Your page content goes here
+    {% endblock %}
+
+You can now save this template and view the page. It should look something like the screen-shot above. You could add
+a 'title' block to set the page <title>
+
+::
+
+    {% block title %}
+        My OMERO web app page
+    {% endblock %}
+
+Additional blocks can be used to customise the page further. See below for more details.
+
+
+Using Webclient templates
+-------------------------
+
+Webclient templates can be used in exactly the same way, for example try using this at the
+top of the page you created above:
+
+::
+
+    {% extends "webclient/base/base_container.html" %}
+
+However, this template will need various pieces of data to be in the page context
+that Django uses to render the page. You'll need to use the @login_required() and
+@render_response() decorators on your views.py methods in order to retrieve this
+info and pass it to the template. See :doc:`/developers/Web/WritingViews` for more details.
+
+If you've used the 'content' block on this page (as described above) you'll see that your
+page content fills the whole area under the header. However, if you want to use the same
+3 column layout as the webclient, you can replace your 'content' block with:
+
+::
+
+    {% block left %}
+        Left column content
+    {% endblock %}
+
+    {% block center %}
+        Center content
+    {% endblock %}
+
+    {% block right %}
+        Right column content
+    {% endblock %}
+
+This should give you something like the screen-shot below.
+
+.. figure:: /images/webclient-base_container.png
   :align: center
-  :alt: Base container
+  :alt: Webclient Base container
 
-  The ``base_container3.html`` template extended in webtest with dummy content
+  The ``webclient/base/base_container.html`` template extended in webtest with dummy content
+
+
 
 Extending templates
 -------------------
 
 You should aim to create a small number of your own base templates,
-extending the OMERO.web common or webclient templates as required. If
+extending the OMERO.web webgateway or webclient templates as required. If
 you extend all of your own pages from a small number of your own base
 templates, then you will find it easier to change things in future. For
-example, any changes in our 'common' templates will only require you to
+example, any changes in our 'webgateway' templates will only require you to
 edit your own base templates.
 
-Extending base\_header.html and container3.html
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Here's a full list of the templates under omeroweb/webgateway/templates/webgateway/base
+with more details below:
 
-These templates are going to be your main points of extension if you
-want pages to resemble the existing OMERO.web pages (webclient,
-webadmin). If you want the 2 and 3 column layouts you can use the
-container2.html and container3.html templates. These extend
-base\_header.html and therefore also contain the various base\_header
-blocks described here:
+-  **base\_html.html**. This provides the base <html> template with
+   blocks for 'link'(for css) 'title' 'script' and 'body'. It is
+   extended by every other template. Usage:
+   ``{% extends "webgateway/base/base_html.html" %}``
+-  **base\_frame.html**. This adds jQuery and jQuery-ui libraries to a
+   blank page. Used for popup windows etc. Usage:
+   ``{% extends "webgateway/base/base_frame.html" %}``
+-  **base\_header.html**. This also extends base\_html.html adding all
+   the header and footer components that are used by the webclient. See
+   screen-shot above. More details below.
+-  **base\_main.html**. This adds jQuery and jQuery-ui libraries to the
+   base\_header.html template. Used for popup windows etc. Usage:
+   ``{% extends "webgateway/base/base_main.html" %}``
+-  **container2.html, container3.html**. These templates extend the
+   base\_header.html template, adding a 2 or 3 column layout in the main
+   body of the page. container3.html is used by the webclient for the base_container example above.
+
 
 Webtest examples
 ~~~~~~~~~~~~~~~~
 
 You can find examples of how to extend the base templates in the webtest
-application. Look under omeroweb/webtest/templates/webtest/common. If
-you have access to a 4.4 OMERO.web, the webtest examples can be viewed
-using the following link, updating the host and port as necessary:
-` http://localhost:8000/webtest/common/base\_header/ <http://localhost:8000/webtest/common/base_header/>`_
-(screen-shot above). This is a basic extension of base\_header.html and
+application. The location of these depends on your OMERO version:
+
+-  4.4.0 - 4.4.4: Look under omeroweb/webtest/templates/webtest/common. View live at
+   <your-server-name>/webtest/common/base\_header/
+-  After 4.4.4: Look under omeroweb/webtest/templates/webtest/webgateway. View live at
+   <your-server-name>/webtest/webgateway_templates/base_header/>
+
+The link is to an example that extends base\_header.html and
 contains links to all the other webtest examples. These pages indicate
 the names of the various template "blocks" that have been used to add
 content to different parts of the page (also see below for block names).
@@ -89,10 +167,8 @@ These blocks can be used to add content to specific points in the page.
     `` {{ block.super }} `` then you will remove all the css and javascript
     links required by the parent template.
 
-base\_header.html
-~~~~~~~~~~~~~~~~~
 
-See omeroweb/common/templates/common/base/base\_header.html for full
+See omeroweb/webgateway/templates/webgateway/base/base\_header.html for full
 template details
 
 -  link: Used to add css with <link> blocks to the page head. E.g:
@@ -101,119 +177,24 @@ template details
 
        {% block link %}
            {{ block.super }}
-           <link rel="stylesheet" href="{% static "common/css/header.css" %}" type="text/css" />
+           <link rel="stylesheet" href="{% static "webgateway/css/ome.body.css" %}" type="text/css" />
        {% endblock %}
 
 -  script: Used to add javascript with <script> blocks to the page head
--  title: Add text here for the page <title>. E.g:
-
-   ::
-
-       {% block title %}
-           Page Title Here
-       {% endblock %}
-
+-  title: Add text here for the page <title>.
 -  head: Another block for any extra head elements
--  logo: This block contains <div> and <img> elements to display "ome"
-   logo. You don't need to use this unless you want to hide or change
-   the logo.
--  util\_links: Text added to this block will appear in the far
-   top-right of the page. E.g:
-
-   ::
-
-       {% block util_links %}
-           <a href="help">Help</a>
-       {% endblock %}
-
--  middle\_header\_right: Adds content to the right of the dark (middle)
-   toolbar
--  middle\_header\_left: Adds content to the left of the dark (middle)
-   toolbar
--  thin\_header\_right: Adds content to the right of the thin (lower)
-   toolbar
--  thin\_header\_left: Adds content to the left of the thin (lower)
-   toolbar
+-  middle\_header\_right: Adds content to the right of the main header
+-  middle\_header\_left: Adds content to the left of the main header
 -  content: Main page content.
--  footer\_content: Add text to the footer
--  copywrite: Adds second line to footer. Use for OME copywrite.
 
 container2.html, container3.html
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These templates have all the same blocks as base\_header.html since they
 extent it (see above). In addition, they also add the following blocks:
-(see omeroweb/common/templates/common/base/container3.html for full
+(see omeroweb/webgateway/templates/webgateway/base/container3.html for full
 template details)
 
 -  left: The left column (NOT in container2.html)
 -  center: The middle column
 -  right: The right column
-
-Section blocks
---------------
-
-All of the main sections of base\_header.html are contained within
-corresponding blocks, allowing you to remove or replace whole sections.
-E.g. to remove the footer in a page that extends base\_header.html,
-simply add
-
-::
-
-    {% block footer %} {% endblock %}
-
-NB: In some cases, removing sections may require you to tweak the
-position or layout of other sections (see css below)
-
--  body: Corresponds to the page <body>
--  top\_header: Contains OME logo etc.
--  middle\_header: Darker colored toolbar.
--  thin\_header: Thinner, light tool bar.
--  footer: Page footer.
-
-Webclient components
---------------------
-
-The 'common' base templates do not contain any elements that require an
-OMERO connection or any webclient functionality. If you want your
-templates to display such features, you can either extend the webclient
-base templates, E.g. base\_container.html or you can 'include' various
-components, such as menus, group & user-choosers etc. These templates
-and includes are in omeroweb/webclient/templates/base/.
-
--  webclient menu: To include links to the main webclient pages. E.g.
-   add to the left of the middle header :
-
-   ::
-
-       {% block middle_header_left %}
-           {% include "webclient/base/menu.html" %}
-       {% endblock %}
-
--  webclient search: Adds a text field and "Go" button that takes you to
-   the webclient seach page to display results. E.g. add to the right of
-   the thin header:
-
-   ::
-
-       {% block thin_header_right %}
-           {% include "webclient/base/search_field.html" %}
-       {% endblock %}
-
--  Logout: Logs user out and redirects to webclient login (login will
-   take you to the webclient home page). E.g.
-
-   ::
-
-       {% block util_links %}
-           {% include "webclient/base/logout.html" %}
-       {% endblock %}
-
--  etc...? scripts? change\_user/group? Need to test in webtest - these
-   need context data.
-
-Configuring tabs
-----------------
-
-Tweaking css
-------------
