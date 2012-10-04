@@ -3,8 +3,7 @@ WebGateway
 
 WebGateway is a Django app within the |OmeroWeb|. 
 It provides a web API for rendering images and accessing data
-on the OMERO server via urls. It also provides methods for creating or
-retrieving an OMERO server connection (see :ref:`Gettingaconnection`).
+on the OMERO server via urls.
 
 .. note::
     The OMERO.web client also supports urls linking to specified data in OMERO.
