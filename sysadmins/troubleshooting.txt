@@ -73,14 +73,14 @@ during the installation process.
    any root-level Unix account). This is done by setting the password in
    the database script:
 
-   ::
+   .. parsed-literal::
 
        $ bin/omero db script
-       Please enter omero.db.version [OMERO4.4]: 
+       Please enter omero.db.version [OMERO\ |version|\ ]: 
        Please enter omero.db.patch [0]: 
        Please enter password for new OMERO root user:       # root_password
        Please re-enter password for new OMERO root user:      # root_password
-       Saving to ~/OMERO4.4__0.sql
+       Saving to ~/OMERO\ |version|\ __0.sql
 
 Other OMERO users can be created via the OMERO.web admin tool. In no case, do
 any of the passwords have to be the same (or should they **unless you
