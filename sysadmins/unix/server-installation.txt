@@ -381,7 +381,7 @@ Installation
 	    This should **not** be the same password as your Linux/Mac/Windows 
 	    root user!
 	
-    .. parsed-literal:;
+    .. parsed-literal::
 
         $ cd ~/Desktop/omero 
         $ bin/omero db script
