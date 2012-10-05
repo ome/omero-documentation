@@ -32,11 +32,28 @@ The primary classes which make up the Import Library are:
    :source:` CommandLineImporter <components/tools/OmeroImporter/src/ome/formats/importer/cli/CommandLineImporter.java>`
    class.
 
+Earlier Import Workflow
+-----------------------
+
+Before 4.5.0 the import workflow was very much client-side. 
+Using the ImportLibrary a client would determine the import candidates and then import the image.
+The import phase would comprise copying the pixel data to the OMERO data directory,
+writing the metadata into the database and optionally copying the original file
+to the OMERO data directory for archiving.
+
+FS-lite Import Workflow
+-----------------------
+
+From 4.5.0 the workflow has changed. The client still determines the import candidates but
+the client-side import process simply uploads the original files to the OMERO data directory and then uses the ManagedRepository service to initiate a server-side import. On the server the import is then completed by 
+writing the metadata into the database. After import, pixel data is then accessed directly from the original 
+files using Bio-formats. For full details of the import workflow see :doc:`/developers/FSlite/FSlite`
+
 Example
 -------
 
 The ``CommandLineImporter.java`` class shows a straight-forward import.
-An ``ErrorHandler`` instance is passed both top the ImportCandidates
+An ``ErrorHandler`` instance is passed both to the ImportCandidates
 constructor (since errors can occur while parsing a directory) and to
 the ``ImportLibrary``. This and other handlers receive ``ImportEvents``
 which notify listeners of the state of the current import.

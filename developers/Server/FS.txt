@@ -8,6 +8,10 @@ then signaled to any observers, who can optionally begin reading the
 file once updated.
 
 One critical use of OMERO.fs is watching a
-directory and kicking off an automatic import. Another is allowing
+directory and kicking off an automatic import. The configuration of the
+DropBox system is covered on the :doc:`/sysadmins/server-fs` system administrator's page.
+
+Another is allowing
 system administrators to point OMERO at an existing directory without
-requiring the data duplication required by a traditional import.
+requiring the data duplication required by a traditional import. 
+This is now implemented as :doc:`/developers/FSlite/FSlite`. 
