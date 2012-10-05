@@ -31,7 +31,8 @@ the server package) and setup your PYTHONPATH to include them:
 
 
 You'll also need Ice libraries 3.3.x or 3.4.x as described in the 
-:doc:`/sysadmins/unix/server-installation` and an OMERO server to connect to, which must be the same major version, i.e. |version|.x.
+:doc:`/sysadmins/unix/server-installation` and an OMERO server to connect to, 
+which must be the same major version, i.e. |version|.x.
 
 
 All the code examples below can be found at 

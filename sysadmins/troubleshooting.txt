@@ -73,7 +73,7 @@ during the installation process.
    any root-level Unix account). This is done by setting the password in
    the database script:
 
-   ::
+   .. parsed-literal::
 
        $ bin/omero db script
        Please enter omero.db.version [OMERO\ |version|\ ]: 
