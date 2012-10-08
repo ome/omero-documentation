@@ -242,6 +242,18 @@ Please do not use tables for collections of links and figures, and leave them
 solely for use as actual tables. While it can be used in HTML to shoehorn 
 content into boxes, it doesn't work too well for other output, e.g. latex.
 
+Big tables (typically wider than 50 characters) should be managed as external 
+files using the comma-separated values (CSV) format. All tables formatted in 
+CSV shall be placed in an ``tables`` folder in the top-level directory of the 
+documentation. These tables can then be included in the documentation with the 
+`csv-table` directive, e.g.::
+
+    .. csv-table::
+        :widths: 20 80
+        :header-rows: 1
+        :file: searchfieldnames.csv
+        :delim: tab
+
 Substitutions, aliases and hyperlinks
 =====================================
 
