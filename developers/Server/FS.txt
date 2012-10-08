@@ -14,4 +14,9 @@ DropBox system is covered on the :doc:`/sysadmins/server-fs` system administrato
 Another is allowing
 system administrators to point OMERO at an existing directory without
 requiring the data duplication required by a traditional import. 
-This is now implemented as :doc:`/developers/FSlite/FSlite`. 
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    /developers/FSlite/FSlite
