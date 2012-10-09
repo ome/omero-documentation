@@ -254,6 +254,11 @@ set the table delimiter to `tab` e.g.::
         :file: searchfieldnames.tsv
         :delim: tab
 
+To control the column width in the LaTeX output, precede the table directive 
+with ``tabularcolumns``, e.g.::
+
+    .. tabularcolumns:: |p{3.5cm}|p{12cm}|
+
 Substitutions, aliases and hyperlinks
 =====================================
 
