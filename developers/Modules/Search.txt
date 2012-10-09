@@ -17,6 +17,8 @@ into the several ``Fields``. A field is referenced by prefixing a search
 term with the field name followed by a colon. For example,
 `name:myImage` searches for myImage anywhere in the name field.
 
+.. tabularcolumns:: |p{3.5cm}|p{12cm}|
+
 .. csv-table::
     :widths: 20 80
     :header-rows: 1
