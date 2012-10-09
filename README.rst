@@ -243,15 +243,15 @@ solely for use as actual tables. While it can be used in HTML to shoehorn
 content into boxes, it doesn't work too well for other output, e.g. latex.
 
 Big tables (typically wider than 50 characters) should be managed as external 
-files using the comma-separated values (CSV) format. All tables formatted in 
-CSV shall be placed in an ``tables`` folder in the top-level directory of the 
-documentation. These tables can then be included in the documentation with the 
-`csv-table` directive, e.g.::
+files using the comma-separated values (CSV) format. These tables can then be 
+included in the documentation with the ``csv-table`` directive. If tables are 
+saved using the tab-separated values (TSV) format use the ``delim`` option to 
+set the table delimiter to `tab` e.g.::
 
     .. csv-table::
         :widths: 20 80
         :header-rows: 1
-        :file: searchfieldnames.csv
+        :file: searchfieldnames.tsv
         :delim: tab
 
 Substitutions, aliases and hyperlinks
