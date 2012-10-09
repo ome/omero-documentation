@@ -1,6 +1,6 @@
 Field	Comments
-	Any unprefixed field searches the combination of all fields together. I.e. a search for “cell AND name:myImage” gets translated to “combined_fields:cell AND name:myImage”.
-<field name>	"Each string, timestamp, or Details field of the entity also gets its own Field entry, like the _name_ field above"
+	Any unprefixed field searches the combination of all fields together i.e. a search for `cell AND name:myImage` gets translated to `combined_fields:cell AND name:myImage`.
+<field name>	"Each string, timestamp, or ``Details`` field of the entity also gets its own Field entry, like the ``name`` field above"
 details.owner.omeName	Login name of the owner of the object
 details.owner.firstName	First name of the owner of the object
 details.owner.lastName	Last name of the owner of the object
@@ -9,17 +9,17 @@ details.creationEvent.id	Id of the Event of this objects creation
 details.creationEvent.time	When that Event took place
 details.updateEvent.id	Id of the Event of this objects last modification
 details.updateEvent.time	When that Event took place
-details.permissions	Permissions in the form _rwrwrw_ or _rw_-_
-tag	Contents from a TagAnnotation.
-annotation	"Contents from any annotations, including TagAnnotations and any TextAnnotation on another TextAnnotation (a.k.a. a _description_"
-annotation.ns,Namespace (if present) for any annotations on an object
-annotation.type	"Short type name, e.g. TextAnnotation or FileAnnotation for any annotations on an object"
-file.name	"For FileAnnotations and objects they are attached to, the name of the OriginalFile"
-file.format,"For FileAnnotations and objects they are attached to, the format of the OriginalFile"
-file.path	"For FileAnnotations and objects they are attached to, the path of the OriginalFile"
-file.sha1	"For FileAnnotations and objects they are attached to, the sha1 of the OriginalFile"
-file.contents	"For FileAnnotations and objects they are attached to as well as the ``OriginalFile`` itself, the file contents themselves if their Format is configured with the File parsers."
+details.permissions	Permissions in the form `rwrwrw` or `rw-`
+tag	Contents from a ``TagAnnotation``.
+annotation	Contents from any annotations, including ``TagAnnotation`` and any ``TextAnnotation`` on another ``TextAnnotation`` (a.k.a. a `description`)
+annotation.ns	Namespace (if present) for any annotations on an object
+annotation.type	Short type name, e.g. ``TextAnnotation`` or ``FileAnnotation`` for any annotations on an object
+file.name	For ``FileAnnotations`` and objects they are attached to, the name of the ``OriginalFile``
+file.format	For ``FileAnnotations`` and objects they are attached to, the format of the ``OriginalFile``
+file.path	For ``FileAnnotations`` and objects they are attached to, the path of the ``OriginalFile``
+file.sha1	For ``FileAnnotations`` and objects they are attached to, the sha1 of the ``OriginalFile``
+file.contents	For ``FileAnnotations`` and objects they are attached to as well as the ``OriginalFile`` itself, the file contents themselves if their Format is configured with the File parsers.
 Internal,
 combined_fields	The default field prefix.
-_hibernate_class,"Used by Hibernate Search to record the entity type. The class value, e.g. ome.model.core.Image is also entered in combined_fields. Unimportant for the casual users"
+_hibernate_class	Used by Hibernate Search to record the entity type. The class value, e.g. ome.model.core.Image is also entered in combined_fields. Unimportant for the casual users.
 id	The primary key of the entity. Unimportant for the casual user

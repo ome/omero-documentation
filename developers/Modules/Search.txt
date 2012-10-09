@@ -15,7 +15,7 @@ Field names
 Each row in the database becomes a single Lucene ``Document`` parsed
 into the several ``Fields``. A field is referenced by prefixing a search
 term with the field name followed by a colon. For example,
-"name:myImage" searches for myImage anywhere in the name field.
+`name:myImage` searches for myImage anywhere in the name field.
 
 .. csv-table::
     :widths: 20 80
