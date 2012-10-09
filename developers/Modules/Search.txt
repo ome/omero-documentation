@@ -20,7 +20,7 @@ term with the field name followed by a colon. For example,
 .. csv-table::
     :widths: 20 80
     :header-rows: 1
-    :file: searchfieldnames.csv
+    :file: searchfieldnames.tsv
     :delim: tab
 
 Queries
