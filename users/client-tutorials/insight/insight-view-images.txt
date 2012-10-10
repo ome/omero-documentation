@@ -32,7 +32,7 @@ To modify the rendering settings:
    -  modify the interval value
    -  modify the mapping, bit resolution, etc.
    -  reset some settings
-   -  view if other users have viewed the image and view how the
+   -  see if other users have viewed the image and what
       settings they used
 
 .. figure:: /images/insight-viewer-2rendering.png
@@ -51,7 +51,7 @@ below
 Projection view
 ---------------
 
-If you image has several z-sections, to project the image, go to the
+If your image has several z-sections, to project the image, go to the
 Projection View tab.
 
 -  select the type of projection i.e. maximum or minimum intensity
