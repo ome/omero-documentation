@@ -2,9 +2,9 @@ OMERO.grid
 ==========
 
 To unify the various components of OMERO,
-|OmeroGrid| was developed to monitor and control
+OMERO.grid was developed to monitor and control
 processes over numerous remote systems. Based on ZeroC_'s IceGrid framework,
-|OmeroGrid| provides an administration gui,
+OMERO.grid provides an administration gui,
 distributed background processing, log handling, and several other
 features.
 
@@ -15,10 +15,10 @@ Getting started
 Requirements
 ^^^^^^^^^^^^
 
-|OmeroGrid| is the basis of the regular OMERO installation.
+OMERO.grid is the basis of the regular OMERO installation.
 If you have followed the instructions under  :doc:`Unix <unix/server-installation>`
 or :doc:`Windows <windows/server-installation>`, then you
-will have everything you need to start working with |OmeroGrid|.
+will have everything you need to start working with OMERO.grid.
 
 IceGrid Tools
 ^^^^^^^^^^^^^
@@ -40,7 +40,7 @@ the ZeroC_ manual. Specific commands can also be executed:
       bin/omero admin ice server list
 
 Further, by running ``java -jar ice-gridgui.jar``
-the GUI provided ZeroC_ can be used to administer |OmeroGrid|. This
+the GUI provided ZeroC_ can be used to administer OMERO.grid. This
 jar is provided in the OMERO source code under lib/repository.
 
 .. seealso::
@@ -57,7 +57,7 @@ OMERO.grid on Windows XP
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Unlike all other supported platforms, the ``bin/omero`` script and
-|OmeroGrid| are not directly responsible for starting and
+OMERO.grid are not directly responsible for starting and
 stopping the :doc:`/developers/server-blitz` server and other
 processes. Instead, that job is delegated to the native Windows service
 system. A brief explanation of doing this via the ``sc`` command is
@@ -70,7 +70,7 @@ provided below.
        ...
        python bin\omero admin stop
 
-The first command installs |OmeroGrid| as a
+The first command installs OMERO.grid as a
 Windows service with the name ``OMERO.master``, and then calls
 ``start``. Any further calls to ``admin start`` will fail since the
 application is already installed as a Windows service. Simiarly,
@@ -97,10 +97,10 @@ How it works
 
 `IceGrid <http://zeroc.com>`_ is a location and activation service,
 which functions as a central registry to manage all your OMERO server
-processes. |OmeroGrid| provides server components
+processes. OMERO.grid provides server components
 which use the registry to communicate with one another. Other than a
 minimal amount of configuration and starting a single daemon on each
-host machine, |OmeroGrid| manages the complexity
+host machine, OMERO.grid manages the complexity
 of all your computing resources.
 
 
@@ -163,7 +163,7 @@ unauthorized users.
 
 The configuration of your grid, however, is very much up to you. Based
 on the example descriptor files (\*.xml) and configuration files
-(\*.cfg), it is possible to develop |OmeroGrid|
+(\*.cfg), it is possible to develop OMERO.grid
 installations completely tailored to your computing resources.
 
 The whole grid can be shutdown by stopping the master node via:
@@ -228,7 +228,7 @@ Firewall
 ^^^^^^^^
 
 The simplest and most effective way of preventing unauthorized access is
-to have all |OmeroGrid| resources behind a
+to have all OMERO.grid resources behind a
 firewall. Only the Glacier2 router has a port visible to machines
 outside the firewall. If this is possible in your configuration, then
 you can leave the internal endpoints unsecured.
@@ -305,7 +305,7 @@ Absolute paths
 
 Except under Windows, the example application descriptors shippied with
 OMERO, all use relative paths to make installation easier. Once you are
-comfortable with configuring |OmeroGrid|, it
+comfortable with configuring OMERO.grid, it
 would most likely be safer to configure absolute paths. For example,
 specifying that nodes execute under ``/usr/lib/omero`` requires that who
 ever starts the node have access to that directory. Therefore, as long
@@ -372,12 +372,12 @@ which passes the inputs all the way down to **processor.py** will need
 to have a sufficiently large ``Ice.MessageSizeMax`` for: the client, the
 Glacier2 router, the :doc:`/developers/server-blitz` server, and the Processor.
 
-The default is currently set to 65536 kilobytes, or about 64 megs.
+The default is currently set to 65536 kilobytes which is 64MB.
 
 Logging
 ^^^^^^^
 
-Currently all output from |OmeroGrid| is
+Currently all output from OMERO.grid is
 stored in ``$OMERO_HOME/var/log/master.out`` with error messages going
 to ``$OMERO_HOME/var/log/master.err``. Individual services may also create their
 own log files.
@@ -386,7 +386,7 @@ Shortcuts
 ^^^^^^^^^
 
 If the ``bin/omero`` script is copied or symlinked to another name, then
-the script will separate the name on hypens and execute ``bin/omero``
+the script will separate the name on hyphens and execute ``bin/omero``
 with the second and later parts **prepended** to the argument list.
 
 For example,
@@ -424,7 +424,7 @@ The same works for putting ``bin/omero`` on your path:
 
        PATH=$OMERO_HOME/bin:$PATH
 
-This means that |OmeroGrid| can be unpacked
+This means that OMERO.grid can be unpacked
 anywhere, and as long as the user invoking the commands has the proper
 permissions on the ``$OMERO_HOME`` directory, it will function normally.
 
@@ -432,7 +432,7 @@ permissions on the ``$OMERO_HOME`` directory, it will function normally.
 Running as root
 ^^^^^^^^^^^^^^^
 
-One exception to this rule is that starting |OmeroGrid| as root may actually 
+One exception to this rule is that starting OMERO.grid as root may actually
 delegate to another user, if the "user" attribute is set on the ``<server/>``
 elements in :source:`etc/grid/templates.xml`.
 (This holds only for Unix-based platforms including MacOsX. See
