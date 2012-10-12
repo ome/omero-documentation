@@ -442,7 +442,7 @@ Customising your OMERO.web installation
 
    -  The OMERO.web framework allows you to add additional Django apps.
       For an example with installation instructions, see
-      `webmobile <https://github.com/openmicroscopy/webmobile/>`_
+      `webmobile <http://github.com/will-moore/webmobile/>`_
 
    -  Download or clone from the git repository into the /omeroweb/
       directory, then run
