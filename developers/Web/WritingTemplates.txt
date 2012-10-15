@@ -177,7 +177,8 @@ template details
 
        {% block link %}
            {{ block.super }}
-           <link rel="stylesheet" href="{% static "webgateway/css/ome.body.css" %}" type="text/css" />
+           <link rel="stylesheet" type="text/css"
+                href="{% static "webgateway/css/ome.body.css" %}"/>
        {% endblock %}
 
 -  script: Used to add javascript with <script> blocks to the page head
