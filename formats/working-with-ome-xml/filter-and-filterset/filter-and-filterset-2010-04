@@ -1,0 +1,254 @@
+
+Info
+
+Filter and FilterSet 2010-04
+============================
+
+by `jburel <http://134.36.65.53:8086/site/author/jburel>`_ — last
+modified 11 October 2011 - 11:35 AM
+
+This was developed in conjunction with the June 2007 release and updated
+for the April 2010 release of the OME-XML Model
+
+The filter model has changed with the April 2010 release of the OME
+Schema. This page provides a description of the new structures used. The
+new structures are designed to work for Fluorescence Microscopy but are
+flexible enough it can also work with filter configurations for most
+other forms of microscopy. If you feel it will not work in your case
+than please submit a ticket and we will look into the issue.
+
+Supported Objects
+^^^^^^^^^^^^^^^^^
+
+In the schema there is support for the following objects:
+
+-  Dichroic:: The dichroic mirror or dichromatic beamsplitter. This is
+   used for the primary dichroic of the instrument. Other Dichroics in
+   the excitation or emission path can be modelled with the Filter
+   object.
+-  Filter:: This object is used to represent any type of excitation
+   filter and emission/barrier filter. It contains details of the
+   transmittance of the filter. It can also be used to model a dichroic
+   mirror or dichromatic beamsplitter in the excitation or emission
+   path.
+-  FilterSet:: A FilterSet belongs to an Instrument in an OME-XML file
+   and has alongside it any Filters and Dichroics it refers to. It is
+   designed to represent a collection of filters available on a certain
+   instrument. It can also represent a filter cube or filter block. To
+   represent the set of filters used to collect an image LightPath is a
+   better choice. FilterSet may contain zero or more excitation filters,
+   one dichroic and zero or more emission filters. No ordering of
+   filters is implied. Filters and dichroics can be reused across
+   multiple filter sets. It will be normal to have a single dichroic
+   that is usable with several filter combinations.
+-  FilterSetRef:: These are used to attach a specific filter set from an
+   Instrument to a Channel within an Image. They allow the filter set to
+   be defined once in the instrument in an OME-XML file and then used
+   multiple times within the images.
+-  ManufacturerSpec:: The Manufacturer spec is used by both Dichroic and
+   Filter to store the Manufacturer, Model, SerialNumber and LotNumber
+   of the optical element.
+-  FilterWheel:: This is a value within a Filter used to record what
+   holder the filter is located in. Although it is named after a wheel
+   it could just as easily be a filter slider or other mechanism. These
+   holders allow any of there containing filters to be automatically
+   selected by the microscope control software.
+-  LightPath:: The LightPath object is a child of Channel and is used to
+   represent the collection of Dichroic and Filters used to create the
+   Channel. FilterSet is on an Instrument granularity, LightPath on a
+   Channel of an Image.
+
+Overview of where Filters and Dichroics sit in the optical path
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/FilterSet-Overview-Multi-Detector.png
+   :align: center
+   :alt: FilterSet Multi Detector
+
+#. The source produces a beam of light.
+#. A small range of wavelength are passed through the filters in the
+   Excitation path.
+#. The light is selectively reflected by the Dichroic mirror to
+   illuminate the sample.
+#. The fluorphore in the sample absorbs the light from 3 and re-emits it
+   on a new wavelength. Some of this re-emitted light travels towards
+   the dichroic mirror.
+#. The light on the new wavelength is selectively transmitted by the
+   dichroic mirror.
+#. The wavelength of detected light is further narrowed and stray
+   reflections reduced by the filters in the Emission path.
+#. The light can be optionally split by a Dichroic in the emission path
+   to go to two, or more, detectors. This Dichroic is modelled as a
+   Filter of type "Dichroic"
+#. The split light beam can travel directly from the Dichroic to a
+   detector.
+#. The beam may be further filtered before reaching a detector.
+
+Structure of the filter data in OME-XML
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The filter data elements are part part of the central OME Schema. The
+filters are part of the Instrument block. Each instrument can contain
+zero or more filters, dichroics, and filter sets. Each filter set used
+unique IDs to referrer to the filters and dichroic it contains. If there
+are any additional filters used with the Channels within an image then
+those filters are also defines at the instrument level and referenced
+from the channel with a LightPath element using the unique ID. The
+filters and dichroics are both extensions of the ManufacturerSpec
+element so store this common data. A filter also contains one
+TransmittanceRange element that describes the optical characteristic of
+it.
+
+Diagram showing where FilterSet sits in the OME Schema
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2010-04/FilterSet-Top.png
+   :align: center
+   :alt: FilterSet Top
+The FilterSet contains three kinds of references, one to a dichroic ID
+called DichroicRef, and two sets to filter IDs called
+ExcitationFilterRef and EmissionFilterRef. Each of the three kinds are
+optional. There is no distinction on whether a filter is designed for
+emission or excitation at the filter level. The distinction is made
+within the filter set (or LightPath) by the assignment of the filter ID
+reference to either a ExcitationFilterRef or EmissionFilterRef. Not all
+the objects in a FilterSet need to be used at the same time and there is
+no ordering implied within the groups of references.
+
+The Dichroic object is simple, it simply contains its unique ID and the
+values it gets from extending ManufacturerSpec. In ManufacturerSpec each
+object can have a SerialNumber and/or a LotNumber. The LotNumber is more
+commonly used in Filters and Dichroics so the batch of manufacture is
+recorded.
+
+The Filter object has the values it gets by extending ManufacturerSpec
+and a unique ID the same as the Dichroic. In addition it has a Type and
+a FilterWheel value. In addition to these extra values it contains one
+TransmittanceRange object. The TransmittanceRange describes the optical
+characteristic of the filter and has values for the CutIn and CutOut,
+along with the CutInTolerance and CutOutTolerance, all expressed in
+nanometers. There is also the Transmittance of the filter express as a
+percentage fraction.
+
+Diagram showing where LightPath sits in the OME Schema
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2010-04/LightPath-Top.png
+   :align: center
+   :alt: FilterSet LightPath Top
+The LightPath contains three kinds of references, one to a dichroic ID
+called DichroicRef, and two sets to filter IDs called
+ExcitationFilterRef and EmissionFilterRef. Each of the three kinds are
+optional. There is no distinction on whether a filter is designed for
+emission or excitation at the filter level. The distinction is made
+within the LightPath by the assignment of the filter ID reference to
+either an ExcitationFilterRef or EmissionFilterRef. The key difference
+between LightPath and FilterSet is that ALL the filters in a LightPath
+have been used and there order is specified.
+
+Diagram showing the attributes within the filter objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2010-04/FilterSet-LightPath.png
+   :align: center
+   :alt: FilterSet LightPath
+Sample piece of a .ome.xml file showing the Instrument side - the
+Filter/Dichroic/!FilterSet structure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This shows the structure of the resulting xml.
+
+-  This defines six filters, five are standard filters, the sixth is a
+   dichroic used as a filter.
+-  It defines two Dichroics that can represent the primary Dichroic in
+   an instrument.
+-  The FilterSet:1 contains Filter:1 and/or Filter:2 for excitation,
+   Dichroic:1 and Filter:3 and/or Filter:4 for Emission.
+
+It contains dummy data.
+
+::
+
+    <ome:FilterSet ID="FilterSet:1" Manufacturer="Ink Inc." Model="Mk 3" LotNumber="K753">
+        <ome:ExcitationFilterRef ID="Filter:1"/>
+        <ome:ExcitationFilterRef ID="Filter:2"/>
+        <ome:DichroicRef ID="Dichroic:1"/>
+        <ome:EmissionFilterRef ID="Filter:3"/>
+        <ome:EmissionFilterRef ID="Filter:4"/>
+    </ome:FilterSet>
+    <ome:Filter ID="Filter:1" Manufacturer="Ink Inc." Model="Medium 490" LotNumber="J23"
+        Type="BandPass" FilterWheel="Disk 7">
+        <ome:TransmittanceRange Transmittance="0.80" CutIn="450" CutOut="530"/>
+    </ome:Filter>
+    <ome:Filter ID="Filter:2" Manufacturer="Ink Inc." Model="Medium 520" LotNumber="J34"
+        Type="BandPass" FilterWheel="Disk 7">
+        <ome:TransmittanceRange Transmittance="0.75" CutIn="500" CutOut="570"/>
+    </ome:Filter>
+    <ome:Filter ID="Filter:3" Manufacturer="Ink Inc." Model="Medium 580" LotNumber="J12"
+        Type="BandPass" FilterWheel="Disk 7">
+        <ome:TransmittanceRange Transmittance="0.85" CutIn="550" CutOut="620"/>
+    </ome:Filter>
+    <ome:Filter ID="Filter:4" Manufacturer="Ink Inc." Model="Medium 630" LotNumber="J09"
+        Type="BandPass" FilterWheel="Disk 7">
+        <ome:TransmittanceRange Transmittance="0.90" CutIn="590" CutOut="680"/>
+    </ome:Filter>
+    <ome:Filter ID="Filter:5" Manufacturer="Ink Inc." Model="Medium 630" LotNumber="J29"
+        Type="BandPass" FilterWheel="Disk 7">
+        <ome:TransmittanceRange Transmittance="0.60" CutIn="630" CutOut="690"/>
+    </ome:Filter>
+    <ome:Filter ID="Filter:6" Model="MirrorBlock Mk II" LotNumber="M538" Type="Dichroic"/>
+    <ome:Dichroic ID="Dichroic:1" Model="HFT 405/488/543/633"/>
+    <ome:Dichroic ID="Dichroic:2" Model="MirrorBlock MK II" LotNumber="M539"/>
+
+Sample piece of a .ome.xml file showing the Image side - the LightPath
+structure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This shows the structure of the resulting xml.
+
+-  Channel:1 defines a LightPath that uses Filter:1 for excitation,
+   Dichroic:1, then Filter:2 & Filter:6 for Emission in that order.
+-  Channel:2 defines a LightPath that uses Filter:1 for excitation,
+   Dichroic:1, then Filter:2 & Filter:6 & Filter:5 for Emission in that
+   order.
+-  Channel:3 references FilterSet:1, from this we do not know which of
+   the filter in that FilterSet were used and in which order.
+-  Dichroic:2 though defined above is not used by this Image.
+
+It contains dummy data.
+
+::
+
+    <ome:Image ID="Image:0" Name="405100percentsetting">
+        <ome:AcquiredDate>2008-06-19T00:39:00</ome:AcquiredDate>
+        <ome:Description>Sample Image</ome:Description>
+        <ome:InstrumentRef ID="Instrument:0"/>
+        <ome:ObjectiveSettings ID="Objective:0:0"/>
+        <ome:Pixels ID="Pixels:1" DimensionOrder="XYCTZ" Type="int16" SizeX="128" SizeY="128" SizeZ="1"
+            SizeC="2" SizeT="1">
+            <ome:Channel ID="Channel:1">
+                <ome:LightPath>
+                    <!-- ordered collection -->
+                    <ome:ExcitationFilterRef ID="Filter:1"/>
+                    <ome:DichroicRef ID="Dichroic:1"/>
+                    <ome:EmissionFilterRef ID="Filter:3"/>
+                    <ome:EmissionFilterRef ID="Filter:6"/>
+                </ome:LightPath>
+            </ome:Channel>
+            <ome:Channel ID="Channel:2">
+                <ome:FilterSetRef ID="FilterSet:2"/>
+                <ome:LightPath>
+                    <ome:ExcitationFilterRef ID="Filter:1"/>
+                    <ome:DichroicRef ID="Dichroic:1"/>
+                    <ome:EmissionFilterRef ID="Filter:3"/>
+                    <ome:EmissionFilterRef ID="Filter:6"/>
+                    <ome:EmissionFilterRef ID="Filter:5"/>
+                </ome:LightPath>
+            </ome:Channel>
+            <ome:Channel ID="Channel:3">
+                <ome:FilterSetRef ID="FilterSet:1"/>
+            </ome:Channel>
+            <ome:MetadataOnly/>
+        </ome:Pixels>
+    </ome:Image>
+

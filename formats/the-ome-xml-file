@@ -1,0 +1,79 @@
+
+Info
+
+The OME-XML Format
+==================
+
+by `admin <http://134.36.65.53:8086/site/author/admin>`_ — last modified
+26 October 2011 - 04:24 PM
+
+Features and applications of the OME-XML file format
+
+The OME-XML File serves as a convenient file format for data migration
+from one site or user to another. The OME-XML File captures all image
+acquisition and experimental metadata along with the binary image data
+and packages it into an easily readable package. Our
+`paper <http://genomebiology.com/2005/6/5/R47>`_ describing the design
+and implementation of the OME-XML File appeared in Genome Biology.
+
+    OME-XML files can be read by potentially any software package - you
+    do not need OME image management software to use OME-XML.
+
+Some specific features of the OME-XML File Format:
+
+-  OME-XML files may contain one or more sets of 5-D Pixels, for example
+   raw data from a microscope, the deconvolved data, and a volume
+   rendered view.
+-  OME-XML files contain all the metadata associated with an image,
+   including the experimental (cells, genes, etc.) and acquisition
+   (microscope light sources, fluors, filters, detectors, etc.)
+   metadata.
+-  OME-XML Image pixels may be stored compressed (or not) directly in
+   XML with base64 encoding. Compression of the pixels and the metadata
+   is supported through widely-available patent-free compression schemes
+   (gzip and bzip2). OME-XML Images are addressable by plane.
+-  OME-XML files have a built-in mechanism for supporting arbitrary
+   user-defined data that can be used globally or attached to Images,
+   Features (objects inside Images), and Datasets. Mechanisms for
+   OME-compliant systems to populate databases with these user-defined
+   fields is part of the specification. See the Semantic Type
+   Definitions XML Schema, documentation and an example document that
+   defines the core OME Semantic Types.
+
+The OME-XML Schema and use are documented
+`here <http://www.openmicroscopy.org/Schemas/>`_.
+
+Ongoing Development
+-------------------
+
+The ongoing development of the OME-XML data model can be tracked on
+`http://trac.openmicroscopy.org.uk/ <http://trac.openmicroscopy.org.uk/>`_.
+
+Users can also add work tickets to the system detailing any changes they
+feel should be made.
+
+Commercial Support for OME-XML
+------------------------------
+
+Bitplane AG and EAMNET have proposed the use of the OME-XML File as an
+image data migration standard. A C++ class that reads OME-XML has been
+posted by Peter Majer and Marius Messerli of Bitplane AG on the EAMNET
+site. `Details <http://www.embl.de/eamnet/html/downloads.html>`_ Thanks
+to Peter and Marius for this.
+
+Applied Precision, LLC has released an image visualisation tool that
+reads and writes OME-XML.
+`Details <http://www.api.com/softworx-explorer.asp>`_
+
+Scientific Volume Imaging has included support for the OME-XML file
+format in there Huygens Software, a collection of Fluorescence
+Microscope image processing packages. The packages are available for
+many software platforms.
+`Details <http://support.svi.nl/wiki/HuygensSoftware>`_
+
+Improvision joins the ever-increasing list of commercial solution
+providers that supports OME-TIFF. Support is available from the release
+of Version 4.2.
+
+For company details see our full list of `Partners <../about/partners>`_
+

@@ -1,0 +1,96 @@
+
+Info
+
+Changes For September 2007
+==========================
+
+by `jburel <http://134.36.65.53:8086/site/author/jburel>`_ — last
+modified 10 October 2011 - 09:01 PM
+
+List of the key changes made for the September 2007 minor release of the
+ome-xml data model.
+
+The new minor release of the schema has the same namespace and a new
+version number. As a minor release, any file that validated correctly
+using the last major release will also validate correctly using this new
+release. Some files that failed to validate before will now be valid. It
+is important to update any file readers to understand the changes. File
+writers will not necessarily need corrected.
+
+Version
+~~~~~~~
+
+-  The version number of the ome.xsd schema is now 2
+-  The version number of the SPW.xsd schema is now 2
+-  The version number of the AnalysisModule.xsd schema is now 2
+-  The version number of the BinaryFile.xsd schema is now 2
+-  The version number of the CLI.xsd schema is now 2
+-  The version number of the MLI.xsd schema is now 2
+-  The version number of the STD.xsd schema is now 2
+
+Schema Element (all files)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The schema element now imports the XML namespace from a specific
+location. This gets round a problem with using the old XML namespace
+that appeared with some XML parsers (notably
+`Xerces <http://xerces.apache.org/>`_) that caused the schema to not be
+valid.
+
+Instrument (ome.xsd)
+~~~~~~~~~~~~~~~~~~~~
+
+Parts of the Instrument object are now optional:
+
+-  LightSource
+-  Detector
+-  Objective
+-  OTF
+
+Experimenter and ExperimenterType (ome.xsd)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This has been changes so FirstName, LastName, Email and OMEName are all
+now optional. However to be valid an Experimenter must have **AT LEAST
+ONE** of these present. Experimenter is now a self contained object and
+no longer uses ExperimenterType which has been removed.
+
+Description (ome.xsd)
+~~~~~~~~~~~~~~~~~~~~~
+
+While there has been no real change to the Description element it has
+had its annotation altered to indicate a change in its use. It will
+become a string type in the future. The content model is currently ANY,
+but this is going to change to String. Description is no longer the
+correct place for an XML sub-document - use CustomAttributes instead.
+
+SerialNumber, part of ManufactSpec and used by Objective, Detector,
+Microscope and LightSource (ome.xsd)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This has been made optional as there are occasion when the writing
+application does not have this information. While it may be optional it
+must be stressed that we feel it should normally be included and as such
+the validator will raise a warning (but not an error) if it is not
+present or is empty.
+
+Regex for LSID / Internal ID (ome.xsd, SPW.xsd, AnalysisModule.xsd)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There has been a minor change to all the regular expression
+(xsd:pattern) portions of the IDs that means they will no longer
+generate an error on some parsers (notably the Java one). This concerned
+the way the - (dash) character was specified as part of a URN, it is now
+escaped correctly.
+
+DBLocation, Label and Parent, parts of Element (STD.xsd)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The DBLocation is now optional. Label and Parent have new been added.
+
+Description and Label (STD.xsd)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+These now contain a reference to XML:lang that allows the language the
+Description or Label is written in to be recorded.
+

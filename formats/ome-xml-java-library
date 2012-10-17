@@ -1,0 +1,62 @@
+
+Info
+
+OME-XML Java Library
+====================
+
+by `jburel <http://134.36.65.53:8086/site/author/jburel>`_ — last
+modified 19 July 2012 - 03:30 PM
+
+The OME-XML Java library is a collection of Java packages for
+manipulating OME-XML metadata structures. The OME-XML Java library's
+metadata processing facilities form the backbone of the
+`Bio-Formats <http://loci.wisc.edu/software/bio-formats>`_ library's
+support for OME-XML conversion.
+
+It is not to be confused with the `OME-Java
+API <http://www.openmicroscopy.org/site/support/legacy/ome-server/developer/java-api>`_
+for communicating with an `OME
+Server <http://www.openmicroscopy.org/site/support/legacy/ome-server>`_
+from Java—until recently, the OME-Java library was a combination of both
+the OME-XML Java library and the OME-Java API in one package, but as of
+September 2008 they have been split into two separate libraries:
+**ome-xml.jar'** is the OME-XML Java library, and **ome-java.jar** is
+the OME-Java API.
+
+Download
+--------
+
+You can download **ome-xml.jar** from the `Bio-Formats
+downloads <http://loci.wisc.edu/bio-formats/downloads>`_ page. The
+license is `LGPL <http://www.gnu.org/licenses/lgpl.html>`_.
+
+Installation
+------------
+
+To use, add **ome-xml.jar** to your classpath or build path.
+
+Usage
+-----
+
+You can peruse the `online API
+documentation <http://hudson.openmicroscopy.org.uk/view/Bio-Formats/job/BIOFORMATS-trunk/javadoc>`_,
+specifically the ome.xml.\* packages. For an example of usage, see the
+`Bio-Formats metadata
+architecture <http://trac.openmicroscopy.org.uk/ome/browser/bioformats.git/components/scifio/src/loci/formats/ome/OMEXMLMetadataImpl.java>`_.
+
+The OMENode is the root ("OME") node of the OME-XML. Each XML element
+has its own node type (e.g., "Image" has ImageNode) with its own
+accessor and mutator methods, to make navigation of the OME-XML
+structure easier than it would be with a raw DOM object. However, there
+are some limitations to what can be done with the API. If your
+application needs access to a node's backing DOM element to work with it
+directly, you can call getDOMElement() on a node.
+
+Source code
+-----------
+
+The OME-XML Java library is an open source project—the source code is
+freely accessible via our Git repository. See `these
+instructions <http://loci.wisc.edu/bio-formats/source-code>`_ for
+details on accessing the code.
+

@@ -1,0 +1,147 @@
+
+Info
+
+Tiled Images
+============
+
+by `jburel <http://134.36.65.53:8086/site/author/jburel>`_ — last
+modified 13 July 2012 - 06:33 PM
+
+Storing tiled images in an OME file.
+
+    NOTE: This approach while still valid has been **superseded** by the
+    `6D, 7D, 8D Solution <6d-7d-and-8d-storage>`_.
+
+When you are looking at a sample that is larger then the available field
+of the microscope one approach is to acquire a number of images, moving
+across the sample. These individual image pieces can then be joined
+together at a later date to form an image of the entire sample.
+
+There are two structures in the model that support the joining process.
+
+-  StageLabel - part of Image
+-  StagePosition - part of Plane
+
+The mainstay of the OME format is the 5-dimensional pixel array. In
+order to maintain the integrity of this structure the Tiling process has
+to be external to the Image structure. This means that you represent the
+Tiled image as a collection of Image elements. It is up to the software
+loading the OME file to interpret these individual Image elements as
+Tiles.
+
+Each Image element can have a StageLabel. This is a named point in the
+co-ordinates of the microscope reference frame. The StageLabel has a
+Name attribute, that can store a human readable description of the
+point, as well as X, Y, and Z values for the co-ordinates. Each
+co-ordinate is optional so an (X,Y) position or (X,Z) position can be
+recorded if required. This is probably best thought of as the target
+location for the individual tile.
+
+During the acquisition process the field is moved to capture each set of
+pixels making up a plane of an image of the tiled image. The exact
+location of the plane is recorded in the StagePosition. This is similar
+to the StageLabel but has no name only co-ordinates. The values in
+StagePosition should correspond to the values in StageLabel but
+depending on the instrument and capture method there may be small
+discrepancies.
+
+    Some systems in the past have used the Time value as a place to
+    store the tile number of an image. This not the correct approach in
+    the OME model.
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/TiledImages/Sample2x2Images.png
+   :align: center
+   :alt: Tile Samples Image
+
+   Tile Samples Image
+A sample file showing the structure is:
+
+::
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2008-02"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2008-02 ome.xsd">
+        <!-- This is a dummy file - it has no real data -->
+        <!-- File to represent a tiled image aligned in a 2 by 2 grid -->
+        <!-- as a collection of 4 images a, b, c, and d.  -->
+        <!-- 0 | 1 | 2 | -->
+        <!-- - | - | - | -->
+        <!-- 1 | a | b | -->
+        <!-- 2 | c | d | -->
+        <!-- - | - | - | -->
+        <!-- First image - this will be the tile at 1,1 on the grid -->
+        <Image ID="Image:a" Name="2x2 Image" DefaultPixels="Pixels:a">
+            <CreationDate>2008-03-01T18:13:51.0Z</CreationDate>
+            <LogicalChannel ID="LogicalChannel:a">
+                <ChannelComponent Pixels="Pixels:a" Index="1"/>
+            </LogicalChannel>    
+            <StageLabel Name="(1,1) of 2x2" X="1.00" Y="1.00"/> 
+            <!-- X and Y (and Z if present) are the target location -->
+            <Pixels ID="Pixels:a" DimensionOrder="XYZCT" PixelType="uint8" BigEndian="true"
+                    SizeX="128" SizeY="128" SizeZ="8" SizeC="1" SizeT="3">
+                <BinData xmlns="http://www.openmicroscopy.org/Schemas/BinaryFile/2008-02" 
+                         Length="10">
+                    <!-- ... -->
+                </BinData>
+                <Plane TheZ="1" TheT="1" TheC="1">
+                    <PlaneTiming DeltaT="0.01" ExposureTime="0.004"/>
+                    <StagePosition PositionX="1.03" PositionY="0.98" PositionZ="1.02"/>
+                    <!-- X, Y and Z are the actual location when the plane was acquired-->
+                </Plane>
+                <Plane TheZ="2" TheT="1" TheC="1">
+                    <PlaneTiming DeltaT="0.02" ExposureTime="0.004"/>
+                    <StagePosition PositionX="1.03" PositionY="0.98" PositionZ="1.23"/>
+                </Plane>
+                <!-- ... and so on for the other Z sections -->
+                <!-- ... and then for the other Time points -->
+            </Pixels>
+        </Image>
+
+        <!-- Second image - this will be the tile at 1,2 on the grid -->
+        <Image ID="Image:b" Name="2x2 Image" DefaultPixels="Pixels:b">
+            <CreationDate>2008-03-01T18:13:51.0Z</CreationDate>
+            <LogicalChannel ID="LogicalChannel:b">
+                <ChannelComponent Pixels="Pixels:b" Index="1"/>
+            </LogicalChannel>    
+            <StageLabel Name="(1,2) of 2x2" X="1.00" Y="2.00"/> 
+            <!-- X and Y (and Z if present) are the target location -->
+            <Pixels ID="Pixels:b" DimensionOrder="XYZCT" PixelType="uint8" BigEndian="true"
+                    SizeX="128" SizeY="128" SizeZ="8" SizeC="1" SizeT="3">
+                <BinData xmlns="http://www.openmicroscopy.org/Schemas/BinaryFile/2008-02"
+                         Length="10">
+                    <!-- ... -->
+                </BinData>
+                <Plane TheZ="1" TheT="1" TheC="1">
+                    <PlaneTiming DeltaT="0.31" ExposureTime="0.004"/>
+                    <StagePosition PositionX="1.02" PositionY="2.01" PositionZ="1.01"/>
+                    <!-- X, Y and Z are the actual location when the plane was acquired-->
+                </Plane>
+                <Plane TheZ="2" TheT="1" TheC="1">
+                    <PlaneTiming DeltaT="0.32" ExposureTime="0.004"/>
+                    <StagePosition PositionX="1.02" PositionY="2.01" PositionZ="1.24"/>
+                </Plane>
+                <!-- ... and so on for the other Z sections -->
+                <!-- ... and then for the other Time points -->
+            </Pixels>
+        </Image>
+
+        <!-- Third image - this will be the tile at 2,1 on the grid -->
+        <!-- ... -->
+
+        <!-- Fourth image - this will be the tile at 2,2 on the grid -->
+        <!-- ... -->
+    </OME>
+
+An alternative valid form would have ``TiffData`` blocks instead of the
+``BinData`` blocks. This would be used in the header of an OME-TIFF
+file.
+
+    *The above sample is the 2008-02 schema and uses a separate
+    StagePosition element. In more recent releases these values are
+    stored directly on plane e.g.*
+
+::
+
+    <Plane TheZ="1" TheT="1" TheC="1" PositionX="1.03" PositionY="50.05" PositionZ="1.02"/>
+
