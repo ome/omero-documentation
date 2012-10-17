@@ -1,0 +1,89 @@
+IDs and LSIDs in OME-XML
+========================
+
+
+The ID types used throughout the OME-XML model are designed to support
+identifiers in two forms. You should where possible use the full LSID
+format. It an LSID resolver is unavailable an internal only form may be
+used.
+
+An LSID is a Life Science Identifier. It is a Uniform Resource Name
+standard designed to allow the unique identifying of life sciences
+resources across the World Wide Web in line with the Semantic Web
+concept. It was designed to allow the naming or identifying of data and
+associated metadata that can be stored in multiple, distributed data
+stores.
+
+For further information see
+`http://en.wikipedia.org/wiki/LSID <http://en.wikipedia.org/wiki/LSID>`_.
+ The full specification document is available at
+`http://www.omg.org/cgi-bin/doc?dtc/04-10-08 <http://www.omg.org/cgi-bin/doc?dtc/04-10-08>`_
+[pdf].
+
+The format of a valid LSID is:
+
+::
+
+    URN:LSID:<Authority>:<Namespace>:<ObjectID>[:<Version>]
+
+In OME-XML this is implemented as
+
+::
+
+    urn:lsid:<domain-name>:<element-name>:<uniqueID>
+
+The uniqueID can be any non-whitespace characters. The domain-name is
+any standard character (including unicode) with dash and dot. It must
+contain at least one dot. The version block is not required but will be
+accepted if present.
+
+The LSID specification defines the first three portions as
+'''case-insensitive''', that is ``URN:LSID:<Authority>``. The remaining
+portion is '''case-sensitive'''. In OME-XML however we assume '''lower
+case''' for the first two portions ``urn:lsid``, for ``<domain-name>``
+any case is acceptable but lower case is recommended for consistency.
+The remaining portion is case-sensitive.
+
+The shorter internal only form is:
+
+::
+
+    <element-name>:<uniqueID>
+
+The formats are enforced by the regular expressions defined in the
+schema document. e.g. A sample regular expression for a Project ID is
+
+::
+
+    (urn:lsid:([\w-\.]+\.[\w-\.]+)+:Project:\S+)|(Project:\S+)
+
+Note: The regex parser in XSD is slightly non standard and assumes that
+the pattern is always meant to start at the beginning of the line and
+finish at the end of the line, this means that !^ and $ are not
+necessary.
+
+The simple regular expressions used provide a first level of validation
+but it is possible to produce an invalid LSID that will be accepted by
+the regex. As a tradeoff between complexity and usability the
+domain-name check is quite lax. e.g. It will accept www.ome-xml..org as
+valid despite the double dot.
+
+Sample IDs
+~~~~~~~~~~
+
+Valid
+^^^^^
+
+::
+
+    urn:lsid:sample.ome-xml.org:Project:1234 
+    Project:1234
+
+Invalid
+^^^^^^^
+
+::
+
+    sample.ome-xml.org:Project:1234 (domain but no protocol name)
+    1234 (no element name)
+

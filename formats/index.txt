@@ -1,0 +1,56 @@
+#####################
+Formats Documentation
+#####################
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    downloads/file-formats-downloads
+    downloads/sample-files
+    landing
+    ome-tiff/ome-tiff-code
+    ome-tiff/ome-tiff-data
+    ome-tiff/ome-tiff-overview
+    ome-tiff/ome-tiff-specification
+    ome-tiff/ome-tiff-tools
+    ome-xml-java-library
+    schemas/history
+    schemas/migrating-or-sharing-data-with-ome-xml
+    schemas/ome-schemas
+    schemas/specifications/compliant-hcs-specification
+    schemas/specifications/minimum-specification
+    schemas/versions/changes-for-april-2010
+    schemas/versions/changes-for-february-2008
+    schemas/versions/changes-for-june-2007
+    schemas/versions/changes-for-june-2010
+    schemas/versions/changes-for-june-2011
+    schemas/versions/changes-for-june-2012
+    schemas/versions/changes-for-september-2007
+    schemas/versions/changes-for-september-2008
+    schemas/versions/changes-for-september-2009
+    schemas/versions/version-information
+    the-ome-tiff-file-old
+    the-ome-xml-file
+    unused/further-information
+    unused/introduction
+    unused/overview
+    working-with-ome-xml/6d-7d-and-8d-storage
+    working-with-ome-xml/developer-information
+    working-with-ome-xml/filter-and-filterset/filter-and-filterset-2007-06
+    working-with-ome-xml/filter-and-filterset/filter-and-filterset-2010-04
+    working-with-ome-xml/id-and-lsid
+    working-with-ome-xml/model-overview-2010-04
+    working-with-ome-xml/roi/roi-2010-04
+    working-with-ome-xml/roi/roi-2012-06
+    working-with-ome-xml/roi/roi-proposal-september-2010
+    working-with-ome-xml/screen-plate-well/screen-plate-well-2010-04
+    working-with-ome-xml/spim-initial-support
+    working-with-ome-xml/structured-annotations
+    working-with-ome-xml/tiled-images
+    working-with-ome-xml/using-ome-xml-in-your-work
+    
+schemas/specifications/compliant-file-specification
+working-with-ome-xml/screen-plate-well/screen-plate-well-2007-06
+working-with-ome-xml/screen-plate-well/screen-plate-well-2009-09
+    

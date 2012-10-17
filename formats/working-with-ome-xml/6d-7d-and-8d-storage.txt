@@ -1,0 +1,223 @@
+6D, 7D and 8D Storage
+=====================
+
+
+This outlines how to store 6D, 7D and 8D data in our 5D structure.
+
+Interim storage of additional dimensions in the OME model using Z, T and
+C
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This has been produced as part of our transition to N-dimensional
+support. It will take a large amount of work throughout the OME
+specifications and OME software to move to a fully N-dimensional
+approach to data storage. Given the scale and impact of the change, this
+will take some time to schedule and complete.
+
+This proposal is designed to allow people wishing to write data with 6,
+7 or 8 dimensions into our model today in a way that can be upgraded in
+the future once N-dimensional support is available.
+
+The key addition is a new XML Annotation to the Pixels element. This
+annotation will use namespace
+
+::
+
+    "openmicroscopy.org/omero/dimension/modulo"
+
+and store information on the additional dimensions embedded in the Z, T
+or C data. This annotation is optional and if absent the model works as
+it currently does in the 5D case. Also if an application does not
+understand the Modulo addition then it can treat the data as 5D, though
+the displayed results would need some interpretation.
+
+::
+
+    <SA:StructuredAnnotations>
+        <SA:XMLAnnotation ID="Annotation:3" Namespace="openmicroscopy.org/omero/dimension/modulo">
+            <SA:Value>
+                <Modulo namespace="http://www.openmicroscopy.org/Schemas/Additions/2011-09">
+                    <ModuloAlongZ Type="angle" Unit="degree">
+                        <Label>45</Label>
+                        <Label>90</Label>
+                    </ModuloAlongZ>
+                    <ModuloAlongT Type="phase" Start="0" Step="1" End="255"/>
+                    <ModuloAlongC Type="lifetime" Start="0" Step="2" End="128"/>
+                </Modulo>
+            </SA:Value>
+        </SA:XMLAnnotation>
+    </SA:StructuredAnnotations>
+
+The three dimensions ModuloAlongZ, ModuloAlongT and ModuloAlongC each
+can be specified in two ways:
+
+-  Either using a specific number of labels (see ModuloAlongZ example
+   above)
+-  Or using a Start, Step and End (see ModuloAlongT or ModuloAlongC
+   example above).
+
+The attribute ``Type`` is **Required** and is drawn from the following
+enumeration:
+
+-  angle
+-  phase
+-  tile
+-  lifetime
+-  lambda
+-  other
+
+The OMERO clients cannot display dimensions of type ``other`` but the
+OMERO server can store this data.
+
+The attribute ``Unit`` is optional. It is a simple text description.
+
+If you are going to specify ``Label`` elements inside the dimension then
+you need on other attribute.
+
+If you are not using ``Label`` elements then you **MUST** specify the
+``Start`` and ``End`` of the range the dimension covers. The dimension
+will be assumed to have values covering ``Start`` to ``End``
+**INCLUSIVE**. The values will be assumed to go up in steps of 1 unless
+the optional ``Step`` is set to another value.
+
+e.g. a collection of planes taken at the same timepoint but from
+different angle might use:
+
+::
+
+    <SA:StructuredAnnotations>
+        <SA:XMLAnnotation ID="Annotation:3" Namespace="openmicroscopy.org/omero/dimension/modulo">
+            <SA:Value>
+                <Modulo namespace="http://www.openmicroscopy.org/Schemas/Additions/2011-09">
+                    <ModuloAlongZ Type="angle" Unit="degree">
+                        <Label>45</Label>
+                        <Label>90</Label>
+                    </ModuloAlongZ>
+                </Modulo>
+            </SA:Value>
+        </SA:XMLAnnotation>
+    </SA:StructuredAnnotations>
+
+The number of ``Label`` elements (if present) is used to devise the
+number of planes in the extra dimension. This is the equivalent of the
+value stored in ``TheX``, ``TheY``, ``TheZ``, ``TheT``, ``TheC`` in the
+5D OME Model. If there are 2 ``Label``s in ``ModuloAlongZ`` then the
+dimension stores two planes for each Z. If there are no ``Label``
+elements then ``Start``, ``Step`` and ``End`` attributes are used to
+devise the number of planes in the extra dimension. So with Start 100,
+End 150 and Step 2 in ModuloAlongT then the dimension stores 26 planes
+for each T.
+
+To find the true value of Z, T or C for a plane you need to take the 5D
+value and divide it appropriately by the number of planes in the extra
+dimension.
+
+e.g. if 3 extra planes are stored for each Z plane
+
+::
+
+    | Number of Z Plane 5D view | True Z Plane | ModuleZ Plane |
+    |            0              |       0      |       0       |
+    |            1              |       0      |       1       |
+    |            2              |       0      |       2       |
+    |            3              |       1      |       0       |
+    |            4              |       1      |       1       |
+    |            5              |       1      |       2       |
+    |            6              |       2      |       0       |
+    |            7              |       2      |       1       |
+    ... and so on
+
+e.g. if you have 2 extra Angle(A) planes stored for each Z plane and 3
+extra Phase(P) for each T then
+
+::
+
+    Stored C1 , Z1 , T1  - Real C1 , Z1 , A1, T1 , P1  
+    Stored C2 , Z1 , T1  - Real C2 , Z1 , A1, T1 , P1  
+    Stored C1 , Z2 , T1  - Real C1 , Z1 , A2, T1 , P1  
+    Stored C2 , Z2 , T1  - Real C2 , Z1 , A2, T1 , P1  
+    Stored C1 , Z3 , T1  - Real C1 , Z2 , A1, T1 , P1  
+    Stored C2 , Z3 , T1  - Real C2 , Z2 , A1, T1 , P1  
+    Stored C1 , Z4 , T1  - Real C1 , Z2 , A2, T1 , P1  
+    Stored C2 , Z4 , T1  - Real C2 , Z2 , A2, T1 , P1  
+    Stored C1 , Z1 , T2  - Real C1 , Z1 , A1, T1 , P2  
+    ...
+    Stored C2 , Z4 , T2  - Real C2 , Z2 , A2, T1 , P2  
+    Stored C1 , Z1 , T3  - Real C1 , Z1 , A1, T1 , P3  
+    ...
+    Stored C2 , Z4 , T3  - Real C2 , Z2 , A2, T1 , P3  
+    Stored C1 , Z1 , T4  - Real C1 , Z1 , A1, T2 , P1  
+    ...  
+    Stored C2 , Z4 , T4  - Real C2 , Z2 , A2, T2 , P1  
+    Stored C1 , Z1 , T5  - Real C1 , Z1 , A1, T2 , P2  
+    ...
+    Stored C2 , Z4 , T5  - Real C2 , Z2 , A2, T2 , P2  
+    Stored C1 , Z1 , T6  - Real C1 , Z1 , A1, T2 , P3  
+    ...
+    Stored C1 , Z4 , T6  - Real C1 , Z2 , A2, T2 , P3  
+    Stored C2 , Z4 , T6  - Real C2 , Z2 , A2, T2 , P3
+
+How to order the plane data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The order of the plane data defined by the BinData or TiffData block is
+interleaved as it would be for the 5D view of the Z plane, i.e. it is
+governed by the value of DimensionOrder on the Pixels element.
+
+How to represent tiles
+~~~~~~~~~~~~~~~~~~~~~~
+
+The Plane element stores the location of each tile.
+
+e.g. Define four tiles 160 by 220 laid out as
+
+::
+
+    ---------
+    | A | B |
+    ---------
+    | C | D |
+    ---------
+
+    A   <Plane TheC="0" TheT="8"  TheZ="0" PositionX="0"   PositionY="0"   PositionZ="0.1"/>
+    B   <Plane TheC="0" TheT="9"  TheZ="0" PositionX="160" PositionY="0"   PositionZ="0.1"/>
+    C   <Plane TheC="0" TheT="10" TheZ="0" PositionX="0"   PositionY="220" PositionZ="0.1"/>
+    D   <Plane TheC="0" TheT="11" TheZ="0" PositionX="160" PositionY="220" PositionZ="0.1"/>
+
+Specifying the position of each plane allows tiles to either form a
+mosaic as above or to overlap. e.g.
+
+::
+
+    ---------
+    | A | B |
+    ---[E]---
+    | C | D |
+    ---------
+    E   <Plane TheC="0" TheT="12" TheZ="0" PositionX="80" PositionY="110" PositionZ="0.1"/>
+
+Sample Files
+~~~~~~~~~~~~
+
+SPIM
+^^^^
+
+`SPIM-modulo-sample.ome.tiff <http://git.openmicroscopy.org/src/develop/components/specification/Samples/OmeFiles/2011-06/SPIM-modulo-sample.ome.tiff>`_
+
+A 2x2 tile of planes each recorded at 4 angles.
+
+Big Lambda
+^^^^^^^^^^
+
+`LAMBDA-modulo-sample.ome.tiff <http://git.openmicroscopy.org/src/develop/components/specification/Samples/OmeFiles/2011-06/LAMBDA-modulo-sample.ome.tiff>`_
+
+Excitation of 5 wavelength [Λ, big-lambda] each recored at 10 emission
+wavelength ranges [λ, lambda].
+
+FLIM
+^^^^
+
+`FLIM-modulo-sample.ome.tif <http://git.openmicroscopy.org/src/develop/components/specification/Samples/OmeFiles/2011-06/FLIM-modulo-sample.ome.tif>`_
+
+Two channels each recorder at eight histogram bins.
+

@@ -1,0 +1,75 @@
+Changes For June 2011
+=====================
+
+
+
+
+The list of the key changes for the June 2011 major release of the
+ome-xml data model. This schema release will tie in with the OMERO 4.3
+release.
+
+The new major release of the schema has a new namespace and all version
+numbers are reset to 1. As a major release, any file that validated
+correctly using the last major release will probably not validate
+correctly using this new release. Some files that failed to validate
+before will now be valid. It is important to update any file readers and
+writers to understand the changes.
+
+Version
+~~~~~~~
+
+-  The version number of all schema files is now 1
+
+Namespace
+~~~~~~~~~
+
+This schema uses the new namespace
+
+::
+
+    http://www.openmicroscopy.org/Schemas/[NameSpaceTitle]/2011-06/
+
+For the OME schema
+
+::
+
+    http://www.openmicroscopy.org/Schemas/OME/2011-06/
+
+and that the schema file will be located at
+
+::
+
+    http://www.openmicroscopy.org/Schemas/OME/2011-06/ome.xsd
+
+Overview of Changes
+-------------------
+
+-  Polyline and Path are **DEPRECATED**.
+-  ROI font enumerations have been updated.
+-  The creation of the Metadata Only Companion OME-XML and Binary Only
+   OME-TIFF files.
+-  A creator attribute has been added for OME-XML & OME-TIFF.
+-  The OTF (Optical Transfer Function) is **DEPRECATED**.
+
+ROI
+~~~
+
+-  Polyline and Path are **DEPRECATED** as they are due to be replaced
+   in the next major release to provide support for 3-dimensional
+   objects see http://www.ome-xml.org/wiki/ROI.
+-  FontFamily has been changed so it matches the standard HTML/CSS
+   values.
+-  FontStyle as been changed so it matches more closely to standard
+   HTML/CSS.
+
+OME
+~~~
+
+-  The OME node has been modified to allow creation of the Metadata Only
+   Companion OME-XML and Binary Only OME-TIFF files.
+-  The OME node Creator attribute can now contain the name and version
+   of the creating application.
+-  The Physical size of a pixel is now restricted to a positive value.
+-  MicrobeamManipulation can now have a Description.
+-  OTF (Optical Transfer Function) is **DEPRECATED** and is due for
+   removal in the next major release.
