@@ -1,0 +1,168 @@
+
+Info
+
+Changes For June 2012
+=====================
+
+by `ajpatterson <http://134.36.65.53:8086/site/author/ajpatterson>`_ —
+last modified 28 June 2012 - 04:14 PM
+
+The list of the key changes for the June 2012 major release of the
+ome-xml data model. This schema release will tie in with the Bio-Formats
+4.4 release.
+
+The new major release of the schema has a new namespace and all version
+numbers are reset to 1. As a major release, any file that validated
+correctly using the last major release will probably not validate
+correctly using this new release. Some files that failed to validate
+before will now be valid. It is important to update any file readers and
+writers to understand the changes.
+
+Version
+~~~~~~~
+
+-  The version number of all schema files is now 1
+
+Namespace
+~~~~~~~~~
+
+This schema uses the new namespace
+
+::
+
+    http://www.openmicroscopy.org/Schemas/[NameSpaceTitle]/2012-06/
+
+For the OME schema
+
+::
+
+    http://www.openmicroscopy.org/Schemas/OME/2012-06/
+
+and that the schema file will be located at
+
+::
+
+    http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd
+
+Overview of Changes
+-------------------
+
+-  Release in step with release of Bio-Formats 4.4.
+-  Preparation for the Major release of OMERO **after** 4.4.
+-  Work to allow full code generation of OME Model API direct from the
+   XSD files.
+-  Almost full synchronisation of the OME Model with the OMERO Database
+   structure.
+-  The direction of references between Screen, Plate & Well and between
+   Project, Dataset & Image have been reversed.
+-  A major reworking of ROI
+-  ``Pixels`` is **DEPRECATED**, but it is still required at present.
+-  ``OTF`` and all associated objects ***REMOVED***.
+
+Detailed Changes
+----------------
+
+General changes
+~~~~~~~~~~~~~~~
+
+-  Ensure **all** colours are stored as new type ``Color``
+-  The default value for all colours is now solid white (due to legacy
+   colour default it was totally transparent red)
+-  Add ``appinfo`` blocks for ``xsd-fu`` to specify plurals
+-  Add ``appinfo`` blocks for ``xsd-fu`` to specify abstract objects
+
+BinaryFile
+~~~~~~~~~~
+
+-  Only the general change adding ``appinfo`` blocks for ``xsd-fu`` to
+   specify plurals
+
+OME
+~~~
+
+-  Rename ``AcquiredDate`` to ``AcquisitionDate`` in ``Image``
+-  Rename ``ExperimentGroup`` to ``Group``
+-  Make ``Group`` annotatable
+-  Allow multiple ``Leader`` for each ``Group``
+-  Remove ``Contact`` for ``Group`` - the transform will convert any
+   exiting ``Contact`` to a ``Leader``
+-  The direction of the references between ``Project``, ``Dataset`` and
+   ``Image`` have been reversed for consistency with other linked
+   objects.
+-  Remove ``DisplayName`` from ``Experimenter``.
+-  The ``ImageRef`` element has been moved from the ``SPW.xsd`` to the
+   ``ome.xsd`` schema file.
+-  ``Pixels`` is **DEPRECATED**, but it is still required. This is
+   notice that the contents of Pixels will be moved up to Image in the
+   next release. It is a legacy of when an Image could have multiple
+   Pixels sets. It has been redundant since the 2009-09 schema fixed the
+   number of Pixels sets in an Image at 1.
+-  ``OTF`` and all associated objects ***REMOVED***
+
+OMERO
+~~~~~
+
+``OMERO.xsd`` is not included in this release. It has been extensively
+reworked and expanded as part or the OME Model and OMERO Database
+synchronisation but work on this will continue until the release of the
+associated OMERO version. The OME Model (i.e. the other XSD files) have
+been compleatly updated for this work. They do not make use of OMERO.xsd
+so will be unaffected by the future release of this single file.
+
+    Some differences must remain between OME Model and OMERO Database
+    for database optimisation reasons, these are handled by special
+    cases in our code generation application ``xsd-fu``.
+
+ROI
+~~~
+
+-  All objects defining colours now use the type ``OME:Color`` from
+   ``ome.xsd``
+-  Move ``MarkerStart`` & ``MarkerEnd`` down from ``Shape`` into
+   ``Line``, ``Polyline``
+-  Add "Polygon" element (a new type of ``Shape``)
+-  Delete "Closed" from Polyline (transform a Closed Polyline into a
+   Polygon)
+-  Delete attribute ``Name`` from ``Shape``
+-  Delete ``Description`` from ``Shape``
+-  Add ``Visible`` to ``Shape``
+-  Add ``Locked`` to ``Shape``
+-  Rename ``Fill`` attribute in ``Shape`` to ``FillColor``
+-  Rename ``Stroke`` attribute in ``Shape`` to ``StrokeColor``
+-  Delete ``Value`` from ``Text``
+-  Rename ``Text`` element to ``Label``
+-  Rename ``Label`` attribute in ``Shape`` to ``Text``
+-  Convert ``Transform`` to new type ``AffineTransform``
+
+SA
+~~
+
+Add additional intermediate abstract annotations (``BasicAnnotation``,
+``NumericAnnotation``, ``TextAnnotation``, ``TypeAnnotation``) to match
+OMERO annotation structure. The current annotation have been modified to
+now extend these. This allows the code generation to group annotations
+together by intermediate annotation type. The behaviour of the current
+annotations have not changed, and the new intermediate abstract
+annotations are not used directly.
+
+SPW
+~~~
+
+-  Add "FieldIndex" to "Plate", this the index of the WellSample to
+   display as the default Field.
+-  The human readable identifier for the screening status has been
+   renamed from "Status" to "Type".
+-  The direction of the references between Screen and Plate has been
+   reversed for consistency with other linked objects.
+-  The ImageRef element has been moved to the ``ome.xsd`` schema file.
+
+Upgrading and Downgrading
+-------------------------
+
+The XSLT transforms between June 2011 and June 2012 versions are
+available here:
+
+`http://www.openmicroscopy.org/Schemas/Transforms/2011-06-to-2012-06.xsl <http://www.openmicroscopy.org/Schemas/Transforms/2011-06-to-2012-06.xsl>`_
+
+`http://www.openmicroscopy.org/Schemas/Transforms/2012-06-to-2011-06.xsl <http://www.openmicroscopy.org/Schemas/Transforms/2012-06-to-2011-06.xsl>`_
+

@@ -1,0 +1,104 @@
+
+Info
+
+Further Information
+===================
+
+by `jburel <http://134.36.65.53:8086/site/author/jburel>`_ — last
+modified 10 October 2011 - 08:17 PM
+
+Provides information on OME-XML, the Open Microscopy Environment's data
+model and associated file formats.
+
+What is OME?
+~~~~~~~~~~~~
+
+OME is an umbrella term that stands for "Open Microscopy Environment"
+and covers:
+
+-  The `OME file
+   formats <http://www.openmicroscopy.org/site/support/file-formats>`_,
+   including OME-XML and OME-TIFF, and the
+   `Bio-Formats <http://www.loci.wisc.edu/ome/formats.html%20Bio-Formats>`_
+   Java library.
+-  The `OME database
+   systems <http://www.openmicroscopy.org/site/products/omero>`_ for
+   microscopy data management and analysis comprising the original OME
+   Server and the OMERO platform.
+-  The `OME
+   consortium <http://www.openmicroscopy.org/site/about/who-ome>`_, the
+   group behind these efforts.
+
+What is OME-XML? Why should I care?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OME-XML is a project to provide support for the exchange of microscope
+imaging data within the field of life sciences. Its key aspects include
+support for collaborative sharing of data between labs who may be using
+different apparatus, and the safeguarding of crucial metadata associated
+with image files that can be lost when they are moved across systems (or
+in many cases never recorded at all).
+
+The term "OME-XML" means two interrelated but distinct things:
+
+#. A `data model <http://en.wikipedia.org/wiki/Data_model>`_ for
+   representing microscopy metadata, for use with microscopy file
+   formats, expressed as an `XML <http://en.wikipedia.org/wiki/XML>`_
+   schema.
+#. A `file format <http://en.wikipedia.org/wiki/File_format>`_ for
+   storing microscopy information (both pixels and metadata) using the
+   OME-XML data model.
+
+The purpose of OME-XML is to provide a rich, extensible way to save
+information concerning microscopy experiments and the images acquired
+therein, including:
+
+-  Dimensional parameters defining the scope of the image pixels
+   (resolution, number of focal planes, number of time points, number of
+   channels, etc.).
+-  The hardware configuration used to acquire the image planes
+   (microscope, detectors, lenses, filters, etc.).
+-  The settings used with said hardware (physical size of the image
+   planes in microns, laser gain and offset, channel configuration,
+   etc.).
+-  The person performing the experiment.
+-  Some details on the experiment itself, such as a description, what
+   type of experiment (FRET, time lapse, fluorescence lifetime, etc.)
+   and events occurring during the acquisition (laser ablation, stage
+   motion, etc.).
+-  Additional, custom information you may wish to provide about your
+   experiment in a structured form (known as `structured
+   annotations <StructuredAnnotations>`_).
+
+What is OME-TIFF?
+~~~~~~~~~~~~~~~~~
+
+OME-TIFF is a practical, high performance interchange format that
+encodes the metadata using the OME-XML data model. It is essentially
+OME-XML turned "inside out," with the OME-XML inside a regular TIFF
+file, allowing the pixels to be read with any TIFF-compatible program,
+and the metadata to be extracted with any OME-aware application.
+
+How can I learn more?
+~~~~~~~~~~~~~~~~~~~~~
+
+Since the level of detail you want regarding OME-XML undoubtbly depends
+on how you want to use it, we have provided links to varying sorts of
+information.
+
+**If you are a microscopist**, check out the `non-technical overview of
+the OME-XML and OME-TIFF
+formats <http://www.openmicroscopy.org/site/support/file-formats>`_. If
+you are looking for software to read files in OME-XML or OME-TIFF
+format, check out the
+`Bio-Formats <http://loci.wisc.edu/software/bio-formats>`_ plugins for
+`ImageJ <http://rsb.info.nih.gov/ij/>`_.
+
+**If you are a software developer** interested in working with OME-XML,
+check out the [wiki:DeveloperInfo] page, which is the main focus of this
+site, and perhaps also the [wiki:OmeTiff OME-TIFF overview].
+
+**If you are looking for a publication** to read or cite, check out the
+`Genome Biology paper on
+OME-XML <http://genomebiology.com/2005/6/5/R47>`_.
+

@@ -1,0 +1,349 @@
+
+Info
+
+Screen Plate Well 2010-04
+=========================
+
+by `jburel <http://134.36.65.53:8086/site/author/jburel>`_ — last
+modified 11 October 2011 - 04:38 PM
+
+This was developed in conjunction with the June 2007 release and updated
+for the April 2010 release of the OME-XML Model.
+
+The Screen Plate Well (SPW) model is designed to support High Content
+Screening. It is aimed at providing a flexible framework to organise the
+images that result from such a screen and link to external systems that
+contain full information about the components and products used.
+Throughout the model there are several **External Identifier** strings
+that can be attached to support this.
+
+The top level of the SPW model has two objects that exist side by side,
+**Screen** and **Plate**. It is important to stress that **Plate** is
+not a child of **Screen**, they are equals. This is necessary to cater
+for the fact that while a **Screen** can contain many **Plate**s, a
+**Plate** can also be used in more than one **Screen**. This allows less
+common scenarios where, for example, there are two screens against two
+different reagent sets but only one set of control plates that are used
+in common.
+
+**Reagent**s are children of a **Screen** and as such are designed to be
+referenced from each **Screen** they are part of. It is worth covering
+the exact meaning of a **Reagent** within SPW. The storing of detailed
+information about biological reagents is beyond the scope of the OME
+model. There are several other system that are designed to handle this
+type of information. What the **Reagent** element in SPW provides is
+useful descriptions and an external reagent identifier that can be used
+to find detailed information about the reagent in another system. A side
+effect of this is that any change to an external reagent requires a new
+SPW reagent. This could be a change of dilution, supplier, or
+lot-number.
+
+Example
+^^^^^^^
+
+If you have two chemical reagents Monastrol and VX680 that I wish to
+apply to samples in various concentrations. The Monastrol will be
+applied at 100, 300, and 900 nM concentrations. The VX680 at 300, 900,
+2700 nM concentrations. This requires a total of 6 reagents to be
+defined in the OME file.
+
+::
+
+    <spw:Screen ...>
+        ...
+        <spw:Reagent ID="Reagent:001" Description="Monastrol at a 100nM concentration from XYZ Supplier" Name="Monastrol-100nM" ReagentIdentifier="R-XYZ-Mon-100-nm-00345"/>
+        <spw:Reagent ID="Reagent:002" Description="Monastrol at a 300nM concentration from XYZ Supplier" Name="Monastrol-300nM" ReagentIdentifier="R-XYZ-Mon-300-nm-01245"/>
+        <spw:Reagent ID="Reagent:003" Description="Monastrol at a 900nM concentration from XYZ Supplier" Name="Monastrol-900nM" ReagentIdentifier="R-XYZ-Mon-900-nm-00875"/>
+        <spw:Reagent ID="Reagent:004" Description="VX680 at a 300nM concentration from XYZ Supplier" Name="VX680-300nM" ReagentIdentifier="R-XYZ-VX680-300-nm-00256"/>
+        <spw:Reagent ID="Reagent:005" Description="VX680 at a 900nM concentration from XYZ Supplier" Name="VX680-900nM" ReagentIdentifier="R-XYZ-VX680-900-nm-00257"/>
+        <spw:Reagent ID="Reagent:006" Description="VX680 at a 2700nM concentration from XYZ Supplier" Name="VX680-2700nM" ReagentIdentifier="R-XYZ-VX680-2700-nm-00258"/>
+        ...
+    </spw:Screen>
+
+What is recorded where
+----------------------
+
+Attachment Level
+
+Information Recorded
+
+Description
+
+Plate
+
+ID
+
+This is used by the system to identify the plate.
+
+Name
+
+This is chosen by the user to identify the plate.
+
+Description
+
+A free text description.
+
+ColumnNamingConvention
+
+The ColumnNamingConvention.
+
+Columns
+
+The number of columns in the plate.
+
+ExternalIdentifier
+
+This is a identifier for the plate used by an external system. This may
+be a barcode printed on the plate by the manufacturer.
+
+RowNamingConvention
+
+The RowNamingConvention.
+
+Rows
+
+The number of rows in the plate.
+
+Status
+
+The current state of the plate in the experiment work-flow.
+
+WellOriginX
+
+The X position to use for the origin of the fields (individual images)
+taken in a well.
+
+WellOriginY
+
+The Y position to use for the origin of the fields (individual images)
+taken in a well.
+
+Reagent
+
+ID
+
+This is used by the system to identify the reagent.
+
+Name
+
+A short name for the reagent.
+
+Description
+
+A long description for the reagent.
+
+ReagentIdentifier
+
+This is a reference to an external (to OME) representation of the
+Reagent. It serves as a foreign key into an external database.
+
+Screen
+
+ID
+
+This is used by the system to identify the screen.
+
+Name
+
+This is chosen by the user to identify the screen.
+
+Description
+
+A long description for the screen.
+
+ProtocolDescription
+
+A description of the screen protocol; may contain very detailed
+information to reproduce some of that found in a screening database.
+
+ProtocolIdentifier
+
+A pointer to an externally defined protocol, usually in a screening
+database.
+
+ReagentSetDescription
+
+A description of the reagent set; may contain very detailed information
+to reproduce some of that information found in a screening database.
+
+ReagentSetIdentifier
+
+A pointer to an externally defined reagent set, usually in a screening
+database/automation database.
+
+Type
+
+A human readable identifier for the screen type; e.g. RNAi, cDNA, SiRNA,
+etc.
+
+PlateAcquisition
+
+PlateAcquisition is used to describe a single acquisition run for a
+plate. Since Plates are abstract, this object is used to record the set
+of images acquired in a single acquisition run. The Images for this run
+are linked to PlateAcquisition through WellSample.
+
+ID
+
+This is used by the system to identify the plate acquisition.
+
+Name
+
+This is chosen by the user to identify the plate acquisition.
+
+EndTime
+
+Time when the last image of this acquisition was collected.
+
+MaximumFieldCount
+
+The maximum number of fields (well samples) in any well in this
+PlateAcquisition.
+
+StartTime
+
+Time when the first image of this acquisition was collected
+
+Well
+
+A Well is a component of the Well/Plate/Screen construct to describe
+screening applications. A Well has a number of WellSample elements that
+link to the Images collected in this well. The ReagentRef links any
+Reagents that were used in this Well. A Well is part of one or more
+Plates. The origin for the row and column identifiers is the top left
+corner of the plate starting at zero.
+
+ID
+
+This is used by the system to identify the well.
+
+Color
+
+A marker color used to highlight the well.
+
+Column
+
+This is the column index of the well, the origin is the top left corner
+of the plate with the first column of cells being column zero. i.e top
+left is (0,0).
+
+ExternalDescription
+
+A description of the externally defined identifier for this plate.
+
+ExternalIdentifier
+
+A pointer to an externally defined identifier for this plate.
+
+Row
+
+This is the row index of the well, the origin is the top left corner of
+the plate with the first row of wells being row zero. i.e top left is
+(0,0).
+
+Status
+
+A human readable identifier for the screening status. e.g. empty,
+positive control, negative control, control, experimental, etc. This
+string is likely to become an enumeration in future releases.
+
+WellSample
+
+WellSample is an individual image that has been captured within a Well.
+
+ID
+
+This is used by the system to identify the well sample.
+
+Index
+
+This records the order of the well samples. Each index should be unique
+for a given plate but they do not have to be sequential.
+
+PositionX
+
+The X position of the field (image) within the well relative to the well
+origin defined on the Plate.
+
+PositionY
+
+The Y position of the field (image) within the well relative to the well
+origin defined on the Plate.
+
+Timepoint
+
+The time-point at which the image started to be collected.
+
+What happened to ScreenAcquisition?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the previous version of the SPW Model the acquisition information was
+recorded below **Screen**. During use it was discovered that this did
+not best reflect the way data was collected. This difference between the
+structure and the collected data produced a performance bottleneck when
+dealing with the large structures necessary for HCS data. The decision
+was taken to rework the model to store the acquisition information on
+**Plate** instead. The structure was moved in the model to below
+**Plate** and renamed **PlateAcquisition**.
+
+We also took this opportunity to add Index to **WellSample**. This
+records the order of the well samples and should be unique within a
+given **Plate**. It does not however have to be sequential so supports
+the collection of sparse datasets.
+
+Diagram showing structure in the SPW Schema
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Within the OME data model **Screen**, **Plate** and **Image** are top
+level structures. A file can contain multiple instances of these
+elements.
+
+Each **Plate** can contain multiple **Well**s, **PlateAcquisition**s,
+and **ScreenRef**s, i.e. a plate can belong to multiple screens. Each
+**Well** in turn can have one (or zero) **ReagentRef**, and zero or more
+**WellSample**s. Each of the well samples defines the location of an
+image within the well and the time at which the sample started to be
+collected. It also references the **Image** itself.
+
+Each **Screen** contains multiple **Reagent**s, and **PlateRef**s, i.e.
+a screen can use many plates. A **PlateAcquisition** is best viewed as a
+pass over some or all of the **Well**s in a **Plate** - usually
+associated with some time-point or step in a protocol. It is a
+collection of individual **WellSample**s across the ''Plate''s collected
+between two time points.
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ScreenPlateWell/2010-04/Spw-structure.png
+   :align: center
+   :alt: SPW structure
+Diagram showing structure in the SPW Schema (cross-linked)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The dashed arrows added to the previous diagram show the
+inter-dependencies between the ''Screen'' branch and the ''Plate''
+branch of the schema, as well as the ultimate link to ''Image''.
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ScreenPlateWell/2010-04/Spw-structure-cross-linked.png
+   :align: center
+   :alt: SPW structure crosslinked
+Diagram showing sample file structure of the SPW Schema
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This diagram shows how a typical file would be structured and what
+objects are normally contained inside each other.
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ScreenPlateWell/2010-04/Spw-sample.png
+   :align: center
+   :alt: SPW sample
+Diagram showing sample file structure of the SPW Schema (cross-linked)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The dashed arrows added to the previous diagram show the
+inter-dependencies of the objects in the sample file structure. Each
+dashed line could represent links from several objects of one type to
+several objects of the second type. The links in the file are
+accomplished using unique IDs on objects and then References to these
+IDs from elsewhere in the file.
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ScreenPlateWell/2010-04/Spw-sample-crosslinked.png
+   :align: center
+   :alt: SPW sample crosslinked

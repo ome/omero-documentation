@@ -1,0 +1,31 @@
+
+Info
+
+ROI Proposal September 2010
+===========================
+
+by `jburel <http://134.36.65.53:8086/site/author/jburel>`_ — last
+modified 11 October 2011 - 11:23 AM
+
+Information on the proposed ROI Model for the next available Major
+release.
+
+This moves the ROI model into 3-dimensions by pushing the Z value from
+the Shape level down into the geometry objects themselves (e.g. Point
+now has X, Y, Z).
+
+This requires the removal of Polyline and Path. They are replaced with a
+Vertex Array geometry object. It should be possible to upgrade Polyline
+objects as part of the XSLT transform. It seams unlikely that Path can
+be upgraded in this manner, more complex code would be required.
+
+Polyline and Path are being marked as **Deprecated** in the April 2010
+release of the schema. Details of that ROI model is available
+`here <.>`_.
+
+The diagram below shows an overview of the current proposal, it is not
+set in stone and we would welcome comments and suggestions.
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ROI/2010-09/Ome-ROI-overview-Proposal-2010-09.png
+   :align: center
+   :alt: ROI Proposal 2010-09

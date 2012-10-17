@@ -1,0 +1,50 @@
+
+Info
+
+Structured Annotations
+======================
+
+by `jburel <http://134.36.65.53:8086/site/author/jburel>`_ — last
+modified 11 October 2011 - 11:59 AM
+
+Structured annotations (or SAs), introduced in the `2008-09
+schema </site/support/file-formats/schemas/versions/changes-for-september-2009>`_,
+are a general way to extend OME-XML with additional structured
+information. They can express a variety of data types and linkages, and
+serve as a replacement for the Custom Attributes and Semantic Type
+Definitions functionality of prior schemas.
+
+To illustrate their use, we have provided some simple examples:
+
+-  `min-sa-sample-lsid.xml <http://git.openmicroscopy.org/src/master/components/specification/InProgress/min-sa-sample-lsid.xml>`_
+-  `min-sa-sample-mo.xml <http://git.openmicroscopy.org/src/master/components/specification/InProgress/min-sa-sample-mo.xml>`_
+
+We also have a more complex example illustrating the use of SAs to
+extend the ROI model.
+
+-  `roi-sa-sample-2009.xml <http://git.openmicroscopy.org/src/master/components/specification/InProgress/roi-sa-sample-2009.xml>`_
+
+    The structure of the roi-sa-sample-2009 file has been updated to
+    make it valid under **September 2009** but the ideas and concepts as
+    around the use of the annotations are out of date. Nonetheless, we
+    hope it helps to illustrate the intended use of SAs.
+
+For more information on SAs from an OMERO-centric perspective, see the
+`OMERO page on structured
+annotations <http://trac.openmicroscopy.org.uk/omero/wiki/StructuredAnnotations>`_.
+
+The structure of the SA used in the **April 2010** schema is shown below
+along with all the possible attachment points in the model.
+
+Diagram showing the StructureAnnotation branch of the OME Model
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/Annotation/Annotation-Top.png
+   :align: center
+   :alt: Annotation Top
+Diagram showing all points in the OME Model that can be Annotated
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/Annotation/Annotation-Points.png
+   :align: center
+   :alt: Annotation Points

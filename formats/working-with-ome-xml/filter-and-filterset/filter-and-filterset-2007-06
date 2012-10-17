@@ -1,0 +1,153 @@
+
+Info
+
+Filter and FilterSet 2007-06
+============================
+
+by `jburel <http://134.36.65.53:8086/site/author/jburel>`_ — last
+modified 11 October 2011 - 11:36 AM
+
+This was developed in conjunction with the June 2007 release of the
+OME-XML Model
+
+The filter model has changed with the June 2007 release of the OME
+Schema. This page provides a description of the new structures used. The
+new structures are designed to work for Fluorescence Microscopy but are
+flexible enough it can also work with filter configurations for most
+other forms of microscopy. If you feel it will not work in your case
+than please submit a ticket and we will look into the issue.
+
+Supported Objects
+^^^^^^^^^^^^^^^^^
+
+In the schema there is support for the following objects:
+
+-  Dichroic:: The dichroic mirror or dichromatic beamsplitter.
+-  Filter:: This object is used to represent any type of excitation
+   filter and emission/barrier filter. It contains details of the
+   transmittance of the filter.
+-  FilterSet:: A FilterSet belongs to an Instrument in an OME-XML file
+   and has alongside it any Filters and Dichroics it refers to. It is
+   designed to represent a filter combination, sometimes called a filter
+   cube or filter block. It may contain one excitation filter, one
+   dichroic and one emission filter. Filters and dichroics can be reused
+   across multiple filter sets. It will be normal to have a single
+   dichroic that is usable with several filter combinations.
+-  FilterSetRef:: These are used to attach a specific filter set from an
+   Instrument to a LogicalChannel within an Image. They allow the filter
+   set to be defined once in the instrument in an OME-XML file and then
+   used multiple times within the images.
+-  FilterSpec:: The filter spec is used by both Dichroic and Filter to
+   store the Manufacturer, Model and LotNumber of the optical element.
+-  FilterWheel:: This is a value within a Filter used to record what
+   holder the filter is located in. Although it is named after a wheel
+   it could just as easily be a filter slider or other mechanism. These
+   holders allow any of there containing filters to be automatically
+   selected by the microscope control software.
+-  SecondaryEmissionFilter:: This is a value within a LogicalChannel
+   that allows an extra filter to be recorded as placed over the
+   emission filter defined in the FilterSet.
+-  SecondaryExcitationFilter:: This is a value within a LogicalChannel
+   that allows an extra filter to be recorded as placed over the
+   excitation filter defined in the FilterSet.
+
+Overview of where the Filter Set sits in the light path
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/FilterSet-Overview.png
+   :align: center
+   :alt: FilterSet Overview
+
+#. The source produces a beam of light
+#. A small range of wavelength are passed through the Excitation Filter
+#. The light is selectively reflected by the Dichroic mirror to
+   illuminate the sample.
+#. The fluorphore in the sample absorbs the light from 3 and re-emits it
+   on a new wavelength. Some of this re-emitted light travels towards
+   the dichroic mirror.
+#. The light on the new wavelength is selectively transmitted by the
+   dichroic mirror.
+#. The wavelength of detected light is further narrowed and stray
+   reflections reduced by the Emission filter.
+
+Structure of the filter data in OME-XML
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The filter data elements are part part of the central OME Schema. The
+filters are part of the Instrument block. Each instrument can contain
+zero or more filters, dichroics, and filter sets. Each filter set used
+unique IDs to referrer to the filters and dichroic it contains. If there
+are any secondary filters used with the LogicalChannels within an image
+then those filters are also defines at the instrument level and
+referenced from the channel using the unique ID. The filters and
+dichroics are both extensions of the FilterSpec element so store this
+common data. A filter also contains one TransmittanceRange element that
+describes the optical characteristic of it.
+
+Diagram showing where FilterSet sits in the OME Schema
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2007-06/FilterSet-Top.png
+   :align: center
+   :alt: FilterSet Top
+The FilterSet contains three references, one to a dichroic ID called
+DichroicRef, and two to filter IDs called ExFilterRef and EmFilterRef.
+Each of the three references are optional. There is no distinction on
+whether a filter is designed for emission or excitation at the filter
+level. The distinction is made within the filter set by the assignment
+of the filter ID reference to ExFilterRef or EmFilterRef.
+
+Diagram showing the attributes within the filter objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2007-06/FilterSet-Links.png
+   :align: center
+   :alt: FilterSet Links
+Sample piece of a .ome.xml file showing FilterSet structure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This shows the structure of the resulting xml. It contains dummy data.
+FilterSet:1 uses Filter:1 for excitation, Filter:2 for Emission, and
+Dichroic:1.
+
+::
+
+    <ome:FilterSet ExFilterRef="Filter:1" DichroicRef="Dichroic:1" 
+        EmFilterRef="Filter:2" ID="FilterSet:1" 
+        Manufacturer="Manufacturer0" Model="Model0" LotNumber="LotNumber0"/>
+    <ome:Filter Type="LongPass" FilterWheel="FilterWheel0" ID="Filter:1" 
+        Manufacturer="Manufacturer10" Model="Model10" LotNumber="LotNumber0">
+        <ome:TransmittanceRange CutIn="0" CutOut="0" 
+        CutInTolerance="0" CutOutTolerance="0" Transmittance="0"/>
+    </ome:Filter>
+    <ome:Filter Type="LongPass" FilterWheel="FilterWheel1" ID="Filter:2" 
+        Manufacturer="Manufacturer11" Model="Model11" LotNumber="LotNumber1">
+        <ome:TransmittanceRange CutIn="0" CutOut="0" 
+        CutInTolerance="0" CutOutTolerance="0" Transmittance="0"/>
+    </ome:Filter>
+    <ome:Filter Type="LongPass" FilterWheel="FilterWheel2" ID="Filter:3" 
+        Manufacturer="Manufacturer12" Model="Model12" LotNumber="LotNumber2">
+        <ome:TransmittanceRange CutIn="0" CutOut="0" 
+        CutInTolerance="0" CutOutTolerance="0" Transmittance="0"/>
+    </ome:Filter>
+    <ome:Dichroic ID="Dichroic:1" 
+        Manufacturer="Manufacturer12" Model="Model12" LotNumber="LotNumber2"/>
+    <ome:Dichroic ID="Dichroic:2" 
+        Manufacturer="Manufacturer18" Model="Model18" LotNumber="LotNumber8"/>
+
+The Dichroic object is simple, it simply contains its unique ID and the
+values it gets from extending FilterSpec. The FilterSpec values are
+similar to a the ManufactSpec used elsewhere in that they have
+Manufacture and Model values. Where there is the difference is in
+ManufactSpec each object has a serial number where as in FilterSpec the
+LotNumber of the batch is recorded.
+
+The Filter object has the values it gets by extending FilterSpec and a
+unique ID the same as the Dichroic. In addition it has a Type and a
+FilterWheel value. In addition to these extra values it contains one
+TransmittanceRange object. The TransmittanceRange describes the optical
+characteristic of the filter and has values for the CutIn and CutOut,
+along with the CutInTolerance and CutOutTolerance, all expressed in
+nanometers. There is also the Transmittance of the filter express as a
+percentage fraction.
+
