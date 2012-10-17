@@ -1,0 +1,192 @@
+Changes For June 2007
+=====================
+
+
+
+
+List of the key changes made for the June 2007 release of the ome-xml
+data model.
+
+While this may not be a complete list of changes in details, it should
+cover all the categories of changes applied to the files. Some changes
+affect the structure of the data model, some only the names used for
+concepts, and others only the xsd files themselves.
+
+Copyright changes
+~~~~~~~~~~~~~~~~~
+
+The copyright of the files has been extended to recognize the
+contribution of the University of Wisconsin at Madison.
+
+Minimum Specification
+~~~~~~~~~~~~~~~~~~~~~
+
+A minimum specification for a valid OME-XML file has been defined.
+Further information, including samples, is available at `Minimum
+Specification </site/support/file-formats/schemas/specifications/minimum-specification>`_.
+
+Version
+~~~~~~~
+
+The way version information is recorded in the XSD files has been
+changed to adhere to best practise. For further information see `Version
+Information <version-information>`_.
+
+ChannelInfo renamed and extended
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This has been renamed to LogicalChannel. It also now has references to
+secondary filters for emission and excitation. IlluminationType can now
+be NonLinear and Mode now has the catch all type Other. Settings have
+been added for PockelCell lasers.
+
+Detector extended
+~~~~~~~~~~~~~~~~~
+
+An attribute Zoom has been added for use with confocals. Also updated is
+the Type, it can now handle EM-CCD, APD, and CMOS detectors. The EM-CCD
+detector type meant that an additional attribute was needed called
+AmplificationGain.
+
+DetectorRef extended
+~~~~~~~~~~~~~~~~~~~~
+
+A reference to a detector now has the following addition attributes: a
+Voltage, a ReadOutRate which is speed at which the detector can count
+the pixels, and a Binning setting where detector pixels are combined to
+form a larger pixels set.
+
+Laser extended
+~~~~~~~~~~~~~~
+
+Lasers can now be set as being PockelCell. A RepetitionRate has been
+added. The FrequencyDoubled flag has been replaced by the
+FrequencyMultiplication setting which, as an integer, can support more
+systems. Laser now allows any other LightSource to be used as the Pump.
+AuxLightSource and AuxLightSourceRef have been removed as they have been
+superseded.
+
+Objective extended
+~~~~~~~~~~~~~~~~~~
+
+This now has attributes that record the LensNA, WorkingDistance,
+ImmersionType, NomimalMagnification (e.g. x60),
+CalibratedMagnification(e.g. x60.034), and Correction. The Correction
+attribute records the coating applied to the lens. Possible Correction
+types are UV, PlanApo, PlanFluor, SuperFluor, and VioletCorrected.
+Magnification has been removed as it has been superseded.
+
+ObjectiveRef renamed and extended
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ObjectiveRef is now called ObjectiveSettingsRef. CorrectionCollar,
+Medium, and RefractiveIndex have been added as attributes.
+
+Pixels extended
+~~~~~~~~~~~~~~~
+
+Pixels can now contain either BinData or TiffData elements to store the
+pixel data. It now also can contain Plane elements. Attributes have been
+added to hold PhysicalSizeX, PhysicalSizeY, PhysicalSizeZ,
+TimeIncrement, WaveStart, and WaveIncrement. These use to be attached to
+Image.
+
+Filter and Filter Sets rewritten
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The previous filter model has been replaced. For further information see
+`FilterAndFilterSet
+v2007-06 </site/support/file-formats/working-with-ome-xml/filter-and-filterset/filter-and-filterset-2007-06>`_.
+
+Images contracted and expanded
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Make "DefaultPixels" field required in Image - done Image can now
+contain the following new elements: PlateRef, AcquiredPixelsRef, ROI,
+and MicrobeamManipulation. The attribute DefaultPixels is now required.
+The attributes PhysicalSizeX, PhysicalSizeY, PhysicalSizeZ,
+TimeIncrement, WaveStart, and WaveIncrement have been moved to Pixels.
+
+Features renamed
+~~~~~~~~~~~~~~~~
+
+Throughout the files Feature and Features have become Region and
+Regions. This allows the naming to be consistent with the region of
+interest model.
+
+Screening Data Model
+~~~~~~~~~~~~~~~~~~~~
+
+The new file SPW.xsd has been added to hold the Screen/Plate/Well model.
+With its creation Plate and Screen that were in OME.XSD have been moved
+and re-written. For further information see `Screen Plate Well
+v2007-06 </site/support/file-formats/working-with-ome-xml/screen-plate-well/screen-plate-well-2007-06>`_.
+
+OME-Tiff extensions
+~~~~~~~~~~~~~~~~~~~
+
+The changes necessary to support the OME-Tiff format have been applied -
+This was the addition of the TiffData element to Pixels as an option to
+the BinData element.
+
+Internal IDs and LSID changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ID types used throughout the OME-XML model are designed to support
+identifiers in two forms, full LSID format and internal only format. The
+formats of these are now enforced in an improved way using new regular
+expressions. For further information see
+`LSID </site/support/file-formats/working-with-ome-xml/id-and-lsid>`_
+
+The Image/Experiment Relationship
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This has been modified.
+
+Naming conventions
+~~~~~~~~~~~~~~~~~~
+
+The naming convention used for attribute, element and enumeration names,
+already partly implemented was written down and existing names corrected
+as necessary.
+
+for enumerations
+^^^^^^^^^^^^^^^^
+
+Enumerations names will normally use UpperCamelCase, and contain letters
+& numbers and the dash. No spaces and no other punctuation. The '-' is
+the only permitted punctuation character (so 'e-' is allowed). Only
+abbreviations in common use in the field should be used.
+
+for attributes
+^^^^^^^^^^^^^^
+
+Attributes names will use UpperCamelCase, letters only, no punctuation.
+Where practical whole words will be used rather then abbreviations.
+
+for elements
+^^^^^^^^^^^^
+
+Elements names will use UpperCamelCase, letters only, no punctuation.
+Where practical whole words will be used rather then abbreviations.
+Element names will normally be unique across all the OME files and where
+an element name is reused is will be for a specific reason that is
+outline in an annotation present in each place the element is defined.
+
+Miscellaneous corrections
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Some spelling mistakes have been corrected. There have been minor
+changed to the file layouts.
+
+Plane
+~~~~~
+
+This has been modified and now contains some of the structures that were
+in Image.
+
+    Notes: in the XSD files the element and attribute names use
+    CamelCase and PascalCase. As these are also interpreted by
+    WikiFormatting this may result in links to seeming missing pages.
+    These will be display as follows: DummyElememtName
+

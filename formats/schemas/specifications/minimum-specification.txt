@@ -1,0 +1,53 @@
+Minimum Specification
+=====================
+
+
+
+
+OME Minimum File Specification
+
+This was developed in conjunction with the September 2009 release of the
+OME-XML Model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A minimum specification OME file has been defined. This is best viewed
+as being the minimum required for the display of an image. A sample of
+the structure is:
+
+::
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <ome:OME xmlns:bf="http://www.openmicroscopy.org/Schemas/BinaryFile/2009-09"
+        xmlns:ome="http://www.openmicroscopy.org/Schemas/OME/2009-09"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2009-09 
+                            http://www.openmicroscopy.org/Schemas/OME/2009-09/ome.xsd">
+        <ome:Image ID="Image:1" Name="Name92">
+            <ome:AcquiredDate>2009-03-16T15:41:51.0Z</ome:AcquiredDate>
+            <ome:Pixels 
+                ID="Pixels:1" 
+                DimensionOrder="XYZCT" 
+                Type="int8" 
+                SizeX="2" 
+                SizeY="2" 
+                SizeZ="2"
+                SizeC="2" 
+                SizeT="2">
+                <bf:BinData 
+                    BigEndian="false" 
+                    Compression="none" 
+                    Length="12"
+                    >ZGVmYXVsdA==</bf:BinData>
+            </ome:Pixels>
+        </ome:Image>
+    </ome:OME>
+
+    The data in this sample is nonsense.
+
+An alternative valid forms:
+
+-  Would have a ``<ome:TiffData/>`` block instead of the bf:BinData
+   block. This would be used in the header of an OME-TIFF file.
+-  Would have a ``<ome:MetadataOnly/>`` block instead of the bf:BinData
+   block. This would be used in the header of a metadata only ome file.
+

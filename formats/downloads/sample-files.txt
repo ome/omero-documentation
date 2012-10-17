@@ -1,0 +1,171 @@
+Sample Image Files
+==================
+
+
+
+
+Collection of sample OME-XML and OME-TIFF files.
+
+    Sample OME-XML and OME-TIFF files can be found in our source
+    repository:
+    `Samples <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/specification/Samples/>`_
+
+    Most of the modern examples (from 2008 onwards) can be found in the
+    sub-folder:
+    `OmeFiles <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/specification/Samples/OmeFiles/>`_
+
+Structure of the samples
+------------------------
+
+Each schema version's samples are in a folder named after the schema's
+date
+
+e.g. folder ``2010-04`` has samples using schema version
+`http://www.openmicroscopy.org/Schemas/OME/2010-04 <http://www.openmicroscopy.org/Schemas/OME/2010-04>`_
+
+There are two sets of samples that were designed to be small enough to
+examine in details:
+
+-  ``18x24y*-text*`` are 18 be 24 pixel images, with black and white
+   text on each plane giving its time, z-depth and channel. e.g. C1 Z1
+   T1
+-  ``6x4y*-swatch`` are 6 by 4 pixel images, that have a black and white
+   pattern in the first 2 x-columns, followed by a grey scale pattern in
+   the next 4 columns
+
+The File names contain:
+ ``x`` size, ``y`` size, ``z`` depth, ``t`` timepoints, ``c`` channels,
+and ``b`` bitdepth
+
+-  A file ending in ``.ome`` is the OME-XML version
+-  A file ending in ``.ome-v-Match.ome.tiff`` is the OME-TIFF version
+   that matches the OME-XML version (normally a hand made example)
+-  A file ending in ``.ome-v2010-06.ome.tiff`` is the OME-TIFF version
+   that has been updated to the 2010-06 schema by the Bio-Formats
+   bfconvert tool.
+
+Detail file list
+^^^^^^^^^^^^^^^^
+
+This is a list of all the example for the 2010-06 Schema Version. While
+most are available in all the schema versions some files are only
+available in the later versions.
+
+``6x4y1z1t1c8b-swatch-1s1p4w2ws.ome``
+    - file contains 11 images. The file shows how these images can be
+    attached to wells within a plate.
+``6x4y1z1t1c8b-swatch-2s2p4w2ws.ome``
+    - file contains 22 images. The file shows how two plates and two
+    screens can be linked together.
+``6x4y1z1t1c8b-swatch-instrument.ome``
+    - most of the other examples contain no instrument data. This file
+    has a single image with an instrument using lights sources,
+    detectors, objectives and filters.
+``6x4y1z1t1c8b-swatch-tagged.ome``
+    - file has a single image. The image has two tags and a tagset
+    attached to it using annotations.
+``6x4y1z1t1c8b-swatch-xmlannotation-svg.ome``
+    - file has a single image. The image has a block of XML data
+    attached to it using annotations. The XML data is SVG in this
+    example but could be any well formed XML.
+``6x4y1z1t1c8b-swatch.ome``
+    - file has a single image. This file is the on on which the other
+    files are based.
+``6x4y1z1t3c8b-swatch-ROI.ome``
+    - file has a single image, but that image has 3 channels. There are
+    3 ROIs defined, two on only a single channel and one that applies to
+    all the channels.
+``6x4y1z1t3c8b-swatch.ome``
+    - file has a single image, but that image has 3 channels.
+``18x24y1z5t1c8b-text.ome``
+    - file has a single image. The image has pixels stored for 5
+    timepoints.
+``18x24y1z5t2c8b-text.ome``
+    - file has a single image. The image has pixels stored for 5
+    timepoints. Each of these timepoints has 2 channels to give a total
+    of 10 bit planes.
+``18x24y5z1t1c8b-text.ome``
+    - file has a single image. The image has pixels stored for 5
+    z-sections.
+``18x24y5z1t2c8b-text.ome``
+    - file has a single image. The image has pixels stored for 5
+    z-sections. Each of these z-sections has 2 channels to give a total
+    of 10 bit planes.
+``18x24y5z5t1c8b-metadata.ome``
+    - file defines a single image. The image is defined as having pixels
+    for 5 z-sections. Each of these z-sections has 5 timepoints to give
+    a total of 25 bit planes. This is a metadata only file. It only has
+    the metadata defining the image not any of the pixel data.
+``18x24y5z5t1c8b-text.ome``
+    - file has a single image. The image has pixels stored for 5
+    z-sections. Each of these z-sections has 5 timepoints to give a
+    total of 25 bit planes.
+``18x24y5z5t2c8b-text.ome``
+    - file has a single image. The image has pixels stored for 5
+    z-sections. Each of these z-sections has 5 timepoints. Each of these
+    timepoints has 2 channels to give a total of 50 bit planes.
+``2010-04-filter-metadata.ome``
+    - metadata only file shows a number of filters combined together
+    using the light path element introduced in April 2010.
+``spim-simple-example.ome``
+    - example shows how we recommend SPIM data is stored. See `SPIM
+    Initial
+    Support </site/support/file-formats/working-with-ome-xml/spim-initial-support>`_
+
+Other OME-TIFF Files
+--------------------
+
+See the `OME-TIFF Data <ome-tiff/ome-tiff-data>`_ page.
+
+Older OME Samples
+-----------------
+
+.ome Samples
+~~~~~~~~~~~~
+
+-  `min-sample-2008-02.ome <http://git.openmicroscopy.org/src/develop/components/specification/Samples/Examples/min-sample-2008-02.ome>`_
+
+   -  sample created with dummy data to show the shape of a minimal file
+
+-  `max-sample-2008-02.ome <http://git.openmicroscopy.org/src/develop/components/specification/Samples/Examples/max-sample-2008-02.ome>`_
+
+   -  sample created with dummy data showing at least one of everything
+      in a file
+
+.ome.tiff Samples
+~~~~~~~~~~~~~~~~~
+
+-  `single-channel-2003-FC.ome.tif <http://git.openmicroscopy.org/src/develop/components/specification/Samples/single-channel-2003-FC.ome.tif>`_
+   - view `embedded
+   XML <http://git.openmicroscopy.org/src/develop/components/specification/Samples/single-channel-2003-FC.ome.tif.xml>`_
+
+-  `single-channel-2007-06.ome.tif <http://git.openmicroscopy.org/src/develop/components/specification/Samples/single-channel-2007-06.ome.tif>`_
+   - view `embedded
+   XML <http://git.openmicroscopy.org/src/develop/components/specification/Samples/single-channel-2007-06.ome.tif.xml>`_
+
+-  `single-channel-2008-02.ome.tif <http://git.openmicroscopy.org/src/develop/components/specification/Samples/single-channel-2008-02.ome.tif>`_
+   - view `embedded
+   XML <http://git.openmicroscopy.org/src/develop/components/specification/Samples/single-channel-2008-02.ome.tif.xml>`_
+
+   -  generated file with placeholder image in three different schemas.
+      The tiff file has OME image frame.
+
+-  `Iron-Plate-2003-FC.ome.tiff <http://git.openmicroscopy.org/src/develop/components/specification/Samples/Iron-Plate-2003-FC.ome.tiff>`_
+   - view `embedded
+   XML <http://git.openmicroscopy.org/src/develop/components/specification/Samples/Iron-Plate-2003-FC.ome.tiff.xml>`_
+
+-  `Iron-Plate-2007-06.ome.tiff <http://git.openmicroscopy.org/src/develop/components/specification/Samples/Iron-Plate-2007-06.ome.tiff>`_
+   - view `embedded
+   XML <http://git.openmicroscopy.org/src/develop/components/specification/Samples/Iron-Plate-2007-06.ome.tiff.xml>`_
+
+-  `Iron-Plate-2008-02.ome.tiff <http://git.openmicroscopy.org/src/develop/components/specification/Samples/Iron-Plate-2008-02.ome.tiff>`_
+   - view `embedded
+   XML <http://git.openmicroscopy.org/src/develop/components/specification/Samples/Iron-Plate-2008-02.ome.tiff.xml>`_
+
+   -  image of the surface of an iron plate in three different schemas
+      with custom attributes. The tiff file has THREE image frames i.e.
+      `1 <http://git.openmicroscopy.org/src/develop/components/specification/Samples/ironplate-viewer-1.png>`_,`2 <http://git.openmicroscopy.org/src/develop/components/specification/Samples/ironplate-viewer-2.png>`_,`3 <http://git.openmicroscopy.org/src/develop/components/specification/Samples/ironplate-viewer-3.png>`_.
+
+There are further samples available direct from
+`LOCI <http://www.loci.wisc.edu/ome/ome-tiff-data.html>`_.
+
