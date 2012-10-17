@@ -96,8 +96,8 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
-if "MERGE_BRANCH" in os.environ:
-    branch = os.environ.get('MERGE_BRANCH')
+if "SOURCE_BRANCH" in os.environ:
+    branch = os.environ.get('SOURCE_BRANCH')
 else:
     branch = 'develop'
 
