@@ -26,21 +26,23 @@ Once you have these, follow the instructions below:
 Getting started with your demo account
 ======================================
 
-To log on and try the demo server you can either:
+To log on and try the demo server you have three options:
 
-**1. Download the OMERO.insight client for your platform, install it and run it as a stand-alone application.**
+1. :ref:`OMEROinsight`
 
-You will need to have permissions allowing you to install software on your computer, and you will need to update the client if the demo server is upgraded (we will email you to inform you).
+Download the OMERO.insight client for your platform, install it and run it as a stand-alone application. You will need to have permissions allowing you to install software on your computer, and you will need to update the client if the demo server is upgraded (we will email you to inform you).
 
-**2. Use the Java OMERO Web Start client.**
+2. :ref:`JavaWeb`
 
-This automatically downloads the current version of the client, ensuring you are using the current version, but requires re-downloading each session. Being able to use Web Start depends on the individual security and Java set-up on your computer.
+This automatically downloads the current version of the client, ensuring you are not using an out of date version, but it requires re-downloading each session.  Depending on the individual security and Java set-up on your computer, you may find you cannot use Web Start.
 
-**3. Use the OMERO.web client in your regular browser.**
+3. :ref:`OMEROweb`
 
 The web client does not allow you to import data or use the measurement tools.
 
 |
+
+.. _OMEROinsight:
 
 Using the OMERO.insight client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -100,6 +102,8 @@ Click **Login**
 
 |
 
+.. _JavaWeb:
+
 Using OMERO.insight Java Web Start client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -110,6 +114,8 @@ To use the OMERO.insight Java Web Start client click on the following link:
 Follow the instructions to download and run it. Log in as described above.
 
 |
+
+.. _OMEROweb:
 
 Using the OMERO.web client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
