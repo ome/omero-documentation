@@ -87,6 +87,7 @@ Diagram showing where FilterSet sits in the OME Schema
 .. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2007-06/FilterSet-Top.png
    :align: center
    :alt: FilterSet Top
+   
 The FilterSet contains three references, one to a dichroic ID called
 DichroicRef, and two to filter IDs called ExFilterRef and EmFilterRef.
 Each of the three references are optional. There is no distinction on
@@ -100,6 +101,7 @@ Diagram showing the attributes within the filter objects
 .. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2007-06/FilterSet-Links.png
    :align: center
    :alt: FilterSet Links
+   
 Sample piece of a .ome.xml file showing FilterSet structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

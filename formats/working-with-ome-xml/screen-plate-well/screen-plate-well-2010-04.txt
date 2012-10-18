@@ -312,6 +312,7 @@ between two time points.
 .. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ScreenPlateWell/2010-04/Spw-structure.png
    :align: center
    :alt: SPW structure
+   
 Diagram showing structure in the SPW Schema (cross-linked)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -322,6 +323,7 @@ branch of the schema, as well as the ultimate link to ''Image''.
 .. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ScreenPlateWell/2010-04/Spw-structure-cross-linked.png
    :align: center
    :alt: SPW structure crosslinked
+   
 Diagram showing sample file structure of the SPW Schema
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -331,6 +333,7 @@ objects are normally contained inside each other.
 .. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ScreenPlateWell/2010-04/Spw-sample.png
    :align: center
    :alt: SPW sample
+   
 Diagram showing sample file structure of the SPW Schema (cross-linked)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
