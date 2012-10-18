@@ -51,7 +51,7 @@ In the schema there is support for the following objects:
 Overview of where the Filter Set sits in the light path
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/FilterSet-Overview.png
+.. figure:: /images/formats/FilterAndFilterSet/FilterSet-Overview.png
    :align: center
    :alt: FilterSet Overview
 
@@ -84,7 +84,7 @@ describes the optical characteristic of it.
 Diagram showing where FilterSet sits in the OME Schema
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2007-06/FilterSet-Top.png
+.. figure:: /images/formats/FilterAndFilterSet/2007-06/FilterSet-Top.png
    :align: center
    :alt: FilterSet Top
    
@@ -98,7 +98,7 @@ of the filter ID reference to ExFilterRef or EmFilterRef.
 Diagram showing the attributes within the filter objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2007-06/FilterSet-Links.png
+.. figure:: /images/formats/FilterAndFilterSet/2007-06/FilterSet-Links.png
    :align: center
    :alt: FilterSet Links
    

@@ -58,7 +58,7 @@ In the schema there is support for the following objects:
 Overview of where Filters and Dichroics sit in the optical path
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/FilterSet-Overview-Multi-Detector.png
+.. figure:: /images/formats/FilterAndFilterSet/FilterSet-Overview-Multi-Detector.png
    :align: center
    :alt: FilterSet Multi Detector
 
@@ -99,7 +99,7 @@ it.
 Diagram showing where FilterSet sits in the OME Schema
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2010-04/FilterSet-Top.png
+.. figure:: /images/formats/FilterAndFilterSet/2010-04/FilterSet-Top.png
    :align: center
    :alt: FilterSet Top
 
@@ -131,7 +131,7 @@ percentage fraction.
 Diagram showing where LightPath sits in the OME Schema
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2010-04/LightPath-Top.png
+.. figure:: /images/formats/FilterAndFilterSet/2010-04/LightPath-Top.png
    :align: center
    :alt: FilterSet LightPath Top
 
@@ -148,7 +148,7 @@ have been used and there order is specified.
 Diagram showing the attributes within the filter objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2010-04/FilterSet-LightPath.png
+.. figure:: /images/formats/FilterAndFilterSet/2010-04/FilterSet-LightPath.png
    :align: center
    :alt: FilterSet LightPath
 
