@@ -22,15 +22,17 @@ services as well as the Blitz Gateway code
 To use OmeroPy, you'll need to download the libraries (E.g. as part of
 the server package) and setup your PYTHONPATH to include them:
 
-::
+.. parsed-literal::
 
-      export OMERO_HOME=~/Desktop/OMERO.server-4.4.1-ice34-b3035       # for example
+      export OMERO_HOME=~/Desktop/|OMEROserver|       # for example
       export PYTHONPATH=$OMERO_HOME/lib/python
 
+.. |OMEROserver| replace:: OMERO.server-|release|-ice3x-byy
 
-You'll also need Ice libraries 3.3.x or 3.4.x as described in the :doc:`/sysadmins/unix/server-installation` and
-an OMERO server to connect to, which must be the same 
-major version: E.g. 4.4.x.
+
+You'll also need Ice libraries 3.3.x or 3.4.x as described in the 
+:doc:`/sysadmins/unix/server-installation` and an OMERO server to connect to, 
+which must be the same major version, i.e. |version|.x.
 
 
 All the code examples below can be found at 
@@ -1363,7 +1365,7 @@ are used by the |OmeroWeb| framework. For this reason, the Blitz
 gateway (which was originally built for |OmeroWeb|) has not yet been
 extended to wrap every omero.model object with a specific Blitz Object
 Wrapper. The current list of object wrappers can be found in the
-omero.gateway module :jenkins:`4.4 API
+omero.gateway module :jenkins:`API
 <job/OMERO-trunk/javadoc/epydoc/omero.gateway-module.html>`,
 :javadoc:` development code API <epydoc/omero.gateway-module.html>`.
 As more functionality is provided by the Blitz Gateway, the coverage
