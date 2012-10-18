@@ -6,21 +6,21 @@ Model Overview for the April 2010 Release of the Data Model.
 Diagram showing the Image branch of the OME Schema
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/Image/2010-04/Image-Overview.png
+.. figure:: /images/formats/Image/2010-04/Image-Overview.png
    :align: center
    :alt: Image Overview
    
 Diagram showing the Instrument branch of the OME Schema
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/Instrument/Instrument-Overview.png
+.. figure:: /images/formats/Instrument/Instrument-Overview.png
    :align: center
    :alt: Instrument Overview
    
 Diagram showing the location of Filters and Light Paths in the OME Model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2010-04/LightPathFilterSet-Top.png
+.. figure:: /images/formats/FilterAndFilterSet/2010-04/LightPathFilterSet-Top.png
    :align: center
    :alt: LightPathFilterSet Top
    
@@ -28,7 +28,7 @@ Diagram showing the organisational structures (Project, Dataset, Group,
 Experiment, Experimenter) of the OME Model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ProjectDataset/Project-Dataset-Top.png
+.. figure:: /images/formats/ProjectDataset/Project-Dataset-Top.png
    :align: center
    :alt: Project Dataset Top
    
@@ -36,14 +36,14 @@ Diagram showing the ownership relations for Project, Dataset &
 Experimenter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ProjectDataset/Project-Dataset-Ownership.png
+.. figure:: /images/formats/ProjectDataset/Project-Dataset-Ownership.png
    :align: center
    :alt: Project Dataset Ownership
    
 Diagram showing the Region Of Interest branch of the OME Model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ROI/2010-04/Ome-ROI-overview-standard.png
+.. figure:: /images/formats/ROI/2010-04/Ome-ROI-overview-standard.png
    :align: center
    :alt: ROI Overview Standard
    
@@ -51,20 +51,20 @@ Diagram showing the HCS structures (Screen, Plate & Well) of the OME
 Model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/ScreenPlateWell/2010-04/Spw-structure.png
+.. figure:: /images/formats/ScreenPlateWell/2010-04/Spw-structure.png
    :align: center
    :alt: SPW Structure
    
 Diagram showing the StructureAnnotation branch of the OME Model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/Annotation/Annotation-Top.png
+.. figure:: /images/formats/Annotation/Annotation-Top.png
    :align: center
    :alt: Annotation Top
    
 Diagram showing all points in the OME Model that can be Annotated
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/Annotation/Annotation-Points.png
+.. figure:: /images/formats/Annotation/Annotation-Points.png
    :align: center
    :alt: Annotation Points
