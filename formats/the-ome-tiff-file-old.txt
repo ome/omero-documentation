@@ -1,9 +1,6 @@
 The OME-TIFF File
 =================
 
-
-
-
 OME partners at LOCI have developed a variant of the OME-XML File
 specifically designed for data acquisition and storage. This format,
 called OME-TIFF, uses OME-XML in the standard TIFF header and stores
@@ -21,7 +18,7 @@ This is convenient for data migration, but has some drawbacks:
 OME-TIFF is designed to solve these problems. OME-TIFF means that:
 
 -  Image planes are stored within one multi-page TIFF file, or across
-   multiple TIFF files. Any image organization is feasible.
+   multiple TIFF files. Any image organisation is feasible.
 -  A complete OME-XML metadata block describing the image is embedded in
    each TIFF file's header. Thus, even if some of the TIFF files in a
    5-dimensional image are misplaced, the metadata remains intact.

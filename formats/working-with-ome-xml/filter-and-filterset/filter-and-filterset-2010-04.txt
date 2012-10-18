@@ -102,6 +102,7 @@ Diagram showing where FilterSet sits in the OME Schema
 .. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2010-04/FilterSet-Top.png
    :align: center
    :alt: FilterSet Top
+
 The FilterSet contains three kinds of references, one to a dichroic ID
 called DichroicRef, and two sets to filter IDs called
 ExcitationFilterRef and EmissionFilterRef. Each of the three kinds are
@@ -133,6 +134,7 @@ Diagram showing where LightPath sits in the OME Schema
 .. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2010-04/LightPath-Top.png
    :align: center
    :alt: FilterSet LightPath Top
+
 The LightPath contains three kinds of references, one to a dichroic ID
 called DichroicRef, and two sets to filter IDs called
 ExcitationFilterRef and EmissionFilterRef. Each of the three kinds are
@@ -149,6 +151,7 @@ Diagram showing the attributes within the filter objects
 .. figure:: http://git.openmicroscopy.org/src/master/components/specification/Documentation/Graphics/FilterAndFilterSet/2010-04/FilterSet-LightPath.png
    :align: center
    :alt: FilterSet LightPath
+
 Sample piece of a .ome.xml file showing the Instrument side - the
 Filter/Dichroic/!FilterSet structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

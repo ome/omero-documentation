@@ -1,9 +1,6 @@
 OME-TIFF Data
 =============
 
-
-
-
 OME-TIFF Sample Data and Benchmarks.
 
 This page provides some sample data in OME-TIFF format, as well as an
@@ -67,8 +64,8 @@ types.
     OME-TIFF" entry do not precisely match.
 
 +-----------------------------------------+---------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+
-| **Dataset**                             | **`tubhiswt-2D.zip <http://loci.wisc.edu/files/software/ome-tiff/tubhiswt-2D.zip>`_   | **`tubhiswt-3D.zip <http://loci.wisc.edu/files/software/ome-tiff/tubhiswt-3D.zip>`_   | **`tubhiswt-4D.zip <http://loci.wisc.edu/files/software/ome-tiff/tubhiswt-4D.zip>`_   |
-|                                         |  238,344 bytes**                                                                      |  4,502,202 bytes**                                                                    |  106,787,266 bytes**                                                                  |
+| **Dataset**                             | **`tubhiswt-2D.zip <http://loci.wisc.edu/files/software/ome-tiff/tubhiswt-2D.zip>`_** | **`tubhiswt-3D.zip <http://loci.wisc.edu/files/software/ome-tiff/tubhiswt-3D.zip>`_** | **`tubhiswt-4D.zip <http://loci.wisc.edu/files/software/ome-tiff/tubhiswt-4D.zip>`_** |
+|                                         | **238,344 bytes**                                                                     | **4,502,202 bytes**                                                                   | **106,787,266 bytes**                                                                 |
 +-----------------------------------------+---------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+
 | **Dimensionality**                      | 2D (single plane, 2 channels)                                                         | 3D (20 time points, 2 channels)                                                       | 4D (10 focal planes, 43 time points, 2 channels)                                      |
 +-----------------------------------------+---------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+
