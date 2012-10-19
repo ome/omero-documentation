@@ -256,17 +256,12 @@ apps in my home directory as follows:
 	wish to install OMERO to then you will also have to alter your
 	**OMERO\_HOME** environment variable to reflect this.
 
-Release versions of OMERO.server can downloaded from :snapshot:`omero` where the current
-release, at time of writing, is 4.4.1
-
-::
-
-      $ wget http://cvs.openmicroscopy.org.uk/snapshots/omero/OMERO.server-4.4.1-ice33-b3035.zip
+Release versions of OMERO.server can downloaded from :omero_plone:`OMERO 
+downloads <downloads>` page.
 
 .. note::
-	If you want the development version of OMERO.server which is
-	currently version 4.4 then you can clone the src code from the
-	project's GitHub account at
+	If you want the development version of OMERO.server, you can clone the 
+	source code from the project's GitHub account at
 	https://github.com/openmicroscopy/openmicroscopy to build
 	locally or download a daily build from our :jenkins:`build
 	server <job/OMERO-trunk/lastSuccessfulBuild/artifact/>`
@@ -274,17 +269,17 @@ release, at time of writing, is 4.4.1
 Assuming that you downloaded a release version of OMERO.server, extract
 it from the zip archive:
 
-::
+.. parsed-literal::
 
-      $ unzip OMERO.server-4.4.1-ice33-b3035.zip
+      $ unzip OMERO.server-|release|-ice33-byy.zip
 
 Give your OMERO software install a nice local name to save some typing
 later, to reflect what we set **OMERO\_HOME** to, & to make it easy to
 manage the installation of newer versions of the server at a later date:
 
-::
+.. parsed-literal::
 
-      $ ln -s OMERO.server-4.4.1-ice33-b3035  OMERO.server
+      $ ln -s OMERO.server-|release|-ice33-byy  OMERO.server
 
 Configure OMERO.server
 ----------------------
@@ -330,13 +325,15 @@ suitable password as required when prompted, e.g. "root\_password"
 
       $ omero db script
 
-The output of this should be a file named, e.g. *OMERO4.3*\ *0.sql* file
+.. |sqlfile| replace:: OMERO\ |version|\ __0.sql
+
+The output of this should be a file named, e.g. |sqlfile| file
 in your current directory. We can now tell Postgres to configure our new
 database
 
-::
+.. parsed-literal::
 
-      $ psql -h localhost -U db_user omero_database < OMERO4.3__0.sql
+    $ psql -h localhost -U db_user omero_database < |sqlfile|
 
 At this point your should see a whole load of output from Postgres as it
 installs the new OMERO database.
