@@ -205,8 +205,8 @@ will need the postgres user's password later in the install.
 
    |pginstall-begincopy| |pginstall-complete|
 
-OMERO.server |version|.x
-^^^^^^^^^^^^^^^^^^^^^^^^
+OMERO.server
+^^^^^^^^^^^^
 
 The **OMERO.server** zip and *tar.bz2* is available from the 
 :omero_plone:`OMERO downloads <downloads>` page.
@@ -717,7 +717,7 @@ If you want help with your server installation, please include the output of the
 
     C:\\omero_dist> bin\\omero admin diagnostics
     ================================================================================
-    OMERO Diagnostics Beta-|release|
+    OMERO Diagnostics |release|
     ================================================================================
 
     Commands:   java -version                  1.6.0     (C:\\WINDOWS\\system32\\java.EXE -- 3 others)

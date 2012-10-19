@@ -257,13 +257,11 @@ apps in my home directory as follows:
 	**OMERO\_HOME** environment variable to reflect this.
 
 Release versions of OMERO.server can downloaded from :omero_plone:`OMERO 
-downloads <downloads>` page where the current release, at time of writing, is 
-|release|.
+downloads <downloads>` page.
 
 .. note::
-	If you want the development version of OMERO.server which is
-	currently version |version| then you can clone the src code from the
-	project's GitHub account at
+	If you want the development version of OMERO.server, you can clone the 
+	source code from the project's GitHub account at
 	https://github.com/openmicroscopy/openmicroscopy to build
 	locally or download a daily build from our :jenkins:`build
 	server <job/OMERO-trunk/lastSuccessfulBuild/artifact/>`
