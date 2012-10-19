@@ -17,13 +17,13 @@ that can be attached to support this.
 The top level of the SPW model has two objects that exist side by side,
 **Screen** and **Plate**. It is important to stress that **Plate** is
 not a child of **Screen**, they are equals. This is necessary to cater
-for the fact that while a **Screen** can contain many **Plate**s, a
+for the fact that while a **Screen** can contain many **Plate**\ s, a
 **Plate** can also be used in more than one **Screen**. This allows less
 common scenarios where, for example, there are two screens against two
 different reagent sets but only one set of control plates that are used
 in common.
 
-**Reagent**s are children of a **Screen** and as such are designed to be
+**Reagent**\ s are children of a **Screen** and as such are designed to be
 referenced from each **Screen** they are part of. It is worth covering
 the exact meaning of a **Reagent** within SPW. The storing of detailed
 information about biological reagents is beyond the scope of the OME
@@ -295,18 +295,18 @@ Within the OME data model **Screen**, **Plate** and **Image** are top
 level structures. A file can contain multiple instances of these
 elements.
 
-Each **Plate** can contain multiple **Well**s, **PlateAcquisition**s,
-and **ScreenRef**s, i.e. a plate can belong to multiple screens. Each
+Each **Plate** can contain multiple **Well**\ s, **PlateAcquisition**\ s,
+and **ScreenRef**\ s, i.e. a plate can belong to multiple screens. Each
 **Well** in turn can have one (or zero) **ReagentRef**, and zero or more
-**WellSample**s. Each of the well samples defines the location of an
+**WellSample**\ s. Each of the well samples defines the location of an
 image within the well and the time at which the sample started to be
 collected. It also references the **Image** itself.
 
-Each **Screen** contains multiple **Reagent**s, and **PlateRef**s, i.e.
+Each **Screen** contains multiple **Reagent**\ s, and **PlateRef**\ s, i.e.
 a screen can use many plates. A **PlateAcquisition** is best viewed as a
-pass over some or all of the **Well**s in a **Plate** - usually
+pass over some or all of the **Well**\ s in a **Plate** - usually
 associated with some time-point or step in a protocol. It is a
-collection of individual **WellSample**s across the ''Plate''s collected
+collection of individual **WellSample**\ s across the **Plate**\ s collected
 between two time points.
 
 .. figure:: /images/formats/ScreenPlateWell/2010-04/Spw-structure.png
