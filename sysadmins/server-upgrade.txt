@@ -75,13 +75,15 @@ follow the following upgrade procedure:
     ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice 
     version and build number of OMERO.server.
 
-Update your database
---------------------
+Upgrade your database
+---------------------
 
 .. only:: point_release
 
     .. warning:: 
-        This section only concerns users who upgraded to a |version|.x server.
+        This section only concerns users upgrading from a |previousversion| or 
+        earlier server. If upgrading from a |version| server, you do not need 
+        to upgrade the database.
 
 Run the upgrade script
 ^^^^^^^^^^^^^^^^^^^^^^	
@@ -167,7 +169,7 @@ server.
 Restart your database
 ---------------------
 
--  Following a successful db upgrade, you can start the server.
+-  Following a successful database upgrade, you can start the server.
 
    .. parsed-literal::
 
@@ -213,4 +215,5 @@ and configure your server to use it.
 .. seealso::
     
     :legacy_plone:`Legacy <>`
-        Legacy part of the OME website containing upgrade instructions for previous versions of the OMERO server.
+        Legacy part of the OME website containing upgrade instructions for 
+        previous versions of the OMERO server.
