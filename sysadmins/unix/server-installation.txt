@@ -151,8 +151,8 @@ PostgreSQL (8.4 or higher)
 
 PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :doc:`/sysadmins/limitations`. See :doc:`server-postgresql` for specifics about each version.
 
-OMERO.server |version|.x
-^^^^^^^^^^^^^^^^^^^^^^^^
+OMERO.server
+^^^^^^^^^^^^
 
 The **OMERO.server** zip and *tar.bz2* is available from the 
 :omero_plone:`OMERO downloads <downloads>` page.
