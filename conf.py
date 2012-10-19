@@ -57,6 +57,8 @@ if "OMERO_RELEASE" in os.environ:
     # The short X.Y version.
     version = split_release[1]
     previousversion = version[:-1] + str(int(version[-1])-1)
+    if not release[-1] == "0":
+        tags.add('point_release')
 else:
     version = 'UNKNOWN'
     previousversion = 'UNKNOWN'
