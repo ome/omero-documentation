@@ -130,7 +130,7 @@ OMERO installation
 
 At this point you have three choices:
 
--   If you just want a deployment of the current release of OMERO.server (4.4) then a simple homebrew install is sufficient, e.g.
+-   If you just want a deployment of the current release of OMERO.server then a simple homebrew install is sufficient, e.g.
 
     ::
 
@@ -176,7 +176,7 @@ Configuration
 Environment variables
 ~~~~~~~~~~~~~~~~~~~~~
 
-Edit your .profile as appropriate. The following are indicators of required entries and correspond to a  Homebrew installation of  OMERO 4.4:
+Edit your .profile as appropriate. The following are indicators of required entries and correspond to a  Homebrew installation of  OMERO |version|:
 
 ::
 
@@ -245,24 +245,24 @@ This command should give similar output to the following:
 
 Now tell OMERO.server about our database.
 
-::
+.. parsed-literal::
 
     $ omero config set omero.db.name omero_database
     $ omero config set omero.db.user db_user
     $ omero config set omero.db.pass db_password
 
     $ omero db script
-    Please enter omero.db.version [OMERO4.4]: 
+    Please enter omero.db.version [OMERO\ |version|\ ]: 
     Please enter omero.db.patch [0]: 
     Please enter password for new OMERO root user:       # root_password
     Please re-enter password for new OMERO root user:      # root_password
-    Saving to ~/OMERO4.4__0.sql
+    Saving to ~/OMERO\ |version|\ __0.sql
 
 Then enter the name of the .sql (see last line above) in the next command, to create the database:
 
-::
+.. parsed-literal::
 
-    $ psql -h localhost -U db_user omero_database < OMERO4.4__0.sql
+    $ psql -h localhost -U db_user omero_database < OMERO\ |version|\ __0.sql
 
 Now create a location to store OMERO data, e.g.
 

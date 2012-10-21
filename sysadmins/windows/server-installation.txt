@@ -104,7 +104,7 @@ Ice (3.3.x or higher)
 
 .. note::
 
-    **OMERO 4.4 supports Ice3.4**, but this requires the correct
+    OMERO |version| supports Ice3.4, but this requires the correct
     version of OMERO.server (see :omero_plone:`Downloads
     <downloads>`). See :faq_plone:`"Do I use Ice 3.3 or
     Ice 3.4?" <omero/do-i-use-ice-3.3-or-ice-3.4>` in
@@ -205,8 +205,8 @@ will need the postgres user's password later in the install.
 
    |pginstall-begincopy| |pginstall-complete|
 
-OMERO.server 4.4.x
-^^^^^^^^^^^^^^^^^^
+OMERO.server
+^^^^^^^^^^^^
 
 The **OMERO.server** zip and *tar.bz2* is available from the 
 :omero_plone:`OMERO downloads <downloads>` page.
@@ -515,15 +515,15 @@ Installation
 	    This should **not** be the same password as your Linux/Mac/Windows 
 	    root user!
 
-    ::
+    .. parsed-literal::
 
-        C:\> cd C:\omero_dist\
-        C:\omero_dist> bin\omero db script
-        Please enter omero.db.version [OMERO4.4]: 
+        C:\\> cd C:\\omero_dist\\
+        C:\\omero_dist> bin\\omero db script
+        Please enter omero.db.version [OMERO\ |version|\ ]: 
         Please enter omero.db.patch [0]: 
         Please enter password for new OMERO root user: # root_password
         Please re-enter password for new OMERO root user: # root_password
-        Saving to C:\omero_dist\OMERO4.4__0.sql
+        Saving to C:\\omero_dist\\OMERO\ |version|\ __0.sql
 
 -   Initialize your database with the script.
 
@@ -552,12 +552,12 @@ Installation
 
     #. Execute run the following to populate your database:
 
-       ::
+       .. parsed-literal::
 
-           omero=> \i C:/omero_dist/OMERO4.4__0.sql
+           omero=> \\i C:\\omero_dist\\ OMERO\ |version|\ __0.sql
            ...
            ...
-           omero=> \q
+           omero=> \\q
 
 -   Before starting the OMERO.server we should run the OMERO diagnostics
     script so that we check that all of our settings are correct, e.g.
@@ -595,14 +595,14 @@ Installation
     If you've chosen a non-default install directory (other than
     ``C:\omero_dist``), the output will look like this:
 
-    ::
+    .. parsed-literal::
 
-        C:\OMERO.server-4.4> bin\omero admin start
-        Found default value: C:\omero_dist\var\master
+        C:\\OMERO.server-|version|> bin\\omero admin start
+        Found default value: C:\\omero_dist\\var\\master
         Attempting to correct...
-        Converting from C:\omero_dist to C:\OMERO.server-4.4
+        Converting from C:\\omero_dist to C:\\OMERO.server-|version|
         Changes made: 6
-        No descriptor given. Using etc\grid\windefault.xml
+        No descriptor given. Using etc\\grid\\windefault.xml
         [SC] CreateService SUCCESS
         ...
 
@@ -613,9 +613,9 @@ Installation
 -  You can now test that you can log-in as "root", either with the
    OMERO.insight client or command-line:
 
-    ::
+    .. parsed-literal::
 
-        C:\OMERO.server-4.4> bin\omero login
+        C:\\OMERO.server-|version|> bin\\omero login
         Server: [localhost]
         Username: [root]
         Password:         # root_password
@@ -712,4 +712,42 @@ OMERO diagnostics
 
 If you want help with your server installation, please include the output of the diagnostics command:
 
-.. literalinclude:: omero-diagnostics
+
+.. parsed-literal::
+
+    C:\\omero_dist> bin\\omero admin diagnostics
+    ================================================================================
+    OMERO Diagnostics |release|
+    ================================================================================
+
+    Commands:   java -version                  1.6.0     (C:\\WINDOWS\\system32\\java.EXE -- 3 others)
+    Commands:   python -V                      2.5       (C:\\Python25\\python.EXE)
+    Commands:   icegridnode --version          3.3       (C:\\Ice-3.3.1\\bin\\x64\\icegridnode.EXE -- 2 others)
+    Commands:   icegridadmin --version         3.3       (C:\\Ice-3.3.1\\bin\\x64\\icegridadmin.EXE -- 2 others)
+    Commands:   psql --version                 8.3       (C:\\Program Files (x86)\\PostgreSQL\\8.3\\bin\\psql.EXE -- 2 others)
+
+    Server:     icegridnode                    running
+    Server:     Blitz-0                        active (pid = 7704, enabled)
+    Server:     DropBox                        active (pid = 8008, enabled)
+    Server:     FSServer                       active (pid = 7088, enabled)
+    Server:     Indexer-0                      active (pid = 4728, enabled)
+    Server:     OMERO.Glacier2                 active (pid = 5456, enabled)
+    Server:     OMERO.IceStorm                 active (pid = 800, enabled)
+    Server:     Processor-0                    active (pid = 7316, enabled)
+    Server:     Tables-0                       active (pid = 4420, enabled)
+    Server:     TestDropBox                    inactive (enabled)
+    Server:     Web                            inactive (enabled)
+
+    Log dir:    C:\\hudson\\trunk\\dist\\var\\log   exists
+
+    Log files:  Blitz-0.log                    10.0 MB       errors=4    warnings=26
+    Log files:  DropBox.log                    2.0 KB
+    Log files:  FSServer.log                   1.0 KB
+    Log files:  Indexer-0.log                  8.0 MB        errors=18   warnings=1870
+    Log files:  OMEROweb.log                   n/a
+    Log files:  Processor-0.log                0.0 KB
+    Log files:  Tables-0.log                   0.0 KB
+    Log files:  TestDropBox.log                n/a
+    Log files:  master.err                     0.0 KB
+    Log files:  master.out                     0.0 KB
+    Log files:  Total size                     18.94 MB

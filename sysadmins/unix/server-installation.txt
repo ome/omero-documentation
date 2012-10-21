@@ -129,7 +129,7 @@ Ice (3.3.x or higher)
 
 .. note::
 
-    **OMERO 4.4 supports Ice3.4**, but this requires the correct
+    OMERO |version| supports Ice3.4, but this requires the correct
     version of OMERO.server (see :omero_plone:`Downloads
     <downloads>`). See :faq_plone:`"Do I use Ice 3.3 or
     Ice 3.4?" <omero/do-i-use-ice-3.3-or-ice-3.4>` in
@@ -151,8 +151,8 @@ PostgreSQL (8.4 or higher)
 
 PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :doc:`/sysadmins/limitations`. See :doc:`server-postgresql` for specifics about each version.
 
-OMERO.server 4.4.x
-^^^^^^^^^^^^^^^^^^
+OMERO.server
+^^^^^^^^^^^^
 
 The **OMERO.server** zip and *tar.bz2* is available from the 
 :omero_plone:`OMERO downloads <downloads>` page.
@@ -381,21 +381,21 @@ Installation
 	    This should **not** be the same password as your Linux/Mac/Windows 
 	    root user!
 	
-    ::
+    .. parsed-literal::
 
         $ cd ~/Desktop/omero 
         $ bin/omero db script
-        Please enter omero.db.version [OMERO4.4]: 
+        Please enter omero.db.version [OMERO\ |version|\ ]: 
         Please enter omero.db.patch [0]: 
         Please enter password for new OMERO root user: # root_password
         Please re-enter password for new OMERO root user: # root_password
-        Saving to ~/Desktop/omero/OMERO4.4__0.sql
+        Saving to ~/Desktop/omero/OMERO\ |version|\ __0.sql
 
 -   Initialize your database with the script.
 
-    ::
+    .. parsed-literal::
 
-        $ psql -h localhost -U db_user omero_database < OMERO4.4__0.sql
+        $ psql -h localhost -U db_user omero_database < OMERO\ |version|\ __0.sql
 
 
 -   Before starting the OMERO.server we should run the OMERO diagnostics
@@ -520,4 +520,65 @@ OMERO diagnostics
 
 If you want help with your server installation, please include the output of the diagnostics command:
 
-.. literalinclude:: omero-diagnostics
+.. parsed-literal::
+
+    $ bin/omero admin diagnostics
+
+    ================================================================================
+    OMERO Diagnostics |release|
+    ================================================================================
+
+    Commands:   java -version                  1.6.0     (/usr/bin/java)
+    Commands:   python -V                      2.6.5     (/usr/bin/python)
+    Commands:   icegridnode --version          3.3.1     (/usr/bin/icegridnode)
+    Commands:   icegridadmin --version         3.3.1     (/usr/bin/icegridadmin)
+    Commands:   psql --version                 8.4.12    (/usr/bin/psql)
+
+    Server:     icegridnode                    running
+    Server:     Blitz-0                        active (pid = 28933, enabled)
+    Server:     DropBox                        active (pid = 28951, enabled)
+    Server:     FileServer                     active (pid = 28954, enabled)
+    Server:     Indexer-0                      active (pid = 28957, enabled)
+    Server:     MonitorServer                  active (pid = 28960, enabled)
+    Server:     OMERO.Glacier2                 active (pid = 28962, enabled)
+    Server:     OMERO.IceStorm                 active (pid = 28964, enabled)
+    Server:     PixelData-0                    active (pid = 28963, enabled)
+    Server:     Processor-0                    active (pid = 28972, enabled)
+    Server:     Tables-0                       active (pid = 28974, enabled)
+    Server:     TestDropBox                    inactive (enabled)
+
+    Log dir:    /home/omero/OMERO.server-|version|
+
+    Log files:  Blitz-0.log                    360.0 MB      errors=9    warnings=2458
+    Log files:  DropBox.log                    3.0 KB        errors=0    warnings=1
+    Log files:  FileServer.log                 0.0 KB
+    Log files:  Indexer-0.log                  506.0 KB      errors=0    warnings=90
+    Log files:  MonitorServer.log              2.0 KB
+    Log files:  OMEROweb.log                   710.0 KB      errors=5    warnings=2
+    Log files:  OMEROweb.log.1                 777.0 KB      errors=0    warnings=1
+    Log files:  OMEROweb.log.2                 776.0 KB      errors=0    warnings=2
+    Log files:  OMEROweb.log.3                 777.0 KB
+    Log files:  OMEROweb.log.4                 879.0 KB      errors=1    warnings=2
+    Log files:  OMEROweb.log.5                 258.0 KB
+    Log files:  OMEROweb_request.log           10.0 KB       errors=3    warnings=3
+    Log files:  PixelData-0.log                4.0 KB
+    Log files:  Processor-0.log                315.0 KB      errors=0    warnings=1
+    Log files:  Tables-0.log                   2.0 KB        errors=0    warnings=1
+    Log files:  TestDropBox.log                n/a
+    Log files:  master.err                     0.0 KB
+    Log files:  master.out                     0.0 KB
+    Log files:  Total size                     365.49 MB
+
+    Parsing Blitz-0.log:[line:30] => Server restarted <=
+    Parsing Blitz-0.log:[line:213] => Server restarted <=
+
+    Environment:OMERO_HOME=(unset)
+    Environment:OMERO_NODE=(unset)
+    Environment:OMERO_MASTER=(unset)
+    Environment:PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+    Environment:ICE_HOME=(unset)
+    Environment:LD_LIBRARY_PATH=(unset)
+    Environment:DYLD_LIBRARY_PATH=(unset)
+
+    OMERO data dir: '/OMERO'    Exists? True    Is writable? True
+    OMERO.web status... [RUNNING] (PID 28736)

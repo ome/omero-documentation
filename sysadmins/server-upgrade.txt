@@ -25,36 +25,22 @@ OMERO.server team via the mailing lists available on the
 :community_plone:`community <>` page. 
 
 The main goals of the OMERO 4.4.4 release is to improve the OMERO 
-documentation and fix various bugs. See the full details gof OMERO 4.4.4 
+documentation and fix various bugs. See the full details of OMERO 4.4.4 
 features in the  :forum:`Announcements <viewforum.php?f=11>` forum.
 
-For all users, the basic worflow for upgrading your OMERO.server from 
-|previousversion|.x to |release| is listed below. Please refer to each section 
-for additional details.
+For all users, the basic worflow for upgrading your OMERO.server is listed 
+below. Please refer to each section for additional details.
 
-#. Perform a database backup
-#. Copy binaries
-#. Update your database
-#. (Optional) Optimize an upgraded database
-#. Merge script changes
-#. Update your environment variables
-#. Restart your database
-#. (Optional - if something goes wrong) Restore a database backup
-
-If you are upgrading your OMERO.server from |version|.x to |release|, the
-workflow is almost identical except the database doesn't need to be
-upgraded. See the :ref:`upgrade-sameversion` section for detailed steps.
-
-
-Upgrade from |previousversion|.x server to |release| server
------------------------------------------------------------
+.. contents::
+    :local:
+    :depth: 1
 
 .. note:: 
     The passwords and logins used here are examples. Please consult the 
     :ref:`troubleshooting-password` section for explanation.
 
 Perform a database backup
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 The first thing to do before **any** upgrade activity is to backup your
 database.
@@ -63,21 +49,20 @@ database.
 
     $ pg_dump -h localhost -U db_user -Fc -f before_upgrade.db.dump omero_database
 
+
 Copy new binaries
-^^^^^^^^^^^^^^^^^
+-----------------
 
-Before copying the new binaries, stop the existing server.
-
-::
+Before copying the new binaries, stop the existing server::
 
     $ cd OMERO.server
     $ bin/omero web stop
     $ bin/omero admin stop
 
-Your OMERO |previousversion| configuration is stored using ``config.xml`` in 
-the``etc/grid`` directory under your OMERO.server directory. Assuming you
-have not made any file changes within your OMERO.server distribution
-directory, you are safe to follow the following upgrade procedure:
+Your OMERO configuration is stored using ``config.xml`` in the``etc/grid`` 
+directory under your OMERO.server directory. Assuming you have not made any 
+file changes within your OMERO.server distribution directory, you are safe to 
+follow the following upgrade procedure:
 
 .. parsed-literal::
 
@@ -90,8 +75,18 @@ directory, you are safe to follow the following upgrade procedure:
     ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice 
     version and build number of OMERO.server.
 
-Update your database
-^^^^^^^^^^^^^^^^^^^^
+Upgrade your database
+---------------------
+
+.. only:: point_release
+
+    .. warning:: 
+        This section only concerns users upgrading from a |previousversion| or 
+        earlier server. If upgrading from a |version| server, you do not need 
+        to upgrade the database.
+
+Run the upgrade script
+^^^^^^^^^^^^^^^^^^^^^^	
 
 You **must** use the same username and password you have defined during
 :doc:`unix/server-installation`. The |version| upgrade script should execute in a short time.
@@ -128,7 +123,7 @@ database which can both save disk space and speed up access times.
 .. _upgrademergescript:
 
 Merge script changes
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 If any new official scripts have been added under ``lib/scripts`` or if
 you've modified any of the existing ones, then you will need to backup
@@ -144,10 +139,10 @@ If you would like help merging the two repositories, please contact the
 OME developers.
 
 Update your environment variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------
 
 Environment variables
-"""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^
 
 If you changed the directory name where the |release| server code resides,
 make sure to update any system environment variables. Before restarting
@@ -155,7 +150,7 @@ the server, make sure your PATH and PYTHONPATH system environment
 variables are pointing to the new locations.
 
 Changes to OMERO.web URLs
-"""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to ease deployment and avoid errors for IIS (Windows production
 deployment) and Apache (notably CentOS/RHEL 5 and 6) OMERO.web now
@@ -172,9 +167,9 @@ the new version. To generate the relevant configuration, please run
 server.
 
 Restart your database
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
--  Following a successful db upgrade, you can start the |release| server.
+-  Following a successful database upgrade, you can start the server.
 
    .. parsed-literal::
 
@@ -192,7 +187,7 @@ Restart your database
        $ bin/omero web start
 
 Restore a database backup
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 If the upgraded database or the new server version do not work for you,
 or you otherwise need to rollback to a previous database backup, you may
@@ -214,76 +209,11 @@ and configure your server to use it.
 
     $ bin/omero config omero.db.name omero_from_backup
 
-.. _upgrade-sameversion:
-
-Upgrade from |version|.x server to |release| server
----------------------------------------------------
-
-.. note::
-    This section only concerns users who upgraded to a |version|.x server. 
-	
-.. note::
-    The passwords and logins used here are exemplary. Please
-    consult the :ref:`troubleshooting-password` page
-    for explanation.
-
-Copy new binaries
-^^^^^^^^^^^^^^^^^
-
-Before copying the new binaries, stop the existing server.
-
-::
-
-    $ cd OMERO.server
-    $ bin/omero web stop
-    $ bin/omero admin stop
-
-Your OMERO |version|.x configuration is stored using ``config.xml`` in the
-``etc/grid`` directory under your OMERO.server directory. Assuming you
-have not made any file changes within your OMERO.server distribution
-directory, you are safe to follow the following upgrade procedure:
-
-.. parsed-literal::
-
-    $ cd ..
-    $ mv OMERO.server OMERO.server-old
-    $ unzip |OMEROserverzip|
-    $ cp OMERO.server-old/etc/grid/config.xml |OMEROserverzip|/etc/grid
-
-.. note::
-    ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice 
-    version and build number of OMERO.server..
-
-Merge script changes
-^^^^^^^^^^^^^^^^^^^^
-
-As with the migration from |previousversion|, if you upgraded your scripts 
-for |version|.x, you'll need to do the same for |release|. 
-See the :ref:`instructions above <upgrademergescript>` for more information.
-
-Restart your server
-^^^^^^^^^^^^^^^^^^^
-
--  You can start the |release| server.
-
-   .. parsed-literal::
-
-       $ cd |OMEROserverzip|/
-       $ bin/omero admin start
-
--  If anything goes wrong, please send the output of
-   ``bin/omero admin diagnostics`` to
-   ome-users@lists.openmicroscopy.org.uk.
-
--  Start OMERO.web with the following command:
-
-   ::
-
-       $ bin/omero web start
 
 .. |OMEROserverzip| replace:: OMERO.server-|release|-ice3x-byy.zip
 
 .. seealso::
     
     :legacy_plone:`Legacy <>`
-        Legacy part of the OME website containing upgrade instructions for previous versions of the OMERO server.
+        Legacy part of the OME website containing upgrade instructions for 
+        previous versions of the OMERO server.

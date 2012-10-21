@@ -3,7 +3,7 @@ Writing OMERO.web views
 
 This page contains info on how to write your own views.py code,
 including documentation on the webclient/views.py and
-webgateway/views.py code. In general these notes refer to the 4.4
+webgateway/views.py code. In general these notes refer to the 4.4 and later
 release of OMERO, since the OMERO.web framework will be cleaned up
 substantially in this release. We note some points below where these
 changes will break existing code.

@@ -136,8 +136,8 @@ be removed from the binary repository. See
 :ref:`DeleteBinaryData` for more details.
 
 
-Previous known issues (Prior to 4.4.0)
-======================================
+Previous known issues (Prior to |release|)
+==========================================
 
 
 Postgres 9.x defaults to 'hex' bytea\_output format
