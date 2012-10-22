@@ -5,7 +5,7 @@ Overview
 --------
 
 The Python_-based commandline interface provides
-system-adminstration and deployment tools. (User-level functionality is
+system-administration and deployment tools. (User-level functionality is
 planned for future releases.)
 
 You can investigate the various commands available using the -h or
@@ -89,8 +89,8 @@ System administration commands
 When first beginning to work with the OMERO server, the ``db``,
 ``config``, and ``admin`` commands will be the first you will need.
 
-db
-~~
+``db``
+~~~~~~
 
 Rather than try to provide the functionality of a RDBM tool like
 ``psql``, the ``db`` command helps to generate SQL scripts for building
@@ -106,8 +106,8 @@ comfortable for you.
     Saving to /omero/OMERO4__0.sql
     $ psql omero < OMERO4__0.sql
 
-config
-~~~~~~
+``config``
+~~~~~~~~~~
 
 The ``config`` command is responsible for reading / writing
 user-specific profiles. These are stored in platform-specific, protected
@@ -204,8 +204,8 @@ password off of a system, use "drop":
 
     $ bin/omero config drop
 
-admin
-~~~~~
+``admin``
+~~~~~~~~~
 
 Once your database has been properly configured and your config profile
 is set to use that database, you're ready to start your server.
@@ -217,7 +217,7 @@ is set to use that database, you're ready to start your server.
 User commands
 -------------
 
-"import" is probably the first user command many will want to use.
+``import`` is probably the first user command many will want to use.
 Running the command without any arguments will produce a help listing:
 
 ::
