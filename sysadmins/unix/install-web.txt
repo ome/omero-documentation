@@ -27,7 +27,7 @@ If you need help configuring your firewall rules, see the :doc:`/sysadmins/serve
 Prerequisites
 -------------
 
--  OMERO |release| and its prerequisites (see :doc:`server-installation`).
+-  OMERO and its prerequisites (see :doc:`server-installation`).
 
 -  Python version from 2.4 to 2.7 (due to backwards incompatibilities in
    Python 3.0, Django does not currently work with Python 3.0; for more
