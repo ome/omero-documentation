@@ -187,7 +187,7 @@ the following dummy data for the user account:
 .. note::
 	For a live or public server install these values should be altered
 	to reflect your security requirements. You should also consider locking
-	down your server machine but that is outwith the scope of this document
+	down your server machine but that is outside the scope of this document.
 
 Setup postgresql:
 
