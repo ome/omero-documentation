@@ -20,8 +20,8 @@ A service factory is obtained from the client connection. E.g. Python:
       createRenderingEngine()
 
 -  Services will provide access to omero.model.objects. You will then
-   need the :javadoc:`API for these objects <slice2html/omero/model.html>`.
-   E.g. Dataset, Image, Pixels etc.
+   need the :javadoc:`API for these objects <slice2html/omero/model.html>`,
+   e.g. Dataset, Image, Pixels etc.
 
 Services list
 -------------
@@ -33,8 +33,8 @@ these verbs, or services. Each OMERO service belongs to a particular
 service level with each level calling only on services from lower
 levels.
 
-Service Level 1 (direct DB and hibernate connections)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Service Level 1 (direct database and hibernate connections)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  AdminService:
    :source:`src <components/common/src/ome/api/IAdmin.java>`,
@@ -140,17 +140,18 @@ permissions, otherwise an exception is thrown.
 Dirty checks follow the Three Commandments:
 
 #. Any IObject-valued field with unloaded set to true is treated as a
-   place holder (proxy) and is re-loaded from the DB.
+   place holder (proxy) and is re-loaded from the database.
 #. Any collection-valued field with a null value is re-loaded from the
-   DB.
+   database.
 #. Any collection-valued field with the FILTERED flag is assumed to be
-   dirty and is loaded from the DB, with the future option of examing
-   the filtered collection for any new and updated values and applying
-   them to the real collection. (Deletions cannot happen this way since
-   it would be unclear if the object was filtered or deleted.)
+   dirty and is loaded from the database, with the future option of
+   examining the filtered collection for any new and updated values and
+   applying them to the real collection. (Deletions cannot happen
+   this way since it would be unclear if the object was filtered or 
+   deleted.)
 
-Administation
-~~~~~~~~~~~~~
+Administration
+~~~~~~~~~~~~~~
 
 The :source:`IAdmin <components/common/src/ome/api/IAdmin.java>`
 interface defines all the actions necessary to administer the 

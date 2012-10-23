@@ -9,7 +9,7 @@ updating existing movies.
 
 -  Prepare a new transcript. Any necessary actions with images and
    existing data needs to be accounted for at the top of the transcript.
--  If necessary the server can be set up with the db set-up script. This
+-  If necessary the server can be set up with the database set-up script. This
    script has the relevant group and user setup, a selection of projects
    and datasets and some tags.
 -  For more data please use the directory on squig
@@ -27,7 +27,7 @@ or
 -  Check the old movie for the points that have to be covered and
    confirm with developers that there is no required changes. Prepare
    any necessary changes and create the movie transcript.
--  If necessary the server can be set up with the db set-up script. This
+-  If necessary the server can be set up with the database set-up script. This
    script has the relevant group and user setup, a selection of projects
    and datasets and some tags.
 -  For more data please use the directory on squig

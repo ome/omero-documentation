@@ -833,7 +833,7 @@ can be inefficient, all the |OmeroModel| collections are hidden behind several m
         // Saving this to the database will remove
         // all dataset links!
         // Finally, all collections can be unloaded
-        // to use an instance as a single row in the db.
+        // to use an instance as a single row in the database.
         image->unloadCollections();
         // Ordered collections have slightly different methods.
         image = new ImageI(1L, true);
@@ -887,7 +887,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.cpp`
     % Saving this to the database will remove
     % all dataset links!
     % Finally, all collections can be unloaded
-    % to use an instance as a single row in the db.
+    % to use an instance as a single row in the database.
     image.unloadCollections();
     % Ordered collections have slightly different methods.
     image = ImageI(1, true);
@@ -945,7 +945,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.m`
     # Saving this to the database will remove
     # all dataset links!
     # Finally, all collections can be unloaded
-    # to use an instance as a single row in the db.
+    # to use an instance as a single row in the database.
     image.unloadCollections()
     # Ordered collections have slightly different methods.
     image = ImageI(long(1), True)
@@ -1009,7 +1009,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.py`
             // Saving this to the database will remove
             // all dataset links!
             // Finally, all collections can be unloaded
-            // to use an instance as a single row in the db.
+            // to use an instance as a single row in the database.
             image.unloadCollections();
             // Ordered collections have slightly different methods.
             image = new ImageI(1L, true);

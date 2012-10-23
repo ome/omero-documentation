@@ -13,8 +13,8 @@ creates a new
 Events as audit log
 -------------------
 
-On each DB-update (INSERT/UPDATE/DELETE), an ``EventLog`` is created by
-a ``HibernateInterceptor`` which is then saved to the DB at the end of
+On each Database-update (INSERT/UPDATE/DELETE), an ``EventLog`` is created by
+a ``HibernateInterceptor`` which is then saved to the database at the end of
 the method call (in ``UpdateImpl``).
 
 Relationship to ModuleExecutions
@@ -25,7 +25,7 @@ OME 2 system. They both contain time of create/update/deletion, status,
 and type information. Event, however, has lost its ACL/permissions role.
 These values have been moved to embedded values represented by the
 Details object. Event also is not linked to all the created
-``SemanticTypes`` as was ``ModuleExecution``, and so can't fully
+``SemanticTypes`` as was ``ModuleExecution``, and so cannot fully
 represent the provenance data needed by the ``AnalysisEngine``. At such
 time as the ``AnalysisEngine`` is ported to Java, the
 ``ModuleExecution`` object will have to be added.

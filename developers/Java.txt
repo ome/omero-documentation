@@ -460,7 +460,7 @@ created:
     // Important to close the service
     rawFileStore.close();
 
-    //now we have an original File in DB and raw data uploaded.
+    //now we have an original File in the database and raw data uploaded.
     // We now need to link the Original file to the image using 
     // the File annotation object. That's the way to do it.
     FileAnnotation fa = new FileAnnotationI();
