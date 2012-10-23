@@ -44,7 +44,7 @@ Handler/interceptor
     "handlers").
 
 Events
-    Every write action produces an Event in the DB. This DB contains
+    Every write action produces an Event in the database. This database contains
     several ``EventLogs`` which specify exactly what was created or
     altered during that specific event.
 
@@ -59,10 +59,10 @@ Top-level and build
 ~~~~~~~~~~~~~~~~~~~
 
 :source:`omero.properties <etc/omero.properties>`
-    contains login and connection information for the DB and OMERO.
+    contains login and connection information for the database and OMERO.
 
 :source:`local.properties.example <etc/local.properties.example>`
-    contains the default root password. This can be overriden with your
+    contains the default root password. This can be overridden with your
     own ``etc/local.properties`` file.
 
 :source:`hibernate.properties <etc/hibernate.properties>`
@@ -83,7 +83,7 @@ Top-level and build
 
 :source:`data.vm <components/dsl/resources/ome/dsl/psql-footer.vm>`
     used by DSLTask to generate psql-footer.sql which is used to   
-    bootstrap the db security system (root et al)
+    bootstrap the database security system (root et al).
 
 :source:`common/build.xml <components/common/build.xml>`
     contains an ant target (adduser) which will create a user and empty
@@ -278,7 +278,7 @@ however, a few special cases.
 
 IQuery (within the application server), for example will always return a
 graph of active Hibernate objects. Changes to them will be persisted to
-the db on flush.
+the database on flush.
 
 IUpdate, on the other hand, does contain some logic for easing
 persistence, though this will eventually be ported to the Hibernate
@@ -311,7 +311,7 @@ MergeEventListener, SaveOrUpdateEventListener, ... ) are responsible for
 reloading unloaded objects (and will hopefully take this functionality
 fully from IUpdate) and provide special handling for enums and other
 system types. There are also event listeners which are the equivalent of
-DB triggers (pre-update, post-delete, etc.) and these are used for
+database triggers (pre-update, post-delete, etc.) and these are used for
 generating our audit log.
 
 So much for write activities. Select queries are, as mentioned above,

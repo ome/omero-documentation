@@ -280,7 +280,7 @@ Each instance can be found in one of several states. Quickly, they are:
     the entity has been created ("new Image()") and not yet shown to the
     backend
 **persistent**
-    the entity has been stored in the DB and has a non-null id
+    the entity has been stored in the database and has a non-null id
     (IObject.getId()). Here Hibernate differentiates between detached,
     managed, and deleted entities. Detached entities don't take part in
     lazy-loading or dirty detection like managed entities do. They can,

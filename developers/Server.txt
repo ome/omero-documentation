@@ -68,7 +68,7 @@ aspects.
 -  In the case of a read-write action, the change to the database is
    first passed to a validation layer for extensive checking. Then the
    graph is passed to the database layer which prepares the SQL,
-   including an audit trail of the changes made to the DB.
+   including an audit trail of the changes made to the database.
 
 -  After execution, the OMERO runtime is reset, the method call is
    logged, and either the successful results are returned or an
@@ -78,7 +78,7 @@ Technologies
 ------------
 
 It is fairly easy to work with the server without understanding all of
-its layers. The API is cleary outlined in the ome.api package and the
+its layers. The API is clearly outlined in the ome.api package and the
 client proxies work almost as if the calls were being made from within
 the same virtual machine. The only current caveat is that objects
 returned between two different calls will not be referentially (i.e.
