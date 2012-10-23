@@ -13,7 +13,7 @@ Introduction
 The ome.services.queries package is intended to allow for the easy
 definition of queries by both developers and clients. Due to the
 fragility of HQL defined queries, a framework allowing for easy
-definition, multiple formats (Velocity templates, DB values, class
+definition, multiple formats (Velocity templates, Database values, class
 files), and transparent lookup is critical.
 
 Lookup happens among all ``QuerySources`` that are registered with the
