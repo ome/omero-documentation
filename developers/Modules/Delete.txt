@@ -16,7 +16,7 @@ functionality (see :ticket:`2615` for tickets):
 -  Need to be able to configure this definition, since different users
    have different needs
 -  Deleting large amounts of data (e.g. Plate of HCS data) was too
-   memory-intensive (data was loaded from DB during delete)
+   memory-intensive (data was loaded from the database during delete)
 -  Poor logging of deletes
 -  Large deletes (e.g. screen data) take time: Clients need to be able
    to keep working while deletes run 'in the background'
@@ -45,7 +45,7 @@ following data is deleted:
 -  ROIs for this image (see below)
 -  Image Rendering settings for yourself and other users
 
-**Optional**\ ** - In the web client and OMERO.insight, you will be
+**Optional**\ ** - In OMERO.web and OMERO.insight, you will be
 asked whether you also want to delete:
 
 -  Files attached to the image (if not linked elsewhere). In that case,
