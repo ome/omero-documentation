@@ -56,7 +56,7 @@ handling.
      *   |_ ConcurrencyException (recoverable)
      *   |  |_ ConcurrentModification (data was changed)
      *   |  |_ OptimisticLockException (changed data conflicts)
-     *   |  |_ LockTimeout (took too long to aquire lock)
+     *   |  |_ LockTimeout (took too long to acquire lock)
      *   |  |_ TryAgain (some processing required before server is ready)
      *   |  \_ TooManyUsersException
      *   |     \_ DatabaseBusyException
@@ -351,8 +351,8 @@ used is as follows:
 
    -  InternalException : shouldn't reach the client; Bug! Contact
       administrator. E.g. NullPointerException, assertion failed, etc.
-   -  ResourceError : fatal error in server. E.g. OutOfMemory, disk
-      space full, DB is in illegal state, etc.
+   -  ResourceError : fatal error in server, e.g. OutOfMemory, disk
+      space full, the database is in illegal state, etc.
    -  DataAccessException
    -  
 
@@ -363,7 +363,7 @@ used is as follows:
       -  ApiUsageException : something wrong with how you did things.
          E.g. IllegalStateException, object uninitialized, etc.
       -  ValidationException : something wrong with what you sent; sends
-         list of fields, etc.; edit and retry. E.g. no "?" in image
+         list of fields, etc.; edit and retry, e.g. no "?" in image
          names.
 
 where the colors indicate:
@@ -379,7 +379,7 @@ NoRecourseConditions
 Any other exception which reaches the client should be considered an
 ``OutOfServiceException``, meaning that something is (hopefully only)
 temporarily wrong with the server. E.g. No connection, server down,
-server restarting. But since this can't be caught since the server can't
+server restarting. But since this cannot be caught since the server cannot
 be reached, there is no way to guarantee that a real
 ``OutOfServiceException`` is thrown.
 
@@ -388,7 +388,7 @@ Discussion
 
 ``FixAndRetryConditions`` need to have information about what should be
 fixed, like a Validation object which lists fields with error messages.
-A ``RetryCondition`` could have a backoff value to prevent too frequent
+A ``RetryCondition`` could have a back-off value to prevent too frequent
 retries.
 
 Questions

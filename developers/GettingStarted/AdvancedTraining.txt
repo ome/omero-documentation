@@ -130,7 +130,7 @@ via specific links
 etc). Annotation subclasses such as
 :javadoc:` CommentAnnotation <slice2html/omero/model/CommentAnnotation.html#CommentAnnotation>`,
 :javadoc:` FileAnnotation <slice2html/omero/model/FileAnnotation.html#FileAnnotation>`
-etc are stored in a single DB table in OMERO (all Annotations have
+etc are stored in a single database table in OMERO (all Annotations have
 unique ID).
 
 Images
@@ -298,12 +298,12 @@ Below is a number of example psql database queries
 bin/omero hql
 ~~~~~~~~~~~~~
 
-You can use the omero hql command to query a remote OMERO db, entering
+You can use the omero hql command to query a remote OMERO database, entering
 your login details when requested. 
 
 .. note::
 
-    Because you will be querying the DB under a particular login, the entries 
+    Because you will be querying the database under a particular login, the entries 
     returned will be subject to the permissions of that login.
 
 ::

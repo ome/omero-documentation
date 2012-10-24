@@ -46,16 +46,16 @@ Model
 -  Beginning of milestone: Create a log ticket to record every ticket
    number corresponding to a model change.
 -  Prepare upgrade stylesheet before freeze.
--  Freeze model **at least 3 weeks** before DB Upgrade freeze. To allow
-   the propagation of those changes through the stack i.e. B-F, DB,
+-  Freeze model **at least 3 weeks** before database Upgrade freeze. To allow
+   the propagation of those changes through the stack i.e. Bioformats, database,
    tests, etc.
 -  Prepare downgrade stylesheet.
 
-DB upgrade
-----------
+Database upgrade
+----------------
 
--  List of proposed changes to DB should be submitted **at the latest 3
-   weeks** before code freeze. To allow enough time to adjust DB.
+-  List of proposed changes to the database should be submitted **at the latest 3
+   weeks** before code freeze. To allow enough time to adjust the database.
 -  Preliminary testing phase.
 
 Feature freeze (bug fixing only)
@@ -142,7 +142,7 @@ Documentation
       -  Upgrade page
 
          -  i.e. add section to :doc:`/sysadmins/server-upgrade`
-            including db upgrades, etc.
+            including database upgrades, etc.
 
 -  Videos. Indicate the following at the beginning of the movie:
 

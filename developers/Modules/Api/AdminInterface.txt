@@ -12,7 +12,7 @@ Actions available through IAdmin and IUpdate
 --------------------------------------------
 
 A couple of the methods in the IAdmin interface are also available
-implicitly through IUpdate, the main interface for updating the DB. This
+implicitly through IUpdate, the main interface for updating the database. This
 duplication is mainly useful for large scale changes, such as changing
 the permissions to an entire object graph.
 
