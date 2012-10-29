@@ -70,7 +70,7 @@ map-like object, which is then passed to the agent. This map object also
 contains pointers to the container's services. We can think of this
 object as a Registry (`Fow`_).
 
-There is one Registry containing pointers to the container's services.
+There is one Registry containing pointers to the container's services
 for each agent, so configuration entries are private to each agent -
 container's services are shared among all agents though. Agents access
 the Registry object through the Registry interface.
