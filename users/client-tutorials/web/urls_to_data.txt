@@ -18,12 +18,12 @@ the full url will be:
 
 This url is supported for the following data types:
 
- * project
- * dataset
- * image
- * screen
- * plate
- * tag
+* project
+* dataset
+* image
+* screen
+* plate
+* tag
 
 The OMERO.web client will navigate to the specified object, regardless of what containers it is in.
 It will also switch the web client to the correct Group and User (so it will work for any user who has permission to see the object).
@@ -33,7 +33,7 @@ different Dataset and/or move it to a different Group.
 
 You can find this url when viewing any object by clicking on the 'link' icon in the right-hand panel.
 
-Multiple objects are also supported using the | symbol, as long as they are in the same container.
+Multiple objects are also supported using the ``|`` symbol, as long as they are in the same container.
 
 ::
 
