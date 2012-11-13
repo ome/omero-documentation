@@ -297,8 +297,8 @@ do:
 As mentioned elsewhere, the "refs/heads/" prefix needs only be used to
 create a new branch, and can be dropped for subsequent pushes.
 
-Tracking others branches
-~~~~~~~~~~~~~~~~~~~~~~~~
+Tracking others' branches
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The flip-side of pushing your own branches is being aware that other OME
 developers will also be pushing theirs. Github provides a number of ways
@@ -560,8 +560,8 @@ Working with submodules
 -----------------------
 
 Since submodules are git repositories, all the tools described
-previsously (add remotes, edit/merge, commit...) can be used within each
-submodule reposiotry:
+previously (add remotes, edit/merge, commit...) can be used within each
+submodule repository:
 
 ::
 
