@@ -90,7 +90,7 @@ When first beginning to work with the OMERO server, the ``db``,
 ``config``, and ``admin`` commands will be the first you will need.
 
 ``db``
-~~~~~~
+^^^^^^
 
 Rather than try to provide the functionality of a RDBM tool like
 ``psql``, the ``db`` command helps to generate SQL scripts for building
@@ -107,7 +107,7 @@ comfortable for you.
     $ psql omero < OMERO4__0.sql
 
 ``config``
-~~~~~~~~~~
+^^^^^^^^^^
 
 The ``config`` command is responsible for reading / writing
 user-specific profiles. These are stored in platform-specific, protected
@@ -205,7 +205,7 @@ password off of a system, use "drop":
     $ bin/omero config drop
 
 ``admin``
-~~~~~~~~~
+^^^^^^^^^
 
 Once your database has been properly configured and your config profile
 is set to use that database, you're ready to start your server.
@@ -216,6 +216,9 @@ is set to use that database, you're ready to start your server.
 
 User commands
 -------------
+
+``import``
+^^^^^^^^^^
 
 ``import`` is probably the first user command many will want to use.
 Running the command without any arguments will produce a help listing:
@@ -260,7 +263,7 @@ with the |OmeroCli|. Alternatively, the "--path"
 argument can be used to point to other plugin files or directories.
 
 Thread-safety
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 The ``omero.cli.CLI`` should be considered thread-*un*\ safe. A single
 connection object is accessible from all plugins via
