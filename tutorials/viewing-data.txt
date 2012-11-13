@@ -1,0 +1,71 @@
+************
+Viewing Data
+************
+
+Using OMERO.insight to view and work with image data.
+
+1. Open image data in the image viewer:
+- select the image data in the Projects pane and click on the View icon in the toolbar;
+or - double click the image data in the Projects pane;
+or - right click the image data in the Projects pane and select View ... from the menu;
+or - double click the thumbnail in the centre pane;
+or - click the icon in the right pane toolbar
+
+.. image:: /images/tutor/viewingDataOpen.png
+    :width: 100%
+    :align: center
+
+2. View a selected area of the image with the Magnifier.
+Zoom and scroll using the controls on the left side of the window.
+
+.. image:: /images/tutor/viewingDataZoom1.png
+    :width: 80%
+    :align: center
+
+3. Click on the menu in the Zoom Window to configure size of lens, zoom percentage, units and the colour of the zoom box in the main image viewer.
+
+.. image:: /images/tutor/viewingDataZoom2.png
+    :width: 62.5%
+    :align: center
+
+4. Step through a Z stack by using the slider or clicking on the up or down arrows at the top or bottom.
+Click the Play arrow below the slider to play through the Z stack.
+If the image data includes a time sequence, step or played through the Time (T) sequence using the controls at the bottom of the viewer window.
+
+.. image:: /images/tutor/viewingDataStack.png
+    :width: 75%
+    :align: center
+
+Data from JCB: Civelekoglu-Scholey et al., JCB, doi: 10.1083/jcb.200908150
+
+5. Click on the movie player icon to play through z- and t-stacks with more control.
+
+.. image:: /images/tutor/viewingDataVideo.png
+    :width: 75%
+    :align: center
+
+6. Use the icon in the toolbar to open the Settings pane to the right of the image. This enables finer control of rendering adjustments than the tools on the left of the viewer.
+
+.. image:: /images/tutor/viewingDataRendering.png
+    :width: 100%
+    :align: center
+
+7. Click on the top icon of the tools to toggle between colour and monochrome, and click on individual channels to toggle them on and off
+
+.. image:: /images/tutor/viewingDataColour.png
+    :width: 100%
+    :align: center
+
+8. Select the tabs above the image to show a split channel and projection views of the image data.
+
+.. image:: /images/tutor/viewingDataSplit.png
+    :width: 75%
+    :align: center
+
+9. Click on the Metadata button to open the metadata panel to the right of the image.
+The General tab shows the name and description which are editable, summary data, rating, tags, attachments, comments and the location in the data manager hierarchy.
+The Acquisition tab shows the original acquisition data imported with the image data.
+
+.. image:: /images/tutor/viewingDataMetadata.png
+    :width: 82%
+    :align: center
