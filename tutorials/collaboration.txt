@@ -1,0 +1,103 @@
+***********************
+Collaborating with Data
+***********************
+
+OMERO.insight facilitates collaboration by allowing you to create groups of users and share your image data with other users in the group.
+
+1. If you are a member of more than one group your default group shows in the groups menu in the toolbar above the **Projects** tab (left hand panel).
+Data in your **Projects** tab is organised according to the groups you belong to.
+
+.. image:: /images/tutor/collaborationManager1.png
+    :width: 75%
+    :align: center
+
+2. In the right hand pane you can edit your details, see your default group and change your password.
+
+.. image:: /images/tutor/collaborationManager2.png
+    :width: 62.5%
+    :align: center
+
+3. Click on **Display Group** in the groups drop-down menu to select other groups you belong to.
+Check the box to display data from that group in your data tree.
+Click **Apply** to close.
+
+.. image:: /images/tutor/collaborationShowGroups.png
+    :width: 72.5%
+    :align: center
+
+4. Click on **Display User** from drop-down menu to select other members whose data you wish to view and click **Apply** to close.
+
+.. image:: /images/tutor/collaborationShowUsers.png
+    :width: 100%
+    :align: center
+
+5. Selected groups and users can be viewed the data tree.
+
+.. image:: /images/tutor/collaborationViewGroups.png
+    :width: 62.5%
+    :align: center
+
+6. Permissions vary according to the type of the group and whether a user is a group owner, administrator or just a member. Select a group in the data tree and the permissions for it can be seen in the right hand panel.
+
+Administration privileges are assigned by the OMERO administrator. Users with Administration privileges can then assign ownership of groups of which they are members.
+
+According to your privileges and the group permissions you will be able to view and interact to different extents with data belonging to other members of a group.
+
+Whatever your status or the group permissions, there are no restrictions on interaction with your own data. Any permission restrictions apply only to data belonging to other users.
+
+In a Private group only you and the group’s owner or administrator will be able to view and interact with your data.
+
+
+.. image:: /images/tutor/collaborationTable1.png
+    :width: 75%
+    :align: center
+
+In a Read-only group all other members will be able to view your data, and you theirs, but will not be able to interact with it in any other way.
+
+Read-annotate and Read-write groups allow much wider interaction with other user’s data.
+
+.. image:: /images/tutor/collaborationTable2.png
+    :width: 75%
+    :align: center
+
+.. image:: /images/tutor/collaborationTable3.png
+    :width: 75%
+    :align: center
+
+.. image:: /images/tutor/collaborationTable4.png
+    :width: 75%
+    :align: center
+
+7. If you are a member of more than one group, you can move data between groups.
+Right-click on a project, dataset or one or more images and select **Move to** from the menu.
+Select the destination group from the options.
+
+.. image:: /images/tutor/collaborationMoveGroup.png
+    :width: 100%
+    :align: center
+
+8. Select an existing project and/or dataset as the destination, or click **New** to create a new one.
+Click **Move** when done.
+
+**NB. ** The following apply only if you are **Owner** or **Administrator** of a group.
+
+9. As the owner of a group, click on the **Administration** tab in the left hand panel to change permissions settings for a group in the right hand panel.
+
+.. image:: /images/tutor/collaborationGroupAdmin.png
+    :width: 100%
+    :align: center
+
+10. As an administrator, right-click on a group in the **Administration** tab to add an existing user.
+In the **Experimenter Selection** window select user/s and click the right arrow.
+Click the **Accept** button to add the listed user/s.
+
+.. image:: /images/tutor/collaborationAddUser.png
+    :width: 100%
+    :align: center
+
+11. To create a new user or group as an administrator, click on the **New User/Group** icon in the **Administration** tab toolbar.
+Users can be added to groups after their details have been entered.
+
+.. image:: /images/tutor/collaborationAddUser.png
+    :width: 100%
+    :align: center
