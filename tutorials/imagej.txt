@@ -2,85 +2,100 @@
 Using ImageJ with OMERO
 ***********************
 
-It is presumed you have never installed ImageJ before.
+This guide assumes you have never installed ImageJ before.
 
-1. Download the latest version of ImageJ for your platform from the website:
+#. Download the latest version of ImageJ for your platform from the website:
 
-`http://rsbweb.nih.gov/ij/download.html <http://rsbweb.nih.gov/ij/download.htm>`_
+   `http://rsbweb.nih.gov/ij/download.htm <http://rsbweb.nih.gov/ij/download.htm>`_
 
-.. image:: /images/tutor/imageJWebsite.png
-    :width: 65%
-    :align: center
+   .. image:: /images/tutor/imageJWebsite.png
+       :width: 65%
+       :align: center
 
-2. On Windows run the set-up programme (either from the Downloads folder or when prompted by download Wizard) and follow instructions to install ImageJ.
-On a Mac, extract the .zip archive and drag the ImageJ folder to your applications folder.
-On Linux extract the .gz archive and double click the “run” script.
-Further install instructions can be found on the ImageJ web site (above).
+   |
 
-3. Once installed, the ImageJ folder (typically C:/Program Files/ImageJ on Windows) contains the programme and a number of subfolders, one of which is “plugins”.
-To use OMERO with ImageJ, two plugins need to be installed in this folder: 
-loci_tools and OMERO.insight-ij.
+#. On Windows run the set-up programme (either from the Downloads folder or when prompted by download Wizard) and follow instructions to install ImageJ.
+   On a Mac, extract the .zip archive and drag the ImageJ folder to your applications folder.
+   On Linux extract the .gz archive and double click the “run” script.
+   Further install instructions can be found on the ImageJ web site (above).
 
-.. image:: /images/tutor/imageJPlugins.png
-    :width: 100%
-    :align: center
+   |
 
-4. Download the latest version of the LOCI tools plugin from:
+#. Once installed, the ImageJ folder (typically C:/Program Files/ImageJ on Windows) contains the programme and a number of subfolders, one of which is “plugins”.
+   To use OMERO with ImageJ, two plugins need to be installed in this folder: 
+   loci_tools and OMERO.insight-ij.
 
-`http://loci.wisc.edu/software/loci_tools.jar <http://loci.wisc.edu/software/loci_tools.jar>`_
+   .. image:: /images/tutor/imageJPlugins.png
+       :width: 100%
+       :align: center
 
-Save or move the downloaded file into the **ImageJ > plugins** folder.
+   |
 
-.. image:: /images/tutor/imageJLociTools.png
-    :width: 87.5%
-    :align: center
+#. Download the latest version of the LOCI tools plugin from:
 
-Further details on the download are at:
+   `http://loci.wisc.edu/software/loci_tools.jar <http://loci.wisc.edu/software/loci_tools.jar>`_
 
-`http://www.openmicroscopy.org/site/products/bio-formats/bio-formats-downloads <http://www.openmicroscopy.org/site/products/bio-formats/bio-formats-downloads>`_
+   Save or move the downloaded file into the **ImageJ > plugins** folder.
 
-5. Download the latest version of the OMERO.insight-ij plugin from:
+   .. image:: /images/tutor/imageJLociTools.png
+       :width: 87.5%
+       :align: center
 
-` http://www.openmicroscopy.org/site/products/omero/downloads <http://www.openmicroscopy.org/site/products/omero/downloads>`_
+   Further details on the download are at:
+   `http://www.openmicroscopy.org/site/products/bio-formats/bio-formats-downloads <http://www.openmicroscopy.org/site/products/bio-formats/bio-formats-downloads>`_
 
-.. image:: /images/tutor/imageJInsight.png
-    :width: 100%
-    :align: center
+   |
 
-6. Copy or move the .zip archive to the **ImageJ > plugins** folder.
-Extract the archive into the plugins folder to give a folder named ** “OMERO.insight-ij-4.4.xxx” ** where xxx is the version number/ID.
-The OMERO.insight-ij plugin consists of a folder with a number of components inside.
-The complete folder is left in the **ImageJ > plugins** folder.
+#. Download the latest version of the OMERO.insight-ij plugin from:
 
-Important Note: 	with some versions of Windows unzipping programmes, a double folder enclosing the plugin is created. It is worth checking to make sure this has not happened. If it has, copy the inner **OMERO.insight-ij-4.4.xxx** folder into the **ImageJ > plugins** folder.
+   `http://www.openmicroscopy.org/site/products/omero/downloads <http://www.openmicroscopy.org/site/products/omero/downloads>`_
 
-.. image:: /images/tutor/imageJOMEROPlugins.png
-    :width: 100%
-    :align: center
+   .. image:: /images/tutor/imageJInsight.png
+       :width: 100%
+       :align: center
 
-The **OMERO.insight-ij-4.4.xxx.zip** archive can be left in the plugins folder or deleted.
+   |
 
-7. Launch the ImageJ application and click on the Plugins menu.
-**Select OMERO > Connect to OMERO**.
-A version of OMERO.insight will open and can be used as normal.
+#. Copy or move the .zip archive to the **ImageJ > plugins** folder.
+   Extract the archive into the plugins folder to give a folder named **“OMERO.insight-ij-4.4.xxx”** where xxx is the version number/ID.
+   The OMERO.insight-ij plugin consists of a folder with a number of components inside.
+   The complete folder is left in the **ImageJ > plugins** folder.
 
-.. image:: /images/tutor/imageJInsight2.png
-    :width: 100%
-    :align: center
+   **Important Note:** with some versions of Windows unzipping programmes, a double folder enclosing the plugin is created. It is worth checking to make sure this has not happened. If it has, copy the inner **OMERO.insight-ij-4.4.xxx** folder into the **ImageJ > plugins** folder.
+
+   .. image:: /images/tutor/imageJOMEROPlugins.png
+       :width: 100%
+       :align: center
+
+   The **OMERO.insight-ij-4.4.xxx.zip** archive can be left in the plugins folder or deleted.
+
+   |
+
+#. Launch the ImageJ application and click on the Plugins menu.
+   **Select OMERO > Connect to OMERO**.
+   A version of OMERO.insight will open and can be used as normal.
+
+   .. image:: /images/tutor/imageJInsight2.png
+       :width: 100%
+       :align: center
+
+   |
 
 
-8. As ImageJ needs to load the plugin software, it can take a minute or two for the OMERO login screen to appear, and then another two or three minutes for the progress bar to start moving and complete.
-Enter your OMERO server address (if needed) and **Username** and **Password**.
-Click **Login**.
+#. As ImageJ needs to load the plugin software, it can take a minute or two for the OMERO login screen to appear, and then another two or three minutes for the progress bar to start moving and complete.
+   Enter your OMERO server address (if needed) and **Username** and **Password**.
+   Click **Login**.
 
-.. image:: /images/tutor/imageJLogin.png
-    :width: 100%
-    :align: center
+   .. image:: /images/tutor/imageJLogin.png
+       :width: 100%
+       :align: center
 
-9. You will then be taken to the OMERO.insight Data Manager screen.
+   |
+   
+#. You will then be taken to the OMERO.insight Data Manager screen.
 
-.. image:: /images/tutor/imageJDataManager.png
-    :width: 100%
-    :align: center
+   .. image:: /images/tutor/imageJDataManager.png
+       :width: 100%
+       :align: center
 
-**Note:** If you quit OMERO.insight and then connect again during the same ImageJ session, logging in and launching the OMERO plugin will be much quicker. So if you intend using the OMERO plugin through ImageJ again soon, it may be worth leaving your ImageJ application running.
+   **Note:** If you quit OMERO.insight and then connect again during the same ImageJ session, logging in and launching the OMERO plugin will be much quicker. So if you intend using the OMERO plugin through ImageJ again soon, it may be worth leaving your ImageJ application running.

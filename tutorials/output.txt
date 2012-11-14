@@ -1,0 +1,44 @@
+*****************
+Outputting Images
+*****************
+
+In OMERO.insight you are able to export any image in OME-tiff, save it as a JPEG, or if it was archived at import, download it in the original image format.
+
+#. Click on the **Saving Options** icon in the toolbar.
+
+   .. image:: /images/tutor/outputDropdown.png
+       :width: 75%
+       :align: center
+
+   |
+
+#. If the image was archived in its original file format select **Download** from the dropdown menu.
+
+   .. image:: /images/tutor/outputDownload.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Select **Export as OME-TIFF** from the dropdown menu to export in that format.
+
+   .. image:: /images/tutor/outputExport.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Select **Save as JPEG** to export as a JPEG.
+
+   .. image:: /images/tutor/outputSave.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Scripts can be used to output in a number of formats.
+
+   .. image:: /images/tutor/outputSave.png
+       :width: 75%
+       :align: center
+
