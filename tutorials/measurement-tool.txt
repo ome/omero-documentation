@@ -4,81 +4,114 @@ Using the Measurement Tool
 
 Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROIs) and undertake analysis. 
 
-1. Open the image in the **Image Viewer and click on the **Measuring Tools** icon to open the tools palette.
+#. Open the image in the **Image Viewer** and click on the **Measuring Tools** icon to open the tools palette.
 
-.. image:: /images/tutor/measurementToolIcon.png
-    :width: 100
-    :align: center
+   .. image:: /images/tutor/measurementToolIcon.png
+       :width: 100%
+       :align: center
 
-2. To draw or manipulate ROIs, click on the buttons in the palette tool bar (left to right):
-- ROI selector;
-- draw rectangle;
-- draw ellipse;
-- draw point;
-- draw line;
-- draw polygon;
-- add a text ROI;
-- show/hide text.
+   |
 
-.. image:: /images/tutor/measurementToolToolbar1.png
-    :width: 55
-    :align: center
+#. To draw or manipulate ROIs, click on the buttons in the palette tool bar (left to right):
 
-3. Other buttons in the tool bar of the tools palette are (left to right):
-- save ROIs (once created);
-- load ROIs from saved file;
-- open the ROI assistant;
-- delete ROIs (click gives options).
+   - ROI selector
 
-.. image:: /images/tutor/measurementToolToolbar2.png
-    :width: 100
-    :align: center
+   - draw rectangle
 
-4. Details of **ROIs** are viewed in the **Manager** tab of the tools palette.
-The columns show:
-- ID of the ROI;
-- Z section/s and time point/s the ROI is drawn on;
-- ROI type;
-- text associated with the ROI;
-- check box to toggle the visibility of the ROI.
+   - draw ellipse
 
-.. image:: /images/tutor/measurementToolManager.png
-    :width: 100
-    :align: center
+   - draw point
 
-5. Select an ROI and click on the **Inspector** tab to view and edit the text label, dimensions, fill and line colour, and toggle the visibility of the text and measurements on and off.
+   - draw line
 
-.. image:: /images/tutor/measurementToolInspector.png
-    :width: 45
-    :align: center
+   - draw polygon
 
-6. Select an ROI in the **Manager** tab and click on **ROI Assistant** button in the toolbar to propagate an ROI through the Z stack or time sequence;
-or. right click on an ROI and select **Propagate**.
+   - add a text ROI
 
-.. image:: /images/tutor/measurementToolPropagate1.png
-    :width: 100
-    :align: center
+   - show/hide text
 
-7. In the **ROI Assistant** window, click on the ROI and drag it.
-Up or down propagates through the Z stack and left or right through the Time (T) sequence.
-Dragging diagonally will propagate the ROI through both Z stack and T sequence.
-Click **Close** to return to the ROI palette.
+   .. image:: /images/tutor/measurementToolToolbar1.png
+       :width: 55%
+       :align: center
 
-.. image:: /images/tutor/measurementToolPropagate2.png
-    :width: 100
-    :align: center
+   |
 
-8. Click on the **Graph Pane** tab to show a plot of the channel intensities for an ROI.
-A line ROI has a profile of intensities along the line and a histogram of intensity vs. frequency (data for other types of ROI vary).
-If an ROI is propagated across a T sequence, the slider below the histogram allows stepping through the sequence.
+#. Other buttons in the tool bar of the tools palette are (left to right):
+   
+   - save ROIs (once created)
 
-.. image:: /images/tutor/measurementToolGraph.png
-    :width: 100
-    :align: center
+   - load ROIs from saved file
 
-9. Click on the **Intensity View** and **Intensity Results View** tabs to see tables of intensity values for the ROI.
-These values can be exported in Excel spread sheet format for further analysis.
+   - open the ROI assistant
 
-.. image:: /images/tutor/measurementToolIntensity.png
-    :width: 100
-    :align: center
+   - delete ROIs (click gives options)
+
+   .. image:: /images/tutor/measurementToolToolbar2.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Details of **ROIs** are viewed in the **Manager** tab of the tools palette.
+   The columns show:
+
+   - ID of the ROI
+
+   - Z section/s and time point/s the ROI is drawn on 
+
+   - ROI type
+
+   - text associated with the ROI
+
+   - check box to toggle the visibility of the ROI
+
+   .. image:: /images/tutor/measurementToolManager.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Select an ROI and click on the **Inspector** tab to view and edit the text label, dimensions, fill and line colour, and toggle the visibility of the text and measurements on and off.
+
+   .. image:: /images/tutor/measurementToolInspector.png
+       :width: 45%
+       :align: center
+
+   |
+
+#. Select an ROI in the **Manager** tab and click on **ROI Assistant** button in the toolbar to propagate an ROI through the Z stack or time sequence;
+   or right click on an ROI and select **Propagate**.
+
+   .. image:: /images/tutor/measurementToolPropagate1.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. In the **ROI Assistant** window, click on the ROI and drag it.
+   Up or down propagates through the Z stack and left or right through the Time (T) sequence.
+   Dragging diagonally will propagate the ROI through both Z stack and T sequence.
+   Click **Close** to return to the ROI palette.
+
+   .. image:: /images/tutor/measurementToolPropagate2.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Click on the **Graph Pane** tab to show a plot of the channel intensities for an ROI.
+   A line ROI has a profile of intensities along the line and a histogram of intensity vs. frequency (data for other types of ROI vary).
+   If an ROI is propagated across a T sequence, the slider below the histogram allows stepping through the sequence.
+
+   .. image:: /images/tutor/measurementToolGraph.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Click on the **Intensity View** and **Intensity Results View** tabs to see tables of intensity values for the ROI.
+   These values can be exported in Excel spread sheet format for further analysis.
+
+   .. image:: /images/tutor/measurementToolIntensity.png
+       :width: 100%
+       :align: center
