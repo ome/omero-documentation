@@ -252,7 +252,97 @@ So, to upload a file image.tiff, use:
 
     $ bin/omero import -s localhost -u josh -w secret image.tiff
 
-In future versions, session handling will be provided.
+``sessions``
+^^^^^^^^^^^^
+
+``session`` creates and handles user sessions stored locally on disk. Several 
+sessions can be active simultaneously, but only one will be used for a single 
+invocation of bin/omero::
+
+	$ dist/bin/omero sessions -h
+	usage: dist/bin/omero sessions [-h] <subcommand> ...
+
+	Control and create user sessions
+
+	Sessions are stored locally on disk. Several can
+	be active simultaneously, but only one will be used
+	for a single invocation of bin/omero.
+
+	Optional Arguments:
+	  In addition to any higher level options
+
+	  -h, --help          show this help message and exit
+
+	Subcommands:
+	  Use dist/bin/omero sessions <subcommand> -h for more information.
+
+	  <subcommand>
+	    help              Extended help
+	    login             Login to a given server, and store session key locally
+	    logout            Logout and remove current session key
+	    group             Set the group of the current session by id or name
+	    list              List all locally stored sessions
+	    keepalive         Keeps the current session alive
+	    clear             Close and remove locally stored sessions
+	    file              Print the path to the current session file
+
+.. note::
+    ``bin/omero login`` and ``bin/omero logout`` are shortcuts for 
+    ``bin/omero sessions login`` and ``bin/omero sessions logout``.
+
+Simple session
+""""""""""""""
+
+A session can be created using the `login` subcommand::
+
+	$ bin/omero login
+	Previously logged in to localhost:4064 as root
+	Server: [localhost]
+	Username: [root]
+	Password:
+
+The session is stored locally on disk and its location can be retrieved using 
+the `file` subcommand::
+
+	$ bin/omero sessions file
+	/Users/ome/omero/sessions/localhost/root/aec828e1-79bf-41f3-91e6-a4ac76ff1cd5
+
+To terminate the current session, use the `logout` subcommand::
+
+    $ bin/omero logout
+
+Advanced sessions
+"""""""""""""""""
+
+The hostname, port and username can be passed to the `login` subcommand 
+either using optional arguments::
+
+	$ bin/omero -s localhost -u root -p 4064 login 
+
+or within a connection string, e.g.::
+
+	$ bin/omero login root@localhost:4064 
+
+Existing sessions can be listed using the `list` subcommand::
+
+	$ bin/omero sessions list
+	 Server    | User | Group           | Session                              | Active    | Started                  
+	-----------+------+-----------------+--------------------------------------+-----------+--------------------------
+	 localhost | test | read-annotate-2 | d7d19ca2-b957-4a69-8b82-f56a232d71f9 | Logged in | Tue Nov 13 21:16:52 2012 
+	 localhost | root | system          | 4e482ee0-d8d7-4c6d-8240-ef39e1769cef | True      | Tue Nov 13 21:16:03 2012 
+	(2 rows)
+	
+Sessions UUID can then be reused to switch between created sessions::
+
+	$ bin/omero sessions login -k 4e482ee0-d8d7-4c6d-8240-ef39e1769cef
+
+By default sessions are saved under `~/omero/sessions`. If you want to use a 
+custom session directory, use the `--sessions-dir` optional argument in the 
+`sessions` subcommands::
+
+	$ bin/omero login --sessions-dir=/tmp
+	$ bin/omero sessions list --sessions-dir=/tmp
+	$ bin/omero logout --sessions-dir=/tmp
 
 Extensions
 ----------
