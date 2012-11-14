@@ -8,143 +8,181 @@ You need to use the URL provided by your institute’s OMERO administrator to ac
 
 Logging in, you do not have to enter a server name, but otherwise it is the same as for OMERO.insight, using the same username and password.
 
-1. The default screen shows your data tree in the left-hand panel.
-When data is selected in the tree, the thumbnails are displayed in the centre panel, and the metadata and other information in the right-hand panel. 
+#. The default screen shows your data tree in the left-hand panel.
+   When data is selected in the tree, the thumbnails are displayed in the centre panel, and the metadata and other information in the right-hand panel. 
 
-.. image:: /images/tutor/webclientHome.png
-    :width: 75%
-    :align: center
+   .. image:: /images/tutor/webclientHome.png
+       :width: 75%
+       :align: center
 
-2. Select an image in the data tree and click on the **Launch Full Viewer** button to view it in the **Image Viewer**;
-or. double click on the image or thumbnail.
+   |
 
-.. image:: /images/tutor/webclientView.png
-    :width: 87.5%
-    :align: center
+#. Select an image in the data tree and click on the **Launch Full Viewer** button to view it in the **Image Viewer**;
+   or. double click on the image or thumbnail.
 
-3. In the Image Viewer images can be viewed in **Normal**, **Maximum Intensity** or **Split-Channel**. 
+   .. image:: /images/tutor/webclientView.png
+       :width: 87.5%
+       :align: center
 
-.. image:: /images/tutor/webclientViewerOptions.png
-    :width: 100%
-    :align: center
+   |
 
-4. Scroll or step through Z sections using the slider and controls to the left of the image and T sequences using the slider and controls below the image. 
+#. In the Image Viewer images can be viewed in **Normal**, **Maximum Intensity** or **Split-Channel**. 
 
-.. image:: /images/tutor/webclientViewerSliders.png
-    :width: 87.5%
-    :align: center
+   .. image:: /images/tutor/webclientViewerOptions.png
+       :width: 100%
+       :align: center
 
-5. Zoom in and out of the image using the up and down arrows in the text box.
-Click the 1:1 button to view at true size.
-Click the diagonal arrow button to zoom to fit the window.
+   |
 
-.. image:: /images/tutor/webclientViewerZoom.png
-    :width: 75%
-    :align: center
+#. Scroll or step through Z sections using the slider and controls to the left of the image and T sequences using the slider and controls below the image. 
 
-6. Click on **Edit** to open the **Rendering Details** window.
-Use the sliders or text boxes to adjust settings for the channels.
-Toggle channels and colour on and off using the colour wells and checkbox.
+   .. image:: /images/tutor/webclientViewerSliders.png
+       :width: 87.5%
+       :align: center
 
-.. image:: /images/tutor/webclientViewerRendering.png
-    :width: 100%
-    :align: center
+   |
 
-7. Click on **Image Information** to see the basic information and dimensions of the image.
+#. Zoom in and out of the image using the up and down arrows in the text box.
+   Click the 1:1 button to view at true size.
+   Click the diagonal arrow button to zoom to fit the window.
 
-.. image:: /images/tutor/webclientViewerInfo.png
-    :width: 100%
-    :align: center
+   .. image:: /images/tutor/webclientViewerZoom.png
+       :width: 75%
+       :align: center
 
-8. Click on **Image Link** to generate a URL which can be copied and pasted.
-This link provides direct access via a web browser to your image, allowing people who are not in your group or even OMERO users to view your image.
+   |
 
-.. image:: /images/tutor/webclientViewerSliders.png
-    :width: 70%
-    :align: center
+#. Click on **Edit** to open the **Rendering Details** window.
+   Use the sliders or text boxes to adjust settings for the channels.
+   Toggle channels and colour on and off using the colour wells and checkbox.
 
-9. Click on **Show ROIs** to view ROIs on the image and see details in the pop-up window (only visible if image has ROIs).
-Existing ROIs can be viewed but cannot be edited, and new ROIs cannot added.
+   .. image:: /images/tutor/webclientViewerRendering.png
+       :width: 100%
+       :align: center
 
-.. image:: /images/tutor/webclientViewerROI.png
-    :width: 100%
-    :align: center
+   |
 
-10. In the **General** tab of the right hand panel, click on the pencil icon to edit the image name or image description.
-Summary details of the image can be seen below the description.
+#. Click on **Image Information** to see the basic information and dimensions of the image.
 
-.. image:: /images/tutor/webclientGeneral1.png
-    :width: 75%
-    :align: center
+   .. image:: /images/tutor/webclientViewerInfo.png
+       :width: 100%
+       :align: center
 
-11. Click on the **Link** button to generate a URL to share the image (as described previously).
+   |
 
-.. image:: /images/tutor/webclientGeneral2.png
-    :width: 75%
-    :align: center
+#. Click on **Image Link** to generate a URL which can be copied and pasted.
+   This link provides direct access via a web browser to your image, allowing people who are not in your group or even OMERO users to view your image.
 
-12. Click on the + button to add a Tag or Attachment.
-You can attach existing tags or files, create and attach new tags or upload and attach files from discs.
-Click on **Accept** to complete.
+   .. image:: /images/tutor/webclientViewerSliders.png
+       :width: 70%
+       :align: center
 
-.. image:: /images/tutor/webclientGeneral3.png
-    :width: 100%
-    :align: center
+   |
 
-13. Enter a new comment in the text box and click on the **Add Comment** button to save.
+#. Click on **Show ROIs** to view ROIs on the image and see details in the pop-up window (only visible if image has ROIs).
+   Existing ROIs can be viewed but cannot be edited, and new ROIs cannot added.
 
-.. image:: /images/tutor/webclientGeneral4.png
-    :width: 70%
-    :align: center
+   .. image:: /images/tutor/webclientViewerROI.png
+       :width: 100%
+       :align: center
 
-14. If you belong to more than one group, you can interact with the data of other users in your group. 
-Click on the drop-down arrow to the right of your name in the bar above the data tree, and select the desired group and user.
+   |
 
-.. image:: /images/tutor/webclientGroups.png
-    :width: 100%
-    :align: center
+#. In the **General** tab of the right hand panel, click on the pencil icon to edit the image name or image description.
+   Summary details of the image can be seen below the description.
 
-15. You can also share data with other users in different groups by adding it to your **Public** list.
-Select the image/s you wish to share.
-Click on the **Basket** icon in the toolbar.
+   .. image:: /images/tutor/webclientGeneral1.png
+       :width: 75%
+       :align: center
 
-.. image:: /images/tutor/webclientShare1.png
-    :width: 75%
-    :align: center
+   |
 
-16. A red number, representing the number of shared images, will appear in the Basket icon to the right side of the top toolbar.
-Click on the numbered **Basket** button to view a list of shared items in the basket.
-Click on the **Manage Basket** button in the drop-down list to view the images.
+#. Click on the **Link** button to generate a URL to share the image (as described previously).
 
-.. image:: /images/tutor/webclientShare2.png
-    :width: 100%
-    :align: center
+   .. image:: /images/tutor/webclientGeneral2.png
+       :width: 75%
+       :align: center
 
-17. Select an image and click on the **Globe** button in the **Basket** window to share it.
+   |
 
-.. image:: /images/tutor/webclientShare3.png
-    :width: 100%
-    :align: center
+#. Click on the + button to add a Tag or Attachment.
+   You can attach existing tags or files, create and attach new tags or upload and attach files from discs.
+   Click on **Accept** to complete.
 
-18. In the **Share** window add a message and select the members you wish to share the data with.
-Click **Accept** when you have finished.
+   .. image:: /images/tutor/webclientGeneral3.png
+       :width: 100%
+       :align: center
 
-.. image:: /images/tutor/webclientShare4.png
-    :width: 100%
-    :align: center
+   |
 
-19. Click on the **Public** tab of the left hand panel to view the data shared with you and other users.
+#. Enter a new comment in the text box and click on the **Add Comment** button to save.
 
-.. image:: /images/tutor/webclientShare5.png
-    :width: 100%
-    :align: center
+   .. image:: /images/tutor/webclientGeneral4.png
+       :width: 70%
+       :align: center
 
-20. From the OMERO.web client, you can download and run a **Web Start** version of OMERO.insight.
-Using the **Web Start** OMERO.insight client enables you to import data, edit ROIs and use other functionality not yet supported by the OMERO.web client.
-**Web Start** also enables OMERO.insight client to be used on machines where restrictions prevent you from installing new software.
+   |
 
-Click on the **Web Start** button and follow the instructions, accepting the software as “Trusted”.
+#. If you belong to more than one group, you can interact with the data of other users in your group. 
+   Click on the drop-down arrow to the right of your name in the bar above the data tree, and select the desired group and user.
 
-.. image:: /images/tutor/webclientWebStart.png
-    :width: 100%
-    :align: center
+   .. image:: /images/tutor/webclientGroups.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. You can also share data with other users in different groups by adding it to your **Public** list.
+   Select the image/s you wish to share.
+   Click on the **Basket** icon in the toolbar.
+
+   .. image:: /images/tutor/webclientShare1.png
+       :width: 75%
+       :align: center
+
+   |
+
+#. A red number, representing the number of shared images, will appear in the Basket icon to the right side of the top toolbar.
+   Click on the numbered **Basket** button to view a list of shared items in the basket.
+   Click on the **Manage Basket** button in the drop-down list to view the images.
+
+   .. image:: /images/tutor/webclientShare2.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Select an image and click on the **Globe** button in the **Basket** window to share it.
+
+   .. image:: /images/tutor/webclientShare3.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. In the **Share** window add a message and select the members you wish to share the data with.
+   Click **Accept** when you have finished.
+
+   .. image:: /images/tutor/webclientShare4.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Click on the **Public** tab of the left hand panel to view the data shared with you and other users.
+
+   .. image:: /images/tutor/webclientShare5.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. From the OMERO.web client, you can download and run a **Web Start** version of OMERO.insight.
+   Using the **Web Start** OMERO.insight client enables you to import data, edit ROIs and use other functionality not yet supported by the OMERO.web client.
+   **Web Start** also enables OMERO.insight client to be used on machines where restrictions prevent you from installing new software.
+
+   Click on the **Web Start** button and follow the instructions, accepting the software as “Trusted”.
+
+   .. image:: /images/tutor/webclientWebStart.png
+       :width: 100%
+       :align: center
