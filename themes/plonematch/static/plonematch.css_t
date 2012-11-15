@@ -176,5 +176,9 @@ pre {
 }
 
 @media print{
-	
+
+#portal-top {
+	display:none;
+}
+
 }
