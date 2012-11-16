@@ -139,7 +139,8 @@ image files to an OMERO Server. For a full tutorial, please see
 :doc:`client-tutorials/insight/insight-import`.
 
 The tool uses Bio-Formats for translation of proprietary file formats in
-preparation for upload to an OMERO Server. Visit :bioformats:`File Formats <>`
+preparation for upload to an OMERO Server. Visit 
+:bf_doc:`Supported Formats <supported-formats.html>`
 for a detailed list of supported formats.
 
 .. figure:: /images/omero_importer_4_4.png
