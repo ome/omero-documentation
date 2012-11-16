@@ -116,7 +116,6 @@ extlinks = {
     'jenkins' : ('http://hudson.openmicroscopy.org.uk/%s', ''),
     'mailinglist' : ('http://lists.openmicroscopy.org.uk/mailman/listinfo/%s', ''),
     'forum' : ('http://www.openmicroscopy.org/community/%s', ''),
-    'bioformats' : ('http://loci.wisc.edu/software/bio-formats/%s', ''),
     # Plone links. Separating them out so that we can add prefixes and
     # suffixes during testing.
     'community_plone' : ('http://www.openmicroscopy.org/site/community/%s', ''),
@@ -128,6 +127,7 @@ extlinks = {
     'faq_plone' : ('http://www.openmicroscopy.org/site/support/faq/%s', ''),
     'omero_plone' : ('http://www.openmicroscopy.org/site/products/omero/%s/', ''),
     'bf_plone' : ('http://www.openmicroscopy.org/site/products/bio-formats/%s/', ''),
+    'bf_doc' : ('http://www.openmicroscopy.org/site/support/bio-formats/%s', ''),
     }
 
 rst_epilog = """
