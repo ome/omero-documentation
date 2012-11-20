@@ -28,8 +28,8 @@ Extended classpath
 
 To access all the functionality available in omero\_client.jar or to
 use the importer, you'll of course need more jar files. To see all the
-current requirements, take a look at the :jenkins:`jenkins workspace
-<job/OMERO/ws/src/dist/lib/client/>`, or alternatively examine the
+current requirements, take a look at the builds on :jenkins:`jenkins
+<>`, or alternatively examine the
 dependencies in the ivy.xml files (e.g.
 :source:`components/tools/OmeroImporter/ivy.xml`)
 
