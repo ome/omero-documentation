@@ -1,22 +1,22 @@
 OMERO command line interface
 ============================
 
+.. highlight:: console
+
 Overview
 --------
 
-The Python_-based commandline interface provides
-system-administration and deployment tools. (User-level functionality is
-planned for future releases.)
+The Python_-based command line interface provides system-administration and 
+deployment tools. (User-level functionality is planned for future releases.)
 
-You can investigate the various commands available using the -h or
---help option:
+You can investigate the various commands available using the `-h` or
+`--help` option::
 
-::
-
-    cd omero
-    bin/omero -h
-    usage: bin/omero [-h] [-v] [-d DEBUG] [--path PATH] [-s SERVER] [-p PORT]
-                     [-g GROUP] [-u USER] [-w PASSWORD] [-k KEY]
+    $ cd omero
+    $ bin/omero -h
+    usage: bin/omero [-h] [-v] [-d DEBUG] [--path PATH] [-C]
+                     [-s SERVER] [-p PORT] [-g GROUP] [-u USER]
+                     [-w PASSWORD] [-k KEY]
                      <subcommand> ...
 
     Command-line tool for local and remote interactions with OMERO.
@@ -28,12 +28,17 @@ You can investigate the various commands available using the -h or
       -v, --version
       -d DEBUG, --debug DEBUG       Use 'help debug' for more information
       --path PATH                   Add file or directory to plugin list. Supports globs.
+
+    Login arguments:
+      Optional session arguments
+
+      -C, --create                      Create a new session regardless of existing ones
       -s SERVER, --server SERVER
       -p PORT, --port PORT
       -g GROUP, --group GROUP
       -u USER, --user USER
       -w PASSWORD, --password PASSWORD
-      -k KEY, --key KEY             UUID of an active session
+      -k KEY, --key KEY                 UUID of an active session
 
     Subcommands:
       Use bin/omero <subcommand> -h for more information.
@@ -66,18 +71,14 @@ You can investigate the various commands available using the -h or
         logout                      Shortcut for 'sessions logout'
 
 Again, we can use -h repeatedly to get more details on each of these
-sub-commands:
-
-::
+sub-commands::
 
     bin/omero admin -h
     bin/omero admin start -h 
 
 .. note::
 
-    The 'help' command can be used to get info on other commands or options.
-
-    ::
+    The `help` command can be used to get info on other commands or options::
 
         bin/omero help
         bin/omero help debug       # debug is an option
@@ -95,9 +96,7 @@ When first beginning to work with the OMERO server, the ``db``,
 Rather than try to provide the functionality of a RDBM tool like
 ``psql``, the ``db`` command helps to generate SQL scripts for building
 your database. You can then use those scripts from whatever tool is most
-comfortable for you.
-
-::
+comfortable for you::
 
     $ bin/omero db script OMERO4 0 secretpassword
     Using OMERO4 for version
@@ -112,9 +111,7 @@ comfortable for you.
 The ``config`` command is responsible for reading / writing
 user-specific profiles. These are stored in platform-specific, protected
 locations such as the registry on Windows, ``~/.java/.userPrefs`` on
-Linux, or ``~/Library/Preferences`` on Mac OS X.
-
-::
+Linux, or ``~/Library/Preferences`` on Mac OS X::
 
     $ bin/omero config def
     default
@@ -139,9 +136,7 @@ Linux, or ``~/Library/Preferences`` on Mac OS X.
 The values set via ``config`` override those compiled into the server
 jars. The default values which are set can be seen in
 ``etc/omero.properties``. To add several values to a configuration, you
-can pipe them via standard in:
-
-::
+can pipe them via standard in::
 
     $ grep omero.ldap etc/omero.properties | OMERO_CONFIG=ldap bin/omero config load
 
@@ -164,9 +159,7 @@ can pipe them via standard in:
     $
 
 Each of these values can then be modified to suit your local setup. To
-remove on of the key-value pairs, pass no second argument:
-
-::
+remove on of the key-value pairs, pass no second argument::
 
     $ OMERO_CONFIG=ldap bin/omero config set omero.ldap.trustStore
 
@@ -191,16 +184,12 @@ remove on of the key-value pairs, pass no second argument:
     $
 
 if you will be using a particular profile more frequently you can set it
-as your default:
-
-::
+as your default::
 
     $ bin/omero config def ldap
 
 And finally, if you would like to remove a profile, say to wipe a given
-password off of a system, use "drop":
-
-::
+password off of a system, use "drop"::
 
     $ bin/omero config drop
 
@@ -208,9 +197,7 @@ password off of a system, use "drop":
 ^^^^^^^^^
 
 Once your database has been properly configured and your config profile
-is set to use that database, you're ready to start your server.
-
-::
+is set to use that database, you're ready to start your server::
 
     $ bin/omero admin start
 
@@ -221,9 +208,7 @@ User commands
 ^^^^^^^^^^
 
 ``import`` is probably the first user command many will want to use.
-Running the command without any arguments will produce a help listing:
-
-::
+Running the command without any arguments will produce a help listing::
 
     $ bin/omero import
     /Users/josh/omero/log
@@ -246,9 +231,7 @@ Running the command without any arguments will produce a help listing:
 
     Report bugs to <ome-users@openmicroscopy.org.uk>
 
-So, to upload a file image.tiff, use:
-
-::
+So, to upload a file image.tiff, use::
 
     $ bin/omero import -s localhost -u josh -w secret image.tiff
 
