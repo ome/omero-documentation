@@ -237,3 +237,25 @@ Group ownership can be manipulated using the commands as above with the
     $ bin/omero group adduser jsmith --name=read-annotate-1 --as-owner
     # Remove jsmith from the owner list of group read-annotate-1
     $ bin/omero user leavegroup read-only-1 --name=jsmith --as-owner
+
+
+.. index::
+    single: group, copyusers
+
+Group copy
+^^^^^^^^^^
+
+To create a copy of a group, you must first create a new group using the
+`group add` command::
+
+    $ bin/omero group add read-only-2 --perms='rwr----'
+
+Then you can use the :index:`copyusers <single: group; copyusers>` command to
+copy all group members from one group to  another::
+
+    $ bin/omero group copyusers read-only-1 read-only-2
+
+To copy the group owners, use the same command with the`--as-owner` optional
+argument::
+
+    $ bin/omero group copyusers read-only-1 read-only-2 --as-owner
