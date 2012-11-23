@@ -1,0 +1,104 @@
+**************
+Importing data
+**************
+
+Using the OMERO.insight to import image data onto the OMERO server.
+
+#. Select **Import** from the **File** menu;
+   or click on the Import icon in the toolbar;
+   or select a destination Project or Dataset for the imported data and right click then select Import.
+
+   .. image:: /images/tutor/importingDataManager.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Use the **File Finder** to locate data to be imported on local or networked drives.
+   Select files for importing and click the top arrow to add them to the import queue.
+
+   .. image:: /images/tutor/importingDataImporter.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Use the **Location Selection** window to determine to where the data will be imported.
+   Choose an existing project or dataset using the drop-down menus;
+   or click **New** to create a new project or dataset.
+
+   .. image:: /images/tutor/importingDataProjectDataset.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Click the **Project - Screen** icon in the top left corner to toggle between image and screen data.
+   The **File Finder** window changes to reflect available file types, according to the selection.
+
+   .. image:: /images/tutor/importingDataProjectScreen.png
+       :width: 75%
+       :align: center
+
+   |
+
+#. If you are a member of more than one group, use the **Group** drop down box to select the group into which to import the data.
+
+   .. image:: /images/tutor/importingDataSelectGroup.png
+       :width: 75%
+       :align: center
+
+   |
+
+#. To archive data files in their original format on the OMERO server click the **Archive** checkbox.
+   This is in addition to importing the data in OME-tiff format and will use additional server space.
+   Individual data files can be selected or deselected using the checkboxes in the column below.
+
+   .. image:: /images/tutor/importingDataArchive.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Click the Options tab then **Add Tags** to batch-add tags to the data as it is imported.
+
+   .. image:: /images/tutor/importingDataAddTag1.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Select an existing tag in the left hand pane and click the right arrow;
+   or enter the name of a new tag and click Add.
+   Click **Save** to add these tags to the data at import.
+
+   .. image:: /images/tutor/importingDataAddTag2.png
+       :width: 75%
+       :align: center
+
+   |
+
+#. After saving, added tags can be seen in the **Options** tab and can be removed by clicking the **-** button
+
+   .. image:: /images/tutor/importingDataRemoveTag.png
+       :width: 75%
+       :align: center
+
+   |
+
+#. When ready, click **Import** to start importing queued data.
+   The progress of imports is shown in the **Import** tab.
+   A green tick indicates when the queue is successfully imported.
+
+   .. image:: /images/tutor/importingDataStart.png
+       :width: 100%
+       :align: center
+
+   |
+
+#. Mouse-over the thumbnails of successfully imported images to see a preview.
+   Click on the link to the dataset or close the Import window to view the data in the **Data Manager**.
+
+   .. image:: /images/tutor/importingDataEnd.png
+       :width: 82%
+       :align: center
