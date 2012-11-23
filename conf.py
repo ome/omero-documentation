@@ -154,7 +154,7 @@ rst_epilog = """
 .. |OmeroCpp| replace:: :doc:`/developers/Cpp`
 .. |OmeroJava| replace:: :doc:`/developers/Java`
 .. |OmeroMatlab| replace:: :doc:`/developers/Matlab`
-.. |OmeroCli| replace:: :doc:`/sysadmins/CommandLine`
+.. |OmeroCli| replace:: :doc:`/users/command-line-interface`
 .. |OmeroApi| replace:: :doc:`/developers/Modules/Api`
 .. |OmeroWeb| replace:: :doc:`/developers/Web`
 .. |OmeroClients| replace:: :doc:`/developers/GettingStarted`
