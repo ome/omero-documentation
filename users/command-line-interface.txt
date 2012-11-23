@@ -6,132 +6,52 @@ OMERO command line interface
 .. seealso::
 
     :doc:`/sysadmins/command-line-interface`
-        System Administrator Documentation for the Command Line Interface
+        System administrator documentation for the command line interface
 
     :doc:`/developers/command-line-interface`
-        Developer Documentation for the Command Line Interface
+        Developer documentation for the command line interface
 
 Overview
 --------
 
-The Python_-based command line interface provides system-administration and 
-deployment tools. (User-level functionality is planned for future releases.)
+The Python_-based command line interface provides system-administration and
+deployment tools.
 
-You can investigate the various commands available using the `-h` or
-`--help` option::
+You can investigate the various commands available using the `-h` or `--help`
+option::
 
     $ cd omero
     $ bin/omero -h
-    usage: bin/omero [-h] [-v] [-d DEBUG] [--path PATH] [-C]
-                     [-s SERVER] [-p PORT] [-g GROUP] [-u USER]
-                     [-w PASSWORD] [-k KEY]
-                     <subcommand> ...
-
-    Command-line tool for local and remote interactions with OMERO.
-
-    Optional Arguments:
-      In addition to any higher level options
-
-      -h, --help                    show this help message and exit
-      -v, --version
-      -d DEBUG, --debug DEBUG       Use 'help debug' for more information
-      --path PATH                   Add file or directory to plugin list. Supports globs.
-
-    Login arguments:
-      Optional session arguments
-
-      -C, --create                      Create a new session regardless of existing ones
-      -s SERVER, --server SERVER
-      -p PORT, --port PORT
-      -g GROUP, --group GROUP
-      -u USER, --user USER
-      -w PASSWORD, --password PASSWORD
-      -k KEY, --key KEY                 UUID of an active session
-
-    Subcommands:
-      Use bin/omero <subcommand> -h for more information.
-
-      <subcommand>
-        admin                       Administrative tools including starting/stopping OMERO.
-        config                      Commands for server configuration.
-        db                          Database tools for creating scripts, setting passwords, etc.
-        delete                      Delete OMERO data.
-        download                    Download the given file id to the given filename
-        export                      Support for exporting data in XML and TIFF formats
-        group                       Group administration methods
-        help                        Syntax help for all commands
-        hql                         Executes an HQL statement with the given parameters.
-        import                      Run the Java-based command-line importer
-        load                        Load file as if it were sent on standard in.
-        node                        Control icegridnode.
-        perf                        Run perf_test files
-        quit                        Quit application
-        script                      Support for launching, uploading and otherwise managing OMERO.scripts
-        server                      Start commands for server components
-        sessions                    Control and create user sessions
-        shell                       Starts an IPython interpreter session
-        testengine                  Run the Importer TestEngine suite (devs-only)
-        upload                      Upload local files to the OMERO server
-        user                        Support for adding and managing users
-        version                     Version number
-        web                         omero web settings
-        login                       Shortcut for 'sessions login'
-        logout                      Shortcut for 'sessions logout'
 
 Again, we can use `-h` repeatedly to get more details on each of these
 sub-commands::
 
-    bin/omero admin -h
-    bin/omero admin start -h 
+    $ bin/omero admin -h
+    $ bin/omero admin start -h
 
-.. note::
+The `help` command can be used to get info on other commands or options::
 
-    The `help` command can be used to get info on other commands or options::
+    $ bin/omero help debug       # debug is an option
+    $ bin/omero help admin       # same as bin/omero admin -h
 
-        bin/omero help
-        bin/omero help debug       # debug is an option
-        bin/omero help admin       # same as bin/omero admin -h
+.. index::
+    single: sessions
 
-``sessions``
-------------
+Sessions
+--------
 
-``session`` creates and handles user sessions stored locally on disk. Several 
-sessions can be active simultaneously, but only one will be used for a single 
+`sessions` creates and handles user sessions stored locally on disk. Several
+sessions can be active simultaneously, but only one will be used for a single
 invocation of bin/omero::
 
 	$ dist/bin/omero sessions -h
-	usage: dist/bin/omero sessions [-h] <subcommand> ...
 
-	Control and create user sessions
+.. index::
+    single: sessions; login
+    single: login
 
-	Sessions are stored locally on disk. Several can
-	be active simultaneously, but only one will be used
-	for a single invocation of bin/omero.
-
-	Optional Arguments:
-	  In addition to any higher level options
-
-	  -h, --help          show this help message and exit
-
-	Subcommands:
-	  Use dist/bin/omero sessions <subcommand> -h for more information.
-
-	  <subcommand>
-	    help              Extended help
-	    login             Login to a given server, and store session key locally
-	    logout            Logout and remove current session key
-	    group             Set the group of the current session by id or name
-	    list              List all locally stored sessions
-	    keepalive         Keeps the current session alive
-	    clear             Close and remove locally stored sessions
-	    file              Print the path to the current session file
-
-.. note::
-    ``bin/omero login`` and ``bin/omero logout`` are shortcuts for 
-    ``bin/omero sessions login`` and ``bin/omero sessions logout``.
-
-Simple session
-""""""""""""""
+Create a session
+^^^^^^^^^^^^^^^^
 
 A session can be created using the `login` subcommand::
 
@@ -141,42 +61,66 @@ A session can be created using the `login` subcommand::
 	Username: [root]
 	Password:
 
-The session is stored locally on disk and its location can be retrieved using 
-the `file` subcommand::
+.. note::
+    ``bin/omero login`` is a shortcut for ``bin/omero sessions login``.
+
+The hostname, port and username can be passed to the `login` subcommand
+either using the `-s`, `-u` and `-p` optional arguments::
+
+	$ bin/omero login -s localhost -u root -p 4064
+
+or within a connection string, e.g.::
+
+	$ bin/omero login root@localhost:4064
+
+The session is stored locally on disk and its location can be retrieved using
+the :index:`file <single: sessions; file>` subcommand::
 
 	$ bin/omero sessions file
 	/Users/ome/omero/sessions/localhost/root/aec828e1-79bf-41f3-91e6-a4ac76ff1cd5
+
+.. index::
+    single: sessions; logout
+    single: logout
+
+Close a session
+^^^^^^^^^^^^^^^
 
 To terminate the current session, use the `logout` subcommand::
 
     $ bin/omero logout
 
-Advanced sessions
-"""""""""""""""""
+.. note::
+    ``bin/omero logout`` is a  shortcut for ``bin/omero sessions logout``.
 
-The hostname, port and username can be passed to the `login` subcommand 
-either using optional arguments::
+Multiple sessions
+^^^^^^^^^^^^^^^^^
 
-	$ bin/omero -s localhost -u root -p 4064 login 
+Stored sessions can be listed using the :index:`list <single: sessions; list>`  subcommand::
 
-or within a connection string, e.g.::
+    $ bin/omero sessions list
+     Server    | User | Group           | Session                              | Active    | Started
+    -----------+------+-----------------+--------------------------------------+-----------+--------------------------
+     localhost | test | read-annotate-2 | 22fccb8b-d04c-49ec-9d52-116a163728ca | Logged in | Fri Nov 23 14:55:25 2012
+     localhost | root | system          | 1f800a16-1dc2-407a-8a85-fb44005306be | True      | Fri Nov 23 14:55:18 2012
+    (2 rows)
 
-	$ bin/omero login root@localhost:4064 
+Sessions keys can then be reused to switch between stored sessions::
 
-Existing sessions can be listed using the `list` subcommand::
+    $ bin/omero sessions login -k 22fccb8b-d04c-49ec-9d52-116a163728ca
+    Server: [localhost]
+    Joined session 1f800a16-1dc2-407a-8a85-fb44005306be (root@localhost:4064).
+    $ bin/omero sessions list
+     Server    | User | Group           | Session                              | Active    | Started
+    -----------+------+-----------------+--------------------------------------+-----------+--------------------------
+     localhost | test | read-annotate-2 | 22fccb8b-d04c-49ec-9d52-116a163728ca | True      | Fri Nov 23 14:55:25 2012
+     localhost | root | system          | 1f800a16-1dc2-407a-8a85-fb44005306be | Logged in | Fri Nov 23 14:55:18 2012
+    (2 rows)
 
-	$ bin/omero sessions list
-	 Server    | User | Group           | Session                              | Active    | Started                  
-	-----------+------+-----------------+--------------------------------------+-----------+--------------------------
-	 localhost | test | read-annotate-2 | d7d19ca2-b957-4a69-8b82-f56a232d71f9 | Logged in | Tue Nov 13 21:16:52 2012 
-	 localhost | root | system          | 4e482ee0-d8d7-4c6d-8240-ef39e1769cef | True      | Tue Nov 13 21:16:03 2012 
-	(2 rows)
+Sessions directory
+^^^^^^^^^^^^^^^^^^
 
-Sessions UUID can then be reused to switch between created sessions::
-
-	$ bin/omero sessions login -k 4e482ee0-d8d7-4c6d-8240-ef39e1769cef
-
-By default sessions are saved under `~/omero/sessions`. If you want to use a 
+By default sessions are saved under `~/omero/sessions`. If you want to use a
 custom session directory, use the `--sessions-dir` optional argument in the 
 `sessions` subcommands::
 
@@ -184,33 +128,25 @@ custom session directory, use the `--sessions-dir` optional argument in the
 	$ bin/omero sessions list --sessions-dir=/tmp
 	$ bin/omero logout --sessions-dir=/tmp
 
-``import``
-----------
+.. index::
+    single: import
 
-``import`` is probably the first user command many will want to use.
+Import images
+-------------
+
+`import` is probably the first user command many will want to use.
 Running the command without any arguments will produce a help listing::
 
-    $ bin/omero import
-    /Users/josh/omero/log
-    Usage: importer-cli [OPTION]... [FILE]
-    Import single files into an OMERO instance.
-
-    Mandatory arguments:
-      -s    OMERO server hostname
-      -u    OMERO experimenter name (username)
-      -w    OMERO experimenter password
-      -k    OMERO session key (can be used in place of -u and -w)
-
-    Optional arguments:
-      -d    OMERO dataset Id to import image into
-      -n    Image name to use
-      -p    OMERO server port [defaults to 4063]
-      -h    Display this help and exit
-
-    ex. importer-cli -s localhost -u bart -w simpson -d 50 foo.tiff
+    $ bin/omero import -h
 
     Report bugs to <ome-users@openmicroscopy.org.uk>
 
-So, to upload a file image.tiff, use::
+So, to upload a file image.tiff, first login to the server and then use the
+`import` command as::
 
-    $ bin/omero import -s localhost -u josh -w secret image.tiff
+    $ bin/omero login josh@localhost:4064
+    $ bin/omero import image.tiff
+
+or pass the login arguments to the `import` command as::
+
+    $ bin/omero -s localhost -u josh import image.tiff

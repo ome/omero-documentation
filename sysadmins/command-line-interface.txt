@@ -6,19 +6,24 @@ OMERO command line interface
 .. seealso::
 
     :doc:`/users/command-line-interface`
-        User Documentation for the Command Line Interface
+        User documentation for the command Line interface
 
     :doc:`/users/command-line-interface`
         Developer Documentation for the Command Line Interface
 
-When first beginning to work with the OMERO server, the ``db``,
-``config``, and ``admin`` commands will be the first you will need.
+When first beginning to work with the OMERO server, the `db`,
+`config`, and `admin` commands will be the first you will need.
+The `user` and `group` commands will then provide functionalities to
+add and manage users and groups on your database.
 
-``db``
-------
+.. index::
+    single: db
+
+Database tools
+--------------
 
 Rather than try to provide the functionality of a RDBM tool like
-``psql``, the ``db`` command helps to generate SQL scripts for building
+``psql``, the `db` command helps to generate SQL scripts for building
 your database. You can then use those scripts from whatever tool is most
 comfortable for you::
 
@@ -29,8 +34,11 @@ comfortable for you::
     Saving to /omero/OMERO4__0.sql
     $ psql omero < OMERO4__0.sql
 
-``config``
-----------
+.. index::
+    single: config
+
+Server configuration
+--------------------
 
 The ``config`` command is responsible for reading / writing
 user-specific profiles. These are stored in platform-specific, protected
@@ -117,10 +125,115 @@ password off of a system, use "drop"::
 
     $ bin/omero config drop
 
-``admin``
----------
+.. index::
+    single: admin
+
+Server administration
+---------------------
+
+.. index::
+    single: admin; start
+
+Server start
+^^^^^^^^^^^^
 
 Once your database has been properly configured and your config profile
 is set to use that database, you're ready to start your server::
 
     $ bin/omero admin start
+
+.. index::
+    single: admin; diagnostics
+
+Server diagnostics
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    $ bin/omero admin diagnostics
+
+.. index::
+    single: group
+    single: user
+
+User/group management
+---------------------
+
+.. index::
+    single: user; add
+
+User creation
+^^^^^^^^^^^^^
+
+New users can be added to the database using the `user add` command::
+
+    $ bin/omero user add -h
+
+During the addition of the new user, you will need to specify the first and
+last name of the new user, its username as well as the group(s) the user
+belongs to. To add John Smith as a member of group 2 identified as jsmith,
+enter::
+
+    $ bin/omero user add jsmith John Smith 2
+
+Additional parameters such as the email address, institution, middle name etc 
+can be passed as optional arguments to the `add` subcommand.
+
+.. index::
+    single: group; add
+
+Group creation
+^^^^^^^^^^^^^^
+
+New groups can be added to the database using the `group add` subcommand::
+
+    $ bin/omero group add -h
+
+During the addition of the new group, you need to specify the name of the new
+group::
+
+    $ bin/omero group add newgroup
+
+The permissions of the group are set to private by default. Alternately you
+can specify the permissions using `--perms` or `--type` optional arguments::
+
+    $ bin/omero group add read-only-1 --perms='rwr----'
+    $ bin/omero group add read-annotate-1 --type=read-annotate
+
+.. seealso::
+
+    :doc:`server-permissions` 
+        Description of the various group permissions levels.
+
+Lists of users/groups on the OMERO server can be queried using the
+:index:`user list <single: user; list>` and
+:index:`group list <single: group; list>` subcommands::
+
+    $ bin/omero user list
+    $ bin/omero group list
+
+Group management
+^^^^^^^^^^^^^^^^
+
+Group membership can be controlled using the 'user` subcommands
+:index:`joingroup <single: user; joingroup>` and
+:index:`leavegroup <single: user; leavegroup>` or the `group` subcommands
+:index:`adduser <single: group; adduser>`  and
+:index:`removeuser <single: group; removeuser>`::
+
+    # Add jsmith to group read-annotate
+    $ bin/omero group adduser jsmith --name=read-annotate-1
+    # Remove  jsmith from group read-annotate
+    $ bin/omero group removeuser jsmith --name=read-only-1
+    # Add jsmith to group read-only-1
+    $ bin/omero user joingroup read-only-1 --name=jsmith
+    # Remove jsmith from group read-annotate-1
+    $ bin/omero user leavegroup read-annotate-1 --name=jsmith
+
+Group ownership can be manipulated using the commands as above with the
+`--as-owner` optional argument::
+
+    # Add jsmith to the owner list of group read-annotate-1
+    $ bin/omero group adduser jsmith --name=read-annotate-1 --as-owner
+    # Remove jsmith from the owner list of group read-annotate-1
+    $ bin/omero user leavegroup read-only-1 --name=jsmith --as-owner
