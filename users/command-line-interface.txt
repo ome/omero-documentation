@@ -1,14 +1,14 @@
 OMERO command line interface
 ============================
 
-.. highlight:: console
+.. highlight:: bash
 
 .. seealso::
 
-    :doc:`/users/command-line-import`
-        User Documentation for the Command Line Importer tool
+    :doc:`/sysadmins/command-line-interface`
+        System Administrator Documentation for the Command Line Interface
 
-    :doc:`/developers/CommandLine`
+    :doc:`/developers/command-line-interface`
         Developer Documentation for the Command Line Interface
 
 Overview
@@ -78,7 +78,7 @@ You can investigate the various commands available using the `-h` or
         login                       Shortcut for 'sessions login'
         logout                      Shortcut for 'sessions logout'
 
-Again, we can use -h repeatedly to get more details on each of these
+Again, we can use `-h` repeatedly to get more details on each of these
 sub-commands::
 
     bin/omero admin -h
@@ -92,159 +92,8 @@ sub-commands::
         bin/omero help debug       # debug is an option
         bin/omero help admin       # same as bin/omero admin -h
 
-System administration commands
-------------------------------
-
-When first beginning to work with the OMERO server, the ``db``,
-``config``, and ``admin`` commands will be the first you will need.
-
-``db``
-^^^^^^
-
-Rather than try to provide the functionality of a RDBM tool like
-``psql``, the ``db`` command helps to generate SQL scripts for building
-your database. You can then use those scripts from whatever tool is most
-comfortable for you::
-
-    $ bin/omero db script OMERO4 0 secretpassword
-    Using OMERO4 for version
-    Using 0 for patch
-    Using password from commandline
-    Saving to /omero/OMERO4__0.sql
-    $ psql omero < OMERO4__0.sql
-
-``config``
-^^^^^^^^^^
-
-The ``config`` command is responsible for reading / writing
-user-specific profiles. These are stored in platform-specific, protected
-locations such as the registry on Windows, ``~/.java/.userPrefs`` on
-Linux, or ``~/Library/Preferences`` on Mac OS X::
-
-    $ bin/omero config def
-    default
-
-    $ bin/omero config get
-
-    $ bin/omero config set example "my first value"
-
-    $ bin/omero config get
-    example=my first value
-
-    $ OMERO_CONFIG=another bin/omero config def
-    another
-
-    $ OMERO_CONFIG=another bin/omero config get
-
-    $ OMERO_CONFIG=another bin/omero config set example "my second value"
-
-    $ OMERO_CONFIG=another bin/omero config get
-    example=my second value
-
-The values set via ``config`` override those compiled into the server
-jars. The default values which are set can be seen in
-``etc/omero.properties``. To add several values to a configuration, you
-can pipe them via standard in::
-
-    $ grep omero.ldap etc/omero.properties | OMERO_CONFIG=ldap bin/omero config load
-
-    $ OMERO_CONFIG=ldap bin/omero config get
-    omero.ldap.attributes=objectClass
-    omero.ldap.base=ou=example,o=com
-    omero.ldap.config=false
-    omero.ldap.groups=
-    omero.ldap.keyStore=
-    omero.ldap.keyStorePassword=
-    omero.ldap.new_user_group=default
-    omero.ldap.password=
-    omero.ldap.protocol=
-    omero.ldap.trustStore=
-    omero.ldap.trustStorePassword=
-    omero.ldap.urls=ldap://localhost:389
-    omero.ldap.username=
-    omero.ldap.values=person
-
-    $
-
-Each of these values can then be modified to suit your local setup. To
-remove on of the key-value pairs, pass no second argument::
-
-    $ OMERO_CONFIG=ldap bin/omero config set omero.ldap.trustStore
-
-    $ OMERO_CONFIG=ldap bin/omero config set omero.ldap.trustStorePassword
-
-    $ OMERO_CONFIG=ldap bin/omero config set omero.ldap.keyStore
-
-    $ OMERO_CONFIG=ldap bin/omero config set omero.ldap.keyStorePassword
-
-    $ OMERO_CONFIG=ldap bin/omero config get
-    omero.ldap.attributes=objectClass
-    omero.ldap.base=ou=example,o=com
-    omero.ldap.config=false
-    omero.ldap.groups=
-    omero.ldap.new_user_group=default
-    omero.ldap.password=
-    omero.ldap.protocol=
-    omero.ldap.urls=ldap://localhost:389
-    omero.ldap.username=
-    omero.ldap.values=person
-
-    $
-
-if you will be using a particular profile more frequently you can set it
-as your default::
-
-    $ bin/omero config def ldap
-
-And finally, if you would like to remove a profile, say to wipe a given
-password off of a system, use "drop"::
-
-    $ bin/omero config drop
-
-``admin``
-^^^^^^^^^
-
-Once your database has been properly configured and your config profile
-is set to use that database, you're ready to start your server::
-
-    $ bin/omero admin start
-
-User commands
--------------
-
-``import``
-^^^^^^^^^^
-
-``import`` is probably the first user command many will want to use.
-Running the command without any arguments will produce a help listing::
-
-    $ bin/omero import
-    /Users/josh/omero/log
-    Usage: importer-cli [OPTION]... [FILE]
-    Import single files into an OMERO instance.
-
-    Mandatory arguments:
-      -s    OMERO server hostname
-      -u    OMERO experimenter name (username)
-      -w    OMERO experimenter password
-      -k    OMERO session key (can be used in place of -u and -w)
-
-    Optional arguments:
-      -d    OMERO dataset Id to import image into
-      -n    Image name to use
-      -p    OMERO server port [defaults to 4063]
-      -h    Display this help and exit
-
-    ex. importer-cli -s localhost -u bart -w simpson -d 50 foo.tiff
-
-    Report bugs to <ome-users@openmicroscopy.org.uk>
-
-So, to upload a file image.tiff, use::
-
-    $ bin/omero import -s localhost -u josh -w secret image.tiff
-
 ``sessions``
-^^^^^^^^^^^^
+------------
 
 ``session`` creates and handles user sessions stored locally on disk. Several 
 sessions can be active simultaneously, but only one will be used for a single 
@@ -322,7 +171,7 @@ Existing sessions can be listed using the `list` subcommand::
 	 localhost | test | read-annotate-2 | d7d19ca2-b957-4a69-8b82-f56a232d71f9 | Logged in | Tue Nov 13 21:16:52 2012 
 	 localhost | root | system          | 4e482ee0-d8d7-4c6d-8240-ef39e1769cef | True      | Tue Nov 13 21:16:03 2012 
 	(2 rows)
-	
+
 Sessions UUID can then be reused to switch between created sessions::
 
 	$ bin/omero sessions login -k 4e482ee0-d8d7-4c6d-8240-ef39e1769cef
@@ -334,3 +183,34 @@ custom session directory, use the `--sessions-dir` optional argument in the
 	$ bin/omero login --sessions-dir=/tmp
 	$ bin/omero sessions list --sessions-dir=/tmp
 	$ bin/omero logout --sessions-dir=/tmp
+
+``import``
+----------
+
+``import`` is probably the first user command many will want to use.
+Running the command without any arguments will produce a help listing::
+
+    $ bin/omero import
+    /Users/josh/omero/log
+    Usage: importer-cli [OPTION]... [FILE]
+    Import single files into an OMERO instance.
+
+    Mandatory arguments:
+      -s    OMERO server hostname
+      -u    OMERO experimenter name (username)
+      -w    OMERO experimenter password
+      -k    OMERO session key (can be used in place of -u and -w)
+
+    Optional arguments:
+      -d    OMERO dataset Id to import image into
+      -n    Image name to use
+      -p    OMERO server port [defaults to 4063]
+      -h    Display this help and exit
+
+    ex. importer-cli -s localhost -u bart -w simpson -d 50 foo.tiff
+
+    Report bugs to <ome-users@openmicroscopy.org.uk>
+
+So, to upload a file image.tiff, use::
+
+    $ bin/omero import -s localhost -u josh -w secret image.tiff
