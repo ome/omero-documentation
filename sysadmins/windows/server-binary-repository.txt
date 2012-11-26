@@ -27,12 +27,41 @@ Permissions
 Your repository should be owned by the same user that is starting your
 OMERO.server instance.
 
-Default Windows user: LocalService
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default Windows `LocalService` user
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By default, the OMERO.server starts as the `LocalService` user. You need to
-make sure that that `LocalService` has permissions to see the files under
-`C:\\OMERO`.
+make sure that that `LocalService` user has permissions to access the files
+under :file:`C:\\OMERO` and the user running the server has rights for
+starting services.
+
+To modify the access permissions to the binary repository, the :file:`OMERO`
+folder properties can be accessed and the permissions settings changed
+(see :ref:`windows_repository_perms`). Another option (useful for batch
+permission changes) is the :command:`icacls` (Windows 7) / :command:`cacls`
+(Windows XP) command line utility. Please note that the set permissions will
+appear as `Special Permissions` in the :guilabel:`Security` tab when viewing
+folder properties. An example invocation allowing the user `omeservice` to
+read (`R`) and write (`W`) from and to the ``OMERO`` directory:
+
+::
+
+    C:\>icacls OMERO /grant omeservice:RW
+    processed file: OMERO
+    Successfully processed 1 files; Failed processing 0 files
+
+.. _windows_repository_perms:
+
+.. figure:: /images/windows-repository-perms.png
+    :align: center
+
+    Repository Folder Permissions
+
+.. seealso::
+
+    http://lists.openmicroscopy.org.uk/pipermail/ome-users/2012-November/003442.html
+
+        A thread of the ome-users mailing-list describing the permissions options.
 
 Configure the Windows user
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -47,12 +76,17 @@ Alternately, you can configure the OMERO Windows user by setting
 
     This second method exposes your user password in the OMERO configuration.
 
-.. seealso::
+Be sure to also change the `Log On` user in the OMERO.server service
+settings. Plese consult :ref:`server_service_user_win`. The user credentials
+should be the same as used with ``omero.windows.user`` and
+``omero.windows.pass``.
 
-    http://lists.openmicroscopy.org.uk/pipermail/ome-users/2012-November/003442.html
+.. _server_service_user_win:
 
-        A thread of the ome-users mailing-list describing the permissions options.
+.. figure:: /images/server-service-user-win.png
+    :align: center
 
+    Windows Service `Log On` User Settings
 
 Your repository is not
 ----------------------
