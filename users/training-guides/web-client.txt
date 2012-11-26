@@ -11,7 +11,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 #. The default screen shows your data tree in the left-hand panel.
    When data is selected in the tree, the thumbnails are displayed in the centre panel, and the metadata and other information in the right-hand panel. 
 
-   .. image:: /images/tutor/webclientHome.png
+   .. image:: /images/tutor/webclientHome.jpg
        :width: 75%
        :align: center
 
@@ -20,7 +20,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 #. Select an image in the data tree and click on the **Launch Full Viewer** button to view it in the **Image Viewer**;
    or. double click on the image or thumbnail.
 
-   .. image:: /images/tutor/webclientView.png
+   .. image:: /images/tutor/webclientView.jpg
        :width: 87.5%
        :align: center
 
@@ -28,7 +28,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
 #. In the Image Viewer images can be viewed in **Normal**, **Maximum Intensity** or **Split-Channel**. 
 
-   .. image:: /images/tutor/webclientViewerOptions.png
+   .. image:: /images/tutor/webclientViewerOptions.jpg
        :width: 100%
        :align: center
 
@@ -36,7 +36,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
 #. Scroll or step through Z sections using the slider and controls to the left of the image and T sequences using the slider and controls below the image. 
 
-   .. image:: /images/tutor/webclientViewerSliders.png
+   .. image:: /images/tutor/webclientViewerSliders.jpg
        :width: 87.5%
        :align: center
 
@@ -46,7 +46,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
    Click the 1:1 button to view at true size.
    Click the diagonal arrow button to zoom to fit the window.
 
-   .. image:: /images/tutor/webclientViewerZoom.png
+   .. image:: /images/tutor/webclientViewerZoom.jpg
        :width: 75%
        :align: center
 
@@ -56,7 +56,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
    Use the sliders or text boxes to adjust settings for the channels.
    Toggle channels and colour on and off using the colour wells and checkbox.
 
-   .. image:: /images/tutor/webclientViewerRendering.png
+   .. image:: /images/tutor/webclientViewerRendering.jpg
        :width: 100%
        :align: center
 
@@ -64,7 +64,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
 #. Click on **Image Information** to see the basic information and dimensions of the image.
 
-   .. image:: /images/tutor/webclientViewerInfo.png
+   .. image:: /images/tutor/webclientViewerInfo.jpg
        :width: 100%
        :align: center
 
@@ -73,7 +73,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 #. Click on **Image Link** to generate a URL which can be copied and pasted.
    This link provides direct access via a web browser to your image, allowing people who are not in your group or even OMERO users to view your image.
 
-   .. image:: /images/tutor/webclientViewerSliders.png
+   .. image:: /images/tutor/webclientViewerSliders.jpg
        :width: 70%
        :align: center
 
@@ -82,7 +82,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 #. Click on **Show ROIs** to view ROIs on the image and see details in the pop-up window (only visible if image has ROIs).
    Existing ROIs can be viewed but cannot be edited, and new ROIs cannot added.
 
-   .. image:: /images/tutor/webclientViewerROI.png
+   .. image:: /images/tutor/webclientViewerROI.jpg
        :width: 100%
        :align: center
 
@@ -91,7 +91,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 #. In the **General** tab of the right hand panel, click on the pencil icon to edit the image name or image description.
    Summary details of the image can be seen below the description.
 
-   .. image:: /images/tutor/webclientGeneral1.png
+   .. image:: /images/tutor/webclientGeneral1.jpg
        :width: 75%
        :align: center
 
@@ -99,7 +99,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
 #. Click on the **Link** button to generate a URL to share the image (as described previously).
 
-   .. image:: /images/tutor/webclientGeneral2.png
+   .. image:: /images/tutor/webclientGeneral2.jpg
        :width: 75%
        :align: center
 
@@ -109,7 +109,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
    You can attach existing tags or files, create and attach new tags or upload and attach files from discs.
    Click on **Accept** to complete.
 
-   .. image:: /images/tutor/webclientGeneral3.png
+   .. image:: /images/tutor/webclientGeneral3.jpg
        :width: 100%
        :align: center
 
@@ -117,7 +117,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
 #. Enter a new comment in the text box and click on the **Add Comment** button to save.
 
-   .. image:: /images/tutor/webclientGeneral4.png
+   .. image:: /images/tutor/webclientGeneral4.jpg
        :width: 70%
        :align: center
 
@@ -126,7 +126,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 #. If you belong to more than one group, you can interact with the data of other users in your group. 
    Click on the drop-down arrow to the right of your name in the bar above the data tree, and select the desired group and user.
 
-   .. image:: /images/tutor/webclientGroups.png
+   .. image:: /images/tutor/webclientGroups.jpg
        :width: 100%
        :align: center
 
@@ -136,7 +136,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
    Select the image/s you wish to share.
    Click on the **Basket** icon in the toolbar.
 
-   .. image:: /images/tutor/webclientShare1.png
+   .. image:: /images/tutor/webclientShare1.jpg
        :width: 75%
        :align: center
 
@@ -146,7 +146,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
    Click on the numbered **Basket** button to view a list of shared items in the basket.
    Click on the **Manage Basket** button in the drop-down list to view the images.
 
-   .. image:: /images/tutor/webclientShare2.png
+   .. image:: /images/tutor/webclientShare2.jpg
        :width: 100%
        :align: center
 
@@ -154,7 +154,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
 #. Select an image and click on the **Globe** button in the **Basket** window to share it.
 
-   .. image:: /images/tutor/webclientShare3.png
+   .. image:: /images/tutor/webclientShare3.jpg
        :width: 100%
        :align: center
 
@@ -163,7 +163,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 #. In the **Share** window add a message and select the members you wish to share the data with.
    Click **Accept** when you have finished.
 
-   .. image:: /images/tutor/webclientShare4.png
+   .. image:: /images/tutor/webclientShare4.jpg
        :width: 100%
        :align: center
 
@@ -171,7 +171,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
 #. Click on the **Public** tab of the left hand panel to view the data shared with you and other users.
 
-   .. image:: /images/tutor/webclientShare5.png
+   .. image:: /images/tutor/webclientShare5.jpg
        :width: 100%
        :align: center
 
@@ -183,6 +183,6 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    Click on the **Web Start** button and follow the instructions, accepting the software as “Trusted”.
 
-   .. image:: /images/tutor/webclientWebStart.png
+   .. image:: /images/tutor/webclientWebStart.jpg
        :width: 100%
        :align: center

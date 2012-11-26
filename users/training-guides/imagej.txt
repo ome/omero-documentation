@@ -8,7 +8,7 @@ This guide assumes you have never installed ImageJ before.
 
    `http://rsbweb.nih.gov/ij/download.htm <http://rsbweb.nih.gov/ij/download.html>`_
 
-   .. image:: /images/tutor/imageJWebsite.png
+   .. image:: /images/tutor/imageJWebsite.jpg
        :width: 65%
        :align: center
 
@@ -25,7 +25,7 @@ This guide assumes you have never installed ImageJ before.
    To use OMERO with ImageJ, two plugins need to be installed in this folder: 
    loci_tools and OMERO.insight-ij.
 
-   .. image:: /images/tutor/imageJPlugins.png
+   .. image:: /images/tutor/imageJPlugins.jpg
        :width: 100%
        :align: center
 
@@ -37,7 +37,7 @@ This guide assumes you have never installed ImageJ before.
 
    Save or move the downloaded file into the **ImageJ > plugins** folder.
 
-   .. image:: /images/tutor/imageJLociTools.png
+   .. image:: /images/tutor/imageJLociTools.jpg
        :width: 87.5%
        :align: center
 
@@ -50,7 +50,7 @@ This guide assumes you have never installed ImageJ before.
 
    `http://www.openmicroscopy.org/site/products/omero/downloads <http://www.openmicroscopy.org/site/products/omero/downloads>`_
 
-   .. image:: /images/tutor/imageJInsight.png
+   .. image:: /images/tutor/imageJInsight.jpg
        :width: 100%
        :align: center
 
@@ -63,7 +63,7 @@ This guide assumes you have never installed ImageJ before.
 
    **Important Note:** with some versions of Windows unzipping programmes, a double folder enclosing the plugin is created. It is worth checking to make sure this has not happened. If it has, copy the inner **OMERO.insight-ij-4.4.xxx** folder into the **ImageJ > plugins** folder.
 
-   .. image:: /images/tutor/imageJOMEROPlugins.png
+   .. image:: /images/tutor/imageJOMEROPlugins.jpg
        :width: 100%
        :align: center
 
@@ -75,7 +75,7 @@ This guide assumes you have never installed ImageJ before.
    **Select OMERO > Connect to OMERO**.
    A version of OMERO.insight will open and can be used as normal.
 
-   .. image:: /images/tutor/imageJInsight2.png
+   .. image:: /images/tutor/imageJInsight2.jpg
        :width: 100%
        :align: center
 
@@ -86,7 +86,7 @@ This guide assumes you have never installed ImageJ before.
    Enter your OMERO server address (if needed) and **Username** and **Password**.
    Click **Login**.
 
-   .. image:: /images/tutor/imageJLogin.png
+   .. image:: /images/tutor/imageJLogin.jpg
        :width: 100%
        :align: center
 
@@ -94,7 +94,7 @@ This guide assumes you have never installed ImageJ before.
    
 #. You will then be taken to the OMERO.insight Data Manager screen.
 
-   .. image:: /images/tutor/imageJDataManager.png
+   .. image:: /images/tutor/imageJDataManager.jpg
        :width: 100%
        :align: center
 
