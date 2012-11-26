@@ -9,9 +9,9 @@ Developing OMERO clients
 
    - This page is intended for developers already familiar with
      client/server programming. If you are not, **your best starting
-     point is to read the `Hello World
-     <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.html#22064>`_
-     chapter of the Ice manual (or more)**. A deeper understanding of
+     point is to read the**
+     `Hello World <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.html#22064>`_
+     **chapter of the Ice manual (or more)**. A deeper understanding of
      Ice might not be necessary, but certainly understanding the Ice
      basics will make reading this guide **much** easier.
 
@@ -2679,14 +2679,12 @@ many of the imported and included files in the examples above, cannot
 actually be found in `github <https://github.com/openmicroscopy/openmicroscopy>`_.
 
 We plan to include packages of the generated source code in future
-releases. Until then, it's possible to find the latest version of
-those files on
-:jenkins:`jenkins <job/OMERO/ws/src/components/blitz/target/generated/>`,
-though some of the generated files are later overwrriten by hand-written
-versions:
+releases. Until then, it's possible to find our latest builds on 
+:jenkins:`jenkins <>` or to build them locally, though some of the generated files are later 
+overwrriten by hand-written versions:
 
--  :jenkins:`model <job/OMERO/ws/src/components/tools/OmeroCpp/src/omero/model/>`
--  :jenkins:`OmeroPy <job/OMERO/ws/src/components/tools/OmeroPy/src/>`
+-  model is located in ``components/tools/OmeroCpp/src/omero/model/``
+-  OmeroPy is located in ``components/tools/OmeroPy/src/``
 
 Lazy loading and caching
 ~~~~~~~~~~~~~~~~~~~~~~~~
