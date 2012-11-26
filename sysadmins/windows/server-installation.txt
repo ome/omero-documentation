@@ -615,10 +615,10 @@ Installation
 
     .. parsed-literal::
 
-       C:\\OMERO.server-|version|> bin\\omero login
-       Server: [localhost]
-       Username: [root]
-       Password:         # root_password
+        C:\\OMERO.server-|version|> bin\\omero login
+        Server: [localhost]
+        Username: [root]
+        Password:         # root_password
 
 OMERO.web and administration
 ----------------------------
