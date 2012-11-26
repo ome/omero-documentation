@@ -16,7 +16,7 @@ Using OMERO.insight to view and work with image data.
 
    - or click the icon in the right pane toolbar
 
-   .. image:: /images/tutor/viewingDataOpen.png
+   .. image:: /images/tutor/viewingDataOpen.jpg
        :width: 100%
        :align: center
 
@@ -25,7 +25,7 @@ Using OMERO.insight to view and work with image data.
 #. View a selected area of the image with the Magnifier.
    Zoom and scroll using the controls on the left side of the window.
 
-   .. image:: /images/tutor/viewingDataZoom1.png
+   .. image:: /images/tutor/viewingDataZoom1.jpg
        :width: 80%
        :align: center
 
@@ -33,7 +33,7 @@ Using OMERO.insight to view and work with image data.
 
 #. Click on the menu in the Zoom Window to configure size of lens, zoom percentage, units and the colour of the zoom box in the main image viewer.
 
-   .. image:: /images/tutor/viewingDataZoom2.png
+   .. image:: /images/tutor/viewingDataZoom2.jpg
        :width: 62.5%
        :align: center
 
@@ -43,7 +43,7 @@ Using OMERO.insight to view and work with image data.
    Click the Play arrow below the slider to play through the Z stack.
    If the image data includes a time sequence, step or played through the Time (T) sequence using the controls at the bottom of the viewer window.
 
-   .. image:: /images/tutor/viewingDataStack.png
+   .. image:: /images/tutor/viewingDataStack.jpg
        :width: 75%
        :align: center
 
@@ -53,7 +53,7 @@ Using OMERO.insight to view and work with image data.
 
 #. Click on the movie player icon to play through z- and t-stacks with more control.
 
-   .. image:: /images/tutor/viewingDataVideo.png
+   .. image:: /images/tutor/viewingDataVideo.jpg
        :width: 75%
        :align: center
 
@@ -61,7 +61,7 @@ Using OMERO.insight to view and work with image data.
 
 #. Use the icon in the toolbar to open the Settings pane to the right of the image. This enables finer control of rendering adjustments than the tools on the left of the viewer.
 
-   .. image:: /images/tutor/viewingDataRendering.png
+   .. image:: /images/tutor/viewingDataRendering.jpg
        :width: 100%
        :align: center
 
@@ -69,7 +69,7 @@ Using OMERO.insight to view and work with image data.
 
 #. Click on the top icon of the tools to toggle between colour and monochrome, and click on individual channels to toggle them on and off
 
-   .. image:: /images/tutor/viewingDataColour.png
+   .. image:: /images/tutor/viewingDataColour.jpg
        :width: 100%
        :align: center
 
@@ -77,7 +77,7 @@ Using OMERO.insight to view and work with image data.
 
 #. Select the tabs above the image to show a split channel and projection views of the image data.
 
-   .. image:: /images/tutor/viewingDataSplit.png
+   .. image:: /images/tutor/viewingDataSplit.jpg
        :width: 75%
        :align: center
 
@@ -87,6 +87,6 @@ Using OMERO.insight to view and work with image data.
    The General tab shows the name and description which are editable, summary data, rating, tags, attachments, comments and the location in the data manager hierarchy.
    The Acquisition tab shows the original acquisition data imported with the image data.
 
-   .. image:: /images/tutor/viewingDataMetadata.png
+   .. image:: /images/tutor/viewingDataMetadata.jpg
        :width: 82%
        :align: center

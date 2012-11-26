@@ -6,7 +6,7 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
 
 #. Open the image in the **Image Viewer** and click on the **Measuring Tools** icon to open the tools palette.
 
-   .. image:: /images/tutor/measurementToolIcon.png
+   .. image:: /images/tutor/measurementToolIcon.jpg
        :width: 100%
        :align: center
 
@@ -30,7 +30,7 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
 
    - show/hide text
 
-   .. image:: /images/tutor/measurementToolToolbar1.png
+   .. image:: /images/tutor/measurementToolToolbar1.jpg
        :width: 55%
        :align: center
 
@@ -46,7 +46,7 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
 
    - delete ROIs (click gives options)
 
-   .. image:: /images/tutor/measurementToolToolbar2.png
+   .. image:: /images/tutor/measurementToolToolbar2.jpg
        :width: 100%
        :align: center
 
@@ -65,7 +65,7 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
 
    - check box to toggle the visibility of the ROI
 
-   .. image:: /images/tutor/measurementToolManager.png
+   .. image:: /images/tutor/measurementToolManager.jpg
        :width: 100%
        :align: center
 
@@ -73,7 +73,7 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
 
 #. Select an ROI and click on the **Inspector** tab to view and edit the text label, dimensions, fill and line colour, and toggle the visibility of the text and measurements on and off.
 
-   .. image:: /images/tutor/measurementToolInspector.png
+   .. image:: /images/tutor/measurementToolInspector.jpg
        :width: 45%
        :align: center
 
@@ -82,7 +82,7 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
 #. Select an ROI in the **Manager** tab and click on **ROI Assistant** button in the toolbar to propagate an ROI through the Z stack or time sequence;
    or right click on an ROI and select **Propagate**.
 
-   .. image:: /images/tutor/measurementToolPropagate1.png
+   .. image:: /images/tutor/measurementToolPropagate1.jpg
        :width: 100%
        :align: center
 
@@ -93,7 +93,7 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
    Dragging diagonally will propagate the ROI through both Z stack and T sequence.
    Click **Close** to return to the ROI palette.
 
-   .. image:: /images/tutor/measurementToolPropagate2.png
+   .. image:: /images/tutor/measurementToolPropagate2.jpg
        :width: 100%
        :align: center
 
@@ -103,7 +103,7 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
    A line ROI has a profile of intensities along the line and a histogram of intensity vs. frequency (data for other types of ROI vary).
    If an ROI is propagated across a T sequence, the slider below the histogram allows stepping through the sequence.
 
-   .. image:: /images/tutor/measurementToolGraph.png
+   .. image:: /images/tutor/measurementToolGraph.jpg
        :width: 100%
        :align: center
 
@@ -112,6 +112,6 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
 #. Click on the **Intensity View** and **Intensity Results View** tabs to see tables of intensity values for the ROI.
    These values can be exported in Excel spread sheet format for further analysis.
 
-   .. image:: /images/tutor/measurementToolIntensity.png
+   .. image:: /images/tutor/measurementToolIntensity.jpg
        :width: 100%
        :align: center
