@@ -327,5 +327,5 @@ if not (sys.version_info[0] == 2 and sys.version_info[1] <= 5):
 
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
 linkcheck_ignore = [r'http://localhost:\d+/?', 'http://localhost/', 'http://www.hibernate.org',
-        r'^https?://www\.openmicroscopy\.org/site/team/.*', r'.*[.]?example\.com/.*', r'.*\.host.*',
-        r'.*serverName.*', r'^https?://www\.openmicroscopy\.org/site/support/faq.*',]
+        r'^https?://www\.openmicroscopy\.org/site/team/.*', r'.*[.]?example\.com/.*',
+        r'^https?://www\.openmicroscopy\.org/site/support/faq.*',]

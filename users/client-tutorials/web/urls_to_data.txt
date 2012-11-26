@@ -9,12 +9,12 @@ to Projects, Datasets, Images etc using a url of this form:
 
     /webclient/?show=<datatype>-<id>
 
-For example, to link to Dataset 314 on OMERO.web hosted at http://yourdomain.org/omero/webclient
+For example, to link to Dataset 314 on OMERO.web hosted at ``http://yourdomain.example.org/omero/webclient``
 the full url will be:
 
 ::
 
-    http://yourdomain.org/omero/webclient/?show=dataset-314
+    http://yourdomain.example.org/omero/webclient/?show=dataset-314
 
 This url is supported for the following data types:
 
