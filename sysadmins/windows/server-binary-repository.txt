@@ -111,7 +111,7 @@ You can configure the OMERO Windows user by setting `omero.windows.user` and
     configuration.
 
 Be sure to also change the `Log On` user in the OMERO.server service
-settings. Plese consult :ref:`server_service_user_win`. The user credentials
+settings. Please consult :ref:`server_service_user_win`. The user credentials
 should be the same as used with ``omero.windows.user`` and
 ``omero.windows.pass``.
 
