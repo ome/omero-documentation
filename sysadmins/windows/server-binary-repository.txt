@@ -15,11 +15,11 @@ The repository is internally laid out as follows:
 
 ::
 
-    /OMERO
-    /OMERO/Pixels      <--- Pixel data
-    /OMERO/Files       <--- Original file data
-    /OMERO/Thumbnails  <--- Thumbnail data
-    /OMERO/FullText    <--- Lucene full text search index
+    C:\OMERO
+    C:\OMERO\Pixels      <--- Pixel data
+    C:\OMERO\Files       <--- Original file data
+    C:\OMERO\Thumbnails  <--- Thumbnail data
+    C:\OMERO\FullText    <--- Lucene full text search index
 
 Permissions
 -----------
@@ -61,8 +61,8 @@ Remember that ``C:\`` style paths must have backslashes escaped.
 
 ::
 
-    cd C:\omero-Beta4.0.0
-    bin\omero config set omero.data.dir D:\\OMERO
+    C:\> cd C:\omero_dist
+    C:\omero_dist\> bin\omero config set omero.data.dir D:\\OMERO
 
 The suggested procedure is to shut down your OMERO.server instance, move
 your repository, change your ``omero.data.dir`` and then start the
@@ -70,11 +70,11 @@ instance back up. For example:
 
 ::
 
-    cd C:\omero-Beta4.0.0
-    bin\omero admin stop
-    move C:\OMERO D:\
-    bin\omero config set omero.data.dir D:\\OMERO
-    bin\omero admin start
+    C:\> cd C:\omero_dist
+    C:\omero_dist\> bin\omero admin stop
+    C:\omero_dist\> move C:\OMERO D:\
+    C:\omero_dist\> bin\omero config set omero.data.dir D:\\OMERO
+    C:\omero_dist\> bin\omero admin start
 
 .. note::
 
