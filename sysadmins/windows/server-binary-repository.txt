@@ -25,21 +25,34 @@ Permissions
 -----------
 
 Your repository should be owned by the same user that is starting your
-OMERO.server instance. This is often either yourself (find this out by
-executing ``whoami``) or a seperate ``omero`` (or similar) user who is
-dedicated to running OMERO.server. For example:
+OMERO.server instance.
 
-::
+Default Windows user: LocalService
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    $ whoami
-    omero
-    $ ls -al /OMERO
-    total 24
-    drwxr-xr-x  5 omero  omero   128 Dec 12  2006 .
-    drwxr-xr-x  7 root    root   160 Nov  5 15:24 ..
-    drwxr-xr-x  2 omero  omero  1656 Dec 18 14:31 Files
-    drwxr-xr-x 25 omero  omero 23256 Dec 10 19:06 Pixels
-    drwxr-xr-x  2 omero  omero    48 Dec  8  2006 Thumbnails
+By default, the OMERO.server starts as the `LocalService` user. You need to
+make sure that that `LocalService` has permissions to see the files under
+`C:\\OMERO`.
+
+Configure the Windows user
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Alternately, you can configure the OMERO Windows user by setting 
+`omero.windows.user` and `omero.windows.pass`::
+
+    C:\omero_dist\> bin\omero config set omero.windows.user USERNAME
+    C:\omero_dist\> bin\omero config set omero.windows.pass PASSWORD
+
+.. warning::
+
+    This second method exposes your user password in the OMERO configuration.
+
+.. seealso::
+
+    http://lists.openmicroscopy.org.uk/pipermail/ome-users/2012-November/003442.html
+
+        A thread of the ome-users mailing-list describing the permissions options.
+
 
 Your repository is not
 ----------------------
