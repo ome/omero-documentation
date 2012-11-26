@@ -21,6 +21,44 @@ The repository is internally laid out as follows:
     C:\OMERO\Thumbnails  <--- Thumbnail data
     C:\OMERO\FullText    <--- Lucene full text search index
 
+**Your repository is not:**
+
+-  The "database"
+-  The directory where your OMERO.server binaries are
+-  The directory where your OMERO.client (OMERO.insight, OMERO.editor or OMERO.importer) binaries are
+-  Your PostgreSQL data directory
+-  A place to store moldy sandwiches
+
+Changing your repository location
+---------------------------------
+
+.. note::
+    It is **strongly** recommended that you make all changes to your OMERO
+    binary repository with the server shut down. Changing the
+    ``omero.data.dir`` configuration does **not** move the repository for
+    you, you must do this yourself.
+    Remember that ``C:\`` style paths must have backslashes escaped.
+
+Your repository location can be changed from its ``C:\OMERO`` default by
+modifying your OMERO.server configuration as follows:
+
+::
+
+    C:\> cd C:\omero_dist
+    C:\omero_dist\> bin\omero config set omero.data.dir D:\\OMERO
+
+The suggested procedure is to shut down your OMERO.server instance, move
+your repository, change your ``omero.data.dir`` and then start the
+instance back up. For example:
+
+::
+
+    C:\> cd C:\omero_dist
+    C:\omero_dist\> bin\omero admin stop
+    C:\omero_dist\> move C:\OMERO D:\
+    C:\omero_dist\> bin\omero config set omero.data.dir D:\\OMERO
+    C:\omero_dist\> bin\omero admin start
+
 Permissions
 -----------
 
@@ -30,12 +68,16 @@ OMERO.server instance.
 Default Windows `LocalService` user
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, the OMERO.server starts as the `LocalService` user. You need to
-make sure that that `LocalService` user has permissions to access the files
-under :file:`C:\\OMERO` and the user running the server has rights for
-starting services.
+By default, the OMERO.server starts as the `LocalService` user. To use this
+setup you need to make sure that that `LocalService` user has permissions to
+access the files under :file:`C:\\OMERO` and the user running the server has
+rights for starting services.
 
-To modify the access permissions to the binary repository, the :file:`OMERO`
+Custom server service user
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A custom user can be configured to run the OMERO.server service. To modify
+the access permissions to the binary repository, the :file:`OMERO`
 folder properties can be accessed and the permissions settings changed
 (see :ref:`windows_repository_perms`). Another option (useful for batch
 permission changes) is the :command:`icacls` (Windows 7) / :command:`cacls`
@@ -57,23 +99,16 @@ read (`R`) and write (`W`) from and to the ``OMERO`` directory:
 
     Repository Folder Permissions
 
-.. seealso::
-
-    http://lists.openmicroscopy.org.uk/pipermail/ome-users/2012-November/003442.html
-        A thread of the ome-users mailing-list describing the permissions options.
-
-Configure the Windows user
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Alternately, you can configure the OMERO Windows user by setting 
-`omero.windows.user` and `omero.windows.pass`::
+You can configure the OMERO Windows user by setting `omero.windows.user` and
+`omero.windows.pass`::
 
     C:\omero_dist\> bin\omero config set omero.windows.user USERNAME
     C:\omero_dist\> bin\omero config set omero.windows.pass PASSWORD
 
 .. warning::
 
-    This second method exposes your user password in the OMERO configuration.
+    Setting `omero.windows.pass` exposes your user password in the OMERO
+    configuration.
 
 Be sure to also change the `Log On` user in the OMERO.server service
 settings. Plese consult :ref:`server_service_user_win`. The user credentials
@@ -87,44 +122,7 @@ should be the same as used with ``omero.windows.user`` and
 
     Windows Service `Log On` User Settings
 
-Your repository is not
-----------------------
+.. seealso::
 
--  The "database"
--  The directory where your OMERO.server binaries are
--  The directory where your OMERO.client (OMERO.insight, OMERO.editor or
-   OMERO.importer) binaries are
--  Your PostgreSQL data directory
--  A place to store moldy sandwiches
-
-Changing your repository location
----------------------------------
-    
-Your repository location can be changed from its ``C:\OMERO`` default by 
-modifying your OMERO.server configuration as follows:
-
-Remember that ``C:\`` style paths must have backslashes escaped.
-
-::
-
-    C:\> cd C:\omero_dist
-    C:\omero_dist\> bin\omero config set omero.data.dir D:\\OMERO
-
-The suggested procedure is to shut down your OMERO.server instance, move
-your repository, change your ``omero.data.dir`` and then start the
-instance back up. For example:
-
-::
-
-    C:\> cd C:\omero_dist
-    C:\omero_dist\> bin\omero admin stop
-    C:\omero_dist\> move C:\OMERO D:\
-    C:\omero_dist\> bin\omero config set omero.data.dir D:\\OMERO
-    C:\omero_dist\> bin\omero admin start
-
-.. note::
-
-    It is **strongly** recommended that you make all changes to your OMERO 
-    binary repository with the server shut down. Changing the 
-    ``omero.data.dir`` configuration does **not** move the repository for you, 
-    you must do this yourself.
+    http://lists.openmicroscopy.org.uk/pipermail/ome-users/2012-November/003442.html
+        A thread of the ome-users mailing-list describing the permissions options.
