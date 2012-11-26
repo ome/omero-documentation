@@ -9,7 +9,7 @@ Installing
 #. Download OMERO.insight client.
    `OMERO downloads page <https://www.openmicroscopy.org/site/support/omero4/downloads>`_
 
-   .. image:: /images/tutor/gettingStartedDownloads.png
+   .. image:: /images/tutor/gettingStartedDownloads.jpg
        :width: 100%
        :align: center
 
@@ -17,7 +17,7 @@ Installing
 
 #. Expand OMERO.insight client archive.
 
-   .. image:: /images/tutor/gettingStartedZips.png
+   .. image:: /images/tutor/gettingStartedZips.jpg
        :width: 80%
        :align: center
 
@@ -25,7 +25,7 @@ Installing
 
 #. Open OMERO.insight Client.
 
-   .. image:: /images/tutor/gettingStartedApps.png
+   .. image:: /images/tutor/gettingStartedApps.jpg
        :width: 100%
        :align: center
 
@@ -37,7 +37,7 @@ Adding the server is only required the first time an OMERO server is accessed fr
 
 1. Click on the **Spanner** icon.
 
-   .. image:: /images/tutor/gettingStartedSpanner.png
+   .. image:: /images/tutor/gettingStartedSpanner.jpg
        :width: 75%
        :align: center
 
@@ -45,7 +45,7 @@ Adding the server is only required the first time an OMERO server is accessed fr
 
 2. In the **Add Server** dialogue box, click on the **+** icon.
 
-   .. image:: /images/tutor/gettingStartedAdd.png
+   .. image:: /images/tutor/gettingStartedAdd.jpg
        :width: 75%
        :align: center
 
@@ -54,7 +54,7 @@ Adding the server is only required the first time an OMERO server is accessed fr
 3. Enter the server address provided by your OMERO administrator.
    Click on **Apply**.
 
-   .. image:: /images/tutor/gettingStartedApply.png
+   .. image:: /images/tutor/gettingStartedApply.jpg
        :width: 75%
        :align: center
 
@@ -63,7 +63,7 @@ Adding the server is only required the first time an OMERO server is accessed fr
 4. Enter the **Username** and **Password** provided by your OMERO administrator.
    Click on **Login**.
 
-   .. image:: /images/tutor/gettingStartedLogin.png
+   .. image:: /images/tutor/gettingStartedLogin.jpg
        :width: 75%
        :align: center
 
@@ -73,7 +73,7 @@ Adding image data
 =================
 1. Click on the **Importer** icon.
 
-   .. image:: /images/tutor/gettingStartedDataManager.png
+   .. image:: /images/tutor/gettingStartedDataManager.jpg
        :width: 88%
        :align: center
 
@@ -81,7 +81,7 @@ Adding image data
 
 2. Add image data using the **File Chooser**.
 
-   .. image:: /images/tutor/gettingStartedFileChooser.png
+   .. image:: /images/tutor/gettingStartedFileChooser.jpg
        :width: 88%
        :align: center
 
@@ -90,7 +90,7 @@ Adding image data
 3. Select image data to be imported.
    Click the right **Add** arrow.
 
-   .. image:: /images/tutor/gettingStartedData.png
+   .. image:: /images/tutor/gettingStartedData.jpg
        :width: 100%
        :align: center
 
@@ -104,7 +104,7 @@ Adding image data
 
    - a new dataset can be automatically created from the source folder.
 
-   .. image:: /images/tutor/gettingStartedProject.png
+   .. image:: /images/tutor/gettingStartedProject.jpg
        :width: 100%
        :align: center
 
@@ -112,7 +112,7 @@ Adding image data
 
 5. Click **Add to the Queue**.
 
-   .. image:: /images/tutor/gettingStartedQueue.png
+   .. image:: /images/tutor/gettingStartedQueue.jpg
        :width: 75%
        :align: center
 
@@ -121,7 +121,7 @@ Adding image data
 6. Data to be imported appears in queue pane.
    A copy of the original data can be archived in its original format by checking the box in the right most column.
 
-   .. image:: /images/tutor/gettingStartedArchive.png
+   .. image:: /images/tutor/gettingStartedArchive.jpg
        :width: 100%
        :align: center
 
@@ -129,7 +129,7 @@ Adding image data
 
 7. Click on **Import**.
 
-   .. image:: /images/tutor/gettingStartedImport.png
+   .. image:: /images/tutor/gettingStartedImport.jpg
        :width: 75%
        :align: center
 
@@ -139,7 +139,7 @@ Adding image data
    Further data for import can be queued and imported using the Select Data for Import tab.
    Multiple queues can be run simultaneously.
 
-   .. image:: /images/tutor/gettingStartedComplete.png
+   .. image:: /images/tutor/gettingStartedComplete.jpg
        :width: 100%
        :align: center
 
@@ -149,7 +149,7 @@ Adding image data
    Double clicking on the thumbnail opens it in the image viewer window.
    Clicking on the hyperlink takes you to the data manager window and dataset into which the data was imported.
 
-   .. image:: /images/tutor/gettingStartedClose.png
+   .. image:: /images/tutor/gettingStartedClose.jpg
        :width: 100%
        :align: center
 
@@ -157,7 +157,7 @@ Adding image data
 
 10. The imported data can be seen in the data manager.
 
-   .. image:: /images/tutor/gettingStartedImportedData.png
+   .. image:: /images/tutor/gettingStartedImportedData.jpg
        :width: 75%
        :align: center
 
@@ -173,7 +173,7 @@ Viewing image data
 
    - the right hand pane shows he metadata for the data and a preview.
 
-   .. image:: /images/tutor/gettingStartedPanes.png
+   .. image:: /images/tutor/gettingStartedPanes.jpg
        :width: 75%
        :align: center
 
@@ -181,7 +181,7 @@ Viewing image data
 
 2. Double click the image name or thumbnail to open an image in the full viewer or click on the image viewer icon.
 
-   .. image:: /images/tutor/gettingStartedPanes.png
+   .. image:: /images/tutor/gettingStartedPanes.jpg
        :width: 75%
        :align: center
 
@@ -192,7 +192,7 @@ Viewing image data
    Toggle between colour and monochrome rendering.
    Toggle the **Advanced** tab on the right of the rendering settings pane to show more controls.
 
-   .. image:: /images/tutor/gettingStartedRendering.png
+   .. image:: /images/tutor/gettingStartedRendering.jpg
        :width: 100%
        :align: center
 
@@ -202,7 +202,7 @@ Viewing image data
    This is used to change the colour rendering for a channel.
    Clicking the colour well toggles the channel on or off
 
-   .. image:: /images/tutor/gettingStartedPicker.png
+   .. image:: /images/tutor/gettingStartedPicker.jpg
        :width: 100%
        :align: center
 
@@ -210,7 +210,7 @@ Viewing image data
 
 5. Click on **Metadata** button to view the metadata in the right pane.
 
-   .. image:: /images/tutor/gettingStartedMetadata.png
+   .. image:: /images/tutor/gettingStartedMetadata.jpg
        :width: 100%
        :align: center
 
@@ -218,7 +218,7 @@ Viewing image data
 
 6. Click on Measurement Tool button to open the Measurement Tools palette.
 
-   .. image:: /images/tutor/gettingStartedMetadata.png
+   .. image:: /images/tutor/gettingStartedMetadata.jpg
        :width: 90%
        :align: center
 
@@ -227,7 +227,7 @@ Viewing image data
 7. Use the toolbar to draw Regions of Interest (ROIs).
    Click on the tabs to see details of ROIs or view results of analysis based on them.
 
-   .. image:: /images/tutor/gettingStartedTools.png
+   .. image:: /images/tutor/gettingStartedTools.jpg
        :width: 100%
        :align: center
 
@@ -235,7 +235,7 @@ Viewing image data
 
 8. Use the sliders to step through **Z-stacks** and **T-sequences** or click the **Play** triangle to play through them as a sequence.
 
-   .. image:: /images/tutor/gettingStartedStacks.png
+   .. image:: /images/tutor/gettingStartedStacks.jpg
        :width: 100%
        :align: center
 
@@ -249,7 +249,7 @@ To access the OMERO.web client you will need a web address (URL) provided by you
 
 1. Click on the **Web Start** button.
 
-   .. image:: /images/tutor/gettingStartedStacks.png
+   .. image:: /images/tutor/gettingStartedStacks.jpg
        :width: 100%
        :align: center
 
@@ -258,7 +258,7 @@ To access the OMERO.web client you will need a web address (URL) provided by you
 2. On Windows the Java package usually downloads and starts unzipping automatically.
    On the Mac you may have to double-click the downloaded file to expand it.
 
-   .. image:: /images/tutor/gettingStartedDownload.png
+   .. image:: /images/tutor/gettingStartedDownload.jpg
        :width: 100%
        :align: center
 
@@ -269,6 +269,6 @@ To access the OMERO.web client you will need a web address (URL) provided by you
    The saved application is then used like any other programme.
    Web Start OMERO.insight will have to be downloaded each session, but this ensures you automatically have the latest OMERO.insight version.
 
-   .. image:: /images/tutor/gettingStartedStacks.png
+   .. image:: /images/tutor/gettingStartedStacks.jpg
        :width: 100%
        :align: center

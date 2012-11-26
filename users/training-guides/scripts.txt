@@ -6,7 +6,7 @@ OMERO.insight allows you to use scripts to add functionality to the programme. O
 
 #. Click on the **Run Scripts** icon in the toolbar .
 
-   .. image:: /images/tutor/scriptsMenu.png
+   .. image:: /images/tutor/scriptsMenu.jpg
        :width: 80%
        :align: center
 
@@ -15,13 +15,13 @@ OMERO.insight allows you to use scripts to add functionality to the programme. O
 #. To create a figure comprising thumbnails, either select the images for inclusion in the data tree or thumbnails in the centre pane, or select one or more Datasets.
    Select **Figure Scripts > Thumbnail Figure**
 
-   .. image:: /images/tutor/scriptsThumbnails.png
+   .. image:: /images/tutor/scriptsThumbnails.jpg
        :width: 85%
        :align: center
 
 #. The script dialogue shows the IDs of the selected images (or ID of the Dataset/s if  they are selected).
 
-   .. image:: /images/tutor/scriptsDefault.png
+   .. image:: /images/tutor/scriptsDefault.jpg
        :width: 100%
        :align: center
 
@@ -30,7 +30,7 @@ OMERO.insight allows you to use scripts to add functionality to the programme. O
 #. Set the minimum and maximum thumbnail size (defaults are 100).
    Set the maximum number of columns (default 10).
 
-   .. image:: /images/tutor/scriptsSize.png
+   .. image:: /images/tutor/scriptsSize.jpg
        :width: 75%
        :align: center
 
@@ -38,7 +38,7 @@ OMERO.insight allows you to use scripts to add functionality to the programme. O
 
 #. Select the format for the figure (default JPEG).
 
-   .. image:: /images/tutor/scriptsFormat.png
+   .. image:: /images/tutor/scriptsFormat.jpg
        :width: 85%
        :align: center
 
@@ -47,7 +47,7 @@ OMERO.insight allows you to use scripts to add functionality to the programme. O
 #. Click on the **Script** menu to download or view the script.
    Click **Run Script** to finish.
 
-   .. image:: /images/tutor/scriptsRun.png
+   .. image:: /images/tutor/scriptsRun.jpg
        :width: 100%
        :align: center
 
@@ -56,6 +56,6 @@ OMERO.insight allows you to use scripts to add functionality to the programme. O
 #. Click on the image or dataset the figure has been attached to.
    In the right pane, click on drop-down icon after the attachment to view or download.
 
-   .. image:: /images/tutor/scriptsView.png
+   .. image:: /images/tutor/scriptsView.jpg
        :width: 100%
        :align: center
