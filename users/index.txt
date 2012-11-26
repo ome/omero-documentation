@@ -53,6 +53,15 @@ OMERO.insight tutorials
     client-tutorials/insight/insight-scripts
     client-tutorials/insight/insight-util-scripts
 
+OMERO.web tutorials
+=======================
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    client-tutorials/web/urls_to_data
+
 OMERO.editor tutorials
 =======================
 
