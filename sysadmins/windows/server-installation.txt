@@ -613,12 +613,12 @@ Installation
 -  You can now test that you can log-in as "root", either with the
    OMERO.insight client or command-line:
 
-    .. parsed-literal::
+   .. parsed-literal::
 
-        C:\\OMERO.server-|version|> bin\\omero login
-        Server: [localhost]
-        Username: [root]
-        Password:         # root_password
+       C:\\OMERO.server-|version|> bin\\omero login
+       Server: [localhost]
+       Username: [root]
+       Password:         # root_password
 
 OMERO.web and administration
 ----------------------------
