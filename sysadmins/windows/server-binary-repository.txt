@@ -29,7 +29,6 @@ The repository is internally laid out as follows:
 -  The directory where your OMERO.server binaries are
 -  The directory where your OMERO.client (OMERO.insight, OMERO.editor or OMERO.importer) binaries are
 -  Your PostgreSQL data directory
--  A place to store moldy sandwiches
 
 Changing your repository location
 ---------------------------------
