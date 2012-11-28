@@ -44,8 +44,8 @@ modifying your OMERO.server configuration as follows:
 
 ::
 
-    cd OMERO.server
-    bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
+    $ cd OMERO.server
+    $ bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
 
 The suggested procedure is to shut down your OMERO.server instance, move
 your repository, change your ``omero.data.dir`` and then start the
@@ -53,11 +53,11 @@ instance back up. For example:
 
 ::
 
-    cd OMERO.server
-    bin/omero admin stop
-    mv /OMERO /mnt/really_big_disk
-    bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
-    bin/omero admin start
+    $ cd OMERO.server
+    $ bin/omero admin stop
+    $ mv /OMERO /mnt/really_big_disk
+    $ bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
+    $ bin/omero admin start
 
 Permissions
 -----------
