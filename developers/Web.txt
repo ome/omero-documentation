@@ -86,7 +86,7 @@ and other examples in the 'webtest' app. Also, see the
 There are 3 parts to each page: url, view and template. For example,
 this code below is for generating an html page of a Dataset (see
 screen-shot). If you have OMERO.web running, you can view the page under
-` http://serverName/webtest/dataset/ <http://serverName/webtest/dataset/>`_\ <datasetId>.
+`http://servername.example.org/webtest/dataset/`\ `<datasetId>`.
 
 -  **Url**, goes in omeroweb/webtest/urls.py
 
