@@ -32,8 +32,8 @@ users/passwords described in this install guide, please see
    .. note::
 
       The default user paths on Windows usually contain spaces so you
-      will need to ensure the path has no spaces, :file:`C:\\omero_dist` for
-      example.
+      will need to ensure the path has no spaces, :file:`C:\\OMERO.server`
+      for example.
 -  A reboot is required after installing the prerequisites.
 
 Prerequisites
@@ -471,9 +471,9 @@ Installation
 ------------
 
 -   Extract the OMERO zip file and note its location. Below it is referred
-    to as :file:`C:\\omero_dist`
+    to as :file:`C:\\OMERO.server`
 
--   Optionally, review :file:`C:\\omero_dist\\etc\\omero.properties` which
+-   Optionally, review :file:`C:\\OMERO.server\\etc\\omero.properties` which
     contains all default settings
     
     You will need to open the file with a text editor. Don't edit the file. 
@@ -488,10 +488,10 @@ Installation
 
     ::
 
-        C:\> cd C:\omero_dist
-        C:\omero_dist\> bin\omero config set omero.db.name omero_database
-        C:\omero_dist\> bin\omero config set omero.db.user db_user
-        C:\omero_dist\> bin\omero config set omero.db.pass db_password
+        C:\> cd C:\OMERO.server
+        C:\OMERO.server\> bin\omero config set omero.db.name omero_database
+        C:\OMERO.server\> bin\omero config set omero.db.user db_user
+        C:\OMERO.server\> bin\omero config set omero.db.pass db_password
 
 -   If you have chosen a non-standard :doc:`OMERO binary repository <server-binary-repository>` 
     location above, be sure to configure the ``omero.data.dir`` property.
@@ -519,13 +519,13 @@ Installation
 
     .. parsed-literal::
 
-        C:\\> cd C:\\omero_dist\\
-        C:\\omero_dist> bin\\omero db script
+        C:\\> cd C:\\OMERO.server\\
+        C:\\OMERO.server> bin\\omero db script
         Please enter omero.db.version [OMERO\ |version|\ ]: 
         Please enter omero.db.patch [0]: 
         Please enter password for new OMERO root user: # root_password
         Please re-enter password for new OMERO root user: # root_password
-        Saving to C:\\omero_dist\\OMERO\ |version|\ __0.sql
+        Saving to C:\\OMERO.server\\OMERO\ |version|\ __0.sql
 
 -   Initialize your database with the script.
 
@@ -556,7 +556,7 @@ Installation
 
        .. parsed-literal::
 
-           omero=> \\i C:/omero_dist/OMERO\ |version|\ __0.sql
+           omero=> \\i C:/OMERO.server/OMERO\ |version|\ __0.sql
            ...
            ...
            omero=> \\q
@@ -566,18 +566,18 @@ Installation
 
     ::
 
-        C:\omero_dist\> bin\omero admin diagnostics
+        C:\OMERO.server\> bin\omero admin diagnostics
 
 -   You can now start the server using:
 
     ::
 
-        C:\omero_dist> bin\omero admin start
+        C:\OMERO.server> bin\omero admin start
         Creating var\master
         Initializing var\log
         Creating var\registry
         No descriptor given. Using etc\grid\default.xml
-        C:\omero_dist>
+        C:\OMERO.server>
         [SC] CreateService SUCCESS
 
 
@@ -595,14 +595,14 @@ Installation
         Waiting on startup. Use CTRL-C to exit
 
     If you've chosen a non-default install directory (other than
-    :file:`C:\\omero_dist`), the output will look like this:
+    :file:`C:\\OMERO.server`), the output will look like this:
 
     .. parsed-literal::
 
         C:\\OMERO.server-|version|> bin\\omero admin start
-        Found default value: C:\\omero_dist\\var\\master
+        Found default value: C:\\OMERO.server\\var\\master
         Attempting to correct...
-        Converting from C:\\omero_dist to C:\\OMERO.server-|version|
+        Converting from C:\\OMERO.server to C:\\OMERO.server-|version|
         Changes made: 6
         No descriptor given. Using etc\\grid\\windefault.xml
         [SC] CreateService SUCCESS
@@ -632,16 +632,16 @@ turn debugging on, in order that static files can be served by Django:
 
 ::
 
-    c:\omero_dist> bin\omero config set omero.web.application_server development
-    c:\omero_dist> bin\omero config set omero.web.debug True
-    c:\omero_dist> bin\omero config set omero.web.session_engine "django.contrib.sessions.backends.cache"
-    c:\omero_dist> bin\omero config set omero.web.cache_backend "file://C:/windows/temp/"
+    c:\OMERO.server> bin\omero config set omero.web.application_server development
+    c:\OMERO.server> bin\omero config set omero.web.debug True
+    c:\OMERO.server> bin\omero config set omero.web.session_engine "django.contrib.sessions.backends.cache"
+    c:\OMERO.server> bin\omero config set omero.web.cache_backend "file://C:/windows/temp/"
 
 then start by
 
 ::
 
-    c:\omero_dist> bin\omero web start
+    c:\OMERO.server> bin\omero web start
     Starting django development webserver... 
     Validating models...
     0 errors found
@@ -718,7 +718,7 @@ If you want help with your server installation, please include the output of the
 
 .. parsed-literal::
 
-    C:\\omero_dist> bin\\omero admin diagnostics
+    C:\\OMERO.server> bin\\omero admin diagnostics
     ================================================================================
     OMERO Diagnostics |release|
     ================================================================================
