@@ -1,78 +1,70 @@
-Using Windows GUI tools
-=======================
+OMERO.server Windows Service
+============================
 
-Once the ``python bin\omero admin start`` command has installed the
-**OMERO.master** service, you can use Windows service tools:
+OMERO.server installs a Windows Service to make the startup of the software
+automatic at Windows boot time. When starting the server for the first time
+an invocation to built-in Windows commands :command:`sc.exe` and
+:command:`ntrights. exe` is made.
 
--  From the Control Panel
+The :command:`bin\\omero admin start` command is a wrapper around a call to
+:command:`sc create` followed by :command:`sc start`. In turn,
+:command:`bin\\omero admin stop` is a wrapper around :command:`sc stop` and
+:command:`sc delete`. Therefore, once :command:`bin\\omero admin start`
+succeeds, it is possible to use all the regular Windows utilities, like
+:command:`sc.exe` or the services manager, to stop OMERO.server without
+having the service removed completely.
 
-.. figure:: /images/omerogrid-winxp-controlpanel.png
-  :align: center
-  :width: 55%
-  :alt: Control Panel
+:command:`ntrights.exe` is used by the :command:`admin` component of
+:command:`bin\omero`. When the OMERO.server service needs to be run as a
+different user, this command allows for modifying the `Log On` settings of
+7the Windows Service.
 
-.. figure:: /images/omerogrid-winxp-admintools.png
-  :align: center
-  :width: 55%
-  :alt: Administration Tools
+Windows Services Manager
+------------------------
 
-Services tool
--------------
+To start the Services Manager, simply navigate to :menuselection:`Start -->
+All Programs --> Accessories --> Run` (Windows 7). In the dialog, type in
+:command:`services.msc` and select :guilabel:`OK` (see
+:ref:`windows_run_services`).
 
-- Then open the Services executable
+.. _windows_run_services:
+.. figure:: /images/windows-run-services.png
+   :align: center
 
-.. figure:: /images/omerogrid-winxp-services.png
-  :align: center
-  :width: 55%
-  :alt: Services
+   Run Windows Services Manager
 
--  Here you can see OMERO.master running and also stop it
 
-.. figure:: /images/omerogrid-winxp-masterrunning.png
-  :align: center
-  :width: 55%
-  :alt: OMERO.master running
+This will bring up the Windows Services Manager. Here you can see
+the OMERO.master service running and also stop it. Additionally the
+:guilabel:`Log On` tab can be accessed here to configure under which user
+name the service is started (see :doc:`server-binary-repository`).
 
--  And can edit its runtime properties
+.. figure:: /images/windows-services-console.png
+   :align: center
+   :width: 55%
 
-.. figure:: /images/omerogrid-winxp-masterproperties.png
-  :align: center
-  :width: 55%
-  :alt: OMERO.master properties
+   OMERO.master Service
 
--  Such as which user it starts as
+Windows Event Viewer
+--------------------
 
-.. figure:: /images/omerogrid-winxp-masterlogon.png
-  :align: center
-  :width: 55%
-  :alt: OMERO.master logon
+Windows Even Viewer allows for watching events occuring in the OMERO.server
+service. To start the viewer, follow the same path as for Windows Services
+Manager, but this type type in :command:`eventvwr.msc` (see
+:ref:`windows_run_event`).
 
-Event viewer tools
-------------------
+.. _windows_run_event:
+.. figure:: /images/windows-run-event.png
+   :align: center
 
--  Then go back to the Administration Tool window and open the Event
-   Viewer
+   Starting Event viewer
 
-.. figure:: /images/omerogrid-winxp-eventviewer.png
-  :align: center
-  :width: 55%
-  :alt: Event viewer
+The status events from OMERO.master will be registered in the
+:guilabel:`Application` view (though the log output from the server is in
+the configured directory).
 
--  where status events from OMERO.master will registered (though the log
-   output from the server is in the configured directory)
+.. figure:: /images/windows-event-viewer.png
+   :align: center
+   :width: 55%
 
-.. figure:: /images/omerogrid-winxp-applicationevents.png
-  :align: center
-  :width: 55%
-  :alt: Application events
-
--  The server's running.
-
-.. figure:: /images/omerogrid-winxp-blitzactive.png
-  :align: center
-  :width: 55%
-  :alt: Running server
-
-However, a bug in Windows will prevent the OMERO.master service from
-being removed while the service GUI is open. Close the GUI to finish the
-operation.
+   OMERO.master Events
