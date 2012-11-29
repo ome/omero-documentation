@@ -32,7 +32,7 @@ users/passwords described in this install guide, please see
    .. note::
 
       The default user paths on Windows usually contain spaces so you
-      will need to ensure the path has no spaces, :file:`C:\omero_dist` for
+      will need to ensure the path has no spaces, :file:`C:\\omero_dist` for
       example.
 -  A reboot is required after installing the prerequisites.
 
@@ -472,7 +472,7 @@ Installation
 -   Extract the OMERO zip file and note its location. Below it is referred
     to as :file:`C:\\omero_dist`
 
--   Optionally, review :file:`C:\omero_dist\etc\omero.properties` which
+-   Optionally, review :file:`C:\\omero_dist\\etc\\omero.properties` which
     contains all default settings
     
     You will need to open the file with a text editor. Don't edit the file. 
