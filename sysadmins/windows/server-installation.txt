@@ -62,7 +62,8 @@ Ice 3.4.x requires Python 2.6.x. You must download the 32-bit version
 from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
 As this is the "vanilla" python distribution (no extra libraries),
 you will need to install further dependencies, making sure to
-download the correct version for your Python distribution.
+download the correct version (release number, 32/64-bit) for your Python
+distribution.
 
 It is recommended to use **Python for Windows extensions**. The installer is
 available from the `PyWin download page <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
