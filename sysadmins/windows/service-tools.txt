@@ -15,7 +15,7 @@ succeeds, it is possible to use all the regular Windows utilities, like
 having the service removed completely.
 
 :command:`ntrights.exe` is used by the :command:`admin` component of
-:command:`bin\omero`. When the OMERO.server service needs to be run as a
+:command:`bin\\omero`. When the OMERO.server service needs to be run as a
 different user, this command allows for modifying the `Log On` settings of
 7the Windows Service.
 
@@ -50,7 +50,7 @@ Windows Event Viewer
 
 Windows Even Viewer allows for watching events occuring in the OMERO.server
 service. To start the viewer, follow the same path as for Windows Services
-Manager, but this type type in :command:`eventvwr.msc` (see
+Manager, but this time type in :command:`eventvwr.msc` (see
 :ref:`windows_run_event`).
 
 .. _windows_run_event:
