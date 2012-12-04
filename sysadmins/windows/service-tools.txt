@@ -48,7 +48,7 @@ name the service is started (see :doc:`server-binary-repository`).
 Windows Event Viewer
 --------------------
 
-Windows Even Viewer allows for watching events occuring in the OMERO.server
+Windows Event Viewer allows for watching events occuring in the OMERO.server
 service. To start the viewer, follow the same path as for Windows Services
 Manager, but this time type in :command:`eventvwr.msc` (see
 :ref:`windows_run_event`).
