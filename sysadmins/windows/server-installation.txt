@@ -662,14 +662,6 @@ to access the OMERO.web interface:
 
       OMERO.webadmin login
 
-
-Enabling movie creation from OMERO
-----------------------------------
-
-OMERO has the facility to create AVI/MPEG movies from images, which can be
-called from OMERO.insight. The page :doc:`/sysadmins/omeromovie` gives
-details on how to enable it.
-
 Post-installation items
 -----------------------
 
