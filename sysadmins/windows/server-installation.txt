@@ -26,6 +26,7 @@ users/passwords described in this install guide, please see
 -  Installation on Windows XP is not explicitly supported, especially
    for OMERO.web. Significant testing has taken place on Windows Server
    2008 and we recommend this version.
+-  :doc:`/sysadmins/omeromovie` does not work on Windows at present.
 -  Spaces are not currently supported in installation path names.
 
    .. note::
