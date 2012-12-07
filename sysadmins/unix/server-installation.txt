@@ -297,10 +297,10 @@ user or use sudo as below:
                List of databases
           Name         |  Owner   | Encoding  
        ----------------+----------+-----------
-        omero_database | db_user  | SQL_ASCII
-        postgres       | postgres | SQL_ASCII
-        template0      | postgres | SQL_ASCII
-        template1      | postgres | SQL_ASCII
+        omero_database | db_user  | UTF8
+        postgres       | postgres | UTF8
+        template0      | postgres | UTF8
+        template1      | postgres | UTF8
        (4 rows)
 
 If you have problems, especially with the last step, take a look at
