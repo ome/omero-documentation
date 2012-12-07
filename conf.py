@@ -252,7 +252,10 @@ htmlhelp_basename = 'projstandardsdoc'
 
 latex_elements = {
 'classoptions': ',oneside',
-'babel': '\\usepackage[english]{babel}'
+'babel': '\\usepackage[english]{babel}',
+'printindex': '\\phantomsection \
+\\addcontentsline{toc}{part}{\indexname} \
+\\printindex'
 # The paper size ('letterpaper' or 'a4paper').
 #'papersize': 'letterpaper',
 
