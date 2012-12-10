@@ -460,7 +460,7 @@ user's home directory (on Windows :file:`C:\\Users\\<username>`) in
     slow access down.
 
 The OMERO.server also access the :file:`omero\\tmp` and
-:file:`omero\\log`` folders of **the user the server process is running
+:file:`omero\\log` folders of **the user the server process is running
 as**. As the server makes heavier use of these folders than the clients,
 if that user's home folder is stored on a network the server can be
 slowed down. To get round this for the OMERO.server you can define an
