@@ -27,7 +27,7 @@ users/passwords described in this install guide, please see
    for OMERO.web. Significant testing has taken place on Windows Server
    2008 and we recommend this version.
 -  :doc:`/sysadmins/omeromovie` is not supported on Windows at present.
--  Spaces are not currently supported in installation path names.
+-  Spaces in installation path names are not currently supported.
 
    .. note::
 
