@@ -277,8 +277,8 @@ need to set the values yourself.
    necessary. See `<http://support.microsoft.com/kb/821761>`_
    for more information.
 
-Creating a database as root
----------------------------
+Creating a database for OMERO
+-----------------------------
 
 Probably the most important step towards having a working server system
 is having a properly configured database.
@@ -292,16 +292,16 @@ is having a properly configured database.
       login password set during the installation, above.
 
       .. figure:: /images/install-windows-screenshots/pgadmin-02initialview.png
-         :figwidth: 45%
-         :width: 40%
+         :figwidth: 65%
+         :width: 60%
          :align: center
          :alt: Connect to the database server
 
          Connect to the database server
 
       .. figure::  /images/install-windows-screenshots/pgadmin-03connect.png
-         :figwidth: 45%
-         :width: 40%
+         :figwidth: 65%
+         :width: 60%
          :align: center
          :alt: Enter password
 
@@ -329,16 +329,16 @@ is having a properly configured database.
           use your own choice of username and password instead.
 
    .. figure:: /images/install-windows-screenshots/pgadmin-05newrole-name.png
-      :figwidth: 45%
-      :width: 40%
+      :figwidth: 65%
+      :width: 60%
       :align: center
       :alt: New role name
 
       Setting name of new login role
 
    .. figure:: /images/install-windows-screenshots/pgadmin-06newrole-passwd.png
-      :figwidth: 45%
-      :width: 40%
+      :figwidth: 65%
+      :width: 60%
       :align: center
       :alt: New role password
 
@@ -361,8 +361,8 @@ is having a properly configured database.
       :guilabel:`Owner` ``db_user`` (this may take a few moments)
 
       .. figure:: /images/install-windows-screenshots/pgadmin-08newdatabase-name.png
-         :figwidth: 45%
-         :width: 40%
+         :figwidth: 65%
+         :width: 60%
          :align: center
          :alt: New database name
 
@@ -382,8 +382,8 @@ is having a properly configured database.
          Options menu
 
       .. figure:: /images/install-windows-screenshots/pgadmin-10viewlanguages.png
-         :figwidth: 45%
-         :width: 40%
+         :figwidth: 65%
+         :width: 60%
          :align: center
          :alt: Enable display of installed languages
 
@@ -393,8 +393,8 @@ is having a properly configured database.
       and finally expand the now available :guilabel:`Languages` item:
 
       .. figure:: /images/install-windows-screenshots/pgadmin-11installedlanguages.png
-         :figwidth: 45%
-         :width: 40%
+         :figwidth: 65%
+         :width: 60%
          :align: center
          :alt: View installed languages
 
@@ -418,8 +418,8 @@ is having a properly configured database.
          Add new language
 
       .. figure:: /images/install-windows-screenshots/pgadmin-13newlanguage-name.png
-         :figwidth: 45%
-         :width: 40%
+         :figwidth: 65%
+         :width: 60%
          :align: center
          :alt: New language name
 
