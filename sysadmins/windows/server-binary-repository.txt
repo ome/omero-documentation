@@ -62,7 +62,8 @@ Access Permissions
 ------------------
 
 Your repository should be owned or accessible by the same user that is
-starting your OMERO.server instance.
+starting your OMERO.server instance which may be different from the user you
+use to start OMERO. See :doc:`service-tools` for more information.
 
 To modify the access permissions to the binary repository, the :file:`OMERO`
 folder properties can be accessed and the permissions settings changed
