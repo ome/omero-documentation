@@ -39,8 +39,7 @@ point you back to this page for packaging and deploying your new code.
    further extend search
 -  :doc:`/developers/Server/LoginAttemptListener`: Write a
    Java handler for failed login attempts
--  |OmeroCli|: Write drop in Python extensions for
-   the command-line
+-  |CLI|: Write drop in Python extensions for the command-line
 -  :doc:`/developers/Modules/Scripts`: Write python scripts to
    process data server-side
 -  :doc:`/developers/Server/Ldap`: Write a Java authentication

@@ -147,6 +147,7 @@ rst_epilog = """
 .. |OS| replace:: :abbr:`OS (Operating System)`
 .. |SSL| replace:: :abbr:`SSL (Secure Socket Layer)`
 .. |HDD| replace:: :abbr:`HDD (Hard Disk Drive)`
+.. |CLI| replace:: :abbr:`CLI (Command Line Interface)`
 
 .. |OME| replace:: `Open Microscopy Environment`_
 .. |Glencoe| replace:: `Glencoe Software, Inc.`_
@@ -154,7 +155,6 @@ rst_epilog = """
 .. |OmeroCpp| replace:: :doc:`/developers/Cpp`
 .. |OmeroJava| replace:: :doc:`/developers/Java`
 .. |OmeroMatlab| replace:: :doc:`/developers/Matlab`
-.. |OmeroCli| replace:: :doc:`/users/command-line-interface`
 .. |OmeroApi| replace:: :doc:`/developers/Modules/Api`
 .. |OmeroWeb| replace:: :doc:`/developers/Web`
 .. |OmeroClients| replace:: :doc:`/developers/GettingStarted`

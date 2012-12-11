@@ -1,4 +1,4 @@
-OMERO command line interface
+OMERO Command Line Interface
 ============================
 
 .. seealso::
@@ -7,15 +7,15 @@ OMERO command line interface
         User documentation on the Command Line Interface
 
     :doc:`/sysadmins/command-line-interface`
-        System Administrator Documentation for the Command Line Interface
+        System Administrator documentation for the Command Line Interface
 
 Extensions
 ----------
 
 Plugins can be written and put in the ``lib/python/omero/plugins``
 directory. On execution, all plugins in that directory are registered
-with the |OmeroCli|. Alternatively, the "--path"
-argument can be used to point to other plugin files or directories.
+with the |CLI|. Alternatively, the "--path" argument can be used to point to 
+other plugin files or directories.
 
 Thread-safety
 ^^^^^^^^^^^^^
@@ -23,7 +23,7 @@ Thread-safety
 The ``omero.cli.CLI`` should be considered thread-*un*\ safe. A single
 connection object is accessible from all plugins via
 ``self.ctx.conn(args)``, and it is assumed that changes to this object
-will only take place in the current thread. The cli instance itself,
+will only take place in the current thread. The |CLI| instance itself,
 however, can be passed between multiple threads, as long as only one
 accesses it sequentially, possibly via locking.
 
@@ -34,20 +34,20 @@ accesses it sequentially, possibly via locking.
 The following should be considered a design document. A portion of the
 functionality is included in the milestone :milestone:`OMERO-Beta4` and later
 releases, but more functionality will continually be added. If you would
-like to vote for a particular function, please open a ticket.
+like to request a particular function, please open a ticket.
 
 Design plans
 ------------
 
 General notes:
 
--  ``bin/omero`` will find its installation. Therefore, to install OMERO
-   it is only necessary to unpack the bundle, and put ``bin/omero``
-   somewhere on your path.
--  Any command can be produced by symlinking ``bin/omero`` to a file of
-   the form "omero-command-arg1-arg2". This is useful under /etc/rc.d to
-   have a startup script.
--  All commands respond to "help".
+-  :command:`bin/omero` will find its installation. Therefore, to install 
+   OMERO it is only necessary to unpack the bundle, and put 
+   :command:`bin/omero` somewhere on your path.
+-  Any command can be produced by symlinking :command:`bin/omero` to a file of
+   the form "omero-command-arg1-arg2". This is useful under :file:`/etc/rc.d` 
+   to have a startup script.
+-  All commands respond to :command:`help`.
 
 
 Executed before starting the server to detect possible issues.
@@ -86,7 +86,7 @@ config [6]_
     The default default is default.
 
 load [/path/to/file]  [3]_
-    Loads a file of OmeroCli commands or from stdin if the path is missing.
+    Loads a file of |CLI| commands or from stdin if the path is missing.
 
 login [4]_
     Sets the username and password that will be used to connect to the server. Before admin activities, this can be used for "sudo" like functionality.
@@ -99,7 +99,7 @@ search
 status
 
 submit [/path/to/file] [3]_ [4]_
-    Submit a file of |OmeroCli| commands to |OmeroGrid| for execution, or from stdin if the file is missing, or drop the user into a submission shell if stdin is missing.
+    Submit a file of |CLI| commands to |OmeroGrid| for execution, or from stdin if the file is missing, or drop the user into a submission shell if stdin is missing.
     
 q[uit]
 h[elp]

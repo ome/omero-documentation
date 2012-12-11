@@ -1,13 +1,13 @@
-OMERO command line interface
+OMERO Command Line Interface
 ============================
 
 .. seealso::
 
     :doc:`/users/command-line-interface`
-        User documentation for the command line interface
+        User documentation for the Command Line Interface
 
     :doc:`/developers/command-line-interface`
-        Developer Documentation for the command line interface
+        Developer Documentation for the Command Line Interface
 
 When first beginning to work with the OMERO server, the :command:`db`,
 :command:`config`, and :command:`admin` commands will be the first you will

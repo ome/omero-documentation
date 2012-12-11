@@ -1,13 +1,13 @@
-OMERO command line interface
+OMERO Command Line Interface
 ============================
 
 .. seealso::
 
     :doc:`/sysadmins/command-line-interface`
-        System administrator documentation for the command line interface
+        System administrator documentation for the Command Line Interface
 
     :doc:`/developers/command-line-interface`
-        Developer documentation for the command line interface
+        Developer documentation for the Command Line Interface
 
 Overview
 --------
@@ -15,8 +15,8 @@ Overview
 Requirements
 ^^^^^^^^^^^^
 
-The command line interface is a set of Python_ based system-administration and 
-deployment tools.
+The |CLI| is a set of Python_ based system-administration and deployment 
+tools.
 
 Check you have Python_ installed by typing::
 
@@ -27,12 +27,11 @@ Additionally, Ice_ must be installed on your machine::
 
     $ python -c "import Ice"
 
-The command line interface is currently bundled with the OMERO.server. 
-Download the version corresponding to your system from the 
-:omero_plone:`OMERO downloads <downloads>` page.
+The |CLI| is currently bundled with the OMERO.server. Download the version 
+corresponding to your system from the :omero_plone:`OMERO downloads <downloads>` page.
 
-Once the server is downloaded, the command line interface is located under the 
-:file:`bin/` directory::
+Once the server is downloaded, the |CLI| is located under the :file:`bin/` 
+directory::
 
     $ cd OMERO.server
     $ bin/omero -h
@@ -43,9 +42,9 @@ Once the server is downloaded, the command line interface is located under the
 Command line help
 ^^^^^^^^^^^^^^^^^
 
-The command line interface is divided into several commands which may 
-themselves contain subcommands. You can investigate the various commands 
-available using the :option:`-h` or :option:`--help` option::
+The |CLI| is divided into several commands which may themselves contain 
+subcommands. You can investigate the various commands available using the 
+:option:`-h` or :option:`--help` option::
 
     $ bin/omero -h
 
