@@ -295,6 +295,9 @@ Common markups
   ``.. seealso::``
 * Menu selections should be marked using the appropriate role:
   ``:menuselection: `Start --> Programs```
+* CLI Commands can be formatted using the following role:
+  ``:omerocmd: `admin start```
+  This role will add an entry for the command in the generated index.
 
 Global substitutions
 ====================
@@ -329,15 +332,16 @@ The table below lists substitutions for common abbreviations. These
 substitutions use the ``:abbr:`` Sphinx role meaning they are shown as 
 tool-tip in HTML and output only once in LaTeX.
 
-======= ============= ===================
+======= ============= ======================
 Name    Abbreviation  Explanation
-======= ============= ===================
+======= ============= ======================
 \|SSH\| SSH           Secure Shell
 \|VM\|  VM            Virtual Machine
 \|OS\|  OS            Operating System
 \|SSL\| SSL           Secure Socket Layer
 \|HDD\| HDD           Hard Disk Drive
-======= ============= ===================
+\|CLI\| CLI           Command Line Interface
+======= ============= ======================
 
 Page references
 ---------------
@@ -352,7 +356,6 @@ Name                Path
 \|OmeroCpp\|        developers/Cpp
 \|OmeroJava\|       developers/Java
 \|OmeroMatlab\|     developers/Matlab
-\|OmeroCli\|        users/command-line-interface
 \|OmeroApi\|        developers/Modules/Api
 \|OmeroWeb\|        developers/Web
 \|OmeroClients\|    developers/GettingStarted
