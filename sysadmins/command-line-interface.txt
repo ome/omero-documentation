@@ -11,14 +11,13 @@ OMERO Command Line Interface
 
 When first beginning to work with the OMERO server, the :command:`db`,
 :command:`config`, and :command:`admin` commands will be the first you will
-need. The :command:`user` and :command:`group` commands will then provide
-functionalities to add and manage users and groups on your database.
+need.
 
 Database tools
 --------------
 
 Rather than try to provide the functionality of a RDBM tool like
-:omerocmd:`psql`, the :omerocmd:`db script` command helps to generate SQL
+:command:`psql`, the :omerocmd:`db script` command helps to generate SQL
 scripts for building your database. You can then use those scripts from
 whatever tool is most comfortable for you::
 
@@ -140,6 +139,9 @@ Server diagnostics
 User/group management
 ---------------------
 
+The :omerocmd:`user` and :omerocmd:`group` commands provide functionalities to 
+add and manage users and groups on your database.
+
 User creation
 ^^^^^^^^^^^^^
 
@@ -155,7 +157,7 @@ enter::
     $ bin/omero user add jsmith John Smith 2
 
 Additional parameters such as the email address, institution, middle name etc 
-can be passed as optional arguments to the :omerocmd:`user add` command.
+can be passed as optional arguments to the :command:`user add` command.
 
 Group creation
 ^^^^^^^^^^^^^^
@@ -192,21 +194,21 @@ Lists of users/groups on the OMERO server can be queried using the
 Group management
 ^^^^^^^^^^^^^^^^
 
-Group membership can be controlled using the :omerocmd:`user joingroup`,
-:omerocmd:`user leavegroup`, :omerocmd:`group adduser` and
+Users can be added to existing groups using the :omerocmd:`user joingroup` or 
+:omerocmd:`group adduser` commands. Similarly, users can be removed from 
+existing groups using the :omerocmd:`user leavegroup` or 
 :omerocmd:`group removeuser` commands::
 
     # Add jsmith to group read-annotate
     $ bin/omero group adduser jsmith --name=read-annotate-1
-    # Remove  jsmith from group read-annotate
+    # Remove jsmith from group read-annotate
     $ bin/omero group removeuser jsmith --name=read-only-1
     # Add jsmith to group read-only-1
     $ bin/omero user joingroup read-only-1 --name=jsmith
     # Remove jsmith from group read-annotate-1
     $ bin/omero user leavegroup read-annotate-1 --name=jsmith
 
-Group ownership can be manipulated by appending the :option:`--as-owner` 
-optional argument to the group management ommands::
+By passing the :option:`--as-owner` option, these commands can also be used to manage group owners ::
 
     # Add jsmith to the owner list of group read-annotate-1
     $ bin/omero group adduser jsmith --name=read-annotate-1 --as-owner
@@ -217,7 +219,7 @@ Group copy
 ^^^^^^^^^^
 
 To create a copy of a group, you must first create a new group using the
-:omerocmd:`group add` command::
+:command:`group add` command::
 
     $ bin/omero group add read-only-2 --perms='rwr----'
 
