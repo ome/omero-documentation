@@ -1,8 +1,6 @@
 OMERO command line interface
 ============================
 
-.. highlight:: bash
-
 .. seealso::
 
     :doc:`/users/command-line-interface`
@@ -11,21 +9,18 @@ OMERO command line interface
     :doc:`/users/command-line-interface`
         Developer Documentation for the command line interface
 
-When first beginning to work with the OMERO server, the `db`,
-`config`, and `admin` commands will be the first you will need.
-The `user` and `group` commands will then provide functionalities to
-add and manage users and groups on your database.
-
-.. index::
-    single: db
+When first beginning to work with the OMERO server, the :omerocmd:`db`,
+:omerocmd:`config`, and :omerocmd:`admin` commands will be the first you will
+need. The :omerocmd:`user` and :omerocmd:`group` commands will then provide
+functionalities to add and manage users and groups on your database.
 
 Database tools
 --------------
 
 Rather than try to provide the functionality of a RDBM tool like
-:command:`psql`, the :command:`db` command helps to generate SQL scripts for building
-your database. You can then use those scripts from whatever tool is most
-comfortable for you::
+:omerocmd:`psql`, the :omerocmd:`db` command helps to generate SQL scripts for
+building your database. You can then use those scripts from whatever tool is
+most comfortable for you::
 
     $ bin/omero db script OMERO4 0 secretpassword
     Using OMERO4 for version
@@ -34,13 +29,10 @@ comfortable for you::
     Saving to /omero/OMERO4__0.sql
     $ psql omero < OMERO4__0.sql
 
-.. index::
-    single: config
-
 Server configuration
 --------------------
 
-The :command:`config` command is responsible for reading / writing
+The :omerocmd:`config` command is responsible for reading / writing
 user-specific profiles. These are stored in platform-specific, protected
 locations such as the registry on Windows, ``~/.java/.userPrefs`` on
 Linux, or ``~/Library/Preferences`` on Mac OS X::
@@ -65,7 +57,7 @@ Linux, or ``~/Library/Preferences`` on Mac OS X::
     $ OMERO_CONFIG=another bin/omero config get
     example=my second value
 
-The values set via :command:`config` override those compiled into the server
+The values set via :omerocmd:`config` override those compiled into the server
 jars. The default values which are set can be seen in
 ``etc/omero.properties``. To add several values to a configuration, you
 can pipe them via standard in::
@@ -117,29 +109,21 @@ as your default::
     $ bin/omero config def ldap
 
 And finally, if you would like to remove a profile, say to wipe a given
-password off of a system, use :command:`drop`::
+password off of a system, use :omerocmd:`config drop`::
 
     $ bin/omero config drop
 
-.. index::
-    single: admin
-
 Server administration
 ---------------------
-
-.. index::
-    single: admin; start
 
 Server start
 ^^^^^^^^^^^^
 
 Once your database has been properly configured and your config profile
-is set to use that database, you're ready to start your server::
+is set to use that database, you are ready to start your server using the
+:omerocmd:`admin start` command::
 
     $ bin/omero admin start
-
-.. index::
-    single: admin; diagnostics
 
 Server diagnostics
 ^^^^^^^^^^^^^^^^^^
@@ -148,20 +132,13 @@ Server diagnostics
 
     $ bin/omero admin diagnostics
 
-.. index::
-    single: group
-    single: user
-
 User/group management
 ---------------------
-
-.. index::
-    single: user; add
 
 User creation
 ^^^^^^^^^^^^^
 
-New users can be added to the database using the :command:`user add` command::
+New users can be added to the database using the :omerocmd:`user add` command::
 
     $ bin/omero user add -h
 
@@ -173,16 +150,13 @@ enter::
     $ bin/omero user add jsmith John Smith 2
 
 Additional parameters such as the email address, institution, middle name etc 
-can be passed as optional arguments to the :command:`add` subcommand.
-
-.. index::
-    single: group; add
+can be passed as optional arguments to the :omerocmd:`user add` command.
 
 Group creation
 ^^^^^^^^^^^^^^
 
-New groups can be added to the database using the :command:`group add` 
-subcommand::
+New groups can be added to the database using the :omerocmd:`group add` 
+command::
 
     $ bin/omero group add -h
 
@@ -192,7 +166,8 @@ group::
     $ bin/omero group add newgroup
 
 The permissions of the group are set to `private` by default. Alternately you
-can specify the permissions using `--perms` or `--type` optional arguments::
+can specify the permissions using :option:`--perms` or :option:`--type` 
+optional arguments::
 
     $ bin/omero group add read-only-1 --perms='rwr----'
     $ bin/omero group add read-annotate-1 --type=read-annotate
@@ -204,24 +179,17 @@ can specify the permissions using `--perms` or `--type` optional arguments::
         read-annotate). 
 
 Lists of users/groups on the OMERO server can be queried using the
-:index:`user list <single: user; list>` and
-:index:`group list <single: group; list>` subcommands::
+:omerocmd:`user list` and :omerocmd:`group list` commands::
 
     $ bin/omero user list
     $ bin/omero group list
 
-.. index::
-    single: user; joingroup
-    single: user; leavegroup
-    single: group; adduser
-    single: group; removeuser
-
 Group management
 ^^^^^^^^^^^^^^^^
 
-Group membership can be controlled using the `user` :command:`joingroup` and
-:command:`leavegroup` subcommands or the `group` :command:`adduser`  and 
-:command:`removeuser` subcommands::
+Group membership can be controlled using the :omerocmd:`user joingroup`,
+:omerocmd:`user leavegroup`, :omerocmd:`group adduser` and
+:omerocmd:`group removeuser` commands::
 
     # Add jsmith to group read-annotate
     $ bin/omero group adduser jsmith --name=read-annotate-1
@@ -232,32 +200,27 @@ Group membership can be controlled using the `user` :command:`joingroup` and
     # Remove jsmith from group read-annotate-1
     $ bin/omero user leavegroup read-annotate-1 --name=jsmith
 
-Group ownership can be manipulated by appending the `--as-owner` optional 
-argument to the group management subcommands::
+Group ownership can be manipulated by appending the :option:`--as-owner` 
+optional argument to the group management ommands::
 
     # Add jsmith to the owner list of group read-annotate-1
     $ bin/omero group adduser jsmith --name=read-annotate-1 --as-owner
     # Remove jsmith from the owner list of group read-annotate-1
     $ bin/omero user leavegroup read-only-1 --name=jsmith --as-owner
 
-
-.. index::
-    single: group; copyusers
-
 Group copy
 ^^^^^^^^^^
 
 To create a copy of a group, you must first create a new group using the
-:command:`group add` command::
+:omerocmd:`group add` command::
 
     $ bin/omero group add read-only-2 --perms='rwr----'
 
-Then you can use the :command:`copyusers` command to copy all group members 
-from one group to  another::
+Then you can use the :omerocmd:`group copyusers` command to copy all group 
+members from one group to  another::
 
     $ bin/omero group copyusers read-only-1 read-only-2
 
-To copy the group owners, use the same command with the`--as-owner` optional
-argument::
+To copy the group owners, use the same command with the :option:`--as-owner` optional argument::
 
     $ bin/omero group copyusers read-only-1 read-only-2 --as-owner
