@@ -1,8 +1,6 @@
 OMERO command line interface
 ============================
 
-.. highlight:: bash
-
 .. seealso::
 
     :doc:`/sysadmins/command-line-interface`
@@ -34,7 +32,7 @@ Download the version corresponding to your system from the
 :omero_plone:`OMERO downloads <downloads>` page.
 
 Once the server is downloaded, the command line interface is located under the 
-``bin/`` subdirectory::
+:file:`bin/` directory::
 
     $ cd OMERO.server
     $ bin/omero -h
@@ -42,22 +40,23 @@ Once the server is downloaded, the command line interface is located under the
     Type "help" for more information, "quit" or Ctrl-D to exit
     omero>
 
-Command help
-^^^^^^^^^^^^
+Command line help
+^^^^^^^^^^^^^^^^^
 
 The command line interface is divided into several commands which may 
 themselves contain subcommands. You can investigate the various commands 
-available using the `-h/--help` option::
+available using the :option:`-h` or :option:`--help` option::
 
     $ bin/omero -h
 
-Again, we can use `-h` repeatedly to get more details on each of these
+Again, we can use :option:`-h` repeatedly to get more details on each of these
 sub-commands::
 
     $ bin/omero admin -h
     $ bin/omero admin start -h
 
-The `help` command can be used to get info on other commands or options::
+The :omerocmd:`help` command can be used to get info on other commands or 
+options::
 
     $ bin/omero help debug       # debug is an option
     $ bin/omero help admin       # same as bin/omero admin -h
@@ -67,13 +66,29 @@ Command line workflow
 
 There are three ways to use the command line tools:
 
-#.  By first explicitly logging into to the server use the :command:`login`
-    command (see :ref:`sessions_login` for more details)::
+#.  By explicitly logging in to to the server first i.e. by creating a session 
+    using the :omerocmd:`login` command. 
+    The connection parameters can be either passed directly in the connection 
+    string:: 
 
         $ bin/omero login username@servername:4064
 
-    Once logged in, by calling the desired command, e.g. the :command:`import` 
-    command::
+    or using the :option:`-s`, :option:`-u` and :option:`-p` options::
+        
+        $ bin/omero -s servername -u username -p 4064 import image.tiff
+    
+    If no argument can be specified, the interface will ask for the 
+    connection credentials::
+
+        $ bin/omero login
+        Previously logged in to localhost:4064 as root
+        Server: [localhost]
+        Username: [root]
+        Password:
+    
+    During login, a session is created locally on disk and will remain active 
+    until you logout or it times out. You can then call the desired command, 
+    e.g. the :omerocmd:`import` command::
 
         $ bin/omero import image.tiff
 
@@ -89,99 +104,37 @@ There are three ways to use the command line tools:
         Username: [username]
         Password:
 
-.. index::
-    single: import
+Once you are done with your work, you can terminate the current session if you 
+wish using the :omerocmd:`logout` command::
+
+    $ bin/omero logout
 
 Import images
 -------------
 
-:command:`import` is probably the first command many will users want to use. 
-Running the command without any arguments will produce a help listing::
-
-    $ bin/omero import -h
-
-So, to upload a file image.tiff, use the :command:`import` command as::
+:omerocmd:`import` is probably the first command many will users want to use.
+To import a file image.tiff, use::
 
     $ bin/omero import image.tiff
 
+Many options can be passed to the :omerocmd:`import`. They can be listed using 
+the :option:`-h` option::
 
-.. index::
-    single: sessions
+    $ bin/omero import -h
 
-Sessions
---------
+Manage sessions
+---------------
 
-:command:`sessions` creates and handles user sessions stored locally on disk. 
+The :omerocmd:`sessions` commands manage user sessions stored locally on disk. 
 Several sessions can be active simultaneously, but only one will be used for a 
-single invocation of :command:`bin/omero`::
+single invocation of `bin/omero`::
 
     $ bin/omero sessions -h
-
-.. index::
-    single: sessions; login
- 	single: sessions; file
-    single: login
-
-.. _sessions_login:
-
-Create a session
-^^^^^^^^^^^^^^^^
-
-A session can be created using the :command:`login` command. The 
-:command:`bin/omero login` command is a shortcut for :command:`bin/omero 
-sessions login` subcommand
-
-Without arguments, the interface will ask for the server name, user name and 
-password to use::
-
-    $ bin/omero login
-    Previously logged in to localhost:4064 as root
-    Server: [localhost]
-    Username: [root]
-    Password:
-
-The server name, port and username can be passed to the :command:`login` 
-command
-
-#.  either directly within a connection string::
-
-        $ bin/omero login username@servername:4064
-        Password:
-
-#.  or using the `-s/--server`, `-u/--user` and `-p/--port` optional 
-    arguments::
-
-        $ bin/omero login -s servername -u username -p 4064
-        Password:
-
-
-The session is stored locally on disk and its location can be retrieved using
-the :command:`file` subcommand::
-
-    $ bin/omero sessions file
-    /Users/ome/omero/sessions/localhost/root/aec828e1-79bf-41f3-91e6-a4ac76ff1cd5
-
-.. index::
-    single: sessions; logout
-    single: logout
-
-Close a session
-^^^^^^^^^^^^^^^
-
-To terminate the current session, use the :command:`logout` subcommand::
-
-    $ bin/omero logout
-
-.. note::
-    ``bin/omero logout`` is a  shortcut for ``bin/omero sessions logout``.
-
-.. index::
-    single: sessions; list
 
 Multiple sessions
 ^^^^^^^^^^^^^^^^^
 
-Stored sessions can be listed using the :command:`list` subcommand::
+Stored sessions can be listed using the :omerocmd:`sessions list` command::
 
     $ bin/omero sessions list
      Server    | User | Group           | Session                              | Active    | Started
@@ -205,9 +158,15 @@ Sessions keys can then be reused to switch between stored sessions::
 Sessions directory
 ^^^^^^^^^^^^^^^^^^
 
-By default sessions are saved under ``~/omero/sessions``. If you want to use a
-custom session directory, use the `--sessions-dir` optional argument in the 
-:command:`sessions` subcommands::
+By default sessions are saved locally on disk under :file:`~/omero/sessions`. 
+The location of the current session file can be retrieved using the 
+:omerocmd:`sessions file` command::
+
+    $ bin/omero sessions file
+    /Users/ome/omero/sessions/localhost/root/aec828e1-79bf-41f3-91e6-a4ac76ff1cd5
+
+If you want to use a custom session directory, use the 
+:option:`--sessions-dir` argument in the :omerocmd:`sessions` commands::
 
     $ bin/omero login --sessions-dir=/tmp
     $ bin/omero sessions list --sessions-dir=/tmp
