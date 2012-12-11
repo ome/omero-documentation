@@ -62,7 +62,8 @@ Access Permissions
 ------------------
 
 Your repository should be owned or accessible by the same user that is
-starting your OMERO.server instance.
+starting your OMERO.server instance which may be different from the user you
+use to start OMERO. See :doc:`service-tools` for more information.
 
 To modify the access permissions to the binary repository, the :file:`OMERO`
 folder properties can be accessed and the permissions settings changed
@@ -85,41 +86,3 @@ read (`R`) and write (`W`) from and to the ``OMERO`` directory:
     :align: center
 
     Repository Folder Permissions
-
-OMERO.server Windows service
-----------------------------
-
-Default Windows `Local System` user
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-When no specific Windows user has been defined using :command:`bin\\omero
-config set`, the OMERO.server starts as the `Local System` user. This user
-has enough permissions to access data on the local file system. In most
-circumstances that should allow the OMERO.server service to access data
-inside the repository.
-
-Custom user
-^^^^^^^^^^^
-A custom user can be configured to run the OMERO.server service. You can
-configure the OMERO Windows user by setting `omero.windows.user` and
-`omero.windows.pass`::
-
-    C:\OMERO.server\> bin\omero config set omero.windows.user USERNAME
-    C:\OMERO.server\> bin\omero config set omero.windows.pass PASSWORD
-
-.. warning::
-
-    Setting `omero.windows.pass` exposes your user password in the OMERO
-    configuration.
-
-Be sure to also change the `Log On` user in the OMERO.server service
-settings. Please consult :ref:`server_service_user_win`. The user credentials
-should be the same as used with ``omero.windows.user`` and
-``omero.windows.pass``.
-
-.. _server_service_user_win:
-
-.. figure:: /images/server-service-user-win.png
-    :align: center
-
-    Windows Service `Log On` User Settings

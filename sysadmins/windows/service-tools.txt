@@ -4,7 +4,7 @@ OMERO.server Windows Service
 OMERO.server installs a Windows Service to make the startup of the software
 automatic at Windows boot time. When starting the server for the first time
 an invocation to built-in Windows commands :command:`sc.exe` and
-:command:`ntrights. exe` is made.
+:command:`ntrights.exe` is made.
 
 The :command:`bin\\omero admin start` command is a wrapper around a call to
 :command:`sc create` followed by :command:`sc start`. In turn,
@@ -17,7 +17,45 @@ having the service removed completely.
 :command:`ntrights.exe` is used by the :command:`admin` component of
 :command:`bin\\omero`. When the OMERO.server service needs to be run as a
 different user, this command allows for modifying the `Log On` settings of
-7the Windows Service.
+the Windows Service.
+
+OMERO.server service user
+-------------------------
+
+Default Windows `Local System` user
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When no specific Windows user has been defined using :command:`bin\\omero
+config set`, the OMERO.server starts as the `Local System` user. This user
+has enough permissions to access data on the local file system. In most
+circumstances that should allow the OMERO.server service to access data
+inside the repository.
+
+Custom user
+^^^^^^^^^^^
+A custom user can be configured to run the OMERO.server service. You can
+configure the OMERO Windows user by setting `omero.windows.user` and
+`omero.windows.pass`::
+
+    C:\OMERO.server\> bin\omero config set omero.windows.user USERNAME
+    C:\OMERO.server\> bin\omero config set omero.windows.pass PASSWORD
+
+.. warning::
+
+    Setting `omero.windows.pass` exposes your user password in the OMERO
+    configuration.
+
+You can verify that a different user has been set as the `Log On` user for
+the OMERO.server service by accessing the Windows Services Manager (see
+:ref:`server_service_user_win`).
+
+.. _server_service_user_win:
+
+.. figure:: /images/server-service-user-win.png
+    :align: center
+
+    Windows Service `Log On` User Settings
+
 
 Windows Services Manager
 ------------------------
