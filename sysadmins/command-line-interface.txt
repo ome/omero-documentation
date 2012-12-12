@@ -176,7 +176,7 @@ The permissions of the group are set to `private` by default. Alternately you
 can specify the permissions using :option:`--perms` or :option:`--type` 
 optional arguments::
 
-    $ bin/omero group add read-only-1 --perms='rwr----'
+    $ bin/omero group add read-only-1 --perms='rwr---'
     $ bin/omero group add read-annotate-1 --type=read-annotate
 
 .. seealso::
@@ -199,21 +199,21 @@ Users can be added to existing groups using the :omerocmd:`user joingroup` or
 existing groups using the :omerocmd:`user leavegroup` or 
 :omerocmd:`group removeuser` commands::
 
-    # Add jsmith to group read-annotate
+    # Add jsmith to group read-annotate-1
     $ bin/omero group adduser jsmith --name=read-annotate-1
-    # Remove jsmith from group read-annotate
-    $ bin/omero group removeuser jsmith --name=read-only-1
+    # Remove jsmith from group read-annotate-1
+    $ bin/omero group removeuser jsmith --name=annotate-1
     # Add jsmith to group read-only-1
     $ bin/omero user joingroup read-only-1 --name=jsmith
-    # Remove jsmith from group read-annotate-1
-    $ bin/omero user leavegroup read-annotate-1 --name=jsmith
+    # Remove jsmith from group read-only-1
+    $ bin/omero user leavegroup read-only-1 --name=jsmith
 
 By passing the :option:`--as-owner` option, these commands can also be used to manage group owners ::
 
     # Add jsmith to the owner list of group read-annotate-1
     $ bin/omero group adduser jsmith --name=read-annotate-1 --as-owner
     # Remove jsmith from the owner list of group read-annotate-1
-    $ bin/omero user leavegroup read-only-1 --name=jsmith --as-owner
+    $ bin/omero user leavegroup read-annotate-1 --name=jsmith --as-owner
 
 Group copy
 ^^^^^^^^^^
@@ -221,7 +221,7 @@ Group copy
 To create a copy of a group, you must first create a new group using the
 :command:`group add` command::
 
-    $ bin/omero group add read-only-2 --perms='rwr----'
+    $ bin/omero group add read-only-2 --perms='rwr---'
 
 Then you can use the :omerocmd:`group copyusers` command to copy all group 
 members from one group to  another::
