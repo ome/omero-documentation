@@ -16,9 +16,10 @@ The |OmeroApi| allows clients to be
 written in :doc:`Java </developers/Java>`, :doc:`Python </developers/Python>`,
 :doc:`C++ </developers/Cpp>` or :doc:`MATLAB </developers/Matlab>`. OMERO
 releases include a Java client OMERO.insight, a Python-based web client 
-OMERO.web and the |CLI|, which also uses Python. There is also an ImageJ 
-plugin. OMERO can be extended by modifying these clients or by writing your 
-own in any of the supported languages (see figure). OMERO also supports a
+OMERO.web and the :doc:`/developers/command-line-interface`, which also uses 
+Python. There is also an ImageJ plugin. OMERO can be extended by modifying 
+these clients or by writing your own in any of the supported languages (see 
+figure). OMERO also supports a 
 :doc:`Scripting Service </developers/Modules/Scripts>` which allows Python
 scripts to be run on the server & called from any of the other clients.
 
