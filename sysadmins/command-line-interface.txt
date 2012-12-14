@@ -202,7 +202,7 @@ existing groups using the :omerocmd:`user leavegroup` or
     # Add jsmith to group read-annotate-1
     $ bin/omero group adduser jsmith --name=read-annotate-1
     # Remove jsmith from group read-annotate-1
-    $ bin/omero group removeuser jsmith --name=annotate-1
+    $ bin/omero group removeuser jsmith --name=read-annotate-1
     # Add jsmith to group read-only-1
     $ bin/omero user joingroup read-only-1 --name=jsmith
     # Remove jsmith from group read-only-1
