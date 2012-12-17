@@ -196,8 +196,7 @@ Jenkins
 The OME project currently uses Jenkins_ as
 a continuous integration server available :jenkins:`here <>`, so many
 binary packages can be downloaded without compiling them yourself.
-OMERO.server is built by the "OMERO" job at
-:jenkins:`job/OMERO-trunk`.
+OMERO.server is built by the :jenkinsjob:`"OMERO" job <>`.
 
 Hudson checks for git changes every 15 minutes and executes:
 

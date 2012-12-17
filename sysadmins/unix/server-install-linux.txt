@@ -263,8 +263,8 @@ downloads <downloads>` page.
 	If you want the development version of OMERO.server, you can clone the 
 	source code from the project's GitHub account at
 	https://github.com/openmicroscopy/openmicroscopy to build
-	locally or download a daily build from our :jenkins:`build
-	server <job/OMERO-trunk/lastSuccessfulBuild/artifact/>`
+	locally or download a daily build from our :jenkinsjob:`build
+	server <lastSuccessfulBuild/artifact/>`
 
 Assuming that you downloaded a release version of OMERO.server, extract
 it from the zip archive:
