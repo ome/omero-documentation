@@ -122,6 +122,8 @@ else:
 jenkins_root = 'http://hudson.openmicroscopy.org.uk/'
 jenkins_job_root = jenkins_root + 'job/' + jenkins_job
 
+oo_site_root = 'http://www.openmicroscopy.org/site'
+
 extlinks = {
     'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/%s', '#'),
     'milestone' : ('http://trac.openmicroscopy.org.uk/ome/milestone/%s', ''),
@@ -138,16 +140,16 @@ extlinks = {
     'forum' : ('http://www.openmicroscopy.org/community/%s', ''),
     # Plone links. Separating them out so that we can add prefixes and
     # suffixes during testing.
-    'community_plone' : ('http://www.openmicroscopy.org/site/community/%s', ''),
-    'feature_plone' : ('http://www.openmicroscopy.org/site/products/feature-list/%s', ''),
-    'formats_plone' : ('http://www.openmicroscopy.org/site/support/file-formats/%s', ''),
-    'legacy_plone' : ('http://www.openmicroscopy.org/site/support/legacy/%s', ''),
-    'about_plone' : ('http://www.openmicroscopy.org/site/about/%s', ''),
-    'team_plone' : ('http://www.openmicroscopy.org/site/team/%s', ''),
-    'faq_plone' : ('http://www.openmicroscopy.org/site/support/faq/%s', ''),
-    'omero_plone' : ('http://www.openmicroscopy.org/site/products/omero/%s/', ''),
-    'bf_plone' : ('http://www.openmicroscopy.org/site/products/bio-formats/%s/', ''),
-    'bf_doc' : ('http://www.openmicroscopy.org/site/support/bio-formats/%s', ''),
+    'community_plone' : (oo_site_root + '/community/%s', ''),
+    'feature_plone' : (oo_site_root + '/products/feature-list/%s', ''),
+    'formats_plone' : (oo_site_root + '/support/file-formats/%s', ''),
+    'legacy_plone' : (oo_site_root + '/support/legacy/%s', ''),
+    'about_plone' : (oo_site_root + '/about/%s', ''),
+    'team_plone' : (oo_site_root + '/team/%s', ''),
+    'faq_plone' : (oo_site_root + '/support/faq/%s', ''),
+    'omero_plone' : (oo_site_root + '/products/omero/%s/', ''),
+    'bf_plone' : (oo_site_root + 'site/products/bio-formats/%s/', ''),
+    'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
     }
 
 rst_epilog = """
