@@ -117,11 +117,10 @@ Ice (3.3.x or higher)
     <https://www.openmicroscopy.org/community>`_.
 
 
-Windows installers can be found on the `ZeroC download
-page <http://www.zeroc.com/download.html>`_ and will be called
-something like :file:`Ice-3.4.2.msi` (for Ice 3.4.2). If you plan to
-develop for C++, be sure to read the instructions on the
-|OmeroCpp| page.
+Windows installers can be found on the :zeroc:`ZeroC download
+page <download.html>` and will be called something like :file:`Ice-3.4.2.msi` 
+(for Ice 3.4.2). If you plan to develop for C++, be sure to read the 
+instructions on the |OmeroCpp| page.
 
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,8 +1,7 @@
 OMERO C++ language bindings
 ===========================
 
-Using the ` Ice C++ language
-mapping <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.4.3.html>`_ from
+Using the :zeroc:`Ice C++ language mapping <doc/Ice-3.3.0/manual/Hello.4.3.html>` from
 ZeroC_, OMERO provides native access to
 your data from C++ code. The "build-cpp" build target produces a
 platform-dependent shared library which can be linked to your

@@ -10,7 +10,7 @@ Developing OMERO clients
    - This page is intended for developers already familiar with
      client/server programming. If you are not, **your best starting
      point is to read the**
-     `Hello World <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.html#22064>`_
+     :zeroc:`Hello World <doc/Ice-3.3.0/manual/Hello.html#22064>`
      **chapter of the Ice manual (or more)**. A deeper understanding of
      Ice might not be necessary, but certainly understanding the Ice
      basics will make reading this guide **much** easier.
@@ -54,8 +54,7 @@ standalone clients and writing web applications in frameworks like
 mod\_perl, django, or Ruby on Rails. The remoting framework used by
 OMERO is named Ice_ from ZeroC. Ice is comparable
 to CORBA in many ways, but is typically easier to use. For ZeroC's
-comparison of Ice to CORBA, see
-`http://www.zeroc.com/iceVsCorba.html <http://www.zeroc.com/iceVsCorba.html>`_.
+comparison of Ice to CORBA, see :zeroc:`iceVsCorba.html`.
 
 A good first step is to be aware of the difference between remote and
 local invocations. Any invocation on a proxy (``<class_name>Prx``,
@@ -1184,8 +1183,8 @@ Example: :source:`examples/OmeroClients/smartpointers.cpp`
 a boolean or integer/long context, returns 1 for true (i.e. non-null) or
 0 for false (i.e. null). Be especially careful with the RTypes.
 
-For more information, see ` 6.14.6 Smart Pointers for
-Classes <http://zeroc.com/doc/Ice-3.3.0/manual/Cpp.7.14.html>`_ in the
+For more information, see :zeroc:`6.14.6 Smart Pointers for
+Classes <doc/Ice-3.3.0/manual/Cpp.7.14.html>` in the
 Ice manual, which also describes the ``Ice.GC.Interval`` parameter which
 determines how often garbage collection runs in C++ to reap objects.
 This is necessary with the |OmeroModel| 
@@ -2711,4 +2710,4 @@ Other
 -  Annotation-link-loading can behave strangely if
    ``AnnotationLink.child`` is not loaded.
 -  Python applications can segfault under certain orderings of imports:
-   See `Bus Error under Mac OX 10.4 and IcePy 3.3.0 <http://www.zeroc.com/forums/bug-reports/3883-bus-error-under-mac-ox-10-4-icepy-3-3-0-a.html>`_
+   See :zeroc:`Bus Error under Mac OX 10.4 and IcePy 3.3.0 <forums/bug-reports/3883-bus-error-under-mac-ox-10-4-icepy-3-3-0-a.html>`
