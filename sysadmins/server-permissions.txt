@@ -244,7 +244,7 @@ Key
 		Action on other user's data
 
 	View
-		View ROIs added by others.  Draw ROIs on another
+		View other user's data e.g. images. View ROIs added by others.  Draw ROIs on another
 		user's data, but they cannot be saved.
 
 	Annotate
@@ -259,16 +259,8 @@ Key
 	Delete
 
 		Delete data e.g. images or ROIs.  ROIs may have been
-		added by others or yourself.  This also covers
-		de-annotation; the removal of annotations (tag,
-		attachment, comment) made by others.
+		added by others or yourself.
 		
-		.. note::
-			You should always be able to remove
-			annotations (e.g. tag) that you linked to
-			other users' data (you own the link).  The
-			link can be deleted, but the tag itself will
-			not be deleted.
 
 	Edit
 		Modify the name or description of someone else’s
@@ -284,6 +276,13 @@ Key
 
 	Remove
 		Remove annotations made by others on your data.
+
+		.. note::
+			You should always be able to remove
+			annotations (e.g. tag) that you linked to
+			other users' data (you own the link).  The
+			link can be deleted, but the tag itself will
+			not be deleted.
 
 
 Issues to be aware of
