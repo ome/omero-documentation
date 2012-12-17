@@ -61,7 +61,7 @@ Jenkins
 
 The OME project currently uses Jenkins_ (formerly known as hudson) as a 
 continuous integration server available :jenkins:`here <>`. OMERO.insight is 
-built as part of the "OMERO-trunk" job :jenkins:`here <job/OMERO-trunk>`.
+built as part of the :jenkinsjob:`"OMERO" job <>`.
 
 Jenkins checks for SVN changes every 15 minutes and executes:
 

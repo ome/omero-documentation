@@ -645,7 +645,7 @@ OMERO tables
 
 -  **Table API**
 
-    .. seealso:: :jenkins:`javadoc <job/OMERO/javadoc/slice2html/omero/grid/Table.html>`
+    .. seealso:: :javadoc:`javadoc <slice2html/omero/grid/Table.html>`
 
 ::
 
@@ -1365,8 +1365,6 @@ are used by the |OmeroWeb| framework. For this reason, the Blitz
 gateway (which was originally built for |OmeroWeb|) has not yet been
 extended to wrap every omero.model object with a specific Blitz Object
 Wrapper. The current list of object wrappers can be found in the
-omero.gateway module :jenkins:`API
-<job/OMERO-trunk/javadoc/epydoc/omero.gateway-module.html>`,
-:javadoc:` development code API <epydoc/omero.gateway-module.html>`.
+omero.gateway module :javadoc:`API<epydoc/omero.gateway-module.html>`.
 As more functionality is provided by the Blitz Gateway, the coverage
 of object wrappers will increase accordingly.

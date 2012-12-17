@@ -31,7 +31,7 @@ how to download or check out the code can be found on the main
 :omero_plone:`downloads page <downloads>`.
 
 Regular builds of the server are performed by Jenkins_ (formerly known as 
-hudson) and all results are available here :jenkins:`here <job/OMERO/>`, 
+hudson) and all results are available here :jenkinsjob:`here <>`, 
 including generated :javadoc:`javadocs <>`.
 
 Environment variables
