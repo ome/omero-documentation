@@ -150,6 +150,7 @@ extlinks = {
     'omero_plone' : (oo_site_root + '/products/omero/%s/', ''),
     'bf_plone' : (oo_site_root + 'site/products/bio-formats/%s/', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
+    'zeroc' : ('http://zeroc.com/%s', '')
     }
 
 rst_epilog = """
