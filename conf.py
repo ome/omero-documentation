@@ -113,6 +113,15 @@ github_root = 'https://github.com/'
 omero_github_root = github_root + user + '/openmicroscopy/'
 doc_github_root = github_root + user + '/ome-documentation/'
 
+# Jenkins variables used to define extlinks
+if "JENKINS_JOB" in os.environ:
+    jenkins_job = os.environ.get('JENKINS_JOB')
+else:
+    jenkins_job = 'OMERO-trunk'
+
+jenkins_root = 'http://hudson.openmicroscopy.org.uk/'
+jenkins_job_root = jenkins_root + 'job/' + jenkins_job
+
 extlinks = {
     'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/%s', '#'),
     'milestone' : ('http://trac.openmicroscopy.org.uk/ome/milestone/%s', ''),
@@ -122,8 +131,9 @@ extlinks = {
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
-    'javadoc' : ('http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/%s', ''),
-    'jenkins' : ('http://hudson.openmicroscopy.org.uk/%s', ''),
+    'jenkins' : (jenkins_root + '/%s', ''),
+    'jenkinsjob' : (jenkins_job_root + '/%s', ''),
+    'javadoc' : (jenkins_job_root + '/javadoc/%s', ''),
     'mailinglist' : ('http://lists.openmicroscopy.org.uk/mailman/listinfo/%s', ''),
     'forum' : ('http://www.openmicroscopy.org/community/%s', ''),
     # Plone links. Separating them out so that we can add prefixes and
