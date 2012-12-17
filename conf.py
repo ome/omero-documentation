@@ -98,10 +98,20 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
+# Github variables used to define extlinks
 if "SOURCE_BRANCH" in os.environ:
     branch = os.environ.get('SOURCE_BRANCH')
 else:
     branch = 'develop'
+
+if "SOURCE_USER" in os.environ:
+    user = os.environ.get('SOURCE_USER')
+else:
+    user = 'openmicroscopy'
+
+github_root = 'https://github.com/'
+omero_github_root = github_root + user + '/openmicroscopy/'
+doc_github_root = github_root + user + '/ome-documentation/'
 
 extlinks = {
     'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/%s', '#'),
@@ -109,9 +119,9 @@ extlinks = {
     'report' : ('http://trac.openmicroscopy.org.uk/ome/report/%s', ''),
     'snapshot' : ('http://cvs.openmicroscopy.org.uk/snapshots/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
-    'source' : ('https://github.com/openmicroscopy/openmicroscopy/blob/'+ branch + '/%s', ''),
-    'sourcedir' : ('https://github.com/openmicroscopy/openmicroscopy/tree/'+ branch + '/%s', ''),
-    'omedocs' : ('https://github.com/openmicroscopy/ome-documentation/%s', ''),
+    'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
+    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
+    'omedocs' : (doc_github_root + '%s', ''),
     'javadoc' : ('http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/%s', ''),
     'jenkins' : ('http://hudson.openmicroscopy.org.uk/%s', ''),
     'mailinglist' : ('http://lists.openmicroscopy.org.uk/mailman/listinfo/%s', ''),
