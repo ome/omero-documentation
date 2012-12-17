@@ -109,7 +109,7 @@ The following are optional depending on what services you require:
 
     * - NumPy (1.2.0 or higher) [1]_
       - Scripting
-      - `Numpy page <http://numpy.scipy.org/>`_
+      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
 
     * - PyTables (2.1.0 or higher)
       - :doc:`OMERO.tables </sysadmins/server-tables>`
@@ -117,7 +117,7 @@ The following are optional depending on what services you require:
 
     * - scipy.ndimage
       - :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>` [2]_
-      - `Scipy page <http://numpy.scipy.org/>`_
+      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
 
 .. [1] May already have been installed as a dependency of Matplot Lib.
 
