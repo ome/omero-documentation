@@ -388,7 +388,7 @@ Source code links
 
 Links to the OMERO source code hosted on Github can be created using the
 ``source`` alias for single files, e.g. ``:source: `etc/omero.properties``` or
-the ``sourcedir`` alias for directories, e.g. ``:source: `etc```.
+the ``sourcedir`` alias for directories, e.g. ``:sourcedir: `etc```.
 
 By default, these links will point at the code under the ``develop`` branch or
 https://github.com/openmicroscopy/openmicroscopy. To specify a specific fork
