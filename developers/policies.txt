@@ -95,7 +95,8 @@ uses your LDAP account for authentication. Trac is used to record all tickets (i
 Developer documentation
 -----------------------
 
-The developer documentation is maintained under version control, generated using Sphinx and hosted on https://www.openmicroscopy.org.
+The developer documentation is maintained under version control, generated 
+using Sphinx and hosted :doc:`here </index>`.
 
 .. _plone_screenshot:
 .. figure:: images/10000000000003EF00000209A486215A.png

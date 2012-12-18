@@ -615,8 +615,7 @@ In the following example, we create a table with 2 columns.
 ROIs
 ----
 
-To learn about the model see
-`http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi <http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi>`_
+To learn about the model see :formats_plone:`working-with-ome-xml/roi <working-with-ome-xml/roi>`
 . Note that annotation can be linked to ROI.
 
 -  **Create ROI.**

@@ -240,10 +240,12 @@ converted in OMERO into a common format. These formats include:
 -  MIAS data, measurements, and overlays
 -  InCell data and measurements
 -  Flex data with Acapella results
-   (`screencast <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/FlexPreview4.1-import.mov>`_).
+   (:snapshot:`screencast <movies/omero-4-1/mov/FlexPreview4.1-import.mov>`).
    In the Flex case, additional configuration may be necessary for
-   accessing both the raw data and the analysis results. Watch `the 
-   configuration screencast <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`_ for more information.
+   accessing both the raw data and the analysis results. Watch :snapshot:`the 
+   configuration screencast 
+   <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>` for more 
+   information.
 
 The analysis results which are parsed out of the formats listed above are 
 converted to HDF by the OMERO.tables API. This
