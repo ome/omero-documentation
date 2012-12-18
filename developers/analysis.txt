@@ -64,28 +64,24 @@ images.
 
 .. _omerotables:
 
-Storing tabular data in OMERO.tables
-====================================
+Storing external data in OMERO
+==============================
 
-The OMERO.tables API unifies the storage of columnar data
-from various sources, such as automated analysis results or script-based
-processing, and makes them available within OMERO. Often, users look to
-store either external data (not in the OME schema) or schema-less data.
-:doc:`StructuredAnnotations </developers/Modules/StructuredAnnotations>` are an option
-for small quantities of data. Another option is to extend the OME model,
-but this risks interoperability issues. (See
-:doc:`ExtendingOmero </developers/Server/ExtendingOmero>`). With the OMERO.tables API,
-tabular (i.e. spreadsheet-like) data can be stored via named columns,
-and retrieved in bulk or via paging. A limited query language provides
-basic filtering and selecting.
+There are several options for storing external or schema-less data in OMERO,
+including
+:doc:`StructuredAnnotations </developers/Modules/StructuredAnnotations>`
+for small quantities of data, or extending the OME model, but this risks
+interoperability issues. (See
+:doc:`ExtendingOmero </developers/Server/ExtendingOmero>`).
 
-For installation instructions, see :doc:`/sysadmins/server-tables`
-
-
+For larger volumes of data, or data which needs to be queried,
+:doc:`/developers/Tables` provides a unified solution for the storage of
+columnar data from various sources, such as automated analysis results or
+script-based processing, and makes them available within OMERO.
 
 
 Third-party analysis and OMERO.tables
-=====================================
+-------------------------------------
 
 Support has been added for some third-party analysis data, which gets 
 converted in OMERO into a common format. These formats include:
