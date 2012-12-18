@@ -20,14 +20,23 @@ easily copy their data into another group.
 Users
 -----
 
--  **Administrator**: Your OMERO server will have one or more
-   administrators. Each group can be administrated by any of your server
-   administrators. The administrators control all settings for groups.
--  **Group owner**: Your group may have one or more owners. The group
-   owner has some additional rights within each group than a standard
-   group member, including the ability to add other members to the
-   group.
--  **Group member**: This is the standard user.
+.. glossary::
+
+
+	**Administrator**
+		Your OMERO server will have one or more
+		administrators. Each group can be administrated by any of your server
+		administrators. The administrators control all settings for groups.
+
+	**Group owner**
+		Your group may have one or more owners. The group
+		owner has some additional rights within each group than a standard
+		group member, including the ability to add other members to the
+		group.
+	
+	**Group member**
+		This is the standard user.
+
 
 Groups and users must be created by the server administrator. Users can
 then be added by the administrator or by one of the group owners
@@ -51,85 +60,68 @@ Group permission levels
 
 The various permission levels are:
 
-Private group
-~~~~~~~~~~~~~
+.. glossary::
 
-This group is the most restrictive:
 
--  A private group owner can see and control who the group members are
-   and can view their data.
--  As a member, you will only ever be able to see your own data.
--  This can be used for general data storage, access and analysis, but
-   has very limited collaboration potential other than for the group
-   owner to see other group members' data.
+	**Private**
 
-**Potential Use-Cases:**
 
--  This group would be designed so that a PI as group owner and their
-   student, as a group member, can access the student's data. A student
-   might use this as somewhere to store all of their data and from here,
-   the PI and/or student might decide which data could/should be copied
-   into a more collaborative group where additional members would also
-   be able to view the data.
--  For an institutional repository type structure where data are being
-   archived, but not necessarily open for general viewing.
+		This group is the most restrictive:
 
-Read-only
-~~~~~~~~~
+		-  A private :term:`Group owner` can see and control who the group members are and can view their data.
+		-  As a :term:`Group member`, you will only ever be able to see your own data.
+		-  This can be used for general data storage, access and analysis, but has very limited collaboration potential other than for the :term:`Group owner` to see other group members data.
 
-This group is the intermediate option that allows visibility of other
-users and their data, but minimal ability to annotate their data:
+		**Potential Use-Cases of Private group:**
 
--  The group owner can control group members as above and can
-   perform some annotations on the other group members data.
--  Members can see who other members are and view their data, but they
-   cannot annotate another users' data at all.
+		-  This group would be designed so that a PI as :term:`Group owner` and their student, as a :term:`Group member`, can access the student's data. A student might use this as somewhere to store all of their data and from here, the PI and/or student might decide which data could/should be copied into a more collaborative group where additional members would also be able to view the data.
+		-  For an institutional repository type structure where data are being archived, but not necessarily open for general viewing.
 
-**Potential Use-Cases:**
+	**Read-only**
 
--  A scientist might move data into a read-only group when they want
-   other group members to access and view their data. Other members can
-   view, while the group owners can annotate and/or add ROIs to the
-   other user's images.
--  For an institutional repository where data are being archived and
-   then available for other group members in the institute to view; this
-   could be standard storage of all original data, or for data that is
-   included in publications.
 
-Read-annotate
-~~~~~~~~~~~~~
+		This group is the intermediate option that allows visibility of other users and their data, but minimal ability to annotate their data:
 
-This is the most collaborative group:
+		-  The :term:`Group owner` can control group members as above and can perform some annotations on the other group members data.
+		-  :term:`Group member` can see who other members are and view their data, but he cannot annotate another members' data at all.
 
--  Group members can view other users, their data and can make
-   annotations on those other users' data.
+		**Potential Use-Cases of Read-only group:**
 
-**Potential Use-Cases:**
+		-  A scientist might move data into a read-only group when they want other group members to access and view their data. Other members can view, while the group owners can annotate and/or add Regions of Interest (ROIs) to the other member's images.
+		-  For an institutional repository where data are being archived and then available for other users in the institute to view; this could be standard storage of all original data, or for data that is included in publications.
 
--  This could be used by a group of scientists working together with
-   data for a publication.
+	**Read-annotate**
+
+
+		This is the most collaborative group:
+
+		-  :term:`Group member` can view other members, their data and can make annotations on those other members' data.
+
+		**Potential Use-Cases:**
+
+		-  This could be used by a group of scientists working together with data for a publication.
 
 .. seealso::
 
     :snapshot:`OMERO.insight Permissions update in OMERO 4.4 <movies/omero-4-4/mov/InsightMultiGroups-4.4.mov>`
-       Movie describing the permissions update under OMERO.insight in OMERO 4.4
+     Movie describing the permissions update under OMERO.insight in OMERO 4.4
 
     :snapshot:`Web Permissions update in OMERO 4.4 <movies/omero-4-4/mov/WebMultiGroups-4.4.mov>`
-    Movie describing the permissions update under Web in OMERO 4.4
+     Movie describing the permissions update under Web in OMERO 4.4
 
 Changing group permissions
 --------------------------
 
-It is possible for the group owner or server administrator to change the
+It is possible for the :term:`Group owner` or server :term:`Administrator` to change the
 permissions level on a group after it has been created and filled
 with data, with the following limitations:
 
--  It is not possible to 'reduce' permissions to 'Private'. Once links
-   have been created in the database under Read-only or Read-annotate
+-  It is not possible to 'reduce' permissions to :term:`Private`. Once links
+   have been created in the database under :term:`Read-only` or :term:`Read-annotate`
    permissions, these cannot be severed. However, it is possible to
-   'promote' a Private group to be a Read-only or Read-annotate group.
+   'promote' a :term:`Private` group to be a :term:`Read-only` or :term:`Read-annotate` group.
 -  It is possible to toggle permissions of a group between the two
-   collaborative Read-only and Read-annotate groups.
+   collaborative :term:`Read-only` and :term:`Read-annotate` groups.
 
 **Known Issue**
 
@@ -154,7 +146,7 @@ The main actions available include, but are not limited to:
 -  Change rendering settings on images;
 -  Annotate images (rate, tag, add attachments and comment);
 -  De-annotate (remove annotations that you have added);
--  Use ROIs (add, import, edit, delete, save and analyse with them);
+-  Use Regions of Interest (ROIs) (add, import, edit, delete, save and analyse with them);
 -  Run scripts;
 -  Move data between groups, if you belong to more than one group.
 
@@ -181,14 +173,10 @@ type.
     No user can ever create projects or datasets, or import data
     into another user's space. 
 
-.. note::
-    Although all users can run scripts on
-    other users' data, the actions within those scripts will be subject to
-    the restrictions of the permissions detailed in these tables.
 
 
-Group administrator
-~~~~~~~~~~~~~~~~~~~
+:term:`Administrator`
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. tabularcolumns:: |l|c|c|c|
 
@@ -203,8 +191,8 @@ Group administrator
 :term:`Remove`      Y         Y          Y
 ================ ======= ========= =============
 
-Group owner
-~~~~~~~~~~~
+:term:`Group owner`
+~~~~~~~~~~~~~~~~~~~~
 
 .. tabularcolumns:: |l|c|c|c|
 
@@ -219,8 +207,10 @@ Group owner
 :term:`Remove`      Y        Y           Y
 ================ ======= ========= =============
 
-Group member
-~~~~~~~~~~~~
+:term:`Group member`
+~~~~~~~~~~~~~~~~~~~~
+
+
 
 .. tabularcolumns:: |l|c|c|c|
 
@@ -238,7 +228,10 @@ Group member
 Key
 ~~~
 
-.. glossary::
+
+.. glossary:: :sorted:
+
+
 
 	Action
 		Action on other user's data
