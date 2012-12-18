@@ -1,0 +1,171 @@
+For all developer tutorials and documentation, please see :doc:`/developers/index`.
+
+
+Storing tabular data in OMERO.tables
+====================================
+
+The OMERO.tables API unifies the storage of columnar data
+from various sources, such as automated analysis results or script-based
+processing, and makes them available within OMERO. Often, users look to
+store either external data (not in the OME schema) or schema-less data.
+:doc:`StructuredAnnotations </developers/Modules/StructuredAnnotations>` are an option
+for small quantities of data. Another option is to extend the OME model,
+but this risks interoperability issues. (See
+:doc:`ExtendingOmero </developers/Server/ExtendingOmero>`). With the OMERO.tables API,
+tabular (i.e. spreadsheet-like) data can be stored via named columns,
+and retrieved in bulk or via paging. A limited query language provides
+basic filtering and selecting.
+
+For installation instructions, see :doc:`/sysadmins/server-tables`
+
+
+The interface
+-------------
+
+The :source:`slice definition file <components/blitz/resources/omero/Tables.ice>`
+for the OMERO.tables API primarily defines two service interfaces and a type hierarchy:
+
+.. glossary::
+
+
+   ``omero.grid.Table``
+        is the central service for dealing with tabular data.
+
+   ``omero.grid.Tables``
+        is an internal service used for managing table
+        services, and can be ignored for almost all purposes.
+
+   ``omero.grid.Column``
+        is the base class for a number of column types
+        which permit returning arrays of columnar values
+        (_Ice doesn't provide an "Any" type, so it's
+        necessary to group values of the same type.)
+
+   ``omero.grid.WellColumn``
+         is an id-based column which references ``omero.model.Well`` instances.
+
+   ``omero.grid.ImageColumn``
+         is an id-based column which references ``omero.model.Image`` instances.
+
+   ``omero.grid.RoiColumn``
+         is an id-based column which references ``omero.model.Roi`` instances.
+
+   ``omero.grid.LongColumn``
+         is a value column with long (non-null) values.
+
+   ``omero.grid.DoubleColumn``
+         is a value column with double (non-null) values.
+
+   ``omero.grid.BoolColumn``, etc.
+         is a value column with boolean (non-null) values.
+
+
+Other column types are also available. Further documentation on the API is available in the :jenkins:`javadocs
+<job/OMERO/javadoc/slice2html/omero/grid/Table.html#Table>`.  Several
+examples are linked below, but these are only the beginning of what
+can be done with OMERO.tables.
+
+
+Examples
+--------
+
+-  Hello World:
+   :source:`examples/OmeroTables/first.py <examples/OmeroTables/first.py>`
+-  Creating a Measurement Table:
+   :source:`examples/OmeroTables/MeasurementTable.java <examples/OmeroTables/MeasurementTable.java>`
+   (see "Going forward" below)
+-  Querying a Table:
+   :source:`examples/OmeroTables/FindMeasurements.java <examples/OmeroTables/FindMeasurements.java>`
+   (See "Going forward" below)
+
+
+The implementation
+------------------
+
+Currently, each table is backed by a single HDF table. Since PyTables
+(and HDF in the general case) don't support concurrent access, OMERO.tables 
+provides a global locking mechanism which permits multiple views of the same 
+data. Each "OMERO.tables" file (registered as an ``OriginalFile`` in the 
+database), is composed of a single HDF table with any number of certain 
+limited column types.
+
+The query language mentioned above is *currently* the PyTables
+`condition syntax <http://pytables.github.com/usersguide/condition_syntax.html>`_.
+Columns are referenced by name. The following operators are supported:
+
+-  Logical operators: ``&, |, ~``
+-  Comparison operators: ``<, <=, ==, !=, >=, >``
+-  Unary arithmetic operators: ``-``
+-  Binary arithmetic operators: ``+, -, *, /, **, %``
+
+and the following functions:
+
+-  ``where(bool, number1, number2)``: number — number1 if the bool
+   condition is true, number2 otherwise.
+-  ``{sin,cos,tan}(float|complex)``: float\|complex — trigonometric
+   sine, cosine or tangent.
+-  ``{arcsin,arccos,arctan}(float|complex)``: float\|complex —
+   trigonometric inverse sine, cosine or tangent.
+-  ``arctan2(float1, float2)``: float — trigonometric inverse tangent of
+   float1/float2.
+-  ``{sinh,cosh,tanh}(float|complex)``: float\|complex — hyperbolic
+   sine, cosine or tangent.
+-  ``{arcsinh,arccosh,arctanh}(float|complex)``: float\|complex —
+   hyperbolic inverse sine, cosine or tangent.
+-  ``{log,log10,log1p}(float|complex)``: float\|complex — natural,
+   base-10 and log(1+x) logarithms.
+-  ``{exp,expm1}(float|complex)``: float\|complex — exponential and
+   exponential minus one.
+-  ``sqrt(float|complex)``: float\|complex — square root.
+-  ``{real,imag}(complex)``: float — real or imaginary part of complex.
+-  ``complex(float, float)``: complex — complex from real and imaginary
+   parts.
+
+
+Going forward
+-------------
+
+The Tables API itself provides little more than a remotely accessible
+store, think of it as a server for Excel-like spreadsheets. We are
+currently looking into the facilities that can be built on top of it,
+and are **very** open to suggestions. For example, the
+:jenkins:`IRoi interface <job/OMERO/javadoc/slice2html/omero/api/IRoi.html#IRoi>`
+has been extended to filter ROIs by a given
+measurement. This allows seeing only those results from a particular
+analysis run. The following example shows how to set up such a
+measurement and retrieve its results:
+
+:source:`iroi.py <examples/OmeroTables/iroi.py>`
+
+For an example of production code that parses out such measurements,
+see :source:`populate_roi.py <components/tools/OmeroPy/src/omero/util/populate_roi.py>`.
+
+The `IRoi` interface has been integrated into OMERO.insight, allowing for
+the visualization and export of OMERO.tables:
+
+.. figure:: /images/MeasurementListSep09.png
+    :align: center
+    :alt: Choice between multiple measurements
+
+    Choice between multiple measurements
+
+.. seealso::
+
+    `PyTables <http://pytables.org>`_
+        Software on which OMERO.tables is built.
+
+    `Condition Syntax <http://pytables.github.com/usersguide/condition_syntax.html>`_
+        The PyTables condition syntax.
+
+    :source:`Tables.ice <components/blitz/resources/omero/Tables.ice>`
+        The API definition for OMERO.tables
+
+    :source:`The Tables test suite <components/tools/OmeroPy/test/tablestest/>`
+        The testsuite for OMERO.tables
+
+    :doc:`/sysadmins/server-tables`
+        Installation requirements for install OMERO.tables
+
+
+
+
