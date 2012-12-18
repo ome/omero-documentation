@@ -122,13 +122,17 @@ else:
 jenkins_root = 'http://hudson.openmicroscopy.org.uk/'
 jenkins_job_root = jenkins_root + 'job/' + jenkins_job
 
-oo_site_root = 'http://www.openmicroscopy.org/site'
+# Root for various extlinks
+cvs_root = 'http://cvs.openmicroscopy.org.uk'
+trac_root = 'http://trac.openmicroscopy.org.uk/ome'
+oo_root = 'http://www.openmicroscopy.org'
+oo_site_root = oo_root + '/site'
 
 extlinks = {
-    'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/%s', '#'),
-    'milestone' : ('http://trac.openmicroscopy.org.uk/ome/milestone/%s', ''),
-    'report' : ('http://trac.openmicroscopy.org.uk/ome/report/%s', ''),
-    'snapshot' : ('http://cvs.openmicroscopy.org.uk/snapshots/%s', ''),
+    'ticket' : (trac_root + '/ticket/%s', '#'),
+    'milestone' : (trac_root + '/milestone/%s', ''),
+    'report' : (trac_root + '/report/%s', ''),
+    'snapshot' : (cvs_root + 'snapshots/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
@@ -137,7 +141,7 @@ extlinks = {
     'jenkinsjob' : (jenkins_job_root + '/%s', ''),
     'javadoc' : (jenkins_job_root + '/javadoc/%s', ''),
     'mailinglist' : ('http://lists.openmicroscopy.org.uk/mailman/listinfo/%s', ''),
-    'forum' : ('http://www.openmicroscopy.org/community/%s', ''),
+    'forum' : (oo_root + '/community/%s', ''),
     # Plone links. Separating them out so that we can add prefixes and
     # suffixes during testing.
     'community_plone' : (oo_site_root + '/community/%s', ''),
@@ -147,6 +151,7 @@ extlinks = {
     'about_plone' : (oo_site_root + '/about/%s', ''),
     'team_plone' : (oo_site_root + '/team/%s', ''),
     'faq_plone' : (oo_site_root + '/support/faq/%s', ''),
+    'training_plone' : (oo_site_root + '/support/training/%s', ''),
     'omero_plone' : (oo_site_root + '/products/omero/%s/', ''),
     'bf_plone' : (oo_site_root + 'site/products/bio-formats/%s/', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),

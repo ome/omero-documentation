@@ -368,9 +368,9 @@ OMERO model objects
 
 With these components -- rtypes, primitives, constants, etc -- it's
 possible to define the core nouns of OME, the |OmeroModel| . The OMERO
-|OmeroModel| is a translation of the `OME XML specification <http://www.openmicroscopy.org/site/support/file-formats>`_ into objects for 
-use by the server, built out of RTypes, sequences and dictionaries, and 
-Details.
+|OmeroModel| is a translation of the :formats_plone:`OME XML specification <>` 
+into objects for use by the server, built out of RTypes, sequences and 
+dictionaries, and Details.
 
 Details
 ~~~~~~~
