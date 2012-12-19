@@ -1,0 +1,298 @@
+Multiple Development Branches Review Proposal
+=============================================
+
+.. _Sphinx: http://sphinx-doc.org/
+.. _Wikipedia: http://en.wikipedia.org
+.. _openmicroscopy.git: http://github.com/openmicroscopy/openmicroscopy.git
+.. _bioformats.git: http://github.com/openmicroscopy/bioformats.git
+.. _ome-documentation.git: http://github.com/openmicroscopy/ome-documentation.git
+
+Definitions
+-----------
+
+Versioning
+^^^^^^^^^^
+
+.. glossary::
+
+	Major release
+
+		What Sphinx_ calls a “version number” is defined on Wikipedia_ as a
+		“minor number” and in OMERO is typically considered a major release,
+		e.g. |version|.
+
+	Point release
+
+		Similarly, a Sphinx_ “release number” is a “revision number” on
+		Wikipedia_ and an OMERO point release, e.g. |release|.
+
+Labels
+^^^^^^
+
+Labels are applied to PRs on github under the “Issues” tab of each repository
+(openmicroscopy.git_, bioformats.git_, scripts.git, ome-documentation.git,
+etc.)
+
+The current release consists of PRs labelled with “dev_4_4”, which is the name
+of the branch which they will be merged into. This is work on the stable
+release version which will only be released as a point release.
+
+The next major release consists of PRs labelled with “develop”, which is also
+the name of the branch which they will be merged into.
+
+Objectives of document review workflow
+--------------------------------------
+
+Integrate & release changes in the documentation of the current release.
+Improve review for next OMERO major release vs next OMERO point release
+Use this documentation review workflow as an example on how other review
+workflows can and should function.
+
+Proposal
+--------
+
+Maintain two development branches under the ome-documentation.git repository:
+
+* dev_4_4, associated with current OMERO major release, e.g. 4.4
+* develop, associated with the next OMERO major release, e.g. 4.5
+
+such that it is possible to release both the current point releases
+immediately, while still working on more major releases
+by ensuring that (nearly) all commits that are applied to dev_4_4 are applied
+to develop in order to prevent regressions,
+
+Caveats include:
+
+* more branches to manage, maintain and keep in sync
+* PRs need to be opened against relevant development branch
+* more integration jobs to run
+* impact of OMERO documentation change on user base
+
+A schematic drawing of the proposed workflow is available here.
+
+Jenkins jobs
+------------
+
+
+.. list-table::
+	:header-rows: 1
+
+	- 	* Job task
+		* Repository
+		* Current major release
+		* Next major release
+
+	- 	* Release OMERO docs
+		* ome-documentation.git_
+		* :term:`OMERO-docs-release-4.4`
+		* N/A
+
+	- 	* Release Bio-Formats docs
+		* bioformats.git_
+		* :term:`OMERO-docs-release-4.4`
+		* N/A
+
+	- 	* Review OMERO code PRs
+		* openmicroscopy.git_
+		* :term:`OMERO-merge-4.4`
+		* :term:`OMERO-merge-develop`
+
+	- 	* Review OMERO doc PRs
+		* ome-documentation.git_
+		* :term:`OMERO-docs-merge-4.4`
+		* :term:`OMERO-docs-merge-develop`
+
+	- 	* Review Bio-Formats doc PRs
+		* bioformats.git_
+		* :term:`BIOFORMATS-docs-merge-4.4`
+		* :term:`BIOFORMATS-docs-merge-develop`
+
+	- 	* Build OMERO
+		* openmicroscopy.git_
+		* :term:`OMERO-4.4`
+		* :term:`OMERO-trunk`
+
+	- 	* Build BIOFORMATS
+		* bioformats.git_
+		* :term:`BIOFORMATS-4.4`
+		* :term:`BIOFORMATS-trunk`
+
+Current major release
+^^^^^^^^^^^^^^^^^^^^^
+
+The branch for the current major release is dev_4_4. All jobs are listed under
+the :jenkinsview:`4.4` view tab of Jenkins.
+
+.. glossary::
+
+	:jenkinsjob:`OMERO-docs-release-4.4`
+
+		Update the official documentation for the current OMERO release
+
+		#. build HTML & PDF Sphinx documentation 
+		#. check broken (404) and local links
+		#. After promotion
+			#. SSH doc & PDF to /var/www/www.openmicroscopy.org/sphinx-docs/ome-release.tmp
+			#. Use hot-deploy script to update http://www.openmicroscopy.org/site/support/omero4/
+
+	:jenkinsjob:`BIOFORMATS-docs-release-4.4`
+
+		Update the official documentation for the current Bio-Formats release
+
+		#. build HTML & PDF Sphinx documentation 
+		#. check broken (404) and local links
+		#. After promotion
+			#. SSH doc & PDF to /var/www/www.openmicroscopy.org/sphinx-docs/bf-release.tmp
+			#. Use hot-deploy script to update http://www.openmicroscopy.org/site/support/bio-formats
+
+	:jenkinsjob:`OMERO-4.4`
+	:jenkinsjob:`BIOFORMATS-4.4`
+
+		Build current release of OMERO/Bio-Formats 
+
+		#. build server & release-docs
+		#. Can be promoted for point release
+
+	:jenkinsjob:`OMERO-merge-4.4`
+
+		Review code PRs for the next OMERO point release
+
+		#. merge PRs opened against dev_4_4
+		#. run docs/hudson/OMERO.sh
+		#. deploy the server on http://howe.openmicroscopy.org.uk
+		#. push to snoopycrimecop/merge/dev_4_4/latest
+
+	:jenkinsjob:`OMERO-docs-merge-4.4`
+
+		Review doc PRs for the current OMERO release or for the next OMERO
+		point release
+
+		#. merge PRs opened against dev_4_4
+		#. build HTML & PDF Sphinx documentation 
+		#. check broken (404) and local links
+		#. SSH doc & PDF to /var/www/www.openmicroscopy.org/sphinx-docs/ome-staging.tmp
+		#. Use hot-deploy script to update http://www.openmicroscopy.org/site/support/omero4-staging
+
+	:jenkinsjob:`BIOFORMATS-docs-merge-4.4`
+
+		Review doc PRs for the current Bio-Formats release or for the next
+		Bio-Formats point release
+
+		#. merge PRs opened against dev_4_4
+		#. build HTML & PDF Sphinx documentation 
+		#. check broken (404) and local links
+		#. SSH doc & PDF to	/var/www/www.openmicroscopy.org/sphinx-docs/bf-staging.tmp
+		#. Use hot-deploy script to update http://www.openmicroscopy.org/site/support/bio-formats-staging
+
+Next major release
+^^^^^^^^^^^^^^^^^^
+
+The branch for the next major release is develop. All jobs are listed under
+the :jenkinsview:`trunk` view tab of Jenkins.
+
+.. glossary::
+
+	:jenkinsjob:`BIOFORMATS-trunk`
+	:jenkinsjob:`OMERO-trunk`
+
+		Build next BIO-FORMATS/OMERO major release.
+
+		#. build server & release-docs
+
+	:jenkinsjob:`OMERO-merge-develop`
+
+		Review code PRs for the next major release of OMERO
+
+		#. merge PRs opened against develop
+		#. run docs/hudson/OMERO.sh
+		#. deploy the server on http://gretzky.openmicroscopy.org.uk
+		#. push to snoopycrimecop/merge/develop/latest
+
+	:jenkinsjob:`OMERO-docs-merge-develop`
+
+		Review doc PRs for the next major release of OMERO
+
+		#. build HTML & PDF Sphinx documentation 
+		#. check broken (404) and local links
+		#. SSH doc to /var/www/www.openmicroscopy.org/sphinx-docs/ome-develop.tmp
+		#. Use hot-deplot to update http://www.openmicroscopy.org/site/support/omero4-develop
+
+	:jenkinsjob:`BIOFORMATS-docs-merge-develop`
+
+		Review doc PRs for next major release of Bio-Formats
+
+		#. merge PRs opened against develop
+		#. build HTML & PDF Sphinx documentation 
+		#. check broken (404) and local links
+		#. SSH doc & PDF to  /var/www/www.openmicroscopy.org/sphinx-docs/bf-develop.tmp
+		#. Use hot-deploy script to update  http://www.openmicroscopy.org/site/support/bio-formats-develop/
+
+Continous integration scripts
+------------------------------
+
+https://github.com/openmicroscopy/snoopycrimecop hosts a series of utility
+scripts used in the continuous integration.
+
+Installation
+^^^^^^^^^^^^
+
+The scc tools are Python_ based and use the PyGithub package::
+
+	$ pip install PyGithub
+	$ pip freeze | grep PyGithub
+	PyGithub==1.9.1
+
+The tools suite can then be installed using Homebrew::
+
+    $ brew update && brew install scc
+    $ scc -h
+
+scc tools
+^^^^^^^^^
+
+.. glossary::
+
+	scc merge
+
+		Merge all the PRs opened against a specified branch, including all
+		submodules::
+
+			$ scc merge develop
+
+		PRs can be excluded by label using the :option:`--exclude` option::
+
+			$ scc merge develop --exclude broken conflict needs-fixes
+
+		By default, only users of the repository organization are whitelisted.
+		To include other PRs by label or user, use the :option:`--include`
+		option::
+
+			$ scc merge develop --include label:mylabel user:externaluser
+
+	scc rebase
+
+		Rebase a PR onto another branch and open a new PR::
+
+			$ scc rebase 142 develop
+
+		PR opening can be skipped using the :option:`--no-pr` option::
+
+			$ scc rebase 142 develop --no-pr
+
+Documentation deployment
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://github.com/openmicroscopy/snoopycrimecop hosts two scripts:
+doc_init.sh and doc_deploy.sh. The goal of the scripts is to enable
+overwriting of deployed doc content and allow for “hot-swapping” content
+served by Apache without downtime and HTTP 404s.
+
+The logic behind the scripts follows the method outlined in
+https://gist.github.com/3807742#file_symlink_replacement.md. The hudson jobs
+(BIOFORMATS-docs-merge-{4.4,develop}, OMERO-docs-merge-{4.4,develop} and
+OMERO-docs-internal) deploy the documentation artifacts to necromancer. The
+target directory (sphinx-docs) is controlled by the hudson:hudson user, so all
+file system operations are allowed. Each job has the target directory
+configured in the SSH publisher target directory property. After deployment
+has happened to a temporary directory, a series of symlink moves happens
+making sure that the symlink points to the updated content.
