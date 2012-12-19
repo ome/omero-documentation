@@ -132,7 +132,7 @@ extlinks = {
     'ticket' : (trac_root + '/ticket/%s', '#'),
     'milestone' : (trac_root + '/milestone/%s', ''),
     'report' : (trac_root + '/report/%s', ''),
-    'snapshot' : (cvs_root + 'snapshots/%s', ''),
+    'snapshot' : (cvs_root + '/snapshots/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
