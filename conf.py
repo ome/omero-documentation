@@ -122,7 +122,7 @@ else:
 jenkins_root = 'http://hudson.openmicroscopy.org.uk'
 jenkins_job_root = jenkins_root + '/job'
 jenkins_view_root = jenkins_root + '/view'
-omero_job_root = jenkins_job_root + jenkins_job
+omero_job_root = jenkins_job_root + '/' + jenkins_job
 
 # Variables used to define other extlinks
 cvs_root = 'http://cvs.openmicroscopy.org.uk'
