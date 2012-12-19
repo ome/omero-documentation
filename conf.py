@@ -127,20 +127,25 @@ cvs_root = 'http://cvs.openmicroscopy.org.uk'
 trac_root = 'http://trac.openmicroscopy.org.uk/ome'
 oo_root = 'http://www.openmicroscopy.org'
 oo_site_root = oo_root + '/site'
+lists_root = 'http://lists.openmicroscopy.org.uk'
 
 extlinks = {
+    # Trac links
     'ticket' : (trac_root + '/ticket/%s', '#'),
     'milestone' : (trac_root + '/milestone/%s', ''),
     'report' : (trac_root + '/report/%s', ''),
-    'snapshot' : (cvs_root + '/snapshots/%s', ''),
-    'doi' : ('http://dx.doi.org/%s', ''),
+    # Github links
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
+    # Jenkins links
     'jenkins' : (jenkins_root + '/%s', ''),
     'jenkinsjob' : (jenkins_job_root + '/%s', ''),
     'javadoc' : (jenkins_job_root + '/javadoc/%s', ''),
-    'mailinglist' : ('http://lists.openmicroscopy.org.uk/mailman/listinfo/%s', ''),
+    # Mailing list/forum links
+    'mailinglist' : (lists_root + '/mailman/listinfo/%s', ''),
+    'ome-users' : (lists_root + '/pipermail/ome-users/%s' ,''),
+    'ome-devel' : (lists_root + '/pipermail/ome-devel/%s' ,''),
     'forum' : (oo_root + '/community/%s', ''),
     # Plone links. Separating them out so that we can add prefixes and
     # suffixes during testing.
@@ -155,7 +160,10 @@ extlinks = {
     'omero_plone' : (oo_site_root + '/products/omero/%s/', ''),
     'bf_plone' : (oo_site_root + 'site/products/bio-formats/%s/', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
-    'zeroc' : ('http://zeroc.com/%s', '')
+    # Miscellaneous links
+    'snapshot' : (cvs_root + '/snapshots/%s', ''),
+    'zeroc' : ('http://zeroc.com/%s', ''),
+    'doi' : ('http://dx.doi.org/%s', ''),
     }
 
 rst_epilog = """
