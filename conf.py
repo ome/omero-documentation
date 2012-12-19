@@ -98,7 +98,7 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
-# Github variables used to define extlinks
+# Variables used to define Github extlinks
 if "SOURCE_BRANCH" in os.environ:
     branch = os.environ.get('SOURCE_BRANCH')
 else:
@@ -113,16 +113,18 @@ github_root = 'https://github.com/'
 omero_github_root = github_root + user + '/openmicroscopy/'
 doc_github_root = github_root + user + '/ome-documentation/'
 
-# Jenkins variables used to define extlinks
+# Variables used to define Jenkins extlinks
 if "JENKINS_JOB" in os.environ:
     jenkins_job = os.environ.get('JENKINS_JOB')
 else:
     jenkins_job = 'OMERO-trunk'
 
-jenkins_root = 'http://hudson.openmicroscopy.org.uk/'
-jenkins_job_root = jenkins_root + 'job/' + jenkins_job
+jenkins_root = 'http://hudson.openmicroscopy.org.uk'
+jenkins_job_root = jenkins_root + '/job'
+jenkins_view_root = jenkins_root + '/view'
+omero_job_root = jenkins_job_root + jenkins_job
 
-# Root for various extlinks
+# Variables used to define other extlinks
 cvs_root = 'http://cvs.openmicroscopy.org.uk'
 trac_root = 'http://trac.openmicroscopy.org.uk/ome'
 oo_root = 'http://www.openmicroscopy.org'
@@ -141,7 +143,9 @@ extlinks = {
     # Jenkins links
     'jenkins' : (jenkins_root + '/%s', ''),
     'jenkinsjob' : (jenkins_job_root + '/%s', ''),
-    'javadoc' : (jenkins_job_root + '/javadoc/%s', ''),
+    'jenkinsview' : (jenkins_view_root + '/%s', ''),
+    'omerojob' : (omero_job_root + '/%s', ''),
+    'javadoc' : (omero_job_root + '/javadoc/%s', ''),
     # Mailing list/forum links
     'mailinglist' : (lists_root + '/mailman/listinfo/%s', ''),
     'ome-users' : (lists_root + '/pipermail/ome-users/%s' ,''),

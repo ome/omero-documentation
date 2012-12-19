@@ -13,7 +13,7 @@ class as well as the Ice classes needed to write a complete Java client
 for :doc:`/developers/server-blitz`.
 
 The library is placed under OMERO\_HOME/dist/lib/client by the build,
-or is alternatively available from Jenkins :jenkinsjob:`here 
+or is alternatively available from Jenkins :omerojob:`here 
 <lastSuccessfulBuild/>`.  To use |OmeroJava|, setup you'll
 need to setup your CLASSPATH:
 
