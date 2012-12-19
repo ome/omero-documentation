@@ -375,7 +375,6 @@ for the following:
 * Plone pages: ``:omero_plone: `Downloads <downloads>```
 * DOIs: ``:doi: `Dantas, et al., JCB <10.1083/jcb.201012093>```
 * OME Forums: ``:forum: `viewforum.php?f=3```
-* Mailing lists: ``:mailinglist:`ome-users/```
 
 For the most up-to-date list, please consult ``conf.py`` (section
 ``extlinks``).
@@ -408,6 +407,14 @@ By default, the OMERO job is set to ``OMERO-trunk``. To specify a different
 job, set the JENKINS_JOB environment variables, e.g.::
 
     JENKINS_JOB=OMERO-4.4 make clean html
+
+Mailing-list links
+==================
+
+Links to the OME mailing lists can be created using the ``mailinglist`` alias,
+e.g. ``:mailinglist:`ome-users/```. To point at specific discussion threads,
+two aliases have been defined ``ome-users`` and ``ome-devel``, e.g.
+``:ome-users:`ome-users thread <2009-June/001839.html>```.
 
 Inclusion of content
 ====================
