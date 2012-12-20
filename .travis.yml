@@ -5,4 +5,4 @@ python:
 
 install: "pip install -q Sphinx --use-mirrors"
 
-script: sphinx-build -nW -b html -d _build/doctrees . _build/html
+script: "SPHINXOPTS='-W -D html_theme=plonematch' make html"
