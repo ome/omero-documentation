@@ -19,16 +19,15 @@ The :source:`slice definition file <components/blitz/resources/omero/Tables.ice>
 for the OMERO.tables API primarily defines two service interfaces and a type
 hierarchy.
 
-.. glossary::
 
-    :class:`omero.grid.Table`
-        The central service for dealing with tabular data, described
-        :ref:`below <tables-omero-grid-Table>`.
+class :class:`omero.grid.Table`
+    The central service for dealing with tabular data, described
+    :ref:`below <tables-omero-grid-Table>`.
 
 .. class:: omero.grid.Tables
 
-        An internal service used for managing table services, and can be
-        ignored for almost all purposes.
+    An internal service used for managing table services, and can be ignored
+    for almost all purposes.
 
 .. class:: omero.grid.Column
 
