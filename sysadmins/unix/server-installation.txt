@@ -133,12 +133,11 @@ Ice (3.3.x or higher)
     version of OMERO.server (see :omero_plone:`Downloads
     <downloads>`). See :faq_plone:`"Do I use Ice 3.3 or
     Ice 3.4?" <omero/do-i-use-ice-3.3-or-ice-3.4>` in
-    the FAQ. If you have further questions, consult the `Forums
-    <https://www.openmicroscopy.org/community>`_.
+    the FAQ. If you have further questions, consult the :forum:`Forums <>`.
 
 
 UNIX source downloads and binary packages are available from ZeroC_.
-The latest compatible distribution is the `3.3.1 release <http://www.zeroc.com/download_3_3_1.html>`_. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). |Glencoe| has made its version available for the community:
+The latest compatible distribution is the :zeroc:`3.3.1 release <download_3_3_1.html>`. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). |Glencoe| has made its version available for the community:
 `Ice-3.3.1-64.tar.bz2 <http://www.glencoesoftware.com/mac/10.6/Ice-3.3.1-64.tar.bz2>`_
 (sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) 
 

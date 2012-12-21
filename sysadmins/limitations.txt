@@ -13,9 +13,9 @@ difficulties merging the two directories.
 
 A github repository is now available under
 `<https://github.com/ome/scripts>`_ which provides help for merging
-your lib/scripts directories. For more information, see `"How do I
-make lib/scripts a git repository?"
-<https://www.openmicroscopy.org/site/support/faq/omero/how-do-i-make-lib-scripts-a-git-repository>`_
+your lib/scripts directories. For more information, see :faq_plone:`"How do I
+make lib/scripts a git repository?" 
+<omero/how-do-i-make-lib-scripts-a-git-repository>`
 in the FAQ.
 
 Building OMERO.cpp 4.4.x under Windows with Ice 3.4 fails.

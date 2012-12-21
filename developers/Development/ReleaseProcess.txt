@@ -112,6 +112,8 @@ Bio-Formats freeze (no jar changes)
 Documentation
 -------------
 
+.. _Main Page: `Open Microscopy Environment`_
+
 -  Website
 
    -  Copy snapshot of documentation under products **before** any new documentation is added.
@@ -119,7 +121,7 @@ Documentation
       requires more work). Apply all changes here in preparation for
       release. Key Pages to review:
 
-      -  `Main Page <http://www.openmicroscopy.org/site>`_ (no copy. Update on Release)
+      -  `Main Page`_ (no copy. Update on Release)
       -  Products
 
          -  :feature_plone:`Feature List Page <>`

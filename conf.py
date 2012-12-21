@@ -98,36 +98,76 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
+# Variables used to define Github extlinks
 if "SOURCE_BRANCH" in os.environ:
     branch = os.environ.get('SOURCE_BRANCH')
 else:
     branch = 'develop'
 
+if "SOURCE_USER" in os.environ:
+    user = os.environ.get('SOURCE_USER')
+else:
+    user = 'openmicroscopy'
+
+github_root = 'https://github.com/'
+omero_github_root = github_root + user + '/openmicroscopy/'
+doc_github_root = github_root + user + '/ome-documentation/'
+
+# Variables used to define Jenkins extlinks
+if "JENKINS_JOB" in os.environ:
+    jenkins_job = os.environ.get('JENKINS_JOB')
+else:
+    jenkins_job = 'OMERO-trunk'
+
+jenkins_root = 'http://hudson.openmicroscopy.org.uk'
+jenkins_job_root = jenkins_root + '/job'
+jenkins_view_root = jenkins_root + '/view'
+omero_job_root = jenkins_job_root + '/' + jenkins_job
+
+# Variables used to define other extlinks
+cvs_root = 'http://cvs.openmicroscopy.org.uk'
+trac_root = 'http://trac.openmicroscopy.org.uk/ome'
+oo_root = 'http://www.openmicroscopy.org'
+oo_site_root = oo_root + '/site'
+lists_root = 'http://lists.openmicroscopy.org.uk'
+
 extlinks = {
-    'ticket' : ('http://trac.openmicroscopy.org.uk/ome/ticket/%s', '#'),
-    'milestone' : ('http://trac.openmicroscopy.org.uk/ome/milestone/%s', ''),
-    'report' : ('http://trac.openmicroscopy.org.uk/ome/report/%s', ''),
-    'snapshot' : ('http://cvs.openmicroscopy.org.uk/snapshots/%s', ''),
-    'doi' : ('http://dx.doi.org/%s', ''),
-    'source' : ('https://github.com/openmicroscopy/openmicroscopy/blob/'+ branch + '/%s', ''),
-    'sourcedir' : ('https://github.com/openmicroscopy/openmicroscopy/tree/'+ branch + '/%s', ''),
-    'omedocs' : ('https://github.com/openmicroscopy/ome-documentation/%s', ''),
-    'javadoc' : ('http://hudson.openmicroscopy.org.uk/job/OMERO/javadoc/%s', ''),
-    'jenkins' : ('http://hudson.openmicroscopy.org.uk/%s', ''),
-    'mailinglist' : ('http://lists.openmicroscopy.org.uk/mailman/listinfo/%s', ''),
-    'forum' : ('http://www.openmicroscopy.org/community/%s', ''),
+    # Trac links
+    'ticket' : (trac_root + '/ticket/%s', '#'),
+    'milestone' : (trac_root + '/milestone/%s', ''),
+    'report' : (trac_root + '/report/%s', ''),
+    # Github links
+    'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
+    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
+    'omedocs' : (doc_github_root + '%s', ''),
+    # Jenkins links
+    'jenkins' : (jenkins_root + '/%s', ''),
+    'jenkinsjob' : (jenkins_job_root + '/%s', ''),
+    'jenkinsview' : (jenkins_view_root + '/%s', ''),
+    'omerojob' : (omero_job_root + '/%s', ''),
+    'javadoc' : (omero_job_root + '/javadoc/%s', ''),
+    # Mailing list/forum links
+    'mailinglist' : (lists_root + '/mailman/listinfo/%s', ''),
+    'ome-users' : (lists_root + '/pipermail/ome-users/%s' ,''),
+    'ome-devel' : (lists_root + '/pipermail/ome-devel/%s' ,''),
+    'forum' : (oo_root + '/community/%s', ''),
     # Plone links. Separating them out so that we can add prefixes and
     # suffixes during testing.
-    'community_plone' : ('http://www.openmicroscopy.org/site/community/%s', ''),
-    'feature_plone' : ('http://www.openmicroscopy.org/site/products/feature-list/%s', ''),
-    'formats_plone' : ('http://www.openmicroscopy.org/site/support/file-formats/%s', ''),
-    'legacy_plone' : ('http://www.openmicroscopy.org/site/support/legacy/%s', ''),
-    'about_plone' : ('http://www.openmicroscopy.org/site/about/%s', ''),
-    'team_plone' : ('http://www.openmicroscopy.org/site/team/%s', ''),
-    'faq_plone' : ('http://www.openmicroscopy.org/site/support/faq/%s', ''),
-    'omero_plone' : ('http://www.openmicroscopy.org/site/products/omero/%s/', ''),
-    'bf_plone' : ('http://www.openmicroscopy.org/site/products/bio-formats/%s/', ''),
-    'bf_doc' : ('http://www.openmicroscopy.org/site/support/bio-formats/%s', ''),
+    'community_plone' : (oo_site_root + '/community/%s', ''),
+    'feature_plone' : (oo_site_root + '/products/feature-list/%s', ''),
+    'formats_plone' : (oo_site_root + '/support/file-formats/%s', ''),
+    'legacy_plone' : (oo_site_root + '/support/legacy/%s', ''),
+    'about_plone' : (oo_site_root + '/about/%s', ''),
+    'team_plone' : (oo_site_root + '/team/%s', ''),
+    'faq_plone' : (oo_site_root + '/support/faq/%s', ''),
+    'training_plone' : (oo_site_root + '/support/training/%s', ''),
+    'omero_plone' : (oo_site_root + '/products/omero/%s/', ''),
+    'bf_plone' : (oo_site_root + 'site/products/bio-formats/%s/', ''),
+    'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
+    # Miscellaneous links
+    'snapshot' : (cvs_root + '/snapshots/%s', ''),
+    'zeroc' : ('http://zeroc.com/%s', ''),
+    'doi' : ('http://dx.doi.org/%s', ''),
     }
 
 rst_epilog = """
