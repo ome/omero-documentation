@@ -21,8 +21,7 @@ Time.
 
 At the core of the work on the `Open Microscopy Environment`_ is the
 definition of a vocabulary for working with microscopic data. This
-vocabulary has a representation in the `XML
-specification <http://www.openmicroscopy.org/site/support/file-formats>`_,
+vocabulary has a representation in the :formats_plone:`XML specification <>`,
 in the database (the data model), and in code. This last representation
 is the object model with which we will concern ourselves here.
 

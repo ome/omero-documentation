@@ -31,7 +31,7 @@ how to download or check out the code can be found on the main
 :omero_plone:`downloads page <downloads>`.
 
 Regular builds of the server are performed by Jenkins_ (formerly known as 
-hudson) and all results are available here :jenkins:`here <job/OMERO/>`, 
+hudson) and all results are available here :omerojob:`here <>`, 
 including generated :javadoc:`javadocs <>`.
 
 Environment variables
@@ -161,8 +161,7 @@ the Raw Pixels Store.
 More figures
 ~~~~~~~~~~~~
 
-This `page of the main
-site <http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/model-overview-2010-04>`_
+This :formats_plone:`page of the main site <working-with-ome-xml/model-overview-2010-04>`
 has some additional diagrams for other parts of the OME model, which you
 may find useful. However, there are some differences arising from the
 fact that this is the OME-XML model (references & 'top level objects'

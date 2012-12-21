@@ -45,10 +45,8 @@ jar is provided in the OMERO source code under lib/repository.
 
 .. seealso::
 
-    `Administrative Utilities`_
+    :zeroc:`Administrative Utilities <doc/Ice-3.2.1/manual/IceGrid.40.21.html#80724>`
         Chapter of the ZeroC_ manual about administrative clients
-
-.. _Administrative Utilities: http://www.zeroc.com/doc/Ice-3.2.1/manual/IceGrid.40.21.html#80724
 
 .. _grid_installation_windows_xp:
 
@@ -95,7 +93,7 @@ under your Ice installation, most likely
 How it works
 ------------
 
-`IceGrid <http://zeroc.com>`_ is a location and activation service,
+:zeroc:`IceGrid <>` is a location and activation service,
 which functions as a central registry to manage all your OMERO server
 processes. OMERO.grid provides server components
 which use the registry to communicate with one another. Other than a
@@ -281,8 +279,8 @@ permissions verifier, so that anyone with a proper OMERO account can
 access the server. (We are currently looking into providing a root- or
 admin-only permissions verifier for public use.)
 
-See `Section 39.11.2 Access
-Control <http://www.zeroc.com/doc/Ice-3.2.1/manual/IceGrid.40.11.html#108430>`_
+See :zeroc:`Section 39.11.2 Access Control 
+<doc/Ice-3.2.1/manual/IceGrid.40.11.html#108430>`
 of the Ice manual for more information.
 
 Unique node names
