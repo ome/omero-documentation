@@ -12,10 +12,10 @@ Known Operating System issues
 =============================
 
 -  Gentoo requires a special patch for compiling Ice (link requested)
--  Ubuntu 08.04 has issues with older Ice packages (`ome-users
-   thread <http://lists.openmicroscopy.org.uk/pipermail/ome-users/2009-June/001839.html>`__)
--  OpenSuSE 10.1 has issues with Python 2.4/2.5 and Ice (`ome-users
-   thread <http://lists.openmicroscopy.org.uk/pipermail/ome-users/2009-June/001830.html>`__)
+-  Ubuntu 08.04 has issues with older Ice packages
+   (:ome-users:`ome-users thread <2009-June/001839.html>`)
+-  OpenSuSE 10.1 has issues with Python 2.4/2.5 and Ice
+   (:ome-users:`ome-users thread <2009-June/001830.html>`)
 -  Windows XP does not run 'Development Server' version of OMERO.web
    (:forum:`OME forum topic <viewtopic.php?f=5&t=640>`)
    and :doc:`limitations`
@@ -242,10 +242,9 @@ Server or clients print "WARNING: Prefs file removed in background..."
 
 These warnings (also sometimes listed as ERRORS) can be safely ignored,
 and are solely related to how Java is installed on your system. See
-http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=4751177 or perhaps
-this
-`thread <http://lists.openmicroscopy.org.uk/pipermail/ome-users/2009-March/001465.html>`_
-on our mailing list for more information.
+http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=4751177 or perhaps this
+:ome-users:`ome-users thread <2009-March/001465.html>` on our mailing list for
+more information.
 
 
 DropBox fails to start: failed to get session

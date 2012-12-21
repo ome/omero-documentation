@@ -377,12 +377,47 @@ for the following:
 * Snapshots: ``:snapshot: `omero/myzip.zip```
 * Plone pages: ``:omero_plone: `Downloads <downloads>```
 * DOIs: ``:doi: `Dantas, et al., JCB <10.1083/jcb.201012093>```
-* Github source code, e.g. ``:source: `etc/omero.properties```
 * OME Forums: ``:forum: `viewforum.php?f=3```
-* Mailing lists: ``:mailinglist:`ome-users/```
 
 For the most up-to-date list, please consult ``conf.py`` (section
 ``extlinks``).
+
+Source code links
+=================
+
+Links to the OMERO source code hosted on Github can be created using the
+``source`` alias for single files, e.g. ``:source: `etc/omero.properties``` or
+the ``sourcedir`` alias for directories, e.g. ``:sourcedir: `etc```.
+
+By default, these links will point at the code under the ``develop`` branch or
+https://github.com/openmicroscopy/openmicroscopy. To specify a specific fork
+and/or  branch, set the SOURCE_USER and SOURCE_BRANCH environment variables,
+e.g.::
+
+    SOURCE_USER=sbesson SOURCE_BRANCH=my_branch make clean html
+
+Jenkins links
+=============
+
+Links to the continuous integration server can be created using the 
+``jenkins`` alias for the main server, e.g. ``:jenkins: `Jenkins server <>```,
+the ``jenkinsjob`` alias for a given job, e.g. ``:jenkinsjob: `OMERO-4.4``` or
+the ``jenkinsview`` alias for a given view, e.g. ``:jenkinsview: `4.4```.
+Two aliases have been defined for the main OMERO job: ``omerojob`` and
+``javadoc`` for the generated Javadoc, e.g. ``:javadoc:`main page <>```.
+
+By default, the OMERO job is set to ``OMERO-trunk``. To specify a different 
+job, set the JENKINS_JOB environment variables, e.g.::
+
+    JENKINS_JOB=OMERO-4.4 make clean html
+
+Mailing-list links
+==================
+
+Links to the OME mailing lists can be created using the ``mailinglist`` alias,
+e.g. ``:mailinglist:`ome-users/```. To point at specific discussion threads,
+two aliases have been defined ``ome-users`` and ``ome-devel``, e.g.
+``:ome-users:`ome-users thread <2009-June/001839.html>```.
 
 Inclusion of content
 ====================
