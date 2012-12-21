@@ -195,8 +195,7 @@ Documenting server code
 
 The definitive documentation for all |OmeroApi|
 code are the slice definition files. The Ice manual describes how to
-write method and class comments:
-`<http://zeroc.com/doc/Ice-3.3.1/manual/Slice.5.23.html>`_
+write method and class comments: :zeroc:`Generating Slice Documentation <doc/Ice-3.3.1/manual/Slice.5.23.html>`.
 
 Debugging a running OMERO instance
 ----------------------------------

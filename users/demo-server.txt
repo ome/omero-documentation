@@ -50,11 +50,11 @@ Using the OMERO.insight client
 
 Download the **OMERO.insight** client for your platform by clicking on the appropriate link below:
 
-`Windows <http://cvs.openmicroscopy.org.uk/snapshots/omero/4_4_3/pkg/OMERO.clients-4.4.3-ice33-b5.win.zip>`_
+:snapshot:`Windows <omero/4_4_3/pkg/OMERO.clients-4.4.3-ice33-b5.win.zip>`
 
-`Mac OSX <http://cvs.openmicroscopy.org.uk/snapshots/omero/4_4_3/pkg/OMERO.clients-4.4.3-ice33-b5.mac.zip>`_
+:snapshot:`Mac OSX <omero/4_4_3/pkg/OMERO.clients-4.4.3-ice33-b5.mac.zip>`
 
-`Linux <http://cvs.openmicroscopy.org.uk/snapshots/omero/4_4_3/pkg/OMERO.clients-4.4.3-ice33-b5.linux.zip>`_
+:snapshot:`Linux <omero/4_4_3/pkg/OMERO.clients-4.4.3-ice33-b5.linux.zip>`
 
 
 After download, unzip and install the OMERO.insight client as you would for any other application.
@@ -136,19 +136,19 @@ Further guides and help
 
 - An OMERO.insight Getting Started guide that shows you how to import and view your data, and use the measurement tool can be downloaded from:
 
-	`OMERO.insight Getting Started Guide <https://www.openmicroscopy.org/site/support/training/user-guides/OMERO%20Insight%20Getting%20Started%20Guide.pdf>`_
+	:training_plone:`OMERO.insight Getting Started Guide <user-guides/OMERO%20Insight%20Getting%20Started%20Guide.pdf>`
 
 
 - An overview of some OMERO’s features is available in a short showcase video at:
 
-	`Showcase Video <http://cvs.openmicroscopy.org.uk/snapshots/movies/omero-4-4/mov/OMERO-Showcase.mov>`_
+	:snapshot:`Showcase Video <movies/omero-4-4/mov/OMERO-Showcase.mov>`
 
 - If you have any questions, suggestions, comments or proposals, please take advantage of the OME community's expertise and join our forums or mailing lists:
 
-	`Forums <http://www.openmicroscopy.org.uk/community/>`_
+	:forum:`Forums <>`
 
-	`Mailing Lists <http://www.openmicroscopy.org.uk/site/community/mailing-lists/>`_
+	:community_plone:`Mailing Lists <mailing-lists/>`
 
 - For more information on OME and OMERO please visit:
 
-	`Open Microscopy Environment <http://www.openmicroscopy.org/site>`_
+	`Open Microscopy Environment`_

@@ -11,7 +11,7 @@ Installing the OMERO.matlab toolbox
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Download the desired version. For the latest build see
-   :jenkins:`here <job/OMERO/lastSuccessfulBuild/>`, and download the
+   :omerojob:`here <lastSuccessfulBuild/>`, and download the
    OMERO.matlab zip file. For the latest released version visit the
    main :omero_plone:`download page <downloads>`
 -  Unzip the directory anywhere on your system.
@@ -635,7 +635,7 @@ ROIs
 ~~~~
 
 To learn about the model see
-`http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi <http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi>`_
+:formats_plone:`working-with-ome-xml/roi <working-with-ome-xml/roi>`
 . Note that annotation can be linked to ROI.
 
 -  **Create ROI.**

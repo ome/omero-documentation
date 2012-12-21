@@ -1,10 +1,9 @@
 OMERO Java language bindings
 ============================
 
-Using the ` Ice Java language
-mapping <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.4.4.html>`_ from
-ZeroC_, OMERO provides access to your
-data within an :doc:`/developers/server-blitz` server from Java code.
+Using the :zeroc:`Ice Java language mapping 
+<doc/Ice-3.3.0/manual/Hello.4.4.html>` from ZeroC_, OMERO provides access to 
+your data within an :doc:`/developers/server-blitz` server from Java code.
 
 Using the ``omero_client.jar``
 ------------------------------
@@ -14,8 +13,8 @@ class as well as the Ice classes needed to write a complete Java client
 for :doc:`/developers/server-blitz`.
 
 The library is placed under OMERO\_HOME/dist/lib/client by the build,
-or is alternatively available from Jenkins :jenkins:`here
-<job/OMERO/lastSuccessfulBuild/>`.  To use |OmeroJava|, setup you'll
+or is alternatively available from Jenkins :omerojob:`here 
+<lastSuccessfulBuild/>`.  To use |OmeroJava|, setup you'll
 need to setup your CLASSPATH:
 
 ::
@@ -616,8 +615,7 @@ In the following example, we create a table with 2 columns.
 ROIs
 ----
 
-To learn about the model see
-`http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi <http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi>`_
+To learn about the model see :formats_plone:`working-with-ome-xml/roi <working-with-ome-xml/roi>`
 . Note that annotation can be linked to ROI.
 
 -  **Create ROI.**

@@ -55,7 +55,7 @@ following:
 
 First versions of our coding styles are available from git at:
 
--  ` http://git.openmicroscopy.org/?p=ome.git;a=tree;f=docs/styles <http://git.openmicroscopy.org/?p=ome.git;a=tree;f=docs/styles>`_
+-  :sourcedir:`docs/styles`
 
 Eventually all code will be formatted using these settings and the
 ` Eclipse 3.1+ <http://eclipse.org>`_ formatter.
@@ -85,8 +85,7 @@ Communication
 
 Without good communication, all the other concepts fall down. To this
 end, several weekly or monthly conference calls are arranged to report
-on status. See
-`http://www.openmicroscopy.org/site/community/minutes/conference-calls <http://www.openmicroscopy.org/site/community/minutes/conference-calls>`_
+on status. See :community_plone:`Conference calls <minutes/conference-calls>`
 for times and login information.
 
 --------------
@@ -95,7 +94,7 @@ Under consideration
 ~~~~~~~~~~~~~~~~~~~
 
 This list was initially a starting point for discussion for the
-`http://www.openmicroscopy.org/site/community/minutes/meetings/september-2008-dundee-developer <http://www.openmicroscopy.org/site/community/minutes/meetings/september-2008-dundee-developer>`_:
+:community_plone:`September 2008 Dundee Developers meeting <minutes/meetings/september-2008-dundee-developer>`:
 
     The following topics are all **completely open** for anyone to add
     or veto (please don't delete). Some we already do, some are highly

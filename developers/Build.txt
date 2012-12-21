@@ -96,9 +96,9 @@ of the most important code. Many MB of source code is generated both by
 our own :sourcedir:`DSLTask <components/dsl>` as well as by
 the Ice_ ``slice2java``, ``slice2cpp``, and
 ``slice2py`` code generators. These take an intermediate representation
-of the `OME-Model <http://www.openmicroscopy.org/site/support/file-formats>`_ 
-and generate our |OmeroModel|. This code is node available in git, but once 
-built, can be found in all the  directories named "generated".
+of the :formats_plone:`OME-Model <>` and generate our |OmeroModel|. This code 
+is not available in git, but once built, can be found in all the  directories
+named "generated".
 
 .. _build#OmeroTools:
 
@@ -196,8 +196,7 @@ Jenkins
 The OME project currently uses Jenkins_ as
 a continuous integration server available :jenkins:`here <>`, so many
 binary packages can be downloaded without compiling them yourself.
-OMERO.server is built by the "OMERO" job at
-:jenkins:`job/OMERO-trunk`.
+OMERO.server is built by the :omerojob:`"OMERO" job <>`.
 
 Hudson checks for git changes every 15 minutes and executes:
 
