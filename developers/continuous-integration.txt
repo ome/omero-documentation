@@ -117,6 +117,12 @@ Jenkins jobs
 		* :term:`BIOFORMATS-4.4`
 		* :term:`BIOFORMATS-trunk`
 
+..  |merge| replace:: merge PRs using :term:`scc merge`
+..  |sphinxbuild| replace:: build HTML & PDF Sphinx documentation
+..  |linkcheck| replace:: check broken (404) and local links
+..  |ssh-doc| replace:: SSH doc & PDF to
+..  |deploy-doc| replace:: Use hot-deploy script to update
+
 Current major release
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -129,60 +135,60 @@ the :jenkinsview:`4.4` view tab of Jenkins.
 
 		Update the official documentation for the current OMERO release
 
-		#. build HTML & PDF Sphinx documentation 
-		#. check broken (404) and local links
-		#. After promotion
-			#. SSH doc & PDF to /var/www/www.openmicroscopy.org/sphinx-docs/ome-release.tmp
-			#. Use hot-deploy script to update http://www.openmicroscopy.org/site/support/omero4/
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. If the build is promoted,
+			#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/ome-release.tmp
+			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4/
 
 	:jenkinsjob:`BIOFORMATS-docs-release-4.4`
 
 		Update the official documentation for the current Bio-Formats release
 
-		#. build HTML & PDF Sphinx documentation 
-		#. check broken (404) and local links
-		#. After promotion
-			#. SSH doc & PDF to /var/www/www.openmicroscopy.org/sphinx-docs/bf-release.tmp
-			#. Use hot-deploy script to update http://www.openmicroscopy.org/site/support/bio-formats
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. If the build is promoted,
+			#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/bf-release.tmp
+			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats/
 
 	:jenkinsjob:`OMERO-4.4`
 	:jenkinsjob:`BIOFORMATS-4.4`
 
 		Build current release of OMERO/Bio-Formats 
 
-		#. build server & release-docs
-		#. Can be promoted for point release
+		#. Build server & release-docs
+		#. If the build is promoted,
+			#. Use artifacts for point release
 
 	:jenkinsjob:`OMERO-merge-4.4`
 
 		Review code PRs for the next OMERO point release
 
-		#. merge PRs opened against dev_4_4
-		#. run docs/hudson/OMERO.sh
+		#. |merge| and push to snoopycrimecop/merge/dev_4_4/latest
+		#. Run docs/hudson/OMERO.sh
 		#. deploy the server on http://howe.openmicroscopy.org.uk
-		#. push to snoopycrimecop/merge/dev_4_4/latest
 
 	:jenkinsjob:`OMERO-docs-merge-4.4`
 
 		Review doc PRs for the current OMERO release or for the next OMERO
 		point release
 
-		#. merge PRs opened against dev_4_4
-		#. build HTML & PDF Sphinx documentation 
-		#. check broken (404) and local links
-		#. SSH doc & PDF to /var/www/www.openmicroscopy.org/sphinx-docs/ome-staging.tmp
-		#. Use hot-deploy script to update http://www.openmicroscopy.org/site/support/omero4-staging
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/ome-staging.tmp
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4-staging/
 
 	:jenkinsjob:`BIOFORMATS-docs-merge-4.4`
 
 		Review doc PRs for the current Bio-Formats release or for the next
 		Bio-Formats point release
 
-		#. merge PRs opened against dev_4_4
-		#. build HTML & PDF Sphinx documentation 
-		#. check broken (404) and local links
-		#. SSH doc & PDF to	/var/www/www.openmicroscopy.org/sphinx-docs/bf-staging.tmp
-		#. Use hot-deploy script to update http://www.openmicroscopy.org/site/support/bio-formats-staging
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/bf-staging.tmp
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats-staging/
 
 Next major release
 ^^^^^^^^^^^^^^^^^^
@@ -203,29 +209,29 @@ the :jenkinsview:`trunk` view tab of Jenkins.
 
 		Review code PRs for the next major release of OMERO
 
-		#. merge PRs opened against develop
+		#. |merge| and push to snoopycrimecop/merge/develop/latest
 		#. run docs/hudson/OMERO.sh
 		#. deploy the server on http://gretzky.openmicroscopy.org.uk
-		#. push to snoopycrimecop/merge/develop/latest
 
 	:jenkinsjob:`OMERO-docs-merge-develop`
 
 		Review doc PRs for the next major release of OMERO
 
-		#. build HTML & PDF Sphinx documentation 
-		#. check broken (404) and local links
-		#. SSH doc to /var/www/www.openmicroscopy.org/sphinx-docs/ome-develop.tmp
-		#. Use hot-deplot to update http://www.openmicroscopy.org/site/support/omero4-develop
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/ome-develop.tmp
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4-develop/
 
 	:jenkinsjob:`BIOFORMATS-docs-merge-develop`
 
 		Review doc PRs for next major release of Bio-Formats
 
-		#. merge PRs opened against develop
-		#. build HTML & PDF Sphinx documentation 
-		#. check broken (404) and local links
-		#. SSH doc & PDF to  /var/www/www.openmicroscopy.org/sphinx-docs/bf-develop.tmp
-		#. Use hot-deploy script to update  http://www.openmicroscopy.org/site/support/bio-formats-develop/
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/bf-develop.tmp
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats-develop/
 
 Continous integration scripts
 ------------------------------
