@@ -84,38 +84,38 @@ Jenkins jobs
 
 	- 	* Release OMERO docs
 		* ome-documentation.git_
-		* :term:`OMERO-docs-release-4.4`
+		* OMERO-docs-release-|version|
 		* N/A
 
 	- 	* Release Bio-Formats docs
 		* bioformats.git_
-		* :term:`OMERO-docs-release-4.4`
+		* BIOFORMATS-docs-release-|version|
 		* N/A
 
 	- 	* Review OMERO code PRs
 		* openmicroscopy.git_
-		* :term:`OMERO-merge-4.4`
-		* :term:`OMERO-merge-develop`
+		* OMERO-merge-|version|
+		* OMERO-merge-develop
 
 	- 	* Review OMERO doc PRs
 		* ome-documentation.git_
-		* :term:`OMERO-docs-merge-4.4`
-		* :term:`OMERO-docs-merge-develop`
+		* OMERO-docs-merge-|version|
+		* OMERO-docs-merge-develop
 
 	- 	* Review Bio-Formats doc PRs
 		* bioformats.git_
-		* :term:`BIOFORMATS-docs-merge-4.4`
-		* :term:`BIOFORMATS-docs-merge-develop`
+		* BIOFORMATS-docs-merge-|version|
+		* BIOFORMATS-docs-merge-develop
 
 	- 	* Build OMERO
 		* openmicroscopy.git_
-		* :term:`OMERO-4.4`
-		* :term:`OMERO-trunk`
+		* OMERO-|version|
+		* OMERO-trunk
 
 	- 	* Build BIOFORMATS
 		* bioformats.git_
-		* :term:`BIOFORMATS-4.4`
-		* :term:`BIOFORMATS-trunk`
+		* BIOFORMATS-|version|
+		* BIOFORMATS-trunk
 
 ..  |merge| replace:: merge PRs using :term:`scc merge`
 ..  |sphinxbuild| replace:: build HTML & PDF Sphinx documentation
@@ -127,11 +127,11 @@ Current major release
 ^^^^^^^^^^^^^^^^^^^^^
 
 The branch for the current major release is |devbranch|. All jobs are listed 
-under the :jenkinsview:`4.4` view tab of Jenkins.
+under the |version| view tab of Jenkins.
 
 .. glossary::
 
-	:jenkinsjob:`OMERO-docs-release-4.4`
+	OMERO-docs-release-|version|
 
 		Update the official documentation for the current OMERO release
 
@@ -141,7 +141,7 @@ under the :jenkinsview:`4.4` view tab of Jenkins.
 			#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/ome-release.tmp
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4/
 
-	:jenkinsjob:`BIOFORMATS-docs-release-4.4`
+	BIOFORMATS-docs-release-|version|
 
 		Update the official documentation for the current Bio-Formats release
 
@@ -151,8 +151,8 @@ under the :jenkinsview:`4.4` view tab of Jenkins.
 			#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/bf-release.tmp
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats/
 
-	:jenkinsjob:`OMERO-4.4`
-	:jenkinsjob:`BIOFORMATS-4.4`
+	OMERO-|version|
+	BIOFORMATS-|version|
 
 		Build current release of OMERO/Bio-Formats 
 
@@ -160,7 +160,7 @@ under the :jenkinsview:`4.4` view tab of Jenkins.
 		#. If the build is promoted,
 			#. Use artifacts for point release
 
-	:jenkinsjob:`OMERO-merge-4.4`
+	OMERO-merge-|version|
 
 		Review code PRs for the next OMERO point release
 
@@ -168,7 +168,7 @@ under the :jenkinsview:`4.4` view tab of Jenkins.
 		#. Run docs/hudson/OMERO.sh
 		#. deploy the server on http://howe.openmicroscopy.org.uk
 
-	:jenkinsjob:`OMERO-docs-merge-4.4`
+	OMERO-docs-merge-|version|
 
 		Review doc PRs for the current OMERO release or for the next OMERO
 		point release
@@ -179,7 +179,7 @@ under the :jenkinsview:`4.4` view tab of Jenkins.
 		#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/ome-staging.tmp
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4-staging/
 
-	:jenkinsjob:`BIOFORMATS-docs-merge-4.4`
+	BIOFORMATS-docs-merge-|version|
 
 		Review doc PRs for the current Bio-Formats release or for the next
 		Bio-Formats point release
@@ -198,14 +198,14 @@ the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 
 .. glossary::
 
-	:jenkinsjob:`BIOFORMATS-trunk`
-	:jenkinsjob:`OMERO-trunk`
+	BIOFORMATS-trunk
+	OMERO-trunk
 
 		Build next BIO-FORMATS/OMERO major release.
 
 		#. build server & release-docs
 
-	:jenkinsjob:`OMERO-merge-develop`
+	OMERO-merge-develop
 
 		Review code PRs for the next major release of OMERO
 
@@ -213,7 +213,7 @@ the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 		#. run docs/hudson/OMERO.sh
 		#. deploy the server on http://gretzky.openmicroscopy.org.uk
 
-	:jenkinsjob:`OMERO-docs-merge-develop`
+	OMERO-docs-merge-develop
 
 		Review doc PRs for the next major release of OMERO
 
@@ -223,7 +223,7 @@ the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 		#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/ome-develop.tmp
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4-develop/
 
-	:jenkinsjob:`BIOFORMATS-docs-merge-develop`
+	BIOFORMATS-docs-merge-develop
 
 		Review doc PRs for next major release of Bio-Formats
 
@@ -306,7 +306,7 @@ served by Apache without downtime and HTTP 404s.
 
 The logic behind the scripts follows the method outlined in
 https://gist.github.com/3807742#file_symlink_replacement.md. The hudson jobs
-(BIOFORMATS-docs-merge-{4.4,develop}, OMERO-docs-merge-{4.4,develop} and
+(BIOFORMATS-docs-merge-{|version|,develop}, OMERO-docs-merge-{|version|,develop} and
 OMERO-docs-internal) deploy the documentation artifacts to necromancer. The
 target directory (sphinx-docs) is controlled by the hudson:hudson user, so all
 file system operations are allowed. Each job has the target directory
