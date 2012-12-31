@@ -33,8 +33,8 @@ Labels are applied to PRs on github under the “Issues” tab of each repositor
 (openmicroscopy.git_, bioformats.git_, scripts.git, ome-documentation.git,
 etc.)
 
-The current release consists of PRs labelled with “dev_4_4”, which is the name
-of the branch which they will be merged into. This is work on the stable
+The current release consists of PRs labelled with “|devbranch|”, which is the 
+name of the branch which they will be merged into. This is work on the stable
 release version which will only be released as a point release.
 
 The next major release consists of PRs labelled with “develop”, which is also
@@ -53,12 +53,12 @@ Proposal
 
 Maintain two development branches under the ome-documentation.git repository:
 
-* `dev_4_4`, associated with current OMERO major release, e.g. 4.4
-* `develop`, associated with the next OMERO major release, e.g. 4.5
+* |devbranch|, associated with current OMERO major release: |version|
+* develop, associated with the next OMERO major release: |nextversion|
 
 such that it is possible to release both the current point releases
 immediately, while still working on more major releases by ensuring that
-(nearly) all commits that are applied to `dev_4_4` are applied to develop in
+(nearly) all commits that are applied to |devbranch| are applied to develop in
 order to prevent regressions,
 
 Caveats include:
@@ -126,7 +126,7 @@ Jenkins jobs
 Current major release
 ^^^^^^^^^^^^^^^^^^^^^
 
-The branch for the current major release is `dev_4_4`. All jobs are listed 
+The branch for the current major release is |devbranch|. All jobs are listed 
 under the :jenkinsview:`4.4` view tab of Jenkins.
 
 .. glossary::
@@ -164,7 +164,7 @@ under the :jenkinsview:`4.4` view tab of Jenkins.
 
 		Review code PRs for the next OMERO point release
 
-		#. |merge| and push to snoopycrimecop/merge/dev_4_4/latest
+		#. |merge| and push to snoopycrimecop/merge/|devbranch|/latest
 		#. Run docs/hudson/OMERO.sh
 		#. deploy the server on http://howe.openmicroscopy.org.uk
 
