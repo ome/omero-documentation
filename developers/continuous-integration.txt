@@ -3,9 +3,9 @@ Multiple Development Branches Review Proposal
 
 .. _Sphinx: http://sphinx-doc.org/
 .. _Wikipedia: http://en.wikipedia.org
-.. _openmicroscopy.git: http://github.com/openmicroscopy/openmicroscopy.git
-.. _bioformats.git: http://github.com/openmicroscopy/bioformats.git
-.. _ome-documentation.git: http://github.com/openmicroscopy/ome-documentation.git
+.. _openmicroscopy.git: https://github.com/openmicroscopy/openmicroscopy.git
+.. _bioformats.git: https://github.com/openmicroscopy/bioformats.git
+.. _ome-documentation.git: https://github.com/openmicroscopy/ome-documentation.git
 
 Definitions
 -----------
@@ -194,7 +194,7 @@ Next major release
 ^^^^^^^^^^^^^^^^^^
 
 The branch for the next major release is `develop`. All jobs are listed under
-the :jenkinsview:`Trunk <1. Trunk>` view tab of Jenkins.
+the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 
 .. glossary::
 
