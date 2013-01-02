@@ -166,7 +166,7 @@ under the |version| view tab of Jenkins.
 
 		#. |merge| and push to snoopycrimecop/merge/|devbranch|/latest
 		#. Run docs/hudson/OMERO.sh
-		#. deploy the server on http://howe.openmicroscopy.org.uk
+		#. deploy the server on howe
 
 	OMERO-docs-merge-|version|
 
@@ -194,7 +194,7 @@ Next major release
 ^^^^^^^^^^^^^^^^^^
 
 The branch for the next major release is `develop`. All jobs are listed under
-the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
+the Trunk view tab of Jenkins.
 
 .. glossary::
 
@@ -211,7 +211,7 @@ the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 
 		#. |merge| and push to snoopycrimecop/merge/develop/latest
 		#. run docs/hudson/OMERO.sh
-		#. deploy the server on http://gretzky.openmicroscopy.org.uk
+		#. deploy the server on gretzky
 
 	OMERO-docs-merge-develop
 
