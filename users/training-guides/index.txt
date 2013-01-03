@@ -1,0 +1,18 @@
+********************************
+Screenshot-based training guides
+********************************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    getting-started
+    collaboration
+    imagej
+    importing-data
+    measurement-tool
+    scripts
+    viewing-data
+    web-client
+    output
+
