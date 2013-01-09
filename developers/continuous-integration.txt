@@ -283,7 +283,7 @@ The first argument is the name of the base branch of origin, e.g.::
 
 		$ scc merge develop
 		$ scc merge develop --default org
-		$ scc merge develop -Dorg
+		$ scc merge develop -D org
 
 	.. versionadded:: 0.2.2
 
@@ -294,11 +294,11 @@ The first argument is the name of the base branch of origin, e.g.::
 	Label filters can be specified using `label:my_label`, user filters using
 	`user:username` and PR filters using `pr:xx`, e.g.::
 
-		$ scc merge develop --exclude label:exclude_label user:my_user pr:45
+		$ scc merge develop -E label:exclude_label -E user:my_user -E pr:45
 
 	If no key is specified, it is assumed the filter is a label filter, e.g.::
 
-		$ scc merge develop --exclude broken conflict needs-fixes
+		$ scc merge develop -E broken
 
 .. option:: --include <filters>, -I <filters>
 
@@ -307,11 +307,11 @@ The first argument is the name of the base branch of origin, e.g.::
 	Label filters can be specified using `label:my_label`, user filters using
 	`user:username` and PR filters using `pr:xx`, e.g.::
 
-		$ scc merge develop --include label:include_label user:my_user pr:40
+		$ scc merge develop -I label:include_label -I user:my_user -I pr:40
 
 	If no key is specified, it is assumed the filter is a label filter, e.g.::
 
-		$ scc merge develop --include to_include
+		$ scc merge develop -I to_include
 
 .. option:: --push <branchname>
 
