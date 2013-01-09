@@ -117,7 +117,7 @@ Jenkins jobs
 		* :term:`BIOFORMATS-stable`
 		* :term:`BIOFORMATS-trunk`
 
-..  |merge| replace:: Merge PRs using :term:`scc merge`
+..  |merge| replace:: Merge PRs using :program:`scc merge`
 ..  |sphinxbuild| replace:: Build HTML & PDF Sphinx documentation
 ..  |linkcheck| replace:: Check broken (404) and local links
 ..  |ssh-doc| replace:: SSH doc & PDF to
@@ -255,46 +255,93 @@ The tools suite can then be installed using Homebrew::
     $ brew update && brew install scc
     $ scc -h
 
-scc tools
+scc merge
 ^^^^^^^^^
 
-.. glossary::
+.. program:: scc merge
 
-	scc version
+Merge all the open PRs based on specified branch, including all submodules.
 
-		Return the version of the scc tools::
+The first argument is the name of the base branch of origin, e.g.::
 
-			$ scc version
-			0.2.1
-		
-		.. versionadded:: 0.2.0
+	$ scc merge develop
 
-	scc merge
+.. option:: --info
 
-		Merge all the PRs opened against a specified branch, including all
-		submodules::
+	Display the candidate PRs to merge but do not merge them
+	::
 
-			$ scc merge develop
+	$ scc merge develop --info
 
-		PRs can be excluded by label using the :option:`--exclude` option::
+.. option:: --default <type>, -D <type>
 
-			$ scc merge develop --exclude broken conflict needs-fixes
+	Specify the default set of PRs to be included in the merge
 
-		By default, only users of the repository organization are whitelisted.
-		To include other PRs by label or user, use the :option:`--include`
-		option::
+	Four options are currently implemented: `none`, `mine`, `org` and `all`.
+	By default, only PRs of the public members of the repository organization
+	are included (`org`) so the following are equivalent::
 
-			$ scc merge develop --include label:mylabel user:externaluser
+		$ scc merge develop
+		$ scc merge develop --default org
+		$ scc merge develop -Dorg
 
-	scc rebase
+	.. versionadded:: 0.2.2
 
-		Rebase a PR (open or closed) onto another branch and open a new PR::
+.. option:: --exclude <filters>, -E <filters>
 
-			$ scc rebase 142 develop
+	Exclude PR by label, user or number
 
-		PR opening can be skipped using the :option:`--no-pr` option::
+	Label filters can be specified using `label:my_label`, user filters using
+	`user:username` and PR filters using `pr:xx`, e.g.::
 
-			$ scc rebase 142 develop --no-pr
+		$ scc merge develop --exclude label:exclude_label user:my_user pr:45
+
+	If no key is specified, it is assumed the filter is a label filter, e.g.::
+
+		$ scc merge develop --exclude broken conflict needs-fixes
+
+.. option:: --include <filters>, -I <filters>
+
+	Include PR by label, user or number
+
+	Label filters can be specified using `label:my_label`, user filters using
+	`user:username` and PR filters using `pr:xx`, e.g.::
+
+		$ scc merge develop --include label:include_label user:my_user pr:40
+
+	If no key is specified, it is assumed the filter is a label filter, e.g.::
+
+		$ scc merge develop --include to_include
+
+.. option:: --push <branchname>
+
+	Push the locally merged branch to Github
+	::
+
+		$ scc merge develop --push my-merged-branch
+
+scc rebase
+^^^^^^^^^^
+.. program:: scc rebase
+
+Rebase a PR (open or closed) onto another branch and open a new PR::
+
+	$ scc rebase 142 develop
+
+PR opening can be skipped using the :option:`--no-pr` option::
+
+	$ scc rebase 142 develop --no-pr
+
+scc version
+^^^^^^^^^^^
+.. program:: scc version
+
+Return the version of the scc tools::
+
+	$ scc version
+	0.2.1
+
+.. versionadded:: 0.2.0
 
 Documentation deployment
 ^^^^^^^^^^^^^^^^^^^^^^^^
