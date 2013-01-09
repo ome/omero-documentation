@@ -29,7 +29,7 @@ The primary classes which make up the Import Library are:
 -  In OMERO.insight, the main entry point is the importImage method of
    :source:` OMEROGateway.java <components/insight/SRC/org/openmicroscopy/shoola/env/data/OMEROGateway.java>`.
 -  In the CLI, the main entry point is the
-   :source:` CommandLineImporter <components/tools/OmeroImporter/src/ome/formats/importer/cli/CommandLineImporter.java>`
+   :source:` CommandLineImporter <components/blitz/src/ome/formats/importer/cli/CommandLineImporter.java>`
    class.
 
 Earlier Import Workflow
