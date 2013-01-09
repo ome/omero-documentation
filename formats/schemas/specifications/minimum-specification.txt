@@ -7,7 +7,8 @@ Minimum Specification
 OME Minimum File Specification
 
 This was developed in conjunction with the September 2009 release of the
-OME-XML Model
+OME-XML Model and has been updated to the June 2012 release.
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A minimum specification OME file has been defined. This is best viewed
@@ -17,13 +18,13 @@ the structure is:
 ::
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <ome:OME xmlns:bf="http://www.openmicroscopy.org/Schemas/BinaryFile/2009-09"
-        xmlns:ome="http://www.openmicroscopy.org/Schemas/OME/2009-09"
+    <ome:OME xmlns:bf="http://www.openmicroscopy.org/Schemas/BinaryFile/2012-06"
+        xmlns:ome="http://www.openmicroscopy.org/Schemas/OME/2012-06"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2009-09 
-                            http://www.openmicroscopy.org/Schemas/OME/2009-09/ome.xsd">
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06 
+                            http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd">
         <ome:Image ID="Image:1" Name="Name92">
-            <ome:AcquiredDate>2009-03-16T15:41:51.0Z</ome:AcquiredDate>
+            <ome:AcquisitionDate>2009-03-16T15:41:51.0Z</ome:AcquisitionDate>
             <ome:Pixels 
                 ID="Pixels:1" 
                 DimensionOrder="XYZCT" 
@@ -41,7 +42,6 @@ the structure is:
             </ome:Pixels>
         </ome:Image>
     </ome:OME>
-
     The data in this sample is nonsense.
 
 An alternative valid forms:

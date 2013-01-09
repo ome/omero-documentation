@@ -5,7 +5,7 @@ Compliant HCS Specification
 
 
 OME Compliant HCS File Specification. This was developed in conjunction
-with the June 2010 release of the OME-XML Model
+with the June 2010 release of the OME-XML Model and has been updated to the June 2012 release.
 
 A compliant specification for HCS OME files has been defined. This is
 not the minimum required for the display of an image, that is the
@@ -20,15 +20,15 @@ Specification <compliant-file-specification>`_).
 ::
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2010-06"
-        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2010-06"
-        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2010-06"
-        xmlns:SPW="http://www.openmicroscopy.org/Schemas/SPW/2010-06"
+    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2012-06"
+        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2012-06"
+        xmlns:SPW="http://www.openmicroscopy.org/Schemas/SPW/2012-06"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2010-06 
-        http://www.openmicroscopy.org/Schemas/OME/2010-06/ome.xsd">     
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06 
+                            http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd">     
 
-    <SPW:Plate 
+        <SPW:Plate 
             ID="Plate:1" 
             Name="Control Plate" 
             ColumnNamingConvention="letter" 
@@ -43,10 +43,10 @@ Specification <compliant-file-specification>`_).
                 <!-- repeat SPW:WellSample for # of images taken in the well -->
                 <SPW:WellSample ID="WellSample:1" Index="0">
                     <!-- 
-                        if there is an image associated with this SPW:WellSample
-                        it is linked using an SPW:ImageRef
-                    -->
-                    <SPW:ImageRef ID="Image:0"/>
+                            if there is an image associated with this SPW:WellSample
+                            it is linked using an SPW:ImageRef
+                        -->
+                    <OME:ImageRef ID="Image:0"/>
                 </SPW:WellSample>
             </SPW:Well>
         </SPW:Plate>
@@ -56,11 +56,11 @@ Specification <compliant-file-specification>`_).
 
         <!-- The OME:Image element follows the structure for the OME Compliant File Specification -->
         <OME:Image ID="Image:0" Name="Series 1">
-            <OME:AcquiredDate>2008-02-06T13:43:19</OME:AcquiredDate>
+            <OME:AcquisitionDate>2008-02-06T13:43:19</OME:AcquisitionDate>
             <OME:Description>An example OME compliant file, based on Olympus.oib</OME:Description>
             <OME:Pixels DimensionOrder="XYCZT" ID="Pixels:0" 
-                        PhysicalSizeX="0.207" PhysicalSizeY="0.207" PhysicalSizeZ="0.0" 
-                        SizeC="3" SizeT="16" SizeX="1024" SizeY="1024" SizeZ="1"
+                PhysicalSizeX="0.207" PhysicalSizeY="0.207" 
+                SizeC="3" SizeT="16" SizeX="1024" SizeY="1024" SizeZ="1"
                 TimeIncrement="120.1302" Type="uint16">
                 <OME:Channel EmissionWavelength="523" ExcitationWavelength="488" ID="Channel:0:0"
                     IlluminationType="Epifluorescence" Name="CH1" SamplesPerPixel="1"

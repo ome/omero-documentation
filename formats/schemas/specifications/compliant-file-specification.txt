@@ -1,11 +1,10 @@
 Compliant File Specification
 ============================
 
-by `jburel <http://134.36.65.53:8086/site/author/jburel>`_ — last
-modified 10 October 2011 - 08:49 PM
 
 This was developed in conjunction with the April 2010 release of the
-OME-XML Model
+OME-XML Model and the samples have been updated to the June 2012 release.
+
 
 A "compliant" specification OME file has been defined. This is not the
 minimum required for the display of an image (for this, see `Minimum
@@ -35,18 +34,18 @@ Sample structure one:
 ::
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2010-04"
-        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2010-04"
-        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2010-04"
+    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2012-06"
+        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2012-06"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2010-04 
-        http://www.openmicroscopy.org/Schemas/OME/2010-04/ome.xsd">   
-
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06 
+                            http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd">   
+    
         <OME:Image ID="Image:0" Name="Series 1">
-            <OME:AcquiredDate>2008-02-06T13:43:19</OME:AcquiredDate>
+            <OME:AcquisitionDate>2008-02-06T13:43:19</OME:AcquisitionDate>
             <OME:Description>An example OME compliant file, based on Olympus.oib</OME:Description>
             <OME:Pixels DimensionOrder="XYCZT" ID="Pixels:0" 
-                PhysicalSizeX="0.207" PhysicalSizeY="0.207" PhysicalSizeZ="0.0"
+                PhysicalSizeX="0.207" PhysicalSizeY="0.207"
                 SizeC="3" SizeT="16" SizeX="1024" SizeY="1024" SizeZ="1"
                 TimeIncrement="120.1302" Type="uint16">
                 <OME:Channel EmissionWavelength="523" ExcitationWavelength="488" ID="Channel:0:0"
@@ -62,7 +61,7 @@ Sample structure one:
                 <BIN:BinData BigEndian="false" Length="0"/>
             </OME:Pixels>
         </OME:Image>
-
+    
     </OME:OME>
 
 Sample structure two:
@@ -70,24 +69,24 @@ Sample structure two:
 ::
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2010-04"
-        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2010-04"
-        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2010-04"
+    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2012-06"
+        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2012-06"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2010-04 
-        http://www.openmicroscopy.org/Schemas/OME/2010-04/ome.xsd">   
-
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06 
+                            http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd">   
+    
         <OME:Instrument ID="Instrument:0">
             <OME:Detector ID="Detector:0:0" Model="COOLSNAP_HQ / ICX285" Type="CCD"/>
             <OME:Objective ID="Objective:10002" Immersion="Oil" LensNA="1.4" Manufacturer="Olympus"
-                            NominalMagnification="100"/>
+                NominalMagnification="100"/>
         </OME:Instrument>
         <OME:Image ID="Image:1" Name="example_R3D_D3D.dv">
-            <OME:AcquiredDate>2005-01-28T13:50:08</OME:AcquiredDate>
+            <OME:AcquisitionDate>2005-01-28T13:50:08</OME:AcquisitionDate>
             <OME:Description>An example OME compliant file, 
-                             based on a wide-field microscope image</OME:Description>
+                based on a wide-field microscope image</OME:Description>
             <OME:ObjectiveSettings ID="Objective:10002" Medium="Oil" RefractiveIndex="1.52" 
-                            CorrectionCollar="7"/>
+                CorrectionCollar="7"/>
             <OME:Pixels DimensionOrder="XYCZT" ID="Pixels:1" PhysicalSizeX="0.06631"
                 PhysicalSizeY="0.06631" PhysicalSizeZ="0.2" 
                 SizeC="3" SizeT="1" SizeX="480" SizeY="480" SizeZ="5"
@@ -104,14 +103,14 @@ Sample structure two:
                     IlluminationType="Epifluorescence" ContrastMethod="Fluorescence"
                     AcquisitionMode="WideField" Color="16711935">
                     <OME:DetectorSettings Binning="1x1" Gain="0.5" ID="Detector:0:0" 
-                    ReadOutRate="10.0"/>
+                        ReadOutRate="10.0"/>
                 </OME:Channel>
                 <OME:Channel EmissionWavelength="617" ExcitationWavelength="555" ID="Channel:1:2"
                     NDFilter="0.0" Name="RD-TR-PE" SamplesPerPixel="1" Fluor="TRITC"
                     IlluminationType="Epifluorescence" ContrastMethod="Fluorescence"
-                    AcquisitionMode="WideField" Color="4278190335">
+                    AcquisitionMode="WideField" Color="-16776961">
                     <OME:DetectorSettings Binning="1x1" Gain="0.5" ID="Detector:0:0"
-                    ReadOutRate="10.0"/>
+                        ReadOutRate="10.0"/>
                 </OME:Channel>
                 <BIN:BinData BigEndian="false" Length="0"/>
                 <OME:Plane DeltaT="0.0" ExposureTime="0.1" PositionX="3316.37" PositionY="-646.46"
@@ -161,6 +160,8 @@ Alternative valid forms:
 
 Definitions of values stored
 ----------------------------
+
+Note: AcquiredDate was rename to AcquisitionDate in June 2012
 
 .. figure:: /images/formats/OME-schema-table-formatted_final.*
    :align: center
