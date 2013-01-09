@@ -12,17 +12,16 @@ Java clients
 Java clients log to ``$HOME/omero/log``. The number of files and their
 size are limited.
 
-Logging is configured by log4j properties files contained within the
-jars themselves. For OmeroImport, the file is here:
-:source:`log4j.properties <components/tools/OmeroImporter/resources/log4j.properties>`,
-which delegates to
-:source:`LogAppenderProxy <components/tools/OmeroImporter/src/ome/formats/importer/util/LogAppenderProxy.java>` for much of the configuration.
-
-Another file in that directory --
-:source:`log4j-cli.properties <components/tools/OmeroImporter/resources/log4j-cli.properties>`
+:source:`log4j-cli.properties <components/blitz/resources/log4j-cli.properties>`
 controls the output for the command line importer: all logging goes
 to standard err, while useful output (pixel ids, or used files) goes to
-standard out.
+standard out. It is contained within the blitz.jar itself. Therefore, to
+modify the settings use `-Dlog4j.configuration=/path/to/log4j.xml` or
+similar.`
+
+Insight logging is configured via 
+:source:`log4j.config <components/insight/config/log4j.config>`,
+which is available in the config/ directory of any Insight install.
 
 Java servers
 ------------
