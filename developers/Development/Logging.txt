@@ -19,9 +19,9 @@ standard out. It is contained within the blitz.jar itself. Therefore, to
 modify the settings use `-Dlog4j.configuration=/path/to/log4j.xml` or
 similar.`
 
-Insight logging is configured via 
+OMERO.insight logging is configured via
 :source:`log4j.config <components/insight/config/log4j.config>`,
-which is available in the config/ directory of any Insight install.
+which is available in the config/ directory of any OMERO.insight install.
 
 Java servers
 ------------
