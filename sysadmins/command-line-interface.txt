@@ -85,7 +85,7 @@ can pipe them via standard in using :omerocmd:`config load`::
     omero.ldap.values=person
 
 Each of these values can then be modified to suit your local setup. To
-remove on of the key-value pairs, pass no second argument::
+remove one of the key-value pairs, pass no second argument::
 
     $ OMERO_CONFIG=ldap bin/omero config set omero.ldap.trustStore
 
@@ -107,13 +107,13 @@ remove on of the key-value pairs, pass no second argument::
     omero.ldap.username=
     omero.ldap.values=person
 
-if you will be using a particular profile more frequently you can set it
+If you will be using a particular profile more frequently you can set it
 as your default using the :omerocmd:`config def` command::
 
     $ bin/omero config def ldap
 
-And finally, if you would like to remove a profile, say to wipe a given
-password off of a system, use :omerocmd:`config drop`::
+And finally, if you would like to remove a profile, for example to wipe a
+given password off of a system, use :omerocmd:`config drop`::
 
     $ bin/omero config drop
 
@@ -150,7 +150,7 @@ New users can be added to the database using the :omerocmd:`user add` command::
     $ bin/omero user add -h
 
 During the addition of the new user, you will need to specify the first and
-last name of the new user, its username as well as the groups the user
+last name of the new user and their username as well as the groups the user
 belongs to. To add John Smith as a member of group 2 identified as jsmith,
 enter::
 

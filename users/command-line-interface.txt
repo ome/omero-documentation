@@ -48,8 +48,8 @@ subcommands. You can investigate the various commands available using the
 
     $ bin/omero -h
 
-Again, we can use :option:`-h` repeatedly to get more details on each of these
-sub-commands::
+Again, you can use :option:`-h` repeatedly to get more details on each of
+these sub-commands::
 
     $ bin/omero admin -h
     $ bin/omero admin start -h
@@ -65,7 +65,7 @@ Command line workflow
 
 There are three ways to use the command line tools:
 
-#.  By explicitly logging in to to the server first i.e. by creating a session 
+#.  By explicitly logging in to the server first i.e. by creating a session
     using the :omerocmd:`login` command. 
     The connection parameters can be either passed directly in the connection 
     string:: 
@@ -111,7 +111,7 @@ wish using the :omerocmd:`logout` command::
 Import images
 -------------
 
-:omerocmd:`import` is probably the first command many will users want to use.
+:omerocmd:`import` is probably the first command many users will want to use.
 To import a file image.tiff, use::
 
     $ bin/omero import image.tiff
