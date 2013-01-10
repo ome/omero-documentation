@@ -17,7 +17,7 @@ together at a later date to form an image of the entire sample.
 There are two structures in the model that support the joining process.
 
 -  StageLabel - part of Image
--  The Position - part of Plane
+-  The Position part of Plane
 
 The mainstay of the OME format is the 5-dimensional pixel array. In
 order to maintain the integrity of this structure the Tiling process has
