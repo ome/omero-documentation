@@ -70,7 +70,7 @@ system. A brief explanation of doing this is provided below.
 The first command installs OMERO.grid as a
 Windows service with the name ``OMERO.master`` and starts it. Any further
 calls to :command:`bin\\omero admin start` will fail since the application is already installed
-as a Windows service. Simiarly, :command:`bin\\omero admin stop` first stops the service, and
+as a Windows service. Similarly, :command:`bin\\omero admin stop` first stops the service, and
 then removes it. See :doc:`/sysadmins/windows/service-tools`.
 
 Further interactions with the Windows service can take place via
