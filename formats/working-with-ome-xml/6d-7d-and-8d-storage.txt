@@ -18,8 +18,14 @@ This proposal is designed to allow people wishing to write data with 6,
 7 or 8 dimensions into our model today in a way that can be upgraded in
 the future once N-dimensional support is available.
 
-The key addition is a new XML Annotation to the Pixels element. This
-annotation will use namespace
+The key addition is a new XML Annotation to the Image element.
+
+This was originally added to the pixels element but in use Image has
+proved to be a better location. We recommend Image is used from now
+on but our code will also work with attachment to Pixels for backward
+compatibility.
+
+This annotation will use namespace
 
 ::
 
