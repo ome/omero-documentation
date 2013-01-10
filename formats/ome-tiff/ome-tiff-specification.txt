@@ -472,7 +472,7 @@ While we advise storing multiple planes per OME-TIFF file, and keeping
 the OME-XML metadata embedded in every file's header, we realize there
 are times when doing so simply isn't possible. Thus, as of the `2011-06
 version of the OME-XML
-schema </site/support/file-formats/schemas/versions/changes-for-june-2011>`_,
+schema </site/support/file-formats/schemas/versions/changes-for-june-2011>`_ onwards,
 we have implemented a solution to this problem: the ``BinaryOnly``
 element.
 
@@ -482,10 +482,10 @@ the metadata. In the remaining files, use an OME-XML block similar to:
 ::
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2011-06"
+    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2011-06
-        http://www.openmicroscopy.org/Schemas/OME/2011-06/ome.xsd">
+      xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06
+                          http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd">
     <BinaryOnly MetadataFile="master.ome.tif"
       UUID="urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
     </OME>

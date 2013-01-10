@@ -29,7 +29,7 @@ Data Model release is now supported in our software at the same time.
 
 The solution below allows the creation of valid OME-XML or OME-TIFF
 files that hold the extra SPIM data. We propose to write an XSLT
-(Transform) that will upgrade these files to the next schema version
+(Transform) that will upgrade these files to the schema version
 with the SPIM data moved to the correct location. What we have here is a
 file **only** solution. When the data is imported into an OMERO server,
 all the data will be retained as annotations but it cannot be fitted
@@ -46,7 +46,7 @@ recommendation.
 
 -  See: `Tiled Images <tiled-images>`_
 
-This solution uses StageLabel and the Stage Position values on Plane to
+This solution uses StageLabel and the Position values on Plane to
 record the location and arrangement of the individual tiles.
 
 ::
@@ -157,7 +157,7 @@ StagePosition objects. Each of these objects will contain:
 5. SPIM angle
 ~~~~~~~~~~~~~
 
-The images collected for SPIM are recorded from a number of discret
+The images collected for SPIM are recorded from a number of discrete
 angles. The angle for each image must be recorded. We propose that all
 the planes for the Z, C, T of each stack of images are stored in their
 correct location inside a single Image object. We then use multiple
