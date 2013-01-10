@@ -285,6 +285,10 @@ Finally, please avoid using ``here`` as the hyperlink name, as in::
 Common markups
 ==============
 
+Please try to follow the rules outlined in
+`Inline Markup <http://sphinx-doc.org/markup/inline.html>`_. This allows for
+improving the semantics of the document elements.
+
 * Notes should be formatted using the note directive: ``.. note::``
 * Definition lists can be created and cross-referenced using the glossary
   directive: ``.. glossary::``
@@ -295,6 +299,8 @@ Common markups
 * CLI Commands can be formatted using the following role:
   ``:omerocmd: `admin start```
   This role will add an entry for the command in the generated index.
+* Other useful inline markups include: ``:command:``, ``:option:`` and
+  ``:guilabel:``
 
 Global substitutions
 ====================
