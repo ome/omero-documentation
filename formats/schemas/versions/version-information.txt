@@ -4,7 +4,7 @@ Version Information
 
 Information on the version structure
 
-With the June 2007 release for the OME XSD files we have move to a new
+All of the schema files released since 2007 have used a new
 versioning system. This composes of two parts, Major and Minor.
 
 Major
@@ -18,18 +18,18 @@ released. The format for the new URI for the namespace will be
 
     http://www.openmicroscopy.org/Schemas/[NameSpaceTitle]/[YearAsFourDigits]-[MonthAsTwoDigits]
 
-This means the June 2007 major release for the OME schema uses the
+This means the June 2012 major release for the OME schema uses the
 namespace
 
 ::
 
-    http://www.openmicroscopy.org/Schemas/OME/2007-06/
+    http://www.openmicroscopy.org/Schemas/OME/2012-06/
 
 and that the schema file will be located at
 
 ::
 
-    http://www.openmicroscopy.org/Schemas/OME/2007-06/ome.xsd
+    http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd
 
 Major versions will normally be released about twice a year. There will
 be a consultation period before each major release. Major releases may
@@ -42,7 +42,7 @@ In the schema element of the XSD file there is a version attribute.
 
 ::
 
-    <xsd:schema xmlns="http://www.openmicroscopy.org/Schemas/OME/2007-06" 
+    <xsd:schema xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06" 
         ...
         version="1" 
         ... >
@@ -63,7 +63,9 @@ Examples and consequences
 The relation between a major and minor version has been set up as
 follows. Any file written by an application conforming to a major
 version will always continue to be valid under any minor version update
-to the schema. If microscope application X saves a file using the major
+to the schema. The first releases to make use of the major and minor 
+system were June 2007(Major) and September 2007(Minor).
+If microscope application X saves a file using the major
 June 2007 version of OME-XML then that file can be read by any
 application that understands either the June 2007 major version or the
 September 2007 minor version. The main consequence of this approach is
@@ -83,5 +85,5 @@ envisaged that in the future !ImageRef will be used outside the
 Image. As this means that any reference to SPW:ImageRef will have to
 become OME:ImageRef this would cause validation errors in files
 following the June 2007 schema. This is therefore not placed in the
-September 2007 minor release but held until the next major release.
+September 2007 minor release but held until a future major release.
 

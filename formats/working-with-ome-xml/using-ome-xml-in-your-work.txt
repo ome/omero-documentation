@@ -7,7 +7,7 @@ How to use OME schema elements in your own XML files.
     The correct attribution for work derived, under the creative commons
     licence, from our schema files is:
     **"This work is derived in part from the OME specification.
-    Copyright (C) 2002-2012 Open Microscopy Environment"**
+    Copyright (C) 2002-2013 Open Microscopy Environment"**
 
 We would always encourage people to make use of the OME Data Model as a
 whole by using the OME-XML and OME-TIFF formats directly. If you need to
@@ -116,7 +116,7 @@ model, there are two approaches:
     including in the appropriate place in you software or project
     documentation:
     **"This work is derived in part from the OME specification.
-    Copyright (C) 2002-2012 Open Microscopy Environment"**
+    Copyright (C) 2002-2013 Open Microscopy Environment"**
 
 How to do it
 ------------
@@ -135,29 +135,29 @@ sample-third-party.xml
 
     <?xml version="1.0" encoding="UTF-8"?>
     <CustomTag
-        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2011-06"
+        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2013-01"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2011-06
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2013-01
             file:sample-third-party.xsd">
 
         <YourNodes>
             <With your="attributes"/>
         </YourNodes>
 
-        <!-- Insert an OME node from the 2011-06 version of our schema -->
-        <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2011-06"
-            xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2011-06
-                 http://www.openmicroscopy.org/Schemas/OME/2011-06/ome.xsd"
+        <!-- Insert an OME node from the 2012-06 version of our schema -->
+        <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+            xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06
+                                http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd"
             >
             <Image ID="Image:1">
-                <AcquiredDate>2010-02-23T12:51:30</AcquiredDate>
+                <AcquisitionDate>2010-02-23T12:51:30</AcquisitionDate>
                 <Pixels ID="Pixels:1" DimensionOrder="XYZCT" Type="uint8" SizeX="1" SizeY="1" SizeZ="1"
                     SizeT="1" SizeC="1">
                     <MetadataOnly/>
                 </Pixels>
             </Image>
         </OME>
-        <!-- Finish the OME node, and contune with your custom schema -->
+        <!-- Finish the OME node, and continue with your custom schema -->
 
         <MoreOfYourNodes></MoreOfYourNodes>
     </CustomTag>
@@ -179,17 +179,17 @@ sample-third-party.xsd
 
     <!-- **** Define the OME namespace for your schema on the <schema> node **** -->
     <xs:schema 
-        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2011-06"
+        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
 
-        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2011-06" 
-        targetNamespace="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2011-06" 
+        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2013-01" 
+        targetNamespace="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2013-01" 
         xmlns:xs="http://www.w3.org/2001/XMLSchema" 
         version="1" 
         elementFormDefault="qualified">
 
         <!-- **** Include the OME namespace to make it accessible from your schema **** -->
-        <xs:import namespace="http://www.openmicroscopy.org/Schemas/OME/2011-06"
-        schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2011-06/ome.xsd"/>
+        <xs:import namespace="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+        schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd"/>
 
         <xs:element name="CustomTag">
             <xs:annotation>
@@ -197,7 +197,7 @@ sample-third-party.xsd
                     Open Microscopy Environment
                     OME Sample Third Party
                     Author: Andrew J Patterson
-                    Copyright 2011 OME. All rights reserved.
+                    Copyright 2013 OME.
                 </xs:documentation>
             </xs:annotation>
             <xs:complexType>
@@ -233,19 +233,19 @@ sample-third-party-pieces.xml
 
     <?xml version="1.0" encoding="UTF-8"?>
     <CustomTag
-        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2011-06"
+        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2013-01"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2011-06
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2013-01
             file:sample-third-party-pieces.xsd">
 
         <YourNodes>
             <With your="attributes"/>
         </YourNodes>
 
-        <!-- Insert a LightSource node from the 2011-06 version of our schema -->
-        <LightSource xmlns="http://www.openmicroscopy.org/Schemas/OME/2011-06"
-            xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2011-06
-                 http://www.openmicroscopy.org/Schemas/OME/2011-06/ome.xsd"
+        <!-- Insert a LightSource node from the 2012-06 version of our schema -->
+        <LightSource xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+            xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06
+                 http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd"
             ID="LightSource:1">
             <Laser Type="Dye" FrequencyMultiplication="2" LaserMedium="CoumarinC30"
                 PockelCell="true" Pulse="Single" RepetitionRate="1.3" Tuneable="true"
@@ -257,10 +257,10 @@ sample-third-party-pieces.xml
 
         <MoreOfYourNodes>
 
-            <!-- Insert an Objective node from the 2011-06 version of our schema -->
-            <Objective xmlns="http://www.openmicroscopy.org/Schemas/OME/2011-06"
-                xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2011-06
-                     http://www.openmicroscopy.org/Schemas/OME/2011-06/ome.xsd"
+            <!-- Insert an Objective node from the 2012-06 version of our schema -->
+            <Objective xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+                xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06
+                     http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd"
                 ID="Objective:1" CalibratedMagnification="0.3" Correction="UV" 
                 Immersion="Air" Iris="true" LensNA="1.3" NominalMagnification="2"
                 WorkingDistance="2.3" Manufacturer="OME-Sample" Model="Mk II"
@@ -285,17 +285,17 @@ sample-third-party-pieces.xsd
 
     <!-- **** Define the OME namespace for your schema on the <schema> node **** -->
     <xs:schema 
-        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2011-06"
+        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
 
-        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2011-06" 
-        targetNamespace="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2011-06" 
+        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2013-01" 
+        targetNamespace="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2013-01" 
         xmlns:xs="http://www.w3.org/2001/XMLSchema" 
         version="1" 
         elementFormDefault="qualified">
 
         <!-- **** Include the OME namespace to make it accessible from your schema **** -->
-        <xs:import namespace="http://www.openmicroscopy.org/Schemas/OME/2011-06"
-        schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2011-06/ome.xsd"/>
+        <xs:import namespace="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+        schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd"/>
 
         <xs:element name="CustomTag">
             <xs:annotation>
@@ -303,7 +303,7 @@ sample-third-party-pieces.xsd
                     Open Microscopy Environment
                     OME Sample Third Party
                     Author: Andrew J Patterson
-                    Copyright 2011 OME. All rights reserved.
+                    Copyright 2013 OME.
                 </xs:documentation>
             </xs:annotation>
             <xs:complexType>
