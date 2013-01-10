@@ -1,10 +1,10 @@
-OMERO.Scripts
+OMERO.scripts
 =============
 
 :snapshot:`MOVIE: introduction to OMERO.scripts
 <movies/omero-4-3/mov/ScriptingWorkflow-4.3.mov>`
 
-OMERO.Scripts is the scripting service for scripting in OMERO.
+OMERO.scripts is the scripting service for scripting in OMERO.
 :doc:`/developers/server-blitz` provides a service to run scripts
 on the server. The scripts are then passed on to a grid of processors
 called OMERO.grid that executes the script and returns the result to the
