@@ -382,7 +382,7 @@ XML fragment
 
 spicule\_C1\_TP1.ome.tif
 
-<OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2010-06" ...
+<OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06" ...
 UUID="urn:uuid:**386a0ee1-336f-4a8d-afc3-d4c81bc0fd86**"> ... <Pixels
 ID="urn:lsid:loci.wisc.edu:Pixels:ows581" Type="uint8"
 DimensionOrder="XYZTC" SizeX="512" SizeY="512" SizeZ="4" SizeT="3"
@@ -408,7 +408,7 @@ urn:uuid:f139aef6-be53-4694-b5a5-3e95fff7ddf9 </UUID> </TiffData>
 
 spicule\_C1\_TP2.ome.tif
 
-<OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2010-06" ...
+<OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06" ...
 UUID="urn:uuid:**c33985d6-1162-4775-97cd-472c3f92414f**"> ... <Pixels
 ID="urn:lsid:loci.wisc.edu:Pixels:ows581" Type="uint8"
 DimensionOrder="XYZTC" SizeX="512" SizeY="512" SizeZ="4" SizeT="3"
