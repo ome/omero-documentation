@@ -4,7 +4,7 @@ OMERO.grid
 To unify the various components of OMERO,
 OMERO.grid was developed to monitor and control
 processes over numerous remote systems. Based on ZeroC_'s IceGrid framework,
-OMERO.grid provides an administration gui,
+OMERO.grid provides an administration GUI,
 distributed background processing, log handling, and several other
 features.
 
@@ -29,7 +29,7 @@ If you would like to exploring your IceGrid configuration, use
 
       bin/omero admin ice
 
-It provides full access to the ``icegridadmin`` console described in.
+It provides full access to the ``icegridadmin`` console described in
 the ZeroC_ manual. Specific commands can also be executed:
 
 ::
@@ -58,14 +58,14 @@ Unlike all other supported platforms, the :command:`bin\\omero` script and
 OMERO.grid are not directly responsible for starting and
 stopping the :doc:`/developers/server-blitz` server and other
 processes. Instead, that job is delegated to the native Windows service
-system. A brief explanation of doing this is provided below.
+system. A brief explanation is provided below.
 
 ::
 
-       python bin\omero admin start
-       python bin\omero admin deploy
+       bin\omero admin start
+       bin\omero admin deploy
        ...
-       python bin\omero admin stop
+       bin\omero admin stop
 
 The first command installs OMERO.grid as a
 Windows service with the name ``OMERO.master`` and starts it. Any further
@@ -109,8 +109,8 @@ All the resources for a single OMERO site are described by one
 under :sourcedir:`etc/grid` . These
 descriptors describe what processes will be started on what nodes,
 identified by simple names. For example the default descriptor, used if
-no other file is specified, defines three node -- "master", "node1",
-"node2". As you'll see, these files are critical both for the correct
+no other file is specified, defines three nodes -- "master", "node1",
+"node2". As you will see, these files are critical both for the correct
 functioning of your server as well as its security.
 
 The deployment descriptors provided define which "servers" are started
@@ -195,8 +195,8 @@ index number can be completely ignored, except for the fact that it must
 be unique. The node name, however, is important for properly starting
 your new processor.
 
-You'll need both a configuration file under ``etc/`` with the same name,
-and unless the node name matches the name of your local host, you'll
+You will need both a configuration file under ``etc/`` with the same name,
+and unless the node name matches the name of your local host, you will
 need to specify it on the command line:
 
 ::
@@ -289,7 +289,7 @@ Only a limited number of node names are configured in an application
 descriptor. For an unauthorized user to fill a slot, they must know the
 name (which **is** discoverable with the right code) and be the first to
 contact the grid saying "I am 'Node029", for example. A system
-administrator need only,then, be certain that all the node slots are
+administrator need only then be certain that all the node slots are
 taken up by trusted machines and users.
 
 It is also possible to allow "dynamic registration" in which servers are
@@ -300,7 +300,7 @@ have secured your endpoints via one of the methods outlined above.
 Absolute paths
 ^^^^^^^^^^^^^^
 
-Except under Windows, the example application descriptors shippied with
+Except under Windows, the example application descriptors shipped with
 OMERO, all use relative paths to make installation easier. Once you are
 comfortable with configuring OMERO.grid, it
 would most likely be safer to configure absolute paths. For example,
@@ -318,9 +318,9 @@ Technical information and other tips
 Processes
 ^^^^^^^^^
 
-It's important to understand just what processes will be running on your
+It is important to understand just what processes will be running on your
 servers. When you run :command:`start`, :command:`icegridnode` is executed which starts a
-controlling daemon and deploys the proper descriptor. This confiruation
+controlling daemon and deploys the proper descriptor. This configuration
 is persisted under var/master and var/registry.
 
 Once the application is loaded, the ``icegridnode`` daemon process
@@ -355,8 +355,8 @@ Multiple targets can be enabled at the same time:
 
       bin/omero admin deploy etc/grid/default.xml debug secure someothertarget
 
-``Ice.MessageSizeMax``
-^^^^^^^^^^^^^^^^^^^^^^
+Ice.MessageSizeMax
+^^^^^^^^^^^^^^^^^^
 
 Ice imposes an upper limit on all method invocations. This limit,
 ``Ice.MessageSizeMax``, is configured in your application descriptor

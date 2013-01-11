@@ -17,8 +17,8 @@ If required, the OMERO.server service can be run as a different user
 OMERO.server service user
 -------------------------
 
-Default Windows `Local System` user
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default Windows Local System user
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When no specific Windows user has been defined using :command:`bin\\omero
 config set`, the OMERO.server starts as the `Local System` user. This user

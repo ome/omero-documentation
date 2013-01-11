@@ -481,7 +481,7 @@ Installation
 -   Optionally, review :file:`C:\\OMERO.server\\etc\\omero.properties` which
     contains all default settings.
 
-    You will need to open the file with a text editor. Don't edit the file. 
+    You will need to open the file with a text editor. Do not edit the file.
     Any configuration settings you would like to change can be changed in
     the next step.
 
@@ -510,7 +510,7 @@ Installation
 
 -   Create the OMERO database initialization script. You will be asked
     for the version of the script which you would like to generate, where
-    both defaults can be accepted. Finally, you'll be asked to enter and
+    both defaults can be accepted. Finally, you will be asked to enter and
     confirm password for your newly created OMERO root user.
     
     .. warning:: 
@@ -587,7 +587,7 @@ Installation
         Waiting on startup. Use CTRL-C to exit
         ...
 
-    If you've chosen a non-default install directory (other than
+    If you have chosen a non-default install directory (other than
     :file:`C:\\OMERO.server`), the output will look like this:
 
     ::
