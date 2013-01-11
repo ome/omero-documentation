@@ -63,7 +63,7 @@ the following variables:
 
        export PYTHONPATH=$PYTHONPATH:$OMERO_HOME/lib/python/
 
-Now checkout the |OmeroCli|.
+Now checkout the |CLI|.
 
 ::
 
