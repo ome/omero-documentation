@@ -118,9 +118,9 @@ Jenkins jobs
 		* :term:`BIOFORMATS-trunk`
 
 ..  |merge| replace:: Merge PRs using :program:`scc merge`
-..  |sphinxbuild| replace:: Build HTML & PDF Sphinx documentation
+..  |sphinxbuild| replace:: Build HTML and PDF Sphinx documentation
 ..  |linkcheck| replace:: Check broken (404) and local links
-..  |ssh-doc| replace:: SSH doc & PDF to
+..  |ssh-doc| replace:: SSH doc and PDF to
 ..  |deploy-doc| replace:: Use hot-deploy script to update
 
 Current major release
@@ -156,7 +156,7 @@ under the |version| view tab of Jenkins.
 
 		Build current release of OMERO/Bio-Formats 
 
-		#. Build server & release-docs
+		#. Build server and release-docs
 		#. If the build is promoted,
 			#. Use artifacts for point release
 
@@ -203,7 +203,7 @@ the Trunk view tab of Jenkins.
 
 		Build next BIO-FORMATS/OMERO major release.
 
-		#. Build server & release-docs
+		#. Build server and release-docs
 
 	:jenkinsjob:`OMERO-merge-develop`
 
