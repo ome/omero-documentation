@@ -294,11 +294,15 @@ improving the semantics of the document elements.
 
 * Notes should be formatted using the note directive: ``.. note::``
 * Definition lists can be created and cross-referenced using the glossary
-  directive: ``.. glossary::``
+  directive: ``.. glossary::``. Each definition can be referenced anywhere in
+  the documentation using the ``:term:`` role and an entry will be added for
+  every term in the generated index.
 * References to external documentation can be formatted using:
   ``.. seealso::``
 * Menu selections should be marked using the appropriate role:
   ``:menuselection: `Start --> Programs```
+* Environment variables should be formatted using the ``:envvar:`` role.
+  This  role will add an entry for the variable in the generated index.
 * CLI Commands can be formatted using the following role:
   ``:omerocmd: `admin start```
   This role will add an entry for the command in the generated index.
