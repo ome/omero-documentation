@@ -305,6 +305,7 @@ improving the semantics of the document elements.
   This role will add an entry for the command in the generated index.
 * Other useful inline markups include: ``:command:``, ``:option:`` and
   ``:guilabel:``
+* Do not use inline highlighting or other markups in headings or subheadings
 
 Global substitutions
 ====================

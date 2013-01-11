@@ -21,7 +21,7 @@ Python. There is also an ImageJ plugin. OMERO can be extended by modifying
 these clients or by writing your own in any of the supported languages (see 
 figure). OMERO also supports a 
 :doc:`Scripting Service </developers/Modules/Scripts>` which allows Python
-scripts to be run on the server & called from any of the other clients.
+scripts to be run on the server and called from any of the other clients.
 
 OMERO is designed, developed and released by the |OME|, with contributions 
 from |Glencoe| OMERO is released under the `GNU General Public License (GPL)`_ 
@@ -219,7 +219,8 @@ Development Process
 
 The following pages are meant to provide you with a trail through the 
 available documentation so that you can get started with OMERO development. 
-Note that this is not everything that you will need to read, but should getyou started...
+Note that this is not everything that you will need to read, but should get 
+you started...
 
 .. toctree::
     :maxdepth: 1
