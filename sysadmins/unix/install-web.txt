@@ -2,7 +2,7 @@ OMERO.web deployment
 ====================
 
 OMERO.web is the web application component of the OMERO platform which
-allows for the management, visualisation (in a fully multi-dimensional
+allows for the management, visualization (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
 includes OMERO.webadmin for managing users and groups.
 
@@ -248,12 +248,12 @@ to access OMERO.webadmin or the OMERO.webclient:
 -  **http://your\_host/omero** OR, for development server:
    **http://localhost:4080**
 
-	.. figure:: /images/installation-images/login.png
-	   :align: center
-	   :width: 55%
-	   :alt: OMERO.webadmin login
+.. figure:: /images/installation-images/login.png
+   :align: center
+   :width: 55%
+   :alt: OMERO.webadmin login
 
-	   OMERO.webadmin login
+   OMERO.webadmin login
 
 .. note::
 	This starts the server in the foreground. It is your
@@ -349,7 +349,7 @@ Customising your OMERO.web installation
       in a public user.
 
       -  First, create a public user. You can use any username and
-         password you wish. If you don't want this user to be able to
+         password you wish. If you do not want this user to be able to
          modify any of the data they see, you should put this user in a
          Read-Only group and the public data should be owned by another
          member(s) of this group. Now you can configure the public user:
