@@ -37,6 +37,8 @@ Repository Location
     ``omero.data.dir`` configuration does **not** move the repository for
     you, you must do this yourself.
     Remember that ``C:\`` style paths must have backslashes escaped.
+    We strongly discourage the use of network mapped drives as locations
+    for either the binary repository or the OMERO.server installation.
 
 Your repository location can be changed from its ``C:\OMERO`` default by
 modifying your OMERO.server configuration as follows:

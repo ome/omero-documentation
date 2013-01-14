@@ -65,8 +65,14 @@ you will need to install further dependencies, making sure to
 download the correct version (release number, 32/64-bit) for your Python
 distribution.
 
+PyWin32
+"""""""
+
 It is recommended to use **Python for Windows extensions**. The installer is
 available from the `PyWin download page <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
+
+Additional libraries
+""""""""""""""""""""
 
 The following are optional depending on what services you require:
 
@@ -455,7 +461,8 @@ user's home directory (on Windows :file:`C:\\Users\\<username>`) in
 
     If your home directory  is stored on a network (NFS mounted or similar),
     then file read and write operations occur over the network. This can
-    slow access down.
+    slow access down. It is strongly discouraged to install OMERO on a
+    network mapped drive.
 
 The OMERO.server also access the :file:`omero\\tmp` and
 :file:`omero\\log` folders of **the user the server process is running
@@ -469,20 +476,20 @@ Installation
 ------------
 
 -   Extract the OMERO zip file and note its location. Below it is referred
-    to as :file:`C:\\OMERO.server`
+    to as :file:`C:\\OMERO.server`.
 
 -   Optionally, review :file:`C:\\OMERO.server\\etc\\omero.properties` which
-    contains all default settings
-    
-    You will need to open the file with a text editor. Don't edit the file. 
-    Any configuration settings you would like to change can be changed in the 
-    next step.
+    contains all default settings.
+
+    You will need to open the file with a text editor. Do not edit the file.
+    Any configuration settings you would like to change can be changed in
+    the next step.
 
 -   Change any settings that are necessary using ``bin\omero config``,
     including the name and/or password for the 'db\_user' database user
     you chose above or the database name if it is not "omero\_database".
     (Quotes are only necessary if the value could be misinterpreted by
-    the shell. See :forum:`link <viewtopic.php?f=5&t=360#p922>`)
+    the shell. See :forum:`link <viewtopic.php?f=5&t=360#p922>`).
 
     ::
 
@@ -503,7 +510,7 @@ Installation
 
 -   Create the OMERO database initialization script. You will be asked
     for the version of the script which you would like to generate, where
-    both defaults can be accepted. Finally, you'll be asked to enter and
+    both defaults can be accepted. Finally, you will be asked to enter and
     confirm password for your newly created OMERO root user.
     
     .. warning:: 
@@ -517,7 +524,7 @@ Installation
 
     .. parsed-literal::
 
-        C:\\> cd C:\\OMERO.server\\
+        C:\\> cd C:\\OMERO.server
         C:\\OMERO.server> bin\\omero db script
         Please enter omero.db.version [OMERO\ |version|\ ]: 
         Please enter omero.db.patch [0]: 
@@ -571,39 +578,26 @@ Installation
     ::
 
         C:\OMERO.server> bin\omero admin start
-        Creating var\master
-        Initializing var\log
-        Creating var\registry
-        No descriptor given. Using etc\grid\default.xml
-        C:\OMERO.server>
-        [SC] CreateService SUCCESS
-
-
-        SERVICE_NAME: OMERO.master
-                TYPE               : 10  WIN32_OWN_PROCESS
-                STATE              : 2  START_PENDING
-                                        (NOT_STOPPABLE,NOT_PAUSABLE,IGNORES_SHUTDOWN)
-                WIN32_EXIT_CODE    : 0  (0x0)
-                SERVICE_EXIT_CODE  : 0  (0x0)
-                CHECKPOINT         : 0x0
-                WAIT_HINT          : 0x7d0
-                PID                : 2312
-                FLAGS              :
-
+        Creating C:\OMERO.server\var\master
+        Creating C:\OMERO.server\var\registry
+        No descriptor given. Using etc\grid\windefault.xml
+        Installing OMERO.master Windows service.
+        Successfully installed OMERO.master Windows service.
+        Starting OMERO.master Windows service.
         Waiting on startup. Use CTRL-C to exit
+        ...
 
-    If you've chosen a non-default install directory (other than
+    If you have chosen a non-default install directory (other than
     :file:`C:\\OMERO.server`), the output will look like this:
 
-    .. parsed-literal::
+    ::
 
-        C:\\OMERO.server-|version|> bin\\omero admin start
-        Found default value: C:\\OMERO.server\\var\\master
+        C:\OMERO.server> bin\omero admin start
+        Found default value: C:\OMERO.server\var\master
         Attempting to correct...
-        Converting from C:\\OMERO.server to C:\\OMERO.server-|version|
+        Converting from C:\OMERO.server to C:\OMERO.server
         Changes made: 6
         No descriptor given. Using etc\\grid\\windefault.xml
-        [SC] CreateService SUCCESS
         ...
 
 -  If you would like to move the directory again, see
@@ -613,9 +607,9 @@ Installation
 -  You can now test that you can log-in as "root", either with the
    OMERO.insight client or command-line:
 
-   .. parsed-literal::
+   ::
 
-       C:\\OMERO.server-|version|> bin\\omero login
+       C:\OMERO.server> bin\omero login
        Server: [localhost]
        Username: [root]
        Password:         # root_password
@@ -730,6 +724,7 @@ If you want help with your server installation, please include the output of the
     Server:     Tables-0                       active (pid = 4420, enabled)
     Server:     TestDropBox                    inactive (enabled)
     Server:     Web                            inactive (enabled)
+    Server:     OMERO.master                   active (running as LocalSystem)
 
     Log dir:    C:\\hudson\\trunk\\dist\\var\\log   exists
 
