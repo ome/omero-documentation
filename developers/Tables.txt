@@ -69,7 +69,7 @@ These columns store a single value in each row.
 
     :param string description: The column description, may be empty.
 
-    :param [] values: A list of values (one value per row) used to initialise a
+    :param [] values: A list of values (one value per row) used to initialize a
         column (optional).
 
     .. attribute:: values
