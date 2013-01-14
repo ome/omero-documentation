@@ -341,8 +341,9 @@ virtual server just like you could using a remote server.
 Secure Shell
 ^^^^^^^^^^^^
 
-You can log into your |VM| using |SSH| which will give you a
-command line interface to the |VM| from where you can use the |OmeroCli|. 
+You can log into your |VM| using |SSH| which will give you a command line 
+interface to the |VM| from where you can use the 
+:doc:`command-line-interface`. 
 In the following example, we assume that you have an |SSH| client installed
 on your host machine and also that your |VM| is up and running.
 
@@ -476,9 +477,9 @@ to be happy using the Bash shell which looks like this:
 
     omero@omerovm:~$ _
 
-From here you can interact with OMERO.server via the |OmeroCli|. You will need 
-to login as the 'omero' user to access the OMERO CLI (user: "omero" / pw: 
-"omero"). Logout using Ctrl-D.
+From here you can interact with OMERO.server via the 
+:doc:`command-line-interface`. You will need to login as the 'omero' user to 
+access the OMERO CLI (user: "omero" / pw: "omero"). Logout using Ctrl-D.
 
 Known issues
 ------------
