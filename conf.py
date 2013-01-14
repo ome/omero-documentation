@@ -187,6 +187,7 @@ rst_epilog = """
 .. |OS| replace:: :abbr:`OS (Operating System)`
 .. |SSL| replace:: :abbr:`SSL (Secure Socket Layer)`
 .. |HDD| replace:: :abbr:`HDD (Hard Disk Drive)`
+.. |CLI| replace:: :abbr:`CLI (Command Line Interface)`
 
 .. |OME| replace:: `Open Microscopy Environment`_
 .. |Glencoe| replace:: `Glencoe Software, Inc.`_
@@ -194,7 +195,6 @@ rst_epilog = """
 .. |OmeroCpp| replace:: :doc:`/developers/Cpp`
 .. |OmeroJava| replace:: :doc:`/developers/Java`
 .. |OmeroMatlab| replace:: :doc:`/developers/Matlab`
-.. |OmeroCli| replace:: :doc:`/sysadmins/CommandLine`
 .. |OmeroApi| replace:: :doc:`/developers/Modules/Api`
 .. |OmeroWeb| replace:: :doc:`/developers/Web`
 .. |OmeroClients| replace:: :doc:`/developers/GettingStarted`
@@ -374,4 +374,29 @@ if not (sys.version_info[0] == 2 and sys.version_info[1] <= 5):
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
 linkcheck_ignore = [r'http://localhost:\d+/?', 'http://localhost/', 'http://www.hibernate.org',
         r'^https?://www\.openmicroscopy\.org/site/team/.*', r'.*[.]?example\.com/.*',
-        r'^https?://www\.openmicroscopy\.org/site/support/faq.*',]
+        r'^https?://www\.openmicroscopy\.org/site/support/faq.*']
+
+# -- Custom roles for the OMERO documentation -----------------------------------------------
+
+from docutils import nodes
+from sphinx import addnodes
+
+def omero_command_role(typ, rawtext, etext, lineno, inliner,
+                     options={}, content=[]):
+    """Role for CLI commands that generates an index entry."""
+
+    env = inliner.document.settings.env
+    targetid = 'cmd-%s' % env.new_serialno('index')
+
+    # Create index and target nodes
+    indexnode = addnodes.index()
+    targetnode = nodes.target('', '', ids=[targetid])
+    inliner.document.note_explicit_target(targetnode)
+    indexnode['entries'] = [('single', "; ".join(etext.split(" ")), targetid, '')]
+
+    # Mark the text in bold face
+    sn = nodes.strong(etext, etext)
+    return [indexnode, targetnode, sn], []
+
+def setup(app):
+    app.add_role('omerocmd', omero_command_role)
