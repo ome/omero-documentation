@@ -4,6 +4,7 @@
 
 // Domain
 #include <omero/client.h>
+#include <omero/api/IAdmin.h>
 // Std
 #include <iostream>
 #include <cassert>
