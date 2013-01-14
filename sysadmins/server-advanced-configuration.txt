@@ -100,7 +100,8 @@ If a file is passed in as the first argument, then that **application
 descriptor** as opposed to default.xml will be used. You can also modify
 the default application descriptors in place.
 
-    **Caveat**: The largest issue with using your own application
+.. note::
+    The largest issue with using your own application
     descriptors or modifying the existing ones is that they tend to
     change between versions, and there is no facility for automatically
     merging your local changes. You should be prepared to re-make
@@ -130,7 +131,8 @@ optionally turn on configuration. The target is only applicable until
 the next invocation of "bin/omero admin start ..." or "bin/omero admin
 deploy ..."
 
-    **Caveat**: You must remember to always apply the targets on each
+.. note::
+    You must remember to always apply the targets on each
     "bin/omero admin" command. If not, the target will not be removed.
     Therefore, they are often better used for debugging purposes;
     however, as opposed to alternative application descriptors, using

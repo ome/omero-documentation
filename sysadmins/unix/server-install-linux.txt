@@ -43,9 +43,9 @@ Prerequisites: the base software install
 You require at least a clean minimal Debian or Ubuntu installation and a
 non-root user account that has sudo privileges.
 
-First we need to enable the contrib & Non-Free repositories by opening
+First we need to enable the contrib and Non-Free repositories by opening
 **/etc/apt/sources.list** in an editor, e.g. **$ sudo vim
-/etc/apt/sources.list** & editing to add the following lines:
+/etc/apt/sources.list** and editing to add the following lines:
 
 ::
 
@@ -56,9 +56,9 @@ First we need to enable the contrib & Non-Free repositories by opening
       deb-src http://ftp.uk.debian.org/debian/ squeeze non-free
 
 .. note:: 
-	For Ubuntu the repository names & locations are different to
+	For Ubuntu the repository names and locations are different to
 	Debian but you need to enable the **main**, **restricted**, **universe**
-	& **multiverse** repositories. You can do this either by editing
+	and **multiverse** repositories. You can do this either by editing
 	**/etc/apt/sources.list** directly, in which case the entries already
 	exist but are commented out, or using Synaptic (10.04 & 10.10) or Ubuntu
 	Software Center (11.04 onwards).
@@ -71,7 +71,7 @@ packages including those from the repositories that we just enabled:
       $ sudo apt-get update
 
 Oracle recently changed their distribution license (OSDL) which means
-that Debian & Ubuntu can no longer distribute Java in their package
+that Debian and Ubuntu can no longer distribute Java in their package
 management systems. This means that we have to install the JDK
 separately as follows:
 
@@ -81,7 +81,7 @@ If you are on Debian then:
 
       $ sudo apt-get install lsb_release
 
-For both Debian & Ubuntu you can now:
+For both Debian and Ubuntu you can now:
 
 ::
 
@@ -109,7 +109,7 @@ packages:
       $ sudo apt-get install apache2 libapache2-mod-fastcgi
 
 .. note::
-	On Ubuntu some of the packages are slightly different & do not
+	On Ubuntu some of the packages are slightly different and do not
 	necessarily install ALL of the same software as Debian. For example,
 	python-tables on Ubuntu does not install . As a result, on Ubuntu we may
 	also need to install liblzo otherwise OMERO.tables will fail to start:
@@ -213,7 +213,7 @@ connections:
 
 .. note::
 	The backslash '' in the sed command above is used merely to
-	indicate a line-break & should not be included in the executed command
+	indicate a line-break and should not be included in the executed command
 
 Restart postgresql:
 
@@ -237,7 +237,7 @@ Which should display a line similar to the following:
 Install OMERO.server
 --------------------
 
-Now that all of the prerequisites are installed & configured we can get
+Now that all of the prerequisites are installed and configured we can get
 to the important business of setting up the OMERO.server. First we need
 to create a home for our server and move into that directory. I like to
 install certain software, such as OMERO, locally into a directory called
@@ -274,7 +274,7 @@ it from the zip archive:
       $ unzip OMERO.server-|release|-ice33-byy.zip
 
 Give your OMERO software install a nice local name to save some typing
-later, to reflect what we set **OMERO\_HOME** to, & to make it easy to
+later, to reflect what we set **OMERO\_HOME** to, and to make it easy to
 manage the installation of newer versions of the server at a later date:
 
 .. parsed-literal::
@@ -335,7 +335,7 @@ database
 
     $ psql -h localhost -U db_user omero_database < |sqlfile|
 
-At this point your should see a whole load of output from Postgres as it
+At this point you should see a whole load of output from Postgres as it
 installs the new OMERO database.
 
 If all has gone well, you should now be able to start OMERO.server using

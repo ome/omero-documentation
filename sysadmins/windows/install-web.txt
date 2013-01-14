@@ -2,7 +2,7 @@ OMERO.web deployment
 ====================
 
 OMERO.web is the web application component of the OMERO platform which
-allows for the management, visualisation (in a fully multi-dimensional
+allows for the management, visualization (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
 includes OMERO.webadmin for managing users and groups.
 
@@ -171,12 +171,12 @@ to access OMERO.webadmin or the OMERO.webclient:
 -  **http://your\_host/omero** OR, for development server:
    **http://localhost:4080**
 
-	.. figure:: /images/installation-images/login.png
-	   :align: center
-	   :width: 55%
-	   :alt: OMERO.webadmin login
+.. figure:: /images/installation-images/login.png
+   :align: center
+   :width: 55%
+   :alt: OMERO.webadmin login
 
-	   OMERO.webadmin login
+   OMERO.webadmin login
 
 .. note::
 	This starts the server in the foreground. It is your
@@ -276,7 +276,7 @@ Customising your OMERO.web installation
       in a public user.
 
       -  First, create a public user. You can use any username and
-         password you wish. If you don't want this user to be able to
+         password you wish. If you do not want this user to be able to
          modify any of the data they see, you should put this user in a
          Read-Only group and the public data should be owned by another
          member(s) of this group. Now you can configure the public user:
@@ -291,11 +291,11 @@ Customising your OMERO.web installation
       -  Set a URL filter for which the OMERO.web public user is allowed
          to navigate. Default: ``^/(?!webadmin)`` (`Python reqular
          expression <http://docs.python.org/library/re.html>`_). You
-         probably don't want the whole webclient UI to be publicly
+         probably do not want the whole webclient UI to be publicly
          visible (although you could do this). The idea is that you can
          create the public pages yourself (see :doc:`/developers/Web`
-         since we don't provide public pages. E.g. to only allow urls
-         that start with '/my\_web\_public' you'd use:
+         since we do not provide public pages. E.g. to only allow urls
+         that start with '/my\_web\_public' you would use:
 
          ::
 

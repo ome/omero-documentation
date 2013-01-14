@@ -173,7 +173,7 @@ the Debian Policy Manual for software packaging. You can explicitly set
 your environment variables to reflect these install locations by editing
 the .bashrc (if on Linux) or .profile (if on Mac OS X) file which can be
 found within your home directory. For example, as of writing, on Debian
-& Ubuntu the following environment variables should be set:
+and Ubuntu the following environment variables should be set:
 
 ::
 
@@ -345,7 +345,7 @@ Installation
 -   Optionally, review ``~/Desktop/omero/etc/omero.properties`` which
     contains all default settings.
 
-    You will need to open the file with a text editor. Don't edit the file. 
+    You will need to open the file with a text editor. Do not edit the file. 
     Any configuration settings you would like to change can be changed in the 
     next step.
 
@@ -368,18 +368,18 @@ Installation
 
 -   Create the OMERO database initialization script. You will be asked
     for the version of the script which you would like to generate, where
-    both defaults can be accepted. Finally, you'll be asked to enter and
+    both defaults can be accepted. Finally, you will be asked to enter and
     confirm password for your newly created OMERO root user.
     
-	.. warning:: 
+    .. warning:: 
 
-	    For illustrative purposes, the default password for the OMERO rootuser 
-	    is ``root_password``. However, you should not use this default value 
-	    for your installation but use your own choice of password instead.
+       For illustrative purposes, the default password for the OMERO rootuser 
+       is ``root_password``. However, you should not use this default value 
+       for your installation but use your own choice of password instead.
 
-	    This should **not** be the same password as your Linux/Mac/Windows 
-	    root user!
-	
+       This should **not** be the same password as your Linux/Mac/Windows 
+       root user!
+
     .. parsed-literal::
 
         $ cd ~/Desktop/omero 
@@ -419,15 +419,15 @@ Installation
    ``bin\winconfig.bat --help``, which gets called automatically on an
    initial install.
 
--  You can now test that you can log-in as "root", either with the
-   OMERO.insight client or command-line:
+-   You can now test that you can log-in as "root", either with the
+    OMERO.insight client or command-line:
 
     ::
 
-        $ bin/omero login
-        Server: [localhost]
-        Username: [root]
-        Password:         # root_password
+         $ bin/omero login
+         Server: [localhost]
+         Username: [root]
+         Password:         # root_password
 
 OMERO.web and administration
 ----------------------------
@@ -511,7 +511,7 @@ Your OMERO.server installation will check for updates each time it is started fr
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-My OMERO install doesn't work! What do I do now!?! Examine the :doc:`/sysadmins/troubleshooting` page and if all else fails post a
+My OMERO install doesn't work! What do I do now? Examine the :doc:`/sysadmins/troubleshooting` page and if all else fails post a
 message to our :mailinglist:`ome-users` mailing list discussed on the :doc:`/users/community-resources` page.
 
 OMERO diagnostics
