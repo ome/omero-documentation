@@ -349,8 +349,8 @@ Installation
     Any configuration settings you would like to change can be changed in the 
     next step.
 
--   Change any settings that are necessary using ``bin/omero config``
-    (resp. ``bin\omero config``),
+-   Change any settings that are necessary using :omerocmd:`bin/omero config`
+    (resp. :omerocmd:`bin\omero config`),
     including the name and/or password for the 'db\_user' database user
     you chose above or the database name if it is not "omero\_database".
     (Quotes are only necessary if the value could be misinterpreted by
