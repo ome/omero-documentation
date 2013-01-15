@@ -181,6 +181,7 @@ rst_epilog = """
 .. _Python Imaging Library: http://www.pythonware.com/products/pil/
 .. _Matplotlib: http://matplotlib.org/
 .. _Python: http://python.org
+.. _Libjpeg: http://libjpeg.sourceforge.net/
 
 .. |SSH| replace:: :abbr:`SSH (Secure Shell)`
 .. |VM| replace:: :abbr:`VM (Virtual Machine)`
