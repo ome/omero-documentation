@@ -288,13 +288,27 @@ Finally, please avoid using ``here`` as the hyperlink name, as in::
 Common markups
 ==============
 
+Please try to follow the rules outlined in
+`Inline Markup <http://sphinx-doc.org/markup/inline.html>`_. This allows for
+improving the semantics of the document elements.
+
 * Notes should be formatted using the note directive: ``.. note::``
 * Definition lists can be created and cross-referenced using the glossary
-  directive: ``.. glossary::``
+  directive: ``.. glossary::``. Each definition can be referenced anywhere in
+  the documentation using the ``:term:`` role and an entry will be added for
+  every term in the generated index.
 * References to external documentation can be formatted using:
   ``.. seealso::``
 * Menu selections should be marked using the appropriate role:
   ``:menuselection: `Start --> Programs```
+* Environment variables should be formatted using the ``:envvar:`` role.
+  This  role will add an entry for the variable in the generated index.
+* CLI Commands can be formatted using the following role:
+  ``:omerocmd: `admin start```
+  This role will add an entry for the command in the generated index.
+* Other useful inline markups include: ``:command:``, ``:option:`` and
+  ``:guilabel:``
+* Do not use inline highlighting or other markups in headings or subheadings
 
 Global substitutions
 ====================
@@ -329,15 +343,16 @@ The table below lists substitutions for common abbreviations. These
 substitutions use the ``:abbr:`` Sphinx role meaning they are shown as 
 tool-tip in HTML and output only once in LaTeX.
 
-======= ============= ===================
+======= ============= ======================
 Name    Abbreviation  Explanation
-======= ============= ===================
+======= ============= ======================
 \|SSH\| SSH           Secure Shell
 \|VM\|  VM            Virtual Machine
 \|OS\|  OS            Operating System
 \|SSL\| SSL           Secure Socket Layer
 \|HDD\| HDD           Hard Disk Drive
-======= ============= ===================
+\|CLI\| CLI           Command Line Interface
+======= ============= ======================
 
 Page references
 ---------------
@@ -352,7 +367,6 @@ Name                Path
 \|OmeroCpp\|        developers/Cpp
 \|OmeroJava\|       developers/Java
 \|OmeroMatlab\|     developers/Matlab
-\|OmeroCli\|        sysadmins/CommandLine
 \|OmeroApi\|        developers/Modules/Api
 \|OmeroWeb\|        developers/Web
 \|OmeroClients\|    developers/GettingStarted
