@@ -99,7 +99,7 @@ The following are optional depending on what services you require:
       - Functionality
       - Downloads
 
-    * - `Python Imaging Library`_
+    * - `Python Imaging Library`_ [1]_
       - OMERO.web and Figure Export
       - `PIL page <http://www.pythonware.com/products/pil/>`_
 
@@ -107,7 +107,7 @@ The following are optional depending on what services you require:
       - OMERO.web
       - `Matplotlib page <http://matplotlib.sourceforge.net/>`_
 
-    * - NumPy (1.2.0 or higher) [1]_
+    * - NumPy (1.2.0 or higher) [2]_
       - Scripting
       - `Numpy/Scipy page <http://www.scipy.org/Download>`_
 
@@ -116,12 +116,14 @@ The following are optional depending on what services you require:
       - `PyTables page <http://www.pytables.org/moin/Downloads>`_
 
     * - scipy.ndimage
-      - :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>` [2]_
+      - :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>` [3]_
       - `Numpy/Scipy page <http://www.scipy.org/Download>`_
 
-.. [1] May already have been installed as a dependency of Matplot Lib.
+.. [1] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ installed when building the `Python Imaging Library`_.
 
-.. [2] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
+.. [2] May already have been installed as a dependency of Matplot Lib.
+
+.. [3] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
 
 
 Ice (3.3.x or higher)
