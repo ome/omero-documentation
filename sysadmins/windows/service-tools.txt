@@ -2,34 +2,29 @@ OMERO.server Windows Service
 ============================
 
 OMERO.server installs a Windows Service to make the startup of the software
-automatic at Windows boot time. When starting the server for the first time
-an invocation to built-in Windows commands :command:`sc.exe` and
-:command:`ntrights.exe` is made.
+automatic at Windows boot time.
 
-The :command:`bin\\omero admin start` command is a wrapper around a call to
-:command:`sc create` followed by :command:`sc start`. In turn,
-:command:`bin\\omero admin stop` is a wrapper around :command:`sc stop` and
-:command:`sc delete`. Therefore, once :command:`bin\\omero admin start`
+The :command:`bin\\omero admin start` command creates and starts a Windows
+service. In turn, :command:`bin\\omero admin stop` stops and deletes the
+OMERO Windows service. Therefore, once :command:`bin\\omero admin start`
 succeeds, it is possible to use all the regular Windows utilities, like
-:command:`sc.exe` or the services manager, to stop OMERO.server without
+:command:`sc.exe` or the Services Manager, to stop OMERO.server without
 having the service removed completely.
 
-:command:`ntrights.exe` is used by the :command:`admin` component of
-:command:`bin\\omero`. When the OMERO.server service needs to be run as a
-different user, this command allows for modifying the `Log On` settings of
-the Windows Service.
+If required, the OMERO.server service can be run as a different user
+(by modifying the `Log On` settings of the Windows service).
 
 OMERO.server service user
 -------------------------
 
-Default Windows `Local System` user
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default Windows Local System user
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When no specific Windows user has been defined using :command:`bin\\omero
 config set`, the OMERO.server starts as the `Local System` user. This user
 has enough permissions to access data on the local file system. In most
 circumstances that should allow the OMERO.server service to access data
-inside the repository.
+inside the binary repository.
 
 Custom user
 ^^^^^^^^^^^
@@ -44,6 +39,13 @@ configure the OMERO Windows user by setting `omero.windows.user` and
 
     Setting `omero.windows.pass` exposes your user password in the OMERO
     configuration.
+
+The user credentials can also be specified on the command line when running
+:command:`bin\\omero admin start`. The :option:`-u` parameter value is the
+user name, while the value of :option:`-w` corresponds to the user's
+password::
+
+    C:\OMERO.server\> bin\omero admin start -u omeservice -w password
 
 You can verify that a different user has been set as the `Log On` user for
 the OMERO.server service by accessing the Windows Services Manager (see
