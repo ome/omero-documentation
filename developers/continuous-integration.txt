@@ -243,12 +243,18 @@ Installation
 ^^^^^^^^^^^^
 
 The scc tools are a set  of Python_ based utility programs. The main 
-requirements are the **PyGithub** package and the **argparse** package 
-(included by default in Python 2.7 and above)::
+requirements is the **PyGithub** package ::
 
 	$ pip install PyGithub
 	$ pip freeze | grep PyGithub
 	PyGithub==1.9.1
+
+If using Python 2.6 and earlier, you will also need the **argparse** package
+(included by default in Python 2.7 and above)::
+
+	$ pip install argparse
+	$ pip freeze | grep argparse
+	argparse==1.2.1
 
 The tools suite can then be installed using Homebrew::
 
