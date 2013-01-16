@@ -4,9 +4,11 @@ OMERO.server Mac OS X installation walkthrough with Homebrew
 
 .. topic:: Overview
 
-    This walkthrough is a list of the commands used to install OMERO on a clean Mac OS X 10.7 Lion using Homebrew.
+    This walkthrough is a list of the commands used to install OMERO on a  
+    clean Mac OS X 10.7 Lion using Homebrew.
 
-The instructions and scripts provided here depend on Homebrew 0.9 or later, including support for the ``brew tap`` command.
+The instructions and scripts provided here depend on Homebrew 0.9 or later, 
+including support for the ``brew tap`` command.
 
 Prerequisites
 -------------
@@ -29,7 +31,8 @@ MacBookPro8,2 (Intel Core i7, 2.3 GHz, 8 GB RAM)      10.7.4
 Xcode
 ~~~~~
 
-Install OS X `Developer Tools <https://developer.apple.com/technologies/tools/>`_. This procedure has been tested with the the following Xcode distributions:
+Install OS X `Developer Tools <https://developer.apple.com/technologies/tools/>`_. 
+This procedure has been tested with the the following Xcode distributions:
 
 ================================ ================
 Xcode version                    Mac OS X version
@@ -108,7 +111,7 @@ Run the script to install OMERO requirements:
     script to fail. Under normal circumstances simply rerunning the script
     should be sufficient. Occasionally you may have to wait for a short
     period then try running the script again. Rarely you may have to find a
-    different location for the remote repository (This should involve
+    different location for the remote repository (this should involve
     getting in touch with the homebrew project/OMERO team members so that
     homebrew formulae can be updated in the event of a permanent failure of
     a resource).
@@ -142,7 +145,9 @@ At this point you have three choices:
 
         $ brew install omero43
 
--   However if you wish to pull OMERO.server from the git repo for development purposes then it is worth setting up OMERO.server manually rather than using homebrew. Prepare a place for your OMERO code to live, e.g.
+-   However if you wish to pull OMERO.server from the git repo for development 
+    purposes then it is worth setting up OMERO.server manually rather than 
+    using homebrew. Prepare a place for your OMERO code to live, e.g.
 
     ::
 
@@ -390,7 +395,13 @@ Ice
 
     Error: Failed executing: cd cpp && make M PP_HOME=/Users/sebastien/apps/    OMERO.libs/Cellar/mcpp/2.7.2 DB_HOME=/Users/sebastien/apps/OMERO.libs/Cellar/berkeley-    db46/4.6.21 OPTIMIZE=yes prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 embedded_runpath_prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 install
 
-We have had problems building zeroc-ice33 under MacOS 10.7.3 and 10.6.8 (see :ticket:`8075`). If you will be developing OMERO rather than installing omero, you can try installing ``ice`` (Ice 3.4) instead. If you decide to go with zeroc-ice33, make sure that you don't have ``DYLD_LIBRARY_PATH`` set to an existing Ice's installation lib directory path. In essence your ``.bash_profile`` shouldn't have any OMERO-related environment variables set before executing the installation script.
+We have had problems building zeroc-ice33 under MacOS 10.7.3 and 10.6.8 (see 
+:ticket:`8075`). If you will be developing OMERO rather than installing omero, 
+you can try installing ``ice`` (Ice 3.4) instead. If you decide to go with 
+zeroc-ice33, make sure that you do not have ``DYLD_LIBRARY_PATH`` set to an 
+existing Ice's installation lib directory path. In essence your 
+``.bash_profile`` shouldn't have any OMERO-related environment variables set 
+before executing the installation script.
 
 szip
 ~~~~
@@ -412,11 +423,15 @@ Manually remove the archived version located under
 numexpr (and other Python packages)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you encounter an issue related to numexpr complaining about NumPy having a too low version number, verify that you have not before installed any Python packages using pip. In the case where pip has been installed before homebrew, uninstall it:
+If you encounter an issue related to numexpr complaining about NumPy having a 
+too low version number, verify that you have not before installed any Python 
+packages using pip. In the case where pip has been installed before homebrew, 
+uninstall it:
 
 ::
 
     $ sudo pip uninstall pip
 
-After that try running omero\_homebrew.sh again. That should install pip via homebrew and put the Python packages in correct folders.
+After that try running omero\_homebrew.sh again. That should install pip via 
+homebrew and put the Python packages in correct folders.
 
