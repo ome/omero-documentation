@@ -11,6 +11,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
+import datetime
 import sys, os
 import re
 
@@ -44,7 +45,7 @@ master_doc = 'index'
 project = u'OMERO'
 title = project + u' Documentation'
 author = u'The Open Microscopy Environment'
-copyright = u'2000-2012, ' + author
+copyright = u'2000-%d, ' % datetime.datetime.now().year + author
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
