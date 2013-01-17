@@ -5,7 +5,7 @@ Troubleshooting OMERO
 Frequently Asked Questions
 ==========================
 
-If you can't find what you are looking for here, you might also peruse
+If you can not find what you are looking for here, you might also peruse
 the :faq_plone:`FAQ <>`.
 
 Known Operating System issues
@@ -140,8 +140,8 @@ Quick fix for users hit by this:
 There is an OMERO :forum:`forum post <viewtopic.php?f=5&t=415>`
 for comments on the issue.
 
-Import error when running ``bin/omero ...``
-===========================================
+Import error when running bin/omero ...
+=======================================
 
 ::
 
@@ -150,7 +150,7 @@ Import error when running ``bin/omero ...``
             import omero.cli
         ImportError: No module named omero.cli
 
-If you get any import related errors while running ``bin/omero``, the
+If you get any import related errors while running :command:`bin/omero`, the
 most likely cause is that your PYTHONPATH is not properly set.
 
 -  If you installed Ice globally via your package manager, make sure you
@@ -161,13 +161,13 @@ most likely cause is that your PYTHONPATH is not properly set.
    environment variable. See the Ice installation instructions for more
    information.
 
-Remote clients can't connect to my OMERO installation!
-======================================================
+Remote clients can not connect to my OMERO installation!
+========================================================
 
 The OMERO WebAdmin appears to work fine and you may or may not have
-created some users but no matter what you do remote clients won't speak
+created some users but no matter what you do remote clients will not speak
 to OMERO. OMERO.insight gives you an error message similar to the
-following (and you know that you've put the correct username and
+following (and you know that you have put the correct username and
 password into the OMERO.insight dialog):
 
 .. figure:: /images/login_failure.png
@@ -207,7 +207,7 @@ Connection problems and TCP window scaling
 ==========================================
 
 Later versions of the 2.6 Linux kernel, specifically 2.6.17, have TCP
-window scaling enabled by default. If you're having initial logins never
+window scaling enabled by default. If you are having initial logins never
 timeout or problems with connectivity in general you can try turning the
 feature off as follows:
 
@@ -421,7 +421,7 @@ limit up to the hard limit). To view the system limit, run
 
             cat /proc/sys/fs/file-max
 
-On MacOS X, the standard ulimit won't work properly. There are several
+On MacOS X, the standard ulimit will not work properly. There are several
 different ways of setting the ulimit, depending upon the version of OS X
 you are using, but the most common are to edit sysctl.conf or
 launchd.conf to raise the limit. However, note that both of these
