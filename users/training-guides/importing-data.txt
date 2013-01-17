@@ -33,59 +33,6 @@ Using the OMERO.insight to import image data onto the OMERO server.
 
    |
 
-#. Click the **Project - Screen** icon in the top left corner to toggle between image and screen data.
-   The **File Finder** window changes to reflect available file types, according to the selection.
-
-   .. image:: /images/tutor/importingDataProjectScreen.jpg
-       :width: 75%
-       :align: center
-
-   |
-
-#. If you are a member of more than one group, use the **Group** drop down box to select the group into which to import the data.
-
-   .. image:: /images/tutor/importingDataSelectGroup.jpg
-       :width: 75%
-       :align: center
-
-   |
-
-#. To archive data files in their original format on the OMERO server click the **Archive** checkbox.
-   This is in addition to importing the data in OME-tiff format and will use additional server space.
-   Individual data files can be selected or deselected using the checkboxes in the column below.
-
-   .. image:: /images/tutor/importingDataArchive.jpg
-       :width: 100%
-       :align: center
-
-   |
-
-#. Click the Options tab then **Add Tags** to batch-add tags to the data as it is imported.
-
-   .. image:: /images/tutor/importingDataAddTag1.jpg
-       :width: 100%
-       :align: center
-
-   |
-
-#. Select an existing tag in the left hand pane and click the right arrow;
-   or enter the name of a new tag and click Add.
-   Click **Save** to add these tags to the data at import.
-
-   .. image:: /images/tutor/importingDataAddTag2.jpg
-       :width: 75%
-       :align: center
-
-   |
-
-#. After saving, added tags can be seen in the **Options** tab and can be removed by clicking the **-** button
-
-   .. image:: /images/tutor/importingDataRemoveTag.jpg
-       :width: 75%
-       :align: center
-
-   |
-
 #. When ready, click **Import** to start importing queued data.
    The progress of imports is shown in the **Import** tab.
    A green tick indicates when the queue is successfully imported.
@@ -101,4 +48,69 @@ Using the OMERO.insight to import image data onto the OMERO server.
 
    .. image:: /images/tutor/importingDataEnd.jpg
        :width: 82%
+       :align: center
+   |
+
+Importing Options
+=================
+
+The following points illustrate how to set some of the options that can be used when importing.
+
+**Archiving data**
+
+#. To archive data files in their original format on the OMERO server click the **Archive** checkbox.
+   This is in addition to importing the data in OME-tiff format and will use additional server space.
+   Individual data files can be selected or deselected using the checkboxes in the column below.
+
+   .. image:: /images/tutor/importingDataArchive.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+**Adding tags at import **
+
+#. Click the Options tab then **Add Tags** to batch-add tags to the data as it is imported.
+
+   .. image:: /images/tutor/importingDataAddTag1.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+#. Select an existing tag in the left hand pane and click the right arrow;
+   or enter the name of a new tag and click **Add**.
+   Click **Save** to add these tags to the data at import.
+
+   .. image:: /images/tutor/importingDataAddTag2.jpg
+       :width: 75%
+       :align: center
+
+   |
+
+#. After saving, added tags can be seen in the **Options** tab and can be removed by clicking the **-** button.
+
+   .. image:: /images/tutor/importingDataRemoveTag.jpg
+       :width: 75%
+       :align: center
+
+   |
+
+**Selecting group for import**
+
+	If you are a member of more than one group, use the **Group** drop down box to select the group into which to import the data.
+
+   .. image:: /images/tutor/importingDataSelectGroup.jpg
+       :width: 75%
+       :align: center
+
+   |
+
+**Toggle between project and screen**
+
+	Click the **Project - Screen** icon in the top left corner to toggle between image and screen data.
+	The File Finder window changes to reflect available file types, according to the selection.
+
+   .. image:: /images/tutor/importingDataProjectScreen.jpg
+       :width: 75%
        :align: center

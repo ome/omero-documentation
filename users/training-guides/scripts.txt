@@ -2,9 +2,9 @@
 Using scripts
 *************
 
-OMERO.insight allows you to use scripts to add functionality to the programme. OMERO.insight comes with some built in scripts which enable output of data in a number of formats, as well as other functionality.
+OMERO.insight allows you to use scripts to add functionality to OMERO. Scripts are written in Python and run on the server.
 
-#. Click on the **Run Scripts** icon in the toolbar .
+#. Select images and click on the **Run Scripts** icon in the toolbar. You will see a menu showing the currently available scripts. Choose **Export Scripts > Batch Image Export*
 
    .. image:: /images/tutor/scriptsMenu.jpg
        :width: 80%
@@ -12,50 +12,25 @@ OMERO.insight allows you to use scripts to add functionality to the programme. O
 
    |
 
-#. To create a figure comprising thumbnails, either select the images for inclusion in the data tree or thumbnails in the centre pane, or select one or more Datasets.
-   Select **Figure Scripts > Thumbnail Figure**
-
-   .. image:: /images/tutor/scriptsThumbnails.jpg
-       :width: 85%
-       :align: center
-
-#. The script dialogue shows the IDs of the selected images (or ID of the Dataset/s if  they are selected).
-
-   .. image:: /images/tutor/scriptsDefault.jpg
-       :width: 100%
-       :align: center
-
-   |
-
-#. Set the minimum and maximum thumbnail size (defaults are 100).
-   Set the maximum number of columns (default 10).
-
-   .. image:: /images/tutor/scriptsSize.jpg
-       :width: 75%
-       :align: center
-
-   |
-
-#. Select the format for the figure (default JPEG).
-
-   .. image:: /images/tutor/scriptsFormat.jpg
-       :width: 85%
-       :align: center
-
-   |
-
-#. Click on the **Script** menu to download or view the script.
-   Click **Run Script** to finish.
-
-   .. image:: /images/tutor/scriptsRun.jpg
-       :width: 100%
-       :align: center
-
-   |
-
-#. Click on the image or dataset the figure has been attached to.
-   In the right pane, click on drop-down icon after the attachment to view or download.
+#. A dialog is generated from the parameters in the script, with image IDs filled-in for the images you selected.
+   Other fields are optional or have default values.
+   You can view or download the Python script itself if you are interested.
 
    .. image:: /images/tutor/scriptsView.jpg
-       :width: 100%
+       :width: 95%
+       :align: center
+
+#. Optional: you can edit the script parameters if you want to.
+   Click Run Script to finish.
+
+   .. image:: /images/tutor/scriptsRun.jpg
+       :width: 65%
+       :align: center
+
+   |
+
+#. When the script has completed, you may have several options to access the results:
+
+   .. image:: /images/tutor/scriptsActivities.jpg
+       :width: 95%
        :align: center

@@ -91,7 +91,7 @@ This guide assumes you have never installed ImageJ before.
        :align: center
 
    |
-   
+
 #. You will then be taken to the OMERO.insight Data Manager screen.
 
    .. image:: /images/tutor/imageJDataManager.jpg
@@ -99,3 +99,26 @@ This guide assumes you have never installed ImageJ before.
        :align: center
 
    **Note:** If you quit OMERO.insight and then connect again during the same ImageJ session, logging in and launching the OMERO plugin will be much quicker. So if you intend using the OMERO plugin through ImageJ again soon, it may be worth leaving your ImageJ application running.
+
+   |
+
+#. Double click on the image in the data tree or selecting the image and **View > View in ImageJ** in the contextual menu.
+   The Bioformats Import Options window opens.
+   Select parameters and click **OK**.
+
+
+   .. image:: /images/tutor/imageJBioformats.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+#. Double click on the image in the data tree or selecting the image and **View > View in ImageJ** in the contextual menu.
+   The Bioformats Import Options window opens.
+
+
+
+   .. image:: /images/tutor/imageJBioformats2.jpg
+       :width: 100%
+       :align: center
+
