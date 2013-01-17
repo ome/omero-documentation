@@ -18,7 +18,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
    |
 
 #. Select an image in the data tree and click on the **Launch Full Viewer** button to view it in the **Image Viewer**;
-   or. double click on the image or thumbnail.
+   or - double click on the image or thumbnail.
 
    .. image:: /images/tutor/webclientView.jpg
        :width: 87.5%
@@ -26,7 +26,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. In the Image Viewer images can be viewed in **Normal**, **Maximum Intensity** or **Split-Channel**. 
+#. In the **Image Viewer** images can be viewed in **Normal**, **Maximum Intensity** or **Split-Channel**. 
 
    .. image:: /images/tutor/webclientViewerOptions.jpg
        :width: 100%
@@ -43,7 +43,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
    |
 
 #. Zoom in and out of the image using the up and down arrows in the text box.
-   Click the 1:1 button to view at true size.
+   Click the **1:1** button to view at true size.
    Click the diagonal arrow button to zoom to fit the window.
 
    .. image:: /images/tutor/webclientViewerZoom.jpg
@@ -73,7 +73,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 #. Click on **Image Link** to generate a URL which can be copied and pasted.
    This link provides direct access via a web browser to your image, allowing people who are not in your group or even OMERO users to view your image.
 
-   .. image:: /images/tutor/webclientViewerSliders.jpg
+   .. image:: /images/tutor/webclientViewerLink.jpg
        :width: 70%
        :align: center
 

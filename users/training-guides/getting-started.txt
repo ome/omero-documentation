@@ -1,5 +1,5 @@
 *****************************************
-Getting started with OMERO.insight client
+Getting Started with OMERO.insight Client
 *****************************************
 OMERO stores image data on a central server. You can use the OMERO.insight client to upload, view and download data from any personal computer.
 Your institution's OMERO server administrator will provide you with the server address to use when connecting from OMERO.insight. They may have set up a user name and password for you too. Alternatively your username and password may be your standard login for the institution's networked computers.
@@ -73,8 +73,8 @@ Adding image data
 =================
 1. Click on the **Importer** icon.
 
-   .. image:: /images/tutor/gettingStartedDataManager.jpg
-       :width: 88%
+   .. image:: /images/tutor/gettingStartedLogin.jpg
+       :width: 75%
        :align: center
 
 |
@@ -173,7 +173,7 @@ Viewing image data
 
    - the right hand pane shows he metadata for the data and a preview.
 
-   .. image:: /images/tutor/gettingStartedPanes.jpg
+   .. image:: /images/tutor/gettingStartedImportedData.jpg
        :width: 75%
        :align: center
 
@@ -218,7 +218,7 @@ Viewing image data
 
 6. Click on Measurement Tool button to open the Measurement Tools palette.
 
-   .. image:: /images/tutor/gettingStartedMetadata.jpg
+   .. image:: /images/tutor/gettingStartedROI.jpg
        :width: 90%
        :align: center
 
@@ -249,7 +249,7 @@ To access the OMERO.web client you will need a web address (URL) provided by you
 
 1. Click on the **Web Start** button.
 
-   .. image:: /images/tutor/gettingStartedStacks.jpg
+   .. image:: /images/tutor/gettingStartedWebStart.jpg
        :width: 100%
        :align: center
 
@@ -269,6 +269,7 @@ To access the OMERO.web client you will need a web address (URL) provided by you
    The saved application is then used like any other programme.
    Web Start OMERO.insight will have to be downloaded each session, but this ensures you automatically have the latest OMERO.insight version.
 
-   .. image:: /images/tutor/gettingStartedStacks.jpg
+   .. image:: /images/tutor/gettingStartedRun.jpg
        :width: 100%
        :align: center
+
