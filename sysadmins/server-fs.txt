@@ -92,7 +92,10 @@ the last required file of a set is copied into the directory.
 Acquisition systems can then be configured to drop a user's images into
 a given DropBox.
 
-.. note:: the DropBox system is designed for images filesets to be copied in at normal acquisition rates. Copying numbers of files en masse may result in files failing to import.
+.. note:: 
+    The DropBox system is designed for images filesets to be copied in at 
+    normal acquisition rates. Copying numbers of files en masse may result in 
+    files failing to import.
 
 Log files
 ~~~~~~~~~
@@ -146,10 +149,10 @@ Properties
 ~~~~~~~~~~
 
 Each property takes the form of a single item or a semi-colon separated
-list of items. Where the item is a list values within that list should
+list of items. Where the item is a list, values within that list should
 be comma separated.
 
-importUsers
+-   importUsers
 
     The importUsers is either ``default`` for the standard DropBox
     configuration or a list of OMERO user names. The default is default.
@@ -159,7 +162,7 @@ importUsers
         <property name="omero.fs.importUsers"  value="default"/>
 
 
-watchDir
+-   watchDir
 
     The absolute directory path of interest for each user. The default is
     empty.
@@ -168,7 +171,7 @@ watchDir
 
         <property name="omero.fs.watchDir"  value=""/>
 
-eventTypes
+-   eventTypes
 
     For automatic import Creation and Modification events are monitored. It
     is also possible to monitor Deletion events though these are not used by
@@ -178,7 +181,7 @@ eventTypes
 
         <property name="omero.fs.eventTypes"  value="Creation,Modification"/>
 
-pathMode
+-   pathMode
 
     By default existing and newly created subdirectories are monitored. It
     is possible to restrict monitoring to a single directory ("Flat"), only
@@ -190,7 +193,7 @@ pathMode
 
         <property name="omero.fs.pathMode"  value="Follow"/>
 
-whitelist
+-   whitelist
 
     A list of file extensions of interest. An empty list implies all file
     extensions are monitored. The default is an empty list.
@@ -199,7 +202,7 @@ whitelist
 
         <property name="omero.fs.whitelist"  value=""/>
 
-blacklist
+-   blacklist
 
     A list of subdirectories to ignore. Not currently supported.
 
@@ -207,7 +210,7 @@ blacklist
 
         <property name="omero.fs.blacklist"  value=""/>
 
-timeout
+-   timeout
 
     This timeout in seconds is used by one-shot monitors. This property is
     not used by DropBox.
@@ -216,7 +219,7 @@ timeout
 
         property name="omero.fs.timeout"  value="0.0"/>
 
-blockSize
+-   blockSize
 
     The number of events that should be propagated to DropBox in one go.
     Zero implies all events possible. The default is zero.
@@ -225,7 +228,7 @@ blockSize
 
         <property name="omero.fs.blockSize"  value="0"/>
 
-ignoreSysFiles
+-   ignoreSysFiles
 
     If this is True events concerning system files, such as filenames
     beginning with a dot or default new folder names, are ignored. The exact
@@ -235,7 +238,7 @@ ignoreSysFiles
 
         <property name="omero.fs.ignoreSysFiles"  value="True"/>
 
-ignoreDirEvents
+-   ignoreDirEvents
 
     If this is True then the creation and modification of subdirectories is
     not reported to DropBox. The default is True
@@ -244,7 +247,7 @@ ignoreDirEvents
 
         <property name="omero.fs.ignoreDirEvents"  value="True"/>
 
-dirImportWait
+-   dirImportWait
 
     The time in seconds that DropBox should wait after being notified of a
     file before starting an import on that file. This allows for companion
@@ -256,7 +259,7 @@ dirImportWait
 
         <property name="omero.fs.dirImportWait"  value="60"/>
 
-fileBatch
+-   fileBatch
 
     The number of files that can be copied in before processing the batch.
     In cases where there are large numbers of files in a typical file set it
@@ -266,7 +269,7 @@ fileBatch
 
         <property name="omero.fs.fileBatch"  value="10"/>
 
-throttleImport
+-   throttleImport
 
     The time in seconds that DropBox should wait after initiating an import
     before initiating a second import. If imports are started too close
@@ -276,7 +279,7 @@ throttleImport
 
         <property name="omero.fs.throttleImport"  value="10"/>
 
-readers
+-   readers
 
     A file of readers. If this is a valid file then it is used to filter
     those events that are of interest. Only files corresponding to a reader
@@ -286,7 +289,7 @@ readers
 
         <property name="omero.fs.readers"  value=""/>
 
-importArgs
+-   importArgs
 
     A string of extra arguments supplied to the importer. This could
     include, for example, an email address to report failed imports to:
