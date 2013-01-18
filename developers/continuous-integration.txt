@@ -163,7 +163,7 @@ under the |version| view tab of Jenkins.
 		Review code PRs for the next OMERO point release
 
 		#. |merge| and push to snoopycrimecop/merge/|devbranch|/latest
-		#. Run docs/hudson/OMERO.sh
+		#. Run :source:`docs/hudson/OMERO.sh`
 		#. Deploy the server on howe
 
 	:jenkinsjob:`OMERO-docs-merge-4.4`
@@ -208,7 +208,7 @@ the Trunk view tab of Jenkins.
 		Review code PRs for the next major release of OMERO
 
 		#. |merge| and push to snoopycrimecop/merge/develop/latest
-		#. Run docs/hudson/OMERO.sh
+		#. Run :source:`docs/hudson/OMERO.sh`
 		#. Deploy the server on gretzky
 
 	:jenkinsjob:`OMERO-docs-merge-develop`
