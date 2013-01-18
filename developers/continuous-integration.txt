@@ -115,11 +115,11 @@ Jenkins jobs
 		* :term:`BIOFORMATS-4.4`
 		* :term:`BIOFORMATS-trunk`
 
-..  |merge| replace:: Merge PRs using :program:`scc merge`
+..  |merge| replace:: Merge PRs using :ref:`scc merge`
 ..  |sphinxbuild| replace:: Build HTML and PDF Sphinx documentation
 ..  |linkcheck| replace:: Check broken (404) and local links
 ..  |ssh-doc| replace:: SSH doc and PDF to
-..  |deploy-doc| replace:: Use hot-deploy script to update
+..  |deploy-doc| replace:: Use :ref:`hot-deploy script <scc deploy>` to update
 
 Current major release
 ^^^^^^^^^^^^^^^^^^^^^
