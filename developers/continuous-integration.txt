@@ -138,7 +138,7 @@ under the |version| view tab of Jenkins.
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. If the build is promoted,
-			#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/ome-release.tmp
+			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/ome-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4/
 
 	:jenkinsjob:`BIOFORMATS-docs-release-4.4`
@@ -176,7 +176,7 @@ under the |version| view tab of Jenkins.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/ome-staging.tmp
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/ome-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4-staging/
 
 	:jenkinsjob:`BIOFORMATS-docs-merge-4.4`
@@ -220,7 +220,7 @@ the Trunk view tab of Jenkins.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/ome-develop.tmp
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/ome-develop.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4-develop/
 
 	:jenkinsjob:`BIOFORMATS-docs-merge-develop`
@@ -230,7 +230,7 @@ the Trunk view tab of Jenkins.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/bf-develop.tmp
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-develop.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats-develop/
 
 Continous integration scripts
