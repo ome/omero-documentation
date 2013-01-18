@@ -4,7 +4,7 @@ Git usage for OMERO developers
 This page is primarily designed for the core OME developers who are
 contributing to our code base using git. It should contain all the
 useful commands and configuration you need for doing most git tasks.
-:doc:`UsingGitFlow` describes our earlier use of git-flow which may still be 
+:doc:`Development/UsingGitFlow` describes our earlier use of git-flow which may still be 
 useful for understanding our branch naming ("master" v. "develop").
 
 Git resources
@@ -348,7 +348,7 @@ Create a branch from the “develop” branch:
 
         git checkout -b feature/foo origin/develop
 
-or :doc:`UsingGitFlow`:
+or :doc:`Development/UsingGitFlow`:
 
 ::
 
