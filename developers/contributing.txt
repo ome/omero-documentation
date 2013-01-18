@@ -1,0 +1,29 @@
+Contributing to OMERO
+=====================
+
+This section of the trac is the location of various resources for the
+OME team. These include 'standard procedure' for various tasks such as
+testing, documentation and release, investigations into new work or just
+internal documents that may be of interest to a wider audience.
+
+-  :doc:`/users/community-resources`
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Development/UsingGit
+    Development/UsingGitFlow
+
+    Build
+
+    policies
+
+    Development/Process
+    Development/ReleaseProcess
+
+    Development/OmeroDevelopment
+    Development/JenkinsTesting
+
+    Development/CodingStandard
+    Development/Standards
