@@ -6,6 +6,7 @@ Multiple Development Branches Review Proposal
 .. _openmicroscopy.git: https://github.com/openmicroscopy/openmicroscopy
 .. _bioformats.git: https://github.com/openmicroscopy/bioformats
 .. _ome-documentation.git: https://github.com/openmicroscopy/ome-documentation
+.. _scripts.git: https://github.com/ome/scripts
 
 Definitions
 -----------
@@ -30,8 +31,7 @@ Labels
 ^^^^^^
 
 Labels are applied to PRs on github under the “Issues” tab of each repository
-(openmicroscopy.git_, bioformats.git_, scripts.git, ome-documentation.git,
-etc.)
+(openmicroscopy.git_, bioformats.git_, scripts.git_, ome-documentation.git_)
 
 The current release consists of PRs labelled with “|devbranch|”, which is the 
 name of the branch which they will be merged into. This is work on the stable
@@ -44,14 +44,14 @@ Objectives of document review workflow
 --------------------------------------
 
 Integrate and release changes in the documentation of the current release.
-Improve review for next OMERO major release vs next OMERO point release
+Improve review for next OMERO major release vs next OMERO point release.
 Use this documentation review workflow as an example on how other review
 workflows can and should function.
 
 Proposal
 --------
 
-Maintain two development branches under the ome-documentation.git repository:
+Maintain two development branches under the ome-documentation.git_ repository:
 
 * |devbranch|, associated with current OMERO major release: |version|
 * develop, associated with the next OMERO major release: |nextversion|
@@ -59,7 +59,7 @@ Maintain two development branches under the ome-documentation.git repository:
 such that it is possible to release both the current point releases
 immediately, while still working on more major releases by ensuring that
 (nearly) all commits that are applied to |devbranch| are applied to develop in
-order to prevent regressions,
+order to prevent regressions.
 
 Caveats include:
 
@@ -187,13 +187,13 @@ under the |version| view tab of Jenkins.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| /var/www/www.openmicroscopy.org/sphinx-docs/bf-staging.tmp
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats-staging/
 
 Next major release
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the next major release is `develop`. All jobs are listed under
+The branch for the next major release is develop. All jobs are listed under
 the Trunk view tab of Jenkins.
 
 .. glossary::
@@ -240,13 +240,13 @@ https://github.com/openmicroscopy/snoopycrimecop hosts a series of utility
 scripts used in the continuous integration.
 
 If you find a bug or if you want an additional feature to be implemented,
-please `open an issue <https://github.com/openmicroscopy/snoopycrimecop/issues>`.
+please `open an issue <https://github.com/openmicroscopy/snoopycrimecop/issues>`_.
 
 Installation
 ^^^^^^^^^^^^
 
 The scc tools are a set  of Python_ based utility programs. The main 
-requirements is the **PyGithub** package ::
+requirement is the **PyGithub** package ::
 
 	$ pip install PyGithub
 	$ pip freeze | grep PyGithub
