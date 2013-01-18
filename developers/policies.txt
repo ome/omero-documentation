@@ -124,7 +124,7 @@ Git and Github: Source code
 Commits take place primarily on github currently. To be aware of
 what’s really going on, your best option is to become familiar with
 git, github, and the repositories of all the team members. Information
-on doing that is available under :doc:`/developers/Development/UsingGit`
+on doing that is available under :doc:`/developers/using-git`
 
 .. _github_screenshot:
 .. figure:: images/10000000000003EF000002096AD7CA41.png
@@ -453,7 +453,7 @@ Branch process (month-to-month)
 
 The output of your daily and weekly work will almost always be the
 production of a branch. That process is described in (perhaps too
-much) detail under :doc:`/developers/Development/UsingGit`
+much) detail under :doc:`/developers/using-git`
 
 Particularly of importance for this document is the section on “Branch
 management”. The general idea is that branches also have a lifecycle
