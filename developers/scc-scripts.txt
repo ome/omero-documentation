@@ -1,0 +1,227 @@
+Continous integration scripts
+=============================
+
+https://github.com/openmicroscopy/snoopycrimecop hosts a series of utility
+scripts used in the continuous integration.
+
+If you find a bug or if you want an additional feature to be implemented,
+please `open an issue <https://github.com/openmicroscopy/snoopycrimecop/issues>`_.
+
+Installation
+------------
+
+The scc tools are a set  of Python_ based utility programs. The main 
+requirement is the **PyGithub** package ::
+
+	$ pip install PyGithub
+	$ pip freeze | grep PyGithub
+	PyGithub==1.9.1
+
+If using Python 2.6 and earlier, you will also need the **argparse** package
+(included by default in Python 2.7 and above)::
+
+	$ pip install argparse
+	$ pip freeze | grep argparse
+	argparse==1.2.1
+
+The tools suite can then be installed using Homebrew::
+
+    $ brew update && brew install scc
+    $ scc -h
+
+Github connection
+-----------------
+
+Most of the scc commands instantiate a Github connection using the PyGithub
+package. Unless the :option:`--token` option is passed to the scc command, the
+command first looks for the `github.token` specified in the git config file
+and, if found, uses this token to connect to Github::
+
+	$ ./scc.py merge master --info -v
+	2013-01-16 22:03:49,633 [  scc.config] DEBUG Found github.token
+	...
+
+If no token is found, the command looks for a `github.user` in the git config
+file and, if found, uses this username to connect to Github::
+
+	$ ./scc.py merge master --info -v
+	2013-01-16 22:06:00,256 [  scc.config] DEBUG Found github.user
+	Enter password for http://github.com/sbesson:
+
+.. note::
+   The password to be entered here is the Github password.
+
+Finally, if no token or user is found, both the Github username and password
+are queried at the prompt::
+
+	$ ./scc.py merge master --info -v
+	# github.token and github.user not found.
+	# See `./scc.py token` for simpifying use.
+	Username or token: sbesson
+	Enter password for http://github.com/sbesson:
+
+.. _scc merge:
+
+scc merge
+---------
+
+.. program:: scc merge
+
+Merge all the open PRs based on specified branch, including all submodules.
+
+The first argument is the name of the base branch of origin, e.g.::
+
+	$ scc merge develop
+
+.. option:: --comment
+
+	Add a comment to the PR if there is a conflict while merging the PR
+	::
+
+		$ scc merge develop --comment
+
+.. option:: --default <type>, -D <type>
+
+	Specify the default set of PRs to be included in the merge
+
+	Four options are currently implemented: `none`, `mine`, `org` and `all`.
+	By default (`org`), only PRs opened by public members of the repository
+	organization are included so the following are equivalent::
+
+		$ scc merge develop
+		$ scc merge develop --default org
+		$ scc merge develop -D org
+
+.. option:: --exclude <filters>, -E <filters>
+
+	Exclude PR by label, user or number
+
+	Label filters can be specified using `label:my_label`, user filters using
+	`user:username` and PR filters using `pr:xx`, e.g.::
+
+		$ scc merge develop -E label:exclude_label -E user:my_user -E pr:45
+
+	If no key is specified, it is assumed the filter is a label filter.
+
+.. option:: --include <filters>, -I <filters>
+
+	Include PR by label, user or number
+
+	Label filters can be specified using `label:my_label`, user filters using
+	`user:username` and PR filters using `pr:xx`, e.g.::
+
+		$ scc merge develop -I label:include_label -I user:my_user -I pr:40
+
+	If no key is specified, it is assumed the filter is a label filter.
+
+.. option:: --info
+
+	Display the candidate PRs to merge but do not merge them
+	::
+
+	$ scc merge develop --info
+
+.. option:: --push <branchname>
+
+	Push the locally merged branch to Github
+	::
+
+		$ scc merge develop --push my-merged-branch
+
+.. option:: --reset
+
+	Recursively reset each repository to the HEAD of the base branch
+	::
+
+		$ scc merge develop --reset
+
+As a concrete example, the first step of the :term:`OMERO-merge-develop` job
+is calling the following merge command:
+
+::
+
+	$ scc merge develop --no-ask --reset --comment -E conflict -E needs-fixes -E broken -I include --push merge/develop/latest
+
+scc rebase
+----------
+.. program:: scc rebase
+
+Rebase a PR (open or closed) onto another branch and open a new PR.
+
+The first argument is the number of the PR to rebase and the second argument
+is the name of the branch onto which the PR should be rebased::
+
+	$ scc rebase 142 develop
+
+Assuming the head branch used to open the PR 142 was called `branch_142`, this
+command will rebase the tip of `branch_142` onto origin/develop, create a new
+local branch called `rebased/develop/branch_142`, push this branch to Github
+and open a new PR. Finally, the command will switch back to the original
+branch prior to rebasing and delete the local `rebased/develop/branch_142`.
+
+.. note::
+
+	By default, :program:`scc rebase` uses the branches of the `origin` remote
+	to rebase the PR. To specify another remote, use the
+	:option:`--remote` option.
+
+.. option:: --no-pr
+
+	Skip the opening of the PR
+	::
+
+		$ scc rebase 142 develop --no-pr
+
+.. option:: --no-delete
+
+	Do not delete the local rebased branch
+
+	::
+
+		$ scc rebase 142 develop --no-delete
+
+.. option:: --remote
+
+	Specify the name of the remote to use for the rebase
+
+	::
+
+		$ scc rebase 142 develop --remote snoopycrimecop
+
+If :program:`scc rebase` fails (e.g. due to conflict during the rebase), you
+may end up in a detached HEAD state. In this case, you will need to manually
+switch to your previous branch::
+
+	git checkout old_branch
+
+scc version
+-----------
+.. program:: scc version
+
+Return the version of the scc tools::
+
+	$ scc version
+	0.2.1
+
+.. versionadded:: 0.2.0
+
+.. _scc deploy:
+
+Documentation deployment
+------------------------
+
+https://github.com/openmicroscopy/snoopycrimecop hosts two scripts:
+doc_init.sh and doc_deploy.sh. The goal of the scripts is to enable
+overwriting of deployed doc content and allow for “hot-swapping” content
+served by Apache without downtime and HTTP 404s.
+
+The logic behind the scripts follows the method outlined in
+https://gist.github.com/3807742#file_symlink_replacement.md. The hudson jobs
+:term:`BIOFORMATS-docs-merge-4.4`, :term:`BIOFORMATS-docs-merge-develop`, 
+:term:`OMERO-docs-merge-4.4`, :term:`OMERO-docs-merge-develop` and
+OMERO-docs-internal deploy the documentation artifacts to necromancer. The
+target directory (sphinx-docs) is controlled by the hudson:hudson user, so all
+file system operations are allowed. Each job has the target directory
+configured in the SSH publisher target directory property. After deployment
+has happened to a temporary directory, a series of symlink moves happens
+making sure that the symlink points to the updated content.
