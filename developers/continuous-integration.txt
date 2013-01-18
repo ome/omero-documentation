@@ -68,8 +68,6 @@ Caveats include:
 * more integration jobs to run
 * impact of OMERO documentation change on user base
 
-A schematic drawing of the proposed workflow is available here.
-
 Jenkins jobs
 ------------
 
@@ -233,3 +231,10 @@ the Trunk view tab of Jenkins.
 		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-develop.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats-develop/
 
+Schematic drawing
+-----------------
+
+.. image:: /images/CI-workflow.png
+	:align: center
+	:alt: Continuous Integration workflow
+	:width: 55%
