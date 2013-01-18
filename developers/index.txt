@@ -154,7 +154,7 @@ OMERO can be extended by modifying these clients or by writing your own in any o
     Clients/ImportLibrary
     Modules/TempFileManager
     Modules/ExceptionHandling
-    Development/Logging
+    logging
 
 
 ******************
