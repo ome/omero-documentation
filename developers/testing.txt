@@ -138,6 +138,17 @@ testng-group. If a test is temporarily broken, add it to the "broken" or
 
      }
 
+Tests should be of the **Acceptance Test** form. The ticket number
+for which a test is being written should be added in the
+` testng <http://testng.org>`_ annotations (@Test( groups =
+":ticket:`60` " )). This works at either the method
+level (see
+`SetsAndLinksTest#L73 <components/model/test/ome/model/utests/SetsAndLinksTest.java#L73>`)
+or the class level (see
+`UniqueResultTest#L15 <components/server/test/ome/server/itests/query/UniqueResultTest.java
+#L15>`).
+
+
 OmeroJava
 ~~~~~~~~~
 
