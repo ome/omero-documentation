@@ -112,8 +112,8 @@ example:
 Failing tests
 ~~~~~~~~~~~~~
 
-The ``test.with.fail`` ant property, which is ``true`` by default, can be set 
-to ``false`` to prevent test failures from failing the build. For example:
+The ``test.with.fail`` ant property, which is set to ``false`` by default,
+prevents test failures from failing the build. For example:
 
 ::
 
