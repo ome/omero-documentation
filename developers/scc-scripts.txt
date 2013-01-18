@@ -60,6 +60,8 @@ are queried at the prompt::
 	Username or token: sbesson
 	Enter password for http://github.com/sbesson:
 
+.. _scc merge:
+
 scc merge
 ---------
 
@@ -202,6 +204,8 @@ Return the version of the scc tools::
 	0.2.1
 
 .. versionadded:: 0.2.0
+
+.. _scc deploy:
 
 Documentation deployment
 ------------------------
