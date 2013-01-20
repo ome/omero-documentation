@@ -112,7 +112,16 @@ example:
 Failing tests
 ~~~~~~~~~~~~~
 
-"test.with.fail" is the property which will
+The ``test.with.fail`` ant property is set to ``false`` by default, which 
+prevents test failures from failing the build. However, it can instead be set 
+to ``true`` to allow test failures to fail the build. For example:
+
+::
+
+     ./build.py -Dtest.with.fail=false test...
+     ./build.py -Dtest.with.fail=true test...
+
+
 
 Writing your own tests
 ----------------------
