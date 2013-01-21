@@ -247,12 +247,6 @@ Testing Web on Jenkins
 This website contains examples which are used by Jenkins to run tests
 against OMERO products.
 
-Environment
-~~~~~~~~~~~
-
-Jenkins environment is available :jenkins:`here
-<job/OMERO-trunk-components/component=start,label=linux/lastBuild/artifact/src/hudson.log>`.
-
 Your test
 ~~~~~~~~~
 
