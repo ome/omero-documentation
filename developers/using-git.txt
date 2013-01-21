@@ -5,19 +5,6 @@ This page is primarily designed for the core OME developers who are
 contributing to our code base using git. It should contain all the
 useful commands and configuration you need for doing most git tasks.
 
-Git resources
--------------
-
--  `Pro Git book <http://git-scm.com/book>`_
--  `<http://git-scm.com/book/ch3-6.html>`_
--  `A successful Git branching model <http://nvie.com/posts/a-successful-git-branching-model/>`_
-   We are roughly based on the git-flow model for branch management.
--  `<http://users.openmicroscopy.org.uk/~jmoore/git/>`_
-   If you have some time to spend on this, you may find Josh's git
-   movies useful. Covers a lot of the workflows below, as well as being
-   an intro for when the team was moving from svn to git (before we got
-   set up with current repository & branches etc)
-
 Getting started
 ---------------
 
@@ -1050,3 +1037,16 @@ Your branch should now be able to merge back into develop. This should
 only be done at the very end of a pull request just before it's merged
 into origin/develop. Multiple "pull origin/develop" messages in a branch
 would be very bad style.
+
+Git resources
+-------------
+
+-  `Pro Git book <http://git-scm.com/book>`_
+-  `<http://git-scm.com/book/ch3-6.html>`_
+-  `A successful Git branching model <http://nvie.com/posts/a-successful-git-branching-model/>`_
+   We are roughly based on the git-flow model for branch management.
+-  `<http://users.openmicroscopy.org.uk/~jmoore/git/>`_
+   If you have some time to spend on this, you may find Josh's git
+   movies useful. Covers a lot of the workflows below, as well as being
+   an intro for when the team was moving from svn to git (before we got
+   set up with current repository & branches etc)
