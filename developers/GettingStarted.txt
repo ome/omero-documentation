@@ -73,7 +73,7 @@ the following variables:
 
    ::
 
-       # E.g if you built the server yourself
+       # E.g. If you built the server yourself
        export OMERO_HOME=~/Desktop/OMERO/dist
        # Or you downloaded a release package
        export OMERO_HOME=~/Desktop/OMERO.server-Beta-4.2.2
@@ -111,7 +111,7 @@ database, which can be achieved with a number of tools. E.g.
 
        $ sudo -u postgres psql omero
        Password:       # sudo password
-       omero=# \d;     # gives a complete list of tables and views
+       omero=# \d;     # give a complete list of tables and views
        omero=# \d annotation;         # list all the columns in a particular table
        omero=# select id, discriminator, ns, textValue, file from annotation order by id desc;   # query
 
@@ -186,14 +186,6 @@ the Raw Pixels Store.
     used. Also, Logical Channel and Channel can be considered a single
     entity (as they are now in the OME-model).
 
-More figures
-~~~~~~~~~~~~
-
-This :formats_plone:`page of the main site <working-with-ome-xml/model-overview-2010-04>`
-has some additional diagrams for other parts of the OME model, which you
-may find useful. However, there are some differences arising from the
-fact that this is the OME-XML model (references & 'top level objects'
-are different) and that this is the April 2010 schema.
 
 Working with the OMERO model objects
 ------------------------------------
@@ -211,7 +203,7 @@ other services that already has suitable queries. Using the query
 service is very flexible but it requires detailed knowledge of the OMERO
 model (see above) and is susceptible to any change in the model.
 
-For example: to load a specific Project and it's linked Datasets you
+For example: to load a specific Project and its linked Datasets you
 could write a query like this:
 
 ::
@@ -238,9 +230,6 @@ For a list of the available services, see the |OmeroApi| page.
 
 Examples
 --------
-
-Here's a list of examples and links that may get re-organised and moved
-elsewhere as it grows...
 
 HQL examples
 ~~~~~~~~~~~~
@@ -273,7 +262,7 @@ Below is a number of example psql database queries
 
 ::
 
-    # list any images that don't have pixels:
+    # list any images that do not have pixels:
     omero=#select id, name from Image i where i.id not in (select image from Pixels where image is not null) order by i.id desc;
 
     omero=# select id, name, ome_perms(permissions) from experimentergroup;
@@ -330,8 +319,8 @@ your login details when requested.
 
 .. note::
 
-    Because you will be querying the database under a particular login, the entries 
-    returned will be subject to the permissions of that login.
+    Because you will be querying the database under a particular login, the 
+    entries returned will be subject to the permissions of that login.
 
 ::
 
