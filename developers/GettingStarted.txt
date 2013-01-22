@@ -24,7 +24,7 @@ A typical client interaction might have an outline such as:
 -  Use the stateless 'Query Service' or 'Container Service' to traverse
    Projects, Datasets and Images
 -  Use the stateful 'Rendering Engine' or 'Thumbnail Service' to view
-   images.
+   images
 -  Use the stateful 'Raw Pixels Service' or 'Raw File Store' to retrieve
    pixel or file data for analysis
 -  Create new Annotations or other objects and save them with the
@@ -46,7 +46,7 @@ Although most interactions with OMERO can be achieved remotely, you will
 generally find it easier to have the server installed on your
 development machine, particularly if you are going to be doing a lot of
 OMERO development. This gives you local access to the database, binary
-repository, logs etc and means you can work 'off-line'.
+repository, logs etc. and means you can work 'off-line'.
 
 Even if the server you are connecting to is remote, you will still want
 to have the server package available locally, so as to give you the
@@ -69,7 +69,7 @@ In addition to the install instructions, you might find it useful to set
 the following variables:
 
 -  OMERO\_HOME: should be set to the directory containing the OMERO
-   distribution or build.
+   distribution or build
 
    ::
 
@@ -78,8 +78,8 @@ the following variables:
        # Or you downloaded a release package
        export OMERO_HOME=~/Desktop/OMERO.server-Beta-4.2.2
 
--  Add the /bin/ directory to you PATH - allows you to call the 'omero'
-   command from anywhere.
+-  Add the /bin/ directory to your PATH - allows you to call the 'omero'
+   command from anywhere
 
    ::
 
@@ -103,7 +103,7 @@ Database access
 It is useful to be able to directly query or browse the OMERO PostgreSQL
 database, which can be achieved with a number of tools. E.g.
 
--  psql. This command line tool you should already have installed.
+-  psql - This command line tool should already be installed.
    Depending on your permissions, you may need to connect as the
    'postgres' user:
 
@@ -158,7 +158,7 @@ via specific links
 etc). Annotation subclasses such as
 :javadoc:` CommentAnnotation <slice2html/omero/model/CommentAnnotation.html#CommentAnnotation>`,
 :javadoc:` FileAnnotation <slice2html/omero/model/FileAnnotation.html#FileAnnotation>`
-etc are stored in a single database table in OMERO (all Annotations have
+etc. are stored in a single database table in OMERO (all Annotations have
 unique ID).
 
 Images
@@ -170,18 +170,18 @@ Images
 
 Images in OMERO are made up many entities. These include core image
 components such as
-:javadoc:` Pixels <slice2html/omero/model/Pixels.html#Pixels>`,
-:javadoc:` Channels <slice2html/omero/model/Channel.html#Channel>`
-etc as well as a large number of additional metadata objects such as
-Instrument (microscope), Objective, Filters, Light Sources, Detectors
-etc. Image pixels data is stored as a single file, numbered by Pixels ID
+:javadoc:` Pixels <slice2html/omero/model/Pixels.html#Pixels>` and
+:javadoc:` Channels <slice2html/omero/model/Channel.html#Channel>`, as well as 
+a large number of additional metadata objects such as
+Instrument (microscope), Objective, Filters, Light Sources, and Detectors. 
+Image pixels data is stored as a single file, numbered by Pixels ID
 in the OMERO repository under /OMERO/Pixels/ and can be accessed using
 the Raw Pixels Store. 
 
 .. note::
 
     Some features of the model are due to
-    historical changes and are not exercised in practice. For example: an
+    historical changes and are not exercised in practice. For example, an
     Image can have multiple sets of Pixels although only 1 is typically
     used. Also, Logical Channel and Channel can be considered a single
     entity (as they are now in the OME-model).
@@ -203,7 +203,7 @@ other services that already has suitable queries. Using the query
 service is very flexible but it requires detailed knowledge of the OMERO
 model (see above) and is susceptible to any change in the model.
 
-For example: to load a specific Project and its linked Datasets you
+For example, to load a specific Project and its linked Datasets you
 could write a query like this:
 
 ::
@@ -242,9 +242,9 @@ with notes about object loading on the |OmeroModel|  page.
     If possible, it is advisable to use an existing API method from one 
     of the other services (as for the container service above).
 
-Although possible to place query parameters directly into the string, it
+Although it is possible to place query parameters directly into the string, it
 is preferable (particularly for type-checking) to use the
-omero.sys.Parameters object).
+omero.sys.Parameters object:
 
 ::
 
@@ -258,7 +258,7 @@ omero.sys.Parameters object).
 psql queries
 ~~~~~~~~~~~~
 
-Below is a number of example psql database queries
+Below are a number of example psql database queries:
 
 ::
 
@@ -314,7 +314,7 @@ Below is a number of example psql database queries
 bin/omero hql
 ~~~~~~~~~~~~~
 
-You can use the omero hql command to query a remote OMERO database, entering
+You can use the omero :omerocmd:`hql` command to query a remote OMERO database, entering
 your login details when requested. 
 
 .. note::
