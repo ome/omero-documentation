@@ -19,7 +19,7 @@ Preparing to build
 -------------------
 
 Begin by following the instructions under 
-:doc:`/developers/Development/UsingGit` on acquiring the
+:doc:`/developers/using-git` on acquiring the
 source code. Be **sure** that the git branch you are using matches the
 version of your server!
 
@@ -224,4 +224,4 @@ For the details behind writing, configuring, and executing a client,
 please see |OmeroClients|.
 
 .. seealso::
-    Ice_, |OmeroGrid|, |OmeroApi|, :doc:`/developers/Build`, :ticket:`1596` which added 64bit support
+    Ice_, |OmeroGrid|, |OmeroApi|, :doc:`/developers/build-system`, :ticket:`1596` which added 64bit support
