@@ -125,7 +125,7 @@ Current major release
 ^^^^^^^^^^^^^^^^^^^^^
 
 The branch for the current major release is |devbranch|. All jobs are listed 
-under the |version| view tab of Jenkins.
+under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 
 .. glossary::
 
@@ -192,7 +192,7 @@ Next major release
 ^^^^^^^^^^^^^^^^^^
 
 The branch for the next major release is develop. All jobs are listed under
-the Trunk view tab of Jenkins.
+the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 
 .. glossary::
 
