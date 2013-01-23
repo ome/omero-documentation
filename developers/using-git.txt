@@ -53,8 +53,8 @@ own repository. These are listed here:
 Git quickstart
 ~~~~~~~~~~~~~~
 
-If you’re looking to get started as quickly as possible the minimum
-you’ll need is to have git installed (see next section) and then:
+If you are looking to get started as quickly as possible the minimum
+you will need is to have git installed (see next section) and then:
 
 ::
 
@@ -63,13 +63,14 @@ you’ll need is to have git installed (see next section) and then:
         git clone --recursive https://github.com/openmicroscopy/openmicroscopy
         cd openmicroscopy
 
-You won’t be able to push back to this repository, but you’ll at least
+You will not be able to push back to this repository, but you will at least
 have something you can start looking at. Read on for more.
 
 Installing git
 ~~~~~~~~~~~~~~
 
-In general, see the Git `downloads page <http://git-scm.com/download>`_ for installation options.
+In general, see the Git `downloads page <http://git-scm.com/download>`_ for 
+installation options.
 
 Linux 
 ^^^^^
@@ -115,10 +116,11 @@ Git provides a number of options which can make working with it
 considerably more pleasant. These configuration options are available
 either globally in ``$HOME/.gitconfig`` or in the ``.git`` directory of
 your repository. The file is in INI-format, but can also be modified
-using the "git config" command. (We'll use that excluslively here).
+using the :command:`git config` command, as illustrated in the examples 
+following.
 
-Most important is to Update your 'global' credentials that are used in
-your commits. These values are saved in ~/.gitconfig
+The most important thing is to update your 'global' credentials that are used 
+in your commits. These values are saved in ~/.gitconfig
 
 ::
 
@@ -146,7 +148,7 @@ Color and display options make log and diff output much more friendly:
          git config --global core.editor mate_wait
 
 Aliases provide a way to make shortcuts for longer git commands. One
-that is often used among the OME team is "graph":
+that is often used among the OME team is ``graph``:
 
 ::
 
@@ -158,8 +160,8 @@ for even more examples.
 Getting started with github
 ---------------------------
 
-Most OME development is currently happening on github, therefore it's
-highly suggested that you become familiar with how it works if not
+Most OME development is currently happening on github, therefore it is
+highly suggested that you become familiar with how it works, if not
 create an account for yourself.
 
 Start by downloading the official repository:
@@ -183,10 +185,10 @@ Alternatively, with version 1.6.5 of git and later, you can pass the
 
         git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git 
 
-The natural workflow when using github is to not to just download
+The natural workflow when using github is not just to download
 someone else’s repository, but also to create a personal working copy.
 Go to the repository page at `<https://github.com/openmicroscopy/openmicroscopy>`_
-and click on “Fork”. This will create a copy of the repository in one's
+and click on “Fork”. This will create a copy of the repository in your
 own personal space:
 
 ::
@@ -199,18 +201,19 @@ which can be added to your local repository as another remote:
 
         git remote add gh git@github.com:YOURNAME/openmicroscopy.git
 
-Note: for the |SSH| transport to work, you will need to follow some of the
-instructions under `<https://github.com/account/ssh>`_
+.. note:: 
+    For the |SSH| transport to work, you will need to follow some of the
+    instructions under `<https://github.com/account/ssh>`_
 
 Depending on which repository you cloned first, either origin/develop or
 gh/develop will be the “develop” branch of your own fork of
-openmicroscopy/openmicroscopy. **For the rest of this document we’ll
-assume that “gh” is your own personal gh repository, and “origin” is the
+openmicroscopy/openmicroscopy. **The rest of this document
+assumes that “gh” is your own personal github repository, and “origin” is the
 official openmicroscopy repository.**
 
 You may even want to remove the “develop” branch from your fork since
 all branching should happen from the official develop branch. If you’d
-prefer to keep a copy of “develop” in “gh”, that’s fine, but you may
+prefer to keep a copy of “develop” in “gh”, that is fine, but you may
 then need to keep your develop up-to-date with the official develop:
 
 ::
@@ -223,34 +226,34 @@ Github remotes
 ~~~~~~~~~~~~~~
 
 You can also add the other members of the OME network as remotes, so you
-can follow what they’re doing.
+can follow what they are doing:
 
 ::
 
         git remote add SOMEUSER git://github.com/SOMEUSER/openmicroscopy.git
         git fetch SOMEUSER
 
-If you’d like to work more closely with someone, via pushing directly to
+If you would like to work more closely with someone, via pushing directly to
 their branch or they from yours, then you can have them add you as a
 collaborator on their repository or do the same for them on yours. This
 is done under `<https://github.com/account/repositories>`_
 
-If you haven’t made such a repository yet as a remote, then you should
+If you have not made such a repository yet as a remote, then you should
 do so using the |SSH| protocol:
 
 ::
 
         git remote add SOMEUSER git@github.com:SOMEUSER/openmicroscopy.git
 
-Otherwise, you’ll need to modify its URL
+Otherwise, you will need to modify its URL
 
 ::
 
         git remote set-url SOMEUSER git@github.com:SOMEUSER/openmicroscopy.git
 
-If you’d like to be kept up-to-date on what several users are doing on
+If you would like to be kept up-to-date on what several users are doing on
 github, you can set the “default remotes” value to the list of people
-you’d like to check in .git/config:
+you would like to check in .git/config:
 
 ::
 
@@ -262,7 +265,7 @@ Pushing to github
 ~~~~~~~~~~~~~~~~~
 
 When you have work which you want to share with the rest of the team,
-it's vital that you push it to your github fork.
+it is vital that you push it to your github fork.
 
 ::
 
@@ -271,14 +274,14 @@ it's vital that you push it to your github fork.
 This will create a new branch, and the same command can be used to
 subsequently update that branch.
 
-If you NEED to use a different name for the branch on git-hub, you can
+If you NEED to use a different name for the branch on github, you can
 do:
 
 ::
 
         git push gh your-branch:refs/heads/branch-name-on-gh
 
-As mentioned elsewhere, the "refs/heads/" prefix needs only be used to
+As mentioned elsewhere, the "refs/heads/" prefix only needs to be used to
 create a new branch, and can be dropped for subsequent pushes.
 
 Tracking others' branches
@@ -290,13 +293,13 @@ of monitoring either a user or a repository. Notifications about what
 watched users and repositories are doing can be seen in your github
 inbox or via RSS feeds. See `Be social <https://help.github.com/articles/be-social>`_ for more information.
 
-Even if you don't feel able to watch the everyone's repository, you will
+Even if you do not feel able to watch the everyone's repository, you will
 likely want to periodically check in on the current `Pull Requests
 (PRs) <https://github.com/openmicroscopy/openmicroscopy/pulls>`_. These
 will contain screenshots and other updates about what the team is
-working on. As the PRs have been sufficiently reviewed, they will be
-merged into the develop branch so that other's work will start to be
-based off of it.
+working on. When the PRs have been sufficiently reviewed, they will be
+merged into the develop branch so that others' work will start to be
+based on it.
 
 Cleaning up your github branches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -310,18 +313,18 @@ repository.
         git branch -d your-branch
         git push gh :your-branch
 
-This way, anyone looking at your fork clearly sees what's currently in
+This way, anyone looking at your fork clearly sees what is currently in
 progress or upcoming.
 
 Common Git Commands
 -------------------
 
-Though everyone has a slightly different way of working, the following
+Although everyone has a slightly different way of working, the following
 command examples should show you much of what you will want to do on a
 daily or weekly basis when working with OME via git.
 
 See if you have any changes that you might need to commit. This also
-displays some useful tips on how to add & remove files.
+displays some useful tips on how to add and remove files:
 
 ::
 
@@ -333,36 +336,36 @@ Create a branch from the “develop” branch:
 
         git checkout -b feature/foo origin/develop
 
-At this point, you’re ready to do some work:
+At this point, you are ready to do some work:
 
 ::
 
         git checkout my-work  # Just to be sure.
         vim README.txt        # edit files
         git merge anotheruser/some-work
-        git status            # See what you’ve done
+        git status            # See what you have done
 
 You can also add files or directories to the 'cache' with interactive
 choice of which 'chunks' to accept or decline (useful for checking that
-you're not adding any unintended changes, print statements etc)
+you are not adding any unintended changes, print statements etc.):
 
 ::
 
         git add -p path/to/dir/or/file
 
-Check the status again - to see summary of what you are about to commit
+Check the status again - to see summary of what you are about to commit:
 
 ::
 
         git status
 
-Any remaining changes that you want to discard can be reverted by
+Any remaining changes that you want to discard can be reverted by:
 
 ::
 
         git checkout -- path/to/file.txt
 
-When committing the code you’ve just modified/merged your commit message
+When committing the code you have just modified/merged your commit message
 should refer to related tickets. E.g. "See :ticket:`1111`"
 will link the commit to the ticket on trac, and "Fixes
 :ticket:`2222`"" will link and close the ticket on trac.
@@ -378,7 +381,7 @@ will link the commit to the ticket on trac, and "Fixes
     add a single line summary followed by line space and then a paragraph of
     more text. See :ref:`usinggit/commitmessages` for more discussion.
 
-After you’ve committed, you can keep working and committing as above -
+After you have committed, you can keep working and committing as above -
 the changes are only saved to your local git.
 
 For example, you can move to another branch to continue work on a
@@ -390,8 +393,8 @@ different feature. To see a list branches:
 
 Add the ``-a`` to list remote branches too.
 
-To simply move between branches, use git checkout. All the files on your
-file-system will be updated to the new branch.
+To simply move between branches, use ``git checkout``. All the files on your
+file-system will be updated to the new branch:
 
 ::
 
@@ -399,12 +402,8 @@ file-system will be updated to the new branch.
 
 .. note:: Make sure they are refreshed if you have files open in an editor or IDE
 
-If you’ve forgotten what you did one a particular branch, you can use
-“git log”. Add the “-p” flag to see the actual diff for each commit.
-
-::
-
-        git log
+If you have forgotten what you did on a particular branch, you can use
+``git log``. Add the ``-p`` flag to see the actual diff for each commit.
 
 You can use the first 5 characters of a commit's hash key to begin the
 log at a certain commit. E.g. show diff for commit 83dad:
@@ -419,7 +418,8 @@ Or to display a nice graph:
 
         git log --graph --decorate --oneline
 
-Again, an alias is set-up in the configuration above, so you can do:
+If an alias has been set-up as described in the configuration section above, 
+you can just do:
 
 ::
 
@@ -433,8 +433,8 @@ This is most useful when showing how two branches are related:
 
 When you are ready, you will need to push your local changes to your own
 forked repository in order to share with others. If the branch does not
-yet exist in your repository, you’ll need to prefix the push command
-with “refs/heads”:
+yet exist in your repository, you will need to prefix the push command
+with ``refs/heads``:
 
 ::
 
@@ -448,7 +448,7 @@ on the my\_fix\_123 branch:
         git push gh my_fix_123
 
 You will find it easier if you name remote branches the same as local
-branch though it’s not a requirement:
+branch though it is not a requirement:
 
 ::
 
@@ -456,12 +456,12 @@ branch though it’s not a requirement:
         # E.g:
         git push gh feature/export:refs/heads/feature/export
 
-Once you’ve pushed, you can open a “Pull Request” to inform the team
+Once you have pushed, you can open a “Pull Request” to inform the team
 about the changes. More on that below.
 
-You can also create a local branch from a remote branch, whether your
-own or from someone else on the team. These will be 'tracked' so that
-commits you push automatically go to the corresponding remote branch
+You can also create a local branch from a remote branch, whether it is your
+own or belongs to someone else on the team. These will be 'tracked' so that
+commits you push automatically go to the corresponding remote branch:
 
 ::
 
@@ -469,17 +469,17 @@ commits you push automatically go to the corresponding remote branch
         # work on the branch then:
         git push SOMEUSER name/of/branch
 
-Collaborating via ``git rebase``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Collaborating via git rebase
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you’ve been permitted write access to someone else’s forked
-repository, or you’ve granted someone else write access to your
-repository, then there’s a further aspect that you need to be aware of.
+If you have been permitted write access to someone else’s forked
+repository, or you have granted someone else write access to your
+repository, then there is a further aspect that you need to be aware of.
 
 If both of you are working on the my\_fix\_123 branch from above, then
-when it comes time to push, your version may not represent the latest
+when it is time to push, your version may not represent the latest
 state. To prevent losing any commits or introducing unnecessary merge
-messages, you’ll first need to access the latest remote changes:
+messages, you will first need to access the latest remote changes:
 
 ::
 
@@ -493,7 +493,7 @@ the remote changes ('gh/my\_fix\_123'), you can use the log command:
         git log --graph --date-order gh/my_fix_123 my_fix_123
 
 If the remote branch (‘gh/my\_fix\_123’) have moved ahead of yours, then
-you’ll want to rebase your work on top of this new work:
+you will want to rebase your work on top of this new work:
 
 ::
 
@@ -525,10 +525,10 @@ extra whitespace during rebase - E.g. to origin/develop branch
 
         git rebase --whitespace=strip origin/develop
 
-Rebase "interactive" using the “-i” flag allows on to remove, edit,
+Rebase "interactive" using the ``-i`` flag allows you to remove, edit,
 combine etc commits. Git will open an editor to allow you to edit the
 commit summary along with instructions on how to omit, modify commits.
-E.g. to rebase onto origin/develop branch
+E.g. to rebase onto origin/develop branch:
 
 ::
 
@@ -593,9 +593,9 @@ If you do not want to modify the submodule state, run
 ``git submodule update``. Be careful though, the
 `` git subdmodule update`` command will silently delete all local
 changes under the submodule. If you want to keep your changes, make sure
-you pushed them to github.
+you have pushed them to github.
 
-To advance the submodule to another commit, you can run the git add
+To advance the submodule to another commit, you can run the ``git add``
 command:
 
 ::
@@ -624,13 +624,11 @@ post-merge-checkout_ for an example.
 
 .. _post-merge-checkout: https://github.com/chaitanyagupta/gitutils/blob/master/submodule-hooks/post-merge-checkout
 
-Technical bits
---------------
 
 .. _usinggit/commitmessages:
 
 Commit messages
-~~~~~~~~~~~~~~~
+---------------
 
 **All** commit messages in git should start with a single line of 72
 characters or less, following by a blank line, followed by any other
@@ -652,7 +650,7 @@ You can read more about commit messages at `A Note About Git Commit Messages`_.
 .. _A Note About Git Commit Messages: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
 
 Rebasing to keep code clean
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 Rebasing allows you to update the 'base' point at which you branched
 from another branch (as described above). You can also use 'rebase' to
@@ -667,23 +665,23 @@ organise your commits before merging.
            git rebase --whitespace=strip origin/develop
 
 -  If you used the set-up script above, the alias 'ws' was added to
-   allow you to achieve the same action with
+   allow you to achieve the same action with:
 
    ::
 
            git ws origin/develop
 
--  Rebase "interactive": To remove, edit, combine etc your commits, use
-   the -i flag. Git will open an editor to allow you to edit the commit
+-  Rebase "interactive": To remove, edit, combine etc. your commits, use
+   the ``-i`` flag. Git will open an editor to allow you to edit the commit
    summary (gives instructions too). E.g. to rebase onto origin/develop
-   branch
+   branch:
 
    ::
 
            git rebase -i origin/develop
 
 'team.git'
-~~~~~~~~~~
+----------
 
 We use a remote repository called "team" for developers to push changes
 that are not ready to go into the main 'develop' branch. This allows you
@@ -693,19 +691,19 @@ to collaborate on a branch or simply to back-up your work.
 
         git remote add team ssh://git.openmicroscopy.org/home/git/team.git
 
-Create new branches for others to see
+Create new branches for others to see:
 
 ::
 
         git push team new_feature_name:refs/heads/new_feature_name
 
-Get changes from others
+Get changes from others:
 
 ::
 
         git pull --ff-only team new_feature_name
 
-Send changes to others
+Send changes to others:
 
 ::
 
@@ -713,7 +711,7 @@ Send changes to others
 
 You can also create a local branch from a remote branch. These will be
 'tracked' so that commits you push automatically go to the corresponding
-remote branch
+remote branch:
 
 ::
 
@@ -722,14 +720,14 @@ remote branch
         git push team name/of/branch
 
 Now go back to your regular work and finish the feature and commit to
-develop when ready. Once the branch is no longer needed, remove the name
+develop when ready. Once the branch is no longer needed, remove the name:
 
 ::
 
         git push team :refs/heads/new_feature_name
 
 You will find it easier if you name remote branches the same as local
-branch
+branch:
 
 ::
 
@@ -747,7 +745,7 @@ Branch naming
 We roughly follow the git-flow style of naming and managing branch. Info about
 the idea can be found under
 `A successful Git branching model  <http://nvie.com/posts/a-successful-git-branching-model/>`_.
-There's also a `screencast <http://vimeo.com/16018419>`_ available on Vimeo.
+There is also a `screencast <http://vimeo.com/16018419>`_ available on Vimeo.
 
 .. image:: /images/GitBranchingModel.png
     :align: center
@@ -756,7 +754,7 @@ There's also a `screencast <http://vimeo.com/16018419>`_ available on Vimeo.
 
 The master branch is always "releasable", almost always by having a
 tagged version merged into it. The develop branch is where unstable
-work takes place. At times, another stable branch  with the version
+work takes place. At times, another stable branch with the version
 name appended ("dev_x_y") is also active. PRs merged into this
 stable branch are also rebased onto develop.
 
