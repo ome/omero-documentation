@@ -217,8 +217,8 @@ served by Apache without downtime and HTTP 404s.
 
 The logic behind the scripts follows the method outlined in
 https://gist.github.com/3807742#file_symlink_replacement.md. The hudson jobs
-:term:`BIOFORMATS-docs-merge-4.4`, :term:`BIOFORMATS-docs-merge-develop`, 
-:term:`OMERO-docs-merge-4.4`, :term:`OMERO-docs-merge-develop` and
+:term:`BIOFORMATS-docs-merge-stable`, :term:`BIOFORMATS-docs-merge-develop`, 
+:term:`OMERO-docs-merge-stable`, :term:`OMERO-docs-merge-develop` and
 OMERO-docs-internal deploy the documentation artifacts to necromancer. The
 target directory (sphinx-docs) is controlled by the hudson:hudson user, so all
 file system operations are allowed. Each job has the target directory
