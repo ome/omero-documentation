@@ -39,13 +39,6 @@ the `sample image files <./sample-files>`_ page.
 XSLT Transform Samples
 ----------------------
 
-There are two transforms available that convert between the hierarchical
-pre-July 2007 OME schema and a flat CA only representation of that
-schema. These are used as part of the import process by the OME Server
-and are no longer being maintained.
+There are transforms available that convert between the the different versions of the schemas. They can be downloaded from:
 
--  From full OME to OME-CA:
-   `OME-CA2OME.xslt <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/specification/Xslt/internal/OME-CA2OME.xslt>`_
--  From OME-CA to OME:
-   `OME2OME-CA.xslt <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/specification/Xslt/internal/OME2OME-CA.xslt>`_
-
+`http://www.openmicroscopy.org/Schemas/Transforms/ <http://www.openmicroscopy.org/Schemas/Transforms/>`_
