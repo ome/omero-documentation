@@ -44,7 +44,7 @@ bridge classes which will be passed to
 
 See :ref:`JavaDeployment`
 for how to have your bridge classes included on the server's classpath
-if it doesn't get built by the :doc:`/developers/Build`.
+if it doesn't get built by the :doc:`/developers/build-system`.
 
 Available bridges
 -----------------
