@@ -211,14 +211,14 @@ TODO - Update these links
 SPIM
 ^^^^
 
-`SPIM-modulo-sample.ome.tiff <http://git.openmicroscopy.org/src/develop/components/specification/Samples/OmeFiles/2011-06/SPIM-modulo-sample.ome.tiff>`_
+`SPIM-modulo-sample.ome.tiff </Schemas/Samples/2012-06/SPIM-modulo-sample.ome.tiff>`_
 
 A 2x2 tile of planes each recorded at 4 angles.
 
 Big Lambda
 ^^^^^^^^^^
 
-`LAMBDA-modulo-sample.ome.tiff <http://git.openmicroscopy.org/src/develop/components/specification/Samples/OmeFiles/2011-06/LAMBDA-modulo-sample.ome.tiff>`_
+`LAMBDA-modulo-sample.ome.tiff </Schemas/Samples/2012-06/LAMBDA-modulo-sample.ome.tiff>`_
 
 Excitation of 5 wavelength [Λ, big-lambda] each recored at 10 emission
 wavelength ranges [λ, lambda].
@@ -226,7 +226,7 @@ wavelength ranges [λ, lambda].
 FLIM
 ^^^^
 
-`FLIM-modulo-sample.ome.tif <http://git.openmicroscopy.org/src/develop/components/specification/Samples/OmeFiles/2011-06/FLIM-modulo-sample.ome.tif>`_
+`FLIM-modulo-sample.ome.tif </Schemas/Samples/2012-06/FLIM-modulo-sample.ome.tif>`_
 
 Two channels each recorder at eight histogram bins.
 

@@ -30,7 +30,7 @@ Where is your source code?
 
 All the OME code is stored in a central Git repository. The OME Data
 Model part of this is available here:
-`specification <http://trac.openmicroscopy.org.uk/ome/browser/ome.git/components/specification>`_.
+`specification <http://github.com/openmicroscopy/openmicroscopy/tree/develop/components/specification>`_.
 
 How does the process of developing OME Model work?
 --------------------------------------------------
@@ -69,7 +69,7 @@ before they are implemented into the currently released schema:
 How can I, as a developer, work with your model?
 ------------------------------------------------
 
-A good place to start is by looking at the `ModelOverview 2010-04
+A good place to start is by looking at the `Model Overview
 collection of diagrams <model-overview-2010-04>`_ we have put together
 showing the structure and connection between different parts of the OME
 Model.
@@ -92,9 +92,12 @@ support the loading/saving of a variety of files, then we recommend you
 look at the following pages. They show what happened with each release:
 
 -  The **current major release** - see `Changes For June
-   2011 </site/support/file-formats/schemas/versions/changes-for-june-2011>`_
+   2012 </site/support/file-formats/schemas/versions/changes-for-june-2012>`_
 -  Previous releases:
 
+   -  `Changes For June
+      2011 </site/support/file-formats/schemas/versions/changes-for-june-2011>`_
+      - (major)
    -  `Changes For June
       2010 </site/support/file-formats/schemas/versions/changes-for-june-2010>`_
       - (major)
@@ -158,20 +161,24 @@ What does an individual attribute or element store?
 We have auto-generated documentation available for each release of the
 schema. This has information on each attribute and element:
 
--  `June 2010 -
-   current <http://git.openmicroscopy.org/src/master/components/specification/Documentation/Generated/OME-2010-06/ome.html>`_
+-  `June 2012 -
+   current </Schemas/Documentation/Generated/OME-2012-06/ome.html>`_
+-  `June 
+   2011 </Schemas/Documentation/Generated/OME-2011-06/ome.html>`_
+-  `June 2010
+   </Schemas/Documentation/Generated/OME-2010-06/ome.html>`_
 -  `April
-   2010 <http://git.openmicroscopy.org/src/master/components/specification/Documentation/Generated/OME-2010-04/ome.html>`_
+   2010 </Schemas/Documentation/Generated/OME-2010-04/ome.html>`_
 -  `September
-   2009 <http://git.openmicroscopy.org/src/master/components/specification/Documentation/Generated/OME-2009-09/ome.html>`_
+   2009 </Schemas/Documentation/Generated/OME-2009-09/ome.html>`_
 -  `September
-   2008 <http://git.openmicroscopy.org/src/master/components/specification/Documentation/Generated/OME-2008-09/ome.xsd.html>`_
+   2008 </Schemas/Documentation/Generated/OME-2008-09/ome.xsd.html>`_
 -  `February
-   2008 <http://git.openmicroscopy.org/src/master/components/specification/Documentation/Generated/OME-2008-02/ome.xsd.html>`_
+   2008 </Schemas/Documentation/Generated/OME-2008-02/ome.xsd.html>`_
 -  `June
-   2007 <http://git.openmicroscopy.org/src/master/components/specification/Documentation/Generated/OME-2007-07/ome.xsd.html>`_
+   2007 </Schemas/Documentation/Generated/OME-2007-07/ome.xsd.html>`_
 -  `Legacy 2003
-   (FC) <http://git.openmicroscopy.org/src/master/components/specification/Documentation/Generated/OME-2003/ome.xsd.html>`_
+   (FC) </Schemas/Documentation/Generated/OME-2003/ome.xsd.html>`_
 
 How do I get the technical schema description?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
