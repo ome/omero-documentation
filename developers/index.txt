@@ -41,7 +41,7 @@ Introduction to OMERO
     :titlesonly:
 
     GettingStarted
-    Build
+    contributing
 
 
 *******************
@@ -140,6 +140,7 @@ OMERO can be extended by modifying these clients or by writing your own in any o
     Clients/ImportLibrary
     Modules/TempFileManager
     Modules/ExceptionHandling
+    logging
 
 
 ******************
@@ -211,32 +212,3 @@ Extending OMERO Server
     Server/ScalingOmero
     Server/SqlAction
     Server/FS
-
-
-*******************
-Development Process
-*******************
-
-The following pages are meant to provide you with a trail through the 
-available documentation so that you can get started with OMERO development. 
-Note that this is not everything that you will need to read, but should get 
-you started...
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    Development
-    Development/OmeroDevelopment
-    policies
-    continuous-integration
-    scc-scripts
-    Development/Process
-    Development/CodingStandard
-    Development/JenkinsTesting
-    Development/Logging
-    Development/ReleaseProcess
-    Development/Standards
-    Development/UsingGit
-    Development/UsingGitFlow
-    Development/VideoFormatForOmeMovies

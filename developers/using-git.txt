@@ -1,24 +1,9 @@
-Git usage for OMERO developers
-==============================
+Using Git
+=========
 
 This page is primarily designed for the core OME developers who are
 contributing to our code base using git. It should contain all the
 useful commands and configuration you need for doing most git tasks.
-:doc:`UsingGitFlow` describes our earlier use of git-flow which may still be 
-useful for understanding our branch naming ("master" v. "develop").
-
-Git resources
--------------
-
--  `Pro Git book <http://git-scm.com/book>`_
--  `<http://git-scm.com/book/ch3-6.html>`_
--  `A successful Git branching model <http://nvie.com/posts/a-successful-git-branching-model/>`_
-   We use the git-flow model for branch management.
--  `<http://users.openmicroscopy.org.uk/~jmoore/git/>`_
-   If you have some time to spend on this, you may find Josh's git
-   movies useful. Covers a lot of the workflows below, as well as being
-   an intro for when the team was moving from svn to git (before we got
-   set up with current repository & branches etc)
 
 Getting started
 ---------------
@@ -347,12 +332,6 @@ Create a branch from the “develop” branch:
 ::
 
         git checkout -b feature/foo origin/develop
-
-or :doc:`UsingGitFlow`:
-
-::
-
-        git flow feature start foo
 
 At this point, you’re ready to do some work:
 
@@ -761,6 +740,27 @@ branch
         # after committing to local branch you can push to team
         git push team name/of/branch
 
+
+Branch naming
+-------------
+
+We roughly follow the git-flow style of naming and managing branch. Info about
+the idea can be found under
+`A successful Git branching model  <http://nvie.com/posts/a-successful-git-branching-model/>`_.
+There's also a `screencast <http://vimeo.com/16018419>`_ available on Vimeo.
+
+.. image:: /images/GitBranchingModel.png
+    :align: center
+    :alt: Branching Model
+
+
+The master branch is always "releasable", almost always by having a
+tagged version merged into it. The develop branch is where unstable
+work takes place. At times, another stable branch  with the version
+name appended ("dev_x_y") is also active. PRs merged into this
+stable branch are also rebased onto develop.
+
+
 Advanced: Branch management
 ---------------------------
 
@@ -1037,3 +1037,16 @@ Your branch should now be able to merge back into develop. This should
 only be done at the very end of a pull request just before it's merged
 into origin/develop. Multiple "pull origin/develop" messages in a branch
 would be very bad style.
+
+Git resources
+-------------
+
+-  `Pro Git book <http://git-scm.com/book>`_
+-  `<http://git-scm.com/book/ch3-6.html>`_
+-  `A successful Git branching model <http://nvie.com/posts/a-successful-git-branching-model/>`_
+   We are roughly based on the git-flow model for branch management.
+-  `<http://users.openmicroscopy.org.uk/~jmoore/git/>`_
+   If you have some time to spend on this, you may find Josh's git
+   movies useful. Covers a lot of the workflows below, as well as being
+   an intro for when the team was moving from svn to git (before we got
+   set up with current repository & branches etc)
