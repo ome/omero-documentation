@@ -4,7 +4,7 @@ Importing data
 
 Using the OMERO.insight to import image data onto the OMERO server.
 
-   |
+|
 
 #. Select **Import** from the **File** menu;
    |   or click on the Import icon in the toolbar;
@@ -122,24 +122,26 @@ The following points illustrate how to set some of the options that can be used 
 
 **Selecting group for import**
 
-   If you are a member of more than one group, use the **Group** drop down box to select the group into which to import the data.
+If you are a member of more than one group, use the **Group** drop down box to select the group into which to import the data.
 
-   .. image:: /images/tutor/importingDataSelectGroup.jpg
-       :width: 75%
-       :align: center
+|
 
-   |
+.. image:: /images/tutor/importingDataSelectGroup.jpg
+    :width: 75%
+    :align: center
+
+|
 
 **Toggle between project and screen**
 
-   Click the **Project - Screen** icon in the top left corner to toggle between image and screen data.
+Click the **Project - Screen** icon in the top left corner to toggle between image and screen data.
 
-   The File Finder window changes to reflect available file types, according to the selection.
+The File Finder window changes to reflect available file types, according to the selection.
 
-   |
+|
 
-   .. image:: /images/tutor/importingDataProjectScreen.jpg
-       :width: 75%
-       :align: center
+.. image:: /images/tutor/importingDataProjectScreen.jpg
+    :width: 75%
+    :align: center
+|
 
-   |
