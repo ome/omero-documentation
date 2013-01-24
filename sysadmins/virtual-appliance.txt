@@ -1,0 +1,133 @@
+Virtual Appliance Installation
+==============================
+
+.. seealso::
+
+	:doc:`/users/virtual-appliance`
+	
+		User Documentation for the OMERO Virtual Appliance
+
+Build an OMERO Virtual Machine
+==============================		
+
+The purpose of the scripts located at :sourcedir:`docs/install/VM` is to 
+automate the process of building an OMERO :abbr:`VM`.
+
+Retrieve the OMERO VM Scripts
+-----------------------------
+
+#. 	Using Git::
+	
+		$ git archive --remote=git://git.openmicroscopy.org/ome.git --format=tar HEAD:docs/install/VM > OMERO_VM.tar
+	
+#. 	If you have :abbr:`SSH` access to the OMERO git repository, then you can 
+	also use git as follows, replacing $USERNAME with your user name as 
+	required::
+	
+		$ git archive --remote=ssh://$USERNAME@git.openmicroscopy.org/home/git/ome.git --format=tar HEAD:docs/install/VM > OMERO_VM.tar
+
+#. 	Via HTTP by download the scripts manually from 
+	:sourcedir:`docs/install/VM` and saving ALL of the contents of that 
+	directory to a suitable location on your machine.
+   
+	.. note::
+	
+		This is the least desirable option and requires more work on your 
+		part.
+
+Prerequisites
+-------------
+
+- A Linux or Mac OS X operating system
+- A recent & working Virtual Box install
+	
+Environment Setup
+-----------------
+
+Place the VDI in your VirtualBox harddisk directory. On Mac OS X this should 
+be :file:`$HOME/Library/VirtualBox/HardDisks/` and on Linux 
+:file:`$HOME/.VirtualBox/HardDisks/`
+
+The OMERO.VM script will look in these locations for the VDI to kick start the 
+:abbr:`VM` building process.
+
+Advanced configuration
+----------------------
+
+In :source:`setup_omero.sh <docs/install/VM/setup_omero.sh>` you can define  
+whether you wish to build OMERO from source, use the most recent QA build or  
+use the release build by setting the :envvar:`TARGET` var. Valid values for 
+:envvar:`TARGET` are QA or SRC or RELEASE. Anything else will cause the latest 
+QA build to be used by default. The is for latest |version| QA builds from the 
+Hudson build process. To specify a different build you can 
+adjust the following vars, :envvar:`DL_LOC` & :envvar:`DL_ARCHIVE`:
+	
+:envvar:`DL_LOC`
+ 	
+	Store the URL from which to retrieve our build e.g. `DL_LOC="http://hudson.openmicroscopy.org.uk/job/OMERO-stable/lastSuccessfulBuild/artifact/"`
+
+:envvar:`DL_ARCHIVE`
+
+	Store the name of the zip archive to retrieve from DL_LOC because the 
+	build process could deploy many archives to that location and we must 
+	specify the particular one that we want to retrieve e.g. 
+	`DL_ARCHIVE="OMERO.server-4.3.0-DEV-bfe035dd.zip"`
+
+If using a release build then you can also alter :envvar:`RELEASE_ARCHIVE` to 
+reflect the build of OMERO.server that you want to install. 
+
+Build the :abbr:`VM`
+--------------------
+
+Run the :abbr:`VM` build script using the following command::
+
+	$ bash omerovm.sh $VMNAME
+
+This should take roughly 8-15 minutes to complete depending upon your machine.
+
+When you see the message "All Done!" you should be able to either:
+
+#. 	Start an OMERO client such as OMERO.insight and connect to your :abbr:`VM`
+
+#. 	:abbr:`SSH` into your :abbr:`VM` using the IP address printed at the end 
+	of the build script
+
+#. 	Use the utility script :source:`connect.sh <docs/install/VM/connect.sh>` 	
+	to open a shell into your :abbr:`VM`::
+
+		$ bash connect.sh $VMNAME
+
+	to connect directly and automatically to the OMERO :abbr:`VM`.
+	
+Utility Scripts
+===============
+
+A number of utility scripts are included to enable you to easily start, stop, and connect to your :abbr:`VM`:
+
+:source:`connect.sh <docs/install/VM/connect.sh>`
+
+	To get a shell on a named OMERO :abbr:`VM`, supply the name of the 
+	:abbr:`VM` that you wish to connect to, e.g.::
+
+		$ bash connect.sh omero-vm
+
+:source:`start.sh <docs/install/VM/start.sh>`
+
+	To start a stopped OMERO :abbr:`VM`, supply the name of :abbr:`VM` you 
+	wish to run, e.g.::
+ 
+		$ bash start.sh omero-vm
+
+:source:`stop.sh <docs/install/VM/stop.sh>`
+	
+	To stop a started OMERO :abbr:`VM`, supply the name of :abbr:`VM` you wish 
+	to halt, e.g.::
+
+		$ bash stop.sh omero-vm
+
+:source:`setup_port_forwarding.sh <docs/install/VM/setup_port_forwarding.sh>`
+	
+	To automatically set up port forwarding settings for the nominated 
+	:abbr:`VM` in VirtualBox, e.g.::
+	
+		$ bash setup_port_forwarding.sh omero-vm
