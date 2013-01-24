@@ -77,10 +77,10 @@ as well as several build metrics.
 Build tools
 -----------
 
-OMERO mostly uses an ` ant <http://ant.apache.org>`_-based build with
-dependency management provided by ` Ivy <http://ant.apache.org/ivy>`_.
+OMERO mostly uses an `ant <http://ant.apache.org>`_-based build with
+dependency management provided by `Ivy <http://ant.apache.org/ivy>`_.
 :doc:`Native code </developers/Cpp>` is built using
-` SCons <http://scons.org>`__ and Python uses the traditional
+`SCons <http://scons.org>`__ and Python uses the traditional
 distutils/setuptools tools.
 
 Structure of the build
