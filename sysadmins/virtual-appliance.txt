@@ -4,11 +4,10 @@ Virtual Appliance Installation
 .. seealso::
 
 	:doc:`/users/virtual-appliance`
-
 		User Documentation for the OMERO Virtual Appliance
 
-Build an OMERO Virtual Appliance
---------------------------------
+Building an OMERO Virtual Appliance
+-----------------------------------
 
 The purpose of the scripts located at :sourcedir:`docs/install/VM` is to 
 automate the process of building an OMERO :abbr:`VM`.
@@ -17,7 +16,7 @@ Prerequisites
 ^^^^^^^^^^^^^
 
 - A Linux or Mac OS X operating system
-- A recent & working Virtual Box install
+- A recent and working VirtualBox install
 
 Retrieve the OMERO :abbr:`VM` scripts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
