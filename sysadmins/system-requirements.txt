@@ -35,11 +35,12 @@ size and number of users. At a minimum we suggest:
 -  500MB of hard drive space for OMERO.server distribution
 -  Java 1.5 or later
 -  Python 2.4 or later (2.6 or later on Windows)
--  Hard drive space proportional to the image sizes expected which
-   permits **proper locking** (See the
+-  Hard drive space proportional to the image sizes expected.
+   The drive space should permit **proper locking**, which is
+   often not the case with remotely mounted shares. See the
    :doc:`Unix </sysadmins/unix/server-binary-repository>`
    and :doc:`Windows </sysadmins/windows/server-binary-repository>`
-   sections for more information)
+   binary repository sections for more information.
 
 The recommended OMERO.server specification we suggest for between 25-50
 users is:
