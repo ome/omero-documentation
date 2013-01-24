@@ -6,13 +6,13 @@ OMERO.insight allows you to use scripts to add functionality to OMERO.
 
 Scripts are written in Python and run on the server.
 
-   |
+|
 
 #. Select images and click on the **Run Scripts** icon in the toolbar.
 
-  You will see a menu showing the currently available scripts.
+   You will see a menu showing the currently available scripts.
 
-  Choose **Export Scripts > Batch Image Export**.
+   Choose **Export Scripts > Batch Image Export**.
 
    |
 
@@ -24,9 +24,9 @@ Scripts are written in Python and run on the server.
 
 #. A dialog is generated from the parameters in the script, with image IDs filled-in for the images you selected.
 
-  Other fields are optional or have default values.
+   Other fields are optional or have default values.
 
-  You can view or download the Python script itself if you are interested.
+   You can view or download the Python script itself if you are interested.
 
    |
 
@@ -38,7 +38,7 @@ Scripts are written in Python and run on the server.
 
 #. Optional: you can edit the script parameters if you want to.
 
-  Click **Run Script** to finish.
+   Click **Run Script** to finish.
 
    |
 
@@ -57,3 +57,4 @@ Scripts are written in Python and run on the server.
        :align: center
 
    |
+
