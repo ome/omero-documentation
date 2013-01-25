@@ -129,6 +129,7 @@ jenkins_root = 'http://hudson.openmicroscopy.org.uk'
 jenkins_job_root = jenkins_root + '/job'
 jenkins_view_root = jenkins_root + '/view'
 omero_job_root = jenkins_job_root + '/' + jenkins_job
+virtual_job_root = jenkins_job_root + '/' + jenkins_job + '-virtualbox'
 
 # Variables used to define other extlinks
 cvs_root = 'http://cvs.openmicroscopy.org.uk'
@@ -152,6 +153,7 @@ extlinks = {
     'jenkinsview' : (jenkins_view_root + '/%s', ''),
     'omerojob' : (omero_job_root + '/%s', ''),
     'javadoc' : (omero_job_root + '/javadoc/%s', ''),
+    'virtualjob' : (virtual_job_root + '/%s', ''),
     # Mailing list/forum links
     'mailinglist' : (lists_root + '/mailman/listinfo/%s', ''),
     'ome-users' : (lists_root + '/pipermail/ome-users/%s' ,''),
