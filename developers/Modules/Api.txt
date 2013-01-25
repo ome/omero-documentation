@@ -208,7 +208,7 @@ A tutorial is available on to write a service at
 :doc:`/developers/Server/HowToCreateAService`. 
 In general, if a properly annotated service is
 placed in any JAR of the OMERO EAR file (see
-:doc:`/developers/Build` for more) then the service will be
+:doc:`/developers/build-system` for more) then the service will be
 deployed to the server. In the case of
 :doc:`/developers/server-blitz`, the service must be properly
 defined under :sourcedir:`components/blitz/resources`.
