@@ -46,7 +46,7 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
    
    - save ROIs (once created)
 
-   - load ROIs from saved file
+   - load ROIs from saved local file
 
    - open the ROI assistant
 
@@ -65,7 +65,7 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
 
    - ID of the ROI
 
-   - Z section/s and time point/s the ROI is drawn on 
+   - Z section/s and time sequence/s the ROI is drawn on 
 
    - ROI type
 
@@ -105,9 +105,9 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
 
 #. In the **ROI Assistant** window, click on the ROI and drag it.
 
-   Up or down propagates through the Z stack and left or right through the Time (T) sequence.
+   Up or down propagates through the Z stack and left or right through the time sequence (T).
 
-   Dragging diagonally will propagate the ROI through both Z stack and T sequence.
+   Dragging diagonally will propagate the ROI through both Z stack and time sequence.
 
    Click **Close** to return to the ROI palette.
 
@@ -123,7 +123,7 @@ Using the measurement tool in OMERO.insight to draw **Regions of Interest** (ROI
 
    A line ROI has a profile of intensities along the line and a histogram of intensity vs. frequency (data for other types of ROI vary).
 
-   If an ROI is propagated across a T sequence, the slider below the histogram allows stepping through the sequence.
+   If an ROI is propagated across a time sequence, the slider below the histogram allows stepping through the sequence.
 
    |
 

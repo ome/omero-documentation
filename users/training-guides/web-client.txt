@@ -1,6 +1,6 @@
-**********
-Web client
-**********
+*********
+OMERO.web
+*********
 
 Using OMERO.web to view and work with image data via a web browser.
 
@@ -22,7 +22,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. Select an image in the data tree and click on the **Launch Full Viewer** button to view it in the **Image Viewer**;
+#. To view an image in the **Image Viewer**, select the image in the data tree and click on the **Launch Full Viewer** button.
 
    or - double click on the image or thumbnail.
 
@@ -44,7 +44,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. Scroll or step through Z sections using the slider and controls to the left of the image and T sequences using the slider and controls below the image. 
+#. Scroll or step through Z stacks using the slider and controls to the left of the image and time sequences (T) using the slider and controls below the image.
 
    |
 
@@ -72,7 +72,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    Use the sliders or text boxes to adjust settings for the channels.
 
-   Toggle channels and colour on and off using the colour wells and checkbox.
+   Toggle channels and color on and off using the color wells and checkbox.
 
    |
 
@@ -104,7 +104,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. Click on **Show ROIs** to view ROIs on the image and see details in the pop-up window (only visible if image has ROIs).
+#. Click on **Show ROIs** to view ROIs on the image and see details in the pop-up window (only visible if the image has ROIs).
 
    Existing ROIs can be viewed but cannot be edited, and new ROIs cannot added.
 
@@ -116,7 +116,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. In the **General** tab of the right hand panel, click on the pencil icon to edit the image name or image description.
+#. In the **General** tab of the right-hand panel, click on the pencil icon to edit the image name or image description.
 
    Summary details of the image can be seen below the description.
 
@@ -176,7 +176,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
 #. You can also share data with other users in different groups by adding it to your **Public** list.
 
-   Select the image/s you wish to share.
+   Select the image(s) you wish to share.
 
    Click on the **Basket** icon in the toolbar.
 
@@ -224,7 +224,7 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. Click on the **Public** tab of the left hand panel to view the data shared with you and other users.
+#. Click on the **Public** tab of the left-hand panel to view the data shared with you and other users.
 
    |
 
@@ -234,13 +234,13 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. From the OMERO.web client, you can download and run a **Web Start** version of OMERO.insight.
+#. From the OMERO.web client, you can download and run a **Java Web Start** version of OMERO.insight.
 
-   Using the **Web Start** OMERO.insight client enables you to import data, edit ROIs and use other functionality not yet supported by the OMERO.web client.
+   Using the **Java Web Start** OMERO.insight client enables you to import data, edit ROIs and use other functionality not yet supported by the OMERO.web client.
 
-   **Web Start** also enables OMERO.insight client to be used on machines where restrictions prevent you from installing new software.
+   **Java Web Start** also enables OMERO.insight client to be used on machines where restrictions prevent you from installing new software.
 
-   Click on the **Web Start** button and follow the instructions, accepting the software as “Trusted”.
+   Click on the **Java Web Start** button and follow the instructions, accepting the software as “Trusted”.
 
    |
 

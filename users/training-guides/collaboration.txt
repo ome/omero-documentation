@@ -8,7 +8,7 @@ OMERO.insight facilitates collaboration by allowing you to create groups of user
 
 #. If you are a member of more than one group your default group shows in the groups menu in the toolbar above the **Projects** tab (left hand panel).
 
-   Data in your **Projects** tab is organised according to the groups you belong to.
+   Data in your **Projects** tab is organized according to the groups you belong to.
 
    |
 
@@ -36,7 +36,7 @@ OMERO.insight facilitates collaboration by allowing you to create groups of user
 
    |
 
-   .. image:: /images/tutor/collaborationManager2.jpg
+   .. image:: /images/tutor/collaborationShowGroups.jpg
        :width: 72.5%
        :align: center
 
@@ -52,7 +52,7 @@ OMERO.insight facilitates collaboration by allowing you to create groups of user
 
    |
 
-#. Selected groups and users can be viewed the data tree.
+#. Selected groups and users can be viewed in the data tree.
 
    .. image:: /images/tutor/collaborationViewGroups.jpg
        :width: 62.5%
@@ -126,11 +126,15 @@ OMERO.insight facilitates collaboration by allowing you to create groups of user
     :width: 100%
     :align: center
 
-   **NB.** The following apply only if you are **Owner** or **Administrator** of a group.
+   |
 
    |
 
-#. As the owner of a group, click on the **Administration** tab in the left hand panel to change permissions settings for a group in the right hand panel.
+   **NB.** The following points apply only if you are **Owner** or **Administrator** of a group.
+
+   |
+
+#. As the owner of a group, click on the **Administration** tab in the left hand panel to change the permissions settings for a group in the right hand panel.
 
    |
 
@@ -142,9 +146,9 @@ OMERO.insight facilitates collaboration by allowing you to create groups of user
 
 #. As an administrator, right-click on a group in the **Administration** tab to add an existing user.
 
-   In the **User Selection** window select user/s and click the right arrow.
+   In the **User Selection** window select user(s) and click the right arrow.
 
-   Click the **Accept** button to add the listed user/s.
+   Click the **Accept** button to add the listed user(s).
 
    |
 
