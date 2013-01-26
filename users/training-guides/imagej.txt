@@ -20,7 +20,7 @@ This guide assumes you have never installed ImageJ before.
 
 #. On Windows run the set-up programme (either from the Downloads folder or when prompted by download Wizard) and follow instructions to install ImageJ.
 
-   On a Mac, extract the .zip archive and drag the ImageJ folder to your applications folder.
+   On a Mac, extract the .zip archive and drag the ImageJ folder to your Applications folder.
 
    On Linux extract the .gz archive and double click the “run” script.
 
@@ -28,7 +28,7 @@ This guide assumes you have never installed ImageJ before.
 
    |
 
-#. Once installed, the ImageJ folder (typically C:/Program Files/ImageJ on Windows) contains the programme and a number of subfolders, one of which is “plugins”.
+#. Once installed, the ImageJ folder (typically C:\Program Files\ImageJ on Windows) contains the programme and a number of subfolders, one of which is **plugins**.
 
    To use OMERO with ImageJ, two plugins need to be installed in this folder: 
    loci_tools and OMERO.insight-ij.
@@ -140,7 +140,7 @@ This guide assumes you have never installed ImageJ before.
 
 #. Double click on the image in the data tree or selecting the image and **View > View in ImageJ** in the contextual menu.
 
-   The Bioformats Import Options window opens.
+   The Bio-formats Import Options window opens.
 
    Select parameters and click **OK**.
 
@@ -154,7 +154,7 @@ This guide assumes you have never installed ImageJ before.
 
 #. Double click on the image in the data tree or selecting the image and **View > View in ImageJ** in the contextual menu.
 
-   The Bioformats Import Options window opens.
+   The Bio-formats Import Options window opens.
 
    |
 

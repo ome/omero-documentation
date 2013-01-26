@@ -57,8 +57,10 @@ Using OMERO.insight to manage image data.
 #. Click on the **+** to add a tag to an image.
 
    In the **Tag Selection** window:
-   - select an existing tag and use the **right arrow** to add it to the image or
-   - create a **New Tag** in the text field and click **Add**.
+
+   - select an existing tag and use the **right arrow** to add it to the image 
+
+   - or create a **New Tag** in the text field and click **Add**.
 
    Click **Accept** to add the tags and close the window.
 
@@ -108,7 +110,7 @@ Using OMERO.insight to manage image data.
 
 #. Use the **Preview** tab to change the rendering settings for the image.
 
-   Click on **Apply to All** to apply the new rendering settings to all images in dataset.
+   Click on **Apply to All** to apply the new rendering settings to all images in a dataset or plate, or to the selected images.
 
    Click on **Apply** to save the changes to the rendering settings.
 

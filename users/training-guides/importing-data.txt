@@ -7,8 +7,10 @@ Using the OMERO.insight to import image data onto the OMERO server.
 |
 
 #. Select **Import** from the **File** menu;
-   |   or click on the Import icon in the toolbar;
-   |   or select a destination Project or Dataset for the imported data and right click then select Import.
+
+   or click on the Import icon in the toolbar;
+
+   or select a destination Project or Dataset for the imported data and right click then select Import.
 
    |
 
@@ -19,7 +21,8 @@ Using the OMERO.insight to import image data onto the OMERO server.
    |
 
 #. Use the **File Finder** to locate data to be imported on local or networked drives.
-   |   Select files for importing and click the top arrow to add them to the import queue.
+
+   Select files for importing and click the top arrow to add them to the import queue.
 
    |
 
@@ -30,8 +33,10 @@ Using the OMERO.insight to import image data onto the OMERO server.
    |
 
 #. Use the **Location Selection** window to determine to where the data will be imported.
-   |   Choose an existing project or dataset using the drop-down menus;
-   |   or click **New** to create a new project or dataset.
+
+   Choose an existing project or dataset using the drop-down menus;
+
+   or click **New** to create a new project or dataset.
 
    |
 
@@ -42,7 +47,9 @@ Using the OMERO.insight to import image data onto the OMERO server.
    |
 
 #. When ready, click **Import** to start importing queued data.
-   |   The progress of imports is shown in the **Import** tab.
+
+   The progress of imports is shown in the **Import** tab.
+
    A green tick indicates when the queue is successfully imported.
 
    |
@@ -54,7 +61,8 @@ Using the OMERO.insight to import image data onto the OMERO server.
    |
 
 #. Mouse-over the thumbnails of successfully imported images to see a preview.
-   |   Click on the link to the dataset or close the Import window to view the data in the **Data Manager**.
+
+   Click on the link to the dataset or close the Import window to view the data in the **Data Manager**.
 
    |
 
@@ -98,6 +106,7 @@ The following points illustrate how to set some of the options that can be used 
    |
 
 #. Select an existing tag in the left hand pane and click the right arrow;
+
    or enter the name of a new tag and click **Add**.
 
    Click **Save** to add these tags to the data at import.

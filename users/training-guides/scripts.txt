@@ -4,7 +4,7 @@ Using scripts
 
 OMERO.insight allows you to use scripts to add functionality to OMERO.
 
-Scripts are written in Python and run on the server.
+Scripts are usually written in Python and run on the server. They could be written in another language, but a Python wrapper is used.
 
 |
 
@@ -26,7 +26,7 @@ Scripts are written in Python and run on the server.
 
    Other fields are optional or have default values.
 
-   You can view or download the Python script itself if you are interested.
+   You can view or download the script itself if you are interested.
 
    |
 
