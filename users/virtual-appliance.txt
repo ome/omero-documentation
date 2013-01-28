@@ -76,8 +76,8 @@ screenshot:
 Download the OMERO.server Virtual Appliance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The virtual appliance can be downloaded from :jenkins:`the Jenkins CI system
-<job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm-latest-build.ova>`,
+The virtual appliance can be downloaded from :virtualjob:`the Jenkins CI system
+<lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm-latest-build.ova>`,
 and should have a filename similar to, e.g. omero-vm.ova
 
 Import OMERO Virtual Appliance into VirtualBox
