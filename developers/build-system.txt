@@ -1,10 +1,78 @@
-OMERO build system
-==================
+Build System
+============
 
 .. topic:: Overview
 
 	The page goes into details about how the build system is configured.
 
+
+Creating binary distribution
+----------------------------
+
+The default ant target ("build-default") will build the OMERO system and
+copy the necessary components for a binary distribution to the /dist
+directory. Below is a comparison of what is taken from the build, where
+it is put, and what role it plays in the distribution.
+
+.. note::
+    By default, |OmeroCpp| is not built. Use ``build-all`` for that.
+
+.. list-table::
+    :header-rows: 1
+
+    * - OMERO_HOME
+      - OMERO\_HOME/dist
+      - Comments
+    * - components/blitz/target/blitz.jar
+      - lib/server
+      - Primary Ice servants
+    * - components/blitz/target/blitz.jar
+      - lib/server
+      - Primary Ice servants
+    * - components/blitz/target/server.jar
+      - lib/server
+      - Primary server logic
+    * - components/tools/OmeroCpp/lib*
+      - lib/
+      - Native shared libraries
+    * - components/tools/OmeroPy/build/lib
+      - lib/python
+      - Python libraries
+    * - lib/repository/<some>
+      - lib/client & lib/server
+      - Libraries needed for the build
+    * - etc/
+      - etc/
+      - Configuration
+    * - sql/\*.sql
+      - sql/
+      - SQL scripts to prepare the database
+    * - <javadoc/>
+      - docs/api
+      - (Optional) Javadocs produced with "java omero javadoc"
+
+These files are then zipped to OMERO.server-<version>.zip via "java
+omero release-zip"
+
+Jenkins
+~~~~~~~
+
+The OME project currently uses Jenkins_ as
+a continuous integration server available :jenkins:`here <>`, so many
+binary packages can be downloaded without compiling them yourself.
+OMERO.server is built by the :omerojob:`"OMERO" job <>`.
+
+Hudson checks for git changes every 15 minutes and executes:
+
+::
+
+    (cd docs/hudson; python launcher.py)
+
+which invokes the "build-all", "javadoc" "findbugs", "coverage", and
+"release-zip" targets.
+
+The Javadocs are always made available :javadoc:`here <>`
+as well as several build metrics.
 
 Build tools
 -----------
@@ -142,73 +210,6 @@ include:
 	Scons-based builds
 		Builds which have C++ targets are based generally on ` Scons <http://www.scons.org>`__. See |OmeroCpp| for more information.
 
-Creating binary distribution
-----------------------------
-
-The default ant target ("build-default") will build the OMERO system and
-copy the necessary components for a binary distribution to the /dist
-directory. Below is a comparison of what is taken from the build, where
-it is put, and what role it plays in the distribution.
-
-.. note::
-    By default, |OmeroCpp| is not built. Use ``build-all`` for that.
-
-.. list-table::
-    :header-rows: 1
-
-    * - OMERO_HOME
-      - OMERO\_HOME/dist
-      - Comments
-    * - components/blitz/target/blitz.jar
-      - lib/server
-      - Primary Ice servants
-    * - components/blitz/target/blitz.jar
-      - lib/server
-      - Primary Ice servants
-    * - components/blitz/target/server.jar
-      - lib/server
-      - Primary server logic
-    * - components/tools/OmeroCpp/lib*
-      - lib/
-      - Native shared libraries
-    * - components/tools/OmeroPy/build/lib
-      - lib/python
-      - Python libraries
-    * - lib/repository/<some>
-      - lib/client & lib/server
-      - Libraries needed for the build
-    * - etc/
-      - etc/
-      - Configuration
-    * - sql/\*.sql
-      - sql/
-      - SQL scripts to prepare the database
-    * - <javadoc/>
-      - docs/api
-      - (Optional) Javadocs produced with "java omero javadoc"
-
-These files are then zipped to OMERO.server-<version>.zip via "java
-omero release-zip"
-
-Jenkins
-~~~~~~~
-
-The OME project currently uses Jenkins_ as
-a continuous integration server available :jenkins:`here <>`, so many
-binary packages can be downloaded without compiling them yourself.
-OMERO.server is built by the :omerojob:`"OMERO" job <>`.
-
-Hudson checks for git changes every 15 minutes and executes:
-
-::
-
-    (cd docs/hudson; python launcher.py)
-
-which invokes the "build-all", "javadoc" "findbugs", "coverage", and
-"release-zip" targets.
-
-The Javadocs are always made available :javadoc:`here <>`
-as well as several build metrics.
 
 Comments on Ivy
 ---------------
@@ -229,6 +230,7 @@ Comments on Ivy
    This should not happen, but currently does. It may be beneficial for
    the time being to call ``ant clean`` from the top-level build which
    will delete the cache.
+
 
 Comments on build.py
 --------------------

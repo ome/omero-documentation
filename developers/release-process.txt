@@ -9,7 +9,7 @@ if not many of the following points.
 Pull Request (PR) review
 ------------------------
 
-See :doc:`/developers/Development/UsingGit`, for more
+See :doc:`/developers/using-git`, for more
 information about our usage of git and github. Before merging code to
 develop, each PR is reviewed. Follow a list of "best practices" in order
 to speed up the review.
@@ -154,7 +154,7 @@ Documentation
    -  If your video uses the terminal, format your terminal
       to use Monaco 22pt, yes THAT BIG, pick colours with a good
       contrast and turn off window transparency!
-   -  For video formatting instructions see :doc:`VideoFormatForOmeMovies`
+   -  Video formatting instructions are available on the internal docs.
 
 -  Documentation of all API/model changes
 -  All sphinx documentation
