@@ -77,7 +77,7 @@ requirements for OMERO will be installed to ``/usr/local``.
 
 ::
 
-    $ ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
+    $ ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
     $ brew install git
 
 If you are having issues with curl, see the the :ref:`install_homebrew_curl` section under :ref:`install_homebrew_common_issues`.
