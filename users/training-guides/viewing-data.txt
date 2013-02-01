@@ -18,6 +18,8 @@ Using OMERO.insight to view and work with image data.
 
    - or click the icon in the right pane toolbar
 
+   |
+
    .. image:: /images/tutor/viewingDataOpen.jpg
        :width: 100%
        :align: center
@@ -30,13 +32,15 @@ Using OMERO.insight to view and work with image data.
 
    If the image data includes a time sequence, step or played through the time sequence (T) using the controls at the bottom of the viewer window.
 
+   |
+
    .. image:: /images/tutor/viewingDataStack.jpg
        :width: 75%
        :align: center
 
    |
 
-   Data from JCB: Civelekoglu-Scholey et al., JCB, doi: 10.1083/jcb.200908150
+   Data from JCB: Civelekoglu-Scholey et al., JCB, doi: `10.1083/jcb.200908150 <http://jcb.rupress.org/content/188/1/49>`_
 
    |
 
@@ -71,6 +75,7 @@ Using OMERO.insight to view and work with image data.
    |
 
 #. View a selected area of the image with the **Magnifier**.
+
    Zoom and scroll using the controls on the left side of the window.
 
    |

@@ -81,8 +81,6 @@ The following points illustrate how to set some of the options that can be used 
 
 #. To archive data files in their original format on the OMERO server click the **Archive** checkbox.
 
-   This is in addition to importing the data in OME-tiff format and will use additional server space.
-
    Individual data files can be selected or deselected using the checkboxes in the column below.
 
    |
@@ -90,6 +88,10 @@ The following points illustrate how to set some of the options that can be used 
    .. image:: /images/tutor/importingDataArchive.jpg
        :width: 100%
        :align: center
+
+   |
+
+   .. note:: Archiving at import enables subsequent retrieval of the file in the original format at a later date, in addition to the ability to export it as an OME-TIFF.
 
    |
 
