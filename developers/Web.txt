@@ -88,7 +88,7 @@ this code below is for generating an html page of a Dataset (see
 screen-shot). If you have OMERO.web running, you can view the page under
 `http://servername.example.org/webtest/dataset/`\ `<datasetId>`.
 
--  **Url**, goes in omeroweb/webtest/urls.py This maps the url        
+-  **Url** goes in omeroweb/webtest/urls.py This maps the url        
    'webtest/dataset/<datasetId>/' to the View function
    'dataset', passing it the datasetId.
 

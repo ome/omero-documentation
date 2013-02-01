@@ -6,7 +6,7 @@ username / password. This means that any "public" visitors to certain
 OMERO.web pages will be automatically logged in and will be able to access and 
 data that is available to the defined 'public user'.
 
-Here's how to go about setting this up on your OMERO.web install:
+Here is how to go about setting this up on your OMERO.web install:
 
 -   Create a group with readonly permissions (name can be anything, E.g.
     "public-data". We use read-only permissions so that the public user will 
@@ -28,13 +28,13 @@ Here's how to go about setting this up on your OMERO.web install:
 
 -   Set a URL filter for which the OMERO.web public user is allowed to 
     navigate.
-    Default: /(?!webadmin) (Python reqular expression). You probably don't 
+    Default: /(?!webadmin) (Python reqular expression). You probably do not 
     want the whole webclient UI to be publicly visible (although you could do 
     this).
 
-    The idea is that you can create the public pages yourself (see OMERO.web 
-    developers page since we don't provide public pages. E.g. to only allow 
-    urls that start with '/my_web_public' you'd use: 
+    The idea is that you can create the public pages yourself since we do not 
+    provide them. for example, to only allow 
+    urls that start with '/my_web_public' you would use: 
 
     ::
 
@@ -42,7 +42,7 @@ Here's how to go about setting this up on your OMERO.web install:
 
         $ bin/omero config set omero.web.public.url_filter'^/(my_web_public|webgateway)'   # OR webgateway
 
-    If you simply want to enable the webgateway image viewer, thumbnails etc
+    If you simply want to enable the webgateway image viewer, thumbnails etc.
 
     ::
 

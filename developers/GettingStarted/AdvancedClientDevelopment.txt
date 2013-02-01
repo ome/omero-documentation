@@ -1,21 +1,20 @@
 Developing OMERO clients
 ========================
 
-:note:
+.. note::
 
-   - If you are only interested in **using** our OMERO clients, please
-     see the :doc:`/users/clients-overview` section, which
-     will point you to user guides, demo videos, and download sites.
+    - If you are only interested in **using** our OMERO clients, please
+      see the :doc:`/users/clients-overview` section, which
+      will point you to user guides, demo videos, and download sites.
 
-   - This page is intended for developers already familiar with
-     client/server programming. If you are not, **your best starting
-     point is to read the**
-     :zeroc:`Hello World <doc/Ice-3.3.0/manual/Hello.html#22064>`
-     **chapter of the Ice manual (or more)**. A deeper understanding of
-     Ice might not be necessary, but certainly understanding the Ice
-     basics will make reading this guide **much** easier.
+    - This page is intended for developers already familiar with
+      client/server programming. If you are not, **your best starting
+      point is to read the**
+      :zeroc:`Hello World <doc/Ice-3.3.0/manual/Hello.html#22064>`
+      **chapter of the Ice manual (or more)**. A deeper understanding of
+      Ice might not be necessary, but certainly understanding the Ice
+      basics will make reading this guide **much** easier.
 
---------------
 
 For developers, there are many examples listed below, all of which are
 stored under: :sourcedir:`examples` and
@@ -43,7 +42,6 @@ behind the scenes more transparent, but is not necessary. The points
 below outline all that an application writer is expected to know with
 links to further information where necessary.
 
---------------
 
 Distributed computing
 ---------------------
@@ -1179,9 +1177,10 @@ Example: :source:`examples/OmeroClients/smartpointers.cpp`
 
     # No java example
 
-**Warning**: As shown in the example, using a smart pointer instance in
-a boolean or integer/long context, returns 1 for true (i.e. non-null) or
-0 for false (i.e. null). Be especially careful with the RTypes.
+.. Warning:: 
+    As shown in the example, using a smart pointer instance in
+    a boolean or integer/long context, returns 1 for true (i.e. non-null) or
+    0 for false (i.e. null). Be especially careful with the RTypes.
 
 For more information, see :zeroc:`6.14.6 Smart Pointers for
 Classes <doc/Ice-3.3.0/manual/Cpp.7.14.html>` in the
@@ -1240,8 +1239,8 @@ Example: :source:`examples/OmeroClients/clientpointer.cpp`
 
     # No java example
 
-``__getattr__`` & ``__setattr__`` (Python only)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+__getattr__ and __setattr__ (Python only)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Like smart pointers for |OmeroCpp|, the |OmeroPy| SDK defines ``__getattr__`` and
 ``__setattr__`` methods for all |OmeroModel| 
@@ -1322,7 +1321,6 @@ method beginning with an underscore or with ``ice_``. For example,
     ice_type
     >>> 
 
---------------
 
 Services overview
 -----------------
@@ -1801,13 +1799,12 @@ and may be under layers of application code. But when designing where
 active ``omero.client`` objects are kept, be sure that your clean-up
 code takes care of them.
 
---------------
 
 IQuery
 ------
 
-Now that we've gotten a good idea of the basics, it might be interesting
-to start asking the server what it's got. The most powerful way of doing
+Now that we have a good idea of the basics, it might be interesting
+to start asking the server what it has got. The most powerful way of doing
 this is by using IQuery and the Hibernate Query Language (HQL).
 
 ::
@@ -1904,12 +1901,11 @@ get a list of ``IObject`` instances back. They are guaranteed to be of
 type ``omero::model::Image``, but you may have to cast them to make full
 use of that information.
 
---------------
 
 IUpdate
 -------
 
-After you've successfully read objects, an obvious thing to do is create
+After you have successfully read objects, an obvious thing to do is create
 your own. Below is a simple example of creating an image object:
 
 ::
@@ -1994,12 +1990,12 @@ Example: :source:`examples/OmeroClients/updates.py`
 
 Example: :source:`examples/OmeroClients/updates.java`
 
---------------
+
 
 Examples
 --------
 
-To tie together some of the topics which we've outlined above, we would
+To tie together some of the topics which we have outlined above, we would
 like to eventually have several more or less complete application
 examples which you can use to get started. For the moment, there is just
 one simpler example ``TreeList``, but more will certainly be added. Let
@@ -2219,7 +2215,7 @@ Proposed
 -  Submitting a job
 -  Submitting a script
 
---------------
+
 
 Advanced topics
 ---------------
@@ -2699,7 +2695,7 @@ Helper classes
 
 Several types are harder to use than they need be. omero.sys.Parameters,
 for example, is a class for which native implementations are quite
-helpful. We've provided omero.sys.ParametersI in all supported
+helpful. We have provided omero.sys.ParametersI in all supported
 languages, and will most likely support more over time:
 
 Other

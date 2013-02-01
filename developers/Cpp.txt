@@ -140,6 +140,7 @@ are considered:
 Zip files containing the C++ header files, the libraries, and source
 code are placed under OMERO\_HOME/target with other zip artifacts.
 
+.. note::   
     If you are using make, you can unpack the main zip (e.g.
     ``OMERO.cpp-<version>-64dbg.zip``) to some directory
     (``OMERO_DIST``) and follow the instructions below get started. For
@@ -156,8 +157,8 @@ the mentioned directories above. A simple `GNU make
    :language: make
    :linenos:
 
-A trivial example: ``yourcode.cpp``
------------------------------------
+A trivial example: yourcode.cpp
+-------------------------------
 
 And a simple example file might looking something like the following:
 
@@ -165,14 +166,14 @@ And a simple example file might looking something like the following:
    :language: c++
    :linenos:
 
-This code doesn't do much. It creates a server session, loads a few
+This code does not do much. It creates a server session, loads a few
 services, and prints the user's name. For serious examples, see
 |OmeroClients|.
 
-Compiling and running ``yourcode``
-----------------------------------
+Compiling and running yourcode
+------------------------------
 
-Therefore, to compile and run ``yourcode``, you'll need to download the
+Therefore, to compile and run ``yourcode``, you will need to download the
 two files above (Makefile and yourcode.cpp) and then from the shell:
 
 ::
@@ -180,7 +181,7 @@ two files above (Makefile and yourcode.cpp) and then from the shell:
     make OMERO_DIST=dist yourcode
     LD_LIBRARY_PATH=dist/lib ./yourcode --Ice.Config=dist/etc/ice.config
 
-where you've edited ``dist/etc/ice.config`` to contain the values:
+where you have edited ``dist/etc/ice.config`` to contain the values:
 
 ::
 
