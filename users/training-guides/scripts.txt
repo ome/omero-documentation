@@ -64,8 +64,8 @@ Scripts are usually written in Python and run on the server. They could be writt
 
    |
 
-**Export Scripts**
-
+Export Scripts
+==============
 - Batch Image Export
    - Saves multiple images as JPEG or PNG images in a zip which is then available for download.
 - Make Movie
@@ -73,22 +73,23 @@ Scripts are usually written in Python and run on the server. They could be writt
 
 |
 
-**Figure Scripts**
+Figure Scripts
+==============
 
-- Movie Figure *
+- Movie Figure
    - Export a figure of a movie, showing a row of frames for each chosen image.
 - Movie ROI Figure
    - Create a figure of movie frames from ROI region of image.
-- ROI Split Figure *
+- ROI Split Figure
    - Create a figure of an ROI region as separate zoomed split-channel panels.
-- Split View Thumbnail *
+- Split View Thumbnail
    - Create a figure of split-view images.
-- Thumbnail Figure *
+- Thumbnail Figure
    - Export a figure of thumbnails, optionally sorted by tag.
 
 |
 
-.. note:: * = a better user interface for this script can be accessed under 'Publishing Options'.
+.. note:: Better user interfaces for the majority of these scripts can be accessed under 'Publishing Options'.
 
 |
 
@@ -101,13 +102,10 @@ Other scripts in the menu are generally for more specialised workflows.
 Illustrations of Script Use
 ===========================
 
-|
-
 The following links illustrate the use of some of the scripts available.
 
-|
-
-**Split-view figure**
+Split-view figure
+=================
 
 This takes a number of images and makes each into a split-view on separate rows.
 
@@ -127,9 +125,8 @@ http://jcb.rupress.org/content/168/5/747/F8.expansion (Panel E)
 
 http://jcb.rupress.org/content/168/5/775/F2.expansion
 
-|
-
-**Grid of images**
+Grid of images
+==============
 
 All panels different conditions with panels named with Name (or Tag) in white:
 
@@ -147,9 +144,8 @@ http://jcb.rupress.org/content/168/5/747/F8.expansion (Panel A)
 
 http://jcb.rupress.org/content/172/1/139/F7.expansion
 
-|
-
-**Movie**
+Movie
+=====
 
 There are options to choose frames interval (e.g. 30 mins) or to split movie over a fixed number of frames.
 
@@ -165,11 +161,10 @@ http://jcb.rupress.org/content/187/6/831/F1.expansion
 
 http://jcb.rupress.org/content/187/6/781
 
-|
+ROI-zoom split-view
+===================
 
-**ROI-zoom split-view**
-
-Choose a rectangle ROI and display the contents as a zoom panel alongside it’s parent.
+Choose a rectangle ROI and display the contents as a zoom panel alongside its parent.
 
 There are options to zoom to same height as parent OR zoom by chosen factor (e.g. 4x).
 
@@ -197,15 +192,13 @@ Overlay into corner:
 
 http://jcb.rupress.org/content/168/5/735/F2.expansion
 
-|
-
-**ROI-zoom movie**
+ROI-zoom movie
+==============
 
 http://jcb.rupress.org/content/168/4/599/F4.expansion
 
-|
-
-**Kymograph**
+Kymograph
+=========
 
 http://jcb.rupress.org/content/173/3/373.full
 
