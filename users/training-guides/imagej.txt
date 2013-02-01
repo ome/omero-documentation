@@ -43,7 +43,7 @@ This guide assumes you have never installed ImageJ before.
 
 #. Download the latest version of the LOCI tools plugin from:
 
-   `http://loci.wisc.edu/software/loci_tools.jar <http://loci.wisc.edu/software/loci_tools.jar>`_
+   `http://openmicroscopy.org/latest/loci-tools-jar <http://openmicroscopy.org/latest/loci-tools-jar>`_
 
    Save or move the downloaded file into the **ImageJ > plugins** folder.
 
@@ -134,7 +134,7 @@ This guide assumes you have never installed ImageJ before.
 
    |
 
-   **Note:** If you quit OMERO.insight and then connect again during the same ImageJ session, logging in and launching the OMERO plugin will be much quicker. So if you intend using the OMERO plugin through ImageJ again soon, it may be worth leaving your ImageJ application running.
+   .. note:: If you quit OMERO.insight and then connect again during the same ImageJ session, logging in and launching the OMERO plugin will be much quicker. So if you intend using the OMERO plugin through ImageJ again soon, it may be worth leaving your ImageJ application running.
 
    |
 
