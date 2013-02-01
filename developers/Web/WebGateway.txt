@@ -19,11 +19,11 @@ and try the urls out for yourself!
 
 The http request will need to include login details for creating or
 using a current server connection. This will be true for any request
-made after logging in to the server, E.g. Login using webclient or
-webadmin login pages then go to webgateway/... E.g, if you have logged
+made after logging in to the server, e.g. login using webclient or
+webadmin login pages then go to webgateway/... or if you have logged
 in to a server at
-`http://ome.example.com/webclient <http://ome.example.com/webclient>`_ then go to
-E.g.
+`http://ome.example.com/webclient <http://ome.example.com/webclient>`_ then go 
+to, for example,
 `http://ome.example.com/webgateway/render\_image/ <http://ome.example.com/webgateway/render_image/>`_\ <imageid>/<z>/<t>/
 
 .. figure:: /images/webgateway-thumbnail.jpg
