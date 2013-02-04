@@ -32,11 +32,13 @@ Using the OMERO.insight to import image data onto the OMERO server.
 
    |
 
-#. Use the **Location Selection** window to determine to where the data will be imported.
+#. Use the **Location Selection** window to determine the destination of the imported data.
 
    Choose an existing project or dataset using the drop-down menus;
 
-   or click **New** to create a new project or dataset.
+   or click **New** to create a new project or dataset;
+
+   When import location has been set, click **Add to the Queue**.
 
    |
 
@@ -133,7 +135,7 @@ The following points illustrate how to set some of the options that can be used 
 
 **Selecting group for import**
 
-If you are a member of more than one group, use the **Group** drop down box to select the group into which to import the data.
+If you are a member of more than one group, use the **Group** drop down box to select which group to import the data into.
 
 |
 
