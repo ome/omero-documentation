@@ -10,7 +10,7 @@ Using the OMERO.insight to import image data onto the OMERO server.
 
    or click on the Import icon in the toolbar;
 
-   or select a destination Project or Dataset for the imported data and right click then select Import.
+   or select a destination Project or Dataset for the imported data and right click then select **Import**.
 
    |
 
@@ -140,7 +140,7 @@ If you are a member of more than one group, use the **Group** drop down box to s
 |
 
 .. image:: /images/tutor/importingDataSelectGroup.jpg
-    :width: 75%
+    :width: 100%
     :align: center
 
 |
@@ -154,7 +154,7 @@ The File Finder window changes to reflect available file types, according to the
 |
 
 .. image:: /images/tutor/importingDataProjectScreen.jpg
-    :width: 75%
+    :width: 100%
     :align: center
 
 |
