@@ -88,3 +88,16 @@ read (`R`) and write (`W`) from and to the ``OMERO`` directory:
     :align: center
 
     Repository Folder Permissions
+
+Locking and remote shares
+-------------------------
+
+The OMERO server requires proper locking semantics on all files in the binary
+repository. In practice, this means that remotely mounted shares such as AFS,
+CIFS, and NFS can cause issues. If you have experience and/or the time to
+manage and monitor the locking implementations of your remote filesystem, then
+using them as for your binary repository should be fine.
+
+If, however, you are seeing errors such as NullPointerExceptions, "Bad file
+descriptors" and similar in your server log, then you will need to use
+directly connected disks.
