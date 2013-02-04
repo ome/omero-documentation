@@ -3,7 +3,7 @@ OMERO Application Programming Interface
 
 All interaction with the OMERO server takes place via several API
 services available from a ServiceFactory.
-A service factory is obtained from the client connection. E.g. Python:
+A service factory is obtained from the client connection e.g. Python:
 
 ::
 
@@ -14,10 +14,10 @@ A service factory is obtained from the client connection. E.g. Python:
 -  The :javadoc:` Service factory API <slice2html/omero/api/ServiceFactory.html#ServiceFactory>`
    has methods for creating Stateless and Stateful services (see below).
 
-   -  Stateless services are obtained using "get..." methods E.g.
-      getQueryService()
-   -  Stateful services are obtained using "create..." methods E.g.
-      createRenderingEngine()
+   -  Stateless services are obtained using "get..." methods e.g.
+      ``getQueryService()``
+   -  Stateful services are obtained using "create..." methods e.g.
+      ``createRenderingEngine()``
 
 -  Services will provide access to omero.model.objects. You will then
    need the :javadoc:`API for these objects <slice2html/omero/model.html>`,
@@ -196,9 +196,10 @@ Stateless versus stateful services
 
 A stateless service has no client-noticeable lifecycle and all instances
 can be treated equally. A new stateful service, on the other hand, will
-be created for each client-side proxy (see the ServiceFactory.create\* methods). Once
+be created for each client-side proxy (see the ServiceFactory.create\* 
+methods). Once
 obtained, a stateful service proxy can only be used by a single user.
-After task completion, the service should be closed (proxy.close()) to
+After task completion, the service should be closed (``proxy.close()``) to
 free up server resources.
 
 How to write a service
@@ -219,7 +220,7 @@ OMERO annotations for validation
 The server-side implementation of these interfaces makes use of ((JDK5))
 :doc:`/developers/Modules/StructuredAnnotations` and an
 :doc:`AOP </developers/Server/Aop>` interceptor to validate
-all method parameters. Calls to pojos.findContainerHierarches are first
+all method parameters. Calls to ``pojos.findContainerHierarches`` are first
 caught by a method interceptor, which checks for annotations on the
 parameters and, if available, performs the necessary checks. The
 interceptor also makes proactive checks. For a range of parameters types
