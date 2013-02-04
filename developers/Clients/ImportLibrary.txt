@@ -6,14 +6,14 @@ for building import clients. Several are provided by the OMERO team
 directly:
 
 -  The integrated :doc:`/users/client-tutorials/insight/insight-import` importer
--  The :doc:`/users/command-line-import` tool
+-  :doc:`/users/command-line-import` tool
 
 Components
 ----------
 
 The primary classes which make up the Import Library are:
 
--  :source:` ImportLibrary.java <components/blitz/src/ome/formats/importer/ImportLibrary.java>`,
+-  :source:` ImportLibrary.java <components/blitz/src/ome/formats/importer/ImportLibrary.java>`
    itself, which is the main driver
 -  :source:` ImportCandidates.java <components/blitz/src/ome/formats/importer/ImportCandidates.java>`
    which takes file paths and determines the proper files to import

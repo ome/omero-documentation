@@ -28,7 +28,7 @@ Future releases will continue this work (see :ticket:`2911`).
 Delete behaviour (technical)
 ----------------------------
 
-Configuring what gets delete, is done using an XML file. The technical
+Configuring what gets deleted is done using an XML file. The technical
 specification of delete behaviour can be found
 :source:`components/server/resources/ome/services/spec.xml`
 
@@ -37,7 +37,7 @@ Delete Image
 
 The general delete behaviour for deleting an Image is to remove every
 piece of data from the database that was added when the image was
-imported, removed pixel data and thumbnails from disk. In addition, the
+imported, removing pixel data and thumbnails from disk. In addition, the
 following data is deleted:
 
 -  Comments on the image
@@ -45,12 +45,12 @@ following data is deleted:
 -  ROIs for this image (see below)
 -  Image Rendering settings for yourself and other users
 
-**Optional**\ ** - In OMERO.web and OMERO.insight, you will be
+**Optional** - In OMERO.web and OMERO.insight, you will be
 asked whether you also want to delete:
 
 -  Files attached to the image (if not linked elsewhere). In that case,
    the binary data will be removed from disk too.
--  Your own tags on the image, (if not used elsewhere)
+-  Your own tags on the image (if not used elsewhere)
 
 The same option is available when deleting dataset, project, plate,
 screen.
@@ -65,7 +65,7 @@ are contained in the Project (or Dataset). However, Datasets and
 Images will not get deleted if they are also contained in other Projects
 or Datasets respectively.
 
-If a user decides to delete/keep the annotations (see **Optional**\ **
+If a user decides to delete/keep the annotations (see **Optional**
 above) when deleting a Project (or Dataset) and its contents, the
 rule associated to the annotation will be apply to all objects.
 
@@ -105,14 +105,14 @@ your data are linked to data of other users, can be found on the
 :doc:`/sysadmins/server-permissions` page.
 
 -  A user cannot remove Images from another user's Dataset, or remove
-   Datasets (resp. Plates) from Projects (resp. Screens).
+   Datasets (or Plates) from Projects (or Screens).
 -  A user cannot delete anything that belongs to another user.
 
 Group owner rights
 ~~~~~~~~~~~~~~~~~~
 
-    An owner of the group, usually a PI, can delete anything that
-    belongs to other members of the group.
+An owner of the group, usually a PI, can delete anything that belongs to other 
+members of the group.
 
 Edge cases
 ~~~~~~~~~~
@@ -124,12 +124,10 @@ most). These will be resolved in future depending on priority.
    if a Tag Set is deleted (only true if directly using the API).
 -  Other users' ROIs (and associated measurements) are deleted from
    images.
--  Multiply-linked objects are unlinked and not deleted e.g.
-
-   ::
-
-       Project p1 contains two Datasets d1 and d2, Project p2 contains Dataset d1. 
-       If the Project p1 is deleted, the Dataset d1 is only unlinked from p1 and not completely deleted.
+-  Multiply-linked objects are unlinked and not deleted e.g. Project p1 
+   contains two Datasets d1 and d2, Project p2 contains Dataset d1. If the 
+   Project p1 is deleted, the Dataset d1 is only unlinked from p1 and not 
+   completely deleted.
 
 .. _DeleteBinaryData:
 
@@ -138,8 +136,9 @@ Binary data
 
 When Images, Plates or File Annotations have been successfully deleted
 from the database the corresponding binary data is deleted from the
-binary repository (see :doc:`Unix </sysadmins/unix/server-binary-repository>` and :doc:`Windows </sysadmins/windows/server-binary-repository>` versions).
+binary repository (see :doc:`Unix </sysadmins/unix/server-binary-repository>` 
+and :doc:`Windows </sysadmins/windows/server-binary-repository>` versions).
 It is possible that some files may not be successfully deleted if they
 are locked for any reason. This is a known problem on Windows servers.
-In this case the undeleted files can be removed manually via
+In this case, the undeleted files can be removed manually via
 ``bin/omero admin cleanse``
