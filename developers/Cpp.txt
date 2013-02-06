@@ -77,9 +77,7 @@ or
 
     ./build.py build-all
 
-If you would like to build the C++ tests, you will need to install
-` boost\_unit\_test-mt <http://www.boost.org/doc/libs/1_34_0/libs/test/doc/index.html>`_
-and run:
+If you would like to build the C++ tests, you can run:
 
 ::
 
@@ -91,9 +89,6 @@ or to test only C++:
 ::
 
     ./build.py -f components/tools/OmeroCpp/build.xml test
-
-Information on installing Boost on Windows is available at
-` http://www.boost.org/doc/libs/1\_39\_0/more/getting\_started/windows.html <http://www.boost.org/doc/libs/1_39_0/more/getting_started/windows.html>`_
 
 .. note::
     If you would like to work on just the C++ code without
