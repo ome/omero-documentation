@@ -30,11 +30,8 @@ Available parsers
 | text/csv          | (internal)                                  |
 +-------------------+---------------------------------------------+
 
-How to
-------
 
-For the necessary changes that need to be made, see r2260. The base
-class for :doc:`/developers/Search/FileParsers` are:
+The base class for File parsers are
 :source:` FileParser.java <components/server/src/ome/services/fulltext/FileParser.java>`
 
 .. seealso:: :doc:`/developers/Modules/Search`
