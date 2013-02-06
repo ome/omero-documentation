@@ -124,7 +124,7 @@ or alternatively for particular types, ...
 
     java -Dlog4j.configuration=log4j-cli.properties -Xmx512M ome.services.fulltext.Main reindex ome.model.core.Image
 
-This functionality is still being tested, but we'll be made more
+This functionality is still being tested, but will be made more
 available in future versions.
 
 ome.api.IQuery
@@ -151,8 +151,8 @@ The Search API offers a number of different queries along with various
 filters and settings which are all maintained on the server.
 
 The matrix below show which combinations of parameters and queries are
-(S)upported, will throw an eXception, and which will simply silently be
-ignored (-).
+supported (S), will throw an exception (X), and which will simply silently be
+ignored (I).
 
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | **Query Method** -->     | byFullText/SomeMustNone   | byGroupForTags/byTagsForGroup   | byAnnotatedWith   |
@@ -163,27 +163,27 @@ ignored (-).
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | annotated by             | S                         | S                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| annotated with           | S                         | -                               | -                 |
+| annotated with           | S                         | I                               | I                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | created between          | S                         | S                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| modified between         | S                         | - (Immutable)                   | S                 |
+| modified between         | S                         | I (Immutable)                   | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | owned by                 | S                         | S                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| all types                | X                         | -                               | X                 |
+| all types                | X                         | I                               | X                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| 1 type                   | S                         | -                               | S                 |
+| 1 type                   | S                         | I                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| N types                  | X                         | -                               | X                 |
+| N types                  | X                         | I                               | X                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| only ids                 | S                         | -                               | S                 |
+| only ids                 | S                         | I                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | **Ordering / Fetches**   |                           |                                 |                   |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| orderBy                  | S                         | -                               | S                 |
+| orderBy                  | S                         | I                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| fetchAnnotations         | (1)                       | -                               | (2)               |
+| fetchAnnotations         | (1)                       | I                               | (2)               |
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | **Other**                |                           |                                 |                   |
 +--------------------------+---------------------------+---------------------------------+-------------------+
@@ -206,14 +206,15 @@ Leading wildcard searches
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Leading wildcard searches are disallowed by default. "?omething" or
-"\*hatever", for example, would both throw exceptions. By using:
+"\*hatever", for example, would both throw exceptions. They can be run by 
+using:
 
 ::
 
       Search search = serviceFactory.createSearchService();
       search.setAllowLeadingWildcards(true);
 
-they can be run. There is a performance penalty, however. In addition,
+There is a performance penalty, however. In addition,
 wildcard searches get expanded on the server to boolean queries. For
 example, assuming "ACELL", "BCELL", and "CCELL" are all terms in your
 index, then the query:
