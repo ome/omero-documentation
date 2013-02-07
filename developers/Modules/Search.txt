@@ -183,24 +183,26 @@ ignored (I).
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | orderBy                  | S                         | I                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| fetchAnnotations         | (1)                       | I                               | (2)               |
+| fetchAnnotations         | [1]_                      | I                               | [2]_              |
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | **Other**                |                           |                                 |                   |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| setProjections(3)        | X                         | X                               | X                 |
+| setProjections [3]_      | X                         | X                               | X                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| current\*Metdata(4)      | X                         | X                               | X                 |
+| current\*Metdata [4]_    | X                         | X                               | X                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| setProjections(3)        | X                         | X                               | X                 |
+| setProjections [3]_      | X                         | X                               | X                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
 
-#. any fetchAnnotation() argument to byFullText() or related queries,
+.. rubric:: Footnotes
+
+.. [1] Any fetchAnnotation() argument to byFullText() or related queries,
    returns **all** annotations.
-#. byAnnotatedWith() does not accept a fetchAnnotation() argument of
-   ``Annotation.class``
-#. setProjects may need to be removed if Lucene cannot handle OMERO's
-   security requirements
-#. Not yet implemented
+.. [2] byAnnotatedWith() does not accept a fetchAnnotation() argument of
+   ``Annotation.class``.
+.. [3] setProjects may need to be removed if Lucene cannot handle OMERO's
+   security requirements.
+.. [4] Not yet implemented.
 
 Leading wildcard searches
 ^^^^^^^^^^^^^^^^^^^^^^^^^

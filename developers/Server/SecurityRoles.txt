@@ -17,11 +17,11 @@ GroupExperimenterMap where child == the experimenter id and parent
 generally done transparently by ``IAdmin`` service. Instead,
 administrators call:
 
--  **IAdmin.createUser(user)**
--  **IAdmin.createGroup(group)**
--  **IAdmin.addGroups(user,group, group, ...)**
--  **IAdmin.removeGroups(user,group,group,...)**
--  **IAdmin.createSystemUser(user)**
+-  ``IAdmin.createUser(user)``
+-  ``IAdmin.createGroup(group)``
+-  ``IAdmin.addGroups(user,group, group, ...)``
+-  ``IAdmin.removeGroups(user,group,group,...)``
+-  ``IAdmin.createSystemUser(user)``
 
 Service-level
 -------------
@@ -29,9 +29,9 @@ Service-level
 The two main roles that are distinguished at the service-level are
 "system" and "user" groups. These groups are created during
 installation and must not be configured by administrators. All users
-added through **IAdmin.createUser(user)** are automatically added to
+added through ``IAdmin.createUser(user)`` are automatically added to
 the "user" group, and all users added through
-**IAdmin.createSystemUser(user)** are added to both "system" and
+``IAdmin.createSystemUser(user)`` are added to both "system" and
 "user" groups.
  
 During login, a user is checked against all groups for membership in
@@ -40,7 +40,7 @@ user or client developer.
  
 .. note::
  
-    though currently all methods in the session beans are
+    Although currently all methods in the session beans are
     labelled as ``@RolesAllowed("user")`` or
     ``@RolesAllowed("system")``, there is nothing stopping a developer
     from writing a service method which accepts another role, as long as
@@ -50,18 +50,18 @@ Object-level
 ------------
 
 Object-level security is more complicated. When execution reaches
-the **EventHandler**, a second login takes place to authorize the
+the ``EventHandler``, a second login takes place to authorize the
 user with the OMERO security system. This second authorization
 process takes into account the group that (can be) passed into the
-client **ServiceFactory\ (Login)** via
-**Login(String,String,String,String)**. If a user has not set the
+client ``ServiceFactory\ (Login)`` via
+``Login(String,String,String,String)``. If a user has not set the
 group name or the default "user" group has been set, then the
 default group for that user will be used (a user is not allowed to
 use the "user" group for object updates). If the group is set to
 "system", then the "system" group **will** be used, and a user is
 granted admin privileges for object updates. This means that a user
 could be authorized to call a method by being in the "system" group,
-but if the "system" group is not specified, **SecurityViolations**
+but if the "system" group is not specified, ``SecurityViolations``
 will most likely be thrown.
 
 Special privileges for PIs

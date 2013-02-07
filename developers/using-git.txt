@@ -120,7 +120,7 @@ using the :command:`git config` command, as illustrated in the examples
 following.
 
 The most important thing is to update your 'global' credentials that are used 
-in your commits. These values are saved in ~/.gitconfig
+in your commits. These values are saved in :file:`~/.gitconfig`.
 
 ::
 
@@ -203,7 +203,7 @@ which can be added to your local repository as another remote:
 
 .. note:: 
     For the |SSH| transport to work, you will need to follow some of the
-    instructions under `<https://github.com/account/ssh>`_
+    instructions under https://github.com/account/ssh
 
 Depending on which repository you cloned first, either origin/develop or
 gh/develop will be the “develop” branch of your own fork of
@@ -259,7 +259,7 @@ you would like to check in .git/config:
 
         git config remotes.default "ome team origin gh official chris ola will jm colin elwood"
 
-Now, “git remote update” will check the above list of repositories.
+Now, :command:`git remote update` will check the above list of repositories.
 
 Pushing to github
 ~~~~~~~~~~~~~~~~~
@@ -393,8 +393,8 @@ different feature. To see a list branches:
 
 Add the ``-a`` to list remote branches too.
 
-To simply move between branches, use ``git checkout``. All the files on your
-file-system will be updated to the new branch:
+To simply move between branches, use :command:`git checkout`. All the files on 
+your file-system will be updated to the new branch:
 
 ::
 
@@ -528,7 +528,7 @@ extra whitespace during rebase - E.g. to origin/develop branch
 Rebase "interactive" using the ``-i`` flag allows you to remove, edit,
 combine etc commits. Git will open an editor to allow you to edit the
 commit summary along with instructions on how to omit, modify commits.
-E.g. to rebase onto origin/develop branch:
+For example, to rebase onto origin/develop branch:
 
 ::
 
@@ -590,12 +590,12 @@ different state of the submodule:
         # no changes added to commit (use "git add" and/or "git commit -a")
 
 If you do not want to modify the submodule state, run
-``git submodule update``. Be careful though, the
-`` git subdmodule update`` command will silently delete all local
+command:`git submodule update`. Be careful though, the
+command:`git subdmodule update` command will silently delete all local
 changes under the submodule. If you want to keep your changes, make sure
 you have pushed them to github.
 
-To advance the submodule to another commit, you can run the ``git add``
+To advance the submodule to another commit, you can run the command:`git add`
 command:
 
 ::
@@ -673,8 +673,8 @@ organise your commits before merging.
 
 -  Rebase "interactive": To remove, edit, combine etc. your commits, use
    the ``-i`` flag. Git will open an editor to allow you to edit the commit
-   summary (gives instructions too). E.g. to rebase onto origin/develop
-   branch:
+   summary (gives instructions too). For example, to rebase onto 
+   origin/develop branch:
 
    ::
 
@@ -805,7 +805,7 @@ WIPs
 For an investigation to move up to being a work-in-progress, it should
 have more involvement from the rest of team and have been discussed and
 documented via stories, mini-group meetings, etc. Where necessary --
-which will usually be the case -- the major components (bioformats, the
+which will usually be the case -- the major components (Bio-Formats, the
 model, the database, the server, at least one client) should be under
 way.
 
@@ -835,7 +835,7 @@ With the definitions, we can walk through the progression of a branch
 from inception to delivered code.
 
 First, someone, perhaps even an external collaborator, creates a branch,
-typically starting from master or develop. (Having them branch from the
+typically starting from master or develop (having them branch from the
 mainline should hopefully makes things easier later on). Work is first
 done locally, and then eventually pushed to
 github.com/YOURUSER/openmicroscopy. If you have given access to particular
@@ -944,8 +944,9 @@ problems won’t be found until late in development. To offset this risk,
 it is possible and advisable to begin creating “temporary merge
 branches” earlier in development.
 
-For example, if we assume that two of the branches from the “git remote
-update” command from above are intended for release fairly soon:
+For example, if we assume that two of the branches from the 
+:command:`git remote update` command from above are intended for release 
+fairly soon:
 
 -  jm/feature/plateAcquisitionAnnotation
 -  colin/909-Proposal2

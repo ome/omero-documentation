@@ -3,10 +3,10 @@ OMERO admin interface
 
 The one central interface for administering the OMERO security system is
 IAdmin. Though several of the methods are restricted to system users
-(root and other administrators), many are also for general use. (The
+(root and other administrators), many are also for general use. The
 ``@javax.ejb.security.RolesAllowed`` annotations on the
 :source:`LocalAdmin <components/server/src/ome/api/local/LocalAdmin.java>`
-class define who can use which methods)
+class define who can use which methods.
 
 Actions available through IAdmin and IUpdate
 --------------------------------------------
@@ -42,7 +42,7 @@ The following shows how these methods can be equivalently used:
 The benefit of the second method is the batching of changes into a
 single call. The benefit of the first is at most explicitness. Note,
 however, that changing any of the values of Details which are not also
-changeable through IAdmin will result in a ``SecurityViolation?``.
+changeable through IAdmin will result in a ``SecurityViolation``.
 
 Actions only available through IAdmin
 -------------------------------------
