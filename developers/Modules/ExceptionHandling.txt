@@ -346,22 +346,20 @@ The current exception hierarchy (package
 used is as follows:
 
 -  RootException
--  
 
-   -  InternalException : should not reach the client; Bug! Contact
-      administrator. E.g. NullPointerException, assertion failed, etc.
-   -  ResourceError : fatal error in server, e.g. OutOfMemory, disk
+   -  InternalException - should not reach the client; Bug! Contact
+      administrator e.g. NullPointerException, assertion failed, etc.
+   -  ResourceError - fatal error in server, e.g. OutOfMemory, disk
       space full, the database is in illegal state, etc.
    -  DataAccessException
-   -  
 
-      -  SecurityViolation : do not do that! E.g. edit locked project,
+      -  SecurityViolation - do not do that! E.g. edit locked project,
          create new user.
-      -  OptimisticLockException : re-load and compare. E.g. "someone
+      -  OptimisticLockException - re-load and compare e.g. "someone
          else has already updated this project"
-      -  ApiUsageException : something wrong with how you did things.
-         E.g. IllegalStateException, object uninitialized, etc.
-      -  ValidationException : something wrong with what you sent; sends
+      -  ApiUsageException - something wrong with how you did things
+         e.g. IllegalStateException, object uninitialized, etc.
+      -  ValidationException - something wrong with what you sent; sends
          list of fields, etc.; edit and retry, e.g. no "?" in image
          names.
 

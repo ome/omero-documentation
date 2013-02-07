@@ -13,21 +13,21 @@ Components
 
 The primary classes which make up the Import Library are:
 
--  :source:` ImportLibrary.java <components/blitz/src/ome/formats/importer/ImportLibrary.java>`
+-  :source:`ImportLibrary.java <components/blitz/src/ome/formats/importer/ImportLibrary.java>`
    itself, which is the main driver
--  :source:` ImportCandidates.java <components/blitz/src/ome/formats/importer/ImportCandidates.java>`
+-  :source:`ImportCandidates.java <components/blitz/src/ome/formats/importer/ImportCandidates.java>`
    which takes file paths and determines the proper files to import
--  :source:` ImportConfig.java <components/blitz/src/ome/formats/importer/ImportConfig.java>`,
+-  :source:`ImportConfig.java <components/blitz/src/ome/formats/importer/ImportConfig.java>`,
    an extensible mechanism for storing the
--  :source:` ImportEvent.java <components/blitz/src/ome/formats/importer/ImportEvent.java>`,
+-  :source:`ImportEvent.java <components/blitz/src/ome/formats/importer/ImportEvent.java>`,
    the various events raised during import to ``IObserver``\ and
    ``IObservable`` implementations
--  :source:` OMEROMetadataStoreClient.java <components/blitz/src/ome/formats/OMEROMetadataStoreClient.java>`,
+-  :source:`OMEROMetadataStoreClient.java <components/blitz/src/ome/formats/OMEROMetadataStoreClient.java>`,
    the low-level connection to the server
--  :source:` OMEROWrapper.java <components/blitz/src/ome/formats/importer/OMEROWrapper.java>`,
+-  :source:`OMEROWrapper.java <components/blitz/src/ome/formats/importer/OMEROWrapper.java>`,
    the OMERO adapter for the Bio-Formats ``ImageReaders`` class
 -  In OMERO.insight, the main entry point is the importImage method of
-   :source:` OMEROGateway.java <components/insight/SRC/org/openmicroscopy/shoola/env/data/OMEROGateway.java>`.
+   :source:`OMEROGateway.java <components/insight/SRC/org/openmicroscopy/shoola/env/data/OMEROGateway.java>`.
 -  In the CLI, the main entry point is the
    :source:` CommandLineImporter <components/tools/OmeroImporter/src/ome/formats/importer/cli/CommandLineImporter.java>`
    class.

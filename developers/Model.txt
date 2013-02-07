@@ -365,9 +365,11 @@ users don't simultaneously edit the same object. That works so:
    OptimisticLockException? is thrown.
 
 Identity and versioning make working with the object model difficult
-sometimes, but guarantee that our data is never corrupted. (Note: there is one 
-exception to this discussed below under :ref:`Model#Links`. See that section 
-or :ticket:`1649` for more information.)
+sometimes, but guarantee that our data is never corrupted. 
+
+.. note:: 
+    There is one exception to this discussed below under :ref:`Model#Links`. 
+    See that section or :ticket:`1649` for more information.
 
 
 Working with the object model

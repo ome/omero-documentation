@@ -9,7 +9,7 @@ Extending OMERO
     by third-party developers to extend, improve, and adapt OMERO. We
     outline most of these options below as well as some of their
     trade-offs. We are also always interested to hear other possible
-    extension points. Please contact the :community_plone:`ome-devel mailing list <mailing-lists>` 
+    extension points. Please contact the :mailinglist:`ome-devel mailing list <ome-devel/>` 
     with any such suggestions.
 
 Other starting points
@@ -357,7 +357,7 @@ Servers
 
 With the |OmeroGrid| infrastructure, it is
 possible to have your own processes managed by the OMERO infrastructure.
-For example, at some sites, ` Nginx <http://wiki.nginx.org/Main>`_ is
+For example, at some sites, `Nginx <http://wiki.nginx.org/Main>`_ is
 started to host |OmeroWeb|. Better integration is
 possible however, if your server also uses the Ice_ remoting framework.
 
