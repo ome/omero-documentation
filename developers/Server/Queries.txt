@@ -33,7 +33,7 @@ Critical for using queries is the specification of named parameters,
 number of results to return, offset of the first result to return etc.
 These features are offered by the ome.parameters package. The
 ome.parameters.Parameters class is the starting point for building new
-parameters (though the ome.parameters.Filter object is used by some
+parameters (although the ome.parameters.Filter object is used by some
 methods).
 
 To specify parameters, instantiate a Parameters object either with or
@@ -53,12 +53,12 @@ exception will be thrown if more than one result is found.
 
             Parameters p = new Parameters( new Filter().unique().page(0,1) );
 
-however, will guarantee that only one result will be returned, since
+However, this will guarantee that only one result will be returned, since
 more than 1 result ("maxResults") will be ignored. Here, an ordering of
-the results might make sense. (TBD).
+the results might make sense.
 
 Once a Parameters instance is available, named parameters can be added
-using any of the "add...()" methods. These parameters will be
+using any of the ``add...()`` methods. These parameters will be
 dynamically bound during query preparation. For example, a query of the
 form:
 
@@ -78,7 +78,7 @@ Positional parameters of the form
 
             select e from Experimenter where omeName = ?
 
-    are not supported.
+are not supported.
 
 Adding queries
 --------------
@@ -89,7 +89,7 @@ Subclassing query
 Other than by defining String queries via ``new QueryDef()`` TBD, the
 easiest way to create queries is to subclass ome.services.query.Query.
 The only non-optional requirements on the Query implementor are then to
-define the (possibly optional) named parameters to the Query and to
+define the (possibly optional) named parameters to the Query, and to
 override the "buildQuery" (which must call one and only one of
 "setQuery()" or "setCriteria()")
 
@@ -97,12 +97,11 @@ Other than that, the Query implementor can enable filters on the
 Hibernate session (an attempt is made to clean up after the Query runs),
 and in general use any of the Hibernate session methods.
 
-Defining a ``QuerySource``
---------------------------
+Defining a QuerySource
+----------------------
 
 A more involved but perhaps more rewarding method would be to implement
 ``QuerySource`` and configure ``QueryFactory`` to lookup query ids also
 in your ``QuerySource``. This would allow you to write Velocity (or
 Freemarker/Ruby/Python/Groovy?...) ``QuerySources`` which use some form
-of templating or scripting to generate HQL queries. (There is code for
-this in SVN.)
+of templating or scripting to generate HQL queries.
