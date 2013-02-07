@@ -144,15 +144,15 @@ parameters, stack trace etc. If the request was AJAX, and you have our
 javascript code on your page then the error will be handled as described
 (see above). NB: With Debug True, 500 errors will be returned as html
 pages by Django but these will not be rendered as html in our feedback
-form. You can use developer tools on your browser (E.g. Firebug on
+form. You can use developer tools on your browser (e.g. Firebug on
 Firefox) to see various errors and open the request in a new tab to
 display the full debug info as html.
 
 With Debug: False (in production)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Django will use it's internal error handling to produce standard 404,
-500 error pages. We have customised this behaviour to display our own
+Django will use its internal error handling to produce standard 404,
+500 error pages. We have customized this behaviour to display our own
 error pages. The 500 error page allows you to submit the error as
 feedback to our QA system. If the request is AJAX, we return the stack
 trace is displayed in a dialog which also allows the error to be
@@ -165,7 +165,7 @@ If you want to handle certain exceptions in particular ways you should
 use appropriate try/except statements.
 
 This is only advised for trivial errors, where you can give the user a
-simple message, E.g."No Objects selected, Please try again", or if the
+simple message, e.g."No Objects selected, Please try again", or if the
 error is well understood and you can recover from the error in a
 reasonable way.
 
@@ -176,7 +176,7 @@ False).
 
 If you still want to handle the exception yourself, you can provide
 stack trace alongside a message for the user. If the request is ajax,
-don't return html, since the response text will be displayed in a dialog
+do not return html, since the response text will be displayed in a dialog
 box for the user (not rendered as html).
 
 ::

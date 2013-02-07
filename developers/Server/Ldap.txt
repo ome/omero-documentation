@@ -41,8 +41,8 @@ The LDAP plugin follows these steps:
    the various options can be found under :doc:`/sysadmins/server-ldap`. Each
    option is handled by a different ``NewUserGroupBean`` implementation.
 
-``NewUserGroupBean.java``
--------------------------
+NewUserGroupBean.java
+---------------------
 
 The interface described for the ":bean:" ``new_user_group`` prefix, is
 :source:`ome.security.auth.NewUserGroupBean <components/server/src/ome/security/auth/NewUserGroupBean.java>`. It defines a
@@ -62,7 +62,7 @@ package are:
 .. seealso:: 
 
     :doc:`/sysadmins/unix/server-installation`
-        Instructions for installing OMERO.server on UNIX & UNIX-like platforms
+        Instructions for installing OMERO.server on UNIX and UNIX-like platforms
 
     :doc:`/sysadmins/windows/server-installation`
         Instructions for installing OMERO.server on Windows platforms

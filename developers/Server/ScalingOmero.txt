@@ -4,7 +4,7 @@ Scaling Omero
 There are several ways that OMERO, or any server system, can scale.
 Optimizing your system for more than one of these factors is
 non-trivial, but we try to lay out some guidelines below for what has
-worked, what almost certainly won't work, and what -- under the right
+worked, what almost certainly will not work, and what -- under the right
 circumstances -- might be optimal.
 
 Concurrent invocations
@@ -22,10 +22,10 @@ Database connections
 Database servers, in general, have a maximum number of allowed
 connections. In postgres, the default ``max_connections`` is 100, though
 in many cases this will be significantly lower due to the available
-shared memory (SHMMAX). If OMERO were to user direct connections to the
+shared memory (SHMMAX). If OMERO were to use direct connections to the
 database, after ``max_connections`` invocations, all further attempts to
 connect to the server would fail with "too many connection" exceptions.
-Instead, OMERO users a **connection pool** in front of Postgres, which
+Instead, OMERO uses a **connection pool** in front of Postgres, which
 manages many more simultaneous attempts to connect to the database.
 
 With the default ``max_connection`` set to 64,

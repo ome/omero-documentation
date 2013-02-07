@@ -236,7 +236,7 @@ Comments on build.py
 --------------------
 
 ``./build.py`` is a complete replacement for your local ant install. In
-many cases on and on most OSes, you'll be fine running ``ant``. If you
+many cases on and on most OS, you will be fine running ``ant``. If you
 have any issues (for example ``OutOfMemory``) , please use
 ``./build.py`` instead. **\*However**\ \*, only use one or the other. Do
 not mix calls between the two.
