@@ -61,12 +61,12 @@ Ice (3.3.x or higher)
     :zeroc:`ZeroC's previous versions section <previous.html>`. OMERO 4.4 adds
     support for Ice 3.4 while keeping support for Ice 3.3. For OMERO.server
     you will need to pick the appropriate downloads for the version of Ice
-    you've installed locally. The downloads for Ice 3.4 have "ice34" in the
+    you have installed locally. The downloads for Ice 3.4 have "ice34" in the
     zip name.
 
     The downloads for the OMERO.clients (written in Java) are all ice33
     builds. We provide the :file:`ice.jar` bundled with the clients,
-    so you shouldn't need to worry about which one you download. If you have
+    so you do not need to worry about which one you download. If you have
     further questions, consult the :forum:`Forums <>`.
 
 
