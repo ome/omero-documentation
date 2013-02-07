@@ -56,23 +56,31 @@ Ice (3.3.x or higher)
 
 .. note::
 
-    OMERO |version| supports Ice3.4, but this requires the correct
-    version of OMERO.server (see :omero_plone:`Downloads
-    <downloads>`). See :faq_plone:`"Do I use Ice 3.3 or
-    Ice 3.4?" <omero/do-i-use-ice-3.3-or-ice-3.4>` in
-    the FAQ. If you have further questions, consult the :forum:`Forums <>`.
+    All versions of OMERO including and before 4.3 support only Ice 3.3. You
+    will need to download these from
+    :zeroc:`ZeroC's previous versions section <previous.html>`. OMERO 4.4 adds
+    support for Ice 3.4 while keeping support for Ice 3.3. For OMERO.server
+    you will need to pick the appropriate downloads for the version of Ice
+    you've installed locally. The downloads for Ice 3.4 have "ice34" in the
+    zip name.
+
+    The downloads for the OMERO.clients (written in Java) are all ice33
+    builds. We provide the :file:`ice.jar` bundled with the clients,
+    so you shouldn't need to worry about which one you download. If you have
+    further questions, consult the :forum:`Forums <>`.
 
 
-Windows installers can be found on the :zeroc:`ZeroC download
+Windows installers of Ice can be found on the :zeroc:`ZeroC download
 page <download.html>` and will be called something like :file:`Ice-3.4.2.msi`
 (for Ice 3.4.2). If you plan to develop for C++, be sure to read the
 instructions on the |OmeroCpp| page.
 
 Users have reported that under certain conditions installing Ice in the
 default location (:file:`C:\\Program Files`) might break the Windows
-:envvar:`PATH`. In cases where :omerocmd:`admin diagnostics` throws
-any errors related to unexpected paths with Ice, please consider installing
-Ice in the root of the partition (e.g. :file:`C:\\Ice`).
+:envvar:`PATH` (due to special characters present in the file name). In cases
+where :omerocmd:`admin diagnostics` throws any errors related to unexpected
+paths with Ice, please consider installing Ice in the root of the partition
+(e.g. :file:`C:\\Ice`).
 
 Python (2.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^
