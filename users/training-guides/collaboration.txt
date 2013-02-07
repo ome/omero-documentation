@@ -13,7 +13,7 @@ OMERO.insight facilitates collaboration by allowing you to create groups of user
    |
 
    .. image:: /images/tutor/collaborationManager1.jpg
-       :width: 75%
+       :width: 100%
        :align: center
 
    |
@@ -23,30 +23,22 @@ OMERO.insight facilitates collaboration by allowing you to create groups of user
    |
 
    .. image:: /images/tutor/collaborationManager2.jpg
-       :width: 62.5%
+       :width: 75%
        :align: center
 
    |
 
-#. Click on **Display Group** in the groups drop-down menu to select other groups you belong to.
+#. Click on groups drop-down menu to select other groups you belong to.
 
-   Check the box to display data from that group in your data tree.
+   Check the **Show Group** box to display your data from that group in the data tree.
 
-   Click **Apply** to close.
+   Data belonging to other users in the group can be viewed by checking their name. 
+
+   Click **Update** to finish.
 
    |
 
    .. image:: /images/tutor/collaborationShowGroups.jpg
-       :width: 72.5%
-       :align: center
-
-   |
-
-#. Click on **Display User** from drop-down menu to select other members whose data you wish to view and click **Apply** to close.
-
-   |
-
-   .. image:: /images/tutor/collaborationShowUsers.jpg
        :width: 100%
        :align: center
 
