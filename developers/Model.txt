@@ -227,7 +227,7 @@ This should hopefully save a good deal of re-coding if we move to true
 ACL rather than the current filesystem-like access control.
 
 Because it is a field on every type, Details is also on the list of
-Keywords for the :doc:`/developers/Model/TypeLanguage`.
+keywords in the type language (above).
 
 .. _Model#Interfaces:
 
