@@ -20,8 +20,8 @@ using namespace std;
  */
 int main(int argc, char* argv[])
 {
-    omero::client omero(argc, argv);
-    omero::api::ServiceFactoryPrx sf = omero.createSession();
+    omero::client_ptr omero = new omero::client(argc, argv);
+    omero::api::ServiceFactoryPrx sf = omero->createSession();
     sf->closeOnDestroy();
 
     // IAdmin is responsible for all user/group creation, password changing, etc.
