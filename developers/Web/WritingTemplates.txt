@@ -22,7 +22,7 @@ Django templates
 ----------------
 
 We use Django templates for the OMERO.web pages. See docs here:
-`https://docs.djangoproject.com/en/dev/ref/templates/ <https://docs.djangoproject.com/en/dev/ref/templates/>`_ and ` template
+https://docs.djangoproject.com/en/dev/ref/templates/ and `template
 inheritance <https://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance>`_.
 We have designed a number of OMERO.web base templates that you can
 extend. The base templates live in the 'webgateway' app under
@@ -179,8 +179,8 @@ These blocks can be used to add content to specific points in the page.
     links required by the parent template.
 
 
-See :sourcedir:`omeroweb/webgateway/templates/webgateway/base/base\_header.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/base_header>` for full
-template details.
+See :sourcedir:`base_header.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/base_header>` 
+for full template details.
 
 -  link: Used to add css with <link> blocks to the page head. E.g:
 
@@ -210,6 +210,6 @@ extent it (see above). In addition, they also add the following blocks:
 -  right: The right column
 
 See 
-:sourcedir:`omeroweb/webgateway/templates/webgateway/base/container3.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/container3>` 
+:sourcedir:`container3.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/container3>` 
 for full template details.
 
