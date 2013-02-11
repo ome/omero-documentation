@@ -6,6 +6,10 @@ All OMERO components written in Java use
 ` Commons-Logging <http://commons.apache.org/logging/>`_); all
 components written in python use the built-in ``logging`` module.
 
+.. Warning::  
+    Refrain from calling ``logging.basicConfig()`` anywhere in your
+    module except in ``if __name__ == "__main__"`` blocks.
+
 Java clients
 ------------
 
@@ -75,20 +79,12 @@ Windows stdout and stderr
 On Windows, the state of stdout and stderr is somewhat different. No
 information will be written to master.out, master.err, or similar files.
 Instead, what logging is produced will go to the Windows Event Viewer,
-but finding error situations can be considerably more challenging. (See
-:ticket:`1449` for more information)
+but finding error situations can be considerably more challenging (See
+:ticket:`1449` for more information).
 
-Developer info
---------------
-
--  Refrain from calling ``logging.basicConfig()`` anywhere in your
-   module except in ``if __name__ == "__main__"`` blocks.
-
---------------
-
-Upcoming documentation on logging in omero:
--------------------------------------------
+Upcoming documentation on logging in Omero
+------------------------------------------
 
 -  --debug / --report / --email / --upload
--  tracing & warning settings
+-  tracing and warning settings
 -  zipping logs for feedback

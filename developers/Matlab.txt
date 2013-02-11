@@ -1,7 +1,7 @@
 OMERO Matlab language bindings
 ==============================
 
-See |DevelopingOmeroClients| and |OmeroModel|, for an introduction about
+See |DevelopingOmeroClients| and |OmeroModel|, for an introduction to
 **Object**.
 
 Installing and configuring
@@ -192,7 +192,7 @@ Read data
 ~~~~~~~~~
 
 The ``IContainer`` service provides method to load the data management
-hierarchy in OMERO -- Projects, Datasets, Etc. A list of examples
+hierarchy in OMERO -- Projects, Datasets, etc. A list of examples
 follows, indicating how to load Project, Dataset, Screen, etc.
 
 -  **Retrieve the projects owned by the user currently logged in.**
@@ -736,7 +736,7 @@ to an image.
 Delete data
 ~~~~~~~~~~~
 
-It is possible to delete Projects, Datasets, Images, ROIs etc and
+It is possible to delete Projects, Datasets, Images, ROIs etc. and
 objects linked to them depending on the specified options (see
 :doc:`/developers/Modules/Delete`).
 
@@ -845,7 +845,7 @@ Create Image
 ~~~~~~~~~~~~
 
 The following example shows how to create an Image from an Image already
-in OMERO. Similar approach can be applied when uploading an image.
+in OMERO. Similar approach can be applied when uploading an Image.
 
 ::
 

@@ -19,7 +19,7 @@ services as well as the Blitz Gateway code
 (at OMERO\_HOME/lib/python/omero/gateway/__init__.py).
 
 
-To use OmeroPy, you'll need to download the libraries (E.g. as part of
+To use OmeroPy, you will need to download the libraries (E.g. as part of
 the server package) and setup your PYTHONPATH to include them:
 
 .. parsed-literal::
@@ -30,7 +30,7 @@ the server package) and setup your PYTHONPATH to include them:
 .. |OMEROserver| replace:: OMERO.server-|release|-ice3x-byy
 
 
-You'll also need Ice libraries 3.3.x or 3.4.x as described in the 
+You will also need Ice libraries 3.3.x or 3.4.x as described in the 
 :doc:`/sysadmins/unix/server-installation` and an OMERO server to connect to, 
 which must be the same major version, i.e. |version|.x.
 
@@ -39,8 +39,9 @@ All the code examples below can be found at
 :sourcedir:`examples/Training/python`.
 
 
-Start by downloading the first example below: :sourcedir:`examples/Training/python/Connect_To_OMERO.py` and edit the USERNAME and
-PASSWORD variables according to your log-in.
+Start by downloading the first example below: 
+:sourcedir:`examples/Training/python/Connect_To_OMERO.py` and edit the 
+USERNAME and PASSWORD variables according to your log-in.
 
 Then you can run the example:
 
@@ -51,11 +52,12 @@ Then you can run the example:
 If all goes well, you should be connected to your OMERO server and see some
 details of your session printed out.
 
-All the following code examples can be downloaded and run in the same way, and they will use
-the USERNAME and PASSWORD from the file you just edited. However, you 
-will need to edit some other parameters, usually IDs from Projects, Datasets,
-Images etc. You can use the OMERO.insight or OMERO.web client to choose suitable
-data IDs before editing and running the code samples. 
+All the following code examples can be downloaded and run in the same way, and 
+they will use the USERNAME and PASSWORD from the file you just edited. 
+However, you will need to edit some other parameters, usually IDs from 
+Projects, Datasets, Images etc. You can use the OMERO.insight or OMERO.web 
+client to choose suitable data IDs before editing and running the code 
+samples. 
 
 
 Code samples
@@ -158,7 +160,7 @@ Connect to OMERO
 
         # Close connection:
         # =================================================================
-        # When you're done, close the session to free up server resources.
+        # When you are done, close the session to free up server resources.
         conn._closeSession() 
 
 Read data
@@ -198,7 +200,7 @@ Read data
 ::
 
     # The only_owned=True parameter limits the Projects which are returned.
-    # If the parameter is omitted or the value is Fale, then all Projects
+    # If the parameter is omitted or the value is False, then all Projects
     # visible in the current group are returned.
     print "\nList Projects:"
     print "=" * 50
@@ -299,7 +301,7 @@ Read data
 
 ::
 
-    # When you're done, close the session to free up server resources.
+    # When you are done, close the session to free up server resources.
     conn._closeSession() 
 
 Groups and permissions
@@ -381,7 +383,7 @@ Read-Annotate groups, this will include other users' data See
 
 ::
 
-    # When you're done, close the session to free up server resources.
+    # When you are done, close the session to free up server resources.
     conn._closeSession() 
 
 Raw data access
@@ -461,7 +463,7 @@ Raw data access
 
 ::
 
-    # When you're done, close the session to free up server resources.
+    # When you are done, close the session to free up server resources.
     conn._closeSession() 
 
 Write data
@@ -572,7 +574,7 @@ Write data
 
 ::
 
-    # When you're done, close the session to free up server resources.
+    # When you are done, close the session to free up server resources.
     conn._closeSession() 
 
 .. _python_omero_tables_code_samples:
@@ -628,7 +630,7 @@ OMERO tables
     data2 = omero.grid.StringColumn('MyStringColumn', '', 64, strings)
     data = [data1, data2]
     table.addData(data)
-    table.close()           # when we're done, close. 
+    table.close()           # when we are done, close. 
 
 -  **Get the table as an original file...**
 
@@ -715,7 +717,7 @@ OMERO tables
 
 ::
 
-    # When you're done, close the session to free up server resources.
+    # When you are done, close the session to free up server resources.
     conn._closeSession() 
 
 ROIs
@@ -775,7 +777,7 @@ ROIs
 
 ::
 
-    # create an Ellips shape and add to ROI
+    # create an Ellipse shape and add to ROI
     ellipse = omero.model.EllipseI()
     ellipse.cx = rdouble(y)
     ellipse.cy = rdouble(x)
@@ -853,7 +855,7 @@ ROIs
 
 ::
 
-    # When you're done, close the session to free up server resources.
+    # When you are done, close the session to free up server resources.
     conn._closeSession() 
 
 Delete data
@@ -918,7 +920,7 @@ Delete data
 
 ::
 
-    # When you're done, close the session to free up server resources.
+    # When you are done, close the session to free up server resources.
     conn._closeSession() 
 
 Render Images
@@ -981,7 +983,7 @@ Render Images
 
     image.setColorRenderingModel()
     channels = [1, 2, 3]
-    colorList = ['F00', None, 'FFFF00']         # don't change colour of 2nd channel
+    colorList = ['F00', None, 'FFFF00']         # do not change colour of 2nd channel
     image.setActiveChannels(channels, colors=colorList)
     image.setProjection('intmax')               # max intensity projection 'intmean' for mean-intensity
     renderedImage = image.renderImage(z, t)     # z and t are ignored for projections
@@ -1010,7 +1012,7 @@ Render Images
 
 ::
 
-    # When you're done, close the session to free up server resources.
+    # When you are done, close the session to free up server resources.
     conn._closeSession() 
 
 Create Image
@@ -1084,7 +1086,7 @@ Create Image
                 for t in range(sizeT):      # all time-points
                     channel0 = pixels.getPlane(z, 0, t)
                     channel1 = pixels.getPlane(z, 1, t)
-                    # Here we can manipulate the data in many different ways. As an example we're doing "average"
+                    # Here we can manipulate the data in many different ways. As an example we are doing "average"
                     newPlane = (channel0 + channel1) / 2    # average of 2 channels
                     print "newPlane for z,t:", z, t, newPlane.dtype, newPlane.min(), newPlane.max()
                     yield newPlane 
@@ -1099,7 +1101,7 @@ Create Image
 
 ::
 
-    # When you're done, close the session to free up server resources.
+    # When you are done, close the session to free up server resources.
     conn._closeSession() 
 
 Python OMERO.scripts
@@ -1189,8 +1191,9 @@ call to server (no lazy loading)
 Stateful services, reconnection, error handling etc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Blitz gateway was designed for use in the |OmeroWeb| framework and it is not expected that
-stateful services will be maintained on the client for significant time.
+The Blitz gateway was designed for use in the |OmeroWeb| framework and it is 
+not expected that stateful services will be maintained on the client for 
+significant time.
 There is various error-handling functionality in the Blitz gateway that
 will close existing services and recreate them in order to maintain a
 working connection. If this happens then any stateful services that you
@@ -1277,7 +1280,7 @@ with the OMERO API, handling connection to the server, loading of data
 objects and providing convenience methods to access the data. It was
 originally designed as part of the |OmeroWeb| framework, 
 to provide connection and data retrieval services to various
-web clients. However, we have now decided to encourage it's use for all
+web clients. However, we have now decided to encourage its use for all
 access to the OMERO Python API.
 
 Wrapper objects

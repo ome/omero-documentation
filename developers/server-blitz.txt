@@ -2,9 +2,9 @@ OMERO.blitz
 ===========
 
 The OMERO.blitz server is responsible for providing secure access to
-data and metadata via user sessions (:doc:`/developers/Server/Sessions`)
+data and metadata via user sessions (:doc:`/developers/Server/Sessions`),
 and cleaning up all resources when they are no longer being used.
-Various server capabilities are accessed via a multitude services
+Various server capabilities are accessed via a multitude of services
 collectively known as the |OmeroApi|.
 
 Metadata
@@ -19,4 +19,5 @@ Image data
 ~~~~~~~~~~
 
 The binary image data can either be accessed in its raw form via the
-RawPixelsStore service, or can be rendered by the :doc:`server-rendering` service.
+RawPixelsStore service, or can be rendered by the :doc:`server-rendering` 
+service.
