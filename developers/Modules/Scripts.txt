@@ -45,7 +45,7 @@ The OMERO.blitz server provides a service call iScript that provides
 methods to upload, delete, query and runscripts. To access these methods
 a session needs to be created and the script service started. However,
 you may find it more convenient to use the command line
-`` bin/omero script `` or the OMERO.insight client to work with scripts
+``bin/omero script`` or the OMERO.insight client to work with scripts
 as described on the :doc:`/developers/Modules/Scripts/Guide`.
 The methods of the script service are below (bottom of page).
 

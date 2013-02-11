@@ -14,7 +14,7 @@ for :doc:`/developers/server-blitz`.
 
 The library is placed under OMERO\_HOME/dist/lib/client by the build,
 or is alternatively available from Jenkins :omerojob:`here 
-<lastSuccessfulBuild/>`.  To use |OmeroJava|, setup you'll
+<lastSuccessfulBuild/>`.  To use |OmeroJava|, setup you will
 need to setup your CLASSPATH:
 
 ::
@@ -26,7 +26,7 @@ Extended classpath
 ------------------
 
 To access all the functionality available in omero\_client.jar or to
-use the importer, you'll of course need more jar files. To see all the
+use the importer, you will need more jar files. To see all the
 current requirements, take a look at the builds on :jenkins:`jenkins
 <>`, or alternatively examine the
 dependencies in the ivy.xml files (e.g.
@@ -461,7 +461,7 @@ created:
 
     //now we have an original File in the database and raw data uploaded.
     // We now need to link the Original file to the image using 
-    // the File annotation object. That's the way to do it.
+    // the File annotation object. This is the way to do it.
     FileAnnotation fa = new FileAnnotationI();
     fa.setFile(originalFile);
     fa.setDescription(omero.rtypes.rstring(description));
@@ -722,7 +722,7 @@ to an image.
 Delete data
 -----------
 
-It is possible to delete Projects, datasets, images, ROIs etc and
+It is possible to delete Projects, datasets, images, ROIs etc. and
 objects linked to them depending on the specified options (see
 :doc:`/developers/Modules/Delete`).
 

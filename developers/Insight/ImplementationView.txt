@@ -43,7 +43,7 @@ The ``env`` package is also broken down into further sub-packages:
 
 .. note::
 
-	Two extra packages are part of the project for convenience reason only:
+    Two extra packages are part of the project for convenience reason only:
 
     - ``svc``: Provides general services e.g. transport service using *HTTP*.
     - ``util``: Collection of classes that be used outside the OMERO structure

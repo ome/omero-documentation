@@ -14,21 +14,24 @@ with the OMERO.web look and feel.
 
 You can use these templates in a number of ways, but there are 2 general scenarios that are detailed below:
 
-- You want a page header to look like the webclient, but you don't need any data or connection to OMERO.
-- You want a page that looks and behaves like it's part of the webclient application, including data from the OMERO server.
+- You want a page header to look like the webclient, but you do not need any data or connection to OMERO.
+- You want a page that looks and behaves like it is part of the webclient application, including data from the OMERO server.
 
 
 Django templates
 ----------------
 
 We use Django templates for the OMERO.web pages. See docs here:
-` https://docs.djangoproject.com/en/dev/ref/templates/ <https://docs.djangoproject.com/en/dev/ref/templates/>`_ and ` template
+`https://docs.djangoproject.com/en/dev/ref/templates/ <https://docs.djangoproject.com/en/dev/ref/templates/>`_ and ` template
 inheritance <https://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance>`_.
 We have designed a number of OMERO.web base templates that you can
 extend. The base templates live in the 'webgateway' app under
-omeroweb/webgateway/templates/webgateway/base. You can use these to make pages that don't require an OMERO login (E.g. public home page) etc.
+omeroweb/webgateway/templates/webgateway/base. You can use these to make pages 
+that do not require an OMERO login (e.g. public home page) etc.
 
-If you want your pages to extend the webclient application, you can use templates from omeroweb/webclient/templates/webclient/base.
+If you want your pages to extend the webclient application, you can use 
+templates from 
+:sourcedir:`omeroweb/webclient/templates/webclient/base <components/tools/OmeroWeb/omeroweb/webclient/templates/webclient/base>`.
 
 These templates are described in more detail below.
 
@@ -36,8 +39,8 @@ These templates are described in more detail below.
 Getting Started
 ---------------
 
-Within your :doc:`OMERO web app </developers/Web/CreateApp>`, create a new page template and add this line at
-the top:
+Within your :doc:`OMERO web app <CreateApp>`, create a new 
+page template and add this line at the top:
 
 ::
 
@@ -51,8 +54,9 @@ Now add the page content in a 'content' block like this:
         Your page content goes here
     {% endblock %}
 
-You can now save this template and view the page. It should look something like the screen-shot above. You could add
-a 'title' block to set the page <title>
+You can now save this template and view the page. It should look something 
+like the screen-shot above. You could add a 'title' block to set the page 
+<title>
 
 ::
 
@@ -60,27 +64,31 @@ a 'title' block to set the page <title>
         My OMERO web app page
     {% endblock %}
 
-Additional blocks can be used to customise the page further. See below for more details.
+Additional blocks can be used to customise the page further. See below for 
+more details.
 
 
 Using Webclient templates
 -------------------------
 
-Webclient templates can be used in exactly the same way, for example try using this at the
-top of the page you created above:
+Webclient templates can be used in exactly the same way, for example try using 
+this at the top of the page you created above:
 
 ::
 
     {% extends "webclient/base/base_container.html" %}
 
-However, this template will need various pieces of data to be in the page context
-that Django uses to render the page. You'll need to use the @login_required() and
-@render_response() decorators on your views.py methods in order to retrieve this
-info and pass it to the template. See :doc:`/developers/Web/WritingViews` for more details.
+However, this template will need various pieces of data to be in the page 
+context that Django uses to render the page. You will need to use the 
+@login_required() and
+@render_response() decorators on your views.py methods in order to retrieve 
+this info and pass it to the template. See :doc:`WritingViews` 
+for more details.
 
-If you've used the 'content' block on this page (as described above) you'll see that your
-page content fills the whole area under the header. However, if you want to use the same
-3 column layout as the webclient, you can replace your 'content' block with:
+If you have used the 'content' block on this page (as described above) you 
+will see that your page content fills the whole area under the header. 
+However, if you want to use the same 3 column layout as the webclient, you can 
+replace your 'content' block with:
 
 ::
 
@@ -102,7 +110,8 @@ This should give you something like the screen-shot below.
   :align: center
   :alt: Webclient Base container
 
-  The ``webclient/base/base_container.html`` template extended in webtest with dummy content
+  The ``webclient/base/base_container.html`` template extended in webtest with 
+  dummy content
 
 
 
@@ -116,25 +125,27 @@ templates, then you will find it easier to change things in future. For
 example, any changes in our 'webgateway' templates will only require you to
 edit your own base templates.
 
-Here's a full list of the templates under omeroweb/webgateway/templates/webgateway/base
+Here is a full list of the templates under 
+omeroweb/webgateway/templates/webgateway/base
 with more details below:
 
--  **base\_html.html**. This provides the base <html> template with
+-  **base\_html.html** - This provides the base <html> template with
    blocks for 'link'(for css) 'title' 'script' and 'body'. It is
    extended by every other template. Usage:
    ``{% extends "webgateway/base/base_html.html" %}``
--  **base\_frame.html**. This adds jQuery and jQuery-ui libraries to a
+-  **base\_frame.html** - This adds jQuery and jQuery-ui libraries to a
    blank page. Used for popup windows etc. Usage:
    ``{% extends "webgateway/base/base_frame.html" %}``
--  **base\_header.html**. This also extends base\_html.html adding all
+-  **base\_header.html** - This also extends base\_html.html adding all
    the header and footer components that are used by the webclient. See
    screen-shot above. More details below.
--  **base\_main.html**. This adds jQuery and jQuery-ui libraries to the
+-  **base\_main.html** - This adds jQuery and jQuery-ui libraries to the
    base\_header.html template. Used for popup windows etc. Usage:
    ``{% extends "webgateway/base/base_main.html" %}``
--  **container2.html, container3.html**. These templates extend the
+-  **container2.html, container3.html** - These templates extend the
    base\_header.html template, adding a 2 or 3 column layout in the main
-   body of the page. container3.html is used by the webclient for the base_container example above.
+   body of the page. container3.html is used by the webclient for the 
+   base_container example above.
 
 
 Webtest examples
@@ -168,8 +179,8 @@ These blocks can be used to add content to specific points in the page.
     links required by the parent template.
 
 
-See omeroweb/webgateway/templates/webgateway/base/base\_header.html for full
-template details
+See :sourcedir:`omeroweb/webgateway/templates/webgateway/base/base\_header.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/base_header>` for full
+template details.
 
 -  link: Used to add css with <link> blocks to the page head. E.g:
 
@@ -193,9 +204,12 @@ container2.html, container3.html
 
 These templates have all the same blocks as base\_header.html since they
 extent it (see above). In addition, they also add the following blocks:
-(see omeroweb/webgateway/templates/webgateway/base/container3.html for full
-template details)
 
 -  left: The left column (NOT in container2.html)
 -  center: The middle column
 -  right: The right column
+
+See 
+:sourcedir:`omeroweb/webgateway/templates/webgateway/base/container3.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/container3>` 
+for full template details.
+
