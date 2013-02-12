@@ -103,11 +103,10 @@ file:`components/blitz/generated`.
 
 The generated Ice files along with the hand-written Ice files from
 :sourcedir:`components/blitz/resources/omero` are then run through the
-:command:`slice2cpp`, :command:`slice2java`, and command:`slice2py`
-command-line utilities in order to generate source code in each of these
-languages. Clients pass in instances of these omero.model (or in the case of
-C++, omero::model) objects. These are transformed to ome.model objects, and
-then persisted to the database.
+``slice2cpp``, ``slice2java``, and ``slice2py`` command-line utilities in order
+to generate source code in each of these languages. Clients pass in instances
+of these omero.model (or in the case of C++, omero::model) objects. These are
+transformed to ome.model objects, and then persisted to the database.
 
 If we take a concrete example, a C++ client might create an Image via new
 omero::model::ImageI(). The "I" suffix represents an "implementation" in the
@@ -390,11 +389,11 @@ table does not have a primary key field -- subclasses contain a foreign
 key link to their superclass. Therefore all objects without an id are
 assumed to be non-persistent (i.e. transient).
 
-Though the id cannot be the sole decider of equality (there are issues with the
-Java definition of equals() and hashCode(), we often perform lookups based on
-the class and id of an instance. Here again caution must also be taken not to
-unintentionally use a possibly bytecode-generated subclass. See the discussion
-under :ref:`Model#Inheritance` above.
+Though the id cannot be the sole decider of equality since there are issues
+with the Java definition of equals() and hashCode(), we often perform lookups
+based on the class and id of an instance. Here again caution must also be taken
+not to unintentionally use a possibly bytecode-generated subclass. See the
+discussion under :ref:`Model#Inheritance` above.
 
 Class/id-based lookup is in fact so useful that it is possible to take
 an model object and call ``obj.unload()`` to have a "reference" --
