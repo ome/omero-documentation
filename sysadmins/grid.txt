@@ -54,7 +54,7 @@ jar is provided in the OMERO source code under lib/repository.
 OMERO.grid on Windows
 ^^^^^^^^^^^^^^^^^^^^^
 
-Unlike all other supported platforms, the :command:`bin\\omero` script and
+Unlike all other supported platforms, the :file:`bin\\omero` script and
 OMERO.grid are not directly responsible for starting and
 stopping the :doc:`/developers/server-blitz` server and other
 processes. Instead, that job is delegated to the native Windows service
@@ -69,12 +69,11 @@ system. A brief explanation is provided below.
 
 The first command installs OMERO.grid as a
 Windows service with the name ``OMERO.master`` and starts it. Any further
-calls to :command:`bin\\omero admin start` will fail since the application is already installed
-as a Windows service. Similarly, :command:`bin\\omero admin stop` first stops the service, and
+calls to :omerocmd:`admin start` will fail since the application is already installed
+as a Windows service. Similarly, :omerocmd:`admin stop` first stops the service, and
 then removes it. See :doc:`/sysadmins/windows/service-tools`.
 
-Further interactions with the Windows service can take place via
-:command:`sc.exe`.
+Further interactions with the Windows service can take place via `sc.exe`.
 
 ::
 
@@ -126,7 +125,7 @@ Deployment commands
 ^^^^^^^^^^^^^^^^^^^
 
 The master node must be started first to provide the registry. This is
-done via the :command:`bin/omero admin start` command which uses default.xml:
+done via the :omerocmd:`admin start` command which uses default.xml:
 
 ::
 
@@ -164,8 +163,8 @@ on the example descriptor files (\*.xml) and configuration files
 installations completely tailored to your computing resources.
 
 The whole grid can be shutdown by stopping the master node via:
-:command:`./omero admin stop`. Each individual node can also be shutdown via:
-:command:`./omero node stop` on that particular node.
+:omerocmd:`admin stop`. Each individual node can also be shutdown via:
+:omerocmd:`node stop` on that particular node.
 
 
 Modifying deployments
@@ -319,7 +318,7 @@ Processes
 ^^^^^^^^^
 
 It is important to understand just what processes will be running on your
-servers. When you run :command:`start`, :command:`icegridnode` is executed which starts a
+servers. When you run :omerocmd:`start`, `icegridnode` is executed which starts a
 controlling daemon and deploys the proper descriptor. This configuration
 is persisted under var/master and var/registry.
 
@@ -382,8 +381,8 @@ own log files.
 Shortcuts
 ^^^^^^^^^
 
-If the :command:`bin/omero` script is copied or symlinked to another name, then
-the script will separate the name on hyphens and execute :command:`bin/omero`
+If the :file:`bin/omero` script is copied or symlinked to another name, then
+the script will separate the name on hyphens and execute :file:`bin/omero`
 with the second and later parts **prepended** to the argument list.
 
 For example,
@@ -403,7 +402,7 @@ works identically to:
 Symbolic linking
 ^^^^^^^^^^^^^^^^
 
-Shortcuts allow the :command:`bin/omero` script to function as a init.d script
+Shortcuts allow the :file:`bin/omero` script to function as a init.d script
 when named "**omero-admin**\ ", and need only be copied to
 ``/etc/init.d/`` to function properly. It will resolve its installation
 directory, and execute from there unless ``OMERO_HOME`` is set.
@@ -415,7 +414,7 @@ For example,
        ln -s $OMERO_HOME/bin/omero /usr/local/bin/omero
        omero-admin start
 
-The same works for putting :command:`bin/omero` on your path:
+The same works for putting :file:`bin/omero` on your path:
 
 ::
 

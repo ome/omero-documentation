@@ -9,17 +9,17 @@ OMERO Command Line Interface
     :doc:`/developers/command-line-interface`
         Developer Documentation for the Command Line Interface
 
-When first beginning to work with the OMERO server, the :command:`db`,
-:command:`config`, and :command:`admin` commands will be the first you will
+When first beginning to work with the OMERO server, the :omerocmd:`db`,
+:omerocmd:`config`, and :omerocmd:`admin` commands will be the first you will
 need.
 
 Database tools
 --------------
 
-Rather than try to provide the functionality of a RDBM tool like
-:command:`psql`, the :omerocmd:`db script` command helps to generate SQL
-scripts for building your database. You can then use those scripts from
-whatever tool is most comfortable for you::
+Rather than try to provide the functionality of a RDBM tool like `psql`, the 
+:omerocmd:`db script` command helps to generate SQL scripts for building your 
+database. You can then use those scripts from whatever tool is most 
+comfortable for you::
 
     $ bin/omero db script OMERO4 0 secretpassword
     Using OMERO4 for version
@@ -61,7 +61,7 @@ different profile, e.g.::
     $ OMERO_CONFIG=another bin/omero config get
     example=my second value
 
-The values set via :command:`config set` override those compiled into the
+The values set via :omerocmd:`config set` override those compiled into the
 server jars. The default values which are set can be seen in
 :file:`etc/omero.properties`. To add several values to a configuration, you
 can pipe them via standard in using :omerocmd:`config load`::
@@ -157,7 +157,7 @@ enter::
     $ bin/omero user add jsmith John Smith 2
 
 Additional parameters such as the email address, institution, middle name etc 
-can be passed as optional arguments to the :command:`user add` command.
+can be passed as optional arguments to the :omerocmd:`user add` command.
 
 Group creation
 ^^^^^^^^^^^^^^
@@ -219,7 +219,7 @@ Group copy
 ^^^^^^^^^^
 
 To create a copy of a group, you must first create a new group using the
-:command:`group add` command::
+:omerocmd:`group add` command::
 
     $ bin/omero group add read-only-2 --perms='rwr---'
 

@@ -70,11 +70,11 @@ use to start OMERO. See :doc:`service-tools` for more information.
 To modify the access permissions to the binary repository, the :file:`OMERO`
 folder properties can be accessed and the permissions settings changed
 (see :ref:`windows_repository_perms`). Another option (useful for batch
-permission changes) is the :command:`icacls` (Windows 7) / :command:`cacls`
-(Windows XP) command line utility. Please note that the new permissions will
-appear as `Special Permissions` in the :guilabel:`Security` tab when viewing
-folder properties. An example invocation allowing the user `omeservice` to
-read (`R`) and write (`W`) from and to the ``OMERO`` directory:
+permission changes) is the `icacls` (Windows 7) / `cacls` (Windows XP) command 
+line utility. Please note that the new permissions will appear as `Special 
+Permissions` in the :guilabel:`Security` tab when viewing folder properties. 
+An example invocation allowing the user `omeservice` to read (`R`) and write 
+(`W`) from and to the ``OMERO`` directory:
 
 ::
 

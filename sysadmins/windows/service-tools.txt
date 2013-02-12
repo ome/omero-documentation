@@ -4,12 +4,11 @@ OMERO.server Windows Service
 OMERO.server installs a Windows Service to make the startup of the software
 automatic at Windows boot time.
 
-The :command:`bin\\omero admin start` command creates and starts a Windows
-service. In turn, :command:`bin\\omero admin stop` stops and deletes the
-OMERO Windows service. Therefore, once :command:`bin\\omero admin start`
-succeeds, it is possible to use all the regular Windows utilities, like
-:command:`sc.exe` or the Services Manager, to stop OMERO.server without
-having the service removed completely.
+The :omerocmd:`admin start` command creates and starts a Windows service. In 
+turn, :omerocmd:`admin stop` stops and deletes the OMERO Windows service. 
+Therefore, once :omerocmd:`admin start` succeeds, it is possible to use all 
+the regular Windows utilities, like `sc.exe` or the Services Manager, to stop 
+OMERO.server without having the service removed completely.
 
 If required, the OMERO.server service can be run as a different user
 (by modifying the `Log On` settings of the Windows service).
@@ -20,11 +19,11 @@ OMERO.server service user
 Default Windows Local System user
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When no specific Windows user has been defined using :command:`bin\\omero
-config set`, the OMERO.server starts as the `Local System` user. This user
-has enough permissions to access data on the local file system. In most
-circumstances that should allow the OMERO.server service to access data
-inside the binary repository.
+When no specific Windows user has been defined using :omerocmd:`config set`, 
+the OMERO.server starts as the `Local System` user. This user has enough 
+permissions to access data on the local file system. In most circumstances 
+that should allow the OMERO.server service to access data inside the binary 
+repository.
 
 Custom user
 ^^^^^^^^^^^
@@ -41,7 +40,7 @@ configure the OMERO Windows user by setting `omero.windows.user` and
     configuration.
 
 The user credentials can also be specified on the command line when running
-:command:`bin\\omero admin start`. The :option:`-u` parameter value is the
+:omerocmd:`admin start`. The :option:`-u` parameter value is the
 user name, while the value of :option:`-w` corresponds to the user's
 password::
 
@@ -63,9 +62,8 @@ Windows Services Manager
 ------------------------
 
 To start the Services Manager, simply navigate to :menuselection:`Start -->
-All Programs --> Accessories --> Run` (Windows 7). In the dialog, type in
-:command:`services.msc` and select :guilabel:`OK` (see
-:ref:`windows_run_services`).
+All Programs --> Accessories --> Run` (Windows 7). In the dialog, type in 
+`services.msc` and select :guilabel:`OK` (see :ref:`windows_run_services`).
 
 .. _windows_run_services:
 .. figure:: /images/windows-run-services.png
@@ -90,8 +88,7 @@ Windows Event Viewer
 
 Windows Event Viewer allows for watching events occuring in the OMERO.server
 service. To start the viewer, follow the same path as for Windows Services
-Manager, but this time type in :command:`eventvwr.msc` (see
-:ref:`windows_run_event`).
+Manager, but this time type in `eventvwr.msc` (see :ref:`windows_run_event`).
 
 .. _windows_run_event:
 .. figure:: /images/windows-run-event.png
