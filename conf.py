@@ -394,6 +394,7 @@ linkcheck_ignore = [r'http://localhost:\d+/?', 'http://localhost/', 'http://www.
 from docutils import nodes
 from sphinx import addnodes
 
+
 def omero_command_role(typ, rawtext, etext, lineno, inliner,
                      options={}, content=[]):
     """Role for CLI commands that generates an index entry."""
@@ -408,7 +409,7 @@ def omero_command_role(typ, rawtext, etext, lineno, inliner,
     indexnode['entries'] = [('single', "; ".join(etext.split(" ")), targetid, '')]
 
     # Mark the text in bold face
-    sn = nodes.strong(etext, etext)
+    sn = addnodes.literal_emphasis('omero ' + etext, 'omero ' +  etext)
     return [indexnode, targetnode, sn], []
 
 def setup(app):
