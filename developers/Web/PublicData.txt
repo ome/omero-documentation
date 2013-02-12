@@ -46,19 +46,20 @@ Here's how to go about setting this up on your OMERO.web install:
 
     ::
 
-        $ bin/omero config set omero.web.public.url_filter '^/my_web_public'
+        $ bin/omero config set omero.web.public.url_filter '^/webgateway'
 
     Exotic matching techniques can be used but more explicit regular 
     expressions are needed when attempting to filter based on a base URL:
 
-    'webtest' matches '/webtest' but also '/webclient/webtest' 'dataset' 
-    matches  '/webtest/dataset' and also '/webclient/dataset' '/webtest' 
-    matches '/webtest...' but also '/webclient/webtest' '/webtest' matches 
-    '/webtest...' but not '/webclient/webtest'
+    ::
 
-Server to authenticate against. Default: 1 (the first server in 
-omero.web.server_list)
+        'webtest' matches '/webtest' but also '/webclient/webtest'
+        'dataset' matches  '/webtest/dataset' and also '/webclient/dataset' 
+        '/webtest' matches '/webtest...' but also '/webclient/webtest' 
+        '/webtest' matches '/webtest...' but not '/webclient/webtest'
 
-::
+    Set a server to connect to. Default: 1 (the first server in omero.web.server_list)
 
-    $ bin/omero config set omero.web.public.server_id 2
+    ::
+
+        $ bin/omero config set omero.web.public.server_id 2
