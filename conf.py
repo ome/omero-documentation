@@ -408,8 +408,8 @@ def omero_command_role(typ, rawtext, etext, lineno, inliner,
     inliner.document.note_explicit_target(targetnode)
     indexnode['entries'] = [('single', "omero " + "; ".join(etext.split(" ")), targetid, '')]
 
-    # Mark the text in bold face
-    sn = addnodes.literal_emphasis('omero ' + etext, 'omero ' +  etext)
+    # Mark the text using literal node
+    sn = nodes.literal('omero ' + etext, 'omero ' +  etext)
     return [indexnode, targetnode, sn], []
 
 def setup(app):
