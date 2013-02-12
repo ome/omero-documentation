@@ -7,8 +7,8 @@ automatic at Windows boot time.
 The :omerocmd:`admin start` command creates and starts a Windows service. In 
 turn, :omerocmd:`admin stop` stops and deletes the OMERO Windows service. 
 Therefore, once :omerocmd:`admin start` succeeds, it is possible to use all 
-the regular Windows utilities, like `sc.exe` or the Services Manager, to stop 
-OMERO.server without having the service removed completely.
+the regular Windows utilities, like ``sc.exe`` or the Services Manager, to
+stop OMERO.server without having the service removed completely.
 
 If required, the OMERO.server service can be run as a different user
 (by modifying the `Log On` settings of the Windows service).
@@ -63,7 +63,7 @@ Windows Services Manager
 
 To start the Services Manager, simply navigate to :menuselection:`Start -->
 All Programs --> Accessories --> Run` (Windows 7). In the dialog, type in 
-`services.msc` and select :guilabel:`OK` (see :ref:`windows_run_services`).
+``services.msc`` and select :guilabel:`OK` (see :ref:`windows_run_services`).
 
 .. _windows_run_services:
 .. figure:: /images/windows-run-services.png
@@ -88,7 +88,8 @@ Windows Event Viewer
 
 Windows Event Viewer allows for watching events occuring in the OMERO.server
 service. To start the viewer, follow the same path as for Windows Services
-Manager, but this time type in `eventvwr.msc` (see :ref:`windows_run_event`).
+Manager, but this time type in ``eventvwr.msc`` (see 
+:ref:`windows_run_event`).
 
 .. _windows_run_event:
 .. figure:: /images/windows-run-event.png

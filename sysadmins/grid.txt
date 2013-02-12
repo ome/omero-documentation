@@ -73,7 +73,7 @@ calls to :omerocmd:`admin start` will fail since the application is already inst
 as a Windows service. Similarly, :omerocmd:`admin stop` first stops the service, and
 then removes it. See :doc:`/sysadmins/windows/service-tools`.
 
-Further interactions with the Windows service can take place via `sc.exe`.
+Further interactions with the Windows service can take place via ``sc.exe``.
 
 ::
 
@@ -318,7 +318,7 @@ Processes
 ^^^^^^^^^
 
 It is important to understand just what processes will be running on your
-servers. When you run :omerocmd:`start`, `icegridnode` is executed which starts a
+servers. When you run ``start``, ``icegridnode`` is executed which starts a
 controlling daemon and deploys the proper descriptor. This configuration
 is persisted under var/master and var/registry.
 

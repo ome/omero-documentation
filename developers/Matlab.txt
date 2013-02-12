@@ -16,7 +16,7 @@ Installing the OMERO.matlab toolbox
    main :omero_plone:`download page <downloads>`
 -  Unzip the directory anywhere on your system.
 -  In Matlab, change to the newly unzipped directory.
--  Run `loadOmero;`
+-  Run ``loadOmero;``
 -  The MATLAB files are now on your path, and the necessary jars are on
    your java classpath. You can change directories and still have access
    to OMERO.
