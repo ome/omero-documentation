@@ -943,8 +943,8 @@ problems won’t be found until late in development. To offset this risk,
 it is possible and advisable to begin creating “temporary merge
 branches” earlier in development.
 
-For example, if we assume that two of the branches from the 
-`git remote update` command from above are intended for release 
+For example, if we assume that two of the branches from the
+``git remote update`` command from above are intended for release
 fairly soon:
 
 -  jm/feature/plateAcquisitionAnnotation
