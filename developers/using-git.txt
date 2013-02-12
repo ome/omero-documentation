@@ -116,8 +116,7 @@ Git provides a number of options which can make working with it
 considerably more pleasant. These configuration options are available
 either globally in ``$HOME/.gitconfig`` or in the ``.git`` directory of
 your repository. The file is in INI-format, but can also be modified
-using the :command:`git config` command, as illustrated in the examples 
-following.
+using the ``git config`` command, as illustrated in the examples following.
 
 The most important thing is to update your 'global' credentials that are used 
 in your commits. These values are saved in :file:`~/.gitconfig`.
@@ -259,7 +258,7 @@ you would like to check in .git/config:
 
         git config remotes.default "ome team origin gh official chris ola will jm colin elwood"
 
-Now, :command:`git remote update` will check the above list of repositories.
+Now, ``git remote update`` will check the above list of repositories.
 
 Pushing to github
 ~~~~~~~~~~~~~~~~~
@@ -393,7 +392,7 @@ different feature. To see a list branches:
 
 Add the ``-a`` to list remote branches too.
 
-To simply move between branches, use :command:`git checkout`. All the files on 
+To simply move between branches, use ``git checkout``. All the files on 
 your file-system will be updated to the new branch:
 
 ::
@@ -944,8 +943,8 @@ problems won’t be found until late in development. To offset this risk,
 it is possible and advisable to begin creating “temporary merge
 branches” earlier in development.
 
-For example, if we assume that two of the branches from the 
-:command:`git remote update` command from above are intended for release 
+For example, if we assume that two of the branches from the
+``git remote update`` command from above are intended for release
 fairly soon:
 
 -  jm/feature/plateAcquisitionAnnotation

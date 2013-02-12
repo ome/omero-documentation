@@ -305,9 +305,11 @@ improving the semantics of the document elements.
   This  role will add an entry for the variable in the generated index.
 * CLI Commands can be formatted using the following role:
   ``:omerocmd: `admin start```
-  This role will add an entry for the command in the generated index.
-* Other useful inline markups include: ``:command:``, ``:option:`` and
-  ``:guilabel:``
+  This role will render as ``omero admin start`` and add an entry for
+  the command in the generated index.
+* Other commands should be formatted using the literal markup:
+  ``:literal: `command``` or double back quoted markup
+* Other useful inline markups include: ``:option:`` and ``:guilabel:``
 * Do not use inline highlighting or other markups in headings or subheadings
 
 Global substitutions
