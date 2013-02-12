@@ -10,10 +10,10 @@ stored in git in each component directory (e.g. :source:`common's
 .classpath <components/common/.classpath-template>` and 
 :source:`common's .project </components/common/.project>`). There is
 also a top-level .classpath and .project file which contains the entire
-project, but:
+project, but this:
 
 -  requires more memory
--  doesn't clearly differentiate the classpaths, and so can lead to
+-  does not clearly differentiate the classpaths, and so can lead to
    confusion.
 
 All the Eclipse projects require a successful build to have taken place:
@@ -22,7 +22,7 @@ All the Eclipse projects require a successful build to have taken place:
 
        ./build.py
 
-This is for two reasons. One, the Eclipse projects are not configured to
+This is for two reasons. Firstly, the Eclipse projects are not configured to
 perform the code-generation needed. This creates the directory:
 
 ::
@@ -32,7 +32,7 @@ perform the code-generation needed. This creates the directory:
 which will be missing from any Eclipse project you open before building
 the source.
 
-Also, Ivy is used to copy all the jar dependencies from
+Secondly, Ivy is used to copy all the jar dependencies from
 ``OMERO_HOME/lib/repository`` to ``COMPONENT/target/libs``, which is
 then used in the Eclipse ``.classpath`` files.
 
@@ -234,9 +234,9 @@ values are arbitrary and can be changed locally)
 
 **Keep in mind**:
 
--  The server won't start up until you have connected with Eclipse. This
+-  The server will not start up until you have connected with Eclipse. This
    is due to the ",suspend=y" clause in templates.xml. If you would like
-   the server to startup without your connecting, use "suspend=n"
+   the server to startup without you connecting, use "suspend=n"
 -  If you take too much time examining your threads, your calls may
    throw timeout exceptions.
 

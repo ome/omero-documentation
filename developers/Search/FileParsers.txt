@@ -11,7 +11,7 @@ Configuration
 -------------
 
 Currently, configuration takes places solely in
-:source:` service-ome.api.Search.xml <components/server/resources/ome/services/service-ome.api.Search.xml>`.
+:source:`service-ome.api.Search.xml <components/server/resources/ome/services/service-ome.api.Search.xml>`.
 Eventually, it should be able to replace file parsers at configuration
 or even runtime.
 
@@ -30,11 +30,8 @@ Available parsers
 | text/csv          | (internal)                                  |
 +-------------------+---------------------------------------------+
 
-How to
-------
 
-For the necessary changes that need to be made, see r2260. The base
-class for :doc:`/developers/Search/FileParsers` are:
-:source:` FileParser.java <components/server/src/ome/services/fulltext/FileParser.java>`
+The base class for File parsers are
+:source:`FileParser.java <components/server/src/ome/services/fulltext/FileParser.java>`
 
 .. seealso:: :doc:`/developers/Modules/Search`

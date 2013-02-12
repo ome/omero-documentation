@@ -1,38 +1,17 @@
-##################
-Developer Policies
-##################
+############################
+OME Team Developer Practices
+############################
 
 .. topic:: Overview
 
-    The OMERO development team has put a number of policies and
-    channels into place to facilitate interaction.
+    A guide to how OME developers work together for current and new project members
 
-OME project standards
-=====================
-
-The purpose of this document is to outline for both current and new
-members of the OME project how the team works together in order to
-keep collaborative development moving smoothly. This includes
-information on everything from daily communication (mailing lists,
-chat rooms, etc.) to coding practices. Where possible, it points to
-public resources that anyone interested in OME can also access.
-
-
-After you’ve read this, you should feel reasonably comfortable with
-starting to work with and on the project, and at least know how to go
-about finding out what it is you might not yet know. If you think
-something’s missing or been left unclear, it’s probably just an
-oversight. Speak up, and it can be added.
-
-
-You’re welcome to skip through to sections that interest you, but the
-intent is that it should be readable from start to finish.
 
 Team collaboration
 ==================
 
-For anyone completely new to the project, it’s most important to know
-how to get plugged in. There’s a fairly extensive amount of
+For anyone completely new to the project, it is most important to know
+how to get plugged in. There is a fairly extensive amount of
 communication flying around related to the project, and being able to
 find and track it may take some time.
 
@@ -40,7 +19,7 @@ Jabber: Instant messaging
 -------------------------
 
 On a day-to-day level, the team meets in a Jabber chatroom. (See the
-list of :team_plone:`addresses <addresses>` for the specifics) You’re
+list of :team_plone:`addresses <addresses>` for the specifics) You are
 welcome to join via your own Jabber account, but one will likely be
 provided to you, in which case that account should be preferred. To
 get started using Adium:
@@ -85,7 +64,12 @@ Trac
 ----
 
 The Trac server is available under https://trac.openmicroscopy.org.uk/ome and 
-uses your LDAP account for authentication. Trac is used to record all tickets (i.e. “bugs” or “issues”) as well as hierarchical groups of “tasks” in “requirements” and “stories”. This functionality is provided by a plugin for Trac named “Agilo” (http://agile42.com/en/) which you may want to read more about. Most importantly it provides a whiteboard where tickets are arranged per story into 3 columns: new, accepted, and closed.
+uses your LDAP account for authentication. Trac is used to record all tickets 
+(i.e. “bugs” or “issues”) as well as hierarchical groups of “tasks” in 
+“requirements” and “stories”. This functionality is provided by a plugin for 
+Trac named “Agilo” (http://agile42.com/en/) which you may want to read more 
+about. Most importantly it provides a whiteboard where tickets are arranged 
+per story into 3 columns: new, accepted, and closed.
 
 .. _trac_screenshot:
 .. figure:: images/10000000000005000000032056C4DB6C.png
@@ -96,13 +80,11 @@ Developer documentation
 -----------------------
 
 The developer documentation is maintained under version control, generated 
-using Sphinx and hosted :doc:`here </index>`.
+using Sphinx and hosted on the OME website.
 
-.. _plone_screenshot:
-.. figure:: images/10000000000003EF00000209A486215A.png
-   :align: center
-
-Each section of the code base (OMERO, Bio-Formats) has a landing page that will direct you to all the Developer documentation that you might need. For example, the Developer page for OMERO is :doc:`here </developers/index>`.
+Each section of the code base (OMERO, Bio-Formats) has a landing page that 
+will direct you to all the Developer documentation that you might need. For 
+example, the Developer page for OMERO is :doc:`here </developers/index>`.
 
 Jenkins: Continuous integration
 -------------------------------
@@ -122,7 +104,7 @@ Git and Github: Source code
 ---------------------------
 
 Commits take place primarily on github currently. To be aware of
-what’s really going on, your best option is to become familiar with
+what is really going on, your best option is to become familiar with
 git, github, and the repositories of all the team members. Information
 on doing that is available under :doc:`/developers/using-git`
 
@@ -152,10 +134,9 @@ previous discussions see the archive lists available on the
    :align:  center
 
 Where possible the task of monitoring feedback is spread across the
-team. For example, Josh and Chris typically monitor the forums and if
-a message needs to be responded to it will be passed along. Further,
-all the mailing lists and forums are reviewed for weekly meetings in
-case any item has been left unnoticed.
+team. Mailing list and forum questions are generally listed at the morning 
+meeting and can be checked off in the accompanying notes when dealt with to 
+ensure nothing is ignored or forgotten.
 
 Anyone on the team should feel free to speak up to answer questions,
 but do try to verify the correctness of answers, code samples,
@@ -221,8 +202,8 @@ available in case you do.
   access, a chair, etc.)* See: :team_plone:`new start tasklist
   <new-start-tasklist>`.
 
-Google Docs and Calendars
--------------------------
+Google Docs
+-----------
 
 In addition to the services hosted in Dundee, the team also makes use
 of several Google resources due to the improved real-time
@@ -230,24 +211,11 @@ collaboration that they provide. A single Google collection “OME Docs”
 is made available to all team members. Anything placed in the
 collection is automatically editable by everyone.
 
-
 For example, the primary contact information for all team members is
 available in the `DevContactList spreadsheet`_.
 
-.. _devcontactlist_screenshot:
-.. figure:: images/10000000000004490000024DCCB6EC99.png
-   :align:  center
-
-
 You can enable notifications on the spreadsheet so that you receive an
 email if any changes are made.
-
-Similarly, all paper, conference, and release deadlines as well as
-travel schedules and vacations are put on the “OME Scheduling”
-calendar
-
-    https://www.google.com/calendar/embed?src=ncf95f8n53mg61b0gdnbu92bhk%40group.calendar.google.com
-
 
 Meetings
 --------
@@ -281,16 +249,6 @@ the weekly meeting.
 
 Process summary
 ===============
-
-Beyond just seeing *where*, *what*, and *when* things are decided via
-the collaboration tools above, it’s important to understand *how* and
-*why* these decisions are made, and what they’re based on.
-
-Each of the process sections below detail a part of the overall
-process used by the OME team. This is admittedly a lot of information
-on particulars of how the team works, but since most of the current
-developers will expect for things to work in this way, it’s far more
-effective if you can follow along.
 
 Ticket types (day-to-day)
 -------------------------
@@ -514,8 +472,7 @@ OME team will try to meet to determine the goals and features for the
 next major release. Being co-located for the release is often also
 useful in itself, but having time to work through the many different
 directions is critical. This often happens at the annual users’
-meeting in Paris (May/June). For example, the current development
-period (4.4) has been chosen as “ stability and robustness ”.
+meeting in Paris (May/June).
 
 Previews
 --------
@@ -542,9 +499,6 @@ find ways to keep communication and collaboration simple for everyone.
 
 .. seealso::
 
-	http://scottchacon.com/2011/08/31/github-flow.html
-		Issues with github flow
-		
 	http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
 		Best practices for git commit message formatting
 	
