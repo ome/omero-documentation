@@ -43,7 +43,7 @@ Prerequisites
 Configuring OMERO from the command line
 ---------------------------------------
 
-Configuration options can be set using the :command:`bin/omero` command:
+Configuration options can be set using the :omerocmd:`config set` command:
 
 ::
 
@@ -70,7 +70,7 @@ You can also review all your settings by using:
 
 which should return values without quotation marks.
 
-A final useful option of :command:`bin/omero` is:
+A final useful option of :omerocmd:`config edit` is:
 
 ::
 
