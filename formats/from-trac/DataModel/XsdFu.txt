@@ -7,17 +7,17 @@ DOM tree.
 
 Requirements:
 
--  ` Python <http://www.python.org>`_ 2.4+
--  ` Genshi <http://genshi.edgewall.org>`_ 0.5
+-  `Python <http://www.python.org>`_ 2.4+
+-  `Genshi <http://genshi.edgewall.org>`_ 0.5
 -  Full checkout of the OME repository
-   (` http://github.com/openmicroscopy/openmicroscopy <http://github.com/openmicroscopy/openmicroscopy>`_)
+   (`http://github.com/openmicroscopy/openmicroscopy <http://github.com/openmicroscopy/openmicroscopy>`_)
 -  Full checkout of the Bio-Formats repository
-   (` http://github.com/openmicroscopy/bioformats <http://github.com/openmicroscopy/bioformats>`_)
+   (`http://github.com/openmicroscopy/bioformats <http://github.com/openmicroscopy/bioformats>`_)
 
-**NOTE:** Genshi ` 0.5 <http://genshi.edgewall.org/milestone/0.5>`_ was
+**NOTE:** Genshi `0.5 <http://genshi.edgewall.org/milestone/0.5>`_ was
 released on June 9th 2008. You can either install from source or
 download a compatible ``.egg`` for your system on the Genshi
-` download <http://genshi.edgewall.org/wiki/Download>`_ page.
+`download <http://genshi.edgewall.org/wiki/Download>`_ page.
 
 Checking out the source
 -----------------------
@@ -203,14 +203,14 @@ This work was completed as part of the *Update
 Special Thanks
 --------------
 
-A special thanks goes out to ` Dave
+A special thanks goes out to `Dave
 Kuhlman <http://www.rexx.com/~dkuhlman/>`_ for his fabulous work on
-` generateDS <http://www.rexx.com/~dkuhlman/generateDS.html>`_ which XSD
+`generateDS <http://www.rexx.com/~dkuhlman/generateDS.html>`_ which XSD
 Fu makes heavy use of internally.
 
 --------------
 
 See also: `EnumTool </ome/wiki/EnumTool>`_,
 `http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/developer-information <http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/developer-information>`_,
-` http://genshi.edgewall.org/ <http://genshi.edgewall.org/>`_,
-` http://www.rexx.com/~dkuhlman/generateDS.html <http://www.rexx.com/~dkuhlman/generateDS.html>`_
+`http://genshi.edgewall.org/ <http://genshi.edgewall.org/>`_,
+`http://www.rexx.com/~dkuhlman/generateDS.html <http://www.rexx.com/~dkuhlman/generateDS.html>`_
