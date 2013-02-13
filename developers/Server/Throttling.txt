@@ -47,15 +47,15 @@ time.
 Terminology
 -----------
 
--  **slots** : slots are the number of available executions that a
+-  **Slots** - are the number of available executions that a
    single session, user, or group can perform simultaneously on a
    **single** machine. (If the server is clustered, there will be the
    given number of slots per hosts)
--  **hard** and **soft** limits : hard limits throw an
+-  **Hard** and **soft** limits - hard limits throw an
    ``OverUsageException`` and require some form of compensation on the
-   clients. soft limits, on the other hand, simply slow down, or
-   throttle, execution to give other operations a chance to suceed.
--  **strictness** : when a strategy is configured as strict, then once a
+   clients. Soft limits, on the other hand, simply slow down, or
+   throttle, execution to give other operations a chance to succeed.
+-  **Strictness** - when a strategy is configured as strict, then once a
    session, user, or group has reached its limits, the hard or soft
    limit will be enforced even if no one else is using the server. A
    non-strict policy will "borrow" someone else's slot for the duration

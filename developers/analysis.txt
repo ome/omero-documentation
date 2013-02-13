@@ -1,19 +1,12 @@
-For all developer tutorials and documentation, please see :doc:`/developers/index`.
-
-OMERO supports analysis via a rich application programming interface
-(API), available currently in several languages:
-|OmeroJava|, |OmeroCpp|, |OmeroPy|, and |OmeroMatlab| .
-These are the same APIs that both the desktop and web clients use to
-access your data when stored inside OMERO.
-
 Local analysis
 ==============
 
 If you are interested in running your analysis locally and storing the
 results to the server, then your first step is to become familiar with
-the developer documention.
+the developer documentation.
 
--  The :doc:`/developers/GettingStarted` provides numerous examples in each 
+-  The :doc:`/developers/GettingStarted` guide provides numerous examples in 
+   each 
    language with explanations and tries to be a starting point for anyone who 
    wants to write code which talks to the OMERO server.
 -  Most of the :doc:`/developers/Modules/Api` is covered by the 
@@ -32,7 +25,7 @@ Distributed analysis via OMERO.scripts
 Once you have your local analysis working, you can push it onto the server for 
 background processing. 
 
-.. note: Your scripts must either be written in Python or be wrapped with a Python script.
+.. note:: Your scripts must either be written in Python or be wrapped with a Python script.
 
 The :javadoc:`OMERO scripting service API <slice2html/omero/api/IScript.html#IScript>` allows Python scripts to be 
 uploaded to the server and registered in the server database. These scripts 
@@ -54,9 +47,13 @@ images.
   :align: center
   :alt: Scripts in OMERO.insight
 
+|
+
 .. figure:: /images/scriptActivity.png
   :align: center
   :alt: Scripts user interface
+
+|
 
 .. figure:: /images/scriptUI.png
   :align: center
