@@ -81,11 +81,12 @@ used in a fine-grain manner.
 Code generation
 ^^^^^^^^^^^^^^^
 
-Since it is prohibitive to model full objects with the SAs, one
-alternative is to add types directly to the code generated. By adding a
-file named ``*.ome.xml`` to :sourcedir:`components/model/resources/mappings`
-and running a full-build, it is possible to have new objects generated
-in all :doc:`/developers/server-blitz` languages. Supported fields include:
+Since it is prohibitive to model full objects with the SAs, one alternative is
+to add types directly to the :doc:`generated code </developers/Model>`. By
+adding a file named ``*.ome.xml`` to
+:sourcedir:`components/model/resources/mappings` and running a full-build, it
+is possible to have new objects generated in all
+:doc:`/developers/server-blitz` languages. Supported fields include:
 
 -  boolean
 -  string
