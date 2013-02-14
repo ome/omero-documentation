@@ -49,16 +49,25 @@ An OME-TIFF dataset has the following characteristics:
    format, it probably makes sense to use OME-TIFF only when there is at
    least one image plane.
 
-For detailed technical information on OME-TIFF, see the `OME-TIFF
-Specification <ome-tiff-specification>`_.
+For detailed technical information on OME-TIFF, see the 
+:doc:`ome-tiff-specification`.
 
-We have a list of `software tools <ome-tiff-tools>`_ for working with
+We have a list of :doc:`ome-tiff-tools` for working with
 OME-XML and OME-TIFF.
 
-We also have some `example source code <ome-tiff-code>`_ in Java for
+We also have some :doc:`ome-tiff-code` in Java for
 reading and writing OME-TIFF.
 
-Lastly, some `sample OME-TIFF data <ome-tiff-data>`_ is available for
+Lastly, some :doc:`ome-tiff-data` is available for
 download, along with statistics comparing OME-TIFF and OME-XML with
 various types of compression.
 
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    ome-tiff-specification
+    ome-tiff-tools
+    ome-tiff-code
+    ome-tiff-data
+    

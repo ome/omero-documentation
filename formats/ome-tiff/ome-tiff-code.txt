@@ -1,16 +1,10 @@
-OME TIFF Code
-=============
-
-
-
-
-OME-TIFF Example Source Code
+OME TIFF Example Source Code
+============================
 
 This page discusses some common operations related to the OME-TIFF
 format, and gives example source code in Java for performing them. We
-strongly recommend you read and understand the `OME-TIFF
-specification <ome-tiff-specification>`_ before attempting to deploy any
-of the following code.
+strongly recommend you read and understand the :doc:`ome-tiff-specification` 
+before attempting to deploy any of the following code.
 
 -  Extracting a TIFF comment – Demonstrates how to extract the OME-XML
    comment from an OME-TIFF file.
@@ -21,7 +15,7 @@ of the following code.
 -  Working with OME-XML – Demonstrates how to work with OME-XML in
    memory.
 
-The `Bio-Formats <http://loci.wisc.edu/software/bio-formats>`_ library
+The :bf_doc:`Bio-Formats library <about/>`
 provides a lot of functionality related to OME-XML and OME-TIFF, to ease
 the burden of file format handling and conversions. Rather than offer
 source code that performs all of the above actions on its own, we
@@ -48,8 +42,8 @@ the following steps are required:
    number of bytes indicated by the entry.
 #. Convert the bytes to an ASCII string.
 
-The `Bio-Formats command line
-tools <http://loci.wisc.edu/bio-formats/command-line-tools>`_ include a
+The :bf_doc:`Bio-Formats command line
+tools <users/comlinetools/>` include a
 program, tiffcomment, that performs these steps using the
 getComment(String) method of
 `TiffParser <http://git.openmicroscopy.org/?p=bioformats.git;a=blob;f=components/bio-formats/src/loci/formats/tiff/TiffParser.java;hb=HEAD>`_.
@@ -81,7 +75,7 @@ the file, it overwrites the old data in place.
 The following program extracts comments from TIFF files, prompts the
 user to alter the comments on the command line, and writes updated
 comments back to the files. It requires the
-`Bio-Formats <http://loci.wisc.edu/software/bio-formats>`_ library.
+:bf_plone:`Bio-Formats library <>`.
 
 `EditTiffComment.java <http://git.openmicroscopy.org/?p=bioformats.git;a=blob;f=components/bio-formats/utils/EditTiffComment.java;hb=HEAD>`_
 
@@ -98,14 +92,13 @@ Converting other formats to OME-TIFF
 One of the major goals of Bio-Formats is to standardize the metadata
 from all supported third-party formats into OME-XML. Doing so makes
 conversion to OME-TIFF very straightforward—just write the pixels to
-TIFF however you want (e.g., with libtiff), and store the converted
+TIFF however you want (e.g. with libtiff), and store the converted
 OME-XML metadata into the TIFF comment. The complicated part is doing
 the conversion from proprietary third-party metadata into OME-XML—a task
 that Bio-Formats greatly simplifies.
 
 The following program converts the files given on the command line into
-OME-TIFF format. It requires the
-`Bio-Formats <http://loci.wisc.edu/software/bio-formats>`_ and `OME-XML
+OME-TIFF format. It requires the :bf_plone:`Bio-Formats <>` and `OME-XML
 Java <../ome-xml-java-library>`_ libraries.
 
 `ConvertToOmeTiff.java <http://git.openmicroscopy.org/?p=bioformats.git;a=blob;f=components/bio-formats/utils/ConvertToOmeTiff.java;hb=HEAD>`_
@@ -138,9 +131,8 @@ MetadataRetrieve interfaces) to greatly simplify OME-XML-related
 development tasks.
 
 The following program edits the "image name" metadata value for the file
-given on the command line. It requires the
-`Bio-Formats <http://loci.wisc.edu/software/bio-formats>`_ and `OME-XML
-Java <../ome-xml-java-library>`_ libraries.
+given on the command line. It requires the :bf_plone:`Bio-Formats <>` and 
+`OME-XML Java <../ome-xml-java-library>`_ libraries.
 
 `EditImageName.java <http://git.openmicroscopy.org/?p=bioformats.git;a=blob;f=components/bio-formats/utils/EditImageName.java;hb=HEAD>`_
 
