@@ -32,20 +32,23 @@ OME-XML Compliance
 ------------------
 
 View 
-`our proposal </site/support/file-formats/schemas/specifications/compliant-file-specification>`_
+:doc:`our proposal <schemas/specifications/compliant-file>`
 for a specification, to describe as completely as possible a specific
 imaging experiment.
 
 Or read our published paper 
 `Linkert et al (2010), J. Cell Biol. 189(5):777-782 <http://jcb.rupress.org/content/189/5/777>`_
 
+:doc:`Specifications for HCS <schemas/specifications/compliant-hcs>` 
+and a :doc:`minimum specification <schemas/specifications/minimum>` are also 
+available.
 
 Developer Resources
 -------------------
 
 Developing software to work with OME-XML files? Find links to more
 technical information on the
-:doc:`Developer information page</site/support/file-formats/working-with-ome-xml>`.
+:doc:`Developer information page <working-with-ome-xml/index>`.
 
 Latest OME-XML/OME-TIFF
 -----------------------
@@ -70,18 +73,24 @@ How to Cite OME's Work
 ----------------------
 
 If you have used OME-XML, OME-TIFF, Bio-Formats or OMERO in your work
-find the `correct citations </site/community/citing-ome>`_ to use.
+find the :about_plone:`correct citations <licensing-attribution/citing-ome>` 
+to use.
 
 Companies supporting OME-XML or OME-TIFF
 ----------------------------------------
 
 We have received support from several companies who are writing files
 using our file formats, for details see our full list of
-`Partners </site/about/partners>`_
+:about_plone:`Partners <partners>`.
 
 .. toctree::
     :maxdepth: 1
     :hidden:
 
     ome-tiff/index
+    schemas/specifications/compliant-file
+    schemas/specifications/compliant-hcs
+    schemas/specifications/minimum
+    working-with-ome-xml/index
+    schemas/versions/index
     
