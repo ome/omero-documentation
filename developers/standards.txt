@@ -160,11 +160,11 @@ warning LEVEL configuration. This is done like so.
 
 ::
 
-     if (isDebugEnabled()) {
+     if (log.isDebugEnabled()) {
        log.debug("My output text will work if debug LEVEL logging is on.");
      }
 
-When you're logging statements are wrapped, all logging can be turned on
+When your logging statements are wrapped, all logging can be turned on
 or off very easily in the configuration file(s). Before you can use a
 logger you will need to declare one at the top of each class like so.
 
