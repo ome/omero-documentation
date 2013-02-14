@@ -1,11 +1,10 @@
-OME-TIFF Data
-=============
+OME-TIFF Sample Data
+====================
 
-OME-TIFF Sample Data and Benchmarks.
 
 This page provides some sample data in OME-TIFF format, as well as an
 analysis of several file formats and compression techniques. There are
-also some artificial sample datasets (i.e., not produced from an
+also some artificial sample datasets (i.e. not produced from an
 acquisition system) designed for developer testing that illustrate some
 possible data organizations, which should be useful if you are
 interested in implementing support for OME-TIFF within your software.

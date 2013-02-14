@@ -15,10 +15,18 @@ development, and maintenance of these tools are the result of close
 collaboration between all academic and commercial partners in the OME
 Consortium.
 
-OME Data Model
---------------
 
-:doc:`Introductory blurb <DataModel/DataModel.txt>`.
+What is OME-TIFF?
+-----------------
+
+OME-TIFF is a practical, high performance interchange format that
+encodes the metadata using the OME-XML data model. It is essentially
+OME-XML turned "inside out," with the OME-XML inside a regular TIFF
+file, allowing the pixels to be read with any TIFF-compatible program,
+and the metadata to be extracted with any OME-aware application.
+
+Check out the :doc:`OME-TIFF overview <ome-tiff/index>`.
+
 
 OME-XML Compliance
 ------------------
@@ -32,37 +40,12 @@ Or read our published paper
 `Linkert et al (2010), J. Cell Biol. 189(5):777-782 <http://jcb.rupress.org/content/189/5/777>`_
 
 
-What is OME-TIFF
-----------------
-
-OME-TIFF is a practical, high performance interchange format that
-encodes the metadata using the OME-XML data model. It is essentially
-OME-XML turned "inside out," with the OME-XML inside a regular TIFF
-file, allowing the pixels to be read with any TIFF-compatible program,
-and the metadata to be extracted with any OME-aware application.
-
-Check out the
-`OME-TIFF overview </site/support/file-formats/ome-tiff>`_.
-
-Validation
-^^^^^^^^^^
-
-If you are generating your own OME-XML files, we have a validator that
-will check OME-XML and OME-TIFF files located at
-
--  `http://validator.openmicroscopy.org.uk/ <http://validator.openmicroscopy.org.uk/>`_
-
-The `Bio-Formats command line
-tools <http://www.loci.wisc.edu/ome/formats-tools.html>`_ also include
-an XML validation tool.
-
-
 Developer Resources
 -------------------
 
 Developing software to work with OME-XML files? Find links to more
 technical information on the
-`Developer </site/support/file-formats/working-with-ome-xml>`_ page.
+:doc:`Developer information page</site/support/file-formats/working-with-ome-xml>`.
 
 Latest OME-XML/OME-TIFF
 -----------------------
@@ -95,3 +78,10 @@ Companies supporting OME-XML or OME-TIFF
 We have received support from several companies who are writing files
 using our file formats, for details see our full list of
 `Partners </site/about/partners>`_
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    ome-tiff/index
+    
