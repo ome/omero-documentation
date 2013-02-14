@@ -1,8 +1,22 @@
 Version Information
 ===================
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    june-2012
+    june-2011
+    june-2010
+    april-2010
+    september-2009
+    september-2008
+    february-2008
+    september-2008
+    june-2007
 
 Information on the version structure
+------------------------------------
 
 All of the schema files released since 2007 have used a new
 versioning system. This composes of two parts, Major and Minor.
