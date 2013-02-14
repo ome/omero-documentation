@@ -87,7 +87,7 @@ There are three ways to use the command line tools:
     
     During login, a session is created locally on disk and will remain active 
     until you logout or it times out. You can then call the desired command, 
-    e.g. the :command:`import` command::
+    e.g. the :omerocmd:`import` command::
 
         $ bin/omero import image.tiff
 
@@ -116,7 +116,7 @@ To import a file image.tiff, use::
 
     $ bin/omero import image.tiff
 
-Many options can be passed to the :command:`import`. They can be listed using 
+Many options can be passed to the :omerocmd:`import`. They can be listed using 
 the :option:`-h` option::
 
     $ bin/omero import -h
@@ -165,7 +165,7 @@ The location of the current session file can be retrieved using the
     /Users/ome/omero/sessions/localhost/root/aec828e1-79bf-41f3-91e6-a4ac76ff1cd5
 
 If you want to use a custom session directory, use the 
-:option:`--session-dir` argument in the :command:`sessions` commands::
+:option:`--session-dir` argument in the :omerocmd:`sessions` commands::
 
     $ bin/omero login --session-dir=/tmp
     $ bin/omero sessions list --session-dir=/tmp
