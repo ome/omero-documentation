@@ -20,7 +20,7 @@ new server version.
 The :source:`etc/omero.properties`
 file of your distribution defines all the default configuration
 properties used by the server. Changes made to the file are *not*
-recognized by the server. Instead, the :command:`bin/omero config` command is
+recognized by the server. Instead, the :omerocmd:`config` command is
 used to change those properties that you would like to customize.
 
 Examples of doing this are on the main :doc:`Unix <unix/server-installation>` and
@@ -68,7 +68,7 @@ Windows systems. Both, make use of "templates.xml".
 Modifying the application descriptors
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When you run :command:`bin/omero admin start` without any other arguments, it
+When you run :omerocmd:`admin start` without any other arguments, it
 looks up the default **application descriptor** for your platform:
 
 ::
@@ -128,12 +128,11 @@ Targets
 
 **Targets** are elements within the application descriptors which can
 optionally turn on configuration. The target is only applicable until
-the next invocation of :command:`bin/omero admin start ...` or 
-:command:`bin/omero admin deploy ...`
+the next invocation of :omerocmd:`admin start` or :omerocmd:`admin deploy`
 
 .. note::
     You must remember to always apply the targets on each
-    :command:`bin/omero admin` command. If not, the target will not be 
+    :omerocmd:`admin` command. If not, the target will not be 
     removed. Therefore, they are often better used for debugging purposes;
     however, as opposed to alternative application descriptors, using
     the pre-existing targets should not require any special effort
@@ -187,7 +186,7 @@ Changing ports / multiple servers on a single host
 
 Since changing all the references to port numbers (4061, 4063, 4064,
 etc) in the grid configuration can be cumbersome, a 
-:command:`bin/omero admin` command is provided to make the modifications for 
+:omerocmd:`admin` command is provided to make the modifications for 
 you. See the :ref:`security_ssl`
 section of the :doc:`/sysadmins/server-security` page for more information.
 

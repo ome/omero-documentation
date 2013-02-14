@@ -150,7 +150,7 @@ Import error when running bin/omero ...
             import omero.cli
         ImportError: No module named omero.cli
 
-If you get any import related errors while running :command:`bin/omero`, the
+If you get any import related errors while running :file:`bin/omero`, the
 most likely cause is that your PYTHONPATH is not properly set.
 
 -  If you installed Ice globally via your package manager, make sure you
