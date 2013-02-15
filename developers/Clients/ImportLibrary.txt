@@ -18,7 +18,7 @@ The primary classes which make up the Import Library are:
 -  :source:`ImportCandidates.java <components/blitz/src/ome/formats/importer/ImportCandidates.java>`
    which takes file paths and determines the proper files to import
 -  :source:`ImportConfig.java <components/blitz/src/ome/formats/importer/ImportConfig.java>`,
-   an extensible mechanism for storing the
+   an extensible mechanism for storing the properties used during import
 -  :source:`ImportEvent.java <components/blitz/src/ome/formats/importer/ImportEvent.java>`,
    the various events raised during import to ``IObserver``\ and
    ``IObservable`` implementations
