@@ -12,17 +12,20 @@ with the OMERO.web look and feel.
   The ``base_header.html`` template extended in webtest with dummy content
 
 
-You can use these templates in a number of ways, but there are 2 general scenarios that are detailed below:
+You can use these templates in a number of ways, but there are 2 general 
+scenarios that are detailed below:
 
-- You want a page header to look like the webclient, but you do not need any data or connection to OMERO.
-- You want a page that looks and behaves like it is part of the webclient application, including data from the OMERO server.
+- You want a page header to look like the webclient, but you do not need any 
+  data or connection to OMERO.
+- You want a page that looks and behaves like it is part of the webclient 
+  application, including data from the OMERO server.
 
 
 Django templates
 ----------------
 
 We use Django templates for the OMERO.web pages. See docs here:
-`https://docs.djangoproject.com/en/dev/ref/templates/ <https://docs.djangoproject.com/en/dev/ref/templates/>`_ and ` template
+https://docs.djangoproject.com/en/dev/ref/templates/ and `template
 inheritance <https://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance>`_.
 We have designed a number of OMERO.web base templates that you can
 extend. The base templates live in the 'webgateway' app under
@@ -31,7 +34,7 @@ that do not require an OMERO login (e.g. public home page) etc.
 
 If you want your pages to extend the webclient application, you can use 
 templates from 
-:sourcedir:`omeroweb/webclient/templates/webclient/base <components/tools/OmeroWeb/omeroweb/webclient/templates/webclient/base>`.
+:source:`omeroweb/webclient/templates/webclient/base <components/tools/OmeroWeb/omeroweb/webclient/templates/webclient/base>`.
 
 These templates are described in more detail below.
 
@@ -80,9 +83,9 @@ this at the top of the page you created above:
 
 However, this template will need various pieces of data to be in the page 
 context that Django uses to render the page. You will need to use the 
-@login_required() and
-@render_response() decorators on your views.py methods in order to retrieve 
-this info and pass it to the template. See :doc:`WritingViews` 
+``@login_required()`` and
+``@render_response()`` decorators on your views.py methods in order to 
+retrieve this info and pass it to the template. See :doc:`WritingViews` 
 for more details.
 
 If you have used the 'content' block on this page (as described above) you 
@@ -154,10 +157,10 @@ Webtest examples
 You can find examples of how to extend the base templates in the webtest
 application. The location of these depends on your OMERO version:
 
--  4.4.0 - 4.4.4: Look under omeroweb/webtest/templates/webtest/common. View live at
-   <your-server-name>/webtest/common/base\_header/
--  After 4.4.4: Look under omeroweb/webtest/templates/webtest/webgateway. View live at
-   <your-server-name>/webtest/webgateway_templates/base_header/>
+-  4.4.0 - 4.4.4 - Look under omeroweb/webtest/templates/webtest/common. View 
+   live at <your-server-name>/webtest/common/base\_header/
+-  After 4.4.4 - Look under omeroweb/webtest/templates/webtest/webgateway. 
+   View live at <your-server-name>/webtest/webgateway_templates/base_header/>
 
 The link is to an example that extends base\_header.html and
 contains links to all the other webtest examples. These pages indicate
@@ -179,8 +182,8 @@ These blocks can be used to add content to specific points in the page.
     links required by the parent template.
 
 
-See :sourcedir:`omeroweb/webgateway/templates/webgateway/base/base\_header.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/base_header>` for full
-template details.
+See :source:`base_header.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/base_header.html>` 
+for full template details.
 
 -  link: Used to add css with <link> blocks to the page head. E.g:
 
@@ -192,12 +195,12 @@ template details.
                 href="{% static "webgateway/css/ome.body.css" %}"/>
        {% endblock %}
 
--  script: Used to add javascript with <script> blocks to the page head
--  title: Add text here for the page <title>.
--  head: Another block for any extra head elements
--  middle\_header\_right: Adds content to the right of the main header
--  middle\_header\_left: Adds content to the left of the main header
--  content: Main page content.
+-  script - Used to add javascript with <script> blocks to the page head
+-  title - Add text here for the page <title>.
+-  head - Another block for any extra head elements
+-  middle\_header\_right - Adds content to the right of the main header
+-  middle\_header\_left - Adds content to the left of the main header
+-  content - Main page content.
 
 container2.html, container3.html
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -210,6 +213,6 @@ extent it (see above). In addition, they also add the following blocks:
 -  right: The right column
 
 See 
-:sourcedir:`omeroweb/webgateway/templates/webgateway/base/container3.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/container3>` 
+:source:`container3.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/container3.html>` 
 for full template details.
 
