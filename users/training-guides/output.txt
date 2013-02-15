@@ -2,7 +2,7 @@
 Exporting images
 *****************
 
-In OMERO you are able to export any image as an OME-TIFF file, save it as a JPEG, or if it was archived at import, download it in the original image format.
+In OMERO you are able to export any image as an OME-TIFF file, save it as a JPEG, PNG or TIFF or if it was archived at import, download it in the original image format.
 
 |
 
@@ -36,7 +36,7 @@ In OMERO you are able to export any image as an OME-TIFF file, save it as a JPEG
 
    |
 
-#. Select **Save as JPEG** to export as a JPEG.
+#. Select **Save as ...** to save as a JPEG, PNG or TIFF.
 
    |
 
