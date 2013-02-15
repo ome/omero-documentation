@@ -3,8 +3,9 @@ Properties
 
 As of milestone :milestone:`OMERO-Beta4`
 (:ticket:`800`), client usage of these properties has
-significantly changed. Please see the :doc:`sysadmin documentation </sysadmins/server-overview>`
-for how to configuration your server installation.
+significantly changed. Please see the 
+:doc:`sysadmin documentation </sysadmins/server-overview>`
+for how to configure your server installation.
 
 Under the ``etc/`` directory in both the source and the binary
 distributions, several files are provided which help to configure

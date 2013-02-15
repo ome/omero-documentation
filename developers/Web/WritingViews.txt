@@ -3,7 +3,7 @@ Writing OMERO.web views
 
 This page contains info on how to write your own views.py code,
 including documentation on the webclient/views.py and
-webgateway/views.py code. In general these notes refer to the 4.4 and later
+webgateway/views.py code. In general, these notes refer to the 4.4 and later
 release of OMERO, since the OMERO.web framework will be cleaned up
 substantially in this release. We note some points below where these
 changes will break existing code.
@@ -37,7 +37,7 @@ Blitz Gateway connection to OMERO.
 .. note::
 
     login\_required is a class-based decorator with several methods
-    that can be overwritten to customise it's functionality (see below).
+    that can be overwritten to customise its functionality (see below).
     This means that the decorator **MUST** be instantiated when used with
     the @ notation, ie:
 
@@ -84,7 +84,7 @@ Extending login\_required
 
 The base login\_required class can be found in omeroweb/decorators.py.
 It has a number of methods that can be overwritten to customise or
-extend it's functionality. Again, it's best to look at an example of
+extend its functionality. Again, it's best to look at an example of
 this. See webclient/decorators.py to see how the base
 omeroweb.decorators.login\_required has been extended to configure the
 conn connection upon login, handle login failure differently etc.
@@ -126,7 +126,7 @@ require this functionality. Errors are handled as follows:
 
 -  404 Simply display a 404 message to the user
 -  403 This is 'permission denied' which probably means the user needs
-   to login to the server (E.g. session may have timed out). The page is
+   to login to the server (e.g. session may have timed out). The page is
    refreshed which will redirect the user to login page.
 -  500 Server error. We display a feedback form for the user to submit
    details of the error to our QA system - POSTs to
@@ -165,13 +165,13 @@ If you want to handle certain exceptions in particular ways you should
 use appropriate try/except statements.
 
 This is only advised for trivial errors, where you can give the user a
-simple message, e.g."No Objects selected, Please try again", or if the
+simple message, e.g. "No Objects selected, Please try again", or if the
 error is well understood and you can recover from the error in a
 reasonable way.
 
 For 'unexpected' server errors, it is best to allow the exception to be
 handled by Django since this will provide a lot more info to the user
-(request details etc) and format html etc (both with Debug True or
+(request details etc.) and format html etc (both with Debug True or
 False).
 
 If you still want to handle the exception yourself, you can provide
