@@ -12,7 +12,7 @@ mechanisms for allowing restricted operations when the time comes.
 
 Other links which may be of use:
 
--  :doc:`/Modules/Api/AdminInterface`
+-  :doc:`/developers/Modules/Api/AdminInterface`
 -  :doc:`SecurityRoles`
 -  :doc:`/sysadmins/server-permissions`
 
@@ -199,7 +199,7 @@ security).
 .. note::
 
     The password table is not mapped into Hibernate, and is only
-    accessible via the :doc:`/Modules/Api/AdminInterface`.
+    accessible via the :doc:`/developers/Modules/Api/AdminInterface`.
 
 Client-side
 ~~~~~~~~~~~
