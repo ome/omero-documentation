@@ -9,8 +9,8 @@ Here your will find two types of information:
 This will hopefully get you started and answer some initial questions
 for you. We know the topic is not fully covered here and we will add
 further information as time allows. We are happy to answer further
-questions through the OME-Users and OME-Developers `mailing
-lists </site/community/mailing-lists>`_ or `forums </community/>`_ and
+questions through the OME-Users and OME-Developers 
+:mailinglist:`mailing lists <>` or :forum:`forums <>` and
 receive requests for additional documentation pages.
 
 The main discussion lists and forums are accessed from the general
@@ -86,45 +86,18 @@ We also have pages covering specific use cases:
 
 If you are working with several versions of the OME Model, perhaps to
 support the loading/saving of a variety of files, then we recommend you
-look at the following pages. They show what happened with each release:
+look at the :doc:`/schemas/versions/index` pages. They show what happened with 
+each release.
 
--  The **current major release** - see `Changes For June
-   2012 </site/support/file-formats/schemas/versions/changes-for-june-2012>`_
--  Previous releases:
+-  The **current major release** - see :doc:`Changes For June
+   2012 </schemas/versions/june-2012>`.
 
-   -  `Changes For June
-      2011 </site/support/file-formats/schemas/versions/changes-for-june-2011>`_
-      - (major)
-   -  `Changes For June
-      2010 </site/support/file-formats/schemas/versions/changes-for-june-2010>`_
-      - (major)
-   -  `Changes For April
-      2010 </site/support/file-formats/schemas/versions/changes-for-april-2010>`_
-      - (major)
-   -  `Changes For September
-      2009 </site/support/file-formats/schemas/versions/changes-for-september-2009>`_
-      - (major)
-   -  `Changes For September
-      2008 </site/support/file-formats/schemas/versions/changes-for-september-2008>`_
-      - (major)
-   -  `Changes For February
-      2008 </site/support/file-formats/schemas/versions/changes-for-february-2008>`_
-      - (major)
-   -  `Changes For September
-      2007 </site/support/file-formats/schemas/versions/changes-for-september-2007>`_
-      - (minor)
-   -  `Changes For June
-      2007 </site/support/file-formats/schemas/versions/changes-for-june-2007>`_
-      - (major)
 
-There are some concepts used in the Model that benefit form an
+There are some concepts used in the Model that benefit from an
 explanation:
 
--  `LSID IDs and LSIDs in
-   OME-XML </site/support/file-formats/working-with-ome-xml/id-and-lsid>`_
--  `Version
-   Information </site/support/file-formats/schemas/versions/version-information>`_
-   - How we Version the OME Model
+-  :doc:`LSID IDs and LSIDs in OME-XML <id-and-lsid>`
+
 
 What detailed documentation do you have?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
