@@ -18,7 +18,7 @@ The primary classes which make up the Import Library are:
 -  :source:`ImportCandidates.java <components/blitz/src/ome/formats/importer/ImportCandidates.java>`
    which takes file paths and determines the proper files to import
 -  :source:`ImportConfig.java <components/blitz/src/ome/formats/importer/ImportConfig.java>`,
-   an extensible mechanism for storing the
+   an extensible mechanism for storing the properties used during import
 -  :source:`ImportEvent.java <components/blitz/src/ome/formats/importer/ImportEvent.java>`,
    the various events raised during import to ``IObserver``\ and
    ``IObservable`` implementations
@@ -27,16 +27,16 @@ The primary classes which make up the Import Library are:
 -  :source:`OMEROWrapper.java <components/blitz/src/ome/formats/importer/OMEROWrapper.java>`,
    the OMERO adapter for the Bio-Formats ``ImageReaders`` class
 -  In OMERO.insight, the main entry point is the importImage method of
-   :source:`OMEROGateway.java <components/insight/SRC/org/openmicroscopy/shoola/env/data/OMEROGateway.java>`.
+   :source:`OMEROGateway.java <components/insight/SRC/org/openmicroscopy/shoola/env/data/OMEROGateway.java>`
 -  In the CLI, the main entry point is the
    :source:`CommandLineImporter <components/tools/OmeroImporter/src/ome/formats/importer/cli/CommandLineImporter.java>`
-   class.
+   class
 
 Example
 -------
 
 The ``CommandLineImporter.java`` class shows a straight-forward import.
-An ``ErrorHandler`` instance is passed both to the ImportCandidates
+An ``ErrorHandler`` instance is passed both to the ``ImportCandidates``
 constructor (since errors can occur while parsing a directory) and to
 the ``ImportLibrary``. This and other handlers receive ``ImportEvents``
 which notify listeners of the state of the current import.
