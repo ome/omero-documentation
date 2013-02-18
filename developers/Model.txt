@@ -278,11 +278,12 @@ Inheritance
 
 Inheritance is supported in the object model. The superclass
 relationships can be defined simply in the mapping files. One example is
-the annotation hierarchy in :source:`components/model/resources/mappings/annotations.ome.xml`.
+the annotation hierarchy in 
+:source:`components/model/resources/mappings/annotations.ome.xml`.
 Hibernate supports this polymorophism, and will search all subclasses
 when a super class is returned. *However*, due to Hibernate's use of
 bytecode-generated proxies, testing for class equality is not always
-straight forward.
+straightforward.
 
 Hibernate uses CGLIB and Javassist and similar bytecode generation to
 perform much of its magic. For these bytecode generated objects, the
@@ -325,7 +326,7 @@ acceptFilter
 ^^^^^^^^^^^^
 
 An automation of calls to ``putAt / retrieve`` can be achieved by
-implementing an ome.util.Filter. A Filter is a VisitorPatter?-like
+implementing an ome.util.Filter. A Filter is a VisitorPatter-like
 interface which not only visits every field of an object, but also has
 the chance to replace the field value with an arbitrary other value.
 Much of the internal functionality in OMERO is achieved through filters.
@@ -393,7 +394,7 @@ assumed to be non-persistent (i.e. transient).
 
 Though the id cannot be the sole decider of equality since there are issues
 with the Java definition of equals() and hashCode(), we often perform lookups
-based on the class and id of an instance. Here again caution must also be 
+based on the class and id of an instance. Here again caution must be 
 taken not to unintentionally use a possibly bytecode-generated subclass. See 
 the discussion under :ref:`Model#Inheritance` above.
 
