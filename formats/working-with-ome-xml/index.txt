@@ -1,7 +1,7 @@
 Developer Information
 =====================
 
-Here your will find two types of information:
+Here you will find two types of information:
 
 -  How we develop the OME Model with your contributions
 -  How you can work with the OME Model
@@ -34,8 +34,8 @@ How does the process of developing OME Model work?
 
 Regular meetings are held to review the model and discuss additions or
 changes. Before making any changes, we come up with a proposal. This
-outlines the changes required and why we think it is necessary. We then
-can publish this to the OME community and provide links to the relevant
+outlines the changes required and why we think it is necessary. We can then
+publish this to the OME community and provide links to the relevant
 work tickets. We generally only publish major changes or breaking
 changes in advance. Minor additions can usually be safely made so these
 are just published on release. We regularly ask the community for
@@ -73,16 +73,16 @@ Model.
 
 We have pages covering parts of the model in detail:
 
--  `Filter And FilterSet <filter-and-filterset>`_
--  `Screen Plate Well <screen-plate-well>`_ - our HCS solution
--  `Structured Annotations <structured-annotations>`_
+-  :doc:`Filter And FilterSet <filter-and-filterset>`
+-  :doc:`Screen Plate Well <screen-plate-well>` - our HCS solution
+-  :doc:`Structured Annotations <structured-annotations>`
 
 We also have pages covering specific use cases:
 
--  `SPIM Initial Support <spim-initial-support>`_ - this has been
+-  :doc:`SPIM Initial Support <spim-initial-support>` - this has been
    superseded by the general 6D,7D,8D solution
--  `6D, 7D and 8D Storage <6d-7d-and-8d-storage>`_
--  `Tiled Images <tiled-images>`_
+-  :doc:`6D, 7D and 8D Storage <6d-7d-and-8d-storage>`
+-  :doc:`Tiled Images <tiled-images>`
 
 If you are working with several versions of the OME Model, perhaps to
 support the loading/saving of a variety of files, then we recommend you
@@ -99,27 +99,8 @@ explanation:
 -  :doc:`LSID IDs and LSIDs in OME-XML <id-and-lsid>`
 
 
-What detailed documentation do you have?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-We have three types of detailed information available:
-
-What do you need to store in an OME-XML/OME-TIFF file?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-These pages have information on what parts of the model we expect to see
-values in to produce a file of a given quality/utility.
-
--  The required data for a OME Compliant file as outline in our
-   published work - see `Compliant File
-   Specification </site/support/file-formats/schemas/specifications/compliant-file-specification>`_
--  The required data for a OME Compliant HCS file - see `Compliant HCS
-   Specification </site/support/file-formats/schemas/specifications/compliant-hcs-specification>`_
--  Bare minimum required data to read an image - see `Minimum
-   Specification </site/support/file-formats/schemas/specifications/minimum-specification>`_
-
-If you want to look at some simple examples start as the `sample files
-page </site/support/file-formats/ome-tiff/ome-tiff-data>`_.
+If you want to look at some simple examples of OME-TIFF, see the 
+:doc:`sample files page </ome-tiff/ome-tiff-data>`.
 
 If you are writing your own files we also provide a
 `validator <http://validator.openmicroscopy.org.uk/>`_ you can use to
@@ -154,11 +135,15 @@ How do I get the technical schema description?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 These are published as `XSD
-files <http://www.openmicroscopy.org/Schemas/>`_ on out main website.
+files <http://www.openmicroscopy.org/Schemas/>`_ on our main website.
 They are usually read by XML validators and parsers but are viewable as
 text files.
 
-    For further information feel free to ask questions on the
-    `forums </community/>`_ and `mailing
-    lists </site/community/mailing-lists>`_.
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    filter-and-filterset
+    
+    
 
