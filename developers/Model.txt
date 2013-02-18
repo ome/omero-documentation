@@ -33,7 +33,7 @@ libraries and can be used in both the server and the RMI clients.
 mapping <components/blitz/resources/templates>` to
 generate |OmeroJava|, |OmeroPy|, and |OmeroCpp| classes, which can be
 :source:`mapped <components/blitz/src/omero/util/IceMapper.java>`
-back and forth to the server object model. *This document only discusses the
+back and forth to the server object model. *This document discusses only the
 server object-model and how it is used internally.*
 
 Instances of the object model have no direct interaction with the
@@ -42,7 +42,7 @@ Hibernate_. That means, by and large,
 generated classes are data objects, composed only of getter and setter
 fields for fields representing columns in the database, and contain no
 business logic. However, to make working with the model easier, and
-perhaps more powerful, there are several features which we've built-in.
+perhaps more powerful, there are several features which we have built-in.
 
 .. note::
 
@@ -103,10 +103,11 @@ file:`components/blitz/generated`.
 
 The generated Ice files along with the hand-written Ice files from
 :sourcedir:`components/blitz/resources/omero` are then run through the
-``slice2cpp``, ``slice2java``, and ``slice2py`` command-line utilities in order
-to generate source code in each of these languages. Clients pass in instances
-of these omero.model (or in the case of C++, omero::model) objects. These are
-transformed to ome.model objects, and then persisted to the database.
+``slice2cpp``, ``slice2java``, and ``slice2py`` command-line utilities in 
+order to generate source code in each of these languages. Clients pass in 
+instances of these omero.model (or in the case of C++, omero::model) objects. 
+These are transformed to ome.model objects, and then persisted to the 
+database.
 
 If we take a concrete example, a C++ client might create an Image via new
 omero::model::ImageI(). The "I" suffix represents an "implementation" in the
@@ -194,7 +195,8 @@ Details works something like unix's ``stat``:
     Change: 2006-01-25 20:40:30.000000000 +0100
 
 though it can also store arbitrary other attributes (meta-metadata, so
-to speak) about our model instances. See :ref:`Model#dynamic` below for more information.
+to speak) about our model instances. See :ref:`Model#dynamic` below for more 
+information.
 
 The main methods on Details are:
 
@@ -266,8 +268,8 @@ their "implements" clause:
 For example, ``ome.model.meta.Experimenter`` is a "global" type,
 therefore it has no ``Details.owner`` field. In order to create this
 type of object, you will either need to have admin privileges, or in
-some cases, use the ``ome.api.IAdmin`` interface directly. (In the case
-of enums, you will need to use the ``ome.api.ITypes`` interface.)
+some cases, use the ``ome.api.IAdmin`` interface directly (in the case
+of enums, you will need to use the ``ome.api.ITypes`` interface).
 
 .. _Model#Inheritance:
 
@@ -276,18 +278,19 @@ Inheritance
 
 Inheritance is supported in the object model. The superclass
 relationships can be defined simply in the mapping files. One example is
-the annotation hierarchy in :source:`components/model/resources/mappings/annotations.ome.xml`.
+the annotation hierarchy in 
+:source:`components/model/resources/mappings/annotations.ome.xml`.
 Hibernate supports this polymorophism, and will search all subclasses
 when a super class is returned. *However*, due to Hibernate's use of
 bytecode-generated proxies, testing for class equality is not always
-straight-forward.
+straightforward.
 
 Hibernate uses CGLIB and Javassist and similar bytecode generation to
 perform much of its magic. For these bytecode generated objects, the
 getClass() method return something of the form
 "ome.model.core.Image\_$$\_javassist" which cannot be passed back into
 Hibernate. Instead, we must first parse that class String with
-:source:`Utils#trueClass() <components/model/src/ome/util/Utils.java>`).
+:source:`Utils#trueClass() <components/model/src/ome/util/Utils.java>`.
 
 Model report objects
 ~~~~~~~~~~~~~~~~~~~~
@@ -323,7 +326,7 @@ acceptFilter
 ^^^^^^^^^^^^
 
 An automation of calls to ``putAt / retrieve`` can be achieved by
-implementing an ome.util.Filter?. A Filter is a VisitorPatter?-like
+implementing an ome.util.Filter. A Filter is a VisitorPattern-like
 interface which not only visits every field of an object, but also has
 the chance to replace the field value with an arbitrary other value.
 Much of the internal functionality in OMERO is achieved through filters.
@@ -373,7 +376,7 @@ Each instance can be found in one of several states. Quickly, they are:
     exception. The backend detects these proxies and restores their
     value before operating on the graph. There are two related states
     for collections -- null which is completely unloaded and filtered in
-    which certain items have been removed (more on this below.)
+    which certain items have been removed (more on this below).
 
 .. figure:: /images/ObjectStates.png
     :align: center
@@ -391,9 +394,9 @@ assumed to be non-persistent (i.e. transient).
 
 Though the id cannot be the sole decider of equality since there are issues
 with the Java definition of equals() and hashCode(), we often perform lookups
-based on the class and id of an instance. Here again caution must also be taken
-not to unintentionally use a possibly bytecode-generated subclass. See the
-discussion under :ref:`Model#Inheritance` above.
+based on the class and id of an instance. Here again caution must be 
+taken not to unintentionally use a possibly bytecode-generated subclass. See 
+the discussion under :ref:`Model#Inheritance` above.
 
 Class/id-based lookup is in fact so useful that it is possible to take
 an model object and call ``obj.unload()`` to have a "reference" --
@@ -455,7 +458,7 @@ With these states in mind, it is possible to start looking at how to
 actually use model objects. From the point of view of the server,
 everything is either an assertion of an object graph (a "write") or a
 request for an object graph (a "read"), whether they are coming from an
-RMI client, an :doc:`/developers/server-blitz` client, or even
+RMI client, an :doc:`server-blitz` client, or even
 being generated internally.
 
 Writing
@@ -558,10 +561,12 @@ newProject as well. Instead, an ``OptimisticLockExceptions`` is thrown
 if a user tries to change an older reference to an entity. Similar
 problems also arise in multi-user settings, when 2 users try to access
 the same object, but it is not purely due to multi-users or even
-multi-threads, but simply to stale state. (Note: There is an issue in
-the multi-user setting in which a ``SecurityViolation`` is thrown
-instead of an ``OptimisticLockException``. See
-:ticket:`1649` for more information).
+multi-threads, but simply to stale state. 
+
+.. note:: 
+    There is an issue in the multi-user setting in which a 
+    ``SecurityViolation`` is thrown instead of an ``OptimisticLockException``. 
+    See :ticket:`1649` for more information).
 
 Various techniques can help to manage these duplications are:
 
@@ -639,8 +644,8 @@ A special form of links collection model the many-to-many
 relationship between two other objects. A Project can contain any number
 of Datasets, and a Dataset can be in any number of Projects. This is
 achieved by ``ProjectDatasetLinks``, which have a Project "parent" and a
-Dataset "child". (The parent/child terms are somewhat arbitrary but are
-intended to fit roughly with the users' expectations for those types.)
+Dataset "child" (the parent/child terms are somewhat arbitrary but are
+intended to fit roughly with the users' expectations for those types).
 
 It is possible to both add and remove a link directly:
 
@@ -698,7 +703,7 @@ necessary to do something along the following lines of:
 The unlink method in this case, removes the link from both the
 Project.datasetLinks collection as well as from the Dataset.projectLinks
 collection. Hibernate notices that both collections are in agreement,
-and deletes the ProjectDatasetLink? (this is achieved via the
+and deletes the ProjectDatasetLink (this is achieved via the
 "delete-orphan" annotation in Hibernate). If only one side of the
 collection has had its link removed, an exception will be thrown.
 
@@ -716,10 +721,10 @@ Future topics
 -  Validation: Since the accessor methods themselves are largely
    logic-less, the work of validating the objects has been offset to
    validation objects and the Hibernate system. For each given object, a
-   validation method can be specified which will check instance fields.
+   validation method can be specified which will check instance fields
    (TODO: the null-policy should be configurable based on whether or not
-   the object is currently in a session) Validation is intended to
-   verify the specification constraints which can not (easily and/or
+   the object is currently in a session). Validation is intended to
+   verify the specification constraints which cannot (easily and/or
    quickly) be verified by the database.
 -  Versioning/Locking?
 -  ObjectFactory? for wrapping model objects from :doc:`/developers/server-blitz`

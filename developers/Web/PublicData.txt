@@ -8,13 +8,13 @@ data that is available to the defined 'public user'.
 
 Here is how to go about setting this up on your OMERO.web install:
 
--   Create a group with readonly permissions (name can be anything, E.g.
-    "public-data". We use read-only permissions so that the public user will 
+-   Create a group with read-only permissions (name can be anything e.g.
+    "public-data"). We use read-only permissions so that the public user will 
     not be able to modify, delete or annotate data belonging to other members.
 
--   Create a member of this group, noting the username and password (we'll 
-    enter these below). Again, the First Name, Last Name, username & password 
-    can be anything you like.
+-   Create a member of this group, noting the username and password (we will 
+    enter these below). Again, the First Name, Last Name, username and 
+    password can be anything you like.
 
 -   Enable the public user and set their username and password:
 
@@ -33,7 +33,7 @@ Here is how to go about setting this up on your OMERO.web install:
     this).
 
     The idea is that you can create the public pages yourself since we do not 
-    provide them. for example, to only allow 
+    provide them. For example, to only allow 
     urls that start with '/my_web_public' you would use: 
 
     ::
@@ -58,7 +58,8 @@ Here is how to go about setting this up on your OMERO.web install:
         '/webtest' matches '/webtest...' but also '/webclient/webtest' 
         '/webtest' matches '/webtest...' but not '/webclient/webtest'
 
-    Set a server to connect to. Default: 1 (the first server in omero.web.server_list)
+    Set a server to connect to. Default: 1 (the first server in 
+    omero.web.server_list)
 
     ::
 
