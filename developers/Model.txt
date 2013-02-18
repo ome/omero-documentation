@@ -326,7 +326,7 @@ acceptFilter
 ^^^^^^^^^^^^
 
 An automation of calls to ``putAt / retrieve`` can be achieved by
-implementing an ome.util.Filter. A Filter is a VisitorPatter-like
+implementing an ome.util.Filter. A Filter is a VisitorPattern-like
 interface which not only visits every field of an object, but also has
 the chance to replace the field value with an arbitrary other value.
 Much of the internal functionality in OMERO is achieved through filters.
