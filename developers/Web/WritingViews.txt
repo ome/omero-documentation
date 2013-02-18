@@ -171,7 +171,7 @@ reasonable way.
 
 For 'unexpected' server errors, it is best to allow the exception to be
 handled by Django since this will provide a lot more info to the user
-(request details etc.) and format html etc (both with Debug True or
+(request details etc.) and format html (both with Debug True or
 False).
 
 If you still want to handle the exception yourself, you can provide
