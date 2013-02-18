@@ -4,15 +4,19 @@ OMERO.web
 
 Using OMERO.web to view and work with image data via a web browser.
 
-You need to use the URL provided by your institute’s OMERO administrator to access the OMERO.web client.
+You need to use the URL provided by your institute’s OMERO administrator to 
+access the OMERO.web client.
 
-Logging in, you do not have to enter a server name, but otherwise it is the same as for OMERO.insight, using the same username and password.
+Logging in, you do not have to enter a server name, but otherwise it is the 
+same as for OMERO.insight, using the same username and password.
 
 |
 
 #. The default screen shows your data tree in the left-hand panel.
 
-   When data is selected in the tree, the thumbnails are displayed in the centre panel, and the metadata and other information in the right-hand panel. 
+   When data is selected in the tree, the thumbnails are displayed in the 
+   centre panel, and the metadata and other information in the right-hand 
+   panel. 
 
    |
 
@@ -22,7 +26,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. To view an image in the **Image Viewer**, select the image in the data tree and click on the **Launch Full Viewer** button.
+#. To view an image in the **Image Viewer**, select the image in the data tree 
+   and click on the **Launch Full Viewer** button.
 
    or double click on the image or thumbnail.
 
@@ -34,7 +39,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. In the **Image Viewer** images can be viewed in **Normal**, **Maximum Intensity** or **Split-Channel**. 
+#. In the **Image Viewer** images can be viewed in **Normal**, **Maximum 
+   Intensity** or **Split-Channel**. 
 
    |
 
@@ -44,7 +50,9 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. Scroll or step through Z stacks using the slider and controls to the left of the image, and time sequences (T) using the slider and controls below the image.
+#. Scroll or step through Z stacks using the slider and controls to the left 
+   of the image, and time sequences (T) using the slider and controls below 
+   the image.
 
    |
 
@@ -82,7 +90,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. Click on **Image Information** to see the basic information and dimensions of the image.
+#. Click on **Image Information** to see the basic information and dimensions 
+   of the image.
 
    |
 
@@ -94,7 +103,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
 #. Click on **Image Link** to generate a URL which can be copied and pasted.
 
-   This link provides direct access via a web browser to your image, allowing people who are not in your group or even OMERO users to view your image.
+   This link provides direct access via a web browser to your image, allowing 
+   people who are not in your group or even OMERO users to view your image.
 
    |
 
@@ -104,9 +114,11 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. Click on **Show ROIs** to view ROIs on the image and see details in the pop-up window (only visible if the image has ROIs).
+#. Click on **Show ROIs** to view ROIs on the image and see details in the 
+   pop-up window (only visible if the image has ROIs).
 
-   Existing ROIs can be viewed but cannot be edited, and new ROIs cannot added.
+   Existing ROIs can be viewed but cannot be edited, and new ROIs cannot 
+   added.
 
    |
 
@@ -116,7 +128,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. In the **General** tab of the right-hand panel, click on the pencil icon to edit the image name or image description.
+#. In the **General** tab of the right-hand panel, click on the pencil icon to 
+   edit the image name or image description.
 
    Summary details of the image can be seen below the description.
 
@@ -128,7 +141,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. Click on the **Link** button to generate a URL to share the image (as described previously).
+#. Click on the **Link** button to generate a URL to share the image (as 
+   described previously).
 
    |
 
@@ -140,7 +154,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
 #. Click on the + button to add a Tag or Attachment.
 
-   You can attach existing tags or files, create and attach new tags or upload and attach files from discs.
+   You can attach existing tags or files, create and attach new tags or upload 
+   and attach files from discs.
 
    Click on **Accept** to complete.
 
@@ -152,7 +167,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. Enter a new comment in the text box and click on the **Add Comment** button to save.
+#. Enter a new comment in the text box and click on the **Add Comment** button 
+   to save.
 
    |
 
@@ -162,9 +178,11 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. If you belong to more than one group, you can interact with the data of other users in your group. 
+#. If you belong to more than one group, you can interact with the data of 
+   other users in your group. 
 
-   Click on the drop-down arrow to the right of your name in the bar above the data tree, and select the desired group and user.
+   Click on the drop-down arrow to the right of your name in the bar above the 
+   data tree, and select the desired group and user.
 
    |
 
@@ -174,7 +192,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. You can also share data with other users in different groups by adding it to your **Public** list.
+#. You can also share data with other users in different groups by adding it 
+   to your **Public** list.
 
    Select the image(s) you wish to share.
 
@@ -188,11 +207,14 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. A red number, representing the number of shared images, will appear in the Basket icon to the right side of the top toolbar.
+#. A red number, representing the number of shared images, will appear in the 
+   Basket icon to the right side of the top toolbar.
 
-   Click on the numbered **Basket** button to view a list of shared items in the basket.
+   Click on the numbered **Basket** button to view a list of shared items in 
+   the basket.
 
-   Click on the **Manage Basket** button in the drop-down list to view the images.
+   Click on the **Manage Basket** button in the drop-down list to view the 
+   images.
 
    |
 
@@ -202,7 +224,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. Select an image and click on the **Globe** button in the **Basket** window to share it.
+#. Select an image and click on the **Globe** button in the **Basket** window 
+   to share it.
 
    |
 
@@ -212,7 +235,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. In the **Share** window add a message and select the members you wish to share the data with.
+#. In the **Share** window add a message and select the members you wish to 
+   share the data with.
 
    Click **Accept** when you have finished.
 
@@ -224,7 +248,8 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. Click on the **Public** tab of the left-hand panel to view the data shared with you and other users.
+#. Click on the **Public** tab of the left-hand panel to view the data shared 
+   with you and other users.
 
    |
 
@@ -234,13 +259,18 @@ Logging in, you do not have to enter a server name, but otherwise it is the same
 
    |
 
-#. From the OMERO.web client, you can download and run a **Java Web Start** version of OMERO.insight.
+#. From the OMERO.web client, you can download and run a **Java Web Start** 
+   version of OMERO.insight.
 
-   Using the **Java Web Start** OMERO.insight client enables you to import data, edit ROIs and use other functionality not yet supported by the OMERO.web client.
+   Using the **Java Web Start** OMERO.insight client enables you to import 
+   data, edit ROIs and use other functionality not yet supported by the 
+   OMERO.web client.
 
-   **Java Web Start** also enables OMERO.insight client to be used on machines where restrictions prevent you from installing new software.
+   **Java Web Start** also enables OMERO.insight client to be used on machines 
+   where restrictions prevent you from installing new software.
 
-   Click on the **Java Web Start** button and follow the instructions, accepting the software as “Trusted”.
+   Click on the **Java Web Start** button and follow the instructions, 
+   accepting the software as “Trusted”.
 
    |
 
