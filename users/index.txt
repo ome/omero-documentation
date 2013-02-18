@@ -23,9 +23,15 @@ of the server is specified at login. Since this connection utilises a standard
 network connection, the client can be run anytime the user is connected to the 
 internet.
 
+.. figure:: /images/omero-overview.png
+    :width: 85% 
+    :align: center
+    :alt: The OMERO Platform
+
 This documentation is for the latest version of the OMERO Platform. We
 also have archived versions available for :legacy_plone:`legacy versions of
-OMERO <support/legacy/>`. For more technical information, please refer to the :doc:`/developers/index`.
+OMERO <support/legacy/>`. For more technical information, please refer to the 
+:doc:`/developers/index`.
 
 -   There are a number of demonstration videos available on the
     :feature_plone:`Features List <>` page, providing an
@@ -56,13 +62,10 @@ provided):
     demo-server
     virtual-appliance
 
-***********************************
-How-To Guides For Using The Clients
-***********************************
 
-
+********************
 OMERO.insight guides
-====================
+********************
 
 .. toctree::
     :maxdepth: 2
@@ -77,8 +80,9 @@ OMERO.insight guides
     client-tutorials/insight/output
     client-tutorials/insight/scripts
 
+****************
 OMERO.web guides
-================
+****************
 
 .. toctree::
     :maxdepth: 2
@@ -87,9 +91,9 @@ OMERO.web guides
     client-tutorials/web/web-client
     client-tutorials/web/urls_to_data
 
-
+*******************
 OMERO.editor guides
-===================
+*******************
 
 OMERO.editor is not under active development at present, but can still be used 
 for recording more detailed experimental metadata:
@@ -101,8 +105,9 @@ for recording more detailed experimental metadata:
     client-tutorials/editor/editor
     client-tutorials/editor/editor-getting-started
 
+****************
 OMERO and ImageJ
-================
+****************
 
 .. toctree::
     :maxdepth: 1
@@ -110,8 +115,9 @@ OMERO and ImageJ
 
     client-tutorials/imagej
 
+********************
 More advanced guides
-====================
+********************
 
 .. toctree::
     :maxdepth: 2
