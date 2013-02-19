@@ -19,7 +19,7 @@ The OMERO clients are cross-platform. To run on your computer they require
 Java 1.5 or higher to be installed. This can easily be installed from
 http://java.com/en if it is not already included in your OS. The OMERO.insight 
 client gets all of its information from a remote OMERO.server — the location 
-of the server is specified at login. Since this connection utilises a standard 
+of which is specified at login. Since this connection utilises a standard 
 network connection, the client can be run anytime the user is connected to the 
 internet.
 

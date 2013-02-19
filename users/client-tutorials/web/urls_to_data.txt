@@ -1,8 +1,8 @@
-Urls for linking to Data
+URLs for linking to Data
 ========================
 
 Since the 4.4.4 release of OMERO, the OMERO.web client has supported direct 
-linking to Projects, Datasets, Images etc. using a url of this form:
+linking to Projects, Datasets, Images etc. using a URL of this form:
 
 
 ::
@@ -11,13 +11,13 @@ linking to Projects, Datasets, Images etc. using a url of this form:
 
 For example, to link to Dataset 314 on OMERO.web hosted at 
 ``http://yourdomain.example.org/omero/webclient``
-the full url will be:
+the full URL will be:
 
 ::
 
     http://yourdomain.example.org/omero/webclient/?show=dataset-314
 
-This url is supported for the following data types:
+This URL is supported for the following data types:
 
 * project
 * dataset
@@ -34,7 +34,7 @@ work for any user who has permission to see the object).
 For example, if you create a link to an Image, this will be valid even if you 
 move the Image to a different Dataset and/or move it to a different Group.
 
-You can find this url when viewing any object by clicking on the 'link' icon 
+You can find this URL when viewing any object by clicking on the 'link' icon 
 in the right-hand panel.
 
 Multiple objects are also supported using the ``|`` symbol, as long as they 
@@ -46,4 +46,4 @@ are in the same container.
 
 This will select 2 Images assuming the second one is in the same Dataset as 
 the first. You can generate this
-url by clicking on the 'link' icon when multiple objects are selected.
+URL by clicking on the 'link' icon when multiple objects are selected.

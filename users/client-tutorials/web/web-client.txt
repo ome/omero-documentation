@@ -15,7 +15,7 @@ same as for OMERO.insight, using the same username and password.
 #. The default screen shows your data tree in the left-hand panel.
 
    When data is selected in the tree, the thumbnails are displayed in the 
-   centre panel, and the metadata and other information in the right-hand 
+   center panel, and the metadata and other information in the right-hand 
    panel. 
 
    |
@@ -104,7 +104,8 @@ same as for OMERO.insight, using the same username and password.
 #. Click on **Image Link** to generate a URL which can be copied and pasted.
 
    This link provides direct access via a web browser to your image, allowing 
-   people who are not in your group or even OMERO users to view your image.
+   people who are outside your group or not even OMERO users to view your 
+   image.
 
    |
 
@@ -117,7 +118,7 @@ same as for OMERO.insight, using the same username and password.
 #. Click on **Show ROIs** to view ROIs on the image and see details in the 
    pop-up window (only visible if the image has ROIs).
 
-   Existing ROIs can be viewed but cannot be edited, and new ROIs cannot 
+   Existing ROIs can be viewed but cannot be edited, and new ROIs cannot be
    added.
 
    |
@@ -155,7 +156,7 @@ same as for OMERO.insight, using the same username and password.
 #. Click on the + button to add a Tag or Attachment.
 
    You can attach existing tags or files, create and attach new tags or upload 
-   and attach files from discs.
+   and attach files from disks.
 
    Click on **Accept** to complete.
 

@@ -38,7 +38,7 @@ the demo server is upgraded (we will email you to inform you).
 2. :ref:`JavaWeb`
 
 This automatically downloads the current version of the client, ensuring you 
-are not using an out of date version, but it requires re-downloading each 
+are not using an out-of-date version, but it requires re-downloading each 
 session.  Depending on the individual security and Java set-up on your 
 computer, you may find you cannot use Web Start.
 
@@ -140,7 +140,7 @@ Further guides and help
 =======================
 
 - An OMERO.insight Getting Started guide that shows you how to import and view 
-  your data, and use the measurement tool can be downloaded from:
+  your data, and use the measurement tool, can be downloaded from:
 
   :training_plone:`OMERO.insight Getting Started Guide <user-guides/OMERO%20Insight%20Getting%20Started%20Guide.pdf>`
 
