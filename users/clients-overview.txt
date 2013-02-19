@@ -56,7 +56,7 @@ OMERO.insight provides a number of tools for accessing and using data in an
 OMERO Server. The figure :ref:`omero_insight_4_4_viewer` presents the
 OMERO.insight image viewer, whereas figure :ref:`omero_insight_screenshot_4_4`
 presents the user interface [1]_ [3]_. To find out more, see
-:doc:`clients-getting-started`.
+:doc:`client-tutorials/insight/getting-started`.
 
 .. _omero_insight_4_4_viewer:
 .. figure:: /images/omero_insight_4_4_viewer.png
@@ -136,7 +136,7 @@ stand-alone application. The OMERO.importer allows the import of proprietary
 image data files from a filesystem accessed from the user's computer to a
 running OMERO Server. This tool uses a standard file browser to select the
 image files to an OMERO Server. For a full tutorial, please see
-:doc:`client-tutorials/insight/insight-import`.
+:doc:`client-tutorials/insight/importing-data`.
 
 The tool uses Bio-Formats for translation of proprietary file formats in
 preparation for upload to an OMERO Server. Visit 
