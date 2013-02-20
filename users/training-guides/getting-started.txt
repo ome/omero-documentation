@@ -109,7 +109,7 @@ Adding image data
    |
 
    .. image:: /images/tutor/gettingStartedFileChooser.jpg
-       :width: 88%
+       :width: 100%
        :align: center
 
    |
@@ -132,7 +132,9 @@ Adding image data
 
    - an existing project and/or dataset can be selected
 
-   - a new dataset can be automatically created from the source folder.
+   - a new dataset can be automatically created from the source folder
+   
+   - click **Add to the Queue**.
 
    |
 
@@ -142,17 +144,7 @@ Adding image data
 
    |
 
-5. Click **Add to the Queue**.
-
-   |
-
-   .. image:: /images/tutor/gettingStartedQueue.jpg
-       :width: 75%
-       :align: center
-
-   |
-
-6. Data to be imported appears in queue pane.
+5. Data to be imported appears in queue pane.
 
    A copy of the original data can be archived in its original format by checking the box in the right most column.
 
@@ -164,7 +156,7 @@ Adding image data
 
    |
 
-7. Click on **Import**.
+6. Click on **Import**.
 
    |
 
@@ -174,7 +166,7 @@ Adding image data
 
    |
 
-8. Import progress will be shown in the **Import #** 1 tab.
+7. Import progress will be shown in the **Import #** 1 tab.
 
    Further data for import can be queued and imported using the Select Data for Import tab.
 
@@ -188,7 +180,7 @@ Adding image data
 
    |
 
-9. Hovering over a thumbnail of the imported image shows a larger preview.
+8. Hovering over a thumbnail of the imported image shows a larger preview.
 
    Double clicking on the thumbnail opens it in the image viewer window.
 
@@ -202,7 +194,7 @@ Adding image data
 
    |
 
-10. The imported data can be seen in the Data Manager.
+9. The imported data can be seen in the Data Manager.
 
 |
 
