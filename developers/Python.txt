@@ -40,7 +40,7 @@ All the code examples below can be found at
 
 
 Start by downloading the first example below: 
-:sourcedir:`examples/Training/python/Connect_To_OMERO.py` and edit the 
+:source:`examples/Training/python/Connect_To_OMERO.py` and edit the
 USERNAME and PASSWORD variables according to your log-in.
 
 Then you can run the example:
