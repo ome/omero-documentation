@@ -1,17 +1,15 @@
-OMERO.editor
-============
+Introduction to OMERO.editor
+============================
 
-Introduction
-------------
-
-OMERO.editor is a Java tool that requires `Java 1.5 <http://java.com/en/download/>`_
+OMERO.editor is a Java tool that requires 
+`Java 1.5 <http://java.com/en/download/>`_
 and can operate as a stand-alone application or as part of the
 OMERO.insight client. In both cases, it saves metadata as XML files that
-can be used to annotate images, datasets, etc, in OMERO. If used as part
+can be used to annotate images, datasets etc., in OMERO. If used as part
 of OMERO.insight, the files can be saved to an OMERO server.
 
-A :snapshot:`demo movie <omero/editor/movies/OMERO.editor-Beta4.mov>` of the OMERO.editor
-illustrates some of its functionalities.
+A :snapshot:`demo movie <omero/editor/movies/OMERO.editor-Beta4.mov>` of the 
+OMERO.editor illustrates some of its functionalities.
 
 The OMERO.editor has been designed to achieve two key functions:
 
@@ -53,7 +51,8 @@ more familiar to users, the central panel can be used
 to view the protocol in a 'Text View' or in a 'Tree View', see below.
 You can switch between the two views by using the tabs at the top of the page.
 
-The **Text View** displays the title, description and parameters in a page layout.
+The **Text View** displays the title, description and parameters in a page 
+layout.
 
 .. _editor-textview:
 
