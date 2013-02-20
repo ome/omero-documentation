@@ -19,7 +19,7 @@ Bio-Formats
 
 The Bio-Formats repository is available from:
 
--  `<https://github.com/openmicroscopy/bioformats>`_
+-  https://github.com/openmicroscopy/bioformats
 -  git://openmicroscopy.org/bioformats.git
 
 
@@ -28,7 +28,7 @@ OME
 
 The main repository, known as ome.git, is available from:
 
--  `<https://github.com/openmicroscopy/openmicroscopy.git>`_
+-  https://github.com/openmicroscopy/openmicroscopy
    and
 -  git://openmicroscopy.org/ome.git
 
@@ -36,7 +36,7 @@ Most of these repositories are read-only locations which are kept in
 sync for public consumption. A third centrally available location is
 also available though not publicly:
 
--  ssh\:\/\/git.openmicroscopy.org/home/git/team.git
+-  \ssh://git.openmicroscopy.org/home/git/team.git
 
 ``team.git`` is useful for team-internal branches which are not yet
 ready for public consumption. Changes that are not ready to be reviewed
@@ -44,11 +44,11 @@ by the public can be exchanged via team. This allows you to internally
 collaborate on a branch or simply to back-up your work.
 
 After that, each member of the github openmicroscopy organization
-(`<https://github.com/openmicroscopy>`_)
+(https://github.com/openmicroscopy)
 as well as anyone else who has clicked the “Fork” button will have their
 own repository. These are listed here:
 
--  `<https://github.com/openmicroscopy/openmicroscopy/network/members>`_
+-  https://github.com/openmicroscopy/openmicroscopy/network/members
 
 Git quickstart
 ~~~~~~~~~~~~~~
