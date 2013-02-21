@@ -30,7 +30,7 @@ The primary classes which make up the Import Library are:
    :source:`OMEROGateway.java <components/insight/SRC/org/openmicroscopy/shoola/env/data/OMEROGateway.java>`
 -  In the CLI, the main entry point is the
    :source:`CommandLineImporter <components/blitz/src/ome/formats/importer/cli/CommandLineImporter.java>`
-   class.
+   class
 
 Earlier Import Workflow
 -----------------------
