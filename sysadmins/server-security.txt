@@ -31,9 +31,9 @@ Firewall configuration
 Securing your OMERO system with so called *firewalling* or *packet filtering*
 can be done quite easily. By default, OMERO clients only need to connect to
 two TCP ports for communication with your OMERO.server: 4063 (unsecured) and
-4064 (|SSL|). These are the IANA_ assigned port for the Glacier2 router from
-ZeroC_. Both of these values, however, are completely up to you, see |SSL|
-below.
+4064 (|SSL|). These are the IANA_ assigned ports for the Glacier2 router from
+ZeroC_. Both of these values, however, are completely up to you, see
+:ref:`security_ssl` below.
 
 Important OMERO ports:
 
