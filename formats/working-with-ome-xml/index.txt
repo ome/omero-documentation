@@ -66,16 +66,19 @@ before they are implemented into the currently released schema:
 How can I, as a developer, work with your model?
 ------------------------------------------------
 
-A good place to start is by looking at the `Model Overview
-collection of diagrams <model-overview-2010-04>`_ we have put together
+A good place to start is by looking at the :doc:`Model Overview
+collection of diagrams <model-overview-2010-04>` we have put together
 showing the structure and connection between different parts of the OME
 Model.
 
 We have pages covering parts of the model in detail:
 
--  :doc:`Filter And FilterSet <filter-and-filterset>`
--  :doc:`Screen Plate Well <screen-plate-well>` - our HCS solution
+-  :doc:`Filter And FilterSet <filter-and-filterset-2010-04>`
+-  :doc:`Screen Plate Well <screen-plate-well-2010-4>` - our HCS solution
 -  :doc:`Structured Annotations <structured-annotations>`
+-  :doc:`Regions of Interest (ROIs) <roi-2012-06>`
+
+:doc:`Legacy versions <legacy/index>` of these documents are also available.
 
 We also have pages covering specific use cases:
 
@@ -105,6 +108,12 @@ If you want to look at some simple examples of OME-TIFF, see the
 If you are writing your own files we also provide a
 `validator <http://validator.openmicroscopy.org.uk/>`_ you can use to
 check your files.
+
+There are two Python applications to help you work with OME-XML - 
+:doc:`EnumTool`, which is designed to digest OME-XML schema and
+produce meaningful output about enumerations, and :doc:`XsdFu`, which digests 
+OME XML schema and produces an object oriented Java infrastructure to ease 
+work with an XML DOM tree.
 
 What does an individual attribute or element store?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -139,15 +148,26 @@ files <http://www.openmicroscopy.org/Schemas/>`_ on our main website.
 They are usually read by XML validators and parsers but are viewable as
 text files.
 
+Using OME schema elements in your own XML files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+See :doc:`using-ome-xml-in-your-work` for further guidance.
+
 .. toctree::
     :maxdepth: 1
     :hidden:
 
-    model-overview
-    filter-and-filterset
-    screen-plate-well
+    model-overview-2010-04
+    filter-and-filterset-2010-04
+    screen-plate-well-2010-04
     structured-annotations
+    roi-2012-06
     spim-initial-support
     6d-7d-and-8d-storage
     tiled-images
+    EnumTool
+    XsdFu
+    using-ome-xml-in-your-work
+    /schemas/versions/index
+    legacy/index
 
