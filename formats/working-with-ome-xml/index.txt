@@ -29,6 +29,13 @@ All the OME code is stored in a central Git repository. The OME Data
 Model part of this is available here:
 `specification <http://github.com/openmicroscopy/openmicroscopy/tree/develop/components/specification>`_.
 
+Sample Image Files
+------------------
+
+There are sample files, along with an explanation of their structure is on
+the :doc:`sample-files` page.
+
+
 How does the process of developing OME Model work?
 --------------------------------------------------
 
@@ -74,7 +81,7 @@ Model.
 We have pages covering parts of the model in detail:
 
 -  :doc:`Filter And FilterSet <filter-and-filterset-2010-04>`
--  :doc:`Screen Plate Well <screen-plate-well-2010-4>` - our HCS solution
+-  :doc:`Screen Plate Well <screen-plate-well-2010-04>` - our HCS solution
 -  :doc:`Structured Annotations <structured-annotations>`
 -  :doc:`Regions of Interest (ROIs) <roi-2012-06>`
 
@@ -89,11 +96,11 @@ We also have pages covering specific use cases:
 
 If you are working with several versions of the OME Model, perhaps to
 support the loading/saving of a variety of files, then we recommend you
-look at the :doc:`/schemas/versions/index` pages. They show what happened with 
+look at the :doc:`/formats/schemas/versions/index` pages. They show what happened with 
 each release.
 
 -  The **current major release** - see :doc:`Changes For June
-   2012 </schemas/versions/june-2012>`.
+   2012 </formats/schemas/versions/june-2012>`.
 
 
 There are some concepts used in the Model that benefit from an
@@ -103,7 +110,7 @@ explanation:
 
 
 If you want to look at some simple examples of OME-TIFF, see the 
-:doc:`sample files page </ome-tiff/ome-tiff-data>`.
+:doc:`sample files page </formats/ome-tiff/ome-tiff-data>`.
 
 If you are writing your own files we also provide a
 `validator <http://validator.openmicroscopy.org.uk/>`_ you can use to
@@ -116,7 +123,7 @@ OME XML schema and produces an object oriented Java infrastructure to ease
 work with an XML DOM tree.
 
 What does an individual attribute or element store?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We have auto-generated documentation available for each release of the
 schema. This has information on each attribute and element:
@@ -141,15 +148,26 @@ schema. This has information on each attribute and element:
    (FC) </Schemas/Documentation/Generated/OME-2003/ome.xsd.html>`_
 
 How do I get the technical schema description?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These are published as `XSD
 files <http://www.openmicroscopy.org/Schemas/>`_ on our main website.
 They are usually read by XML validators and parsers but are viewable as
 text files.
 
+.. note:: 
+    any schemas and documentation below
+    http://www.openmicroscopy.org/XMLschemas/ is preserved for legacy
+    support only. This includes the 2003FC schema used by the original
+    OME server.
+
+There are transforms available that convert between the the different versions 
+of the schemas. They can be downloaded from:
+
+`http://www.openmicroscopy.org/Schemas/Transforms/ <http://www.openmicroscopy.org/Schemas/Transforms/>`_
+
 Using OME schema elements in your own XML files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See :doc:`using-ome-xml-in-your-work` for further guidance.
 
@@ -165,9 +183,10 @@ See :doc:`using-ome-xml-in-your-work` for further guidance.
     spim-initial-support
     6d-7d-and-8d-storage
     tiled-images
+    id-and-lsid
     EnumTool
     XsdFu
     using-ome-xml-in-your-work
-    /schemas/versions/index
+    sample-files
     legacy/index
 
