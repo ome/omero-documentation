@@ -82,6 +82,48 @@ requirements for OMERO will be installed to ``/usr/local``.
 
 If you are having issues with curl, see the the :ref:`install_homebrew_curl` section under :ref:`install_homebrew_common_issues`.
 
+OMERO installation
+------------------
+
+At this point you have three choices:
+
+-   If you just want a deployment of the |release| release of OMERO.server
+then a simple homebrew install is sufficient, e.g.
+
+    ::
+
+        $ brew install omero
+
+-   However if you wish to pull OMERO.server from the git repo for development
+    purposes then it is worth setting up OMERO.server manually rather than
+    using homebrew. Prepare a place for your OMERO code to live, e.g.
+
+    ::
+
+        $ mkdir -p ~/code/projects/OMERO
+        $ cd ~/code/projects/OMERO
+
+    Now clone the OMERO github repository:
+
+    ::
+
+        $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
+
+    .. note::
+        If you have a github account & you plan to develop code for OMERO
+        then you should make a fork into your own account then clone to your
+        local development machine, e.g.
+
+        ::
+
+            $ git clone --recursive git://github.com/YOURNAMEHERE/openmicroscopy
+
+    Then build
+
+    ::
+
+        $ cd openmicroscopy && ./build.py
+
 OMERO requirements installation
 -------------------------------
 
@@ -128,46 +170,6 @@ Install PostgreSQL if you do not have another PostgreSQL installation that you c
     $ brew install postgresql
 
 
-OMERO installation
-------------------
-
-At this point you have three choices:
-
--   If you just want a deployment of the current release of OMERO.server then a simple homebrew install is sufficient, e.g.
-
-    ::
-
-        $ brew install omero
-
--   However if you wish to pull OMERO.server from the git repo for development 
-    purposes then it is worth setting up OMERO.server manually rather than 
-    using homebrew. Prepare a place for your OMERO code to live, e.g.
-
-    ::
-
-        $ mkdir -p ~/code/projects/OMERO
-        $ cd ~/code/projects/OMERO
-
-    Now clone the OMERO github repository:
-
-    ::
-
-        $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
-
-    .. note::
-        If you have a github account & you plan to develop code for OMERO
-        then you should make a fork into your own account then clone to your
-        local development machine, e.g.
-
-        ::
-
-            $ git clone --recursive git://github.com/YOURNAMEHERE/openmicroscopy
-
-    Then build
-
-    ::
-
-        $ cd openmicroscopy && ./build.py
 
 Configuration
 -------------
