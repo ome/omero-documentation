@@ -139,12 +139,6 @@ At this point you have three choices:
 
         $ brew install omero
 
--   If you want to install the 4.3.4 version of OMERO.server, you can use the omero43 formula
-
-    ::
-
-        $ brew install omero43
-
 -   However if you wish to pull OMERO.server from the git repo for development 
     purposes then it is worth setting up OMERO.server manually rather than 
     using homebrew. Prepare a place for your OMERO code to live, e.g.
