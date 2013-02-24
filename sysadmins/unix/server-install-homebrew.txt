@@ -13,38 +13,33 @@ including support for the ``brew tap`` command.
 Prerequisites
 -------------
 
-OS X
-^^^^
+OS X/Xcode
+^^^^^^^^^^
 
-This procedure has been tested on the following Mac OS X versions and hardware:
+.. _OS X Developer Tools: https://developer.apple.com/technologies/tools/
 
-===================================================== ================
-Model identifier                                      Mac OS X version
-===================================================== ================
-MacMini2,1    (Intel Core 2 Duo, 1.83 GHz, 1GB RAM)   10.5.8 (9L31a)
-MacBook                                               10.6.8
-MacMini1,1    (Intel Core Duo, 1.66GHz, 2GB RAM)      10.6.8
-MacBookPro1,1 (Intel Core Duo, 2.16GHz, 2GB RAM)      10.6.8
-MacBookPro8,2 (Intel Core i7, 2.3 GHz, 8 GB RAM)      10.7.4
-===================================================== ================
+Install the `OS X Developer Tools`_. This procedure has been tested on the
+following configurations:
 
-Xcode
-^^^^^
+.. list-table::
+    :header-rows: 1
+    :widths: 30, 10,10
 
-Install OS X `Developer Tools <https://developer.apple.com/technologies/tools/>`_. 
-This procedure has been tested with the the following Xcode distributions:
+    - * Model Identifier
+      * Mac OS X version
+      * Xcode version
 
-================================ ================
-Xcode version                    Mac OS X version
-================================ ================
-xcode314_2809_developerdvd.dmg   10.5.8
-xcode_3.2.6_and_ios_sdk_4.3.dmg  10.6.8
-Xcode 4.3.2                      10.7.3
-================================ ================
+    - * MacBookPro1,1 (Intel Core Duo, 2.16GHz, 2GB RAM)
+      * 10.6.8
+      * 3.2.6
+
+    - * MacBookPro8,2 (Intel Core i7, 2.3 GHz, 8 GB RAM)
+      * 10.7.5
+      * 4.6
 
 .. note:: 
 
-    For Xcode 4.3.2, make sure that the Command line tools are installed 
+    For Xcode 4.x, make sure that the Command line tools are installed
     (:menuselection:`Preferences --> Downloads --> Components`)
 
 Python (>=2.4)
@@ -73,7 +68,7 @@ Homebrew installation
 ---------------------
 
 Follow the installation instructions on the `Homebrew wiki <https://github.com/mxcl/homebrew/wiki/installation>`_. All
-requirements for OMERO will be installed to ``/usr/local``.
+requirements for OMERO will be installed to :file:`/usr/local`.
 
 ::
 
@@ -158,7 +153,7 @@ can use.
 Python dependencies
 ^^^^^^^^^^^^^^^^^^^
 
-Download and execute the `python_deps.sh` installation script:
+Download and execute the ``python_deps.sh`` installation script:
 
 ::
 
