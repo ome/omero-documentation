@@ -14,7 +14,7 @@ Prerequisites
 -------------
 
 OS X
-~~~~
+^^^^
 
 This procedure has been tested on the following Mac OS X versions and hardware:
 
@@ -29,7 +29,7 @@ MacBookPro8,2 (Intel Core i7, 2.3 GHz, 8 GB RAM)      10.7.4
 ===================================================== ================
 
 Xcode
-~~~~~
+^^^^^
 
 Install OS X `Developer Tools <https://developer.apple.com/technologies/tools/>`_. 
 This procedure has been tested with the the following Xcode distributions:
@@ -48,7 +48,7 @@ Xcode 4.3.2                      10.7.3
     (:menuselection:`Preferences --> Downloads --> Components`)
 
 Python (>=2.4)
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 Check you have Python installed (and its version):
 
@@ -58,7 +58,7 @@ Check you have Python installed (and its version):
     Python 2.7.3
 
 Java (>=1.5)
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 You also need Java which comes as standard on OS X.
 
@@ -85,97 +85,94 @@ If you are having issues with curl, see the the :ref:`install_homebrew_curl` sec
 OMERO installation
 ------------------
 
-At this point you have three choices:
+OMERO |release|
+^^^^^^^^^^^^^^^
 
--   If you just want a deployment of the |release| release of OMERO.server
-then a simple homebrew install is sufficient, e.g.
-
-    ::
-
-        $ brew install omero
-
--   However if you wish to pull OMERO.server from the git repo for development
-    purposes then it is worth setting up OMERO.server manually rather than
-    using homebrew. Prepare a place for your OMERO code to live, e.g.
-
-    ::
-
-        $ mkdir -p ~/code/projects/OMERO
-        $ cd ~/code/projects/OMERO
-
-    Now clone the OMERO github repository:
-
-    ::
-
-        $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
-
-    .. note::
-        If you have a github account & you plan to develop code for OMERO
-        then you should make a fork into your own account then clone to your
-        local development machine, e.g.
-
-        ::
-
-            $ git clone --recursive git://github.com/YOURNAMEHERE/openmicroscopy
-
-    Then build
-
-    ::
-
-        $ cd openmicroscopy && ./build.py
-
-OMERO requirements installation
--------------------------------
-
-Installation script
-~~~~~~~~~~~~~~~~~~~
-
-Download the omero\_homebrew.sh installation script:
+If you just want a deployment of the |release| release of OMERO.server then a simple Homebrew install is sufficient, e.g.
 
 ::
 
-    $ curl -fsSLk 'https://raw.github.com/openmicroscopy/openmicroscopy/develop/docs/install/homebrew/omero_homebrew.sh' > omero_homebrew.sh
+    $ brew tap ome/alt
+    $ brew install omero
 
-Run the script to install OMERO requirements:
+This should install OMERO alongside with most of the non-Python requirements.
+Additional installation options can be listed using the ``info`` command:
 
 ::
 
-    $ chmod +x omero_homebrew.sh
-    $ ./omero_homebrew.sh
+    $ brew info omero
+
+Development server
+^^^^^^^^^^^^^^^^^^
+
+If you wish to pull OMERO.server from the git repo for development purposes
+then it is worth setting up OMERO.server manually. First use Homebrew to
+install the server dependencies:
+
+::
+
+    $ brew tap ome/alt
+    $ brew install `brew deps omero`
+
+Prepare a place for your OMERO code to live, e.g.
+
+::
+
+    $ mkdir -p ~/code/projects/OMERO
+    $ cd ~/code/projects/OMERO
+
+Now clone the OMERO github repository:
+
+::
+
+    $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
 
 .. note::
+    If you have a github account & you plan to develop code for OMERO
+    then you should make a fork into your own account then clone to your
+    local development machine, e.g.
 
-    The omero\_homebrew.sh script may need to be run several times
-    before it completes, albeit successfully. This is due to the homebrew
-    script pulling code archives from many different places as it retrieves
-    the various components that you have asked it to install. Occasionally
-    the remote repositories are temporarily unavailable and can cause the
-    script to fail. Under normal circumstances simply rerunning the script
-    should be sufficient. Occasionally you may have to wait for a short
-    period then try running the script again. Rarely you may have to find a
-    different location for the remote repository (this should involve
-    getting in touch with the homebrew project/OMERO team members so that
-    homebrew formulae can be updated in the event of a permanent failure of
-    a resource).
-    
-If you encounter problems with the installation script, please take a look at :ref:`install_homebrew_common_issues`.
+    ::
+
+        $ git clone --recursive git://github.com/YOURNAMEHERE/openmicroscopy
+
+Then build
+
+::
+
+    $ cd openmicroscopy && ./build.py
+
+Additional OMERO requirements
+-----------------------------
 
 PostgreSQL
-~~~~~~~~~~
+^^^^^^^^^^
 
-Install PostgreSQL if you do not have another PostgreSQL installation that you can use.
+Install PostgreSQL if you do not have another PostgreSQL installation that you
+can use.
 
 ::
 
     $ brew install postgresql
 
+Python dependencies
+^^^^^^^^^^^^^^^^^^^
 
+Download and execute the `python_deps.sh` installation script:
+
+::
+
+    $ cd /usr/local
+    $ curl -fsSkL https://raw.github.com/openmicroscopy/openmicroscopy/dev_4_4/docs/install/python_deps.sh > python_deps.sh
+    $ source python_deps.sh
+
+If you encounter problems with the installation script, please take a look at :ref:`install_homebrew_common_issues`.
 
 Configuration
 -------------
 
 Environment variables
-~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 Edit your .profile as appropriate. The following are indicators of required entries and correspond to a  Homebrew installation of  OMERO |version|:
 
@@ -202,7 +199,7 @@ Edit your .profile as appropriate. The following are indicators of required entr
     `this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_ ).
 
 Database creation
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 Start the PostgreSQL server.
 
@@ -297,7 +294,7 @@ Now connect to your OMERO.server using OMERO.insight with the following credenti
     P: root_password
 
 OMERO.web
-~~~~~~~~~
+^^^^^^^^^
 
 You can setup the internal web server
 
@@ -325,7 +322,7 @@ Common issues
 -------------
 
 General considerations
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
 If you run into problems with Homebrew, you can always run:
 
@@ -341,7 +338,7 @@ Below is a non-exhaustive list of errors/warnings specific to the OMERO installa
 .. _install_homebrew_curl:
 
 curl (Mac 10.5 only)
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -351,7 +348,7 @@ curl (Mac 10.5 only)
 Use ``export GIT_SSL_NO_VERIFY=1`` before running failing brew commands.
 
 Xcode
-~~~~~
+^^^^^
 
 ::
 
@@ -360,7 +357,7 @@ Xcode
 Install Xcode using `Mac App store <https://developer.apple.com/technologies/tools/>`_.
 
 Macports/Fink
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 ::
 
@@ -369,7 +366,7 @@ Macports/Fink
 Follow uninstall instructions from the `Macports guide <http://guide.macports.org/chunked/installing.macports.uninstalling.html>`_.
 
 Postgresql
-~~~~~~~~~~
+^^^^^^^^^^
 
 ::
 
@@ -385,7 +382,7 @@ For Xcode 4.3.2 make sure Xcode Command Line Tools are installed (see `comment <
 Try ``brew cleanup`` then ``brew link ossp-uuid``.
 
 Ice
-~~~
+^^^
 
 ::
 
@@ -400,7 +397,7 @@ existing Ice's installation lib directory path. In essence your
 before executing the installation script.
 
 szip
-~~~~
+^^^^
 
 ::
 
@@ -417,7 +414,7 @@ Manually remove the archived version located under
 ``/Library/Caches/Homebrew`` since the maintainer may have updated the file.
 
 numexpr (and other Python packages)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you encounter an issue related to numexpr complaining about NumPy having a 
 too low version number, verify that you have not before installed any Python 
@@ -428,6 +425,6 @@ uninstall it:
 
     $ sudo pip uninstall pip
 
-After that try running omero\_homebrew.sh again. That should install pip via 
-homebrew and put the Python packages in correct folders.
+After that try running ``python_deps.sh`` again. That should install ``pip`` 
+via Homebrew and put the Python packages in correct folders.
 
