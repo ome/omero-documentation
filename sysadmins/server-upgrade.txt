@@ -35,9 +35,8 @@ below. Please refer to each section for additional details.
     :local:
     :depth: 1
 
-.. warning::
-    The passwords and logins used here are examples. Please consult the 
-    :ref:`troubleshooting-password` section for explanation.  In particular,
+.. warning:: The passwords and logins used here are examples. Please consult
+    the :ref:`troubleshooting-password` section for explanation.  In particular,
     make sure to replace the values of **db_user** and **omero_database**
     with the actual database user and database name for your installation.
 
