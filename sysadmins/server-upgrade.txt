@@ -28,16 +28,17 @@ The main goals of the OMERO 4.4.4 release is to improve the OMERO
 documentation and fix various bugs. See the full details of OMERO 4.4.4 
 features in the  :forum:`Announcements <viewforum.php?f=11>` forum.
 
-For all users, the basic worflow for upgrading your OMERO.server is listed 
+For all users, the basic workflow for upgrading your OMERO.server is listed 
 below. Please refer to each section for additional details.
 
 .. contents::
     :local:
     :depth: 1
 
-.. note:: 
-    The passwords and logins used here are examples. Please consult the 
-    :ref:`troubleshooting-password` section for explanation.
+.. warning:: The passwords and logins used here are examples. Please consult
+    the :ref:`troubleshooting-password` section for explanation.  In particular,
+    make sure to replace the values of **db_user** and **omero_database**
+    with the actual database user and database name for your installation.
 
 Perform a database backup
 -------------------------
@@ -45,9 +46,9 @@ Perform a database backup
 The first thing to do before **any** upgrade activity is to backup your
 database.
 
-::
+.. parsed-literal::
 
-    $ pg_dump -h localhost -U db_user -Fc -f before_upgrade.db.dump omero_database
+    $ pg_dump -h localhost -U **db_user** -Fc -f before_upgrade.db.dump **omero_database**
 
 
 Copy new binaries
@@ -94,8 +95,8 @@ You **must** use the same username and password you have defined during
 .. parsed-literal::
 
     $ cd |OMEROserverzip|
-    $ psql -h localhost -U db_user omero_database < sql/psql/OMERO\ |version|\_\_0/OMERO |previousversion|\_\_0.sql
-    Password for user db_user:
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO |previousversion|\_\_0.sql
+    Password for user **db_user**:
     ...
     ...
                                status                                
@@ -109,16 +110,16 @@ You **must** use the same username and password you have defined during
 
     (1 row)
 
-Optimise an upgraded database (optional)
+Optimize an upgraded database (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After you have run the upgrade script, you may want to optimise your
 database which can both save disk space and speed up access times.
 
-::
+.. parsed-literal::
 
-    $ psql -h localhost -U db_user omero_database -c "REINDEX DATABASE omero_database FORCE;"
-    $ psql -h localhost -U db_user omero_database -c "VACUUM FULL VERBOSE ANALYZE;"
+    $ psql -h localhost -U **db_user** **omero_database** -c "REINDEX DATABASE **omero_database** FORCE;"
+    $ psql -h localhost -U **db_user** **omero_database** -c "VACUUM FULL VERBOSE ANALYZE;"
 
 .. _upgrademergescript:
 
@@ -194,9 +195,9 @@ If the upgraded database or the new server version do not work for you,
 or you otherwise need to rollback to a previous database backup, you may
 want to restore a database backup. To do so, create a new database,
 
-::
+.. parsed-literal::
 
-    $ createdb -h localhost -U postgres -O db_user omero_from_backup
+    $ createdb -h localhost -U postgres -O **db_user** omero_from_backup
 
 restore the previous archive into this new database,
 
