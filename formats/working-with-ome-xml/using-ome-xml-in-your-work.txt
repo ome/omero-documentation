@@ -4,6 +4,7 @@ Using OME-XML in your work
 
 How to use OME schema elements in your own XML files.
 
+.. note:: 
     The correct attribution for work derived, under the creative commons
     licence, from our schema files is:
     **"This work is derived in part from the OME specification.
@@ -19,10 +20,10 @@ OME-TIFF files that can be read by any application supporting these
 formats.
 
 If this approach will not work for you, we would first encourage you to
-contact us via the forums and mailing lists as we may be able to help
-you structure your additions so compatibility can be maintained. Fully
-compatible and exchangeable files is what this project all is about, so
-we try to support this as much as we can.
+contact us via the :forum:`forums <>` and :mailinglist:`mailing lists <>` as 
+we may be able to help you structure your additions so compatibility can be 
+maintained. Fully compatible and exchangeable files is what this project all 
+is about, so we try to support this as much as we can.
 
 If there is still no possible approach for your data that can maintain
 compatibility with OME-XML or OME-TIFF then what follows is the best
@@ -31,8 +32,8 @@ practice for this situation.
 What not to do
 --------------
 
-#. *Adding arbitrary items to the OME Model and still calling it OME-XML
-   or OME-TIFF*
+#. **Adding arbitrary items to the OME Model and still calling it OME-XML
+   or OME-TIFF**
 
    We can not stress enough that this is a **very bad** approach! If you
    simply insert your own custom nodes at arbitrary points within the
@@ -46,8 +47,8 @@ What not to do
    investigate, which eats into the time we have available to work on
    new features and formats.
 
-#. *Adding or removing arbitrary items to/from the OME Model by copying
-   our structure and calling it something else.*
+#. **Adding or removing arbitrary items to/from the OME Model by copying
+   our structure and calling it something else**
 
    This is also **not** a good approach. If you copy the OME Model and
    then make changes (whether by deletion or addition) you are also
@@ -62,7 +63,7 @@ What not to do
    who encounters an OME node in an XML document to be able to trust
    it's structure, as well as validate and parse it.
 
-#. *A 'pick and mix' by copying our structure.*
+#. **A 'pick and mix' by copying our structure**
 
    While we have changed the licence the schema files for the OME Model
    are released under to allow this approach we would not encourage
@@ -80,7 +81,7 @@ What to do
 If you have to define your own schema that will make use of our OME
 model, there are two approaches:
 
-#. *Wrapping our entire OME Model in your custom model.*
+#. **Wrapping our entire OME Model in your custom model**
 
    The entire OME Model, when used in an instance document, is
    completely contained inside the ``<OME>`` node. It is possible to
@@ -98,7 +99,7 @@ model, there are two approaches:
    included like this will be the easier to upgrade to newer schema
    releases using our standard transform.
 
-#. *A 'pick and mix' by referencing parts of our structure.*
+#. **A 'pick and mix' by referencing parts of our structure**
 
    The least desirable valid approach is to individually include small
    independent parts of the model. Any of the items defined at the top
@@ -112,7 +113,8 @@ model, there are two approaches:
    will have to be custom written as standard OME model parsers will not
    be able to process the pieces.
 
-    Note: With either of these approaches please acknowledge our work by
+.. note:: 
+    With either of these approaches please acknowledge our work by
     including in the appropriate place in you software or project
     documentation:
     **"This work is derived in part from the OME specification.
