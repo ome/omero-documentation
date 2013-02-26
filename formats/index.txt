@@ -28,7 +28,7 @@ for exchange of image data between different software packages.
 .. insert updated image here
 
 OME-TIFF
---------
+========
 
 The OME Data Model is implemented as the OME-TIFF file format. OME-TIFF
 is a multi-plane tiff file that contains OME metadata in the header, in
@@ -39,7 +39,7 @@ application.
 See the :doc:`OME-TIFF overview <ome-tiff/index>`.
 
 OME-XML
--------
+=======
 
 The OME-XML File serves as a convenient file format for data migration
 from one site or user to another. The OME-XML file captures all image

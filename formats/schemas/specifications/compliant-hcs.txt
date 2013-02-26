@@ -2,10 +2,9 @@ Compliant HCS Specification
 ===========================
 
 
-
-
 OME Compliant HCS File Specification. This was developed in conjunction
-with the June 2010 release of the OME-XML Model and has been updated to the June 2012 release.
+with the June 2010 release of the OME-XML Model and has been updated to the 
+June 2012 release.
 
 A compliant specification for HCS OME files has been defined. This is
 not the minimum required for the display of an image, that is the
@@ -13,9 +12,9 @@ not the minimum required for the display of an image, that is the
 information we feel a file should contain to provide a useful file
 conforming to the spirit of the OME projects aims.
 
-A sample of the structure. This is based on Sample One in the OME
-Compliant File Specification (see `Compliant
-Specification <compliant-file-specification>`_).
+This sample structure is based on Sample One in the 
+OME Compliant File Specification 
+(see `Compliant Specification <compliant-file-specification>`_):
 
 ::
 
