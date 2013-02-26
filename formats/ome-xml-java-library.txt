@@ -15,7 +15,7 @@ Server <http://www.openmicroscopy.org/site/support/legacy/ome-server>`_
 from Java—until recently, the OME-Java library was a combination of both
 the OME-XML Java library and the OME-Java API in one package, but as of
 September 2008 they have been split into two separate libraries:
-**ome-xml.jar'** is the OME-XML Java library, and **ome-java.jar** is
+**ome-xml.jar** is the OME-XML Java library, and **ome-java.jar** is
 the OME-Java API.
 
 Download
@@ -40,12 +40,12 @@ specifically the ome.xml.\* packages. For an example of usage, see the
 architecture <http://trac.openmicroscopy.org.uk/ome/browser/bioformats.git/components/scifio/src/loci/formats/ome/OMEXMLMetadataImpl.java>`_.
 
 The OMENode is the root ("OME") node of the OME-XML. Each XML element
-has its own node type (e.g., "Image" has ImageNode) with its own
+has its own node type (e.g. "Image" has ImageNode) with its own
 accessor and mutator methods, to make navigation of the OME-XML
 structure easier than it would be with a raw DOM object. However, there
 are some limitations to what can be done with the API. If your
 application needs access to a node's backing DOM element to work with it
-directly, you can call getDOMElement() on a node.
+directly, you can call ``getDOMElement()`` on a node.
 
 Source code
 -----------
