@@ -1,19 +1,24 @@
-OME-TIFF Overview and Rationale
-===============================
+OME-TIFF Overview
+=================
 
-**Terminology**
-**Image:** a single (2D) image plane
-**Dataset:** a collection of image planes composing a multidimensional
-structure (also called a multidimensional image or OME image)
-**OME dataset:** a collection of related OME images
-**OME project:** a collection of related OME datasets
-**Pixels:** image samples acquired from a microscope or other source
-**Metadata:** auxiliary information associated with the pixels, such as
-who acquired the data, when it was acquired, conditions of the
-experiment, etc.
-**Multi-page TIFF:** a TIFF file containing multiple image planes
-**OME-XML metadata:** a block of OME-XML representing image metadata
-(but not pixels)
+Terminology
+-----------
+
+- **Image:** a single (2D) image plane
+- **Dataset:** a collection of image planes composing a multidimensional
+  structure (also called a multidimensional image or OME image)
+- **OME dataset:** a collection of related OME images
+- **OME project:** a collection of related OME datasets
+- **Pixels:** image samples acquired from a microscope or other source
+- **Metadata:** auxiliary information associated with the pixels, such as
+  who acquired the data, when it was acquired, conditions of the
+  experiment, etc.
+- **Multi-page TIFF:** a TIFF file containing multiple image planes
+- **OME-XML metadata:** a block of OME-XML representing image metadata
+  (but not pixels)
+
+Rationale
+---------
 
 The Open Microscopy Environment consortium has defined a file format
 called OME-XML for biological image data including a rich set of
@@ -30,6 +35,9 @@ To address these concerns, we have created the OME-TIFF Format to
 maximize the respective strengths of OME-XML and TIFF, taking advantage
 of the rich metadata defined in OME-XML while retaining the pixels in
 multi-page TIFF format for greater compatibility.
+
+Characteristics
+---------------
 
 An OME-TIFF dataset has the following characteristics:
 
@@ -49,11 +57,13 @@ An OME-TIFF dataset has the following characteristics:
    format, it probably makes sense to use OME-TIFF only when there is at
    least one image plane.
 
+Further information
+-------------------
+
 For detailed technical information on OME-TIFF, see the 
 :doc:`ome-tiff-specification`.
 
-We have a list of :doc:`ome-tiff-tools` for working with
-OME-XML and OME-TIFF.
+There is further information about :doc:`ome-tiff-tools` available.
 
 We also have some :doc:`ome-tiff-code` in Java for
 reading and writing OME-TIFF.
