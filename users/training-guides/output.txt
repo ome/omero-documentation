@@ -1,0 +1,58 @@
+*****************
+Exporting images
+*****************
+
+In OMERO you are able to export any image as an OME-TIFF file, save it as a JPEG, PNG or TIFF or if it was archived at import, download it in the original image format.
+
+|
+
+#. Click on the **Saving Options** icon in the toolbar.
+
+   |
+
+   .. image:: /images/tutor/outputDropdown.jpg
+       :width: 75%
+       :align: center
+
+   |
+
+#. If the image was archived in its original file format select **Download** from the dropdown menu.
+
+   |
+
+   .. image:: /images/tutor/outputDownload.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+#. Select **Export as OME-TIFF** from the dropdown menu to export in that format.
+
+   |
+
+   .. image:: /images/tutor/outputExportOT.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+#. Select **Save as ...** to save as a JPEG, PNG or TIFF.
+
+   |
+
+   .. image:: /images/tutor/outputSaveJPEG.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+#. Scripts can be used to output in a number of formats.
+
+   |
+
+   .. image:: /images/tutor/outputScriptsLPane.jpg
+       :width: 75%
+       :align: center
+
+   |
+
