@@ -24,6 +24,15 @@ Quickstart
     demo-server
     virtual-appliance
 
+******************
+Training materials
+******************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    
+    training-guides/index
 
 ************
 Client Usage
