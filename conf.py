@@ -383,9 +383,17 @@ if not (sys.version_info[0] == 2 and sys.version_info[1] <= 5):
     linkcheck_timeout = 30
 
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
-linkcheck_ignore = [r'http://localhost:\d+/?', 'http://localhost/', 'http://www.hibernate.org',
-        r'^https?://www\.openmicroscopy\.org/site/team/.*', r'.*[.]?example\.com/.*',
-        r'^https?://www\.openmicroscopy\.org/site/support/faq.*']
+linkcheck_ignore = [
+    r'http://localhost:\d+/?',
+    'http://localhost/',
+    r'^https?://www\.openmicroscopy\.org/site/team/.*',
+    r'.*[.]?example\.com/.*',
+    r'^https?://www\.openmicroscopy\.org/site/support/faq.*',
+    ]
+
+import urllib
+brokenfiles_url = 'https://raw.github.com/openmicroscopy/sphinx-ignore-links/master/broken_links.txt'
+linkcheck_ignore.extend(urllib.urlopen(brokenfiles_url).read().splitlines())
 
 # -- Custom roles for the OMERO documentation -----------------------------------------------
 
