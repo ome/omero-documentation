@@ -4,29 +4,48 @@ OMERO Matlab language bindings
 See |DevelopingOmeroClients| and |OmeroModel|, for an introduction to
 **Object**.
 
-Installing and configuring
---------------------------
-
 Installing the OMERO.matlab toolbox
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
--  Download the desired version. For the latest build see
-   :omerojob:`here <lastSuccessfulBuild/>`, and download the
-   OMERO.matlab zip file. For the latest released version visit the
-   main :omero_plone:`download page <downloads>`
+-  Download the latest latest released version from the 
+   :omero_plone:`download page <downloads>` . For the latest build, go
+   :jenkins:`here <lastSuccessfulBuild/>`, and download the OMERO.matlab zip 
+   file.
 -  Unzip the directory anywhere on your system.
--  In Matlab, change to the newly unzipped directory.
--  Run ``loadOmero;``
+-  In Matlab, move to the newly unzipped directory and run ``loadOmero;``.
 -  The MATLAB files are now on your path, and the necessary jars are on
    your java classpath. You can change directories and still have access
    to OMERO.
 
-Configuring the OMERO.matlab connection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Once OMERO.matlab is installed, the typical workflow is the following
 
-As described under |OmeroClients|, there are
-several ways to configure your connection to an OMERO server.
-OMERO.matlab comes with a few conveniences for
+#. :ref:`connection_init`
+#. :ref:`connection_keepalive`
+#. :ref:`unsecure_client` (optional)
+#. Do some work (load objects, work with them, upload to the server...)
+#. :ref:`connection_close`
+#. :ref:`unload` (optional)
+
+As a quickstart example, the following lines create a secure connection to a server, read a series of images and close the connection.
+
+::
+   
+   client = loadOmero(servername, port);
+   session = client.createSession(user, password);
+   client.enableKeepAlive(60);
+   images = getImages(session, ids);
+   client.closeSession();
+
+Configuring the OMERO.matlab connection
+---------------------------------------
+
+.. _connection_init:
+
+Create a connection
+^^^^^^^^^^^^^^^^^^^
+
+As described under |OmeroClients|, there are several ways to configure your 
+connection to an OMERO server. OMERO.matlab comes with a few conveniences for
 making this work.
 
 If you run ``client = loadOmero;`` (i.e. loadOmero with a return value),
@@ -39,9 +58,7 @@ default ice.config file pointing at localhost, which you can edit for your
 server.
 
 Alternatively, you can pass the same parameters to ``loadOmero;`` that
-you would pass to ``omero.client``:
-
-::
+you would pass to ``omero.client``::
 
     >> omero_client_1 = loadOmero('localhost');
     >> omero_client_2 = omero.client('localhost');
@@ -55,19 +72,10 @@ equivalent:
     >> client2 = loadOmero('localhost');
     >> session2 = client2.createSession()
 
-Using the OMERO.matlab omero.client
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Once an active session is available in your workspace, you can acquire
-services, make queries, and load binary data. In short, anything the
-|OmeroApi| can do. Helper functions and demos are
-available for getting a feel for the API.
-
-**TODO: Review the links** See the examples under
-:sourcedir:`examples` on what you can do with OMERO.matlab.
+.. _connection_keepalive:
 
 Keeping your session alive
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For executing any long running task, you will need a background thread
 which keeps your session alive. If you are familiar with Matlab
@@ -83,30 +91,47 @@ directly or modify it to your liking.
     >> delete(t);             % Disables the keep-alive
 
 Alternatively, you can use the Java-based ``enableKeepAlive``-method,
-but it is not configurable from within Matlab:
+but it is not configurable from within Matlab::
 
-::
+    c.enableKeepAlive(60); % Calls session.keepAlive() every 60 seconds
+    c.closeSession();      % Close session to end the keep-alive
 
-    >> c.enableKeepAlive(60); % Calls session.keepAlive() every 60 seconds
-    >> c.closeSession();      % Close session to end the keep-alive
+.. _unsecure_client:
 
-Closing and unloading OMERO
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Create an unencrypted session
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When you are done with OMERO, it is critical that you close your
-connection to save resources.
+If you want to have the data transfer encrypted then you can use the session variable otherwise use the following::
 
-::
+	unsecureClient = client.createClient(false);
+	sessionUnencrypted = unsecureClient.getSession();
 
-    >> client1.closeSession();
-    >> clear client1;
-    >> clear session1;
+.. _connection_close:
 
-Then if you would like, you can unload OMERO as well:
+Close your connection
+^^^^^^^^^^^^^^^^^^^^^
 
-::
+When you are done with OMERO, it is critical that you close your connection to 
+save resources::
 
-    >> unloadOmero;
+    client.closeSession();
+    clear client1;
+    clear session1;
+
+If you create an unencrypted session, you will need to close the unsecure 
+session as well::
+
+    client.closeSession();
+    unsecureClient.closeSession();
+
+.. _unload:
+
+Unload OMERO
+^^^^^^^^^^^^
+
+Then if you would like, you can unload OMERO as well::
+
+    unloadOmero;
 
 **Note: you may see the following warning when unloading OMERO:**
 
@@ -150,45 +175,8 @@ again, use the ``omero.client`` object directly:
     >> s = c.createSession();
 
 
-Code in action
---------------
-
-Follow several code samples showing how to interact with some objects.
-
-Connect to OMERO
-~~~~~~~~~~~~~~~~
-
--  **Connect to server**.
-
-Remember to close the session.
-
-::
-
-    client = omero.client(server, 4064); 
-    session = client.createSession(username, password);
-    %necessary to keep the proxy alive. part of the omero-package
-    clientAlive = omeroKeepAlive(client); 
-
-    % If you want to have the data transfer encrypted then you can 
-    % use the session variable otherwise use the following 
-    unsecureClient = client.createClient(false);
-    sessionUnencrypted = unsecureClient.getSession();
-
-    % The id of the user.
-    userId = session.getAdminService().getEventContext().userId;
-
-    % The group the user is currently logged in i.e. his/her default group
-    groupId = session.getAdminService().getEventContext().groupId;
-
--  **Close connection**. **IMPORTANT**
-
-::
-
-    client.closeSession();
-    unsecureClient.closeSession();
-
 Read data
-~~~~~~~~~
+---------
 
 The ``IContainer`` service provides method to load the data management
 hierarchy in OMERO -- Projects, Datasets, etc. A list of examples
@@ -329,7 +317,7 @@ Given a plate ID, load the wells. You will have to use the
     end 
 
 Raw data access
-~~~~~~~~~~~~~~~
+---------------
 
 You can retrieve data, plane by plane or retrieve a stack.
 
@@ -442,7 +430,7 @@ This is useful when you need the pixels intensity.
     store.close();
 
 Write data
-~~~~~~~~~~
+----------
 
 -  **Create a Dataset** and link it to an existing Project.
 
@@ -578,7 +566,7 @@ First load the annotation, cf. above.
     store.close();
 
 How to use OMERO tables
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 -  **Create a table**. In the following example, we create a table with
    2 columns.
@@ -631,7 +619,7 @@ How to use OMERO tables
     tablePrx.close(); % Important to close when done.
 
 ROIs
-~~~~
+----
 
 To learn about the model see
 :model_doc:`developers/roi.html`
@@ -733,7 +721,7 @@ to an image.
     end
 
 Delete data
-~~~~~~~~~~~
+-----------
 
 It is possible to delete Projects, Datasets, Images, ROIs etc. and
 objects linked to them depending on the specified options (see
@@ -762,7 +750,7 @@ In the following example, we create an Image and delete it.
     prx = session.getDeleteService().queueDelete(list);
 
 Render Images
-~~~~~~~~~~~~~
+-------------
 
 -  **Initialize the rendering engine and render an Image.**
 
@@ -841,7 +829,7 @@ Render Images
     end
 
 Create Image
-~~~~~~~~~~~~
+------------
 
 The following example shows how to create an Image from an Image already
 in OMERO. Similar approach can be applied when uploading an Image.
