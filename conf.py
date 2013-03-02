@@ -162,7 +162,6 @@ extlinks = {
     # Plone links. Separating them out so that we can add prefixes and
     # suffixes during testing.
     'community_plone' : (oo_site_root + '/community/%s', ''),
-    'feature_plone' : (oo_site_root + '/products/feature-list/%s', ''),
     'formats_plone' : (oo_site_root + '/support/file-formats/%s', ''),
     'legacy_plone' : (oo_site_root + '/support/legacy/%s', ''),
     'about_plone' : (oo_site_root + '/about/%s', ''),
@@ -175,7 +174,6 @@ extlinks = {
     # Miscellaneous links
     'snapshot' : (cvs_root + '/snapshots/%s', ''),
     'zeroc' : ('http://zeroc.com/%s', ''),
-    'doi' : ('http://dx.doi.org/%s', ''),
     }
 
 rst_epilog = """

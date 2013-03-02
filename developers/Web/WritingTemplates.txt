@@ -34,7 +34,7 @@ that do not require an OMERO login (e.g. public home page) etc.
 
 If you want your pages to extend the webclient application, you can use 
 templates from 
-:source:`omeroweb/webclient/templates/webclient/base <components/tools/OmeroWeb/omeroweb/webclient/templates/webclient/base>`.
+:sourcedir:`omeroweb/webclient/templates/webclient/base <components/tools/OmeroWeb/omeroweb/webclient/templates/webclient/base>`.
 
 These templates are described in more detail below.
 

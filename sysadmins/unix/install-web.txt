@@ -12,7 +12,7 @@ with:
 
 -  FastCGI using a FastCGI capable web server such as
    `Apache <http://httpd.apache.org/>`_ (with
-   `mod\_fastcgi <http://www.fastcgi.com/>`_ enabled),
+   `mod\_fastcgi <http://www.fastcgi.com/drupal/>`_ enabled),
    `nginx <http://nginx.org/>`_ or
    `lighttpd <http://www.lighttpd.net/>`_ (since OMERO 4.2.1)
 -  The built-in Django lightweight development server (for **testing**
@@ -362,8 +362,8 @@ Customising your OMERO.web installation
              $ bin/omero config set omero.web.public.enabled True
 
       -  Set a URL filter for which the OMERO.web public user is allowed
-         to navigate. Default: ``^/(?!webadmin)`` (`Python reqular
-         expression <http://docs.python.org/library/re.html>`_). You
+         to navigate. Default: ``^/(?!webadmin)`` (`Python regular
+         expression <http://docs.python.org/2/library/re.html>`_). You
          probably don't want the whole webclient UI to be publicly
          visible (although you could do this). The idea is that you can
          create the public pages yourself (see :doc:`/developers/Web`
@@ -442,7 +442,7 @@ Customising your OMERO.web installation
 
    -  The OMERO.web framework allows you to add additional Django apps.
       For an example with installation instructions, see
-      `webmobile <https://github.com/openmicroscopy/webmobile/>`_
+      `webmobile <https://github.com/will-moore/webmobile/>`_
 
    -  Download or clone from the git repository into the /omeroweb/
       directory, then run
