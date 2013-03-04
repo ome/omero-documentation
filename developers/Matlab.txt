@@ -64,8 +64,7 @@ services, make queries, and load binary data. In short, anything the
 available for getting a feel for the API.
 
 **TODO: Review the links** See the examples under
-:sourcedir:`examples` or :sourcedir:`components/tools/OmeroM/demo`
-on what you can do with OMERO.matlab.
+:sourcedir:`examples` on what you can do with OMERO.matlab.
 
 Keeping your session alive
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
