@@ -60,16 +60,12 @@ Plate
 
 ID
     This is used by the system to identify the plate.
-
 Name
     This is chosen by the user to identify the plate.
-
 Description
     A free text description
-
 Status
     The current state of the plate in the experiment work-flow.
-
 ExternalIdentifier
     This is a identifier for the plate used by an external system. This may be a barcode printed on the plate by the manufacturer.
 
@@ -78,13 +74,10 @@ Reagent
 
 ID
     This is used by the system to identify the reagent
-
 Description
     A long description for the reagent
-
 Name
     A short name for the reagent
-
 ReagentIdentifier
     This is a reference to an external (to OME) representation of the Reagent. It serves as a foreign key into an external database.
 
@@ -93,22 +86,16 @@ Screen
 
 ID
     This is used by the system to identify the screen
-
 Name
     This is chosen by the user to identify the screen
-
 ProtocolIdentifier
     A pointer to an externally defined protocol, usually in a screening database.
-
 ProtocolDescription
     A description of the screen protocol; may contain very detailed information to reproduce some of that found in a screening database.
-
 ReagentSetDescription
     A description of the set of reagents; may contain very detailed information to reproduce some of that information found in a screening database.
-
 ReagentSetIdentifier
     A pointer to an externally defined set of reagents, usually in a screening database/automation database.
-
 Type
     A human readable identifier for the screen type; e.g. RNAi, cDNA, SiRNA, etc.
 
