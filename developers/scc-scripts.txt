@@ -103,6 +103,13 @@ The first argument is the name of the base branch of origin, e.g.::
 
 	If no key is specified, it is assumed the filter is a label filter.
 
+	By default, only PRs labelled as `exclude` are excluded so the following
+	are  equivalent::
+
+		$ scc merge develop
+		$ scc merge develop -E label:exclude
+		$ scc merge develop -E exclude
+
 .. option:: --include <filters>, -I <filters>
 
 	Include PR by label, user or number
@@ -113,6 +120,13 @@ The first argument is the name of the base branch of origin, e.g.::
 		$ scc merge develop -I label:include_label -I user:my_user -I pr:40
 
 	If no key is specified, it is assumed the filter is a label filter.
+
+	By default, only PRs labelled as `include` are included so the following
+	are  equivalent::
+
+		$ scc merge develop
+		$ scc merge develop -I label:include
+		$ scc merge develop -I include
 
 .. option:: --info
 
@@ -140,7 +154,7 @@ is calling the following merge command:
 
 ::
 
-	$ scc merge develop --no-ask --reset --comment -E conflict -E needs-fixes -E broken -I include --push merge/develop/latest
+	$ scc merge develop --no-ask --reset --comment --push merge/develop/latest
 
 scc rebase
 ----------
