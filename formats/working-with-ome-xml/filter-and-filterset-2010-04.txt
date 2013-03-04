@@ -152,9 +152,8 @@ Diagram showing the attributes within the filter objects
    :align: center
    :alt: FilterSet LightPath
 
-Sample piece of a .ome.xml file showing the Instrument side - the
-Filter/Dichroic/!FilterSet structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sample piece of a .ome.xml file showing the Instrument side - the Filter/Dichroic/FilterSet structure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This shows the structure of the resulting xml.
 
@@ -200,8 +199,7 @@ It contains dummy data.
     <ome:Dichroic ID="Dichroic:1" Model="HFT 405/488/543/633"/>
     <ome:Dichroic ID="Dichroic:2" Model="MirrorBlock MK II" LotNumber="M539"/>
 
-Sample piece of a .ome.xml file showing the Image side - the LightPath
-structure
+Sample piece of a .ome.xml file showing the Image side - the LightPath structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This shows the structure of the resulting xml.
