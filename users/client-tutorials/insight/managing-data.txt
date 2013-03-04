@@ -44,6 +44,20 @@ Using OMERO.insight to manage image data.
 
    |
 
+#. To edit the channel names, click on the green **Pen** button.
+
+   Click **Save** to make the changes to the selected image.
+
+   Click **Apply to All** to save the changes to all images in the dataset.
+
+   |
+
+   .. image:: /images/tutor/managingChannel.jpg
+    :width: 65%
+    :align: center
+
+   |
+
 #. In Annotations section of the **General** tab, click on one to five **Stars** to rate the image.
 
    |
@@ -76,6 +90,8 @@ Using OMERO.insight to manage image data.
 
    The **Tag Selection** window is used in the same way.
 
+   Mouse-over the annotations to see information on the annotations associated with selected images.
+
    |
 
    .. image:: /images/tutor/managingBatch.jpg
@@ -94,6 +110,22 @@ Using OMERO.insight to manage image data.
 
    .. image:: /images/tutor/managingFilter.jpg
     :width: 75%
+    :align: center
+
+   |
+
+#. To attach a file to an image click on the **+** and select from the menu.
+
+   Select **Local document ...** to upload a file from your local hard drive.
+
+   **Uploaded document ...** allows you to attach a file already on the server.
+
+   **New Experiment ...**  opens a new OMERO.editor window which allows you to edit save an XML file describing an experiment.
+
+   |
+
+   .. image:: /images/tutor/managingAttach.jpg
+    :width: 70%
     :align: center
 
    |
