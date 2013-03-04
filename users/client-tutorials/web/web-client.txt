@@ -179,6 +179,18 @@ same as for OMERO.insight, using the same username and password.
 
    |
 
+#. To add annotations to more than one object at a time, select multiple images, datasets or projects and click on the + button.
+
+   Mouse-over the **information** icon next to the **Batch Annotate** label to display information on the the annotations associated with the selected objects.
+
+   |
+
+   .. image:: /images/tutor/webclientBatch.jpg
+       :width: 87%
+       :align: center
+
+   |
+
 #. If you belong to more than one group, you can interact with the data of 
    other users in your group. 
 
