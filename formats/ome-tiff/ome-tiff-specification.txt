@@ -22,7 +22,7 @@ An OME-TIFF dataset:
    identical) string of OME-XML metadata embedded in the
    ImageDescription tag of each file's first IFD
 
-.. figure:: /images/ome-tiff-header.png
+.. figure:: /images/formats/ome-tiff-header.png
    :align: center
    :width: 80%
    :alt: OME-TIFF-header
