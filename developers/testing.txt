@@ -9,8 +9,8 @@ There are currently ``.project`` and ``.classpath-template`` files
 stored in git in each component directory (e.g. :source:`common's
 .classpath <components/common/.classpath-template>` and 
 :source:`common's .project </components/common/.project>`). There is
-also a top-level .classpath and .project file which contains the entire
-project, but this:
+also a top-level ``.classpath`` and ``.project`` file which contains 
+the entire project, but this:
 
 -  requires more memory
 -  does not clearly differentiate the classpaths, and so can lead to
@@ -23,7 +23,7 @@ All the Eclipse projects require a successful build to have taken place:
        ./build.py
 
 This is for two reasons. Firstly, the Eclipse projects are not configured to
-perform the code-generation needed. This creates the directory:
+perform the code generation needed. This creates the directory:
 
 ::
 
@@ -68,7 +68,7 @@ Integration testing
 -------------------
 
 Integration testing is a bit more complex because of the reliance on a
-database (which is not easily mockable), all Hibernate related classes
+database, which is not easily mockable. All Hibernate-related classes
 are tested in integration mode.
 
 Running all tests
@@ -88,7 +88,7 @@ These tests could break for a number of reasons. Patience is needed.
 Component tests
 ~~~~~~~~~~~~~~~
 
-It is probably more straight-forward to run the tests for an individual
+It is probably more straightforward to run the tests for an individual
 component. This can be done explicitly via:
 
 ::
@@ -118,7 +118,6 @@ to ``true`` to allow test failures to fail the build. For example:
 
 ::
 
-     ./build.py -Dtest.with.fail=false test...
      ./build.py -Dtest.with.fail=true test...
 
 
@@ -192,8 +191,8 @@ OmeroPy
 ~~~~~~~
 
 Similar to the OmeroJava tests, the tests under
-``components/OmeroPy/test`` will be the starting point for most Python
-client-developers coming to OMERO.
+``components/tools/OmeroPy/test`` will be the starting point for most
+Python-client developers coming to OMERO.
 
 OmeroCpp
 ~~~~~~~~
@@ -208,7 +207,7 @@ internal tests in the "internal" component. These do not need to have a
 running server and instead use an embedded Hibernate instance for
 talking to the database. These tests require a significantly different
 style, and are intended only for server developers. For more
-information, please contact the list.
+information, please contact the mailing list.
 
 Documenting server code
 -----------------------
@@ -230,7 +229,7 @@ OMERO listen on port 8787 for a debugging connection.
 
 Then in Eclipse, you can create a new "Debug" configuration by clicking
 on "Remote Java Application", and setting the port to 8787. (These
-values are arbitrary and can be changed locally)
+values are arbitrary and can be changed locally.)
 
 **Keep in mind**:
 
