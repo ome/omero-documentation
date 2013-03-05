@@ -74,6 +74,7 @@ Adding the server is only required the first time an OMERO server is accessed fr
    |
 
 3. Enter the server address provided by your OMERO administrator.
+
    Click on **Apply**.
 
    |
@@ -85,6 +86,7 @@ Adding the server is only required the first time an OMERO server is accessed fr
    |
 
 4. Enter the **Username** and **Password** provided by your OMERO administrator.
+
    Click on **Login**.
 
    |
@@ -220,7 +222,7 @@ Viewing image data
 
    |
 
-   .. image:: /images/tutor/gettingStartedImportedData.jpg
+   .. image:: /images/tutor/gettingStartedImportedData2.jpg
        :width: 75%
        :align: center
 
@@ -253,7 +255,9 @@ Viewing image data
    |
 
 4. Click the colour picker to open the colour picker window.
+
    This is used to change the colour rendering for a channel.
+
    Clicking the colour well toggles the channel on or off
 
    |
@@ -274,7 +278,7 @@ Viewing image data
 
    |
 
-6. Click on Measurement Tool button to open the Measurement Tools palette.
+6. Click on **Measurement Tool** button to open the Measurement Tools palette.
 
    |
 
@@ -285,6 +289,7 @@ Viewing image data
    |
 
 7. Use the toolbar to draw Regions of Interest (ROIs).
+
    Click on the tabs to see details of ROIs or view results of analysis based on them.
 
    |
