@@ -91,6 +91,39 @@ These columns store a single value in each row.
     :param string[] values: A list of strings (optional).
 
 
+Array value columns
+^^^^^^^^^^^^^^^^^^^
+
+These columns store an array in each row.
+
+.. class:: omero.grid.DoubleArrayColumn(name, description, size, [values])
+
+    A value column with fixed width arrays of `double` values.
+
+.. class:: omero.grid.LongArrayColumn(name, description, size, [values])
+
+    A value column with fixed width arrays of `long` values.
+
+    :param string name: The column name.
+
+    :param string description: The column description.
+
+    :param long size: The width of the array, `>= 1`
+
+    :param long[][] values: A list of arrays, each of length :attr:`size`
+        (optional).
+
+
+.. warning::
+    The OMERO.tables service currently does limited validation of string
+    and array lengths. When adding or modifying data it is essential that the
+    :attr:`size` parameter of a column matches that of the underlying table.
+
+.. warning::
+    Array value columns should be considered experimental for now.
+
+
+
 
 Main methods
 ^^^^^^^^^^^^
