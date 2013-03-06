@@ -182,79 +182,60 @@ The ``IContainer`` service provides method to load the data management
 hierarchy in OMERO -- Projects, Datasets, etc. A list of examples
 follows, indicating how to load Project, Dataset, Screen, etc.
 
--  **Retrieve the projects owned by the user currently logged in.**
+Projects
+^^^^^^^^
 
-If a Project contains Datasets, the Datasets will automatically be
-loaded.
+The projects owned by the user currently logged in can be retrieved using the
+:source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`
+function::
 
-::
+	projects = getProjects(session)
 
-    proxy = session.getContainerService();
-    %Set the options
-    param = omero.sys.ParametersI();
-    param.leaves();%indicate to load the images
-    %param.noLeaves(); %no images loaded, this is the default value.
-    userId = session.getAdminService().getEventContext().userId; %id of the user.
-    param.exp(omero.rtypes.rlong(userId));
-    projectsList = proxy.loadContainerHierarchy('omero.model.Project', [], param);
-    for j = 0:projectsList.size()-1,
-        p = projectsList.get(j);
-        datasetsList = p.linkedDatasetList;
+If the project identifiers are known, they can be specified as::
+
+	projects = getProjects(session, ids)
+
+If the projects contains datasets, the datasets will automatically be loaded::
+
+    for j = 1 : numel(projects)
+        datasetsList = projects(j).linkedDatasetList;
         for i = 0:datasetsList.size()-1,
             d = datasetsList.get(i);
-            % Do something with the dataset 
-            dName = d.getName().getValue();
-            % If the flag is set to true, you can access the images within the dataset
-            % imageList = d.linkedImageList;
-            % for k = 0:imageList.size()-1,
-               % image = imageList.get(k);
-            % end
         end
     end 
 
--  **Retrieve the Datasets owned by the user currently logged in.**
+Datasets
+^^^^^^^^
 
-::
+The datasets owned by the user currently logged in can be retrieved using the
+:source:`getDatasets <components/tools/OmeroM/src/io/getDatasets.m>`
+function::
 
-    proxy = session.getContainerService();
-    param = omero.sys.ParametersI();
-    param.leaves();%indicate to load the images
-    userId = session.getAdminService().getEventContext().userId; %id of the user.
-    param.exp(omero.rtypes.rlong(userId));
-    datasetsList = proxy.loadContainerHierarchy('omero.model.Dataset', [], param);
+	datasets = getDatasets(session)
 
--  **Retrieve the Images contained in a Dataset.**
+If the dataset identifiers are known, they can be specified as::
 
-::
+	datasets = getDatasets(session, ids)
 
-    proxy = session.getContainerService();
-    ids = java.util.ArrayList();
-    datasetId = java.lang.Long(dId);
-    ids.add(datasetId); %add the id of the dataset.
-    param = omero.sys.ParametersI();
-    param.leaves(); % indicate to load the images.
-    list = proxy.loadContainerHierarchy('omero.model.Dataset', ids, param);
-    dataset = list.get(0);
+If the datasets contains images, the images will automatically be loaded::
+
     imageList = dataset.linkedImageList; % The images in the dataset.
 
--  **Retrieve an image if the identifier is known.**
+Images
+^^^^^^
 
-::
+The images owned by the user currently logged in can be retrieved using the
+:source:`getImages <components/tools/OmeroM/src/io/getImages.m>` function::
 
-    ids = java.util.ArrayList();
-    ids.add(imageId); %add the id of the image.
+	images = getImages(session)
 
-    proxy = session.getContainerService();
-    list = proxy.getImages('omero.model.Image', ids, omero.sys.ParametersI());
-    image = list.get(0);
+If the image identifiers are known, they can be specified as::
 
--  **Access information about the image for example to draw it**.
+	images = getImages(session, ids)
 
 The model is as follows: Image-Pixels i.e. to access valuable data about
 the image you need to use the pixels object. We now only support one set
-of pixels per image (it used to be more!).
-
-::
+of pixels per image (it used to be more!)::
 
     pixelsList = image.copyPixels();
     for k = 0:pixelsList.size()-1,
@@ -266,35 +247,49 @@ of pixels per image (it used to be more!).
        sizeY = pixels.getSizeY().getValue(); % The number of pixels along the Y-axis.
     end
 
--  **Retrieve Screening data owned by the user currently logged in**.
+Screens
+^^^^^^^
 
-Note that the wells are not loaded.
+The screens owned by the user currently logged in can be retrieved using the
+:source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>`
+function::
 
-::
+	screens = getScreens(session)
 
-    proxy = session.getContainerService();
-    userId = session.getAdminService().getEventContext().userId; %id of the user.
-    param = omero.sys.ParametersI;
-    param.exp(omero.rtypes.rlong(userId)); %load data for a given user.
+If the screen identifiers are known, they can be specified as::
 
-    screenList = proxy.loadContainerHierarchy('omero.model.Screen', [], param);
-    for j = 0:screenList.size()-1,
-    screen = screenList.get(j);
-    platesList = screen.linkedPlateList;
+	screens = getScreens(session, ids)
+
+Note that the wells are not loaded. The plate objects can be accessed using::
+
+    for j = 1 : numel(screens),
+    platesList = screens(j).linkedPlateList;
     for i = 0:platesList.size()-1,
         plate = platesList.get(i);
         plateAcquisitionList = plate.copyPlateAcquisitions();
         for k = 0:plateAcquisitionList.size()-1,
-          pa = plateAcquisitionList.get(i);
+            pa = plateAcquisitionList.get(i);
         end
     end
 
--  **Retrieve Wells within a Plate**.
+Plates
+^^^^^^
 
-Given a plate ID, load the wells. You will have to use the
-``findAllByQuery`` method.
+The plates owned by the user currently logged in can be retrieved using the
+:source:`getPlates <components/tools/OmeroM/src/io/getPlates.m>`
+function::
 
-::
+	plates = getPlates(session)
+
+If the plate identifiers are known, they can be specified as::
+
+	plates = getPlates(session, ids)
+
+Wells
+^^^^^^
+
+Given a plate identifier, the wells can be loaded using the ``findAllByQuery``
+method::
 
     wellList = session.getQueryService().findAllByQuery(
     ['select well from Well as well '...
