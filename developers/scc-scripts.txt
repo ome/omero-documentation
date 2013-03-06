@@ -128,6 +128,7 @@ The first argument is the name of the base branch of origin, e.g.::
 		$ scc merge develop -I label:include
 		$ scc merge develop -I include
 
+
 .. option:: --info
 
 	Display the candidate PRs to merge but do not merge them
@@ -155,6 +156,11 @@ is calling the following merge command:
 ::
 
 	$ scc merge develop --no-ask --reset --comment --push merge/develop/latest
+
+
+.. versionchanged:: 0.3.0
+	Added default values for :option:`--include` and :option:`--exclude`
+	options.
 
 scc rebase
 ----------
