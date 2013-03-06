@@ -114,7 +114,7 @@ These columns store an array in each row.
 
     :param long size: The width of the array, `>= 1`
 
-    :param long[][] values: A list of arrays, each of length :attr:`size`
+    :param [][] values: A list of arrays, each of length :attr:`size`
         (optional).
 
 
