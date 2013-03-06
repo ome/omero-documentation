@@ -96,6 +96,10 @@ Array value columns
 
 These columns store an array in each row.
 
+.. class:: omero.grid.FloatArrayColumn(name, description, size, [values])
+
+    A value column with fixed width arrays of `float` values.
+
 .. class:: omero.grid.DoubleArrayColumn(name, description, size, [values])
 
     A value column with fixed width arrays of `double` values.
