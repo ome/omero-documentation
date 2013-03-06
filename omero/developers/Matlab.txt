@@ -621,41 +621,31 @@ How to use OMERO tables
 ROIs
 ----
 
-To learn about the model see
-:model_doc:`developers/roi.html`
-. Note that annotation can be linked to ROI.
+To learn about the model see :model_doc:`developers/roi.html`. Note that 
+annotation can be linked to ROI.
 
--  **Create ROI.**
+Create ROI
+^^^^^^^^^^
 
-In this example, we create an ROI with a rectangular shape and attach it
-to an image.
+In this example, we create an ROI with a rectangular shape and attach it to an
+image.
 
 ::
 
     % First create a rectangular shape.
-    rect = omero.model.RectI;
-    rect.setX(omero.rtypes.rdouble(0));
-    rect.setY(omero.rtypes.rdouble(0));
-    rect.setWidth(omero.rtypes.rdouble(10));
-    rect.setHeight(omero.rtypes.rdouble(20));
+    rectangle = createRectangle(0, 0, 10, 20);
     % indicate on which plane to attach the shape
-    rect.setTheZ(omero.rtypes.rint(0));
-    rect.setTheT(omero.rtypes.rint(0));
+    setShapeCoordinates(rectangle, 0, 0, 0);
 
     % First create an ellipse shape.
-    ellipse = omero.model.EllipseI;
-    ellipse.setCx(omero.rtypes.rdouble(0));
-    ellipse.setCy(omero.rtypes.rdouble(0));
-    ellipse.setRx(omero.rtypes.rdouble(10));
-    ellipse.setRy(omero.rtypes.rdouble(20));
+    ellipse = createEllipse(0, 0, 10, 20);
     % indicate on which plane to attach the shape
-    ellipse.setTheZ(omero.rtypes.rint(0));
-    ellipse.setTheT(omero.rtypes.rint(0));
+    setShapeCoordinates(ellipse, 0, 0, 0);
 
     % Create the roi.
     roi = omero.model.RoiI;
     % Attach the shapes to the roi, several shapes can be added.
-    roi.addShape(rect);
+    roi.addShape(rectangle);
     roi.addShape(ellipse);
 
     % Link the roi and the image
@@ -669,7 +659,14 @@ to an image.
        shape = roi.getShape(ns-1);
     end
 
--  **Retrieve ROIs linked to an Image.**
+.. seealso::
+
+    :sourcedir:`ROI utility functions <components/tools/OmeroM/src/roi>`
+        OMERO.matlab functions for creating and managing Shape and ROI
+        objects.
+
+Retrieve ROIs linked to an Image
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -700,7 +697,8 @@ to an image.
         end
     end
 
--  **Remove a shape from ROI.**
+Remove a shape from ROI
+^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
