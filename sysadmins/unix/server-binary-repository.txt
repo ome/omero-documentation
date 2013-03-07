@@ -91,3 +91,10 @@ using them as for your binary repository should be fine.
 If, however, you are seeing errors such as NullPointerExceptions, "Bad file
 descriptors" and similar in your server log, then you will need to use
 directly connected disks.
+
+.. Warning::
+
+    If your binary repository is a remote share and mounting the share fails
+    or is dismounted, OMERO will continue operating using the mount point
+    instead! To prevent this, make the mount point read-only for the OMERO
+    user so that no data can be written to the mount point.
