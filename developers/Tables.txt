@@ -98,15 +98,15 @@ These columns store an array in each row.
 
 .. class:: omero.grid.FloatArrayColumn(name, description, size, [values])
 
-    A value column with fixed width arrays of `float` (32 bit) values.
+    A value column with fixed-width arrays of `float` (32 bit) values.
 
 .. class:: omero.grid.DoubleArrayColumn(name, description, size, [values])
 
-    A value column with fixed width arrays of `double` (64 bit) values.
+    A value column with fixed-width arrays of `double` (64 bit) values.
 
 .. class:: omero.grid.LongArrayColumn(name, description, size, [values])
 
-    A value column with fixed width arrays of `long` (64 bit) values.
+    A value column with fixed-width arrays of `long` (64 bit) values.
 
     :param string name: The column name.
 
