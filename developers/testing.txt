@@ -141,9 +141,10 @@ Tests should be of the **Acceptance Test** form. The ticket number
 for which a test is being written should be added in the
 `testng <http://testng.org>`_ annotations (@Test( groups =
 ":ticket:`60`" )). This works at either the method level
-(see :source:`components/model/test/ome/model/utests/SetsAndLinksTest.java`)
-or the class level (see
-:source:`components/server/test/ome/server/itests/query/UniqueResultTest.java`).
+(see :source:`SetsAndLinksTest.java 
+<components/model/test/ome/model/utests/SetsAndLinksTest.java>`)
+or the class level (see :source:`UniqueResultTest.java 
+<components/server/test/ome/server/itests/query/UniqueResultTest.java>`).
 
 
 OmeroJava
@@ -226,8 +227,8 @@ OMERO listen on port 8787 for a debugging connection.
       bin/omero admin start debug
 
 Then in Eclipse, you can create a new "Debug" configuration by clicking
-on "Remote Java Application", and setting the port to 8787. (These
-values are arbitrary and can be changed locally.)
+on "Remote Java Application", and setting the port to 8787. These
+values are arbitrary and can be changed locally.
 
 **Keep in mind**:
 
