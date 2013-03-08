@@ -9,8 +9,8 @@ Extending OMERO
     by third-party developers to extend, improve, and adapt OMERO. We
     outline most of these options below as well as some of their
     trade-offs. We are also always interested to hear other possible
-    extension points. Please contact ome-devel with any such
-    suggestions.
+    extension points. Please contact the :mailinglist:`ome-devel mailing list <ome-devel/>` 
+    with any such suggestions.
 
 Other starting points
 ---------------------
@@ -22,7 +22,7 @@ To write you own clients or scripts against the OMERO API, see the
 |OmeroClients| page. Though writing your own
 client is a form of extending OMERO, the topics that follow are for
 extending the server and do not cover clients. For information specific
-to OMERO.insight, please see the client trac:
+to OMERO.insight, please see the client documentation:
 
 -  :doc:`/developers/Insight/HowTo/BuildAgent`
 -  :doc:`/developers/Insight/HowTo/BuildAgentView`
@@ -35,22 +35,22 @@ To get a feeling for what type of extension points are available, you
 might want to take a look at the following pages. Many of them will
 point you back to this page for packaging and deploying your new code.
 
--  :doc:`/developers/Search/FileParsers`: Write Java file parsers to
+-  :doc:`/developers/Search/FileParsers` - write Java file parsers to
    further extend search
--  :doc:`/developers/Server/LoginAttemptListener`: Write a
+-  :doc:`/developers/Server/LoginAttemptListener` - write a
    Java handler for failed login attempts
--  |OmeroCli|: Write drop in Python extensions for
-   the command-line
--  :doc:`/developers/Modules/Scripts`: Write python scripts to
+-  :doc:`/developers/command-line-interface` - write drop in Python extensions 
+   for the command-line
+-  :doc:`/developers/Modules/Scripts` - write python scripts to
    process data server-side
--  :doc:`/developers/Server/Ldap`: Write a Java authentication
+-  :doc:`/developers/Server/Ldap` - write a Java authentication
    plugin
--  :doc:`/developers/Server/PasswordProvider`: Write a Java
+-  :doc:`/developers/Server/PasswordProvider` - write a Java
    password backend
--  :doc:`/developers/Modules/Search/Bridges`: Write Java Lucene parsers
+-  :doc:`/developers/Modules/Search/Bridges` - write Java Lucene parsers
    to extend search
 
---------------
+
 
 Main topics
 -----------
@@ -60,9 +60,8 @@ Model
 
 The OME Data Model and its OMERO representation, the
 |OmeroModel| , intentionally draw lines between
-what metadata can be supported and what can't. Though we are always
-examining new fields for inclusion (as of Summer 2009 two examples of
-these are lifetime and electron microscopy), it's not possible to
+what metadata can be supported and what cannot. Though we are always
+examining new fields for inclusion, it is not possible to
 represent everyone's model within OME.
 
 Structured annotations
@@ -71,9 +70,9 @@ Structured annotations
 The primary extension point for including external data are the
 :doc:`/developers/Modules/StructuredAnnotations` (SAs). SAs
 are designed as email-like attachments which can be associated with
-various core metadata types. In general, they should like to information
-outside of the OME model, i.e. information of which OMERO clients and
-servers should have no understanding. URLs can point to external data
+various core metadata types. In general, they should link to information
+outside of the OME model, i.e. information which OMERO clients and
+servers do not understand. URLs can point to external data
 sources, or XML in a non-OME namespace can be attached.
 
 The primary drawbacks are that the attachments are opaque and cannot be
@@ -82,11 +81,12 @@ used in a fine-grain manner.
 Code generation
 ^^^^^^^^^^^^^^^
 
-Since it is prohibitive to model full objects with the SAs, one
-alternative is to add types directly to the code-generated. By adding a
-file named ``*.ome.xml`` to :sourcedir:`components/model/resources/mappings`
-and running a full-build, it is possible to have new objects generated
-in all :doc:`/developers/server-blitz` languages. Supported fields include:
+Since it is prohibitive to model full objects with the SAs, one alternative is
+to add types directly to the :doc:`generated code </developers/Model>`. By
+adding a file named ``*.ome.xml`` to
+:sourcedir:`components/model/resources/mappings` and running a full-build, it
+is possible to have new objects generated in all
+:doc:`/developers/server-blitz` languages. Supported fields include:
 
 -  boolean
 -  string
@@ -122,7 +122,7 @@ provided binary builds would not have your new types.
 Measurement results
 ^^^^^^^^^^^^^^^^^^^
 
-For storing large quantites of only partially structured data, such as
+For storing large quantities of only partially structured data, such as
 tabular/CSV data with no pre-defined columns, neither the SAs nor the
 code-generation extensions are ideal. SAs cannot easily be aggregated,
 and code-generation would generate too many types. This is particularly
@@ -138,7 +138,7 @@ Traditionally, services were added via Java interfaces in the
 :sourcedir:`components/common/src/ome/api`
 package. The creation of such "core" services is described under
 :doc:`/developers/Server/HowToCreateAService`. However,
-with the introduction of :doc:`/developers/server-blitz`, it's also
+with the introduction of :doc:`/developers/server-blitz`, it is also
 possible to write blitz-only services which are defined by a slice
 definition under :sourcedir:`components/blitz/resources/omero`.
 
@@ -162,7 +162,8 @@ The easiest possible service definition in slice is:
 
 This should be added to any existing or a new ``*.ice`` file under the
 ``blitz/resources/omero`` directory. After the next ant build, stubs
-will be created for all the :doc:`/developers/server-blitz` languages, i.e.  |OmeroJava|, |OmeroPy|, and |OmeroCpp|.
+will be created for all the :doc:`/developers/server-blitz` languages, 
+i.e.  |OmeroJava|, |OmeroPy|, and |OmeroCpp|.
 
 .. note::
 
@@ -179,21 +180,21 @@ You will need to think carefully about what exceptions to handle. Ice
 (especially |OmeroCpp|) does not handle exceptions
 well that are not strictly defined. In general, if you would like to add
 your own exception type, feel free to do so, but either 1) subclass
-``omero::ServerError`` or 2) add it the appropriate ``throws`` clauses.
+``omero::ServerError`` or 2) add to the appropriate ``throws`` clauses.
 And regardless, if you are accessing any internal OMERO API, add
 ``omero::ServerError`` to your ``throws`` clause.
 
 See :doc:`/developers/Modules/ExceptionHandling` for more
 information.
 
-Java implementation using ``_Disp``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Java implementation using _Disp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To implement your service, create a class subclassing
 "example.\_NewServiceDisp" class which was code-generated. In this
-example, the class would be named "NewServiceI", by convention. If this
+example, the class would be named "NewServiceI" by convention. If this
 service needs to make use of any of the internal API, it should do so
-via dependency injection. For example, to use IQuery, add either:
+via dependency injection. For example, to use IQuery add either:
 
 ::
 
@@ -212,15 +213,14 @@ or
 The next step "Java Configuration" will take care of how those objects
 get injected.
 
-Java implementation using ``_Tie``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Java implementation using _Tie
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Rather than subclassing the ``_Disp`` object, it is also possible to
-implement the ``_Tie`` inteface for your new service. This allows
+implement the ``_Tie`` interface for your new service. This allows
 wrapping and testing your implementation more easily at the cost of a
 little indirection. You can see how such an object is configured in
-:source:`components/blitz/resources/ome/services/blitz-servantDefinitions.xml#L36`
-blitz-servantDefinitions.
+:source:`blitz-servantDefinitions <components/blitz/resources/ome/services/blitz-servantDefinitions.xml#L36>`.
 
 Java configuration
 ^^^^^^^^^^^^^^^^^^
@@ -247,11 +247,11 @@ application.
 
 The three patterns which are available are:
 
--  ``ome/services/blitz-*.xml`` : highest-level objects which have
+-  ``ome/services/blitz-*.xml`` - highest-level objects which have
    access to all the other defined objects.
--  ``ome/services/services-*.xml`` : internal server objects which do
+-  ``ome/services/services-*.xml`` - internal server objects which do
    not have access to ``blitz-*.xml`` objects.
--  ``ome/services/db-*.xml`` : base connection and security objects.
+-  ``ome/services/db-*.xml`` - base connection and security objects.
    These will be included in background java process like the index and
    pixeldata handlers. 
 
@@ -269,13 +269,13 @@ for all the available objects.
 Java deployment
 ^^^^^^^^^^^^^^^
 
-Finally, these resources:
+Finally, these resources should all be added to 
+``OMERO_DIST/lib/server/extensions.jar``:
 
 -  the code generated classes
 -  your ``NewServiceI.class`` file and any related classes
 -  your ``ome/service/blitz-*.xml`` file (or other XML)
 
-should all be added to ``OMERO_DIST/lib/server/extensions.jar``.
 
 Future topics
 ^^^^^^^^^^^^^
@@ -293,7 +293,7 @@ Non-service beans
 ~~~~~~~~~~~~~~~~~
 
 In addition to writing your own services, the instructions above can be
-used to package any Spring-bean into the OMERO server. For example,
+used to package any Spring-bean into the OMERO server. For example:
 
 ::
 
@@ -358,11 +358,11 @@ Servers
 
 With the |OmeroGrid| infrastructure, it is
 possible to have your own processes managed by the OMERO infrastructure.
-For example, at some sites, ` Nginx <http://wiki.nginx.org/Main>`_ is
+For example, at some sites, `Nginx <http://wiki.nginx.org/Main>`_ is
 started to host |OmeroWeb|. Better integration is
-possible, however, if your server also uses the Ice_ remoting framework.
+possible however, if your server also uses the Ice_ remoting framework.
 
-On way or the other, to have your server started, monitored, and
+One way or the other, to have your server started, monitored, and
 eventually shutdown by |OmeroGrid|, you will need
 to add it to the "application descriptor" for your site. When using:
 
@@ -377,10 +377,10 @@ Inside the nodes, you can either directly add a ``<server>`` element, or
 in order to reuse your description, you can use a ``<server-instance>``
 which must refer to a ``<server-template>``.
 
-Let's make that a bit clearer with examples. Say you have a simple
+To clarify with an example, if you have a simple
 application which should watch for newly created Images and send you an
-email: ``mail_on_import.py``. To add this, either of the following would
-work:
+email: ``mail_on_import.py``, you could add this in either of the following 
+ways:
 
 Server element
 ^^^^^^^^^^^^^^
@@ -414,4 +414,4 @@ Server-template and server-instance elements
       </node>
 
 .. seealso::
-    ` the ome-devel thread <http://lists.openmicroscopy.org.uk/pipermail/ome-devel/2009-July/001332.html>`_
+    :ome-devel:`[ome-devel] model description driven code generation <2009-July/001332.html>`

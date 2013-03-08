@@ -99,29 +99,31 @@ The following are optional depending on what services you require:
       - Functionality
       - Downloads
 
-    * - `Python Imaging Library`_
+    * - `Python Imaging Library`_ [1]_
       - OMERO.web and Figure Export
       - `PIL page <http://www.pythonware.com/products/pil/>`_
 
     * - Matplotlib_
       - OMERO.web
-      - `Matplotlib page <http://matplotlib.sourceforge.net/>`_
+      - `Matplotlib page <http://matplotlib.org/>`_
 
-    * - NumPy (1.2.0 or higher) [1]_
+    * - NumPy (1.2.0 or higher) [2]_
       - Scripting
-      - `Numpy page <http://numpy.scipy.org/>`_
+      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
 
     * - PyTables (2.1.0 or higher)
       - :doc:`OMERO.tables </sysadmins/server-tables>`
       - `PyTables page <http://www.pytables.org/moin/Downloads>`_
 
     * - scipy.ndimage
-      - :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>` [2]_
-      - `Scipy page <http://numpy.scipy.org/>`_
+      - :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>` [3]_
+      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
 
-.. [1] May already have been installed as a dependency of Matplot Lib.
+.. [1] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ installed when building the `Python Imaging Library`_.
 
-.. [2] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
+.. [2] May already have been installed as a dependency of Matplot Lib.
+
+.. [3] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
 
 
 Ice (3.3.x or higher)
@@ -129,16 +131,15 @@ Ice (3.3.x or higher)
 
 .. note::
 
-    **OMERO 4.4 supports Ice3.4**, but this requires the correct
+    OMERO |version| supports Ice3.4, but this requires the correct
     version of OMERO.server (see :omero_plone:`Downloads
     <downloads>`). See :faq_plone:`"Do I use Ice 3.3 or
     Ice 3.4?" <omero/do-i-use-ice-3.3-or-ice-3.4>` in
-    the FAQ. If you have further questions, consult the `Forums
-    <https://www.openmicroscopy.org/community>`_.
+    the FAQ. If you have further questions, consult the :forum:`Forums <>`.
 
 
 UNIX source downloads and binary packages are available from ZeroC_.
-The latest compatible distribution is the `3.3.1 release <http://www.zeroc.com/download_3_3_1.html>`_. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). |Glencoe| has made its version available for the community:
+The latest compatible distribution is the :zeroc:`3.3.1 release <download_3_3_1.html>`. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). |Glencoe| has made its version available for the community:
 `Ice-3.3.1-64.tar.bz2 <http://www.glencoesoftware.com/mac/10.6/Ice-3.3.1-64.tar.bz2>`_
 (sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) 
 
@@ -151,8 +152,8 @@ PostgreSQL (8.4 or higher)
 
 PostgreSQL installed and configured with PL/pgSQL and to accept TCP connections. PostgreSQL 8.3 and earlier are not supported. See :doc:`/sysadmins/limitations`. See :doc:`server-postgresql` for specifics about each version.
 
-OMERO.server 4.4.x
-^^^^^^^^^^^^^^^^^^
+OMERO.server
+^^^^^^^^^^^^
 
 The **OMERO.server** zip and *tar.bz2* is available from the 
 :omero_plone:`OMERO downloads <downloads>` page.
@@ -174,7 +175,7 @@ the Debian Policy Manual for software packaging. You can explicitly set
 your environment variables to reflect these install locations by editing
 the .bashrc (if on Linux) or .profile (if on Mac OS X) file which can be
 found within your home directory. For example, as of writing, on Debian
-& Ubuntu the following environment variables should be set:
+and Ubuntu the following environment variables should be set:
 
 ::
 
@@ -297,10 +298,10 @@ user or use sudo as below:
                List of databases
           Name         |  Owner   | Encoding  
        ----------------+----------+-----------
-        omero_database | db_user  | SQL_ASCII
-        postgres       | postgres | SQL_ASCII
-        template0      | postgres | SQL_ASCII
-        template1      | postgres | SQL_ASCII
+        omero_database | db_user  | UTF8
+        postgres       | postgres | UTF8
+        template0      | postgres | UTF8
+        template1      | postgres | UTF8
        (4 rows)
 
 If you have problems, especially with the last step, take a look at
@@ -346,12 +347,11 @@ Installation
 -   Optionally, review ``~/Desktop/omero/etc/omero.properties`` which
     contains all default settings.
 
-    You will need to open the file with a text editor. Don't edit the file. 
+    You will need to open the file with a text editor. Do not edit the file. 
     Any configuration settings you would like to change can be changed in the 
     next step.
 
--   Change any settings that are necessary using ``bin/omero config``
-    (resp. ``bin\omero config``),
+-   Change any settings that are necessary using :omerocmd:`config`,
     including the name and/or password for the 'db\_user' database user
     you chose above or the database name if it is not "omero\_database".
     (Quotes are only necessary if the value could be misinterpreted by
@@ -369,33 +369,33 @@ Installation
 
 -   Create the OMERO database initialization script. You will be asked
     for the version of the script which you would like to generate, where
-    both defaults can be accepted. Finally, you'll be asked to enter and
+    both defaults can be accepted. Finally, you will be asked to enter and
     confirm password for your newly created OMERO root user.
     
-	.. warning:: 
+    .. warning:: 
 
-	    For illustrative purposes, the default password for the OMERO rootuser 
-	    is ``root_password``. However, you should not use this default value 
-	    for your installation but use your own choice of password instead.
+       For illustrative purposes, the default password for the OMERO rootuser 
+       is ``root_password``. However, you should not use this default value 
+       for your installation but use your own choice of password instead.
 
-	    This should **not** be the same password as your Linux/Mac/Windows 
-	    root user!
-	
-    ::
+       This should **not** be the same password as your Linux/Mac/Windows 
+       root user!
+
+    .. parsed-literal::
 
         $ cd ~/Desktop/omero 
         $ bin/omero db script
-        Please enter omero.db.version [OMERO4.4]: 
+        Please enter omero.db.version [OMERO\ |version|\ ]: 
         Please enter omero.db.patch [0]: 
         Please enter password for new OMERO root user: # root_password
         Please re-enter password for new OMERO root user: # root_password
-        Saving to ~/Desktop/omero/OMERO4.4__0.sql
+        Saving to ~/Desktop/omero/OMERO\ |version|\ __0.sql
 
 -   Initialize your database with the script.
 
-    ::
+    .. parsed-literal::
 
-        $ psql -h localhost -U db_user omero_database < OMERO4.4__0.sql
+        $ psql -h localhost -U db_user omero_database < OMERO\ |version|\ __0.sql
 
 
 -   Before starting the OMERO.server we should run the OMERO diagnostics
@@ -420,15 +420,15 @@ Installation
    ``bin\winconfig.bat --help``, which gets called automatically on an
    initial install.
 
--  You can now test that you can log-in as "root", either with the
-   OMERO.insight client or command-line:
+-   You can now test that you can log-in as "root", either with the
+    OMERO.insight client or command-line:
 
     ::
 
-        $ bin/omero login
-        Server: [localhost]
-        Username: [root]
-        Password:         # root_password
+         $ bin/omero login
+         Server: [localhost]
+         Username: [root]
+         Password:         # root_password
 
 OMERO.web and administration
 ----------------------------
@@ -500,7 +500,7 @@ Advanced configuration
 Once you have the base server running, you may want to try enabling some
 of the advanced features such as :doc:`/sysadmins/server-fs` or :doc:`/sysadmins/server-ldap`.
 If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
-See the :feature_plone:`Feature list <>` for more advanced
+See the :omero_plone:`Feature list <feature-list>` for more advanced
 features you may want to use, and :doc:`/sysadmins/server-advanced-configuration` on how to get the most out of
 your server.
 
@@ -512,7 +512,7 @@ Your OMERO.server installation will check for updates each time it is started fr
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-My OMERO install doesn't work! What do I do now!?! Examine the :doc:`/sysadmins/troubleshooting` page and if all else fails post a
+My OMERO install doesn't work! What do I do now? Examine the :doc:`/sysadmins/troubleshooting` page and if all else fails post a
 message to our :mailinglist:`ome-users` mailing list discussed on the :doc:`/users/community-resources` page.
 
 OMERO diagnostics
@@ -520,4 +520,65 @@ OMERO diagnostics
 
 If you want help with your server installation, please include the output of the diagnostics command:
 
-.. literalinclude:: omero-diagnostics
+.. parsed-literal::
+
+    $ bin/omero admin diagnostics
+
+    ================================================================================
+    OMERO Diagnostics |release|
+    ================================================================================
+
+    Commands:   java -version                  1.6.0     (/usr/bin/java)
+    Commands:   python -V                      2.6.5     (/usr/bin/python)
+    Commands:   icegridnode --version          3.3.1     (/usr/bin/icegridnode)
+    Commands:   icegridadmin --version         3.3.1     (/usr/bin/icegridadmin)
+    Commands:   psql --version                 8.4.12    (/usr/bin/psql)
+
+    Server:     icegridnode                    running
+    Server:     Blitz-0                        active (pid = 28933, enabled)
+    Server:     DropBox                        active (pid = 28951, enabled)
+    Server:     FileServer                     active (pid = 28954, enabled)
+    Server:     Indexer-0                      active (pid = 28957, enabled)
+    Server:     MonitorServer                  active (pid = 28960, enabled)
+    Server:     OMERO.Glacier2                 active (pid = 28962, enabled)
+    Server:     OMERO.IceStorm                 active (pid = 28964, enabled)
+    Server:     PixelData-0                    active (pid = 28963, enabled)
+    Server:     Processor-0                    active (pid = 28972, enabled)
+    Server:     Tables-0                       active (pid = 28974, enabled)
+    Server:     TestDropBox                    inactive (enabled)
+
+    Log dir:    /home/omero/OMERO.server-|version|
+
+    Log files:  Blitz-0.log                    360.0 MB      errors=9    warnings=2458
+    Log files:  DropBox.log                    3.0 KB        errors=0    warnings=1
+    Log files:  FileServer.log                 0.0 KB
+    Log files:  Indexer-0.log                  506.0 KB      errors=0    warnings=90
+    Log files:  MonitorServer.log              2.0 KB
+    Log files:  OMEROweb.log                   710.0 KB      errors=5    warnings=2
+    Log files:  OMEROweb.log.1                 777.0 KB      errors=0    warnings=1
+    Log files:  OMEROweb.log.2                 776.0 KB      errors=0    warnings=2
+    Log files:  OMEROweb.log.3                 777.0 KB
+    Log files:  OMEROweb.log.4                 879.0 KB      errors=1    warnings=2
+    Log files:  OMEROweb.log.5                 258.0 KB
+    Log files:  OMEROweb_request.log           10.0 KB       errors=3    warnings=3
+    Log files:  PixelData-0.log                4.0 KB
+    Log files:  Processor-0.log                315.0 KB      errors=0    warnings=1
+    Log files:  Tables-0.log                   2.0 KB        errors=0    warnings=1
+    Log files:  TestDropBox.log                n/a
+    Log files:  master.err                     0.0 KB
+    Log files:  master.out                     0.0 KB
+    Log files:  Total size                     365.49 MB
+
+    Parsing Blitz-0.log:[line:30] => Server restarted <=
+    Parsing Blitz-0.log:[line:213] => Server restarted <=
+
+    Environment:OMERO_HOME=(unset)
+    Environment:OMERO_NODE=(unset)
+    Environment:OMERO_MASTER=(unset)
+    Environment:PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+    Environment:ICE_HOME=(unset)
+    Environment:LD_LIBRARY_PATH=(unset)
+    Environment:DYLD_LIBRARY_PATH=(unset)
+
+    OMERO data dir: '/OMERO'    Exists? True    Is writable? True
+    OMERO.web status... [RUNNING] (PID 28736)

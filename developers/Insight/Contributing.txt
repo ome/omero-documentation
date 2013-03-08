@@ -11,7 +11,7 @@ Installing from source
 ----------------------
 
 Since January 2011, OMERO.insight code base is part of the OMERO code base. 
-See :doc:`/developers/Development/UsingGit`, to check out code using 
+See :doc:`/developers/using-git`, to check out code using 
 `<http://git.openmicroscopy.org/>`_
 
 Requirements
@@ -61,7 +61,7 @@ Jenkins
 
 The OME project currently uses Jenkins_ (formerly known as hudson) as a 
 continuous integration server available :jenkins:`here <>`. OMERO.insight is 
-built as part of the "OMERO-trunk" job :jenkins:`here <job/OMERO-trunk>`.
+built as part of the :omerojob:`"OMERO" job <>`.
 
 Jenkins checks for SVN changes every 15 minutes and executes:
 

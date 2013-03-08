@@ -1,6 +1,9 @@
 Documentation files to be linked under the ``docs/sphinx`` directory of
 http://github.com/openmicroscopy/openmicroscopy.
 
+.. image:: https://travis-ci.org/openmicroscopy/ome-documentation.png
+   :target: http://travis-ci.org/openmicroscopy/ome-documentation
+
 ***************************
 Getting Started With Sphinx
 ***************************
@@ -242,6 +245,23 @@ Please do not use tables for collections of links and figures, and leave them
 solely for use as actual tables. While it can be used in HTML to shoehorn 
 content into boxes, it doesn't work too well for other output, e.g. latex.
 
+Big tables (typically wider than 50 characters) should be managed as external 
+files using the comma-separated values (CSV) format. These tables can then be 
+included in the documentation with the ``csv-table`` directive. If tables are 
+saved using the tab-separated values (TSV) format use the ``delim`` option to 
+set the table delimiter to `tab` e.g.::
+
+    .. csv-table::
+        :widths: 20 80
+        :header-rows: 1
+        :file: searchfieldnames.tsv
+        :delim: tab
+
+To control the column width in the LaTeX output, precede the table directive 
+with ``tabularcolumns``, e.g.::
+
+    .. tabularcolumns:: |p{3.5cm}|p{12cm}|
+
 Substitutions, aliases and hyperlinks
 =====================================
 
@@ -268,13 +288,29 @@ Finally, please avoid using ``here`` as the hyperlink name, as in::
 Common markups
 ==============
 
+Please try to follow the rules outlined in
+`Inline Markup <http://sphinx-doc.org/markup/inline.html>`_. This allows for
+improving the semantics of the document elements.
+
 * Notes should be formatted using the note directive: ``.. note::``
 * Definition lists can be created and cross-referenced using the glossary
-  directive: ``.. glossary::``
+  directive: ``.. glossary::``. Each definition can be referenced anywhere in
+  the documentation using the ``:term:`` role and an entry will be added for
+  every term in the generated index.
 * References to external documentation can be formatted using:
   ``.. seealso::``
 * Menu selections should be marked using the appropriate role:
   ``:menuselection: `Start --> Programs```
+* Environment variables should be formatted using the ``:envvar:`` role.
+  This  role will add an entry for the variable in the generated index.
+* CLI Commands can be formatted using the following role:
+  ``:omerocmd: `admin start```
+  This role will render as ``omero admin start`` and add an entry for
+  the command in the generated index.
+* Other commands should be formatted using the literal markup:
+  ``:literal: `command``` or double back quoted markup
+* Other useful inline markups include: ``:option:`` and ``:guilabel:``
+* Do not use inline highlighting or other markups in headings or subheadings
 
 Global substitutions
 ====================
@@ -309,15 +345,16 @@ The table below lists substitutions for common abbreviations. These
 substitutions use the ``:abbr:`` Sphinx role meaning they are shown as 
 tool-tip in HTML and output only once in LaTeX.
 
-======= ============= ===================
+======= ============= ======================
 Name    Abbreviation  Explanation
-======= ============= ===================
+======= ============= ======================
 \|SSH\| SSH           Secure Shell
 \|VM\|  VM            Virtual Machine
 \|OS\|  OS            Operating System
 \|SSL\| SSL           Secure Socket Layer
 \|HDD\| HDD           Hard Disk Drive
-======= ============= ===================
+\|CLI\| CLI           Command Line Interface
+======= ============= ======================
 
 Page references
 ---------------
@@ -332,7 +369,6 @@ Name                Path
 \|OmeroCpp\|        developers/Cpp
 \|OmeroJava\|       developers/Java
 \|OmeroMatlab\|     developers/Matlab
-\|OmeroCli\|        sysadmins/CommandLine
 \|OmeroApi\|        developers/Modules/Api
 \|OmeroWeb\|        developers/Web
 \|OmeroClients\|    developers/GettingStarted
@@ -356,13 +392,47 @@ for the following:
 * Trac tickets: ``:ticket: `3442```, displayed as ``<a>#3442</a>``
 * Snapshots: ``:snapshot: `omero/myzip.zip```
 * Plone pages: ``:omero_plone: `Downloads <downloads>```
-* DOIs: ``:doi: `Dantas, et al., JCB <10.1083/jcb.201012093>```
-* Github source code, e.g. ``:source: `etc/omero.properties```
 * OME Forums: ``:forum: `viewforum.php?f=3```
-* Mailing lists: ``:mailinglist:`ome-users/```
 
 For the most up-to-date list, please consult ``conf.py`` (section
 ``extlinks``).
+
+Source code links
+=================
+
+Links to the OMERO source code hosted on Github can be created using the
+``source`` alias for single files, e.g. ``:source: `etc/omero.properties``` or
+the ``sourcedir`` alias for directories, e.g. ``:sourcedir: `etc```.
+
+By default, these links will point at the code under the ``develop`` branch or
+https://github.com/openmicroscopy/openmicroscopy. To specify a specific fork
+and/or  branch, set the SOURCE_USER and SOURCE_BRANCH environment variables,
+e.g.::
+
+    SOURCE_USER=sbesson SOURCE_BRANCH=my_branch make clean html
+
+Jenkins links
+=============
+
+Links to the continuous integration server can be created using the 
+``jenkins`` alias for the main server, e.g. ``:jenkins: `Jenkins server <>```,
+the ``jenkinsjob`` alias for a given job, e.g. ``:jenkinsjob: `OMERO-4.4``` or
+the ``jenkinsview`` alias for a given view, e.g. ``:jenkinsview: `4.4```.
+Two aliases have been defined for the main OMERO job: ``omerojob`` and
+``javadoc`` for the generated Javadoc, e.g. ``:javadoc:`main page <>```.
+
+By default, the OMERO job is set to ``OMERO-trunk``. To specify a different 
+job, set the JENKINS_JOB environment variables, e.g.::
+
+    JENKINS_JOB=OMERO-4.4 make clean html
+
+Mailing-list links
+==================
+
+Links to the OME mailing lists can be created using the ``mailinglist`` alias,
+e.g. ``:mailinglist:`ome-users/```. To point at specific discussion threads,
+two aliases have been defined ``ome-users`` and ``ome-devel``, e.g.
+``:ome-users:`ome-users thread <2009-June/001839.html>```.
 
 Inclusion of content
 ====================

@@ -2,18 +2,18 @@ Aspect-oriented programming
 ===========================
 
 Aspect-oriented programming is, among other things, the attempt to
-define and centralize cross-cutting concerns. In other words, it's not
+define and centralize cross-cutting concerns. In other words, it is not
 much more than the tried-and-true principle of modularization. Having
-possibly unseen aspects operating on a given class, however, can
-complicate an initial examination of the code. Therefore, it's important
+possibly unseen aspects operating on a given class however, can
+complicate an initial examination of the code. Therefore, it is important
 to be aware of what portions of the OMERO code base are "advised" and
 where to find the advisors (in the case of OMERO solely interceptors).
 
-In ` Spring <http://www.springsource.org/>`_, advisors are declared in
+In `Spring <http://www.springsource.org/>`_, advisors are declared in
 the bean definition files (under
-:sourcedir:`components/server/resources/ome/services` : :source:`services.xml <components/server/resources/ome/services/services.xml>`,
+:sourcedir:`components/server/resources/ome/services`, :source:`services.xml <components/server/resources/ome/services/services.xml>`,
 :source:`hibernate.xml <components/server/resources/ome/services/hibernate.xml>`,
-and others.`
+and others.
 
 In these configuration files, various Spring beans (shared objects) are
 defined with names like "proxyHandler", "eventHandler",
@@ -22,12 +22,12 @@ interceptor which is passed execution before the actual logic is
 reached. The interceptor can inspect or replace the return value, but
 can also stop the method execution from ever taking place.
 
-Unlike with ` AspectJ <http://eclipse.org/aspectj/>`_, the AOP
+Unlike with `AspectJ <http://eclipse.org/aspectj/>`_, the AOP
 implementation used by OMERO only allows for the advising of interfaces.
-Simply creating a new service implementation via "new QueryImpl?()" will
-not produce an advised object, which can in turn will not function
-properly if at all. Instead, an advised objects can only be acquired
-from the Spring :doc:`context </developers/Server/Context>`..
+Simply creating a new service implementation via "new QueryImpl()" will
+not produce an advised object, which in turn will not function
+properly, if at all. Instead, advised objects can only be acquired
+from the Spring :doc:`context </developers/Server/Context>`.
 
 By and large, only the :doc:`API service methods </developers/Modules/Api>` 
 are advised in OMERO.
@@ -38,8 +38,8 @@ Why?
 Often, when implementing or adding code, it becomes clear just how many
 requirements are placed by libraries, the application server, and
 existing code on any new code. This can include transaction handling,
-session handling, security checks, object validation, logging, etc. As a
-code-base grows, these dependencies slow development and makes code
+session handling, security checks, object validation, logging etc. As a
+code-base grows, these dependencies slow development and make code
 unmanageable. AOP tries to reduce these dependencies by defining each of
 these concerns in a single place.
 
@@ -63,7 +63,7 @@ through method interceptors. Rather than writing:
 
         }
 
-one just writes:
+you just write:
 
 ::
 

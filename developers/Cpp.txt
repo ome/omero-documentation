@@ -1,8 +1,7 @@
 OMERO C++ language bindings
 ===========================
 
-Using the ` Ice C++ language
-mapping <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.4.3.html>`_ from
+Using the :zeroc:`Ice C++ language mapping <doc/Ice-3.3.0/manual/Hello.4.3.html>` from
 ZeroC_, OMERO provides native access to
 your data from C++ code. The "build-cpp" build target produces a
 platform-dependent shared library which can be linked to your
@@ -20,7 +19,7 @@ Preparing to build
 -------------------
 
 Begin by following the instructions under 
-:doc:`/developers/Development/UsingGit` on acquiring the
+:doc:`/developers/using-git` on acquiring the
 source code. Be **sure** that the git branch you are using matches the
 version of your server!
 
@@ -78,9 +77,7 @@ or
 
     ./build.py build-all
 
-If you would like to build the C++ tests, you will need to install
-` boost\_unit\_test-mt <http://www.boost.org/doc/libs/1_34_0/libs/test/doc/index.html>`_
-and run:
+If you would like to build the C++ tests, you can run:
 
 ::
 
@@ -92,9 +89,6 @@ or to test only C++:
 ::
 
     ./build.py -f components/tools/OmeroCpp/build.xml test
-
-Information on installing Boost on Windows is available at
-` http://www.boost.org/doc/libs/1\_39\_0/more/getting\_started/windows.html <http://www.boost.org/doc/libs/1_39_0/more/getting_started/windows.html>`_
 
 .. note::
     If you would like to work on just the C++ code without
@@ -141,6 +135,7 @@ are considered:
 Zip files containing the C++ header files, the libraries, and source
 code are placed under OMERO\_HOME/target with other zip artifacts.
 
+.. note::   
     If you are using make, you can unpack the main zip (e.g.
     ``OMERO.cpp-<version>-64dbg.zip``) to some directory
     (``OMERO_DIST``) and follow the instructions below get started. For
@@ -157,8 +152,8 @@ the mentioned directories above. A simple `GNU make
    :language: make
    :linenos:
 
-A trivial example: ``yourcode.cpp``
------------------------------------
+A trivial example: yourcode.cpp
+-------------------------------
 
 And a simple example file might looking something like the following:
 
@@ -166,14 +161,14 @@ And a simple example file might looking something like the following:
    :language: c++
    :linenos:
 
-This code doesn't do much. It creates a server session, loads a few
+This code does not do much. It creates a server session, loads a few
 services, and prints the user's name. For serious examples, see
 |OmeroClients|.
 
-Compiling and running ``yourcode``
-----------------------------------
+Compiling and running yourcode
+------------------------------
 
-Therefore, to compile and run ``yourcode``, you'll need to download the
+Therefore, to compile and run ``yourcode``, you will need to download the
 two files above (Makefile and yourcode.cpp) and then from the shell:
 
 ::
@@ -181,7 +176,7 @@ two files above (Makefile and yourcode.cpp) and then from the shell:
     make OMERO_DIST=dist yourcode
     LD_LIBRARY_PATH=dist/lib ./yourcode --Ice.Config=dist/etc/ice.config
 
-where you've edited ``dist/etc/ice.config`` to contain the values:
+where you have edited ``dist/etc/ice.config`` to contain the values:
 
 ::
 
@@ -225,4 +220,4 @@ For the details behind writing, configuring, and executing a client,
 please see |OmeroClients|.
 
 .. seealso::
-    Ice_, |OmeroGrid|, |OmeroApi|, :doc:`/developers/Build`, :ticket:`1596` which added 64bit support
+    Ice_, |OmeroGrid|, |OmeroApi|, :doc:`/developers/build-system`, :ticket:`1596` which added 64bit support

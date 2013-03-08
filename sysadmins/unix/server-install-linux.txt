@@ -43,9 +43,9 @@ Prerequisites: the base software install
 You require at least a clean minimal Debian or Ubuntu installation and a
 non-root user account that has sudo privileges.
 
-First we need to enable the contrib & Non-Free repositories by opening
+First we need to enable the contrib and Non-Free repositories by opening
 **/etc/apt/sources.list** in an editor, e.g. **$ sudo vim
-/etc/apt/sources.list** & editing to add the following lines:
+/etc/apt/sources.list** and editing to add the following lines:
 
 ::
 
@@ -56,9 +56,9 @@ First we need to enable the contrib & Non-Free repositories by opening
       deb-src http://ftp.uk.debian.org/debian/ squeeze non-free
 
 .. note:: 
-	For Ubuntu the repository names & locations are different to
+	For Ubuntu the repository names and locations are different to
 	Debian but you need to enable the **main**, **restricted**, **universe**
-	& **multiverse** repositories. You can do this either by editing
+	and **multiverse** repositories. You can do this either by editing
 	**/etc/apt/sources.list** directly, in which case the entries already
 	exist but are commented out, or using Synaptic (10.04 & 10.10) or Ubuntu
 	Software Center (11.04 onwards).
@@ -71,7 +71,7 @@ packages including those from the repositories that we just enabled:
       $ sudo apt-get update
 
 Oracle recently changed their distribution license (OSDL) which means
-that Debian & Ubuntu can no longer distribute Java in their package
+that Debian and Ubuntu can no longer distribute Java in their package
 management systems. This means that we have to install the JDK
 separately as follows:
 
@@ -81,7 +81,7 @@ If you are on Debian then:
 
       $ sudo apt-get install lsb_release
 
-For both Debian & Ubuntu you can now:
+For both Debian and Ubuntu you can now:
 
 ::
 
@@ -109,7 +109,7 @@ packages:
       $ sudo apt-get install apache2 libapache2-mod-fastcgi
 
 .. note::
-	On Ubuntu some of the packages are slightly different & do not
+	On Ubuntu some of the packages are slightly different and do not
 	necessarily install ALL of the same software as Debian. For example,
 	python-tables on Ubuntu does not install . As a result, on Ubuntu we may
 	also need to install liblzo otherwise OMERO.tables will fail to start:
@@ -187,7 +187,7 @@ the following dummy data for the user account:
 .. note::
 	For a live or public server install these values should be altered
 	to reflect your security requirements. You should also consider locking
-	down your server machine but that is outwith the scope of this document
+	down your server machine but that is outside the scope of this document.
 
 Setup postgresql:
 
@@ -213,7 +213,7 @@ connections:
 
 .. note::
 	The backslash '' in the sed command above is used merely to
-	indicate a line-break & should not be included in the executed command
+	indicate a line-break and should not be included in the executed command
 
 Restart postgresql:
 
@@ -237,7 +237,7 @@ Which should display a line similar to the following:
 Install OMERO.server
 --------------------
 
-Now that all of the prerequisites are installed & configured we can get
+Now that all of the prerequisites are installed and configured we can get
 to the important business of setting up the OMERO.server. First we need
 to create a home for our server and move into that directory. I like to
 install certain software, such as OMERO, locally into a directory called
@@ -256,35 +256,30 @@ apps in my home directory as follows:
 	wish to install OMERO to then you will also have to alter your
 	**OMERO\_HOME** environment variable to reflect this.
 
-Release versions of OMERO.server can downloaded from :snapshot:`omero` where the current
-release, at time of writing, is 4.4.1
-
-::
-
-      $ wget http://cvs.openmicroscopy.org.uk/snapshots/omero/OMERO.server-4.4.1-ice33-b3035.zip
+Release versions of OMERO.server can downloaded from :omero_plone:`OMERO 
+downloads <downloads>` page.
 
 .. note::
-	If you want the development version of OMERO.server which is
-	currently version 4.4 then you can clone the src code from the
-	project's GitHub account at
+	If you want the development version of OMERO.server, you can clone the 
+	source code from the project's GitHub account at
 	https://github.com/openmicroscopy/openmicroscopy to build
-	locally or download a daily build from our :jenkins:`build
-	server <job/OMERO-trunk/lastSuccessfulBuild/artifact/>`
+	locally or download a daily build from our :omerojob:`build
+	server <lastSuccessfulBuild/artifact/>`
 
 Assuming that you downloaded a release version of OMERO.server, extract
 it from the zip archive:
 
-::
+.. parsed-literal::
 
-      $ unzip OMERO.server-4.4.1-ice33-b3035.zip
+      $ unzip OMERO.server-|release|-ice33-byy.zip
 
 Give your OMERO software install a nice local name to save some typing
-later, to reflect what we set **OMERO\_HOME** to, & to make it easy to
+later, to reflect what we set **OMERO\_HOME** to, and to make it easy to
 manage the installation of newer versions of the server at a later date:
 
-::
+.. parsed-literal::
 
-      $ ln -s OMERO.server-4.4.1-ice33-b3035  OMERO.server
+      $ ln -s OMERO.server-|release|-ice33-byy  OMERO.server
 
 Configure OMERO.server
 ----------------------
@@ -330,15 +325,17 @@ suitable password as required when prompted, e.g. "root\_password"
 
       $ omero db script
 
-The output of this should be a file named, e.g. *OMERO4.3*\ *0.sql* file
+.. |sqlfile| replace:: OMERO\ |version|\ __0.sql
+
+The output of this should be a file named, e.g. |sqlfile| file
 in your current directory. We can now tell Postgres to configure our new
 database
 
-::
+.. parsed-literal::
 
-      $ psql -h localhost -U db_user omero_database < OMERO4.3__0.sql
+    $ psql -h localhost -U db_user omero_database < |sqlfile|
 
-At this point your should see a whole load of output from Postgres as it
+At this point you should see a whole load of output from Postgres as it
 installs the new OMERO database.
 
 If all has gone well, you should now be able to start OMERO.server using

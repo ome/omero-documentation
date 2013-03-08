@@ -20,20 +20,20 @@ Hibernate sessions
 
 A ``Hibernate Session`` comprises a
 ` Unit-of-Work <http://www.martinfowler.com/eaaCatalog/unitOfWork.html>`_
-which translates for OMERO's |OmeroModel| to a
-relational database. It keeps references to all DB-backed objects so
-that within a single session object-identity stays constant and objects
+which translates for OMERO's |OmeroModel| model to a
+relational database. It keeps references to all Database-backed objects so
+that within a single session, object-identity stays constant and object
 changes can be persisted.
 
 A session can span multiple calls by being disconnected from the
-underlying database transaction and, then, reconnected to a new
-transaction on the next call (See
+underlying database transaction, and then reconnected to a new
+transaction on the next call (see
 :source:`components/server/src/ome/tools/hibernate/SessionHandler.java`
 for the implementation).
 
-! Event
 
-For more information about Events see :doc:`/developers/Server/Events`.
+
+For information about Events see :doc:`/developers/Server/Events`.
 
 .. figure:: /images/contexts.png
     :align: center

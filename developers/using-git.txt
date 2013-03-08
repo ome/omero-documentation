@@ -1,0 +1,1050 @@
+Using Git
+=========
+
+This page is primarily designed for the core OME developers who are
+contributing to our code base using git. It should contain all the
+useful commands and configuration you need for doing most git tasks.
+
+Getting started
+---------------
+
+Code locations
+~~~~~~~~~~~~~~
+
+OME code is stored in multiple git repositories each of which is
+available from several locations.
+
+Bio-Formats
+^^^^^^^^^^^
+
+The Bio-Formats repository is available from:
+
+-  https://github.com/openmicroscopy/bioformats
+-  git://openmicroscopy.org/bioformats.git
+
+
+OME
+^^^
+
+The main repository, known as ome.git, is available from:
+
+-  https://github.com/openmicroscopy/openmicroscopy
+-  git://openmicroscopy.org/ome.git
+
+Most of these repositories are read-only locations which are kept in
+sync for public consumption. A third centrally available location is
+also available though not publicly:
+
+-  \ssh://git.openmicroscopy.org/home/git/team.git
+
+``team.git`` is useful for team-internal branches which are not yet
+ready for public consumption. Changes that are not ready to be reviewed
+by the public can be exchanged via team. This allows you to internally
+collaborate on a branch or simply to back-up your work.
+
+After that, each member of the github openmicroscopy organization
+(https://github.com/openmicroscopy)
+as well as anyone else who has clicked the “Fork” button will have their
+own repository. These are listed here:
+
+-  https://github.com/openmicroscopy/openmicroscopy/network/members
+
+Git quickstart
+~~~~~~~~~~~~~~
+
+If you are looking to get started as quickly as possible the minimum
+you will need is to have git installed (see next section) and then:
+
+::
+
+        git config --global user.name "Full name"
+        git config --global user.email YOUR_EMAIL
+        git clone --recursive https://github.com/openmicroscopy/openmicroscopy
+        cd openmicroscopy
+
+You will not be able to push back to this repository, but you will at least
+have something you can start looking at. Read on for more.
+
+Installing git
+~~~~~~~~~~~~~~
+
+In general, see the Git `downloads page <http://git-scm.com/download>`_ for 
+installation options.
+
+Linux 
+^^^^^
+
+Most flavors of Linux have git available through the package manager. E.g., on 
+Debian/Ubuntu:
+
+::
+
+        sudo apt-get install git
+
+Mac OS X
+^^^^^^^^
+
+You can install git using `Homebrew <http://mxcl.github.com/homebrew/>`_:
+
+::
+
+        brew install git
+
+Or you can use the `binary installer <http://git-scm.com/download>`_.
+
+
+Windows
+^^^^^^^
+
+We recommend using either msysGit_ for a basic git installation, or Cygwin_ 
+for a full-featured Unix-style environment that includes git. You can also use
+TortoiseGit_ for git shell integration. You may also want to consider 
+installing VirtualBox_ with a Linux guest OS to make your life easier. Lastly, 
+when using git on Windows, please be aware of the `CRLF conversion issue`_.
+
+.. _msysGit: http://code.google.com/p/msysgit
+.. _Cygwin: http://www.cygwin.com/
+.. _TortoiseGit: http://code.google.com/p/tortoisegit/
+.. _VirtualBox: https://www.virtualbox.org/
+.. _CRLF conversion issue: https://help.github.com/articles/dealing-with-line-endings
+
+Configuration
+~~~~~~~~~~~~~
+
+Git provides a number of options which can make working with it
+considerably more pleasant. These configuration options are available
+either globally in ``$HOME/.gitconfig`` or in the ``.git`` directory of
+your repository. The file is in INI-format, but can also be modified
+using the ``git config`` command, as illustrated in the examples following.
+
+The most important thing is to update your 'global' credentials that are used 
+in your commits. These values are saved in :file:`~/.gitconfig`.
+
+::
+
+        git config --global user.name "Full name"
+        git config --global user.email YOUR_EMAIL
+
+If you have a PGP key for signing commits and tags, you may want to add
+it as well:
+
+::
+
+        git config --global user.signingkey YOUR_PGP_KEY_ID
+
+Color and display options make log and diff output much more friendly:
+
+::
+
+         git config --global color.ui true
+         git config --global color.diff auto
+         git config --global color.graph auto
+         git config --global color.status auto
+         git config --global color.branch auto
+
+         git config --global core.ui always
+         git config --global core.editor mate_wait
+
+Aliases provide a way to make shortcuts for longer git commands. One
+that is often used among the OME team is ``graph``:
+
+::
+
+         git config --global alias.graph "log --date-order --graph --decorate --oneline"
+
+See `<http://gitready.com/intermediate/2009/02/06/helpful-command-aliases.html>`_
+for even more examples.
+
+Getting started with github
+---------------------------
+
+Most OME development is currently happening on github, therefore it is
+highly suggested that you become familiar with how it works, if not
+create an account for yourself.
+
+Start by downloading the official repository:
+
+::
+
+        git clone https://github.com/openmicroscopy/openmicroscopy.git 
+
+Since the openmicroscopy repository now makes use of submodules, you
+first need to initialize all the submodules:
+
+::
+
+        cd openmicroscopy
+        git submodule update --init 
+
+Alternatively, with version 1.6.5 of git and later, you can pass the
+--recursive option to git clone and initialize all submodules:
+
+::
+
+        git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git 
+
+The natural workflow when using github is not just to download
+someone else’s repository, but also to create a personal working copy.
+Go to the repository page at `<https://github.com/openmicroscopy/openmicroscopy>`_
+and click on “Fork”. This will create a copy of the repository in your
+own personal space:
+
+::
+
+        https://github.com/YOURNAME/openmicroscopy
+
+which can be added to your local repository as another remote:
+
+::
+
+        git remote add gh git@github.com:YOURNAME/openmicroscopy.git
+
+.. note:: 
+    For the |SSH| transport to work, you will need to follow some of the
+    instructions under https://github.com/account/ssh
+
+Depending on which repository you cloned first, either origin/develop or
+gh/develop will be the “develop” branch of your own fork of
+openmicroscopy/openmicroscopy. **The rest of this document
+assumes that “gh” is your own personal github repository, and “origin” is the
+official openmicroscopy repository.**
+
+You may even want to remove the “develop” branch from your fork since
+all branching should happen from the official develop branch. If you’d
+prefer to keep a copy of “develop” in “gh”, that is fine, but you may
+then need to keep your develop up-to-date with the official develop:
+
+::
+
+        git checkout develop
+        git reset --hard origin/develop   # Warning: This will delete any unsaved changes and commits to develop!
+        git push -f gh develop            # Warning: This will replace gh/develop with the official version remotely.
+
+Github remotes
+~~~~~~~~~~~~~~
+
+You can also add the other members of the OME network as remotes, so you
+can follow what they are doing:
+
+::
+
+        git remote add SOMEUSER git://github.com/SOMEUSER/openmicroscopy.git
+        git fetch SOMEUSER
+
+If you would like to work more closely with someone, via pushing directly to
+their branch or they from yours, then you can have them add you as a
+collaborator on their repository or do the same for them on yours. This
+is done under `<https://github.com/account/repositories>`_
+
+If you have not made such a repository yet as a remote, then you should
+do so using the |SSH| protocol:
+
+::
+
+        git remote add SOMEUSER git@github.com:SOMEUSER/openmicroscopy.git
+
+Otherwise, you will need to modify its URL
+
+::
+
+        git remote set-url SOMEUSER git@github.com:SOMEUSER/openmicroscopy.git
+
+If you would like to be kept up-to-date on what several users are doing on
+github, you can set the “default remotes” value to the list of people
+you would like to check in .git/config:
+
+::
+
+        git config remotes.default "ome team origin gh official chris ola will jm colin elwood"
+
+Now, ``git remote update`` will check the above list of repositories.
+
+Pushing to github
+~~~~~~~~~~~~~~~~~
+
+When you have work which you want to share with the rest of the team,
+it is vital that you push it to your github fork.
+
+::
+
+        git push gh your-branch
+
+This will create a new branch, and the same command can be used to
+subsequently update that branch.
+
+If you NEED to use a different name for the branch on github, you can
+do:
+
+::
+
+        git push gh your-branch:refs/heads/branch-name-on-gh
+
+As mentioned elsewhere, the "refs/heads/" prefix only needs to be used to
+create a new branch, and can be dropped for subsequent pushes.
+
+Tracking others' branches
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The flip-side of pushing your own branches is being aware that other OME
+developers will also be pushing theirs. Github provides a number of ways
+of monitoring either a user or a repository. Notifications about what
+watched users and repositories are doing can be seen in your github
+inbox or via RSS feeds. See `Be social <https://help.github.com/articles/be-social>`_ for more information.
+
+Even if you do not feel able to watch the everyone's repository, you will
+likely want to periodically check in on the current `Pull Requests
+(PRs) <https://github.com/openmicroscopy/openmicroscopy/pulls>`_. These
+will contain screenshots and other updates about what the team is
+working on. When the PRs have been sufficiently reviewed, they will be
+merged into the develop branch so that others' work will start to be
+based on it.
+
+Cleaning up your github branches
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once your branches have been merged into the mainline ("develop" of
+openmicroscopy/openmicroscopy) you should delete them from your
+repository.
+
+::
+
+        git branch -d your-branch
+        git push gh :your-branch
+
+This way, anyone looking at your fork clearly sees what is currently in
+progress or upcoming.
+
+Common Git Commands
+-------------------
+
+Although everyone has a slightly different way of working, the following
+command examples should show you much of what you will want to do on a
+daily or weekly basis when working with OME via git.
+
+See if you have any changes that you might need to commit. This also
+displays some useful tips on how to add and remove files:
+
+::
+
+        git status   
+
+Create a branch from the “develop” branch:
+
+::
+
+        git checkout -b feature/foo origin/develop
+
+At this point, you are ready to do some work:
+
+::
+
+        git checkout my-work  # Just to be sure.
+        vim README.txt        # edit files
+        git merge anotheruser/some-work
+        git status            # See what you have done
+
+You can also add files or directories to the 'cache' with interactive
+choice of which 'chunks' to accept or decline (useful for checking that
+you are not adding any unintended changes, print statements etc.):
+
+::
+
+        git add -p path/to/dir/or/file
+
+Check the status again - to see summary of what you are about to commit:
+
+::
+
+        git status
+
+Any remaining changes that you want to discard can be reverted by:
+
+::
+
+        git checkout -- path/to/file.txt
+
+When committing the code you have just modified/merged your commit message
+should refer to related tickets. E.g. "See :ticket:`1111`"
+will link the commit to the ticket on trac, and "Fixes
+:ticket:`2222`"" will link and close the ticket on trac.
+
+::
+
+        git commit  -m "Add message here and refer to the ticket number. See #1234. Fixes #5678"
+
+.. note::
+
+    If you want to add more than a short one-line message, you can omit the
+    -m "message" and git will open your specified editor, where you should
+    add a single line summary followed by line space and then a paragraph of
+    more text. See :ref:`usinggit/commitmessages` for more discussion.
+
+After you have committed, you can keep working and committing as above -
+the changes are only saved to your local git.
+
+For example, you can move to another branch to continue work on a
+different feature. To see a list branches:
+
+::
+
+        git branch
+
+Add the ``-a`` to list remote branches too.
+
+To simply move between branches, use ``git checkout``. All the files on 
+your file-system will be updated to the new branch:
+
+::
+
+        git checkout dev_4_2
+
+.. note:: Make sure they are refreshed if you have files open in an editor or IDE
+
+If you have forgotten what you did on a particular branch, you can use
+``git log``. Add the ``-p`` flag to see the actual diff for each commit.
+
+You can use the first 5 characters of a commit's hash key to begin the
+log at a certain commit. E.g. show diff for commit 83dad:
+
+::
+
+        git log 83dad -p
+
+Or to display a nice graph:
+
+::
+
+        git log --graph --decorate --oneline
+
+If an alias has been set-up as described in the configuration section above, 
+you can just do:
+
+::
+
+        git graph
+
+This is most useful when showing how two branches are related:
+
+::
+
+        git graph origin/develop develop
+
+When you are ready, you will need to push your local changes to your own
+forked repository in order to share with others. If the branch does not
+yet exist in your repository, you will need to prefix the push command
+with ``refs/heads``:
+
+::
+
+        git push gh my_fix_123:refs/heads/my_fix_123
+
+After that initial push, the following will suffice as long as you are
+on the my\_fix\_123 branch:
+
+::
+
+        git push gh my_fix_123
+
+You will find it easier if you name remote branches the same as local
+branch though it is not a requirement:
+
+::
+
+        git push gh name/of/branch:refs/heads/name/of/branch
+        # E.g:
+        git push gh feature/export:refs/heads/feature/export
+
+Once you have pushed, you can open a “Pull Request” to inform the team
+about the changes. More on that below.
+
+You can also create a local branch from a remote branch, whether it is your
+own or belongs to someone else on the team. These will be 'tracked' so that
+commits you push automatically go to the corresponding remote branch:
+
+::
+
+        git fetch SOMEUSER && git checkout -b name/of/branch SOMEUSER/name/of/branch
+        # work on the branch then:
+        git push SOMEUSER name/of/branch
+
+Collaborating via git rebase
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you have been permitted write access to someone else’s forked
+repository, or you have granted someone else write access to your
+repository, then there is a further aspect that you need to be aware of.
+
+If both of you are working on the my\_fix\_123 branch from above, then
+when it is time to push, your version may not represent the latest
+state. To prevent losing any commits or introducing unnecessary merge
+messages, you will first need to access the latest remote changes:
+
+::
+
+        git fetch gh
+
+To see the differences between your local changes ('my\_fix\_123') and
+the remote changes ('gh/my\_fix\_123'), you can use the log command:
+
+::
+
+        git log --graph --date-order gh/my_fix_123 my_fix_123
+
+If the remote branch (‘gh/my\_fix\_123’) have moved ahead of yours, then
+you will want to rebase your work on top of this new work:
+
+::
+
+        git rebase gh/my_fix_123
+
+Now your local changes will follow the remote changes in the log. You
+can check how this looks by viewing the graph again:
+
+::
+
+        git log --graph --date-order gh/my_fix_123 my_fix_123
+
+Now you can push your changes on the 'my\_fix\_123' branch to the remote
+repository:
+
+::
+
+        git push gh my_fix_123
+
+Rebasing allows you to update the 'base' point at which you branched
+from another branch (as described above). You can also use 'rebase' to
+organise your commits before merging.
+
+It can strip whitespace, since it is good practice not to commit extra
+whitespace at the end of lines or files. Git allows you to remove all
+extra whitespace during rebase - E.g. to origin/develop branch
+
+::
+
+        git rebase --whitespace=strip origin/develop
+
+Rebase "interactive" using the ``-i`` flag allows you to remove, edit,
+combine etc commits. Git will open an editor to allow you to edit the
+commit summary along with instructions on how to omit, modify commits.
+For example, to rebase onto origin/develop branch:
+
+::
+
+        git rebase -i origin/develop
+
+Working with submodules
+-----------------------
+
+Since submodules are git repositories, all the tools described
+previously (add remotes, edit/merge, commit...) can be used within each
+submodule repository:
+
+::
+
+        $ cd components/bioformats
+        $ git remote add melissalinkert git@github.com:melissalinkert/bioformats.git
+        $ git remote
+        origin
+        melissalinkert
+        sbesson
+        $ git checkout -b new_branch origin/develop
+        $ vim Readme.txt
+        $ git merge melissalinkert/branch
+        $ git commit -m "Merge branch"
+        $ git push sbesson new_branch
+
+Additionally, you can perform an update of the submodule from the parent
+project, i.e. checkout a specific commit. After updating, the submodule
+ends up in a detached HEAD state:
+
+::
+
+        $ cd code/openmicroscopy
+        $ git submodule update
+        Submodule path 'components/bioformats': checked out '9328b869b9ba61851adaa3db428ce25f0ca56845'  
+        $ cd components/bioformats
+        $ git branch
+        * (no branch)
+          develop
+
+If you move between branches in the project, you may end up in a
+different state of the submodule:
+
+::
+
+        $ cd ../..
+        $ git checkout my-branch
+        M   components/bioformats
+        Switched to branch 'my-branch'
+        
+        $ git status
+        # On branch my-branch
+        # Changes not staged for commit:
+        #   (use "git add <file>..." to update what will be committed)
+        #   (use "git checkout -- <file>..." to discard changes in working directory)
+        #
+        #   modified:   components/bioformats (new commits)
+        #
+        # no changes added to commit (use "git add" and/or "git commit -a")
+
+If you do not want to modify the submodule state, run
+command:`git submodule update`. Be careful though, the
+command:`git subdmodule update` command will silently delete all local
+changes under the submodule. If you want to keep your changes, make sure
+you have pushed them to github.
+
+To advance the submodule to another commit, you can run the command:`git add`
+command:
+
+::
+
+        cd components/bioformats
+        git merge gh/branch
+        git commit -m "Merged branch"
+        git push
+
+        cd ..
+        git add bioformats
+        git commit -m "Move to latest bioformats"
+
+.. warning::
+
+    Be careful NOT to add a trailing slash when adding the submodule,
+    the following command would want to delete the submodule and add all the
+    files in the submodule directory:
+
+    ::
+
+            git add components/bioformats/
+
+There are git hooks available to make working with submodules safer. See 
+post-merge-checkout_ for an example.
+
+.. _post-merge-checkout: https://github.com/chaitanyagupta/gitutils/blob/master/submodule-hooks/post-merge-checkout
+
+
+.. _usinggit/commitmessages:
+
+Commit messages
+---------------
+
+**All** commit messages in git should start with a single line of 72
+characters or less, following by a blank line, followed by any other
+text.
+
+::
+
+        Add feature X (See #123, Fix #321)
+    <this line left blank>
+        More description about X. It’s really great …
+
+Many git tools expect exactly this format, not the least of which is
+github. If you would like to see how these commit messages are rendered
+on github, take a look at the repository 
+`<https://github.com/kneath/commits>`_
+
+You can read more about commit messages at `A Note About Git Commit Messages`_.
+
+.. _A Note About Git Commit Messages: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+
+Rebasing to keep code clean
+---------------------------
+
+Rebasing allows you to update the 'base' point at which you branched
+from another branch (as described above). You can also use 'rebase' to
+organise your commits before merging.
+
+-  Strip whitespace: It is good practice not to commit extra whitespace
+   at the end of lines or files. Git allows you to remove all extra
+   whitespace during rebase - E.g. to origin/develop branch
+
+   ::
+
+           git rebase --whitespace=strip origin/develop
+
+-  If you used the set-up script above, the alias 'ws' was added to
+   allow you to achieve the same action with:
+
+   ::
+
+           git ws origin/develop
+
+-  Rebase "interactive": To remove, edit, combine etc. your commits, use
+   the ``-i`` flag. Git will open an editor to allow you to edit the commit
+   summary (gives instructions too). For example, to rebase onto 
+   origin/develop branch:
+
+   ::
+
+           git rebase -i origin/develop
+
+'team.git'
+----------
+
+We use a remote repository called "team" for developers to push changes
+that are not ready to go into the main 'develop' branch. This allows you
+to collaborate on a branch or simply to back-up your work.
+
+::
+
+        git remote add team ssh://git.openmicroscopy.org/home/git/team.git
+
+Create new branches for others to see:
+
+::
+
+        git push team new_feature_name:refs/heads/new_feature_name
+
+Get changes from others:
+
+::
+
+        git pull --ff-only team new_feature_name
+
+Send changes to others:
+
+::
+
+        git push team new_feature_name
+
+You can also create a local branch from a remote branch. These will be
+'tracked' so that commits you push automatically go to the corresponding
+remote branch:
+
+::
+
+        git fetch team && git checkout -b name/of/branch team/name/of/branch
+        # work on the branch then:
+        git push team name/of/branch
+
+Now go back to your regular work and finish the feature and commit to
+develop when ready. Once the branch is no longer needed, remove the name:
+
+::
+
+        git push team :refs/heads/new_feature_name
+
+You will find it easier if you name remote branches the same as local
+branch:
+
+::
+
+        git push team name/of/branch:refs/heads/name/of/branch
+        # E.g:
+        git push team feature/export:refs/heads/feature/export
+
+        # after committing to local branch you can push to team
+        git push team name/of/branch
+
+
+Branch naming
+-------------
+
+We roughly follow the git-flow style of naming and managing branch. Info about
+the idea can be found under
+`A successful Git branching model  <http://nvie.com/posts/a-successful-git-branching-model/>`_.
+There is also a `screencast <http://vimeo.com/16018419>`_ available on Vimeo.
+
+.. image:: /images/GitBranchingModel.png
+    :align: center
+    :alt: Branching Model
+
+
+The master branch is always "releasable", almost always by having a
+tagged version merged into it. The develop branch is where unstable
+work takes place. At times, another stable branch with the version
+name appended ("dev_x_y") is also active. PRs merged into this
+stable branch are also rebased onto develop.
+
+For more information about how multiple branches are being maintained 
+currently, see :doc:`continuous-integration`.
+
+Advanced: Branch management
+---------------------------
+
+One large goal of the work with the forked repository model is to have
+both team members as well as external collaborators be aware of upcoming
+features as they happen, and have them be able to comment on the work as
+quickly and easily.
+
+There is a danger of some members of the community not being aware of
+which branches are active and applicable, but if our weekly meetings
+contain a summary of what work is happening in which branch as opposed
+to just which tickets are in progress on the whiteboard, then it should
+be fairly easy for someone from the outside to get involved.
+
+What follows is an explanation of the overarching way we categorize and
+review our branches. This is not required reading for everyone.
+
+Branch types
+~~~~~~~~~~~~
+
+To make working with a larger number of branches easily, we will initially
+introduce some terminology. Branches should typically be in one of three
+states: investigations, works-in-progress (WIP), or deliverables.
+
+.. figure:: /images/Deliverables.png
+   :align: center
+   :width: 85%
+   :alt: Description of branch types
+
+Investigations
+^^^^^^^^^^^^^^
+
+At the bottom of the figure above are the investigation branches. These
+are efforts which are being driven possibly by a single individual and
+which are possibly not a part of the current milestone. They may not
+lead to released code, or they may be put on hold for some period of
+time while other avenues are also investigated.
+
+WIPs
+^^^^
+
+For an investigation to move up to being a work-in-progress, it should
+have more involvement from the rest of team and have been discussed and
+documented via stories, mini-group meetings, etc. Where necessary --
+which will usually be the case -- the major components (Bio-Formats, the
+model, the database, the server, at least one client) should be under
+way.
+
+Deliverables
+^^^^^^^^^^^^
+
+Finally, deliverable branches are intended for inclusion in the upcoming
+milestone. They have all the necessary “paper work” -- requirements,
+stories, tasks, scenarios, tests, screencasts, etc. Where support is
+needed to get all of the pieces in place, the rest of the team can be
+involved. And when ready a small number (mostly likely just one) will be
+finalized and merged into “develop” at a time. This represents the
+post-sprint “demo” concept that has been discussed elsewhere.
+
+The backlog
+^^^^^^^^^^^
+
+One non-branch type that should also be kept in mind is the backlog.
+Between major deliverables and while a WIP is being ramped up to a
+deliverable, the backlog should be continually worked on and the fix
+branches also merged in once tested and verified.
+
+Branch workflow
+~~~~~~~~~~~~~~~
+
+With the definitions, we can walk through the progression of a branch
+from inception to delivered code.
+
+First, someone, perhaps even an external collaborator, creates a branch,
+typically starting from master or develop (having them branch from the
+mainline should hopefully makes things easier later on). Work is first
+done locally, and then eventually pushed to
+github.com/YOURUSER/openmicroscopy. If you have given access to particular
+members of the team, then they may want to work directly on that branch.
+Alternatively, they may create branches from your branch, and send you
+commits -- either via Pull Request or as patches -- for you to include
+in your work.
+
+You will want to start making others aware of your work so you can get
+feedback, but at this point there may not even be a well-defined
+requirement / story for your work. There should, however, at least be
+tasks for what you are working on in the whiteboard, so others know
+what is happening. It may be necessary, regardless, to also email
+ome-nitpick, ome-devel, or some subset of OME developers, with the
+branch name you want them to take a look at. A Pull Request could also
+be used.
+
+After it is clear that there is some interest in your investigation
+branch, then the related stories and possibly requirement should be
+flushed out. The design of the work should be checked against the other
+parts of OME. For example, a GUI addition should fit into other existing
+workflows, and the implications on the other client (i.e. OMERO.web’s impact
+on OMERO.insight, or the other way around) should be evaluated.
+
+At this point, the branch will most likely be considered a
+work-in-progress and will need to start getting ready for release. The
+various related branches will need to be kept in sync. Whether through a
+rebase or a merge workflow, all involved parties will need to make sure
+they regularly have an up-to-date view of the work going on.
+
+For example, the “remotes.default” has been configured as above, a
+sensible thing to do every morning on coming to work is to run:
+
+::
+
+        git remote update
+
+and see all changes that the team have made:
+
+::
+
+        ~/git $ git remote update
+        Fetching team
+        Fetching origin
+        remote: Counting objects: 22, done.
+        remote: Compressing objects: 100% (8/8), done.
+        remote: Total 8 (delta 7), reused 0 (delta 0)
+        Unpacking objects: 100% (8/8), done.
+        From ssh://lust/home/git/omero
+        3f2ab6f..f80cbc4  dev_4_1_jcb -> origin/dev_4_1_jcb
+        Fetching gh
+        ...
+        Fetching jm
+        remote: Counting objects: 46, done.
+        remote: Compressing objects: 100% (2/2), done.
+        remote: Total 24 (delta 19), reused 24 (delta 19)
+        Unpacking objects: 100% (24/24), done.
+        From git://github.com/jburel/openmicroscopy
+        * [new branch]      feature/plateAcquisitionAnnotation -> jm/feature/plateAcquisitionAnnotation
+        Fetching colin
+        From git://github.com/ximenesuk/openmicroscopy
+        * [new branch]      909-Proposal2 -> colin/909-Proposal2
+
+If you want to get the changes for all submodules, you can use:
+
+::
+
+        git submodule foreach --recursive git remote update
+
+At this point, you may need to “merge --ff-only” or just “rebase” your
+work to incorporate the new commits:
+
+::
+
+        git checkout 909-Proposal2
+        git show-branch 909-Proposal2 colin/909-Proposal2
+        git rebase colin/909-Proposal2
+
+Finally, the WIP branch will have advanced far enough that it should be
+made release-ready, which will need to be discussed at a weekly meeting.
+Often at this point, the involved developers will need help from others
+getting the documentation, the testing, the screencasts, the scenarios,
+and all the other bits and bobs (the “paper work”) ready for release.
+
+One at a time (at least initially), WIP branches will be picked and made
+into a deliverable. At this point, several people will have looked over
+the code and all the paper work, and the whole team should feel
+comfortable with the release-state of the branch. At this point, a Pull
+Request should be issued to the official openmicroscopy/openmicroscopy
+repository for the final merge. All the related branches in each
+individual’s repository can now be deleted.
+
+A major benefit of having the paper work per deliverable done
+immediately is that if it becomes necessary the mainline, i.e. the
+“develop” branch of openmicroscopy/openmicroscopy, could be released far
+more quickly than if we have several deliverables simultaneously in the
+air.
+
+Merge branches
+^^^^^^^^^^^^^^
+
+A significant disadvantage to having separate lines of inquiry in
+separate branches is the possibility that there will be negative
+interactions between 2 or more branches when merged, and that these
+problems won’t be found until late in development. To offset this risk,
+it is possible and advisable to begin creating “temporary merge
+branches” earlier in development.
+
+For example, if we assume that two of the branches from the
+``git remote update`` command from above are intended for release
+fairly soon:
+
+-  jm/feature/plateAcquisitionAnnotation
+-  colin/909-Proposal2
+
+Then we can create a temporary test branch:
+
+::
+
+        git checkout -b test-909-and-plate origin/develop
+        git merge --no-ff jm/feature/plateAcquisitionAnnotation
+        git merge --no-ff colin/909-Proposal2
+
+and build and test this composite. This need not be done manually, but
+assuming there’s a convention like “all branches for immediate release
+are prefixed with ‘deliverable/’ ”, then a jenkins job can attempt the
+merge, failing if it is not possible, and run all tests if it succeeds.
+Any weekly testing we do can use the artifacts generated by this build
+to be as sure as possible that nothing unexpected has leaked in.
+
+Code reviews and comments
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+On the flip-side, a major advantage to having the above branching
+workflow is that is far easier to review the entire impact and style of
+a deliverable before it is integrated into the mainline. Any commit or
+even line which is being proposed for release can be commented on
+`<https://github.com/features/projects/codereview>`_
+
+If you would like to include other users beyond just the branch owner in
+the discussion, you can use a twitter-style name to invite them
+(“@SOMEUSER”):
+`<https://github.com/blog/821-mention-somebody-they-re-notified>`_
+
+Pull Requests
+^^^^^^^^^^^^^
+
+Several times above “Pull Requests” (PR) have been mentioned. A Pull
+Request is a way to invite someone to merge from one repository to
+another. If the commits included in the PR can be seamlessly merged,
+then the target user need only click on a button. If not, then there may
+be some back-and-forth on the work done, similar to the code reviews of
+a deliverable branch. For background, see
+
+-  `Using Pull Requests <https://help.github.com/articles/using-pull-requests>`_
+-  `Pull Requests 2.0 <https://github.com/blog/712-pull-requests-2-0>`_
+
+If you have discovered that something in the proposed branch needs
+changing (and you don’t have write access to the branch itself), then
+you can checkout the branch, make the fixes, push the branch, and open a
+Pull Request.
+
+::
+
+        git checkout -b new_stuff SOMEUSER/new_stuff
+        # Modifications
+        git commit -a -m “My fix of the new_stuff”
+        git push gh new_stuff
+        # Now go to the new_stuff branch on github.com and open the PR
+
+Pull Request conflicts
+^^^^^^^^^^^^^^^^^^^^^^
+
+When issuing a pull request, usually you will the following message
+"This pull request can be automatically merged". If this is not the
+case, follow a possible workflow to fix the problem. For the sake of this 
+example, *bugs* is the branch we are working on:
+
+::
+
+        # push the branch to github
+        git push gh bugs:refs/heads/bugs
+        # issue a pull request, not possible to merge due to a conflict.
+
+Now we need to fix the conflict:
+
+::
+
+        # checkout your local branch
+        git checkout bugs
+        # fetch and merge origin/develop
+        git fetch origin
+        git merge origin/develop            # Any conflicts will be listed
+        # Edit the conflicting files to fix conflicts, then
+        git add path/to/file
+        git commit                          # Use the suggested 'merging...' message
+        git push gh bugs 
+
+Your branch should now be able to merge back into develop. This should
+only be done at the very end of a pull request just before it is merged
+into origin/develop. Multiple "pull origin/develop" messages in a branch
+would be very bad style.
+
+Git resources
+-------------
+
+-  `Pro Git book <http://git-scm.com/book>`_
+-  `<http://git-scm.com/book/ch3-6.html>`_
+-  `A successful Git branching model <http://nvie.com/posts/a-successful-git-branching-model/>`_
+-  `<http://users.openmicroscopy.org.uk/~jmoore/git/>`_
+   If you have some time to spend on this, you may find Josh's git
+   movies useful. Covers a lot of the workflows, as well as being
+   an intro for when the team was moving from svn to git (before we got
+   set up with current repository and branches etc).

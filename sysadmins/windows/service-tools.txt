@@ -1,78 +1,108 @@
-Using Windows GUI tools
-=======================
+OMERO.server Windows Service
+============================
 
-Once the ``python bin\omero admin start`` command has installed the
-**OMERO.master** service, you can use Windows service tools:
+OMERO.server installs a Windows Service to make the startup of the software
+automatic at Windows boot time.
 
--  From the Control Panel
+The :omerocmd:`admin start` command creates and starts a Windows service. In 
+turn, :omerocmd:`admin stop` stops and deletes the OMERO Windows service. 
+Therefore, once :omerocmd:`admin start` succeeds, it is possible to use all 
+the regular Windows utilities, like ``sc.exe`` or the Services Manager, to
+stop OMERO.server without having the service removed completely.
 
-.. figure:: /images/omerogrid-winxp-controlpanel.png
-  :align: center
-  :width: 55%
-  :alt: Control Panel
+If required, the OMERO.server service can be run as a different user
+(by modifying the `Log On` settings of the Windows service).
 
-.. figure:: /images/omerogrid-winxp-admintools.png
-  :align: center
-  :width: 55%
-  :alt: Administration Tools
+OMERO.server service user
+-------------------------
 
-Services tool
--------------
+Default Windows Local System user
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Then open the Services executable
+When no specific Windows user has been defined using :omerocmd:`config set`, 
+the OMERO.server starts as the `Local System` user. This user has enough 
+permissions to access data on the local file system. In most circumstances 
+that should allow the OMERO.server service to access data inside the binary 
+repository.
 
-.. figure:: /images/omerogrid-winxp-services.png
-  :align: center
-  :width: 55%
-  :alt: Services
+Custom user
+^^^^^^^^^^^
+A custom user can be configured to run the OMERO.server service. You can
+configure the OMERO Windows user by setting `omero.windows.user` and
+`omero.windows.pass`::
 
--  Here you can see OMERO.master running and also stop it
+    C:\OMERO.server\> bin\omero config set omero.windows.user USERNAME
+    C:\OMERO.server\> bin\omero config set omero.windows.pass PASSWORD
 
-.. figure:: /images/omerogrid-winxp-masterrunning.png
-  :align: center
-  :width: 55%
-  :alt: OMERO.master running
+.. warning::
 
--  And can edit its runtime properties
+    Setting `omero.windows.pass` exposes your user password in the OMERO
+    configuration.
 
-.. figure:: /images/omerogrid-winxp-masterproperties.png
-  :align: center
-  :width: 55%
-  :alt: OMERO.master properties
+The user credentials can also be specified on the command line when running
+:omerocmd:`admin start`. The :option:`-u` parameter value is the
+user name, while the value of :option:`-w` corresponds to the user's
+password::
 
--  Such as which user it starts as
+    C:\OMERO.server\> bin\omero admin start -u omeservice -w password
 
-.. figure:: /images/omerogrid-winxp-masterlogon.png
-  :align: center
-  :width: 55%
-  :alt: OMERO.master logon
+You can verify that a different user has been set as the `Log On` user for
+the OMERO.server service by accessing the Windows Services Manager (see
+:ref:`server_service_user_win`).
 
-Event viewer tools
-------------------
+.. _server_service_user_win:
 
--  Then go back to the Administration Tool window and open the Event
-   Viewer
+.. figure:: /images/server-service-user-win.png
+    :align: center
 
-.. figure:: /images/omerogrid-winxp-eventviewer.png
-  :align: center
-  :width: 55%
-  :alt: Event viewer
+    Windows Service `Log On` User Settings
 
--  where status events from OMERO.master will registered (though the log
-   output from the server is in the configured directory)
 
-.. figure:: /images/omerogrid-winxp-applicationevents.png
-  :align: center
-  :width: 55%
-  :alt: Application events
+Windows Services Manager
+------------------------
 
--  The server's running.
+To start the Services Manager, simply navigate to :menuselection:`Start -->
+All Programs --> Accessories --> Run` (Windows 7). In the dialog, type in 
+``services.msc`` and select :guilabel:`OK` (see :ref:`windows_run_services`).
 
-.. figure:: /images/omerogrid-winxp-blitzactive.png
-  :align: center
-  :width: 55%
-  :alt: Running server
+.. _windows_run_services:
+.. figure:: /images/windows-run-services.png
+   :align: center
 
-However, a bug in Windows will prevent the OMERO.master service from
-being removed while the service GUI is open. Close the GUI to finish the
-operation.
+   Run Windows Services Manager
+
+
+This will bring up the Windows Services Manager. Here you can see
+the OMERO.master service running and also stop it. Additionally the
+:guilabel:`Log On` tab can be accessed here to configure under which user
+name the service is started (see :doc:`server-binary-repository`).
+
+.. figure:: /images/windows-services-console.png
+   :align: center
+   :width: 55%
+
+   OMERO.master Service
+
+Windows Event Viewer
+--------------------
+
+Windows Event Viewer allows for watching events occuring in the OMERO.server
+service. To start the viewer, follow the same path as for Windows Services
+Manager, but this time type in ``eventvwr.msc`` (see 
+:ref:`windows_run_event`).
+
+.. _windows_run_event:
+.. figure:: /images/windows-run-event.png
+   :align: center
+
+   Starting Event viewer
+
+The status events from OMERO.master will be registered in the
+:guilabel:`Application` view (though the log output from the server is in
+the configured directory).
+
+.. figure:: /images/windows-event-viewer.png
+   :align: center
+   :width: 55%
+
+   OMERO.master Events

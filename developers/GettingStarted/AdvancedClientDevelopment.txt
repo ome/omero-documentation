@@ -1,21 +1,20 @@
 Developing OMERO clients
 ========================
 
-:note:
+.. note::
 
-   - If you are only interested in **using** our OMERO clients, please
-     see the :doc:`/users/clients-overview` section, which
-     will point you to user guides, demo videos, and download sites.
+    - If you are only interested in **using** our OMERO clients, please
+      see the :doc:`/users/clients-overview` section, which
+      will point you to user guides, demo videos, and download sites.
 
-   - This page is intended for developers already familiar with
-     client/server programming. If you are not, **your best starting
-     point is to read the `Hello World
-     <http://zeroc.com/doc/Ice-3.3.0/manual/Hello.html#22064>`_
-     chapter of the Ice manual (or more)**. A deeper understanding of
-     Ice might not be necessary, but certainly understanding the Ice
-     basics will make reading this guide **much** easier.
+    - This page is intended for developers already familiar with
+      client/server programming. If you are not, **your best starting
+      point is to read the**
+      :zeroc:`Hello World <doc/Ice-3.3.0/manual/Hello.html#22064>`
+      **chapter of the Ice manual (or more)**. A deeper understanding of
+      Ice might not be necessary, but certainly understanding the Ice
+      basics will make reading this guide **much** easier.
 
---------------
 
 For developers, there are many examples listed below, all of which are
 stored under: :sourcedir:`examples` and
@@ -43,7 +42,6 @@ behind the scenes more transparent, but is not necessary. The points
 below outline all that an application writer is expected to know with
 links to further information where necessary.
 
---------------
 
 Distributed computing
 ---------------------
@@ -54,8 +52,7 @@ standalone clients and writing web applications in frameworks like
 mod\_perl, django, or Ruby on Rails. The remoting framework used by
 OMERO is named Ice_ from ZeroC. Ice is comparable
 to CORBA in many ways, but is typically easier to use. For ZeroC's
-comparison of Ice to CORBA, see
-`http://www.zeroc.com/iceVsCorba.html <http://www.zeroc.com/iceVsCorba.html>`_.
+comparison of Ice to CORBA, see :zeroc:`iceVsCorba.html`.
 
 A good first step is to be aware of the difference between remote and
 local invocations. Any invocation on a proxy (``<class_name>Prx``,
@@ -369,9 +366,9 @@ OMERO model objects
 
 With these components -- rtypes, primitives, constants, etc -- it's
 possible to define the core nouns of OME, the |OmeroModel| . The OMERO
-|OmeroModel| is a translation of the `OME XML specification <http://www.openmicroscopy.org/site/support/file-formats>`_ into objects for 
-use by the server, built out of RTypes, sequences and dictionaries, and 
-Details.
+|OmeroModel| is a translation of the :formats_plone:`OME XML specification <>` 
+into objects for use by the server, built out of RTypes, sequences and 
+dictionaries, and Details.
 
 Details
 ~~~~~~~
@@ -833,7 +830,7 @@ can be inefficient, all the |OmeroModel| collections are hidden behind several m
         // Saving this to the database will remove
         // all dataset links!
         // Finally, all collections can be unloaded
-        // to use an instance as a single row in the db.
+        // to use an instance as a single row in the database.
         image->unloadCollections();
         // Ordered collections have slightly different methods.
         image = new ImageI(1L, true);
@@ -887,7 +884,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.cpp`
     % Saving this to the database will remove
     % all dataset links!
     % Finally, all collections can be unloaded
-    % to use an instance as a single row in the db.
+    % to use an instance as a single row in the database.
     image.unloadCollections();
     % Ordered collections have slightly different methods.
     image = ImageI(1, true);
@@ -945,7 +942,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.m`
     # Saving this to the database will remove
     # all dataset links!
     # Finally, all collections can be unloaded
-    # to use an instance as a single row in the db.
+    # to use an instance as a single row in the database.
     image.unloadCollections()
     # Ordered collections have slightly different methods.
     image = ImageI(long(1), True)
@@ -1009,7 +1006,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.py`
             // Saving this to the database will remove
             // all dataset links!
             // Finally, all collections can be unloaded
-            // to use an instance as a single row in the db.
+            // to use an instance as a single row in the database.
             image.unloadCollections();
             // Ordered collections have slightly different methods.
             image = new ImageI(1L, true);
@@ -1180,12 +1177,13 @@ Example: :source:`examples/OmeroClients/smartpointers.cpp`
 
     # No java example
 
-**Warning**: As shown in the example, using a smart pointer instance in
-a boolean or integer/long context, returns 1 for true (i.e. non-null) or
-0 for false (i.e. null). Be especially careful with the RTypes.
+.. Warning:: 
+    As shown in the example, using a smart pointer instance in
+    a boolean or integer/long context, returns 1 for true (i.e. non-null) or
+    0 for false (i.e. null). Be especially careful with the RTypes.
 
-For more information, see ` 6.14.6 Smart Pointers for
-Classes <http://zeroc.com/doc/Ice-3.3.0/manual/Cpp.7.14.html>`_ in the
+For more information, see :zeroc:`6.14.6 Smart Pointers for
+Classes <doc/Ice-3.3.0/manual/Cpp.7.14.html>` in the
 Ice manual, which also describes the ``Ice.GC.Interval`` parameter which
 determines how often garbage collection runs in C++ to reap objects.
 This is necessary with the |OmeroModel| 
@@ -1241,8 +1239,8 @@ Example: :source:`examples/OmeroClients/clientpointer.cpp`
 
     # No java example
 
-``__getattr__`` & ``__setattr__`` (Python only)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+__getattr__ and __setattr__ (Python only)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Like smart pointers for |OmeroCpp|, the |OmeroPy| SDK defines ``__getattr__`` and
 ``__setattr__`` methods for all |OmeroModel| 
@@ -1323,7 +1321,6 @@ method beginning with an underscore or with ``ice_``. For example,
     ice_type
     >>> 
 
---------------
 
 Services overview
 -----------------
@@ -1802,13 +1799,12 @@ and may be under layers of application code. But when designing where
 active ``omero.client`` objects are kept, be sure that your clean-up
 code takes care of them.
 
---------------
 
 IQuery
 ------
 
-Now that we've gotten a good idea of the basics, it might be interesting
-to start asking the server what it's got. The most powerful way of doing
+Now that we have a good idea of the basics, it might be interesting
+to start asking the server what it has got. The most powerful way of doing
 this is by using IQuery and the Hibernate Query Language (HQL).
 
 ::
@@ -1905,12 +1901,11 @@ get a list of ``IObject`` instances back. They are guaranteed to be of
 type ``omero::model::Image``, but you may have to cast them to make full
 use of that information.
 
---------------
 
 IUpdate
 -------
 
-After you've successfully read objects, an obvious thing to do is create
+After you have successfully read objects, an obvious thing to do is create
 your own. Below is a simple example of creating an image object:
 
 ::
@@ -1995,12 +1990,12 @@ Example: :source:`examples/OmeroClients/updates.py`
 
 Example: :source:`examples/OmeroClients/updates.java`
 
---------------
+
 
 Examples
 --------
 
-To tie together some of the topics which we've outlined above, we would
+To tie together some of the topics which we have outlined above, we would
 like to eventually have several more or less complete application
 examples which you can use to get started. For the moment, there is just
 one simpler example ``TreeList``, but more will certainly be added. Let
@@ -2220,7 +2215,7 @@ Proposed
 -  Submitting a job
 -  Submitting a script
 
---------------
+
 
 Advanced topics
 ---------------
@@ -2679,14 +2674,12 @@ many of the imported and included files in the examples above, cannot
 actually be found in `github <https://github.com/openmicroscopy/openmicroscopy>`_.
 
 We plan to include packages of the generated source code in future
-releases. Until then, it's possible to find the latest version of
-those files on
-:jenkins:`jenkins <job/OMERO/ws/src/components/blitz/target/generated/>`,
-though some of the generated files are later overwrriten by hand-written
-versions:
+releases. Until then, it's possible to find our latest builds on 
+:jenkins:`jenkins <>` or to build them locally, though some of the generated files are later 
+overwrriten by hand-written versions:
 
--  :jenkins:`model <job/OMERO/ws/src/components/tools/OmeroCpp/src/omero/model/>`
--  :jenkins:`OmeroPy <job/OMERO/ws/src/components/tools/OmeroPy/src/>`
+-  model is located in ``components/tools/OmeroCpp/src/omero/model/``
+-  OmeroPy is located in ``components/tools/OmeroPy/src/``
 
 Lazy loading and caching
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2702,7 +2695,7 @@ Helper classes
 
 Several types are harder to use than they need be. omero.sys.Parameters,
 for example, is a class for which native implementations are quite
-helpful. We've provided omero.sys.ParametersI in all supported
+helpful. We have provided omero.sys.ParametersI in all supported
 languages, and will most likely support more over time:
 
 Other
@@ -2713,4 +2706,4 @@ Other
 -  Annotation-link-loading can behave strangely if
    ``AnnotationLink.child`` is not loaded.
 -  Python applications can segfault under certain orderings of imports:
-   See `Bus Error under Mac OX 10.4 and IcePy 3.3.0 <http://www.zeroc.com/forums/bug-reports/3883-bus-error-under-mac-ox-10-4-icepy-3-3-0-a.html>`_
+   See :zeroc:`Bus Error under Mac OX 10.4 and IcePy 3.3.0 <forums/bug-reports/3883-bus-error-under-mac-ox-10-4-icepy-3-3-0-a.html>`

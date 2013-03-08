@@ -64,7 +64,7 @@ Names and namespaces
 Since arbitrary blobs or clobs can be attached to an entity, it is
 necessary for clients to have some way to differentiate what it can
 parse. In many cases, the name might be a simple reminder for a user to
-find the file s/he an annotation. Applications, however, will most
+find the file s/he has annotated. Applications, however, will most
 likely want to define a namespace, like
 ``http://name-of-application-provider.com/name-of-application/file-type/version``.
 Queries can then be produced which search for the proper namespace or
@@ -104,7 +104,7 @@ however, can be modified.
 Currently the namespace field of annotations is mutable. See
 :ticket:`878` for discussion.
 
---------------
+
 
 Examples
 --------

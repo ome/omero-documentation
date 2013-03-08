@@ -1,0 +1,166 @@
+***********************
+Using ImageJ with OMERO
+***********************
+
+This guide assumes you have never installed ImageJ before.
+
+|
+
+#. Download the latest version of ImageJ for your platform from the website:
+
+   http://rsbweb.nih.gov/ij/download.html
+
+   |
+
+   .. image:: /images/tutor/imageJWebsite.jpg
+       :width: 65%
+       :align: center
+
+   |
+
+#. On Windows run the set-up programme (either from the Downloads folder or when prompted by download Wizard) and follow instructions to install ImageJ.
+
+   On a Mac, extract the .zip archive and drag the ImageJ folder to your Applications folder.
+
+   On Linux extract the .gz archive and double click the “run” script.
+
+   Further install instructions can be found on the ImageJ web site (above).
+
+   |
+
+#. Once installed, the ImageJ folder (typically C:\Program Files\ImageJ on Windows) contains the programme and a number of subfolders, one of which is **plugins**.
+
+   To use OMERO with ImageJ, two plugins need to be installed in this folder: 
+   loci_tools and OMERO.insight-ij.
+
+   |
+
+   .. image:: /images/tutor/imageJPlugins.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+#. Download the latest version of the LOCI tools plugin from:
+
+   http://openmicroscopy.org/latest/loci-tools-jar
+
+   Save or move the downloaded file into the **ImageJ > plugins** folder.
+
+   |
+
+   .. image:: /images/tutor/imageJLociTools.jpg
+       :width: 87.5%
+       :align: center
+
+   |
+
+   Further details on the download are at:
+   http://www.openmicroscopy.org/site/products/bio-formats/downloads
+
+   |
+
+#. Download the latest version of the OMERO.insight-ij plugin from:
+
+   http://www.openmicroscopy.org/site/products/omero/downloads
+
+   |
+
+   .. image:: /images/tutor/imageJInsight.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+#. Copy or move the .zip archive to the **ImageJ > plugins** folder.
+
+   Extract the archive into the plugins folder to give a folder named **“OMERO.insight-ij-x.x.x”** where x.x.x is the version number/ID.
+
+   The OMERO.insight-ij plugin consists of a folder with a number of components inside.
+
+   The complete folder is left in the **ImageJ > plugins** folder.
+
+
+   **Important Note:** with some versions of Windows unzipping programmes, a double folder enclosing the plugin is created. It is worth checking to make sure this has not happened. If it has, copy the inner **OMERO.insight-ij-x.x.x** folder into the **ImageJ > plugins** folder.
+
+   |
+
+   .. image:: /images/tutor/imageJOMEROPlugins.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+   The **OMERO.insight-ij-x.x.x.zip** archive can be left in the plugins folder or deleted.
+
+   |
+
+#. Launch the ImageJ application and click on the Plugins menu.
+
+   **Select OMERO > Connect to OMERO**.
+
+   A version of OMERO.insight will open and can be used as normal.
+
+   |
+
+   .. image:: /images/tutor/imageJInsight2.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+
+#. As ImageJ needs to load the plugin software, it can take a minute or two for the OMERO login screen to appear, and then another two or three minutes for the progress bar to start moving and complete.
+
+   Enter your OMERO server address (if needed) and **Username** and **Password**.
+
+   Click **Login**.
+
+   |
+
+   .. image:: /images/tutor/imageJLogin.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+#. You will then be taken to the OMERO.insight Data Manager screen.
+
+   |
+
+   .. image:: /images/tutor/imageJDataManager.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+   .. note:: If you quit OMERO.insight and then connect again during the same ImageJ session, logging in and launching the OMERO plugin will be much quicker. So if you intend using the OMERO plugin through ImageJ again soon, it may be worth leaving your ImageJ application running.
+
+   |
+
+#. Double click on the image in the data tree or selecting the image and **View > View in ImageJ** in the contextual menu.
+
+   The Bio-Formats Import Options window opens.
+
+   Select parameters and click **OK**.
+
+   |
+
+   .. image:: /images/tutor/imageJBioformats.jpg
+       :width: 100%
+       :align: center
+
+   |
+
+#. Double click on the image in the data tree or selecting the image and **View > View in ImageJ** in the contextual menu.
+
+   The Bio-Formats Import Options window opens.
+
+   |
+
+   .. image:: /images/tutor/imageJBioformats2.jpg
+       :width: 100%
+       :align: center
+
+   |
+

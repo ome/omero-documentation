@@ -3,16 +3,16 @@ OMERO admin interface
 
 The one central interface for administering the OMERO security system is
 IAdmin. Though several of the methods are restricted to system users
-(root and other administrators), many are also for general use. (The
+(root and other administrators), many are also for general use. The
 ``@javax.ejb.security.RolesAllowed`` annotations on the
 :source:`LocalAdmin <components/server/src/ome/api/local/LocalAdmin.java>`
-class define who can use which methods)
+class define who can use which methods.
 
 Actions available through IAdmin and IUpdate
 --------------------------------------------
 
 A couple of the methods in the IAdmin interface are also available
-implicitly through IUpdate, the main interface for updating the DB. This
+implicitly through IUpdate, the main interface for updating the database. This
 duplication is mainly useful for large scale changes, such as changing
 the permissions to an entire object graph.
 
@@ -40,9 +40,9 @@ The following shows how these methods can be equivalently used:
        iUpdate.saveObject( myImg );
 
 The benefit of the second method is the batching of changes into a
-single call. The benefit of the first is at most explicitness.Note,
+single call. The benefit of the first is at most explicitness. Note,
 however, that changing any of the values of Details which are not also
-changeable through IAdmin will result in a SecurityViolation?.
+changeable through IAdmin will result in a ``SecurityViolation``.
 
 Actions only available through IAdmin
 -------------------------------------
@@ -55,7 +55,7 @@ through ITypes). A system administrator may be able to use IUpdate to
 create these "System-Types" but using IAdmin is safer, cleaner, and
 guaranteed to work in the future.
 
-The password methods and synchronizeLoginCache are also special cases in
+The password methods and ``synchronizeLoginCache`` are also special cases in
 that they have no equivalent in any other API.
 
 Similarities between IAdmin and IQuery
@@ -63,8 +63,8 @@ Similarities between IAdmin and IQuery
 
 All of the read methods provided by IAdmin are also available from
 IQuery, that is, the IAdmin (currently) provide no special context or
-security privileges. Howver, having all of the methods in one interface
-reduces code duplication, which is especially useful when one wants the
+security privileges. However, having all of the methods in one interface
+reduces code duplication, which is especially useful when you want the
 entire user/group graph as provided by
 getExperimenter/getGroup/lookupExperimenter/lookupGroup.
 

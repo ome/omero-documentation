@@ -1,0 +1,334 @@
+Writing tests
+=============
+
+
+Using Eclipse
+-------------
+
+There are currently :file:`.project` and :file:`.classpath-template`
+files stored in git in each component directory (e.g. :source:`common's
+.classpath <components/common/.classpath-template>` and 
+:source:`common's .project </components/common/.project>`). There is
+also a top-level :file:`.classpath` and :file:`.project` file which 
+contains the entire project, but this:
+
+-  requires more memory
+-  does not clearly differentiate the classpaths, and so can lead to
+   confusion.
+
+All the Eclipse projects require a successful build to have taken place:
+
+::
+
+       ./build.py
+
+This is for two reasons. Firstly, the Eclipse projects are not configured to
+perform the code generation needed. This creates the directory:
+
+::
+
+        COMPONENT/target
+
+which will be missing from any Eclipse project you open before building
+the source.
+
+Secondly, Ivy is used to copy all the jar dependencies from
+``OMERO_HOME/lib/repository`` to ``COMPONENT/target/libs``, which is
+then used in the Eclipse :file:`.classpath` files.
+
+If Eclipse ever gets out of sync after the first build,
+``./build.py build-eclipse`` can be used to quickly synchronize.
+
+Unit testing
+------------
+
+The unit testing framework is fairly simple. Only methods which contain
+logic written within the OMERO are tested. This means that framework
+functionality like remoting is not tested. Neither is Hibernate
+functionality; this is a part of integration testing. (see below)
+
+Therefore, most of the code which is unit tested lies in the logic
+packages of the server component. This is done using jMock.
+
+You can run the unit tests for any component from its directory by
+entering:
+
+::
+
+    ./build.py -f components/<component>/build.xml test
+
+The same can be done for all components using from the top-level
+directory with the command:
+
+::
+
+    ./build.py test-unit
+
+Integration testing
+-------------------
+
+Integration testing is a bit more complex because of the reliance on a
+database, which is not easily mockable. All Hibernate-related classes
+are tested in integration mode.
+
+Running all tests
+~~~~~~~~~~~~~~~~~
+
+To run all the integration tests, use ``./build.py test-integration``
+like the ``./build.py test-unit`` command above.
+
+Running all the integration tests places several restrictions on the
+environment:
+
+-  There must be a running OMERO database.
+-  An OMERO server instance must be running.
+
+These tests could break for a number of reasons. Patience is needed.
+
+Component tests
+~~~~~~~~~~~~~~~
+
+It is probably more straightforward to run the tests for an individual
+component. This can be done explicitly via:
+
+::
+
+     ./build.py -f components/<component>/build.xml integration
+
+Results are placed in ``components/<component>/target/reports``.
+
+Individual tests
+~~~~~~~~~~~~~~~~
+
+Alternatively, you can run individual tests which you may currently be
+working on. This can be done by setting the "test" attribute. For
+example:
+
+::
+
+     ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/AdminTest
+     ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test.t_permissions
+
+Failing tests
+~~~~~~~~~~~~~
+
+The ``test.with.fail`` ant property is set to ``false`` by default, which 
+prevents test failures from failing the build. However, it can instead be set 
+to ``true`` to allow test failures to fail the build. For example:
+
+::
+
+     ./build.py -Dtest.with.fail=true test...
+
+
+
+Writing your own tests
+----------------------
+
+For more information on writing tests in general see `<http://testng.org>`_. 
+For a test to be an "integration" test, place it in the "integration" 
+testng-group. If a test is temporarily broken, add it to the "broken" or 
+"ignore" group:
+
+::
+
+     @Test(groups = {"integration","broken"}
+     public void testMyStuff() {
+
+     }
+
+Tests should be of the **Acceptance Test** form. The ticket number
+for which a test is being written should be added in the
+`testng <http://testng.org>`_ annotations (@Test( groups =
+":ticket:`60`" )). This works at either the method level
+(see :source:`SetsAndLinksTest.java 
+<components/model/test/ome/model/utests/SetsAndLinksTest.java>`)
+or the class level (see :source:`UniqueResultTest.java 
+<components/server/test/ome/server/itests/query/UniqueResultTest.java>`).
+
+
+OmeroJava
+~~~~~~~~~
+
+The tests under :sourcedir:`components/tools/OmeroJava/test` will be the
+starting point for most Java-client developers coming to OMERO.
+
+These tests should assume that:
+
+-  ICE\_CONFIG has been properly set. This means that
+   ``omero.client client = new omero.client(); client.createSession()``
+   should be usable with no further configuration needed.
+-  A Blitz server instance is running on the host and port specified in
+   the ICE\_CONFIG file(s).
+
+::
+
+    @Test(groups = "integration")
+    public class MyTest {
+
+      omero.client client;
+
+      @BeforeClass
+      protected void setup() throws Exception {
+        client = new omero.client();
+        client.createSession();
+      }
+
+      @AfterClass
+      protected void tearDown() throws Exception {
+        client.closeSession();
+      }
+
+      @Test
+      public void testSimple() throws Exception {
+        client.getSession().getAdminService().getEventContext();
+      }
+
+    }
+
+OmeroPy
+~~~~~~~
+
+Similar to the OmeroJava tests, the tests under
+:sourcedir:`components/tools/OmeroPy/test` will be the starting point
+for most Python-client developers coming to OMERO.
+
+OmeroCpp
+~~~~~~~~
+
+TBD.
+
+Internal server tests
+~~~~~~~~~~~~~~~~~~~~~
+
+In addition to the external integration tests, there are a number of
+internal tests in the "internal" component. These do not need to have a
+running server and instead use an embedded Hibernate instance for
+talking to the database. These tests require a significantly different
+style, and are intended only for server developers. For more
+information, please contact the mailing list.
+
+Documenting server code
+-----------------------
+
+The definitive documentation for all |OmeroApi|
+code are the slice definition files. The Ice manual describes how to
+write method and class comments: :zeroc:`Generating Slice Documentation <doc/Ice-3.3.1/manual/Slice.5.23.html>`.
+
+Debugging a running OMERO instance
+----------------------------------
+
+By using the "debug" target from templates.xml, it is possible to have
+OMERO listen on port 8787 for a debugging connection.
+
+::
+
+      bin/omero admin stop
+      bin/omero admin start debug
+
+Then in Eclipse, you can create a new "Debug" configuration by clicking
+on "Remote Java Application", and setting the port to 8787. These
+values are arbitrary and can be changed locally.
+
+**Keep in mind**:
+
+-  The server will not start up until you have connected with Eclipse. This
+   is due to the ",suspend=y" clause in templates.xml. If you would like
+   the server to startup without you connecting, use "suspend=n"
+-  If you take too much time examining your threads, your calls may
+   throw timeout exceptions.
+
+
+Testing Web on Jenkins
+----------------------
+
+This website contains examples which are used by Jenkins to run tests
+against OMERO products.
+
+Your test
+~~~~~~~~~
+
+::
+
+    class MyTestControl(BaseControl):
+
+        def _configure(self, parser):
+            sub = parser.sub()
+
+            parser.add(sub, self.start, "Start")
+            parser.add(sub, self.stop, "Stop")
+            parser.add(sub, self.status, "Status")
+
+            #
+            # Advanced
+            #
+
+            unittest = parser.add(sub, self.unittest, "Run tests")
+            unittest.add_argument("--config", action="store", help = "ice.config location")
+            unittest.add_argument("--test", action="store", help = "Specific test case(-s).")
+
+        def unittest(self, args):
+            try:
+                ice_config = args.config
+                test = args.test
+            except:
+                self.ctx.die(121, "usage: unittest --config=/path/to/ice.config --test=appname.TestCase --path=/external/path/")
+                
+            cargs.extend([ "python manage.py", "test"])
+            if test:
+                cargs.append(test)
+            self.set_environ(ice_config)
+            rv = self.ctx.call(cargs, cwd = location)
+
+        def set_environ(self, ice_config=None):
+            os.environ['ICE_CONFIG'] = ice_config is None and str(self.ctx.dir / "etc" / "ice.config") or str(ice_config)
+            os.environ['PATH'] = str(os.environ.get('PATH', '.') + ':' + self.ctx.dir / 'bin')
+
+Jenkins scripts
+~~~~~~~~~~~~~~~
+
+If you are executing your tests via **bin/omero myapp unittest**
+(settled on :sourcedir:`components/tools/OmeroPy/src/omero/plugins`) $ICE\_CONFIG will
+get unset. You will need to pass the file directly to your bin/omero
+myapp unittest command.
+
+::
+
+    #OMERO-myapp.sh
+    set -e
+    set -u
+    set -x
+
+    #
+    # Run tests
+    #
+    ./build.py clean
+
+    python bin/omero config set omero.myapp.host '$OMERO_HOST'
+    python bin/omero config set omero.myapp.port '$OMERO_PREFIX4064'
+
+    ./build.py
+    python dist/bin/omero web unittest --config=$ICE_CONFIG --test=myapp
+
+::
+
+    #OMERO-myapp.bat
+    REM
+    REM Run tests
+    REM
+    python build.py clean
+    if errorlevel 1 goto ERROR
+    python bin/omero config set omero.myapp.host '%OMERO_HOST%'
+    if errorlevel 1 goto ERROR
+    python bin/omero config set omero.myapp.port '%OMERO_PREFIX%4064'
+    if errorlevel 1 goto ERROR
+    python build.py
+    if errorlevel 1 goto ERROR
+    python dist\bin\omero myapp unittest --config=$ICE_CONFIG --test=myapp
+    if errorlevel 1 goto ERROR
+
+    exit /b 0
+    :ERROR
+      echo Failed %ERRORLEVEL%
+      exit /b %ERRORLEVEL%
+

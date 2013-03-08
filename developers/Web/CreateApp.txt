@@ -2,7 +2,7 @@ Creating an app
 ===============
 
 The Django web site has a very good
-` tutorial <https://docs.djangoproject.com/en/dev/intro/tutorial01/>`_ to
+`tutorial <https://docs.djangoproject.com/en/dev/intro/tutorial01/>`_ to
 get you familiar with the Django framework. The more you know about
 Django, the easier you will find it working with the OmeroWeb framework.
 One major feature of Django that we do not use in OmeroWeb is the Django
@@ -44,7 +44,7 @@ server with
     Development server is running at http://0.0.0.0:4080/
     Quit the server with CONTROL-C.
 
-.. note:: Port number is 4080.
+.. note:: Port number is 4080
 
 When you edit and save the code, under lib/python/omeroweb/, Django
 automatically detects this and you only need to refresh your browser
@@ -67,29 +67,32 @@ need to follow a few steps (commands are shown below):
 -  Remove the built omeroweb folder, otherwise this will get used
    instead of the source omeroweb 
 
-   .. note:: you have to do this again if you build the server
+   .. note:: You have to do this again if you build the server
 
 -  From the source omeroweb/ folder, manually run the Django development
    server
 
-::
+   ::
 
-    $ export OMERO_HOME = ~/Desktop/OMERO/dist                # Example location of server build
+       $ export OMERO_HOME = ~/Desktop/OMERO/dist      # Example server build path
 
-    $ export PYTHONPATH=$OMERO_HOME/lib/python/:$PYTHONPATH   # Make sure the Django code etc can be imported
-    $ cd $OMERO_HOME                          
-    $ rm -rf lib/python/omeroweb/             # need to remove the built omeroweb code so it doesn't get imported 
+       # Make sure the Django code etc can be imported
+       $ export PYTHONPATH=$OMERO_HOME/lib/python/:$PYTHONPATH
+       $ cd $OMERO_HOME             
+       # need to remove the built omeroweb code so it doesn't get imported
+       $ rm -rf lib/python/omeroweb/
 
-    $ cd ../components/tools/OmeroWeb/omeroweb
-    $ python manage.py runserver                              # option - set port: python manage.py runserver 0.0.0.0:4080
-    Validating models...
-    0 errors found
+       $ cd ../components/tools/OmeroWeb/omeroweb
+       $ python manage.py runserver
+       Validating models...
+       0 errors found
 
-    Django version 1.1.1, using settings 'omeroweb.settings'
-    Development server is running at http://127.0.0.1:8000/
-    Quit the server with CONTROL-C.
+       Django version 1.1.1, using settings 'omeroweb.settings'
+       Development server is running at http://127.0.0.1:8000/
+       Quit the server with CONTROL-C.
 
-.. note:: Default port number is 8000.
+   .. note:: Default port number is 8000. To specify port, use 
+       E.g: $ python manage.py runserver 0.0.0.0:4080
 
 You should make sure that you can access the webclient and webadmin on
 your local machine before starting to develop your own code. Be sure to
@@ -102,15 +105,17 @@ Creating an app
 ---------------
 
 We suggest you use github (as we do) since it is much easier for us to
-help you with any problems you have if we can see your code. If you
-don't want to use github, simply ignore the github steps below.
+help you with any problems you have if we can see your code. The steps below
+describe how to create a stand-alone git repository for your app, similar to 
+`webmobile <https://github.com/openmicroscopy/webmobile/>`_.
+If you do not want to use github, simply ignore the github steps below.
 
 The steps below describe setting up a new app. You should choose an
 appropriate name for your app and use it in place of <your-app> in the
 examples below:
 
-Create and checkout a new github repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Create and checkout a new github repository OR manually create a new directory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Login to your github account homepage (E.g.
    `<https://github.com/>`_\ <your-name>/) and click
@@ -118,50 +123,59 @@ Create and checkout a new github repository
 -  Enter the name of <your-app>, add description and choose to add
    README.
 
+-  Change into the /omeroweb/ directory:
+
+   ::
+
+       # running from build
+       $ cd lib/python/omeroweb/
+
+       # OR: running from source:
+       $ cd components/tools/OmeroWeb/omeroweb
+
 -  Checkout your new repository (into a new directory)
 
    ::
 
-       $ cd lib/python/omeroweb/        # if running from source: cd components/tools/OmeroWeb/omeroweb
        $ git clone git@github.com:<your-name>/<your-app>.git
+
+
+-  OR: If you haven't used git to create your app directory above, then
+
+   ::
+
+        $ mkdir <your-app>
 
 Add the essential files to your app
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  If you haven't used git to create your app directory above, then
-
-   ::
-
-        $ cd lib/python/omeroweb/
-        $ mkdir <your-app>
-
--  Create an empty file `` <your-app>/__init__.py `` (NB: both double
+-  Create an empty file ``<your-app>/__init__.py`` (NB: both double
    underscores)
 -  Create urls.py
 
-::
+   ::
 
-    from django.conf.urls.defaults import *
-    from omeroweb.<your-app> import views
+       from django.conf.urls.defaults import *
+       from omeroweb.<your-app> import views
 
-    urlpatterns = patterns('django.views.generic.simple',
+       urlpatterns = patterns('django.views.generic.simple',
 
-        # index 'home page' of the <your-app> app
-        url( r'^$', views.index, name='<your-app>_index' ),
+            # index 'home page' of the <your-app> app
+            url( r'^$', views.index, name='<your-app>_index' ),
 
-    )
+        )
 
 -  Create views.py
 
-::
+   ::
 
-    from django.http import HttpResponse
+        from django.http import HttpResponse
 
-    def index(request):
-        """
-        Just a place-holder while we get started
-        """
-        return HttpResponse("Welcome to your app home-page!")
+        def index(request):
+            """
+            Just a place-holder while we get started
+            """
+            return HttpResponse("Welcome to your app home-page!")
 
 Add your app to OMERO.web
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -211,9 +225,9 @@ Commit your code and push to github
 Connect to OMERO: example
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We've got our new app working, but it's not connecting to OMERO yet.
-Let's create a simple "stack preview" for an Image with multiple
-Z-sections. We're going to display the image name and 5 planes evenly
+We have got our new app working, but it is not connecting to OMERO yet.
+Let us create a simple "stack preview" for an Image with multiple
+Z-sections. We are going to display the image name and 5 planes evenly
 spaced across the Z-stack. You should be able to add the appropriate
 code to urls.py, views.py that you created above, and add a template
 under /omeroweb/<your-app>/templates/<your-app>/ 
@@ -227,9 +241,10 @@ under /omeroweb/<your-app>/templates/<your-app>/
 
    ::
 
-       url( r'^stack_preview/(?P<imageId>[0-9]+)/$', views.stack_preview, name="<your-app>_stack_preview" ),
+       url( r'^stack_preview/(?P<imageId>[0-9]+)/$', views.stack_preview, 
+            name="<your-app>_stack_preview" ),
 
--  **views.py** Here we're using the @login\_required decorator to
+-  **views.py** Here we are using the @login\_required decorator to
    retrieve a connection to OMERO from the session key in the http
    request (or provide a login page and redirect here). 'conn' is passed
    to the method arguments. NB: Note a couple of new imports to add at
@@ -244,34 +259,46 @@ under /omeroweb/<your-app>/templates/<your-app>/
        @login_required()
        def stack_preview (request, imageId, conn=None, **kwargs):
            """ Shows a subset of Z-planes for an image """
-           image = conn.getObject("Image", imageId)        # Grab the Image from OMERO.
+           image = conn.getObject("Image", imageId)       # Get Image from OMERO
            image_name = image.getName()
            sizeZ = image.getSizeZ()                        # get the Z size
-           z_indexes = [0, int(sizeZ*0.25), int(sizeZ*0.5), int(sizeZ*0.75), sizeZ-1]   # 5 Z-planes
-           return render_to_response('webtest/stack_preview.html', {'imageId':imageId, 'image_name':image_name, 'z_indexes':z_indexes})
+           # 5 Z-planes
+           z_indexes = [0, int(sizeZ*0.25), 
+                    int(sizeZ*0.5), int(sizeZ*0.75), sizeZ-1]
+           return render_to_response('webtest/stack_preview.html',
+                {'imageId':imageId, 
+                'image_name':image_name, 
+                'z_indexes':z_indexes})
 
 -  **<your-app>/templates/<your-app>/stack\_preview.html**
 
-::
+   ::
 
-    <html>
-    <head>
-        <title>Stack Preview</title>
-    </head>
-    <body>
-        <h1>{{ image_name }}</h1>
+       <html>
+       <head>
+            <title>Stack Preview</title>
+       </head>
+       <body>
+            <h1>{{ image_name }}</h1>
 
-        {% for z in z_indexes %}
-            <img src="{% url webgateway.views.render_image imageId z 0 %}" style="max-width: 200px; max-heigh:200px"/>
-        {% endfor %}
-    </body>
-    </html>
+            {% for z in z_indexes %}
+                <img src="{% url webgateway.views.render_image imageId z 0 %}"          
+                    style="max-width: 200px; max-height:200px"/>
+            {% endfor %}
+       </body>
+       </html>
+
+
+Viewing the page at http://localhost:4080/<your-app>/stack_preview/<image-id>/ 
+should give you the image name and 5 planes from the Z stack. You will notice 
+that we are using webgateway to handle the image rendering using a url 
+auto-generated by Django - see :doc:`/developers/Web/WebGateway`.
 
 Resources for writing your own code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The webtest app has a number of examples. If you go to the webtest
-homepage E.g. `<http://localhost:8000/webtest>`_ you'll
+homepage E.g. `<http://localhost:8000/webtest>`_ you will
 see an introduction to some of them. This page tries to find random
 image and dataset from your OMERO server to use in the webtest examples.
 
@@ -285,8 +312,7 @@ additional functionality for webclient users. You may choose not to use
 this if you are building a 'stand-alone' web application. In either
 case, it is good practice to create your own templates with common
 components (links, logout etc), so you can make changes to all your
-pages at once. See ` Django docs: template
-inheritance <https://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance>`_.
+pages at once. See :doc:`/developers/Web/WritingTemplates` for more info.
 
 OMERO.web plugins (OMERO 4.4)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,7 +1,7 @@
 OMERO Matlab language bindings
 ==============================
 
-See |DevelopingOmeroClients| and |OmeroModel|, for an introduction about
+See |DevelopingOmeroClients| and |OmeroModel|, for an introduction to
 **Object**.
 
 Installing and configuring
@@ -11,12 +11,12 @@ Installing the OMERO.matlab toolbox
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Download the desired version. For the latest build see
-   :jenkins:`here <job/OMERO/lastSuccessfulBuild/>`, and download the
+   :omerojob:`here <lastSuccessfulBuild/>`, and download the
    OMERO.matlab zip file. For the latest released version visit the
    main :omero_plone:`download page <downloads>`
 -  Unzip the directory anywhere on your system.
 -  In Matlab, change to the newly unzipped directory.
--  Run :command:`loadOmero;`
+-  Run ``loadOmero;``
 -  The MATLAB files are now on your path, and the necessary jars are on
    your java classpath. You can change directories and still have access
    to OMERO.
@@ -64,8 +64,7 @@ services, make queries, and load binary data. In short, anything the
 available for getting a feel for the API.
 
 **TODO: Review the links** See the examples under
-:sourcedir:`examples` or :sourcedir:`components/tools/OmeroM/demo`
-on what you can do with OMERO.matlab.
+:sourcedir:`examples` on what you can do with OMERO.matlab.
 
 Keeping your session alive
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -192,7 +191,7 @@ Read data
 ~~~~~~~~~
 
 The ``IContainer`` service provides method to load the data management
-hierarchy in OMERO -- Projects, Datasets, Etc. A list of examples
+hierarchy in OMERO -- Projects, Datasets, etc. A list of examples
 follows, indicating how to load Project, Dataset, Screen, etc.
 
 -  **Retrieve the projects owned by the user currently logged in.**
@@ -523,7 +522,7 @@ created:
     originalFile = rawFileStore.save();
     % Important to close the service
     rawFileStore.close();
-    % now we have an original File in DB and raw data uploaded.
+    % now we have an original File in the database and raw data uploaded.
     % We now need to link the Original file to the image using the File annotation object. That's the way to do it.
     fa = omero.model.FileAnnotationI;
     fa.setFile(originalFile);
@@ -635,7 +634,7 @@ ROIs
 ~~~~
 
 To learn about the model see
-`http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi <http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/roi>`_
+:formats_plone:`working-with-ome-xml/roi <working-with-ome-xml/roi>`
 . Note that annotation can be linked to ROI.
 
 -  **Create ROI.**
@@ -736,7 +735,7 @@ to an image.
 Delete data
 ~~~~~~~~~~~
 
-It is possible to delete Projects, Datasets, Images, ROIs etc and
+It is possible to delete Projects, Datasets, Images, ROIs etc. and
 objects linked to them depending on the specified options (see
 :doc:`/developers/Modules/Delete`).
 
@@ -845,7 +844,7 @@ Create Image
 ~~~~~~~~~~~~
 
 The following example shows how to create an Image from an Image already
-in OMERO. Similar approach can be applied when uploading an image.
+in OMERO. Similar approach can be applied when uploading an Image.
 
 ::
 

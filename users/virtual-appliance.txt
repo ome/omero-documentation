@@ -1,16 +1,16 @@
 OMERO Virtual Appliance
 =======================
 
-The OMERO virtual appliance is a quick, easy, & low-cost way to try
+The OMERO virtual appliance is a quick, easy, and low-cost way to try
 out OMERO.server on your laptop or desktop. This enables you to make
 an informed decision about whether committing to an OMERO.server
 install is right for you.
 
-Virtualisation enables canned, ready to run software environments to be
+Virtualization enables canned, ready to run software environments to be
 created and used, in the form of |VM|, or to be
 distributed for others to use, in the form of Virtual Appliances. A
 Virtual Appliance is essentially a file that describes how to create a
-new Virtual Machine on demand. The virtualised software environment can
+new Virtual Machine on demand. The virtualized software environment can
 contain an entire |OS|, such as Windows or Linux, and
 any other software that runs in that |OS|, such as, in this case,
 OMERO.server and its associated software prerequisites. Once created and
@@ -18,9 +18,9 @@ started, you can log into the |OS| and use it as though it were a real
 machine. One way to think of this is as though you had an entire
 computer in a window on your desktop.
 
-When using virtualisation software, the |OS| that is running the
-virtualisation software is referred to as the "**host OS**\ ". When you
-use virtualisation, the |OS| running within a virtual machine is referred
+When using virtualization software, the |OS| that is running the
+virtualization software is referred to as the "**host OS**\ ". When you
+use virtualization, the |OS| running within a virtual machine is referred
 to as the "**guest OS**\ ". This allows us to be explicit about which |OS|
 we are working in.
 
@@ -76,8 +76,8 @@ screenshot:
 Download the OMERO.server Virtual Appliance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The virtual appliance can be downloaded from :jenkins:`the Jenkins CI system
-<job/OMERO-trunk-virtualbox/lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm-latest-build.ova>`,
+The virtual appliance can be downloaded from :virtualjob:`the Jenkins CI system
+<lastSuccessfulBuild/artifact/src/docs/install/VM/omero-vm-latest-build.ova>`,
 and should have a filename similar to, e.g. omero-vm.ova
 
 Import OMERO Virtual Appliance into VirtualBox
@@ -270,7 +270,7 @@ interact with it.
    allow you to import data via a GUI and manage that data once
    imported. To do so, download the :omero_plone:`OMERO.insight client <downloads>`
    and follow the instructions below. More information can be found
-   under the :doc:`clients-getting-started` section
+   under the :doc:`client-tutorials/insight/getting-started` section
    which details how to use the OMERO.clients.
 -  Alternatively, you can interact with the server command line
    interface by |SSH|'ing into the guest |VM| or by opening a console within
@@ -279,7 +279,9 @@ interact with it.
    case you must have an |SSH| client installed on your host machine that
    you will then use to connect to the OMERO.server.
 
-.. note:: The following example assume that the OMERO |VM| is up & running on the same machine that you are working on.
+.. note:: 
+    The following examples assume that the OMERO |VM| is up and running on the   
+    same machine that you are working on.
 
 OMERO.web
 ^^^^^^^^^
@@ -299,7 +301,8 @@ You can run regular OMERO clients on your host machine and connect to
 the server in the |VM|. Our example uses OMERO.insight running on Mac OS X
 to connect to the |VM|.
 
--  :omero_plone:`Download <downloads>` & :doc:`install <clients-getting-started>` OMERO.insight
+-  :omero_plone:`Download <downloads>` and 
+   :doc:`install <client-tutorials/insight/getting-started>` OMERO.insight
 -  Start OMERO.insight
 -  Click the spanner icon situated above the password box so that we can
    enter the server settings box which looks like this:
@@ -341,8 +344,9 @@ virtual server just like you could using a remote server.
 Secure Shell
 ^^^^^^^^^^^^
 
-You can log into your |VM| using |SSH| which will give you a
-command line interface to the |VM| from where you can use the |OmeroCli|. 
+You can log into your |VM| using |SSH| which will give you a command line 
+interface to the |VM| from where you can use the 
+:doc:`command-line-interface`. 
 In the following example, we assume that you have an |SSH| client installed
 on your host machine and also that your |VM| is up and running.
 
@@ -476,9 +480,9 @@ to be happy using the Bash shell which looks like this:
 
     omero@omerovm:~$ _
 
-From here you can interact with OMERO.server via the |OmeroCli|. You will need 
-to login as the 'omero' user to access the OMERO CLI (user: "omero" / pw: 
-"omero"). Logout using Ctrl-D.
+From here you can interact with OMERO.server via the 
+:doc:`command-line-interface`. You will need to login as the 'omero' user to 
+access the OMERO CLI (user: "omero" / pw: "omero"). Logout using Ctrl-D.
 
 Known issues
 ------------

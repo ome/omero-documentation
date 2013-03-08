@@ -56,7 +56,7 @@ handling.
      *   |_ ConcurrencyException (recoverable)
      *   |  |_ ConcurrentModification (data was changed)
      *   |  |_ OptimisticLockException (changed data conflicts)
-     *   |  |_ LockTimeout (took too long to aquire lock)
+     *   |  |_ LockTimeout (took too long to acquire lock)
      *   |  |_ TryAgain (some processing required before server is ready)
      *   |  \_ TooManyUsersException
      *   |     \_ DatabaseBusyException
@@ -320,8 +320,7 @@ Server exceptions
 Due to the strict API boundary enforced by Ice, the client and server
 exception hierarchies, though related, are distinct. The discussion
 below is possibly of interest for server developers only. Client
-developers should refer to the information about as well as to the
-examples under |OmeroClients|.
+developers should refer to the information and examples under |OmeroClients|.
 
 Interceptor
 ~~~~~~~~~~~
@@ -330,7 +329,7 @@ Exception handling in the OMERO is centralized in an
 :doc:`/developers/Server/Aop` interceptor (:source:`source
 code </components/server/src/ome/services/util/ServiceHandler.java>`).
 All exceptions thrown by code are caught in a
-``try {} catch (Throwable t) {}`` block. Exceptions which don't subclass
+``try {} catch (Throwable t) {}`` block. Exceptions which do not subclass
 :source:`ome.conditions.RootException <components/model/src/ome/conditions/RootException.java>`
 are wrapped in an
 :source:`ome.conditions.InternalException <components/model/src/ome/conditions/InternalException.java>`.
@@ -347,23 +346,21 @@ The current exception hierarchy (package
 used is as follows:
 
 -  RootException
--  
 
-   -  InternalException : shouldn't reach the client; Bug! Contact
-      administrator. E.g. NullPointerException, assertion failed, etc.
-   -  ResourceError : fatal error in server. E.g. OutOfMemory, disk
-      space full, DB is in illegal state, etc.
+   -  InternalException - should not reach the client; Bug! Contact
+      administrator e.g. NullPointerException, assertion failed, etc.
+   -  ResourceError - fatal error in server, e.g. OutOfMemory, disk
+      space full, the database is in illegal state, etc.
    -  DataAccessException
-   -  
 
-      -  SecurityViolation : don't do that! E.g. edit locked project,
+      -  SecurityViolation - do not do that! E.g. edit locked project,
          create new user.
-      -  OptimisticLockException : re-load and compare. E.g. "someone
+      -  OptimisticLockException - re-load and compare e.g. "someone
          else has already updated this project"
-      -  ApiUsageException : something wrong with how you did things.
-         E.g. IllegalStateException, object uninitialized, etc.
-      -  ValidationException : something wrong with what you sent; sends
-         list of fields, etc.; edit and retry. E.g. no "?" in image
+      -  ApiUsageException - something wrong with how you did things
+         e.g. IllegalStateException, object uninitialized, etc.
+      -  ValidationException - something wrong with what you sent; sends
+         list of fields, etc.; edit and retry, e.g. no "?" in image
          names.
 
 where the colors indicate:
@@ -378,17 +375,17 @@ NoRecourseConditions
 
 Any other exception which reaches the client should be considered an
 ``OutOfServiceException``, meaning that something is (hopefully only)
-temporarily wrong with the server. E.g. No connection, server down,
-server restarting. But since this can't be caught since the server can't
+temporarily wrong with the server, e.g. no connection, server down,
+server restarting. But since this cannot be caught since the server cannot
 be reached, there is no way to guarantee that a real
 ``OutOfServiceException`` is thrown.
 
-Discussion
-~~~~~~~~~~
+Moving forward
+--------------
 
 ``FixAndRetryConditions`` need to have information about what should be
 fixed, like a Validation object which lists fields with error messages.
-A ``RetryCondition`` could have a backoff value to prevent too frequent
+A ``RetryCondition`` could have a back-off value to prevent too frequent
 retries.
 
 Questions

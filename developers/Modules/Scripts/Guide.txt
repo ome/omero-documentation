@@ -21,7 +21,7 @@ more information on using the OMERO Python API: |OmeroClients|, |OmeroPy|.
 
 Scripts can be run from OMERO.insight, using a UI generated from the script.
 The script results can also be handled by OMERO.insight. Scripts should
-conform to the :doc:`/developers/Modules/Scripts/StyleGuide`
+conform to the :doc:`StyleGuide`
 in order to improve usability of the script.
 
 The basic steps in a script-writing workflow are:
@@ -30,7 +30,7 @@ The basic steps in a script-writing workflow are:
 -  Use command line (or OMERO.insight client) to upload script to server
 -  Use command line (or OMERO.insight client) to run script on the
    server (results will be displayed)
--  Edit script and replace copy on server and run again....etc.
+-  Edit script and replace copy on server and run again, etc.
 
 Script-writing (as 'Admin')
 ---------------------------
@@ -65,7 +65,7 @@ above).
 The action of this script (editing Image descriptions) is trivial but it
 demonstrates a number of features that you may find useful, including
 conventions for inputs and outputs to improve interaction with
-OMERO.insight (as discussed on the `developers/Modules/Scripts/StyleGuide`).
+OMERO.insight (as discussed on the :doc:`StyleGuide`).
 
 The script is well documented and should get you started. A few points
 to note:
@@ -96,21 +96,22 @@ found under the lib/scripts/omero/ directory of the server package. Any
 script can also be download from the OMERO.insight client (bottom-left
 of the run-script dialog).
 
-Warning: If you wish to edit the official scripts that are part of the
-OMERO release, you should be prepared to apply the same changes to
-future releases of these scripts from OMERO. If you think that your
-changes should be included as part of future released scripts, please
-let us know.
+.. Warning:: 
+    If you wish to edit the official scripts that are part of the
+    OMERO release, you should be prepared to apply the same changes to
+    future releases of these scripts from OMERO. If you think that your
+    changes should be included as part of future released scripts, please
+    let us know.
 
 Upload script
 ~~~~~~~~~~~~~
 
 You can use the command line, OMERO.insight or the server file system to
-upload scripts. The 'script' command line tool is discussed in more
+upload scripts. The ``script`` command line tool is discussed in more
 detail below.
 
 You may find it useful to add the OMERO.server/bin/ folder to your PATH
-so you can call 'bin/omero' commands when working in the scripts folder.
+so you can call ``bin/omero`` commands when working in the scripts folder.
 E.g:
 
 ::
@@ -119,7 +120,7 @@ E.g:
 
 Upload the script we saved earlier, specifying it as 'official' (trusted
 to run on the server processor). You will need to log in the first time
-you use the 'script' command. The new script ID will be printed out:
+you use the :omerocmd:`script` command. The new script ID will be printed out:
 
 ::
 
@@ -150,7 +151,7 @@ Run script
 You can run the script from OMERO.insight by browsing the scripts (see
 screen-shot above). A UI will be generated from the chosen script and
 the currently selected images or datasets will be populated if the
-script supports this (see `developers/Modules/Scripts/StyleGuide`).
+script supports this (see :doc:`StyleGuide`).
 
 Or launch the script from the command line, specifying the script ID.
 You will be asked to provide input for any non-optional parameters that

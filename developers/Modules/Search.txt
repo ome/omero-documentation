@@ -15,75 +15,15 @@ Field names
 Each row in the database becomes a single Lucene ``Document`` parsed
 into the several ``Fields``. A field is referenced by prefixing a search
 term with the field name followed by a colon. For example,
-"name:myImage" searches for myImage anywhere in the name field.
+`name:myImage` searches for myImage anywhere in the name field.
 
-.. list-table::
+.. tabularcolumns:: |p{3.5cm}|p{12cm}|
+
+.. csv-table::
     :widths: 20 80
     :header-rows: 1
-
-    * - Field
-      - Comments
-    * -
-      - Any unprefixed field searches the combination of all fields together.
-        I.e. a search for "cell AND name:myImage" gets translated to
-        "combined\_fields:cell AND name:myImage".
-    * - <field name>
-      - Each string, timestamp, or ``Details`` field of the entity also gets its
-        own ``Field`` entry, like the "name" field above
-    * - details.owner.omeName
-      - Login name of the owner of the object
-    * - details.owner.firstName
-      - First name of the owner of the object
-    * - details.owner.lastName
-      - Last name of the owner of the object
-    * - details.group.name
-      - Group name of the owning group of the object
-    * - details.creationEvent.id
-      - Id of the Event of this objects creation
-    * - details.creationEvent.time
-      - When that Event took place
-    * - details.updateEvent.id
-      - Id of the Event of this objects last modification
-    * - details.updateEvent.time
-      - When that Event took place
-    * - details.permissions
-      - Permissions in the form "rwrwrw" or "rw----"
-    * - tag
-      - Contents from a ``TagAnnotation``.
-    * - annotation
-      - Contents from any annotations, including ``TagAnnotations`` and any
-        ``TextAnnotation`` on another ``TextAnnotation`` (a.k.a. a "description"
-    * - annotation.ns
-      - Namespace (if present) for any annotations on an object
-    * - annotation.type
-      - Short type name, e.g. ``TextAnnotation`` or ``FileAnnotation`` for any
-        annotations on an object
-    * - file.name
-      - For ``FileAnnotations`` and objects they are attached to, the name of
-        the ``OriginalFile``
-    * - file.format
-      - For ``FileAnnotations`` and objects they are attached to, the format of
-        the ``OriginalFile``
-    * - file.path
-      - For ``FileAnnotations`` and objects they are attached to, the path of
-        the ``OriginalFile``
-    * - file.sha1
-      - For ``FileAnnotations`` and objects they are attached to, the sha1 of
-        the ``OriginalFile``
-    * - file.contents
-      - For ``FileAnnotations`` and objects they are attached to **as well as
-        the ``OriginalFile`` itself**, the file contents themselves if their
-        ``Format`` is configured with the :doc:`/developers/Search/FileParsers`.
-    * - **Internal**
-      -
-    * - combined\_fields
-      - The default field prefix.
-    * - \_hibernate\_class
-      - Used by `Hibernate Search <http://www.hibernate.org/subprojects/search.html>`_ to record the
-        entity type. The class value, e.g. ``ome.model.core.Image`` is also
-        entered in ``combined_fields``. **Unimportant for the casual users**
-    * - id
-      - The primary key of the entity. **Unimportant for the casual user**
+    :file: searchfieldnames.tsv
+    :delim: tab
 
 Queries
 -------
@@ -184,7 +124,7 @@ or alternatively for particular types, ...
 
     java -Dlog4j.configuration=log4j-cli.properties -Xmx512M ome.services.fulltext.Main reindex ome.model.core.Image
 
-This functionality is still being tested, but we'll be made more
+This functionality is still being tested, but will be made more
 available in future versions.
 
 ome.api.IQuery
@@ -211,8 +151,8 @@ The Search API offers a number of different queries along with various
 filters and settings which are all maintained on the server.
 
 The matrix below show which combinations of parameters and queries are
-(S)upported, will throw an eXception, and which will simply silently be
-ignored (-).
+supported (S), will throw an exception (X), and which will simply silently be
+ignored (I).
 
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | **Query Method** -->     | byFullText/SomeMustNone   | byGroupForTags/byTagsForGroup   | byAnnotatedWith   |
@@ -223,57 +163,60 @@ ignored (-).
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | annotated by             | S                         | S                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| annotated with           | S                         | -                               | -                 |
+| annotated with           | S                         | I                               | I                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | created between          | S                         | S                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| modified between         | S                         | - (Immutable)                   | S                 |
+| modified between         | S                         | I (Immutable)                   | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | owned by                 | S                         | S                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| all types                | X                         | -                               | X                 |
+| all types                | X                         | I                               | X                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| 1 type                   | S                         | -                               | S                 |
+| 1 type                   | S                         | I                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| N types                  | X                         | -                               | X                 |
+| N types                  | X                         | I                               | X                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| only ids                 | S                         | -                               | S                 |
+| only ids                 | S                         | I                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | **Ordering / Fetches**   |                           |                                 |                   |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| orderBy                  | S                         | -                               | S                 |
+| orderBy                  | S                         | I                               | S                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| fetchAnnotations         | (1)                       | -                               | (2)               |
+| fetchAnnotations         | [1]_                      | I                               | [2]_              |
 +--------------------------+---------------------------+---------------------------------+-------------------+
 | **Other**                |                           |                                 |                   |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| setProjections(3)        | X                         | X                               | X                 |
+| setProjections [3]_      | X                         | X                               | X                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| current\*Metdata(4)      | X                         | X                               | X                 |
+| current\*Metdata [4]_    | X                         | X                               | X                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
-| setProjections(3)        | X                         | X                               | X                 |
+| setProjections [3]_      | X                         | X                               | X                 |
 +--------------------------+---------------------------+---------------------------------+-------------------+
 
-#. any fetchAnnotation() argument to byFullText() or related queries,
+.. rubric:: Footnotes
+
+.. [1] Any fetchAnnotation() argument to byFullText() or related queries,
    returns **all** annotations.
-#. byAnnotatedWith() does not accept a fetchAnnotation() argument of
-   ``Annotation.class``
-#. setProjects may need to be removed if Lucene cannot handle OMERO's
-   security requirements
-#. Not yet implemented
+.. [2] byAnnotatedWith() does not accept a fetchAnnotation() argument of
+   ``Annotation.class``.
+.. [3] setProjects may need to be removed if Lucene cannot handle OMERO's
+   security requirements.
+.. [4] Not yet implemented.
 
 Leading wildcard searches
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Leading wildcard searches are disallowed by default. "?omething" or
-"\*hatever", for example, would both throw exceptions. By using:
+"\*hatever", for example, would both throw exceptions. They can be run by 
+using:
 
 ::
 
       Search search = serviceFactory.createSearchService();
       search.setAllowLeadingWildcards(true);
 
-they can be run. There is a performance penalty, however. In addition,
+There is a performance penalty, however. In addition,
 wildcard searches get expanded on the server to boolean queries. For
 example, assuming "ACELL", "BCELL", and "CCELL" are all terms in your
 index, then the query:

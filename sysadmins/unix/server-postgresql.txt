@@ -9,7 +9,7 @@ version and that it is installed and configured correctly.
 Ensuring you have a valid PostgreSQL version
 --------------------------------------------
 
-For OMERO 4.4, PostgreSQL 8.4 or higher is required (see :doc:`/sysadmins/limitations` for more information.)
+For OMERO |version|, PostgreSQL 8.4 or higher is required (see :doc:`/sysadmins/limitations` for more information.)
 
 You can check which version of PostgreSQL you have installed with any of
 the following commands:
@@ -26,7 +26,7 @@ the following commands:
 If your default PostgreSQL installation is version 8.3 or earlier, you
 will need to upgrade to a more up-to-date version. We suggest the
 installer from `EnterpriseDB <http://www.enterprisedb.com/>`_. Versions
-8.4, 9.0 and 9.1 are known to work with OMERO 4.4; 9.1 is recommended.
+8.4, 9.0 and 9.1 are known to work with OMERO |version|; 9.1 is recommended.
 
 
 Compatibility matrix
@@ -105,7 +105,7 @@ file, is located under ``/var`` or ``/usr``:
 
 Once you have found the location of the ``postgresql.conf`` file on
 your particular installation, you will need to enable TCP listening.
-For PostgreSQL 8.4 and 9.x, the area of the configuration file you're
+For PostgreSQL 8.4 and 9.x, the area of the configuration file you are
 concerned about should look similar to this:
 
 ::
