@@ -15,7 +15,7 @@ requirement is the **PyGithub** package ::
 
 	$ pip install PyGithub
 	$ pip freeze | grep PyGithub
-	PyGithub==1.9.1
+	PyGithub==1.12.2
 
 If using Python 2.6 and earlier, you will also need the **argparse** package
 (included by default in Python 2.7 and above)::
@@ -221,7 +221,7 @@ scc version
 Return the version of the scc tools::
 
 	$ scc version
-	0.2.1
+	0.3.0
 
 .. versionadded:: 0.2.0
 
