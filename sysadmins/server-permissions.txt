@@ -191,6 +191,7 @@ type.
 :term:`Edit`                     Y                    Y                   Y
 :term:`Move`                     Y                    Y                   Y
 :term:`Remove`                   Y                    Y                   Y
+:term:`Link`                     N                    Y                   Y
 ===================== ======================= ===================== ======================
 
 |
@@ -211,6 +212,7 @@ type.
 :term:`Edit`                     Y                    Y                   Y
 :term:`Move`                     N                    N                   N
 :term:`Remove`                   Y                    Y                   Y
+:term:`Link`                     N                    Y                   Y
 ===================== ======================= ===================== ======================
 
 |
@@ -231,6 +233,7 @@ type.
 :term:`Edit`                     N                    N                   N
 :term:`Move`                     N                    N                   N
 :term:`Remove`                   N                    N                   N
+:term:`Link`                     N                    N                   N
 ===================== ======================= ===================== ======================
 
 Key
@@ -277,6 +280,10 @@ Key
 
 	Remove
 		Remove annotations made by others on your data.
+
+	Link
+		Copy/Move/Remove other users' data to/from your Projects/Datasets/Screens.
+		Copy/Move/Remove your or and others' data to/from others' Projects/Datasets/Screens
 
 		.. note::
 			You should always be able to remove
