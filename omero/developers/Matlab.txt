@@ -4,10 +4,12 @@ OMERO Matlab language bindings
 See |DevelopingOmeroClients| and |OmeroModel|, for an introduction to
 **Object**.
 
+.. highlight:: matlab
+
 Installing the OMERO.matlab toolbox
 -----------------------------------
 
--  Download the latest latest released version from the 
+-  Download the latest released version from the
    :omero_plone:`download page <downloads>` . For the latest build, go
    :omerojob:`here <lastSuccessfulBuild/>`, and download the OMERO.matlab zip
    file.
