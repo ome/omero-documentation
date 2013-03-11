@@ -221,17 +221,30 @@ Return the version of the scc tools::
 
 .. _scc deploy:
 
-Documentation deployment
-------------------------
+scc deploy
+----------
 
-https://github.com/openmicroscopy/snoopycrimecop hosts two scripts:
-doc_init.sh and doc_deploy.sh. The goal of the scripts is to enable
-overwriting of deployed doc content and allow for “hot-swapping” content
-served by Apache without downtime and HTTP 404s.
+.. program:: scc deploy
 
-The logic behind the scripts follows the method outlined in
-https://gist.github.com/datagrok/3807742#file_symlink_replacement.md. The
-hudson jobs :term:`BIOFORMATS-docs-merge-stable`,
+Deploy a website update using `file symlink replacement <https://gist.github.com/datagrok/3807742#file_symlink_replacement.md>`_::
+
+	$ scc deploy folder
+
+The goal of this command is to enable overwriting of deployed doc content and
+allow for “hot-swapping” content served by Apache without downtime and HTTP
+404s.
+
+.. option:: --init
+
+	Prepare folder for symlink replacement. Should only be run once
+
+	::
+
+		$ scc deploy folder --init
+
+.. versionadded:: 0.3.1
+
+The hudson jobs :term:`BIOFORMATS-docs-merge-stable`,
 :term:`BIOFORMATS-docs-merge-develop`, :term:`OMERO-docs-merge-stable`,
 :term:`OMERO-docs-merge-develop` and OMERO-docs-internal deploy the
 documentation artifacts to necromancer. The target directory (sphinx-docs) is
