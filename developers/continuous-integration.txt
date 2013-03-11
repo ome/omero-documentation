@@ -121,6 +121,9 @@ Jenkins jobs
 ..  |ssh-doc| replace:: SSH doc and PDF to
 ..  |deploy-doc| replace:: Use :ref:`hot-deploy script <scc deploy>` to update
 
+For all jobs building documentation using Sphinx, the :envvar:`SPHINXOPTS`
+variable is set to ``-W -D html_theme=plone_match``.
+
 Current major release
 ^^^^^^^^^^^^^^^^^^^^^
 
