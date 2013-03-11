@@ -283,11 +283,11 @@ Key
 
 	Link
 		Copy/Move/Remove other users' data to/from your Projects/Datasets/Screens.
-		Copy/Move/Remove your or and others' data to/from others' Projects/Datasets/Screens
+		Copy/Move/Remove your or others' data to/from others' Projects/Datasets/Screens.
 
 		.. note::
 			You should always be able to remove
-			annotations (e.g. tag) that you linked to
+			annotations (e.g. tags) that you linked to
 			other users' data (you own the link).  The
 			link can be deleted, but the tag itself will
 			not be deleted.
