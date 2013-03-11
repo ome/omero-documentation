@@ -16,8 +16,6 @@ development, and maintenance of these tools are the result of close
 collaboration between all academic and commercial partners in the OME
 Consortium.
 
-The OME Data Model
-==================
 
 The OME Model is a specification for storing data on biological imaging.
 The model includes image parameters, such as XYZ dimensions, pixels type
@@ -27,104 +25,112 @@ for exchange of image data between different software packages.
 
 .. insert updated image here
 
+-  Want to find the latest **June 2012 Schema** specification for OME-XML
+   or OME-TIFF? Check the 
+   `schema location <http://www.openmicroscopy.org/Schemas/>`_ 
+   page that always has links to the latest version and latest auto-generated   
+   documentation.
+
+-  If you have used OME-XML, OME-TIFF, Bio-Formats or OMERO in your work
+   find the 
+   :about_plone:`correct citations <licensing-attribution/citing-ome>` to use.
+
+We have received support from several companies who are writing files using 
+our file formats, for details see our full list of 
+:about_plone:`Partners <partners>`.
+
+
+********
 OME-TIFF
-========
+********
 
-The OME Data Model is implemented as the OME-TIFF file format. OME-TIFF
-is a multi-plane tiff file that contains OME metadata in the header, in
-the form of OME-XML. This allows the pixels to be read with any 
-TIFF-compatible program and the metadata to be extracted with any OME-aware 
-application.
+.. only:: html
 
-See the :doc:`OME-TIFF overview <ome-tiff/index>`.
+    The **OME Data Model** is implemented as the **OME-TIFF** file format. 
+    OME-TIFF is a multi-plane tiff file that contains OME metadata in the 
+    header, in the form of **OME-XML**. This allows the pixels to be read with 
+    any TIFF-compatible program and the metadata to be extracted with any 
+    OME-aware application.
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    ome-tiff/index
+
+
+*******
 OME-XML
-=======
+*******
 
-The OME-XML File serves as a convenient file format for data migration
-from one site or user to another. The OME-XML file captures all image
-acquisition and experimental metadata along with the binary image data
-and packages it into an easily readable package. Our
-`paper <http://genomebiology.com/2005/6/5/R47>`_ describing the design
-and implementation of the OME-XML File appeared in Genome Biology.
+.. only:: html
 
-See :doc:`the-ome-xml-file` for further details.
+    The OME-XML file serves as a convenient file format for data migration
+    from one site or user to another. The OME-XML file captures all image
+    acquisition and experimental metadata along with the binary image data
+    and packages it into an easily readable package. Our
+    `paper <http://genomebiology.com/2005/6/5/R47>`_ describing the design
+    and implementation of the OME-XML File appeared in Genome Biology.
 
-OME-XML Java Library
---------------------
+    The **OME-XML Java library** is a collection of Java packages for
+    manipulating OME-XML metadata structures which you can download to work 
+    with yourself.
 
-The OME-XML Java library is a collection of Java packages for
-manipulating OME-XML metadata structures which you can download to work with 
-yourself.
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
 
-See :doc:`ome-xml-java-library`.
+    the-ome-xml-file
+    ome-xml-java-library
 
-OME-XML Compliance
-------------------
+**************
+Specifications
+**************
 
-View 
-:doc:`our proposal <schemas/specifications/compliant-file>`
-for a specification, to describe as completely as possible a specific
-imaging experiment.
+.. only:: html
 
-Or read our published paper 
-`Linkert et al (2010), J. Cell Biol. 189(5):777-782 <http://jcb.rupress.org/content/189/5/777>`_
+    View :doc:`our proposal <schemas/specifications/compliant-file>` for a 
+    specification, to describe as completely as possible a specific imaging 
+    experiment.
 
-:doc:`Specifications for HCS <schemas/specifications/compliant-hcs>` 
-and a :doc:`minimum specification <schemas/specifications/minimum>` are also 
-available.
+    Or read our published paper 
+    `Linkert et al (2010), J. Cell Biol. 189(5):777-782 <http://jcb.rupress.org/content/189/5/777>`_
 
-Developer Resources
-===================
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
 
-Developing software to work with OME-XML files? Find links to more
-technical information on the
-:doc:`Developer information page <working-with-ome-xml/index>`.
+    schemas/specifications/compliant-file
+    schemas/specifications/compliant-hcs 
+    schemas/specifications/minimum
 
-Latest OME-XML/OME-TIFF
------------------------
 
-Want to find the latest **June 2012 Schema** specification for OME-XML
-or OME-TIFF? Check the 
-`schema location <http://www.openmicroscopy.org/Schemas/>`_ 
-page that always has
-links to the latest version and latest auto-generated documentation.
+*********************
+Developer information
+*********************
 
-OME-XML Versions
-----------------
+.. only:: html
 
-Discover how the OME-XML and OME-TIFF 
-`version system </site/support/file-formats/schemas/versions/version-information>`_
-works.
+    Developing software to work with OME-XML files? Find links to more 
+    technical information:
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    working-with-ome-xml/index
+
+
+********
+Versions
+********
 
 Have a file and need to know the version? - use the 
 `online validator <http://validator.openmicroscopy.org.uk/>`_.
 
-How to Cite OME's Work
-----------------------
-
-If you have used OME-XML, OME-TIFF, Bio-Formats or OMERO in your work
-find the :about_plone:`correct citations <licensing-attribution/citing-ome>` 
-to use.
-
-
-Companies supporting OME-XML or OME-TIFF
-========================================
-
-We have received support from several companies who are writing files
-using our file formats, for details see our full list of
-:about_plone:`Partners <partners>`.
-
 .. toctree::
     :maxdepth: 1
-    :hidden:
+    :titlesonly:
 
-    ome-tiff/index
-    the-ome-xml-file
-    ome-xml-java-library
-    schemas/specifications/compliant-file
-    schemas/specifications/compliant-hcs
-    schemas/specifications/minimum
-    working-with-ome-xml/index
     schemas/versions/index
-    
+
