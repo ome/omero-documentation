@@ -10,24 +10,18 @@ please `open an issue <https://github.com/openmicroscopy/snoopycrimecop/issues>`
 Installation
 ------------
 
-The scc tools are a set  of Python_ based utility programs. The main 
-requirement is the **PyGithub** package ::
+The scc tools are a set  of Python_ based utility programs. The tools suite
+can be installed using ``pip``::
 
-	$ pip install PyGithub
+    $ pip install -U scc
+
+The main requirement are the **PyGithub** package and the **argparse**
+packages::
+
 	$ pip freeze | grep PyGithub
 	PyGithub==1.12.2
-
-If using Python 2.6 and earlier, you will also need the **argparse** package
-(included by default in Python 2.7 and above)::
-
-	$ pip install argparse
 	$ pip freeze | grep argparse
 	argparse==1.2.1
-
-The tools suite can then be installed using Homebrew::
-
-    $ brew update && brew install scc
-    $ scc -h
 
 Github connection
 -----------------
