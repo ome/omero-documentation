@@ -204,7 +204,16 @@ If the projects contains datasets, the datasets will automatically be loaded::
         for i = 0:datasetsList.size()-1,
             d = datasetsList.get(i);
         end
-    end 
+    end
+
+If the datasets contains images, the images will automatically be loaded::
+
+    imageList = projects(1).linkedDatasetList.get(0).linkedImageList;
+
+To avoid loading the whole graph (projects, datasets, images), pass `False` as
+a second optional argument. Only datasets will be loaded::
+
+	unloadedProjects = getProjects(session, ids, false)
 
 Datasets
 ^^^^^^^^
@@ -221,7 +230,11 @@ If the dataset identifiers are known, they can be specified as::
 
 If the datasets contains images, the images will automatically be loaded::
 
-    imageList = dataset.linkedImageList; % The images in the dataset.
+    imageList = datasets(1).linkedImageList;
+
+To avoid loading the images, pass `False` as a second optional argument::
+
+	unloadedDatasets = getDatasets(session, ids, false)
 
 Images
 ^^^^^^
