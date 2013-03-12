@@ -119,7 +119,10 @@ Jenkins jobs
 ..  |sphinxbuild| replace:: Build HTML and PDF Sphinx documentation using `make clean html latexpdf`
 ..  |linkcheck| replace:: Run Sphinx `linkcheck` and parse its output (see :ref:`linkcheck_parser`).
 ..  |ssh-doc| replace:: SSH doc and PDF to
-..  |deploy-doc| replace:: Use :ref:`hot-deploy script <scc deploy>` to update
+..  |deploy-doc| replace:: Use :ref:`scc deploy` to update
+
+For all jobs building documentation using Sphinx, the :envvar:`SPHINXOPTS`
+variable is set to ``-W -D html_theme=plone_match``.
 
 Current major release
 ^^^^^^^^^^^^^^^^^^^^^
