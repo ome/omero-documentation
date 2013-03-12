@@ -10,12 +10,12 @@ please `open an issue <https://github.com/openmicroscopy/snoopycrimecop/issues>`
 Installation
 ------------
 
-The scc tools are a set  of Python_ based utility programs. The tools suite
+The scc tools are a set of Python_ based utility programs. The tools suite
 can be installed using ``pip``::
 
-    $ pip install -U scc
+	$ pip install -U scc
 
-The main requirement are the **PyGithub** package and the **argparse**
+The main requirements are the **PyGithub** package and the **argparse**
 packages::
 
 	$ pip freeze | grep PyGithub
@@ -97,8 +97,8 @@ The first argument is the name of the base branch of origin, e.g.::
 
 	If no key is specified, it is assumed the filter is a label filter.
 
-	By default, only PRs labelled as `exclude` are excluded so the following
-	are  equivalent::
+	By default, only PRs labeled as `exclude` are excluded so the following
+	are equivalent::
 
 		$ scc merge develop
 		$ scc merge develop -E label:exclude
@@ -115,8 +115,8 @@ The first argument is the name of the base branch of origin, e.g.::
 
 	If no key is specified, it is assumed the filter is a label filter.
 
-	By default, only PRs labelled as `include` are included so the following
-	are  equivalent::
+	By default, only PRs labeled as `include` are included so the following
+	are equivalent::
 
 		$ scc merge develop
 		$ scc merge develop -I label:include
