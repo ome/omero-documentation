@@ -164,7 +164,7 @@ usually associated with some time-point or step in a protocol. It is a
 collection of individual WellSamples across the Plates collected between
 two time points.
 
-.. figure:: /images/formats/ScreenPlateWell/2007-06/Spw-structure.png
+.. figure:: /images/formats/legacy/ScreenPlateWell/2007-06/Spw-structure.png
    :align: center
    :alt: SPW structure
    
@@ -175,7 +175,7 @@ The dashed arrows added to the previous diagram show the
 inter-dependencies between the Screen branch and the Plate branch of the
 schema, as well as the ultimate link to Image.
 
-.. figure:: /images/formats/ScreenPlateWell/2007-06/Spw-structure-cross-linked.png
+.. figure:: /images/formats/legacy/ScreenPlateWell/2007-06/Spw-structure-cross-linked.png
    :align: center
    :alt: SPW structure cross-linked
    
@@ -185,7 +185,7 @@ Diagram showing sample file structure of the SPW Schema
 This diagram shows how a typical file would be structured and what
 objects are normally contained inside each other.
 
-.. figure:: /images/formats/ScreenPlateWell/2007-06/Spw-sample.png
+.. figure:: /images/formats/legacy/ScreenPlateWell/2007-06/Spw-sample.png
    :align: center
 
 
@@ -199,5 +199,5 @@ several objects of the second type. The links in the file are
 accomplished using unique IDs on objects and then References to these
 IDs from elsewhere in the file.
 
-.. figure:: /images/formats/ScreenPlateWell/2007-06/Spw-sample-crosslinked.png
+.. figure:: /images/formats/legacy/ScreenPlateWell/2007-06/Spw-sample-crosslinked.png
    :align: center

@@ -121,7 +121,7 @@ The current method of defining a ROI in three dimensions is as a Union
 of Shape objects each of which defines the geometry where that 3D ROI
 would cut the 2D Plane the Shape is attached to.
 
-.. figure:: /images/formats/ROI/2010-04/Ome-ROI-overview-standard.png
+.. figure:: /images/formats/legacy/ROI/2010-04/Ome-ROI-overview-standard.png
    :align: center
    :alt: ROI Proposal 2010-04
     Polyline and Path are **DEPRECATED** as they are due to be replaced
