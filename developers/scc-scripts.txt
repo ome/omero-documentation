@@ -10,24 +10,18 @@ please `open an issue <https://github.com/openmicroscopy/snoopycrimecop/issues>`
 Installation
 ------------
 
-The scc tools are a set  of Python_ based utility programs. The main 
-requirement is the **PyGithub** package ::
+The scc tools are a set of Python_ based utility programs. The tools suite
+can be installed using ``pip``::
 
-	$ pip install PyGithub
+	$ pip install -U scc
+
+The main requirements are the **PyGithub** package and the **argparse**
+packages::
+
 	$ pip freeze | grep PyGithub
-	PyGithub==1.9.1
-
-If using Python 2.6 and earlier, you will also need the **argparse** package
-(included by default in Python 2.7 and above)::
-
-	$ pip install argparse
+	PyGithub==1.12.2
 	$ pip freeze | grep argparse
 	argparse==1.2.1
-
-The tools suite can then be installed using Homebrew::
-
-    $ brew update && brew install scc
-    $ scc -h
 
 Github connection
 -----------------
@@ -103,6 +97,13 @@ The first argument is the name of the base branch of origin, e.g.::
 
 	If no key is specified, it is assumed the filter is a label filter.
 
+	By default, only PRs labeled as `exclude` are excluded so the following
+	are equivalent::
+
+		$ scc merge develop
+		$ scc merge develop -E label:exclude
+		$ scc merge develop -E exclude
+
 .. option:: --include <filters>, -I <filters>
 
 	Include PR by label, user or number
@@ -113,6 +114,14 @@ The first argument is the name of the base branch of origin, e.g.::
 		$ scc merge develop -I label:include_label -I user:my_user -I pr:40
 
 	If no key is specified, it is assumed the filter is a label filter.
+
+	By default, only PRs labeled as `include` are included so the following
+	are equivalent::
+
+		$ scc merge develop
+		$ scc merge develop -I label:include
+		$ scc merge develop -I include
+
 
 .. option:: --info
 
@@ -140,7 +149,12 @@ is calling the following merge command:
 
 ::
 
-	$ scc merge develop --no-ask --reset --comment -E conflict -E needs-fixes -E broken -I include --push merge/develop/latest
+	$ scc merge develop --no-ask --reset --comment --push merge/develop/latest
+
+
+.. versionchanged:: 0.3.0
+	Added default values for :option:`--include` and :option:`--exclude`
+	options.
 
 scc rebase
 ----------
@@ -201,23 +215,36 @@ scc version
 Return the version of the scc tools::
 
 	$ scc version
-	0.2.1
+	0.3.0
 
 .. versionadded:: 0.2.0
 
 .. _scc deploy:
 
-Documentation deployment
-------------------------
+scc deploy
+----------
 
-https://github.com/openmicroscopy/snoopycrimecop hosts two scripts:
-doc_init.sh and doc_deploy.sh. The goal of the scripts is to enable
-overwriting of deployed doc content and allow for “hot-swapping” content
-served by Apache without downtime and HTTP 404s.
+.. program:: scc deploy
 
-The logic behind the scripts follows the method outlined in
-https://gist.github.com/datagrok/3807742#file_symlink_replacement.md. The
-hudson jobs :term:`BIOFORMATS-docs-merge-stable`,
+Deploy a website update using `file symlink replacement <https://gist.github.com/datagrok/3807742#file_symlink_replacement.md>`_::
+
+	$ scc deploy folder
+
+The goal of this command is to enable overwriting of deployed doc content and
+allow for “hot-swapping” content served by Apache without downtime and HTTP
+404s.
+
+.. option:: --init
+
+	Prepare folder for symlink replacement. Should only be run once
+
+	::
+
+		$ scc deploy folder --init
+
+.. versionadded:: 0.3.1
+
+The hudson jobs :term:`BIOFORMATS-docs-merge-stable`,
 :term:`BIOFORMATS-docs-merge-develop`, :term:`OMERO-docs-merge-stable`,
 :term:`OMERO-docs-merge-develop` and OMERO-docs-internal deploy the
 documentation artifacts to necromancer. The target directory (sphinx-docs) is
