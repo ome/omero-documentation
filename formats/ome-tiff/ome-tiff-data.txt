@@ -64,11 +64,14 @@ integration value of 2. The table below also lists the space
 requirements for each dataset with various formats and compression
 types.
 
+.. note::
+
     The files available for download have been updated to the 2008-02
     schema version since their initial creation. The figures regarding
     various storage formats were computed before this update; thus, the
     byte counts between the downloadable ZIP files and the "zipped
     OME-TIFF" entry do not precisely match.
+
 
 +-------------------------------------------------------------+-----------------------+-------------------------+--------------------------+
 | Dataset                                                     | `tubhiswt-2D.zip`_    | `tubhiswt-3D.zip`_      | `tubhiswt-4D.zip`_       |
@@ -177,7 +180,7 @@ that the most efficient format for space is OME-TIFF compressed with the
 `7-zip <http://www.7-zip.org/>`_ utility. Also good are gzipped OME-XML
 (omez) and zipped OME-TIFF.
 
-figure:: /images/formats/ome-tiff-chart.png
+.. figure:: /images/formats/ome-tiff-chart.png
 
 Uncompressed OME-TIFF format, while the least space-efficient, provides
 its own advantages: it is highly compatible and provides efficient
@@ -202,30 +205,30 @@ Recommendations
 In conclusion, we highlight the following formats as most useful,
 depending on your circumstances:
 
--  **Zipped OME-TIFF** – Cuts down on file size while retaining the
+-  **Zipped OME-TIFF** – cuts down on file size while retaining the
    underlying compatibility of OME-TIFF. Use zipped OME-TIFF for wide
    distribution of data to colleagues. Zip is a ubiquitous compression
    format, decodable on all major operating systems. The downside is
    that it typically does not compress as well as 7-zip does.
--  **7-zipped OME-TIFF** – Minimizes file size. As the most
+-  **7-zipped OME-TIFF** – minimizes file size. As the most
    space-efficient format, use 7-zipped OME-TIFF for archival purposes,
    for transport from one OME database to another, and possibly for
    online distribution if space is a major concern and your target
    audience is computer-savvy enough to install 7-zip. The only
    downsides are that 7-zip is less ubiquitous than zip, and compressing
    a dataset with 7-zip takes longer than doing so with zip.
--  **OME-TIFF with LZW** – Provides space advantages nearly as good as
+-  **OME-TIFF with LZW** – provides space advantages nearly as good as
    the externally compressed formats (zip, gzip, 7-zip) without
    sacrificing the accessibility of TIFF, for the most part. The
    downsides are that LZW takes somewhat longer to process than
    uncompressed TIFF, some software does not support LZW compression,
    and OME-TIFF with LZW does not shrink as much as uncompressed
    OME-TIFF does with external compression techniques.
--  **OME-TIFF** – Maximizes compatibility. When actively working with
+-  **OME-TIFF** – maximizes compatibility. When actively working with
    data, storing it in uncompressed OME-TIFF format provides many
    options for efficient analysis and visualization. The downside is
    that the data takes up more space on disk.
--  **OME-XML** – Provides metadata in a directly human-readable form. In
+-  **OME-XML** – provides metadata in a directly human-readable form. In
    addition, OME-XML maximizes compatibility with XML software. The
    downside is that very few image software packages support OME-XML.
 

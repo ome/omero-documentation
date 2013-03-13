@@ -6,13 +6,13 @@ format, and gives example source code in Java for performing them. We
 strongly recommend you read and understand the :doc:`ome-tiff-specification` 
 before attempting to deploy any of the following code.
 
--  Extracting a TIFF comment – Demonstrates how to extract the OME-XML
+-  Extracting a TIFF comment – demonstrates how to extract the OME-XML
    comment from an OME-TIFF file.
--  Modifying a TIFF comment – Demonstrates how to modify an OME-XML
+-  Modifying a TIFF comment – demonstrates how to modify an OME-XML
    comment within an OME-TIFF file.
--  Converting other formats to OME-TIFF – Demonstrates how to convert
+-  Converting other formats to OME-TIFF – demonstrates how to convert
    third-party formats to OME-TIFF.
--  Working with OME-XML – Demonstrates how to work with OME-XML in
+-  Working with OME-XML – demonstrates how to work with OME-XML in
    memory.
 
 The :bf_doc:`Bio-Formats library <about/>`
@@ -65,7 +65,7 @@ longer fit at its old offset, unless the comment was at the end of the
 file, so the entry's offset might need to change as well.
 
 We have included a method within Bio-Formats,
-TiffSaver.overwriteIFDValue(), that efficiently alters a directory entry
+``TiffSaver.overwriteIFDValue()``, that efficiently alters a directory entry
 with a minimum of waste. The count field of the entry is intelligently
 updated to match the new length. If the new length is longer than the
 old length, it appends the new data to the end of the file and updates
@@ -82,9 +82,9 @@ comments back to the files. It requires the
 The comment string is acquired using TiffParser.getComment(f), and
 updated with TiffSaver.overwriteComment(f, xml).
 
-    To quickly edit an OME-TIFF files comment on the command line use
-    ``tiffcomment -edit filename.ome.tiff`` from the `Bio-Formats
-    tools <http://loci.wisc.edu/bio-formats/command-line-tools>`_.
+To quickly edit an OME-TIFF files comment on the command line use
+``tiffcomment -edit filename.ome.tiff`` from the 
+:bf_doc:`Bio-Formats tools <users/comlinetools/index>`.
 
 Converting other formats to OME-TIFF
 ------------------------------------
@@ -98,8 +98,8 @@ the conversion from proprietary third-party metadata into OME-XML—a task
 that Bio-Formats greatly simplifies.
 
 The following program converts the files given on the command line into
-OME-TIFF format. It requires the :bf_plone:`Bio-Formats <>` and `OME-XML
-Java <../ome-xml-java-library>`_ libraries.
+OME-TIFF format. It requires the :bf_plone:`Bio-Formats <>` and :doc:`OME-XML
+Java </formats/ome-xml-java-library>` libraries.
 
 `ConvertToOmeTiff.java <http://git.openmicroscopy.org/?p=bioformats.git;a=blob;f=components/bio-formats/utils/ConvertToOmeTiff.java;hb=HEAD>`_
 
@@ -132,20 +132,20 @@ development tasks.
 
 The following program edits the "image name" metadata value for the file
 given on the command line. It requires the :bf_plone:`Bio-Formats <>` and 
-`OME-XML Java <../ome-xml-java-library>`_ libraries.
+:doc:`OME-XML Java </formats/ome-xml-java-library>` libraries.
 
 `EditImageName.java <http://git.openmicroscopy.org/?p=bioformats.git;a=blob;f=components/bio-formats/utils/EditImageName.java;hb=HEAD>`_
 
 As in the ConvertToOmeTiff.java example above, we attach an OME-XML
 MetadataStore object to the reader to extract OME-XML metadata from the
 input file. We obtain the current image name (if any) by calling the
-omexmlMeta.getImageName(0) method. The zero indicates the Image within
-the OME-XML block about which we are interested; in this case, we are
+``omexmlMeta.getImageName(0)`` method. The zero indicates the Image within
+the OME-XML block we are interested in; in this case, we are
 asking for the name of the first Image.
 
 After updating the name somehow (in our case, reversing the string), we
 write the updated name back into the metadata structure via a call to
-omexmlMeta.setImageName(name, 0). Once again the zero indicates that we
+``omexmlMeta.setImageName(name, 0)``. Once again the zero indicates that we
 wish to update the first Image.
 
 Lastly, the
