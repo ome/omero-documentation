@@ -20,8 +20,8 @@ documents in the OME-XML and OME-TIFF formats.
 Extracting the OME-XML from an OME-TIFF file
 --------------------------------------------
 
-If you install the `Bio-Formats command line
-tools <http://loci.wisc.edu/bio-formats/command-line-tools>`_, you can
+If you install the :bf_doc:`Bio-Formats command line
+tools <users/comlinetools/index>`, you can
 produce a nicely formatted OME-XML string from an OME-TIFF file with:
 
 ::
@@ -38,13 +38,12 @@ line:
 
 If you are working in C/C++, we recommend the open source
 `LibTIFF <http://www.libtiff.org/>`_ library, or Bio-Formats via the
-`Bio-Formats C++
-bindings <http://www.loci.wisc.edu/bio-formats/bio-formats-c-bindings>`_.
+:bf_doc:`Bio-Formats C++ bindings <developers/c-bindings>`.
 
 If you are looking for a solution in Java, there are several options.
 Bio-Formats can read OME-TIFF files, as well as convert from many
-third-party formats into OME-TIFF format—see the `example source code
-page <ome-tiff-code>`_ for specific examples. Alternately, the open
+third-party formats into OME-TIFF format—see the :doc:`example source code
+page <ome-tiff-code>` for specific examples. Alternately, the open
 source `ImageJ <http://rsb.info.nih.gov/ij/>`_ application reads
 multi-page TIFF files, storing the TIFF comment into the associated
 FileInfo object's "description" field.
@@ -52,7 +51,7 @@ FileInfo object's "description" field.
 Processing an OME-XML block
 ---------------------------
 
-If the XML was stored without line breaks it can still be difficult to
+If the XML was stored without line breaks, it can still be difficult to
 read after being extracted. There are several solutions to this problem,
 such as using an XML viewer or editor (web browsers work well), or
 processing the XML with a SAX or DOM library.
@@ -82,26 +81,24 @@ Here is a Perl script that uses
 Unfortunately, both xmllint and the above Perl script can be somewhat
 fragile; if there are any errors or abnormalities in the XML, they
 generally fail to produce any indentation. Thus, we have also written
-some Java code to do the same thing; just download the `Bio-Formats
-command line
-tools <http://loci.wisc.edu/bio-formats/command-line-tools>`_ and run:
+some Java code to do the same thing; just download the 
+:bf_doc:`Bio-Formats command line tools <users/comlinetools/index>` and run:
 
 ::
 
     xmlindent file.xml
 
-Another option is to feed the XML into our `OME-XML Java
-library <ome-xml-java-library>`_, which provides methods for querying
-and manipulating the OME-XML (using DOM and SAX). This library is what
-Bio-Formats uses to work with OME-XML.
+Another option is to feed the XML into our 
+:doc:`OME-XML Java library </formats/ome-xml-java-library>`, which provides methods 
+for querying and manipulating the OME-XML (using DOM and SAX). This library is 
+what Bio-Formats uses to work with OME-XML.
 
 Validating OME-XML
 ------------------
 
 We have created a command line tool in Java for validating OME-XML, and
-included it as part of the `Bio-Formats command line
-tools <http://loci.wisc.edu/bio-formats/command-line-tools>`_. The
-command is:
+included it as part of the :bf_doc:`Bio-Formats command line
+tools <users/comlinetools/index>`. The command is:
 
 ::
 

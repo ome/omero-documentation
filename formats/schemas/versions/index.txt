@@ -1,19 +1,19 @@
 Version Information
 ===================
 
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
 
-    june-2012
-    june-2011
-    june-2010
-    april-2010
-    september-2009
-    september-2008
-    february-2008
-    september-2007
-    june-2007
+.. only:: html
+
+    - :doc:`june-2012`
+    - :doc:`june-2011`
+    - :doc:`june-2010`
+    - :doc:`april-2010`
+    - :doc:`september-2009`
+    - :doc:`september-2008`
+    - :doc:`february-2008`
+    - :doc:`september-2007`
+    - :doc:`june-2007`
+
 
 Information on the version structure
 ------------------------------------
