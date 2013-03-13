@@ -239,14 +239,24 @@ To avoid loading the images, pass `False` as a second optional argument::
 Images
 ^^^^^^
 
-The images owned by the user currently logged in can be retrieved using the
-:source:`getImages <components/tools/OmeroM/src/io/getImages.m>` function::
+All the images owned by the user currently logged in can be retrieved using
+the :source:`getImages <components/tools/OmeroM/src/io/getImages.m>`
+function::
 
 	images = getImages(session)
 
 If the image identifiers are known, they can be specified as::
 
 	images = getImages(session, ids)
+
+Alternately, all the images contained in projects or datasets can be returned
+by specifying the parent type and identifiers as::
+
+	projectImages = getImages(session, projectIds, 'project')
+	datasetImages = getImages(session, datasetsIds, 'dataset')
+
+.. note:: If ``projectIds`` or ``datasetIds`` is set to ``[]``, all the images
+   contained in projects or datasets will be returned.
 
 The model is as follows: Image-Pixels i.e. to access valuable data about
 the image you need to use the pixels object. We now only support one set
