@@ -4,55 +4,55 @@ Model Overview 2010-04
 Model Overview for the April 2010 Release of the Data Model.
 
 
-.. figure:: /images/formats/Image/2010-04/Image-Overview.png
+.. figure:: /images/formats/Image-Overview.*
    :align: center
    :alt: Image Overview
    
    Diagram showing the Image branch of the OME Schema
 
-.. figure:: /images/formats/Instrument/Instrument-Overview.png
+.. figure:: /images/formats/Instrument-Overview.*
    :align: center
    :alt: Instrument Overview
    
    Diagram showing the Instrument branch of the OME Schema
 
-.. figure:: /images/formats/FilterAndFilterSet/2010-04/LightPathFilterSet-Top.png
+.. figure:: /images/formats/LightPathFilterSet-Top.*
    :align: center
    :alt: LightPathFilterSet Top
    
    Diagram showing the location of Filters and Light Paths in the OME Model
 
-.. figure:: /images/formats/ProjectDataset/Project-Dataset-Top.png
+.. figure:: /images/formats/Project-Dataset-Top.*
    :align: center
    :alt: Project Dataset Top
    
    Diagram showing the organisational structures (Project, Dataset, Group, Experiment, Experimenter) of the OME Model
 
-.. figure:: /images/formats/ProjectDataset/Project-Dataset-Ownership.png
+.. figure:: /images/formats/Project-Dataset-Ownership.*
    :align: center
    :alt: Project Dataset Ownership
    
    Diagram showing the ownership relations for Project, Dataset & Experimenter
 
-.. figure:: /images/formats/ROI/2010-04/Ome-ROI-overview-standard.png
+.. figure:: /images/formats/Ome-ROI-overview.*
    :align: center
    :alt: ROI Overview Standard
    
    Diagram showing the Region Of Interest branch of the OME Model
 
-.. figure:: /images/formats/ScreenPlateWell/2010-04/Spw-structure.png
+.. figure:: /images/formats/Spw-structure.*
    :align: center
    :alt: SPW Structure
    
    Diagram showing the HCS structures (Screen, Plate & Well) of the OME Model
 
-.. figure:: /images/formats/Annotation/Annotation-Top.png
+.. figure:: /images/formats/Annotation-Top.*
    :align: center
    :alt: Annotation Top
    
    Diagram showing the StructureAnnotation branch of the OME Model
 
-.. figure:: /images/formats/Annotation/Annotation-Points.png
+.. figure:: /images/formats/Annotation-Points.*
    :align: center
    :alt: Annotation Points
    
