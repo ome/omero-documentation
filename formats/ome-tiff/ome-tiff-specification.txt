@@ -492,7 +492,7 @@ than 5GB total.
 While we advise storing multiple planes per OME-TIFF file, and keeping
 the OME-XML metadata embedded in every file's header, we realize there
 are times when doing so simply isn't possible. Thus, as of the 
-:doc:`2011-06 version of the OME-XML schema </formats/schemas/versions/june-2011>` 
+:doc:`2011-06 version of the OME-XML schema </schemas/versions/june-2011>` 
 onwards, we have implemented a solution to this problem: the ``BinaryOnly``
 element.
 

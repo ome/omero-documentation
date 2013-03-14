@@ -14,7 +14,7 @@ conforming to the spirit of the OME projects aims.
 
 This sample structure is based on Sample One in the 
 OME Compliant File Specification 
-(see `Compliant Specification <compliant-file-specification>`_):
+(see :doc:`compliant-file`):
 
 ::
 
@@ -78,11 +78,11 @@ OME Compliant File Specification
 
     The data in this sample is nonsense.
 
-An alternative valid forms:
+Alternative valid forms:
 
--  Would have a ome:TiffData block instead of the bf:BinData block. This
-   would be used in the header of an OME-TIFF file.
--  Would have a ome:MetadataOnly block instead of the bf:BinData block.
-   This would **ONLY** be acceptable if the image data of the file
-   **CANNOT**, for technical reasons, be represented in an OME file.
+-  Would have a ``ome:TiffData`` block instead of the ``bf:BinData`` block. 
+   This would be used in the header of an OME-TIFF file.
+-  Would have a ``ome:MetadataOnly`` block instead of the ``bf:BinData`` 
+   block. This would **ONLY** be acceptable if the image data of the file
+   **CANNOT** be represented in an OME file for technical reasons.
 

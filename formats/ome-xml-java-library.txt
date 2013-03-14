@@ -5,14 +5,12 @@ OME-XML Java Library
 The OME-XML Java library is a collection of Java packages for
 manipulating OME-XML metadata structures. The OME-XML Java library's
 metadata processing facilities form the backbone of the
-`Bio-Formats <http://loci.wisc.edu/software/bio-formats>`_ library's
-support for OME-XML conversion.
+:bf_plone:`Bio-Formats <>` library's support for OME-XML conversion.
 
-It is not to be confused with the `OME-Java
-API <http://www.openmicroscopy.org/site/support/legacy/ome-server/developer/java-api>`_
-for communicating with an `OME
-Server <http://www.openmicroscopy.org/site/support/legacy/ome-server>`_
-from Java—until recently, the OME-Java library was a combination of both
+It is not to be confused with the 
+:legacy_plone:`OME-Java API <ome-server/developer/java-api>`
+for communicating with an :legacy_plone:`OME Server <ome-server>`
+from Java—previously, the OME-Java library was a combination of both
 the OME-XML Java library and the OME-Java API in one package, but as of
 September 2008 they have been split into two separate libraries:
 **ome-xml.jar** is the OME-XML Java library, and **ome-java.jar** is
@@ -21,8 +19,8 @@ the OME-Java API.
 Download
 --------
 
-You can download **ome-xml.jar** from the `Bio-Formats
-downloads <http://loci.wisc.edu/bio-formats/downloads>`_ page. The
+You can download **ome-xml.jar** from the 
+:bf_plone:`Bio-Formats downloads <downloads>` page. The
 license is `LGPL <http://www.gnu.org/licenses/lgpl.html>`_.
 
 Installation
@@ -33,11 +31,10 @@ To use, add **ome-xml.jar** to your classpath or build path.
 Usage
 -----
 
-You can peruse the `online API
-documentation <http://hudson.openmicroscopy.org.uk/view/Bio-Formats/job/BIOFORMATS-trunk/javadoc>`_,
+You can peruse the 
+`online API documentation <http://hudson.openmicroscopy.org.uk/view/Bio-Formats/job/BIOFORMATS-trunk/javadoc>`_,
 specifically the ome.xml.\* packages. For an example of usage, see the
-`Bio-Formats metadata
-architecture <http://trac.openmicroscopy.org.uk/ome/browser/bioformats.git/components/scifio/src/loci/formats/ome/OMEXMLMetadataImpl.java>`_.
+`Bio-Formats metadata architecture <http://trac.openmicroscopy.org.uk/ome/browser/bioformats.git/components/scifio/src/loci/formats/ome/OMEXMLMetadataImpl.java>`_.
 
 The OMENode is the root ("OME") node of the OME-XML. Each XML element
 has its own node type (e.g. "Image" has ImageNode) with its own
@@ -51,7 +48,7 @@ Source code
 -----------
 
 The OME-XML Java library is an open source project—the source code is
-freely accessible via our Git repository. See `these
-instructions <http://loci.wisc.edu/bio-formats/source-code>`_ for
-details on accessing the code.
+freely accessible via our Git repository. See 
+:bf_doc:`these instructions <developers/source-code>` for details on accessing 
+the code.
 
