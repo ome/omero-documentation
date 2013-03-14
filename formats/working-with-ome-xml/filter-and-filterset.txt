@@ -1,13 +1,7 @@
-Filter and FilterSet 2010-04
-============================
+Filter and FilterSet
+====================
 
-
-
-
-This was developed in conjunction with the June 2007 release and updated
-for the April 2010 release of the OME-XML Model
-
-The filter model has changed with the April 2010 release of the OME
+The filter model changed with the April 2010 release of the OME
 Schema. This page provides a description of the new structures used. The
 new structures are designed to work for Fluorescence Microscopy but are
 flexible enough it can also work with filter configurations for most

@@ -74,16 +74,16 @@ How can I, as a developer, work with your model?
 ------------------------------------------------
 
 A good place to start is by looking at the :doc:`Model Overview
-collection of diagrams <model-overview-2010-04>` we have put together
+collection of diagrams <model-overview>` we have put together
 showing the structure and connection between different parts of the OME
 Model.
 
 We have pages covering parts of the model in detail:
 
--  :doc:`Filter And FilterSet <filter-and-filterset-2010-04>`
--  :doc:`Screen Plate Well <screen-plate-well-2010-04>` - our HCS solution
+-  :doc:`Filter And FilterSet <filter-and-filterset>`
+-  :doc:`Screen Plate Well <screen-plate-well>` - our HCS solution
 -  :doc:`Structured Annotations <structured-annotations>`
--  :doc:`Regions of Interest (ROIs) <roi-2012-06>`
+-  :doc:`Regions of Interest (ROIs) <roi>`
 
 :doc:`Legacy versions <legacy/index>` of these documents are also available.
 

@@ -1,10 +1,7 @@
-ROI 2012-06
-===========
+ROI Model
+=========
 
-This is an update/modification of the April 2010 release of the OME-XML
-Model
-
-ROIs are now a top level object within the OME node of our model. This
+ROIs are a top level object within the OME node of our model. This
 means that can be referred to from more than one point within the model.
 In the case of ROI that can be used in three ways:
 
@@ -126,4 +123,4 @@ would cut the 2D Plane the Shape is attached to.
 
 .. figure:: /images/formats/Ome-ROI-overview.*
    :align: center
-   :alt: ROI Proposal 2012-06
+   :alt: ROI Model Overview
