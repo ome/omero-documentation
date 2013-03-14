@@ -5,10 +5,10 @@ OME-XML is a project to provide support for the exchange of microscope
 imaging data within the field of life sciences. Its key aspects include
 support for collaborative sharing of data between labs who may be using
 different apparatus, and the safeguarding of crucial metadata associated
-with image files that can be lost when they are moved across systems (or
-in many cases never recorded at all).
+with image files, that can be lost when they are moved across systems (or
+in many cases, never recorded at all).
 
-The term "OME-XML" means two interrelated but distinct things:
+The term "OME-XML" applies to two interrelated but distinct things:
 
 #. A `data model <http://en.wikipedia.org/wiki/Data_model>`_ for
    representing microscopy metadata, for use with microscopy file
@@ -24,43 +24,45 @@ therein, including:
 
 -  Dimensional parameters defining the scope of the image pixels
    (resolution, number of focal planes, number of time points, number of
-   channels, etc.).
+   channels etc.).
 -  The hardware configuration used to acquire the image planes
-   (microscope, detectors, lenses, filters, etc.).
+   (microscope, detectors, lenses, filters etc.).
 -  The settings used with said hardware (physical size of the image
-   planes in microns, laser gain and offset, channel configuration,
+   planes in microns, laser gain and offset, channel configuration
    etc.).
 -  The person performing the experiment.
 -  Some details on the experiment itself, such as a description, what
-   type of experiment (FRET, time lapse, fluorescence lifetime, etc.)
+   type of experiment (FRET, time lapse, fluorescence lifetime etc.)
    and events occurring during the acquisition (laser ablation, stage
-   motion, etc.).
--  Additional, custom information you may wish to provide about your
-   experiment in a structured form (known as `structured
-   annotations <StructuredAnnotations>`_).
+   motion etc.).
+-  Additional custom information you may wish to provide about your
+   experiment in a structured form (known as 
+   :doc:`working-with-ome-xml/structured-annotations`).
 
 
 Features and applications of the OME-XML file format
 ----------------------------------------------------
 
-The OME-XML File serves as a convenient file format for data migration
-from one site or user to another. The OME-XML File captures all image
-acquisition and experimental metadata along with the binary image data
+The OME-XML file serves as a convenient file format for data migration
+from one site or user to another. The OME-XML file captures all image
+acquisition and experimental metadata, along with the binary image data,
 and packages it into an easily readable package. Our
 `paper <http://genomebiology.com/2005/6/5/R47>`_ describing the design
-and implementation of the OME-XML File appeared in Genome Biology.
+and implementation of the OME-XML file appeared in Genome Biology.
+
+.. note::
 
     OME-XML files can be read by potentially any software package - you
     do not need OME image management software to use OME-XML.
 
-Some specific features of the OME-XML File Format:
+Some specific features of the OME-XML file format:
 
--  OME-XML files may contain one or more sets of 5-D Pixels, for example
+-  OME-XML files may contain one or more sets of 5-D pixels, for example
    raw data from a microscope, the deconvolved data, and a volume
    rendered view.
 -  OME-XML files contain all the metadata associated with an image,
-   including the experimental (cells, genes, etc.) and acquisition
-   (microscope light sources, fluors, filters, detectors, etc.)
+   including the experimental (cells, genes etc.) and acquisition
+   (microscope light sources, fluors, filters, detectors etc.)
    metadata.
 -  OME-XML Image pixels may be stored compressed (or not) directly in
    XML with base64 encoding. Compression of the pixels and the metadata
@@ -81,14 +83,14 @@ The OME-XML Schema and use are documented
 Migrating or sharing data with OME-XML
 --------------------------------------
 
-Data saved in an OME-XML File is easily read by any software capable of
+Data saved in an OME-XML file is easily read by any software capable of
 reading and interpreting OME-XML. OME software tools can export and
-import OME-XML Files, but any OME-XML-aware software can be used.
+import OME-XML files, but any OME-XML-aware software can be used.
 
 In the figure below, microscope image data is imported into My OME
 Database (more accurately, an instance of OME managing image data at one
 location). After a set of analyses is performed, this data is exported
-in its entirety (i.e., including binary image data, image metadata, and
+in its entirety (i.e. including binary image data, image metadata, and
 the associated analytic results) and then passed to a collaborator's OME
 database ("Your OME Database"). This strategy packages analytic data
 together with the image data to ensure none of the critical
