@@ -5,19 +5,19 @@ Using OME-XML in your work
 How to use OME schema elements in your own XML files.
 
 .. note:: 
-    The correct attribution for work derived, under the creative commons
+    The correct attribution for work derived, under the Creative Commons
     licence, from our schema files is:
     **"This work is derived in part from the OME specification.
     Copyright (C) 2002-2013 Open Microscopy Environment"**
 
 We would always encourage people to make use of the OME Data Model as a
 whole by using the OME-XML and OME-TIFF formats directly. If you need to
-store additional user specific data, the correct approach is to embed it
+store additional user-specific data, the correct approach is to embed it
 within the OME Data Model using Structured Annotations. These provide a
 powerful and flexible way of storing your own custom data alongside the
-OME model metadata, while still maintaining fully compatible OME-XML and
-OME-TIFF files that can be read by any application supporting these
-formats.
+OME model metadata, while still maintaining full compatibility with OME-XML 
+and OME-TIFF files, ensuring your file can be read by any application 
+supporting these formats.
 
 If this approach will not work for you, we would first encourage you to
 contact us via the :forum:`forums <>` and :mailinglist:`mailing lists <>` as 
@@ -26,7 +26,7 @@ maintained. Fully compatible and exchangeable files is what this project all
 is about, so we try to support this as much as we can.
 
 If there is still no possible approach for your data that can maintain
-compatibility with OME-XML or OME-TIFF then what follows is the best
+compatibility with OME-XML or OME-TIFF, then what follows is the best
 practice for this situation.
 
 What not to do
@@ -35,12 +35,12 @@ What not to do
 #. **Adding arbitrary items to the OME Model and still calling it OME-XML
    or OME-TIFF**
 
-   We can not stress enough that this is a **very bad** approach! If you
+   We cannot stress enough that this is a **very bad** approach! If you
    simply insert your own custom nodes at arbitrary points within the
-   XML document you will produce a broken/invalid OME-XML or OME-TIFF
+   XML document, you will produce a broken/invalid OME-XML or OME-TIFF
    file. As the outer wrapping looks like an OME file, people will
-   expect it to work like an OME file. Applications are likely to not be
-   able to import the file as they will produce an error as they
+   expect it to work like an OME file. Applications are likely to fail to 
+   import the file as they will produce an error as they
    encounter your additional XML elements. This will frustrate end users
    and is likely to produce reports of broken applications. These tend
    to ultimately propagate back to our development team and we have to
@@ -58,22 +58,22 @@ What not to do
    made (inside the Structured Annotations). It is important to us that
    we have some control over additions and omissions as it allows us to
    produce a format that has the widest compatibility. Even though the
-   specifications we produce are now released are under a less
-   restrictive license we do not encourage this approach. We want anyone
+   specifications we produce are now released under a less
+   restrictive license, we do not encourage this approach. We want anyone
    who encounters an OME node in an XML document to be able to trust
-   it's structure, as well as validate and parse it.
+   its structure, as well as validate and parse it.
 
 #. **A 'pick and mix' by copying our structure**
 
    While we have changed the licence the schema files for the OME Model
-   are released under to allow this approach we would not encourage
+   are released under to allow this approach, we would not encourage
    this. You should **not** need to copy pieces of our definitions and
    place them directly in your schema documents.
 
    Direct copying of our structure is not necessary as XML already has a
    method of including items from another schema, **see below**. From
-   our point of view this is important as, it allows us to control which
-   parts of our model can be used as stand alone objects in others work.
+   our point of view this is important as it allows us to control which
+   parts of our model can be used as stand alone objects in others' work.
 
 What to do
 ----------
@@ -88,15 +88,15 @@ model, there are two approaches:
    include a complete ``<OME>`` node from the OME schema within your own
    custom XML node. While this does not maintain direct compatibility
    with the OME-XML and OME-TIFF file formats, it keeps all of the OME
-   Model data together as a single block that can be easily extracted
+   Model data together as a single block, that can be easily extracted
    from your custom XML nodes and passed to a standard OME-XML parser
    for it to interpret. It only takes a single line of XML Schema
    Description Language to include the whole model like this.
 
    We would always see this wrapping of the **entire OME model** as the
    best approach to take if you have to define your own custom model. It
-   is also the best way of future-proofing yourself as an ``<OME>`` node
-   included like this will be the easier to upgrade to newer schema
+   is also the best way of future-proofing yourself, as an ``<OME>`` node
+   included like this will be easier to upgrade to newer schema
    releases using our standard transform.
 
 #. **A 'pick and mix' by referencing parts of our structure**
@@ -104,18 +104,18 @@ model, there are two approaches:
    The least desirable valid approach is to individually include small
    independent parts of the model. Any of the items defined at the top
    level of the OME schema may be included individually within your
-   custom model. If you take this approach you must understand that
+   custom model. If you take this approach, you must understand that
    including a node also includes those nodes below it, i.e. including
-   LightSource also includes Laser, Arc, etc.. This approach does let
+   LightSource also includes Laser, Arc etc. This approach does let
    you select individual parts of our OME model to include, but also
    lets us control which parts of the model are available for inclusion.
    Any reading/writing code for OME model pieces stored in this form
-   will have to be custom written as standard OME model parsers will not
+   will have to be custom written, as standard OME model parsers will not
    be able to process the pieces.
 
 .. note:: 
     With either of these approaches please acknowledge our work by
-    including in the appropriate place in you software or project
+    including in the appropriate place in your software or project
     documentation:
     **"This work is derived in part from the OME specification.
     Copyright (C) 2002-2013 Open Microscopy Environment"**
@@ -169,7 +169,7 @@ This file has ``<YourNodes>`` followed by the ``<OME>`` node, then
 attributes on the ``<OME>`` node, the file is the same as though the OME
 model was part of your custom namespace.
 
-In order to define this easy to use structure you need to add three
+In order to define this easy-to-use structure you need to add three
 things (marked ``****``) to your schema specification document.
 
 sample-third-party.xsd
@@ -225,8 +225,8 @@ sample-third-party.xsd
         </xs:element>
     </xs:schema>
 
-If you want to choose only to import a few pieces of the OME Model, in
-this example I will include ``<LightSource>`` and ``<Objective>``.
+If you want to import only a few pieces of the OME Model, the following 
+example illustrates how to include ``<LightSource>`` and ``<Objective>``.
 
 sample-third-party-pieces.xml
 '''''''''''''''''''''''''''''
@@ -273,7 +273,7 @@ sample-third-party-pieces.xml
         </MoreOfYourNodes>
     </CustomTag>
 
-In order to define this structure you need to add four lies (marked
+In order to define this structure, you need to add four lines (marked
 ``****``) to your schema specification document. The first two lines are
 the same as the other schema specification above. Then one line for each
 of the two included nodes.
