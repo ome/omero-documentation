@@ -185,19 +185,6 @@ rst_epilog = """
 
 .. |OME| replace:: `Open Microscopy Environment`_
 .. |Glencoe| replace:: `Glencoe Software, Inc.`_
-.. |OmeroPy| replace:: :doc:`/developers/Python`
-.. |OmeroCpp| replace:: :doc:`/developers/Cpp`
-.. |OmeroJava| replace:: :doc:`/developers/Java`
-.. |OmeroMatlab| replace:: :doc:`/developers/Matlab`
-.. |OmeroApi| replace:: :doc:`/developers/Modules/Api`
-.. |OmeroWeb| replace:: :doc:`/developers/Web`
-.. |OmeroClients| replace:: :doc:`/developers/GettingStarted`
-.. |OmeroGrid| replace:: :doc:`/sysadmins/grid`
-.. |OmeroSessions| replace:: :doc:`/developers/Server/Sessions`
-.. |OmeroModel| replace:: :doc:`/developers/Model`
-.. |ExtendingOmero| replace:: :doc:`/developers/Server/ExtendingOmero`
-.. |BlitzGateway| replace:: :doc:`/developers/Python`
-.. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
 """
 
 # -- Options for HTML output ---------------------------------------------------
