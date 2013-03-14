@@ -18,16 +18,15 @@ annotations <http://trac.openmicroscopy.org.uk/omero/wiki/StructuredAnnotations>
 The structure of the SA used in the schema is shown below
 along with all the possible attachment points in the model.
 
-Diagram showing the StructureAnnotation branch of the OME Model
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. figure:: /images/formats/Annotation-Top.*
    :align: center
    :alt: Annotation Top
 
-Diagram showing all points in the OME Model that can be Annotated
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   Diagram showing the StructureAnnotation branch of the OME Model
 
 .. figure:: /images/formats/Annotation-Points.*
    :align: center
    :alt: Annotation Points
+
+   Diagram showing all points in the OME Model that can be Annotated
+

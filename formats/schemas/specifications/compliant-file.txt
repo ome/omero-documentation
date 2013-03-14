@@ -164,12 +164,20 @@ Alternative valid forms:
 Definitions of values stored
 ----------------------------
 
+The figure :ref:`figure-spec-stored` is ©2010 Linkert et al. Figure originally published as Figure 2, 
+Linkert et al (2010), J. Cell Biol. 189(5):777-782
+(http://jcb.rupress.org/content/189/5/777)
+
 .. note:: AcquiredDate was renamed to AcquisitionDate in June 2012
+
+.. _figure-spec-stored:
 
 .. figure:: /images/formats/OME-schema-table-formatted_final.*
    :align: center
    :alt: Definitions of values stored
 
-©2010 Linkert et al. Figure originally published as Figure 2, Linkert et
-al (2010), J. Cell Biol. 189(5):777-782
-(http://jcb.rupress.org/content/189/5/777)
+   Definitions of values stored
+   
+   ©2010 Linkert et al. Figure originally published as Figure 2, Linkert et
+   al (2010), J. Cell Biol. 189(5):777-782
+
