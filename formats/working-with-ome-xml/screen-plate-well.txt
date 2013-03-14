@@ -266,8 +266,10 @@ between two time points.
 .. figure:: /images/formats/Spw-structure.*
    :align: center
    :width: 80%
-   :alt: SPW structure
+   :alt: Structure in the SPW Schema
    
+   Structure in the SPW Schema
+
 Diagram showing structure in the SPW Schema (cross-linked)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -278,8 +280,10 @@ branch of the schema, as well as the ultimate link to ''Image''.
 .. figure:: /images/formats/Spw-structure-cross-linked.*
    :align: center
    :width: 80%
-   :alt: SPW structure crosslinked
-   
+   :alt: Structure in the SPW Schema (cross-linked)
+
+   Structure in the SPW Schema (cross-linked)
+
 Diagram showing sample file structure of the SPW Schema
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -289,8 +293,10 @@ objects are normally contained inside each other.
 .. figure:: /images/formats/Spw-sample.*
    :align: center
    :width: 80%
-   :alt: SPW sample
-   
+   :alt: Sample file structure of the SPW Schema
+
+   Sample file structure of the SPW Schema
+
 Diagram showing sample file structure of the SPW Schema (cross-linked)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -304,4 +310,7 @@ IDs from elsewhere in the file.
 .. figure:: /images/formats/Spw-sample-crosslinked.*
    :align: center
    :width: 80%
-   :alt: SPW sample crosslinked
+   :alt: Sample file structure of the SPW Schema
+
+   Sample file structure of the SPW Schema (cross-linked)
+

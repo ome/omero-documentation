@@ -20,10 +20,14 @@ An OME-TIFF dataset:
    identical) string of OME-XML metadata embedded in the
    ImageDescription tag of each file's first IFD
 
+.. _figure-tiff-header:
+
 .. figure:: /images/formats/ome-tiff-header.png
    :align: center
    :width: 90%
-   :alt: OME-TIFF-header
+   :alt: OME-TIFF header
+
+   OME-TIFF header
 
 OME-XML as a metadata block
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -38,7 +42,7 @@ are stored within the TIFF structure, not the XML.
 Where the OME-XML is stored
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The diagram above (adapted from the TIFF specification) shows the
+The diagram :ref:`figure-tiff-header` (adapted from the TIFF specification) shows the
 organization of a TIFF header along with the placement of the OME-XML
 metadata block. A TIFF file can contain any number of IFDs, with each
 one specifying an image plane along with certain accompanying metadata

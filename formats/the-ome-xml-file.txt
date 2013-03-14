@@ -87,7 +87,7 @@ Data saved in an OME-XML file is easily read by any software capable of
 reading and interpreting OME-XML. OME software tools can export and
 import OME-XML files, but any OME-XML-aware software can be used.
 
-In the figure below, microscope image data is imported into My OME
+In the figure :ref:`figure-data-workflow`, microscope image data is imported into My OME
 Database (more accurately, an instance of OME managing image data at one
 location). After a set of analyses is performed, this data is exported
 in its entirety (i.e. including binary image data, image metadata, and
@@ -96,10 +96,13 @@ database ("Your OME Database"). This strategy packages analytic data
 together with the image data to ensure none of the critical
 interpretative information is lost.
 
+.. _figure-data-workflow:
+
 .. figure:: /images/formats/OMEXML.png
    :align: center
-   :alt: 
+   :alt: Data Workflow
 
+   Data Workflow
 
 
 Ongoing Development
