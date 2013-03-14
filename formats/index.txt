@@ -57,6 +57,10 @@ OME-TIFF
     :titlesonly:
 
     ome-tiff/index
+    ome-tiff/ome-tiff-specification
+    ome-tiff/ome-tiff-tools
+    ome-tiff/ome-tiff-code
+    ome-tiff/ome-tiff-data
 
 
 *******
@@ -121,16 +125,47 @@ Developer information
     working-with-ome-xml/index
 
 
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    working-with-ome-xml/model-overview-2010-04
+    working-with-ome-xml/using-ome-xml-in-your-work
+    working-with-ome-xml/filter-and-filterset-2010-04
+    working-with-ome-xml/screen-plate-well-2010-04
+    working-with-ome-xml/structured-annotations
+    working-with-ome-xml/roi-2012-06
+    working-with-ome-xml/spim-initial-support
+    working-with-ome-xml/6d-7d-and-8d-storage
+    working-with-ome-xml/tiled-images
+    working-with-ome-xml/id-and-lsid
+    working-with-ome-xml/EnumTool
+    working-with-ome-xml/XsdFu
+    working-with-ome-xml/sample-files
+    working-with-ome-xml/legacy/index
+
+
 ********
 Versions
 ********
 
-Have a file and need to know the version? - use the 
-`online validator <http://validator.openmicroscopy.org.uk/>`_.
+.. only:: html
+
+    Have a file and need to know the version? - use the 
+    `online validator <http://validator.openmicroscopy.org.uk/>`_.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
     schemas/versions/index
+    schemas/versions/june-2012
+    schemas/versions/june-2011
+    schemas/versions/june-2010
+    schemas/versions/april-2010
+    schemas/versions/september-2009
+    schemas/versions/september-2008
+    schemas/versions/february-2008
+    schemas/versions/september-2007
+    schemas/versions/june-2007
 

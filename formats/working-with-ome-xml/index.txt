@@ -171,22 +171,4 @@ Using OME schema elements in your own XML files
 
 See :doc:`using-ome-xml-in-your-work` for further guidance.
 
-.. toctree::
-    :maxdepth: 1
-    :hidden:
-
-    model-overview-2010-04
-    filter-and-filterset-2010-04
-    screen-plate-well-2010-04
-    structured-annotations
-    roi-2012-06
-    spim-initial-support
-    6d-7d-and-8d-storage
-    tiled-images
-    id-and-lsid
-    EnumTool
-    XsdFu
-    using-ome-xml-in-your-work
-    sample-files
-    legacy/index
 
