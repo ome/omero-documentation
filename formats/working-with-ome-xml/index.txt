@@ -14,7 +14,7 @@ questions through the OME-Users and OME-Developers
 receive requests for additional documentation pages.
 
 The main discussion lists and forums are accessed from the general
-site's `Community </site/community>`_ page and this is a good place to
+site's :community_plone:`<>` page and this is a good place to
 ask questions. This also has links to our main
 `Trac <http://trac.openmicroscopy.org.uk/>`_ and you are free to create
 tickets for the team with your suggestions, comments, feature requests
@@ -22,18 +22,12 @@ and bug reports. Here you will find the current release timeline, the
 future development ideas and detailed tickets outlining the proposed
 changes and additions to the development of OME.
 
-Where is your source code?
---------------------------
+-  All the OME code is stored in a central Git repository. The OME Data
+   Model part of this is available here:
+   `specification <http://github.com/openmicroscopy/openmicroscopy/tree/develop/components/specification>`_.
 
-All the OME code is stored in a central Git repository. The OME Data
-Model part of this is available here:
-`specification <http://github.com/openmicroscopy/openmicroscopy/tree/develop/components/specification>`_.
-
-Sample Image Files
-------------------
-
-There are sample files, along with an explanation of their structure is on
-the :doc:`sample-files` page.
+-  There are sample files, along with an explanation of their structure is on
+   the :doc:`sample-files` page.
 
 
 How does the process of developing OME Model work?
@@ -50,7 +44,7 @@ comments on what they would like added, especially when we are moving
 into a new imaging area.
 
 What are the steps in the process?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 What follows is the list of key steps that changes should pass through
 before they are implemented into the currently released schema:
@@ -123,7 +117,7 @@ OME XML schema and produces an object oriented Java infrastructure to ease
 work with an XML DOM tree.
 
 What does an individual attribute or element store?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We have auto-generated documentation available for each release of the
 schema. This has information on each attribute and element:
@@ -148,7 +142,7 @@ schema. This has information on each attribute and element:
    (FC) </Schemas/Documentation/Generated/OME-2003/ome.xsd.html>`_
 
 How do I get the technical schema description?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 These are published as `XSD
 files <http://www.openmicroscopy.org/Schemas/>`_ on our main website.
