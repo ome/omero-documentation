@@ -96,11 +96,11 @@ We also have pages covering specific use cases:
 
 If you are working with several versions of the OME Model, perhaps to
 support the loading/saving of a variety of files, then we recommend you
-look at the :doc:`/formats/schemas/versions/index` pages. They show what happened with 
+look at the :doc:`/schemas/versions/index` pages. They show what happened with 
 each release.
 
 -  The **current major release** - see :doc:`Changes For June
-   2012 </formats/schemas/versions/june-2012>`.
+   2012 </schemas/versions/june-2012>`.
 
 
 There are some concepts used in the Model that benefit from an
@@ -110,7 +110,7 @@ explanation:
 
 
 If you want to look at some simple examples of OME-TIFF, see the 
-:doc:`sample files page </formats/ome-tiff/ome-tiff-data>`.
+:doc:`sample files page </ome-tiff/ome-tiff-data>`.
 
 If you are writing your own files we also provide a
 `validator <http://validator.openmicroscopy.org.uk/>`_ you can use to

@@ -38,10 +38,10 @@ the structure is:
     </ome:OME>
     The data in this sample is nonsense.
 
-An alternative valid forms:
+Alternative valid forms:
 
--  Would have a ``<ome:TiffData/>`` block instead of the bf:BinData
+-  Would have a ``<ome:TiffData/>`` block instead of the ``bf:BinData``
    block. This would be used in the header of an OME-TIFF file.
--  Would have a ``<ome:MetadataOnly/>`` block instead of the bf:BinData
-   block. This would be used in the header of a metadata only ome file.
+-  Would have a ``<ome:MetadataOnly/>`` block instead of the ``bf:BinData``
+   block. This would be used in the header of a metadata-only OME file.
 
