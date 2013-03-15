@@ -17,8 +17,7 @@ objects as part of the XSLT transform. It seams unlikely that Path can
 be upgraded in this manner, more complex code would be required.
 
 Polyline and Path are being marked as **Deprecated** in the April 2010
-release of the schema. Details of that ROI model is available
-`here <.>`_.
+release of the schema.
 
 The diagram below shows an overview of the current proposal, it is not
 set in stone and we would welcome comments and suggestions.

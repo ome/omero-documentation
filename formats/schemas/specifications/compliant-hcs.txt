@@ -8,7 +8,7 @@ June 2012 release.
 
 A compliant specification for HCS OME files has been defined. This is
 not the minimum required for the display of an image, that is the
-`Minimum Specification <minimum-specification>`_. This is the
+:doc:`Minimum Specification <minimum>`. This is the
 information we feel a file should contain to provide a useful file
 conforming to the spirit of the OME projects aims.
 

@@ -39,14 +39,14 @@ OME-TIFF dataset distributed across multiple TIFF files, see the
 +----------------------------------------------+-------------------------------------------------------+
 
 
-.. _single-channel.ome.tif.zip: /Schemas/Samples/2012-06/bioformats-artificial/single-channel.ome.tif.zip
-.. _multi-channel.ome.tif.zip: /Schemas/Samples/2012-06/bioformats-artificial/multi-channel.ome.tif.zip
-.. _z-series.ome.tif.zip: /Schemas/Samples/2012-06/bioformats-artificial/z-series.ome.tif.zip
-.. _multi-channel-z-series.ome.tif.zip: /Schemas/Samples/2012-06/bioformats-artificial/multi-channel-z-series.ome.tif.zip
-.. _time-series.ome.tif.zip: /Schemas/Samples/2012-06/bioformats-artificial/time-series.ome.tif.zip
-.. _multi-channel-time-series.ome.tif.zip: /Schemas/Samples/2012-06/bioformats-artificial/multi-channel-time-series.ome.tif.zip
-.. _4D-series.ome.tif.zip: /Schemas/Samples/2012-06/bioformats-artificial/4D-series.ome.tif.zip
-.. _multi-channel-4D-series.ome.tif.zip: /Schemas/Samples/2012-06/bioformats-artificial/multi-channel-4D-series.ome.tif.zip
+.. _single-channel.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2012-06/bioformats-artificial/single-channel.ome.tif.zip
+.. _multi-channel.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2012-06/bioformats-artificial/multi-channel.ome.tif.zip
+.. _z-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2012-06/bioformats-artificial/z-series.ome.tif.zip
+.. _multi-channel-z-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2012-06/bioformats-artificial/multi-channel-z-series.ome.tif.zip
+.. _time-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2012-06/bioformats-artificial/time-series.ome.tif.zip
+.. _multi-channel-time-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2012-06/bioformats-artificial/multi-channel-time-series.ome.tif.zip
+.. _4D-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2012-06/bioformats-artificial/4D-series.ome.tif.zip
+.. _multi-channel-4D-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2012-06/bioformats-artificial/multi-channel-4D-series.ome.tif.zip
 
 A sample biological dataset
 ---------------------------
@@ -106,9 +106,9 @@ types.
 | **Size (7-zipped OME-TIFF with LZW)**                       | 264,292 bytes         | 4,950,897 bytes         | 116,567,097 bytes        |
 +-------------------------------------------------------------+-----------------------+-------------------------+--------------------------+
 
-.. _tubhiswt-2D.zip: /Schemas/Samples/2012-06/tubhiswt-2D.zip
-.. _tubhiswt-3D.zip: /Schemas/Samples/2012-06/tubhiswt-3D.zip
-.. _tubhiswt-4D.zip: /Schemas/Samples/2012-06/tubhiswt-4D.zip
+.. _tubhiswt-2D.zip: http://www.openmicroscopy.org/Schemas/Samples/2012-06/tubhiswt-2D.zip
+.. _tubhiswt-3D.zip: http://www.openmicroscopy.org/Schemas/Samples/2012-06/tubhiswt-3D.zip
+.. _tubhiswt-4D.zip: http://www.openmicroscopy.org/Schemas/Samples/2012-06/tubhiswt-4D.zip
 
 Efficiency of planar access
 ---------------------------

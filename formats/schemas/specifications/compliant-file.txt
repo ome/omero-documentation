@@ -7,8 +7,8 @@ OME-XML Model and the samples have been updated to the June 2012 release.
 
 
 A "compliant" specification OME file has been defined. This is not the
-minimum required for the display of an image (for this, see `Minimum
-Specification <minimum-specification>`_). This is the information we
+minimum required for the display of an image (for this, see :doc:`Minimum
+Specification <minimum>`). This is the information we
 feel a file should contain to authoritatively describe an imaging
 experiment. A key point is that an 'OME Compliant' file is as complete
 as possible, but only contains metadata relevant to a specific imaging
