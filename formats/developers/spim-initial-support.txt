@@ -2,16 +2,13 @@ SPIM Initial Support
 ====================
 
 
-
-
-SPIM - Initial Support
-
-    NOTE: This approach while still valid has been **superseded** by the
-    `6D, 7D, 8D Solution <6d-7d-and-8d-storage>`_.
+.. note:: 
+    This approach is still valid but has been **superseded** by the
+    :doc:`6d-7d-and-8d-storage`.
 
 We have been in talks with various groups from the Single (or Selective)
 Plane Illumination Microscopy (also known as Light Sheet Microscopy)
-community, including Jason attending their September 2010 Meeting in
+community, including Jason attending their September 2010 meeting in
 Dublin, about how they can store data from this new and expanding field
 in the OME data formats. We were fortunate enough to work with real
 samples generously donated by many groups.
@@ -23,9 +20,9 @@ which we can then upgrade to a full schema with SPIM support when it is
 released. This staged progression is necessary as we not only release a
 schema, but also release software tools supporting the schema -- the
 `OME Validator <http://validator.openmicroscopy.org.uk/>`_,
-`Bio-Formats </site/support/bio-formats>`_, and
-`OMERO </site/support/omero4>`_. This ensures that anything new in a
-Data Model release is now supported in our software at the same time.
+:bf_plone:`Bio-Formats <>`, and :omero_plone:`OMERO <>`. This ensures that 
+anything new in a Data Model release is now supported in our software at the 
+same time.
 
 The solution below allows the creation of valid OME-XML or OME-TIFF
 files that hold the extra SPIM data. We propose to write an XSLT
@@ -36,15 +33,18 @@ all the data will be retained as annotations but it cannot be fitted
 into the existing database model. This can result in some lost linkages
 between the data. This will be highlighted below where applicable.
 
+Location in Model
+-----------------
+
 We will be placing the SPIM data in 6 key places in the model:
 
 1. Tiling
-~~~~~~~~~
+^^^^^^^^^
 
 Where the SPIM data has tiled images, we will use the existing tiling
 recommendation.
 
--  See: `Tiled Images <tiled-images>`_
+-  See :doc:`tiled-images`
 
 This solution uses StageLabel and the Position values on Plane to
 record the location and arrangement of the individual tiles.
@@ -65,7 +65,7 @@ record the location and arrangement of the individual tiles.
     </Image>
 
 2. Illumination objectives and Cylindrical Lenses
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The additional objective and other elements in the excitation light path
 are to be stored as additional Objectives within the Instrument block.
@@ -78,16 +78,16 @@ This is already designed to support multiple Objectives.
     <Objective ID="Objective:Illumation:1" Model="Objective Mk2" LensNA="0.5" WorkingDistance="19800"/>
 
 3. Additional values for Objectives
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As the function of Objective has been expanded to encompass the
-additional optical elements some new attributes are required. These
-cannot be attached directly to the Objective so must instead be attached
+additional optical elements, some new attributes are required. These
+cannot be attached directly to the Objective, so must instead be attached
 as Annotations onto the Images that use the objectives. This is not
-ideal but required due to restrictions on which objects can have
+ideal but is required due to restrictions on which objects can have
 annotations.
 
-We suggest the definition of a single XmlAnnotation per Instrument with
+We suggest the definition of a single XmlAnnotation per Instrument, with
 each Image using that Instrument making use of an AnnotationRef to point
 at this Annotation.
 
@@ -99,15 +99,17 @@ The namespace of the XmlAnnotation **must** be:
 
 The Annotation will contain a single node that will define multiple
 Objectives, each with an ID matching one of the Objectives in the
-Instrument and any additional attributes needed from the following list:
+Instrument, and any additional attributes needed from the following list:
 
 -  FocalLength
 -  SlitAperture
 -  LightSheetWidth
 
-**Limitation:** As the IDs of any Objective in the Instrument will not
-survive import into OMERO, these values, while imported as an
-annotation, will not be correctly linked.
+.. warning::
+   
+    **Limitation** - As the IDs of any Objective in the Instrument will not
+    survive import into OMERO, these values, while imported as an
+    annotation, will not be correctly linked.
 
 ::
 
@@ -126,13 +128,14 @@ annotation, will not be correctly linked.
         </SA:Value>
     </SA:XMLAnnotation>
 
+
 4. Additional Stage Positions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As there are several stages (Sample, Excitation Objective, Cylinder
 lens) that can be moved on a plane by plane basis, not just one, it is
 necessary to store these extra positions. We propose to use a collection
-of StagePosition objects stored inside an XmlAnnotation linked to Image
+of StagePosition objects, stored inside an XmlAnnotation linked to Image
 using an AnnotationRef.
 
 The namespace of the XmlAnnotation **must** be:
@@ -146,16 +149,15 @@ StagePosition objects. Each of these objects will contain:
 
 -  TheZ, TheT, TheC to define the exact plane it is for
 
--  Name, used to identify which stage the position is, for e.g.
+-  Name, used to identify which stage the position is e.g.
    "objective\_stage", "excitation\_stage", "cylinder\_stage"
 
 -  The PositionX, PositionY, PositionZ location of the stage. Not all of
    these position values need to be present.
 
-   ...
 
 5. SPIM angle
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 The images collected for SPIM are recorded from a number of discrete
 angles. The angle for each image must be recorded. We propose that all
@@ -163,7 +165,7 @@ the planes for the Z, C, T of each stack of images are stored in their
 correct location inside a single Image object. We then use multiple
 Image objects, each one repressing a single angle. The order and angle
 of these separate Images will then be defined by a single XmlAnnotation
-that each of the Images will reference using an AnnotationRef.
+which each of the Images will reference using an AnnotationRef.
 
 The namespace of the XmlAnnotation **must** be:
 
@@ -178,11 +180,13 @@ attribute:
 
 -  Angle
 
-**Limitation:** Although the IDs of any Image in the file will not
-survive import into OMERO, the linkages between these images can be
-maintained by adding the SpimSet annotation to each Image, as in the
-example below. Once imported, the single XML annotation will be linked
-to the imported images.
+.. warning::
+
+    **Limitation** - although the IDs of any Image in the file will not
+    survive import into OMERO, the linkages between these images can be
+    maintained by adding the SpimSet annotation to each Image, as in the
+    example below. Once imported, the single XML annotation will be linked
+    to the imported images.
 
 ::
 
@@ -205,7 +209,7 @@ to the imported images.
     </SA:XMLAnnotation>
 
 6. Custom system values
-~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^
 
 At present we understand that most of the SPIM systems are prototypes
 and are using custom software to drive them. If these systems require
@@ -214,6 +218,7 @@ above expansion of the OME model, then they should use their own
 Annotation, probably an XML annotation and define their own annotation
 namespace to use. This will be read and imported (and upgraded) into
 Bio-Formats and OMERO like any other annotation.
+
 
 Sample
 ------
@@ -292,50 +297,4 @@ the extra objective attributes for each objective.
     <SA:XMLAnnotation ID="Annotation:ObjectiveAdditions:1"
 
 The file is valid and can be opened with OMERO.importer and Bio-Formats.
-
-Future
-------
-
-    NOTE: This approach while still valid has been **superseded** by the
-    `6D, 7D, 8D Solution <6d-7d-and-8d-storage>`_.
-
-In future the SPIM data will migrate into the model:
-
-1. Tiling
-~~~~~~~~~
-
-This will be migrated to the storage structures we are working to define
-as part of the "Big Image" extension to our work.
-
-2. Illumination objectives and Cylindrical Lenses
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The existing Objective object will be sub-divided in a similar way to
-our existing LightSource object. The new child objects will map to the
-different kinds of excitation and emission objectives and illumination
-elements like apertures and tube lenses.
-
-3. Additional values for Objectives
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-These values will be added directly to Objective, or too its new
-children as optional attributes.
-
-4. Additional Stage Positions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-These values will probably be added into Settings objects pointing at
-the additional Objective objects.
-
-5. SPIM angle
-~~~~~~~~~~~~~
-
-These values represent an extra dimension and will be covered by our
-work to provide N-Dimensional support.
-
-6. Custom system values
-~~~~~~~~~~~~~~~~~~~~~~~
-
-These values are outside our control but will be stored as annotation
-blobs within our system and can be retrieved at a later point.
 

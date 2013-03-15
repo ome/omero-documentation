@@ -4,12 +4,12 @@ OME-XML and OME-TIFF software tools
 The OME consortium currently provides two major tools capable of working
 with OME-XML:
 
--  The `Bio-Formats <http://loci.wisc.edu/software/bio-formats>`_
+-  The :bf_plone:`Bio-Formats <>`
    library is a full-featured library with many features related to
    OME-XML, including conversion of third party file format metadata
    into OME-XML structures. It can write image data to the OME-TIFF
    format.
--  The `OMERO server </site/support/omero4>`_ works directly with
+-  The :omero_plone:`OMERO server <>` works directly with
    OME-XML. It can import data from OME-XML and OME-TIFF, as well as
    export to OME-TIFF.
 

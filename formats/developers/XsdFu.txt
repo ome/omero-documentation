@@ -14,10 +14,11 @@ Requirements:
 -  Full checkout of the Bio-Formats repository
    (`http://github.com/openmicroscopy/bioformats <http://github.com/openmicroscopy/bioformats>`_)
 
-**NOTE:** Genshi `0.5 <http://genshi.edgewall.org/milestone/0.5>`_ was
-released on June 9th 2008. You can either install from source or
-download a compatible ``.egg`` for your system on the Genshi
-`download <http://genshi.edgewall.org/wiki/Download>`_ page.
+.. note::
+    Genshi `0.5 <http://genshi.edgewall.org/milestone/0.5>`_ was
+    released on June 9th 2008. You can either install from source or
+    download a compatible ``.egg`` for your system on the Genshi
+    `download <http://genshi.edgewall.org/wiki/Download>`_ page.
 
 Checking out the source
 -----------------------
@@ -82,15 +83,17 @@ Python ``.egg`` for your platform as follows:
 
     Report bugs to OME Devel <ome-devel@lists.openmicroscopy.org.uk>
 
-**NOTE:** `XsdFu </ome/wiki/XsdFu>`_ is now used for many different
-types of code generation tasks (mostly targeted at the OMERO and
-Bio-Formats 4.2.0 releases) as outlined by the subcommand structure
-above.
+.. note::
+    XsdFu is now used for many different
+    types of code generation tasks (mostly targeted at the OMERO and
+    Bio-Formats 4.2.0 releases) as outlined by the subcommand structure
+    above.
+
 
 Generating the OME-XML Java toolchain
 -------------------------------------
 
-We'll now outline how to generate parts of the OME-XML Java toolchain
+The following outlines how to generate parts of the OME-XML Java toolchain
 which are composed of:
 
 -  OME model objects
@@ -102,11 +105,12 @@ which are composed of:
 -  Various implementations of Metadata store and/or Metadata retrieve
    interfaces
 
-**NOTE:** All the below examples assume a full OME-XML *specification*
-Git checkout.
+.. note::
+    All the below examples assume a full OME-XML *specification*
+    Git checkout.
 
 Java classes for OME model objects
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -115,7 +119,7 @@ Java classes for OME model objects
         ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
 
 Enumeration classes for OME model properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -124,7 +128,7 @@ Enumeration classes for OME model properties
         ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
 
 Enumeration handlers for OME model properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -133,7 +137,7 @@ Enumeration handlers for OME model properties
         ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
 
 Metadata store and Metadata retrieve interfaces
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -144,7 +148,7 @@ Metadata store and Metadata retrieve interfaces
     $ cp MetadataStore.java MetadataRetrieve.java $LOCI_HOME/components/bio-formats/src/loci/formats/meta/
 
 OMEXMLMetadataImpl Metadata store and Metadata retrieve implementation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -162,12 +166,12 @@ OMEXMLMetadataImpl Metadata store and Metadata retrieve implementation
 Working with Enumerations and Enumeration Handlers
 --------------------------------------------------
 
-`XsdFu </ome/wiki/XsdFu>`_ contains a flexible, configuration driven
+XsdFu contains a flexible, configuration driven
 structure to code generate enumeration regular expressions. The
 configuration file is located off of the ``components/xsd-fu`` root, in
 the ``cfg`` folder:
 
--  ` http://github.com/openmicroscopy/openmicroscopy/blob/develop/components/xsd-fu/cfg/enum\_handler.cfg <http://github.com/openmicroscopy/openmicroscopy/blob/develop/components/xsd-fu/cfg/enum_handler.cfg>`_
+-  `http://github.com/openmicroscopy/openmicroscopy/blob/develop/components/xsd-fu/cfg/enum\_handler.cfg <http://github.com/openmicroscopy/openmicroscopy/blob/develop/components/xsd-fu/cfg/enum_handler.cfg>`_
 
 Each enumeration has a key-value listing of regular expression to exact
 enumeration value matches. For example:
@@ -190,8 +194,8 @@ enumeration value matches. For example:
 Generate OMERO model specification files
 ----------------------------------------
 
-This work was completed as part of the *Update
-`XsdFu </ome/wiki/XsdFu>`_* (`#8086 </ome/ticket/8086>`_) story.
+This work was completed as part of the *Update XsdFu* 
+(`#8086 </ome/ticket/8086>`_) story.
 
 ::
 
@@ -210,7 +214,8 @@ Fu makes heavy use of internally.
 
 --------------
 
-See also: `EnumTool </ome/wiki/EnumTool>`_,
-`http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/developer-information <http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/developer-information>`_,
-`http://genshi.edgewall.org/ <http://genshi.edgewall.org/>`_,
-`http://www.rexx.com/~dkuhlman/generateDS.html <http://www.rexx.com/~dkuhlman/generateDS.html>`_
+.. SeeAlso::
+
+    - `http://genshi.edgewall.org/ <http://genshi.edgewall.org/>`_
+    - `http://www.rexx.com/~dkuhlman/generateDS.html <http://www.rexx.com/~dkuhlman/generateDS.html>`_
+

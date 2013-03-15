@@ -2,13 +2,13 @@ Screen Plate Well
 =================
 
 The Screen Plate Well (SPW) model is designed to support High Content
-Screening. It is aimed at providing a flexible framework to organise the
+Screening. It is aimed at providing a flexible framework to organize the
 images that result from such a screen and link to external systems that
 contain full information about the components and products used.
-Throughout the model there are several **External Identifier** strings
+Throughout the model, there are several **External Identifier** strings
 that can be attached to support this.
 
-The top level of the SPW model has two objects that exist side by side,
+The top level of the SPW model has two objects that exist side by side -
 **Screen** and **Plate**. It is important to stress that **Plate** is
 not a child of **Screen**, they are equals. This is necessary to cater
 for the fact that while a **Screen** can contain many **Plate**\ s, a
@@ -21,9 +21,9 @@ in common.
 referenced from each **Screen** they are part of. It is worth covering
 the exact meaning of a **Reagent** within SPW. The storing of detailed
 information about biological reagents is beyond the scope of the OME
-model. There are several other system that are designed to handle this
+model. There are several other systems that are designed to handle this
 type of information. What the **Reagent** element in SPW provides is
-useful descriptions and an external reagent identifier that can be used
+useful descriptions and an external reagent identifier, that can be used
 to find detailed information about the reagent in another system. A side
 effect of this is that any change to an external reagent requires a new
 SPW reagent. This could be a change of dilution, supplier, or
@@ -32,7 +32,7 @@ lot-number.
 Example
 -------
 
-If you have two chemical reagents Monastrol and VX680 that I wish to
+If you have two chemical reagents, Monastrol and VX680, that I wish to
 apply to samples in various concentrations. The Monastrol will be
 applied at 100, 300, and 900 nM concentrations. The VX680 at 300, 900,
 2700 nM concentrations. This requires a total of 6 reagents to be
@@ -57,113 +57,89 @@ What is recorded where
 Plate
 ^^^^^
 
-ID
-    This is used by the system to identify the plate.
+**ID** - this is used by the system to identify the plate.
 
-Name
-    This is chosen by the user to identify the plate.
+**Name** - this is chosen by the user to identify the plate.
 
-Description
-    A free text description.
+**Description** - a free text description.
 
-ColumnNamingConvention
-    The ColumnNamingConvention.
+**ColumnNamingConvention** - the column naming convention.
 
-Columns
-    The number of columns in the plate.
+**Columns** - the number of columns in the plate.
 
-ExternalIdentifier
-    This is a identifier for the plate used by an external system. This may
-    be a barcode printed on the plate by the manufacturer.
+**ExternalIdentifier** - this is a identifier for the plate used by an 
+external system. This may be a barcode printed on the plate by the 
+manufacturer.
 
-RowNamingConvention
-    The RowNamingConvention.
+**RowNamingConvention** - the row naming convention.
 
-Rows
-    The number of rows in the plate.
+**Rows** - the number of rows in the plate.
 
-Status
-    The current state of the plate in the experiment work-flow.
+**Status** - the current state of the plate in the experiment work-flow.
 
-WellOriginX
-    The X position to use for the origin of the fields (individual images)
-    taken in a well.
+**WellOriginX** - the X position to use for the origin of the fields 
+(individual images) taken in a well.
 
-WellOriginY
-    The Y position to use for the origin of the fields (individual images)
-    taken in a well.
+**WellOriginY** - the Y position to use for the origin of the fields 
+(individual images) taken in a well.
 
 Reagent
 ^^^^^^^
 
-ID
-    This is used by the system to identify the reagent.
+**ID** - this is used by the system to identify the reagent.
 
-Name
-    A short name for the reagent.
+**Name** - a short name for the reagent.
 
-Description
-    A long description for the reagent.
+**Description** - a long description for the reagent.
 
-ReagentIdentifier
-    This is a reference to an external (to OME) representation of the
-    Reagent. It serves as a foreign key into an external database.
+**ReagentIdentifier** - this is a reference to an external (to OME) 
+representation of the Reagent. It serves as a foreign key into an external 
+database.
 
 Screen
 ^^^^^^
 
-ID
-    This is used by the system to identify the screen.
+**ID** - this is used by the system to identify the screen.
 
-Name
-    This is chosen by the user to identify the screen.
+**Name** - this is chosen by the user to identify the screen.
 
-Description
-    A long description for the screen.
+**Description** - a long description for the screen.
 
-ProtocolDescription
-    A description of the screen protocol; may contain very detailed
-    information to reproduce some of that found in a screening database.
+**ProtocolDescription** - a description of the screen protocol; may contain 
+very detailed information to reproduce some of that found in a screening 
+database.
 
-ProtocolIdentifier
-    A pointer to an externally defined protocol, usually in a screening
-    database.
+**ProtocolIdentifier** - a pointer to an externally defined protocol, usually 
+in a screening database.
 
-ReagentSetDescription
-    A description of the reagent set; may contain very detailed information
-    to reproduce some of that information found in a screening database.
+**ReagentSetDescription** - a description of the reagent set; may contain very 
+detailed information to reproduce some of that information found in a 
+screening database.
 
-ReagentSetIdentifier
-    A pointer to an externally defined reagent set, usually in a screening
-    database/automation database.
+**ReagentSetIdentifier** - a pointer to an externally defined reagent set, 
+usually in a screening database/automation database.
 
-Type
-    A human readable identifier for the screen type; e.g. RNAi, cDNA, SiRNA,
-    etc.
+**Type** - a human-readable identifier for the screen type; e.g. RNAi, cDNA, 
+SiRNA.
 
 PlateAcquisition
 ^^^^^^^^^^^^^^^^
 
 PlateAcquisition is used to describe a single acquisition run for a
 plate. Since Plates are abstract, this object is used to record the set
-of images acquired in a single acquisition run. The Images for this run
+of images acquired in a single acquisition run. The images for this run
 are linked to PlateAcquisition through WellSample.
 
-ID
-    This is used by the system to identify the plate acquisition.
+**ID** - this is used by the system to identify the plate acquisition.
 
-Name
-    This is chosen by the user to identify the plate acquisition.
+**Name** - this is chosen by the user to identify the plate acquisition.
 
-EndTime
-    Time when the last image of this acquisition was collected.
+**EndTime** - time when the last image of this acquisition was collected.
 
-MaximumFieldCount
-    The maximum number of fields (well samples) in any well in this
-    PlateAcquisition.
+**MaximumFieldCount** - the maximum number of fields (well samples) in any 
+well in this PlateAcquisition.
 
-StartTime
-    Time when the first image of this acquisition was collected
+**StartTime** - time when the first image of this acquisition was collected
 
 Well
 ^^^^
@@ -173,63 +149,54 @@ screening applications. A Well has a number of WellSample elements that
 link to the Images collected in this well. The ReagentRef links any
 Reagents that were used in this Well. A Well is part of one or more
 Plates. The origin for the row and column identifiers is the top left
-corner of the plate starting at zero.
+corner of the plate, starting at zero.
 
-ID
-    This is used by the system to identify the well.
+**ID** - this is used by the system to identify the well.
 
-Color
-    A marker color used to highlight the well.
+**Color** - a marker color used to highlight the well.
 
-Column
-    This is the column index of the well, the origin is the top left corner
-    of the plate with the first column of cells being column zero. i.e top
-    left is (0,0).
+**Column** - this is the column index of the well; the origin is the top left 
+corner of the plate with the first column of cells being column zero i.e top
+left is (0,0).
 
-ExternalDescription
-    A description of the externally defined identifier for this plate.
+**ExternalDescription** - a description of the externally defined identifier 
+for this plate.
 
-ExternalIdentifier
-    A pointer to an externally defined identifier for this plate.
+**ExternalIdentifier** - a pointer to an externally defined identifier for 
+this plate.
 
-Row
-    This is the row index of the well, the origin is the top left corner of
-    the plate with the first row of wells being row zero. i.e top left is
-    (0,0).
+**Row** - this is the row index of the well; the origin is the top left corner 
+of the plate with the first row of wells being row zero i.e top left is 
+(0,0).
 
-Status
-    A human readable identifier for the screening status. e.g. empty,
-    positive control, negative control, control, experimental, etc. This
-    string is likely to become an enumeration in future releases.
+**Status** - a human-readable identifier for the screening status e.g. empty, 
+positive control, negative control, control, experimental. This string is 
+likely to become an enumeration in future releases.
 
 WellSample
 ^^^^^^^^^^
 
 WellSample is an individual image that has been captured within a Well.
 
-ID
-    This is used by the system to identify the well sample.
+**ID** - this is used by the system to identify the well sample.
 
-Index
-    This records the order of the well samples. Each index should be unique
-    for a given plate but they do not have to be sequential.
+**Index** - this records the order of the well samples. Each index should be 
+unique for a given plate but they do not have to be sequential.
 
-PositionX
-    The X position of the field (image) within the well relative to the well
-    origin defined on the Plate.
+**PositionX** - the X position of the field (image) within the well relative 
+to the well origin defined on the Plate.
 
-PositionY
-    The Y position of the field (image) within the well relative to the well
-    origin defined on the Plate.
+**PositionY** - the Y position of the field (image) within the well relative 
+to the well origin defined on the Plate.
 
-Timepoint
-    The time-point at which the image started to be collected.
+**Timepoint** - the time-point at which the image started to be collected.
+
 
 What happened to ScreenAcquisition?
 -----------------------------------
 
-In the previous version of the SPW Model the acquisition information was
-recorded below **Screen**. During use it was discovered that this did
+In the previous version of the SPW Model, the acquisition information was
+recorded below **Screen**. During use, it was discovered that this did
 not best reflect the way data was collected. This difference between the
 structure and the collected data produced a performance bottleneck when
 dealing with the large structures necessary for HCS data. The decision
@@ -239,7 +206,7 @@ was taken to rework the model to store the acquisition information on
 
 We also took this opportunity to add Index to **WellSample**. This
 records the order of the well samples and should be unique within a
-given **Plate**. It does not however have to be sequential so supports
+given **Plate**. It does not however, have to be sequential so supports
 the collection of sparse datasets.
 
 Diagram showing structure in the SPW Schema
@@ -250,15 +217,15 @@ level structures. A file can contain multiple instances of these
 elements.
 
 Each **Plate** can contain multiple **Well**\ s, **PlateAcquisition**\ s,
-and **ScreenRef**\ s, i.e. a plate can belong to multiple screens. Each
+and **ScreenRef**\ s i.e. a plate can belong to multiple screens. Each
 **Well** in turn can have one (or zero) **ReagentRef**, and zero or more
 **WellSample**\ s. Each of the well samples defines the location of an
-image within the well and the time at which the sample started to be
+image within the well, and the time at which the sample started to be
 collected. It also references the **Image** itself.
 
-Each **Screen** contains multiple **Reagent**\ s, and **PlateRef**\ s, i.e.
+Each **Screen** contains multiple **Reagent**\ s, and **PlateRef**\ s i.e.
 a screen can use many plates. A **PlateAcquisition** is best viewed as a
-pass over some or all of the **Well**\ s in a **Plate** - usually
+pass over some or all of the **Well**\ s in a **Plate**, usually
 associated with some time-point or step in a protocol. It is a
 collection of individual **WellSample**\ s across the **Plate**\ s collected
 between two time points.
@@ -304,7 +271,7 @@ The dashed arrows added to the previous diagram show the
 inter-dependencies of the objects in the sample file structure. Each
 dashed line could represent links from several objects of one type to
 several objects of the second type. The links in the file are
-accomplished using unique IDs on objects and then References to these
+accomplished using unique IDs on objects, and then References to these
 IDs from elsewhere in the file.
 
 .. figure:: /images/formats/Spw-sample-crosslinked.*

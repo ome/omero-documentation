@@ -83,7 +83,7 @@ OME-XML
     :maxdepth: 1
     :titlesonly:
 
-    the-ome-xml-file
+    ome-xml-file
     ome-xml-java-library
 
 **************
@@ -121,27 +121,27 @@ Developer information
     :maxdepth: 1
     :titlesonly:
 
-    working-with-ome-xml/index
+    developers/index
 
 
 .. toctree::
     :maxdepth: 1
     :hidden:
 
-    working-with-ome-xml/model-overview
-    working-with-ome-xml/using-ome-xml-in-your-work
-    working-with-ome-xml/filter-and-filterset
-    working-with-ome-xml/screen-plate-well
-    working-with-ome-xml/structured-annotations
-    working-with-ome-xml/roi
-    working-with-ome-xml/spim-initial-support
-    working-with-ome-xml/6d-7d-and-8d-storage
-    working-with-ome-xml/tiled-images
-    working-with-ome-xml/id-and-lsid
-    working-with-ome-xml/EnumTool
-    working-with-ome-xml/XsdFu
-    working-with-ome-xml/sample-files
-    working-with-ome-xml/legacy/index
+    developers/model-overview
+    developers/using-ome-xml-in-your-work
+    developers/filter-and-filterset
+    developers/screen-plate-well
+    developers/structured-annotations
+    developers/roi
+    developers/spim-initial-support
+    developers/6d-7d-and-8d-storage
+    developers/tiled-images
+    developers/id-and-lsid
+    developers/EnumTool
+    developers/XsdFu
+    developers/sample-files
+    developers/legacy/index
 
 
 ********
