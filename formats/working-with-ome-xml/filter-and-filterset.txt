@@ -52,9 +52,15 @@ In the schema there is support for the following objects:
 Overview of where Filters and Dichroics sit in the optical path
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. _figure-light-path:
+
 .. figure:: /images/formats/FilterSet-Overview.*
    :align: center
-   :alt: FilterSet Multi Detector
+   :alt: Sample instrument light path
+
+   Sample instrument light path
+
+Key for figure :ref:`figure-light-path`
 
 #. The source produces a beam of light.
 #. A small range of wavelengths are passed through the filters in the
@@ -89,12 +95,11 @@ filters and dichroics are both extensions of the ManufacturerSpec
 element so store this common data. A filter also contains one
 TransmittanceRange element that describes its optical characteristics.
 
-Diagram showing where FilterSet sits in the OME Schema
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. figure:: /images/formats/FilterSet-Top.*
    :align: center
-   :alt: FilterSet Top
+   :alt: Diagram showing where FilterSet sits in the OME Schema
+
+   Diagram showing where FilterSet sits in the OME Schema
 
 The FilterSet contains three kinds of references, one to a dichroic ID
 called DichroicRef, and two sets to filter IDs called
@@ -121,12 +126,11 @@ along with the CutInTolerance and CutOutTolerance, all expressed in
 nanometers. There is also the Transmittance of the filter expressed as a
 percentage fraction.
 
-Diagram showing where LightPath sits in the OME Schema
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. figure:: /images/formats/LightPath-Top.*
    :align: center
    :alt: FilterSet LightPath Top
+
+   Diagram showing where FilterSet sits in the OME Schema
 
 The LightPath contains three kinds of references, one to a dichroic ID
 called DichroicRef, and two sets to filter IDs called
@@ -138,12 +142,11 @@ either an ExcitationFilterRef or EmissionFilterRef. The key difference
 between LightPath and FilterSet is that ALL the filters in a LightPath
 have been used and their order is specified.
 
-Diagram showing the attributes within the filter objects
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. figure:: /images/formats/FilterSet-LightPath.*
    :align: center
    :alt: FilterSet LightPath
+
+   Diagram showing the attributes within the filter objects
 
 Sample piece of a .ome.xml file showing the Instrument side - the Filter/Dichroic/FilterSet structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
