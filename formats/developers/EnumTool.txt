@@ -84,7 +84,7 @@ Using Enum Tool to compare enumerations in schemata (an example)
 ----------------------------------------------------------------
 
 Enum Tool can be used to diff or compare two schema files by XPath. This
-is particularly useful when one is attempting to build XSL stylesheets
+is particularly useful when attempting to build XSL stylesheets
 to move from one schema version to another.
 
 ::
@@ -150,7 +150,7 @@ Enum Tool makes heavy use of internally.
 
 --------------
 
-See also: `XsdFu </ome/wiki/XsdFu>`_,
-`http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/developer-information <http://www.openmicroscopy.org/site/support/file-formats/working-with-ome-xml/developer-information>`_,
-`http://genshi.edgewall.org/ <http://genshi.edgewall.org/>`_,
-`http://www.rexx.com/~dkuhlman/generateDS.html <http://www.rexx.com/~dkuhlman/generateDS.html>`_
+.. SeeAlso::
+    
+    - `http://genshi.edgewall.org/ <http://genshi.edgewall.org/>`_
+    - `http://www.rexx.com/~dkuhlman/generateDS.html <http://www.rexx.com/~dkuhlman/generateDS.html>`_

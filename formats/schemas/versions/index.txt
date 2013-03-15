@@ -22,7 +22,7 @@ All of the schema files released since 2007 have used a new
 versioning system. This composes of two parts, Major and Minor.
 
 Major
-~~~~~
+^^^^^
 
 The major part of a version is contained in the namespace of each
 schema. This consists of the month and year the schema was first
@@ -50,7 +50,7 @@ be a consultation period before each major release. Major releases may
 include breaking changes.
 
 Minor
-~~~~~
+^^^^^
 
 In the schema element of the XSD file there is a version attribute.
 
@@ -62,7 +62,7 @@ In the schema element of the XSD file there is a version attribute.
         ... >
 
 This is used to record the minor version number of the schema. This
-starts at 1 and counts up in integers (1, 2, 3, etc.) with each minor
+starts at 1 and counts up in integers (1, 2, 3 etc.) with each minor
 version.
 
 A new minor version is used for small non-breaking changes. If a change
@@ -72,7 +72,7 @@ schema then it must be a major version.
 Minor versions will be released as needed.
 
 Examples and consequences
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The relation between a major and minor version has been set up as
 follows. Any file written by an application conforming to a major
@@ -80,24 +80,24 @@ version will always continue to be valid under any minor version update
 to the schema. The first releases to make use of the major and minor 
 system were June 2007(Major) and September 2007(Minor).
 If microscope application X saves a file using the major
-June 2007 version of OME-XML then that file can be read by any
+June 2007 version of OME-XML, then that file can be read by any
 application that understands either the June 2007 major version or the
 September 2007 minor version. The main consequence of this approach is
 that file readers have to be kept up to date or have to be written in a
 way that allows some flexibility.
 
 An example of a minor change is the serial number in the manufacture
-specification. In the June 2007 major version a !SerialNumber is
-required in !ManafactSpec. It was decided to make this optional as it
-was not always available to a file writer. This is a minor change as if
-it is present or absent the new file can still validate.
+specification. In the June 2007 major version a SerialNumber is
+required in ManafactSpec. It was decided to make this optional as it
+was not always available to a file writer. This is a minor change as the new 
+file can still validate whether it is present or absent.
 
-An example of a major change is the moving of !ImageRef from the SPW.xsd
+An example of a major change is the moving of ImageRef from the SPW.xsd
 file to the ome.xsd file. This change had been proposed as it is
-envisaged that in the future !ImageRef will be used outside the
-!Screen/Plate/Well model so it belongs better in the same namespace as
+envisaged that in the future ImageRef will be used outside the
+Screen/Plate/Well model so it belongs better in the same namespace as
 Image. As this means that any reference to SPW:ImageRef will have to
-become OME:ImageRef this would cause validation errors in files
+become OME:ImageRef, this would cause validation errors in files
 following the June 2007 schema. This is therefore not placed in the
 September 2007 minor release but held until a future major release.
 

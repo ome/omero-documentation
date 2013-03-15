@@ -37,7 +37,7 @@ therein, including:
    motion etc.).
 -  Additional custom information you may wish to provide about your
    experiment in a structured form (known as 
-   :doc:`working-with-ome-xml/structured-annotations`).
+   :doc:`developers/structured-annotations`).
 
 
 Features and applications of the OME-XML file format
@@ -137,5 +137,5 @@ Improvision joins the ever-increasing list of commercial solution
 providers that supports OME-TIFF. Support is available from the release
 of Version 4.2.
 
-For company details see our full list of `Partners <../about/partners>`_
+For company details see our full list of :about_plone:`Partners <partners>`
 

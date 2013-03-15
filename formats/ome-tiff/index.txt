@@ -23,8 +23,7 @@ Rationale
 The Open Microscopy Environment consortium has defined a file format
 called OME-XML for biological image data including a rich set of
 microscopy-specific metadata. OME-XML's major strength lies in its
-extensible, human-readable `XML
-schemas </site/support/file-formats/schemas>`_ for image metadata.
+extensible, human-readable XML schemas for image metadata.
 Unfortunately, OME-XML has a number of drawbacks:
 
 #. Decoding base64-encoded image planes is computationally expensive.

@@ -2,21 +2,23 @@ ROI Model
 =========
 
 ROIs are a top level object within the OME node of our model. This
-means that can be referred to from more than one point within the model.
-In the case of ROI that can be used in three ways:
+means that they can be referred to from more than one point within the model:
 
 -  They can be referenced by an Image node.
 -  They can be referenced by a MicrobeamManipulation node.
 -  They can be standalone - we interpret this as meaning they are a
    template that could be applied by the user to images.
 
+.. note::
+
     A fourth case is possible but not recommended. It is possible for
     one ROI to be referenced by both an Image node and a
     MicrobeamManipulation node. The problem with this is the ROI for the
     MicrobeamManipulation should be fixed, but the ROI on an Image is
-    something that should be editable by a user. In this case the user
+    something that should be editable by a user. In this case, the user
     can inadvertently change the ROI set during the
-    MicrobeamManipulation without realising it.
+    MicrobeamManipulation without realizing it.
+
 
 ROI attributes and simple children
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -26,20 +28,20 @@ The ROI node has some basic properties attached to it:
 -  An ID used to reference it from the Image and MicrobeamManipulation
    nodes.
 -  A namespace used to identify the category of ROI to a specific
-   application. (optional)
--  A short name for the ROI used in the user interface. (optional)
--  A longer description for the ROI used in the user interface.
-   (optional)
--  An annotation reference linking an annotation to this ROI. (optional)
+   application (optional).
+-  A short name for the ROI used in the user interface (optional).
+-  A longer description for the ROI used in the user interface
+   (optional).
+-  An annotation reference linking an annotation to this ROI (optional).
 
 ROI complex children
 ^^^^^^^^^^^^^^^^^^^^
 
-The ROI node has a choice of ONE child operation node. At the moment the
+The ROI node has a choice of ONE child operation node. At the moment, the
 only choice is Union, meaning it is composed of the union of all its
 child shapes. It is implemented as a choice so we have the option
-available of adding other composition methods in the future. Currently
-this is not planned.
+available of adding other composition methods in the future. There are 
+currently no plans in place for this however.
 
 Shape nodes
 ^^^^^^^^^^^
@@ -56,37 +58,41 @@ attributes or simple children.
 
 -  General
 
-   -  A short name for the Shape used in the user interface. (optional)
+   -  A short name for the Shape used in the user interface (optional).
+
 
 -  Links to Planes
 
-   -  TheZ - the z-section this Shape is on. (optional, if not specified
-      then all the z-sections)
-   -  TheT - the timepoint this Shape is at. (optional, if not specified
-      then all the timepoints)
-   -  TheC - the channel this Shape is on. (optional, if not specified
-      then all the channels)
+   -  TheZ - the z-section this Shape is on (optional, if not specified
+      then all the z-sections).
+   -  TheT - the timepoint this Shape is at (optional, if not specified
+      then all the timepoints).
+   -  TheC - the channel this Shape is on (optional, if not specified
+      then all the channels).
+
 
 -  Shape Display Options
 
-   -  FillColor - the color of the fill - encoded as RGBA (optional)
-   -  FillRule - which parts of the Shape to fill. (optional)
-   -  StrokeColor - the color of the stroke. (optional)
-   -  StrokeWidth - the width of the stroke in pixels. (optional)
-   -  StrokeDashArray - e.g. "none", "10 20 30 10". (optional)
-   -  LineCap - the shape of the end of the line. (optional)
-   -  Text - a text label that can optionally be displayed on the Shape.
-      (optional)
-   -  FontFamily - the font family used to draw the text. (optional)
-   -  FontSize - the size of the font in points. (optional)
-   -  FontStyle - the style applied to the text. (optional)
-   -  Visible - The shape is visible if set to true, hidden otherwise.
-      (optional)
+   -  FillColor - the color of the fill - encoded as RGBA (optional).
+   -  FillRule - which parts of the Shape to fill (optional).
+   -  StrokeColor - the color of the stroke (optional).
+   -  StrokeWidth - the width of the stroke in pixels (optional).
+   -  StrokeDashArray - e.g. "none", "10 20 30 10" (optional).
+   -  LineCap - the shape of the end of the line (optional).
+   -  Text - a text label that can optionally be displayed on the Shape
+      (optional).
+   -  FontFamily - the font family used to draw the text (optional).
+   -  FontSize - the size of the font in points (optional).
+   -  FontStyle - the style applied to the text (optional).
+   -  Visible - The shape is visible if set to true, hidden otherwise
+      (optional).
+
 
 -  Geometry Adjustment
 
-   -  Transform - a transformation matrix represented by 6 values.
-      (optional)
+   -  Transform - a transformation matrix represented by 6 values
+      (optional).
+
 
 Shape complex children
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -94,31 +100,31 @@ Shape complex children
 The fifth part is the geometry. The Shape node has a choice of EIGHT
 child geometry nodes. At the moment the choice is:
 
--  Ellipse - specified by a centre point and a radius in the X-axis and
+-  Ellipse - specified by a centre point, a radius in the X-axis, and
    a radius in the Y-axis.
--  Label - specified by a start point for the bast line for the first
+-  Label - specified by a start point for the baseline for the first
    character.
 -  Line - specified by two end points, a markerStart (any marker applied
-   to the start of the line, e.g. an arrowhead.) and markerEnd (any
-   marker applied to the end of the line, e.g. an arrowhead (optional)).
+   to the start of the line e.g. an arrowhead) and markerEnd (any
+   marker applied to the end of the line e.g. an arrowhead) (optional).
 -  Mask - specified by an upper left corner and a BinData block.
 -  Point - a simple x, y position.
 -  Polygon - specified by an array of coordinates that are connected by
    straight lines that are closed, a markerStart (any marker applied to
-   the start of the line, e.g. an arrowhead (optional)) and markerEnd
-   (any marker applied to the end of the line, e.g. an arrowhead
-   (optional)).
+   the start of the line e.g. an arrowhead) and markerEnd
+   (any marker applied to the end of the line e.g. an arrowhead)
+   (optional).
 -  Polyline - specified by an array of coordinates that are connected by
    straight lines, a markerStart (any marker applied to the start of the
-   line, e.g. an arrowhead (optional)) and markerEnd (any marker applied
-   to the end of the line, e.g. an arrowhead (optional)).
+   line e.g. an arrowhead) and markerEnd (any marker applied
+   to the end of the line e.g. an arrowhead) (optional).
 -  Rectangle - specified by an upper left corner and a width and height.
 
 3D ROI
 ^^^^^^
 
 The current method of defining a ROI in three dimensions is as a Union
-of Shape objects each of which defines the geometry where that 3D ROI
+of Shape objects, each of which defines the geometry where that 3D ROI
 would cut the 2D Plane the Shape is attached to.
 
 .. figure:: /images/formats/Ome-ROI-overview.*

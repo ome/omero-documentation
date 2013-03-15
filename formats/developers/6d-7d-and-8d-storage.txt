@@ -5,7 +5,7 @@
 This outlines how to store 6D, 7D and 8D data in our 5D structure.
 
 Interim storage of additional dimensions in the OME model using Z, T and C
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------------------------------
 
 This has been produced as part of our transition to N-dimensional
 support. It will take a large amount of work throughout the OME
@@ -14,14 +14,14 @@ approach to data storage. Given the scale and impact of the change, this
 will take some time to schedule and complete.
 
 This proposal is designed to allow people wishing to write data with 6,
-7 or 8 dimensions into our model today in a way that can be upgraded in
+7 or 8 dimensions into our model today, in a way that can be upgraded in
 the future once N-dimensional support is available.
 
-The key addition is a new XML Annotation to the Image element.
+**The key addition is a new XML Annotation to the Image element.**
 
 This was originally added to the pixels element but in use Image has
 proved to be a better location. We recommend Image is used from now
-on but our code will also work with attachment to Pixels for backward
+on, but our code will also work with attachment to Pixels for backward
 compatibility.
 
 This annotation will use namespace
@@ -31,9 +31,9 @@ This annotation will use namespace
     "openmicroscopy.org/omero/dimension/modulo"
 
 and store information on the additional dimensions embedded in the Z, T
-or C data. This annotation is optional and if absent the model works as
-it currently does in the 5D case. Also if an application does not
-understand the Modulo addition then it can treat the data as 5D, though
+or C data. This annotation is optional and, if absent the model works as
+it currently does in the 5D case. Also, if an application does not
+understand the Modulo addition, then it can treat the data as 5D, though
 the displayed results would need some interpretation.
 
 ::
@@ -56,9 +56,9 @@ the displayed results would need some interpretation.
 The three dimensions ModuloAlongZ, ModuloAlongT and ModuloAlongC each
 can be specified in two ways:
 
--  Either using a specific number of labels (see ModuloAlongZ example
+-  either using a specific number of labels (see ModuloAlongZ example
    above)
--  Or using a Start, Step and End (see ModuloAlongT or ModuloAlongC
+-  or using a Start, Step and End (see ModuloAlongT or ModuloAlongC
    example above).
 
 The attribute ``Type`` is **Required** and is drawn from the following
@@ -77,7 +77,7 @@ OMERO server can store this data.
 The attribute ``Unit`` is optional. It is a simple text description.
 
 If you are going to specify ``Label`` elements inside the dimension then
-you need on other attribute.
+you do not need any other attributes.
 
 If you are not using ``Label`` elements then you **MUST** specify the
 ``Start`` and ``End`` of the range the dimension covers. The dimension
@@ -163,14 +163,14 @@ extra Phase(P) for each T then
     Stored C2 , Z4 , T6  - Real C2 , Z2 , A2, T2 , P3
 
 How to order the plane data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The order of the plane data defined by the BinData or TiffData block is
-interleaved as it would be for the 5D view of the Z plane, i.e. it is
+The order of the plane data defined by the BinData or TiffData block, is
+interleaved as it would be for the 5D view of the Z plane i.e. it is
 governed by the value of DimensionOrder on the Pixels element.
 
 How to represent tiles
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
 The Plane element stores the location of each tile.
 
@@ -190,7 +190,7 @@ e.g. Define four tiles 160 by 220 laid out as
     D   <Plane TheC="0" TheT="11" TheZ="0" PositionX="160" PositionY="220" PositionZ="0.1"/>
 
 Specifying the position of each plane allows tiles to either form a
-mosaic as above or to overlap. e.g.
+mosaic as above or to overlap e.g.
 
 ::
 
@@ -202,30 +202,28 @@ mosaic as above or to overlap. e.g.
     E   <Plane TheC="0" TheT="12" TheZ="0" PositionX="80" PositionY="110" PositionZ="0.1"/>
 
 Sample Files
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
-TODO - Update these links
-^^^^^^^^^^^^^^^^^^^^^^^^^
 
 SPIM
-^^^^
+""""
 
-`SPIM-modulo-sample.ome.tiff </Schemas/Samples/2012-06/SPIM-modulo-sample.ome.tiff>`_
+:schema_plone:`SPIM-modulo-sample.ome.tiff <Samples/2012-06/SPIM-modulo-sample.ome.tiff>`
 
 A 2x2 tile of planes each recorded at 4 angles.
 
 Big Lambda
-^^^^^^^^^^
+""""""""""
 
-`LAMBDA-modulo-sample.ome.tiff </Schemas/Samples/2012-06/LAMBDA-modulo-sample.ome.tiff>`_
+:schema_plone:`LAMBDA-modulo-sample.ome.tiff <Samples/2012-06/LAMBDA-modulo-sample.ome.tiff>`
 
-Excitation of 5 wavelength [Λ, big-lambda] each recored at 10 emission
+Excitation of 5 wavelength [Λ, big-lambda] each recorded at 10 emission
 wavelength ranges [λ, lambda].
 
 FLIM
-^^^^
+""""
 
-`FLIM-modulo-sample.ome.tif </Schemas/Samples/2012-06/FLIM-modulo-sample.ome.tif>`_
+:schema_plone:`FLIM-modulo-sample.ome.tif </Schemas/Samples/2012-06/FLIM-modulo-sample.ome.tif>`
 
-Two channels each recorder at eight histogram bins.
+Two channels each recorded at eight histogram bins.
 
