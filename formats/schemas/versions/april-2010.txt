@@ -15,12 +15,12 @@ before will now be valid. It is important to update any file readers and
 writers to understand the changes.
 
 Version
-~~~~~~~
+^^^^^^^
 
 The version number of all schema files is now 1.
 
 Namespace
-~~~~~~~~~
+^^^^^^^^^
 
 This schema uses the new namespace
 
@@ -49,13 +49,9 @@ Overview of Changes
 -  SPW changes
 -  Filter Changes
 
-There are a collection of diagrams for the schema that may be useful in
-understand the changes available, see `wiki:ModelOverview
-v2010-04 </site/support/file-formats/working-with-ome-xml/model-overview-2010-04>`_
-.
 
 Schema Cleanup
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 -  Remove legacy objects
 -  Dropping of files
@@ -74,7 +70,7 @@ Schema Cleanup
 -  Removal from OME Node of SemanticTypeDefinitions
 
 Units
-~~~~~
+^^^^^
 
 -  Units defined for everything in
 
@@ -91,10 +87,9 @@ Follow some examples:
     This is the name of the fluorophore used to produce this channel [plain text string]
 
 ROI changes
-~~~~~~~~~~~
+^^^^^^^^^^^
 
-For more details see `ROI
-v2010-04 </site/support/file-formats/working-with-ome-xml/roi/roi-2010-04>`_
+For more details see :doc:`/developers/legacy/roi-2010-04`
 
 -  ROI now has:
 
@@ -115,10 +110,7 @@ v2010-04 </site/support/file-formats/working-with-ome-xml/roi/roi-2010-04>`_
 -  Text element renamed to Label.
 
 SPW changes
-~~~~~~~~~~~
-
-For more details see `Screen Plate Well
-v2010-04 </site/support/file-formats/working-with-ome-xml/screen-plate-well/screen-plate-well-2010-04>`_
+^^^^^^^^^^^
 
 -  Plate now has:
 
@@ -146,17 +138,14 @@ v2010-04 </site/support/file-formats/working-with-ome-xml/screen-plate-well/scre
    -  added Index
 
 Filter Changes
-~~~~~~~~~~~~~~
-
-For more details see `Filter And FilterSet
-v2010-04 </site/support/file-formats/working-with-ome-xml/filter-and-filterset/filter-and-filterset-2010-04>`_
+^^^^^^^^^^^^^^
 
 -  Filter now has type "Dichroic"
 -  New LightPath object (this provides much more flexibility than
    SecondaryEmissionFilter and SecondaryExcitationFilter)
 
 Other
-~~~~~
+^^^^^
 
 -  Detector - Changes/Additions
 -  LED attributes

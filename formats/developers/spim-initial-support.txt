@@ -227,7 +227,7 @@ A hand written sample file is available that we hope illustrates how the
 data can be structured. It is an OME-XML file but the broad structure of
 the metadata is the same for an OME-TIFF.
 
-`2010-06/spim-simple-example.ome </Schemas/Samples/2010-06/spim-simple-example.ome>`_
+:schema_plone:`2010-06/spim-simple-example.ome <Samples/2010-06/spim-simple-example.ome>`
 
 This file defines an instrument with multiple light sources and
 objectives.
