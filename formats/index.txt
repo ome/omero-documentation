@@ -26,9 +26,8 @@ for exchange of image data between different software packages.
 
 -  Want to find the latest **June 2012 Schema** specification for OME-XML
    or OME-TIFF? Check the 
-   `schema location <http://www.openmicroscopy.org/Schemas/>`_ 
-   page that always has links to the latest version and latest auto-generated   
-   documentation.
+   :schema_plone:`schema location <>` page that always has links to the latest 
+   version and latest auto-generated documentation.
 
 -  If you have used OME-XML, OME-TIFF, Bio-Formats or OMERO in your work
    find the 
@@ -56,10 +55,10 @@ OME-TIFF
     :titlesonly:
 
     ome-tiff/index
-    ome-tiff/ome-tiff-specification
-    ome-tiff/ome-tiff-tools
-    ome-tiff/ome-tiff-code
-    ome-tiff/ome-tiff-data
+    ome-tiff/specification
+    ome-tiff/tools
+    ome-tiff/code
+    ome-tiff/data
 
 
 *******
@@ -83,8 +82,8 @@ OME-XML
     :maxdepth: 1
     :titlesonly:
 
-    ome-xml-file
-    ome-xml-java-library
+    ome-xml/index
+    ome-xml/java-library
 
 **************
 Specifications
@@ -92,7 +91,7 @@ Specifications
 
 .. only:: html
 
-    View :doc:`our proposal <schemas/specifications/compliant-file>` for a 
+    View :doc:`our proposal <specifications/index>` for a 
     specification, to describe as completely as possible a specific imaging 
     experiment.
 
@@ -103,9 +102,9 @@ Specifications
     :maxdepth: 1
     :titlesonly:
 
-    schemas/specifications/compliant-file
-    schemas/specifications/compliant-hcs 
-    schemas/specifications/minimum
+    specifications/index
+    specifications/compliant-hcs 
+    specifications/minimum
 
 
 *********************
@@ -129,7 +128,7 @@ Developer information
     :hidden:
 
     developers/model-overview
-    developers/using-ome-xml-in-your-work
+    developers/working-with-ome-xml
     developers/filter-and-filterset
     developers/screen-plate-well
     developers/structured-annotations
@@ -157,14 +156,14 @@ Versions
     :maxdepth: 1
     :titlesonly:
 
-    schemas/versions/index
-    schemas/versions/june-2012
-    schemas/versions/june-2011
-    schemas/versions/june-2010
-    schemas/versions/april-2010
-    schemas/versions/september-2009
-    schemas/versions/september-2008
-    schemas/versions/february-2008
-    schemas/versions/september-2007
-    schemas/versions/june-2007
+    schemas/index
+    schemas/june-2012
+    schemas/june-2011
+    schemas/june-2010
+    schemas/april-2010
+    schemas/september-2009
+    schemas/september-2008
+    schemas/february-2008
+    schemas/september-2007
+    schemas/june-2007
 

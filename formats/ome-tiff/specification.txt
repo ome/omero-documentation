@@ -5,8 +5,7 @@ OME-TIFF Specification
 The following document provides technical details on the OME-TIFF
 format. It assumes familiarity with both the
 `TIFF <http://partners.adobe.com/public/developer/tiff/index.html>`_ and
-`OME-XML <http://www.openmicroscopy.org/Schemas/>`_ formats, although
-there is some review of both.
+:schema_plone:`OME-XML <>` formats, although there is some review of both.
 
 Storing OME-XML within a TIFF
 -----------------------------
@@ -288,7 +287,7 @@ storing the planes in reverse temporal order.
 
 
 For details on validating your OME-XML metadata block, see the
-validating OME-XML section on the :doc:`ome-tiff-tools` page.
+validating OME-XML section on the :doc:`tools` page.
 
 .. _files:
 
@@ -352,7 +351,7 @@ Multi-file example
 ^^^^^^^^^^^^^^^^^^
 
 Please use the following example-as well as the :doc:`tubhiswt sample
-datasets <ome-tiff-data>` - as a guide for how to distribute OME-TIFF
+datasets <data>` - as a guide for how to distribute OME-TIFF
 datasets across multiple files.
 
 Each of the files in the set has identical metadata apart from the 
@@ -496,7 +495,7 @@ than 5GB total.
 While we advise storing multiple planes per OME-TIFF file, and keeping
 the OME-XML metadata embedded in every file's header, we realize there
 are times when doing so simply isn't possible. Thus, as of the 
-:doc:`2011-06 version of the OME-XML schema </schemas/versions/june-2011>` 
+:doc:`2011-06 version of the OME-XML schema </schemas/june-2011>` 
 onwards, we have implemented a solution to this problem: the ``BinaryOnly``
 element.
 

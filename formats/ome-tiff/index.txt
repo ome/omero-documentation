@@ -61,14 +61,14 @@ An OME-TIFF dataset has the following characteristics:
 .. only:: html
 
     For detailed technical information on OME-TIFF, see the 
-    :doc:`ome-tiff-specification`.
+    :doc:`specification`.
 
-    There is further information about :doc:`ome-tiff-tools` available.
+    There is further information about :doc:`tools` available.
 
-    We also have some :doc:`ome-tiff-code` in Java for
+    We also have some :doc:`code` in Java for
     reading and writing OME-TIFF.
 
-    Lastly, some :doc:`ome-tiff-data` is available for
+    Lastly, some :doc:`data` is available for
     download, along with statistics comparing OME-TIFF and OME-XML with
     various types of compression.
 
