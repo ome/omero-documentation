@@ -37,7 +37,7 @@ therein, including:
    motion etc.).
 -  Additional custom information you may wish to provide about your
    experiment in a structured form (known as 
-   :doc:`developers/structured-annotations`).
+   :doc:`/developers/structured-annotations`).
 
 
 Features and applications of the OME-XML file format
@@ -76,8 +76,7 @@ Some specific features of the OME-XML file format:
    Definitions XML Schema, documentation and an example document that
    defines the core OME Semantic Types.
 
-The OME-XML Schema and use are documented
-`here <http://www.openmicroscopy.org/Schemas/>`_.
+The OME-XML Schema and use are documented :schema_plone:`here <>`.
 
 
 Migrating or sharing data with OME-XML

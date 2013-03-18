@@ -3,7 +3,7 @@ OME TIFF Example Source Code
 
 This page discusses some common operations related to the OME-TIFF
 format, and gives example source code in Java for performing them. We
-strongly recommend you read and understand the :doc:`ome-tiff-specification` 
+strongly recommend you read and understand the :doc:`specification` 
 before attempting to deploy any of the following code.
 
 -  Extracting a TIFF comment – demonstrates how to extract the OME-XML
@@ -99,7 +99,7 @@ that Bio-Formats greatly simplifies.
 
 The following program converts the files given on the command line into
 OME-TIFF format. It requires the :bf_plone:`Bio-Formats <>` and :doc:`OME-XML
-Java </ome-xml-java-library>` libraries.
+Java </ome-xml/java-library>` libraries.
 
 `ConvertToOmeTiff.java <http://git.openmicroscopy.org/?p=bioformats.git;a=blob;f=components/bio-formats/utils/ConvertToOmeTiff.java;hb=HEAD>`_
 
@@ -132,7 +132,7 @@ development tasks.
 
 The following program edits the "image name" metadata value for the file
 given on the command line. It requires the :bf_plone:`Bio-Formats <>` and 
-:doc:`OME-XML Java </ome-xml-java-library>` libraries.
+:doc:`OME-XML Java </ome-xml/java-library>` libraries.
 
 `EditImageName.java <http://git.openmicroscopy.org/?p=bioformats.git;a=blob;f=components/bio-formats/utils/EditImageName.java;hb=HEAD>`_
 

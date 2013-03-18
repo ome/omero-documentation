@@ -43,7 +43,7 @@ If you are working in C/C++, we recommend the open source
 If you are looking for a solution in Java, there are several options.
 Bio-Formats can read OME-TIFF files, as well as convert from many
 third-party formats into OME-TIFF format—see the :doc:`example source code
-page <ome-tiff-code>` for specific examples. Alternately, the open
+page <code>` for specific examples. Alternately, the open
 source `ImageJ <http://rsb.info.nih.gov/ij/>`_ application reads
 multi-page TIFF files, storing the TIFF comment into the associated
 FileInfo object's "description" field.
@@ -89,7 +89,7 @@ some Java code to do the same thing; just download the
     xmlindent file.xml
 
 Another option is to feed the XML into our 
-:doc:`OME-XML Java library </ome-xml-java-library>`, which provides methods 
+:doc:`OME-XML Java library </ome-xml/java-library>`, which provides methods 
 for querying and manipulating the OME-XML (using DOM and SAX). This library is 
 what Bio-Formats uses to work with OME-XML.
 

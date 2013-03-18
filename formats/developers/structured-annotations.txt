@@ -3,7 +3,7 @@ Structured Annotations
 
 
 Structured annotations (or SAs), introduced in the 
-:doc:`2008-09 schema </schemas/versions/september-2008>`,
+:doc:`2008-09 schema </schemas/september-2008>`,
 are a general way to extend OME-XML with additional structured
 information. They can express a variety of data types and linkages, and
 serve as a replacement for the Custom Attributes and Semantic Type
