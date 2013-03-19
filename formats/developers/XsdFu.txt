@@ -1,24 +1,10 @@
 XSD Fu
 ======
 
+
 XSD Fu is a Python application designed to digest OME XML schema and
 produce an object oriented Java infrastructure to ease work with an XML
 DOM tree.
-
-Requirements:
-
--  `Python <http://www.python.org>`__ 2.4+
--  `Genshi <http://genshi.edgewall.org>`_ 0.5
--  Full checkout of the OME repository
-   (`http://github.com/openmicroscopy/openmicroscopy <http://github.com/openmicroscopy/openmicroscopy>`_)
--  Full checkout of the Bio-Formats repository
-   (`http://github.com/openmicroscopy/bioformats <http://github.com/openmicroscopy/bioformats>`_)
-
-.. note::
-    Genshi `0.5 <http://genshi.edgewall.org/milestone/0.5>`_ was
-    released on June 9th 2008. You can either install from source or
-    download a compatible ``.egg`` for your system on the Genshi
-    `download <http://genshi.edgewall.org/wiki/Download>`_ page.
 
 Checking out the source
 -----------------------
@@ -27,7 +13,7 @@ This will get the entire source tree. xsd-fu is in ``components/xsd-fu``
 
 ::
 
-    git clone --recursive https://github.com/openmicroscopy/openmicroscopy 
+    git clone --recursive https://github.com/openmicroscopy/openmicroscopy
 
 Running the code generator
 --------------------------
@@ -37,7 +23,7 @@ script with no arguments to examine the syntax:
 
 ::
 
-    $ ./xsd-fu 
+    $ ./xsd-fu
     Missing subcommand!
     Usage: ./xsd-fu <subcommand> ...
     Executes an OME-XML Schema definition parsing and code generation subcommand.
@@ -84,9 +70,9 @@ Python ``.egg`` for your platform as follows:
     Report bugs to OME Devel <ome-devel@lists.openmicroscopy.org.uk>
 
 .. note::
-    XsdFu is now used for many different
+    XsdFu is used for several different
     types of code generation tasks (mostly targeted at the OMERO and
-    Bio-Formats 4.2.0 releases) as outlined by the subcommand structure
+    Bio-Formats releases) as outlined by the subcommand structure
     above.
 
 
@@ -107,7 +93,7 @@ which are composed of:
 
 .. note::
     All the below examples assume a full OME-XML *specification*
-    Git checkout.
+    git checkout.
 
 Java classes for OME model objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,8 +101,8 @@ Java classes for OME model objects
 ::
 
     $ ./xsd-fu java_classes -p 'ome.xml.model' -o $BIO-FORMATS_HOME/components/ome-xml/src/ome/xml/model/ \
-        ../specification/Released-Schema/2011-06/ome.xsd ../specification/Released-Schema/2011-06/BinaryFile.xsd ../specification/Released-Schema/2011-06/ROI.xsd \
-        ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
+        ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd ../specification/Released-Schema/2012-06/ROI.xsd \
+        ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
 
 Enumeration classes for OME model properties
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -124,8 +110,8 @@ Enumeration classes for OME model properties
 ::
 
     $ ./xsd-fu enum_types -p 'ome.xml.model.enums' -o $BIO-FORMATS_HOME/components/ome-xml/src/ome/xml/model/enums/ \
-        ../specification/Released-Schema/2011-06/ome.xsd ../specification/Released-Schema/2011-06/BinaryFile.xsd ../specification/Released-Schema/2011-06/ROI.xsd \
-        ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
+        ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd ../specification/Released-Schema/2012-06/ROI.xsd \
+        ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
 
 Enumeration handlers for OME model properties
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -133,33 +119,33 @@ Enumeration handlers for OME model properties
 ::
 
     $ ./xsd-fu enum_handlers -p 'ome.xml.model.enums.handlers' -o $BIO-FORMATS_HOME/components/ome-xml/src/ome/xml/model/enums/handlers/ \
-        ../specification/Released-Schema/2011-06/ome.xsd ../specification/Released-Schema/2011-06/BinaryFile.xsd ../specification/Released-Schema/2011-06/ROI.xsd \
-        ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
+        ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd ../specification/Released-Schema/2012-06/ROI.xsd \
+        ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
 
 Metadata store and Metadata retrieve interfaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    $ ./xsd-fu metadata_store ../specification/Released-Schema/2011-06/ome.xsd ../specification/Released-Schema/2011-06/BinaryFile.xsd \
-        ../specification/Released-Schema/2011-06/ROI.xsd ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
-    $ ./xsd-fu metadata_retrieve ../specification/Released-Schema/2011-06/ome.xsd ../specification/Released-Schema/2011-06/BinaryFile.xsd \
-        ../specification/Released-Schema/2011-06/ROI.xsd ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
+    $ ./xsd-fu metadata_store ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+    $ ./xsd-fu metadata_retrieve ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
     $ cp MetadataStore.java MetadataRetrieve.java $LOCI_HOME/components/bio-formats/src/loci/formats/meta/
 
-OMEXMLMetadataImpl Metadata store and Metadata retrieve implementation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Metadata store and Metadata retrieve implementation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    $ ./xsd-fu omexml_metadata ../specification/Released-Schema/2011-06/ome.xsd ../specification/Released-Schema/2011-06/BinaryFile.xsd \
-        ../specification/Released-Schema/2011-06/ROI.xsd ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
-    $ ./xsd-fu metadata_aggregate ../specification/Released-Schema/2011-06/ome.xsd ../specification/Released-Schema/2011-06/BinaryFile.xsd \
-        ../specification/Released-Schema/2011-06/ROI.xsd ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
-    $ ./xsd-fu dummy_metadata ../specification/Released-Schema/2011-06/ome.xsd ../specification/Released-Schema/2011-06/BinaryFile.xsd \
-        ../specification/Released-Schema/2011-06/ROI.xsd ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
-    $ ./xsd-fu filter_metadata ../specification/Released-Schema/2011-06/ome.xsd ../specification/Released-Schema/2011-06/BinaryFile.xsd \
-        ../specification/Released-Schema/2011-06/ROI.xsd ../specification/Released-Schema/2011-06/SA.xsd ../specification/Released-Schema/2011-06/SPW.xsd
+    $ ./xsd-fu omexml_metadata ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+    $ ./xsd-fu metadata_aggregate ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+    $ ./xsd-fu dummy_metadata ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+    $ ./xsd-fu filter_metadata ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
     $ cp AggregateMetadata.java DummyMetadata.java FilterMetadata.java $BIO-FORMATS_HOME/components/scifio/src/loci/formats/meta/
     $ cp OMEXMLMetadataImpl.java $BIO-FORMATS_HOME/components/scifio/src/loci/formats/ome/
 
@@ -194,28 +180,10 @@ enumeration value matches. For example:
 Generate OMERO model specification files
 ----------------------------------------
 
-This work was completed as part of the *Update XsdFu* 
-(:ticket:`#8086 <8086>`) story.
-
 ::
 
     $ cd components/xsd-fu
     $ ./xsd-fu omero_model ../specification/InProgress/ome.xsd ../specification/InProgress/SPW.xsd \
             ../specification/InProgress/SA.xsd ../specification/InProgress/ROI.xsd
     $ cp OmeroModel.xml wherever/you/need/it/
-
-Special Thanks
---------------
-
-A special thanks goes out to `Dave
-Kuhlman <http://www.rexx.com/~dkuhlman/>`_ for his fabulous work on
-`generateDS <http://www.rexx.com/~dkuhlman/generateDS.html>`_ which XSD
-Fu makes heavy use of internally.
-
---------------
-
-.. SeeAlso::
-
-    - `http://genshi.edgewall.org/ <http://genshi.edgewall.org/>`_
-    - `http://www.rexx.com/~dkuhlman/generateDS.html <http://www.rexx.com/~dkuhlman/generateDS.html>`_
 

@@ -140,12 +140,11 @@ Developer information
     developers/EnumTool
     developers/XsdFu
     developers/sample-files
-    developers/legacy/index
 
 
-********
-Versions
-********
+***************
+Schema versions
+***************
 
 .. only:: html
 
@@ -157,6 +156,12 @@ Versions
     :titlesonly:
 
     schemas/index
+
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    
     schemas/june-2012
     schemas/june-2011
     schemas/june-2010

@@ -94,9 +94,7 @@ Image.
 Filter and Filter Sets rewritten
 --------------------------------
 
-The previous filter model has been replaced. For further information see
-:doc:`FilterAndFilterSet
-v2007-06 </developers/legacy/filter-and-filterset-2007-06>`.
+The previous filter model has been replaced.
 
 Images contracted and expanded
 ------------------------------
@@ -119,8 +117,7 @@ Screening Data Model
 
 The new file SPW.xsd has been added to hold the Screen/Plate/Well model.
 With its creation Plate and Screen that were in OME.XSD have been moved
-and re-written. For further information see :doc:`Screen Plate Well
-v2007-06 </developers/legacy/screen-plate-well-2007-06>`.
+and re-written. 
 
 OME-Tiff extensions
 -------------------

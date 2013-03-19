@@ -1,19 +1,9 @@
 Enum Tool
 =========
 
+
 Enum Tool is a Python application designed to digest OME XML schema and
 produce meaningful output about enumerations.
-
-Requirements:
-
--  `Python <http://www.python.org>`__ 2.4+
-
-Checking out the source
------------------------
-
-::
-
-    svn co http://svn.openmicroscopy.org.uk/svn/specification/Xml/xsd-fu/trunk xsd-fu
 
 Running the tool
 ----------------
@@ -140,17 +130,16 @@ And finally, our diff:
     /OME/Instrument/Objective/Correction:Unknown not in /OME/Instrument/Objective@Correction
     /OME/Instrument/Objective/Immersion:Unknown not in /OME/Instrument/Objective@Immersion
 
-Special Thanks
---------------
+Acknowledgments
+---------------
 
-A special thanks goes out to `Dave
-Kuhlman <http://www.rexx.com/~dkuhlman/>`_ for his fabulous work on
+Thanks to `Dave Kuhlman <http://www.rexx.com/~dkuhlman/>`_ for his work on
 `generateDS <http://www.rexx.com/~dkuhlman/generateDS.html>`_ which
 Enum Tool makes heavy use of internally.
 
 --------------
 
 .. SeeAlso::
-    
+
     - `http://genshi.edgewall.org/ <http://genshi.edgewall.org/>`_
     - `http://www.rexx.com/~dkuhlman/generateDS.html <http://www.rexx.com/~dkuhlman/generateDS.html>`_

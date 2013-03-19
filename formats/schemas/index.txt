@@ -1,5 +1,5 @@
-Version Information
-===================
+Schema version information
+==========================
 
 
 .. only:: html
@@ -100,4 +100,23 @@ Image. As this means that any reference to SPW:ImageRef will have to
 become OME:ImageRef, this would cause validation errors in files
 following the June 2007 schema. This is therefore not placed in the
 September 2007 minor release but held until a future major release.
+
+Technical schema descriptions
+-----------------------------
+
+Auto-generated documentation is available for each release of the
+schema, including information on each attribute and element. These are 
+published as :schema_plone:`XSD files <>` on the OME website. They are usually 
+read by XML validators and parsers but are viewable as text files.
+
+.. note:: 
+    Any schemas and documentation below
+    http://www.openmicroscopy.org/XMLschemas/ are preserved for legacy
+    support only. This includes the 2003FC schema used by the original
+    OME server.
+
+Transforms are available which convert between the the different versions 
+of the schemas. They can be downloaded from:
+
+:schema_plone:`http://www.openmicroscopy.org/Schemas/Transforms/ <Transforms/>`
 
