@@ -113,7 +113,7 @@ devise the number of planes in the extra dimension. So with Start 100,
 End 150 and Step 2 in ModuloAlongT then the dimension stores 26 planes
 for each T.
 
-To find the true value of Z, T or C for a plane you need to take the 5D
+To find the true value of Z, T or C for a plane, you need to take the 5D
 value and divide it appropriately by the number of planes in the extra
 dimension.
 
@@ -137,36 +137,37 @@ extra Phase(P) for each T then
 
 ::
 
-    Stored C1 , Z1 , T1  - Real C1 , Z1 , A1, T1 , P1  
-    Stored C2 , Z1 , T1  - Real C2 , Z1 , A1, T1 , P1  
-    Stored C1 , Z2 , T1  - Real C1 , Z1 , A2, T1 , P1  
-    Stored C2 , Z2 , T1  - Real C2 , Z1 , A2, T1 , P1  
-    Stored C1 , Z3 , T1  - Real C1 , Z2 , A1, T1 , P1  
-    Stored C2 , Z3 , T1  - Real C2 , Z2 , A1, T1 , P1  
-    Stored C1 , Z4 , T1  - Real C1 , Z2 , A2, T1 , P1  
-    Stored C2 , Z4 , T1  - Real C2 , Z2 , A2, T1 , P1  
-    Stored C1 , Z1 , T2  - Real C1 , Z1 , A1, T1 , P2  
+           Stored | Real
+    C1 , Z1 , T1  | C1 , Z1 , A1, T1 , P1
+    C2 , Z1 , T1  | C2 , Z1 , A1, T1 , P1
+    C1 , Z2 , T1  | C1 , Z1 , A2, T1 , P1
+    C2 , Z2 , T1  | C2 , Z1 , A2, T1 , P1
+    C1 , Z3 , T1  | C1 , Z2 , A1, T1 , P1
+    C2 , Z3 , T1  | C2 , Z2 , A1, T1 , P1
+    C1 , Z4 , T1  | C1 , Z2 , A2, T1 , P1
+    C2 , Z4 , T1  | C2 , Z2 , A2, T1 , P1
+    C1 , Z1 , T2  | C1 , Z1 , A1, T1 , P2
     ...
-    Stored C2 , Z4 , T2  - Real C2 , Z2 , A2, T1 , P2  
-    Stored C1 , Z1 , T3  - Real C1 , Z1 , A1, T1 , P3  
+    C2 , Z4 , T2  | C2 , Z2 , A2, T1 , P2
+    C1 , Z1 , T3  | C1 , Z1 , A1, T1 , P3
     ...
-    Stored C2 , Z4 , T3  - Real C2 , Z2 , A2, T1 , P3  
-    Stored C1 , Z1 , T4  - Real C1 , Z1 , A1, T2 , P1  
-    ...  
-    Stored C2 , Z4 , T4  - Real C2 , Z2 , A2, T2 , P1  
-    Stored C1 , Z1 , T5  - Real C1 , Z1 , A1, T2 , P2  
+    C2 , Z4 , T3  | C2 , Z2 , A2, T1 , P3
+    C1 , Z1 , T4  | C1 , Z1 , A1, T2 , P1
     ...
-    Stored C2 , Z4 , T5  - Real C2 , Z2 , A2, T2 , P2  
-    Stored C1 , Z1 , T6  - Real C1 , Z1 , A1, T2 , P3  
+    C2 , Z4 , T4  | C2 , Z2 , A2, T2 , P1
+    C1 , Z1 , T5  | C1 , Z1 , A1, T2 , P2
     ...
-    Stored C1 , Z4 , T6  - Real C1 , Z2 , A2, T2 , P3  
-    Stored C2 , Z4 , T6  - Real C2 , Z2 , A2, T2 , P3
+    C2 , Z4 , T5  | C2 , Z2 , A2, T2 , P2
+    C1 , Z1 , T6  | C1 , Z1 , A1, T2 , P3
+    ...
+    C1 , Z4 , T6  | C1 , Z2 , A2, T2 , P3
+    C2 , Z4 , T6  | C2 , Z2 , A2, T2 , P3
 
 How to order the plane data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The order of the plane data defined by the BinData or TiffData block, is
-interleaved as it would be for the 5D view of the Z plane i.e. it is
+The order of the plane data is defined by the BinData or TiffData block, and 
+is interleaved as it would be for the 5D view of the Z plane i.e. it is
 governed by the value of DimensionOrder on the Pixels element.
 
 How to represent tiles
@@ -199,6 +200,7 @@ mosaic as above or to overlap e.g.
     ---[E]---
     | C | D |
     ---------
+
     E   <Plane TheC="0" TheT="12" TheZ="0" PositionX="80" PositionY="110" PositionZ="0.1"/>
 
 Sample Files

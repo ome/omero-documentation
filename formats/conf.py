@@ -154,7 +154,7 @@ extlinks = {
     'team_plone' : (oo_site_root + '/team/%s', ''),
     'faq_plone' : (oo_site_root + '/support/faq/%s', ''),
     'training_plone' : (oo_site_root + '/support/training/%s', ''),
-    'schema_plone' : (oo_site_root + '/Schemas/%s', ''),
+    'schema_plone' : (oo_root + '/Schemas/%s', ''),
     'omero_plone' : (oo_site_root + '/products/omero/%s/', ''),
     'omero_doc' : (oo_site_root + '/support/omero4/%s', ''),
     'bf_plone' : (oo_site_root + 'site/products/bio-formats/%s/', ''),

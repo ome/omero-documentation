@@ -3,9 +3,9 @@ IDs and LSIDs in OME-XML
 
 
 The ID types used throughout the OME-XML model are designed to support
-identifiers in two forms. Where possible, you should use the full LSID
-format. If an LSID resolver is unavailable, an internal-only form may be
-used.
+identifiers in two forms. Where possible, the full LSID
+format should be used. If an LSID resolver is unavailable, an internal-only 
+form may be used.
 
 An LSID is a Life Science Identifier. It is a Uniform Resource Name
 standard, designed to allow the unique identifying of life sciences
