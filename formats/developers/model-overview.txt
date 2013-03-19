@@ -1,60 +1,75 @@
-Model Overview
-======================
-
-Model Overview for the current Release of the Data Model.
+Current Data Model overview
+===========================
 
 
 .. figure:: /images/formats/Image-Overview.*
    :align: center
    :alt: Image Overview
    
-   Diagram showing the Image branch of the OME Schema
+   Image branch of the OME Schema
+
+|
 
 .. figure:: /images/formats/Instrument-Overview.*
    :align: center
    :alt: Instrument Overview
    
-   Diagram showing the Instrument branch of the OME Schema
+   Instrument branch of the OME Schema
+
+|
 
 .. figure:: /images/formats/LightPathFilterSet-Top.*
    :align: center
    :alt: LightPathFilterSet Top
    
-   Diagram showing the location of Filters and Light Paths in the OME Model
+   Location of Filters and Light Paths in the OME Model
+
+|
 
 .. figure:: /images/formats/Project-Dataset-Top.*
    :align: center
    :alt: Project Dataset Top
    
-   Diagram showing the organisational structures (Project, Dataset, Group, Experiment, Experimenter) of the OME Model
+   Organisational structures (Project, Dataset, Group, Experiment, 
+   Experimenter) of the OME Model
+
+|
 
 .. figure:: /images/formats/Project-Dataset-Ownership.*
    :align: center
    :alt: Project Dataset Ownership
    
-   Diagram showing the ownership relations for Project, Dataset & Experimenter
+   Ownership relations for Project, Dataset and Experimenter
+
+|
 
 .. figure:: /images/formats/Ome-ROI-overview.*
    :align: center
    :alt: ROI Overview Standard
    
-   Diagram showing the Region Of Interest branch of the OME Model
+   Region Of Interest branch of the OME Model
+
+|
 
 .. figure:: /images/formats/Spw-structure.*
    :align: center
-   :alt: SPW Structure
+   :alt: ScreenPlateWell Structure
    
-   Diagram showing the HCS structures (Screen, Plate & Well) of the OME Model
+   HCS structures (Screen, Plate and Well) of the OME Model
+
+|
 
 .. figure:: /images/formats/Annotation-Top.*
    :align: center
    :alt: Annotation Top
    
-   Diagram showing the StructureAnnotation branch of the OME Model
+   StructureAnnotation branch of the OME Model
+
+|
 
 .. figure:: /images/formats/Annotation-Points.*
    :align: center
    :alt: Annotation Points
    
-   Diagram showing all points in the OME Model that can be Annotated
+   All points in the OME Model that can be Annotated
 
