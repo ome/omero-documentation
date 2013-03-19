@@ -341,77 +341,46 @@ Raw data access
 
 You can retrieve data, plane by plane or retrieve a stack.
 
--  **Retrieve a given plane**.
+Plane
+^^^^^
 
-This is useful when you need the pixels intensity.
+The plane of an input image at coordinates (z, c, t) can be retrieved using
+the :source:`getPlane <components/tools/OmeroM/src/image/getPlane.m>`
+function::
 
-::
+	plane = getPlane(session, image, z, c, t);
 
-    % To retrieve the pixels, see above.
-    sizeZ = pixels.getSizeZ().getValue();
-    sizeT = pixels.getSizeT().getValue();
-    sizeC = pixels.getSizeC().getValue();
-    pixelsId = pixels.getId().getValue();
-    store = session.createRawPixelsStore(); 
-    store.setPixelsId(pixelsId, false);
-    for z = 0:sizeZ-1,
-       for t = 0:sizeT-1,
-          for c = 0:sizeC-1,
-              plane = store.getPlane(z, c, t);
-              tPlane = toMatrix(plane, pixels);
-              % do something with the plane
-          end
-       end
-    end
-    % close the store
-    store.close();
+Alternately, the image identifier can be passed to the function::
 
--  **Retrieve a given tile**.
+	plane = getPlane(session, imageID, z, c, t);
 
-::
+Tile
+^^^^
 
-    % To retrieve the pixels, see above.
-    sizeZ = pixels.getSizeZ().getValue();
-    sizeT = pixels.getSizeT().getValue();
-    sizeC = pixels.getSizeC().getValue();
-    pixelsId = pixels.getId().getValue();
-    store = session.createRawPixelsStore(); 
-    store.setPixelsId(pixelsId, false);
-    x = 0;
-    y = 0;
-    width = pixels.getSizeX().getValue()/2;
-    height = pixels.getSizeY().getValue()/2;
-    for z = 0:sizeZ-1,
-       for t = 0:sizeT-1,
-          for c = 0:sizeC-1,
-              tile = store.getTile(z, c, t, x, y, width, height);
-              % tPlane = toMatrix(tile, pixels);
-              % do something with the tile
-          end
-       end
-    end
-    % close the store
-    store.close();
+The tile of an input image at coordinates (z, c, t) originated at (x, y) and
+of dimensions (w, h) can be retrieved using the
+:source:`getTile <components/tools/OmeroM/src/image/getTile.m>` function::
 
--  **Retrieve a given stack**.
+	tile = getTile(session, image, z, c, t, x, y, w, h);
 
-This is useful when you need the pixels intensity.
+Alternately, the image identifier can be passed to the function::
 
-::
+	tile = getTile(session, imageID, z, c, t, x, y, w, h);
 
-    %Create the store to load the stack. No access via the gateway
-    store = session.createRawPixelsStore(); 
-    store.setPixelsId(pixelsId, false); %Indicate the pixels set you are working on
-    for t = 0:sizeT-1,
-        for c = 0:sizeC-1,
-            stack = store.getStack(c, t);
-            % do something with the stack
-          end
-       end
-    end
-    store.close();
+Stack
+^^^^^
 
--  **Retrieve a given hypercube**.
+The tile of an input image at coordinates (c, t) can be retrieved using the
+:source:`getStack <components/tools/OmeroM/src/image/getStack.m>` function::
+
+	stack = getStack(session, image, c, t);
+
+Alternately, the image identifier can be passed to the function::
+
+	stack = getStack(session, imageID, c, t);
+
+Hypercube
+^^^^^^^^^^
 
 This is useful when you need the pixels intensity.
 
