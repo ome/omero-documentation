@@ -77,9 +77,7 @@ produce meaningful output about enumerations, and :doc:`XsdFu`, which digests
 OME XML schema and produces an object oriented Java infrastructure to ease 
 work with an XML DOM tree.
 
-Using OME-XML schema elements
------------------------------
-
-See :doc:`working-with-ome-xml` for further guidance.
+-  See :doc:`working-with-ome-xml` for further guidance on how to use OME 
+   schema elements in XML files.
 
 
