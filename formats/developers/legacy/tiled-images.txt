@@ -6,7 +6,7 @@ Storing tiled images in an OME file.
 
 .. note:: 
     This approach is still valid but has been **superseded** by the
-    :doc:`6d-7d-and-8d-storage` solution.
+    :doc:`/developers/6d-7d-and-8d-storage` solution.
 
 When you are looking at a sample that is larger than the available field
 of the microscope, one approach is to acquire a number of images, moving
