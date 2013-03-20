@@ -46,19 +46,25 @@ Working with the OME Data Model
 The :doc:`Model Overview collection of diagrams <model-overview>` shows the 
 structure and connections between different parts of the OME Model.
 
-Individual parts of the model are covered in more detail:
+Individual parts of the model are covered in more detail in the following 
+sections:
 
 -  :doc:`Filter And FilterSet <filter-and-filterset>`
 -  :doc:`Screen Plate Well <screen-plate-well>` - our HCS solution
 -  :doc:`Structured Annotations <structured-annotations>`
 -  :doc:`Regions of Interest (ROIs) <roi>`
 
-Specific use cases are also covered:
+Support for additional dimensions is also covered:
 
--  :doc:`SPIM Initial Support <spim-initial-support>` - this has been
-   superseded by the general 6D,7D,8D solution
 -  :doc:`6D, 7D and 8D Storage <6d-7d-and-8d-storage>`
--  :doc:`Tiled Images <tiled-images>`
+
+Legacy solutions for tiled images and Single (or Selective) Plane Illumination 
+Microscopy (also known as Light Sheet Microscopy) are detailed in the 
+following sections for reference but **both these methods have been superseded 
+by the above**:
+
+-  :doc:`SPIM Initial Support <legacy/spim-initial-support>`
+-  :doc:`Tiled Images <legacy/tiled-images>`
 
 The use of IDs and Life Science Identifiers is explained in this section:
 

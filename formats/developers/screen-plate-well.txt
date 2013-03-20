@@ -2,7 +2,7 @@ Screen Plate Well
 =================
 
 The Screen Plate Well (SPW) model is designed to support High Content
-Screening. It is aimed at providing a flexible framework to organize the
+Screening (HCS). It is aimed at providing a flexible framework to organize the
 images that result from such a screen and link to external systems that
 contain full information about the components and products used.
 Throughout the model, there are several **External Identifier** strings
@@ -32,11 +32,10 @@ lot-number.
 Example
 -------
 
-If you have two chemical reagents, Monastrol and VX680, that I wish to
-apply to samples in various concentrations. The Monastrol will be
-applied at 100, 300, and 900 nM concentrations. The VX680 at 300, 900,
-2700 nM concentrations. This requires a total of 6 reagents to be
-defined in the OME file.
+Two chemical reagents, Monastrol and VX680, applied to samples in various 
+concentrations; Monastrol at 100, 300, and 900 nM concentrations, and VX680 at 
+300, 900, 2700 nM concentrations. This requires a total of 6 reagents to be 
+defined in the OME file:
 
 ::
 
@@ -51,15 +50,15 @@ defined in the OME file.
         ...
     </spw:Screen>
 
-What is recorded where
-----------------------
+Elements and Attributes
+-----------------------
 
 Plate
 ^^^^^
 
-**ID** - this is used by the system to identify the plate.
+**ID** - used by the system to identify the plate.
 
-**Name** - this is chosen by the user to identify the plate.
+**Name** - chosen by the user to identify the plate.
 
 **Description** - a free text description.
 
@@ -67,7 +66,7 @@ Plate
 
 **Columns** - the number of columns in the plate.
 
-**ExternalIdentifier** - this is a identifier for the plate used by an 
+**ExternalIdentifier** - an identifier for the plate used by an 
 external system. This may be a barcode printed on the plate by the 
 manufacturer.
 
@@ -86,22 +85,22 @@ manufacturer.
 Reagent
 ^^^^^^^
 
-**ID** - this is used by the system to identify the reagent.
+**ID** - used by the system to identify the reagent.
 
 **Name** - a short name for the reagent.
 
 **Description** - a long description for the reagent.
 
-**ReagentIdentifier** - this is a reference to an external (to OME) 
+**ReagentIdentifier** - a reference to an external (to OME) 
 representation of the Reagent. It serves as a foreign key into an external 
 database.
 
 Screen
 ^^^^^^
 
-**ID** - this is used by the system to identify the screen.
+**ID** - used by the system to identify the screen.
 
-**Name** - this is chosen by the user to identify the screen.
+**Name** - chosen by the user to identify the screen.
 
 **Description** - a long description for the screen.
 
@@ -113,13 +112,12 @@ database.
 in a screening database.
 
 **ReagentSetDescription** - a description of the reagent set; may contain very 
-detailed information to reproduce some of that information found in a 
-screening database.
+detailed information to reproduce some of that found in a screening database.
 
 **ReagentSetIdentifier** - a pointer to an externally defined reagent set, 
 usually in a screening database/automation database.
 
-**Type** - a human-readable identifier for the screen type; e.g. RNAi, cDNA, 
+**Type** - a human-readable identifier for the screen type e.g. RNAi, cDNA, 
 SiRNA.
 
 PlateAcquisition
@@ -130,9 +128,9 @@ plate. Since Plates are abstract, this object is used to record the set
 of images acquired in a single acquisition run. The images for this run
 are linked to PlateAcquisition through WellSample.
 
-**ID** - this is used by the system to identify the plate acquisition.
+**ID** - used by the system to identify the plate acquisition.
 
-**Name** - this is chosen by the user to identify the plate acquisition.
+**Name** - chosen by the user to identify the plate acquisition.
 
 **EndTime** - time when the last image of this acquisition was collected.
 
@@ -151,11 +149,11 @@ Reagents that were used in this Well. A Well is part of one or more
 Plates. The origin for the row and column identifiers is the top left
 corner of the plate, starting at zero.
 
-**ID** - this is used by the system to identify the well.
+**ID** - used by the system to identify the well.
 
 **Color** - a marker color used to highlight the well.
 
-**Column** - this is the column index of the well; the origin is the top left 
+**Column** - the column index of the well; the origin is the top left 
 corner of the plate with the first column of cells being column zero i.e top
 left is (0,0).
 
@@ -165,7 +163,7 @@ for this plate.
 **ExternalIdentifier** - a pointer to an externally defined identifier for 
 this plate.
 
-**Row** - this is the row index of the well; the origin is the top left corner 
+**Row** - the row index of the well; the origin is the top left corner 
 of the plate with the first row of wells being row zero i.e top left is 
 (0,0).
 
@@ -178,9 +176,9 @@ WellSample
 
 WellSample is an individual image that has been captured within a Well.
 
-**ID** - this is used by the system to identify the well sample.
+**ID** - used by the system to identify the well sample.
 
-**Index** - this records the order of the well samples. Each index should be 
+**Index** - records the order of the well samples. Each index should be 
 unique for a given plate but they do not have to be sequential.
 
 **PositionX** - the X position of the field (image) within the well relative 
@@ -192,8 +190,8 @@ to the well origin defined on the Plate.
 **Timepoint** - the time-point at which the image started to be collected.
 
 
-What happened to ScreenAcquisition?
------------------------------------
+ScreenAcquisition rename
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the previous version of the SPW Model, the acquisition information was
 recorded below **Screen**. During use, it was discovered that this did
@@ -204,13 +202,13 @@ was taken to rework the model to store the acquisition information on
 **Plate** instead. The structure was moved in the model to below
 **Plate** and renamed **PlateAcquisition**.
 
-We also took this opportunity to add Index to **WellSample**. This
+Index was also added to **WellSample** at this time. This
 records the order of the well samples and should be unique within a
 given **Plate**. It does not however, have to be sequential so supports
 the collection of sparse datasets.
 
-Diagram showing structure in the SPW Schema
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SPW Schema structure
+--------------------
 
 Within the OME data model **Screen**, **Plate** and **Image** are top
 level structures. A file can contain multiple instances of these
@@ -233,26 +231,26 @@ between two time points.
 .. figure:: /images/formats/Spw-structure.*
    :align: center
    :width: 80%
-   :alt: Structure in the SPW Schema
+   :alt: SPW Schema structure
    
-   Structure in the SPW Schema
+   SPW Schema structure
 
-Diagram showing structure in the SPW Schema (cross-linked)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cross-linking in the SPW Schema structure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The dashed arrows added to the previous diagram show the
+The dashed arrows added to the structure diagram show the
 inter-dependencies between the ''Screen'' branch and the ''Plate''
 branch of the schema, as well as the ultimate link to ''Image''.
 
 .. figure:: /images/formats/Spw-structure-cross-linked.*
    :align: center
    :width: 80%
-   :alt: Structure in the SPW Schema (cross-linked)
+   :alt: Cross-linking in the SPW Schema
 
-   Structure in the SPW Schema (cross-linked)
+   Cross-linking in the SPW Schema
 
-Diagram showing sample file structure of the SPW Schema
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sample SPW Schema file structure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This diagram shows how a typical file would be structured and what
 objects are normally contained inside each other.
@@ -260,14 +258,14 @@ objects are normally contained inside each other.
 .. figure:: /images/formats/Spw-sample.*
    :align: center
    :width: 80%
-   :alt: Sample file structure of the SPW Schema
+   :alt: Sample file structure
 
-   Sample file structure of the SPW Schema
+   Sample file structure
 
-Diagram showing sample file structure of the SPW Schema (cross-linked)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cross-linked sample file structure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The dashed arrows added to the previous diagram show the
+The dashed arrows added to the diagram show the
 inter-dependencies of the objects in the sample file structure. Each
 dashed line could represent links from several objects of one type to
 several objects of the second type. The links in the file are
@@ -279,5 +277,5 @@ IDs from elsewhere in the file.
    :width: 80%
    :alt: Sample file structure of the SPW Schema
 
-   Sample file structure of the SPW Schema (cross-linked)
+   Cross-linked sample file structure
 

@@ -1,7 +1,7 @@
 ROI Model
 =========
 
-ROIs are a top level object within the OME node of our model. This
+ROIs are a top level object within the OME node of the model. This
 means that they can be referred to from more than one point within the model:
 
 -  They can be referenced by an Image node.
@@ -21,7 +21,7 @@ means that they can be referred to from more than one point within the model:
 
 
 ROI attributes and simple children
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------
 
 The ROI node has some basic properties attached to it:
 
@@ -35,7 +35,7 @@ The ROI node has some basic properties attached to it:
 -  An annotation reference linking an annotation to this ROI (optional).
 
 ROI complex children
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 The ROI node has a choice of ONE child operation node. At the moment, the
 only choice is Union, meaning it is composed of the union of all its
@@ -44,14 +44,14 @@ available of adding other composition methods in the future. There are
 currently no plans in place for this however.
 
 Shape nodes
-^^^^^^^^^^^
+-----------
 
 The shape nodes define the geometry and appearance of the ROI. Each
 shape is a 2D object that exists within a single Z plane of an Image.
 (This will change with a future version of the schema).
 
 Shape attributes and simple children
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 The shape node has five groups of information, four of which are
 attributes or simple children.
@@ -95,7 +95,7 @@ attributes or simple children.
 
 
 Shape complex children
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 The fifth part is the geometry. The Shape node has a choice of EIGHT
 child geometry nodes. At the moment the choice is:
@@ -121,7 +121,7 @@ child geometry nodes. At the moment the choice is:
 -  Rectangle - specified by an upper left corner and a width and height.
 
 3D ROI
-^^^^^^
+------
 
 The current method of defining a ROI in three dimensions is as a Union
 of Shape objects, each of which defines the geometry where that 3D ROI

@@ -49,7 +49,7 @@ In the schema there is support for the following objects:
    Channel of an Image.
 
 Filters and Dichroics in the optical path
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------------
 
 .. _figure-light-path:
 
@@ -81,7 +81,7 @@ Key for figure :ref:`figure-light-path`
 #. The beam may be further filtered before reaching a detector.
 
 Filter data structure in OME-XML
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------
 
 The Filter data elements are part of the central OME Schema. The
 filters are part of the Instrument block. Each instrument can contain
@@ -148,7 +148,7 @@ have been used and their order is specified.
    Attributes within the Filter objects
 
 Sample pieces of .ome.xml files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 
 This first example shows the Instrument side - the Filter/Dichroic/FilterSet 
 structure of the resulting xml.
