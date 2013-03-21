@@ -21,21 +21,18 @@ The OME Model is a specification for storing data on biological imaging.
 The model includes image parameters, such as XYZ dimensions, pixels type
 etc. as well as extensive metadata on image acquisition, annotation,
 regions of interest (ROIs) etc. This common specification is essential
-for exchange of image data between different software packages.
+for the exchange of image data between different software packages.
 
 
--  Want to find the latest **June 2012 Schema** specification for OME-XML
-   or OME-TIFF? Check the 
-   :schema_plone:`schema location <>` page that always has links to the latest 
-   version and latest auto-generated documentation.
+-  The latest specification for OME-XML is available on our website
+   :schema_plone:`schema location <>` pages.
 
 -  If you have used OME-XML, OME-TIFF, Bio-Formats or OMERO in your work
    find the 
    :about_plone:`correct citations <licensing-attribution/citing-ome>` to use.
 
-We have received support from several companies who are writing files using 
-our file formats, for details see our full list of 
-:about_plone:`Partners <partners>`.
+We have received support from several companies who use our file formats, for 
+details see our list of :about_plone:`Partners <partners>`.
 
 
 ********
@@ -91,9 +88,8 @@ Specifications
 
 .. only:: html
 
-    View :doc:`our proposal <specifications/index>` for a 
-    specification, to describe as completely as possible a specific imaging 
-    experiment.
+    View :doc:`our specification <specifications/index>` for a file which 
+    describes a specific imaging experiment as fully as possible.
 
     Or read our published paper 
     `Linkert et al (2010), J. Cell Biol. 189(5):777-782 <http://jcb.rupress.org/content/189/5/777>`_
