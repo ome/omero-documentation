@@ -69,7 +69,7 @@ and carries information related to the current users session.
       Session session;
       session.getUuid();       // Unique identifier; functions as a temporary password. DO NOT SHARE IT. 
       session.getTimeToIdle(); // Number of milliseconds which the user can idle without session timeout
-      session.getTimeToLove(); // Total number of milliseconds for which the session can live
+      session.getTimeToLive(); // Total number of milliseconds for which the session can live
       session.getStarted();    // Start of session
       session.getClosed();     // if != null, then session is closed
 
