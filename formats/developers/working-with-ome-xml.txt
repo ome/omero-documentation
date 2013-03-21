@@ -1,16 +1,16 @@
-Using OME-XML in your work
-==========================
+Using OME-XML
+=============
 
 
-How to use OME schema elements in your own XML files.
+This sections explains how to use OME schema elements in your own XML files.
 
 .. note:: 
-    The correct attribution for work derived, under the Creative Commons
-    licence, from our schema files is:
+    The correct attribution for work derived from our schema files under the 
+    Creative Commons licence is:
     **"This work is derived in part from the OME specification.
     Copyright (C) 2002-2013 Open Microscopy Environment"**
 
-We would always encourage people to make use of the OME Data Model as a
+We encourage people to make use of the OME Data Model as a
 whole by using the OME-XML and OME-TIFF formats directly. If you need to
 store additional user-specific data, the correct approach is to embed it
 within the OME Data Model using Structured Annotations. These provide a
@@ -19,7 +19,7 @@ OME model metadata, while still maintaining full compatibility with OME-XML
 and OME-TIFF files, ensuring your file can be read by any application 
 supporting these formats.
 
-If this approach will not work for you, we would first encourage you to
+If this approach will not work for you, we would encourage you to
 contact us via the :forum:`forums <>` and :mailinglist:`mailing lists <>` as 
 we may be able to help you structure your additions so compatibility can be 
 maintained. Fully compatible and exchangeable files is what this project all 
@@ -32,8 +32,8 @@ practice for this situation.
 What not to do
 --------------
 
-#. **Adding arbitrary items to the OME Model and still calling it OME-XML
-   or OME-TIFF**
+#. Adding arbitrary items to the OME Model and still calling it OME-XML
+   or OME-TIFF
 
    We cannot stress enough that this is a **very bad** approach! If you
    simply insert your own custom nodes at arbitrary points within the
@@ -47,8 +47,8 @@ What not to do
    investigate, which eats into the time we have available to work on
    new features and formats.
 
-#. **Adding or removing arbitrary items to/from the OME Model by copying
-   our structure and calling it something else**
+#. Adding or removing arbitrary items to/from the OME Model by copying
+   our structure and calling it something else
 
    This is also **not** a good approach. If you copy the OME Model and
    then make changes (whether by deletion or addition) you are also
@@ -63,7 +63,7 @@ What not to do
    who encounters an OME node in an XML document to be able to trust
    its structure, as well as validate and parse it.
 
-#. **A 'pick and mix' by copying our structure**
+#. A 'pick and mix' by copying our structure
 
    While we have changed the licence the schema files for the OME Model
    are released under to allow this approach, we would not encourage
@@ -81,7 +81,7 @@ What to do
 If you have to define your own schema that will make use of our OME
 model, there are two approaches:
 
-#. **Wrapping our entire OME Model in your custom model**
+#. Wrapping our entire OME Model in your custom model
 
    The entire OME Model, when used in an instance document, is
    completely contained inside the ``<OME>`` node. It is possible to
@@ -99,7 +99,7 @@ model, there are two approaches:
    included like this will be easier to upgrade to newer schema
    releases using our standard transform.
 
-#. **A 'pick and mix' by referencing parts of our structure**
+#. A 'pick and mix' by referencing parts of our structure
 
    The least desirable valid approach is to individually include small
    independent parts of the model. Any of the items defined at the top
@@ -137,9 +137,9 @@ sample-third-party.xml
 
     <?xml version="1.0" encoding="UTF-8"?>
     <CustomTag
-        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2013-01"
+        xmlns="http://www.example.org/SampleThirdPartySchema/2013-01"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2013-01
+        xsi:schemaLocation="http://www.example.org/SampleThirdPartySchema/2013-01
             file:sample-third-party.xsd">
 
         <YourNodes>
@@ -183,8 +183,8 @@ sample-third-party.xsd
     <xs:schema 
         xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
 
-        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2013-01" 
-        targetNamespace="http://www.openmicroscopy.org/Schemas/SampleThirdParty/2013-01" 
+        xmlns="http://www.example.org/SampleThirdPartySchema/2013-01" 
+        targetNamespace="http://www.example.org/SampleThirdPartySchema/2013-01" 
         xmlns:xs="http://www.w3.org/2001/XMLSchema" 
         version="1" 
         elementFormDefault="qualified">
@@ -235,9 +235,9 @@ sample-third-party-pieces.xml
 
     <?xml version="1.0" encoding="UTF-8"?>
     <CustomTag
-        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2013-01"
+        xmlns="http://www.example.org/SampleThirdPartySchemaPieces/2013-01"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2013-01
+        xsi:schemaLocation="http://www.example.org/SampleThirdPartySchemaPieces/2013-01
             file:sample-third-party-pieces.xsd">
 
         <YourNodes>
@@ -289,8 +289,8 @@ sample-third-party-pieces.xsd
     <xs:schema 
         xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
 
-        xmlns="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2013-01" 
-        targetNamespace="http://www.openmicroscopy.org/Schemas/SampleThirdPartyPieces/2013-01" 
+        xmlns="http://www.example.org/SampleThirdPartySchemaPieces/2013-01" 
+        targetNamespace="http://www.example.org/SampleThirdPartySchemaPieces/2013-01" 
         xmlns:xs="http://www.w3.org/2001/XMLSchema" 
         version="1" 
         elementFormDefault="qualified">
