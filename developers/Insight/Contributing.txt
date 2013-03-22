@@ -25,7 +25,11 @@ Requirements
 Running code
 ~~~~~~~~~~~~
 
-It is helpful to setup the project in `Eclipse <http://www.eclipse.org>`_.
+It is helpful to set up the project in `Eclipse <http://www.eclipse.org>`_.
+Because the OMERO Java and Python source files are encoded in UTF-8, ensure
+that the encoding in Eclipse
+(:menuselection:`Preferences --> General --> Workspace --> Text file encoding`)
+is also set to UTF-8.
 
 Build system
 ~~~~~~~~~~~~
