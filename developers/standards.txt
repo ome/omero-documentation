@@ -45,11 +45,11 @@ People are welcome to speak up for things that they would prefer or pet
 peeves that they have. I will be pulling general wisdom from the
 following:
 
--  ` Mozilla Coding Style
+-  `Mozilla Coding Style
    Guide <http://www.mozilla.org/hacking/mozilla-style-guide.html>`_
--  ` Mono Coding
+-  `Mono Coding
    Guidelines <http://www.mono-project.com/Coding_Guidelines>`_
--  ` GNU Coding
+-  `GNU Coding
    Standards <http://www.gnu.org/prep/standards/html_node/index.html>`_
 -  ...
 
@@ -58,7 +58,12 @@ First versions of our coding styles are available from git at:
 -  :sourcedir:`docs/styles`
 
 Eventually all code will be formatted using these settings and the
-` Eclipse 3.1+ <http://eclipse.org>`_ formatter.
+`Eclipse 3.1+ <http://eclipse.org>`_ formatter. Because the OMERO Java
+and Python source files are encoded in UTF-8, ensure that the encoding
+in Eclipse
+(:menuselection:`Preferences --> General --> Workspace --> Text file encoding`)
+is also set to UTF-8. A policy of UTF-8 encoding for C++ source files is under
+consideration, along with instructions for configuring MSVC accordingly.
 
 Security
 ~~~~~~~~
