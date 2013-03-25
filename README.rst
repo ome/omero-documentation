@@ -455,14 +455,22 @@ pages, it is advised to store it in a seperate file without the default
 Writing Conventions
 *******************
 
-* Do not use contractions (can't, isn't, I'll, etc.) or '&' in the documentation.
-* All H1 and H2 level headings should have a capital letter at the start of each word.
-* All sub-headings (H3 +) should begin with a capital letter for the first word and
+* Do not use contractions (can't, isn't, I'll, etc.) or '&' in the 
+  documentation.
+* All H1 and H2 level headings should have a capital letter at the start of 
+  each word.
+* All sub-headings (H3 +) should begin with a capital letter for the first 
+  word and
   continue in lowercase, except where they refer to terms which are
   abbreviated in the text e.g. Virtual Machine.
 * Use the full product name, e.g. OMERO.insight instead of Insight.
 * Avoid using resp. in brackets to refer to alternative file names etc. Just
   use 'or'.
 * Use full words rather than symbols in headings if possible.
-* When giving instructions, address the user as 'you' and try to maintain a professional
+* When giving instructions, address the user as 'you' and try to maintain a 
+  professional
   attitude - i.e. no random asides about making coffee or smilies!
+* Bullet point lists should begin with a capital letter and end with a full 
+  stop if each point is a complete sentence, or more than one sentence. If 
+  not, no punctuation is necessary 
+  (see http://oxforddictionaries.com/words/bullet-points).
