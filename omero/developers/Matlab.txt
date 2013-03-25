@@ -712,29 +712,22 @@ Delete data
 
 It is possible to delete Projects, Datasets, Images, ROIs etc. and
 objects linked to them depending on the specified options (see
-:doc:`/developers/Modules/Delete`).
+:doc:`/developers/Modules/Delete`). For example, images of known identifiers 
+can be deleted from the server using the 
+:source:`deleteImages <components/tools/OmeroM/src/delete/deleteImages.m>` 
+function::
 
--  **Delete Image**.
+	deleteImages(session, imageIds);
 
-In the following example, we create an Image and delete it.
+.. seealso::
 
-::
+    :source:`deleteProjects <components/tools/OmeroM/src/delete/deleteProjects.m>`
 
-    % First create the image.
-    image = omero.model.ImageI;
-    image.setName(omero.rtypes.rstring('image name'))
-    image.setAcquisitionDate(omero.rtypes.rtime(2000000));
-    image = service.saveAndReturnObject(image);
-    imageId = image.getId().getValue();
+    :source:`deleteDatasets <components/tools/OmeroM/src/delete/deleteDatasets.m>`
 
-    % Create the command to delete the Image using a delete callback.
-    % You can delete more than one image at a time.
-    list = javaArray('omero.api.delete.DeleteCommand', 1);
-    % Indicate the type of object e.g. /Image, /Project etc., the identifier
-    % and the annotations to keep (nothing in the following example)
-    list(1) = omero.api.delete.DeleteCommand('/Image', imageId, []);
-    %Delete the image.
-    prx = session.getDeleteService().queueDelete(list);
+    :source:`deleteScreens <components/tools/OmeroM/src/delete/deleteScreens.m>`
+
+    :source:`deletePlates <components/tools/OmeroM/src/delete/deletePlates.m>`
 
 Render Images
 -------------
