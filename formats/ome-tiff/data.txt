@@ -2,7 +2,7 @@ OME-TIFF Sample Data
 ====================
 
 
-This page provides some sample data in OME-TIFF format, as well as an
+This section provides some sample data in OME-TIFF format, as well as an
 analysis of several file formats and compression techniques. There are
 also some artificial sample datasets (i.e. not produced from an
 acquisition system) designed for developer testing that illustrate some
@@ -175,8 +175,9 @@ TIFF files.
 Space required on disk
 ----------------------
 
-As shown in the table above, and the chart :ref:`figure-tiff-chart`, our figures indicate
-that the most efficient format for space is OME-TIFF compressed with the
+As shown in the table above, and the chart :ref:`figure-tiff-chart`, our 
+figures indicate that the most efficient format for space is OME-TIFF 
+compressed with the
 `7-zip <http://www.7-zip.org/>`_ utility. Also good are gzipped OME-XML
 (omez) and zipped OME-TIFF.
 
