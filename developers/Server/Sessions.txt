@@ -30,7 +30,7 @@ In short:
 -  Sessions are a replacement for the standard JavaEE security infrastructure.
 -  Sessions unify the Blitz and RMI session handling, making working
    with Java RMI more like Blitz (since the JavaEE interaction is
-   essentially "conversationless")
+   essentially "conversationless").
 -  Sessions provide the ability (especially in Blitz) to quit a session and  
    rejoin it later as long as it has not timed out, possibly useful for moving 
    from one machine to another.
@@ -43,7 +43,7 @@ In short:
    `http://terracotta.org/ <http://terracotta.org/>`_, sessions could
    serve as a "distributed" cache.
 -  Sessions prevent sending passwords in plain text or any other form. After 
-   that, all session interaction takes place via a shared secret key.
+   that, all session interactions take place via a shared secret key.
 
 Design
 ------
@@ -86,7 +86,7 @@ Other properties are for use by clients:
       session.getDefaultEventType();   // Default event type (the third argument "User" to Principal above)
       session.getDefaultPermissions(); // String representation of umask (e.g. "rw----")
 
-After changing a property on the session returned by createSession()
+After changing a property on the session returned by ``createSession()``
 it is possible to save them to the server via:
 
 ::
@@ -108,7 +108,7 @@ In :doc:`/developers/server-blitz`, once the connection to a
 possible to reconnect to any of the services created using that
 connection. Now it is possible to reacquire the session if it is still
 active, by passing the previous session UUID as your password (User
-principal is ignored.)
+principal is ignored).
 
 ::
 
