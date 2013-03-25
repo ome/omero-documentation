@@ -42,11 +42,9 @@ clean:
 	-rm -rf $(BUILDDIR)/* 
 
 html:
-	-ln -s ../images images
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS)	 $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
-	-rm images
 
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
@@ -105,12 +103,10 @@ latex:
 		  "(use \`make latexpdf' here to do that automatically)."
 
 latexpdf:
-	-ln -s ../images images
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/latex all-pdf
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
-	-rm images
 
 text:
 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
