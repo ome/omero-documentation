@@ -16,13 +16,13 @@ annotations <developers/Modules/StructuredAnnotations>`.
 The structure of the SA used in the schema is shown below,
 along with all the possible attachment points in the model.
 
-.. figure:: /images/formats/Annotation-Top.*
+.. figure:: /images/Annotation-Top.*
    :align: center
    :alt: StructureAnnotation Model branch
 
    The StructureAnnotation branch of the OME Model
 
-.. figure:: /images/formats/Annotation-Points.*
+.. figure:: /images/Annotation-Points.*
    :align: center
    :alt: Annotation Points
 
