@@ -64,12 +64,11 @@ count. In addition, if the string is longer than before, it will no
 longer fit at its old offset, unless the comment was at the end of the
 file, so the entry's offset might need to change as well.
 
-We have included a method within Bio-Formats,
-``TiffSaver.overwriteIFDValue()``, that efficiently alters a directory entry
-with a minimum of waste. The count field of the entry is intelligently
-updated to match the new length. If the new length is longer than the
-old length, it appends the new data to the end of the file and updates
-the offset field; if not, or if the old data is already at the end of
+The ``TiffSaver.overwriteIFDValue()`` method within Bio-Formats, efficiently 
+alters a directory entry with a minimum of waste. The count field of the entry 
+is intelligently updated to match the new length. If the new length is longer 
+than the old length, it appends the new data to the end of the file and 
+updates the offset field; if not, or if the old data is already at the end of
 the file, it overwrites the old data in place.
 
 The following program extracts comments from TIFF files, prompts the
@@ -79,8 +78,8 @@ comments back to the files. It requires the
 
 `EditTiffComment.java <http://git.openmicroscopy.org/?p=bioformats.git;a=blob;f=components/bio-formats/utils/EditTiffComment.java;hb=HEAD>`_
 
-The comment string is acquired using TiffParser.getComment(f), and
-updated with TiffSaver.overwriteComment(f, xml).
+The comment string is acquired using ``TiffParser.getComment(f)``, and
+updated with ``TiffSaver.overwriteComment(f, xml)``.
 
 To quickly edit an OME-TIFF files comment on the command line use
 ``tiffcomment -edit filename.ome.tiff`` from the 
