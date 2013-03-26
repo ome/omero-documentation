@@ -10,14 +10,18 @@ format. It assumes familiarity with both the
 Storing OME-XML within a TIFF
 -----------------------------
 
-An OME-TIFF dataset:
+An OME-TIFF dataset consists of one or more files in standard TIFF or 
+`BigTIFF format <http://bigtiff.org/>`_, with the extension ``.ome.tif`` or 
+``.ome.tiff``, and an identical (or in the case of multiple files, nearly 
+identical) string of OME-XML metadata embedded in the ImageDescription tag of 
+each file's first IFD (Image File Directory).
 
-#. Consists of one or more files in standard TIFF or `BigTIFF
-   format <http://bigtiff.org/>`_.
-#. Each with the extension ``.ome.tif`` or ``.ome.tiff``.
-#. Each with an identical (or in the case of multiple files, nearly
-   identical) string of OME-XML metadata embedded in the
-   ImageDescription tag of each file's first IFD
+This string is a standard block of OME-XML, except that instead of
+storing pixels as BinData elements with base64-encoded pixel data
+beneath them, it references pixels with TiffData elements that specify
+which TIFF IFD corresponds to each image plane. As such, the OME-XML
+string can be regarded as a "metadata block" because the actual pixels
+are stored within the TIFF structure, not the XML.
 
 .. _figure-tiff-header:
 
@@ -28,22 +32,10 @@ An OME-TIFF dataset:
 
    OME-TIFF header
 
-OME-XML as a metadata block
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This string is a standard block of OME-XML, except that instead of
-storing pixels as BinData elements with base64-encoded pixel data
-beneath them, it references pixels with TiffData elements that specify
-which TIFF IFD corresponds to each image plane. As such, the OME-XML
-string can be regarded as a "metadata block" because the actual pixels
-are stored within the TIFF structure, not the XML.
-
-Where the OME-XML is stored
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The diagram :ref:`figure-tiff-header` (adapted from the TIFF specification) shows the
-organization of a TIFF header along with the placement of the OME-XML
-metadata block. A TIFF file can contain any number of IFDs, with each
+The diagram :ref:`figure-tiff-header` (adapted from the TIFF specification) 
+shows the organization of a TIFF header along with the placement of the 
+OME-XML metadata block. A TIFF file can contain any number of IFDs, with each
 one specifying an image plane along with certain accompanying metadata
 such as pixel dimensions, physical dimensions, bit depth, color table,
 etc. One of the fields an IFD can contain is ImageDescription, which
@@ -53,22 +45,21 @@ block—any TIFF library capable of parsing IFDs and extracting an
 ImageDescription comment can easily obtain an OME-TIFF file's entire set
 of metadata as OME-XML.
 
-Embed OME-XML in the first IFD only
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note:: 
+    A TIFF file contains one IFD per image plane, but the
+    OME-XML metadata block is stored only in the first IFD structure.
+    However, for an image sequence distributed across multiple OME-TIFF
+    files, each file will contain a copy of the OME-XML metadata block
+    (see `Storing partial metadata blocks`_ below for exceptions to
+    this rule). Thus, if any files are lost, the metadata is preserved. The
+    OME-XML block in each file is nearly identical—the only difference is in
+    the TiffData elements appearing beneath Pixels elements, since each TIFF
+    file contains a different portion of the image data (see `Distributing
+    an image sequence across multiple OME-TIFF files`_ below).
 
-A couple of notes: a TIFF file contains one IFD per image plane, but the
-OME-XML metadata block is stored only in the first IFD structure.
-However, for an image sequence distributed across multiple OME-TIFF
-files, each file will contain a copy of the OME-XML metadata block
-(though see `Storing partial metadata blocks`_ below for exceptions to
-this rule). Thus, if any files are lost, the metadata is preserved. The
-OME-XML block in each file is nearly identical—the only difference is in
-the TiffData elements appearing beneath Pixels elements, since each TIFF
-file contains a different portion of the image data (see `Distributing
-an image sequence across multiple OME-TIFF files`_ below).
 
-Understanding DimensionOrder
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+DimensionOrder
+^^^^^^^^^^^^^^
 
 As mentioned above, the standard OME-XML format encodes image planes as
 base64 character blocks contained within BinData elements beneath a
@@ -80,9 +71,6 @@ contains two focal planes, three time points and two channels, the order
 would be: Z0-T0-C0, Z1-T0-C0, Z0-T1-C0, Z1-T1-C0, Z0-T2-C0, Z1-T2-C0,
 Z0-T0-C1, Z1-T0-C1, Z0-T1-C1, Z1-T1-C1, Z0-T2-C1, Z1-T2-C1).
 
-OME-TIFF uses DimensionOrder too
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Since a multi-page TIFF has no limit to the number of image planes it
 can contain, the same scheme described above for specifying the
 rasterization order works within the OME-TIFF file. The only difference
@@ -90,11 +78,11 @@ is that instead of the pixels being encoded in base64 inside BinData
 elements, they are stored within the TIFF file in the standard fashion,
 one per IFD; see `The TiffData element`_ below for specifics.
 
-Informational comment
-^^^^^^^^^^^^^^^^^^^^^
+TIFF comments
+^^^^^^^^^^^^^
 
-When embedding your OME-XML string as a TIFF comment, we recommend
-prefacing it with the following informative comment:
+When embedding your OME-XML string as a TIFF comment, it is best practice to
+preface it with the following informative comment:
 
 ::
 
@@ -102,17 +90,17 @@ prefacing it with the following informative comment:
     crucial dimensional parameters and other important metadata. Please edit
     cautiously (if at all), and back up the original data before doing so.
     For more information, see the OME-TIFF web site:
-    https://www.openmicroscopy.org/site/support/file-formats/ome-tiff. -->
+    http://www.openmicroscopy.org/site/support/file-formats/ome-tiff. -->
 
 .. _element:
 
 The TiffData element
 --------------------
 
-As the illustration above shows, all that is needed to indicate that the
-pixels are located within the enclosing TIFF structure is a TiffData
-element with no attributes. By default, the first IFD corresponds to the
-first image plane (Z0-T0-C0), and the rasterization order of subsequent
+As the illustration :ref:`figure-tiff-header` shows, all that is needed to 
+indicate that the pixels are located within the enclosing TIFF structure is a 
+TiffData element with no attributes. By default, the first IFD corresponds to 
+the first image plane (Z0-T0-C0), and the rasterization order of subsequent
 IFDs is given by the Pixels element's DimensionOrder attribute, as
 described above.
 
@@ -280,10 +268,10 @@ Fragment 4
 | 5     | Z0-T0-C0        |
 +-------+-----------------+
 
-Any number of TiffData elements may be provided. In this case, we have
-explicitly defined the dimensional positions of each of the first six
-IFDs, effectively overriding the rasterization given by DimensionOrder,
-storing the planes in reverse temporal order.
+Any number of TiffData elements may be provided. In this case, the dimensional 
+positions of each of the first six IFDs are explicitly defined, effectively 
+overriding the rasterization given by DimensionOrder, storing the planes in 
+reverse temporal order.
 
 
 For details on validating your OME-XML metadata block, see the
@@ -303,49 +291,28 @@ elements and attributes, the OME-XML metadata block can unambiguously
 define which dimensional positions correspond to which IFDs from which
 files. Each OME-TIFF need not contain the same number of images.
 
-Embed the OME-XML block in every file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-For redundancy, a (nearly) identical OME-XML metadata block is inserted
-into the first IFD of each constituent OME-TIFF file (though see
-`Storing partial metadata blocks`_ below for exceptions to this rule).
-The reason for this approach is redundancy: if even one of the
-constituent files survives a data crash, the metadata survives. And the
-space tradeoff for duplicating the OME-XML metadata blocks is acceptable
-when compared to the bulk of the pixel data in most cases, provided a
-suitable number of planes are stored in each TIFF.
-
-Identical OME-XML in each file except for UUID element
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+When using this multiple file method, a nearly identical OME-XML metadata 
+block should be inserted into the first IFD of each constituent OME-TIFF file 
+(although `storing partial metadata blocks`_ is also possible, see below).
+This is for redundancy purposes: if even one of the
+constituent files survives a data crash, the metadata survives. The
+space tradeoff of this duplication is acceptable when compared to the bulk of 
+the pixel data in most cases, provided a suitable number of planes are stored 
+in each TIFF.
 
 The only difference between the OME-XML metadata block per file is the
 UUID attribute of the root OME element. This value should be a distinct
 UUID value for each file, so that each TiffData element can
 unambiguously reference its relevant file using a UUID child element.
-Note that the FileName attribute of the UUID is optional, but strongly
-recommended—otherwise, the OME-TIFF reader must scan OME-TIFF files in
-the working directory looking for matching UUID signatures.
 
-One file per timepoint per channel
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note::
+    The FileName attribute of the UUID is optional, but strongly
+    recommended—otherwise, the OME-TIFF reader must scan OME-TIFF files in
+    the working directory looking for matching UUID signatures.
 
-Though OME-TIFF can support any image organization, for simplicity we
-recommend using one TIFF file per timepoint per channel, with the focal
-planes for that timepoint and channel stored sequentially within the
-TIFF. This structure makes for very easy TiffData elements. The image
-series illustrated in the table to the right contains four images (IFDs)
-per TIFF. Even if the files were to be renamed, an OME-TIFF reader would
-still be able to sort out which planes are which by checking the
-TiffData elements.
-
-Image organization is flexible
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Another complicating factor is that OME-XML files can contain multiple
-OME images, through the use of additional Image elements. Fortunately,
-the TiffData element is powerful enough to encapsulate these cases, as
-long as OME-TIFF writers take care to properly specify which IFDs
-correspond to which Image elements.
+OME-TIFF can support any image organization. However, using one TIFF file per 
+timepoint per channel (with the focal planes for that timepoint and channel 
+stored sequentially within the TIFF) makes for very easy TiffData elements.
 
 Multi-file example
 ^^^^^^^^^^^^^^^^^^
@@ -475,14 +442,14 @@ And so on for files:
 Storing partial metadata blocks
 -------------------------------
 
-Normally, the size of the binary pixel data dwarfs that of the OME-XML
-text string, meaning there is not too much overhead when embedding a
-copy of the OME-XML in each constituent file of a multi-file OME-TIFF
-dataset. However, in some cases, the OME-XML string may be
-proportionately larger than the binary data of each file. Common reasons
-for this situation including storing each image plane in its own TIFF
-file, and/or having a large amount of metadata such as plane-specific
-timestamps and many structured annotations in the OME-XML.
+Storing multiple planes per OME-TIFF file, and keeping the OME-XML metadata 
+embedded in every file's header, is recommended but it is not always 
+practical. Normally, the OME-XML metadata block is small in comparison with 
+the binary pixel data in the file, but in some cases, it may be 
+proportionately larger. Common reasons for this situation including storing 
+each image plane in its own TIFF file, and/or having a large amount of 
+metadata such as plane-specific timestamps and many structured annotations in 
+the OME-XML.
 
 For example, if you have a dataset with 1,000 time points, with each
 plane recorded at 512x512 as uint8 pixel type, storing each plane in its
@@ -492,15 +459,18 @@ a copy of that metadata in every file would result in a dataset nearly
 20 times larger than before, requiring ~5.5MB of disk per file, and more
 than 5GB total.
 
-While we advise storing multiple planes per OME-TIFF file, and keeping
-the OME-XML metadata embedded in every file's header, we realize there
-are times when doing so simply isn't possible. Thus, as of the 
+Therefore,, as of the 
 :doc:`2011-06 version of the OME-XML schema </schemas/june-2011>` 
-onwards, we have implemented a solution to this problem: the ``BinaryOnly``
+onwards, a solution to this problem has been implemented: the ``BinaryOnly``
 element.
 
-First, choose one OME-TIFF file to serve as the "master" file containing
-the metadata. In the remaining files, use an OME-XML block similar to:
+With this approach, you can embed the OME-XML metadata in as many or as
+few files as you like. For example, you may want to store it in every
+tenth file to retain some level of redundancy.
+
+To do this, choose one OME-TIFF file to serve as the "master" file containing
+the metadata. In the remaining files where you do not want to store the 
+metadata, use an OME-XML block similar to:
 
 ::
 
@@ -516,7 +486,5 @@ the metadata. In the remaining files, use an OME-XML block similar to:
 Where ``MetadataFile`` is the master OME-TIFF file containing the actual
 OME-XML metadata block, and ``UUID`` is that file's UUID.
 
-With this approach, you can embed the OME-XML metadata in as many or as
-few files as you like. For example, if you want to store it in every
-tenth file to retain some level of redundancy, you certainly could.
+
 

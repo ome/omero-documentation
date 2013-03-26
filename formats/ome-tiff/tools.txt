@@ -13,7 +13,7 @@ with OME-XML:
    OME-XML. It can import data from OME-XML and OME-TIFF, as well as
    export to OME-TIFF.
 
-In addition to the above packages, this page outlines several useful
+In addition to the above packages, this section outlines several useful
 tools, some of which we have developed ourselves, for working with
 documents in the OME-XML and OME-TIFF formats.
 
@@ -108,11 +108,11 @@ Also available is a web-based `OME-XML
 validator <http://validator.openmicroscopy.org.uk/>`_ for checking files
 in OME-XML or OME-TIFF formats, including:
 
--  Conformance to the OME-XML schema
--  Listing missing internal references
--  Listing external references
--  Correct TiffData block usage
--  Frame counts in TIFF files
+-  conformation to the OME-XML schema
+-  listing missing internal references
+-  listing external references
+-  correct TiffData block usage
+-  frame counts in TIFF files
 
 Alternately, you can use the more general online `W3C XML
 validator <http://www.w3.org/2001/03/webdata/xsv>`_ to validate your

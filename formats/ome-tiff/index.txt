@@ -20,11 +20,11 @@ Terminology
 Rationale
 ---------
 
-The Open Microscopy Environment consortium has defined a file format
+The Open Microscopy Environment Consortium has defined a file format
 called OME-XML for biological image data including a rich set of
 microscopy-specific metadata. OME-XML's major strength lies in its
 extensible, human-readable XML schemas for image metadata.
-Unfortunately, OME-XML has a number of drawbacks:
+Unfortunately, OME-XML has some of drawbacks:
 
 #. Decoding base64-encoded image planes is computationally expensive.
 #. There is no facility to split a dataset among multiple files on disk.
@@ -45,16 +45,14 @@ An OME-TIFF dataset has the following characteristics:
 #. A complete OME-XML metadata block describing the dataset is embedded
    in each TIFF file's header. Thus, even if some of the TIFF files in a
    dataset are misplaced, the metadata remains intact.
-#. Though our initial focus has been on storing individual datasets as
-   collections of OME-TIFF files, the OME-XML metadata block may contain
+#. The OME-XML metadata block may contain
    anything a standard OME-XML file can, including multiple OME images
    with multiple sets of pixels.
-#. The only conceptual difference between OME-XML and OME-TIFF is that
-   instead of encoding pixels as base64 chunks within the XML, OME-TIFF
-   uses the standard TIFF mechanism for storing one or more image planes
-   in each of the constituent files. However, since TIFF is an image
-   format, it probably makes sense to use OME-TIFF only when there is at
-   least one image plane.
+#. OME-TIFF uses the standard TIFF mechanism for storing one or more image 
+   planes in each of the constituent files, instead of encoding pixels as 
+   base64 chunks within the XML. Since TIFF is an image
+   format, it makes sense to only use OME-TIFF as opposed to OME-XML, when 
+   there is at least one image plane.
 
 |
 
