@@ -359,6 +359,7 @@ development server:
 ::
 
       $ omero config set omero.web.application_server development
+      $ omero config set omero.web.debug True
       $ omero web start
 
 Now you should be able to connect on the same machine with:
