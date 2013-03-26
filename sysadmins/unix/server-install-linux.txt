@@ -37,8 +37,8 @@ Ubuntu 10.04 (LTS)       3.3          4.3.x, 4.4.x
 In the remainder of this guide you should adjust version numbers to suit
 the distribution that you are targeting.
 
-Prerequisites: the base software install
-----------------------------------------
+Prerequisites
+-------------
 
 You require at least a clean minimal Debian or Ubuntu installation and a
 non-root user account that has sudo privileges.
@@ -114,7 +114,7 @@ way:
 
 and select the correct java from the displayed list.
 
-Other dependencies
+OMERO dependencies
 ^^^^^^^^^^^^^^^^^^
 
 Now we are ready to install the rest of our prerequisite software
@@ -135,8 +135,63 @@ packages:
 
 	      $ sudo apt-get install liblzo2-2
 
-Setup environment
------------------
+OMERO installation
+------------------
+
+Now that all of the prerequisites are installed and configured we can get
+to the important business of setting up the OMERO.server. First we need
+to create a home for our server and move into that directory. I like to
+install certain software, such as OMERO, locally into a directory called
+apps in my home directory as follows:
+
+::
+
+      $ mkdir apps
+      $ cd apps
+      $ mkdir OMERO
+      $ cd OMERO
+
+.. note::
+	Recall that earlier we set the :envvar:`OMERO_HOME` environment variable
+	to :file:`~/apps/OMERO/OMERO.server`. If you change the location that you
+	wish to install OMERO to then you will also have to alter your
+	:envvar:`OMERO_HOME` environment variable to reflect this.
+
+OMERO |release|
+^^^^^^^^^^^^^^^
+
+Release versions of OMERO.server can downloaded from the
+:omero_plone:`OMERO downloads <downloads>` page. Assuming that you downloaded
+a release version of OMERO.server, extract it from the zip archive:
+
+.. parsed-literal::
+
+      $ unzip OMERO.server-|release|-ice33-byy.zip
+
+Give your OMERO software install a nice local name to save some typing
+later, to reflect what we set :envvar:`OMERO_HOME` to, and to make it easy to
+manage the installation of newer versions of the server at a later date:
+
+.. parsed-literal::
+
+      $ ln -s OMERO.server-|release|-ice33-byy  OMERO.server
+
+Development server
+^^^^^^^^^^^^^^^^^^
+
+If you want the development version of OMERO.server, you can clone the source
+code from the project's GitHub account  to build locally::
+
+      $ git clone --recursive https://github.com/openmicroscopy/openmicroscopy
+
+or download a daily build from our
+:omerojob:`build server <lastSuccessfulBuild/artifact/>`
+
+Configuration
+-------------
+
+Environment variables
+^^^^^^^^^^^^^^^^^^^^^
 
 Edit your :file:`.bashrc` file, e.g. **$ vim ~/.bashrc** and add the
 following:
@@ -178,8 +233,8 @@ should give output similar to the following:
 
       ~/apps/OMERO/OMERO.server
 
-Configure software
-------------------
+Database creation
+^^^^^^^^^^^^^^^^^
 
 Now we need to configure our prerequisites so that they are ready for
 OMERO to make use of. For the purposes of this walk-through we shall use
@@ -241,55 +296,9 @@ Which should display a line similar to the following:
 
       tcp        0      0 127.0.0.1:5432          0.0.0.0:*               LISTEN
 
-Install OMERO.server
---------------------
 
-Now that all of the prerequisites are installed and configured we can get
-to the important business of setting up the OMERO.server. First we need
-to create a home for our server and move into that directory. I like to
-install certain software, such as OMERO, locally into a directory called
-apps in my home directory as follows:
-
-::
-
-      $ mkdir apps
-      $ cd apps
-      $ mkdir OMERO
-      $ cd OMERO
-
-.. note::
-	Recall that earlier we set the :envvar:`OMERO_HOME` environment variable
-	to :file:`~/apps/OMERO/OMERO.server`. If you change the location that you
-	wish to install OMERO to then you will also have to alter your
-	:envvar:`OMERO_HOME` environment variable to reflect this.
-
-Release versions of OMERO.server can downloaded from :omero_plone:`OMERO 
-downloads <downloads>` page.
-
-.. note::
-	If you want the development version of OMERO.server, you can clone the 
-	source code from the project's GitHub account at
-	https://github.com/openmicroscopy/openmicroscopy to build
-	locally or download a daily build from our :omerojob:`build
-	server <lastSuccessfulBuild/artifact/>`
-
-Assuming that you downloaded a release version of OMERO.server, extract
-it from the zip archive:
-
-.. parsed-literal::
-
-      $ unzip OMERO.server-|release|-ice33-byy.zip
-
-Give your OMERO software install a nice local name to save some typing
-later, to reflect what we set :envvar:`OMERO_HOME` to, and to make it easy to
-manage the installation of newer versions of the server at a later date:
-
-.. parsed-literal::
-
-      $ ln -s OMERO.server-|release|-ice33-byy  OMERO.server
-
-Configure OMERO.server
-----------------------
+OMERO.server
+^^^^^^^^^^^^
 
 Now we can configure OMERO.server so that it can connect to the postgres
 database:
@@ -360,18 +369,22 @@ client such as OMERO.insight and the following credentials:
       U: root 
       P: root_password
 
-To connect with the webclient or webadmin using the included Django
-development server:
+OMERO.web
+^^^^^^^^^
 
-::
+To connect with the webclient or webadmin using the included Django
+development server::
 
       $ omero config set omero.web.application_server development
       $ omero config set omero.web.debug True
-      $ omero web start
 
-Now you should be able to connect on the same machine with:
+You should be able to start the Web server with::
 
-::
+	$ omero web start
+	Starting django development webserver...
+	Validating models...
+	0 errors found
 
-      http://localhost:4080/webadmin
-      http://localhost:4080/webclient
+	Django version 1.1.1, using settings 'omeroweb.settings'
+	Development server is running at http://0.0.0.0:4080/
+	Quit the server with CONTROL-C.

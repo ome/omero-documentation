@@ -233,6 +233,9 @@ This command should give similar output to the following:
                     |         |          |             |             | ome=CTc/ome  
     (4 rows)
 
+OMERO.server
+^^^^^^^^^^^^
+
 Now tell OMERO.server about our database.
 
 .. parsed-literal::
@@ -288,7 +291,7 @@ Now connect to your OMERO.server using OMERO.insight with the following credenti
 OMERO.web
 ^^^^^^^^^
 
-You can setup the internal web server
+You can setup the internal development web server
 
 ::
 
