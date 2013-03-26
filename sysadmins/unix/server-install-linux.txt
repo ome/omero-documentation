@@ -26,13 +26,14 @@ Distribution       ZeroC Ice version OMERO version
 Debian 6.0               3.3          4.3.x, 4.4.x
 Debian 7.0               3.4              4.4.x
 ------------------ ----------------- --------------
-Ubuntu 10.04 (LTS)       3.3          4.3.x, 4.4.x
-Ubuntu 11.04             3.3          4.3.x, 4.4.x
+Ubuntu 12.04 (LTS)       3.3              4.4.x
 Ubuntu 11.10             3.4              4.4.x
+Ubuntu 11.04             3.3          4.3.x, 4.4.x
+Ubuntu 10.04 (LTS)       3.3          4.3.x, 4.4.x
 ================== ================= ==============
 
 .. note:: 
-	ZeroC Ice can always be built from source code for specific platforms.
+	ZeroC_ Ice can always be built from source code for specific platforms.
 
 In the remainder of this guide you should adjust version numbers to suit
 the distribution that you are targetting.
@@ -70,10 +71,17 @@ packages including those from the repositories that we just enabled:
 
       $ sudo apt-get update
 
-Oracle recently changed their distribution license (OSDL) which means
-that Debian and Ubuntu can no longer distribute Java in their package
-management systems. This means that we have to install the JDK
-separately as follows:
+Java
+^^^^
+
+From Ubuntu 11.10 and onwards, you can install OpenJDK 7 using::
+
+      $ sudo apt-get install openjdk-7-jdk
+
+For earlier versions of Ubuntu, Oracle recently changed their distribution
+license (OSDL) which means that Debian and Ubuntu can no longer distribute
+Java in their package management systems. This means that we have to install
+the JDK separately as follows:
 
 If you are on Debian then:
 
@@ -97,6 +105,20 @@ When you get your prompt back:
 
       $ sudo apt-get install sun-java6-jdk
 
+We also need to ensure that the Sun/Oracle JDK is the active one as we
+end up with the OpenJDK also installed to satisfy dependencies along the
+way:
+
+::
+
+      $ sudo update-alternatives --config java
+
+and select the correct java from the displayed list.
+
+
+Other dependencies
+^^^^^^^^^^^^^^^^^^
+
 Now we are ready to install the rest of our prerequisite software
 packages:
 
@@ -109,24 +131,13 @@ packages:
       $ sudo apt-get install apache2 libapache2-mod-fastcgi
 
 .. note::
-	On Ubuntu some of the packages are slightly different and do not
-	necessarily install ALL of the same software as Debian. For example,
-	python-tables on Ubuntu does not install . As a result, on Ubuntu we may
-	also need to install liblzo otherwise OMERO.tables will fail to start:
+
+	On Ubuntu 11.04 and earlier, ``python-tables`` does not install. We need
+	to install ``liblzo`` otherwise OMERO.tables will fail to start:
 
 	::
 
 	      $ sudo apt-get install liblzo2-2
-
-We also need to ensure that the Sun/Oracle JDK is the active one as we
-end up with the OpenJDK also installed to satisfy dependencies along the
-way:
-
-::
-
-      $ sudo update-alternatives --config java
-
-and select the correct java from the displayed list.
 
 Setup environment
 -----------------
