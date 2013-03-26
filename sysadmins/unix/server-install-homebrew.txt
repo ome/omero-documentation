@@ -116,7 +116,8 @@ Prepare a place for your OMERO code to live, e.g.
     $ mkdir -p ~/code/projects/OMERO
     $ cd ~/code/projects/OMERO
 
-Now clone and build the OMERO github repository:
+If you want the development version of OMERO.server, you can clone the source
+code from the project's GitHub account to build locally:
 
 ::
 
@@ -124,7 +125,7 @@ Now clone and build the OMERO github repository:
     $ cd openmicroscopy && ./build.py
 
 .. note::
-    If you have a github account and you plan to develop code for OMERO then
+    If you have a GitHub account and you plan to develop code for OMERO then
     you should make a fork into your own account then clone this fork to your
     local development machine, e.g.
 
@@ -133,6 +134,14 @@ Now clone and build the OMERO github repository:
         $ git clone --recursive git://github.com/YOURNAMEHERE/openmicroscopy
         $ cd openmicroscopy && ./build.py
 
+If you want the development version of OMERO.server, you can clone the source
+code from the project's GitHub account to build locally::
+
+    $ git clone --recursive https://github.com/openmicroscopy/openmicroscopy
+
+Alternately, you can download a
+:omerojob:`daily build <lastSuccessfulBuild/artifact/>` of the OMERO.server
+from our continuous integration server.
 
 Additional OMERO requirements
 -----------------------------
