@@ -5,10 +5,9 @@ This page walks through the process of installing OMERO.server on a
 machine using a Debian-based Linux distribution. 
 
 .. note:: 
-	This page is gerally applicable to Debian 6.0 (codename: Squeeze) 
-	and Ubuntu 10.x & 11.x (codenames: Lucid Lynx, Maverick Meerkat, Natty Narwhal, 
-	Oneiric Ocelot) installations although there are some small differences which
-	are noted when applicable during the walk-through.
+	This page is generally applicable to Debian and Ubuntu installations
+	although there are some small differences which are noted when applicable
+	during the walk-through.
 
 Distributions
 -------------
@@ -36,7 +35,7 @@ Ubuntu 10.04 (LTS)       3.3          4.3.x, 4.4.x
 	ZeroC_ Ice can always be built from source code for specific platforms.
 
 In the remainder of this guide you should adjust version numbers to suit
-the distribution that you are targetting.
+the distribution that you are targeting.
 
 Prerequisites: the base software install
 ----------------------------------------
@@ -45,7 +44,7 @@ You require at least a clean minimal Debian or Ubuntu installation and a
 non-root user account that has sudo privileges.
 
 First we need to enable the contrib and Non-Free repositories by opening
-**/etc/apt/sources.list** in an editor, e.g. **$ sudo vim
+:file:``/etc/apt/sources.list`` in an editor, e.g. **$ sudo vim
 /etc/apt/sources.list** and editing to add the following lines:
 
 ::
@@ -60,7 +59,7 @@ First we need to enable the contrib and Non-Free repositories by opening
 	For Ubuntu the repository names and locations are different to
 	Debian but you need to enable the **main**, **restricted**, **universe**
 	and **multiverse** repositories. You can do this either by editing
-	**/etc/apt/sources.list** directly, in which case the entries already
+	:file:`/etc/apt/sources.list` directly, in which case the entries already
 	exist but are commented out, or using Synaptic (10.04 & 10.10) or Ubuntu
 	Software Center (11.04 onwards).
 
@@ -115,7 +114,6 @@ way:
 
 and select the correct java from the displayed list.
 
-
 Other dependencies
 ^^^^^^^^^^^^^^^^^^
 
@@ -133,16 +131,14 @@ packages:
 .. note::
 
 	On Ubuntu 11.04 and earlier, ``python-tables`` does not install. We need
-	to install ``liblzo`` otherwise OMERO.tables will fail to start:
-
-	::
+	to install ``liblzo`` otherwise OMERO.tables will fail to start::
 
 	      $ sudo apt-get install liblzo2-2
 
 Setup environment
 -----------------
 
-Edit your **.bashrc** file, e.g. **$ vim ~/.bashrc** and add the
+Edit your :file:`.bashrc` file, e.g. **$ vim ~/.bashrc** and add the
 following:
 
 ::
@@ -262,10 +258,10 @@ apps in my home directory as follows:
       $ cd OMERO
 
 .. note::
-	Recall that earlier we set the **OMERO\_HOME** environment variable
-	to **~/apps/OMERO/OMERO.server**. If you change the location that you
+	Recall that earlier we set the :envvar:`OMERO_HOME` environment variable
+	to :file:`~/apps/OMERO/OMERO.server`. If you change the location that you
 	wish to install OMERO to then you will also have to alter your
-	**OMERO\_HOME** environment variable to reflect this.
+	:envvar:`OMERO_HOME` environment variable to reflect this.
 
 Release versions of OMERO.server can downloaded from :omero_plone:`OMERO 
 downloads <downloads>` page.
@@ -285,7 +281,7 @@ it from the zip archive:
       $ unzip OMERO.server-|release|-ice33-byy.zip
 
 Give your OMERO software install a nice local name to save some typing
-later, to reflect what we set **OMERO\_HOME** to, and to make it easy to
+later, to reflect what we set :envvar:`OMERO_HOME` to, and to make it easy to
 manage the installation of newer versions of the server at a later date:
 
 .. parsed-literal::
@@ -315,7 +311,7 @@ You can also check the values that have been set using:
       $ omero config get
 
 Create a home for your OMERO data, I like to keep mine in
-**~/apps/OMERO/OMERO.data** so, within **~/apps/OMERO/** use the
+:file:`~/apps/OMERO/OMERO.data` so, within :file:`~/apps/OMERO/` use the
 following command:
 
 ::
