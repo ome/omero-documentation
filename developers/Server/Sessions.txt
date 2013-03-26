@@ -4,49 +4,51 @@ OMERO sessions
 .. _JAAS: http://www.oracle.com/technetwork/java/javase/tech/index-jsp-136007.html
 
 Beginning with OMERO-3.0-Beta3, the OMERO server has unified the handling of 
-login sessions among both the JBoss and the :doc:`/developers/server-blitz` servers. 
+login sessions among both the JBoss and the :doc:`/developers/server-blitz` 
+servers. 
 Previously JBoss logins were handled via the standard `JAAS`_ mechanisms, 
 using a modified ``DatabaseLoginModule``. This proved problematic for several 
 reasons:
 
-#. exceptions thrown during login could not easily be caught or
-   specified
-#. passwords were sent in the clear on every invocation
-#. sql queries on every invocation caused significant overhead
+#. Exceptions thrown during login could not easily be caught or
+   specified.
+#. Passwords were sent in the clear on every invocation.
+#. Sql queries on every invocation caused significant overhead.
 
 Blitz did not suffer from these problems, but the login functionality
 was largely outside of the core server code and sessions were more
 volatile: a loss of an Ice connection caused all resources to be lost.
-With |OmeroSessions|, both login systems have been brought together and simplified.
+With |OmeroSessions|, both login systems have been brought together and 
+simplified.
 
 .. figure:: /images/omero-BlitzSessionCreationDestruction.png
   :align: center
   :alt: Blitz session creation and destruction
 
-In short, sessions:
+In short:
 
--  are a replacement for the standard JavaEE security infrastructure.
--  unify the Blitz and RMI session handling,or better put, make, working
-   with Java RMI more like Blitz, since the JavaEE interaction is
-   essentially "conversationless".
--  provide the ability (esp. in Blitz) to quit a session and rejoin it
-   later as long as it hasn't timed out, possibly useful for moving from
-   one machine to another.
--  provide the ability to share the same space. Two users/clients
+-  Sessions are a replacement for the standard JavaEE security infrastructure.
+-  Sessions unify the Blitz and RMI session handling, making working
+   with Java RMI more like Blitz (since the JavaEE interaction is
+   essentially "conversationless").
+-  Sessions provide the ability (especially in Blitz) to quit a session and  
+   rejoin it later as long as it has not timed out, possibly useful for moving 
+   from one machine to another.
+-  Sessions provide the ability to share the same space. Two users/clients
    attached to the same session would experience the same life-cycle.
--  provides a scratch space to which any data can be written for and by
-   job/script executions.
--  act as a global cache (in memory or on disk) to speed up various
+-  Sessions provide a scratch space to which any data can be written for and 
+   by job/script executions.
+-  Sessions act as a global cache (in memory or on disk) to speed up various
    server tasks, including login. With further extensions like
-   ` http://terracotta.org/ <http://terracotta.org/>`_, sessions could
+   `http://terracotta.org/ <http://terracotta.org/>`_, sessions could
    serve as a "distributed" cache.
--  prevent sending passwords in plain text (or in any form). After that,
-   all session interaction takes place via a shared secret key.
+-  Sessions prevent sending passwords in plain text or any other form. After 
+   that, all session interactions take place via a shared secret key.
 
 Design
 ------
 
-All services other than ISession, assume that a user is logging in with
+All services other than ``ISession``, assume that a user is logging in with
 a username equal to session uuid. Whereas previously one logged in with:
 
 ::
@@ -62,20 +64,20 @@ The session is acquired by a call to:
 
       ome.api.ISession.createSession(Principal princpal, String credentials);
 
-and carries information related to the current users session.
+and carries information related to the current user's session.
 
 ::
 
       Session session;
       session.getUuid();       // Unique identifier; functions as a temporary password. DO NOT SHARE IT. 
       session.getTimeToIdle(); // Number of milliseconds which the user can idle without session timeout
-      session.getTimeToLove(); // Total number of milliseconds for which the session can live
+      session.getTimeToLive(); // Total number of milliseconds for which the session can live
       session.getStarted();    // Start of session
       session.getClosed();     // if != null, then session is closed
 
 These properties cannot be modified.
 
-Other properites are for use by clients:
+Other properties are for use by clients:
 
 ::
 
@@ -84,8 +86,8 @@ Other properites are for use by clients:
       session.getDefaultEventType();   // Default event type (the third argument "User" to Principal above)
       session.getDefaultPermissions(); // String representation of umask (e.g. "rw----")
 
-After changing a property on the session returned by createSession()
-it's possible to save them to the server via:
+After changing a property on the session returned by ``createSession()``
+it is possible to save them to the server via:
 
 ::
 
@@ -99,14 +101,14 @@ the session via:
       ome.api.ISession.closeSession(Session);
 
 Existing sessions
-~~~~~~~~~~~~~~~~~
+-----------------
 
 In :doc:`/developers/server-blitz`, once the connection to a
 ``ServiceFactoryPrx`` (a Glacier2.Session subclass) was lost, it was not
 possible to reconnect to any of the services created using that
 connection. Now it is possible to reacquire the session if it is still
 active, by passing the previous session UUID as your password (User
-principal is ignored.)
+principal is ignored).
 
 ::
 
@@ -121,11 +123,9 @@ principal is ignored.)
       servicefactory = client.createSession(omero.sys.Principal(), olduuid)
       // now reattached  
 
-Comments
---------
 
 Backwards compatibility
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 In the short-term, there is no need for any change to client code to
 make use of the new sessions.
