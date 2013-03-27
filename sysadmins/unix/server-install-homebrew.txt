@@ -18,8 +18,8 @@ OS X/Xcode
 
 .. _OS X Developer Tools: https://developer.apple.com/technologies/tools/
 
-Install the `OS X Developer Tools`_. This procedure has been tested on the
-following configurations:
+Install the `OS X Developer Tools`_. This procedure is regularly tested on the
+following configuration:
 
 .. list-table::
     :header-rows: 1
@@ -28,10 +28,6 @@ following configurations:
     - * Model Identifier
       * Mac OS X version
       * Xcode version
-
-    - * MacBookPro1,1 (Intel Core Duo, 2.16GHz, 2GB RAM)
-      * 10.6.8
-      * 3.2.6
 
     - * MacBookPro8,2 (Intel Core i7, 2.3 GHz, 8 GB RAM)
       * 10.7.5
