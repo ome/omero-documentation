@@ -393,7 +393,11 @@ linkcheck_ignore = [
 
 import urllib
 brokenfiles_url = 'https://raw.github.com/openmicroscopy/sphinx-ignore-links/master/broken_links.txt'
-linkcheck_ignore.extend(urllib.urlopen(brokenfiles_url).read().splitlines())
+try:
+   brokenlinks = urllib.urlopen(brokenfiles_url)
+   linkcheck_ignore.extend(brokenlinks.read().splitlines())
+except IOError:
+    print "Could not open list of broken links."
 
 # -- Custom roles for the OMERO documentation -----------------------------------------------
 
