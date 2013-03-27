@@ -37,7 +37,7 @@ public consumption. Changes that are not ready to be reviewed by the public
 can be exchanged via team. This allows you to internally collaborate on a
 branch or simply to back-up your work.
 
-After that, each member of the github openmicroscopy organization
+After that, each member of the GitHub openmicroscopy organization
 (https://github.com/openmicroscopy)
 as well as anyone else who has clicked the “Fork” button will have their
 own repository. These are listed here:
@@ -136,7 +136,7 @@ for even more examples.
 Cloning the source code
 -----------------------
 
-Most OME development is currently happening on github, therefore it is highly
+Most OME development is currently happening on GitHub, therefore it is highly
 suggested that you become familiar with how it works, if not create an account
 for yourself.
 
@@ -155,7 +155,7 @@ Alternatively, with version 1.6.5 of git and later, you can pass the
 
         git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git
 
-The natural workflow when using github is not just to download someone else’s
+The natural workflow when using GitHub is not just to download someone else’s
 repository, but also to create a personal working copy. Go to the repository
 page at `<https://github.com/openmicroscopy/openmicroscopy>`_ and click on
 “Fork”. This will create a copy of the repository in your own personal space::
@@ -173,7 +173,7 @@ which can be added to your local repository as another remote::
 Depending on which repository you cloned first, either origin/develop or
 gh/develop will be the “develop” branch of your own fork of
 openmicroscopy/openmicroscopy. **The rest of this document assumes that “gh”
-is your own personal github repository, and “origin” is the official
+is your own personal GitHub repository, and “origin” is the official
 openmicroscopy repository.**
 
 You may even want to remove the “develop” branch from your fork since all

@@ -5,10 +5,13 @@ This page is primarily designed for the core OME developers who are
 contributing to our code base using git. It should contain all the useful
 commands and configuration you need for doing most git tasks.
 
-Getting started with github
----------------------------
+For basic instructions on how to install and configure Git and checkout the
+source code, look at the :doc:`source_code` page.
 
-Github remotes
+Interacting with GitHub
+-----------------------
+
+GitHub remotes
 ^^^^^^^^^^^^^^
 
 You can also add the other members of the OME network as remotes, so you
@@ -38,7 +41,7 @@ Otherwise, you will need to modify its URL
         git remote set-url SOMEUSER git@github.com:SOMEUSER/openmicroscopy.git
 
 If you would like to be kept up-to-date on what several users are doing on
-github, you can set the “default remotes” value to the list of people
+GitHub, you can set the “default remotes” value to the list of people
 you would like to check in .git/config:
 
 ::
@@ -47,11 +50,11 @@ you would like to check in .git/config:
 
 Now, ``git remote update`` will check the above list of repositories.
 
-Pushing to github
+Pushing to GitHub
 ^^^^^^^^^^^^^^^^^
 
 When you have work which you want to share with the rest of the team,
-it is vital that you push it to your github fork.
+it is vital that you push it to your GitHub fork.
 
 ::
 
@@ -60,7 +63,7 @@ it is vital that you push it to your github fork.
 This will create a new branch, and the same command can be used to
 subsequently update that branch.
 
-If you NEED to use a different name for the branch on github, you can
+If you NEED to use a different name for the branch on GitHub, you can
 do:
 
 ::
@@ -74,9 +77,9 @@ Tracking others' branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The flip-side of pushing your own branches is being aware that other OME
-developers will also be pushing theirs. Github provides a number of ways
+developers will also be pushing theirs. GitHub provides a number of ways
 of monitoring either a user or a repository. Notifications about what
-watched users and repositories are doing can be seen in your github
+watched users and repositories are doing can be seen in your GitHub
 inbox or via RSS feeds. See `Be social <https://help.github.com/articles/be-social>`_ for more information.
 
 Even if you do not feel able to watch the everyone's repository, you will
@@ -87,7 +90,7 @@ working on. When the PRs have been sufficiently reviewed, they will be
 merged into the develop branch so that others' work will start to be
 based on it.
 
-Cleaning up your github branches
+Cleaning up your GitHub branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once your branches have been merged into the mainline ("develop" of
@@ -379,7 +382,7 @@ If you do not want to modify the submodule state, run
 command:`git submodule update`. Be careful though, the
 command:`git subdmodule update` command will silently delete all local
 changes under the submodule. If you want to keep your changes, make sure
-you have pushed them to github.
+you have pushed them to GitHub.
 
 To advance the submodule to another commit, you can run the command:`git add`
 command:
@@ -427,8 +430,8 @@ text.
         More description about X. It’s really great …
 
 Many git tools expect exactly this format, not the least of which is
-github. If you would like to see how these commit messages are rendered
-on github, take a look at the repository 
+GitHub. If you would like to see how these commit messages are rendered
+on GitHub, take a look at the repository 
 `<https://github.com/kneath/commits>`_
 
 You can read more about commit messages at `A Note About Git Commit Messages`_.
@@ -802,7 +805,7 @@ example, *bugs* is the branch we are working on:
 
 ::
 
-        # push the branch to github
+        # push the branch to GitHub
         git push gh bugs:refs/heads/bugs
         # issue a pull request, not possible to merge due to a conflict.
 
