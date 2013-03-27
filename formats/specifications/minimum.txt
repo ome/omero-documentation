@@ -40,8 +40,8 @@ the structure is:
 
 Alternative valid forms:
 
--  Would have a ``<ome:TiffData/>`` block instead of the ``bf:BinData``
-   block. This would be used in the header of an OME-TIFF file.
--  Would have a ``<ome:MetadataOnly/>`` block instead of the ``bf:BinData``
-   block. This would be used in the header of a metadata-only OME file.
+-  would have a ``<ome:TiffData/>`` block instead of the ``bf:BinData``
+   block (this would be used in the header of an OME-TIFF file)
+-  would have a ``<ome:MetadataOnly/>`` block instead of the ``bf:BinData``
+   block (this would be used in the header of a metadata-only OME file)
 

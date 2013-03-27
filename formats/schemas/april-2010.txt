@@ -2,8 +2,6 @@ Changes For April 2010
 ======================
 
 
-
-
 List of key changes for April 2010 major release of the ome-xml data
 model.
 
@@ -14,13 +12,8 @@ correctly using this new release. Some files that failed to validate
 before will now be valid. It is important to update any file readers and
 writers to understand the changes.
 
-Version
-^^^^^^^
 
 The version number of all schema files is now 1.
-
-Namespace
-^^^^^^^^^
 
 This schema uses the new namespace
 
@@ -40,7 +33,7 @@ and that the schema file will be located at
 
     http://www.openmicroscopy.org/Schemas/OME/2010-04/ome.xsd
 
-Overview of Changes
+Overview of changes
 -------------------
 
 -  Schema Cleanup

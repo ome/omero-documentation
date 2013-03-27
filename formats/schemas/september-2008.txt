@@ -2,8 +2,6 @@ Changes For September 2008
 ==========================
 
 
-
-
 List of the key changes for the September 2008 major release of the
 ome-xml data model.
 
@@ -14,15 +12,10 @@ correctly using this new release. Some files that failed to validate
 before will now be valid. It is important to update any file readers and
 writers to understand the changes.
 
-Version
-~~~~~~~
+The version number of all schema files is now 1.
 
--  The version number of all schema files is now 1.
 
-Namespace
-~~~~~~~~~
-
-This schema uses the new namespace
+This schema uses the new namespace:
 
 ::
 
@@ -41,9 +34,10 @@ and that the schema file will be located at
     http://www.openmicroscopy.org/Schemas/OME/2008-09/ome.xsd
 
 Overview of Changes
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
--  There will be an additional Schema file SA.xsd
+Additional Schema file SA.xsd
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This provides support for the new StructuredAnnotation objects. The list
 of annotations is:
@@ -59,7 +53,8 @@ of annotations is:
     BooleanAnnotation
     TimestampAnnotation
 
--  There will be an additional Schema file OMERO.xsd
+Additional Schema file OMERO.xsd
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This provides support for the specific use of OMERO in the
 StructuredAnnotation objects. Each OMERO specific block is stored in an
@@ -67,10 +62,12 @@ XmlAnnotation. It is not strictly part of the model as it provides
 support only to the OMERO system. The schema will be published to show
 how we are using structured annotations within OMERO.
 
--  The following objects **HAVE** been made optional to allow the import
-   of the metadata from Bio-Formats and maintain consistency.
 
-Objects:
+Optional and non-optional Objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  The following objects have been made **optional** to allow the import
+   of the metadata from Bio-Formats and maintain consistency:
 
 ::
 
@@ -96,10 +93,8 @@ Objects:
 
 ManufactSpec is the base type for several other objects.
 
--  The following objects **HAVE** been made optional in the model but
-   **NOT** in the OMERO database - a value will be generated on import.
-
-Objects:
+-  The following objects have been made **optional in the model** but
+   **NOT in the OMERO database** - a value will be generated on import:
 
 ::
 
@@ -109,10 +104,8 @@ Objects:
     OME:Project:Name
     OME:Screen:Name
 
--  The following objects **HAVE NOT** been made optional. They do now
-   support the value Unknown.
-
-Objects:
+-  The following objects **are not optional** - but they now
+   support the value Unknown:
 
 ::
 
@@ -125,8 +118,12 @@ Objects:
     OME:Instrument:Objective:Immersion - added Unknown.
     OME:Instrument:Detector:Type - added Unknown.
 
--  Move MicrobeamManipulation from Image to Experiment **(held until
-   next release)**.
+
+MicrobeamManipulation
+^^^^^^^^^^^^^^^^^^^^^
+
+-  Move MicrobeamManipulation from Image to Experiment 
+   **(held until next release)**
 
 At present MicrobeamManipulation is stored directly under an Image with
 a link to an Experiment. The structure this produces is too flexible and
@@ -146,30 +143,35 @@ The MicrobeamManipulation ROI is however fixed and should not be changed
 after the manipulation. This change is being made at this time as the
 ROI is already being changed.
 
--  New ROI model
+New ROI model
+^^^^^^^^^^^^^
 
 The new model has more powerful ROI model and the display options are
 now stored as Structured Annotations. Elements added include
 LogicalChannelRef, ShapeID, ROI, Shape, BasicSvgShape and several shapes
 derived from BasicSvgShape.
 
--  Min/Max/Optional/Required
+Min/Max/Optional/Required
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 All elements now have an explicit minOccurs and maxOccours. All
 attributes now have a use value "optional" or "required".
 
--  PinholeSize type changed
+PinholeSize type changed
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The PinholeSize type has changed from xsd:positiveInteger to xsd:float
 with units um.
 
--  Added LightEmittingDiode
+Added LightEmittingDiode
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 This element is a stub to act as a placeholder until more values are
 needed for this type.
 
--  Pixels can now contain **EITHER** BinData or TiffData.
+Pixels
+^^^^^^
 
-Previously the model allowed there to be a mixture of the two. This was
-not the intended use.
+Pixels can now contain **EITHER** BinData or TiffData - previously the model 
+allowed there to be a mixture of the two, which was not the intended use.
 
