@@ -9,7 +9,7 @@ June 2012 release.
 A compliant specification for HCS OME files has been defined. This is
 not the minimum required for the display of an image, that is the
 :doc:`Minimum Specification <minimum>`. This is the
-information we feel a file should contain to provide a useful file
+information a file should contain to be useful while
 conforming to the spirit of the OME projects aims.
 
 This sample structure is based on Sample One in the 
@@ -80,9 +80,9 @@ OME Compliant File Specification
 
 Alternative valid forms:
 
--  Would have a ``ome:TiffData`` block instead of the ``bf:BinData`` block. 
-   This would be used in the header of an OME-TIFF file.
--  Would have a ``ome:MetadataOnly`` block instead of the ``bf:BinData`` 
-   block. This would **ONLY** be acceptable if the image data of the file
-   **CANNOT** be represented in an OME file for technical reasons.
+-  would have a ``ome:TiffData`` block instead of the ``bf:BinData`` block 
+   (this would be used in the header of an OME-TIFF file)
+-  would have a ``ome:MetadataOnly`` block instead of the ``bf:BinData`` 
+   block (this would **ONLY** be acceptable if the image data of the file
+   **CANNOT** be represented in an OME file for technical reasons)
 

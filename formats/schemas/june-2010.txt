@@ -2,8 +2,6 @@ Changes For June 2010
 =====================
 
 
-
-
 The list of the key changes for the June 2010 major release of the
 ome-xml data model. This schema release will tie in with the OMERO 4.2
 release.
@@ -15,15 +13,9 @@ correctly using this new release. Some files that failed to validate
 before will now be valid. It is important to update any file readers and
 writers to understand the changes.
 
-Version
-~~~~~~~
+The version number of all schema files is now 1.
 
--  The version number of all schema files is now 1
-
-Namespace
-~~~~~~~~~
-
-This schema uses the new namespace
+This schema uses the new namespace:
 
 ::
 
@@ -41,54 +33,51 @@ and that the schema file will be located at
 
     http://www.openmicroscopy.org/Schemas/OME/2010-06/ome.xsd
 
-Work for OMERO
---------------
+General updates
+---------------
 
-A collection for general updates as we found problems.
+This release represents a collection for general updates to solve problems.
 
 Key changes made with this release include:
 
--  Release brought in step with release of OMERO 4.2
--  Introduction of more restrictive integer type.
--  Fixing problem with Well Sample Timepoint.
--  Adding Width and Height to ROI Mask.
--  Reworking annotations to add new types (Term and Tag) and allow
-   cross-linking all annotations.
-
-Detail by File
---------------
+-  release brought in step with release of OMERO 4.2
+-  introduction of more restrictive integer type
+-  fixing problem with Well Sample Timepoint
+-  adding Width and Height to ROI Mask
+-  reworking annotations to add new types (Term and Tag) and allow
+   cross-linking all annotations
 
 ome.xsd
 ^^^^^^^
 
--  General - introduction of more restrictive integer types.
+-  General - introduction of more restrictive integer types
 
 ROI.xsd
 ^^^^^^^
 
--  Mask - add Width.
--  Mask - add Height.
+-  Mask - add Width
+-  Mask - add Height
 -  Shape - remove AnnotationRef (Shape is no longer directly
-   annotatable, annotations will be moved up to the ROI level).
+   annotatable, annotations will be moved up to the ROI level)
 
 SA.xsd
 ^^^^^^
 
--  StructuredAnnotations - StructuredAnnotations was CommentAnnotation.
--  StructuredAnnotations - add TagAnnotation.
--  StructuredAnnotations - add TermAnnotation.
--  Annotation - add Description.
--  Annotation - add list of AnnotationRef.
--  Annotation - Namespace now optional.
+-  StructuredAnnotations - StructuredAnnotations was CommentAnnotation
+-  StructuredAnnotations - add TagAnnotation
+-  StructuredAnnotations - add TermAnnotation
+-  Annotation - add Description
+-  Annotation - add list of AnnotationRef
+-  Annotation - Namespace now optional
 -  ListAnnotation - remove list of AnnotationRef (now inherits it from
-   base Annotation).
+   base Annotation)
 -  ROI:Shape is no longer in the list of annotatable objects
 
 SPW.xsd
 ^^^^^^^
 
--  Plate - WellOriginX docs.
--  Plate - WellOriginY docs.
--  Plate - NamingConvention docs.
+-  Plate - WellOriginX docs
+-  Plate - WellOriginY docs
+-  Plate - NamingConvention docs
 -  WellSample - Timepoint now xsd:dateTime
 

@@ -22,31 +22,30 @@ The purpose of OME-XML is to provide a rich, extensible way to save
 information concerning microscopy experiments and the images acquired
 therein, including:
 
--  Dimensional parameters defining the scope of the image pixels
-   (resolution, number of focal planes, number of time points, number of
-   channels etc.).
--  The hardware configuration used to acquire the image planes
-   (microscope, detectors, lenses, filters etc.).
--  The settings used with said hardware (physical size of the image
-   planes in microns, laser gain and offset, channel configuration
-   etc.).
--  The person performing the experiment.
--  Some details on the experiment itself, such as a description, what
-   type of experiment (FRET, time lapse, fluorescence lifetime etc.)
-   and events occurring during the acquisition (laser ablation, stage
-   motion etc.).
--  Additional custom information you may wish to provide about your
+-  dimensional parameters defining the scope of the image pixels
+   (e.g. resolution, number of focal planes, number of time points, number of
+   channels)
+-  the hardware configuration used to acquire the image planes
+   (e.g. microscope, detectors, lenses, filters)
+-  the settings used with said hardware (e.g. physical size of the image
+   planes in microns, laser gain and offset, channel configuration)
+-  the person performing the experiment
+-  some details on the experiment itself, such as a description, what
+   type of experiment (e.g. FRET, time lapse, fluorescence lifetime)
+   and events occurring during the acquisition (e.g. laser ablation, stage
+   motion)
+-  additional custom information you may wish to provide about your
    experiment in a structured form (known as 
-   :doc:`/developers/structured-annotations`).
+   :doc:`/developers/structured-annotations`)
 
 
-Features and applications of the OME-XML file format
-----------------------------------------------------
+Features and applications
+-------------------------
 
 The OME-XML file serves as a convenient file format for data migration
 from one site or user to another. The OME-XML file captures all image
 acquisition and experimental metadata, along with the binary image data,
-and packages it into an easily readable package. Our
+and packages it into an easily readable package. The
 `paper <http://genomebiology.com/2005/6/5/R47>`_ describing the design
 and implementation of the OME-XML file appeared in Genome Biology.
 
@@ -61,10 +60,10 @@ Some specific features of the OME-XML file format:
    raw data from a microscope, the deconvolved data, and a volume
    rendered view.
 -  OME-XML files contain all the metadata associated with an image,
-   including the experimental (cells, genes etc.) and acquisition
-   (microscope light sources, fluors, filters, detectors etc.)
+   including the experimental (e.g. cells, genes) and acquisition
+   (e.g. microscope light sources, filters, detectors)
    metadata.
--  OME-XML Image pixels may be stored compressed (or not) directly in
+-  OME-XML Image pixels may be stored compressed directly in
    XML with base64 encoding. Compression of the pixels and the metadata
    is supported through widely-available patent-free compression schemes
    (gzip and bzip2). OME-XML Images are addressable by plane.
@@ -72,11 +71,11 @@ Some specific features of the OME-XML file format:
    user-defined data that can be used globally or attached to Images,
    Features (objects inside Images), and Datasets. Mechanisms for
    OME-compliant systems to populate databases with these user-defined
-   fields is part of the specification. See the Semantic Type
-   Definitions XML Schema, documentation and an example document that
-   defines the core OME Semantic Types.
+   fields is part of the specification. See the 
+   :doc:`/developers/structured-annotations` XML Schema section.
 
-The OME-XML Schema and use are documented :schema_plone:`here <>`.
+The OME-XML Schema .xsd files and technical documentation are available on the 
+:schema_plone:`Schema pages <>`.
 
 
 Migrating or sharing data with OME-XML
@@ -86,9 +85,9 @@ Data saved in an OME-XML file is easily read by any software capable of
 reading and interpreting OME-XML. OME software tools can export and
 import OME-XML files, but any OME-XML-aware software can be used.
 
-In the figure :ref:`figure-data-workflow`, microscope image data is imported into My OME
-Database (more accurately, an instance of OME managing image data at one
-location). After a set of analyses is performed, this data is exported
+In the figure :ref:`figure-data-workflow`, microscope image data is imported 
+into My OME Database (more accurately, an instance of OME managing image data 
+at one location). After a set of analyses is performed, this data is exported
 in its entirety (i.e. including binary image data, image metadata, and
 the associated analytic results) and then passed to a collaborator's OME
 database ("Your OME Database"). This strategy packages analytic data
@@ -119,18 +118,19 @@ Commercial Support for OME-XML
 Bitplane AG and EAMNET have proposed the use of the OME-XML File as an
 image data migration standard. A C++ class that reads OME-XML has been
 posted by Peter Majer and Marius Messerli of Bitplane AG on the EAMNET
-site. `More <http://www.embl.de/eamnet/html/downloads.html>`_ Thanks
-to Peter and Marius for this.
+site 
+(`more information here <http://www.embl.de/eamnet/html/downloads.html>`_). 
+Thanks to Peter and Marius for this.
 
 Applied Precision, LLC has released an image visualisation tool that
-reads and writes OME-XML.
-`Details <http://www.api.com/softworx-explorer.asp>`_
+reads and writes OME-XML
+(`details here <http://www.api.com/softworx-explorer.asp>`_).
 
 Scientific Volume Imaging has included support for the OME-XML file
 format in there Huygens Software, a collection of Fluorescence
 Microscope image processing packages. The packages are available for
-many software platforms.
-`More info <http://support.svi.nl/wiki/HuygensSoftware>`_
+many software platforms (more information on the 
+`Huygens website <http://support.svi.nl/wiki/HuygensSoftware>`_).
 
 Improvision joins the ever-increasing list of commercial solution
 providers that supports OME-TIFF. Support is available from the release

@@ -2,8 +2,6 @@ Changes For September 2009
 ==========================
 
 
-
-
 The list of the key changes for the September 2009 major release of the
 ome-xml data model.
 
@@ -14,15 +12,10 @@ correctly using this new release. Some files that failed to validate
 before will now be valid. It is important to update any file readers and
 writers to understand the changes.
 
-Version
-~~~~~~~
+The version number of all schema files is now 1.
 
--  The version number of all schema files is now 1.
 
-Namespace
-~~~~~~~~~
-
-This schema uses the new namespace
+This schema uses the new namespace:
 
 ::
 
@@ -40,13 +33,14 @@ and that the schema file will be located at
 
     http://www.openmicroscopy.org/Schemas/OME/2009-09/ome.xsd
 
-Overview of Changes
-~~~~~~~~~~~~~~~~~~~
+Overview of changes
+-------------------
 
 -  Full auto-generated documentation for the schema is available at
    :schema_plone:`OME-2009-09 <Documentation/Generated/OME-2009-09/ome>`
 
--  There will be an additional Schema file ROI.xsd
+Additional Schema file ROI.xsd
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This provides support for the new version of the ROI objects. These were
 moved from the OME namespace to there own namespace and the objects
@@ -55,6 +49,9 @@ to the new structure.
 
 -  Some support for ROIs in OMERO.xsd has moved to be part of the full
    schema in ROI.xsd
+
+MicrobeamManipulation
+^^^^^^^^^^^^^^^^^^^^^
 
 -  Move MicrobeamManipulation from Image to Experiment.
 
@@ -66,17 +63,23 @@ replace them in each Image with zero or more MicrobeamManipulationRef
 objects. This also allows one MicrobeamManipulation operation to be used
 in more than one Image.
 
+ROI in MicrobeamManipulation and Image
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 -  Rework ROI in MicrobeamManipulation and in Image with its movement to
    the top level OME element.
 
-As a separate issue to above the ROIs used by the MicrobeamManipulation
+The ROIs used by the MicrobeamManipulation
 as a Ref and stored in Image have been moved to the top level. This
 allows reuse of the ROI in more than one Image.
 
--  Merging of LogicalChannel and ChannelComponent into the new Channel.
+Other changes
+-------------
+
+-  LogicalChannel and ChannelComponent have been merged into the new Channel.
 
 -  Additional keys and indexes to enforce valid IDs and References,
-   listed in the OME:OME element.
+   are listed in the OME:OME element.
 
 -  Support for the AnalysisModuleLibrary used by the original OME server
    has been removed.
@@ -94,7 +97,7 @@ allows reuse of the ROI in more than one Image.
    in the model link to annotations, not the other way around.
 
 -  Where possible values that are singular are now an attribute of an
-   element and values that can be multiple are child elements of an
+   element, and values that can be multiple are child elements of an
    element.
 
 -  Units are now specified in the schema annotations.
@@ -103,7 +106,7 @@ allows reuse of the ROI in more than one Image.
 
 -  It is now possible to define valid MetadataOnly files.
 
--  There is a large number of general changes and updates as part of a
-   major clean up of the types and names used in the schema to
+-  There are a large number of general changes and updates as part of a
+   major clean up of the types and names used in the schema, to
    facilitate code generation direct from the schema.
 
