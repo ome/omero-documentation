@@ -23,10 +23,30 @@ The repository is internally laid out as follows:
 
 **Your repository is not:**
 
--  The "database"
--  The directory where your OMERO.server binaries are
--  The directory where your OMERO.client (OMERO.insight, OMERO.editor or OMERO.importer) binaries are
--  Your PostgreSQL data directory
+-  the "database"
+-  the directory where your OMERO.server binaries are
+-  the directory where your OMERO.client (OMERO.insight, OMERO.editor or OMERO.importer) binaries are
+-  your PostgreSQL data directory
+
+Locking and remote shares
+-------------------------
+
+The OMERO server requires proper locking semantics on all files in the binary
+repository. In practice, this means that remotely mounted shares such as AFS,
+CIFS, and NFS can cause issues. If you have experience and/or the time to
+manage and monitor the locking implementations of your remote filesystem, then
+using them as for your binary repository should be fine.
+
+If, however, you are seeing errors such as NullPointerExceptions, "Bad file
+descriptors" and similar in your server log, then you will need to use
+directly connected disks.
+
+.. Warning::
+
+    If your binary repository is a remote share and mounting the share fails
+    or is dismounted, OMERO will continue operating using the mount point
+    instead! To prevent this, make the mount point read-only for the OMERO
+    user so that no data can be written to the mount point.
 
 Repository Location
 -------------------
@@ -89,15 +109,3 @@ and write (`W`) from and to the ``OMERO`` directory:
 
     Repository Folder Permissions
 
-Locking and remote shares
--------------------------
-
-The OMERO server requires proper locking semantics on all files in the binary
-repository. In practice, this means that remotely mounted shares such as AFS,
-CIFS, and NFS can cause issues. If you have experience and/or the time to
-manage and monitor the locking implementations of your remote filesystem, then
-using them as for your binary repository should be fine.
-
-If, however, you are seeing errors such as NullPointerExceptions, "Bad file
-descriptors" and similar in your server log, then you will need to use
-directly connected disks.
