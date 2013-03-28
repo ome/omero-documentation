@@ -7,8 +7,8 @@ code from the project's GitHub account to build locally:
     $ cd openmicroscopy && ./build.py
 
 .. note::
-    If you have a GitHub account and you plan to develop code for OMERO then
-    you should make a fork into your own account then clone this fork to your
+    If you have a GitHub account and you plan to develop code for OMERO, you
+    should make a fork into your own account and then clone this fork to your
     local development machine, e.g.
 
     ::
