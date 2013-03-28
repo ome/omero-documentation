@@ -2,226 +2,21 @@ Using Git
 =========
 
 This page is primarily designed for the core OME developers who are
-contributing to our code base using git. It should contain all the
-useful commands and configuration you need for doing most git tasks.
+contributing to our code base using git. It should contain all the useful
+commands and configuration you need for doing most git tasks.
 
-Getting started
----------------
+For basic instructions on how to install and configure Git and checkout the
+source code, look at the :doc:`source_code` page.
 
-Code locations
-~~~~~~~~~~~~~~
+.. note::
+    This section assumes that “gh” is your own personal GitHub repository, and
+    “origin” is the official openmicroscopy repository.
 
-OME code is stored in multiple git repositories each of which is
-available from several locations.
+Interacting with GitHub
+-----------------------
 
-Bio-Formats
-^^^^^^^^^^^
-
-The Bio-Formats repository is available from:
-
--  https://github.com/openmicroscopy/bioformats
--  git://openmicroscopy.org/bioformats.git
-
-
-OME
-^^^
-
-The main repository, known as ome.git, is available from:
-
--  https://github.com/openmicroscopy/openmicroscopy
--  git://openmicroscopy.org/ome.git
-
-Most of these repositories are read-only locations which are kept in
-sync for public consumption. A third centrally available location is
-also available though not publicly:
-
--  \ssh://git.openmicroscopy.org/home/git/team.git
-
-``team.git`` is useful for team-internal branches which are not yet
-ready for public consumption. Changes that are not ready to be reviewed
-by the public can be exchanged via team. This allows you to internally
-collaborate on a branch or simply to back-up your work.
-
-After that, each member of the github openmicroscopy organization
-(https://github.com/openmicroscopy)
-as well as anyone else who has clicked the “Fork” button will have their
-own repository. These are listed here:
-
--  https://github.com/openmicroscopy/openmicroscopy/network/members
-
-Git quickstart
-~~~~~~~~~~~~~~
-
-If you are looking to get started as quickly as possible the minimum
-you will need is to have git installed (see next section) and then:
-
-::
-
-        git config --global user.name "Full name"
-        git config --global user.email YOUR_EMAIL
-        git clone --recursive https://github.com/openmicroscopy/openmicroscopy
-        cd openmicroscopy
-
-You will not be able to push back to this repository, but you will at least
-have something you can start looking at. Read on for more.
-
-Installing git
-~~~~~~~~~~~~~~
-
-In general, see the Git `downloads page <http://git-scm.com/download>`_ for 
-installation options.
-
-Linux 
-^^^^^
-
-Most flavors of Linux have git available through the package manager. E.g., on 
-Debian/Ubuntu:
-
-::
-
-        sudo apt-get install git
-
-Mac OS X
-^^^^^^^^
-
-You can install git using `Homebrew <http://mxcl.github.com/homebrew/>`_:
-
-::
-
-        brew install git
-
-Or you can use the `binary installer <http://git-scm.com/download>`_.
-
-
-Windows
-^^^^^^^
-
-We recommend using either msysGit_ for a basic git installation, or Cygwin_ 
-for a full-featured Unix-style environment that includes git. You can also use
-TortoiseGit_ for git shell integration. You may also want to consider 
-installing VirtualBox_ with a Linux guest OS to make your life easier. Lastly, 
-when using git on Windows, please be aware of the `CRLF conversion issue`_.
-
-.. _msysGit: http://code.google.com/p/msysgit
-.. _Cygwin: http://www.cygwin.com/
-.. _TortoiseGit: http://code.google.com/p/tortoisegit/
-.. _VirtualBox: https://www.virtualbox.org/
-.. _CRLF conversion issue: https://help.github.com/articles/dealing-with-line-endings
-
-Configuration
-~~~~~~~~~~~~~
-
-Git provides a number of options which can make working with it
-considerably more pleasant. These configuration options are available
-either globally in ``$HOME/.gitconfig`` or in the ``.git`` directory of
-your repository. The file is in INI-format, but can also be modified
-using the ``git config`` command, as illustrated in the examples following.
-
-The most important thing is to update your 'global' credentials that are used 
-in your commits. These values are saved in :file:`~/.gitconfig`.
-
-::
-
-        git config --global user.name "Full name"
-        git config --global user.email YOUR_EMAIL
-
-If you have a PGP key for signing commits and tags, you may want to add
-it as well:
-
-::
-
-        git config --global user.signingkey YOUR_PGP_KEY_ID
-
-Color and display options make log and diff output much more friendly:
-
-::
-
-         git config --global color.ui true
-         git config --global color.diff auto
-         git config --global color.graph auto
-         git config --global color.status auto
-         git config --global color.branch auto
-
-         git config --global core.ui always
-         git config --global core.editor mate_wait
-
-Aliases provide a way to make shortcuts for longer git commands. One
-that is often used among the OME team is ``graph``:
-
-::
-
-         git config --global alias.graph "log --date-order --graph --decorate --oneline"
-
-See `<http://gitready.com/intermediate/2009/02/06/helpful-command-aliases.html>`_
-for even more examples.
-
-Getting started with github
----------------------------
-
-Most OME development is currently happening on github, therefore it is
-highly suggested that you become familiar with how it works, if not
-create an account for yourself.
-
-Start by downloading the official repository:
-
-::
-
-        git clone https://github.com/openmicroscopy/openmicroscopy.git 
-
-Since the openmicroscopy repository now makes use of submodules, you
-first need to initialize all the submodules:
-
-::
-
-        cd openmicroscopy
-        git submodule update --init 
-
-Alternatively, with version 1.6.5 of git and later, you can pass the
---recursive option to git clone and initialize all submodules:
-
-::
-
-        git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git 
-
-The natural workflow when using github is not just to download
-someone else’s repository, but also to create a personal working copy.
-Go to the repository page at `<https://github.com/openmicroscopy/openmicroscopy>`_
-and click on “Fork”. This will create a copy of the repository in your
-own personal space:
-
-::
-
-        https://github.com/YOURNAME/openmicroscopy
-
-which can be added to your local repository as another remote:
-
-::
-
-        git remote add gh git@github.com:YOURNAME/openmicroscopy.git
-
-.. note:: 
-    For the |SSH| transport to work, you will need to follow some of the
-    instructions under https://github.com/account/ssh
-
-Depending on which repository you cloned first, either origin/develop or
-gh/develop will be the “develop” branch of your own fork of
-openmicroscopy/openmicroscopy. **The rest of this document
-assumes that “gh” is your own personal github repository, and “origin” is the
-official openmicroscopy repository.**
-
-You may even want to remove the “develop” branch from your fork since
-all branching should happen from the official develop branch. If you’d
-prefer to keep a copy of “develop” in “gh”, that is fine, but you may
-then need to keep your develop up-to-date with the official develop:
-
-::
-
-        git checkout develop
-        git reset --hard origin/develop   # Warning: This will delete any unsaved changes and commits to develop!
-        git push -f gh develop            # Warning: This will replace gh/develop with the official version remotely.
-
-Github remotes
-~~~~~~~~~~~~~~
+GitHub remotes
+^^^^^^^^^^^^^^
 
 You can also add the other members of the OME network as remotes, so you
 can follow what they are doing:
@@ -250,7 +45,7 @@ Otherwise, you will need to modify its URL
         git remote set-url SOMEUSER git@github.com:SOMEUSER/openmicroscopy.git
 
 If you would like to be kept up-to-date on what several users are doing on
-github, you can set the “default remotes” value to the list of people
+GitHub, you can set the “default remotes” value to the list of people
 you would like to check in .git/config:
 
 ::
@@ -259,11 +54,11 @@ you would like to check in .git/config:
 
 Now, ``git remote update`` will check the above list of repositories.
 
-Pushing to github
-~~~~~~~~~~~~~~~~~
+Pushing to GitHub
+^^^^^^^^^^^^^^^^^
 
 When you have work which you want to share with the rest of the team,
-it is vital that you push it to your github fork.
+it is vital that you push it to your GitHub fork.
 
 ::
 
@@ -272,7 +67,7 @@ it is vital that you push it to your github fork.
 This will create a new branch, and the same command can be used to
 subsequently update that branch.
 
-If you NEED to use a different name for the branch on github, you can
+If you NEED to use a different name for the branch on GitHub, you can
 do:
 
 ::
@@ -283,12 +78,12 @@ As mentioned elsewhere, the "refs/heads/" prefix only needs to be used to
 create a new branch, and can be dropped for subsequent pushes.
 
 Tracking others' branches
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The flip-side of pushing your own branches is being aware that other OME
-developers will also be pushing theirs. Github provides a number of ways
+developers will also be pushing theirs. GitHub provides a number of ways
 of monitoring either a user or a repository. Notifications about what
-watched users and repositories are doing can be seen in your github
+watched users and repositories are doing can be seen in your GitHub
 inbox or via RSS feeds. See `Be social <https://help.github.com/articles/be-social>`_ for more information.
 
 Even if you do not feel able to watch the everyone's repository, you will
@@ -299,8 +94,8 @@ working on. When the PRs have been sufficiently reviewed, they will be
 merged into the develop branch so that others' work will start to be
 based on it.
 
-Cleaning up your github branches
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Cleaning up your GitHub branches
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once your branches have been merged into the mainline ("develop" of
 openmicroscopy/openmicroscopy) you should delete them from your
@@ -468,7 +263,7 @@ commits you push automatically go to the corresponding remote branch:
         git push SOMEUSER name/of/branch
 
 Collaborating via git rebase
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have been permitted write access to someone else’s forked
 repository, or you have granted someone else write access to your
@@ -591,7 +386,7 @@ If you do not want to modify the submodule state, run
 command:`git submodule update`. Be careful though, the
 command:`git subdmodule update` command will silently delete all local
 changes under the submodule. If you want to keep your changes, make sure
-you have pushed them to github.
+you have pushed them to GitHub.
 
 To advance the submodule to another commit, you can run the command:`git add`
 command:
@@ -639,8 +434,8 @@ text.
         More description about X. It’s really great …
 
 Many git tools expect exactly this format, not the least of which is
-github. If you would like to see how these commit messages are rendered
-on github, take a look at the repository 
+GitHub. If you would like to see how these commit messages are rendered
+on GitHub, take a look at the repository 
 `<https://github.com/kneath/commits>`_
 
 You can read more about commit messages at `A Note About Git Commit Messages`_.
@@ -777,7 +572,7 @@ What follows is an explanation of the overarching way we categorize and
 review our branches. This is not required reading for everyone.
 
 Branch types
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 To make working with a larger number of branches easily, we will initially
 introduce some terminology. Branches should typically be in one of three
@@ -789,7 +584,7 @@ states: investigations, works-in-progress (WIP), or deliverables.
    :alt: Description of branch types
 
 Investigations
-^^^^^^^^^^^^^^
+""""""""""""""
 
 At the bottom of the figure above are the investigation branches. These
 are efforts which are being driven possibly by a single individual and
@@ -798,7 +593,7 @@ lead to released code, or they may be put on hold for some period of
 time while other avenues are also investigated.
 
 WIPs
-^^^^
+""""
 
 For an investigation to move up to being a work-in-progress, it should
 have more involvement from the rest of team and have been discussed and
@@ -808,7 +603,7 @@ model, the database, the server, at least one client) should be under
 way.
 
 Deliverables
-^^^^^^^^^^^^
+""""""""""""
 
 Finally, deliverable branches are intended for inclusion in the upcoming
 milestone. They have all the necessary “paper work” -- requirements,
@@ -819,7 +614,7 @@ finalized and merged into “develop” at a time. This represents the
 post-sprint “demo” concept that has been discussed elsewhere.
 
 The backlog
-^^^^^^^^^^^
+"""""""""""
 
 One non-branch type that should also be kept in mind is the backlog.
 Between major deliverables and while a WIP is being ramped up to a
@@ -827,7 +622,7 @@ deliverable, the backlog should be continually worked on and the fix
 branches also merged in once tested and verified.
 
 Branch workflow
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 With the definitions, we can walk through the progression of a branch
 from inception to delivered code.
@@ -933,7 +728,7 @@ more quickly than if we have several deliverables simultaneously in the
 air.
 
 Merge branches
-^^^^^^^^^^^^^^
+""""""""""""""
 
 A significant disadvantage to having separate lines of inquiry in
 separate branches is the possibility that there will be negative
@@ -965,7 +760,7 @@ Any weekly testing we do can use the artifacts generated by this build
 to be as sure as possible that nothing unexpected has leaked in.
 
 Code reviews and comments
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 
 On the flip-side, a major advantage to having the above branching
 workflow is that is far easier to review the entire impact and style of
@@ -979,7 +774,7 @@ the discussion, you can use a twitter-style name to invite them
 `<https://github.com/blog/821-mention-somebody-they-re-notified>`_
 
 Pull Requests
-^^^^^^^^^^^^^
+"""""""""""""
 
 Several times above “Pull Requests” (PR) have been mentioned. A Pull
 Request is a way to invite someone to merge from one repository to
@@ -1005,7 +800,7 @@ Pull Request.
         # Now go to the new_stuff branch on github.com and open the PR
 
 Pull Request conflicts
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
 When issuing a pull request, usually you will the following message
 "This pull request can be automatically merged". If this is not the
@@ -1014,7 +809,7 @@ example, *bugs* is the branch we are working on:
 
 ::
 
-        # push the branch to github
+        # push the branch to GitHub
         git push gh bugs:refs/heads/bugs
         # issue a pull request, not possible to merge due to a conflict.
 
