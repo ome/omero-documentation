@@ -135,10 +135,10 @@ moved into. For example, to install OMERO locally into a directory called
     $ cd OMERO
 
 .. note::
-    Recall that earlier you set the :envvar:`OMERO_HOME` environment variable
-    to :file:`~/apps/OMERO/OMERO.server`. If you change the location that you
-    wish to install OMERO to then you will also have to alter your
-    :envvar:`OMERO_HOME` environment variable to reflect this.
+    Recall that earlier you set the :envvar:`OMERO_PREFIX` environment 
+    variable to :file:`~/apps/OMERO/OMERO.server`. If you change the location
+    that you wish to install OMERO to then you will also have to alter your
+    :envvar:`OMERO_PREFIX` environment variable to reflect this.
 
 OMERO |release|
 ^^^^^^^^^^^^^^^
@@ -151,8 +151,8 @@ a release version of OMERO.server, extract it from the zip archive:
 
     $ unzip OMERO.server-|release|-ice33-byy.zip
 
-Give your OMERO software install a nice local name to save some typing
-later, to reflect what you set :envvar:`OMERO_HOME` to, and to make it easy to
+Give your OMERO software install a nice local name to save some typinglater,
+to reflect what you set :envvar:`OMERO_PREFIX` to, and to make it easy to
 manage the installation of newer versions of the server at a later date:
 
 .. parsed-literal::
@@ -176,8 +176,8 @@ following::
     export JAVA_HOME=/usr/lib/jvm/java-6-sun
     export ICE_HOME=/usr/share/Ice-3.3.1
     export POSTGRES_HOME=/usr/lib/postgresql/8.4
-    export OMERO_HOME=~/apps/OMERO/OMERO.server
-    export PATH=$PATH:$JAVA_HOME/bin:$ICE_HOME:$POSTGRES_HOME/bin:$OMERO_HOME/bin
+    export OMERO_PREFIX=~/apps/OMERO/OMERO.server
+    export PATH=$PATH:$JAVA_HOME/bin:$ICE_HOME:$POSTGRES_HOME/bin:$OMERO_PREFIX/bin
     export PYTHONPATH=/usr/lib/pymodules/python2.6:$PYTHONPATH
     export LD_LIBRARY_PATH=/usr/share/java:/usr/lib:$LD_LIBRARY_PATH
 
@@ -196,7 +196,7 @@ apply them using the **source** built in command::
 You can check that the new environment variables have taken by printing
 their values to the shell, e.g.::
 
-    $ echo $OMERO_HOME
+    $ echo $OMERO_PREFIX
 
 should give output similar to the following::
 

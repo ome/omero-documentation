@@ -114,7 +114,7 @@ If you need to re-index your database, stop your server, and:
 
    ::
 
-       cd $OMERO_HOME
+       cd $OMERO_PREFIX
        CLASSPATH=etc:`find lib/server | xargs | sed 's/ /:/g'`
        java -Dlog4j.configuration=log4j-cli.properties -Xmx512M ome.services.fulltext.Main full
 
