@@ -1,7 +1,7 @@
 Installing OMERO from source
 ============================
 
-This chapter describes how to check out and build the OMERO source code on
+This section describes how to check out and build the OMERO source code on
 your local machine. To install the dependencies required to run the
 OMERO.server on Linux or Mac OS X, take a look at the
 :doc:`/sysadmins/unix/server-install-linux` or the

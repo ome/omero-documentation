@@ -8,6 +8,10 @@ commands and configuration you need for doing most git tasks.
 For basic instructions on how to install and configure Git and checkout the
 source code, look at the :doc:`source_code` page.
 
+.. note::
+    This section assumes that “gh” is your own personal GitHub repository, and
+    “origin” is the official openmicroscopy repository.
+
 Interacting with GitHub
 -----------------------
 
