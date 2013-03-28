@@ -29,8 +29,8 @@ If there is still no possible approach for your data that can maintain
 compatibility with OME-XML or OME-TIFF, then what follows is the best
 practice for this situation.
 
-What not to do
---------------
+Things to avoid
+---------------
 
 #. Adding arbitrary items to the OME Model and still calling it OME-XML
    or OME-TIFF
@@ -75,8 +75,8 @@ What not to do
    our point of view this is important as it allows us to control which
    parts of our model can be used as stand alone objects in others' work.
 
-What to do
-----------
+Correct approaches
+------------------
 
 If you have to define your own schema that will make use of our OME
 model, there are two approaches:
@@ -120,18 +120,18 @@ model, there are two approaches:
     **"This work is derived in part from the OME specification.
     Copyright (C) 2002-2013 Open Microscopy Environment"**
 
-How to do it
-------------
+Worked examples
+---------------
 
 Here are a few examples of how to define a link to the OME model from
 within your custom schema file and instance documents.
 
-First the instance document. An instance document is the xml file that
-contains your data and that is structured to conform to your custom
-schema specification.
-
 sample-third-party.xml
 ''''''''''''''''''''''
+
+This is an instance document - the xml file that
+contains your data and is structured to conform to your custom
+schema specification:
 
 ::
 
@@ -169,11 +169,13 @@ This file has ``<YourNodes>`` followed by the ``<OME>`` node, then
 attributes on the ``<OME>`` node, the file is the same as though the OME
 model was part of your custom namespace.
 
-In order to define this easy-to-use structure you need to add three
-things (marked ``****``) to your schema specification document.
 
 sample-third-party.xsd
 ''''''''''''''''''''''
+
+In order to define the easy-to-use structure described in the
+sample-third-party.xml file, you need to add 
+three things (marked ``****``) to your schema specification document:
 
 ::
 
@@ -225,11 +227,13 @@ sample-third-party.xsd
         </xs:element>
     </xs:schema>
 
-If you want to import only a few pieces of the OME Model, the following 
-example illustrates how to include ``<LightSource>`` and ``<Objective>``.
 
 sample-third-party-pieces.xml
 '''''''''''''''''''''''''''''
+
+If you want to import only a few pieces of the OME Model, this 
+example illustrates how to include ``<LightSource>`` and ``<Objective>``:
+
 
 ::
 
@@ -273,13 +277,14 @@ sample-third-party-pieces.xml
         </MoreOfYourNodes>
     </CustomTag>
 
-In order to define this structure, you need to add four lines (marked
-``****``) to your schema specification document. The first two lines are
-the same as the other schema specification above. Then one line for each
-of the two included nodes.
 
 sample-third-party-pieces.xsd
 '''''''''''''''''''''''''''''
+
+In order to define this sample-third-party-pieces.xml structure, you need to 
+add four lines (marked ``****``) to your schema specification document. The 
+first two lines are the same as the previous schema specification, then add 
+one line for each of the two included nodes:
 
 ::
 
