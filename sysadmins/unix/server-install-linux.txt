@@ -5,10 +5,9 @@ This page walks through the process of installing OMERO.server on a
 machine using a Debian-based Linux distribution. 
 
 .. note:: 
-	This page is gerally applicable to Debian 6.0 (codename: Squeeze) 
-	and Ubuntu 10.x & 11.x (codenames: Lucid Lynx, Maverick Meerkat, Natty Narwhal, 
-	Oneiric Ocelot) installations although there are some small differences which
-	are noted when applicable during the walk-through.
+    This page is generally applicable to Debian and Ubuntu installations,
+    although there are some small differences which are noted when applicable
+    during the walk-through.
 
 Distributions
 -------------
@@ -23,312 +22,273 @@ to install and manage the OMERO prerequisites.
 ================== ================= ==============
 Distribution       ZeroC Ice version OMERO version
 ================== ================= ==============
-Debian 6.0               3.3          4.3.x, 4.4.x
 Debian 7.0               3.4              4.4.x
+Debian 6.0               3.3          4.3.x, 4.4.x
 ------------------ ----------------- --------------
-Ubuntu 10.04 (LTS)       3.3          4.3.x, 4.4.x
-Ubuntu 11.04             3.3          4.3.x, 4.4.x
+Ubuntu 12.04 (LTS)       3.4              4.4.x
 Ubuntu 11.10             3.4              4.4.x
+Ubuntu 11.04             3.3          4.3.x, 4.4.x
+Ubuntu 10.04 (LTS)       3.3          4.3.x, 4.4.x
 ================== ================= ==============
 
 .. note:: 
-	ZeroC Ice can always be built from source code for specific platforms.
+    ZeroC_ Ice can always be built from source code for specific platforms.
 
 In the remainder of this guide you should adjust version numbers to suit
-the distribution that you are targetting.
+the distribution that you are targeting.
 
-Prerequisites: the base software install
-----------------------------------------
+Prerequisites
+-------------
 
 You require at least a clean minimal Debian or Ubuntu installation and a
 non-root user account that has sudo privileges.
 
-First we need to enable the contrib and Non-Free repositories by opening
-**/etc/apt/sources.list** in an editor, e.g. **$ sudo vim
-/etc/apt/sources.list** and editing to add the following lines:
+First you need to enable the contrib and Non-Free repositories by opening
+:file:`/etc/apt/sources.list` in an editor, e.g. **$ sudo vim
+/etc/apt/sources.list** and editing to add the following lines::
 
-::
+    deb http://ftp.uk.debian.org/debian/ squeeze contrib
+    deb-src http://ftp.uk.debian.org/debian/ squeeze contrib
 
-      deb http://ftp.uk.debian.org/debian/ squeeze contrib
-      deb-src http://ftp.uk.debian.org/debian/ squeeze contrib
-
-      deb http://ftp.uk.debian.org/debian/ squeeze non-free
-      deb-src http://ftp.uk.debian.org/debian/ squeeze non-free
+    deb http://ftp.uk.debian.org/debian/ squeeze non-free
+    deb-src http://ftp.uk.debian.org/debian/ squeeze non-free
 
 .. note:: 
-	For Ubuntu the repository names and locations are different to
-	Debian but you need to enable the **main**, **restricted**, **universe**
-	and **multiverse** repositories. You can do this either by editing
-	**/etc/apt/sources.list** directly, in which case the entries already
-	exist but are commented out, or using Synaptic (10.04 & 10.10) or Ubuntu
-	Software Center (11.04 onwards).
+    For Ubuntu the repository names and locations are different to
+    Debian but you need to enable the **main**, **restricted**, **universe**
+    and **multiverse** repositories. You can do this either by editing
+    :file:`/etc/apt/sources.list` directly, in which case the entries already
+    exist but are commented out, or using Synaptic (10.04 & 10.10) or Ubuntu
+    Software Center (11.04 onwards).
 
-Now we need to update our package lists to ensure that we get the latest
-packages including those from the repositories that we just enabled:
+Now you need to update your package lists to ensure that you get the latest
+packages including those from the repositories that you just enabled::
 
-::
+    $ sudo apt-get update
 
-      $ sudo apt-get update
+Java
+^^^^
 
-Oracle recently changed their distribution license (OSDL) which means
-that Debian and Ubuntu can no longer distribute Java in their package
-management systems. This means that we have to install the JDK
-separately as follows:
+From Ubuntu 11.10 and onwards, you can install OpenJDK 7 using::
 
-If you are on Debian then:
+    $ sudo apt-get install openjdk-7-jdk
 
-::
+For earlier versions of Ubuntu, Oracle recently changed their distribution
+license (OSDL) which means that Debian and Ubuntu can no longer distribute
+Java in their package management systems. This means that you have to install
+the JDK separately as follows:
 
-      $ sudo apt-get install lsb_release
+If you are on Debian then::
 
-For both Debian and Ubuntu you can now:
+    $ sudo apt-get install lsb_release
 
-::
+For both Debian and Ubuntu you can now::
 
-      $ sudo apt-get install git
-      $ git clone https://github.com/flexiondotorg/oab-java6.git
-      $ cd oab-java6/
-      $ sudo ./oab-java6.sh
+    $ sudo apt-get install git
+    $ git clone https://github.com/flexiondotorg/oab-java6.git
+    $ cd oab-java6/
+    $ sudo ./oab-java6.sh
 
 The script will run and you should see some output indicating progress.
-When you get your prompt back:
+When you get your prompt back::
 
-::
+    $ sudo apt-get install sun-java6-jdk
 
-      $ sudo apt-get install sun-java6-jdk
-
-Now we are ready to install the rest of our prerequisite software
-packages:
-
-::
-
-      $ sudo apt-get install unzip build-essential mencoder 
-      $ sudo apt-get install python python-imaging python-numpy python-tables python-matplotlib
-      $ sudo apt-get install zeroc-ice33
-      $ sudo apt-get install postgresql 
-      $ sudo apt-get install apache2 libapache2-mod-fastcgi
-
-.. note::
-	On Ubuntu some of the packages are slightly different and do not
-	necessarily install ALL of the same software as Debian. For example,
-	python-tables on Ubuntu does not install . As a result, on Ubuntu we may
-	also need to install liblzo otherwise OMERO.tables will fail to start:
-
-	::
-
-	      $ sudo apt-get install liblzo2-2
-
-We also need to ensure that the Sun/Oracle JDK is the active one as we
+You also need to ensure that the Sun/Oracle JDK is the active one as you
 end up with the OpenJDK also installed to satisfy dependencies along the
-way:
+way::
 
-::
-
-      $ sudo update-alternatives --config java
+    $ sudo update-alternatives --config java
 
 and select the correct java from the displayed list.
 
-Setup environment
------------------
+OMERO dependencies
+^^^^^^^^^^^^^^^^^^
 
-Edit your **.bashrc** file, e.g. **$ vim ~/.bashrc** and add the
-following:
+Now you are ready to install the rest of your prerequisite software
+packages::
 
-::
-
-      export JAVA_HOME=/usr/lib/jvm/java-6-sun
-      export ICE_HOME=/usr/share/Ice-3.3.1
-      export POSTGRES_HOME=/usr/lib/postgresql/8.4
-      export OMERO_HOME=~/apps/OMERO/OMERO.server
-      export PATH=$PATH:$JAVA_HOME/bin:$ICE_HOME:$POSTGRES_HOME/bin:$OMERO_HOME/bin
-      export PYTHONPATH=/usr/lib/pymodules/python2.6:$PYTHONPATH
-      export LD_LIBRARY_PATH=/usr/share/java:/usr/lib:$LD_LIBRARY_PATH
+    $ sudo apt-get install unzip build-essential mencoder
+    $ sudo apt-get install python python-imaging python-numpy python-tables python-matplotlib
+    $ sudo apt-get install zeroc-ice33
+    $ sudo apt-get install postgresql
+    $ sudo apt-get install apache2 libapache2-mod-fastcgi
 
 .. note::
-	You may wish to check postgres and python versions by
-	checking the directories themselves, since they may not correspond to
-	those listed above. In particular check the version of python that is
-	installed. Newer versions of Ubuntu are installing python2.7 by default
-	now from APT.
 
-Now we need to make those changes take effect by getting our shell to
-apply them using the **source** built in command:
+    On Ubuntu 11.04 and earlier, ``python-tables`` does not install. You need
+    to install ``liblzo`` otherwise OMERO.tables will fail to start::
 
-::
+        $ sudo apt-get install liblzo2-2
 
-      $ source ~/.bashrc
-
-We can check that the new environment variables have taken by printing
-their values to the shell, e.g.:
-
-::
-
-      $ echo $OMERO_HOME
-
-should give output similar to the following:
-
-::
-
-      ~/apps/OMERO/OMERO.server
-
-Configure software
+OMERO installation
 ------------------
 
-Now we need to configure our prerequisites so that they are ready for
-OMERO to make use of. For the purposes of this walk-through we shall use
-the following dummy data for the user account:
+Once the prerequisites are installed and configured, the OMERO.server can be
+set up. First, a home needs to be created for the server and this directory
+moved into. For example, to install OMERO locally into a directory called
+'apps' in your home directory, use the following::
 
-::
-
-      U: db_user 
-      P: db_password
-      DB: omero_database
-
-.. note::
-	For a live or public server install these values should be altered
-	to reflect your security requirements. You should also consider locking
-	down your server machine but that is outside the scope of this document.
-
-Setup postgresql:
-
-::
-
-      $ sudo -u postgres createuser -P -D -R -S db_user
-      $ sudo -u postgres createdb -O db_user omero_database
-      $ sudo -u postgres createlang plpgsql omero_database
-
-Check that a database called "omerodb" has been created:
-
-::
-
-      $ psql -h localhost -U db_user -l
-
-Update Postgresql host based authentication to accept remote
-connections:
-
-::
-
-      $ sudo sed '/127.0.0.1/s/md5/trust/' /etc/postgresql/8.4/main/pg_hba.conf \
-        > pg_hba.conf && sudo mv pg_hba.conf /etc/postgresql/8.4/main/pg_hba.conf
+    $ mkdir apps
+    $ cd apps
+    $ mkdir OMERO
+    $ cd OMERO
 
 .. note::
-	The backslash '' in the sed command above is used merely to
-	indicate a line-break and should not be included in the executed command
+    Recall that earlier you set the :envvar:`OMERO_HOME` environment variable
+    to :file:`~/apps/OMERO/OMERO.server`. If you change the location that you
+    wish to install OMERO to then you will also have to alter your
+    :envvar:`OMERO_HOME` environment variable to reflect this.
 
-Restart postgresql:
+OMERO |release|
+^^^^^^^^^^^^^^^
 
-::
-
-      $ sudo /etc/init.d/postgresql restart
-
-Use netstat to verify that there is something listening on port 5432,
-this should be your postgre server:
-
-::
-
-      $ netstat -an | egrep '5432.*LISTEN'
-
-Which should display a line similar to the following:
-
-::
-
-      tcp        0      0 127.0.0.1:5432          0.0.0.0:*               LISTEN
-
-Install OMERO.server
---------------------
-
-Now that all of the prerequisites are installed and configured we can get
-to the important business of setting up the OMERO.server. First we need
-to create a home for our server and move into that directory. I like to
-install certain software, such as OMERO, locally into a directory called
-apps in my home directory as follows:
-
-::
-
-      $ mkdir apps
-      $ cd apps
-      $ mkdir OMERO
-      $ cd OMERO
-
-.. note::
-	Recall that earlier we set the **OMERO\_HOME** environment variable
-	to **~/apps/OMERO/OMERO.server**. If you change the location that you
-	wish to install OMERO to then you will also have to alter your
-	**OMERO\_HOME** environment variable to reflect this.
-
-Release versions of OMERO.server can downloaded from :omero_plone:`OMERO 
-downloads <downloads>` page.
-
-.. note::
-	If you want the development version of OMERO.server, you can clone the 
-	source code from the project's GitHub account at
-	https://github.com/openmicroscopy/openmicroscopy to build
-	locally or download a daily build from our :omerojob:`build
-	server <lastSuccessfulBuild/artifact/>`
-
-Assuming that you downloaded a release version of OMERO.server, extract
-it from the zip archive:
+Release versions of OMERO.server can downloaded from the
+:omero_plone:`OMERO downloads <downloads>` page. Assuming that you downloaded
+a release version of OMERO.server, extract it from the zip archive:
 
 .. parsed-literal::
 
-      $ unzip OMERO.server-|release|-ice33-byy.zip
+    $ unzip OMERO.server-|release|-ice33-byy.zip
 
 Give your OMERO software install a nice local name to save some typing
-later, to reflect what we set **OMERO\_HOME** to, and to make it easy to
+later, to reflect what you set :envvar:`OMERO_HOME` to, and to make it easy to
 manage the installation of newer versions of the server at a later date:
 
 .. parsed-literal::
 
-      $ ln -s OMERO.server-|release|-ice33-byy  OMERO.server
+    $ ln -s OMERO.server-|release|-ice33-byy  OMERO.server
 
-Configure OMERO.server
-----------------------
+Development server
+^^^^^^^^^^^^^^^^^^
 
-Now we can configure OMERO.server so that it can connect to the postgres
-database:
+.. include:: development-server
 
-::
+Configuration
+-------------
 
-      $ omero config set omero.db.name 'omero_database'
-      $ omero config set omero.db.user 'db_user'
-      $ omero config set omero.db.pass 'db_password'
+Environment variables
+^^^^^^^^^^^^^^^^^^^^^
+
+Edit your :file:`.bashrc` file, e.g. **$ vim ~/.bashrc** and add the
+following::
+
+    export JAVA_HOME=/usr/lib/jvm/java-6-sun
+    export ICE_HOME=/usr/share/Ice-3.3.1
+    export POSTGRES_HOME=/usr/lib/postgresql/8.4
+    export OMERO_HOME=~/apps/OMERO/OMERO.server
+    export PATH=$PATH:$JAVA_HOME/bin:$ICE_HOME:$POSTGRES_HOME/bin:$OMERO_HOME/bin
+    export PYTHONPATH=/usr/lib/pymodules/python2.6:$PYTHONPATH
+    export LD_LIBRARY_PATH=/usr/share/java:/usr/lib:$LD_LIBRARY_PATH
 
 .. note::
-	If you altered any of these values earlier then you will need to
-	change them to reflect your requirements
+    You may wish to check postgres and python versions by
+    checking the directories themselves, since they may not correspond to
+    those listed above. In particular check the version of python that is
+    installed. Newer versions of Ubuntu are installing python2.7 by default
+    now from APT.
 
-You can also check the values that have been set using:
+Now you need to make those changes take effect by getting your shell to
+apply them using the **source** built in command::
 
-::
+    $ source ~/.bashrc
 
-      $ omero config get
+You can check that the new environment variables have taken by printing
+their values to the shell, e.g.::
 
-Create a home for your OMERO data, I like to keep mine in
-**~/apps/OMERO/OMERO.data** so, within **~/apps/OMERO/** use the
-following command:
+    $ echo $OMERO_HOME
 
-::
+should give output similar to the following::
 
-      $ mkdir OMERO.data
+    ~/apps/OMERO/OMERO.server
 
-Configure OMERO to find the data location:
+Database creation
+^^^^^^^^^^^^^^^^^
 
-::
+Now you need to configure your prerequisites so that they are ready for
+OMERO to make use of. For the purposes of this walk-through you can use
+the following dummy data for the user account::
 
-      $ omero config set omero.data.dir ~/apps/OMERO/OMERO.data
+    U: db_user 
+    P: db_password
+    DB: omero_database
 
-We can now configure the empty Postgres database using Omero's db
+.. note::
+    For a live or public server install these values should be altered
+    to reflect your security requirements. You should also consider locking
+    down your server machine but that is outside the scope of this document.
+
+Setup postgresql::
+
+    $ sudo -u postgres createuser -P -D -R -S db_user
+    $ sudo -u postgres createdb -O db_user omero_database
+    $ sudo -u postgres createlang plpgsql omero_database
+
+Check that a database called "omerodb" has been created::
+
+    $ psql -h localhost -U db_user -l
+
+Update Postgresql host based authentication to accept remote
+connections::
+
+    $ sudo sed '/127.0.0.1/s/md5/trust/' /etc/postgresql/8.4/main/pg_hba.conf \
+        > pg_hba.conf && sudo mv pg_hba.conf /etc/postgresql/8.4/main/pg_hba.conf
+
+.. note::
+    The backslash '' in the sed command above is used merely to
+    indicate a line-break and should not be included in the executed command
+
+Restart postgresql::
+
+    $ sudo /etc/init.d/postgresql restart
+
+Use netstat to verify that there is something listening on port 5432,
+this should be your postgres server::
+
+    $ netstat -an | egrep '5432.*LISTEN'
+
+Which should display a line similar to the following::
+
+    tcp        0      0 127.0.0.1:5432          0.0.0.0:*               LISTEN
+
+
+OMERO.server
+^^^^^^^^^^^^
+
+Now you can configure OMERO.server so that it can connect to the postgres
+database::
+
+    $ omero config set omero.db.name 'omero_database'
+    $ omero config set omero.db.user 'db_user'
+    $ omero config set omero.db.pass 'db_password'
+
+.. note::
+    If you altered any of these values earlier then you will need to
+    change them to reflect your requirements
+
+You can also check the values that have been set using::
+
+    $ omero config get
+
+Create a home for your OMERO data. For example, to install the OMERO data
+locally into :file:`~/apps/OMERO/OMERO.data`, use the following command::
+
+    $ mkdir ~/apps/OMERO/OMERO.data
+
+Configure OMERO to find the data location::
+
+    $ omero config set omero.data.dir ~/apps/OMERO/OMERO.data
+
+You can now configure the empty Postgres database using Omero's db
 script. You can accept the defaults for the first few values and enter a
-suitable password as required when prompted, e.g. "root\_password"
+suitable password as required when prompted, e.g. "root\_password::
 
-::
-
-      $ omero db script
+    $ omero db script
 
 .. |sqlfile| replace:: OMERO\ |version|\ __0.sql
 
 The output of this should be a file named, e.g. |sqlfile| file
-in your current directory. We can now tell Postgres to configure our new
+in your current directory. You can now tell Postgres to configure your new
 database
 
 .. parsed-literal::
@@ -339,31 +299,32 @@ At this point you should see a whole load of output from Postgres as it
 installs the new OMERO database.
 
 If all has gone well, you should now be able to start OMERO.server using
-the following command
+the following command::
 
-::
-
-      $ omero admin start
+    $ omero admin start
 
 You should now be able to connect to your OMERO.server using an OMERO
-client such as OMERO.insight and the following credentials:
+client such as OMERO.insight and the following credentials::
 
-::
+    U: root 
+    P: root_password
 
-      U: root 
-      P: root_password
+OMERO.web
+^^^^^^^^^
 
 To connect with the webclient or webadmin using the included Django
-development server:
+development server::
 
-::
+    $ omero config set omero.web.application_server development
+    $ omero config set omero.web.debug True
 
-      $ omero config set omero.web.application_server development
-      $ omero web start
+You should be able to start the Web server with::
 
-Now you should be able to connect on the same machine with:
+    $ omero web start
+    Starting django development webserver...
+    Validating models...
+    0 errors found
 
-::
-
-      http://localhost:4080/webadmin
-      http://localhost:4080/webclient
+    Django version 1.1.1, using settings 'omeroweb.settings'
+    Development server is running at http://0.0.0.0:4080/
+    Quit the server with CONTROL-C.

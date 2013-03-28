@@ -18,10 +18,9 @@ Jenkins on a small handful of platforms:
 Preparing to build
 -------------------
 
-Begin by following the instructions under 
-:doc:`/developers/using-git` on acquiring the
-source code. Be **sure** that the git branch you are using matches the
-version of your server!
+Begin by following the instructions under :doc:`/developers/source_code` on
+acquiring the source code. Be **sure** that the git branch you are using
+matches the version of your server!
 
 If you did not install Ice via a package manager like APT on
 Debian/Ubuntu?, RPM on Centos/RHEL or Macports on Mac OS X, you will
