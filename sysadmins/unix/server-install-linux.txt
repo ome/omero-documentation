@@ -1,5 +1,5 @@
-OMERO.server Linux installation walkthrough
-===========================================
+OMERO.server Linux installation walk-through
+============================================
 
 This page walks through the process of installing OMERO.server on a
 machine using a Debian-based Linux distribution. 
@@ -43,7 +43,7 @@ Prerequisites
 You require at least a clean minimal Debian or Ubuntu installation and a
 non-root user account that has sudo privileges.
 
-First you need to enable the contrib and Non-Free repositories by opening
+First you need to enable the contrib and non-free repositories by opening
 :file:`/etc/apt/sources.list` in an editor, e.g. **$ sudo vim
 /etc/apt/sources.list** and editing to add the following lines::
 
@@ -189,7 +189,7 @@ following::
     now from APT.
 
 Now you need to make those changes take effect by getting your shell to
-apply them using the **source** built in command::
+apply them using the **source** built-in command::
 
     $ source ~/.bashrc
 
@@ -218,7 +218,7 @@ the following dummy data for the user account::
     to reflect your security requirements. You should also consider locking
     down your server machine but that is outside the scope of this document.
 
-Setup postgresql::
+Set up PostgreSQL::
 
     $ sudo -u postgres createuser -P -D -R -S db_user
     $ sudo -u postgres createdb -O db_user omero_database
@@ -228,17 +228,17 @@ Check that a database called "omerodb" has been created::
 
     $ psql -h localhost -U db_user -l
 
-Update Postgresql host based authentication to accept remote
+Update postgresql host-based authentication to accept remote
 connections::
 
     $ sudo sed '/127.0.0.1/s/md5/trust/' /etc/postgresql/8.4/main/pg_hba.conf \
         > pg_hba.conf && sudo mv pg_hba.conf /etc/postgresql/8.4/main/pg_hba.conf
 
 .. note::
-    The backslash '' in the sed command above is used merely to
+    The backslash '\\' in the sed command above is used merely to
     indicate a line-break and should not be included in the executed command
 
-Restart postgresql::
+Restart PostgreSQL::
 
     $ sudo /etc/init.d/postgresql restart
 
@@ -247,7 +247,7 @@ this should be your postgres server::
 
     $ netstat -an | egrep '5432.*LISTEN'
 
-Which should display a line similar to the following::
+which should display a line similar to the following::
 
     tcp        0      0 127.0.0.1:5432          0.0.0.0:*               LISTEN
 
