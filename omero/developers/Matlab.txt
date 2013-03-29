@@ -92,7 +92,7 @@ directly or modify it to your liking.
     >> ...
     >> delete(t);             % Disables the keep-alive
 
-Alternatively, you can use the Java-based ``enableKeepAlive``-method,
+Alternatively, you can use the Java-based ``enableKeepAlive`` method,
 but it is not configurable from within Matlab::
 
     c.enableKeepAlive(60); % Calls session.keepAlive() every 60 seconds
@@ -103,7 +103,8 @@ but it is not configurable from within Matlab::
 Create an unencrypted session
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to have the data transfer encrypted then you can use the session variable otherwise use the following::
+If you want to speed up the data transfer, you can create and use an
+unencrypted session as::
 
 	unsecureClient = client.createClient(false);
 	sessionUnencrypted = unsecureClient.getSession();
@@ -120,7 +121,7 @@ save resources::
     clear client1;
     clear session1;
 
-If you create an unencrypted session, you will need to close the unsecure 
+If you created an unencrypted session, you will need to close the unsecure
 session as well::
 
     client.closeSession();
@@ -133,44 +134,43 @@ Unload OMERO
 
 Then if you would like, you can unload OMERO as well::
 
-    unloadOmero;
+    unloadOmero();
 
-**Note: you may see the following warning when unloading OMERO:**
+You may see the following warning when unloading OMERO::
 
-::
+	>> unloadOmero()
+	Warning: Objects of omero/client class exist - not clearing java
+	> In javaclasspath>doclear at 377
+	  In javaclasspath>local_javapath at 194
+	  In javaclasspath at 105
+	  In javarmpath at 48
+	  In unloadOmero at 75
 
-    >> unloadOmero
-    Warning: Objects of omero/client class exist - not clearing java
-    > In javaclasspath>local_javapath at 167
-      In javaclasspath at 88
-      In javarmpath at 46
-      In unloadOmero at 4
-    Warning: Objects of omero/client class exist - not clearing java
-    > In unloadOmero at 6
+	===============================================================
+	While unloading OMERO, found java objects left in workspace.
+	Please remove with 'clear <name>' and then run 'unloadOmero'
+	again.  Printing all objects...
+	===============================================================
 
-This means that there is still an OMERO.matlab
-object in your workspace. Use "who" to find such objects, and "clear" to
-remove them. After that, run ``clear java``:
+	  Name      Size            Bytes  Class           Attributes
 
-::
+	  c         1x1                    omero.client
 
-    >> who
+	Closing session(s) for 1 found client(s): c
 
-    Your variables are:
+This means that there is still an OMERO.matlab object in your workspace. If
+not listed, use ``whos`` to find such objects, and ``clear`` to remove them.
+After that, run ``unloadOmero()`` again::
 
-    omero_client
-
-    >> clear omero_client
-    >> clear java
+	>> clear c
+	>> unloadOmero()
 
 .. warning::
     You should also unload OMERO before installing a new version of
     OMERO.matlab or calling ``loadOmero`` again.
 
 If you need to create another session without unloading/loading OMERO
-again, use the ``omero.client`` object directly:
-
-::
+again, use the ``omero.client`` object directly::
 
     >> [c,s] = loadOmero(arg1,arg2);
     >> c = omero.client(arg3,arg4);
@@ -210,7 +210,7 @@ If the datasets contains images, the images will automatically be loaded::
 
     imageList = projects(1).linkedDatasetList.get(0).linkedImageList;
 
-To avoid loading the whole graph (projects, datasets, images), pass `False` as
+To avoid loading the whole graph (projects, datasets, images), pass `false` as
 a second optional argument. Only datasets will be loaded::
 
 	unloadedProjects = getProjects(session, ids, false)
@@ -228,11 +228,11 @@ If the dataset identifiers are known, they can be specified as::
 
 	datasets = getDatasets(session, ids)
 
-If the datasets contains images, the images will automatically be loaded::
+If the datasets contain images, the images will automatically be loaded::
 
     imageList = datasets(1).linkedImageList;
 
-To avoid loading the images, pass `False` as a second optional argument::
+To avoid loading the images, pass `false` as a second optional argument::
 
 	unloadedDatasets = getDatasets(session, ids, false)
 
@@ -256,10 +256,10 @@ by specifying the parent type and identifiers as::
 	datasetImages = getImages(session, datasetsIds, 'dataset')
 
 .. note:: If ``projectIds`` or ``datasetIds`` is set to ``[]``, all the images
-   contained in projects or datasets will be returned.
+   contained in datasets will be returned.
 
 The model is as follows: Image-Pixels i.e. to access valuable data about
-the image you need to use the pixels object. We now only support one set
+the image you need to use the Pixels object. We now only support one set
 of pixels per image (it used to be more!)::
 
     pixelsList = image.copyPixels();
