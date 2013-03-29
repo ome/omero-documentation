@@ -126,7 +126,7 @@ with data, with the following limitations:
 **Known Issue**
 
 Please be very careful before downgrading a group's permission level. If
-a user has annotated another user's data and the group is downgraded,
+a user has annotated other users' data and the group is downgraded,
 any links to annotations that are not permitted with the new permissions
 setting will be lost.
 
@@ -165,12 +165,12 @@ or through the :forum:`forums <>`.
 Permissions tables
 ------------------
 
-The following are the permissions available to other users on other
-group members data, depending on the group permissions and on your user
-type. 
+The following are the permissions valid for users working on data belonging to other
+group members. These permissions depend on the group permissions and on the type
+of the user performing the action. 
 
 .. note::
-    No user can ever create projects or screens in other user's space
+    No user can ever create projects or screens in other users' space
 
 |
 
@@ -244,16 +244,16 @@ Key
 
 
 	Action
-		Action on other user's data
+		Action on other users' data
 
 	View
-		View other user's data such as images. View ROIs added by others.  Draw ROIs on another
-		user's data, but they cannot be saved.
+		View other users' data such as images. View ROIs added by others.  Draw ROIs on other
+		users' data, but they cannot be saved.
 
 	Annotate
 		Add annotations (rating, tag, attachment, comment ROI)
-		to another user's data.  Also create & save ROIs (save
-		ROIs that you draw on another user's data).
+		to another users' data.  Also create & save ROIs (save
+		ROIs that you draw on another users' data).
 
 	Render
 		Create your own rendering settings (this will not
@@ -266,11 +266,11 @@ Key
 		
 
 	Edit
-		Modify the name or description of someone else’s
-		object such as image.
+		Modify the name or description of other users'
+		objects such as images.
 
 	Move between groups
-		Only the admin has the right to move another user’s
+		Only the admin has the right to move other users’
 		data between groups.
 
 		.. note::
@@ -298,8 +298,8 @@ Issues to be aware of
 ROIs
 ~~~~
 
--  You can never edit (change text or move) another user's ROI.
--  Any ROIs added to another user's data will not affect ROIs added by
+-  You can never edit (change text or move) other users' ROI.
+-  Any ROIs added to other users' data will not affect ROIs added by
    the owner.
 
 Tags and attachments
