@@ -20,8 +20,8 @@ it is put, and what role it plays in the distribution.
 .. list-table::
     :header-rows: 1
 
-    * - OMERO_HOME
-      - OMERO\_HOME/dist
+    * - OMERO_SOURCE_PREFIX
+      - OMERO_SOURCE_PREFIX/dist
       - Comments
     * - components/blitz/target/blitz.jar
       - lib/server
@@ -91,7 +91,7 @@ OMERO:
 
 ::
 
-      OMERO_HOME
+      OMERO_SOURCE_PREFIX
       |
       |-- build.xml .......................... Top-level build driver
       |
