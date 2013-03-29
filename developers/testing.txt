@@ -33,7 +33,7 @@ which will be missing from any Eclipse project you open before building
 the source.
 
 Secondly, Ivy is used to copy all the jar dependencies from
-``OMERO_HOME/lib/repository`` to ``COMPONENT/target/libs``, which is
+``OMERO_SOURCE_PREFIX/lib/repository`` to ``COMPONENT/target/libs``, which is
 then used in the Eclipse :file:`.classpath` files.
 
 If Eclipse ever gets out of sync after the first build,
