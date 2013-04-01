@@ -199,11 +199,7 @@ You can check that the new environment variables have taken by printing
 their values to the shell, e.g.::
 
     $ echo $OMERO_PREFIX
-    ~/apps/OMERO/OMERO.server
-
-If you change the location that you wish to install OMERO to, then you will
-also have to alter your :envvar:`OMERO_PREFIX` environment variable to reflect
-this.
+    /home/ome/apps/OMERO/OMERO.server
 
 Database creation
 ^^^^^^^^^^^^^^^^^
