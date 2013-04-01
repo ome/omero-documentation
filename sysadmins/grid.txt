@@ -405,7 +405,7 @@ Symbolic linking
 Shortcuts allow the :file:`bin/omero` script to function as a init.d script
 when named "**omero-admin**\ ", and need only be copied to
 ``/etc/init.d/`` to function properly. It will resolve its installation
-directory, and execute from there unless ``OMERO_PREFIX`` is set.
+directory, and execute from there unless :envvar:`OMERO_HOME` is set.
 
 For example,
 
