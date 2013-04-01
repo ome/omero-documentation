@@ -134,12 +134,6 @@ moved into. For example, to install OMERO locally into a directory called
     $ mkdir OMERO
     $ cd OMERO
 
-.. note::
-    Recall that earlier you set the :envvar:`OMERO_PREFIX` environment 
-    variable to :file:`~/apps/OMERO/OMERO.server`. If you change the location
-    that you wish to install OMERO to then you will also have to alter your
-    :envvar:`OMERO_PREFIX` environment variable to reflect this.
-
 OMERO |release|
 ^^^^^^^^^^^^^^^
 
@@ -151,9 +145,10 @@ a release version of OMERO.server, extract it from the zip archive:
 
     $ unzip OMERO.server-|release|-ice33-byy.zip
 
-Give your OMERO software install a nice local name to save some typinglater,
-to reflect what you set :envvar:`OMERO_PREFIX` to, and to make it easy to
-manage the installation of newer versions of the server at a later date:
+Give your OMERO software install a nice local name to save some typing later,
+to reflect what you set :envvar:`OMERO_PREFIX` to in the
+:ref:`linux_configuration` section, and to make it easy to manage the
+installation of newer versions of the server at a later date:
 
 .. parsed-literal::
 
@@ -204,10 +199,11 @@ You can check that the new environment variables have taken by printing
 their values to the shell, e.g.::
 
     $ echo $OMERO_PREFIX
-
-should give output similar to the following::
-
     ~/apps/OMERO/OMERO.server
+
+If you change the location that you wish to install OMERO to, then you will
+also have to alter your :envvar:`OMERO_PREFIX` environment variable to reflect
+this.
 
 Database creation
 ^^^^^^^^^^^^^^^^^
