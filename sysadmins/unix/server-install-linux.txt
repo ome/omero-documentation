@@ -164,11 +164,18 @@ Development server
 
 .. include:: development-server
 
+.. _linux_configuration:
+
 Configuration
 -------------
 
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
+
+.. warning::
+    The :envvar:`OMERO_HOME` environment variable is used internally by OMERO.
+    Unless you really know what you are doing, it is strongly recommended not
+    to set this variable.
 
 Edit your :file:`.bashrc` file, e.g. **$ vim ~/.bashrc** and add the
 following::
