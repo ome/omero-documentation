@@ -184,9 +184,9 @@ following::
 .. note::
     You may wish to check PostgreSQL and Python versions by
     checking the directories themselves, since they may not correspond to
-    those listed above. In particular check the version of python that is
-    installed. Newer versions of Ubuntu are installing python2.7 by default
-    now from APT.
+    those listed above. In particular check the version of Python that is
+    installed. Newer versions of Ubuntu are installing Python 2.7 from APT
+    by default.
 
 Now you need to make those changes take effect by getting your shell to
 apply them using the **source** built-in command::
