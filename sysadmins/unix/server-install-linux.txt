@@ -182,7 +182,7 @@ following::
     export LD_LIBRARY_PATH=/usr/share/java:/usr/lib:$LD_LIBRARY_PATH
 
 .. note::
-    You may wish to check postgres and python versions by
+    You may wish to check PostgreSQL and Python versions by
     checking the directories themselves, since they may not correspond to
     those listed above. In particular check the version of python that is
     installed. Newer versions of Ubuntu are installing python2.7 by default
@@ -228,7 +228,7 @@ Check that a database called "omerodb" has been created::
 
     $ psql -h localhost -U db_user -l
 
-Update postgresql host-based authentication to accept remote
+Update PostgreSQL host-based authentication to accept remote
 connections::
 
     $ sudo sed '/127.0.0.1/s/md5/trust/' /etc/postgresql/8.4/main/pg_hba.conf \
@@ -243,7 +243,7 @@ Restart PostgreSQL::
     $ sudo /etc/init.d/postgresql restart
 
 Use netstat to verify that there is something listening on port 5432,
-this should be your postgres server::
+this should be your PostgreSQL server::
 
     $ netstat -an | egrep '5432.*LISTEN'
 
@@ -255,7 +255,7 @@ which should display a line similar to the following::
 OMERO.server
 ^^^^^^^^^^^^
 
-Now you can configure OMERO.server so that it can connect to the postgres
+Now you can configure OMERO.server so that it can connect to the PostgreSQL
 database::
 
     $ omero config set omero.db.name 'omero_database'
@@ -279,7 +279,7 @@ Configure OMERO to find the data location::
 
     $ omero config set omero.data.dir ~/apps/OMERO/OMERO.data
 
-You can now configure the empty Postgres database using Omero's db
+You can now configure the empty PostgreSQL database using Omero's db
 script. You can accept the defaults for the first few values and enter a
 suitable password as required when prompted, e.g. "root\_password::
 
@@ -288,14 +288,14 @@ suitable password as required when prompted, e.g. "root\_password::
 .. |sqlfile| replace:: OMERO\ |version|\ __0.sql
 
 The output of this should be a file named, e.g. |sqlfile| file
-in your current directory. You can now tell Postgres to configure your new
-database
+in your current directory. You can now tell PostgreSQL to configure your
+new database
 
 .. parsed-literal::
 
     $ psql -h localhost -U db_user omero_database < |sqlfile|
 
-At this point you should see a whole load of output from Postgres as it
+At this point you should see a whole load of output from PostgreSQL as it
 installs the new OMERO database.
 
 If all has gone well, you should now be able to start OMERO.server using
