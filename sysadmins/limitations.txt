@@ -131,13 +131,13 @@ Previous known issues (Prior to |release|)
 ==========================================
 
 
-Postgres 9.x defaults to 'hex' bytea\_output format
----------------------------------------------------
+PostgreSQL 9.x defaults to 'hex' bytea\_output format
+-----------------------------------------------------
 
-Newer version of Postgres default to the 'hex' as opposed to 'escape'
+Newer versions of PostgreSQL default to the 'hex' as opposed to 'escape'
 format for bytea\_output which OMERO uses for storing script and share
 data in the database. This causes problems with OMERO 4.3 and earlier, which
-can not understand this format. OMERO 4.4 works with both formats
+cannot understand this format. OMERO 4.4 works with both formats
 without problems. A workaround is available under
 :doc:`/sysadmins/unix/server-postgresql`. See :ticket:`5662`.
 
