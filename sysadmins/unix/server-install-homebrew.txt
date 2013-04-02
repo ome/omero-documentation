@@ -18,8 +18,8 @@ OS X/Xcode
 
 .. _OS X Developer Tools: https://developer.apple.com/technologies/tools/
 
-Install the `OS X Developer Tools`_. This procedure has been tested on the
-following configurations:
+Install the `OS X Developer Tools`_. This procedure is regularly tested with
+the following configuration:
 
 .. list-table::
     :header-rows: 1
@@ -28,10 +28,6 @@ following configurations:
     - * Model Identifier
       * Mac OS X version
       * Xcode version
-
-    - * MacBookPro1,1 (Intel Core Duo, 2.16GHz, 2GB RAM)
-      * 10.6.8
-      * 3.2.6
 
     - * MacBookPro8,2 (Intel Core i7, 2.3 GHz, 8 GB RAM)
       * 10.7.5
@@ -116,23 +112,7 @@ Prepare a place for your OMERO code to live, e.g.
     $ mkdir -p ~/code/projects/OMERO
     $ cd ~/code/projects/OMERO
 
-Now clone and build the OMERO github repository:
-
-::
-
-    $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
-    $ cd openmicroscopy && ./build.py
-
-.. note::
-    If you have a github account and you plan to develop code for OMERO then
-    you should make a fork into your own account then clone this fork to your
-    local development machine, e.g.
-
-    ::
-
-        $ git clone --recursive git://github.com/YOURNAMEHERE/openmicroscopy
-        $ cd openmicroscopy && ./build.py
-
+.. include:: development-server
 
 Additional OMERO requirements
 -----------------------------
@@ -233,6 +213,9 @@ This command should give similar output to the following:
                     |         |          |             |             | ome=CTc/ome  
     (4 rows)
 
+OMERO.server
+^^^^^^^^^^^^
+
 Now tell OMERO.server about our database.
 
 .. parsed-literal::
@@ -288,7 +271,7 @@ Now connect to your OMERO.server using OMERO.insight with the following credenti
 OMERO.web
 ^^^^^^^^^
 
-You can setup the internal web server
+You can setup the internal development web server
 
 ::
 
