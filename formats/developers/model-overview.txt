@@ -1,0 +1,75 @@
+Current Data Model Overview
+===========================
+
+
+.. figure:: /images/Image-Overview.*
+   :align: center
+   :alt: Image Overview
+   
+   Image branch of the OME Schema
+
+|
+
+.. figure:: /images/Instrument-Overview.*
+   :align: center
+   :alt: Instrument Overview
+   
+   Instrument branch of the OME Schema
+
+|
+
+.. figure:: /images/LightPathFilterSet-Top.*
+   :align: center
+   :alt: LightPathFilterSet Top
+   
+   Location of Filters and Light Paths in the OME Model
+
+|
+
+.. figure:: /images/Project-Dataset-Top.*
+   :align: center
+   :alt: Project Dataset Top
+   
+   Organisational structures (Project, Dataset, Group, Experiment, 
+   Experimenter) of the OME Model
+
+|
+
+.. figure:: /images/Project-Dataset-Ownership.*
+   :align: center
+   :alt: Project Dataset Ownership
+   
+   Ownership relations for Project, Dataset and Experimenter
+
+|
+
+.. figure:: /images/Ome-ROI-overview.*
+   :align: center
+   :alt: ROI Overview Standard
+   
+   Region Of Interest branch of the OME Model
+
+|
+
+.. figure:: /images/Spw-structure.*
+   :align: center
+   :alt: ScreenPlateWell Structure
+   
+   HCS structures (Screen, Plate and Well) of the OME Model
+
+|
+
+.. figure:: /images/Annotation-Top.*
+   :align: center
+   :alt: Annotation Top
+   
+   StructureAnnotation branch of the OME Model
+
+|
+
+.. figure:: /images/Annotation-Points.*
+   :align: center
+   :alt: Annotation Points
+   
+   All points in the OME Model that can be Annotated
+

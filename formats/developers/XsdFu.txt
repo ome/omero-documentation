@@ -1,0 +1,189 @@
+XSD Fu
+======
+
+
+XSD Fu is a Python application designed to digest OME XML schema and
+produce an object oriented Java infrastructure to ease work with an XML
+DOM tree.
+
+Checking out the source
+-----------------------
+
+This will get the entire source tree. xsd-fu is in ``components/xsd-fu``
+
+::
+
+    git clone --recursive https://github.com/openmicroscopy/openmicroscopy
+
+Running the code generator
+--------------------------
+
+If you **do** have *Genshi* already installed you can run ``xsd-fu``
+script with no arguments to examine the syntax:
+
+::
+
+    $ ./xsd-fu
+    Missing subcommand!
+    Usage: ./xsd-fu <subcommand> ...
+    Executes an OME-XML Schema definition parsing and code generation subcommand.
+
+    Available subcommands:
+      java_classes
+      omexml_metadata
+      omero_metadata
+      metadata_store
+      metadata_retrieve
+      metadata_aggregate
+      enum_types
+      enum_handlers
+      doc_gen
+      tab_gen
+      debug
+
+    Report bugs to OME Devel <ome-devel@lists.openmicroscopy.org.uk>
+
+If you **do not** have *Genshi* installed you can use a downloaded
+Python ``.egg`` for your platform as follows:
+
+::
+
+    $ export PYTHONPATH=Genshi-0.5-py2.4-linux-i686.egg
+    $ ./xsd-fu 
+    Missing subcommand!
+    Usage: ./xsd-fu <subcommand> ...
+    Executes an OME-XML Schema definition parsing and code generation subcommand.
+
+    Available subcommands:
+      java_classes
+      omexml_metadata
+      omero_metadata
+      metadata_store
+      metadata_retrieve
+      metadata_aggregate
+      enum_types
+      enum_handlers
+      doc_gen
+      tab_gen
+      debug
+
+    Report bugs to OME Devel <ome-devel@lists.openmicroscopy.org.uk>
+
+.. note::
+    XsdFu is used for several different
+    types of code generation tasks (mostly targeted at the OMERO and
+    Bio-Formats releases) as outlined by the subcommand structure
+    above.
+
+
+Generating the OME-XML Java toolchain
+-------------------------------------
+
+The following outlines how to generate parts of the OME-XML Java toolchain
+which are composed of:
+
+-  OME model objects
+-  Enumerations for OME model properties
+-  Enumeration handlers for regular expression matching of enumeration
+   strings
+-  Metadata store and Metadata retrieve interfaces for all OME model
+   properties
+-  Various implementations of Metadata store and/or Metadata retrieve
+   interfaces
+
+.. note::
+    All the below examples assume a full OME-XML *specification*
+    git checkout.
+
+Java classes for OME model objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    $ ./xsd-fu java_classes -p 'ome.xml.model' -o $BIO-FORMATS_HOME/components/ome-xml/src/ome/xml/model/ \
+        ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd ../specification/Released-Schema/2012-06/ROI.xsd \
+        ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+
+Enumeration classes for OME model properties
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    $ ./xsd-fu enum_types -p 'ome.xml.model.enums' -o $BIO-FORMATS_HOME/components/ome-xml/src/ome/xml/model/enums/ \
+        ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd ../specification/Released-Schema/2012-06/ROI.xsd \
+        ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+
+Enumeration handlers for OME model properties
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    $ ./xsd-fu enum_handlers -p 'ome.xml.model.enums.handlers' -o $BIO-FORMATS_HOME/components/ome-xml/src/ome/xml/model/enums/handlers/ \
+        ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd ../specification/Released-Schema/2012-06/ROI.xsd \
+        ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+
+Metadata store and Metadata retrieve interfaces
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    $ ./xsd-fu metadata_store ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+    $ ./xsd-fu metadata_retrieve ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+    $ cp MetadataStore.java MetadataRetrieve.java $LOCI_HOME/components/bio-formats/src/loci/formats/meta/
+
+Metadata store and Metadata retrieve implementation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    $ ./xsd-fu omexml_metadata ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+    $ ./xsd-fu metadata_aggregate ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+    $ ./xsd-fu dummy_metadata ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+    $ ./xsd-fu filter_metadata ../specification/Released-Schema/2012-06/ome.xsd ../specification/Released-Schema/2012-06/BinaryFile.xsd \
+        ../specification/Released-Schema/2012-06/ROI.xsd ../specification/Released-Schema/2012-06/SA.xsd ../specification/Released-Schema/2012-06/SPW.xsd
+    $ cp AggregateMetadata.java DummyMetadata.java FilterMetadata.java $BIO-FORMATS_HOME/components/scifio/src/loci/formats/meta/
+    $ cp OMEXMLMetadataImpl.java $BIO-FORMATS_HOME/components/scifio/src/loci/formats/ome/
+
+Working with Enumerations and Enumeration Handlers
+--------------------------------------------------
+
+XsdFu contains a flexible, configuration driven
+structure to code generate enumeration regular expressions. The
+configuration file is located off of the ``components/xsd-fu`` root, in
+the ``cfg`` folder:
+
+-  `http://github.com/openmicroscopy/openmicroscopy/blob/develop/components/xsd-fu/cfg/enum\_handler.cfg <http://github.com/openmicroscopy/openmicroscopy/blob/develop/components/xsd-fu/cfg/enum_handler.cfg>`_
+
+Each enumeration has a key-value listing of regular expression to exact
+enumeration value matches. For example:
+
+::
+
+    ...
+    [Correction]
+    ".*Pl.*Apo.*" = "PlanApo"
+    ".*Pl.*Flu.*" = "PlanFluor"
+    "^\\s*Vio.*Corr.*" = "VioletCorrected"
+    ".*S.*Flu.*" = "SuperFluor"
+    ".*Neo.*flu.*" = "Neofluar"
+    ".*Flu.*tar.*" = "Fluotar"
+    ".*Fluo.*" = "Fluor"
+    ".*Flua.*" = "Fluar"
+    "^\\s*Apo.*" = "Apo"
+    ...
+
+Generate OMERO model specification files
+----------------------------------------
+
+::
+
+    $ cd components/xsd-fu
+    $ ./xsd-fu omero_model ../specification/InProgress/ome.xsd ../specification/InProgress/SPW.xsd \
+            ../specification/InProgress/SA.xsd ../specification/InProgress/ROI.xsd
+    $ cp OmeroModel.xml wherever/you/need/it/
+
