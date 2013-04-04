@@ -1,0 +1,115 @@
+Sample Image Files
+==================
+
+
+Sample OME-XML and OME-TIFF files can be found here: 
+:schema_plone:`Samples <Samples/>`.
+
+Structure of the samples
+------------------------
+
+Each schema version's samples are located in a folder named after the schema's
+date
+
+e.g. folder ``2012-06`` has samples using schema version
+:schema_plone:`http://www.openmicroscopy.org/Schemas/OME/2012-06 <OME/2012-06>`.
+
+There are two sets of samples that were designed to be small enough to
+examine in detail:
+
+-  ``18x24y*-text*`` are 18 by 24 pixel images, with black and white
+   text on each plane giving its time, z-depth and channel e.g. C1 Z1
+   T1
+-  ``6x4y*-swatch`` are 6 by 4 pixel images, that have a black and white
+   pattern in the first 2 x-columns, followed by a grey scale pattern in
+   the next 4 columns.
+
+The file names contain:
+``x`` size, ``y`` size, ``z`` depth, ``t`` timepoints, ``c`` channels,
+and ``b`` bitdepth
+
+-  A file ending in ``.ome`` is the OME-XML version
+-  A file ending in ``.ome.tiff`` is the OME-TIFF version
+   that matches the OME-XML version
+
+
+Sample details
+--------------
+
+This is a list of all the examples for the 2010-06 Schema Version. While
+most are available in all the schema versions, some files are only
+available in the later versions.
+
+-  ``6x4y1z1t1c8b-swatch-1s1p4w2ws.ome`` 
+   contains 11 images. This file shows how these images can be
+   attached to wells within a plate.
+
+-  ``6x4y1z1t1c8b-swatch-2s2p4w2ws.ome`` 
+   contains 22 images. This file shows how two plates and two
+   screens can be linked together.
+
+-  ``6x4y1z1t1c8b-swatch-instrument.ome`` 
+   has a single image with an instrument using lights sources,
+   detectors, objectives and filters (most of the other examples do not 
+   contain any instrument data).
+
+-  ``6x4y1z1t1c8b-swatch-tagged.ome`` 
+   has a single image with two tags and a tagset
+   attached to it using annotations.
+
+-  ``6x4y1z1t1c8b-swatch-xmlannotation-svg.ome`` 
+   has a single image. The image has a block of XML data
+   attached to it using annotations. The XML data is SVG in this
+   example but could be any well formed XML.
+
+-  ``6x4y1z1t1c8b-swatch.ome`` 
+   has a single image. This file is the one on which the other
+   files are based.
+
+-  ``6x4y1z1t3c8b-swatch-ROI.ome`` 
+   has a single image, but that image has 3 channels. There are
+   3 ROIs defined, two on only a single channel and one that applies to
+   all the channels.
+
+-  ``6x4y1z1t3c8b-swatch.ome`` 
+   has a single image, but that image has 3 channels.
+    
+-  ``18x24y1z5t1c8b-text.ome`` 
+   has a single image. The image has pixels stored for 5
+   timepoints.
+
+-  ``18x24y1z5t2c8b-text.ome`` 
+   has a single image. The image has pixels stored for 5
+   timepoints. Each of these timepoints has 2 channels to give a total
+   of 10 bit planes.
+
+-  ``18x24y5z1t1c8b-text.ome`` 
+   has a single image. The image has pixels stored for 5
+   z-sections.
+
+-  ``18x24y5z1t2c8b-text.ome`` 
+   has a single image. The image has pixels stored for 5
+   z-sections. Each of these z-sections has 2 channels to give a total
+   of 10 bit planes.
+
+-  ``18x24y5z5t1c8b-metadata.ome`` 
+   defines a single image. The image is defined as having pixels
+   for 5 z-sections. Each of these z-sections has 5 timepoints to give
+   a total of 25 bit planes. This is a metadata-only file. It only has
+   the metadata defining the image, not any of the pixel data.
+
+-  ``18x24y5z5t1c8b-text.ome`` 
+   has a single image. The image has pixels stored for 5
+   z-sections. Each of these z-sections has 5 timepoints to give a
+   total of 25 bit planes.
+
+-  ``18x24y5z5t2c8b-text.ome`` 
+   has a single image. The image has pixels stored for 5
+   z-sections. Each of these z-sections has 5 timepoints. Each of these
+   timepoints has 2 channels to give a total of 50 bit planes.
+
+Other OME-TIFF files
+--------------------
+
+See the :doc:`/ome-tiff/data` section.
+

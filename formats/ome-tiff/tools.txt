@@ -1,0 +1,124 @@
+OME-XML And OME-TIFF Software Tools
+===================================
+
+The OME consortium currently provides two major tools capable of working
+with OME-XML:
+
+-  The :bf_plone:`Bio-Formats <>`
+   library is a full-featured library with many features related to
+   OME-XML, including conversion of third party file format metadata
+   into OME-XML structures. It can write image data to the OME-TIFF
+   format.
+-  The :omero_plone:`OMERO server <>` works directly with
+   OME-XML. It can import data from OME-XML and OME-TIFF, as well as
+   export to OME-TIFF.
+
+In addition to the above packages, this section outlines several useful
+tools, some of which we have developed ourselves, for working with
+documents in the OME-XML and OME-TIFF formats.
+
+Extracting the OME-XML from an OME-TIFF file
+--------------------------------------------
+
+If you install the :bf_doc:`Bio-Formats command line
+tools <users/comlinetools/index>`, you can
+produce a nicely formatted OME-XML string from an OME-TIFF file with:
+
+::
+
+    tiffcomment file.ome.tif | xmlindent
+
+Alternately, if you have ImageMagick installed, one easy way to extract
+the OME-XML embedded in the TIFF headers is to use it from the command
+line:
+
+::
+
+    identify -verbose
+
+If you are working in C/C++, we recommend the open source
+`LibTIFF <http://www.libtiff.org/>`_ library, or Bio-Formats via the
+:bf_doc:`Bio-Formats C++ bindings <developers/c-bindings>`.
+
+If you are looking for a solution in Java, there are several options.
+Bio-Formats can read OME-TIFF files, as well as convert from many
+third-party formats into OME-TIFF format—see the :doc:`example source code
+page <code>` for specific examples. Alternately, the open
+source `ImageJ <http://rsb.info.nih.gov/ij/>`_ application reads
+multi-page TIFF files, storing the TIFF comment into the associated
+FileInfo object's "description" field.
+
+Processing an OME-XML block
+---------------------------
+
+If the XML was stored without line breaks, it can still be difficult to
+read after being extracted. There are several solutions to this problem,
+such as using an XML viewer or editor (web browsers work well), or
+processing the XML with a SAX or DOM library.
+
+On most Linux distributions, you can install the libxml package and use
+the xmllint program:
+
+::
+
+    xmllint --format file.xml
+
+Here is a Perl script that uses
+`XML::LibXML <http://www.xml.com/pub/a/2001/11/14/xml-libxml.html>`_ to
+"pretty print" an XML document with appropriate whitespace:
+
+::
+
+    formatxml.pl
+
+    use XML::LibXML;
+    $file = $ARGV[0];
+    $parser = XML::LibXML->new(); die "Cannot create XML parser" unless defined $parser;
+    $parser->validation(0);
+    if (defined $file) { $doc = $parser->parse_file($file); }
+    else { $doc = $parser->parse_fh(STDIN); } print $doc->toString(1);
+
+Unfortunately, both xmllint and the above Perl script can be somewhat
+fragile; if there are any errors or abnormalities in the XML, they
+generally fail to produce any indentation. Thus, we have also written
+some Java code to do the same thing; just download the 
+:bf_doc:`Bio-Formats command line tools <users/comlinetools/index>` and run:
+
+::
+
+    xmlindent file.xml
+
+Another option is to feed the XML into our 
+:doc:`OME-XML Java library </ome-xml/java-library>`, which provides methods 
+for querying and manipulating the OME-XML (using DOM and SAX). This library is 
+what Bio-Formats uses to work with OME-XML.
+
+Validating OME-XML
+------------------
+
+We have created a command line tool in Java for validating OME-XML, and
+included it as part of the :bf_doc:`Bio-Formats command line
+tools <users/comlinetools/index>`. The command is:
+
+::
+
+    xmlvalid file.xml
+
+Also available is a web-based `OME-XML
+validator <http://validator.openmicroscopy.org.uk/>`_ for checking files
+in OME-XML or OME-TIFF formats, including:
+
+-  conformation to the OME-XML schema
+-  listing missing internal references
+-  listing external references
+-  correct TiffData block usage
+-  frame counts in TIFF files
+
+Alternately, you can use the more general online `W3C XML
+validator <http://www.w3.org/2001/03/webdata/xsv>`_ to validate your
+OME-XML blocks. For best results, be sure to check the "keep going"
+option.
+
+Another option is to use a commercial XML application such as Turbo XML
+to work with and validate your OME-XML documents.
+

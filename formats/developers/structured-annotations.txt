@@ -1,0 +1,30 @@
+Structured Annotations
+======================
+
+
+Structured annotations (or SAs), introduced in the 
+:doc:`2008-09 schema </schemas/september-2008>`,
+are a general way to extend OME-XML with additional structured
+information. They can express a variety of data types and linkages, and
+serve as a replacement for the Custom Attributes and Semantic Type
+Definitions functionality of prior schemas.
+
+For more information on SAs from an OMERO-centric perspective, see the
+:omero_doc:`OMERO page on structured
+annotations <developers/Modules/StructuredAnnotations>`.
+
+The structure of the SA used in the schema is shown below,
+along with all the possible attachment points in the model.
+
+.. figure:: /images/Annotation-Top.*
+   :align: center
+   :alt: StructureAnnotation Model branch
+
+   The StructureAnnotation branch of the OME Model
+
+.. figure:: /images/Annotation-Points.*
+   :align: center
+   :alt: Annotation Points
+
+   All points in the OME Model that can be Annotated
+
