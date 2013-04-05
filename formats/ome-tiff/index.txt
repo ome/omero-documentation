@@ -1,0 +1,72 @@
+OME-TIFF Overview
+=================
+
+Terminology
+-----------
+
+- **Image:** a single (2D) image plane
+- **Dataset:** a collection of image planes composing a multidimensional
+  structure (also called a multidimensional image or OME image)
+- **OME dataset:** a collection of related OME images
+- **OME project:** a collection of related OME datasets
+- **Pixels:** image samples acquired from a microscope or other source
+- **Metadata:** auxiliary information associated with the pixels, such as
+  who acquired the data, when it was acquired, conditions of the
+  experiment, etc.
+- **Multi-page TIFF:** a TIFF file containing multiple image planes
+- **OME-XML metadata:** a block of OME-XML representing image metadata
+  (but not pixels)
+
+Rationale
+---------
+
+The Open Microscopy Environment Consortium has defined a file format
+called OME-XML for biological image data including a rich set of
+microscopy-specific metadata. OME-XML's major strength lies in its
+extensible, human-readable XML schemas for image metadata.
+Unfortunately, OME-XML has some of drawbacks:
+
+#. Decoding base64-encoded image planes is computationally expensive.
+#. There is no facility to split a dataset among multiple files on disk.
+#. Far fewer applications support OME-XML than TIFF.
+
+To address these concerns, we have created the OME-TIFF Format to
+maximize the respective strengths of OME-XML and TIFF, taking advantage
+of the rich metadata defined in OME-XML while retaining the pixels in
+multi-page TIFF format for greater compatibility.
+
+Characteristics
+---------------
+
+An OME-TIFF dataset has the following characteristics:
+
+#. Image planes are stored within one multi-page TIFF file, or across
+   multiple TIFF files. Any image organization is feasible.
+#. A complete OME-XML metadata block describing the dataset is embedded
+   in each TIFF file's header. Thus, even if some of the TIFF files in a
+   dataset are misplaced, the metadata remains intact.
+#. The OME-XML metadata block may contain
+   anything a standard OME-XML file can, including multiple OME images
+   with multiple sets of pixels.
+#. OME-TIFF uses the standard TIFF mechanism for storing one or more image 
+   planes in each of the constituent files, instead of encoding pixels as 
+   base64 chunks within the XML. Since TIFF is an image
+   format, it makes sense to only use OME-TIFF as opposed to OME-XML, when 
+   there is at least one image plane.
+
+|
+
+.. only:: html
+
+    For detailed technical information on OME-TIFF, see the 
+    :doc:`specification`.
+
+    There is further information about :doc:`tools` available.
+
+    We also have some :doc:`code` in Java for
+    reading and writing OME-TIFF.
+
+    Lastly, some :doc:`data` is available for
+    download, along with statistics comparing OME-TIFF and OME-XML with
+    various types of compression.
+
