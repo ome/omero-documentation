@@ -1,10 +1,10 @@
-OMERO.server Mac OS X installation walkthrough with Homebrew 
-============================================================
+OMERO.server Mac OS X installation walk-through with Homebrew 
+=============================================================
 
 
 .. topic:: Overview
 
-    This walkthrough is a list of the commands used to install OMERO on a  
+    This walk-through is a list of the commands used to install OMERO on a  
     clean Mac OS X 10.7 Lion using Homebrew.
 
 The instructions and scripts provided here depend on Homebrew 0.9 or later, 
@@ -271,7 +271,7 @@ Now connect to your OMERO.server using OMERO.insight with the following credenti
 OMERO.web
 ^^^^^^^^^
 
-You can setup the internal development web server
+You can set up the internal development web server
 
 ::
 
@@ -342,7 +342,7 @@ Macports/Fink
 
 Follow uninstall instructions from the `Macports guide <http://guide.macports.org/chunked/installing.macports.uninstalling.html>`_.
 
-Postgresql
+PostgreSQL
 ^^^^^^^^^^
 
 ::
