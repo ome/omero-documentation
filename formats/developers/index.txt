@@ -1,0 +1,89 @@
+Developer Introduction
+======================
+
+
+All the OME code is stored in a central Git repository. The OME Data
+Model part of this is available here:
+`specification <http://github.com/openmicroscopy/openmicroscopy/tree/develop/components/specification>`_.
+
+There are sample files, along with an explanation of their structure, on
+the :doc:`sample-files` page.
+
+
+OME Model development process
+-----------------------------
+
+Regular meetings are held to review the model and discuss additions or
+changes. Before making any changes, we come up with a proposal. This
+outlines the changes required and why we think it is necessary. We can then
+publish this to the OME community and provide links to the relevant
+work tickets. We generally only publish major changes or breaking
+changes in advance. Minor additions can usually be safely made so these
+are just published on release. We regularly ask the community for
+comments on what they would like added, especially when we are moving
+into a new imaging area.
+
+Process workflow:
+
+-  Write a document that we can attach to the relevant ticket
+-  Propose time frames for announcement, implementation
+-  If elements have to be removed/replaced, make an announcement to the
+   community
+-  Generate UML diagrams
+-  Generate the updated XSD files
+-  Generate XSLT to transform XML files
+-  Write same files
+-  Write tests
+-  Include into next Schema Release. It is worth noting that at present
+   we are trying to keep schema changes in step with new versions of
+   OMERO so they are released simultaneous. This is why the tickets for
+   OME-XML development have been moved to the main `OME
+   Trac <http://trac.openmicroscopy.org.uk/ome>`_
+
+Working with the OME Data Model
+-------------------------------
+
+The :doc:`Model Overview collection of diagrams <model-overview>` shows the 
+structure and connections between different parts of the OME Model.
+
+Individual parts of the model are covered in more detail in the following 
+sections:
+
+-  :doc:`Filter And FilterSet <filter-and-filterset>`
+-  :doc:`Screen Plate Well <screen-plate-well>` - our HCS solution
+-  :doc:`Structured Annotations <structured-annotations>`
+-  :doc:`Regions of Interest (ROIs) <roi>`
+
+Support for additional dimensions is also covered:
+
+-  :doc:`6D, 7D and 8D Storage <6d-7d-and-8d-storage>`
+
+Legacy solutions for tiled images and Single (or Selective) Plane Illumination 
+Microscopy (also known as Light Sheet Microscopy) are detailed in the 
+following sections for reference but **both these methods have been superseded 
+by the above**:
+
+-  :doc:`SPIM Initial Support <legacy/spim-initial-support>`
+-  :doc:`Tiled Images <legacy/tiled-images>`
+
+The use of IDs and Life Science Identifiers is explained in this section:
+
+-  :doc:`id-and-lsid`
+
+The :doc:`Schema versions</schemas/index>` section shows the Model changes 
+with each release, helpful for those working with several versions of the OME 
+Model, for example to support the loading/saving of a variety of files.
+
+-  The **current major release** - see :doc:`Changes For June
+   2012 </schemas/june-2012>`.
+
+There are two Python applications to aid working with OME-XML - 
+:doc:`EnumTool`, which is designed to digest OME-XML schema and
+produce meaningful output about enumerations, and :doc:`XsdFu`, which digests 
+OME XML schema and produces an object oriented Java infrastructure to ease 
+work with an XML DOM tree.
+
+-  See :doc:`using-ome-xml` for further guidance on how to use OME 
+   schema elements in XML files.
+
+
