@@ -21,7 +21,7 @@ Extracting the OME-XML from an OME-TIFF file
 --------------------------------------------
 
 If you install the :bf_doc:`Bio-Formats command line
-tools <users/comlinetools/index>`, you can
+tools <users/comlinetools/>`, you can
 produce a nicely formatted OME-XML string from an OME-TIFF file with:
 
 ::
@@ -38,7 +38,7 @@ line:
 
 If you are working in C/C++, we recommend the open source
 `LibTIFF <http://www.libtiff.org/>`_ library, or Bio-Formats via the
-:bf_doc:`Bio-Formats C++ bindings <developers/c-bindings>`.
+:bf_doc:`Bio-Formats C++ bindings <developers/c-bindings.html>`.
 
 If you are looking for a solution in Java, there are several options.
 Bio-Formats can read OME-TIFF files, as well as convert from many
@@ -82,7 +82,7 @@ Unfortunately, both xmllint and the above Perl script can be somewhat
 fragile; if there are any errors or abnormalities in the XML, they
 generally fail to produce any indentation. Thus, we have also written
 some Java code to do the same thing; just download the 
-:bf_doc:`Bio-Formats command line tools <users/comlinetools/index>` and run:
+:bf_doc:`Bio-Formats command line tools <users/comlinetools/>` and run:
 
 ::
 
@@ -98,7 +98,7 @@ Validating OME-XML
 
 We have created a command line tool in Java for validating OME-XML, and
 included it as part of the :bf_doc:`Bio-Formats command line
-tools <users/comlinetools/index>`. The command is:
+tools <users/comlinetools/>`. The command is:
 
 ::
 
