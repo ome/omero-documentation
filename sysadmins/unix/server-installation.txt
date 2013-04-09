@@ -74,8 +74,8 @@ installed and available via your $PATH as follows...
     by default, it will be necessary to unselect it and select the Sun 
     version. For more information, see :forum:`this thread  <viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>` .
 
-Python (2.4 or higher)
-^^^^^^^^^^^^^^^^^^^^^^
+Python 2 (2.4 or higher)
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Check you have Python (and what version) by typing:
 
@@ -84,9 +84,7 @@ Check you have Python (and what version) by typing:
     $ python --version
     Python 2.5.1
 
-Due to backwards incompatibilities in Python 3.0, Django does not
-currently work with Python 3.0; for more information see the `Django
-Installation page <https://docs.djangoproject.com/en/1.1/intro/install/>`_.
+OMERO does not support Python 3.
 
 The following are optional depending on what services you require:
 
@@ -126,8 +124,8 @@ The following are optional depending on what services you require:
 .. [3] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
 
 
-Ice (3.3.x or higher)
-^^^^^^^^^^^^^^^^^^^^^
+Ice (3.3.x or 3.4.x)
+^^^^^^^^^^^^^^^^^^^^
 
 .. note::
 
