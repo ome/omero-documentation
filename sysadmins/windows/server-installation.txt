@@ -51,8 +51,8 @@ Java SE Development Kit (JDK) (1.5 or higher)
 
 Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 
-Ice (3.3.x or higher)
-^^^^^^^^^^^^^^^^^^^^^
+Ice (3.3.x or 3.4.x)
+^^^^^^^^^^^^^^^^^^^^
 
 .. note::
 
@@ -82,12 +82,8 @@ where :omerocmd:`admin diagnostics` throws any errors related to unexpected
 paths with Ice, please consider installing Ice in the root of the partition
 (e.g. :file:`C:\\Ice`).
 
-Python (2.4 or higher)
-^^^^^^^^^^^^^^^^^^^^^^
-
-Due to backwards incompatibilities in Python 3.0, Django does not
-currently work with Python 3.0; for more information see the `Django
-Installation page <https://docs.djangoproject.com/en/1.1/intro/install/>`_.
+Python 2 (2.4 or higher)
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ice 3.4.x requires Python 2.6.x. You must download the 32-bit version
 from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
@@ -95,6 +91,8 @@ As this is the "vanilla" python distribution (no extra libraries),
 you will need to install further dependencies, making sure to
 download the correct version (release number, 32/64-bit) for your Python
 distribution.
+
+OMERO does not currently support Python 3.
 
 PyWin32
 """""""
