@@ -1,3 +1,8 @@
+before_install:
+  - sudo apt-get -y update
+  - sudo apt-get -y install texlive-latex-base texlive-latex-recommended
+  - sudo apt-get -y install texlive-latex-extra texlive-fonts-recommended
+
 language: python
 
 python:
@@ -5,4 +10,4 @@ python:
 
 install: "pip install -q Sphinx --use-mirrors"
 
-script: "SPHINXOPTS='-W -D html_theme=plonematch' make html"
+script: "SPHINXOPTS='-W -D html_theme=plonematch' make html latexpdf"
