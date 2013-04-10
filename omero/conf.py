@@ -65,6 +65,27 @@ rst_epilog += """
 .. |devbranch| replace:: %s
 """ % (previousversion, nextversion, devbranch)
 
+# Variables used to define OMERO Jenkins extlinks
+if "JENKINS_JOB" in os.environ:
+    jenkins_job = os.environ.get('JENKINS_JOB')
+else:
+    jenkins_job = 'OMERO-trunk'
+
+omero_job_root = jenkins_job_root + '/' + jenkins_job
+virtual_job_root = jenkins_job_root + '/' + jenkins_job + '-virtualbox'
+
+# OMERO-specific extlinks
+omero_extlinks = {
+    # Github links
+    'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
+    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),    
+    'omedocs' : (doc_github_root + '%s', ''),
+    # Jenkins links
+    'omerojob' : (omero_job_root + '/%s', ''),
+    'javadoc' : (omero_job_root + '/javadoc/%s', ''),
+    'virtualjob' : (virtual_job_root + '/%s', ''),
+    }
+extlinks.update(omero_extlinks)
 
 # -- Options for HTML output ---------------------------------------------------
 
