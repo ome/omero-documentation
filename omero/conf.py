@@ -71,6 +71,8 @@ rst_epilog += """
 # Custom sidebar templates, maps document names to template names.
 html_sidebars['**'].insert(0, 'globalomerotoc.html')
 
+# Add any paths that contain custom themes here, relative to this directory.
+html_theme_path.extend(['themes'])
 
 # -- Options for LaTeX output --------------------------------------------------
 
