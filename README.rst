@@ -23,7 +23,7 @@ The OME documentation is organized into multiple folders:
 
 * the OMERO documentation is under the ``omero`` folder,
 * the OME Model and Formats documentation is under the ``formats`` folder,
-* the shared configuration and thems are under the ``common`` folder.
+* the shared configuration and themes are under the ``common`` folder.
 
 The structure of each documentation folder follows the Sphinx system
 guidelines. A quick overview:
@@ -103,18 +103,18 @@ Top-level build command
 -----------------------
 
 The top-level directory Makefile also defines targets for building the OMERO
-and the OME Model and Formats sets of documentations at once. Note the
+and the OME Model and Formats sets of documentation at once. Note that the
 following commands currently work under UNIX-like platforms only.
 
 To clean the build directories of any previous builds, use::
 
     make clean
 
-To build the documentations locally in the form of HTML pages, use::
+To build the sets of documentation locally in the form of HTML pages, use::
 
     make html
 
-To build the documentations locally in the form of a PDF file, use::
+To build the sets of documentation locally in the form of a PDF file, use::
 
     make latexpdf
 
@@ -130,15 +130,15 @@ theme to the generated HTML documentation, pass ``-D html_theme=plonematch``::
 Release number
 --------------
 
-The release number of each documentation is set to UNKNOWN by default. To set
-this release number:
+The release number of each set of documentation is `UNKNOWN` by default. To
+modify this value:
 
 * for the OMERO documentation, set the environment variable ``OMERO_RELEASE``,
   e.g.::
 
       cd omero && OMERO_RELEASE=4.4.6 make clean html
 
-* for the OME Model and Formats, set the environment variable
+* for the OME Model and Formats documentation, set the environment variable
   ``FORMATS_RELEASE``, e.g.::
 
     cd formats && FORMATS_RELEASE=2012-06 make clean html
