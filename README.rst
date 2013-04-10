@@ -102,9 +102,9 @@ The output should look something like::
 Top-level build command
 -----------------------
 
-The top-level directory can also build a subset of targets for the OMERO and
-the OME Model and Formats sets of documentations at once. Note the following
-commands currently work under UNIX-like platforms only.
+The top-level directory Makefile also defines targets for building the OMERO
+and the OME Model and Formats sets of documentations at once. Note the
+following commands currently work under UNIX-like platforms only.
 
 To clean the build directories of any previous builds, use::
 
