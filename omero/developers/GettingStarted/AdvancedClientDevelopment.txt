@@ -57,7 +57,7 @@ comparison of Ice to CORBA, see :zeroc:`iceVsCorba.html`.
 A good first step is to be aware of the difference between remote and
 local invocations. Any invocation on a proxy (``<class_name>Prx``,
 described below) will result in a call over the network with all the
-costs that that entails. The often cited ` fallacies of distributed
+costs that that entails. The often cited `fallacies of distributed
 computing <http://en.wikipedia.org/wiki/Fallacies_of_Distributed_Computing>`_
 all apply, and the developer must be aware of concurrency and latency
 issues, as well as complete loss of connectivity, all of which we'll
@@ -76,7 +76,7 @@ These are the only types that can pass through the API.
 "Slice" mapping language
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Ice provides an ` interface definition language
+Ice provides an `interface definition language
 (IDL) <http://en.wikipedia.org/wiki/Interface_description_language>`_
 for defining class hierarchies for passing data in a binary format.
 Similar to WSDL in web services or CORBA's IDL, slice provides a way to
@@ -366,7 +366,8 @@ OMERO model objects
 
 With these components -- rtypes, primitives, constants, etc -- it's
 possible to define the core nouns of OME, the |OmeroModel| . The OMERO
-|OmeroModel| is a translation of the :formats_plone:`OME XML specification <>` 
+|OmeroModel| is a translation of the 
+:model_doc:`OME XML specification <ome-xml/>` 
 into objects for use by the server, built out of RTypes, sequences and 
 dictionaries, and Details.
 

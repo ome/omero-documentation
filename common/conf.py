@@ -139,7 +139,6 @@ extlinks = {
     # suffixes during testing.
     'community_plone' : (oo_site_root + '/community/%s', ''),
     'feature_plone' : (oo_site_root + '/products/feature-list/%s', ''),
-    'formats_plone' : (oo_site_root + '/support/file-formats/%s', ''),
     'legacy_plone' : (oo_site_root + '/support/legacy/%s', ''),
     'about_plone' : (oo_site_root + '/about/%s', ''),
     'team_plone' : (oo_site_root + '/team/%s', ''),
@@ -148,6 +147,7 @@ extlinks = {
     'schema_plone' : (oo_root + '/Schemas/%s', ''),
     'omero_plone' : (oo_site_root + '/products/omero/%s/', ''),
     'omero_doc' : (oo_site_root + '/support/omero4/%s', ''),
+    'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),   
     'bf_plone' : (oo_site_root + 'site/products/bio-formats/%s/', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
     # Miscellaneous links
