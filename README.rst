@@ -50,8 +50,8 @@ Building the documentation
 Basic build commands
 --------------------
 
-To build a documentation, first move to its corresponding folder. To build the
-OMERO documentation::
+To build a set of documentation, first move to the documentation folder. To
+build the OMERO documentation::
 
     cd omero/
 
@@ -102,9 +102,9 @@ The output should look something like::
 Top-level build command
 -----------------------
 
-The top-level directory can also build a subset of targets for both the
-OMERO and the OME Model and Formats documentations at once. Note this
-currently only works under UNIX-like platforms.
+The top-level directory can also build a subset of targets for the OMERO and
+the OME Model and Formats sets of documentations at once. Note the following
+commands currently work under UNIX-like platforms only.
 
 To clean the build directories of any previous builds, use::
 
@@ -399,7 +399,7 @@ Name    Abbreviation  Explanation
 \|CLI\| CLI           Command Line Interface
 ======= ============= ======================
 
-OMERO Page references
+OMERO page references
 ---------------------
 
 The table below lists substitutions that can be used to create references to 
