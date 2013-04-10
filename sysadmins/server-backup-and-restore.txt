@@ -22,8 +22,8 @@ This can be performed daily using cron with a script such as:
     USERNAME="root"
     PASSWORD="root_password"
     BINARY_REPOSITORY="/OMERO"
-    OMERO_HOME=/home/omero/OMERO-CURRENT
-    $OMERO_HOME/bin/omero -s localhost -u $USERNAME -w $PASSWORD admin cleanse $BINARY_REPOSITORY
+    OMERO_PREFIX=/home/omero/OMERO-CURRENT
+    $OMERO_PREFIX/bin/omero -s localhost -u $USERNAME -w $PASSWORD admin cleanse $BINARY_REPOSITORY
 
 Managing OMERO.server log files
 -------------------------------

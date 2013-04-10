@@ -24,8 +24,8 @@ the server package) and setup your PYTHONPATH to include them:
 
 .. parsed-literal::
 
-      export OMERO_HOME=~/Desktop/|OMEROserver|       # for example
-      export PYTHONPATH=$OMERO_HOME/lib/python
+      export OMERO_PREFIX=~/Desktop/|OMEROserver|       # for example
+      export PYTHONPATH=$OMERO_PREFIX/lib/python
 
 .. |OMEROserver| replace:: OMERO.server-|release|-ice3x-byy
 
