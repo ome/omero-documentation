@@ -74,11 +74,11 @@ need to follow a few steps (commands are shown below):
 
    ::
 
-       $ export OMERO_HOME = ~/Desktop/OMERO/dist      # Example server build path
+       $ export OMERO_PREFIX = ~/Desktop/OMERO/dist      # Example server build path
 
        # Make sure the Django code etc can be imported
-       $ export PYTHONPATH=$OMERO_HOME/lib/python/:$PYTHONPATH
-       $ cd $OMERO_HOME             
+       $ export PYTHONPATH=$OMERO_PREFIX/lib/python/:$PYTHONPATH
+       $ cd $OMERO_PREFIX
        # need to remove the built omeroweb code so it doesn't get imported
        $ rm -rf lib/python/omeroweb/
 

@@ -74,22 +74,22 @@ the following variables:
    ::
 
        # E.g. If you built the server yourself
-       export OMERO_HOME=~/Desktop/OMERO/dist
+       export OMERO_PREFIX=~/Desktop/OMERO/dist
        # Or you downloaded a release package
-       export OMERO_HOME=~/Desktop/OMERO.server-Beta-4.2.2
+       export OMERO_PREFIX=~/Desktop/OMERO.server-Beta-4.2.2
 
 -  Add the /bin/ directory to your PATH - allows you to call the 'omero'
    command from anywhere
 
    ::
 
-       export PATH=$PATH:$OMERO_HOME/bin/
+       export PATH=$PATH:$OMERO_PREFIX/bin/
 
 -  For Python developers, set your PYTHONPATH as follows
 
    ::
 
-       export PYTHONPATH=$PYTHONPATH:$OMERO_HOME/lib/python/
+       export PYTHONPATH=$PYTHONPATH:$OMERO_PREFIX/lib/python/
 
 Now checkout the |CLI|.
 
