@@ -164,9 +164,9 @@ of the most important code. Many MB of source code is generated both by
 our own :sourcedir:`DSLTask <components/dsl>` as well as by
 the Ice_ ``slice2java``, ``slice2cpp``, and
 ``slice2py`` code generators. These take an intermediate representation
-of the :formats_plone:`OME-Model <>` and generate our |OmeroModel|. This code 
-is not available in git, but once built, can be found in all the  directories
-named "generated".
+of the :model_doc:`OME-Model <ome-xml/>` and generate our |OmeroModel|. 
+This code is not available in git, but once built, can be found in all the  
+directories named "generated".
 
 .. _build#OmeroTools:
 
