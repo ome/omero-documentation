@@ -121,9 +121,9 @@ To build the documentations locally in the form of a PDF file, use::
 Makefile options
 ----------------
 
-Additional options for sphinx-build can be passed using the SPHINXOPTS
+Additional options for sphinx-build can be passed using the ``SPHINXOPTS``
 variable. The ``-W`` option turns all warnings into errors. To apply the plone
-theme to the generated HTML documentation, pass ``-D html_theme=plonematch``.
+theme to the generated HTML documentation, pass ``-D html_theme=plonematch``::
 
     SPHINXOPTS="-W -D html_theme=plonematch" make clean html
 
