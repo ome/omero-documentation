@@ -22,7 +22,7 @@ from conf import *
 # -- General configuration -----------------------------------------------------
 
 # General information about the project.
-project = u'Formats'
+project = u'OME Model and Formats'
 title = project + u' Documentation'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -40,7 +40,7 @@ else:
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-target = project + '-' + release + '.tex'
+target = 'OME-Model-' + release + '.tex'
 latex_documents = [
   (master_doc, target, title, author, 'manual'),
 ]
