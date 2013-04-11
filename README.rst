@@ -19,11 +19,19 @@ The Sphinx documentation system can be obtained by issuing::
     
     pip install Sphinx
     
-The structure of the documentation folder follows the Sphinx system
+The OME documentation is organized into multiple folders:
+
+* the OMERO documentation is under the ``omero`` folder,
+* the OME Model and Formats documentation is under the ``formats`` folder,
+* the shared configuration and themes are under the ``common`` folder.
+
+The structure of each documentation folder follows the Sphinx system
 guidelines. A quick overview:
  
 * source \*.txt files with reST markup live in the root of the folder and
   under subfolders,
+* images/screenshots are placed under ``images``,
+* downloadable files are placed under ``downloads``,
 * compiled output is placed in ``_build``,
 * compiled visual themes are automatically placed in ``_static``,
 * Sphinx configuration is held in ``conf.py``,
@@ -41,6 +49,15 @@ Building the documentation
 
 Basic build commands
 --------------------
+
+To build a set of documentation, first move to the documentation folder. To
+build the OMERO documentation::
+
+    cd omero/
+
+or to build the OME Model and Formats documentation::
+
+    cd formats/
 
 To clean the build directory of any previous builds, use::
     
@@ -82,32 +99,49 @@ The output should look something like::
       doctest    to run all doctests embedded in the documentation (if
                  enabled)
 
+Top-level build command
+-----------------------
+
+The top-level directory Makefile also defines targets for building the OMERO
+and the OME Model and Formats sets of documentation at once. Note that the
+following commands currently work under UNIX-like platforms only.
+
+To clean the build directories of any previous builds, use::
+
+    make clean
+
+To build the sets of documentation locally in the form of HTML pages, use::
+
+    make html
+
+To build the sets of documentation locally in the form of a PDF file, use::
+
+    make latexpdf
+
 Makefile options
 ----------------
 
-Additional options for sphinx-build can be passed using the SPHINXOPTS
+Additional options for sphinx-build can be passed using the ``SPHINXOPTS``
 variable. The ``-W`` option turns all warnings into errors. To apply the plone
-theme to the generated HTML documentation, pass ``-D html_theme=plonematch``.
+theme to the generated HTML documentation, pass ``-D html_theme=plonematch``::
 
     SPHINXOPTS="-W -D html_theme=plonematch" make clean html
 
-OMERO release number
---------------------
+Release number
+--------------
 
-The release number of OMERO is set to UNKNOWN by default. There are two ways 
-to set this release number.
+The release number of each set of documentation is `UNKNOWN` by default. To
+modify this value:
 
-* Either clone http://github.com/openmicroscopy/openmicroscopy, initiate the 
-  submodules (including this repository) and run at the top-level::
+* for the OMERO documentation, set the environment variable ``OMERO_RELEASE``,
+  e.g.::
 
-    ./build.py release-docs
+      cd omero && OMERO_RELEASE=4.4.6 make clean html
 
-  This target will read the latest tag using ``git-describe`` and build the 
-  Sphinx documentation using the current OMERO release number.
+* for the OME Model and Formats documentation, set the environment variable
+  ``FORMATS_RELEASE``, e.g.::
 
-* Or set the environment variable `OMERO_RELEASE`, e.g.::
-    
-    OMERO_RELEASE=4.4.4 make clean html
+    cd formats && FORMATS_RELEASE=2012-06 make clean html
     
 ****************
 Conventions Used
@@ -365,8 +399,8 @@ Name    Abbreviation  Explanation
 \|CLI\| CLI           Command Line Interface
 ======= ============= ======================
 
-Page references
----------------
+OMERO page references
+---------------------
 
 The table below lists substitutions that can be used to create references to 
 sections of the OMERO documentation.
