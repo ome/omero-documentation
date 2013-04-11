@@ -2,7 +2,7 @@ Server overview
 ===============
 
 The OMERO server system provides storage and processing of image data
-which conforms to the :formats_plone:`OME Specification <>`.
+which conforms to the :model_doc:`OME Specification <specifications/>`.
 It can be run on commodity hardware to provide your own storage needs,
 or run site-wide to provide a large-scale collaborative environment.
 
