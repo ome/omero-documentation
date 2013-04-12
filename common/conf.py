@@ -93,7 +93,7 @@ else:
 
 github_root = 'https://github.com/'
 omero_github_root = github_root + user + '/openmicroscopy/'
-bf_github_root = github_root + user + '/bio-formats/'
+bf_github_root = github_root + user + '/bioformats/'
 doc_github_root = github_root + user + '/ome-documentation/'
 
 # Variables used to define Jenkins extlinks

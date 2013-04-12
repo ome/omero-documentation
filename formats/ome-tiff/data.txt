@@ -12,8 +12,8 @@ interested in implementing support for OME-TIFF within your software.
 Artificial datasets
 -------------------
 
-All datasets in the following table were `artificially
-generated <https://github.com/openmicroscopy/bioformats/blob/develop/components/scifio/src/loci/formats/tools/MakeTestOmeTiff.java>`_
+All datasets in the following table were :source:`artificially
+generated <components/scifio/src/loci/formats/tools/MakeTestOmeTiff.java>`
 with each plane labeled according to its dimensional position for easy
 testing. Each one consists of a single OME-TIFF file (2012-06 schema
 version) containing every constituent image plane. For an example of an

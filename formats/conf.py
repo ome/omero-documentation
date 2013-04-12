@@ -35,6 +35,24 @@ else:
     version = 'UNKNOWN'
     release = 'UNKNOWN'
 
+# Variables used to define OMERO Jenkins extlinks
+if "JENKINS_JOB" in os.environ:
+    jenkins_job = os.environ.get('JENKINS_JOB')
+else:
+    jenkins_job = 'BIOFORMATS-trunk'
+
+model_job_root = jenkins_job_root + '/' + jenkins_job
+
+# OME model-specific extlinks
+model_extlinks = {
+    # Github links
+    'source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
+    'sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
+    # Jenkins links
+    'modeljob' : (model_job_root + '/%s', ''),
+    'javadoc' : (model_job_root + '/javadoc/%s', ''),
+    }
+extlinks.update(model_extlinks)
 
 # -- Options for LaTeX output --------------------------------------------------
 
