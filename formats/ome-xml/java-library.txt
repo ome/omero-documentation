@@ -31,10 +31,9 @@ To use, add **ome-xml.jar** to your classpath or build path.
 Usage
 -----
 
-Refer to the 
-`online API documentation <http://hudson.openmicroscopy.org.uk/view/Bio-Formats/job/BIOFORMATS-trunk/javadoc>`_,
+Refer to the :javadoc:`online API documentation <>`,
 specifically the ome.xml.\* packages. For an example of usage, see the
-`Bio-Formats metadata architecture <http://trac.openmicroscopy.org.uk/ome/browser/bioformats.git/components/scifio/src/loci/formats/ome/OMEXMLMetadataImpl.java>`_.
+:source:`Bio-Formats metadata architecture <components/scifio/src/loci/formats/ome/OMEXMLMetadataImpl.java>`.
 
 The OMENode is the root ("OME") node of the OME-XML. Each XML element
 has its own node type (e.g. "Image" has ImageNode) with its own
