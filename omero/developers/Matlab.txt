@@ -621,42 +621,6 @@ created:
 
     % To attach to a Dataset use omero.model.DatasetAnnotationLinkI;
 
--  **Load all the annotations with a given namespace linked to images**
-
-::
-
-    userId = session.getAdminService().getEventContext().userId;
-    nsToInclude = java.util.ArrayList;
-    nsToInclude.add(NAME_SPACE_TO_SET);
-    nsToExclude = java.util.ArrayList;
-    options = omero.sys.ParametersI;
-    options.exp(omero.rtypes.rlong(userId)); %load the annotation for a given user.
-    metadataService = session.getMetadataService();
-    % retrieve the annotations linked to images, for datasets use: 'omero.model.Dataset'
-    annotations = metadataService.loadSpecifiedAnnotations('omero.model.FileAnnotation', nsToInclude, nsToExclude, options);
-    for j = 0:annotations.size()-1,
-        annotations.get(j).getId().getValue();
-    end
-
--  **Read the attachment**.
-
-First load the annotation, cf. above.
-
-::
-
-    % Let's call fa the file annotation
-    originalFile = fa.getFile();
-    store = session.createRawFileStore();
-    store.setFileId(originalFile.getId().getValue());
-
-    % read data
-        
-    fid = fopen('mydataBack.txt', 'w');
-    fwrite(fid, rawFileStore.read(0, originalFile.getSize().getValue()), 'uint8');
-    fclose(fid);
-
-    store.close();
-
 How to use OMERO tables
 -----------------------
 
@@ -824,13 +788,8 @@ function::
 
 .. seealso::
 
-    :source:`deleteProjects <components/tools/OmeroM/src/delete/deleteProjects.m>`
-
-    :source:`deleteDatasets <components/tools/OmeroM/src/delete/deleteDatasets.m>`
-
-    :source:`deleteScreens <components/tools/OmeroM/src/delete/deleteScreens.m>`
-
-    :source:`deletePlates <components/tools/OmeroM/src/delete/deletePlates.m>`
+	:source:`deleteProjects <components/tools/OmeroM/src/delete/deleteProjects.m>`, :source:`deleteDatasets <components/tools/OmeroM/src/delete/deleteDatasets.m>`, :source:`deleteScreens <components/tools/OmeroM/src/delete/deleteScreens.m>`, :source:`deletePlates <components/tools/OmeroM/src/delete/deletePlates.m>`
+		Utility functions to delete objects
 
 Render Images
 -------------
