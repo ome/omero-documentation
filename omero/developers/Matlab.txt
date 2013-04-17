@@ -459,6 +459,68 @@ To preserve the aspect ratio of the retrieved thumbnails, use the :source:`getTh
 
 	thumbnailSet = getThumbnailSetByLongestSide(session, images, size);
 
+Annotations
+-----------
+
+Read annotations
+^^^^^^^^^^^^^^^^^
+
+If the identifier of a tag annotation is know, the annotation can be retrieved
+from the server using the :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
+function::
+
+	tagAnnotations = getTagAnnotations(session, tagIds);
+
+.. seealso::
+
+    :source:`getFileAnnotations <components/tools/OmeroM/src/annotations/getFileAnnotations.m>`
+		Utility function to retrieve file annotations by identifier
+
+    :source:`getCommentAnnotations <components/tools/OmeroM/src/annotations/getFileAnnotations.m>`
+		Utility function to retrieve comment annotations by identifier
+
+    :source:`getXmlAnnotations <components/tools/OmeroM/src/annotations/getXmlAnnotations.m>`
+		Utility function to retrieve xml annotations by identifier
+
+To retrieve the tag annotations linked to a given object, an image for instance, use the :source:`getImageTagAnnotations <components/tools/OmeroM/src/annotations/getImageTagAnnotations.m>`
+function::
+
+	tagAnnotations = getImageTagAnnotations(session, imageIds);
+
+or if the images have been retrieved from the server::
+
+	tagAnnotations = getImageTagAnnotations(session, images);
+
+.. seealso::
+
+	:source:`getImageFileAnnotations <components/tools/OmeroM/src/annotations/getImageFileAnnotations.m>`, :source:`getImageCommentAnnotations <components/tools/OmeroM/src/annotations/getImageCommentAnnotations.m>`,  :source:`getImageFileAnnotations <components/tools/OmeroM/src/annotations/getImageFileAnnotations.m>`
+		Utility function to retrieve annotations linked to images
+
+	:source:`getDatasetTagAnnotations <components/tools/OmeroM/src/annotations/getDatasetTagAnnotations.m>`,  :source:`getDatasetFileAnnotations <components/tools/OmeroM/src/annotations/getDatasetFileAnnotations.m>`, :source:`getDatasetCommentAnnotations <components/tools/OmeroM/src/annotations/getDatasetCommentAnnotations.m>`,  :source:`getDatasetFileAnnotations <components/tools/OmeroM/src/annotations/getDatasetFileAnnotations.m>`
+		Utility function to retrieve annotations linked to datasets
+
+	:source:`getProjectTagAnnotations <components/tools/OmeroM/src/annotations/getProjectTagAnnotations.m>`,  :source:`getProjectFileAnnotations <components/tools/OmeroM/src/annotations/getProjectFileAnnotations.m>`, :source:`getProjectCommentAnnotations <components/tools/OmeroM/src/annotations/getProjectCommentAnnotations.m>`,  :source:`getProjectFileAnnotations <components/tools/OmeroM/src/annotations/getProjectFileAnnotations.m>`
+		Utility function to retrieve annotations linked to projects
+
+	:source:`getScreenTagAnnotations <components/tools/OmeroM/src/annotations/getScreenTagAnnotations.m>`,  :source:`getScreenFileAnnotations <components/tools/OmeroM/src/annotations/getScreenFileAnnotations.m>`, :source:`getScreenCommentAnnotations <components/tools/OmeroM/src/annotations/getScreenCommentAnnotations.m>`,  :source:`getScreenFileAnnotations <components/tools/OmeroM/src/annotations/getScreenFileAnnotations.m>`
+		Utility function to retrieve annotations linked to screens
+
+	:source:`getPlateTagAnnotations <components/tools/OmeroM/src/annotations/getPlateTagAnnotations.m>`,  :source:`getPlateFileAnnotations <components/tools/OmeroM/src/annotations/getPlateFileAnnotations.m>`, :source:`getPlateCommentAnnotations <components/tools/OmeroM/src/annotations/getPlateCommentAnnotations.m>`,  :source:`getPlateFileAnnotations <components/tools/OmeroM/src/annotations/getPlateFileAnnotations.m>`
+		Utility function to retrieve annotations linked to plates
+
+Read file annotations
+^^^^^^^^^^^^^^^^^^^^^
+
+The content of a file annotation can be downloaded locally on disk using the :source:`getFileAnnotationContent <components/tools/OmeroM/src/annotations/getFileAnnotationContent.m>`
+function::
+
+	getFileAnnotationContent(session, fileAnnotation, target_file);
+
+Alternately, if only the file annotation identifier is known::
+
+	getFileAnnotationContent(session, faid, target_file);
+
+
 Write data
 ----------
 
