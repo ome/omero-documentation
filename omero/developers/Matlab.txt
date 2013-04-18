@@ -262,15 +262,12 @@ by specifying the parent type and identifiers as::
 The Image-Pixels model implies you need to use the pixels objects to access
 valuable data about the image::
 
-    pixelsList = image.copyPixels();
-    for k = 0:pixelsList.size()-1,
-       pixels = pixelsList.get(k);
-       sizeZ = pixels.getSizeZ().getValue(); % The number of z-sections.
-       sizeT = pixels.getSizeT().getValue(); % The number of timepoints.
-       sizeC = pixels.getSizeC().getValue(); % The number of channels.
-       sizeX = pixels.getSizeX().getValue(); % The number of pixels along the X-axis.
-       sizeY = pixels.getSizeY().getValue(); % The number of pixels along the Y-axis.
-    end
+    pixels = image.getPrimaryPixels();
+    sizeZ = pixels.getSizeZ().getValue(); % The number of z-sections.
+    sizeT = pixels.getSizeT().getValue(); % The number of timepoints.
+    sizeC = pixels.getSizeC().getValue(); % The number of channels.
+    sizeX = pixels.getSizeX().getValue(); % The number of pixels along the X-axis.
+    sizeY = pixels.getSizeY().getValue(); % The number of pixels along the Y-axis.
 
 Screens
 ^^^^^^^
