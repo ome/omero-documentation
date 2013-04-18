@@ -253,8 +253,8 @@ If the image identifiers are known, they can be specified as::
 Alternately, all the images contained in projects or datasets can be returned
 by specifying the parent type and identifiers as::
 
-	projectImages = getImages(session, projectIds, 'project')
-	datasetImages = getImages(session, datasetsIds, 'dataset')
+	projectImages = getImages(session, 'project', projectIds)
+	datasetImages = getImages(session, 'dataset', datasetsIds)
 
 .. note:: If ``projectIds`` or ``datasetIds`` is set to ``[]``, all the images
    contained in datasets will be returned.
