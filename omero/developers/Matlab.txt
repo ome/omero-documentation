@@ -15,11 +15,11 @@ Installing the OMERO.matlab toolbox
    file.
 -  Unzip the directory anywhere on your system.
 -  In Matlab, move to the newly unzipped directory and run ``loadOmero;``.
--  The MATLAB files are now on your path, and the necessary jars are on
+-  The Matlab files are now on your path, and the necessary jars are on
    your java classpath. You can change directories and still have access
    to OMERO.
 
-Once OMERO.matlab is installed, the typical workflow is the following
+Once OMERO.matlab is installed, the typical workflow is:
 
 #. :ref:`connection_init`
 #. :ref:`connection_keepalive`
@@ -28,7 +28,8 @@ Once OMERO.matlab is installed, the typical workflow is the following
 #. :ref:`connection_close`
 #. :ref:`unload` (optional)
 
-As a quickstart example, the following lines create a secure connection to a server, read a series of images and close the connection.
+As a quickstart example, the following lines create a secure connection to a
+server, read a series of images and close the connection.
 
 ::
    
@@ -43,8 +44,8 @@ Configuring the OMERO.matlab connection
 
 .. _connection_init:
 
-Create a connection
-^^^^^^^^^^^^^^^^^^^
+Creating a connection
+^^^^^^^^^^^^^^^^^^^^^
 
 As described under |OmeroClients|, there are several ways to configure your 
 connection to an OMERO server. OMERO.matlab comes with a few conveniences for
@@ -100,8 +101,8 @@ but it is not configurable from within Matlab::
 
 .. _unsecure_client:
 
-Create an unencrypted session
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Creating an unencrypted session
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you want to speed up the data transfer, you can create and use an
 unencrypted session as::
@@ -111,8 +112,8 @@ unencrypted session as::
 
 .. _connection_close:
 
-Close your connection
-^^^^^^^^^^^^^^^^^^^^^
+Closing your connection
+^^^^^^^^^^^^^^^^^^^^^^^
 
 When you are done with OMERO, it is critical that you close your connection to 
 save resources::
@@ -129,8 +130,8 @@ session as well::
 
 .. _unload:
 
-Unload OMERO
-^^^^^^^^^^^^
+Unloading OMERO
+^^^^^^^^^^^^^^^
 
 Then if you would like, you can unload OMERO as well::
 
@@ -177,8 +178,8 @@ again, use the ``omero.client`` object directly::
     >> s = c.createSession();
 
 
-Read data
----------
+Reading data
+------------
 
 The ``IContainer`` service provides method to load the data management
 hierarchy in OMERO -- Projects, Datasets, etc. A list of examples
@@ -258,9 +259,8 @@ by specifying the parent type and identifiers as::
 .. note:: If ``projectIds`` or ``datasetIds`` is set to ``[]``, all the images
    contained in datasets will be returned.
 
-The model is as follows: Image-Pixels i.e. to access valuable data about
-the image you need to use the Pixels object. We now only support one set
-of pixels per image (it used to be more!)::
+The Image-Pixels model implies you need to use the pixels objects to access
+valuable data about the image::
 
     pixelsList = image.copyPixels();
     for k = 0:pixelsList.size()-1,
@@ -449,7 +449,7 @@ or alternately using the image identifier::
 Thumbnail set
 ^^^^^^^^^^^^^
 
-A set of cache thumbnail can be retrieved from a list of an input images using
+A set of cached thumbnails can be retrieved from a list of input images using
 the :source:`getThumbnailSet <components/tools/OmeroM/src/image/getThumbnailSet.m>`
 function::
 
@@ -462,8 +462,8 @@ To preserve the aspect ratio of the retrieved thumbnails, use the :source:`getTh
 Annotations
 -----------
 
-Read annotations
-^^^^^^^^^^^^^^^^^
+Reading annotations
+^^^^^^^^^^^^^^^^^^^
 
 If the identifier of a tag annotation is know, the annotation can be retrieved
 from the server using the :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
@@ -508,8 +508,8 @@ or if the images have been retrieved from the server::
 	:source:`getPlateTagAnnotations <components/tools/OmeroM/src/annotations/getPlateTagAnnotations.m>`,  :source:`getPlateFileAnnotations <components/tools/OmeroM/src/annotations/getPlateFileAnnotations.m>`, :source:`getPlateCommentAnnotations <components/tools/OmeroM/src/annotations/getPlateCommentAnnotations.m>`,  :source:`getPlateFileAnnotations <components/tools/OmeroM/src/annotations/getPlateFileAnnotations.m>`
 		Utility function to retrieve annotations linked to plates
 
-Read file annotations
-^^^^^^^^^^^^^^^^^^^^^
+Reading file annotations
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The content of a file annotation can be downloaded locally on disk using the :source:`getFileAnnotationContent <components/tools/OmeroM/src/annotations/getFileAnnotationContent.m>`
 function::
@@ -521,8 +521,8 @@ Alternately, if only the file annotation identifier is known::
 	getFileAnnotationContent(session, faid, target_file);
 
 
-Write data
-----------
+Writing data
+------------
 
 -  **Create a Dataset** and link it to an existing Project.
 
@@ -680,8 +680,8 @@ ROIs
 To learn about the model see :model_doc:`developers/roi.html`. Note that 
 annotation can be linked to ROI.
 
-Create ROI
-^^^^^^^^^^
+Creating ROI
+^^^^^^^^^^^^
 
 In this example, we create an ROI with a rectangular shape and attach it to an
 image.
@@ -721,8 +721,8 @@ image.
         OMERO.matlab functions for creating and managing Shape and ROI
         objects.
 
-Retrieve ROIs linked to an Image
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Retrieving ROIs linked to an Image
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -774,8 +774,8 @@ Remove a shape from ROI
         roi = iUpdate.saveAndReturnObject(roi);
     end
 
-Delete data
------------
+Deleting data
+-------------
 
 It is possible to delete Projects, Datasets, Images, ROIs etc. and
 objects linked to them depending on the specified options (see
@@ -791,8 +791,8 @@ function::
 	:source:`deleteProjects <components/tools/OmeroM/src/delete/deleteProjects.m>`, :source:`deleteDatasets <components/tools/OmeroM/src/delete/deleteDatasets.m>`, :source:`deleteScreens <components/tools/OmeroM/src/delete/deleteScreens.m>`, :source:`deletePlates <components/tools/OmeroM/src/delete/deletePlates.m>`
 		Utility functions to delete objects
 
-Render Images
--------------
+Rendering images
+-----------------
 
 -  **Initialize the rendering engine and render an Image.**
 
@@ -870,11 +870,11 @@ Render Images
        imshow(JavaImageToMatlab(image));
     end
 
-Create Image
-------------
+Creating Image
+--------------
 
 The following example shows how to create an Image from an Image already
-in OMERO. Similar approach can be applied when uploading an Image.
+in OMERO. A similar approach can be applied when uploading an Image.
 
 ::
 
