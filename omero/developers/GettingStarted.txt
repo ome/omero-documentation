@@ -139,25 +139,25 @@ some starting points (follow links below to the docs themselves).
 Projects, datasets and images
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:javadoc:` Projects <slice2html/omero/model/Project.html#Project>`
+:javadoc:` Projects <slice2html/omero/model/Project.html>`
 and
-:javadoc:` Datasets <slice2html/omero/model/Dataset.html#Dataset>`
+:javadoc:` Datasets <slice2html/omero/model/Dataset.html>`
 are many-to-many containers for
-:javadoc:` Images <slice2html/omero/model/Image.html#Image>`
+:javadoc:` Images <slice2html/omero/model/Image.html>`
 (linked by
-:javadoc:` ProjectDatasetLinks <slice2html/omero/model/ProjectDatasetLink.html#ProjectDatasetLink>`
+:javadoc:` ProjectDatasetLinks <slice2html/omero/model/ProjectDatasetLink.html>`
 and
-:javadoc:` DatasetImageLinks <slice2html/omero/model/DatasetImageLink.html#DatasetImageLink>`
+:javadoc:` DatasetImageLinks <slice2html/omero/model/DatasetImageLink.html>`
 respectively).
 
 Projects, Datasets, Images and a number of other entities can be linked
-to Annotations :javadoc:` (abstract superclass) <slice2html/omero/model/Annotation.html#Annotation>`
+to Annotations :javadoc:` (abstract superclass) <slice2html/omero/model/Annotation.html>`
 via specific links
-(:javadoc:` ProjectAnnotationLink <slice2html/omero/model/ProjectAnnotationLink.html#ProjectAnnotationLink>`,
-:javadoc:` DatasetAnnotationLink <slice2html/omero/model/DatasetAnnotationLink.html#DatasetAnnotationLink>`
+(:javadoc:` ProjectAnnotationLink <slice2html/omero/model/ProjectAnnotationLink.html>`,
+:javadoc:` DatasetAnnotationLink <slice2html/omero/model/DatasetAnnotationLink.html>`
 etc). Annotation subclasses such as
-:javadoc:` CommentAnnotation <slice2html/omero/model/CommentAnnotation.html#CommentAnnotation>`,
-:javadoc:` FileAnnotation <slice2html/omero/model/FileAnnotation.html#FileAnnotation>`
+:javadoc:` CommentAnnotation <slice2html/omero/model/CommentAnnotation.html>`,
+:javadoc:` FileAnnotation <slice2html/omero/model/FileAnnotation.html>`
 etc. are stored in a single database table in OMERO (all Annotations have
 unique ID).
 
@@ -168,12 +168,11 @@ Images
    :align: center
    :alt: 
 
-Images in OMERO are made up many entities. These include core image
-components such as
-:javadoc:` Pixels <slice2html/omero/model/Pixels.html#Pixels>` and
-:javadoc:` Channels <slice2html/omero/model/Channel.html#Channel>`, as well as 
-a large number of additional metadata objects such as
-Instrument (microscope), Objective, Filters, Light Sources, and Detectors. 
+Images in OMERO are made up many entities. These include core image components
+such as :javadoc:` Pixels <slice2html/omero/model/Pixels.html>` and
+:javadoc:` Channels <slice2html/omero/model/Channel.html>`, as well as a large
+number of additional metadata objects such as Instrument (microscope),
+Objective, Filters, Light Sources, and Detectors.
 Image pixels data is stored as a single file, numbered by Pixels ID
 in the OMERO repository under /OMERO/Pixels/ and can be accessed using
 the Raw Pixels Store. 
