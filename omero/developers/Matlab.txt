@@ -440,7 +440,7 @@ function::
 
 	thumbnailSet = getThumbnailSet(session, images, width, height);
 
-To preserve the aspect ratio of the retrieved thumbnails, use the :source:`getThumbnailSetByLongestSide <components/tools/OmeroM/src/image/getThumbnailSetByLongestSide.m>` function::
+To preserve the aspect ratio of the retrieved thumbnails, use the :source:`getThumbnailByLongestSideSet <components/tools/OmeroM/src/image/getThumbnailByLongestSideSet.m>` function::
 
 	thumbnailSet = getThumbnailSetByLongestSide(session, images, size);
 
@@ -832,23 +832,6 @@ Rendering images
 
     %Close the rendering engine.
     re.close();
-
--  **Retrieves thumbnails**
-
-::
-
-    store = session.createThumbnailStore();
-    map = store.getThumbnailByLongestSideSet(omero.rtypes.rint(96), java.util.Arrays.asList(java.lang.Long(pixelsId)));
-    %Display the thumbnail;
-    collection = map.values();
-    i = collection.iterator();
-    while (i.hasNext())
-       figure(100);
-       stream = java.io.ByteArrayInputStream(i.next());
-       image = javax.imageio.ImageIO.read(stream);
-       stream.close();
-       imshow(JavaImageToMatlab(image));
-    end
 
 Creating Image
 --------------
