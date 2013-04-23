@@ -53,12 +53,12 @@ A sample biological dataset
 
 The following OME-TIFF datasets consist of tubulin histone GFP
 coexpressing *C. elegans* embryos. Many thanks to `Josh
-Bembenek <http://www.loci.wisc.edu/people/josh-bembenek>`_ for preparing
+Bembenek <http://loci.wisc.edu/people/josh-bembenek>`_ for preparing
 and imaging this sample data.
 
 The datasets were acquired on a multiphoton workstation (2.1 GHz Athlon
 XP 3200+ with 1GB of RAM) using
-`WiscScan <http://www.loci.wisc.edu/software/wiscscan>`_. All image
+`WiscScan <http://loci.wisc.edu/software/wiscscan>`_. All image
 planes were collected at 512x512 resolution in 8-bit grayscale, with an
 integration value of 2. The table below also lists the space
 requirements for each dataset with various formats and compression
