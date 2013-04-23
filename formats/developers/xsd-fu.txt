@@ -89,9 +89,7 @@ Working with Enumerations and Enumeration Handlers
 
 xsd-fu contains a flexible, configuration driven structure to code
 generate enumeration regular expressions. The configuration file is
-located in :file:`components/xsd-fu/cfg`:
-
--  `https://github.com/openmicroscopy/bioformats/blob/develop/components/xsd-fu/cfg/enum\_handler.cfg <https://github.com/openmicroscopy/bioformats/blob/develop/components/xsd-fu/cfg/enum_handler.cfg>`_
+located in :source:`components/xsd-fu/cfg/enum_handler.cfg`.
 
 Each enumeration has a key-value listing of regular expression to exact
 enumeration value matches. For example:
