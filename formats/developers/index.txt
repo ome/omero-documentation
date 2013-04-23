@@ -4,7 +4,7 @@ Developer Introduction
 
 All the OME code is stored in a central Git repository. The OME Data
 Model part of this is available here:
-`specification <https://github.com/openmicroscopy/openmicroscopy/tree/develop/components/specification>`_.
+:omero_source:`specification <components/specification>`.
 
 There are sample files, along with an explanation of their structure, on
 the :doc:`sample-files` page.

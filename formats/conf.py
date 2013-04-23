@@ -48,6 +48,7 @@ model_extlinks = {
     # Github links
     'source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
     'sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
+    'omero_source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     # Jenkins links
     'modeljob' : (model_job_root + '/%s', ''),
     'javadoc' : (model_job_root + '/javadoc/%s', ''),

@@ -157,7 +157,7 @@ structure to code generate enumeration regular expressions. The
 configuration file is located off of the ``components/xsd-fu`` root, in
 the ``cfg`` folder:
 
--  `https://github.com/openmicroscopy/openmicroscopy/blob/develop/components/xsd-fu/cfg/enum\_handler.cfg <https://github.com/openmicroscopy/openmicroscopy/blob/develop/components/xsd-fu/cfg/enum_handler.cfg>`_
+-  :omero_source:`enum_handler.cfg <components/xsd-fu/cfg/enum_handler.cfg>`
 
 Each enumeration has a key-value listing of regular expression to exact
 enumeration value matches. For example:
