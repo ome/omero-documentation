@@ -93,19 +93,13 @@ else:
 
 github_root = 'https://github.com/'
 omero_github_root = github_root + user + '/openmicroscopy/'
+bf_github_root = github_root + user + '/bioformats/'
 doc_github_root = github_root + user + '/ome-documentation/'
 
 # Variables used to define Jenkins extlinks
-if "JENKINS_JOB" in os.environ:
-    jenkins_job = os.environ.get('JENKINS_JOB')
-else:
-    jenkins_job = 'OMERO-trunk'
-
 jenkins_root = 'http://hudson.openmicroscopy.org.uk'
 jenkins_job_root = jenkins_root + '/job'
 jenkins_view_root = jenkins_root + '/view'
-omero_job_root = jenkins_job_root + '/' + jenkins_job
-virtual_job_root = jenkins_job_root + '/' + jenkins_job + '-virtualbox'
 
 # Variables used to define other extlinks
 cvs_root = 'http://cvs.openmicroscopy.org.uk'
@@ -119,17 +113,10 @@ extlinks = {
     'ticket' : (trac_root + '/ticket/%s', '#'),
     'milestone' : (trac_root + '/milestone/%s', ''),
     'report' : (trac_root + '/report/%s', ''),
-    # Github links
-    'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
-    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
-    'omedocs' : (doc_github_root + '%s', ''),
     # Jenkins links
     'jenkins' : (jenkins_root + '/%s', ''),
     'jenkinsjob' : (jenkins_job_root + '/%s', ''),
     'jenkinsview' : (jenkins_view_root + '/%s', ''),
-    'omerojob' : (omero_job_root + '/%s', ''),
-    'javadoc' : (omero_job_root + '/javadoc/%s', ''),
-    'virtualjob' : (virtual_job_root + '/%s', ''),
     # Mailing list/forum links
     'mailinglist' : (lists_root + '/mailman/listinfo/%s', ''),
     'ome-users' : (lists_root + '/pipermail/ome-users/%s' ,''),
