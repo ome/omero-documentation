@@ -1161,7 +1161,7 @@ library, you can get hold of the |OmeroApi|.
 The gateway handles creation and reuse of the API services, so that new
 ones are not created unnecessarily. Services can be accessed using the
 methods of the underlying :javadoc:` Service
-Factory <slice2html/omero/api/ServiceFactory.html#ServiceFactory>`
+Factory <slice2html/omero/api/ServiceFactory.html>`
 with the Gateway handling reuse as needed. Stateless services (those
 retrieved with get.... methods E.g.
 :javadoc:` getQueryService <slice2html/omero/api/ServiceFactory.html#getQueryService>`)
