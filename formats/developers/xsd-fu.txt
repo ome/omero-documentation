@@ -1,0 +1,123 @@
+xsd-fu
+======
+
+
+xsd-fu is a Python application designed to digest OME XML schema and
+generate a class hierarchy to ease work with an XML DOM tree.  It can
+output code in multiple languages; Java is currently fully supported,
+with C++ support being added.
+
+Checking out the source
+-----------------------
+
+::
+
+    git clone git://github.com/openmicroscopy/bioformats.git
+
+xsd-fu is in :file:`components/xsd-fu`
+
+
+Running the code generator
+--------------------------
+
+`Genshi <http://genshi.edgewall.org/>`_ must be installed.  If
+missing, install the distribution-provided package, for example
+``python-genshi`` on Debian-based systems, or else run
+
+::
+
+    $ pip install genshi
+
+Alternatively, use a downloaded Python ``.egg``, for example:
+
+::
+
+    $ export PYTHONPATH=Genshi-0.5-py2.4-linux-i686.egg
+
+Automatic use
+^^^^^^^^^^^^^
+
+Bio-Formats uses ant or maven to build.  Both of these will invoke
+xsd-fu as part of the build process, for generating the sources to
+build.  Top-level ant targets are ``ome-xml-src`` and
+``metadata-src``; individual components have a ``generate-source``
+target.
+
+Manual use
+^^^^^^^^^^
+
+Run ``xsd-fu`` with no arguments to examine the syntax:
+
+::
+
+    $ ./xsd-fu
+    Missing subcommand!
+    Usage: ./xsd-fu <subcommand> ...
+    Executes an OME-XML Schema definition parsing and code generation subcommand.
+
+    Available subcommands:
+      java_classes
+      omexml_metadata
+      omero_metadata
+      metadata_store
+      metadata_retrieve
+      metadata_aggregate
+      enum_types
+      enum_handlers
+      doc_gen
+      tab_gen
+      debug
+
+    Report bugs to OME Devel <ome-devel@lists.openmicroscopy.org.uk>
+
+.. note::
+    xsd-fu is used for several different types of code generation
+    (primarily generation of OME-XML model and metadata classes
+    for Bio-Formats, and parts of OMERO) as outlined by the subcommand
+    structure above.
+
+
+Generating the OME-XML Java classes
+-----------------------------------
+
+Please refer to :file:`ant/xsd-fu.xml` and the ant :file:`build.xml`
+within specific components.
+
+
+Working with Enumerations and Enumeration Handlers
+--------------------------------------------------
+
+xsd-fu contains a flexible, configuration driven structure to code
+generate enumeration regular expressions. The configuration file is
+located in :file:`components/xsd-fu/cfg`:
+
+-  `https://github.com/openmicroscopy/bioformats/blob/develop/components/xsd-fu/cfg/enum\_handler.cfg <https://github.com/openmicroscopy/bioformats/blob/develop/components/xsd-fu/cfg/enum_handler.cfg>`_
+
+Each enumeration has a key-value listing of regular expression to exact
+enumeration value matches. For example:
+
+::
+
+    ...
+    [Correction]
+    ".*Pl.*Apo.*" = "PlanApo"
+    ".*Pl.*Flu.*" = "PlanFluor"
+    "^\\s*Vio.*Corr.*" = "VioletCorrected"
+    ".*S.*Flu.*" = "SuperFluor"
+    ".*Neo.*flu.*" = "Neofluar"
+    ".*Flu.*tar.*" = "Fluotar"
+    ".*Fluo.*" = "Fluor"
+    ".*Flua.*" = "Fluar"
+    "^\\s*Apo.*" = "Apo"
+    ...
+
+Generating OMERO model specification files
+------------------------------------------
+
+::
+
+    $ cd components/xsd-fu
+    $ ./xsd-fu omero_model ../specification/InProgress/ome.xsd ../specification/InProgress/SPW.xsd \
+            ../specification/InProgress/SA.xsd ../specification/InProgress/ROI.xsd
+    $ ls OmeroModel.xml
+
