@@ -20,9 +20,9 @@ xsd-fu is in :file:`components/xsd-fu`
 Running the code generator
 --------------------------
 
-Genshi must be installed.  If missing, install the
-distribution-provided package, for example ``python-genshi`` on
-Debian-based systems, or else run
+`Genshi <http://genshi.edgewall.org/>`_ must be installed.  If
+missing, install the distribution-provided package, for example
+``python-genshi`` on Debian-based systems, or else run
 
 ::
 
