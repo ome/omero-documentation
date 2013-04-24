@@ -14,7 +14,7 @@ Checking out the source
 
     git clone git://github.com/openmicroscopy/bioformats.git
 
-xsd-fu is in ``components/xsd-fu``
+xsd-fu is in :file:`components/xsd-fu`
 
 
 Running the code generator
@@ -80,8 +80,8 @@ Run ``xsd-fu`` with no arguments to examine the syntax:
 Generating the OME-XML Java classes
 -----------------------------------
 
-Please refer to ``ant/xsd-fu.xml`` and the ant ``build.xml`` files for
-specific components.
+Please refer to :file:`ant/xsd-fu.xml` and the ant :file:`build.xml`
+within specific components.
 
 
 Working with Enumerations and Enumeration Handlers
@@ -89,7 +89,7 @@ Working with Enumerations and Enumeration Handlers
 
 xsd-fu contains a flexible, configuration driven structure to code
 generate enumeration regular expressions. The configuration file is
-located in ``components/xsd-fu/cfg``:
+located in :file:`components/xsd-fu/cfg`:
 
 -  `https://github.com/openmicroscopy/bioformats/blob/develop/components/xsd-fu/cfg/enum\_handler.cfg <https://github.com/openmicroscopy/bioformats/blob/develop/components/xsd-fu/cfg/enum_handler.cfg>`_
 
