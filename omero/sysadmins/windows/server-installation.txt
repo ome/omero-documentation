@@ -26,8 +26,10 @@ users/passwords described in this install guide, please see
 -  Installation on Windows XP is not explicitly supported, especially
    for OMERO.web. Significant testing has taken place on Windows Server
    2008 and we recommend this version.
+-  OMERO does not currently support Ice 3.5 or Python 3.
 -  :doc:`/sysadmins/omeromovie` is not supported on Windows at present.
--  Spaces in installation path names are not currently supported.
+-  Spaces in installation path names are not currently supported - **do not 
+   use spaces in your folder names**:
 
    .. note::
 
@@ -41,8 +43,11 @@ Prerequisites
 
 .. note::
 
-    The installation of these prerequisite applications is outside the scope
-    of this document.
+    The installation of these prerequisite applications is largely outside the 
+    scope of this document.
+
+    **Do not mix 32bit (x86) and 64bit (amd64) packages** - install either all 
+    32bit or all 64bit. Check out your JRE as well.
 
 The following are necessary:
 
@@ -69,6 +74,11 @@ Ice (3.3.x or 3.4.x)
     so you do not need to worry about which one you download. If you have
     further questions, consult the :forum:`Forums <>`.
 
+    **OMERO does not currently support Ice 3.5** - if you have installed ICE 
+    3.5, uninstall it, install 3.4.x, update ENV path and reboot computer (if 
+    you need to use ICE 3.5 for other purposes, you probably just need to add 
+    the path for 3.4.x to the ENV before ICE 3.5).
+
 
 Windows installers of Ice can be found on the :zeroc:`ZeroC download
 page <download.html>` and will be called something like :file:`Ice-3.4.2.msi`
@@ -92,13 +102,22 @@ you will need to install further dependencies, making sure to
 download the correct version (release number, 32/64-bit) for your Python
 distribution.
 
-OMERO does not currently support Python 3.
+**OMERO does not currently support Python 3**.
 
 PyWin32
 """""""
 
 It is recommended to use **Python for Windows extensions**. The installer is
 available from the `PyWin download page <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
+
+The version you need is: 
+pywin32-XXX.win32-pyA.B.exe (or the 64bit version) where XXX should be the 
+latest release number and A and B stand for the Python version e.g. 
+pywin32-218.win32-py2.6.exe.
+
+It is recommended that you read the 
+`readme.txt <http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/README.txt/download>`_ 
+to be sure of which file to download.
 
 Additional libraries
 """"""""""""""""""""
@@ -287,6 +306,22 @@ need to set the values yourself.
 
    |PATH variable| |PATH variable 2| |PYTHONPATH variable|
 
+   **When setting the ENV variables, make sure you write in the correct 
+   paths.** 
+   You must have entries for:
+   python (the first PATH entry, e.g. "C:\Python26;%Sys...")
+   ice/bin (the last PATH entry, e.g. "...;C:\Ice-3.4.2\;") 
+   PYTHONPATH pointing to the python folder in the ICE installation (e.g. 
+   "C:\Ice-3.4.2\python;")
+
+   .. warning:: Remember that the Windows path separator is the semicolon ; 
+       and must be appended after every entry.
+
+       Make sure the first inserted ENV PATH entry (the python path) finishes 
+       with a semicolon (eg. "C:\Python26;%SystemRoot%...") otherwise you 
+       could corrupt other system applications.
+
+
 #. **Restart your computer**. For environment changes to take
    effect in background services, a restart is unfortunately
    necessary. See `<http://support.microsoft.com/kb/821761>`_
@@ -440,6 +475,7 @@ is having a properly configured database.
 
          New language name
 
+
 Location for your OMERO binary repository
 -----------------------------------------
 
@@ -567,8 +603,9 @@ Installation
                    (1252) 8-bit characters might not work correctly. See psql  
                    reference page "Notes for Windows users" for details.
 
-    #. Execute the following to populate your database (the forward slashes
-       are intentional):
+    #. Execute the following to populate your database (**the forward slashes
+       are intentional** - if you get a permission denied error is because the 
+       path is wrong, not the slashes):
 
        .. parsed-literal::
 
