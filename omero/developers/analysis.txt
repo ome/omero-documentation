@@ -27,10 +27,11 @@ background processing.
 
 .. note:: Your scripts must either be written in Python or be wrapped with a Python script.
 
-The :javadoc:`OMERO scripting service API <slice2html/omero/api/IScript.html#IScript>` allows Python scripts to be 
-uploaded to the server and registered in the server database. These scripts 
-can then be called from a client with the scripts running on the server. This 
-allows extra functionality to be added to an OMERO server.
+The :javadoc:`OMERO scripting service API <slice2html/omero/api/IScript.html>`
+allows Python scripts to be uploaded to the server and registered in the
+server database. These scripts can then be called from a client with the
+scripts running on the server. This allows extra functionality to be added to
+an OMERO server.
 
 Technical info and API details can be found on the 
 :doc:`/developers/Modules/Api/ScriptingService` page.

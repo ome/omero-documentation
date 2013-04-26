@@ -103,7 +103,7 @@ Files involved
 :source:`components/server/resources/beanRefContext.xml`
 
 :source:`components/blitz/resources/beanRefContext.xml`
-    ` Singleton definitions <http://static.springsource.org/spring/docs/2.0.x/reference/beans.html#d0e5298>`_
+    `Singleton definitions <http://static.springsource.org/spring/docs/2.0.x/reference/beans.html#beans-factory-scopes-singleton>`_
     which allow for the static location of the active context. These do
     not need to be edited, but in the case of the server
     :source:`beanRefContext.xml <components/server/resources/beanRefContext.xml>`,
