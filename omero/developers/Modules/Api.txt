@@ -11,7 +11,7 @@ A service factory is obtained from the client connection e.g. Python:
     session = client.createSession("username", "password")   # this is the service factory
     adminService = session.getAdminService()                 # now we can get/create services
 
--  The :javadoc:`Service factory API <slice2html/omero/api/ServiceFactory.html#ServiceFactory>`
+-  The :javadoc:`Service factory API <slice2html/omero/api/ServiceFactory.html>`
    has methods for creating Stateless and Stateful services (see below).
 
    -  Stateless services are obtained using "get..." methods e.g.
@@ -38,12 +38,12 @@ Service Level 1 (direct database and hibernate connections)
 
 -  AdminService:
    :source:`src <components/common/src/ome/api/IAdmin.java>`,
-   :javadoc:`API <slice2html/omero/api/IAdmin.html#IAdmin>`
+   :javadoc:`API <slice2html/omero/api/IAdmin.html>`
    for working with Experimenters, Groups and the current Context
    (switching groups etc).
 -  ConfigService:
    :source:`src <components/common/src/ome/api/IConfig.java>`,
-   :javadoc:`API <slice2html/omero/api/IConfig.html#IConfig>`
+   :javadoc:`API <slice2html/omero/api/IConfig.html>`
    for getting and setting config parameters.
 -  ContainerService:
    :javadoc:`API <slice2html/omero/api/IContainer.html>`
@@ -108,7 +108,7 @@ Stateful/Binary? Services
    :javadoc:`API <ome/api/RawPixelsStore.html>`
 -  RenderingEngine:
    :source:`src <components/common/src/omeis/providers/re/RenderingEngine.java>`,
-   :javadoc:`API <slice2html/omero/api/RenderingEngine.html#RenderingEngine>`
+   :javadoc:`API <slice2html/omero/api/RenderingEngine.html>`
    (see :doc:`/developers/Server/RenderingEngine` for more)
 -  ThumbnailStore:
    :source:`src <components/common/src/ome/api/ThumbnailStore.java>`,
