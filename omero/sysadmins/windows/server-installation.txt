@@ -579,6 +579,11 @@ Installation
         Please re-enter password for new OMERO root user: # root_password
         Saving to C:\\OMERO.server\\OMERO\ |version|\ __0.sql
 
+      The generated SQL file is found in the folder where you called the "omero
+      db script" command. This could cause a permission denied error in the
+      populate db step if the postgres user cannot access that location. Move
+      the file to a different location or use the -f option.
+
 -   Initialize your database with the script.
 
     #. Launch *SQL Shell (psql)* from the Start Menu under 
@@ -620,6 +625,11 @@ Installation
     ::
 
         C:\OMERO.server\> bin\omero admin diagnostics
+
+    The diagnostic tool may say that psql is not found. This should not be a
+    problem but you can fix it by adding its bin folder to the path. For example,
+    C:\\Program Files (x86)\\PostgreSQL\\9.2\\bin . Remember to reboot after
+    changing the environment.
 
 -   You can now start the server using:
 
