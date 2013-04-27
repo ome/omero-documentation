@@ -181,9 +181,9 @@ again, use the ``omero.client`` object directly::
 Reading data
 ------------
 
-The ``IContainer`` service provides method to load the data management
+The ``IContainer`` service provides methods to load the data management
 hierarchy in OMERO -- Projects, Datasets, etc. A list of examples
-follows, indicating how to load Project, Dataset, Screen, etc.
+follows, indicating how to load Projects, Datasets, Screens, etc.
 
 -  **Projects**
 
@@ -252,9 +252,6 @@ by specifying the parent type and identifiers as::
 
 	projectImages = getImages(session, 'project', projectIds)
 	datasetImages = getImages(session, 'dataset', datasetsIds)
-
-.. note:: If ``projectIds`` or ``datasetIds`` is set to ``[]``, all the images
-   contained in datasets will be returned.
 
 The Image-Pixels model implies you need to use the pixels objects to access
 valuable data about the image::
@@ -421,7 +418,7 @@ Alternately, the image identifier can be passed to the function::
 	thumbnail = getThumbnail(session, imageID, width, height);
 
 .. note:: The ``width`` or ``height`` arguments are optional and will be set
-    to 45 pixels if not specified.
+    to 48 pixels if not specified.
 
 To preserve the aspect ratio of the retrieved thumbnail, use the :source:`getThumbnailByLongestSide <components/tools/OmeroM/src/image/getThumbnailByLongestSide.m>`
 function::
@@ -449,8 +446,8 @@ Annotations
 
 -  **Reading annotations**
 
-If the identifier of a tag annotation is know, the annotation can be retrieved
-from the server using the :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
+If the identifier of a tag annotation is known, the annotation can be
+retrieved from the server using the :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
 function::
 
 	tagAnnotations = getTagAnnotations(session, tagIds);
@@ -470,10 +467,6 @@ To retrieve the tag annotations linked to a given object, an image for instance,
 function::
 
 	tagAnnotations = getImageTagAnnotations(session, imageIds);
-
-or if the images have been retrieved from the server::
-
-	tagAnnotations = getImageTagAnnotations(session, images);
 
 .. seealso::
 
