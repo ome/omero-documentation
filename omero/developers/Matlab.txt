@@ -182,8 +182,8 @@ Reading data
 ------------
 
 The ``IContainer`` service provides methods to load the data management
-hierarchy in OMERO -- Projects, Datasets, etc. A list of examples
-follows, indicating how to load Projects, Datasets, Screens, etc.
+hierarchy in OMERO -- projects, datasets, etc. A list of examples
+follows, indicating how to load projects, datasets, screens, etc.
 
 -  **Projects**
 
@@ -500,7 +500,7 @@ Alternately, if only the file annotation identifier is known::
 Writing data
 ------------
 
--  **Create a Dataset** and link it to an existing Project.
+-  **Create a Dataset** and link it to an existing project.
 
 ::
 
@@ -559,7 +559,7 @@ created:
     originalFile.setSha1(omero.rtypes.rstring(generatedSha1));
     originalFile.setMimetype(omero.rtypes.rstring(fileMimeType));
 
-    % now we save the originalFile object
+    % now save the originalFile object
     originalFile = iUpdate.saveAndReturnObject(originalFile);
 
     % Initialize the service to load the raw data
@@ -578,8 +578,8 @@ created:
     originalFile = rawFileStore.save();
     % Important to close the service
     rawFileStore.close();
-    % now we have an original File in the database and raw data uploaded.
-    % We now need to link the Original file to the image using the File annotation object. That's the way to do it.
+    % now, you have an original File in the database and raw data uploaded.
+    % You now need to link the Original file to the image using the File annotation object. That's the way to do it.
     fa = omero.model.FileAnnotationI;
     fa.setFile(originalFile);
     fa.setDescription(omero.rtypes.rstring(description)); % The description set above e.g. PointsModel
@@ -600,7 +600,7 @@ created:
 How to use OMERO tables
 -----------------------
 
--  **Create a table**. In the following example, we create a table with
+-  **Create a table**. In the following example, a table is created with
    2 columns.
 
 ::
@@ -640,8 +640,8 @@ How to use OMERO tables
     end
 
     % Depending on size of table, you may only want to read some blocks.
-    cols = [0:size(headers, 1)-1]; % The number of columns we wish to read.
-    rows = [0:tablePrx.getNumberOfRows()-1]; % The number of rows we wish to read.
+    cols = [0:size(headers, 1)-1]; % The number of columns you wish to read.
+    rows = [0:tablePrx.getNumberOfRows()-1]; % The number of rows you wish to read.
     data = tablePrx.slice(cols, rows); % read the data.
     c = data.columns;
     for i=1:size(c),
@@ -658,10 +658,8 @@ annotation can be linked to ROI.
 
 -  **Creating ROI**
 
-In this example, we create an ROI with a rectangular shape and attach it to an
-image.
-
-::
+This example creates an ROI with a rectangular shape and attach it to an
+image::
 
     % First create a rectangular shape.
     rectangle = createRectangle(0, 0, 10, 20);
@@ -696,7 +694,7 @@ image.
         OMERO.matlab functions for creating and managing Shape and ROI
         objects.
 
--  **Retrieving ROIs linked to an Image**
+-  **Retrieving ROIs linked to an image**
 
 ::
 
@@ -750,10 +748,10 @@ image.
 Deleting data
 -------------
 
-It is possible to delete Projects, Datasets, Images, ROIs etc. and
+It is possible to delete projects, datasets, images, ROIs etc. and
 objects linked to them depending on the specified options (see
-:doc:`/developers/Modules/Delete`). For example, images of known identifiers 
-can be deleted from the server using the 
+:doc:`/developers/Modules/Delete`). For example, images of known identifiers
+can be deleted from the server using the
 :source:`deleteImages <components/tools/OmeroM/src/delete/deleteImages.m>` 
 function::
 
@@ -767,7 +765,7 @@ function::
 Rendering images
 -----------------
 
--  **Initialize the rendering engine and render an Image.**
+-  **Initialize the rendering engine and render an image.**
 
 ::
 
@@ -829,8 +827,8 @@ Rendering images
 Creating Image
 --------------
 
-The following example shows how to create an Image from an Image already
-in OMERO. A similar approach can be applied when uploading an Image.
+The following example shows how to create an image from an image already
+in OMERO. A similar approach can be applied when uploading an image.
 
 ::
 
