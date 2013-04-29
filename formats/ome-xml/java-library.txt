@@ -31,9 +31,9 @@ To use, add **ome-xml.jar** to your classpath or build path.
 Usage
 -----
 
-Refer to the :javadoc:`online API documentation <>`,
-specifically the ome.xml.\* packages. For an example of usage, see the
-:source:`Bio-Formats metadata architecture <components/scifio/src/loci/formats/ome/OMEXMLMetadataImpl.java>`.
+Refer to the :javadoc:`online API documentation <>`, specifically the
+ome.xml.\* packages. For an example of usage, see the
+:source:`Screen Plate Well unit test <components/scifio/test/loci/formats/utests/SPWModelMock.java>`.
 
 The OMENode is the root ("OME") node of the OME-XML. Each XML element
 has its own node type (e.g. "Image" has ImageNode) with its own
