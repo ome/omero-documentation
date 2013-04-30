@@ -69,10 +69,10 @@ Caveats include:
 * impact of OMERO documentation change on user base
 
 ..  |merge| replace:: Merge PRs using :ref:`scc merge`
-..  |sphinxbuild| replace:: Build HTML and PDF Sphinx documentation using `make clean html latexpdf`
-..  |linkcheck| replace:: Run Sphinx `linkcheck` and parse its output (see :ref:`linkcheck_parser`).
-..  |ssh-doc| replace:: SSH doc and PDF to
-..  |deploy-doc| replace:: Use :ref:`scc deploy` to update
+..  |buildOMERO| replace:: Build the server using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
+..  |archiveOMEROartifacts| replace:: Archive the build artifacts
+..  |deployOMERO| replace:: Deploy the server under :file:`~/OMERO-CURRENT` on
+..  |promoteOMERO| replace:: copy the artifacts to necromancer
 
 OMERO jobs
 ----------
@@ -100,9 +100,6 @@ OMERO jobs
 		* :term:`OMERO-merge-stable-ice34`
 		* :term:`OMERO-merge-develop-ice34`
 
-For all jobs building documentation using Sphinx, the :envvar:`SPHINXOPTS`
-variable is set to ``-W -D html_theme=plone_match``.
-
 Current major release
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -116,34 +113,34 @@ under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 
 		Build current release of OMERO using Ice 3.3
 
-		#. Build server and release-docs
-		#. If the build is promoted,
-			#. Use artifacts for point release
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. If the build is promoted, |promoteOMERO|
 
 	:jenkinsjob:`OMERO-stable-ice34`
 
 		Build current release of OMERO using Ice 3.4
 
-		#. Build server and release-docs
-		#. If the build is promoted,
-			#. Use artifacts for point release
-
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. If the build is promoted, |promoteOMERO|
 
 	:jenkinsjob:`OMERO-merge-stable`
 
-		Review code PRs for the next OMERO point release
+		Review OMERO PRs for the next point release
 
 		#. |merge| and push to snoopycrimecop/merge/|devbranch|/latest
-		#. Run :source:`docs/hudson/OMERO.sh`
-		#. Deploy the server on howe
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. |deployOMERO| howe.openmicroscopy.org.uk
 
 	:jenkinsjob:`OMERO-merge-stable-ice34`
 
-		Review code PRs for the next OMERO point release
+		Review OMERO PRs for the next point release
 
 		#. Checkout snoopycrimecop/merge/|devbranch|/latest
-		#. Run :source:`docs/hudson/OMERO.sh`
-
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
 
 Next major release
 ^^^^^^^^^^^^^^^^^^
@@ -157,30 +154,34 @@ the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 
 		Build next major release of OMERO
 
-		#. Build server and release-docs
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. If the build is promoted, |promoteOMERO|
 
 	:jenkinsjob:`OMERO-trunk-ice34`
 
 		Build next major release of OMERO using Ice 3.4
 
-		#. Build server and release-docs
-		#. If the build is promoted,
-			#. Use artifacts for point release
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. If the build is promoted, |promoteOMERO|
 	
 	:jenkinsjob:`OMERO-merge-develop`
 
-		Review code PRs for the next major release of OMERO
+		Review OMERO PRs for the next major release
 
 		#. |merge| and push to snoopycrimecop/merge/develop/latest
-		#. Run :source:`docs/hudson/OMERO.sh`
-		#. Deploy the server on gretzky
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. |deployOMERO| gretzky.openmicroscopy.org.uk
 
 	:jenkinsjob:`OMERO-merge-develop-ice34`
 
-		Review code PRs for the next OMERO point release
+		Review OMERO PRs for the next major release
 
 		#. Checkout snoopycrimecop/merge/develop/latest
-		#. Run :source:`docs/hudson/OMERO.sh`
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
 
 Bio-Formats jobs
 ----------------
@@ -233,6 +234,11 @@ The branch for the next major release is develop.
 
 		Review Bio-Formats PRs for the next major release
 
+..  |sphinxbuild| replace:: Build HTML and PDF Sphinx documentation using ``make clean html latexpdf``
+..  |linkcheck| replace:: Run ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`.
+..  |ssh-doc| replace:: SSH doc and PDF to
+..  |deploy-doc| replace:: Use :ref:`scc deploy` to update
+
 Documentation jobs
 ------------------
 
@@ -270,6 +276,9 @@ tab of Jenkins.
 		* :term:`FORMATS-docs-merge-stable`
 		* :term:`FORMATS-docs-merge-develop`
 
+For all jobs building documentation using Sphinx, the :envvar:`SPHINXOPTS`
+variable is set to ``-W -D html_theme=plone_match``.
+		
 Current release
 ^^^^^^^^^^^^^^^
 
