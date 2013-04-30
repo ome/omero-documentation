@@ -281,8 +281,20 @@ tab of Jenkins.
 		* :term:`FORMATS-docs-merge-stable`
 		* :term:`FORMATS-docs-merge-develop`
 
-For all jobs building documentation using Sphinx, the :envvar:`SPHINXOPTS`
-variable is set to ``-W -D html_theme=plone_match``.
+Configuration
+^^^^^^^^^^^^^
+
+For all jobs building documentation using Sphinx,
+- :envvar:`SPHINXOPTS` variable is set to ``-W -D html_theme=plone_match``,
+- the release number of the job is controlled by the corresponding environment
+variable: :envvar:`OMERO_RELEASE`, :envvar:`BF_RELEASE` or
+:envvar:`FORMATS_RELEASE`,
+- the source code links use the :envvar:`SOURCE_USER` and
+:envvar:`SOURCE_BRANCH` environment variables.
+- for Bio-Formats and OMERO, the Jenkins job name is set by the :envvar:`JENKINS_JOB` environment variable.
+- the release number of the job is controlled by the corresponding environment
+variable: :envvar:`OMERO_RELEASE`, :envvar:`BF_RELEASE` or
+:envvar:`FORMATS_RELEASE`.
 		
 Current release
 ^^^^^^^^^^^^^^^
