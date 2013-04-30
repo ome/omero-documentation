@@ -79,6 +79,7 @@ Caveats include:
 ..  |deployOMERO| replace:: Deploy the server under :file:`~/OMERO-CURRENT` on
 ..  |promoteOMERO| replace:: copy the artifacts to necromancer
 ..  |buildVM| replace:: Build a |VM| using :source:`docs/install/VM/omerovm.sh`
+..  |updatesubmodules| replace:: Update submodules using ``scc update-submodules``
 
 OMERO jobs
 ----------
@@ -110,10 +111,13 @@ OMERO jobs
 		* :term:`OMERO-merge-stable-ice34`
 		* :term:`OMERO-merge-develop-ice34`
 
-	- 	* Review OMERO PRs using a Virtual Appliacne
+	- 	* Review OMERO PRs using a Virtual Appliance
 		* :term:`OMERO-merge-stable-virtualbox`
 		* :term:`OMERO-merge-develop-virtualbox`
 
+	- 	* Update submodules
+		* :term:`OMERO-submods-stable`
+		* :term:`OMERO-submods-develop`
 
 Current major release
 ^^^^^^^^^^^^^^^^^^^^^
@@ -168,6 +172,13 @@ under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 		Review OMERO PRs for the next point release
 
 		#. |buildVM|
+
+	:jenkinsjob:`OMERO-submods-stable`
+
+		Update the submodules on the |devbranch| branch
+
+		#. |updatesubmodules| and push to snoopycrimecop/merge/|devbranch|/submodules
+		#. Open a PR or update existing PR if submodules are updated
 
 Next major release
 ^^^^^^^^^^^^^^^^^^
@@ -229,6 +240,13 @@ the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 		Review OMERO PRs for the next major release
 
 		#. |buildVM|
+
+	:jenkinsjob:`OMERO-submods-develop`
+
+		Update the submodules on the develop branch
+
+		#. |updatesubmodules| and push to snoopycrimecop/merge/develop/submodules
+		#. Open a PR or update existing PR if submodules are updated
 
 Bio-Formats jobs
 ----------------
