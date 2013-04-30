@@ -78,6 +78,7 @@ Caveats include:
 ..  |archiveOMEROartifacts| replace:: Archive the build artifacts
 ..  |deployOMERO| replace:: Deploy the server under :file:`~/OMERO-CURRENT` on
 ..  |promoteOMERO| replace:: copy the artifacts to necromancer
+..  |buildVM| replace:: Build a |VM| using :source:`docs/install/VM/omerovm.sh`
 
 OMERO jobs
 ----------
@@ -97,6 +98,10 @@ OMERO jobs
 		* :term:`OMERO-stable-ice34`
 		* :term:`OMERO-trunk-ice34`
 
+	- 	* Build an OMERO Virtual Appliacne
+		* :term:`OMERO-stable-virtualbox`
+		* :term:`OMERO-trunk-virtualbox`
+
 	- 	* Review OMERO PRs using Ice 33
 		* :term:`OMERO-merge-stable`
 		* :term:`OMERO-merge-develop`
@@ -104,6 +109,11 @@ OMERO jobs
 	- 	* Review OMERO PRs using Ice 3.4
 		* :term:`OMERO-merge-stable-ice34`
 		* :term:`OMERO-merge-develop-ice34`
+
+	- 	* Review OMERO PRs using a Virtual Appliacne
+		* :term:`OMERO-merge-stable-virtualbox`
+		* :term:`OMERO-merge-develop-virtualbox`
+
 
 Current major release
 ^^^^^^^^^^^^^^^^^^^^^
@@ -130,6 +140,12 @@ under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 		#. |archiveOMEROartifacts|
 		#. If the build is promoted, |promoteOMERO|
 
+	:jenkinsjob:`OMERO-stable-virtualbox`
+
+		Build a Virtual Appliance of the current release of OMERO
+
+		#. |buildVM|
+
 	:jenkinsjob:`OMERO-merge-stable`
 
 		Review OMERO PRs for the next point release
@@ -147,6 +163,12 @@ under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 
+	:jenkinsjob:`OMERO-merge-stable-virtualbox`
+
+		Review OMERO PRs for the next point release
+
+		#. |buildVM|
+
 Next major release
 ^^^^^^^^^^^^^^^^^^
 
@@ -162,6 +184,20 @@ the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 		#. If the build is promoted, |promoteOMERO|
+
+	:jenkinsjob:`OMERO-trunk-ice34`
+
+		Build next major release of OMERO using Ice 3.4
+
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. If the build is promoted, |promoteOMERO|
+
+	:jenkinsjob:`OMERO-trunk-virtualbox`
+
+		Build a Virtual Appliance of the next major release of OMERO
+
+		#. |buildVM|
 
 	:jenkinsjob:`OMERO-trunk-ice34`
 
@@ -187,6 +223,12 @@ the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 		#. Checkout snoopycrimecop/merge/develop/latest
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-merge-develop-virtualbox`
+
+		Review OMERO PRs for the next major release
+
+		#. |buildVM|
 
 Bio-Formats jobs
 ----------------
