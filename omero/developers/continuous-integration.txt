@@ -68,58 +68,37 @@ Caveats include:
 * more integration jobs to run
 * impact of OMERO documentation change on user base
 
-Jenkins jobs
-------------
-
-
-.. list-table::
-	:header-rows: 1
-
-	- 	* Job task
-		* Repository
-		* Current major release
-		* Next major release
-
-	- 	* Release OMERO docs
-		* ome-documentation.git_
-		* :term:`OMERO-docs-release-stable`
-		* N/A
-
-	- 	* Release Bio-Formats docs
-		* bioformats.git_
-		* :term:`BIOFORMATS-docs-release-stable`
-		* N/A
-
-	- 	* Review OMERO code PRs
-		* openmicroscopy.git_
-		* :term:`OMERO-merge-stable`
-		* :term:`OMERO-merge-develop`
-
-	- 	* Review OMERO doc PRs
-		* ome-documentation.git_
-		* :term:`OMERO-docs-merge-stable`
-		* :term:`OMERO-docs-merge-develop`
-
-	- 	* Review Bio-Formats doc PRs
-		* bioformats.git_
-		* :term:`BIOFORMATS-docs-merge-stable`
-		* :term:`BIOFORMATS-docs-merge-develop`
-
-	- 	* Build OMERO
-		* openmicroscopy.git_
-		* :term:`OMERO-stable`
-		* :term:`OMERO-trunk`
-
-	- 	* Build BIOFORMATS
-		* bioformats.git_
-		* :term:`BIOFORMATS-stable`
-		* :term:`BIOFORMATS-trunk`
-
 ..  |merge| replace:: Merge PRs using :ref:`scc merge`
 ..  |sphinxbuild| replace:: Build HTML and PDF Sphinx documentation using `make clean html latexpdf`
 ..  |linkcheck| replace:: Run Sphinx `linkcheck` and parse its output (see :ref:`linkcheck_parser`).
 ..  |ssh-doc| replace:: SSH doc and PDF to
 ..  |deploy-doc| replace:: Use :ref:`scc deploy` to update
+
+OMERO jobs
+----------
+
+.. list-table::
+	:header-rows: 1
+
+	- 	* Job task
+		* Current major release
+		* Next major release
+
+	- 	* Build OMERO using Ice 3.3
+		* :term:`OMERO-stable`
+		* :term:`OMERO-trunk`
+
+	- 	* Build OMERO using Ice 3.4
+		* :term:`OMERO-stable-ice34`
+		* :term:`OMERO-trunk-ice34`
+
+	- 	* Review OMERO PRs using Ice 33
+		* :term:`OMERO-merge-stable`
+		* :term:`OMERO-merge-develop`
+
+	- 	* Review OMERO PRs using Ice 3.4
+		* :term:`OMERO-merge-stable-ice34`
+		* :term:`OMERO-merge-develop-ice34`
 
 For all jobs building documentation using Sphinx, the :envvar:`SPHINXOPTS`
 variable is set to ``-W -D html_theme=plone_match``.
@@ -127,8 +106,172 @@ variable is set to ``-W -D html_theme=plone_match``.
 Current major release
 ^^^^^^^^^^^^^^^^^^^^^
 
-The branch for the current major release is |devbranch|. All jobs are listed 
+The branch for the current major release is |devbranch|. All jobs are listed
 under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
+
+.. glossary::
+
+
+	:jenkinsjob:`OMERO-stable`
+
+		Build current release of OMERO using Ice 3.3
+
+		#. Build server and release-docs
+		#. If the build is promoted,
+			#. Use artifacts for point release
+
+	:jenkinsjob:`OMERO-stable-ice34`
+
+		Build current release of OMERO using Ice 3.4
+
+		#. Build server and release-docs
+		#. If the build is promoted,
+			#. Use artifacts for point release
+
+
+	:jenkinsjob:`OMERO-merge-stable`
+
+		Review code PRs for the next OMERO point release
+
+		#. |merge| and push to snoopycrimecop/merge/|devbranch|/latest
+		#. Run :source:`docs/hudson/OMERO.sh`
+		#. Deploy the server on howe
+
+	:jenkinsjob:`OMERO-merge-stable-ice34`
+
+		Review code PRs for the next OMERO point release
+
+		#. Checkout snoopycrimecop/merge/|devbranch|/latest
+		#. Run :source:`docs/hudson/OMERO.sh`
+
+
+Next major release
+^^^^^^^^^^^^^^^^^^
+
+The branch for the next major release is develop. All jobs are listed under
+the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
+
+.. glossary::
+
+	:jenkinsjob:`OMERO-trunk`
+
+		Build next major release of OMERO
+
+		#. Build server and release-docs
+
+	:jenkinsjob:`OMERO-trunk-ice34`
+
+		Build next major release of OMERO using Ice 3.4
+
+		#. Build server and release-docs
+		#. If the build is promoted,
+			#. Use artifacts for point release
+	
+	:jenkinsjob:`OMERO-merge-develop`
+
+		Review code PRs for the next major release of OMERO
+
+		#. |merge| and push to snoopycrimecop/merge/develop/latest
+		#. Run :source:`docs/hudson/OMERO.sh`
+		#. Deploy the server on gretzky
+
+	:jenkinsjob:`OMERO-merge-develop-ice34`
+
+		Review code PRs for the next OMERO point release
+
+		#. Checkout snoopycrimecop/merge/develop/latest
+		#. Run :source:`docs/hudson/OMERO.sh`
+
+Bio-Formats jobs
+----------------
+
+All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
+
+.. list-table::
+	:header-rows: 1
+
+	- 	* Job task
+		* Current major release
+		* Next major release
+
+	- 	* Build Bio-Formats
+		* :term:`BIOFORMATS-stable`
+		* :term:`BIOFORMATS-trunk`
+
+	- 	* Review Bio-Formats PRs
+		* :term:`BIOFORMATS-per-commit-stable`
+		* :term:`BIOFORMATS-per-commit-test`
+
+Current major release
+^^^^^^^^^^^^^^^^^^^^^
+
+The branch for the current major release is |devbranch|.
+
+.. glossary::
+
+	:jenkinsjob:`BIOFORMATS-stable`
+
+		Build current release of Bio-Formats
+
+	:jenkinsjob:`BIOFORMATS-per-commit-stable`
+
+		Review Bio-Formats  PRs for the next point release
+
+
+Next major release
+^^^^^^^^^^^^^^^^^^
+
+The branch for the next major release is develop.
+
+.. glossary::
+
+	:jenkinsjob:`BIOFORMATS-trunk`
+
+		Build next major release of Bio-Formats
+
+	:jenkinsjob:`BIOFORMATS-per-commit-test`
+
+		Review Bio-Formats PRs for the next major release
+
+Documentation jobs
+------------------
+
+All documentation jobs are listed under the :jenkinsview:`Docs <Docs>` view
+tab of Jenkins.
+
+.. list-table::
+	:header-rows: 1
+
+	- 	* Job task
+		* Current major release
+		* Next major release
+
+	- 	* Release OMERO documentation
+		* :term:`OMERO-docs-release-stable`
+		* N/A
+
+	- 	* Release Bio-Formats documentation
+		* :term:`BIOFORMATS-docs-release-stable`
+		* N/A
+
+	- 	* Release OME Model documentation
+		* :term:`FORMATS-docs-release-stable`
+		* N/A
+
+	- 	* Review OMERO documentation PRs
+		* :term:`OMERO-docs-merge-stable`
+		* :term:`OMERO-docs-merge-develop`
+
+	- 	* Review Bio-Formats documentation PRs
+		* :term:`BIOFORMATS-docs-merge-stable`
+		* :term:`BIOFORMATS-docs-merge-develop`
+
+	- 	* Review OME Model documentation PRs
+		* :term:`FORMATS-docs-merge-stable`
+		* :term:`FORMATS-docs-merge-develop`
+
+Current release
+^^^^^^^^^^^^^^^
 
 .. glossary::
 
@@ -152,22 +295,20 @@ under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats/
 
-	:jenkinsjob:`OMERO-stable`
-	:jenkinsjob:`BIOFORMATS-stable`
+	:jenkinsjob:`FORMATS-docs-release-stable`
 
-		Build current release of OMERO/Bio-Formats 
+		Update the official documentation for the current OME Model release
 
-		#. Build server and release-docs
+		#. |sphinxbuild|
+		#. |linkcheck|
 		#. If the build is promoted,
-			#. Use artifacts for point release
+			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats.tmp`
+			#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
 
-	:jenkinsjob:`OMERO-merge-stable`
+Next point release
+^^^^^^^^^^^^^^^^^^^
 
-		Review code PRs for the next OMERO point release
-
-		#. |merge| and push to snoopycrimecop/merge/|devbranch|/latest
-		#. Run :source:`docs/hudson/OMERO.sh`
-		#. Deploy the server on howe
+.. glossary::
 
 	:jenkinsjob:`OMERO-docs-merge-stable`
 
@@ -191,32 +332,25 @@ under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats-staging/
 
+	:jenkinsjob:`FORMATS-docs-merge-stable`
+
+		Review doc PRs for the current OME Model release or for the next
+		Bio-Formats point release
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-staging/
+
 Next major release
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the next major release is develop. All jobs are listed under
-the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
-
 .. glossary::
-
-	:jenkinsjob:`BIOFORMATS-trunk`
-	:jenkinsjob:`OMERO-trunk`
-
-		Build next BIO-FORMATS/OMERO major release.
-
-		#. Build server and release-docs
-
-	:jenkinsjob:`OMERO-merge-develop`
-
-		Review code PRs for the next major release of OMERO
-
-		#. |merge| and push to snoopycrimecop/merge/develop/latest
-		#. Run :source:`docs/hudson/OMERO.sh`
-		#. Deploy the server on gretzky
 
 	:jenkinsjob:`OMERO-docs-merge-develop`
 
-		Review doc PRs for the next major release of OMERO
+		Review doc PRs for the next OMERO major release
 
 		#. |merge|
 		#. |sphinxbuild|
@@ -226,13 +360,23 @@ the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 
 	:jenkinsjob:`BIOFORMATS-docs-merge-develop`
 
-		Review doc PRs for next major release of Bio-Formats
+		Review doc PRs for the next Bio-Formats major release
 
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-develop.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats-develop/
+
+	:jenkinsjob:`FORMATS-docs-merge-develop`
+
+		Review doc PRs for the next OME Model major release
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-develop.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-develop/
 
 .. _linkcheck_parser:
 
@@ -265,7 +409,6 @@ High     0
 Normal          0
 Low             10
 ======== ====== ========
-
 
 Schematic drawing
 -----------------
