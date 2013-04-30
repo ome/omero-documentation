@@ -4,29 +4,51 @@ OMERO Matlab language bindings
 See |DevelopingOmeroClients| and |OmeroModel|, for an introduction to
 **Object**.
 
-Installing and configuring
---------------------------
+.. highlight:: matlab
 
 Installing the OMERO.matlab toolbox
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
--  Download the desired version. For the latest build see
-   :omerojob:`here <lastSuccessfulBuild/>`, and download the
-   OMERO.matlab zip file. For the latest released version visit the
-   main :omero_plone:`download page <downloads>`
+-  Download the latest released version from the
+   :omero_plone:`download page <downloads>` . For the latest build, go
+   :omerojob:`here <lastSuccessfulBuild/>`, and download the OMERO.matlab zip
+   file.
 -  Unzip the directory anywhere on your system.
--  In Matlab, change to the newly unzipped directory.
--  Run ``loadOmero;``
--  The MATLAB files are now on your path, and the necessary jars are on
+-  In Matlab, move to the newly unzipped directory and run ``loadOmero;``.
+-  The Matlab files are now on your path, and the necessary jars are on
    your java classpath. You can change directories and still have access
    to OMERO.
 
-Configuring the OMERO.matlab connection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Once OMERO.matlab is installed, the typical workflow is:
 
-As described under |OmeroClients|, there are
-several ways to configure your connection to an OMERO server.
-OMERO.matlab comes with a few conveniences for
+#. :ref:`connection_init`
+#. :ref:`connection_keepalive`
+#. :ref:`unsecure_client` (optional)
+#. Do some work (load objects, work with them, upload to the server...)
+#. :ref:`connection_close`
+#. :ref:`unload` (optional)
+
+As a quickstart example, the following lines create a secure connection to a
+server, read a series of images and close the connection.
+
+::
+   
+   client = loadOmero(servername, port);
+   session = client.createSession(user, password);
+   client.enableKeepAlive(60);
+   images = getImages(session, ids);
+   client.closeSession();
+
+Configuring the OMERO.matlab connection
+---------------------------------------
+
+.. _connection_init:
+
+Creating a connection
+^^^^^^^^^^^^^^^^^^^^^
+
+As described under |OmeroClients|, there are several ways to configure your 
+connection to an OMERO server. OMERO.matlab comes with a few conveniences for
 making this work.
 
 If you run ``client = loadOmero;`` (i.e. loadOmero with a return value),
@@ -39,9 +61,7 @@ default ice.config file pointing at localhost, which you can edit for your
 server.
 
 Alternatively, you can pass the same parameters to ``loadOmero;`` that
-you would pass to ``omero.client``:
-
-::
+you would pass to ``omero.client``::
 
     >> omero_client_1 = loadOmero('localhost');
     >> omero_client_2 = omero.client('localhost');
@@ -55,19 +75,10 @@ equivalent:
     >> client2 = loadOmero('localhost');
     >> session2 = client2.createSession()
 
-Using the OMERO.matlab omero.client
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Once an active session is available in your workspace, you can acquire
-services, make queries, and load binary data. In short, anything the
-|OmeroApi| can do. Helper functions and demos are
-available for getting a feel for the API.
-
-**TODO: Review the links** See the examples under
-:sourcedir:`examples` on what you can do with OMERO.matlab.
+.. _connection_keepalive:
 
 Keeping your session alive
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For executing any long running task, you will need a background thread
 which keeps your session alive. If you are familiar with Matlab
@@ -82,231 +93,219 @@ directly or modify it to your liking.
     >> ...
     >> delete(t);             % Disables the keep-alive
 
-Alternatively, you can use the Java-based ``enableKeepAlive``-method,
-but it is not configurable from within Matlab:
+Alternatively, you can use the Java-based ``enableKeepAlive`` method,
+but it is not configurable from within Matlab::
 
-::
+    c.enableKeepAlive(60); % Calls session.keepAlive() every 60 seconds
+    c.closeSession();      % Close session to end the keep-alive
 
-    >> c.enableKeepAlive(60); % Calls session.keepAlive() every 60 seconds
-    >> c.closeSession();      % Close session to end the keep-alive
+.. _unsecure_client:
 
-Closing and unloading OMERO
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating an unencrypted session
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When you are done with OMERO, it is critical that you close your
-connection to save resources.
+If you want to speed up the data transfer, you can create and use an
+unencrypted session as::
 
-::
+	unsecureClient = client.createClient(false);
+	sessionUnencrypted = unsecureClient.getSession();
 
-    >> client1.closeSession();
-    >> clear client1;
-    >> clear session1;
+.. _connection_close:
 
-Then if you would like, you can unload OMERO as well:
+Closing your connection
+^^^^^^^^^^^^^^^^^^^^^^^
 
-::
+When you are done with OMERO, it is critical that you close your connection to 
+save resources::
 
-    >> unloadOmero;
+    client.closeSession();
+    clear client1;
+    clear session1;
 
-**Note: you may see the following warning when unloading OMERO:**
+If you created an unencrypted session, you will need to close the unsecure
+session as well::
 
-::
+    client.closeSession();
+    unsecureClient.closeSession();
 
-    >> unloadOmero
-    Warning: Objects of omero/client class exist - not clearing java
-    > In javaclasspath>local_javapath at 167
-      In javaclasspath at 88
-      In javarmpath at 46
-      In unloadOmero at 4
-    Warning: Objects of omero/client class exist - not clearing java
-    > In unloadOmero at 6
+.. _unload:
 
-This means that there is still an OMERO.matlab
-object in your workspace. Use "who" to find such objects, and "clear" to
-remove them. After that, run ``clear java``:
+Unloading OMERO
+^^^^^^^^^^^^^^^
 
-::
+Then if you would like, you can unload OMERO as well::
 
-    >> who
+    unloadOmero();
 
-    Your variables are:
+You may see the following warning when unloading OMERO::
 
-    omero_client
+	>> unloadOmero()
+	Warning: Objects of omero/client class exist - not clearing java
+	> In javaclasspath>doclear at 377
+	  In javaclasspath>local_javapath at 194
+	  In javaclasspath at 105
+	  In javarmpath at 48
+	  In unloadOmero at 75
 
-    >> clear omero_client
-    >> clear java
+	===============================================================
+	While unloading OMERO, found java objects left in workspace.
+	Please remove with 'clear <name>' and then run 'unloadOmero'
+	again.  Printing all objects...
+	===============================================================
+
+	  Name      Size            Bytes  Class           Attributes
+
+	  c         1x1                    omero.client
+
+	Closing session(s) for 1 found client(s): c
+
+This means that there is still an OMERO.matlab object in your workspace. If
+not listed, use ``whos`` to find such objects, and ``clear`` to remove them.
+After that, run ``unloadOmero()`` again::
+
+	>> clear c
+	>> unloadOmero()
 
 .. warning::
     You should also unload OMERO before installing a new version of
     OMERO.matlab or calling ``loadOmero`` again.
 
 If you need to create another session without unloading/loading OMERO
-again, use the ``omero.client`` object directly:
-
-::
+again, use the ``omero.client`` object directly::
 
     >> [c,s] = loadOmero(arg1,arg2);
     >> c = omero.client(arg3,arg4);
     >> s = c.createSession();
 
 
-Code in action
---------------
-
-Follow several code samples showing how to interact with some objects.
-
-Connect to OMERO
-~~~~~~~~~~~~~~~~
-
--  **Connect to server**.
-
-Remember to close the session.
-
-::
-
-    client = omero.client(server, 4064); 
-    session = client.createSession(username, password);
-    %necessary to keep the proxy alive. part of the omero-package
-    clientAlive = omeroKeepAlive(client); 
-
-    % If you want to have the data transfer encrypted then you can 
-    % use the session variable otherwise use the following 
-    unsecureClient = client.createClient(false);
-    sessionUnencrypted = unsecureClient.getSession();
-
-    % The id of the user.
-    userId = session.getAdminService().getEventContext().userId;
-
-    % The group the user is currently logged in i.e. his/her default group
-    groupId = session.getAdminService().getEventContext().groupId;
-
--  **Close connection**. **IMPORTANT**
-
-::
-
-    client.closeSession();
-    unsecureClient.closeSession();
-
-Read data
-~~~~~~~~~
+Reading data
+------------
 
 The ``IContainer`` service provides method to load the data management
 hierarchy in OMERO -- Projects, Datasets, etc. A list of examples
 follows, indicating how to load Project, Dataset, Screen, etc.
 
--  **Retrieve the projects owned by the user currently logged in.**
+-  **Projects**
 
-If a Project contains Datasets, the Datasets will automatically be
-loaded.
+The projects owned by the user currently logged in can be retrieved using the
+:source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`
+function::
 
-::
+	projects = getProjects(session)
 
-    proxy = session.getContainerService();
-    %Set the options
-    param = omero.sys.ParametersI();
-    param.leaves();%indicate to load the images
-    %param.noLeaves(); %no images loaded, this is the default value.
-    userId = session.getAdminService().getEventContext().userId; %id of the user.
-    param.exp(omero.rtypes.rlong(userId));
-    projectsList = proxy.loadContainerHierarchy('omero.model.Project', [], param);
-    for j = 0:projectsList.size()-1,
-        p = projectsList.get(j);
-        datasetsList = p.linkedDatasetList;
+If the project identifiers are known, they can be specified as::
+
+	projects = getProjects(session, ids)
+
+If the projects contains datasets, the datasets will automatically be loaded::
+
+    for j = 1 : numel(projects)
+        datasetsList = projects(j).linkedDatasetList;
         for i = 0:datasetsList.size()-1,
             d = datasetsList.get(i);
-            % Do something with the dataset 
-            dName = d.getName().getValue();
-            % If the flag is set to true, you can access the images within the dataset
-            % imageList = d.linkedImageList;
-            % for k = 0:imageList.size()-1,
-               % image = imageList.get(k);
-            % end
         end
-    end 
-
--  **Retrieve the Datasets owned by the user currently logged in.**
-
-::
-
-    proxy = session.getContainerService();
-    param = omero.sys.ParametersI();
-    param.leaves();%indicate to load the images
-    userId = session.getAdminService().getEventContext().userId; %id of the user.
-    param.exp(omero.rtypes.rlong(userId));
-    datasetsList = proxy.loadContainerHierarchy('omero.model.Dataset', [], param);
-
--  **Retrieve the Images contained in a Dataset.**
-
-::
-
-    proxy = session.getContainerService();
-    ids = java.util.ArrayList();
-    datasetId = java.lang.Long(dId);
-    ids.add(datasetId); %add the id of the dataset.
-    param = omero.sys.ParametersI();
-    param.leaves(); % indicate to load the images.
-    list = proxy.loadContainerHierarchy('omero.model.Dataset', ids, param);
-    dataset = list.get(0);
-    imageList = dataset.linkedImageList; % The images in the dataset.
-
--  **Retrieve an image if the identifier is known.**
-
-::
-
-    ids = java.util.ArrayList();
-    ids.add(imageId); %add the id of the image.
-
-    proxy = session.getContainerService();
-    list = proxy.getImages('omero.model.Image', ids, omero.sys.ParametersI());
-    image = list.get(0);
-
--  **Access information about the image for example to draw it**.
-
-The model is as follows: Image-Pixels i.e. to access valuable data about
-the image you need to use the pixels object. We now only support one set
-of pixels per image (it used to be more!).
-
-::
-
-    pixelsList = image.copyPixels();
-    for k = 0:pixelsList.size()-1,
-       pixels = pixelsList.get(k);
-       sizeZ = pixels.getSizeZ().getValue(); % The number of z-sections.
-       sizeT = pixels.getSizeT().getValue(); % The number of timepoints.
-       sizeC = pixels.getSizeC().getValue(); % The number of channels.
-       sizeX = pixels.getSizeX().getValue(); % The number of pixels along the X-axis.
-       sizeY = pixels.getSizeY().getValue(); % The number of pixels along the Y-axis.
     end
 
--  **Retrieve Screening data owned by the user currently logged in**.
+If the datasets contains images, the images will automatically be loaded::
 
-Note that the wells are not loaded.
+    imageList = projects(1).linkedDatasetList.get(0).linkedImageList;
 
-::
+To avoid loading the whole graph (projects, datasets, images), pass `false` as
+a second optional argument. Only datasets will be loaded::
 
-    proxy = session.getContainerService();
-    userId = session.getAdminService().getEventContext().userId; %id of the user.
-    param = omero.sys.ParametersI;
-    param.exp(omero.rtypes.rlong(userId)); %load data for a given user.
+	unloadedProjects = getProjects(session, ids, false)
 
-    screenList = proxy.loadContainerHierarchy('omero.model.Screen', [], param);
-    for j = 0:screenList.size()-1,
-    screen = screenList.get(j);
-    platesList = screen.linkedPlateList;
+-  **Datasets**
+
+The datasets owned by the user currently logged in can be retrieved using the
+:source:`getDatasets <components/tools/OmeroM/src/io/getDatasets.m>`
+function::
+
+	datasets = getDatasets(session)
+
+If the dataset identifiers are known, they can be specified as::
+
+	datasets = getDatasets(session, ids)
+
+If the datasets contain images, the images will automatically be loaded::
+
+    imageList = datasets(1).linkedImageList;
+
+To avoid loading the images, pass `false` as a second optional argument::
+
+	unloadedDatasets = getDatasets(session, ids, false)
+
+-  **Images**
+
+All the images owned by the user currently logged in can be retrieved using
+the :source:`getImages <components/tools/OmeroM/src/io/getImages.m>`
+function::
+
+	images = getImages(session)
+
+If the image identifiers are known, they can be specified as::
+
+	images = getImages(session, ids)
+
+Alternately, all the images contained in projects or datasets can be returned
+by specifying the parent type and identifiers as::
+
+	projectImages = getImages(session, 'project', projectIds)
+	datasetImages = getImages(session, 'dataset', datasetsIds)
+
+.. note:: If ``projectIds`` or ``datasetIds`` is set to ``[]``, all the images
+   contained in datasets will be returned.
+
+The Image-Pixels model implies you need to use the pixels objects to access
+valuable data about the image::
+
+    pixels = image.getPrimaryPixels();
+    sizeZ = pixels.getSizeZ().getValue(); % The number of z-sections.
+    sizeT = pixels.getSizeT().getValue(); % The number of timepoints.
+    sizeC = pixels.getSizeC().getValue(); % The number of channels.
+    sizeX = pixels.getSizeX().getValue(); % The number of pixels along the X-axis.
+    sizeY = pixels.getSizeY().getValue(); % The number of pixels along the Y-axis.
+
+-  **Screens**
+
+The screens owned by the user currently logged in can be retrieved using the
+:source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>`
+function::
+
+	screens = getScreens(session)
+
+If the screen identifiers are known, they can be specified as::
+
+	screens = getScreens(session, ids)
+
+Note that the wells are not loaded. The plate objects can be accessed using::
+
+    for j = 1 : numel(screens),
+    platesList = screens(j).linkedPlateList;
     for i = 0:platesList.size()-1,
         plate = platesList.get(i);
         plateAcquisitionList = plate.copyPlateAcquisitions();
         for k = 0:plateAcquisitionList.size()-1,
-          pa = plateAcquisitionList.get(i);
+            pa = plateAcquisitionList.get(i);
         end
     end
 
--  **Retrieve Wells within a Plate**.
+-  **Plates**
 
-Given a plate ID, load the wells. You will have to use the
-``findAllByQuery`` method.
+The plates owned by the user currently logged in can be retrieved using the
+:source:`getPlates <components/tools/OmeroM/src/io/getPlates.m>`
+function::
 
-::
+	plates = getPlates(session)
+
+If the plate identifiers are known, they can be specified as::
+
+	plates = getPlates(session, ids)
+
+-  **Wells**
+
+Given a plate identifier, the wells can be loaded using the ``findAllByQuery``
+method::
 
     wellList = session.getQueryService().findAllByQuery(
     ['select well from Well as well '...
@@ -329,81 +328,46 @@ Given a plate ID, load the wells. You will have to use the
     end 
 
 Raw data access
-~~~~~~~~~~~~~~~
+---------------
 
 You can retrieve data, plane by plane or retrieve a stack.
 
--  **Retrieve a given plane**.
+-  **Plane**
 
-This is useful when you need the pixels intensity.
+The plane of an input image at coordinates (z, c, t) can be retrieved using
+the :source:`getPlane <components/tools/OmeroM/src/image/getPlane.m>`
+function::
 
-::
+	plane = getPlane(session, image, z, c, t);
 
-    % To retrieve the pixels, see above.
-    sizeZ = pixels.getSizeZ().getValue();
-    sizeT = pixels.getSizeT().getValue();
-    sizeC = pixels.getSizeC().getValue();
-    pixelsId = pixels.getId().getValue();
-    store = session.createRawPixelsStore(); 
-    store.setPixelsId(pixelsId, false);
-    for z = 0:sizeZ-1,
-       for t = 0:sizeT-1,
-          for c = 0:sizeC-1,
-              plane = store.getPlane(z, c, t);
-              tPlane = toMatrix(plane, pixels);
-              % do something with the plane
-          end
-       end
-    end
-    % close the store
-    store.close();
+Alternately, the image identifier can be passed to the function::
 
--  **Retrieve a given tile**.
+	plane = getPlane(session, imageID, z, c, t);
 
-::
+-  **Tile**
 
-    % To retrieve the pixels, see above.
-    sizeZ = pixels.getSizeZ().getValue();
-    sizeT = pixels.getSizeT().getValue();
-    sizeC = pixels.getSizeC().getValue();
-    pixelsId = pixels.getId().getValue();
-    store = session.createRawPixelsStore(); 
-    store.setPixelsId(pixelsId, false);
-    x = 0;
-    y = 0;
-    width = pixels.getSizeX().getValue()/2;
-    height = pixels.getSizeY().getValue()/2;
-    for z = 0:sizeZ-1,
-       for t = 0:sizeT-1,
-          for c = 0:sizeC-1,
-              tile = store.getTile(z, c, t, x, y, width, height);
-              % tPlane = toMatrix(tile, pixels);
-              % do something with the tile
-          end
-       end
-    end
-    % close the store
-    store.close();
+The tile of an input image at coordinates (z, c, t) originated at (x, y) and
+of dimensions (w, h) can be retrieved using the
+:source:`getTile <components/tools/OmeroM/src/image/getTile.m>` function::
 
--  **Retrieve a given stack**.
+	tile = getTile(session, image, z, c, t, x, y, w, h);
 
-This is useful when you need the pixels intensity.
+Alternately, the image identifier can be passed to the function::
 
-::
+	tile = getTile(session, imageID, z, c, t, x, y, w, h);
 
-    %Create the store to load the stack. No access via the gateway
-    store = session.createRawPixelsStore(); 
-    store.setPixelsId(pixelsId, false); %Indicate the pixels set you are working on
-    for t = 0:sizeT-1,
-        for c = 0:sizeC-1,
-            stack = store.getStack(c, t);
-            % do something with the stack
-          end
-       end
-    end
-    store.close();
+-  **Stack**
 
--  **Retrieve a given hypercube**.
+The tile of an input image at coordinates (c, t) can be retrieved using the
+:source:`getStack <components/tools/OmeroM/src/image/getStack.m>` function::
+
+	stack = getStack(session, image, c, t);
+
+Alternately, the image identifier can be passed to the function::
+
+	stack = getStack(session, imageID, c, t);
+
+-  **Hypercube**
 
 This is useful when you need the pixels intensity.
 
@@ -441,8 +405,107 @@ This is useful when you need the pixels intensity.
     % close the store
     store.close();
 
-Write data
-~~~~~~~~~~
+Thumbnails
+----------
+
+-  **Single thumbnails**
+
+The cache thumbnail of an input image can be retrieved using the
+:source:`getThumbnail <components/tools/OmeroM/src/image/getThumbnail.m>`
+function::
+
+	thumbnail = getThumbnail(session, image, width, height);
+
+Alternately, the image identifier can be passed to the function::
+
+	thumbnail = getThumbnail(session, imageID, width, height);
+
+.. note:: The ``width`` or ``height`` arguments are optional and will be set
+    to 45 pixels if not specified.
+
+To preserve the aspect ratio of the retrieved thumbnail, use the :source:`getThumbnailByLongestSide <components/tools/OmeroM/src/image/getThumbnailByLongestSide.m>`
+function::
+
+	thumbnail = getThumbnailByLongestSide(session, image, size);
+
+or alternately using the image identifier::
+
+	thumbnail = getThumbnailByLongestSide(session, imageID, size);
+
+-  **Thumbnail set**
+
+A set of cached thumbnails can be retrieved from a list of input images using
+the :source:`getThumbnailSet <components/tools/OmeroM/src/image/getThumbnailSet.m>`
+function::
+
+	thumbnailSet = getThumbnailSet(session, images, width, height);
+
+To preserve the aspect ratio of the retrieved thumbnails, use the :source:`getThumbnailByLongestSideSet <components/tools/OmeroM/src/image/getThumbnailByLongestSideSet.m>` function::
+
+	thumbnailSet = getThumbnailSetByLongestSide(session, images, size);
+
+Annotations
+-----------
+
+-  **Reading annotations**
+
+If the identifier of a tag annotation is know, the annotation can be retrieved
+from the server using the :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
+function::
+
+	tagAnnotations = getTagAnnotations(session, tagIds);
+
+.. seealso::
+
+    :source:`getFileAnnotations <components/tools/OmeroM/src/annotations/getFileAnnotations.m>`
+		Utility function to retrieve file annotations by identifier
+
+    :source:`getCommentAnnotations <components/tools/OmeroM/src/annotations/getFileAnnotations.m>`
+		Utility function to retrieve comment annotations by identifier
+
+    :source:`getXmlAnnotations <components/tools/OmeroM/src/annotations/getXmlAnnotations.m>`
+		Utility function to retrieve xml annotations by identifier
+
+To retrieve the tag annotations linked to a given object, an image for instance, use the :source:`getImageTagAnnotations <components/tools/OmeroM/src/annotations/getImageTagAnnotations.m>`
+function::
+
+	tagAnnotations = getImageTagAnnotations(session, imageIds);
+
+or if the images have been retrieved from the server::
+
+	tagAnnotations = getImageTagAnnotations(session, images);
+
+.. seealso::
+
+	:source:`getImageFileAnnotations <components/tools/OmeroM/src/annotations/getImageFileAnnotations.m>`, :source:`getImageCommentAnnotations <components/tools/OmeroM/src/annotations/getImageCommentAnnotations.m>`,  :source:`getImageFileAnnotations <components/tools/OmeroM/src/annotations/getImageFileAnnotations.m>`
+		Utility function to retrieve annotations linked to images
+
+	:source:`getDatasetTagAnnotations <components/tools/OmeroM/src/annotations/getDatasetTagAnnotations.m>`,  :source:`getDatasetFileAnnotations <components/tools/OmeroM/src/annotations/getDatasetFileAnnotations.m>`, :source:`getDatasetCommentAnnotations <components/tools/OmeroM/src/annotations/getDatasetCommentAnnotations.m>`,  :source:`getDatasetFileAnnotations <components/tools/OmeroM/src/annotations/getDatasetFileAnnotations.m>`
+		Utility function to retrieve annotations linked to datasets
+
+	:source:`getProjectTagAnnotations <components/tools/OmeroM/src/annotations/getProjectTagAnnotations.m>`,  :source:`getProjectFileAnnotations <components/tools/OmeroM/src/annotations/getProjectFileAnnotations.m>`, :source:`getProjectCommentAnnotations <components/tools/OmeroM/src/annotations/getProjectCommentAnnotations.m>`,  :source:`getProjectFileAnnotations <components/tools/OmeroM/src/annotations/getProjectFileAnnotations.m>`
+		Utility function to retrieve annotations linked to projects
+
+	:source:`getScreenTagAnnotations <components/tools/OmeroM/src/annotations/getScreenTagAnnotations.m>`,  :source:`getScreenFileAnnotations <components/tools/OmeroM/src/annotations/getScreenFileAnnotations.m>`, :source:`getScreenCommentAnnotations <components/tools/OmeroM/src/annotations/getScreenCommentAnnotations.m>`,  :source:`getScreenFileAnnotations <components/tools/OmeroM/src/annotations/getScreenFileAnnotations.m>`
+		Utility function to retrieve annotations linked to screens
+
+	:source:`getPlateTagAnnotations <components/tools/OmeroM/src/annotations/getPlateTagAnnotations.m>`,  :source:`getPlateFileAnnotations <components/tools/OmeroM/src/annotations/getPlateFileAnnotations.m>`, :source:`getPlateCommentAnnotations <components/tools/OmeroM/src/annotations/getPlateCommentAnnotations.m>`,  :source:`getPlateFileAnnotations <components/tools/OmeroM/src/annotations/getPlateFileAnnotations.m>`
+		Utility function to retrieve annotations linked to plates
+
+-  **Reading file annotations**
+
+The content of a file annotation can be downloaded locally on disk using the :source:`getFileAnnotationContent <components/tools/OmeroM/src/annotations/getFileAnnotationContent.m>`
+function::
+
+	getFileAnnotationContent(session, fileAnnotation, target_file);
+
+Alternately, if only the file annotation identifier is known::
+
+	getFileAnnotationContent(session, faid, target_file);
+
+
+Writing data
+------------
 
 -  **Create a Dataset** and link it to an existing Project.
 
@@ -541,44 +604,8 @@ created:
 
     % To attach to a Dataset use omero.model.DatasetAnnotationLinkI;
 
--  **Load all the annotations with a given namespace linked to images**
-
-::
-
-    userId = session.getAdminService().getEventContext().userId;
-    nsToInclude = java.util.ArrayList;
-    nsToInclude.add(NAME_SPACE_TO_SET);
-    nsToExclude = java.util.ArrayList;
-    options = omero.sys.ParametersI;
-    options.exp(omero.rtypes.rlong(userId)); %load the annotation for a given user.
-    metadataService = session.getMetadataService();
-    % retrieve the annotations linked to images, for datasets use: 'omero.model.Dataset'
-    annotations = metadataService.loadSpecifiedAnnotations('omero.model.FileAnnotation', nsToInclude, nsToExclude, options);
-    for j = 0:annotations.size()-1,
-        annotations.get(j).getId().getValue();
-    end
-
--  **Read the attachment**.
-
-First load the annotation, cf. above.
-
-::
-
-    % Let's call fa the file annotation
-    originalFile = fa.getFile();
-    store = session.createRawFileStore();
-    store.setFileId(originalFile.getId().getValue());
-
-    % read data
-        
-    fid = fopen('mydataBack.txt', 'w');
-    fwrite(fid, rawFileStore.read(0, originalFile.getSize().getValue()), 'uint8');
-    fclose(fid);
-
-    store.close();
-
 How to use OMERO tables
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 -  **Create a table**. In the following example, we create a table with
    2 columns.
@@ -631,43 +658,32 @@ How to use OMERO tables
     tablePrx.close(); % Important to close when done.
 
 ROIs
-~~~~
+----
 
-To learn about the model see
-:model_doc:`developers/roi.html`
-. Note that annotation can be linked to ROI.
+To learn about the model see :model_doc:`developers/roi.html`. Note that 
+annotation can be linked to ROI.
 
--  **Create ROI.**
+-  **Creating ROI**
 
-In this example, we create an ROI with a rectangular shape and attach it
-to an image.
+In this example, we create an ROI with a rectangular shape and attach it to an
+image.
 
 ::
 
     % First create a rectangular shape.
-    rect = omero.model.RectI;
-    rect.setX(omero.rtypes.rdouble(0));
-    rect.setY(omero.rtypes.rdouble(0));
-    rect.setWidth(omero.rtypes.rdouble(10));
-    rect.setHeight(omero.rtypes.rdouble(20));
+    rectangle = createRectangle(0, 0, 10, 20);
     % indicate on which plane to attach the shape
-    rect.setTheZ(omero.rtypes.rint(0));
-    rect.setTheT(omero.rtypes.rint(0));
+    setShapeCoordinates(rectangle, 0, 0, 0);
 
     % First create an ellipse shape.
-    ellipse = omero.model.EllipseI;
-    ellipse.setCx(omero.rtypes.rdouble(0));
-    ellipse.setCy(omero.rtypes.rdouble(0));
-    ellipse.setRx(omero.rtypes.rdouble(10));
-    ellipse.setRy(omero.rtypes.rdouble(20));
+    ellipse = createEllipse(0, 0, 10, 20);
     % indicate on which plane to attach the shape
-    ellipse.setTheZ(omero.rtypes.rint(0));
-    ellipse.setTheT(omero.rtypes.rint(0));
+    setShapeCoordinates(ellipse, 0, 0, 0);
 
     % Create the roi.
     roi = omero.model.RoiI;
     % Attach the shapes to the roi, several shapes can be added.
-    roi.addShape(rect);
+    roi.addShape(rectangle);
     roi.addShape(ellipse);
 
     % Link the roi and the image
@@ -681,7 +697,13 @@ to an image.
        shape = roi.getShape(ns-1);
     end
 
--  **Retrieve ROIs linked to an Image.**
+.. seealso::
+
+    :sourcedir:`ROI utility functions <components/tools/OmeroM/src/roi>`
+        OMERO.matlab functions for creating and managing Shape and ROI
+        objects.
+
+-  **Retrieving ROIs linked to an Image**
 
 ::
 
@@ -712,7 +734,7 @@ to an image.
         end
     end
 
--  **Remove a shape from ROI.**
+-  **Removing a shape from ROI**
 
 ::
 
@@ -732,37 +754,25 @@ to an image.
         roi = iUpdate.saveAndReturnObject(roi);
     end
 
-Delete data
-~~~~~~~~~~~
+Deleting data
+-------------
 
 It is possible to delete Projects, Datasets, Images, ROIs etc. and
 objects linked to them depending on the specified options (see
-:doc:`/developers/Modules/Delete`).
+:doc:`/developers/Modules/Delete`). For example, images of known identifiers 
+can be deleted from the server using the 
+:source:`deleteImages <components/tools/OmeroM/src/delete/deleteImages.m>` 
+function::
 
--  **Delete Image**.
+	deleteImages(session, imageIds);
 
-In the following example, we create an Image and delete it.
+.. seealso::
 
-::
+	:source:`deleteProjects <components/tools/OmeroM/src/delete/deleteProjects.m>`, :source:`deleteDatasets <components/tools/OmeroM/src/delete/deleteDatasets.m>`, :source:`deleteScreens <components/tools/OmeroM/src/delete/deleteScreens.m>`, :source:`deletePlates <components/tools/OmeroM/src/delete/deletePlates.m>`
+		Utility functions to delete objects
 
-    % First create the image.
-    image = omero.model.ImageI;
-    image.setName(omero.rtypes.rstring('image name'))
-    image.setAcquisitionDate(omero.rtypes.rtime(2000000));
-    image = service.saveAndReturnObject(image);
-    imageId = image.getId().getValue();
-
-    % Create the command to delete the Image using a delete callback.
-    % You can delete more than one image at a time.
-    list = javaArray('omero.api.delete.DeleteCommand', 1);
-    % Indicate the type of object e.g. /Image, /Project etc., the identifier
-    % and the annotations to keep (nothing in the following example)
-    list(1) = omero.api.delete.DeleteCommand('/Image', imageId, []);
-    %Delete the image.
-    prx = session.getDeleteService().queueDelete(list);
-
-Render Images
-~~~~~~~~~~~~~
+Rendering images
+-----------------
 
 -  **Initialize the rendering engine and render an Image.**
 
@@ -823,28 +833,11 @@ Render Images
     %Close the rendering engine.
     re.close();
 
--  **Retrieves thumbnails**
-
-::
-
-    store = session.createThumbnailStore();
-    map = store.getThumbnailByLongestSideSet(omero.rtypes.rint(96), java.util.Arrays.asList(java.lang.Long(pixelsId)));
-    %Display the thumbnail;
-    collection = map.values();
-    i = collection.iterator();
-    while (i.hasNext())
-       figure(100);
-       stream = java.io.ByteArrayInputStream(i.next());
-       image = javax.imageio.ImageIO.read(stream);
-       stream.close();
-       imshow(JavaImageToMatlab(image));
-    end
-
-Create Image
-~~~~~~~~~~~~
+Creating Image
+--------------
 
 The following example shows how to create an Image from an Image already
-in OMERO. Similar approach can be applied when uploading an Image.
+in OMERO. A similar approach can be applied when uploading an Image.
 
 ::
 
