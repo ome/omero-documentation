@@ -54,7 +54,7 @@ Proposal
 Maintain two development branches under the ome-documentation.git_ repository:
 
 * |devbranch|, associated with current OMERO major release: |version|
-* develop, associated with the next OMERO major release: |nextversion|
+* develop, associated with the next OMERO major release
 
 such that it is possible to release both the current point releases
 immediately, while still working on more major releases by ensuring that
