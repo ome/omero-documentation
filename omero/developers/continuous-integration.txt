@@ -251,6 +251,10 @@ the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 Bio-Formats jobs
 ----------------
 
+..  |buildBF| replace:: Build Bio-Formats using ``ant clean jars tools tools-ome utils dist-bftools``
+..  |testBF| replace:: Run Bio-Formats tests using ``ant test-common test-ome-xml test-formats test-ome-io``
+..  |fulltestBF| replace:: Run Bio-Formats full test-suite using ``ant test``
+
 All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 
 .. list-table::
@@ -277,11 +281,18 @@ The branch for the current major release is |devbranch|.
 
 	:jenkinsjob:`BIOFORMATS-stable`
 
-		Build current release of Bio-Formats
+		Build current release of Bio-Formats using
 
+		#. |buildBF|
+		#. |testBF|
+		
 	:jenkinsjob:`BIOFORMATS-per-commit-stable`
 
 		Review Bio-Formats  PRs for the next point release
+		
+		#. |merge|
+		#. |buildBF|
+		#. |fulltestBF|
 
 
 Next major release
@@ -295,10 +306,17 @@ The branch for the next major release is develop.
 
 		Build next major release of Bio-Formats
 
+		#. |buildBF|
+		#. |testBF|
+
 	:jenkinsjob:`BIOFORMATS-per-commit-test`
 
 		Review Bio-Formats PRs for the next major release
 
+		#. |merge|
+		#. |buildBF|
+		#. |fulltestBF|
+		
 ..  |sphinxbuild| replace:: Build HTML and PDF Sphinx documentation using ``make clean html latexpdf``
 ..  |linkcheck| replace:: Run ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`.
 ..  |ssh-doc| replace:: SSH doc and PDF to
