@@ -273,12 +273,12 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-maven`
 
 	- 	* Review Bio-Formats PRs
-		* :term:`BIOFORMATS-per-commit-stable`
-		* :term:`BIOFORMATS-per-commit-test`
+		* :term:`BIOFORMATS-merge-stable`
+		* :term:`BIOFORMATS-merge-develop`
 
 	- 	* Run automated tests against directories on squig
 		* :term:`BIOFORMATS-full-repository-stable`
-		* :term:`BIOFORMATS-full repository test`
+		* :term:`BIOFORMATS-full-repository-develop`
 
 
 Current major release
@@ -299,7 +299,7 @@ The branch for the current major release is |devbranch|.
 
 		Publish Bio-Formats to the LOCI Nexus repository
 
-	:jenkinsjob:`BIOFORMATS-per-commit-stable`
+	:jenkinsjob:`BIOFORMATS-merge-stable`
 
 		Review Bio-Formats  PRs for the next point release
 		
@@ -333,7 +333,7 @@ The branch for the next major release is develop.
 
 		Publish Bio-Formats to the LOCI Nexus repository.
 
-	:jenkinsjob:`BIOFORMATS-per-commit-test`
+	:jenkinsjob:`BIOFORMATS-merge-develop`
 
 		Review Bio-Formats PRs for the next major release
 
@@ -341,7 +341,7 @@ The branch for the next major release is develop.
 		#. |buildBF|
 		#. |fulltestBF|
 
-	:jenkinsjob:`BIOFORMATS-full repository test`
+	:jenkinsjob:`BIOFORMATS-full-repository-develop`
 
 		Run automated tests against directories on squig
 
