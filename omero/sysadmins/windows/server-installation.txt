@@ -310,12 +310,12 @@ need to set the values yourself.
    paths.** 
    You must have entries for:
 
-   python (the first PATH entry, e.g. "C:\\Python26;%Sys…
+   - python (the first PATH entry, e.g. "C:\\Python26;%Sys…
 
-   ice/bin (the last PATH entry, e.g. "…;C:\\Ice-3.4.2\\;") 
+   - ice/bin (the last PATH entry, e.g. "…;C:\\Ice-3.4.2\\;") 
 
-   PYTHONPATH pointing to the python folder in the ICE installation (e.g. 
-   "C:\\Ice-3.4.2\\python;")
+   - PYTHONPATH pointing to the python folder in the ICE installation (e.g. 
+     "C:\\Ice-3.4.2\\python;")
 
    .. warning:: Remember that the Windows path separator is the semicolon ; 
        and must be appended after every entry.
