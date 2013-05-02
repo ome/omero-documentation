@@ -268,9 +268,18 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-stable`
 		* :term:`BIOFORMATS-trunk`
 
+	- 	* Publish Bio-Formats to the LOCI Nexus repository
+		* :term:`BIOFORMATS-maven-stable`
+		* :term:`BIOFORMATS-maven`
+
 	- 	* Review Bio-Formats PRs
 		* :term:`BIOFORMATS-per-commit-stable`
 		* :term:`BIOFORMATS-per-commit-test`
+
+	- 	* Run automated tests against directories on squig
+		* :term:`BIOFORMATS-full-repository-stable`
+		* :term:`BIOFORMATS-full repository test`
+
 
 Current major release
 ^^^^^^^^^^^^^^^^^^^^^
@@ -286,6 +295,10 @@ The branch for the current major release is |devbranch|.
 		#. |buildBF|
 		#. |testBF|
 		
+	:jenkinsjob:`BIOFORMATS-maven-stable`
+
+		Publish Bio-Formats to the LOCI Nexus repository
+
 	:jenkinsjob:`BIOFORMATS-per-commit-stable`
 
 		Review Bio-Formats  PRs for the next point release
@@ -294,6 +307,13 @@ The branch for the current major release is |devbranch|.
 		#. |buildBF|
 		#. |fulltestBF|
 
+	:jenkinsjob:`BIOFORMATS-full-repository-stable`
+
+		Run automated tests against directories on squig
+
+		#. |merge|
+		#. Run tests against directories configured by ``--test dirname``
+		   comments on the PRs
 
 Next major release
 ^^^^^^^^^^^^^^^^^^
@@ -309,6 +329,10 @@ The branch for the next major release is develop.
 		#. |buildBF|
 		#. |testBF|
 
+	:jenkinsjob:`BIOFORMATS-maven`
+
+		Publish Bio-Formats to the LOCI Nexus repository.
+
 	:jenkinsjob:`BIOFORMATS-per-commit-test`
 
 		Review Bio-Formats PRs for the next major release
@@ -316,6 +340,15 @@ The branch for the next major release is develop.
 		#. |merge|
 		#. |buildBF|
 		#. |fulltestBF|
+
+	:jenkinsjob:`BIOFORMATS-full repository test`
+
+		Run automated tests against directories on squig
+
+		#. |merge|
+		#. Run tests against directories configured by ``--test dirname``
+		   comments on the PRs
+
 		
 ..  |sphinxbuild| replace:: Build HTML and PDF Sphinx documentation using ``make clean html latexpdf``
 ..  |linkcheck| replace:: Run ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`.
