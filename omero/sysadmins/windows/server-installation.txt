@@ -51,17 +51,18 @@ Prerequisites
 
 The following are necessary:
 
-Java SE Development Kit (JDK) (1.5 or higher) 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Java SE Development Kit (JDK)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
+Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_. JDK 5 
+and above are supported but version 6 or higher is recommended.
 
 Ice (3.3.x or 3.4.x)
 ^^^^^^^^^^^^^^^^^^^^
 
 .. note::
 
-    All versions of OMERO including and before 4.3 support only Ice 3.3. You
+    OMERO 4.3 and earlier support only Ice 3.3. You
     will need to download these from
     :zeroc:`ZeroC's previous versions section <previous.html>`. OMERO 4.4 adds
     support for Ice 3.4 while keeping support for Ice 3.3. For OMERO.server
@@ -75,9 +76,9 @@ Ice (3.3.x or 3.4.x)
     further questions, consult the :forum:`Forums <>`.
 
     **OMERO does not currently support Ice 3.5** - if you have installed ICE 
-    3.5, uninstall it, install 3.4.x, update ENV path and reboot (if 
+    3.5, uninstall it, install 3.4.x, update ENV path and reboot. If 
     you need to use ICE 3.5 for other purposes, you probably just need to add 
-    the path for 3.4.x to the ENV before ICE 3.5).
+    the path for 3.4.x to the ENV before ICE 3.5.
 
 
 Windows installers of Ice can be found on the :zeroc:`ZeroC download
@@ -161,9 +162,7 @@ PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 PostgreSQL has to be installed and configured with PL/pgSQL and to accept
-TCP connections. PostgreSQL 8.3 and earlier are not supported. See
-:doc:`/sysadmins/limitations`. See :doc:`server-postgresql` for specifics
-about each version.
+TCP connections. PostgreSQL 8.3 and earlier are not supported.
 
 The *One click installer* can be found on the `PostgreSQL Windows
 download page <http://www.postgresql.org/download/windows>`_. You
@@ -247,19 +246,14 @@ will need the postgres user's password later in the install.
 
    |pginstall-begincopy| |pginstall-complete|
 
-OMERO.server
-^^^^^^^^^^^^
-
-The **OMERO.server** zip file is available from the :omero_plone:`OMERO
-downloads <downloads>` page.
 
 Environment variables
 ---------------------
 
 For the prerequisite software to run properly, your PATH and PYTHONPATH
 environment variables must be configured. If not correctly configured or if
-you installed manually to :file:`C:\\ice` or a similar location, you will
-need to set the values yourself.
+you installed any of the prerequisites manually to :file:`C:\\ice` or a 
+similar location, you will need to set the values yourself.
 
 **Update your Windows environment variables: (REQUIRES RESTART!)**
 
@@ -310,7 +304,7 @@ need to set the values yourself.
    paths.** 
    You must have entries for:
 
-   - python (the first PATH entry, e.g. "C:\\Python26;%Sys…
+   - python (the first PATH entry, e.g. "C:\\Python26;%Sys…)
 
    - ice/bin (the last PATH entry, e.g. "…;C:\\Ice-3.4.2\\;") 
 
@@ -514,9 +508,9 @@ user's home directory (on Windows :file:`C:\\Users\\<username>`) in
     slow access down. It is strongly discouraged to install OMERO on a
     network mapped drive.
 
-The OMERO.server also access the :file:`omero\\tmp` and
-:file:`omero\\log` folders of **the user the server process is running
-as**. As the server makes heavier use of these folders than the clients,
+The OMERO.server also accesses the :file:`omero\\tmp` and
+:file:`omero\\log` folders of **the user account running the server 
+process**. As the server makes heavier use of these folders than the clients,
 if that user's home folder is stored on a network the server can be
 slowed down. To get round this for the OMERO.server you can define an
 ``OMERO_TEMPDIR`` environment variable pointing to a temporary directory
@@ -525,8 +519,8 @@ located on the local file system e.g. :file:`C:\\tmp\\`.
 Installation
 ------------
 
--   Extract the OMERO zip file and note its location. Below it is referred
-    to as :file:`C:\\OMERO.server`.
+-   Download and extract the OMERO.server zip file, and note its location. 
+    Below it is referred to as :file:`C:\\OMERO.server`.
 
 -   Optionally, review :file:`C:\\OMERO.server\\etc\\omero.properties` which
     contains all default settings.
@@ -582,10 +576,10 @@ Installation
         Please re-enter password for new OMERO root user: # root_password
         Saving to C:\\OMERO.server\\OMERO\ |version|\ __0.sql
 
-The generated SQL file is found in the folder where you called the "omero db 
-script" command. This could cause a permission denied error in the populate db 
-step if the postgres user cannot access that location. Move the file to a 
-different location or use the -f option.
+    The generated SQL file is found in the folder where you called the "omero  
+    db script" command. This could cause a permission denied error in the 
+    populate db step if the postgres user cannot access that location. Move 
+    the file to a different location or use the -f option.
 
 -   Initialize your database with the script.
 
@@ -622,8 +616,8 @@ different location or use the -f option.
            ...
            omero=> \\q
 
--   Before starting the OMERO.server we should run the OMERO diagnostics
-    script so that we check that all of our settings are correct, e.g.
+-   Before starting the OMERO.server you should run the OMERO diagnostics
+    script so that you check that all of the settings are correct, e.g.
 
     ::
 
@@ -758,17 +752,13 @@ this functionality you should do so now as outlined on the
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-My OMERO install doesn't work! What do I do now? Examine the 
-:doc:`/sysadmins/troubleshooting` page and if all else fails post a
-message to our :mailinglist:`ome-users` mailing list discussed on the 
+If you encounter a problem which is not addressed by the 
+:doc:`/sysadmins/troubleshooting` page, you can post a
+message to our :mailinglist:`ome-users` mailing list as discussed on the 
 :doc:`/users/community-resources` page.
 
-OMERO diagnostics
-^^^^^^^^^^^^^^^^^
-
-If you want help with your server installation, please include the output of 
-the diagnostics command:
-
+Please include the output of the diagnostics command when asking for help with 
+your server installation:
 
 .. parsed-literal::
 
