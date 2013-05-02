@@ -406,7 +406,7 @@ Current release
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. If the build is promoted,
-			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats.tmp`
+			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
 
 Next point release
