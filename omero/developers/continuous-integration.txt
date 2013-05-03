@@ -73,13 +73,13 @@ Caveats include:
 * more integration jobs to run
 * impact of OMERO documentation change on user base
 
-..  |merge| replace:: Merge PRs using :ref:`scc merge`
-..  |buildOMERO| replace:: Build the server using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
-..  |archiveOMEROartifacts| replace:: Archive the build artifacts
-..  |deployOMERO| replace:: Deploy the server under :file:`~/OMERO-CURRENT` on
-..  |promoteOMERO| replace:: copy the artifacts to necromancer
-..  |buildVM| replace:: Build a |VM| using :source:`docs/install/VM/omerovm.sh`
-..  |updatesubmodules| replace:: Update submodules using ``scc update-submodules``
+..  |merge| replace:: Merges PRs using :ref:`scc merge`
+..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
+..  |archiveOMEROartifacts| replace:: Archives the build artifacts
+..  |deployOMERO| replace:: Deploys the server under :file:`~/OMERO-CURRENT` on
+..  |promoteOMERO| replace:: Copies the artifacts to necromancer
+..  |buildVM| replace:: Builds a |VM| using :source:`omerovm.sh <docs/install/VM/omerovm.sh>`
+..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
 
 OMERO jobs
 ----------
@@ -127,7 +127,6 @@ listed under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 
 .. glossary::
 
-
 	:jenkinsjob:`OMERO-stable`
 
 		This job is used to build the |devbranch| branch of OMERO with Ice 3.3
@@ -156,7 +155,8 @@ listed under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 		This job is used to review the PRs opened against the |devbranch|
 		branch of OMERO with Ice 3.3
 
-		#. |merge| and push to snoopycrimecop/merge/|devbranch|/latest
+		#. |merge| and pushes the merged branch to
+		   snoopycrimecop/merge/|devbranch|/latest
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 		#. |deployOMERO| howe.openmicroscopy.org.uk
@@ -166,7 +166,8 @@ listed under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 		This job is used to review the PRs opened against the |devbranch|
 		branch of OMERO with Ice 3.4
 
-		#. Checkout snoopycrimecop/merge/|devbranch|/latest
+		#. Checks out the merge/|devbranch|/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 
@@ -175,15 +176,18 @@ listed under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 		This job is used to build a Virtual Appliance from the |devbranch|
 		branch with the PRs opened against the |devbranch| branch of OMERO
 
-		#. Checkout snoopycrimecop/merge/|devbranch|/latest
+		#. Checks out the merge/|devbranch|/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildVM|
 
 	:jenkinsjob:`OMERO-submods-stable`
 
 		This job is used to update the submodules on the |devbranch| branch
 
-		#. |updatesubmodules| and push to snoopycrimecop/merge/|devbranch|/submodules
-		#. Open a PR or update existing PR if submodules are updated
+		#. |updatesubmodules| and pushes the merged branch to
+		   snoopycrimecop/merge/|devbranch|/submodules
+		#. If the submodules are updated, opens a new PR or updates the
+		   existing |devbranch| submodules PR
 
 Next major release
 ^^^^^^^^^^^^^^^^^^
@@ -221,7 +225,8 @@ under the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 		This job is used to review the PRs opened against the develop branch
 		of OMERO with Ice 3.3
 
-		#. |merge| and push to snoopycrimecop/merge/develop/latest
+		#. |merge| and pushes the merged branch to
+		   snoopycrimecop/merge/develop/latest
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 		#. |deployOMERO| gretzky.openmicroscopy.org.uk
@@ -231,7 +236,8 @@ under the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 		This job is used to review the PRs opened against the develop branch
 		of OMERO with Ice 3.4
 
-		#. Checkout snoopycrimecop/merge/develop/latest
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 
@@ -240,22 +246,25 @@ under the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 		This job is used to build a Virtual Appliance from the develop branch
 		with the PRs opened against the develop branch of OMERO
 
-		#. Checkout snoopycrimecop/merge/develop/latest
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildVM|
 
 	:jenkinsjob:`OMERO-submods-develop`
 
 		This job is used to update the submodules on the develop branch
 
-		#. |updatesubmodules| and push to snoopycrimecop/merge/develop/submodules
-		#. Open a PR or update existing PR if submodules are updated
+		#. |updatesubmodules| and pushes the merge branch to
+		   snoopycrimecop/merge/develop/submodules
+		#. If the submodules are updated, opens a new PR or updates the
+		   existing |devbranch| submodules PR
 
 Bio-Formats jobs
 ----------------
 
-..  |buildBF| replace:: Build Bio-Formats using ``ant clean jars tools tools-ome utils dist-bftools``
-..  |testBF| replace:: Run Bio-Formats tests using ``ant test-common test-ome-xml test-formats test-ome-io``
-..  |fulltestBF| replace:: Run Bio-Formats full test-suite using ``ant test``
+..  |buildBF| replace:: Builds Bio-Formats using ``ant clean jars tools tools-ome utils dist-bftools``
+..  |testBF| replace:: Runs Bio-Formats tests using ``ant test-common test-ome-xml test-formats test-ome-io``
+..  |fulltestBF| replace:: Runs Bio-Formats full test-suite using ``ant test``
 
 All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 
@@ -363,10 +372,10 @@ The branch for the next major release of Bio-Formats is develop.
 		   comments on the PRs
 
 
-..  |sphinxbuild| replace:: Build HTML and PDF Sphinx documentation using ``make clean html latexpdf``
-..  |linkcheck| replace:: Run ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`.
-..  |ssh-doc| replace:: SSH doc and PDF to
-..  |deploy-doc| replace:: Use :ref:`scc deploy` to update
+..  |sphinxbuild| replace:: Runs ``make clean html latexpdf`` to build the HTML and PDF versions of the Sphinx documentation
+..  |linkcheck| replace:: Runs ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`.
+..  |ssh-doc| replace:: Copies the HTML and PDF documentation over SSH to
+..  |deploy-doc| replace:: Runs :ref:`scc deploy` to update
 
 Documentation jobs
 ------------------
