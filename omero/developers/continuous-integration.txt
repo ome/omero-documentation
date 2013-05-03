@@ -77,7 +77,7 @@ Caveats include:
 ..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
 ..  |archiveOMEROartifacts| replace:: Archives the build artifacts
 ..  |deployOMERO| replace:: Deploys the server under :file:`~/OMERO-CURRENT` on
-..  |promoteOMERO| replace:: Copies the artifacts to necromancer
+..  |promoteOMERO| replace:: copies the artifacts to necromancer
 ..  |buildVM| replace:: Builds a |VM| using :source:`omerovm.sh <docs/install/VM/omerovm.sh>`
 ..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
 
