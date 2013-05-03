@@ -424,17 +424,19 @@ tab of Jenkins.
 Configuration
 ^^^^^^^^^^^^^
 
-For all jobs building documentation using Sphinx,
-- :envvar:`SPHINXOPTS` variable is set to ``-W -D html_theme=plone_match``,
-- the release number of the job is controlled by the corresponding environment
-variable: :envvar:`OMERO_RELEASE`, :envvar:`BF_RELEASE` or
-:envvar:`FORMATS_RELEASE`,
-- the source code links use the :envvar:`SOURCE_USER` and
-:envvar:`SOURCE_BRANCH` environment variables.
-- for Bio-Formats and OMERO, the Jenkins job name is set by the :envvar:`JENKINS_JOB` environment variable.
-- the release number of the job is controlled by the corresponding environment
-variable: :envvar:`OMERO_RELEASE`, :envvar:`BF_RELEASE` or
-:envvar:`FORMATS_RELEASE`.
+For all jobs building documentation using Sphinx, the following environment
+variables are used:
+
+- the Sphinx building options, :envvar:`SPHINXOPTS`, is set to
+  ``-W -D html_theme=plone_match``,
+
+- the release number of the documentation is set by :envvar:`OMERO_RELEASE`,
+  :envvar:`BF_RELEASE` or :envvar:`FORMATS_RELEASE`,
+
+- the source code links use :envvar:`SOURCE_USER` and :envvar:`SOURCE_BRANCH`,
+
+- for the Bio-Formats and OMERO sets of documentation, the name of the
+  Jenkins job is set by :envvar:`JENKINS_JOB`.
 
 Current release
 ^^^^^^^^^^^^^^^
