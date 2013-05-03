@@ -19,59 +19,46 @@ Versioning
 	Major release
 
 		What Sphinx_ calls a “version number” is defined on Wikipedia_ as a
-		“minor number” and in OMERO is typically considered a major release,
+		“minor number” and in OME is typically considered a major release,
 		e.g. |version|.
 
 	Point release
 
 		Similarly, a Sphinx_ “release number” is a “revision number” on
-		Wikipedia_ and an OMERO point release, e.g. |release|.
+		Wikipedia_ and an OME point release, e.g. |release|.
+
+Development branches
+^^^^^^^^^^^^^^^^^^^^
+
+Most of the OME code is split between four repositories: openmicroscopy.git_,
+bioformats.git_, scripts.git_, ome-documentation.git_. For each repository,
+two development branches are maintained simultaneously:
+
+* the |devbranch| branch ("stable" branch) contains work on the stable release
+  version and will only be released as a point release
+
+* the develop branch contains work on the next major release.
+
+It is possible to have a point release immediately, while still working on
+more major releases by ensuring that (nearly) all commits that are applied to
+|devbranch| are applied to develop in order to prevent regressions.
 
 Labels
 ^^^^^^
 
-Labels are applied to PRs on github under the “Issues” tab of each repository
-(openmicroscopy.git_, bioformats.git_, scripts.git_, ome-documentation.git_)
+Labels are applied to PRs on GitHub under the “Issues” tab of each repository.
 
-The current release consists of PRs labelled with “|devbranch|”, which is the
-name of the branch which they will be merged into. This is work on the stable
-release version which will only be released as a point release.
+The next point release consists of PRs labelled with “|devbranch|”, which is
+the name of the branch which they will be merged into.
 
 The next major release consists of PRs labelled with “develop”, which is also
 the name of the branch which they will be merged into.
 
 Two labels are used in the PR reviewing process: “include” and “exclude”. The
-“include” label allows to include a PR opened by a non-member of the
-organization in the merge builds for review. The “exclude” label allows to
+“include” label allows you to include a PR opened by a non-member of the OME
+organization in the merge builds for review. The “exclude” label allows you to
 exclude a PR opened by any user from the merge builds.
 
-Objectives of document review workflow
---------------------------------------
-
-Integrate and release changes in the documentation of the current release.
-Improve review for next OMERO major release vs next OMERO point release.
-Use this documentation review workflow as an example on how other review
-workflows can and should function.
-
-Proposal
---------
-
-Maintain two development branches under the ome-documentation.git_ repository:
-
-* |devbranch|, associated with current OMERO major release: |version|
-* develop, associated with the next OMERO major release
-
-such that it is possible to release both the current point releases
-immediately, while still working on more major releases by ensuring that
-(nearly) all commits that are applied to |devbranch| are applied to develop in
-order to prevent regressions.
-
-Caveats include:
-
-* more branches to manage, maintain and keep in sync
-* PRs need to be opened against relevant development branch
-* more integration jobs to run
-* impact of OMERO documentation change on user base
 
 ..  |merge| replace:: Merges PRs using :ref:`scc merge`
 ..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
