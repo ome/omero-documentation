@@ -505,14 +505,14 @@ user's home directory (on Windows :file:`C:\\Users\\<username>`) in
 
     If your home directory  is stored on a network (NFS mounted or similar),
     then file read and write operations occur over the network. This can
-    slow access down. It is strongly discouraged to install OMERO on a
-    network mapped drive.
+    slow access down. Installing OMERO on a network mapped drive is strongly 
+    discouraged.
 
 The OMERO.server also accesses the :file:`omero\\tmp` and
 :file:`omero\\log` folders of **the user account running the server 
 process**. As the server makes heavier use of these folders than the clients,
 if that user's home folder is stored on a network the server can be
-slowed down. To get round this for the OMERO.server you can define an
+slowed down. To get around this for the OMERO.server you can define an
 ``OMERO_TEMPDIR`` environment variable pointing to a temporary directory
 located on the local file system e.g. :file:`C:\\tmp\\`.
 
@@ -616,7 +616,7 @@ Installation
            ...
            omero=> \\q
 
--   Before starting the OMERO.server you should run the OMERO diagnostics
+-   Before starting the OMERO.server, you should run the OMERO diagnostics
     script so that you check that all of the settings are correct, e.g.
 
     ::
