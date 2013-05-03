@@ -4,7 +4,7 @@ Troubleshooting OMERO
 Frequently Asked Questions
 --------------------------
 
-If you can not find what you are looking for here, you might also peruse
+If you cannot find what you are looking for here, you might also peruse
 the :faq_plone:`FAQ <>`.
 
 
@@ -36,7 +36,7 @@ during the installation process.
    page <windows/server-installation>`; and there may be a special
    "postgres" user who controls the database server. The regular
    "omero\_user" account runs the server, and owns the files uploaded to
-   OMERO. This account must have permission to write to the /OMERO/
+   OMERO. This account must have permission to write to the ``/OMERO/``
    binary repository. Some operations in the install scripts require the
    root-level/administrator-level user in order to become another user
    like "postgres" to perform particular operations e.g. create
@@ -70,9 +70,9 @@ during the installation process.
        Please re-enter password for new OMERO root user:      # root_password
        Saving to ~/OMERO\ |version|\ __0.sql
 
-Other OMERO users can be created via the OMERO.web admin tool. In no case, do
-any of the passwords have to be the same (or should they **unless you
-are using the LDAP plugin**...)
+Other OMERO users can be created via the OMERO.web admin tool. None of the 
+passwords have to be the same, in fact they should be different **unless you
+are using the LDAP plugin**.
 
 Server fails to start
 ---------------------
@@ -87,7 +87,7 @@ Server fails to start
    :ticket:`"node master couldn't be reached" <7325>`, you
    may be suffering from a network address swap. Ice does not like to
    have its network changed as can happen if the server is running on a
-   laptop on wireless. If you lose connectivty to icegridnode, you may
+   laptop on wireless. If you lose connectivity to icegridnode, you may
    have to kill it manually via ``kill PID`` or ``killall icegridnode``
    (under Unix).
 4. If you see an error message mentioning
@@ -101,19 +101,18 @@ Server fails to start
 Remote clients cannot connect to OMERO installation
 ---------------------------------------------------
 
-The OMERO WebAdmin appears to work fine and you may or may not have
-created some users but no matter what you do remote clients will not speak
-to OMERO. OMERO.insight gives you an error message similar to the
-following (and you know that you have put the correct username and
-password into the OMERO.insight dialog):
+The Admin section of OMERO.web appears to work properly and you may or may not 
+have created some users, but no matter what you do remote clients will not 
+speak to OMERO. OMERO.insight gives you an error message similar to the 
+following despite giving the correct username and password:
 
 .. figure:: /images/login_failure.png
    :align: center
    :width: 35%
    :alt: Login failure
 
-This often because of firewall misconfiguration on the machine that runs
-your OMERO server which affects the ability of remote clients to locate
+This is often due to firewall misconfiguration on the machine that runs
+your OMERO server, affecting the ability of remote clients to locate
 it. Please see the :doc:`/sysadmins/server-security` page.
 
 Server crashes with...
@@ -124,8 +123,8 @@ Server crashes with...
 
 OMERO uses image scaling and processing techniques that may be
 interfered with when used with |SSH| X11-forwarding. You should disable
-|SSH| X11-forwarding in the |SSH| session you will use to start OMERO.server
-by using the ``-x`` flag as follows:
+|SSH| X11-forwarding in your |SSH| session by using the ``-x`` flag as follows 
+before you restart the OMERO.server:
 
 ::
 
@@ -135,8 +134,8 @@ OutOfMemoryError / PermGen space errors in OMERO.server logs
 ------------------------------------------------------------
 
 Out of memory or permanent generation (PermGen) errors can be caused by
-many things. Fundamentally you may be asking too much of the server and
-require and increase of the maximum Java heap or permanent generation
+many things. You may be asking too much of the server. Or you may
+require an increase in the maximum Java heap or the permanent generation
 space. This can be done by modifying the IceGrid configuration for your
 OMERO.server as follows:
 
@@ -160,8 +159,8 @@ OMERO.server as follows:
            <option>-Dlog4j.configuration=${OMERO_ETC}log4j.xml</option>
            ...
 
-   Replace ``-Xmx512M`` with ``-Xmx1024M``,
-   ``-Xmx1024M -XX:MaxPermSize=128m`` or greater as required.
+   Replace ``-Xmx512M`` initially with ``-Xmx1024M`` or greater as required,
+   (use ``-Xmx1024M -XX:MaxPermSize=128m`` as an alternative).
 
 Furthermore, under certain conditions access of images greater than 4GB
 can be problematic on 32-bit platforms due to certain bugs within the
@@ -234,19 +233,13 @@ To avoid that error please change the following in your :file:`settings.py`:
 OMERO.web is not accessible from remote computer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you require to configure the out of the box setup to listen for 
-webadmin and webclient connections on different host run by:
+To configure the out-of-the box setup to listen for 
+webadmin and webclient connections on different host run:
 
 ::
 
-	c:\omero_dist> bin/omero web start 'host' 'port'
-	Starting django development webserver... 
-	Validating models...
-	0 errors found
+    c:\omero_dist> bin/omero web start 'host' 'port'
 
-	Django version 1.1.1, using settings 'omeroweb.settings'
-	Development server is running at http://host:port/
-	Quit the server with CONTROL-C.
 
 OMERO.web did not start on the production
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -265,10 +258,10 @@ matches log directory.
 
           LOGDIR = '/home/omero/weblog/'
 
--  Checking if ``/home/omero/omero_dist/var/lib/custom_settings.py``
-   exist.
+-  Check if ``/home/omero/omero_dist/var/lib/custom_settings.py``
+   exists.
 
--  Checking who owns the log directory and log files:
+-  Check who owns the log directory and log files:
 
    ::
 
@@ -279,9 +272,8 @@ matches log directory.
        -rw-r--r--  1 apache apache 23766 Mar 31 11:41 OMEROweb.log
        -rw-r--r--  1 apache apache 23978 Mar 31 11:41 OMEROweb.log.2009-03-31
 
--  or create log and database directories with
-   ``apache_user:apache_group`` ownership or another who you want to run
-   with:
+-  or create log and database directories with, for example,
+   ``apache_user:apache_group`` ownership:
 
    ::
 
@@ -292,7 +284,7 @@ OMERO.web piecharts
 ^^^^^^^^^^^^^^^^^^^
 
 'Drive space' does not generate pie chart or 'My account' does not show markup 
-picture and crop the picture.
+picture and crop the picture options.
 
 Error message says: 'Piechart could not be displayed. Please check log
 file to solve the problem'. Please check ``var/log/OMEROweb.log`` for
@@ -301,7 +293,7 @@ more details. There are a few known possibilities:
 -  'TclError: no display name and no $DISPLAY environment variable'.
    Turn off the compilation of TCL support in Matplotlib_.
 -  'ImportError: No module named Image'. Install `Python Imaging Library`_
-   - packages should be available for your distribution from. Also double 
+   (packages should be available for your distribution). Also double 
    check
    if all of the prerequisites were installed from OMERO.web deployment 
    (:doc:`UNIX instructions <unix/install-web>` or :doc:`Windows instructions 
@@ -335,7 +327,7 @@ Server or clients print "WARNING: Prefs file removed in background..."
 
 These warnings (also sometimes listed as ERRORS) can be safely ignored,
 and are solely related to how Java is installed on your system. See
-http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=4751177 or perhaps this
+http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=4751177 or this
 :ome-users:`ome-users thread <2009-March/001465.html>` on our mailing list for
 more information.
 
@@ -352,7 +344,7 @@ Double check if apache\_user has enough permissions to:
 OMERO.scripts fails with "MarshalException" when using PostgreSQL 9.0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If all script executions fail after a upgrading your database to
+If all script executions fail after upgrading your database to
 PostgreSQL 9.0 with an error like:
 
 :: 

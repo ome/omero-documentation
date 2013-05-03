@@ -27,15 +27,14 @@ Mac OS X issues
 C++ compilation problems on Mac OS X 10.6 (Snow Leopard)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Under certain circumstances building OmeroCpp on Mac OS X 10.6 (Snow
-Leopard) can fail with "ld: symbol(s) not found". You can find further
-details, a potential solution and make any comments on your experience
-with the problem on :ticket:`3210`.
+Under certain circumstances building OmeroCpp can fail with "ld: symbol(s) not 
+found". You can find further details, a potential solution and make any 
+comments on your experience with the problem on :ticket:`3210`.
 
 Web Start problems on Mac OS X 10.8 (Mountain Lion)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The new security features in Mac OS X 10.8 prevent users from launching
+The new security features prevent users from launching
 OMERO.insight via Java Web Start using the standard system security
 settings. The system wide setting needs to be changed in preferences,
 and this would have security implications. We are looking into code 
@@ -74,7 +73,7 @@ parts of the code and we have chosen not to make the changes yet. See
 LDAP
 ----
 
-Enabling synchronisation of LDAP on user login will result in LDAP
+Enabling synchronization of LDAP on user login will result in LDAP
 being treated as the authority on both group membership and also the
 available groups. Any groups defined in OMERO and not in LDAP will
 result in users being removed from these groups. The groups will still
