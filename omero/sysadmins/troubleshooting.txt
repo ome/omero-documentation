@@ -4,8 +4,7 @@ Troubleshooting OMERO
 Frequently Asked Questions
 --------------------------
 
-If you cannot find what you are looking for here, you might also peruse
-the :faq_plone:`FAQ <>`.
+If you cannot find what you are looking for here, try the :faq_plone:`FAQ <>`.
 
 
 .. _troubleshooting-password:
@@ -13,62 +12,83 @@ the :faq_plone:`FAQ <>`.
 Which user account and password do I use where?
 -----------------------------------------------
 
-Example accounts table. These are the example usernames and passwords
-used in various install pages:
+Accounts table, including the example usernames and passwords
+used in the installation guides:
 
-========== ======== ========== =============
-Account    Type     Username   Password
-========== ======== ========== =============
-Install    Machine  omero_user                
-Postgres   Database db_user    db_password
-OMERO root OMERO    root       root_password
-========== ======== ========== =============
+============  ==========================  ==========  =============
+Account type  Function                    Username    Password
+============  ==========================  ==========  =============
+System        Administrator/Root
+System        (Database) service account  postgres
+System        (OMERO) service account     omero_user
+Database      Database administrator      postgres
+Database      Database user               db_user     db_password
+OMERO         OMERO administrator         root        root_password
+OMERO         OMERO users
+============  ==========================  ==========  =============
 
-There are a total of three types of user accounts which are important
-during the installation process.
+.. Note:: These example usernames and passwords are provided to help you 
+    follow the installation guide examples. Do not use root_password or 
+    db_password; substitute your own passwords.
 
--  The first type includes **accounts on your machine**. There is one
-   regular account (either your own or one you created specially for
-   running OMERO, we will call it "omero\_user" here); there is the user
-   called a "root-level user" on the :doc:`Unix installation
-   page <unix/server-installation>` (which includes Mac OS X) and
-   "administrator-level user" on the :doc:`Windows installation
-   page <windows/server-installation>`; and there may be a special
-   "postgres" user who controls the database server. The regular
-   "omero\_user" account runs the server, and owns the files uploaded to
-   OMERO. This account must have permission to write to the ``/OMERO/``
-   binary repository. Some operations in the install scripts require the
-   root-level/administrator-level user in order to become another user
-   like "postgres" to perform particular operations e.g. create
-   database. However **the server should never be run as the
-   root-level/administrator-level user or as the database-owner.**
+There are a total of three types of user accounts: system, database and OMERO 
+accounts.
 
--  The second type of account is the **database account**. The
-   database-owner ("postgres") can create users completely separate from
-   the accounts on your machine. (Though confusingly, the database-user
-   may have the same name as an account on your machine, in which case a
-   password **might** not be necessary.) A single database account is
-   used at run time by OMERO to talk to your database. Therefore you
-   have to configure the "omero.db.\*" values during installation.
+System accounts
+^^^^^^^^^^^^^^^
 
-   ::
+These are accounts on your machine or directory server (e.g. ldap, Active 
+Directory). One account is used for running the OMERO server (either your own 
+or one you created specially for running OMERO, referred to here as 
+“omero_user”). There is also a user
+called a "root-level user" on the :doc:`Unix installation
+page <unix/server-installation>` (which includes Mac OS X) and
+"administrator-level user" on the :doc:`Windows installation
+page <windows/server-installation>`. A separate “postgres” user is used for 
+running the database server. The regular “omero_user” account runs the OMERO 
+server, and owns the files uploaded to OMERO. This account must have 
+permission to write to the `/OMERO/` binary repository. Some operations in the 
+install scripts require the root-level/administrator-level user in order to 
+become another user like “postgres” to perform particular operations (e.g. to 
+create a database). However **the OMERO.server should never be run as the 
+root-level/administrator-level user or as the system-level “postgres” user**.
 
-       $ bin/omero config set omero.db.user db_user
-       $ bin/omero config set omero.db.pass db_password
+Database accounts
+^^^^^^^^^^^^^^^^^
 
--  The last type of account are **OMERO accounts**. The first user which
-   you will need to configure is the "root" OMERO user (different from
-   any root-level Unix account). This is done by setting the password in
-   the database script:
+The PostgreSQL database system contains user and administrative accounts; 
+these are completely separate from the system accounts, above, existing only 
+inside the database.  The database administrative user (“postgres”) is the 
+owner of all the database resources, and can create new users internal to the 
+database. A single database account is used at run time by OMERO to talk to 
+your database. Therefore, you must configure the “omero.db.***” values during 
+installation. (A database user may have the same name as an account on your 
+machine, in which case a password might not be necessary.)
 
-   .. parsed-literal::
+::
 
-       $ bin/omero db script
-       Please enter omero.db.version [OMERO\ |version|\ ]: 
-       Please enter omero.db.patch [0]: 
-       Please enter password for new OMERO root user:       # root_password
-       Please re-enter password for new OMERO root user:      # root_password
-       Saving to ~/OMERO\ |version|\ __0.sql
+   $ bin/omero config set omero.db.user db_user
+   $ bin/omero config set omero.db.pass db_password
+
+.. Note:: Do **not** use db_user or db_password here; substitute your own 
+    username and password.
+
+OMERO accounts
+^^^^^^^^^^^^^^
+
+These accounts only exist inside the OMERO system, and are completely separate 
+from both the system and database accounts, above.  The first user which you 
+will need to configure is the “root” OMERO user (different from any root-level 
+Unix account). This is done by setting the password in the database script:
+
+.. parsed-literal::
+
+   $ bin/omero db script
+   Please enter omero.db.version [OMERO\ |version|\ ]: 
+   Please enter omero.db.patch [0]: 
+   Please enter password for new OMERO root user:       # root_password
+   Please re-enter password for new OMERO root user:      # root_password
+   Saving to ~/OMERO\ |version|\ __0.sql
 
 Other OMERO users can be created via the OMERO.web admin tool. None of the 
 passwords have to be the same, in fact they should be different **unless you
