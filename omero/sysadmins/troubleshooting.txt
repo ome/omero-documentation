@@ -37,21 +37,22 @@ accounts.
 System accounts
 ^^^^^^^^^^^^^^^
 
-These are accounts on your machine or directory server (e.g. ldap, Active 
+These are accounts on your machine or directory server (e.g. LDAP, Active 
 Directory). One account is used for running the OMERO server (either your own 
 or one you created specially for running OMERO, referred to here as 
 “omero_user”). There is also a user
-called a "root-level user" on the :doc:`Unix installation
-page <unix/server-installation>` (which includes Mac OS X) and
-"administrator-level user" on the :doc:`Windows installation
-page <windows/server-installation>`. A separate “postgres” user is used for 
-running the database server. The regular “omero_user” account runs the OMERO 
+called the "administrator-level user" on the :doc:`Windows installation
+page <windows/server-installation>` and "root-level user" on the :doc:`UNIX installation
+page <unix/server-installation>` (which includes Mac OS X). A separate 
+“postgres” user is used for 
+running the database server. The “omero_user” account runs the OMERO 
 server, and owns the files uploaded to OMERO. This account must have 
 permission to write to the `/OMERO/` binary repository. Some operations in the 
-install scripts require the root-level/administrator-level user in order to 
-become another user like “postgres” to perform particular operations (e.g. to 
-create a database). However **the OMERO.server should never be run as the 
-root-level/administrator-level user or as the system-level “postgres” user**.
+install scripts require the root-level/administrator-level privileges in order 
+to use another account to perform particular actions e.g. the “postgres” 
+user to create a database. However **the OMERO.server should never be run as 
+the root-level/administrator-level user or as the system-level “postgres” 
+user**.
 
 Database accounts
 ^^^^^^^^^^^^^^^^^
@@ -62,8 +63,7 @@ inside the database.  The database administrative user (“postgres”) is the
 owner of all the database resources, and can create new users internal to the 
 database. A single database account is used at run time by OMERO to talk to 
 your database. Therefore, you must configure the “omero.db.***” values during 
-installation. (A database user may have the same name as an account on your 
-machine, in which case a password might not be necessary.)
+installation. ()
 
 ::
 
@@ -72,6 +72,9 @@ machine, in which case a password might not be necessary.)
 
 .. Note:: Do **not** use db_user or db_password here; substitute your own 
     username and password.
+
+    A database user may have the same name as an account on your 
+    machine, in which case a password might not be necessary.
 
 OMERO accounts
 ^^^^^^^^^^^^^^
@@ -98,11 +101,13 @@ Server fails to start
 ---------------------
 
 1. Check that you are able to successfully connect to your PostgreSQL
-   installation as outlined on the :doc:`PostgreSQL
-   page <unix/server-postgresql>`.
-2. Check the permissions on your ``omero.data.dir`` (``/OMERO`` by
-   default) as outlined on the :doc:`unix/server-installation`
-   page, in the ''Pre-Installation'' section.
+   installation as outlined on the PostgreSQL page for your OS 
+   (:doc:`Windows PostgreSQL page <windows/server-postgresql>` or 
+   :doc:`UNIX/Mac PostgreSQL page <unix/server-postgresql>`).
+2. Check the permissions on your ``omero.data.dir`` (``/OMERO`` or 
+   ``C:\OMERO`` by default) as outlined on the 
+   :doc:`unix/server-installation` page for Unix/Mac users, or the 
+   :doc:`windows/server-binary-repository` page for Windows users.
 3. Are you on a laptop? If you see an error message mentioning 
    :ticket:`"node master couldn't be reached" <7325>`, you
    may be suffering from a network address swap. Ice does not like to
@@ -381,8 +386,10 @@ PostgreSQL 9.0 with an error like:
                                at IceInternal.BasicStream.loadObjectFactory(BasicStream.java:2187)
 
 then most likely the bytea\_output setting of your database needs to be
-changed. See :doc:`unix/server-postgresql` for how to do
-this and, optionally, :ticket:`5662` for more technical details.
+changed. See the PostgreSQL page for your OS for how to do
+this (:doc:`Windows <windows/server-postgresql>` or 
+:doc:`UNIX/Mac <unix/server-postgresql>`) and, optionally, :ticket:`5662` for 
+more technical details.
 
 Too many open files
 ^^^^^^^^^^^^^^^^^^^
@@ -401,7 +408,7 @@ run
 
 which will show the hard limit for the maximum number of file
 descriptors (-Sn will show the soft limit). This limit may be increased.
-On Linux, see /etc/security/limits.conf (global PAM per-user limits
+On Linux, see `/etc/security/limits.conf` (global PAM per-user limits
 configuration); it is also possible to increase the limit in the shell
 with
 
@@ -416,10 +423,10 @@ limit up to the hard limit). To view the system limit, run
 
             cat /proc/sys/fs/file-max
 
-On MacOS X, the standard ulimit will not work properly. There are several
+On Mac OS X, the standard ulimit will not work properly. There are several
 different ways of setting the ulimit, depending upon the version of OS X
-you are using, but the most common are to edit sysctl.conf or
-launchd.conf to raise the limit. However, note that both of these
+you are using, but the most common are to edit `sysctl.conf` or
+`launchd.conf` to raise the limit. However, note that both of these
 methods change the defaults for every process on the system, not just
 for a single user or service.
 
