@@ -63,7 +63,7 @@ inside the database.  The database administrative user (“postgres”) is the
 owner of all the database resources, and can create new users internal to the 
 database. A single database account is used at run time by OMERO to talk to 
 your database. Therefore, you must configure the “omero.db.***” values during 
-installation. ()
+installation:
 
 ::
 
@@ -361,10 +361,10 @@ Mod\_python error: "PythonHandler django.core.handlers.modpython"
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Double check if apache\_user has enough permissions to:
-'/home/omero/omero\_dir/lib/python/',
-'/home/omero/omero\_dir/lib/python/django',
-'/home/omero/omero\_dir/lib/python/omeroweb',
-'/home/omero/omero\_dir/var/lib'.
+``/home/omero/omero\_dir/lib/python/``,
+``/home/omero/omero\_dir/lib/python/django``,
+``/home/omero/omero\_dir/lib/python/omeroweb``,
+``/home/omero/omero\_dir/var/lib``.
 
 OMERO.scripts fails with "MarshalException" when using PostgreSQL 9.0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -408,7 +408,7 @@ run
 
 which will show the hard limit for the maximum number of file
 descriptors (-Sn will show the soft limit). This limit may be increased.
-On Linux, see `/etc/security/limits.conf` (global PAM per-user limits
+On Linux, see ``/etc/security/limits.conf`` (global PAM per-user limits
 configuration); it is also possible to increase the limit in the shell
 with
 
@@ -425,14 +425,15 @@ limit up to the hard limit). To view the system limit, run
 
 On Mac OS X, the standard ulimit will not work properly. There are several
 different ways of setting the ulimit, depending upon the version of OS X
-you are using, but the most common are to edit `sysctl.conf` or
-`launchd.conf` to raise the limit. However, note that both of these
+you are using, but the most common are to edit ``sysctl.conf`` or
+``launchd.conf`` to raise the limit. However, note that both of these
 methods change the defaults for every process on the system, not just
 for a single user or service.
 
 Increasing the number of available filehandles via 'ulimit -n'
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ValueError: filedescriptor out of range in select() - this is a known issue in Python versions prior to 2.7.0. See
+ValueError: filedescriptor out of range in select() - this is a known issue in 
+Python versions prior to 2.7.0. See
 :ticket:`6201` and Python `Issue #3392
 <http://bugs.python.org/issue3392>`_ for more details.
