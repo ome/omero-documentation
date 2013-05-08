@@ -142,9 +142,8 @@ PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 PostgreSQL has to be installed and configured with PL/pgSQL and to accept
-TCP connections. PostgreSQL 8.3 and earlier are not supported. See
-:doc:`/sysadmins/limitations`. See :doc:`server-postgresql` for specifics
-about each version.
+TCP connections. PostgreSQL 8.3 and earlier are not supported. See 
+:doc:`server-postgresql` for specifics about each version.
 
 The *One click installer* can be found on the `PostgreSQL Windows
 download page <http://www.postgresql.org/download/windows>`_. You
