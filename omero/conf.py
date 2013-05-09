@@ -34,7 +34,6 @@ if "OMERO_RELEASE" in os.environ:
     # The short X.Y version.
     version = split_release[1]
     previousversion = version[:-1] + str(int(version[-1])-1)
-    nextversion = version[:-1] + str(int(version[-1])+1)
     devbranch = 'dev_' + version[0] + '_' + version [-1]
     if not release[-1] == "0":
         tags.add('point_release')
@@ -42,7 +41,6 @@ if "OMERO_RELEASE" in os.environ:
 else:
     version = 'UNKNOWN'
     previousversion = 'UNKNOWN'
-    nextversion = 'UNKNOWN'
     release = 'UNKNOWN'
     devbranch = 'develop'
 
@@ -61,9 +59,8 @@ rst_epilog += """
 .. |BlitzGateway| replace:: :doc:`/developers/Python`
 .. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
 .. |previousversion| replace:: %s
-.. |nextversion| replace:: %s
 .. |devbranch| replace:: %s
-""" % (previousversion, nextversion, devbranch)
+""" % (previousversion, devbranch)
 
 # Variables used to define OMERO Jenkins extlinks
 if "JENKINS_JOB" in os.environ:
