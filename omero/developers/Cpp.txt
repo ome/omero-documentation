@@ -45,8 +45,11 @@ for Visual Studio 2005, or
 
 for Visual Studio 2008.
 
-Additionally on Windows, you will need to run the Visual Studio
-environment setup scripts:
+If the Ice headers and libraries are not present on the standard
+search paths, these will need to be specified using the CPPPATH and
+LIBPATH environment variables (see below).  Windows users building
+with Visual Studio will also need to run the Visual Studio environment
+setup scripts:
 
 ::
 
