@@ -9,7 +9,7 @@ version and that it is installed and configured correctly.
 Ensuring you have a valid PostgreSQL version
 --------------------------------------------
 
-For OMERO |version|, PostgreSQL 8.4 or higher is required (see :doc:`/sysadmins/limitations` for more information.)
+For OMERO |version|, PostgreSQL 8.4 or higher is required.
 
 You can check which version of PostgreSQL you have installed with any of
 the following commands:

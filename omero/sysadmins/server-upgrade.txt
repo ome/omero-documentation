@@ -126,14 +126,12 @@ Merge script changes
 --------------------
 
 If any new official scripts have been added under ``lib/scripts`` or if
-you've modified any of the existing ones, then you will need to backup
+you have modified any of the existing ones, then you will need to backup
 your modifications. Doing this, however, is not as simple as copying the
 directory over since the core developers will have also improved these
-scripts. In order to facilitate saving your work, we've turned the
+scripts. In order to facilitate saving your work, we have turned the
 scripts into a Git submodule which can be found at
-`<https://github.com/ome/scripts>`_. For more information on how to use Git
-submodules, please consult the
-:faq_plone:`FAQ <omero/how-do-i-make-lib-scripts-a-git-repository>`.
+`<https://github.com/ome/scripts>`_.
 
 If you would like help merging the two repositories, please contact the
 OME developers.
