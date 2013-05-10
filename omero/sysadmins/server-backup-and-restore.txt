@@ -74,9 +74,9 @@ OMERO.server has three main backup sources:
         `<https://github.com/ome/scripts>`_ which provides help for merging 
         your lib/scripts directories.
 
-*(1)* and *(2)* should be backed up regularly and *(3)* really only
-needs backing up before you make changes. You can ensure it is kept safe
-copying it into ``/OMERO/backup``:
+You should back up *(1)* and *(2)* regularly. You need to back up *(3)* only 
+before you make changes. You can copy it into ``/OMERO/backup`` to ensure it 
+is kept safe:
 
 ::
 
