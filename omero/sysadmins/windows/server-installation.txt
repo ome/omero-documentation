@@ -26,8 +26,10 @@ users/passwords described in this install guide, please see
 -  Installation on Windows XP is not explicitly supported, especially
    for OMERO.web. Significant testing has taken place on Windows Server
    2008 and we recommend this version.
+-  OMERO does not currently support Ice 3.5 or Python 3.
 -  :doc:`/sysadmins/omeromovie` is not supported on Windows at present.
--  Spaces in installation path names are not currently supported.
+-  Spaces in installation path names are not currently supported - **do not 
+   use spaces in your folder names**:
 
    .. note::
 
@@ -41,22 +43,26 @@ Prerequisites
 
 .. note::
 
-    The installation of these prerequisite applications is outside the scope
-    of this document.
+    The installation of these prerequisite applications is largely outside the 
+    scope of this document.
+
+    **Do not mix 32bit (x86) and 64bit (amd64) packages** - install either all 
+    32bit or all 64bit. Check your JRE as well.
 
 The following are necessary:
 
-Java SE Development Kit (JDK) (1.5 or higher) 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Java SE Development Kit (JDK)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
+Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_. JDK 5 
+and above are supported but version 6 or higher is recommended.
 
 Ice (3.3.x or 3.4.x)
 ^^^^^^^^^^^^^^^^^^^^
 
 .. note::
 
-    All versions of OMERO including and before 4.3 support only Ice 3.3. You
+    OMERO 4.3 and earlier support only Ice 3.3. You
     will need to download these from
     :zeroc:`ZeroC's previous versions section <previous.html>`. OMERO 4.4 adds
     support for Ice 3.4 while keeping support for Ice 3.3. For OMERO.server
@@ -68,6 +74,11 @@ Ice (3.3.x or 3.4.x)
     builds. We provide the :file:`ice.jar` bundled with the clients,
     so you do not need to worry about which one you download. If you have
     further questions, consult the :forum:`Forums <>`.
+
+    **OMERO does not currently support Ice 3.5** - if you have installed ICE 
+    3.5, uninstall it, install 3.4.x, update ENV path and reboot. If 
+    you need to use ICE 3.5 for other purposes, you probably just need to add 
+    the path for 3.4.x to the ENV before ICE 3.5.
 
 
 Windows installers of Ice can be found on the :zeroc:`ZeroC download
@@ -92,13 +103,22 @@ you will need to install further dependencies, making sure to
 download the correct version (release number, 32/64-bit) for your Python
 distribution.
 
-OMERO does not currently support Python 3.
+**OMERO does not currently support Python 3**.
 
 PyWin32
 """""""
 
-It is recommended to use **Python for Windows extensions**. The installer is
+Using **Python for Windows extensions** is recommended. The installer is
 available from the `PyWin download page <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
+
+The version you need is: 
+:file:`pywin32-XXX.win32-pyA.B.exe` (or the 64bit version) where XXX should be 
+the latest release number and A and B stand for the Python version e.g. 
+:file:`pywin32-218.win32-py2.6.exe`.
+
+You can read the 
+`readme.txt <http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/README.txt/download>`_ 
+to be sure of which file to download.
 
 Additional libraries
 """"""""""""""""""""
@@ -142,8 +162,7 @@ PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 PostgreSQL has to be installed and configured with PL/pgSQL and to accept
-TCP connections. PostgreSQL 8.3 and earlier are not supported. See 
-:doc:`server-postgresql` for specifics about each version.
+TCP connections. PostgreSQL 8.3 and earlier are not supported.
 
 The *One click installer* can be found on the `PostgreSQL Windows
 download page <http://www.postgresql.org/download/windows>`_. You
@@ -227,19 +246,14 @@ will need the postgres user's password later in the install.
 
    |pginstall-begincopy| |pginstall-complete|
 
-OMERO.server
-^^^^^^^^^^^^
-
-The **OMERO.server** zip file is available from the :omero_plone:`OMERO
-downloads <downloads>` page.
 
 Environment variables
 ---------------------
 
 For the prerequisite software to run properly, your PATH and PYTHONPATH
 environment variables must be configured. If not correctly configured or if
-you installed manually to :file:`C:\\ice` or a similar location, you will
-need to set the values yourself.
+you installed any of the prerequisites manually to :file:`C:\\ice` or a 
+similar location, you will need to set the values yourself.
 
 **Update your Windows environment variables: (REQUIRES RESTART!)**
 
@@ -285,6 +299,25 @@ need to set the values yourself.
 
 
    |PATH variable| |PATH variable 2| |PYTHONPATH variable|
+
+   **When setting the ENV variables, make sure you write in the correct 
+   paths.** 
+   You must have entries for:
+
+   - python (the first PATH entry, e.g. "C:\\Python26;%Sys…)
+
+   - ice/bin (the last PATH entry, e.g. "…;C:\\Ice-3.4.2\\;") 
+
+   - PYTHONPATH pointing to the python folder in the ICE installation (e.g. 
+     "C:\\Ice-3.4.2\\python;")
+
+   .. warning:: Remember that the Windows path separator is the semicolon ; 
+       and must be appended after every entry.
+
+       Make sure the first inserted ENV PATH entry (the python path) finishes 
+       with a semicolon (eg. "C:\\Python26;%SystemRoot%…") otherwise you 
+       could corrupt other system applications.
+
 
 #. **Restart your computer**. For environment changes to take
    effect in background services, a restart is unfortunately
@@ -439,6 +472,7 @@ is having a properly configured database.
 
          New language name
 
+
 Location for your OMERO binary repository
 -----------------------------------------
 
@@ -471,22 +505,22 @@ user's home directory (on Windows :file:`C:\\Users\\<username>`) in
 
     If your home directory  is stored on a network (NFS mounted or similar),
     then file read and write operations occur over the network. This can
-    slow access down. It is strongly discouraged to install OMERO on a
-    network mapped drive.
+    slow access down. Installing OMERO on a network mapped drive is strongly 
+    discouraged.
 
-The OMERO.server also access the :file:`omero\\tmp` and
-:file:`omero\\log` folders of **the user the server process is running
-as**. As the server makes heavier use of these folders than the clients,
+The OMERO.server also accesses the :file:`omero\\tmp` and
+:file:`omero\\log` folders of **the user account running the server 
+process**. As the server makes heavier use of these folders than the clients,
 if that user's home folder is stored on a network the server can be
-slowed down. To get round this for the OMERO.server you can define an
+slowed down. To get around this for the OMERO.server you can define an
 ``OMERO_TEMPDIR`` environment variable pointing to a temporary directory
 located on the local file system e.g. :file:`C:\\tmp\\`.
 
 Installation
 ------------
 
--   Extract the OMERO zip file and note its location. Below it is referred
-    to as :file:`C:\\OMERO.server`.
+-   Download and extract the OMERO.server zip file, and note its location. 
+    Below it is referred to as :file:`C:\\OMERO.server`.
 
 -   Optionally, review :file:`C:\\OMERO.server\\etc\\omero.properties` which
     contains all default settings.
@@ -542,6 +576,11 @@ Installation
         Please re-enter password for new OMERO root user: # root_password
         Saving to C:\\OMERO.server\\OMERO\ |version|\ __0.sql
 
+    The generated SQL file is found in the folder where you called the "omero  
+    db script" command. This could cause a permission denied error in the 
+    populate db step if the postgres user cannot access that location. Move 
+    the file to a different location or use the -f option.
+
 -   Initialize your database with the script.
 
     #. Launch *SQL Shell (psql)* from the Start Menu under 
@@ -566,8 +605,9 @@ Installation
                    (1252) 8-bit characters might not work correctly. See psql  
                    reference page "Notes for Windows users" for details.
 
-    #. Execute the following to populate your database (the forward slashes
-       are intentional):
+    #. Execute the following to populate your database (**the forward slashes
+       are intentional** - if you get a permission denied error it is because 
+       the path is wrong, not the slashes):
 
        .. parsed-literal::
 
@@ -576,12 +616,18 @@ Installation
            ...
            omero=> \\q
 
--   Before starting the OMERO.server we should run the OMERO diagnostics
-    script so that we check that all of our settings are correct, e.g.
+-   Before starting the OMERO.server, you should run the OMERO diagnostics
+    script so that you check that all of the settings are correct, e.g.
 
     ::
 
         C:\OMERO.server\> bin\omero admin diagnostics
+
+    The diagnostic tool may say that psql is not found. This should not be a
+    problem but you can fix it by adding its bin folder to the path. For 
+    example,
+    :file:`C:\\Program Files (x86)\\PostgreSQL\\9.2\\bin`. Remember to reboot 
+    after changing the environment.
 
 -   You can now start the server using:
 
@@ -627,9 +673,11 @@ Installation
 OMERO.web and administration
 ----------------------------
 
-.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :doc:`install-web`.
+.. note:: In order to deploy OMERO.web in a production environment such as 
+    Apache or IIS please follow the instructions under :doc:`install-web`.
 
-Otherwise, the internal Django webserver can be used for evaluation and development. In this case, we need to
+Otherwise, the internal Django webserver can be used for evaluation and 
+development. In this case, you need to
 turn debugging on, in order that static files can be served by Django:
 
 ::
@@ -672,14 +720,14 @@ Backup
 
 One of your first steps after putting your OMERO server into production
 should be deciding on when and how you are going to :doc:`backup your
-database and binary data </sysadmins/server-backup-and-restore>`. Please do not omit this
-step.
+database and binary data </sysadmins/server-backup-and-restore>`. Please do 
+not omit this step.
 
 Security
 ^^^^^^^^
 
-It is also now recommended that you read the :doc:`/sysadmins/server-security` page
-to get a good idea as to what you need to do to get OMERO clients
+You should read the :doc:`/sysadmins/server-security` 
+page to get a good idea as to what you need to do to get OMERO clients
 speaking to your newly installed OMERO.server in accordance with your
 institution or company's security policy.
 
@@ -696,19 +744,21 @@ your server.
 Update notification
 ^^^^^^^^^^^^^^^^^^^
 
-Your OMERO.server installation will check for updates each time it is started from the *Open Microscopy Environment* update server. If you wish to disable this functionality you should do so now as outlined on the :doc:`/sysadmins/UpgradeCheck` page.
+Your OMERO.server installation will check for updates each time it is started 
+from the *Open Microscopy Environment* update server. If you wish to disable 
+this functionality you should do so now as outlined on the 
+:doc:`/sysadmins/UpgradeCheck` page.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-My OMERO install doesn't work! What do I do now!?! Examine the :doc:`/sysadmins/troubleshooting` page and if all else fails post a
-message to our :mailinglist:`ome-users` mailing list discussed on the :doc:`/users/community-resources` page.
+If you encounter a problem which is not addressed by the 
+:doc:`/sysadmins/troubleshooting` page, you can post a
+message to our :mailinglist:`ome-users` mailing list as discussed on the 
+:doc:`/users/community-resources` page.
 
-OMERO diagnostics
-^^^^^^^^^^^^^^^^^
-
-If you want help with your server installation, please include the output of the diagnostics command:
-
+Please include the output of the diagnostics command when asking for help with 
+your server installation:
 
 .. parsed-literal::
 
