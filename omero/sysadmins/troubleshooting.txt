@@ -270,8 +270,8 @@ OMERO.web did not start on the production
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The user opening OMEROweb.log files needs write permissions to the
-directory containing the logs file. So, be sure you have a "log"
-directory with the correct ownership and correct path set in LOGDIR
+directory containing the logs file. So, be sure you have a ``log``
+directory with the correct ownership and correct path set in ``LOGDIR``
 matches log directory.
 
 -  In your ``/home/omero/omero_dist/var/lib/`` directory add the
@@ -361,10 +361,10 @@ Mod\_python error: "PythonHandler django.core.handlers.modpython"
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Double check if apache\_user has enough permissions to:
-``/home/omero/omero\_dir/lib/python/``,
-``/home/omero/omero\_dir/lib/python/django``,
-``/home/omero/omero\_dir/lib/python/omeroweb``,
-``/home/omero/omero\_dir/var/lib``.
+``/home/omero/omero_dir/lib/python/``,
+``/home/omero/omero_dir/lib/python/django``,
+``/home/omero/omero_dir/lib/python/omeroweb``,
+``/home/omero/omero_dir/var/lib``.
 
 OMERO.scripts fails with "MarshalException" when using PostgreSQL 9.0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
