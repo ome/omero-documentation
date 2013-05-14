@@ -1,0 +1,95 @@
+Changing the schema
+===================
+
+Background
+----------
+
+OMERO.server stores data in PostgreSQL, a relational database system.
+The data schema defines what data is stored and how, and new major
+versions of OMERO may change that schema. Database upgrade scripts
+transform data from an older version of OMERO so that it conforms to
+the new schema.
+
+Sometimes, a pull request on GitHub against the develop branch of
+OMERO may change the code base in ways that cause changes in the
+resulting database schema. This is a problem because the schema must
+then be updated, and other developers need to know that code from that
+pull request may cause problems unless they update their database
+accordingly.
+
+Database patch numbers
+----------------------
+
+:source:`omero.properties <etc/omero.properties>` contains a
+configuration setting for :literal:`omero.db.patch`. An existing OMERO
+database records the patch number of its schema, as demonstrated from
+the :literal:`psql` shell:
+
+::
+
+        omero=> select currentpatch from dbpatch;
+         currentpatch 
+        --------------
+                    4
+        (1 row)
+
+indicating that a database is on patch version 4. Correspondingly,
+
+::
+
+        $ grep ^omero.db.patch= etc/omero.properties 
+        omero.db.patch=4
+
+By incrementing the patch number with each schema change, OMERO.server
+is prevented from attempting to use a database whose schema does not
+match its code.
+
+Updating the schema
+-------------------
+
+From the openmicroscopy git branch in which you have been working on
+the code that requires a schema change, edit :source:`omero.properties
+<etc/omero.properties>` and increment the value of
+:literal:`omero.db.patch`. For instance, in the above example, edit
+the file so that
+
+::
+
+        $ grep ^omero.db.patch= etc/omero.properties
+        omero.db.patch=5
+
+Move the previous patch's SQL scripts into their new directory.
+
+::
+
+        $ git mv sql/psql/OMERO5.0DEV__4 sql/psql/OMERO5.0DEV__5
+
+Build OMERO.server with your code that changes the schema, then use
+the :literal:`build-schema` build target to update the SQL scripts in
+the new :literal:`sql/psql/OMERO5.0DEV__5` directory.
+
+::
+
+        $ ./build.py build-schema
+
+Now, when you use :omerocmd:`db script` in setting up a database for
+your modified server, the generated SQL script creates the new schema
+that your code requires. Use this script to set up your database so
+that you can start OMERO.server and test your changes thoroughly.
+
+When you commit your code and issue a pull request, include the
+changes to :source:`omero.properties <etc/omero.properties>` and
+:source:`sql/psql` among the commits in the pull request.
+
+Patch number conflicts
+----------------------
+
+It is possible that another person may have also opened a pull request
+that changes the schema and increments the database patch number. This
+is unfortunate because if their pull request is merged it will be as
+if your pull request does not change the patch number. Others may then
+unwittingly attempt to use your code with an inappopriate database. If
+you are considering model changes, it is wise to discuss this with the
+core OME developers in advance. When you are ready to open a pull
+request, first ask or check if yours will be the only one that
+includes a schema change.
