@@ -90,7 +90,7 @@ OMERO jobs
 		* :term:`OMERO-stable-virtualbox`
 		* :term:`OMERO-trunk-virtualbox`
 
-	- 	* Review OMERO PRs using Ice 33
+	- 	* Review OMERO PRs using Ice 3.3
 		* :term:`OMERO-merge-stable`
 		* :term:`OMERO-merge-develop`
 
@@ -124,7 +124,7 @@ listed under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-stable-ice34`
 
-		This job is used to build the |devbranch| branch of OMERO with Ice 3.3
+		This job is used to build the |devbranch| branch of OMERO with Ice 3.4
 
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
@@ -194,7 +194,7 @@ under the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-trunk-ice34`
 
-		This job is used to build the develop branch of OMERO woth Ice 3.4
+		This job is used to build the develop branch of OMERO with Ice 3.4
 
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
@@ -360,7 +360,7 @@ The branch for the next major release of Bio-Formats is develop.
 
 
 ..  |sphinxbuild| replace:: Runs ``make clean html latexpdf`` to build the HTML and PDF versions of the Sphinx documentation
-..  |linkcheck| replace:: Runs ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`.
+..  |linkcheck| replace:: Runs ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`
 ..  |ssh-doc| replace:: Copies the HTML and PDF documentation over SSH to
 ..  |deploy-doc| replace:: Runs :ref:`scc deploy` to update
 
