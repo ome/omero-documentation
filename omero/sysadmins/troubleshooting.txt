@@ -240,21 +240,6 @@ period (seconds) between retries in ``etc/grid/templates.xml``
 OMERO.web issues
 ----------------
 
-OMERO.web and "ImportError: No module named rtypes."
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To avoid that error please change the following in your :file:`settings.py`:
-
-::
-
-    import os.path
-    import sys
-    import datetime
-    import logging
-
-    import omero
-    import omero.clients
-
 OMERO.web is not accessible from remote computer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -270,9 +255,9 @@ OMERO.web did not start on the production
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The user opening OMEROweb.log files needs write permissions to the
-directory containing the logs file. So, be sure you have a ``log``
-directory with the correct ownership and correct path set in ``LOGDIR``
-matches log directory.
+directory containing the log files. So, be sure you have a ``log``
+directory with the correct ownership and the path set in ``LOGDIR``
+matches the log directory.
 
 -  In your ``/home/omero/omero_dist/var/lib/`` directory add the
    following to your ``custom_settings.py`` file:
@@ -360,7 +345,7 @@ more information.
 Mod\_python error: "PythonHandler django.core.handlers.modpython"
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Double check if apache\_user has enough permissions to:
+Double check if apache\_user has permission to write to:
 ``/home/omero/omero_dir/lib/python/``,
 ``/home/omero/omero_dir/lib/python/django``,
 ``/home/omero/omero_dir/lib/python/omeroweb``,
