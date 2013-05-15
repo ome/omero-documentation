@@ -37,7 +37,7 @@ reach 512MB. These directories will look like:
     Blitz-0.log     FileServer.log      MonitorServer.log   Processor-0.log     master.out
     DropBox.log     Indexer-0.log       OMEROweb.log        master.err
 
-Any files with a ``.1,``.2\ ``,``.3\`, etc. suffix may be compressed or
+Any files with a ``.1,``.2\ ``,``.3\``, etc. suffix may be compressed or
 deleted.
 
 OMERO.server log file location
@@ -61,17 +61,22 @@ Understanding backup sources
 OMERO.server has three main backup sources:
 
 1.  PostgreSQL database (assumed to be ``omero_database``)
-2.  OMERO.server :doc:`binary data store <unix/server-binary-repository>` (assumed to be
-    ``/OMERO``)
+2.  OMERO.server binary data store 
+    (:doc:`UNIX/Mac information page <unix/server-binary-repository>` or 
+    :doc:`Windows information page <windows/server-binary-repository>`; 
+    assumed to be ``/OMERO`` or ``C:\OMERO``)
 3.  OMERO.server configuration
 
     .. note::
-        Since 4.2.0, the lib/scripts directory should also be
-        backed up, but restoring it may pose issues. See :doc:`limitations`.
+        The lib/scripts directory should also be backed up, but restoring it 
+        may pose issues if any of your users have added their own "official 
+        scripts". A github repository is now available under 
+        `<https://github.com/ome/scripts>`_ which provides help for merging 
+        your lib/scripts directories.
 
-*(1)* and *(2)* should be backed up regularly and *(3)* really only
-needs backing up before you make changes. You can ensure it is kept safe
-copying it into ``/OMERO/backup``:
+You should back up *(1)* and *(2)* regularly. You need to back up *(3)* only 
+before you make changes. You can copy it into ``/OMERO/backup`` to ensure it 
+is kept safe:
 
 ::
 
