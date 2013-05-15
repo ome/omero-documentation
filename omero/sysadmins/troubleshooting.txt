@@ -1,97 +1,166 @@
-*********************
 Troubleshooting OMERO
-*********************
+=====================
 
 Frequently Asked Questions
-==========================
+--------------------------
 
-If you can not find what you are looking for here, you might also peruse
-the :faq_plone:`FAQ <>`.
+If you cannot find what you are looking for here, try the :faq_plone:`FAQ <>`.
 
-Known Operating System issues
-=============================
-
--  Gentoo requires a special patch for compiling Ice (link requested)
--  Ubuntu 08.04 has issues with older Ice packages
-   (:ome-users:`ome-users thread <2009-June/001839.html>`)
--  OpenSuSE 10.1 has issues with Python 2.4/2.5 and Ice
-   (:ome-users:`ome-users thread <2009-June/001830.html>`)
--  Windows XP does not run 'Development Server' version of OMERO.web
-   (:forum:`OME forum topic <viewtopic.php?f=5&t=640>`)
-   and :doc:`limitations`
 
 .. _troubleshooting-password:
 
-Which password do I use where?
-==============================
+Which user account and password do I use where?
+-----------------------------------------------
 
-Example accounts table. These are the example usernames and passwords
-used in various install pages:
+Accounts table, including the example usernames and passwords
+used in the installation guides:
 
-========== ======== ========== =============
-Account    Type     Username   Password
-========== ======== ========== =============
-Install    Machine  omero_user                
-Postgres   Database db_user    db_password
-OMERO root OMERO    root       root_password
-========== ======== ========== =============
+============  ==========================  ==========  =============
+Account type  Function                    Username    Password
+============  ==========================  ==========  =============
+System        Administrator/Root
+System        (Database) service account  postgres
+System        (OMERO) service account     omero_user
+Database      Database administrator      postgres
+Database      Database user               db_user     db_password
+OMERO         OMERO administrator         root        root_password
+OMERO         OMERO users
+============  ==========================  ==========  =============
 
-There are a total of three types of user accounts which are important
-during the installation process.
+.. Note:: These example usernames and passwords are provided to help you 
+    follow the installation guide examples. Do not use root_password or 
+    db_password; substitute your own passwords.
 
--  The first type includes **accounts on your machine**. There is one
-   regular account (either your own or one you created specially for
-   running OMERO, we'll call it "omero\_user" here); there is the user
-   called a "root-level user" on the :doc:`Unix installation
-   page <unix/server-installation>` (which includes Mac OS X) and
-   "administrator-level user" on the :doc:`Windows installation
-   page <windows/server-installation>`; and there may be a special
-   "postgres" user who controls the database server. The regular
-   "omero\_user" account runs the server, and owns the files uploaded to
-   OMERO. This account must have permission to write to the /OMERO/
-   binary repository. Some operations in the install scripts require the
-   root-level/administrator-level user in order to become another user
-   like "postgres" to perform particular operations (E.g. create
-   database). However **the server should never be run as the
-   root-level/administrator-level user or as the database-owner.**
+There are a total of three types of user accounts: system, database and OMERO 
+accounts.
 
--  The second type of account is the **database account**. The
-   database-owner ("postgres") can create users completely separate from
-   the accounts on your machine. (Though confusingly, the database-user
-   may have the same name as an account on your machine, in which case a
-   password **might** not be necessary.) A single database account is
-   used at run time by OMERO to talk to your database. Therefore you
-   have to configure the "omero.db.\*" values during installation.
+System accounts
+^^^^^^^^^^^^^^^
 
-   ::
+These are accounts on your machine or directory server (e.g. LDAP, Active 
+Directory). One account is used for running the OMERO server (either your own 
+or one you created specially for running OMERO, referred to here as 
+“omero_user”). There is also a user
+called the "administrator-level user" on the :doc:`Windows installation
+page <windows/server-installation>` and "root-level user" on the :doc:`UNIX installation
+page <unix/server-installation>` (which includes Mac OS X). A separate 
+“postgres” user is used for 
+running the database server. The “omero_user” account runs the OMERO 
+server, and owns the files uploaded to OMERO. This account must have 
+permission to write to the `/OMERO/` binary repository. Some operations in the 
+install scripts require the root-level/administrator-level privileges in order 
+to use another account to perform particular actions e.g. the “postgres” 
+user to create a database. However **the OMERO.server should never be run as 
+the root-level/administrator-level user or as the system-level “postgres” 
+user**.
 
-       $ bin/omero config set omero.db.user db_user
-       $ bin/omero config set omero.db.pass db_password
+Database accounts
+^^^^^^^^^^^^^^^^^
 
--  The last type of account are **OMERO accounts**. The first user which
-   you will need to configure is the "root" OMERO user (different from
-   any root-level Unix account). This is done by setting the password in
-   the database script:
+The PostgreSQL database system contains user and administrative accounts; 
+these are completely separate from the system accounts, above, existing only 
+inside the database.  The database administrative user (“postgres”) is the 
+owner of all the database resources, and can create new users internal to the 
+database. A single database account is used at run time by OMERO to talk to 
+your database. Therefore, you must configure the “omero.db.***” values during 
+installation:
 
-   .. parsed-literal::
+::
 
-       $ bin/omero db script
-       Please enter omero.db.version [OMERO\ |version|\ ]: 
-       Please enter omero.db.patch [0]: 
-       Please enter password for new OMERO root user:       # root_password
-       Please re-enter password for new OMERO root user:      # root_password
-       Saving to ~/OMERO\ |version|\ __0.sql
+   $ bin/omero config set omero.db.user db_user
+   $ bin/omero config set omero.db.pass db_password
 
-Other OMERO users can be created via the OMERO.web admin tool. In no case, do
-any of the passwords have to be the same (or should they **unless you
-are using the LDAP plugin**...)
+.. Note:: Do **not** use db_user or db_password here; substitute your own 
+    username and password.
+
+    A database user may have the same name as an account on your 
+    machine, in which case a password might not be necessary.
+
+OMERO accounts
+^^^^^^^^^^^^^^
+
+These accounts only exist inside the OMERO system, and are completely separate 
+from both the system and database accounts, above.  The first user which you 
+will need to configure is the “root” OMERO user (different from any root-level 
+Unix account). This is done by setting the password in the database script:
+
+.. parsed-literal::
+
+   $ bin/omero db script
+   Please enter omero.db.version [OMERO\ |version|\ ]: 
+   Please enter omero.db.patch [0]: 
+   Please enter password for new OMERO root user:       # root_password
+   Please re-enter password for new OMERO root user:      # root_password
+   Saving to ~/OMERO\ |version|\ __0.sql
+
+Other OMERO users can be created via the OMERO.web admin tool. None of the 
+passwords have to be the same, in fact they should be different **unless you
+are using the LDAP plugin**.
+
+Server fails to start
+---------------------
+
+1. Check that you are able to successfully connect to your PostgreSQL
+   installation as outlined on the PostgreSQL page for your OS 
+   (:doc:`Windows PostgreSQL page <windows/server-postgresql>` or 
+   :doc:`UNIX/Mac PostgreSQL page <unix/server-postgresql>`).
+2. Check the permissions on your ``omero.data.dir`` (``/OMERO`` or 
+   ``C:\OMERO`` by default) as outlined on the 
+   :doc:`unix/server-installation` page for Unix/Mac users, or the 
+   :doc:`windows/server-binary-repository` page for Windows users.
+3. Are you on a laptop? If you see an error message mentioning 
+   :ticket:`"node master couldn't be reached" <7325>`, you
+   may be suffering from a network address swap. Ice does not like to
+   have its network changed as can happen if the server is running on a
+   laptop on wireless. If you lose connectivity to icegridnode, you may
+   have to kill it manually via ``kill PID`` or ``killall icegridnode``
+   (under Unix).
+4. If you see an error message mentioning
+   :ticket:`"Freeze::DatabaseException" <5576>` or 
+   :ticket:`"could not lock file: var/registry/\_\_Freeze/lock" <7325>`,
+   your icegrid registry may have become corrupted. This is not a
+   problem, but it will be necessary to stop OMERO and delete the
+   ``var/master`` directory (e.g. ``rm -rf var/master``). When
+   restarting OMERO, the registry will be automatically re-created.
+
+Remote clients cannot connect to OMERO installation
+---------------------------------------------------
+
+The Admin section of OMERO.web appears to work properly and you may or may not 
+have created some users, but no matter what you do remote clients will not 
+speak to OMERO. OMERO.insight gives you an error message similar to the 
+following despite giving the correct username and password:
+
+.. figure:: /images/login_failure.png
+   :align: center
+   :width: 35%
+   :alt: Login failure
+
+This is often due to firewall misconfiguration on the machine that runs
+your OMERO server, affecting the ability of remote clients to locate
+it. Please see the :doc:`/sysadmins/server-security` page.
+
+Server crashes with...
+----------------------
+
+-  ``X11 connection rejected because of wrong authentication``
+-  ``X connection to localhost:10.0 broken (explicit kill or server shutdown).``
+
+OMERO uses image scaling and processing techniques that may be
+interfered with when used with |SSH| X11-forwarding. You should disable
+|SSH| X11-forwarding in your |SSH| session by using the ``-x`` flag as follows 
+before you restart the OMERO.server:
+
+::
+
+    ssh -x my_server.examples.com
 
 OutOfMemoryError / PermGen space errors in OMERO.server logs
-============================================================
+------------------------------------------------------------
 
 Out of memory or permanent generation (PermGen) errors can be caused by
-many things. Fundamentally you may be asking too much of the server and
-require and increase of the maximum Java heap or permanent generation
+many things. You may be asking too much of the server. Or you may
+require an increase in the maximum Java heap or the permanent generation
 space. This can be done by modifying the IceGrid configuration for your
 OMERO.server as follows:
 
@@ -115,8 +184,8 @@ OMERO.server as follows:
            <option>-Dlog4j.configuration=${OMERO_ETC}log4j.xml</option>
            ...
 
-   Replace ``-Xmx512M`` with ``-Xmx1024M``,
-   ``-Xmx1024M -XX:MaxPermSize=128m`` or greater as required.
+   Replace ``-Xmx512M`` initially with ``-Xmx1024M`` or greater as required,
+   (use ``-Xmx1024M -XX:MaxPermSize=128m`` as an alternative).
 
 Furthermore, under certain conditions access of images greater than 4GB
 can be problematic on 32-bit platforms due to certain bugs within the
@@ -124,24 +193,9 @@ Java Virtual Machine including `Bug ID:
 4724038 <http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4724038>`_.
 A 64-bit platform for your OMERO.server is **HIGHLY** recommended.
 
-SocketException: Network is unreachable errors in your OMERO.server log on Debian
-=================================================================================
 
-This is a Debian specific
-`bug <http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=560044>`_.
-
-Quick fix for users hit by this:
-
-::
-
-        sudo sed -i 's/net.ipv6.bindv6only\ =\ 1/net.ipv6.bindv6only\ =\ 0/' \
-        /etc/sysctl.d/bindv6only.conf && sudo invoke-rc.d procps restart
-
-There is an OMERO :forum:`forum post <viewtopic.php?f=5&t=415>`
-for comments on the issue.
-
-Import error when running bin/omero ...
-=======================================
+Import error when running bin/omero
+-----------------------------------
 
 ::
 
@@ -154,108 +208,22 @@ If you get any import related errors while running :file:`bin/omero`, the
 most likely cause is that your PYTHONPATH is not properly set.
 
 -  If you installed Ice globally via your package manager, make sure you
-   included ice-python
+   included ice-python.
 
 -  If you installed Ice manually, e.g. under ``/opt/Ice-3.3.1`` you need
    to add ``/opt/Ice-3.3.1/python`` (or similar) to your PYTHONPATH
    environment variable. See the Ice installation instructions for more
    information.
 
-Remote clients can not connect to my OMERO installation!
-========================================================
-
-The OMERO WebAdmin appears to work fine and you may or may not have
-created some users but no matter what you do remote clients will not speak
-to OMERO. OMERO.insight gives you an error message similar to the
-following (and you know that you have put the correct username and
-password into the OMERO.insight dialog):
-
-.. figure:: /images/login_failure.png
-   :align: center
-   :width: 35%
-   :alt: Login failure
-
-This often because of firewall misconfiguration on the machine that runs
-your OMERO server which affects the ability of remote clients to locate
-it. Please see the :doc:`/sysadmins/server-security` page.
-
-Server fails to start
-=====================
-
-1. Check that you are able to successfully connect to your PostgreSQL
-   installation as outlined on the :doc:`PostgreSQL
-   page <unix/server-postgresql>`.
-2. Check the permissions on your ``omero.data.dir`` (``/OMERO`` by
-   default) as outlined on the :doc:`unix/server-installation`
-   page, in the ''Pre-Installation'' section.
-3. Are you on a laptop? If you see an error message mentioning 
-   :ticket:`"node master couldn't be reached" <7325>`, you
-   may be suffering from a network address swap. Ice does not like to
-   have its network changed as can happen if the server is running on a
-   laptop on wireless. If you lose connectivty to icegridnode, you may
-   have to kill it manually via ``kill PID`` or ``killall icegridnode``
-   (under Unix).
-4. If you see an error message mentioning
-   :ticket:`"Freeze::DatabaseException" <5576>` or 
-   :ticket:`"could not lock file: var/registry/\_\_Freeze/lock" <7325>`,
-   your icegrid registry may have become corrupted. This is not a
-   problem, but it will be necessary to stop OMERO and delete the
-   ``var/master`` directory (e.g. ``rm -rf var/master``). When
-   restarting OMERO, the registry will be automatically re-created.
-
-Connection problems and TCP window scaling
-==========================================
-
-Later versions of the 2.6 Linux kernel, specifically 2.6.17, have TCP
-window scaling enabled by default. If you are having initial logins never
-timeout or problems with connectivity in general you can try turning the
-feature off as follows:
-
-::
-
-    # echo 0 > /proc/sys/net/ipv4/tcp_window_scaling
-
-My server crashes with...
-=========================
-
--  ``X11 connection rejected because of wrong authentication``
--  ``X connection to localhost:10.0 broken (explicit kill or server shutdown).``
-
-OMERO uses image scaling and processing techniques that may be
-interfered with when used with |SSH| X11-forwarding. You should disable
-|SSH| X11-forwarding in the |SSH| session you will use to start OMERO.server
-by using the ``-x`` flag as follows:
-
-::
-
-    ssh -x my_server.examples.com
-
-Server or clients print "WARNING: Prefs file removed in background..."
-======================================================================
-
-::
-
-    Nov 12, 2008 3:02:50 PM java.util.prefs.FileSystemPreferences$7 run
-    WARNING: Prefs file removed in background /root/.java/.userPrefs/prefs.xml
-    Nov 12, 2008 3:02:50 PM java.util.prefs.FileSystemPreferences$7 run
-    WARNING: Prefs file removed in background /usr/lib/jvm/java-1.7.0-icedtea-1.7.0.0/jre/.systemPrefs/prefs.xml
-
-These warnings (also sometimes listed as ERRORS) can be safely ignored,
-and are solely related to how Java is installed on your system. See
-http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=4751177 or perhaps this
-:ome-users:`ome-users thread <2009-March/001465.html>` on our mailing list for
-more information.
-
-
 DropBox fails to start: failed to get session
-=============================================
+---------------------------------------------
 
 If the main server starts but DropBox fails with the following entry in
 ``var/log/DropBox.log``,
 
 ::
 
-    2011-06-07 03:42:56,775 ERROR [                        fsclient.DropBox] (MainThread) Failed to get Session: 
+    2011-06-07 03:42:56,775 ERROR [        fsclient.DropBox] (MainThread) Failed to get Session: 
 
 then it may be that the server is taking a relatively long time to
 start.
@@ -269,10 +237,13 @@ period (seconds) between retries in ``etc/grid/templates.xml``
     <property name="omero.fs.retryInterval"  value="3"/>
 
 
-OMERO.web and "ImportError: No module named rtypes."
-====================================================
+OMERO.web issues
+----------------
 
-To avoid that error please change the following in your settings.py:
+OMERO.web and "ImportError: No module named rtypes."
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To avoid that error please change the following in your :file:`settings.py`:
 
 ::
 
@@ -285,24 +256,18 @@ To avoid that error please change the following in your settings.py:
     import omero.clients
 
 OMERO.web is not accessible from remote computer
-================================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you require to configure the out of the box setup to listen for 
-webadmin and webclient connections on different host run by:
+To configure the out-of-the box setup to listen for 
+webadmin and webclient connections on different host run:
 
 ::
 
-	c:\omero_dist> bin/omero web start 'host' 'port'
-	Starting django development webserver... 
-	Validating models...
-	0 errors found
+    c:\omero_dist> bin/omero web start 'host' 'port'
 
-	Django version 1.1.1, using settings 'omeroweb.settings'
-	Development server is running at http://host:port/
-	Quit the server with CONTROL-C.
 
 OMERO.web did not start on the production
-=========================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The user opening OMEROweb.log files needs write permissions to the
 directory containing the logs file. So, be sure you have a "log"
@@ -318,10 +283,10 @@ matches log directory.
 
           LOGDIR = '/home/omero/weblog/'
 
--  Checking if ``/home/omero/omero_dist/var/lib/custom_settings.py``
-   exist.
+-  Check if ``/home/omero/omero_dist/var/lib/custom_settings.py``
+   exists.
 
--  Checking who owns the log directory and log files:
+-  Check who owns the log directory and log files:
 
    ::
 
@@ -332,44 +297,79 @@ matches log directory.
        -rw-r--r--  1 apache apache 23766 Mar 31 11:41 OMEROweb.log
        -rw-r--r--  1 apache apache 23978 Mar 31 11:41 OMEROweb.log.2009-03-31
 
--  or create log and database directories with
-   ``apache_user:apache_group`` ownership or another who you want to run
-   with:
+-  or create log and database directories with, for example,
+   ``apache_user:apache_group`` ownership:
 
    ::
 
        mkdir /home/omero/weblog
        chown apache_user:apache_group /home/omero/weblog
 
-OMERO.web 'Drive space' does not generate pie chart/'My account' does not show markup picture and crop the picture
-===================================================================================================================
+OMERO.web piecharts
+^^^^^^^^^^^^^^^^^^^
+
+'Drive space' does not generate pie chart or 'My account' does not show markup 
+picture and crop the picture options.
 
 Error message says: 'Piechart could not be displayed. Please check log
 file to solve the problem'. Please check ``var/log/OMEROweb.log`` for
-more details. There are few already known possibilities:
+more details. There are a few known possibilities:
 
 -  'TclError: no display name and no $DISPLAY environment variable'.
    Turn off the compilation of TCL support in Matplotlib_.
 -  'ImportError: No module named Image'. Install `Python Imaging Library`_
-   - packages should be available for your distribution from. Also double 
+   (packages should be available for your distribution). Also double 
    check
    if all of the prerequisites were installed from OMERO.web deployment 
    (:doc:`UNIX instructions <unix/install-web>` or :doc:`Windows instructions 
    <windows/install-web>`).
 
+Other issues
+------------
+
+Connection problems and TCP window scaling on Linux systems
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Later versions of the 2.6 Linux kernel, specifically 2.6.17, have TCP
+window scaling enabled by default. If you are having initial logins never
+timeout or problems with connectivity in general you can try turning the
+feature off as follows:
+
+::
+
+    # echo 0 > /proc/sys/net/ipv4/tcp_window_scaling
+
+
+Server or clients print "WARNING: Prefs file removed in background..."
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    Nov 12, 2008 3:02:50 PM java.util.prefs.FileSystemPreferences$7 run
+    WARNING: Prefs file removed in background /root/.java/.userPrefs/prefs.xml
+    Nov 12, 2008 3:02:50 PM java.util.prefs.FileSystemPreferences$7 run
+    WARNING: Prefs file removed in background /usr/lib/jvm/java-1.7.0-icedtea-1.7.0.0/jre/.systemPrefs/prefs.xml
+
+These warnings (also sometimes listed as ERRORS) can be safely ignored,
+and are solely related to how Java is installed on your system. See
+http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=4751177 or this
+:ome-users:`ome-users thread <2009-March/001465.html>` on our mailing list for
+more information.
+
+
 Mod\_python error: "PythonHandler django.core.handlers.modpython"
-=================================================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Double check if apache\_user has enough permissions to:
-'/home/omero/omero\_dir/lib/python/',
-'/home/omero/omero\_dir/lib/python/django',
-'/home/omero/omero\_dir/lib/python/omeroweb',
-'/home/omero/omero\_dir/var/lib'.
+``/home/omero/omero\_dir/lib/python/``,
+``/home/omero/omero\_dir/lib/python/django``,
+``/home/omero/omero\_dir/lib/python/omeroweb``,
+``/home/omero/omero\_dir/var/lib``.
 
 OMERO.scripts fails with "MarshalException" when using PostgreSQL 9.0
-=====================================================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If all script executions fail after a upgrading your database to
+If all script executions fail after upgrading your database to
 PostgreSQL 9.0 with an error like:
 
 :: 
@@ -386,11 +386,13 @@ PostgreSQL 9.0 with an error like:
                                at IceInternal.BasicStream.loadObjectFactory(BasicStream.java:2187)
 
 then most likely the bytea\_output setting of your database needs to be
-changed. See :doc:`unix/server-postgresql` for how to do
-this and, optionally, :ticket:`5662` for more technical details.
+changed. See the PostgreSQL page for your OS for how to do
+this (:doc:`Windows <windows/server-postgresql>` or 
+:doc:`UNIX/Mac <unix/server-postgresql>`) and, optionally, :ticket:`5662` for 
+more technical details.
 
 Too many open files
-===================
+^^^^^^^^^^^^^^^^^^^
 
 This is caused by the number of opened files exceeding the limit imposed
 by your operating system. It might be due to OMERO leaking file
@@ -406,7 +408,7 @@ run
 
 which will show the hard limit for the maximum number of file
 descriptors (-Sn will show the soft limit). This limit may be increased.
-On Linux, see /etc/security/limits.conf (global PAM per-user limits
+On Linux, see ``/etc/security/limits.conf`` (global PAM per-user limits
 configuration); it is also possible to increase the limit in the shell
 with
 
@@ -421,9 +423,17 @@ limit up to the hard limit). To view the system limit, run
 
             cat /proc/sys/fs/file-max
 
-On MacOS X, the standard ulimit will not work properly. There are several
+On Mac OS X, the standard ulimit will not work properly. There are several
 different ways of setting the ulimit, depending upon the version of OS X
-you are using, but the most common are to edit sysctl.conf or
-launchd.conf to raise the limit. However, note that both of these
+you are using, but the most common are to edit ``sysctl.conf`` or
+``launchd.conf`` to raise the limit. However, note that both of these
 methods change the defaults for every process on the system, not just
 for a single user or service.
+
+Increasing the number of available filehandles via 'ulimit -n'
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ValueError: filedescriptor out of range in select() - this is a known issue in 
+Python versions prior to 2.7.0. See
+:ticket:`6201` and Python `Issue #3392
+<http://bugs.python.org/issue3392>`_ for more details.
