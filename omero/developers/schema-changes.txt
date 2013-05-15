@@ -15,7 +15,10 @@ OMERO may change the code base in ways that cause changes in the
 resulting database schema. This is a problem because the schema must
 then be updated, and other developers need to know that code from that
 pull request may cause problems unless they update their database
-accordingly.
+accordingly. To make sure that these database updates happen when
+necessary, if your pull request affects the schema then you *must*
+increment the database patch number and provide an updated schema as
+described below.
 
 Database patch numbers
 ----------------------
@@ -93,3 +96,16 @@ you are considering model changes, it is wise to discuss this with the
 core OME developers in advance. When you are ready to open a pull
 request, first ask or check if yours will be the only one that
 includes a schema change.
+
+SQL upgrade scripts
+-------------------
+
+Users may wish to upgrade their database from an older version of
+OMERO to one that has your new schema. SQL upgrade scripts are
+provided to allow users to upgrade easily without having to understand
+the schema changes themselves, and part of the upgrade script will
+involve making the schema changes entailed with your pull request. It
+would be polite if you were to add the appropriate SQL commands
+yourself to the upgrade script as part of your code changes. The
+:source:`sql/README.txt` file describes where to find the appropriate
+script for you to adjust.
