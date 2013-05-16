@@ -16,7 +16,7 @@ resulting database schema. This is a problem because the schema must
 then be updated, and other developers need to know that code from that
 pull request may cause problems unless they update their database
 accordingly. To make sure that these database updates happen when
-necessary, if your pull request affects the schema then you *must*
+necessary, if your pull request affects the schema then you **must**
 increment the database patch number and provide an updated schema as
 described below.
 
@@ -50,11 +50,10 @@ match its code.
 Updating the schema
 -------------------
 
-From the openmicroscopy git branch in which you have been working on
-the code that requires a schema change, edit :source:`omero.properties
-<etc/omero.properties>` and increment the value of
-:literal:`omero.db.patch`. For instance, in the above example, edit
-the file so that
+In your git branch with the code that requires a schema change, edit
+:source:`omero.properties <etc/omero.properties>` and increment the
+value of :literal:`omero.db.patch`. For instance, in the above
+example, edit the file so that
 
 ::
 
@@ -91,9 +90,9 @@ It is possible that another person may have also opened a pull request
 that changes the schema and increments the database patch number. This
 is unfortunate because if their pull request is merged it will be as
 if your pull request does not change the patch number. Others may then
-unwittingly attempt to use your code with an inappopriate database. If
-you are considering model changes, it is wise to discuss this with the
-core OME developers in advance. When you are ready to open a pull
+unwittingly attempt to use your code with an inappropriate database.
+If you are considering model changes, it is wise to discuss this with
+the core OME developers in advance. When you are ready to open a pull
 request, first ask or check if yours will be the only one that
 includes a schema change.
 
