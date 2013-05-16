@@ -50,23 +50,21 @@ Windows platforms.
     windows/install-web
     windows/service-tools
 
-**********************
-Advanced Server Topics
-**********************
+****************************
+Advanced Server Installation
+****************************
 
 .. toctree::
     :maxdepth: 2
     :titlesonly:
 
-    server-permissions
     troubleshooting
     server-security
     server-advanced-configuration
     server-ldap
     server-tables
     omeromovie
-    grid
-    server-fs
+
 
 ******************
 Server Maintenance
@@ -80,4 +78,17 @@ Server Maintenance
     server-upgrade
     UpgradeCheck
     command-line-interface
+
+
+*********************
+Other Advanced Topics
+*********************
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    server-permissions
+    server-fs
+    grid
 
