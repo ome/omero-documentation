@@ -351,30 +351,6 @@ Double check if apache\_user has permission to write to:
 ``/home/omero/omero_dir/lib/python/omeroweb``,
 ``/home/omero/omero_dir/var/lib``.
 
-OMERO.scripts fails with "MarshalException" when using PostgreSQL 9.0
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If all script executions fail after upgrading your database to
-PostgreSQL 9.0 with an error like:
-
-:: 
-
-   Caused by: org.openmicroscopy.shoola.env.data.ProcessException: Cannot run script with ID:52
-       at org.openmicroscopy.shoola.env.data.OMEROGateway.runScript(OMEROGateway.java:514)
-       at org.openmicroscopy.shoola.env.data.OMEROGateway.createMovie(OMEROGateway.java:5750)
-       ... 9 more
-   Caused by: omero.InternalException
-       serverStackTrace = "Ice.MarshalException
-                               reason = (null)
-                               at IceInternal.BasicStream.typeToClass(BasicStream.java:2403)
-                               at IceInternal.BasicStream.findClass(BasicStream.java:2320)
-                               at IceInternal.BasicStream.loadObjectFactory(BasicStream.java:2187)
-
-then most likely the bytea\_output setting of your database needs to be
-changed. See the PostgreSQL page for your OS for how to do
-this (:doc:`Windows <windows/server-postgresql>` or 
-:doc:`UNIX/Mac <unix/server-postgresql>`) and, optionally, :ticket:`5662` for 
-more technical details.
 
 Too many open files
 ^^^^^^^^^^^^^^^^^^^
