@@ -1,0 +1,121 @@
+Configuration of FS file upload
+===============================
+
+Background
+----------
+
+Users import their image files to the OMERO.fs server. These uploaded
+files are kept relatively intact by the server, in file path, name and
+content, so that OMERO.fs can become a trusted repository for the
+master copy of users' data. While the default server configuration
+from :source:`etc/omero.properties` should typically suffice,
+:omerocmd:`config set` may be used to adjust settings related to file
+uploads. These settings are explained below.
+
+Template path
+-------------
+
+When files are uploaded to the repository a parent directory is
+created to receive the upload. A multi-file image has all its files
+stored in the same parent directory, though they may be in different
+subdirectories of that parent to mirror the original directory
+structure before upload. The :literal:`omero.fslite.path` setting
+defines the creation of that parent directory.
+
+There is some flexibility in how this parent directory is named. The
+constraints are:
+
+* the path components must be :literal:`/`-separated, even on Windows
+  systems
+
+* the first path component must be :literal:`%user%_%userId%`
+
+* the path must be unique for each import; it is for this reason that
+  the :literal:`%time%` term expands to a time with millisecond
+  resolution
+
+Legal file names
+----------------
+
+Although OMERO.fs attempts to preserve file naming, the server's
+operating system or file system is likely to somehow constrain what
+file names may be stored by OMERO.fs. This is of particular concern
+when a user may upload from a more permissive system to a server on a
+less permissive system, or when it is anticipated that the server
+itself may be migrated to a less permissive system. The server never
+accepts Unicode control characters in file names.
+
+The :literal:`omero.fslite.path_rules` setting defines the combination
+of restrictions that the server must apply in accepting file uploads.
+The restrictions are grouped into named sets:
+
+:literal:`Windows required`
+        prohibits names with the characters :literal:`"`,
+        :literal:`*`, :literal:`/`, :literal:`:`, :literal:`<`,
+        :literal:`>`, :literal:`?`, :literal:`\\`, :literal:`|`,
+        names beginning with :literal:`$`, the names :literal:`AUX`,
+        :literal:`CLOCK$`, :literal:`CON`, :literal:`NUL`,
+        :literal:`PRN`, :literal:`COM1` to :literal:`COM9`,
+        :literal:`LPT1` to :literal:`LPT9`, and anything beginning
+        with one of those names followed by :literal:`.`
+
+:literal:`Windows optional`
+        prohibits names ending with :literal:`.` or a space
+
+:literal:`UNIX required`
+        prohibits names with the character :literal:`/`
+
+:literal:`UNIX optional`
+        prohibits names beginning with :literal:`.` or :literal:`-`
+
+These rules are applied to each separate path component of the file
+name on the client's system. So, for instance, an upload of a file
+:literal:`/tmp/myfile.tif` from a Linux system would satisfy the
+:literal:`UNIX required` restrictions because neither of the path
+components :literal:`tmp` and :literal:`myfile.tif` contains a
+:literal:`/` character.
+
+Applying the "optional" restrictions does not assist OMERO.fs at all;
+those restrictions are designed to ease manual maintenance of the
+directory specified by the :literal:`omero.managed.dir` setting, being
+where the server stores users' uploaded files.
+
+Checksum algorithm
+------------------
+
+As the client uploads each file to the server, it calculates a
+checksum for the file. After the upload is complete the client reports
+that checksum to the server. The server then calculates the checksum
+for the corresponding file from its local filesystem and checks that
+it matches what the client reported. File integrity is thus assured
+because corruption during transmission or writing would be revealed by
+a checksum mismatch.
+
+There are various algorithms by which checksums may be calculated. To
+calculate comparable checksums the client and server use the same
+algorithm. The server API permits clients to specify the algorithm,
+but it is expected that they will typically accept the server default
+set with the :literal:`omero.checksum.default` setting.
+
+The available values, specified in
+:source:`components/model/resources/mappings/acquisition.ome.xml`, are
+presently:
+
+* :literal:`Adler-32`
+
+* :literal:`CRC-32`
+
+* :literal:`MD5-128`
+
+* :literal:`Murmur3-32`
+
+* :literal:`Murmur3-128`
+
+* :literal:`SHA1-160`
+
+The number that suffixes each of the checksum algorithm names
+specifies the bit width of the resulting checksum. The more bits there
+are, the less likely it is that checksums are coincidentally
+identical, and the longer the hex strings that are stored in the
+:literal:`hash` column of the :literal:`originalfile` table in the
+database.
