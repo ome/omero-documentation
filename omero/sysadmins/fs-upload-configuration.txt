@@ -1,5 +1,5 @@
-Configuration of FS file upload
-===============================
+OMERO.fs: file upload
+=====================
 
 Background
 ----------
@@ -15,7 +15,7 @@ uploads. These settings are explained below.
 Template path
 -------------
 
-When files are uploaded to the repository a parent directory is
+When files are uploaded to the repository, a parent directory is
 created to receive the upload. A multi-file image has all its files
 stored in the same parent directory, though they may be in different
 subdirectories of that parent to mirror the original directory
