@@ -42,11 +42,10 @@ def get_previous_version(majornumber):
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 if "OMERO_RELEASE" in os.environ:
-    omero_release = os.environ.get('OMERO_RELEASE')
-    [majornumber, minornumber, patchnumber] = split_release(omero_release)
+    release = os.environ.get('OMERO_RELEASE')
+    [majornumber, minornumber, patchnumber] = split_release(release)
 
     # Define Sphinx version and release variables and development branch
-    release = ".".join(str(x) for x in [majornumber, minornumber, patchnumber])
     version = ".".join(str(x) for x in [majornumber, minornumber])
     devbranch = "dev_" + "_".join(str(x) for x in [majornumber, minornumber])
 
