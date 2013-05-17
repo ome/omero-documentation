@@ -51,13 +51,13 @@ if "OMERO_RELEASE" in os.environ:
     [majornumber, minornumber, patchnumber] = split_release(release)
 
     # Define Sphinx version and release variables and development branch
-    version = ".".join(str(x) for x in [majornumber, minornumber])
-    devbranch = "dev_" + "_".join(str(x) for x in [majornumber, minornumber])
+    version = ".".join(str(x) for x in (majornumber, minornumber))
+    devbranch = "dev_" + "_".join(str(x) for x in (majornumber, minornumber))
 
     if patchnumber > 0:
         tags.add('point_release')
     if minornumber > 0:
-        previousversion = ".".join(str(x) for x in [majornumber, minornumber - 1])
+        previousversion = ".".join(str(x) for x in (majornumber, minornumber - 1))
     else:
         previousversion = get_previous_version(majornumber)
 else:
