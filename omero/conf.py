@@ -25,19 +25,41 @@ from conf import *
 project = u'OMERO'
 title = project + u' Documentation'
 
+def split_release(release):
+    import re
+    split_release =  re.split("^([0-9]+)\.([0-9]+)\.([0-9]+)(.*?)$", release)
+    return (int(split_release[1]), int(split_release[2]), int(split_release[3]))
+
+def get_previous_version(majornumber):
+    # Return the previous version number for the first minor versions of a
+    # major series i.e. x.0.y
+    # Implemented as an hard-coded list until we work out an automated way to
+    # upgrade the database without specifying version numbers e.g.
+    # bin/omero db upgrade
+    if majornumber == 5:
+        return "4.4"
+    elif majornumber == 4:
+        return "3.2"
+    else:
+        raise Exception("No previous version defined for the major release number %s" % majornumber)
+
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 if "OMERO_RELEASE" in os.environ:
     release = os.environ.get('OMERO_RELEASE')
-    split_release =  re.split("^([0-9]\.[0-9])(\.[0-9]+)(.*?)$",release)
-    # The short X.Y version.
-    version = split_release[1]
-    previousversion = version[:-1] + str(int(version[-1])-1)
-    devbranch = 'dev_' + version[0] + '_' + version [-1]
-    if not release[-1] == "0":
+    [majornumber, minornumber, patchnumber] = split_release(release)
+
+    # Define Sphinx version and release variables and development branch
+    version = ".".join(str(x) for x in (majornumber, minornumber))
+    devbranch = "dev_" + "_".join(str(x) for x in (majornumber, minornumber))
+
+    if patchnumber > 0:
         tags.add('point_release')
-    print devbranch
+    if minornumber > 0:
+        previousversion = ".".join(str(x) for x in (majornumber, minornumber - 1))
+    else:
+        previousversion = get_previous_version(majornumber)
 else:
     version = 'UNKNOWN'
     previousversion = 'UNKNOWN'
