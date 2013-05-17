@@ -4,13 +4,13 @@ OMERO.fs: file upload
 Background
 ----------
 
-Users import their image files to the OMERO.fs server. These uploaded
-files are kept relatively intact by the server, in file path, name and
-content, so that OMERO.fs can become a trusted repository for the
-master copy of users' data. While the default server configuration
-from :source:`etc/omero.properties` should typically suffice,
-:omerocmd:`config set` may be used to adjust settings related to file
-uploads. These settings are explained below.
+Users import their image files to the OMERO.fs server. The contents of
+these files are kept intact by the server and effort is also made to
+preserve the files' path and name, so that OMERO.fs can become a
+trusted repository for the master copy of users' data. While the
+default server configuration from :source:`etc/omero.properties`
+should typically suffice, :omerocmd:`config set` may be used to adjust
+settings related to file uploads. These settings are explained below.
 
 Template path
 -------------
@@ -114,8 +114,8 @@ presently:
 * :literal:`SHA1-160`
 
 The number that suffixes each of the checksum algorithm names
-specifies the bit width of the resulting checksum. The more bits there
-are, the less likely it is that checksums are coincidentally
-identical, and the longer the hex strings that are stored in the
-:literal:`hash` column of the :literal:`originalfile` table in the
-database.
+specifies the bit width of the resulting checksum. A larger bit width
+makes a coincidence of same checksums for different files less likely,
+but lengthens the checksum hex strings that are reported to the user
+and stored in the :literal:`hash` column of the
+:literal:`originalfile` table in the database.
