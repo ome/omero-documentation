@@ -31,12 +31,17 @@ def split_release(release):
     return (int(split_release[1]), int(split_release[2]), int(split_release[3]))
 
 def get_previous_version(majornumber):
+    # Return the previous version number for the first minor versions of a
+    # major series i.e. x.0.y
+    # Implemented as an hard-coded list until we work out an automated way to
+    # upgrade the database without specifying version numbers e.g.
+    # bin/omero db upgrade
     if majornumber == 5:
         return "4.4"
     elif majornumber == 4:
         return "3.2"
     else:
-        raise "No previous version is defined"
+        raise Exception("No previous version defined for the major release number %s" % majornumber)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
