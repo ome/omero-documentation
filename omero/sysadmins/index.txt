@@ -63,6 +63,7 @@ Advanced Server Installation
     server-advanced-configuration
     server-ldap
     server-tables
+    fs-upload-configuration
     omeromovie
 
 ******************
@@ -90,5 +91,6 @@ Advanced topics
     server-permissions
     server-advanced-configuration
     server-fs
+    fs-upload-configuration
     server-ldap
     grid
