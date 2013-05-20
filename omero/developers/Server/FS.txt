@@ -4,16 +4,20 @@ OMERO.fs
 The OMERO.fs service runs somewhere within
 |OmeroGrid| and is responsible for watching a
 particular filesystem directory for changes. These change events are
-then signaled to any observers, who can optionally begin reading the
-file once updated.
+then signalled to any observers, who can optionally begin reading the
+file once updated. OMERO.fs currently consists of two components:
 
-One critical use of OMERO.fs is watching a
+OMERO.fs DropBox is designed for watching a
 directory and kicking off an automatic import. The configuration of the
-DropBox system is covered on the :doc:`/sysadmins/server-fs` system administrator's page.
+DropBox system is covered on the :doc:`/sysadmins/server-fs` system 
+administrator's page.
 
-Another is allowing
+OMERO.fs-lite is designed to allow
 system administrators to point OMERO at an existing directory without
-requiring the data duplication required by a traditional import. 
+requiring the data duplication required by a traditional import. The changes 
+to the import system mean that an OMERO.fs server stores the original files in 
+the ``ManagedRepository``, preserving file names and any nested directory 
+structure. This improves the way OMERO deals with HCS data, allowing multiple files 
 
 .. toctree::
     :maxdepth: 1
