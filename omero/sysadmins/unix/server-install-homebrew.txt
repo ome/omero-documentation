@@ -60,8 +60,8 @@ You also need Java which comes as standard on OS X.
     Java(TM) SE Runtime Environment (build 1.6.0_33-b03-424-11M3720)
     Java HotSpot(TM) 64-Bit Server VM (build 20.8-b03-424, mixed mode)
 
-Homebrew installation
----------------------
+Homebrew
+^^^^^^^^
 
 Follow the installation instructions on the `Homebrew wiki <https://github.com/mxcl/homebrew/wiki/installation>`_. All
 requirements for OMERO will be installed to :file:`/usr/local`.
@@ -71,7 +71,12 @@ requirements for OMERO will be installed to :file:`/usr/local`.
     $ ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
     $ brew install git
 
-If you are having issues with curl, see the :ref:`install_homebrew_curl` section under :ref:`install_homebrew_common_issues`.
+If you are having issues with curl, see the :ref:`install_homebrew_curl`
+section under :ref:`install_homebrew_common_issues`.
+
+If you are running OS X 10.8 or later, you will need to install XQuartz::
+
+   $ brew install xquartz
 
 OMERO installation
 ------------------
