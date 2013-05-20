@@ -115,7 +115,7 @@ presently:
 
 The number that suffixes each of the checksum algorithm names
 specifies the bit width of the resulting checksum. A larger bit width
-makes a coincidence of same checksums for different files less likely,
-but lengthens the checksum hex strings that are reported to the user
-and stored in the :literal:`hash` column of the
+makes it less likely that different files will have the same checksum
+by coincidence, but lengthens the checksum hex strings that are
+reported to the user and stored in the :literal:`hash` column of the
 :literal:`originalfile` table in the database.
