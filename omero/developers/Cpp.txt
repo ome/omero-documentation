@@ -31,10 +31,9 @@ Prerequisites
 Restrictions
 ------------
 
-Ice 3.3 and Ice 3.4 will only build with older GCC versions (they
-contain broken headers which newer GCC versions will not parse).  You
-will need GCC < 4.6 for Ice 3.3 or Ice 3.4; GCC 4.4 is tested and
-recommended.
+Ice 3.3 and Ice 3.4 will only build with GCC versions *older* than 4.6
+(they contain broken headers which newer GCC versions will not parse).
+GCC 4.4 is tested and recommended.
 
 Ice 3.5 will build with any GCC version up to 4.8, the latest stable
 version; later versions may work, but are untested.
