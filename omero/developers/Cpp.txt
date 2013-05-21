@@ -192,7 +192,7 @@ artifacts.
 
     If you are using :program:`make`, you can unpack the main zip
     (e.g.  :file:`OMERO.cpp-<version>-64dbg.zip`) to some directory
-    (:file:`OMERO_DIST`) and follow the instructions below get
+    (:file:`OMERO_DIST`) and follow the instructions below to get
     started. For help with other build systems, please contact the
     mailing list.
 
