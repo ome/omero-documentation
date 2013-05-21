@@ -76,11 +76,15 @@ for Visual Studio.  Users of a package manager may also need to set
 correctly.  Note these are just example; you need to adjust them for
 the Ice installation path and version in use.
 
-If the Ice headers and libraries are not present on the standard
-search paths, these will need to be specified using the
-:envvar:`CPPPATH` and :envvar:`LIBPATH` environment variables (see
-below).  Windows users building with Visual Studio will also need to
-run the Visual Studio environment setup scripts:
+.. note ::
+
+    If the Ice headers and libraries are not present on the standard
+    search paths, these will need to be specified using the
+    :envvar:`CPPPATH` and :envvar:`LIBPATH` environment variables (see
+    below).
+
+Windows users building with Visual Studio will also need to run the
+Visual Studio environment setup scripts:
 
 ::
 
