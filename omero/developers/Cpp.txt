@@ -11,21 +11,21 @@ linked to your application.
 to compile your own. Test versions are, however, built by Jenkins on a
 small handful of platforms:
 
-- :jenkins:`Windows Server 2003 (32 bit) <job/OMERO-trunk-components/component=cpp,label=x86-windows/>`
-- :jenkins:`Linux <job/OMERO-trunk-components/component=cpp,label=linux/>`
-- :jenkins:`MacOSX <job/OMERO-trunk-components/component=cpp,label=macosx/>`
+* :jenkins:`Windows Server 2003 (32 bit) <job/OMERO-trunk-components/component=cpp,label=x86-windows/>`
+* :jenkins:`Linux <job/OMERO-trunk-components/component=cpp,label=linux/>`
+* :jenkins:`MacOSX <job/OMERO-trunk-components/component=cpp,label=macosx/>`
 
 Prerequisites
 -------------
 
-- The OMERO source code
-- A C++ compiler
+* The OMERO source code
+* A C++ compiler
 
-    - GCC is recommended for Linux and MacOS X
-    - Visual Studio or the Platform SDK for Windows
+  * GCC is recommended for Linux and MacOS X
+  * Visual Studio or the Platform SDK for Windows
 
-- The ZeroC Ice libraries, headers and slice definitions
-- The `Boost <http://www.boost.org/>`_ C++ libraries and headers
+* The ZeroC Ice libraries, headers and slice definitions
+* The `Boost <http://www.boost.org/>`_ C++ libraries and headers
   (depending upon the Ice version)
 
 Restrictions
