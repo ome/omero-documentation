@@ -1,5 +1,33 @@
 FS-lite
 =======
 
-FS-lite functionality is designed to reduce data duplication by changing both 
-the way images are imported and subsequently accessed after import.
+Import overview
+---------------
+
+Insert diagram
+
+Configuration properties
+------------------------
+
+Import workflow
+---------------
+
+API sequence
+------------
+
+Model description
+-----------------
+
+Server-side classes/concepts
+----------------------------
+
+Server-side sequence
+--------------------
+
+
+.. seealso::
+
+    Add link to Mark's sysadmin doc on checksums, file paths etc.
+
+
+

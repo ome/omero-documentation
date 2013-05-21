@@ -56,8 +56,7 @@ data files are no longer duplicated and any nested directory structure is
 preserved. It also allows OMERO to take advantage of pre-generated pyramids 
 available in some formats e.g. SVS.
 
-For full details 
-of the import workflow see :doc:`/developers/FSlite/FSlite`.
+For full details of the import workflow see :doc:`/developers/FSlite/FSlite`.
 
 Example
 -------
