@@ -89,8 +89,8 @@ run the Visual Studio environment setup scripts:
 
 or otherwise guarantee that the your environment is properly configured.
 For the 64bit build, be sure to use the right setup, namely
-"Start→Microsoft Visual Studio 2008→Visual Studio Tools→Visual Studio
-2008 Command Prompt" or "…→Visual Studio 2008 x64 Win64 Command
+"Start‣Microsoft Visual Studio 2008‣Visual Studio Tools‣Visual Studio
+2008 Command Prompt" or "…‣Visual Studio 2008 x64 Win64 Command
 Prompt".
 
 Building the library
