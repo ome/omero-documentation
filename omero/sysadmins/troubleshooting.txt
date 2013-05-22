@@ -346,10 +346,10 @@ Mod\_python error: "PythonHandler django.core.handlers.modpython"
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Double check if apache\_user has permission to write to:
-``/home/omero/omero_dir/lib/python/``,
-``/home/omero/omero_dir/lib/python/django``,
-``/home/omero/omero_dir/lib/python/omeroweb``,
-``/home/omero/omero_dir/var/lib``.
+``/home/omero/omero_dist/lib/python/``,
+``/home/omero/omero_dist/lib/python/django``,
+``/home/omero/omero_dist/lib/python/omeroweb``,
+``/home/omero/omero_dist/var/lib``.
 
 
 Too many open files
