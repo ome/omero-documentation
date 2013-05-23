@@ -1,15 +1,16 @@
 OMERO.fs
 ========
 
-OMERO.fs currently consists of two components:
+OMERO.fs is a series of changes designed to improve the way an OMERO.server 
+interacts with existing directories of acquired image data. It currently 
+consists of two components:
 
 OMERO.fs DropBox is designed for watching a
 directory and kicking off an automatic import. The configuration of the
 DropBox system is covered on the :doc:`/sysadmins/server-fs` system 
 administrator's page.
 
-OMERO.fs-lite is designed to allow
-system administrators to point OMERO at an existing directory without
+OMERO.fs-lite is designed to store original data in an unaltered form without
 requiring the data duplication that was carried out by a pre-5.0 import. The 
 changes to the import system mean that an OMERO.fs server stores the original 
 files in the ``ManagedRepository``, preserving file names and any nested 
