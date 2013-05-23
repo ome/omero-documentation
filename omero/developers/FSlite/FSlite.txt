@@ -9,11 +9,68 @@ Insert diagram
 Configuration properties
 ------------------------
 
+- ``omero.data.dir`` - singleton property (i.e. once globally) which points 
+  to the legacy repository location for OMERO. For OMERO to run on multiple 
+  systems, the contents of this directory must be on a shared volume.
+
+- ``omero.managed.dir`` - singleton property point to the default 
+  ``ManagedRepository``. In an OMERO install in which there is only one Blitz 
+  server, this will be the only repository. Need not be located under 
+  ``omero.data.dir`` but is by default.
+
+- ``omero.fslite.path`` - the so-called “template” which will be pre-pended to 
+  any path before it is created inside of a managed repository. It is this 
+  value which makes the ``ManagedRepository`` “managed”.
+
+- ``omero.repo.dir`` - value passed to all non-legacy, standalone 
+  repositories. This is not actively used, but would allow hosting 
+  repositories on multiple physical systems without the need for a shared 
+  volume. For example, after running ``bin/omero admin start`` on the main 
+  machine, it would be possible to launch nodes on various machines via 
+  ``bin/omero node start fs-B``, ``bin/omero node start fs-C``, etc. Each of 
+  these would pass a different ``omero.repo.dir`` value to its process.
+
 Import workflow
 ---------------
 
 API sequence
 ------------
+
+- Choose which files to import by either:
+   - ``ImportLibrary`` and friends (Java only)
+   - Listing all files (not dirs) manually.
+
+- Choose a ``ManagedRepositoryPrx`` from 
+  ``SharedResourcesPrx().repositories()``.
+
+- Call either:
+   - ``ImportLibrary.importImage()`` which calls 
+      ``ManagedRepositoryPrx.importFilesets(Fileset, ImportSettings)``, OR
+   - Directly use ``ManagedRepositoryPrx.importPaths(StringSet)``.
+
+- Receive an ``ImportProcessPrx``.
+
+- For each ``FileEntry`` in the ``FileSet`` OR each path in the ``StringSet`` 
+  (in order), call ``ImportProcessPrx.getUploader()`` and receive a 
+  ``RawFileStorePrx``.
+
+- Upload the file via ``RawFileStorePrx.write()`` while reading the files 
+  locally to write be sure to calculate the sha1.
+
+- Pass a list of sha1s (in order) to 
+  ``ImportProcessPrx.verifyUpload(StringSet)``. If the hashes match, receive a 
+  ``HandlePrx``. Otherwise an exception is thrown.
+
+At this point, the client should be able to disconnect and the rest of the 
+import should happen independently.
+
+- Create an ``CmdCallbackI`` that wraps the ``HandlePrx`` and wait for 
+  successful completion.
+
+At this point, the main metadata import is finished, but background processing 
+may still be occurring. Likely, handles for the background processing will 
+also be returned soon.
+
 
 Model description
 -----------------

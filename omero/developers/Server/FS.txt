@@ -1,9 +1,9 @@
 OMERO.fs
 ========
 
-OMERO.fs is a series of changes designed to improve the way an OMERO.server 
-interacts with existing directories of acquired image data. It currently 
-consists of two components:
+OMERO.fs is a series of on-going changes designed to improve the way an 
+OMERO.server interacts with existing directories of acquired image data. It 
+currently consists of two components:
 
 OMERO.fs DropBox is designed for watching a
 directory and kicking off an automatic import. The configuration of the
