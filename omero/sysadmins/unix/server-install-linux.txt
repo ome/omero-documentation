@@ -109,7 +109,7 @@ Now you are ready to install the rest of your prerequisite software
 packages::
 
     $ sudo apt-get install unzip build-essential mencoder
-    $ sudo apt-get install python python-imaging python-numpy python-tables python-matplotlib
+    $ sudo apt-get install python python-genshi python-imaging python-matplotlib python-numpy python-tables
     $ sudo apt-get install zeroc-ice33
     $ sudo apt-get install postgresql
     $ sudo apt-get install apache2 libapache2-mod-fastcgi
