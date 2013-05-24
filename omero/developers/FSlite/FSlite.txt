@@ -33,20 +33,22 @@ Configuration properties
 Import workflow
 ---------------
 
+Still be added
+
 API sequence
 ------------
 
 - Choose which files to import by either:
    - ``ImportLibrary`` and friends (Java only)
-   - Listing all files (not dirs) manually.
+   - listing all files (not dirs) manually.
 
 - Choose a ``ManagedRepositoryPrx`` from 
   ``SharedResourcesPrx().repositories()``.
 
 - Call either:
    - ``ImportLibrary.importImage()`` which calls 
-      ``ManagedRepositoryPrx.importFilesets(Fileset, ImportSettings)``, OR
-   - Directly use ``ManagedRepositoryPrx.importPaths(StringSet)``.
+     ``ManagedRepositoryPrx.importFilesets(Fileset, ImportSettings)``, OR
+   - directly use ``ManagedRepositoryPrx.importPaths(StringSet)``.
 
 - Receive an ``ImportProcessPrx``.
 
@@ -55,7 +57,7 @@ API sequence
   ``RawFileStorePrx``.
 
 - Upload the file via ``RawFileStorePrx.write()`` while reading the files 
-  locally to write be sure to calculate the sha1.
+  locally to write, be sure to calculate the sha1.
 
 - Pass a list of sha1s (in order) to 
   ``ImportProcessPrx.verifyUpload(StringSet)``. If the hashes match, receive a 
@@ -68,18 +70,80 @@ import should happen independently.
   successful completion.
 
 At this point, the main metadata import is finished, but background processing 
-may still be occurring. Likely, handles for the background processing will 
-also be returned soon.
-
+may still be occurring. Handles for the background processing will 
+also be returned.
 
 Model description
 -----------------
 
+.. note:: This section is still under development
+
+See :file:`acquisition.ome.xml`
+
+- ``ome.model.fs.Fileset``
+   - Represents a group of files which are presented to the server in one go.
+   - There is the possibility that a single client fileset will be one or more 
+     datasets in Bio-Formats. We need to decide to either model this or to use 
+     a special reader (DirectoryReader ?) on the server.
+   - Also links to multiple ome.model.jobs.Job instances.
+   - *In development*: links to the plate and image objects which are created 
+     during import.
+
+- ``ome.model.jobs.Job`` subclasses
+   - Each one represents some action which takes place server-side on the 
+     Fileset.
+   - For the standard sequence described above, the first will always be an 
+     ``UploadJob`` which contains version info from the client. If the 
+     files were not uploaded however, this may not be the case. Then a 
+     ``MetadataImportJob`` follows, which is the basic import.
+   - Other jobs may be necessary for regular usage (``PixelDataJob``, 
+     ``IndexingJob``, etc.). *Later jobs may also be added like a re-parse job 
+     with another FilesetVersionInfo instance, a re-check of the sha1s to look 
+     for corruption, or an archive job*.
+   - For job definitions, see :file:`jobs.ome.xml`
+
+- ``ome.model.fs.FilesetEntry``
+   - Link from a ``Fileset`` to exactly one ``ome.model.core.OriginalFile``
+   - Critically, it also contains the original absolute client path of that 
+     file.
+
+- ``ome.model.fs.FilesetVersionInfo``
+   - *In development*: A snapshot of process information along with software 
+     versions. Most important for knowing how files were parsed, therefore 
+     when using ``importPaths``, a “synthetic” version info might be created 
+     to say that these were just uploaded blindly.
+
 Server-side classes/concepts
 ----------------------------
 
+``AbstractRepositoryI`` and all of its subclasses are implementations of the 
+InternalRepository API. These objects are for internal use only and should 
+never be accessible by the clients. Each instance is initialized with a 
+directory which the servant attempts to “acquire” (i.e. grab a lock file). 
+Once it does so, it is the serving repository.
+
+Each internal repository provides a public view which in turn provides the 
+``Repository`` API. All method calls assume Unix-style strings, which are 
+guaranteed by ``CheckedPath``, a loose wrapper around ``java.io.File``. 
+CheckedPath objects along with the active ``Ice.Current`` instance are passed 
+to the ``RepositoryDao`` interface, which provides database access for all 
+repositories. Access to raw IO is provided by the ``RepoRawFileStoreI`` 
+servant, which wraps a ``RawFileBean``. 
+
+The ``ManagedRepository`` implementation is responsible for import and 
+enforces further constraints (beyond those of CheckedPath) on where and what 
+files are created. Most importantly, the ``omero.fslite.path`` template value 
+is expanded and pre-pended to all uploads. A further responsibility of the 
+``ManagedRepository`` is to maintain a list of all currently running 
+``ManagedImportProcessI``, each of which is held in the ``ProcessContainer``. 
+These ``ManagedImportProcessI`` instances further wrap ``RepoRawFileStoreI`` 
+instances with a subclass, ``ManagedRawFileStoreI``. 
+
+
 Server-side sequence
 --------------------
+
+Still be added
 
 
 .. seealso::
