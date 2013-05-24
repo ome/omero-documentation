@@ -341,17 +341,6 @@ http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=4751177 or this
 :ome-users:`ome-users thread <2009-March/001465.html>` on our mailing list for
 more information.
 
-
-Mod\_python error: "PythonHandler django.core.handlers.modpython"
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Double check if apache\_user has permission to write to:
-``/home/omero/omero_dist/lib/python/``,
-``/home/omero/omero_dist/lib/python/django``,
-``/home/omero/omero_dist/lib/python/omeroweb``,
-``/home/omero/omero_dist/var/lib``.
-
-
 Too many open files
 ^^^^^^^^^^^^^^^^^^^
 
