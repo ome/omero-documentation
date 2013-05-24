@@ -76,8 +76,7 @@ screenshot:
 Download the OMERO.server Virtual Appliance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The virtual appliance can be downloaded from the `OMERO download page
-<https://www.openmicroscopy.org/site/products/omero/downloads#section-2>`_,
+The virtual appliance can be downloaded from the :omero_plone:`OMERO download page <downloads#section-2>` 
 and should have a filename similar to, e.g. omero-vm-version.ova
 
 Import OMERO Virtual Appliance into VirtualBox
