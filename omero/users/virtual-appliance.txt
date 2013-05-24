@@ -58,7 +58,7 @@ Install VirtualBox
 
 In order to use the OMERO.server virtual appliance you need to install
 VirtualBox. Download VirtualBox from the
-`Downloads page <https://www.virtualbox.org/wiki/Downloads>`_ and follow the
+`VirtualBox Downloads page <https://www.virtualbox.org/wiki/Downloads>`_ and follow the
 installation process for your platform. If in doubt you should download,
 or upgrade to, the latest version of VirtualBox. Once VirtualBox is
 installed run the application. Depending upon your platform & version,
@@ -76,8 +76,8 @@ screenshot:
 Download the OMERO.server Virtual Appliance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The virtual appliance can be downloaded from `the download page
-<https://www.openmicroscopy.org/site/products/omero/downloads#section-2>`,
+The virtual appliance can be downloaded from the `OMERO download page
+<https://www.openmicroscopy.org/site/products/omero/downloads#section-2>`_,
 and should have a filename similar to, e.g. omero-vm-version.ova
 
 Import OMERO Virtual Appliance into VirtualBox
