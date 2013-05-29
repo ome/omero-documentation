@@ -196,6 +196,7 @@ Extending OMERO Server
     Server
     Server/ExtendingOmero
     server-blitz
+    Server/FS
     server-processor
     server-rendering
     Server/Clustering
@@ -211,4 +212,4 @@ Extending OMERO Server
     Server/RenderingEngine
     Server/ScalingOmero
     Server/SqlAction
-    Server/FS
+    

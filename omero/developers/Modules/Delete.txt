@@ -26,7 +26,7 @@ functionality (see :ticket:`2615` for tickets):
 Future releases will continue this work (see :ticket:`2911`).
 
 Delete behaviour (technical)
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Configuring what gets deleted is done using an XML file. The technical
 specification of delete behaviour can be found
