@@ -37,7 +37,7 @@ reach 512MB. These directories will look like:
     Blitz-0.log     FileServer.log      MonitorServer.log   Processor-0.log     master.out
     DropBox.log     Indexer-0.log       OMEROweb.log        master.err
 
-Any files with a ``.1,``.2\ ``,``.3\``, etc. suffix may be compressed or
+Any files with a ``.1``, ``.2``, ``.3`` etc. suffix may be compressed or
 deleted.
 
 OMERO.server log file location
