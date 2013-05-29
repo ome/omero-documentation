@@ -65,6 +65,7 @@ Advanced Server Installation
     server-tables
     omeromovie
 
+
 ******************
 Server Maintenance
 ******************
@@ -79,16 +80,15 @@ Server Maintenance
     command-line-interface
 
 
-***************
-Advanced topics
-***************
+*********************
+Other Advanced Topics
+*********************
 
 .. toctree::
     :maxdepth: 2
     :titlesonly:
 
     server-permissions
-    server-advanced-configuration
     server-fs
-    server-ldap
     grid
+
