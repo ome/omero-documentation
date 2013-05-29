@@ -18,9 +18,9 @@ Configuration properties
   server, this will be the only repository. Need not be located under 
   ``omero.data.dir`` but is by default.
 
-- ``omero.fslite.path`` - the so-called “template” which will be pre-pended to 
-  any path before it is created inside of a managed repository. It is this 
-  value which makes the ``ManagedRepository`` “managed”.
+- ``omero.fslite.path`` - the template which determines the path that will be 
+  created inside of a managed repository. It is this value which makes the 
+  ``ManagedRepository`` “managed”.
 
 - ``omero.repo.dir`` - value passed to all non-legacy, standalone 
   repositories. This is not actively used, but would allow hosting 
@@ -40,26 +40,26 @@ API sequence
 
 - Choose which files to import by either:
    - ``ImportLibrary`` and friends (Java only)
-   - listing all files (not dirs) manually.
+   - listing all files (not directories) manually.
 
 - Choose a ``ManagedRepositoryPrx`` from 
   ``SharedResourcesPrx().repositories()``.
 
 - Call either:
    - ``ImportLibrary.importImage()`` which calls 
-     ``ManagedRepositoryPrx.importFilesets(Fileset, ImportSettings)``, OR
+     ``ManagedRepositoryPrx.importFilesets(Fileset, ImportSettings)``, or
    - directly use ``ManagedRepositoryPrx.importPaths(StringSet)``.
 
 - Receive an ``ImportProcessPrx``.
 
-- For each ``FileEntry`` in the ``FileSet`` OR each path in the ``StringSet`` 
+- For each ``FileEntry`` in the ``FileSet`` or each path in the ``StringSet`` 
   (in order), call ``ImportProcessPrx.getUploader()`` and receive a 
   ``RawFileStorePrx``.
 
 - Upload the file via ``RawFileStorePrx.write()`` while reading the files 
-  locally to write, be sure to calculate the sha1.
+  locally to write, be sure to calculate the checksum.
 
-- Pass a list of sha1s (in order) to 
+- Pass a list of checksums (in order) to 
   ``ImportProcessPrx.verifyUpload(StringSet)``. If the hashes match, receive a 
   ``HandlePrx``. Otherwise an exception is thrown.
 
@@ -81,7 +81,7 @@ Model description
 See :file:`acquisition.ome.xml`
 
 - ``ome.model.fs.Fileset``
-   - Represents a group of files which are presented to the server in one go.
+   - Represents a group of files which are considered to belong together.
    - There is the possibility that a single client fileset will be one or more 
      datasets in Bio-Formats. We need to decide to either model this or to use 
      a special reader (DirectoryReader ?) on the server.
