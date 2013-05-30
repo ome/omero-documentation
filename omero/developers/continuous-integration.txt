@@ -374,37 +374,30 @@ tab of Jenkins.
 	:header-rows: 1
 
 	- 	* Job task
-		* Current major release
-		* Next point release
+		* Current release/next point release
 		* Next major release
 
 	- 	* Publish OMERO documentation
 		* :term:`OMERO-docs-release-stable`
-		* N/A
 		* :term:`OMERO-docs-release-develop`
 
 	- 	* Publish Bio-Formats documentation
 		* :term:`BIOFORMATS-docs-release-stable`
-		* N/A
 		* :term:`BIOFORMATS-docs-release-develop`
 
 	- 	* Publish OME Model documentation
 		* :term:`FORMATS-docs-release-stable`
 		* N/A
-		* N/A
 
 	- 	* Review OMERO documentation PRs
-		* :term:`OMERO-docs-merge-stable`
 		* :term:`OMERO-docs-merge-stable`
 		* :term:`OMERO-docs-merge-develop`
 
 	- 	* Review Bio-Formats documentation PRs
 		* :term:`BIOFORMATS-docs-merge-stable`
-		* :term:`BIOFORMATS-docs-merge-stable`
 		* :term:`BIOFORMATS-docs-merge-develop`
 
 	- 	* Review OME Model documentation PRs
-		* :term:`FORMATS-docs-merge-stable`
 		* :term:`FORMATS-docs-merge-stable`
 		* :term:`FORMATS-docs-merge-develop`
 
@@ -425,8 +418,8 @@ variables are used:
 - for the Bio-Formats and OMERO sets of documentation, the name of the
   Jenkins job is set by :envvar:`JENKINS_JOB`.
 
-Current release
-^^^^^^^^^^^^^^^
+Current release/next point release
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The branch for the current release of OMERO/Bio-Formats/OME model is
 |devbranch|.
@@ -468,14 +461,6 @@ The branch for the current release of OMERO/Bio-Formats/OME model is
 		#. If the build is promoted,
 			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
-
-Next point release
-^^^^^^^^^^^^^^^^^^
-
-The branch for the next point release of OMERO/Bio-Formats/OME model is
-|devbranch|.
-
-.. glossary::
 
 	:jenkinsjob:`OMERO-docs-merge-stable`
 
