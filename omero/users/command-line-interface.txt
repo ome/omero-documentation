@@ -28,7 +28,7 @@ Additionally, Ice_ must be installed on your machine::
     $ python -c "import Ice"
 
 The |CLI| is currently bundled with the OMERO.server. Download the version 
-corresponding to your system from the :omero_plone:`OMERO downloads <downloads>` page.
+corresponding to your system from the :downloads:`OMERO downloads <>` page.
 
 Once the server is downloaded, the |CLI| is located under the :file:`bin/` 
 directory::
