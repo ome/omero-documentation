@@ -28,15 +28,17 @@ internet.
     :align: center
     :alt: The OMERO Platform
 
-This documentation is for the latest version of the OMERO Platform. We
-also have archived versions available for :legacy_plone:`legacy versions of
-OMERO <support/legacy/>`. For more technical information, please refer to the 
-:doc:`/developers/index`.
+This documentation is for the new OMERO 5 Platform. This version is designed 
+to improve our handling of complex multidimensional datasets. It allows you to 
+upload your files in their original format, preserving file names and any 
+nested directory structure in the server repository. It should 
+currently be considered **beta quality**, see the 
+:omero_plone:`OME 5 overview <>` for further details. For more technical 
+information, please refer to the :doc:`/developers/index`.
 
--   There are a number of demonstration videos available on the
+-   **Coming soon** - demonstration videos on the
     :omero_plone:`Features List <feature-list>` page, providing an
     overview of the applications. 
--   You can also browse our :omero_plone:`screenshots <screenshots>`. 
 
 .. toctree::
     :maxdepth: 1
@@ -51,17 +53,15 @@ Quickstart
 **********
 
 If your institution does not have an existing OMERO.server for you to connect 
-to, you can apply for a user account on our demo server, or create your own 
-using a virtual appliance (a step-by-step guide for how to do this is 
-provided):
+to, you can create your own using a virtual appliance (a step-by-step guide 
+for how to do this is provided). The Demo server will ???
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
-    demo-server
     virtual-appliance
-
+    demo-server
 
 ********************
 OMERO.insight guides
