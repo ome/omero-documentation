@@ -159,3 +159,16 @@ The File Finder window changes to reflect available file types, according to the
 
 |
 
+**Import for Another User**
+
+If you are an Administrator user, use the **Import For** drop down box to select another user to import the data as.
+
+The chosen user will then own this data.
+
+The projects and datasets shown in the drop-down boxes as available to import into, is determined by the permission status of the group.
+
+|
+
+.. image:: /images/tutor/importingDataImportFor.jpg
+    :width: 100%
+    :align: center
