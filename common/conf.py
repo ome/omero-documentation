@@ -138,7 +138,7 @@ extlinks = {
     'bf_plone' : (oo_site_root + 'site/products/bio-formats/%s', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
     # Downloads
-    'downloads' : (downloads_root + 'omero/%s', ''),
+    'downloads' : (downloads_root + '/omero/%s', ''),
     # Miscellaneous links
     'snapshot' : (cvs_root + '/snapshots/%s', ''),
     'zeroc' : ('http://zeroc.com/%s', ''),
