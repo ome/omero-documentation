@@ -97,6 +97,34 @@ Tag/Attachment where they have used it, before you can delete it.
 the group (e.g. PI), they will be able to delete their Tag/Attachment,
 even if others have used it.
 
+Delete multi-file Images and Image sets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+An Image, or a set of Images, may come from a single file or a set of
+dependent files. For instance, a single Leica LIF file may contain
+many Images, as may a Zeiss mdb file with lsm files. On the other
+hand, some file formats, like Deltavision with log file, or the
+original ICS file format, use multiple files to represent a single
+Image. At import time, these groups of related files and Images are
+organized into Filesets: a Fileset is a set of files that encode a set
+of Images. The simplest case where there is one file per Image still
+has a corresponding Fileset.
+
+Even if many Images come from the same file, they may be separately
+selected and viewed in client software. However, at least at present,
+a Fileset may not be partially deleted: either all the files and
+Images from it are deleted, or none are. So, for instance, the Images
+from the same Leica LIF file may be deleted only all at once, and the
+Deltavision log file is not deleted separately from the main file. The
+same applies to high-content screening data: a Plate with its Wells
+and Images are all stored in one Fileset and may be deleted only
+together.
+
+Each Fileset has a corresponding directory on the server in which,
+perhaps in subdirectories, all its files are stored. All the file
+paths for an Image's Fileset can be accessed from the tool-bar at the
+top of the right-hand panel.
+
 Delete in collaborative group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
