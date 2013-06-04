@@ -54,7 +54,9 @@ Quickstart
 
 If your institution does not have an existing OMERO.server for you to connect 
 to, you can create your own using a virtual appliance (a step-by-step guide 
-for how to do this is provided). The Demo server will ???
+for how to do this is provided). The Demo server service is currently only 
+available to try out the latest release of OMERO 4.4. OMERO 5 demo accounts 
+will made available in due course.
 
 .. toctree::
     :maxdepth: 1
