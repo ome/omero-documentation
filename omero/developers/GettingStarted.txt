@@ -56,7 +56,7 @@ OMERO server and client libraries you use are the same OMERO version.
 You may wish to work with the most recent OMERO release, or
 alternatively you can use the latest development code. Instructions on
 how to download or check out the code can be found on the main
-:omero_plone:`downloads page <downloads>`.
+:downloads:`downloads page <>`.
 
 Regular builds of the server are performed by Jenkins_ (formerly known as 
 hudson) and all results are available here :omerojob:`here <>`, 
