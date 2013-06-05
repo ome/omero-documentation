@@ -2,8 +2,10 @@
 Developer Documentation
 #######################
 
-The following documentation is for developers wishing to write OMERO client code or extend the OMERO server. Instructions on :omero_plone:`downloading <downloads>`,
-installation and administering OMERO can be found under the :doc:`/sysadmins/index` of the main site.
+The following documentation is for developers wishing to write OMERO client 
+code or extend the OMERO server. Instructions on :downloads:`downloading <>`,
+installation and administering OMERO can be found under the 
+:doc:`/sysadmins/index` of the main site.
 
 .. figure:: /images/developer-api-figure.png
    :align: center
