@@ -46,6 +46,12 @@ OMERO.insight facilitates collaboration by allowing you to create groups of user
 
 #. Selected groups and users can be viewed in the data tree.
 
+   Use the **View** menu to select **Group Display** to see the group’s data irrespective of owner.
+
+   **User Display** shows the data according to owner.
+
+   |
+
    .. image:: /images/tutor/collaborationViewGroups.jpg
        :width: 62.5%
        :align: center
