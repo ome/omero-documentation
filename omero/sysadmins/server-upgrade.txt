@@ -20,7 +20,7 @@ to disable this functionality you should do so now as outlined on the
     the database.
 
     **Also be aware that at present there is no way of directly upgrading
-    OMERO.server from the 4.x line to the |release| version.**
+    OMERO.server from the 4.x line to the OMERO.fs (5.x) version.**
 
 If you encounter errors during a OMERO upgrade, database upgrade, etc.
 you should retain as much log information as possible and notify the
