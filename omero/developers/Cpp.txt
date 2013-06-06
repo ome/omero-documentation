@@ -138,6 +138,32 @@ or to test only C++:
     This **does** require having run the top-level build (``build.py``) at
     least once.
 
+.. note::
+
+    If the build fails with errors such as
+
+    ::
+
+        Checking for C++ header file Ice/Ice.h... no
+        Fatal Error: Ice/Ice.h not found
+
+    this can be caused by the Ice headers not being installed or not
+    being on the search path.  However, also check
+    :file:`components/tools/OmeroCpp/config.log`.  If this contains
+    error messages such as
+
+    ::
+
+         /usr/include/Ice/ProxyHandle.h:176:13: error: ‘upCast’ was not declared in this scope,
+         and no declarations were found by argument-dependent lookup at the point of
+         instantiation
+
+    this is caused by the Ice headers being buggy, and newer versions
+    of GCC rejecting the invalid code.  To compile in this situation,
+    add ``-fpermissive`` to :envvar:`CXXFLAGS` to allow the invalid
+    code to be accepted, but do note that this may also mask other
+    problems so should not be used unless strictly needed.
+
 Further build configuration
 ---------------------------
 
