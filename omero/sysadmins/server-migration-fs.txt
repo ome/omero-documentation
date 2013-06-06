@@ -3,10 +3,10 @@ OMERO.server to OMERO.fs migration
 
 
 The OME team puts the safety of users' data first. The shift towards the
-OMERO.fs paradigm changes the way images are imported and stored. Because of
+OMERO.fs paradigm changes the way images are imported and stored. This means
 that migration of an existing pre-OMERO.fs production server to OMERO.fs has
 to be performed with caution.
 
-Currently research and testing is being performed into increasing the 
+Currently, research and testing are being performed to increase the
 reliability of the migration steps. At present it is not possible to migrate
 an OMERO.server from the 4.x line to the OMERO.fs version.
