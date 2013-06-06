@@ -9,7 +9,7 @@ server to OMERO.fs has to be performed with caution.
 
 Currently, research and testing are being performed to increase the
 reliability of the migration steps. At present it is not possible to migrate
-an OMERO.server from the 4.x line to the OMERO.fs version. However it is
+an OMERO.server from the 4.x line to the OMERO.fs version. However, it is
 possible to substitute OMERO.server with an OMERO.fs-enabled version. Legacy
 data will be preserved and all subsequent imports will happen using the
 updated logic.
