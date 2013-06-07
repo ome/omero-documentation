@@ -169,7 +169,7 @@ and see how to use data services view.**
 Execution
 ~~~~~~~~~
 
-The next diagram analyses a concrete call to a view to exemplify the
+The next diagram analyzes a concrete call to a view to exemplify the
 pattern followed by all asynchronous calls in the various views. The
 call is mapped onto a command, the command is transferred to a processor
 for asynchronous execution, a handle to the call is returned to to

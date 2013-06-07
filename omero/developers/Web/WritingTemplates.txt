@@ -67,7 +67,7 @@ like the screen-shot above. You could add a 'title' block to set the page
         My OMERO web app page
     {% endblock %}
 
-Additional blocks can be used to customise the page further. See below for 
+Additional blocks can be used to customize the page further. See below for 
 more details.
 
 

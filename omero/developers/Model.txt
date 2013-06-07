@@ -10,7 +10,7 @@ OMERO is based on the OME data model which can appear overly complex for
 new users. However, the core entities you need for getting started are
 much simpler.
 
-Images in OMERO are organised into a many-to-many container hierarchy:
+Images in OMERO are organized into a many-to-many container hierarchy:
 "Project" -> "Dataset" -> "Image". These containers (and various other
 objects) can be annotated to link various types of data. Annotation
 types include Comment (string), Tag (short string), Boolean, Long, Xml,
