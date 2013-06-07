@@ -87,7 +87,7 @@ parameters will be disabled and will not be passed to the script.
 Pick selected Images, Datasets or Projects from OMERO.insight
 -------------------------------------------------------------
 
-Starting in OMERO 4.3, OMERO.insight will recognise and populate a pair of
+Starting in OMERO 4.3, OMERO.insight will recognize and populate a pair of
 fields named 'Data\_Type' (string) and 'IDs' (Long list) with the
 currently selected objects in OMERO.insight when the script is launched. You
 should specify the 'Data\_Type' options that your script should accept.

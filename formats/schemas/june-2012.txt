@@ -128,7 +128,7 @@ Add additional intermediate abstract annotations (``BasicAnnotation``,
 ``NumericAnnotation``, ``TextAnnotation``, ``TypeAnnotation``) to match
 OMERO annotation structure. The current annotations have been modified to
 now extend these. This allows the code generation to group annotations
-together by intermediate annotation type. The behaviour of the current
+together by intermediate annotation type. The behavior of the current
 annotations has not changed, and the new intermediate abstract
 annotations are not used directly.
 
