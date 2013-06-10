@@ -25,6 +25,20 @@ functionality (see :ticket:`2615` for tickets):
 
 Future releases will continue this work (see :ticket:`2911`).
 
+Finality of deletion
+^^^^^^^^^^^^^^^^^^^^
+
+Import in OMERO 5.x uploads the image and companion files intact and
+stores them within subdirectories of the directory configured by the
+value of :literal:`omero.managed.dir`, typically
+:file:`ManagedRepository`. The files relating to a specific fileset
+are stored together on the server's filesystem and they are read by
+Bio-Formats when images are viewed in OMERO clients. If any of a
+fileset's files, or the corresponding entries for them in the
+database, are deleted, then the fileset may no longer be readable. If
+all the fileset's files are deleted, the fileset will certainly be
+unreadable, and there is no 'undo' that will bring it back.
+
 Delete behaviour (technical)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
