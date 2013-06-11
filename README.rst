@@ -434,8 +434,9 @@ for the following:
  
 * Trac tickets: ``:ticket: `3442```, displayed as ``<a>#3442</a>``
 * Snapshots: ``:snapshot: `omero/myzip.zip```
-* Plone pages: ``:omero_plone: `Downloads <downloads>```
+* Plone pages: ``:omero_plone: `OME 5 <>```
 * OME Forums: ``:forum: `viewforum.php?f=3```
+* Downloads: ``:downloads: `OMERO downloads <>```
 
 For the most up-to-date list, please consult ``conf.py`` (section
 ``extlinks``).
