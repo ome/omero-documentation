@@ -69,7 +69,7 @@ Objects
 -------
 
 Before we can begin talking about what you can do with OMERO (the remote
-method calls available in the |OmeroApi|), it's
+method calls available in the |OmeroApi|), it is
 helpful to first know what the objects are that we will be distributing.
 These are the only types that can pass through the API.
 
@@ -240,7 +240,7 @@ or collection([]) rather than null.
 However, the database and OMERO support nullable values and so
 :doc:`/developers/server-blitz` defines a hierarchy of types which
 wraps the primitives: :source:`RTypes <components/blitz/resources/omero/RTypes.ice>`
-Since Ice allows references to be nulled as opposed to primitives, it's
+Since Ice allows references to be nulled, as opposed to primitives, it is
 possible to send null strings, integers, etc.
 
 ::
@@ -354,8 +354,8 @@ Instead, ``omero.RType`` is the abstract superclass of our "**r**\ emote
 subclass of "RType".
 
 To allow other types discussed later to also take part in the
-polymorphism, it's necessary to include RType wrappers for them. This is
-the category that ``omero::RObject`` and ``omero::RMap`` fall into.
+polymorphism, it is necessary to include RType wrappers for them. This
+is the category that ``omero::RObject`` and ``omero::RMap`` fall into.
 
 ``omero::RTime`` and ``omero::RClass`` fall into a different category.
 They are identical to ``omero::RLong`` and ``omero::RString``,
@@ -364,7 +364,7 @@ respectively, but are provided as type safe variants.
 OMERO model objects
 ~~~~~~~~~~~~~~~~~~~
 
-With these components -- rtypes, primitives, constants, etc -- it's
+With these components -- rtypes, primitives, constants, etc -- it is
 possible to define the core nouns of OME, the |OmeroModel| . The OMERO
 |OmeroModel| is a translation of the 
 :model_doc:`OME XML specification <ome-xml/>` 
@@ -546,8 +546,8 @@ your own classes or subclasses created on deserialization, see the
 ``Advanced topics`` section below.
 
 Such concrete implementations provide features which are not available
-in the solely Ice-based versions. When you'd like to use these features,
-it's necessary to down-cast to the OMERO-based type.
+in the solely Ice-based versions. When you would like to use these 
+features, it is necessary to down-cast to the OMERO-based type.
 
 For example, objects in each language binding provide a "more natural"
 form of iteration for that language.
@@ -817,7 +817,7 @@ can be inefficient, all the |OmeroModel| collections are hidden behind several m
         // The reload...() method allows one instance
         // to take over a collection from another, if it
         // has been properly initialized on the server.
-        // sameImage will have it's collection unloaded.
+        // sameImage will have its collection unloaded.
         ImagePtr sameImage = new ImageI(1L, true);
         sameImage->getDetails()->setUpdateEvent( new EventI(1L, false) );
         sameImage->linkDataset( new DatasetI(1L, false) );
@@ -871,7 +871,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.cpp`
     % The reload...() method allows one instance
     % to take over a collection from another, if it
     % has been properly initialized on the server.
-    % sameImage will have it's collection unloaded.
+    % sameImage will have its collection unloaded.
     sameImage = ImageI(1, true);
     sameImage.getDetails().setUpdateEvent( EventI(1, false) );
     sameImage.linkDataset( DatasetI(1, false) );
@@ -929,7 +929,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.m`
     # The reload...() method allows one instance
     # to take over a collection from another, if it
     # has been properly initialized on the server.
-    # sameImage will have it's collection unloaded.
+    # sameImage will have its collection unloaded.
     sameImage = ImageI(1L, True)
     sameImage.getDetails().setUpdateEvent( EventI(1L, False) )
     sameImage.linkDataset( DatasetI(long(1), False) )
@@ -993,7 +993,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.py`
             // The reload...() method allows one instance
             // to take over a collection from another, if it
             // has been properly initialized on the server.
-            // sameImage will have it's collection unloaded.
+            // sameImage will have its collection unloaded.
             Image sameImage = new ImageI(1L, true);
             sameImage.getDetails().setUpdateEvent( new EventI(1L, false) );
             sameImage.linkDataset( new DatasetI(1L, false) );
@@ -1612,8 +1612,7 @@ It produces services!
 ~~~~~~~~~~~~~~~~~~~~~
 
 Once a client has been configured properly, and has an active in
-ServiceFactory in hand, it's time to start
-accessing services.
+ServiceFactory in hand, it is time to start accessing services.
 
 The collection of all services provided by OMERO are known as the
 |OmeroApi|. Each service is defined in a slice file under
@@ -2668,16 +2667,16 @@ topics which we would like to see added here in the near future include:
 Code generation
 ~~~~~~~~~~~~~~~
 
-Though not directly relevant to writing a client, it's important to note
-that much of the code for |OmeroPy|, |OmeroCpp|, and |OmeroJava|
+Though not directly relevant to writing a client, it is important to
+note that much of the code for |OmeroPy|, |OmeroCpp|, and |OmeroJava|
 is code generated by the BlitzBuild. Therefore
 many of the imported and included files in the examples above, cannot
 actually be found in `github <https://github.com/openmicroscopy/openmicroscopy>`_.
 
 We plan to include packages of the generated source code in future
-releases. Until then, it's possible to find our latest builds on 
-:jenkins:`jenkins <>` or to build them locally, though some of the generated files are later 
-overwrriten by hand-written versions:
+releases. Until then, it is possible to find our latest builds on 
+:jenkins:`jenkins <>` or to build them locally, though some of the
+generated files are later overwritten by hand-written versions:
 
 -  model is located in ``components/tools/OmeroCpp/src/omero/model/``
 -  OmeroPy is located in ``components/tools/OmeroPy/src/``

@@ -39,7 +39,7 @@ Blitz Gateway connection to OMERO.
     login\_required is a class-based decorator with several methods
     that can be overwritten to customize its functionality (see below).
     This means that the decorator **MUST** be instantiated when used with
-    the @ notation, ie:
+    the @ notation, i.e.:
 
     ::
 
@@ -84,7 +84,7 @@ Extending login\_required
 
 The base login\_required class can be found in omeroweb/decorators.py.
 It has a number of methods that can be overwritten to customize or
-extend its functionality. Again, it's best to look at an example of
+extend its functionality. Again, it is best to look at an example of
 this. See webclient/decorators.py to see how the base
 omeroweb.decorators.login\_required has been extended to configure the
 conn connection upon login, handle login failure differently etc.
@@ -120,7 +120,7 @@ OMERO.web error handling
 
 Django comes with some nice error handling functionality. We have
 customized this and also provided some client-side error handling in
-Javascript to deal with errors in AJAX requests. This javascript can be
+JavaScript to deal with errors in AJAX requests. This JavaScript can be
 found in the ..?...js code which should be included in all pages that
 require this functionality. Errors are handled as follows:
 
@@ -141,7 +141,7 @@ With Debug: True (during development)
 
 Django will return an html page describing the error, with various
 parameters, stack trace etc. If the request was AJAX, and you have our
-javascript code on your page then the error will be handled as described
+JavaScript code on your page then the error will be handled as described
 (see above). NB: With Debug True, 500 errors will be returned as html
 pages by Django but these will not be rendered as html in our feedback
 form. You can use developer tools on your browser (e.g. Firebug on

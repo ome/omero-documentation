@@ -124,8 +124,8 @@ Script outputs
 
 -  Scripts that generate a File Annotation or Original File should
    return these objects. OMERO.insight will give users the option of
-   downloading the File, and may also allow viewing of the file if it's
-   a suitable type. This should be set as the mimetype of the File
+   downloading the File, and may also allow viewing of the file if it is
+   of a suitable type. This should be set as the mimetype of the File
    Annotation (E.g. 'plain/text', 'image/jpeg' etc). In this example,
    fileAnnotation should be an omero.model.FileAnnotationI object, but
    could also be an omero.model.OriginalFileI object.
