@@ -20,7 +20,7 @@ bar. The following screen will appear:
     :alt:
 
 The first 'step' of the protocol has been added. This is the "Title
-Step" of the protocol and it's name can be edited in the top of the
+Step" of the protocol and its name can be edited in the top of the
 right panel.
 
 .. figure:: /images/editor-2title.png
@@ -58,7 +58,7 @@ of the step, the file looks like this:
     :align: center
     :alt:
 
-Now it's time to add parameters to this protocol. The "parameters" are
+Now it is time to add parameters to this protocol. The "parameters" are
 variables in the protocol that change often and can be used to summarize
 the protocol.
 

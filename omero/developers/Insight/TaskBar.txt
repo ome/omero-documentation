@@ -141,7 +141,7 @@ Follows the code:
     class UIManager
     {
 
-        //Inherits from TopWindow, so it's automatically linked to the TaskBar.
+        //Inherits from TopWindow, so it is automatically linked to the TaskBar.
         //Contains a button that we listen to.  When a mouse click occurs we call
         //createAuxWin().
         private MainWindow      mainWindow;

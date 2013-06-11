@@ -17,10 +17,10 @@ contains coarse grained components which we call **agents**, that are
 each responsible for a specific aspect of the application's
 functionality:
 
--  The Data Manager? provides the user with the GUI functionality to
+-  The Data Manager provides the user with the GUI functionality to
    access their data, metadata and visualize large image sets.
--  The Viewer? is a tool to visualize and tune 5D images.
--  The Measurement Tool? is a tool to perform basic measurement.
+-  The Viewer is a tool to visualize and tune 5D images.
+-  The Measurement Tool is a tool to perform basic measurement.
 
 .. note::
 
