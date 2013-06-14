@@ -10,7 +10,7 @@ directory and kicking off an automatic import. The configuration of the
 DropBox system is covered on the :doc:`/sysadmins/server-fs` system 
 administrator's page.
 
-OMERO.fs-lite is designed to store original data in an unaltered form without
+OMERO.fs Managed Repository is designed to store original data in an unaltered form without
 requiring the data duplication that was carried out by a pre-5.0 import. The 
 changes to the import system mean that an OMERO.fs server stores the original 
 files in the ``ManagedRepository``, preserving file names and any nested 
@@ -25,4 +25,4 @@ as single entities within the OMERO clients.
     :maxdepth: 1
     :titlesonly:
 
-    /developers/FSlite/FSlite
+    /developers/ManagedRepository/ManagedRepository
