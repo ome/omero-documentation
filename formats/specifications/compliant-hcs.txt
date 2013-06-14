@@ -4,7 +4,7 @@ Compliant HCS Specification
 
 OME Compliant HCS File Specification. This was developed in conjunction
 with the June 2010 release of the OME-XML Model and has been updated to the 
-June 2012 release.
+June 2013 release.
 
 A compliant specification for HCS OME files has been defined. This is
 not the minimum required for the display of an image, that is the
@@ -19,13 +19,13 @@ OME Compliant File Specification
 ::
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2012-06"
-        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
-        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2012-06"
-        xmlns:SPW="http://www.openmicroscopy.org/Schemas/SPW/2012-06"
+    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2013-06"
+        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2013-06"
+        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2013-06"
+        xmlns:SPW="http://www.openmicroscopy.org/Schemas/SPW/2013-06"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06 
-                            http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd">     
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2013-06
+                            http://www.openmicroscopy.org/Schemas/OME/2013-06/ome.xsd">
 
         <SPW:Plate 
             ID="Plate:1" 

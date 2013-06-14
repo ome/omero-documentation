@@ -210,14 +210,14 @@ Sample Files
 SPIM
 """"
 
-:schema_plone:`SPIM-modulo-sample.ome.tiff <Samples/2012-06/SPIM-modulo-sample.ome.tiff>`
+:schema_plone:`SPIM-modulo-sample.ome.tiff <Samples/2013-06/SPIM-modulo-sample.ome.tiff>`
 
 A 2x2 tile of planes each recorded at 4 angles.
 
 Big Lambda
 """"""""""
 
-:schema_plone:`LAMBDA-modulo-sample.ome.tiff <Samples/2012-06/LAMBDA-modulo-sample.ome.tiff>`
+:schema_plone:`LAMBDA-modulo-sample.ome.tiff <Samples/2013-06/LAMBDA-modulo-sample.ome.tiff>`
 
 Excitation of 5 wavelength [Λ, big-lambda] each recorded at 10 emission
 wavelength ranges [λ, lambda].
@@ -225,7 +225,7 @@ wavelength ranges [λ, lambda].
 FLIM
 """"
 
-:schema_plone:`FLIM-modulo-sample.ome.tif <Samples/2012-06/FLIM-modulo-sample.ome.tif>`
+:schema_plone:`FLIM-modulo-sample.ome.tif <Samples/2013-06/FLIM-modulo-sample.ome.tif>`
 
 Two channels each recorded at eight histogram bins.
 

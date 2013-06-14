@@ -3,7 +3,7 @@ Compliant File Specification
 
 
 This was developed in conjunction with the April 2010 release of the
-OME-XML Model and the samples have been updated to the June 2012 release.
+OME-XML Model and the samples have been updated to the June 2013 release.
 
 
 A "compliant" specification OME file has been defined. This is not the
@@ -33,12 +33,12 @@ Sample structure one:
 ::
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2012-06"
-        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
-        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2012-06"
+    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2013-06"
+        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2013-06"
+        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2013-06"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06 
-                            http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd">   
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2013-06
+                            http://www.openmicroscopy.org/Schemas/OME/2013-06/ome.xsd">
     
         <OME:Image ID="Image:0" Name="Series 1">
             <OME:AcquisitionDate>2008-02-06T13:43:19</OME:AcquisitionDate>
@@ -68,12 +68,12 @@ Sample structure two:
 ::
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2012-06"
-        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
-        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2012-06"
+    <OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2013-06"
+        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2013-06"
+        xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2013-06"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06 
-                            http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd">   
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2013-06
+                            http://www.openmicroscopy.org/Schemas/OME/2013-06/ome.xsd">
     
         <OME:Instrument ID="Instrument:0">
             <OME:Detector ID="Detector:0:0" Model="COOLSNAP_HQ / ICX285" Type="CCD"/>
@@ -153,14 +153,14 @@ Alternative valid forms:
 
 -  would have a ``OME:TiffData`` block instead of the ``BIN:BinData`` block
    (this would be used in the header of an OME-TIFF file)
--  would have a ``OME:MetadataOnly`` block instead of the ``BIN:BinData`` 
+-  would have a ``OME:MetadataOnly`` block instead of the ``BIN:BinData``
    block (this would **ONLY** be acceptable if the image data of the file
    **CANNOT** be represented in an OME file for technical reasons)
 
 Definitions of values stored
 ----------------------------
 
-The figure :ref:`figure-spec-stored` is ©2010 Linkert et al. Figure originally 
+The figure :ref:`figure-spec-stored` is ©2010 Linkert et al. Figure originally
 published as Figure 2, 
 Linkert et al (2010), J. Cell Biol. 189(5):777-782
 (http://jcb.rupress.org/content/189/5/777)
