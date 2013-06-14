@@ -18,7 +18,7 @@ Configuration properties
   server, this will be the only repository. Need not be located under 
   ``omero.data.dir`` but is by default.
 
-- ``omero.fslite.path`` - the template which determines the path that will be 
+- ``omero.fs.repo.path`` - the template which determines the path that will be 
   created inside of a managed repository. It is this value which makes the 
   ``ManagedRepository`` “managed”.
 
@@ -132,7 +132,7 @@ servant, which wraps a ``RawFileBean``.
 
 The ``ManagedRepository`` implementation is responsible for import and 
 enforces further constraints (beyond those of CheckedPath) on where and what 
-files are created. Most importantly, the ``omero.fslite.path`` template value 
+files are created. Most importantly, the ``omero.fs.repo.path`` template value 
 is expanded and pre-pended to all uploads. A further responsibility of the 
 ``ManagedRepository`` is to maintain a list of all currently running 
 ``ManagedImportProcessI``, each of which is held in the ``ProcessContainer``. 
