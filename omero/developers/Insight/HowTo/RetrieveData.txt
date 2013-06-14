@@ -181,15 +181,15 @@ invoker.
 
   Retrieving data invocation
 
-Initialisation
+Initialization
 ~~~~~~~~~~~~~~
 
-The ``DataViewsFactory`` (in ``env.data.views``) needs to be initialised
+The ``DataViewsFactory`` (in ``env.data.views``) needs to be initialized
 before any concrete ``BatchCallTree`` (in ``env.data.views``) is
 created. The reason for this is that ``BatchCallTree``'s constructor
 needs to cache a reference to the registry so that concrete subclasses
 can access it later. The ``DataViewsFactory`` takes care of this
-initialisation task during the container's start-up procedure by calling
+initialization task during the container's start-up procedure by calling
 ``DataViewsFactory.initialize(Container)``. Any data service view should
 be created in ``env.data.views`` and declared in
 ``DataViewsFactory.makeNew(Class)``. The method returns an

@@ -37,7 +37,7 @@ A Blitz client is any application which uses the
 languages, like :doc:`Python </developers/Python>`,
 :doc:`C++ </developers/Cpp>`, :doc:`Java </developers/Java>`, or
 :doc:`Matlab </developers/Matlab>`. A general understanding of the
-:doc:`/developers/Server` may make what's happening
+:doc:`/developers/Server` may make what is happening
 behind the scenes more transparent, but is not necessary. The points
 below outline all that an application writer is expected to know with
 links to further information where necessary.
@@ -57,10 +57,10 @@ comparison of Ice to CORBA, see :zeroc:`iceVsCorba.html`.
 A good first step is to be aware of the difference between remote and
 local invocations. Any invocation on a proxy (``<class_name>Prx``,
 described below) will result in a call over the network with all the
-costs that that entails. The often cited `fallacies of distributed
+costs that entails. The often-cited `fallacies of distributed
 computing <http://en.wikipedia.org/wiki/Fallacies_of_Distributed_Computing>`_
 all apply, and the developer must be aware of concurrency and latency
-issues, as well as complete loss of connectivity, all of which we'll
+issues, as well as complete loss of connectivity, all of which we will
 discuss below.
 
 .. _AdvancedClientDevelopment#Objects:
@@ -117,8 +117,8 @@ From :source:`components/blitz/resources/omero/System.ice`:
 Sequences, dictionaries, enums, and constants
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Other than the "user-defined classes" which we'll get to below, slice
-only provides 4 built-in building blocks for creating a type hierarchy.
+Other than the "user-defined classes" which we will get to below, slice
+provides only four built-in building blocks for creating a type hierarchy.
 
 -  **Sequences.** & **Dictionaries** : Most of the sequences and
    dictionaries in use by the |OmeroApi| are
@@ -364,8 +364,8 @@ respectively, but are provided as type safe variants.
 OMERO model objects
 ~~~~~~~~~~~~~~~~~~~
 
-With these components -- rtypes, primitives, constants, etc -- it is
-possible to define the core nouns of OME, the |OmeroModel| . The OMERO
+With these components -- rtypes, primitives, constants, etc. -- it is
+possible to define the core nouns of OME, the |OmeroModel|. The OMERO
 |OmeroModel| is a translation of the 
 :model_doc:`OME XML specification <ome-xml/>` 
 into objects for use by the server, built out of RTypes, sequences and 
@@ -484,7 +484,7 @@ entity and requires application writers to provide a **concrete
 implementation** (hence the "I"). All OMERO classes define methods, but
 OMERO takes care of providing the implementations for you via code
 generation. For each slice-defined and Ice-generated class
-``omero.model.Something``, there's an OMERO-generated class
+``omero.model.Something``, there is an OMERO-generated class
 ``omero.model.SomethingI`` which can be instantiated.
 
 ::
@@ -674,9 +674,9 @@ used to create the ``Dataset`` instance linked to the new ``Image``. The
 Objects and collections can be created unloaded as a pointer to an
 actual instance or they may be returned unloaded from the server when
 they are not actively accessed in a query. Because of the
-interconnectedness of the |OmeroModel| ,
+interconnectedness of the |OmeroModel|,
 loading one object could conceivably require downloading a large part of
-the database if there weren't some way to "snip-off" sections.
+the database if there were not some way to "snip-off" sections.
 
 ::
 
@@ -766,12 +766,12 @@ had tried to set a value on one of the ``Image``\ s, you will get an
 exception.
 
 To prevent errors when working with unloaded objects, all the
-|OmeroModel|  classes are marked as protected?
+|OmeroModel| classes are marked as protected
 in the slice definitions which causes the implementations in each
 language to try to hide the fields. In Java and C++ this results in
 fields with "protected" visibility. In Python, an underscore is prefixed
-to all the variables. (In the Python case, we've also tried to
-"strengthen" the hididing of the fields, by overriding ``__setattr__``.
+to all the variables. (In the Python case, we have also tried to
+"strengthen" the hiding of the fields, by overriding ``__setattr__``.
 This is not full proof, but only so much can be done to hide values in
 Python.)
 
@@ -1247,7 +1247,7 @@ Like smart pointers for |OmeroCpp|, the |OmeroPy| SDK defines ``__getattr__`` an
 ``__setattr__`` methods for all |OmeroModel| 
 classes. Rather than explicitly calling the ``getFoo()`` and
 ``setFoo()`` methods, field-like access can be used. (It should be
-noted, however, that the accessors will perform marginally faster)
+noted, however, that the accessors will perform marginally faster.)
 
 ::
 
@@ -1331,7 +1331,7 @@ question is what one can actually do with them. For that, we have to
 look at what services are provided by :doc:`/developers/server-blitz`, how they are obtained, 
 used, and cleaned up.
 
-Omero client configuration
+OMERO client configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first step in accessing the |OmeroApi| and
@@ -1340,7 +1340,7 @@ proper configuration of an ``omero.client`` instance. The omero.client
 (or in C++ omero::client) class tries to wrap together and simplify as
 much of working with Ice as possible. Where it can, it imports or
 <#includes> types for you, creates an Ice.Communicator and registers an
-ObjectFactory?. Typically, the only work on the client developers part
+ObjectFactory. Typically, the only work on the client developers part
 is to properly configure the omero.client object and then login.
 
 In the simplest case, configuration requires only the server host,
@@ -1614,7 +1614,7 @@ It produces services!
 Once a client has been configured properly, and has an active in
 ServiceFactory in hand, it is time to start accessing services.
 
-The collection of all services provided by OMERO are known as the
+The collection of all services provided by OMERO is known as the
 |OmeroApi|. Each service is defined in a slice file under
 :sourcedir:`components/blitz/resources/omero`.
 The central definitions are in
@@ -1670,8 +1670,8 @@ The following code has a resource leak:
     s = c.createSession()
     sys.exit(0)
 
-Though the client won't suffer any consequences, this snippet leaves a
-:doc:`session </developers/Server/Sessions>` open on the server.
+Though the client will not suffer any consequences, this snippet leaves
+a :doc:`session </developers/Server/Sessions>` open on the server.
 If the server failed to eventually reap such sessions, they would
 eventually consume all available memory. To get around this, the server
 implements timeouts on all sessions. **It is the clients responsibility
@@ -1778,7 +1778,7 @@ which includes ``ServiceFactoryPrx`` or any of the \*Prx service classes
 is a remote invocation on the server. Therefore proper exception
 handling is critical. The definition of the various exceptions is
 outlined on the :doc:`/developers/Modules/ExceptionHandling` page
-and so won't be repeated here. However, how are these sensibly used?
+and so will not be repeated here. However, how are these sensibly used?
 
 One easy rule is that every ``omero.client`` object which you
 successfully call ``createSession()`` on must have ``closeSession()``
@@ -2361,7 +2361,7 @@ Model changes
    unstructured concrete implementation of a ``TextAnnotation``.
 
 -  ``Well.wellSamples`` is now ordered. This implies that all saving or
-   updating a ``WellSample`` instances requires a loaded ``Well``
+   updating of ``WellSample`` instances requires a loaded ``Well``
    instance.
 
 JBoss/RMI
@@ -2394,10 +2394,10 @@ several changes are necessary to port your code to
    ``omero.model`` package. A good place to start porting is to replace
    all the ``ome.model`` imports in your classes.
 
--  However, there are now 2 classes for each previous single
-   ``ome.model``. There's the Ice-generated abstract class (without the
+-  However, there are now two classes for each previous single
+   ``ome.model``. There is the Ice-generated abstract class (without the
    "I" ending) and the OMERO-generated concrete implementation ("I" for
-   implementation). All your constructor usages must be have the "I"
+   implementation). All your constructor usages must have the "I"
    added.
 
    ::
@@ -2521,8 +2521,8 @@ several changes are necessary to port your code to
 
 -  Methods which use the generic type ``<? extends IObject>`` in the
    ``ome.model`` classes, simply return ``omero.model.IObject`` in the
-   ``omero.model`` types. This requires casting, and in the case of
-   collections, creating a new collection if one doesn't want to use
+   ``omero.model`` types. This requires casting and, in the case of
+   collections, creating a new collection if one does not want to
    receive a warning.
 
    ::
