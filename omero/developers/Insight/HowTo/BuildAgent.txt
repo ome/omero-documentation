@@ -36,7 +36,7 @@ Let's create a concrete agent: ``MyBrowserAgent``
         /** Reference to the registry. */
         private static Registry         registry;
 
-        //no-arguments constructor required for initialisation
+        //no-arguments constructor required for initialization
         public MyBrowserAgent() {}
 
         //Follow methods required by the Agent Interface

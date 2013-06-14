@@ -146,10 +146,10 @@ Follows the code:
         //createAuxWin().
         private MainWindow      mainWindow;
         
-        //Manages all the AuxiliaryWindow's that we've created and not destroyed yet.
+        //Manages all the AuxiliaryWindow's that we have created and not destroyed yet.
         private TopWindowGroup      auxWinGroup;
         
-        //Counts how many {@link AuxiliaryWindow}'s we've created so far.
+        //Counts how many {@link AuxiliaryWindow}'s that we have created so far.
         private int         auxWinCount;
         
         //Cached reference to access the icons.
