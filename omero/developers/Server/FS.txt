@@ -10,16 +10,17 @@ directory and kicking off an automatic import. The configuration of the
 DropBox system is covered on the :doc:`/sysadmins/server-fs` system 
 administrator's page.
 
-OMERO.fs Managed Repository is designed to store original data in an unaltered form without
-requiring the data duplication that was carried out by a pre-5.0 import. The 
-changes to the import system mean that an OMERO.fs server stores the original 
-files in the ``ManagedRepository``, preserving file names and any nested 
-directory structure. This improves the way OMERO deals with High Content 
-Screening (HCS) and other 
-complex heterogeneous data types, reducing storage requirements and using 
-Bio-Formats to recognize 'filesets' (groups of files which correspond to 
-multi-dimensional images and accompanying information) so they can be treated 
-as single entities within the OMERO clients.
+OMERO.fs Managed Repository is designed to store original data in an
+unaltered form without requiring the data duplication that was carried
+out by a pre-5.0 import. The changes to the import system mean that an
+OMERO.fs server stores the original files in the
+``ManagedRepository``, preserving file names and any nested directory
+structure. This improves the way OMERO deals with High Content
+Screening (HCS) and other complex heterogeneous data types, reducing
+storage requirements and using Bio-Formats to recognize 'filesets'
+(groups of files which correspond to multi-dimensional images and
+accompanying information) so they can be treated as single entities
+within the OMERO clients.
 
 .. toctree::
     :maxdepth: 1
