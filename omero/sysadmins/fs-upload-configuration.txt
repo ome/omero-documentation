@@ -19,7 +19,7 @@ When files are uploaded to the repository, a parent directory is
 created to receive the upload. A multi-file image has all its files
 stored in the same parent directory, though they may be in different
 subdirectories of that parent to mirror the original directory
-structure before upload. The :literal:`omero.fslite.path` setting
+structure before upload. The :literal:`omero.fs.repo.path` setting
 defines the creation of that parent directory.
 
 There is some flexibility in how this parent directory is named. The
@@ -45,7 +45,7 @@ less permissive system, or when it is anticipated that the server
 itself may be migrated to a less permissive system. The server never
 accepts Unicode control characters in file names.
 
-The :literal:`omero.fslite.path_rules` setting defines the combination
+The :literal:`omero.fs.repo.path_rules` setting defines the combination
 of restrictions that the server must apply in accepting file uploads.
 The restrictions are grouped into named sets:
 
