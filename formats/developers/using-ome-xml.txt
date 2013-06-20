@@ -146,10 +146,10 @@ schema specification:
             <With your="attributes"/>
         </YourNodes>
 
-        <!-- Insert an OME node from the 2012-06 version of our schema -->
-        <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06"
-            xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06
-                                http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd"
+        <!-- Insert an OME node from the 2013-06 version of our schema -->
+        <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2013-06"
+            xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2013-06
+                                http://www.openmicroscopy.org/Schemas/OME/2013-06/ome.xsd"
             >
             <Image ID="Image:1">
                 <AcquisitionDate>2010-02-23T12:51:30</AcquisitionDate>
@@ -183,7 +183,7 @@ three things (marked ``****``) to your schema specification document:
 
     <!-- **** Define the OME namespace for your schema on the <schema> node **** -->
     <xs:schema 
-        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2013-06"
 
         xmlns="http://www.example.org/SampleThirdPartySchema/2013-01" 
         targetNamespace="http://www.example.org/SampleThirdPartySchema/2013-01" 
@@ -192,8 +192,8 @@ three things (marked ``****``) to your schema specification document:
         elementFormDefault="qualified">
 
         <!-- **** Include the OME namespace to make it accessible from your schema **** -->
-        <xs:import namespace="http://www.openmicroscopy.org/Schemas/OME/2012-06"
-        schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd"/>
+        <xs:import namespace="http://www.openmicroscopy.org/Schemas/OME/2013-06"
+        schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2013-06/ome.xsd"/>
 
         <xs:element name="CustomTag">
             <xs:annotation>
@@ -248,10 +248,10 @@ example illustrates how to include ``<LightSource>`` and ``<Objective>``:
             <With your="attributes"/>
         </YourNodes>
 
-        <!-- Insert a LightSource node from the 2012-06 version of our schema -->
-        <LightSource xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06"
-            xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06
-                 http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd"
+        <!-- Insert a LightSource node from the 2013-06 version of our schema -->
+        <LightSource xmlns="http://www.openmicroscopy.org/Schemas/OME/2013-06"
+            xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2013-06
+                 http://www.openmicroscopy.org/Schemas/OME/2013-06/ome.xsd"
             ID="LightSource:1">
             <Laser Type="Dye" FrequencyMultiplication="2" LaserMedium="CoumarinC30"
                 PockelCell="true" Pulse="Single" RepetitionRate="1.3" Tuneable="true"
@@ -263,10 +263,10 @@ example illustrates how to include ``<LightSource>`` and ``<Objective>``:
 
         <MoreOfYourNodes>
 
-            <!-- Insert an Objective node from the 2012-06 version of our schema -->
-            <Objective xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06"
-                xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06
-                     http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd"
+            <!-- Insert an Objective node from the 2013-06 version of our schema -->
+            <Objective xmlns="http://www.openmicroscopy.org/Schemas/OME/2013-06"
+                xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2013-06
+                     http://www.openmicroscopy.org/Schemas/OME/2013-06/ome.xsd"
                 ID="Objective:1" CalibratedMagnification="0.3" Correction="UV" 
                 Immersion="Air" Iris="true" LensNA="1.3" NominalMagnification="2"
                 WorkingDistance="2.3" Manufacturer="OME-Sample" Model="Mk II"
@@ -292,7 +292,7 @@ one line for each of the two included nodes:
 
     <!-- **** Define the OME namespace for your schema on the <schema> node **** -->
     <xs:schema 
-        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+        xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2013-06"
 
         xmlns="http://www.example.org/SampleThirdPartySchemaPieces/2013-01" 
         targetNamespace="http://www.example.org/SampleThirdPartySchemaPieces/2013-01" 
@@ -301,8 +301,8 @@ one line for each of the two included nodes:
         elementFormDefault="qualified">
 
         <!-- **** Include the OME namespace to make it accessible from your schema **** -->
-        <xs:import namespace="http://www.openmicroscopy.org/Schemas/OME/2012-06"
-        schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd"/>
+        <xs:import namespace="http://www.openmicroscopy.org/Schemas/OME/2013-06"
+        schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2013-06/ome.xsd"/>
 
         <xs:element name="CustomTag">
             <xs:annotation>

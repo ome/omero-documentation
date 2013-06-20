@@ -4,6 +4,7 @@ Schema Version Information
 
 .. only:: html
 
+    - :doc:`june-2013`
     - :doc:`june-2012`
     - :doc:`june-2011`
     - :doc:`june-2010`
@@ -32,18 +33,18 @@ released. The format for the new URI for the namespace will be
 
     http://www.openmicroscopy.org/Schemas/[NameSpaceTitle]/[YearAsFourDigits]-[MonthAsTwoDigits]
 
-This means the June 2012 major release for the OME schema uses the
+This means the June 2013 major release for the OME schema uses the
 namespace
 
 ::
 
-    http://www.openmicroscopy.org/Schemas/OME/2012-06/
+    http://www.openmicroscopy.org/Schemas/OME/2013-06/
 
 and that the schema file will be located at
 
 ::
 
-    http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd
+    http://www.openmicroscopy.org/Schemas/OME/2013-06/ome.xsd
 
 Major versions will normally be released about twice a year. There will
 be a consultation period before each major release. Major releases may
@@ -56,7 +57,7 @@ In the schema element of the XSD file, there is a version attribute:
 
 ::
 
-    <xsd:schema xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06" 
+    <xsd:schema xmlns="http://www.openmicroscopy.org/Schemas/OME/2013-06"
         ...
         version="1" 
         ... >

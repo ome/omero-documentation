@@ -3,7 +3,7 @@ Minimum Specification
 
 
 This was developed in conjunction with the September 2009 release of the
-OME-XML Model and has been updated to the June 2012 release.
+OME-XML Model and has been updated to the June 2013 release.
 
 A minimum specification OME file has been defined. This is best viewed
 as being the minimum required for the display of an image. A sample of
@@ -12,11 +12,11 @@ the structure is:
 ::
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <ome:OME xmlns:bf="http://www.openmicroscopy.org/Schemas/BinaryFile/2012-06"
-        xmlns:ome="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+    <ome:OME xmlns:bf="http://www.openmicroscopy.org/Schemas/BinaryFile/2013-06"
+        xmlns:ome="http://www.openmicroscopy.org/Schemas/OME/2013-06"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06 
-                            http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd">
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2013-06
+                            http://www.openmicroscopy.org/Schemas/OME/2013-06/ome.xsd">
         <ome:Image ID="Image:1" Name="Name92">
             <ome:AcquisitionDate>2009-03-16T15:41:51.0Z</ome:AcquisitionDate>
             <ome:Pixels 
