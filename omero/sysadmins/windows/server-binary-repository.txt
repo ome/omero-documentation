@@ -16,10 +16,12 @@ The repository is internally laid out as follows:
 ::
 
     C:\OMERO
-    C:\OMERO\Pixels      <--- Pixel data
-    C:\OMERO\Files       <--- Original file data
-    C:\OMERO\Thumbnails  <--- Thumbnail data
-    C:\OMERO\FullText    <--- Lucene full text search index
+    C:\OMERO\Pixels             <--- Pixel data
+    C:\OMERO\Files              <--- Original file data
+    C:\OMERO\Thumbnails         <--- Thumbnail data
+    C:\OMERO\FullText           <--- Lucene full text search index
+    C:\OMERO\ManagedRepository  <--- OMERO.fs filesets
+    C:\OMERO\BioFormatsCache    <--- Cached Bio-Formats state for rendering
 
 **Your repository is not:**
 

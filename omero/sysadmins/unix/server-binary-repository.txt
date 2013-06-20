@@ -16,10 +16,12 @@ The repository is internally laid out as follows:
 ::
 
     /OMERO
-    /OMERO/Pixels      <--- Pixel data
-    /OMERO/Files       <--- Original file data
-    /OMERO/Thumbnails  <--- Thumbnail data
-    /OMERO/FullText    <--- Lucene full text search index
+    /OMERO/Pixels             <--- Pixel data
+    /OMERO/Files              <--- Original file data
+    /OMERO/Thumbnails         <--- Thumbnail data
+    /OMERO/FullText           <--- Lucene full text search index
+    /OMERO/ManagedRepository  <--- OMERO.fs filesets
+    /OMERO/BioFormatsCache    <--- Cached Bio-Formats state for rendering
 
 **Your repository is not:**
 
@@ -93,8 +95,10 @@ dedicated to running OMERO.server. For example:
     omero
     $ ls -al /OMERO
     total 24
-    drwxr-xr-x  5 omero  omero   128 Dec 12  2006 .
-    drwxr-xr-x  7 root    root   160 Nov  5 15:24 ..
-    drwxr-xr-x  2 omero  omero  1656 Dec 18 14:31 Files
-    drwxr-xr-x 25 omero  omero 23256 Dec 10 19:06 Pixels
-    drwxr-xr-x  2 omero  omero    48 Dec  8  2006 Thumbnails
+    drwxr-xr-x   5  omero  omero   128 Dec 12  2006 .
+    drwxr-xr-x   7  root    root   160 Nov  5 15:24 ..
+    drwxr-xr-x   3  omero  omero  4096 Dec 20 10:13 BioFormatsCache
+    drwxr-xr-x   2  omero  omero  1656 Dec 18 14:31 Files
+    drwxr-xr-x 150  omero  omero 12288 Dec 20 10:00 ManagedRepository
+    drwxr-xr-x  25  omero  omero 23256 Dec 10 19:06 Pixels
+    drwxr-xr-x   2  omero  omero    48 Dec  8  2006 Thumbnails
