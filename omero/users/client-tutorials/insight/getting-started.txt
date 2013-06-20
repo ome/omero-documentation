@@ -36,7 +36,7 @@ Installing
 
    |
 
-#. Open OMERO.insight Client.
+#. Open OMERO.insight client.
 
    |
 
@@ -63,7 +63,7 @@ Adding the server is only required the first time an OMERO server is accessed fr
 
    |
 
-2. In the **Add Server** dialogue box, click on the **+** icon.
+2. In the **Add Server** dialog box, click on the **+** icon.
 
    |
 
@@ -114,7 +114,7 @@ Adding image data
 
    |
 
-   .. image:: /images/tutor/gettingStartedFileChooser.jpg
+   .. image:: /images/tutor/gettingStarted5FileChooser.jpg
        :width: 100%
        :align: center
 
@@ -152,60 +152,54 @@ Adding image data
 
 5. Data to be imported appears in queue pane.
 
-   A copy of the original data can be archived in its original format by checking the box in the right most column.
+   When ready click on **Import**.
 
    |
 
-   .. image:: /images/tutor/gettingStartedArchive.jpg
+   .. image:: /images/tutor/gettingStarted5Import.jpg
        :width: 100%
        :align: center
 
    |
 
-6. Click on **Import**.
+6. Import progress will be shown in the **Import #** 1 tab.
 
-   |
-
-   .. image:: /images/tutor/gettingStartedImport.jpg
-       :width: 75%
-       :align: center
-
-   |
-
-7. Import progress will be shown in the **Import #** 1 tab.
-
-   Further data for import can be queued and imported using the Select Data for Import tab.
+   Further data for import can be queued and imported using the **Select Data to Import** tab.
 
    Multiple queues can be run simultaneously.
 
    |
 
-   .. image:: /images/tutor/gettingStartedComplete.jpg
+   .. image:: /images/tutor/gettingStarted5Complete.jpg
        :width: 100%
        :align: center
 
    |
 
-8. Hovering over a thumbnail of the imported image shows a larger preview.
+7. Hovering over a thumbnail of the imported image shows a larger preview.
 
    Double clicking on the thumbnail opens it in the image viewer window.
 
-   Clicking on the hyperlink takes you to the Data Manager window and dataset into which the data was imported.
+   Select from the **View** menu to see the image in the full viewer or browse the image in the data tree.
 
    |
 
-   .. image:: /images/tutor/gettingStartedClose.jpg
+   .. image:: /images/tutor/gettingStarted5Close.jpg
        :width: 100%
        :align: center
 
    |
 
-9. The imported data can be seen in the Data Manager.
+8. The imported data can be seen in the Data Manager.
+
+   Import progress is shown by a green tick on the right-hand side of the data manager window toolbar.
+
+   Notifications of any import failure will also appear there with a red X.
 
 |
 
-.. image:: /images/tutor/gettingStartedImportedData.jpg
-    :width: 75%
+.. image:: /images/tutor/gettingStarted5ImportedData.jpg
+    :width: 100%
     :align: center
 
 |

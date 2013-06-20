@@ -26,7 +26,7 @@ Using the OMERO.insight to import image data onto the OMERO server.
 
    |
 
-   .. image:: /images/tutor/importingDataImporter.jpg
+   .. image:: /images/tutor/importingData5Importer.jpg
        :width: 100%
        :align: center
 
@@ -56,7 +56,7 @@ Using the OMERO.insight to import image data onto the OMERO server.
 
    |
 
-   .. image:: /images/tutor/importingDataStart.jpg
+   .. image:: /images/tutor/importingData5Start.jpg
        :width: 100%
        :align: center
 
@@ -64,11 +64,27 @@ Using the OMERO.insight to import image data onto the OMERO server.
 
 #. Mouse-over the thumbnails of successfully imported images to see a preview.
 
-   Click on the link to the dataset or close the Import window to view the data in the **Data Manager**.
+   Click on the **View** menu to view the image in the **Viewer** or **Data Manager**, or view the **Import Log** and the data **Checksum** verification.
+
+   or close the **Import** window to view the data in the **Data Manager**.
 
    |
 
-   .. image:: /images/tutor/importingDataEnd.jpg
+   .. image:: /images/tutor/importingData5End.jpg
+       :width: 82%
+       :align: center
+
+   |
+
+   .. note:: From Version 5, OMERO imports and stores image files unchanged, in their original format. Therefore there is no longer any need to archive files on import.
+
+   |
+
+#. Select an image and click on the green **File Path** button to see the file path of the imported data in the OMERO data repository.
+
+   |
+
+   .. image:: /images/tutor/importingData5FilePath.jpg
        :width: 82%
        :align: center
 
@@ -79,22 +95,6 @@ Importing Options
 
 The following points illustrate how to set some of the options that can be used when importing.
 
-**Archiving data**
-
-#. To archive data files in their original format on the OMERO server click the **Archive** checkbox.
-
-   Individual data files can be selected or deselected using the checkboxes in the column below.
-
-   |
-
-   .. image:: /images/tutor/importingDataArchive.jpg
-       :width: 100%
-       :align: center
-
-   |
-
-   .. note:: Archiving at import enables subsequent retrieval of the file in the original format at a later date, in addition to the ability to export it as an OME-TIFF.
-
    |
 
 **Adding tags at import**
@@ -103,7 +103,7 @@ The following points illustrate how to set some of the options that can be used 
 
    |
 
-   .. image:: /images/tutor/importingDataAddTag1.jpg
+   .. image:: /images/tutor/importingData5AddTag1.jpg
        :width: 100%
        :align: center
 
@@ -127,7 +127,7 @@ The following points illustrate how to set some of the options that can be used 
 
    |
 
-   .. image:: /images/tutor/importingDataRemoveTag.jpg
+   .. image:: /images/tutor/importingData5RemoveTag.jpg
        :width: 75%
        :align: center
 
@@ -156,6 +156,3 @@ The File Finder window changes to reflect available file types, according to the
 .. image:: /images/tutor/importingDataProjectScreen.jpg
     :width: 100%
     :align: center
-
-|
-
