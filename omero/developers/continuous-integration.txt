@@ -387,7 +387,7 @@ tab of Jenkins.
 
 	- 	* Publish OME Model documentation
 		* :term:`FORMATS-docs-release-stable`
-		* N/A
+		* :term:`FORMATS-docs-release-develop`
 
 	- 	* Review OMERO documentation PRs
 		* :term:`OMERO-docs-merge-stable`
@@ -459,8 +459,7 @@ The branch for the current release of OMERO/Bio-Formats/OME model is
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. If the build is promoted,
-			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-release.tmp`
-			#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
+			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-stable-release.tmp`
 
 	:jenkinsjob:`OMERO-docs-merge-stable`
 
@@ -492,8 +491,7 @@ The branch for the current release of OMERO/Bio-Formats/OME model is
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-staging/
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-stable-staging.tmp`
 
 Next major release
 ^^^^^^^^^^^^^^^^^^
@@ -527,6 +525,17 @@ develop.
 			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-develop-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5/
 
+	:jenkinsjob:`FORMATS-docs-release-develop`
+
+		This job is used to build the develop branch of the OME Model
+		documentation and publish the official documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-develop-release.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
+
 	:jenkinsjob:`OMERO-docs-merge-develop`
 
 		This job is used to review the PRs opened against the develop branch
@@ -557,8 +566,8 @@ develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-develop.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-develop/
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-develop-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-staging/
 
 .. _linkcheck_parser:
 
