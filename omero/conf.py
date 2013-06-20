@@ -67,7 +67,8 @@ else:
     devbranch = 'develop'
 
 rst_prolog = """
-This documentation is in transition. Please refer to the :omero_plone:`OME5 <>` products page for more information.
+**This documentation is in transition. Please refer to the**
+:omero_plone:`OME5 <>` **products page for more information**.
 """
 
 rst_epilog += """
