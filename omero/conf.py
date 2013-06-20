@@ -66,6 +66,11 @@ else:
     release = 'UNKNOWN'
     devbranch = 'develop'
 
+rst_prolog = """
+**This documentation is in transition. Please refer to the**
+:omero_plone:`OME5 <>` **products page for more information**.
+"""
+
 rst_epilog += """
 .. |OmeroPy| replace:: :doc:`/developers/Python`
 .. |OmeroCpp| replace:: :doc:`/developers/Cpp`
