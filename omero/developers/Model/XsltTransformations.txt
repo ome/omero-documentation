@@ -14,10 +14,12 @@ Available transforms   Direction  Status
 2010-04-to-2010-06.xsl upgrade    excellent
 2010-06-to-2011-06.xsl upgrade    excellent
 2011-06-to-2012-06.xsl upgrade    excellent
+2012-06-to-2013-06.xsl upgrade    excellent
 2010-06-to-2003-FC.xsl downgrade  poor (very lossy)
 2010-06-to-2008-02.xsl downgrade  fair (lossy)
 2011-06-to-2010-06.xsl downgrade  good
 2012-06-to-2011-06.xsl downgrade  good
+2013-06-to-2012-06.xsl downgrade  good
 ====================== ========== ==================
 
 Quality of transformations

@@ -328,7 +328,7 @@ Each of the files in the set has identical metadata apart from the
 
 ::
 
-    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06" 
+    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2013-06"
         ...
 
 ::
@@ -381,7 +381,7 @@ Each of the files in the set has identical metadata apart from the
 
 ::
 
-    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2013-06"
         ...
 
 ::
@@ -475,10 +475,10 @@ metadata, use an OME-XML block similar to:
 ::
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06"
+    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2013-06"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2012-06
-                            http://www.openmicroscopy.org/Schemas/OME/2012-06/ome.xsd">
+        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2013-06
+                            http://www.openmicroscopy.org/Schemas/OME/2013-06/ome.xsd">
     <BinaryOnly MetadataFile="master.ome.tif"
         UUID="urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
     </OME>

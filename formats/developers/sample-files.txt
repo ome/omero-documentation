@@ -11,8 +11,8 @@ Structure of the samples
 Each schema version's samples are located in a folder named after the schema's
 date
 
-e.g. folder ``2012-06`` has samples using schema version
-:schema_plone:`http://www.openmicroscopy.org/Schemas/OME/2012-06 <OME/2012-06>`.
+e.g. folder ``2013-06`` has samples using schema version
+:schema_plone:`http://www.openmicroscopy.org/Schemas/OME/2013-06 <OME/2013-06>`.
 
 There are two sets of samples that were designed to be small enough to
 examine in detail:
