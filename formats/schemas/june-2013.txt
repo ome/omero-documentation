@@ -27,7 +27,7 @@ For the OME schema
 
     http://www.openmicroscopy.org/Schemas/OME/2013-06/
 
-and that the schema file will be located at
+and the schema file is located at
 
 ::
 
@@ -48,10 +48,10 @@ OME
 ^^^
 
 - Storage of copyright information in ``RightsHolder`` and ``RightsHeld``
-- Adding ``SignificantBits``, ``Interleaved``, and ``BigEndian`` attributes to ``Pixels``
+- Added ``SignificantBits``, ``Interleaved``, and ``BigEndian`` attributes to ``Pixels``
 - Altering ``NominalMagnification`` to allow non-integer values, e.g. 0.5
-- Adding a new type to``Filter`` called ``Tuneable``
-- Adding ``Zoom`` and ``Integration`` to ``DetectorSettings``
+- Added a new type to``Filter`` called ``Tuneable``
+- Added ``Zoom`` and ``Integration`` to ``DetectorSettings``
 
 OMERO
 ^^^^^
