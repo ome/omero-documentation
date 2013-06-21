@@ -24,7 +24,7 @@ modify the settings use `-Dlogback.configurationFile=/path/to/logback.xml` or
 similar.`
 
 OMERO.insight logging is configured via
-:source:`logback.xml <components/insight/config/logback.xml>`,
+`logback.xml`
 which is available in the config/ directory of any OMERO.insight install.
 
 Java servers
