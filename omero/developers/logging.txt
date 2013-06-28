@@ -2,8 +2,8 @@ Omero logging
 =============
 
 All OMERO components written in Java use the
-` SLF4J <http://www.slf4j.org/>`_ logging facade, typically backed
-by ` Logback <http://logback.qos.ch/>`_; all
+`SLF4J <http://www.slf4j.org/>`_ logging facade, typically backed
+by `Logback <http://logback.qos.ch/>`_; all
 components written in python use the built-in ``logging`` module.
 
 .. Warning::  
