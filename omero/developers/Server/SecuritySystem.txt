@@ -333,7 +333,7 @@ joined entity type (i.e. table) which apears in a query.
 
 would contain the "( current\_user = :root ...)" clause twice.
 
-Currently, subqueries are an issue in that the clauses don't get added
+Currently, subqueries are an issue in that the clauses do not get added
 to them. This may cause consternation for some particular queries.
 
 Security system

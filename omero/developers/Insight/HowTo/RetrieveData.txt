@@ -129,7 +129,7 @@ example, the observer could look something like the following:
              int percDone = fe.getPercentDone();
              if (status == null) 
                  status = (percDone == 100) ? "Done" :  //Else
-                                            ""; //Description wasn't available.   
+                                            ""; //Description was not available.   
              statusBar.setText(status);  //A JLabel object part of the UI.
              progressBar.setValue(percDone); //A JProgressBar object part of the UI.
          }      

@@ -114,8 +114,8 @@ Files involved
     **classpath\*:ome/services/blitz-\*.xml** to allow for
     blitz-specific configuration.
 
-And don't forget the tests
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+And do not forget the tests
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :source:`components/server/test/ome/server/itests/ConfigTest.java`
     tests only the implementation without a container.
@@ -124,7 +124,7 @@ And don't forget the tests
     tests the entire stack. The application must be deployed and the
     test must use a valid username.
 
-    **blitz**: Currently testing blitz is out side the scope of this
+    **blitz**: Currently, testing blitz is outside the scope of this
     document.
 
 Things to be aware of

@@ -364,11 +364,11 @@ Customising your OMERO.web installation
       -  Set a URL filter for which the OMERO.web public user is allowed
          to navigate. Default: ``^/(?!webadmin)`` (`Python regular
          expression <http://docs.python.org/2/library/re.html>`_). You
-         probably don't want the whole webclient UI to be publicly
+         probably do not want the whole webclient UI to be publicly
          visible (although you could do this). The idea is that you can
-         create the public pages yourself (see :doc:`/developers/Web`
-         since we don't provide public pages. E.g. to only allow urls
-         that start with '/my\_web\_public' you'd use:
+         create the public pages yourself (see :doc:`/developers/Web`)
+         since we do not provide public pages. E.g. to allow only URLs
+         that start with '/my\_web\_public' you would use:
 
          ::
 
