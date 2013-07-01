@@ -87,10 +87,3 @@ information will be written to master.out, master.err, or similar files.
 Instead, what logging is produced will go to the Windows Event Viewer,
 but finding error situations can be considerably more challenging (See
 :ticket:`1449` for more information).
-
-Upcoming documentation on logging in Omero
-------------------------------------------
-
--  --debug / --report / --email / --upload
--  tracing and warning settings
--  zipping logs for feedback
