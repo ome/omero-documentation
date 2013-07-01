@@ -22,18 +22,8 @@ The repository of the software artifacts is organized as follows:
    with the default application distribution file. Its sub-dirs contain
    further resources to build platform-specific distributions.
 
--  ``legal``: Terms and conditions under which the various artifacts in
-   this repository are released. A README file specifies which license
-   applies to which artifact.
-
--  ``LIB``: All library files required by the application. Its test
-   sub-dir contains additional libraries required by the test code.
-
 -  ``SRC``: Contains the application source files.
 
 -  ``TEST``: The test code.
-
--  ``CodeTemplate``: This file describes the coding style that all
-   source files must conform to.
 
 -  ``README``: The README file.

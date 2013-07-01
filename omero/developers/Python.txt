@@ -1107,7 +1107,7 @@ Create Image
 Python OMERO.scripts
 ^^^^^^^^^^^^^^^^^^^^
 
-It is relatively straight-forward to take the code samples above and
+It is relatively straightforward to take the code samples above and
 re-use them in OMERO.scripts. This allows the code to be run on the
 OMERO server and called from either the OMERO.insight client or
 OMERO.web by any users of the server. See :doc:`/developers/Modules/Scripts/Guide`.

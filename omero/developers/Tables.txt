@@ -258,7 +258,7 @@ The implementation
 ------------------
 
 Currently, each table is backed by a single HDF table. Since PyTables
-(and HDF in the general case) don't support concurrent access, OMERO.tables 
+(and HDF in the general case) do not support concurrent access, OMERO.tables 
 provides a global locking mechanism which permits multiple views of the same 
 data. Each `OMERO.tables` file (registered as an ``OriginalFile`` in the
 database), is composed of a single HDF table with any number of certain 

@@ -598,16 +598,16 @@ as seen in this screenshot:
    Recovery console
 
 
-Don't worry if your |VM| has a kernel number different to 2.6.32-5-686,
-the important thing is that you select the entry labelled "recovery
+Do not worry if your |VM| has a kernel number different to 2.6.32-5-686,
+the important thing is that you select the entry labeled "recovery
 mode". At this point the |VM| should rapidly boot into the recovery mode
 which will enable you to log in using the root password *swordfish*.
 
 Once you have logged in you have a number of things that you can do but
 the recommended courses of action are either:
 
-1. Delete unneeded files using standard Linux command line tools like
-   *rm* to make space for the |VM| to boot normally then use your favoured
+1. Delete unnecessary files using standard Linux command line tools like
+   *rm* to make space for the |VM| to boot normally then use your favored
    OMERO client to login and delete more files. A useful place to start
    might be by deleting the logs stored in /var/logs.
 2. Increase the size of your virtual |HDD|. If you have filled your
