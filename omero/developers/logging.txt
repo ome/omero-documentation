@@ -1,9 +1,9 @@
 Omero logging
 =============
 
-All OMERO components written in Java use
-` Log4J <http://logging.apache.org/>`_ (mostly via
-` Commons-Logging <http://commons.apache.org/logging/>`_); all
+All OMERO components written in Java use the
+`SLF4J <http://www.slf4j.org/>`_ logging facade, typically backed
+by `Logback <http://logback.qos.ch/>`_; all
 components written in python use the built-in ``logging`` module.
 
 .. Warning::  
@@ -16,28 +16,28 @@ Java clients
 Java clients log to ``$HOME/omero/log``. The number of files and their
 size are limited.
 
-:source:`log4j-cli.properties <components/blitz/resources/log4j-cli.properties>`
+:source:`logback-cli.xml<components/blitz/resources/logback-cli.xml>`
 controls the output for the command line importer: all logging goes
 to standard err, while useful output (pixel ids, or used files) goes to
 standard out. It is contained within the blitz.jar itself. Therefore, to
-modify the settings use `-Dlog4j.configuration=/path/to/log4j.xml` or
+modify the settings use `-Dlogback.configurationFile=/path/to/logback.xml` or
 similar.`
 
 OMERO.insight logging is configured via
-:source:`log4j.config <components/insight/config/log4j.config>`,
+`logback.xml`
 which is available in the config/ directory of any OMERO.insight install.
 
 Java servers
 ------------
 
 Java server components are configured by passing
-``-Dlog4j.configuration=etc/log4j.xml`` to each Java process.
+``-Dlogback.configurationFile=etc/logback.xml`` to each Java process.
 :source:`Entry.java <components/blitz/src/ome/services/blitz/Entry.java>`
-guarantees that the `log4j.xml <etc/log4j.xml>`
+guarantees that the :source:`logback.xml <etc/logback.xml>`
 file is read periodically so that changes to your logging configuration
 do not require a restart.
 
-By default, the output from log4j is sent to:
+By default, the output from logback is sent to:
 ``var/log/<servername>.log``. Once files reach a size of 500MB, they are
 rolled over to ``<servername>.log.1``, ``<servername>.log.2``, etc. Once
 the files have rolled over, you can safely delete or compress (bzip2,
@@ -46,6 +46,13 @@ stability of your server, you can either reduce logging or the number
 and size of the files kept. **Note:** if something goes wrong with your
 server installation, the log files can be very useful in tracking down
 issues.
+
+In addition, each import process logs to a file under the managed
+repository which matches the timestamped fileset directory's name.
+For example, if an imported fileset is uploaded to
+``/OMERO/ManagedRepository/userA_1/2013-06/17/12-00-00.000``, then
+the log file can be found under
+``/OMERO/ManagedRepository/userA_1/2013-06/17/12-00-00.000.log``.
 
 Python servers
 --------------
@@ -62,7 +69,7 @@ All the "omero.logging.\*" properties can be overwritten in your
 :source:`etc/grid/windefault.xml <etc/grid/windefault.xml>`).
 See the "Profile" properties block for how to configure for your site.
 
-Similar to log4j, logging is configured to be written to
+Similar to logback, logging is configured to be written to
 ``var/log/<servername>.log`` and to maintain 9 backups of at most 500MB.
 
 stdout and stderr
@@ -80,10 +87,3 @@ information will be written to master.out, master.err, or similar files.
 Instead, what logging is produced will go to the Windows Event Viewer,
 but finding error situations can be considerably more challenging (See
 :ticket:`1449` for more information).
-
-Upcoming documentation on logging in Omero
-------------------------------------------
-
--  --debug / --report / --email / --upload
--  tracing and warning settings
--  zipping logs for feedback

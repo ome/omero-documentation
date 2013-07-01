@@ -16,7 +16,7 @@ OMERO.server:
       etc/omero.properties             - Our central configuration file with all defaults.
       etc/hibernate.properties         - Required by Hibernate since some properties are only configurable 
                                          via a classpath:hibernate.properties file.
-      etc/log4j.xml                    - Logging configuration
+      etc/logback.xml                  - Logging configuration
       etc/local.properties.example     - The properties that you will most likely want to change.
                                          This file can be copied to etc/local.properties to being, or 
                                          alternatively you can run "java omero setup"
