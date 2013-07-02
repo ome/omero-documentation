@@ -209,7 +209,7 @@ that is, if your URL is of the form ``ldaps://ldap.example.com:636`` you will
 need to configure a key and trust store for Java. See the
 :doc:`server-security` page for more information.
 
-Synchronising LDAP on user login
+Synchronizing LDAP on user login
 --------------------------------
 
 This feature allows for LDAP to be considered the authority on user/group

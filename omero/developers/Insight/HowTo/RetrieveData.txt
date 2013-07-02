@@ -129,7 +129,7 @@ example, the observer could look something like the following:
              int percDone = fe.getPercentDone();
              if (status == null) 
                  status = (percDone == 100) ? "Done" :  //Else
-                                            ""; //Description wasn't available.   
+                                            ""; //Description was not available.   
              statusBar.setText(status);  //A JLabel object part of the UI.
              progressBar.setValue(percDone); //A JProgressBar object part of the UI.
          }      
@@ -169,7 +169,7 @@ and see how to use data services view.**
 Execution
 ~~~~~~~~~
 
-The next diagram analyses a concrete call to a view to exemplify the
+The next diagram analyzes a concrete call to a view to exemplify the
 pattern followed by all asynchronous calls in the various views. The
 call is mapped onto a command, the command is transferred to a processor
 for asynchronous execution, a handle to the call is returned to to
@@ -181,15 +181,15 @@ invoker.
 
   Retrieving data invocation
 
-Initialisation
+Initialization
 ~~~~~~~~~~~~~~
 
-The ``DataViewsFactory`` (in ``env.data.views``) needs to be initialised
+The ``DataViewsFactory`` (in ``env.data.views``) needs to be initialized
 before any concrete ``BatchCallTree`` (in ``env.data.views``) is
 created. The reason for this is that ``BatchCallTree``'s constructor
 needs to cache a reference to the registry so that concrete subclasses
 can access it later. The ``DataViewsFactory`` takes care of this
-initialisation task during the container's start-up procedure by calling
+initialization task during the container's start-up procedure by calling
 ``DataViewsFactory.initialize(Container)``. Any data service view should
 be created in ``env.data.views`` and declared in
 ``DataViewsFactory.makeNew(Class)``. The method returns an

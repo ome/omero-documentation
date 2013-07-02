@@ -1,7 +1,7 @@
-Organisation
+Organization
 ============
 
-The source code is organised as follows. All classes share a common base
+The source code is organized as follows. All classes share a common base
 namespace:
 
 ::
@@ -35,7 +35,7 @@ The ``env`` package is also broken down into further sub-packages:
 -  ``data``: Defines the client's side interface and implementation of
    the Remote Facade that we use to access the OMERO server.
 -  ``event``: The event bus classes.
--  ``init``: Classes to perform initialisation tasks at start-up.
+-  ``init``: Classes to perform initialization tasks at start-up.
 -  ``log``: Adapter classes to wrap `log4j <http://logging.apache.org/log4j/>`_.
 -  ``cache``: Adapter classes to wrap `ehcache <http://ehcache.org/>`_.
 -  ``rnd``: The image data provider.

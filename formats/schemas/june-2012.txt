@@ -40,7 +40,7 @@ Overview of changes
 -  Preparation for the Major release of OMERO **after** 4.4
 -  Work to allow full code generation of OME Model API direct from the
    XSD files
--  Almost full synchronisation of the OME Model with the OMERO Database
+-  Almost full synchronization of the OME Model with the OMERO Database
    structure
 -  The direction of references between Screen, Plate and Well, and between
    Project, Dataset and Image, have been reversed
@@ -51,9 +51,9 @@ Overview of changes
 General changes
 ^^^^^^^^^^^^^^^
 
--  Ensure **all** colours are stored as new type ``Color``
--  The default value for all colours is now solid white (due to legacy
-   colour default it was totally transparent red)
+-  Ensure **all** colors are stored as new type ``Color``
+-  The default value for all colors is now solid white (due to legacy
+   color default it was totally transparent red)
 -  Add ``appinfo`` blocks for ``xsd-fu`` to specify plurals
 -  Add ``appinfo`` blocks for ``xsd-fu`` to specify abstract objects
 
@@ -90,9 +90,9 @@ OMERO
 
 ``OMERO.xsd`` is not included in this release. It has been extensively
 reworked and expanded as part of the OME Model and OMERO Database
-synchronisation but work on this will continue until the release of the
-associated OMERO version. The OME Model (i.e. the other XSD files) have
-been completely updated for this work. They do not make use of OMERO.xsd
+synchronization but work on this will continue until the release of the
+associated OMERO version. The OME Model (i.e. the other XSD files) has
+been completely updated for this work. It does not make use of OMERO.xsd
 so will be unaffected by the future release of this single file.
 
 .. note::    
@@ -103,7 +103,7 @@ so will be unaffected by the future release of this single file.
 ROI
 ^^^
 
--  All objects defining colours now use the type ``OME:Color`` from
+-  All objects defining colors now use the type ``OME:Color`` from
    ``ome.xsd``
 -  Move ``MarkerStart`` & ``MarkerEnd`` down from ``Shape`` into
    ``Line``, ``Polyline``
@@ -128,7 +128,7 @@ Add additional intermediate abstract annotations (``BasicAnnotation``,
 ``NumericAnnotation``, ``TextAnnotation``, ``TypeAnnotation``) to match
 OMERO annotation structure. The current annotations have been modified to
 now extend these. This allows the code generation to group annotations
-together by intermediate annotation type. The behaviour of the current
+together by intermediate annotation type. The behavior of the current
 annotations has not changed, and the new intermediate abstract
 annotations are not used directly.
 

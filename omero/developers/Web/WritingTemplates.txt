@@ -67,7 +67,7 @@ like the screen-shot above. You could add a 'title' block to set the page
         My OMERO web app page
     {% endblock %}
 
-Additional blocks can be used to customise the page further. See below for 
+Additional blocks can be used to customize the page further. See below for 
 more details.
 
 
@@ -133,7 +133,7 @@ omeroweb/webgateway/templates/webgateway/base
 with more details below:
 
 -  **base\_html.html** - This provides the base <html> template with
-   blocks for 'link'(for css) 'title' 'script' and 'body'. It is
+   blocks for 'link'(for CSS) 'title' 'script' and 'body'. It is
    extended by every other template. Usage:
    ``{% extends "webgateway/base/base_html.html" %}``
 -  **base\_frame.html** - This adds jQuery and jQuery-ui libraries to a
@@ -178,14 +178,14 @@ These blocks can be used to add content to specific points in the page.
     want to include the content from the parent template. This is critical
     for the "link" and "script" blocks, which are used to add <link> and
     <script> elements to the head of the page. If you forget to use
-    `` {{ block.super }} `` then you will remove all the css and javascript
+    `` {{ block.super }} `` then you will remove all the CSS and JavaScript
     links required by the parent template.
 
 
 See :source:`base_header.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/base_header.html>` 
 for full template details.
 
--  link: Used to add css with <link> blocks to the page head. E.g:
+-  link: Used to add CSS with <link> blocks to the page head. E.g:
 
    ::
 
@@ -195,7 +195,7 @@ for full template details.
                 href="{% static "webgateway/css/ome.body.css" %}"/>
        {% endblock %}
 
--  script - Used to add javascript with <script> blocks to the page head
+-  script - Used to add JavaScript with <script> blocks to the page head
 -  title - Add text here for the page <title>.
 -  head - Another block for any extra head elements
 -  middle\_header\_right - Add content to the right of the main header

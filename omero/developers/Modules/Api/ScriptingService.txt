@@ -30,7 +30,7 @@ you can get some instructions for using the script by typing:
 
 To upload 'official' scripts, use the uploadOfficialScript method of the
 scripting service or use the upload command from adminWorkflow.py (you
-can omit password and enter it later if you don't want it showing in
+can omit password and enter it later if you do not want it showing in
 your console):
 
 ::
