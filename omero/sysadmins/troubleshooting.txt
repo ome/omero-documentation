@@ -240,21 +240,6 @@ period (seconds) between retries in ``etc/grid/templates.xml``
 OMERO.web issues
 ----------------
 
-OMERO.web and "ImportError: No module named rtypes."
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To avoid that error please change the following in your :file:`settings.py`:
-
-::
-
-    import os.path
-    import sys
-    import datetime
-    import logging
-
-    import omero
-    import omero.clients
-
 OMERO.web is not accessible from remote computer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -270,9 +255,9 @@ OMERO.web did not start on the production
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The user opening OMEROweb.log files needs write permissions to the
-directory containing the logs file. So, be sure you have a "log"
-directory with the correct ownership and correct path set in LOGDIR
-matches log directory.
+directory containing the log files. So, be sure you have a ``log``
+directory with the correct ownership and the path set in ``LOGDIR``
+matches the log directory.
 
 -  In your ``/home/omero/omero_dist/var/lib/`` directory add the
    following to your ``custom_settings.py`` file:
@@ -355,41 +340,6 @@ and are solely related to how Java is installed on your system. See
 http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=4751177 or this
 :ome-users:`ome-users thread <2009-March/001465.html>` on our mailing list for
 more information.
-
-
-Mod\_python error: "PythonHandler django.core.handlers.modpython"
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Double check if apache\_user has enough permissions to:
-``/home/omero/omero\_dir/lib/python/``,
-``/home/omero/omero\_dir/lib/python/django``,
-``/home/omero/omero\_dir/lib/python/omeroweb``,
-``/home/omero/omero\_dir/var/lib``.
-
-OMERO.scripts fails with "MarshalException" when using PostgreSQL 9.0
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If all script executions fail after upgrading your database to
-PostgreSQL 9.0 with an error like:
-
-:: 
-
-   Caused by: org.openmicroscopy.shoola.env.data.ProcessException: Cannot run script with ID:52
-       at org.openmicroscopy.shoola.env.data.OMEROGateway.runScript(OMEROGateway.java:514)
-       at org.openmicroscopy.shoola.env.data.OMEROGateway.createMovie(OMEROGateway.java:5750)
-       ... 9 more
-   Caused by: omero.InternalException
-       serverStackTrace = "Ice.MarshalException
-                               reason = (null)
-                               at IceInternal.BasicStream.typeToClass(BasicStream.java:2403)
-                               at IceInternal.BasicStream.findClass(BasicStream.java:2320)
-                               at IceInternal.BasicStream.loadObjectFactory(BasicStream.java:2187)
-
-then most likely the bytea\_output setting of your database needs to be
-changed. See the PostgreSQL page for your OS for how to do
-this (:doc:`Windows <windows/server-postgresql>` or 
-:doc:`UNIX/Mac <unix/server-postgresql>`) and, optionally, :ticket:`5662` for 
-more technical details.
 
 Too many open files
 ^^^^^^^^^^^^^^^^^^^
