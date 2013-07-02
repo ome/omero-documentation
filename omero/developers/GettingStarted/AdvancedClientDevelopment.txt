@@ -2226,7 +2226,7 @@ Sudo
 If you are familiar with the admin user concept in OMERO, you might
 wonder if it is possible for administrative users to perform tasks for
 regular users. Under Unix-based systems this is commonly known as "sudo"
-functionality. Though not (yet) as straightforward, it is possible to
+functionality. Although not (yet) as straightforward, it is possible to
 create sessions for other users and carry out actions on their behalf.
 
 ::
