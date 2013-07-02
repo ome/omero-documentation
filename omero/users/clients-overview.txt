@@ -2,7 +2,7 @@ OMERO clients overview
 ======================
 
 Most laboratories use a number of different imaging platforms and thus
-require tools to manage, visualise and analyse heterogeneous sets of
+require tools to manage, visualize and analyze heterogeneous sets of
 image data recorded in a range of file formats. Ideally a single set of
 applications, running on a user's laptop or workstation, could access
 all sets of data, and provide easy-to-use access to this data.
@@ -28,7 +28,7 @@ OMERO.web
 OMERO.web is a web-based client for users who wish to access their data in the
 browser. This offers a similar view to the OMERO.insight desktop client.
 Figures :ref:`omeroweb_44` and :ref:`omero_web_4_4` present the user
-interface [2]_ [4]_. Developers can use the |OmeroWeb| to build customised views.
+interface [2]_ [4]_. Developers can use the |OmeroWeb| to build customized views.
 
 .. _omeroweb_44:
 .. figure:: /images/OmeroWeb_44.png

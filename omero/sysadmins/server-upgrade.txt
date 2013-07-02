@@ -112,7 +112,7 @@ You **must** use the same username and password you have defined during
 Optimize an upgraded database (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After you have run the upgrade script, you may want to optimise your
+After you have run the upgrade script, you may want to optimize your
 database which can both save disk space and speed up access times.
 
 .. parsed-literal::

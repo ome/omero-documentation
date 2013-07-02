@@ -244,7 +244,7 @@ Two extension points are currently available for searching. The first
 are the :doc:`/developers/Search/FileParsers` mentioned above. By
 configuring the map of Formats (roughly mime-types) of files to parser
 instances, extracting information from attached binary files can be made
-quick straight-forward.
+quick and straightforward.
 
 Similarly, :doc:`/developers/Modules/Search/Bridges` provide a mechanism
 for parsing all metadata entering the system. One built in bridge (the

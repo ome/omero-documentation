@@ -162,7 +162,7 @@ Calling a simple Matlab function
     y  = client.getInput("y").val
 
     # call the matlab rand function via mlabwrap will automatically launch matlab 
-    # if it's not already running on the system and call the rand method.
+    # if it is not already running on the system and call the rand method.
     val = matlab.rand(x,y);
     print val
 
