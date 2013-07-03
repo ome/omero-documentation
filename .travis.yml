@@ -11,5 +11,5 @@ python:
 install: "pip install -q Sphinx --use-mirrors"
 
 script:
-  - "cd omero && bash sync_images"
+  - "cd omero && bash sync_images -q"
   - "SPHINXOPTS='-W -D html_theme=plonematch' make html latexpdf"
