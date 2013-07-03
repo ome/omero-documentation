@@ -1,0 +1,6 @@
+#! /bin/bash
+
+OMERO_DOC_FOLDER=/ome/Documentation/OMERO
+BRANCH=${BRANCH:dev_4_4_staging-}
+
+rsync -av necromancer.openmicroscopy.org.uk:$OMERO_DOC_FOLDER/$BRANCH/* images/
