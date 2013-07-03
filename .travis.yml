@@ -10,4 +10,6 @@ python:
 
 install: "pip install -q Sphinx --use-mirrors"
 
-script: "SPHINXOPTS='-W -D html_theme=plonematch' make html latexpdf"
+script:
+  - "cd omero && bash sync_images -q"
+  - "SPHINXOPTS='-W -D html_theme=plonematch' make html latexpdf"
