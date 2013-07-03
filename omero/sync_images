@@ -1,6 +1,44 @@
 #! /bin/bash
 
 OMERO_DOC_FOLDER=/ome/Documentation/OMERO
+OMERO_DOC_URL=http://downloads.openmicroscopy.org/docsbuild
 BRANCH=${BRANCH:-dev_4_4_staging}
 
-rsync -av necromancer.openmicroscopy.org.uk:$OMERO_DOC_FOLDER/$BRANCH/* images/
+usage()
+{
+cat << EOF
+usage: $0 options
+
+This script downloads the images for the OMERO documentation.
+
+OPTIONS:
+   -h      Show this message
+   -q      Use wget to download the images
+EOF
+}
+
+quiet=false
+while getopts ":qh" opt; do
+  case $opt in
+    h)
+      usage
+      exit 1
+      ;;
+    q)
+      quiet=true
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done
+
+if $quiet; then
+    wget -m -nd $OMERO_DOC_URL/$BRANCH.zip
+    rm -r images/
+    unzip $BRANCH.zip
+    mv $BRANCH images
+    rm $BRANCH.zip
+else
+    rsync -av necromancer.openmicroscopy.org.uk:$OMERO_DOC_FOLDER/$BRANCH/* images/
+fi
