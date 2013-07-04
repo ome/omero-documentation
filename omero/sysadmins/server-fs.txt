@@ -293,7 +293,8 @@ be comma separated.
 
     A string of extra arguments supplied to the importer. This could
     include, for example, an email address to report failed imports to:
-    ``--report --send -email=test@example.com`` The default is empty.
+    ``--report --email test@example.com``. The default is empty. For
+    details on available extra arguments see :doc:`/users/command-line-import`.
 
     ::
 
@@ -320,4 +321,4 @@ Here's a full example of a configuration for two users:
     <property name="omero.fs.fileBatch"       value="10;10"/>
     <property name="omero.fs.throttleImport"  value="10;10"/>
     <property name="omero.fs.readers"         value="/home/amy/my_readers.txt;"/>
-    <property name="omero.fs.importArgs"      value="-report;-report -send -email=zak@example.com"/>
+    <property name="omero.fs.importArgs"      value="--report;--report --email zak@example.com"/>
