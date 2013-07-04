@@ -37,7 +37,7 @@ Script-writing (as 'Admin')
 
 The workflow of writing, uploading, running, editing and deploying
 scripts is slightly different depending on whether you have admin access
-to your chosen server. Working with scripts is more straight-forward if
+to your chosen server. Working with scripts is more straightforward if
 you have admin access to a server - this is the preferred workflow
 (below). See bottom of page for the 'User' workflow.
 
@@ -52,9 +52,9 @@ The easiest way to get started is to take an existing script and edit it
 for your needs. An example created for the purpose of this tutorial can
 be found at 
 :source:`Edit_Descriptions.py <examples/ScriptingService/Edit_Descriptions.py>`.
-You should organise your scripts on your local machine in a way that
+You should organize your scripts on your local machine in a way that
 makes sense to users, since your local file paths will be mimicked on
-the server and used to organise script menus in OMERO.insight (see screen-shot
+the server and used to organize script menus in OMERO.insight (see screen-shot
 above).
 
 ::

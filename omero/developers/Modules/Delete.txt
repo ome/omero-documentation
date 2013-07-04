@@ -39,17 +39,17 @@ database, are deleted, then the fileset may no longer be readable. If
 all the fileset's files are deleted, the fileset will certainly be
 unreadable, and there is no 'undo' that will bring it back.
 
-Delete behaviour (technical)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Delete behavior (technical)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Configuring what gets deleted is done using an XML file. The technical
-specification of delete behaviour can be found
+specification of delete behavior can be found
 :source:`components/server/resources/ome/services/spec.xml`
 
 Delete Image
 ~~~~~~~~~~~~
 
-The general delete behaviour for deleting an Image is to remove every
+The general delete behavior for deleting an Image is to remove every
 piece of data from the database that was added when the image was
 imported, removing pixel data and thumbnails from disk. In addition, the
 following data is deleted:

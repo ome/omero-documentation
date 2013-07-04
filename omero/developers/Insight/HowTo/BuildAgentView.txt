@@ -6,14 +6,14 @@ agents follow the same approach. If you want to see the code while
 reading the notes, go to
 :sourcedir:`components/insight/SRC/org/openmicroscopy/shoola/agents/treeviewer/view`.
 
-Let's go back to our example ``MyBrowserAgent`` (see :doc:`/developers/Insight/HowTo/BuildAgent`).
+Let us go back to our example ``MyBrowserAgent`` (see :doc:`/developers/Insight/HowTo/BuildAgent`).
 
 #. Create a ``view`` package in the ``mybrowser`` package.
 #. Create the following classes ``MyBrowser`` (I/F),
    ``MyBrowserComponent``, ``MyBrowserModel``, ``MyBrowserControl``, and
    ``MyBrowserUI``. If you browse the source code, you will notice that
    we usually have a class used as a toolbar and a class used as a
-   status bar. Both classes are initialised by the ``BrowserUI``. For
+   status bar. Both classes are initialized by the ``BrowserUI``. For
    clarity, they have been omitted in the following diagram.
 #. Create a ``MyBrowserFactory``. This class keeps trach of the
    ``MyBrowser`` instances created and not yet discarded. A component is
@@ -89,6 +89,6 @@ for garbage collection.
 
 .. figure:: /images/omeroinsight-agent-view-init.png
   :align: center
-  :alt: Agent view initialisation
+  :alt: Agent view initialization
 
-  OMERO.insight agent view initialisation
+  OMERO.insight agent view initialization

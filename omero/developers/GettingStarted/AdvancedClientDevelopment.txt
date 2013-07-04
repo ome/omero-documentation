@@ -37,7 +37,7 @@ A Blitz client is any application which uses the
 languages, like :doc:`Python </developers/Python>`,
 :doc:`C++ </developers/Cpp>`, :doc:`Java </developers/Java>`, or
 :doc:`Matlab </developers/Matlab>`. A general understanding of the
-:doc:`/developers/Server` may make what's happening
+:doc:`/developers/Server` may make what is happening
 behind the scenes more transparent, but is not necessary. The points
 below outline all that an application writer is expected to know with
 links to further information where necessary.
@@ -57,10 +57,10 @@ comparison of Ice to CORBA, see :zeroc:`iceVsCorba.html`.
 A good first step is to be aware of the difference between remote and
 local invocations. Any invocation on a proxy (``<class_name>Prx``,
 described below) will result in a call over the network with all the
-costs that that entails. The often cited `fallacies of distributed
+costs that entails. The often-cited `fallacies of distributed
 computing <http://en.wikipedia.org/wiki/Fallacies_of_Distributed_Computing>`_
 all apply, and the developer must be aware of concurrency and latency
-issues, as well as complete loss of connectivity, all of which we'll
+issues, as well as complete loss of connectivity, all of which we will
 discuss below.
 
 .. _AdvancedClientDevelopment#Objects:
@@ -69,7 +69,7 @@ Objects
 -------
 
 Before we can begin talking about what you can do with OMERO (the remote
-method calls available in the |OmeroApi|), it's
+method calls available in the |OmeroApi|), it is
 helpful to first know what the objects are that we will be distributing.
 These are the only types that can pass through the API.
 
@@ -117,8 +117,8 @@ From :source:`components/blitz/resources/omero/System.ice`:
 Sequences, dictionaries, enums, and constants
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Other than the "user-defined classes" which we'll get to below, slice
-only provides 4 built-in building blocks for creating a type hierarchy.
+Other than the "user-defined classes" which we will get to below, slice
+provides only four built-in building blocks for creating a type hierarchy.
 
 -  **Sequences.** & **Dictionaries** : Most of the sequences and
    dictionaries in use by the |OmeroApi| are
@@ -240,7 +240,7 @@ or collection([]) rather than null.
 However, the database and OMERO support nullable values and so
 :doc:`/developers/server-blitz` defines a hierarchy of types which
 wraps the primitives: :source:`RTypes <components/blitz/resources/omero/RTypes.ice>`
-Since Ice allows references to be nulled as opposed to primitives, it's
+Since Ice allows references to be nulled, as opposed to primitives, it is
 possible to send null strings, integers, etc.
 
 ::
@@ -354,8 +354,8 @@ Instead, ``omero.RType`` is the abstract superclass of our "**r**\ emote
 subclass of "RType".
 
 To allow other types discussed later to also take part in the
-polymorphism, it's necessary to include RType wrappers for them. This is
-the category that ``omero::RObject`` and ``omero::RMap`` fall into.
+polymorphism, it is necessary to include RType wrappers for them. This
+is the category that ``omero::RObject`` and ``omero::RMap`` fall into.
 
 ``omero::RTime`` and ``omero::RClass`` fall into a different category.
 They are identical to ``omero::RLong`` and ``omero::RString``,
@@ -364,8 +364,8 @@ respectively, but are provided as type safe variants.
 OMERO model objects
 ~~~~~~~~~~~~~~~~~~~
 
-With these components -- rtypes, primitives, constants, etc -- it's
-possible to define the core nouns of OME, the |OmeroModel| . The OMERO
+With these components -- rtypes, primitives, constants, etc. -- it is
+possible to define the core nouns of OME, the |OmeroModel|. The OMERO
 |OmeroModel| is a translation of the 
 :model_doc:`OME XML specification <ome-xml/>` 
 into objects for use by the server, built out of RTypes, sequences and 
@@ -484,7 +484,7 @@ entity and requires application writers to provide a **concrete
 implementation** (hence the "I"). All OMERO classes define methods, but
 OMERO takes care of providing the implementations for you via code
 generation. For each slice-defined and Ice-generated class
-``omero.model.Something``, there's an OMERO-generated class
+``omero.model.Something``, there is an OMERO-generated class
 ``omero.model.SomethingI`` which can be instantiated.
 
 ::
@@ -546,8 +546,8 @@ your own classes or subclasses created on deserialization, see the
 ``Advanced topics`` section below.
 
 Such concrete implementations provide features which are not available
-in the solely Ice-based versions. When you'd like to use these features,
-it's necessary to down-cast to the OMERO-based type.
+in the solely Ice-based versions. When you would like to use these 
+features, it is necessary to down-cast to the OMERO-based type.
 
 For example, objects in each language binding provide a "more natural"
 form of iteration for that language.
@@ -674,9 +674,9 @@ used to create the ``Dataset`` instance linked to the new ``Image``. The
 Objects and collections can be created unloaded as a pointer to an
 actual instance or they may be returned unloaded from the server when
 they are not actively accessed in a query. Because of the
-interconnectedness of the |OmeroModel| ,
+interconnectedness of the |OmeroModel|,
 loading one object could conceivably require downloading a large part of
-the database if there weren't some way to "snip-off" sections.
+the database if there were not some way to "snip-off" sections.
 
 ::
 
@@ -766,12 +766,12 @@ had tried to set a value on one of the ``Image``\ s, you will get an
 exception.
 
 To prevent errors when working with unloaded objects, all the
-|OmeroModel|  classes are marked as protected?
+|OmeroModel| classes are marked as protected
 in the slice definitions which causes the implementations in each
 language to try to hide the fields. In Java and C++ this results in
 fields with "protected" visibility. In Python, an underscore is prefixed
-to all the variables. (In the Python case, we've also tried to
-"strengthen" the hididing of the fields, by overriding ``__setattr__``.
+to all the variables. (In the Python case, we have also tried to
+"strengthen" the hiding of the fields, by overriding ``__setattr__``.
 This is not full proof, but only so much can be done to hide values in
 Python.)
 
@@ -817,7 +817,7 @@ can be inefficient, all the |OmeroModel| collections are hidden behind several m
         // The reload...() method allows one instance
         // to take over a collection from another, if it
         // has been properly initialized on the server.
-        // sameImage will have it's collection unloaded.
+        // sameImage will have its collection unloaded.
         ImagePtr sameImage = new ImageI(1L, true);
         sameImage->getDetails()->setUpdateEvent( new EventI(1L, false) );
         sameImage->linkDataset( new DatasetI(1L, false) );
@@ -871,7 +871,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.cpp`
     % The reload...() method allows one instance
     % to take over a collection from another, if it
     % has been properly initialized on the server.
-    % sameImage will have it's collection unloaded.
+    % sameImage will have its collection unloaded.
     sameImage = ImageI(1, true);
     sameImage.getDetails().setUpdateEvent( EventI(1, false) );
     sameImage.linkDataset( DatasetI(1, false) );
@@ -929,7 +929,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.m`
     # The reload...() method allows one instance
     # to take over a collection from another, if it
     # has been properly initialized on the server.
-    # sameImage will have it's collection unloaded.
+    # sameImage will have its collection unloaded.
     sameImage = ImageI(1L, True)
     sameImage.getDetails().setUpdateEvent( EventI(1L, False) )
     sameImage.linkDataset( DatasetI(long(1), False) )
@@ -993,7 +993,7 @@ Example: :source:`examples/OmeroClients/collectionmethods.py`
             // The reload...() method allows one instance
             // to take over a collection from another, if it
             // has been properly initialized on the server.
-            // sameImage will have it's collection unloaded.
+            // sameImage will have its collection unloaded.
             Image sameImage = new ImageI(1L, true);
             sameImage.getDetails().setUpdateEvent( new EventI(1L, false) );
             sameImage.linkDataset( new DatasetI(1L, false) );
@@ -1247,7 +1247,7 @@ Like smart pointers for |OmeroCpp|, the |OmeroPy| SDK defines ``__getattr__`` an
 ``__setattr__`` methods for all |OmeroModel| 
 classes. Rather than explicitly calling the ``getFoo()`` and
 ``setFoo()`` methods, field-like access can be used. (It should be
-noted, however, that the accessors will perform marginally faster)
+noted, however, that the accessors will perform marginally faster.)
 
 ::
 
@@ -1331,7 +1331,7 @@ question is what one can actually do with them. For that, we have to
 look at what services are provided by :doc:`/developers/server-blitz`, how they are obtained, 
 used, and cleaned up.
 
-Omero client configuration
+OMERO client configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first step in accessing the |OmeroApi| and
@@ -1340,7 +1340,7 @@ proper configuration of an ``omero.client`` instance. The omero.client
 (or in C++ omero::client) class tries to wrap together and simplify as
 much of working with Ice as possible. Where it can, it imports or
 <#includes> types for you, creates an Ice.Communicator and registers an
-ObjectFactory?. Typically, the only work on the client developers part
+ObjectFactory. Typically, the only work on the client developers part
 is to properly configure the omero.client object and then login.
 
 In the simplest case, configuration requires only the server host,
@@ -1612,10 +1612,9 @@ It produces services!
 ~~~~~~~~~~~~~~~~~~~~~
 
 Once a client has been configured properly, and has an active in
-ServiceFactory in hand, it's time to start
-accessing services.
+ServiceFactory in hand, it is time to start accessing services.
 
-The collection of all services provided by OMERO are known as the
+The collection of all services provided by OMERO is known as the
 |OmeroApi|. Each service is defined in a slice file under
 :sourcedir:`components/blitz/resources/omero`.
 The central definitions are in
@@ -1671,8 +1670,8 @@ The following code has a resource leak:
     s = c.createSession()
     sys.exit(0)
 
-Though the client won't suffer any consequences, this snippet leaves a
-:doc:`session </developers/Server/Sessions>` open on the server.
+Although the client will not suffer any consequences, this snippet leaves
+a :doc:`session </developers/Server/Sessions>` open on the server.
 If the server failed to eventually reap such sessions, they would
 eventually consume all available memory. To get around this, the server
 implements timeouts on all sessions. **It is the clients responsibility
@@ -1779,7 +1778,7 @@ which includes ``ServiceFactoryPrx`` or any of the \*Prx service classes
 is a remote invocation on the server. Therefore proper exception
 handling is critical. The definition of the various exceptions is
 outlined on the :doc:`/developers/Modules/ExceptionHandling` page
-and so won't be repeated here. However, how are these sensibly used?
+and so will not be repeated here. However, how are these sensibly used?
 
 One easy rule is that every ``omero.client`` object which you
 successfully call ``createSession()`` on must have ``closeSession()``
@@ -2227,7 +2226,7 @@ Sudo
 If you are familiar with the admin user concept in OMERO, you might
 wonder if it is possible for administrative users to perform tasks for
 regular users. Under Unix-based systems this is commonly known as "sudo"
-functionality. Though not (yet) as straight-forward, it is possible to
+functionality. Although not (yet) as straightforward, it is possible to
 create sessions for other users and carry out actions on their behalf.
 
 ::
@@ -2362,7 +2361,7 @@ Model changes
    unstructured concrete implementation of a ``TextAnnotation``.
 
 -  ``Well.wellSamples`` is now ordered. This implies that all saving or
-   updating a ``WellSample`` instances requires a loaded ``Well``
+   updating of ``WellSample`` instances requires a loaded ``Well``
    instance.
 
 JBoss/RMI
@@ -2395,10 +2394,10 @@ several changes are necessary to port your code to
    ``omero.model`` package. A good place to start porting is to replace
    all the ``ome.model`` imports in your classes.
 
--  However, there are now 2 classes for each previous single
-   ``ome.model``. There's the Ice-generated abstract class (without the
+-  However, there are now two classes for each previous single
+   ``ome.model``. There is the Ice-generated abstract class (without the
    "I" ending) and the OMERO-generated concrete implementation ("I" for
-   implementation). All your constructor usages must be have the "I"
+   implementation). All your constructor usages must have the "I"
    added.
 
    ::
@@ -2522,9 +2521,8 @@ several changes are necessary to port your code to
 
 -  Methods which use the generic type ``<? extends IObject>`` in the
    ``ome.model`` classes, simply return ``omero.model.IObject`` in the
-   ``omero.model`` types. This requires casting, and in the case of
-   collections, creating a new collection if one doesn't want to use
-   receive a warning.
+   ``omero.model`` types. This requires casting and, in the case of
+   collections, creating a new collection to avoid receiving a warning.
 
    ::
 
@@ -2635,7 +2633,7 @@ several changes are necessary to port your code to
 Blitz in 3.2
 ~~~~~~~~~~~~
 
-Though Blitz was not widely publicized, there were a number of
+Although Blitz was not widely publicized, there were a number of
 applications written against it in the 3.2 series. Here we also took the
 major upgrade to 4.0 to correct some problems in the previous version.
 
@@ -2668,16 +2666,16 @@ topics which we would like to see added here in the near future include:
 Code generation
 ~~~~~~~~~~~~~~~
 
-Though not directly relevant to writing a client, it's important to note
-that much of the code for |OmeroPy|, |OmeroCpp|, and |OmeroJava|
+Although not directly relevant to writing a client, it is important to
+note that much of the code for |OmeroPy|, |OmeroCpp|, and |OmeroJava|
 is code generated by the BlitzBuild. Therefore
 many of the imported and included files in the examples above, cannot
 actually be found in `github <https://github.com/openmicroscopy/openmicroscopy>`_.
 
 We plan to include packages of the generated source code in future
-releases. Until then, it's possible to find our latest builds on 
-:jenkins:`jenkins <>` or to build them locally, though some of the generated files are later 
-overwrriten by hand-written versions:
+releases. Until then, it is possible to find our latest builds on 
+:jenkins:`jenkins <>` or to build them locally, although some of the
+generated files are later overwritten by hand-written versions:
 
 -  model is located in ``components/tools/OmeroCpp/src/omero/model/``
 -  OmeroPy is located in ``components/tools/OmeroPy/src/``

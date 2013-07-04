@@ -4,7 +4,7 @@ Architecture
 Logical view
 ~~~~~~~~~~~~
 
-OMERO.insight is logically organised in two layers
+OMERO.insight is logically organized in two layers
 
 .. figure:: /images/omero-insight-architecture-agents.png
   :align: center
@@ -17,16 +17,16 @@ contains coarse grained components which we call **agents**, that are
 each responsible for a specific aspect of the application's
 functionality:
 
--  The Data Manager? provides the user with the GUI functionality to
-   access their data, metadata and visualise large image sets.
--  The Viewer? is a tool to visualise and tune 5D images.
--  The Measurement Tool? is a tool to perform basic measurement.
+-  The Data Manager provides the user with the GUI functionality to
+   access their data, metadata and visualize large image sets.
+-  The Viewer is a tool to visualize and tune 5D images.
+-  The Measurement Tool is a tool to perform basic measurement.
 
 .. note::
 
     If you want to add a new agent, go to :doc:`/developers/Insight/HowTo/BuildAgent`.
 
-These agents are internally organised according to the MVC
+These agents are internally organized according to the MVC
 (` Model-View-Controller <http://en.wikipedia.org/wiki/Model-view-controller>`_)
 pattern, PAC
 (` Presentation-Abstraction-Control <http://en.wikipedia.org/wiki/Presentation-abstraction-control>`_)
@@ -47,7 +47,7 @@ with services to:
 -  Provide a common top level window to plug their GUI's 
    (:doc:`/developers/Insight/TaskBar`).
 
-Initialisation of Agents
+Initialization of Agents
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _Fow: http://martinfowler.com/books
