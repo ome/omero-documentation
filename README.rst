@@ -122,10 +122,9 @@ Makefile options
 ----------------
 
 Additional options for sphinx-build can be passed using the ``SPHINXOPTS``
-variable. The ``-W`` option turns all warnings into errors. To apply the plone
-theme to the generated HTML documentation, pass ``-D html_theme=plonematch``::
+variable. The ``-W`` option turns all warnings into errors::
 
-    SPHINXOPTS="-W -D html_theme=plonematch" make clean html
+    SPHINXOPTS=-W make clean html
 
 Release number
 --------------
