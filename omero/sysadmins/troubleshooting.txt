@@ -347,7 +347,7 @@ Too many open files
 This is caused by the number of opened files exceeding the limit imposed
 by your operating system. It might be due to OMERO leaking file
 descriptors; if you are not using the latest version, please upgrade,
-since a number of bugs which could cause this behaviour have been fixed.
+since a number of bugs which could cause this behavior have been fixed.
 It is also possible for buggy scripts which do not properly release
 resources to cause this to occur. To view the current per-process limit,
 run

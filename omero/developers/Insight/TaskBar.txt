@@ -141,15 +141,15 @@ Follows the code:
     class UIManager
     {
 
-        //Inherits from TopWindow, so it's automatically linked to the TaskBar.
+        //Inherits from TopWindow, so it is automatically linked to the TaskBar.
         //Contains a button that we listen to.  When a mouse click occurs we call
         //createAuxWin().
         private MainWindow      mainWindow;
         
-        //Manages all the AuxiliaryWindow's that we've created and not destroyed yet.
+        //Manages all the AuxiliaryWindow's that we have created and not destroyed yet.
         private TopWindowGroup      auxWinGroup;
         
-        //Counts how many {@link AuxiliaryWindow}'s we've created so far.
+        //Counts how many {@link AuxiliaryWindow}'s that we have created so far.
         private int         auxWinCount;
         
         //Cached reference to access the icons.

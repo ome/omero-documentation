@@ -10,7 +10,7 @@ OMERO is based on the OME data model which can appear overly complex for
 new users. However, the core entities you need for getting started are
 much simpler.
 
-Images in OMERO are organised into a many-to-many container hierarchy:
+Images in OMERO are organized into a many-to-many container hierarchy:
 "Project" -> "Dataset" -> "Image". These containers (and various other
 objects) can be annotated to link various types of data. Annotation
 types include Comment (string), Tag (short string), Boolean, Long, Xml,
@@ -130,7 +130,7 @@ include:
 
 Properties
 ~~~~~~~~~~
-Mutable, annotated, global
+Mutable, annotated, global.
 
 
 Improving generated data objects
@@ -210,7 +210,7 @@ The main methods on Details are:
         ExperimenterGroup Details.getGroup();
         ExternalInfo getExternalInfo();
 
-though some of the methods will return null, if that column is not
+though some of the methods will return :literal:`null`, if that column is not
 available for the given object. See :ref:`Model#Interfaces` below for more
 information.
 
@@ -287,7 +287,7 @@ straightforward.
 
 Hibernate uses CGLIB and Javassist and similar bytecode generation to
 perform much of its magic. For these bytecode generated objects, the
-getClass() method return something of the form
+getClass() method returns something of the form
 "ome.model.core.Image\_$$\_javassist" which cannot be passed back into
 Hibernate. Instead, we must first parse that class String with
 :source:`Utils#trueClass() <components/model/src/ome/util/Utils.java>`.
@@ -320,7 +320,7 @@ combination with the putAt and retrieve methods to store arbitrary data
 a class instance. Calls to ``putAt/retrieve`` with a string found in
 fieldSet delegate to the traditional getters/setters. Otherwise, the
 value is stored in lazily-initialized Map (if no data is stored, the
-map is null).
+map is :literal:`null`).
 
 acceptFilter
 ^^^^^^^^^^^^
@@ -358,10 +358,10 @@ States
 Each instance can be found in one of several states. Quickly, they are:
 
 **transient**
-    the entity has been created (``"new Image()"``) and not yet shown to the
-    backend
+    The entity has been created (``"new Image()"``) and not yet shown to the
+    backend.
 **persistent**
-    the entity has been stored in the database and has a non-null id
+    The entity has been stored in the database and has a non-:literal:`null` id
     (``IObject.getId()``). Here Hibernate differentiates between detached,
     managed, and deleted entities. Detached entities do not take part in
     lazy-loading or dirty detection like managed entities do. They can,
@@ -369,13 +369,13 @@ Each instance can be found in one of several states. Quickly, they are:
     take part in most of the ORM activities, and exceptions will be
     thrown if they are encountered.
 **unloaded** (a reference, or proxy)
-    to solve the common problem of lazy loading exceptions found in many
+    To solve the common problem of lazy loading exceptions found in many
     Hibernate applications, we have introduced the concept of unloaded
     proxy objects which are objects with all fields nulled other than
     the id. Attempts to get or set any other property will result in an
     exception. The backend detects these proxies and restores their
     value before operating on the graph. There are two related states
-    for collections -- null which is completely unloaded and filtered in
+    for collections -- :literal:`null` which is completely unloaded and filtered in
     which certain items have been removed (more on this below).
 
 .. figure:: /images/ObjectStates.png
@@ -387,7 +387,7 @@ Identity, references, and versions
 
 Critical for understanding these states is understanding the concepts of
 identity and versioning as it relates to ORM. Every object has an id
-field that if created by the backend will not be null. However, every
+field that if created by the backend will not be :literal:`null`. However, every
 table does not have a primary key field -- subclasses contain a foreign
 key link to their superclass. Therefore all objects without an id are
 assumed to be non-persistent (i.e. transient).
@@ -433,7 +433,7 @@ Versions are the last piece to understanding object identity. Two
 entities with the same id should not be considered equal if they have
 differing versions. On each write operation, the version of an entity
 is incremented. This allows us to perform optimistic locking so that two
-users don't simultaneously edit the same object. That works so:
+users do not simultaneously edit the same object. That works so:
 
 #. User A and User B retrieve Object X id=1, version=0.
 #. User A edits Object X and saves it. Version is incremented to 1.
@@ -441,7 +441,7 @@ users don't simultaneously edit the same object. That works so:
    UPDATE table SET value = newvalue WHERE id = 1 and version = 0; which
    upates no rows.
 #. The fact that no rows were altered is seen by the backend and an
-   OptimisticLockException? is thrown.
+   :literal:`OptimisticLockException` is thrown.
 
 Identity and versioning make working with the object model difficult
 sometimes, but guarantee that our data is never corrupted. 
@@ -496,7 +496,7 @@ filled. This works on arbitrarily complex graphs of objects:
 Reading
 ~~~~~~~
 
-Reading is a similarly straight-forward operation. From a simple id
+Reading is a similarly straightforward operation. From a simple id
 based lookup, ``iQuery.get(Experimenter.class, 1L)`` to a search for an
 arbitrarily complex graph:
 
@@ -526,7 +526,7 @@ Reading and writing
 
 Complications arise when you try to mix objects from different read
 operations because of the difference in equality. In all but the most
-straight-forward applications, references to IObject instances from
+straightforward applications, references to :literal:`IObject` instances from
 different return graphs will start to intermingle. For example, when a
 user logins in, you might query for all Projects belonging to the user:
 
@@ -557,24 +557,24 @@ not know whether the object should be removed or not.
 
 Without optimistic locks, return oldProject, trying to save oldProject
 would cause whatever Datasets were missing from it to be removed from
-newProject as well. Instead, an ``OptimisticLockExceptions`` is thrown
+newProject as well. Instead, an ``OptimisticLockException`` is thrown
 if a user tries to change an older reference to an entity. Similar
-problems also arise in multi-user settings, when 2 users try to access
-the same object, but it is not purely due to multi-users or even
-multi-threads, but simply to stale state. 
+problems also arise in multi-user settings, when two users try to access
+the same object, but it is not purely due to multiple users or even
+multiple threads, but simply due to stale state. 
 
 .. note:: 
-    There is an issue in the multi-user setting in which a 
+    There is an issue with multiple users in which a 
     ``SecurityViolation`` is thrown instead of an ``OptimisticLockException``. 
-    See :ticket:`1649` for more information).
+    See :ticket:`1649` for more information.
 
-Various techniques can help to manage these duplications are:
+Various techniques to help to manage these duplications are:
 
 -  Copy all data to your own model.
 -  Return unloaded objects wherever possible.
 -  Be very careful about the operations you commit and about the order
    they take place in.
--  Use a ClientSession?
+-  Use a :literal:`ClientSession`.
 
 Lazy loading
 ~~~~~~~~~~~~
@@ -600,7 +600,7 @@ disconnected. Single-valued fields are replaced by an unloaded version:
       }
 
 Multi-valued fields, or collections, are simply nulled. In this case,
-the sizeOf method will return a value less than zero:
+the :literal:`sizeOfXXX` method will return a value less than zero:
 
 ::
 
@@ -726,8 +726,9 @@ Future topics
    the object is currently in a session). Validation is intended to
    verify the specification constraints which cannot (easily and/or
    quickly) be verified by the database.
--  Versioning/Locking?
--  ObjectFactory? for wrapping model objects from :doc:`/developers/server-blitz`
+-  Versioning/Locking
+-  :literal:`ObjectFactory` for wrapping model objects from
+   :doc:`/developers/server-blitz`
 -  Links to external models
 -  Client cache
 -  Document collection methods

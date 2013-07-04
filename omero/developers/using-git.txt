@@ -308,7 +308,7 @@ repository:
 
 Rebasing allows you to update the 'base' point at which you branched
 from another branch (as described above). You can also use 'rebase' to
-organise your commits before merging.
+organize your commits before merging.
 
 It can strip whitespace, since it is good practice not to commit extra
 whitespace at the end of lines or files. Git allows you to remove all
@@ -447,7 +447,7 @@ Rebasing to keep code clean
 
 Rebasing allows you to update the 'base' point at which you branched
 from another branch (as described above). You can also use 'rebase' to
-organise your commits before merging.
+organize your commits before merging.
 
 -  Strip whitespace: It is good practice not to commit extra whitespace
    at the end of lines or files. Git allows you to remove all extra

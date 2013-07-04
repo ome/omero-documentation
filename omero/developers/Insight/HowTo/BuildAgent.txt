@@ -4,7 +4,7 @@ How to build an agent
 An agent is created and managed by the container. Building an agent is
 done in two steps:
 
--  Write Agent code
+-  Write agent code.
 -  Declare the agent in the ``container.xml`` file located in the
    ``config`` directory.
 
@@ -20,11 +20,11 @@ When a new version of the software is delivered, make sure to keep the
 Writing code
 ------------
 
-Let's create a concrete agent: ``MyBrowserAgent``
+Let us create a concrete agent: ``MyBrowserAgent``
 
 -  Create a ``myBrowser`` package in the ``agents`` package.
 -  Create a class ``MyBrowserAgent``, this class **MUST** implement the
-   ``Agent`` interface to be initialised and the ``AgentListener`` to
+   ``Agent`` interface to be initialized and the ``AgentListener`` to
    interact with other agents.
 
 ::
@@ -36,7 +36,7 @@ Let's create a concrete agent: ``MyBrowserAgent``
         /** Reference to the registry. */
         private static Registry         registry;
 
-        //no-arguments constructor required for initialisation
+        //no-arguments constructor required for initialization
         public MyBrowserAgent() {}
 
         //Follow methods required by the Agent Interface
@@ -83,8 +83,8 @@ Let's create a concrete agent: ``MyBrowserAgent``
 Where to create the ``BrowseImage`` event
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Create a ``myBrowser`` package in the ``agents.events`` package
--  Create a ``BrowseImage`` event in the ``myBrowser`` package
+-  Create a ``myBrowser`` package in the ``agents.events`` package.
+-  Create a ``BrowseImage`` event in the ``myBrowser`` package.
 
 ::
 
@@ -161,7 +161,7 @@ What we need to do now, we need to declare ``MyBrowserAgent`` in the
 ``container.xml``
 
 -  Open the ``container.xml`` located in the ``config`` folder (see
-   :doc:`/developers/Insight/DirectoryContents`)
+   :doc:`/developers/Insight/DirectoryContents`).
 -  Add the following:
 
    ::
