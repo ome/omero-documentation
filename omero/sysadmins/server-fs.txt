@@ -44,7 +44,7 @@ Prerequisites
     -   Mac OS systems that use a macports install of Python will need to
         have FSEvents available in the PYTHONPATH. This will require a
         path of the form
-        /System/Library/Frameworks/Python.framework/Versions/2.X/Extras/lib/python/PyObjC/
+        ``/System/Library/Frameworks/Python.framework/Versions/2.X/Extras/lib/python/PyObjC/``
         to be added, according to the version of Python used.
 
 -   The filesystem which OMERO.fs watches must be local to the given
@@ -114,7 +114,7 @@ OMERO.dropbox can be configured in several ways through
 above, it monitors the subdirectory ``DropBox`` of the OMERO data
 directory for all users.
 
-A number of the properties in templates.xml accept a semi-colon
+A number of the properties in ``templates.xml`` accept a semi-colon
 separated list of values. This extended configuration allows a site to
 watch multiple directories, and configure each for a different user, a
 different type of file, etc. Any value missing from the configuration
