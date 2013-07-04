@@ -83,8 +83,12 @@ arguments to run, as follows:
      --upload        Upload broken files with report
      --logs      Upload log file with report
      --email=...         Email for reported errors
+     --annotation_ns=...    Namespace to use for subsequent annotation
+     --annotation_text=...  Content for a text annotation (requires namespace)
+     --annotation_link=...  Comment annotation ID to link all images to
 
      e.g. importer-cli -s localhost -u bart -w simpson -d 50 foo.tiff
+
      Report bugs to <ome-users@lists.openmicroscopy.org.uk>
 
 These options will also be displayed on the command line by passing no
