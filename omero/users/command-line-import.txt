@@ -92,3 +92,34 @@ arguments to run, as follows:
 
 These options will also be displayed on the command line by passing no
 arguments or "-h" to the importer.
+
+.. note::
+    The Command Line Importer is OMERO.importer non-graphical counterpart. As such it follows similar
+    principles with respect to error reporting. For instance:
+
+    - Using the ``--report`` option causes the ``importer-cli`` to send an automated error report to an
+      OME QA application. HTTP POST requests are currently used to upload the report. The QA endpoint
+      URL is configured via an INI-formatted configuration file located in a ``config`` directory relative
+      to the CLI importer (see example configuration below).
+
+    - The ``--email`` option is the OMERO user's contact email. Note that errors are *not* sent to this address.
+
+Sample ``config/importer.config`` INI file:
+
+::
+
+    [General]
+    appTitle = OMERO.importer
+    appVersionNote =
+    port = 4064
+    disableUpgradeCheck = false
+
+    [Uploader]
+    TokenURL = http://qa.openmicroscopy.org.uk/qa/initial/
+    URL = http://qa.openmicroscopy.org.uk/qa/upload_processing/
+    BugTrackerURL = http://qa.openmicroscopy.org.uk/qa/upload_processing/
+    forumURL = http://www.openmicroscopy.org/community/
+
+    [UI]
+    forceFileArchiveOn = false
+    disableImportHistory = false
