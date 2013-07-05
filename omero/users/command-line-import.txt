@@ -94,9 +94,6 @@ These options will also be displayed on the command line by passing no
 arguments or "-h" to the importer.
 
 .. note::
-    The Command Line Importer is OMERO.importer non-graphical counterpart. As such it follows similar
-    principles with respect to error reporting. For instance:
-
     - Using the ``--report`` option causes the ``importer-cli`` to send an automated error report to an
       OME QA application. HTTP POST requests are currently used to upload the report. The default
       parameters (eg. endpoint URL) may be overriden via an INI-formatted configuration file, which is
