@@ -17,7 +17,7 @@ Prerequisites
 
 -   OMERO.fs has the following general requirements:
 
-    -   **Ice 3.3**
+    -  **Ice 3.3**
     -  **Python 2.4 or above**
 
 -   OMERO.fs is built on underlying OS file-notification system, and so
@@ -100,21 +100,21 @@ a given DropBox.
 Log files
 ~~~~~~~~~
 
-The log files ``var/logs/FSServer.log`` and ``var/logs/DropBox.log``
+The log files :file:`var/logs/FSServer.log` and :file:`var/logs/DropBox.log`
 will indicate success or otherwise of start-up of the two components.
-Once running, ``var/logs/FSServer.log`` will log file events seen within
-designated file areas and ``var/logs/DropBox.log`` will log the progress
+Once running, :file:`var/logs/FSServer.log` will log file events seen within
+designated file areas and :file:`var/logs/DropBox.log` will log the progress
 of any file imports.
 
 Advanced use
 ~~~~~~~~~~~~
 
 OMERO.dropbox can be configured in several ways through
-``etc/grid/templates.xml``. In its default configuration, as detailed
+:file:`etc/grid/templates.xml`. In its default configuration, as detailed
 above, it monitors the subdirectory ``DropBox`` of the OMERO data
 directory for all users.
 
-A number of the properties in ``templates.xml`` accept a semi-colon
+A number of the properties in :file:`templates.xml` accept a semi-colon
 separated list of values. This extended configuration allows a site to
 watch multiple directories, and configure each for a different user, a
 different type of file, etc. Any value missing from the configuration
@@ -139,8 +139,8 @@ the following property can be set,
 
     <property name="omero.fs.readers"  value="/home/amy/my_readers.txt;"/>
 
-Here only the image types listed in ``my_readers.txt`` will be imported
-for the user ``amy`` while the system-wide ``readers.txt`` will be used
+Here only the image types listed in :file:`my_readers.txt` will be imported
+for the user ``amy`` while the system-wide :file:`readers.txt` will be used
 for ``zak``.
 
 For a full description of the properties see below.
