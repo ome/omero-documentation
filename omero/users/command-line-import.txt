@@ -94,14 +94,14 @@ These options will also be displayed on the command line by passing no
 arguments or "-h" to the importer.
 
 .. note::
-    - Using the ``--report`` option causes the ``importer-cli`` to send an automated error report to an
+    - Using the ``--report`` option causes the ``importer-cli`` to send an automated error report to the
       OME QA application. HTTP POST requests are currently used to upload the report. The default
       parameters (eg. endpoint URL) may be overriden via an INI-formatted configuration file, which is
       expected to be located within a ``config`` directory relative to the CLI importer (see example below).
 
     - The ``--email`` option is the OMERO user's contact email. Note that errors are *not* sent to this address.
 
-Sample ``config/importer.config`` INI file:
+Sample :file:`config/importer.config` INI file:
 
 ::
 
