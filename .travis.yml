@@ -8,6 +8,9 @@ language: python
 python:
   - "2.6"
 
+env:
+  - SPHINXOPTS="-W"
+
 install: "pip install -q Sphinx --use-mirrors"
 
-script: "SPHINXOPTS='-W -D html_theme=plonematch' make html latexpdf"
+script: "make html latexpdf"
