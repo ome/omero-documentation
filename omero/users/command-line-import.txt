@@ -97,7 +97,7 @@ arguments or "-h" to the importer.
 .. note::
     - Using the ``--report`` option sends an automated error report to the QA application.
       HTTP POST requests are currently used to upload the report. The default parameters (eg. endpoint URL)
-      may be overriden via an INI-formatted configuration file, which is expected to be located within
+      may be overridden via an INI-formatted configuration file, which is expected to be located within
       a ``config`` directory relative to the CLI importer (see example below).
 
     - The ``--email`` option is the OMERO user's contact email. Note that errors are *not* sent to this address.
