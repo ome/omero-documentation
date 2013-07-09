@@ -2,8 +2,6 @@ Changes For June 2011
 =====================
 
 
-
-
 The list of the key changes for the June 2011 major release of the
 ome-xml data model. This schema release will tie in with the OMERO 4.3
 release.
@@ -38,22 +36,22 @@ and the schema file is located at
 Overview of changes
 -------------------
 
--  Polyline and Path are **DEPRECATED**.
+-  ``Polyline`` and ``Path`` have been **DEPRECATED**.
 -  ROI font enumerations have been updated.
--  The creation of the Metadata Only Companion OME-XML and Binary Only
-   OME-TIFF files.
--  A creator attribute has been added for OME-XML & OME-TIFF.
--  The OTF (Optical Transfer Function) is **DEPRECATED**.
+-  Metadata Only Companion OME-XML and Binary Only
+   OME-TIFF files have been created.
+-  A creator attribute has been added for OME-XML and OME-TIFF.
+-  The OTF (Optical Transfer Function) has been **DEPRECATED**.
 
 ROI
 ^^^
 
--  Polyline and Path are **DEPRECATED** as they are due to be replaced
-   in the next major release, to provide support for 3-dimensional
+-  ``Polyline`` and ``Path`` have been **DEPRECATED** as they are due to be 
+   replaced in the next major release, to provide support for 3-dimensional
    objects.
--  FontFamily has been changed so it matches the standard HTML/CSS
+-  ``FontFamily`` has been changed so it matches the standard HTML/CSS
    values.
--  FontStyle as been changed so it matches more closely to standard
+-  ``FontStyle`` as been changed so it matches more closely to standard
    HTML/CSS.
 
 OME
@@ -61,9 +59,9 @@ OME
 
 -  The OME node has been modified to allow creation of the Metadata Only
    Companion OME-XML and Binary Only OME-TIFF files.
--  The OME node Creator attribute can now contain the name and version
+-  The OME node ``Creator`` attribute can now contain the name and version
    of the creating application.
--  The Physical size of a pixel is now restricted to a positive value.
--  MicrobeamManipulation can now have a Description.
--  OTF (Optical Transfer Function) is **DEPRECATED** and is due for
+-  The physical size of a pixel is now restricted to a positive value.
+-  ``MicrobeamManipulation`` can now have a ``Description``.
+-  OTF (Optical Transfer Function) has been **DEPRECATED** and is due for
    removal in the next major release.

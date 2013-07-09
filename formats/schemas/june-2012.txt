@@ -36,54 +36,54 @@ and the schema file is located at
 Overview of changes
 -------------------
 
--  Release in step with release of Bio-Formats 4.4
--  Preparation for the Major release of OMERO **after** 4.4
--  Work to allow full code generation of OME Model API direct from the
-   XSD files
--  Almost full synchronization of the OME Model with the OMERO Database
-   structure
+-  This release is in step with release of Bio-Formats 4.4.
+-  It is preparation for the Major release of OMERO **after** 4.4.
+-  It includes work to allow full code generation of OME Model API direct from 
+   the XSD files.
+-  It also includes almost full synchronization of the OME Model with the 
+   OMERO Database structure.
 -  The direction of references between Screen, Plate and Well, and between
-   Project, Dataset and Image, have been reversed
--  A major reworking of ROI
--  ``Pixels`` is **DEPRECATED**, but it is still required at present
--  ``OTF`` and all associated objects **REMOVED**
+   Project, Dataset and Image, have been reversed.
+-  The ROI model has been majorly reworked.
+-  ``Pixels`` has been **DEPRECATED**, but is still required at present.
+-  ``OTF`` and all associated objects have been **REMOVED**.
 
 General changes
 ^^^^^^^^^^^^^^^
 
--  Ensure **all** colors are stored as new type ``Color``
+-  **All** colors are now stored as new type ``Color``.
 -  The default value for all colors is now solid white (due to legacy
-   color default it was totally transparent red)
--  Add ``appinfo`` blocks for ``xsd-fu`` to specify plurals
--  Add ``appinfo`` blocks for ``xsd-fu`` to specify abstract objects
+   color default it was totally transparent red).
+-  ``appinfo`` blocks for ``xsd-fu`` have been added to specify plurals.
+-  ``appinfo`` blocks for ``xsd-fu`` have been added to specify abstract 
+   objects.
 
 BinaryFile
 ^^^^^^^^^^
 
--  Only the general change adding ``appinfo`` blocks for ``xsd-fu`` to
-   specify plurals
+-  The only change here is the general change adding ``appinfo`` blocks for 
+   ``xsd-fu`` to specify plurals.
 
 OME
 ^^^
 
--  Rename ``AcquiredDate`` to ``AcquisitionDate`` in ``Image``
--  Rename ``ExperimentGroup`` to ``Group``
--  Make ``Group`` annotatable
--  Allow multiple ``Leader`` for each ``Group``
--  Remove ``Contact`` for ``Group`` - the transform will convert any
-   existing ``Contact`` to a ``Leader``
+-  ``AcquiredDate`` has been renamed to ``AcquisitionDate`` in ``Image``.
+-  ``ExperimentGroup`` has been renamed to ``Group``.
+-  ``Group`` is now annotatable.
+-  Multiple ``Leader``s are now possible for each ``Group``.
+-  ``Contact`` has been removed from ``Group`` - the transform will convert 
+   any existing ``Contact`` to a ``Leader``.
 -  The direction of the references between ``Project``, ``Dataset`` and
    ``Image`` have been reversed for consistency with other linked
-   objects
--  Remove ``DisplayName`` from ``Experimenter``
+   objects.
+-  ``DisplayName`` has been removed from ``Experimenter``.
 -  The ``ImageRef`` element has been moved from the ``SPW.xsd`` to the
-   ``ome.xsd`` schema file
--  ``Pixels`` is **DEPRECATED**, but is still required (the contents of Pixels 
-   will be moved up to Image in the
-   next release - it is a legacy of when an Image could have multiple
-   Pixels sets and has been redundant since the 2009-09 schema fixed the
-   number of Pixels sets in an Image at 1)
--  ``OTF`` and all associated objects **REMOVED**
+   ``ome.xsd`` schema file.
+-  ``Pixels`` has been **DEPRECATED**, but is still required. The contents of 
+   Pixels will be moved up to Image in the next release - it is a legacy of 
+   when an Image could have multiple Pixels sets and has been redundant since 
+   the 2009-09 schema fixed the number of Pixels sets in an Image at 1.
+-  ``OTF`` and all associated objects have been **REMOVED**.
 
 OMERO
 ^^^^^
@@ -103,44 +103,44 @@ ROI
 ^^^
 
 -  All objects defining colors now use the type ``OME:Color`` from
-   ``ome.xsd``
--  Move ``MarkerStart`` & ``MarkerEnd`` down from ``Shape`` into
-   ``Line``, ``Polyline``
--  Add "Polygon" element (a new type of ``Shape``)
--  Delete "Closed" from Polyline (transform a Closed Polyline into a
-   Polygon)
--  Delete attribute ``Name`` from ``Shape``
--  Delete ``Description`` from ``Shape``
--  Add ``Visible`` to ``Shape``
--  Add ``Locked`` to ``Shape``
--  Rename ``Fill`` attribute in ``Shape`` to ``FillColor``
--  Rename ``Stroke`` attribute in ``Shape`` to ``StrokeColor``
--  Delete ``Value`` from ``Text``
--  Rename ``Text`` element to ``Label``
--  Rename ``Label`` attribute in ``Shape`` to ``Text``
--  Convert ``Transform`` to new type ``AffineTransform``
+   ``ome.xsd``.
+-  ``MarkerStart`` and ``MarkerEnd`` have been moved down from ``Shape`` into
+   ``Line``, ``Polyline``.
+-  A "Polygon" element (a new type of ``Shape``) has been added.
+-  "Closed" has been deleted from Polyline (transform a Closed Polyline into a
+   Polygon).
+-  The attribute ``Name`` has been deleted from ``Shape``.
+-  ``Description`` has been deleted from ``Shape``.
+-  ``Visible`` has been added to ``Shape``.
+-  ``Locked`` has been added to ``Shape``.
+-  The ``Fill`` attribute in ``Shape`` has been renamed to ``FillColor``.
+-  The ``Stroke`` attribute in ``Shape`` has been renamed to ``StrokeColor``.
+-  ``Value`` has been deleted from ``Text``.
+-  The ``Text`` element has been renamed to ``Label``.
+-  The ``Label`` attribute in ``Shape`` has been renamed to ``Text``.
+-  ``Transform`` has been converted to the new type ``AffineTransform``.
 
 SA
 ^^
 
-Add additional intermediate abstract annotations (``BasicAnnotation``,
-``NumericAnnotation``, ``TextAnnotation``, ``TypeAnnotation``) to match
-OMERO annotation structure. The current annotations have been modified to
-now extend these. This allows the code generation to group annotations
-together by intermediate annotation type. The behavior of the current
-annotations has not changed, and the new intermediate abstract
+Additional intermediate abstract annotations (``BasicAnnotation``,
+``NumericAnnotation``, ``TextAnnotation``, ``TypeAnnotation``) have been added 
+to match OMERO annotation structure. The current annotations have been 
+modified to now extend these. This allows the code generation to group 
+annotations together by intermediate annotation type. The behavior of the 
+current annotations has not changed, and the new intermediate abstract
 annotations are not used directly.
 
 SPW
 ^^^
 
--  Add "FieldIndex" to "Plate" - this means the index of the WellSample
-   displays as the default Field
+-  "FieldIndex" has been added to "Plate" - this means the index of the 
+   WellSample displays as the default Field.
 -  The human readable identifier for the screening status has been
-   renamed from "Status" to "Type"
+   renamed from "Status" to "Type".
 -  The direction of the references between Screen and Plate has been
    reversed for consistency with other linked objects.
--  The ImageRef element has been moved to the ``ome.xsd`` schema file
+-  The ImageRef element has been moved to the ``ome.xsd`` schema file.
 
 Upgrading and Downgrading
 -------------------------

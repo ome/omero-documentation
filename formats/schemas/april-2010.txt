@@ -36,14 +36,14 @@ and the schema file is located at
 Overview of changes
 -------------------
 
--  Schema Cleanup
+-  Schema cleanup
 -  Units
 -  ROI changes
 -  SPW changes
--  Filter Changes
+-  Filter changes
 
 
-Schema Cleanup
+Schema cleanup
 ^^^^^^^^^^^^^^
 
 -  Remove legacy objects
@@ -128,7 +128,7 @@ SPW changes
 
    -  added Index
 
-Filter Changes
+Filter changes
 ^^^^^^^^^^^^^^
 
 -  Filter now has type "Dichroic"

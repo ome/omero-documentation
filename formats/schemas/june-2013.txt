@@ -36,22 +36,24 @@ and the schema file is located at
 Overview of changes
 -------------------
 
--  Release in step with release of Bio-Formats 5.0
--  Release in step with release of OMERO 5.0 (FS)
+-  This release is in step with the release of Bio-Formats 5.0 and OMERO 5.0 
+   (FS).
 
 BinaryFile
 ^^^^^^^^^^
 
-- No significant changes
+- There are no significant changes to this component.
 
 OME
 ^^^
 
-- Storage of copyright information in ``RightsHolder`` and ``RightsHeld``
-- Added ``SignificantBits``, ``Interleaved``, and ``BigEndian`` attributes to ``Pixels``
-- Altering ``NominalMagnification`` to allow non-integer values, e.g. 0.5
-- Added a new type to``Filter`` called ``Tuneable``
-- Added ``Zoom`` and ``Integration`` to ``DetectorSettings``
+- Copyright information is stored in ``RightsHolder`` and ``RightsHeld``.
+- ``SignificantBits``, ``Interleaved``, and ``BigEndian`` attributes have been 
+  added to ``Pixels``.
+- ``NominalMagnification`` has been altered to allow non-integer values, e.g. 
+  0.5.
+- A new type has been added to``Filter`` called ``Tuneable``.
+- ``Zoom`` and ``Integration`` have been added to ``DetectorSettings``.
 
 OMERO
 ^^^^^
@@ -61,21 +63,22 @@ OMERO
 ROI
 ^^^
 
-- No significant changes
+- There are no significant changes to this component.
 
 SA
 ^^
 
 - A new optional ``Annotator`` attribute has been added to the ``Annotation``
-  complex type. This make it available to all other annotation types. This attribute
-  is of type ``ExperimenterID`` and can be used to record who created an annotation.
+  complex type. This make it available to all other annotation types. This 
+  attribute is of type ``ExperimenterID`` and can be used to record who 
+  created an annotation.
   It has not been added to the OMERO database as this information is already
   available through the permissions system.
 
 SPW
 ^^^
 
-- No significant changes
+- There are no significant changes to this component.
 
 Upgrading and Downgrading
 -------------------------
