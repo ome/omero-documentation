@@ -47,7 +47,7 @@ the displayed results would need some interpretation.
                         <Label>90</Label>
                     </ModuloAlongZ>
                     <ModuloAlongT Type="phase" Start="0" Step="1" End="255"/>
-                    <ModuloAlongC Type="lifetime" Start="0" Step="2" End="128"/>
+                    <ModuloAlongC Type="lifetime" TypeDescription="TCSPC" Start="0" Step="2" End="128"/>
                 </Modulo>
             </SA:Value>
         </SA:XMLAnnotation>
@@ -73,6 +73,9 @@ enumeration:
 
 The OMERO clients cannot display dimensions of type ``other`` but the
 OMERO server can store this data.
+
+The attribute ``TypeDescription`` is optional. It is a simple text description of the
+Type used to indicate to an application or user how the data should be interpreted.
 
 The attribute ``Unit`` is optional. It is a simple text description.
 
@@ -166,7 +169,7 @@ extra Phase(P) for each T then
 How to order the plane data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The order of the plane data is defined by the BinData or TiffData block, and 
+The order of the plane data is defined by the BinData or TiffData block, and
 is interleaved as it would be for the 5D view of the Z plane i.e. it is
 governed by the value of DimensionOrder on the Pixels element.
 
@@ -225,7 +228,7 @@ wavelength ranges [λ, lambda].
 FLIM
 """"
 
-:schema_plone:`FLIM-modulo-sample.ome.tif <Samples/2013-06/FLIM-modulo-sample.ome.tif>`
+:schema_plone:`FLIM-modulo-sample.ome.tiff <Samples/2013-06/FLIM-modulo-sample.ome.tiff>`
 
 Two channels each recorded at eight histogram bins.
 
