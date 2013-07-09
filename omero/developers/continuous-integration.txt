@@ -404,11 +404,13 @@ tab of Jenkins.
 Configuration
 ^^^^^^^^^^^^^
 
-For all jobs building documentation using Sphinx, the following environment
-variables are used:
+For all jobs building documentation using Sphinx, the HTML documentation theme
+hosted at https://github.com/openmicroscopy/sphinx_theme repository is copied
+to the relevant :file:`themes/` folder. The following environment variables
+are then used:
 
 - the Sphinx building options, :envvar:`SPHINXOPTS`, is set to
-  ``-W -D html_theme=plone_match``,
+  ``-W -D html_theme=sphinx_theme``,
 
 - the release number of the documentation is set by :envvar:`OMERO_RELEASE`,
   :envvar:`BF_RELEASE` or :envvar:`FORMATS_RELEASE`,
