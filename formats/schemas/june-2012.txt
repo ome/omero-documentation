@@ -46,7 +46,7 @@ Overview of changes
    Project, Dataset and Image, have been reversed
 -  A major reworking of ROI
 -  ``Pixels`` is **DEPRECATED**, but it is still required at present
--  ``OTF`` and all associated objects ***REMOVED***
+-  ``OTF`` and all associated objects **REMOVED**
 
 General changes
 ^^^^^^^^^^^^^^^
@@ -83,7 +83,7 @@ OME
    next release - it is a legacy of when an Image could have multiple
    Pixels sets and has been redundant since the 2009-09 schema fixed the
    number of Pixels sets in an Image at 1)
--  ``OTF`` and all associated objects ***REMOVED***
+-  ``OTF`` and all associated objects **REMOVED**
 
 OMERO
 ^^^^^
@@ -91,8 +91,7 @@ OMERO
 ``OMERO.xsd`` is not included in this release. It has been extensively
 reworked and expanded as part of the OME Model and OMERO Database
 synchronization but work on this will continue until the release of the
-associated OMERO version. The OME Model (i.e. the other XSD files) has
-been completely updated for this work. It does not make use of OMERO.xsd
+associated OMERO version. The OME Model does not make use of OMERO.xsd
 so will be unaffected by the future release of this single file.
 
 .. note::    
