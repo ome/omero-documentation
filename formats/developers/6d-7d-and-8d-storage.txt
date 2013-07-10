@@ -46,8 +46,8 @@ the displayed results would need some interpretation.
                         <Label>45</Label>
                         <Label>90</Label>
                     </ModuloAlongZ>
-                    <ModuloAlongT Type="phase" Start="0" Step="1" End="255"/>
-                    <ModuloAlongC Type="lifetime" TypeDescription="TCSPC" Start="0" Step="2" End="128"/>
+                    <ModuloAlongT Type="lifetime" TypeDescription="TCSPC" Start="0" Step="2" End="128"/>
+                    <ModuloAlongC Type="phase" Start="0" Step="1" End="255"/>
                 </Modulo>
             </SA:Value>
         </SA:XMLAnnotation>
