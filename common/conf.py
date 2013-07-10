@@ -125,7 +125,7 @@ extlinks = {
     # Plone links. Separating them out so that we can add prefixes and
     # suffixes during testing.
     'community_plone' : (oo_site_root + '/community/%s', ''),
-    'feature_plone' : (oo_site_root + '/products/feature-list/%s', ''),
+    'feature_plone' : (oo_site_root + '/products/ome5/feature-list/%s', ''),
     'legacy_plone' : (oo_site_root + '/support/legacy/%s', ''),
     'about_plone' : (oo_site_root + '/about/%s', ''),
     'team_plone' : (oo_site_root + '/team/%s', ''),
@@ -135,8 +135,8 @@ extlinks = {
     'omero_plone' : (oo_site_root + '/products/ome5/%s', ''),
     'omero_doc' : (oo_site_root + '/support/omero5/%s', ''),
     'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),   
-    'bf_plone' : (oo_site_root + 'site/products/bio-formats/%s', ''),
-    'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
+    'bf_plone' : (oo_site_root + 'site/products/ome5/bio-formats/%s', ''),
+    'bf_doc' : (oo_site_root + '/support/bio-formats5/%s', ''),
     # Downloads
     'downloads' : (downloads_root + '/omero/%s', ''),
     # Miscellaneous links
