@@ -139,6 +139,7 @@ extlinks = {
     'bf_doc' : (oo_site_root + '/support/bio-formats5/%s', ''),
     # Downloads
     'downloads' : (downloads_root + '/omero/%s', ''),
+    'bf_downloads' : (downloads_root + '/bio-formats/%s', ''),
     # Miscellaneous links
     'snapshot' : (cvs_root + '/snapshots/%s', ''),
     'zeroc' : ('http://zeroc.com/%s', ''),
