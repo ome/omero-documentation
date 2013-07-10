@@ -9,8 +9,9 @@ all sets of data, and provide easy-to-use access to this data.
 
 OMERO ships as a server application called *OMERO.server* and a series of
 clients: *OMERO.web*, *OMERO.insight*, *OMERO.editor* and *OMERO.importer*.
-All run on the major operating systems and provide image visualisation,
-management, and annotation to users from remote locations. With a large  number of OMERO.server installations worldwide, OMERO has been shown to be
+All run on the major operating systems and provide image visualization,
+management, and annotation to users from remote locations. With a large
+number of OMERO.server installations worldwide, OMERO has been shown to be
 relatively easy to install and get running.
 
 *OMERO.clients* is our collective term for our applications that allows
@@ -79,7 +80,7 @@ Among many features, the noteworthy OMERO.insight elements are:
 - DataManager, a traditional tree-based view of the data hierarchies in an
   OMERO Server. DataManager supports access to all image metadata,
   annotations, tags.
-- ImageViewer, for visualisation of 5D images (space, channel, time). The
+- ImageViewer, for visualization of 5D images (space, channel, time). The
   ImageViewer makes use of the OMERO Server's Rendering Engine, and provides
   high-performance viewing of multi-dimensional images on standard
   workstations (e.g. scrolling through space and time), without requiring

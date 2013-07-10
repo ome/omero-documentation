@@ -3,7 +3,7 @@ LDAP authentication
 
 `LDAP <http://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol>`_
 is an open standard for querying and modifying directory services that
-is commonly used for authentication, authorisation and accounting (AAA).
+is commonly used for authentication, authorization and accounting (AAA).
 OMERO.server supports the use of an LDAP server to query (but not
 modify) AAA information for the purposes of automatic user creation.
 
