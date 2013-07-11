@@ -39,7 +39,7 @@ Overview of Changes
 Additional Schema file SA.xsd
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This provides support for the new StructuredAnnotation objects. The list
+This provides support for the new ``StructuredAnnotation`` objects. The list
 of annotations is:
 
 ::
@@ -57,8 +57,8 @@ Additional Schema file OMERO.xsd
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This provides support for the specific use of OMERO in the
-StructuredAnnotation objects. Each OMERO specific block is stored in an
-XmlAnnotation. It is not strictly part of the model as it provides
+``StructuredAnnotation`` objects. Each OMERO specific block is stored in an
+``XmlAnnotation``. It is not strictly part of the model as it provides
 support only to the OMERO system. The schema will be published to show
 how we are using structured annotations within OMERO.
 
@@ -91,7 +91,7 @@ Optional and non-optional Objects
     ManufactSpec:Manufacturer
     ManufactSpec:Model
 
-ManufactSpec is the base type for several other objects.
+``ManufactSpec`` is the base type for several other objects.
 
 -  The following objects have been made **optional in the model** but
    **NOT in the OMERO database** - a value will be generated on import:
@@ -105,7 +105,7 @@ ManufactSpec is the base type for several other objects.
     OME:Screen:Name
 
 -  The following objects **are not optional** - but they now
-   support the value Unknown:
+   support the value 'Unknown':
 
 ::
 
@@ -122,46 +122,46 @@ ManufactSpec is the base type for several other objects.
 MicrobeamManipulation
 ^^^^^^^^^^^^^^^^^^^^^
 
--  Move MicrobeamManipulation from Image to Experiment 
+-  Moving ``MicrobeamManipulation`` from ``Image`` to ``Experiment`` 
    **(held until next release)**
 
-At present MicrobeamManipulation is stored directly under an Image with
+At present ``MicrobeamManipulation`` is stored directly under an Image with
 a link to an Experiment. The structure this produces is too flexible and
 allow loops of references to be created. It is proposed that we move all
-the MicrobeamManipulation objects to be located under the Experiment and
-replace them in each Image with zero or more MicrobeamManipulationRef
-objects. This also allows one MicrobeamManipulation operation to be used
+the ``MicrobeamManipulation`` objects to be located under the Experiment and
+replace them in each Image with zero or more ``MicrobeamManipulationRef``
+objects. This also allows one ``MicrobeamManipulation`` operation to be used
 in more than one Image.
 
--  Rework ROI in MicrobeamManipulation **(held until next release)**
+-  Reworking ``ROI`` in ``MicrobeamManipulation`` **(held until next release)**
 
-As a separate issue to above the ROI used by the MicrobeamManipulation
-should stop being a Ref to one stored in Image. In the current situation
-the manipulated ROI is listed along with all the other ROIs. It is not
-the same as the other ROIs could legitimately be adjusted by the user.
-The MicrobeamManipulation ROI is however fixed and should not be changed
-after the manipulation. This change is being made at this time as the
-ROI is already being changed.
+As a separate issue to above, the ``ROI`` used by the 
+``MicrobeamManipulation`` should stop being a Ref to one stored in ``Image``. 
+In the current situation, the manipulated ROI is listed along with all the 
+other ROIs. It is not the same though, as the other ROIs could legitimately be 
+adjusted by the user whereas the MicrobeamManipulation ROI is fixed and should 
+not be changed after the manipulation. This change is being made at this time 
+as the ROI is already being changed.
 
 New ROI model
 ^^^^^^^^^^^^^
 
-The new model has more powerful ROI model and the display options are
+The new model has a more powerful ROI model and the display options are
 now stored as Structured Annotations. Elements added include
-LogicalChannelRef, ShapeID, ROI, Shape, BasicSvgShape and several shapes
-derived from BasicSvgShape.
+``LogicalChannelRef``, ``ShapeID``, ``ROI``, ``Shape``, ``BasicSvgShape`` and 
+several shapes derived from BasicSvgShape.
 
 Min/Max/Optional/Required
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-All elements now have an explicit minOccurs and maxOccours. All
+All elements now have an explicit minOccurs and maxOccurs. All
 attributes now have a use value "optional" or "required".
 
 PinholeSize type changed
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The PinholeSize type has changed from xsd:positiveInteger to xsd:float
-with units um.
+The ``PinholeSize`` type has changed from ``xsd:positiveInteger`` to 
+``xsd:float`` with units um.
 
 Added LightEmittingDiode
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -172,6 +172,7 @@ needed for this type.
 Pixels
 ^^^^^^
 
-Pixels can now contain **EITHER** BinData or TiffData - previously the model 
-allowed there to be a mixture of the two, which was not the intended use.
+``Pixels`` can now contain **EITHER** ``BinData`` or ``TiffData`` - previously 
+the model allowed there to be a mixture of the two, which was not the intended 
+use.
 

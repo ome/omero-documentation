@@ -33,11 +33,11 @@ and the schema file is located at
 
     http://www.openmicroscopy.org/Schemas/OME/2010-04/ome.xsd
 
-Overview of changes
--------------------
+Overview of components changed
+------------------------------
 
--  Schema cleanup
--  Units
+-  schema cleanup
+-  units
 -  ROI changes
 -  SPW changes
 -  Filter changes
@@ -46,30 +46,28 @@ Overview of changes
 Schema cleanup
 ^^^^^^^^^^^^^^
 
--  Remove legacy objects
--  Dropping of files
+The following legacy objects have been removed:
 
-   -  ``AnalysisChain.xsd``
-   -  ``AnalysisModule.xsd``
-   -  ``CA.xsd``
-   -  ``CLI.xsd``
-   -  ``DataHistory.xsd``
-   -  ``MLI.xsd``
-   -  ``STD.xsd``
+-  :file:`AnalysisChain.xsd`
+-  :file:`AnalysisModule.xsd`
+-  :file:`CA.xsd`
+-  :file:`CLI.xsd`
+-  :file:`DataHistory.xsd`
+-  :file:`MLI.xsd`
+-  :file:`STD.xsd`
 
--  Removal of includes in ``ome.xsd`` to STD, CA and AML (also CLI &
-   MLI)
--  Removal from OME, Image and Dataset nodes of CustomAttributes
--  Removal from OME Node of SemanticTypeDefinitions
+This required the removal of references to them from ``ome.xsd``; the removal 
+of ``CustomAttributes`` from OME, Image and Dataset nodes; and the removal of 
+``SemanticTypeDefinitions`` from the OME Node. 
 
 Units
 ^^^^^
 
--  Units defined for everything in
+-  Units were defined for everything in
 
-   -  ``ome.xsd``
-   -  ``ROI.xsd``
-   -  ``SPW.xsd``
+   -  :file:`ome.xsd`
+   -  :file:`ROI.xsd`
+   -  :file:`SPW.xsd`
 
 Follow some examples:
 
@@ -84,60 +82,55 @@ ROI changes
 
 -  ROI now has:
 
-   -  an optional Description element
-   -  an optional Name attribute
-   -  an optional Namespace
+   -  an optional ``Description`` element
+   -  an optional ``Name`` attribute
+   -  an optional ``Namespace``
 
 -  Shape now has:
 
    -  an abstract marker in an appinfo
-   -  an optional Name attribute
-   -  removed ChannelRef [0..\*]
-   -  add TheC to link to Channel [0..1]
-   -  all the attributes previously on the dropped ShapeDisplayOptions
+   -  an optional ``Name`` attribute
+   -  ``ChannelRef [0..\*]`` removed
+   -  ``TheC`` added linked to ``Channel [0..1]``
+   -  all the attributes previously on the dropped ``ShapeDisplayOptions`` 
+      e.g. Fill, Stroke, FontFamily, etc.
 
-      -  e.g. Fill, Stroke, FontFamily, etc.
-
--  Text element renamed to Label.
+-  The ``Text`` element has been renamed to ``Label``.
 
 SPW changes
 ^^^^^^^^^^^
 
--  Plate now has:
+-  ``Plate`` now has:
 
-   -  added PlateAcquisition [0..\*]
-   -  an attribute Rows
-   -  an attribute Columns
-   -  added a unique key WellSampleIndex for the attribute Index in
+   -  ``PlateAcquisition [0..\*]`` added
+   -  an attribute ``Rows``
+   -  an attribute ``Columns``
+   -  a unique key ``WellSampleIndex`` added for the attribute ``Index`` in
       ``SPW:Well/SPW:WellSample``
-   -  removed DefaultSample
+   -  ``DefaultSample`` removed
 
--  ScreenAcquisition has become PlateAcquisition.
+-  ``ScreenAcquisition`` has become ``PlateAcquisition``.
 
--  PlateAcquisition now has:
+-  ``PlateAcquisition`` now has:
 
-   -  added an optional Description element
-   -  added an optional Name attribute
-   -  added an optional MaximumFieldCount attribute
+   -  an optional ``Description`` element added
+   -  an optional ``Name`` attribute added
+   -  an optional ``MaximumFieldCount`` attribute added
 
--  Screen now has:
+-  ``Screen`` now has ``ScreenAcquisition`` removed.
 
-   -  removed ScreenAcquisition
-
--  WellSample now has:
-
-   -  added Index
+-  ``WellSample`` now has ``Index`` added.
 
 Filter changes
 ^^^^^^^^^^^^^^
 
--  Filter now has type "Dichroic"
--  New LightPath object (this provides much more flexibility than
-   SecondaryEmissionFilter and SecondaryExcitationFilter)
+-  Filter now has type "Dichroic".
+-  There is a new ``LightPath`` object (this provides much more flexibility 
+   than ``SecondaryEmissionFilter`` and ``SecondaryExcitationFilter``).
 
 Other
 ^^^^^
 
--  Detector - Changes/Additions
--  LED attributes
+-  There have been changes and additions made to ``Detector``.
+-  The lack of LED attributes was explained in documentation.
 
