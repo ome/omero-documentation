@@ -17,7 +17,7 @@ Prerequisites
 
 -   OMERO.fs has the following general requirements:
 
-    -   **Ice 3.3**
+    -  **Ice 3.3**
     -  **Python 2.4 or above**
 
 -   OMERO.fs is built on underlying OS file-notification system, and so
@@ -44,7 +44,7 @@ Prerequisites
     -   Mac OS systems that use a macports install of Python will need to
         have FSEvents available in the PYTHONPATH. This will require a
         path of the form
-        /System/Library/Frameworks/Python.framework/Versions/2.X/Extras/lib/python/PyObjC/
+        ``/System/Library/Frameworks/Python.framework/Versions/2.X/Extras/lib/python/PyObjC/``
         to be added, according to the version of Python used.
 
 -   The filesystem which OMERO.fs watches must be local to the given
@@ -56,7 +56,7 @@ Prerequisites
 OMERO DropBox
 -------------
 
-The first application of OMERO.fs is OMERO.dropbox which utilises a file
+The first application of OMERO.fs is OMERO.dropbox, which utilizes a file
 system monitor to find newly uploaded files and run a fully automatic
 import on those files if possible. This release of OMERO.dropbox runs on
 the same machine as the OMERO.server and watches designated areas of the
@@ -100,21 +100,21 @@ a given DropBox.
 Log files
 ~~~~~~~~~
 
-The log files ``var/logs/FSServer.log`` and ``var/logs/DropBox.log``
+The log files :file:`var/logs/FSServer.log` and :file:`var/logs/DropBox.log`
 will indicate success or otherwise of start-up of the two components.
-Once running, ``var/logs/FSServer.log`` will log file events seen within
-designated file areas and ``var/logs/DropBox.log`` will log the progress
+Once running, :file:`var/logs/FSServer.log` will log file events seen within
+designated file areas and :file:`var/logs/DropBox.log` will log the progress
 of any file imports.
 
 Advanced use
 ~~~~~~~~~~~~
 
 OMERO.dropbox can be configured in several ways through
-``etc/grid/templates.xml``. In its default configuration, as detailed
+:file:`etc/grid/templates.xml`. In its default configuration, as detailed
 above, it monitors the subdirectory ``DropBox`` of the OMERO data
 directory for all users.
 
-A number of the properties in templates.xml accept a semi-colon
+A number of the properties in :file:`templates.xml` accept a semi-colon
 separated list of values. This extended configuration allows a site to
 watch multiple directories, and configure each for a different user, a
 different type of file, etc. Any value missing from the configuration
@@ -139,8 +139,8 @@ the following property can be set,
 
     <property name="omero.fs.readers"  value="/home/amy/my_readers.txt;"/>
 
-Here only the image types listed in ``my_readers.txt`` will be imported
-for the user ``amy`` while the system-wide ``readers.txt`` will be used
+Here only the image types listed in :file:`my_readers.txt` will be imported
+for the user ``amy`` while the system-wide :file:`readers.txt` will be used
 for ``zak``.
 
 For a full description of the properties see below.
@@ -175,7 +175,7 @@ be comma separated.
 
     For automatic import Creation and Modification events are monitored. It
     is also possible to monitor Deletion events though these are not used by
-    DropBox. The default is Creation,Modification
+    DropBox. The default is Creation,Modification.
 
     ::
 
@@ -187,7 +187,7 @@ be comma separated.
     is possible to restrict monitoring to a single directory ("Flat"), only
     existing subdirectories ("Recurse"), or all subdirectories ("Follow").
     For DropBox to function correctly the mode should be Follow. The default
-    is Follow
+    is Follow.
 
     ::
 
@@ -232,7 +232,7 @@ be comma separated.
 
     If this is True events concerning system files, such as filenames
     beginning with a dot or default new folder names, are ignored. The exact
-    events ignored will be OS-dependent. The default is True
+    events ignored will be OS-dependent. The default is True.
 
     ::
 
@@ -241,7 +241,7 @@ be comma separated.
 -   ignoreDirEvents
 
     If this is True then the creation and modification of subdirectories is
-    not reported to DropBox. The default is True
+    not reported to DropBox. The default is True.
 
     ::
 
@@ -293,7 +293,8 @@ be comma separated.
 
     A string of extra arguments supplied to the importer. This could
     include, for example, an email address to report failed imports to:
-    ``--report --send -email=test@example.com`` The default is empty.
+    ``--report --email test@example.com``. The default is empty. For
+    details on available extra arguments see :doc:`/users/command-line-import`.
 
     ::
 
@@ -320,4 +321,4 @@ Here's a full example of a configuration for two users:
     <property name="omero.fs.fileBatch"       value="10;10"/>
     <property name="omero.fs.throttleImport"  value="10;10"/>
     <property name="omero.fs.readers"         value="/home/amy/my_readers.txt;"/>
-    <property name="omero.fs.importArgs"      value="-report;-report -send -email=zak@example.com"/>
+    <property name="omero.fs.importArgs"      value="--report;--report --email zak@example.com"/>
