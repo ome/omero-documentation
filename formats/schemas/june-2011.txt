@@ -38,9 +38,9 @@ Overview of changes
 
 -  ``Polyline`` and ``Path`` have been **DEPRECATED**.
 -  ROI font enumerations have been updated.
--  Metadata Only Companion OME-XML and Binary Only
+-  Metadata-Only Companion OME-XML and Binary-Only
    OME-TIFF files have been created.
--  A creator attribute has been added for OME-XML and OME-TIFF.
+-  A ``Creator`` attribute has been added for OME-XML and OME-TIFF.
 -  The OTF (Optical Transfer Function) has been **DEPRECATED**.
 
 ROI
@@ -51,14 +51,14 @@ ROI
    objects.
 -  ``FontFamily`` has been changed so it matches the standard HTML/CSS
    values.
--  ``FontStyle`` as been changed so it matches more closely to standard
+-  ``FontStyle`` has been changed so it better matches standard
    HTML/CSS.
 
 OME
 ^^^
 
--  The OME node has been modified to allow creation of the Metadata Only
-   Companion OME-XML and Binary Only OME-TIFF files.
+-  The OME node has been modified to allow creation of the Metadata-Only
+   Companion OME-XML and Binary-Only OME-TIFF files.
 -  The OME node ``Creator`` attribute can now contain the name and version
    of the creating application.
 -  The physical size of a pixel is now restricted to a positive value.

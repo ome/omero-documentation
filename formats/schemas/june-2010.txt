@@ -39,16 +39,16 @@ General updates
 This release represents a collection of general updates to solve problems.
 
 -  The release has been brought in step with release of OMERO 4.2.
--  More restrictive integer types have been introduced.
--  A problem with Well Sample Timepoint has been fixed.
+-  Integer types have been made more restrictive.
+-  A problem with ``Well Sample Timepoint`` has been fixed.
 -  ``Width`` and ``Height`` have been added to ROI ``Mask``.
--  Annotations have been reworked to add new types (Term and Tag) and allow
-   cross-linking of all annotations.
+-  Annotations have been reworked to add new types ('Term' and 'Tag') and 
+   allow cross-linking of all annotations.
 
 ome.xsd
 ^^^^^^^
 
--  More restrictive integer types have been introduced.
+-  Integer types have been made more restrictive.
 
 ROI.xsd
 ^^^^^^^
@@ -77,5 +77,5 @@ SPW.xsd
 -  ``WellOriginX`` in ``Plate`` has been documented.
 -  ``WellOriginY`` in ``Plate`` has been documented.
 -  ``NamingConvention`` in ``Plate`` has been documented. 
--  The type of ``Timepoint`` in ``WellSample`` is now an xsd:dateTime.
+-  The type of ``Timepoint`` in ``WellSample`` is now an 'xsd:dateTime'.
 

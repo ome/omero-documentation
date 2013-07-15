@@ -93,7 +93,7 @@ ROI changes
    -  ``ChannelRef [0..\*]`` removed
    -  ``TheC`` added linked to ``Channel [0..1]``
    -  all the attributes previously on the dropped ``ShapeDisplayOptions`` 
-      e.g. Fill, Stroke, FontFamily, etc.
+      e.g. ``Fill``, ``Stroke``, ``FontFamily``, etc.
 
 -  The ``Text`` element has been renamed to ``Label``.
 
@@ -124,7 +124,7 @@ SPW changes
 Filter changes
 ^^^^^^^^^^^^^^
 
--  Filter now has type "Dichroic".
+-  Filter now has type 'Dichroic'.
 -  There is a new ``LightPath`` object (this provides much more flexibility 
    than ``SecondaryEmissionFilter`` and ``SecondaryExcitationFilter``).
 

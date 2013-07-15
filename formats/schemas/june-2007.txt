@@ -43,10 +43,10 @@ been added for PockelCell lasers.
 Detector extended
 ^^^^^^^^^^^^^^^^^
 
-An attribute ``Zoom`` has been added for use with confocals. Type is also 
-updated; it can now handle EM-CCD, APD, and CMOS detectors. The EM-CCD
-detector type meant that an additional attribute was needed called
-``AmplificationGain``.
+An attribute ``Zoom`` has been added for use with confocals. ``Detector`` type 
+has also been updated; it can now handle 'EM-CCD', 'APD', and 'CMOS' 
+detectors. The EM-CCD detector type meant that an additional attribute was 
+needed called ``AmplificationGain``.
 
 DetectorRef extended
 ^^^^^^^^^^^^^^^^^^^^
@@ -59,7 +59,7 @@ form a larger pixels set.
 Laser extended
 ^^^^^^^^^^^^^^
 
-Lasers can now be set as the type ``PockelCell``. A ``RepetitionRate`` has 
+Lasers can now be set as the type 'PockelCell'. A ``RepetitionRate`` has 
 been added. The ``FrequencyDoubled`` flag has been replaced by the
 ``FrequencyMultiplication`` setting which, as an integer, can support more
 systems. ``Laser`` now allows any other ``LightSource`` to be used as the 
@@ -99,7 +99,7 @@ The previous filter model has been replaced.
 Images contracted and expanded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``Image`` can now contain the following new elements; ``PlateRef``,
+``Image`` can now contain the following new elements: ``PlateRef``,
 ``AcquiredPixelsRef``, ``ROI``, and ``MicrobeamManipulation``. The attribute 
 ``DefaultPixels`` is now required. The attributes ``PhysicalSizeX``, 
 ``PhysicalSizeY``, ``PhysicalSizeZ``, ``TimeIncrement``, ``WaveStart``, and 
@@ -117,7 +117,7 @@ Screening Data Model
 
 The new file :file:`SPW.xsd` has been added to hold the Screen/Plate/Well 
 model. With its creation, ``Plate`` and ``Screen`` that were in 
-:file:`OME.XSD` have been moved and re-written. 
+:file:`ome.xsd` have been moved and re-written. 
 
 OME-Tiff extensions
 ^^^^^^^^^^^^^^^^^^^

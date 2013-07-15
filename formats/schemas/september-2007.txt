@@ -54,11 +54,10 @@ Description (ome.xsd)
 ^^^^^^^^^^^^^^^^^^^^^
 
 While there has been no real change to the ``Description`` element, its 
-annotation has been altered to indicate a change in its use. It will
-become a string type in the future. The content model is currently ANY,
-but this is going to change to String. ``Description`` is no longer the
-correct place for an XML sub-document - ``CustomAttributes`` should be used 
-instead.
+annotation has been altered to indicate a change in its use. The content model 
+is currently 'ANY', but this is going to change to 'String'. ``Description`` 
+is no longer the correct place for an XML sub-document - ``CustomAttributes`` 
+should be used instead.
 
 SerialNumber (ome.xsd)
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -74,7 +73,7 @@ Regex for LSID / Internal ID (ome.xsd, SPW.xsd, AnalysisModule.xsd)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There has been a minor change to all the regular expression
-(xsd:pattern) portions of the IDs, which means they will no longer
+('xsd:pattern') portions of the IDs, which means they will no longer
 generate an error on some parsers (notably the Java one). This concerned
 the way the - (dash) character was specified as part of a URN and is now
 escaped correctly.
@@ -88,6 +87,6 @@ added.
 Description and Label (STD.xsd)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-These now contain a reference to XML:lang, which allows the language the
+These now contain a reference to 'XML:lang', which allows the language the
 ``Description`` or ``Label`` is written in to be recorded.
 
