@@ -50,7 +50,7 @@ The first hurdle when beginning to work with OMERO is to realize that
 building distributed-object systems is different from both building
 standalone clients and writing web applications in frameworks like
 mod\_perl, django, or Ruby on Rails. The remoting framework used by
-OMERO is named Ice_ from ZeroC. Ice is comparable
+OMERO is Ice_ from ZeroC. Ice is comparable
 to CORBA in many ways, but is typically easier to use. For ZeroC's
 comparison of Ice to CORBA, see :zeroc:`iceVsCorba.html`.
 
@@ -74,7 +74,7 @@ helpful to first know what the objects are that we will be distributing.
 These are the only types that can pass through the API.
 
 "Slice" mapping language
-~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ice provides an `interface definition language
 (IDL) <http://en.wikipedia.org/wiki/Interface_description_language>`_
@@ -91,7 +91,7 @@ languages are omitted:
 -  iterator types
 
 Primitives
-~~~~~~~~~~
+^^^^^^^^^^
 
 Slice defines the usual primitives -- ``long``, ``string``, ``bool``, as
 well as ``int``, ``double``, and ``float`` -- which map into each
@@ -115,7 +115,7 @@ From :source:`components/blitz/resources/omero/System.ice`:
           ...
 
 Sequences, dictionaries, enums, and constants
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Other than the "user-defined classes" which we will get to below, slice
 provides only four built-in building blocks for creating a type hierarchy.
@@ -230,7 +230,7 @@ Example: :source:`examples/OmeroClients/enumerations.py`
 Example: :source:`examples/OmeroClients/enumerations.java`
 
 RTypes
-~~~~~~
+^^^^^^
 
 In Java, the Ice primitives map to non-nullable primitives. And in fact,
 for the still nullable types ``java.lang.String`` as well as all
@@ -362,7 +362,7 @@ They are identical to ``omero::RLong`` and ``omero::RString``,
 respectively, but are provided as type safe variants.
 
 OMERO model objects
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 With these components -- rtypes, primitives, constants, etc. -- it is
 possible to define the core nouns of OME, the |OmeroModel|. The OMERO
@@ -1122,7 +1122,7 @@ However, the entire functionality will not be achievable because of
 single inheritance.
 
 Language-specific behavior
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Smart pointers (C++ only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1332,7 +1332,7 @@ look at what services are provided by :doc:`/developers/server-blitz`, how they 
 used, and cleaned up.
 
 OMERO client configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The first step in accessing the |OmeroApi| and
 therefore the first thing to plan when writing an OMERO client is the
@@ -1594,8 +1594,8 @@ Example: :source:`examples/OmeroClients/configuration.java`
 To find out more about using the ``Ice.Config`` file for configuration,
 see :source:`etc/ice.config`.
 
-What *is* a ServiceFactory?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+What is a ServiceFactory?
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In each of the examples above, the result of configuration was the
 ability to call ``createSession`` which returns a ``ServiceFactoryPrx``.
@@ -2002,7 +2002,7 @@ one simpler example ``TreeList``, but more will certainly be added. Let
 us know any ideas you may have.
 
 ``TreeList``
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 ::
 
@@ -2207,21 +2207,12 @@ Example: :source:`examples/TreeList/Main.py`
 
 Example: :source:`examples/TreeList/Main.java`
 
-Proposed
-~~~~~~~~
-
--  Creating hierarhichies
--  Reading an image
--  Submitting a job
--  Submitting a script
-
-
 
 Advanced topics
 ---------------
 
 Sudo
-~~~~
+^^^^
 
 If you are familiar with the admin user concept in OMERO, you might
 wonder if it is possible for administrative users to perform tasks for
@@ -2339,7 +2330,7 @@ Example: :source:`examples/OmeroClients/sudo.py`
 Example: :source:`examples/OmeroClients/sudo.java`
 
 Proposed
-~~~~~~~~
+^^^^^^^^
 
 Like the complete examples above, there are several topics which need to
 be covered in more detail:
@@ -2349,311 +2340,12 @@ be covered in more detail:
 -  how to use client callbacks
 -  how to make use of your own ``ObjectFactory``
 
---------------
-
-Porting from OMERO Beta3.x
---------------------------
-
-Model changes
-~~~~~~~~~~~~~
-
--  ``TextAnnotation`` is now abstract. Use ``CommentAnnotation`` as the
-   unstructured concrete implementation of a ``TextAnnotation``.
-
--  ``Well.wellSamples`` is now ordered. This implies that all saving or
-   updating of ``WellSample`` instances requires a loaded ``Well``
-   instance.
-
-JBoss/RMI
-~~~~~~~~~
-
-If you have already written code to interact with the JBoss server,
-several changes are necessary to port your code to
-:doc:`/developers/server-blitz`.
-
--  All services have moved from ``ome.api`` to ``omero.api`` (with the
-   exception of ``omeis.providers.re.RenderingEngine`` which also moved
-   to ``omero.api``. In addition, for use on the client a ``Prx`` must
-   be attached to all service names.
-
-   ::
-
-         import ome.api.IQuery
-         import omeis.providers.re.RenderingEngine
-         IQuery q = sf.getQueryService();
-         RenderingEngine re = sf.createRenderingEngine();
-
-         // becomes
-
-         import omero.api.IQueryPrx;
-         import omero.api.RenderingEnginePrx;
-         IQueryPrx q = sf.getQueryService();
-         RenderingEnginePrx re = sf.createRenderingEngine();
-
--  Almost all classes have moved from the ``ome.model`` to the
-   ``omero.model`` package. A good place to start porting is to replace
-   all the ``ome.model`` imports in your classes.
-
--  However, there are now two classes for each previous single
-   ``ome.model``. There is the Ice-generated abstract class (without the
-   "I" ending) and the OMERO-generated concrete implementation ("I" for
-   implementation). All your constructor usages must have the "I"
-   added.
-
-   ::
-
-          import ome.model.Image;
-          Image image = new Image();
-
-          // becomes
-
-          import omero.model.Image;
-          import omero.model.ImageO;
-          Image image = new ImageI();
-
--  All fields in the omero.model objects will be either:
-
-   -  omero.model.Details
-   -  a subclass of omero.model.IObject
-   -  a subclass of omero.RType
-   -  a sequence (see discussion above)
-
-        This means for objects which were primitives or java.lang
-        wrappers will now use RTypes.
-
-        ::
-
-               someObject.setSomeField( myInteger );
-
-               // becomes
-
-               some Object.setSomeField( new RInt( myInteger ) );
-               // or
-               ...(new RInt( myInteger.intValue() );
-               // or if possibly null
-               ...(myInteger == null ? null : new RInt( myInteger.intValue() );
-
-            Simlarly, anywhere where you "unwrap" ``java.lang``
-            primitive wrappers, you can now simply return "val":
-
-            ::
-
-                    someObject().getField().intValue()
-
-                    // becomes
-
-                    someObject().getField().val
-
-            .. note::
-
-                neither ``intValue()`` nor ``val`` is properly
-                checking for a null ``field`` value.
-
--  The Permissions class now uses concrete accessors and does not rely
-   on the enumerations ``Roles`` and ``Rights``.
-
-   ::
-
-           import ome.model.internal.Permissions;
-           Permissions p = new Permissions();
-           p.grant(WORLD, READ);
-           assert p.isGranted(WORLD, READ);
-
-           // becomes
-
-           import omero.model.Permissions;
-           import omero.model.PermissionsI;
-           Permissions p = new PermissionsI();
-           p.setWorldRead(true);
-           assert p.isWorldRead();
-
--  Some methods (see IPojos) take the names of fields. In the
-   ``ome.model`` objects, these field names were included as
-   ``final static String`` constants in each class. In the
-   ``omero.model`` objects they are still constants, but only available
-   on the concrete impementations.
-
-   ::
-
-          import ome.model.Pixels;
-          someMethod( Pixels.NAME );
-
-          // becomes
-
-          import omero.model.PixelsI;
-          someMethod( PixelsI.NAME );
-
--  All usages of ``java.lang.Class`` are replaced by a string. The
-   server will accept the following replacements:
-
-   ::
-
-           import ome.model.Image;
-           someMethod(Image.class);
-
-           // becomes
-
-           import omero.model.Image;
-           import omero.model.ImageI;
-           someMethod(Image.class.getName());    // or
-           someMethod(ImageI.class.getName());   // or
-           someMethod("Image");                  // or
-           someMethod("ImageI");
-
--  All usages of ``java.util.Data`` or ``java.sql.Timestamp`` are
-   replaced by the ``omero.RTime`` object. ``RTime`` like ``RLong``
-   contains a single long value, but is a different class for type
-   safety.
-
-   ::
-
-           import java.sql.Timestamp;
-           Timestamp t = someEvent.getTime();
-           someEvent.setTime( new Timestamp( t.getTime() ));
-
-           // becomes
-
-           import omero.RTime;
-           RTime t = someEvent.getTime();
-           someEvent.setTime( new omero.RTime( t.val ));
-           // or if you have a timestamp
-           someEvent.setTime( new omero.RTime( t.getTime() ));
-
--  Methods which use the generic type ``<? extends IObject>`` in the
-   ``ome.model`` classes, simply return ``omero.model.IObject`` in the
-   ``omero.model`` types. This requires casting and, in the case of
-   collections, creating a new collection to avoid receiving a warning.
-
-   ::
-
-          List<IObject> iObjects;
-          List rawObjects;
-          List<Project> projects;
-
-          // Safely with new collection
-          iObjects = ipojos.loadContainerHierarchies(...);
-          projects = new ArrayList<Project>(objects.size());
-          for (IObject obj : objects) {
-             projects.add( (Project) obj) );
-          }
-
-          // Less safely, no new collection. Use @SuppressWarnings("unchecked")
-          rawObjects = ipojos.loadContainerHierarchies(...);
-          projects = (List<Project>) iObjects;    
-
-          // These will not compile
-          // projects = (List<Project>) iObjects;
-          // projects = (List<Project>) ipojos.loadContainerHierarchies(...);
-
--  Since slice provides only a single "sequence" type and not a "set" or
-   "array" type, most if not all method arguments and return types will
-   be ``java.util.List``\ s, possibly generified.
-
-   ::
-
-          Set<Long> ids = Collections.singleton(1L);
-          ipojos.loadContainerHierarches(Image.class, ids, ...);
-
-          // becomes
-
-          ipojos.loadContainerHierarchies("Image", new ArrayList<Long>(ids), ...);
-
--  Constants are handled differently within Ice. Rather than being a
-   member of some class or interface, they are themselves interfaces
-   with a special "value" member. In most cases, these special constant
-   interfaces are in the ``omero.constants`` package.
-
-   ::
-
-           import ome.api.IPojos;
-           someMethod(IPojos.CLASSIFICATION_ME, ...);
-
-           // becomes
-
-           import omero.constants.CLASSIFICATIONME;
-           someMethod(CLASSIFICATIONME.value);      // underscores are not allowed in slice names
-
--  With Java/RMI, a ServiceFactory
-   "connection" was really only a
-   ServiceFactory holding on to your user
-   name and user password and/or session id in order to re-authenticate
-   on every method call. With :doc:`/developers/server-blitz`, this
-   does not happen. The Ice runtime establishes a stateful connection to
-   :doc:`/developers/server-blitz` and the ServiceFactoryPrx is a
-   facade around this connection.
-
--  The methods for accessing collections have changed somewhat. All
-   languages do not provide the concept of an "umodifiable" collection
-   as with ``java.util.Collections.unmodifiableSet()``. Instead, a
-   ``copyCollection`` is now available for all collections. Similarly,
-   iteration through collections is language specific. Since slice has
-   no "iterator" type for creating language-independent mappings, all
-   use of iterators is restricted to the concrete implementations.
-
-   ::
-
-          TBD
-
-.. note::
-    The ``CBlock`` construct has not (yet) been ported to the
-    ``omero.model`` objects, so there are no collectX or eachY methods.
-
--  The enumeration for projections moved from an int in the IProjections
-   interface to an enumeration in Constants.ice:
-
-   ::
-
-           import ome.api.IProjection;
-
-           IProjection p1 = sf.getProjectionService();
-           p1.projectPixels(1L, pixelsType1, IProjections.MAXIMUM_INTENSITY, ...);
-
-           // becomes
-
-           import omero.constants.projection.ProjectionType;
-           import omero.api.IProjectionPrx
-
-           IProjectionPrx p2 = sf.getProjectionService();
-           p2.projectPixels(1L, pixelsType2, ProjectionType.MAXIMUMINTENSITY, ...);
-
--  All ``PojoOptions`` usages are now replaced by
-   ``omero.sys.ParametersI`` (:ticket:`67`)
-
--  :doc:`/developers/Modules/ExceptionHandling`
-
-   -  all access : throws ServerError?
-   -  IllegalState?, EJB --> ServerError? \| Ice.\*
-   -  ServerError? constructors, ClientError?
-
--  Simple renamings:
-
-   -  ``ServiceFactory.createThumbnailService()`` becomes
-      ``ServiceFactoryPrx.createThumbnailStore()``
-
-Blitz in 3.2
-~~~~~~~~~~~~
-
-Although Blitz was not widely publicized, there were a number of
-applications written against it in the 3.2 series. Here we also took the
-major upgrade to 4.0 to correct some problems in the previous version.
-
--   The largest change is that all ``omero.model`` state is now
-    protected. Rather than ``image.id.val`` it is necessary to use
-    ``image.getId().getValue()``. The old invocation will continue to
-    work in Python, but will use the accessors behind the scenes. 
-
-    .. note::
-
-        it is still possible in Python to access fields directly using
-        ``image.__id``. DO THIS AT YOUR OWN RISK! The state was hidden for a
-        reason, namely keeping collections et al. in sync manually can lead
-        to strange errors.
 
 Planned improvements and known issues
 -------------------------------------
 
 Topics to be added
-~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^
 
 Obviously, this introduction is still not exhaustive by any means. Some
 topics which we would like to see added here in the near future include:
@@ -2664,13 +2356,13 @@ topics which we would like to see added here in the near future include:
 -  performance
 
 Code generation
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 Although not directly relevant to writing a client, it is important to
 note that much of the code for |OmeroPy|, |OmeroCpp|, and |OmeroJava|
-is code generated by the BlitzBuild. Therefore
-many of the imported and included files in the examples above, cannot
-actually be found in `github <https://github.com/openmicroscopy/openmicroscopy>`_.
+is code generated by the BlitzBuild. Therefore,
+many of the imported and included files in the examples above cannot be found 
+in `github <https://github.com/openmicroscopy/openmicroscopy>`_.
 
 We plan to include packages of the generated source code in future
 releases. Until then, it is possible to find our latest builds on 
@@ -2681,16 +2373,16 @@ generated files are later overwritten by hand-written versions:
 -  OmeroPy is located in ``components/tools/OmeroPy/src/``
 
 Lazy loading and caching
-~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Separate method calls will often return one and the same object, say
 ``Dataset#123``. Your application, however, will not necessarily
 recognize them as the same entity unless you explicitly check the id
 value. A client-side caching mechanism would allow duplicate objects to
-be handled transparently, and would eventually facilitate lazy-loading.
+be handled transparently, and would eventually facilitate lazy loading.
 
 Helper classes
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 Several types are harder to use than they need be. omero.sys.Parameters,
 for example, is a class for which native implementations are quite
@@ -2698,7 +2390,7 @@ helpful. We have provided omero.sys.ParametersI in all supported
 languages, and will most likely support more over time:
 
 Other
-~~~~~
+^^^^^
 
 -  Superclasses need to be introduced where possible to replace the
    ``ome.model.*`` interfaces

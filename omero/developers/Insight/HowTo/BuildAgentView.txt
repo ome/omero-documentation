@@ -1,12 +1,12 @@
 How to build an agent's view
 ============================
 
-In this section, we explain how a view of the agent is created. All our
-agents follow the same approach. If you want to see the code while
+This section, explains how a view of the agent is created. All our
+agents follow the same approach. To see the code while
 reading the notes, go to
 :sourcedir:`components/insight/SRC/org/openmicroscopy/shoola/agents/treeviewer/view`.
 
-Let us go back to our example ``MyBrowserAgent`` (see :doc:`/developers/Insight/HowTo/BuildAgent`).
+Using the previous example ``MyBrowserAgent`` (see :doc:`/developers/Insight/HowTo/BuildAgent`):
 
 #. Create a ``view`` package in the ``mybrowser`` package.
 #. Create the following classes ``MyBrowser`` (I/F),
@@ -15,9 +15,9 @@ Let us go back to our example ``MyBrowserAgent`` (see :doc:`/developers/Insight/
    we usually have a class used as a toolbar and a class used as a
    status bar. Both classes are initialized by the ``BrowserUI``. For
    clarity, they have been omitted in the following diagram.
-#. Create a ``MyBrowserFactory``. This class keeps trach of the
+#. Create a ``MyBrowserFactory``. This class keeps track of the
    ``MyBrowser`` instances created and not yet discarded. A component is
-   only created if none of the tracked ones is displaying the data
+   only created if none of the tracked ones is displaying the data,
    otherwise the existing component is recycled.
 
 .. figure:: /images/omeroinsight-agent-view.png
@@ -77,10 +77,10 @@ The object is first created using the ``MyBrowserFactory``
 
 After creation, the object is in the ``MyBrowser#NEW`` state and is
 waiting for the ``MyBrowser#activate()`` method to be called. Such a
-call usually triggers of the objects on the server. The object is now in
-the ``MyBrowser#LOADING`` state. After all the data have been retrieved,
-the object is the ``MyBrowser#READY`` state and the data display is
-built and set on screen.
+call usually triggers loading of the objects on the server. The object is 
+now in the ``MyBrowser#LOADING`` state. After all the data have been 
+retrieved, the object is in the ``MyBrowser#READY`` state and the data display 
+is built and set on screen.
 
 When the user quits the window, the ``MyBrower#discard()`` method is
 invoked and the object transitions to the ``MyBrowser#DISCARDED`` state.
