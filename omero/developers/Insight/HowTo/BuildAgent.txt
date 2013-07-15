@@ -77,8 +77,8 @@ The following example creates a concrete agent ``MyBrowserAgent``:
 
     }
 
-Where to create the BrowseImage event
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Where to create the ``BrowseImage`` event
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Create a ``myBrowser`` package in the ``agents.events`` package.
 -  Create a ``BrowseImage`` event in the ``myBrowser`` package.
@@ -114,8 +114,8 @@ Where to create the BrowseImage event
 
     }
 
-Listening to the BrowseImage event
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Listening to the ``BrowseImage`` event
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To listen to events posted on the event bus, the agent **MUST**
 implement the ``AgentListener`` Interface and register the events to
