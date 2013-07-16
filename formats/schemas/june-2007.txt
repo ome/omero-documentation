@@ -43,7 +43,7 @@ been added for PockelCell lasers.
 Detector extended
 ^^^^^^^^^^^^^^^^^
 
-An attribute ``Zoom`` has been added for use with confocals. ``Detector`` type 
+An attribute ``Zoom`` has been added for use with confocals. Detector ``Type`` 
 has also been updated; it can now handle 'EM-CCD', 'APD', and 'CMOS' 
 detectors. The EM-CCD detector type meant that an additional attribute was 
 needed called ``AmplificationGain``.
