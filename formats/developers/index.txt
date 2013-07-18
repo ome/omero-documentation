@@ -78,7 +78,7 @@ Model, for example to support the loading/saving of a variety of files.
 
 There are two Python applications to aid working with OME-XML - 
 :doc:`EnumTool`, which is designed to digest OME-XML schema and
-produce meaningful output about enumerations, and :doc:`xsd-fu`,
+produce meaningful output about enumerations, and :bf_doc:`XSD Fu <developers/xsd-fu.html>`,
 which digests OME XML schema and produces an object oriented Java
 infrastructure to ease  work with an XML DOM tree.
 
