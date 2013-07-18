@@ -4,23 +4,20 @@ How to build an agent
 An agent is created and managed by the container. Building an agent is
 done in two steps:
 
--  Write agent code.
--  Declare the agent in the ``container.xml`` file located in the
-   ``config`` directory.
+-  write the agent code
+-  declare the agent in the :file:`container.xml` file located in the
+   ``config`` directory
 
 The agent intercepts the events posted on the event bus.
 
-Important note
---------------
-
-When a new version of the software is delivered, make sure to keep the
-``container.xml`` shipped with the application and add to this
-``container.xml``, the new agent entry.
+.. note:: When a new version of the software is delivered, make sure you keep 
+          the :file:`container.xml` shipped with the application and add the 
+          new agent entry to it.
 
 Writing code
 ------------
 
-Let us create a concrete agent: ``MyBrowserAgent``
+The following example creates a concrete agent ``MyBrowserAgent``:
 
 -  Create a ``myBrowser`` package in the ``agents`` package.
 -  Create a class ``MyBrowserAgent``, this class **MUST** implement the
@@ -81,7 +78,7 @@ Let us create a concrete agent: ``MyBrowserAgent``
     }
 
 Where to create the ``BrowseImage`` event
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Create a ``myBrowser`` package in the ``agents.events`` package.
 -  Create a ``BrowseImage`` event in the ``myBrowser`` package.
@@ -117,8 +114,8 @@ Where to create the ``BrowseImage`` event
 
     }
 
-**Listen** to the ``BrowseImage`` event
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Listening to the ``BrowseImage`` event
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To listen to events posted on the event bus, the agent **MUST**
 implement the ``AgentListener`` Interface and register the events to
@@ -129,8 +126,8 @@ listen to.
 -  Listen to ``BrowseImage`` in the ``eventFired(AgentEvent)`` method of
    the ``AgentListener`` interface.
 
-Somewhere in the Data Manager for example, when clicking on an image,
-the following event is posted:
+For example, when clicking on an image, the following event is posted 
+somewhere in the Data Manager:
 
 ::
 
@@ -149,18 +146,17 @@ The ``MyBrowserAgent`` handles the event
             }
         }
 
-Create an agent's view
-~~~~~~~~~~~~~~~~~~~~~~
+Creating an agent's view
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 See :doc:`/developers/Insight/HowTo/BuildAgentView`
 
-Declare the agent
------------------
+Declaring the agent
+-------------------
 
-What we need to do now, we need to declare ``MyBrowserAgent`` in the
-``container.xml``
+The ``MyBrowserAgent`` needs to be declared in the :file:`container.xml`.
 
--  Open the ``container.xml`` located in the ``config`` folder (see
+-  Open the :file:`container.xml` located in the ``config`` folder (see
    :doc:`/developers/Insight/DirectoryContents`).
 -  Add the following:
 
@@ -172,11 +168,11 @@ What we need to do now, we need to declare ``MyBrowserAgent`` in the
              <!-- NOTE FOR DEVELOPERS
                   Add an agent tag for each of your Agents.
                   The name tag specifies the human-readable name of the Agent.
-                  The active tag specified if the agent is turn on or off.
+                  The active tag specifies if the agent is turned on or off.
                   Set to true to turn the agent on, false otherwise.
                   The class tag specifies the FQN of the Agent class.
-                  The config tag specifies the name of the Agent's configuration file
-                  within the config directory.
+                  The config tag specifies the name of the Agent's 
+                  configuration file within the config directory.
              -->
             <agent>
                <name>My Browser</name>
@@ -188,11 +184,8 @@ What we need to do now, we need to declare ``MyBrowserAgent`` in the
            </structuredEntry>
          </agents>
 
-    .. note::
 
-        The ``active`` tag will be added from Beta3.1
-
--  Create a ``mybrowser.xml`` and add it to the ``config`` directory
+-  Create a :file:`mybrowser.xml` and add it to the ``config`` directory:
 
    ::
 
@@ -222,7 +215,7 @@ What we need to do now, we need to declare ``MyBrowserAgent`` in the
        </resources>
        </agent>
 
-   The file ``mybrowser.xml`` allows the agent to define specific
+   The file :file:`mybrowser.xml` allows the agent to define specific
    parameters.
 
 .. seealso:: 
