@@ -29,67 +29,67 @@ Version
 ^^^^^^^
 
 The way version information is recorded in the XSD files has been
-changed to adhere to best practise. For further information see :doc:`Version
+changed to adhere to best practice. For further information see :doc:`Version
 Information <index>`.
 
 ChannelInfo renamed and extended
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This has been renamed to LogicalChannel. It also now has references to
-secondary filters for emission and excitation. IlluminationType can now
-be NonLinear and Mode now has the catch all type Other. Settings have
+This has been renamed to ``LogicalChannel``. It also now has references to
+secondary filters for emission and excitation. ``IlluminationType`` can now
+be 'NonLinear', and ``Mode`` now has the catch-all type 'Other'. Settings have
 been added for PockelCell lasers.
 
 Detector extended
 ^^^^^^^^^^^^^^^^^
 
-An attribute Zoom has been added for use with confocals. Also updated is
-the Type, it can now handle EM-CCD, APD, and CMOS detectors. The EM-CCD
-detector type meant that an additional attribute was needed called
-AmplificationGain.
+An attribute ``Zoom`` has been added for use with confocals. Detector ``Type`` 
+has also been updated; it can now handle 'EM-CCD', 'APD', and 'CMOS' 
+detectors. The EM-CCD detector type meant that an additional attribute was 
+needed called ``AmplificationGain``.
 
 DetectorRef extended
 ^^^^^^^^^^^^^^^^^^^^
 
 A reference to a detector now has the following addition attributes: a
-Voltage, a ReadOutRate which is speed at which the detector can count
-the pixels, and a Binning setting where detector pixels are combined to
+``Voltage``; a ``ReadOutRate``, which is speed at which the detector can count
+the pixels; and a ``Binning`` setting where detector pixels are combined to
 form a larger pixels set.
 
 Laser extended
 ^^^^^^^^^^^^^^
 
-Lasers can now be set as being PockelCell. A RepetitionRate has been
-added. The FrequencyDoubled flag has been replaced by the
-FrequencyMultiplication setting which, as an integer, can support more
-systems. Laser now allows any other LightSource to be used as the Pump.
-AuxLightSource and AuxLightSourceRef have been removed as they have been
-superseded.
+Lasers can now be set as the type 'PockelCell'. A ``RepetitionRate`` has 
+been added. The ``FrequencyDoubled`` flag has been replaced by the
+``FrequencyMultiplication`` setting which, as an integer, can support more
+systems. ``Laser`` now allows any other ``LightSource`` to be used as the 
+``Pump``. ``AuxLightSource`` and ``AuxLightSourceRef`` have been superseded 
+and therefore removed.
 
 Objective extended
 ^^^^^^^^^^^^^^^^^^
 
-This now has attributes that record the LensNA, WorkingDistance,
-ImmersionType, NomimalMagnification (e.g. x60),
-CalibratedMagnification (e.g. x60.034), and Correction. The Correction
-attribute records the coating applied to the lens. Possible Correction
-types are UV, PlanApo, PlanFluor, SuperFluor, and VioletCorrected.
-Magnification has been removed as it has been superseded.
+This now has attributes that record the ``LensNA``, ``WorkingDistance``,
+``ImmersionType``, ``NomimalMagnification`` (e.g. x60),
+``CalibratedMagnification`` (e.g. x60.034), and ``Correction``. The ``Correction``
+attribute records the coating applied to the lens. Possible ``Correction``
+types are 'UV', 'PlanApo', 'PlanFluor', 'SuperFluor', and 'VioletCorrected'.
+``Magnification`` has been superseded and therefore removed.
 
 ObjectiveRef renamed and extended
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ObjectiveRef is now called ObjectiveSettingsRef. CorrectionCollar,
-Medium, and RefractiveIndex have been added as attributes.
+``ObjectiveRef`` is now called ``ObjectiveSettingsRef``. ``CorrectionCollar``,
+``Medium``, and ``RefractiveIndex`` have been added as attributes.
 
 Pixels extended
 ^^^^^^^^^^^^^^^
 
-Pixels can now contain either BinData or TiffData elements to store the
-pixel data. It can now also contain Plane elements. Attributes have been
-added to hold PhysicalSizeX, PhysicalSizeY, PhysicalSizeZ,
-TimeIncrement, WaveStart, and WaveIncrement. These used to be attached to
-Image.
+``Pixels`` can now contain either ``BinData`` or ``TiffData`` elements to 
+store the pixel data. It can now also contain ``Plane`` elements. Attributes 
+have been added to hold ``PhysicalSizeX``, ``PhysicalSizeY``, 
+``PhysicalSizeZ``, ``TimeIncrement``, ``WaveStart``, and ``WaveIncrement``. 
+These were formerly attached to ``Image``.
 
 Filter and Filter Sets rewritten
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -99,32 +99,32 @@ The previous filter model has been replaced.
 Images contracted and expanded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Image can now
-contain the following new elements: PlateRef, AcquiredPixelsRef, ROI,
-and MicrobeamManipulation. The attribute DefaultPixels is now required.
-The attributes PhysicalSizeX, PhysicalSizeY, PhysicalSizeZ,
-TimeIncrement, WaveStart, and WaveIncrement have been moved to Pixels.
+``Image`` can now contain the following new elements: ``PlateRef``,
+``AcquiredPixelsRef``, ``ROI``, and ``MicrobeamManipulation``. The attribute 
+``DefaultPixels`` is now required. The attributes ``PhysicalSizeX``, 
+``PhysicalSizeY``, ``PhysicalSizeZ``, ``TimeIncrement``, ``WaveStart``, and 
+``WaveIncrement`` have been moved to ``Pixels``.
 
 Features renamed
 ^^^^^^^^^^^^^^^^
 
-Throughout the files Feature and Features have become Region and
-Regions. This allows the naming to be consistent with the region of
+Throughout the files, ``Feature`` and ``Features`` have become ``Region`` and
+``Regions``. This allows the naming to be consistent with the region of
 interest (ROI) model.
 
 Screening Data Model
 ^^^^^^^^^^^^^^^^^^^^
 
-The new file SPW.xsd has been added to hold the Screen/Plate/Well model.
-With its creation, Plate and Screen that were in OME.XSD have been moved
-and re-written. 
+The new file :file:`SPW.xsd` has been added to hold the Screen/Plate/Well 
+model. With its creation, ``Plate`` and ``Screen`` that were in 
+:file:`ome.xsd` have been moved and re-written. 
 
 OME-Tiff extensions
 ^^^^^^^^^^^^^^^^^^^
 
 The changes necessary to support the OME-Tiff format have been applied, namely 
-the addition of the TiffData element to Pixels as an option to
-the BinData element.
+the addition of the ``TiffData`` element to ``Pixels`` as an alternative 
+option to the ``BinData`` element.
 
 Internal IDs and LSID changes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -144,31 +144,31 @@ Naming conventions
 ^^^^^^^^^^^^^^^^^^
 
 The naming convention used for attribute, element and enumeration names,
-already partly implemented, was written down and existing names corrected
-as necessary.
+already partly implemented, is documented below, and existing names have been 
+corrected as necessary.
 
 Enumerations
 """"""""""""
 
-Enumerations names will normally use UpperCamelCase, and contain letters
-and numbers and the dash. No spaces and no other punctuation. The '-' is
+Enumeration names will normally use UpperCamelCase, and contain letters
+and numbers and the dash; no spaces and no other punctuation. The '-' is
 the only permitted punctuation character (so 'e-' is allowed). Only
 abbreviations in common use in the field should be used.
 
 Attributes
 """"""""""
 
-Attributes names will use UpperCamelCase, letters only, no punctuation.
-Where practical whole words will be used rather then abbreviations.
+Attribute names will use UpperCamelCase, letters only, no punctuation.
+Where practical, whole words will be used rather then abbreviations.
 
 Elements
 """"""""
 
-Elements names will use UpperCamelCase, letters only, no punctuation.
-Where practical whole words will be used rather then abbreviations.
+Element names will use UpperCamelCase, letters only, no punctuation.
+Where practical, whole words will be used rather then abbreviations.
 Element names will normally be unique across all the OME files and where
-an element name is reused, this will be for a specific reason which is
-outlined in an annotation present in each place where the element is defined.
+an element name is reused, this will be for a specific reason, which is
+outlined in an annotation present everywhere the element is defined.
 
 Miscellaneous corrections
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -180,7 +180,7 @@ Plane
 """""
 
 This has been modified and now contains some of the structures that were
-in Image.
+in ``Image``.
 
     Notes: in the XSD files the element and attribute names use
     CamelCase and PascalCase. As these are also interpreted by
