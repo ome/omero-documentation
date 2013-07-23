@@ -1,5 +1,18 @@
-OMERO.fs: DropBox
-=================
+OMERO.dropbox
+=============
+
+DropBox was originally designed as the first stage of the file
+system changes referred to as OMERO.fs. It utilizes a file
+system monitor to find newly uploaded files and run a fully automatic
+import on those files if possible. This release of OMERO.dropbox runs on
+the same machine as the OMERO.server and watches designated areas of the
+local filesystem for new or modified files. If those files are
+importable, then an automatic import is initiated. OMERO.dropbox is
+started automatically when the OMERO.server starts and it will run if
+the above prerequisites are met.
+
+OMERO.fs
+--------
 
 OMERO.fs is planned as a system of services for accessing image data on
 server filesystems from the OMERO.server without the need to
@@ -10,7 +23,7 @@ system.
 
 As of 4.2, the FS services do **not** prevent the data duplication issue
 which has often been discussed, but instead provides a background
-client, "DropBox", which can automatically import data into OMERO.
+client, DropBox, which can automatically import data into OMERO.
 
 Prerequisites
 -------------
@@ -52,18 +65,6 @@ Prerequisites
     ***not*** supported.
 
 .. _dropbox:
-
-OMERO DropBox
--------------
-
-The first application of OMERO.fs is OMERO.dropbox, which utilizes a file
-system monitor to find newly uploaded files and run a fully automatic
-import on those files if possible. This release of OMERO.dropbox runs on
-the same machine as the OMERO.server and watches designated areas of the
-local filesystem for new or modified files. If those files are
-importable, then an automatic import is initiated. OMERO.dropbox is
-started automatically when the OMERO.server starts and it will run if
-the above prerequisites are met.
 
 Using DropBox
 ~~~~~~~~~~~~~
