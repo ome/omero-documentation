@@ -9,33 +9,27 @@ the same machine as the OMERO.server and watches designated areas of the
 local filesystem for new or modified files. If those files are
 importable, then an automatic import is initiated. OMERO.dropbox is
 started automatically when the OMERO.server starts and it will run if
-the above prerequisites are met.
+the prerequisites below are met.
 
 OMERO.fs
 --------
 
 OMERO.fs is planned as a system of services for accessing image data on
 server filesystems from the OMERO.server without the need to
-import the pixel data into the server. The underlying OMERO.fs servers
-are file system monitors which notify interested OMERO.fs clients of
-newly created, modified or deleted files in a particular part of a file
-system.
-
-As of 4.2, the FS services do **not** prevent the data duplication issue
+import the pixel data into the server. As of 4.2, the FS services
+do **not** prevent the data duplication issue
 which has often been discussed, but instead provides a background
 client, DropBox, which can automatically import data into OMERO.
 
 Prerequisites
 -------------
 
--   OMERO.fs has the following general requirements:
+In addition to the general :doc:`system-requirements` OMERO.dropbox has
+the following more specific requirements:
 
-    -  **Ice 3.3**
-    -  **Python 2.4 or above**
-
--   OMERO.fs is built on underlying OS file-notification system, and so
+-   OMERO.dropbox is built on underlying OS file-notification system, and so
     is only available for specific versions of certain operating systems.
-    OMERO.fs will currently function on the following systems:
+    OMERO.dropbox will currently function on the following systems:
 
     -   Linux with kernel 2.6.13 and higher.
     -   Mac OS 10.5 and above.
@@ -60,7 +54,7 @@ Prerequisites
         ``/System/Library/Frameworks/Python.framework/Versions/2.X/Extras/lib/python/PyObjC/``
         to be added, according to the version of Python used.
 
--   The filesystem which OMERO.fs watches must be local to the given
+-   The filesystem which OMERO.dropbox watches must be local to the given
     operating system. Watching a network-attached share (NAS) is strictly
     ***not*** supported.
 
