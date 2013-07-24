@@ -44,7 +44,7 @@ in a separate process but is co-ordinated centrally.
    metadata stored in a relational database as well as the binary image data 
    on disk.
 -  :doc:`/sysadmins/dropbox` - A filesystem watcher which notifes the server
-   of newly uploaded or modified files and run a fully automatic import.
+   of newly uploaded or modified files and runs a fully automatic import.
 
 ..
     -  :doc:`/developers/server-processor` - Processors provide background
