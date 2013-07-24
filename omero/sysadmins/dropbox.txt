@@ -49,7 +49,7 @@ the following more specific requirements:
     ***not*** supported.
 
 Using DropBox
-~~~~~~~~~~~~~
+-------------
 
 In its default configuration the monitored area of the file system is a
 ``DropBox`` subdirectory of the OmeroBinaryRepository directory. The
@@ -81,7 +81,7 @@ a given DropBox.
     files failing to import.
 
 Log files
-~~~~~~~~~
+---------
 
 The log files :file:`var/logs/FSServer.log` and :file:`var/logs/DropBox.log`
 will indicate success or otherwise of start-up of the two components.
@@ -90,7 +90,7 @@ designated file areas and :file:`var/logs/DropBox.log` will log the progress
 of any file imports.
 
 Advanced use
-~~~~~~~~~~~~
+------------
 
 OMERO.dropbox can be configured in several ways through
 :file:`etc/grid/templates.xml`. In its default configuration, as detailed
@@ -129,7 +129,7 @@ for ``zak``.
 For a full description of the properties see below.
 
 Properties
-~~~~~~~~~~
+^^^^^^^^^^
 
 Each property takes the form of a single item or a semi-colon separated
 list of items. Where the item is a list, values within that list should
@@ -284,7 +284,7 @@ be comma separated.
         <property name="omero.fs.importArgs"  value=""/>
 
 Example
-~~~~~~~
+^^^^^^^
 
 Here's a full example of a configuration for two users:
 
