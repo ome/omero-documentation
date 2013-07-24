@@ -11,16 +11,6 @@ importable, then an automatic import is initiated. OMERO.dropbox is
 started automatically when the OMERO.server starts and it will run if
 the prerequisites below are met.
 
-OMERO.fs
---------
-
-OMERO.fs is planned as a system of services for accessing image data on
-server filesystems from the OMERO.server without the need to
-import the pixel data into the server. As of 4.2, the FS services
-do **not** prevent the data duplication issue
-which has often been discussed, but instead provides a background
-client, DropBox, which can automatically import data into OMERO.
-
 Prerequisites
 -------------
 
@@ -57,8 +47,6 @@ the following more specific requirements:
 -   The filesystem which OMERO.dropbox watches must be local to the given
     operating system. Watching a network-attached share (NAS) is strictly
     ***not*** supported.
-
-.. _dropbox:
 
 Using DropBox
 ~~~~~~~~~~~~~
