@@ -126,8 +126,8 @@ listen to.
 -  Listen to ``BrowseImage`` in the ``eventFired(AgentEvent)`` method of
    the ``AgentListener`` interface.
 
-For example, when clicking on an image, the following event is posted 
-somewhere in the Data Manager:
+For example, when clicking on an image in the Data Manager, the following 
+event is posted:
 
 ::
 
