@@ -6,3 +6,6 @@ What's new for OMERO 5
 
 - :doc:`fs-upload-configuration` has been added to explain the server-side FS 
   workflow for importing files.
+
+- :doc:`dropbox` has been reworked to clarify the distinction between OMERO.fs 
+  and OMERO.dropbox.
