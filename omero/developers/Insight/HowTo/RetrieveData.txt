@@ -3,28 +3,27 @@ Retrieve data from server
 
 To retrieve data stored in an OMERO server, Agents can either:
 
--  Directly access a Data service (container' service) through their
-   ``Registry``
+-  directly access a Data service (container service) through their
+   ``Registry`` (in which case, the call happens in the *Swing* dispatching 
+   thread, so it is not possible to give user feedback by showing a progress     
+   bar for example):
 
    ::
 
        OmeroDataService service = registry.getDataService();
        service.getServerName()
 
-In that case, the call happens in the *Swing* dispatching thread, so it
-is not possible to give user feedbacks by showing a progress bar for
-example.
 
--  Or retrieve data asynchronously using a **Data Services View**.
+-  or retrieve data asynchronously using a **Data Services View**
 
 Data services view
 ------------------
 
 Usage
-~~~~~
+^^^^^
 
 A data services view is a logical grouping of data and operations that
-serve a specific purpose -- for example to support dataset browsing by
+serve a specific purpose, for example to support dataset browsing by
 providing easy access to datasets, thumbnails, tags, etc. A data
 services view is defined by an interface that extends
 ``DataServiceView`` and consists of a collection of asynchronous calls
@@ -167,7 +166,7 @@ event to be delivered in order of time.
 and see how to use data services view.**
 
 Execution
-~~~~~~~~~
+^^^^^^^^^
 
 The next diagram analyzes a concrete call to a view to exemplify the
 pattern followed by all asynchronous calls in the various views. The
@@ -182,7 +181,7 @@ invoker.
   Retrieving data invocation
 
 Initialization
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 The ``DataViewsFactory`` (in ``env.data.views``) needs to be initialized
 before any concrete ``BatchCallTree`` (in ``env.data.views``) is
