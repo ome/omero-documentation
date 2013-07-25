@@ -2,7 +2,7 @@ OMERO.dropbox
 =============
 
 DropBox was originally designed as the first stage of the file
-system changes referred to as OMERO.fs. It utilizes a file
+system changes referred to as :doc:`/developers/Server/FS`. It utilizes a file
 system monitor to find newly uploaded files and run a fully automatic
 import on those files if possible. This release of OMERO.dropbox runs on
 the same machine as the OMERO.server and watches designated areas of the
