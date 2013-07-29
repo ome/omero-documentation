@@ -11,48 +11,31 @@ or run site-wide to provide a large-scale collaborative environment.
    :width: 75%
    :alt: 
 
-Administration
---------------
 
 Although getting started with the server is relatively straightforward,
 it does require installing several software systems, and more advanced
-usage including backups, integrated logins, etc. requires a
+usage including backups and integrated logins, requires a
 knowledgeable system administrator.
 
-After working through the :doc:`/users/clients-overview`
-section, the following guides to administering your installation of
-OMERO.server may be of interest:
+You may find the :doc:`/users/clients-overview` user guide useful before 
+working through the installation and maintenance guides provided in this 
+section of the documentation.
 
--  :doc:`/sysadmins/troubleshooting`
--  :doc:`/sysadmins/server-security`
--  :doc:`/sysadmins/server-ldap`
--  :doc:`/sysadmins/server-backup-and-restore`
-- Unix:
-    -  :doc:`unix/server-binary-repository`
-    -  :doc:`unix/server-postgresql`
-- Windows:
-    -  :doc:`windows/server-binary-repository`
-    -  :doc:`windows/server-postgresql`
-
-Developer documentation
------------------------
+Developing the server
+---------------------
 
 The server system is composed of several components, each of which runs
 in a separate process but is co-ordinated centrally.
 
--  :doc:`/developers/server-blitz` - The data server provides access to 
+-  :doc:`/developers/server-blitz` - the data server provides access to 
    metadata stored in a relational database as well as the binary image data 
    on disk.
--  :doc:`/sysadmins/dropbox` - A filesystem watcher which notifes the server
-   of newly uploaded or modified files and runs a fully automatic import.
-
-..
-    -  :doc:`/developers/server-processor` - Processors provide background
-       execution of Python and Matlab scripts.
-    -  :doc:`/developers/server-rendering` - The RenderingEngine provides
-       server-side processing of raw image data for visualization on low-end
-       client machines.
+-  :doc:`/sysadmins/dropbox` - a filesystem watcher which notifies the server
+   of newly uploaded or modified files and runs a fully automatic import 
+   (designed as the first implementation of :doc:`/developers/Server/FS` 
+   referred to in the architecture diagram).
 
 If you are interested in building components for the server, modifying
-an existing component, or just looking for more background information,
-the best starting point is the :doc:`/developers/Server` page.
+an existing component, or just looking for more background information, there 
+is a section on the server within the :doc:`/developers/index`;
+the best starting point is the :doc:`/developers/Server` for developers.
