@@ -7,3 +7,7 @@ What's new for OMERO 5
 - :doc:`Modules/Delete` has been updated to explain how OMERO 5 handles 
   deleting multi-file images and image sets and to clarify the finality of 
   deletion.
+
+- :doc:`Server/FS` has been updated to give an overview of the OMERO.fs 
+  project, and further details of the 
+  :doc:`ManagedRepository/ManagedRepository` are being added.
