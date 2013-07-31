@@ -1,7 +1,7 @@
 How to build an agent's view
 ============================
 
-This section, explains how a view of the agent is created. All our
+This section explains how a view of the agent is created. All our
 agents follow the same approach. To see the code while
 reading the notes, go to
 :sourcedir:`components/insight/SRC/org/openmicroscopy/shoola/agents/treeviewer/view`.
