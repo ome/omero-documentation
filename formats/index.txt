@@ -14,7 +14,8 @@ convenient file format for data migration from one site or user to another.
 OME-TIFF is a multi-plane tiff file that contains OME metadata in the header, 
 in the form of OME-XML. This allows the pixels to be read with any 
 TIFF-compatible program, and the metadata to be extracted with any OME-aware 
-application.
+application. Our `paper describing the design and implementation of the OME-XML file 
+<http://genomebiology.com/2005/6/5/R47>`_ appeared in Genome Biology.
 
 The OME consortium currently provides two major tools capable of working
 with OME-XML and OME-TIFF:
@@ -27,6 +28,8 @@ with OME-XML and OME-TIFF:
 -  The :omero_plone:`OMERO server <>` works directly with
    OME-XML. It can import data from OME-XML and OME-TIFF, as well as
    export to OME-TIFF.
+
+
 
 If you have used OME-XML, OME-TIFF, Bio-Formats or OMERO in your work please 
 use the :about_plone:`correct citations <licensing-attribution/citing-ome>` to 
