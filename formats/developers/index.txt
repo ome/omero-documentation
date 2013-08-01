@@ -1,13 +1,11 @@
 Developer Introduction
 ======================
 
-
 All the OME code is stored in a central Git repository. The OME Data
 Model part of this is available under :sourcedir:`components/specification`.
 
 There are sample files, along with an explanation of their structure, on
 the :doc:`sample-files` page.
-
 
 OME Model development process
 -----------------------------
@@ -76,13 +74,15 @@ Model, for example to support the loading/saving of a variety of files.
 -  The **current major release** - see :doc:`Changes For June
    2013 </schemas/june-2013>`.
 
+Working with OME-XML
+--------------------
+
 There are two Python applications to aid working with OME-XML - 
 :doc:`EnumTool`, which is designed to digest OME-XML schema and
 produce meaningful output about enumerations, and :bf_doc:`XSD Fu <developers/xsd-fu.html>`,
 which digests OME XML schema and produces an object oriented Java
 infrastructure to ease  work with an XML DOM tree.
 
--  See :doc:`using-ome-xml` for further guidance on how to use OME 
-   schema elements in XML files.
-
+See :doc:`using-ome-xml` for further guidance on how to use OME schema 
+elements in XML files.
 

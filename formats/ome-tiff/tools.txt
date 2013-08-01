@@ -1,22 +1,6 @@
-OME-XML And OME-TIFF Software Tools
-===================================
-
-The OME consortium currently provides two major tools capable of working
-with OME-XML:
-
--  The :bf_plone:`Bio-Formats <>`
-   library is a full-featured library with many features related to
-   OME-XML, including conversion of third party file format metadata
-   into OME-XML structures. It can write image data to the OME-TIFF
-   format.
--  The :omero_plone:`OMERO server <>` works directly with
-   OME-XML. It can import data from OME-XML and OME-TIFF, as well as
-   export to OME-TIFF.
-
-In addition to the above packages, this section outlines several useful
-tools, some of which we have developed ourselves, for working with
-documents in the OME-XML and OME-TIFF formats.
-
+Extracting, processing and validating OME-XML
+=============================================
+ 
 Extracting the OME-XML from an OME-TIFF file
 --------------------------------------------
 
