@@ -13,13 +13,24 @@ a file format used to store data according to the OME Model, serving as a
 convenient file format for data migration from one site or user to another. 
 OME-TIFF is a multi-plane tiff file that contains OME metadata in the header, 
 in the form of OME-XML. This allows the pixels to be read with any 
-TIFF-compatible program and the metadata to be extracted with any OME-aware 
+TIFF-compatible program, and the metadata to be extracted with any OME-aware 
 application.
 
--  If you have used OME-XML, OME-TIFF, Bio-Formats or OMERO in your work
-   please use the
-   :about_plone:`correct citations <licensing-attribution/citing-ome>` to 
-   acknowledge us.
+The OME consortium currently provides two major tools capable of working
+with OME-XML and OME-TIFF:
+
+-  The :bf_plone:`Bio-Formats <>` library is a full-featured library with many 
+   features related to OME-XML, including conversion of third party file 
+   format metadata into OME-XML structures. It can write image data to the 
+   OME-TIFF format.
+
+-  The :omero_plone:`OMERO server <>` works directly with
+   OME-XML. It can import data from OME-XML and OME-TIFF, as well as
+   export to OME-TIFF.
+
+If you have used OME-XML, OME-TIFF, Bio-Formats or OMERO in your work please 
+use the :about_plone:`correct citations <licensing-attribution/citing-ome>` to 
+acknowledge us.
 
 We have received support from several companies who use our file formats, for 
 details see our list of :about_plone:`Partners <partners>`.
@@ -50,7 +61,6 @@ OME-XML
     ome-xml/index
     ome-tiff/tools
     ome-xml/java-library
-    developers/id-and-lsid
 
 *******************
 File Specifications
@@ -77,6 +87,7 @@ Developer Tools And Guidelines
     developers/using-ome-xml
     developers/EnumTool
     developers/sample-files
+    developers/id-and-lsid
 
 ************************
 The Data Model In Detail
