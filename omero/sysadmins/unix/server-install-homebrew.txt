@@ -74,9 +74,6 @@ requirements for OMERO will be installed to :file:`/usr/local`.
 If you are having issues with curl, see the :ref:`install_homebrew_curl`
 section under :ref:`install_homebrew_common_issues`.
 
-If you are running OS X 10.8 or later, you will need to install XQuartz::
-
-   $ brew install xquartz
 
 OMERO installation
 ------------------
