@@ -106,6 +106,14 @@ install the server dependencies:
 
     $ brew tap ome/alt
     $ brew install `brew deps omero`
+	
+
+If you wish to install ice34 (default is ice33), you will have to run the following:
+   
+::
+   
+	$ brew install zeroc-ice34 --with-python
+
 
 Prepare a place for your OMERO code to live, e.g.
 
@@ -177,14 +185,6 @@ Edit your .profile as appropriate. The following are indicators of required entr
     make sure :file:`$BREW_DIR/bin` is at the beginning of your :envvar:`PATH`
     (see also `this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_).
 
-.. note::
-   If you wish to install ice34, you will have to run the following:
-   
-   ::
-   
-   $ brew install zeroc-ice34 --with-python
-   
-   and edit your .profile as appropriate.
    
 Database creation
 ^^^^^^^^^^^^^^^^^
