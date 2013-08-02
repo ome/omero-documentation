@@ -9,7 +9,7 @@ reading the notes, go to
 Using the previous example ``MyBrowserAgent`` (see :doc:`/developers/Insight/HowTo/BuildAgent`):
 
 #. Create a ``view`` package in the ``mybrowser`` package.
-#. Create the following classes ``MyBrowser`` (I/F),
+#. Create the following classes ``MyBrowser`` (interface),
    ``MyBrowserComponent``, ``MyBrowserModel``, ``MyBrowserControl``, and
    ``MyBrowserUI``. If you browse the source code, you will notice that
    we usually have a class used as a toolbar and a class used as a
