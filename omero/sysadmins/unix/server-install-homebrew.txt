@@ -173,6 +173,9 @@ Edit your .profile as appropriate. The following are indicators of required entr
     export PATH=$BREW_DIR/bin:$BREW_DIR/sbin:/usr/local/lib/node_modules:$ICE_HOME/bin:$PATH
     export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$ICE_HOME/python:$DYLD_LIBRARY_PATH
 
+If you have installed ice34, replace ``ICE_HOME``  by ``$(brew --prefix zeroc-ice34)``.
+
+
 .. note::
     On Mac OS X Lion, a version of PostgreSQL is already installed. If you get an error like the following:
 
