@@ -1,39 +1,10 @@
-OME-TIFF Overview
-=================
+The OME-TIFF Format
+===================
 
-Terminology
------------
-
-- **Image:** a single (2D) image plane
-- **Dataset:** a collection of image planes composing a multidimensional
-  structure (also called a multidimensional image or OME image)
-- **OME dataset:** a collection of related OME images
-- **OME project:** a collection of related OME datasets
-- **Pixels:** image samples acquired from a microscope or other source
-- **Metadata:** auxiliary information associated with the pixels, such as
-  who acquired the data, when it was acquired, conditions of the
-  experiment, etc.
-- **Multi-page TIFF:** a TIFF file containing multiple image planes
-- **OME-XML metadata:** a block of OME-XML representing image metadata
-  (but not pixels)
-
-Rationale
----------
-
-The Open Microscopy Environment Consortium has defined a file format
-called OME-XML for biological image data including a rich set of
-microscopy-specific metadata. OME-XML's major strength lies in its
-extensible, human-readable XML schemas for image metadata.
-Unfortunately, OME-XML has some of drawbacks:
-
-#. Decoding base64-encoded image planes is computationally expensive.
-#. There is no facility to split a dataset among multiple files on disk.
-#. Far fewer applications support OME-XML than TIFF.
-
-To address these concerns, we have created the OME-TIFF Format to
-maximize the respective strengths of OME-XML and TIFF, taking advantage
+The OME-TIFF format was created to
+maximize the respective strengths of OME-XML and TIFF. It takes advantage
 of the rich metadata defined in OME-XML while retaining the pixels in
-multi-page TIFF format for greater compatibility.
+multi-page TIFF format for compatibility with many more applications.
 
 Characteristics
 ---------------
@@ -53,6 +24,13 @@ An OME-TIFF dataset has the following characteristics:
    base64 chunks within the XML. Since TIFF is an image
    format, it makes sense to only use OME-TIFF as opposed to OME-XML, when 
    there is at least one image plane.
+
+Support
+-------
+
+OME-TIFF is supported by:
+
+
 
 |
 
