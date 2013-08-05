@@ -87,6 +87,7 @@ rst_epilog += """
 .. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
 .. |previousversion| replace:: %s
 .. |devbranch| replace:: %s
+.. |iceversion| replace:: 3.5.0
 """ % (previousversion, devbranch)
 
 # Variables used to define OMERO Jenkins extlinks
