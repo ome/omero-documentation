@@ -51,32 +51,32 @@ matches the version of your server!
 Set the :envvar:`ICE\_HOME` environment variable for your
 installation.  This location varies depending upon the installation
 location and Ice version in use.  Some possible locations for the
-3.5.0 version of Ice follow.  Note these are just examples; you need
+|iceversion| version of Ice follow.  Note these are just examples; you need
 to adjust them for the Ice installation path and version in use.
 
 * Ice built from source and installed into :file:`/opt`:
 
-   ::
+   .. parsed-literal::
 
-       export ICE_HOME=/opt/Ice-3.5.0
+       export ICE_HOME=/opt/Ice-|iceversion|
 
 * Ice installed on Linux using RPM packages:
 
-   ::
+   .. parsed-literal::
 
-       export ICE_HOME=/usr/share/Ice-3.5.0
+       export ICE_HOME=/usr/share/Ice-|iceversion|
 
 * MacOS with homebrew:
 
-   ::
+   .. parsed-literal::
 
-       export ICE_HOME=/usr/local/Cellar/ice/3.5.0
+       export ICE_HOME=/usr/local/Cellar/ice/|iceversion|
 
 * Windows using Visual Studio:
 
-   ::
+   .. parsed-literal::
 
-       set ICE_HOME=C:\Ice-3.5.0
+       set ICE_HOME=C:\Ice-|iceversion|
 
 Users of a package manager will also need to set :envvar:`ICE\_HOME`
 if the Ice paths are not automatically detected correctly.  The
@@ -185,9 +185,14 @@ The following environment variables as defined in
     64-bit machine, otherwise ``x86``
 
 :envvar:`CPPPATH`
-    directories to be searched for include files
-    (e.g. ``-I/opt/Ice-3.5.0/includes``); a ``:`` or ``;`` separator
-    character is used, depending on the platform.
+    directories to be searched for include files, for example
+
+    .. parsed-literal::
+
+        -I/opt/Ice-|iceversion|/includes
+
+    A ``:`` or ``;`` separator character is used to separate
+    directories, depending on the platform.
 
 :envvar:`CXXFLAGS`
     standard :program:`make`-like CXXFLAGS variable
@@ -196,9 +201,13 @@ The following environment variables as defined in
     compiler executable. Useful with `ccache <http://ccache.samba.org/>`_.
 
 :envvar:`LIBPATH`
-    directories to be searched for libraries
-    (e.g. ``-L/opt/Ice-3.5.0/lib``), separated by ``:`` or ``;`` as
-    with CPPPATH.
+    directories to be searched for libraries, for example
+
+    .. parsed-literal::
+
+        -L/opt/Ice-|iceversion|/lib
+
+    Directories are separated by ``:`` or ``;`` as with CPPPATH.
 
 :envvar:`ICE\_HOME`
     your Ice installation. The contained ``include`` directory will be
