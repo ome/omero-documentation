@@ -48,25 +48,40 @@ Begin by following the instructions under :doc:`/developers/source_code` on
 acquiring the source code. Be **sure** that the git branch you are using
 matches the version of your server!
 
-If you did not install Ice via a package manager like APT (Debian or
-Ubuntu), RPM (Centos or RHEL) or Homebrew or Macports (Mac OS X), you
-will need to manually set the :envvar:`ICE\_HOME` environment variable for your
-installation, for example:
+Set the :envvar:`ICE\_HOME` environment variable for your
+installation.  This location varies depending upon the installation
+location and Ice version in use.  Some possible locations for the
+3.5.0 version of Ice follow.  Note these are just examples; you need
+to adjust them for the Ice installation path and version in use.
 
-::
+* Ice built from source and installed into :file:`/opt`:
 
-    export ICE_HOME=/opt/Ice-3.5.0
+   ::
 
-or on Windows
+       export ICE_HOME=/opt/Ice-3.5.0
 
-::
+* Ice installed on Linux using RPM packages:
 
-    set ICE_HOME=C:\Ice-3.5.0
+   ::
 
-for Visual Studio.  Users of a package manager may also need to set
-:envvar:`ICE\_HOME` if the Ice paths are not automatically detected
-correctly.  Note these are just example; you need to adjust them for
-the Ice installation path and version in use.
+       export ICE_HOME=/usr/share/Ice-3.5.0
+
+* MacOS with homebrew:
+
+   ::
+
+       export ICE_HOME=/usr/local/Cellar/ice/3.5.0
+
+* Windows using Visual Studio:
+
+   ::
+
+       set ICE_HOME=C:\Ice-3.5.0
+
+Users of a package manager will also need to set :envvar:`ICE\_HOME`
+if the Ice paths are not automatically detected correctly.  The
+:program:`slice2xxx` tools generally don't pick up the location of the
+slice definitions by default if this is unset.
 
 .. note ::
 
