@@ -25,8 +25,6 @@ Prerequisites
   * Visual Studio or the Platform SDK for Windows
 
 * The ZeroC Ice libraries, headers and slice definitions
-* The `Boost <http://www.boost.org/>`_ C++ libraries and headers
-  (depending upon the Ice version)
 
 Restrictions
 ------------
@@ -42,11 +40,6 @@ The version of GCC and/or Ice provided on your system should be
 compatible, but if you are restricted to a particular version of GCC
 or Ice, you may need to obtain or build a compatible version of Ice or
 GCC, respectively.
-
-When using Ice 3.5 or later, the Boost C++ libraries are also required
-to provide functionality which was present in Ice 3.3 and 3.4, but
-removed in 3.5.  If you are using Ice 3.3 or 3.4, Boost is not
-required.
 
 Preparing to build
 -------------------
