@@ -171,7 +171,7 @@ The following environment variables as defined in
 
 :envvar:`CPPPATH`
     directories to be searched for include files
-    (e.g. ``-I/opt/Ice-3.3.0/includes``); a ``:`` or ``;`` separator
+    (e.g. ``-I/opt/Ice-3.5.0/includes``); a ``:`` or ``;`` separator
     character is used, depending on the platform.
 
 :envvar:`CXXFLAGS`
@@ -182,7 +182,7 @@ The following environment variables as defined in
 
 :envvar:`LIBPATH`
     directories to be searched for libraries
-    (e.g. ``-L/opt/Ice-3.3.0/lib``), separated by ``:`` or ``;`` as
+    (e.g. ``-L/opt/Ice-3.5.0/lib``), separated by ``:`` or ``;`` as
     with CPPPATH.
 
 :envvar:`ICE\_HOME`
