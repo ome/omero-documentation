@@ -189,7 +189,7 @@ The following environment variables as defined in
 
     .. parsed-literal::
 
-        -I/opt/Ice-|iceversion|/includes
+        -I/opt/Ice-|iceversion|/include
 
     A ``:`` or ``;`` separator character is used to separate
     directories, depending on the platform.
