@@ -34,8 +34,8 @@ Things to note about 4.2.x permissions
 
 .. seealso::
 
-    :legacy_plone:`omero420/server/permissions`
-    :legacy_plone:`omero420/server/db-upgrade-41-to-42`    
+    :legacy_plone:`OMERO 4.2.0 Server Permissions <omero420/server/permissions>`
+    :legacy_plone:`Database upgrade from 4.1 to 4.2 <omero420/server/db-upgrade-41-to-42>`    
     :doc:`/developers/Modules/Delete`
 
 
@@ -400,11 +400,13 @@ Example output:
 Utilising the Permissions object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Every object that is retrieved from the server via the query service, regardless of the context used, has a fully functional {{{omero.model.PermissionsI}}} object. This object contains various methods to allow the caller to interrogate the operations that are possible by the current user on the object:
-* {{{canAnnotate()}}} ([http://hudson.openmicroscopy.org.uk/job/OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canAnnotate doc])
-* {{{canDelete()}}} ([http://hudson.openmicroscopy.org.uk/job/OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canDelete doc])
-* {{{canEdit()}}} ([http://hudson.openmicroscopy.org.uk/job/OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canEdit doc])
-* {{{canLink()}}} ([http://hudson.openmicroscopy.org.uk/job/OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canLink doc])
+Every object that is retrieved from the server via the query service, 
+regardless of the context used, has a fully functional ``omero.model.PermissionsI`` object. This object contains various methods to allow the caller to interrogate the operations that are possible by the current user on the object:
+
+- :jenkinsjob:`canAnnotate() <OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canAnnotate doc>`
+- :jenkinsjob:`canDelete() <OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canDelete doc>`
+- :jenkinsjob:`canEdit <OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canEdit doc>`
+- :jenkinsjob:`canLink <OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canLink doc>`
 
 == FAQ ==
 
