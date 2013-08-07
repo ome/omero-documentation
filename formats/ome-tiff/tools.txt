@@ -82,21 +82,75 @@ Validating OME-XML
 
 We have created a command line tool in Java for validating OME-XML, and
 included it as part of the :bf_doc:`Bio-Formats command line
-tools <users/comlinetools/>`. The command is:
+tools <users/comlinetools/>`. 
+
+A full tutorial can be `found here 
+<http://www.farsight-toolkit.org/wiki/FARSIGHT_Tutorials/Bio-Formats>`_. In 
+brief, you download and unzip the tools to produce a collection of command 
+line scripts for Unix/Mac and batch files for Windows. The two commands we 
+will use are `xmlvalid` and `tiffcomment`.
+
+- `xmlvalid` – a command-line XML validation tool
+- `tiffcomment` – extracts the OME-XML block in an OME-TIFF file from the 
+  comment in the TIFF's first IFD entry.
+
+All scripts require `loci_tools.jar` to be downloaded into the same directory 
+as the command line tools. Then to validate an OME-XML file :file:`sample.ome` 
+use:
 
 ::
 
-    xmlvalid file.xml
+    xmlvalid sample.ome
 
-Also available is a web-based `OME-XML
-validator <http://validator.openmicroscopy.org.uk/>`_ for checking files
-in OME-XML or OME-TIFF formats, including:
+This validates the XML directly.
 
--  conformation to the OME-XML schema
--  listing missing internal references
--  listing external references
--  correct TiffData block usage
--  frame counts in TIFF files
+Then to validate an OME-TIFF file :file:`sample.ome.tif` use:
+
+::
+
+    tiffcomment sample.ome.tif | xmlvalid
+
+This extracts the OME-XML from the TIFF then passeds it to the validator. 
+Typical successful output is:
+
+::
+
+    [~/Work/bftools]$ ./xmlvalid sample.ome
+    Parsing schema path
+    http://www.openmicroscopy.org/Schemas/OME/2010-06/ome.xsd
+    Validating sample.ome
+    No validation errors found.
+    [~/Work/bftools]$ 
+
+If any errors are found they are reported. When correcting errors, it is 
+usually best to work from the top of the file as errors higher up can cause 
+extra errors further down. In this example the output shows 3 errors but there 
+are only 2 mistakes in the file.
+
+::
+
+    [~/Work/bftools]$ ./xmlvalid broken.ome
+    Parsing schema path
+    http://www.openmicroscopy.org/Schemas/OME/2010-06/ome.xsd
+    Validating broken.ome
+    cvc-complex-type.4: Attribute 'SizeY' must appear on element 'Pixels'.
+    cvc-enumeration-valid: Value 'Non Zero' is not facet-valid with respect 
+       to enumeration '[EvenOdd, NonZero]'. It must be a value from the enumeration.
+    cvc-attribute.3: The value 'Non Zero' of attribute 'FillRule' on element 
+       'ROI:Shape' is not valid with respect to its type, 'null'.
+    Error validating document: 3 errors found
+    [~/Work/bftools]$ 
+
+
+.. Also available is a web-based `OME-XML
+   validator <http://validator.openmicroscopy.org.uk/>`_ for checking files
+   in OME-XML or OME-TIFF formats, including:
+   
+   -  conformation to the OME-XML schema
+   -  listing missing internal references
+   -  listing external references
+   -  correct TiffData block usage
+   -  frame counts in TIFF files
 
 Alternately, you can use the more general online `W3C XML
 validator <http://www.w3.org/2001/03/webdata/xsv>`_ to validate your
