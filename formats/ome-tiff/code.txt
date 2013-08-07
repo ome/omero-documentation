@@ -117,4 +117,5 @@ regarding the OME-XML conversion relating to any specific format. If
 there is any metadata missing or converted incorrectly, please let us
 know.
 
-.. seealso:: :bf_doc:`developers/export2.html` and :bf_doc:`developers/conversion.html`
+.. seealso:: :bf_doc:`Exporting raw pixel data to OME-TIFF files <developers/export2.html>` 
+    and :bf_doc:`Converting files from FV1000 OIB/OIF to OME-TIFF <developers/conversion.html>`
