@@ -64,8 +64,9 @@ OME-TIFF is supported by:
 
     There is further information about :doc:`tools` available.
 
-    We also have some :doc:`code` in Java for
-    reading and writing OME-TIFF.
+    We also have some :doc:`example code <code>` in Java for
+    extracting and modifying TIFF comments and converting other file formats 
+    to OME-TIFF.
 
     Lastly, some :doc:`data` is available for
     download, along with statistics comparing OME-TIFF and OME-XML with
