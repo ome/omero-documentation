@@ -41,7 +41,7 @@ such as using an XML viewer or editor (web browsers work well), or
 processing the XML with a SAX or DOM library.
 
 On most Linux distributions, you can install the libxml package and use
-the xmllint program:
+the ``xmllint`` program:
 
 ::
 
@@ -62,7 +62,7 @@ Here is a Perl script that uses
     if (defined $file) { $doc = $parser->parse_file($file); }
     else { $doc = $parser->parse_fh(STDIN); } print $doc->toString(1);
 
-Unfortunately, both xmllint and the above Perl script can be somewhat
+Unfortunately, both ``xmllint`` and the above Perl script can be somewhat
 fragile; if there are any errors or abnormalities in the XML, they
 generally fail to produce any indentation. Thus, we have also written
 some Java code to do the same thing; just download the 
@@ -88,15 +88,15 @@ A full tutorial can be `found here
 <http://www.farsight-toolkit.org/wiki/FARSIGHT_Tutorials/Bio-Formats>`_. In 
 brief, you download and unzip the tools to produce a collection of command 
 line scripts for Unix/Mac and batch files for Windows. The two commands we 
-will use are `xmlvalid` and `tiffcomment`.
+will use are ``xmlvalid`` and ``tiffcomment``.
 
-- `xmlvalid` – a command-line XML validation tool
-- `tiffcomment` – extracts the OME-XML block in an OME-TIFF file from the 
+- ``xmlvalid`` – a command-line XML validation tool
+- ``tiffcomment`` – extracts the OME-XML block in an OME-TIFF file from the 
   comment in the TIFF's first IFD entry.
 
-All scripts require `loci_tools.jar` to be downloaded into the same directory 
-as the command line tools. Then to validate an OME-XML file :file:`sample.ome` 
-use:
+All scripts require :file:`loci_tools.jar` to be downloaded into the same 
+directory as the command line tools. Then to validate an OME-XML file 
+:file:`sample.ome` use:
 
 ::
 
@@ -110,17 +110,16 @@ Then to validate an OME-TIFF file :file:`sample.ome.tif` use:
 
     tiffcomment sample.ome.tif | xmlvalid
 
-This extracts the OME-XML from the TIFF then passeds it to the validator. 
+This extracts the OME-XML from the TIFF then passes it to the validator. 
 Typical successful output is:
 
 ::
 
-    [~/Work/bftools]$ ./xmlvalid sample.ome
+    ./xmlvalid sample.ome
     Parsing schema path
     http://www.openmicroscopy.org/Schemas/OME/2010-06/ome.xsd
     Validating sample.ome
     No validation errors found.
-    [~/Work/bftools]$ 
 
 If any errors are found they are reported. When correcting errors, it is 
 usually best to work from the top of the file as errors higher up can cause 
@@ -129,7 +128,7 @@ are only 2 mistakes in the file.
 
 ::
 
-    [~/Work/bftools]$ ./xmlvalid broken.ome
+    ./xmlvalid broken.ome
     Parsing schema path
     http://www.openmicroscopy.org/Schemas/OME/2010-06/ome.xsd
     Validating broken.ome
@@ -139,7 +138,6 @@ are only 2 mistakes in the file.
     cvc-attribute.3: The value 'Non Zero' of attribute 'FillRule' on element 
        'ROI:Shape' is not valid with respect to its type, 'null'.
     Error validating document: 3 errors found
-    [~/Work/bftools]$ 
 
 
 .. Also available is a web-based `OME-XML

@@ -78,7 +78,8 @@ Working with OME-XML
 --------------------
 
 In some cases, it is useful to extract specific parameters or tweak
-certain values in a dataset's OME-XML metadata block. Further guidance on :doc:`using-ome-xml` is available, but below is a brief example of the
+certain values in a dataset's OME-XML metadata block. Further guidance on 
+:doc:`using-ome-xml` is available, but below is a brief example of the
 OMEXMLMetadata class (which implements the MetadataStore and
 MetadataRetrieve interfaces) to greatly simplify OME-XML-related
 development tasks.
