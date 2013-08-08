@@ -10,7 +10,7 @@ produce a nicely formatted OME-XML string from an OME-TIFF file with:
 
 ::
 
-    tiffcomment file.ome.tif | xmlindent
+    $ tiffcomment file.ome.tif | xmlindent
 
 Alternately, if you have ImageMagick installed, one easy way to extract
 the OME-XML embedded in the TIFF headers is to use it from the command
@@ -18,7 +18,7 @@ line:
 
 ::
 
-    identify -verbose
+    $ identify -verbose
 
 If you are working in C/C++, we recommend the open source
 `LibTIFF <http://www.libtiff.org/>`_ library, or Bio-Formats via the
@@ -45,7 +45,7 @@ the ``xmllint`` program:
 
 ::
 
-    xmllint --format file.xml
+    $ xmllint --format file.xml
 
 Here is a Perl script that uses
 `XML::LibXML <http://www.xml.com/pub/a/2001/11/14/xml-libxml.html>`_ to
@@ -70,7 +70,7 @@ some Java code to do the same thing; just download the
 
 ::
 
-    xmlindent file.xml
+    $ xmlindent file.xml
 
 Another option is to feed the XML into our 
 :doc:`OME-XML Java library </ome-xml/java-library>`, which provides methods 
@@ -100,7 +100,7 @@ directory as the command line tools. Then to validate an OME-XML file
 
 ::
 
-    xmlvalid sample.ome
+    $ xmlvalid sample.ome
 
 This validates the XML directly.
 
@@ -108,18 +108,19 @@ Then to validate an OME-TIFF file :file:`sample.ome.tif` use:
 
 ::
 
-    tiffcomment sample.ome.tif | xmlvalid
+    $ tiffcomment sample.ome.tif | xmlvalid
 
 This extracts the OME-XML from the TIFF then passes it to the validator. 
 Typical successful output is:
 
 ::
 
-    ./xmlvalid sample.ome
+    $ ./xmlvalid sample.ome
     Parsing schema path
     http://www.openmicroscopy.org/Schemas/OME/2010-06/ome.xsd
     Validating sample.ome
     No validation errors found.
+    $
 
 If any errors are found they are reported. When correcting errors, it is 
 usually best to work from the top of the file as errors higher up can cause 
@@ -128,7 +129,7 @@ are only 2 mistakes in the file.
 
 ::
 
-    ./xmlvalid broken.ome
+    $./xmlvalid broken.ome
     Parsing schema path
     http://www.openmicroscopy.org/Schemas/OME/2010-06/ome.xsd
     Validating broken.ome
@@ -138,6 +139,7 @@ are only 2 mistakes in the file.
     cvc-attribute.3: The value 'Non Zero' of attribute 'FillRule' on element 
        'ROI:Shape' is not valid with respect to its type, 'null'.
     Error validating document: 3 errors found
+    $
 
 
 .. Also available is a web-based `OME-XML
