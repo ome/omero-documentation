@@ -129,7 +129,7 @@ are only 2 mistakes in the file.
 
 ::
 
-    $./xmlvalid broken.ome
+    $ ./xmlvalid broken.ome
     Parsing schema path
     http://www.openmicroscopy.org/Schemas/OME/2010-06/ome.xsd
     Validating broken.ome
