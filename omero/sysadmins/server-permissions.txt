@@ -5,7 +5,7 @@ In the 4.4 release of OMERO, the groups and permissions system has been
 revamped to allow users to share data with more control. **Users can now
 copy data between groups that they are a member of**.
 
-.. seealso:: :doc:`server-permissions2`
+.. seealso:: :doc:`/developers/Server/Permissions`
 
 
 Summary
