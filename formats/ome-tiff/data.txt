@@ -177,8 +177,8 @@ Space required on disk
 
 As shown in the table above, and the chart :ref:`figure-tiff-chart`, our 
 figures indicate that the most efficient format for space is OME-TIFF 
-compressed with the
-`7-zip <http://www.7-zip.org/>`_ utility.
+compressed with the `7-zip <http://www.7-zip.org/>`_ utility. Also good are 
+gzipped OME-XML and zipped OME-TIFF.
 
 .. _figure-tiff-chart:
 
