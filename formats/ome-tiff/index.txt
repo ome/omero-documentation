@@ -16,9 +16,8 @@ An OME-TIFF dataset has the following characteristics:
 #. A complete OME-XML metadata block describing the dataset is embedded
    in each TIFF file's header. Thus, even if some of the TIFF files in a
    dataset are misplaced, the metadata remains intact.
-#. The OME-XML metadata block may contain
-   anything a standard OME-XML file can, including multiple OME images
-   with multiple sets of pixels.
+#. The OME-XML metadata block may contain anything allowed in a standard 
+   OME-XML file.
 #. OME-TIFF uses the standard TIFF mechanism for storing one or more image 
    planes in each of the constituent files, instead of encoding pixels as 
    base64 chunks within the XML. Since TIFF is an image

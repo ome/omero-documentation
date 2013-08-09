@@ -149,7 +149,7 @@ individual planes.
 | OME-TIFF+LZW, 7-zipped    | Good – 135,014 bytes       | Poor – The appropriate OME-TIFF file must be uncompressed from the    |
 |                           |                            | archive, and the plane must be decoded from LZW.                      |
 +---------------------------+----------------------------+-----------------------------------------------------------------------+
-| OME-XML, gzipped (omez)   | Great – 124,763 bytes      | Worst – Entire dataset must be uncompressed, then the plane must be   |
+| OME-XML, gzipped          | Great – 124,763 bytes      | Worst – Entire dataset must be uncompressed, then the plane must be   |
 |                           |                            | decoded from base64.                                                  |
 +---------------------------+----------------------------+-----------------------------------------------------------------------+
 | OME-XML, zipped           | Great – 124,764 bytes      | Worst – Entire dataset must be uncompressed, then the plane must be   |
@@ -178,8 +178,7 @@ Space required on disk
 As shown in the table above, and the chart :ref:`figure-tiff-chart`, our 
 figures indicate that the most efficient format for space is OME-TIFF 
 compressed with the
-`7-zip <http://www.7-zip.org/>`_ utility. Also good are gzipped OME-XML
-(omez) and zipped OME-TIFF.
+`7-zip <http://www.7-zip.org/>`_ utility.
 
 .. _figure-tiff-chart:
 
@@ -201,10 +200,6 @@ is an additional requirement for client software—it may be that some
 software supports uncompressed multi-page TIFF, but not LZW. Even more
 unfortunate, the 7-zip algorithm appears to perform less well on
 LZW-compressed OME-TIFFs than on uncompressed OME-TIFFs.
-
-Lastly, we saw no advantage to zipping or 7-zipping OME-XML. If you want
-to distribute an OME-XML file, we recommend gzipped OME-XML (omez)
-format, as it is the OME standard.
 
 Recommendations
 ---------------
