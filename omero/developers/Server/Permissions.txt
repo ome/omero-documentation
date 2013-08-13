@@ -57,13 +57,13 @@ The second major OMERO permissions system innovations were performed in 4.4.0:
 .. note:: Queries, inserts and updates span ``any`` or ``all`` groups and ``any`` user via options flags.
 
 
-Working with the OMERO 4.4.x permissions system
------------------------------------------------
+Working with the OMERO |release| permissions system
+---------------------------------------------------
 
 Example environment
 ^^^^^^^^^^^^^^^^^^^
 
-* OMERO 4.4.8 server
+* OMERO |release| server
 * IPython shell initiated by running ``omero shell --login``
 
 Group membership
@@ -460,7 +460,7 @@ or Default Group' during these tasks can have drastic effects. Changing the
 'Active Group' is forbidden if there are any stateful services 
 (``omero.api.RenderingPrx`` for example) currently open.
 
-In short, in OMERO 4.4.x you absolutely **should not** be switching the 
+In short, in OMERO |release| you absolutely **should not** be switching the 
 'Primary or Default Group' of the user, or the 'Active Group' of a session, as 
 a means to achieve cross group querying.
 
