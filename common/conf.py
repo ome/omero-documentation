@@ -250,7 +250,7 @@ htmlhelp_basename = 'projstandardsdoc'
 
 latex_elements = {
     'classoptions': ',oneside',
-    'pointsize': '12pt',
+    'pointsize': '10pt',
     'inputenc': '%% Unused',
     'utf8extra': '%% Unused',
     'fontenc' : '%% Unused',
