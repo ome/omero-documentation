@@ -74,9 +74,6 @@ requirements for OMERO will be installed to :file:`/usr/local`.
 If you are having issues with curl, see the :ref:`install_homebrew_curl`
 section under :ref:`install_homebrew_common_issues`.
 
-If you are running OS X 10.8 or later, you will need to install XQuartz::
-
-   $ brew install xquartz
 
 OMERO installation
 ------------------
@@ -109,6 +106,14 @@ install the server dependencies:
 
     $ brew tap ome/alt
     $ brew install `brew deps omero`
+	
+
+If you wish to install ice34 (default is ice33), you will have to run the following:
+   
+::
+   
+	$ brew install zeroc-ice34 --with-python
+
 
 Prepare a place for your OMERO code to live, e.g.
 
@@ -168,6 +173,9 @@ Edit your .profile as appropriate. The following are indicators of required entr
     export PATH=$BREW_DIR/bin:$BREW_DIR/sbin:/usr/local/lib/node_modules:$ICE_HOME/bin:$PATH
     export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$ICE_HOME/python:$DYLD_LIBRARY_PATH
 
+If you have installed ice34, replace ``ICE_HOME``  by ``$(brew --prefix zeroc-ice34)``.
+
+
 .. note::
     On Mac OS X Lion, a version of PostgreSQL is already installed. If you get an error like the following:
 
@@ -180,6 +188,7 @@ Edit your .profile as appropriate. The following are indicators of required entr
     make sure :file:`$BREW_DIR/bin` is at the beginning of your :envvar:`PATH`
     (see also `this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_).
 
+   
 Database creation
 ^^^^^^^^^^^^^^^^^
 
