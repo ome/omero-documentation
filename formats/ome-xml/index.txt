@@ -18,6 +18,9 @@ The term "OME-XML" applies to two interrelated but distinct things:
    storing microscopy information (both pixels and metadata) using the
    OME-XML data model.
 
+.. note:: OME-XML as a file format is somewhat superseded by OME-TIFF, which 
+    is the preferred container format for OME-XML encoded metadata.
+
 The purpose of OME-XML is to provide a rich, extensible way to save
 information concerning microscopy experiments and the images acquired
 therein, including:
