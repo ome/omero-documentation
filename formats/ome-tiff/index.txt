@@ -1,39 +1,10 @@
-OME-TIFF Overview
-=================
+The OME-TIFF Format
+===================
 
-Terminology
------------
-
-- **Image:** a single (2D) image plane
-- **Dataset:** a collection of image planes composing a multidimensional
-  structure (also called a multidimensional image or OME image)
-- **OME dataset:** a collection of related OME images
-- **OME project:** a collection of related OME datasets
-- **Pixels:** image samples acquired from a microscope or other source
-- **Metadata:** auxiliary information associated with the pixels, such as
-  who acquired the data, when it was acquired, conditions of the
-  experiment, etc.
-- **Multi-page TIFF:** a TIFF file containing multiple image planes
-- **OME-XML metadata:** a block of OME-XML representing image metadata
-  (but not pixels)
-
-Rationale
----------
-
-The Open Microscopy Environment Consortium has defined a file format
-called OME-XML for biological image data including a rich set of
-microscopy-specific metadata. OME-XML's major strength lies in its
-extensible, human-readable XML schemas for image metadata.
-Unfortunately, OME-XML has some of drawbacks:
-
-#. Decoding base64-encoded image planes is computationally expensive.
-#. There is no facility to split a dataset among multiple files on disk.
-#. Far fewer applications support OME-XML than TIFF.
-
-To address these concerns, we have created the OME-TIFF Format to
-maximize the respective strengths of OME-XML and TIFF, taking advantage
+The OME-TIFF format was created to
+maximize the respective strengths of OME-XML and TIFF. It takes advantage
 of the rich metadata defined in OME-XML while retaining the pixels in
-multi-page TIFF format for greater compatibility.
+multi-page TIFF format for compatibility with many more applications.
 
 Characteristics
 ---------------
@@ -45,14 +16,43 @@ An OME-TIFF dataset has the following characteristics:
 #. A complete OME-XML metadata block describing the dataset is embedded
    in each TIFF file's header. Thus, even if some of the TIFF files in a
    dataset are misplaced, the metadata remains intact.
-#. The OME-XML metadata block may contain
-   anything a standard OME-XML file can, including multiple OME images
-   with multiple sets of pixels.
+#. The OME-XML metadata block may contain anything allowed in a standard 
+   OME-XML file.
 #. OME-TIFF uses the standard TIFF mechanism for storing one or more image 
    planes in each of the constituent files, instead of encoding pixels as 
    base64 chunks within the XML. Since TIFF is an image
    format, it makes sense to only use OME-TIFF as opposed to OME-XML, when 
    there is at least one image plane.
+
+Support
+-------
+
+OME-TIFF is supported by:
+
+* `Accelrys Inc. <http://accelrys.com/>`_
+* `American Society of Cell Biology <http://www.ascb.org/>`_
+* `Applied Precision, Inc. <http://www.api.com/>`_
+* `Bitplane AG <http://www.bitplane.com/>`_
+* `Carl Zeiss Imaging Solutions GmbH <http://www.zeiss.de/axiovision>`_
+* `Carl Zeiss MicroImaging GmbH <http://www.zeiss.de/micro>`_
+* `Definiens <http://www.definiens.com>`_
+* `DRVision Technologies LLC <http://www.svisionllc.com/>`_
+* `Harvard Medical School <http://hms.harvard.edu/>`_
+* `Imagic <http://www.imagic.ch/index.php?id=15&L=2/>`_  
+* `Intelligent Imaging Innovations, Inc. <http://www.intelligent-imaging.com>`_
+* `Leica Inc. <http://www.leica-microsystems.com/>`_
+* `Mayachitra Inc. <http://www.mayachitra.com/>`_
+* `Micro-Manager <http://valelab.ucsf.edu/~MM/MMwiki/>`_
+* `Molecular Devices Inc. <http://www.moleculardevices.com>`_
+* `PerkinElmer <http://www.perkinelmer.com/>`_
+* `PerkinElmer Life and Analytical Sciences Inc. 
+  <http://las.perkinelmer.com/>`_
+* `Rockefeller University Press - Journal of Cell Biology   
+  <http://jcb.rupress.org/>`_
+* `Scientific Volume Imaging B.V. <http://www.svi.nl/>`_
+* `Stowers Institute <http://www.stowers.org>`_
+* `Strand Life Sciences <http://www.strandls.com>`_
+* `TILL Photonics GmbH <http://www.till-photonics.com/>`_
 
 |
 
@@ -63,8 +63,9 @@ An OME-TIFF dataset has the following characteristics:
 
     There is further information about :doc:`tools` available.
 
-    We also have some :doc:`code` in Java for
-    reading and writing OME-TIFF.
+    We also have some :doc:`example code <code>` in Java for
+    extracting and modifying TIFF comments and converting other file formats 
+    to OME-TIFF.
 
     Lastly, some :doc:`data` is available for
     download, along with statistics comparing OME-TIFF and OME-XML with

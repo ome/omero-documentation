@@ -135,7 +135,7 @@ extlinks = {
     'omero_plone' : (oo_site_root + '/products/ome5/%s', ''),
     'omero_doc' : (oo_site_root + '/support/omero5/%s', ''),
     'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),   
-    'bf_plone' : (oo_site_root + 'site/products/ome5/bio-formats/%s', ''),
+    'bf_plone' : (oo_site_root + '/products/ome5/bio-formats/%s', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats5/%s', ''),
     # Downloads
     'downloads' : (downloads_root + '/omero/%s', ''),
