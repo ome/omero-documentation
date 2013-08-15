@@ -18,6 +18,9 @@ The term "OME-XML" applies to two interrelated but distinct things:
    storing microscopy information (both pixels and metadata) using the
    OME-XML data model.
 
+.. note:: OME-XML as a file format is somewhat superseded by OME-TIFF, which 
+    is the preferred container format for OME-XML encoded metadata.
+
 The purpose of OME-XML is to provide a rich, extensible way to save
 information concerning microscopy experiments and the images acquired
 therein, including:
@@ -111,30 +114,4 @@ http://trac.openmicroscopy.org.uk/ome.
 
 Users can also add work tickets to the system detailing any changes they
 feel should be made.
-
-Commercial support for OME-XML
-------------------------------
-
-Bitplane AG and EAMNET have proposed the use of the OME-XML File as an
-image data migration standard. A C++ class that reads OME-XML has been
-posted by Peter Majer and Marius Messerli of Bitplane AG on the EAMNET
-site 
-(`more information here <http://www.embl.de/eamnet/html/downloads.html>`_). 
-Thanks to Peter and Marius for this.
-
-Applied Precision, LLC has released an image visualisation tool that
-reads and writes OME-XML
-(`details here <http://www.api.com/softworx-explorer.asp>`_).
-
-Scientific Volume Imaging has included support for the OME-XML file
-format in there Huygens Software, a collection of Fluorescence
-Microscope image processing packages. The packages are available for
-many software platforms (more information on the 
-`Huygens website <http://www.svi.nl/HuygensSoftware>`_).
-
-Improvision joins the ever-increasing list of commercial solution
-providers that supports OME-TIFF. Support is available from the release
-of Version 4.2.
-
-For company details see our full list of :about_plone:`Partners <partners>`.
 
