@@ -1,12 +1,15 @@
-Permissions
-===========
+Permissions overview
+====================
 
 In the 4.4 release of OMERO, the groups and permissions system has been
 revamped to allow users to share data with more control. **Users can now
 copy data between groups that they are a member of**.
 
-Overview
---------
+.. seealso:: :doc:`/developers/Server/Permissions`
+
+
+Summary
+-------
 
 A user may belong to one or more groups, and the data in a group may
 now **at most** be shared with users in the same group on the same
@@ -173,7 +176,7 @@ of the user performing the action.
 |
 
 :term:`Administrator`
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 |
 
@@ -194,7 +197,7 @@ of the user performing the action.
 |
 
 :term:`Group owner`
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 |
 
@@ -215,7 +218,7 @@ of the user performing the action.
 |
 
 :term:`Group member`
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
 |
 
@@ -234,7 +237,7 @@ of the user performing the action.
 =============================== ======================= ===================== ======================
 
 Key
-~~~
+^^^
 
 
 .. glossary:: :sorted:
@@ -294,14 +297,14 @@ Issues to be aware of
 ---------------------
 
 ROIs
-~~~~
+^^^^
 
 -  You can never edit (change text or move) other users' ROI.
 -  Any ROIs added to other users' data will not affect ROIs added by
    the owner.
 
 Tags and attachments
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
 -  A tag or attachment is 'owned' by the person who creates it or
    uploads it to the server.
@@ -312,7 +315,7 @@ Tags and attachments
    but does not remove/delete the tag or attachment from the system.
 
 Scripts
-~~~~~~~
+^^^^^^^
 
 -  Although all users can run scripts on other users' data, the actions
    within those scripts will be subject to the restrictions of the
