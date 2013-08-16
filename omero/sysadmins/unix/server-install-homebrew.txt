@@ -160,8 +160,8 @@ Python dependencies
 
 The Python dependencies can be installed using either the system-wide Python,
 the Homebrew Python or within a virtual environment. If you are using the
-system-wide Python, you may need to use `sudo` to install the dependencies. If
-you are using a virtual environment, activate it before calling the Python
+system-wide Python, you may need to use ``sudo`` to install the dependencies.
+If you are using a virtual environment, activate it before calling the Python
 dependencies installation script.
 
 If you installed OMERO using Homebrew, execute the ``omero_python_deps``
@@ -185,17 +185,17 @@ Configuration
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
-Edit your .profile as appropriate. The following are indicators of required entries and correspond to a  Homebrew installation of  OMERO |version|:
+Edit your .profile as appropriate. The following are indicators of required
+entries and correspond to a  Homebrew installation of  OMERO |version|:
 
 ::
 
-    export BREW_DIR=$(brew --prefix)
     export ICE_CONFIG=$(brew --prefix omero)/etc/ice.config
     export ICE_HOME=$(brew --prefix zeroc-ice33)
     export PYTHONPATH=$(brew --prefix omero)/lib/python:$ICE_HOME/python
 
-    export PATH=$BREW_DIR/bin:$BREW_DIR/sbin:/usr/local/lib/node_modules:$ICE_HOME/bin:$PATH
-    export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$ICE_HOME/python:$DYLD_LIBRARY_PATH
+    export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/lib/node_modules:$ICE_HOME/bin:$PATH
+    export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$DYLD_LIBRARY_PATH
 
 If you have installed ice34, replace ``ICE_HOME``  by ``$(brew --prefix zeroc-ice34)``.
 
