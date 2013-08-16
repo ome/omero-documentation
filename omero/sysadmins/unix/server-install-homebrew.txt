@@ -56,7 +56,9 @@ You need Java which comes as standard on OS X.
 Homebrew
 ^^^^^^^^
 
-Follow the installation instructions on the `Homebrew wiki <https://github.com/mxcl/homebrew/wiki/installation>`_. All
+.. _`Homebrew wiki`: https://github.com/mxcl/homebrew/wiki/installation
+
+Follow the installation instructions on the `Homebrew wiki`_. All
 requirements for OMERO will be installed to :file:`/usr/local`.
 
 ::
@@ -70,9 +72,12 @@ section under :ref:`install_homebrew_common_issues`.
 Python (>=2.4)
 ^^^^^^^^^^^^^^
 
+.. _`Homebrew and Python`: https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python
+
 You can either using the system-wide Python or the Python provided by
-Homebrew. Note the automated script linked above tests the OMERO installation
-using the Homebrew Python.
+Homebrew. For a more thorough description of the latter solution, look at the
+`Homebrew and Python`_ page. Note the automated script linked above tests the
+OMERO installation using the Homebrew Python.
 
 If using system-wide Python, check it is installed and its version.
 
@@ -87,6 +92,11 @@ To install the Python provided by Homebrew::
 
 OMERO installation
 ------------------
+
+.. warning::
+	The Homebrew formulas used below provide Python bindings. As described in
+	`Homebrew and Python`_, you should NOT be in an active virtual environment
+	when you ``brew install`` them.
 
 OMERO |release|
 ^^^^^^^^^^^^^^^
