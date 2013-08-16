@@ -40,20 +40,11 @@ the following configuration:
     For Xcode 4.x, make sure that the Command line tools are installed
     (:menuselection:`Preferences --> Downloads --> Components`)
 
-Python (>=2.4)
-^^^^^^^^^^^^^^
-
-Check you have Python installed (and its version):
-
-::
-
-    $ python --version
-    Python 2.7.3
 
 Java (>=1.5)
 ^^^^^^^^^^^^
 
-You also need Java which comes as standard on OS X.
+You need Java which comes as standard on OS X.
 
 ::
 
@@ -76,6 +67,23 @@ requirements for OMERO will be installed to :file:`/usr/local`.
 If you are having issues with curl, see the :ref:`install_homebrew_curl`
 section under :ref:`install_homebrew_common_issues`.
 
+Python (>=2.4)
+^^^^^^^^^^^^^^
+
+You can either using the system-wide Python or the Python provided by
+Homebrew. Note the automated script linked above tests the OMERO installation
+using the Homebrew Python.
+
+If using system-wide Python, check it is installed and its version.
+
+::
+
+    $ python --version
+    Python 2.7.3
+
+To install the Python provided by Homebrew::
+
+	$ brew install python
 
 OMERO installation
 ------------------
@@ -141,6 +149,12 @@ can use.
 
 Python dependencies
 ^^^^^^^^^^^^^^^^^^^
+
+The Python dependencies can be installed using either the system-wide Python,
+the Homebrew Python or within a virtual environment. If you are using the
+system-wide Python, you may need to use `sudo` to install the dependencies. If
+you are using a virtual environment, activate it before calling the Python
+dependencies installation script.
 
 If you installed OMERO using Homebrew, execute the ``omero_python_deps``
 script::
