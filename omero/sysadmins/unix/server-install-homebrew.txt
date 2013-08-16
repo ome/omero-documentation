@@ -74,10 +74,10 @@ Python (>=2.4)
 
 .. _`Homebrew and Python`: https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python
 
-You can either using the system-wide Python or the Python provided by
-Homebrew. For a more thorough description of the latter solution, look at the
-`Homebrew and Python`_ page. Note the automated script linked above tests the
-OMERO installation using the Homebrew Python.
+You can install OMERO using either the system-wide Python or the Python
+provided by Homebrew. For a more thorough description of the latter solution,
+look at the `Homebrew and Python`_ page. Note the automated script linked
+above tests the OMERO installation using the Homebrew Python.
 
 If using system-wide Python, check it is installed and its version.
 
@@ -196,7 +196,7 @@ Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
 Edit your .profile as appropriate. The following are indicators of required
-entries and correspond to a  Homebrew installation of  OMERO |version|:
+entries and correspond to a Homebrew installation of OMERO |version|:
 
 ::
 
