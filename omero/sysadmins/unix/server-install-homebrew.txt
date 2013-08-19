@@ -170,14 +170,18 @@ can use.
 
     $ brew install postgresql
 
+
+.. _python_dependencies:
+
 Python dependencies
 ^^^^^^^^^^^^^^^^^^^
 
-The Python dependencies can be installed using either the system-wide Python,
-the Homebrew Python or within a virtual environment. If you are using the
-system-wide Python, you may need to use ``sudo`` to install the dependencies.
-If you are using a virtual environment, activate it before calling the Python
-dependencies installation script.
+The Python dependencies can be installed in the system-wide Python
+site-packages, in the Homebrew Python site-packages or within a virtual
+environment. If you are using the system-wide Python site-packages, you may
+need to use ``sudo`` to install the dependencies. If you are using a virtual
+environment, activate it before calling the Python dependencies installation
+script.
 
 If you installed OMERO using Homebrew, execute the ``omero_python_deps``
 script::
