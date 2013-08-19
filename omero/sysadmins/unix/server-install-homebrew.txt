@@ -219,8 +219,8 @@ If you have installed ice34, replace ``ICE_HOME``  by ``$(brew --prefix zeroc-ic
         Is the server running locally and accepting
         connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
 
-    make sure :file:`$BREW_DIR/bin` is at the beginning of your :envvar:`PATH`
-    (see also `this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_).
+    make sure :file:`/usr/local/bin` is at the beginning of your
+    :envvar:`PATH` (see also `this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_).
 
    
 Database creation
