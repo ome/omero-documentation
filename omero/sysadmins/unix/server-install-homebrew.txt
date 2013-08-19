@@ -90,13 +90,18 @@ To install the Python provided by Homebrew::
 
 	$ brew install python
 
-OMERO installation
-------------------
+Independently of the chosen Python, you can setup and use `virtual
+environments <http://www.virtualenv.org/en/latest/>`_ to install the OMERO
+Python dependencies (see :ref:`python_dependencies`).
 
-.. warning::
+.. note::
 	The Homebrew formulas used below provide Python bindings. As described in
 	`Homebrew and Python`_, you should NOT be in an active virtual environment
 	when you ``brew install`` them.
+
+
+OMERO installation
+------------------
 
 OMERO |release|
 ^^^^^^^^^^^^^^^
