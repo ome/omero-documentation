@@ -76,7 +76,7 @@ Python (>=2.4)
 
 You can install OMERO using either the system-wide Python or the Python
 provided by Homebrew. For a more thorough description of the latter solution,
-look at the `Homebrew and Python`_ page. Note the automated script linked
+look at the `Homebrew and Python`_ page. Note that the automated script linked
 above tests the OMERO installation using the Homebrew Python.
 
 If using system-wide Python, check it is installed and its version.
