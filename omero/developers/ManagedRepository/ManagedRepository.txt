@@ -33,22 +33,42 @@ Configuration properties
 Import workflow
 ---------------
 
-Still be added
+- User selects a file
+
+  - Checksum before upload (offer multiple levels high/medium/low)
+  - File is uploaded. Checksum returned
+  - if not matching: option to stop the import process
+  - If error is returned:
+
+    - stop import. Question: What to do with the file. Delete? Let that to the user.
+    - do not import (b-f sense) but create the Image object depending on the error
+      e.g. format not yet supported (crystallograph)
+
+- Select a folder
+
+  - Checksum steps same as before.
+  - Return list of candidates, some files might not be part of import (b-f sense).
+    Do we delete them?
+  - List of candidates can be displayed so we can notify the user of the progress.
+  - If error, same as before
+
 
 API sequence
 ------------
 
 - Choose which files to import by either:
-   - ``ImportLibrary`` and friends (Java only)
-   - listing all files (not directories) manually.
 
-- Choose a ``ManagedRepositoryPrx`` from 
+  - ``ImportLibrary`` and friends (Java only)
+  - listing all files (not directories) manually.
+
+- Choose a ``ManagedRepositoryPrx`` from
   ``SharedResourcesPrx().repositories()``.
 
 - Call either:
-   - ``ImportLibrary.importImage()`` which calls 
-     ``ManagedRepositoryPrx.importFilesets(Fileset, ImportSettings)``, or
-   - directly use ``ManagedRepositoryPrx.importPaths(StringSet)``.
+
+  - ``ImportLibrary.importImage()`` which calls
+    ``ManagedRepositoryPrx.importFilesets(Fileset, ImportSettings)``, or
+  - directly use ``ManagedRepositoryPrx.importPaths(StringSet)``.
 
 - Receive an ``ImportProcessPrx``.
 
@@ -81,37 +101,41 @@ Model description
 See :file:`acquisition.ome.xml`
 
 - ``ome.model.fs.Fileset``
-   - Represents a group of files which are considered to belong together.
-   - There is the possibility that a single client fileset will be one or more 
-     datasets in Bio-Formats. We need to decide to either model this or to use 
-     a special reader (DirectoryReader ?) on the server.
-   - Also links to multiple ome.model.jobs.Job instances.
-   - *In development*: links to the plate and image objects which are created 
-     during import.
+
+  - Represents a group of files which are considered to belong together.
+  - There is the possibility that a single client fileset will be one or more
+    datasets in Bio-Formats. We need to decide to either model this or to use
+    a special reader (DirectoryReader ?) on the server.
+  - Also links to multiple ome.model.jobs.Job instances.
+  - *In development*: links to the plate and image objects which are created
+    during import.
 
 - ``ome.model.jobs.Job`` subclasses
-   - Each one represents some action which takes place server-side on the 
-     Fileset.
-   - For the standard sequence described above, the first will always be an 
-     ``UploadJob`` which contains version info from the client. If the 
-     files were not uploaded however, this may not be the case. Then a 
-     ``MetadataImportJob`` follows, which is the basic import.
-   - Other jobs may be necessary for regular usage (``PixelDataJob``, 
-     ``IndexingJob``, etc.). *Later jobs may also be added like a re-parse job 
-     with another FilesetVersionInfo instance, a re-check of the sha1s to look 
-     for corruption, or an archive job*.
-   - For job definitions, see :file:`jobs.ome.xml`
+
+  - Each one represents some action which takes place server-side on the
+    Fileset.
+  - For the standard sequence described above, the first will always be an
+    ``UploadJob`` which contains version info from the client. If the
+    files were not uploaded however, this may not be the case. Then a
+    ``MetadataImportJob`` follows, which is the basic import.
+  - Other jobs may be necessary for regular usage (``PixelDataJob``,
+    ``IndexingJob``, etc.). *Later jobs may also be added like a re-parse job
+    with another FilesetVersionInfo instance, a re-check of the sha1s to look
+    for corruption, or an archive job*.
+  - For job definitions, see :file:`jobs.ome.xml`
 
 - ``ome.model.fs.FilesetEntry``
-   - Link from a ``Fileset`` to exactly one ``ome.model.core.OriginalFile``
-   - Critically, it also contains the original absolute client path of that 
-     file.
+
+  - Link from a ``Fileset`` to exactly one ``ome.model.core.OriginalFile``
+  - Critically, it also contains the original absolute client path of that
+    file.
 
 - ``ome.model.fs.FilesetVersionInfo``
-   - *In development*: A snapshot of process information along with software 
-     versions. Most important for knowing how files were parsed, therefore 
-     when using ``importPaths``, a “synthetic” version info might be created 
-     to say that these were just uploaded blindly.
+
+  - *In development*: A snapshot of process information along with software
+    versions. Most important for knowing how files were parsed, therefore
+    when using ``importPaths``, a “synthetic” version info might be created
+    to say that these were just uploaded blindly.
 
 Server-side classes/concepts
 ----------------------------
@@ -143,7 +167,77 @@ instances with a subclass, ``ManagedRawFileStoreI``.
 Server-side sequence
 --------------------
 
-Still be added
+NB: Server-side ``ImportLibrary`` is no longer being used. That logic is currently
+moved to ``ManagedImportRequestI``. This may not be the best location. Further, several
+other layers might also be collapsible, like ``OMEROMetadataStore`` which is currently
+accessible as a “hidden” service ``MetadataStorePrx``. Here, “hidden” means that it’s
+not directly retrievable from ServiceFactoryPrx``.
+
+- ``ManagedRepositoryI.importPaths``
+
+  - re-uses ``ImportContainer.fillData`` to create an ``ImportSettings`` and a ``Fileset``
+    and then calls ``importFileseFileset, ImportSettings)``
+
+- ``ManagedRepositoryI.importFileset``
+
+  - determines an ``ImportLocation`` calling ``PublicRepositoryI.makeDir`` where necessary.
+  - ``createImportProcess`` creates a ``ManagedImportProcessI``, registers it, and returns it.
+  - After this, the repository is only responsible for periodically having the ping and
+    eventually the shutdown method called, via ``ProcessContainer``.
+
+- ``ManagedImportProcessI.getUploader``
+
+  - creates a new ``RepositoryRawFileStoreI`` for each file in the paths/fileset.
+  - Once ``close()`` is called on this instance, ``closeCalled(int i)`` will be called
+    on the import process and the instance will be removed.
+  - If ``getUploader()`` is called again, then a new file store will be created.
+
+- ``ManagedImportProcessI.verifyUpload``
+
+  - If all hashes match, then a ``ManagedImportRequestI`` instance is created and submitted
+    to ``omero.cmd.SessionI.submit_async()`` for background processing. The client can wait
+    for the returned ``omero.cmd.HandlePrx`` to finish by using a ``CmdCallbackI``.
+  - At this point, the ``ImportProcessPrx`` can be closed as well as the entire client
+    and the import would still continue. Only if ``HandlePrx.cancel()`` is called, will the
+    import be aborted.
+  - QUESTION: How to handle rollback at this point?
+
+- ``ManagedImportRequestI.init`` (within transaction)
+
+  - ``Registry.getInternalServiceFactory grabs a ``ServiceFactoryPrx`` without the need for
+    an ``omero.client`` instance.
+  - ``OMEROWrapper`` and a ``OMEROMetadataStoreClient`` are created with this connection.
+  - Some other basic configuration takes place.
+
+- ``ManagedImportRequest.step`` (N times, each within same transaction as init)
+
+  - NB: it may later make more sense for this bit to happen in a separate process.
+  - At the moment, 5 steps are hard-coded. Each performing roughly the same amount of work.
+    Some of these may later be done in the background.
+
+    - ``importMetadata()`` calls ``store.saveToDB()``, which calls ``MetadataStorePrx.saveToDb()``,
+      a remote call. This could possibly be inlined.
+    - ``generateThumbnails()`` calls ``store.resetDefaultsAndGenerateThumbnails()``, another remote
+      call, which could also be inlined.
+    - ``pixelData()`` calls ``store.setPixelsParams()``, ``updatePixels()``, and ``populateMinMax()``.
+      Min/Max especially should be backgrounded.
+    - Finally, ``store.launchProcessing()`` is called, which should remain, but could also be inlined.
+      The returned script processes could be returned in the ``ImportResponse``.
+    - Return appropriate values.
+
+  - ``notifyObservers()`` currently does nothing, since this was client-side functionality in
+    ``ImportLibrary``. This needs to be replaced!
+
+- ``ManagedImportRequest.buildResponse()`` (N times, outside the transaction)
+
+  - Only step 4 does anything, storing the pixels in a ``ImportResponse``
+
+- ``ManagedImportRequest.getResponse()`` (1 time, regardless of exception or not)
+
+  - Performs cleanup, then returns the ``ImportResponse`` assuming that no call to
+    ``helper.cancel()`` has been made. At this point, ``ImportLibrary.importImage()``
+    returns successfully.
+
 
 
 .. seealso:: :doc:`/sysadmins/fs-upload-configuration`
