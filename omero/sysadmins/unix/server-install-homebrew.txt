@@ -7,8 +7,10 @@ OMERO.server Mac OS X installation walk-through with Homebrew
     This walk-through is a list of the commands used to install OMERO on a  
     clean Mac OS X 10.7 Lion using Homebrew.
 
-The instructions and scripts provided here depend on Homebrew 0.9 or later, 
-including support for the ``brew tap`` command.
+The instructions provided here depend on Homebrew 0.9 or later, including
+support for the ``brew tap`` command. These instructions are implemented in an
+:source:`automated script <docs/hudson/OMERO-homebrew-install.sh>` which
+installs OMERO via Homebrew from a fresh configuration.
 
 Prerequisites
 -------------
@@ -38,20 +40,11 @@ the following configuration:
     For Xcode 4.x, make sure that the Command line tools are installed
     (:menuselection:`Preferences --> Downloads --> Components`)
 
-Python (>=2.4)
-^^^^^^^^^^^^^^
-
-Check you have Python installed (and its version):
-
-::
-
-    $ python --version
-    Python 2.7.3
 
 Java (>=1.5)
 ^^^^^^^^^^^^
 
-You also need Java which comes as standard on OS X.
+You need Java which comes as standard on OS X.
 
 ::
 
@@ -63,7 +56,9 @@ You also need Java which comes as standard on OS X.
 Homebrew
 ^^^^^^^^
 
-Follow the installation instructions on the `Homebrew wiki <https://github.com/mxcl/homebrew/wiki/installation>`_. All
+.. _`Homebrew wiki`: https://github.com/mxcl/homebrew/wiki/installation
+
+Follow the installation instructions on the `Homebrew wiki`_. All
 requirements for OMERO will be installed to :file:`/usr/local`.
 
 ::
@@ -74,6 +69,36 @@ requirements for OMERO will be installed to :file:`/usr/local`.
 If you are having issues with curl, see the :ref:`install_homebrew_curl`
 section under :ref:`install_homebrew_common_issues`.
 
+Python (>=2.4)
+^^^^^^^^^^^^^^
+
+.. _`Homebrew and Python`: https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python
+
+You can install OMERO using either the system-wide Python or the Python
+provided by Homebrew. For a more thorough description of the latter solution,
+look at the `Homebrew and Python`_ page. Note that the automated script linked
+above tests the OMERO installation using the Homebrew Python.
+
+If using system-wide Python, check it is installed and its version.
+
+::
+
+    $ python --version
+    Python 2.7.3
+
+To install the Python provided by Homebrew::
+
+	$ brew install python
+
+Independently of the chosen Python, you can setup and use `virtual
+environments <http://www.virtualenv.org/en/latest/>`_ to install the OMERO
+Python dependencies (see :ref:`python_dependencies`).
+
+.. note::
+	The Homebrew formulas used below provide Python bindings. As described in
+	`Homebrew and Python`_, you should NOT be in an active virtual environment
+	when you ``brew install`` them.
+
 
 OMERO installation
 ------------------
@@ -81,7 +106,8 @@ OMERO installation
 OMERO |release|
 ^^^^^^^^^^^^^^^
 
-If you just want a deployment of the |release| release of OMERO.server then a simple Homebrew install is sufficient, e.g.
+If you just want a deployment of the |release| release of OMERO.server then a
+simple Homebrew install is sufficient, e.g.
 
 ::
 
@@ -89,6 +115,12 @@ If you just want a deployment of the |release| release of OMERO.server then a si
     $ brew install omero
 
 This should install OMERO along with most of the non-Python requirements.
+
+The default version of Ice installed by the OMERO formula is Ice 3.3. To
+install OMERO with Ice 3.4, use::
+
+	$ brew install omero --with-ice34
+
 Additional installation options can be listed using the ``info`` command:
 
 ::
@@ -108,7 +140,8 @@ install the server dependencies:
     $ brew install `brew deps omero`
 	
 
-If you wish to install ice34 (default is ice33), you will have to run the following:
+If you wish to install Ice 3.4 (default is Ice 3.3), you will have to run the
+following:
    
 ::
    
@@ -137,8 +170,18 @@ can use.
 
     $ brew install postgresql
 
+
+.. _python_dependencies:
+
 Python dependencies
 ^^^^^^^^^^^^^^^^^^^
+
+The Python dependencies can be installed in the system-wide Python
+site-packages, in the Homebrew Python site-packages or within a virtual
+environment. If you are using the system-wide Python site-packages, you may
+need to use ``sudo`` to install the dependencies. If you are using a virtual
+environment, activate it before calling the Python dependencies installation
+script.
 
 If you installed OMERO using Homebrew, execute the ``omero_python_deps``
 script::
@@ -161,17 +204,17 @@ Configuration
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
-Edit your .profile as appropriate. The following are indicators of required entries and correspond to a  Homebrew installation of  OMERO |version|:
+Edit your .profile as appropriate. The following are indicators of required
+entries and correspond to a Homebrew installation of OMERO |version|:
 
 ::
 
-    export BREW_DIR=$(brew --prefix)
     export ICE_CONFIG=$(brew --prefix omero)/etc/ice.config
     export ICE_HOME=$(brew --prefix zeroc-ice33)
     export PYTHONPATH=$(brew --prefix omero)/lib/python:$ICE_HOME/python
 
-    export PATH=$BREW_DIR/bin:$BREW_DIR/sbin:/usr/local/lib/node_modules:$ICE_HOME/bin:$PATH
-    export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$ICE_HOME/python:$DYLD_LIBRARY_PATH
+    export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/lib/node_modules:$ICE_HOME/bin:$PATH
+    export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$DYLD_LIBRARY_PATH
 
 If you have installed ice34, replace ``ICE_HOME``  by ``$(brew --prefix zeroc-ice34)``.
 
@@ -185,8 +228,8 @@ If you have installed ice34, replace ``ICE_HOME``  by ``$(brew --prefix zeroc-ic
         Is the server running locally and accepting
         connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
 
-    make sure :file:`$BREW_DIR/bin` is at the beginning of your :envvar:`PATH`
-    (see also `this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_).
+    make sure :file:`/usr/local/bin` is at the beginning of your
+    :envvar:`PATH` (see also `this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_).
 
    
 Database creation
