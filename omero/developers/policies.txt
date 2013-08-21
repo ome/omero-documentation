@@ -31,7 +31,7 @@ get started using Adium:
 
 
 .. _jabber_screenshot:
-.. figure:: images/10000000000001C1000001A8FE75422F.png
+.. figure:: /images/jabber_screenshot.png
    :align:  center
 
 
@@ -44,7 +44,7 @@ teamspeak.openmicroscopy.org.uk.
 
 
 .. _teamspeak_screenshot:
-.. figure:: images/10000000000001C0000000DAD819C01E.png
+.. figure:: /images/teamspeak_screenshot.png
    :align:  center
 
 
@@ -55,7 +55,8 @@ As for Skype, being online is not required but it is often beneficial
 to have it on during the day. Regardless, everyone should have a skype
 account. Register and download software from http://www.skype.com.
 
-.. note:: your Skype account name along with all of your contact details should be added to DevContactList on Google Docs. See below.
+.. note:: your Skype account name along with all of your contact details 
+    should be added to DevContactList on Google Docs. See below.
 
 The three major development tools that the OME project runs are Trac, the 
 developer documentation and Jenkins.
@@ -72,7 +73,7 @@ about. Most importantly it provides a whiteboard where tickets are arranged
 per story into 3 columns: new, accepted, and closed.
 
 .. _trac_screenshot:
-.. figure:: images/10000000000005000000032056C4DB6C.png
+.. figure:: /images/trac_screenshot.png
    :align:  center 
 
 
@@ -97,7 +98,7 @@ after particular events (time of day, git push, etc.) These jobs build all of
 the binaries released by the team, and also run automated testing.
 
 .. _jenkins_screenshot:
-.. figure:: images/10000000000003EF000002093F36F067.png
+.. figure:: /images/jenkins_screenshot.png
    :align:  center
 
 Git and Github: Source code
@@ -110,7 +111,7 @@ on doing that is available under :doc:`/developers/source_code` and
 :doc:`/developers/using-git`.
 
 .. _github_screenshot:
-.. figure:: images/10000000000003EF000002096AD7CA41.png
+.. figure:: /images/github_screenshot.png
    :align:  center
 
 Forums and mailing list
@@ -131,7 +132,7 @@ previous discussions see the archive lists available on the
 “mailing-lists” page:
 
 .. _lists_screenshot:
-.. figure:: images/10000000000003EF00000209C6C077E0.png
+.. figure:: /images/lists_screenshot.png
    :align:  center
 
 Where possible the task of monitoring feedback is spread across the
@@ -238,13 +239,8 @@ See :team_plone:`meetings <meetings>` for more information.
 
 Minigroup meetings can either be regularly scheduled (e.g. weekly) or
 on an as-needed basis. Notes from such meetings, however, should be
-posted centrally to :community_plone:`minigroup <minutes/minigroup>`.
-
-.. _minigroups_screenshot:
-.. figure:: images/10000000000004490000024DA6F6B2C8.png
-   :align:  center
-
-for review by the team. Either an email should be sent to ome-nitpick
+posted centrally to :community_plone:`minigroup <minutes/minigroup>` for 
+review by the team. Either an email should be sent to ome-nitpick
 with a link to the minigroup notes, or it should be brought up during
 the weekly meeting.
 
@@ -284,11 +280,7 @@ to complete. A large number of stories will be put into any one sprint
 given time. This is the standard unit of work for the team. After a
 sprint, the stories that were chosen for the sprint, should be closed
 if possible, and there should be some evidence of the work 
-(screenshots, screencasts, etc) available from the roadmap_ page:
-
-.. _storyexample_screenshot:
-.. figure:: images/10000000000003EF00000209C184C65E.png
-   :align:  center
+(screenshots, screencasts, etc) available from the roadmap_ page.
 
 Tasks
 ^^^^^
@@ -321,11 +313,11 @@ workflow (e.g. they are treated as container and one must create a bug
 inside the bug to do anything with it).
 
 Instead, “Bug:” is pre-pended to the ticket summary to indicate a bug. A list 
-of all current such bugs can be viewed via the :report`BUGS! EEK!! <8>` report 
+of all current such bugs can be viewed via the :report:`BUGS! EEK!! <8>` report 
 in the left hand panel:
 
 .. _bugs_screenshot:
-.. figure:: images/10000000000003EF0000020903157559.png
+.. figure:: /images/bugs.png
    :align:  center
 
 Where possible, we try not to push bugs out of the current milestone,
@@ -349,13 +341,7 @@ Sprint process (week-to-week)
 
 Sprints begin at one weekly meeting and terminate two weeks
 later. They consist of tasks that have been marked for the current
-sprint,
-
-.. _newticket_screenshot:
-.. figure:: images/10000000000004490000024D9EE25EC9.png
-   :align:  center
-
-all of which then show up on the whiteboard, most of which are grouped
+sprint, all of which then show up on the whiteboard, most of which are grouped
 together into stories. A story can have some tickets in the current
 sprint, while others – though in the same milestone – will be handled
 in a later sprint. For this reason, a sprint should never be set for a
@@ -370,7 +356,7 @@ certain times, we may have multiple sprints active in which case it’s
 necessary to be aware of which sprint you are looking at:
 
 .. _whiteboard_screenshot:
-.. figure:: images/10000000000004490000024D8FA15AF3.png
+.. figure:: /images/sprint_screenshot.png
    :align:  center
 
 
@@ -427,11 +413,7 @@ involved in.
 Release process
 ---------------
 
-A release is primarily defined on the Trac roadmap_ page
-
-.. _milestone_screenshot:
-.. figure:: images/10000000000004490000024DBC85F470.png
-   :align:  center
+A release is primarily defined on the Trac roadmap_ page.
 
 All tickets (requirements, stories, and tasks) are reachable via the
 various green reporting bars. The description highlights what the OME
@@ -450,14 +432,9 @@ Scenarios
 Testing is largely performed through a number of “scenarios”. Such
 scenarios should be defined as you develop new features, and the team
 will periodically review and test the scenarios even before
-release. So-called “Scenario days” are listed on the front page of the
-wiki and are typically an all-hands-on deck affair. Numbered scenarios
-are assigned to individuals and it is best to complete them as quickly
-as possible.
+release.
 
-.. _scenarios_screenshot:
-.. figure:: images/10000000000004490000024D99235BBD.png
-   :align:  center
+.. needs an update about current testing procedures/link to internal docs?
 
 Checklist
 ^^^^^^^^^
