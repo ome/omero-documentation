@@ -95,12 +95,11 @@ Top-level and build
 Client and common
 ~~~~~~~~~~~~~~~~~
 
-:source:`ome/client/spring.xml <components/client/resources/ome/client/spring.xml>`
-    uses the information in /etc/local.properties to create a Login
+the server uses the information in /etc/local.properties to create a Login
     object. If no Login, Server, or Properties is provided to the
     ServiceFactory constructor, the empty
     properties defined in
-    :source:`ome/client/internal.xml <components/client/resources/ome/client/internal.xml>`
+    :source:`ome/config.xml <components/common/resources/ome/config.xml>`
     is used.
 
 :source:`IAdmin.java <components/common/src/ome/api/IAdmin.java>`
@@ -389,9 +388,3 @@ will throw a security exception.
 
     The code above is being run in a secure context (i.e. you are root).   
     Please be careful.
-
-For examples see:
-
--  :source:`components/client/resources/ome/client/spring.xml`
-   for how a Principal instance is created.
-
