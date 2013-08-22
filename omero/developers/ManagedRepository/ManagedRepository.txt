@@ -4,7 +4,24 @@ FS Managed Repository
 Import overview
 ---------------
 
-Insert diagram
+The broad import workflow comprises selecting a file or set of files to be
+imported client-side. Using Bio-Formats on the client this selection is resolved
+into a number of import candidates. Each import candidate, which may be one file
+or several files, is then treated as Fileset for import. The imports of these
+Filesets are then undertaken by the client in two stages: upload and server-side
+import.
+
+A Fileset is uploaded to the server into a location determined by the server. A
+checksum is calculated before upload by the client and after upload by the server.
+If these checksums match then the client triggers a server-side import. The client
+can then move on to uploading the next Fileset.
+
+Once the Fileset is on the server and an import has been initiated by the client all
+processing then takes place on the server. The server then uses Bio-Formats to extract
+and store the metadata, calculate the minimum and maximum pixel values and do other
+import processing.
+
+*Insert diagram?*
 
 Configuration properties
 ------------------------
@@ -29,29 +46,6 @@ Configuration properties
   machine, it would be possible to launch nodes on various machines via 
   ``bin/omero node start fs-B``, ``bin/omero node start fs-C``, etc. Each of 
   these would pass a different ``omero.repo.dir`` value to its process.
-
-Import workflow
----------------
-
-- User selects a file
-
-  - Checksum before upload (offer multiple levels high/medium/low)
-  - File is uploaded. Checksum returned
-  - if not matching: option to stop the import process
-  - If error is returned:
-
-    - stop import. Question: What to do with the file. Delete? Let that to the user.
-    - do not import (b-f sense) but create the Image object depending on the error
-      e.g. format not yet supported (crystallograph)
-
-- Select a folder
-
-  - Checksum steps same as before.
-  - Return list of candidates, some files might not be part of import (b-f sense).
-    Do we delete them?
-  - List of candidates can be displayed so we can notify the user of the progress.
-  - If error, same as before
-
 
 API sequence
 ------------
