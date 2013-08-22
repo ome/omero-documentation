@@ -7,45 +7,19 @@ Import overview
 The broad import workflow comprises selecting a file or set of files to be
 imported client-side. Using Bio-Formats on the client this selection is resolved
 into a number of import candidates. Each import candidate, which may be one file
-or several files, is then treated as Fileset for import. The imports of these
-Filesets are then undertaken by the client in two stages: upload and server-side
+or several files, is then treated as ``Fileset`` for import. The import of each
+``Fileset`` is then undertaken by the client in two stages: upload and server-side
 import.
 
-A Fileset is uploaded to the server into a location determined by the server. A
+A ``Fileset`` is uploaded to the server into a location determined by the server. A
 checksum is calculated before upload by the client and after upload by the server.
 If these checksums match then the client triggers a server-side import. The client
-can then move on to uploading the next Fileset.
+can then move on to uploading the next ``Fileset``.
 
-Once the Fileset is on the server and an import has been initiated by the client all
+Once the ``Fileset`` is on the server and an import has been initiated by the client all
 processing then takes place on the server. The server then uses Bio-Formats to extract
 and store the metadata, calculate the minimum and maximum pixel values and do other
 import processing.
-
-*Insert diagram?*
-
-Configuration properties
-------------------------
-
-- ``omero.data.dir`` - singleton property (i.e. once globally) which points 
-  to the legacy repository location for OMERO. For OMERO to run on multiple 
-  systems, the contents of this directory must be on a shared volume.
-
-- ``omero.managed.dir`` - singleton property point to the default 
-  ``ManagedRepository``. In an OMERO install in which there is only one Blitz 
-  server, this will be the only repository. Need not be located under 
-  ``omero.data.dir`` but is by default.
-
-- ``omero.fs.repo.path`` - the template which determines the path that will be 
-  created inside of a managed repository. It is this value which makes the 
-  ``ManagedRepository`` “managed”.
-
-- ``omero.repo.dir`` - value passed to all non-legacy, standalone 
-  repositories. This is not actively used, but would allow hosting 
-  repositories on multiple physical systems without the need for a shared 
-  volume. For example, after running ``bin/omero admin start`` on the main 
-  machine, it would be possible to launch nodes on various machines via 
-  ``bin/omero node start fs-B``, ``bin/omero node start fs-C``, etc. Each of 
-  these would pass a different ``omero.repo.dir`` value to its process.
 
 API sequence
 ------------
@@ -56,7 +30,7 @@ API sequence
   - listing all files (not directories) manually.
 
 - Choose a ``ManagedRepositoryPrx`` from
-  ``SharedResourcesPrx().repositories()``.
+  ``SharedResourcesPrx.repositories()``.
 
 - Call either:
 
@@ -87,10 +61,108 @@ At this point, the main metadata import is finished, but background processing
 may still be occurring. Handles for the background processing will 
 also be returned.
 
+Server-side classes/concepts
+----------------------------
+
+``AbstractRepositoryI`` and all of its subclasses are implementations of the 
+InternalRepository API. These objects are for internal use only and should 
+never be accessible by the clients. Each instance is initialized with a 
+directory which the servant attempts to “acquire” (i.e. grab a lock file). 
+Once it does so, it is the serving repository.
+
+Each internal repository provides a public view which in turn provides the 
+``Repository`` API. All method calls assume Unix-style strings, which are 
+guaranteed by ``CheckedPath``, a loose wrapper around ``java.io.File``. 
+CheckedPath objects along with the active ``Ice.Current`` instance are passed 
+to the ``RepositoryDao`` interface, which provides database access for all 
+repositories. Access to raw IO is provided by the ``RepoRawFileStoreI`` 
+servant, which wraps a ``RawFileBean``. 
+
+The ``ManagedRepository`` implementation is responsible for import and 
+enforces further constraints (beyond those of CheckedPath) on where and what 
+files are created. Most importantly, the ``omero.fs.repo.path`` template value 
+is expanded and pre-pended to all uploads. A further responsibility of the 
+``ManagedRepository`` is to maintain a list of all currently running 
+``ManagedImportProcessI``, each of which is held in the ``ProcessContainer``. 
+These ``ManagedImportProcessI`` instances further wrap ``RepoRawFileStoreI`` 
+instances with a subclass, ``ManagedRawFileStoreI``. 
+
+Server-side sequence
+--------------------
+
+NB: Server-side ``ImportLibrary`` is no longer being used. That logic is currently
+moved to ``ManagedImportRequestI``. This may not be the best location. Further, several
+other layers might also be collapsible, like ``OMEROMetadataStore`` which is currently
+accessible as a “hidden” service ``MetadataStorePrx``. Here, “hidden” means that it’s
+not directly retrievable from ``ServiceFactoryPrx``.
+
+- ``ManagedRepositoryI.importPaths()``
+
+  - re-uses ``ImportContainer.fillData()`` to create an ``ImportSettings`` and a ``Fileset``
+    and then calls ``importFileset(Fileset, ImportSettings)``
+
+- ``ManagedRepositoryI.importFileset()``
+
+  - determines an ``ImportLocation`` calling ``PublicRepositoryI.makeDir()`` where necessary.
+  - ``createImportProcess`` creates a ``ManagedImportProcessI``, registers it, and returns it.
+  - After this, the repository is only responsible for periodically having the ping and
+    eventually the shutdown method called, via ``ProcessContainer``.
+
+- ``ManagedImportProcessI.getUploader()``
+
+  - creates a new ``RepositoryRawFileStoreI`` for each file in the paths/fileset.
+  - Once ``close()`` is called on this instance, ``closeCalled(int i)`` will be called
+    on the import process and the instance will be removed.
+  - If ``getUploader()`` is called again, then a new file store will be created.
+
+- ``ManagedImportProcessI.verifyUpload()``
+
+  - If all hashes match, then a ``ManagedImportRequestI`` instance is created and submitted
+    to ``omero.cmd.SessionI.submit_async()`` for background processing. The client can wait
+    for the returned ``omero.cmd.HandlePrx`` to finish by using a ``CmdCallbackI``.
+  - At this point, the ``ImportProcessPrx`` can be closed as well as the entire client
+    and the import would still continue. Only if ``HandlePrx.cancel()`` is called, will the
+    import be aborted.
+  - QUESTION: How to handle rollback at this point?
+
+- ``ManagedImportRequestI.init`` (within transaction)
+
+  - ``Registry.getInternalServiceFactory()`` grabs a ``ServiceFactoryPrx`` without the need for
+    an ``omero.client`` instance.
+  - ``OMEROWrapper`` and a ``OMEROMetadataStoreClient`` are created with this connection.
+  - Some other basic configuration takes place.
+
+- ``ManagedImportRequest.step()`` (N times, each within same transaction as ``init()``)
+
+  - NB: it may later make more sense for this bit to happen in a separate process.
+  - At the moment, 5 steps are hard-coded. Each performing roughly the same amount of work.
+    Some of these may later be done in the background.
+
+    - ``importMetadata()`` calls ``store.saveToDB()``, which calls ``MetadataStorePrx.saveToDb()``,
+      a remote call. This could possibly be inlined.
+    - ``generateThumbnails()`` calls ``store.resetDefaultsAndGenerateThumbnails()``, another remote
+      call, which could also be inlined.
+    - ``pixelData()`` calls ``store.setPixelsParams()``, ``updatePixels()``, and ``populateMinMax()``.
+      Min/Max especially should be backgrounded.
+    - Finally, ``store.launchProcessing()`` is called, which should remain, but could also be inlined.
+      The returned script processes could be returned in the ``ImportResponse``.
+    - Return appropriate values.
+
+  - ``notifyObservers()`` currently does nothing, since this was client-side functionality in
+    ``ImportLibrary``. This needs to be replaced!
+
+- ``ManagedImportRequest.buildResponse()`` (N times, outside the transaction)
+
+  - Only step 4 does anything, storing the pixels in a ``ImportResponse``
+
+- ``ManagedImportRequest.getResponse()`` (1 time, regardless of exception or not)
+
+  - Performs cleanup, then returns the ``ImportResponse`` assuming that no call to
+    ``helper.cancel()`` has been made. At this point, ``ImportLibrary.importImage()``
+    returns successfully.
+
 Model description
 -----------------
-
-.. note:: This section is still under development
 
 See :file:`acquisition.ome.xml`
 
@@ -131,108 +203,29 @@ See :file:`acquisition.ome.xml`
     when using ``importPaths``, a “synthetic” version info might be created
     to say that these were just uploaded blindly.
 
-Server-side classes/concepts
-----------------------------
+Configuration properties
+------------------------
 
-``AbstractRepositoryI`` and all of its subclasses are implementations of the 
-InternalRepository API. These objects are for internal use only and should 
-never be accessible by the clients. Each instance is initialized with a 
-directory which the servant attempts to “acquire” (i.e. grab a lock file). 
-Once it does so, it is the serving repository.
+- ``omero.data.dir`` - singleton property (i.e. once globally) which points
+  to the legacy repository location for OMERO. For OMERO to run on multiple
+  systems, the contents of this directory must be on a shared volume.
 
-Each internal repository provides a public view which in turn provides the 
-``Repository`` API. All method calls assume Unix-style strings, which are 
-guaranteed by ``CheckedPath``, a loose wrapper around ``java.io.File``. 
-CheckedPath objects along with the active ``Ice.Current`` instance are passed 
-to the ``RepositoryDao`` interface, which provides database access for all 
-repositories. Access to raw IO is provided by the ``RepoRawFileStoreI`` 
-servant, which wraps a ``RawFileBean``. 
+- ``omero.managed.dir`` - singleton property point to the default
+  ``ManagedRepository``. In an OMERO install in which there is only one Blitz
+  server, this will be the only repository. Need not be located under
+  ``omero.data.dir`` but is by default.
 
-The ``ManagedRepository`` implementation is responsible for import and 
-enforces further constraints (beyond those of CheckedPath) on where and what 
-files are created. Most importantly, the ``omero.fs.repo.path`` template value 
-is expanded and pre-pended to all uploads. A further responsibility of the 
-``ManagedRepository`` is to maintain a list of all currently running 
-``ManagedImportProcessI``, each of which is held in the ``ProcessContainer``. 
-These ``ManagedImportProcessI`` instances further wrap ``RepoRawFileStoreI`` 
-instances with a subclass, ``ManagedRawFileStoreI``. 
+- ``omero.fs.repo.path`` - the template which determines the path that will be
+  created inside of a managed repository. It is this value which makes the
+  ``ManagedRepository`` “managed”.
 
-
-Server-side sequence
---------------------
-
-NB: Server-side ``ImportLibrary`` is no longer being used. That logic is currently
-moved to ``ManagedImportRequestI``. This may not be the best location. Further, several
-other layers might also be collapsible, like ``OMEROMetadataStore`` which is currently
-accessible as a “hidden” service ``MetadataStorePrx``. Here, “hidden” means that it’s
-not directly retrievable from ServiceFactoryPrx``.
-
-- ``ManagedRepositoryI.importPaths``
-
-  - re-uses ``ImportContainer.fillData`` to create an ``ImportSettings`` and a ``Fileset``
-    and then calls ``importFileseFileset, ImportSettings)``
-
-- ``ManagedRepositoryI.importFileset``
-
-  - determines an ``ImportLocation`` calling ``PublicRepositoryI.makeDir`` where necessary.
-  - ``createImportProcess`` creates a ``ManagedImportProcessI``, registers it, and returns it.
-  - After this, the repository is only responsible for periodically having the ping and
-    eventually the shutdown method called, via ``ProcessContainer``.
-
-- ``ManagedImportProcessI.getUploader``
-
-  - creates a new ``RepositoryRawFileStoreI`` for each file in the paths/fileset.
-  - Once ``close()`` is called on this instance, ``closeCalled(int i)`` will be called
-    on the import process and the instance will be removed.
-  - If ``getUploader()`` is called again, then a new file store will be created.
-
-- ``ManagedImportProcessI.verifyUpload``
-
-  - If all hashes match, then a ``ManagedImportRequestI`` instance is created and submitted
-    to ``omero.cmd.SessionI.submit_async()`` for background processing. The client can wait
-    for the returned ``omero.cmd.HandlePrx`` to finish by using a ``CmdCallbackI``.
-  - At this point, the ``ImportProcessPrx`` can be closed as well as the entire client
-    and the import would still continue. Only if ``HandlePrx.cancel()`` is called, will the
-    import be aborted.
-  - QUESTION: How to handle rollback at this point?
-
-- ``ManagedImportRequestI.init`` (within transaction)
-
-  - ``Registry.getInternalServiceFactory grabs a ``ServiceFactoryPrx`` without the need for
-    an ``omero.client`` instance.
-  - ``OMEROWrapper`` and a ``OMEROMetadataStoreClient`` are created with this connection.
-  - Some other basic configuration takes place.
-
-- ``ManagedImportRequest.step`` (N times, each within same transaction as init)
-
-  - NB: it may later make more sense for this bit to happen in a separate process.
-  - At the moment, 5 steps are hard-coded. Each performing roughly the same amount of work.
-    Some of these may later be done in the background.
-
-    - ``importMetadata()`` calls ``store.saveToDB()``, which calls ``MetadataStorePrx.saveToDb()``,
-      a remote call. This could possibly be inlined.
-    - ``generateThumbnails()`` calls ``store.resetDefaultsAndGenerateThumbnails()``, another remote
-      call, which could also be inlined.
-    - ``pixelData()`` calls ``store.setPixelsParams()``, ``updatePixels()``, and ``populateMinMax()``.
-      Min/Max especially should be backgrounded.
-    - Finally, ``store.launchProcessing()`` is called, which should remain, but could also be inlined.
-      The returned script processes could be returned in the ``ImportResponse``.
-    - Return appropriate values.
-
-  - ``notifyObservers()`` currently does nothing, since this was client-side functionality in
-    ``ImportLibrary``. This needs to be replaced!
-
-- ``ManagedImportRequest.buildResponse()`` (N times, outside the transaction)
-
-  - Only step 4 does anything, storing the pixels in a ``ImportResponse``
-
-- ``ManagedImportRequest.getResponse()`` (1 time, regardless of exception or not)
-
-  - Performs cleanup, then returns the ``ImportResponse`` assuming that no call to
-    ``helper.cancel()`` has been made. At this point, ``ImportLibrary.importImage()``
-    returns successfully.
-
-
+- ``omero.repo.dir`` - value passed to all non-legacy, standalone
+  repositories. This is not actively used, but would allow hosting
+  repositories on multiple physical systems without the need for a shared
+  volume. For example, after running ``bin/omero admin start`` on the main
+  machine, it would be possible to launch nodes on various machines via
+  ``bin/omero node start fs-B``, ``bin/omero node start fs-C``, etc. Each of
+  these would pass a different ``omero.repo.dir`` value to its process.
 
 .. seealso:: :doc:`/sysadmins/fs-upload-configuration`
 
