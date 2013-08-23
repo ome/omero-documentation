@@ -18,7 +18,7 @@ relatively easy to install and get running.
 users access to their data in the *OMERO.server*. 
 
 OMERO.insight (.editor, .importer) are desktop applications written in Java
-and require Java 1.5 (or higher) to be installed on the user's computer
+and require Java 1.6 (or higher) to be installed on the user's computer
 (automatically installed on most up-to-date OS X and Windows XP systems).
 
 .. _omero-web:
