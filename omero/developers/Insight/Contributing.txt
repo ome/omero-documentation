@@ -17,7 +17,7 @@ See :doc:`/developers/using-git`, to check out code using
 Requirements
 ~~~~~~~~~~~~
 
--  Install a Java 5 Development Kit (JDK), available from `Java SE Downloads 
+-  Install a Java 6 Development Kit (JDK), available from `Java SE Downloads 
    <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_ and
    required for both the OMERO server and client code. Set the ``JAVA_HOME`` 
    environment variable to your JDK installation.
