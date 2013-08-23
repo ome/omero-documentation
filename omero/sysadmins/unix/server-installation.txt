@@ -68,12 +68,6 @@ installed and available via your $PATH as follows...
     $ javac -version
     javac 1.6.0
 
-.. note:: 
-
-    On systems with `OpenJDK <http://openjdk.java.net/>`_ installed 
-    by default, it will be necessary to unselect it and select the Sun 
-    version. For more information, see :forum:`this thread  <viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>` .
-
 Python 2 (2.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
