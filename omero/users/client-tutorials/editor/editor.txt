@@ -2,7 +2,7 @@ Introduction to OMERO.editor
 ============================
 
 OMERO.editor is a Java tool that requires 
-`Java 1.5 <http://java.com/en/download/>`_
+`Java 1.6 <http://java.com/en/download/>`_
 and can operate as a stand-alone application or as part of the
 OMERO.insight client. In both cases, it saves metadata as XML files that
 can be used to annotate images, datasets etc., in OMERO. If used as part
