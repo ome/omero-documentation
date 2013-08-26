@@ -93,8 +93,8 @@ where :omerocmd:`admin diagnostics` throws any errors related to unexpected
 paths with Ice, please consider installing Ice in the root of the partition
 (e.g. :file:`C:\\Ice`).
 
-Python 2 (2.4 or higher)
-^^^^^^^^^^^^^^^^^^^^^^^^
+Python 2 (2.6 or later)
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Ice 3.4.x requires Python 2.6.x. You must download the 32-bit version
 from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
@@ -768,7 +768,7 @@ your server installation:
     ================================================================================
 
     Commands:   java -version                  1.6.0     (C:\\WINDOWS\\system32\\java.EXE -- 3 others)
-    Commands:   python -V                      2.5       (C:\\Python25\\python.EXE)
+    Commands:   python -V                      2.6       (C:\\Python26\\python.EXE)
     Commands:   icegridnode --version          3.3       (C:\\Ice-3.3.1\\bin\\x64\\icegridnode.EXE -- 2 others)
     Commands:   icegridadmin --version         3.3       (C:\\Ice-3.3.1\\bin\\x64\\icegridadmin.EXE -- 2 others)
     Commands:   psql --version                 8.3       (C:\\Program Files (x86)\\PostgreSQL\\8.3\\bin\\psql.EXE -- 2 others)

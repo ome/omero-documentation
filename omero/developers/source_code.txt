@@ -54,7 +54,7 @@ Linux
 ^^^^^
 
 Most flavors of Linux have git available through the package manager. For
-example, on Debian/Ubuntu::
+example, on Debian or Ubuntu::
 
         sudo apt-get install git
 
