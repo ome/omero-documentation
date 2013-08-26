@@ -41,7 +41,7 @@ Prerequisites
 
 The following are necessary:
 
-Java SE Development Kit (JDK) (1.5 or higher) 
+Java SE Development Kit (JDK) (1.6 or higher) 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
@@ -67,12 +67,6 @@ installed and available via your $PATH as follows...
     /usr/bin/javac
     $ javac -version
     javac 1.6.0
-
-.. note:: 
-
-    On systems with `OpenJDK <http://openjdk.java.net/>`_ installed 
-    by default, it will be necessary to unselect it and select the Sun 
-    version. For more information, see :forum:`this thread  <viewtopic.php?f=5&t=273&p=572&hilit=openjdk#p572>` .
 
 Python 2 (2.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^
