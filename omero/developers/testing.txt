@@ -73,12 +73,12 @@ places several restrictions on the environment:
 - an OMERO.server instance must be running.
 
 Running all tests
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 To run all the integration tests, use ``./build.py test-integration``.
 
 Component tests
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 Running an integration test suite for an individual components can be done
 explicitly via:
@@ -90,7 +90,7 @@ explicitly via:
 Results are placed in ``components/<component>/target/reports``.
 
 Individual tests
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 Alternatively, you can run individual tests which you may currently be
 working on. This can be done by using the :option:`test` option. For example:
@@ -101,7 +101,7 @@ working on. This can be done by using the :option:`test` option. For example:
     ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test.t_permissions
 
 Failing tests
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 The :option:`test.with.fail` ant property is set to ``false`` by default,
 which prevents test failures from failing the build. However, it can instead
@@ -142,7 +142,7 @@ or the class level (see :source:`UniqueResultTest.java
 <components/server/test/ome/server/itests/query/UniqueResultTest.java>`).
 
 OmeroJava
-~~~~~~~~~
+^^^^^^^^^
 
 The tests under :sourcedir:`components/tools/OmeroJava/test` will be the
 starting point for most Java-client developers coming to OMERO.
@@ -181,7 +181,7 @@ These tests assume that:
     }
 
 OmeroPy
-~~~~~~~
+^^^^^^^
 
 Similar to the OmeroJava tests, the tests under
 :sourcedir:`components/tools/OmeroPy/test` will be the starting point
