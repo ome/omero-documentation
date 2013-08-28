@@ -38,6 +38,13 @@ is then used in the Eclipse :file:`.classpath` files.
 If Eclipse ever gets out of sync after the first build,
 ``./build.py build-eclipse`` can be used to quickly synchronize.
 
+TestNG plugin
+^^^^^^^^^^^^^
+
+A prerequisite of running unit and integration tests in the Eclipse UI is
+having the TestNG plug-in installed and working (help available on the
+`TestNG site <http://testng.org/doc/eclipse.html>`_).
+
 Unit testing
 ------------
 
@@ -58,6 +65,13 @@ The same can be done for all components using:
 ::
 
     ./build.py test-unit
+
+Eclipse
+^^^^^^^
+
+Running the unit tests under Eclipse requires no extra settings and is as
+easy as navigating to the package or class context menu :guilabel:`Run As`
+or :guilabel:`Debug As`, then selecting :guilabel:`TestNG`.
 
 Integration testing
 -------------------
@@ -114,6 +128,17 @@ be set to ``true`` to allow test failures to fail the build. For example:
 Some components might provide individual targets for specific tests (e.g.
 OmeroJava provides the :option:`broken` target for running broken tests).
 The :file:`build.xml` file is the reference in each component.
+
+Eclipse
+^^^^^^^
+
+Integration tests require the ICE_CONFIG environment variable to be available
+for the Eclipse-controlled JVM. This can be done by editing Debug/Run
+configurations in Eclipse. After navigating to the Debug (or Run)
+Configurations window, the :guilabel:`Environment` tab needs to be selected.
+After clicking :guilabel:`New`, ICE_CONFIG can be defined as a path to the
+:file:`ice.config` file. This setting needs to be defined either per package,
+class or method.
 
 Writing your own tests
 ----------------------
