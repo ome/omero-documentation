@@ -216,7 +216,7 @@ required entries and correspond to a Homebrew installation of OMERO |version|:
     export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/lib/node_modules:$ICE_HOME/bin:$PATH
     export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$DYLD_LIBRARY_PATH
 
-If you have installed Ice 3.3, replace :envvar:ICE_HOME:  by ``$(brew --prefix zeroc-ice33)``.
+If you have installed Ice 3.3, replace :envvar:`ICE_HOME` by ``$(brew --prefix zeroc-ice33)``.
 
 
 .. note::
