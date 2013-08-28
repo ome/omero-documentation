@@ -132,13 +132,13 @@ The :file:`build.xml` file is the reference in each component.
 Eclipse
 ^^^^^^^
 
-Integration tests require the ICE_CONFIG environment variable to be available
-for the Eclipse-controlled JVM. This can be done by editing Debug/Run
-configurations in Eclipse. After navigating to the Debug (or Run)
+Integration tests require the :envvar:`ICE_CONFIG` environment variable to
+be available for the Eclipse-controlled JVM. This can be done by editing
+Debug/Run configurations in Eclipse. After navigating to the Debug (or Run)
 Configurations window, the :guilabel:`Environment` tab needs to be selected.
-After clicking :guilabel:`New`, ICE_CONFIG can be defined as a path to the
-:file:`ice.config` file. This setting needs to be defined either per package,
-class or method.
+After clicking :guilabel:`New`, :envvar:`ICE_CONFIG` can be defined as a
+path to the :file:`ice.config` file. This setting needs to be defined per
+package, class or method.
 
 Writing your own tests
 ----------------------
