@@ -18,7 +18,42 @@ line.
 The Sphinx documentation system can be obtained by issuing::
     
     pip install Sphinx
-    
+
+Most Linux distributions will also provide it in a python-sphinx package
+(or similar).
+
+To build the PDF documentation, XeLaTeX is also required (the
+``xelatex`` command must be available on the ``PATH``).
+This is available via
+`TeX Live <http://www.tug.org/texlive/acquire-netinstall.html>`_) for Linux
+and MacOS X.  Many Linux distributions also have it packaged; so long as
+it's 2011 or greater, it should be fine.  If you install by hand, note
+that you must run
+
+::
+
+    ln -s $TEXMFSYSVAR/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
+    fc-cache -rsvf
+
+to add the TeX fonts to the system font configuration.  ``TEXMFSYSVAR``
+is the path to ``texmf-var``, e.g.
+``/usr/local/texlive/2013/texmf-var``.
+
+MacOS X users can also install MacTeX instead of TeXLive, but we have
+noticed that fonts don't work without extra configuration.  See:
+
+* `Mail on macosx-tex <https://email.esm.psu.edu/pipermail/macosx-tex/2012-July/049583.html>`_
+* `TeX Gyre on Stack Exchange <http://apple.stackexchange.com/questions/90841/how-to-use-tex-gyre-fonts-installed-by-tex-live>`_
+
+To add the MacTeX fonts system-wide:
+
+* Open ``Font Book.app``
+* Select ``File-->New Library``; call the new library ``TeX Gyre``
+* Right-click on ``TeX Gyre`` and select ``Add Font…``
+* Navigate to ``/usr/local/texlive/2013/texmf-dist/fonts/opentype/public/tex-gyre``
+  and click ``Open``.  (Hit Command-L and type ``/usr/local`` to get there
+  initially.)
+
 The OME documentation is organized into multiple folders:
 
 * the OMERO documentation is under the ``omero`` folder,
