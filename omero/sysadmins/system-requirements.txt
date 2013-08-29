@@ -33,7 +33,7 @@ size and number of users. At a minimum we suggest:
 -  Single core 1.33GHz Intel or AMD CPU
 -  2GB RAM
 -  500MB of hard drive space for OMERO.server distribution
--  Java 1.5 or later
+-  Java 1.6 or later
 -  Python 2.4 or later (2.6 or later on Windows)
 -  Hard drive space proportional to the image sizes expected.
    The drive space should permit **proper locking**, which is
@@ -50,7 +50,7 @@ users is:
 -  Quad core 1.33GHz Intel or AMD CPU
 -  8GB RAM
 -  500MB hard drive space for OMERO.server distribution
--  Java 1.5 or later
+-  Java 1.6 or later
 -  Python 2.4 or later (2.6 or later on Windows)
 -  Hard drive space proportional to the image sizes expected (Likely
    between 10 and 100TB)
@@ -82,7 +82,7 @@ OMERO.insight, OMERO.editor and OMERO.importer
 -  Single core 1.33GHz Intel or AMD CPU
 -  2GB RAM
 -  100MB hard drive space for OMERO.clients distribution
--  Java 1.5 or later
+-  Java 1.6 or later
 
 Large imports may require 4GB RAM.
 
