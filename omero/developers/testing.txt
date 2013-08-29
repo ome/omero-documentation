@@ -22,7 +22,8 @@ All the Eclipse projects require a successful build to have taken place:
     ./build.py
 
 This is for two reasons. Firstly, the Eclipse projects are not configured to
-perform the code generation needed. This creates the directory:
+perform the code generation needed. The :command:`build.py` command creates
+the directory:
 
 ::
 
@@ -36,7 +37,7 @@ Secondly, Ivy is used to copy all the jar dependencies from
 is then used in the Eclipse :file:`.classpath` files.
 
 If Eclipse ever gets out of sync after the first build,
-``./build.py build-eclipse`` can be used to quickly synchronize.
+:command:`./build.py build-eclipse` can be used to quickly synchronize.
 
 TestNG plugin
 ^^^^^^^^^^^^^
@@ -89,7 +90,7 @@ places several restrictions on the environment:
 Running all tests
 ^^^^^^^^^^^^^^^^^
 
-To run all the integration tests, use ``./build.py test-integration``.
+To run all the integration tests, use :command:`./build.py test-integration`.
 
 Component tests
 ^^^^^^^^^^^^^^^
