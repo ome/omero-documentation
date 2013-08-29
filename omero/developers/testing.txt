@@ -7,9 +7,9 @@ Using Eclipse
 There are currently :file:`.project` and :file:`.classpath-template`
 files stored in git in each component directory (e.g. :source:`common's
 .classpath <components/common/.classpath-template>` and
-:source:`common's .project </components/common/.project>`). There is
-also a top-level :file:`.classpath` and :file:`.project` file which
-contains the entire project, but this:
+:source:`common's .project </components/common/.project>`). There are
+also top-level :file:`.classpath` and :file:`.project` files which
+contain the entire project, but this:
 
 - requires more memory,
 - does not clearly differentiate the classpaths, and so can lead to
@@ -50,8 +50,8 @@ Unit testing
 
 The unit testing framework is fairly simple. Only methods which contain
 logic written within OMERO are tested. This means that framework
-functionality like remoting is not tested. Neither is Hibernate
-functionality; this is a part of integration testing (see below).
+functionality like remoting or the Hibernate layer is not tested. This is a
+part of integration testing (see below).
 
 You can run the unit tests for any component from its directory by
 entering:
@@ -94,7 +94,7 @@ To run all the integration tests, use ``./build.py test-integration``.
 Component tests
 ^^^^^^^^^^^^^^^
 
-Running an integration test suite for an individual components can be done
+Running an integration test suite for an individual component can be done
 explicitly via:
 
 ::
@@ -230,7 +230,7 @@ values are arbitrary and can be changed locally.
 **Keep in mind**:
 
 - the server will not start up until you have connected with Eclipse. This
-  is due to the ",suspend=y" clause in templates.xml. If you would like
-  the server to startup without you connecting, use "suspend=n",
+  is due to the "suspend=y" clause in templates.xml. If you would like
+  the server to start without you connecting, use "suspend=n",
 - if you take too much time examining your threads, your calls may
   throw timeout exceptions.
