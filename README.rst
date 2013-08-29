@@ -8,6 +8,12 @@ http://github.com/openmicroscopy/openmicroscopy.
 Getting Started With Sphinx
 ***************************
 
+Initial setup
+=============
+
+Sphinx
+------
+
 Sphinx depends on the ``sphinx-build`` Python script. As such, it can be
 installed on any system with a working Python installation and PIP. On
 Windows, make sure that the ``Scripts`` directory under the Python
@@ -16,11 +22,14 @@ PATH. On OS X/Linux, ``sphinx-build`` has to be accessible from the command
 line.
 
 The Sphinx documentation system can be obtained by issuing::
-    
+
     pip install Sphinx
 
 Most Linux distributions will also provide it in a python-sphinx package
 (or similar).
+
+LaTeX
+-----
 
 To build the PDF documentation, XeLaTeX is also required (the
 ``xelatex`` command must be available on the ``PATH``).
@@ -53,6 +62,9 @@ To add the MacTeX fonts system-wide:
 * Navigate to ``/usr/local/texlive/2013/texmf-dist/fonts/opentype/public/tex-gyre``
   and click ``Open``.  (Hit Command-L and type ``/usr/local`` to get there
   initially.)
+
+Structure and organization
+==========================
 
 The OME documentation is organized into multiple folders:
 
