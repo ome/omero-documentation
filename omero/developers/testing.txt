@@ -7,13 +7,11 @@ Using Eclipse
 There are currently :file:`.project` and :file:`.classpath-template`
 files stored in git in each component directory (e.g. :source:`common's
 .classpath <components/common/.classpath-template>` and
-:source:`common's .project </components/common/.project>`). There are
-also top-level :file:`.classpath` and :file:`.project` files which
-contain the entire project, but this:
+:source:`common's .project </components/common/.project>`).
 
-- requires more memory,
-- does not clearly differentiate the classpaths, and so can lead to
-  confusion.
+There are also top-level :file:`.classpath` and :file:`.project` files which
+contain the entire project, but this approach requires more memory and
+does not clearly differentiate the classpaths, and so can lead to confusion.
 
 All the Eclipse projects require a successful build to have taken place:
 
@@ -84,8 +82,8 @@ are tested in integration mode.
 The tests require a fast computer. Running all the integration tests
 places several restrictions on the environment:
 
-- there must be a running OMERO database,
-- an OMERO.server instance must be running.
+- There must be a running OMERO database.
+- An OMERO.server instance must be running.
 
 Running all tests
 ^^^^^^^^^^^^^^^^^
@@ -175,11 +173,11 @@ starting point for most Java-client developers coming to OMERO.
 
 These tests assume that:
 
--  ICE\_CONFIG has been properly set. This means that
-   ``omero.client client = new omero.client(); client.createSession()``
-   should be usable with no further configuration needed,
--  an OMERO.server instance is running on the host and port specified in
-   the ICE\_CONFIG file.
+- ICE\_CONFIG has been properly set. This means that
+  ``omero.client client = new omero.client(); client.createSession()``
+  should be usable with no further configuration needed.
+- An OMERO.server instance is running on the host and port specified in
+  the ICE\_CONFIG file.
 
 ::
 
@@ -230,8 +228,8 @@ values are arbitrary and can be changed locally.
 
 **Keep in mind**:
 
-- the server will not start up until you have connected with Eclipse. This
+- The server will not start up until you have connected with Eclipse. This
   is due to the "suspend=y" clause in templates.xml. If you would like
-  the server to start without you connecting, use "suspend=n",
-- if you take too much time examining your threads, your calls may
+  the server to start without you connecting, use "suspend=n".
+- If you take too much time examining your threads, your calls may
   throw timeout exceptions.
