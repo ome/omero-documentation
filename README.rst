@@ -27,8 +27,8 @@ To build the PDF documentation, XeLaTeX is also required (the
 This is available via
 `TeX Live <http://www.tug.org/texlive/acquire-netinstall.html>`_) for Linux
 and MacOS X.  Many Linux distributions also have it packaged; so long as
-it's 2011 or greater, it should be fine.  If you install by hand, note
-that you must run
+it is version 2010 or greater, it should be fine.  If you install by hand,
+note that you must run
 
 ::
 
@@ -40,7 +40,7 @@ is the path to ``texmf-var``, e.g.
 ``/usr/local/texlive/2013/texmf-var``.
 
 MacOS X users can also install MacTeX instead of TeXLive, but we have
-noticed that fonts don't work without extra configuration.  See:
+noticed that fonts do not work without extra configuration.  See:
 
 * `Mail on macosx-tex <https://email.esm.psu.edu/pipermail/macosx-tex/2012-July/049583.html>`_
 * `TeX Gyre on Stack Exchange <http://apple.stackexchange.com/questions/90841/how-to-use-tex-gyre-fonts-installed-by-tex-live>`_
@@ -193,7 +193,7 @@ alphanumeric characters and the ``-`` (minus) symbol.
 Indentation
 ===========
 
-Most reST directives don't need indentation, unless contents or options have
+Most reST directives do not need indentation, unless contents or options have
 to be supplied. For consistency, please use 4 space indentation whenever
 needed. Do not use indentation for the start of directives (start them at the
 edge of the new line). Any content under a reST directive has to be indented
@@ -320,7 +320,7 @@ Tables
 
 Please do not use tables for collections of links and figures, and leave them 
 solely for use as actual tables. While it can be used in HTML to shoehorn 
-content into boxes, it doesn't work too well for other output, e.g. latex.
+content into boxes, it does not work too well for other output, e.g. latex.
 
 Big tables (typically wider than 50 characters) should be managed as external 
 files using the comma-separated values (CSV) format. These tables can then be 
