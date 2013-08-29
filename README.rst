@@ -60,8 +60,7 @@ To add the MacTeX fonts system-wide:
 * Select ``File-->New Library``; call the new library ``TeX Gyre``
 * Right-click on ``TeX Gyre`` and select ``Add Font…``
 * Navigate to ``/usr/local/texlive/2013/texmf-dist/fonts/opentype/public/tex-gyre``
-  and click ``Open``.  (Hit Command-L and type ``/usr/local`` to get there
-  initially.)
+  and click ``Open``.  (Type ``/usr/local`` to get there initially.)
 
 Structure and organization
 ==========================
