@@ -54,10 +54,12 @@ the name of the branch which they will be merged into.
 The next major release consists of PRs labelled with “develop”, which is also
 the name of the branch which they will be merged into.
 
-Two labels are used in the PR reviewing process: “include” and “exclude”. The
-“include” label allows you to include a PR opened by a non-member of the OME
-organization in the merge builds for review. The “exclude” label allows you to
-exclude a PR opened by any user from the merge builds.
+Three labels are used in the PR reviewing process: “include”, “exclude”, and
+"on hold". The “include” label allows you to include a PR opened by a
+non-member of the OME organization in the merge builds for review. The
+“exclude” label allows you to exclude a PR opened by any user from the merge
+builds. The "on hold" label allows you to signal that a PR should not be
+reviewed or merged, even though it is not excluded.
 
 
 ..  |merge| replace:: Merges PRs using :ref:`scc merge`
