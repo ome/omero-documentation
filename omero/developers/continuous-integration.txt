@@ -34,10 +34,10 @@ Most of the OME code is split between four repositories: openmicroscopy.git_,
 bioformats.git_, scripts.git_, ome-documentation.git_. For each repository,
 two development branches are maintained simultaneously:
 
-* the |devbranch| branch ("stable" branch) contains work on the stable release
-  version and will only be released as a point release
+* The |devbranch| branch ("stable" branch) contains work on the stable release
+  version and will only be released as a point release.
 
-* the |develop| branch contains work on the next major release.
+* The |develop| branch contains work on the next major release.
 
 It is possible to have a point release immediately, while still working on
 more major releases by ensuring that (nearly) all commits that are applied to
