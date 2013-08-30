@@ -15,13 +15,9 @@ can be installed using ``pip``::
 
 	$ pip install -U scc
 
-The main requirements are the **PyGithub** package and the **argparse**
-packages::
-
-	$ pip freeze | grep PyGithub
-	PyGithub==1.12.2
-	$ pip freeze | grep argparse
-	argparse==1.2.1
+If your Python is old then this may also install the **PyGithub** and
+**argparse** packages, but since Python 2.7 they are already included
+with the standard library.
 
 Github connection
 -----------------
