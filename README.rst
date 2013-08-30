@@ -35,8 +35,8 @@ To build the PDF documentation, XeLaTeX is also required (the
 ``xelatex`` command must be available on the ``PATH``).
 This is available via
 `TeX Live <http://www.tug.org/texlive/acquire-netinstall.html>`_) for Linux
-and MacOS X.  Many Linux distributions also have it packaged; so long as
-it is version 2010 or greater, it should be fine.  If you install by hand,
+and MacOS X. Many Linux distributions also have it packaged; so long as
+it is version 2010 or greater, it should be fine. If you install by hand,
 note that you must run
 
 ::
@@ -44,12 +44,12 @@ note that you must run
     ln -s $TEXMFSYSVAR/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
     fc-cache -rsvf
 
-to add the TeX fonts to the system font configuration.  ``TEXMFSYSVAR``
+to add the TeX fonts to the system font configuration. ``TEXMFSYSVAR``
 is the path to ``texmf-var``, e.g.
 ``/usr/local/texlive/2013/texmf-var``.
 
 MacOS X users can also install MacTeX instead of TeXLive, but we have
-noticed that fonts do not work without extra configuration.  See:
+noticed that fonts do not work without extra configuration. See:
 
 * `Mail on macosx-tex <https://email.esm.psu.edu/pipermail/macosx-tex/2012-July/049583.html>`_
 * `TeX Gyre on Stack Exchange <http://apple.stackexchange.com/questions/90841/how-to-use-tex-gyre-fonts-installed-by-tex-live>`_
@@ -60,7 +60,7 @@ To add the MacTeX fonts system-wide:
 * Select ``File-->New Library``; call the new library ``TeX Gyre``
 * Right-click on ``TeX Gyre`` and select ``Add Font…``
 * Navigate to ``/usr/local/texlive/2013/texmf-dist/fonts/opentype/public/tex-gyre``
-  and click ``Open``.  (Type ``/usr/local`` to get there initially.)
+  and click ``Open``. (Type ``/usr/local`` to get there initially.)
 
 Structure and organization
 ==========================
