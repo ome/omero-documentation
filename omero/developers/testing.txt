@@ -85,6 +85,23 @@ places several restrictions on the environment:
 - There must be a running OMERO database.
 - An OMERO.server instance must be running.
 
+Integration tests assume that:
+
+- :envvar:`ICE_CONFIG` has been properly set. The contents of the
+  :file:`ice.config` file located in :file:`etc` should
+  be enough to configure a running server for integration testing. This
+  means that
+  ``omero.client client = new omero.client(); client.createSession()``
+  should be usable with no further configuration needed.
+- An OMERO.server instance is running on the host and port specified in
+  the :envvar:`ICE_CONFIG` file.
+
+If any of the tests fail with a user authentication exception (or
+``omero.client`` throws an exception), a new :file:`ice.config` file can be
+created and pointed to by the :envvar:`ICE_CONFIG` environment variable.
+Most likely the first settings that will have to be put there will be
+``omero.user`` and ``omero.pass``.
+
 Running all tests
 ^^^^^^^^^^^^^^^^^
 
@@ -169,15 +186,8 @@ OmeroJava
 ^^^^^^^^^
 
 The tests under :sourcedir:`components/tools/OmeroJava/test` will be the
-starting point for most Java-client developers coming to OMERO.
-
-These tests assume that:
-
-- ICE\_CONFIG has been properly set. This means that
-  ``omero.client client = new omero.client(); client.createSession()``
-  should be usable with no further configuration needed.
-- An OMERO.server instance is running on the host and port specified in
-  the ICE\_CONFIG file.
+starting point for most Java-client developers coming to OMERO. An example
+skeleton for an integration test looks similar to
 
 ::
 
