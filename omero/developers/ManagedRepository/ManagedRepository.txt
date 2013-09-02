@@ -1,25 +1,83 @@
 FS Managed Repository
 =====================
 
+The OMERO 5 release introduces OMERO.fs, a new way of storing files in the OMERO binary repository
+and thus a new method of importing images to the server.
+
+In previous versions of OMERO the import process was very much client-centered. When
+importing an image the client pushed pixel data, metadata and, optionally, original
+image files to the OMERO server. With the advent of OMERO 5, OMERO.fs allows the pixels
+to be accessed directly from the original image files. This means that much of the import
+process can now take place on the server once the original image files have been uploaded.
+
+This page looks at the implications for the developer writing import clients. A broad description
+of the import workflow is followed by some of the model changes needed to facilitate this workflow.
+The current API sequence is then introduced before looking at server-side classes and sequence.
+Finally, the configuration required for OMERO.fs is specified.
+
 Import overview
 ---------------
 
 The broad import workflow comprises selecting a file or set of files to be
 imported client-side. Using Bio-Formats on the client this selection is resolved
-into a number of import candidates. Each import candidate, which may be one file
+into a number of import candidates. Here an import candidate is a file or set of files
+that represents a single image, multi-image set or plate. Each import candidate, which may be one file
 or several files, is then treated as ``Fileset`` for import. The import of each
 ``Fileset`` is then undertaken by the client in two stages: upload and server-side
 import.
 
-A ``Fileset`` is uploaded to the server into a location determined by the server. A
-checksum is calculated before upload by the client and after upload by the server.
+A ``Fileset`` is uploaded to the server into a location determined by the server, multiple ``Filesets``
+may be uploaded in parallel by a client.
+A checksum is calculated before upload by the client and after upload by the server.
 If these checksums match then the client triggers a server-side import. The client
-can then move on to uploading the next ``Fileset``.
+can then move on to doing other work and leave the import to complete on the server.
 
 Once the ``Fileset`` is on the server and an import has been initiated by the client all
 processing then takes place on the server. The server then uses Bio-Formats to extract
 and store the metadata, calculate the minimum and maximum pixel values and do other
 import processing.
+
+Model description
+-----------------
+
+See :file:`acquisition.ome.xml`
+
+- ``ome.model.fs.Fileset``
+
+  - Represents a group of files which are considered to belong together.
+  - There is the possibility that a single client fileset will be one or more
+    datasets in Bio-Formats. We need to decide to either model this or to use
+    a special reader (DirectoryReader ?) on the server.
+  - Also links to multiple ome.model.jobs.Job instances.
+  - *In development*: links to the plate and image objects which are created
+    during import.
+
+- ``ome.model.jobs.Job`` subclasses
+
+  - Each one represents some action which takes place server-side on the
+    Fileset.
+  - For the standard sequence described above, the first will always be an
+    ``UploadJob`` which contains version info from the client. If the
+    files were not uploaded however, this may not be the case. Then a
+    ``MetadataImportJob`` follows, which is the basic import.
+  - Other jobs may be necessary for regular usage (``PixelDataJob``,
+    ``IndexingJob``, etc.). *Later jobs may also be added like a re-parse job
+    with another FilesetVersionInfo instance, a re-check of the sha1s to look
+    for corruption, or an archive job*.
+  - For job definitions, see :file:`jobs.ome.xml`
+
+- ``ome.model.fs.FilesetEntry``
+
+  - Link from a ``Fileset`` to exactly one ``ome.model.core.OriginalFile``
+  - Critically, it also contains the original absolute client path of that
+    file.
+
+- ``ome.model.fs.FilesetVersionInfo``
+
+  - *In development*: A snapshot of process information along with software
+    versions. Most important for knowing how files were parsed, therefore
+    when using ``importPaths``, a “synthetic” version info might be created
+    to say that these were just uploaded blindly.
 
 API sequence
 ------------
@@ -160,48 +218,6 @@ not directly retrievable from ``ServiceFactoryPrx``.
   - Performs cleanup, then returns the ``ImportResponse`` assuming that no call to
     ``helper.cancel()`` has been made. At this point, ``ImportLibrary.importImage()``
     returns successfully.
-
-Model description
------------------
-
-See :file:`acquisition.ome.xml`
-
-- ``ome.model.fs.Fileset``
-
-  - Represents a group of files which are considered to belong together.
-  - There is the possibility that a single client fileset will be one or more
-    datasets in Bio-Formats. We need to decide to either model this or to use
-    a special reader (DirectoryReader ?) on the server.
-  - Also links to multiple ome.model.jobs.Job instances.
-  - *In development*: links to the plate and image objects which are created
-    during import.
-
-- ``ome.model.jobs.Job`` subclasses
-
-  - Each one represents some action which takes place server-side on the
-    Fileset.
-  - For the standard sequence described above, the first will always be an
-    ``UploadJob`` which contains version info from the client. If the
-    files were not uploaded however, this may not be the case. Then a
-    ``MetadataImportJob`` follows, which is the basic import.
-  - Other jobs may be necessary for regular usage (``PixelDataJob``,
-    ``IndexingJob``, etc.). *Later jobs may also be added like a re-parse job
-    with another FilesetVersionInfo instance, a re-check of the sha1s to look
-    for corruption, or an archive job*.
-  - For job definitions, see :file:`jobs.ome.xml`
-
-- ``ome.model.fs.FilesetEntry``
-
-  - Link from a ``Fileset`` to exactly one ``ome.model.core.OriginalFile``
-  - Critically, it also contains the original absolute client path of that
-    file.
-
-- ``ome.model.fs.FilesetVersionInfo``
-
-  - *In development*: A snapshot of process information along with software
-    versions. Most important for knowing how files were parsed, therefore
-    when using ``importPaths``, a “synthetic” version info might be created
-    to say that these were just uploaded blindly.
 
 Configuration properties
 ------------------------
