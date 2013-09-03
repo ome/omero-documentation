@@ -24,10 +24,10 @@ Import overview
 The broad import workflow comprises selecting a file or set of files to be
 imported client-side. Using Bio-Formats on the client this selection is
 resolved into a number of import candidates. Here an import candidate is a
-file or set of files that represents a single image, multi-image set or plate.
-Each import candidate, which may be one file or several files, is then treated
-as ``Fileset`` for import. The import of each ``Fileset`` is then undertaken
-by the client in two stages: upload and server-side import.
+file or set of files that represents a single image, a multi-image set or a
+plate. Each import candidate, which may be one file or several files, is then
+treated as ``Fileset`` for import. The import of each ``Fileset`` is then
+undertaken by the client in two stages: upload and server-side import.
 
 A ``Fileset`` is uploaded to the server into a location determined by the
 server, multiple ``Filesets`` may be uploaded in parallel by a client. A
