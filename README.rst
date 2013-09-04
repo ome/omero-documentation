@@ -8,6 +8,12 @@ http://github.com/openmicroscopy/openmicroscopy.
 Getting Started With Sphinx
 ***************************
 
+Initial setup
+=============
+
+Sphinx
+------
+
 Sphinx depends on the ``sphinx-build`` Python script. As such, it can be
 installed on any system with a working Python installation and PIP. On
 Windows, make sure that the ``Scripts`` directory under the Python
@@ -16,9 +22,49 @@ PATH. On OS X/Linux, ``sphinx-build`` has to be accessible from the command
 line.
 
 The Sphinx documentation system can be obtained by issuing::
-    
+
     pip install Sphinx
-    
+
+Most Linux distributions will also provide it in a python-sphinx package
+(or similar).
+
+LaTeX
+-----
+
+To build the PDF documentation, XeLaTeX is also required (the
+``xelatex`` command must be available on the ``PATH``).
+This is available via
+`TeX Live <http://www.tug.org/texlive/acquire-netinstall.html>`_) for Linux
+and MacOS X. Many Linux distributions also have it packaged; so long as
+it is version 2010 or greater, it should be fine. If you install by hand,
+note that you must run
+
+::
+
+    ln -s $TEXMFSYSVAR/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
+    fc-cache -rsvf
+
+to add the TeX fonts to the system font configuration. ``TEXMFSYSVAR``
+is the path to ``texmf-var``, e.g.
+``/usr/local/texlive/2013/texmf-var``.
+
+MacOS X users can also install MacTeX instead of TeXLive, but we have
+noticed that fonts do not work without extra configuration. See:
+
+* `Mail on macosx-tex <https://email.esm.psu.edu/pipermail/macosx-tex/2012-July/049583.html>`_
+* `TeX Gyre on Stack Exchange <http://apple.stackexchange.com/questions/90841/how-to-use-tex-gyre-fonts-installed-by-tex-live>`_
+
+To add the MacTeX fonts system-wide:
+
+* Open ``Font Book.app``
+* Select ``File-->New Library``; call the new library ``TeX Gyre``
+* Right-click on ``TeX Gyre`` and select ``Add Font…``
+* Navigate to ``/usr/local/texlive/2013/texmf-dist/fonts/opentype/public/tex-gyre``
+  and click ``Open``. (Type ``/usr/local`` to get there initially.)
+
+Structure and organization
+==========================
+
 The OME documentation is organized into multiple folders:
 
 * the OMERO documentation is under the ``omero`` folder,
@@ -158,7 +204,7 @@ alphanumeric characters and the ``-`` (minus) symbol.
 Indentation
 ===========
 
-Most reST directives don't need indentation, unless contents or options have
+Most reST directives do not need indentation, unless contents or options have
 to be supplied. For consistency, please use 4 space indentation whenever
 needed. Do not use indentation for the start of directives (start them at the
 edge of the new line). Any content under a reST directive has to be indented
@@ -285,7 +331,7 @@ Tables
 
 Please do not use tables for collections of links and figures, and leave them 
 solely for use as actual tables. While it can be used in HTML to shoehorn 
-content into boxes, it doesn't work too well for other output, e.g. latex.
+content into boxes, it does not work too well for other output, e.g. latex.
 
 Big tables (typically wider than 50 characters) should be managed as external 
 files using the comma-separated values (CSV) format. These tables can then be 
