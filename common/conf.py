@@ -139,6 +139,7 @@ extlinks = {
     # Miscellaneous links
     'snapshot' : (cvs_root + '/snapshots/%s', ''),
     'zeroc' : ('http://zeroc.com/%s', ''),
+    'zerocdoc' : ('http://doc.zeroc.com/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
     }
 
