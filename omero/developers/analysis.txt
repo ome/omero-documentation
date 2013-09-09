@@ -36,7 +36,7 @@ an OMERO server.
 Technical info and API details can be found on the 
 :doc:`/developers/Modules/Api/ScriptingService` page.
 
-The :doc:`/developers/Modules/Scripts/Guide` should help you get started with 
+The :doc:`/developers/scripts/user-guide` should help you get started with 
 the scripting service, without going into the 'behind the scenes' details.
 
 Scripts can be run from OMERO.insight, using a UI generated from the script. 
@@ -106,7 +106,7 @@ associated image:
 
 
 Other high-content screening (HCS) data
-=======================================
+---------------------------------------
 
 In addition to the Flex, Mias, and InCell 100 file formats, BD Pathway, 
 Olympus ScanR, and native OME-XML/TIFF files can all be imported as HCS 

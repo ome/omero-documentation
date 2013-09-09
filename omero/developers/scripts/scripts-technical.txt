@@ -1,5 +1,5 @@
-OMERO.scripts
-=============
+OMERO.scripts - Technical details
+=================================
 
 :snapshot:`MOVIE: introduction to OMERO.scripts
 <movies/omero-4-3/mov/ScriptingWorkflow-4.3.mov>`
@@ -8,8 +8,8 @@ OMERO.scripts is the scripting service for scripting in OMERO.
 :doc:`/developers/server-blitz` provides a service to run scripts
 on the server. The scripts are then passed on to a grid of processors
 called OMERO.grid that executes the script and returns the result to the
-server which in turn passes the result onto the caller. All scripts
-which run on :doc:`/developers/Modules/Scripts` are of the form
+server which in turn passes the result onto the caller. All scripts are of the 
+form:
 
 ::
 
@@ -32,11 +32,6 @@ which run on :doc:`/developers/Modules/Scripts` are of the form
     VARIABLENAME = client.getInput("VARIABLENAME");
     client.setOutput("VARIABLENAME", value);
 
-Getting started
----------------
-
-For a tutorial on how to get started with the scripting service, see
-:doc:`/developers/Modules/Scripts/Guide`.
 
 The iScript service
 -------------------
@@ -46,7 +41,7 @@ methods to upload, delete, query and runscripts. To access these methods
 a session needs to be created and the script service started. However,
 you may find it more convenient to use the command line
 ``bin/omero script`` or the OMERO.insight client to work with scripts
-as described on the :doc:`/developers/Modules/Scripts/Guide`.
+as described on the :doc:`/developers/scripts/user-guide`.
 The methods of the script service are below (bottom of page).
 
 Debugging the scripts
@@ -71,9 +66,9 @@ Below are a set of sample scripts. You can find more under the
 OMERO.insight (from the bottom-left of any run-script dialog).
 
 Ping script
-~~~~~~~~~~~
+^^^^^^^^^^^
 
-This script echos the input parameters as outputs.
+This script echoes the input parameters as outputs.
 
 ::
 
@@ -89,7 +84,7 @@ This script echos the input parameters as outputs.
           client.setOutput(key, client.getInput(key))
 
 Accessing the pixels object from the server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This method shows an example of accessing the iPixels service on the
 server to get the pixels description of pixels supplied as a parameter.
@@ -119,110 +114,12 @@ server to get the pixels description of pixels supplied as a parameter.
     #print the height of the pixels.
     print pixels.sizeY.val
 
-Matlab and scripting
-====================
 
-The scripting service can run matlab scripts too. This is done using the
-python package `Mlabwrap <http://mlabwrap.sourceforge.net>`_, this
-allows access to Matlab functions from OMERO.blitz scripts.
-
-Installing Mlabwrap
--------------------
-
-To install MlabWrap? follow the installation guide at
-` http://www.scipy.org/MlabWrap <http://www.scipy.org/MlabWrap>`_ and
-make sure that the paths are set for the environment variables:
-
-::
-
-    LD_LIBRARY_PATH=$MATLABROOT/bin/Platform
-    MLABRAW_CMD_STR=$MATLABROOT/bin/matlab
-
-Example Matlab scripts
-----------------------
-
-Below are some sample scripts showing Matlab being launched from
-OMERO.scripts. Matlab functions can also call the |OmeroJava| 
-interface to access the server from
-the Matlab functions.
-
-Calling a simple Matlab function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-::
-
-    import omero, omero.scripts as script
-    # import mlabwrap to launch matlab.
-    from mlabwrap import matlab;  
-    client = script.client("rand.py", "Get matrix of random numbers drawn from a uniform distribution",  
-                            script.Long("x").inout(), script.Long("y").inout())
-    client.createSession()
-
-    x = client.getInput("x").val
-    y  = client.getInput("y").val
-
-    # call the matlab rand function via mlabwrap will automatically launch matlab 
-    # if it is not already running on the system and call the rand method.
-    val = matlab.rand(x,y);
-    print val
-
-Using the OmeroJ interface inside Matlab
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This example shows the matlab script being called, passed the client
-object and accessing the same client instance as the script.
-
-::
-
-    import omero, omero.scripts as script
-    # import mlabwrap to launch matlab.
-    from mlabwrap import matlab;  
-    client = script.client("projection.py", "Call the matlab projection code",  
-                            script.String("iceConfig").in(), script.String("user").in(),
-                            script.String("password"),
-                            script.Long("pixelsId").inout(), script.String("method").inout()
-                            script.Long("stack").inout())
-    client.createSession()
-
-    iceConfig = client.getInput("pixelsId").val
-    user = client.getInput("pixelsId").val
-    password = client.getInput("pixelsId").val
-    method  = client.getInput("method").val
-    stack = client.getInput("stack").val;
-
-    image = matlab.performProjection(iceConfig, username, password, pixelsId, stack, method);
-
-The matlab projection method
-
-::
-
-    function performProjection(iceConfig, username, password, pixelsId, zSection, method)
-
-    omerojavaService = createOmeroJavaService(iceConfig, username, password);
-    pixels = getPixels(omerojavaService, pixelsId);
-    stack = getPlaneStack(omerojavaService, pixelsId, zSection);
-    projectedImage = ProjectionOnStack(stack, method);
-
-::
-
-    function [resultImage] = ProjectionOnStack(imageStack,type)
-
-    [zSections, X, Y] = size(imageStack);
-
-    if(strcmp(type,'mean') || strcmp(type, 'sum'))
-        resultImage = squeeze(sum(imageStack));
-        if(strcmp(type,'mean'))
-            resultImage = resultImage./zSections;
-        end
-    end
-    if(strcmp(type,'max'))
-        resultImage = squeeze(max(imageStack,[],1));
-    end
-
-**Method Detail**
+Scripting service methods
+-------------------------
 
 getScripts
-~~~~~~~~~~
+^^^^^^^^^^
 
 ::
 
@@ -242,10 +139,9 @@ see above.
 
 ``SecurityViolation``
 
---------------
 
 deleteScript
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 ::
 
@@ -265,10 +161,9 @@ Delete the script on the server with id.
 
 ``SecurityViolation``
 
---------------
 
 getScriptID
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 ::
 
@@ -293,10 +188,9 @@ see above.
 
 ``SecurityViolation``
 
---------------
 
 uploadScript
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 ::
 
@@ -322,10 +216,9 @@ The new id of the script.
 
 ``SecurityViolation``
 
---------------
 
 getScript
-~~~~~~~~~
+^^^^^^^^^
 
 ::
 
@@ -346,10 +239,9 @@ see above.
 
 ``ApiUsageException``
 
---------------
 
 getParams
-~~~~~~~~~
+^^^^^^^^^
 
 ::
 
@@ -371,10 +263,9 @@ see above.
 
 ``ApiUsageException``
 
---------------
 
 runScript
-~~~~~~~~~
+^^^^^^^^^
 
 ::
 

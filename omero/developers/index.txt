@@ -20,8 +20,9 @@ OMERO.web and the :doc:`/developers/command-line-interface`, which also uses
 Python. There is also an ImageJ plugin. OMERO can be extended by modifying 
 these clients or by writing your own in any of the supported languages (see 
 figure). OMERO also supports a 
-:doc:`Scripting Service </developers/Modules/Scripts>` which allows Python
-scripts to be run on the server and called from any of the other clients.
+:doc:`Scripting Service </developers/scripts/scripts-technical>` which allows 
+Python scripts to be run on the server and called from any of the other 
+clients.
 
 OMERO is designed, developed and released by the |OME|, with contributions 
 from |Glencoe| OMERO is released under the `GNU General Public License (GPL)`_ 
@@ -72,19 +73,20 @@ Analysis
     Tables
 
 
-*****************
-Scripting Service
-*****************
+***************************
+Scripts - plugins for OMERO
+***************************
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
     scripts/index
-    Modules/Scripts
-    Modules/Scripts/Guide
-    Modules/Scripts/StyleGuide
+    scripts/user-guide
+    scripts/scripts-technical
+    scripts/style-guide
     Modules/Api/ScriptingService
+    scripts/matlab-scripts
 
 
 *******************
