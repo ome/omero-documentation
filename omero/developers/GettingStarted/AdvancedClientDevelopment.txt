@@ -2397,4 +2397,4 @@ Other
 -  Annotation-link-loading can behave strangely if
    ``AnnotationLink.child`` is not loaded.
 -  Python applications can segfault under certain orderings of imports:
-   See :zeroc:`Bus Error under Mac OX 10.4 and IcePy 3.3.0 <forums/bug-reports/3883-bus-error-under-mac-ox-10-4-icepy-3-3-0-a.html>`
+   See :zeroc:`Bus Error under Mac OX 10.4 and IcePy 3.3.0 <forums/showthread.php?t=3883>`
