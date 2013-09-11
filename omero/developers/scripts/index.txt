@@ -5,7 +5,7 @@ OMERO.scripts are the OME version of plugins, allowing you to extend the
 functionality of your OMERO installation.
 
 The :javadoc:`OMERO scripting service API <slice2html/omero/api/IScript.html>` 
-allows Python scripts to be uploaded to an OMERO.server so that image 
+allows scripts to be uploaded to an OMERO.server so that image 
 processing and analysis, and other functionality, can be carried out on the 
 server rather than your local machine. Scripts can be run from the OMERO 
 clients, using a UI generated from the script and the results should also be 
