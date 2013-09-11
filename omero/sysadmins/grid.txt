@@ -208,7 +208,8 @@ or with the environment variable ``OMERO_NODE``:
 
        OMERO_NODE=MyNewNode bin/omero node start
 
-For far more information on using scripts, see the :doc:`/developers/scripts/scripts-technical`.
+For more information on using scripts, see the 
+:doc:`/developers/scripts/advanced`.
 
 
 Securing grid resources

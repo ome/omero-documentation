@@ -1,8 +1,51 @@
+OMERO.scripts advanced topics
+=============================
+
+:doc:`/developers/server-blitz` provides a service to run scripts
+on the server. The scripts are then passed on to a grid of processors
+called OMERO.grid that executes the script and returns the result to the
+server which in turn passes the result onto the caller. All scripts are of the 
+form:
+
+::
+
+    # import the omero package and the omero.scripts package.
+    import omero, omero.scripts as script
+
+    '''
+    This method creates the client script object, with name SCRIPTNAME and SCRIPTDESCRIPTION.
+    The script then supplies a number of variables that are both inputs and outputs to the 
+    script. The types allowed are defined in the script package, with the qualifier after the 
+    variable of in, out or inout depending on whether the variable if for input, output or input
+    and output.
+    '''  
+    client = script.client("SCRIPTNAME", "SCRIPTDESCRIPTION", 
+             script.TYPE("VARIABLENAME").[in()|out()|inout()], ...)
+    # create a session on the server.
+    client.createSession()
+
+    # All variables are stored in a map accessed by getInput and setOutput via the client object.
+    VARIABLENAME = client.getInput("VARIABLENAME");
+    client.setOutput("VARIABLENAME", value);
+
+
+The iScript service
+-------------------
+
+The OMERO.blitz server provides a service call iScript that provides
+methods to upload, delete, query and run scripts. To access these methods
+a session needs to be created and the script service started. However,
+you may find it more convenient to use the command line
+``bin/omero script`` or the OMERO.insight client to work with scripts
+as described on the :doc:`/developers/scripts/user-guide`.
+
+.. add reference to generated/CLI docs?
+
 Scripting service API
 ---------------------
 
 **The recommended way of working with the scripting service is via the
-command line as described on the** :doc:`/developers/scripts/user-guide`
+command line as described on the** :doc:`user-guide`
 **page. The information on this page is only useful if you want to access
 the Scripting service from your own client-side Python code.**
 
