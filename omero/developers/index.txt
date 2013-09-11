@@ -22,7 +22,7 @@ OMERO.web and the :doc:`/developers/command-line-interface`, which also uses
 Python. There is also an ImageJ plugin. OMERO can be extended by modifying 
 these clients or by writing your own in any of the supported languages (see 
 figure). OMERO also supports a 
-:doc:`Scripting Service </developers/scripts/index>` which allows 
+:doc:`Scripting Service <scripts/index>` which allows 
 Python scripts to be run on the server and called from any of the other 
 clients.
 
