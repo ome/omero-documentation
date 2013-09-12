@@ -1,20 +1,18 @@
 Guidelines for writing OMERO.scripts
 ====================================
 
-.. figure:: /images/omero-scripting-movie-roi.png
-  :align: center
-  :alt: Scripting movie ROI figure
-
-  Scripting movie ROI figure
-
-This page describes guidelines for writing Python scripts for the :doc:`OMERO
-scripting service <index>`.
-
-These guidelines are designed to improve the interaction of the scripts
-with OMERO clients so that they can:
+These guidelines for writing Python scripts are designed to improve the 
+interaction of the scripts with OMERO clients so that they can:
 
 -  generate a nice, usable UI for the script
 -  handle the script results appropriately
+
+.. figure:: /images/omero-scripting-movie-roi.png
+  :align: center
+  :width: 70%
+  :alt: Scripting movie ROI figure
+
+  Movie ROI figure script UI
 
 If you want instructions on how to get started with OMERO scripts, see
 the link above or the :doc:`user-guide`.
@@ -24,13 +22,13 @@ Most of the points below are implemented in the example :source:`Edit_Descriptio
 Script naming and file path
 ---------------------------
 
--  Script Name. This should be in the form 'Script\_Name.py'. OMERO.insight
+-  Script Name should be in the form 'Script\_Name.py'. OMERO.insight
    will replace underscores with spaces in the script selection menu.
--  File path. OMERO.insight will use the parent folder to build a
-   scripts menu, capitalising and removing underscores. E.g. a script
+-  File paths - OMERO.insight will use the parent folder to build a
+   scripts menu, capitalising and removing underscores. For example, a script
    uploaded from /omero/export\_scripts/Batch\_Image\_Export.py will be
    displayed in OMERO.insight under "Export Scripts".
--  Script Descriptions. Descriptions should give a brief summary of what
+-  Script Descriptions should give a brief summary of what
    the script does. If a longer description or instructions for using
    the script are desired, it is suggested that a url is included. The
    description will be displayed in the script UI and any urls will be
@@ -39,7 +37,7 @@ Script naming and file path
 Parameters
 ----------
 
--  Parameter Names. These should be in the form 'Parameter\_Name'.
+-  Parameter Names should be in the form 'Parameter\_Name'.
    Underscores will be replaced by spaces in the UI generated in
    OMERO.insight.
 -  Where applicable, Parameters should be supplied with a list of
@@ -87,7 +85,7 @@ parameters will be disabled and will not be passed to the script.
 Pick selected Images, Datasets or Projects from OMERO.insight
 -------------------------------------------------------------
 
-Starting in OMERO 4.3, OMERO.insight will recognize and populate a pair of
+OMERO.insight recognizes and populates a pair of
 fields named 'Data\_Type' (string) and 'IDs' (Long list) with the
 currently selected objects in OMERO.insight when the script is launched. You
 should specify the 'Data\_Type' options that your script should accept.
