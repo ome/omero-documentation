@@ -1,5 +1,5 @@
-Continous integration workflow
-==============================
+Continuous integration workflow
+===============================
 
 .. _Sphinx: http://sphinx-doc.org/
 .. _Wikipedia: http://en.wikipedia.org/wiki/Main_Page
@@ -34,10 +34,10 @@ Most of the OME code is split between four repositories: openmicroscopy.git_,
 bioformats.git_, scripts.git_, ome-documentation.git_. For each repository,
 two development branches are maintained simultaneously:
 
-* the |devbranch| branch ("stable" branch) contains work on the stable release
-  version and will only be released as a point release
+* The "|devbranch|" branch ("stable" branch) contains work on the stable release
+  version and will only be released as a point release.
 
-* the develop branch contains work on the next major release.
+* The "develop" branch contains work on the next major release.
 
 It is possible to have a point release immediately, while still working on
 more major releases by ensuring that (nearly) all commits that are applied to
@@ -54,10 +54,12 @@ the name of the branch which they will be merged into.
 The next major release consists of PRs labelled with “develop”, which is also
 the name of the branch which they will be merged into.
 
-Two labels are used in the PR reviewing process: “include” and “exclude”. The
-“include” label allows you to include a PR opened by a non-member of the OME
-organization in the merge builds for review. The “exclude” label allows you to
-exclude a PR opened by any user from the merge builds.
+Three labels are used in the PR reviewing process: “include”, “exclude”, and
+"on hold". The “include” label allows you to include a PR opened by a
+non-member of the OME organization in the merge builds for review. The
+“exclude” label allows you to exclude a PR opened by any user from the merge
+builds. The "on hold" label allows you to signal that a PR should not be
+reviewed or merged, even though it is not excluded.
 
 
 ..  |merge| replace:: Merges PRs using :ref:`scc merge`
@@ -86,7 +88,7 @@ OMERO jobs
 		* :term:`OMERO-stable-ice34`
 		* :term:`OMERO-trunk-ice34`
 
-	- 	* Build an OMERO Virtual Appliacne
+	- 	* Build an OMERO Virtual Appliance
 		* :term:`OMERO-stable-virtualbox`
 		* :term:`OMERO-trunk-virtualbox`
 
