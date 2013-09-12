@@ -8,7 +8,7 @@ allows access to MATLAB functions from OMERO.blitz scripts.
 Installing Mlabwrap
 -------------------
 
-To install MlabWrap? follow the installation guide at
+To install MlabWrap follow the installation guide at
 `http://www.scipy.org/MlabWrap <http://www.scipy.org/MlabWrap>`_ and
 make sure that the paths are set for the environment variables:
 

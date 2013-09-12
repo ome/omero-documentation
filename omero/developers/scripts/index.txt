@@ -4,31 +4,34 @@ Introduction to OMERO.scripts
 OMERO.scripts are the OME version of plugins, allowing you to extend the 
 functionality of your OMERO installation.
 
-The :javadoc:`OMERO scripting service API <slice2html/omero/api/IScript.html>` 
-allows scripts to be uploaded to an OMERO.server so that image 
-processing and analysis, and other functionality, can be carried out on the 
-server rather than your local machine. Scripts can be run from the OMERO 
-clients, using a UI generated from the script and the results should also be 
-handled by OMERO.insight or OMERO.web where relevant e.g. allowing users to 
-view OMERO Images or Datasets created by the script, or download files or 
-images.
+The OMERO scripting service allows scripts to be uploaded to the server so 
+that image processing and analysis, and other functionality, can be carried 
+out there rather than on your local machine. Scripts are generally written in 
+Python but MATLAB scripts are also supported (currently using a Python wrapper 
+as described in :doc:`matlab-scripts`, but native support will be available 
+soon). Scripts can be run from the OMERO clients, using a UI generated from 
+the script and the results should also be handled where relevant e.g. 
+allowing users to view OMERO Images or Datasets created by the script, or 
+download files or images.
 
 .. figure:: /images/omero-scripting-context.png
   :align: center
   :alt: OMERO script context menu
 
-|
+  Scripts menu in OMERO.insight
 
 .. figure:: /images/scriptActivity.png
   :align: center
-  :alt: Scripts user interface
+  :alt: Scripts Running and completed
 
-|
+  Running a script from an OMERO client
 
 .. figure:: /images/scriptUI.png
   :align: center
-  :alt: Scripts Running and completed
+  :width: 70%
+  :alt: Scripts user interface
 
+  A script user interface
 
 Finding scripts
 ---------------
@@ -37,33 +40,27 @@ Core scripts are bundled with every OMERO.server release and automatically
 available to all users. You can find additional scripts via the new 
 :community_plone:`script sharing <scripts>` page.
 
-Writing scripts
----------------
-
-:doc:`user-guide` describes the workflows for developing and running your own 
-scripts, depending on whether you have admin rights to your OMERO.server or 
-not. You should use the :doc:`style-guide` to ensure your script interacts the 
-OMERO clients in a usable way.
-
 Installing and running scripts
 ------------------------------
 
 The easiest way to make use of scripts is for someone with admin rights to 
-upload them to the OMERO.server as described in the 'script writing as Admin' 
-section in the :doc:`user-guide`. Once a script has been added under the 
-lib/scripts directory, you can run them from the OMERO clients or the command 
-line.
+upload them to the OMERO.server as described in the :doc:`user-guide`. Once a 
+script has been added under the lib/scripts directory, you can run them from 
+the OMERO clients or the command line.
 
-If this is not possible, you can install scripts to run locally on the same 
-machine as your client using the 'regular user workflow' described in the 
-:doc:`user-guide`.
+Writing scripts
+---------------
+
+:doc:`user-guide` describes the workflows for developing and running your own 
+scripts. You should use the :doc:`style-guide` to ensure your script interacts 
+with the OMERO clients in a usable way.
 
 Managing scripts
 ----------------
 
-To keep your scripts up to date even when your server is upgraded, we 
-recommend you use a Github repository to manage your scripts. If you are not 
-familiar with :doc:`/developers/using-git`, you can use the 
+To keep your scripts up to date, we recommend you use a Github repository to 
+manage your scripts. If you are not familiar with 
+:doc:`/developers/using-git`, you can use the 
 `Github app for your OS <http://help.github.com/articles/set-up-git>`_ 
 (available for Mac and Windows). The basic workflow is:
 
@@ -79,6 +76,18 @@ familiar with :doc:`/developers/using-git`, you can use the
 
 -  save the scripts you want to use into the appropriate sub-directory in your 
    cloned location lib/scripts/YOUR_SCRIPTS
+
+Your new scripts will then show up in the script menu in the clients, 
+alongside the core scripts which are shipped with each release. This means you 
+should try to pick unique names to avoid future clashes e.g. 
+lib/scripts/FLIM_Scripts:
+
+.. insert screenshot
+
+The OME developers use Github to co-ordinate all our development work so 
+joining the network will help you access help and support, and see what other 
+people are doing with scripts. Cloning our repository also means you have an 
+example script to get you started with developing your own.
 
 Contributing back to the community
 ----------------------------------

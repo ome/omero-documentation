@@ -1,12 +1,38 @@
 OMERO.scripts user guide
 ========================
 
+:doc:`/developers/server-blitz` provides a service to run scripts
+on the server. The scripts are then passed on to a grid of processors
+called OMERO.grid that executes the script and returns the result to the
+server which in turn passes the result onto the caller. All scripts are of the 
+form:
+
+::
+
+    # import the omero package and the omero.scripts package.
+    import omero, omero.scripts as script
+
+    '''
+    This method creates the client script object, with name SCRIPTNAME and SCRIPTDESCRIPTION.
+    The script then supplies a number of variables that are both inputs and outputs to the 
+    script. The types allowed are defined in the script package, with the qualifier after the 
+    variable of in, out or inout depending on whether the variable if for input, output or input
+    and output.
+    '''  
+    client = script.client("SCRIPTNAME", "SCRIPTDESCRIPTION", 
+             script.TYPE("VARIABLENAME").[in()|out()|inout()], ...)
+    # create a session on the server.
+    client.createSession()
+
+    # All variables are stored in a map accessed by getInput and setOutput via the client object.
+    VARIABLENAME = client.getInput("VARIABLENAME");
+    client.setOutput("VARIABLENAME", value);
+
 This is a guide to getting started with the scripting service, without
 going into the 'behind the scenes' details. More technical details can
-be found on the :doc:`/developers/scripts/advanced` page.
-
-In addition to this guide, you may find the following pages useful for
-more information on using the OMERO Python API: |OmeroClients|, |OmeroPy|.
+be found on the :doc:`/developers/scripts/advanced` page. In addition to this 
+guide, you may find the following pages useful for more information on using 
+the OMERO Python API: |OmeroClients|, |OmeroPy|.
 
 Sample scripts
 --------------
@@ -79,13 +105,16 @@ The basic steps in a script-writing workflow are:
    server (results will be displayed)
 -  Edit script and replace copy on server and run again, etc.
 
-The workflow is slightly different depending on whether you have admin access
-to your chosen server. Working with scripts is more straightforward if
-you have admin access to a server - this is the preferred workflow. See bottom of page for the 'User' workflow.
+Working with scripts is far more straightforward if you have admin access to 
+your OMERO.server installation - this is the preferred workflow. It is 
+possible to work with scripts as a regular user (see :doc:`advanced`) but the 
+software you would be required to install means it is easier to install a 
+server on your local machine so you have admin rights.
 
 It is assumed that scripts written by a server admin are "trusted" to
-run on the server without causing any disruption or security risks.
-Also, official scripts are available to all regular users of the server.
+run on the server without causing any disruption or security risks. Once 
+uploaded these scripts are available to all regular users of the server 
+alongside the official scripts included in each OMERO release.
 
 Download / Edit script
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -354,94 +383,6 @@ the inputs.
         Max: 
         Values: Dataset, Image
     outputs:
-
-Regular user workflow
----------------------
-
-If you are using a server for which you do not have admin access, you
-must upload scripts as 'user' scripts, which are not trusted to run on
-the server machine. The OMERO scripting service will still execute these
-scripts in a similar manner to official 'trusted' scripts but behind the
-scenes it uses the client machine to execute the script. This means that
-any package imports required by the script should be available on the
-client machine.
-
-The first step is to connect to the server and set up the processor on
-the client (see diagram, below).
-
-.. figure:: /images/omero-scripting-workflow.png
-  :align: center
-  :alt: OMERO scripting workflow
-
-  OMERO scripting workflow
-
--  You need to download 'Ice' from ZeroC and set the environment
-   variables, as described in the server installation page (see 
-   :doc:`Unix </sysadmins/unix/server-installation>` and 
-   :doc:`Windows </sysadmins/windows/server-installation>` versions).
-   page .
--  You also need the OMERO server download. Go to the :downloads:`OMERO
-   downloads <>`
-   page and get the appropriate server package (Version must be OMERO
-   4.2 or later and match the server you are connecting to). Unzip the
-   package in a suitable location.
-
-In a command line terminal, change into the unzipped OMERO package,
-connect to the server and start user processor. For example for host:
-openmicroscopy.org.uk and user: will
-
-::
-
-    $ cd Desktop/OMERO.server-Beta-4.2/
-    $ bin/omero -s openmicroscopy.org.uk -u will script serve user
-    $ password: ......
-
-If you want to run scripts belonging to another user in the same
-collaborative group you need to set up your local user processor to
-accept scripts from that user. First, find the ID of the user, then
-start the user processor and give it the user's ID:
-
-::
-
-    $ cd Desktop/OMERO.server-Beta-4.2/
-    $ bin/omero -s openmicroscopy.org.uk -u will user list
-    $ bin/omero -s openmicroscopy.org.uk -u will script serve user=5
-
-From this point on, the user and admin workflows are the same, except
-for a couple of options that are not available to regular users. Also
-see below.
-
-.. note::
-
-    Because non-official scripts do not have a unique path name, you
-    will be able to run the upload command multiple times on the same file.
-    This will create multiple copies of a file in OMERO and then you will
-    have to choose the most recent one (highest ID) if you want to run the
-    latest script. It is best to avoid this and use the 'replace' command as
-    for official scripts.
-
-To list user scripts:
-
-::
-
-    $ omero -s openmicroscopy -u will script list user      # lists user scripts
-     id  | Scripts for user                                                                            
-    -----+---------------------------------------------------------------------------------------------
-     151 | examples/HelloWorld.py        
-     251 | examples/Edit_Descriptions.py
-
-You can list scripts belonging to another user that are available for
-you (e.g. you are both in the same collaborative group) by using the
-user ID as described above:
-
-::
-
-    $ omero user list
-    $ omero script list user=5
-
-User scripts can be run from OMERO.insight. They will be found under 'User
-Scripts' in the scripts menu. Remember, for user scripts you will need
-to have the User-Processor running.
 
 Debugging scripts
 -----------------
