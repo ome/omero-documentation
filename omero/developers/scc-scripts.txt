@@ -168,6 +168,39 @@ is calling the following merge command:
 	Added default values for :option:`--include` and :option:`--exclude`
 	options.
 
+scc update-submodules
+---------------------
+
+.. program:: scc update-submodules
+
+Update the pointer of all submodules based on specified branch.
+
+The first argument is the name of the base branch of origin, e.g.::
+
+	$ scc update-submodules develop
+
+.. option:: --push <branchname>
+
+	Push the locally merged branch to Github and open a PR against the base
+	branch::
+
+		$ scc merge develop --push submodules_branch
+
+.. option:: --no-pr
+
+	Combined with :option:`--push` option, push the locally merged branch to
+	Github but skip PR opening::
+
+		$ scc merge develop --push submodules_branch --no-pr
+
+.. option:: --remote <remote>
+
+	Specify the name of the remote to use as the origin. Default: origin::
+
+		$ scc update-submodules develop --remote gh
+
+	.. versionadded:: 0.3.8
+
 scc rebase
 ----------
 .. program:: scc rebase
