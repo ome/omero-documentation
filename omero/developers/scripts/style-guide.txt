@@ -82,13 +82,13 @@ parameters will be disabled and will not be passed to the script.
     scripts.Int("Scalebar_Size", grouping="10.1"),
     scripts.String("Scalebar_Colour", grouping="10.2"),
 
-Pick selected Images, Datasets or Projects from OMERO.insight
+Pick selected Images, Datasets or Projects from OMERO clients
 -------------------------------------------------------------
 
-OMERO.insight recognizes and populates a pair of
+Both OMERO.insight and OMERO.web recognize and populate a pair of
 fields named 'Data\_Type' (string) and 'IDs' (Long list) with the
-currently selected objects in OMERO.insight when the script is launched. You
-should specify the 'Data\_Type' options that your script should accept.
+currently selected objects when the script is launched. You should specify the 
+'Data\_Type' options that your script should accept.
 E.g.
 
 ::
