@@ -253,6 +253,50 @@ switch to your previous branch::
 
 	git checkout old_branch
 
+scc unrebased-prs
+-----------------
+.. program:: scc unrebased-prs
+
+Compare two development branches and check that PRs merged in one branch have
+been merged to the other.
+
+This command requires two positional arguments corresponding to the name of
+the branch of origin to compare::
+
+	$ scc unrebased-prs dev_4_4 develop
+
+.. option:: --remote
+
+	Specify the name of the remote to use as the origin (default: origin)::
+
+		$ scc unrebased-prs dev_4_4 develop --remote gh
+
+The basic workflow of the :program:`scc unrebased-prs` command is the
+following:
+
+- 	list all first-parent merge commit for each branch including git notes
+	referenced as `see_also/other_branch` where other_branch is the name of
+	the branch to check against.
+- 	exclude all merge commit with a note containing either "See gh-" or "n/a"
+
+.. versionadded:: 0.3.10
+
+-	for each remaining merge commit, parse the PR number and look into the PR
+	body/comments for lines starting with `--rebased-to`, `--rebased-from` or
+	`--no-rebase`
+
+Additionally, for each line of each PR starting with `--rebased-to` or
+`--rebased-from`, the existence of a matching line is checked in the
+corresponding source/target PR. For instance, if PR 70 has a
+`--rebased-from #67` line and a `--rebased-from #66` line, then both PRs 66
+and 67 should have a `--rebased-to #67` line.
+
+.. option:: --no-check
+
+	Do not check  matching rebased comments::
+
+		$ scc unrebased-prs dev_4_4 develop --no-check
+
 scc version
 -----------
 .. program:: scc version
