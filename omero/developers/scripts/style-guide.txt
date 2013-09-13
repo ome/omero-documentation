@@ -86,9 +86,9 @@ Pick selected Images, Datasets or Projects from OMERO clients
 -------------------------------------------------------------
 
 Both OMERO.insight and OMERO.web recognize and populate a pair of
-fields named 'Data\_Type' (string) and 'IDs' (Long list) with the
-currently selected objects when the script is launched. You should specify the 
-'Data\_Type' options that your script should accept.
+fields named 'Data\_Type' (string) and 'IDs' (Long list) with the objects 
+currently selected in the client UI when the script is launched. You should 
+specify the 'Data\_Type' options that your script should accept.
 E.g.
 
 ::
