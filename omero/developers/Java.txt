@@ -830,12 +830,11 @@ in OMERO. Similar approach can be applied when uploading an image.
     RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
     store.setPixelsId(pixelsId, false);
 
-    Map<Integer, byte[]> map = new HashMap<Integer, byte[]>();
+    List<byte[]> planes = new ArrayList<byte[]>();
 
     for (int z = 0; z < sizeZ; z++) {
         for (int t = 0; t < sizeT; t++) {
-           //linearize does sizeZ*t+z
-            map.put(linearize(z, t, sizeZ), store.getPlane(z, 0, t));
+            list.add(store.getPlane(z, 0, t));
         }
     }
 
@@ -881,8 +880,7 @@ in OMERO. Similar approach can be applied when uploading an image.
     int index = 0;
     for (int z = 0; z < sizeZ; z++) {
         for (int t = 0; t < sizeT; t++) {
-            index = linearize(z, t, sizeZ);
-            store.setPlane(map.get(index), z, 0, t);
+            store.setPlane(planes.get(index++), z, 0, t);
         }
     }
 
