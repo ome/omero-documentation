@@ -286,7 +286,7 @@ This is useful when you need the pixels intensity.
     for (int z = 0; z < sizeZ; z++) {
       for (int t = 0; t < sizeT; t++) {
         for (int c = 0; c < sizeC; c++) {
-          byte[] plane = store.getPlane(z, c, t, x, y, width, height);
+          byte[] plane = store.getTile(z, c, t, x, y, width, height);
           //Do something
         }
       }
