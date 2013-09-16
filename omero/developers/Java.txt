@@ -844,6 +844,8 @@ in OMERO. Similar approach can be applied when uploading an image.
 
     //Now we are going to create the new image.
     IPixelsPrx proxy = entryUnencrypted.getPixelsService();
+
+    //Search for PixelsType object matching the source image.
     List<IObject> l = proxy.getAllEnumerations(PixelsType.class.getName());
     Iterator<IObject> i = l.iterator();
     PixelsType type = null;
