@@ -280,7 +280,7 @@ Additionally, for each line of each PR starting with :option:`--rebased-to` or
 :option:`--rebased-from`, the existence of a matching line is checked in the
 corresponding source/target PR. For instance, if PR 70 has a
 :option:`--rebased-from #67` line and a :option:`--rebased-from #66` line,
-then both PRs 66 and 67 should have a :option:`--rebased-to #67` line.
+then both PRs 66 and 67 should have a :option:`--rebased-to #70` line.
 
 This command requires two positional arguments corresponding to the name of
 the branch of origin to compare::
