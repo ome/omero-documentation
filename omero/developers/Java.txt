@@ -861,6 +861,7 @@ in OMERO. Similar approach can be applied when uploading an image.
     if (type == null)
         throw new Exception("Pixels Type not valid.");
 
+    //Create new image.
     String name = "newImageFrom"+image.getId();
     RLong idNew = proxy.createImage(sizeX, sizeY, sizeZ, sizeT, Arrays.asList(0), type, name,
             "From Image ID: "+image.getId());
