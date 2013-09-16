@@ -100,8 +100,8 @@ Script writing as 'Admin'
 The basic steps in a script-writing workflow are:
 
 -  Write a script using your favorite text editor, save locally
--  Use command line (or OMERO.insight client) to upload script to server
--  Use command line (or OMERO.insight client) to run script on the
+-  Use command line (or OMERO.insight) to upload script to server
+-  Use command line (or OMERO.insight or web clients) to run script on the
    server (results will be displayed)
 -  Edit script and replace copy on server and run again, etc.
 
