@@ -859,7 +859,7 @@ in OMERO. Similar approach can be applied when uploading an image.
         }
     }
     if (type == null)
-      throw new Exception("Pixels Type not valid.");
+        throw new Exception("Pixels Type not valid.");
 
     String name = "newImageFrom"+image.getId();
     RLong idNew = proxy.createImage(sizeX, sizeY, sizeZ, sizeT, Arrays.asList(0), type, name,
@@ -880,8 +880,8 @@ in OMERO. Similar approach can be applied when uploading an image.
     int index = 0;
     for (int z = 0; z < sizeZ; z++) {
         for (int t = 0; t < sizeT; t++) {
-        index = linearize(z, t, sizeZ);
-        store.setPlane(map.get(index), z, 0, t);
+            index = linearize(z, t, sizeZ);
+            store.setPlane(map.get(index), z, 0, t);
         }
     }
 
