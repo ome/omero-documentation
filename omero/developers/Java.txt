@@ -869,7 +869,7 @@ in OMERO. Similar approach can be applied when uploading an image.
         throw new Exception("New image could not be created.");
     ImageData newImage = loadImage(idNew.getValue());
 
-    //link the new image and the dataset hosting the source image.
+    //Link the new image and the dataset hosting the source image.
     DatasetImageLink link = new DatasetImageLinkI();
     link.setParent(new DatasetI(datasetId, false));
     link.setChild(new ImageI(newImage.getId(), false));
@@ -886,7 +886,7 @@ in OMERO. Similar approach can be applied when uploading an image.
         }
     }
 
-    //Save the data
+    //Save the data.
     store.save();
 
     store.close();
