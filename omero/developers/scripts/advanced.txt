@@ -1,8 +1,110 @@
+OMERO.scripts advanced topics
+=============================
+
+Regular user (non-admin) workflow
+---------------------------------
+
+If you are using a server for which you do not have admin access, you
+must upload scripts as 'user' scripts, which are not trusted to run on
+the server machine. The OMERO scripting service will still execute these
+scripts in a similar manner to official 'trusted' scripts but behind the
+scenes it uses the client machine to execute the script. This means that
+any package imports required by the script should be available on the
+client machine.
+
+The first step is to connect to the server and set up the processor on
+the client (see diagram, below).
+
+.. figure:: /images/omero-scripting-workflow.png
+  :align: center
+  :width: 70%
+  :alt: OMERO scripting workflow
+
+  OMERO scripting workflow
+
+-  You need to download 'Ice' from ZeroC and set the environment
+   variables, as described in the server installation page (see 
+   :doc:`Unix </sysadmins/unix/server-installation>` and 
+   :doc:`Windows </sysadmins/windows/server-installation>` versions).
+-  You also need the OMERO server download. Go to the :omero_plone:`OMERO
+   downloads <downloads>` page and get the appropriate server package (version 
+   must be OMERO 4.2 or later and match the server you are connecting to). 
+   Unzip the package in a suitable location.
+
+In a command line terminal, change into the unzipped OMERO package,
+connect to the server and start user processor. For example for host:
+openmicroscopy.org.uk and user: will
+
+::
+
+    $ cd Desktop/OMERO.server-Beta-4.2/
+    $ bin/omero -s openmicroscopy.org.uk -u will script serve user
+    $ password: ......
+
+If you want to run scripts belonging to another user in the same
+collaborative group you need to set up your local user processor to
+accept scripts from that user. First, find the ID of the user, then
+start the user processor and give it the user's ID:
+
+::
+
+    $ cd Desktop/OMERO.server-Beta-4.2/
+    $ bin/omero -s openmicroscopy.org.uk -u will user list
+    $ bin/omero -s openmicroscopy.org.uk -u will script serve user=5
+
+From this point on, the user and admin workflows are the same, except
+for a couple of options that are not available to regular users. Also
+see below.
+
+.. note::
+
+    Because non-official scripts do not have a unique path name, you
+    will be able to run the upload command multiple times on the same file.
+    This will create multiple copies of a file in OMERO and then you will
+    have to choose the most recent one (highest ID) if you want to run the
+    latest script. It is best to avoid this and use the 'replace' command as
+    for official scripts.
+
+To list user scripts:
+
+::
+
+    $ omero -s openmicroscopy -u will script list user      # lists user scripts
+     id  | Scripts for user                                                                            
+        -----+---------------------------------------------------------------------------------------------
+     151 | examples/HelloWorld.py        
+     251 | examples/Edit_Descriptions.py
+
+You can list scripts belonging to another user that are available for
+you (e.g. you are both in the same collaborative group) by using the
+user ID as described above:
+
+::
+
+    $ omero user list
+    $ omero script list user=5
+
+User scripts can be run from OMERO.insight. They will be found under 'User
+Scripts' in the scripts menu. Remember, for user scripts you will need
+to have the User-Processor running.
+
+
+The iScript service
+-------------------
+
+The OMERO.blitz server provides a service called 
+:javadoc:`iScript <slice2html/omero/api/IScript.html>` that includes
+methods to upload, delete, query and run scripts. To access these methods
+a session needs to be created and the script service started. However,
+you may find it more convenient to use the command line
+``bin/omero script`` or the OMERO.insight client to work with scripts
+as described on the :doc:`/developers/scripts/user-guide`.
+
 Scripting service API
 ---------------------
 
 **The recommended way of working with the scripting service is via the
-command line as described on the** :doc:`/developers/Modules/Scripts/Guide`
+command line as described on the** :doc:`user-guide`
 **page. The information on this page is only useful if you want to access
 the Scripting service from your own client-side Python code.**
 
@@ -16,7 +118,7 @@ This sample script allows these functions to be called from the command
 line and can be used as an example for writing your own clients.
 
 Most functions of the adminWorkflow.py script are also implemented in
-the OMERO |CLI| described on the :doc:`/developers/Modules/Scripts/Guide`,
+the OMERO |CLI| described on the :doc:`/developers/scripts/user-guide`,
 which is the preferred way of accessing the scripting service for script
 writers.
 
