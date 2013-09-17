@@ -19,46 +19,10 @@ the developer documentation.
    -  |OmeroPy|
 
 
-Distributed analysis via OMERO.scripts
-======================================
-
 Once you have your local analysis working, you can push it onto the server for 
-background processing. 
+background processing using the 
+:doc:`OMERO scripting service <scripts/index>`.
 
-.. note:: Your scripts must either be written in Python or be wrapped with a Python script.
-
-The :javadoc:`OMERO scripting service API <slice2html/omero/api/IScript.html>`
-allows Python scripts to be uploaded to the server and registered in the
-server database. These scripts can then be called from a client with the
-scripts running on the server. This allows extra functionality to be added to
-an OMERO server.
-
-Technical info and API details can be found on the 
-:doc:`/developers/Modules/Api/ScriptingService` page.
-
-The :doc:`/developers/Modules/Scripts/Guide` should help you get started with 
-the scripting service, without going into the 'behind the scenes' details.
-
-Scripts can be run from OMERO.insight, using a UI generated from the script. 
-The script results can also be handled by OMERO.insight, allowing users to 
-view OMERO Images or Datasets created by the script, or download files or 
-images.
-
-.. figure:: /images/scripts.png
-  :align: center
-  :alt: Scripts in OMERO.insight
-
-|
-
-.. figure:: /images/scriptActivity.png
-  :align: center
-  :alt: Scripts user interface
-
-|
-
-.. figure:: /images/scriptUI.png
-  :align: center
-  :alt: Scripts Running and completed
 
 .. _omerotables:
 
@@ -106,7 +70,7 @@ associated image:
 
 
 Other high-content screening (HCS) data
-=======================================
+---------------------------------------
 
 In addition to the Flex, Mias, and InCell 100 file formats, BD Pathway, 
 Olympus ScanR, and native OME-XML/TIFF files can all be imported as HCS 

@@ -41,7 +41,7 @@ point you back to this page for packaging and deploying your new code.
    Java handler for failed login attempts
 -  :doc:`/developers/command-line-interface` - write drop in Python extensions 
    for the command-line
--  :doc:`/developers/Modules/Scripts` - write python scripts to
+-  :doc:`/developers/scripts/index` - write python scripts to
    process data server-side
 -  :doc:`/developers/Server/Ldap` - write a Java authentication
    plugin
