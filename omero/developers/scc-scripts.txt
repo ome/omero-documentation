@@ -98,7 +98,7 @@ The first argument is the name of the base branch of origin, e.g.::
 
 		$ scc merge develop -E pr:45 -E #46
 
-	Submodule PR filter can be specified using `submodule_name#number`::
+	Submodule PR filters can be specified using `submodule_name#number`::
 
 		$ scc merge develop -E bioformats#40
 
@@ -127,7 +127,7 @@ The first argument is the name of the base branch of origin, e.g.::
 
 		$ scc merge develop -I pr:45 -I #46
 
-	Submodule PR filter can be specified using `submodule_name#number`::
+	Submodule PR filters can be specified using `submodule_name#number`::
 
 		$ scc merge develop -I bioformats#40
 
