@@ -86,10 +86,21 @@ The first argument is the name of the base branch of origin, e.g.::
 
 	Exclude PR by label, user or number
 
-	Label filters can be specified using `label:my_label`, user filters using
-	`user:username` and PR filters using `pr:xx`, e.g.::
+	Label filters can be specified using `label:my_label`::
 
-		$ scc merge develop -E label:exclude_label -E user:my_user -E pr:45
+		$ scc merge develop -E label:exclude_label
+
+	User filters can be specified using `user:username`::
+
+		$ scc merge develop -E user:my_user
+
+	PR filters can be specified using `pr:number` or `#number`::
+
+		$ scc merge develop -E pr:45 -E #46
+
+	Submodule PR filters can be specified using `submodule_name#number`::
+
+		$ scc merge develop -E bioformats#40
 
 	If no key is specified, it is assumed the filter is a label filter.
 
@@ -104,10 +115,21 @@ The first argument is the name of the base branch of origin, e.g.::
 
 	Include PR by label, user or number
 
-	Label filters can be specified using `label:my_label`, user filters using
-	`user:username` and PR filters using `pr:xx`, e.g.::
+	Label filters can be specified using `label:my_label`::
 
-		$ scc merge develop -I label:include_label -I user:my_user -I pr:40
+		$ scc merge develop -I label:exclude_label
+
+	User filters can be specified using `user:username`::
+
+		$ scc merge develop -I user:my_user
+
+	PR filters can be specified using `pr:number` or `#number`::
+
+		$ scc merge develop -I pr:45 -I #46
+
+	Submodule PR filters can be specified using `submodule_name#number`::
+
+		$ scc merge develop -I bioformats#40
 
 	If no key is specified, it is assumed the filter is a label filter.
 
@@ -166,6 +188,30 @@ is calling the following merge command:
 
 .. versionchanged:: 0.3.8
 	Added :option:`--shallow` and :option:`--remote` options.
+
+scc travis-merge
+----------------
+.. program:: scc travis-merge
+
+Merge PRs in a Travis environment, using the PR comments to generate the merge
+filters.
+
+::
+
+	$ scc travis-merge
+
+This command internally defines all the filter options exposed in
+:program:`scc merge`.
+
+The target branch is read from the base of the PR, the :option:`--default`
+option is set to `none` meaning no PR is merged by default and no default
+:option:`--exclude` option is defined.
+
+The :option:`--include` filter is determined by parsing all the PR comments
+lines starting with :option:`--depends-on`. To include PR 67 in the merge, add
+a comment line starting with :option:`--depends-on #67` to the PR. To include
+PR 60 of the bioformats submodules, add a comment line starting with
+:option:`--depends-on bioformats#600` to the PR.
 
 scc update-submodules
 ---------------------
