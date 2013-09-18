@@ -62,36 +62,41 @@ This script echoes the input parameters as outputs.
     for key in keys:
           client.setOutput(key, client.getInput(key))
 
-Accessing the pixels object from the server
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Accessing an Image and Channels on the server
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This method shows an example of accessing the iPixels service on the
-server to get the pixels description of pixels supplied as a parameter.
+This example shows usage of the Python Blitz Gateway to
+access an Image, using its ID. We then list the Channel names
+and the script returns them as outputs.
 
 ::
 
-    import omero, omero.scripts as s
+    import omero, omero.scripts as scripts
+    from omero.gateway import BlitzGateway
+    from omero.rtypes import wrap
 
-    client = s.client("getPixels.py", "get Pixels from the server", s.Long("pixelsId").in())
-    session = client.createSession()
+    # Define the script name & description, and a single 'required' parameter
+    client = scripts.client("Get_Channels.py", "Get channel names for an image",
+        scripts.Long("imageId", optional=False))
 
-    # get the pixels Id from the parameters.
-    pixelsId = client.getInput("pixelsId").val
+    # Use the Python Blitz Gateway for convenience
+    conn = BlitzGateway(client_obj=client)
 
-    # Access the pixels service. 
-    pixelsService = session.getPixelsService()
+    # get the Image Id from the parameters.
+    imageId = client.getInput("imageId").getValue()   # unwrap the rtype
 
-    # get the pixels for the pixels with Id=pixelsId.
-    pixels = pixelsService.retrievePixDescription(pixelsId);
+    # get the Image, print it's name
+    image = conn.getObject("Image", imageId)
+    print image.getName()
 
-    '''
-    now we have the pixels in hand we should do something with them
-    print the width of the pixels. 
-    '''
-    print pixels.sizeX.val
+    # Print each channel 'label' (Name or Excitation wavelength)
+    for i, ch in enumerate(image.getChannels()):
+        print ch.getLabel()
+        # Return as output. Key is string, value is rtype
+        client.setOutput("Channel%s" % i, wrap(str(ch.getLabel())))
 
-    #print the height of the pixels.
-    print pixels.sizeY.val
+    # Cleanup
+    client.closeSession()
 
 
 Script writing as 'Admin'
