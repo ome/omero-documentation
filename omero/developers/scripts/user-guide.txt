@@ -53,7 +53,7 @@ This script echoes the input parameters as outputs.
 
     import omero, omero.scripts as script
     client = script.client("ping.py", "simple ping script", 
-             script.Long("a").inout(), script.String("b").inout())
+             script.Long("a"), script.String("b"))
     client.createSession()
 
     keys = client.getInputKeys()
