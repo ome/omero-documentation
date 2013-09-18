@@ -203,15 +203,15 @@ filters.
 This command internally defines all the filter options exposed in
 :program:`scc merge`.
 
-The target branch is read from the base of the Pull Request, the
-:option:`--default` option is set to `none` meaning no PR is merged by
-default and no default :option:`--exclude` option is defined.
+The target branch is read from the base of the PR, the :option:`--default`
+option is set to `none` meaning no PR is merged by default and no default
+:option:`--exclude` option is defined.
 
 The :option:`--include` filter is determined by parsing all the PR comments
 lines starting with :option:`--depends-on`. To include PR 67 in the merge, add
-a comment line starting with :option:`--depends-on #67` to the Pull Request.
-To include PR 60 of the bioformats submodules, add a comment line starting
-with :option:`--depends-on bioformats#600` to the Pull Request.
+a comment line starting with :option:`--depends-on #67` to the PR. To include
+PR 60 of the bioformats submodules, add a comment line starting with
+:option:`--depends-on bioformats#600` to the PR.
 
 scc update-submodules
 ---------------------
