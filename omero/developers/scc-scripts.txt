@@ -294,11 +294,35 @@ branch prior to rebasing and delete the local `rebased/develop/branch_142`.
 
 		$ scc rebase 142 develop --remote snoopycrimecop
 
-If :program:`scc rebase` fails (e.g. due to conflict during the rebase), you
-may end up in a detached HEAD state. In this case, you will need to manually
-switch to your previous branch::
+.. option:: --continue
 
-	git checkout old_branch
+	Re-run the command after manually fixing conflicts
+
+	If :program:`scc rebase` fails due to conflict during the rebase, you will
+	end up in a detached HEAD state.
+
+	If you want to continue the rebase operation, you will need to manually
+	fix the conflicts::
+
+		# fix files locally
+		$ git add conflicting_files # add conflicting files
+		$ git rebase --continue
+
+	This conflict solving operation may need to be repeated multiple times
+	until the branch is fully rebased.
+
+	Once all the conflicts are resolved, call :program:`scc rebase` with the
+	:option:`--continue` option::
+
+		$ scc rebase --continue 142 develop
+
+	Depending on the input options, this command will perform all the steps of
+	the rebase command (Github pushing, PR opening) skipping the rebase part.
+
+	Alternately, you can abort the rebase and switch to your previous branch::
+
+		$ git rebase --abort
+		$ git checkout old_branch
 
 .. versionchanged:: 0.3.10
 	Automatically add :option:`--rebased-to` and :option:`--rebased-from`
