@@ -23,13 +23,15 @@ server when you log in. That page also describes how to set debug to 'True'
 which is important when developing with OMERO.web and you should also be using 
 the Django 'development' server.
 
-You need the omeroweb code. Your options are to run against a released
-OMERO.server build, or run directly from the OMERO.web source code:
+You can either add your app to the omeroweb under an OMERO.server release build,
+or run directly from the OMERO.web source code:
 
 Option 1: Using OMERO.server release build
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The simplest option is to directly add your app to the server build
+If all your edits will be under your own app, and you are not editing or building
+the OMERO.web source code, then
+the simplest option is to directly add your app to the server build
 under lib/python/omeroweb. This code is run when you start the Django
 server with
 
@@ -62,6 +64,10 @@ source code since any edits to the build code will get wiped out each
 time you build! In order to run Django directly from the source code you
 need to follow a few steps (commands are shown below):
 
+-  Set $OMERO_HOME, so that OMERO.web knows where to find config, write logs etc.
+
+   .. note:: You should not set $OMERO_HOME on production servers
+
 -  Make sure that the Django libraries that are under the build:
    dist/lib/python/django are on your PYTHONPATH.
 -  Remove the built omeroweb folder, otherwise this will get used
@@ -74,11 +80,11 @@ need to follow a few steps (commands are shown below):
 
    ::
 
-       $ export OMERO_PREFIX = ~/Desktop/OMERO/dist      # Example server build path
+       $ export OMERO_HOME = ~/Desktop/OMERO/dist      # Example server build path
 
        # Make sure the Django code etc can be imported
-       $ export PYTHONPATH=$OMERO_PREFIX/lib/python/:$PYTHONPATH
-       $ cd $OMERO_PREFIX
+       $ export PYTHONPATH=$OMERO_HOME/lib/python/:$PYTHONPATH
+       $ cd $OMERO_HOME
        # need to remove the built omeroweb code so it doesn't get imported
        $ rm -rf lib/python/omeroweb/
 
