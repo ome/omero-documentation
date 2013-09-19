@@ -126,12 +126,10 @@ with data, with the following limitations:
 -  It is possible to toggle permissions of a group between the two
    collaborative :term:`Read-only` and :term:`Read-annotate` groups.
 
-**Known Issue**
-
-Please be very careful before downgrading a group's permission level. If
-a user has annotated other users' data and the group is downgraded,
-any links to annotations that are not permitted with the new permissions
-setting will be lost.
+.. warning:: Please be very careful before downgrading a group's
+    permission level. If a user has annotated other users' data and
+    the group is downgraded, any links to annotations that are not
+    permitted by the new permissions level will be lost.
 
 Permissions on your and other users' data
 -----------------------------------------
