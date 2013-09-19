@@ -259,10 +259,10 @@ is the name of the branch onto which the PR should be rebased::
 Assuming the head branch used to open the PR 142 was called `branch_142`, this
 command will rebase the tip of `branch_142` onto origin/develop, create a new
 local branch called `rebased/develop/branch_142`, push this branch to Github
-and open a new PR. To facilitate the integration with
-:program:`scc unrebased-prs`, a :option:`--rebased-to #pr` comment is added to
-the source PR and a :option:`--rebased-from #142` comment is added to the
-target rebased PR. Finally, the command will switch back to the original
+and open a new PR. Assuming the command opens PR 150, to facilitate the
+integration with :program:`scc unrebased-prs`, a :option:`--rebased-to #150`
+comment is added to PR 142 and a :option:`--rebased-from #142` comment is
+added to the PR 150. Finally, the command will switch back to the original
 branch prior to rebasing and delete the local `rebased/develop/branch_142`.
 
 .. note::
