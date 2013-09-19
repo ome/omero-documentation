@@ -286,7 +286,7 @@ branch prior to rebasing and delete the local `rebased/develop/branch_142`.
 
 		$ scc rebase 142 develop --no-delete
 
-.. option:: --remote
+.. option:: --remote <remote>
 
 	Specify the name of the remote to use for the rebase (default: origin)
 
@@ -357,7 +357,7 @@ the branch of origin to compare::
 
 	$ scc unrebased-prs dev_4_4 develop
 
-.. option:: --remote
+.. option:: --remote <remote>
 
 	Specify the name of the remote to use as the origin (default: origin)::
 
