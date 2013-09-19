@@ -208,10 +208,10 @@ option is set to `none` meaning no PR is merged by default and no default
 :option:`--exclude` option is defined.
 
 The :option:`--include` filter is determined by parsing all the PR comments
-lines starting with :option:`--depends-on`. To include PR 67 in the merge, add
-a comment line starting with :option:`--depends-on #67` to the PR. To include
-PR 60 of the bioformats submodules, add a comment line starting with
-:option:`--depends-on bioformats#600` to the PR.
+lines starting with ``--depends-on``. To include PR 67 in the merge, add a
+comment line starting with ``--depends-on #67`` to the PR. To include PR 60 of
+the bioformats submodules, add a comment line starting with
+``--depends-on bioformats#60`` to the PR.
 
 scc update-submodules
 ---------------------
@@ -259,10 +259,10 @@ is the name of the branch onto which the PR should be rebased::
 Assuming the head branch used to open the PR 142 was called `branch_142`, this
 command will rebase the tip of `branch_142` onto origin/develop, create a new
 local branch called `rebased/develop/branch_142`, push this branch to Github
-and open a new PR. To facilitate the integration with
-:program:`scc unrebased-prs`, a :option:`--rebased-to #pr` comment is added to
-the source PR and a :option:`--rebased-from #142` comment is added to the
-target rebased PR. Finally, the command will switch back to the original
+and open a new PR. Assuming the command opens PR 150, to facilitate the
+integration with :program:`scc unrebased-prs`, a ``--rebased-to #150``
+comment is added to PR 142 and a ``--rebased-from #142`` comment is
+added to the PR 150. Finally, the command will switch back to the original
 branch prior to rebasing and delete the local `rebased/develop/branch_142`.
 
 .. note::
@@ -286,7 +286,7 @@ branch prior to rebasing and delete the local `rebased/develop/branch_142`.
 
 		$ scc rebase 142 develop --no-delete
 
-.. option:: --remote
+.. option:: --remote <remote>
 
 	Specify the name of the remote to use for the rebase (default: origin)
 
@@ -294,15 +294,39 @@ branch prior to rebasing and delete the local `rebased/develop/branch_142`.
 
 		$ scc rebase 142 develop --remote snoopycrimecop
 
-If :program:`scc rebase` fails (e.g. due to conflict during the rebase), you
-may end up in a detached HEAD state. In this case, you will need to manually
-switch to your previous branch::
+.. option:: --continue
 
-	git checkout old_branch
+	Re-run the command after manually fixing conflicts
+
+	If :program:`scc rebase` fails due to conflict during the rebase, you will
+	end up in a detached HEAD state.
+
+	If you want to continue the rebase operation, you will need to manually
+	fix the conflicts::
+
+		# fix files locally
+		$ git add conflicting_files # add conflicting files
+		$ git rebase --continue
+
+	This conflict solving operation may need to be repeated multiple times
+	until the branch is fully rebased.
+
+	Once all the conflicts are resolved, call :program:`scc rebase` with the
+	:option:`--continue` option::
+
+		$ scc rebase --continue 142 develop
+
+	Depending on the input options, this command will perform all the steps of
+	the rebase command (Github pushing, PR opening) skipping the rebase part.
+
+	Alternately, you can abort the rebase and switch to your previous branch::
+
+		$ git rebase --abort
+		$ git checkout old_branch
 
 .. versionchanged:: 0.3.10
-	Automatically add :option:`--rebased-to` and :option:`--rebased-from`
-	comments to the	source and target PRs.
+	Automatically add ``--rebased-to`` and ``--rebased-from`` comments to the
+	source and target PRs.
 
 scc unrebased-prs
 -----------------
@@ -319,21 +343,21 @@ following:
 	the branch to check against.
 - 	exclude all merge commits with a note containing either "See gh-" or "n/a"
 - 	for each remaining merge commit, parse the PR number and look into the PR
-	body/comments for lines starting with :option:`--rebased-to`,
-	:option:`--rebased-from` or	:option:`--no-rebase`
+	body/comments for lines starting with ``--rebased-to``, ``--rebased-from``
+	or ``--no-rebase``.
 
-Additionally, for each line of each PR starting with :option:`--rebased-to` or
-:option:`--rebased-from`, the existence of a matching line is checked in the
+Additionally, for each line of each PR starting with ``--rebased-to`` or
+``--rebased-from``, the existence of a matching line is checked in the
 corresponding source/target PR. For instance, if PR 70 has a
-:option:`--rebased-from #67` line and a :option:`--rebased-from #66` line,
-then both PRs 66 and 67 should have a :option:`--rebased-to #70` line.
+``--rebased-from #67`` line and a ``--rebased-from #66`` line, then both PRs
+66 and 67 should have a ``--rebased-to #70`` line.
 
 This command requires two positional arguments corresponding to the name of
 the branch of origin to compare::
 
 	$ scc unrebased-prs dev_4_4 develop
 
-.. option:: --remote
+.. option:: --remote <remote>
 
 	Specify the name of the remote to use as the origin (default: origin)::
 
@@ -346,7 +370,7 @@ the branch of origin to compare::
 		$ scc unrebased-prs dev_4_4 develop --no-check
 
 .. versionadded:: 0.3.10
-	Added support for body/comment parsing and :option:`--rebased-to/from`
+	Added support for body/comment parsing and ``--rebased-to/from``
 	linkcheck
 
 scc version
