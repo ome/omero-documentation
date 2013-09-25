@@ -1,8 +1,8 @@
 OMERO Java language bindings
 ============================
 
-Using the :zeroc:`Ice Java language mapping 
-<doc/Ice-3.3.0/manual/Hello.4.4.html>` from ZeroC_, OMERO provides access to 
+Using the :zeroc:`Ice Java language mapping
+<doc/Ice-3.3.0/manual/Hello.4.4.html>` from ZeroC_, OMERO provides access to
 your data within an :doc:`/developers/server-blitz` server from Java code.
 
 Using the ``omero_client.jar``
@@ -13,7 +13,7 @@ class as well as the Ice classes needed to write a complete Java client
 for :doc:`/developers/server-blitz`.
 
 The library is placed under OMERO\_HOME/dist/lib/client by the build,
-or is alternatively available from Jenkins :omerojob:`here 
+or is alternatively available from Jenkins :omerojob:`here
 <lastSuccessfulBuild/>`.  To use |OmeroJava|, setup you will
 need to setup your CLASSPATH:
 
@@ -41,14 +41,14 @@ Connect to OMERO
 
     client client = new client(hostName, port);
     ServiceFactoryPrx entry = client.createSession(userName, password);
-    // if you want to have the data transfer encrypted then you can 
-    // use the entry variable otherwise use the following 
+    // if you want to have the data transfer encrypted then you can
+    // use the entry variable otherwise use the following
     client unsecureClient = client.createClient(false);
     ServiceFactoryPrx entryUnencrypted = unsecureClient.getSession();
 
-    //Retrieve the user id.         
+    //Retrieve the user id.
     long userId = entryUnencrypted.getAdminService().getEventContext().userId;
-                
+
     long groupId = entryUnencrypted.getAdminService().getEventContext().groupId;
 
 -  **Close connection**. **IMPORTANT**
@@ -110,7 +110,7 @@ loaded.
     param.exp(omero.rtypes.rlong(userId));
 
     //indicate to load the images
-    param.leaves(); 
+    param.leaves();
     List<IObject> results = proxy.loadContainerHierarchy(Dataset.class.getName(), new ArrayList<Long>(), param);
     //You can directly interact with the IObject or the Pojos object.
     //Follow interaction with the Pojos.
@@ -138,7 +138,7 @@ loaded.
     param.leaves(); //indicate to load the images
 
     List<IObject> results = proxy.loadContainerHierarchy(Dataset.class.getName(), Arrays.asList(datasetId), param);
-            
+
     if (results.size() == 0) return;
     //You can directly interact with the IObject or the Pojos object.
     //Follow interaction with the Pojos.
@@ -190,7 +190,7 @@ Note that the wells are not loaded.
     ParametersI param = new ParametersI();
     long userId = entryUnencrypted.getAdminService().getEventContext().userId;
     param.exp(omero.rtypes.rlong(userId));
-            
+
     List<IObject> results = proxy.loadContainerHierarchy(Screen.class.getName(), new ArrayList(), param);
     //You can directly interact with the IObject or the Pojos object.
     //Follow interaction with the Pojos.
@@ -254,7 +254,7 @@ This is useful when you need the pixels intensity.
     int sizeT = pixels.getSizeT();
     int sizeC = pixels.getSizeC();
     long pixelsId = pixels.getId();
-    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore(); 
+    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
     store.setPixelsId(pixelsId, false);
     for (int z = 0; z < sizeZ; z++) {
       for (int t = 0; t < sizeT; t++) {
@@ -276,7 +276,7 @@ This is useful when you need the pixels intensity.
     int sizeT = pixels.getSizeT();
     int sizeC = pixels.getSizeC();
     long pixelsId = pixels.getId();
-    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore(); 
+    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
     store.setPixelsId(pixelsId, false);
     //tile is the top-left corner
     int x = 0;
@@ -286,7 +286,7 @@ This is useful when you need the pixels intensity.
     for (int z = 0; z < sizeZ; z++) {
       for (int t = 0; t < sizeT; t++) {
         for (int c = 0; c < sizeC; c++) {
-          byte[] plane = store.getPlane(z, c, t, x, y, width, height);
+          byte[] plane = store.getTile(z, c, t, x, y, width, height);
           //Do something
         }
       }
@@ -304,7 +304,7 @@ This is useful when you need the pixels intensity.
     int sizeT = pixels.getSizeT();
     int sizeC = pixels.getSizeC();
     long pixelsId = pixels.getId();
-    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore(); 
+    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
     store.setPixelsId(pixelsId, false);
     for (int t = 0; t < sizeT; t++) {
       for (int c = 0; c < sizeC; c++) {
@@ -340,7 +340,7 @@ This is useful when you need the pixels intensity.
     size.add(pixels.getSizeC());
     size.add(pixels.getSizeT());
 
-    // indicate the step in each direction, step = 1, 
+    // indicate the step in each direction, step = 1,
     //will return values at index 0, 1, 2.
     //step = 2, values at index 0, 2, 4 etc.
     List<Integer> step = new ArrayList<Integer>();
@@ -364,12 +364,12 @@ Write data
     Dataset dataset = new DatasetI();
     dataset.setName(omero.rtypes.rstring("new Name 1"));
     dataset.setDescription(omero.rtypes.rstring("new description 1"));
-            
+
     //Using pojo object
     DatasetData datasetData = new DatasetData();
     datasetData.setName("new Name 2");
     datasetData.setDescription("new description 2");
-            
+
     ProjectDatasetLink link = new ProjectDatasetLinkI();
     link.setChild(dataset);
     link.setParent(new ProjectI(projectId, false));
@@ -389,11 +389,11 @@ Write data
     TagAnnotation tag = new TagAnnotationI();
     tag.setTextValue(omero.rtypes.rstring("new tag 1"));
     tag.setDescription(omero.rtypes.rstring("new tag 1"));
-            
+
     //Using the Pojo
     TagAnnotationData tagData = new TagAnnotationData("new tag 2");
     tagData.setTagDescription("new tag 2");
-            
+
     //link project and annotation
     ProjectAnnotationLink link = new ProjectAnnotationLinkI();
     link.setChild(tag);
@@ -424,7 +424,7 @@ created:
     File file = new File(fileToUpload);
     String name = file.getName();
     String absolutePath = file.getAbsolutePath();
-    String path = absolutePath.substring(0, 
+    String path = absolutePath.substring(0,
       absolutePath.length()-name.length());
 
     IUpdatePrx iUpdate = entryUnencrypted.getUpdateService(); // service used to write object
@@ -460,7 +460,7 @@ created:
     rawFileStore.close();
 
     //now we have an original File in the database and raw data uploaded.
-    // We now need to link the Original file to the image using 
+    // We now need to link the Original file to the image using
     // the File annotation object. This is the way to do it.
     FileAnnotation fa = new FileAnnotationI();
     fa.setFile(originalFile);
@@ -522,9 +522,9 @@ First load the annotations, cf. above.
         for (offset = 0; (offset+INC) < size;) {
           stream.write(store.read(offset, INC));
           offset += INC;
-        }   
+        }
         } finally {
-        stream.write(store.read(offset, (int) (size-offset))); 
+        stream.write(store.read(offset, (int) (size-offset)));
         stream.close();
         }
         break;
@@ -546,15 +546,15 @@ In the following example, we create a table with 2 columns.
 
     /**
      * Creates a number of empty rows.
-     * 
+     *
      * @param rows The number of rows.
      * @return See above.
      */
-    private Column[] createColumns(int rows) 
+    private Column[] createColumns(int rows)
     {
       Column[] newColumns = new Column[2];
       newColumns[0] = new LongColumn("Uid", "", new long[rows]);
-      newColumns[1] = new LongColumn("MyLongColumn", "", 
+      newColumns[1] = new LongColumn("MyLongColumn", "",
                     new long[rows]);
       return newColumns;
     }
@@ -586,12 +586,12 @@ In the following example, we create a table with 2 columns.
 
 ::
 
-    file = new OriginalFileI(file.getId(), false); 
+    file = new OriginalFileI(file.getId(), false);
     table = entryUnencrypted.sharedResources().openTable(file);
 
     //read headers
     Column[] cols = table.getHeaders();
-            
+
     for (int i = 0; i < cols.length; i++) {
       String colName = cols[i].name;
     }
@@ -600,8 +600,8 @@ In the following example, we create a table with 2 columns.
     long[] columnsToRead = new long[cols.length];
     for (int i = 0; i < cols.length; i++) {
       columnsToRead[i] = i;
-    } 
-            
+    }
+
     // The number of columns we wish to read.
     long[] rowSubset = new long[(int) (table.getNumberOfRows()-1)];
     for (int j = 0; j < rowSubset.length; j++) {
@@ -617,7 +617,7 @@ In the following example, we create a table with 2 columns.
 ROIs
 ----
 
-To learn about the model see :model_doc:`developers/roi.html`. Note that 
+To learn about the model see :model_doc:`developers/roi.html`. Note that
 annotation can be linked to ROI.
 
 -  **Create ROI.**
@@ -656,7 +656,7 @@ to an image.
     roi.addShape(ellipse);
     //Save ROI and shape
     roi = (Roi) entryUnencrypted.getUpdateService().saveAndReturnObject(roi);
-            
+
     //now check that the shape has been added.
     ROIData roiData = new ROIData(roi);
     //Retrieve the shape on plane )z, t) = (0, 0)
@@ -738,7 +738,7 @@ In the following example, we create an image and delete it.
     img.setDescription(omero.rtypes.rstring("descriptionImage1"));
     img.setAcquisitionDate(omero.rtypes.rtime(1000000));
     img = (Image) entryUnencrypted.getUpdateService().saveAndReturnObject(img);
-            
+
     DeleteCommand[] cmds = new DeleteCommand[1];
     //Command to delete the image.
     cmds[0] = new DeleteCommand("/Image", img.getId().getValue(), null);
@@ -787,7 +787,7 @@ Render Images
     // Close
     proxy.close();
 
--  **Retrieves thumbnails**
+-  **Retrieve thumbnails.**
 
 ::
 
@@ -830,20 +830,21 @@ in OMERO. Similar approach can be applied when uploading an image.
     RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
     store.setPixelsId(pixelsId, false);
 
-    Map<Integer, byte[]> map = new HashMap<Integer, byte[]>();
-            
+    List<byte[]> planes = new ArrayList<byte[]>();
+
     for (int z = 0; z < sizeZ; z++) {
         for (int t = 0; t < sizeT; t++) {
-           //linearize does sizeZ*t+z
-            map.put(linearize(z, t, sizeZ), store.getPlane(z, 0, t));
+            planes.add(store.getPlane(z, 0, t));
         }
     }
-            
+
     //Better to close to free space.
     store.close();
-            
+
     //Now we are going to create the new image.
     IPixelsPrx proxy = entryUnencrypted.getPixelsService();
+
+    //Search for PixelsType object matching the source image.
     List<IObject> l = proxy.getAllEnumerations(PixelsType.class.getName());
     Iterator<IObject> i = l.iterator();
     PixelsType type = null;
@@ -857,33 +858,33 @@ in OMERO. Similar approach can be applied when uploading an image.
         }
     }
     if (type == null)
-      throw new Exception("Pixels Type not valid.");
-        
+        throw new Exception("Pixels Type not valid.");
+
+    //Create new image.
     String name = "newImageFrom"+image.getId();
     RLong idNew = proxy.createImage(sizeX, sizeY, sizeZ, sizeT, Arrays.asList(0), type, name,
             "From Image ID: "+image.getId());
     if (idNew == null)
         throw new Exception("New image could not be created.");
     ImageData newImage = loadImage(idNew.getValue());
-            
-    //link the new image and the dataset hosting the source image.
+
+    //Link the new image and the dataset hosting the source image.
     DatasetImageLink link = new DatasetImageLinkI();
     link.setParent(new DatasetI(datasetId, false));
     link.setChild(new ImageI(newImage.getId(), false));
     entryUnencrypted.getUpdateService().saveAndReturnObject(link);
-            
+
     //Write the data.
     store = entryUnencrypted.createRawPixelsStore();
     store.setPixelsId(newImage.getDefaultPixels().getId(), false);
     int index = 0;
     for (int z = 0; z < sizeZ; z++) {
         for (int t = 0; t < sizeT; t++) {
-        index = linearize(z, t, sizeZ);
-        store.setPlane(map.get(index), z, 0, t);
+            store.setPlane(planes.get(index++), z, 0, t);
         }
     }
 
-    //Save the data
+    //Save the data.
     store.save();
 
     store.close();
