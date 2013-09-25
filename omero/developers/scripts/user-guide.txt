@@ -79,11 +79,11 @@ and the script returns them as outputs.
     client = scripts.client("Get_Channels.py", "Get channel names for an image",
         scripts.Long("imageId", optional=False))
 
+    # get the Image Id from the parameters.
+    imageId = client.getInput("imageId", unwrap=True)   # unwrap the rtype
+
     # Use the Python Blitz Gateway for convenience
     conn = BlitzGateway(client_obj=client)
-
-    # get the Image Id from the parameters.
-    imageId = client.getInput("imageId").getValue()   # unwrap the rtype
 
     # get the Image, print it's name
     image = conn.getObject("Image", imageId)
