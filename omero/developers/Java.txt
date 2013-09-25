@@ -834,7 +834,7 @@ in OMERO. Similar approach can be applied when uploading an image.
 
     for (int z = 0; z < sizeZ; z++) {
         for (int t = 0; t < sizeT; t++) {
-            list.add(store.getPlane(z, 0, t));
+            planes.add(store.getPlane(z, 0, t));
         }
     }
 
