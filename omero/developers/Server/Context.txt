@@ -11,9 +11,9 @@ restricted to a single task).
 The container for all OMERO applications is the
 :doc:`/developers/Server/Context`
 (:source:`components/common/src/ome/system/OmeroContext.java`).
-Based on the ` Spring <http://www.springsource.org/>`_ configuration
-backing the context, it can be one of : ``client``, ``internal``, or
-``managed``. The use of a ServiceFactory simplifies this usage for the client. 
+Based on the Spring_ configuration backing the context, it can be one of
+``client``, ``internal``, or ``managed``. The use of a ServiceFactory
+simplifies this usage for the client. 
 
 Hibernate sessions
 ------------------
