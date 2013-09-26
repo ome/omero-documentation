@@ -69,6 +69,11 @@ requirements for OMERO will be installed to :file:`/usr/local`.
 If you are having issues with curl, see the :ref:`install_homebrew_curl`
 section under :ref:`install_homebrew_common_issues`.
 
+The installation of OMERO via Homebrew depends on two alternate repositories
+containing extra formulas: https://github.com/Homebrew/homebrew-science for
+the HDF5 formula and https://github.com/ome/homebrew-alt for all the
+OME-provided formulas and older versions of Ice.
+
 Python (>=2.4)
 ^^^^^^^^^^^^^^
 
@@ -111,6 +116,7 @@ simple Homebrew install is sufficient, e.g.
 
 ::
 
+    $ brew tap homebrew/science
     $ brew tap ome/alt
     $ brew install omero
 
@@ -136,6 +142,7 @@ install the server dependencies:
 
 ::
 
+    $ brew tap homebrew/science
     $ brew tap ome/alt
     $ brew install `brew deps omero`
 	
