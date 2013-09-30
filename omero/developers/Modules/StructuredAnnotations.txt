@@ -53,8 +53,8 @@ validation of the input string and/or file.
              TagAnnotation ................... Interpreted as a Web 2.0 "tag" on an object. Tags on tags form tag bundles
              XmlAnnotation ................... An xml snippet attached to some object
            TimeStampAnnotation ............... A timestamp
-          TypeAnnotation (A*) ................ Links some entity to another (possbily to be replaced by <any/>
-            FileAnnotation    ................ Uses the Format field on OriginalFile to specify type
+           TypeAnnotation (A*) ............... Links some entity to another (possibly to be replaced by <any/>
+             FileAnnotation .................. Uses the Format field on OriginalFile to specify type
 
        A* = abstract
 
