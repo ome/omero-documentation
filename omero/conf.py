@@ -85,6 +85,7 @@ rst_epilog += """
 .. |ExtendingOmero| replace:: :doc:`/developers/Server/ExtendingOmero`
 .. |BlitzGateway| replace:: :doc:`/developers/Python`
 .. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
+.. _Spring: http://spring.io
 .. |previousversion| replace:: %s
 .. |devbranch| replace:: %s
 .. |iceversion| replace:: 3.5.0
@@ -109,6 +110,8 @@ omero_extlinks = {
     'omerojob' : (omero_job_root + '/%s', ''),
     'javadoc' : (omero_job_root + '/javadoc/%s', ''),
     'virtualjob' : (virtual_job_root + '/%s', ''),
+    # Miscellaneous links
+    'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
     }
 extlinks.update(omero_extlinks)
 
