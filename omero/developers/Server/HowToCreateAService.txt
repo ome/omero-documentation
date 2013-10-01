@@ -33,8 +33,6 @@ factory <components/common/src/ome/system/ServiceFactory.java>`
 Files to create
 ~~~~~~~~~~~~~~~
 
-.. _Spring: http://www.springsource.org/
-
 :source:`components/common/src/ome/api/IConfig.java`
     the interface which will be made available to client and server
     alike (which is why all interfaces must be located in the
@@ -101,7 +99,7 @@ Files involved
 :source:`components/server/resources/beanRefContext.xml`
 
 :source:`components/blitz/resources/beanRefContext.xml`
-    `Singleton definitions <http://static.springsource.org/spring/docs/2.0.x/reference/beans.html#beans-factory-scopes-singleton>`_
+    :springdoc:`Singleton definitions <2.0.x/reference/beans.html#beans-factory-scopes-singleton>`
     which allow for the static location of the active context. These do
     not need to be edited, but in the case of the server
     :source:`beanRefContext.xml <components/server/resources/beanRefContext.xml>`,
