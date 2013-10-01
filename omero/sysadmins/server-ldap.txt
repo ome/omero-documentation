@@ -136,6 +136,26 @@ the value of ``new_user_group``, which can have several different values:
 
 .. _ldap_configuration_overview:
 
+Compound Filters
+^^^^^^^^^^^^^^^
+
+Both the ``user_filter`` and the ``group_filter`` can contain any valid LDAP
+filter string. These must be a valid filter in themselves. e.g.
+
+::
+   
+   omero.ldap.group_filter=(&(objectClass=groupOfNames)(mail=omero.flag))
+
+This filter is valid and will cause the filter to only match groups that have
+the ``mail`` attribute set to the value ``omero.flag``. When combined with
+the ``group_mapping`` the final query would be
+``(&(&(objectClass=groupOfNames)(mail=omero.flag))(cn=[group name]))``
+
+This is the same as the query
+``(&(objectClass=groupOfNames)(mail=omero.flag)(cn=[group name]))`` but setting
+``group_filter`` to ``(objectClass=groupOfNames)(mail=omero.flag)`` is not valid
+as that is not a valid filter on its own.
+
 LDAP configuration overview
 ---------------------------
 
