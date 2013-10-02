@@ -269,8 +269,8 @@ interact with it.
    allow you to import data via a GUI and manage that data once
    imported. To do so, download the :omero_plone:`OMERO.insight client <downloads>`
    and follow the instructions below. More information can be found
-   under the :doc:`client-tutorials/insight/getting-started` section
-   which details how to use the OMERO.clients.
+   on our `help website <http://help.openmicroscopy.org>`_
+   which provides workflow-based guides to using the OMERO.clients.
 -  Alternatively, you can interact with the server command line
    interface by |SSH|'ing into the guest |VM| or by opening a console within
    the |VM| itself. Administrators may need to use one of these methods to
@@ -300,8 +300,7 @@ You can run regular OMERO clients on your host machine and connect to
 the server in the |VM|. Our example uses OMERO.insight running on Mac OS X
 to connect to the |VM|.
 
--  :omero_plone:`Download <downloads>` and 
-   :doc:`install <client-tutorials/insight/getting-started>` OMERO.insight
+-  :omero_plone:`Download <downloads>` and install OMERO.insight
 -  Start OMERO.insight
 -  Click the spanner icon situated above the password box so that we can
    enter the server settings box which looks like this:
@@ -327,7 +326,7 @@ to connect to the |VM|.
 
    OMERO.insight login window
 
--  OMERO.insight should now load up & look like so:
+-  OMERO.insight should now load up and look like so:
 
 .. figure:: /images/virtual-appliance-9insight.png
    :align: center
@@ -339,6 +338,10 @@ to connect to the |VM|.
 
 You can now use OMERO.insight to import and manage images on a locally running
 virtual server just like you could using a remote server.
+
+.. note:: A Getting Started guide is available for OMERO.insight on our 
+    `help website <http://help.openmicroscopy.org>`_ if you need further 
+    assistance to download and install the software.
 
 Secure Shell
 ^^^^^^^^^^^^
