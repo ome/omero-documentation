@@ -6,8 +6,10 @@ It provides a web API for rendering images and accessing data
 on the OMERO server via URLs.
 
 .. note::
-    The OMERO.web client also supports URLs linking to specified data in OMERO.
-    See :doc:`/users/client-tutorials/web/urls_to_data` for more details.
+
+    The OMERO.web client also supports URLs linking to specified data in 
+    OMERO. See the `web user guides <http://help.openmicroscopy.org>`_ for 
+    more details.
 
 Web services
 ------------

@@ -3,11 +3,12 @@ OMERO |release| Documentation
 #############################
 
 The OMERO |release| documentation is divided into three parts. The 
-:doc:`users/index` covers the basic usage of OMERO as well as training 
-material suitable for most end-users. System administrators wanting to install 
-an OMERO server will be more interested by the :doc:`sysadmins/index` and 
-subsequent sections. Finally, developers can find more specific information 
-about OMERO in the :doc:`developers/index`.
+:doc:`users/index` introduces the OMERO clients and how to get started, as 
+well as detailing where users can access further help and support. System 
+administrators wanting to install an OMERO server can find instructions in the 
+:doc:`sysadmins/index` and subsequent sections. Finally, developers can find 
+more specific and technical information about OMERO in the 
+:doc:`developers/index`.
 
 .. only:: html
 
@@ -20,6 +21,7 @@ Additional online resources can be found at:
 - :downloads:`Downloads <>`
 - :omero_plone:`Features (movie tutorials coming soon)<feature-list>`
 - :omero_plone:`Security Vulnerabilities <secvuln>`
+- `user help website <http://help.openmicroscopy.org>`_
 
 OMERO version *5* uses the *June 2013* release of the
 :model_doc:`OME-Model <>`.
