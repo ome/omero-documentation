@@ -56,8 +56,8 @@ OMERO.insight
 OMERO.insight provides a number of tools for accessing and using data in an
 OMERO Server. The figure :ref:`omero_insight_4_4_viewer` presents the
 OMERO.insight image viewer, whereas figure :ref:`omero_insight_screenshot_4_4`
-presents the user interface [1]_ [3]_. To find out more, see
-:doc:`client-tutorials/insight/getting-started`.
+presents the user interface [1]_ [3]_. To find out more, see the 
+`OMERO.insight user guides <http://help.openmicroscopy.org>`_.
 
 .. _omero_insight_4_4_viewer:
 .. figure:: /images/omero_insight_4_4_viewer.png
@@ -125,7 +125,10 @@ combining several smaller protocols.
 The OMERO.editor is part of the OMERO.insight client, but can also run as a
 stand-alone application. OMERO.editor saves files as XML documents, which
 makes it possible for them to be read by other software. More information can
-be found on the :doc:`client-tutorials/editor/editor` tutorial page.
+be found in the `OMERO.editor user guide <http://help.openmicroscopy.org>`_.
+
+.. note:: OMERO.editor is no longer actively developed but is still shipped 
+    with OMERO releases.
 
 .. _omero-importer:
 
@@ -136,8 +139,7 @@ The OMERO.importer is part of the OMERO.insight client, but can also run as a
 stand-alone application. The OMERO.importer allows the import of proprietary
 image data files from a filesystem accessed from the user's computer to a
 running OMERO Server. This tool uses a standard file browser to select the
-image files to an OMERO Server. For a full tutorial, please see
-:doc:`client-tutorials/insight/importing-data`.
+image files to an OMERO Server.
 
 The tool uses Bio-Formats for translation of proprietary file formats in
 preparation for upload to an OMERO Server. Visit 
