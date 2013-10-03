@@ -7,11 +7,22 @@ interaction of the scripts with OMERO clients so that they can:
 -  generate a nice, usable UI for the script
 -  handle the script results appropriately
 
-.. figure:: /images/omero-scripting-movie-roi.png
-  :align: center
-  :alt: Scripting movie ROI figure
+.. only:: html
 
-  Movie ROI figure script UI
+    .. figure:: /images/omero-scripting-movie-roi.png
+      :align: center
+      :alt: Scripting movie ROI figure
+
+      Movie ROI figure script UI
+      
+.. only:: latex
+
+    .. figure:: /images/omero-scripting-movie-roi.png
+      :align: center
+      :width: 60%
+      :alt: Scripting movie ROI figure
+
+      Movie ROI figure script UI
 
 If you want instructions on how to get started with OMERO scripts, see
 the link above or the :doc:`user-guide`.
