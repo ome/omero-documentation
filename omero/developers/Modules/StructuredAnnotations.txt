@@ -40,23 +40,28 @@ validation of the input string and/or file.
 
 ::
 
-       Annotation (A*) ....................... Only a name field
+       Annotation (A*) ....................... A name field and a description
          ListAnnotation ...................... Uses AnnotationAnnotation links to form a list of annotations
          BasicAnnotation (A*) ................ Literal or "primitive" values
-           BooleanAnnotation ................. A simple true/false flag. Perhaps for hit/miss detection
-           NumericAnnotation (A*) ............ Floating point and integer values
-             DoubleAnnotation
-             LongAnnotation
-           TextAnnotation .................... A single text field
-             TagAnnotation ................... Interpreted as a Web 2.0 "tag" on an object. Tags on tags form tag bundles
-             QueryAnnotation ................. Possibly interpreted as a query which was used to create a dataset, for example
-             XmlStringAnnotation ............. An xml snippet attached to some object
-             UrlAnnotation ................... A url. This annotation may be further subclassed (LSID, HTTPS, ...)
-          TypeAnnotation (A*) ................ Links some entity to another (possbily to be replaced by <any/>
-            ThumbnailAnnotation .............. Attaches a thumbnail to some entity, most likely for client-use
-            FileAnnotation    ................ Uses the Format field on OriginalFile to specify type
+           BooleanAnnotation ................. A simple true/false flag
+           TimeStampAnnotation ............... A date/time
+           TermAnnotation .................... A term used in an ontology
+         NumericAnnotation (A*) .............. Floating point and integer values
+           DoubleAnnotation
+           LongAnnotation
+         TextAnnotation (A*) ................. A single text field
+           CommentAnnotation ................. A user comment
+           TagAnnotation ..................... Interpreted as a Web 2.0 "tag" on an object, tags on tags form tag bundles
+           XmlAnnotation ..................... An xml snippet attached to some object
+         TypeAnnotation (A*) ................. Links some entity to another (possibly to be replaced by <any/>)
+           FileAnnotation .................... Uses the Format field on OriginalFile to specify type
 
        A* = abstract
+
+.. seealso::
+	:schema_plone:`Schema documentation for Structured Annotations <Documentation/Generated/OME-2012-06/SA_xsd.html#Annotation>`
+		Section of the auto-generated schema documentation describing the
+		structured annotations
 
 Names and namespaces
 --------------------
