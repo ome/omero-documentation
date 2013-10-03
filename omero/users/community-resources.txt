@@ -11,8 +11,13 @@ and forums are always welcome.
 Web
 ---
 
-Our main website is at `<http://www.openmicroscopy.org/site>`_. Bio-Formats
-is at `<http://www.openmicroscopy.org/site/products/bio-formats>`_.
+Our main website is at `<http://www.openmicroscopy.org/site>`_. Here you can 
+find further information about the OME consortium and partner projects to 
+extend OMERO. Bio-Formats is at 
+`<http://www.openmicroscopy.org/site/products/bio-formats>`_.
+
+Workflow-based user assistance guides are available at 
+`<http://help.openmicroscopy.org>`_.
 
 
 .. _community/resources/mailinglists:
@@ -22,27 +27,23 @@ Mailing lists
 
 The following lists are provided:
 
-- :mailinglist:`ome-users <ome-users/>`, for support with installation
+- :mailinglist:`ome-users <ome-users/>` - for support with installation
   and general use or miscellaneous queries, as well as bug reporting
-- :mailinglist:`ome-devel <ome-devel/>`, for development discussion and support
+- :mailinglist:`ome-devel <ome-devel/>` - for development discussion and 
+  support
 
 .. note:: 
 
-	Both of these lists are moderated and only allow posts from
-	subscribers.  Please subscribe to the lists to participate in the
-	discussion.
-
-We also provide a private list for internal use:
-
-- :mailinglist:`ome-nitpick <ome-nitpick/>`, for internal coordination
-  (not publicly available)
+    Both of these lists are moderated and only allow posts from
+    subscribers.  Please subscribe to the lists to participate in the
+    discussion.
 
 .. _community/resources/forums:
 
 Forums
 ------
 
-Discussion on a number topics is also available through our
+Discussion on a number of topics is also available through our
 :forum:`forums <>`.  Forums include:
 
 - :forum:`OME Announcements <viewforum.php?f=11>`
@@ -61,11 +62,3 @@ Discussion on a number topics is also available through our
 
   + :forum:`User Discussion and Suggestions <viewforum.php?f=15>`
 
-- :forum:`Community Code <viewforum.php?f=17>`
-
-  + :forum:`Code Submissions <viewforum.php?f=16>`
-
-Developer documentation
------------------------
-
-Documentation for developers is available on :doc:`this page </developers/index>`.
