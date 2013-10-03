@@ -50,25 +50,10 @@ OMERO <support/legacy/>`. For more technical information, please refer to the
 
     community-resources
 
-**********
-Quickstart
-**********
 
-If your institution does not have an existing OMERO.server for you to connect 
-to, you can apply for a user account on our demo server, or create your own 
-using a virtual appliance (a step-by-step guide for how to do this is 
-provided):
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    demo-server
-    virtual-appliance
-
-********************
-Client introductions
-********************
+*************
+OMERO clients
+*************
 
 .. toctree::
     :maxdepth: 1
@@ -77,4 +62,20 @@ Client introductions
     clients-overview
     command-line-interface
     command-line-import
+
+**********
+Quickstart
+**********
+
+If your institution does not have an existing OMERO.server for you to connect 
+to, you can apply for a user account on our demo server, or create your own 
+using a virtual appliance (a step-by-step guide for how to do this is 
+provided).
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    demo-server
+    virtual-appliance
 
