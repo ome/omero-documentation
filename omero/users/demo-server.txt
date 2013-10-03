@@ -1,5 +1,5 @@
 *****************
-OMERO Demo Server
+OMERO demo server
 *****************
 
 .. note:: This service is not available for OMERO 5 yet
@@ -142,11 +142,10 @@ OMERO Demo Server
 	Further guides and help
 	=======================
 
-	- An OMERO.insight Getting Started guide that shows you how to import and view
-	  your data, and use the measurement tool, can be downloaded from:
-
-	  :training_plone:`OMERO.insight Getting Started Guide <user-guides/OMERO%20Insight%20Getting%20Started%20Guide.pdf>`
-
+     - Workflow-based user assistance guides are available on our 
+       `help website <http://help.openmicroscopy.org>`_. These use screenshots 
+       to illustrate how to perform common tasks such as importing and viewing 
+       data, and using the measurement tool.
 
 	- An overview of some OMERO’s features is available in a short showcase video
 	  at:

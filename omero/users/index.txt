@@ -54,6 +54,19 @@ information, please refer to the :doc:`/developers/index`.
     community-resources
      whatsnew
 
+
+*************
+OMERO clients
+*************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    clients-overview
+    command-line-interface
+    command-line-import
+
 **********
 Quickstart
 **********
@@ -70,16 +83,4 @@ will be made available in due course.
 
     virtual-appliance
     demo-server
-
-********************
-Client introductions
-********************
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    clients-overview
-    command-line-interface
-    command-line-import
 
