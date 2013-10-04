@@ -1,8 +1,105 @@
 Running and writing tests
 =========================
 
-Using Eclipse
--------------
+Running unit tests
+------------------
+
+The unit testing framework is fairly simple. Only methods which contain
+logic written within OMERO are tested. This means that framework
+functionality like remoting or the Hibernate layer is not tested. This is a
+part of integration testing (see below).
+
+You can run the unit tests for any component from its directory by
+entering:
+
+::
+
+    ./build.py -f components/<component>/build.xml test
+
+The same can be done for all components using:
+
+::
+
+    ./build.py test-unit
+
+Running integration tests
+-------------------------
+
+Integration testing is a bit more complex because of the reliance on a
+database, which is not easily mockable. All Hibernate-related classes
+are tested in integration mode.
+
+The tests require a fast computer. Running all the integration tests
+places several restrictions on the environment:
+
+- There must be a running OMERO database.
+- An OMERO.server instance must be running.
+
+Integration tests assume that:
+
+- :envvar:`ICE_CONFIG` has been properly set. The contents of the
+  :file:`etc/ice.config` file should be enough to configure a running server
+  for integration testing. This means that code creating a client connection
+  as outlined in :doc:`GettingStarted/AdvancedClientDevelopment` should
+  execute without errors.
+- An OMERO.server instance is running on the host and port specified in
+  the :envvar:`ICE_CONFIG` file.
+
+If any of the tests fail with a user authentication exception (or
+``omero.client`` throws an exception), a new :file:`ice.config` file can be
+created and pointed to by the :envvar:`ICE_CONFIG` environment variable.
+Most likely the first settings that will have to be put there will be
+``omero.user`` and ``omero.pass``.
+
+Component tests
+^^^^^^^^^^^^^^^
+
+Running an integration test suite for an individual component can be done
+explicitly via:
+
+::
+
+    ./build.py -f components/<component>/build.xml integration
+
+Results are placed in ``components/<component>/target/reports``.
+
+Running all tests
+^^^^^^^^^^^^^^^^^
+
+All the integration tests can be run using:
+
+::
+
+    ./build.py test-integration
+
+Individual tests
+^^^^^^^^^^^^^^^^
+
+Alternatively, you can run individual tests which you may currently be
+working on. This can be done by using the :option:`test` option. For example:
+
+::
+
+    ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/AdminTest
+    ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test/integration/test_admin.py
+
+Failing tests
+^^^^^^^^^^^^^
+
+The :option:`test.with.fail` ant property is set to ``false`` by default,
+which prevents test failures from failing the build. However, it can instead
+be set to ``true`` to allow test failures to fail the build. For example:
+
+::
+
+    ./build.py -Dtest.with.fail=true integration
+
+Some components might provide individual targets for specific tests (e.g.
+OmeroJava provides the :option:`broken` target for running broken tests).
+The :file:`build.xml` file is the reference in each component.
+
+Using Eclipse to run tests
+--------------------------
 
 There are currently :file:`.project` and :file:`.classpath-template`
 files stored in git in each component directory (e.g. :source:`common's
@@ -44,108 +141,15 @@ A prerequisite of running unit and integration tests in the Eclipse UI is
 having the TestNG plug-in installed and working (help available on the
 `TestNG site <http://testng.org/doc/eclipse.html>`_).
 
-Unit testing
-------------
-
-The unit testing framework is fairly simple. Only methods which contain
-logic written within OMERO are tested. This means that framework
-functionality like remoting or the Hibernate layer is not tested. This is a
-part of integration testing (see below).
-
-You can run the unit tests for any component from its directory by
-entering:
-
-::
-
-    ./build.py -f components/<component>/build.xml test
-
-The same can be done for all components using:
-
-::
-
-    ./build.py test-unit
-
-Eclipse
-^^^^^^^
+Unit tests
+^^^^^^^^^^
 
 Running the unit tests under Eclipse requires no extra settings and is as
 easy as navigating to the package or class context menu :guilabel:`Run As`
 or :guilabel:`Debug As`, then selecting :guilabel:`TestNG`.
 
-Integration testing
--------------------
-
-Integration testing is a bit more complex because of the reliance on a
-database, which is not easily mockable. All Hibernate-related classes
-are tested in integration mode.
-
-The tests require a fast computer. Running all the integration tests
-places several restrictions on the environment:
-
-- There must be a running OMERO database.
-- An OMERO.server instance must be running.
-
-Integration tests assume that:
-
-- :envvar:`ICE_CONFIG` has been properly set. The contents of the
-  :file:`etc/ice.config` file should be enough to configure a running server
-  for integration testing. This means that code creating a client connection
-  as outlined in :doc:`GettingStarted/AdvancedClientDevelopment` should
-  execute without errors.
-- An OMERO.server instance is running on the host and port specified in
-  the :envvar:`ICE_CONFIG` file.
-
-If any of the tests fail with a user authentication exception (or
-``omero.client`` throws an exception), a new :file:`ice.config` file can be
-created and pointed to by the :envvar:`ICE_CONFIG` environment variable.
-Most likely the first settings that will have to be put there will be
-``omero.user`` and ``omero.pass``.
-
-Running all tests
+Integration tests
 ^^^^^^^^^^^^^^^^^
-
-To run all the integration tests, use :command:`./build.py test-integration`.
-
-Component tests
-^^^^^^^^^^^^^^^
-
-Running an integration test suite for an individual component can be done
-explicitly via:
-
-::
-
-    ./build.py -f components/<component>/build.xml integration
-
-Results are placed in ``components/<component>/target/reports``.
-
-Individual tests
-^^^^^^^^^^^^^^^^
-
-Alternatively, you can run individual tests which you may currently be
-working on. This can be done by using the :option:`test` option. For example:
-
-::
-
-    ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/AdminTest
-    ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test.t_permissions
-
-Failing tests
-^^^^^^^^^^^^^
-
-The :option:`test.with.fail` ant property is set to ``false`` by default,
-which prevents test failures from failing the build. However, it can instead
-be set to ``true`` to allow test failures to fail the build. For example:
-
-::
-
-    ./build.py -Dtest.with.fail=true integration
-
-Some components might provide individual targets for specific tests (e.g.
-OmeroJava provides the :option:`broken` target for running broken tests).
-The :file:`build.xml` file is the reference in each component.
-
-Eclipse
-^^^^^^^
 
 Integration tests require the :envvar:`ICE_CONFIG` environment variable to
 be available for the Eclipse-controlled JVM. This can be done by editing
@@ -155,8 +159,8 @@ After clicking :guilabel:`New`, :envvar:`ICE_CONFIG` can be defined as a
 path to the :file:`ice.config` file. This setting needs to be defined per
 package, class or method.
 
-Writing your own tests
-----------------------
+Writing Java tests
+------------------
 
 For more information on writing tests in general see `<http://testng.org>`_. 
 For a test to be an "integration" test, place it in the "integration" 
@@ -213,12 +217,37 @@ skeleton for an integration test looks similar to
 
     }
 
+Writing Python tests
+--------------------
+
+For more information on writing tests in general see `<http://pytest.org>`_.
+
 OmeroPy
 ^^^^^^^
 
 Similar to the OmeroJava tests, the tests under
 :sourcedir:`components/tools/OmeroPy/test` will be the starting point
-for most Python-client developers coming to OMERO.
+for most Python-client developers coming to OMERO. Integration tests should
+be placed under :sourcedir:`components/tools/OmeroPy/test/integration`.
+The file names must begin with `test_` for the tests to be found by `pytest`.
+
+::
+
+    import omero
+
+    class TestExample(object)
+
+      def setup_method(self, method):
+        client = new omero.client()
+        client.createSession()
+
+      def teardown_method(self, method):
+        client.closeSession()
+
+      def testSimple():
+        ec = client.getSession().getAdminService().getEventContext()
+        assert ec, "No EventContext!"
+
 
 Debugging a running OMERO instance
 ----------------------------------
