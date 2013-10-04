@@ -8,18 +8,25 @@ applications, running on a user's laptop or workstation, could access
 all sets of data, and provide easy-to-use access to this data.
 
 OMERO ships as a server application called *OMERO.server* and a series of
-clients: *OMERO.web*, *OMERO.insight*, *OMERO.editor* and *OMERO.importer*.
-All run on the major operating systems and provide image visualization,
-management, and annotation to users from remote locations. With a large
-number of OMERO.server installations worldwide, OMERO has been shown to be
-relatively easy to install and get running.
-
-*OMERO.clients* is our collective term for our applications that allows
-users access to their data in the *OMERO.server*. 
+client applications (known simply as clients): *OMERO.web*, *OMERO.insight*, 
+*OMERO.editor* and *OMERO.importer*. All run on the major operating systems 
+and provide image visualization, management, and annotation to users from 
+remote locations. With a large number of OMERO.server installations worldwide, 
+OMERO has been shown to be relatively easy to install and get running.
 
 OMERO.insight (.editor, .importer) are desktop applications written in Java
 and require Java 1.6 (or higher) to be installed on the user's computer
 (automatically installed on most up-to-date OS X and Windows XP systems).
+
+Our **NEW** user assistance :help:`help website<>` provides a series of 
+workflow-based guides to performing common actions in the client applications, 
+such as importing and viewing data, exporting images and using the measuring 
+tool. 
+
+Our partners within the OME consortium are also producing new clients and 
+modules for OMERO, integrating additional functionality, particularly for more 
+complex image analysis. See the :partner_plone:`Partner Projects <>` page for 
+more details.
 
 .. _omero-web:
 
@@ -47,6 +54,9 @@ interface [2]_ [4]_. Developers can use the |OmeroWeb| to build customized views
     
     OMERO.web image viewer
     
+
+For more information and guides to using OMERO.web, see our 
+:help:`help website <>`.
 
 .. _omero-insight:
 
@@ -93,6 +103,10 @@ Among many features, the noteworthy OMERO.insight elements are:
   data.
 - User administration.
 - Image import.
+
+Our user assistance :help:`help website <>` features a number of 
+workflow-based guides to importing, viewing, managing and exporting your data 
+using OMERO.insight.
 
 .. _omero-editor:
 
