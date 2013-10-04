@@ -1,6 +1,6 @@
-#######################
-OMERO Platform Overview
-#######################
+########################
+About The OMERO Platform
+########################
 
 ************
 Introduction
@@ -33,6 +33,10 @@ also have archived versions available for :legacy_plone:`legacy versions of
 OMERO <support/legacy/>`. For more technical information, please refer to the 
 :doc:`/developers/index`.
 
+*********
+Resources
+*********
+
 -   There are a number of demonstration videos available on the
     :omero_plone:`Features List <feature-list>` page, providing an
     overview of the applications. 
@@ -43,10 +47,13 @@ OMERO <support/legacy/>`. For more technical information, please refer to the
     of plugins. Guides to some of the scripts which ship with OMERO releases 
     are provided on the help site linked above but you can also check out our 
     new :community_plone:`Script Sharing <scripts>` page to find extra ones.
+-   As OMERO is an open source project with developers and users in many 
+    countries, :doc:`connecting to the community <community-resources>` can 
+    provide you with a wealth of experience to draw on for help and advice.
 
 .. toctree::
     :maxdepth: 1
-    :titlesonly:
+    :hidden:
 
     community-resources
 
@@ -63,9 +70,9 @@ OMERO clients
     command-line-interface
     command-line-import
 
-**********
-Quickstart
-**********
+********************
+Quickstart for users
+********************
 
 If your institution does not have an existing OMERO.server for you to connect 
 to, you can apply for a user account on our demo server, or create your own 
