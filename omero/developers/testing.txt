@@ -1,51 +1,8 @@
 Running and writing tests
 =========================
 
-Using Eclipse
--------------
-
-There are currently :file:`.project` and :file:`.classpath-template`
-files stored in git in each component directory (e.g. :source:`common's
-.classpath <components/common/.classpath-template>` and
-:source:`common's .project </components/common/.project>`).
-
-There are also top-level :file:`.classpath` and :file:`.project` files which
-contain the entire project, but this approach requires more memory and
-does not clearly differentiate the classpaths, and so can lead to confusion.
-
-All the Eclipse projects require a successful build to have taken place:
-
-::
-
-    ./build.py
-
-This is for two reasons. Firstly, the Eclipse projects are not configured to
-perform the code generation needed. The :command:`build.py` command creates
-the directory:
-
-::
-
-    <component>/target
-
-which will be missing from any Eclipse project you open before building
-the source.
-
-Secondly, Ivy is used to copy all the jar dependencies from
-``OMERO_SOURCE_PREFIX/lib/repository`` to ``<component>/target/libs``, which
-is then used in the Eclipse :file:`.classpath` files.
-
-If Eclipse ever gets out of sync after the first build,
-:command:`./build.py build-eclipse` can be used to quickly synchronize.
-
-TestNG plugin
-^^^^^^^^^^^^^
-
-A prerequisite of running unit and integration tests in the Eclipse UI is
-having the TestNG plug-in installed and working (help available on the
-`TestNG site <http://testng.org/doc/eclipse.html>`_).
-
-Unit testing
-------------
+Running unit tests
+------------------
 
 The unit testing framework is fairly simple. Only methods which contain
 logic written within OMERO are tested. This means that framework
@@ -65,15 +22,8 @@ The same can be done for all components using:
 
     ./build.py test-unit
 
-Eclipse
-^^^^^^^
-
-Running the unit tests under Eclipse requires no extra settings and is as
-easy as navigating to the package or class context menu :guilabel:`Run As`
-or :guilabel:`Debug As`, then selecting :guilabel:`TestNG`.
-
-Integration testing
--------------------
+Running integration tests
+-------------------------
 
 Integration testing is a bit more complex because of the reliance on a
 database, which is not easily mockable. All Hibernate-related classes
@@ -118,6 +68,15 @@ explicitly via:
 
 Results are placed in ``components/<component>/target/reports``.
 
+Running all tests
+^^^^^^^^^^^^^^^^^
+
+All the integration tests can be run using:
+
+::
+
+    ./build.py test-integration
+
 Individual tests
 ^^^^^^^^^^^^^^^^
 
@@ -127,7 +86,7 @@ working on. This can be done by using the :option:`test` option. For example:
 ::
 
     ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/AdminTest
-    ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test.t_permissions
+    ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test/integration/test_admin.py
 
 Failing tests
 ^^^^^^^^^^^^^
@@ -144,8 +103,58 @@ Some components might provide individual targets for specific tests (e.g.
 OmeroJava provides the :option:`broken` target for running broken tests).
 The :file:`build.xml` file is the reference in each component.
 
-Eclipse
-^^^^^^^
+Using Eclipse to run tests
+--------------------------
+
+There are currently :file:`.project` and :file:`.classpath-template`
+files stored in git in each component directory (e.g. :source:`common's
+.classpath <components/common/.classpath-template>` and
+:source:`common's .project </components/common/.project>`).
+
+There are also top-level :file:`.classpath` and :file:`.project` files which
+contain the entire project, but this approach requires more memory and
+does not clearly differentiate the classpaths, and so can lead to confusion.
+
+All the Eclipse projects require a successful build to have taken place:
+
+::
+
+    ./build.py
+
+This is for two reasons. Firstly, the Eclipse projects are not configured to
+perform the code generation needed. The :command:`build.py` command creates
+the directory:
+
+::
+
+    <component>/target
+
+which will be missing from any Eclipse project you open before building
+the source.
+
+Secondly, Ivy is used to copy all the jar dependencies from
+``OMERO_SOURCE_PREFIX/lib/repository`` to ``<component>/target/libs``, which
+is then used in the Eclipse :file:`.classpath` files.
+
+If Eclipse ever gets out of sync after the first build,
+:command:`./build.py build-eclipse` can be used to quickly synchronize.
+
+TestNG plugin
+^^^^^^^^^^^^^
+
+A prerequisite of running unit and integration tests in the Eclipse UI is
+having the TestNG plug-in installed and working (help available on the
+`TestNG site <http://testng.org/doc/eclipse.html>`_).
+
+Unit tests
+^^^^^^^^^^
+
+Running the unit tests under Eclipse requires no extra settings and is as
+easy as navigating to the package or class context menu :guilabel:`Run As`
+or :guilabel:`Debug As`, then selecting :guilabel:`TestNG`.
+
+Integration tests
+^^^^^^^^^^^^^^^^^
 
 Integration tests require the :envvar:`ICE_CONFIG` environment variable to
 be available for the Eclipse-controlled JVM. This can be done by editing
@@ -154,9 +163,10 @@ Configurations window, the :guilabel:`Environment` tab needs to be selected.
 After clicking :guilabel:`New`, :envvar:`ICE_CONFIG` can be defined as a
 path to the :file:`ice.config` file. This setting needs to be defined per
 package, class or method.
+>>>>>>> 11b082e... Revising testing page to document pytest. See #11423
 
-Writing your own tests
-----------------------
+Writing Java tests
+------------------
 
 For more information on writing tests in general see `<http://testng.org>`_. 
 For a test to be an "integration" test, place it in the "integration" 
@@ -213,12 +223,37 @@ skeleton for an integration test looks similar to
 
     }
 
+Writing Python tests
+--------------------
+
+For more information on writing tests in general see `<http://pytest.org>`_.
+
 OmeroPy
 ^^^^^^^
 
 Similar to the OmeroJava tests, the tests under
 :sourcedir:`components/tools/OmeroPy/test` will be the starting point
-for most Python-client developers coming to OMERO.
+for most Python-client developers coming to OMERO. Integration tests should
+be placed under :sourcedir:`components/tools/OmeroPy/test/integration`.
+The file names must begin with `test_` for the tests to be found by `pytest`.
+
+::
+
+    import omero
+
+    class TestExample(object)
+
+      def setup_method(self, method):
+        client = new omero.client()
+        client.createSession()
+
+      def teardown_method(self, method):
+        client.closeSession()
+
+      def testSimple():
+        ec = client.getSession().getAdminService().getEventContext()
+        assert ec, "No EventContext!"
+
 
 Debugging a running OMERO instance
 ----------------------------------
