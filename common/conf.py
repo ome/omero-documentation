@@ -135,15 +135,11 @@ extlinks = {
     'omero_plone' : (oo_site_root + '/products/omero/%s', ''),
     'omero_doc' : (oo_site_root + '/support/omero4/%s', ''),
     'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),   
-    'bf_plone' : (oo_site_root + 'site/products/bio-formats/%s', ''),
+    'bf_plone' : (oo_site_root + '/products/bio-formats/%s', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
-<<<<<<< HEAD
-    # Downloads
-    'downloads' : (downloads_root + '/omero/%s', ''),
-=======
+    'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
     # Help links
     'help' : (help_root + 'html/%s', ''),
->>>>>>> cb11e47... help links ready for new root link in conf.py
     # Miscellaneous links
     'snapshot' : (cvs_root + '/snapshots/%s', ''),
     'zeroc' : ('http://zeroc.com/%s', ''),
