@@ -114,7 +114,7 @@ command. Here is an example backup script that can be placed in
 
     mkdir -p $OUTPUT_DIRECTORY
     chown -R $DATABASE_ADMIN $OUTPUT_DIRECTORY
-    su $DATABASE_ADMIN -c "pg_dump -Fc -f $OUTPUT_DIRECTORY/$DATABASE.$DATE.pg_dump"
+    su $DATABASE_ADMIN -c "pg_dump -Fc -f $OUTPUT_DIRECTORY/$DATABASE.$DATE.pg_dump $DATABASE"
 
 Other database backup configurations are outside the scope of this
 document but can be researched on the `PostgreSQL website <http://www.postgresql.org/docs/9.1/interactive/backup.html>`_
