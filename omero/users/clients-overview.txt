@@ -153,7 +153,7 @@ OMERO.importer
 The OMERO.importer is part of the OMERO.insight client, but can also run as a
 stand-alone application. The OMERO.importer allows the import of proprietary
 image data files from a filesystem accessed from the user's computer to a
-running OMERO Server. This tool uses a standard file browser to select the
+running OMERO server. This tool uses a standard file browser to select the
 image files for import into an OMERO server.
 
 The tool uses Bio-Formats for translation of proprietary file formats in
