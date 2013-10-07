@@ -179,8 +179,8 @@ as the script requires a Bash shell.
 
 .. only:: latex
 
-    The script can be downloaded from the online version of this documentation 
-    - see `<http://www.openmicroscopy.org/site/support/omero/users/virtual-appliance.html>`_.
+    The script can be downloaded from the online version of this  
+    documentation; see `<http://www.openmicroscopy.org/site/support/omero/users/virtual-appliance.html>`_.
 
 After obtaining the script, it can be used in the following manner:
 ::
@@ -194,7 +194,7 @@ where $VMNAME is the name of your |VM|.
     pre-built appliance is named **omero-vm**
 
 Adding port forwarding manually is achieved by editing the port
-forwarding table shown above. Use the **+** to add a new
+forwarding table shown above. Use the ``+`` to add a new
 row to the table, then click in each cell and type in the required
 settings.
 
@@ -211,8 +211,8 @@ library then click **start**.
 
 A window should open containing a console for your |VM| which should now
 be going through its standard boot process. OMERO.server is
-automatically started at boot time, meaning you should be able to interact 
-with OMERO without further setup.
+automatically started at boot time, meaning that you should be able to 
+interact with OMERO without further setup.
 
 .. figure:: /images/virtual-appliance-6boot.jpg
    :align: center
@@ -361,7 +361,7 @@ There are two potential complications to this method, (1) if you have
 used a |VM| before then there could be old |SSH| fingerprints set up, (2)
 the first time that you log into the |VM| you will be asked to confirm
 that you wish to continue connecting. If you get the following message after
-you invoke SSH:
+you invoke SSH, you need to remove the old fingerprints:
 
 ::
 
@@ -379,8 +379,7 @@ you invoke SSH:
     RSA host key for localhost has changed and you have requested strict checking.
     Host key verification failed.
 
-then you can remove the old fingerprints with the following command
-typed into the terminal:
+You can do this using the following command typed into the terminal:
 
 ::
 
@@ -491,7 +490,7 @@ in the |VM|.
 
 -  **DIAGNOSIS:** Check whether the guest |VM| has been allocated
    the reserved host-only NAT IP address. If 10.0.2.15 does not appear
-   in the output from ``ifconfig`` then this issue has occurred. The easiest
+   in the output from :program:`ifconfig` then this issue has occurred. The easiest
    way to verify this is to log into the guest |VM| console and check the
    output from executing the following command:
 
@@ -554,15 +553,26 @@ recovery mode entry, e.g.
 
         Debian GNU/Linux, with Linux 2.6.32-5-686 (recovery mode)
 
-as seen in this screenshot:
+as illustrated in this diagram of the Grub screen:
 
-.. figure:: /images/virtual-appliance-cli-recovery-console.png
-   :align: center
-   :figwidth: 65%
-   :width: 80%
-   :alt: Recovery console
+::
 
-   Recovery console
+                    GNU GRUB  version 1.98+20100804-14
+   ┌────────────────────────────────────────────────────────────────────────┐
+   │Debian GNU/Linux, with Linux 2.6.32-5-686                               │
+   │Debian GNU/Linux, with Linux 2.6.32-5-686 (recovery mode)               │
+   │                                                                        │
+   │                                                                        │
+   │                                                                        │
+   │                                                                        │
+   │                                                                        │
+   │                                                                        │
+   │                                                                        │
+   │                                                                        │
+   │                                                                        │
+   │                                                                        │
+   │                                                                        │
+   └────────────────────────────────────────────────────────────────────────┘
 
 
 Do not worry if your |VM| has a kernel number different to 2.6.32-5-686,

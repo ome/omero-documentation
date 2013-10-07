@@ -7,9 +7,10 @@ image data recorded in a range of file formats. Ideally a single set of
 applications, running on a user's laptop or workstation, could access
 all sets of data, and provide easy-to-use access to this data.
 
-OMERO ships as a server application called *OMERO.server* and a series of
-client applications (known simply as clients): *OMERO.web*, *OMERO.insight*, 
-*OMERO.editor* and *OMERO.importer*. All run on the major operating systems 
+OMERO ships as a server application called :program:`OMERO.server` and a 
+series of client applications (known simply as clients): :program:`OMERO.web`, 
+:program:`OMERO.insight`, :program:`OMERO.editor` and 
+:program:`OMERO.importer`. All run on the major operating systems 
 and provide image visualization, management, and annotation to users from 
 remote locations. With a large number of OMERO.server installations worldwide, 
 OMERO has been shown to be relatively easy to install and get running.
@@ -64,7 +65,7 @@ OMERO.insight
 -------------
 
 OMERO.insight provides a number of tools for accessing and using data in an
-OMERO Server. The figure :ref:`omero_insight_4_4_viewer` presents the
+OMERO server. The figure :ref:`omero_insight_4_4_viewer` presents the
 OMERO.insight image viewer, whereas figure :ref:`omero_insight_screenshot_4_4`
 presents the user interface [1]_ [3]_. To find out more, see the 
 :help:`OMERO.insight user guides <>`.
@@ -88,10 +89,10 @@ presents the user interface [1]_ [3]_. To find out more, see the
 Among many features, the noteworthy OMERO.insight elements are:
 
 - DataManager, a traditional tree-based view of the data hierarchies in an
-  OMERO Server. DataManager supports access to all image metadata,
+  OMERO server. DataManager supports access to all image metadata,
   annotations, tags.
 - ImageViewer, for visualization of 5D images (space, channel, time). The
-  ImageViewer makes use of the OMERO Server's Rendering Engine, and provides
+  ImageViewer makes use of the OMERO server's Rendering Engine, and provides
   high-performance viewing of multi-dimensional images on standard
   workstations (e.g. scrolling through space and time), without requiring
   installation of high-powered graphics cards. Most importantly, image viewing
@@ -153,7 +154,7 @@ The OMERO.importer is part of the OMERO.insight client, but can also run as a
 stand-alone application. The OMERO.importer allows the import of proprietary
 image data files from a filesystem accessed from the user's computer to a
 running OMERO Server. This tool uses a standard file browser to select the
-image files to an OMERO Server.
+image files for import into an OMERO server.
 
 The tool uses Bio-Formats for translation of proprietary file formats in
 preparation for upload to an OMERO Server. Visit 
