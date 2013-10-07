@@ -156,6 +156,14 @@ This is the same as the query
 ``group_filter`` to ``(objectClass=groupOfNames)(mail=omero.flag)`` is not valid
 as that is not a valid filter on its own.
 
+To restrict the list of groups to just the ones returned by the above query the
+following setting is also required to remove unmatched groups:
+
+::
+
+   omero.ldap.new_user_group=:filtered_dn_attribute:memberOf
+
+
 LDAP configuration overview
 ---------------------------
 
