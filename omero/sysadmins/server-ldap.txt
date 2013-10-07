@@ -137,7 +137,7 @@ the value of ``new_user_group``, which can have several different values:
 .. _ldap_configuration_overview:
 
 Compound Filters
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 Both the ``user_filter`` and the ``group_filter`` can contain any valid LDAP
 filter string. These must be a valid filter in themselves. e.g.
