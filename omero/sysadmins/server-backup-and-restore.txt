@@ -103,7 +103,6 @@ command. Here is an example backup script that can be placed in
 
 ::
 
-    #!sh
     #!/bin/bash
 
     DATE=`date '+%Y-%m-%d_%H:%M:%S-%Z'`
