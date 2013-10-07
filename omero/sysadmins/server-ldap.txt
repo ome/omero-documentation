@@ -134,8 +134,6 @@ the value of ``new_user_group``, which can have several different values:
   Spring bean which implements the NewUserGroupBean interface. See the  
   developer documentation :doc:`/developers/Server/Ldap` for more info.
 
-.. _ldap_configuration_overview:
-
 Compound Filters
 ^^^^^^^^^^^^^^^^
 
@@ -163,6 +161,7 @@ following setting is also required to remove unmatched groups:
 
    omero.ldap.new_user_group=:filtered_dn_attribute:memberOf
 
+.. _ldap_configuration_overview:
 
 LDAP configuration overview
 ---------------------------
