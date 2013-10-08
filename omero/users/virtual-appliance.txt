@@ -709,8 +709,8 @@ Reallocating space on the VA |HDD|
 """"""""""""""""""""""""""""""""""
 
 Start the omero-vm-2 |VM|. Ubuntu linux should boot and you should
-eventually see a welcome screen giving you the option to try or to install
-Ubuntu. You can now start the GParted software and resize your partitions.
+eventually see a welcome screen giving you the option to try Ubuntu or to 
+install it. You can now start the GParted software and resize your partitions.
 
 #. Select try Ubuntu and you should be presented with a graphical desktop.
 #. Start the `gparted` tool using the menu option under :menuselection:`System --> Administration --> GParted Partition Editor`.
