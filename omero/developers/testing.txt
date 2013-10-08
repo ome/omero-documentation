@@ -22,6 +22,9 @@ The same can be done for all components using:
 
     ./build.py test-unit
 
+Note that for tests written in Python the package `pytest` must be installed,
+see :ref:`writing-python-tests`.
+
 Running integration tests
 -------------------------
 
@@ -223,8 +226,16 @@ skeleton for an integration test looks similar to
 
     }
 
+.. _writing-python-tests:
+
 Writing Python tests
 --------------------
+
+To write and run Python tests you first need to install `pyest`:
+
+::
+
+    pip install pytest
 
 For more information on writing tests in general see `<http://pytest.org>`_.
 
@@ -254,6 +265,41 @@ The file names must begin with `test_` for the tests to be found by `pytest`.
         ec = client.getSession().getAdminService().getEventContext()
         assert ec, "No EventContext!"
 
+Running tests directly
+^^^^^^^^^^^^^^^^^^^^^^
+
+When writing tests it can be more convenient, flexible and powerful to run the
+tests from `components/tools/OmeroPy` using `setup.py`. Since Python is
+interpreted tests can be written and then run without having to
+rebuild or restart the server. A few basic examples are shown below.
+
+Running a single test file:
+::
+
+    cd components/tools/OmeroPy
+    ./setup.py test -s test/integration/test_admin.py
+
+Run all integration tests with `permissions` in their name:
+
+::
+
+    ./setup.py test -s test/integration -k permissions
+
+Run all integration tests excluding those decorated with the marker
+`long_running`:
+
+::
+
+    ./setup.py test -s test/integration -m "not long_running"
+
+See see `<http://pytest.org>`_ for a full explanation of using these features
+in both writing and running tests.
+
+For more help with `setup.py`:
+
+::
+
+    ./setup.py --help test
 
 Debugging a running OMERO instance
 ----------------------------------
