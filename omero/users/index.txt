@@ -30,7 +30,7 @@ internet.
 
 This documentation is for the latest version of the OMERO Platform. We
 also have archived versions available for :legacy_plone:`legacy versions of
-OMERO <support/legacy/>`. For more technical information, please refer to the 
+OMERO <>`. For more technical information, please refer to the 
 :doc:`/developers/index`.
 
 *********
@@ -81,9 +81,9 @@ OMERO clients
     command-line-interface
     command-line-import
 
-********************
-Quickstart for users
-********************
+************************
+Quickstart server access
+************************
 
 If your institution does not have an existing OMERO.server for you to connect 
 to, you can apply for a user account on our demo server, or create your own 
