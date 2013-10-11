@@ -36,6 +36,10 @@ currently be considered **beta quality**, see the
 :omero_plone:`OME 5 overview <>` for further details. For more technical 
 information, please refer to the :doc:`/developers/index`.
 
+*********
+Resources
+*********
+
 -   **Coming soon** - demonstration videos on the
     :omero_plone:`Features List <feature-list>` page, providing an
     overview of the applications.
@@ -69,7 +73,7 @@ information, please refer to the :doc:`/developers/index`.
     :hidden:
 
     community-resources
-     whatsnew
+    whatsnew
 
 
 *************
@@ -84,9 +88,9 @@ OMERO clients
     command-line-interface
     command-line-import
 
-********************
-Quickstart for users
-********************
+************************
+Quickstart server access
+************************
 
 If your institution does not have an existing OMERO.server for you to connect 
 to, you can create your own using a virtual appliance (a step-by-step guide 
