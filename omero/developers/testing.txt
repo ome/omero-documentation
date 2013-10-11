@@ -225,7 +225,7 @@ skeleton for an integration test looks similar to
 Writing Python tests
 --------------------
 
-To write and run Python tests you first need to install `pyest`:
+To write and run Python tests you first need to install `pytest`:
 
 ::
 
@@ -263,8 +263,8 @@ Running tests directly
 ^^^^^^^^^^^^^^^^^^^^^^
 
 When writing tests it can be more convenient, flexible and powerful to run the
-tests from `components/tools/OmeroPy` using `setup.py`. Since Python is
-interpreted tests can be written and then run without having to
+tests from :sourcedir:`components/tools/OmeroPy` using :file:`setup.py`. Since
+Python is interpreted tests can be written and then run without having to
 rebuild or restart the server. A few basic examples are shown below.
 
 Running a single test file:
@@ -286,10 +286,10 @@ Run all integration tests excluding those decorated with the marker
 
     ./setup.py test -s test/integration -m "not long_running"
 
-See see `<http://pytest.org>`_ for a full explanation of using these features
+See `<http://pytest.org>`_ for a full explanation of using these features
 in both writing and running tests.
 
-For more help with `setup.py`:
+For more help with :file:`setup.py`:
 
 ::
 
