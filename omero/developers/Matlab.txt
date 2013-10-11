@@ -247,7 +247,7 @@ If the image identifiers are known, they can be specified as::
 
 	images = getImages(session, ids)
 
-Alternately, all the images contained in projects or datasets can be returned
+Alternatively, all the images contained in projects or datasets can be returned
 by specifying the parent type and identifiers as::
 
 	projectImages = getImages(session, 'project', projectIds)
@@ -337,7 +337,7 @@ function::
 
 	plane = getPlane(session, image, z, c, t);
 
-Alternately, the image identifier can be passed to the function::
+Alternatively, the image identifier can be passed to the function::
 
 	plane = getPlane(session, imageID, z, c, t);
 
@@ -349,7 +349,7 @@ of dimensions (w, h) can be retrieved using the
 
 	tile = getTile(session, image, z, c, t, x, y, w, h);
 
-Alternately, the image identifier can be passed to the function::
+Alternatively, the image identifier can be passed to the function::
 
 	tile = getTile(session, imageID, z, c, t, x, y, w, h);
 
@@ -360,7 +360,7 @@ The tile of an input image at coordinates (c, t) can be retrieved using the
 
 	stack = getStack(session, image, c, t);
 
-Alternately, the image identifier can be passed to the function::
+Alternatively, the image identifier can be passed to the function::
 
 	stack = getStack(session, imageID, c, t);
 
@@ -413,7 +413,7 @@ function::
 
 	thumbnail = getThumbnail(session, image, width, height);
 
-Alternately, the image identifier can be passed to the function::
+Alternatively, the image identifier can be passed to the function::
 
 	thumbnail = getThumbnail(session, imageID, width, height);
 
@@ -425,7 +425,7 @@ function::
 
 	thumbnail = getThumbnailByLongestSide(session, image, size);
 
-or alternately using the image identifier::
+or alternatively using the image identifier::
 
 	thumbnail = getThumbnailByLongestSide(session, imageID, size);
 
@@ -492,7 +492,7 @@ function::
 
 	getFileAnnotationContent(session, fileAnnotation, target_file);
 
-Alternately, if only the file annotation identifier is known::
+Alternatively, if only the file annotation identifier is known::
 
 	getFileAnnotationContent(session, faid, target_file);
 

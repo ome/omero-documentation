@@ -28,7 +28,7 @@ produce a nicely formatted OME-XML string from an OME-TIFF file with:
 
     tiffcomment file.ome.tif | xmlindent
 
-Alternately, if you have ImageMagick installed, one easy way to extract
+Alternatively, if you have ImageMagick installed, one easy way to extract
 the OME-XML embedded in the TIFF headers is to use it from the command
 line:
 
@@ -43,7 +43,7 @@ If you are working in C/C++, we recommend the open source
 If you are looking for a solution in Java, there are several options.
 Bio-Formats can read OME-TIFF files, as well as convert from many
 third-party formats into OME-TIFF format—see the :doc:`example source code
-page <code>` for specific examples. Alternately, the open
+page <code>` for specific examples. Alternatively, the open
 source `ImageJ <http://rsb.info.nih.gov/ij/>`_ application reads
 multi-page TIFF files, storing the TIFF comment into the associated
 FileInfo object's "description" field.
@@ -114,7 +114,7 @@ in OME-XML or OME-TIFF formats, including:
 -  correct TiffData block usage
 -  frame counts in TIFF files
 
-Alternately, you can use the more general online `W3C XML
+Alternatively, you can use the more general online `W3C XML
 validator <http://www.w3.org/2001/03/webdata/xsv>`_ to validate your
 OME-XML blocks. For best results, be sure to check the "keep going"
 option.

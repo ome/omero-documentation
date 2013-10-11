@@ -172,7 +172,7 @@ group::
 
     $ bin/omero group add newgroup
 
-The permissions of the group are set to `private` by default. Alternately you
+The permissions of the group are set to `private` by default. Alternatively you
 can specify the permissions using :option:`--perms` or :option:`--type` 
 optional arguments::
 
