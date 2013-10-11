@@ -139,14 +139,14 @@ views.py or client side. The default behavior is as follows:
 With Debug: True (during development)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Django will return an html page describing the error, with various
+Django will return an HTML page describing the error, with various
 parameters, stack trace etc. If the request was AJAX, and you have our
 JavaScript code on your page then the error will be handled as described
-(see above). NB: With Debug True, 500 errors will be returned as html
-pages by Django but these will not be rendered as html in our feedback
+(see above). NB: With Debug True, 500 errors will be returned as HTML
+pages by Django but these will not be rendered as HTML in our feedback
 form. You can use developer tools on your browser (e.g. Firebug on
 Firefox) to see various errors and open the request in a new tab to
-display the full debug info as html.
+display the full debug info as HTML.
 
 With Debug: False (in production)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -171,13 +171,13 @@ reasonable way.
 
 For 'unexpected' server errors, it is best to allow the exception to be
 handled by Django since this will provide a lot more info to the user
-(request details etc.) and format html (both with Debug True or
+(request details etc.) and format HTML (both with Debug True or
 False).
 
 If you still want to handle the exception yourself, you can provide
 stack trace alongside a message for the user. If the request is ajax,
-do not return html, since the response text will be displayed in a dialog
-box for the user (not rendered as html).
+do not return HTML, since the response text will be displayed in a dialog
+box for the user (not rendered as HTML).
 
 ::
 
