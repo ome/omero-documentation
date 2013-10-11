@@ -6,8 +6,8 @@ It provides a web API for rendering images and accessing data
 on the OMERO server via urls.
 
 .. note::
-    The OMERO.web client also supports urls linking to specified data in OMERO.
-    See :doc:`/users/client-tutorials/web/urls_to_data` for more details.
+    The OMERO.web client also supports urls linking to specified data in 
+    OMERO. See the :help:`OMERO.web user guides <>` for more details.
 
 Web services
 ------------
