@@ -107,6 +107,7 @@ oo_root = 'http://www.openmicroscopy.org'
 oo_site_root = oo_root + '/site'
 lists_root = 'http://lists.openmicroscopy.org.uk'
 downloads_root = 'http://downloads.openmicroscopy.org'
+help_root = 'http://help.openmicroscopy.org'
 
 extlinks = {
     # Trac links
@@ -138,8 +139,10 @@ extlinks = {
     'bf_plone' : (oo_site_root + '/products/bio-formats/%s', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
     'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
+    # Downloads
+    'downloads' : (downloads_root + 'omero/%s', '')
     # Help links
-    'help' : (help_root + 'html/%s', ''),
+    'help' : (help_root + '/%s', ''),
     # Miscellaneous links
     'snapshot' : (cvs_root + '/snapshots/%s', ''),
     'zeroc' : ('http://zeroc.com/%s', ''),
