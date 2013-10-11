@@ -3,19 +3,19 @@ WebGateway
 
 WebGateway is a Django app within the |OmeroWeb|. 
 It provides a web API for rendering images and accessing data
-on the OMERO server via urls.
+on the OMERO server via URLs.
 
 .. note::
-    The OMERO.web client also supports urls linking to specified data in 
+    The OMERO.web client also supports URLs linking to specified data in 
     OMERO. See the :help:`OMERO.web user guides <>` for more details.
 
 Web services
 ------------
 
-This list of urls below may be incomplete or out of date. For a complete
-list of urls, see the latest API, :javadoc:` latest
+This list of URLs below may be incomplete or out of date. For a complete
+list of URLs, see the latest API, :javadoc:` latest
 API <epydoc/omeroweb.webgateway.urls-module.html>`
-and try the urls out for yourself!
+and try the URLs out for yourself!
 
 The http request will need to include login details for creating or
 using a current server connection. This will be true for any request
@@ -33,11 +33,11 @@ to, for example,
   Rendered thumbnail
 
 
-Urls from within OMERO web
+URLs from within OMERO web
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Images rendered within OMERO web templates should use Django's {% url %} tag to generate
-urls for webgateway, passing in the ID of the image. This is shown for each of the urls below:
+URLs for webgateway, passing in the ID of the image. This is shown for each of the URLs below:
 
 
 Image viewer
@@ -102,7 +102,7 @@ Rendering Settings
 
 If no rendering settings are specified (as above), then the current
 rendering settings will be used. To apply different settings to images
-returned by the render\_image and render\_split\_channels urls,
+returned by the render\_image and render\_split\_channels URLs,
 parameters can be specified in the request. N.B. These settings are only
 applied to the rendered image and will not be saved unless specified.
 

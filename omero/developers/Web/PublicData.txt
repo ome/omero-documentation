@@ -33,8 +33,8 @@ Here is how to go about setting this up on your OMERO.web install:
     this).
 
     The idea is that you can create the public pages yourself since we do not 
-    provide them. For example, to only allow 
-    urls that start with '/my_web_public' you would use: 
+    provide them. For example, to allow only
+    URLs that start with '/my_web_public' you would use: 
 
     ::
 
