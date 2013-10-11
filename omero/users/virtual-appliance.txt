@@ -296,8 +296,7 @@ You can run regular OMERO clients on your host machine and connect to
 the server in the |VM|. Our example uses OMERO.insight running on Mac OS X
 to connect to the |VM|.
 
--  :downloads:`Download <>` and 
-   :doc:`install <client-tutorials/insight/getting-started>` OMERO.insight
+-  :downloads:`Download <>` and install OMERO.insight
 -  Start OMERO.insight
 -  Click the spanner icon situated above the password box to
    enter the server settings box shown below.
