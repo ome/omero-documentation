@@ -294,7 +294,7 @@ Customizing your OMERO.web installation
          probably do not want the whole webclient UI to be publicly
          visible (although you could do this). The idea is that you can
          create the public pages yourself (see :doc:`/developers/Web`
-         since we do not provide public pages. E.g. to only allow urls
+         since we do not provide public pages. E.g. to allow only URLs
          that start with '/my\_web\_public' you would use:
 
          ::

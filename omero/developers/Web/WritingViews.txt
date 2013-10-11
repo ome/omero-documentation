@@ -92,7 +92,7 @@ conn connection upon login, handle login failure differently etc.
 Style guides
 ------------
 
-Tips on good practice in views.py methods and their corresponding urls.
+Tips on good practice in views.py methods and their corresponding URLs.
 
 -  Include any required arguments in the function parameter list.
    Although many views.py methods use the **kwargs parameter to accept
@@ -100,9 +100,9 @@ Tips on good practice in views.py methods and their corresponding urls.
    are absolutely required by the method.**
 -  Specify default parameters where possible. This makes it easier to
    reuse the method in other ways.
--  Use keyword arguments in url regular expressions. This makes them
+-  Use keyword arguments in URL regular expressions. This makes them
    less brittle to changes in parameter ordering in the views.
--  Similarly, use keyword arguments for urls in templates
+-  Similarly, use keyword arguments for URLs in templates
 
    ::
 
@@ -130,7 +130,7 @@ require this functionality. Errors are handled as follows:
    refreshed which will redirect the user to login page.
 -  500 Server error. We display a feedback form for the user to submit
    details of the error to our QA system - POSTs to
-   "qa.openmicroscopy.org.uk:80". This url is configurable in
+   "qa.openmicroscopy.org.uk:80". This URL is configurable in
    settings.py.
 
 In general, you should not have to write your own error handling code in
