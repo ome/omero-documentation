@@ -9,7 +9,7 @@ OMERO.web framework
 <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`
 
 OMERO.web is a framework for building web applications for OMERO. It
-uses ` Django <https://www.djangoproject.com/>`_ to generate html pages
+uses ` Django <https://www.djangoproject.com/>`_ to generate HTML pages
 from data retrieved from the OMERO server. OMERO.web acts as a Python
 client of the OMERO server using the OMERO API, as well as being a web
 server itself (see 'infrastructure' info below). It uses Django 'apps'

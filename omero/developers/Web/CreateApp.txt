@@ -311,7 +311,7 @@ image and dataset from your OMERO server to use in the webtest examples.
 Extending templates
 ~~~~~~~~~~~~~~~~~~~
 
-We provide several html templates in
+We provide several HTML templates in
 webgateway/templates/webgateway/base. This is a nice way of giving users
 the feeling that they have not left the webclient, if you are providing
 additional functionality for webclient users. You may choose not to use
