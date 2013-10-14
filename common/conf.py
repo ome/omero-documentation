@@ -140,7 +140,7 @@ extlinks = {
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
     'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
     # Downloads
-    'downloads' : (downloads_root + 'omero/%s', ''),
+    'downloads' : (downloads_root + '/omero/%s', ''),
     # Help links
     'help' : (help_root + '/%s', ''),
     # Miscellaneous links
