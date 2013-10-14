@@ -16,7 +16,7 @@ further details and to leave comments on your experience with this problem.
 Moving projected images
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Depending in the group permissions, you may not be able to move projected 
+Depending on the group permissions, you may not be able to move projected 
 images nor the original images that they were created from, into a different 
 group (see :ticket:`11532` for a work-around or to comment on your 
 experience). Moving a dataset containing projected images may result in an 
