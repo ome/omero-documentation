@@ -7,19 +7,27 @@ image data recorded in a range of file formats. Ideally a single set of
 applications, running on a user's laptop or workstation, could access
 all sets of data, and provide easy-to-use access to this data.
 
-OMERO ships as a server application called *OMERO.server* and a series of
-clients: *OMERO.web*, *OMERO.insight*, *OMERO.editor* and *OMERO.importer*.
-All run on the major operating systems and provide image visualization,
-management, and annotation to users from remote locations. With a large
-number of OMERO.server installations worldwide, OMERO has been shown to be
-relatively easy to install and get running.
-
-*OMERO.clients* is our collective term for our applications that allows
-users access to their data in the *OMERO.server*. 
+OMERO ships as a server application called :program:`OMERO.server` and a 
+series of client applications (known simply as clients): :program:`OMERO.web`, 
+:program:`OMERO.insight`, :program:`OMERO.editor` and 
+:program:`OMERO.importer`. All run on the major operating systems 
+and provide image visualization, management, and annotation to users from 
+remote locations. With a large number of OMERO.server installations worldwide, 
+OMERO has been shown to be relatively easy to install and get running.
 
 OMERO.insight (.editor, .importer) are desktop applications written in Java
 and require Java 1.6 (or higher) to be installed on the user's computer
 (automatically installed on most up-to-date OS X and Windows XP systems).
+
+Our **NEW** user assistance :help:`help website<>` provides a series of 
+workflow-based guides to performing common actions in the client applications, 
+such as importing and viewing data, exporting images and using the measuring 
+tool. 
+
+Our partners within the OME consortium are also producing new clients and 
+modules for OMERO, integrating additional functionality, particularly for more 
+complex image analysis. See the :partner_plone:`Partner Projects <>` page for 
+more details.
 
 .. _omero-web:
 
@@ -48,16 +56,19 @@ interface [2]_ [4]_. Developers can use the |OmeroWeb| to build customized views
     OMERO.web image viewer
     
 
+For more information and guides to using OMERO.web, see our 
+:help:`help website <>`.
+
 .. _omero-insight:
 
 OMERO.insight
 -------------
 
 OMERO.insight provides a number of tools for accessing and using data in an
-OMERO Server. The figure :ref:`omero_insight_4_4_viewer` presents the
+OMERO server. The figure :ref:`omero_insight_4_4_viewer` presents the
 OMERO.insight image viewer, whereas figure :ref:`omero_insight_screenshot_4_4`
-presents the user interface [1]_ [3]_. To find out more, see
-:doc:`client-tutorials/insight/getting-started`.
+presents the user interface [1]_ [3]_. To find out more, see the 
+:help:`OMERO.insight user guides <>`.
 
 .. _omero_insight_4_4_viewer:
 .. figure:: /images/omero_insight_4_4_viewer.png
@@ -78,10 +89,10 @@ presents the user interface [1]_ [3]_. To find out more, see
 Among many features, the noteworthy OMERO.insight elements are:
 
 - DataManager, a traditional tree-based view of the data hierarchies in an
-  OMERO Server. DataManager supports access to all image metadata,
+  OMERO server. DataManager supports access to all image metadata,
   annotations, tags.
 - ImageViewer, for visualization of 5D images (space, channel, time). The
-  ImageViewer makes use of the OMERO Server's Rendering Engine, and provides
+  ImageViewer makes use of the OMERO server's Rendering Engine, and provides
   high-performance viewing of multi-dimensional images on standard
   workstations (e.g. scrolling through space and time), without requiring
   installation of high-powered graphics cards. Most importantly, image viewing
@@ -93,6 +104,10 @@ Among many features, the noteworthy OMERO.insight elements are:
   data.
 - User administration.
 - Image import.
+
+Our user assistance :help:`help website <>` features a number of 
+workflow-based guides to importing, viewing, managing and exporting your data 
+using OMERO.insight.
 
 .. _omero-editor:
 
@@ -125,7 +140,10 @@ combining several smaller protocols.
 The OMERO.editor is part of the OMERO.insight client, but can also run as a
 stand-alone application. OMERO.editor saves files as XML documents, which
 makes it possible for them to be read by other software. More information can
-be found on the :doc:`client-tutorials/editor/editor` tutorial page.
+be found in the :help:`OMERO.editor user guide <editor.html>`.
+
+.. note:: OMERO.editor is no longer actively developed but is still shipped 
+    with OMERO releases.
 
 .. _omero-importer:
 
@@ -135,9 +153,8 @@ OMERO.importer
 The OMERO.importer is part of the OMERO.insight client, but can also run as a
 stand-alone application. The OMERO.importer allows the import of proprietary
 image data files from a filesystem accessed from the user's computer to a
-running OMERO Server. This tool uses a standard file browser to select the
-image files to an OMERO Server. For a full tutorial, please see
-:doc:`client-tutorials/insight/importing-data`.
+running OMERO server. This tool uses a standard file browser to select the
+image files for import into an OMERO server.
 
 The tool uses Bio-Formats for translation of proprietary file formats in
 preparation for upload to an OMERO Server. Visit 
