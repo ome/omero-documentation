@@ -1,6 +1,6 @@
-##################
-User Documentation
-##################
+########################
+About the OMERO Platform
+########################
 
 ************
 Introduction
@@ -30,34 +30,65 @@ internet.
 
 This documentation is for the latest version of the OMERO Platform. We
 also have archived versions available for :legacy_plone:`legacy versions of
-OMERO <support/legacy/>`. For more technical information, please refer to the 
+OMERO <>`. For more technical information, please refer to the 
 :doc:`/developers/index`.
+
+*********
+Resources
+*********
 
 -   There are a number of demonstration videos available on the
     :omero_plone:`Features List <feature-list>` page, providing an
-    overview of the applications. 
+    overview of the applications.
+
 -   You can also browse our :omero_plone:`screenshots <screenshots>`. 
--   You can extend the functionality of OMERO using OMERO.scripts, our version 
-    of plugins. Guides to some of the scripts which ship with OMERO releases 
-    are below but you can also check out our new 
-    :community_plone:`Script Sharing <scripts>` page to find extra ones.
+
+-   As OMERO is an open source project with developers and users in many 
+    countries, :doc:`connecting to the community <community-resources>` can 
+    provide you with a wealth of experience to draw on for help and advice.
+
+-   ***NEW*** Our partners within the OME consortium are working on 
+    integrating additional functions and modules with OMERO. See the 
+    :partner_plone:`Partner Projects <>` page for details of the latest 
+    extensions which could help OMERO meet your research needs more fully.
+
+-   ***NEW*** You can also extend the functionality of OMERO using 
+    OMERO.scripts, our version of plugins. Guides to some of the scripts which 
+    ship with OMERO releases are already provided, but you can also check out 
+    our :community_plone:`Script Sharing <scripts>` page to find extra ones.
+
+-   ***NEW*** Workflow-based user assistance guides are provided on our
+    :help:`help website <>`. Extended OMERO.web and guides to other OMERO 
+    applications will be coming here soon.
+
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    community-resources
+
+
+*************
+OMERO clients
+*************
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
     clients-overview
-    community-resources
-    
+    command-line-interface
+    command-line-import
 
-**********
-Quickstart
-**********
+************************
+Quickstart server access
+************************
 
 If your institution does not have an existing OMERO.server for you to connect 
 to, you can apply for a user account on our demo server, or create your own 
 using a virtual appliance (a step-by-step guide for how to do this is 
-provided):
+provided).
 
 .. toctree::
     :maxdepth: 1
@@ -65,71 +96,4 @@ provided):
 
     demo-server
     virtual-appliance
-
-
-********************
-OMERO.insight guides
-********************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    client-tutorials/insight/getting-started
-    client-tutorials/insight/collaboration
-    client-tutorials/insight/importing-data
-    client-tutorials/insight/viewing-data
-    client-tutorials/insight/managing-data
-    client-tutorials/insight/measurement-tool
-    client-tutorials/insight/output
-    client-tutorials/insight/scripts
-
-****************
-OMERO.web guides
-****************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    client-tutorials/web/web-client
-    client-tutorials/web/urls_to_data
-
-*******************
-OMERO.editor guides
-*******************
-
-OMERO.editor is not under active development at present, but can still be used 
-for recording more detailed experimental metadata:
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    client-tutorials/editor/editor
-    client-tutorials/editor/editor-getting-started
-
-****************
-OMERO and ImageJ
-****************
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    client-tutorials/imagej
-
-********************
-More advanced guides
-********************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    client-tutorials/insight/util-scripts
-    command-line-interface
-    command-line-import
-    clients-memory
-
 
