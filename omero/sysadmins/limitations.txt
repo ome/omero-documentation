@@ -1,6 +1,42 @@
 Known Limitations
 =================
 
+Data management issues
+----------------------
+
+Moving data between groups
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When moving images into a different group from the one they were uploaded 
+into, important attached metadata, such as file annotations and rendering 
+settings, may be lost. This may especially affect moving data into a group 
+with more restrictive permissions. See :ticket:`10419` and :ticket:`9610` for 
+further details and to leave comments on your experience with this problem.
+
+Moving projected images
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Moving a dataset containing projected images into a different group may result 
+in an error when trying to view the projected images, and the original image 
+the projection was created from may be lost. See :ticket:`10262` for further 
+details and to leave comments on your experience with this problem.
+
+Deleting projected images
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It may not to possible to delete an image you own in a collaborative group if 
+a projected image has been created from it, due to shared metadata. See 
+:ticket:`11529` for further details or to comment on your experience with this 
+issue.
+
+Deleting SVS images
+^^^^^^^^^^^^^^^^^^^
+
+Deleting an image which shares an original SVS file with another image is 
+currently resulting in the archived original SVS file also being deleted and 
+no longer accessible from the other image. See :ticket:`11348` for further 
+details or to comment on your experience with this problem.
+
 Windows OS issues
 -----------------
 
