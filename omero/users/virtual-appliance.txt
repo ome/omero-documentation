@@ -237,9 +237,12 @@ Virtual Appliance |OS| credentials
 ======== =========
 Username Password
 ======== =========
-root     swordfish
+root     [1]
 omero      omero
 ======== =========
+
+[1] The omero account is able to run administrative commands via sudo with no 
+password required.
 
 OMERO.server credentials
 """"""""""""""""""""""""
@@ -578,7 +581,7 @@ as illustrated in this example of the Grub screen:
 Do not worry if your |VM| has a kernel number different to 2.6.32-5-686,
 the important thing is that you select the entry labeled "recovery
 mode". At this point, the |VM| should rapidly boot into the recovery mode
-and enable you to log in using the root password *swordfish*.
+and enable you to log in using the root password.
 
 Once you have logged in, you have a number of options but the recommended 
 courses of action are:
