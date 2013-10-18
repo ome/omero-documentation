@@ -43,7 +43,7 @@ URLs for webgateway, passing in the ID of the image. This is shown for each of t
 Image viewer
 ~~~~~~~~~~~~
 
--   Provides a full image viewer, with controls for scrolling Z & T, editing
+-   Provides a full image viewer, with controls for scrolling Z and T, editing
     rendering settings etc.
 
     ::
@@ -117,7 +117,7 @@ Individual parameters are:
        
        # From OMERO 4.4.4 you can simply specify the active channels
        ?c=3         # only Channel 3 is active
-       ?c=3,4       # Channels 3 & 4 are active
+       ?c=3,4       # Channels 3 and 4 are active
 
 -  Channel colour. E.g. To set the colours for channels 1 to red and 2
    to green and 3 to blue:
