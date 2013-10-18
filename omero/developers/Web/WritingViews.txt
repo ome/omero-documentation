@@ -62,7 +62,7 @@ passed to the function via the optional parameter ``conn=None``.
   :align: center
   :alt: Blitz Connection Flow
 
-  Logic flow for retrieving Blitz Gateway connection from http request.
+  Logic flow for retrieving Blitz Gateway connection from HTTP request.
 
 login\_required logic
 ^^^^^^^^^^^^^^^^^^^^^
@@ -71,7 +71,7 @@ The login\_required decorator has some complex connection handling code,
 to retrieve or create connections to OMERO. Although it is not necessary
 to study the code itself, you may find it useful to understand the logic
 that is used (see Flow Diagram). As mentioned above, we start with a
-http request (top left) and either a connection is returned (bottom
+HTTP request (top left) and either a connection is returned (bottom
 left) OR we are redirected to login page (right).
 
 .. note:: 
