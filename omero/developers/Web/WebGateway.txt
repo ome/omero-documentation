@@ -17,7 +17,7 @@ list of URLs, see the latest API, :javadoc:` latest
 API <epydoc/omeroweb.webgateway.urls-module.html>`
 and try the URLs out for yourself!
 
-The http request will need to include login details for creating or
+The HTTP request will need to include login details for creating or
 using a current server connection. This will be true for any request
 made after logging in to the server, e.g. login using webclient or
 webadmin login pages then go to webgateway/... or if you have logged
