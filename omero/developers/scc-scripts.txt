@@ -319,7 +319,7 @@ branch prior to rebasing and delete the local `rebased/develop/branch_142`.
 	Depending on the input options, this command will perform all the steps of
 	the rebase command (Github pushing, PR opening) skipping the rebase part.
 
-	Alternately, you can abort the rebase and switch to your previous branch::
+	Alternatively, you can abort the rebase and switch to your previous branch::
 
 		$ git rebase --abort
 		$ git checkout old_branch

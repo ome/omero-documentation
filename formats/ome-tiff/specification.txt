@@ -284,7 +284,7 @@ Distributing an image sequence across multiple OME-TIFF files
 
 As demonstrated above, the OME-TIFF format is capable of storing the
 entire multidimensional image series in one master OME-TIFF file.
-Alternately, a collection of multiple OME-TIFF files may be used. Using
+Alternatively, a collection of multiple OME-TIFF files may be used. Using
 the TiffData attributes outlined above together with
 `UUID <http://en.wikipedia.org/wiki/Universally_Unique_Identifier>`_
 elements and attributes, the OME-XML metadata block can unambiguously

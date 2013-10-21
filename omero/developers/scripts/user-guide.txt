@@ -85,7 +85,7 @@ and the script returns them as outputs.
     # Use the Python Blitz Gateway for convenience
     conn = BlitzGateway(client_obj=client)
 
-    # get the Image, print it's name
+    # get the Image, print its name
     image = conn.getObject("Image", imageId)
     print image.getName()
 
