@@ -2,12 +2,20 @@ OMERO upgrade checks
 ====================
 
 On each startup the OMERO server checks for available upgrades via the
-:source:`UpgradeCheck class <components/common/src/ome/system/UpgradeCheck.java>`.
+:source:`UpgradeCheck class 
+<components/common/src/ome/system/UpgradeCheck.java>`.
 An HTTP GET call is made to the URL configured in
 ``etc/omero.properties`` as ``omero.upgrades.url``, currently
-` http://upgrade.openmicroscopy.org.uk <http://upgrade.openmicroscopy.org.uk>`_
-by default. (Viewing this page in your browser will redirect you to this
-page).
+`http://upgrade.openmicroscopy.org.uk <http://upgrade.openmicroscopy.org.uk>`_
+by default (note that viewing that link in your browser will redirect you to 
+this page).
+
+.. note:: If you have been redirected here by clicking on a link to 
+    ``http://upgrade.openmicroscopy.org.uk`` in an error message or log while 
+    trying to run one of the **Bio-Formats command line tools**, please see 
+    the :bf_doc:`Bio-Formats command line tools documentation 
+    <users/comlinetools/>` for assistance.
+
 
 Actions
 -------
