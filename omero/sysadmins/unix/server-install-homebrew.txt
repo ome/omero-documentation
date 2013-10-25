@@ -69,8 +69,8 @@ requirements for OMERO will be installed to :file:`/usr/local`.
 If you are having issues with curl, see the :ref:`install_homebrew_curl`
 section under :ref:`install_homebrew_common_issues`.
 
-Python (>=2.4)
-^^^^^^^^^^^^^^
+Python 2 (>=2.6)
+^^^^^^^^^^^^^^^^
 
 .. _`Homebrew and Python`: https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python
 
