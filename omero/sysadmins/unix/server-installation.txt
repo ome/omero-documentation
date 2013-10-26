@@ -68,17 +68,17 @@ installed and available via your $PATH as follows...
     $ javac -version
     javac 1.6.0
 
-Python 2 (2.4 or higher)
-^^^^^^^^^^^^^^^^^^^^^^^^
+Python 2 (2.6 or later)
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Check you have Python (and what version) by typing:
 
 ::
 
     $ python --version
-    Python 2.5.1
+    Python 2.7.5+
 
-OMERO does not support Python 3.
+OMERO does not currently support Python 3.
 
 The following are optional depending on what services you require:
 

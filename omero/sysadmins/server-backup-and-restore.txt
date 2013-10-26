@@ -56,7 +56,7 @@ Backing up OMERO
 ----------------
 
 Understanding backup sources
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 OMERO.server has three main backup sources:
 
@@ -74,9 +74,15 @@ OMERO.server has three main backup sources:
         `<https://github.com/ome/scripts>`_ which provides help for merging 
         your lib/scripts directories.
 
-You should back up *(1)* and *(2)* regularly. You need to back up *(3)* only 
-before you make changes. You can copy it into ``/OMERO/backup`` to ensure it 
-is kept safe:
+You should back up *(1)* and *(2)* regularly. 
+
+.. warning:: **Although losing your PostgreSQL database is not as 
+    catastrophic for OMERO version 5.0 as it is for 4.4, you still do not want 
+    to be in the position of trying to recover your server without a backup of 
+    this resource.**
+
+You need to back up *(3)* only before you make changes. You can copy it into 
+``/OMERO/backup`` to ensure it is kept safe:
 
 ::
 
@@ -90,7 +96,7 @@ is kept safe:
 .. _backup-and-restore_postgresql:
 
 Backing up your PostgreSQL database
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Database backups can be achieved using the PostgreSQL ``pg_dump``
 command. Here is an example backup script that can be placed in
@@ -98,7 +104,6 @@ command. Here is an example backup script that can be placed in
 
 ::
 
-    #!sh
     #!/bin/bash
 
     DATE=`date '+%Y-%m-%d_%H:%M:%S-%Z'`
@@ -108,14 +113,17 @@ command. Here is an example backup script that can be placed in
 
     mkdir -p $OUTPUT_DIRECTORY
     chown -R $DATABASE_ADMIN $OUTPUT_DIRECTORY
-    su $DATABASE_ADMIN -c "pg_dump -Fc -f $OUTPUT_DIRECTORY/$DATABASE.$DATE.pg_dump"
+    su $DATABASE_ADMIN -c "pg_dump -Fc -f $OUTPUT_DIRECTORY/$DATABASE.$DATE.pg_dump $DATABASE"
 
 Other database backup configurations are outside the scope of this
 document but can be researched on the `PostgreSQL website <http://www.postgresql.org/docs/9.1/interactive/backup.html>`_
 *(Chapter 24. Backup and Restore)*.
 
+.. note:: Regular backups of your PostgreSQL database are crucial; you do not 
+    want to be in the position of trying to restore your server without one.
+
 Backing up your binary data store
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To simplify backup locations we have, in this document, located all
 database and configuration backups under ``/OMERO``, your :doc:`binary data
@@ -175,7 +183,7 @@ system failure:
     unless you are absolutely sure what you are doing.
 
 Restoring your configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once you have retrieved an OMERO.server package from the
 :downloads: `downloads <>` page that **matches** the version you
@@ -190,7 +198,7 @@ You should then follow the *Reconfiguration* steps of
 :doc:`install <unix/server-installation>`.
 
 Restoring your PostgreSQL database
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have had a PostgreSQL crash and database users are missing from
 your configuration, you should follow the first two (*Create a
@@ -204,7 +212,7 @@ that the database user and empty database exist, you can restore the
     $ sudo -u postgres pg_restore -Fc -d omero_database omero.2010-06-05_16:27:29-GMT.pg_dump
 
 Restoring your OMERO.server binary data store
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 All that remains once you have restored your Java preferences and
 PostgreSQL database is to restore your ``/OMERO`` :doc:`binary data

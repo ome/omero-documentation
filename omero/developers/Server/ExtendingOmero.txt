@@ -225,9 +225,8 @@ little indirection. You can see how such an object is configured in
 Java configuration
 ^^^^^^^^^^^^^^^^^^
 
-Configuration in the Java servers takes place via
-` Spring <http://www.springsource.org/>`_. One or more files matching a
-pattern like ``ome/services/blitz-*.xml`` should be added to your
+Configuration in the Java servers takes place via Spring_. One or more files
+matching a pattern like ``ome/services/blitz-*.xml`` should be added to your
 application.
 
 ::

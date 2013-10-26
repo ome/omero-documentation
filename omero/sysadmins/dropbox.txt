@@ -28,16 +28,6 @@ the following more specific requirements:
 -   In addition some platforms require further Python packages to be
     available:
 
-    -   Linux servers 4.2.x or earlier require `Pyinotify
-        0.7.x <http://pyinotify.sourceforge.net/>`_ or `Pyinotify
-        0.8.x <http://trac.dbzteam.org/pyinotify/>`_. Some Linux
-        distributions have one or other of these packages pre-installed.
-        Some distributions of Pyinotify versions 0.8.6 and 0.8.7 are not
-        compatible with Python 2.4. If your system runs Python 2.4
-        Pyinotify 0.8.5 or lower is recommended.
-    -   Linux systems running Python 2.4 also requires ctypes (bundled
-        with Python 2.5+) which is available from
-        `http://python.net/crew/theller/ctypes/ <http://python.net/crew/theller/ctypes/>`_
     -   Mac OS systems that use a macports install of Python will need to
         have FSEvents available in the PYTHONPATH. This will require a
         path of the form

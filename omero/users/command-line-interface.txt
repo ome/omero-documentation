@@ -21,7 +21,7 @@ tools.
 Check you have Python_ installed by typing::
 
     $ python --version
-    Python 2.5.1
+    Python 2.7.5+
 
 Additionally, Ice_ must be installed on your machine::
 

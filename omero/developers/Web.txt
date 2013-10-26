@@ -9,7 +9,7 @@ OMERO.web framework
 <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`
 
 OMERO.web is a framework for building web applications for OMERO. It
-uses ` Django <https://www.djangoproject.com/>`_ to generate html pages
+uses ` Django <https://www.djangoproject.com/>`_ to generate HTML pages
 from data retrieved from the OMERO server. OMERO.web acts as a Python
 client of the OMERO server using the OMERO API, as well as being a web
 server itself (see 'infrastructure' info below). It uses Django 'apps'
@@ -39,7 +39,7 @@ Web gateway
 The webgateway is a Django app that provides utility functionality for
 the other web components. This includes a full image viewer, as well as
 methods for rendering images etc. You can browse the :javadoc:` webgateway
-urls <epydoc/omeroweb.webgateway.urls-module.html>`,
+URLs <epydoc/omeroweb.webgateway.urls-module.html>`,
 or see the :doc:`/developers/Web/WebGateway` page for more info.
 
 Web apps
@@ -84,11 +84,11 @@ and other examples in the 'webtest' app. Also, see the
     Some details of this code have changed in the OMERO 4.4 release - see below.
 
 There are 3 parts to each page: url, view and template. For example,
-this code below is for generating an html page of a Dataset (see
+this code below is for generating an HTML page of a Dataset (see
 screen-shot). If you have OMERO.web running, you can view the page under
 `http://servername.example.org/webtest/dataset/`\ `<datasetId>`.
 
--  **Url** goes in omeroweb/webtest/urls.py This maps the url        
+-  **url** goes in omeroweb/webtest/urls.py This maps the URL
    'webtest/dataset/<datasetId>/' to the View function
    'dataset', passing it the datasetId.
 

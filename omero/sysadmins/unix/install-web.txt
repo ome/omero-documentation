@@ -29,14 +29,11 @@ Prerequisites
 
 -  OMERO and its prerequisites (see :doc:`server-installation`).
 
--  Python version from 2.4 to 2.7 (due to backwards incompatibilities in
-   Python 3.0, Django does not currently work with Python 3.0; for more
-   information see the `Django Installation
-   page <https://docs.djangoproject.com/en/1.1/intro/install/>`_).
+-  Python 2 (2.6 or later)
 
    -  `Python Imaging Library`_ should be available for your distribution
 
-   -  Matplotlib_ should be available for your distribution.
+   -  Matplotlib_ should be available for your distribution
 
 -  A FastCGI capable web server
 

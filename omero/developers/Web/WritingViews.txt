@@ -62,7 +62,7 @@ passed to the function via the optional parameter ``conn=None``.
   :align: center
   :alt: Blitz Connection Flow
 
-  Logic flow for retrieving Blitz Gateway connection from http request.
+  Logic flow for retrieving Blitz Gateway connection from HTTP request.
 
 login\_required logic
 ^^^^^^^^^^^^^^^^^^^^^
@@ -71,7 +71,7 @@ The login\_required decorator has some complex connection handling code,
 to retrieve or create connections to OMERO. Although it is not necessary
 to study the code itself, you may find it useful to understand the logic
 that is used (see Flow Diagram). As mentioned above, we start with a
-http request (top left) and either a connection is returned (bottom
+HTTP request (top left) and either a connection is returned (bottom
 left) OR we are redirected to login page (right).
 
 .. note:: 
@@ -92,7 +92,7 @@ conn connection upon login, handle login failure differently etc.
 Style guides
 ------------
 
-Tips on good practice in views.py methods and their corresponding urls.
+Tips on good practice in views.py methods and their corresponding URLs.
 
 -  Include any required arguments in the function parameter list.
    Although many views.py methods use the **kwargs parameter to accept
@@ -100,9 +100,9 @@ Tips on good practice in views.py methods and their corresponding urls.
    are absolutely required by the method.**
 -  Specify default parameters where possible. This makes it easier to
    reuse the method in other ways.
--  Use keyword arguments in url regular expressions. This makes them
+-  Use keyword arguments in URL regular expressions. This makes them
    less brittle to changes in parameter ordering in the views.
--  Similarly, use keyword arguments for urls in templates
+-  Similarly, use keyword arguments for URLs in templates
 
    ::
 
@@ -130,7 +130,7 @@ require this functionality. Errors are handled as follows:
    refreshed which will redirect the user to login page.
 -  500 Server error. We display a feedback form for the user to submit
    details of the error to our QA system - POSTs to
-   "qa.openmicroscopy.org.uk:80". This url is configurable in
+   "qa.openmicroscopy.org.uk:80". This URL is configurable in
    settings.py.
 
 In general, you should not have to write your own error handling code in
@@ -139,14 +139,14 @@ views.py or client side. The default behavior is as follows:
 With Debug: True (during development)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Django will return an html page describing the error, with various
+Django will return an HTML page describing the error, with various
 parameters, stack trace etc. If the request was AJAX, and you have our
 JavaScript code on your page then the error will be handled as described
-(see above). NB: With Debug True, 500 errors will be returned as html
-pages by Django but these will not be rendered as html in our feedback
+(see above). NB: With Debug True, 500 errors will be returned as HTML
+pages by Django but these will not be rendered as HTML in our feedback
 form. You can use developer tools on your browser (e.g. Firebug on
 Firefox) to see various errors and open the request in a new tab to
-display the full debug info as html.
+display the full debug info as HTML.
 
 With Debug: False (in production)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -171,13 +171,13 @@ reasonable way.
 
 For 'unexpected' server errors, it is best to allow the exception to be
 handled by Django since this will provide a lot more info to the user
-(request details etc.) and format html (both with Debug True or
+(request details etc.) and format HTML (both with Debug True or
 False).
 
 If you still want to handle the exception yourself, you can provide
 stack trace alongside a message for the user. If the request is ajax,
-do not return html, since the response text will be displayed in a dialog
-box for the user (not rendered as html).
+do not return HTML, since the response text will be displayed in a dialog
+box for the user (not rendered as HTML).
 
 ::
 
