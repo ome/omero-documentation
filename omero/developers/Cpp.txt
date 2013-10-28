@@ -198,7 +198,7 @@ run the :program:`Visual Studio` environment setup scripts:
     Setting environment for using Microsoft Visual Studio 2010 x86 tools.
 
 or otherwise guarantee that the environment is properly configured.
-For a 64 bit build, be sure to use the right setup, for example
+For a 64-bit build, be sure to use the right setup, for example
 :menuselection:`Start-->Microsoft Visual Studio 2010-->Visual Studio
 Tools-->Visual Studio x64 Win64 Command Prompt`.  With a suitable
 command prompt, run:
@@ -304,4 +304,4 @@ please see |OmeroClients|.
 .. seealso::
 
     Ice_, |OmeroGrid|, |OmeroApi|, :doc:`/developers/build-system`,
-    :ticket:`1596` which added 64bit support
+    :ticket:`1596` which added 64-bit support
