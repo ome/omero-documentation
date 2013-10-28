@@ -331,7 +331,7 @@ joined entity type (i.e. table) which apears in a query.
 
        select i from Image i join i.defaultPixels p
 
-would contain the "( current\_user = :root ...)" clause twice.
+would contain the "( current\_user = :root …)" clause twice.
 
 Currently, subqueries are an issue in that the clauses do not get added
 to them. This may cause consternation for some particular queries.

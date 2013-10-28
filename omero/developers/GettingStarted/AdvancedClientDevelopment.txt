@@ -107,12 +107,12 @@ From :source:`components/blitz/resources/omero/System.ice`:
         // given method call, including user, read/write status, etc.
         class EventContext
         {
-          ...
+          …
           long   userId;
           string userName;
-          ...
+          …
           bool   isAdmin;
-          ...
+          …
 
 Sequences, dictionaries, enums, and constants
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -811,7 +811,7 @@ can be inefficient, all the |OmeroModel| collections are hidden behind several m
         assert(image->sizeOfDatasetLinks() < 0);
         try {
             image->linkDataset( new DatasetI() );
-        } catch (...) {
+        } catch (…) {
             // Can't access an unloaded collection
         }
         // The reload...() method allows one instance
@@ -1034,7 +1034,7 @@ implement **multiple** interfaces. Much of the
 
 -  :source:` IObject <components/model/src/ome/model/IObject.java>`
    is the root interface for all object types. **Methods**: ``getId()``,
-   ``getDetails()``, ...
+   ``getDetails()``, …
 -  :source:` IEnum <components/model/src/ome/model/IEnum.java>`
    is an enumeration value. **Methods**: ``getValue()``
 -  :source:` ILink <components/model/src/ome/model/ILink.java>`
@@ -1212,7 +1212,7 @@ be left open on the server, and 2) your client may hang on exit.
         try {
             // Do something like
             // client.createSession();
-        } catch (...) {
+        } catch (…) {
             client.closeSession();
         }
         //
@@ -1629,10 +1629,10 @@ ServiceFactory itself:
                 // Central OMERO.blitz stateless services.
                 IAdmin*          getAdminService() throws ServerError;
                 IConfig*         getConfigService() throws ServerError;
-                ...
+                …
                 // Central OMERO.blitz stateful services.
                 Gateway*         createGateway() throws ServerError;
-                ...
+                …
 
 In the definition above, the return values look like C/C++ pointers,
 which in Ice's definition language represents return-by-proxy. When a
@@ -2119,7 +2119,7 @@ Example: :source:`examples/TreeList/PrintProjects.java`
             port = argv[1];
             user = argv[2];
             pass = argv[3];
-        } catch (...) {
+        } catch (…) {
             Usage::usage();
         }
         omero::client client(argc, argv);
@@ -2128,7 +2128,7 @@ Example: :source:`examples/TreeList/PrintProjects.java`
             omero::api::ServiceFactoryPrx factory = client.createSession(user, pass);
             std::vector<omero::model::ProjectPtr> projects = AllProjects::getProjects(factory->getQueryService(), user);
             PrintProjects::print(projects);
-        } catch (...) {
+        } catch (…) {
             client.closeSession();
         }
         return rc;

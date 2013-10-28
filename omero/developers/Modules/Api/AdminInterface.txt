@@ -27,7 +27,7 @@ The following shows how these methods can be equivalently used:
        ServiceFactory sf = new ServiceFactory();
        IAdmin iAdmin = sf.getAdminService();
        IUpdate iUpdate = sf.getUpdateService();
-       Image myImg = ... ; //
+       Image myImg = … ; //
      
        // using IAdmin -- let's change the group of myImg
        // and then make it group private.

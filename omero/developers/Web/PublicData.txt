@@ -55,8 +55,8 @@ Here is how to go about setting this up on your OMERO.web install:
 
         'webtest' matches '/webtest' but also '/webclient/webtest'
         'dataset' matches  '/webtest/dataset' and also '/webclient/dataset' 
-        '/webtest' matches '/webtest...' but also '/webclient/webtest' 
-        '/webtest' matches '/webtest...' but not '/webclient/webtest'
+        '/webtest' matches '/webtest…' but also '/webclient/webtest' 
+        '/webtest' matches '/webtest…' but not '/webclient/webtest'
 
     Set a server to connect to. Default: 1 (the first server in 
     omero.web.server_list)

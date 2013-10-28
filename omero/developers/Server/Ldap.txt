@@ -23,7 +23,7 @@ The LDAP plugin follows these steps:
    valid user:
 
    #. The ``user_mapping`` property is of the form:
-      ``omeName=<ldap attribute>;firstName=<ldapAttribute>;...``
+      ``omeName=<ldap attribute>;firstName=<ldapAttribute>;…``
    #. For looking up new users, the plugin will only use the ``omeName``
       attribute. For example, if a user tries to login with "emma" and the
       ``user_mapping`` starts with ``omeName=cn;`` then the LDAP search
@@ -46,7 +46,7 @@ NewUserGroupBean.java
 
 The interface described for the ":bean:" ``new_user_group`` prefix, is
 :source:`ome.security.auth.NewUserGroupBean <components/server/src/ome/security/auth/NewUserGroupBean.java>`. It defines a
-single method: ``groups(..., AttributeSet set)`` which returns a list of
+single method: ``groups(…, AttributeSet set)`` which returns a list of
 ``ExperimenterGroup`` ids (``List<Long>``) which the user should be added to.
 
 Other prefix handlers also implement the interface as examples. In the same
