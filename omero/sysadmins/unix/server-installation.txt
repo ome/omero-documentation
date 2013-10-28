@@ -59,7 +59,7 @@ currently available to you via your $PATH as follows:
     Java HotSpot(TM) Server VM (build 1.6.0-b105, mixed mode)
 
 Further, you can see if you have the Java compiler (Java SDK)
-installed and available via your $PATH as follows...
+installed and available via your $PATH as follows…
 
 ::
 
@@ -159,7 +159,7 @@ For the prerequisite software to run properly, your PATH, PYTHONPATH,
 and (DY)LD\_LIBRARY\_PATH environment variables must be configured. If
 you installed via a package manager such as rpm, apt-get, or macports,
 they should be set for you. If not correctly configured or if you
-installed manually to /opt/Ice-... or a similar location, you will need
+installed manually to /opt/Ice-… or a similar location, you will need
 to set the values yourself.
 
 If you are running a Linux distribution such as Debian or Ubuntu and

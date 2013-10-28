@@ -140,7 +140,7 @@ This is often due to firewall misconfiguration on the machine that runs
 your OMERO server, affecting the ability of remote clients to locate
 it. Please see the :doc:`/sysadmins/server-security` page.
 
-Server crashes with...
+Server crashes with…
 ----------------------
 
 -  ``X11 connection rejected because of wrong authentication``
@@ -168,7 +168,7 @@ OMERO.server as follows:
 
    ::
 
-       ...
+       …
 
        <server-template id="BlitzTemplate">
          <parameter name="index"/>
@@ -182,7 +182,7 @@ OMERO.server as follows:
            <option>-Xmx512M</option>
            <option>-Djava.awt.headless=true</option>
            <option>-Dlog4j.configuration=${OMERO_ETC}log4j.xml</option>
-           ...
+           …
 
    Replace ``-Xmx512M`` initially with ``-Xmx1024M`` or greater as required,
    (use ``-Xmx1024M -XX:MaxPermSize=128m`` as an alternative).
