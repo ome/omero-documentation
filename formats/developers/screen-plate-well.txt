@@ -39,15 +39,15 @@ defined in the OME file:
 
 ::
 
-    <spw:Screen ...>
-        ...
+    <spw:Screen …>
+        …
         <spw:Reagent ID="Reagent:001" Description="Monastrol at a 100nM concentration from XYZ Supplier" Name="Monastrol-100nM" ReagentIdentifier="R-XYZ-Mon-100-nm-00345"/>
         <spw:Reagent ID="Reagent:002" Description="Monastrol at a 300nM concentration from XYZ Supplier" Name="Monastrol-300nM" ReagentIdentifier="R-XYZ-Mon-300-nm-01245"/>
         <spw:Reagent ID="Reagent:003" Description="Monastrol at a 900nM concentration from XYZ Supplier" Name="Monastrol-900nM" ReagentIdentifier="R-XYZ-Mon-900-nm-00875"/>
         <spw:Reagent ID="Reagent:004" Description="VX680 at a 300nM concentration from XYZ Supplier" Name="VX680-300nM" ReagentIdentifier="R-XYZ-VX680-300-nm-00256"/>
         <spw:Reagent ID="Reagent:005" Description="VX680 at a 900nM concentration from XYZ Supplier" Name="VX680-900nM" ReagentIdentifier="R-XYZ-VX680-900-nm-00257"/>
         <spw:Reagent ID="Reagent:006" Description="VX680 at a 2700nM concentration from XYZ Supplier" Name="VX680-2700nM" ReagentIdentifier="R-XYZ-VX680-2700-nm-00258"/>
-        ...
+        …
     </spw:Screen>
 
 Elements and Attributes
