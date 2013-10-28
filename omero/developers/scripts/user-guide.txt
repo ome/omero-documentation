@@ -20,7 +20,7 @@ form:
     and output.
     '''  
     client = script.client("SCRIPTNAME", "SCRIPTDESCRIPTION", 
-             script.TYPE("VARIABLENAME").[in()|out()|inout()], ...)
+             script.TYPE("VARIABLENAME").[in()|out()|inout()], …)
     # create a session on the server.
     client.createSession()
 

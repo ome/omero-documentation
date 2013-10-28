@@ -331,7 +331,7 @@ Working with submodules
 -----------------------
 
 Since submodules are git repositories, all the tools described
-previously (add remotes, edit/merge, commit...) can be used within each
+previously (add remotes, edit/merge, commit…) can be used within each
 submodule repository:
 
 ::

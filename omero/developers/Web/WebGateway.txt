@@ -21,7 +21,7 @@ and try the URLs out for yourself!
 The HTTP request will need to include login details for creating or
 using a current server connection. This will be true for any request
 made after logging in to the server, e.g. login using webclient or
-webadmin login pages then go to ``webgateway/...`` or if you have 
+webadmin login pages then go to ``webgateway/…`` or if you have 
 logged in to a server at ``http://ome.example.com/webclient`` then go
 to, for example,
 ``http://ome.example.com/webgateway/render_image/<imageid>/<z>/<t>/``
