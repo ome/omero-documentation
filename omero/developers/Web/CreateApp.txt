@@ -354,8 +354,4 @@ top of the webclient main pages.
 OMERO.web plugins (OMERO 4.4)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**This functionality is under development:**
-
-An alternative is to bring your content into the existing webclient. See
-omeroweb/settings.py "omero.web.ui.right\_plugins" and
-"omero.web.ui.center\_plugins".
+If you want to display content from your app within the webclient UI, please see :doc:`/developers/Web/WebclientPlugin`.
