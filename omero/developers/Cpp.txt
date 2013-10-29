@@ -74,7 +74,7 @@ environment variable instead; this is typically ``$ICE_HOME/slice``.
 
   .. parsed-literal::
 
-      set ICE_HOME=C:\\Ice-|iceversion|
+       set ICE_HOME=C:\\Program Files (x86)\\ZeroC\\Ice-|iceversion|
 
 Users of a package manager will also need to set :envvar:`ICE\_HOME`
 or :envvar:`SLICEPATH` if the Ice paths are not automatically detected.
