@@ -811,7 +811,7 @@ can be inefficient, all the |OmeroModel| collections are hidden behind several m
         assert(image->sizeOfDatasetLinks() < 0);
         try {
             image->linkDataset( new DatasetI() );
-        } catch (…) {
+        } catch (...) {
             // Can't access an unloaded collection
         }
         // The reload...() method allows one instance
@@ -1212,7 +1212,7 @@ be left open on the server, and 2) your client may hang on exit.
         try {
             // Do something like
             // client.createSession();
-        } catch (…) {
+        } catch (...) {
             client.closeSession();
         }
         //
@@ -2119,7 +2119,7 @@ Example: :source:`examples/TreeList/PrintProjects.java`
             port = argv[1];
             user = argv[2];
             pass = argv[3];
-        } catch (…) {
+        } catch (...) {
             Usage::usage();
         }
         omero::client client(argc, argv);
@@ -2128,7 +2128,7 @@ Example: :source:`examples/TreeList/PrintProjects.java`
             omero::api::ServiceFactoryPrx factory = client.createSession(user, pass);
             std::vector<omero::model::ProjectPtr> projects = AllProjects::getProjects(factory->getQueryService(), user);
             PrintProjects::print(projects);
-        } catch (…) {
+        } catch (...) {
             client.closeSession();
         }
         return rc;

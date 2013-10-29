@@ -96,5 +96,4 @@ After installing all the Windows prerequisites OMERO.tables should start up
 during the OMERO.server startup. It can be verified by looking at the output
 of ``omero admin diagnostics``::
 
-    (…)
     Server:     Tables-0                       active (pid = 3176, enabled)
