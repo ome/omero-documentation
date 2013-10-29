@@ -14,9 +14,9 @@ A service factory is obtained from the client connection e.g. Python:
 -  The :javadoc:`Service factory API <slice2html/omero/api/ServiceFactory.html>`
    has methods for creating Stateless and Stateful services (see below).
 
-   -  Stateless services are obtained using "get..." methods e.g.
+   -  Stateless services are obtained using "get…" methods e.g.
       ``getQueryService()``
-   -  Stateful services are obtained using "create..." methods e.g.
+   -  Stateful services are obtained using "create…" methods e.g.
       ``createRenderingEngine()``
 
 -  Services will provide access to omero.model.objects. You will then
@@ -129,7 +129,7 @@ IQuery and IUpdate are the basic building blocks for the rest of the
 (non-binary) API. IQuery is based on QuerySources and QueryParemeters
 which are explained under :doc:`/developers/Server/Queries`. The goal of this
 design is to make wildly separate definitions of queries (templates,
-db-stored , Java code, C# code, ...) runnable on the server.
+db-stored, Java code, C# code, …) runnable on the server.
 
 IUpdate takes any graph composed of
 :source:`IObject <components/model/src/ome/model/IObject.java>`

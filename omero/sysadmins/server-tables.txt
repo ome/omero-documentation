@@ -74,7 +74,7 @@ After that, the following should succeed:
     [GCC 4.0.1 (Apple Computer, Inc. build 5370)]
     Platform:          darwin-i386
     Byte-ordering:     little
-    ...
+    …
 
 Once the required Python libraries are installed, starting OMERO will
 automatically start up the OMERO.tables service; there should be no need
@@ -96,5 +96,4 @@ After installing all the Windows prerequisites OMERO.tables should start up
 during the OMERO.server startup. It can be verified by looking at the output
 of ``omero admin diagnostics``::
 
-    (...)
     Server:     Tables-0                       active (pid = 3176, enabled)

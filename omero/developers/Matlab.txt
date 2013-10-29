@@ -24,7 +24,7 @@ Once OMERO.matlab is installed, the typical workflow is:
 #. :ref:`connection_init`
 #. :ref:`connection_keepalive`
 #. :ref:`unsecure_client` (optional)
-#. Do some work (load objects, work with them, upload to the server...)
+#. Do some work (load objects, work with them, upload to the server…)
 #. :ref:`connection_close`
 #. :ref:`unload` (optional)
 
@@ -90,7 +90,7 @@ directly or modify it to your liking.
 
     >> [c,s] = loadOmero;
     >> t = omeroKeepAlive(c); % Creates a 60-second timer and starts it
-    >> ...
+    >> …
     >> delete(t);             % Disables the keep-alive
 
 Alternatively, you can use the Java-based ``enableKeepAlive`` method,

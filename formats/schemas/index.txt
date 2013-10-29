@@ -57,9 +57,9 @@ In the schema element of the XSD file, there is a version attribute:
 ::
 
     <xsd:schema xmlns="http://www.openmicroscopy.org/Schemas/OME/2012-06" 
-        ...
+        …
         version="1" 
-        ... >
+        … >
 
 This is used to record the minor version number of the schema. This
 starts at 1 and counts up in integers (1, 2, 3 etc.) with each minor

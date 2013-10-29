@@ -167,7 +167,7 @@ JMX configuration
       <parameter name="config" default="default"/>
       <parameter name="jmxhost" default=""/>
       <parameter name="jmxport" default="3001"/>
-       ...
+       …
         <target name="jmx">
             <!-- Be sure to understand the consequences of enabling JMX.
                  It allows calling remote methods on your JVM -->
