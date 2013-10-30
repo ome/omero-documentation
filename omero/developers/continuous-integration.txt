@@ -388,7 +388,7 @@ tab of Jenkins.
 		* :term:`BIOFORMATS-docs-release-develop`
 
 	- 	* Publish OME Model documentation
-		* :term:`FORMATS-docs-release-stable`
+		* 
 		* :term:`FORMATS-docs-release-develop`
 
 	- 	* Review OMERO documentation PRs
@@ -400,7 +400,7 @@ tab of Jenkins.
 		* :term:`BIOFORMATS-docs-merge-develop`
 
 	- 	* Review OME Model documentation PRs
-		* :term:`FORMATS-docs-merge-stable`
+		* 
 		* :term:`FORMATS-docs-merge-develop`
 
 Configuration
@@ -454,17 +454,6 @@ The branch for the current release of OMERO/Bio-Formats/OME model is
 			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-stable-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats4/
 
-	:jenkinsjob:`FORMATS-docs-release-stable`
-
-		This job is used to build the |devbranch| of the OME Model
-		documentation and publish the official documentation for the current
-		release of Bio-Formats
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. If the build is promoted,
-			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-stable-release.tmp`
-
 	:jenkinsjob:`OMERO-docs-merge-stable`
 
 		This job is used to review the PRs opened against the |devbranch|
@@ -486,16 +475,6 @@ The branch for the current release of OMERO/Bio-Formats/OME model is
 		#. |linkcheck|
 		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-stable-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats4-staging/
-
-	:jenkinsjob:`FORMATS-docs-merge-stable`
-
-		This job is used to review the PRs opened against the |devbranch|
-		branch of the OME Model documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-stable-staging.tmp`
 
 Next major release
 ^^^^^^^^^^^^^^^^^^
