@@ -559,5 +559,5 @@ Writing Conventions
   hyperlink but not formatted as one because it does not actually exist, you 
   need to prepend it with a '\\' to escape the 
   link and stop the link-checker from reporting it as broken (e.g. 
-  ``\\http://your_host/webclient/login/``).
+  ``\http://your_host/webclient/login/``), unless you use the literal mark-up.
 
