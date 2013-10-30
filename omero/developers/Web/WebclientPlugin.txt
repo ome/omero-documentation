@@ -3,7 +3,7 @@ Webclient Plugins
 
 The webclient UI can be configured to include content from other web apps.
 This allows you to extend the webclient UI with your own functionality.
-This is used by the ` webtagging app <https://www.openmicroscopy.org/site/support/partner/omero.webtagging>`_
+This is used by the :partner_plone:`webtagging app <omero.webtagging>`
 and there are also some examples in the webtest app.
 
 
@@ -19,33 +19,34 @@ Currently you can add content in the following locations:
 Overview
 --------
 
-To begin with, you need to prepare your plugin pages in your own app, with their own urls, views and templates.
-Then you can display these pages within the webclient ui, using the plugin framework.
-The webclient plugins work by adding some custom Javascript snippets into the main pages of the weclient and
-adding html elements to specified locations in the webclient. These snippets of Javascript can be used to load
-content into these html elements. Usually you'll want to do this dynamically, to display data based on the
+To begin with, you need to prepare your plugin pages in your own app, with their own URLs, views and templates.
+Then you can display these pages within the webclient UI, using the plugin framework.
+
+The webclient plugins work by adding some custom Javascript snippets into the main pages of the weblient and
+adding HTML elements to specified locations in the webclient. These snippets of Javascript can be used to load
+content into these HTML elements. Usually you'll want to do this dynamically, to display data based on the
 currently selected objects (although this is optional). Helpers can be used to respond to changes in the selected objects and
 the selected tab, so you can load or refresh your plugin only when necessary.
 
 
-App urls
+App URLs
 ~~~~~~~~
 
 To display content based on currently selected data, such as Projects, Datasets and Images, your app pages will need to have
-these defined in their urls. For example:
+these defined in their URLs. For example:
 
-   ::
+::
 
-       # Webtagging: Tag images within the selected dataset
-       url( r'^auto_tag/dataset/(?P<datasetId>[0-9]+)/$', views.auto_tag, name="webtagging_auto_tag" ),
+    # Webtagging: Tag images within the selected dataset
+    url( r'^auto_tag/dataset/(?P<datasetId>[0-9]+)/$', views.auto_tag, name="webtagging_auto_tag" ),
 
-       # Webtest: Show a panel of ROI thumbnails for an image
-       url( r'^image_rois/(?P<imageId>[0-9]+)/', views.image_rois, name='webtest_image_rois' ),
+    # Webtest: Show a panel of ROI thumbnails for an image
+    url( r'^image_rois/(?P<imageId>[0-9]+)/', views.image_rois, name='webtest_image_rois' ),
 
-These urls should simply display the content that you want to show in the webclient.
-NB: when these pages load in the webclient, they will have all the webclient css and Javascript available (E.g. jQuery)
-so you don't need to include these in your page.
-In fact, it is important not to overwrite css or js in the webclient (E.g. by including jQuery).
+These URLs should simply display the content that you want to show in the webclient.
+NB: when these pages load in the webclient, they will have all the webclient css and Javascript (such as jQuery) available
+so you do not need to include these in your page.
+Furthermore, it is important not to overwrite css or js in the webclient (for example by including jQuery).
 
 
 Configuring the plugin
@@ -55,7 +56,7 @@ Choose an element ID
 ~~~~~~~~~~~~~~~~~~~~
 
 You will need to specify an ID for the <div> element that is added to the webclient, so that you can refer
-to this element in the Javascript. E.g. "image_roi_tab" or "auto_tag_panel".
+to this element in the Javascript. For example, "image_roi_tab" or "auto_tag_panel".
 
 Create a Javascript file
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,80 +79,80 @@ Below is a simple example of their usage. More detailed documentation at the bot
 
 **Right Tab Plugin**
 
-   ::
+::
 
-       <script>
-       $(function() {
+    <script>
+    $(function() {
 
-           // Initialise the right tab plugin, on our specified tab element
-           $("#image_roi_tab").omeroweb_right_plugin({
+       // Initialise the right tab plugin, on our specified tab element
+       $("#image_roi_tab").omeroweb_right_plugin({
 
-               // Pass Django template counter to plugin. Don't change this.
-               plugin_index:{{ forloop.counter }},
+           // Pass Django template counter to plugin. Do not change this.
+           plugin_index:{{ forloop.counter }},
 
-               // If we only want to support single item selection, we can specify the types like this.
-               // Tab will only be enabled when a single image is selected
-               supported_obj_types: ['image'],
+           // If we only want to support single item selection, we can specify the types like this.
+           // Tab will only be enabled when a single image is selected
+           supported_obj_types: ['image'],
 
-               // This will get called when tab is displayed or selected objects change
-               load_tab_content: function(selected, obj_dtype, obj_id) {
+           // This will get called when tab is displayed or selected objects change
+           load_tab_content: function(selected, obj_dtype, obj_id) {
 
-                   // since we only support single images, the obj_id will be an image ID
-                   // Generate url based on a template-generated url
-                   var url = '{% url webtest_index %}image_rois/' + obj_id + '/';
+               // since we only support single images, the obj_id will be an image ID
+               // Generate url based on a template-generated url
+               var url = '{% url webtest_index %}image_rois/' + obj_id + '/';
 
-                   // Simply load the tab
-                   $(this).load(url);
-               },
-
-           });
+               // Simply load the tab
+               $(this).load(url);
+           },
 
        });
-       </script>
+
+    });
+    </script>
 
 
 **Center Panel Plugin**
 
-   ::
+::
 
-       <script>
-       $(function() {
+    <script>
+    $(function() {
 
-           // Initialise the center panel plugin, on our specified element
-           $("#image_roi_tab").omeroweb_right_plugin({
+       // Initialise the center panel plugin, on our specified element
+       $("#image_roi_tab").omeroweb_right_plugin({
 
-               // same as example above
-               plugin_index:{{ forloop.counter }},
-               supported_obj_types: ['project', 'dataset', image'],
+           // same as example above
+           plugin_index:{{ forloop.counter }},
+           supported_obj_types: ['project', 'dataset', image'],
 
-               // This will get called when center panel is displayed or selected objects change
-               load_plugin_content: function(selected, obj_dtype, obj_id) {
+           // This will get called when center panel is displayed or selected objects change
+           load_plugin_content: function(selected, obj_dtype, obj_id) {
 
-                   // Generate url. Use the obj_type. Will be 'project', 'dataset' or 'image'
-                   var url = '{% url webtest_index %}' + obj_dtype + '/' + obj_id + '/';
+               // Generate url. Use the obj_type. Will be 'project', 'dataset' or 'image'
+               var url = '{% url webtest_index %}' + obj_dtype + '/' + obj_id + '/';
 
-                   // Simply load the center panel
-                   $(this).load(url);
-               },
-
-           });
+               // Simply load the center panel
+               $(this).load(url);
+           },
 
        });
-       </script>
+
+    });
+    </script>
 
 
 Configure the settings
 ~~~~~~~~~~~~~~~~~~~~~~
 
-If you don't have a settings.py file in the root of your app directory, create one now.
+If you do not have a settings.py file in the root of your app directory, create one now.
 This file will be imported by the omeroweb/settings.py file, after other settings have been
 initialised, allowing you to modify those settings.
 
 Ensure that it contains this import statement:
 
-   ::
+::
 
-      from django.conf import settings
+    from django.conf import settings
 
 
 Now we need to add our plugin to the appropriate plugin list, stating the displayed name of the plugin,
@@ -163,11 +164,11 @@ the path/to/js_snippet.html and the ID of the plugin element. Plugin lists are:
 
 For example:
 
-   ::
+::
 
-      settings.CENTER_PLUGINS.append(["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"])
+    settings.CENTER_PLUGINS.append(["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"])
 
-      settings.RIGHT_PLUGINS.append(["ROIs", "webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"])
+    settings.RIGHT_PLUGINS.append(["ROIs", "webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"])
 
 
 Restart Web
@@ -181,7 +182,7 @@ the load content method you specified above will be called and you should see yo
 Refreshing Content
 ~~~~~~~~~~~~~~~~~~
 
-If you now edit the views.py or html template for your plugin and want to refresh the plugin within the
+If you now edit the views.py or HTML template for your plugin and want to refresh the plugin within the
 webclient, all you need to do is to select a different object (E.g. dataset, image etc).
 NB: if you select an object that is not supported by your plugin, then nothing will be displayed (and
 for the right-tab plugin, the tab selection will change to the first tab);
@@ -197,9 +198,9 @@ Documentation of plugin methods
 -  **supported_obj_types**: If your plugin displays data from single objects, such as a single Image
    or Dataset, you can specify that here, using a list of types:
 
-      ::
+   ::
 
-         supported_obj_types: ['dataset', 'image'],
+      supported_obj_types: ['dataset', 'image'],
 
    This will ensure that the plugin is only enabled when a single Dataset or Image is selected.
    To support multiple objects, see 'tab_enabled'.
@@ -214,17 +215,17 @@ Documentation of plugin methods
    For example, if you want the center plugin to support multiple images, or a single
    dataset:
 
-      ::
+   ::
 
-           plugin_enabled: function(selected){
-               if (selected.length == 0) return false;
-               var dtype = selected[0]['id'].split('-')[0];
-               if (selected.length > 1) {
-                   return (dtype == "image");
-               } else {
-                   return ($.inArray(dtype, ["image", "dataset"]) > -1);
-               }
-           }
+      plugin_enabled: function(selected){
+          if (selected.length == 0) return false;
+          var dtype = selected[0]['id'].split('-')[0];
+           if (selected.length > 1) {
+              return (dtype == "image");
+          } else {
+              return ($.inArray(dtype, ["image", "dataset"]) > -1);
+          }
+      }
 
 -  **load_plugin_content / load_tab_content**: This function will be called when the plugin/tab
    content needs to be refreshed, either because the plugin is displayed for the first time, or
