@@ -28,7 +28,7 @@ Here is how to go about setting this up on your OMERO.web install:
 
 -   Set a URL filter for which the OMERO.web public user is allowed to 
     navigate.
-    Default: /(?!webadmin) (Python reqular expression). You probably do not 
+    Default: '^/(?!webadmin)' (Python reqular expression). You probably do not 
     want the whole webclient UI to be publicly visible (although you could do 
     this).
 
@@ -38,15 +38,25 @@ Here is how to go about setting this up on your OMERO.web install:
 
     ::
 
-        $ bin/omero config set omero.web.public.url_filter '^/my_web_public'
+        $ bin/omero config set omero.web.public.url_filter '/my_web_public'
 
-        $ bin/omero config set omero.web.public.url_filter'^/(my_web_public|webgateway)'   # OR webgateway
-
-    If you simply want to enable the webgateway image viewer, thumbnails etc.
+    To enable public access to view images in a public group in the webclient
+    while still preventing data manipulation, use the following command:
 
     ::
 
-        $ bin/omero config set omero.web.public.url_filter '^/webgateway'
+        $ bin/omero config set omero.web.public.url_filter '^/(?!webadmin|webclient/action/\w+|webclient/annotate_(file|tags|comment))'
+
+    If you simply want to enable the image viewer, making sure all data stays
+    secure you would use:
+
+    ::
+
+        $ bin/omero config set omero.web.public.url_filter '/webgateway'
+    
+    Then you can access public images via the following link
+    http://your_host/webgateway/img_detail/IMAGE_ID/. Please remember that
+    public images must be in a public group where public user can access them.
 
     Exotic matching techniques can be used but more explicit regular 
     expressions are needed when attempting to filter based on a base URL:
@@ -63,4 +73,9 @@ Here is how to go about setting this up on your OMERO.web install:
 
     ::
 
-        $ bin/omero config set omero.web.public.server_id 2
+        $ bin/omero config set omero.web.public.server_id 1
+
+    If you wish to mix public and restricted access to the system, the user
+    can always access the login page using the following link
+    http://your_host/webclient/login/.
+

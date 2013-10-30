@@ -343,38 +343,32 @@ Customizing your OMERO.web installation
 
 .. _install_web_public_user:
 
--  Enabling a public user:
+-  Enabling a public user (automatically log in a public user, OMERO 4.4.0 onwards):
 
-   -  Since OMERO 4.4.0, OMERO.web has the ability to automatically log
-      in a public user.
+   -  First, create a public user. You can use any username and
+      password you wish. If you do not want this user to be able to
+      modify any of the data they see, you should put this user in a
+      Read-Only group and the public data should be owned by another
+      member(s) of this group.
 
-      -  First, create a public user. You can use any username and
-         password you wish. If you do not want this user to be able to
-         modify any of the data they see, you should put this user in a
-         Read-Only group and the public data should be owned by another
-         member(s) of this group. Now you can configure the public user:
+   -  Enable the OMERO.web public user functionality, which is disabled (False) by default.
 
-      -  Enable and disable the OMERO.web public user functionality.
-         Default: ``False``.
+      ::
 
-         ::
+           $ bin/omero config set omero.web.public.enabled True
 
-             $ bin/omero config set omero.web.public.enabled True
+   -  Set a URL filter for which the OMERO.web public user is allowed
+      to navigate. Default: ``^/(?!webadmin)`` (`Python regular
+      expression <http://docs.python.org/2/library/re.html>`_). You
+      probably do not want the whole webclient UI to be publicly
+      visible (although you could do this). The idea is that you can
+      create the public pages yourself (see :doc:`/developers/Web`)
+      since we do not provide public pages. E.g. to allow only URLs
+      that start with '/my\_web\_public' you would use:
 
-      -  Set a URL filter for which the OMERO.web public user is allowed
-         to navigate. Default: ``^/(?!webadmin)`` (`Python regular
-         expression <http://docs.python.org/2/library/re.html>`_). You
-         probably do not want the whole webclient UI to be publicly
-         visible (although you could do this). The idea is that you can
-         create the public pages yourself (see :doc:`/developers/Web`)
-         since we do not provide public pages. E.g. to allow only URLs
-         that start with '/my\_web\_public' you would use:
+      ::
 
-         ::
-
-             $ bin/omero config set omero.web.public.url_filter '^/my_web_public'
-
-             $ bin/omero config set omero.web.public.url_filter'^/(my_web_public|webgateway)'   # OR webgateway
+          $ bin/omero config set omero.web.public.url_filter '/my_web_public'
 
       Exotic matching techniques can be used but more explicit regular
       expressions are needed when attempting to filter based on a base
@@ -382,31 +376,34 @@ Customizing your OMERO.web installation
 
       ::
 
-              'webtest' matches '/webtest' but also '/webclient/webtest'
-              'dataset' matches '/webtest/dataset' and also '/webclient/dataset'
-              '/webtest' matches '/webtest…' but also '/webclient/webtest'
-              '^/webtest' matches '/webtest…' but not '/webclient/webtest'
+          'webtest' matches '/webtest' but also '/webclient/webtest'
+          'dataset' matches '/webtest/dataset' and also '/webclient/dataset'
+          '/webtest' matches '/webtest...' but also '/webclient/webtest'
+          '^/webtest' matches '/webtest...' but not '/webclient/webtest'
 
-      -  Server to authenticate against. Default: ``1`` (the first
-         server in ``omero.web.server_list``)
+      If you need more examples of how to configure public url filters, 
+      see the :doc:`/developers/Web/PublicData` page.
 
-         ::
+   -  Server to authenticate against. Default: ``1`` (the first
+      server in ``omero.web.server_list``)
 
-             $ bin/omero config set omero.web.public.server_id 2
+      ::
 
-      -  Username to use during authentication. Default: ``Not set.``
-         (required if ``omero.web.public.enabled=True``):
+          $ bin/omero config set omero.web.public.server_id 1
 
-         ::
+   -  Username to use during authentication. Default: ``Not set.``
+      (required if ``omero.web.public.enabled=True``):
 
-             $ bin/omero config set omero.web.public.user '__public__'
+      ::
 
-      -  Password to use during authentication. Default: ``Not set.``
-         (required if ``omero.web.public.enabled=True``):
+          $ bin/omero config set omero.web.public.user '__public__'
 
-         ::
+   -  Password to use during authentication. Default: ``Not set.``
+      (required if ``omero.web.public.enabled=True``):
 
-             $ bin/omero config set omero.web.public.password 'secret'
+      ::
+
+          $ bin/omero config set omero.web.public.password 'secret'
 
 -  Administrator e-mail notification:
 
