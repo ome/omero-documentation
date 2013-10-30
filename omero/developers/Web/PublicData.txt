@@ -55,7 +55,7 @@ Here is how to go about setting this up on your OMERO.web install:
         $ bin/omero config set omero.web.public.url_filter '/webgateway'
     
     Then you can access public images via the following link
-    http://your_host/webgateway/img_detail/IMAGE_ID/. Please remember that
+    `\http://your_host/webgateway/img_detail/IMAGE_ID/`. Please remember that
     public images must be in a public group where public user can access them.
 
     Exotic matching techniques can be used but more explicit regular 
@@ -77,5 +77,5 @@ Here is how to go about setting this up on your OMERO.web install:
 
     If you wish to mix public and restricted access to the system, the user
     can always access the login page using the following link
-    http://your_host/webclient/login/.
+    `\http://your_host/webclient/login/`.
 
