@@ -264,10 +264,10 @@ Running tests directly
 
 When writing tests it can be more convenient, flexible and powerful to run the
 tests from :sourcedir:`components/tools/OmeroPy` using :file:`setup.py`. Since
-Python is interpreted tests can be written and then run without having to
+Python is interpreted, tests can be written and then run without having to
 rebuild or restart the server. A few basic examples are shown below.
 
-Running a single test file:
+Run a single test file:
 ::
 
     cd components/tools/OmeroPy
