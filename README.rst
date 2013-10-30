@@ -556,6 +556,6 @@ Writing Conventions
   (see http://oxforddictionaries.com/words/bullet-points).
 * Note that if you are giving an example link which is phrased like a 
   hyperlink but not formatted as one because it does not actually exist (e.g. 
-  ``http://your_host/webclient/login/``), you need to use a '\' to escape the 
+  ``http://your_host/webclient/login/``), you need to use a '\\' to escape the 
   link and stop the link-checker from reporting it as broken.
 
