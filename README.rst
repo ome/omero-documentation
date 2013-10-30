@@ -373,6 +373,7 @@ Finally, please avoid using ``here`` as the hyperlink name, as in::
     
     (...) go `here <http://www.google.com>`_.
     
+    
 Common markups
 ==============
 
@@ -554,3 +555,8 @@ Writing Conventions
   stop if each point is a complete sentence, or more than one sentence. If 
   not, no punctuation is necessary 
   (see http://oxforddictionaries.com/words/bullet-points).
+* Note that if you are giving an example link which is phrased like a 
+  hyperlink but not formatted as one because it does not actually exist (e.g. 
+  ``http://your_host/webclient/login/``), you need to use a '\' to escape the 
+  link and stop the link-checker from reporting it as broken.
+
