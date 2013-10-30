@@ -21,7 +21,7 @@ like this:
 
 ::
 
-    ./importer-cli ...
+    ./importer-cli …
 
 From server installation
 ------------------------
@@ -29,7 +29,7 @@ From server installation
 ::
 
     #!sh
-    bin/omero -s localhost -u user import ...
+    bin/omero -s localhost -u user import …
 
 This can also be used to detect what a command ''would'' import.
 

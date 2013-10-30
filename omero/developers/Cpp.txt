@@ -224,7 +224,7 @@ The following environment variables as defined in
 
 :envvar:`VERBOSE`
     show the actual build commands rather than the pretty "Compiling
-    XYZ..." statements.
+    XYZ…" statements.
 
 Zip files containing the C++ header files, the libraries, and source
 code are placed under :file:`OMERO\_HOME/target` with other zip
