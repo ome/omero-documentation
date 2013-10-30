@@ -632,7 +632,7 @@ OMERO tables
     table.addData(data)
     table.close()           # when we are done, close. 
 
--  **Get the table as an original file...**
+-  **Get the table as an original file…**
 
 ::
 
@@ -1163,7 +1163,7 @@ ones are not created unnecessarily. Services can be accessed using the
 methods of the underlying :javadoc:` Service
 Factory <slice2html/omero/api/ServiceFactory.html>`
 with the Gateway handling reuse as needed. Stateless services (those
-retrieved with get.... methods E.g.
+retrieved with get… methods E.g.
 :javadoc:` getQueryService <slice2html/omero/api/ServiceFactory.html#getQueryService>`)
 are always reused for each call, E.g. blitzon.getQueryService() whereas
 stateful services E.g.
@@ -1226,7 +1226,7 @@ that your subclasses are returned by calls to getObjects() For example:
                     
             rv = super(MyBlitzGateway, self).connect(*args,**kwargs)
             if rv: 
-                ...do something, e.g. modify new filed...
+                ...do something, e.g. modify new field...
                 self.new_field = 'bla'
             
             return rv

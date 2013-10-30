@@ -19,8 +19,8 @@ administrators call:
 
 -  ``IAdmin.createUser(user)``
 -  ``IAdmin.createGroup(group)``
--  ``IAdmin.addGroups(user,group, group, ...)``
--  ``IAdmin.removeGroups(user,group,group,...)``
+-  ``IAdmin.addGroups(user, group, group, …)``
+-  ``IAdmin.removeGroups(user, group, group, …)``
 -  ``IAdmin.createSystemUser(user)``
 
 Service-level

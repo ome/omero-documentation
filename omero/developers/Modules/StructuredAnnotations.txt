@@ -28,7 +28,7 @@ Currently, these are:
 -  ``Annotation`` and all annotation subtypes in order to form hierarchies
 -  ScreenPlateWell: ``Screen``, ``ScreenAcquisition``, ``Plate``, ``Well``, 
    ``WellSample``, ``Reagent``
--  ...
+-  …
 
 Annotation hierarchy
 ~~~~~~~~~~~~~~~~~~~~
@@ -95,8 +95,8 @@ annotation.
 
 ::
 
-       FileAnnotation fileAnnotation = ...;
-       TextAnnotation description = ...;
+       FileAnnotation fileAnnotation = …;
+       TextAnnotation description = …;
        fileAnnotation.linkAnnotation(description);
 
 Immutability
@@ -136,7 +136,7 @@ Attaching a tag
       TagAnnotation tag = new TagAnnotation();
       tag.setTextValue("interesting");
       
-      Roi roi = ...; // Some region of interest
+      Roi roi = …; // Some region of interest
       ILink link = roi.linkAnnotation(tag);
       
       iUpdate.saveObject(link);

@@ -266,7 +266,7 @@ Customizing your OMERO.web installation
       ::
 
           C:\omero_dist>bin\omero config set omero.web.scripts_to_ignore '[]'
-          C:\omero_dist>bin\omero config set omero.web.scripts_to_ignore '["\omero\my_scripts\really_buggy.py", ... ]'
+          C:\omero_dist>bin\omero config set omero.web.scripts_to_ignore '["\omero\my_scripts\really_buggy.py", … ]'
 
 .. _install_web_public_user:
 
@@ -311,8 +311,8 @@ Customizing your OMERO.web installation
 
               'webtest' matches '/webtest' but also '/webclient/webtest'
               'dataset' matches '/webtest/dataset' and also '/webclient/dataset'
-              '/webtest' matches '/webtest...' but also '/webclient/webtest'
-              '^/webtest' matches '/webtest...' but not '/webclient/webtest'
+              '/webtest' matches '/webtest…' but also '/webclient/webtest'
+              '^/webtest' matches '/webtest…' but not '/webclient/webtest'
 
       -  Server to authenticate against. Default: ``1`` (the first
          server in ``omero.web.server_list``)
