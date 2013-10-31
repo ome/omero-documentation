@@ -38,10 +38,10 @@ these defined in their URLs. For example:
 ::
 
     # Webtagging: Tag images within the selected dataset
-    url( r'^auto_tag/dataset/(?P<datasetId>[0-9]+)/$', views.auto_tag, name="webtagging_auto_tag" ),
+    url( r'^auto_tag/dataset/(?P<datasetId>[0-9]+)/$', views.auto_tag ),
 
     # Webtest: Show a panel of ROI thumbnails for an image
-    url( r'^image_rois/(?P<imageId>[0-9]+)/', views.image_rois, name='webtest_image_rois' ),
+    url( r'^image_rois/(?P<imageId>[0-9]+)/', views.image_rois ),
 
 These URLs should simply display the content that you want to show in the webclient.
 NB: when these pages load in the webclient, they will have all the webclient css and Javascript (such as jQuery) available
@@ -77,6 +77,32 @@ selected.
 
 Below is a simple example of their usage. More detailed documentation at the bottom of the page.
 
+**Center Panel Plugin**
+
+::
+
+    <script>
+    $(function() {
+
+        // Initialise the center panel plugin, on our specified element
+        $("#auto_tag_panel").omeroweb_center_plugin({
+
+            // same as example above
+            plugin_index: {{ forloop.counter }},
+            supported_obj_types: ['dataset'],
+
+            load_plugin_content: function(selected, dtype, oid){
+
+                // since we currently limit our dtype to 'dataset', oid will be dataset ID
+                // Use the 'index' of your app as base for your URL
+                var auto_tag_url = '{% url webtagging_index %}auto_tag/dataset/'+oid+'/';
+                $(this).load(auto_tag_url);
+            }
+        });
+    });
+    </script>
+
+
 **Right Tab Plugin**
 
 ::
@@ -87,10 +113,10 @@ Below is a simple example of their usage. More detailed documentation at the bot
        // Initialise the right tab plugin, on our specified tab element
        $("#image_roi_tab").omeroweb_right_plugin({
 
-           // Pass Django template counter to plugin. Do not change this.
+           // Pass Django template counter to plugin. No need to change this.
            plugin_index:{{ forloop.counter }},
 
-           // If we only want to support single item selection, we can specify the types like this.
+           // To support single item selection, we can specify the types like this.
            // Tab will only be enabled when a single image is selected
            supported_obj_types: ['image'],
 
@@ -102,36 +128,6 @@ Below is a simple example of their usage. More detailed documentation at the bot
                var url = '{% url webtest_index %}image_rois/' + obj_id + '/';
 
                // Simply load the tab
-               $(this).load(url);
-           },
-
-       });
-
-    });
-    </script>
-
-
-**Center Panel Plugin**
-
-::
-
-    <script>
-    $(function() {
-
-       // Initialise the center panel plugin, on our specified element
-       $("#image_roi_tab").omeroweb_right_plugin({
-
-           // same as example above
-           plugin_index:{{ forloop.counter }},
-           supported_obj_types: ['project', 'dataset', image'],
-
-           // This will get called when center panel is displayed or selected objects change
-           load_plugin_content: function(selected, obj_dtype, obj_id) {
-
-               // Generate url. Use the obj_type. Will be 'project', 'dataset' or 'image'
-               var url = '{% url webtest_index %}' + obj_dtype + '/' + obj_id + '/';
-
-               // Simply load the center panel
                $(this).load(url);
            },
 
@@ -166,9 +162,11 @@ For example:
 
 ::
 
-    settings.CENTER_PLUGINS.append(["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"])
+    settings.CENTER_PLUGINS.append(
+        ["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"])
 
-    settings.RIGHT_PLUGINS.append(["ROIs", "webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"])
+    settings.RIGHT_PLUGINS.append(
+        ["ROIs", "webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"])
 
 
 Restart Web
@@ -206,7 +204,8 @@ Documentation of plugin methods
    To support multiple objects, see 'tab_enabled'.
 
 -  **plugin_enabled / tab_enabled**: This function allows you to specify whether a plugin is enabled or not
-   when specified objects are selected. The function is passed a single argument.
+   when specified objects are selected. It is only used if you have NOT defined 'supported_obj_types'.
+   The function is passed a single argument:
 
    -  selected: This is a list of the selected objects
       E.g. [{'id':'image-123'}, {'id':'image-456'}]
