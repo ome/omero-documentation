@@ -166,7 +166,6 @@ Configurations window, the :guilabel:`Environment` tab needs to be selected.
 After clicking :guilabel:`New`, :envvar:`ICE_CONFIG` can be defined as a
 path to the :file:`ice.config` file. This setting needs to be defined per
 package, class or method.
->>>>>>> 11b082e... Revising testing page to document pytest. See #11423
 
 Writing Java tests
 ------------------
