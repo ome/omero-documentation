@@ -323,7 +323,7 @@ pages at once. See :doc:`/developers/Web/WritingTemplates` for more info.
 OMERO.web top links
 ~~~~~~~~~~~~~~~~~~~
 
-You can configure settings in your app to add a link to the list of links at the
+You can configure settings 'top_links' to add a link to the list of links at the
 top of the webclient main pages.
 
 -  **Name your url in urls.py** (optional). Preferably we use url names to refer to urls.
@@ -333,22 +333,25 @@ top of the webclient main pages.
 
        url( r'^$', views.index, name='webmobile_index' ),
 
--  **Create settings.py** in your app directory (if it doesn't already exist).
-   At the top of the file you'll need to import settings:
+-  **Update configuration** Use the OMERO command line interface to add the link to 'top_links'.
+   NB: Since there is not currently an option to "add" to web settings, you will first need to check
+   whether there is anything in 'top_links' setting:
+
+   ::
+       $ bin/omero config get omero.web.ui.top_links
+       [["Label", "url_name"]]
+
+    In this example, we have one link ["Label", "url_name"] in our list. If there are no 'top_links' set
+    then you will see nothing returned.
+
+    Now we need to extend the list with our link:
 
    ::
 
-       from django.conf import settings
+       $ bin/omero config set omero.web.ui.top_links '[["Label", "url_name"], ["Mobile", "webmobile_index"]]'
 
--  **Add your url to TOP_LINKS**. In settings.py you simply need to specify the text you want for
-   the link, and the name of the link (or simply a url if you haven't named it)
-
-   ::
-
-       settings.TOP_LINKS.append(['Mobile', 'webmobile_index'])
-
-       # You can add multiple links. Just keep appending to the TOP_LINKS list
-       settings.TOP_LINKS.append(['My Department', 'http://my_department.university.ac.uk'])
+       # Or, if there were no links previously set, we can simply do:
+       $ bin/omero config set omero.web.ui.top_links '[["Mobile", "webmobile_index"]]'
 
 
 OMERO.web plugins (OMERO 4.4)
