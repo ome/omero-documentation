@@ -137,36 +137,33 @@ Below is a simple example of their usage. More detailed documentation at the bot
     </script>
 
 
-Configure the settings
-~~~~~~~~~~~~~~~~~~~~~~
-
-If you do not have a settings.py file in the root of your app directory, create one now.
-This file will be imported by the omeroweb/settings.py file, after other settings have been
-initialised, allowing you to modify those settings.
-
-Ensure that it contains this import statement:
-
-::
-
-    from django.conf import settings
-
+Plugin Installation
+~~~~~~~~~~~~~~~~~~~
 
 Now we need to add our plugin to the appropriate plugin list, stating the displayed name of the plugin,
 the path/to/js_snippet.html and the ID of the plugin element. Plugin lists are:
 
-- settings.CENTER_PLUGINS
+- omero.web.ui.center_plugins
 
-- settings.RIGHT_PLUGINS
+- omero.web.ui.right_plugins
 
-For example:
+Use the OMERO command line interface to add the plugin to the appropriate list.
+NB: Since there is not currently an option to **add** to web settings lists, you will need to include
+the full list of plugins when you configure the plugin list.
 
-::
+The OMERO.webclient does not include any center plugins by default, so if you only want to add
+a single plugin to the centre, you can simply do:
 
-    settings.CENTER_PLUGINS.append(
-        ["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"])
+   ::
+       $ bin/omero config set omero.web.ui.center_plugins '[["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]]'
 
-    settings.RIGHT_PLUGINS.append(
-        ["ROIs", "webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"])
+
+The right_plugins list includes the Acquisition tab and Preview tab by default. If you want to keep these and
+add your plugin to the list, you will need to list all three. For example, to add the webtest ROI plugin:
+
+   ::
+
+       $ bin/omero config set omero.web.ui.right_plugins '[["Acquisition", "webclient/data/includes/right_plugin.acquisition.js.html", "metadata_tab"],["Preview", "webclient/data/includes/right_plugin.preview.js.html", "preview_tab"], ["ROIs", "webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"]]'
 
 
 Restart Web
