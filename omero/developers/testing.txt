@@ -273,27 +273,50 @@ Run a single test file:
     cd components/tools/OmeroPy
     ./setup.py test -s test/integration/test_admin.py
 
-Run all integration tests with `permissions` in their name:
+The :option:`-k` option will run all integration tests containing the given
+string in their names. For example, to run all the tests under
+:file:`test/integration` with `permissions` in their names:
 
 ::
 
     ./setup.py test -s test/integration -k permissions
 
-Run all integration tests excluding those decorated with the marker
-`long_running`:
+This option can also be used to run a named test within a test module:
+
+::
+
+    ./setup.py test -s test/integration/test_admin.py -k testGetGroup
+
+The :option:`-m` option will run integration tests depending on the markers
+they are decorated with. For example, to run all integration tests excluding
+those decorated with the marker `long_running`:
 
 ::
 
     ./setup.py test -s test/integration -m "not long_running"
-
-See `<http://pytest.org>`_ for a full explanation of using these features
-in both writing and running tests.
 
 For more help with :file:`setup.py`:
 
 ::
 
     ./setup.py --help test
+
+To make use of the more advanced options available in `pytest` that are not
+assessible using :file:`setup.py`, the script :file:`py.pest` can be used directly.
+For example, to run the tests in a single package allowing standard output
+to be shown on the console:
+
+::
+
+    py.test test/integration/test_admin.py -s
+
+For a full list of options:
+
+::
+
+    py.test --help`
+
+and `<http://pytest.org/latest/usage.html>`_ for more help in running tests.
 
 Debugging a running OMERO instance
 ----------------------------------
