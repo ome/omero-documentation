@@ -335,7 +335,7 @@ top of the webclient main pages.
 
 -  **Update configuration** Use the OMERO command line interface to add the link to 'top_links'.
    NB: Since there is not currently an option to "add" to web settings, you will first need to check
-   whether there is anything in 'top_links' setting:
+   whether there is anything in the 'top_links' setting:
 
    ::
        $ bin/omero config get omero.web.ui.top_links
