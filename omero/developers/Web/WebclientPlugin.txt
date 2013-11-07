@@ -152,18 +152,22 @@ NB: Since there is not currently an option to **add** to web settings lists, you
 the full list of plugins when you configure the plugin list.
 
 The OMERO.webclient does not include any center plugins by default, so if you only want to add
-a single plugin to the centre, you can simply do:
+a single plugin to the center, you can simply do:
 
-   ::
-       $ bin/omero config set omero.web.ui.center_plugins '[["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]]'
+::
+    $ bin/omero config set omero.web.ui.center_plugins
+        '[["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]]'
 
 
 The right_plugins list includes the Acquisition tab and Preview tab by default. If you want to keep these and
 add your plugin to the list, you will need to list all three. For example, to add the webtest ROI plugin:
 
-   ::
+::
 
-       $ bin/omero config set omero.web.ui.right_plugins '[["Acquisition", "webclient/data/includes/right_plugin.acquisition.js.html", "metadata_tab"],["Preview", "webclient/data/includes/right_plugin.preview.js.html", "preview_tab"], ["ROIs", "webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"]]'
+    $ bin/omero config set omero.web.ui.right_plugins
+        '[["Acquisition", "webclient/data/includes/right_plugin.acquisition.js.html", "metadata_tab"],
+        ["Preview", "webclient/data/includes/right_plugin.preview.js.html", "preview_tab"],
+        ["ROIs", "webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"]]'
 
 
 Restart Web
