@@ -741,6 +741,23 @@ See the :omero_plone:`Feature list <feature-list>` for more advanced
 features you may want to use, and :doc:`/sysadmins/server-advanced-configuration` on how to get the most out of
 your server.
 
+JVM memory settings
+"""""""""""""""""""
+
+The most likely change you will need to make to your application
+descriptors is increasing the memory settings. This is not done by
+default since it would prevent starting the server on some sites' test
+instance, but for production use a setting higher than 512MB is
+**highly** recommended. You can edit the 
+:source:`templates.xml <etc/grid/templates.xml>` file manually using a 
+notepad-like editor. You should change each occurrence of ``Xmx512M`` to 
+``Xmx2048M``; similarly ``XX:MaxPermSize=128m`` should be changed to 
+``XX:MaxPermSize=256M``.
+
+See the grid configuration section in the :doc:`Advanced server configuration 
+</sysadmins/server-advanced-configuration>` 
+documentation for more information on `grid/templates.xml`.
+
 Update notification
 ^^^^^^^^^^^^^^^^^^^
 
