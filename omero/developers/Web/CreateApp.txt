@@ -333,25 +333,23 @@ top of the webclient main pages.
 
        url( r'^$', views.index, name='webmobile_index' ),
 
--  **Update configuration** Use the OMERO command line interface to add the link to 'top_links'.
-   NB: Since there is not currently an option to "add" to web settings, you will first need to check
-   whether there is anything in the 'top_links' setting:
 
-   ::
-       $ bin/omero config get omero.web.ui.top_links
-       [["Label", "url_name"]]
+-  **Update configuration** Use the OMERO command line interface to add the link or links to the appropriate list.
+NB: Since there is not currently an option to **add** to web settings lists, you will need to include
+the full list of links when you configure the list.
 
-    In this example, we have one link ["Label", "url_name"] in our list. If there are no 'top_links' set
-    then you will see nothing returned.
+To add a single link, using the format ["Label", "URL_name"], you can follow this example:
 
-    Now we need to extend the list with our link:
+::
 
-   ::
+    $ bin/omero config set omero.web.ui.top_links '[["Mobile", "webmobile_index"]]'
 
-       $ bin/omero config set omero.web.ui.top_links '[["Label", "url_name"], ["Mobile", "webmobile_index"]]'
+Multiple links can be added in the same way. 
+You can also create **external** links by specifying the full URL instead of the "URL_name". For example:
 
-       # Or, if there were no links previously set, we can simply do:
-       $ bin/omero config set omero.web.ui.top_links '[["Mobile", "webmobile_index"]]'
+::
+
+    $ bin/omero config set omero.web.ui.top_links '[["Mobile", "webmobile_index"], ["OME", "https://www.openmicroscopy.org"]]'
 
 
 OMERO.web plugins (OMERO 4.4)
