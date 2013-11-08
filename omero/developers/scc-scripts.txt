@@ -357,6 +357,13 @@ the branch of origin to compare::
 
 	$ scc unrebased-prs dev_4_4 develop
 
+.. option:: --shallow
+
+	Look for unrebased PRs in the top-level directory only, excluding
+	submodules::
+
+		$ scc unrebased-prs dev_4_4 develop --shallow
+
 .. option:: --remote <remote>
 
 	Specify the name of the remote to use as the origin (default: origin)::
@@ -372,6 +379,9 @@ the branch of origin to compare::
 .. versionadded:: 0.3.10
 	Added support for body/comment parsing and ``--rebased-to/from``
 	linkcheck
+
+.. versionchanged:: 0.4.0
+	Improve command output and add support for submodule processing
 
 scc version
 -----------
