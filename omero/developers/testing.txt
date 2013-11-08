@@ -86,6 +86,18 @@ working on. This can be done by using the :option:`test` option. For example:
     ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/AdminTest
     ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test/integration/test_admin.py
 
+Using markers in OmeroPy tests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Tests under OmeroPy can be included or excluded according to markers defined in the tests.
+This can be done by using the :option:`-DMARK` option. For example:
+
+::
+
+    ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK=long_running
+
+See :ref:`writing-python-tests` for more information on this.
+
 Failing tests
 ^^^^^^^^^^^^^
 
