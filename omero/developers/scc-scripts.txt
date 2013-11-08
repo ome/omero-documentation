@@ -140,6 +140,22 @@ The first argument is the name of the base branch of origin, e.g.::
 		$ scc merge develop -I label:include
 		$ scc merge develop -I include
 
+.. option:: --check-commit-status <status>, -S <status>
+
+	Exclude PR based on the status of the last commit
+
+	Three options are currently implemented: `none`, `no-error` and
+	`success-only`.	By default (`none`), the status of the last commit on the
+	PR is not taken into account.
+	To include PRs with have a successful status only, e.g. PRs where the
+	Travis build is green, use the `success-only` option::
+
+		$ scc merge develop -S success-only
+
+	To exclude all PRs with an `error` or `failure` status, use the `no-error`
+	option::
+
+	$ scc merge develop -S no-error
 
 .. option:: --info
 
@@ -188,6 +204,9 @@ is calling the following merge command:
 
 .. versionchanged:: 0.3.8
 	Added :option:`--shallow` and :option:`--remote` options.
+
+.. versionchanged:: 0.4.0
+	Added :option:`--check-commit-status` option.
 
 scc travis-merge
 ----------------
