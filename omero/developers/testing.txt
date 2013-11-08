@@ -300,7 +300,7 @@ those decorated with the marker `long_running`:
 
     ./setup.py test -s test/integration -m "not long_running"
 
-For more help with :file:`setup.py`:
+For more help with :file:`setup.py` see:
 
 ::
 
@@ -315,11 +315,11 @@ to be shown on the console:
 
     py.test test/integration/test_admin.py -s
 
-For a full list of options:
+For a full list of options see:
 
 ::
 
-    py.test --help`
+    py.test --help
 
 and `<http://pytest.org/latest/usage.html>`_ for more help in running tests.
 
