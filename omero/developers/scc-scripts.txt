@@ -459,7 +459,7 @@ Check the status of the Github API::
 
 .. option:: -n <N>
 
-	Display N last status message from Github API history::
+	Display N last status messages from Github API history::
 
 		$ scc check-status -n 4
 		2013-11-04 13:40:48 (minor) We're investigating an increase in error responses from the API.
