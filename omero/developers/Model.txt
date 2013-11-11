@@ -74,7 +74,7 @@ exceptions in the model.
    :alt: Code generation steps figure from http://dx.doi.org/10.1038/nmeth.1896
 
 
-Conceptually, the XSD files under the :sourcedir:`components/specification`
+Conceptually, the XSD files under the :file:`components/specification`
 source directory are the starting point for all code generation. Currently
 however, the files under :sourcedir:`components/model/resources/mappings`
 are hand-written based on the XSD files.
