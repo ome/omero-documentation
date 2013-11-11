@@ -363,7 +363,7 @@ store. Any suggestions or ideas would be
     :source:`Tables.ice <components/blitz/resources/omero/Tables.ice>`
         The API definition for OMERO.tables
 
-    :sourcedir:`The Tables test suite <components/tools/OmeroPy/test/tablestest/>`
+    :sourcedir:`The Tables test suite <components/tools/OmeroPy/test/integration/tablestest/>`
         The testsuite for OMERO.tables
 
     :doc:`/sysadmins/server-tables`
