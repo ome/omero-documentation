@@ -147,7 +147,7 @@ The first argument is the name of the base branch of origin, e.g.::
 	Three options are currently implemented: `none`, `no-error` and
 	`success-only`.	By default (`none`), the status of the last commit on the
 	PR is not taken into account.
-	To include PRs with have a successful status only, e.g. PRs where the
+	To include PRs which have a successful status only, e.g. PRs where the
 	Travis build is green, use the `success-only` option::
 
 		$ scc merge develop -S success-only
@@ -400,7 +400,7 @@ the branch of origin to compare::
 	linkcheck
 
 .. versionchanged:: 0.4.0
-	Improve command output and add support for submodule processing
+	Improved command output and added support for submodule processing
 
 scc version
 -----------
