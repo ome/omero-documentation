@@ -21,6 +21,15 @@ On Windows servers not all binary files corresponding to a delete may
 be removed from the binary repository. See 
 :ref:`DeleteBinaryData` for more details.
 
+Ice 3.5
+^^^^^^^
+
+The Ice 3.5 OMERO.server is not supported on Windows out of the box because
+the Ice 3.5 binaries from ZeroC_ require Python 3, which OMERO does not
+support (see :forum:`OME forum topic <viewtopic.php?f=5&t=7352>`). This
+limitation does not affect Windows Ice 3.5 clients which can connect to an Ice
+3.4 server.
+
 Mac OS X issues
 ---------------
 
