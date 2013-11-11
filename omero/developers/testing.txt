@@ -91,6 +91,18 @@ working on. This can be done by using the :option:`test` option. For example:
     ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/AdminTest
     ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test/integration/test_admin.py
 
+Using markers in OmeroPy tests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Tests under OmeroPy can be included or excluded according to markers defined in the tests.
+This can be done by using the :option:`-DMARK` option. For example:
+
+::
+
+    ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK=long_running
+
+See :ref:`writing-python-tests` for more information on this.
+
 Failing tests
 ^^^^^^^^^^^^^
 
@@ -300,7 +312,7 @@ those decorated with the marker `long_running`:
 
     ./setup.py test -s test/integration -m "not long_running"
 
-For more help with :file:`setup.py`:
+For more help with :file:`setup.py` see:
 
 ::
 
@@ -315,11 +327,11 @@ to be shown on the console:
 
     py.test test/integration/test_admin.py -s
 
-For a full list of options:
+For a full list of options see:
 
 ::
 
-    py.test --help`
+    py.test --help
 
 and `<http://pytest.org/latest/usage.html>`_ for more help in running tests.
 
