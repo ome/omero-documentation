@@ -140,6 +140,22 @@ The first argument is the name of the base branch of origin, e.g.::
 		$ scc merge develop -I label:include
 		$ scc merge develop -I include
 
+.. option:: --check-commit-status <status>, -S <status>
+
+	Exclude PR based on the status of the last commit
+
+	Three options are currently implemented: `none`, `no-error` and
+	`success-only`.	By default (`none`), the status of the last commit on the
+	PR is not taken into account.
+	To include PRs which have a successful status only, e.g. PRs where the
+	Travis build is green, use the `success-only` option::
+
+		$ scc merge develop -S success-only
+
+	To exclude all PRs with an `error` or `failure` status, use the `no-error`
+	option::
+
+	$ scc merge develop -S no-error
 
 .. option:: --info
 
@@ -188,6 +204,9 @@ is calling the following merge command:
 
 .. versionchanged:: 0.3.8
 	Added :option:`--shallow` and :option:`--remote` options.
+
+.. versionchanged:: 0.4.0
+	Added :option:`--check-commit-status` option.
 
 scc travis-merge
 ----------------
@@ -357,6 +376,13 @@ the branch of origin to compare::
 
 	$ scc unrebased-prs dev_4_4 develop
 
+.. option:: --shallow
+
+	Look for unrebased PRs in the top-level directory only, excluding
+	submodules::
+
+		$ scc unrebased-prs dev_4_4 develop --shallow
+
 .. option:: --remote <remote>
 
 	Specify the name of the remote to use as the origin (default: origin)::
@@ -372,6 +398,9 @@ the branch of origin to compare::
 .. versionadded:: 0.3.10
 	Added support for body/comment parsing and ``--rebased-to/from``
 	linkcheck
+
+.. versionchanged:: 0.4.0
+	Improved command output and added support for submodule processing
 
 scc version
 -----------
@@ -418,3 +447,25 @@ allowed. Each job has the target directory configured in the SSH publisher
 target directory property. After deployment has happened to a temporary
 directory, a series of symlink moves happens making sure that the symlink
 points to the updated content.
+
+scc check-status
+----------------
+.. program:: scc check-status
+
+Check the status of the Github API::
+
+	$ scc check-status && echo "Passing"
+	Passing
+
+.. option:: -n <N>
+
+	Display N last status messages from Github API history::
+
+		$ scc check-status -n 4
+		2013-11-04 13:40:48 (minor) We're investigating an increase in error responses from the API.
+		2013-11-04 14:33:55 (good) Everything operating normally.
+		2013-11-05 12:59:50 (minor) We're investigating reports of an increase in 502s from the GitHub API.
+		2013-11-05 13:07:15 (good) Everything operating normally.
+
+
+.. versionadded:: 0.4.0
