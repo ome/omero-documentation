@@ -320,11 +320,39 @@ case, it is good practice to create your own templates with common
 components (links, logout etc), so you can make changes to all your
 pages at once. See :doc:`/developers/Web/WritingTemplates` for more info.
 
+OMERO.web top links
+~~~~~~~~~~~~~~~~~~~
+
+You can configure settings 'top_links' to add a link to the list of links at the
+top of the webclient main pages.
+
+-  **Name your url in urls.py** (optional). Preferably we use url names to refer to urls.
+   For example, the homepage of your app might be named like this in urls.py.
+
+   ::
+
+       url( r'^$', views.index, name='webmobile_index' ),
+
+
+-  **Update configuration** Use the OMERO command line interface to add the link or links to the appropriate list.
+   NB: Since there is not currently an option to **add** to web settings lists, you will need to include
+   the full list of links when you configure the list.
+
+To add a single link, using the format ["Label", "URL_name"], you can follow this example:
+
+::
+
+    $ bin/omero config set omero.web.ui.top_links '[["Mobile", "webmobile_index"]]'
+
+Multiple links can be added in the same way. 
+You can also create **external** links by specifying the full URL instead of the "URL_name". For example:
+
+::
+
+    $ bin/omero config set omero.web.ui.top_links '[["Mobile", "webmobile_index"], ["OME", "https://www.openmicroscopy.org"]]'
+
+
 OMERO.web plugins (OMERO 4.4)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**This functionality is under development:**
-
-An alternative is to bring your content into the existing webclient. See
-omeroweb/settings.py "omero.web.ui.right\_plugins" and
-"omero.web.ui.center\_plugins".
+If you want to display content from your app within the webclient UI, please see :doc:`/developers/Web/WebclientPlugin`.
