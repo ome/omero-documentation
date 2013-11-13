@@ -1,0 +1,53 @@
+Available transformations
+=========================
+
+====================== ========== ==================
+Available transforms   Direction  Status
+====================== ========== ==================
+2003-FC-to-2007-06.xsl upgrade    excellent
+2003-FC-to-2008-09.xsl upgrade    excellent
+2007-06-to-2008-02.xsl upgrade    excellent
+2007-06-to-2008-09.xsl upgrade    excellent
+2008-02-to-2008-09.xsl upgrade    excellent
+2008-09-to-2009-09.xsl upgrade    excellent
+2009-09-to-2010-04.xsl upgrade    excellent
+2010-04-to-2010-06.xsl upgrade    excellent
+2010-06-to-2011-06.xsl upgrade    excellent
+2011-06-to-2012-06.xsl upgrade    excellent
+2012-06-to-2013-06.xsl upgrade    excellent
+2010-06-to-2003-FC.xsl downgrade  poor (very lossy)
+2010-06-to-2008-02.xsl downgrade  fair (lossy)
+2011-06-to-2010-06.xsl downgrade  good
+2012-06-to-2011-06.xsl downgrade  good
+2013-06-to-2012-06.xsl downgrade  good
+====================== ========== ==================
+
+Quality of transformations
+--------------------------
+
+.. figure:: /images/small-xslt-matrix.*
+   :align: center
+   :alt: Quality of Transformations
+
+Key to quality
+--------------
+
+-  **poor** (very lossy) - the bare minimum of metadata is preserved to
+   allow image display, all other metadata is lost
+-  **fair** (lossy) - a portion of the metadata is preserved, at least
+   enough to display the image and some other data, it will be far from
+   complete however
+-  **good** - most information is preserved, it may be possible to do a
+   better job but could be difficult for technical reasons or require
+   custom code not just a transform
+-  **excellent** - as much information as possible is preserved, some
+   values can still be lost if there are completely incompatible with
+   the new schema
+
+Matrix of transformation paths
+------------------------------
+This shows the sequence of transformations used to convert one version of the schema to another version.
+
+.. figure:: /images/grid-transforms-paths.*
+   :align: center
+   :alt: Transformation Paths

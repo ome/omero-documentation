@@ -1,0 +1,127 @@
+Changes For February 2008
+=========================
+
+
+List of the key changes made for the February 2008 major release of the
+ome-xml data model.
+
+The new major release of the schema has a new namespace and all version
+numbers are reset to 1. As a major release, any file that validated
+correctly using the last major release will probably not validate
+correctly using this new release. Some files that failed to validate
+before will now be valid. It is important to update any file readers and
+writers to understand the changes.
+
+The version number of all schema files is now 1.
+
+This schema uses the new namespace:
+
+::
+
+    http://www.openmicroscopy.org/Schemas/[NameSpaceTitle]/2008-02/
+
+For the OME schema
+
+::
+
+    http://www.openmicroscopy.org/Schemas/OME/2008-02/
+
+and that the schema file will be located at
+
+::
+
+    http://www.openmicroscopy.org/Schemas/OME/2008-02/ome.xsd
+
+Overview of changes
+-------------------
+
+Description (ome.xsd)
+^^^^^^^^^^^^^^^^^^^^^
+
+The Description element has become a string type. Description is not the
+correct place for an XML sub-document. It has also an optional reference
+to XML:lang that allows the language the Description is written in to be
+recorded.
+
+Description (AnalysisModule.xsd)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Description has been removed for AnalysisModule. It is now using the
+version defined in ome.xsd.
+
+UniversallyUniqueIdentifier for files (ome.xsd)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To add support for splitting data across multiple OME-TIFF files in a
+way that will survive file renaming, each file now has a unique
+identifier. This is as a UUID attribute on the OME node. It is normally
+optional but required if you wish to use multi-part files.
+
+Multi-part OME-TIFF file support (ome.xsd)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A TiffData block can now contain a UUID element that specifies the file
+to look in for the tiff image data. The UUID element also has an
+optional attribute FileName to point to the name for the file containing
+the correct data. The UUID is required and the FileName is strongly
+recommended. A reader should first open the file pointed to by FileName.
+If it does not contain the correct UUID then the reader can either fail
+or search the current folder for a file that does contain the correct
+UUID. This allows multi-part files to survive renaming.
+
+Removal of Power attributes from Arc and Filament (ome.xsd)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After the moving of Power into LightSource in the 2007-06 V1 release the
+attribute Power was no longer needed in element Arc and Filament. These
+Power attributes should have been removed at the time. Any data can be
+moved to the Power in LightSource.
+
+Simplifications (ome.xsd)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The types Correction and Immersion have been bundled into elements of
+the same name. They were only used once in the schema. This should not
+affect instance documents, only any schema derived from ome.xsd.
+
+Clarification of PixelTypes (ome.xsd)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The type PixelTypes has been split into two. It now has PixelTypes and
+ExtendedPixelTypes. It was being used in two different ways in previous
+schemas, once in Pixels and once in OTF. Now Pixels uses PixelTypes and
+OTF uses ExtendedPixelTypes.
+
+AcquiredPixelsRef to AcquiredPixels (ome.xsd)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Element AcquiredPixelsRef has become attribute AcquiredPixels. This has been 
+changed to make AcquiredPixels consistent with the DefaultPixels attribute in 
+the Image element. Now both are a PixelsID.
+
+Hash of Plane data (ome.xsd)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There is now the option to store a SHA1 hash of a plane's image data.
+This can be used to detect modification. It is stored as a HashSHA1
+element inside each Plane. At present this is the only support hashing
+method. Others may be added in future releases.
+
+Files with no significant changes
+---------------------------------
+
+The following files have no significant changes from the last version
+released:
+
+-  AnalysisChain.xsd
+-  BinaryFile.xsd
+-  CA.xsd
+-  CLI.xsd
+-  DataHistory.xsd
+-  MLI.xsd
+-  SPW.xsd
+-  STD.xsd
+
+.. note:: The file SPW.xsd has had an import of AnalysisModule.xsd
+    removed. This import was spurious as it was not used in this file.
+

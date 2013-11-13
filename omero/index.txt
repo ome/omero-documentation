@@ -1,0 +1,45 @@
+#############################
+OMERO |release| Documentation
+#############################
+
+The OMERO |release| documentation is divided into three parts.
+:doc:`users/index` introduces the user-facing client applications and how to 
+get started, as well as detailing where users can access further help and 
+support. System administrators wanting to install an OMERO server can find 
+instructions in the :doc:`sysadmins/index`. Finally, developers can find more 
+specific and technical information about OMERO in the :doc:`developers/index`.
+
+.. only:: html
+
+    - :doc:`users/index`
+    - :doc:`sysadmins/index`
+    - :doc:`developers/index`
+
+Additional online resources can be found at:
+
+- :downloads:`Downloads <>`
+- :omero_plone:`Features (includes movie tutorials)<feature-list>`
+- :omero_plone:`Screenshots <screenshots>`
+- :omero_plone:`Security Vulnerabilities <secvuln>`
+- ***NEW*** :help:`User help website <>`
+- ***NEW*** :community_plone:`Script sharing service <scripts>`
+- ***NEW*** :partner_plone:`Partner projects to extend OMERO <>`
+
+OMERO version *4* uses the *June 2012* release of the
+:model_doc:`OME-Model <>`.
+
+This documentation is a work in progress and many aspects of OMERO are not yet 
+covered. The source code is hosted on Github. To propose changes and fix 
+errors, go to the :omedocs:`documentation repository <>`, fork it, edit the 
+file contents and propose your file changes to the OME team using `Pull Requests`_.
+
+.. _Pull Requests: http://help.github.com/articles/using-pull-requests
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    users/index
+    sysadmins/index
+    developers/index
+

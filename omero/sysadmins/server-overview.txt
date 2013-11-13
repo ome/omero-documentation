@@ -1,0 +1,41 @@
+Server overview
+===============
+
+The OMERO server system provides storage and processing of image data
+which conforms to the :model_doc:`OME Specification <specifications/>`.
+It can be run on commodity hardware to provide your own storage needs,
+or run site-wide to provide a large-scale collaborative environment.
+
+.. figure:: ../images/server-arch.png
+   :align: center
+   :width: 75%
+   :alt: 
+
+
+Although getting started with the server is relatively straightforward,
+it does require installing several software systems, and more advanced
+usage including backups and integrated logins, needs a knowledgeable system 
+administrator.
+
+You may find the :doc:`/users/clients-overview` user guide useful before 
+working through the installation and maintenance guides provided in this 
+section of the documentation.
+
+Developing the server
+---------------------
+
+The server system is composed of several components, each of which runs
+in a separate process but is co-ordinated centrally.
+
+-  :doc:`/developers/server-blitz` - the data server provides access to 
+   metadata stored in a relational database as well as the binary image data 
+   on disk.
+-  :doc:`/sysadmins/dropbox` - a filesystem watcher which notifies the server
+   of newly uploaded or modified files and runs a fully automatic import 
+   (designed as the first implementation of :doc:`/developers/Server/FS` 
+   referred to in the architecture diagram).
+
+If you are interested in building components for the server, modifying
+an existing component, or just looking for more background information, there 
+is a section about the server within the :doc:`/developers/index`;
+the best starting point is the :doc:`/developers/Server` for developers.

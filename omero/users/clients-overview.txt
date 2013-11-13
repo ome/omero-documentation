@@ -1,0 +1,180 @@
+OMERO clients overview
+======================
+
+Most laboratories use a number of different imaging platforms and thus
+require tools to manage, visualize and analyze heterogeneous sets of
+image data recorded in a range of file formats. Ideally a single set of
+applications, running on a user's laptop or workstation, could access
+all sets of data, and provide easy-to-use access to this data.
+
+OMERO ships as a server application called :program:`OMERO.server` and a 
+series of client applications (known simply as clients): :program:`OMERO.web`, 
+:program:`OMERO.insight`, :program:`OMERO.editor` and 
+:program:`OMERO.importer`. All run on the major operating systems 
+and provide image visualization, management, and annotation to users from 
+remote locations. With a large number of OMERO.server installations worldwide, 
+OMERO has been shown to be relatively easy to install and get running.
+
+OMERO.insight (.editor, .importer) are desktop applications written in Java
+and require Java 1.6 (or higher) to be installed on the user's computer
+(automatically installed on most up-to-date OS X and Windows XP systems).
+
+Our **NEW** user assistance :help:`help website<>` provides a series of 
+workflow-based guides to performing common actions in the client applications, 
+such as importing and viewing data, exporting images and using the measuring 
+tool. 
+
+Our partners within the OME consortium are also producing new clients and 
+modules for OMERO, integrating additional functionality, particularly for more 
+complex image analysis. See the :partner_plone:`Partner Projects <>` page for 
+more details.
+
+.. _omero-web:
+
+OMERO.web
+---------
+
+OMERO.web is a web-based client for users who wish to access their data in the
+browser. This offers a similar view to the OMERO.insight desktop client.
+Figures :ref:`omeroweb_44` and :ref:`omero_web_4_4` present the user
+interface [2]_ [4]_. Developers can use the |OmeroWeb| to build customized views.
+
+.. _omeroweb_44:
+.. figure:: /images/OmeroWeb_44.png
+    :width: 60%
+    :align: center
+    :alt: OMERO.web user interface
+    
+    OMERO.web user interface
+
+.. _omero_web_4_4:
+.. figure:: /images/omero_web_4_4.png
+    :width: 60%
+    :align: center
+    :alt: OMERO.web image viewer
+    
+    OMERO.web image viewer
+    
+
+For more information and guides to using OMERO.web, see our 
+:help:`help website <>`.
+
+.. _omero-insight:
+
+OMERO.insight
+-------------
+
+OMERO.insight provides a number of tools for accessing and using data in an
+OMERO server. The figure :ref:`omero_insight_4_4_viewer` presents the
+OMERO.insight image viewer, whereas figure :ref:`omero_insight_screenshot_4_4`
+presents the user interface [1]_ [3]_. To find out more, see the 
+:help:`OMERO.insight user guides <>`.
+
+.. _omero_insight_4_4_viewer:
+.. figure:: /images/omero_insight_4_4_viewer.png
+    :align: center
+    :width: 60%
+    :alt: OMERO.insight ImageViewer
+    
+    OMERO.insight ImageViewer
+    
+.. _omero_insight_screenshot_4_4:    
+.. figure:: /images/omero_insight_screenshot_4_4.png
+    :align: center
+    :width: 60%
+    :alt: OMERO.insight
+    
+    OMERO.insight
+
+Among many features, the noteworthy OMERO.insight elements are:
+
+- DataManager, a traditional tree-based view of the data hierarchies in an
+  OMERO server. DataManager supports access to all image metadata,
+  annotations, tags.
+- ImageViewer, for visualization of 5D images (space, channel, time). The
+  ImageViewer makes use of the OMERO server's Rendering Engine, and provides
+  high-performance viewing of multi-dimensional images on standard
+  workstations (e.g. scrolling through space and time), without requiring
+  installation of high-powered graphics cards. Most importantly, image viewing
+  at remote locations is enabled. Image rendering settings are saved and
+  chosen by user ID.
+- Measurement Tool, a sub-application of ImageViewer that enables size and
+  intensity measurements of defined regions-of-interest (ROIs).
+- Working Area, for viewing, annotating, and manipulating large sets of image
+  data.
+- User administration.
+- Image import.
+
+Our user assistance :help:`help website <>` features a number of 
+workflow-based guides to importing, viewing, managing and exporting your data 
+using OMERO.insight.
+
+.. _omero-editor:
+
+OMERO.editor
+------------
+
+OMERO.editor is an editing tool designed to facilitate recording of
+experimental metadata, for annotation of images in OMERO, where users can
+create a "template" (for example, to describe a protocol) and then use this
+template to create individual "experiment" files, which contain the
+experimental metadata. A summary of the experiment can be viewed alongside
+annotated images in OMERO.insight. This workflow makes it easy to reuse
+protocols, and to build up a detailed description of an experiment by
+combining several smaller protocols.
+
+.. figure:: /images/omero_editor_4_4.png
+    :align: center
+    :width: 60%
+    :alt: OMERO.editor
+
+    OMERO.editor
+
+.. figure:: /images/EditorParamsContext.png
+    :align: center
+    :width: 60%
+    :alt: OMERO.editor
+
+    OMERO.editor
+
+The OMERO.editor is part of the OMERO.insight client, but can also run as a
+stand-alone application. OMERO.editor saves files as XML documents, which
+makes it possible for them to be read by other software. More information can
+be found in the :help:`OMERO.editor user guide <editor.html>`.
+
+.. note:: OMERO.editor is no longer actively developed but is still shipped 
+    with OMERO releases.
+
+.. _omero-importer:
+
+OMERO.importer
+--------------
+
+The OMERO.importer is part of the OMERO.insight client, but can also run as a
+stand-alone application. The OMERO.importer allows the import of proprietary
+image data files from a filesystem accessed from the user's computer to a
+running OMERO server. This tool uses a standard file browser to select the
+image files for import into an OMERO server.
+
+The tool uses Bio-Formats for translation of proprietary file formats in
+preparation for upload to an OMERO Server. Visit 
+:bf_doc:`Supported Formats <supported-formats.html>`
+for a detailed list of supported formats.
+
+.. figure:: /images/omero_importer_4_4.png
+    :align: center
+    :width: 60%
+    :alt: OMERO.importer
+    
+    OMERO.importer
+
+.. rubric:: Citation
+
+The screenshots make use of data from the `JCB DataViewer <http://jcb-dataviewer.rupress.org/>`_ under the Creative Commons
+Attribution-Noncommercial-Share Alike 3.0 Unported License. For more
+information see :about_plone:`Attribution <licensing-attribution/attribution>`.
+
+.. [1] `Dantas, et al., JCB <http://jcb.rupress.org/content/193/2/307>`_
+.. [2] `Krenn, et al., JCB <http://jcb.rupress.org/content/196/4/451>`_
+.. [3] `Roscioli, et al., JCB <http://jcb.rupress.org/content/196/4/435>`_
+.. [4] `Snider, et al., JCB <http://jcb.rupress.org/content/195/2/217>`_

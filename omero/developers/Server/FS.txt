@@ -1,0 +1,12 @@
+OMERO.fs
+========
+
+OMERO.fs is a series of on-going changes designed to improve the way an 
+OMERO.server interacts with existing directories of acquired image data. These 
+changes are currently being implemented almost exclusively in the OMERO 5 
+development line. In OMERO version 4.4, OMERO.fs consists of a single 
+component:
+
+OMERO.dropbox is designed for watching a directory and kicking off an 
+automatic import. The configuration of the DropBox system is covered on the 
+:doc:`OMERO.dropbox </sysadmins/dropbox>` system administrator’s page.

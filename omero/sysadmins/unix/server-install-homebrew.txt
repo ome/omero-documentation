@@ -1,0 +1,486 @@
+OMERO.server Mac OS X installation walk-through with Homebrew 
+=============================================================
+
+
+.. topic:: Overview
+
+    This walk-through is a list of the commands used to install OMERO on a  
+    clean Mac OS X 10.7 Lion using Homebrew.
+
+The instructions provided here depend on Homebrew 0.9 or later, including
+support for the ``brew tap`` command. These instructions are implemented in an
+:source:`automated script <docs/hudson/OMERO-homebrew-install.sh>` which
+installs OMERO via Homebrew from a fresh configuration.
+
+Prerequisites
+-------------
+
+OS X/Xcode
+^^^^^^^^^^
+
+.. _OS X Developer Tools: https://developer.apple.com/technologies/tools/
+
+Install the `OS X Developer Tools`_. This procedure is regularly tested with
+the following configuration:
+
+.. list-table::
+    :header-rows: 1
+    :widths: 30, 10,10
+
+    - * Model Identifier
+      * Mac OS X version
+      * Xcode version
+
+    - * MacBookPro8,2 (Intel Core i7, 2.3 GHz, 8 GB RAM)
+      * 10.7.5
+      * 4.6
+
+.. note:: 
+
+    For Xcode 4.x, make sure that the Command line tools are installed
+    (:menuselection:`Preferences --> Downloads --> Components`)
+
+
+Java (>=1.6)
+^^^^^^^^^^^^
+
+You need Java which comes as standard on OS X.
+
+::
+
+    $ java -version
+    java version "1.6.0_33"
+    Java(TM) SE Runtime Environment (build 1.6.0_33-b03-424-11M3720)
+    Java HotSpot(TM) 64-Bit Server VM (build 20.8-b03-424, mixed mode)
+
+Homebrew
+^^^^^^^^
+
+.. _`Homebrew wiki`: https://github.com/mxcl/homebrew/wiki/installation
+
+Follow the installation instructions on the `Homebrew wiki`_. All
+requirements for OMERO will be installed to :file:`/usr/local`.
+
+::
+
+    $ ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+    $ brew install git
+
+If you are having issues with curl, see the :ref:`install_homebrew_curl`
+section under :ref:`install_homebrew_common_issues`.
+
+The installation of OMERO via Homebrew depends on two alternate repositories
+containing extra formulas: https://github.com/Homebrew/homebrew-science for
+the HDF5 formula and https://github.com/ome/homebrew-alt for all the
+OME-provided formulas and older versions of Ice.
+
+Python (>=2.4)
+^^^^^^^^^^^^^^
+
+.. _`Homebrew and Python`: https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python
+
+You can install OMERO using either the system-wide Python or the Python
+provided by Homebrew. For a more thorough description of the latter solution,
+look at the `Homebrew and Python`_ page. Note that the automated script linked
+above tests the OMERO installation using the Homebrew Python.
+
+If using system-wide Python, check it is installed and its version.
+
+::
+
+    $ python --version
+    Python 2.7.3
+
+To install the Python provided by Homebrew::
+
+	$ brew install python
+
+Independently of the chosen Python, you can setup and use `virtual
+environments <http://www.virtualenv.org/en/latest/>`_ to install the OMERO
+Python dependencies (see :ref:`python_dependencies`).
+
+.. note::
+	The Homebrew formulas used below provide Python bindings. As described in
+	`Homebrew and Python`_, you should NOT be in an active virtual environment
+	when you ``brew install`` them.
+
+
+OMERO installation
+------------------
+
+OMERO |release|
+^^^^^^^^^^^^^^^
+
+If you just want a deployment of the |release| release of OMERO.server then a
+simple Homebrew install is sufficient, e.g.
+
+::
+
+    $ brew tap homebrew/science
+    $ brew tap ome/alt
+    $ brew install omero
+
+This should install OMERO along with most of the non-Python requirements.
+
+The default version of Ice installed by the OMERO formula is Ice 3.4. To
+install OMERO with Ice 3.3, use::
+
+	$ brew install omero --with-ice33
+
+Additional installation options can be listed using the ``info`` command:
+
+::
+
+    $ brew info omero
+
+Development server
+^^^^^^^^^^^^^^^^^^
+
+If you wish to pull OMERO.server from the git repo for development purposes
+then it is worth setting up OMERO.server manually. First use Homebrew to
+install the server dependencies:
+
+::
+
+    $ brew tap homebrew/science
+    $ brew tap ome/alt
+    $ brew install `brew deps omero`
+	
+
+If you wish to install Ice 3.3 (default is Ice 3.4), you will have to run the
+following:
+   
+::
+   
+	$ brew install zeroc-ice33
+
+
+Prepare a place for your OMERO code to live, e.g.
+
+::
+
+    $ mkdir -p ~/code/projects/OMERO
+    $ cd ~/code/projects/OMERO
+
+.. include:: development-server
+
+Additional OMERO requirements
+-----------------------------
+
+PostgreSQL
+^^^^^^^^^^
+
+Install PostgreSQL if you do not have another PostgreSQL installation that you
+can use.
+
+::
+
+    $ brew install postgresql
+
+
+.. _python_dependencies:
+
+Python dependencies
+^^^^^^^^^^^^^^^^^^^
+
+The Python dependencies can be installed in the system-wide Python
+site-packages, in the Homebrew Python site-packages or within a virtual
+environment. If you are using the system-wide Python site-packages, you may
+need to use ``sudo`` to install the dependencies. If you are using a virtual
+environment, activate it before calling the Python dependencies installation
+script.
+
+If you installed OMERO using Homebrew, execute the ``omero_python_deps``
+script::
+
+    $ cd /usr/local
+    $ bash bin/omero_python_deps
+
+If you use a development server, execute the ``python_deps.sh`` script under
+:file:`docs/install`::
+
+    $ cd ~/code/projects/OMERO
+    $ bash docs/install/python_deps.sh
+
+If you encounter problems with the installation script, please take a look at
+:ref:`install_homebrew_common_issues`.
+
+Configuration
+-------------
+
+Environment variables
+^^^^^^^^^^^^^^^^^^^^^
+
+Edit your :file:`.profile` as appropriate. The following are indicators of
+required entries and correspond to a Homebrew installation of OMERO |version|:
+
+::
+
+    export ICE_CONFIG=$(brew --prefix omero)/etc/ice.config
+    export ICE_HOME=$(brew --prefix zeroc-ice34)
+    export PYTHONPATH=$(brew --prefix omero)/lib/python:$ICE_HOME/python
+
+    export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/lib/node_modules:$ICE_HOME/bin:$PATH
+    export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$DYLD_LIBRARY_PATH
+
+If you have installed Ice 3.3, replace :envvar:`ICE_HOME` by ``$(brew --prefix zeroc-ice33)``.
+
+
+.. note::
+    On Mac OS X Lion, a version of PostgreSQL is already installed. If you get an error like the following:
+
+    ::
+
+        psql: could not connect to server: Permission denied
+        Is the server running locally and accepting
+        connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+
+    make sure :file:`/usr/local/bin` is at the beginning of your
+    :envvar:`PATH` (see also `this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_).
+
+   
+Database creation
+^^^^^^^^^^^^^^^^^
+
+Start the PostgreSQL server.
+
+::
+
+    $ initdb /usr/local/var/postgres
+    $ brew services start postgresql
+    $ pg_ctl -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log start
+
+Create a user, a database and add the PL/pgSQL language to your database.
+
+::
+
+    $ createuser -P -D -R -S db_user
+    Enter password for new role:       # db_password
+    Enter it again:       # db_password
+    $ createdb -O db_user omero_database
+    $ createlang plpgsql omero_database
+
+Check to make sure the database has been created.
+
+::
+
+    $ psql -h localhost -U db_user -l
+
+This command should give similar output to the following:
+
+::
+
+                            List of databases
+
+       Name         | Owner   | Encoding |  Collation  |    Ctype    | Access privileges
+    ----------------+---------+----------+-------------+-------------+-------------------
+     omero_database | db_user | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 |
+     postgres       | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 |
+     template0      | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/ome           +
+                    |         |          |             |             | ome=CTc/ome  
+     template1      | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/ome           +
+                    |         |          |             |             | ome=CTc/ome  
+    (4 rows)
+
+OMERO.server
+^^^^^^^^^^^^
+
+Now tell OMERO.server about our database.
+
+.. parsed-literal::
+
+    $ omero config set omero.db.name omero_database
+    $ omero config set omero.db.user db_user
+    $ omero config set omero.db.pass db_password
+
+    $ omero db script
+    Please enter omero.db.version [OMERO\ |version|\ ]: 
+    Please enter omero.db.patch [0]: 
+    Please enter password for new OMERO root user:       # root_password
+    Please re-enter password for new OMERO root user:      # root_password
+    Saving to ~/OMERO\ |version|\ __0.sql
+
+Then enter the name of the .sql (see last line above) in the next command, to create the database:
+
+.. parsed-literal::
+
+    $ psql -h localhost -U db_user omero_database < OMERO\ |version|\ __0.sql
+
+Now create a location to store OMERO data, e.g.
+
+::
+
+    $ mkdir -p ~/var/OMERO.data
+
+and tell OMERO.server this location:
+
+::
+
+    $ omero config set omero.data.dir ~/var/OMERO.data
+
+We can inspect the OMERO.server configuration settings using:
+
+::
+
+    $ omero config get
+
+Now start the OMERO.server
+
+::
+
+    $ omero admin start
+
+Now connect to your OMERO.server using OMERO.insight with the following credentials:
+
+::
+
+    U: root
+    P: root_password
+
+OMERO.web
+^^^^^^^^^
+
+You can set up the internal development web server
+
+::
+
+    $ omero config set omero.web.application_server development
+    $ omero config set omero.web.debug True
+
+Then start the webserver with:
+
+::
+
+    $ omero web start
+    Starting django development webserver... 
+    Validating models...
+    0 errors found
+
+    Django version 1.1.1, using settings 'omeroweb.settings'
+    Development server is running at http://0.0.0.0:4080/
+    Quit the server with CONTROL-C.
+
+.. _install_homebrew_common_issues:
+
+Common issues
+-------------
+
+General considerations
+^^^^^^^^^^^^^^^^^^^^^^
+
+If you run into problems with Homebrew, you can always run:
+
+::
+
+    $ brew update
+    $ brew doctor
+
+Also, please check the Homebrew `Bug Fixing Checklist <https://github.com/mxcl/homebrew/wiki/Bug-Fixing-Checklist>`_.
+
+Below is a non-exhaustive list of errors/warnings specific to the OMERO
+installation. Some if not all of them could possibly be avoided by removing
+any previous OMERO installation artifacts from your system.
+
+.. _install_homebrew_curl:
+
+curl (Mac 10.5 only)
+^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    curl: (60) SSL certificate problem, verify that the CA cert is OK. Details:
+    error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed
+
+Use ``export GIT_SSL_NO_VERIFY=1`` before running failing brew commands.
+
+Xcode
+^^^^^
+
+::
+
+    Warning: Xcode is not installed! Builds may fail!
+
+Install Xcode using `Mac App store <https://developer.apple.com/technologies/tools/>`_.
+
+Macports/Fink
+^^^^^^^^^^^^^
+
+::
+
+    Warning: It appears you have MacPorts or Fink installed.
+
+Follow uninstall instructions from the `Macports guide <http://guide.macports.org/chunked/installing.macports.uninstalling.html>`_.
+
+PostgreSQL
+^^^^^^^^^^
+
+::
+
+    ==> Installing postgresql dependency: readline
+    Error: No such file or directory - /usr/bin/cc
+
+For Xcode 4.3.2 make sure Xcode Command Line Tools are installed (see `comment <https://github.com/mxcl/homebrew/issues/10244#issuecomment-4013781>`_).
+
+::
+
+    Error: You must ``brew link ossp-uuid' before postgresql can be installed
+
+Try:
+
+::
+
+    $ brew cleanup
+    $ brew link ossp-uuid
+
+Ice
+^^^
+
+::
+
+    Error: Failed executing: cd cpp && make M PP_HOME=/Users/sebastien/apps/    OMERO.libs/Cellar/mcpp/2.7.2 DB_HOME=/Users/sebastien/apps/OMERO.libs/Cellar/berkeley-    db46/4.6.21 OPTIMIZE=yes prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 embedded_runpath_prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 install
+
+We have had problems building ``zeroc-ice33`` under MacOS 10.7.3 and 10.6.8
+(see :ticket:`8075`). You can try installing ``zeroc-ice34`` (Ice 3.4)
+instead. If you decide to go with ``zeroc-ice33``, make sure that you do not
+have :envvar:`DYLD_LIBRARY_PATH` set to an existing Ice's installation lib
+directory path. In essence your ``.bash_profile`` shouldn't have any
+OMERO-related environment variables set before executing the installation
+script.
+
+szip
+^^^^
+
+::
+
+    ==> Installing hdf5 dependency: szip
+    ==> Downloading http://www.hdfgroup.org/ftp/lib-external/szip/2.1/src/szip-2.1.tar.gz
+    Already downloaded: /Library/Caches/Homebrew/szip-2.1.tar.gz
+    Error: MD5 mismatch
+    Expected: 902f831bcefb69c6b635374424acbead
+    Got: 0d6a55bb7787f9ff8b9d608f23ef5be0
+    Archive: /Library/Caches/Homebrew/szip-2.1.tar.gz
+    (To retry an incomplete download, remove the file above.)
+
+Manually remove the archived version located under 
+:file:`/Library/Caches/Homebrew` since the maintainer may have updated the
+file.
+
+numexpr (and other Python packages)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you encounter an issue related to numexpr complaining about NumPy having a 
+too low version number, verify that you have not before installed any Python 
+packages using pip. In the case where pip has been installed before homebrew, 
+uninstall it:
+
+::
+
+    $ sudo pip uninstall pip
+
+After that try running ``python_deps.sh`` again. That should install ``pip`` 
+via Homebrew and put the Python packages in correct folders.
+
+gfortran
+^^^^^^^^
+
+``gfortran`` currently fails to build on 32-bit 10.6.8 machines (see https://github.com/mxcl/homebrew/issues/17776)

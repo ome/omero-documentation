@@ -1,0 +1,262 @@
+OMERO search
+============
+
+Beginning with 3.0-Beta3, the OMERO server will use
+` Lucene <http://lucene.apache.org>`_ to index all string and timestamp
+information in the database, as well as all ``OriginalFiles`` which can
+be parsed to simple text (see :doc:`/developers/Search/FileParsers` for
+more information). The index is stored under /OMERO/FullText (or the
+``FullText`` subdirectory of your ${omero.data.dir}, and can be searched
+with Google-like queries.
+
+Field names
+-----------
+
+Each row in the database becomes a single Lucene ``Document`` parsed
+into the several ``Fields``. A field is referenced by prefixing a search
+term with the field name followed by a colon. For example,
+`name:myImage` searches for myImage anywhere in the name field.
+
+.. tabularcolumns:: |p{3.5cm}|p{12cm}|
+
+.. csv-table::
+    :widths: 20 80
+    :header-rows: 1
+    :file: searchfieldnames.tsv
+    :delim: tab
+
+Queries
+-------
+
+Search queries are very similar to Google searches. When search terms
+are entered without a prefix ("name:"), then the default field will be
+used which combines all available fields. Otherwise, a prefix can be
+added to restrict the search.
+
+Indexing
+--------
+
+Successful searching depends on understanding how the text is indexed.
+The default analyzer used is :source:`the
+FullTextAnalyzer <components/server/src/ome/services/fulltext/FullTextAnalyzer.java>`.
+
+::
+
+      1. Desktop/image_GFP-H2B_1.dv  --->  "desktop", "image", "gfp", "h2b", "1", "dv"
+      2. Desktop/image_GFP-H2B_2.dv  --->  "desktop", "image", "gfp", "h2b", "2", "dv
+      3. Desktop/image_GFP_01-H2B.dv --->  "desktop", "image", "gfp", "01", "h2b", "dv"
+      4. Desktop/image_GFP-CSFV_a.dv --->  "desktop", "image", "gfp", "csfv", "a", "dv"
+
+Assuming these entries above for Image.name:
+
+-  searching for **GFP-H2B** returns 1 and 2.
+-  searching for **"GFP H2B"** also returns 1 and 2.
+-  searching for **GFP H2B** returns 1, 2, and 3, since the two terms
+   are joined by an **OR**.
+
+Information for developers and system administrators
+----------------------------------------------------
+
+Scheduling indexing
+~~~~~~~~~~~~~~~~~~~
+
+Indexing is not driven by the user, but happens automatically in the
+background. Automatic indexing occurs at the frequency defined in
+etc/omero.properties:
+
+::
+
+    omero.search.cron=0,30 * * * * ?
+    omero.search.batch=100
+
+which implies every thirty seconds of every hour, day, month, year, etc.
+During each iteration, 100 ``EventLogs`` will be loaded from the
+database and processed. Upon successful completion, the persistent count
+in the ``configuration`` table, will be incremented.
+
+::
+
+    omero3=# select value from configuration where name = 'PersistentEventLogLoader.current_id';
+     value 
+    -------
+     30983
+    (1 row)
+
+If you have more than one ``PersistentEventLogLoader.*`` value in your
+database, then you have run indexing with multiple versions of the
+server. This is fine. To allow a new server version to force an update,
+the configuration key may be changed. For example,
+
+::
+
+       PersistentEventLogLoader.currend_id
+
+became
+
+::
+
+       PersistentEventLogLoader.v2.current_id
+
+in r2460.
+
+Once an entity is indexed, it is possible to start writing querying
+against the server via ``IQuery.findAllByFullText()``. Use
+``new Parameters(new Filter().owner())`` and ``.group()`` to restrict
+your search. Or alternatively use the ``oma.api.Search`` interface
+(below).
+
+If you need to re-index your database, stop your server, and:
+
+-  (Optionally) Delete the ``/OMERO/FullText`` directory
+-  Delete or set to 0 the entry from the ``configuration`` table:
+   ``update configuration set value = 0 where name like 'PersistentEventLogLoader%';``
+-  If it is necessary to force re-indexing, use:
+
+   ::
+
+       cd $OMERO_PREFIX
+       CLASSPATH=etc:`find lib/server | xargs | sed 's/ /:/g'`
+       java -Dlog4j.configuration=log4j-cli.properties -Xmx512M ome.services.fulltext.Main full
+
+or alternatively for particular types, ...
+
+::
+
+    java -Dlog4j.configuration=log4j-cli.properties -Xmx512M ome.services.fulltext.Main reindex ome.model.core.Image
+
+This functionality is still being tested, but will be made more
+available in future versions.
+
+ome.api.IQuery
+~~~~~~~~~~~~~~
+
+The current IQuery implementation restricts searches to a single class
+at a time.
+
+-  ``findAllByFullText(Image.class, "metaphase")`` -- Images which
+   contain or are annotated with "metaphase"
+-  ``findAllByFullText(Image.class, "annotation:metaphase")`` -- Images
+   which are annotated with "metaphase"
+-  ``findAllByFullText(Image.class, "tag:metaphase")`` -- Images which
+   are tagged with "metaphase" (specialization of the previous)
+-  ``findAllByFullText(Image.class, "file.contents:metaphase")`` --
+   Images which have files attached containing "metaphase"
+-  ``findAllByFullText(OriginalFile.class, "file.contents:metaphase")``
+   -- File containing "metaphase"
+
+ome.api.Search
+~~~~~~~~~~~~~~
+
+The Search API offers a number of different queries along with various
+filters and settings which are all maintained on the server.
+
+The matrix below show which combinations of parameters and queries are
+supported (S), will throw an exception (X), and which will simply silently be
+ignored (I).
+
++--------------------------+---------------------------+---------------------------------+-------------------+
+| **Query Method** -->     | byFullText/SomeMustNone   | byGroupForTags/byTagsForGroup   | byAnnotatedWith   |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| **Parameters**           |                           |                                 |                   |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| annotated between        | S                         | S                               | S                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| annotated by             | S                         | S                               | S                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| annotated with           | S                         | I                               | I                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| created between          | S                         | S                               | S                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| modified between         | S                         | I (Immutable)                   | S                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| owned by                 | S                         | S                               | S                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| all types                | X                         | I                               | X                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| 1 type                   | S                         | I                               | S                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| N types                  | X                         | I                               | X                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| only ids                 | S                         | I                               | S                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| **Ordering / Fetches**   |                           |                                 |                   |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| orderBy                  | S                         | I                               | S                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| fetchAnnotations         | [1]_                      | I                               | [2]_              |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| **Other**                |                           |                                 |                   |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| setProjections [3]_      | X                         | X                               | X                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| current\*Metdata [4]_    | X                         | X                               | X                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+| setProjections [3]_      | X                         | X                               | X                 |
++--------------------------+---------------------------+---------------------------------+-------------------+
+
+.. rubric:: Footnotes
+
+.. [1] Any fetchAnnotation() argument to byFullText() or related queries,
+   returns **all** annotations.
+.. [2] byAnnotatedWith() does not accept a fetchAnnotation() argument of
+   ``Annotation.class``.
+.. [3] setProjects may need to be removed if Lucene cannot handle OMERO's
+   security requirements.
+.. [4] Not yet implemented.
+
+Leading wildcard searches
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Leading wildcard searches are disallowed by default. "?omething" or
+"\*hatever", for example, would both throw exceptions. They can be run by 
+using:
+
+::
+
+      Search search = serviceFactory.createSearchService();
+      search.setAllowLeadingWildcards(true);
+
+There is a performance penalty, however. In addition,
+wildcard searches get expanded on the server to boolean queries. For
+example, assuming "ACELL", "BCELL", and "CCELL" are all terms in your
+index, then the query:
+
+::
+
+      *CELL
+
+gets expanded to:
+
+::
+
+      ACELL OR BCELL OR CCELL
+
+If there are more than "omero.search.maxclause" terms in the expansion
+(default is 4096), then an exception will be thrown. This requires the
+user to enter a more refined search, but not because there are too many
+results, only because there is not enough room in memory to search on
+all terms at once.
+
+Extension points
+~~~~~~~~~~~~~~~~
+
+Two extension points are currently available for searching. The first
+are the :doc:`/developers/Search/FileParsers` mentioned above. By
+configuring the map of Formats (roughly mime-types) of files to parser
+instances, extracting information from attached binary files can be made
+quick and straightforward.
+
+Similarly, :doc:`/developers/Modules/Search/Bridges` provide a mechanism
+for parsing all metadata entering the system. One built in bridge (the
+:source:`FullTextBridge <components/server/src/ome/services/fulltext/FullTextBridge.java>`)
+parses out the fields mentioned above, but by creating your own bridge
+it is possible to extract more information specific to your site.
+
+.. seealso::
+    :doc:`/developers/Modules/StructuredAnnotations`,
+    :doc:`/developers/Modules/Search/Bridges`,
+    :doc:`/developers/Search/FileParsers`, 
+    `Query Parser Syntax <http://lucene.apache.org/core/3_6_0/queryparsersyntax.html>`_,
+
+    ` Luke <http://www.getopt.org/luke/>`_ 
+        a Java application which you can download and point at your ``/OMERO/FullText`` directory to get a better feeling for Lucene queries.

@@ -1,0 +1,29 @@
+If you want the development version of OMERO.server, you can clone the source
+code from the project's GitHub account to build locally:
+
+::
+
+    $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
+    $ cd openmicroscopy && ./build.py
+
+.. note::
+    If you have a GitHub account and you plan to develop code for OMERO, you
+    should make a fork into your own account and then clone this fork to your
+    local development machine, e.g.
+
+    ::
+
+        $ git clone --recursive git://github.com/YOURNAMEHERE/openmicroscopy
+        $ cd openmicroscopy && ./build.py
+
+.. seealso::
+
+    :doc:`/developers/source_code`
+        Developer documentation page on how to check out to source code
+
+    :doc:`/developers/build-system`
+        Developer documentation page on how to build the OMERO.server
+
+Alternately, you can download a
+:omerojob:`daily build <lastSuccessfulBuild/artifact/>` of the OMERO.server
+from our continuous integration server.

@@ -1,0 +1,41 @@
+OMERO events and provenance
+===========================
+
+What is an event?
+-----------------
+
+As described under :doc:`/developers/Server/Context`, each method
+call takes place within a single application context (always the same),
+session, and event. Of these, only event is guaranteed to be unique for
+every task\*. The :source:`components/server/src/ome/security/basic/EventHandler.java`
+is responsible for creating new events.
+
+Events as audit log
+-------------------
+
+On each Database-update (INSERT/UPDATE/DELETE), an ``EventLog`` is created by
+a ``HibernateInterceptor`` which is then saved to the database at the end of
+the method call (in ``UpdateImpl``).
+
+Relationship to ModuleExecutions
+--------------------------------
+
+The OMERO Event plays a similar role to the ``ModuleExecution`` in the
+OME 2 system. They both contain time of create/update/deletion, status,
+and type information. Event, however, has lost its ACL/permissions role.
+These values have been moved to embedded values represented by the
+Details object. Event also is not linked to all the created
+``SemanticTypes`` as was ``ModuleExecution``, and so cannot fully
+represent the provenance data needed by the ``AnalysisEngine``. At such
+time as the ``AnalysisEngine`` is ported to Java, the
+``ModuleExecution`` object will have to be added.
+
+**\*** Here we say "task" and not method call, because all method calls
+to a single stateful service instance belong to the same event. This is
+the nature of a stateful service. Logically, however, it is a single
+action.
+
+--------------
+
+.. seealso:: 
+    ` Hibernate events <http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html/events.html>`_

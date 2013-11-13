@@ -1,0 +1,324 @@
+OMERO C++ language bindings
+===========================
+
+Using the :zerocdoc:`Ice C++ language mapping
+<display/Ice/Hello+World+Application>` from ZeroC_, OMERO provides
+native access to your data from C++ code. The ``build-cpp`` build
+target produces a platform-dependent shared library which can be
+linked to your application.
+
+**Binaries are not provided**, therefore it will be necessary for you
+to compile your own. Test versions are, however, built by Jenkins on a
+small handful of platforms:
+
+* :jenkins:`Windows Server 2003 (32 bit) <job/OMERO-trunk-components/component=cpp,label=x86-windows/>`
+* :jenkins:`Linux <job/OMERO-trunk-components/component=cpp,label=linux/>`
+* :jenkins:`MacOSX <job/OMERO-trunk-components/component=cpp,label=macosx/>`
+
+Prerequisites
+-------------
+
+* The OMERO source code
+* A C++ compiler
+
+  * GCC is recommended for Linux and MacOS X
+  * Visual Studio or the Platform SDK for Windows
+
+* The ZeroC Ice libraries, headers and slice definitions
+
+Restrictions
+------------
+
+Ice 3.3 and Ice 3.4 will only build with GCC versions *older* than 4.6
+(they contain broken headers which newer GCC versions will not parse).
+GCC 4.4 is tested and recommended.
+
+Ice 3.5 will build with any GCC version up to 4.8, the latest stable
+version; later versions may work, but are untested.
+
+The version of GCC and/or Ice provided on your system should be
+compatible, but if you are restricted to a particular version of GCC
+or Ice, you may need to obtain or build a compatible version of Ice or
+GCC, respectively.
+
+Preparing to build
+-------------------
+
+Begin by following the instructions under :doc:`/developers/source_code` on
+acquiring the source code. Be **sure** that the git branch you are using
+matches the version of your server!
+
+Set the :envvar:`ICE\_HOME` environment variable for your
+installation.  This location varies depending upon the installation
+location and Ice version in use.  Some possible locations for the
+|iceversion| version of Ice follow.  Note these are just examples; you need
+to adjust them for the Ice installation path and version in use.
+
+* Ice built from source and installed into :file:`/opt`:
+
+   .. parsed-literal::
+
+       export ICE_HOME=/opt/Ice-|iceversion|
+
+* Ice installed on Linux using RPM packages:
+
+   .. parsed-literal::
+
+       export ICE_HOME=/usr/share/Ice-|iceversion|
+
+* MacOS with homebrew:
+
+   .. parsed-literal::
+
+       export ICE_HOME=/usr/local/Cellar/ice/|iceversion|
+
+* Windows using Visual Studio:
+
+   .. parsed-literal::
+
+       set ICE_HOME=C:\Ice-|iceversion|
+
+Users of a package manager will also need to set :envvar:`ICE\_HOME`
+if the Ice paths are not automatically detected correctly.  The
+:program:`slice2xxx` tools generally don't pick up the location of the
+slice definitions by default if this is unset.
+
+.. note ::
+
+    If the Ice headers and libraries are not present on the standard
+    search paths, these will need to be specified using the
+    :envvar:`CPPPATH` and :envvar:`LIBPATH` environment variables (see
+    below).
+
+Windows users building with Visual Studio will also need to run the
+Visual Studio environment setup scripts:
+
+::
+
+    C:\Documents and Settings\USER>c:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcvarsall.bat
+    Setting environment for using Microsoft Visual Studio 2008 x86 tools.
+
+or otherwise guarantee that the your environment is properly configured.
+For the 64bit build, be sure to use the right setup, namely
+:menuselection:`Start-->Microsoft Visual Studio 2008-->Visual Studio Tools-->Visual Studio
++2008 Command Prompt`.
+
+Building the library
+--------------------
+
+To build the C++ dynamic library:
+
+::
+
+    cd omero
+    ./build.py
+    ./build.py build-cpp
+
+or
+
+::
+
+    ./build.py build-all
+
+If you would like to build the C++ tests, you can run:
+
+::
+
+    ./build.py test-compile-all
+    ./build.py test-unit
+
+or to test only C++:
+
+::
+
+    ./build.py -f components/tools/OmeroCpp/build.xml test
+
+.. note::
+
+    If you would like to work on just the C++ code without worrying
+    about the rest of the build, you can install :program:`scons` and
+    use it directly. Alternatively, you can use the :program:`scons`
+    version which comes with the OMERO source code: ::
+    
+        cd components/tools/OmeroCpp && python ../../../target/scons/scons.py test
+    
+    This **does** require having run the top-level build (``build.py``) at
+    least once.
+
+.. note::
+
+    If the build fails with errors such as
+
+    ::
+
+        Checking for C++ header file Ice/Ice.h... no
+        Fatal Error: Ice/Ice.h not found
+
+    this can be caused by the Ice headers not being installed or not
+    being on the search path.  However, also check
+    :file:`components/tools/OmeroCpp/config.log`.  If this contains
+    error messages such as
+
+    ::
+
+         /usr/include/Ice/ProxyHandle.h:176:13: error: ‘upCast’ was not declared in this scope,
+         and no declarations were found by argument-dependent lookup at the point of
+         instantiation
+
+    this is caused by the Ice headers being buggy, and newer versions
+    of GCC rejecting the invalid code.  To compile in this situation,
+    add ``-fpermissive`` to :envvar:`CXXFLAGS` to allow the invalid
+    code to be accepted, but do note that this may also mask other
+    problems so should not be used unless strictly needed.
+
+Further build configuration
+---------------------------
+
+The C++ bindings use `scons <http://www.scons.org>`_ as a build
+system. :program:`scons` provides several hooks into its operation.
+The following environment variables as defined in
+:source:`components/blitz/blitz_tools.py` are considered:
+
+:envvar:`ARCH`
+    Either ``x86`` or ``x64``. ``x64`` will be used by default on a
+    64-bit machine, otherwise ``x86``
+
+:envvar:`CPPPATH`
+    directories to be searched for include files, for example
+
+    .. parsed-literal::
+
+        -I/opt/Ice-|iceversion|/include
+
+    A ``:`` or ``;`` separator character is used to separate
+    directories, depending on the platform.
+
+:envvar:`CXXFLAGS`
+    standard :program:`make`-like CXXFLAGS variable
+
+:envvar:`CXX`
+    compiler executable. Useful with `ccache <http://ccache.samba.org/>`_.
+
+:envvar:`LIBPATH`
+    directories to be searched for libraries, for example
+
+    .. parsed-literal::
+
+        -L/opt/Ice-|iceversion|/lib
+
+    Directories are separated by ``:`` or ``;`` as with CPPPATH.
+
+:envvar:`ICE\_HOME`
+    your Ice installation. The contained ``include`` directory will be
+    added to your :envvar:`CPPPATH`, but the contained ``lib``
+    directory will *not* be added to your :envvar:`LIBPATH` since this
+    may not contain the needed 32- or 64-bit libraries; this will need
+    setting with the correct value for your system.
+
+:envvar:`J`
+    specifies the number of concurrent build tasks as with :program:`make`.
+
+:envvar:`RELEASE`
+    ``debug`` or ``Os`` (i.e. optimize for size). ``debug`` is used by
+    default.
+
+:envvar:`VERBOSE`
+    show the actual build commands rather than the pretty "Compiling
+    XYZ..." statements.
+
+Zip files containing the C++ header files, the libraries, and source
+code are placed under :file:`OMERO\_HOME/target` with other zip
+artifacts.
+
+.. note::   
+
+    If you are using :program:`make`, you can unpack the main zip
+    (e.g.  :file:`OMERO.cpp-<version>-64dbg.zip`) to some directory
+    (:file:`OMERO_DIST`) and follow the instructions below to get
+    started. For help with other build systems, please contact the
+    mailing list.
+
+Using the library
+-----------------
+
+To use |OmeroCpp| it is necessary to point your compiler and linker at
+the mentioned directories above. A simple GNU :program:`make`
+:file:`Makefile` might look like this:
+
+.. literalinclude:: ../examples/omerocpp/Makefile
+   :language: make
+   :linenos:
+
+A trivial example: :file:`yourcode.cpp`
+---------------------------------------
+
+And a simple example file might looking something like the following:
+
+.. literalinclude:: ../examples/omerocpp/yourcode.cpp
+   :language: c++
+   :linenos:
+
+This code does not do much. It creates a server session, loads a few
+services, and prints the user's name. For serious examples, see
+|OmeroClients|.
+
+Compiling and running your code
+-------------------------------
+
+Therefore, to compile and run :program:`yourcode`, you will need to
+download the two files above (:file:`Makefile` and
+:file:`yourcode.cpp`) and then from the shell:
+
+::
+
+    make OMERO_DIST=dist yourcode
+    LD_LIBRARY_PATH=dist/lib ./yourcode --Ice.Config=dist/etc/ice.config
+
+where you have edited :file:`dist/etc/ice.config` to contain the
+values:
+
+::
+
+    omero.host=localhost
+    omero.user=your_name
+    omero.pass=your_password
+
+Alternatively, you can pass these on the command-line:
+
+::
+
+    LD_LIBRARY_PATH=dist/lib ./yourcode omero.host=localhost --omero.user=foo --omero.pass=bar
+
+Notes for Mac users
+-------------------
+
+This example explains how to build on Linux only. For doing the same
+on Mac OS X, change all instances of :envvar:`LD\_LIBRARY\_PATH` to
+:envvar:`DYLD\_LIBRARY\_PATH`.
+
+Notes for Visual Studio users
+-----------------------------
+
+The :file:`SConstruct` build file in |OmeroCpp| defines a target
+``msproj`` which can be used to generate an MS Visual Studio project
+and solution. There is also a similarly named :program:`ant` target:
+
+::
+
+    build -f components\tools\OmeroCpp\build.xml msproj
+
+.. note::
+
+    It may be necessary to specify ``/Zm1000`` as an additional
+    compiler setting.
+
+Further information
+-------------------
+
+For the details behind writing, configuring, and executing a client,
+please see |OmeroClients|.
+
+.. seealso::
+
+    Ice_, |OmeroGrid|, |OmeroApi|, :doc:`/developers/build-system`,
+    :ticket:`1596` which added 64bit support

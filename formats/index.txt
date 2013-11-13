@@ -1,0 +1,169 @@
+#############################################
+OME Model and Formats |release| Documentation
+#############################################
+
+
+A major goal of the OME project is the provision of common
+specifications for light microscopy file formats. Most light microscope
+data is collected using proprietary software. In general, users must
+convert files between formats to access different processing or display
+functionality. Migration between different formats is laborious, but
+most importantly often results in loss of critical image metadata.
+
+The OME consortium has three projects providing tools for standardized
+file formats: OME-XML, OME-TIFF, and Bio-Formats. The definition,
+development, and maintenance of these tools are the result of close
+collaboration between all academic and commercial partners in the OME
+Consortium.
+
+
+The OME Model is a specification for storing data on biological imaging.
+The model includes image parameters, such as XYZ dimensions and pixels type, 
+as well as extensive metadata on, for example, image acquisition, annotation, 
+and regions of interest (ROIs). This common specification is essential
+for the exchange of image data between different software packages.
+
+
+-  The latest specification for OME-XML is available on our website
+   :schema_plone:`schema location <>` pages.
+
+-  If you have used OME-XML, OME-TIFF, Bio-Formats or OMERO in your work
+   find the 
+   :about_plone:`correct citations <licensing-attribution/citing-ome>` to use.
+
+We have received support from several companies who use our file formats, for 
+details see our list of :about_plone:`Partners <partners>`.
+
+
+********
+OME-TIFF
+********
+
+.. only:: html
+
+    The **OME Data Model** is implemented as the **OME-TIFF** file format. 
+    OME-TIFF is a multi-plane tiff file that contains OME metadata in the 
+    header, in the form of **OME-XML**. This allows the pixels to be read with 
+    any TIFF-compatible program and the metadata to be extracted with any 
+    OME-aware application.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    ome-tiff/index
+    ome-tiff/specification
+    ome-tiff/tools
+    ome-tiff/code
+    ome-tiff/data
+
+
+*******
+OME-XML
+*******
+
+.. only:: html
+
+    The OME-XML file serves as a convenient file format for data migration
+    from one site or user to another. The OME-XML file captures all image
+    acquisition and experimental metadata along with the binary image data
+    and packages it into an easily readable package. Our
+    `paper <http://genomebiology.com/2005/6/5/R47>`_ describing the design
+    and implementation of the OME-XML File appeared in Genome Biology.
+
+    The **OME-XML Java library** is a collection of Java packages for
+    manipulating OME-XML metadata structures which you can download to work 
+    with yourself.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    ome-xml/index
+    ome-xml/java-library
+
+**************
+Specifications
+**************
+
+.. only:: html
+
+    View :doc:`our specification <specifications/index>` for a file which 
+    describes a specific imaging experiment as fully as possible.
+
+    Or read our published paper 
+    `Linkert et al (2010), J. Cell Biol. 189(5):777-782 <http://jcb.rupress.org/content/189/5/777>`_
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    specifications/index
+    specifications/compliant-hcs 
+    specifications/minimum
+
+
+*********************
+Developer Information
+*********************
+
+.. only:: html
+
+    Developing software to work with OME-XML files? Find links to more 
+    technical information:
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    developers/index
+
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    developers/model-overview
+    developers/using-ome-xml
+    developers/filter-and-filterset
+    developers/screen-plate-well
+    developers/structured-annotations
+    developers/roi
+    developers/6d-7d-and-8d-storage
+    developers/id-and-lsid
+    developers/EnumTool
+    developers/XsdFu
+    developers/sample-files
+    developers/legacy/index
+
+
+***************
+Schema Versions
+***************
+
+.. only:: html
+
+    Have a file and need to know the version? - use the 
+    `online validator <http://validator.openmicroscopy.org.uk/>`_.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    schemas/index
+
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    
+    schemas/june-2012
+    schemas/june-2011
+    schemas/june-2010
+    schemas/april-2010
+    schemas/september-2009
+    schemas/september-2008
+    schemas/february-2008
+    schemas/september-2007
+    schemas/june-2007
+

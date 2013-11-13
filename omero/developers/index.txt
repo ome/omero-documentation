@@ -1,0 +1,219 @@
+#######################
+Developer Documentation
+#######################
+
+The following documentation is for developers wishing to write OMERO client 
+code or extend the OMERO server. Instructions on :downloads:`downloading <>`,
+installation and administering OMERO can be found under the 
+:doc:`/sysadmins/index` of the main site.
+
+.. figure:: /images/developer-api-figure.png
+   :align: center
+   :width: 80%
+   :alt: 
+
+**OMERO** is an open source client/server system written in Java for
+visualizing, managing, and annotating microscope images and metadata.
+The |OmeroApi| allows clients to be
+written in :doc:`Java </developers/Java>`, :doc:`Python </developers/Python>`,
+:doc:`C++ </developers/Cpp>` or :doc:`MATLAB </developers/Matlab>`. OMERO
+releases include a Java client OMERO.insight, a Python-based web client 
+OMERO.web and the :doc:`/developers/command-line-interface`, which also uses 
+Python. There is also an ImageJ plugin. OMERO can be extended by modifying 
+these clients or by writing your own in any of the supported languages (see 
+figure). OMERO also supports a 
+:doc:`Scripting Service <scripts/index>` which allows 
+Python scripts to be run on the server and called from any of the other 
+clients.
+
+OMERO is designed, developed and released by the |OME|, with contributions 
+from |Glencoe| OMERO is released under the `GNU General Public License (GPL)`_ 
+with commercial licenses and customization available from |Glencoe|.
+
+.. _GNU General Public License (GPL): http://www.gnu.org/copyleft/gpl.html
+
+For help with any aspect of OMERO, see details of our 
+:community_plone:`forums and mailing lists <>`.
+
+*********************
+Introduction to OMERO
+*********************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    installation
+    GettingStarted
+    contributing
+
+
+*******************
+Using the OMERO API
+*******************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Python
+    command-line-interface
+    Java
+    Matlab
+    Cpp
+
+
+********
+Analysis
+********
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    analysis
+    Tables
+
+
+*********************************
+OMERO.scripts - plugins for OMERO
+*********************************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    scripts/index
+    scripts/user-guide
+    scripts/style-guide
+    scripts/matlab-scripts
+    scripts/advanced
+
+
+*******************
+OMERO.web Framework
+*******************
+
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Web
+    Web/CreateApp
+    Web/WebGateway
+    Web/ViewPort
+    Web/WritingViews
+    Web/WritingTemplates
+    Web/PublicData
+
+
+***********************
+Extending OMERO.insight
+***********************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Insight/Architecture
+    Insight/Configuration
+    Insight/Contributing
+    Insight/DirectoryContents
+    Insight/EventBus
+    Insight/HowTo/BuildAgent
+    Insight/HowTo/BuildAgentView
+    Insight/HowTo/RetrieveData
+    Insight/ImplementationView
+    Insight/TaskBar
+
+
+*****************
+More on API Usage
+*****************
+
+OMERO can be extended by modifying these clients or by writing your own in any of the supported languages.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    GettingStarted/AdvancedClientDevelopment
+    Modules/Api
+    Modules/Api/AdminInterface
+    Modules/Delete
+    Clients/ImportLibrary
+    Modules/TempFileManager
+    Modules/ExceptionHandling
+    logging
+
+
+******************
+The OME Data Model
+******************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Model
+    Model/XsltTransformations
+    Modules/StructuredAnnotations
+
+
+*********
+Searching
+*********
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Modules/Search
+    Search/FileParsers
+    Modules/Search/Bridges
+
+
+***************************
+Authentication and Security
+***************************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Server/PasswordProvider
+    Server/LoginAttemptListener
+    Server/Ldap
+    Server/SecurityRoles
+    Server/SecuritySystem
+    Server/Permissions
+
+
+**********************
+Extending OMERO Server
+**********************
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Server
+    Server/ExtendingOmero
+    server-blitz
+    server-processor
+    server-rendering
+    Server/Clustering
+    Server/CollectionCounts
+    Server/HowToCreateAService
+    Server/Sessions
+    Server/Aop
+    Server/Context
+    Server/Events
+    Server/Properties
+    Server/Queries
+    Server/Throttling
+    Server/RenderingEngine
+    Server/ScalingOmero
+    Server/SqlAction
+    Server/FS

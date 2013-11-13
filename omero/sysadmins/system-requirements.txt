@@ -1,0 +1,99 @@
+*******************
+System Requirements
+*******************
+
+Prerequisites overview
+======================
+
+Each component of the OMERO platform has a separate set of
+prerequisites. Where possible, we provide tips on getting started with
+each of these technologies, but we can only provide free support within
+limits.
+
+============== =============================== ======== ======== ======== ==========
+Package        OMERO.server                    Java     Python   Ice      PostgreSQL
+============== =============================== ======== ======== ======== ==========
+OMERO.importer Required                        Required
+OMERO.insight  Required                        Required
+OMERO.editor   Required for some functionality Required
+OMERO.server                                   Required Required Required Required
+OMERO.web      Required                                 Required Required
+OMERO.py       Required for some functionality          Required Required
+OMERO.cpp      Required for some functionality                   Required
+============== =============================== ======== ======== ======== ==========
+
+OMERO.server
+============
+
+The system requirements for OMERO.server vary greatly depending on image
+size and number of users. At a minimum we suggest:
+
+-  Mac OS X 10.5 or later; Windows XP or later; Ubuntu 8.10 or
+   later/Centos 5/Debian Lenny or other Linux distro
+-  Single core 1.33GHz Intel or AMD CPU
+-  2GB RAM
+-  500MB of hard drive space for OMERO.server distribution
+-  Java 1.6 or later
+-  Python 2.4 or later (2.6 or later on Windows)
+-  Hard drive space proportional to the image sizes expected.
+   The drive space should permit **proper locking**, which is
+   often not the case with remotely mounted shares. See the
+   :doc:`Unix </sysadmins/unix/server-binary-repository>`
+   and :doc:`Windows </sysadmins/windows/server-binary-repository>`
+   binary repository sections for more information.
+
+The recommended OMERO.server specification we suggest for between 25-50
+users is:
+
+-  Mac OS X 10.5 or later; Windows XP or later; Ubuntu 8.10 or
+   later/Centos 5/Debian Lenny or other Linux distro
+-  Quad core 1.33GHz Intel or AMD CPU
+-  8GB RAM
+-  500MB hard drive space for OMERO.server distribution
+-  Java 1.6 or later
+-  Python 2.4 or later (2.6 or later on Windows)
+-  Hard drive space proportional to the image sizes expected (Likely
+   between 10 and 100TB)
+
+RAM is not going to scale linearly, particularly with the way the JVM
+works. You are probably going to hit a hard ceiling between 4 and 6GB for
+JVM size (there is really not much point in having it larger anyway).
+With a large database and aggressive PostgreSQL caching your RAM usage
+could be larger but I would surely doubt a large deployment using more
+than a few GBs of RAM for this purpose, it is just not cost effective.
+
+Summary: Depending on hardware layout 16, 24 or 32GB of RAM would be
+ideal for your OMERO server. If you have a separate database server more
+than 16GB of RAM may not be of much benefit to you at all.
+
+CPU is really not something that an OMERO system is almost ever limited
+by. However, when it is limited it is almost always limited by GHz and
+not by the CPU count. So you are not going to get a huge OMERO experience
+performance increase by, for example, throwing 24 cores at the problem.
+
+Summary: Depending on hardware layout 2 x 4, 2 x 6 system core count
+should be more than enough.
+
+OMERO.insight, OMERO.editor and OMERO.importer
+==============================================
+
+-  Mac OS X 10.5 or later; Windows XP or later; Ubuntu 8.10 or
+   later/Centos 5/Debian Lenny or other Linux distro
+-  Single core 1.33GHz Intel or AMD CPU
+-  2GB RAM
+-  100MB hard drive space for OMERO.clients distribution
+-  Java 1.6 or later
+
+Large imports may require 4GB RAM.
+
+OpenGL versions of OMERO.insight
+================================
+
+-  NVIDIA 7xxx or later GPU; ATI 4xxx or later GPU
+-  2GB RAM
+
+.. note::
+    These are suggested requirements based on limited testing. Your
+    mileage may vary. Any OpenGL 1.3 capable card *should* work.
+
+

@@ -1,0 +1,1375 @@
+OMERO Python language bindings
+==============================
+
+:snapshot:`MOVIE: introduction to Blitz Gateway
+<movies/omero-4-3/mov/BlitzGatewayIntro-4.3.mov>`
+
+
+In addition to the auto-generated Python libraries of the core |OmeroApi|, 
+we have developed a more user-friendly Python module 'Blitz Gateway' that
+facilitates several aspects of working with the Python API, such as
+connection handling, object graph traversal and lazy loading.
+
+This page first gives you a large number of code samples to get you 
+started. Below these we describe a bit more about :ref:` using the Blitz Gateway <Python#Blitz>`.
+
+The Python libraries are part of the server build and can be found under
+OMERO\_HOME/lib/python. These include the core omero.model objects and
+services as well as the Blitz Gateway code 
+(at OMERO\_HOME/lib/python/omero/gateway/__init__.py).
+
+
+To use OmeroPy, you will need to download the libraries (E.g. as part of
+the server package) and setup your PYTHONPATH to include them:
+
+.. parsed-literal::
+
+      export OMERO_PREFIX=~/Desktop/|OMEROserver|       # for example
+      export PYTHONPATH=$OMERO_PREFIX/lib/python
+
+.. |OMEROserver| replace:: OMERO.server-|release|-ice3x-byy
+
+
+You will also need Ice libraries 3.3.x or 3.4.x as described in the 
+:doc:`/sysadmins/unix/server-installation` and an OMERO server to connect to, 
+which must be the same major version, i.e. |version|.x.
+
+
+All the code examples below can be found at 
+:sourcedir:`examples/Training/python`.
+
+
+Start by downloading the first example below: 
+:source:`examples/Training/python/Connect_To_OMERO.py` and edit the
+USERNAME and PASSWORD variables according to your log-in.
+
+Then you can run the example:
+
+::
+
+      $ python Connect_To_OMERO.py
+
+If all goes well, you should be connected to your OMERO server and see some
+details of your session printed out.
+
+All the following code examples can be downloaded and run in the same way, and 
+they will use the USERNAME and PASSWORD from the file you just edited. 
+However, you will need to edit some other parameters, usually IDs from 
+Projects, Datasets, Images etc. You can use the OMERO.insight or OMERO.web 
+client to choose suitable data IDs before editing and running the code 
+samples. 
+
+
+Code samples
+------------
+
+Connect to OMERO
+^^^^^^^^^^^^^^^^
+
+::
+
+    # These values will be imported by all the other training scripts.
+    HOST = 'localhost'
+    PORT = 4064
+    USERNAME = 'username'
+    PASSWORD = 'passwd' 
+
+::
+
+    from omero.gateway import BlitzGateway 
+
+::
+
+    if __name__ == '__main__':
+        """
+        NB: This block is only run when calling this file directly
+        and not when imported.
+        """ 
+
+::
+
+        # Connect to the Python Blitz Gateway
+        # =============================================================
+        # Make a simple connection to OMERO, printing details of the
+        # connection. See OmeroPy/Gateway for more info
+        conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
+        connected = conn.connect() 
+
+::
+
+        # Check if you are connected.
+        # =============================================================
+        if not connected:
+            import sys
+            sys.stderr.write("Error: Connection not available, please check your user name and password.\n")
+            sys.exit(1) 
+
+::
+
+        # Using secure connection.
+        # =============================================================
+        # By default, once we have logged in, data transfer is not encrypted (faster)
+        # To use a secure connection, call setSecure(True): 
+
+::
+
+        # conn.setSecure(True)         # <--------- Uncomment this 
+
+::
+
+        # Current session details
+        # =============================================================
+        # By default, you will have logged into your 'current' group in OMERO. This
+        # can be changed by switching group in the OMERO.insight or OMERO.web clients. 
+
+::
+
+        user = conn.getUser()
+        print "Current user:"
+        print "   ID:", user.getId()
+        print "   Username:", user.getName()
+        print "   Full Name:", user.getFullName() 
+
+::
+
+        print "Member of:"
+        for g in conn.getGroupsMemberOf():
+            print "   ID:", g.getName(), " Name:", g.getId()
+        group = conn.getGroupFromContext()
+        print "Current group: ", group.getName() 
+
+::
+
+        print "Other Members of current group:"
+        for exp in conn.listColleagues():
+            print "   ID:", exp.getId(), exp.getOmeName(), " Name:", exp.getFullName() 
+
+::
+
+        print "Owner of:"
+        for g in conn.listOwnedGroups():
+            print "   ID:", g.getName(), " Name:", g.getId() 
+
+::
+
+        # The 'context' of our current session
+        ctx = conn.getEventContext()
+        # print ctx     # for more info 
+
+::
+
+        # Close connection:
+        # =================================================================
+        # When you are done, close the session to free up server resources.
+        conn._closeSession() 
+
+Read data
+^^^^^^^^^
+
+-  **Create a connection**
+
+::
+
+    conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
+    conn.connect() 
+
+-  **Configuration**
+
+::
+
+    imageId = 1
+    datasetId = 2
+    plateId = -1        # Don't need to set this 
+
+::
+
+    def print_obj(obj, indent=0):
+        """
+        Helper method to display info about OMERO objects.
+        Not all objects will have a "name" or owner field.
+        """
+        print """%s%s:%s  Name:"%s" (owner=%s)""" % (\
+                " " * indent,
+                obj.OMERO_CLASS,\
+                obj.getId(),\
+                obj.getName(),\
+                obj.getOwnerOmeName()) 
+
+-  **List all Projects available to me, and their Datasets and Images:**
+
+::
+
+    # The only_owned=True parameter limits the Projects which are returned.
+    # If the parameter is omitted or the value is False, then all Projects
+    # visible in the current group are returned.
+    print "\nList Projects:"
+    print "=" * 50
+    my_expId = conn.getUser().getId()
+    for project in conn.listProjects(my_expId):
+        print_obj(project)
+        for dataset in project.listChildren():
+            print_obj(dataset, 2)
+            for image in dataset.listChildren():
+                print_obj(image, 4) 
+
+-  **Retrieve the datasets owned by the user currently logged in:**
+
+::
+
+    # Here we create an omero.sys.ParametersI instance which we
+    # can use to filter the results that are returned. If we did
+    # not pass the params argument to getObjects, then all Datasets
+    # in the current group would be returned.
+    print "\nList Datasets:"
+    print "=" * 50 
+
+::
+
+    params = omero.sys.ParametersI()
+    params.exp(conn.getUser().getId())  # only show current user's Datasets 
+
+::
+
+    datasets = conn.getObjects("Dataset", params=params)
+    for dataset in datasets:
+        print_obj(dataset) 
+
+-  **Retrieve the images contained in a dataset:**
+
+::
+
+    print "\nDataset:%s" % datasetId
+    print "=" * 50
+    dataset = conn.getObject("Dataset", datasetId)
+    print "\nImages in Dataset:", dataset.getName()
+    for image in dataset.listChildren():
+        print_obj(image) 
+
+-  **Retrieve an image by Image ID:**
+
+::
+
+    image = conn.getObject("Image", imageId)
+    print "\nImage:%s" % imageId
+    print "=" * 50
+    print image.getName(), image.getDescription()
+    # Retrieve information about an image.
+    print " X:", image.getSizeX()
+    print " Y:", image.getSizeY()
+    print " Z:", image.getSizeZ()
+    print " C:", image.getSizeC()
+    print " T:", image.getSizeT()
+    # render the first timepoint, mid Z section
+    z = image.getSizeZ() / 2
+    t = 0
+    renderedImage = image.renderImage(z, t)
+    #renderedImage.show()               # popup (use for debug only)
+    #renderedImage.save("test.jpg")     # save in the current folder 
+
+-  **Retrieve Screening data:**
+
+::
+
+    print "\nList Screens:"
+    print "=" * 50
+    for screen in conn.getObjects("Screen"):
+        print_obj(screen)
+        for plate in screen.listChildren():
+            print_obj(plate, 2)
+            plateId = plate.getId() 
+
+-  **Retrieve Wells and Images within a Plate:**
+
+::
+
+    if plateId >= 0:
+        print "\nPlate:%s" % plateId
+        print "=" * 50
+        plate = conn.getObject("Plate", plateId)
+        print "\nNumber of fields:", plate.getNumberOfFields()
+        print "\nGrid size:", plate.getGridSize()
+        print "\nWells in Plate:", plate.getName()
+        for well in plate.listChildren():
+            index = well.countWellSample()
+            print "  Well: ", well.row, well.column, " Fields:", index
+            for index in xrange(0, index):
+                print "    Image: ", \
+                        well.getImage(index).getName(),\
+                        well.getImage(index).getId() 
+
+-  **Close connection:**
+
+::
+
+    # When you are done, close the session to free up server resources.
+    conn._closeSession() 
+
+Groups and permissions
+^^^^^^^^^^^^^^^^^^^^^^
+
+-  **Create a connection**
+
+::
+
+    conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
+    conn.connect() 
+
+-  **Configuration**
+
+::
+
+    imageId = 1 
+
+-  **We are logged in to our 'default' group**
+
+::
+
+    group = conn.getGroupFromContext()
+    print "Current group: ", group.getName() 
+
+-  **Each group has defined Permissions set**
+
+::
+
+    group_perms = group.getDetails().getPermissions()
+    perm_string = str(group_perms)
+    permission_names = {'rw----':'PRIVATE',
+        'rwr---':'READ-ONLY',
+        'rwra--':'READ-ANNOTATE',
+        'rwrw--':'READ-WRITE'}  # Not exposed in 4.4.0 clients
+    print "Permissions: %s (%s)" % (permission_names[perm_string], perm_string) 
+
+-  **By default, any query applies to ALL data that we can access in our
+   Current group.**
+
+This will be determined by group permissions. E.g. in Read-Only or
+Read-Annotate groups, this will include other users' data See
+:doc:`/sysadmins/server-permissions`.
+
+::
+
+    projects = conn.listProjects()      # may include other users' data
+    for p in projects:
+        print p.getName(), "Owner: ", p.getDetails().getOwner().getFullName() 
+
+::
+
+    image = conn.getObject("Image", imageId)     # Will return None if Image is not in current group
+    print "Image: ", image 
+
+-  **In OMERO-4.4, we added 'cross-group' querying, use '-1'**
+
+::
+
+    conn.SERVICE_OPTS.setOmeroGroup('-1')
+    image = conn.getObject("Image", imageId)     # Will query across all my groups
+    print "Image: ", image,
+    if image is not None:
+        print "Group: ", image.getDetails().getGroup().getName(),
+        print image.details.group.id.val    # access groupId without loading group 
+
+-  **To query only a single group (not necessarily your 'current'
+   group)**
+
+::
+
+    groupId = image.details.group.id.val
+    conn.SERVICE_OPTS.setOmeroGroup(groupId)   # This is how we 'switch group' in webclient
+    projects = conn.listProjects()
+    image = conn.getObject("Image", imageId)
+    print "Image: ", image, 
+
+-  **Close connection:**
+
+::
+
+    # When you are done, close the session to free up server resources.
+    conn._closeSession() 
+
+Raw data access
+^^^^^^^^^^^^^^^
+
+-  **Create a connection**
+
+::
+
+    conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
+    conn.connect() 
+
+-  **Configuration**
+
+::
+
+    imageId = 27544 
+
+-  **Retrieve a given plane**
+
+::
+
+    # Use the pixelswrapper to retrieve the plane as
+    # a 2D numpy array. See [http://www.scipy.org/Tentative_NumPy_Tutorial]
+    #
+    # Numpy array can be used for various analysis routines
+    #
+    image = conn.getObject("Image", imageId)
+    sizeZ = image.getSizeZ()
+    sizeC = image.getSizeC()
+    sizeT = image.getSizeT()
+    z, t, c = 0, 0, 0                     # first plane of the image
+    pixels = image.getPrimaryPixels()
+    plane = pixels.getPlane(z, c, t)      # get a numpy array.
+    print "\nPlane at zct: ", z, c, t
+    print plane
+    print "shape: ", plane.shape
+    print "min:", plane.min(), " max:", plane.max(),\
+            "pixel type:", plane.dtype.name 
+
+-  **Retrieve a given stack**
+
+::
+
+    # Get a Z-stack of tiles. Using getTiles or getPlanes (see below) returns
+    # a generator of data (not all the data in hand) The RawPixelsStore is
+    # only opened once (not closed after each plane) Alternative is to use
+    # getPlane() or getTile() multiple times - slightly slower.
+    c, t = 0, 0                 # First channel and timepoint
+    tile = (50, 50, 10, 10)     # x, y, width, height of tile 
+
+::
+
+    # list of [ (0,0,0,(x,y,w,h)), (1,0,0,(x,y,w,h)), (2,0,0,(x,y,w,h))....etc... ]
+    zctList = [(z, c, t, tile) for z in range(sizeZ)]
+    print "\nZ stack of tiles:"
+    planes = pixels.getTiles(zctList)
+    for i, p in enumerate(planes):
+        print "Tile:", zctList[i], " min:", p.min(),\
+                " max:", p.max(), " sum:", p.sum() 
+
+-  **Retrieve a given hypercube**
+
+::
+
+    zctList = []
+    for z in range(sizeZ / 2, sizeZ):     # get the top half of the Z-stack
+        for c in range(sizeC):          # all channels
+            for t in range(sizeT):      # all time-points
+                zctList.append((z, c, t))
+    print "\nHyper stack of planes:"
+    planes = pixels.getPlanes(zctList)
+    for i, p in enumerate(planes):
+        print "plane zct:", zctList[i], " min:", p.min(), " max:", p.max() 
+
+-  **Close connection:**
+
+::
+
+    # When you are done, close the session to free up server resources.
+    conn._closeSession() 
+
+Write data
+^^^^^^^^^^
+
+-  **Create a connection**
+
+::
+
+    conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
+    conn.connect() 
+
+-  **Configuration**
+
+::
+
+    projectId = 2
+    #Specify a local file. E.g. could be result of some analysis
+    fileToUpload = "README.txt"   # This file should already exist 
+
+-  **Create a new Dataset**
+
+::
+
+    datasetObj = omero.model.DatasetI()
+    datasetObj.setName(rstring("New Dataset"))
+    datasetObj = conn.getUpdateService().saveAndReturnObject(datasetObj)
+    datasetId = datasetObj.getId().getValue()
+    print "New dataset, Id:", datasetId 
+
+-  **Link to Project**
+
+::
+
+    project = conn.getObject("Project", projectId)
+    if project is None:
+        import sys
+        sys.stderr.write("Error: Object does not exist.\n")
+        sys.exit(1)
+    link = omero.model.ProjectDatasetLinkI()
+    link.setParent(omero.model.ProjectI(project.getId(), False))
+    link.setChild(datasetObj)
+    conn.getUpdateService().saveObject(link) 
+
+-  **How to create a file annotation and link to a Dataset**
+
+::
+
+    dataset = conn.getObject("Dataset", datasetId)
+    # create the original file and file annotation (uploads the file etc.)
+    namespace = "imperial.training.demo"
+    print "\nCreating an OriginalFile and FileAnnotation"
+    fileAnn = conn.createFileAnnfromLocalFile(fileToUpload, mimetype="text/plain", ns=namespace, desc=None)
+    print "Attaching FileAnnotation to Dataset: ", "File ID:", fileAnn.getId(), ",", fileAnn.getFile().getName(), "Size:", fileAnn.getFile().getSize()
+    dataset.linkAnnotation(fileAnn)     # link it to dataset. 
+
+-  **Download a file annotation linked to a Dataset**
+
+::
+
+    # make a location to download the file. "download" folder.
+    path = os.path.join(os.path.dirname(__file__), "download")
+    if not os.path.exists(path):
+        os.makedirs(path) 
+
+::
+
+    # Go through all the annotations on the Dataset. Download any file annotations we find.
+    print "\nAnnotations on Dataset:", dataset.getName()
+    for ann in dataset.listAnnotations():
+        if isinstance(ann, omero.gateway.FileAnnotationWrapper):
+            print "File ID:", ann.getFile().getId(), ann.getFile().getName(), "Size:", ann.getFile().getSize() 
+
+::
+
+            file_path = os.path.join(path, ann.getFile().getName()) 
+
+::
+
+            f = open(str(file_path), 'w')
+            print "\nDownloading file to", file_path, "..."
+            try:
+                for chunk in ann.getFileInChunks():
+                    f.write(chunk)
+            finally:
+                f.close()
+                print "File downloaded!" 
+
+-  **Load all the file annotations with a given namespace**
+
+::
+
+    nsToInclude = [namespace]
+    nsToExclude = []
+    metadataService = conn.getMetadataService()
+    annotations = metadataService.loadSpecifiedAnnotations('omero.model.FileAnnotation', nsToInclude, nsToExclude, None)
+    for ann in annotations:
+        print ann.getId().getValue(), ann.file.name.val 
+
+-  **Get first annotation with specified namespace**
+
+::
+
+    ann = dataset.getAnnotation(namespace)
+    print "Found Annotation with namespace: ", ann.getNs() 
+
+-  **Close connection:**
+
+::
+
+    # When you are done, close the session to free up server resources.
+    conn._closeSession() 
+
+.. _python_omero_tables_code_samples:
+
+OMERO tables
+^^^^^^^^^^^^
+
+-  **Create a connection**
+
+::
+
+    conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
+    conn.connect() 
+
+-  **Configuration**
+
+::
+
+    datasetId = 33 
+
+-  **Create a name for the Original File (should be unique)**
+
+::
+
+    from random import random
+    tablename = "TablesDemo:%s" % str(random()) 
+
+::
+
+    col1 = omero.grid.LongColumn('Uid', 'testLong', [])
+    col2 = omero.grid.StringColumn('MyStringColumnInit', '', 64, []) 
+
+::
+
+    columns = [col1, col2] 
+
+-  **Create and initialize a new table.**
+
+::
+
+    repositoryId = 1
+    table = conn.c.sf.sharedResources().newTable(repositoryId, tablename)
+    table.initialize(columns) 
+
+-  **Add data to the table.**
+
+::
+
+    ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    strings = ["one", "two", "three", "four", "five",\
+               "six", "seven", "eight", "nine", "ten"]
+    data1 = omero.grid.LongColumn('Uid', 'test Long', ids)
+    data2 = omero.grid.StringColumn('MyStringColumn', '', 64, strings)
+    data = [data1, data2]
+    table.addData(data)
+    table.close()           # when we are done, close. 
+
+-  **Get the table as an original file...**
+
+::
+
+    orig_file = table.getOriginalFile()
+    orig_file_id = orig_file.id.val
+    # ...so you can attach this data to an object. E.g. Dataset
+    fileAnn = omero.model.FileAnnotationI()
+    fileAnn.setFile(omero.model.OriginalFileI(orig_file_id, False))     # use unloaded OriginalFileI
+    fileAnn = conn.getUpdateService().saveAndReturnObject(fileAnn)
+    link = omero.model.DatasetAnnotationLinkI()
+    link.setParent(omero.model.DatasetI(datasetId, False))
+    link.setChild(omero.model.FileAnnotationI(fileAnn.id.val, False))
+    conn.getUpdateService().saveAndReturnObject(link) 
+
+-  **Table API**
+
+    .. seealso:: :javadoc:`javadoc <slice2html/omero/grid/Table.html>`
+
+::
+
+    openTable = conn.c.sf.sharedResources().openTable(orig_file) 
+
+    print "Table Columns:"
+    for col in openTable.getHeaders():
+        print "   ", col.name 
+
+    rowCount = openTable.getNumberOfRows()
+    print "Row count:", rowCount 
+
+-  **Get data from every column of the specified rows**
+
+::
+
+    rowNumbers = [3, 5, 7]
+    print "\nGet All Data for rows: ", rowNumbers
+    data = openTable.readCoordinates(range(rowCount))
+    for col in data.columns:
+        print "Data for Column: ", col.name
+        for v in col.values:
+            print "   ", v 
+
+-  **Get data from specified columns of specified rows**
+
+::
+
+    colNumbers = [1]
+    start = 3
+    stop = 7
+    print "\nGet Data for cols: ", colNumbers,\
+            " and between rows: ", start, "-", stop 
+
+::
+
+    data = openTable.read(colNumbers, start, stop)
+    for col in data.columns:
+        print "Data for Column: ", col.name
+        for v in col.values:
+            print "   ", v 
+
+-  **Query the table for rows where the 'Uid' is in a particular range**
+
+::
+
+    queryRows = openTable.getWhereList("(Uid > 2) & (Uid <= 8)",\
+            variables={}, start=0, stop=rowCount, step=0)
+    data = openTable.readCoordinates(queryRows)
+    for col in data.columns:
+        print "Query Results for Column: ", col.name
+        for v in col.values:
+            print "   ", v
+    openTable.close()           # we're done 
+
+-  **In future, to get the table back from Original File**
+
+::
+
+    orig_table_file = conn.getObject("OriginalFile", attributes={'name': tablename})    # if name is unique
+    savedTable = conn.c.sf.sharedResources().openTable(orig_table_file._obj)
+    print "Opened table with row-count:", savedTable.getNumberOfRows() 
+
+-  **Close connection:**
+
+::
+
+    # When you are done, close the session to free up server resources.
+    conn._closeSession() 
+
+ROIs
+^^^^
+
+-  **Create a connection**
+
+::
+
+    conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
+    conn.connect()
+    updateService = conn.getUpdateService() 
+
+-  **Configuration**
+
+::
+
+    imageId = 27544 
+
+-  **Create ROI.**
+
+::
+
+    # We are using the core Python API and omero.model objects here, since ROIs are
+    # not yet supported in the Python Blitz Gateway.
+    #
+    # In this example, we create an ROI with a rectangular shape and attach it to an
+    # image.
+    x = 50
+    y = 200
+    width = 100
+    height = 50
+    image = conn.getObject("Image", imageId)
+    theZ = image.getSizeZ() / 2
+    theT = 0
+    print "Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s, height: %s" % \
+            (theZ, theT, x, y, width, height) 
+
+::
+
+    # create an ROI, link it to Image
+    roi = omero.model.RoiI()
+    roi.setImage(image._obj)    # use the omero.model.ImageI that underlies the 'image' wrapper 
+
+::
+
+    # create a rectangle shape and add to ROI
+    rect = omero.model.RectI()
+    rect.x = rdouble(x)
+    rect.y = rdouble(y)
+    rect.width = rdouble(width)
+    rect.height = rdouble(height)
+    rect.theZ = rint(theZ)
+    rect.theT = rint(theT)
+    rect.textValue = rstring("test-Rectangle")
+    roi.addShape(rect) 
+
+::
+
+    # create an Ellipse shape and add to ROI
+    ellipse = omero.model.EllipseI()
+    ellipse.cx = rdouble(y)
+    ellipse.cy = rdouble(x)
+    ellipse.rx = rdouble(width)
+    ellipse.ry = rdouble(height)
+    ellipse.theZ = rint(theZ)
+    ellipse.theT = rint(theT)
+    ellipse.textValue = rstring("test-Ellipse")
+    roi.addShape(ellipse) 
+
+::
+
+    # Save the ROI (saves any linked shapes too)
+    r = updateService.saveAndReturnObject(roi) 
+
+-  **Retrieve ROIs linked to an Image.**
+
+::
+
+    roiService = conn.getRoiService()
+    result = roiService.findByImage(imageId, None)
+    for roi in result.rois:
+        print "ROI:  ID:", roi.getId().getValue()
+        for s in roi.copyShapes():
+            shape = {}
+            shape['id'] = s.getId().getValue()
+            shape['theT'] = s.getTheT().getValue()
+            shape['theZ'] = s.getTheZ().getValue()
+            if s.getTextValue():
+                shape['textValue'] = s.getTextValue().getValue()
+            if type(s) == omero.model.RectI:
+                shape['type'] = 'Rectangle'
+                shape['x'] = s.getX().getValue()
+                shape['y'] = s.getY().getValue()
+                shape['width'] = s.getWidth().getValue()
+                shape['height'] = s.getHeight().getValue()
+            elif type(s) == omero.model.EllipseI:
+                shape['type'] = 'Ellipse'
+                shape['cx'] = s.getCx().getValue()
+                shape['cy'] = s.getCy().getValue()
+                shape['rx'] = s.getRx().getValue()
+                shape['ry'] = s.getRy().getValue()
+            elif type(s) == omero.model.PointI:
+                shape['type'] = 'Point'
+                shape['cx'] = s.getCx().getValue()
+                shape['cy'] = s.getCy().getValue()
+            elif type(s) == omero.model.LineI:
+                shape['type'] = 'Line'
+                shape['x1'] = s.getX1().getValue()
+                shape['x2'] = s.getX2().getValue()
+                shape['y1'] = s.getY1().getValue()
+                shape['y2'] = s.getY2().getValue()
+            elif type(s) in (omero.model.MaskI, omero.model.LabelI, omero.model.PolygonI):
+                print type(s), " Not supported by this code"
+            # Do some processing here, or just print:
+            print "   Shape:",
+            for key, value in shape.items():
+                print "  ", key, value,
+            print "" 
+
+-  **Remove shape from ROI**
+
+::
+
+    result = roiService.findByImage(imageId, None)
+    for roi in result.rois:
+        for s in roi.copyShapes():
+            # Find and remove the Shape we added above
+            if s.getTextValue() and s.getTextValue().getValue() == "test-Ellipse":
+                print "Removing Shape from ROI..."
+                roi.removeShape(s)
+                roi = updateService.saveAndReturnObject(roi) 
+
+-  **Close connection:**
+
+::
+
+    # When you are done, close the session to free up server resources.
+    conn._closeSession() 
+
+Delete data
+^^^^^^^^^^^
+
+-  **Create a connection**
+
+::
+
+    conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
+    conn.connect() 
+
+-  **Configuration**
+
+::
+
+    projectId = 507        # NB: This will be deleted! 
+
+-  **Load the Project**
+
+::
+
+    project = conn.getObject("Project", projectId)
+    if project is None:
+        import sys
+        sys.stderr.write("Error: Object does not exist.\n")
+        sys.exit(1) 
+
+::
+
+    print "\nProject:", project.getName() 
+
+-  **Delete Project**
+
+::
+
+    # You can delete a number of objects of the same type at the same
+    # time. In this case 'Project'. Use deleteChildren=True if you are
+    # deleting a Project and you want to delete Datasets and Images.
+    obj_ids = [projectId]
+    deleteChildren = False
+    handle = conn.deleteObjects("Project", obj_ids,\
+            deleteAnns=True, deleteChildren=deleteChildren) 
+
+-  **Retrieve callback and wait until delete completes**
+
+::
+
+    # This is not necessary for the Delete to complete. Can be used
+    # if you want to know when delete is finished or if there were any errors
+    cb = omero.callbacks.CmdCallbackI(conn.c, handle)
+    print "Deleting, please wait."
+    while not cb.block(500):
+        print "."
+    err = isinstance(cb.getResponse(), omero.cmd.ERR)
+    print "Error?", err
+    if err:
+        print cb.getResponse()
+    cb.close(True)      # close handle too 
+
+-  **Close connection:**
+
+::
+
+    # When you are done, close the session to free up server resources.
+    conn._closeSession() 
+
+Render Images
+^^^^^^^^^^^^^
+
+-  **Create a connection**
+
+::
+
+    conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
+    conn.connect() 
+
+-  **Configuration**
+
+::
+
+    imageId = 27544 
+
+-  **Get thumbnail**
+
+::
+
+    # Thumbnail is created using the current rendering settings on the image
+    image = conn.getObject("Image", imageId)
+    img_data = image.getThumbnail()
+    renderedThumb = Image.open(StringIO(img_data))
+    #renderedThumb.show()           # shows a pop-up
+    renderedThumb.save("thumbnail.jpg") 
+
+-  **Get current settings**
+
+::
+
+    print "Channel rendering settings:"
+    for ch in image.getChannels():
+        print "Name: ", ch.getLabel()   # if no name, get emission wavelength or index
+        print "  Color:", ch.getColor().getHtml()
+        print "  Active:", ch.isActive()
+        print "  Levels:", ch.getWindowStart(), "-", ch.getWindowEnd()
+    print "isGreyscaleRenderingModel:", image.isGreyscaleRenderingModel() 
+
+-  **Render each channel as a separate greyscale image**
+
+::
+
+    image.setGreyscaleRenderingModel()
+    sizeC = image.getSizeC()
+    z = image.getSizeZ() / 2
+    t = 0
+    for c in range(1, sizeC + 1):       # Channel index starts at 1
+        channels = [c]                  # Turn on a single channel at a time
+        image.setActiveChannels(channels)
+        renderedImage = image.renderImage(z, t)
+        #renderedImage.show()                        # popup (use for debug only)
+        renderedImage.save("channel%s.jpg" % c)     # save in the current folder 
+
+-  **Turn 3 channels on, setting their colours**
+
+::
+
+    image.setColorRenderingModel()
+    channels = [1, 2, 3]
+    colorList = ['F00', None, 'FFFF00']         # do not change colour of 2nd channel
+    image.setActiveChannels(channels, colors=colorList)
+    image.setProjection('intmax')               # max intensity projection 'intmean' for mean-intensity
+    renderedImage = image.renderImage(z, t)     # z and t are ignored for projections
+    #renderedImage.show()
+    renderedImage.save("all_channels.jpg")
+    image.setProjection('normal')               # turn off projection 
+
+-  **Turn 2 channels on, setting levels of the first one**
+
+::
+
+    channels = [1, 2]
+    rangeList = [[100.0, 120.2], [None, None]]
+    image.setActiveChannels(channels, windows=rangeList)
+    renderedImage = image.renderImage(z, t, compression=0.5)    # default compression is 0.9
+    #renderedImage.show()
+    renderedImage.save("two_channels.jpg") 
+
+-  **Save the current rendering settings**
+
+::
+
+    image.saveDefaults() 
+
+-  **Close connection:**
+
+::
+
+    # When you are done, close the session to free up server resources.
+    conn._closeSession() 
+
+Create Image
+^^^^^^^^^^^^
+
+-  **Create a connection**
+
+::
+
+    conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
+    conn.connect() 
+
+-  **Configuration**
+
+::
+
+    imageId = 27544     # This image must have at least 2 channels 
+
+-  **Create an image from scratch**
+
+::
+
+    # This example demonstrates the usage of the convenience method
+    # createImageFromNumpySeq() Here we create a multi-dimensional image from a
+    # hard-coded array of data.
+    from numpy import array, int8
+    sizeX, sizeY, sizeZ, sizeC, sizeT = 5, 4, 1, 2, 1
+    plane1 = array([[0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [5, 6, 7, 8, 9]], dtype=int8)
+    plane2 = array([[5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [0, 1, 2, 3, 4]], dtype=int8)
+    planes = [plane1, plane2] 
+
+::
+
+    def planeGen():
+        """generator will yield planes"""
+        for p in planes:
+            yield p 
+
+::
+
+    desc = "Image created from a hard-coded arrays"
+    i = conn.createImageFromNumpySeq(planeGen(), "numpy image",\
+            sizeZ, sizeC, sizeT, description=desc, dataset=None) 
+
+-  **Create an Image from an existing image**
+
+::
+
+    # We are going to create a new image by passing the method a 'generator' of 2D
+    # planes This will come from an existing image, by taking the average of 2 channels.
+    zctList = []
+    image = conn.getObject('Image', imageId)
+    sizeZ, sizeC, sizeT = image.getSizeZ(), image.getSizeC(), image.getSizeT()
+    dataset = image.getParent()
+    pixels = image.getPrimaryPixels()
+    newSizeC = 1 
+
+::
+
+    def planeGen():
+        """
+        set up a generator of 2D numpy arrays. 
+
+::
+
+        The createImage method below expects planes in the order specified here (for
+        z.. for c.. for t..)
+        """
+        for z in range(sizeZ):              # all Z sections
+            for c in range(newSizeC):       # Illustrative purposes only, since we only have 1 channel
+                for t in range(sizeT):      # all time-points
+                    channel0 = pixels.getPlane(z, 0, t)
+                    channel1 = pixels.getPlane(z, 1, t)
+                    # Here we can manipulate the data in many different ways. As an example we are doing "average"
+                    newPlane = (channel0 + channel1) / 2    # average of 2 channels
+                    print "newPlane for z,t:", z, t, newPlane.dtype, newPlane.min(), newPlane.max()
+                    yield newPlane 
+
+::
+
+    desc = "Image created from Image ID: %s by averaging Channel 1 and Channel 2" % imageId
+    i = conn.createImageFromNumpySeq(planeGen(), "new image",\
+            sizeZ, newSizeC, sizeT, description=desc, dataset=dataset) 
+
+-  **Close connection:**
+
+::
+
+    # When you are done, close the session to free up server resources.
+    conn._closeSession() 
+
+Python OMERO.scripts
+^^^^^^^^^^^^^^^^^^^^
+
+It is relatively straightforward to take the code samples above and
+re-use them in OMERO.scripts. This allows the code to be run on the
+OMERO server and called from either the OMERO.insight client or
+OMERO.web by any users of the server. See :doc:`/developers/scripts/user-guide`.
+
+
+.. _Python#Blitz:
+
+Blitz Gateway documentation
+---------------------------
+
+The epydoc-generated documentation of methods provided by OMERO Gateway
+is available showing :javadoc:` wrapper classes <epydoc/omero.gateway-module.html>`.
+
+Specifically, the API for the 'conn' connection wrapper created above is
+:javadoc:` here <epydoc/omero.gateway._BlitzGateway-class.html>`.
+
+When working with :javadoc:` OMERO model objects <slice2html/omero/model.html>`
+(omero.model.Image etc) the Gateway will wrap these objects in classes
+such as
+:javadoc:` omero.gateway.ImageWrapper <epydoc/omero.gateway._ImageWrapper-class.html>`
+to handle object loading and hierarchy traversal. For example:
+
+::
+
+    >>> for p in conn.listProjects():         # Initially we just load Projects
+    ...     print p.getName()
+    ...     for dataset in p.listChildren():      # lazy-loading of Datasets here
+    ...             print "  ", dataset.getName()
+    ... 
+    TestProject
+       Aurora-B
+    tiff stacks
+       newTimeStack
+       test
+    siRNAi
+       CENP
+       live-cell
+       survivin
+
+Access to the OMERO API services
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you need access to API methods that are not provided by the gateway
+library, you can get hold of the |OmeroApi|. 
+
+.. note::
+ 
+    These services will always work
+    with omero.model objects and not the gateway wrapper objects.
+
+The gateway handles creation and reuse of the API services, so that new
+ones are not created unnecessarily. Services can be accessed using the
+methods of the underlying :javadoc:` Service
+Factory <slice2html/omero/api/ServiceFactory.html>`
+with the Gateway handling reuse as needed. Stateless services (those
+retrieved with get.... methods E.g.
+:javadoc:` getQueryService <slice2html/omero/api/ServiceFactory.html#getQueryService>`)
+are always reused for each call, E.g. blitzon.getQueryService() whereas
+stateful services E.g.
+:javadoc:` createRenderingEngine <slice2html/omero/api/ServiceFactory.html#createRenderingEngine>`
+may be created each time.
+
+Not all methods of the service factory are currently supported in the
+gateway. You can get an idea of the currently supported services by
+looking at the source code under the
+:javadoc:` \_createProxies <epydoc/omero.gateway-pysrc.html#_BlitzGateway._createProxies>`
+method.
+
+Example: ContainerService can load Projects and Datasets in a single
+call to server (no lazy loading)
+
+::
+
+    cs = conn.getContainerService()
+    projects = cs.loadContainerHierarchy("Project", None, None)
+    for p in projects:                # omero.model.ProjectI
+        print p.getName().getValue()     # need to 'unwrap' rstring
+        for d in p.linkedDatasetList():
+            print d.getName().getValue()
+
+Stateful services, reconnection, error handling etc
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Blitz gateway was designed for use in the |OmeroWeb| framework and it is 
+not expected that stateful services will be maintained on the client for 
+significant time.
+There is various error-handling functionality in the Blitz gateway that
+will close existing services and recreate them in order to maintain a
+working connection. If this happens then any stateful services that you
+have on the client-side will become stale. We will attempt to document
+this a little better in due course, but our general advice is to create,
+use and close the stateful services in the shortest practicable time.
+
+Overwriting and extending omero.gateway classes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When working with
+:javadoc:` omero.gateway <epydoc/omero.gateway._BlitzGateway-class.html>`
+or wrapper classes such as
+:javadoc:` omero.gateway.ImageWrapper <epydoc/omero.gateway._ImageWrapper-class.html>`
+you might want to add your own functionality or customize an existing
+one. NB: Note the call to ``omero.gateway.refreshWrappers()`` to ensure
+that your subclasses are returned by calls to getObjects() For example:
+
+::
+
+    class MyBlitzGateway (omero.gateway.BlitzGateway):
+
+        def __init__ (self, *args, **kwargs):
+            super(MyBlitzGateway, self).__init__(*args, **kwargs)
+            
+            ...do something, e.g. add new field...
+            self.new_field = 'foo'
+
+        def connect (self, *args, **kwargs):
+                    
+            rv = super(MyBlitzGateway, self).connect(*args,**kwargs)
+            if rv: 
+                ...do something, e.g. modify new filed...
+                self.new_field = 'bla'
+            
+            return rv
+        
+    omero.gateway.BlitzGateway = MyBlitzGateway
+
+    class MyBlitzObjectWrapper (object):
+        
+        annotation_counter = None
+
+        def countAnnotations (self):
+            """
+            Count on annotations linked to the object and set the value
+            on the custom field 'annotation_counter'.
+
+            @return     Counter
+            """
+            
+            if self.annotation_counter is not None:
+                return self.annotation_counter
+            else:
+                container = self._conn.getContainerService()
+                m = container.getCollectionCount(self._obj.__class__.__name__, type(self._obj).ANNOTATIONLINKS, [self._oid], None)
+                if m[self._oid] > 0:
+                    self.annotation_counter = m[self._oid]
+                    return self.annotation_counter
+                else:
+                    return None
+
+    class ImageWrapper (MyBlitzObjectWrapper, omero.gateway.ImageWrapper):
+        """
+        omero_model_ImageI class wrapper overwrite omero.gateway.ImageWrapper
+        and extends MyBlitzObjectWrapper.
+        """
+        
+        def __prepare__ (self, **kwargs):
+            if kwargs.has_key('annotation_counter'):
+                self.annotation_counter = kwargs['annotation_counter']
+
+    omero.gateway.ImageWrapper = ImageWrapper
+
+    # IMPORTANT to update the map of wrappers for 'Image' etc. returned by getObjects("Image")
+    omero.gateway.refreshWrappers()
+
+This page provides some background information on the OMERO Python
+client 'gateway' (omero.gateway module) and describes work to improve
+the API, beginning with the OMERO 4.3 release.
+
+The Blitz Gateway is a Python client-side library that facilitates working 
+with the OMERO API, handling connection to the server, loading of data
+objects and providing convenience methods to access the data. It was
+originally designed as part of the |OmeroWeb| framework, 
+to provide connection and data retrieval services to various
+web clients. However, we have now decided to encourage its use for all
+access to the OMERO Python API.
+
+Wrapper objects
+^^^^^^^^^^^^^^^
+
+The Gateway consists of a number of wrapper objects:
+
+Connection wrapper
+""""""""""""""""""
+
+The BlitzGateway class (see :javadoc:` API of development code <epydoc/omero.gateway._BlitzGateway-class.html>`)
+is a wrapper for the OMERO client and session objects. It provides
+various methods for connecting to the OMERO server, querying the status
+or context of the current connection and as a starting point for
+retrieving data objects from OMERO.
+
+::
+
+    from omero.gateway import *
+
+    conn = BlitzGateway("username", "password", host="localhost", port=4064)
+    conn.connect()
+
+    for p in conn.listProjects():
+        print p.name
+
+Model object wrappers
+"""""""""""""""""""""
+
+OMERO model objects, E.g. omero.model.Project, omero.model.Pixels etc
+(see :javadoc:` full list <slice2html/omero/model.html>`)
+are code-generated and mapped to the OMERO database schema. They are
+language agnostic and their data is in the form of omero.rtypes as
+described: :ref:` about model objects <AdvancedClientDevelopment#Objects>`).
+
+::
+
+    import omero
+    from omero.model import *
+    from omero.rtypes import rstring
+    p = omero.model.ProjectI()
+    p.name = rstring("My Project")   # attributes are all rtypes
+    print p.getName().getValue()     # getValue() to unwrap the rtype
+    print p.name.val                 # short-hand 
+
+To facilitate work in Python, particularly in web page templates, these
+Python model objects are wrapped in Blitz Object Wrappers. This hides
+the use of rtypes.
+
+::
+
+    import omero
+    from omero.model import *
+    from omero.rtypes import rstring
+    p = omero.model.ProjectI()
+    p.setName(rstring("Omero Model Project"))   # attributes are all rtypes
+    print p.getName().getValue()                # getValue() to unwrap the rtype
+    print p.name.val                            # short-hand
+
+    from omero.gateway import *
+    project = ProjectWrapper(obj=p)             # wrap the model.object
+    project.setName("Project Wrapper")          # Don't need to use rtypes
+    print project.getName()
+    print project.name
+
+    print project._obj                  # access the wrapped object with ._obj
+
+These wrappers also have a reference to the BlitzGateway connection
+wrapper, so they can make calls to the server and load more data when
+needed (lazy loading).
+
+E.g.
+
+::
+
+    # connect as above
+    for p in conn.listProjects():
+        print p.name
+        for dataset in p.listChildren():   # lazy loading of datasets, wrapped in DatasetWrapper
+            print "Dataset", d.name
+
+Wrapper coverage
+""""""""""""""""
+
+The OMERO data model has a large number of objects, not all of which
+are used by the |OmeroWeb| framework. For this reason, the Blitz
+gateway (which was originally built for |OmeroWeb|) has not yet been
+extended to wrap every omero.model object with a specific Blitz Object
+Wrapper. The current list of object wrappers can be found in the
+omero.gateway module :javadoc:`API<epydoc/omero.gateway-module.html>`.
+As more functionality is provided by the Blitz Gateway, the coverage
+of object wrappers will increase accordingly.

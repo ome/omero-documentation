@@ -1,9 +1,18 @@
 Documentation files to be linked under the ``docs/sphinx`` directory of
 http://github.com/openmicroscopy/openmicroscopy.
 
+.. image:: https://travis-ci.org/openmicroscopy/ome-documentation.png
+   :target: http://travis-ci.org/openmicroscopy/ome-documentation
+
 ***************************
 Getting Started With Sphinx
 ***************************
+
+Initial setup
+=============
+
+Sphinx
+------
 
 Sphinx depends on the ``sphinx-build`` Python script. As such, it can be
 installed on any system with a working Python installation and PIP. On
@@ -13,14 +22,62 @@ PATH. On OS X/Linux, ``sphinx-build`` has to be accessible from the command
 line.
 
 The Sphinx documentation system can be obtained by issuing::
-    
+
     pip install Sphinx
-    
-The structure of the documentation folder follows the Sphinx system
+
+Most Linux distributions will also provide it in a python-sphinx package
+(or similar).
+
+LaTeX
+-----
+
+To build the PDF documentation, XeLaTeX is also required (the
+``xelatex`` command must be available on the ``PATH``).
+This is available via
+`TeX Live <http://www.tug.org/texlive/acquire-netinstall.html>`_) for Linux
+and MacOS X. Many Linux distributions also have it packaged; so long as
+it is version 2010 or greater, it should be fine. If you install by hand,
+note that you must run
+
+::
+
+    ln -s $TEXMFSYSVAR/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
+    fc-cache -rsvf
+
+to add the TeX fonts to the system font configuration. ``TEXMFSYSVAR``
+is the path to ``texmf-var``, e.g.
+``/usr/local/texlive/2013/texmf-var``.
+
+MacOS X users can also install MacTeX instead of TeXLive, but we have
+noticed that fonts do not work without extra configuration. See:
+
+* `Mail on macosx-tex <https://email.esm.psu.edu/pipermail/macosx-tex/2012-July/049583.html>`_
+* `TeX Gyre on Stack Exchange <http://apple.stackexchange.com/questions/90841/how-to-use-tex-gyre-fonts-installed-by-tex-live>`_
+
+To add the MacTeX fonts system-wide:
+
+* Open ``Font Book.app``
+* Select ``File-->New Library``; call the new library ``TeX Gyre``
+* Right-click on ``TeX Gyre`` and select ``Add Font…``
+* Navigate to ``/usr/local/texlive/2013/texmf-dist/fonts/opentype/public/tex-gyre``
+  and click ``Open``. (Type ``/usr/local`` to get there initially.)
+
+Structure and organization
+==========================
+
+The OME documentation is organized into multiple folders:
+
+* the OMERO documentation is under the ``omero`` folder,
+* the OME Model and Formats documentation is under the ``formats`` folder,
+* the shared configuration and themes are under the ``common`` folder.
+
+The structure of each documentation folder follows the Sphinx system
 guidelines. A quick overview:
  
 * source \*.txt files with reST markup live in the root of the folder and
   under subfolders,
+* images/screenshots are placed under ``images``,
+* downloadable files are placed under ``downloads``,
 * compiled output is placed in ``_build``,
 * compiled visual themes are automatically placed in ``_static``,
 * Sphinx configuration is held in ``conf.py``,
@@ -38,6 +95,15 @@ Building the documentation
 
 Basic build commands
 --------------------
+
+To build a set of documentation, first move to the documentation folder. To
+build the OMERO documentation::
+
+    cd omero/
+
+or to build the OME Model and Formats documentation::
+
+    cd formats/
 
 To clean the build directory of any previous builds, use::
     
@@ -79,23 +145,48 @@ The output should look something like::
       doctest    to run all doctests embedded in the documentation (if
                  enabled)
 
-OMERO release number
---------------------
+Top-level build command
+-----------------------
 
-The release number of OMERO is set to UNKNOWN by default. There are two ways 
-to set this release number.
+The top-level directory Makefile also defines targets for building the OMERO
+and the OME Model and Formats sets of documentation at once. Note that the
+following commands currently work under UNIX-like platforms only.
 
-* Either clone http://github.com/openmicroscopy/openmicroscopy, initiate the 
-  submodules (including this repository) and run at the top-level::
+To clean the build directories of any previous builds, use::
 
-    ./build.py release-docs
+    make clean
 
-  This target will read the latest tag using ``git-describe`` and build the 
-  Sphinx documentation using the current OMERO release number.
+To build the sets of documentation locally in the form of HTML pages, use::
 
-* Or set the environment variable `OMERO_RELEASE`, e.g.::
-    
-    OMERO_RELEASE=4.4.4 make clean html
+    make html
+
+To build the sets of documentation locally in the form of a PDF file, use::
+
+    make latexpdf
+
+Makefile options
+----------------
+
+Additional options for sphinx-build can be passed using the ``SPHINXOPTS``
+variable. The ``-W`` option turns all warnings into errors::
+
+    SPHINXOPTS=-W make clean html
+
+Release number
+--------------
+
+The release number of each set of documentation is `UNKNOWN` by default. To
+modify this value:
+
+* for the OMERO documentation, set the environment variable ``OMERO_RELEASE``,
+  e.g.::
+
+      cd omero && OMERO_RELEASE=4.4.6 make clean html
+
+* for the OME Model and Formats documentation, set the environment variable
+  ``FORMATS_RELEASE``, e.g.::
+
+    cd formats && FORMATS_RELEASE=2012-06 make clean html
     
 ****************
 Conventions Used
@@ -113,7 +204,7 @@ alphanumeric characters and the ``-`` (minus) symbol.
 Indentation
 ===========
 
-Most reST directives don't need indentation, unless contents or options have
+Most reST directives do not need indentation, unless contents or options have
 to be supplied. For consistency, please use 4 space indentation whenever
 needed. Do not use indentation for the start of directives (start them at the
 edge of the new line). Any content under a reST directive has to be indented
@@ -240,7 +331,24 @@ Tables
 
 Please do not use tables for collections of links and figures, and leave them 
 solely for use as actual tables. While it can be used in HTML to shoehorn 
-content into boxes, it doesn't work too well for other output, e.g. latex.
+content into boxes, it does not work too well for other output, e.g. latex.
+
+Big tables (typically wider than 50 characters) should be managed as external 
+files using the comma-separated values (CSV) format. These tables can then be 
+included in the documentation with the ``csv-table`` directive. If tables are 
+saved using the tab-separated values (TSV) format use the ``delim`` option to 
+set the table delimiter to `tab` e.g.::
+
+    .. csv-table::
+        :widths: 20 80
+        :header-rows: 1
+        :file: searchfieldnames.tsv
+        :delim: tab
+
+To control the column width in the LaTeX output, precede the table directive 
+with ``tabularcolumns``, e.g.::
+
+    .. tabularcolumns:: |p{3.5cm}|p{12cm}|
 
 Substitutions, aliases and hyperlinks
 =====================================
@@ -268,13 +376,29 @@ Finally, please avoid using ``here`` as the hyperlink name, as in::
 Common markups
 ==============
 
+Please try to follow the rules outlined in
+`Inline Markup <http://sphinx-doc.org/markup/inline.html>`_. This allows for
+improving the semantics of the document elements.
+
 * Notes should be formatted using the note directive: ``.. note::``
 * Definition lists can be created and cross-referenced using the glossary
-  directive: ``.. glossary::``
+  directive: ``.. glossary::``. Each definition can be referenced anywhere in
+  the documentation using the ``:term:`` role and an entry will be added for
+  every term in the generated index.
 * References to external documentation can be formatted using:
   ``.. seealso::``
 * Menu selections should be marked using the appropriate role:
   ``:menuselection: `Start --> Programs```
+* Environment variables should be formatted using the ``:envvar:`` role.
+  This  role will add an entry for the variable in the generated index.
+* CLI Commands can be formatted using the following role:
+  ``:omerocmd: `admin start```
+  This role will render as ``omero admin start`` and add an entry for
+  the command in the generated index.
+* Other commands should be formatted using the literal markup:
+  ``:literal: `command``` or double back quoted markup
+* Other useful inline markups include: ``:option:`` and ``:guilabel:``
+* Do not use inline highlighting or other markups in headings or subheadings
 
 Global substitutions
 ====================
@@ -309,18 +433,19 @@ The table below lists substitutions for common abbreviations. These
 substitutions use the ``:abbr:`` Sphinx role meaning they are shown as 
 tool-tip in HTML and output only once in LaTeX.
 
-======= ============= ===================
+======= ============= ======================
 Name    Abbreviation  Explanation
-======= ============= ===================
+======= ============= ======================
 \|SSH\| SSH           Secure Shell
 \|VM\|  VM            Virtual Machine
 \|OS\|  OS            Operating System
 \|SSL\| SSL           Secure Socket Layer
 \|HDD\| HDD           Hard Disk Drive
-======= ============= ===================
+\|CLI\| CLI           Command Line Interface
+======= ============= ======================
 
-Page references
----------------
+OMERO page references
+---------------------
 
 The table below lists substitutions that can be used to create references to 
 sections of the OMERO documentation.
@@ -332,7 +457,6 @@ Name                Path
 \|OmeroCpp\|        developers/Cpp
 \|OmeroJava\|       developers/Java
 \|OmeroMatlab\|     developers/Matlab
-\|OmeroCli\|        sysadmins/CommandLine
 \|OmeroApi\|        developers/Modules/Api
 \|OmeroWeb\|        developers/Web
 \|OmeroClients\|    developers/GettingStarted
@@ -356,13 +480,47 @@ for the following:
 * Trac tickets: ``:ticket: `3442```, displayed as ``<a>#3442</a>``
 * Snapshots: ``:snapshot: `omero/myzip.zip```
 * Plone pages: ``:omero_plone: `Downloads <downloads>```
-* DOIs: ``:doi: `Dantas, et al., JCB <10.1083/jcb.201012093>```
-* Github source code, e.g. ``:source: `etc/omero.properties```
 * OME Forums: ``:forum: `viewforum.php?f=3```
-* Mailing lists: ``:mailinglist:`ome-users/```
 
 For the most up-to-date list, please consult ``conf.py`` (section
 ``extlinks``).
+
+Source code links
+=================
+
+Links to the OMERO source code hosted on Github can be created using the
+``source`` alias for single files, e.g. ``:source: `etc/omero.properties``` or
+the ``sourcedir`` alias for directories, e.g. ``:sourcedir: `etc```.
+
+By default, these links will point at the code under the ``develop`` branch or
+https://github.com/openmicroscopy/openmicroscopy. To specify a specific fork
+and/or  branch, set the SOURCE_USER and SOURCE_BRANCH environment variables,
+e.g.::
+
+    SOURCE_USER=sbesson SOURCE_BRANCH=my_branch make clean html
+
+Jenkins links
+=============
+
+Links to the continuous integration server can be created using the 
+``jenkins`` alias for the main server, e.g. ``:jenkins: `Jenkins server <>```,
+the ``jenkinsjob`` alias for a given job, e.g. ``:jenkinsjob: `OMERO-4.4``` or
+the ``jenkinsview`` alias for a given view, e.g. ``:jenkinsview: `4.4```.
+Two aliases have been defined for the main OMERO job: ``omerojob`` and
+``javadoc`` for the generated Javadoc, e.g. ``:javadoc:`main page <>```.
+
+By default, the OMERO job is set to ``OMERO-trunk``. To specify a different 
+job, set the JENKINS_JOB environment variables, e.g.::
+
+    JENKINS_JOB=OMERO-4.4 make clean html
+
+Mailing-list links
+==================
+
+Links to the OME mailing lists can be created using the ``mailinglist`` alias,
+e.g. ``:mailinglist:`ome-users/```. To point at specific discussion threads,
+two aliases have been defined ``ome-users`` and ``ome-devel``, e.g.
+``:ome-users:`ome-users thread <2009-June/001839.html>```.
 
 Inclusion of content
 ====================
@@ -376,14 +534,22 @@ pages, it is advised to store it in a seperate file without the default
 Writing Conventions
 *******************
 
-* Do not use contractions (can't, isn't, I'll, etc.) or '&' in the documentation.
-* All H1 and H2 level headings should have a capital letter at the start of each word.
-* All sub-headings (H3 +) should begin with a capital letter for the first word and
+* Do not use contractions (can't, isn't, I'll, etc.) or '&' in the 
+  documentation.
+* All H1 and H2 level headings should have a capital letter at the start of 
+  each word.
+* All sub-headings (H3 +) should begin with a capital letter for the first 
+  word and
   continue in lowercase, except where they refer to terms which are
   abbreviated in the text e.g. Virtual Machine.
 * Use the full product name, e.g. OMERO.insight instead of Insight.
 * Avoid using resp. in brackets to refer to alternative file names etc. Just
   use 'or'.
 * Use full words rather than symbols in headings if possible.
-* When giving instructions, address the user as 'you' and try to maintain a professional
+* When giving instructions, address the user as 'you' and try to maintain a 
+  professional
   attitude - i.e. no random asides about making coffee or smilies!
+* Bullet point lists should begin with a capital letter and end with a full 
+  stop if each point is a complete sentence, or more than one sentence. If 
+  not, no punctuation is necessary 
+  (see http://oxforddictionaries.com/words/bullet-points).
