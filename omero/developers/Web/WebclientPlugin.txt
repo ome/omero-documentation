@@ -155,6 +155,7 @@ The OMERO.webclient does not include any center plugins by default, so if you on
 a single plugin to the center, you can simply do:
 
 ::
+
     $ bin/omero config set omero.web.ui.center_plugins
         '[["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]]'
 
