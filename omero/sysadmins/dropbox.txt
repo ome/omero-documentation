@@ -83,9 +83,10 @@ a given DropBox.
 Log files
 ---------
 
-The log files :file:`var/log/FileServer.log` and :file:`var/log/DropBox.log`
-will indicate success or otherwise of start-up of the two components.
-Once running, :file:`var/log/FileServer.log` will log file events seen within
+The log files :file:`var/log/FileServer.log`, :file:`var/log/MonitorServer.log`
+and :file:`var/log/DropBox.log` will indicate success or otherwise of start-up
+of the two components.
+Once running, :file:`var/log/MonitorServer.log` will log file events seen within
 designated file areas and :file:`var/log/DropBox.log` will log the progress
 of any file imports.
 
