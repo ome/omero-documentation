@@ -306,3 +306,27 @@ try:
 except IOError:
     print "Could not open list of broken links."
 
+# -- Custom roles for the OMERO documentation -----------------------------------------------
+
+from docutils import nodes
+from sphinx import addnodes
+
+def omero_command_role(typ, rawtext, etext, lineno, inliner,
+                     options={}, content=[]):
+    """Role for CLI commands that generates an index entry."""
+
+    env = inliner.document.settings.env
+    targetid = 'cmd-%s' % env.new_serialno('index')
+
+    # Create index and target nodes
+    indexnode = addnodes.index()
+    targetnode = nodes.target('', '', ids=[targetid])
+    inliner.document.note_explicit_target(targetnode)
+    indexnode['entries'] = [('single', "omero " + "; ".join(etext.split(" ")), targetid, '')]
+
+    # Mark the text using literal node
+    sn = nodes.literal('omero ' + etext, 'omero ' +  etext)
+    return [indexnode, targetnode, sn], []
+
+def setup(app):
+    app.add_role('omerocmd', omero_command_role)
