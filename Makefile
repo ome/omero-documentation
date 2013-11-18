@@ -6,11 +6,14 @@
 html:
 	cd omero && make html
 	cd formats && make html
+	cd contributing && make html
 
 latexpdf:
 	cd omero && make latexpdf
 	cd formats && make latexpdf
+	cd contributing && make html
 
 clean:
 	cd omero && make clean
 	cd formats && make clean
+	cd contributing && make clean
