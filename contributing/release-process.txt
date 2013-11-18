@@ -9,7 +9,7 @@ if not many of the following points.
 Pull Request (PR) review
 ------------------------
 
-See :doc:`/developers/using-git`, for more
+See :doc:`using-git`, for more
 information about our usage of git and github. Before merging code to
 develop, each PR is reviewed. Follow a list of "best practices" in order
 to speed up the review.
@@ -137,7 +137,7 @@ Documentation
       -  Movies page ?
       -  Upgrade page
 
-         -  i.e. add section to :doc:`/sysadmins/server-upgrade`
+         -  i.e. add section to :omero_doc:`sysadmins/server-upgrade.html`
             including database upgrades, etc.
 
 -  Videos. Indicate the following at the beginning of the movie:
@@ -209,10 +209,10 @@ Release
 
          git push origin master
 
-   -  Update version number for the :doc:
-      `UpgradeCheck </sysadmins/UpgradeCheck>`. This is currently done
-      by connecting to the “feedback” database on necromancer. Following
-      info also under :doc:`/sysadmins/UpgradeCheck`:
+   -  Update version number for the
+	  :omero_doc:`UpgradeCheck <sysadmins/UpgradeCheck.html>`. This is 
+	  currently done by connecting to the “feedback” database on necromancer. 
+	  Following info also under :omero_doc:`UpgradeCheck <sysadmins/UpgradeCheck.html>`:
 
       .. parsed-literal::
          select * from registry_version;
