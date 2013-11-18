@@ -446,16 +446,8 @@ Annotations
 
 -  **Reading annotations**
 
-If the identifier of a tag annotation is known, the annotation can be
-retrieved from the server using the :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
-function::
-
-	tagAnnotations = getTagAnnotations(session, tagIds);
-
-To retrieve the tag annotations linked to a given object, an image for instance, use the :source:`getImageTagAnnotations <components/tools/OmeroM/src/annotations/getImageTagAnnotations.m>`
-function::
-
-	tagAnnotations = getImageTagAnnotations(session, imageIds);
+The following table lists all OMERO.matlab functions used to read annotations
+from OMERO:
 
 .. list-table::
 	:header-rows: 1
@@ -504,6 +496,20 @@ function::
 		* :source:`getPlateCommentAnnotations <components/tools/OmeroM/src/annotations/getPlateCommentAnnotations.m>`
 		* :source:`getPlateXmlAnnotations <components/tools/OmeroM/src/annotations/getPlateXmlAnnotations.m>`
 
+If the identifier of the annotation of a given type is known, the annotation
+can be retrieved from the server using the corresponding function, e.g. for
+tags  using the :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
+function::
+
+	tagAnnotations = getTagAnnotations(session, tagIds);
+
+Alternately, the annotations of a given type linked to a given object can be
+retrieved using the corresponding function, e.g. to retrieve all tags linked
+to images :source:`getImageTagAnnotations <components/tools/OmeroM/src/annotations/getImageTagAnnotations.m>`
+function::
+
+	tagAnnotations = getImageTagAnnotations(session, imageIds);
+
 -  **Reading file annotations**
 
 The content of a file annotation can be downloaded locally on disk using the :source:`getFileAnnotationContent <components/tools/OmeroM/src/annotations/getFileAnnotationContent.m>`
@@ -514,7 +520,6 @@ function::
 Alternatively, if only the file annotation identifier is known::
 
 	getFileAnnotationContent(session, faid, target_file);
-
 
 Writing data
 ------------
