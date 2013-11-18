@@ -1,0 +1,32 @@
+####################################
+Contributing Developer Documentation
+####################################
+
+This documentation is for developers who want to contribute code to OME 
+consortium projects. It includes internal developer practices and workflows, 
+standard procedures for tasks such as testing and release, and other 
+information which may be valuable to a wider audience.
+
+Information specific to developing OMERO and Bio-Formats can be found in their respective developer documentation sections:
+
+-  :omero_doc:`OMERO developer documentation </developers/index.txt>`
+
+-  :bf_doc:`Bio-Formats developer documentation </developer/index.txt>`
+
+If you have any questions, please see our 
+:omero_doc:`Community support page </users/community-resources>` for ways to 
+get in touch.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    policies
+    using-git
+    testing
+    standards
+    continuous-integration
+    scc-scripts
+    release-process
+    schema-changes
+
