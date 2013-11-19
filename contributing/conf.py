@@ -67,3 +67,13 @@ latex_documents = [
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 latex_logo = '../common/images/ome-tight.pdf'
+
+# -- Options for the linkcheck builder ----------------------------------------
+
+# Regular expressions that match URIs that should not be checked when doing a linkcheck build
+linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
+    'http://www.hibernate.org',
+    r'^https?://www\.openmicroscopy\.org/site/team/.*',
+    r'.*[.]?example\.com/.*',
+    r'^https?://www\.openmicroscopy\.org/site/support/faq.*',
+    r'^https://spreadsheets.google.com/.*']
