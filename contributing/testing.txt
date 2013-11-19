@@ -43,7 +43,8 @@ Integration tests assume that:
 - :envvar:`ICE_CONFIG` has been properly set. The contents of the
   :file:`etc/ice.config` file should be enough to configure a running server
   for integration testing. This means that code creating a client connection
-  as outlined in :omero_doc:`GettingStarted/AdvancedClientDevelopment.html` 
+  as outlined in 
+  :omero_doc:`developers/GettingStarted/AdvancedClientDevelopment.html` 
   should execute without errors.
 - An OMERO.server instance is running on the host and port specified in
   the :envvar:`ICE_CONFIG` file.
