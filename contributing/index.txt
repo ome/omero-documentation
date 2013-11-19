@@ -10,13 +10,13 @@ information which may be valuable to a wider audience.
 Information specific to developing OMERO and Bio-Formats can be found in their 
 respective developer documentation sections:
 
--  :omero_doc:`OMERO developer documentation <developers/index.txt>`
+-  :omero_doc:`OMERO developer documentation <developers/index.html>`
 
--  :bf_doc:`Bio-Formats developer documentation <developers/index.txt>`
+-  :bf_doc:`Bio-Formats developer documentation <developers/index.html>`
 
 If you have any questions, please see our 
-:omero_doc:`Community support page <users/community-resources>` for ways to 
-get in touch.
+:omero_doc:`Community support page <users/community-resources.html>` for ways 
+to get in touch.
 
 .. toctree::
     :maxdepth: 1
