@@ -6,7 +6,7 @@ contributing to our code base using git. It should contain all the useful
 commands and configuration you need for doing most git tasks.
 
 For basic instructions on how to install and configure Git and checkout the
-source code, look at the :doc:`source_code` page.
+source code, look at the :omero_doc:`developer/source_code.html` page.
 
 .. note::
     This section assumes that “gh” is your own personal GitHub repository, and

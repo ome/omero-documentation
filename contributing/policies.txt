@@ -85,7 +85,8 @@ using Sphinx and hosted on the OME website.
 
 Each section of the code base (OMERO, Bio-Formats) has a landing page that 
 will direct you to all the Developer documentation that you might need. For 
-example, the Developer page for OMERO is :doc:`here </developers/index>`.
+example, the Developer page for OMERO is
+:omero_doc:`here <developers/index.html>`.
 
 Jenkins: Continuous integration
 -------------------------------
@@ -107,8 +108,8 @@ Git and Github: Source code
 Commits take place primarily on github currently. To be aware of
 what is really going on, your best option is to become familiar with
 git, github, and the repositories of all the team members. Information
-on doing that is available under :doc:`/developers/source_code` and
-:doc:`/developers/using-git`.
+on doing that is available under :omero_doc:`developers/source_code.html` and
+:doc:`using-git`.
 
 .. _github_screenshot:
 .. figure:: /images/github_screenshot.png
@@ -398,7 +399,7 @@ Branch process (month-to-month)
 
 The output of your daily and weekly work will almost always be the
 production of a branch. That process is described in (perhaps too
-much) detail under :doc:`/developers/using-git`
+much) detail under :doc:`using-git`
 
 Particularly of importance for this document is the section on “Branch
 management”. The general idea is that branches also have a lifecycle
@@ -440,7 +441,7 @@ Checklist
 ^^^^^^^^^
 
 A checklist of all the things that should be done as the release date
-approaches is available under :doc:`/developers/release-process`
+approaches is available under :doc:`release-process`
 
 Yearly meetings
 ---------------

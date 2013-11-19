@@ -22,38 +22,38 @@ from conf import *
 # -- General configuration -----------------------------------------------------
 
 # General information about the project.
-project = u'OME Model and Formats'
+project = u'OME Contributing'
 title = project + u' Documentation'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-if "FORMATS_RELEASE" in os.environ:
-    release = os.environ.get('FORMATS_RELEASE')
-    version = release
+if "OMERO_RELEASE" in os.environ:
+    release = os.environ.get('OMERO_RELEASE')
+    [majornumber, minornumber, patchnumber] = split_release(release)
+
+    # Define Sphinx version and release variables and development branch
+    version = ".".join(str(x) for x in (majornumber, minornumber))
+    devbranch = "dev_" + "_".join(str(x) for x in (majornumber, minornumber))
+
 else:
     version = 'UNKNOWN'
     release = 'UNKNOWN'
+    devbranch = 'develop'
 
-# Variables used to define OMERO Jenkins extlinks
-if "JENKINS_JOB" in os.environ:
-    jenkins_job = os.environ.get('JENKINS_JOB')
-else:
-    jenkins_job = 'BIOFORMATS-trunk'
-
-model_job_root = jenkins_job_root + '/' + jenkins_job
-
+rst_epilog += """
+.. |devbranch| replace:: %s
+""" % (devbranch)
+    
 # OME model-specific extlinks
-model_extlinks = {
+contributing_extlinks = {
     # Github links
-    'source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
-    'sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
-    'omero_source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
-    # Jenkins links
-    'modeljob' : (model_job_root + '/%s', ''),
-    'javadoc' : (model_job_root + '/javadoc/%s', ''),
+    'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
+    'sourcedir' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
+    'bf_source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
+    'bf_sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
     }
-extlinks.update(model_extlinks)
+extlinks.update(contributing_extlinks)
 
 # -- Options for LaTeX output --------------------------------------------------
 
