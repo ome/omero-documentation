@@ -7,6 +7,18 @@ consortium projects. It includes internal developer practices and workflows,
 standard procedures for tasks such as testing and release, and other 
 information which may be valuable to a wider audience.
 
+.. only:: html
+
+    - :doc:`policies`
+    - :doc:`source_code`
+    - :doc:`using-git`
+    - :doc:`standards`
+    - :doc:`continuous-integration`
+    - :doc:`scc-scripts`
+    - :doc:`release-process`
+
+|
+
 Information specific to developing OMERO, the OME Data Model and file formats, 
 and Bio-Formats can be found in their respective developer documentation 
 sections:
@@ -23,7 +35,7 @@ to get in touch.
 
 .. toctree::
     :maxdepth: 1
-    :titlesonly:
+    :hidden:
 
     policies
     source_code
