@@ -316,7 +316,7 @@ Start by printing help for the script command:
         params            Print the parameters for a given script
         launch            Launch a script with parameters
         disable           Makes script non-executable by setting the mimetype
-        enable            Makes a script non-executable (sets mimetype to text/x-python)
+        enable            Makes a script executable (sets mimetype to text/x-python)
         jobs              List current jobs for user or group
         serve             Start a usermode processor for scripts
         upload            Upload a script
