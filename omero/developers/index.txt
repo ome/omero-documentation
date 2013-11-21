@@ -76,9 +76,9 @@ Analysis
     Tables
 
 
-*********************************
-OMERO.scripts - plugins for OMERO
-*********************************
+***************************
+Scripts - plugins for OMERO
+***************************
 
 .. toctree::
     :maxdepth: 1
@@ -91,9 +91,9 @@ OMERO.scripts - plugins for OMERO
     scripts/advanced
 
 
-*******************
-OMERO.web Framework
-*******************
+***
+Web
+***
 
 
 .. toctree::
@@ -110,9 +110,9 @@ OMERO.web Framework
     Web/PublicData
 
 
-***********************
-Extending OMERO.insight
-***********************
+*******
+Insight
+*******
 
 .. toctree::
     :maxdepth: 1
