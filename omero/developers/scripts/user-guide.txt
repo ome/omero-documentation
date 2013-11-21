@@ -190,9 +190,9 @@ You may find it useful to add the OMERO.server/bin/ folder to your PATH
 so you can call ``bin/omero`` commands when working in the scripts folder.
 E.g:
 
-::
+.. parsed-literal::
 
-    export PATH=$PATH:/Users/will/Desktop/OMERO.server-Beta-4.3/bin/
+    export PATH=$PATH:/Users/will/Desktop/OMERO.server-|release|/bin/
 
 Upload the script we saved earlier, specifying it as 'official' (trusted
 to run on the server processor). You will need to log in the first time
