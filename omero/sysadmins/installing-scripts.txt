@@ -24,7 +24,7 @@ command line by any of your users.**
 Once in the directory, scripts cannot be automatically updated and any 
 additional ones will be lost when you upgrade your server installation. 
 Therefore, we recommend you use a Github repository to manage your scripts. If 
-you are not familiar with :doc:`/developers/using-git`, you can use the 
+you are not familiar with :devs_doc:`using-git.html`, you can use the 
 `Github app for your OS <http://help.github.com/articles/set-up-git>`_
 (available for Mac and Windows). The basic workflow is:
 
