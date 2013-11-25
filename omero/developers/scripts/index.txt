@@ -69,12 +69,16 @@ Writing scripts
 scripts. You should use the :doc:`style-guide` to ensure your script interacts
 with the OMERO clients in a usable way.
 
+If you are a biologist with no previous coding experience, you may find the 
+`Python for Biologists 
+<http://pythonforbiologists.com/index.php/introduction-to-python-for-biologists/>`_ free online course helpful.
+
 Managing scripts
 ----------------
 
 To keep your scripts up to date, we recommend you use a Github repository to
 manage your scripts. If you are not familiar with
-:devs_doc:`using-git.html`, you can use the
+:devs_doc:`using git <using-git.html>`, you can use the
 `Github app for your OS <http://help.github.com/articles/set-up-git>`_
 (available for Mac and Windows). The basic workflow is:
 
@@ -92,11 +96,16 @@ manage your scripts. If you are not familiar with
    cloned location lib/scripts/YOUR_SCRIPTS
 
 Your new scripts will then show up in the script menu in the clients,
-alongside the core scripts which are shipped with each release. This means you
-should try to pick unique names to avoid future clashes e.g.
-lib/scripts/FLIM_Scripts:
+alongside the core 'omero' scripts which are shipped with each release. This
+means you should try to pick unique names to avoid future clashes 
+e.g. Custom_Scripts/Search_Scripts/original_metadata_search.py:
 
-.. insert screenshot
+.. figure:: /images/omero-user-script-menu.png
+  :align: center
+  :alt: OMERO.web script menu
+
+  Custom scripts in OMERO.web menu
+
 
 The OME developers use Github to co-ordinate all our development work so
 joining the network will help you access help and support, and see what other
