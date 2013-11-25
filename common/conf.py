@@ -135,7 +135,8 @@ extlinks = {
     'schema_plone' : (oo_root + '/Schemas/%s', ''),
     'omero_plone' : (oo_site_root + '/products/ome5/%s', ''),
     'omero_doc' : (oo_site_root + '/support/omero5/%s', ''),
-    'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),   
+    'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),
+    'devs_doc' : (oo_site_root + '/support/contributing/%s', ''),
     'bf_plone' : (oo_site_root + '/products/ome5/bio-formats/%s', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats5/%s', ''),
     'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
@@ -306,3 +307,27 @@ try:
 except IOError:
     print "Could not open list of broken links."
 
+# -- Custom roles for the OMERO documentation -----------------------------------------------
+
+from docutils import nodes
+from sphinx import addnodes
+
+def omero_command_role(typ, rawtext, etext, lineno, inliner,
+                     options={}, content=[]):
+    """Role for CLI commands that generates an index entry."""
+
+    env = inliner.document.settings.env
+    targetid = 'cmd-%s' % env.new_serialno('index')
+
+    # Create index and target nodes
+    indexnode = addnodes.index()
+    targetnode = nodes.target('', '', ids=[targetid])
+    inliner.document.note_explicit_target(targetnode)
+    indexnode['entries'] = [('single', "omero " + "; ".join(etext.split(" ")), targetid, '')]
+
+    # Mark the text using literal node
+    sn = nodes.literal('omero ' + etext, 'omero ' +  etext)
+    return [indexnode, targetnode, sn], []
+
+def setup(app):
+    app.add_role('omerocmd', omero_command_role)

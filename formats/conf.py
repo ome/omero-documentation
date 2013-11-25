@@ -66,4 +66,4 @@ latex_documents = [
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = 'images/ome-tight.pdf'
+latex_logo = '../common/images/ome-tight.pdf'

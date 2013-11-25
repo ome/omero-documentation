@@ -20,12 +20,12 @@ Versioning
 
 		What Sphinx_ calls a “version number” is defined on Wikipedia_ as a
 		“minor number” and in OME is typically considered a major release,
-		e.g. |version|.
+		e.g. 4.4.
 
 	Point release
 
 		Similarly, a Sphinx_ “release number” is a “revision number” on
-		Wikipedia_ and an OME point release, e.g. |release|.
+		Wikipedia_ and an OME point release, e.g. 4.4.9.
 
 Development branches
 ^^^^^^^^^^^^^^^^^^^^

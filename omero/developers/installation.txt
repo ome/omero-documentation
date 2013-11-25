@@ -1,16 +1,167 @@
 Installing OMERO from source
 ============================
 
-This section describes how to check out and build the OMERO source code on
-your local machine. To install the dependencies required to run the
-OMERO.server on Linux or Mac OS X, take a look at the
-:doc:`/sysadmins/unix/server-install-linux` or the
+Code locations
+--------------
+
+The main repository for OMERO, known as ome.git, is available from:
+
+-  https://github.com/openmicroscopy/openmicroscopy
+-  git://openmicroscopy.org/ome.git
+
+Installing git
+--------------
+
+In general, see the Git `downloads page <http://git-scm.com/download>`_ for
+installation options.
+
+Linux
+^^^^^
+
+Most flavors of Linux have git available through the package manager. For
+example, on Debian or Ubuntu::
+
+        sudo apt-get install git
+
+Mac OS X
+^^^^^^^^
+
+You can install git using `Homebrew <https://github.com/mxcl/homebrew/>`_::
+
+        brew install git
+
+Or you can use the `binary installer <http://git-scm.com/download>`_.
+
+Windows
+^^^^^^^
+
+We recommend using either msysGit_ for a basic git installation, or Cygwin_
+for a full-featured Unix-style environment that includes git. You can also use
+TortoiseGit_ for git shell integration. You may also want to consider
+installing VirtualBox_ with a Linux guest OS to make your life easier. Lastly,
+when using git on Windows, please be aware of the `CRLF conversion issue`_.
+
+.. _msysGit: http://code.google.com/p/msysgit
+.. _Cygwin: http://www.cygwin.com/
+.. _TortoiseGit: http://code.google.com/p/tortoisegit/
+.. _VirtualBox: https://www.virtualbox.org/
+.. _CRLF conversion issue: http://help.github.com/articles/dealing-with-line-endings
+
+
+Git configuration
+-----------------
+
+If you are looking to get started as quickly as possible, the minimum you will
+need is to have Git installed and then::
+
+        git config --global user.name "Full name"
+        git config --global user.email YOUR_EMAIL
+        git clone --recursive https://github.com/openmicroscopy/openmicroscopy
+        cd openmicroscopy
+
+You will not be able to push back to this repository, but you will at least
+have something you can start looking at.
+
+Git provides a number of options which can make working with it considerably
+more pleasant. These configuration options are available either globally in
+:file:`$HOME/.gitconfig` or in the :file:`.git` directory of your repository.
+The file is in INI-format, but can also be modified using the ``git config``
+command, as illustrated in the examples following.
+
+The most important thing is to update your 'global' credentials that are used
+in your commits. These values are saved in :file:`~/.gitconfig`::
+
+        git config --global user.name "Full name"
+        git config --global user.email YOUR_EMAIL
+
+If you have a PGP key for signing commits and tags, you may want to add it as
+well::
+
+        git config --global user.signingkey YOUR_PGP_KEY_ID
+
+Color and display options make log and diff output much more friendly::
+
+         git config --global color.ui true
+         git config --global color.diff auto
+         git config --global color.graph auto
+         git config --global color.status auto
+         git config --global color.branch auto
+
+         git config --global core.ui always
+         git config --global core.editor mate_wait
+
+Aliases provide a way to make shortcuts for longer git commands. One that is
+often used among the OME team is ``graph``::
+
+         git config --global alias.graph "log --date-order --graph --decorate --oneline"
+
+See `Helpful command aliases`_ for more examples.
+
+.. _Helpful command aliases: http://gitready.com/intermediate/2009/02/06/helpful-command-aliases.html
+
+Cloning the source code
+-----------------------
+
+Most OME development is currently happening on GitHub, therefore it is highly
+suggested that you become familiar with how it works, if not create an account
+for yourself.
+
+Start by cloning the official repository::
+
+        git clone https://github.com/openmicroscopy/openmicroscopy.git
+
+Since the openmicroscopy repository now makes use of submodules, you first
+need to initialize all the submodules::
+
+        cd openmicroscopy
+        git submodule update --init
+
+Alternatively, with version 1.6.5 of git and later, you can pass the
+:option:`--recursive` option to git clone and initialize all submodules::
+
+        git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git
+
+The natural workflow when using GitHub is not just to download someone else’s
+repository, but also to create a personal working copy. Go to the repository
+page at `<https://github.com/openmicroscopy/openmicroscopy>`_ and click on
+“Fork”. This will create a copy of the repository in your own personal space::
+
+        https://github.com/YOURNAME/openmicroscopy
+
+which can be added to your local repository as another remote::
+
+        git remote add gh git@github.com:YOURNAME/openmicroscopy.git
+
+.. note::
+    For the |SSH| transport to work, you will need to follow some of the
+    instructions under https://github.com/account/ssh
+
+Depending on which repository you cloned first, either origin/develop or
+gh/develop will be the “develop” branch of your own fork of
+openmicroscopy/openmicroscopy. The example below assumes that “gh” is your own
+personal GitHub repository, and “origin” is the official openmicroscopy
+repository.
+
+You may even want to remove the “develop” branch from your fork since all
+branching should happen from the official develop branch. If you’d prefer to
+keep a copy of “develop” in “gh”, that is fine, but you may then need to keep
+your develop up-to-date with the official develop::
+
+        git checkout develop
+        git reset --hard origin/develop   # Warning: This will delete any unsaved changes and commits to develop!
+        git push -f gh develop            # Warning: This will replace gh/develop with the official version remotely.
+
+
+Installing OMERO
+----------------
+
+To install the dependencies required to run the OMERO.server on Linux or Mac 
+OS X, take a look at the :doc:`/sysadmins/unix/server-install-linux` or the
 :doc:`/sysadmins/unix/server-install-homebrew`.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
-    source_code
     build-system
 

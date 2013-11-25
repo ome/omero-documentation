@@ -46,7 +46,7 @@ Introduction to OMERO
     whatsnew
     installation
     GettingStarted
-    contributing
+    testing
 
 
 *******************
@@ -161,6 +161,7 @@ The OME Data Model
     Model
     Model/XsltTransformations
     Modules/StructuredAnnotations
+    schema-changes
 
 
 *********
