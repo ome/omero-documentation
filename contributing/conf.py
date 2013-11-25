@@ -22,7 +22,7 @@ from conf import *
 # -- General configuration -----------------------------------------------------
 
 # General information about the project.
-project = u'OME Contributing Developers'
+project = u'OME Contributing Developer'
 title = project + u' Documentation'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -37,8 +37,8 @@ if "OMERO_RELEASE" in os.environ:
     devbranch = "dev_" + "_".join(str(x) for x in (majornumber, minornumber))
 
 else:
-    version = 'UNKNOWN'
-    release = 'UNKNOWN'
+    version = ''
+    release = ''
     devbranch = 'develop'
 
 rst_epilog += """
@@ -59,7 +59,7 @@ extlinks.update(contributing_extlinks)
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-target = 'OME-Contributing-' + release + '.tex'
+target = 'OME-Contributing-Developer' + '.tex'
 latex_documents = [
   (master_doc, target, title, author, 'manual'),
 ]
