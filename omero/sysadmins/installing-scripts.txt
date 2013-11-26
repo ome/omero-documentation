@@ -26,7 +26,7 @@ additional ones will be lost when you upgrade your server installation.
 Therefore, we recommend you use a Github repository to manage your scripts. If 
 you are not familiar with :doc:`/developers/using-git`, you can use the 
 `Github app for your OS <http://help.github.com/articles/set-up-git>`_
-(available for Mac and Windows). The basic workflow is:
+(available for Mac and Windows but not Linux). The basic workflow is:
 
 -  fork our 
    `omero-user-script <https://github.com/joshmoore/omero-user-scripts>`_ 
