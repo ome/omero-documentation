@@ -51,6 +51,10 @@ Service Level 1 (direct database and hibernate connections)
 -  DeleteService:
    :javadoc:`API <slice2html/omero/api/IDelete.html>`
    for deleting objects asynchronously (delete queue).
+-  LdapService:
+   :source:`src <components/common/src/ome/api/ILdap.java>`,
+   :javadoc:`API <slice2html/omero/api/ILdap.html>`
+   for communicating with LDAP servers.
 -  MetadataService:
    :javadoc:`API <slice2html/omero/api/IMetadata.html>`
    for working with Annotations.
