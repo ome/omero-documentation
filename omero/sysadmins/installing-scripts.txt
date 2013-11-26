@@ -23,9 +23,9 @@ command line by any of your users.**
 
 Once in the directory, scripts cannot be automatically updated and any 
 additional ones will be lost when you upgrade your server installation. 
-Therefore, we recommend you use a Github repository to manage your scripts. If 
+Therefore, we recommend you use a GitHub repository to manage your scripts. If 
 you are not familiar with :doc:`/developers/using-git`, you can use the 
-`Github app for your OS <http://help.github.com/articles/set-up-git>`_
+`GitHub app for your OS <http://help.github.com/articles/set-up-git>`_
 (available for Mac and Windows but not Linux). The basic workflow is:
 
 -  fork our 
@@ -41,7 +41,7 @@ you are not familiar with :doc:`/developers/using-git`, you can use the
 -  save the scripts you want to use into the appropriate sub-directory in your 
    cloned location lib/scripts/YOUR_SCRIPTS
 
-Then when you upgrade your OMERO.server installation, provided your Github 
+Then when you upgrade your OMERO.server installation, provided your GitHub 
 repository is up to date with all your latest script versions (i.e. all your 
 local changes are committed), you just need to repeat the ``git clone`` step. 
 Those scripts will then be automatically detected by your new server 

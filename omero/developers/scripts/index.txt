@@ -73,11 +73,11 @@ If you are a biologist with no previous coding experience, you may find the
 Managing scripts
 ----------------
 
-To keep your scripts up to date, we recommend you use a Github repository to 
+To keep your scripts up to date, we recommend you use a GitHub repository to 
 manage your scripts. If you are not familiar with 
 :doc:`/developers/using-git`, you can use the 
-`Github app for your OS <http://help.github.com/articles/set-up-git>`_ 
-(available for Mac and Windows). The basic workflow is:
+`GitHub app for your OS <http://help.github.com/articles/set-up-git>`_
+(available for Mac and Windows but not Linux). The basic workflow is:
 
 -  fork our 
    `omero-user-script <https://github.com/joshmoore/omero-user-scripts>`_ 
@@ -103,7 +103,7 @@ e.g. Custom_Scripts/Search_Scripts/original_metadata_search.py:
 
   Custom scripts in OMERO.web menu
 
-The OME developers use Github to co-ordinate all our development work so 
+The OME developers use GitHub to co-ordinate all our development work so 
 joining the network will help you access help and support, and see what other 
 people are doing with scripts. Cloning our repository also means you have an 
 example script to get you started with developing your own.
