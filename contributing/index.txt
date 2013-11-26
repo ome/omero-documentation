@@ -9,7 +9,8 @@ be valuable to a wider audience.
 
 .. only:: html
 
-    - :doc:`policies`
+    - :doc:`team-communication`
+    - :doc:`team-workflow`
     - :doc:`source-code`
     - :doc:`using-git`
     - :doc:`standards`
@@ -37,7 +38,8 @@ to get in touch.
     :maxdepth: 1
     :hidden:
 
-    policies
+    team-communication
+    team-wrokflow
     source-code
     using-git
     standards
