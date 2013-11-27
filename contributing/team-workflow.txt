@@ -4,11 +4,11 @@ Process summary
 Ticket types (day-to-day)
 -------------------------
 
-Any activities on a day-to-day level will be most accurately and
-actively trackable in the tickets on Trac. Essentially, if no tickets
-are marked “active” on the whiteboard for a developer, then it’s
-assumed that s/he is off or working on a non-OME related activity.
-
+Any activities on a day-to-day level will be most accurately and actively
+trackable in the tickets on Trac. Essentially, if no tickets are marked
+“active” on the whiteboard for a developer, then it’s assumed that s/he is off
+or working on some other activity (which will usually be indicated in the
+daily stand-up notes).
 
 Tickets in OME are divided into 3 types:
 
@@ -19,95 +19,133 @@ Tickets in OME are divided into 3 types:
 Requirements
 ^^^^^^^^^^^^
 
-Requirements are large, overarching features which will take months
-(if not longer) to deliver. For a particular release , or “milestone”
-in Trac terminology, a small number of requirements will be
-chosen. For patch releases, it’s possible that no requirements will be
-in-progress, but that only bug fixing will take place.
+Requirements are large, overarching features which will take months (if not
+longer) to deliver. For a particular release , or “milestone” in Trac
+terminology, a small number of requirements will be chosen. For patch
+releases, it’s possible that no requirements will be in-progress, and instead
+only bug fixing will take place.
 
 Stories
 ^^^^^^^
 
-Requirements are made up of stories, which should take days to weeks
-to complete. A large number of stories will be put into any one sprint
-, the two-week period that is visible on the Trac whiteboard at a
-given time. This is the standard unit of work for the team. After a
-sprint, the stories that were chosen for the sprint, should be closed
-if possible, and there should be some evidence of the work 
-(screenshots, screencasts, etc) available from the roadmap_ page.
+Requirements are made up of stories, which should take days to weeks to
+complete. A large number of stories will be put into any one sprint, the
+two-week period that is visible on the Trac whiteboard at a given time. This
+is the standard unit of work for the team. After a sprint, the stories that
+were chosen for the sprint, should be closed if possible, and there should be
+some evidence of the work (screenshots, screencasts, etc) available from the
+roadmap_ page.
 
 Tasks
 ^^^^^
 
-Tasks make up stories and are the most basic building block. They
-should be on the order of 0.25 to 1 day of work, 2 at the most but no
-lower than 0.1 days. In fact, they are the only type of ticket that
-contains a field for recording estimated time, and these should be
-considered **required**. Sums of such times are then available in the
-stories and requirements.
+Tasks make up stories and are the most basic building block. They should be on
+the order of 0.25 to 1 day of work, 2 at the most but no lower than 0.1 days.
+In fact, they are the only type of ticket that contains a field for recording
+estimated time, and these should be considered **required**. Sums of such
+times are then available in the stories and requirements.
 
 The unit of time used by the OME team is “ideal days”. (Note: in some
-locations in Trac/Agilo an “h” for hour is shown. Regardless, the time
-unit is ideal days). An ideal day can be thought of as a day on which
-a single developer can work without interruption for 6 hours, whether
-this be coding, testing, designing or documenting. Obviously this
-almost never happens, but it’s simpler to estimate times if a one
-ignores meetings, mails, and other annoyances.
+locations in Trac/Agilo an “h” for hour is shown. Regardless, the time unit is
+ideal days). An ideal day can be thought of as a day on which a single
+developer can work without interruption for 6 hours, whether this be coding,
+testing, designing or documenting. Obviously this almost never happens, but
+it’s simpler to estimate times if a one ignores meetings, mails, and other
+annoyances.
 
 Beyond the types used in Trac/Agilo, there are several other ways of
 identifying or specially marking tickets.
 
 Bugs
-----
+^^^^
 
-The Agilo plugin provides another potential level to the hierarchy,
-“Bug,” which could appear in the whiteboard like a story. We have
-chosen not to use this feature, since it unduly complicates the
-workflow (e.g. they are treated as container and one must create a bug
-inside the bug to do anything with it).
+The Agilo plugin provides another potential level to the hierarchy, “Bug,”
+which could appear in the whiteboard like a story. We have chosen not to use
+this feature, since it unduly complicates the workflow (e.g. they are treated
+as container and one must create a bug inside the bug to do anything with it).
 
-Instead, “Bug:” is pre-pended to the ticket summary to indicate a bug. A list 
-of all current such bugs can be viewed via the :report:`BUGS! EEK!! <8>` report 
-in the left hand panel:
+Instead, “Bug:” is pre-pended to the ticket summary to indicate a bug. A list
+of all current such bugs can be viewed via the :report:`BUGS! EEK!! <8>`
+report in the left hand panel:
 
 .. _bugs_screenshot:
 .. figure:: /images/bugs.png
    :align:  center
 
-Where possible, we try not to push bugs out of the current milestone,
-and instead, we aim to handle them as quickly as possible. If a bug is
-too large to handle during the current milestone, it should be turned
-into a story and appropriately scheduled.
+Where possible, we try not to push bugs out of the current milestone, and
+instead, we aim to handle them as quickly as possible. If a bug is too large
+to handle during the current milestone, it should be turned into a story and
+appropriately scheduled.
 
 RFE
----
+^^^
 
-“RFE” stands for “Request for Enhancement” and is a fledgling idea for
-some new feature. They frequently occur during internal testing. While
-testing a client, for example, a tester will often have the feeling
-that it’d be nice to be able to do “X”. A kick ticket with “RFE: add
-support for X” lets the client developer(s) know that such a feature
-would be useful. The ticket does not contain the necessary technical
-details, however, to be a story, though it can be turned into one.
+“RFE” stands for “Request for Enhancement” and is a fledgling idea for some
+new feature. They frequently occur during internal testing. While testing a
+client, for example, a tester will often have the feeling that it’d be nice to
+be able to do “X”. A kick ticket with “RFE: add support for X” lets the client
+developer(s) know that such a feature would be useful. The ticket does not
+contain the necessary technical details, however, to be a story, though it can
+be turned into one.
+
+Pull Request (PR) review (day-to-day)
+-------------------------------------
+
+Tasks generally result in one or more PRs to merge code into the appropriate
+repo on GitHub (see :doc:`using-git` for more information about how we use Git
+and GitHub to manage the code bases). These PRs will be listed for review in
+the daily stand-up meeting notes and assigned across the team to ensure no-one
+is unduly burdened.
+
+When opening a PR:
+
+-  Reference the ticket you are working on, or otherwise clearly describe what
+   must be tested.
+-  If you are making a change to Bio-Formats, make sure you include the
+   command needed to test the reader, where to find the images to use for
+   testing, and any other requirements.
+-  If you are changing the UI, add screenshots of before and after to the
+   ticket you are working on.
+-  If a whole new feature is being introduced, or there is a change to
+   documented functionality, ensure there is a documentation ticket created or
+   otherwise alert the team that changes to documentation and/or user guides
+   are required.
+-  If there are specific people in the team who need to be aware of your
+   changes, or should be testing them, you can use ``@their_GitHub_username``
+   in the PR description or comments to alert them by email.
+
+When reviewing a PR:
+
+-  Reference the tickets that are fixed using a hyperlink.
+-  Reference any tickets that require further work using a hyperlink.
+-  Add any feedback in comments as necessary.
+-  Indicate that the PR is 'good to merge' once you are satisfied that the
+   changes work as expected and complete the Task(s) they are intended to.
+
+In some cases, reviewing may take several days as the original developer makes
+suggested changes and these are re-tested. You should try to avoid making too
+many different changes on a single PR however, as that makes it long and
+complicated to test. It may be more appropriate to open a follow-up PR for
+further changes, provided the first one can be merged without breaking
+anything.
 
 Sprint process (week-to-week)
 -----------------------------
 
-Sprints begin at one weekly meeting and terminate two weeks
-later. They consist of tasks that have been marked for the current
-sprint, all of which then show up on the whiteboard, most of which are grouped
-together into stories. A story can have some tickets in the current
-sprint, while others – though in the same milestone – will be handled
-in a later sprint. For this reason, a sprint should never be set for a
-story.
+Sprints begin at one weekly meeting and terminate two weeks later. They
+consist of tasks that have been marked for the current sprint, all of which
+then show up on the whiteboard, most of which are grouped together into
+stories. A story can have some tickets in the current sprint, while others –
+though in the same milestone – will be handled in a later sprint. For this
+reason, a sprint should never be set for a story.
 
-In general, the whiteboard at any given time should clearly reflect
-the team effort. If a requirement is in another milestone but you are
-working on it ahead of time, then move the current tasks into the
-current milestone and sprint so they appear on the whiteboard. (This
-is a limitation of Trac/Agilo that we are learning to deal with). At
-certain times, we may have multiple sprints active in which case it’s
-necessary to be aware of which sprint you are looking at:
+In general, the whiteboard at any given time should clearly reflect the team
+effort. If a requirement is in another milestone but you are working on it
+ahead of time, then move the current tasks into the current milestone and
+sprint so they appear on the whiteboard. (This is a limitation of Trac/Agilo
+that we are learning to deal with). At certain times, we may have multiple
+sprints active in which case it’s necessary to be aware of which sprint you
+are looking at:
 
 .. _whiteboard_screenshot:
 .. figure:: /images/sprint_screenshot.png
@@ -118,22 +156,21 @@ Definition of done
 ^^^^^^^^^^^^^^^^^^
 
 For stories to be considered “done”, they should include tests,
-screenshots/casts, and the definition of any “Testing Scenarios” that
-may be necessary. If it’s easier for you to remember this, then feel
-free to add individual tasks inside of the story for the tests,
-screenshots, etc. Others may prefer to write less granular stories and
-tickets. The key is that someone who is to review the stories and
-tasks can clearly decide what has changed and what needs to be
-reviewed and tested. This often means that each story ticket should
-contain a long-text description and a “usage” statement ("getting
-started") along with the related task tickets, and that before it is
-scheduled into a sprint!
+screenshots/casts, and the definition of any “Testing Scenarios” that may be
+necessary. If it’s easier for you to remember this, then feel free to add
+individual tasks inside of the story for the tests, screenshots, etc. Others
+may prefer to write less granular stories and tickets. The key is that someone
+who is to review the stories and tasks can clearly decide what has changed and
+what needs to be reviewed and tested. This often means that each story ticket
+should contain a long-text description and a “usage” statement ("getting
+started") along with the related task tickets, and that before it is scheduled
+into a sprint!
 
 Choosing tasks
 ^^^^^^^^^^^^^^
 
-Once tasks are placed in a sprint choosing between them is more or
-less arbitrary. Where possible you should prefer to work on:
+Once tasks are placed in a sprint choosing between them is more or less
+arbitrary. Where possible you should prefer to work on:
 
 * Bugs, since they should be considered top priority
 
@@ -150,43 +187,43 @@ less arbitrary. Where possible you should prefer to work on:
 Branch process (month-to-month)
 -------------------------------
 
-The output of your daily and weekly work will almost always be the
-production of a branch. That process is described in (perhaps too
-much) detail under :doc:`using-git`
+The output of your daily and weekly work will almost always be the production
+of a branch. That process is described in (perhaps too much) detail under
+:doc:`using-git`
 
 Particularly of importance for this document is the section on “Branch
-management”. The general idea is that branches also have a lifecycle
-on the project. They begin as **Investigations**, progress to
-**Works-in-Progress (WIP)**, and eventually become
-**Deliverables**. Once they are merged into the mainline, they should
-be removed from github to keep the list of active branches clearly
-discernible. The **Pull Requests** that are opened by developers are
-on-going review conversations, which you are encouraged to get
-involved in.
+management”. The general idea is that branches also have a lifecycle on the
+project. They begin as **Investigations**, progress to
+**Works-in-Progress (WIP)**, and eventually become **Deliverables**. Once they
+are merged into the mainline, they should be removed from GitHub to keep the
+list of active branches clearly discernible. The **Pull Requests** that are
+opened by developers are on-going review conversations, which you are
+encouraged to get involved in.
 
 Release process
 ---------------
 
 A release is primarily defined on the Trac roadmap_ page.
 
-All tickets (requirements, stories, and tasks) are reachable via the
-various green reporting bars. The description highlights what the OME
-team thinks the most important features and goals for the release
-are. Each of these large ticket items should also contain a link to
-the requirements or story ticket.
+All tickets (requirements, stories, and tasks) are reachable via the various
+green reporting bars. The description highlights what the OME team thinks the
+most important features and goals for the release are. Each of these large
+ticket items should also contain a link to the requirements or story ticket.
 
-Major releases consist of some number (10+) of the 2-week sprints
-described above, and should always end with a test cycle of at least 3
-weeks. Smaller bug fix releases may be much shorter and won’t need as
-extensive testing.
+Major releases consist of some number (10+) of the 2-week sprints described
+above, and should always end with a test cycle of at least 3 weeks. Smaller
+bug fix releases may be much shorter and won’t need as extensive testing.
 
-Scenarios
-^^^^^^^^^
+Testing scenarios
+^^^^^^^^^^^^^^^^^
 
-Testing is largely performed through a number of “scenarios”. Such
-scenarios should be defined as you develop new features, and the team
-will periodically review and test the scenarios even before
-release.
+Testing is largely performed through a number of “scenarios”. Such scenarios
+should be defined as you develop new features, and the team will periodically
+review and test the scenarios even before release.
+
+Currently, scenarios are hosted in internal documentation and testing is
+managed via stand-up meetings on testing days, and google documents. This is
+due to change as we adopt a new testing tool in 2014.
 
 .. needs an update about current testing procedures/link to internal docs?
 
@@ -194,7 +231,7 @@ Checklist
 ^^^^^^^^^
 
 A checklist of all the things that should be done as the release date
-approaches is available.
+approaches is detailed in :doc:`release-process`.
 
 Yearly meetings
 ---------------
