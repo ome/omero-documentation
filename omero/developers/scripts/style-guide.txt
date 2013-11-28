@@ -1,7 +1,7 @@
 Guidelines for writing OMERO.scripts
 ====================================
 
-These guidelines for writing Python scripts are designed to improve the 
+These guidelines for writing OMERO scripts are designed to improve the
 interaction of the scripts with OMERO clients so that they can:
 
 -  generate a nice, usable UI for the script

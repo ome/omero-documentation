@@ -1,17 +1,19 @@
 Introduction to OMERO.scripts
-============================= 
+=============================
 
-OMERO.scripts are the OME version of plugins, allowing you to extend the 
+OMERO.scripts are the OME version of plugins, allowing you to extend the
 functionality of your OMERO installation.
 
-The OMERO scripting service allows scripts to be uploaded to the server so 
-that image processing and analysis, and other functionality, can be carried 
-out there rather than on your local machine. Scripts are generally written in 
-Python but MATLAB scripts are also supported (currently using a Python wrapper 
-as described in :doc:`matlab-scripts`, but native support will be available 
-soon). Scripts can be run from the OMERO clients, using a UI generated from 
-the script and the results should also be handled where relevant e.g. 
-allowing users to view OMERO Images or Datasets created by the script, or 
+The OMERO scripting service allows scripts to be uploaded to the server so
+that image processing and analysis, and other functionality, can be carried
+out there rather than on your local machine. Scripts are generally written in
+Python, but other languages are also supported, like Jython. MATLAB scripts
+are supported natively as well as via a Python wrapper as described in
+:doc:`matlab-scripts`.
+
+Scripts can be run from the OMERO clients, using a UI generated from
+the script and the results should also be handled where relevant e.g.
+allowing users to view OMERO Images or Datasets created by the script, or
 download files or images.
 
 .. figure:: /images/omero-scripting-context.png
@@ -47,71 +49,81 @@ download files or images.
 Finding scripts
 ---------------
 
-Core scripts are bundled with every OMERO.server release and automatically 
-available to all users. You can find additional scripts via the new 
-:community_plone:`script sharing <scripts>` page.
+`Core scripts <https://github.com/ome/scripts>`_ are bundled with every
+OMERO.server release and automatically available to all users. You can find
+additional scripts via the new :community_plone:`script sharing <scripts>`
+page.
 
 Installing and running scripts
 ------------------------------
 
-The easiest way to make use of scripts is for someone with admin rights to 
-upload them to the OMERO.server as described in the :doc:`user-guide`. Once a 
-script has been added under the lib/scripts directory, you can run them from 
+The easiest way to make use of scripts is for someone with admin rights to
+upload them to the OMERO.server as described in the :doc:`user-guide`. Once a
+script has been added under the lib/scripts directory, you can run them from
 the OMERO clients or the command line.
 
 Writing scripts
 ---------------
 
-:doc:`user-guide` describes the workflows for developing and running your own 
-scripts. You should use the :doc:`style-guide` to ensure your script interacts 
+:doc:`user-guide` describes the workflows for developing and running your own
+scripts. You should use the :doc:`style-guide` to ensure your script interacts
 with the OMERO clients in a usable way.
+
+If you are a biologist with no previous coding experience, you may find the 
+`Python for Biologists 
+<http://pythonforbiologists.com/index.php/introduction-to-python-for-biologists/>`_ free online course helpful.
 
 Managing scripts
 ----------------
 
-To keep your scripts up to date, we recommend you use a Github repository to 
-manage your scripts. If you are not familiar with 
-:doc:`/developers/using-git`, you can use the 
-`Github app for your OS <http://help.github.com/articles/set-up-git>`_ 
-(available for Mac and Windows). The basic workflow is:
+To keep your scripts up to date, we recommend you use a Github repository to
+manage your scripts. If you are not familiar with
+:devs_doc:`using git <using-git.html>`, you can use the
+`GitHub app for your OS <http://help.github.com/articles/set-up-git>`_
+(available for Mac and Windows but not Linux). The basic workflow is:
 
--  fork our 
-   `omero-user-script <https://github.com/joshmoore/omero-user-scripts>`_ 
+-  fork our
+   `omero-user-script <https://github.com/ome/omero-user-scripts>`_
    repository
 -  clone it in your lib/scripts directory
 
    ::
 
-           cd lib/scripts; 
+           cd lib/scripts;
            git clone git@github.com:YOURGITUSERNAME/omero-user-scripts.git YOUR_SCRIPTS
 
--  save the scripts you want to use into the appropriate sub-directory in your 
+-  save the scripts you want to use into the appropriate sub-directory in your
    cloned location lib/scripts/YOUR_SCRIPTS
 
-Your new scripts will then show up in the script menu in the clients, 
-alongside the core scripts which are shipped with each release. This means you 
-should try to pick unique names to avoid future clashes e.g. 
-lib/scripts/FLIM_Scripts:
+Your new scripts will then show up in the script menu in the clients,
+alongside the core 'omero' scripts which are shipped with each release. This
+means you should try to pick unique names to avoid future clashes 
+e.g. Custom_Scripts/Search_Scripts/original_metadata_search.py:
 
-.. insert screenshot
+.. figure:: /images/omero-user-script-menu.png
+  :align: center
+  :alt: OMERO.web script menu
 
-The OME developers use Github to co-ordinate all our development work so 
-joining the network will help you access help and support, and see what other 
-people are doing with scripts. Cloning our repository also means you have an 
+  Custom scripts in OMERO.web menu
+
+
+The OME developers use Github to co-ordinate all our development work so
+joining the network will help you access help and support, and see what other
+people are doing with scripts. Cloning our repository also means you have an
 example script to get you started with developing your own.
 
 Contributing back to the community
 ----------------------------------
 
-If you have modified one of the core scripts or developed your own that you 
-would like to contribute back to the community, please get in touch. We 
-can either add your repository to the list on the 
-:community_plone:`script sharing <scripts>` page so people can find it, or if 
-the script is likely to have wide appeal, we can look into adding it to the 
+If you have modified one of the core scripts or developed your own that you
+would like to contribute back to the community, please get in touch. We
+can either add your repository to the list on the
+:community_plone:`script sharing <scripts>` page so people can find it, or if
+the script is likely to have wide appeal, we can look into adding it to the
 core scripts that are distributed with an OMERO release.
 
-.. seealso:: 
+.. seealso::
     
-    :doc:`user-guide`, :doc:`style-guide`, :doc:`advanced` and 
+    :doc:`user-guide`, :doc:`style-guide`, :doc:`advanced` and
     :doc:`matlab-scripts`
 
