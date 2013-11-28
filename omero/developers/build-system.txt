@@ -26,9 +26,6 @@ it is put, and what role it plays in the distribution.
     * - components/blitz/target/blitz.jar
       - lib/server
       - Primary Ice servants
-    * - components/blitz/target/blitz.jar
-      - lib/server
-      - Primary Ice servants
     * - components/blitz/target/server.jar
       - lib/server
       - Primary server logic
