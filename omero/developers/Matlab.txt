@@ -504,12 +504,12 @@ annotations from OMERO:
 
 If the identifier of the annotation of a given type is known, the annotation
 can be retrieved from the server using the corresponding function, e.g. for
-tags  using the :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
+tags using the :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
 function::
 
 	tagAnnotations = getTagAnnotations(session, tagIds);
 
-Alternately, the annotations of a given type linked to a given object can be
+Alternatively, the annotations of a given type linked to a given object can be
 retrieved using the corresponding function, e.g. to retrieve all tags linked
 to images :source:`getImageTagAnnotations <components/tools/OmeroM/src/annotations/getImageTagAnnotations.m>`
 function::
@@ -518,7 +518,8 @@ function::
 
 -  **Reading file annotations**
 
-The content of a file annotation can be downloaded locally on disk using the :source:`getFileAnnotationContent <components/tools/OmeroM/src/annotations/getFileAnnotationContent.m>`
+The content of a file annotation can be downloaded to local disk using the
+:source:`getFileAnnotationContent <components/tools/OmeroM/src/annotations/getFileAnnotationContent.m>`
 function::
 
 	getFileAnnotationContent(session, fileAnnotation, target_file);
@@ -531,7 +532,7 @@ To replace the content of an existing file annotation,
 
 -  **Writing annotations**
 
-New annotations can be created and linked to existing objects. For examples,
+New annotations can be created and linked to existing objects. For example,
 to create a new tag annotation and attach it to an image, it is possible to use the :source:`writeTagAnnotation <components/tools/OmeroM/src/annotations/writeTagAnnotation.m>` function and 
 then the :source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
 function::
