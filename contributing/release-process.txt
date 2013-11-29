@@ -144,7 +144,9 @@ Public release
   .. parsed-literal::
      select * from registry_version;
      update registry_version set version = '\ |release|';
-- Announce the release on the mailing lists and in news
+- Announce the release on the mailing lists and Twitter, and in News.
+- Update openmicroscopy.org home page with latest release number, date and
+  Milestone page link.
 
 Post release
 ^^^^^^^^^^^^
@@ -170,6 +172,12 @@ Demo server
 -  Submit any necessary configuration options while upgrading.
 -  Test demo server.
 -  Email announcement.
+
+Plone updates
+^^^^^^^^^^^^^
+
+- If any changes have been made to documentation URLs, ensure links in plone 
+  Product pages (e.g. OMERO Feature List) and documentation index are updated.
 
 Major releases
 --------------

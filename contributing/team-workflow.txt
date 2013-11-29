@@ -191,14 +191,13 @@ The output of your daily and weekly work will almost always be the production
 of a branch. That process is described in (perhaps too much) detail under
 :doc:`using-git`
 
-Particularly of importance for this document is the section on “Branch
-management”. The general idea is that branches also have a lifecycle on the
-project. They begin as **Investigations**, progress to
-**Works-in-Progress (WIP)**, and eventually become **Deliverables**. Once they
-are merged into the mainline, they should be removed from GitHub to keep the
-list of active branches clearly discernible. The **Pull Requests** that are
-opened by developers are on-going review conversations, which you are
-encouraged to get involved in.
+Particularly of importance is the section on “Branch management”. The general
+idea is that branches also have a lifecycle on the project. They begin as
+**Investigations**, progress to **Works-in-Progress (WIP)**, and eventually
+become **Deliverables**. Once they are merged into the mainline, they should
+be removed from GitHub to keep the list of active branches clearly
+discernible. The **Pull Requests** that are opened by developers are on-going
+review conversations, which you are encouraged to get involved in.
 
 Release process
 ---------------
@@ -214,12 +213,48 @@ Major releases consist of some number (10+) of the 2-week sprints described
 above, and should always end with a test cycle of at least 3 weeks. Smaller
 bug fix releases may be much shorter and won’t need as extensive testing.
 
-Testing scenarios
+Model
+^^^^^
+
+* At the beginning of a milestone, a log ticket should be created to record
+  every ticket number corresponding to a model change.
+* The upgrade style sheet should be prepared before a freeze.
+* Freeze the model **at least 3 weeks** before the database upgrade freeze to
+  allow the propagation of changes through the stack to Bio-Formats, database,
+  testing scenarios, etc.
+* Prepare the downgrade stylesheet.
+
+Database upgrade
+^^^^^^^^^^^^^^^^
+
+* A list of the proposed changes to the database should be submitted at least
+  3 weeks before any code freeze, to allow enough time to adjust the database.
+* Database upgrade testing should occur in the preliminary testing phase.
+
+Code freeze
+^^^^^^^^^^^
+
+* A freeze on new features should happen **at least 4 weeks** before the
+  scheduled release date. Only bug fixing code updates should be made after
+  this.
+* Ideally, this freeze should correspond to the end or middle of a sprint.
+* All changes in the API and to public strings should be finalized before the
+  freeze.
+
+Automated testing
 ^^^^^^^^^^^^^^^^^
 
-Testing is largely performed through a number of “scenarios”. Such scenarios
-should be defined as you develop new features, and the team will periodically
-review and test the scenarios even before release.
+Much testing is now carried out daily by Jenkins jobs. See
+:doc:`continuous-integration` for further details. This will increase in 2014
+as we move towards using the Robot framework for automated testing of the
+OMERO clients. Bio-Formats testing jobs are still to be documented.
+
+Manual testing scenarios
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Manual testing is largely performed through a number of “scenarios”. Such
+scenarios should be defined as you develop new features, and the team will
+periodically review and test the scenarios even before release.
 
 Currently, scenarios are hosted in internal documentation and testing is
 managed via stand-up meetings on testing days, and google documents. This is
@@ -227,130 +262,40 @@ due to change as we adopt a new testing tool in 2014.
 
 .. needs an update about current testing procedures/link to internal docs?
 
-Checklist
-^^^^^^^^^
+Release candidates checklist
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A checklist of all the things that should be done as the release date
-approaches is detailed in :doc:`release-process`.
+A checklist of all the things that should be done once the release candidates
+are in place, is detailed in :doc:`release-process`.
 
 Yearly meetings
 ---------------
 
-Typically just before, during, or after a major release, the entire
-OME team will try to meet to determine the goals and features for the
-next major release. Being co-located for the release is often also
-useful in itself, but having time to work through the many different
-directions is critical. This often happens at the annual users’
-meeting in Paris (May/June).
+Typically just before, during, or after a major release, the entire OME team
+will meet to determine the goals and features for the next major release.
+Being co-located for the release is often also useful in itself, but having
+time to work through the many different directions is critical. This often
+happens at the annual users’ meeting in Paris (May/June).
 
 Previews
 --------
 
-There has been some experimentation on the team with “previews”, which
-are created and then provided to certain sites for early
-testing. Previews may be created in the middle of a release or with a
-final release for testing less stable work.
+There has been some experimentation on the team with “previews”, which are
+created and then provided to certain sites for early testing. Previews may be
+created in the middle of a release or with a final release for testing less
+stable work.
 
-Specific external groups interested in such previews should be
-integrated into the process where possible. As soon as previews are
-ready they should be sent out to interested external parties for
-testing/review. However, consideration should be taken when choosing
-such groups since there is a certain amount of indebtedness,
-i.e. asking a group to test a preview too often could become a burden.
+Specific external groups interested in such previews should be integrated into
+the process where possible. As soon as previews are ready they should be sent
+out to interested external parties for testing/review. However, consideration
+should be taken when choosing such groups since there is a certain amount of
+indebtedness i.e. asking a group to test a preview too often could become a
+burden.
 
 Subgroup processes
 ------------------
 
-To see how a specific group works together you might take a look at
-the web process which is defined under :ticket:`4772`.  While numerous
-new “sub-groups” are getting up-to-speed, we will obviously need to
-find ways to keep communication and collaboration simple for everyone.
-
-.. seealso::
-
-	http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
-		Best practices for git commit message formatting
-	
-	http://en.wikipedia.org/wiki/Technical_debt
-		Wikipedia article on Technical debt
-
-Code contributions
-==================
-
-In order to expedite the contribution of code to the OME project,
-whether individual files or entire modules such as a service or web
-application, we've put together the following guidelines. If you have
-issues with any of the below, please let us know.
-
-File headers
-------------
-
-The official `header templates`_ for each file type (Java, Python,
-HTML, etc.)  can be found in the docs/headers.txt file of the source
-repository. The correct template should be applied at the top of all
-newly created files. The header of existing files should not be
-modified without previous discussion except with regard to keeping the
-year line up to date, for example changing "2008-2011" to "2008-2013".
-
-Copyrights
-----------
-
-The copyright line for a newly created file is based on the
-institution of the creator of the file and will remain unchanged even
-if copied or moved.  Before redistribution of code can take place, an
-agreement must be reached between the OME team and the copyright
-holder.
-
-Licenses
---------
-
-The licenses of any files intended for redistribution with OME must be
-compatible with the GPL and more restrictively for the web components
-with the AGPL. Some files in the code-base (the schema, etc.) are
-released under more liberal licenses but are still compatible with the
-GPL.
-
-Distribution
-------------
-
-For a block of work to be considered for redistribution with OME, the
-code must further be made available in one of the following formats.
-
-Patches/Pull requests
-^^^^^^^^^^^^^^^^^^^^^
-
-Smaller changes to the existing code base can be submitted to the team
-either as patches, or preferably as pull requests on github. You can
-read the more about pull requests under :ref:`branch-process-label`.
-The idea is that such smaller changes are reviewed line-by-line and
-then maintained by the core team.
-
-Submodules
-^^^^^^^^^^
-
-Larger submissions, which cannot be effectively reviewed so
-intensively, should be submitted as `git submodules`_. Such submodules
-provide a unique way to describe to a component version, which becomes
-linked into the main codebase. During checkout, all submodules are
-downloaded into the OME directory; and during the build process,
-submodules are compiled into the official distribution.
-
-The OME team cannot maintain or ship code which is only available as a
-long-living branch (a fork) of the code base, and we'd encourage
-submitters to use one of the above methods.
-
-Examples of contribution templates
-----------------------------------
-
-There are any number of other projects which have setup similar
-practices for code contributions. If you would like to read more on
-the rationale, please see:
-
-* http://dojofoundation.org/about/get-involved
-* http://dojofoundation.org/about/cla
-* http://incubator.apache.org/
-* http://www.apache.org/foundation/how-it-works.html
-
-
-.. _header templates: https://github.com/openmicroscopy/openmicroscopy/blob/develop/docs/headers.txt
-.. _git submodules: http://git-scm.com/book/en/Git-Tools-Submodules
+To see how a specific group works together you might take a look at the web
+process which is defined under :ticket:`4772`.  While numerous new
+“sub-groups” are getting up-to-speed, we will obviously need to find ways to
+keep communication and collaboration simple for everyone.
