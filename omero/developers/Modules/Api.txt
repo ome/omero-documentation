@@ -171,7 +171,7 @@ been collected in the
 :source:`IContainer <components/common/src/ome/api/IContainer.java>`
 interface. IContainer simplifies a few very common queries, and there is a
 related package ("pojos.\*") for working with the returned graphs.
-OMERO.Insight works almost exclusively with the IContainer interface for its
+OMERO.insight works almost exclusively with the IContainer interface for its
 non-binary needs.
 
 Examples
@@ -221,7 +221,7 @@ The server-side implementation of these interfaces makes use of ((JDK5))
 parameters. Calls to ``pojos.findContainerHierarches`` are first caught by a
 method interceptor, which checks for annotations on the parameters and, if
 available, performs the necessary checks. The interceptor also makes proactive
-checks. For a range of parameters types (such as Java Collections) it requires
+checks. For a range of parameter types (such as Java Collections) it requires
 that annotations exist and will refuse to proceed if not implemented.
 
 An API call of the form:
