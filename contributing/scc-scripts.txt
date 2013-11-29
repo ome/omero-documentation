@@ -53,7 +53,7 @@ file and, if found, uses this username to connect to Github::
 
 .. note::
    The password to be entered here is the GitHub password. Connecting using
-   the GitHub username/password is NOT possible is 2FA has been activated.
+   the GitHub username/password is NOT possible if 2FA has been activated.
 
 Finally, if no token or user is found, both the GitHub username and password
 are queried at the prompt::
