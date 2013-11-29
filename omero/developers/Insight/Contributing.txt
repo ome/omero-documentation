@@ -4,23 +4,23 @@ Contributing to OMERO.insight
 Getting started with OMERO.insight
 ----------------------------------
 
-Getting started with OMERO.insight entails that you have an 
+Getting started with OMERO.insight entails that you have an
 :doc:`OMERO.server </sysadmins/server-overview>` already deployed.
 
 Installing from source
 ----------------------
 
-Since January 2011, OMERO.insight code base is part of the OMERO code base. 
-See :doc:`/developers/using-git`, to check out code using 
-`<http://git.openmicroscopy.org/>`_
+Since January 2011, the OMERO.insight code base is part of the OMERO code
+base. See :doc:`/developers/installation`, to check out code using
+http://git.openmicroscopy.org.
 
 Requirements
 ~~~~~~~~~~~~
 
--  Install a Java 6 or Java 7 Development Kit (JDK), available from 
+-  Install a Java 6 or Java 7 Development Kit (JDK), available from
    `Java SE Downloads 
    <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_ and
-   required for both the OMERO server and client code. Set the ``JAVA_HOME`` 
+   required for both the OMERO server and client code. Set the ``JAVA_HOME``
    environment variable to your JDK installation.
 
 Running code
