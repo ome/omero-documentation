@@ -821,5 +821,9 @@ Creating Image
 --------------
 
 The :source:`CreateImage.m <examples/Training/matlab/CreateImage.m>` example
-script shows how to create an image in OMERO. A similar approach can be 
-applied when uploading an image.
+script shows how to create an image in OMERO. A similar approach can be
+applied when uploading an image. To upload individual planes onto the server,
+the data must be converted into a byte (int8) array first. If the pixels
+object has been created, this conversion can done using the
+:source:`toByteArray <components/tools/OmeroM/src/helper/toByteArray.m>`
+function.
