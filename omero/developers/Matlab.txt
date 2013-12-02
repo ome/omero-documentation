@@ -520,20 +520,22 @@ function::
 
 The content of a file annotation can be downloaded to local disk using the
 :source:`getFileAnnotationContent <components/tools/OmeroM/src/annotations/getFileAnnotationContent.m>`
-function::
+function. If the file annotation has been retrieved from the server as
+``fileAnnotation``, then the content of its ``OriginalFile`` can be downloaded
+under ``target_file`` using::
 
 	getFileAnnotationContent(session, fileAnnotation, target_file);
 
-Alternatively, if only the file annotation identifier is known::
+Alternatively, if only the identifier of the file annotation ``faId`` is
+known::
 
-	getFileAnnotationContent(session, faid, target_file);
-
-To replace the content of an existing file annotation, 
+	getFileAnnotationContent(session, faId, target_file);
 
 -  **Writing annotations**
 
 New annotations can be created and linked to existing objects. For example,
-to create a new tag annotation and attach it to an image, it is possible to use the :source:`writeTagAnnotation <components/tools/OmeroM/src/annotations/writeTagAnnotation.m>` function and 
+to create a new tag annotation and attach it to an image, it is possible to
+use the :source:`writeTagAnnotation <components/tools/OmeroM/src/annotations/writeTagAnnotation.m>` function and
 then the :source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
 function::
 
@@ -542,9 +544,13 @@ function::
 
 -  **Updating file annotations**
 
-For file annotations, it is possible to replace the content of the original file without having to recreate a new annotation using the :source:`updateFileAnnotation <components/tools/OmeroM/src/annotations/updateFileAnnotation.m>` function::
+For existing file annotations, it is possible to replace the content of the original file without having to recreate a new file annotation using the :source:`updateFileAnnotation <components/tools/OmeroM/src/annotations/updateFileAnnotation.m>` function.
 
-	updateFileAnnotation(session, fileAnnotation, target_file);
+If the file annotation has been retrieved from the server as
+``fileAnnotation``, then the content of its ``OriginalFile`` can be replaced
+by the content of ``local_file`` using::
+
+	updateFileAnnotation(session, fileAnnotation, local_file);
 
 
 Writing data
