@@ -253,8 +253,8 @@ by specifying the parent type and identifiers as::
 	projectImages = getImages(session, 'project', projectIds)
 	datasetImages = getImages(session, 'dataset', datasetsIds)
 
-The Image-Pixels model implies you need to use the pixels objects to access
-valuable data about the image::
+The ``Image``-``Pixels`` model implies you need to use the ``Pixels`` objects
+to access valuable data about the ``Image``::
 
     pixels = image.getPrimaryPixels();
     sizeZ = pixels.getSizeZ().getValue(); % The number of z-sections.
@@ -366,7 +366,7 @@ Alternatively, the image identifier can be passed to the function::
 
 -  **Hypercube**
 
-This is useful when you need the pixels intensity.
+This is useful when you need the ``Pixels`` intensity.
 
 ::
 
@@ -830,7 +830,7 @@ Creating Image
 The :source:`CreateImage.m <examples/Training/matlab/CreateImage.m>` example
 script shows how to create an image in OMERO. A similar approach can be
 applied when uploading an image. To upload individual planes onto the server,
-the data must be converted into a byte (int8) array first. If the pixels
+the data must be converted into a byte (int8) array first. If the ``Pixels``
 object has been created, this conversion can done using the
 :source:`toByteArray <components/tools/OmeroM/src/helper/toByteArray.m>`
 function.
