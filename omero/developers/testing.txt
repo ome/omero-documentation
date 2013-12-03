@@ -1,6 +1,10 @@
 Running and writing tests
 =========================
 
+The following guidelines apply to tests in both the Java and Python test
+components. Please make sure to verify the path and file extension before
+running tests to avoid confusion.
+
 Running unit tests
 ------------------
 
