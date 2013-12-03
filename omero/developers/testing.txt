@@ -141,72 +141,11 @@ Some components might provide individual targets for specific tests (e.g.
 OmeroJava provides the :option:`broken` target for running broken tests).
 The :file:`build.xml` file is the reference in each component.
 
-Using Eclipse to run tests
---------------------------
-
-There are currently :file:`.project` and :file:`.classpath-template`
-files stored in git in each component directory (e.g. :source:`common's
-.classpath <components/common/.classpath-template>` and
-:source:`common's .project </components/common/.project>`).
-
-There are also top-level :file:`.classpath` and :file:`.project` files which
-contain the entire project, but this approach requires more memory and
-does not clearly differentiate the classpaths, and so can lead to confusion.
-
-All the Eclipse projects require a successful build to have taken place:
-
-::
-
-    ./build.py
-
-This is for two reasons. Firstly, the Eclipse projects are not configured to
-perform the code generation needed. The :command:`build.py` command creates
-the directory:
-
-::
-
-    <component>/target
-
-which will be missing from any Eclipse project you open before building
-the source.
-
-Secondly, Ivy is used to copy all the jar dependencies from
-``OMERO_SOURCE_PREFIX/lib/repository`` to ``<component>/target/libs``, which
-is then used in the Eclipse :file:`.classpath` files.
-
-If Eclipse ever gets out of sync after the first build,
-:command:`./build.py build-eclipse` can be used to quickly synchronize.
-
-TestNG plugin
-^^^^^^^^^^^^^
-
-A prerequisite of running unit and integration tests in the Eclipse UI is
-having the TestNG plug-in installed and working (help available on the
-`TestNG site <http://testng.org/doc/eclipse.html>`_).
-
-Unit tests
-^^^^^^^^^^
-
-Running the unit tests under Eclipse requires no extra settings and is as
-easy as navigating to the package or class context menu :guilabel:`Run As`
-or :guilabel:`Debug As`, then selecting :guilabel:`TestNG`.
-
-Integration tests
-^^^^^^^^^^^^^^^^^
-
-Integration tests require the :envvar:`ICE_CONFIG` environment variable to
-be available for the Eclipse-controlled JVM. This can be done by editing
-Debug/Run configurations in Eclipse. After navigating to the Debug (or Run)
-Configurations window, the :guilabel:`Environment` tab needs to be selected.
-After clicking :guilabel:`New`, :envvar:`ICE_CONFIG` can be defined as a
-path to the :file:`ice.config` file. This setting needs to be defined per
-package, class or method.
-
 Writing Java tests
 ------------------
 
-For more information on writing tests in general see `<http://testng.org>`_. 
-For a test to be an "integration" test, place it in the "integration" 
+For more information on writing tests in general see `<http://testng.org>`_.
+For a test to be an "integration" test, place it in the "integration"
 TestNG group. If a test is temporarily broken, add it to the "broken" group:
 
 ::
@@ -260,6 +199,93 @@ skeleton for an integration test looks similar to
 
     }
 
+Using Eclipse to run tests
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To facilitate importing OMERO components into Eclipse, there are
+:file:`.project` and :file:`.classpath-template` files stored in each
+component directory (e.g. :source:`common's
+.classpath <components/common/.classpath-template>` and :source:`common's
+.project </components/common/.project>`).
+
+There are also top-level :file:`.classpath` and :file:`.project` files which
+allow for importing all components as a single project, but this approach
+requires more memory and does not clearly differentiate the classpaths, and
+so can lead to confusion.
+
+Before importing any component as a project into Eclipse, a successful
+build has to have taken place:
+
+::
+
+    ./build.py
+
+This is for two reasons. Firstly, the Eclipse projects are not configured to
+perform the code generation needed. The :command:`build.py` command creates
+the directory:
+
+::
+
+    <component>/target
+
+which will be missing from any Eclipse project you open before building
+the source.
+
+Secondly, Ivy is used to copy all the jar dependencies from
+``OMERO_SOURCE_PREFIX/lib/repository`` to ``<component>/target/libs``, which
+is then used in the Eclipse :file:`.classpath` files.
+
+If Eclipse ever gets out of sync after the first build,
+:command:`./build.py build-eclipse` can be used to quickly synchronize.
+
+TestNG plugin
+^^^^^^^^^^^^^
+
+A prerequisite of running unit and integration tests in the Eclipse UI is
+having the TestNG plug-in installed and working (help available on the
+`TestNG site <http://testng.org/doc/eclipse.html>`_).
+
+Unit tests
+^^^^^^^^^^
+
+Running the unit tests under Eclipse requires no extra settings and is as
+easy as navigating to the package or class context menu :guilabel:`Run As`
+or :guilabel:`Debug As`, then selecting :guilabel:`TestNG`.
+
+Integration tests
+^^^^^^^^^^^^^^^^^
+
+Integration tests require the :envvar:`ICE_CONFIG` environment variable to
+be available for the Eclipse-controlled JVM. This can be done by editing
+Debug/Run configurations in Eclipse. After navigating to the Debug (or Run)
+Configurations window, the :guilabel:`Environment` tab needs to be selected.
+After clicking :guilabel:`New`, :envvar:`ICE_CONFIG` can be defined as a
+path to the :file:`ice.config` file. This setting needs to be defined per
+package, class or method.
+
+Debugging a running OMERO instance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By using the "debug" target from templates.xml, it is possible to have
+OMERO listen on port 8787 for a debugging connection.
+
+::
+
+    bin/omero admin stop
+    bin/omero admin start debug
+
+Then in Eclipse, you can create a new "Debug" configuration by clicking
+on :guilabel:`Remote Java Application`, and setting the port to 8787. These
+values are arbitrary and can be changed locally.
+
+**Keep in mind**:
+
+- The server will not start up until you have connected with Eclipse. This
+  is due to the "suspend=y" clause in templates.xml. If you would like
+  the server to start without you connecting, use "suspend=n".
+- If you take too much time examining your threads, your calls may
+  throw timeout exceptions.
+
 .. _writing-python-tests:
 
 Writing Python tests
@@ -302,10 +328,11 @@ The file names must begin with `test_` for the tests to be found by `pytest`.
 Running tests directly
 ^^^^^^^^^^^^^^^^^^^^^^
 
-When writing tests it can be more convenient, flexible and powerful to run the
-tests from :sourcedir:`components/tools/OmeroPy` using :file:`setup.py`. Since
-Python is interpreted, tests can be written and then run without having to
-rebuild or restart the server. A few basic examples are shown below.
+When writing tests it can be more convenient, flexible and powerful to run
+the tests from :sourcedir:`components/tools/OmeroPy` using :file:`setup.py`.
+Since Python is interpreted, tests can be written and then run without
+having to rebuild or restart the server. A few basic examples are shown
+below.
 
 Run a single test file:
 ::
@@ -342,7 +369,8 @@ For more help with :file:`setup.py` see:
     ./setup.py --help test
 
 To make use of the more advanced options available in `pytest` that are not
-assessible using :file:`setup.py`, the script :file:`py.pest` can be used directly.
+assessible using :file:`setup.py`, the script :file:`py.pest` can be used
+directly.
 For example, to run the tests in a single package allowing standard output
 to be shown on the console:
 
@@ -357,26 +385,3 @@ For a full list of options see:
     py.test --help
 
 and `<http://pytest.org/latest/usage.html>`_ for more help in running tests.
-
-Debugging a running OMERO instance
-----------------------------------
-
-By using the "debug" target from templates.xml, it is possible to have
-OMERO listen on port 8787 for a debugging connection.
-
-::
-
-    bin/omero admin stop
-    bin/omero admin start debug
-
-Then in Eclipse, you can create a new "Debug" configuration by clicking
-on "Remote Java Application", and setting the port to 8787. These
-values are arbitrary and can be changed locally.
-
-**Keep in mind**:
-
-- The server will not start up until you have connected with Eclipse. This
-  is due to the "suspend=y" clause in templates.xml. If you would like
-  the server to start without you connecting, use "suspend=n".
-- If you take too much time examining your threads, your calls may
-  throw timeout exceptions.
