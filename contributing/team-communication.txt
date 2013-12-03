@@ -82,10 +82,10 @@ Jenkins: Continuous integration
 
 Our Jenkins_ server is available :jenkins:`here <>` and also uses LDAP
 authentication. The name “Hudson”, by which Jenkins is referred to in the
-OMEteam, comes from before the Jenkins fork after Sun’s acquisition by Oracle. 
-Jenkins provides a mechanism to run arbitrary tasks (“jobs”) on one or more 
-platforms after particular events (time of day, git push, etc.) These jobs 
-build all of the binaries released by the team, and also run automated 
+OME team, comes from before the Jenkins fork after Sun’s acquisition by
+Oracle. Jenkins provides a mechanism to run arbitrary tasks (“jobs”) on one or
+more platforms after particular events (time of day, git push, etc.) These
+jobs build all of the binaries released by the team, and also run automated
 testing.
 
 .. _jenkins_screenshot:
@@ -116,7 +116,7 @@ interface to the mailing list one, and vice versa.
 You should add yourself to all three and be aware of and scan all
 threads on a fairly regular basis. The general rule is that requests
 from the community will be responded to by the next working day, where
-to the best of our ability we keep the ‘working days’ and time zones
+to the best of our ability, we keep the ‘working days’ and time zones
 of the community in mind. If you miss any messages or want to review
 previous discussions see the archive lists available on the
 “mailing-lists” page:
@@ -161,7 +161,7 @@ Internal servers
 
 There are a number of servers and services inside of the University of
 Dundee system that are used by the entire team. You may not need
-access to all of them immediately, but it’s good to know what’s
+access to all of them immediately, but it is good to know what is
 available in case you do.
 
 * **vpn.lifesci.dundee.ac.uk** (LDAP-based) is necessary for securely
@@ -184,9 +184,9 @@ available in case you do.
 .. note::
 
   For anyone who has been hired to work at the University of
-  Dundee, you will be provided with a 
+  Dundee, you will be provided with a
   :team_plone:`new start tasklist <new-start-tasklist>` which itemizes all
-  the things that need to be done to get you setup in RL (building
+  the things that need to be done to get you set up in RL (building
   access, a chair, etc.).
 
 Google Docs

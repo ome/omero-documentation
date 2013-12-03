@@ -52,12 +52,12 @@ Environment variables
 
 Prior to running the job, its variables need to be properly configured:
 
-- :envvar:`RELEASE` is the release number for OMERO and Bio-Formats
-- :envvar:`ANNOUNCEMENT_URL` is the URL of the forum release announcement and 
-  should be set to the value of the URL of the private post until it becomes 
-  public
+- :envvar:`RELEASE` is the release number for OMERO and Bio-Formats.
+- :envvar:`ANNOUNCEMENT_URL` is the URL of the forum release announcement and
+  should be set to the value of the URL of the private post until it becomes
+  public.
 - :envvar:`MILESTONE` is the name of the Trac milestone which the download
-  pages should be linked to
+  pages should be linked to.
 
 Last minute PRs
 ^^^^^^^^^^^^^^^
@@ -74,61 +74,61 @@ Release review
 
 - Click :guilabel:`Build` on :jenkinsjob:`OMERO-4.4-release` or
   :jenkinsjob:`OMERO-5.0-release`. The tag chosen for the job should be 
-  unique, and not exist under the download directory or on http://github.com
+  unique, and not exist under the download directory or on http://github.com.
 - Release folders will be created under :file:`/ome/data_repo/public/omero`
   and :file:`/ome/data_repo/public/bio-formats` named with the release number
-  specified by the :envvar:`RELEASE` job variable
+  specified by the :envvar:`RELEASE` job variable.
 - Download pages will be generated pointing at the OMERO and Bio-Formats,
-  linkchecked and archived as artifacts
+  linkchecked and archived as artifacts.
 
 Release components review
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Set up servers for testing with the latest release of the OMERO.server
-  built with the different Ice versions
+  built with the different Ice versions.
 - Test the OMERO clients (OMERO.insight, OMERO.editor, OMERO.importer) for all
-  versions of Ice under Windows, Linux and MacOSX
-- Test the OMERO.server built with the different Ice versions
-- Test the OMERO ImageJ plugin
-- Test the OMERO.matlab toolbox
-- Test the OMERO Virtual Appliance
-- Test the Java Webstart from the deployed server
+  versions of Ice under Windows, Linux and MacOSX.
+- Test the OMERO.server built with the different Ice versions.
+- Test the OMERO ImageJ plugin.
+- Test the OMERO.matlab toolbox.
+- Test the OMERO Virtual Appliance.
+- Test the Java Webstart from the deployed server.
 - For Bio-Formats, test the **loci_tools.jar**, the command-line tools and the
-  Matlab bundle
+  MATLAB bundle.
 
 Release rejection
 -----------------
 
-- Delete the tags from the snoopycrimecop remotes
-- Delete the directories containing the landing pages and artifacts
+- Delete the tags from the snoopycrimecop remotes.
+- Delete the directories containing the landing pages and artifacts.
 
 Release acceptance
 ------------------
 
 - Push the tags from the snoopycrimecop remotes to origin. The tags should now
   be visible in the GitHub interface (see for instance
-  https://github.com/openmicroscopy/openmicroscopy/tree/v.4.4.9)
+  https://github.com/openmicroscopy/openmicroscopy/tree/v.4.4.9).
 
 Documentation
 ^^^^^^^^^^^^^
 
 - Update the version numbers set in the :envvar:`OMERO_RELEASE` and
-  :envvar:`BF_RELEASE` variables of the documentation release jobs
+  :envvar:`BF_RELEASE` variables of the documentation release jobs.
 - Build and promote :jenkinsjob:`OMERO-docs-release-stable` and
-  :jenkinsjob:`BIOFORMATS-docs-release-stable`
+  :jenkinsjob:`BIOFORMATS-docs-release-stable`.
 - Check that the OMERO and Bio-Formats documentations sets are correctly
-  deployed, both HTML and PDF
+  deployed, both HTML and PDF.
 
 Public release
 ^^^^^^^^^^^^^^
 
-- Move the announcement post to the public Announcements forum
+- Move the announcement post to the public Announcements forum.
 - Update the :envvar:`ANNOUNCEMENT_URL` variable in the
   :jenkinsjob:`OMERO-4.4-download-page` or
   :jenkinsjob:`OMERO-5.0-download-page` job to the value of the URL of the
   public post.
 - Re-run the download page generation job. Check the link to the announcement
-  and the URL of the tag have been updated in the OMERO downloads page
+  and the URL of the tag have been updated in the OMERO downloads page.
 - Remove the :file:`.htaccess` file from the release folders and make the
   release folders read-only::
 
@@ -136,8 +136,7 @@ Public release
     hudson@necromancer /ome/data_repo/public/omero $ chmod -R a-w $RELEASE
     hudson@necromancer /ome/data_repo/public/bio-formats $ rm $RELEASE/.htaccess
     hudson@necromancer /ome/data_repo/public/bio-formats $ chmod -R a-w $RELEASE
-- Set up the apache redirects for the latest version of manuals
-- Update the website main page and version history
+- Set up the apache redirects for the latest version of manuals.
 - Update version number for Upgrade check. This is currently done
   by connecting to the “feedback” database on necromancer.
 
@@ -146,23 +145,23 @@ Public release
      update registry_version set version = '\ |release|';
 - Announce the release on the mailing lists and Twitter, and in News.
 - Update openmicroscopy.org home page with latest release number, date and
-  Milestone page link.
+  Milestone page link. Also update the OMERO version history plone page.
 
 Post release
 ^^^^^^^^^^^^
 
 .. |releasetag| replace:: v.\ |release|
 
--  Change reports in left-hand column of trac
--  Update any deployed servers (KIT, Warlock, Nightshade...)
--  Update online validator (See :ticket:`8640` for an example)
+-  Change the reports in the left-hand column of trac.
+-  Update any deployed servers (KIT, Warlock, Nightshade...).
+-  Update online validator (See :ticket:`8640` for an example).
 -  Assign the adequate milestone to closed PRs on Github using
    ``scc check-milestone`` with the :option:`--set` option::
 
       scc check-milestone v.5.0.0-alpha2 v.5.0.0-alpha3 --set=5.0.0-alpha3
 
 -  Add the released version on the right panel of
-   http://trac.openmicroscopy.org.uk/ome/admin/ticket/versions
+   http://trac.openmicroscopy.org.uk/ome/admin/ticket/versions.
 
 Demo server
 ^^^^^^^^^^^
@@ -173,8 +172,8 @@ Demo server
 -  Test demo server.
 -  Email announcement.
 
-Plone updates
-^^^^^^^^^^^^^
+Additional plone updates
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 - If any changes have been made to documentation URLs, ensure links in plone 
   Product pages (e.g. OMERO Feature List) and documentation index are updated.

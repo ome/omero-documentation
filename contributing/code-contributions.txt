@@ -3,7 +3,7 @@ Code contributions
 
 In order to expedite the contribution of code to the OME project,
 whether individual files or entire modules such as a service or web
-application, we've put together the following guidelines. If you have
+application, we have put together the following guidelines. If you have
 issues with any of the below, please let us know.
 
 File headers
@@ -44,7 +44,7 @@ Patches/Pull requests
 ^^^^^^^^^^^^^^^^^^^^^
 
 Smaller changes to the existing code base can be submitted to the team
-either as patches, or preferably as pull requests on github. You can
+either as patches, or preferably as pull requests on GitHub. You can
 read the more about pull requests under :ref:`branch-process-label`.
 The idea is that such smaller changes are reviewed line-by-line and
 then maintained by the core team.
@@ -60,13 +60,13 @@ downloaded into the OME directory; and during the build process,
 submodules are compiled into the official distribution.
 
 The OME team cannot maintain or ship code which is only available as a
-long-living branch (a fork) of the code base, and we'd encourage
+long-living branch (a fork) of the code base, and we would encourage
 submitters to use one of the above methods.
 
 Examples of contribution templates
 ----------------------------------
 
-There are any number of other projects which have setup similar
+There are any number of other projects which have set up similar
 practices for code contributions. If you would like to read more on
 the rationale, please see:
 
