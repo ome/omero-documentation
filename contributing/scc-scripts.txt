@@ -237,11 +237,11 @@ line starting with ``--depends-on #67`` to the PR.
 
 To include a PR from a submodule, use the PR number prepended by
 ``submodule_user/submodule_name#``. For instance, to include PR 60 of
-bioformats to the Travis build, add a comment line starting with
+bioformats in the Travis build, add a comment line starting with
 ``--depends-on openmicroscopy/bioformats#60`` to the openmicroscopy PR.
 
 .. note::
-  The :program:`scc travis-merge` command solely works for Pull Requests'
+  The :program:`scc travis-merge` command works solely for Pull Requests'
   Travis builds.
 
 scc update-submodules
