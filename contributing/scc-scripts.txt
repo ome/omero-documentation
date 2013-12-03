@@ -16,37 +16,51 @@ can be installed using ``pip``::
 	$ pip install -U scc
 
 If your Python is old then this may also install the **PyGithub** and
-**argparse** packages, but since Python 2.7 they are already included
+**argparse** packages, but since Python 2.7 **argparse** is already included
 with the standard library.
 
 Github connection
 -----------------
 
-Most of the scc commands instantiate a Github connection using the PyGithub
-package. Unless the :option:`--token` option is passed to the scc command, the
-command first looks for the `github.token` specified in the git config file
-and, if found, uses this token to connect to Github::
+.. _About Two-Factor Authentication: http://help.github.com/articles/about-two-factor-authentication
+.. _Creating an access token for command-line use: http://help.github.com/articles/creating-an-access-token-for-command-line-use
 
-	$ ./scc.py merge master --info -v
+Most of the scc commands instantiate a Github connection using the PyGithub
+package. GitHub strongly recommends to turn on two-factor authentification
+(2FA), see `About Two-Factor Authentication`_ for more details. If 2FA is
+activated, the only way to use scc commands creating a GitHub connection is to
+create an OAuth token, see
+`Creating an access token for command-line use`_
+for details on how to create Personal Access Tokens via the GitHub interface.
+This token can then be stored in the global Git configuration file::
+
+	git config --global github.token REPLACE_BY_PERSONAL_ACCESS_TOKEN
+
+Unless the :option:`--token` option is passed to the scc command, the
+command first looks for the `github.token` specified in the git config file
+and, if found, uses this token to connect to GitHub::
+
+	$ scc merge master --info -v
 	2013-01-16 22:03:49,633 [  scc.config] DEBUG Found github.token
 	...
 
 If no token is found, the command looks for a `github.user` in the git config
 file and, if found, uses this username to connect to Github::
 
-	$ ./scc.py merge master --info -v
+	$ scc merge master --info -v
 	2013-01-16 22:06:00,256 [  scc.config] DEBUG Found github.user
 	Enter password for http://github.com/sbesson:
 
 .. note::
-   The password to be entered here is the Github password.
+   The password to be entered here is the GitHub password. Connecting using
+   the GitHub username/password is NOT possible if 2FA has been activated.
 
-Finally, if no token or user is found, both the Github username and password
+Finally, if no token or user is found, both the GitHub username and password
 are queried at the prompt::
 
-	$ ./scc.py merge master --info -v
+	$ scc merge master --info -v
 	# github.token and github.user not found.
-	# See `./scc.py token` for simpifying use.
+	# See `scc token` for simpifying use.
 	Username or token: sbesson
 	Enter password for http://github.com/sbesson:
 
