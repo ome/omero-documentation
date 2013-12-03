@@ -58,7 +58,11 @@ Most likely the first settings that will have to be put there will be
 Running all tests
 ^^^^^^^^^^^^^^^^^
 
-To run all the integration tests, use :command:`./build.py test-integration`.
+All the integration tests can be run using:
+
+::
+
+    ./build.py test-integration
 
 Component tests
 ^^^^^^^^^^^^^^^
@@ -71,15 +75,6 @@ explicitly via:
     ./build.py -f components/<component>/build.xml integration
 
 Results are placed in ``components/<component>/target/reports``.
-
-Running all tests
-^^^^^^^^^^^^^^^^^
-
-All the integration tests can be run using:
-
-::
-
-    ./build.py test-integration
 
 Individual tests
 ^^^^^^^^^^^^^^^^
