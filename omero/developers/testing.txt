@@ -54,6 +54,15 @@ created and pointed to by the :envvar:`ICE_CONFIG` environment variable.
 Most likely the first settings that will have to be put there will be
 ``omero.user`` and ``omero.pass``.
 
+Running all tests
+^^^^^^^^^^^^^^^^^
+
+All the integration tests can be run using:
+
+::
+
+    ./build.py test-integration
+
 Component tests
 ^^^^^^^^^^^^^^^
 
@@ -65,15 +74,6 @@ explicitly via:
     ./build.py -f components/<component>/build.xml integration
 
 Results are placed in ``components/<component>/target/reports``.
-
-Running all tests
-^^^^^^^^^^^^^^^^^
-
-All the integration tests can be run using:
-
-::
-
-    ./build.py test-integration
 
 Individual tests
 ^^^^^^^^^^^^^^^^
