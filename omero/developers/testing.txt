@@ -83,7 +83,7 @@ Results are placed in ``components/<component>/target/reports``.
 Individual test groups
 ^^^^^^^^^^^^^^^^^^^^^^
 
-To run individual groups (or sets of groups separated by a comma) of tests,
+To run individual groups (or comma-separated sets of groups) of tests,
 the :option:`-DGROUPS` parameter can be used together with the
 :option:`test` target
 
@@ -106,9 +106,10 @@ working on. This can be done by using the :option:`test` option. For example:
 Individual test class methods
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Individual test class methods (or a comma separated list of methods) can be
+Individual test class methods (or a comma-separated list of methods) can be
 run using the :option:`-DMETHODS` parameter together with the :option:`test`
-target. The method to be run has to be in the FQN form (:option:`package.class.method`).
+target. The test method must be provided in the FQN form
+(:option:`package.class.method`).
 
 ::
 
@@ -370,7 +371,7 @@ For more help with :file:`setup.py` see:
     ./setup.py --help test
 
 To make use of the more advanced options available in `pytest` that are not
-assessible using :file:`setup.py`, the script :file:`py.pest` can be used
+accessible using :file:`setup.py`, the script :file:`py.pest` can be used
 directly.
 For example, to run the tests in a single package allowing standard output
 to be shown on the console:
