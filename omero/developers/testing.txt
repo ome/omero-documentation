@@ -79,6 +79,18 @@ explicitly via:
 
 Results are placed in ``components/<component>/target/reports``.
 
+Individual test groups
+^^^^^^^^^^^^^^^^^^^^^^
+
+To run individual groups (or sets of groups separated by a comma) of tests,
+the :option:`-DGROUPS` parameter can be used together with the
+:option:`test` target
+
+::
+
+    ./build.py -f components/tools/OmeroJava/build.xml test -DGROUPS=integration
+
+
 Individual tests
 ^^^^^^^^^^^^^^^^
 
@@ -89,6 +101,18 @@ working on. This can be done by using the :option:`test` option. For example:
 
     ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/AdminTest
     ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test/integration/test_admin.py
+
+Individual test class methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Individual test class methods (or a comma separated list of methods) can be
+run using the :option:`-DMETHODS` parameter together with the :option:`test`
+target. The method to be run has to be in the FQN form (:option:`package.class.method`).
+
+::
+
+    ./build.py -f components/tools/OmeroJava/build.xml test -DMETHODS=integration.chgrp.AnnotationMoveTest.testMoveTaggedImage
+
 
 Using markers in OmeroPy tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
