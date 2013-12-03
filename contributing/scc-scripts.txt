@@ -112,9 +112,10 @@ The first argument is the name of the base branch of origin, e.g.::
 
 		$ scc merge develop -E pr:45 -E #46
 
-	Submodule PR filters can be specified using `submodule_name#number`::
+	Submodule PR filters can be specified using
+	`submodule_user/submodule_name#number`::
 
-		$ scc merge develop -E bioformats#40
+		$ scc merge develop -E openmicroscopy/bioformats#40
 
 	If no key is specified, it is assumed the filter is a label filter.
 
@@ -141,9 +142,10 @@ The first argument is the name of the base branch of origin, e.g.::
 
 		$ scc merge develop -I pr:45 -I #46
 
-	Submodule PR filters can be specified using `submodule_name#number`::
+	Submodule PR filters can be specified using
+	`submodule_user/submodule_name#number`::
 
-		$ scc merge develop -I bioformats#40
+		$ scc merge develop -I openmicroscopy/bioformats#40
 
 	If no key is specified, it is assumed the filter is a label filter.
 
@@ -241,10 +243,20 @@ option is set to `none` meaning no PR is merged by default and no default
 :option:`--exclude` option is defined.
 
 The :option:`--include` filter is determined by parsing all the PR comments
-lines starting with ``--depends-on``. To include PR 67 in the merge, add a
-comment line starting with ``--depends-on #67`` to the PR. To include PR 60 of
-the bioformats submodules, add a comment line starting with
-``--depends-on bioformats#60`` to the PR.
+lines starting with ``--depends-on``.
+
+To include a PR from the same GitHub repository, use the PR number prepended
+by ``#``. For instance, to include PR 67 in the Travis build, add a comment
+line starting with ``--depends-on #67`` to the PR.
+
+To include a PR from a submodule, use the PR number prepended by
+``submodule_user/submodule_name#``. For instance, to include PR 60 of
+bioformats in the Travis build, add a comment line starting with
+``--depends-on openmicroscopy/bioformats#60`` to the openmicroscopy PR.
+
+.. note::
+  The :program:`scc travis-merge` command works solely for Pull Requests'
+  Travis builds.
 
 scc update-submodules
 ---------------------
