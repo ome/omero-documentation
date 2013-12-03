@@ -213,6 +213,14 @@ Major releases consist of some number (10+) of the 2-week sprints described
 above, and should always end with a test cycle of at least 3 weeks. Smaller
 bug fix releases may be much shorter and won’t need as extensive testing.
 
+OmeroPyGateway
+^^^^^^^^^^^^^^
+
+* Make sure you keep Blitz Gateway commits separate from other commits.
+* Keep track of Blitz Gateway API changes.
+* Always cc the necessary members of the Glencoe team (currently Chris, Carlos
+  and Andreas) on all PRs with changes to the Blitz Gateway or webgateway.
+
 Model
 ^^^^^
 
