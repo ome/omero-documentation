@@ -438,6 +438,10 @@ tab of Jenkins.
 		* 
 		* :term:`FORMATS-docs-release-develop`
 
+	- 	* Publish OME Contributing documentation
+		*
+		* :term:`CONTRIBUTING-docs-release-develop`
+
 	- 	* Review OMERO documentation PRs
 		* :term:`OMERO-docs-merge-stable`
 		* :term:`OMERO-docs-merge-develop`
@@ -449,6 +453,10 @@ tab of Jenkins.
 	- 	* Review OME Model documentation PRs
 		* 
 		* :term:`FORMATS-docs-merge-develop`
+
+	- 	* Review OME Contributing documentation PRss
+		*
+		* :term:`CONTRIBUTING-docs-merge-develop`
 
 Configuration
 ^^^^^^^^^^^^^
@@ -560,11 +568,20 @@ develop.
 		This job is used to build the develop branch of the OME Model
 		documentation and publish the official documentation
 
-		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-develop-release.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
+
+	:jenkinsjob:`CONTRIBUTING-docs-release-develop`
+
+		This job is used to build the develop branch of the OME Contributing
+		documentation and publish the official documentation
+
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/contributing-release.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing/
 
 	:jenkinsjob:`OMERO-docs-merge-develop`
 
@@ -598,6 +615,17 @@ develop.
 		#. |linkcheck|
 		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-develop-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-staging/
+
+	:jenkinsjob:`CONTRIBUTING-docs-merge-develop`
+
+		This job is used to eview the PRs opened against the develop branch
+		of the OME Contributing documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/contributing-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing-staging/
 
 .. _linkcheck_parser:
 
