@@ -28,22 +28,14 @@ title = project + u' Documentation'
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-if "OMERO_RELEASE" in os.environ:
-    # Define Sphinx version and release variables and development branch
-    release = os.environ.get('OMERO_RELEASE')
-    [majornumber, minornumber, patchnumber] = split_release(release)
-    version = ".".join(str(x) for x in (majornumber, minornumber))
-    stablebranch = "dev_" + "_".join(str(x) for x in (
-        majornumber, minornumber))
-    nextpointrelease = ".".join(str(x) for x in (
-        majornumber, minornumber, patchnumber +1))
-else:
-    version = ''
-    release = ''
-    stablebranch = 'develop'
-    nextpointrelease = 'x.y.z'
-
+release = '4.4.9'
 nextmajorrelease = '5.0.0'
+[majornumber, minornumber, patchnumber] = split_release(release)
+version = ".".join(str(x) for x in (majornumber, minornumber))
+stablebranch = "dev_" + "_".join(str(x) for x in (
+    majornumber, minornumber))
+nextpointrelease = ".".join(str(x) for x in (
+    majornumber, minornumber, patchnumber +1))
 
 rst_epilog += """
 .. |stablebranch| replace:: %s
