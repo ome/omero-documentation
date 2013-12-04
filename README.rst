@@ -69,6 +69,8 @@ The OME documentation is organized into multiple folders:
 
 * the OMERO documentation is under the ``omero`` folder,
 * the OME Model and Formats documentation is under the ``formats`` folder,
+* the OME Contributing Developer documentation is under the ``contributing`` 
+  folder,
 * the shared configuration and themes are under the ``common`` folder.
 
 The structure of each documentation folder follows the Sphinx system
@@ -104,6 +106,10 @@ build the OMERO documentation::
 or to build the OME Model and Formats documentation::
 
     cd formats/
+
+or to build the Contributing Developer documentation::
+
+   cd contributing/
 
 To clean the build directory of any previous builds, use::
     
@@ -148,9 +154,9 @@ The output should look something like::
 Top-level build command
 -----------------------
 
-The top-level directory Makefile also defines targets for building the OMERO
-and the OME Model and Formats sets of documentation at once. Note that the
-following commands currently work under UNIX-like platforms only.
+The top-level directory Makefile also defines targets for building all the
+OMERO, Contributing, and Model and Formats sets of documentation at once. Note
+that the following commands currently work under UNIX-like platforms only.
 
 To clean the build directories of any previous builds, use::
 
@@ -175,8 +181,8 @@ variable. The ``-W`` option turns all warnings into errors::
 Release number
 --------------
 
-The release number of each set of documentation is `UNKNOWN` by default. To
-modify this value:
+The release number of two sets of the documentation is `UNKNOWN` by default.
+To modify this value:
 
 * for the OMERO documentation, set the environment variable ``OMERO_RELEASE``,
   e.g.::
@@ -187,7 +193,11 @@ modify this value:
   ``FORMATS_RELEASE``, e.g.::
 
     cd formats && FORMATS_RELEASE=2012-06 make clean html
-    
+
+The Contributing Developer documentation has the release version removed as
+the intention is to update these files as and when necessary, so that they
+always reflect our current practices.
+
 ****************
 Conventions Used
 ****************
@@ -294,8 +304,8 @@ Example::
 Page labels and references
 ==========================
 
-Every page can be uniquely referenced using the sphinx doc directive. Like 
-other directives, you can use the absolute file path, i.e. relative to the 
+Every page can be uniquely referenced using the sphinx doc directive. Like
+other directives, you can use the absolute file path, i.e. relative to the
 top-level directory:
 ``:doc: `/path/name-of-the-page``` or ``:doc: `link to my page </path/name-of-the-page>```.
 
@@ -329,14 +339,14 @@ images. Sphinx does a good job at creating paths, so one can use
 Tables
 ======
 
-Please do not use tables for collections of links and figures, and leave them 
-solely for use as actual tables. While it can be used in HTML to shoehorn 
+Please do not use tables for collections of links and figures, and leave them
+solely for use as actual tables. While it can be used in HTML to shoehorn
 content into boxes, it does not work too well for other output, e.g. latex.
 
-Big tables (typically wider than 50 characters) should be managed as external 
-files using the comma-separated values (CSV) format. These tables can then be 
-included in the documentation with the ``csv-table`` directive. If tables are 
-saved using the tab-separated values (TSV) format use the ``delim`` option to 
+Big tables (typically wider than 50 characters) should be managed as external
+files using the comma-separated values (CSV) format. These tables can then be
+included in the documentation with the ``csv-table`` directive. If tables are
+saved using the tab-separated values (TSV) format use the ``delim`` option to
 set the table delimiter to `tab` e.g.::
 
     .. csv-table::
@@ -345,7 +355,7 @@ set the table delimiter to `tab` e.g.::
         :file: searchfieldnames.tsv
         :delim: tab
 
-To control the column width in the LaTeX output, precede the table directive 
+To control the column width in the LaTeX output, precede the table directive
 with ``tabularcolumns``, e.g.::
 
     .. tabularcolumns:: |p{3.5cm}|p{12cm}|
@@ -485,7 +495,8 @@ for the following:
 * Downloads: ``:downloads: `OMERO downloads <>```
 
 For the most up-to-date list, please consult ``conf.py`` (section
-``extlinks``).
+``extlinks``). Note that there are separate ``conf.py`` files for each set of
+documentation, as well as a shared one under ``common/``.
 
 Source code links
 =================
@@ -528,7 +539,7 @@ Inclusion of content
 ====================
 
 When a specific type of content (e.g. code snippet) repeats itself among many
-pages, it is advised to store it in a seperate file without the default
+pages, it is advised to store it in a separate file without the default
 ``.txt`` extension. This file can then be later included using the
 ``literalinclude`` directive.
 
@@ -536,11 +547,11 @@ pages, it is advised to store it in a seperate file without the default
 Writing Conventions
 *******************
 
-* Do not use contractions (can't, isn't, I'll, etc.) or '&' in the 
+* Do not use contractions (can't, isn't, I'll, etc.) or '&' in the
   documentation.
-* All H1 and H2 level headings should have a capital letter at the start of 
+* All H1 and H2 level headings should have a capital letter at the start of
   each word.
-* All sub-headings (H3 +) should begin with a capital letter for the first 
+* All sub-headings (H3 +) should begin with a capital letter for the first
   word and
   continue in lowercase, except where they refer to terms which are
   abbreviated in the text e.g. Virtual Machine.
@@ -548,16 +559,16 @@ Writing Conventions
 * Avoid using resp. in brackets to refer to alternative file names etc. Just
   use 'or'.
 * Use full words rather than symbols in headings if possible.
-* When giving instructions, address the user as 'you' and try to maintain a 
+* When giving instructions, address the user as 'you' and try to maintain a
   professional
   attitude - i.e. no random asides about making coffee or smilies!
-* Bullet point lists should begin with a capital letter and end with a full 
-  stop if each point is a complete sentence, or more than one sentence. If 
-  not, no punctuation is necessary 
+* Bullet point lists should begin with a capital letter and end with a full
+  stop if each point is a complete sentence, or more than one sentence. If
+  not, no punctuation is necessary
   (see http://oxforddictionaries.com/words/bullet-points).
-* Note that if you are giving an example link which is phrased like a 
-  hyperlink but not formatted as one because it does not actually exist, you 
-  need to prepend it with a '\\' to escape the 
-  link and stop the link-checker from reporting it as broken (e.g. 
+* Note that if you are giving an example link which is phrased like a
+  hyperlink but not formatted as one because it does not actually exist, you
+  need to prepend it with a '\\' to escape the
+  link and stop the link-checker from reporting it as broken (e.g.
   ``\http://your_host/webclient/login/``), unless you use the literal mark-up.
 
