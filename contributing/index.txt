@@ -2,19 +2,22 @@
 Contributing Developer Documentation
 ####################################
 
-This documentation is for developers who want to contribute code to OME 
-consortium projects. It includes internal developer practices and workflows, 
-standard procedures for tasks such as release, and other information which may 
+This documentation is for developers who want to contribute code to OME
+consortium projects. It includes internal developer practices and workflows,
+standard procedures for tasks such as release, and other information which may
 be valuable to a wider audience.
 
 .. only:: html
 
-    - :doc:`policies`
     - :doc:`source-code`
     - :doc:`using-git`
-    - :doc:`standards`
+    - :doc:`code-contributions`
+    - :doc:`team-communication`
+    - :doc:`team-workflow`
     - :doc:`continuous-integration`
     - :doc:`scc-scripts`
+    - :doc:`release-process`
+    - :doc:`standards`
 
 |
 
@@ -36,10 +39,13 @@ to get in touch.
     :maxdepth: 1
     :hidden:
 
-    policies
     source-code
     using-git
-    standards
+    code-contributions
+    team-communication
+    team-workflow
     continuous-integration
     scc-scripts
+    release-process
+    standards
 

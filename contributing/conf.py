@@ -80,4 +80,5 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     r'^https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
     r'^https?://www\.openmicroscopy\.org/site/support/faq.*',
-    r'^https://spreadsheets.google.com/.*']
+    r'^https://spreadsheets.google.com/.*',
+    r'^http://trac.openmicroscopy.org.uk/ome/admin/.*']
