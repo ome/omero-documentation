@@ -73,6 +73,19 @@ reviewed or merged, even though it is not excluded.
 ..  |buildVM| replace:: Builds a |VM| using :source:`omerovm.sh <docs/install/VM/omerovm.sh>`
 ..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
 
+Continuous integration server
+-----------------------------
+
+The OME project uses `Jenkins <http://jenkins-ci.org>`_ as a continuous
+integration server. To accessing the OME Jenkins server, bring up a web
+browser and go to http://hudson.openmicroscopy.org.uk.
+
+The following sections summarize the main continuous integration jobs used for
+the development of OMERO, Bio-Formats and the OME documentation sets. Note
+this is not an exhaustive list of all jobs in the project. To know more about
+a particular job, click on the :guilabel:`Configure` button on the left-side
+panel of the job window.
+
 OMERO jobs
 ----------
 
