@@ -2,8 +2,8 @@ Running and writing tests
 =========================
 
 The following guidelines apply to tests in both the Java and Python test
-components. Please make sure to verify the path and file extension before
-running tests to avoid confusion.
+components. However, some of the presented options apply to only one or the
+other.
 
 Running unit tests
 ------------------
@@ -61,7 +61,7 @@ Most likely the first settings that will have to be put there will be
 Running all tests
 ^^^^^^^^^^^^^^^^^
 
-All the integration tests can be run using:
+To run all the integration tests, use
 
 ::
 
@@ -82,8 +82,8 @@ Results are placed in ``components/<component>/target/reports``.
 Individual test groups
 ^^^^^^^^^^^^^^^^^^^^^^
 
-To run individual groups (or comma-separated sets of groups) of tests,
-the :option:`-DGROUPS` parameter can be used together with the
+To run individual OmeroJava test groups (or comma-separated sets of groups)
+of tests, the :option:`-DGROUPS` parameter can be used together with the
 :option:`test` target
 
 ::
@@ -105,10 +105,10 @@ working on. This can be done by using the :option:`test` option. For example:
 Individual test class methods
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Individual test class methods (or a comma-separated list of methods) can be
-run using the :option:`-DMETHODS` parameter together with the :option:`test`
-target. The test method must be provided in the FQN form
-(:option:`package.class.method`).
+Individual OmeroJava test class methods (or a comma-separated list of
+methods) can be run using the :option:`-DMETHODS` parameter together with
+the :option:`test` target. The test method must be provided in the fully
+qualified name form (:option:`package.class.method`).
 
 ::
 
@@ -370,7 +370,7 @@ For more help with :file:`setup.py` see:
     ./setup.py --help test
 
 To make use of the more advanced options available in `pytest` that are not
-accessible using :file:`setup.py`, the script :file:`py.pest` can be used
+accessible using :file:`setup.py`, the script :file:`py.test` can be used
 directly.
 For example, to run the tests in a single package allowing standard output
 to be shown on the console:
