@@ -16,7 +16,7 @@ OME uses semantic versioning as defined in http://semver.org. Each version
 number is identified as MAJOR.MINOR.PATCH where MAJOR is the major version
 number, MINOR the minor version number and PATCH the patch version number.
 Additional pre-release labels are added as extensions of this version number,
-e.g. |release|-RC1 or |release|-beta1.
+e.g. 4.4.0-RC1 or 5.0.0-beta1.
 
 .. glossary::
 
@@ -91,6 +91,10 @@ OMERO jobs
 		* :term:`OMERO-stable-ice34`
 		* :term:`OMERO-trunk-ice34`
 
+	- 	* Build OMERO using Ice 3.5
+		* :term:`OMERO-stable-ice35`
+		* :term:`OMERO-trunk-ice35`
+
 	- 	* Build an OMERO Virtual Appliance
 		* :term:`OMERO-stable-virtualbox`
 		* :term:`OMERO-trunk-virtualbox`
@@ -102,6 +106,10 @@ OMERO jobs
 	- 	* Review OMERO PRs using Ice 3.4
 		* :term:`OMERO-merge-stable-ice34`
 		* :term:`OMERO-merge-develop-ice34`
+
+	- 	* Review OMERO PRs using Ice 3.5
+		* :term:`OMERO-merge-stable-ice35`
+		* :term:`OMERO-merge-develop-ice35`
 
 	- 	* Review OMERO PRs using a Virtual Appliance
 		* :term:`OMERO-merge-stable-virtualbox`
@@ -135,6 +143,14 @@ listed under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 		#. |archiveOMEROartifacts|
 		#. If the build is promoted, |promoteOMERO|
 
+	:jenkinsjob:`OMERO-stable-ice35`
+
+		This job is used to build the |stablebranch| branch of OMERO with Ice 3.5
+
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. If the build is promoted, |promoteOMERO|
+
 	:jenkinsjob:`OMERO-stable-virtualbox`
 
 		This job is used to build a Virtual Appliance from the |stablebranch|
@@ -157,6 +173,16 @@ listed under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 
 		This job is used to review the PRs opened against the |stablebranch|
 		branch of OMERO with Ice 3.4
+
+		#. Checks out the merge/|stablebranch|/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-merge-stable-ice35`
+
+		This job is used to review the PRs opened against the |stablebranch|
+		branch of OMERO with Ice 3.5
 
 		#. Checks out the merge/|stablebranch|/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
@@ -205,6 +231,14 @@ under the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 		#. |archiveOMEROartifacts|
 		#. If the build is promoted, |promoteOMERO|
 
+	:jenkinsjob:`OMERO-trunk-ice35`
+
+		This job is used to build the |stablebranch| branch of OMERO with Ice 3.5
+
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. If the build is promoted, |promoteOMERO|
+
 	:jenkinsjob:`OMERO-trunk-virtualbox`
 
 		This job is used to build a Virtual Appliance from the develop branch
@@ -227,6 +261,16 @@ under the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 
 		This job is used to review the PRs opened against the develop branch
 		of OMERO with Ice 3.4
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-merge-develop-ice35`
+
+		This job is used to review the PRs opened against the develop branch
+		of OMERO with Ice 3.5
 
 		#. Checks out the merge/develop/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
@@ -264,8 +308,8 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 	:header-rows: 1
 
 	- 	* Job task
-		* Next point release
-		* Next major release
+		* Next point release (|nextpointrelease|)
+		* Next major release (|nextmajorrelease|)
 
 	- 	* Build Bio-Formats
 		* :term:`BIOFORMATS-stable`
@@ -379,8 +423,8 @@ tab of Jenkins.
 	:header-rows: 1
 
 	- 	* Job task
-		* Current release/next point release
-		* Next major release
+		* Current release (|release|)
+		* Next major release (|nextmajorrelease|)
 
 	- 	* Publish OMERO documentation
 		* :term:`OMERO-docs-release-stable`
