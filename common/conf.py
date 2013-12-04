@@ -15,6 +15,11 @@
 import datetime
 import sys, os
 
+def split_release(release):
+    import re
+    split_release =  re.split("^([0-9]+)\.([0-9]+)\.([0-9]+)(.*?)$", release)
+    return (int(split_release[1]), int(split_release[2]), int(split_release[3]))
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.

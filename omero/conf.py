@@ -25,11 +25,6 @@ from conf import *
 project = u'OMERO'
 title = project + u' Documentation'
 
-def split_release(release):
-    import re
-    split_release =  re.split("^([0-9]+)\.([0-9]+)\.([0-9]+)(.*?)$", release)
-    return (int(split_release[1]), int(split_release[2]), int(split_release[3]))
-
 def get_previous_version(majornumber):
     # Return the previous version number for the first minor versions of a
     # major series i.e. x.0.y
