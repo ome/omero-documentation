@@ -52,7 +52,6 @@ if "OMERO_RELEASE" in os.environ:
 
     # Define Sphinx version and release variables and development branch
     version = ".".join(str(x) for x in (majornumber, minornumber))
-    devbranch = "dev_" + "_".join(str(x) for x in (majornumber, minornumber))
 
     if patchnumber > 0:
         tags.add('point_release')
@@ -64,7 +63,6 @@ else:
     version = 'UNKNOWN'
     previousversion = 'UNKNOWN'
     release = 'UNKNOWN'
-    devbranch = 'develop'
 
 rst_prolog = """
 **This documentation is in transition. Please refer to the**
@@ -87,9 +85,8 @@ rst_epilog += """
 .. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
 .. _Spring: http://spring.io
 .. |previousversion| replace:: %s
-.. |devbranch| replace:: %s
 .. |iceversion| replace:: 3.5.0
-""" % (previousversion, devbranch)
+""" % previousversion
 
 # Variables used to define OMERO Jenkins extlinks
 if "JENKINS_JOB" in os.environ:
