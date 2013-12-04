@@ -1,8 +1,6 @@
 Continuous integration workflow
 ===============================
 
-.. _Sphinx: http://sphinx-doc.org/
-.. _Wikipedia: http://en.wikipedia.org/wiki/Main_Page
 .. _openmicroscopy.git: https://github.com/openmicroscopy/openmicroscopy
 .. _bioformats.git: https://github.com/openmicroscopy/bioformats
 .. _ome-documentation.git: https://github.com/openmicroscopy/ome-documentation
@@ -14,18 +12,23 @@ Definitions
 Versioning
 ^^^^^^^^^^
 
+OME uses semantic versioning as defined in http://semver.org. Each version
+number is identified as MAJOR.MINOR.PATCH where MAJOR is the major version
+number, MINOR the minor version number and PATCH the patch version number.
+Additional pre-release labels are added as extensions of this version number,
+e.g. |release|-RC1 or |release|-beta1.
+
 .. glossary::
 
 	Major release
 
-		What Sphinx_ calls a “version number” is defined on Wikipedia_ as a
-		“minor number” and in OME is typically considered a major release,
-		e.g. 4.4.
+		An increment of the MAJOR version or the MINOR version is typically
+		considered as a major release in OME, e.g. 4.4.0 or 5.0.0.
 
-	Point release
+	Point release (patch release)
 
-		Similarly, a Sphinx_ “release number” is a “revision number” on
-		Wikipedia_ and an OME point release, e.g. 4.4.9.
+		An increment of the PATCH version is called a point (or patch) release
+		in OME, e.g. |nextpointrelease|.
 
 Development branches
 ^^^^^^^^^^^^^^^^^^^^
@@ -34,21 +37,21 @@ Most of the OME code is split between four repositories: openmicroscopy.git_,
 bioformats.git_, scripts.git_, ome-documentation.git_. For each repository,
 two development branches are maintained simultaneously:
 
-* The "|devbranch|" branch ("stable" branch) contains work on the stable release
-  version and will only be released as a point release.
+* The "|stablebranch|" branch ("stable" branch) contains work on the stable
+  release series (|version|.x) and will only be released as a patch release.
 
 * The "develop" branch contains work on the next major release.
 
 It is possible to have a point release immediately, while still working on
 more major releases by ensuring that (nearly) all commits that are applied to
-|devbranch| are applied to develop in order to prevent regressions.
+|stablebranch| are applied to develop in order to prevent regressions.
 
 Labels
 ^^^^^^
 
 Labels are applied to PRs on GitHub under the “Issues” tab of each repository.
 
-The next point release consists of PRs labelled with “|devbranch|”, which is
+The next point release consists of PRs labelled with “|stablebranch|”, which is
 the name of the branch which they will be merged into.
 
 The next major release consists of PRs labelled with “develop”, which is also
@@ -77,8 +80,8 @@ OMERO jobs
 	:header-rows: 1
 
 	- 	* Job task
-		* Next point release
-		* Next major release
+		* Next point release (|nextpointrelease|)
+		* Next major release (|nextmajorrelease|)
 
 	- 	* Build OMERO using Ice 3.3
 		* :term:`OMERO-stable`
@@ -111,14 +114,14 @@ OMERO jobs
 Next point release
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the next point release of OMERO is |devbranch|. All jobs are
+The branch for the next point release of OMERO is |stablebranch|. All jobs are
 listed under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 
 .. glossary::
 
 	:jenkinsjob:`OMERO-stable`
 
-		This job is used to build the |devbranch| branch of OMERO with Ice 3.3
+		This job is used to build the |stablebranch| branch of OMERO with Ice 3.3
 
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
@@ -126,7 +129,7 @@ listed under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-stable-ice34`
 
-		This job is used to build the |devbranch| branch of OMERO with Ice 3.4
+		This job is used to build the |stablebranch| branch of OMERO with Ice 3.4
 
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
@@ -134,49 +137,49 @@ listed under the :jenkinsview:`Stable <2.%20Stable>` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-stable-virtualbox`
 
-		This job is used to build a Virtual Appliance from the |devbranch|
+		This job is used to build a Virtual Appliance from the |stablebranch|
 		branch of OMERO
 
 		#. |buildVM|
 
 	:jenkinsjob:`OMERO-merge-stable`
 
-		This job is used to review the PRs opened against the |devbranch|
+		This job is used to review the PRs opened against the |stablebranch|
 		branch of OMERO with Ice 3.3
 
 		#. |merge| and pushes the merged branch to
-		   snoopycrimecop/merge/|devbranch|/latest
+		   snoopycrimecop/merge/|stablebranch|/latest
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 		#. |deployOMERO| howe.openmicroscopy.org.uk
 
 	:jenkinsjob:`OMERO-merge-stable-ice34`
 
-		This job is used to review the PRs opened against the |devbranch|
+		This job is used to review the PRs opened against the |stablebranch|
 		branch of OMERO with Ice 3.4
 
-		#. Checks out the merge/|devbranch|/latest branch of the
+		#. Checks out the merge/|stablebranch|/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 
 	:jenkinsjob:`OMERO-merge-stable-virtualbox`
 
-		This job is used to build a Virtual Appliance from the |devbranch|
-		branch with the PRs opened against the |devbranch| branch of OMERO
+		This job is used to build a Virtual Appliance from the |stablebranch|
+		branch with the PRs opened against the |stablebranch| branch of OMERO
 
-		#. Checks out the merge/|devbranch|/latest branch of the
+		#. Checks out the merge/|stablebranch|/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildVM|
 
 	:jenkinsjob:`OMERO-submods-stable`
 
-		This job is used to update the submodules on the |devbranch| branch
+		This job is used to update the submodules on the |stablebranch| branch
 
 		#. |updatesubmodules| and pushes the merged branch to
-		   snoopycrimecop/merge/|devbranch|/submodules
+		   snoopycrimecop/merge/|stablebranch|/submodules
 		#. If the submodules are updated, opens a new PR or updates the
-		   existing |devbranch| submodules PR
+		   existing |stablebranch| submodules PR
 
 Next major release
 ^^^^^^^^^^^^^^^^^^
@@ -246,7 +249,7 @@ under the :jenkinsview:`Trunk <1.%20Trunk>` view tab of Jenkins.
 		#. |updatesubmodules| and pushes the merge branch to
 		   snoopycrimecop/merge/develop/submodules
 		#. If the submodules are updated, opens a new PR or updates the
-		   existing |devbranch| submodules PR
+		   existing |stablebranch| submodules PR
 
 Bio-Formats jobs
 ----------------
@@ -284,25 +287,25 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 Next point release
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the next point release of Bio-Formats is |devbranch|.
+The branch for the next point release of Bio-Formats is |stablebranch|.
 
 .. glossary::
 
 	:jenkinsjob:`BIOFORMATS-stable`
 
-		This job is used to build the |devbranch| branch of Bio-Formats
+		This job is used to build the |stablebranch| branch of Bio-Formats
 
 		#. |buildBF|
 		#. |testBF|
 
 	:jenkinsjob:`BIOFORMATS-maven-stable`
 
-		This job is used to publish the |devbranch| branch of Bio-Formats to
+		This job is used to publish the |stablebranch| branch of Bio-Formats to
 		the LOCI Nexus repository
 
 	:jenkinsjob:`BIOFORMATS-merge-stable`
 
-		This job is used to review the PRs opened against the |devbranch|
+		This job is used to review the PRs opened against the |stablebranch|
 		branch of Bio-Formats by running basic unit tests, checking for open
 		file handles, and checking for regressions across a representative
 		subset of the data repository
@@ -313,7 +316,7 @@ The branch for the next point release of Bio-Formats is |devbranch|.
 
 	:jenkinsjob:`BIOFORMATS-full-repository-stable`
 
-		This job is used to review the PRs opened against the |devbranch|
+		This job is used to review the PRs opened against the |stablebranch|
 		branch of Bio-Formats by running automated tests against directories
 		on squig
 
@@ -426,13 +429,13 @@ Current release/next point release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The branch for the current release of OMERO/Bio-Formats/OME model is
-|devbranch|.
+|stablebranch|.
 
 .. glossary::
 
 	:jenkinsjob:`OMERO-docs-release-stable`
 
-		This job is used to build the |devbranch| of the OMERO documentation
+		This job is used to build the |stablebranch| of the OMERO documentation
 		and publish the official documentation for the current release of
 		OMERO
 
@@ -444,7 +447,7 @@ The branch for the current release of OMERO/Bio-Formats/OME model is
 
 	:jenkinsjob:`BIOFORMATS-docs-release-stable`
 
-		This job is used to build the |devbranch| of the Bio-Formats
+		This job is used to build the |stablebranch| of the Bio-Formats
 		documentation and publish the official documentation for the current
 		release of Bio-Formats
 
@@ -456,7 +459,7 @@ The branch for the current release of OMERO/Bio-Formats/OME model is
 
 	:jenkinsjob:`OMERO-docs-merge-stable`
 
-		This job is used to review the PRs opened against the |devbranch|
+		This job is used to review the PRs opened against the |stablebranch|
 		branch of the OMERO documentation
 
 		#. |merge|
@@ -467,7 +470,7 @@ The branch for the current release of OMERO/Bio-Formats/OME model is
 
 	:jenkinsjob:`BIOFORMATS-docs-merge-stable`
 
-		This job is used to review the PRs opened against the |devbranch|
+		This job is used to review the PRs opened against the |stablebranch|
 		branch of the Bio-Formats documentation
 
 		#. |merge|
