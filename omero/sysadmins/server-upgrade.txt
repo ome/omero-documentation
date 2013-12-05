@@ -89,16 +89,41 @@ Run the upgrade script
 ^^^^^^^^^^^^^^^^^^^^^^	
 
 You **must** use the same username and password you have defined during
-:doc:`unix/server-installation`. The |version| upgrade script should execute in a short time.
+:doc:`unix/server-installation`. The |version| upgrade script should execute
+in a short time.
+
+From a |previousversion|.x server
+"""""""""""""""""""""""""""""""""
 
 .. parsed-literal::
 
     $ cd |OMEROserverzip|
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO |previousversion|\_\_0.sql
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO\ |previousversion|\_\_0.sql
     Password for user **db_user**:
     ...
     ...
-                               status                                
+                               status
+    ---------------------------------------------------------------------
+                                                                        +
+                                                                        +
+                                                                        +
+    YOU HAVE SUCCESSFULLY UPGRADED YOUR DATABASE TO VERSION OMERO |version|\_\_0+
+                                                                        +
+                                                                        +
+
+    (1 row)
+
+From a 5.0.0-beta1  server
+""""""""""""""""""""""""""
+
+.. parsed-literal::
+
+    $ cd |OMEROserverzip|
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO\ |version|\_\_6.sql
+    Password for user **db_user**:
+    ...
+    ...
+                               status
     ---------------------------------------------------------------------
                                                                         +
                                                                         +
