@@ -162,8 +162,8 @@ For further information on managing your scripts, refer to
 :doc:`installing-scripts`. If you require help, please contact the OME 
 developers.
 
-Update your environment variables
----------------------------------
+Update your configuration
+-------------------------
 
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
@@ -172,6 +172,13 @@ If you changed the directory name where the |release| server code resides,
 make sure to update any system environment variables. Before restarting
 the server, make sure your PATH and PYTHONPATH system environment
 variables are pointing to the new locations.
+
+JVM memory settings
+^^^^^^^^^^^^^^^^^^^
+
+If you modified your memory settings, you will need to remodify these settings
+for the new server. Refer to the `JVM memory settings` sub-section of the :doc:`installation <unix/server-installation>` section
+(:doc:`Windows <windows/server-installation>`) for more information.
 
 Changes to OMERO.web URLs
 ^^^^^^^^^^^^^^^^^^^^^^^^^
