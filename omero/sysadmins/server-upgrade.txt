@@ -129,7 +129,7 @@ From a 5.0.0-beta1  server
 .. parsed-literal::
 
     $ cd |OMEROserverzip|
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO\ |version|\_\_6.sql
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO\ |version|\DEV\_\_6.sql
     Password for user **db_user**:
     ...
     ...
