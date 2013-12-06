@@ -20,6 +20,23 @@ necessary, if your pull request affects the schema then you **must**
 increment the database patch number and provide an updated schema as
 described below.
 
+Model object proxies
+--------------------
+
+Changes to model objects that are passed from the server to clients may
+require corresponding changes to be made to the :source:`IceMapper
+<components/blitz/src/omero/util/IceMapper.java>` class so that the
+client-side proxy objects are properly populated.
+
+For example, :commit:`commit 8815a409
+<8815a409e24b41ff4c68829657ad98a278594ade>` adds fields to the `Roles` class
+in the server's :source:`System.ice
+<components/blitz/resources/omero/System.ice>` whose instances can be passed
+to clients via the :source:`admin service API
+<components/blitz/resources/omero/api/IAdmin.ice>` so a further
+:commit:`commit 2426042a <2426042a4f0b5e31a6e9743844da168a9e550375>` was
+needed to populate those fields in the proxy object.
+
 Database patch numbers
 ----------------------
 
