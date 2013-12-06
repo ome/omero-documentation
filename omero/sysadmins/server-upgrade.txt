@@ -152,8 +152,8 @@ database which can both save disk space and speed up access times.
 
 .. parsed-literal::
 
-    $ psql -h localhost -U **db_user** **omero_database** -c "REINDEX DATABASE **omero_database** FORCE;"
-    $ psql -h localhost -U **db_user** **omero_database** -c "VACUUM FULL VERBOSE ANALYZE;"
+    $ psql -h localhost -U **db_user** **omero_database** -c 'REINDEX DATABASE "**omero_database**" FORCE;'
+    $ psql -h localhost -U **db_user** **omero_database** -c 'VACUUM FULL VERBOSE ANALYZE;'
 
 .. _upgrademergescript:
 
