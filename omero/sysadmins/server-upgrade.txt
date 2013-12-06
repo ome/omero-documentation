@@ -37,10 +37,10 @@ below. Please refer to each section for additional details.
 .. warning::
 	with 5.0.0-beta2, the default JDBC password provider has been modified to
 	add password salting support. This implies that once a server has been
-	upgraded and deployed, if anyone modifies a password, you will not be able
-	to downgrade again. To keep using the legacy password provider without
-	salting support, you will need to configure
-	``omero.security.password_provider`` to use the legacy
+	upgraded and deployed, passwords will be modified, you will not be able
+	to easily revert to the configuration without salting. To keep using the
+	legacy password provider without salting support, you will need to
+	configure ``omero.security.password_provider`` to use the legacy
 	``chainedPasswordProviderNoSalt`` as described in the
 	:ref:`legacy_password_providers` section.
 
