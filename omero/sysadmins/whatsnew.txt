@@ -9,3 +9,6 @@ What's new for OMERO 5
 
 - :doc:`dropbox` has been reworked to clarify the distinction between OMERO.fs 
   and OMERO.dropbox.
+
+- :doc:`system-requirements` has been updated to reflect that from 5.0.0-beta2
+  onwards, running OMERO.web on your server requires Python 2.6.5 or later.
