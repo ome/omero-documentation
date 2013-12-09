@@ -122,7 +122,7 @@ screen-shot). If you have OMERO.web running, you can view the page under
 
        {% for i in dataset.listChildren %}
            <div style="float:left; padding:10px">
-               <img src="{% url webgateway.views.render_thumbnail i.id %}" />
+               <img src="{% url 'webgateway.views.render_thumbnail' i.id %}" />
                <br />
                {{ i.getName }}
            </div>

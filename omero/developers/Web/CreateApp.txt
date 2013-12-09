@@ -10,6 +10,11 @@ database mapping, since all data comes from the OMERO server and is
 saved back there. You will notice that the models.py files in each app
 are empty.
 
+.. note:: Since OMERO 5.0, the web framework uses Django 1.6 instead of Django 1.3.
+    One important change is the syntax of the
+    `url template tag <https://docs.djangoproject.com/en/dev/ref/templates/builtins/#std:templatetag-url>`_,
+    which now requires quotes, and will need to be updated for OMERO 4.4 web apps moving to OMERO 5.0.
+
 Getting set up
 --------------
 
@@ -40,10 +45,11 @@ server with
     $ bin/omero web start
     Starting django development webserver... 
     Validating models...
-    0 errors found
 
-    Django version 1.1.1, using settings 'omeroweb.settings'
-    Development server is running at http://0.0.0.0:4080/
+    0 errors found
+    December 09, 2013 - 14:34:10
+    Django version 1.6, using settings 'omeroweb.settings'
+    Starting development server at http://127.0.0.1:4080/
     Quit the server with CONTROL-C.
 
 .. note:: Port number is 4080
@@ -288,7 +294,7 @@ under /omeroweb/<your-app>/templates/<your-app>/
             <h1>{{ image_name }}</h1>
 
             {% for z in z_indexes %}
-                <img src="{% url webgateway.views.render_image imageId z 0 %}"          
+                <img src="{% url 'webgateway.views.render_image' imageId z 0 %}"
                     style="max-width: 200px; max-height:200px"/>
             {% endfor %}
        </body>

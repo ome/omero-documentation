@@ -95,7 +95,7 @@ Below is a simple example of their usage. More detailed documentation at the bot
 
                 // since we currently limit our dtype to 'dataset', oid will be dataset ID
                 // Use the 'index' of your app as base for your URL
-                var auto_tag_url = '{% url webtagging_index %}auto_tag/dataset/'+oid+'/';
+                var auto_tag_url = '{% url 'webtagging_index' %}auto_tag/dataset/'+oid+'/';
                 $(this).load(auto_tag_url);
             }
         });
@@ -125,7 +125,7 @@ Below is a simple example of their usage. More detailed documentation at the bot
 
                // since we only support single images, the obj_id will be an image ID
                // Generate url based on a template-generated url
-               var url = '{% url webtest_index %}image_rois/' + obj_id + '/';
+               var url = '{% url 'webtest_index' %}image_rois/' + obj_id + '/';
 
                // Simply load the tab
                $(this).load(url);

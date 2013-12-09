@@ -50,7 +50,7 @@ Image viewer
     ::
     
         webgateway/img_detail/<imageid>/
-        {% url webgateway.views.full_viewer image_id %}
+        {% url 'webgateway.views.full_viewer' image_id %}
 
 
 
@@ -62,32 +62,32 @@ Images
    ::
 
        webgateway/render_image/<imageid>/<z>/<t>/
-       {% url webgateway.views.render_image image_id theZ theT %}
+       {% url 'webgateway.views.render_image' image_id theZ theT %}
        
        From OMERO 4.4.4, omitting Z and T will use the default values:
        webgateway/render_image/<imageid>/
-       {% url webgateway.views.render_image image_id %}
+       {% url 'webgateway.views.render_image' image_id %}
 
 -  Makes a jpeg laying out each active channel in a separate panel
 
    ::
 
        webgateway/render_split_channel/<imageId>/<z>/<t>/
-       {% url webgateway.views.render_split_channel image_id theZ theT %}
+       {% url 'webgateway.views.render_split_channel' image_id theZ theT %}
 
 -  Plots the intensity of a row of pixels in an image. w is line width
 
    ::
 
        webgateway/render_row_plot/<imageId>/<z>/<t>/<y>/<w>
-       {% url webgateway.views.render_row_plot image_id theZ theT yPos width %}
+       {% url 'webgateway.views.render_row_plot' image_id theZ theT yPos width %}
 
 -  Plots the intensity of a column of pixels in an image.
 
    ::
 
        webgateway/render_col_plot/<imageId>/<z>/<t>/<x>/<w>/
-       {% url webgateway.views.render_col_plot image_id theZ theT xPos width %}
+       {% url 'webgateway.views.render_col_plot' image_id theZ theT xPos width %}
 
 -  Returns a jpeg of a thumbnail for an image. w and h are optional
    (default is 75). Specify just one to retain aspect ratio
@@ -95,8 +95,8 @@ Images
    ::
 
        webgateway/render_thumbnail/<imageId>/<w>/<h>
-       {% url webgateway.views.render_thumbnail image_id 100 %}     # size 100
-       {% url webgateway.views.render_thumbnail image_id %}         # default size
+       {% url 'webgateway.views.render_thumbnail' image_id 100 %}     # size 100
+       {% url 'webgateway.views.render_thumbnail' image_id %}         # default size
 
 Rendering settings
 ~~~~~~~~~~~~~~~~~~

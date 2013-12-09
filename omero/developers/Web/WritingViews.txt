@@ -106,7 +106,7 @@ Tips on good practice in views.py methods and their corresponding URLs.
 
    ::
 
-       {% url url_name object_id=obj.id %}
+       {% url 'url_name' object_id=obj.id %}
 
    and reverse function:
 
