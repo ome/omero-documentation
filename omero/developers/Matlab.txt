@@ -247,11 +247,15 @@ If the image identifiers are known, they can be specified as::
 
 	images = getImages(session, ids)
 
-Alternatively, all the images contained in projects or datasets can be returned
-by specifying the parent type and identifiers as::
+All the images contained in a subset of datasets of known identifiers
+``datasetsIds`` can be returned using::
+
+	datasetImages = getImages(session, 'dataset', datasetsIds)
+
+All the images contained in all the datasets under a subset of projects of
+known identifiers ``projectIds`` can be returned using::
 
 	projectImages = getImages(session, 'project', projectIds)
-	datasetImages = getImages(session, 'dataset', datasetsIds)
 
 The ``Image``-``Pixels`` model implies you need to use the ``Pixels`` objects
 to access valuable data about the ``Image``::
