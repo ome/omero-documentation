@@ -28,20 +28,21 @@ title = project + u' Documentation'
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-release = '4.4.9'
-nextmajorrelease = '5.0.0'
-[majornumber, minornumber, patchnumber] = split_release(release)
-version = ".".join(str(x) for x in (majornumber, minornumber))
-stablebranch = "dev_" + "_".join(str(x) for x in (
-    majornumber, minornumber))
-nextpointrelease = ".".join(str(x) for x in (
-    majornumber, minornumber, patchnumber +1))
+if "MAJOR_RELEASE" in os.environ:
+    major_release = os.environ.get('MAJOR_RELEASE')
+    [majornumber, minornumber, patchnumber] = split_release(major_release)
+    stable_version = get_previous_version(majornumber, minornumber)
+    stable_branch = "dev_" + stable_version.replace('.', '_')
+else:
+    major_release = 'UNKNOWN'
+    stable_version = 'UNKNOWN'
+    stable_branch = 'unknown'
 
 rst_epilog += """
-.. |stablebranch| replace:: %s
-.. |nextpointrelease| replace:: %s
-.. |nextmajorrelease| replace:: %s
-""" % (stablebranch, nextpointrelease, nextmajorrelease)
+.. |major_release| replace:: %s
+.. |stable_version| replace:: %s
+.. |stable_branch| replace:: %s
+""" % (major_release, stable_version, stable_branch)
     
 # OME contributing-specific extlinks
 contributing_extlinks = {
