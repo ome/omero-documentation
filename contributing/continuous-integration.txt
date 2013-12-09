@@ -77,7 +77,7 @@ Continuous integration server
 -----------------------------
 
 The OME project uses `Jenkins <http://jenkins-ci.org>`_ as a continuous
-integration server. To accessing the OME Jenkins server, bring up a web
+integration server. To access the OME Jenkins server, bring up a web
 browser and go to http://hudson.openmicroscopy.org.uk.
 
 The following sections summarize the main continuous integration jobs used for
@@ -467,7 +467,7 @@ tab of Jenkins.
 		* 
 		* :term:`FORMATS-docs-merge-develop`
 
-	- 	* Review OME Contributing documentation PRss
+	- 	* Review OME Contributing documentation PRs
 		*
 		* :term:`CONTRIBUTING-docs-merge-develop`
 
@@ -631,7 +631,7 @@ develop.
 
 	:jenkinsjob:`CONTRIBUTING-docs-merge-develop`
 
-		This job is used to eview the PRs opened against the develop branch
+		This job is used to review the PRs opened against the develop branch
 		of the OME Contributing documentation
 
 		#. |merge|
