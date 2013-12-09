@@ -34,15 +34,13 @@ if "MAJOR_RELEASE" in os.environ:
     stable_version = get_previous_version(majornumber, minornumber)
     stable_branch = "dev_" + stable_version.replace('.', '_')
 else:
-    major_release = 'UNKNOWN'
     stable_version = 'UNKNOWN'
     stable_branch = 'unknown'
 
 rst_epilog += """
-.. |major_release| replace:: %s
 .. |stable_version| replace:: %s
 .. |stable_branch| replace:: %s
-""" % (major_release, stable_version, stable_branch)
+""" % (stable_version, stable_branch)
     
 # OME contributing-specific extlinks
 contributing_extlinks = {
