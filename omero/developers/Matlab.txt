@@ -182,8 +182,8 @@ Reading data
 ------------
 
 The ``IContainer`` service provides methods to load the data management
-hierarchy in OMERO -- projects, datasets, etc. A list of examples
-follows, indicating how to load projects, datasets, screens, etc.
+hierarchy in OMERO -- projects, datasets… A list of examples follows
+indicating how to load projects, datasets, screens…
 
 -  **Projects**
 
@@ -197,7 +197,7 @@ If the project identifiers are known, they can be specified as::
 
 	projects = getProjects(session, ids)
 
-If the projects contains datasets, the datasets will automatically be loaded::
+If the projects contain datasets, the datasets will automatically be loaded::
 
     for j = 1 : numel(projects)
         datasetsList = projects(j).linkedDatasetList;
@@ -206,7 +206,7 @@ If the projects contains datasets, the datasets will automatically be loaded::
         end
     end
 
-If the datasets contains images, the images will automatically be loaded::
+If the datasets contain images, the images will automatically be loaded::
 
     imageList = projects(1).linkedDatasetList.get(0).linkedImageList;
 
@@ -359,7 +359,7 @@ Alternatively, the image identifier can be passed to the function::
 
 -  **Stack**
 
-The tile of an input image at coordinates (c, t) can be retrieved using the
+The stack of an input image at coordinates (c, t) can be retrieved using the
 :source:`getStack <components/tools/OmeroM/src/image/getStack.m>` function::
 
 	stack = getStack(session, image, c, t);
@@ -722,20 +722,20 @@ image::
     n = rois.size;
     for thisROI  = 1:n
         roi = rois.get(thisROI-1);
-        numShapes = roi.sizeOfShapes; % an ROI can have multiple shapes.
+        numShapes = roi.sizeOfShapes; % A ROI can have multiple shapes.
         for ns = 1:numShapes
             shape = roi.getShape(ns-1); % the shape
-            % remove the shape
+            % Remove the shape
             roi.removeShape(shape);
         end
-        %Update the roi.
+        % Update the roi.
         roi = iUpdate.saveAndReturnObject(roi);
     end
 
 Deleting data
 -------------
 
-It is possible to delete projects, datasets, images, ROIs etc. and
+It is possible to delete projects, datasets, images, ROIs… and
 objects linked to them depending on the specified options (see
 :doc:`/developers/Modules/Delete`). For example, images of known identifiers
 can be deleted from the server using the
@@ -753,7 +753,7 @@ Rendering images
 -----------------
 
 The :source:`RenderImages.m <examples/Training/matlab/RenderImages.m>` example 
-script shows how to initialize the rendering image and render an image.
+script shows how to initialize the rendering engine and render an image.
 
 Creating Image
 --------------
