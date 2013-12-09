@@ -533,25 +533,32 @@ known::
 
 -  **Writing annotations**
 
-New annotations can be created and linked to existing objects. For example,
-to create a new tag annotation and attach it to an image, it is possible to
-use the :source:`writeTagAnnotation <components/tools/OmeroM/src/annotations/writeTagAnnotation.m>` function and
-then the :source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
-function::
+New annotations can be created using the corresponding ``write*Annotation``
+function (see table above). Existing annotations can be linked to existing
+objects on the server using the
+:source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
+function.
 
-	ta = writeTagAnnotation(session, tag);
-	link = linkAnnotation(session, tag, 'Image', image_id);
+For example, to create a new tag annotation ``tag_name`` and attach it to the
+image ``image_id``::
 
--  **Updating file annotations**
+	tagAnnotation = writeTagAnnotation(session, tag_name);
+	link = linkAnnotation(session, tagAnnotation, 'Image', image_id);
 
-For existing file annotations, it is possible to replace the content of the original file without having to recreate a new file annotation using the :source:`updateFileAnnotation <components/tools/OmeroM/src/annotations/updateFileAnnotation.m>` function.
+To create a file annotations from the content of a ``local_file_path`` and
+attach it to the image ``image_id``::
 
+	fileAnnotation = writeFileAnnotation(session, local_file_path);
+	link = linkAnnotation(session, fileAnnotation, 'Image', image_id);
+
+For existing file annotations, it is possible to replace the content of the
+original file without having to recreate a new file annotation using the
+:source:`updateFileAnnotation <components/tools/OmeroM/src/annotations/updateFileAnnotation.m>` function.
 If the file annotation has been retrieved from the server as
 ``fileAnnotation``, then the content of its ``OriginalFile`` can be replaced
-by the content of ``local_file`` using::
+by the content of ``local_file_path`` using::
 
-	updateFileAnnotation(session, fileAnnotation, local_file);
-
+	updateFileAnnotation(session, fileAnnotation, local_file_path);
 
 Writing data
 ------------
@@ -571,87 +578,6 @@ Writing data
     link.setParent(omero.model.ProjectI(projectId, false));
 
     session.getUpdateService().saveAndReturnObject(link);
-
--  **Create a tag (tag annotation)** and link it to an existing project.
-
-::
-
-    tag = omero.model.TagAnnotationI;
-    tag.setTextValue(omero.rtypes.rstring(char('name tag')));
-    tag.setDescription(omero.rtypes.rstring(char('description tag')));
-
-    %link tag and project
-    link = omero.model.ProjectAnnotationLinkI;
-    link.setChild(tag);
-    link.setParent(omero.model.ProjectI(projectId, false));
-
-    session.getUpdateService().saveAndReturnObject(link);
-
--  **Create a file annotation and link to an image.**
-
-To attach a file to an object e.g. an image, few objects need to be
-created:
-
-#. an ``OriginalFile``
-#. a ``FileAnnotation``
-#. a link between the ``Image`` and the ``FileAnnotation``.
-
-::
-
-    % To retrieve the image see above.
-    iUpdate = session.getUpdateService(); % service used to write object
-
-    % create the original file object.
-    %read local file
-    file = java.io.File(fileToUpload);
-    name = file.getName();
-    absolutePath = file.getAbsolutePath();
-    path = absolutePath.substring(0, absolutePath.length()-name.length());
-
-    originalFile = omero.model.OriginalFileI;
-    originalFile.setName(omero.rtypes.rstring(name));
-    originalFile.setPath(omero.rtypes.rstring(path));
-    originalFile.setSize(omero.rtypes.rlong(file.length()));
-    originalFile.setSha1(omero.rtypes.rstring(generatedSha1));
-    originalFile.setMimetype(omero.rtypes.rstring(fileMimeType));
-
-    % now save the originalFile object
-    originalFile = iUpdate.saveAndReturnObject(originalFile);
-
-    % Initialize the service to load the raw data
-    rawFileStore = session.createRawFileStore();
-    rawFileStore.setFileId(originalFile.getId().getValue());
-
-    %  open file and read it
-
-    %code for small file.
-    fid = fopen(fileToUpload);
-    byteArray = fread(fid,[1, file.length()], 'uint8');
-    rawFileStore.write(byteArray, 0, file.length());
-    fclose(fid);
-
-
-    originalFile = rawFileStore.save();
-    % Important to close the service
-    rawFileStore.close();
-    % now, you have an original File in the database and raw data uploaded.
-    % You now need to link the Original file to the image using the File annotation object. That's the way to do it.
-    fa = omero.model.FileAnnotationI;
-    fa.setFile(originalFile);
-    fa.setDescription(omero.rtypes.rstring(description)); % The description set above e.g. PointsModel
-    fa.setNs(omero.rtypes.rstring(NAME_SPACE_TO_SET)) % The name space you have set to identify the file annotation.
-
-    % save the file annotation.
-    fa = iUpdate.saveAndReturnObject(fa);
-
-    % now link the image and the annotation
-    link = omero.model.ImageAnnotationLinkI;
-    link.setChild(fa);
-    link.setParent(image);
-    % save the link back to the server.
-    iUpdate.saveAndReturnObject(link);
-
-    % To attach to a Dataset use omero.model.DatasetAnnotationLinkI;
 
 How to use OMERO tables
 -----------------------
