@@ -89,14 +89,14 @@ directly or modify it to your liking.
 ::
 
     >> [c,s] = loadOmero;
-    >> t = omeroKeepAlive(c); % Creates a 60-second timer and starts it
+    >> t = omeroKeepAlive(c); % Create a 60-second timer and starts it
     >> …
-    >> delete(t);             % Disables the keep-alive
+    >> delete(t);             % Disable the keep-alive
 
 Alternatively, you can use the Java-based ``enableKeepAlive`` method,
 but it is not configurable from within Matlab::
 
-    c.enableKeepAlive(60); % Calls session.keepAlive() every 60 seconds
+    c.enableKeepAlive(60); % Call session.keepAlive() every 60 seconds
     c.closeSession();      % Close session to end the keep-alive
 
 .. _unsecure_client:
@@ -374,11 +374,12 @@ This is useful when you need the ``Pixels`` intensity.
 
 ::
 
-    %Create the store to load the stack. No access via the gateway
-    store = session.createRawPixelsStore(); 
-    store.setPixelsId(pixelsId, false); %Indicate the pixels set you are working on
+    % Create the store to load the stack. No access via the gateway
+    store = session.createRawPixelsStore();
+    % Indicate the pixels set you are working on
+    store.setPixelsId(pixelsId, false);
 
-    % offset values in each dimension XYZCT
+    % Offset values in each dimension XYZCT
     offset = java.util.ArrayList;
     offset.add(java.lang.Integer(0));
     offset.add(java.lang.Integer(0));
@@ -393,8 +394,9 @@ This is useful when you need the ``Pixels`` intensity.
     size.add(java.lang.Integer(sizeC));
     size.add(java.lang.Integer(sizeT));
 
-    % indicate the step in each direction, step = 1, will return values at index 0, 1, 2.
-    % step = 2, values at index 0, 2, 4 etc.
+    % Indicate the step in each direction,
+    % step = 1, will return values at index 0, 1, 2.
+    % step = 2, values at index 0, 2, 4…
     step = java.util.ArrayList;
     step.add(java.lang.Integer(1));
     step.add(java.lang.Integer(1));
@@ -403,7 +405,7 @@ This is useful when you need the ``Pixels`` intensity.
     step.add(java.lang.Integer(1));
     % Retrieve the data
     store.getHypercube(offset, size, step);
-    % close the store
+    % Close the store
     store.close();
 
 Thumbnails
@@ -575,7 +577,7 @@ Writing data
     dataset.setName(omero.rtypes.rstring(char('name dataset')));
     dataset.setDescription(omero.rtypes.rstring(char('description dataset')));
 
-    %link Dataset and Project
+    % Link Dataset and Project
 
     link = omero.model.ProjectDatasetLinkI;
     link.setChild(dataset);
@@ -597,12 +599,12 @@ How to use OMERO tables
     valuesString = javaArray('java.lang.String', 1);
     columns(2) = omero.grid.StringColumn('MyStringColumn', '', 64, valuesString);
 
-    %create a new table.
+    % Create a new table.
     table = session.sharedResources().newTable(1, name);
 
-    %initialize the table
+    % Initialize the table
     table.initialize(columns);
-    %add data to the table.
+    % Add data to the table.
     data = javaArray('omero.grid.Column', 2);
     data(1) = omero.grid.LongColumn('Uid', 'test Long', [2]);
     valuesString = javaArray('java.lang.String', 1);
@@ -618,21 +620,21 @@ How to use OMERO tables
     of = omero.model.OriginalFileI(file.getId(), false); 
     tablePrx = session.sharedResources().openTable(of);
 
-    %read headers
+    % Read headers
     headers = tablePrx.getHeaders();
     for i=1:size(headers, 1),
         headers(i).name; % name of the header
-        %do something
+        % Do something
     end
 
-    % Depending on size of table, you may only want to read some blocks.
+    % Depending on the size of table, you may only want to read some blocks.
     cols = [0:size(headers, 1)-1]; % The number of columns you wish to read.
     rows = [0:tablePrx.getNumberOfRows()-1]; % The number of rows you wish to read.
-    data = tablePrx.slice(cols, rows); % read the data.
+    data = tablePrx.slice(cols, rows); % Read the data.
     c = data.columns;
     for i=1:size(c),
         column = c(i);
-        %do something
+        % Do something
     end
     tablePrx.close(); % Important to close when done.
 
@@ -649,12 +651,12 @@ image::
 
     % First create a rectangular shape.
     rectangle = createRectangle(0, 0, 10, 20);
-    % indicate on which plane to attach the shape
+    % Indicate on which plane to attach the shape
     setShapeCoordinates(rectangle, 0, 0, 0);
 
     % First create an ellipse shape.
     ellipse = createEllipse(0, 0, 10, 20);
-    % indicate on which plane to attach the shape
+    % Indicate on which plane to attach the shape
     setShapeCoordinates(ellipse, 0, 0, 0);
 
     % Create the roi.
@@ -665,7 +667,7 @@ image::
 
     % Link the roi and the image
     roi.setImage(omero.model.ImageI(imageId, false));
-    % save
+    % Save
     iUpdate = session.getUpdateService(); 
     roi = iUpdate.saveAndReturnObject(roi);
     % Check that the shape has been added.
@@ -691,11 +693,10 @@ image::
     shapeType = '';
     for thisROI  = 1:n
         roi = rois.get(thisROI-1);
-        numShapes = roi.sizeOfShapes; % an ROI can have multiple shapes.
+        numShapes = roi.sizeOfShapes; % A ROI can have multiple shapes.
         for ns = 1:numShapes
             shape = roi.getShape(ns-1); % the shape
             if (isa(shape, 'omero.model.Rect'))
-               %handle rectangle
                rectangle = shape;
                rectangle.getX().getValue()
             elseif (isa(shape, 'omero.model.Ellipse'))
