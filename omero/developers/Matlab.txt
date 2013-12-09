@@ -408,45 +408,6 @@ This is useful when you need the ``Pixels`` intensity.
     % Close the store
     store.close();
 
-Thumbnails
-----------
-
--  **Single thumbnails**
-
-The cache thumbnail of an input image can be retrieved using the
-:source:`getThumbnail <components/tools/OmeroM/src/image/getThumbnail.m>`
-function::
-
-	thumbnail = getThumbnail(session, image, width, height);
-
-Alternatively, the image identifier can be passed to the function::
-
-	thumbnail = getThumbnail(session, imageID, width, height);
-
-.. note:: The ``width`` or ``height`` arguments are optional and will be set
-    to 48 pixels if not specified.
-
-To preserve the aspect ratio of the retrieved thumbnail, use the :source:`getThumbnailByLongestSide <components/tools/OmeroM/src/image/getThumbnailByLongestSide.m>`
-function::
-
-	thumbnail = getThumbnailByLongestSide(session, image, size);
-
-or alternatively using the image identifier::
-
-	thumbnail = getThumbnailByLongestSide(session, imageID, size);
-
--  **Thumbnail set**
-
-A set of cached thumbnails can be retrieved from a list of input images using
-the :source:`getThumbnailSet <components/tools/OmeroM/src/image/getThumbnailSet.m>`
-function::
-
-	thumbnailSet = getThumbnailSet(session, images, width, height);
-
-To preserve the aspect ratio of the retrieved thumbnails, use the :source:`getThumbnailByLongestSideSet <components/tools/OmeroM/src/image/getThumbnailByLongestSideSet.m>` function::
-
-	thumbnailSet = getThumbnailSetByLongestSide(session, images, size);
-
 Annotations
 -----------
 
