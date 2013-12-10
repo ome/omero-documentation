@@ -493,8 +493,7 @@ are then used:
 Current release/next point release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The branch for the current release of OMERO/Bio-Formats/OME model is
-|stable_branch|.
+The branch for the current release of OMERO/Bio-Formats is |stable_branch|.
 
 .. glossary::
 
@@ -547,8 +546,8 @@ The branch for the current release of OMERO/Bio-Formats/OME model is
 Next major release
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the next major release of OMERO/Bio-Formats/OME model is
-develop.
+The branch for the next major release of OMERO/Bio-Formats/OME model and
+the Contributing documentation is develop.
 
 .. glossary::
 
