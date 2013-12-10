@@ -51,14 +51,14 @@ As described under |OmeroClients|, there are several ways to configure your
 connection to an OMERO server. OMERO.matlab comes with a few conveniences for
 making this work.
 
-If you run ``client = loadOmero;`` (i.e. loadOmero with a return value),
+If you run ``client = loadOmero();`` (i.e. loadOmero with an output argument),
 then OMERO.matlab will try to configure the
-``omero.client`` object for you. First, it checks the ``ICE_CONFIG``
+``omero.client`` object for you. First, it checks the :envvar:`ICE_CONFIG`
 environment variable. If set, it will let the ``omero.client``
 constructor initialize itself. Otherwise, it looks for the file
-``ice.config`` in the current directory. The OMERO.matlab toolbox comes with a 
-default ice.config file pointing at localhost, which you can edit for your 
-server.
+:file:`ice.config` in the current directory. The OMERO.matlab toolbox comes
+with a default :file:`ice.config` file pointing at ``localhost``. To use this
+configuration file, you should replace ``localhost`` by your server address.
 
 Alternatively, you can pass the same parameters to ``loadOmero;`` that
 you would pass to ``omero.client``::
@@ -607,8 +607,8 @@ annotation can be linked to ROI.
 
 -  **Creating ROI**
 
-This example creates an ROI with a rectangular shape and attach it to an
-image::
+This example creates a ROI with two shapes, a rectangle and an ellipse, and
+attaches it to an image::
 
     % First create a rectangular shape.
     rectangle = createRectangle(0, 0, 10, 20);
@@ -654,9 +654,9 @@ image::
     shapeType = '';
     for thisROI  = 1:n
         roi = rois.get(thisROI-1);
-        numShapes = roi.sizeOfShapes; % A ROI can have multiple shapes.
+        numShapes = roi.sizeOfShapes;
         for ns = 1:numShapes
-            shape = roi.getShape(ns-1); % the shape
+            shape = roi.getShape(ns-1);
             if (isa(shape, 'omero.model.Rect'))
                rectangle = shape;
                rectangle.getX().getValue()
@@ -683,9 +683,9 @@ image::
     n = rois.size;
     for thisROI  = 1:n
         roi = rois.get(thisROI-1);
-        numShapes = roi.sizeOfShapes; % A ROI can have multiple shapes.
+        numShapes = roi.sizeOfShapes;
         for ns = 1:numShapes
-            shape = roi.getShape(ns-1); % the shape
+            shape = roi.getShape(ns-1);
             % Remove the shape
             roi.removeShape(shape);
         end
