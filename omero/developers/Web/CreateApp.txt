@@ -23,18 +23,6 @@ server when you log in. That page also describes how to set debug to 'True'
 which is important when developing with OMERO.web and you should also be using 
 the Django 'development' server.
 
-You can either add your app to the omeroweb under an OMERO.server release build,
-or run directly from the OMERO.web source code:
-
-Option 1: Using OMERO.server release build
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If all your edits will be under your own app, and you are not editing or building
-the OMERO.web source code, then
-the simplest option is to directly add your app to the server build
-under lib/python/omeroweb. This code is run when you start the Django
-server with
-
 ::
 
     $ bin/omero web start
@@ -48,64 +36,22 @@ server with
 
 .. note:: Port number is 4080
 
-When you edit and save the code, under lib/python/omeroweb/, Django
-automatically detects this and you only need to refresh your browser
-to see the changes. You can see this in the :snapshot:`OMERO.web intro
-movie <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`.
-
-Option 2: Working from source code
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Alternatively,if you have checked out the OMERO.server source code and
-are building from source, you will have 2 copies of the OMERO.web code -
-source code is under components/tools/OmeroWeb/omeroweb and the server
-build is under dist/lib/python/omeroweb. You should be editing the
-source code since any edits to the build code will get wiped out each
-time you build! In order to run Django directly from the source code you
-need to follow a few steps (commands are shown below):
-
--  Set $OMERO_HOME, so that OMERO.web knows where to find config, write logs etc.
-
-   .. note:: You should not set $OMERO_HOME on production servers
-
--  Make sure that the Django libraries that are under the build:
-   dist/lib/python/django are on your PYTHONPATH.
--  Remove the built omeroweb folder, otherwise this will get used
-   instead of the source omeroweb 
-
-   .. note:: You have to do this again if you build the server
-
--  From the source omeroweb/ folder, manually run the Django development
-   server
-
-   ::
-
-       $ export OMERO_HOME = ~/Desktop/OMERO/dist      # Example server build path
-
-       # Make sure the Django code etc can be imported
-       $ export PYTHONPATH=$OMERO_HOME/lib/python/:$PYTHONPATH
-       $ cd $OMERO_HOME
-       # need to remove the built omeroweb code so it doesn't get imported
-       $ rm -rf lib/python/omeroweb/
-
-       $ cd ../components/tools/OmeroWeb/omeroweb
-       $ python manage.py runserver
-       Validating models...
-       0 errors found
-
-       Django version 1.1.1, using settings 'omeroweb.settings'
-       Development server is running at http://127.0.0.1:8000/
-       Quit the server with CONTROL-C.
-
-   .. note:: Default port number is 8000. To specify port, use 
-       E.g: $ python manage.py runserver 0.0.0.0:4080
 
 You should make sure that you can access the webclient and webadmin on
 your local machine before starting to develop your own code. Be sure to
-use the correct port number as mentioned above, either:
+use the correct port number, E.g:
 
 -  ` http://localhost:4080/webclient/ <http://localhost:4080/webclient/>`_
--  ` http://localhost:8000/webclient/ <http://localhost:8000/webclient/>`_
+
+When you edit and save your app, Django will
+automatically detect this and you only need to refresh your browser
+to see the changes. You can see this in the :snapshot:`OMERO.web intro
+movie <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`.
+
+If you want to run OMERO.web from source code, see :doc:`/developers/Web/EditingOmeroWeb`.
+
+Since OMERO 4.4.10 or 5.0, you can place your app anywhere on your PYTHONPATH,
+so that it can be imported by OMERO.web.
 
 Creating an app
 ---------------
@@ -129,16 +75,6 @@ Create and checkout a new github repository OR manually create a new directory
 -  Enter the name of <your-app>, add description and choose to add
    README.
 
--  Change into the /omeroweb/ directory:
-
-   ::
-
-       # running from build
-       $ cd lib/python/omeroweb/
-
-       # OR: running from source:
-       $ cd components/tools/OmeroWeb/omeroweb
-
 -  Checkout your new repository (into a new directory)
 
    ::
@@ -151,6 +87,15 @@ Create and checkout a new github repository OR manually create a new directory
    ::
 
         $ mkdir <your-app>
+
+Add your app location to your PYTHONPATH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If your app is not in a directory that's already a module on your PYTHONPATH
+then you need to add it:
+
+::
+
+    $ export PYTHONPATH=$PYTHONPATH:/path/to/your-app
 
 Add the essential files to your app
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
