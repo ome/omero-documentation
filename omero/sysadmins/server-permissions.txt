@@ -3,7 +3,7 @@ Permissions overview
 
 In the 4.4 release of OMERO, the groups and permissions system has been
 revamped to allow users to share data with more control. **Users can now
-copy data between groups that they are a member of**.
+move data between groups that they are a member of**.
 
 .. seealso:: :doc:`/developers/Server/Permissions`
 
@@ -189,7 +189,7 @@ of the user performing the action.
 :term:`Edit`                              Y                      Y                       Y
 :term:`Move between groups`               Y                      Y                       Y
 :term:`Remove annotations`                Y                      Y                       Y
-:term:`Link`                              N                      Y                       Y
+:term:`Mix data`                              N                      Y                       Y
 =============================== ======================= ===================== ======================
 
 |
@@ -210,7 +210,7 @@ of the user performing the action.
 :term:`Edit`                              Y                      Y                       Y
 :term:`Move between groups`               N                      N                       N
 :term:`Remove annotations`                Y                      Y                       Y
-:term:`Link`                              N                      Y                       Y
+:term:`Mix data`                              N                      Y                       Y
 =============================== ======================= ===================== ======================
 
 |
@@ -231,7 +231,7 @@ of the user performing the action.
 :term:`Edit`                              N                      N                       N
 :term:`Move between groups`               N                      N                       N
 :term:`Remove annotations`                N                      N                       N
-:term:`Link`                              N                      N                       N
+:term:`Mix data`                              N                      N                       N
 =============================== ======================= ===================== ======================
 
 Key
@@ -279,7 +279,7 @@ Key
 	Remove annotations
 		Remove annotations made by others on your data.
 
-	Link
+	Mix data
 		Copy, Move or Remove other users' data to or from your Projects, Datasets or Screens.
 		Copy, Move or Remove your or others' data to or from others' Projects, Datasets or Screens.
 
