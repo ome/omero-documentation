@@ -167,8 +167,12 @@ OMERO.web is quite straightforward.
                       error_page 503 /maintenance.html;
                       return 503;
                    }
+
                    fastcgi_pass 0.0.0.0:4080;
+
                    fastcgi_param PATH_INFO $fastcgi_script_name;
+
+
                    fastcgi_param REQUEST_METHOD $request_method;
                    fastcgi_param QUERY_STRING $query_string;
                    fastcgi_param CONTENT_TYPE $content_type;
@@ -179,6 +183,9 @@ OMERO.web is quite straightforward.
                    fastcgi_pass_header Authorization;
                    fastcgi_intercept_errors on;
                    fastcgi_read_timeout 300;
+                   # Uncomment if nginx SSL module is enabled or you are using nginx 1.1.11 or later
+                   # -- See: #10273, http://nginx.org/en/CHANGES
+                   # fastcgi_param HTTPS $https;
                }
 
                location /maintenance.html {
