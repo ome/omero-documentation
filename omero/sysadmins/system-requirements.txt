@@ -34,7 +34,9 @@ size and number of users. At a minimum we suggest:
 -  2GB RAM
 -  500MB of hard drive space for OMERO.server distribution
 -  Java 1.6 or later
--  Python 2 (2.6 or later)
+-  Python 2 (2.6.5 or later - note that this is not the standard version
+   disturbed with Mac OS X 10.6; you may find it easier to upgrade your OS to
+   obtain a later version of Python)
 -  Hard drive space proportional to the image sizes expected.
    The drive space should permit **proper locking**, which is
    often not the case with remotely mounted shares. See the
@@ -51,7 +53,7 @@ users is:
 -  8GB RAM
 -  500MB hard drive space for OMERO.server distribution
 -  Java 1.6 or later
--  Python 2 (2.6 or later)
+-  Python 2 (2.6.5 or later)
 -  Hard drive space proportional to the image sizes expected (Likely
    between 10 and 100TB)
 

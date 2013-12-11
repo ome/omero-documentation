@@ -70,6 +70,8 @@ need to follow a few steps (commands are shown below):
 
 -  Make sure that the Django libraries that are under the build:
    dist/lib/python/django are on your PYTHONPATH.
+-  Make sure the OmeroWeb folder:
+   components/tools/OmeroWeb is on your PYTHONPATH.
 -  Remove the built omeroweb folder, otherwise this will get used
    instead of the source omeroweb 
 
@@ -83,18 +85,19 @@ need to follow a few steps (commands are shown below):
        $ export OMERO_HOME = ~/Desktop/OMERO/dist      # Example server build path
 
        # Make sure the Django code etc can be imported
-       $ export PYTHONPATH=$OMERO_HOME/lib/python/:$PYTHONPATH
+       $ export PYTHONPATH=$OMERO_HOME/lib/python/:$OMERO_HOME/../components/tools/OmeroWeb:$PYTHONPATH
        $ cd $OMERO_HOME
        # need to remove the built omeroweb code so it doesn't get imported
        $ rm -rf lib/python/omeroweb/
 
-       $ cd ../components/tools/OmeroWeb/omeroweb
-       $ python manage.py runserver
+       $ cd ../components/tools/OmeroWeb
+       $ python omeroweb/manage.py runserver
        Validating models...
-       0 errors found
 
-       Django version 1.1.1, using settings 'omeroweb.settings'
-       Development server is running at http://127.0.0.1:8000/
+       0 errors found
+       December 05, 2013 - 13:39:26
+       Django version 1.6, using settings 'omeroweb.settings'
+       Starting development server at http://127.0.0.1:8000/
        Quit the server with CONTROL-C.
 
    .. note:: Default port number is 8000. To specify port, use 
