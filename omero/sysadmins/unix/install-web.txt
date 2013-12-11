@@ -123,6 +123,12 @@ OMERO.web is quite straightforward.
        Alias /static /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static
        Alias /omero "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi/"
 
+   .. note::
+     The default configuration file installed with `mod_fastcgi` may be
+     incompatible with OMERO. In particular, the `FastCGIWrapper` option
+     conflicts with `FastCGIExternalServer` required by OMERO and must be
+     removed or commented out.
+
 -  For nginx:
 
    ::
