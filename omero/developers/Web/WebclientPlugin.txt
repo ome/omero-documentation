@@ -87,8 +87,8 @@ Below is a simple example of their usage. More detailed documentation at the bot
         // Initialise the center panel plugin, on our specified element
         $("#auto_tag_panel").omeroweb_center_plugin({
 
-            // same as example above
-            plugin_index: {{ forloop.counter }},
+            // To support single item selection, we can specify the types like this.
+            // Tab will only be enabled when a single dataset is selected
             supported_obj_types: ['dataset'],
 
             load_plugin_content: function(selected, dtype, oid){
@@ -113,15 +113,11 @@ Below is a simple example of their usage. More detailed documentation at the bot
        // Initialise the right tab plugin, on our specified tab element
        $("#image_roi_tab").omeroweb_right_plugin({
 
-           // Pass Django template counter to plugin. No need to change this.
-           plugin_index:{{ forloop.counter }},
-
-           // To support single item selection, we can specify the types like this.
            // Tab will only be enabled when a single image is selected
            supported_obj_types: ['image'],
 
            // This will get called when tab is displayed or selected objects change
-           load_tab_content: function(selected, obj_dtype, obj_id) {
+           load_plugin_content: function(selected, obj_dtype, obj_id) {
 
                // since we only support single images, the obj_id will be an image ID
                // Generate url based on a template-generated url
@@ -188,12 +184,8 @@ NB: if you select an object that is not supported by your plugin, then nothing w
 for the right-tab plugin, the tab selection will change to the first tab);
 
 
-Documentation of plugin methods
+Documentation of plugin options
 -------------------------------
-
--  **plugin_tab_index**: You need to tell the plugin what it's index is (E.g. Tab index) so that
-   it can be selected and de-selected accordingly. This is easily done since Django's template loop
-   will provide the correct value if you use {{ forloop.counter }} as shown above.
 
 -  **supported_obj_types**: If your plugin displays data from single objects, such as a single Image
    or Dataset, you can specify that here, using a list of types:
@@ -205,7 +197,7 @@ Documentation of plugin methods
    This will ensure that the plugin is only enabled when a single Dataset or Image is selected.
    To support multiple objects, see 'tab_enabled'.
 
--  **plugin_enabled / tab_enabled**: This function allows you to specify whether a plugin is enabled or not
+-  **plugin_enabled**: This function allows you to specify whether a plugin is enabled or not
    when specified objects are selected. It is only used if you have NOT defined 'supported_obj_types'.
    The function is passed a single argument:
 
