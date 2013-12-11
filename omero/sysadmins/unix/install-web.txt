@@ -100,9 +100,10 @@ OMERO.web is quite straightforward.
    the web server's manual. Apache and nginx configurations can be
    automatically generated for you by OMERO.web as follows:
 
+-  For Apache:
+
    ::
 
-       $ bin/omero web config "apache" / "nginx"
        $ bin/omero web config apache
        ...
        ###
@@ -125,11 +126,12 @@ OMERO.web is quite straightforward.
        Alias /static /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static
        Alias /omero "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi/"
 
--  OR nginx:
+-  For nginx:
 
    ::
 
        $ bin/omero web config nginx
+
        # 
        # nginx userland template
        # this configuration is designed for running nginx as the omero user or similar
@@ -441,6 +443,41 @@ Customizing your OMERO.web installation
       ::
 
           $ bin/omero config set omero.web.debug "True"
+
+-  Custom OMERO.web location
+
+   - By default OMERO.web expects to be run from the root URL of the web
+     server. It can be configured to run from a sub-directory, for example
+     `http://example.org/testing/`, as follows:
+
+      ::
+
+          $ bin/omero config set omero.web.force_script_name '/testing'
+
+   - Update your web server configuration. For example, in the nginx
+     configuration replace
+
+      ::
+
+          fastcgi_param PATH_INFO $fastcgi_script_name;
+
+     with
+
+      ::
+
+          fastcgi_split_path_info ^(/testing)(.*)$;
+          fastcgi_param PATH_INFO $fastcgi_path_info;
+          fastcgi_param SCRIPT_INFO $fastcgi_script_name;
+
+   - If `omero.web.force_script_name` is set then
+
+      ::
+
+          $ bin/omero web config nginx
+
+     will automatically generate the correct configuration.
+
+
 
 -  Configuring additional web apps:
 
