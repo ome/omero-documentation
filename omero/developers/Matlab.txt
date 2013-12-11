@@ -51,14 +51,14 @@ As described under |OmeroClients|, there are several ways to configure your
 connection to an OMERO server. OMERO.matlab comes with a few conveniences for
 making this work.
 
-If you run ``client = loadOmero;`` (i.e. loadOmero with a return value),
+If you run ``client = loadOmero();`` (i.e. loadOmero with an output argument),
 then OMERO.matlab will try to configure the
-``omero.client`` object for you. First, it checks the ``ICE_CONFIG``
+``omero.client`` object for you. First, it checks the :envvar:`ICE_CONFIG`
 environment variable. If set, it will let the ``omero.client``
 constructor initialize itself. Otherwise, it looks for the file
-``ice.config`` in the current directory. The OMERO.matlab toolbox comes with a 
-default ice.config file pointing at localhost, which you can edit for your 
-server.
+:file:`ice.config` in the current directory. The OMERO.matlab toolbox comes
+with a default :file:`ice.config` file pointing at ``localhost``. To use this
+configuration file, you should replace ``localhost`` by your server address.
 
 Alternatively, you can pass the same parameters to ``loadOmero;`` that
 you would pass to ``omero.client``::
@@ -89,14 +89,14 @@ directly or modify it to your liking.
 ::
 
     >> [c,s] = loadOmero;
-    >> t = omeroKeepAlive(c); % Creates a 60-second timer and starts it
+    >> t = omeroKeepAlive(c); % Create a 60-second timer and starts it
     >> …
-    >> delete(t);             % Disables the keep-alive
+    >> delete(t);             % Disable the keep-alive
 
 Alternatively, you can use the Java-based ``enableKeepAlive`` method,
 but it is not configurable from within Matlab::
 
-    c.enableKeepAlive(60); % Calls session.keepAlive() every 60 seconds
+    c.enableKeepAlive(60); % Call session.keepAlive() every 60 seconds
     c.closeSession();      % Close session to end the keep-alive
 
 .. _unsecure_client:
@@ -182,8 +182,8 @@ Reading data
 ------------
 
 The ``IContainer`` service provides methods to load the data management
-hierarchy in OMERO -- projects, datasets, etc. A list of examples
-follows, indicating how to load projects, datasets, screens, etc.
+hierarchy in OMERO -- projects, datasets… A list of examples follows
+indicating how to load projects, datasets, screens…
 
 -  **Projects**
 
@@ -197,7 +197,7 @@ If the project identifiers are known, they can be specified as::
 
 	projects = getProjects(session, ids)
 
-If the projects contains datasets, the datasets will automatically be loaded::
+If the projects contain datasets, the datasets will automatically be loaded::
 
     for j = 1 : numel(projects)
         datasetsList = projects(j).linkedDatasetList;
@@ -206,7 +206,7 @@ If the projects contains datasets, the datasets will automatically be loaded::
         end
     end
 
-If the datasets contains images, the images will automatically be loaded::
+If the datasets contain images, the images will automatically be loaded::
 
     imageList = projects(1).linkedDatasetList.get(0).linkedImageList;
 
@@ -247,11 +247,15 @@ If the image identifiers are known, they can be specified as::
 
 	images = getImages(session, ids)
 
-Alternatively, all the images contained in projects or datasets can be returned
-by specifying the parent type and identifiers as::
+All the images contained in a subset of datasets of known identifiers
+``datasetsIds`` can be returned using::
+
+	datasetImages = getImages(session, 'dataset', datasetsIds)
+
+All the images contained in all the datasets under a subset of projects of
+known identifiers ``projectIds`` can be returned using::
 
 	projectImages = getImages(session, 'project', projectIds)
-	datasetImages = getImages(session, 'dataset', datasetsIds)
 
 The ``Image``-``Pixels`` model implies you need to use the ``Pixels`` objects
 to access valuable data about the ``Image``::
@@ -355,7 +359,7 @@ Alternatively, the image identifier can be passed to the function::
 
 -  **Stack**
 
-The tile of an input image at coordinates (c, t) can be retrieved using the
+The stack of an input image at coordinates (c, t) can be retrieved using the
 :source:`getStack <components/tools/OmeroM/src/image/getStack.m>` function::
 
 	stack = getStack(session, image, c, t);
@@ -370,11 +374,12 @@ This is useful when you need the ``Pixels`` intensity.
 
 ::
 
-    %Create the store to load the stack. No access via the gateway
-    store = session.createRawPixelsStore(); 
-    store.setPixelsId(pixelsId, false); %Indicate the pixels set you are working on
+    % Create the store to load the stack. No access via the gateway
+    store = session.createRawPixelsStore();
+    % Indicate the pixels set you are working on
+    store.setPixelsId(pixelsId, false);
 
-    % offset values in each dimension XYZCT
+    % Offset values in each dimension XYZCT
     offset = java.util.ArrayList;
     offset.add(java.lang.Integer(0));
     offset.add(java.lang.Integer(0));
@@ -389,8 +394,9 @@ This is useful when you need the ``Pixels`` intensity.
     size.add(java.lang.Integer(sizeC));
     size.add(java.lang.Integer(sizeT));
 
-    % indicate the step in each direction, step = 1, will return values at index 0, 1, 2.
-    % step = 2, values at index 0, 2, 4 etc.
+    % Indicate the step in each direction,
+    % step = 1, will return values at index 0, 1, 2.
+    % step = 2, values at index 0, 2, 4…
     step = java.util.ArrayList;
     step.add(java.lang.Integer(1));
     step.add(java.lang.Integer(1));
@@ -399,47 +405,8 @@ This is useful when you need the ``Pixels`` intensity.
     step.add(java.lang.Integer(1));
     % Retrieve the data
     store.getHypercube(offset, size, step);
-    % close the store
+    % Close the store
     store.close();
-
-Thumbnails
-----------
-
--  **Single thumbnails**
-
-The cache thumbnail of an input image can be retrieved using the
-:source:`getThumbnail <components/tools/OmeroM/src/image/getThumbnail.m>`
-function::
-
-	thumbnail = getThumbnail(session, image, width, height);
-
-Alternatively, the image identifier can be passed to the function::
-
-	thumbnail = getThumbnail(session, imageID, width, height);
-
-.. note:: The ``width`` or ``height`` arguments are optional and will be set
-    to 48 pixels if not specified.
-
-To preserve the aspect ratio of the retrieved thumbnail, use the :source:`getThumbnailByLongestSide <components/tools/OmeroM/src/image/getThumbnailByLongestSide.m>`
-function::
-
-	thumbnail = getThumbnailByLongestSide(session, image, size);
-
-or alternatively using the image identifier::
-
-	thumbnail = getThumbnailByLongestSide(session, imageID, size);
-
--  **Thumbnail set**
-
-A set of cached thumbnails can be retrieved from a list of input images using
-the :source:`getThumbnailSet <components/tools/OmeroM/src/image/getThumbnailSet.m>`
-function::
-
-	thumbnailSet = getThumbnailSet(session, images, width, height);
-
-To preserve the aspect ratio of the retrieved thumbnails, use the :source:`getThumbnailByLongestSideSet <components/tools/OmeroM/src/image/getThumbnailByLongestSideSet.m>` function::
-
-	thumbnailSet = getThumbnailSetByLongestSide(session, images, size);
 
 Annotations
 -----------
@@ -533,25 +500,32 @@ known::
 
 -  **Writing annotations**
 
-New annotations can be created and linked to existing objects. For example,
-to create a new tag annotation and attach it to an image, it is possible to
-use the :source:`writeTagAnnotation <components/tools/OmeroM/src/annotations/writeTagAnnotation.m>` function and
-then the :source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
-function::
+New annotations can be created using the corresponding ``write*Annotation``
+function (see table above). Existing annotations can be linked to existing
+objects on the server using the
+:source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
+function.
 
-	ta = writeTagAnnotation(session, tag);
-	link = linkAnnotation(session, tag, 'Image', image_id);
+For example, to create a new tag annotation ``tag_name`` and attach it to the
+image ``image_id``::
 
--  **Updating file annotations**
+	tagAnnotation = writeTagAnnotation(session, tag_name);
+	link = linkAnnotation(session, tagAnnotation, 'Image', image_id);
 
-For existing file annotations, it is possible to replace the content of the original file without having to recreate a new file annotation using the :source:`updateFileAnnotation <components/tools/OmeroM/src/annotations/updateFileAnnotation.m>` function.
+To create a file annotations from the content of a ``local_file_path`` and
+attach it to the image ``image_id``::
 
+	fileAnnotation = writeFileAnnotation(session, local_file_path);
+	link = linkAnnotation(session, fileAnnotation, 'Image', image_id);
+
+For existing file annotations, it is possible to replace the content of the
+original file without having to recreate a new file annotation using the
+:source:`updateFileAnnotation <components/tools/OmeroM/src/annotations/updateFileAnnotation.m>` function.
 If the file annotation has been retrieved from the server as
 ``fileAnnotation``, then the content of its ``OriginalFile`` can be replaced
-by the content of ``local_file`` using::
+by the content of ``local_file_path`` using::
 
-	updateFileAnnotation(session, fileAnnotation, local_file);
-
+	updateFileAnnotation(session, fileAnnotation, local_file_path);
 
 Writing data
 ------------
@@ -564,94 +538,13 @@ Writing data
     dataset.setName(omero.rtypes.rstring(char('name dataset')));
     dataset.setDescription(omero.rtypes.rstring(char('description dataset')));
 
-    %link Dataset and Project
+    % Link Dataset and Project
 
     link = omero.model.ProjectDatasetLinkI;
     link.setChild(dataset);
     link.setParent(omero.model.ProjectI(projectId, false));
 
     session.getUpdateService().saveAndReturnObject(link);
-
--  **Create a tag (tag annotation)** and link it to an existing project.
-
-::
-
-    tag = omero.model.TagAnnotationI;
-    tag.setTextValue(omero.rtypes.rstring(char('name tag')));
-    tag.setDescription(omero.rtypes.rstring(char('description tag')));
-
-    %link tag and project
-    link = omero.model.ProjectAnnotationLinkI;
-    link.setChild(tag);
-    link.setParent(omero.model.ProjectI(projectId, false));
-
-    session.getUpdateService().saveAndReturnObject(link);
-
--  **Create a file annotation and link to an image.**
-
-To attach a file to an object e.g. an image, few objects need to be
-created:
-
-#. an ``OriginalFile``
-#. a ``FileAnnotation``
-#. a link between the ``Image`` and the ``FileAnnotation``.
-
-::
-
-    % To retrieve the image see above.
-    iUpdate = session.getUpdateService(); % service used to write object
-
-    % create the original file object.
-    %read local file
-    file = java.io.File(fileToUpload);
-    name = file.getName();
-    absolutePath = file.getAbsolutePath();
-    path = absolutePath.substring(0, absolutePath.length()-name.length());
-
-    originalFile = omero.model.OriginalFileI;
-    originalFile.setName(omero.rtypes.rstring(name));
-    originalFile.setPath(omero.rtypes.rstring(path));
-    originalFile.setSize(omero.rtypes.rlong(file.length()));
-    originalFile.setSha1(omero.rtypes.rstring(generatedSha1));
-    originalFile.setMimetype(omero.rtypes.rstring(fileMimeType));
-
-    % now save the originalFile object
-    originalFile = iUpdate.saveAndReturnObject(originalFile);
-
-    % Initialize the service to load the raw data
-    rawFileStore = session.createRawFileStore();
-    rawFileStore.setFileId(originalFile.getId().getValue());
-
-    %  open file and read it
-
-    %code for small file.
-    fid = fopen(fileToUpload);
-    byteArray = fread(fid,[1, file.length()], 'uint8');
-    rawFileStore.write(byteArray, 0, file.length());
-    fclose(fid);
-
-
-    originalFile = rawFileStore.save();
-    % Important to close the service
-    rawFileStore.close();
-    % now, you have an original File in the database and raw data uploaded.
-    % You now need to link the Original file to the image using the File annotation object. That's the way to do it.
-    fa = omero.model.FileAnnotationI;
-    fa.setFile(originalFile);
-    fa.setDescription(omero.rtypes.rstring(description)); % The description set above e.g. PointsModel
-    fa.setNs(omero.rtypes.rstring(NAME_SPACE_TO_SET)) % The name space you have set to identify the file annotation.
-
-    % save the file annotation.
-    fa = iUpdate.saveAndReturnObject(fa);
-
-    % now link the image and the annotation
-    link = omero.model.ImageAnnotationLinkI;
-    link.setChild(fa);
-    link.setParent(image);
-    % save the link back to the server.
-    iUpdate.saveAndReturnObject(link);
-
-    % To attach to a Dataset use omero.model.DatasetAnnotationLinkI;
 
 How to use OMERO tables
 -----------------------
@@ -667,12 +560,12 @@ How to use OMERO tables
     valuesString = javaArray('java.lang.String', 1);
     columns(2) = omero.grid.StringColumn('MyStringColumn', '', 64, valuesString);
 
-    %create a new table.
+    % Create a new table.
     table = session.sharedResources().newTable(1, name);
 
-    %initialize the table
+    % Initialize the table
     table.initialize(columns);
-    %add data to the table.
+    % Add data to the table.
     data = javaArray('omero.grid.Column', 2);
     data(1) = omero.grid.LongColumn('Uid', 'test Long', [2]);
     valuesString = javaArray('java.lang.String', 1);
@@ -688,21 +581,21 @@ How to use OMERO tables
     of = omero.model.OriginalFileI(file.getId(), false); 
     tablePrx = session.sharedResources().openTable(of);
 
-    %read headers
+    % Read headers
     headers = tablePrx.getHeaders();
     for i=1:size(headers, 1),
         headers(i).name; % name of the header
-        %do something
+        % Do something
     end
 
-    % Depending on size of table, you may only want to read some blocks.
+    % Depending on the size of table, you may only want to read some blocks.
     cols = [0:size(headers, 1)-1]; % The number of columns you wish to read.
     rows = [0:tablePrx.getNumberOfRows()-1]; % The number of rows you wish to read.
-    data = tablePrx.slice(cols, rows); % read the data.
+    data = tablePrx.slice(cols, rows); % Read the data.
     c = data.columns;
     for i=1:size(c),
         column = c(i);
-        %do something
+        % Do something
     end
     tablePrx.close(); % Important to close when done.
 
@@ -714,17 +607,17 @@ annotation can be linked to ROI.
 
 -  **Creating ROI**
 
-This example creates an ROI with a rectangular shape and attach it to an
-image::
+This example creates a ROI with two shapes, a rectangle and an ellipse, and
+attaches it to an image::
 
     % First create a rectangular shape.
     rectangle = createRectangle(0, 0, 10, 20);
-    % indicate on which plane to attach the shape
+    % Indicate on which plane to attach the shape
     setShapeCoordinates(rectangle, 0, 0, 0);
 
     % First create an ellipse shape.
     ellipse = createEllipse(0, 0, 10, 20);
-    % indicate on which plane to attach the shape
+    % Indicate on which plane to attach the shape
     setShapeCoordinates(ellipse, 0, 0, 0);
 
     % Create the roi.
@@ -735,7 +628,7 @@ image::
 
     % Link the roi and the image
     roi.setImage(omero.model.ImageI(imageId, false));
-    % save
+    % Save
     iUpdate = session.getUpdateService(); 
     roi = iUpdate.saveAndReturnObject(roi);
     % Check that the shape has been added.
@@ -761,11 +654,10 @@ image::
     shapeType = '';
     for thisROI  = 1:n
         roi = rois.get(thisROI-1);
-        numShapes = roi.sizeOfShapes; % an ROI can have multiple shapes.
+        numShapes = roi.sizeOfShapes;
         for ns = 1:numShapes
-            shape = roi.getShape(ns-1); % the shape
+            shape = roi.getShape(ns-1);
             if (isa(shape, 'omero.model.Rect'))
-               %handle rectangle
                rectangle = shape;
                rectangle.getX().getValue()
             elseif (isa(shape, 'omero.model.Ellipse'))
@@ -791,20 +683,20 @@ image::
     n = rois.size;
     for thisROI  = 1:n
         roi = rois.get(thisROI-1);
-        numShapes = roi.sizeOfShapes; % an ROI can have multiple shapes.
+        numShapes = roi.sizeOfShapes;
         for ns = 1:numShapes
-            shape = roi.getShape(ns-1); % the shape
-            % remove the shape
+            shape = roi.getShape(ns-1);
+            % Remove the shape
             roi.removeShape(shape);
         end
-        %Update the roi.
+        % Update the roi.
         roi = iUpdate.saveAndReturnObject(roi);
     end
 
 Deleting data
 -------------
 
-It is possible to delete projects, datasets, images, ROIs etc. and
+It is possible to delete projects, datasets, images, ROIs… and
 objects linked to them depending on the specified options (see
 :doc:`/developers/Modules/Delete`). For example, images of known identifiers
 can be deleted from the server using the
@@ -822,7 +714,7 @@ Rendering images
 -----------------
 
 The :source:`RenderImages.m <examples/Training/matlab/RenderImages.m>` example 
-script shows how to initialize the rendering image and render an image.
+script shows how to initialize the rendering engine and render an image.
 
 Creating Image
 --------------
