@@ -1,8 +1,9 @@
 What's new for OMERO 5
 ======================
 
-- :doc:`server-migration-fs` has been added and :doc:`server-upgrade` updated 
-  to clarify the position on upgrading from 4.4 to OMERO 5.
+- :doc:`server-upgrade` has been updated to explain the server upgrade
+  process from 4.4 to OMERO 5 and describe the introduction of password
+  salting support.
 
 - :doc:`fs-upload-configuration` has been added to explain the server-side FS 
   workflow for importing files.

@@ -79,7 +79,6 @@ Server Maintenance
     server-backup-and-restore
     server-upgrade
     UpgradeCheck
-    server-migration-fs
     command-line-interface
 
 
@@ -92,8 +91,5 @@ Advanced topics
     :titlesonly:
 
     server-permissions
-    server-advanced-configuration
     dropbox
-    fs-upload-configuration
-    server-ldap
     grid

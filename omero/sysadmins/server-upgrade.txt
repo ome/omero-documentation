@@ -19,9 +19,6 @@ to disable this functionality you should do so now as outlined on the
     suitable version of PostgreSQL to enable successful upgrading of
     the database.
 
-    **Also be aware that at present there is no way of directly upgrading
-    OMERO.server from the 4.x line to the OMERO.fs (5.x) version.**
-
 If you encounter errors during a OMERO upgrade, database upgrade, etc.
 you should retain as much log information as possible and notify the
 OMERO.server team via the mailing lists available on the
@@ -36,6 +33,16 @@ below. Please refer to each section for additional details.
 .. contents::
     :local:
     :depth: 1
+
+.. warning::
+	With 5.0.0-beta2, the default JDBC password provider has been modified to
+	add password salting support. This implies that once a server has been
+	upgraded and deployed, if passwords are modified, you will not be able
+	to easily revert to a configuration without salting. To keep using the
+	legacy password provider without salting support, you will need to
+	configure ``omero.security.password_provider`` to use the legacy
+	``chainedPasswordProviderNoSalt`` as described in the
+	:ref:`legacy_password_providers` section.
 
 .. warning:: The passwords and logins used here are examples. Please consult
     the :ref:`troubleshooting-password` section for explanation.  In particular,
@@ -62,10 +69,10 @@ Before copying the new binaries, stop the existing server::
     $ bin/omero web stop
     $ bin/omero admin stop
 
-Your OMERO configuration is stored using ``config.xml`` in the``etc/grid`` 
-directory under your OMERO.server directory. Assuming you have not made any 
-file changes within your OMERO.server distribution directory, you are safe to 
-follow the following upgrade procedure:
+Your OMERO configuration is stored using :file:`config.xml` in the
+:file:`etc/grid` directory under your OMERO.server directory. Assuming you
+have not made any file changes within your OMERO.server distribution
+directory, you are safe to follow the following upgrade procedure:
 
 .. parsed-literal::
 
@@ -92,16 +99,41 @@ Run the upgrade script
 ^^^^^^^^^^^^^^^^^^^^^^	
 
 You **must** use the same username and password you have defined during
-:doc:`unix/server-installation`. The |version| upgrade script should execute in a short time.
+:doc:`unix/server-installation`. The |version| upgrade script should execute
+in a short time.
+
+From a |previousversion|.x server
+"""""""""""""""""""""""""""""""""
 
 .. parsed-literal::
 
     $ cd |OMEROserverzip|
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO |previousversion|\_\_0.sql
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO\ |previousversion|\_\_0.sql
     Password for user **db_user**:
     ...
     ...
-                               status                                
+                               status
+    ---------------------------------------------------------------------
+                                                                        +
+                                                                        +
+                                                                        +
+    YOU HAVE SUCCESSFULLY UPGRADED YOUR DATABASE TO VERSION OMERO |version|\_\_0+
+                                                                        +
+                                                                        +
+
+    (1 row)
+
+From a 5.0.0-beta1 server
+"""""""""""""""""""""""""
+
+.. parsed-literal::
+
+    $ cd |OMEROserverzip|
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO\ |version|\DEV\_\_6.sql
+    Password for user **db_user**:
+    ...
+    ...
+                               status
     ---------------------------------------------------------------------
                                                                         +
                                                                         +
@@ -120,8 +152,8 @@ database which can both save disk space and speed up access times.
 
 .. parsed-literal::
 
-    $ psql -h localhost -U **db_user** **omero_database** -c "REINDEX DATABASE **omero_database** FORCE;"
-    $ psql -h localhost -U **db_user** **omero_database** -c "VACUUM FULL VERBOSE ANALYZE;"
+    $ psql -h localhost -U **db_user** **omero_database** -c 'REINDEX DATABASE "**omero_database**" FORCE;'
+    $ psql -h localhost -U **db_user** **omero_database** -c 'VACUUM FULL VERBOSE ANALYZE;'
 
 .. _upgrademergescript:
 
@@ -140,8 +172,8 @@ For further information on managing your scripts, refer to
 :doc:`installing-scripts`. If you require help, please contact the OME 
 developers.
 
-Update your environment variables
----------------------------------
+Update your configuration
+-------------------------
 
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
@@ -150,6 +182,15 @@ If you changed the directory name where the |release| server code resides,
 make sure to update any system environment variables. Before restarting
 the server, make sure your PATH and PYTHONPATH system environment
 variables are pointing to the new locations.
+
+JVM memory settings
+^^^^^^^^^^^^^^^^^^^
+
+If you modified your memory settings, these changes will be lost and you will
+need to update the memory settings for the new server. Refer to the
+`JVM memory settings` sub-section of the OMERO.server installation section
+(:doc:`Unix <unix/server-installation>` or
+:doc:`Windows <windows/server-installation>`) for more information.
 
 Changes to OMERO.web URLs
 ^^^^^^^^^^^^^^^^^^^^^^^^^
