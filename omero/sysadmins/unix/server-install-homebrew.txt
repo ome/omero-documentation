@@ -484,3 +484,33 @@ gfortran
 ^^^^^^^^
 
 ``gfortran`` currently fails to build on 32-bit 10.6.8 machines (see https://github.com/mxcl/homebrew/issues/17776)
+
+PIL
+^^^
+
+If you encounter an issue related to PIL not compiling as following:
+
+    #include <freetype/fterrors.h>
+	         ^
+	1 error generated.
+	error: command 'gcc' failed with exit status 1
+
+you need to add
+
+    sudo ln -s /opt/local/include/freetype2 /opt/local/include/freetype
+
+and then re-run the PIL build process.
+
+HDF5
+^^^^
+
+If you encounter an issue related to tables installation as following:
+
+	.. ERROR:: Could not find a local HDF5 installation.
+    You may need to explicitly state where your local HDF5 headers and
+    library can be found by setting the ``HDF5_DIR`` environment
+    variable or by using the ``--hdf5`` command-line option.
+
+you need to try define ``HDF5_DIR``:
+
+	HDF5_DIR=/usr/local pip install tables
