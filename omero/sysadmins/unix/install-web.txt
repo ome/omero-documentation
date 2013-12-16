@@ -98,10 +98,44 @@ OMERO.web is quite straightforward.
    such file is depending on your system. On OS X it can be saved as
    ``omero.conf`` under ``/private/etc/apache2/other``. Please refer to
    the web server's manual. Apache and nginx configurations can be
-   automatically generated for you by OMERO.web as follows:
+   automatically generated for you by OMERO.web:
 
--  For Apache:
+   ::
 
+       $ bin/omero web config "apache" / "nginx"
+
+   See :ref:`apache_configuration` or :ref:`nginx_configuration` for more
+   details.
+
+-  Start the Django FastCGI workers:
+
+   ::
+
+       $ bin/omero web start
+       ....
+       Copying '/Users/omero/Desktop/omero/lib/python/omeroweb/webstart/static/webstart/img/icon-omero-web.png'
+
+       735 static files copied to '/Users/omero/Desktop/omero/lib/python/omeroweb/static'.
+       Starting OMERO.web... [OK]
+
+   .. note::
+     The Django FastCGI workers are managed **separately** from other
+     OMERO.server processes. You can check their status or stop them using the
+     following commands:
+
+     ::
+
+       $ bin/omero web status
+       OMERO.web status... [RUNNING] (PID 59217)
+       $ bin/omero web stop
+       Stopping OMERO.web... [OK]
+       Django FastCGI workers (PID 59217) killed.
+
+
+.. _apache_configuration:
+
+Apache configuration
+""""""""""""""""""""
    ::
 
        $ bin/omero web config apache
@@ -132,7 +166,11 @@ OMERO.web is quite straightforward.
      conflicts with `FastCGIExternalServer` required by OMERO and must be
      removed or commented out.
 
--  For nginx:
+
+.. _nginx_configuration:
+
+Nginx configuration
+"""""""""""""""""""
 
    ::
 
@@ -206,30 +244,6 @@ OMERO.web is quite straightforward.
            }
 
        }
-
--  Start the Django FastCGI workers:
-
-   ::
-
-       $ bin/omero web start
-       ....
-       Copying '/Users/omero/Desktop/omero/lib/python/omeroweb/webstart/static/webstart/img/icon-omero-web.png'
-
-       735 static files copied to '/Users/omero/Desktop/omero/lib/python/omeroweb/static'.
-       Starting OMERO.web... [OK]
-
-   .. note::
-     The Django FastCGI workers are managed **separately** from other
-     OMERO.server processes. You can check their status or stop them using the
-     following commands:
-
-     ::
-
-       $ bin/omero web status
-       OMERO.web status... [RUNNING] (PID 59217)
-       $ bin/omero web stop
-       Stopping OMERO.web... [OK]
-       Django FastCGI workers (PID 59217) killed.
 
 Using the lightweight development server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
