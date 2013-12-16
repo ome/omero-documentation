@@ -28,22 +28,19 @@ title = project + u' Documentation'
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-if "OMERO_RELEASE" in os.environ:
-    release = os.environ.get('OMERO_RELEASE')
-    [majornumber, minornumber, patchnumber] = split_release(release)
-
-    # Define Sphinx version and release variables and development branch
-    version = ".".join(str(x) for x in (majornumber, minornumber))
-    devbranch = "dev_" + "_".join(str(x) for x in (majornumber, minornumber))
-
+if "MAJOR_RELEASE" in os.environ:
+    major_release = os.environ.get('MAJOR_RELEASE')
+    [majornumber, minornumber, patchnumber] = split_release(major_release)
+    stable_version = get_previous_version(majornumber, minornumber)
+    stable_branch = "dev_" + stable_version.replace('.', '_')
 else:
-    version = ''
-    release = ''
-    devbranch = 'develop'
+    stable_version = 'UNKNOWN'
+    stable_branch = 'unknown'
 
 rst_epilog += """
-.. |devbranch| replace:: %s
-""" % (devbranch)
+.. |stable_version| replace:: %s
+.. |stable_branch| replace:: %s
+""" % (stable_version, stable_branch)
     
 # OME contributing-specific extlinks
 contributing_extlinks = {

@@ -15,6 +15,28 @@
 import datetime
 import sys, os
 
+def split_release(release):
+    import re
+    split_release =  re.split("^([0-9]+)\.([0-9]+)\.([0-9]+)(.*?)$", release)
+    return (int(split_release[1]), int(split_release[2]), int(split_release[3]))
+
+def get_previous_version(majornumber, minornumber=0):
+    # Return the previous version number for the first minor versions of a
+    # major series i.e. x.0.y
+    # Implemented as an hard-coded list until we work out an automated way to
+    # upgrade the database without specifying version numbers e.g.
+    # bin/omero db upgrade
+    if minornumber == 0:
+        if majornumber == 5:
+            return "4.4"
+        elif majornumber == 4:
+            return "3.2"
+        else:
+            raise Exception("No previous version defined for %s.%s"
+                            % (majornumber, minornumber))
+    else:
+        return "%s.%s" % (majornumber, minornumber - 1)
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
