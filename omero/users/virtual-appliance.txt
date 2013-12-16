@@ -755,7 +755,7 @@ that omero-vm-2 is selected then click :guilabel:`Settings` and select the
 select :guilabel:`Remove Controller`, then click :guilabel:`OK` to return the
 VirtualBox |VM| library.
 
-Start the omero-vm-2 |VM| and allow it to boot. Log in as root then issue the
+Start the omero-vm-2 |VM| and allow it to boot. As root then issue the
 ``df -h`` command. Verify that the size of the `/dev/sda1` is approximately 
 what you expect, e.g. if you allocated a 60GB virtual |HDD| then after size
 conversions and swap allocation you should end up with `/dev/sda1` reported as
