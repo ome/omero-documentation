@@ -50,8 +50,15 @@ movie <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`.
 
 If you want to run OMERO.web from source code, see :doc:`/developers/Web/EditingOmeroWeb`.
 
-Since OMERO 4.4.10 or 5.0, you can place your app anywhere on your PYTHONPATH,
-so that it can be imported by OMERO.web.
+You can place your app anywhere on your PYTHONPATH,
+as long as it can be imported by OMERO.web.
+
+.. note::
+
+   OMERO 5 uses Django 1.6 which has a different project layout from OMERO 4.4. 
+   If you are upgrading your app from 4.4.x you may need to update some import
+   statements. E.g. ``from omeroweb import webgateway`` will become
+   ``import webgateway``.
 
 Creating an app
 ---------------
