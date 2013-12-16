@@ -1,15 +1,27 @@
 What's new for OMERO 5
 ======================
 
-- :doc:`logging` and :doc:`Server/Properties` have been updated to explain the 
+- :doc:`logging` and :doc:`Server/Properties` have been updated to explain the
   new logging configuration in OMERO.fs.
 
-- :doc:`Modules/Delete` has been updated to explain how OMERO 5 handles 
-  deleting multi-file images and image sets and to clarify the finality of 
+- :doc:`Modules/Delete` has been updated to explain how OMERO 5 handles
+  deleting multi-file images and image sets and to clarify the finality of
   deletion.
 
-- :doc:`Server/FS` has been updated to give an overview of the OMERO.fs 
-  project, and further details of the 
+- :doc:`Server/FS` has been updated to give an overview of the OMERO.fs
+  project, and further details of the
   :doc:`ManagedRepository/ManagedRepository` are being added.
 
-- :doc:`Web/CreateApp` has been updated to describe the upgrade to Django 1.6 in OMERO 5.
+- :doc:`OMERO.web <Web>` has been upgraded to Django 1.6, requiring Python
+  2.6.5 or later. This has enabled more flexibility for developing new web
+  apps and plugins. All the :doc:`OMERO.web documentation <index>` has been
+  updated to reflect these changes.
+
+- :doc:`scripts/index` and :doc:`scripts/matlab-scripts` have been updated to 
+  reflect that MATLAB and Jython scripts are now supported natively.
+
+- Guidance for getting more involved with OME and contributing to both OMERO
+  and Bio-Formats, has been moved to our new
+  :devs_doc:`Contributing Developer Documentation <>` section so it is easier
+  to find. It has also been updated to better explain our development 
+  processes.
