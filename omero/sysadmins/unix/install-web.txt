@@ -91,11 +91,10 @@ OMERO.web is quite straightforward.
 
        $ bin/omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
 
--  Place a stanza in your web server configuration file. The location of
-   such file is depending on your system. On OS X it can be saved as
-   ``omero.conf`` under ``/private/etc/apache2/other``. Please refer to
-   the web server's manual. Apache and nginx configurations can be
-   automatically generated for you by OMERO.web:
+-  Place a stanza in your web server configuration file. The location of the
+   file will depend on your system, please refer to your web server's manual.
+   Apache and nginx configurations can be automatically generated for you by
+   OMERO.web:
 
    ::
 
@@ -461,7 +460,7 @@ Customizing your OMERO.web installation
 
           $ bin/omero config set omero.web.debug "True"
 
--  Custom OMERO.web location
+-  Custom OMERO.web location:
 
    -  By default OMERO.web expects to be run from the root URL of the web
       server. It can be configured to run from a sub-directory, for example
