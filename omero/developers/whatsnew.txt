@@ -11,3 +11,5 @@ What's new for OMERO 5
 - :doc:`Server/FS` has been updated to give an overview of the OMERO.fs 
   project, and further details of the 
   :doc:`ManagedRepository/ManagedRepository` are being added.
+
+- :doc:`Web/CreateApp` has been updated to describe the upgrade to Django 1.6 in OMERO 5.
