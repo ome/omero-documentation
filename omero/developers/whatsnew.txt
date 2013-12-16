@@ -13,7 +13,7 @@ What's new for OMERO 5
   :doc:`ManagedRepository/ManagedRepository` are being added.
 
 - :doc:`OMERO.web <Web>` has been upgraded to Django 1.6, requiring Python
-  2.6.5 or later. This has enabled more flexibility for developing new web
+  2.6.5 or later. This enables more flexibility for developing new web
   apps and plugins. All the :doc:`OMERO.web documentation <index>` has been
   updated to reflect these changes.
 
@@ -23,5 +23,5 @@ What's new for OMERO 5
 - Guidance for getting more involved with OME and contributing to both OMERO
   and Bio-Formats, has been moved to our new
   :devs_doc:`Contributing Developer Documentation <>` section so it is easier
-  to find. It has also been updated to better explain our development 
+  to find. It has also been updated to better explain our development
   processes.
