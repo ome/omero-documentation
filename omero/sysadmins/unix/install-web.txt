@@ -452,22 +452,22 @@ Customizing your OMERO.web installation
 
 -  Custom OMERO.web location
 
-   - By default OMERO.web expects to be run from the root URL of the web
-     server. It can be configured to run from a sub-directory, for example
-     `http://example.org/testing/`, as follows:
+   -  By default OMERO.web expects to be run from the root URL of the web
+      server. It can be configured to run from a sub-directory, for example
+      `http://example.org/testing/`, as follows:
 
       ::
 
           $ bin/omero config set omero.web.force_script_name '/testing'
 
-   - Update your web server configuration. For example, in the nginx
-     configuration replace
+   -  Update your web server configuration. For example, in the nginx
+      configuration replace
 
       ::
 
           fastcgi_param PATH_INFO $fastcgi_script_name;
 
-     with
+      with
 
       ::
 
@@ -475,13 +475,13 @@ Customizing your OMERO.web installation
           fastcgi_param PATH_INFO $fastcgi_path_info;
           fastcgi_param SCRIPT_INFO $fastcgi_script_name;
 
-   - If `omero.web.force_script_name` is set then
+   -  If `omero.web.force_script_name` is set then
 
       ::
 
           $ bin/omero web config nginx
 
-     will automatically generate the correct configuration.
+      will automatically generate the correct configuration.
 
 
 
