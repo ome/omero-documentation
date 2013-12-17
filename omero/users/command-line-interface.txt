@@ -12,11 +12,12 @@ OMERO Command Line Interface
 Overview
 --------
 
+The |CLI| is a set of Python_ based system-administration, deployment and
+advanced user tools. Most of commands work remotely so that the |CLI| can be
+used as a client against an OMERO server.
+
 Requirements
 ^^^^^^^^^^^^
-
-The |CLI| is a set of Python_ based system-administration and deployment 
-tools.
 
 Check you have Python_ installed by typing::
 
@@ -29,6 +30,12 @@ Additionally, Ice_ must be installed on your machine::
 
 The |CLI| is currently bundled with the OMERO.server. Download the version 
 corresponding to your system from the :downloads:`OMERO downloads <>` page.
+
+.. note::
+	The |CLI| is bundled with the OMERO.server but that does not imply you
+	must use that directory as a server. You can download the server zip to a
+	number of machines and use the |CLI| commands from each machine to access
+	an existing OMERO instance.
 
 Once the server is downloaded, the |CLI| is located under the :file:`bin/` 
 directory::
