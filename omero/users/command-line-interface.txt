@@ -128,8 +128,8 @@ the :option:`-h` option::
 
     $ bin/omero import -h
 
-Manipulate tags
----------------
+Manage tags
+-----------
 
 The :omerocmd:`tag` subcommands manage the creation, linking and listing of
 tag annotations. All subcommands can be listed using the :option:`-h` option::
@@ -185,7 +185,6 @@ To list all the tag sets owned by the current user, use the
     ID      |Name                                                                                                         
     --------|---------------------------------------------------------------------------------------------------------
     1261    |my_tag_set                                                                                                   
-    --------|---------------------------------------------------------------------------------------------------------
     1264    |my_tag_set_2                                                                                                  
     --------|---------------------------------------------------------------------------------------------------------
 
