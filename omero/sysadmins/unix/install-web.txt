@@ -125,35 +125,42 @@ OMERO.web is quite straightforward.
 
 Apache configuration
 """"""""""""""""""""
-   ::
 
-       $ bin/omero web config apache
-       ...
-       ###
-       ### Stanza for OMERO.web created 2012-07-12 16:44:16.112099
-       ###
-       FastCGIExternalServer "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi" -host 0.0.0.0:4080
+To create a site configuration file for inclusion in the main Apache
+configuration redirect the output of the following command into a file:
 
-       <Directory "/usr/local/dev/openmicroscopy/dist/var">
-           Options -Indexes FollowSymLinks
-           Order allow,deny
-           Allow from all
-       </Directory>
+::
 
-       <Directory "/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static">
-           Options -Indexes FollowSymLinks
-           Order allow,deny
-           Allow from all
-       </Directory>
+    $ bin/omero web config apache
 
-       Alias /static /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static
-       Alias /omero "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi/"
+::
 
-   .. note::
-     The default configuration file installed with `mod_fastcgi` may be
-     incompatible with OMERO. In particular, the `FastCGIWrapper` option
-     conflicts with `FastCGIExternalServer` required by OMERO and must be
-     removed or commented out.
+    ...
+    ###
+    ### Stanza for OMERO.web created 2012-07-12 16:44:16.112099
+    ###
+    FastCGIExternalServer "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi" -host 0.0.0.0:4080
+
+    <Directory "/usr/local/dev/openmicroscopy/dist/var">
+        Options -Indexes FollowSymLinks
+        Order allow,deny
+        Allow from all
+    </Directory>
+
+    <Directory "/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static">
+        Options -Indexes FollowSymLinks
+        Order allow,deny
+        Allow from all
+    </Directory>
+
+    Alias /static /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static
+    Alias /omero "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi/"
+
+.. note::
+    The default configuration file installed with `mod_fastcgi` may be
+    incompatible with OMERO. In particular, the `FastCGIWrapper` option
+    conflicts with `FastCGIExternalServer` required by OMERO and must be
+    removed or commented out.
 
 
 .. _nginx_configuration:
@@ -161,78 +168,93 @@ Apache configuration
 Nginx configuration
 """""""""""""""""""
 
-   ::
+To create a configuration file for a standalone instance of nginx redirect the
+output of the following command into a file:
 
-       $ bin/omero web config nginx
+::
 
-       # 
-       # nginx userland template
-       # this configuration is designed for running nginx as the omero user or similar
-       # nginx -c etc/nginx.conf
-       # for inclusion in a system-wide nginx configuration see omero web config nginx --system
-       #
-       pid /usr/local/dev/openmicroscopy/dist/var/pid.nginx;
-       error_log /usr/local/dev/openmicroscopy/dist/var/log/nginx_error.log;
-       worker_processes  5;
-       working_directory /usr/local/dev/openmicroscopy/dist/var;
+    $ bin/omero web config nginx
 
-       events {
-           worker_connections  1024;
-       }
+::
 
+    #
+    # nginx userland template
+    # this configuration is designed for running nginx as the omero user or similar
+    # nginx -c etc/nginx.conf
+    # for inclusion in a system-wide nginx configuration see omero web config nginx --system
+    #
+    pid /usr/local/dev/openmicroscopy/dist/var/pid.nginx;
+    error_log /usr/local/dev/openmicroscopy/dist/var/log/nginx_error.log;
+    worker_processes  5;
+    working_directory /usr/local/dev/openmicroscopy/dist/var;
 
-       http {
-           access_log    /usr/local/dev/openmicroscopy/dist/var/log/nginx_access.log;
-           include       /usr/local/dev/openmicroscopy/dist/etc/mime.types;
-           default_type  application/octet-stream;
-           client_body_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
-
-           keepalive_timeout  65;
-
-           server {
-               listen       8080;
-               server_name  _;
-               fastcgi_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
-               proxy_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
-
-                # weblitz django apps serve static content from here
-               location /static {
-                   alias /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static;
-               }
-
-               location / {
-                   if (-f /usr/local/dev/openmicroscopy/dist/var/maintenance.html) {
-                      error_page 503 /maintenance.html;
-                      return 503;
-                   }
-
-                   fastcgi_pass 0.0.0.0:4080;
-
-                   fastcgi_param PATH_INFO $fastcgi_script_name;
+    events {
+        worker_connections  1024;
+    }
 
 
-                   fastcgi_param REQUEST_METHOD $request_method;
-                   fastcgi_param QUERY_STRING $query_string;
-                   fastcgi_param CONTENT_TYPE $content_type;
-                   fastcgi_param CONTENT_LENGTH $content_length;
-                   fastcgi_param SERVER_NAME $server_name;
-                   fastcgi_param SERVER_PROTOCOL $server_protocol;
-                   fastcgi_param SERVER_PORT $server_port;
-                   fastcgi_pass_header Authorization;
-                   fastcgi_intercept_errors on;
-                   fastcgi_read_timeout 300;
-                   # Uncomment if nginx SSL module is enabled or you are using nginx 1.1.11 or later
-                   # -- See: #10273, http://nginx.org/en/CHANGES
-                   # fastcgi_param HTTPS $https;
-               }
+    http {
+        access_log    /usr/local/dev/openmicroscopy/dist/var/log/nginx_access.log;
+        include    /usr/local/dev/openmicroscopy/dist/etc/mime.types;
+        default_type  application/octet-stream;
+        client_body_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
 
-               location /maintenance.html {
-                   root /usr/local/dev/openmicroscopy/dist/var;
-               }
+        keepalive_timeout  65;
 
-           }
+        server {
+            listen       8080;
+            server_name  _;
+            fastcgi_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
+            proxy_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
 
-       }
+             # weblitz django apps serve static content from here
+            location /static {
+                alias /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static;
+            }
+
+            location / {
+                if (-f /usr/local/dev/openmicroscopy/dist/var/maintenance.html) {
+                   error_page 503 /maintenance.html;
+                   return 503;
+                }
+
+                fastcgi_pass 0.0.0.0:4080;
+
+                fastcgi_param PATH_INFO $fastcgi_script_name;
+
+
+                fastcgi_param REQUEST_METHOD $request_method;
+                fastcgi_param QUERY_STRING $query_string;
+                fastcgi_param CONTENT_TYPE $content_type;
+                fastcgi_param CONTENT_LENGTH $content_length;
+                fastcgi_param SERVER_NAME $server_name;
+                fastcgi_param SERVER_PROTOCOL $server_protocol;
+                fastcgi_param SERVER_PORT $server_port;
+                fastcgi_pass_header Authorization;
+                fastcgi_intercept_errors on;
+                fastcgi_read_timeout 300;
+                # Uncomment if nginx SSL module is enabled or you are using nginx 1.1.11 or later
+                # -- See: #10273, http://nginx.org/en/CHANGES
+                # fastcgi_param HTTPS $https;
+            }
+
+            location /maintenance.html {
+                root /usr/local/dev/openmicroscopy/dist/var;
+            }
+
+        }
+
+    }
+
+It is also possible to generate a site file for inclusion as part of a
+system-wide nginx instance:
+
+::
+
+    $ bin/omero web config nginx --system
+
+.. seealso:: :ref:`Custom OMERO.web location <custom_web_location>`.
+
 
 Using the lightweight development server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -452,6 +474,8 @@ Customizing your OMERO.web installation
       ::
 
           $ bin/omero config set omero.web.debug "True"
+
+.. _custom_web_location:
 
 -  Custom OMERO.web location:
 
