@@ -28,18 +28,6 @@ server when you log in. That page also describes how to set debug to 'True'
 which is important when developing with OMERO.web and you should also be using 
 the Django 'development' server.
 
-You can either add your app to the omeroweb under an OMERO.server release build,
-or run directly from the OMERO.web source code:
-
-Option 1: Using OMERO.server release build
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If all your edits will be under your own app, and you are not editing or building
-the OMERO.web source code, then
-the simplest option is to directly add your app to the server build
-under lib/python/omeroweb. This code is run when you start the Django
-server with
-
 ::
 
     $ bin/omero web start
@@ -54,67 +42,28 @@ server with
 
 .. note:: Port number is 4080
 
-When you edit and save the code, under lib/python/omeroweb/, Django
-automatically detects this and you only need to refresh your browser
+You should make sure that you can access the webclient and webadmin on
+your local machine before starting to develop your own code. Be sure to
+use the correct port number, E.g:
+
+-  ` http://localhost:4080/webclient/ <http://localhost:4080/webclient/>`_
+
+When you edit and save your app, Django will
+automatically detect this and you only need to refresh your browser
 to see the changes. You can see this in the :snapshot:`OMERO.web intro
 movie <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`.
 
-Option 2: Working from source code
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If you want to run OMERO.web from source code, see :doc:`/developers/Web/EditingOmeroWeb`.
 
-Alternatively,if you have checked out the OMERO.server source code and
-are building from source, you will have 2 copies of the OMERO.web code -
-source code is under components/tools/OmeroWeb/omeroweb and the server
-build is under dist/lib/python/omeroweb. You should be editing the
-source code since any edits to the build code will get wiped out each
-time you build! In order to run Django directly from the source code you
-need to follow a few steps (commands are shown below):
+You can place your app anywhere on your PYTHONPATH,
+as long as it can be imported by OMERO.web.
 
--  Set $OMERO_HOME, so that OMERO.web knows where to find config, write logs etc.
+.. note::
 
-   .. note:: You should not set $OMERO_HOME on production servers
-
--  Make sure that the Django libraries that are under the build:
-   dist/lib/python/django are on your PYTHONPATH.
--  Make sure the OmeroWeb folder:
-   components/tools/OmeroWeb is on your PYTHONPATH.
--  Remove the built omeroweb folder, otherwise this will get used
-   instead of the source omeroweb 
-
-   .. note:: You have to do this again if you build the server
-
--  From the source omeroweb/ folder, manually run the Django development
-   server
-
-   ::
-
-       $ export OMERO_HOME = ~/Desktop/OMERO/dist      # Example server build path
-
-       # Make sure the Django code etc can be imported
-       $ export PYTHONPATH=$OMERO_HOME/lib/python/:$OMERO_HOME/../components/tools/OmeroWeb:$PYTHONPATH
-       $ cd $OMERO_HOME
-       # need to remove the built omeroweb code so it doesn't get imported
-       $ rm -rf lib/python/omeroweb/
-
-       $ cd ../components/tools/OmeroWeb
-       $ python omeroweb/manage.py runserver
-       Validating models...
-
-       0 errors found
-       December 05, 2013 - 13:39:26
-       Django version 1.6, using settings 'omeroweb.settings'
-       Starting development server at http://127.0.0.1:8000/
-       Quit the server with CONTROL-C.
-
-   .. note:: Default port number is 8000. To specify port, use 
-       E.g: $ python manage.py runserver 0.0.0.0:4080
-
-You should make sure that you can access the webclient and webadmin on
-your local machine before starting to develop your own code. Be sure to
-use the correct port number as mentioned above, either:
-
--  ` http://localhost:4080/webclient/ <http://localhost:4080/webclient/>`_
--  ` http://localhost:8000/webclient/ <http://localhost:8000/webclient/>`_
+   OMERO 5 uses Django 1.6 which has a different project layout from OMERO 4.4. 
+   If you are upgrading your app from 4.4.x you may need to update some import
+   statements. E.g. ``from omeroweb import webgateway`` will become
+   ``import webgateway``.
 
 Creating an app
 ---------------
@@ -138,16 +87,6 @@ Create and checkout a new github repository OR manually create a new directory
 -  Enter the name of <your-app>, add description and choose to add
    README.
 
--  Change into the /omeroweb/ directory:
-
-   ::
-
-       # running from build
-       $ cd lib/python/omeroweb/
-
-       # OR: running from source:
-       $ cd components/tools/OmeroWeb/omeroweb
-
 -  Checkout your new repository (into a new directory)
 
    ::
@@ -160,6 +99,15 @@ Create and checkout a new github repository OR manually create a new directory
    ::
 
         $ mkdir <your-app>
+
+Add your app location to your PYTHONPATH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If your app is not in a directory that's already a module on your PYTHONPATH
+then you need to add it:
+
+::
+
+    $ export PYTHONPATH=$PYTHONPATH:/path/to/your-app
 
 Add the essential files to your app
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -328,6 +276,40 @@ this if you are building a 'stand-alone' web application. In either
 case, it is good practice to create your own templates with common
 components (links, logout etc), so you can make changes to all your
 pages at once. See :doc:`/developers/Web/WritingTemplates` for more info.
+
+App settings
+~~~~~~~~~~~~
+
+You can add settings to your app that allow configuration via the command line
+in the same way as for the base OMERO.web in omeroweb/settings.py.
+The list of CUSTOM_SETTINGS_MAPPINGS in omeroweb/settings.py code is a good
+source for examples of the different data types and parsers you can use.
+
+For example, if you want to create a user-defined setting yourapp.foo,
+that contains a dictionary of key-value pairs, you can add to
+CUSTOM_SETTINGS_MAPPINGS in yourapp/settings.py:
+
+::
+
+    import json
+    CUSTOM_SETTINGS_MAPPINGS = {
+        "omero.web.yourapp.foo": ["FOO", '{"key": "val"}', json.loads]
+    }
+
+From somewhere else in your app, you can then access the settings:
+
+::
+
+    from yourapp import settings
+
+    print settings.FOO
+
+Users can then configure this on the command line as follows:
+
+::
+
+    $ bin/omero config set omero.web.yourapp.foo '{"userkey": "userval"}'
+
 
 OMERO.web top links
 ~~~~~~~~~~~~~~~~~~~
