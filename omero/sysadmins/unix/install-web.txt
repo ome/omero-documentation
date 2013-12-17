@@ -94,14 +94,7 @@ OMERO.web is quite straightforward.
 -  Place a stanza in your web server configuration file. The location of the
    file will depend on your system, please refer to your web server's manual.
    Apache and nginx configurations can be automatically generated for you by
-   OMERO.web:
-
-   ::
-
-       $ bin/omero web config "apache" / "nginx"
-
-   See :ref:`apache_configuration` or :ref:`nginx_configuration` for more
-   details.
+   OMERO.web, see :ref:`apache_configuration` or :ref:`nginx_configuration`.
 
 -  Start the Django FastCGI workers:
 
