@@ -6,7 +6,8 @@ contributing to our code base using git. It should contain all the useful
 commands and configuration you need for doing most git tasks.
 
 For basic instructions on how to install and configure Git and checkout the
-source code, look at the :omero_doc:`developers/installation.html` page.
+source code, look at the
+:omero_doc:`installing OMERO from source <developers/installation.html>` page.
 
 .. note::
     This section assumes that “gh” is your own personal GitHub repository, and
