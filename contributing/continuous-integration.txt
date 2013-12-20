@@ -409,6 +409,13 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-4.4-full-repository`
 		* :term:`BIOFORMATS-develop-full-repository`
 
+	- 	* Run OMERO openBytes tests
+		* :term:`BIOFORMATS-4.4-omero-openbytes`
+		* :term:`BIOFORMATS-develop-omero-openbytes`
+
+	- 	* Run openBytes performance tests
+		* :term:`BIOFORMATS-4.4-openbytes-performance`
+		* :term:`BIOFORMATS-develop-openbytes-performance`
 
 Next point release
 ^^^^^^^^^^^^^^^^^^
@@ -426,8 +433,8 @@ The branch for the next point release of Bio-Formats is |stable_branch|.
 
 	:jenkinsjob:`BIOFORMATS-4.4-maven`
 
-		This job is used to publish the |stable_branch| branch of Bio-Formats to
-		the LOCI Nexus repository
+		This job is used to publish the |stable_branch| branch of Bio-Formats
+		to the LOCI Nexus repository
 
 	:jenkinsjob:`BIOFORMATS-4.4-merge`
 
@@ -449,6 +456,27 @@ The branch for the next point release of Bio-Formats is |stable_branch|.
 		#. |merge|
 		#. Run tests against directories configured by ``--test dirname``
 		   comments on the PRs
+
+	:jenkinsjob:`BIOFORMATS-4.4-omero-openbytes`
+
+		This job is used to review the PRs opened against the |stable_branch|
+		branch of Bio-Formats by running OMERO openBytes tests against
+		directories on squig
+
+		#. |merge|
+		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` tests against
+		   directories specified by :file:`BIOFORMATS-omero-openbytes.txt`
+
+	:jenkinsjob:`BIOFORMATS-4.4-openbytes-performance`
+
+		This job is used to review the PRs opened against the |stable_branch|
+		branch of Bio-Formats by running openBytes performance tests against
+		directories on squig
+
+		#. |merge|
+		#. Run ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
+		   directories specified by
+		   :file:`BIOFORMATS-openbytes-performance.txt`
 
 Next major release
 ^^^^^^^^^^^^^^^^^^
@@ -488,6 +516,27 @@ The branch for the next major release of Bio-Formats is develop.
 		#. |merge|
 		#. Run tests against directories configured by ``--test dirname``
 		   comments on the PRs
+
+	:jenkinsjob:`BIOFORMATS-develop-omero-openbytes`
+
+		This job is used to review the PRs opened against the develop
+		branch of Bio-Formats by running OMERO openBytes tests against
+		directories on squig
+
+		#. |merge|
+		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` tests against
+		   directories specified by :file:`BIOFORMATS-omero-openbytes.txt`
+
+	:jenkinsjob:`BIOFORMATS-develop-openbytes-performance`
+
+		This job is used to review the PRs opened against the develop
+		branch of Bio-Formats by running openBytes performance tests against
+		directories on squig
+
+		#. |merge|
+		#. Run ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
+		   directories specified by
+		   :file:`BIOFORMATS-openbytes-performance.txt`
 
 
 ..  |sphinxbuild| replace:: Runs ``make clean html latexpdf`` to build the HTML and PDF versions of the Sphinx documentation
