@@ -206,7 +206,7 @@ The first argument is the name of the base branch of origin, e.g.::
 
 		$ scc merge develop --remote gh
 
-As a concrete example, the first step of the :term:`OMERO-merge-develop` job
+As a concrete example, the first step of the :term:`OMERO-develop-merge` job
 is calling the following merge command:
 
 ::
@@ -464,9 +464,7 @@ allow for “hot-swapping” content served by Apache without downtime and HTTP
 
 .. versionadded:: 0.3.1
 
-The hudson jobs :term:`BIOFORMATS-docs-merge-stable`,
-:term:`BIOFORMATS-docs-merge-develop`, :term:`OMERO-docs-merge-stable`,
-:term:`OMERO-docs-merge-develop` and OMERO-docs-internal deploy the
+The hudson jobs ending with ``release-docs`` and OMERO-docs-internal deploy the
 documentation artifacts to necromancer. The target directory (sphinx-docs) is
 controlled by the hudson:hudson user, so all file system operations are
 allowed. Each job has the target directory configured in the SSH publisher
