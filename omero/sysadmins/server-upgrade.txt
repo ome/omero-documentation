@@ -59,10 +59,10 @@ Before copying the new binaries, stop the existing server::
     $ bin/omero web stop
     $ bin/omero admin stop
 
-Your OMERO configuration is stored using ``config.xml`` in the``etc/grid`` 
-directory under your OMERO.server directory. Assuming you have not made any 
-file changes within your OMERO.server distribution directory, you are safe to 
-follow the following upgrade procedure:
+Your OMERO configuration is stored using :file:`config.xml` in the
+:file:`etc/grid` directory under your OMERO.server directory. Assuming you
+have not made any file changes within your OMERO.server distribution
+directory, you are safe to follow the following upgrade procedure:
 
 .. parsed-literal::
 
