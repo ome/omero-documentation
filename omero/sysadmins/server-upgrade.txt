@@ -68,8 +68,9 @@ follow the following upgrade procedure:
 
     $ cd ..
     $ mv OMERO.server OMERO.server-old
-    $ unzip |OMEROserverzip|
-    $ cp OMERO.server-old/etc/grid/config.xml |OMEROserverzip|/etc/grid
+    $ unzip OMERO.server-|release|-ice3x-byy.zip
+    $ ln -s OMERO.server-|release|-ice3x-byy OMERO.server
+    $ cp OMERO.server-old/etc/grid/config.xml OMERO.server/etc/grid
 
 .. note::
     ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice 
@@ -93,7 +94,7 @@ You **must** use the same username and password you have defined during
 
 .. parsed-literal::
 
-    $ cd |OMEROserverzip|
+    $ cd OMERO.server
     $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO |previousversion|\_\_0.sql
     Password for user **db_user**:
     ...
@@ -173,7 +174,7 @@ Restart your database
 
    .. parsed-literal::
 
-       $ cd |OMEROserverzip|
+       $ cd OMERO.server
        $ bin/omero admin start
 
 -  If anything goes wrong, please send the output of
@@ -208,9 +209,6 @@ and configure your server to use it.
 ::
 
     $ bin/omero config set omero.db.name omero_from_backup
-
-
-.. |OMEROserverzip| replace:: OMERO.server-|release|-ice3x-byy.zip
 
 .. seealso::
     
