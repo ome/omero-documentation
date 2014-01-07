@@ -30,9 +30,9 @@ Prerequisites
 -  OMERO and its prerequisites (see :doc:`server-installation`).
 
 -  Python version from 2.4 to 2.7 (due to backwards incompatibilities in
-   Python 3.0, Django does not currently work with Python 3.0; for more
-   information see the `Django documentation page
-   <https://docs.djangoproject.com>`_).
+   Python 3.0, Django 1.3 does not work with Python 3.0; for more
+   information see the `Django Installation page
+   <https://docs.djangoproject.com/en/1.3/intro/install/>`_).
 
    -  `Python Imaging Library`_ should be available for your distribution
 
