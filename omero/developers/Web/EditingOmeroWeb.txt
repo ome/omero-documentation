@@ -8,14 +8,14 @@ This means that you benefit from the convenience of editing,
 saving and refreshing your browser without any build step.
 
 However, you will still need to build OMERO (or download the release build)
-and setup your PYTHONPATH as described in the install documentation
+and set up your :envvar:`PYTHONPATH` as described in the install documentation
 in order that you have the various dependencies such as Django.
 
 You will then have 2 copies of the OMERO.web code -
 source code under components/tools/OmeroWeb/omeroweb and the server
 build under dist/lib/python/omeroweb.
 
-To setup and run OMERO.web from the source code, you need to 
+To set up and run OMERO.web from the source code, you need to 
 follow a few steps (commands are shown below):
 
 -  Set $OMERO_HOME, so that OMERO.web knows where to find config, write logs etc.
@@ -23,7 +23,7 @@ follow a few steps (commands are shown below):
    .. note:: You should not set $OMERO_HOME on production servers
 
 -  Make sure that the Django libraries that are under the build:
-   dist/lib/python/django are on your PYTHONPATH.
+   dist/lib/python/django are on your :envvar:`PYTHONPATH`.
 -  Remove the built omeroweb folder, otherwise this will get used
    instead of the source omeroweb 
 

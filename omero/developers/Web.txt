@@ -62,7 +62,7 @@ Getting started
 ---------------
 
 The preferred workflow for extending OMERO.web is to create a new
-Django app Django apps provide a
+Django app. Django apps provide a
 nice way for you to keep all your code in one place and make it much
 easier to port your app to new OMERO releases or share it with other
 users. To get started, see :doc:`/developers/Web/CreateApp`. 
