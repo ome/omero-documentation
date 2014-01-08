@@ -132,6 +132,7 @@ Below is a simple example of their usage. More detailed documentation at the bot
     });
     </script>
 
+.. _plugin-installation-label:
 
 Plugin Installation
 ~~~~~~~~~~~~~~~~~~~
@@ -165,7 +166,6 @@ add your plugin to the list, you will need to list all three. For example, to ad
         '[["Acquisition", "webclient/data/includes/right_plugin.acquisition.js.html", "metadata_tab"],
         ["Preview", "webclient/data/includes/right_plugin.preview.js.html", "preview_tab"],
         ["ROIs", "webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"]]'
-
 
 Restart Web
 ~~~~~~~~~~~
@@ -231,4 +231,50 @@ Documentation of plugin options
 
    -  obj_id: This is the ID of the first selected object, E.g. 123
 
+
+OMERO4 Backwards Compatability
+-------------------------------------
+
+If an OMERO5 plugin also needs to work for OMERO4 installations then there are two considerations that need to be made.
+
+URLs in Templates
+~~~~~~~~~~~~~~~~~
+
+The url tag has `changed in django 1.6 <https://docs.djangoproject.com/en/dev/releases/1.5/#overview>`_ from
+``{% url myview %}`` to ``{% url 'myview' %}``. In order for your OMERO4 install
+to understand the new syntax then it is simply a matter of adding ``{% load url from future %}`` to the top of the template file.
+By using the new style syntax and the and the ``{% load url from future %}`` the template will be valid in both OMERO4 and OMERO5.
+The ``{% load url from future %}`` line does no harm when being used on django 1.6.
+
+Plugin Settings
+~~~~~~~~~~~~~~~
+
+In OMERO4 (with the older django) it was possible to manipulate settings in the plugin's settings.py like so:
+
+::
+
+    from django.conf import settings
+
+    # We can directly manipulate the settings
+    # E.g. add plugins to CENTER_PLUGINS list
+    settings.CENTER_PLUGINS.append(["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"])
+
+This is no longer possible in OMERO5 with django 1.6 and it is necessary to use ``omero config set`` to change this setting as
+documented here: :ref:`Plugin Installation <plugin-installation-label>`.
+
+In order to preserve the old functionalty on OMERO4 servers the plugin's settings.py can be changed to:
+
+::
+
+    import django
+
+    if django.get_version < 1.6:
+        from django.conf import settings
+
+        # We can directly manipulate the settings
+        # E.g. add plugins to CENTER_PLUGINS list
+        settings.CENTER_PLUGINS.append(["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"])
+
+This will only take effect on OMERO4 servers so remember to document that with OMERO5 the config will need to be modified by
+the person doing the installation.
 
