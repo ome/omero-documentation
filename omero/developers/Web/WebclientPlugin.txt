@@ -235,7 +235,7 @@ Documentation of plugin options
 OMERO4 Backwards Compatability
 -------------------------------------
 
-If an OMERO5 plugin also needs to work for OMERO4 installations then there are two considerations that need to be made.
+If an OMERO5 plugin also needs to work for OMERO4 installations then there are three considerations that need to be made.
 
 URLs in Templates
 ~~~~~~~~~~~~~~~~~
@@ -245,6 +245,21 @@ The url tag has `changed in django 1.6 <https://docs.djangoproject.com/en/dev/re
 to understand the new syntax then it is simply a matter of adding ``{% load url from future %}`` to the top of the template file.
 By using the new style syntax and the and the ``{% load url from future %}`` the template will be valid in both OMERO4 and OMERO5.
 The ``{% load url from future %}`` line does no harm when being used on django 1.6.
+
+URL imports
+~~~~~~~~~~~
+
+The import statement required to get the url and patterns objects in the plugin's urls.py has changed as well. The following import can be used to import
+from the correct place dependant on which django version is present.
+
+::
+
+    import django
+    if django.VERSION < (1, 6):
+        from django.conf.urls.defaults import *
+    else:
+        from django.conf.urls import *
+
 
 Plugin Settings
 ~~~~~~~~~~~~~~~
@@ -268,7 +283,7 @@ In order to preserve the old functionalty on OMERO4 servers the plugin's setting
 
     import django
 
-    if django.get_version < 1.6:
+    if django.VERSION < (1, 6):
         from django.conf import settings
 
         # We can directly manipulate the settings
