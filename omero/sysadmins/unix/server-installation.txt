@@ -131,25 +131,23 @@ Ice (3.3.x or 3.4.x)
 
 
 UNIX source downloads and binary packages are available from ZeroC_.
-The latest compatible distribution is the :zeroc:`3.3.1 release <download_3_3_1.html>`. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). |Glencoe| has made its version available for the community:
-`Ice-3.3.1-64.tar.bz2 <http://www.glencoesoftware.com/mac/10.6/Ice-3.3.1-64.tar.bz2>`_
-(sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) 
-
-.. note::
-
-    This version was compiled with the mcpp from MacPorts, which you will need to use these bindings. 
+The latest compatible distribution is the :zeroc:`3.3.1 release
+<download_3_3_1.html>`. ZeroC does not provide binaries which work out of the
+box for Snow Leopard (Mac OSX), so we recommend you follow the instructions
+for installation using :doc:`Homebrew <server-install-homebrew>` instead if
+this is your OS.
 
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PostgreSQL installed and configured with PL/pgSQL and to accept TCP 
-connections. PostgreSQL 8.3 and earlier are not supported. See 
+PostgreSQL installed and configured with PL/pgSQL and to accept TCP
+connections. PostgreSQL 8.3 and earlier are not supported. See
 :doc:`server-postgresql` for specifics about each version.
 
 OMERO.server
 ^^^^^^^^^^^^
 
-The **OMERO.server** zip and *tar.bz2* is available from the 
+The **OMERO.server** zip and *tar.bz2* is available from the
 :downloads:`OMERO downloads <>` page.
 
 Environment variables
