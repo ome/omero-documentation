@@ -474,7 +474,7 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 
 	- 	* Build Bio-Formats
 		* :term:`BIOFORMATS-stable`
-		* :term:`BIOFORMATS-trunk`
+		* :term:`BIOFORMATS-5.0`
 
 	- 	* Publish Bio-Formats to the LOCI Nexus repository
 		* :term:`BIOFORMATS-maven-stable`
@@ -560,7 +560,7 @@ The branch for the next major release of Bio-Formats is dev_5_0.
 
 .. glossary::
 
-	:jenkinsjob:`BIOFORMATS-trunk`
+	:jenkinsjob:`BIOFORMATS-5.0`
 
 		This job is used to build the dev_5_0 branch of Bio-Formats
 
