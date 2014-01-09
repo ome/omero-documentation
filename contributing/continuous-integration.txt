@@ -134,7 +134,19 @@ OMERO jobs
 
 	- 	* Run the integration tests
 		* :term:`OMERO-integration-stable`
-		* :term:`OMERO-integration-develop`
+		* :term:`OMERO-5.0-merge-integration`
+
+	- 	* Collect the OmeroJava integration test results
+		* :term:`OmeroJava-integration-stable`
+		* :term:`OMERO-5.0-merge-integration-java`
+
+	- 	* Collect the OmeroPy integration test results
+		* :term:`OmeroPy-integration-stable`
+		* :term:`OMERO-5.0-merge-integration-python`
+
+	- 	* Collect the broken integration test results
+		* :term:`OmeroJava-broken-stable`
+		* :term:`OMERO-5.0-merge-integration-broken`
 
 	- 	* Run the robot framework tests
 		* :term:`OMERO-merge-robotframework-stable`
@@ -246,6 +258,27 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		#. |merge|
 		#. Build OMERO.server and start it
 		#. Run the integration tests and collect the results (Java and Python)
+
+	:jenkinsjob:`OmeroJava-integration-stable`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-integration-stable`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OmeroPy-integration-stable`
+
+		This job is used for parsing OmeroPy integration test results
+
+		#. Receives pytest results from :term:`OMERO-integration-stable`,
+		#. Generates pytest report
+
+	:jenkinsjob:`OmeroJava-broken-stable`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-integration-stable`,
+		#. Generates TestNG report
 
 	:jenkinsjob:`OMERO-merge-robotframework-stable`
 
@@ -364,14 +397,36 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildVM|
 
-	:jenkinsjob:`OMERO-integration-develop`
+	:jenkinsjob:`OMERO-5.0-merge-integration`
 
-		This job is used to run the integration tests from the develop
+		This job is used to run the integration tests from the dev_5_0
 		branch with the PRs opened against the develop branch of OMERO
 
 		#. |merge|
 		#. Build OMERO.server and start it
 		#. Run the integration tests and collect the results (Java and Python)
+
+
+	:jenkinsjob:`OMERO-5.0-merge-integration-java`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.0-merge-integration`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-5.0-merge-integration-python`
+
+		This job is used for parsing OmeroPy integration test results
+
+		#. Receives pytest results from :term:`OMERO-5.0-merge-integration`,
+		#. Generates pytest report
+
+	:jenkinsjob:`OMERO-5.0-merge-integration-broken`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.0-merge-integration`,
+		#. Generates TestNG report
 
 	:jenkinsjob:`OMERO-5.0-merge-robotframework`
 
