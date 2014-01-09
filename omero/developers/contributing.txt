@@ -1,22 +1,6 @@
 Contributing to OMERO
 =====================
 
-This section includes various resources for anyone wanting to contribute
-code to OME. These include 'standard procedure' for various tasks such as
-testing, documentation and release, investigations into new work or just
-internal documents that may be of interest to a wider audience. If you have
-any questions, please see our :doc:`/users/community-resources` for ways
-to get in touch.
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    policies
-    using-git
-    testing
-    standards
-    continuous-integration
-    scc-scripts
-    release-process
-    schema-changes
+.. note:: This section of the documentation has been updated and is now hosted
+    at http://www.openmicroscopy.org/site/support/contributing/ or
+    available as a `pdf <http://www.openmicroscopy.org/site/support/contributing/OME-Contributing-Developer.pdf>`_.
