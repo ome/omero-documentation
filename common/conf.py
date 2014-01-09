@@ -118,7 +118,7 @@ bf_github_root = github_root + user + '/bioformats/'
 doc_github_root = github_root + user + '/ome-documentation/'
 
 # Variables used to define Jenkins extlinks
-jenkins_root = 'http://hudson.openmicroscopy.org.uk'
+jenkins_root = 'http://ci.openmicroscopy.org'
 jenkins_job_root = jenkins_root + '/job'
 jenkins_view_root = jenkins_root + '/view'
 
