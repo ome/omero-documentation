@@ -235,22 +235,27 @@ Documentation of plugin options
 OMERO4 Backwards Compatability
 -------------------------------------
 
-If an OMERO5 plugin also needs to work for OMERO4 installations then there are three considerations that need to be made.
+If an OMERO5 plugin also needs to work for OMERO4 installations then there are
+three considerations that need to be made.
 
 URLs in Templates
 ~~~~~~~~~~~~~~~~~
 
-The url tag has `changed in django 1.6 <https://docs.djangoproject.com/en/dev/releases/1.5/#overview>`_ from
-``{% url myview %}`` to ``{% url 'myview' %}``. In order for your OMERO4 install
-to understand the new syntax then it is simply a matter of adding ``{% load url from future %}`` to the top of the template file.
-By using the new style syntax and the and the ``{% load url from future %}`` the template will be valid in both OMERO4 and OMERO5.
-The ``{% load url from future %}`` line does no harm when being used on django 1.6.
+The url tag has `changed in django 1.6
+<https://docs.djangoproject.com/en/dev/releases/1.5/#overview>`_ from
+``{% url myview %}`` to ``{% url 'myview' %}``. In order for your OMERO4
+install to understand the new syntax then it is simply a matter of adding
+``{% load url from future %}`` to the top of the template file. By using the
+new style syntax and the and the ``{% load url from future %}`` the template
+will be valid in both OMERO4 and OMERO5. The ``{% load url from future %}``
+line does no harm when being used on django 1.6.
 
 URL imports
 ~~~~~~~~~~~
 
-The import statement required to get the url and patterns objects in the plugin's urls.py has changed as well. The following import can be used to import
-from the correct place dependant on which django version is present.
+The import statement required to get the url and patterns objects in the
+plugin's urls.py has changed as well. The following import can be used to
+import from the correct place dependant on which django version is present.
 
 ::
 
@@ -264,7 +269,8 @@ from the correct place dependant on which django version is present.
 Plugin Settings
 ~~~~~~~~~~~~~~~
 
-In OMERO4 (with the older django) it was possible to manipulate settings in the plugin's settings.py like so:
+In OMERO4 (with the older django) it was possible to manipulate settings in
+the plugin's settings.py like so:
 
 ::
 
@@ -272,12 +278,16 @@ In OMERO4 (with the older django) it was possible to manipulate settings in the 
 
     # We can directly manipulate the settings
     # E.g. add plugins to CENTER_PLUGINS list
-    settings.CENTER_PLUGINS.append(["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"])
+    settings.CENTER_PLUGINS.append(
+        ["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]
+    )
 
-This is no longer possible in OMERO5 with django 1.6 and it is necessary to use ``omero config set`` to change this setting as
-documented here: :ref:`Plugin Installation <plugin-installation-label>`.
+This is no longer possible in OMERO5 with django 1.6 and it is necessary to
+use ``omero config set`` to change this setting as documented here:
+:ref:`Plugin Installation <plugin-installation-label>`.
 
-In order to preserve the old functionalty on OMERO4 servers the plugin's settings.py can be changed to:
+In order to preserve the old functionalty on OMERO4 servers the plugin's
+settings.py can be changed to:
 
 ::
 
@@ -288,8 +298,11 @@ In order to preserve the old functionalty on OMERO4 servers the plugin's setting
 
         # We can directly manipulate the settings
         # E.g. add plugins to CENTER_PLUGINS list
-        settings.CENTER_PLUGINS.append(["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"])
+        settings.CENTER_PLUGINS.append(
+            ["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]
+        )
 
-This will only take effect on OMERO4 servers so remember to document that with OMERO5 the config will need to be modified by
-the person doing the installation.
+This will only take effect on OMERO4 servers so remember to document that
+with OMERO5 the config will need to be modified by the person doing the
+installation.
 
