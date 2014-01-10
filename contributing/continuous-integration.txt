@@ -744,7 +744,7 @@ the Contributing documentation is develop.
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. If the build is promoted,
-			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/omero-develop-release.tmp`
+			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/omero-5.0-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5/
 
 	:jenkinsjob:`BIOFORMATS-5.0-docs-release`
@@ -756,7 +756,7 @@ the Contributing documentation is develop.
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. If the build is promoted,
-			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-develop-release.tmp`
+			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-5.0-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5/
 
 	:jenkinsjob:`FORMATS-docs-release`
@@ -766,7 +766,7 @@ the Contributing documentation is develop.
 
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-develop-release.tmp`
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-release.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
 
 	:jenkinsjob:`CONTRIBUTING-docs-release`
@@ -787,7 +787,7 @@ the Contributing documentation is develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/omero-develop-staging.tmp`
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/omero-5.0-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5-staging/
 
 	:jenkinsjob:`BIOFORMATS-5.0-docs-merge`
@@ -798,7 +798,7 @@ the Contributing documentation is develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-develop-staging.tmp`
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-5.0-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5-staging/
 
 	:jenkinsjob:`FORMATS-docs-merge`
@@ -809,7 +809,7 @@ the Contributing documentation is develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-develop-staging.tmp`
+		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-staging/
 
 	:jenkinsjob:`CONTRIBUTING-docs-merge`
