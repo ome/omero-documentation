@@ -41,6 +41,8 @@ two development branches are maintained simultaneously:
 
 * The "dev_5_0" branch contains work on the 5.0.x series.
 
+* The "dev_5_1" branch contains work on the 5.1.x series.
+
 It is possible to have a point release immediately, while still working on
 more major releases by ensuring that (nearly) all commits that are applied to
 dev_4_4 are applied to develop in order to prevent regressions.
@@ -53,7 +55,10 @@ Labels are applied to PRs on GitHub under the “Issues” tab of each repositor
 The 4.4.x series consists of PRs labelled with “dev_4_4”, which 
 is the name of the branch which they will be merged into.
 
-The 5.0.x series consists of PRs labelled with “develop”, which is also
+The 5.0.x series consists of PRs labelled with “dev_5_0”, which is also
+the name of the branch which they will be merged into.
+
+The 5.1.x series consists of PRs labelled with “develop”, which is also
 the name of the branch which they will be merged into.
 
 Three labels are used in the PR reviewing process: “include”, “exclude”, and
@@ -549,24 +554,29 @@ tab of Jenkins.
 	:header-rows: 1
 
 	- 	* Job task
-		* 4.4.x
+		* 4.4.x series
 		* 5.0.x series 
+		* 5.1.x series
 
 	- 	* Publish OMERO documentation
 		* :term:`OMERO-docs-release-stable`
 		* :term:`OMERO-5.0-docs-release`
+		*
 
 	- 	* Publish Bio-Formats documentation
 		* :term:`BIOFORMATS-docs-release-stable`
 		* :term:`BIOFORMATS-5.0-docs-release`
+		*
 
 	- 	* Review OMERO documentation PRs
 		* :term:`OMERO-docs-merge-stable`
 		* :term:`OMERO-5.0-docs-merge`
+		* :term:`OMERO-5.1-docs-merge`
 
 	- 	* Review Bio-Formats documentation PRs
 		* :term:`BIOFORMATS-docs-merge-stable`
 		* :term:`BIOFORMATS-5.0-docs-merge`
+		* :term:`BIOFORMATS-5.1-docs-merge`
 
 The OME Model and OME Contributing documentation sets are independent of the
 current OME series.
@@ -575,7 +585,7 @@ current OME series.
 	:header-rows: 1
 
 	- 	* Job task
-		* 
+		*
 
 	- 	* Publish OME Model documentation
 		* :term:`FORMATS-docs-release`
@@ -720,6 +730,36 @@ dev_5_0.
 		#. |linkcheck|
 		#. |ssh-doc| :file:`bf-5.0-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5-staging/
+
+5.1.x series
+^^^^^^^^^^^^
+
+The branch for the 5.1.x series of the OMERO/Bio-Formats documentation is
+develop.
+
+.. glossary::
+
+	:jenkinsjob:`OMERO-5.1-docs-merge`
+
+		This job is used to review the PRs opened against the develop branch
+		of the OMERO documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`omero-5.0-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.1-staging/
+
+	:jenkinsjob:`BIOFORMATS-5.1-docs-merge`
+
+		This job is used to review the PRs opened against the develop branch
+		of the Bio-Formats documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`bf-5.1-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.1-staging/
 
 
 OME Model and OME Contributing
