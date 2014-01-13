@@ -16,7 +16,7 @@ OME uses semantic versioning as defined in http://semver.org. Each version
 number is identified as MAJOR.MINOR.PATCH where MAJOR is the major version
 number, MINOR the minor version number and PATCH the patch version number.
 Additional pre-release labels are added as extensions of this version number,
-e.g. 4.4.0-RC1 or 5.0.0-beta1.
+e.g. 4.4.0-rc1 or 5.0.0-beta1.
 
 .. glossary::
 
@@ -37,24 +37,23 @@ Most of the OME code is split between four repositories: openmicroscopy.git_,
 bioformats.git_, scripts.git_, ome-documentation.git_. For each repository,
 two development branches are maintained simultaneously:
 
-* The "|stable_branch|" branch ("stable" branch) contains work on the stable
-  release series (|stable_version|.x) and will only be released as a patch release.
+* The "dev_4_4" branch contains work on the 4.4.x series.
 
-* The "dev_5_0" branch contains work on the next major release.
+* The "dev_5_0" branch contains work on the 5.0.x series.
 
 It is possible to have a point release immediately, while still working on
 more major releases by ensuring that (nearly) all commits that are applied to
-|stable_branch| are applied to develop in order to prevent regressions.
+dev_4_4 are applied to develop in order to prevent regressions.
 
 Labels
 ^^^^^^
 
 Labels are applied to PRs on GitHub under the “Issues” tab of each repository.
 
-The next point release consists of PRs labelled with “|stable_branch|”, which is
-the name of the branch which they will be merged into.
+The 4.4.x series consists of PRs labelled with “dev_4_4”, which 
+is the name of the branch which they will be merged into.
 
-The next major release consists of PRs labelled with “develop”, which is also
+The 5.0.x series consists of PRs labelled with “develop”, which is also
 the name of the branch which they will be merged into.
 
 Three labels are used in the PR reviewing process: “include”, “exclude”, and
@@ -78,7 +77,7 @@ Continuous integration server
 
 The OME project uses `Jenkins <http://jenkins-ci.org>`_ as a continuous
 integration server. To access the OME Jenkins server, bring up a web
-browser and go to http://hudson.openmicroscopy.org.uk.
+browser and go to http://ci.openmicroscopy.org.
 
 The following sections summarize the main continuous integration jobs used for
 the development of OMERO, Bio-Formats and the OME documentation sets. Note
@@ -93,8 +92,8 @@ OMERO jobs
 	:header-rows: 1
 
 	- 	* Job task
-		* Next point release
-		* Next major release
+		* 4.4.x series
+		* 5.0.x series
 
 	- 	* Build OMERO
 		* :term:`OMERO-stable` /
@@ -153,10 +152,10 @@ OMERO jobs
 		* :term:`OME-5.0-homebrew`
 
 
-Next point release
+4.4.x series
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the next point release of OMERO is |stable_branch|. All jobs 
+The branch for the 4.4.x series of OMERO is dev_4_4. All jobs 
 are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 
 .. glossary::
@@ -165,7 +164,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 	:jenkinsjob:`OMERO-stable-ice34`
 	:jenkinsjob:`OMERO-stable-ice35`
 
-		This job is used to build the |stable_branch| branch of OMERO with
+		This job is used to build the dev_4_4 branch of OMERO with
 		Ice 3.3, 3.4 or 3.5
 
 		#. |buildOMERO|
@@ -174,18 +173,18 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-stable-virtualbox`
 
-		This job is used to build a Virtual Appliance from the |stable_branch|
+		This job is used to build a Virtual Appliance from the dev_4_4
 		branch of OMERO
 
 		#. |buildVM|
 
 	:jenkinsjob:`OMERO-merge-stable`
 
-		This job is used to review the PRs opened against the |stable_branch|
+		This job is used to review the PRs opened against the dev_4_4
 		branch of OMERO with Ice 3.3
 
 		#. |merge| and pushes the merged branch to
-		   snoopycrimecop/merge/|stable_branch|/latest
+		   snoopycrimecop/merge/dev_4_4/latest
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 		#. |deployOMERO| howe.openmicroscopy.org.uk
@@ -194,27 +193,27 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 	:jenkinsjob:`OMERO-merge-stable-ice34`
 	:jenkinsjob:`OMERO-merge-stable-ice35`
 
-		This job is used to review the PRs opened against the |stable_branch|
+		This job is used to review the PRs opened against the dev_4_4
 		branch of OMERO with Ice 3.3, 3.4 or 3.5
 
-		#. Checks out the merge/|stable_branch|/latest branch of the
+		#. Checks out the merge/dev_4_4/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 
 	:jenkinsjob:`OMERO-merge-stable-virtualbox`
 
-		This job is used to build a Virtual Appliance from the |stable_branch|
-		branch with the PRs opened against the |stable_branch| branch of OMERO
+		This job is used to build a Virtual Appliance from the dev_4_4
+		branch with the PRs opened against the dev_4_4 branch of OMERO
 
-		#. Checks out the merge/|stable_branch|/latest branch of the
+		#. Checks out the merge/dev_4_4/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildVM|
 
 	:jenkinsjob:`OMERO-integration-stable`
 
-		This job is used to run the integration tests from the |stable_branch|
-		branch with the PRs opened against the |stable_branch| branch of OMERO
+		This job is used to run the integration tests from the dev_4_4
+		branch with the PRs opened against the dev_4_4 branch of OMERO
 
 		#. |merge|
 		#. Build OMERO.server and start it
@@ -244,22 +243,22 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 	:jenkinsjob:`OMERO-merge-robotframework-stable`
 
 		This job is used to run the robot framework tests from the
-		|stable_branch| branch with the PRs opened against the |stable_branch|
+		dev_4_4 branch with the PRs opened against the dev_4_4
 		branch of OMERO
 
-		#. Checks out the merge/|stable_branch|/latest branch of the
+		#. Checks out the merge/dev_4_4/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
 
 	:jenkinsjob:`OMERO-submods-stable`
 
-		This job is used to update the submodules on the |stable_branch| branch
+		This job is used to update the submodules on the dev_4_4 branch
 
 		#. |updatesubmodules| and pushes the merged branch to
-		   snoopycrimecop/merge/|stable_branch|/submodules
+		   snoopycrimecop/merge/dev_4_4/submodules
 		#. If the submodules are updated, opens a new PR or updates the
-		   existing |stable_branch| submodules PR
+		   existing dev_4_4 submodules PR
 
 	:jenkinsjob:`OMERO-homebrew-stable`
 
@@ -269,10 +268,10 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		#. Install Homebrew
 		#. Run :file:`docs/install/OMERO-homebrew-install.sh`
 
-Next major release
+5.0.x series
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the next major release of OMERO is develop. All jobs are listed
+The branch for the 5.0.x series of OMERO is develop. All jobs are listed
 under the :jenkinsview:`5.0` view tab of Jenkins.
 
 .. glossary::
@@ -376,7 +375,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. |updatesubmodules| and pushes the merge branch to
 		   snoopycrimecop/merge/develop/submodules
 		#. If the submodules are updated, opens a new PR or updates the
-		   existing |stable_branch| submodules PR
+		   existing dev_4_4 submodules PR
 
 	:jenkinsjob:`OME-5.0-homebrew`
 
@@ -399,8 +398,8 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 	:header-rows: 1
 
 	- 	* Job task
-		* Next point release
-		* Next major release
+		* 4.4.x series
+		* 5.0.x series
 
 	- 	* Build Bio-Formats
 		* :term:`BIOFORMATS-stable`
@@ -422,28 +421,28 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-openbytes-performance-stable` / :term:`BIOFORMATS-omero-openbytes-stable`
 		* :term:`BIOFORMATS-5.0-merge-openbytes-performance`
 
-Next point release
+4.4.x series
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the next point release of Bio-Formats is |stable_branch|.
+The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 
 .. glossary::
 
 	:jenkinsjob:`BIOFORMATS-stable`
 
-		This job is used to build the |stable_branch| branch of Bio-Formats
+		This job is used to build the dev_4_4 branch of Bio-Formats
 
 		#. |buildBF|
 		#. |testBF|
 
 	:jenkinsjob:`BIOFORMATS-maven-stable`
 
-		This job is used to publish the |stable_branch| branch of Bio-Formats
+		This job is used to publish the dev_4_4 branch of Bio-Formats
 		to the LOCI Nexus repository
 
 	:jenkinsjob:`BIOFORMATS-merge-stable`
 
-		This job is used to review the PRs opened against the |stable_branch|
+		This job is used to review the PRs opened against the dev_4_4
 		branch of Bio-Formats by running basic unit tests, checking for open
 		file handles, and checking for regressions across a representative
 		subset of the data repository
@@ -454,7 +453,7 @@ The branch for the next point release of Bio-Formats is |stable_branch|.
 
 	:jenkinsjob:`BIOFORMATS-full-repository-stable`
 
-		This job is used to review the PRs opened against the |stable_branch|
+		This job is used to review the PRs opened against the dev_4_4
 		branch of Bio-Formats by running automated tests against directories
 		on squig
 
@@ -464,7 +463,7 @@ The branch for the next point release of Bio-Formats is |stable_branch|.
 
 	:jenkinsjob:`BIOFORMATS-omero-openbytes-stable`
 
-		This job is used to review the PRs opened against the |stable_branch|
+		This job is used to review the PRs opened against the dev_4_4
 		branch of Bio-Formats by running OMERO openBytes tests against
 		directories on squig
 
@@ -474,7 +473,7 @@ The branch for the next point release of Bio-Formats is |stable_branch|.
 
 	:jenkinsjob:`BIOFORMATS-openbytes-performance-stable`
 
-		This job is used to review the PRs opened against the |stable_branch|
+		This job is used to review the PRs opened against the dev_4_4
 		branch of Bio-Formats by running openBytes performance tests against
 		directories on squig
 
@@ -483,10 +482,10 @@ The branch for the next point release of Bio-Formats is |stable_branch|.
 		   directories specified by
 		   :file:`BIOFORMATS-openbytes-performance.txt`
 
-Next major release
+5.0.x series
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the next major release of Bio-Formats is dev_5_0.
+The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 .. glossary::
 
@@ -551,7 +550,7 @@ tab of Jenkins.
 
 	- 	* Job task
 		* Current release
-		* Next major release 
+		* 5.0.x series 
 
 	- 	* Publish OMERO documentation
 		* :term:`OMERO-docs-release-stable`
@@ -604,16 +603,16 @@ are then used:
 - for the Bio-Formats and OMERO sets of documentation, the name of the
   Jenkins job is set by :envvar:`JENKINS_JOB`.
 
-Current release/next point release
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4.4.x series
+^^^^^^^^^^^^
 
-The branch for the current release of OMERO/Bio-Formats is |stable_branch|.
+The branch for the current release of OMERO/Bio-Formats is dev_4_4.
 
 .. glossary::
 
 	:jenkinsjob:`OMERO-docs-release-stable`
 
-		This job is used to build the |stable_branch| of the OMERO documentation
+		This job is used to build the dev_4_4 of the OMERO documentation
 		and publish the official documentation for the current release of
 		OMERO
 
@@ -625,7 +624,7 @@ The branch for the current release of OMERO/Bio-Formats is |stable_branch|.
 
 	:jenkinsjob:`BIOFORMATS-docs-release-stable`
 
-		This job is used to build the |stable_branch| of the Bio-Formats
+		This job is used to build the dev_4_4 of the Bio-Formats
 		documentation and publish the official documentation for the current
 		release of Bio-Formats
 
@@ -637,7 +636,7 @@ The branch for the current release of OMERO/Bio-Formats is |stable_branch|.
 
 	:jenkinsjob:`OMERO-docs-merge-stable`
 
-		This job is used to review the PRs opened against the |stable_branch|
+		This job is used to review the PRs opened against the dev_4_4
 		branch of the OMERO documentation
 
 		#. |merge|
@@ -648,7 +647,7 @@ The branch for the current release of OMERO/Bio-Formats is |stable_branch|.
 
 	:jenkinsjob:`BIOFORMATS-docs-merge-stable`
 
-		This job is used to review the PRs opened against the |stable_branch|
+		This job is used to review the PRs opened against the dev_4_4
 		branch of the Bio-Formats documentation
 
 		#. |merge|
@@ -657,10 +656,10 @@ The branch for the current release of OMERO/Bio-Formats is |stable_branch|.
 		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-stable-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats4-staging/
 
-Next major release
+5.0.x series
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the next major release of OMERO/Bio-Formats/OME model and
+The branch for the 5.0.x series of OMERO/Bio-Formats/OME model and
 the Contributing documentation is develop.
 
 .. glossary::

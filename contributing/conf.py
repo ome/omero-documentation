@@ -24,23 +24,6 @@ from conf import *
 # General information about the project.
 project = u'OME Contributing Developer'
 title = project + u' Documentation'
-
-# The version info for the project you're documenting, acts as replacement for
-# |version| and |release|, also used in various other places throughout the
-# built documents.
-if "MAJOR_RELEASE" in os.environ:
-    major_release = os.environ.get('MAJOR_RELEASE')
-    [majornumber, minornumber, patchnumber] = split_release(major_release)
-    stable_version = get_previous_version(majornumber, minornumber)
-    stable_branch = "dev_" + stable_version.replace('.', '_')
-else:
-    stable_version = 'UNKNOWN'
-    stable_branch = 'unknown'
-
-rst_epilog += """
-.. |stable_version| replace:: %s
-.. |stable_branch| replace:: %s
-""" % (stable_version, stable_branch)
     
 # OME contributing-specific extlinks
 contributing_extlinks = {
