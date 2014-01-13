@@ -549,7 +549,7 @@ tab of Jenkins.
 	:header-rows: 1
 
 	- 	* Job task
-		* Current release
+		* 4.4.x
 		* 5.0.x series 
 
 	- 	* Publish OMERO documentation
@@ -560,14 +560,6 @@ tab of Jenkins.
 		* :term:`BIOFORMATS-docs-release-stable`
 		* :term:`BIOFORMATS-5.0-docs-release`
 
-	- 	* Publish OME Model documentation
-		* 
-		* :term:`FORMATS-docs-release`
-
-	- 	* Publish OME Contributing documentation
-		*
-		* :term:`CONTRIBUTING-docs-release`
-
 	- 	* Review OMERO documentation PRs
 		* :term:`OMERO-docs-merge-stable`
 		* :term:`OMERO-5.0-docs-merge`
@@ -576,12 +568,25 @@ tab of Jenkins.
 		* :term:`BIOFORMATS-docs-merge-stable`
 		* :term:`BIOFORMATS-5.0-docs-merge`
 
-	- 	* Review OME Model documentation PRs
+The OME Model and OME Contributing documentation sets are independent of the
+current OME series.
+
+.. list-table::
+	:header-rows: 1
+
+	- 	* Job task
 		* 
+
+	- 	* Publish OME Model documentation
+		* :term:`FORMATS-docs-release`
+
+	- 	* Publish OME Contributing documentation
+		* :term:`CONTRIBUTING-docs-release`
+
+	- 	* Review OME Model documentation PRs
 		* :term:`FORMATS-docs-merge`
 
 	- 	* Review OME Contributing documentation PRs
-		*
 		* :term:`CONTRIBUTING-docs-merge`
 
 Configuration
@@ -603,10 +608,16 @@ are then used:
 - for the Bio-Formats and OMERO sets of documentation, the name of the
   Jenkins job is set by :envvar:`JENKINS_JOB`.
 
+All live documentation folders are copied over SSH to
+necromancer.openmicroscopy.org.uk under the
+:file:`/var/www/www.openmicroscopy.org/sphinx-docs` directory using the
+:program:`scc deploy` command. The :jenkinsjob:`OME-docs-deployment-setup` job
+is used to initialize new deployment folders.
+
 4.4.x series
 ^^^^^^^^^^^^
 
-The branch for the current release of OMERO/Bio-Formats is dev_4_4.
+The branch for the 4.4.x series of the OMERO/Bio-Formats documentation is dev_4_4.
 
 .. glossary::
 
@@ -619,7 +630,7 @@ The branch for the current release of OMERO/Bio-Formats is dev_4_4.
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. If the build is promoted,
-			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/omero-stable-release.tmp`
+			#. |ssh-doc| :file:`omero-stable-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4/
 
 	:jenkinsjob:`BIOFORMATS-docs-release-stable`
@@ -631,7 +642,7 @@ The branch for the current release of OMERO/Bio-Formats is dev_4_4.
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. If the build is promoted,
-			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-stable-release.tmp`
+			#. |ssh-doc| :file:`bf-stable-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats4/
 
 	:jenkinsjob:`OMERO-docs-merge-stable`
@@ -642,7 +653,7 @@ The branch for the current release of OMERO/Bio-Formats is dev_4_4.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/omero-stable-staging.tmp`
+		#. |ssh-doc| :file:`omero-stable-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4-staging/
 
 	:jenkinsjob:`BIOFORMATS-docs-merge-stable`
@@ -653,14 +664,14 @@ The branch for the current release of OMERO/Bio-Formats is dev_4_4.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-stable-staging.tmp`
+		#. |ssh-doc| :file:`bf-stable-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats4-staging/
 
 5.0.x series
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
-The branch for the 5.0.x series of OMERO/Bio-Formats/OME model and
-the Contributing documentation is develop.
+The branch for the 5.0.x series of the OMERO/Bio-Formats documentation is
+dev_5_0.
 
 .. glossary::
 
@@ -673,7 +684,7 @@ the Contributing documentation is develop.
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. If the build is promoted,
-			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/omero-5.0-release.tmp`
+			#. |ssh-doc| :file:`omero-5.0-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5/
 
 	:jenkinsjob:`BIOFORMATS-5.0-docs-release`
@@ -685,28 +696,8 @@ the Contributing documentation is develop.
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. If the build is promoted,
-			#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-5.0-release.tmp`
+			#. |ssh-doc| :file:`bf-5.0-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5/
-
-	:jenkinsjob:`FORMATS-docs-release`
-
-		This job is used to build the develop branch of the OME Model
-		documentation and publish the official documentation
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-release.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
-
-	:jenkinsjob:`CONTRIBUTING-docs-release`
-
-		This job is used to build the develop branch of the OME Contributing
-		documentation and publish the official documentation
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/contributing-release.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing/
 
 	:jenkinsjob:`OMERO-5.0-docs-merge`
 
@@ -716,7 +707,7 @@ the Contributing documentation is develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/omero-5.0-staging.tmp`
+		#. |ssh-doc| :file:`omero-5.0-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5-staging/
 
 	:jenkinsjob:`BIOFORMATS-5.0-docs-merge`
@@ -727,8 +718,17 @@ the Contributing documentation is develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/bf-5.0-staging.tmp`
+		#. |ssh-doc| :file:`bf-5.0-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5-staging/
+
+
+OME Model and OME Contributing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The branch for the OME model and the OME Contributing documentation
+sets is develop.
+
+.. glossary::
 
 	:jenkinsjob:`FORMATS-docs-merge`
 
@@ -738,7 +738,7 @@ the Contributing documentation is develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/formats-staging.tmp`
+		#. |ssh-doc| :file:`formats-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-staging/
 
 	:jenkinsjob:`CONTRIBUTING-docs-merge`
@@ -749,8 +749,28 @@ the Contributing documentation is develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`/var/www/www.openmicroscopy.org/sphinx-docs/contributing-staging.tmp`
+		#. |ssh-doc| :file:`contributing-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing-staging/
+
+	:jenkinsjob:`FORMATS-docs-release`
+
+		This job is used to build the develop branch of the OME Model
+		documentation and publish the official documentation
+
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`formats-release.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
+
+	:jenkinsjob:`CONTRIBUTING-docs-release`
+
+		This job is used to build the develop branch of the OME Contributing
+		documentation and publish the official documentation
+
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`contributing-release.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing/
 
 .. _linkcheck_parser:
 
