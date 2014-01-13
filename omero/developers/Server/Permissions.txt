@@ -431,10 +431,10 @@ regardless of the context used, has a fully functional
 allow the caller to interrogate the operations that are possible by the 
 current user on the object:
 
-- :jenkinsjob:`canAnnotate() <OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canAnnotate>`
-- :jenkinsjob:`canDelete() <OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canDelete>`
-- :jenkinsjob:`canEdit <OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canEdit>`
-- :jenkinsjob:`canLink <OMERO-stable/javadoc/slice2html/omero/model/Permissions.html#canLink>`
+- :javadoc:`canAnnotate() <slice2html/omero/model/Permissions.html#canAnnotate>`
+- :javadoc:`canDelete() <slice2html/omero/model/Permissions.html#canDelete>`
+- :javadoc:`canEdit <slice2html/omero/model/Permissions.html#canEdit>`
+- :javadoc:`canLink <slice2html/omero/model/Permissions.html#canLink>`
 
 Troubleshooting permissions issues
 ----------------------------------
