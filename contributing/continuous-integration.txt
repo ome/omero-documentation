@@ -96,17 +96,13 @@ OMERO jobs
 		* Next point release
 		* Next major release
 
-	- 	* Build OMERO using Ice 3.3
-		* :term:`OMERO-stable`
-		* :term:`OMERO-5.0-latest-ice33`
-
-	- 	* Build OMERO using Ice 3.4
-		* :term:`OMERO-stable-ice34`
-		* :term:`OMERO-5.0-latest-ice34`
-
-	- 	* Build OMERO using Ice 3.5
-		* :term:`OMERO-stable-ice35`
-		* :term:`OMERO-5.0-latest-ice35`
+	- 	* Build OMERO
+		* :term:`OMERO-stable` /
+		  :term:`OMERO-stable-ice34` /
+		  :term:`OMERO-stable-ice35`
+		* :term:`OMERO-5.0-latest-ice33` /
+		  :term:`OMERO-5.0-latest-ice34`
+		  :term:`OMERO-5.0-latest-ice35`
 
 	- 	* Build an OMERO Virtual Appliance
 		* :term:`OMERO-stable-virtualbox`
@@ -116,17 +112,13 @@ OMERO jobs
 		* :term:`OMERO-merge-stable`
 		* :term:`OMERO-5.0-merge-daily`
 
-	- 	* Review OMERO PRs using Ice 3.3
-		* :term:`OMERO-merge-stable-ice34`
-		* :term:`OMERO-5.0-merge-ice33`
-
-	- 	* Review OMERO PRs using Ice 3.4
-		* :term:`OMERO-merge-stable-ice34`
-		* :term:`OMERO-5.0-merge-ice34`
-
-	- 	* Review OMERO PRs using Ice 3.5
-		* :term:`OMERO-merge-stable-ice35`
-		* :term:`OMERO-5.0-merge-ice35`
+	- 	* Review OMERO PRs
+		* :term:`OMERO-merge-stable-ice33` /
+		  :term:`OMERO-merge-stable-ice34` /
+		  :term:`OMERO-merge-stable-ice35`
+		* :term:`OMERO-5.0-merge-ice33` /
+		  :term:`OMERO-5.0-merge-ice34` /
+		  :term:`OMERO-5.0-merge-ice35`
 
 	- 	* Review OMERO PRs using a Virtual Appliance
 		* :term:`OMERO-merge-stable-virtualbox`
@@ -170,24 +162,11 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 .. glossary::
 
 	:jenkinsjob:`OMERO-stable`
-
-		This job is used to build the |stable_branch| branch of OMERO with Ice 3.3
-
-		#. |buildOMERO|
-		#. |archiveOMEROartifacts|
-		#. If the build is promoted, |promoteOMERO|
-
 	:jenkinsjob:`OMERO-stable-ice34`
-
-		This job is used to build the |stable_branch| branch of OMERO with Ice 3.4
-
-		#. |buildOMERO|
-		#. |archiveOMEROartifacts|
-		#. If the build is promoted, |promoteOMERO|
-
 	:jenkinsjob:`OMERO-stable-ice35`
 
-		This job is used to build the |stable_branch| branch of OMERO with Ice 3.5
+		This job is used to build the |stable_branch| branch of OMERO with
+		Ice 3.3, 3.4 or 3.5
 
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
@@ -212,29 +191,11 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		#. |deployOMERO| howe.openmicroscopy.org.uk
 
 	:jenkinsjob:`OMERO-merge-stable-ice33`
-
-		This job is used to review the PRs opened against the |stable_branch|
-		branch of OMERO with Ice 3.3
-
-		#. Checks out the merge/|stable_branch|/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
-		#. |buildOMERO|
-		#. |archiveOMEROartifacts|
-
 	:jenkinsjob:`OMERO-merge-stable-ice34`
-
-		This job is used to review the PRs opened against the |stable_branch|
-		branch of OMERO with Ice 3.4
-
-		#. Checks out the merge/|stable_branch|/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
-		#. |buildOMERO|
-		#. |archiveOMEROartifacts|
-
 	:jenkinsjob:`OMERO-merge-stable-ice35`
 
 		This job is used to review the PRs opened against the |stable_branch|
-		branch of OMERO with Ice 3.5
+		branch of OMERO with Ice 3.3, 3.4 or 3.5
 
 		#. Checks out the merge/|stable_branch|/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
@@ -317,24 +278,11 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 .. glossary::
 
 	:jenkinsjob:`OMERO-5.0-latest-ice33`
-
-		This job is used to build the dev_5_0 branch of OMERO with Ice 3.3.
-
-		#. |buildOMERO|
-		#. |archiveOMEROartifacts|
-		#. If the build is promoted, |promoteOMERO|
-
 	:jenkinsjob:`OMERO-5.0-latest-ice34`
-
-		This job is used to build the dev_5_0 branch of OMERO with Ice 3.4
-
-		#. |buildOMERO|
-		#. |archiveOMEROartifacts|
-		#. If the build is promoted, |promoteOMERO|
-
 	:jenkinsjob:`OMERO-5.0-latest-ice35`
 
-		This job is used to build the dev_5_0 branch of OMERO with Ice 3.5
+		This job is used to build the dev_5_0 branch of OMERO with Ice 3.3,
+		3.4 or 3.5
 
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
@@ -359,29 +307,11 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. |deployOMERO| gretzky.openmicroscopy.org.uk
 
 	:jenkinsjob:`OMERO-5.0-merge-ice33`
-
-		This job is used to review the PRs opened against the develop branch
-		of OMERO with Ice 3.3
-
-		#. Checks out the merge/dev_5_0/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
-		#. |buildOMERO|
-		#. |archiveOMEROartifacts|
-
 	:jenkinsjob:`OMERO-5.0-merge-ice34`
-
-		This job is used to review the PRs opened against the develop branch
-		of OMERO with Ice 3.4
-
-		#. Checks out the merge/dev_5_0/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
-		#. |buildOMERO|
-		#. |archiveOMEROartifacts|
-
 	:jenkinsjob:`OMERO-5.0-merge-ice35`
 
 		This job is used to review the PRs opened against the develop branch
-		of OMERO with Ice 3.5
+		of OMERO with Ice 3.3, 3.4 or 3.5
 
 		#. Checks out the merge/develop/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
