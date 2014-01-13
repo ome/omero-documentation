@@ -70,15 +70,10 @@ Ice (3.3.x or 3.4.x)
     you have installed locally. The downloads for Ice 3.4 have "ice34" in the
     zip name.
 
-    The downloads for the OMERO.clients (written in Java) are all ice33
-    builds. We provide the :file:`ice.jar` bundled with the clients,
-    so you do not need to worry about which one you download. If you have
-    further questions, consult the :forum:`Forums <>`.
-
-    **OMERO does not currently support Ice 3.5** - if you have installed ICE 
-    3.5, uninstall it, install 3.4.x, update ENV path and reboot. If 
-    you need to use ICE 3.5 for other purposes, you probably just need to add 
-    the path for 3.4.x to the ENV before ICE 3.5.
+    **OMERO does not currently support Ice 3.5 for Windows** - if you have
+    installed Ice 3.5, uninstall it, install 3.4.x, update ENV path and
+    reboot. If you need to use Ice 3.5 for other purposes, you probably just
+    need to add the path for 3.4.x to the ENV before Ice 3.5.
 
 
 Windows installers of Ice can be found on the :zeroc:`ZeroC download
