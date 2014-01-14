@@ -9,31 +9,37 @@ and there are also some examples in the webtest app.
 
 Currently you can add content in the following locations:
 
--  **Center Panel** Adding a panel to the center of the webclient will display a drop-down menu to the top right
-   of the center panel, allowing users to choose your plugin.
+-  **Center Panel** Adding a panel to the center of the webclient will display
+   a drop-down menu to the top right of the center panel, allowing users to
+   choose your plugin.
 
--  **Right Panel** You can add additional tabs to the right panel. These will be available in the main webclient page
-   as well as history and search result pages.
+-  **Right Panel** You can add additional tabs to the right panel. These will
+   be available in the main webclient page as well as history and search
+   result pages.
 
 
 Overview
 --------
 
-To begin with, you need to prepare your plugin pages in your own app, with their own URLs, views and templates.
-Then you can display these pages within the webclient UI, using the plugin framework.
+To begin with, you need to prepare your plugin pages in your own app, with
+their own URLs, views and templates.
+Then you can display these pages within the webclient UI, using the plugin
+framework.
 
-The webclient plugins work by adding some custom Javascript snippets into the main pages of the weblient and
-adding HTML elements to specified locations in the webclient. These snippets of Javascript can be used to load
-content into these HTML elements. Usually you'll want to do this dynamically, to display data based on the
-currently selected objects (although this is optional). Helpers can be used to respond to changes in the selected objects and
-the selected tab, so you can load or refresh your plugin only when necessary.
-
+The webclient plugins work by adding some custom Javascript snippets into the
+main pages of the weblient and adding HTML elements to specified locations in
+the webclient. These snippets of Javascript can be used to load content into
+these HTML elements. Usually you'll want to do this dynamically, to display
+data based on the currently selected objects (although this is optional).
+Helpers can be used to respond to changes in the selected objects and the
+selected tab, so you can load or refresh your plugin only when necessary.
 
 App URLs
-~~~~~~~~
+--------
 
-To display content based on currently selected data, such as Projects, Datasets and Images, your app pages will need to have
-these defined in their URLs. For example:
+To display content based on currently selected data, such as Projects,
+Datasets and Images, your app pages will need to have these defined in their
+URLs. For example:
 
 ::
 
@@ -43,39 +49,46 @@ these defined in their URLs. For example:
     # Webtest: Show a panel of ROI thumbnails for an image
     url( r'^image_rois/(?P<imageId>[0-9]+)/', views.image_rois ),
 
-These URLs should simply display the content that you want to show in the webclient.
-NB: when these pages load in the webclient, they will have all the webclient css and Javascript (such as jQuery) available
-so you do not need to include these in your page.
-Furthermore, it is important not to overwrite css or js in the webclient (for example by including jQuery).
+These URLs should simply display the content that you want to show in the
+webclient.
+NB: when these pages load in the webclient, they will have all the webclient
+CSS and Javascript (such as jQuery) available so you do not need to include
+these in your page. Furthermore, it is important not to overwrite CSS or
+Javascript in the webclient (for example by including jQuery).
 
 
 Configuring the plugin
 ----------------------
 
 Choose an element ID
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
-You will need to specify an ID for the <div> element that is added to the webclient, so that you can refer
-to this element in the Javascript. For example, "image_roi_tab" or "auto_tag_panel".
+You will need to specify an ID for the `<div>` element that is added to the
+webclient, so that you can refer to this element in the Javascript. For
+example, "image_roi_tab" or "auto_tag_panel".
 
 Create a Javascript file
-~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-This will contain the Javascript snippet that is injected into the main webclient page <head>
-when the page is generated. This is added using Django's templates, so it should be placed
-withing your app's /templates/<app-name>/ directory and named .html.
-E.g. /templates/<app-name>/webclient_plugins/right_plugin_rois.html
-All the Javascript should be within <script> and </script> tags.
-Our plugin initialization should happen after the page has loaded, so we use the
-jQuery on-ready function.
+This will contain the Javascript snippet that is injected into the main
+webclient page `<head>` when the page is generated. This is added using
+Django's templates, so it should be placed within your app's
+`/templates/<app-name>/` directory and named `.html`, e.g.
+/templates/<app-name>/webclient_plugins/right_plugin_rois.html.
+All the Javascript should be within `<script>` and `</script>` tags.
+Your plugin initialization should happen after the page has loaded, so you use
+the jQuery on-ready function.
 
-We use custom jQuery functions, called 'omeroweb_right_plugin' or 'omeroweb_center_plugin',
-to initialize the webclient plugin. These will handle all the selection change events.
-We simply need to specify how the panel is loaded, based on the selected object(s) and
-what objects are supported. The plugin will be disabled when non-supported objects are
-selected.
+You use custom jQuery functions, called 'omeroweb_right_plugin' or
+'omeroweb_center_plugin', to initialize the webclient plugin. These will
+handle all the selection change events.
+You simply need to specify how the panel is loaded, based on the selected
+object(s) and what objects are supported. The plugin will be disabled when
+non-supported objects are selected.
 
-Below is a simple example of their usage. More detailed documentation at the bottom of the page.
+Below is a simple example of their usage. More detailed documentation
+available in the :ref:`plugin option section <plugin-options-label>` below.
+
 
 **Center Panel Plugin**
 
@@ -134,22 +147,27 @@ Below is a simple example of their usage. More detailed documentation at the bot
 
 .. _plugin-installation-label:
 
-Plugin Installation
-~~~~~~~~~~~~~~~~~~~
+Plugin installation
+-------------------
 
-Now we need to add our plugin to the appropriate plugin list, stating the displayed name of the plugin,
-the path/to/js_snippet.html and the ID of the plugin element. Plugin lists are:
+Now you need to add your plugin to the appropriate plugin list, stating the
+displayed name of the plugin, the path/to/js_snippet.html and the ID of the
+plugin element. Plugin lists are:
 
 - omero.web.ui.center_plugins
 
 - omero.web.ui.right_plugins
 
-Use the OMERO command line interface to add the plugin to the appropriate list.
-NB: Since there is not currently an option to **add** to web settings lists, you will need to include
-the full list of plugins when you configure the plugin list.
+Use the OMERO command line interface to add the plugin to the appropriate
+list.
 
-The OMERO.webclient does not include any center plugins by default, so if you only want to add
-a single plugin to the center, you can simply do:
+.. note:: Since there is not currently an option to **add** to web settings
+    lists, you will need to include the full list of plugins when you
+    configure the plugin list.
+
+
+The OMERO.webclient does not include any center plugins by default, so if you
+only want to add a single plugin to the center, you can simply do:
 
 ::
 
@@ -157,8 +175,9 @@ a single plugin to the center, you can simply do:
         '[["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]]'
 
 
-The right_plugins list includes the Acquisition tab and Preview tab by default. If you want to keep these and
-add your plugin to the list, you will need to list all three. For example, to add the webtest ROI plugin:
+The right_plugins list includes the `Acquisition` tab and `Preview` tab by
+default. If you want to keep these and add your plugin to the list, you will
+need to list all three. For example, to add the webtest ROI plugin:
 
 ::
 
@@ -168,45 +187,52 @@ add your plugin to the list, you will need to list all three. For example, to ad
         ["ROIs", "webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"]]'
 
 Restart Web
-~~~~~~~~~~~
+^^^^^^^^^^^
 
-Stop and restart your web server, then refresh the webclient UI. You should see your plugin appear in the
-webclient UI in the specified location. You should only be able to select the plugin from the drop-down
-menu or tab **if** the supported data type is selected, E.g. 'image'. When you select your plugin,
-the load content method you specified above will be called and you should see your plugin loaded.
+Stop and restart your web server, then refresh the webclient UI. You should
+see your plugin appear in the webclient UI in the specified location. You
+should only be able to select the plugin from the drop-down menu or tab **if**
+the supported data type is selected, e.g. 'image'. When you select your
+plugin, the load content method you specified above will be called and you
+should see your plugin loaded.
 
-Refreshing Content
-~~~~~~~~~~~~~~~~~~
+Refreshing content
+^^^^^^^^^^^^^^^^^^
 
-If you now edit the views.py or HTML template for your plugin and want to refresh the plugin within the
-webclient, all you need to do is to select a different object (E.g. dataset, image etc).
-NB: if you select an object that is not supported by your plugin, then nothing will be displayed (and
-for the right-tab plugin, the tab selection will change to the first tab);
+If you now edit the :file:`views.py` or HTML template for your plugin and want
+to refresh the plugin within the webclient, all you need to do is to select a
+different object (e.g. dataset, image etc). NB: if you select an object that
+is not supported by your plugin, then nothing will be displayed, and for the
+right-tab plugin, the tab selection will change to the first tab.
 
+.. _plugin-options-label:
 
-Documentation of plugin options
--------------------------------
+Plugin options
+--------------
 
--  **supported_obj_types**: If your plugin displays data from single objects, such as a single Image
-   or Dataset, you can specify that here, using a list of types:
+-  **supported_obj_types**: If your plugin displays data from single objects,
+   such as a single Image or Dataset, you can specify that here, using a list
+   of types:
 
    ::
 
       supported_obj_types: ['dataset', 'image'],
 
-   This will ensure that the plugin is only enabled when a single Dataset or Image is selected.
+   This will ensure that the plugin is only enabled when a single Dataset or
+   Image is selected.
    To support multiple objects, see 'tab_enabled'.
 
--  **plugin_enabled**: This function allows you to specify whether a plugin is enabled or not
-   when specified objects are selected. It is only used if you have NOT defined 'supported_obj_types'.
+-  **plugin_enabled**: This function allows you to specify whether a plugin is
+   enabled or not when specified objects are selected. It is only used if you
+   have NOT defined 'supported_obj_types'.
    The function is passed a single argument:
 
    -  selected: This is a list of the selected objects
-      E.g. [{'id':'image-123'}, {'id':'image-456'}]
+      e.g. [{'id':'image-123'}, {'id':'image-456'}]
 
-   The function should should return true if the plugin should be enabled.
-   For example, if you want the center plugin to support multiple images, or a single
-   dataset:
+   The function should return true if the plugin should be enabled.
+   For example, if you want the center plugin to support multiple images, or a
+   single dataset:
 
    ::
 
@@ -220,16 +246,18 @@ Documentation of plugin options
           }
       }
 
--  **load_plugin_content / load_tab_content**: This function will be called when the plugin/tab
-   content needs to be refreshed, either because the plugin is displayed for the first time, or
-   because the selected object changes. The function will be passed 3 arguments:
+-  **load_plugin_content / load_tab_content**: This function will be called
+   when the plugin/tab content needs to be refreshed, either because the
+   plugin is displayed for the first time, or because the selected object
+   changes. The function will be passed 3 arguments:
 
    -  selected: This is a list of the selected objects
-      E.g. [{'id':'image-123'}, {'id':'image-456'}]
+      e.g. [{'id':'image-123'}, {'id':'image-456'}]
 
-   -  obj_dtype: This is the data-type of the first selected object, E.g. 'image'
+   -  obj_dtype: This is the data-type of the first selected object, e.g.
+      'image'
 
-   -  obj_id: This is the ID of the first selected object, E.g. 123
+   -  obj_id: This is the ID of the first selected object, e.g. 123
 
 
 OMERO 4.4.x backwards compatability
