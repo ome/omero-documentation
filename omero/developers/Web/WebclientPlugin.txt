@@ -260,30 +260,30 @@ Plugin options
    -  obj_id: This is the ID of the first selected object, e.g. 123
 
 
-OMERO 4.4.x backwards compatability
--------------------------------------
+OMERO 4.4.x backwards compatibility
+-----------------------------------
 
-If an OMERO 5 plugin also needs to work for OMERO 4.4.x installations then there are
-three considerations that need to be made.
+If an OMERO 5 plugin also needs to work for OMERO 4.4.x installations, there
+are three things to consider:
 
 URLs in templates
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
-The ``url`` tag has `changed in django 1.6
+The `url` tag has `changed in django 1.6
 <https://docs.djangoproject.com/en/dev/releases/1.5/#overview>`_ from
-``{% url myview %}`` to ``{% url 'myview' %}``. In order for your OMERO 4.4.x
-install to understand the new syntax then it is simply a matter of adding
-``{% load url from future %}`` to the top of the template file. By using the
-new style syntax and the ``{% load url from future %}`` the template
-will be valid in both OMERO 4.4.x and OMERO 5. The ``{% load url from future %}``
-line does no harm when used on django 1.6.
+`{% url myview %}` to `{% url 'myview' %}`. In order for your OMERO 4.4.x
+install to understand the new syntax, it is simply a matter of adding
+`{% load url from future %}` to the top of the template file. By using the
+new style syntax and the `{% load url from future %}` the template
+will be valid in both OMERO 4.4.x and OMERO 5. The
+`{% load url from future %}` line does no harm when used on Django 1.6.
 
 URL imports
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 The import statement required to get the URL and patterns objects in the
-plugin's :file:`urls.py` has changed as well. The following import can be used to
-import from the correct place dependant on which django version is present.
+plugin's :file:`urls.py` has changed as well. The following import can be used
+to import from the correct place dependent on which Django version is present.
 
 ::
 
@@ -295,10 +295,10 @@ import from the correct place dependant on which django version is present.
 
 
 Plugin settings
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
-In OMERO 4.4.x (with the older django) it was possible to manipulate settings in
-the plugin's :file:`settings.py` like so:
+In OMERO 4.4.x (with the older Django) it was possible to manipulate settings
+in the plugin's :file:`settings.py` like so:
 
 ::
 
@@ -310,12 +310,12 @@ the plugin's :file:`settings.py` like so:
         ["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]
     )
 
-This is no longer possible in OMERO 5 with django 1.6 and it is necessary to
-use ``omero config set`` to change this setting as documented here:
+This is no longer possible in OMERO 5 with Django 1.6 and it is necessary to
+use :omerocmd:`config set` to change this setting as documented here:
 :ref:`Plugin Installation <plugin-installation-label>`.
 
-In order to preserve the old functionalty on OMERO4 servers the plugin's
-:file:`settings.py` can be changed to:
+In order to preserve the old functionality on OMERO 4.4.x servers, the 
+plugin's :file:`settings.py` can be changed to:
 
 ::
 
