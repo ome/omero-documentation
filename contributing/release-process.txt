@@ -118,6 +118,8 @@ Documentation
   :jenkinsjob:`BIOFORMATS-docs-release-stable`.
 - Check that the OMERO and Bio-Formats documentations sets are correctly
   deployed, both HTML and PDF.
+- Update the staging user help site with new screenshots and deploy the user
+  help website using :jenkinsjob:`HELP-release-docs`.
 
 Public release
 ^^^^^^^^^^^^^^
@@ -152,6 +154,7 @@ Post release
 
 .. |releasetag| replace:: v.\ |release|
 
+-  Close the Trac and GitHub milestones
 -  Change the reports in the left-hand column of trac.
 -  Update any deployed servers (KIT, Warlock, Nightshade...).
 -  Update online validator (See :ticket:`8640` for an example).
@@ -162,6 +165,7 @@ Post release
 
 -  Add the released version on the right panel of
    http://trac.openmicroscopy.org.uk/ome/admin/ticket/versions.
+-  Open a PR to bump the Homebrew formulas of OMERO and Bio-Formats
 
 Demo server
 ^^^^^^^^^^^
