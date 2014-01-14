@@ -55,7 +55,7 @@ movie <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`.
 
 If you want to run OMERO.web from source code, see :doc:`/developers/Web/EditingOmeroWeb`.
 
-You can place your app anywhere on your PYTHONPATH,
+You can place your app anywhere on your :envvar:`PYTHONPATH`,
 as long as it can be imported by OMERO.web.
 
 .. note::
@@ -102,7 +102,7 @@ Create and checkout a new github repository OR manually create a new directory
 
 Add your app location to your PYTHONPATH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If your app is not in a directory that's already a module on your PYTHONPATH
+If your app is not in a directory that is already on your :envvar:`PYTHONPATH`
 then you need to add it:
 
 ::
