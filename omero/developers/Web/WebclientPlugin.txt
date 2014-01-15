@@ -26,10 +26,10 @@ their own URLs, views and templates.
 Then you can display these pages within the webclient UI, using the plugin
 framework.
 
-The webclient plugins work by adding some custom Javascript snippets into the
+The webclient plugins work by adding some custom JavaScript snippets into the
 main pages of the weblient and adding HTML elements to specified locations in
-the webclient. These snippets of Javascript can be used to load content into
-these HTML elements. Usually you'll want to do this dynamically, to display
+the webclient. These snippets of JavaScript can be used to load content into
+these HTML elements. Usually you will want to do this dynamically, to display
 data based on the currently selected objects (although this is optional).
 Helpers can be used to respond to changes in the selected objects and the
 selected tab, so you can load or refresh your plugin only when necessary.
@@ -52,9 +52,9 @@ URLs. For example:
 These URLs should simply display the content that you want to show in the
 webclient.
 NB: when these pages load in the webclient, they will have all the webclient
-CSS and Javascript (such as jQuery) available so you do not need to include
+CSS and JavaScript (such as jQuery) available so you do not need to include
 these in your page. Furthermore, it is important not to overwrite CSS or
-Javascript in the webclient (for example by including jQuery).
+JavaScript in the webclient (for example by including jQuery).
 
 
 Configuring the plugin
@@ -64,18 +64,18 @@ Choose an element ID
 ^^^^^^^^^^^^^^^^^^^^
 
 You will need to specify an ID for the `<div>` element that is added to the
-webclient, so that you can refer to this element in the Javascript. For
+webclient, so that you can refer to this element in the JavaScript. For
 example, "image_roi_tab" or "auto_tag_panel".
 
-Create a Javascript file
+Create a JavaScript file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-This will contain the Javascript snippet that is injected into the main
+This will contain the JavaScript snippet that is injected into the main
 webclient page `<head>` when the page is generated. This is added using
 Django's templates, so it should be placed within your app's
 `/templates/<app-name>/` directory and named `.html`, e.g.
 /templates/<app-name>/webclient_plugins/right_plugin_rois.html.
-All the Javascript should be within `<script>` and `</script>` tags.
+All the JavaScript should be within `<script>` and `</script>` tags.
 Your plugin initialization should happen after the page has loaded, so you use
 the jQuery on-ready function.
 
@@ -87,7 +87,7 @@ object(s) and what objects are supported. The plugin will be disabled when
 non-supported objects are selected.
 
 Below is a simple example of their usage. More detailed documentation
-available in the :ref:`plugin option section <plugin-options-label>` below.
+available in the :ref:`plugin options section <plugin-options-label>` below.
 
 
 **Center Panel Plugin**
@@ -201,7 +201,7 @@ Refreshing content
 
 If you now edit the :file:`views.py` or HTML template for your plugin and want
 to refresh the plugin within the webclient, all you need to do is to select a
-different object (e.g. dataset, image etc). NB: if you select an object that
+different object (e.g. dataset, image etc). If you select an object that
 is not supported by your plugin, then nothing will be displayed, and for the
 right-tab plugin, the tab selection will change to the first tab.
 
@@ -269,12 +269,12 @@ are three things to consider:
 URLs in templates
 ^^^^^^^^^^^^^^^^^
 
-The `url` tag has `changed in django 1.6
+The `url` tag has `changed in Django 1.6
 <https://docs.djangoproject.com/en/dev/releases/1.5/#overview>`_ from
 `{% url myview %}` to `{% url 'myview' %}`. In order for your OMERO 4.4.x
 install to understand the new syntax, it is simply a matter of adding
 `{% load url from future %}` to the top of the template file. By using the
-new style syntax and the `{% load url from future %}` the template
+new-style syntax and the `{% load url from future %}` the template
 will be valid in both OMERO 4.4.x and OMERO 5. The
 `{% load url from future %}` line does no harm when used on Django 1.6.
 
@@ -283,7 +283,7 @@ URL imports
 
 The import statement required to get the URL and patterns objects in the
 plugin's :file:`urls.py` has changed as well. The following import can be used
-to import from the correct place dependent on which Django version is present.
+to import from the correct place depending on which Django version is present.
 
 ::
 
