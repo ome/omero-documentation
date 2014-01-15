@@ -156,7 +156,10 @@ Post release
 
 -  Close the Trac and GitHub milestones
 -  Change the reports in the left-hand column of trac.
--  Update any deployed servers (KIT, Warlock, Nightshade...).
+-  Upgrade any deployed servers (KIT, Warlock, Nightshade...).
+
+   -  Schedule Nightshade downtime
+   -  Perform the server upgrade
 -  Update online validator (See :ticket:`8640` for an example).
 -  Assign the adequate milestone to closed PRs on Github using
    ``scc check-milestone`` with the :option:`--set` option::
