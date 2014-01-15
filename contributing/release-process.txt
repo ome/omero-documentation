@@ -129,8 +129,9 @@ Public release
   :jenkinsjob:`OMERO-4.4-download-page` or
   :jenkinsjob:`OMERO-5.0-download-page` job to the value of the URL of the
   public post.
-- Re-run the download page generation job. Check the link to the announcement
-  and the URL of the tag have been updated in the OMERO downloads page.
+- Re-run the download page generation job for both Bio-Formats and OMERO.
+  Check the link to the announcement and the URL of the tags have been updated
+  in the OMERO and Bio-Formats downloads pages.
 - Remove the :file:`.htaccess` file from the release folders and make the
   release folders read-only::
 
