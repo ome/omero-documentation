@@ -148,7 +148,8 @@ Public release
      update registry_version set version = '\ |release|';
 - Announce the release on the mailing lists and Twitter, and in News.
 - Update openmicroscopy.org home page with latest release number, date and
-  Milestone page link. Also update the OMERO version history plone page.
+  Milestone page link.
+- Update the OMERO version history plone page.
 
 Post release
 ^^^^^^^^^^^^
