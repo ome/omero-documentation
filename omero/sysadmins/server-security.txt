@@ -124,7 +124,7 @@ If your server is connecting to another server over |SSL|, you will need
 to configure both a keystore and a truststore for the Java process. This
 happens, for example, when your LDAP server uses |SSL|. See the :doc:`LDAP
 plugin <server-ldap>` for information on how to configure the LDAP
-urls. As with all configuration properties, you will need to restart
+URLs. As with all configuration properties, you will need to restart
 your server after changing them.
 
 To do this, you will need to configure several server properties,

@@ -4,7 +4,7 @@ OMERO.scripts user guide
 :doc:`/developers/server-blitz` provides a service to run scripts
 on the server. The scripts are then passed on to a grid of processors
 called OMERO.grid that executes the script and returns the result to the
-server which in turn passes the result onto the caller. All scripts are of the 
+server which in turn passes the result onto the caller. All scripts are of the
 form:
 
 ::
@@ -18,9 +18,9 @@ form:
     script. The types allowed are defined in the script package, with the qualifier after the 
     variable of in, out or inout depending on whether the variable if for input, output or input
     and output.
-    '''  
-    client = script.client("SCRIPTNAME", "SCRIPTDESCRIPTION", 
-             script.TYPE("VARIABLENAME").[in()|out()|inout()], ...)
+    '''
+    client = script.client("SCRIPTNAME", "SCRIPTDESCRIPTION",
+             script.TYPE("VARIABLENAME").[in()|out()|inout()], …)
     # create a session on the server.
     client.createSession()
 
@@ -30,18 +30,18 @@ form:
 
 This is a guide to getting started with the scripting service, without
 going into the 'behind the scenes' details. More technical details can
-be found on the :doc:`/developers/scripts/advanced` page. In addition to this 
-guide, you may find the following pages useful for more information on using 
+be found on the :doc:`/developers/scripts/advanced` page. In addition to this
+guide, you may find the following pages useful for more information on using
 the OMERO Python API: |OmeroClients|, |OmeroPy|.
 
 Sample scripts
 --------------
 
-Below are two sample scripts. You can find the core scripts that are 
+Below are two sample scripts. You can find the core scripts that are
 distributed with the OMERO.server under the
 `scripts repository <https://github.com/ome/scripts>`_ or download them from
-OMERO.insight (from the bottom-left of any run-script dialog), or use the 
-:community_plone:`script sharing <scripts>` page to find scripts written by 
+OMERO.insight (from the bottom-left of any run-script dialog), or use the
+:community_plone:`script sharing <scripts>` page to find scripts written by
 other users.
 
 Ping script
@@ -52,7 +52,7 @@ This script echoes the input parameters as outputs.
 ::
 
     import omero, omero.scripts as script
-    client = script.client("ping.py", "simple ping script", 
+    client = script.client("ping.py", "simple ping script",
              script.Long("a"), script.String("b"))
     client.createSession()
 
@@ -85,7 +85,7 @@ and the script returns them as outputs.
     # Use the Python Blitz Gateway for convenience
     conn = BlitzGateway(client_obj=client)
 
-    # get the Image, print it's name
+    # get the Image, print its name
     image = conn.getObject("Image", imageId)
     print image.getName()
 
@@ -110,15 +110,15 @@ The basic steps in a script-writing workflow are:
    server (results will be displayed)
 -  Edit script and replace copy on server and run again, etc.
 
-Working with scripts is far more straightforward if you have admin access to 
-your OMERO.server installation - this is the preferred workflow. It is 
-possible to work with scripts as a regular user (see :doc:`advanced`) but the 
-software you would be required to install means it is easier to install a 
+Working with scripts is far more straightforward if you have admin access to
+your OMERO.server installation - this is the preferred workflow. It is
+possible to work with scripts as a regular user (see :doc:`advanced`) but the
+software you would be required to install means it is easier to install a
 server on your local machine so you have admin rights.
 
 It is assumed that scripts written by a server admin are "trusted" to
-run on the server without causing any disruption or security risks. Once 
-uploaded these scripts are available to all regular users of the server 
+run on the server without causing any disruption or security risks. Once
+uploaded these scripts are available to all regular users of the server
 alongside the official scripts included in each OMERO release.
 
 Download / Edit script
@@ -126,7 +126,7 @@ Download / Edit script
 
 The easiest way to get started is to take an existing script and edit it
 for your needs. An example created for the purpose of this tutorial can
-be found at 
+be found at
 :source:`Edit_Descriptions.py <examples/ScriptingService/Edit_Descriptions.py>`.
 You should organize your scripts on your local machine in a way that
 makes sense to users, since your local file paths will be mimicked on
@@ -162,7 +162,7 @@ can get a service factory like this:
 ::
 
     session = client.getSession()
-    # now you can do E.g. session.getQueryService() etc. 
+    # now you can do E.g. session.getQueryService() etc.
 
 More example scripts
 ^^^^^^^^^^^^^^^^^^^^
@@ -190,9 +190,9 @@ You may find it useful to add the OMERO.server/bin/ folder to your PATH
 so you can call ``bin/omero`` commands when working in the scripts folder.
 E.g:
 
-::
+.. parsed-literal::
 
-    export PATH=$PATH:/Users/will/Desktop/OMERO.server-Beta-4.3/bin/
+    export PATH=$PATH:/Users/will/Desktop/OMERO.server-|release|/bin/
 
 Upload the script we saved earlier, specifying it as 'official' (trusted
 to run on the server processor). You will need to log in the first time
@@ -246,9 +246,9 @@ displayed as well as any outputs that the script has returned.
         *** start stdout ***
         * {'IDs': [1201L], 'Data_Type': 'Dataset'}
         * Processing Images from Dataset: LSM - .mdb
-        * Editing images with this description: 
+        * Editing images with this description:
         * No description specified
-        * 
+        *
         *    Editing image ID: 15651 Name: sample files.mdb [XY-ch-02]
         *    Editing image ID: 15652 Name: sample files.mdb [XY-ch-03]
         *    Editing image ID: 15653 Name: sample files.mdb [XY-ch]
@@ -270,7 +270,7 @@ Parameter values can also be specified in the command.
 ::
 
     # simply specify the required parameters that don't have defaults
-    $ omero script launch 301 IDs=1201 
+    $ omero script launch 301 IDs=1201
 
     # can also specify additional parameters
     $ omero script launch 301 Data_Type='Image' IDs=15652,15653 New_Description="Adding description from script to Image"
@@ -316,7 +316,7 @@ Start by printing help for the script command:
         params            Print the parameters for a given script
         launch            Launch a script with parameters
         disable           Makes script non-executable by setting the mimetype
-        enable            Makes a script non-executable (sets mimetype to text/x-python)
+        enable            Makes a script executable (sets mimetype to text/x-python)
         jobs              List current jobs for user or group
         serve             Start a usermode processor for scripts
         upload            Upload a script
@@ -358,34 +358,34 @@ the inputs.
 
     id:  301
     name:  Edit_Descriptions.py
-    version:  
-    authors:  
-    institutions:  
+    version:
+    authors:
+    institutions:
     description:  Edits the descriptions of multiple Images,
     either specified via Image IDs or by the Dataset IDs.
-    See http://trac.openmicroscopy.org.uk/ome/wiki/OmeroPy/ScriptingServiceGuide for the tutorial that uses this script.
-    namespaces:  
+    See http://www.openmicroscopy.org/site/support/omero4/developers/scripts/user-guide.html for the tutorial that uses this script.
+    namespaces:
     stdout:  text/plain
     stderr:  text/plain
     inputs:
       New_Description - The new description to set for each Image in the Dataset
         Optional: True
         Type: ::omero::RString
-        Min: 
-        Max: 
-        Values: 
+        Min:
+        Max:
+        Values:
       IDs - List of Dataset IDs or Image IDs
         Optional: False
         Type: ::omero::RList
         Subtype: ::omero::RLong
-        Min: 
-        Max: 
-        Values: 
+        Min:
+        Max:
+        Values:
       Data_Type - The data you want to work with.
         Optional: False
         Type: ::omero::RString
-        Min: 
-        Max: 
+        Min:
+        Max:
         Values: Dataset, Image
     outputs:
 

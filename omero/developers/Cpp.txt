@@ -8,12 +8,7 @@ target produces a platform-dependent shared library which can be
 linked to your application.
 
 **Binaries are not provided**, therefore it will be necessary for you
-to compile your own. Test versions are, however, built by Jenkins on a
-small handful of platforms:
-
-* :jenkins:`Windows Server 2003 (32 bit) <job/OMERO-trunk-components/component=cpp,label=x86-windows/>`
-* :jenkins:`Linux <job/OMERO-trunk-components/component=cpp,label=linux/>`
-* :jenkins:`MacOSX <job/OMERO-trunk-components/component=cpp,label=macosx/>`
+to compile your own.
 
 Prerequisites
 -------------
@@ -224,7 +219,7 @@ The following environment variables as defined in
 
 :envvar:`VERBOSE`
     show the actual build commands rather than the pretty "Compiling
-    XYZ..." statements.
+    XYZ…" statements.
 
 Zip files containing the C++ header files, the libraries, and source
 code are placed under :file:`OMERO\_HOME/target` with other zip

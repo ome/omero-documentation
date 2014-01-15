@@ -125,7 +125,7 @@ include:
 -  id
 -  version
 -  details
--  ... any SQL keyword
+-  … any SQL keyword
 
 
 Properties
@@ -221,7 +221,7 @@ rather than specifying particulars, like:
 
       if (securitySystem.allowLoad(Project.class, project.getDetails())) {}
       // and not
-      if (project.getDetails().getPermissions().isGranted(USER,READ) && project.getDetails().getOwner().getId( myId )) {...}
+      if (project.getDetails().getPermissions().isGranted(USER,READ) && project.getDetails().getOwner().getId( myId )) {…}
 
 This should hopefully save a good deal of re-coding if we move to true
 ACL rather than the current filesystem-like access control.
@@ -514,7 +514,7 @@ same class with the same id are the same object. For example:
 
 ::
 
-       Image i = ...; // From query
+       Image i = …; // From query
        Dataset d = i.linkedDatasetList().get(0);
        Image i2 = d.linkedImageList().get(0);
        if (i.getId().equals(i2.getId()) {
@@ -544,7 +544,7 @@ not know whether the object should be removed or not.
 
 ::
 
-       Project oldProject = ...; // Acquired from first query
+       Project oldProject = …; // Acquired from first query
        // Do some other work
        Dataset dataset = iQuery.findByQuery("select d from Dataset d "+
                "join fetch d.projectsLinks links "+
@@ -594,7 +594,7 @@ disconnected. Single-valued fields are replaced by an unloaded version:
 
 ::
 
-      OriginalFile ofile = ...; // Object to test
+      OriginalFile ofile = …; // Object to test
       if ( ! Hibernate.isInitialized( ofile.getFormat() ) {
         ofile.setFormat( new Format( ofile.getFormat().getId(), false) );
       }
@@ -604,7 +604,7 @@ the :literal:`sizeOfXXX` method will return a value less than zero:
 
 ::
 
-       Dataset d = ...; // Dataset obtained from a query. Didn't request Projects
+       Dataset d = …; // Dataset obtained from a query. Didn't request Projects
        assert d.sizeOfProjects() < 0 : "Projects should not be loaded";
 
 This is why it is necessary to specify all "join fetch" clauses for
@@ -693,7 +693,7 @@ necessary to do something along the following lines of:
 
 ::
 
-        updatedProject = ...; // As before
+        updatedProject = …; // As before
         for (Dataset updatedDataset : updatedProject.linkedDatasetList() ) {
             if (updatedDataset.getId().equals( someDataset.getId() )) {
                 updatedProject.unlinkDataset( updatedDataset );

@@ -31,7 +31,7 @@ Here we list some options which you are most likely to want to modify.
 See :source:`etc/omero.properties` for more details.
 
 omero.sessions.timeout
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
 omero.sessions.timeout sets the duration of inactivity in milli-seconds
 after which a login is required (default is 600000, or 10 minutes). To
@@ -42,7 +42,7 @@ change the default, for example, to 1 hour use:
 	$ bin/omero config set omero.sessions.timeout 3600000
 
 omero.db.poolsize
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 omero.db.poolsize sets the number of connections to PostgreSQL which
 will be used by OMERO (default is 10):
@@ -66,7 +66,7 @@ above, these are stored under :sourcedir:`etc/grid`.
 Windows systems. Both, make use of "templates.xml".
 
 Modifying the application descriptors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When you run :omerocmd:`admin start` without any other arguments, it
 looks up the default **application descriptor** for your platform:
@@ -107,24 +107,8 @@ the default application descriptors in place.
     merging your local changes. You should be prepared to re-make
     whatever changes you perform directly on the new files.
 
-JVM memory settings
-^^^^^^^^^^^^^^^^^^^
-
-The most likely change you will need to make to your application
-descriptors is increasing the memory settings. This is not done by
-default since it would prevent starting the server on some sites' test
-instance, but for production use a setting higher than 512MB is
-**highly** recommended.
-
-You can either edit the file manually, or use a small script such as:
-
-::
-
-      perl -i -pe 's/Xmx512M/Xmx2048M/' etc/grid/templates.xml
-      perl -i -pe 's/XX:MaxPermSize=128m/XX:MaxPermSize=256M/' etc/grid/templates.xml
-
 Targets
-~~~~~~~
+^^^^^^^
 
 **Targets** are elements within the application descriptors which can
 optionally turn on configuration. The target is only applicable until
@@ -167,7 +151,7 @@ JMX configuration
       <parameter name="config" default="default"/>
       <parameter name="jmxhost" default=""/>
       <parameter name="jmxport" default="3001"/>
-       ...
+       …
         <target name="jmx">
             <!-- Be sure to understand the consequences of enabling JMX.
                  It allows calling remote methods on your JVM -->

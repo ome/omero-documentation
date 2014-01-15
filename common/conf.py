@@ -96,7 +96,7 @@ bf_github_root = github_root + user + '/bioformats/'
 doc_github_root = github_root + user + '/ome-documentation/'
 
 # Variables used to define Jenkins extlinks
-jenkins_root = 'http://hudson.openmicroscopy.org.uk'
+jenkins_root = 'http://ci.openmicroscopy.org'
 jenkins_job_root = jenkins_root + '/job'
 jenkins_view_root = jenkins_root + '/view'
 
@@ -137,7 +137,7 @@ extlinks = {
     'omero_doc' : (oo_site_root + '/support/omero4/%s', ''),
     'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),   
     'bf_plone' : (oo_site_root + '/products/bio-formats/%s', ''),
-    'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
+    'bf_doc' : (oo_site_root + '/support/bio-formats4/%s', ''),
     'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
     # Downloads
     'downloads' : (downloads_root + '/omero/%s', ''),

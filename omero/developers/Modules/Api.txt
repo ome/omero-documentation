@@ -1,9 +1,9 @@
 OMERO Application Programming Interface
 =======================================
 
-All interaction with the OMERO server takes place via several API
-services available from a ServiceFactory.
-A service factory is obtained from the client connection e.g. Python:
+All interaction with the OMERO server takes place via several API services
+available from a ServiceFactory. A service factory is obtained from the client
+connection e.g. Python:
 
 ::
 
@@ -14,9 +14,9 @@ A service factory is obtained from the client connection e.g. Python:
 -  The :javadoc:`Service factory API <slice2html/omero/api/ServiceFactory.html>`
    has methods for creating Stateless and Stateful services (see below).
 
-   -  Stateless services are obtained using "get..." methods e.g.
+   -  Stateless services are obtained using "get…" methods e.g.
       ``getQueryService()``
-   -  Stateful services are obtained using "create..." methods e.g.
+   -  Stateful services are obtained using "create…" methods e.g.
       ``createRenderingEngine()``
 
 -  Services will provide access to omero.model.objects. You will then
@@ -26,15 +26,14 @@ A service factory is obtained from the client connection e.g. Python:
 Services list
 -------------
 
-The :sourcedir:`ome.api <components/common/src/ome/api>`
-package in the common component defines the central "verbs" of the Omero
-system. All external interactions with the system should happen with
-these verbs, or services. Each OMERO service belongs to a particular
-service level with each level calling only on services from lower
-levels.
+The :sourcedir:`ome.api <components/common/src/ome/api>` package in the common
+component defines the central "verbs" of the OMERO system. All external
+interactions with the system should happen with these verbs, or services. Each
+OMERO service belongs to a particular service level with each level calling
+only on services from lower levels.
 
-Service Level 1 (direct database and hibernate connections)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Service Level 1 (direct database and Hibernate connections)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  AdminService:
    :source:`src <components/common/src/ome/api/IAdmin.java>`,
@@ -51,6 +50,10 @@ Service Level 1 (direct database and hibernate connections)
 -  DeleteService:
    :javadoc:`API <slice2html/omero/api/IDelete.html>`
    for deleting objects asynchronously (delete queue).
+-  LdapService:
+   :source:`src <components/common/src/ome/api/ILdap.java>`,
+   :javadoc:`API <slice2html/omero/api/ILdap.html>`
+   for communicating with LDAP servers.
 -  MetadataService:
    :javadoc:`API <slice2html/omero/api/IMetadata.html>`
    for working with Annotations.
@@ -92,13 +95,13 @@ Service Level 1 (direct database and hibernate connections)
    for saving and deleting omero.model objects.
 
 Service Level 2
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 -  :source:`IContainer <components/common/src/ome/api/IContainer.java>`
 -  :source:`ITypes <components/common/src/ome/api/ITypes.java>`
 
-Stateful/Binary? Services
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Stateful/Binary Services
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  RawFileStore:
    :source:`src <components/common/src/ome/api/RawFileStore.java>`,
@@ -115,21 +118,22 @@ Stateful/Binary? Services
    :javadoc:`API <ome/api/ThumbnailStore.html>`
 -  :source:`IScale <components/common/src/ome/api/IScale.java>`
 
-A complete list of service APIs can be found :javadoc:`here 
-<slice2html/omero/api.html>` and some examples of API use in Python are 
-provided. Java or C++ code can use the same API in a very similar manner.
+A complete list of service APIs can be found
+:javadoc:`here <slice2html/omero/api.html>` and some examples of API use in
+Python are provided. Java or C++ code can use the same API in a very similar
+manner.
 
 Discussion
 ----------
 
 Reads and writes
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 IQuery and IUpdate are the basic building blocks for the rest of the
 (non-binary) API. IQuery is based on QuerySources and QueryParemeters
 which are explained under :doc:`/developers/Server/Queries`. The goal of this
 design is to make wildly separate definitions of queries (templates,
-db-stored , Java code, C# code, ...) runnable on the server.
+db-stored, Java code, C# code, …) runnable on the server.
 
 IUpdate takes any graph composed of
 :source:`IObject <components/model/src/ome/model/IObject.java>`
@@ -151,23 +155,23 @@ Dirty checks follow the Three Commandments:
    deleted.)
 
 Administration
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
-The :source:`IAdmin <components/common/src/ome/api/IAdmin.java>`
-interface defines all the actions necessary to administer the 
+The :source:`IAdmin <components/common/src/ome/api/IAdmin.java>` interface
+defines all the actions necessary to administer the
 :doc:`/sysadmins/server-security` . It is explained further on the
 :doc:`/developers/Modules/Api/AdminInterface` page.
 
 Pojos
-~~~~~
+^^^^^
 
-Certain operations, like those dealing with data management and
-viewing, happen more frequently than others (like defining microscopes).
-Those have been collected in the
+Certain operations, like those dealing with data management and viewing,
+happen more frequently than others (like defining microscopes). Those have
+been collected in the 
 :source:`IContainer <components/common/src/ome/api/IContainer.java>`
-interface. IContainer simplifies a few very common queries, and there is
-a related package ("pojos.\*") for working with the returned graphs. 
-OMERO.Insight works almost exclusively with the IContainer interface for its 
+interface. IContainer simplifies a few very common queries, and there is a
+related package ("pojos.\*") for working with the returned graphs.
+OMERO.insight works almost exclusively with the IContainer interface for its
 non-binary needs.
 
 Examples
@@ -188,44 +192,37 @@ Examples
     // Retrieving a graph
     Set<Dataset> ds = iQuery.findAllByQuery( "from Dataset d left outer join d.images where d.name = 'test'",null );
 
-Other topics
-============
-
 Stateless versus stateful services
 ----------------------------------
 
-A stateless service has no client-noticeable lifecycle and all instances
-can be treated equally. A new stateful service, on the other hand, will
-be created for each client-side proxy (see the ``ServiceFactory.create\*`` 
-methods). Once
-obtained, a stateful service proxy can only be used by a single user.
-After task completion, the service should be closed (``proxy.close()``) to
-free up server resources.
+A stateless service has no client-noticeable lifecycle and all instances can
+be treated equally. A new stateful service, on the other hand, will be created
+for each client-side proxy (see the ``ServiceFactory.create\*`` methods). Once
+obtained, a stateful service proxy can only be used by a single user. After
+task completion, the service should be closed (``proxy.close()``) to free up
+server resources.
 
 How to write a service
 ----------------------
 
-A tutorial is available on to write a service at
-:doc:`/developers/Server/HowToCreateAService`. 
-In general, if a properly annotated service is
-placed in any JAR of the OMERO EAR file (see
-:doc:`/developers/build-system` for more) then the service will be
-deployed to the server. In the case of
-:doc:`/developers/server-blitz`, the service must be properly
-defined under :sourcedir:`components/blitz/resources`.
+A tutorial is available at :doc:`/developers/Server/HowToCreateAService`. In
+general, if a properly annotated service is placed in any JAR of the OMERO EAR
+file (see :doc:`/developers/build-system` for more) then the service will be
+deployed to the server. In the case of :doc:`/developers/server-blitz`, the
+service must be properly defined under 
+:sourcedir:`components/blitz/resources`.
 
 OMERO annotations for validation
 --------------------------------
 
 The server-side implementation of these interfaces makes use of ((JDK5))
 :doc:`/developers/Modules/StructuredAnnotations` and an
-:doc:`AOP </developers/Server/Aop>` interceptor to validate
-all method parameters. Calls to ``pojos.findContainerHierarches`` are first
-caught by a method interceptor, which checks for annotations on the
-parameters and, if available, performs the necessary checks. The
-interceptor also makes proactive checks. For a range of parameters types
-(such as Java Collections) it requires that annotations exist and will
-refuse to proceed if not implemented.
+:doc:`AOP </developers/Server/Aop>` interceptor to validate all method
+parameters. Calls to ``pojos.findContainerHierarches`` are first caught by a
+method interceptor, which checks for annotations on the parameters and, if
+available, performs the necessary checks. The interceptor also makes proactive
+checks. For a range of parameter types (such as Java Collections) it requires
+that annotations exist and will refuse to proceed if not implemented.
 
 An API call of the form:
 

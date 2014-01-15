@@ -30,9 +30,9 @@ Prerequisites
 -  OMERO and its prerequisites (see :doc:`server-installation`).
 
 -  Python version from 2.4 to 2.7 (due to backwards incompatibilities in
-   Python 3.0, Django does not currently work with Python 3.0; for more
-   information see the `Django Installation
-   page <https://docs.djangoproject.com/en/1.1/intro/install/>`_).
+   Python 3.0, Django 1.3 does not work with Python 3.0; for more
+   information see the `Django Installation page
+   <https://docs.djangoproject.com/en/1.3/intro/install/>`_).
 
    -  `Python Imaging Library`_ should be available for your distribution
 
@@ -94,103 +94,10 @@ OMERO.web is quite straightforward.
 
        $ bin/omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
 
--  Place a stanza in your web server configuration file. The location of
-   such file is depending on your system. On OS X it can be saved as
-   ``omero.conf`` under ``/private/etc/apache2/other``. Please refer to
-   the web server's manual. Apache and nginx configurations can be
-   automatically generated for you by OMERO.web as follows:
-
-   ::
-
-       $ bin/omero web config "apache" / "nginx"
-       $ bin/omero web config apache
-       ...
-       ###
-       ### Stanza for OMERO.web created 2012-07-12 16:44:16.112099
-       ###
-       FastCGIExternalServer "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi" -host 0.0.0.0:4080
-
-       <Directory "/usr/local/dev/openmicroscopy/dist/var">
-           Options -Indexes FollowSymLinks
-           Order allow,deny
-           Allow from all
-       </Directory>
-
-       <Directory "/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static">
-           Options -Indexes FollowSymLinks
-           Order allow,deny
-           Allow from all
-       </Directory>
-
-       Alias /static /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static
-       Alias /omero "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi/"
-
--  OR nginx:
-
-   ::
-
-       $ bin/omero web config nginx
-       # 
-       # nginx userland template
-       # this configuration is designed for running nginx as the omero user or similar
-       # nginx -c etc/nginx.conf
-       # for inclusion in a system-wide nginx configuration see omero web config nginx --system
-       #
-       pid /usr/local/dev/openmicroscopy/dist/var/pid.nginx;
-       error_log /usr/local/dev/openmicroscopy/dist/var/log/nginx_error.log;
-       worker_processes  5;
-       working_directory /usr/local/dev/openmicroscopy/dist/var;
-
-       events {
-           worker_connections  1024;
-       }
-
-
-       http {
-           access_log    /usr/local/dev/openmicroscopy/dist/var/log/nginx_access.log;
-           include       /usr/local/dev/openmicroscopy/dist/etc/mime.types;
-           default_type  application/octet-stream;
-           client_body_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
-
-           keepalive_timeout  65;
-
-           server {
-               listen       8080;
-               server_name  _;
-               fastcgi_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
-               proxy_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
-
-                # weblitz django apps serve static content from here
-               location /static {
-                   alias /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static;
-               }
-
-               location / {
-                   if (-f /usr/local/dev/openmicroscopy/dist/var/maintenance.html) {
-                      error_page 503 /maintenance.html;
-                      return 503;
-                   }
-                   fastcgi_pass 0.0.0.0:4080;
-                   fastcgi_param PATH_INFO $fastcgi_script_name;
-                   fastcgi_param REQUEST_METHOD $request_method;
-                   fastcgi_param QUERY_STRING $query_string;
-                   fastcgi_param CONTENT_TYPE $content_type;
-                   fastcgi_param CONTENT_LENGTH $content_length;
-                   fastcgi_param SERVER_NAME $server_name;
-                   fastcgi_param SERVER_PROTOCOL $server_protocol;
-                   fastcgi_param SERVER_PORT $server_port;
-                   fastcgi_pass_header Authorization;
-                   fastcgi_intercept_errors on;
-                   fastcgi_read_timeout 300;
-               }
-
-               location /maintenance.html {
-                   root /usr/local/dev/openmicroscopy/dist/var;
-               }
-
-           }
-
-       }
+-  Place a stanza in your web server configuration file. The location of the
+   file will depend on your system, please refer to your web server's manual.
+   Apache and nginx configurations can be automatically generated for you by
+   OMERO.web, see :ref:`apache_configuration` or :ref:`nginx_configuration`.
 
 -  Start the Django FastCGI workers:
 
@@ -215,6 +122,142 @@ OMERO.web is quite straightforward.
        $ bin/omero web stop
        Stopping OMERO.web... [OK]
        Django FastCGI workers (PID 59217) killed.
+
+
+.. _apache_configuration:
+
+Apache configuration
+""""""""""""""""""""
+
+To create a site configuration file for inclusion in the main Apache
+configuration redirect the output of the following command into a file:
+
+::
+
+    $ bin/omero web config apache
+
+::
+
+    ...
+    ###
+    ### Stanza for OMERO.web created 2012-07-12 16:44:16.112099
+    ###
+    FastCGIExternalServer "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi" -host 0.0.0.0:4080
+
+    <Directory "/usr/local/dev/openmicroscopy/dist/var">
+        Options -Indexes FollowSymLinks
+        Order allow,deny
+        Allow from all
+    </Directory>
+
+    <Directory "/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static">
+        Options -Indexes FollowSymLinks
+        Order allow,deny
+        Allow from all
+    </Directory>
+
+    Alias /static /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static
+    Alias /omero "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi/"
+
+.. note::
+    The default configuration file installed with `mod_fastcgi` may be
+    incompatible with OMERO. In particular, the `FastCGIWrapper` option
+    conflicts with `FastCGIExternalServer` required by OMERO and must be
+    removed or commented out.
+
+
+.. _nginx_configuration:
+
+Nginx configuration
+"""""""""""""""""""
+
+To create a configuration file for a standalone instance of nginx redirect the
+output of the following command into a file:
+
+::
+
+    $ bin/omero web config nginx
+
+::
+
+    #
+    # nginx userland template
+    # this configuration is designed for running nginx as the omero user or similar
+    # nginx -c etc/nginx.conf
+    # for inclusion in a system-wide nginx configuration see omero web config nginx --system
+    #
+    pid /usr/local/dev/openmicroscopy/dist/var/pid.nginx;
+    error_log /usr/local/dev/openmicroscopy/dist/var/log/nginx_error.log;
+    worker_processes  5;
+    working_directory /usr/local/dev/openmicroscopy/dist/var;
+
+    events {
+        worker_connections  1024;
+    }
+
+
+    http {
+        access_log    /usr/local/dev/openmicroscopy/dist/var/log/nginx_access.log;
+        include    /usr/local/dev/openmicroscopy/dist/etc/mime.types;
+        default_type  application/octet-stream;
+        client_body_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
+
+        keepalive_timeout  65;
+
+        server {
+            listen       8080;
+            server_name  _;
+            fastcgi_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
+            proxy_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
+
+             # weblitz django apps serve static content from here
+            location /static {
+                alias /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static;
+            }
+
+            location / {
+                if (-f /usr/local/dev/openmicroscopy/dist/var/maintenance.html) {
+                   error_page 503 /maintenance.html;
+                   return 503;
+                }
+
+                fastcgi_pass 0.0.0.0:4080;
+
+                fastcgi_param PATH_INFO $fastcgi_script_name;
+
+
+                fastcgi_param REQUEST_METHOD $request_method;
+                fastcgi_param QUERY_STRING $query_string;
+                fastcgi_param CONTENT_TYPE $content_type;
+                fastcgi_param CONTENT_LENGTH $content_length;
+                fastcgi_param SERVER_NAME $server_name;
+                fastcgi_param SERVER_PROTOCOL $server_protocol;
+                fastcgi_param SERVER_PORT $server_port;
+                fastcgi_pass_header Authorization;
+                fastcgi_intercept_errors on;
+                fastcgi_read_timeout 300;
+                # Uncomment if nginx SSL module is enabled or you are using nginx 1.1.11 or later
+                # -- See: #10273, http://nginx.org/en/CHANGES
+                # fastcgi_param HTTPS $https;
+            }
+
+            location /maintenance.html {
+                root /usr/local/dev/openmicroscopy/dist/var;
+            }
+
+        }
+
+    }
+
+It is also possible to generate a site file for inclusion as part of a
+system-wide nginx instance:
+
+::
+
+    $ bin/omero web config nginx --system
+
+.. seealso:: :ref:`Custom OMERO.web location <custom_web_location>`.
+
 
 Using the lightweight development server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -339,42 +382,36 @@ Customizing your OMERO.web installation
       ::
 
           $ bin/omero config set omero.web.scripts_to_ignore '[]'
-          $ bin/omero config set omero.web.scripts_to_ignore '["/omero/my_scripts/really_buggy.py", ... ]'
+          $ bin/omero config set omero.web.scripts_to_ignore '["/omero/my_scripts/really_buggy.py", … ]'
 
 .. _install_web_public_user:
 
--  Enabling a public user:
+-  Enabling a public user (automatically log in a public user, OMERO 4.4.0 onwards):
 
-   -  Since OMERO 4.4.0, OMERO.web has the ability to automatically log
-      in a public user.
+   -  First, create a public user. You can use any username and
+      password you wish. If you do not want this user to be able to
+      modify any of the data they see, you should put this user in a
+      Read-Only group and the public data should be owned by another
+      member(s) of this group.
 
-      -  First, create a public user. You can use any username and
-         password you wish. If you do not want this user to be able to
-         modify any of the data they see, you should put this user in a
-         Read-Only group and the public data should be owned by another
-         member(s) of this group. Now you can configure the public user:
+   -  Enable the OMERO.web public user functionality, which is disabled (False) by default.
 
-      -  Enable and disable the OMERO.web public user functionality.
-         Default: ``False``.
+      ::
 
-         ::
+           $ bin/omero config set omero.web.public.enabled True
 
-             $ bin/omero config set omero.web.public.enabled True
+   -  Set a URL filter for which the OMERO.web public user is allowed
+      to navigate. Default: ``^/(?!webadmin)`` (`Python regular
+      expression <http://docs.python.org/2/library/re.html>`_). You
+      probably do not want the whole webclient UI to be publicly
+      visible (although you could do this). The idea is that you can
+      create the public pages yourself (see :doc:`/developers/Web`)
+      since we do not provide public pages. E.g. to allow only URLs
+      that start with '/my\_web\_public' you would use:
 
-      -  Set a URL filter for which the OMERO.web public user is allowed
-         to navigate. Default: ``^/(?!webadmin)`` (`Python regular
-         expression <http://docs.python.org/2/library/re.html>`_). You
-         probably do not want the whole webclient UI to be publicly
-         visible (although you could do this). The idea is that you can
-         create the public pages yourself (see :doc:`/developers/Web`)
-         since we do not provide public pages. E.g. to allow only URLs
-         that start with '/my\_web\_public' you would use:
+      ::
 
-         ::
-
-             $ bin/omero config set omero.web.public.url_filter '^/my_web_public'
-
-             $ bin/omero config set omero.web.public.url_filter'^/(my_web_public|webgateway)'   # OR webgateway
+          $ bin/omero config set omero.web.public.url_filter '/my_web_public'
 
       Exotic matching techniques can be used but more explicit regular
       expressions are needed when attempting to filter based on a base
@@ -382,31 +419,34 @@ Customizing your OMERO.web installation
 
       ::
 
-              'webtest' matches '/webtest' but also '/webclient/webtest'
-              'dataset' matches '/webtest/dataset' and also '/webclient/dataset'
-              '/webtest' matches '/webtest...' but also '/webclient/webtest'
-              '^/webtest' matches '/webtest...' but not '/webclient/webtest'
+          'webtest' matches '/webtest' but also '/webclient/webtest'
+          'dataset' matches '/webtest/dataset' and also '/webclient/dataset'
+          '/webtest' matches '/webtest...' but also '/webclient/webtest'
+          '^/webtest' matches '/webtest...' but not '/webclient/webtest'
 
-      -  Server to authenticate against. Default: ``1`` (the first
-         server in ``omero.web.server_list``)
+      If you need more examples of how to configure public url filters, 
+      see the :doc:`/developers/Web/PublicData` page.
 
-         ::
+   -  Server to authenticate against. Default: ``1`` (the first
+      server in ``omero.web.server_list``)
 
-             $ bin/omero config set omero.web.public.server_id 2
+      ::
 
-      -  Username to use during authentication. Default: ``Not set.``
-         (required if ``omero.web.public.enabled=True``):
+          $ bin/omero config set omero.web.public.server_id 1
 
-         ::
+   -  Username to use during authentication. Default: ``Not set.``
+      (required if ``omero.web.public.enabled=True``):
 
-             $ bin/omero config set omero.web.public.user '__public__'
+      ::
 
-      -  Password to use during authentication. Default: ``Not set.``
-         (required if ``omero.web.public.enabled=True``):
+          $ bin/omero config set omero.web.public.user '__public__'
 
-         ::
+   -  Password to use during authentication. Default: ``Not set.``
+      (required if ``omero.web.public.enabled=True``):
 
-             $ bin/omero config set omero.web.public.password 'secret'
+      ::
+
+          $ bin/omero config set omero.web.public.password 'secret'
 
 -  Administrator e-mail notification:
 
@@ -437,6 +477,43 @@ Customizing your OMERO.web installation
       ::
 
           $ bin/omero config set omero.web.debug "True"
+
+.. _custom_web_location:
+
+-  Custom OMERO.web location:
+
+   -  By default OMERO.web expects to be run from the root URL of the web
+      server. It can be configured to run from a sub-directory, for example
+      `http://example.org/testing/`, as follows:
+
+      ::
+
+          $ bin/omero config set omero.web.force_script_name '/testing'
+
+   -  Update your web server configuration. For example, in the nginx
+      configuration replace
+
+      ::
+
+          fastcgi_param PATH_INFO $fastcgi_script_name;
+
+      with
+
+      ::
+
+          fastcgi_split_path_info ^(/testing)(.*)$;
+          fastcgi_param PATH_INFO $fastcgi_path_info;
+          fastcgi_param SCRIPT_INFO $fastcgi_script_name;
+
+   -  If `omero.web.force_script_name` is set then
+
+      ::
+
+          $ bin/omero web config nginx
+
+      will automatically generate the correct configuration.
+
+
 
 -  Configuring additional web apps:
 

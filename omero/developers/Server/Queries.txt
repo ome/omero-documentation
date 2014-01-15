@@ -58,7 +58,7 @@ more than 1 result ("maxResults") will be ignored. Here, an ordering of
 the results might make sense.
 
 Once a Parameters instance is available, named parameters can be added
-using any of the ``add...()`` methods. These parameters will be
+using any of the ``add…()`` methods. These parameters will be
 dynamically bound during query preparation. For example, a query of the
 form:
 
@@ -103,5 +103,5 @@ Defining a QuerySource
 A more involved but perhaps more rewarding method would be to implement
 ``QuerySource`` and configure ``QueryFactory`` to lookup query ids also
 in your ``QuerySource``. This would allow you to write Velocity (or
-Freemarker/Ruby/Python/Groovy?...) ``QuerySources`` which use some form
+Freemarker/Ruby/Python/Groovy…) ``QuerySources`` which use some form
 of templating or scripting to generate HQL queries.

@@ -2,12 +2,20 @@ OMERO upgrade checks
 ====================
 
 On each startup the OMERO server checks for available upgrades via the
-:source:`UpgradeCheck class <components/common/src/ome/system/UpgradeCheck.java>`.
+:source:`UpgradeCheck class 
+<components/common/src/ome/system/UpgradeCheck.java>`.
 An HTTP GET call is made to the URL configured in
 ``etc/omero.properties`` as ``omero.upgrades.url``, currently
-` http://upgrade.openmicroscopy.org.uk <http://upgrade.openmicroscopy.org.uk>`_
-by default. (Viewing this page in your browser will redirect you to this
-page).
+`http://upgrade.openmicroscopy.org.uk <http://upgrade.openmicroscopy.org.uk>`_
+by default (note that viewing that link in your browser will redirect you to 
+this page).
+
+.. note:: If you have been redirected here by clicking on a link to 
+    ``http://upgrade.openmicroscopy.org.uk`` in an error message or log while 
+    trying to run one of the **Bio-Formats command line tools**, please see 
+    the :bf_doc:`Bio-Formats command line tools documentation 
+    <users/comlinetools/index.html#version-checker>` for assistance.
+
 
 Actions
 -------
@@ -15,9 +23,9 @@ Actions
 Currently the only action taken when an upgrade is necessary is a log
 statement at WARN level.
 
-::
+.. parsed-literal::
 
-    2011-09-01 12:21:32,070 WARN  [                 ome.system.UpgradeCheck] (      main) UPGRADE AVAILABLE:Please upgrade to Beta-4.3.3 See http://trac.openmicroscopy.org.uk/omero for the latest version
+    2011-09-01 12:21:32,070 WARN  [                 ome.system.UpgradeCheck] (      main) UPGRADE AVAILABLE:Please upgrade to |release| See http://trac.openmicroscopy.org.uk/omero for the latest version
 
 Future versions may also send emails and/or IMs to administrators. In
 the case of critical upgrades, the server may refuse to start.

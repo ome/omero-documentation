@@ -24,6 +24,6 @@ code from the project's GitHub account to build locally:
     :doc:`/developers/build-system`
         Developer documentation page on how to build the OMERO.server
 
-Alternately, you can download a
+Alternatively, you can download a
 :omerojob:`daily build <lastSuccessfulBuild/artifact/>` of the OMERO.server
 from our continuous integration server.

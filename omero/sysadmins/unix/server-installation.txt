@@ -59,7 +59,7 @@ currently available to you via your $PATH as follows:
     Java HotSpot(TM) Server VM (build 1.6.0-b105, mixed mode)
 
 Further, you can see if you have the Java compiler (Java SDK)
-installed and available via your $PATH as follows...
+installed and available via your $PATH as follows…
 
 ::
 
@@ -131,26 +131,24 @@ Ice (3.3.x or 3.4.x)
 
 
 UNIX source downloads and binary packages are available from ZeroC_.
-The latest compatible distribution is the :zeroc:`3.3.1 release <download_3_3_1.html>`. ZeroC does not provide binaries which work out of the box for Snow Leopard (Mac OSX). |Glencoe| has made its version available for the community:
-`Ice-3.3.1-64.tar.bz2 <http://www.glencoesoftware.com/mac/10.6/Ice-3.3.1-64.tar.bz2>`_
-(sha1=eeebd9865869bb513f2a5274a09aa498418bb4db) 
-
-.. note::
-
-    This version was compiled with the mcpp from MacPorts, which you will need to use these bindings. 
+The latest compatible distribution is the :zeroc:`3.3.1 release
+<download_3_3_1.html>`. ZeroC does not provide binaries which work out of the
+box for Mac OS X Snow Leopard (10.6), so we recommend you follow the
+instructions for installation using :doc:`Homebrew <server-install-homebrew>`
+instead if this is your OS.
 
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PostgreSQL installed and configured with PL/pgSQL and to accept TCP 
-connections. PostgreSQL 8.3 and earlier are not supported. See 
+PostgreSQL installed and configured with PL/pgSQL and to accept TCP
+connections. PostgreSQL 8.3 and earlier are not supported. See
 :doc:`server-postgresql` for specifics about each version.
 
 OMERO.server
 ^^^^^^^^^^^^
 
-The **OMERO.server** zip and *tar.bz2* is available from the 
-:downloads:`OMERO downloads <>` page.
+The :file:`OMERO.server.zip` is available from the :downloads:`OMERO downloads
+<>` page.
 
 Environment variables
 ---------------------
@@ -159,7 +157,7 @@ For the prerequisite software to run properly, your PATH, PYTHONPATH,
 and (DY)LD\_LIBRARY\_PATH environment variables must be configured. If
 you installed via a package manager such as rpm, apt-get, or macports,
 they should be set for you. If not correctly configured or if you
-installed manually to /opt/Ice-... or a similar location, you will need
+installed manually to /opt/Ice-… or a similar location, you will need
 to set the values yourself.
 
 If you are running a Linux distribution such as Debian or Ubuntu and
@@ -497,6 +495,26 @@ If you have ***Flex data***, you may want to watch :snapshot:`the HCS configurat
 See the :omero_plone:`Feature list <feature-list>` for more advanced
 features you may want to use, and :doc:`/sysadmins/server-advanced-configuration` on how to get the most out of
 your server.
+
+JVM memory settings
+"""""""""""""""""""
+
+The most likely change you will need to make to your application
+descriptors is increasing the memory settings. This is not done by
+default since it would prevent starting the server on some sites' test
+instance, but for production use a setting higher than 512MB is
+**highly** recommended.
+
+You can either edit the file manually, or use a small script such as:
+
+::
+
+      perl -i -pe 's/Xmx512M/Xmx2048M/' etc/grid/templates.xml
+      perl -i -pe 's/XX:MaxPermSize=128m/XX:MaxPermSize=256M/' etc/grid/templates.xml
+
+See the grid configuration section in the :doc:`Advanced server configuration 
+</sysadmins/server-advanced-configuration>` 
+documentation for more information on `grid/templates.xml`.
 
 Update notification
 ^^^^^^^^^^^^^^^^^^^

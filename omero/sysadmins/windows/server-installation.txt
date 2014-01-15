@@ -70,15 +70,10 @@ Ice (3.3.x or 3.4.x)
     you have installed locally. The downloads for Ice 3.4 have "ice34" in the
     zip name.
 
-    The downloads for the OMERO.clients (written in Java) are all ice33
-    builds. We provide the :file:`ice.jar` bundled with the clients,
-    so you do not need to worry about which one you download. If you have
-    further questions, consult the :forum:`Forums <>`.
-
-    **OMERO does not currently support Ice 3.5** - if you have installed ICE 
-    3.5, uninstall it, install 3.4.x, update ENV path and reboot. If 
-    you need to use ICE 3.5 for other purposes, you probably just need to add 
-    the path for 3.4.x to the ENV before ICE 3.5.
+    **OMERO does not currently support Ice 3.5 for Windows** - if you have
+    installed Ice 3.5, uninstall it, install 3.4.x, update ENV path and
+    reboot. If you need to use Ice 3.5 for other purposes, you probably just
+    need to add the path for 3.4.x to the ENV before Ice 3.5.
 
 
 Windows installers of Ice can be found on the :zeroc:`ZeroC download
@@ -740,6 +735,23 @@ If you have ***Flex data***, you may want to watch :snapshot:`the HCS configurat
 See the :omero_plone:`Feature list <feature-list>` for more advanced
 features you may want to use, and :doc:`/sysadmins/server-advanced-configuration` on how to get the most out of
 your server.
+
+JVM memory settings
+"""""""""""""""""""
+
+The most likely change you will need to make to your application
+descriptors is increasing the memory settings. This is not done by
+default since it would prevent starting the server on some sites' test
+instance, but for production use a setting higher than 512MB is
+**highly** recommended. You can edit the 
+:source:`templates.xml <etc/grid/templates.xml>` file manually using a 
+notepad-like editor. You should change each occurrence of ``Xmx512M`` to 
+``Xmx2048M``; similarly ``XX:MaxPermSize=128m`` should be changed to 
+``XX:MaxPermSize=256M``.
+
+See the grid configuration section in the :doc:`Advanced server configuration 
+</sysadmins/server-advanced-configuration>` 
+documentation for more information on `grid/templates.xml`.
 
 Update notification
 ^^^^^^^^^^^^^^^^^^^
