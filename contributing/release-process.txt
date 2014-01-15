@@ -156,12 +156,12 @@ Post release
 
 .. |releasetag| replace:: v.\ |release|
 
--  Close the Trac and GitHub milestones
+-  Close the Trac and GitHub milestones.
 -  Change the reports in the left-hand column of trac.
 -  Upgrade any deployed servers (KIT, Warlock, Nightshade...).
 
-   -  Schedule Nightshade downtime
-   -  Perform the server upgrade
+   -  Schedule Nightshade downtime.
+   -  Perform the server upgrade.
 -  Update online validator (See :ticket:`8640` for an example).
 -  Assign the adequate milestone to closed PRs on Github using
    ``scc check-milestone`` with the :option:`--set` option::
@@ -170,7 +170,8 @@ Post release
 
 -  Add the released version on the right panel of
    http://trac.openmicroscopy.org.uk/ome/admin/ticket/versions.
--  Open a PR to bump the Homebrew formulas of OMERO and Bio-Formats
+-  Open a PR to bump the Homebrew formulas of OMERO and Bio-Formats.
+-  Merge the release tag into the `master` branch and push to `origin`.
 
 Demo server
 ^^^^^^^^^^^
