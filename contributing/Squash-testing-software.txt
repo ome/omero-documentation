@@ -1,0 +1,681 @@
+Squash testing software
+=========================
+
+Squash is a testing software for storage and management of tests aimed mainly 
+at manual testing of UI applications. Squash also aids execution of these 
+tests and stores and handles the testing results. It is a part of the testing 
+workflow of the OME-Team. The software is open to use also for external testers via the :term:`guest1` account.
+
+Special terms like :term:`User` or :term:`Tester` are used throughout this tutorial (see within the text below - click on the term for an explanation):
+
+This document outlines steps necessary to
+
+    - Run a test in Squash as a tester
+    - Write and maintain Test Cases = Scenarios in Squash
+    - Check the Results of tests and browse the comments of testers as a ``Test evaluator``
+
+Note: For best UI experience with Squash, **use of Firefox is strongly recommended**. Problems in Safari have been encountered already.
+
+
+
+Tutorial for :term:`Testers`
+---------------------------------------
+
+
+#.   If you are not a member of OME-Team, login to Squash as :term:`guest1`. If you are a member of OME-Team, login with your assigned username and password (link to internal docs where the usernames/passwords live). (link to our Squash server here)
+#.  Click on the fourth circular button from the top on the left-hand side, purple color [:ref:`Squash007`] to get to :guilabel:`Campaign Workspace` (use Tooltip when in doubt).
+
+    - The :guilabel:`Campaign Workspace` loads up.
+
+#.  (OME-Team only) Expand the OME Project in the tree, expand the Testing Campaign and select the Iteration mentioned in the Welcome message [:ref:`Squash008`].
+#.  (Guests only) Expand the :guilabel:`Guest Project` in the tree, expand the :guilabel:`Guest Campaign` and select the :guilabel:`Guest iteration`.
+#.  In the main pane, select the :guilabel:`Informations` tab [:ref:`Squash009`] (if not already selected) and read the info about OMERO user/group, server, etc.
+#.  Select the :guilabel:`Test Plan` tab.
+
+    - The :term:`Tests` assigned to you are loaded to the central pane. [:ref:`Squash010`]
+
+#.  Press the "arrow in the circle" button at the end of line of the :term:`Test` you should execute
+
+    - A submenu pops up with two options [:ref:`Squash011`] - both will work for you (as long as you are using Firefox).
+
+#.  Choose either :guilabel:`with popup` (you might need to enable popups and start again) or :guilabel:`with OER` (OER = opens a new :term:`Test Execution` tab in your browser) option to start testing.
+
+    - The header of the :term:`Test Case` appears, either in a popup or a new tab, meaning new :term:`Test Execution` has been started.
+
+#.  Press :guilabel:`Begin` button (top-right corner)
+
+    - The popup :guilabel:`Authentication required` will appear in case there are screenshots in the :term:`Test Case` (mostly there are some), you need to put in your LDAP credentials. - 
+
+#.  You can comment to each single step. Click on the :guilabel:`Comment` panel under the :guilabel:`Expected results` panel to edit it.
+
+    - The comment can be edited now, with links, screenshots (but only in case the screenshots are identified by a url - for normal screenshot addition see step 11.) and text can be submitted.
+
+#.  You can add attachments (screenshots, text files) to each single step (this is additionally to the screenshots you might paste into the comment itself). Click the :guilabel:`Upload Attachments` button under the :guilabel:`Comments` panel to do so.
+
+#.  In case you want/need/accidentally break up the :term:`Test Execution`
+
+
+    - The Execution will break up if you close the popup or close the :term:`Test Execution` tab (=OER) and it will appear at the end of the executions list under your test case.
+
+#.  To re-visit the :term:`Test Execution` which you broke up, click on the name of your :term:`Test Case` in the list - see [:ref:`Squash012`].
+
+    - The list of :term:`Test Executions` of this :term:`Test Case` will expand - see [:ref:`Squash013`] - the most recent one has the highest number and is on the bottom of the list.
+
+#.  You can 
+
+    - **delete** the :term:`Test Execution` completely out of the list by using the "-" button on the right hand side or.
+    - **resume** where you stopped before breaking up with this :term:`Test Execution` by clicking on it and then clicking "Resume" button in top-right corner.
+    - **rerun** any (even an already finished) :term:`Test Execution` from the list by clicking on its name and then pressing "Run with OER".
+
+#.  PLEASE CHECK THE :term:`Test Execution` LIST TO BE SURE WHAT YOU ARE LEAVING BEHIND YOU as a RESULT OF YOUR TESTING. 
+
+#.  DO NOT produce more than ONE :term:`Test Execution` per :term:`Test Case` unless you have good reasons to do so.
+
+#.  Be sure to go through each step of the :term:`Test Case` and marking each step with :term:`failure`, :term:`passed` or :term:`blocked` 
+
+    - Use :term:`failure` also in cases when the :term:`Scenario` needs improvement : NEVER USE :term:`untestable` because it is not visible in the overview of your :term:`Test Case` !!!  
+    - Leave :term:`blocked`  for cases like "Build not available".
+    - You must leave a comment (and when reasonable & helpful, a screenshot) to each step which you marked otherwise than :term:`passed`.
+
+
+Tutorial for :term:`Test writer` (OME-Team only)
+--------------------------------------------------
+
+
+#.  Login to Squash
+
+#.  To get to :guilabel:`Test Case Workspace`, click on the third circular button, green color [:ref:`Squash001`] (use Tooltip when in doubt).
+   
+
+    - The :guilabel:`Test Case Workspace`  loads up.
+
+#.  Expand the :guilabel:`OMERO Project` under the Library tab to see the already available :term:`Test Cases` [:ref:`Squash002`].
+
+#.  Add a new scenario to the list using the "+" button on the top left.
+
+    - After selecting a :guilabel:`New Test Case` in the small popup, a window appears giving you the option to comment on the newly created case.
+
+#.  Finish by pressing :guilabel:`Add`
+
+    - The newly created :term:`Test Case` is added to the tree.
+    - The newly created :term:`Test Case` is ready for editing in the :guilabel:`Script` tab in the main pane (see [:ref:`Squash002a`]), which opened automatically.
+
+#.  Start adding steps to the new case using the :guilabel:`Add a Step` button
+
+    - Editor opens with possibilities to add text, links or screenshots [:ref:`Squash002b`].
+
+#.  To add a screenshot (which will be visible in the :term:`Scenario` without donwloading), press the icon [:ref:`Squash002c`]. You have to paste a url into the appropriate line. Copy the url from the original image, right-click into the :guilabel:`URL`-line and select Paste from the context menu.
+
+    - Window comes up where you can input the url to the screenshot [:ref:`Squash002d`].
+
+#.  To edit already existing :term:`Test Case`, click on it in the tree in the left-hand pane and then select the :guilabel:`Script` tab in the central pane
+
+    - The :term:`Test Case` steps will appear in the central pane.
+    - The Actions are listed in the left column, the :guilabel:`Expected results` in the right column.
+
+#.  You can Collapse the :term:`Test Case` steps using the :guilabel:`Collapse` button in the central pane [:ref:`Squash003`]
+
+    - The Steps of the :term:`Test Case` collapse [:ref:`Squash004`].
+
+#.  Select the steps you would like to copy by clicking onto the number of the step in the left-hand column.
+ 
+    - The Steps you selected are highlighted in dark green.
+
+#.  Now you can easily copy the steps of one :term:`Test Case` and paste them into another :term:`Test Case`, using the buttons above the step list.
+
+#.  Edit a step in a case by clicking onto the text of it once, either onto the :guilabel:`Actions` or the :guilabel:`Expected Results` column.
+
+    - The editor frame appears [:ref:`Squash006`] around the selected step.
+
+
+
+
+Tutorial for :term:`Test evaluators` (OME-Team only)
+------------------------------------------------------
+
+
+#.  Login to Squash and read the Welcome message, note the :guilabel:`Testing Campaign` and :guilabel:`Iteration` names.
+
+#.  Click on the fourth circular button from the top on the left-hand side, purple color [:ref:`Squash007`] to get to :guilabel:`Campaign Workspace` (use Tooltip when in doubt).
+
+    - The :guilabel:`Campaign Workspace`  loads up.
+
+#.  Expand the :guilabel:`OMERO Project` in the tree, expand the :guilabel:`Testing Campaign` and select the :guilabel:`Iteration` mentioned in the Welcome message [:ref:`Squash008`].
+
+#.  In the main pane, select the :guilabel:`Informations` tab [:ref:`Squash009`] (if not already selected) and read the info about OMERO user/group, server, etc.
+
+#.  Select the :guilabel:`Test Plan` tab.
+
+#.  Check the :term:`Test Cases` which are marked :term:`failure` and :term:`blocked`  - these :term:`Test Cases` will have comments inside [:ref:`Squash014`]
+
+    - To see the :term:`Test Executions`, expand the failure or blocked :term:`Test Case` by clicking on its name [:ref:`Squash015`].
+
+    - (Preferably in new Tab/window) open the failure/blocked :term:`Test Execution` and find there the steps marked as :term:`failure`/:term:`blocked`  to read the comments [:ref:`Squash016`].
+
+    - You can comment on the comments of the tester by simply clicking on the :guilabel:`Comments` field to edit it.
+
+    - In case attachments (screenshots, text files) were created by the tester, click on these (one but last column) [:ref:`Squash016`].
+
+    - Attachments manager opens, where you can download the attachments and view them [:ref:`Squash017`].
+
+
+Key
+^^^
+
+
+.. glossary:: :sorted:
+
+
+
+	User
+		the lowest permission level of a user in a Squash software
+
+	Test
+		= Test Case = Scenario
+
+	Tests
+		= Test Cases = Scenarios
+	
+	Test Cases
+		= Tests = Scenarios
+		
+	Test Execution
+		is an execution of a :term:`Test` in Squash software
+
+	Test Executions
+		are executions of a :term:`Test` in Squash software
+
+	Test Runner
+		a user permission level in respect to Squash Projects; this is a different permission ladder than the permission of the same user in Squash software as a whole (e.g. :term:`User`)
+
+	Tester
+	 	a user in Squash running :term:`Test Executions` with :term:`User` permission level but with :term:`Test Runner` permissions inside a particular Squash Project.
+	
+	Testers
+		users in Squash running :term:`Test Executions` with :term:`User` permission level but with :term:`Test Runner` permissions inside a particular Squash Project.
+	
+	Test Execution
+	 	is a particular execution of a :term:`Test` in Squash software
+	
+	Test evaluators
+	 	users of Squash checking the results of tests left by :term:`Testers` in Squash; these users (in our setup) will be Administrators in the  appropriate Squash Project.
+	
+	Test writer
+	 	a user writing :term:`Test Cases` in Squash; this user needs to have a :term:`Test Designer` permissions degree in a particular project of Squash.
+	
+	Test Case
+		= Test = Scenario
+	
+	Scenario
+		= Test = Test Case
+	
+	Test Designer
+		a user permission level in respect to Squash Projects; this is a different permission ladder than the permission of the same user in Squash software as a whole (e.g. :term:`User`)
+		
+	guest1
+	 	a username (password ``guest1``) for a demo account in Squash, with :term:`Test Runner` permissions for a Squash Project ``Guest Project``; this is a public account exposed for :term:`Testers` in-training and first-time users of Squash; 
+	
+	passed
+	 	one of 6 possible valuations of a :term:`Test Execution` in Squash
+	
+	failure
+		one of 6 possible valuations of a :term:`Test Execution` in Squash
+	
+	ready
+		one of 6 possible valuations of a :term:`Test Execution` in Squash
+		
+	blocked	
+		one of 6 possible valuations of a :term:`Test Execution` in Squash
+	
+	untestable
+		one of 6 possible valuations of a :term:`Test Execution` in Squash
+	
+	running
+		one of 6 possible valuations of a :term:`Test Execution` in Squash
+	
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+.. _Squash001:
+.. figure:: /images/squash/Squash001.png
+    :align: center
+    
+    Test Case Workspace button:
+
+
+
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash002:
+.. figure:: /images/squash/Squash002.png
+   :align: center
+
+   See List of Test Cases
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash002a:
+.. figure:: /images/squash/Squash002a.png
+   :align: center
+
+   Figure of Script Tab
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash002b:
+.. figure:: /images/squash/Squash002b.png
+   :align: center
+
+   Figure of Editor
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash002c:
+.. figure:: /images/squash/Squash002c.png
+   :align: center
+
+   shown here
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash002d:
+.. figure:: /images/squash/Squash002d.png
+   :align: center
+
+   see Figure of Screenshot editor
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash003:
+.. figure:: /images/squash/Squash003.png
+   :align: center
+
+   Figure of Collapse button
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash004:
+.. figure:: /images/squash/Squash004.png
+   :align: center
+   :width: 1200
+
+   see Figure
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash006:
+.. figure:: /images/squash/Squash006.png
+   :align: center
+
+   Figure of Editor
+
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash007:
+.. figure:: /images/squash/Squash007.png
+   :align: center
+
+   see Figure
+
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash008:
+.. figure:: /images/squash/Squash008.png
+   :align: center
+
+   see Iteration List
+
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash009:
+.. figure:: /images/squash/Squash009.png
+   :align: center
+
+   see Figure
+
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash010:
+.. figure:: /images/squash/Squash010.png
+   :align: center
+   :width: 1200
+
+   see Figure
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash011:
+.. figure:: /images/squash/Squash011.png
+   :align: center
+
+   see Figure
+
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash012:
+.. figure:: /images/squash/Squash012.png
+   :align: center
+
+   see Figure
+
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash013:
+.. figure:: /images/squash/Squash013.png
+   :align: center
+   :width: 1200
+
+   see Figure
+
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash014:
+.. figure:: /images/squash/Squash014.png
+   :align: center
+   :width: 1200
+
+   see Figure
+
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash015:
+.. figure:: /images/squash/Squash015.png
+   :align: center
+   :width: 1200
+
+   see Figure
+
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash016:
+.. figure:: /images/squash/Squash016.png
+   :align: center
+   :width: 1200
+
+   see Figure
+
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+.. _Squash017:
+.. figure:: /images/squash/Squash017.png
+   :align: center
+   :width: 1200
+
+   see Figure
+
+|
+|
+|
+
+
+
+
+
