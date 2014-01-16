@@ -419,8 +419,8 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-5.0-merge-daily`
 
 	- 	* Run automated tests against directories on squig
-		* :term:`BIOFORMATS-4.4-full-repository`
-		* :term:`BIOFORMATS-5.0-full-repository`
+		* :term:`BIOFORMATS-4.4-merge-full-repository`
+		* :term:`BIOFORMATS-5.0-merge-full-repository`
 
 	- 	* Run openBytes performance test
 		* :term:`BIOFORMATS-4.4-merge-openbytes-performance` / :term:`BIOFORMATS-4.4-merge-omero-openbytes`
@@ -456,7 +456,7 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 		#. |buildBF|
 		#. |fulltestBF|
 
-	:jenkinsjob:`BIOFORMATS-4.4-full-repository`
+	:jenkinsjob:`BIOFORMATS-4.4-merge-full-repository`
 
 		This job is used to review the PRs opened against the dev_4_4
 		branch of Bio-Formats by running automated tests against directories
@@ -517,7 +517,7 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		#. |buildBF|
 		#. |fulltestBF|
 
-	:jenkinsjob:`BIOFORMATS-5.0-full-repository`
+	:jenkinsjob:`BIOFORMATS-5.0-merge-full-repository`
 
 		This job is used to review the PRs opened against the dev_5_0 branch
 		of Bio-Formats by running automated tests against directories on squig
