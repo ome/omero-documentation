@@ -27,7 +27,7 @@ Then you can display these pages within the webclient UI, using the plugin
 framework.
 
 The webclient plugins work by adding some custom JavaScript snippets into the
-main pages of the weblient and adding HTML elements to specified locations in
+main pages of the webclient and adding HTML elements to specified locations in
 the webclient. These snippets of JavaScript can be used to load content into
 these HTML elements. Usually you will want to do this dynamically, to display
 data based on the currently selected objects (although this is optional).
@@ -228,7 +228,7 @@ Plugin options
    The function is passed a single argument:
 
    -  selected: This is a list of the selected objects
-      e.g. [{'id':'image-123'}, {'id':'image-456'}]
+      e.g. `[{'id':'image-123'}, {'id':'image-456'}]`
 
    The function should return true if the plugin should be enabled.
    For example, if you want the center plugin to support multiple images, or a
@@ -252,7 +252,7 @@ Plugin options
    changes. The function will be passed 3 arguments:
 
    -  selected: This is a list of the selected objects
-      e.g. [{'id':'image-123'}, {'id':'image-456'}]
+      e.g. `[{'id':'image-123'}, {'id':'image-456'}]`
 
    -  obj_dtype: This is the data-type of the first selected object, e.g.
       'image'
