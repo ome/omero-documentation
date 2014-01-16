@@ -29,7 +29,7 @@ Tutorial for :term:`Testers`
 
 #.  (OME-Team only) Expand the OME Project in the tree, expand the Testing Campaign and select the Iteration mentioned in the Welcome message [:ref:`Squash008`].
 #.  (Guests only) Expand the :guilabel:`Guest Project` in the tree, expand the :guilabel:`Guest Campaign` and select the :guilabel:`Guest iteration`.
-#.  In the main pane, select the :guilabel:`Informations` tab [:ref:`Squash009`] (if not already selected) and read the info about OMERO user/group, server, etc.
+#.  In the main pane, select the :guilabel:`Informations` tab (if not already selected) and read the info about OMERO user/group, server, etc.
 #.  Select the :guilabel:`Test Plan` tab.
 
     - The :term:`Tests` assigned to you are loaded to the central pane. [:ref:`Squash010`]
@@ -98,7 +98,7 @@ Tutorial for :term:`Test writer` (OME-Team only)
 #.  Finish by pressing :guilabel:`Add`
 
     - The newly created :term:`Test Case` is added to the tree.
-    - The newly created :term:`Test Case` is ready for editing in the :guilabel:`Script` tab in the main pane (see [:ref:`Squash002a`]), which opened automatically.
+    - The newly created :term:`Test Case` is ready for editing in the :guilabel:`Script` tab in the main pane, which opened automatically.
 
 #.  Start adding steps to the new case using the :guilabel:`Add a Step` button
 
@@ -113,7 +113,7 @@ Tutorial for :term:`Test writer` (OME-Team only)
     - The :term:`Test Case` steps will appear in the central pane.
     - The Actions are listed in the left column, the :guilabel:`Expected results` in the right column.
 
-#.  You can Collapse the :term:`Test Case` steps using the :guilabel:`Collapse` button in the central pane [:ref:`Squash003`]
+#.  You can Collapse the :term:`Test Case` steps using the :guilabel:`Collapse` button in the central pane.
 
     - The Steps of the :term:`Test Case` collapse [:ref:`Squash004`].
 
@@ -142,7 +142,7 @@ Tutorial for :term:`Test evaluators` (OME-Team only)
 
 #.  Expand the :guilabel:`OMERO Project` in the tree, expand the :guilabel:`Testing Campaign` and select the :guilabel:`Iteration` mentioned in the Welcome message [:ref:`Squash008`].
 
-#.  In the main pane, select the :guilabel:`Informations` tab [:ref:`Squash009`] (if not already selected) and read the info about OMERO user/group, server, etc.
+#.  In the main pane, select the :guilabel:`Informations` tab (if not already selected) and read the info about OMERO user/group, server, etc.
 
 #.  Select the :guilabel:`Test Plan` tab.
 
@@ -293,25 +293,6 @@ Key
 |
 |
 |
-
-
-
-
-
-.. _Squash002a:
-.. figure:: /images/squash/Squash002a.png
-   :align: center
-
-   Figure of Script Tab
-
-|
-|
-|
-|
-|
-|
-|
-|
 |
 |
 |
@@ -403,18 +384,6 @@ Key
 |
 |
 |
-
-
-
-
-
-.. _Squash003:
-.. figure:: /images/squash/Squash003.png
-   :align: center
-
-   Figure of Collapse button
-
-|
 |
 |
 |
@@ -500,20 +469,6 @@ Key
 |
 |
 |
-|
-|
-|
-
-
-
-
-
-.. _Squash009:
-.. figure:: /images/squash/Squash009.png
-   :align: center
-
-   see Figure
-
 |
 |
 |
