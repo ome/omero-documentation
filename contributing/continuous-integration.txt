@@ -158,7 +158,7 @@ OMERO jobs
 
 
 4.4.x series
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 The branch for the 4.4.x series of OMERO is dev_4_4. All jobs 
 are listed under the :jenkinsview:`4.4` view tab of Jenkins.
@@ -198,7 +198,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 	:jenkinsjob:`OMERO-merge-stable-ice34`
 	:jenkinsjob:`OMERO-merge-stable-ice35`
 
-		This job is used to review the PRs opened against the dev_4_4
+		These jobs are used to review the PRs opened against the dev_4_4
 		branch of OMERO with Ice 3.3, 3.4 or 3.5
 
 		#. Checks out the merge/dev_4_4/latest branch of the
@@ -274,7 +274,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		#. Run :file:`docs/install/OMERO-homebrew-install.sh`
 
 5.0.x series
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 The branch for the 5.0.x series of OMERO is develop. All jobs are listed
 under the :jenkinsview:`5.0` view tab of Jenkins.
@@ -285,7 +285,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 	:jenkinsjob:`OMERO-5.0-latest-ice34`
 	:jenkinsjob:`OMERO-5.0-latest-ice35`
 
-		This job is used to build the dev_5_0 branch of OMERO with Ice 3.3,
+		These jobs are used to build the dev_5_0 branch of OMERO with Ice 3.3,
 		3.4 or 3.5
 
 		#. |buildOMERO|
@@ -427,7 +427,7 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-5.0-merge-openbytes-performance`
 
 4.4.x series
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 
@@ -488,7 +488,7 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 		   :file:`BIOFORMATS-openbytes-performance.txt`
 
 5.0.x series
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
@@ -579,7 +579,7 @@ tab of Jenkins.
 		* :term:`BIOFORMATS-5.1-merge-docs`
 
 The OME Model and OME Contributing documentation sets are independent of the
-current OME series.
+current OMERO/Bio-Formats version.
 
 .. list-table::
 	:header-rows: 1
