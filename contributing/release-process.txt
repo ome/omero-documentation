@@ -25,7 +25,7 @@ jobs should be listed under the :jenkinsview:`Release` view.
 		* 5.0.x
 	- 	* Generate a daily PR to bump the submodule pointers
 		* :jenkinsjob:`OMERO-submods-stable`
-		* :jenkinsjob:`OMERO-submods-develop`
+		* :jenkinsjob:`OMERO-5.0-submods`
 	- 	* Build OMERO incl. the virtual appliance with all Ice versions
 		* :jenkinsjob:`OMERO-4.4-release`
 		* :jenkinsjob:`OMERO-5.0-release`
