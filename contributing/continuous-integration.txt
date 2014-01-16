@@ -153,8 +153,8 @@ OMERO jobs
 		* :term:`OMERO-5.0-submods`
 
 	- 	* Install OMERO using Homebrew
-		* :term:`OME-4.4-homebrew`
-		* :term:`OME-5.0-homebrew`
+		* :term:`OME-4.4-merge-homebrew`
+		* :term:`OME-5.0-merge-homebrew`
 
 
 4.4.x series
@@ -265,7 +265,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		#. If the submodules are updated, opens a new PR or updates the
 		   existing dev_4_4 submodules PR
 
-	:jenkinsjob:`OME-4.4-homebrew`
+	:jenkinsjob:`OME-4.4-merge-homebrew`
 
 		This job is used to test the installation of OMERO 4.4 using Homebrew
 
@@ -382,7 +382,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. If the submodules are updated, opens a new PR or updates the
 		   existing dev_4_4 submodules PR
 
-	:jenkinsjob:`OME-5.0-homebrew`
+	:jenkinsjob:`OME-5.0-merge-homebrew`
 
 		This job is used to test the installation of OMERO 5.0 using Homebrew
 
