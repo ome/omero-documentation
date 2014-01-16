@@ -41,7 +41,7 @@ two development branches are maintained simultaneously:
 
 * The "dev_5_0" branch contains work on the 5.0.x series.
 
-* The "dev_5_1" branch contains work on the 5.1.x series.
+* The "develop" branch contains work on the 5.1.x series.
 
 It is possible to have a point release immediately, while still working on
 more major releases by ensuring that (nearly) all commits that are applied to
@@ -169,7 +169,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 	:jenkinsjob:`OMERO-stable-ice34`
 	:jenkinsjob:`OMERO-stable-ice35`
 
-		This job is used to build the dev_4_4 branch of OMERO with
+		These jobs are used to build the dev_4_4 branch of OMERO with
 		Ice 3.3, 3.4 or 3.5
 
 		#. |buildOMERO|
@@ -276,7 +276,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 5.0.x series
 ^^^^^^^^^^^^
 
-The branch for the 5.0.x series of OMERO is develop. All jobs are listed
+The branch for the 5.0.x series of OMERO is dev_5_0. All jobs are listed
 under the :jenkinsview:`5.0` view tab of Jenkins.
 
 .. glossary::
@@ -301,7 +301,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-5.0-merge-daily`
 
-		This job is used to review the PRs opened against the develop branch
+		This job is used to review the PRs opened against the dev_5_0 branch
 		of OMERO with Ice 3.3
 
 		#. |merge| and pushes the merged branch to
@@ -314,27 +314,27 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 	:jenkinsjob:`OMERO-5.0-merge-ice34`
 	:jenkinsjob:`OMERO-5.0-merge-ice35`
 
-		This job is used to review the PRs opened against the develop branch
-		of OMERO with Ice 3.3, 3.4 or 3.5
+		These jobs are used to review the PRs opened against the dev_5_0 
+		branch of OMERO with Ice 3.3, 3.4 or 3.5
 
-		#. Checks out the merge/develop/latest branch of the
+		#. Checks out the merge/dev_5_0/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 
 	:jenkinsjob:`OMERO-5.0-merge-virtualbox`
 
-		This job is used to build a Virtual Appliance from the develop branch
-		with the PRs opened against the develop branch of OMERO
+		This job is used to build a Virtual Appliance from the dev_5_0 branch
+		with the PRs opened against the dev_5_0 branch of OMERO
 
-		#. Checks out the merge/develop/latest branch of the
+		#. Checks out the merge/dev_5_0/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildVM|
 
 	:jenkinsjob:`OMERO-5.0-merge-integration`
 
 		This job is used to run the integration tests from the dev_5_0
-		branch with the PRs opened against the develop branch of OMERO
+		branch with the PRs opened against the dev_5_0 branch of OMERO
 
 		#. |merge|
 		#. Build OMERO.server and start it
@@ -365,10 +365,10 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 	:jenkinsjob:`OMERO-5.0-merge-robotframework`
 
 		This job is used to run the robot framework tests from the
-		develop branch with the PRs opened against the dev_5_0
+		dev_5_0 branch with the PRs opened against the dev_5_0
 		branch of OMERO
 
-		#. Checks out the merge/develop/latest branch of the
+		#. Checks out the merge/dev_5_0/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
@@ -378,7 +378,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		This job is used to update the submodules on the dev_5_0 branch
 
 		#. |updatesubmodules| and pushes the merge branch to
-		   snoopycrimecop/merge/develop/submodules
+		   snoopycrimecop/merge/dev_5_0/submodules
 		#. If the submodules are updated, opens a new PR or updates the
 		   existing dev_4_4 submodules PR
 
