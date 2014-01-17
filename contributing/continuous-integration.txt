@@ -109,8 +109,8 @@ OMERO jobs
 		  :term:`OMERO-5.0-latest-ice35`
 
 	- 	* Build an OMERO Virtual Appliance
-		* :term:`OMERO-4.4-virtualbox`
-		* :term:`OMERO-5.0-virtualbox`
+		* :term:`OMERO-4.4-latest-virtualbox`
+		* :term:`OMERO-5.0-latest-virtualbox`
 
 	- 	* Run the daily merge builds
 		* :term:`OMERO-4.4-merge-daily`
@@ -176,7 +176,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		#. |archiveOMEROartifacts|
 		#. If the build is promoted, |promoteOMERO|
 
-	:jenkinsjob:`OMERO-4.4-virtualbox`
+	:jenkinsjob:`OMERO-4.4-latest-virtualbox`
 
 		This job is used to build a Virtual Appliance from the dev_4_4
 		branch of OMERO
@@ -292,7 +292,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. |archiveOMEROartifacts|
 		#. If the build is promoted, |promoteOMERO|
 
-	:jenkinsjob:`OMERO-5.0-virtualbox`
+	:jenkinsjob:`OMERO-5.0-latest-virtualbox`
 
 		This job is used to build a Virtual Appliance from the dev_5_0 branch
 		of OMERO
