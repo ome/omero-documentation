@@ -1118,7 +1118,7 @@ Filesets - New in OMERO 5
 
 ::
 
-    conn = BlitzGateway("will", "ome", host=HOST, port=PORT)
+    conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
     conn.connect() 
 
 -  **Configuration**
