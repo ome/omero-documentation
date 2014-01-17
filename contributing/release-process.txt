@@ -118,8 +118,9 @@ Documentation
   :jenkinsjob:`BIOFORMATS-docs-release-stable`.
 - Check that the OMERO and Bio-Formats documentations sets are correctly
   deployed, both HTML and PDF.
-- Update the staging user help site with new screenshots and deploy the user
-  help website using :jenkinsjob:`HELP-release-docs`.
+- Update the staging user help site with new screenshots, new version numbers,
+  and previous version archive and deploy the user help website using
+  :jenkinsjob:`HELP-release-docs`.
 
 Public release
 ^^^^^^^^^^^^^^
