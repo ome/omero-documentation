@@ -118,17 +118,22 @@ Documentation
   :jenkinsjob:`BIOFORMATS-docs-release-stable`.
 - Check that the OMERO and Bio-Formats documentations sets are correctly
   deployed, both HTML and PDF.
+- Update the staging user help site with new screenshots, new version numbers,
+  and previous version archive and deploy the user help website using
+  :jenkinsjob:`HELP-release-docs`.
 
 Public release
 ^^^^^^^^^^^^^^
 
 - Move the announcement post to the public Announcements forum.
-- Update the :envvar:`ANNOUNCEMENT_URL` variable in the
-  :jenkinsjob:`OMERO-4.4-download-page` or
-  :jenkinsjob:`OMERO-5.0-download-page` job to the value of the URL of the
-  public post.
-- Re-run the download page generation job. Check the link to the announcement
-  and the URL of the tag have been updated in the OMERO downloads page.
+- Re-run the download page generation job for both Bio-Formats and OMERO. In
+  the window that opens after clicking on :guilabel:`Build with Parameters` in
+  the :jenkinsjob:`OMERO-4.4-download-page` or
+  :jenkinsjob:`OMERO-5.0-download-page` job, set the
+  :envvar:`ANNOUNCEMENT_URL` variable to the value of the URL of the public
+  post.
+- Check the link to the announcement and the URL of the tags have been updated
+  in the OMERO and Bio-Formats downloads pages.
 - Remove the :file:`.htaccess` file from the release folders and make the
   release folders read-only::
 
@@ -145,15 +150,21 @@ Public release
      update registry_version set version = '\ |release|';
 - Announce the release on the mailing lists and Twitter, and in News.
 - Update openmicroscopy.org home page with latest release number, date and
-  Milestone page link. Also update the OMERO version history plone page.
+  Milestone page link.
+- Update the OMERO version history plone page.
+- Add the OMERO version release date to the Web Stats Spreadsheet
 
 Post release
 ^^^^^^^^^^^^
 
 .. |releasetag| replace:: v.\ |release|
 
+-  Close the Trac and GitHub milestones.
 -  Change the reports in the left-hand column of trac.
--  Update any deployed servers (KIT, Warlock, Nightshade...).
+-  Upgrade any deployed servers (KIT, Warlock, Nightshade...).
+
+   -  Schedule Nightshade downtime.
+   -  Perform the server upgrade.
 -  Update online validator (See :ticket:`8640` for an example).
 -  Assign the adequate milestone to closed PRs on Github using
    ``scc check-milestone`` with the :option:`--set` option::
@@ -162,6 +173,8 @@ Post release
 
 -  Add the released version on the right panel of
    http://trac.openmicroscopy.org.uk/ome/admin/ticket/versions.
+-  Open a PR to bump the Homebrew formulas of OMERO and Bio-Formats.
+-  Merge the release tag into the `master` branch and push to `origin`.
 
 Demo server
 ^^^^^^^^^^^
