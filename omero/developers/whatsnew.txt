@@ -25,3 +25,5 @@ What's new for OMERO 5
   :devs_doc:`Contributing Developer Documentation <>` section so it is easier
   to find. It has also been updated to better explain our development
   processes.
+
+- :doc:`Python` describes additions to the BlitzGateway API to support Filesets.
