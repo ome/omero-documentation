@@ -24,7 +24,7 @@ jobs should be listed under the :jenkinsview:`Release` view.
 		* 4.4.x
 		* 5.0.x
 	- 	* Generate a daily PR to bump the submodule pointers
-		* :jenkinsjob:`OMERO-submods-stable`
+		* :jenkinsjob:`OMERO-4.4-submods`
 		* :jenkinsjob:`OMERO-5.0-submods`
 	- 	* Build OMERO incl. the virtual appliance with all Ice versions
 		* :jenkinsjob:`OMERO-4.4-release`
@@ -114,8 +114,10 @@ Documentation
 
 - Update the version numbers set in the :envvar:`OMERO_RELEASE` and
   :envvar:`BF_RELEASE` variables of the documentation release jobs.
-- Build and promote :jenkinsjob:`OMERO-docs-release-stable` and
-  :jenkinsjob:`BIOFORMATS-docs-release-stable`.
+- Build and promote :jenkinsjob:`OMERO-4.4-release-docs` and
+  :jenkinsjob:`BIOFORMATS-4.4-release-docs` or
+  :jenkinsjob:`OMERO-5.0-release-docs` and
+  :jenkinsjob:`BIOFORMATS-5.0-release-docs`.
 - Check that the OMERO and Bio-Formats documentations sets are correctly
   deployed, both HTML and PDF.
 - Update the staging user help site with new screenshots, new version numbers,
