@@ -77,9 +77,9 @@ Ice (3.3.x or 3.4.x)
 
 
 Windows installers of Ice can be found on the :zeroc:`ZeroC download
-page <download.html>` and will be called something like :file:`Ice-3.4.2.msi`
-(for Ice 3.4.2). If you plan to develop for C++, be sure to read the
-instructions on the |OmeroCpp| page.
+page <download_3_4_2.html>` and will be called something like 
+:file:`Ice-3.4.2.msi` (for Ice 3.4.2). If you plan to develop for C++, be sure 
+to read the instructions on the |OmeroCpp| page.
 
 Users have reported that under certain conditions installing Ice in the
 default location (:file:`C:\\Program Files`) might break the Windows
