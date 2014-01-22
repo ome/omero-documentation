@@ -68,6 +68,14 @@ The restrictions are grouped into named sets:
 :literal:`UNIX optional`
         prohibits names beginning with :literal:`.` or :literal:`-`
 
+:literal:`local required`
+        corresponds to `Windows required` under Microsoft Windows
+        and to `UNIX required` under Linux and Mac OS X
+
+:literal:`local optional`
+        corresponds to `Windows optional` under Microsoft Windows
+        and to `UNIX optional` under Linux and Mac OS X
+
 These rules are applied to each separate path component of the file
 name on the client's system. So, for instance, an upload of a file
 :literal:`/tmp/myfile.tif` from a Linux system would satisfy the
