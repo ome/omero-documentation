@@ -166,6 +166,10 @@ Prepare a place for your OMERO code to live, e.g.
     $ mkdir -p ~/code/projects/OMERO
     $ cd ~/code/projects/OMERO
 
+If you installed Ice 3.5, you will need to set :envvar:`SLICEPATH` to be
+able to build the server, i.e.
+``export SLICEPATH=/usr/local/share/Ice-3.5/slice``.
+
 .. include:: development-server
 
 Additional OMERO requirements
