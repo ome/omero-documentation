@@ -405,26 +405,32 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 	- 	* Job task
 		* 4.4.x series
 		* 5.0.x series
+		* 5.1.x series
 
 	- 	* Build Bio-Formats
 		* :term:`BIOFORMATS-4.4-latest`
 		* :term:`BIOFORMATS-5.0-latest`
+		* :term:`BIOFORMATS-5.1-latest`
 
 	- 	* Publish Bio-Formats to the LOCI Nexus repository
 		* :term:`BIOFORMATS-4.4-latest-maven`
 		* :term:`BIOFORMATS-5.0-latest-maven`
+		* :term:`BIOFORMATS-5.1-latest-maven`
 
 	- 	* Review Bio-Formats PRs
 		* :term:`BIOFORMATS-4.4-merge-daily`
 		* :term:`BIOFORMATS-5.0-merge-daily`
+		* :term:`BIOFORMATS-5.1-merge-daily`
 
 	- 	* Run automated tests against directories on squig
 		* :term:`BIOFORMATS-4.4-merge-full-repository`
 		* :term:`BIOFORMATS-5.0-merge-full-repository`
+		* :term:`BIOFORMATS-5.1-merge-full-repository`
 
 	- 	* Run openBytes performance test
 		* :term:`BIOFORMATS-4.4-merge-openbytes-performance` / :term:`BIOFORMATS-4.4-merge-omero-openbytes`
 		* :term:`BIOFORMATS-5.0-merge-openbytes-performance`
+		* :term:`BIOFORMATS-5.1-merge-openbytes-performance`
 
 4.4.x series
 ^^^^^^^^^^^^
@@ -529,6 +535,57 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 	:jenkinsjob:`BIOFORMATS-5.0-merge-openbytes-performance`
 
 		This job is used to review the PRs opened against the dev_5_0
+		branch of Bio-Formats by running openBytes performance tests against
+		directories on squig
+
+		#. |merge|
+		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and 
+		   ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
+		   directories specified by
+		   :file:`BIOFORMATS-openbytes-performance.txt`
+
+5.1.x series
+^^^^^^^^^^^^
+
+The branch for the 5.1.x series of Bio-Formats is develop.
+
+.. glossary::
+
+	:jenkinsjob:`BIOFORMATS-5.1-latest`
+
+		This job is used to build the develop branch of Bio-Formats
+
+		#. |buildBF|
+		#. |testBF|
+
+	:jenkinsjob:`BIOFORMATS-5.1-latest-maven`
+
+		This job is used to publish the develop branch of Bio-Formats to the
+		LOCI Nexus repository
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-daily`
+
+		This job is used to review the PRs opened against the develop branch
+		of Bio-Formats by running basic unit tests, checking for open file
+		handles, and checking for regressions across a representative subset
+		of the data repository
+
+		#. |merge|
+		#. |buildBF|
+		#. |fulltestBF|
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-full-repository`
+
+		This job is used to review the PRs opened against the develop branch
+		of Bio-Formats by running automated tests against directories on squig
+
+		#. |merge|
+		#. Run tests against directories configured by ``--test dirname``
+		   comments on the PRs
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-openbytes-performance`
+
+		This job is used to review the PRs opened against the develop
 		branch of Bio-Formats by running openBytes performance tests against
 		directories on squig
 
