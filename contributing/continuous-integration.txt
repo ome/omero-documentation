@@ -407,12 +407,12 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* 5.0.x series
 
 	- 	* Build Bio-Formats
-		* :term:`BIOFORMATS-4.4`
-		* :term:`BIOFORMATS-5.0`
+		* :term:`BIOFORMATS-4.4-latest`
+		* :term:`BIOFORMATS-5.0-latest`
 
 	- 	* Publish Bio-Formats to the LOCI Nexus repository
-		* :term:`BIOFORMATS-4.4-maven`
-		* :term:`BIOFORMATS-5.0-maven`
+		* :term:`BIOFORMATS-4.4-latest-maven`
+		* :term:`BIOFORMATS-5.0-latest-maven`
 
 	- 	* Review Bio-Formats PRs
 		* :term:`BIOFORMATS-4.4-merge-daily`
@@ -433,14 +433,14 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 
 .. glossary::
 
-	:jenkinsjob:`BIOFORMATS-4.4`
+	:jenkinsjob:`BIOFORMATS-4.4-latest`
 
 		This job is used to build the dev_4_4 branch of Bio-Formats
 
 		#. |buildBF|
 		#. |testBF|
 
-	:jenkinsjob:`BIOFORMATS-4.4-maven`
+	:jenkinsjob:`BIOFORMATS-4.4-latest-maven`
 
 		This job is used to publish the dev_4_4 branch of Bio-Formats
 		to the LOCI Nexus repository
@@ -494,14 +494,14 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 .. glossary::
 
-	:jenkinsjob:`BIOFORMATS-5.0`
+	:jenkinsjob:`BIOFORMATS-5.0-latest`
 
 		This job is used to build the dev_5_0 branch of Bio-Formats
 
 		#. |buildBF|
 		#. |testBF|
 
-	:jenkinsjob:`BIOFORMATS-5.0-maven`
+	:jenkinsjob:`BIOFORMATS-5.0-latest-maven`
 
 		This job is used to publish the dev_5_0 branch of Bio-Formats to the
 		LOCI Nexus repository
