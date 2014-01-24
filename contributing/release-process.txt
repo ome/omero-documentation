@@ -30,14 +30,14 @@ jobs should be listed under the :jenkinsview:`Release` view.
 		* :jenkinsjob:`OMERO-4.4-release`
 		* :jenkinsjob:`OMERO-5.0-release`
 	- 	* Generate OMERO download page
-		* :jenkinsjob:`OMERO-4.4-download-page`
-		* :jenkinsjob:`OMERO-5.0-download-page`
+		* :jenkinsjob:`OMERO-4.4-release-downloads`
+		* :jenkinsjob:`OMERO-5.0-release-downloads`
 	- 	* Build Bio-Formats
 		* :jenkinsjob:`BIOFORMATS-4.4-release`
 		* :jenkinsjob:`BIOFORMATS-5.0-release`
 	- 	* Generate BIOFORMATS download page
-		* :jenkinsjob:`BIOFORMATS-4.4-download-page`
-		* :jenkinsjob:`BIOFORMATS-5.0-download-page`
+		* :jenkinsjob:`BIOFORMATS-4.4-release-downloads`
+		* :jenkinsjob:`BIOFORMATS-5.0-release-downloads`
 
 The following instructions use the point/minor release jobs as examples. For
 the major release process, the jobs used in these instructions should be
@@ -130,8 +130,8 @@ Public release
 - Move the announcement post to the public Announcements forum.
 - Re-run the download page generation job for both Bio-Formats and OMERO. In
   the window that opens after clicking on :guilabel:`Build with Parameters` in
-  the :jenkinsjob:`OMERO-4.4-download-page` or
-  :jenkinsjob:`OMERO-5.0-download-page` job, set the
+  the :jenkinsjob:`OMERO-4.4-release-downloads` or
+  :jenkinsjob:`OMERO-5.0-release-downloads` job, set the
   :envvar:`ANNOUNCEMENT_URL` variable to the value of the URL of the public
   post.
 - Check the link to the announcement and the URL of the tags have been updated
