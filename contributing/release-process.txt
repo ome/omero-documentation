@@ -23,21 +23,35 @@ jobs should be listed under the :jenkinsview:`Release` view.
 	- 	* Job task
 		* 4.4.x
 		* 5.0.x
+		* 5.1.x
 	- 	* Generate a daily PR to bump the submodule pointers
-		* :jenkinsjob:`OMERO-4.4-submods`
-		* :jenkinsjob:`OMERO-5.0-submods`
+		* :jenkinsjob:`OMERO-4.4-latest-submods`
+		* :jenkinsjob:`OMERO-5.0-latest-submods`
+		* :jenkinsjob:`OMERO-5.1-latest-submods`
 	- 	* Build OMERO incl. the virtual appliance with all Ice versions
 		* :jenkinsjob:`OMERO-4.4-release`
 		* :jenkinsjob:`OMERO-5.0-release`
+		* :jenkinsjob:`OMERO-5.1-release`
 	- 	* Generate OMERO download page
-		* :jenkinsjob:`OMERO-4.4-download-page`
-		* :jenkinsjob:`OMERO-5.0-download-page`
+		* :jenkinsjob:`OMERO-4.4-release-downloads`
+		* :jenkinsjob:`OMERO-5.0-release-downloads`
+		* :jenkinsjob:`OMERO-5.1-release-downloads`
 	- 	* Build Bio-Formats
 		* :jenkinsjob:`BIOFORMATS-4.4-release`
 		* :jenkinsjob:`BIOFORMATS-5.0-release`
+		* :jenkinsjob:`BIOFORMATS-5.1-release`
 	- 	* Generate BIOFORMATS download page
-		* :jenkinsjob:`BIOFORMATS-4.4-download-page`
-		* :jenkinsjob:`BIOFORMATS-5.0-download-page`
+		* :jenkinsjob:`BIOFORMATS-4.4-release-downloads`
+		* :jenkinsjob:`BIOFORMATS-5.0-release-downloads`
+		* :jenkinsjob:`BIOFORMATS-5.1-release-downloads`
+	- 	* Build and deploy the OMERO documentation
+		* :jenkinsjob:`OMERO-4.4-release-docs`
+		* :jenkinsjob:`OMERO-5.0-release-docs`
+		* :jenkinsjob:`OMERO-5.1-release-docs`
+	- 	* Build and deploy the Bio-Formats documentation
+		* :jenkinsjob:`BIOFORMATS-4.4-release-docs`
+		* :jenkinsjob:`BIOFORMATS-5.0-release-docs`
+		* :jenkinsjob:`BIOFORMATS-5.1-release-docs`
 
 The following instructions use the point/minor release jobs as examples. For
 the major release process, the jobs used in these instructions should be
@@ -72,9 +86,10 @@ Prior to running the job, its variables need to be properly configured:
 Release review
 --------------
 
-- Click :guilabel:`Build` on :jenkinsjob:`OMERO-4.4-release` or
-  :jenkinsjob:`OMERO-5.0-release`. The tag chosen for the job should be 
-  unique, and not exist under the download directory or on http://github.com.
+- Click :guilabel:`Build` on :jenkinsjob:`OMERO-4.4-release`, 
+  :jenkinsjob:`OMERO-5.0-release` or :jenkinsjob:`OMERO-5.1-release`. The tag
+  chosen for the job should be unique, and not exist under the download
+  directory or on GitHub.
 - Release folders will be created under :file:`/ome/data_repo/public/omero`
   and :file:`/ome/data_repo/public/bio-formats` named with the release number
   specified by the :envvar:`RELEASE` job variable.
@@ -117,7 +132,9 @@ Documentation
 - Build and promote :jenkinsjob:`OMERO-4.4-release-docs` and
   :jenkinsjob:`BIOFORMATS-4.4-release-docs` or
   :jenkinsjob:`OMERO-5.0-release-docs` and
-  :jenkinsjob:`BIOFORMATS-5.0-release-docs`.
+  :jenkinsjob:`BIOFORMATS-5.0-release-docs` or
+  :jenkinsjob:`OMERO-5.1-release-docs` and
+  :jenkinsjob:`BIOFORMATS-5.1-release-docs`.
 - Check that the OMERO and Bio-Formats documentations sets are correctly
   deployed, both HTML and PDF.
 - Update the staging user help site with new screenshots, new version numbers,
@@ -130,8 +147,9 @@ Public release
 - Move the announcement post to the public Announcements forum.
 - Re-run the download page generation job for both Bio-Formats and OMERO. In
   the window that opens after clicking on :guilabel:`Build with Parameters` in
-  the :jenkinsjob:`OMERO-4.4-download-page` or
-  :jenkinsjob:`OMERO-5.0-download-page` job, set the
+  the :jenkinsjob:`OMERO-4.4-release-downloads`,  
+  :jenkinsjob:`OMERO-5.0-release-downloads` or
+  :jenkinsjob:`OMERO-5.1-release-downloads` job, set the
   :envvar:`ANNOUNCEMENT_URL` variable to the value of the URL of the public
   post.
 - Check the link to the announcement and the URL of the tags have been updated
