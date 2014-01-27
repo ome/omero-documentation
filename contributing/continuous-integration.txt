@@ -149,8 +149,8 @@ OMERO jobs
 		* :term:`OMERO-5.0-merge-robotframework`
 
 	- 	* Update submodules
-		* :term:`OMERO-4.4-submods`
-		* :term:`OMERO-5.0-submods`
+		* :term:`OMERO-4.4-latest-submods`
+		* :term:`OMERO-5.0-latest-submods`
 
 	- 	* Install OMERO using Homebrew
 		* :term:`OME-4.4-merge-homebrew`
@@ -256,7 +256,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
 
-	:jenkinsjob:`OMERO-4.4-submods`
+	:jenkinsjob:`OMERO-4.4-latest-submods`
 
 		This job is used to update the submodules on the dev_4_4 branch
 
@@ -373,7 +373,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
 
-	:jenkinsjob:`OMERO-5.0-submods`
+	:jenkinsjob:`OMERO-5.0-latest-submods`
 
 		This job is used to update the submodules on the dev_5_0 branch
 
