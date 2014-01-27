@@ -237,6 +237,9 @@ If you have installed Ice 3.3, replace :envvar:`ICE_HOME` by
 Ice 3.4, use
 ``export PYTHONPATH=$(brew --prefix omero)/lib/python:$ICE_HOME/python``.
 
+.. note::
+    If you have a local :file:`.bash_profile` file, it will override your
+    :file:`.profile` configuration file.
 
 .. note::
     On Mac OS X Lion, a version of PostgreSQL is already installed. If you get an error like the following:
