@@ -88,8 +88,8 @@ Release review
 
 - Click :guilabel:`Build` on :jenkinsjob:`OMERO-4.4-release`, 
   :jenkinsjob:`OMERO-5.0-release` or :jenkinsjob:`OMERO-5.1-release`. The tag
-  chosen for the job should be  unique, and not exist under the download
-  directory or on http://github.com.
+  chosen for the job should be unique, and not exist under the download
+  directory or on GitHub.
 - Release folders will be created under :file:`/ome/data_repo/public/omero`
   and :file:`/ome/data_repo/public/bio-formats` named with the release number
   specified by the :envvar:`RELEASE` job variable.
