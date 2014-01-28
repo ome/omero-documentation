@@ -422,14 +422,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-5.1-merge-daily`
 
-		This job is used to review the PRs opened against the develop branch
-		of OMERO with Ice 3.?
-
-		#. |merge| and pushes the merged branch to
-		   snoopycrimecop/merge/develop/latest
-		#. |buildOMERO|
-		#. |archiveOMEROartifacts|
-		#. |deployOMERO| trout.openmicroscopy.org.uk
+		This job is used to trigger all the morning merge builds listed below
 
 	:jenkinsjob:`OMERO-5.1-merge-build`
 
