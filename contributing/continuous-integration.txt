@@ -113,7 +113,7 @@ OMERO jobs
 	- 	* Build an OMERO Virtual Appliance
 		* :term:`OMERO-4.4-latest-virtualbox`
 		* :term:`OMERO-5.0-latest-virtualbox`
-		*
+		* :term:`OMERO-5.1-latest`
 
 	- 	* Run the daily merge builds
 		* :term:`OMERO-4.4-merge-daily`
@@ -132,7 +132,7 @@ OMERO jobs
 	- 	* Review OMERO PRs using a Virtual Appliance
 		* :term:`OMERO-4.4-merge-virtualbox`
 		* :term:`OMERO-5.0-merge-virtualbox`
-		*
+		* :term:`OMERO-5.1-merge-build`
 
 	- 	* Run the integration tests
 		* :term:`OMERO-4.4-merge-integration`
