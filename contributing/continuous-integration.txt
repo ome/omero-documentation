@@ -99,6 +99,7 @@ OMERO jobs
 	- 	* Job task
 		* 4.4.x series
 		* 5.0.x series
+		* 5.1.x series
 
 	- 	* Build OMERO
 		* :term:`OMERO-4.4-latest-ice33` /
@@ -107,14 +108,17 @@ OMERO jobs
 		* :term:`OMERO-5.0-latest-ice33` /
 		  :term:`OMERO-5.0-latest-ice34`
 		  :term:`OMERO-5.0-latest-ice35`
+		* :term:`OMERO-5.1-latest`
 
 	- 	* Build an OMERO Virtual Appliance
 		* :term:`OMERO-4.4-latest-virtualbox`
 		* :term:`OMERO-5.0-latest-virtualbox`
+		* :term:`OMERO-5.1-latest`
 
 	- 	* Run the daily merge builds
 		* :term:`OMERO-4.4-merge-daily`
 		* :term:`OMERO-5.0-merge-daily`
+		* :term:`OMERO-5.1-merge-daily`
 
 	- 	* Review OMERO PRs
 		* :term:`OMERO-4.4-merge-ice33` /
@@ -123,38 +127,47 @@ OMERO jobs
 		* :term:`OMERO-5.0-merge-ice33` /
 		  :term:`OMERO-5.0-merge-ice34` /
 		  :term:`OMERO-5.0-merge-ice35`
+		* :term:`OMERO-5.1-merge-build`
 
 	- 	* Review OMERO PRs using a Virtual Appliance
 		* :term:`OMERO-4.4-merge-virtualbox`
 		* :term:`OMERO-5.0-merge-virtualbox`
+		* :term:`OMERO-5.1-merge-build`
 
 	- 	* Run the integration tests
 		* :term:`OMERO-4.4-merge-integration`
 		* :term:`OMERO-5.0-merge-integration`
+		* :term:`OMERO-5.1-merge-integration`
 
 	- 	* Collect the OmeroJava integration test results
 		* :term:`OMERO-4.4-merge-integration-java`
 		* :term:`OMERO-5.0-merge-integration-java`
+		* :term:`OMERO-5.1-merge-integration-java`
 
 	- 	* Collect the OmeroPy integration test results
 		* :term:`OMERO-4.4-merge-integration-python`
 		* :term:`OMERO-5.0-merge-integration-python`
+		* :term:`OMERO-5.1-merge-integration-python`
 
 	- 	* Collect the broken integration test results
 		* :term:`OMERO-4.4-merge-integration-broken`
 		* :term:`OMERO-5.0-merge-integration-broken`
+		* :term:`OMERO-5.1-merge-integration-broken`
 
 	- 	* Run the robot framework tests
 		* :term:`OMERO-4.4-merge-robotframework`
 		* :term:`OMERO-5.0-merge-robotframework`
+		*
 
 	- 	* Update submodules
 		* :term:`OMERO-4.4-latest-submods`
+		* :term:`OMERO-5.0-latest-submods`
 		* :term:`OMERO-5.0-latest-submods`
 
 	- 	* Install OMERO using Homebrew
 		* :term:`OME-4.4-merge-homebrew`
 		* :term:`OME-5.0-merge-homebrew`
+		*
 
 
 4.4.x series
@@ -380,7 +393,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. |updatesubmodules| and pushes the merge branch to
 		   snoopycrimecop/merge/dev_5_0/submodules
 		#. If the submodules are updated, opens a new PR or updates the
-		   existing dev_4_4 submodules PR
+		   existing dev_5_0 submodules PR
 
 	:jenkinsjob:`OME-5.0-merge-homebrew`
 
@@ -389,6 +402,78 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. Clean :file:`/usr/local`
 		#. Install Homebrew
 		#. Run :file:`docs/install/OMERO-homebrew-install.sh`
+
+5.1.x series
+^^^^^^^^^^^^
+
+The branch for the 5.1.x series of OMERO is develop. All jobs are listed
+under the :jenkinsview:`5.1` view tab of Jenkins.
+
+.. glossary::
+
+	:jenkinsjob:`OMERO-5.1-latest`
+
+		This job is used to build the develop branch of OMERO with Ice 3.3,
+		3.4 or 3.5
+
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. If the build is promoted, |promoteOMERO|
+
+	:jenkinsjob:`OMERO-5.1-merge-daily`
+
+		This job is used to trigger all the morning merge builds listed below
+
+	:jenkinsjob:`OMERO-5.1-merge-build`
+
+		These jobs are used to review the PRs opened against the develop
+		branch of OMERO with Ice 3.3, 3.4 or 3.5
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-5.1-merge-integration`
+
+		This job is used to run the integration tests from the develop
+		branch with the PRs opened against the develop branch of OMERO
+
+		#. |merge|
+		#. Build OMERO.server and start it
+		#. Run the integration tests and collect the results (Java and Python)
+
+
+	:jenkinsjob:`OMERO-5.1-merge-integration-java`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.1-merge-integration`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-5.1-merge-integration-python`
+
+		This job is used for parsing OmeroPy integration test results
+
+		#. Receives pytest results from :term:`OMERO-5.1-merge-integration`,
+		#. Generates pytest report
+
+	:jenkinsjob:`OMERO-5.1-merge-integration-broken`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.1-merge-integration`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-5.1-latest-submods`
+
+		This job is used to update the submodules on the develop branch
+
+		#. |updatesubmodules| and pushes the merge branch to
+		   snoopycrimecop/merge/develop/submodules
+		#. If the submodules are updated, opens a new PR or updates the
+		   existing develop submodules PR
+
 
 Bio-Formats jobs
 ----------------
