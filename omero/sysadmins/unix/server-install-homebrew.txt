@@ -122,8 +122,12 @@ simple Homebrew install is sufficient, e.g.
 
 This should install OMERO along with most of the non-Python requirements.
 
-The default version of Ice installed by the OMERO formula is Ice 3.4. To
-install OMERO with Ice 3.3, use::
+The default version of Ice installed by the OMERO formula is Ice 3.5. To
+install OMERO with Ice 3.4, use::
+
+	$ brew install omero --with-ice34
+
+or to install OMERO with Ice 3.3, use::
 
 	$ brew install omero --with-ice33
 
@@ -138,22 +142,22 @@ Development server
 
 If you wish to pull OMERO.server from the git repo for development purposes
 then it is worth setting up OMERO.server manually. First use Homebrew to
-install the server dependencies:
+install the OMERO dependencies:
 
 ::
 
     $ brew tap homebrew/science
     $ brew tap ome/alt
     $ brew install `brew deps omero`
-	
 
-If you wish to install Ice 3.3 (default is Ice 3.4), you will have to run the
-following:
-   
-::
-   
-	$ brew install zeroc-ice33
+The default version of Ice installed by the OMERO formula is Ice 3.5. To
+install the OMERO dependencies with Ice 3.4, use::
 
+	$ brew install `brew deps omero --with-ice34`
+
+or to install the OMERO dependencies with Ice 3.3, use::
+
+	$ brew install `brew deps omero --with-ice33`
 
 Prepare a place for your OMERO code to live, e.g.
 
@@ -161,6 +165,10 @@ Prepare a place for your OMERO code to live, e.g.
 
     $ mkdir -p ~/code/projects/OMERO
     $ cd ~/code/projects/OMERO
+
+If you installed Ice 3.5, you will need to set :envvar:`SLICEPATH` to be
+able to build the server, i.e.
+``export SLICEPATH=/usr/local/share/Ice-3.5/slice``.
 
 .. include:: development-server
 
@@ -217,14 +225,21 @@ required entries and correspond to a Homebrew installation of OMERO |version|:
 ::
 
     export ICE_CONFIG=$(brew --prefix omero)/etc/ice.config
-    export ICE_HOME=$(brew --prefix zeroc-ice34)
-    export PYTHONPATH=$(brew --prefix omero)/lib/python:$ICE_HOME/python
+    export ICE_HOME=$(brew --prefix ice)
+    export PYTHONPATH=$(brew --prefix omero)/lib/python:/usr/local/lib/python2.7/site-packages
 
     export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/lib/node_modules:$ICE_HOME/bin:$PATH
     export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$DYLD_LIBRARY_PATH
 
-If you have installed Ice 3.3, replace :envvar:`ICE_HOME` by ``$(brew --prefix zeroc-ice33)``.
+If you have installed Ice 3.3, replace :envvar:`ICE_HOME` by
+``$(brew --prefix zeroc-ice33)``. If you have installed Ice 3.4, replace
+:envvar:`ICE_HOME` by ``$(brew --prefix zeroc-ice34)``. For both Ice 3.3 and
+Ice 3.4, use
+``export PYTHONPATH=$(brew --prefix omero)/lib/python:$ICE_HOME/python``.
 
+.. note::
+    If you have a local :file:`.bash_profile` file, it will override your
+    :file:`.profile` configuration file.
 
 .. note::
     On Mac OS X Lion, a version of PostgreSQL is already installed. If you get an error like the following:
