@@ -2,164 +2,158 @@
 OMERO demo server
 *****************
 
-.. note:: This service is not available for OMERO 5 yet
 
-..
-	Take advantage of the OMERO platform and ask for a free demo account. This
-	service is hosted by the
-	`Karlsruher Institut für Technologie <http://www.kit.edu/index.php>`_.
+Take advantage of the OMERO platform and ask for a free demo account.
 
-	To register for a free demo account, please visit
-	`the registration page <http://qa.openmicroscopy.org.uk/registry/demo_account/>`_.
+To register for a free demo account, please visit
+`the registration page <http://qa.openmicroscopy.org.uk/registry/demo_account/>`_.
 
-	We will contact you and provide you with a server name, username and password,
-	allowing you to connect to the KIT server in Germany.
+We will contact you and provide you with a server name, username and password,
+please be patient as it may take a few days to process your application after
+we receive it.
 
-	Please be patient as it may take a few days to process your application after
-	we receive it.
 
+**If you have already requested a demonstration account:**
 
-	**If you have already requested a demonstration account:**
+- your username and password will be emailed to you.
 
-	- your username and password will be emailed to you.
+Once you have these, follow the instructions below:
 
-	Once you have these, follow the instructions below:
 
+Getting started with your demo account
+======================================
 
-	Getting started with your demo account
-	======================================
+To log on and try the demo server you have three options:
 
-	To log on and try the demo server you have three options:
+1. :ref:`OMEROinsight`
 
-	1. :ref:`OMEROinsight`
+Download the OMERO.insight client for your platform, install it and run it as
+a stand-alone application. You will need to have permissions allowing you to
+install software on your computer, and you will need to update the client if
+the demo server is upgraded (we will email you to inform you).
 
-	Download the OMERO.insight client for your platform, install it and run it as
-	a stand-alone application. You will need to have permissions allowing you to
-	install software on your computer, and you will need to update the client if
-	the demo server is upgraded (we will email you to inform you).
+2. :ref:`JavaWeb`
 
-	2. :ref:`JavaWeb`
+This automatically downloads the current version of the client, ensuring you
+are not using an out-of-date version, but it requires re-downloading each
+session.  Depending on the individual security and Java set-up on your
+computer, you may find you cannot use Web Start.
 
-	This automatically downloads the current version of the client, ensuring you
-	are not using an out-of-date version, but it requires re-downloading each
-	session.  Depending on the individual security and Java set-up on your
-	computer, you may find you cannot use Web Start.
+3. :ref:`OMEROweb`
 
-	3. :ref:`OMEROweb`
+The web client does not allow you to import data or use the measurement tools.
 
-	The web client does not allow you to import data or use the measurement tools.
+|
 
-	|
+.. _OMEROinsight:
 
-	.. _OMEROinsight:
+Using the OMERO.insight client
+------------------------------
 
-	Using the OMERO.insight client
-	------------------------------
 
+Download the **OMERO.insight** client for your platform by clicking on the
+appropriate link on the :downloads:`downloads page <>`.
 
-	Download the **OMERO.insight** client for your platform by clicking on the
-	appropriate link on the :downloads:`downloads page <>`.
 
+After download, unzip and install the OMERO.insight client as you would for
+any other application.
 
-	After download, unzip and install the OMERO.insight client as you would for
-	any other application.
+Launch OMERO.insight, and you will see the login screen.
 
-	Launch OMERO.insight, and you will see the login screen.
 
+Click the **Spanner** icon.
 
-	Click the **Spanner** icon.
+.. image:: /images/demoAccountSpanner.png
+    :width: 65%
+    :align: center
 
-	.. image:: /images/demoAccountSpanner.png
-	    :width: 65%
-	    :align: center
 
+In the **Servers** window, click the + icon.
 
-	In the **Servers** window, click the + icon.
+.. image:: /images/demoAccountPlus.png
+    :width: 65%
+    :align: center
 
-	.. image:: /images/demoAccountPlus.png
-	    :width: 65%
-	    :align: center
 
+Enter the **Server Address**: ome2-copy.fzk.de
 
-	Enter the **Server Address**: ome2-copy.fzk.de
 
+The port will automatically be set to 4064.
 
-	The port will automatically be set to 4064.
+Select your network connection speed.
 
-	Select your network connection speed.
 
+Click **Apply**
 
-	Click **Apply**
+.. image:: /images/demoAccountApply.png
+    :width: 65%
+    :align: center
 
-	.. image:: /images/demoAccountApply.png
-	    :width: 65%
-	    :align: center
 
+Enter the username and password provided.
 
-	Enter the username and password provided.
 
+Click **Login**
 
-	Click **Login**
+.. image:: /images/demoAccountLogin.png
+    :width: 65%
+    :align: center
 
-	.. image:: /images/demoAccountLogin.png
-	    :width: 65%
-	    :align: center
+|
 
-	|
+.. _JavaWeb:
 
-	.. _JavaWeb:
+Using OMERO.insight Java Web Start client
+-----------------------------------------
 
-	Using OMERO.insight Java Web Start client
-	-----------------------------------------
+To use the OMERO.insight Java Web Start client click on the following link:
 
-	To use the OMERO.insight Java Web Start client click on the following link:
+`OMERO.insight Java Web Start <http://ome2-copy.fzk.de/omero/webstart/>`_
 
-	`OMERO.insight Java Web Start <http://ome2-copy.fzk.de/omero/webstart/>`_
+Follow the instructions to download and run it. Log in as described above.
 
-	Follow the instructions to download and run it. Log in as described above.
+|
 
-	|
+.. _OMEROweb:
 
-	.. _OMEROweb:
+Using the OMERO.web client
+--------------------------
 
-	Using the OMERO.web client
-	--------------------------
+To use the OMERO.web client click on the following link:
 
-	To use the OMERO.web client click on the following link:
 
+`OMERO.web <http://ome2-copy.fzk.de/omero/webclient/login/?url=%2Fomero%2Fwebclient%2F>`_
 
-	`OMERO.web <http://ome2-copy.fzk.de/omero/webclient/login/?url=%2Fomero%2Fwebclient%2F>`_
+The server name is entered automatically, and you enter your demo account
+username and password as described above.
 
-	The server name is entered automatically, and you enter your demo account
-	username and password as described above.
+Please change your password as soon as you have logged in. The easiest way to
+do this is via:
+`Web Admin <http://demo.openmicroscopy.org/webadmin/myaccount/edit/>`_
 
-	Please change your password as soon as you have logged in. The easiest way to
-	do this is via:
-	`Web Admin <http://ome2-copy.fzk.de/omero/webadmin/myaccount/edit/>`_
+|
 
-	|
+Further guides and help
+=======================
 
-	Further guides and help
-	=======================
+- Workflow-based user assistance guides are available on our
+  :help:`help website <>`. These use screenshots
+  to illustrate how to perform common tasks such as importing and viewing
+  data, and using the measurement tool.
 
-     - Workflow-based user assistance guides are available on our 
-       :help:`help website <>`. These use screenshots 
-       to illustrate how to perform common tasks such as importing and viewing 
-       data, and using the measurement tool.
+- An overview of some OMERO’s features is available in a short showcase video
+  at:
 
-	- An overview of some OMERO’s features is available in a short showcase video
-	  at:
+  :snapshot:`Showcase Video <movies/omero-4-4/mov/OMERO-Showcase.mov>`
 
-	  :snapshot:`Showcase Video <movies/omero-4-4/mov/OMERO-Showcase.mov>`
+- If you have any questions, suggestions, comments or proposals, please take
+  advantage of the OME community's expertise and join our forums or mailing
+  lists:
 
-	- If you have any questions, suggestions, comments or proposals, please take
-	  advantage of the OME community's expertise and join our forums or mailing
-	  lists:
+  :forum:`Forums <>`
 
-	  :forum:`Forums <>`
+  :community_plone:`Mailing Lists <mailing-lists/>`
 
-	  :community_plone:`Mailing Lists <mailing-lists/>`
+- For more information on OME and OMERO please visit:
 
-	- For more information on OME and OMERO please visit:
-
-	  `Open Microscopy Environment`_
+  `Open Microscopy Environment`_
