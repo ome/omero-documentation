@@ -85,15 +85,15 @@ OMERO clients
 Quickstart server access
 ************************
 
-If your institution does not have an existing OMERO.server for you to connect 
-to, you can apply for a user account on our demo server, or create your own 
-using a virtual appliance (a step-by-step guide for how to do this is 
-provided).
+If your institution does not have an existing OMERO.server for you to connect
+to, you can create your own using a virtual appliance (a step-by-step guide
+for how to do this is provided). We also have a demo service but this has been
+updated to our new OMERO 5 line as of the end of January 2014.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
-    demo-server
     virtual-appliance
+    demo-server
 
