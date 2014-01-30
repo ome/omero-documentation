@@ -189,7 +189,7 @@ Post release
 -  Assign the adequate milestone to closed PRs on Github using
    ``scc check-milestone`` with the :option:`--set` option::
 
-      scc check-milestone v.5.0.0-alpha2 v.5.0.0-alpha3 --set=5.0.0-alpha3
+      scc check-milestone 5.0.0-alpha2 5.0.0-alpha3 --set 5.0.0-alpha3
 
 -  Add the released version on the right panel of
    http://trac.openmicroscopy.org.uk/ome/admin/ticket/versions.
