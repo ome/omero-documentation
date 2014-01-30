@@ -305,7 +305,7 @@ Assuming the head branch used to open the PR 142 was called `branch_142`, this
 command will rebase the tip of `branch_142` onto origin/develop, create a new
 local branch called `rebased/develop/branch_142`, push this branch to Github
 and open a new PR. Assuming the command opens PR 150, to facilitate the
-integration with :program:`scc unrebased-prs`, a ``--rebased-to #150``
+integration with :program:`scc check-prs`, a ``--rebased-to #150``
 comment is added to PR 142 and a ``--rebased-from #142`` comment is
 added to the PR 150. Finally, the command will switch back to the original
 branch prior to rebasing and delete the local `rebased/develop/branch_142`.
@@ -373,14 +373,14 @@ branch prior to rebasing and delete the local `rebased/develop/branch_142`.
 	Automatically add ``--rebased-to`` and ``--rebased-from`` comments to the
 	source and target PRs.
 
-scc unrebased-prs
------------------
-.. program:: scc unrebased-prs
+scc check-prs
+-------------
+.. program:: scc check-prs
 
 Compare two development branches and check that PRs merged in one branch have
 been merged to the other.
 
-The basic workflow of the :program:`scc unrebased-prs` command is the
+The basic workflow of the :program:`scc check-prs` command is the
 following:
 
 - 	list all first-parent merge commits for each branch including git notes
@@ -400,26 +400,25 @@ corresponding source/target PR. For instance, if PR 70 has a
 This command requires two positional arguments corresponding to the name of
 the branch of origin to compare::
 
-	$ scc unrebased-prs dev_4_4 develop
+	$ scc check-prs dev_4_4 develop
 
 .. option:: --shallow
 
-	Look for unrebased PRs in the top-level directory only, excluding
-	submodules::
+	Check PRs in the top-level directory only, excluding submodules::
 
-		$ scc unrebased-prs dev_4_4 develop --shallow
+		$ scc check-prs dev_4_4 develop --shallow
 
 .. option:: --remote <remote>
 
 	Specify the name of the remote to use as the origin (default: origin)::
 
-		$ scc unrebased-prs dev_4_4 develop --remote gh
+		$ scc check-prs dev_4_4 develop --remote gh
 
 .. option:: --no-check
 
 	Do not check links between rebased comments::
 
-		$ scc unrebased-prs dev_4_4 develop --no-check
+		$ scc check-prs dev_4_4 develop --no-check
 
 .. versionadded:: 0.3.10
 	Added support for body/comment parsing and ``--rebased-to/from``
@@ -427,6 +426,9 @@ the branch of origin to compare::
 
 .. versionchanged:: 0.4.0
 	Improved command output and added support for submodule processing
+
+.. versionchanged:: 0.5.0
+	Renamed command
 
 scc version
 -----------
