@@ -118,18 +118,18 @@ simple Homebrew install is sufficient, e.g.
 
     $ brew tap homebrew/science
     $ brew tap ome/alt
-    $ brew install omero
+    $ brew install omero --devel
 
 This should install OMERO along with most of the non-Python requirements.
 
 The default version of Ice installed by the OMERO formula is Ice 3.5. To
 install OMERO with Ice 3.4, use::
 
-	$ brew install omero --with-ice34
+	$ brew install omero --devel --with-ice34
 
 or to install OMERO with Ice 3.3, use::
 
-	$ brew install omero --with-ice33
+	$ brew install omero --devel --with-ice33
 
 Additional installation options can be listed using the ``info`` command:
 
