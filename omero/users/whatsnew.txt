@@ -10,11 +10,11 @@ OMERO.insight:
 - There is also a new :help:`Getting Started guide <getting-started-5.html>`
   for OMERO 5.0.
 
-:doc:`demo-server` is not available for OMERO 5 yet.
-
 Workflow-based user guides have now moved to our new
 :help:`User Help website <>`.
 
 :doc:`command-line-interface` has been updated to document the new plugin
 which allows you to list, create, and import tags and tag sets from the
 command line.
+
+.. note:: :doc:`demo-server` **is now available for OMERO 5.**
