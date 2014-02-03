@@ -512,9 +512,12 @@ You can either edit the file manually, or use a small script such as:
       perl -i -pe 's/Xmx512M/Xmx2048M/' etc/grid/templates.xml
       perl -i -pe 's/XX:MaxPermSize=128m/XX:MaxPermSize=256M/' etc/grid/templates.xml
 
-See the grid configuration section in the :doc:`Advanced server configuration 
-</sysadmins/server-advanced-configuration>` 
-documentation for more information on `grid/templates.xml`.
+.. seealso::
+
+	:ref:`gridconfiguration`
+		Section of the :doc:`/sysadmins/server-advanced-configuration`
+		documentation describing the
+		:source:`templates.xml <etc/grid/templates.xml>`.
 
 Update notification
 ^^^^^^^^^^^^^^^^^^^
