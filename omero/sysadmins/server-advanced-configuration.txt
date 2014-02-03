@@ -70,6 +70,11 @@ above, these are stored under :file:`etc/grid`:
 Windows systems and both make use of
 :source:`templates.xml <etc/grid/templates.xml>`.
 
+The default OMERO application descriptor deploys multiple server instances
+(Blitz-0, FileServer, Indexer-0, PixelData-0…) on a single node. Each server
+instance is defined by a ``server-template`` element in
+:source:`templates.xml <etc/grid/templates.xml>` with is own parameters.
+
 Modifying the application descriptors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -92,10 +97,7 @@ parameters:
 
     Start icegridnode daemon and waits for required components to come up, i.e. status == 0
 
-                 If the first argument can be found as a file, it will
-                 be deployed as the application descriptor rather than
-                 etc/grid/default.xml. All other arguments will be used
-                 as targets to enable optional sections of the descriptor
+    If the first argument can be found as a file, it will be deployed as the application descriptor rather than etc/grid/default.xml. All other arguments will be used as targets to enable optional sections of the descriptor
 
     Positional Arguments:
       file                  Application descriptor. If not provided, a default will be used
