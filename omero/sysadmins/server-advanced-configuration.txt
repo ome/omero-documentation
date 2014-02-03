@@ -75,6 +75,23 @@ The default OMERO application descriptor deploys multiple server instances
 instance is defined by a ``server-template`` element in
 :source:`templates.xml <etc/grid/templates.xml>` with is own parameters.
 
+JVM memory settings
+^^^^^^^^^^^^^^^^^^^
+
+As described in the :doc:`Unix <unix/server-installation>`
+and :doc:`Windows <windows/server-installation>` installation pages, it is
+highly recommended to increase the ``BlitzTemplate`` default JVM memory
+settings to ``-Xmx2048M`` and ``-XX:MaxPermSize=256M`` in production.
+
+If working with large images generates ``OutOfMemory`` exceptions in the
+:file:`var/log/PixelData-0.log` file, you may consider increasing the
+``PixelDataTemplate`` default JVM memory settings to ``-Xmx1024M``.
+
+.. seealso::
+
+	http://www.openmicroscopy.org/community/viewtopic.php?f=4&t=7400
+		Forum thread on PixelData JVM memory settings
+
 Modifying the application descriptors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
