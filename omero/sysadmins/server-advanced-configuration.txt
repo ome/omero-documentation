@@ -130,7 +130,7 @@ the next invocation of :omerocmd:`admin start` or :omerocmd:`admin deploy`
     during upgrades.
 
 Debugging
-^^^^^^^^^
+"""""""""
 
 ::
 
@@ -149,7 +149,7 @@ Here, the "debug" target allows increasing the logging output of the
 Python servers without modifying any files.
 
 JMX configuration
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 
 ::
 
@@ -199,7 +199,7 @@ OMERO servers on the same physical machine.
 Clients will need to use the appropriate port (either 14064 or 24064) to
 connect to OMERO.
 
-Extending Omero
+Extending OMERO
 ---------------
 
 Finally, if configuration does not suffice, there are also options to
