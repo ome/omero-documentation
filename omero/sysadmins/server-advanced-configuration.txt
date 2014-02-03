@@ -56,6 +56,8 @@ Your database installation will need to be configured to accept *at
 least* as many, preferably more, connections as the value of
 "omero.db.poolsize"
 
+.. _gridconfiguration:
+
 Grid configuration
 ------------------
 
