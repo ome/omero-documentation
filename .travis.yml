@@ -16,6 +16,6 @@ python:
 env:
   - SPHINXOPTS="-W"
 
-install: "pip install -q Sphinx --use-mirrors"
+install: "pip install -q Sphinx"
 
 script: "make html latexpdf"
