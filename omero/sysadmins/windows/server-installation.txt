@@ -753,7 +753,7 @@ notepad-like editor. You should change each occurrence of ``Xmx512M`` to
 
 	:ref:`gridconfiguration`
 		Section of the :doc:`/sysadmins/server-advanced-configuration`
-		documentation describing the
+		documentation describing
 		:source:`templates.xml <etc/grid/templates.xml>`.
 
 Update notification
