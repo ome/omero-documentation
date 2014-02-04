@@ -8,14 +8,14 @@ Advanced configuration
 
 
 The OMERO server provides several different configuration/extension points
-that you may want to make use of.
+that you may want to use.
 
 Configuration properties
 ------------------------
 
 The primary form of configuration is via the use of key/value
 properties, stored in :file:`etc/grid/config.xml` and read on server startup.
-Backing and copying these properties is as easy as moving this file to a
+Backing up and copying these properties is as easy as copying this file to a
 new server version.
 
 The :source:`etc/omero.properties`
@@ -34,7 +34,7 @@ See :source:`etc/omero.properties` for more details.
 omero.sessions.timeout
 ^^^^^^^^^^^^^^^^^^^^^^
 
-``omero.sessions.timeout`` sets the duration of inactivity in milli-seconds
+``omero.sessions.timeout`` sets the duration of inactivity in milliseconds
 after which a login is required (default is 600000, or 10 minutes). To
 change the default, for example, to 1 hour use:
 
@@ -112,12 +112,16 @@ parameters:
     $ bin/omero admin start --help
     usage: bin/omero admin start [-h] [-u USER] [file] [targets [targets ...]]
 
-    Start icegridnode daemon and waits for required components to come up, i.e. status == 0
+    Start icegridnode daemon and waits for required components to come up,
+    i.e. status == 0
 
-    If the first argument can be found as a file, it will be deployed as the application descriptor rather than etc/grid/default.xml. All other arguments will be used as targets to enable optional sections of the descriptor
+    If the first argument can be found as a file, it will be deployed as the
+    application descriptor rather than etc/grid/default.xml. All other
+    arguments will be used as targets to enable optional sections of the
+    descriptor
 
     Positional Arguments:
-      file                  Application descriptor. If not provided, a default will be used
+      file                  Application descriptor. If not provided, a default   will be used
       targets               Targets within the application descriptor which should be activated.
 
 If a file is passed in as the first argument, then that **application
