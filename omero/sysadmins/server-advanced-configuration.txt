@@ -121,7 +121,7 @@ parameters:
     descriptor
 
     Positional Arguments:
-      file                  Application descriptor. If not provided, a default   will be used
+      file                  Application descriptor. If not provided, a default will be used
       targets               Targets within the application descriptor which should be activated.
 
 If a file is passed in as the first argument, then that **application
