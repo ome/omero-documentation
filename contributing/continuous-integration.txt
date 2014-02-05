@@ -545,6 +545,11 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-5.0-merge-daily`
 		* :term:`BIOFORMATS-5.1-merge-daily`
 
+	- 	* Run the MATLAB tests
+		* :term:`BIOFORMATS-4.4-merge-matlab`
+		* :term:`BIOFORMATS-5.0-merge-matlab`
+		* :term:`BIOFORMATS-5.1-merge-matlab`
+
 	- 	* Run automated tests against directories on squig
 		* :term:`BIOFORMATS-4.4-merge-full-repository`
 		* :term:`BIOFORMATS-5.0-merge-full-repository`
@@ -584,6 +589,16 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 		#. |merge|
 		#. |buildBF|
 		#. |fulltestBF|
+
+	:jenkinsjob:`BIOFORMATS-4.4-merge-matlab`
+
+		This job is used to run the MATLAB tests from the dev_4_4 branch with
+		the PRs opened against the dev_4_4 branch of OMERO
+
+		#. Collects the MATLAB artifacts and unit tests from
+		   :term:`BIOFORMATS-4.4-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/bio-formats/test/matlab` and collect the results
 
 	:jenkinsjob:`BIOFORMATS-4.4-merge-full-repository`
 
@@ -646,6 +661,16 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		#. |buildBF|
 		#. |fulltestBF|
 
+	:jenkinsjob:`BIOFORMATS-5.0-merge-matlab`
+
+		This job is used to run the MATLAB tests from the dev_5_0 branch with
+		the PRs opened against the dev_5_0 branch of OMERO
+
+		#. Collects the MATLAB artifacts and unit tests from
+		   :term:`BIOFORMATS-5.0-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/bio-formats/test/matlab` and collect the results
+
 	:jenkinsjob:`BIOFORMATS-5.0-merge-full-repository`
 
 		This job is used to review the PRs opened against the dev_5_0 branch
@@ -696,6 +721,16 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		#. |merge|
 		#. |buildBF|
 		#. |fulltestBF|
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-matlab`
+
+		This job is used to run the MATLAB tests from the develop branch with
+		the PRs opened against the develop branch of OMERO
+
+		#. Collects the MATLAB artifacts and unit tests from
+		   :term:`BIOFORMATS-5.1-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/bio-formats/test/matlab` and collect the results
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-full-repository`
 
