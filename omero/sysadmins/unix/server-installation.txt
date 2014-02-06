@@ -505,19 +505,25 @@ default since it would prevent starting the server on some sites' test
 instance, but for production use a setting higher than 512MB is
 **highly** recommended.
 
-You can either edit the file manually, or use a small script such as:
+To increase the JVM memory settings, you need to edit the
+:file:`etc/grid/templates.xml` file under the OMERO.server directory..
 
-::
+It is highly recommended to increase the ``BlitzTemplate`` default JVM memory
+settings from ``-Xmx512M`` to ``-Xmx2048M`` and from ``XX:MaxPermSize=128m``
+to ``XX:MaxPermSize=256M`` in production.
 
-      perl -i -pe 's/Xmx512M/Xmx2048M/' etc/grid/templates.xml
-      perl -i -pe 's/XX:MaxPermSize=128m/XX:MaxPermSize=256M/' etc/grid/templates.xml
+If working with large images generates ``OutOfMemory`` exceptions in the
+:file:`var/log/PixelData-0.log` file, you may consider increasing the
+``PixelDataTemplate`` default JVM memory settings to ``-Xmx1024M``.
 
 .. seealso::
 
+	http://www.openmicroscopy.org/community/viewtopic.php?f=4&t=7400
+		Forum thread on PixelData JVM memory settings
+
 	:ref:`gridconfiguration`
-		Section of the :doc:`/sysadmins/server-advanced-configuration`
-		documentation describing
-		:source:`templates.xml <etc/grid/templates.xml>`.
+		Section of the advanced server configuration documentation describing
+		:file:`etc/grid/templates.xml`.
 
 Update notification
 ^^^^^^^^^^^^^^^^^^^
