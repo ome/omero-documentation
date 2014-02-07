@@ -91,9 +91,9 @@ The following are optional depending on what services you require:
       - Functionality
       - Downloads
 
-    * - `Python Imaging Library`_ [1]_
+    * - `Pillow`_ [1]_
       - OMERO.web and Figure Export
-      - `PIL page <http://www.pythonware.com/products/pil/>`_
+      - `Pillow page <hhttps://pypi.python.org/pypi/Pillow>`_
 
     * - Matplotlib_
       - OMERO.web
@@ -111,7 +111,7 @@ The following are optional depending on what services you require:
       - :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>` [3]_
       - `Numpy/Scipy page <http://www.scipy.org/Download>`_
 
-.. [1] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ installed when building the `Python Imaging Library`_.
+.. [1] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ installed when building `Pillow`_.
 
 .. [2] May already have been installed as a dependency of Matplot Lib.
 
