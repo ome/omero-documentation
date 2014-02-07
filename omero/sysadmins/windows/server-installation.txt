@@ -129,9 +129,9 @@ The following are optional depending on what services you require:
       - Functionality
       - Downloads
 
-    * - Python Imaging Library
+    * - `Pillow`_
       - OMERO.web and Figure Export
-      - `PIL page <http://www.pythonware.com/products/pil/>`_
+      - `Pillow page <hhttps://pypi.python.org/pypi/Pillow>`_
 
     * - Matplotlib
       - OMERO.web

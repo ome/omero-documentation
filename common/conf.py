@@ -182,7 +182,7 @@ rst_epilog = """
 .. _roadmap: https://trac.openmicroscopy.org.uk/ome/roadmap
 .. _Open Microscopy Environment: http://www.openmicroscopy.org/site
 .. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
-.. _Python Imaging Library: http://www.pythonware.com/products/pil/
+.. _Pillow: http://pillow.readthedocs.org
 .. _Matplotlib: http://matplotlib.org/
 .. _Python: http://python.org
 .. _Libjpeg: http://libjpeg.sourceforge.net/
