@@ -154,6 +154,11 @@ OMERO jobs
 		* :term:`OMERO-5.0-merge-integration-broken`
 		* :term:`OMERO-5.1-merge-integration-broken`
 
+	- 	* Run the MATLAB tests
+		* :term:`OMERO-4.4-merge-matlab`
+		* :term:`OMERO-5.0-merge-matlab`
+		* :term:`OMERO-5.1-merge-matlab`
+
 	- 	* Run the robot framework tests
 		* :term:`OMERO-4.4-merge-robotframework`
 		* :term:`OMERO-5.0-merge-robotframework`
@@ -269,6 +274,17 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
 
+	:jenkinsjob:`OMERO-4.4-merge-matlab`
+
+		This job is used to run the MATLAB tests from the dev_4_4 branch with
+		the PRs opened against the dev_4_4 branch of OMERO
+
+		#. Checks out the merge/dev_4_4/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Collects the MATLAB artifacts from :term:`OMERO-4.4-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/tools/OmeroM/test/unit` and collect the results
+
 	:jenkinsjob:`OMERO-4.4-latest-submods`
 
 		This job is used to update the submodules on the dev_4_4 branch
@@ -375,6 +391,17 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. Receives TestNG results from :term:`OMERO-5.0-merge-integration`,
 		#. Generates TestNG report
 
+	:jenkinsjob:`OMERO-5.0-merge-matlab`
+
+		This job is used to run the MATLAB tests from the dev_5_0 branch with
+		the PRs opened against the dev_5_0 branch of OMERO
+
+		#. Checks out the merge/dev_5_0/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Collects the MATLAB artifacts from :term:`OMERO-5.0-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/tools/OmeroM/test/unit` and collect the results
+
 	:jenkinsjob:`OMERO-5.0-merge-robotframework`
 
 		This job is used to run the robot framework tests from the
@@ -465,6 +492,17 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		#. Receives TestNG results from :term:`OMERO-5.1-merge-integration`,
 		#. Generates TestNG report
 
+	:jenkinsjob:`OMERO-5.1-merge-matlab`
+
+		This job is used to run the MATLAB tests from the develop branch with
+		the PRs opened against the develop branch of OMERO
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Collects the MATLAB artifacts from :term:`OMERO-5.1-merge-build`
+		#. Run the MATLAB unit tests under
+		   :file:`components/tools/OmeroM/test/unit` and collect the results
+		
 	:jenkinsjob:`OMERO-5.1-latest-submods`
 
 		This job is used to update the submodules on the develop branch
@@ -507,6 +545,11 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-5.0-merge-daily`
 		* :term:`BIOFORMATS-5.1-merge-daily`
 
+	- 	* Run the MATLAB tests
+		* :term:`BIOFORMATS-4.4-merge-matlab`
+		* :term:`BIOFORMATS-5.0-merge-matlab`
+		* :term:`BIOFORMATS-5.1-merge-matlab`
+
 	- 	* Run automated tests against directories on squig
 		* :term:`BIOFORMATS-4.4-merge-full-repository`
 		* :term:`BIOFORMATS-5.0-merge-full-repository`
@@ -546,6 +589,16 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 		#. |merge|
 		#. |buildBF|
 		#. |fulltestBF|
+
+	:jenkinsjob:`BIOFORMATS-4.4-merge-matlab`
+
+		This job is used to run the MATLAB tests from the dev_4_4 branch with
+		the PRs opened against the dev_4_4 branch of OMERO
+
+		#. Collects the MATLAB artifacts and unit tests from
+		   :term:`BIOFORMATS-4.4-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/bio-formats/test/matlab` and collect the results
 
 	:jenkinsjob:`BIOFORMATS-4.4-merge-full-repository`
 
@@ -608,6 +661,16 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		#. |buildBF|
 		#. |fulltestBF|
 
+	:jenkinsjob:`BIOFORMATS-5.0-merge-matlab`
+
+		This job is used to run the MATLAB tests from the dev_5_0 branch with
+		the PRs opened against the dev_5_0 branch of OMERO
+
+		#. Collects the MATLAB artifacts and unit tests from
+		   :term:`BIOFORMATS-5.0-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/bio-formats/test/matlab` and collect the results
+
 	:jenkinsjob:`BIOFORMATS-5.0-merge-full-repository`
 
 		This job is used to review the PRs opened against the dev_5_0 branch
@@ -658,6 +721,16 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		#. |merge|
 		#. |buildBF|
 		#. |fulltestBF|
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-matlab`
+
+		This job is used to run the MATLAB tests from the develop branch with
+		the PRs opened against the develop branch of OMERO
+
+		#. Collects the MATLAB artifacts and unit tests from
+		   :term:`BIOFORMATS-5.1-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/bio-formats/test/matlab` and collect the results
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-full-repository`
 
