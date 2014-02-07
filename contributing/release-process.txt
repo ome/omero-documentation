@@ -108,8 +108,8 @@ Release components review
 - Test the OMERO.matlab toolbox.
 - Test the OMERO Virtual Appliance.
 - Test the Java Webstart from the deployed server.
-- For Bio-Formats, test the **loci_tools.jar**, the command-line tools and the
-  MATLAB bundle.
+- For Bio-Formats, test the **bioformats_package.jar**, loci_tools.jar,
+  the command-line tools and the MATLAB bundle.
 
 Release rejection
 -----------------
