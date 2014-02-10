@@ -163,8 +163,8 @@ extlinks = {
     'bf_doc' : (oo_site_root + '/support/bio-formats5/%s', ''),
     'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
     # Downloads
-    'downloads' : (downloads_root + '/omero/%s', ''),
-    'bf_downloads' : (downloads_root + '/bio-formats/%s', ''),
+    'downloads' : (downloads_root + '/latest-develop/omero/%s', ''),
+    'bf_downloads' : (downloads_root + '/latest-develop/bio-formats/%s', ''),
     # Help links
     'help' : (help_root + '/%s', ''),
     # Miscellaneous links
