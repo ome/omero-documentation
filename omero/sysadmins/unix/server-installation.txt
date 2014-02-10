@@ -431,7 +431,7 @@ since it would prevent starting the server on some sites' test instance but
 for production use a setting higher than 512MB is **highly** recommended.
 
 To increase the JVM memory settings, you need to edit the
-:file:`etc/grid/templates.xml` file under the OMERO.server directory..
+:file:`etc/grid/templates.xml` file under the OMERO.server directory.
 
 It is highly recommended to increase the ``BlitzTemplate`` default JVM memory
 settings from ``-Xmx512M`` to ``-Xmx2048M`` and from ``XX:MaxPermSize=128m``
