@@ -1,4 +1,4 @@
-Extracting, Processing And Validating OME-XML
+Extracting, Processing and Validating OME-XML
 =============================================
  
 Extracting the OME-XML from an OME-TIFF file
@@ -81,21 +81,19 @@ Validating OME-XML
 ------------------
 
 We have created a command line tool in Java for validating OME-XML, and
-included it as part of the :bf_doc:`Bio-Formats command line
-tools <users/comlinetools/>`. 
-
-A full tutorial can be `found here 
-<http://www.farsight-toolkit.org/wiki/FARSIGHT_Tutorials/Bio-Formats>`_. In 
-brief, you download and unzip the tools to produce a collection of command 
-line scripts for Unix/Mac and batch files for Windows. The two commands we 
-will use are ``xmlvalid`` and ``tiffcomment``.
+included it as part of the Bio-Formats :bf_downloads:`bftools.zip download
+<>`. Please refer to the :bf_doc:`Bio-Formats command line tools
+<users/comlinetools/>` documentation
+for more details, but in brief, you download and unzip the tools to produce a
+collection of command line scripts for Unix/Mac and batch files for Windows.
+The two commands we will use are ``xmlvalid`` and ``tiffcomment``.
 
 - ``xmlvalid`` – a command-line XML validation tool
-- ``tiffcomment`` – extracts the OME-XML block in an OME-TIFF file from the 
+- ``tiffcomment`` – extracts the OME-XML block in an OME-TIFF file from the
   comment in the TIFF's first IFD entry.
 
-All scripts require :file:`bioformats_package.jar` to be downloaded into the same
-directory as the command line tools. Then to validate an OME-XML file 
+All scripts require :file:`bioformats_package.jar` to be downloaded into the
+same directory as the command line tools. Then to validate an OME-XML file
 :file:`sample.ome` use:
 
 ::
