@@ -94,7 +94,7 @@ will use are ``xmlvalid`` and ``tiffcomment``.
 - ``tiffcomment`` – extracts the OME-XML block in an OME-TIFF file from the 
   comment in the TIFF's first IFD entry.
 
-All scripts require :file:`loci_tools.jar` to be downloaded into the same 
+All scripts require :file:`bioformats_package.jar` to be downloaded into the same
 directory as the command line tools. Then to validate an OME-XML file 
 :file:`sample.ome` use:
 
