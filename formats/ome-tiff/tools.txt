@@ -84,13 +84,18 @@ We have created a command line tool in Java for validating OME-XML, and
 included it as part of the Bio-Formats :bf_downloads:`bftools.zip download
 <>`. Please refer to the :bf_doc:`Bio-Formats command line tools
 <users/comlinetools/>` documentation
-for more details, but in brief, you download and unzip the tools to produce a
+for more details but, in brief, you download and unzip the tools to produce a
 collection of command line scripts for Unix/Mac and batch files for Windows.
-The two commands we will use are ``xmlvalid`` and ``tiffcomment``.
+The two commands we will use are:
 
-- ``xmlvalid`` – a command-line XML validation tool
-- ``tiffcomment`` – extracts the OME-XML block in an OME-TIFF file from the
-  comment in the TIFF's first IFD entry.
+.. glossary::
+
+    xmlvalid 
+        A command line XML validation tool
+
+    tiffcomment
+        Extracts the OME-XML block in an OME-TIFF file from the
+        comment in the TIFF's first IFD entry.
 
 All scripts require :file:`bioformats_package.jar` to be downloaded into the
 same directory as the command line tools. Then to validate an OME-XML file
