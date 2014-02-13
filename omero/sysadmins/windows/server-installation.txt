@@ -91,24 +91,34 @@ paths with Ice, please consider installing Ice in the root of the partition
 Python 2 (2.6 or later)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Ice 3.4.x requires Python 2.6.x. You must download the 32-bit version
+Ice 3.4.x requires Python 2.6.x. You can download a pre-compiled version
 from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
 As this is the "vanilla" python distribution (no extra libraries),
 you will need to install further dependencies, making sure to
-download the correct version (release number, 32/64-bit) for your Python
+download the correct version (2.6, 32/64-bit) for your Python
 distribution.
 
-**OMERO does not currently support Python 3**.
+32/64 bit
+"""""""""
 
-PyWin32
-"""""""
+OMERO has been extensively tested with 32-bit Python on Windows. 64-bit Python
+should also work though it has not been tested as thoroughly. You can obtain
+64-bit precompiled dependencies from http://www.lfd.uci.edu/~gohlke/pythonlibs.
 
-Using **Python for Windows extensions** is recommended. The installer is
+.. note::
+
+    OMERO does not currently support Python 3.
+
+Python for Windows extensions
+"""""""""""""""""""""""""""""
+
+Python for Windows extensions (PyWin32) is required. The installer is
 available from the `PyWin download page <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
 
 The version you need is: 
-:file:`pywin32-XXX.win32-pyA.B.exe` (or the 64bit version) where XXX should be 
-the latest release number and A and B stand for the Python version e.g. 
+:file:`pywin32-XXX.win32-pyA.B.exe` (or :file:`pywin32-XXX.amd64-pyA.B.exe` for
+64-bit Python) where XXX should be the latest release number and A and B stand
+for the Python version, for example
 :file:`pywin32-218.win32-py2.6.exe`.
 
 You can read the 
