@@ -309,10 +309,13 @@ similar location, you will need to set the values yourself.
 
    - python (the first PATH entry, e.g. "C:\\Python26;%Sys…)
 
-   - ice/bin (the last PATH entry, e.g. "…;C:\\Ice-3.4.2\\;") 
+   - ice\bin (the last PATH entry, e.g. "…;C:\\Ice-3.4.2\\bin;")
 
    - PYTHONPATH pointing to the python folder in the ICE installation (e.g. 
      "C:\\Ice-3.4.2\\python;")
+
+   - For 64-bit you will need to use the 64-bit Ice directories, for example
+     "C:\\Ice-3.4.2\\bin\\x64;" and "C:\\Ice-3.4.2\\python\\x64;".
 
    .. warning:: Remember that the Windows path separator is the semicolon ; 
        and must be appended after every entry.
