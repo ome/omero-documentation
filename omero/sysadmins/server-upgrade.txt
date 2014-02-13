@@ -193,6 +193,17 @@ need to update the memory settings for the new server. Refer to the
 (:doc:`Unix <unix/server-installation>` or
 :doc:`Windows <windows/server-installation>`) for more information.
 
+Python Imaging Library
+^^^^^^^^^^^^^^^^^^^^^^
+
+Since OMERO 5.0.0, `Pillow`_ is used as the default imaging library for Python
+instead of PIL. Refer to the installation page of `Pillow`_ documentation to
+install Pillow on your system.
+
+.. warning::
+	As mentioned in the Pillow installation section, if you installed PIL, you
+	will need to remove it first before installing Pillow.
+
 Changes to OMERO.web URLs
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
