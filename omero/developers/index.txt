@@ -2,7 +2,14 @@
 Developer Documentation
 #######################
 
-The following documentation is for developers wishing to write OMERO client 
+.. warning:: This documentation is for the OMERO 4.4 line which has now
+    entered maintenance mode. We will only be updating this version of the
+    code-base for major bug fixes so you may wish to work against the new `5.0
+    version <http://www.openmicroscopy.org/site/support/omero5/developers/>`_
+    instead.
+
+
+The following documentation is for developers wishing to write OMERO client
 code or extend the OMERO server. Instructions on :downloads:`downloading <>`,
 installation and administering OMERO can be found under the 
 :doc:`/sysadmins/index` of the main site.

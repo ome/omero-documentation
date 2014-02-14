@@ -28,12 +28,9 @@ Additional online resources can be found at:
 OMERO version *4* uses the *June 2012* release of the
 :model_doc:`OME-Model <>`.
 
-This documentation is a work in progress and many aspects of OMERO are not yet 
-covered. The source code is hosted on Github. To propose changes and fix 
-errors, go to the :omedocs:`documentation repository <>`, fork it, edit the 
-file contents and propose your file changes to the OME team using `Pull Requests`_.
-
-.. _Pull Requests: http://help.github.com/articles/using-pull-requests
+.. note:: **With the release of OMERO 5.0, the 4.4.x line now enters
+    maintenance mode. We will continue to support this version throughout 2014
+    but it will only be updated for major bug fixes.**
 
 .. toctree::
     :maxdepth: 1
