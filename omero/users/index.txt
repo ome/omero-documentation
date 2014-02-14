@@ -31,34 +31,34 @@ internet.
 This documentation is for the new OMERO 5 Platform. This version is designed
 to improve our handling of complex multidimensional datasets. It allows you to
 upload your files in their original format, preserving file names and any
-nested directory structure in the server repository. See the
-:omero_plone:`OME 5 overview <>` for further details. For more technical
+nested directory structure in the server repository. For more technical
 information, please refer to the :doc:`/developers/index`.
 
 *********
 Resources
 *********
 
--   The :omero_plone:`Features List <feature-list>` provides an overview
-    of new features for OMERO 5, with updated screenshots illustrating the new
-    import workflow and checks (also see :doc:`whatsnew`).
+-   :omero_plone:`About OMERO <>` introduces OMERO for new users, while
+    the :omero_plone:`Features List <feature-list>` provides an overview
+    of the platform features with those that are new for OMERO 5 highlighted
+    (also see :doc:`whatsnew`).
 
 -   As OMERO is an open source project with developers and users in many
     countries, :doc:`connecting to the community <community-resources>` can
     provide you with a wealth of experience to draw on for help and advice.
 
--   ***NEW*** Our partners within the OME consortium are working on 
-    integrating additional functions and modules with OMERO. See the 
-    :partner_plone:`Partner Projects <>` page for details of the latest 
+-   ***NEW*** Our partners within the OME consortium are working on
+    integrating additional functions and modules with OMERO. See the
+    :partner_plone:`Partner Projects <>` page for details of the latest
     extensions which could help OMERO meet your research needs more fully.
 
--   ***NEW*** You can also extend the functionality of OMERO using 
-    OMERO.scripts, our version of plugins. Guides to some of the scripts which 
-    ship with OMERO releases are already provided, but you can also check out 
+-   ***NEW*** You can also extend the functionality of OMERO using
+    OMERO.scripts, our version of plugins. Guides to some of the scripts which
+    ship with OMERO releases are already provided, but you can also check out
     our :community_plone:`Script Sharing <scripts>` page to find extra ones.
 
 -   ***NEW*** Workflow-based user assistance guides are provided on our
-    :help:`help website <>`. Extended OMERO.web and guides to other OMERO 
+    :help:`help website <>`. Extended OMERO.web and guides to other OMERO
     applications will be coming here soon.
 
 
