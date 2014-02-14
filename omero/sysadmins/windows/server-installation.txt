@@ -70,10 +70,10 @@ Ice (3.3.x or 3.4.x)
     you have installed locally. The downloads for Ice 3.4 have "ice34" in the
     zip name.
 
-    **OMERO does not currently support Ice 3.5 for Windows** - if you have
-    installed Ice 3.5, uninstall it, install 3.4.x, update ENV path and
-    reboot. If you need to use Ice 3.5 for other purposes, you probably just
-    need to add the path for 3.4.x to the ENV before Ice 3.5.
+    If you are using precompiled packages of Ice and Python (recommended)
+    you should use the versions specified below. In particular since OMERO
+    does not support Python 3 **it will not work with the Ice 3.5 package for
+    Windows**. If you have previously installed Ice 3.5 you should uninstall it.
 
 
 Windows installers of Ice can be found on the :zeroc:`ZeroC download
@@ -91,7 +91,7 @@ paths with Ice, please consider installing Ice in the root of the partition
 Python 2 (2.6 or later)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Ice 3.4.x requires Python 2.6.x. You can download a pre-compiled version
+Ice 3.4.x requires Python 2.6.x. You can download a precompiled version
 from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
 As this is the "vanilla" python distribution (no extra libraries),
 you will need to install further dependencies, making sure to
@@ -116,9 +116,9 @@ Python for Windows extensions (PyWin32) is required. The installer is
 available from the `PyWin download page <http://sourceforge.net/projects/pywin32/files/pywin32/>`_.
 
 The version you need is: 
-:file:`pywin32-XXX.win32-pyA.B.exe` (or :file:`pywin32-XXX.amd64-pyA.B.exe` for
-64-bit Python) where XXX should be the latest release number and A and B stand
-for the Python version, for example
+:file:`pywin32-XXX.win32-pyA.B.exe` (or
+:file:`pywin32-XXX.win-amd64-pyA.B.exe` for 64-bit Python) where XXX should be
+the latest release number and A and B stand for the Python version, for example
 :file:`pywin32-218.win32-py2.6.exe`.
 
 .. _windows_additional_libraries:
