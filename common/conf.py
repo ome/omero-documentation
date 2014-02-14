@@ -127,7 +127,7 @@ extlinks = {
     # suffixes during testing.
     'community_plone' : (oo_site_root + '/community/%s', ''),
     'feature_plone' : (oo_site_root + '/products/feature-list/%s', ''),
-    'legacy_plone' : (oo_site_root + '/support/legacy/%s', ''),
+    'legacy_plone' : (oo_site_root + '/support/previous/%s', ''),
     'about_plone' : (oo_site_root + '/about/%s', ''),
     'team_plone' : (oo_site_root + '/team/%s', ''),
     'faq_plone' : (oo_site_root + '/support/faq/%s', ''),
