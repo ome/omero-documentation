@@ -2,9 +2,9 @@
 Developer Documentation
 #######################
 
-The following documentation is for developers wishing to write OMERO client 
+The following documentation is for developers wishing to write OMERO client
 code or extend the OMERO server. Instructions on :downloads:`downloading <>`,
-installation and administering OMERO can be found under the 
+installation and administering OMERO can be found under the
 :doc:`/sysadmins/index` of the main site.
 
 .. figure:: /images/developer-api-figure.png
@@ -17,22 +17,21 @@ visualizing, managing, and annotating microscope images and metadata.
 The |OmeroApi| allows clients to be
 written in :doc:`Java </developers/Java>`, :doc:`Python </developers/Python>`,
 :doc:`C++ </developers/Cpp>` or :doc:`MATLAB </developers/Matlab>`. OMERO
-releases include a Java client OMERO.insight, a Python-based web client 
-OMERO.web and the :doc:`/developers/command-line-interface`, which also uses 
-Python. There is also an ImageJ plugin. OMERO can be extended by modifying 
-these clients or by writing your own in any of the supported languages (see 
-figure). OMERO also supports a 
-:doc:`Scripting Service <scripts/index>` which allows 
-Python scripts to be run on the server and called from any of the other 
+releases include a Java client OMERO.insight, a Python-based web client
+OMERO.web and the :doc:`/developers/command-line-interface`, which also uses
+Python. There is also an ImageJ plugin. OMERO can be extended by modifying
+these clients or by writing your own in any of the supported languages (see
+figure). OMERO also supports a :doc:`Scripting Service <scripts/index>` which
+allows Python scripts to be run on the server and called from any of the other
 clients.
 
-OMERO is designed, developed and released by the |OME|, with contributions 
-from |Glencoe| OMERO is released under the `GNU General Public License (GPL)`_ 
+OMERO is designed, developed and released by the |OME|, with contributions
+from |Glencoe| OMERO is released under the `GNU General Public License (GPL)`_
 with commercial licenses and customization available from |Glencoe|.
 
 .. _GNU General Public License (GPL): http://www.gnu.org/copyleft/gpl.html
 
-For help with any aspect of OMERO, see details of our 
+For help with any aspect of OMERO, see details of our
 :community_plone:`forums and mailing lists <>`.
 
 *********************
@@ -136,7 +135,8 @@ Insight
 More on API Usage
 *****************
 
-OMERO can be extended by modifying these clients or by writing your own in any of the supported languages.
+OMERO can be extended by modifying these clients or by writing your own in any
+of the supported languages.
 
 .. toctree::
     :maxdepth: 1
