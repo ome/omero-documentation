@@ -28,12 +28,15 @@ internet.
     :align: center
     :alt: The OMERO Platform
 
-This documentation is for the latest version of OMERO 4.4.x. **With the
-release of OMERO 5.0, this version now enters maintenance mode and while we
-will continue to support this version throughout 2014, it will only be updated
-for major bug fixes**. We also have archived versions available for
+This documentation is for the latest version of OMERO 4.4.x. We also have
+archived versions available for
 :legacy_plone:`previous versions of OMERO <>`. For more technical information,
 please refer to the :doc:`/developers/index`.
+
+.. note:: **With the release of OMERO 5.0, the 4.4.x line has now entered
+    maintenance mode. We will continue to support this version throughout 2014
+    but it will only be updated for major bug fixes.**.
+
 
 *********
 Resources
