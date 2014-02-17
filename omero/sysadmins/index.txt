@@ -2,6 +2,11 @@
 System Administrator Documentation
 ##################################
 
+.. warning:: This documentation is for the OMERO 4.4.x line which, on the
+    release of version 5.0 has now entered maintenance mode. While we will
+    continue to support this version throughout 2014, it will only be updated
+    for major bug fixes.
+
 *****************
 Server Background
 *****************

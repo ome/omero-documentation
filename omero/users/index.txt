@@ -8,19 +8,19 @@ Introduction
 
 OME Remote Objects (OMERO) is a modern client-server software platform
 for visualizing, managing, and annotating scientific image data. OMERO
-lets you import and archive your images, annotate and tag them, record 
-your experimental protocols, and export images in a number of formats. It also 
-allows you to collaborate with colleagues anywhere in the world by creating 
+lets you import and archive your images, annotate and tag them, record
+your experimental protocols, and export images in a number of formats. It also
+allows you to collaborate with colleagues anywhere in the world by creating
 user groups with different permission levels. OMERO consists of a Java server,
 several Java client applications, as well as Python and C++ bindings
 and a Django-based web application.
 
 The OMERO clients are cross-platform. To run on your computer they require
 Java 1.6 or higher to be installed. This can easily be installed from
-http://java.com/en if it is not already included in your OS. The OMERO.insight 
-client gets all of its information from a remote OMERO.server — the location 
-of which is specified at login. Since this connection utilises a standard 
-network connection, the client can be run anytime the user is connected to the 
+http://java.com/en if it is not already included in your OS. The OMERO.insight
+client gets all of its information from a remote OMERO.server — the location
+of which is specified at login. Since this connection utilises a standard
+network connection, the client can be run anytime the user is connected to the
 internet.
 
 .. figure:: /images/omero-overview.png
@@ -28,10 +28,15 @@ internet.
     :align: center
     :alt: The OMERO Platform
 
-This documentation is for the latest version of the OMERO Platform. We
-also have archived versions available for :legacy_plone:`legacy versions of
-OMERO <>`. For more technical information, please refer to the 
-:doc:`/developers/index`.
+This documentation is for the latest version of OMERO 4.4.x. We also have
+archived versions available for
+:legacy_plone:`previous versions of OMERO <>`. For more technical information,
+please refer to the :doc:`/developers/index`.
+
+.. note:: **With the release of OMERO 5.0, the 4.4.x line has now entered
+    maintenance mode. We will continue to support this version throughout 2014
+    but it will only be updated for major bug fixes.**.
+
 
 *********
 Resources
@@ -41,10 +46,8 @@ Resources
     :omero_plone:`Features List <feature-list>` page, providing an
     overview of the applications.
 
--   You can also browse our :omero_plone:`screenshots <screenshots>`. 
-
--   As OMERO is an open source project with developers and users in many 
-    countries, :doc:`connecting to the community <community-resources>` can 
+-   As OMERO is an open source project with developers and users in many
+    countries, :doc:`connecting to the community <community-resources>` can
     provide you with a wealth of experience to draw on for help and advice.
 
 -   ***NEW*** Our partners within the OME consortium are working on 
@@ -53,12 +56,12 @@ Resources
     extensions which could help OMERO meet your research needs more fully.
 
 -   ***NEW*** You can also extend the functionality of OMERO using 
-    OMERO.scripts, our version of plugins. Guides to some of the scripts which 
-    ship with OMERO releases are already provided, but you can also check out 
+    OMERO.scripts, our version of plugins. Guides to some of the scripts which
+    ship with OMERO releases are already provided, but you can also check out
     our :community_plone:`Script Sharing <scripts>` page to find extra ones.
 
 -   ***NEW*** Workflow-based user assistance guides are provided on our
-    :help:`help website <>`. Extended OMERO.web and guides to other OMERO 
+    :help:`help website <>`. Extended OMERO.web and guides to other OMERO
     applications will be coming here soon.
 
 
