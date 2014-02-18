@@ -1,9 +1,19 @@
 What's new for OMERO 5
 ======================
 
-- **Upgrading from OMERO 4.4.x to OMERO 5 is now possible**;
-  :doc:`server-upgrade` has been updated to explain the server upgrade
-  process, and also to describe the introduction of password salting support.
+From a sysadmin's point of view, the introduction of OMERO.fs as part of
+version 5.0 means that files are now stored on the server in their original
+format, preserving file names and directory structures. Therefore, the import
+process does not duplicate pixel data and storage requirements are roughly
+halved in comparison with a 4.4 import including archiving the original files.
+Combined with the new file integrity report, you should be confident that once
+a successful import has taken place, storing the original files outside of
+OMERO is no longer necessary as your users can always download their data in
+its original format if they need to.
+
+- :doc:`server-upgrade` has been updated to explain the server upgrade
+  process from 4.4.x to OMERO 5, and also to describe the introduction of
+  password salting support.
 
 - :doc:`fs-upload-configuration` has been added to explain the server-side FS
   workflow for importing files.
@@ -11,5 +21,5 @@ What's new for OMERO 5
 - :doc:`dropbox` has been reworked to clarify the distinction between OMERO.fs
   and OMERO.dropbox.
 
-- :doc:`system-requirements` has been updated to reflect that running 
+- :doc:`system-requirements` has been updated to reflect that running
   OMERO.web on your server now requires Python 2.6.5 or later.
