@@ -22,8 +22,10 @@ follow a few steps (commands are shown below):
 
    .. warning::
        You should not set :envvar:`OMERO_HOME` on production servers.
+
        The examples below assume a *developer* environment, making appropriate
-       use of OMERO internals such as :envvar:`OMERO_HOME`.
+       use of OMERO internals.
+       See :doc:`/sysadmins/omero-home-prefix` for details.
 
 -  Make sure that the Django libraries that are under the build:
    dist/lib/python/django are on your :envvar:`PYTHONPATH`.
