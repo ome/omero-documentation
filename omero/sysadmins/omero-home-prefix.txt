@@ -1,5 +1,5 @@
-:envvar:`OMERO_HOME` recommendations
-====================================
+Setting the OMERO_HOME environment variable
+===========================================
 
 .. warning::
     :envvar:`OMERO_HOME` should be considered strictly *internal* to OMERO
@@ -17,7 +17,7 @@ or libraries during development.
 
 
 .. note::
-    Despite a familiar-sounding name, :envvar:`OMERO_HOME` does *not*
+    Despite a familiar-sounding name, :envvar:`OMERO_HOME` does **not**
     denote the server installation directory.
 
 
@@ -28,7 +28,7 @@ As a "power switch", :envvar:`OMERO_HOME` will override the directory layout
 as detected by the `bin/omero` family of utilities.
 
 This could cause hard to detect problems at runtime.
-Environments hosting multiple OMERO versions would be particulary prone to
+Environments hosting multiple OMERO versions would be particularly prone to
 such side effects, as illustrated below.
 
 ::
@@ -65,9 +65,9 @@ Recommendations
 ---------------
 
 - If you are using an environment variable to define the server installation root,
-  favor :envvar:`OMERO_PREFIX` as the conventional way to do it.
+  choose a different name, as represented by :envvar:`OMERO_PREFIX` in this documentation.
 
-- If you are nevertheless using :envvar:`OMERO_HOME` in your *local* environment,
+- If you are nevertheless using :envvar:`OMERO_HOME` in your **local** environment,
   it is worth checking for potentially lingering global definitions (eg. `.bashrc`,
   `.profile`, `/etc/profile.d`).
 
