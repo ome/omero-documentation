@@ -172,6 +172,7 @@ Environment variables
     Unless you really know what you are doing, it is strongly recommended not
     to set this variable. :envvar:`OMERO_PREFIX` is the preferred way to
     reference the server installation directory.
+    See :doc:`/sysadmins/omero-home-prefix` for details.
 
 Edit your :file:`.bashrc` file, e.g. **$ vim ~/.bashrc** and add the
 following::
