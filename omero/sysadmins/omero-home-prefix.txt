@@ -27,7 +27,7 @@ Caveats
 As a "power switch", :envvar:`OMERO_HOME` will override the directory layout
 as detected by the `bin/omero` family of utilities.
 
-This could cause hard to detect problems at runtime.
+This could cause hard-to-detect problems at runtime.
 Environments hosting multiple OMERO versions would be particularly prone to
 such side effects, as illustrated below.
 
