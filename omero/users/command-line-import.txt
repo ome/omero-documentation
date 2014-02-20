@@ -47,51 +47,10 @@ Command Line options
 The Command Line Importer tool takes a number of mandatory and optional
 arguments to run, as follows:
 
-::
-
-    Usage:  importer-cli [OPTION]... [DIR|FILE]... 
-    or:   importer-cli [OPTION]... - 
-
-    Import any number of files into an OMERO instance.
-    If "-" is the only path, a list of files or directories 
-    is read from standard in. Directories will be searched for 
-    all valid imports.
-
-    Mandatory arguments:
-     -s   OMERO server hostname
-     -u   OMERO experimenter name (username)
-     -w   OMERO experimenter password
-     -k   OMERO session key (can be used in place of -u and -w)
-     -f   Display the used files (does not require other mandatory arguments)
-
-    Optional arguments:
-     -c   Continue importing after errors
-     -l   Use the list of readers rather than the default
-     -d   OMERO dataset Id to import image into
-     -r   OMERO screen Id to import plate into
-     -n   Image name to use
-     -x   Image description to use
-     -p   OMERO server port [defaults to 4064]
-     -h   Display this help and exit
-
-     --no_thumbnails                                    Do not perform thumbnailing after import
-     --plate_name                                       Plate name to use
-     --plate_description                                Plate description to use
-     --debug[=ALL|DEBUG|ERROR|FATAL|INFO|TRACE|WARN]    Turn debug logging on (optional level)
-     --report                                           Report errors to the OME team
-     --upload                                           Upload broken files with report
-     --logs                                             Upload log file with report
-     --email                                            Email for reported errors
-     --annotation_ns                                    Namespace to use for subsequent annotation
-     --annotation_text                                  Content for a text annotation (requires namespace)
-     --annotation_link                                  Comment annotation ID to link all images to
-
-     e.g. importer-cli -s localhost -u bart -w simpson -d 50 foo.tiff
-
-     Report bugs to <ome-users@lists.openmicroscopy.org.uk>
+.. literalinclude:: /downloads/cli/help.out
 
 These options will also be displayed on the command line by passing no
-arguments or "-h" to the importer.
+arguments to the importer.
 
 .. note::
     - Using the ``--report`` option sends an automated error report to the QA application.
@@ -103,20 +62,4 @@ arguments or "-h" to the importer.
 
 Sample :file:`config/importer.config` INI file:
 
-::
-
-    [General]
-    appTitle = OMERO.importer
-    appVersionNote =
-    port = 4064
-    disableUpgradeCheck = false
-
-    [Uploader]
-    TokenURL = http://qa.openmicroscopy.org.uk/qa/initial/
-    URL = http://qa.openmicroscopy.org.uk/qa/upload_processing/
-    BugTrackerURL = http://qa.openmicroscopy.org.uk/qa/upload_processing/
-    forumURL = http://www.openmicroscopy.org/community/
-
-    [UI]
-    forceFileArchiveOn = false
-    disableImportHistory = false
+.. literalinclude:: /downloads/cli/import.config
