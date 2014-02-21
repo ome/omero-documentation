@@ -148,18 +148,17 @@ extlinks = {
     # Plone links. Separating them out so that we can add prefixes and
     # suffixes during testing.
     'community_plone' : (oo_site_root + '/community/%s', ''),
-    'feature_plone' : (oo_site_root + '/products/ome5/feature-list/%s', ''),
-    'legacy_plone' : (oo_site_root + '/support/legacy/%s', ''),
+    'legacy_plone' : (oo_site_root + '/support/previous/%s', ''),
     'about_plone' : (oo_site_root + '/about/%s', ''),
     'team_plone' : (oo_site_root + '/team/%s', ''),
     'faq_plone' : (oo_site_root + '/support/faq/%s', ''),
     'training_plone' : (oo_site_root + '/support/training/%s', ''),
     'schema_plone' : (oo_root + '/Schemas/%s', ''),
-    'omero_plone' : (oo_site_root + '/products/ome5/%s', ''),
+    'omero_plone' : (oo_site_root + '/products/omero/%s', ''),
     'omero_doc' : (oo_site_root + '/support/omero5/%s', ''),
     'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),
     'devs_doc' : (oo_site_root + '/support/contributing/%s', ''),
-    'bf_plone' : (oo_site_root + '/products/ome5/bio-formats/%s', ''),
+    'bf_plone' : (oo_site_root + '/products/bio-formats/%s', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats5/%s', ''),
     'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
     # Downloads
