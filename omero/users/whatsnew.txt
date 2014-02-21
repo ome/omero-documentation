@@ -13,14 +13,14 @@ you require the original format for some of your data analysis.
 - :help:`Importing data guide <importing-data-5.html>` has been updated to
   illustrate the new workflow.
 
-- There is also a new :help:`Getting Started guide <getting-started-5.html>`
+- :doc:`command-line-import` has also been updated to reflect the new 
+  functionality.
+
+- There is a new :help:`Getting Started guide <getting-started-5.html>`
   for OMERO 5.0.
 
-:doc:`demo-server` is not available for OMERO 5 yet.
+- :doc:`command-line-interface` has been updated to document the new plugin
+  which allows you to list, create, and import tags and tag sets from the
+  command line.
 
-Workflow-based user guides have now moved to our new
-:help:`User Help website <>`.
-
-:doc:`command-line-interface` has been updated to document the new plugin
-which allows you to list, create, and import tags and tag sets from the
-command line.
+.. note:: :doc:`demo-server` **is now available for OMERO 5.**

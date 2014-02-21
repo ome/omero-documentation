@@ -1,6 +1,13 @@
 What's new for OMERO 5
 ======================
 
+OMERO 5.0 introduces the OMERO.fs (file system) changes needed to stop data
+duplication on import. Files are now imported and stored in their original
+format, preserving file names and directory structures, and reducing storage
+requirements. These changes, coupled with updates to :bf_doc:`Bio-Formats <>`
+and the clients, improve the way OMERO handles complex multidimensional
+datasets.
+
 - :doc:`logging` and :doc:`Server/Properties` have been updated to explain the
   new logging configuration in OMERO.fs.
 
