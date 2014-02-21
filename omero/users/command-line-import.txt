@@ -12,34 +12,47 @@ for a detailed list of supported formats.
 Starting the Command Line Importer
 ----------------------------------
 
-There are two ways to use the importer: 
- * Either by using the included shell scripts for Linux and Macintosh, 
- * or by calling directly the ``ome.formats.importer.cli.CommandLineImporter`` class from java on the command line (you will also need to include a path to the required support jars - look inside of the importer-cli scripts for an example of how to do this.)
+There are three ways to use the importer from the command line:
 
-An example of starting the importer from the command line might look
-like this:
+ * ``importer-cli`` shell script, included for Linux and Macintosh only
+ * ``ome.formats.importer.cli.CommandLineImporter`` Java class
+ * ``bin/omero import`` command, from a server installation only
 
-::
-
-    ./importer-cli …
-
-From server installation
-------------------------
+Using the importer using the shell script might look like this:
 
 ::
 
-    #!sh
-    bin/omero -s localhost -u user import …
+    ./importer-cli -s localhost -u user -w pass path/to/file
 
-This can also be used to detect what a command ''would'' import.
+To use the ``ome.formats.importer.cli.CommandLineImporter`` class from java on
+the command line you will also need to include a classpath to the required
+support jars. Please look inside of the ``importer-cli`` script for an example
+of how to do this.
+
+With a server installation, from server directory, execute the following
+command:
 
 ::
 
-    #!sh
+    bin/omero -s localhost -u user import path/to/file
+
+Note that this method will prompt for any mandatory arguments not provided.
+
+The importer can also be used to detect what files *would* be imported:
+
+::
+
+    ./importer-cli -f /path/to/file
+
+or
+
+::
+
     bin/omero import -f /path/to/file
 
-will print on standard out a list of all the files which would be
-imported in groups separated by "#" comments.
+will output a list of all the files which would be imported in groups
+separated by "#" comments. Note that this usage does not require a running
+server to be available.
 
 Command Line options
 --------------------
