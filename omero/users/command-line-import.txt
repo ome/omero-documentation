@@ -14,9 +14,9 @@ Starting the Command Line Importer
 
 There are three ways to use the importer from the command line:
 
- * ``importer-cli`` shell script, included for Linux and Macintosh only
- * ``ome.formats.importer.cli.CommandLineImporter`` Java class
- * ``bin/omero import`` command, from a server installation only
+* ``importer-cli`` shell script, included for Linux and Macintosh only
+* ``ome.formats.importer.cli.CommandLineImporter`` Java class
+* ``bin/omero import`` command, from a server installation only
 
 Using the importer using the shell script might look like this:
 
