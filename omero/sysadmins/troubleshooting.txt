@@ -155,6 +155,8 @@ before you restart the OMERO.server:
 
     ssh -x my_server.examples.com
 
+.. _out_of_memory_error:
+
 OutOfMemoryError / PermGen space errors in OMERO.server logs
 ------------------------------------------------------------
 
@@ -186,6 +188,12 @@ OMERO.server as follows:
 
    Replace ``-Xmx512M`` initially with ``-Xmx1024M`` or greater as required,
    (use ``-Xmx1024M -XX:MaxPermSize=128m`` as an alternative).
+
+Alternatively, if you are finding out of memory errors in one of the other
+process logs (e.g. Indexer-0.log or PixelData-0.log), look for the entry in
+``etc/grid/templates.xml`` corresponding to that process and change the ``-Xmx``
+option there (e.g. under ``<server-template id="IndexerTemplate">`` or
+``<server-template id="PixelDataTemplate">``, respectively).
 
 Furthermore, under certain conditions access of images greater than 4GB
 can be problematic on 32-bit platforms due to certain bugs within the
