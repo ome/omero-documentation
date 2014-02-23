@@ -105,6 +105,11 @@ against the server via ``IQuery.findAllByFullText()``. Use
 your search. Or alternatively use the ``oma.api.Search`` interface
 (below).
 
+.. _search-reindexing:
+
+Re-indexing
+^^^^^^^^^^^
+
 If you need to re-index your database, stop your server, and:
 
 -  (Optionally) Delete the ``/OMERO/FullText`` directory
