@@ -18,9 +18,14 @@ build under dist/lib/python/omeroweb.
 To set up and run OMERO.web from the source code, you need to 
 follow a few steps (commands are shown below):
 
--  Set $OMERO_HOME, so that OMERO.web knows where to find config, write logs etc.
+-  Set :envvar:`OMERO_HOME`, so that OMERO.web knows where to find config, write logs etc.
 
-   .. note:: You should not set $OMERO_HOME on production servers
+   .. warning::
+       You should not set :envvar:`OMERO_HOME` on production servers.
+
+       The examples below assume a *developer* environment, making appropriate
+       use of OMERO internals.
+       See :doc:`/sysadmins/omero-home-prefix` for details.
 
 -  Make sure that the Django libraries that are under the build:
    dist/lib/python/django are on your :envvar:`PYTHONPATH`.
