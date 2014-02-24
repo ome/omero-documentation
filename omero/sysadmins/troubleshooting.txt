@@ -250,7 +250,7 @@ Search does not return expected results
 
 If searching for a specific term does not return the expected results (e.g.
 searching for the name of a tag does not return the full list of a user's images
-annotated with that tag) there are a few possibily things that may have gone
+annotated with that tag) there are a few things that may have gone
 wrong.
 
 -  Check the server's log directory for a file named ``Indexer-0.log`` and
@@ -261,7 +261,7 @@ wrong.
 
        INFO  [   ome.services.fulltext.FullTextIndexer ] (3-thread-2) INDEXED 2 objects in 1 batch(es) [2483 ms.]
 
-   are periodically being appended to the log file, then your indexer process is
+   are periodically being appended to the log file, then your indexer process
    may be running behind. You can either wait for it to catch up, or try
    increasing the search batch size in order to speed processing. See the
    section on the :ref:`omero_search_batch` setting for more information.
@@ -293,10 +293,10 @@ wrong.
    :ref:`omero_search_max_file_size` setting for more information on increasing
    this limit.
 
--  If none of the above steps have resolved the sitaution, it is possible that
+-  If none of the above steps have resolved the situation, it is possible that
    your search index has become corrupt. If this is the case, you will need to
    re-index your server's content. See the section on :ref:`search-reindexing`
-   for more information. Keep in mind that you may additionally need to adjust
+   for more information. Keep in mind that you may also need to adjust
    the settings for the search batch size, maximum file size, and indexer's heap
    size, as outlined above.
 
