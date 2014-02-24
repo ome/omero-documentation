@@ -2,19 +2,25 @@ What's new for OMERO 5
 ======================
 
 From a user's perspective, OMERO 5 mostly alters the way import looks in
-OMERO.insight:
+OMERO.insight. Your files are now uploaded on to the OMERO.server in their
+original format which means you can always export them in this format. We have
+also introduced checksums to confirm if your file has been correctly uploaded
+so that you can have confidence that no corruption has occurred on import and
+your files are safely stored. In combination, these changes mean that you no
+longer need to store duplicates of your data outside of OMERO, for example if
+you require the original format for some of your data analysis.
 
 - :help:`Importing data guide <importing-data-5.html>` has been updated to
   illustrate the new workflow.
 
-- There is also a new :help:`Getting Started guide <getting-started-5.html>`
+- :doc:`command-line-import` has also been updated to reflect the new 
+  functionality.
+
+- There is a new :help:`Getting Started guide <getting-started-5.html>`
   for OMERO 5.0.
 
-Workflow-based user guides have now moved to our new
-:help:`User Help website <>`.
-
-:doc:`command-line-interface` has been updated to document the new plugin
-which allows you to list, create, and import tags and tag sets from the
-command line.
+- :doc:`command-line-interface` has been updated to document a new plugin
+  which allows you to list, create, and import tags and tag sets from the
+  command line.
 
 .. note:: :doc:`demo-server` **is now available for OMERO 5.**
