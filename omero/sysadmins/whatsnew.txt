@@ -23,3 +23,8 @@ its original format if they need to.
 
 - :doc:`system-requirements` has been updated to reflect that running
   OMERO.web on your server now requires Python 2.6.5 or later.
+
+- :doc:`troubleshooting` has been updated to guide you through what to do if
+  you are getting search errors, and how to adjust the
+  :doc:`server-advanced-configuration` to take advantage of improvements to
+  the server indexing system for 5.0.0.
