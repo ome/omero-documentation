@@ -56,6 +56,44 @@ Your database installation will need to be configured to accept *at
 least* as many, preferably more, connections as the value of
 "omero.db.poolsize"
 
+.. _omero_search_batch:
+
+omero.search.batch
+^^^^^^^^^^^^^^^^^^
+
+The search indexer will process events in batches, the size of which is
+determined by the ``omero.search.batch`` setting (default is 50):
+
+::
+
+	$ bin/omero config set omero.search.batch 200
+
+Setting a larger batch size can potentially speed up indexing, but it also
+places more strain on the indexer heap. If you increase batch size, it may be
+necessary to also increase heap size (see: :ref:`out_of_memory_error`).
+
+.. _omero_search_max_file_size:
+
+omero.search.max_file_size
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The search indexer will not index any text or PDF files larger than
+``omero.search.max_file_size`` bytes. If a file larger than this is attached,
+e.g. to an image, the indexer will simply ignore the contents of the file
+when creating the search index. To allow larger files to be added to the search
+index you may increase the setting (default is 131072000, or 125 MB):
+
+::
+
+	$ bin/omero config set omero.search.max_file_size 262144000
+
+.. note:: If you set the max file size to greater than 1/2 the size of the
+    indexer's heap (256 MB by default), you may encounter Out of Memory errors in
+    the Indexer process or you may cause the search index to become corrupt. Be sure
+    that you also increase the heap size accordingly (see
+    :ref:`out_of_memory_error`).
+
+
 .. _gridconfiguration:
 
 Grid configuration
