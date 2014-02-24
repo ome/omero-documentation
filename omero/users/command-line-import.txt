@@ -12,34 +12,47 @@ for a detailed list of supported formats.
 Starting the Command Line Importer
 ----------------------------------
 
-There are two ways to use the importer: 
- * Either by using the included shell scripts for Linux and Macintosh, 
- * or by calling directly the ``ome.formats.importer.cli.CommandLineImporter`` class from java on the command line (you will also need to include a path to the required support jars - look inside of the importer-cli scripts for an example of how to do this.)
+There are three ways to use the importer from the command line:
 
-An example of starting the importer from the command line might look
-like this:
+* ``importer-cli`` shell script, included for Linux and Macintosh only
+* ``ome.formats.importer.cli.CommandLineImporter`` Java class
+* ``bin/omero import`` command, from a server installation only
 
-::
-
-    ./importer-cli …
-
-From server installation
-------------------------
+Using the importer using the shell script might look like this:
 
 ::
 
-    #!sh
-    bin/omero -s localhost -u user import …
+    ./importer-cli -s localhost -u user -w pass path/to/file
 
-This can also be used to detect what a command ''would'' import.
+To use the ``ome.formats.importer.cli.CommandLineImporter`` class from java on
+the command line you will also need to include a classpath to the required
+support jars. Please look inside of the ``importer-cli`` script for an example
+of how to do this.
+
+With a server installation, from server directory, execute the following
+command:
 
 ::
 
-    #!sh
+    bin/omero -s localhost -u user import path/to/file
+
+Note that this method will prompt for any mandatory arguments not provided.
+
+The importer can also be used to detect what files *would* be imported:
+
+::
+
+    ./importer-cli -f /path/to/file
+
+or
+
+::
+
     bin/omero import -f /path/to/file
 
-will print on standard out a list of all the files which would be
-imported in groups separated by "#" comments.
+will output a list of all the files which would be imported in groups
+separated by "#" comments. Note that this usage does not require a running
+server to be available.
 
 Command Line options
 --------------------
@@ -47,51 +60,10 @@ Command Line options
 The Command Line Importer tool takes a number of mandatory and optional
 arguments to run, as follows:
 
-::
-
-    Usage:  importer-cli [OPTION]... [DIR|FILE]... 
-    or:   importer-cli [OPTION]... - 
-
-    Import any number of files into an OMERO instance.
-    If "-" is the only path, a list of files or directories 
-    is read from standard in. Directories will be searched for 
-    all valid imports.
-
-    Mandatory arguments:
-     -s   OMERO server hostname
-     -u   OMERO experimenter name (username)
-     -w   OMERO experimenter password
-     -k   OMERO session key (can be used in place of -u and -w)
-     -f   Display the used files (does not require other mandatory arguments)
-
-    Optional arguments:
-     -c   Continue importing after errors
-     -l   Use the list of readers rather than the default
-     -d   OMERO dataset Id to import image into
-     -r   OMERO screen Id to import plate into
-     -n   Image name to use
-     -x   Image description to use
-     -p   OMERO server port [defaults to 4064]
-     -h   Display this help and exit
-
-     --no_thumbnails                                    Do not perform thumbnailing after import
-     --plate_name                                       Plate name to use
-     --plate_description                                Plate description to use
-     --debug[=ALL|DEBUG|ERROR|FATAL|INFO|TRACE|WARN]    Turn debug logging on (optional level)
-     --report                                           Report errors to the OME team
-     --upload                                           Upload broken files with report
-     --logs                                             Upload log file with report
-     --email                                            Email for reported errors
-     --annotation_ns                                    Namespace to use for subsequent annotation
-     --annotation_text                                  Content for a text annotation (requires namespace)
-     --annotation_link                                  Comment annotation ID to link all images to
-
-     e.g. importer-cli -s localhost -u bart -w simpson -d 50 foo.tiff
-
-     Report bugs to <ome-users@lists.openmicroscopy.org.uk>
+.. literalinclude:: /downloads/cli/help.out
 
 These options will also be displayed on the command line by passing no
-arguments or "-h" to the importer.
+arguments to the importer.
 
 .. note::
     - Using the ``--report`` option sends an automated error report to the QA application.
@@ -103,20 +75,4 @@ arguments or "-h" to the importer.
 
 Sample :file:`config/importer.config` INI file:
 
-::
-
-    [General]
-    appTitle = OMERO.importer
-    appVersionNote =
-    port = 4064
-    disableUpgradeCheck = false
-
-    [Uploader]
-    TokenURL = http://qa.openmicroscopy.org.uk/qa/initial/
-    URL = http://qa.openmicroscopy.org.uk/qa/upload_processing/
-    BugTrackerURL = http://qa.openmicroscopy.org.uk/qa/upload_processing/
-    forumURL = http://www.openmicroscopy.org/community/
-
-    [UI]
-    forceFileArchiveOn = false
-    disableImportHistory = false
+.. literalinclude:: /downloads/cli/import.config
