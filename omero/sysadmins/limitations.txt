@@ -67,6 +67,29 @@ Not finding certain pieces of data in wildcard searches
 Sometimes data is missed when certain types of wildcard searches are
 performed. You can find further details on :ticket:`3164`.
 
+Importing
+---------
+
+Import failures when importing many filesets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The current behaviour of the importer is to create an import log for
+each fileset stored by OMERO.fs.  However, if many hundreds of
+filesets are imported simultaneously, this can lead to the server
+running out of file handles due to the amount of open log files.  This
+will be addressed in a future release.  In the interim, one workaround
+is to increase the maximum number of open files per process.  On
+Linux, this may be done by setting the `nofile` limit in
+:file:`/etc/security/limits.conf`, for example::
+
+  omero  soft  nofile  10000
+  omero  hard  nofile  12000
+
+This permits the `omero` user to have 10000 open files per process,
+which may be increased up to a maximum of 12000 by the user.  The
+username and limits will need adjusting for the specifics of your
+installation and usage requirements.
+
 File format support
 -------------------
 
