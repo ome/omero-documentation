@@ -96,10 +96,7 @@ which may be increased up to a maximum of 12000 by the user.  The
 username and limits will need adjusting for the specifics of your
 installation and usage requirements.  Note that these settings take
 effect only for new logins, so the server and the shell or environment
-the server is started from will require restarting.  Run::
-
-  ulimit -a
-
+the server is started from will require restarting.  Run ``ulimit -a``
 as the user running OMERO to verify that the changes have taken
 effect.
 
