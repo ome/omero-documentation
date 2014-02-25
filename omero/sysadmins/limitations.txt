@@ -73,14 +73,18 @@ Importing
 Import failures when importing many filesets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The current behaviour of the importer is to create an import log for
-each fileset stored by OMERO.fs.  However, if many hundreds of
-filesets are imported simultaneously, this can lead to the server
-running out of file handles due to the amount of open log files.  This
-will be addressed in a future release.  In the interim, one workaround
-is to increase the maximum number of open files per process.  On
-Linux, this may be done by setting the `nofile` limit in
-:file:`/etc/security/limits.conf`, for example::
+Starting with OMERO 5, the importer creates an import log for each
+fileset stored by OMERO.fs.  These files are kept open for 30 minutes
+by `logback <http://jira.qos.ch/browse/LOGBACK-244>`_.  If many
+filesets are imported sequentially, this 30 minute timeout can lead to
+the server running out of file handles due to the amount of open log
+files, which are closed at a slower rate than new logs are opened.
+This problem is most likely to manifest when hundreds of very fast
+imports occur within a short period of time. This will be addressed in
+a future release.  In the interim, one workaround is to increase the
+maximum number of open files per process.  On Linux, this may be done
+by setting the `nofile` limit in :file:`/etc/security/limits.conf`,
+for example::
 
   omero  soft  nofile  10000
   omero  hard  nofile  12000
@@ -88,7 +92,14 @@ Linux, this may be done by setting the `nofile` limit in
 This permits the `omero` user to have 10000 open files per process,
 which may be increased up to a maximum of 12000 by the user.  The
 username and limits will need adjusting for the specifics of your
-installation and usage requirements.
+installation and usage requirements.  Note that these settings take
+effect only for new logins, so the server and the shell or environment
+the server is started from will require restarting.  Run::
+
+  ulimit -a
+
+as the user running OMERO to verify that the changes have taken
+effect.
 
 File format support
 -------------------
