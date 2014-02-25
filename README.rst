@@ -427,7 +427,7 @@ Target name                 Link
 =========================== ==============================================
 Python                      http://python.org
 Matplotlib                  http://matplotlib.org/
-Python Imaging Library      http://www.pythonware.com/products/pil/
+Pillow                      http://pillow.readthedocs.org
 Hibernate                   http://www.hibernate.org
 ZeroC                       http://www.zeroc.com
 Ice                         http://www.zeroc.com

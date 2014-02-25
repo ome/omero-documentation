@@ -88,17 +88,12 @@ for further configuration or interaction.
 Windows
 -------
 
-The following specific packages have been tested on Windows 7 Enterprise:
-
-- PIL: `<http://effbot.org/media/downloads/PIL-1.1.7.win32-py2.6.exe>`_
-- SciPy:  `<http://sourceforge.net/projects/scipy/files/scipy/0.11.0/scipy-0.11.0-win32-superpack-python2.6.exe/download>`_
-- NumPy:  `<http://sourceforge.net/projects/numpy/files/NumPy/1.6.2/numpy-1.6.2-win32-superpack-python2.6.exe/download>`_
-- PyTables: `<http://www.lfd.uci.edu/~gohlke/pythonlibs/#pytables>`_
-- HDF (with szip and zlib):  `<http://www.hdfgroup.org/ftp/HDF5/current/bin/windows/>`_
-
 After installing all the Windows prerequisites OMERO.tables should start up
 during the OMERO.server startup. It can be verified by looking at the output
 of ``omero admin diagnostics``::
 
     (…)
     Server:     Tables-0                       active (pid = 3176, enabled)
+
+.. seealso::
+	:ref:`windows_additional_libraries`
