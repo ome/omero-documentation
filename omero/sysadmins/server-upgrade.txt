@@ -44,6 +44,10 @@ below. Please refer to each section for additional details.
 	``chainedPasswordProviderNoSalt`` as described in the
 	:ref:`legacy_password_providers` section.
 
+.. warning::
+    You may wish to review the open file limits.  Please consult the
+    :ref:`limitations-logback` section for further details.
+
 .. warning:: The passwords and logins used here are examples. Please consult
     the :ref:`troubleshooting-password` section for explanation.  In particular,
     make sure to replace the values of **db_user** and **omero_database**
