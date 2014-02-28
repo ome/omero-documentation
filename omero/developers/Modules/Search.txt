@@ -110,27 +110,87 @@ your search. Or alternatively use the ``oma.api.Search`` interface
 Re-indexing
 ^^^^^^^^^^^
 
-If you need to re-index your database, stop your server, and:
+There are a few reasons that you may need to re-index your database, e.g. if the
+index has become corrupt or you would like to have large files, that were
+previously skipped, added to the index (see :ref:`omero_search_max_file_size`).
+Under most circumstances, you should be able to re-index the database while the
+server is still running.
 
--  (Optionally) Delete the ``/OMERO/FullText`` directory
--  Delete or set to 0 the entry from the ``configuration`` table:
-   ``update configuration set value = 0 where name like 'PersistentEventLogLoader%';``
--  If it is necessary to force re-indexing, use:
+If you need to make any adjustments to the server configuration or the process
+heap size, first shut the server down and make these changes before restarting
+the server. Then, with the server running, using the following steps to initiate
+a re-indexing
+
+-  Disable the search indexer process and stop any currently running indexer
+   processes:
 
    ::
 
-       cd $OMERO_PREFIX
-       CLASSPATH=etc:`find lib/server | xargs | sed 's/ /:/g'`
-       java -Dlog4j.configuration=log4j-cli.properties -Xmx512M ome.services.fulltext.Main full
+       > bin/omero admin ice server disable Indexer-0
+       > bin/omero admin ice server stop Indexer-0
 
-or alternatively for particular types, ...
+-  Remove the existing search Indexes by deleting the contents of the
+   ``FullText`` subdirectory of your ${omero.data.dir}
+
+-  Reset the indexer's progress counter in the database
+
+   ::
+
+       > psql -U <omero-db-user> <omero-db-name> -c “update configuration set value = 0 where name like ‘PersistentEventLogLoader%’;”
+
+   substituting in your local omero database's user and name
+
+-  Re-enable/restart the indexer process (the Ice grid will handle automatically
+   restarting the process as soon as it is re-enabled)
+
+   ::
+
+       > bin/omero admin ice server enable Indexer-0
+
+Depending on the size of your database, it may take the indexer some time to
+finish re-indexing. During this time, your OMERO server will remain available
+for use, however the search functionality will be degraded until the re-indexing
+is finished.
+
+It is also possible to re-index the database with the server off-line. First,
+shutdown the OMERO server as normal and make any adjustments to the
+configuration that need to be made. Clear the contents of the ``FullText``
+directory, then run
 
 ::
 
-    java -Dlog4j.configuration=log4j-cli.properties -Xmx512M ome.services.fulltext.Main reindex ome.model.core.Image
+   > bin/omero admin reindex --full
 
-This functionality is still being tested, but will be made more
-available in future versions.
+Re-indexing the database in off-line mode will use a 1 GB heap by default (as
+opposed to the default 256MB heap for the indexer process in the running
+server). You can further adjust the size of the heap by passing an alternate
+value in the ``JAVA_OPTS`` variable on the command line
+
+::
+
+   > JAVA_OPTS="-Xmx2056MB" bin/omero admin reindex --full
+
+You may also want to increase the :ref:`omero_search_batch` size to take
+advantage of the larger heap. The combination of a larger heap and batch size
+should enable the re-index to complete sooner in off-line mode than it might in
+the context of a running server.
+
+Alternatively, you can re-index a specific class of objects in off-line mode,
+followed by a later re-index with the server running. Start by shutting down the
+server and clearing the contents of the ``FullText`` directory. Then reindex a
+specific class of object with
+
+::
+
+   > bin/omero admin reindex --class ome.model.core.Image
+
+Multiple classes can be re-indexed together by appending extra ``--class ...``
+arguments on the command-line. Once this limited re-indexing is completed, you
+can restart the server and search capabilities will be available in a limited
+fashion. If you would then like to re-index the remaining objects in the system,
+follow the steps for the on-line reindexing above, skipping the step that
+involves clearing the ``FullText`` directory.
+
 
 ome.api.IQuery
 ~~~~~~~~~~~~~~
