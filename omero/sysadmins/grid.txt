@@ -152,11 +152,15 @@ deployment to work.
 Nodes on a single host
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The most common change that you will want to make to your application
-descriptor is to add another processor. Take a look at
+The most common deployment example focuses on changing the deployed
+nodes/servers on a single host. The host's loopback IP address (127.0.0.1)
+is used in the grid configuration files.
+
+The first change that you will want to make to your application
+descriptor is to add additional processors. Take a look at
 :source:`etc/grid/default.xml`.
-There you can define two new nodes: ``node1`` and ``node2``. To add
-another processing node, simply add a new XML element:
+There you can define two new nodes - ``node1`` and ``node2`` by simply adding
+a new XML element below the ``master`` node definition:
 
 ::
 
@@ -168,12 +172,10 @@ another processing node, simply add a new XML element:
       <server-instance template="ProcessorTemplate" index="2"/>
     </node>
 
-and change the node name and the index number for each subsequent node
-definition.
-
-The node name and the index number do not need to match. In fact, the
-index number can be completely ignored, except for the fact that it must
-be unique. The node name, however, is important for properly starting
+Remember to change the node name and the index number for each subsequent
+node definition. The node name and the index number do not need to match. In
+fact, the index number can be completely ignored, except for the fact that
+it must be unique. The node name, however, is important for properly starting
 your new processor.
 
 You will need both a configuration file under ``etc/`` with the same name,
@@ -192,6 +194,44 @@ or with the environment variable ``OMERO_NODE``:
 
 For more information on using scripts, see the 
 :doc:`/developers/scripts/advanced`.
+
+Nodes on multiple hosts
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. warning::
+    Before attempting this type of deployment, make sure that the hosts
+    can ping each other and that required ports are open and not firewalled.
+
+A more complex deployment example is running multiple nodes on networked
+hosts.
+
+For this example, let's presume we have control over two hosts: ``omero-master`` (IP address 192.168.0.1/24) and ``omero-slave`` (IP address 192.168.
+0.2/24). The goal is to move the processor server onto another host (``omero-slave``) to reduce the load on the host running the ``master`` node (``omero-master``).
+
+The required changes to configuration files on each host are:
+
+1. ``omero-master``
+
+  - :file:`etc/internal.cfg` - change the value of ``Ice.Default.Locator`` from 127.0.0.1 to 192.168.0.1
+  - :file:`etc/master.cfg` - change all occurrances of 127.0.0.1 to 192.168.0.1
+  - :file:`etc/grid/default.xml` - remove or comment out from the ``master`` node the ``server-instance`` using the ``ProcessorTemplate``. Below the ``master`` node add an XML element defining a new node:
+
+  ::
+
+      <node name="omero-slave">
+          <server-instance template="ProcessorTemplate" index="0" dir=""/>
+      </node>
+
+2. ``omero-slave``
+
+  - copy or rename :file:`etc/node1.cfg` to :file:`etc/omero-slave.cfg` and change all ``node1`` strings to ``omero-slave`` in :file:`etc/omero-slave.cfg`. Also update the ``IceGrid.Node.Endpoints`` value to ``tcp -h 192.168.0.2``
+  - :file:`etc/internal.cfg` - change the value of ``Ice.Default.Locator`` from 127.0.0.1 to 192.168.0.1
+  - :file:`etc/ice.config` - add the line ``Ice.Default.Router=OMERO.Glacier2/router:tcp -p 4063 -h 192.168.0.1``
+
+First start the OMERO instance on the ``omero-master`` node by using
+:omerocmd:`admin start`. After that, start the ``omero-slave`` node by using
+:omerocmd:`node omero-slave start`. Issuing :omerocmd:`admin diagnostics` on
+the master node should show a running processor instance and the ``omero-slave`` node should accept work from the master node.
 
 Securing grid resources
 -----------------------
