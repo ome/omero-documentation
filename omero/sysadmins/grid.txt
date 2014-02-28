@@ -83,14 +83,14 @@ All the resources for a single OMERO site are described by one
 under :sourcedir:`etc/grid`. These
 descriptors describe what processes will be started on what nodes,
 identified by simple names. For example the :source:`default descriptor <etc/grid/default.xml>`, used if
-no other file is specified, defines the *master* node. As you will see,
+no other file is specified, defines the ``master`` node. As you will see,
 these files are critical both for the correct
 functioning of your server as well as its security.
 
 The deployment descriptors provided define which server instances are started
-on which nodes. The default descriptor configures the *master* node to start
-the :doc:`/developers/server-blitz` server, the Glacier2 router for
-firewalling, as well as a single processor - *Processor0*. The master node
+on which nodes. The default descriptor configures the ``master`` node to
+start the :doc:`/developers/server-blitz` server, the Glacier2 router for
+firewalling, as well as a single processor - ``Processor0``. The master node
 is also configured via
 :source:`master.cfg <etc/master.cfg>` to host the
 registry, though this process can be started elsewhere.
@@ -98,7 +98,7 @@ registry, though this process can be started elsewhere.
 Deployment commands
 ^^^^^^^^^^^^^^^^^^^
 
-The *master* node must be started first to provide the registry. This is
+The ``master`` node must be started first to provide the registry. This is
 done via the :omerocmd:`admin start` command which uses the default
 descriptor:
 
@@ -121,8 +121,8 @@ invocation:
 
     bin/omero admin deploy etc/grid/my-site.xml target1 target2
 
-Two other nodes, then, each provide a single processor, *Processor1* and
-*Processor2*. These are started via:
+Two other nodes, then, each provide a single processor, ``Processor1`` and
+``Processor2``. These are started via:
 
 ::
 
@@ -142,12 +142,20 @@ The whole grid can be shutdown by stopping the master node via:
 :omerocmd:`admin stop`. Each individual node can also be shutdown via:
 :omerocmd:`node stop` on that particular node.
 
-Modifying deployments
-^^^^^^^^^^^^^^^^^^^^^
+Deployment examples
+-------------------
+
+Two simple examples will be presented showing the flexibility of OMERO.grid
+deployment and identifying files whose modification is critical for the
+deployment to work.
+
+Nodes on a single host
+^^^^^^^^^^^^^^^^^^^^^^
 
 The most common change that you will want to make to your application
-descriptor is to add another processor. Take a look at :source:`etc/grid/default.xml`.
-There you can define two new nodes: **node1** and **node2**. To add
+descriptor is to add another processor. Take a look at
+:source:`etc/grid/default.xml`.
+There you can define two new nodes: ``node1`` and ``node2``. To add
 another processing node, simply add a new XML element:
 
 ::
