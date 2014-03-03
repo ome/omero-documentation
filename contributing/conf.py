@@ -35,6 +35,7 @@ contributing_extlinks = {
     }
 extlinks.update(contributing_extlinks)
 
+extensions += ['sphinx.ext.graphviz']
 # -- Options for LaTeX output --------------------------------------------------
 
 # Grouping the document tree into LaTeX files. List of tuples

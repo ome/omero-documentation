@@ -174,7 +174,6 @@ OMERO jobs
 		* :term:`OME-5.0-merge-homebrew`
 		*
 
-
 4.4.x series
 ^^^^^^^^^^^^
 
@@ -563,6 +562,10 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 4.4.x series
 ^^^^^^^^^^^^
 
+.. digraph:: BIOFORMATS44latest
+
+   "BIOFORMATS-4.4-latest" -> "BIOFORMATS-4.4-latest-maven";
+
 The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 
 .. glossary::
@@ -634,6 +637,12 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 5.0.x series
 ^^^^^^^^^^^^
 
+.. digraph:: BIOFORMATS50latest
+
+   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-maven" -> "BIOFORMATS-5.0-latest-cppwrap";
+   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-cpp";
+   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-docs-autogen";
+
 The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 .. glossary::
@@ -694,6 +703,12 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 5.1.x series
 ^^^^^^^^^^^^
+
+.. digraph:: BIOFORMATS51latest
+
+   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-maven" -> "BIOFORMATS-5.1-latest-cppwrap";
+   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-cpp";
+   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-docs-autogen";
 
 The branch for the 5.1.x series of Bio-Formats is develop.
 
