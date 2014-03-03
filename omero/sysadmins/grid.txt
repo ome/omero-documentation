@@ -206,34 +206,33 @@ A more complex deployment example is running multiple nodes on networked
 hosts.
 
 For this example, let's presume we have control over two hosts: ``omero-master`` (IP address 192.168.0.1/24) and ``omero-slave`` (IP address 192.168.
-0.2/24). The goal is to move the processor server onto another host (``omero-slave``) to reduce the load on the host running the ``master`` node (``omero-master``).
+0.2/24). The goal is to move the processor server onto another host (``omero-slave``) to reduce the load on the host running the ``master`` node (``omero-master``). The configuration changes required to achieve this are outlined
+below.
 
-The required changes to configuration files on each host are:
+On host ``omero-master``:
 
-1. On host ``omero-master``
+- :file:`etc/grid/default.xml` - remove or comment out from the ``master`` node the ``server-instance`` using the ``ProcessorTemplate``. Below the ``master`` node add an XML element defining a new node:
 
-  - :file:`etc/grid/default.xml` - remove or comment out from the ``master`` node the ``server-instance`` using the ``ProcessorTemplate``. Below the ``master`` node add an XML element defining a new node:
+  ::
 
-    ::
+      <node name="omero-slave">
+        <server-instance template="ProcessorTemplate" index="0" dir=""/>
+      </node>
 
-        <node name="omero-slave">
-            <server-instance template="ProcessorTemplate" index="0" dir=""/>
-        </node>
-
-  - :file:`etc/internal.cfg` - change the value of ``Ice.Default.Locator`` from 127.0.0.1 to 192.168.0.1
-  - :file:`etc/master.cfg` - change all occurrances of 127.0.0.1 to 192.168.0.1
+- :file:`etc/internal.cfg` - change the value of ``Ice.Default.Locator`` from 127.0.0.1 to 192.168.0.1
+- :file:`etc/master.cfg` - change all occurrances of 127.0.0.1 to 192.168.0.1
 
 
-2. On host ``omero-slave``
+On host ``omero-slave``:
 
-  - copy or rename :file:`etc/node1.cfg` to :file:`etc/omero-slave.cfg` and change all ``node1`` strings to ``omero-slave`` in :file:`etc/omero-slave.cfg`. Also update the ``IceGrid.Node.Endpoints`` value to ``tcp -h 192.168.0.2``
-  - :file:`etc/internal.cfg` - change the value of ``Ice.Default.Locator`` from 127.0.0.1 to 192.168.0.1
-  - :file:`etc/ice.config` - add the line ``Ice.Default.Router=OMERO.Glacier2/router:tcp -p 4063 -h 192.168.0.1``
+- copy or rename :file:`etc/node1.cfg` to :file:`etc/omero-slave.cfg` and change all ``node1`` strings to ``omero-slave`` in :file:`etc/omero-slave.cfg`. Also update the ``IceGrid.Node.Endpoints`` value to ``tcp -h 192.168.0.2``
+- :file:`etc/internal.cfg` - change the value of ``Ice.Default.Locator`` from 127.0.0.1 to 192.168.0.1
+- :file:`etc/ice.config` - add the line ``Ice.Default.Router=OMERO.Glacier2/router:tcp -p 4063 -h 192.168.0.1``
 
-First start the OMERO instance on the ``omero-master`` node by using
-:omerocmd:`admin start`. After that, start the ``omero-slave`` node by using
-:omerocmd:`node omero-slave start`. Issuing :omerocmd:`admin diagnostics` on
-the master node should show a running processor instance and the ``omero-slave`` node should accept work from the master node.
+To apply the changes, start the OMERO instance on the ``omero-master`` node
+by using :omerocmd:`admin start`. After that, start the ``omero-slave`` node
+by using :omerocmd:`node omero-slave start`. Issuing :omerocmd:`admin diagnostics` on the master node should show a running processor instance and
+the ``omero-slave`` node should accept job requests from the master node.
 
 Securing grid resources
 -----------------------
