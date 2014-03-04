@@ -155,6 +155,8 @@ before you restart the OMERO.server:
 
     ssh -x my_server.examples.com
 
+.. _out_of_memory_error:
+
 OutOfMemoryError / PermGen space errors in OMERO.server logs
 ------------------------------------------------------------
 
@@ -186,6 +188,12 @@ OMERO.server as follows:
 
    Replace ``-Xmx512M`` initially with ``-Xmx1024M`` or greater as required,
    (use ``-Xmx1024M -XX:MaxPermSize=128m`` as an alternative).
+
+Alternatively, if you are finding out of memory errors in one of the other
+process logs (e.g. Indexer-0.log or PixelData-0.log), look for the entry in
+``etc/grid/templates.xml`` corresponding to that process and change the ``-Xmx``
+option there (e.g. under ``<server-template id="IndexerTemplate">`` or
+``<server-template id="PixelDataTemplate">``, respectively).
 
 Furthermore, under certain conditions access of images greater than 4GB
 can be problematic on 32-bit platforms due to certain bugs within the
@@ -236,6 +244,61 @@ period (seconds) between retries in ``etc/grid/templates.xml``
     <property name="omero.fs.maxRetries"  value="5"/>
     <property name="omero.fs.retryInterval"  value="3"/>
 
+
+Search does not return expected results
+---------------------------------------
+
+If searching for a specific term does not return the expected results (e.g.
+searching for the name of a tag does not return the full list of a user's images
+annotated with that tag) there are a few things that may have gone
+wrong.
+
+-  Check the server's log directory for a file named ``Indexer-0.log`` and
+   monitor its progress (e.g. using ``tail`` or similar). If messages of the
+   format:
+
+   ::
+
+       INFO  [   ome.services.fulltext.FullTextIndexer ] (3-thread-2) INDEXED 2 objects in 1 batch(es) [2483 ms.]
+
+   are periodically being appended to the log file, then your indexer process
+   may be running behind. You can either wait for it to catch up, or try
+   increasing the search batch size in order to speed processing. See the
+   section on the :ref:`omero_search_batch` setting for more information.
+
+-  If there are no updates to the ``Indexer-0.log`` file even when new images,
+   tags, files, etc. are added to the server, then it is possible that the
+   Indexer process has become stuck. It is possible to force a restart of the
+   indexer using the :ref:`icegrid_tools` like so:
+
+   ::
+
+       > bin/omero admin ice
+       > omero admin ice
+       Ice 3.4.2  Copyright 2003-2011 ZeroC, Inc.
+       >>> server list
+       Blitz-0
+       DropBox
+       FileServer
+       Indexer-0
+       ...
+       >>> server stop Indexer-0
+
+   You do not need to manually re-start the Indexer, as IceGrid will handle the
+   creation of a new Indexer process automatically.
+
+-  If the missing search terms are part of a very large text file, it is
+   possible that the file has not been indexed due to exceeding the indexer's
+   maximum file size limit. See the section on the
+   :ref:`omero_search_max_file_size` setting for more information on increasing
+   this limit.
+
+-  If none of the above steps have resolved the situation, it is possible that
+   your search index has become corrupt. If this is the case, you will need to
+   re-index your server's content. See the section on :ref:`search-reindexing`
+   for more information. Keep in mind that you may also need to adjust
+   the settings for the search batch size, maximum file size, and indexer's heap
+   size, as outlined above.
 
 OMERO.web issues
 ----------------
