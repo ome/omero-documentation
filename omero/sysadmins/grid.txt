@@ -135,19 +135,20 @@ invocation:
 
 ::
 
-    bin/omero admin deploy etc/grid/my-site.xml target1 target2
+    bin/omero admin deploy etc/grid/my-site.xml
 
 Two other nodes, then, each provide a single processor, ``Processor1`` and
 ``Processor2``. These are started via:
+
+To start a node identified by ``NAME``, the following command can be used
 
 ::
 
     bin/omero node start NAME
 
-at which point they connect to the registry to announce their presence. Now,
-jobs can be run on any of the 3 processors. If a node with the same name is
-already started, then registration will fail, which is important to prevent
-unauthorized users.
+At this point the node will try and connect to the registry to announce its
+presence. If a node with the same name is already started, then registration
+will fail, which is important to prevent unauthorized users.
 
 The configuration of your grid, however, is very much up to you. Based
 on the example descriptor files (\*.xml) and configuration files
@@ -156,23 +157,25 @@ installations completely tailored to your computing resources.
 
 The whole grid can be shutdown by stopping the master node via:
 :omerocmd:`admin stop`. Each individual node can also be shutdown via:
-:omerocmd:`node stop` on that particular node.
+:omerocmd:`node NAME stop` on that particular node.
 
 Deployment examples
 -------------------
 
-Two simple examples will be presented showing the flexibility of OMERO.grid
+Two examples will be presented showing the flexibility of OMERO.grid
 deployment and identifying files whose modification is critical for the
 deployment to work.
 
 Nodes on a single host
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The most common deployment example focuses on changing the deployed
-nodes/servers on a single host. The host's loopback IP address (127.0.0.1)
-is used in the grid configuration files.
+The first example will focus on changing the deployed nodes/servers on a
+single host. It should serve as an introduction to the concepts. Unless used
+for very specific requirements, this type of deployment doesn't yield any
+performance gains.
 
-The first change that you will want to make to your application
+The host's loopback IP address (127.0.0.1) is used in the grid configuration
+files. The first change that you will want to make to your application
 descriptor is to add additional processors. Take a look at
 :source:`etc/grid/default.xml`.
 There you can define two new nodes - ``node1`` and ``node2`` by simply adding
