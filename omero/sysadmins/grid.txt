@@ -8,6 +8,14 @@ OMERO.grid provides management access,
 distributed background processing, log handling and several other
 features.
 
+Terminology
+-----------
+
+Please notice that ZeroC uses a specific naming scheme for IceGrid elements
+and actors. A *server* in the context of this document is not a host
+computer - it is a process running inside an IceGrid node, servicing
+incoming requests. A *host* is a computer on which IceGrid elements get
+deployed. For more details, see :zerocdoc:`Terminology <display/Ice/Terminology>`.
 
 Getting started
 ---------------
@@ -15,10 +23,18 @@ Getting started
 Requirements
 ^^^^^^^^^^^^
 
-OMERO.grid is the basis of the regular OMERO installation.
+The normal OMERO installation actually makes use of OMERO.grid internally.
 If you have followed the instructions under :doc:`unix/server-installation`
 (Unix) or :doc:`windows/server-installation` (Windows), then you
 will have everything you need to start working with OMERO.grid.
+
+The standard install should also be used to install other hosts in the grid,
+such as a computation-only host. Some elements can be omitted for a
+computation-only host such as PostgreSQL, Apache/nginx, etc.
+
+Running OMERO.web and/or starting up the full OMERO.server instance is not
+required in such a case (only the basic requirements to run :omerocmd:`node`
+are needed, i.e. ZeroC Ice and Python modules for OMERO scripts).
 
 .. _icegrid_tools:
 
