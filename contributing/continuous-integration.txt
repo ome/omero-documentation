@@ -52,7 +52,7 @@ Labels
 
 Labels are applied to PRs on GitHub under the “Issues” tab of each repository.
 
-The 4.4.x series consists of PRs labelled with “dev_4_4”, which 
+The 4.4.x series consists of PRs labelled with “dev_4_4”, which
 is the name of the branch which they will be merged into.
 
 The 5.0.x series consists of PRs labelled with “dev_5_0”, which is also
@@ -177,7 +177,7 @@ OMERO jobs
 4.4.x series
 ^^^^^^^^^^^^
 
-The branch for the 4.4.x series of OMERO is dev_4_4. All jobs 
+The branch for the 4.4.x series of OMERO is dev_4_4. All jobs
 are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 
 .. glossary::
@@ -307,6 +307,25 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 The branch for the 5.0.x series of OMERO is dev_5_0. All jobs are listed
 under the :jenkinsview:`5.0` view tab of Jenkins.
 
+.. digraph:: OMERO51latest
+
+   "OMERO-5.0-latest-ice33" -> "OMERO-5.0-latest-ice34" -> "OMERO-5.0-latest-ice35";
+   "OMERO-5.0-latest-ice35" -> "OMERO-5.0-latest-deploy"
+   "OMERO-5.0-latest-ice35" -> "OMERO-5.0-latest-virtualbox"
+
+.. digraph:: OMERO51merge
+
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-ice33";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-ice34";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-ice35";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-docs";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-integration";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-matlab";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-robotframework";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-training";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-deploy-webtagging";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-autoimport";
+
 .. glossary::
 
 	:jenkinsjob:`OMERO-5.0-latest-ice33`
@@ -342,7 +361,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 	:jenkinsjob:`OMERO-5.0-merge-ice34`
 	:jenkinsjob:`OMERO-5.0-merge-ice35`
 
-		These jobs are used to review the PRs opened against the dev_5_0 
+		These jobs are used to review the PRs opened against the dev_5_0
 		branch of OMERO with Ice 3.3, 3.4 or 3.5
 
 		#. Checks out the merge/dev_5_0/latest branch of the
@@ -435,6 +454,17 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 The branch for the 5.1.x series of OMERO is develop. All jobs are listed
 under the :jenkinsview:`5.1` view tab of Jenkins.
 
+
+.. digraph:: OMERO51jobs
+
+   "OMERO-5.1-latest" -> "OMERO-5.1-latest-deploy";
+
+   "OMERO-5.1-merge-daily" -> "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy";
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-docs"
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-integration"
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-matlab"
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-robotframework"
+
 .. glossary::
 
 	:jenkinsjob:`OMERO-5.1-latest`
@@ -501,7 +531,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		#. Collects the MATLAB artifacts from :term:`OMERO-5.1-merge-build`
 		#. Run the MATLAB unit tests under
 		   :file:`components/tools/OmeroM/test/unit` and collect the results
-		
+
 	:jenkinsjob:`OMERO-5.1-latest-submods`
 
 		This job is used to update the submodules on the develop branch
@@ -703,7 +733,7 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		directories on squig
 
 		#. |merge|
-		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and 
+		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and
 		   ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
 		   directories specified by
 		   :file:`BIOFORMATS-openbytes-performance.txt`
@@ -774,7 +804,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		directories on squig
 
 		#. |merge|
-		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and 
+		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and
 		   ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
 		   directories specified by
 		   :file:`BIOFORMATS-openbytes-performance.txt`
@@ -796,7 +826,7 @@ tab of Jenkins.
 
 	- 	* Job task
 		* 4.4.x series
-		* 5.0.x series 
+		* 5.0.x series
 		* 5.1.x series
 
 	- 	* Publish OMERO documentation
