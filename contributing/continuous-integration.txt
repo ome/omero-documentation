@@ -126,6 +126,11 @@ OMERO jobs
 		* :term:`OMERO-5.0-merge-daily`
 		* :term:`OMERO-5.1-merge-daily`
 
+	- 	* Merge the PRs
+		* :term:`OMERO-4.4-merge-daily`
+		* :term:`OMERO-5.0-merge-daily`
+		* :term:`OMERO-5.1-merge-push`
+
 	- 	* Build the merge OMERO  artifacts
 		* | :term:`OMERO-4.4-merge-ice33`
 		  | :term:`OMERO-4.4-merge-ice34`
@@ -141,7 +146,7 @@ OMERO jobs
 		* :term:`OMERO-5.0-merge-daily`
 		* :term:`OMERO-5.1-merge-deploy`
 
-	- 	* Run the integration tests
+	- 	* Run the OMERO integration tests
 		* | :term:`OMERO-4.4-merge-integration`
 		  | :term:`OMERO-4.4-merge-integration-java`
 		  | :term:`OMERO-4.4-merge-integration-python`
@@ -155,7 +160,7 @@ OMERO jobs
 		  | :term:`OMERO-5.1-merge-integration-python`
 		  | :term:`OMERO-5.1-merge-integration-broken`
 
-	- 	* Run the MATLAB tests
+	- 	* Run the OMERO.matlab tests
 		* :term:`OMERO-4.4-merge-matlab`
 		* :term:`OMERO-5.0-merge-matlab`
 		* :term:`OMERO-5.1-merge-matlab`
@@ -170,17 +175,22 @@ OMERO jobs
 		* :term:`OME-5.0-merge-homebrew`
 		*
 
-	- 	* Trigger the breaking  builds
+	- 	* Trigger the breaking OMERO builds
 		*
 		*
 		* :term:`OMERO-5.1-breaking-trigger`
 
-	- 	* Build the merge OMERO  artifacts
+	- 	* Merge the breaking PRs
+		*
+		*
+		* :term:`OMERO-5.1-breaking-push`
+
+	- 	* Build the breaking OMERO artifacts
 		*
 		*
 		* :term:`OMERO-5.1-breaking-build`
 
-	- 	* Deploy the merge OMERO server
+	- 	* Deploy the breaking OMERO server
 		*
 		*
 		* :term:`OMERO-5.1-breaking-deploy`
