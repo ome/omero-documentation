@@ -116,6 +116,11 @@ OMERO jobs
 		* :term:`OMERO-5.0-latest-deploy`
 		* :term:`OMERO-5.1-latest-deploy`
 
+	- 	* Update submodules
+		* :term:`OMERO-4.4-latest-submods`
+		* :term:`OMERO-5.0-latest-submods`
+		* :term:`OMERO-5.0-latest-submods`
+
 	- 	* Run the daily merge builds
 		* :term:`OMERO-4.4-merge-daily`
 		* :term:`OMERO-5.0-merge-daily`
@@ -160,15 +165,25 @@ OMERO jobs
 		* :term:`OMERO-5.0-merge-robotframework`
 		*
 
-	- 	* Update submodules
-		* :term:`OMERO-4.4-latest-submods`
-		* :term:`OMERO-5.0-latest-submods`
-		* :term:`OMERO-5.0-latest-submods`
-
 	- 	* Install OMERO using Homebrew
 		* :term:`OME-4.4-merge-homebrew`
 		* :term:`OME-5.0-merge-homebrew`
 		*
+
+	- 	* Trigger the breaking  builds
+		*
+		*
+		* :term:`OMERO-5.1-breaking-trigger`
+
+	- 	* Build the merge OMERO  artifacts
+		*
+		*
+		* :term:`OMERO-5.1-breaking-build`
+
+	- 	* Deploy the merge OMERO server
+		*
+		*
+		* :term:`OMERO-5.1-breaking-deploy`
 
 4.4.x series
 ^^^^^^^^^^^^
@@ -351,6 +366,15 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		This job deploys the latest server on port 14064 of
 		gretzky.openmicroscopy.org.uk
 
+	:jenkinsjob:`OMERO-5.0-latest-submods`
+
+		This job is used to update the submodules on the dev_5_0 branch
+
+		#. |updatesubmodules| and pushes the merge branch to
+		   snoopycrimecop/merge/dev_5_0/submodules
+		#. If the submodules are updated, opens a new PR or updates the
+		   existing dev_5_0 submodules PR
+
 	:jenkinsjob:`OMERO-5.0-merge-daily`
 
 		This job is used to review the PRs opened against the dev_5_0 branch
@@ -437,15 +461,6 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
 
-	:jenkinsjob:`OMERO-5.0-latest-submods`
-
-		This job is used to update the submodules on the dev_5_0 branch
-
-		#. |updatesubmodules| and pushes the merge branch to
-		   snoopycrimecop/merge/dev_5_0/submodules
-		#. If the submodules are updated, opens a new PR or updates the
-		   existing dev_5_0 submodules PR
-
 	:jenkinsjob:`OME-5.0-merge-homebrew`
 
 		This job is used to test the installation of OMERO 5.0 using Homebrew
@@ -474,6 +489,8 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
    "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-python";
    "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-broken";
 
+   "OMERO-5.1-breaking-trigger" -> "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-build" -> "OMERO-5.1-breaking-deploy";
+
 .. glossary::
 
 	:jenkinsjob:`OMERO-5.1-latest`
@@ -489,18 +506,35 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		This job deploys the latest server on port 14064 of
 		trout.openmicroscopy.org
 
+	:jenkinsjob:`OMERO-5.1-latest-submods`
+
+		This job is used to update the submodules on the develop branch
+
+		#. |updatesubmodules| and pushes the merge branch to
+		   snoopycrimecop/merge/develop/submodules
+		#. If the submodules are updated, opens a new PR or updates the
+		   existing develop submodules PR
+
 	:jenkinsjob:`OMERO-5.1-merge-daily`
 
 		This job is used to trigger all the morning merge builds listed below
 
+	:jenkinsjob:`OMERO-5.1-merge-push`
+
+		This job is used to merge all the develop PRs
+
+		#. |merge|
+		#. Push the branch to snoopycrimecop/merge/develop/latest
+
 	:jenkinsjob:`OMERO-5.1-merge-build`
 
-		These jobs are used to review the PRs opened against the develop
-		branch of OMERO with Ice 3.3, 3.4 or 3.5
+		These jobs are used to build the OMERO components with Ice 3.3, 3.4 or
+		3.5
 
 		#. Checks out the merge/develop/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
-		#. |buildOMERO|
+		#. |buildOMERO| for each version of Ice
+		#. |buildVM|
 		#. |archiveOMEROartifacts|
 
 	:jenkinsjob:`OMERO-5.1-merge-deploy`
@@ -550,14 +584,32 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		#. Run the MATLAB unit tests under
 		   :file:`components/tools/OmeroM/test/unit` and collect the results
 
-	:jenkinsjob:`OMERO-5.1-latest-submods`
+	:jenkinsjob:`OMERO-5.1-breaking-trigger`
 
-		This job is used to update the submodules on the develop branch
+		This job is used to trigger all the breaking jobs listed below
 
-		#. |updatesubmodules| and pushes the merge branch to
-		   snoopycrimecop/merge/develop/submodules
-		#. If the submodules are updated, opens a new PR or updates the
-		   existing develop submodules PR
+	:jenkinsjob:`OMERO-5.1-breaking-push`
+
+		This job is used to merge all the breaking PRs
+
+		#. |merge| including only PRs labelled as `breaking`
+		#. Push the branch to snoopycrimecop/merge/develop/breaking
+
+	:jenkinsjob:`OMERO-5.1-breaking-build`
+
+		These jobs are used to build the OMERO components with Ice 3.3, 3.4 or
+		3.5
+
+		#. Checks out the merge/develop/breaking branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. |buildOMERO| for each version of Ice
+		#. |buildVM|
+		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-5.1-breaking-deploy`
+
+		This job deploys the merge server on port 34064 of
+		trout.openmicroscopy.org
 
 
 Bio-Formats jobs
