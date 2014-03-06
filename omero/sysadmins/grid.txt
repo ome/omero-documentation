@@ -174,8 +174,7 @@ single host. It should serve as an introduction to the concepts. Unless used
 for very specific requirements, this type of deployment doesn't yield any
 performance gains.
 
-The host's loopback IP address (127.0.0.1) is used in the grid configuration
-files. The first change that you will want to make to your application
+The first change that you will want to make to your application
 descriptor is to add additional processors. Take a look at
 :source:`etc/grid/default.xml`.
 There you can define two new nodes - ``node1`` and ``node2`` by simply adding
@@ -211,6 +210,9 @@ or with the environment variable ``OMERO_NODE``:
 
     OMERO_NODE=node1 bin/omero node start
 
+After starting up both nodes, you can verify that you now have three
+processors running by looking at the output of :omerocmd:`admin diagnostics`.
+
 For more information on using scripts, see the 
 :doc:`/developers/scripts/advanced`.
 
@@ -222,7 +224,7 @@ Nodes on multiple hosts
     can ping each other and that required ports are open and not firewalled.
 
 A more complex deployment example is running multiple nodes on networked
-hosts.
+hosts. Initially, the host's loopback IP address (127.0.0.1) is used in the grid configuration files.
 
 For this example, let's presume we have control over two hosts: ``omero-master`` (IP address 192.168.0.1/24) and ``omero-slave`` (IP address 192.168.
 0.2/24). The goal is to move the processor server onto another host (``omero-slave``) to reduce the load on the host running the ``master`` node (``omero-master``). The configuration changes required to achieve this are outlined
