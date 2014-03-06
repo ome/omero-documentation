@@ -577,20 +577,30 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* 5.0.x series
 		* 5.1.x series
 
-	- 	* Build Bio-Formats
+	- 	* Build the latest Bio-Formats
 		* :term:`BIOFORMATS-4.4-latest`
 		* :term:`BIOFORMATS-5.0-latest`
 		* :term:`BIOFORMATS-5.1-latest`
 
-	- 	* Publish Bio-Formats to the LOCI Nexus repository
+	- 	* Publish the latest Bio-Formats to the OME artifactory
 		* :term:`BIOFORMATS-4.4-latest-maven`
 		* :term:`BIOFORMATS-5.0-latest-maven`
 		* :term:`BIOFORMATS-5.1-latest-maven`
 
-	- 	* Review Bio-Formats PRs
+	- 	* Build the latest Bio-Formats C++ bindings
+		*
+		* :term:`BIOFORMATS-5.0-latest-cpp`
+		* :term:`BIOFORMATS-5.1-latest-cpp`
+
+	- 	* Review the merge Bio-Formats PRs
 		* :term:`BIOFORMATS-4.4-merge-daily`
 		* :term:`BIOFORMATS-5.0-merge-daily`
 		* :term:`BIOFORMATS-5.1-merge-daily`
+
+	- 	* Build the latest Bio-Formats C++ bindings
+		*
+		* :term:`BIOFORMATS-5.0-merge-cpp`
+		* :term:`BIOFORMATS-5.1-merge-cpp`
 
 	- 	* Run the MATLAB tests
 		* :term:`BIOFORMATS-4.4-merge-matlab`
@@ -704,15 +714,19 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 	:jenkinsjob:`BIOFORMATS-5.0-latest`
 
-		This job is used to build the dev_5_0 branch of Bio-Formats
+		This job is used to build the latest dev_5_0 branch of Bio-Formats
 
 		#. |buildBF|
 		#. |testBF|
 
+	:jenkinsjob:`BIOFORMATS-5.0-latest-cpp`
+
+		This job is used to build the latest C++ bindings of Bio-Formats
+
 	:jenkinsjob:`BIOFORMATS-5.0-latest-maven`
 
 		This job is used to publish the dev_5_0 branch of Bio-Formats to the
-		LOCI Nexus repository
+		OME artifactory at http://artifacts.openmicroscopy.org/
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-daily`
 
@@ -724,6 +738,10 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		#. |merge|
 		#. |buildBF|
 		#. |fulltestBF|
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-cpp`
+
+		This job is used to build the merge C++ bindings of Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-matlab`
 
@@ -783,7 +801,11 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 	:jenkinsjob:`BIOFORMATS-5.1-latest-maven`
 
 		This job is used to publish the develop branch of Bio-Formats to the
-		LOCI Nexus repository
+		OME artifactory at http://artifacts.openmicroscopy.org/
+
+	:jenkinsjob:`BIOFORMATS-5.1-latest-cpp`
+
+		This job is used to build the latest  C++ bindings of Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-daily`
 
@@ -795,6 +817,10 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		#. |merge|
 		#. |buildBF|
 		#. |fulltestBF|
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-cpp`
+
+		This job is used to build the merge C++ bindings of Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-matlab`
 
