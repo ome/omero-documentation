@@ -327,6 +327,10 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
    "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-training";
    "OMERO-5.0-merge-daily" -> "OMERO-5.0-deploy-webtagging";
    "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-autoimport";
+   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-java";
+   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-python";
+   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-broken";
+
 
 .. glossary::
 
@@ -472,6 +476,9 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
    "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-integration"
    "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-matlab"
    "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-robotframework"
+   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-java";
+   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-python";
+   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-broken";
 
 .. glossary::
 
