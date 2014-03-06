@@ -566,6 +566,9 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 
    "BIOFORMATS-4.4-latest" -> "BIOFORMATS-4.4-latest-maven";
 
+   "BIOFORMATS-4.4-merge-daily" -> "BIOFORMATS-4.4-merge-docs";
+   "BIOFORMATS-4.4-merge-daily" -> "BIOFORMATS-4.4-merge-matlab";
+
 The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 
 .. glossary::
@@ -643,6 +646,10 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
    "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-cpp";
    "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-docs-autogen";
 
+   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-cpp";
+   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-docs";
+   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-matlab";
+
 The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 .. glossary::
@@ -709,6 +716,10 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
    "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-maven" -> "BIOFORMATS-5.1-latest-cppwrap";
    "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-cpp";
    "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-docs-autogen";
+
+   "BIOFORMATS-5.1-merge-daily" -> "BIOFORMATS-5.1-merge-cpp";
+   "BIOFORMATS-5.1-merge-daily" -> "BIOFORMATS-5.1-merge-docs";
+   "BIOFORMATS-5.1-merge-daily" -> "BIOFORMATS-5.1-merge-matlab";
 
 The branch for the 5.1.x series of Bio-Formats is develop.
 
