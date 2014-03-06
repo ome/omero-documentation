@@ -72,7 +72,6 @@ reviewed or merged, even though it is not excluded.
 ..  |merge| replace:: Merges PRs using :ref:`scc merge`
 ..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
 ..  |archiveOMEROartifacts| replace:: Archives the build artifacts
-..  |deployOMERO| replace:: Deploys the server under :file:`~/OMERO-CURRENT` on
 ..  |promoteOMERO| replace:: copies the artifacts to necromancer
 ..  |buildVM| replace:: Builds a |VM| using :source:`omerovm.sh <docs/install/VM/omerovm.sh>`
 ..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
@@ -101,38 +100,41 @@ OMERO jobs
 		* 5.0.x series
 		* 5.1.x series
 
-	- 	* Build OMERO
+	- 	* Build the latest OMERO artifacts
 		* :term:`OMERO-4.4-latest-ice33` /
 		  :term:`OMERO-4.4-latest-ice34` /
-		  :term:`OMERO-4.4-latest-ice35`
+		  :term:`OMERO-4.4-latest-ice35` /
+		  :term:`OMERO-4.4-latest-virtualbox`
 		* :term:`OMERO-5.0-latest-ice33` /
-		  :term:`OMERO-5.0-latest-ice34`
-		  :term:`OMERO-5.0-latest-ice35`
+		  :term:`OMERO-5.0-latest-ice34` /
+		  :term:`OMERO-5.0-latest-ice35`/
+		  :term:`OMERO-5.0-latest-virtualbox`
 		* :term:`OMERO-5.1-latest`
 
-	- 	* Build an OMERO Virtual Appliance
-		* :term:`OMERO-4.4-latest-virtualbox`
-		* :term:`OMERO-5.0-latest-virtualbox`
-		* :term:`OMERO-5.1-latest`
+	- 	* Deploy the latest OMERO server
+		*
+		* :term:`OMERO-5.0-latest-deploy`
+		* :term:`OMERO-5.1-latest-deploy`
 
 	- 	* Run the daily merge builds
 		* :term:`OMERO-4.4-merge-daily`
 		* :term:`OMERO-5.0-merge-daily`
 		* :term:`OMERO-5.1-merge-daily`
 
-	- 	* Review OMERO PRs
+	- 	* Build the merge OMERO  artifacts
 		* :term:`OMERO-4.4-merge-ice33` /
 		  :term:`OMERO-4.4-merge-ice34` /
 		  :term:`OMERO-4.4-merge-ice35`
 		* :term:`OMERO-5.0-merge-ice33` /
 		  :term:`OMERO-5.0-merge-ice34` /
-		  :term:`OMERO-5.0-merge-ice35`
+		  :term:`OMERO-5.0-merge-ice35` /
+		  :term:`OMERO-5.0-merge-virtualbox`
 		* :term:`OMERO-5.1-merge-build`
 
-	- 	* Review OMERO PRs using a Virtual Appliance
-		* :term:`OMERO-4.4-merge-virtualbox`
-		* :term:`OMERO-5.0-merge-virtualbox`
-		* :term:`OMERO-5.1-merge-build`
+	- 	* Deploy the merge OMERO server
+		* :term:`OMERO-4.4-merge-daily`
+		* :term:`OMERO-5.0-merge-daily`
+		* :term:`OMERO-5.1-merge-deploy`
 
 	- 	* Run the integration tests
 		* :term:`OMERO-4.4-merge-integration`
@@ -209,7 +211,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		   snoopycrimecop/merge/dev_4_4/latest
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
-		#. |deployOMERO| howe.openmicroscopy.org.uk
+		#. deploys the merge server on port 4064 of howe.openmicroscopy.org.uk
 
 	:jenkinsjob:`OMERO-4.4-merge-ice33`
 	:jenkinsjob:`OMERO-4.4-merge-ice34`
@@ -346,6 +348,11 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 
 		#. |buildVM|
 
+	:jenkinsjob:`OMERO-5.0-latest-deploy`
+
+		This job deploys the latest server on port 14064 of
+		gretzky.openmicroscopy.org.uk
+
 	:jenkinsjob:`OMERO-5.0-merge-daily`
 
 		This job is used to review the PRs opened against the dev_5_0 branch
@@ -355,7 +362,8 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		   snoopycrimecop/merge/dev_5_0/latest
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
-		#. |deployOMERO| gretzky.openmicroscopy.org.uk
+		#. deploys the merge server on port 4064 of
+		   gretzky.openmicroscopy.org.uk
 
 	:jenkinsjob:`OMERO-5.0-merge-ice33`
 	:jenkinsjob:`OMERO-5.0-merge-ice34`
@@ -474,7 +482,11 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
-		#. If the build is promoted, |promoteOMERO|
+
+	:jenkinsjob:`OMERO-5.1-latest-deploy`
+
+		This job deploys the latest server on port 14064 of
+		trout.openmicroscopy.org
 
 	:jenkinsjob:`OMERO-5.1-merge-daily`
 
@@ -489,6 +501,11 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		   snoopycrimecop fork of openmicroscopy.git_
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-5.1-merge-deploy`
+
+		This job deploys the merge server on port 4064 of
+		trout.openmicroscopy.org
 
 	:jenkinsjob:`OMERO-5.1-merge-integration`
 
