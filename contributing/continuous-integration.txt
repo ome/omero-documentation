@@ -101,14 +101,14 @@ OMERO jobs
 		* 5.1.x series
 
 	- 	* Build the latest OMERO artifacts
-		* :term:`OMERO-4.4-latest-ice33` /
-		  :term:`OMERO-4.4-latest-ice34` /
-		  :term:`OMERO-4.4-latest-ice35` /
-		  :term:`OMERO-4.4-latest-virtualbox`
-		* :term:`OMERO-5.0-latest-ice33` /
-		  :term:`OMERO-5.0-latest-ice34` /
-		  :term:`OMERO-5.0-latest-ice35`/
-		  :term:`OMERO-5.0-latest-virtualbox`
+		* | :term:`OMERO-4.4-latest-ice33`
+		  | :term:`OMERO-4.4-latest-ice34`
+		  | :term:`OMERO-4.4-latest-ice35`
+		  | :term:`OMERO-4.4-latest-virtualbox`
+		* | :term:`OMERO-5.0-latest-ice33`
+		  | :term:`OMERO-5.0-latest-ice34`
+		  | :term:`OMERO-5.0-latest-ice35`
+		  | :term:`OMERO-5.0-latest-virtualbox`
 		* :term:`OMERO-5.1-latest`
 
 	- 	* Deploy the latest OMERO server
@@ -122,13 +122,13 @@ OMERO jobs
 		* :term:`OMERO-5.1-merge-daily`
 
 	- 	* Build the merge OMERO  artifacts
-		* :term:`OMERO-4.4-merge-ice33` /
-		  :term:`OMERO-4.4-merge-ice34` /
-		  :term:`OMERO-4.4-merge-ice35`
-		* :term:`OMERO-5.0-merge-ice33` /
-		  :term:`OMERO-5.0-merge-ice34` /
-		  :term:`OMERO-5.0-merge-ice35` /
-		  :term:`OMERO-5.0-merge-virtualbox`
+		* | :term:`OMERO-4.4-merge-ice33`
+		  | :term:`OMERO-4.4-merge-ice34`
+		  | :term:`OMERO-4.4-merge-ice35`
+		* | :term:`OMERO-5.0-merge-ice33`
+		  | :term:`OMERO-5.0-merge-ice34`
+		  | :term:`OMERO-5.0-merge-ice35`
+		  | :term:`OMERO-5.0-merge-virtualbox`
 		* :term:`OMERO-5.1-merge-build`
 
 	- 	* Deploy the merge OMERO server
@@ -137,24 +137,18 @@ OMERO jobs
 		* :term:`OMERO-5.1-merge-deploy`
 
 	- 	* Run the integration tests
-		* :term:`OMERO-4.4-merge-integration`
-		* :term:`OMERO-5.0-merge-integration`
-		* :term:`OMERO-5.1-merge-integration`
-
-	- 	* Collect the OmeroJava integration test results
-		* :term:`OMERO-4.4-merge-integration-java`
-		* :term:`OMERO-5.0-merge-integration-java`
-		* :term:`OMERO-5.1-merge-integration-java`
-
-	- 	* Collect the OmeroPy integration test results
-		* :term:`OMERO-4.4-merge-integration-python`
-		* :term:`OMERO-5.0-merge-integration-python`
-		* :term:`OMERO-5.1-merge-integration-python`
-
-	- 	* Collect the broken integration test results
-		* :term:`OMERO-4.4-merge-integration-broken`
-		* :term:`OMERO-5.0-merge-integration-broken`
-		* :term:`OMERO-5.1-merge-integration-broken`
+		* | :term:`OMERO-4.4-merge-integration`
+		  | :term:`OMERO-4.4-merge-integration-java`
+		  | :term:`OMERO-4.4-merge-integration-python`
+		  | :term:`OMERO-4.4-merge-integration-broken`
+		* | :term:`OMERO-5.0-merge-integration`
+		  | :term:`OMERO-5.0-merge-integration-java`
+		  | :term:`OMERO-5.0-merge-integration-python`
+		  | :term:`OMERO-5.0-merge-integration-broken`
+		* | :term:`OMERO-5.1-merge-integration`
+		  | :term:`OMERO-5.1-merge-integration-java`
+		  | :term:`OMERO-5.1-merge-integration-python`
+		  | :term:`OMERO-5.1-merge-integration-broken`
 
 	- 	* Run the MATLAB tests
 		* :term:`OMERO-4.4-merge-matlab`
