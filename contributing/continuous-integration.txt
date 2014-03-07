@@ -121,7 +121,7 @@ OMERO jobs
 		* :term:`OMERO-5.0-latest-submods`
 		* :term:`OMERO-5.0-latest-submods`
 
-	- 	* Run the daily merge builds
+	- 	* Run the daily OMERO merge builds
 		* :term:`OMERO-4.4-merge-daily`
 		* :term:`OMERO-5.0-merge-daily`
 		* :term:`OMERO-5.1-merge-daily`
@@ -639,7 +639,7 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* 5.0.x series
 		* 5.1.x series
 
-	- 	* Build the latest Bio-Formats
+	- 	* Build the latest Bio-Formats artifacts
 		* :term:`BIOFORMATS-4.4-latest`
 		* :term:`BIOFORMATS-5.0-latest`
 		* :term:`BIOFORMATS-5.1-latest`
@@ -649,17 +649,27 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-5.0-latest-maven`
 		* :term:`BIOFORMATS-5.1-latest-maven`
 
-	- 	* Build the latest Bio-Formats C++ bindings
+	- 	* Build the latest C++ bindings for Bio-Formats
 		*
 		* :term:`BIOFORMATS-5.0-latest-cpp`
 		* :term:`BIOFORMATS-5.1-latest-cpp`
 
-	- 	* Review the merge Bio-Formats PRs
+	- 	* Run the daily Bio-Formats merge jobs
 		* :term:`BIOFORMATS-4.4-merge-daily`
 		* :term:`BIOFORMATS-5.0-merge-daily`
 		* :term:`BIOFORMATS-5.1-merge-daily`
 
-	- 	* Build the latest Bio-Formats C++ bindings
+	- 	* Build the merge Bio-Formats artifacts
+		* :term:`BIOFORMATS-4.4-merge-daily`
+		* :term:`BIOFORMATS-5.0-merge-daily`
+		* :term:`BIOFORMATS-5.1-merge-build`
+
+	- 	* Build the merge Bio-Formats artifacts
+		* :term:`BIOFORMATS-4.4-merge-daily`
+		* :term:`BIOFORMATS-5.0-merge-daily`
+		* :term:`BIOFORMATS-5.1-merge-build`
+
+	- 	* Build the merge C++ bindings for Bio-Formats
 		*
 		* :term:`BIOFORMATS-5.0-merge-cpp`
 		* :term:`BIOFORMATS-5.1-merge-cpp`
@@ -783,7 +793,7 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 	:jenkinsjob:`BIOFORMATS-5.0-latest-cpp`
 
-		This job is used to build the latest C++ bindings of Bio-Formats
+		This job is used to build the latest C++ bindings for Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.0-latest-maven`
 
@@ -803,7 +813,7 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-cpp`
 
-		This job is used to build the merge C++ bindings of Bio-Formats
+		This job is used to build the merge C++ bindings for Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-matlab`
 
@@ -845,9 +855,11 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
    "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-cpp";
    "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-docs-autogen";
 
-   "BIOFORMATS-5.1-merge-daily" -> "BIOFORMATS-5.1-merge-cpp";
-   "BIOFORMATS-5.1-merge-daily" -> "BIOFORMATS-5.1-merge-docs";
-   "BIOFORMATS-5.1-merge-daily" -> "BIOFORMATS-5.1-merge-matlab";
+   "BIOFORMATS-5.1-merge-daily" -> "OMERO-5.1-merge-push";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-build";
+   "BIOFORMATS-5.1-merge-build" -> "BIOFORMATS-5.1-merge-cpp";
+   "BIOFORMATS-5.1-merge-build" -> "BIOFORMATS-5.1-merge-docs";
+   "BIOFORMATS-5.1-merge-build" -> "BIOFORMATS-5.1-merge-matlab";
 
 The branch for the 5.1.x series of Bio-Formats is develop.
 
@@ -867,22 +879,33 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 
 	:jenkinsjob:`BIOFORMATS-5.1-latest-cpp`
 
-		This job is used to build the latest  C++ bindings of Bio-Formats
+		This job is used to build the latest C++ bindings for Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-daily`
 
-		This job is used to review the PRs opened against the develop branch
-		of Bio-Formats by running basic unit tests, checking for open file
+		This job is used to run the daily Bio-Formats jobs used for reviewing
+		the PRs opened against the develop branch of Bio-Formats by running basic unit tests, checking for open file
 		handles, and checking for regressions across a representative subset
 		of the data repository
 
-		#. |merge|
+		#. :term:`OMERO-5.1-merge-push`
+		#. :term:`BIOFORMATS-5.1-merge-build`
+		#. :term:`BIOFORMATS-5.1-merge-cpp`, :term:`BIOFORMATS-5.1-merge-docs`
+		    and :term:`BIOFORMATS-5.1-merge-matlab`
+
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-build`
+
+		This job build the merge artifacts of Bio-Formats
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
 		#. |buildBF|
 		#. |fulltestBF|
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-cpp`
 
-		This job is used to build the merge C++ bindings of Bio-Formats
+		This job is used to build the merge C++ bindings for Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-matlab`
 
