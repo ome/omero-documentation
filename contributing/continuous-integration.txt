@@ -679,13 +679,19 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-5.0-merge-matlab`
 		* :term:`BIOFORMATS-5.1-merge-matlab`
 
-	- 	* Run automated tests against directories on squig
+	- 	* Run automated tests against the full repository on squig
 		* :term:`BIOFORMATS-4.4-merge-full-repository`
 		* :term:`BIOFORMATS-5.0-merge-full-repository`
 		* :term:`BIOFORMATS-5.1-merge-full-repository`
 
+	- 	* Run automated tests against test_images_good on squig
+		* :term:`BIOFORMATS-4.4-merge-test_images_good`
+		* :term:`BIOFORMATS-5.0-merge-test_images_good`
+		* :term:`BIOFORMATS-5.1-merge-test_images_good`
+
 	- 	* Run openBytes performance test
-		* :term:`BIOFORMATS-4.4-merge-openbytes-performance` / :term:`BIOFORMATS-4.4-merge-omero-openbytes`
+		* | :term:`BIOFORMATS-4.4-merge-openbytes-performance`
+		  | :term:`BIOFORMATS-4.4-merge-omero-openbytes`
 		* :term:`BIOFORMATS-5.0-merge-openbytes-performance`
 		* :term:`BIOFORMATS-5.1-merge-openbytes-performance`
 
@@ -739,12 +745,22 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 	:jenkinsjob:`BIOFORMATS-4.4-merge-full-repository`
 
 		This job is used to review the PRs opened against the dev_4_4
-		branch of Bio-Formats by running automated tests against directories
-		on squig
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
 
 		#. |merge|
-		#. Run tests against directories configured by ``--test dirname``
-		   comments on the PRs
+		#. Run tests against directories configured by
+		   ``--test dirname`` under :file:`/ome/data_repo/from_skyking/`
+
+	:jenkinsjob:`BIOFORMATS-4.4-merge-test_images_good`
+
+		This job is used to review the PRs opened against the dev_4_4
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
+
+		#. |merge|
+		#. Run automated tests against
+		   :file:`/ome/data_repo/test_images_good/`
 
 	:jenkinsjob:`BIOFORMATS-4.4-merge-omero-openbytes`
 
@@ -766,6 +782,12 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 		#. Run ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
 		   directories specified by
 		   :file:`BIOFORMATS-openbytes-performance.txt`
+
+
+
+		* :term:`BIOFORMATS-4.4-merge-test_images_good`
+		* :term:`BIOFORMATS-5.0-merge-test_images_good`
+		* :term:`BIOFORMATS-5.1-merge-test_images_good`
 
 5.0.x series
 ^^^^^^^^^^^^
@@ -827,12 +849,22 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-full-repository`
 
-		This job is used to review the PRs opened against the dev_5_0 branch
-		of Bio-Formats by running automated tests against directories on squig
+		This job is used to review the PRs opened against the dev_5_0
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
 
 		#. |merge|
-		#. Run tests against directories configured by ``--test dirname``
-		   comments on the PRs
+		#. Run automated tests against :file:`/ome/data_repo/from_skyking/`
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-test_images_good`
+
+		This job is used to review the PRs opened against the dev_5_0
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
+
+		#. |merge|
+		#. Run automated tests against
+		   :file:`/ome/data_repo/test_images_good/`
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-openbytes-performance`
 
@@ -855,10 +887,14 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
    "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-cpp";
    "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-docs-autogen";
 
+.. digraph:: BIOFORMATS51mergedaily
+
    "BIOFORMATS-5.1-merge-daily" -> "OMERO-5.1-merge-push";
    "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-build";
-   "BIOFORMATS-5.1-merge-build" -> "BIOFORMATS-5.1-merge-cpp";
-   "BIOFORMATS-5.1-merge-build" -> "BIOFORMATS-5.1-merge-docs";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-cpp";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-docs";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-test_images_good";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-performance";
    "BIOFORMATS-5.1-merge-build" -> "BIOFORMATS-5.1-merge-matlab";
 
 The branch for the 5.1.x series of Bio-Formats is develop.
@@ -913,18 +949,30 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		the PRs opened against the develop branch of OMERO
 
 		#. Collects the MATLAB artifacts and unit tests from
-		   :term:`BIOFORMATS-5.1-merge-daily`
+		   :term:`BIOFORMATS-5.1-merge-build`
 		#. Run the MATLAB unit tests under
 		   :file:`components/bio-formats/test/matlab` and collect the results
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-full-repository`
 
-		This job is used to review the PRs opened against the develop branch
-		of Bio-Formats by running automated tests against directories on squig
+		This job is used to review the PRs opened against the develop
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
 
-		#. |merge|
-		#. Run tests against directories configured by ``--test dirname``
-		   comments on the PRs
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. Run automated tests against :file:`/ome/data_repo/from_skyking/`
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-test_images_good`
+
+		This job is used to review the PRs opened against the develop
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. Run automated tests against
+		   :file:`/ome/data_repo/test_images_good/`
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-openbytes-performance`
 
@@ -932,7 +980,8 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		branch of Bio-Formats by running openBytes performance tests against
 		directories on squig
 
-		#. |merge|
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
 		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and
 		   ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
 		   directories specified by
