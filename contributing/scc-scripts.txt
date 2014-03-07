@@ -71,11 +71,22 @@ scc merge
 
 .. program:: scc merge
 
-Merge all the open PRs based on specified branch, including all submodules.
+Merge all the PRs based on specified branch matching the input filters
+including all submodules.
 
 The first argument is the name of the base branch of origin, e.g.::
 
 	$ scc merge develop
+
+Filters of different types can be specified to include/exclude PRs:
+
+- Label filters can be specified using `label:LABEL`
+- User filters can be specified using `user:USERNAME`. The `user:#org` filter
+  specifies all users belonging to the public organization and `user:#all`
+  specifies all users.
+- PR filters can be specified using `pr:number` or `#number`. Submodule PR
+  filters can be specified using `user/repo#number`.
+- If no key is specified, it is assumed the filter is a label filter.
 
 .. option:: --comment
 
@@ -84,77 +95,29 @@ The first argument is the name of the base branch of origin, e.g.::
 
 		$ scc merge develop --comment
 
-.. option:: --default <type>, -D <type>
+.. option:: --default <filterset>, -D <filterset>
 
-	Specify the default set of PRs to be included in the merge
+	Specify the default set of filters to use
 
-	Four options are currently implemented: `none`, `mine`, `org` and `all`.
-	By default (`org`), only PRs opened by public members of the repository
-	organization are included so the following are equivalent::
+	Three filter sets are currently implemented: `none`, `org` and `all`. The
+	`none` filter set has no preset filter. The `org` filter set uses
+	`user:#org` and `label:include` as the default include filters and
+	`label:exclude` and `label:breaking` as the default exclude filters. The
+	`all` filter set uses `user:#all` as the default include filters.
 
-		$ scc merge develop
-		$ scc merge develop --default org
-		$ scc merge develop -D org
+	Default: `org`
 
-.. option:: --exclude <filters>, -E <filters>
+.. option:: --exclude <filter>, -E <filter>
 
-	Exclude PR by label, user or number
+	Exclude PR by filter (see filter semantics above)::
 
-	Label filters can be specified using `label:my_label`::
+		$ scc merge develop -E label:l1 -E user:u1 -E #45 -E org/repo#40
 
-		$ scc merge develop -E label:exclude_label
+.. option:: --include <filter>, -I <filter>
 
-	User filters can be specified using `user:username`::
+	Include PR by filter (see filter semantics above)::
 
-		$ scc merge develop -E user:my_user
-
-	PR filters can be specified using `pr:number` or `#number`::
-
-		$ scc merge develop -E pr:45 -E #46
-
-	Submodule PR filters can be specified using
-	`submodule_user/submodule_name#number`::
-
-		$ scc merge develop -E openmicroscopy/bioformats#40
-
-	If no key is specified, it is assumed the filter is a label filter.
-
-	By default, only PRs labeled as `exclude` are excluded so the following
-	are equivalent::
-
-		$ scc merge develop
-		$ scc merge develop -E label:exclude
-		$ scc merge develop -E exclude
-
-.. option:: --include <filters>, -I <filters>
-
-	Include PR by label, user or number
-
-	Label filters can be specified using `label:my_label`::
-
-		$ scc merge develop -I label:exclude_label
-
-	User filters can be specified using `user:username`::
-
-		$ scc merge develop -I user:my_user
-
-	PR filters can be specified using `pr:number` or `#number`::
-
-		$ scc merge develop -I pr:45 -I #46
-
-	Submodule PR filters can be specified using
-	`submodule_user/submodule_name#number`::
-
-		$ scc merge develop -I openmicroscopy/bioformats#40
-
-	If no key is specified, it is assumed the filter is a label filter.
-
-	By default, only PRs labeled as `include` are included so the following
-	are equivalent::
-
-		$ scc merge develop
-		$ scc merge develop -I label:include
-		$ scc merge develop -I include
+		$ scc merge develop -I label:l1 -I user:u1 -I #45 -I org/repo#40
 
 .. option:: --check-commit-status <status>, -S <status>
 
@@ -305,7 +268,7 @@ Assuming the head branch used to open the PR 142 was called `branch_142`, this
 command will rebase the tip of `branch_142` onto origin/develop, create a new
 local branch called `rebased/develop/branch_142`, push this branch to Github
 and open a new PR. Assuming the command opens PR 150, to facilitate the
-integration with :program:`scc unrebased-prs`, a ``--rebased-to #150``
+integration with :program:`scc check-prs`, a ``--rebased-to #150``
 comment is added to PR 142 and a ``--rebased-from #142`` comment is
 added to the PR 150. Finally, the command will switch back to the original
 branch prior to rebasing and delete the local `rebased/develop/branch_142`.
@@ -373,14 +336,14 @@ branch prior to rebasing and delete the local `rebased/develop/branch_142`.
 	Automatically add ``--rebased-to`` and ``--rebased-from`` comments to the
 	source and target PRs.
 
-scc unrebased-prs
------------------
-.. program:: scc unrebased-prs
+scc check-prs
+-------------
+.. program:: scc check-prs
 
 Compare two development branches and check that PRs merged in one branch have
 been merged to the other.
 
-The basic workflow of the :program:`scc unrebased-prs` command is the
+The basic workflow of the :program:`scc check-prs` command is the
 following:
 
 - 	list all first-parent merge commits for each branch including git notes
@@ -400,26 +363,25 @@ corresponding source/target PR. For instance, if PR 70 has a
 This command requires two positional arguments corresponding to the name of
 the branch of origin to compare::
 
-	$ scc unrebased-prs dev_4_4 develop
+	$ scc check-prs dev_4_4 develop
 
 .. option:: --shallow
 
-	Look for unrebased PRs in the top-level directory only, excluding
-	submodules::
+	Check PRs in the top-level directory only, excluding submodules::
 
-		$ scc unrebased-prs dev_4_4 develop --shallow
+		$ scc check-prs dev_4_4 develop --shallow
 
 .. option:: --remote <remote>
 
 	Specify the name of the remote to use as the origin (default: origin)::
 
-		$ scc unrebased-prs dev_4_4 develop --remote gh
+		$ scc check-prs dev_4_4 develop --remote gh
 
 .. option:: --no-check
 
 	Do not check links between rebased comments::
 
-		$ scc unrebased-prs dev_4_4 develop --no-check
+		$ scc check-prs dev_4_4 develop --no-check
 
 .. versionadded:: 0.3.10
 	Added support for body/comment parsing and ``--rebased-to/from``
@@ -427,6 +389,9 @@ the branch of origin to compare::
 
 .. versionchanged:: 0.4.0
 	Improved command output and added support for submodule processing
+
+.. versionchanged:: 0.5.0
+	Renamed command
 
 scc version
 -----------

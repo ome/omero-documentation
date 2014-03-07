@@ -3,7 +3,7 @@ before_install:
   - sudo apt-get update
 
   - sudo apt-get -y install texlive-latex-base texlive-latex-recommended texlive-xetex
-  - sudo apt-get -y install texlive-latex-extra texlive-fonts-recommended tex-gyre
+  - sudo apt-get -y install texlive-latex-extra texlive-fonts-recommended fonts-texgyre
   - sudo apt-get -y install graphviz
 
   - sudo fc-cache -rsfv

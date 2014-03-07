@@ -13,7 +13,7 @@ Artificial datasets
 -------------------
 
 All datasets in the following table were :source:`artificially
-generated <components/scifio/src/loci/formats/tools/MakeTestOmeTiff.java>`
+generated <components/formats-bsd/src/loci/formats/tools/MakeTestOmeTiff.java>`
 with each plane labeled according to its dimensional position for easy
 testing. Each one consists of a single OME-TIFF file (2013-06 schema
 version) containing every constituent image plane. For an example of an
