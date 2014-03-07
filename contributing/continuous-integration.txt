@@ -908,11 +908,12 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		handles, and checking for regressions across a representative subset
 		of the data repository
 
-		#. :term:`OMERO-5.1-merge-push`
-		#. :term:`BIOFORMATS-5.1-merge-build`
-		#. :term:`BIOFORMATS-5.1-merge-cpp`, :term:`BIOFORMATS-5.1-merge-docs`
-		    and :term:`BIOFORMATS-5.1-merge-matlab`
-
+		#. Trigger :term:`OMERO-5.1-merge-push`
+		#. Trigger :term:`BIOFORMATS-5.1-merge-build`,
+		   :term:`BIOFORMATS-5.1-merge-cpp`,
+		   :term:`BIOFORMATS-5.1-merge-docs`,
+		   :term:`BIOFORMATS-5.1-merge-test_images_good` and
+   		   BIOFORMATS-5.1-merge-performance
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-build`
 
@@ -922,6 +923,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		   snoopycrimecop fork of bioformats.git_
 		#. |buildBF|
 		#. |fulltestBF|
+		#. Trigger :term:`BIOFORMATS-5.1-merge-matlab`
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-cpp`
 
