@@ -685,7 +685,7 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-5.1-merge-full-repository`
 
 	- 	* Run automated tests against test_images_good on squig
-		* :term:`BIOFORMATS-4.4-merge-test_images_good`
+		*
 		* :term:`BIOFORMATS-5.0-merge-test_images_good`
 		* :term:`BIOFORMATS-5.1-merge-test_images_good`
 
@@ -751,16 +751,6 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 		#. |merge|
 		#. Run tests against directories configured by
 		   ``--test dirname`` under :file:`/ome/data_repo/from_skyking/`
-
-	:jenkinsjob:`BIOFORMATS-4.4-merge-test_images_good`
-
-		This job is used to review the PRs opened against the dev_4_4
-		branch of Bio-Formats by running automated tests against the full
-		repository on squig
-
-		#. |merge|
-		#. Run automated tests against
-		   :file:`/ome/data_repo/test_images_good/`
 
 	:jenkinsjob:`BIOFORMATS-4.4-merge-omero-openbytes`
 
