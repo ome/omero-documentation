@@ -70,10 +70,10 @@ reviewed or merged, even though it is not excluded.
 
 
 ..  |merge| replace:: Merges PRs using :ref:`scc merge`
-..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
+..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :file:`docs/hudson/OMERO.sh`
 ..  |archiveOMEROartifacts| replace:: Archives the build artifacts
 ..  |promoteOMERO| replace:: copies the artifacts to necromancer
-..  |buildVM| replace:: Builds a |VM| using :source:`omerovm.sh <docs/install/VM/omerovm.sh>`
+..  |buildVM| replace:: Builds a |VM| using :file:`docs/install/VM/omerovm.sh`
 ..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
 
 Continuous integration server
@@ -235,7 +235,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		branch of OMERO with Ice 3.3
 
 		#. |merge| and pushes the merged branch to
-		   snoopycrimecop/merge/dev_4_4/latest
+		   :snoopybranch:`merge/dev_4_4/latest`
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 		#. deploys the merge server on port 4064 of howe.openmicroscopy.org.uk
@@ -247,8 +247,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		These jobs are used to review the PRs opened against the dev_4_4
 		branch of OMERO with Ice 3.3, 3.4 or 3.5
 
-		#. Checks out the merge/dev_4_4/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/dev_4_4/latest`
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 
@@ -257,8 +256,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		This job is used to build a Virtual Appliance from the dev_4_4
 		branch with the PRs opened against the dev_4_4 branch of OMERO
 
-		#. Checks out the merge/dev_4_4/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/dev_4_4/latest`
 		#. |buildVM|
 
 	:jenkinsjob:`OMERO-4.4-merge-integration`
@@ -297,8 +295,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		dev_4_4 branch with the PRs opened against the dev_4_4
 		branch of OMERO
 
-		#. Checks out the merge/dev_4_4/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/dev_4_4/latest`
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
 
@@ -307,8 +304,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		This job is used to run the MATLAB tests from the dev_4_4 branch with
 		the PRs opened against the dev_4_4 branch of OMERO
 
-		#. Checks out the merge/dev_4_4/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/dev_4_4/latest`
 		#. Collects the MATLAB artifacts from :term:`OMERO-4.4-merge-daily`
 		#. Run the MATLAB unit tests under
 		   :file:`components/tools/OmeroM/test/unit` and collect the results
@@ -318,7 +314,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		This job is used to update the submodules on the dev_4_4 branch
 
 		#. |updatesubmodules| and pushes the merged branch to
-		   snoopycrimecop/merge/dev_4_4/submodules
+		   :snoopybranch:`merge/dev_4_4/submodules`
 		#. If the submodules are updated, opens a new PR or updates the
 		   existing dev_4_4 submodules PR
 
@@ -389,7 +385,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		This job is used to update the submodules on the dev_5_0 branch
 
 		#. |updatesubmodules| and pushes the merge branch to
-		   snoopycrimecop/merge/dev_5_0/submodules
+		   :snoopybranch:`merge/dev_5_0/submodules`
 		#. If the submodules are updated, opens a new PR or updates the
 		   existing dev_5_0 submodules PR
 
@@ -399,7 +395,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		of OMERO with Ice 3.3
 
 		#. |merge| and pushes the merged branch to
-		   snoopycrimecop/merge/dev_5_0/latest
+		   :snoopybranch:`merge/dev_5_0/latest`
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 		#. deploys the merge server on port 4064 of
@@ -412,8 +408,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		These jobs are used to review the PRs opened against the dev_5_0
 		branch of OMERO with Ice 3.3, 3.4 or 3.5
 
-		#. Checks out the merge/dev_5_0/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/dev_5_0/latest`
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
 
@@ -422,8 +417,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		This job is used to build a Virtual Appliance from the dev_5_0 branch
 		with the PRs opened against the dev_5_0 branch of OMERO
 
-		#. Checks out the merge/dev_5_0/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/dev_5_0/latest`
 		#. |buildVM|
 
 	:jenkinsjob:`OMERO-5.0-merge-integration`
@@ -462,8 +456,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		This job is used to run the MATLAB tests from the dev_5_0 branch with
 		the PRs opened against the dev_5_0 branch of OMERO
 
-		#. Checks out the merge/dev_5_0/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/dev_5_0/latest`
 		#. Collects the MATLAB artifacts from :term:`OMERO-5.0-merge-daily`
 		#. Run the MATLAB unit tests under
 		   :file:`components/tools/OmeroM/test/unit` and collect the results
@@ -474,8 +467,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		dev_5_0 branch with the PRs opened against the dev_5_0
 		branch of OMERO
 
-		#. Checks out the merge/dev_5_0/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/dev_5_0/latest`
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
 
@@ -535,7 +527,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		This job is used to update the submodules on the develop branch
 
 		#. |updatesubmodules| and pushes the merge branch to
-		   snoopycrimecop/merge/develop/submodules
+		   :snoopybranch:`merge/develop/submodules`
 		#. If the submodules are updated, opens a new PR or updates the
 		   existing develop submodules PR
 
@@ -548,15 +540,14 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		This job is used to merge all the develop PRs
 
 		#. |merge|
-		#. Push the branch to snoopycrimecop/merge/develop/latest
+		#. Push the branch to :snoopybranch:`merge/develop/latest`
 
 	:jenkinsjob:`OMERO-5.1-merge-build`
 
 		These jobs are used to build the OMERO components with Ice 3.3, 3.4 or
 		3.5
 
-		#. Checks out the merge/develop/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/develop/latest`
 		#. |buildOMERO| for each version of Ice
 		#. |buildVM|
 		#. |archiveOMEROartifacts|
@@ -571,8 +562,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		This job is used to run the integration tests from the develop
 		branch with the PRs opened against the develop branch of OMERO
 
-		#. Checks out the merge/develop/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/develop/latest`
 		#. Build OMERO.server and start it
 		#. Run the integration tests and collect the results (Java and Python)
 
@@ -602,8 +592,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		This job is used to run the MATLAB tests from the develop branch with
 		the PRs opened against the develop branch of OMERO
 
-		#. Checks out the merge/develop/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/develop/latest`
 		#. Collects the MATLAB artifacts from :term:`OMERO-5.1-merge-build`
 		#. Run the MATLAB unit tests under
 		   :file:`components/tools/OmeroM/test/unit` and collect the results
@@ -614,8 +603,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		develop branch with the PRs opened against the develop
 		branch of OMERO
 
-		#. Checks out the merge/develop/latest branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/develop/latest`
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
 
@@ -628,15 +616,14 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		This job is used to merge all the breaking PRs
 
 		#. |merge| including only PRs labelled as `breaking`
-		#. Push the branch to snoopycrimecop/merge/develop/breaking
+		#. Push the branch to :snoopybranch:`merge/develop/breaking`
 
 	:jenkinsjob:`OMERO-5.1-breaking-build`
 
 		These jobs are used to build the OMERO components with Ice 3.3, 3.4 or
 		3.5
 
-		#. Checks out the merge/develop/breaking branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/develop/breaking`
 		#. |buildOMERO| for each version of Ice
 		#. |buildVM|
 		#. |archiveOMEROartifacts|
@@ -650,8 +637,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 		This job runs the integration tests from the breaking branch of OMERO
 
-		#. Checks out the merge/develop/breaking branch of the
-		   snoopycrimecop fork of openmicroscopy.git_
+		#. Checks out :snoopybranch:`merge/develop/breaking`
 		#. Build OMERO.server and start it
 		#. Run the integration tests and collect the results (Java and Python)
 
@@ -974,8 +960,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 
 		This job build the merge artifacts of Bio-Formats
 
-		#. Checks out the merge/develop/latest branch of the
-		   snoopycrimecop fork of bioformats.git_
+		#. Checks out :bf_snoopybranch:`merge/develop/latest`
 		#. |buildBF|
 		#. |fulltestBF|
 		#. Trigger :term:`BIOFORMATS-5.1-merge-matlab`
@@ -1000,8 +985,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		branch of Bio-Formats by running automated tests against the full
 		repository on squig
 
-		#. Checks out the merge/develop/latest branch of the
-		   snoopycrimecop fork of bioformats.git_
+		#. Checks out :bf_snoopybranch:`merge/develop/latest`
 		#. Run automated tests against :file:`/ome/data_repo/from_skyking/`
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-test_images_good`
@@ -1010,8 +994,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		branch of Bio-Formats by running automated tests against the full
 		repository on squig
 
-		#. Checks out the merge/develop/latest branch of the
-		   snoopycrimecop fork of bioformats.git_
+		#. Checks out :bf_snoopybranch:`merge/develop/latest`
 		#. Run automated tests against
 		   :file:`/ome/data_repo/test_images_good/`
 
@@ -1021,8 +1004,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		branch of Bio-Formats by running openBytes performance tests against
 		directories on squig
 
-		#. Checks out the merge/develop/latest branch of the
-		   snoopycrimecop fork of bioformats.git_
+		#. Checks out :bf_snoopybranch:`merge/develop/latest`
 		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and
 		   ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
 		   directories specified by

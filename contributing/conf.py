@@ -24,14 +24,20 @@ from conf import *
 # General information about the project.
 project = u'OME Contributing Developer'
 title = project + u' Documentation'
-    
+
+snoopy_github_root = github_root + 'snoopycrimecop/'
+omero_snoopy_root = snoopy_github_root + 'openmicroscopy/'
+bf_snoopy_root = snoopy_github_root + 'bioformats/'
+
 # OME contributing-specific extlinks
 contributing_extlinks = {
     # Github links
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
-    'sourcedir' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
+    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
+    'snoopybranch' : (omero_snoopy_root + 'tree/%s', ''),
     'bf_source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
     'bf_sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
+    'bf_snoopybranch' : (bf_snoopy_root + 'tree/%s', ''),
     }
 extlinks.update(contributing_extlinks)
 
