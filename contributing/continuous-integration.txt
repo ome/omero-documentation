@@ -52,7 +52,7 @@ Labels
 
 Labels are applied to PRs on GitHub under the “Issues” tab of each repository.
 
-The 4.4.x series consists of PRs labelled with “dev_4_4”, which 
+The 4.4.x series consists of PRs labelled with “dev_4_4”, which
 is the name of the branch which they will be merged into.
 
 The 5.0.x series consists of PRs labelled with “dev_5_0”, which is also
@@ -72,7 +72,6 @@ reviewed or merged, even though it is not excluded.
 ..  |merge| replace:: Merges PRs using :ref:`scc merge`
 ..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
 ..  |archiveOMEROartifacts| replace:: Archives the build artifacts
-..  |deployOMERO| replace:: Deploys the server under :file:`~/OMERO-CURRENT` on
 ..  |promoteOMERO| replace:: copies the artifacts to necromancer
 ..  |buildVM| replace:: Builds a |VM| using :source:`omerovm.sh <docs/install/VM/omerovm.sh>`
 ..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
@@ -101,60 +100,67 @@ OMERO jobs
 		* 5.0.x series
 		* 5.1.x series
 
-	- 	* Build OMERO
-		* :term:`OMERO-4.4-latest-ice33` /
-		  :term:`OMERO-4.4-latest-ice34` /
-		  :term:`OMERO-4.4-latest-ice35`
-		* :term:`OMERO-5.0-latest-ice33` /
-		  :term:`OMERO-5.0-latest-ice34`
-		  :term:`OMERO-5.0-latest-ice35`
+	- 	* Build the latest OMERO artifacts
+		* | :term:`OMERO-4.4-latest-ice33`
+		  | :term:`OMERO-4.4-latest-ice34`
+		  | :term:`OMERO-4.4-latest-ice35`
+		  | :term:`OMERO-4.4-latest-virtualbox`
+		* | :term:`OMERO-5.0-latest-ice33`
+		  | :term:`OMERO-5.0-latest-ice34`
+		  | :term:`OMERO-5.0-latest-ice35`
+		  | :term:`OMERO-5.0-latest-virtualbox`
 		* :term:`OMERO-5.1-latest`
 
-	- 	* Build an OMERO Virtual Appliance
-		* :term:`OMERO-4.4-latest-virtualbox`
-		* :term:`OMERO-5.0-latest-virtualbox`
-		* :term:`OMERO-5.1-latest`
+	- 	* Deploy the latest OMERO server
+		*
+		* :term:`OMERO-5.0-latest-deploy`
+		* :term:`OMERO-5.1-latest-deploy`
 
-	- 	* Run the daily merge builds
+	- 	* Update submodules
+		* :term:`OMERO-4.4-latest-submods`
+		* :term:`OMERO-5.0-latest-submods`
+		* :term:`OMERO-5.0-latest-submods`
+
+	- 	* Run the daily OMERO merge builds
 		* :term:`OMERO-4.4-merge-daily`
 		* :term:`OMERO-5.0-merge-daily`
 		* :term:`OMERO-5.1-merge-daily`
 
-	- 	* Review OMERO PRs
-		* :term:`OMERO-4.4-merge-ice33` /
-		  :term:`OMERO-4.4-merge-ice34` /
-		  :term:`OMERO-4.4-merge-ice35`
-		* :term:`OMERO-5.0-merge-ice33` /
-		  :term:`OMERO-5.0-merge-ice34` /
-		  :term:`OMERO-5.0-merge-ice35`
+	- 	* Merge the PRs
+		* :term:`OMERO-4.4-merge-daily`
+		* :term:`OMERO-5.0-merge-daily`
+		* :term:`OMERO-5.1-merge-push`
+
+	- 	* Build the merge OMERO  artifacts
+		* | :term:`OMERO-4.4-merge-ice33`
+		  | :term:`OMERO-4.4-merge-ice34`
+		  | :term:`OMERO-4.4-merge-ice35`
+		* | :term:`OMERO-5.0-merge-ice33`
+		  | :term:`OMERO-5.0-merge-ice34`
+		  | :term:`OMERO-5.0-merge-ice35`
+		  | :term:`OMERO-5.0-merge-virtualbox`
 		* :term:`OMERO-5.1-merge-build`
 
-	- 	* Review OMERO PRs using a Virtual Appliance
-		* :term:`OMERO-4.4-merge-virtualbox`
-		* :term:`OMERO-5.0-merge-virtualbox`
-		* :term:`OMERO-5.1-merge-build`
+	- 	* Deploy the merge OMERO server
+		* :term:`OMERO-4.4-merge-daily`
+		* :term:`OMERO-5.0-merge-daily`
+		* :term:`OMERO-5.1-merge-deploy`
 
-	- 	* Run the integration tests
-		* :term:`OMERO-4.4-merge-integration`
-		* :term:`OMERO-5.0-merge-integration`
-		* :term:`OMERO-5.1-merge-integration`
+	- 	* Run the OMERO integration tests
+		* | :term:`OMERO-4.4-merge-integration`
+		  | :term:`OMERO-4.4-merge-integration-java`
+		  | :term:`OMERO-4.4-merge-integration-python`
+		  | :term:`OMERO-4.4-merge-integration-broken`
+		* | :term:`OMERO-5.0-merge-integration`
+		  | :term:`OMERO-5.0-merge-integration-java`
+		  | :term:`OMERO-5.0-merge-integration-python`
+		  | :term:`OMERO-5.0-merge-integration-broken`
+		* | :term:`OMERO-5.1-merge-integration`
+		  | :term:`OMERO-5.1-merge-integration-java`
+		  | :term:`OMERO-5.1-merge-integration-python`
+		  | :term:`OMERO-5.1-merge-integration-broken`
 
-	- 	* Collect the OmeroJava integration test results
-		* :term:`OMERO-4.4-merge-integration-java`
-		* :term:`OMERO-5.0-merge-integration-java`
-		* :term:`OMERO-5.1-merge-integration-java`
-
-	- 	* Collect the OmeroPy integration test results
-		* :term:`OMERO-4.4-merge-integration-python`
-		* :term:`OMERO-5.0-merge-integration-python`
-		* :term:`OMERO-5.1-merge-integration-python`
-
-	- 	* Collect the broken integration test results
-		* :term:`OMERO-4.4-merge-integration-broken`
-		* :term:`OMERO-5.0-merge-integration-broken`
-		* :term:`OMERO-5.1-merge-integration-broken`
-
-	- 	* Run the MATLAB tests
+	- 	* Run the OMERO.matlab tests
 		* :term:`OMERO-4.4-merge-matlab`
 		* :term:`OMERO-5.0-merge-matlab`
 		* :term:`OMERO-5.1-merge-matlab`
@@ -162,23 +168,45 @@ OMERO jobs
 	- 	* Run the robot framework tests
 		* :term:`OMERO-4.4-merge-robotframework`
 		* :term:`OMERO-5.0-merge-robotframework`
-		*
-
-	- 	* Update submodules
-		* :term:`OMERO-4.4-latest-submods`
-		* :term:`OMERO-5.0-latest-submods`
-		* :term:`OMERO-5.0-latest-submods`
+		* :term:`OMERO-5.1-merge-robotframework`
 
 	- 	* Install OMERO using Homebrew
 		* :term:`OME-4.4-merge-homebrew`
 		* :term:`OME-5.0-merge-homebrew`
 		*
 
+	- 	* Trigger the breaking OMERO builds
+		*
+		*
+		* :term:`OMERO-5.1-breaking-trigger`
+
+	- 	* Merge the breaking PRs
+		*
+		*
+		* :term:`OMERO-5.1-breaking-push`
+
+	- 	* Build the breaking OMERO artifacts
+		*
+		*
+		* :term:`OMERO-5.1-breaking-build`
+
+	- 	* Deploy the breaking OMERO server
+		*
+		*
+		* :term:`OMERO-5.1-breaking-deploy`
+
+	- 	* Run the breaking OMERO integration tests
+		*
+		*
+		* | :term:`OMERO-5.1-breaking-integration`
+		  | :term:`OMERO-5.1-breaking-integration-java`
+		  | :term:`OMERO-5.1-breaking-integration-python`
+		  | :term:`OMERO-5.1-breaking-integration-broken`
 
 4.4.x series
 ^^^^^^^^^^^^
 
-The branch for the 4.4.x series of OMERO is dev_4_4. All jobs 
+The branch for the 4.4.x series of OMERO is dev_4_4. All jobs
 are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 
 .. glossary::
@@ -210,7 +238,7 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		   snoopycrimecop/merge/dev_4_4/latest
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
-		#. |deployOMERO| howe.openmicroscopy.org.uk
+		#. deploys the merge server on port 4064 of howe.openmicroscopy.org.uk
 
 	:jenkinsjob:`OMERO-4.4-merge-ice33`
 	:jenkinsjob:`OMERO-4.4-merge-ice34`
@@ -308,6 +336,29 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 The branch for the 5.0.x series of OMERO is dev_5_0. All jobs are listed
 under the :jenkinsview:`5.0` view tab of Jenkins.
 
+.. digraph:: OMERO51latest
+
+   "OMERO-5.0-latest-ice33" -> "OMERO-5.0-latest-ice34" -> "OMERO-5.0-latest-ice35";
+   "OMERO-5.0-latest-ice35" -> "OMERO-5.0-latest-deploy"
+   "OMERO-5.0-latest-ice35" -> "OMERO-5.0-latest-virtualbox"
+
+.. digraph:: OMERO51merge
+
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-ice33";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-ice34";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-ice35";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-docs";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-integration";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-matlab";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-robotframework";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-training";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-deploy-webtagging";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-autoimport";
+   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-java";
+   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-python";
+   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-broken";
+
+
 .. glossary::
 
 	:jenkinsjob:`OMERO-5.0-latest-ice33`
@@ -328,6 +379,20 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 
 		#. |buildVM|
 
+	:jenkinsjob:`OMERO-5.0-latest-deploy`
+
+		This job deploys the latest server on port 14064 of
+		gretzky.openmicroscopy.org.uk
+
+	:jenkinsjob:`OMERO-5.0-latest-submods`
+
+		This job is used to update the submodules on the dev_5_0 branch
+
+		#. |updatesubmodules| and pushes the merge branch to
+		   snoopycrimecop/merge/dev_5_0/submodules
+		#. If the submodules are updated, opens a new PR or updates the
+		   existing dev_5_0 submodules PR
+
 	:jenkinsjob:`OMERO-5.0-merge-daily`
 
 		This job is used to review the PRs opened against the dev_5_0 branch
@@ -337,13 +402,14 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		   snoopycrimecop/merge/dev_5_0/latest
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
-		#. |deployOMERO| gretzky.openmicroscopy.org.uk
+		#. deploys the merge server on port 4064 of
+		   gretzky.openmicroscopy.org.uk
 
 	:jenkinsjob:`OMERO-5.0-merge-ice33`
 	:jenkinsjob:`OMERO-5.0-merge-ice34`
 	:jenkinsjob:`OMERO-5.0-merge-ice35`
 
-		These jobs are used to review the PRs opened against the dev_5_0 
+		These jobs are used to review the PRs opened against the dev_5_0
 		branch of OMERO with Ice 3.3, 3.4 or 3.5
 
 		#. Checks out the merge/dev_5_0/latest branch of the
@@ -413,15 +479,6 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
 
-	:jenkinsjob:`OMERO-5.0-latest-submods`
-
-		This job is used to update the submodules on the dev_5_0 branch
-
-		#. |updatesubmodules| and pushes the merge branch to
-		   snoopycrimecop/merge/dev_5_0/submodules
-		#. If the submodules are updated, opens a new PR or updates the
-		   existing dev_5_0 submodules PR
-
 	:jenkinsjob:`OME-5.0-merge-homebrew`
 
 		This job is used to test the installation of OMERO 5.0 using Homebrew
@@ -436,6 +493,28 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 The branch for the 5.1.x series of OMERO is develop. All jobs are listed
 under the :jenkinsview:`5.1` view tab of Jenkins.
 
+
+.. digraph:: OMERO51jobs
+
+   "OMERO-5.1-latest" -> "OMERO-5.1-latest-deploy";
+
+   "OMERO-5.1-merge-daily" -> "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy";
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-docs"
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-integration"
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-matlab"
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-robotframework"
+   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-java";
+   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-python";
+   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-broken";
+
+   "OMERO-5.1-breaking-trigger" -> "OMERO-5.1-breaking-push";
+   "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-build";
+   "OMERO-5.1-breaking-build" -> "OMERO-5.1-breaking-deploy";
+   "OMERO-5.1-breaking-deploy" -> "OMERO-5.1-breaking-integration";
+   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-java";
+   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-python";
+   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-broken";
+
 .. glossary::
 
 	:jenkinsjob:`OMERO-5.1-latest`
@@ -445,31 +524,57 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
-		#. If the build is promoted, |promoteOMERO|
+
+	:jenkinsjob:`OMERO-5.1-latest-deploy`
+
+		This job deploys the latest server on port 14064 of
+		trout.openmicroscopy.org
+
+	:jenkinsjob:`OMERO-5.1-latest-submods`
+
+		This job is used to update the submodules on the develop branch
+
+		#. |updatesubmodules| and pushes the merge branch to
+		   snoopycrimecop/merge/develop/submodules
+		#. If the submodules are updated, opens a new PR or updates the
+		   existing develop submodules PR
 
 	:jenkinsjob:`OMERO-5.1-merge-daily`
 
 		This job is used to trigger all the morning merge builds listed below
 
+	:jenkinsjob:`OMERO-5.1-merge-push`
+
+		This job is used to merge all the develop PRs
+
+		#. |merge|
+		#. Push the branch to snoopycrimecop/merge/develop/latest
+
 	:jenkinsjob:`OMERO-5.1-merge-build`
 
-		These jobs are used to review the PRs opened against the develop
-		branch of OMERO with Ice 3.3, 3.4 or 3.5
+		These jobs are used to build the OMERO components with Ice 3.3, 3.4 or
+		3.5
 
 		#. Checks out the merge/develop/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
-		#. |buildOMERO|
+		#. |buildOMERO| for each version of Ice
+		#. |buildVM|
 		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-5.1-merge-deploy`
+
+		This job deploys the merge server on port 4064 of
+		trout.openmicroscopy.org
 
 	:jenkinsjob:`OMERO-5.1-merge-integration`
 
 		This job is used to run the integration tests from the develop
 		branch with the PRs opened against the develop branch of OMERO
 
-		#. |merge|
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
 		#. Build OMERO.server and start it
 		#. Run the integration tests and collect the results (Java and Python)
-
 
 	:jenkinsjob:`OMERO-5.1-merge-integration-java`
 
@@ -502,15 +607,74 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		#. Collects the MATLAB artifacts from :term:`OMERO-5.1-merge-build`
 		#. Run the MATLAB unit tests under
 		   :file:`components/tools/OmeroM/test/unit` and collect the results
-		
-	:jenkinsjob:`OMERO-5.1-latest-submods`
 
-		This job is used to update the submodules on the develop branch
+	:jenkinsjob:`OMERO-5.1-merge-robotframework`
 
-		#. |updatesubmodules| and pushes the merge branch to
-		   snoopycrimecop/merge/develop/submodules
-		#. If the submodules are updated, opens a new PR or updates the
-		   existing develop submodules PR
+		This job is used to run the robot framework tests from the
+		develop branch with the PRs opened against the develop
+		branch of OMERO
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Build OMERO.server and start it
+		#. Run the robot framework tests and collect the results
+
+	:jenkinsjob:`OMERO-5.1-breaking-trigger`
+
+		This job is used to trigger all the breaking jobs listed below
+
+	:jenkinsjob:`OMERO-5.1-breaking-push`
+
+		This job is used to merge all the breaking PRs
+
+		#. |merge| including only PRs labelled as `breaking`
+		#. Push the branch to snoopycrimecop/merge/develop/breaking
+
+	:jenkinsjob:`OMERO-5.1-breaking-build`
+
+		These jobs are used to build the OMERO components with Ice 3.3, 3.4 or
+		3.5
+
+		#. Checks out the merge/develop/breaking branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. |buildOMERO| for each version of Ice
+		#. |buildVM|
+		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-5.1-breaking-deploy`
+
+		This job deploys the merge server on port 34064 of
+		trout.openmicroscopy.org
+
+	:jenkinsjob:`OMERO-5.1-breaking-integration`
+
+		This job runs the integration tests from the breaking branch of OMERO
+
+		#. Checks out the merge/develop/breaking branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Build OMERO.server and start it
+		#. Run the integration tests and collect the results (Java and Python)
+
+	:jenkinsjob:`OMERO-5.1-breaking-integration-java`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.1-breaking-integration`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-5.1-breaking-integration-python`
+
+		This job is used for parsing OmeroPy integration test results
+
+		#. Receives pytest results from :term:`OMERO-5.1-breaking-integration`,
+		#. Generates pytest report
+
+	:jenkinsjob:`OMERO-5.1-breaking-integration-broken`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.1-breaking-integration`,
+		#. Generates TestNG report
 
 
 Bio-Formats jobs
@@ -530,38 +694,71 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* 5.0.x series
 		* 5.1.x series
 
-	- 	* Build Bio-Formats
+	- 	* Build the latest Bio-Formats artifacts
 		* :term:`BIOFORMATS-4.4-latest`
 		* :term:`BIOFORMATS-5.0-latest`
 		* :term:`BIOFORMATS-5.1-latest`
 
-	- 	* Publish Bio-Formats to the LOCI Nexus repository
+	- 	* Publish the latest Bio-Formats to the OME artifactory
 		* :term:`BIOFORMATS-4.4-latest-maven`
 		* :term:`BIOFORMATS-5.0-latest-maven`
 		* :term:`BIOFORMATS-5.1-latest-maven`
 
-	- 	* Review Bio-Formats PRs
+	- 	* Build the latest C++ bindings for Bio-Formats
+		*
+		* :term:`BIOFORMATS-5.0-latest-cpp`
+		* :term:`BIOFORMATS-5.1-latest-cpp`
+
+	- 	* Run the daily Bio-Formats merge jobs
 		* :term:`BIOFORMATS-4.4-merge-daily`
 		* :term:`BIOFORMATS-5.0-merge-daily`
 		* :term:`BIOFORMATS-5.1-merge-daily`
+
+	- 	* Build the merge Bio-Formats artifacts
+		* :term:`BIOFORMATS-4.4-merge-daily`
+		* :term:`BIOFORMATS-5.0-merge-daily`
+		* :term:`BIOFORMATS-5.1-merge-build`
+
+	- 	* Build the merge Bio-Formats artifacts
+		* :term:`BIOFORMATS-4.4-merge-daily`
+		* :term:`BIOFORMATS-5.0-merge-daily`
+		* :term:`BIOFORMATS-5.1-merge-build`
+
+	- 	* Build the merge C++ bindings for Bio-Formats
+		*
+		* :term:`BIOFORMATS-5.0-merge-cpp`
+		* :term:`BIOFORMATS-5.1-merge-cpp`
 
 	- 	* Run the MATLAB tests
 		* :term:`BIOFORMATS-4.4-merge-matlab`
 		* :term:`BIOFORMATS-5.0-merge-matlab`
 		* :term:`BIOFORMATS-5.1-merge-matlab`
 
-	- 	* Run automated tests against directories on squig
+	- 	* Run automated tests against the full repository on squig
 		* :term:`BIOFORMATS-4.4-merge-full-repository`
 		* :term:`BIOFORMATS-5.0-merge-full-repository`
 		* :term:`BIOFORMATS-5.1-merge-full-repository`
 
+	- 	* Run automated tests against test_images_good on squig
+		*
+		* :term:`BIOFORMATS-5.0-merge-test_images_good`
+		* :term:`BIOFORMATS-5.1-merge-test_images_good`
+
 	- 	* Run openBytes performance test
-		* :term:`BIOFORMATS-4.4-merge-openbytes-performance` / :term:`BIOFORMATS-4.4-merge-omero-openbytes`
+		* | :term:`BIOFORMATS-4.4-merge-openbytes-performance`
+		  | :term:`BIOFORMATS-4.4-merge-omero-openbytes`
 		* :term:`BIOFORMATS-5.0-merge-openbytes-performance`
 		* :term:`BIOFORMATS-5.1-merge-openbytes-performance`
 
 4.4.x series
 ^^^^^^^^^^^^
+
+.. digraph:: BIOFORMATS44latest
+
+   "BIOFORMATS-4.4-latest" -> "BIOFORMATS-4.4-latest-maven";
+
+   "BIOFORMATS-4.4-merge-daily" -> "BIOFORMATS-4.4-merge-docs";
+   "BIOFORMATS-4.4-merge-daily" -> "BIOFORMATS-4.4-merge-matlab";
 
 The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 
@@ -603,12 +800,12 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 	:jenkinsjob:`BIOFORMATS-4.4-merge-full-repository`
 
 		This job is used to review the PRs opened against the dev_4_4
-		branch of Bio-Formats by running automated tests against directories
-		on squig
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
 
 		#. |merge|
-		#. Run tests against directories configured by ``--test dirname``
-		   comments on the PRs
+		#. Run tests against directories configured by
+		   ``--test dirname`` under :file:`/ome/data_repo/from_skyking/`
 
 	:jenkinsjob:`BIOFORMATS-4.4-merge-omero-openbytes`
 
@@ -634,21 +831,35 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 5.0.x series
 ^^^^^^^^^^^^
 
+.. digraph:: BIOFORMATS50latest
+
+   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-maven" -> "BIOFORMATS-5.0-latest-cppwrap";
+   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-cpp";
+   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-docs-autogen";
+
+   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-cpp";
+   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-docs";
+   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-matlab";
+
 The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 .. glossary::
 
 	:jenkinsjob:`BIOFORMATS-5.0-latest`
 
-		This job is used to build the dev_5_0 branch of Bio-Formats
+		This job is used to build the latest dev_5_0 branch of Bio-Formats
 
 		#. |buildBF|
 		#. |testBF|
 
+	:jenkinsjob:`BIOFORMATS-5.0-latest-cpp`
+
+		This job is used to build the latest C++ bindings for Bio-Formats
+
 	:jenkinsjob:`BIOFORMATS-5.0-latest-maven`
 
 		This job is used to publish the dev_5_0 branch of Bio-Formats to the
-		LOCI Nexus repository
+		OME artifactory at http://artifacts.openmicroscopy.org/
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-daily`
 
@@ -660,6 +871,10 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		#. |merge|
 		#. |buildBF|
 		#. |fulltestBF|
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-cpp`
+
+		This job is used to build the merge C++ bindings for Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-matlab`
 
@@ -673,12 +888,22 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-full-repository`
 
-		This job is used to review the PRs opened against the dev_5_0 branch
-		of Bio-Formats by running automated tests against directories on squig
+		This job is used to review the PRs opened against the dev_5_0
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
 
 		#. |merge|
-		#. Run tests against directories configured by ``--test dirname``
-		   comments on the PRs
+		#. Run automated tests against :file:`/ome/data_repo/from_skyking/`
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-test_images_good`
+
+		This job is used to review the PRs opened against the dev_5_0
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
+
+		#. |merge|
+		#. Run automated tests against
+		   :file:`/ome/data_repo/test_images_good/`
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-openbytes-performance`
 
@@ -687,13 +912,29 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		directories on squig
 
 		#. |merge|
-		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and 
+		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and
 		   ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
 		   directories specified by
 		   :file:`BIOFORMATS-openbytes-performance.txt`
 
 5.1.x series
 ^^^^^^^^^^^^
+
+.. digraph:: BIOFORMATS51latest
+
+   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-maven" -> "BIOFORMATS-5.1-latest-cppwrap";
+   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-cpp";
+   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-docs-autogen";
+
+.. digraph:: BIOFORMATS51mergedaily
+
+   "BIOFORMATS-5.1-merge-daily" -> "OMERO-5.1-merge-push";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-build";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-cpp";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-docs";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-test_images_good";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-performance";
+   "BIOFORMATS-5.1-merge-build" -> "BIOFORMATS-5.1-merge-matlab";
 
 The branch for the 5.1.x series of Bio-Formats is develop.
 
@@ -709,18 +950,39 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 	:jenkinsjob:`BIOFORMATS-5.1-latest-maven`
 
 		This job is used to publish the develop branch of Bio-Formats to the
-		LOCI Nexus repository
+		OME artifactory at http://artifacts.openmicroscopy.org/
+
+	:jenkinsjob:`BIOFORMATS-5.1-latest-cpp`
+
+		This job is used to build the latest C++ bindings for Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-daily`
 
-		This job is used to review the PRs opened against the develop branch
-		of Bio-Formats by running basic unit tests, checking for open file
+		This job is used to run the daily Bio-Formats jobs used for reviewing
+		the PRs opened against the develop branch of Bio-Formats by running basic unit tests, checking for open file
 		handles, and checking for regressions across a representative subset
 		of the data repository
 
-		#. |merge|
+		#. Trigger :term:`OMERO-5.1-merge-push`
+		#. Trigger :term:`BIOFORMATS-5.1-merge-build`,
+		   :term:`BIOFORMATS-5.1-merge-cpp`,
+		   :term:`BIOFORMATS-5.1-merge-docs`,
+		   :term:`BIOFORMATS-5.1-merge-test_images_good` and
+   		   BIOFORMATS-5.1-merge-performance
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-build`
+
+		This job build the merge artifacts of Bio-Formats
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
 		#. |buildBF|
 		#. |fulltestBF|
+		#. Trigger :term:`BIOFORMATS-5.1-merge-matlab`
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-cpp`
+
+		This job is used to build the merge C++ bindings for Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-matlab`
 
@@ -728,18 +990,30 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		the PRs opened against the develop branch of OMERO
 
 		#. Collects the MATLAB artifacts and unit tests from
-		   :term:`BIOFORMATS-5.1-merge-daily`
+		   :term:`BIOFORMATS-5.1-merge-build`
 		#. Run the MATLAB unit tests under
 		   :file:`components/bio-formats/test/matlab` and collect the results
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-full-repository`
 
-		This job is used to review the PRs opened against the develop branch
-		of Bio-Formats by running automated tests against directories on squig
+		This job is used to review the PRs opened against the develop
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
 
-		#. |merge|
-		#. Run tests against directories configured by ``--test dirname``
-		   comments on the PRs
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. Run automated tests against :file:`/ome/data_repo/from_skyking/`
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-test_images_good`
+
+		This job is used to review the PRs opened against the develop
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. Run automated tests against
+		   :file:`/ome/data_repo/test_images_good/`
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-openbytes-performance`
 
@@ -747,8 +1021,9 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		branch of Bio-Formats by running openBytes performance tests against
 		directories on squig
 
-		#. |merge|
-		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and 
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and
 		   ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
 		   directories specified by
 		   :file:`BIOFORMATS-openbytes-performance.txt`
@@ -770,7 +1045,7 @@ tab of Jenkins.
 
 	- 	* Job task
 		* 4.4.x series
-		* 5.0.x series 
+		* 5.0.x series
 		* 5.1.x series
 
 	- 	* Publish OMERO documentation

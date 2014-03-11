@@ -35,6 +35,14 @@ contributing_extlinks = {
     }
 extlinks.update(contributing_extlinks)
 
+extensions += ['sphinx.ext.graphviz']
+graphviz_dot_args = [
+    '-Nfontname=Helvetica',
+    '-Nfontsize=9',
+    '-Nshape=box',
+    '-Gfixedsize=true']
+graphviz_output_format = 'svg'
+
 # -- Options for LaTeX output --------------------------------------------------
 
 # Grouping the document tree into LaTeX files. List of tuples
