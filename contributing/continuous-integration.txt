@@ -168,7 +168,7 @@ OMERO jobs
 	- 	* Run the robot framework tests
 		* :term:`OMERO-4.4-merge-robotframework`
 		* :term:`OMERO-5.0-merge-robotframework`
-		*
+		* :term:`OMERO-5.1-merge-robotframework`
 
 	- 	* Install OMERO using Homebrew
 		* :term:`OME-4.4-merge-homebrew`
@@ -594,6 +594,17 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		#. Run the MATLAB unit tests under
 		   :file:`components/tools/OmeroM/test/unit` and collect the results
 
+	:jenkinsjob:`OMERO-5.1-merge-robotframework`
+
+		This job is used to run the robot framework tests from the
+		develop branch with the PRs opened against the develop
+		branch of OMERO
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Build OMERO.server and start it
+		#. Run the robot framework tests and collect the results
+			
 	:jenkinsjob:`OMERO-5.1-breaking-trigger`
 
 		This job is used to trigger all the breaking jobs listed below
