@@ -16,13 +16,16 @@ This document outlines steps necessary to
 
 Note: For best UI experience with Squash, **use of Firefox is strongly recommended**. Problems in Safari have been encountered already.
 
+See also the software homepage: 
+
+* http://www.squashtest.org
 
 
 Tutorial for :term:`Testers`
 ---------------------------------------
 
 
-#.   If you are not a member of OME-Team, login to Squash as :term:`guest1`. If you are a member of OME-Team, login with your assigned username and password (link to internal docs where the usernames/passwords live). (link to our Squash server here)
+#.   If you are not a member of OME-Team, login to Squash as :term:`guest1`. If you are a member of OME-Team, login with your assigned username and password. (link to our Squash server here)
 #.  Click on the fourth circular button from the top on the left-hand side, purple color [:ref:`Squash007`] to get to :guilabel:`Campaign Workspace` (use Tooltip when in doubt).
 
     - The :guilabel:`Campaign Workspace` loads up.
@@ -82,7 +85,7 @@ Tutorial for :term:`Test writer` (OME-Team only)
 --------------------------------------------------
 
 
-#.  Login to Squash
+#.  Login to Squash.(link to our Squash server here)
 
 #.  To get to :guilabel:`Test Case Workspace`, click on the third circular button, green color [:ref:`Squash001`] (use Tooltip when in doubt).
    
@@ -113,7 +116,7 @@ Tutorial for :term:`Test writer` (OME-Team only)
     - The :term:`Test Case` steps will appear in the central pane.
     - The Actions are listed in the left column, the :guilabel:`Expected results` in the right column.
 
-#.  You can Collapse the :term:`Test Case` steps using the :guilabel:`Collapse` button in the central pane.
+#.  You can collapse the :term:`Test Case` steps using the :guilabel:`Collapse` button in the central pane.
 
     - The Steps of the :term:`Test Case` collapse [:ref:`Squash004`].
 
@@ -134,7 +137,7 @@ Tutorial for :term:`Test evaluators` (OME-Team only)
 ------------------------------------------------------
 
 
-#.  Login to Squash and read the Welcome message, note the :guilabel:`Testing Campaign` and :guilabel:`Iteration` names.
+#.  Login to Squash and read the Welcome message, note the :guilabel:`Testing Campaign` and :guilabel:`Iteration` names. (link to our Squash server here)
 
 #.  Click on the fourth circular button from the top on the left-hand side, purple color [:ref:`Squash007`] to get to :guilabel:`Campaign Workspace` (use Tooltip when in doubt).
 
