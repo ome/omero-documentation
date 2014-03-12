@@ -62,6 +62,13 @@ To add the MacTeX fonts system-wide:
 * Navigate to ``/usr/local/texlive/2013/texmf-dist/fonts/opentype/public/tex-gyre``
   and click ``Open``. (Type ``/usr/local`` to get there initially.)
 
+Graphviz
+--------
+
+The Contributing documentation now requires you to install
+`Graphviz <http://www.graphviz.org/Home.php>`_ to build the
+diagrams.
+
 Structure and organization
 ==========================
 
