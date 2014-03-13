@@ -73,6 +73,9 @@ The OME documentation is organized into multiple folders:
   folder,
 * the shared configuration and themes are under the ``common`` folder.
 
+**However, the formats and contributing docs are only maintained on the
+develop branch.**
+
 The structure of each documentation folder follows the Sphinx system
 guidelines. A quick overview:
  
@@ -102,14 +105,6 @@ To build a set of documentation, first move to the documentation folder. To
 build the OMERO documentation::
 
     cd omero/
-
-or to build the OME Model and Formats documentation::
-
-    cd formats/
-
-or to build the Contributing Developer documentation::
-
-   cd contributing/
 
 To clean the build directory of any previous builds, use::
     
@@ -154,19 +149,21 @@ The output should look something like::
 Top-level build command
 -----------------------
 
-The top-level directory Makefile also defines targets for building all the
-OMERO, Contributing, and Model and Formats sets of documentation at once. Note
-that the following commands currently work under UNIX-like platforms only.
+The top-level directory Makefile also defines targets for building the
+OMERO documentation (as the contributing and formats documentation sets have
+been removed on this branch and are only maintained on the develop branch).
+Note that the following commands currently work under UNIX-like platforms
+only.
 
 To clean the build directories of any previous builds, use::
 
     make clean
 
-To build the sets of documentation locally in the form of HTML pages, use::
+To build the documentation locally in the form of HTML pages, use::
 
     make html
 
-To build the sets of documentation locally in the form of a PDF file, use::
+To build the documentation locally in the form of a PDF file, use::
 
     make latexpdf
 
@@ -181,22 +178,12 @@ variable. The ``-W`` option turns all warnings into errors::
 Release number
 --------------
 
-The release number of two sets of the documentation is `UNKNOWN` by default.
-To modify this value:
-
-* for the OMERO documentation, set the environment variable ``OMERO_RELEASE``,
+For the OMERO documentation, you can set the release number by setting the
+environment variable ``OMERO_RELEASE``,
   e.g.::
 
       cd omero && OMERO_RELEASE=4.4.6 make clean html
 
-* for the OME Model and Formats documentation, set the environment variable
-  ``FORMATS_RELEASE``, e.g.::
-
-    cd formats && FORMATS_RELEASE=2012-06 make clean html
-
-The Contributing Developer documentation has the release version removed as
-the intention is to update these files as and when necessary, so that they
-always reflect our current practices.
 
 ****************
 Conventions Used
