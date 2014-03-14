@@ -53,14 +53,35 @@ the name of the branch which they will be merged into.
 The 5.1.x series consists of PRs labelled with “develop”, which is also
 the name of the branch which they will be merged into.
 
-Three labels are used in the PR reviewing process: “include”, “exclude”, and
-"on hold". The “include” label allows you to include a PR opened by a
-non-member of the OME organization in the merge builds for review. The
-“exclude” label allows you to exclude a PR opened by any user from the merge
-builds. The "on hold" label allows you to signal that a PR should not be
-reviewed or merged, even though it is not excluded.
+Multiple labels are used in the PR reviewing process:
 
+- the “include” label allows you to include a PR opened by a non-member of the
+  OME organization in the merge builds for review.
+- the “exclude” label allows you to exclude a PR opened by any user from the
+  merge builds.
+- the "on hold" label allows you to signal that a PR should not be
+  reviewed or merged, even though it is not excluded.
+- the "breaking" label allows you to mark a PR as containing breaking changes
+  (model and or DB usually).
 
+Job names
+^^^^^^^^^
 
+All core OME jobs are named after the following conventions
+``COMPONENT-VERSION-TYPE-DESCRIPTION`` where:
 
+- ``COMPONENT`` describes to core OME component, e.g. OMERO or BIOFORMATS
+- ``VERSION`` describes to the MINOR.MINOR version, e.g. 5.0 or 5.1
+- ``TYPE`` describes the source of the job and can be:
 
+  * the ``latest`` jobs build from the tip of the development branch, e.g.
+    `origin/dev_5_0`
+  * the ``merge`` jobs build from the tip of the development branch with all
+    PRs merged using :ref:`scc merge` with the `org` default filter set
+  * the ``breaking`` jobs build from the tip of the development branch with
+    all PRs labelled as ``breaking`` merged using :ref:`scc merge`
+  * the ``release`` jobs build from and optionally create a tag at the tip of
+    a development branch, e.g. `v5.0.1-rc4`
+
+- ``DESCRIPTION`` describes describing the function of the job via a couple of
+  keywords separated by dashes
