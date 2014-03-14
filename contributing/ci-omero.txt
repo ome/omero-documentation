@@ -526,8 +526,10 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
 
-Breaking jobs
-^^^^^^^^^^^^^
+.. _omero_breaking:
+
+OMERO breaking jobs
+^^^^^^^^^^^^^^^^^^^
 
 Breaking jobs are jobs containing breaking, irreversible changes typically
 database upgrade. The branch for the breaking series of OMERO is develop. All

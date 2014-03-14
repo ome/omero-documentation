@@ -350,3 +350,25 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		   directories specified by
 		   :file:`BIOFORMATS-openbytes-performance.txt`
 
+
+.. _bf_breaking:
+
+Bio-Formats breaking jobs
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Breaking jobs are jobs used to review breaking changes, for instance model
+changes. The branch for the breaking series of Bio-Formats is develop. All
+breaking jobs are listed under the :jenkinsview:`Breaking` view tab of
+Jenkins.
+
+.. glossary::
+
+	:jenkinsjob:`BIOFORMATS-5.1-breaking-full-repository`
+
+		This job is used to review the PRs labelled as `breaking` opened
+		against the develop branch of Bio-Formats by running automated tests
+		against the full repository on squig
+
+		#. |merge|
+		#. Run tests against directories configured by
+		   ``--test dirname`` under :file:`/ome/data_repo/from_skyking/`
