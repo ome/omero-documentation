@@ -43,6 +43,13 @@ graphviz_dot_args = [
     '-Gfixedsize=true']
 graphviz_output_format = 'svg'
 
+rst_epilog += """
+.. _openmicroscopy.git: https://github.com/openmicroscopy/openmicroscopy
+.. _bioformats.git: https://github.com/openmicroscopy/bioformats
+.. _ome-documentation.git: https://github.com/openmicroscopy/ome-documentation
+.. _scripts.git: https://github.com/ome/scripts
+"""
+
 # -- Options for LaTeX output --------------------------------------------------
 
 # Grouping the document tree into LaTeX files. List of tuples

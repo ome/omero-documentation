@@ -1,0 +1,305 @@
+Documentation jobs
+------------------
+
+..  |merge| replace:: Merges PRs using :ref:`scc merge`
+..  |sphinxbuild| replace:: Runs ``make clean html latexpdf`` to build the HTML and PDF versions of the Sphinx documentation
+..  |linkcheck| replace:: Runs ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`
+..  |ssh-doc| replace:: Copies the HTML and PDF documentation over SSH to
+..  |deploy-doc| replace:: Runs :ref:`scc deploy` to update
+
+All documentation jobs are listed under the :jenkinsview:`Docs <Docs>` view
+tab of Jenkins.
+
+.. list-table::
+	:header-rows: 1
+
+	- 	* Job task
+		* 4.4.x series
+		* 5.0.x series
+		* 5.1.x series
+
+	- 	* Publish OMERO documentation
+		* :term:`OMERO-4.4-release-docs`
+		* :term:`OMERO-5.0-release-docs`
+		*
+
+	- 	* Publish Bio-Formats documentation
+		* :term:`BIOFORMATS-4.4-release-docs`
+		* :term:`BIOFORMATS-5.0-release-docs`
+		*
+
+	- 	* Review OMERO documentation PRs
+		* :term:`OMERO-4.4-merge-docs`
+		* :term:`OMERO-5.0-merge-docs`
+		* :term:`OMERO-5.1-merge-docs`
+
+	- 	* Review Bio-Formats documentation PRs
+		* :term:`BIOFORMATS-4.4-merge-docs`
+		* :term:`BIOFORMATS-5.0-merge-docs`
+		* :term:`BIOFORMATS-5.1-merge-docs`
+
+The OME Model and OME Contributing documentation sets are independent of the
+current OMERO/Bio-Formats version.
+
+.. list-table::
+	:header-rows: 1
+
+	- 	* Job task
+		*
+
+	- 	* Publish OME Model documentation
+		* :term:`FORMATS-release-docs`
+
+	- 	* Publish OME Contributing documentation
+		* :term:`CONTRIBUTING-release-docs`
+
+	- 	* Review OME Model documentation PRs
+		* :term:`FORMATS-merge-docs`
+
+	- 	* Review OME Contributing documentation PRs
+		* :term:`CONTRIBUTING-merge-docs`
+
+Configuration
+^^^^^^^^^^^^^
+
+For all jobs building documentation using Sphinx, the HTML documentation theme
+hosted at https://github.com/openmicroscopy/sphinx_theme repository is copied
+to the relevant :file:`themes/` folder. The following environment variables
+are then used:
+
+- the Sphinx building options, :envvar:`SPHINXOPTS`, is set to
+  ``-W -D html_theme=sphinx_theme``,
+
+- the release number of the documentation is set by :envvar:`OMERO_RELEASE`,
+  :envvar:`BF_RELEASE` or :envvar:`FORMATS_RELEASE`,
+
+- the source code links use :envvar:`SOURCE_USER` and :envvar:`SOURCE_BRANCH`,
+
+- for the Bio-Formats and OMERO sets of documentation, the name of the
+  Jenkins job is set by :envvar:`JENKINS_JOB`.
+
+All live documentation folders are copied over SSH to
+necromancer.openmicroscopy.org.uk under the
+:file:`/var/www/www.openmicroscopy.org/sphinx-docs` directory using the
+:program:`scc deploy` command. The :jenkinsjob:`OME-docs-deployment-setup` job
+is used to initialize new deployment folders.
+
+4.4.x series
+^^^^^^^^^^^^
+
+The branch for the 4.4.x series of the OMERO/Bio-Formats documentation is dev_4_4.
+
+.. glossary::
+
+	:jenkinsjob:`OMERO-4.4-release-docs`
+
+		This job is used to build the dev_4_4 of the OMERO documentation
+		and publish the official documentation for the current release of
+		OMERO
+
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. If the build is promoted,
+			#. |ssh-doc| :file:`omero-stable-release.tmp`
+			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4/
+
+	:jenkinsjob:`BIOFORMATS-4.4-release-docs`
+
+		This job is used to build the dev_4_4 of the Bio-Formats
+		documentation and publish the official documentation for the current
+		release of Bio-Formats
+
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. If the build is promoted,
+			#. |ssh-doc| :file:`bf-stable-release.tmp`
+			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats4/
+
+	:jenkinsjob:`OMERO-4.4-merge-docs`
+
+		This job is used to review the PRs opened against the dev_4_4
+		branch of the OMERO documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`omero-stable-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4-staging/
+
+	:jenkinsjob:`BIOFORMATS-4.4-merge-docs`
+
+		This job is used to review the PRs opened against the dev_4_4
+		branch of the Bio-Formats documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`bf-stable-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats4-staging/
+
+5.0.x series
+^^^^^^^^^^^^
+
+The branch for the 5.0.x series of the OMERO/Bio-Formats documentation is
+dev_5_0.
+
+.. glossary::
+
+	:jenkinsjob:`OMERO-5.0-release-docs`
+
+		This job is used to build the dev_5_0 branch of the OMERO
+		documentation and publish the official documentation for the next
+		major release of OMERO
+
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. If the build is promoted,
+			#. |ssh-doc| :file:`omero-5.0-release.tmp`
+			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5/
+
+	:jenkinsjob:`BIOFORMATS-5.0-release-docs`
+
+		This job is used to build the dev_5_0 branch of the Bio-Formats
+		documentation and publish the official documentation for the next
+		major release of Bio-Formats
+
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. If the build is promoted,
+			#. |ssh-doc| :file:`bf-5.0-release.tmp`
+			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5/
+
+	:jenkinsjob:`OMERO-5.0-merge-docs`
+
+		This job is used to review the PRs opened against the dev_5_0 branch
+		of the OMERO documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`omero-5.0-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5-staging/
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-docs`
+
+		This job is used to review the PRs opened against the dev_5_0 branch
+		of the Bio-Formats documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`bf-5.0-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5-staging/
+
+5.1.x series
+^^^^^^^^^^^^
+
+The branch for the 5.1.x series of the OMERO/Bio-Formats documentation is
+develop.
+
+.. glossary::
+
+	:jenkinsjob:`OMERO-5.1-merge-docs`
+
+		This job is used to review the PRs opened against the develop branch
+		of the OMERO documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`omero-5.0-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.1-staging/
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-docs`
+
+		This job is used to review the PRs opened against the develop branch
+		of the Bio-Formats documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`bf-5.1-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.1-staging/
+
+
+OME Model and OME Contributing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The branch for the OME model and the OME Contributing documentation
+sets is develop.
+
+.. glossary::
+
+	:jenkinsjob:`FORMATS-merge-docs`
+
+		This job is used to review the PRs opened against the develop branch
+		of the OME Model documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`formats-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-staging/
+
+	:jenkinsjob:`CONTRIBUTING-merge-docs`
+
+		This job is used to review the PRs opened against the develop branch
+		of the OME Contributing documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`contributing-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing-staging/
+
+	:jenkinsjob:`FORMATS-release-docs`
+
+		This job is used to build the develop branch of the OME Model
+		documentation and publish the official documentation
+
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`formats-release.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
+
+	:jenkinsjob:`CONTRIBUTING-release-docs`
+
+		This job is used to build the develop branch of the OME Contributing
+		documentation and publish the official documentation
+
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`contributing-release.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing/
+
+.. _linkcheck_parser:
+
+Linkcheck output parser
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _Warnings Plugin: https://wiki.jenkins-ci.org/display/JENKINS/Warnings+Plugin
+
+The :file:`output.txt` file generated by Sphinx ``linkcheck`` builder is
+parsed using the `Warnings Plugin`_. Depending on the nature of the links,
+warnings are generated as described in the following table:
+
+====== ================ ========
+Type   Error code       Priority
+====== ================ ========
+local                   High
+broken HTTP Error 404   Normal
+broken Anchor not found Normal
+broken HTTP Error 403   Low
+====== ================ ========
+
+The build is marked as FAILED or UNSTABLE if the number of warnings of a given
+category exceeds a threshold. The table below lists the thresholds used for
+all the documentation builds:
+
+======== ====== ========
+Priority FAILED UNSTABLE
+======== ====== ========
+High     0
+Normal          0
+Low             10
+======== ====== ========

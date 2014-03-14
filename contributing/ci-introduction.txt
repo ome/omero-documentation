@@ -1,0 +1,66 @@
+Continuous integration branches and jobs
+----------------------------------------
+
+Versioning
+^^^^^^^^^^
+
+OME uses semantic versioning as defined in http://semver.org. Each version
+number is identified as MAJOR.MINOR.PATCH where MAJOR is the major version
+number, MINOR the minor version number and PATCH the patch version number.
+Additional pre-release labels are added as extensions of this version number,
+e.g. 4.4.0-rc1 or 5.0.0-beta1.
+
+.. glossary::
+
+	Major release
+
+		An increment of the MAJOR version or the MINOR version is typically
+		considered as a major release in OME, e.g. 4.4.0 or 5.0.0.
+
+	Point release (patch release)
+
+		An increment of the PATCH version is called a point (or patch) release
+		in OME, e.g. 4.4.9.
+
+Development branches
+^^^^^^^^^^^^^^^^^^^^
+
+Most of the OME code is split between four repositories: openmicroscopy.git_,
+bioformats.git_, scripts.git_, ome-documentation.git_. For each repository,
+two development branches are maintained simultaneously:
+
+* The "dev_4_4" branch contains work on the 4.4.x series.
+
+* The "dev_5_0" branch contains work on the 5.0.x series.
+
+* The "develop" branch contains work on the 5.1.x series.
+
+It is possible to have a point release immediately, while still working on
+more major releases by ensuring that (nearly) all commits that are applied to
+dev_4_4 are applied to develop in order to prevent regressions.
+
+Labels
+^^^^^^
+
+Labels are applied to PRs on GitHub under the “Issues” tab of each repository.
+
+The 4.4.x series consists of PRs labelled with “dev_4_4”, which
+is the name of the branch which they will be merged into.
+
+The 5.0.x series consists of PRs labelled with “dev_5_0”, which is also
+the name of the branch which they will be merged into.
+
+The 5.1.x series consists of PRs labelled with “develop”, which is also
+the name of the branch which they will be merged into.
+
+Three labels are used in the PR reviewing process: “include”, “exclude”, and
+"on hold". The “include” label allows you to include a PR opened by a
+non-member of the OME organization in the merge builds for review. The
+“exclude” label allows you to exclude a PR opened by any user from the merge
+builds. The "on hold" label allows you to signal that a PR should not be
+reviewed or merged, even though it is not excluded.
+
+
+
+
+

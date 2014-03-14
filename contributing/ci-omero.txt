@@ -1,0 +1,593 @@
+OMERO jobs
+----------
+
+..  |merge| replace:: Merges PRs using :ref:`scc merge`
+..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
+..  |archiveOMEROartifacts| replace:: Archives the build artifacts
+..  |promoteOMERO| replace:: copies the artifacts to necromancer
+..  |buildVM| replace:: Builds a |VM| using :source:`omerovm.sh <docs/install/VM/omerovm.sh>`
+..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
+
+.. list-table::
+	:header-rows: 1
+
+	- 	* Job task
+		* 4.4.x series
+		* 5.0.x series
+		* 5.1.x series
+
+	- 	* Build the latest OMERO artifacts
+		* | :term:`OMERO-4.4-latest-ice33`
+		  | :term:`OMERO-4.4-latest-ice34`
+		  | :term:`OMERO-4.4-latest-ice35`
+		  | :term:`OMERO-4.4-latest-virtualbox`
+		* | :term:`OMERO-5.0-latest-ice33`
+		  | :term:`OMERO-5.0-latest-ice34`
+		  | :term:`OMERO-5.0-latest-ice35`
+		  | :term:`OMERO-5.0-latest-virtualbox`
+		* :term:`OMERO-5.1-latest`
+
+	- 	* Deploy the latest OMERO server
+		*
+		* :term:`OMERO-5.0-latest-deploy`
+		* :term:`OMERO-5.1-latest-deploy`
+
+	- 	* Update submodules
+		* :term:`OMERO-4.4-latest-submods`
+		* :term:`OMERO-5.0-latest-submods`
+		* :term:`OMERO-5.0-latest-submods`
+
+	- 	* Run the daily OMERO merge builds
+		* :term:`OMERO-4.4-merge-daily`
+		* :term:`OMERO-5.0-merge-daily`
+		* :term:`OMERO-5.1-merge-daily`
+
+	- 	* Merge the PRs
+		* :term:`OMERO-4.4-merge-daily`
+		* :term:`OMERO-5.0-merge-daily`
+		* :term:`OMERO-5.1-merge-push`
+
+	- 	* Build the merge OMERO  artifacts
+		* | :term:`OMERO-4.4-merge-ice33`
+		  | :term:`OMERO-4.4-merge-ice34`
+		  | :term:`OMERO-4.4-merge-ice35`
+		* | :term:`OMERO-5.0-merge-ice33`
+		  | :term:`OMERO-5.0-merge-ice34`
+		  | :term:`OMERO-5.0-merge-ice35`
+		  | :term:`OMERO-5.0-merge-virtualbox`
+		* :term:`OMERO-5.1-merge-build`
+
+	- 	* Deploy the merge OMERO server
+		* :term:`OMERO-4.4-merge-daily`
+		* :term:`OMERO-5.0-merge-daily`
+		* :term:`OMERO-5.1-merge-deploy`
+
+	- 	* Run the OMERO integration tests
+		* | :term:`OMERO-4.4-merge-integration`
+		  | :term:`OMERO-4.4-merge-integration-java`
+		  | :term:`OMERO-4.4-merge-integration-python`
+		  | :term:`OMERO-4.4-merge-integration-broken`
+		* | :term:`OMERO-5.0-merge-integration`
+		  | :term:`OMERO-5.0-merge-integration-java`
+		  | :term:`OMERO-5.0-merge-integration-python`
+		  | :term:`OMERO-5.0-merge-integration-broken`
+		* | :term:`OMERO-5.1-merge-integration`
+		  | :term:`OMERO-5.1-merge-integration-java`
+		  | :term:`OMERO-5.1-merge-integration-python`
+		  | :term:`OMERO-5.1-merge-integration-broken`
+
+	- 	* Run the OMERO.matlab tests
+		* :term:`OMERO-4.4-merge-matlab`
+		* :term:`OMERO-5.0-merge-matlab`
+		* :term:`OMERO-5.1-merge-matlab`
+
+	- 	* Run the robot framework tests
+		* :term:`OMERO-4.4-merge-robotframework`
+		* :term:`OMERO-5.0-merge-robotframework`
+		* :term:`OMERO-5.1-merge-robotframework`
+
+	- 	* Install OMERO using Homebrew
+		* :term:`OME-4.4-merge-homebrew`
+		* :term:`OME-5.0-merge-homebrew`
+		*
+
+	- 	* Trigger the breaking OMERO builds
+		*
+		*
+		* :term:`OMERO-5.1-breaking-trigger`
+
+	- 	* Merge the breaking PRs
+		*
+		*
+		* :term:`OMERO-5.1-breaking-push`
+
+	- 	* Build the breaking OMERO artifacts
+		*
+		*
+		* :term:`OMERO-5.1-breaking-build`
+
+	- 	* Deploy the breaking OMERO server
+		*
+		*
+		* :term:`OMERO-5.1-breaking-deploy`
+
+	- 	* Run the breaking OMERO integration tests
+		*
+		*
+		* | :term:`OMERO-5.1-breaking-integration`
+		  | :term:`OMERO-5.1-breaking-integration-java`
+		  | :term:`OMERO-5.1-breaking-integration-python`
+		  | :term:`OMERO-5.1-breaking-integration-broken`
+
+4.4.x series
+^^^^^^^^^^^^
+
+The branch for the 4.4.x series of OMERO is dev_4_4. All jobs
+are listed under the :jenkinsview:`4.4` view tab of Jenkins.
+
+.. glossary::
+
+	:jenkinsjob:`OMERO-4.4-latest-ice33`
+	:jenkinsjob:`OMERO-4.4-latest-ice34`
+	:jenkinsjob:`OMERO-4.4-latest-ice35`
+
+		These jobs are used to build the dev_4_4 branch of OMERO with
+		Ice 3.3, 3.4 or 3.5
+
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. If the build is promoted, |promoteOMERO|
+
+	:jenkinsjob:`OMERO-4.4-latest-virtualbox`
+
+		This job is used to build a Virtual Appliance from the dev_4_4
+		branch of OMERO
+
+		#. |buildVM|
+
+	:jenkinsjob:`OMERO-4.4-merge-daily`
+
+		This job is used to review the PRs opened against the dev_4_4
+		branch of OMERO with Ice 3.3
+
+		#. |merge| and pushes the merged branch to
+		   snoopycrimecop/merge/dev_4_4/latest
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. deploys the merge server on port 4064 of howe.openmicroscopy.org.uk
+
+	:jenkinsjob:`OMERO-4.4-merge-ice33`
+	:jenkinsjob:`OMERO-4.4-merge-ice34`
+	:jenkinsjob:`OMERO-4.4-merge-ice35`
+
+		These jobs are used to review the PRs opened against the dev_4_4
+		branch of OMERO with Ice 3.3, 3.4 or 3.5
+
+		#. Checks out the merge/dev_4_4/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-4.4-merge-virtualbox`
+
+		This job is used to build a Virtual Appliance from the dev_4_4
+		branch with the PRs opened against the dev_4_4 branch of OMERO
+
+		#. Checks out the merge/dev_4_4/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. |buildVM|
+
+	:jenkinsjob:`OMERO-4.4-merge-integration`
+
+		This job is used to run the integration tests from the dev_4_4
+		branch with the PRs opened against the dev_4_4 branch of OMERO
+
+		#. |merge|
+		#. Build OMERO.server and start it
+		#. Run the integration tests and collect the results (Java and Python)
+
+	:jenkinsjob:`OMERO-4.4-merge-integration-java`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-4.4-merge-integration`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-4.4-merge-integration-python`
+
+		This job is used for parsing OmeroPy integration test results
+
+		#. Receives pytest results from :term:`OMERO-4.4-merge-integration`,
+		#. Generates pytest report
+
+	:jenkinsjob:`OMERO-4.4-merge-integration-broken`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-4.4-merge-integration`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-4.4-merge-robotframework`
+
+		This job is used to run the robot framework tests from the
+		dev_4_4 branch with the PRs opened against the dev_4_4
+		branch of OMERO
+
+		#. Checks out the merge/dev_4_4/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Build OMERO.server and start it
+		#. Run the robot framework tests and collect the results
+
+	:jenkinsjob:`OMERO-4.4-merge-matlab`
+
+		This job is used to run the MATLAB tests from the dev_4_4 branch with
+		the PRs opened against the dev_4_4 branch of OMERO
+
+		#. Checks out the merge/dev_4_4/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Collects the MATLAB artifacts from :term:`OMERO-4.4-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/tools/OmeroM/test/unit` and collect the results
+
+	:jenkinsjob:`OMERO-4.4-latest-submods`
+
+		This job is used to update the submodules on the dev_4_4 branch
+
+		#. |updatesubmodules| and pushes the merged branch to
+		   snoopycrimecop/merge/dev_4_4/submodules
+		#. If the submodules are updated, opens a new PR or updates the
+		   existing dev_4_4 submodules PR
+
+	:jenkinsjob:`OME-4.4-merge-homebrew`
+
+		This job is used to test the installation of OMERO 4.4 using Homebrew
+
+		#. Clean :file:`/usr/local`
+		#. Install Homebrew
+		#. Run :file:`docs/install/OMERO-homebrew-install.sh`
+
+5.0.x series
+^^^^^^^^^^^^
+
+The branch for the 5.0.x series of OMERO is dev_5_0. All jobs are listed
+under the :jenkinsview:`5.0` view tab of Jenkins.
+
+.. digraph:: OMERO51latest
+
+   "OMERO-5.0-latest-ice33" -> "OMERO-5.0-latest-ice34" -> "OMERO-5.0-latest-ice35";
+   "OMERO-5.0-latest-ice35" -> "OMERO-5.0-latest-deploy"
+   "OMERO-5.0-latest-ice35" -> "OMERO-5.0-latest-virtualbox"
+
+.. digraph:: OMERO51merge
+
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-ice33";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-ice34";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-ice35";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-docs";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-integration";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-matlab";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-robotframework";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-training";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-deploy-webtagging";
+   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-autoimport";
+   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-java";
+   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-python";
+   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-broken";
+
+
+.. glossary::
+
+	:jenkinsjob:`OMERO-5.0-latest-ice33`
+	:jenkinsjob:`OMERO-5.0-latest-ice34`
+	:jenkinsjob:`OMERO-5.0-latest-ice35`
+
+		These jobs are used to build the dev_5_0 branch of OMERO with Ice 3.3,
+		3.4 or 3.5
+
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. If the build is promoted, |promoteOMERO|
+
+	:jenkinsjob:`OMERO-5.0-latest-virtualbox`
+
+		This job is used to build a Virtual Appliance from the dev_5_0 branch
+		of OMERO
+
+		#. |buildVM|
+
+	:jenkinsjob:`OMERO-5.0-latest-deploy`
+
+		This job deploys the latest server on port 14064 of
+		gretzky.openmicroscopy.org.uk
+
+	:jenkinsjob:`OMERO-5.0-latest-submods`
+
+		This job is used to update the submodules on the dev_5_0 branch
+
+		#. |updatesubmodules| and pushes the merge branch to
+		   snoopycrimecop/merge/dev_5_0/submodules
+		#. If the submodules are updated, opens a new PR or updates the
+		   existing dev_5_0 submodules PR
+
+	:jenkinsjob:`OMERO-5.0-merge-daily`
+
+		This job is used to review the PRs opened against the dev_5_0 branch
+		of OMERO with Ice 3.3
+
+		#. |merge| and pushes the merged branch to
+		   snoopycrimecop/merge/dev_5_0/latest
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+		#. deploys the merge server on port 4064 of
+		   gretzky.openmicroscopy.org.uk
+
+	:jenkinsjob:`OMERO-5.0-merge-ice33`
+	:jenkinsjob:`OMERO-5.0-merge-ice34`
+	:jenkinsjob:`OMERO-5.0-merge-ice35`
+
+		These jobs are used to review the PRs opened against the dev_5_0
+		branch of OMERO with Ice 3.3, 3.4 or 3.5
+
+		#. Checks out the merge/dev_5_0/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-5.0-merge-virtualbox`
+
+		This job is used to build a Virtual Appliance from the dev_5_0 branch
+		with the PRs opened against the dev_5_0 branch of OMERO
+
+		#. Checks out the merge/dev_5_0/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. |buildVM|
+
+	:jenkinsjob:`OMERO-5.0-merge-integration`
+
+		This job is used to run the integration tests from the dev_5_0
+		branch with the PRs opened against the dev_5_0 branch of OMERO
+
+		#. |merge|
+		#. Build OMERO.server and start it
+		#. Run the integration tests and collect the results (Java and Python)
+
+
+	:jenkinsjob:`OMERO-5.0-merge-integration-java`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.0-merge-integration`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-5.0-merge-integration-python`
+
+		This job is used for parsing OmeroPy integration test results
+
+		#. Receives pytest results from :term:`OMERO-5.0-merge-integration`,
+		#. Generates pytest report
+
+	:jenkinsjob:`OMERO-5.0-merge-integration-broken`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.0-merge-integration`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-5.0-merge-matlab`
+
+		This job is used to run the MATLAB tests from the dev_5_0 branch with
+		the PRs opened against the dev_5_0 branch of OMERO
+
+		#. Checks out the merge/dev_5_0/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Collects the MATLAB artifacts from :term:`OMERO-5.0-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/tools/OmeroM/test/unit` and collect the results
+
+	:jenkinsjob:`OMERO-5.0-merge-robotframework`
+
+		This job is used to run the robot framework tests from the
+		dev_5_0 branch with the PRs opened against the dev_5_0
+		branch of OMERO
+
+		#. Checks out the merge/dev_5_0/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Build OMERO.server and start it
+		#. Run the robot framework tests and collect the results
+
+	:jenkinsjob:`OME-5.0-merge-homebrew`
+
+		This job is used to test the installation of OMERO 5.0 using Homebrew
+
+		#. Clean :file:`/usr/local`
+		#. Install Homebrew
+		#. Run :file:`docs/install/OMERO-homebrew-install.sh`
+
+5.1.x series
+^^^^^^^^^^^^
+
+The branch for the 5.1.x series of OMERO is develop. All jobs are listed
+under the :jenkinsview:`5.1` view tab of Jenkins.
+
+
+.. digraph:: OMERO51jobs
+
+   "OMERO-5.1-latest" -> "OMERO-5.1-latest-deploy";
+
+   "OMERO-5.1-merge-daily" -> "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy";
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-docs"
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-integration"
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-matlab"
+   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-robotframework"
+   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-java";
+   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-python";
+   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-broken";
+
+   "OMERO-5.1-breaking-trigger" -> "OMERO-5.1-breaking-push";
+   "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-build";
+   "OMERO-5.1-breaking-build" -> "OMERO-5.1-breaking-deploy";
+   "OMERO-5.1-breaking-deploy" -> "OMERO-5.1-breaking-integration";
+   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-java";
+   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-python";
+   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-broken";
+
+.. glossary::
+
+	:jenkinsjob:`OMERO-5.1-latest`
+
+		This job is used to build the develop branch of OMERO with Ice 3.3,
+		3.4 or 3.5
+
+		#. |buildOMERO|
+		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-5.1-latest-deploy`
+
+		This job deploys the latest server on port 14064 of
+		trout.openmicroscopy.org
+
+	:jenkinsjob:`OMERO-5.1-latest-submods`
+
+		This job is used to update the submodules on the develop branch
+
+		#. |updatesubmodules| and pushes the merge branch to
+		   snoopycrimecop/merge/develop/submodules
+		#. If the submodules are updated, opens a new PR or updates the
+		   existing develop submodules PR
+
+	:jenkinsjob:`OMERO-5.1-merge-daily`
+
+		This job is used to trigger all the morning merge builds listed below
+
+	:jenkinsjob:`OMERO-5.1-merge-push`
+
+		This job is used to merge all the develop PRs
+
+		#. |merge|
+		#. Push the branch to snoopycrimecop/merge/develop/latest
+
+	:jenkinsjob:`OMERO-5.1-merge-build`
+
+		These jobs are used to build the OMERO components with Ice 3.3, 3.4 or
+		3.5
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. |buildOMERO| for each version of Ice
+		#. |buildVM|
+		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-5.1-merge-deploy`
+
+		This job deploys the merge server on port 4064 of
+		trout.openmicroscopy.org
+
+	:jenkinsjob:`OMERO-5.1-merge-integration`
+
+		This job is used to run the integration tests from the develop
+		branch with the PRs opened against the develop branch of OMERO
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Build OMERO.server and start it
+		#. Run the integration tests and collect the results (Java and Python)
+
+	:jenkinsjob:`OMERO-5.1-merge-integration-java`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.1-merge-integration`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-5.1-merge-integration-python`
+
+		This job is used for parsing OmeroPy integration test results
+
+		#. Receives pytest results from :term:`OMERO-5.1-merge-integration`,
+		#. Generates pytest report
+
+	:jenkinsjob:`OMERO-5.1-merge-integration-broken`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.1-merge-integration`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-5.1-merge-matlab`
+
+		This job is used to run the MATLAB tests from the develop branch with
+		the PRs opened against the develop branch of OMERO
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Collects the MATLAB artifacts from :term:`OMERO-5.1-merge-build`
+		#. Run the MATLAB unit tests under
+		   :file:`components/tools/OmeroM/test/unit` and collect the results
+
+	:jenkinsjob:`OMERO-5.1-merge-robotframework`
+
+		This job is used to run the robot framework tests from the
+		develop branch with the PRs opened against the develop
+		branch of OMERO
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Build OMERO.server and start it
+		#. Run the robot framework tests and collect the results
+
+	:jenkinsjob:`OMERO-5.1-breaking-trigger`
+
+		This job is used to trigger all the breaking jobs listed below
+
+	:jenkinsjob:`OMERO-5.1-breaking-push`
+
+		This job is used to merge all the breaking PRs
+
+		#. |merge| including only PRs labelled as `breaking`
+		#. Push the branch to snoopycrimecop/merge/develop/breaking
+
+	:jenkinsjob:`OMERO-5.1-breaking-build`
+
+		These jobs are used to build the OMERO components with Ice 3.3, 3.4 or
+		3.5
+
+		#. Checks out the merge/develop/breaking branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. |buildOMERO| for each version of Ice
+		#. |buildVM|
+		#. |archiveOMEROartifacts|
+
+	:jenkinsjob:`OMERO-5.1-breaking-deploy`
+
+		This job deploys the merge server on port 34064 of
+		trout.openmicroscopy.org
+
+	:jenkinsjob:`OMERO-5.1-breaking-integration`
+
+		This job runs the integration tests from the breaking branch of OMERO
+
+		#. Checks out the merge/develop/breaking branch of the
+		   snoopycrimecop fork of openmicroscopy.git_
+		#. Build OMERO.server and start it
+		#. Run the integration tests and collect the results (Java and Python)
+
+	:jenkinsjob:`OMERO-5.1-breaking-integration-java`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.1-breaking-integration`,
+		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-5.1-breaking-integration-python`
+
+		This job is used for parsing OmeroPy integration test results
+
+		#. Receives pytest results from :term:`OMERO-5.1-breaking-integration`,
+		#. Generates pytest report
+
+	:jenkinsjob:`OMERO-5.1-breaking-integration-broken`
+
+		This job is used for parsing OmeroJava integration test results
+
+		#. Receives TestNG results from :term:`OMERO-5.1-breaking-integration`,
+		#. Generates TestNG report
