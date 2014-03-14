@@ -540,6 +540,7 @@ Jenkins.
    "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-build";
    "OMERO-5.1-breaking-build" -> "OMERO-5.1-breaking-deploy";
    "OMERO-5.1-breaking-deploy" -> "OMERO-5.1-breaking-integration";
+   "OMERO-5.1-breaking-deploy" -> "OMERO-5.1-breaking-upgrade";
    "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-java";
    "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-python";
    "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-broken";
@@ -602,3 +603,12 @@ Jenkins.
 
 		#. Receives TestNG results from :term:`OMERO-5.1-breaking-integration`,
 		#. Generates TestNG report
+
+	:jenkinsjob:`OMERO-5.1-breaking-upgrade`
+
+		This job is used to test the DB upgrade script
+
+		#. Initialize a database using the script from the last release or the
+		   last dbpatch of the series
+		#. Run the upgrade script under :file:`sql/psql/OMERO5.1_DEVx/`
+		#. Start the OMERO server
