@@ -252,13 +252,13 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 The branch for the 5.0.x series of OMERO is dev_5_0. All jobs are listed
 under the :jenkinsview:`5.0` view tab of Jenkins.
 
-.. digraph:: OMERO51latest
+.. digraph:: OMERO50latest
 
    "OMERO-5.0-latest-ice33" -> "OMERO-5.0-latest-ice34" -> "OMERO-5.0-latest-ice35";
    "OMERO-5.0-latest-ice35" -> "OMERO-5.0-latest-deploy"
    "OMERO-5.0-latest-ice35" -> "OMERO-5.0-latest-virtualbox"
 
-.. digraph:: OMERO51merge
+.. digraph:: OMERO50merge
 
    "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-ice33";
    "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-ice34";
@@ -273,7 +273,6 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
    "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-java";
    "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-python";
    "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-broken";
-
 
 .. glossary::
 
@@ -423,14 +422,6 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
    "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-python";
    "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-broken";
 
-   "OMERO-5.1-breaking-trigger" -> "OMERO-5.1-breaking-push";
-   "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-build";
-   "OMERO-5.1-breaking-build" -> "OMERO-5.1-breaking-deploy";
-   "OMERO-5.1-breaking-deploy" -> "OMERO-5.1-breaking-integration";
-   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-java";
-   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-python";
-   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-broken";
-
 .. glossary::
 
 	:jenkinsjob:`OMERO-5.1-latest`
@@ -534,6 +525,26 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		   snoopycrimecop fork of openmicroscopy.git_
 		#. Build OMERO.server and start it
 		#. Run the robot framework tests and collect the results
+
+Breaking jobs
+^^^^^^^^^^^^^
+
+Breaking jobs are jobs containing breaking, irreversible changes typically
+database upgrade. The branch for the breaking series of OMERO is develop. All
+breaking jobs are listed under the :jenkinsview:`Breaking` view tab of
+Jenkins.
+
+.. digraph:: OMERObreakingjobs
+
+   "OMERO-5.1-breaking-trigger" -> "OMERO-5.1-breaking-push";
+   "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-build";
+   "OMERO-5.1-breaking-build" -> "OMERO-5.1-breaking-deploy";
+   "OMERO-5.1-breaking-deploy" -> "OMERO-5.1-breaking-integration";
+   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-java";
+   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-python";
+   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-broken";
+
+.. glossary::
 
 	:jenkinsjob:`OMERO-5.1-breaking-trigger`
 
