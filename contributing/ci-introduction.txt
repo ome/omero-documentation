@@ -48,13 +48,13 @@ Labels
 
 Labels are applied to PRs on GitHub under the “Issues” tab of each repository.
 
-The 4.4.x series consists of PRs labelled with “dev_4_4”, which
+The 4.4.x series consists of PRs labeled with “dev_4_4”, which
 is the name of the branch which they will be merged into.
 
-The 5.0.x series consists of PRs labelled with “dev_5_0”, which is also
+The 5.0.x series consists of PRs labeled with “dev_5_0”, which is also
 the name of the branch which they will be merged into.
 
-The 5.1.x series consists of PRs labelled with “develop”, which is also
+The 5.1.x series consists of PRs labeled with “develop”, which is also
 the name of the branch which they will be merged into.
 
 Multiple labels are used in the PR reviewing process:
@@ -84,7 +84,7 @@ All core OME jobs are named after the following conventions
   * the ``merge`` jobs build from the tip of the development branch with all
     PRs merged using :ref:`scc merge` with the `org` default filter set,
   * the ``breaking`` jobs build from the tip of the development branch with
-    all PRs labelled as ``breaking`` merged using :ref:`scc merge`,
+    all PRs labeled as ``breaking`` merged using :ref:`scc merge`,
   * the ``release`` jobs build from and optionally create a tag at the tip of
     a development branch, e.g. `v5.0.1-rc4`.
 

@@ -557,7 +557,7 @@ Jenkins.
 
 		This job is used to merge all the breaking PRs
 
-		#. |merge| including only PRs labelled as `breaking`
+		#. |merge| including only PRs labeled as `breaking`
 		#. Push the branch to snoopycrimecop/merge/develop/breaking
 
 	:jenkinsjob:`OMERO-5.1-breaking-build`

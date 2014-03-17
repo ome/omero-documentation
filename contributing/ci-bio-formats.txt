@@ -365,7 +365,7 @@ Jenkins.
 
 	:jenkinsjob:`BIOFORMATS-5.1-breaking-full-repository`
 
-		This job is used to review the PRs labelled as `breaking` opened
+		This job is used to review the PRs labeled as `breaking` opened
 		against the develop branch of Bio-Formats by running automated tests
 		against the full repository on squig
 
