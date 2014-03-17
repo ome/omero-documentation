@@ -363,12 +363,23 @@ Jenkins.
 
 .. glossary::
 
-	:jenkinsjob:`BIOFORMATS-5.1-breaking-full-repository`
 
-		This job is used to review the PRs labeled as `breaking` opened
+	:jenkinsjob:`BIOFORMATS-5.1-merge-full-repository`
+
+		This job is used toreview the PRs labeled as `breaking` opened
 		against the develop branch of Bio-Formats by running automated tests
 		against the full repository on squig
 
-		#. |merge|
+		#. Checks out the merge/develop/breaking branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. Run automated tests against :file:`/ome/data_repo/from_skyking/`
+
+	:jenkinsjob:`BIOFORMATS-5.1-breaking-repository-subset`
+
+		This job is used to review the PRs labeled as `breaking` opened
+		against the develop branch of Bio-Formats by running automated tests
+		against a subset of the data repostoryt
+
+		#. |merge| labeled as `breaking`
 		#. Run tests against directories configured by
 		   ``--test dirname`` under :file:`/ome/data_repo/from_skyking/`
