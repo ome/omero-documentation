@@ -15,7 +15,7 @@ e.g. 4.4.0-rc1 or 5.0.0-beta1.
 	Major release
 
 		An increment of the MAJOR version or the MINOR version is typically
-		considered as a major release in OME, e.g. 4.4.0 or 5.0.0.
+		considered as a major release in OME, e.g. 5.0.0 or 5.1.0.
 
 	Point release (patch release)
 
@@ -30,6 +30,10 @@ bioformats.git_, scripts.git_, ome-documentation.git_. For each repository,
 two development branches are maintained simultaneously:
 
 * The "dev_4_4" branch contains work on the 4.4.x series.
+  
+  .. note::
+    This branch has now entered maintenance mode and should only be updated 
+    for major bug fixes.
 
 * The "dev_5_0" branch contains work on the 5.0.x series.
 
