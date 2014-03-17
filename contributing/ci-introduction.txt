@@ -26,22 +26,23 @@ Development branches
 ^^^^^^^^^^^^^^^^^^^^
 
 Most of the OME code is split between four repositories: openmicroscopy.git_,
-bioformats.git_, scripts.git_, ome-documentation.git_. For each repository,
-two development branches are maintained simultaneously:
+bioformats.git_, scripts.git_, ome-documentation.git_. Each repository
+contains several development branches associated to development series:
 
 * The "dev_4_4" branch contains work on the 4.4.x series.
-  
+
   .. note::
-    This branch has now entered maintenance mode and should only be updated 
+    This branch has now entered maintenance mode and should only be updated
     for major bug fixes.
 
 * The "dev_5_0" branch contains work on the 5.0.x series.
 
 * The "develop" branch contains work on the 5.1.x series.
 
-It is possible to have a point release immediately, while still working on
+Note that only two branches are maintained simultaneously. With this workflow,
+it is possible to have a point release immediately, while still working on
 more major releases by ensuring that (nearly) all commits that are applied to
-dev_4_4 are applied to develop in order to prevent regressions.
+dev_5_0 are applied to develop in order to prevent regressions.
 
 Labels
 ^^^^^^
