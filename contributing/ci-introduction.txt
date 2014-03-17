@@ -75,18 +75,18 @@ Job names
 All core OME jobs are named after the following conventions
 ``COMPONENT-VERSION-TYPE-DESCRIPTION`` where:
 
-- ``COMPONENT`` describes to core OME component, e.g. OMERO or BIOFORMATS
-- ``VERSION`` describes to the MINOR.MINOR version, e.g. 5.0 or 5.1
+- ``COMPONENT`` describes to core OME component, e.g. OMERO or BIOFORMATS.
+- ``VERSION`` describes to the MINOR.MINOR version, e.g. 5.0 or 5.1.
 - ``TYPE`` describes the source of the job and can be:
 
   * the ``latest`` jobs build from the tip of the development branch, e.g.
-    `origin/dev_5_0`
+    `origin/dev_5_0`,
   * the ``merge`` jobs build from the tip of the development branch with all
-    PRs merged using :ref:`scc merge` with the `org` default filter set
+    PRs merged using :ref:`scc merge` with the `org` default filter set,
   * the ``breaking`` jobs build from the tip of the development branch with
-    all PRs labelled as ``breaking`` merged using :ref:`scc merge`
+    all PRs labelled as ``breaking`` merged using :ref:`scc merge`,
   * the ``release`` jobs build from and optionally create a tag at the tip of
-    a development branch, e.g. `v5.0.1-rc4`
+    a development branch, e.g. `v5.0.1-rc4`.
 
 - ``DESCRIPTION`` describes describing the function of the job via a couple of
-  keywords separated by dashes
+  keywords separated by dashes.
