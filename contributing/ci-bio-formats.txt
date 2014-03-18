@@ -1,0 +1,385 @@
+Bio-Formats jobs
+----------------
+
+..  |merge| replace:: Merges PRs using :ref:`scc merge`
+..  |buildBF| replace:: Builds Bio-Formats using ``ant clean jars tools tools-ome utils dist-bftools``
+..  |testBF| replace:: Runs Bio-Formats tests using ``ant test-common test-ome-xml test-formats test-ome-io``
+..  |fulltestBF| replace:: Runs Bio-Formats full test-suite using ``ant test``
+
+All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
+
+.. list-table::
+	:header-rows: 1
+
+	- 	* Job task
+		* 4.4.x series
+		* 5.0.x series
+		* 5.1.x series
+
+	- 	* Build the latest Bio-Formats artifacts
+		* :term:`BIOFORMATS-4.4-latest`
+		* :term:`BIOFORMATS-5.0-latest`
+		* :term:`BIOFORMATS-5.1-latest`
+
+	- 	* Publish the latest Bio-Formats to the OME artifactory
+		* :term:`BIOFORMATS-4.4-latest-maven`
+		* :term:`BIOFORMATS-5.0-latest-maven`
+		* :term:`BIOFORMATS-5.1-latest-maven`
+
+	- 	* Build the latest C++ bindings for Bio-Formats
+		*
+		* :term:`BIOFORMATS-5.0-latest-cpp`
+		* :term:`BIOFORMATS-5.1-latest-cpp`
+
+	- 	* Run the daily Bio-Formats merge jobs
+		* :term:`BIOFORMATS-4.4-merge-daily`
+		* :term:`BIOFORMATS-5.0-merge-daily`
+		* :term:`BIOFORMATS-5.1-merge-daily`
+
+	- 	* Build the merge Bio-Formats artifacts
+		* :term:`BIOFORMATS-4.4-merge-daily`
+		* :term:`BIOFORMATS-5.0-merge-daily`
+		* :term:`BIOFORMATS-5.1-merge-build`
+
+	- 	* Build the merge Bio-Formats artifacts
+		* :term:`BIOFORMATS-4.4-merge-daily`
+		* :term:`BIOFORMATS-5.0-merge-daily`
+		* :term:`BIOFORMATS-5.1-merge-build`
+
+	- 	* Build the merge C++ bindings for Bio-Formats
+		*
+		* :term:`BIOFORMATS-5.0-merge-cpp`
+		* :term:`BIOFORMATS-5.1-merge-cpp`
+
+	- 	* Run the MATLAB tests
+		* :term:`BIOFORMATS-4.4-merge-matlab`
+		* :term:`BIOFORMATS-5.0-merge-matlab`
+		* :term:`BIOFORMATS-5.1-merge-matlab`
+
+	- 	* Run automated tests against the full repository on squig
+		* :term:`BIOFORMATS-4.4-merge-full-repository`
+		* :term:`BIOFORMATS-5.0-merge-full-repository`
+		* :term:`BIOFORMATS-5.1-merge-full-repository`
+
+	- 	* Run automated tests against test_images_good on squig
+		*
+		* :term:`BIOFORMATS-5.0-merge-test_images_good`
+		* :term:`BIOFORMATS-5.1-merge-test_images_good`
+
+	- 	* Run openBytes performance test
+		* | :term:`BIOFORMATS-4.4-merge-openbytes-performance`
+		  | :term:`BIOFORMATS-4.4-merge-omero-openbytes`
+		* :term:`BIOFORMATS-5.0-merge-openbytes-performance`
+		* :term:`BIOFORMATS-5.1-merge-openbytes-performance`
+
+4.4.x series
+^^^^^^^^^^^^
+
+.. digraph:: BIOFORMATS44latest
+
+   "BIOFORMATS-4.4-latest" -> "BIOFORMATS-4.4-latest-maven";
+
+   "BIOFORMATS-4.4-merge-daily" -> "BIOFORMATS-4.4-merge-docs";
+   "BIOFORMATS-4.4-merge-daily" -> "BIOFORMATS-4.4-merge-matlab";
+
+The branch for the 4.4.x series of Bio-Formats is dev_4_4.
+
+.. glossary::
+
+	:jenkinsjob:`BIOFORMATS-4.4-latest`
+
+		This job is used to build the dev_4_4 branch of Bio-Formats
+
+		#. |buildBF|
+		#. |testBF|
+
+	:jenkinsjob:`BIOFORMATS-4.4-latest-maven`
+
+		This job is used to publish the dev_4_4 branch of Bio-Formats
+		to the LOCI Nexus repository
+
+	:jenkinsjob:`BIOFORMATS-4.4-merge-daily`
+
+		This job is used to review the PRs opened against the dev_4_4
+		branch of Bio-Formats by running basic unit tests, checking for open
+		file handles, and checking for regressions across a representative
+		subset of the data repository
+
+		#. |merge|
+		#. |buildBF|
+		#. |fulltestBF|
+
+	:jenkinsjob:`BIOFORMATS-4.4-merge-matlab`
+
+		This job is used to run the MATLAB tests from the dev_4_4 branch with
+		the PRs opened against the dev_4_4 branch of OMERO
+
+		#. Collects the MATLAB artifacts and unit tests from
+		   :term:`BIOFORMATS-4.4-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/bio-formats/test/matlab` and collect the results
+
+	:jenkinsjob:`BIOFORMATS-4.4-merge-full-repository`
+
+		This job is used to review the PRs opened against the dev_4_4
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
+
+		#. |merge|
+		#. Run tests against directories configured by
+		   ``--test dirname`` under :file:`/ome/data_repo/from_skyking/`
+
+	:jenkinsjob:`BIOFORMATS-4.4-merge-omero-openbytes`
+
+		This job is used to review the PRs opened against the dev_4_4
+		branch of Bio-Formats by running OMERO openBytes tests against
+		directories on squig
+
+		#. |merge|
+		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` tests against
+		   directories specified by :file:`BIOFORMATS-omero-openbytes.txt`
+
+	:jenkinsjob:`BIOFORMATS-4.4-merge-openbytes-performance`
+
+		This job is used to review the PRs opened against the dev_4_4
+		branch of Bio-Formats by running openBytes performance tests against
+		directories on squig
+
+		#. |merge|
+		#. Run ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
+		   directories specified by
+		   :file:`BIOFORMATS-openbytes-performance.txt`
+
+5.0.x series
+^^^^^^^^^^^^
+
+.. digraph:: BIOFORMATS50latest
+
+   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-maven" -> "BIOFORMATS-5.0-latest-cppwrap";
+   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-cpp";
+   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-docs-autogen";
+
+   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-cpp";
+   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-docs";
+   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-matlab";
+
+The branch for the 5.0.x series of Bio-Formats is dev_5_0.
+
+.. glossary::
+
+	:jenkinsjob:`BIOFORMATS-5.0-latest`
+
+		This job is used to build the latest dev_5_0 branch of Bio-Formats
+
+		#. |buildBF|
+		#. |testBF|
+
+	:jenkinsjob:`BIOFORMATS-5.0-latest-cpp`
+
+		This job is used to build the latest C++ bindings for Bio-Formats
+
+	:jenkinsjob:`BIOFORMATS-5.0-latest-maven`
+
+		This job is used to publish the dev_5_0 branch of Bio-Formats to the
+		OME artifactory at http://artifacts.openmicroscopy.org/
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-daily`
+
+		This job is used to review the PRs opened against the dev_5_0 branch
+		of Bio-Formats by running basic unit tests, checking for open file
+		handles, and checking for regressions across a representative subset
+		of the data repository
+
+		#. |merge|
+		#. |buildBF|
+		#. |fulltestBF|
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-cpp`
+
+		This job is used to build the merge C++ bindings for Bio-Formats
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-matlab`
+
+		This job is used to run the MATLAB tests from the dev_5_0 branch with
+		the PRs opened against the dev_5_0 branch of OMERO
+
+		#. Collects the MATLAB artifacts and unit tests from
+		   :term:`BIOFORMATS-5.0-merge-daily`
+		#. Run the MATLAB unit tests under
+		   :file:`components/bio-formats/test/matlab` and collect the results
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-full-repository`
+
+		This job is used to review the PRs opened against the dev_5_0
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
+
+		#. |merge|
+		#. Run automated tests against :file:`/ome/data_repo/from_skyking/`
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-test_images_good`
+
+		This job is used to review the PRs opened against the dev_5_0
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
+
+		#. |merge|
+		#. Run automated tests against
+		   :file:`/ome/data_repo/test_images_good/`
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-openbytes-performance`
+
+		This job is used to review the PRs opened against the dev_5_0
+		branch of Bio-Formats by running openBytes performance tests against
+		directories on squig
+
+		#. |merge|
+		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and
+		   ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
+		   directories specified by
+		   :file:`BIOFORMATS-openbytes-performance.txt`
+
+5.1.x series
+^^^^^^^^^^^^
+
+.. digraph:: BIOFORMATS51latest
+
+   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-maven" -> "BIOFORMATS-5.1-latest-cppwrap";
+   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-cpp";
+   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-docs-autogen";
+
+.. digraph:: BIOFORMATS51mergedaily
+
+   "BIOFORMATS-5.1-merge-daily" -> "OMERO-5.1-merge-push";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-build";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-cpp";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-docs";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-test_images_good";
+   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-performance";
+   "BIOFORMATS-5.1-merge-build" -> "BIOFORMATS-5.1-merge-matlab";
+
+The branch for the 5.1.x series of Bio-Formats is develop.
+
+.. glossary::
+
+	:jenkinsjob:`BIOFORMATS-5.1-latest`
+
+		This job is used to build the develop branch of Bio-Formats
+
+		#. |buildBF|
+		#. |testBF|
+
+	:jenkinsjob:`BIOFORMATS-5.1-latest-maven`
+
+		This job is used to publish the develop branch of Bio-Formats to the
+		OME artifactory at http://artifacts.openmicroscopy.org/
+
+	:jenkinsjob:`BIOFORMATS-5.1-latest-cpp`
+
+		This job is used to build the latest C++ bindings for Bio-Formats
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-daily`
+
+		This job is used to run the daily Bio-Formats jobs used for reviewing
+		the PRs opened against the develop branch of Bio-Formats by running basic unit tests, checking for open file
+		handles, and checking for regressions across a representative subset
+		of the data repository
+
+		#. Trigger :term:`OMERO-5.1-merge-push`
+		#. Trigger :term:`BIOFORMATS-5.1-merge-build`,
+		   :term:`BIOFORMATS-5.1-merge-cpp`,
+		   :term:`BIOFORMATS-5.1-merge-docs`,
+		   :term:`BIOFORMATS-5.1-merge-test_images_good` and
+   		   BIOFORMATS-5.1-merge-performance
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-build`
+
+		This job build the merge artifacts of Bio-Formats
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. |buildBF|
+		#. |fulltestBF|
+		#. Trigger :term:`BIOFORMATS-5.1-merge-matlab`
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-cpp`
+
+		This job is used to build the merge C++ bindings for Bio-Formats
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-matlab`
+
+		This job is used to run the MATLAB tests from the develop branch with
+		the PRs opened against the develop branch of OMERO
+
+		#. Collects the MATLAB artifacts and unit tests from
+		   :term:`BIOFORMATS-5.1-merge-build`
+		#. Run the MATLAB unit tests under
+		   :file:`components/bio-formats/test/matlab` and collect the results
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-full-repository`
+
+		This job is used to review the PRs opened against the develop
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. Run automated tests against :file:`/ome/data_repo/from_skyking/`
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-test_images_good`
+
+		This job is used to review the PRs opened against the develop
+		branch of Bio-Formats by running automated tests against the full
+		repository on squig
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. Run automated tests against
+		   :file:`/ome/data_repo/test_images_good/`
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-openbytes-performance`
+
+		This job is used to review the PRs opened against the develop
+		branch of Bio-Formats by running openBytes performance tests against
+		directories on squig
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. Run ``loci.tests.testng.OmeroOpenBytesTest`` and
+		   ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
+		   directories specified by
+		   :file:`BIOFORMATS-openbytes-performance.txt`
+
+
+.. _bf_breaking:
+
+Bio-Formats breaking jobs
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Breaking jobs are jobs used to review breaking changes, for instance model
+changes. The branch for the breaking series of Bio-Formats is develop. All
+breaking jobs are listed under the :jenkinsview:`Breaking` view tab of
+Jenkins.
+
+.. glossary::
+
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-full-repository`
+
+		This job is used to review the PRs labeled as `breaking` opened
+		against the develop branch of Bio-Formats by running automated tests
+		against the full repository on squig
+
+		#. Checks out the merge/develop/breaking branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. Run automated tests against :file:`/ome/data_repo/from_skyking/`
+
+	:jenkinsjob:`BIOFORMATS-5.1-breaking-repository-subset`
+
+		This job is used to review the PRs labeled as `breaking` opened
+		against the develop branch of Bio-Formats by running automated tests
+		against a subset of the data repository
+
+		#. |merge| labeled as `breaking`
+		#. Run tests against directories configured by
+		   ``--test dirname`` under :file:`/ome/data_repo/from_skyking/`

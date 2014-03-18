@@ -1,0 +1,93 @@
+Continuous integration branches and jobs
+----------------------------------------
+
+Versioning
+^^^^^^^^^^
+
+OME uses semantic versioning as defined in http://semver.org. Each version
+number is identified as MAJOR.MINOR.PATCH where MAJOR is the major version
+number, MINOR the minor version number and PATCH the patch version number.
+Additional pre-release labels are added as extensions of this version number,
+e.g. 4.4.0-rc1 or 5.0.0-beta1.
+
+.. glossary::
+
+	Major release
+
+		An increment of the MAJOR version or the MINOR version is typically
+		considered as a major release in OME, e.g. 5.0.0 or 5.1.0.
+
+	Point release (patch release)
+
+		An increment of the PATCH version is called a point (or patch) release
+		in OME, e.g. 4.4.9.
+
+Development branches
+^^^^^^^^^^^^^^^^^^^^
+
+Most of the OME code is split between four repositories: openmicroscopy.git_,
+bioformats.git_, scripts.git_, ome-documentation.git_. Each repository
+contains several development branches associated with development series:
+
+* The "dev_4_4" branch contains work on the 4.4.x series.
+
+  .. note::
+    This branch has now entered maintenance mode and should only be updated
+    for major bug fixes.
+
+* The "dev_5_0" branch contains work on the 5.0.x series.
+
+* The "develop" branch contains work on the 5.1.x series.
+
+Note that only two branches are maintained simultaneously. With this workflow,
+it is possible to have a point release immediately, while still working on
+more major releases by ensuring that (nearly) all commits that are applied to
+dev_5_0 are applied to develop in order to prevent regressions.
+
+Labels
+^^^^^^
+
+Labels are applied to PRs on GitHub under the “Issues” tab of each repository.
+
+The 4.4.x series consists of PRs labeled with “dev_4_4”, which
+is the name of the branch which they will be merged into.
+
+The 5.0.x series consists of PRs labeled with “dev_5_0”, which is also
+the name of the branch which they will be merged into.
+
+The 5.1.x series consists of PRs labeled with “develop”, which is also
+the name of the branch which they will be merged into.
+
+Multiple labels are used in the PR reviewing process:
+
+- the “include” label allows you to include a PR opened by a non-member of the
+  OME organization in the merge builds for review.
+- the “exclude” label allows you to exclude a PR opened by any user from the
+  merge builds.
+- the "on hold" label allows you to signal that a PR should not be
+  reviewed or merged, even though it is not excluded.
+- the "breaking" label allows you to mark a PR as containing breaking changes,
+  usually model and/or DB changes (see :ref:`omero_breaking` and
+  :ref:`bf_breaking`).
+
+Job names
+^^^^^^^^^
+
+All core OME jobs are named after the following conventions
+``COMPONENT-VERSION-TYPE-DESCRIPTION`` where:
+
+- ``COMPONENT`` describes to core OME component, e.g. OMERO or BIOFORMATS.
+- ``VERSION`` describes to the MINOR.MINOR version, e.g. 5.0 or 5.1.
+- ``TYPE`` describes the source of the job and can be:
+
+  * the ``latest`` jobs build from the tip of the development branch, e.g.
+    `origin/dev_5_0`,
+  * the ``merge`` jobs build from the tip of the development branch with all
+    PRs merged using :ref:`scc merge` with the `org` default filter set,
+  * the ``breaking`` jobs build from the tip of the development branch with
+    all PRs labeled as ``breaking`` merged using :ref:`scc merge`,
+  * the ``release`` jobs build from and optionally create a tag at the tip of
+    a development branch, e.g. `v5.0.1-rc4`.
+
+- ``DESCRIPTION`` describes describing the function of the job via a couple of
+  keywords separated by dashes.
