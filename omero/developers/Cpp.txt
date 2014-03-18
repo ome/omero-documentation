@@ -71,7 +71,7 @@ to adjust them for the Ice installation path and version in use.
 
    .. parsed-literal::
 
-       set ICE_HOME=C:\Ice-|iceversion|
+       set ICE_HOME=C:\\Ice-|iceversion|
 
 Users of a package manager will also need to set :envvar:`ICE\_HOME`
 if the Ice paths are not automatically detected correctly.  The
