@@ -81,13 +81,6 @@ page <download_3_4_2.html>` and will be called something like
 :file:`Ice-3.4.2.msi` (for Ice 3.4.2). If you plan to develop for C++, be sure 
 to read the instructions on the |OmeroCpp| page.
 
-Users have reported that under certain conditions installing Ice in the
-default location (:file:`C:\\Program Files`) might break the Windows
-:envvar:`PATH` (due to special characters present in the file name). In cases
-where :omerocmd:`admin diagnostics` throws any errors related to unexpected
-paths with Ice, please consider installing Ice in the root of the partition
-(e.g. :file:`C:\\Ice`).
-
 Python 2 (2.6 or later)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
