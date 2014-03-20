@@ -28,15 +28,13 @@ users/passwords described in this install guide, please see
    2008 and we recommend this version.
 -  OMERO does not currently support Ice 3.5 or Python 3.
 -  :doc:`/sysadmins/omeromovie` is not supported on Windows at present.
--  Spaces in installation path names are not currently supported - **do not 
-   use spaces in your folder names**:
-
-   .. note::
-
-      The default user paths on Windows usually contain spaces so you
-      will need to ensure the path has no spaces, :file:`C:\\OMERO.server`
-      for example.
 -  A reboot is required after installing the prerequisites.
+
+.. note::
+
+  The default user paths on Windows usually contain spaces so you will need
+  to ensure the the server installation path has no spaces,
+  :file:`C:\\OMERO.server` for example.
 
 Prerequisites
 -------------
