@@ -79,10 +79,10 @@ page <download_3_4_2.html>` and will be called something like
 :file:`Ice-3.4.2.msi` (for Ice 3.4.2). If you plan to develop for C++, be sure 
 to read the instructions on the |OmeroCpp| page.
 
-Python 2 (2.6 or later)
-^^^^^^^^^^^^^^^^^^^^^^^
+Python
+^^^^^^
 
-Ice 3.4.x requires Python 2.6.x. You can download a precompiled version
+Ice 3.4.2 requires Python 2.6. You can download a precompiled version
 from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
 As this is the "vanilla" python distribution (no extra libraries),
 you will need to install further dependencies, making sure to
