@@ -88,10 +88,10 @@ where :omerocmd:`admin diagnostics` throws any errors related to unexpected
 paths with Ice, please consider installing Ice in the root of the partition
 (e.g. :file:`C:\\Ice`).
 
-Python 2 (2.6 or later)
-^^^^^^^^^^^^^^^^^^^^^^^
+Python
+^^^^^^
 
-Ice 3.4.x requires Python 2.6.x. You can download a precompiled version
+Ice 3.4.2 requires Python 2.6. You can download a precompiled version
 from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
 As this is the "vanilla" python distribution (no extra libraries),
 you will need to install further dependencies, making sure to
