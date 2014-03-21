@@ -1,28 +1,19 @@
 OMERO.server installation
 =========================
 
-.. seealso::
+This is the default guide for installing OMERO.server on UNIX and UNIX-like
+platforms. Depending on what platform you are using, you may find a more
+specific walk-through listed below.
 
-    :doc:`/sysadmins/server-upgrade`
-         Instructions for **upgrading** your OMERO.server installation.
+.. seealso::
 
     :doc:`server-install-homebrew`
         Instructions for installing your OMERO.server on Mac OS X using Homebrew.
-
+    
     :doc:`server-install-linux`
         Instructions for installing your OMERO.server on Debian/Ubuntu.
-
-    :snapshot:`OMERO Installation for Mac OS X Snow Leopard (10.6) <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
-        A guide provided by Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) 
-        for users wishing to install OMERO 4.1 on Mac OS 10.6, including
-        details on how to build all dependencies from source. The OMERO 4.4
-        and 4.3 installs are almost identical to 4.2 and 4.1 (except for web
-        client), so this guide will still be useful.
-
-    :snapshot:`Omero Server Beta 4.2.0 installation on CentOS <omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`
-        A guide provided by Caterina Strambio De Castillia and Vanni
-        Galli (University of Geneva/SUPSI in Lugano) for users wishing
-        to install OMERO 4.1.1 or 4.2.0 on CentOS.
+    
+    Monash University also have a guide for `installing OMERO on CentOS 6.3 (64-bit) <https://confluence-vre.its.monash.edu.au/display/CVL/Installing+Omero+on+CentOS+6.3+(64-bit)>`_ which you may find useful.
 
 
 Limitations
@@ -37,7 +28,9 @@ users/passwords described in this install guide, please see
 Prerequisites
 -------------
 
-.. note:: The installation of these prerequisite applications is outside the scope of this document. For Linux distributions you should use the default package manager.
+.. note:: The installation of these prerequisite applications is outside the
+    scope of this document. For Linux distributions you should use the default
+    package manager.
 
 The following are necessary:
 
@@ -607,3 +600,10 @@ If you want help with your server installation, please include the output of the
 
     OMERO data dir: '/OMERO'    Exists? True    Is writable? True
     OMERO.web status... [RUNNING] (PID 28736)
+
+.. toctree::
+    :hidden:
+
+    server-install-homebrew
+    server-install-linux
+
