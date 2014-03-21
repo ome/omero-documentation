@@ -88,15 +88,18 @@ where :omerocmd:`admin diagnostics` throws any errors related to unexpected
 paths with Ice, please consider installing Ice in the root of the partition
 (e.g. :file:`C:\\Ice`).
 
-Python 2 (2.6 or later)
-^^^^^^^^^^^^^^^^^^^^^^^
+Python
+^^^^^^
 
-Ice 3.4.x requires Python 2.6.x. You can download a precompiled version
-from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
-As this is the "vanilla" python distribution (no extra libraries),
-you will need to install further dependencies, making sure to
-download the correct version (2.6, 32/64-bit) for your Python
-distribution.
+.. note::
+
+    OMERO does not currently support Python 3.
+
+The precompiled Ice version 3.4.2 requires Python 2.6. You can download a
+precompiled installer from `python.org <http://www.python.org/download/releases/2.6.6/>`_. As this is the "vanilla" python
+distribution (no extra libraries), you will need to install further
+dependencies, making sure to download the correct version (2.6, 32/64-bit)
+for your Python distribution.
 
 32/64-bit
 """""""""
@@ -104,10 +107,6 @@ distribution.
 OMERO has been extensively tested with 32-bit Python on Windows. 64-bit Python
 should also work though it has not been tested as thoroughly. You can obtain
 64-bit precompiled dependencies from http://www.lfd.uci.edu/~gohlke/pythonlibs.
-
-.. note::
-
-    OMERO does not currently support Python 3.
 
 Python for Windows extensions
 """""""""""""""""""""""""""""
