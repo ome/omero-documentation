@@ -253,9 +253,8 @@ Environment variables
 ---------------------
 
 For the prerequisite software to run properly, your PATH and PYTHONPATH
-environment variables must be configured. If not correctly configured or if
-you installed any of the prerequisites manually to :file:`C:\\ice` or a 
-similar location, you will need to set the values yourself.
+environment variables must be configured. This is particularly important for
+Ice which doesn't set the required variables by default.
 
 **Update your Windows environment variables: (REQUIRES RESTART!)**
 
