@@ -34,7 +34,7 @@ Prerequisites
 
 The following are necessary:
 
-Java SE Development Kit (JDK) (1.6 or higher) 
+Java SE Development Kit (JDK) (1.6 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
@@ -61,8 +61,8 @@ installed and available via your $PATH as follows…
     $ javac -version
     javac 1.6.0
 
-Python 2 (2.6 or later)
-^^^^^^^^^^^^^^^^^^^^^^^
+Python
+^^^^^^
 
 Check you have Python (and what version) by typing:
 
@@ -71,7 +71,7 @@ Check you have Python (and what version) by typing:
     $ python --version
     Python 2.7.5+
 
-OMERO does not currently support Python 3.
+.. note:: OMERO does not currently support Python 3.
 
 The following are optional depending on what services you require:
 
@@ -111,21 +111,21 @@ The following are optional depending on what services you require:
 .. [3] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
 
 
-Ice (3.3.x or 3.4.x)
-^^^^^^^^^^^^^^^^^^^^
+Ice
+^^^
 
 .. note::
 
-    OMERO |version| supports Ice3.4, but this requires the correct
-    version of OMERO.server (see :downloads:`Downloads
-    <>`). See :faq_plone:`"Do I use Ice 3.3 or
+    OMERO |version| supports Ice 3.3, 3.4 and 3.5 on UNIX and UNIX-like
+    platforms, but you must install the correct version of OMERO.server (see
+    :downloads:`Downloads <>`). See :faq_plone:`"Do I use Ice 3.3 or
     Ice 3.4?" <omero/do-i-use-ice-3.3-or-ice-3.4>` in
     the FAQ. If you have further questions, consult the :forum:`Forums <>`.
 
 
 UNIX source downloads and binary packages are available from ZeroC_.
-The latest compatible distribution is the :zeroc:`3.3.1 release
-<download_3_3_1.html>`. ZeroC does not provide binaries which work out of the
+The latest compatible distribution is the :zeroc:`3.5.0 release
+<download_3_5_0.html>`. ZeroC does not provide binaries which work out of the
 box for Mac OS X Snow Leopard (10.6), so we recommend you follow the
 instructions for installation using :doc:`Homebrew <server-install-homebrew>`
 instead if this is your OS.
