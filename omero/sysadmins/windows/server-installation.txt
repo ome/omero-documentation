@@ -82,6 +82,10 @@ to read the instructions on the |OmeroCpp| page.
 Python
 ^^^^^^
 
+.. note::
+
+    OMERO does not currently support Python 3.
+
 Ice 3.4.2 requires Python 2.6. You can download a precompiled version
 from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
 As this is the "vanilla" python distribution (no extra libraries),
@@ -95,10 +99,6 @@ distribution.
 OMERO has been extensively tested with 32-bit Python on Windows. 64-bit Python
 should also work though it has not been tested as thoroughly. You can obtain
 64-bit precompiled dependencies from http://www.lfd.uci.edu/~gohlke/pythonlibs.
-
-.. note::
-
-    OMERO does not currently support Python 3.
 
 Python for Windows extensions
 """""""""""""""""""""""""""""
