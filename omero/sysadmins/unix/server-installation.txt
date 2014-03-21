@@ -73,7 +73,7 @@ Check you have Python (and what version) by typing:
 
 .. note:: OMERO does not currently support Python 3.
 
-The following are optional depending on what services you require:
+The following packages are required:
 
 .. tabularcolumns:: |l|l|l|
 
@@ -110,6 +110,10 @@ The following are optional depending on what services you require:
 
 .. [3] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
 
+.. note:: Some of these can be ignored if you wish to forego some
+    functionality but we recommend you just install everything. For example,
+    scripting is enabled by default so should not be assumed optional even if
+    you never expect your users to run scripts from the clients.
 
 Ice
 ^^^
