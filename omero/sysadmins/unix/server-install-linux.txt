@@ -2,7 +2,9 @@ OMERO.server Linux installation walk-through
 ============================================
 
 This page walks through the process of installing OMERO.server on a
-machine using a Debian-based Linux distribution. 
+machine using a Debian-based Linux distribution. For other UNIX or UNIX-like
+platforms, please refer to the default instructions on the
+:doc:`server-installation` page.
 
 .. note:: 
     This page is generally applicable to Debian and Ubuntu installations,
