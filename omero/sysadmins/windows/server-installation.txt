@@ -86,12 +86,11 @@ Python
 
     OMERO does not currently support Python 3.
 
-Ice 3.4.2 requires Python 2.6. You can download a precompiled version
-from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
-As this is the "vanilla" python distribution (no extra libraries),
-you will need to install further dependencies, making sure to
-download the correct version (2.6, 32/64-bit) for your Python
-distribution.
+The precompiled Ice version 3.4.2 requires Python 2.6. You can download a
+precompiled installer from `python.org <http://www.python.org/download/releases/2.6.6/>`_. As this is the "vanilla" python
+distribution (no extra libraries), you will need to install further
+dependencies, making sure to download the correct version (2.6, 32/64-bit)
+for your Python distribution.
 
 32/64-bit
 """""""""
