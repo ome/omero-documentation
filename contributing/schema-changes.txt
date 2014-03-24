@@ -20,6 +20,19 @@ necessary, if your pull request affects the schema then you **must**
 increment the database patch number and provide an updated schema as
 described below.
 
+Patch number conflicts
+----------------------
+
+It is possible that another person may also be working on a pull request
+that changes the schema and increments the database patch number. This
+is unfortunate because if their pull request is merged it will be as
+if your pull request does not change the patch number. Others may then
+unwittingly attempt to use your code with an inappropriate database.
+If you are considering model changes, it is wise to discuss this with
+the core OME developers in advance. When you working  on a schema changing
+pull request, first ask or check if yours will be the only one that
+includes a schema change.
+
 Model object proxies
 --------------------
 
@@ -99,19 +112,6 @@ that you can start OMERO.server and test your changes thoroughly.
 When you commit your code and issue a pull request, include the
 changes to :source:`omero.properties <etc/omero.properties>` and
 :source:`sql/psql` among the commits in the pull request.
-
-Patch number conflicts
-----------------------
-
-It is possible that another person may have also opened a pull request
-that changes the schema and increments the database patch number. This
-is unfortunate because if their pull request is merged it will be as
-if your pull request does not change the patch number. Others may then
-unwittingly attempt to use your code with an inappropriate database.
-If you are considering model changes, it is wise to discuss this with
-the core OME developers in advance. When you are ready to open a pull
-request, first ask or check if yours will be the only one that
-includes a schema change.
 
 SQL upgrade scripts
 -------------------
