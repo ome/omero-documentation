@@ -30,8 +30,10 @@ contributing_extlinks = {
     # Github links
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'sourcedir' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
+    'commit' : (omero_github_root + 'commit/%s', ''),
     'bf_source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
     'bf_sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
+    'bf_commit' : (bf_github_root + 'commit/%s', ''),
     }
 extlinks.update(contributing_extlinks)
 
