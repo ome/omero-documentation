@@ -29,7 +29,7 @@ is unfortunate because if their pull request is merged it will be as
 if your pull request does not change the patch number. Others may then
 unwittingly attempt to use your code with an inappropriate database.
 If you are considering model changes, it is wise to discuss this with
-the core OME developers in advance. When you working  on a schema changing
+the core OME developers in advance. When working on a schema-changing
 pull request, first ask or check if yours will be the only one that
 includes a schema change.
 
