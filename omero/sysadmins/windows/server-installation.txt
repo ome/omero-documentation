@@ -28,15 +28,13 @@ users/passwords described in this install guide, please see
    2008 and we recommend this version.
 -  OMERO does not currently support Ice 3.5 or Python 3.
 -  :doc:`/sysadmins/omeromovie` is not supported on Windows at present.
--  Spaces in installation path names are not currently supported - **do not 
-   use spaces in your folder names**:
-
-   .. note::
-
-      The default user paths on Windows usually contain spaces so you
-      will need to ensure the path has no spaces, :file:`C:\\OMERO.server`
-      for example.
 -  A reboot is required after installing the prerequisites.
+
+.. note::
+
+  The default user paths on Windows usually contain spaces so you will need
+  to ensure the the server installation path has no spaces,
+  :file:`C:\\OMERO.server` for example.
 
 Prerequisites
 -------------
@@ -77,13 +75,6 @@ Ice (3.3.x or 3.4.x)
 Windows installers of Ice can be found on the :zeroc:`ZeroC Ice 3.4.2 download
 page <download_3_4_2.html>`. If you plan to develop for C++, be sure
 to read the instructions on the |OmeroCpp| page.
-
-Users have reported that under certain conditions installing Ice in the
-default location (:file:`C:\\Program Files`) might break the Windows
-:envvar:`PATH` (due to special characters present in the file name). In cases
-where :omerocmd:`admin diagnostics` throws any errors related to unexpected
-paths with Ice, please consider installing Ice in the root of the partition
-(e.g. :file:`C:\\Ice`).
 
 Python
 ^^^^^^
