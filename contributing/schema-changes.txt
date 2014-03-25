@@ -20,6 +20,19 @@ necessary, if your pull request affects the schema then you **must**
 increment the database patch number and provide an updated schema as
 described below.
 
+Patch number conflicts
+----------------------
+
+It is possible that another person may also be working on a pull request
+that changes the schema and increments the database patch number. This
+is unfortunate because if their pull request is merged it will be as
+if your pull request does not change the patch number. Others may then
+unwittingly attempt to use your code with an inappropriate database.
+If you are considering model changes, it is wise to discuss this with
+the core OME developers in advance. When working on a schema-changing
+pull request, first ask or check if yours will be the only one that
+includes a schema change.
+
 Model object proxies
 --------------------
 
@@ -48,7 +61,7 @@ the :literal:`psql` shell:
 ::
 
         omero=> select currentpatch from dbpatch;
-         currentpatch 
+         currentpatch
         --------------
                     4
         (1 row)
@@ -57,15 +70,27 @@ indicating that a database is on patch version 4. Correspondingly,
 
 ::
 
-        $ grep ^omero.db.patch= etc/omero.properties 
+        $ grep ^omero.db.patch= etc/omero.properties
         omero.db.patch=4
 
 By incrementing the patch number with each schema change, OMERO.server
 is prevented from attempting to use a database whose schema does not
 match its code.
 
-Updating the schema
--------------------
+Updating the schema and the SQL scripts
+---------------------------------------
+
+Users may wish to upgrade their database from an older version of OMERO to one
+that has your new schema. SQL upgrade scripts are provided to allow users to
+upgrade easily without having to understand the schema changes themselves, and
+part of the upgrade script will involve making the schema changes entailed
+with your pull request.  The :source:`sql/README.txt` file describes where to
+find the appropriate script for you to adjust. SQL upgrade scripts must be
+supplied as part of the code changes to upgrade the database from:
+
+* the last release database, e.g. :file:`sql/psql/OMERO5.1DEV__5/OMERO5.0__0`,
+* the previous patch's database, e.g.
+  :file:`sql/psql/OMERO5.1DEV__5/OMERO5.1DEV__4`.
 
 In your git branch with the code that requires a schema change, edit
 :source:`omero.properties <etc/omero.properties>` and increment the
@@ -81,11 +106,11 @@ Move the previous patch's SQL scripts into their new directory.
 
 ::
 
-        $ git mv sql/psql/OMERO5.0DEV__4 sql/psql/OMERO5.0DEV__5
+        $ git mv sql/psql/OMERO5.1DEV__4 sql/psql/OMERO5.1DEV__5
 
 Build OMERO.server with your code that changes the schema, then use
 the :literal:`build-schema` build target to update the SQL scripts in
-the new :literal:`sql/psql/OMERO5.0DEV__5` directory.
+the new :literal:`sql/psql/OMERO5.1DEV__5` directory.
 
 ::
 
@@ -98,30 +123,14 @@ that you can start OMERO.server and test your changes thoroughly.
 
 When you commit your code and issue a pull request, include the
 changes to :source:`omero.properties <etc/omero.properties>` and
-:source:`sql/psql` among the commits in the pull request.
+:sourcedir:`sql/psql` among the commits in the pull request.
 
-Patch number conflicts
-----------------------
+Review workflow
+---------------
 
-It is possible that another person may have also opened a pull request
-that changes the schema and increments the database patch number. This
-is unfortunate because if their pull request is merged it will be as
-if your pull request does not change the patch number. Others may then
-unwittingly attempt to use your code with an inappropriate database.
-If you are considering model changes, it is wise to discuss this with
-the core OME developers in advance. When you are ready to open a pull
-request, first ask or check if yours will be the only one that
-includes a schema change.
-
-SQL upgrade scripts
--------------------
-
-Users may wish to upgrade their database from an older version of
-OMERO to one that has your new schema. SQL upgrade scripts are
-provided to allow users to upgrade easily without having to understand
-the schema changes themselves, and part of the upgrade script will
-involve making the schema changes entailed with your pull request. It
-would be polite if you were to add the appropriate SQL commands
-yourself to the upgrade script as part of your code changes. The
-:source:`sql/README.txt` file describes where to find the appropriate
-script for you to adjust.
+Any Pull Request introducing a schema change will be initially marked and
+reviewed with a `breaking` label (see :doc:`ci-introduction`). This implies
+the Pull Request will first be included in the :ref:`omero_breaking` and
+:ref:`bf_breaking` exclusively. Once positively reviewed, the `breaking` label
+will be removed so that the Pull Request is included in the daily merge builds
+before final merging.
