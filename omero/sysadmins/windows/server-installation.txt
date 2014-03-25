@@ -76,15 +76,15 @@ Windows installers of Ice can be found on the :zeroc:`ZeroC Ice 3.4.2 download
 page <download_3_4_2.html>`. If you plan to develop for C++, be sure
 to read the instructions on the |OmeroCpp| page.
 
-Python
-^^^^^^
+Python 2
+^^^^^^^^
 
 .. note::
 
     OMERO does not currently support Python 3.
 
-The precompiled Ice version 3.4.2 requires Python 2.6. You can download a
-precompiled installer from `python.org <http://www.python.org/download/releases/2.6.6/>`_. 
+The ZeroC binary download of Ice version 3.4.2 requires Python 2.6. You can
+download a precompiled installer from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
 As this is the "vanilla" python distribution (no extra libraries), you will
 need to install further dependencies, making sure to download the correct
 version (2.6, 32/64-bit) for your Python distribution.
@@ -242,7 +242,7 @@ Environment variables
 
 For the prerequisite software to run properly, your PATH and PYTHONPATH
 environment variables must be configured. This is particularly important for
-Ice which doesn't set the required variables by default.
+Ice, which does not set the required variables by default.
 
 **Update your Windows environment variables: (REQUIRES RESTART!)**
 
