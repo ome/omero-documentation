@@ -2,7 +2,7 @@ OMERO.server installation
 =========================
 
 This is the default guide for installing OMERO.server on UNIX and UNIX-like
-platforms. Depending on what platform you are using, you may find a more
+platforms. Depending upon which platform you are using, you may find a more
 specific walk-through listed below.
 
 .. seealso::
@@ -61,8 +61,8 @@ installed and available via your $PATH as follows…
     $ javac -version
     javac 1.6.0
 
-Python
-^^^^^^
+Python 2
+^^^^^^^^
 
 Check you have Python (and what version) by typing:
 
@@ -71,7 +71,8 @@ Check you have Python (and what version) by typing:
     $ python --version
     Python 2.7.5+
 
-.. note:: OMERO does not currently support Python 3.
+.. note:: OMERO does not currently support Python 3, you should use 2.6 or
+    later.
 
 The following packages are required:
 
