@@ -26,9 +26,9 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-5.0-latest-maven`
 		* :term:`BIOFORMATS-5.1-latest-maven`
 
-	- 	* Build the latest C++ bindings for Bio-Formats
+	- 	* Build the latest native C++ implementation for Bio-Formats
 		*
-		* :term:`BIOFORMATS-5.0-latest-cpp`
+		*
 		* :term:`BIOFORMATS-5.1-latest-cpp`
 
 	- 	* Run the daily Bio-Formats merge jobs
@@ -46,9 +46,9 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-5.0-merge-daily`
 		* :term:`BIOFORMATS-5.1-merge-build`
 
-	- 	* Build the merge C++ bindings for Bio-Formats
+	- 	* Build the merge native C++ implementation for Bio-Formats
 		*
-		* :term:`BIOFORMATS-5.0-merge-cpp`
+		*
 		* :term:`BIOFORMATS-5.1-merge-cpp`
 
 	- 	* Run the MATLAB tests
@@ -156,10 +156,8 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 .. digraph:: BIOFORMATS50latest
 
    "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-maven" -> "BIOFORMATS-5.0-latest-cppwrap";
-   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-cpp";
    "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-docs-autogen";
 
-   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-cpp";
    "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-docs";
    "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-matlab";
 
@@ -173,10 +171,6 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 		#. |buildBF|
 		#. |testBF|
-
-	:jenkinsjob:`BIOFORMATS-5.0-latest-cpp`
-
-		This job is used to build the latest C++ bindings for Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.0-latest-maven`
 
@@ -193,10 +187,6 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		#. |merge|
 		#. |buildBF|
 		#. |fulltestBF|
-
-	:jenkinsjob:`BIOFORMATS-5.0-merge-cpp`
-
-		This job is used to build the merge C++ bindings for Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-matlab`
 
@@ -276,7 +266,8 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 
 	:jenkinsjob:`BIOFORMATS-5.1-latest-cpp`
 
-		This job is used to build the latest C++ bindings for Bio-Formats
+		This job is used to build the latest native C++ implementation for
+		Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-daily`
 
@@ -304,7 +295,8 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-cpp`
 
-		This job is used to build the merge C++ bindings for Bio-Formats
+		This job is used to build the merge native C++ implementation for
+		Bio-Formats
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-matlab`
 
