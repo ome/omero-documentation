@@ -195,7 +195,7 @@ e.g.
 
 ::
 
-        export ICE_HOME=/Users/ome/apps/OMERO.libs/bin/icegridnode
+        export ICE_HOME=/Users/ome/apps/OMERO.libs/bin
 
 As a last ditch effort, on a Linux or Mac OS X machine you can use the
 find command to help you discover whereabouts something is located in
