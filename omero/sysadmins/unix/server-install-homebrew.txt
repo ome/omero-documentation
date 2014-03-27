@@ -185,6 +185,8 @@ can use.
 
 ::
 
+    $ postgres --version            # Check if you have postgres
+    postgres (PostgreSQL) 9.3.4
     $ brew install postgresql
 
 
