@@ -1,28 +1,19 @@
 OMERO.server installation
 =========================
 
-.. seealso::
+This is the default guide for installing OMERO.server on UNIX and UNIX-like
+platforms. Depending upon which platform you are using, you may find a more
+specific walk-through listed below.
 
-    :doc:`/sysadmins/server-upgrade`
-         Instructions for **upgrading** your OMERO.server installation.
+.. seealso::
 
     :doc:`server-install-homebrew`
         Instructions for installing your OMERO.server on Mac OS X using Homebrew.
-
+    
     :doc:`server-install-linux`
         Instructions for installing your OMERO.server on Debian/Ubuntu.
-
-    :snapshot:`OMERO Installation for Mac OS X Snow Leopard (10.6) <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
-        A guide provided by Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) 
-        for users wishing to install OMERO 4.1 on Mac OS 10.6, including
-        details on how to build all dependencies from source. The OMERO 4.4
-        and 4.3 installs are almost identical to 4.2 and 4.1 (except for web
-        client), so this guide will still be useful.
-
-    :snapshot:`Omero Server Beta 4.2.0 installation on CentOS <omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`
-        A guide provided by Caterina Strambio De Castillia and Vanni
-        Galli (University of Geneva/SUPSI in Lugano) for users wishing
-        to install OMERO 4.1.1 or 4.2.0 on CentOS.
+    
+    Monash University also have a guide for `installing OMERO on CentOS 6.3 (64-bit) <https://confluence-vre.its.monash.edu.au/display/CVL/Installing+Omero+on+CentOS+6.3+(64-bit)>`_ which you may find useful.
 
 
 Limitations
@@ -37,11 +28,13 @@ users/passwords described in this install guide, please see
 Prerequisites
 -------------
 
-.. note:: The installation of these prerequisite applications is outside the scope of this document. For Linux distributions you should use the default package manager.
+.. note:: The installation of these prerequisite applications is outside the
+    scope of this document. For Linux distributions you should use the default
+    package manager.
 
 The following are necessary:
 
-Java SE Development Kit (JDK) (1.6 or higher) 
+Java SE Development Kit (JDK) (1.6 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
@@ -68,8 +61,8 @@ installed and available via your $PATH as follows…
     $ javac -version
     javac 1.6.0
 
-Python 2 (2.6 or later)
-^^^^^^^^^^^^^^^^^^^^^^^
+Python 2
+^^^^^^^^
 
 Check you have Python (and what version) by typing:
 
@@ -78,9 +71,10 @@ Check you have Python (and what version) by typing:
     $ python --version
     Python 2.7.5+
 
-OMERO does not currently support Python 3.
+.. note:: OMERO does not currently support Python 3, you should use 2.6 or
+    later.
 
-The following are optional depending on what services you require:
+The following packages are required:
 
 .. tabularcolumns:: |l|l|l|
 
@@ -117,22 +111,26 @@ The following are optional depending on what services you require:
 
 .. [3] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
 
+.. note:: Some of these can be ignored if you wish to forego some
+    functionality but we recommend you just install everything. For example,
+    scripting is enabled by default so should not be assumed optional even if
+    you never expect your users to run scripts from the clients.
 
-Ice (3.3.x or 3.4.x)
-^^^^^^^^^^^^^^^^^^^^
+Ice
+^^^
 
 .. note::
 
-    OMERO |version| supports Ice3.4, but this requires the correct
-    version of OMERO.server (see :downloads:`Downloads
-    <>`). See :faq_plone:`"Do I use Ice 3.3 or
+    OMERO |version| supports Ice 3.3, 3.4 and 3.5 on UNIX and UNIX-like
+    platforms, but you must install the correct version of OMERO.server (see
+    :downloads:`Downloads <>`). See :faq_plone:`"Do I use Ice 3.3 or
     Ice 3.4?" <omero/do-i-use-ice-3.3-or-ice-3.4>` in
     the FAQ. If you have further questions, consult the :forum:`Forums <>`.
 
 
 UNIX source downloads and binary packages are available from ZeroC_.
-The latest compatible distribution is the :zeroc:`3.3.1 release
-<download_3_3_1.html>`. ZeroC does not provide binaries which work out of the
+The latest compatible distribution is the :zeroc:`3.5.0 release
+<download_3_5_0.html>`. ZeroC does not provide binaries which work out of the
 box for Mac OS X Snow Leopard (10.6), so we recommend you follow the
 instructions for installation using :doc:`Homebrew <server-install-homebrew>`
 instead if this is your OS.
@@ -607,3 +605,10 @@ If you want help with your server installation, please include the output of the
 
     OMERO data dir: '/OMERO'    Exists? True    Is writable? True
     OMERO.web status... [RUNNING] (PID 28736)
+
+.. toctree::
+    :hidden:
+
+    server-install-homebrew
+    server-install-linux
+

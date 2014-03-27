@@ -60,34 +60,34 @@ Ice (3.3.x or 3.4.x)
 
 .. note::
 
-    OMERO 4.3 and earlier support only Ice 3.3. You
-    will need to download these from
-    :zeroc:`ZeroC's previous versions section <previous.html>`. OMERO 4.4 adds
-    support for Ice 3.4 while keeping support for Ice 3.3. For OMERO.server
-    you will need to pick the appropriate downloads for the version of Ice
+    OMERO 5.0 supports both Ice 3.3 and 3.4 for Windows. You will need to pick
+    the appropriate server download for the version of Ice
     you have installed locally. The downloads for Ice 3.4 have "ice34" in the
     zip name.
 
     If you are using precompiled packages of Ice and Python (recommended)
     you should use the versions specified below. In particular since OMERO
     does not support Python 3 **it will not work with the Ice 3.5 package for
-    Windows**. If you have previously installed Ice 3.5 you should uninstall it.
+    Windows**. If you have previously installed Ice 3.5 you should uninstall
+    it.
 
 
-Windows installers of Ice can be found on the :zeroc:`ZeroC download
-page <download_3_4_2.html>` and will be called something like 
-:file:`Ice-3.4.2.msi` (for Ice 3.4.2). If you plan to develop for C++, be sure 
+Windows installers of Ice can be found on the :zeroc:`ZeroC Ice 3.4.2 download
+page <download_3_4_2.html>`. If you plan to develop for C++, be sure
 to read the instructions on the |OmeroCpp| page.
 
-Python 2 (2.6 or later)
-^^^^^^^^^^^^^^^^^^^^^^^
+Python 2
+^^^^^^^^
 
-Ice 3.4.x requires Python 2.6.x. You can download a precompiled version
-from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
-As this is the "vanilla" python distribution (no extra libraries),
-you will need to install further dependencies, making sure to
-download the correct version (2.6, 32/64-bit) for your Python
-distribution.
+.. note::
+
+    OMERO does not currently support Python 3.
+
+The ZeroC binary download of Ice version 3.4.2 requires Python 2.6. You can
+download a precompiled installer from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
+As this is the "vanilla" python distribution (no extra libraries), you will
+need to install further dependencies, making sure to download the correct
+version (2.6, 32/64-bit) for your Python distribution.
 
 32/64-bit
 """""""""
@@ -95,10 +95,6 @@ distribution.
 OMERO has been extensively tested with 32-bit Python on Windows. 64-bit Python
 should also work though it has not been tested as thoroughly. You can obtain
 64-bit precompiled dependencies from http://www.lfd.uci.edu/~gohlke/pythonlibs.
-
-.. note::
-
-    OMERO does not currently support Python 3.
 
 Python for Windows extensions
 """""""""""""""""""""""""""""
@@ -245,9 +241,8 @@ Environment variables
 ---------------------
 
 For the prerequisite software to run properly, your PATH and PYTHONPATH
-environment variables must be configured. If not correctly configured or if
-you installed any of the prerequisites manually to :file:`C:\\ice` or a 
-similar location, you will need to set the values yourself.
+environment variables must be configured. This is particularly important for
+Ice, which does not set the required variables by default.
 
 **Update your Windows environment variables: (REQUIRES RESTART!)**
 
@@ -698,7 +693,7 @@ using::
 
 	:ref:`gridconfiguration`
 		Section of the advanced server configuration documentation describing
-		:file:`etc\grid\templates.xml`.
+		:file:`etc\\grid\\templates.xml`.
 
 OMERO.web and administration
 ----------------------------
