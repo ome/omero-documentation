@@ -2,8 +2,8 @@
    or:   importer-cli [OPTION]... -
 
 Import any number of files into an OMERO instance.
-If "-" is the only path, a list of files or directories 
-is read from standard in. Directories will be searched for 
+If "-" is the only path, a list of files or directories
+is read from standard in. Directories will be searched for
 all valid imports.
 
 Session arguments:
@@ -17,9 +17,9 @@ Session arguments:
   -p PORT       OMERO server port (default: 4064)
 
 Naming arguments:
-All naming arguments are optional
-  -n NAME                           Image/Plate name to use
-  -x DESCRIPTION                    Image/Plate description to use
+All naming arguments are optional.
+  -n NAME                           Image or plate name to use
+  -x DESCRIPTION                    Image or plate description to use
 
 Optional arguments:
   -h                                Display this help and exit
