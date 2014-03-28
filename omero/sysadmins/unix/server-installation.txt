@@ -171,7 +171,6 @@ and Ubuntu the following environment variables should be set:
 
         export JAVA_HOME=/usr/lib/jvm/java-6-sun
         export JRE_HOME=/usr/lib/jvm/java-6-sun
-        export ICE_HOME=/usr/share/Ice-3.3.1
         export POSTGRES_HOME=/usr/lib/postgresql/8.4
         export PYTHONPATH=/usr/lib/pymodules/python2.6:$PYTHONPATH
         export DYLD_LIBRARY_PATH=/usr/share/java:/usr/lib/:$DYLD_LIBRARY_PATH
@@ -181,38 +180,10 @@ and Ubuntu the following environment variables should be set:
 Please note that the precise details of these environment variables can
 change as new versions of software are released. You can retrieve the
 pathname for a file by using the which command. So if you are unsure
-what path to use in your environment variables, e.g. for the ICE\_HOME
-variable you can execute the following command:
+what path to use in your environment variables.
 
-::
 
-        $ which icegridnode
-        /Users/ome/apps/OMERO.libs/bin/icegridnode
-
-You can now set the ICE\_HOME path to something similar to
-**/Users/ome/apps/OMERO.libs/bin** based upon the output from which,
-e.g.
-
-::
-
-        export ICE_HOME=/Users/ome/apps/OMERO.libs/bin/icegridnode
-
-As a last ditch effort, on a Linux or Mac OS X machine you can use the
-find command to help you discover whereabouts something is located in
-your filesystem. e.g.
-
-::
-
-        $ find / -name "icegridnode" 2>/dev/null
-
-However this might take a long time to run, especially on a big
-filesystem, so you might get a more timely solution by going to the
-OMERO forums.
-
-If the command gives no output then perhaps Ice is not installed, in
-which case you should see the section above on installing Ice.
-
-You can also add your OMERO bin directory to your path like so:
+You can then add your OMERO bin directory to your path like so:
 
 ::
 
