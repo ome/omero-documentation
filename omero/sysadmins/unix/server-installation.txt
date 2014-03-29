@@ -147,65 +147,83 @@ OMERO.server
 The :file:`OMERO.server.zip` is available from the :downloads:`OMERO downloads
 <>` page.
 
+.. _server_env:
+
 Environment variables
 ---------------------
 
-For the prerequisite software to run properly, your PATH, PYTHONPATH,
-and (DY)LD\_LIBRARY\_PATH environment variables must be configured. If
-you installed via a package manager such as rpm, apt-get, or macports,
-they should be set for you. If not correctly configured or if you
-installed manually to /opt/Ice-… or a similar location, you will need
-to set the values yourself.
+If using distribution-provided packages such as Debian or RPM
+packages, or via the homebrew or macports package manager, it should
+not be necessary to set any environment variables.  However, if using
+third-party packages for any required components, several variables
+may require setting in order for them to function correctly.
 
-If you are running a Linux distribution such as Debian or Ubuntu and
-have used APT to install the prerequisites then the installed software
-will have been installed to locations in your file system according to
-the Debian Policy Manual for software packaging. You can explicitly set
-your environment variables to reflect these install locations by editing
-the .bashrc (if on Linux) or .profile (if on Mac OS X) file which can be
-found within your home directory. For example, as of writing, on Debian
-and Ubuntu the following environment variables should be set:
+Please note that the precise details of these environment variables
+can change as new versions of software are released.
 
-::
+There are several methods for setting environment variables; which is
+most appropriate will depend upon how the OMERO server is started.
+Options include:
 
-        export JAVA_HOME=/usr/lib/jvm/java-6-sun
-        export JRE_HOME=/usr/lib/jvm/java-6-sun
-        export POSTGRES_HOME=/usr/lib/postgresql/8.4
-        export PYTHONPATH=/usr/lib/pymodules/python2.6:$PYTHONPATH
-        export DYLD_LIBRARY_PATH=/usr/share/java:/usr/lib/:$DYLD_LIBRARY_PATH
-        export LD_LIBRARY_PATH=/usr/share/java:/usr/lib:$LD_LIBRARY_PATH
-        export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin:$ICE_HOME/bin:$POSTGRES_HOME/bin
+:file:`/etc/security/pam_env.conf`
+  Global environment set at login by PAM
+:file:`/etc/profile` or :file:`/etc/profile.d/omero`
+  Global Bourne shell defaults (also used by derived shells such as :program:`bash` and :program:`zsh`)
+:file:`~/.profile`
+  User's Bourne shell defaults (also used by derived shells)
+:file:`/etc/bash.bashrc`
+  Global :program:`bash` defaults
+:file:`~/.bashrc`, :file:`~/.bash_profile` or :file:`~/.bash_login`
+  User's :program:`bash` configuration.
 
-Please note that the precise details of these environment variables can
-change as new versions of software are released. You can retrieve the
-pathname for a file by using the which command. So if you are unsure
-what path to use in your environment variables.
+If OMERO is started as a service using an init script, a global
+setting should be preferred.  If being started by hand using a
+particular user, a user-specific configuration file may be more
+appropriate.
 
+The following environment variables may be configured:
 
-You can then add your OMERO bin directory to your path like so:
+:envvar:`LD_LIBRARY_PATH` (Linux) or :envvar:`DYLD_LIBRARY_PATH` (MacOS X)
+  The Ice and PostgreSQL libraries must be on the library search path.
+  If using the packages provided by your distribution, this will
+  already be the case.  If using third-party binary distributions the
+  :file:`lib` (or :file:`lib64` if present and using a 64-bit system)
+  directory for each will require adding to the library search path.
+:envvar:`OMERO_PREFIX`
+  This is not strictly required, but may be set for convienience to
+  point to the OMERO server installation, and is used in this
+  documentation as a shorthand for the installation path.
+:envvar:`OMERO_TEMPDIR`
+  Directory used for temporary files.  If the home directory of the
+  user running the OMERO server is located on a slow filesystem, such
+  as NFS, this may be used to store the temporary files on fast local
+  storage.
+:envvar:`PATH`
+  The search path must include the programs :program:`java`,
+  :program:`python`, :program:`icegridnode` and PostgreSQL commands
+  such as :program:`psql`.  If using the packages provided by your
+  distribution, this will already be the case.  If using third-party
+  binary distributions such as the ZeroC Ice package, Oracle Java, or
+  PostgreSQL, the :file:`bin` directory for each will require adding
+  to the path.  The OMERO :file:`bin` directory may also be added to
+  the search path (:file:`${OMERO_PREFIX}/bin` if
+  :envvar:`OMERO_PREFIX` has been set).
+:envvar:`PYTHONPATH`
+  The Ice :file:`python` directory much be made available to python.
+  If using the Ice packages provided by your distribution, this will
+  already be the case.  If using the ZeroC ice package, add the
+  :file:`python` directory to the python path.
 
-::
+.. warning::
+    The :envvar:`OMERO_HOME` environment variable is used internally
+    by OMERO.  Unless you really know what you are doing, it is
+    strongly recommended that you do not set this variable (see
+    :doc:`/sysadmins/omero-home-prefix` for details).  You can use a
+    different name of your choice instead, indicated by
+    :envvar:`OMERO_PREFIX` in this documentation.
 
-        export PATH=$PATH:path-to-your-omero-install-directory/bin
-
-When performing some operations the clients make use of temporary file
-storage and log directories. By default these files are stored below the
-users HOME directory in ``$HOME/omero/tmp``, ``$HOME/omero/log`` and
-``$HOME/omero/sessions`` (resp. ``$HOME\omero\tmp``, ``$HOME\omero\log`` and
-``$HOME\omero\sessions``). If your home(\ ``~``) directory ``$HOME`` is
-stored on a network, possibly NFS mounted (or similar), then these
-temporary files are being written and read over the network. This can
-slow access down.
-
-The OMERO.server also access the ``$HOME/omero/tmp`` and
-``$HOME/omero/log`` folders of **the user the server process is running
-as** (resp. ``$HOME\omero\tmp`` and ``$HOME\omero\log``). 
-As the server makes heavier use of these folders than the clients,
-if the users home(\ ``~``) is stored on a network the server can be
-slowed down. To get round this for the OMERO.server you can define an
-``OMERO_TEMPDIR`` environment variable pointing to a temporary directory
-located on the local file system e.g. ``/tmp`` (resp. ``C:\tmp\``).
-
+After making any needed changes, either source the corresponding file
+or log back in for them to take effect.  Run ``env`` to check them.
 
 Creating a database as root
 ---------------------------

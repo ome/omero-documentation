@@ -125,7 +125,7 @@ a release version of OMERO.server, extract it from the zip archive:
 
 Give your OMERO software install a short name to save some typing later,
 to reflect what you set :envvar:`OMERO_PREFIX` to in the
-:ref:`linux_configuration` section, below::
+:ref:`server_env` section of the main installation documentation::
 
 .. parsed-literal::
 
@@ -147,66 +147,7 @@ Configuration
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
-If using distribution-provided packages, it should not be necessary to
-set any environment variables.  However, if using third-party packages
-for any required components, several variables may require setting in
-order for them to function correctly.
-
-There are several methods for setting environment variables; which is
-most appropriate will depend upon how the OMERO server is started.
-Options include:
-
-:file:`/etc/security/pam_env.conf`
-  Global environment set at login by PAM
-:file:`/etc/profile` or :file:`/etc/profile.d/omero`
-  Global Bourne shell defaults (also used by derived shells such as :program:`bash` and :program:`zsh`)
-:file:`~/.profile`
-  User's Bourne shell defaults (also used by derived shells)
-:file:`/etc/bash.bashrc`
-  Global :program:`bash` defaults
-:file:`~/.bashrc`, :file:`~/.bash_profile` or :file:`~/.bash_login`
-  User's :program:`bash` configuration.
-
-If OMERO is started as a service using an init script, a global
-setting should be preferred.  If being started by hand using a
-particular user, a user-specific configuration file may be more
-appropriate.
-
-The following environment variables may be configured:
-
-:envvar:`LD_LIBRARY_PATH` (Linux) or :envvar:`DYLD_LIBRARY_PATH` (MacOS X)
-  The Ice and PostgreSQL libraries must be on the library search path.
-  If using the packages provided by your distribution, this will
-  already be the case.  If using third-party binary distributions the
-  :file:`lib` (or :file:`lib64` if present and using a 64-bit system)
-  directory for each will require adding to the library search path.
-:envvar:`OMERO_PREFIX`
-  This is not strictly required, but may be set for convienience to
-  point to the OMERO server installation, and is used in this
-  documentation as a shorthand for the installation path.
-:envvar:`PATH`
-  The search path must include the programs :program:`java`,
-  :program:`python`, :program:`icegridnode` and PostgreSQL commands
-  such as :program:`psql`.  If using the packages provided by your
-  distribution, this will already be the case.  If using third-party
-  binary distributions such as the ZeroC Ice package, Oracle Java, or
-  PostgreSQL, the :file:`bin` directory for each will require adding
-  to the path.
-:envvar:`PYTHONPATH`
-  The Ice :file:`python` directory much be made available to python.
-  If using the Ice packages provided by your distribution, this will
-  already be the case.  If using the ZeroC ice package, add the
-  :file:`python` directory to the python path.
-
-.. warning::
-    The :envvar:`OMERO_HOME` environment variable is used internally by OMERO.
-    Unless you really know what you are doing, it is strongly recommended that you
-    do not set this variable (see :doc:`/sysadmins/omero-home-prefix` for details).
-    You can use a different name of your choice instead, indicated by :envvar:`OMERO_PREFIX` in this
-    documentation.
-
-After making any needed changes, either source the corresponding file
-or log back in for them to take effect.  Run ``env`` to check them.
+Please see the :ref:`server_env` section.
 
 
 Database creation
