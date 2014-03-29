@@ -58,14 +58,14 @@ To check which version of Java is currently available::
 Python 2
 ^^^^^^^^
 
-Check you have Python (and what version) by typing:
+Check you have Python (and check its version) by running:
 
 ::
 
     $ python --version
     Python 2.7.5+
 
-.. note:: OMERO does not currently support Python 3, you should use 2.6 or
+.. note:: OMERO does not currently support Python 3; you must use 2.6 or
     later.
 
 The following packages are required:
