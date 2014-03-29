@@ -34,32 +34,26 @@ Prerequisites
 
 The following are necessary:
 
-Java SE Development Kit (JDK) (1.6 or higher)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Java SE Runtime Environment (JRE)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
+Version 6 or later is required.  Version 7 or later is recommended
+(version 6 is end of line and no longer has updates or security
+support).  Your system may already provide a JRE, in which case no
+extra steps are necessary.  Linux distributions usually provide
+OpenJDK, and older MacOS X versions have java installed by default.
+If your system does not have java available, Oracle Java may be
+downloaded from the `Oracle website
+<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
 
-UNIX systems, you can check which version of Java is 
-currently available to you via your $PATH as follows:
-
-::
+To check which version of Java is currently available::
 
     $ which java
     /usr/bin/java
     $ java -version
-    java version "1.6.0"
-    Java(TM) SE Runtime Environment (build 1.6.0-b105)
-    Java HotSpot(TM) Server VM (build 1.6.0-b105, mixed mode)
-
-Further, you can see if you have the Java compiler (Java SDK)
-installed and available via your $PATH as follows…
-
-::
-
-    $ which javac
-    /usr/bin/javac
-    $ javac -version
-    javac 1.6.0
+    java version "1.7.0_51"
+    Java(TM) SE Runtime Environment (build 1.7.0_51-b13)
+    Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 
 Python 2
 ^^^^^^^^
