@@ -190,7 +190,7 @@ The following environment variables may be configured:
   :file:`lib` (or :file:`lib64` if present and using a 64-bit system)
   directory for each will require adding to the library search path.
 :envvar:`OMERO_PREFIX`
-  This is not strictly required, but may be set for convienience to
+  This is not strictly required, but may be set for convenience to
   point to the OMERO server installation, and is used in this
   documentation as a shorthand for the installation path.
 :envvar:`OMERO_TEMPDIR`
@@ -204,7 +204,7 @@ The following environment variables may be configured:
   such as :program:`psql`.  If using the packages provided by your
   distribution, this will already be the case.  If using third-party
   binary distributions such as the ZeroC Ice package, Oracle Java, or
-  PostgreSQL, the :file:`bin` directory for each will require adding
+  PostgreSQL, the :file:`bin` directory for each must be added
   to the path.  The OMERO :file:`bin` directory may also be added to
   the search path (:file:`${OMERO_PREFIX}/bin` if
   :envvar:`OMERO_PREFIX` has been set).
