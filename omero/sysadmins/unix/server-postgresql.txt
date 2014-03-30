@@ -40,26 +40,6 @@ If a PostgreSQL server was not provided by your system, `EnterpriseDB
 <http://www.enterprisedb.com/>`_ provide an installer.
 
 
-Compatibility matrix
-~~~~~~~~~~~~~~~~~~~~
-
-Versions of PostgreSQL which are compatible with OMERO:
-
-.. tabularcolumns:: |l|l|l|l|l|
-
-========== =========== =========== ===========
-PostgreSQL OMERO 4.4   OMERO 5.0   (OMERO 5.1)
-========== =========== =========== ===========
-8.4        YES         YES         YES
-9.0        YES         YES         YES
-9.1        YES         YES         YES
-9.2        YES         YES         YES
-9.3        YES         YES         YES
-========== =========== =========== ===========
-
-Note that OMERO 5.1 is currently in development; its requirements are
-currently the same as for 4.4 and 5.0, but may yet change.
-
 Checking PostgreSQL port listening status
 -----------------------------------------
 
