@@ -41,8 +41,8 @@ Version 6 or later is required.  Version 7 or later is recommended
 (version 6 is end of line and no longer has updates or security
 support).  Your system may already provide a JRE, in which case no
 extra steps are necessary.  Linux distributions usually provide
-OpenJDK, and older MacOS X versions have java installed by default.
-If your system does not have java available, Oracle Java may be
+OpenJDK, and older MacOS X versions have Java installed by default.
+If your system does not have Java available, Oracle Java may be
 downloaded from the `Oracle website
 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
 
