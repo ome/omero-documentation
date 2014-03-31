@@ -209,7 +209,7 @@ The following environment variables may be configured:
   the search path (:file:`${OMERO_PREFIX}/bin` if
   :envvar:`OMERO_PREFIX` has been set).
 :envvar:`PYTHONPATH`
-  The Ice :file:`python` directory much be made available to python.
+  The Ice :file:`python` directory must be made available to python.
   If using the Ice packages provided by your distribution, this will
   already be the case.  If using the ZeroC ice package, add the
   :file:`python` directory to the python path.

@@ -6,7 +6,7 @@ machine using a Debian-based Linux distribution. For other UNIX or UNIX-like
 platforms, please refer to the default instructions on the
 :doc:`server-installation` page.
 
-.. note:: 
+.. note::
     This page is generally applicable to Debian and Ubuntu installations,
     although there are some small differences which are noted when applicable
     during the walk-through.
@@ -33,7 +33,7 @@ Ubuntu 11.04             3.3          4.3.x, 4.4.x
 Ubuntu 10.04 (LTS)       3.3          4.3.x, 4.4.x
 ================== ================= ==============
 
-.. note:: 
+.. note::
     ZeroC_ Ice can always be built from source code for specific platforms.
 
 In the remainder of this guide you should adjust version numbers to suit
@@ -125,7 +125,7 @@ a release version of OMERO.server, extract it from the zip archive:
 
 Give your OMERO software install a short name to save some typing later,
 to reflect what you set :envvar:`OMERO_PREFIX` to in the
-:ref:`server_env` section of the main installation documentation::
+:ref:`server_env` section of the main installation documentation:
 
 .. parsed-literal::
 
