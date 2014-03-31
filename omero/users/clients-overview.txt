@@ -105,17 +105,6 @@ Among many features, the noteworthy OMERO.insight elements are:
 - User administration.
 - Image import.
 
-When performing some operations the clients make use of temporary file
-storage and log directories. By default these files are stored below
-the users HOME directory in ``$HOME/omero/tmp``, ``$HOME/omero/log``
-and ``$HOME/omero/sessions`` (resp. ``$HOME\omero\tmp``,
-``$HOME\omero\log`` and ``$HOME\omero\sessions``). If your home
-directory is stored on a network, possibly NFS mounted (or similar),
-then these temporary files are being written and read over the
-network. This can slow access down.  The :envvar:`OMERO_TEMPDIR`
-environment variable may used to set the directory used for temporary
-files, for example on fast local storage.
-
 Our user assistance :help:`help website <>` features a number of 
 workflow-based guides to importing, viewing, managing and exporting your data 
 using OMERO.insight.
