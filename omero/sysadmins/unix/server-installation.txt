@@ -128,7 +128,7 @@ bugfixes which are not present in the upstream releases.
 
 If needed, source and binary packages are available from ZeroC_.  The
 latest compatible distribution is the :zeroc:`3.5.1 release
-<download_3_5_1.html>`. For Mac OS X Snow Leopard (10.6) systems, the
+<download.html>`. For Mac OS X Snow Leopard (10.6) systems, the
 ZeroC packages do not work, so we recommend you follow the
 instructions for installation using :doc:`Homebrew
 <server-install-homebrew>` instead.  Homebrew provides the latest Ice
