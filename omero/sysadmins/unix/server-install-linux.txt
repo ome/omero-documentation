@@ -83,7 +83,7 @@ packages::
 
     $ sudo apt-get install unzip build-essential mencoder
     $ sudo apt-get install python python-imaging python-numpy python-tables python-matplotlib
-    $ sudo apt-get install zeroc-ice34
+    $ sudo apt-get install zeroc-ice
     $ sudo apt-get install postgresql
     $ sudo apt-get install apache2 libapache2-mod-fastcgi
 
@@ -96,10 +96,10 @@ packages::
 
 .. note::
 
-    Current stable releases of Debian and Ubuntu provide Ice 3.4.
-    Your distribution may provide a difference Ice version.  Newer
-    distributions may provide ``zeroc-ice35`` while older ones may
-    provide ``zeroc-ice33``.
+    Current stable releases of Debian and Ubuntu provide Ice 3.4
+    (``zeroc-ice34``).  Your distribution may provide a different Ice
+    version.  Newer distributions may provide ``zeroc-ice35`` while
+    older ones may provide ``zeroc-ice33``.
 
 OMERO installation
 ------------------
