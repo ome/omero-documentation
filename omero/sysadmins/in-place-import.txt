@@ -49,12 +49,12 @@ directly. If you are uncomfortable with this, you should let someone else
 handle in-place importing.
 
 To perform an in-place import, a person wanting to perform an
-in-place import **MUST**:
+in-place import **MUST** have:
 
- * have a regular OMERO account
- * have an |OS|-account with access to :omerocmd:`bin/omero`
- * have read access to the location of the data
- * have **write** access to the :doc:`ManagedRepository
+ * a regular OMERO account
+ * an |OS|-account with access to :omerocmd:`bin/omero`
+ * read access to the location of the data
+ * **write** access to the :doc:`ManagedRepository
    </developers/ManagedRepository/ManagedRepository>`
    or one of its subdirectories
 
