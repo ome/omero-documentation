@@ -698,7 +698,8 @@ Configuration
          Username: [root]
          Password:         # omero_root_password
 
-    You will be prompted for the ser
+    You will be prompted for an OMERO username and password.  Use the
+    username and password set when running ``bin/omero db script``.
 
 JVM memory settings
 -------------------
