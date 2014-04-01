@@ -5,6 +5,7 @@ In-place import is a feature added to OMERO 5.0.0 to allow
 files which are already present on the server machine to be
 imported into OMERO without the need to copy them. This requires
 users to have shell (|SSH|, etc.) access to the server machine.
+See :ref:`limitations` for more information.
 
 This feature is designed to allow imaging facilities to import large datasets
 into OMERO while keeping them safely stored in a secure repository which is
@@ -35,11 +36,14 @@ that the critical, possibly sole, copy of your data must
 be protected outside of OMERO. **This is your responsibility for the lifetime
 of the data**.
 
+
+.. _limitations:
+
 Limitations
 -----------
 
 In-place import is only available on the OMERO server system
-itself. In other words, using ssh or similar, you will need
+itself. In other words, using |SSH| or similar, you will need
 to shell into the server and run the command-line importer
 directly. If you are uncomfortable with this, you should let someone else
 handle in-place importing.
@@ -47,6 +51,9 @@ handle in-place importing.
 At the moment in-place import is only available under
 Posix systems (Unix, Linux, OSX). Support for Windows is
 forthcoming.
+
+
+.. _safety_tips:
 
 Safety tips
 -----------
@@ -145,7 +152,7 @@ but at least there cannot be an accidental loss.
 
 .. warning:: The primary concern with this method is **modification** of
     files. If the original data is *written* by a user, unexpected results
-    could follow in OMERO. See the "Security tips" section above for ways
+    could follow in OMERO. See the :ref:`safety_tips` section above for ways
     around this.
 
 If you are unclear about how hard-linking works, please see the
