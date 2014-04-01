@@ -41,11 +41,12 @@ OMERO user where files are imported:
   responsibility of the system administrator.
 
 In “normal import”, files are copied to the OMERO binary repo via the API
-and so can work remotely or locally. In “in-place import”, files are “linked”
-into place.
-  
-.. warning:: In-place import is an experimental feature - it is critical that
-    you read and understand the documentation before you consider using it.
+and so can work remotely or locally. In :doc:`“in-place import”
+<in-place-import>`, files are “linked” into place.
+
+.. warning:: In-place import is a new, powerful feature - it is critical that
+    you read and understand the :doc:`documentation <in-place-import>` before
+    you consider using it.
 
 Traditional import
 ------------------
