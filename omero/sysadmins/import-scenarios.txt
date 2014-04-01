@@ -211,12 +211,16 @@ Assuming all the restrictions are met, the cronjob-based workflow above
 can gain the advantages of in-place import by adding the in-place transfer
 flag. The advantages and disadvantages are as above.
 
+.. _inplace_dropbox_manual:
+
 In-place DropBox import (manual delete)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Just as with the in-place cronjob import, using in-place import for DropBox
 is as straight-forward as passing the in-place flag. The common advantages
 and disadvantages of in-place import apply.
+
+.. _inplace_dropbox_auto:
 
 In-place DropBox import (automatic delete)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
