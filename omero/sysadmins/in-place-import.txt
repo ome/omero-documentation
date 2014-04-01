@@ -51,12 +51,12 @@ handle in-place importing.
 To perform an in-place import, a person wanting to perform an
 in-place import **MUST** have:
 
- * a regular OMERO account
- * an |OS|-account with access to :omerocmd:`bin/omero`
- * read access to the location of the data
- * **write** access to the :doc:`ManagedRepository
-   </developers/ManagedRepository/ManagedRepository>`
-   or one of its subdirectories
+* a regular OMERO account
+* an |OS|-account with access to :omerocmd:`bin/omero`
+* read access to the location of the data
+* **write** access to the :doc:`ManagedRepository
+  </developers/ManagedRepository/ManagedRepository>`
+  or one of its subdirectories
 
 The above implies that it may be useful to create a single
 account like "import_user" which multiple users can login
