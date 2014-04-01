@@ -6,7 +6,7 @@ machine using a Debian-based Linux distribution. For other UNIX or UNIX-like
 platforms, please refer to the default instructions on the
 :doc:`server-installation` page.
 
-.. note:: 
+.. note::
     This page is generally applicable to Debian and Ubuntu installations,
     although there are some small differences which are noted when applicable
     during the walk-through.
@@ -39,7 +39,7 @@ to install and manage the OMERO prerequisites.
 |        | 12.04 (LTS)  | 3.4               | 4.4.x, 5.x.x  |
 +--------+--------------+-------------------+---------------+
 
-.. note:: 
+.. note::
     ZeroC_ Ice can always be built from source code for specific platforms.
 
 In the remainder of this guide you should adjust version numbers to suit
@@ -51,64 +51,35 @@ Prerequisites
 You require at least a clean minimal Debian or Ubuntu installation and a
 non-root user account that has sudo privileges.
 
-First you need to enable the contrib and non-free repositories by opening
-:file:`/etc/apt/sources.list` in an editor, e.g. **$ sudo vim
-/etc/apt/sources.list** and editing to add the following lines::
+.. note::
+    For Ubuntu you need to enable the **universe** repository.  This
+    should be enabled by default.  If not enabled, it may be enabled by
+    editing :file:`/etc/apt/sources.list` directly, in which case the
+    entries may already exist but are commented out, or by using
+    Synaptic (10.04 & 10.10) or Ubuntu Software Center (11.04 onwards).
 
-    deb http://ftp.uk.debian.org/debian/ squeeze contrib
-    deb-src http://ftp.uk.debian.org/debian/ squeeze contrib
-
-    deb http://ftp.uk.debian.org/debian/ squeeze non-free
-    deb-src http://ftp.uk.debian.org/debian/ squeeze non-free
-
-.. note:: 
-    For Ubuntu the repository names and locations are different to
-    Debian but you need to enable the **main**, **restricted**, **universe**
-    and **multiverse** repositories. You can do this either by editing
-    :file:`/etc/apt/sources.list` directly, in which case the entries already
-    exist but are commented out, or using Synaptic (10.04 & 10.10) or Ubuntu
-    Software Center (11.04 onwards).
-
-Now you need to update your package lists to ensure that you get the latest
-packages including those from the repositories that you just enabled::
+Update your package lists to ensure that you get the latest packages.
 
     $ sudo apt-get update
 
 Java
 ^^^^
 
-From Ubuntu 11.10 and onwards, you can install OpenJDK 7 using::
+The OMERO server works with the OpenJDK Java runtime provided by the
+distribution.  To install::
 
-    $ sudo apt-get install openjdk-7-jdk
+    $ sudo apt-get install openjdk-7-jre
 
-For earlier versions of Ubuntu, Oracle recently changed their distribution
-license (OSDL) which means that Debian and Ubuntu can no longer distribute
-Java in their package management systems. This means that you have to install
-the JDK separately as follows:
+If you wish to use Oracle Java rather than OpenJDK, this is possible
+but not required.  It is no longer provided by Debian or Ubuntu for
+licensing reasons.  To install Oracle Java, see the `Oracle website
+<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
+It is also possible to build Oracle Java packages which better
+integrate with the package manager and the system using `oab-java6
+<https://github.com/flexiondotorg/oab-java6>`_.  However, note that
+both of these options will leave you without regular
+distribution-provided security updates, and so are not recommended.
 
-If you are on Debian then::
-
-    $ sudo apt-get install lsb_release
-
-For both Debian and Ubuntu you can now::
-
-    $ sudo apt-get install git
-    $ git clone https://github.com/flexiondotorg/oab-java6.git
-    $ cd oab-java6/
-    $ sudo ./oab-java6.sh
-
-The script will run and you should see some output indicating progress.
-When you get your prompt back::
-
-    $ sudo apt-get install sun-java6-jdk
-
-You also need to ensure that the Sun/Oracle JDK is the active one as you
-end up with the OpenJDK also installed to satisfy dependencies along the
-way::
-
-    $ sudo update-alternatives --config java
-
-and select the correct java from the displayed list.
 
 OMERO dependencies
 ^^^^^^^^^^^^^^^^^^
@@ -118,7 +89,7 @@ packages::
 
     $ sudo apt-get install unzip build-essential mencoder
     $ sudo apt-get install python python-imaging python-numpy python-tables python-matplotlib
-    $ sudo apt-get install zeroc-ice33
+    $ sudo apt-get install zeroc-ice
     $ sudo apt-get install postgresql
     $ sudo apt-get install apache2 libapache2-mod-fastcgi
 
@@ -129,6 +100,13 @@ packages::
 
         $ sudo apt-get install liblzo2-2
 
+.. note::
+
+    Current stable releases of Debian and Ubuntu provide Ice 3.4
+    (``zeroc-ice34``).  Your distribution may provide a different Ice
+    version.  Newer distributions may provide ``zeroc-ice35`` while
+    older ones may provide ``zeroc-ice33``.
+
 OMERO installation
 ------------------
 
@@ -137,10 +115,8 @@ set up. First, a home needs to be created for the server and this directory
 moved into. For example, to install OMERO locally into a directory called
 'apps' in your home directory, use the following::
 
-    $ mkdir apps
-    $ cd apps
-    $ mkdir OMERO
-    $ cd OMERO
+    $ mkdir -p ~/apps/OMERO
+    $ cd ~/apps/OMERO
 
 OMERO |release|
 ^^^^^^^^^^^^^^^
@@ -151,16 +127,18 @@ a release version of OMERO.server, extract it from the zip archive:
 
 .. parsed-literal::
 
-    $ unzip OMERO.server-|release|-ice33-byy.zip
+    $ unzip OMERO.server-|release|-ice34-byy.zip
 
-Give your OMERO software install a nice local name to save some typing later,
+Give your OMERO software install a short name to save some typing later,
 to reflect what you set :envvar:`OMERO_PREFIX` to in the
-:ref:`linux_configuration` section, and to make it easy to manage the
-installation of newer versions of the server at a later date:
+:ref:`server_env` section of the main installation documentation:
 
 .. parsed-literal::
 
-    $ ln -s OMERO.server-|release|-ice33-byy  OMERO.server
+    $ ln -s OMERO.server-|release|-ice34-byy  OMERO.server
+
+This will also ease installation of newer versions of the server at a
+later date, by simply updating the link.
 
 Development server
 ^^^^^^^^^^^^^^^^^^
@@ -175,41 +153,8 @@ Configuration
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. warning::
-    The :envvar:`OMERO_HOME` environment variable is used internally by OMERO.
-    Unless you really know what you are doing, it is strongly recommended that you
-    do not set this variable (see :doc:`/sysadmins/omero-home-prefix` for details).
-    You can use a different name of your choice instead, indicated by :envvar:`OMERO_PREFIX` in this
-    documentation.
+Please see the :ref:`server_env` section.
 
-Edit your :file:`.bashrc` file, e.g. **$ vim ~/.bashrc** and add the
-following::
-
-    export JAVA_HOME=/usr/lib/jvm/java-6-sun
-    export ICE_HOME=/usr/share/Ice-3.3.1
-    export POSTGRES_HOME=/usr/lib/postgresql/8.4
-    export OMERO_PREFIX=~/apps/OMERO/OMERO.server
-    export PATH=$PATH:$JAVA_HOME/bin:$ICE_HOME:$POSTGRES_HOME/bin:$OMERO_PREFIX/bin
-    export PYTHONPATH=/usr/lib/pymodules/python2.6:$PYTHONPATH
-    export LD_LIBRARY_PATH=/usr/share/java:/usr/lib:$LD_LIBRARY_PATH
-
-.. note::
-    You may wish to check PostgreSQL and Python versions by
-    checking the directories themselves, since they may not correspond to
-    those listed above. In particular check the version of Python that is
-    installed. Newer versions of Ubuntu are installing Python 2.7 from APT
-    by default.
-
-Now you need to make those changes take effect by getting your shell to
-apply them using the **source** built-in command::
-
-    $ source ~/.bashrc
-
-You can check that the new environment variables have taken by printing
-their values to the shell, e.g.::
-
-    $ echo $OMERO_PREFIX
-    /home/ome/apps/OMERO/OMERO.server
 
 Database creation
 ^^^^^^^^^^^^^^^^^
@@ -240,8 +185,8 @@ Check that a database called "omerodb" has been created::
 Update PostgreSQL host-based authentication to accept remote
 connections::
 
-    $ sudo sed '/127.0.0.1/s/md5/trust/' /etc/postgresql/8.4/main/pg_hba.conf \
-        > pg_hba.conf && sudo mv pg_hba.conf /etc/postgresql/8.4/main/pg_hba.conf
+    $ sudo sed '/127.0.0.1/s/md5/trust/' /etc/postgresql/9.1/main/pg_hba.conf \
+        > pg_hba.conf && sudo mv pg_hba.conf /etc/postgresql/9.1/main/pg_hba.conf
 
 .. note::
     The backslash '\\' in the sed command above is used merely to
