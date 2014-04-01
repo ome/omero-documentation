@@ -1,20 +1,20 @@
-OMERO 5 import scenarios
-========================
+Advanced import scenarios
+=========================
 
-Requirements
-------------
+Increasingly users of OMERO are needing to go beyond the traditional "upload
+via a GUI"-style import model to more powerful methods.
 
-There are a set of requirements for getting data into OMERO which are common
-to many institutions, some of which may be mutually exclusive.
+There are a set of requirements for getting data into OMERO which are common to
+many institutions, some of which may be mutually exclusive.
 
-* MOVE: Users need to get data off microscopes quickly. This likely includes
+* Users need to get data off microscopes quickly. This likely includes
   not waiting for import to complete. Users will often move data immediately,
   or even save remotely during acquisition.
 
-* ACCESS: Users would like direct access to the binary repository file-system
+* Users would like direct access to the binary repository file-system
   to read original files for analysis.
 
-* VISUALIZE: Users would like to view and begin working with images ASAP after
+* Users would like to view and begin working with images ASAP after
   acquisition
 
 Below we explain which options are available to you, and why there is a
