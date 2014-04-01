@@ -224,6 +224,7 @@ and the default SHA1-160.
 DropBox
 ^^^^^^^
 
+As described in the scenario ":ref:`inplace_dropbox_auto`",
 :doc:`DropBox </sysadmins/dropbox>` can be configured to use
 any of the options described above. The configuration property to
 modify is `omero.fs.importArgs`:
