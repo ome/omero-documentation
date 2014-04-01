@@ -1,0 +1,35 @@
+Using session bba923bb-cf0c-4cf0-80c5-a309be523ad8 (root@localhost:4064). Idle timeout: 10.0 min. Current group: system
+...[      main] INFO          ome.formats.importer.ImportConfig - OMERO Version: 5.0.0-rc1-DEV-ice35
+...[      main] INFO          ome.formats.importer.ImportConfig - Bioformats version: 5.0.0-rc1-DEV-ice35 revision: 101008f date: 31 January 2014
+...[      main] INFO   formats.importer.cli.CommandLineImporter - Setting transfer to ln_s
+...[      main] INFO   formats.importer.cli.CommandLineImporter - Log levels -- Bio-Formats: ERROR OMERO.importer: INFO
+...[      main] INFO      ome.formats.importer.ImportCandidates - Depth: 4 Metadata Level: MINIMUM
+...[      main] INFO      ome.formats.importer.ImportCandidates - 1 file(s) parsed into 1 group(s) with 1 call(s) to setId in 98ms. (100ms total) [0 unknowns]
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - Attempting initial SSL connection to localhost:4064
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - Insecure connection requested, falling back
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - Server: 5.0.0
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - Client: 5.0.0-rc1-DEV-ice35
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - Java Version: 1.7.0_51
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - OS Name: Linux
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - OS Arch: amd64
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - OS Version: 3.8.0-27-generic
+...[      main] INFO   ormats.importer.cli.LoggingImportMonitor - FILESET_UPLOAD_PREPARATION
+...[      main] INFO          ome.formats.importer.ImportConfig - OMERO Version: 5.0.0-rc1-DEV-ice35
+...[      main] INFO          ome.formats.importer.ImportConfig - Bioformats version: 5.0.0-rc1-DEV-ice35 revision: 101008f date: 31 January 2014
+...[      main] INFO   ormats.importer.cli.LoggingImportMonitor - FILESET_UPLOAD_START
+...[      main] INFO   s.importer.transfers.SymlinkFileTransfer - Transferring /tmp/a.fake...
+...[      main] INFO   ormats.importer.cli.LoggingImportMonitor - FILE_UPLOAD_STARTED: /tmp/a.fake
+...[      main] INFO   ormats.importer.cli.LoggingImportMonitor - FILE_UPLOAD_COMPLETE: /tmp/a.fake
+...[      main] INFO   ormats.importer.cli.LoggingImportMonitor - FILESET_UPLOAD_END
+...[l.Client-1] INFO   ormats.importer.cli.LoggingImportMonitor - METADATA_IMPORTED Step: 1 of 5  Logfile: 24605
+...[l.Client-0] INFO   ormats.importer.cli.LoggingImportMonitor - PIXELDATA_PROCESSED Step: 2 of 5  Logfile: 24605
+...[l.Client-1] INFO   ormats.importer.cli.LoggingImportMonitor - THUMBNAILS_GENERATED Step: 3 of 5  Logfile: 24605
+...[l.Client-0] INFO   ormats.importer.cli.LoggingImportMonitor - METADATA_PROCESSED Step: 4 of 5  Logfile: 24605
+...[l.Client-1] INFO   ormats.importer.cli.LoggingImportMonitor - OBJECTS_RETURNED Step: 5 of 5  Logfile: 24605
+...[l.Client-0] INFO   ormats.importer.cli.LoggingImportMonitor - IMPORT_DONE Imported file: /tmp/a.fake
+Imported pixels:
+5001
+Other imported objects:
+Fileset:4102
+Image:5001
+...[l.Client-0] INFO      ome.formats.importer.cli.ErrorHandler - Number of errors: 0

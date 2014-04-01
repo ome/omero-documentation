@@ -71,9 +71,20 @@ Advanced Server Installation
     server-advanced-configuration
     server-ldap
     server-tables
-    fs-upload-configuration
     omeromovie
     installing-scripts
+
+*************************
+Data Import Options
+*************************
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    import-scenarios
+    in-place-import
+    fs-upload-configuration
 
 ******************
 Server Maintenance
