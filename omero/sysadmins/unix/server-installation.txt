@@ -608,14 +608,14 @@ Configuration
     ::
 
         $ cd ~/omero/OMERO.server
-        $ ./bin/omero config set omero.db.name 'omero_database'
-        $ ./bin/omero config set omero.db.user 'db_user'
-        $ ./bin/omero config set omero.db.pass 'db_password'
+        $ bin/omero config set omero.db.name 'omero_database'
+        $ bin/omero config set omero.db.user 'db_user'
+        $ bin/omero config set omero.db.pass 'db_password'
 
     You can also check the values that have been set using::
 
         $ cd ~/omero/OMERO.server
-        $ ./bin/omero config get
+        $ bin/omero config get
 
 -   If you have chosen a non-standard :doc:`OMERO binary repository
     <server-binary-repository>` location above, be sure to configure
@@ -635,7 +635,7 @@ Configuration
     .. parsed-literal::
 
         $ cd ~/omero/OMERO.server
-        $ ./bin/omero db script
+        $ bin/omero db script
         Please enter omero.db.version [OMERO\ |version|\ ]: 
         Please enter omero.db.patch [0]: 
         Please enter password for new OMERO root user: # omero_root_password
@@ -665,11 +665,11 @@ Configuration
 
     ::
 
-        $ ./bin/omero admin diagnostics
+        $ bin/omero admin diagnostics
 
 -   You can now start the server using::
 
-         $ ./bin/omero admin start
+         $ bin/omero admin start
          Creating var/master
          Initializing var/log
          Creating var/registry
@@ -684,7 +684,7 @@ Configuration
 -   Test that you can log-in as "root", either with the OMERO.insight
     client or on the command-line::
 
-         $ ./bin/omero login
+         $ bin/omero login
          Server: [localhost]
          Username: [root]
          Password:         # omero_root_password
@@ -713,7 +713,7 @@ If working with large images generates ``OutOfMemory`` exceptions in the
 Once you have modified the :file:`templates.xml` file, restart the server
 using::
 
-    $ ./bin/omero admin restart
+    $ bin/omero admin restart
 
 .. seealso::
 
@@ -737,12 +737,12 @@ Otherwise, the internal Django webserver can be used for evaluation
 and development. In this case, we need to turn debugging on, in order
 that static files can be served by Django::
 
-    $ ./bin/omero config set omero.web.application_server development
-    $ ./bin/omero config set omero.web.debug True
+    $ bin/omero config set omero.web.application_server development
+    $ bin/omero config set omero.web.debug True
 
 and then start by running::
 
-    $ ./bin/omero web start
+    $ bin/omero web start
     Starting django development webserver... 
     Validating models...
     0 errors found
@@ -827,7 +827,7 @@ output of the diagnostics command:
 
 .. parsed-literal::
 
-    $ ./bin/omero admin diagnostics
+    $ bin/omero admin diagnostics
 
     ================================================================================
     OMERO Diagnostics |release|
