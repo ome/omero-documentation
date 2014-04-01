@@ -3,16 +3,8 @@ In-place import
 
 In-place import is a feature added to OMERO 5.0.0 to allow
 files which are already present on the server machine to be
-imported into OMERO without the need to copy them. To
-prevent data loss with this new feature, it is being rolled
-out cautiously with instructions provided privately to
-interested users.
-
-.. warning::
-
-    The instructions below should help you get started but **it is critical
-    that you understand the implications of using this feature.** Please do
-    not just copy commands and hope for the best.
+imported into OMERO without the need to copy them. This requires
+users to have shell (|SSH|, etc.) access to the server machine.
 
 This feature is designed to allow imaging facilities to import large datasets
 into OMERO while keeping them safely stored in a secure repository which is
@@ -20,6 +12,13 @@ read-only for users. Leaving the data in a user's file system **is very
 dangerous** as they may forget they need to keep it or move to a different
 institution. **Under no circumstances should in-place import be used with
 temporary storage.**
+
+.. warning::
+
+    The instructions below should help you get started but **it is critical
+    that you understand the implications of using this feature.** Please do
+    not just copy commands and hope for the best.
+
 
 Responsibilities
 ----------------
