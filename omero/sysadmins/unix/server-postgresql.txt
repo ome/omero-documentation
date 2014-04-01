@@ -123,6 +123,15 @@ address (``127.0.0.1``) as follows:
     either for PostgreSQL internal commands to work or for existing
     applications you may have. **Do not delete them**.
 
+
+Completing configuration
+------------------------
+
+After making any configuration changes to :file:`postgresql.conf` or
+:file:`pg_hba.conf`, reload the server for the changes to take effect.
+
+    $ sudo service postgresql reload
+
 .. seealso::
 
     `PostgreSQL <http://www.postgresql.org/docs/current/interactive/index.html>`_ 

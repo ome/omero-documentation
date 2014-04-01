@@ -155,9 +155,10 @@ your develop up-to-date with the official develop::
 Installing OMERO
 ----------------
 
-To install the dependencies required to run the OMERO.server on Linux or Mac 
-OS X, take a look at the :doc:`/sysadmins/unix/server-install-linux` or the
-:doc:`/sysadmins/unix/server-install-homebrew`.
+To install the dependencies required to run the OMERO.server on Linux
+or Mac OS X, take a look at the
+:doc:`/sysadmins/unix/server-installation` or the
+:doc:`/sysadmins/unix/server-install-homebrew` sections.
 
 .. toctree::
     :maxdepth: 1
