@@ -372,13 +372,15 @@ Then start the webserver with:
 ::
 
     $ omero web start
-    Starting django development webserver...
+    INFO:__main__:Application Starting...
+    INFO:root:Processing custom settings for module omeroweb.settings
+    ...
     Validating models...
-    0 errors found
 
-    Django version 1.1.1, using settings 'omeroweb.settings'
-    Development server is running at http://0.0.0.0:4080/
-    Quit the server with CONTROL-C.
+    0 errors found
+    Django version 1.6, using settings 'omeroweb.settings'
+    Starting development server at http://0.0.0.0:4080/
+    Quit the server with CTRL-BREAK.
 
 .. _install_homebrew_common_issues:
 

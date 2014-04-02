@@ -267,17 +267,15 @@ is to set the *omero.web.application\_server* configuration option, turn Debuggi
     $ bin/omero config set omero.web.application_server development
     $ bin/omero config set omero.web.debug True
     $ bin/omero web start
-    Copying '/Users/omero/Desktop/omero/lib/python/omeroweb/feedback/static/feedback/css/layout.css'
-    .....
-    Copying '/Users/omero/Desktop/omero/lib/python/omeroweb/webstart/static/webstart/img/icon-omero-web.png'
-
-    735 static files copied to '/Users/omero/Desktop/omero/lib/python/omeroweb/static'.
-    Starting OMERO.web... Validating models...
+    INFO:__main__:Application Starting...
+    INFO:root:Processing custom settings for module omeroweb.settings
+    ...
+    Validating models...
 
     0 errors found
-    Django version 1.3.1, using settings 'omeroweb.settings'
-    Development server is running at http://0.0.0.0:4080/
-    Quit the server with CONTROL-C.
+    Django version 1.6, using settings 'omeroweb.settings'
+    Starting development server at http://0.0.0.0:4080/
+    Quit the server with CTRL-BREAK.
 
 Logging in to OMERO.web
 -----------------------
