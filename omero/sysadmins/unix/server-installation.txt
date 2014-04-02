@@ -166,30 +166,6 @@ To check which version of Java is currently available::
 Python 2
 ^^^^^^^^
 
-If possible, install the following packages:
-
-.. tabularcolumns:: |l|l|
-
-.. list-table::
-    :header-rows: 1
-    :widths: 1,8
-
-    * - System
-      - Package
-
-    * - BSD Ports
-      - lang/python27 graphics/py-pillow math/py-matplotlib math/py-numpy devel/py-tables science/py-scipy
-
-    * - Debian
-      - python2.7 python-pil python-matplotlib python-numpy python-tables python-scipy
-
-    * - Homebrew
-      - python python/pillow python/numpy python/matplotlib
-
-    * - RedHat
-      - python
-
-
 Check you have Python (and check its version) by running:
 
 ::
@@ -241,6 +217,29 @@ The following Python packages are required:
     functionality but we recommend you just install everything. For example,
     scripting is enabled by default so should not be assumed optional even if
     you never expect your users to run scripts from the clients.
+
+If possible, install the following packages:
+
+.. tabularcolumns:: |l|l|
+
+.. list-table::
+    :header-rows: 1
+    :widths: 1,8
+
+    * - System
+      - Package
+
+    * - BSD Ports
+      - lang/python27 graphics/py-pillow math/py-matplotlib math/py-numpy devel/py-tables science/py-scipy
+
+    * - Debian
+      - python2.7 python-pil python-matplotlib python-numpy python-tables python-scipy
+
+    * - Homebrew
+      - python python/pillow python/numpy python/matplotlib
+
+    * - RedHat
+      - python
 
 Ice
 ^^^
