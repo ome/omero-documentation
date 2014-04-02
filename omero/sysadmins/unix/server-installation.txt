@@ -480,22 +480,24 @@ Creating a database
 On most systems, a "postgres" user will be created which has admin
 privileges, while the UNIX ``root`` user itself does *not* have admin
 privileges. Therefore it is necessary to either become the ``postgres``
-user or use sudo as shown below:
+user, or use sudo as shown below.
 
-For the purposes of this walk-through you can use
-the following dummy data for the user account::
+For the purposes of this guide, the following dummy data is used::
 
-    U: db_user
-    P: db_password
-    DB: omero_database
+    Username: db_user
+    Password: db_password
+    Database: omero_database
 
-.. note:: Security
+.. warning:: Security
 
     These dummy values are examples only and should **not** be used.
     For a live or public server install these values should be altered
-    to reflect your security requirements. You should also consider
-    restricting access to your server machine, but that is outside the
-    scope of this document.
+    to reflect your security requirements---i.e. use your own choice
+    of username and password instead.  These should **not** be the
+    same username and/or password as your Linux/Mac/Windows root user!
+
+    You should also consider restricting access to your server
+    machine, but that is outside the scope of this document.
 
 - Create a non-superuser database user and record the name and
   password used. You will need to configure OMERO to use this username
@@ -506,15 +508,6 @@ the following dummy data for the user account::
        $ sudo -u postgres createuser -P -D -R -S db_user
        Enter password for new role:       # db_password
        Enter it again:       # db_password
-
-   .. warning:: Security
-
-       For illustrative purposes, the default name and password for
-       the user are ``db_user`` and ``db_password``
-       respectively. However, you should **not** use these default
-       values for your installation but use your own choice of
-       username and password instead.  This should **not** be the same
-       password as your Linux/Mac/Windows root user!
 
 -  Create a database for OMERO to reside in
 
