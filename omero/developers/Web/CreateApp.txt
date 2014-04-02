@@ -31,14 +31,15 @@ the Django 'development' server.
 ::
 
     $ bin/omero web start
-    Starting django development webserver... 
+    INFO:__main__:Application Starting...
+    INFO:root:Processing custom settings for module omeroweb.settings
+    ...
     Validating models...
 
     0 errors found
-    December 09, 2013 - 14:34:10
     Django version 1.6, using settings 'omeroweb.settings'
-    Starting development server at http://127.0.0.1:4080/
-    Quit the server with CONTROL-C.
+    Starting development server at http://0.0.0.0:4080/
+    Quit the server with CTRL-BREAK.
 
 .. note:: Port number is 4080
 

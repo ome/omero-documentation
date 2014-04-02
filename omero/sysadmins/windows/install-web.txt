@@ -147,17 +147,15 @@ Debugging on and start the server up:
     C:\omero_dist>bin\omero config set omero.web.application_server development
     C:\omero_dist>bin\omero config set omero.web.debug True
     C:\omero_dist>bin\omero web start
-    Copying 'C:\omero_dist\lib\python\omeroweb\feedback\static\feedback\css\layout.css'
-    .....
-    Copying 'C:\omero_dist\lib\python\omeroweb\webstart\static\webstart\img\icon-omero-web.png'
-
-    735 static files copied to 'C:\omero_dist\lib\python\omeroweb\webstart\static'.
-    Starting OMERO.web... Validating models...
+    INFO:__main__:Application Starting...
+    INFO:root:Processing custom settings for module omeroweb.settings
+    ...
+    Validating models...
 
     0 errors found
-    Django version 1.3.1, using settings 'omeroweb.settings'
-    Development server is running at http://0.0.0.0:4080/
-    Quit the server with CONTROL-C.
+    Django version 1.6, using settings 'omeroweb.settings'
+    Starting development server at http://0.0.0.0:4080/
+    Quit the server with CTRL-BREAK.
 
 Logging in to OMERO.web
 -----------------------
