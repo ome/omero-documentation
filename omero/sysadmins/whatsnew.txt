@@ -28,3 +28,8 @@ its original format if they need to.
   you are getting search errors, and how to adjust the
   :doc:`server-advanced-configuration` to take advantage of improvements to
   the server indexing system for 5.0.0.
+
+- :doc:`import scenarios` and :doc:`in-place-import` documentation has been
+  added to explain the new ways of importing data enabled by the change in
+  server-side workflow.
+
