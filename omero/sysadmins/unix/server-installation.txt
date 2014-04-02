@@ -656,7 +656,7 @@ Configuration
     At this point you should see some output from PostgreSQL as it
     installs the schema for new OMERO database.
 
--   Before starting the OMERO.server,run the OMERO diagnostics script to
+-   Before starting the OMERO.server, run the OMERO diagnostics script to
     check that all of the settings are correct, e.g.
 
     ::
