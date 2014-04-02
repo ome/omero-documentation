@@ -8,9 +8,10 @@ files which are already present on the server machine to be
 imported into OMERO without the need to copy them. This requires
 users to have shell (|SSH|, etc.) access to the server machine,
 and so there are a number of :ref:`limitations <limitations>`
-to this implementation. Future development is planned to enable
-a more user-friendly experience, but in many cases, without this
-|CLI|-based stop-gap, using OMERO would not be possible.
+to this implementation. Development of this feature is on-going, with
+improvements planned to enable a more user-friendly experience. This
+|CLI|-based stop-gap is being made available at this stage because for some
+users, in-place import is essential for their use of OMERO.
 
 This feature is designed to allow imaging facilities to import large datasets
 into OMERO while keeping them safely stored in a secure repository which is
@@ -53,8 +54,7 @@ to shell into the server and run the command-line importer
 directly. If you are uncomfortable with this, you should let someone else
 handle in-place importing.
 
-To perform an in-place import, a person wanting to perform an
-in-place import **MUST** have:
+Someone wanting to perform an in-place import **MUST** have:
 
 * a regular OMERO account
 * an |OS|-account with access to :omerocmd:`bin/omero`
@@ -63,11 +63,11 @@ in-place import **MUST** have:
   </developers/ManagedRepository/ManagedRepository>`
   or one of its subdirectories
 
-The above implies that it may be useful to create a single
-account like "import_user" which multiple users can login
-into using their own OMERO accounts. Alternatively, each
-user can be given access rights to the data storage as well
-as the managed repository.
+The above means that it may be useful to create a single OS
+account (e.g. "import_user") which multiple users can log
+into, and then use their own OMERO accounts to import data. Alternatively,
+each OMERO user can be given an OS account with access rights to the data
+storage as well as the managed repository.
 
 At the moment in-place import is only available under
 Posix systems (Unix, Linux, OSX). Support for Windows is
