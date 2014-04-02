@@ -129,10 +129,6 @@ working with your IIS deployment.
 
    ::
 
-       C:\omero_dist>bin\omero config set omero.web.session_engine "django.contrib.sessions.backends.cache"
-
-       C:\omero_dist>bin\omero config set omero.web.cache_backend "file://C:/windows/temp/"
-
        C:\omero_dist>bin\omero web iis
 
 Using the lightweight development server
