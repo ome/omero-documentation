@@ -9,7 +9,6 @@ more specific walk-through listed below.
 .. seealso::
 
     :doc:`server-install-homebrew`
-
         Instructions for installing OMERO.server on Mac OS X using
         Homebrew.  Note this is for installing the *server itself*
         with Homebrew, in addition to its prerequisites; the rest of
@@ -43,7 +42,7 @@ Installation will require:
   is largely outside the scope of this document. For Linux
   distributions, use of the default package manager is recommended.
   For BSD systems, the ports system provides all the prerequisites.
-  For MacOS X, homebrew is recommended.  This guide provides the
+  For MacOS X, Homebrew is recommended.  This guide provides the
   package names to install for a number of contemporary systems.
   However, the names and versions provided vary between releases.
   Please do check for similar packages if the one documented here

@@ -6,7 +6,7 @@ OMERO.server Mac OS X installation walk-through with Homebrew
 
     This walk-through demonstrates how to install OMERO on a clean Mac
     OS X 10.7 Lion system using Homebrew.  Note that this demonstrates
-    how to install OMERO.server using homebrew, plus all its
+    how to install OMERO.server using Homebrew, plus all its
     prerequisites.  The default instructions for UNIX platforms in the
     :doc:`server-installation` section covers Homebrew installation of
     the prerequisites *only*.
