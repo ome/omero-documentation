@@ -709,8 +709,6 @@ turn debugging on, in order that static files can be served by Django:
 
     c:\OMERO.server> bin\omero config set omero.web.application_server development
     c:\OMERO.server> bin\omero config set omero.web.debug True
-    c:\OMERO.server> bin\omero config set omero.web.session_engine "django.contrib.sessions.backends.cache"
-    c:\OMERO.server> bin\omero config set omero.web.cache_backend "file://C:/windows/temp/"
 
 then start by
 
