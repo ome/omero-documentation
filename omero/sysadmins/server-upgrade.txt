@@ -7,25 +7,71 @@ both with bug fixes and new functionality. We try to make the schedule
 for these releases as public as possible. You may want to take a look
 at the roadmap_ for exactly what will go into a release. We always inform our
 :community_plone:`mailing lists <>` of the development
-status. Finally, all the products check themselves with the
+status.
+
+See the full details of OMERO |release| features in the
+:forum:`Announcements <viewforum.php?f=11>` forum.
+
+Upgrade check list
+------------------
+
+.. contents::
+    :local:
+    :depth: 1
+
+Upgrade check
+^^^^^^^^^^^^^
+
+All OMERO products check themselves with the
 OmeroRegistry for update notifications on startup. If you wish
 to disable this functionality you should do so now as outlined on the
 :doc:`/sysadmins/UpgradeCheck` page.
 
-.. note::
-    Before starting the upgrade, please ensure that you have
-    obtained all the prerequisites for installation, documented for
-    Unix and Windows. In particular, ensure that you are running a
-    suitable version of PostgreSQL to enable successful upgrading of
-    the database.
+Prerequisities
+^^^^^^^^^^^^^^
+Before starting the upgrade, please ensure that you have
+obtained all the prerequisites for installation, documented for
+Unix and Windows. In particular, ensure that you are running a
+suitable version of PostgreSQL to enable successful upgrading of
+the database.
+
+Troubleshooting
+^^^^^^^^^^^^^^^
 
 If you encounter errors during a OMERO upgrade, database upgrade, etc.
 you should retain as much log information as possible and notify the
 OMERO.server team via the mailing lists available on the
 :community_plone:`community <>` page.
 
-See the full details of OMERO |release| features in the
-:forum:`Announcements <viewforum.php?f=11>` forum.
+Password salting
+^^^^^^^^^^^^^^^^
+
+With 5.0.0, the default JDBC password provider has been modified to
+add password salting support. This implies that once a server has been
+upgraded and deployed, if passwords are modified, you will not be able
+to easily revert to a configuration without salting. To keep using the
+legacy password provider without salting support, you will need to
+configure ``omero.security.password_provider`` to use the legacy
+``chainedPasswordProviderNoSalt`` as described in the
+:ref:`legacy_password_providers` section.
+
+File limits
+^^^^^^^^^^^
+
+You may wish to review the open file limits.  Please consult the
+:ref:`limitations-logback` section for further details.
+
+Password usage
+^^^^^^^^^^^^^^
+
+The passwords and logins used here are examples. Please consult
+the :ref:`troubleshooting-password` section for explanation.  In particular,
+make sure to replace the values of **db_user** and **omero_database**
+with the actual database user and database name for your installation.
+
+
+Upgrade steps
+-------------
 
 For all users, the basic workflow for upgrading your OMERO.server is listed
 below. Please refer to each section for additional details.
@@ -34,27 +80,8 @@ below. Please refer to each section for additional details.
     :local:
     :depth: 1
 
-.. warning::
-    With 5.0.0, the default JDBC password provider has been modified to
-    add password salting support. This implies that once a server has been
-    upgraded and deployed, if passwords are modified, you will not be able
-    to easily revert to a configuration without salting. To keep using the
-    legacy password provider without salting support, you will need to
-    configure ``omero.security.password_provider`` to use the legacy
-    ``chainedPasswordProviderNoSalt`` as described in the
-    :ref:`legacy_password_providers` section.
-
-.. warning::
-    You may wish to review the open file limits.  Please consult the
-    :ref:`limitations-logback` section for further details.
-
-.. warning:: The passwords and logins used here are examples. Please consult
-    the :ref:`troubleshooting-password` section for explanation.  In particular,
-    make sure to replace the values of **db_user** and **omero_database**
-    with the actual database user and database name for your installation.
-
 Perform a database backup
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The first thing to do before **any** upgrade activity is to backup your
 database.
@@ -65,7 +92,7 @@ database.
 
 
 Copy new binaries
------------------
+^^^^^^^^^^^^^^^^^
 
 Before copying the new binaries, stop the existing server::
 
@@ -91,7 +118,7 @@ directory, you are safe to follow the following upgrade procedure:
     version and build number of OMERO.server.
 
 Upgrade your database
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 .. only:: point_release
 
@@ -101,7 +128,7 @@ Upgrade your database
         to upgrade the database.
 
 Run the upgrade script
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
 You **must** use the same username and password you have defined during
 :doc:`unix/server-installation`. The |version| upgrade script should execute
@@ -150,7 +177,7 @@ From a 5.0.0-beta1 server
     (1 row)
 
 Optimize an upgraded database (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""""""""""
 
 After you have run the upgrade script, you may want to optimize your
 database which can both save disk space and speed up access times.
@@ -163,7 +190,7 @@ database which can both save disk space and speed up access times.
 .. _upgrademergescript:
 
 Merge script changes
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 If any new official scripts have been added under ``lib/scripts`` or if
 you have modified any of the existing ones, then you will need to backup
@@ -178,10 +205,10 @@ For further information on managing your scripts, refer to
 developers.
 
 Update your configuration
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Environment variables
-^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""
 
 If you changed the directory name where the |release| server code resides,
 make sure to update any system environment variables. Before restarting
@@ -189,7 +216,7 @@ the server, make sure your PATH and PYTHONPATH system environment
 variables are pointing to the new locations.
 
 JVM memory settings
-^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""
 
 If you modified your memory settings, these changes will be lost and you will
 need to update the memory settings for the new server. Refer to the
@@ -198,7 +225,7 @@ need to update the memory settings for the new server. Refer to the
 :doc:`Windows <windows/server-installation>`) for more information.
 
 Python Imaging Library
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
 Since OMERO 5.0.0, `Pillow`_ is used as the default imaging library for Python
 instead of PIL. Refer to the installation page of `Pillow`_ documentation to
@@ -209,7 +236,7 @@ install Pillow on your system.
     will need to remove it first before installing Pillow.
 
 Changes to OMERO.web URLs
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 
 In order to ease deployment and avoid errors for IIS (Windows production
 deployment) and Apache (notably CentOS/RHEL6) OMERO.web now
@@ -227,7 +254,7 @@ the new version. To generate the relevant configuration, please run
 server.
 
 Restart your database
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 -  Following a successful database upgrade, you can start the server.
 
@@ -247,7 +274,7 @@ Restart your database
        $ bin/omero web start
 
 Restore a database backup
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If the upgraded database or the new server version do not work for you,
 or you otherwise need to rollback to a previous database backup, you may
