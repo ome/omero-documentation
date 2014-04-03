@@ -42,7 +42,7 @@ guide provides the package names to install for a number of contemporary
 systems. However, the names and versions provided vary between releases.
 Please do check for similar packages if the one documented here is not
 available for your system as it may be provided under an alternate name.
-"Debian" refers to Debian and derivative distributions such as Ubuntu.
+"Debian" refers to Debian and alternative distributions such as Ubuntu.
 "RedHat" refers to RedHat and related distributions such as CentOS, Fedora and
 Scientific Linux.
 
@@ -480,7 +480,7 @@ Creating a database
 On most systems, a "postgres" user will be created which has admin
 privileges, while the UNIX ``root`` user itself does *not* have admin
 privileges. Therefore it is necessary to either become the ``postgres``
-user, or use sudo as shown below.
+user, or use :program:`sudo` as shown below.
 
 For the purposes of this guide, the following dummy data is used::
 
@@ -663,7 +663,7 @@ Configuration
    ``bin\winconfig.bat --help``, which gets called automatically on an
    initial install.
 
--   Test that you can log-in as "root", either with the OMERO.insight
+-   Test that you can log in as "root", either with the OMERO.insight
     client or on the command-line::
 
          $ bin/omero login
