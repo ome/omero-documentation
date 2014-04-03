@@ -19,29 +19,19 @@ Upgrade check list
     :local:
     :depth: 1
 
-Upgrade check
-^^^^^^^^^^^^^
-
-All OMERO products check themselves with the
-OmeroRegistry for update notifications on startup. If you wish
-to disable this functionality you should do so now as outlined on the
-:doc:`/sysadmins/UpgradeCheck` page.
-
-Prerequisities
-^^^^^^^^^^^^^^
+Check Prerequisities
+^^^^^^^^^^^^^^^^^^^^
 Before starting the upgrade, please ensure that you have
 obtained all the prerequisites for installation, documented for
 Unix and Windows. In particular, ensure that you are running a
 suitable version of PostgreSQL to enable successful upgrading of
 the database.
 
-Troubleshooting
-^^^^^^^^^^^^^^^
+File limits
+^^^^^^^^^^^
 
-If you encounter errors during a OMERO upgrade, database upgrade, etc.
-you should retain as much log information as possible and notify the
-OMERO.server team via the mailing lists available on the
-:community_plone:`community <>` page.
+You may wish to review the open file limits.  Please consult the
+:ref:`limitations-logback` section for further details.
 
 Password salting
 ^^^^^^^^^^^^^^^^
@@ -54,12 +44,6 @@ legacy password provider without salting support, you will need to
 configure ``omero.security.password_provider`` to use the legacy
 ``chainedPasswordProviderNoSalt`` as described in the
 :ref:`legacy_password_providers` section.
-
-File limits
-^^^^^^^^^^^
-
-You may wish to review the open file limits.  Please consult the
-:ref:`limitations-logback` section for further details.
 
 Password usage
 ^^^^^^^^^^^^^^
@@ -76,6 +60,23 @@ If you have experienced any issues with search in the past,
 **especially prior to 5.0.1**, you will likely want to take
 the opportunity to reindex your full text index. See
 :ref:`search-reindexing` for more information.
+
+Troubleshooting
+^^^^^^^^^^^^^^^
+
+If you encounter errors during a OMERO upgrade, database upgrade, etc.
+you should retain as much log information as possible and notify the
+OMERO.server team via the mailing lists available on the
+:community_plone:`community <>` page.
+
+Upgrade check
+^^^^^^^^^^^^^
+
+All OMERO products check themselves with the
+OmeroRegistry for update notifications on startup. If you wish
+to disable this functionality you should do so now as outlined on the
+:doc:`/sysadmins/UpgradeCheck` page.
+
 
 Upgrade steps
 -------------
