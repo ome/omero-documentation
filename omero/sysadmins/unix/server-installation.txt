@@ -385,6 +385,22 @@ Once you have obtained the OMERO.server zip archive, unpack it:
 
     $ unzip OMERO.server-|release|-ice34-byy.zip
 
+If your system does not provide an :program:`unzip` command by default, install
+one of the following:
+
++-----------+-----------------+
+| System    | Package         |
++===========+=================+
+| BSD Ports | archivers/unzip |
++-----------+-----------------+
+| Debian    | unzip           |
++-----------+-----------------+
+| Homebrew  | unzip           |
++-----------+-----------------+
+| RedHat    | unzip           |
++-----------+-----------------+
+
+
 Optionally, give your OMERO software install a short name to save some
 typing later, to reflect what you set :envvar:`OMERO_PREFIX` to in the
 :ref:`server_env` section, below:
