@@ -2,18 +2,18 @@ OMERO.server installation
 =========================
 
 This section covers the installation of OMERO.server on UNIX and
-UNIX-like platforms.  This includes all BSD, Linux and MacOS X
+UNIX-like platforms.  This includes all BSD, Linux and Mac OS X
 systems.  Depending upon which platform you are using, you may find a
 more specific walk-through listed below.
 
 .. seealso::
 
     :doc:`server-install-homebrew`
-        Instructions for installing OMERO.server on Mac OS X using
-        Homebrew.  Note this is for installing the *server itself*
-        with Homebrew, in addition to its prerequisites; the rest of
-        this section covers Homebrew installation of prerequisites
-        *only*, using an OMERO.server binary release.
+        Instructions for installing and building OMERO.server on Mac OS X with
+        Homebrew using our special formulas (i.e. from the source code via
+        Homebrew). **You do not need to refer to this page to install the
+        prerequisites with Homebrew and then install the server zip from the
+        downloads page.**
 
     Monash University also have a guide for `installing OMERO on
     CentOS 6.3 (64-bit)
@@ -27,47 +27,39 @@ Prerequisites
 Installation will require:
 
 - a clean, minimal operating system installation
-- a "root" level account for which you know the password.
+- a "root" level account for which you know the password
 
-.. note:: Root account
-
-    If you are unsure of what it means to have a "root" level account,
+.. note:: If you are unsure of what it means to have a "root" level account,
     or if you are generally having issues with the various
     users/passwords described in this install guide, please see
     :ref:`troubleshooting-password`.
 
-.. note:: Prerequisites
+The installation and configuration of the prerequisite applications is largely
+outside the scope of this document. For Linux distributions, use of the
+default package manager is recommended. For BSD systems, the ports system
+provides all the prerequisites. For MacOS X, Homebrew is recommended. This
+guide provides the package names to install for a number of contemporary
+systems. However, the names and versions provided vary between releases.
+Please do check for similar packages if the one documented here is not
+available for your system as it may be provided under an alternate name.
+"Debian" refers to Debian and derivative distributions such as Ubuntu.
+"RedHat" refers to RedHat and related distributions such as CentOS, Fedora and
+Scientific Linux.
 
-  The installation and configuration of the prerequisite applications
-  is largely outside the scope of this document. For Linux
-  distributions, use of the default package manager is recommended.
-  For BSD systems, the ports system provides all the prerequisites.
-  For MacOS X, Homebrew is recommended.  This guide provides the
-  package names to install for a number of contemporary systems.
-  However, the names and versions provided vary between releases.
-  Please do check for similar packages if the one documented here
-  isn't available for your system---it might be provided under an
-  alternate name.  "Debian" refers to Debian and derivative
-  distributions such as Ubuntu.  "RedHat" refers to RedHat and related
-  distributions such as CentOS, Fedora and Scientific Linux.
+* For Ubuntu you need to enable the **universe** repository.  This should be
+  enabled by default.  If not enabled, it may be enabled by editing
+  :file:`/etc/apt/sources.list` directly, in which case the entries may
+  already exist but are commented out, or by using Synaptic (10.04 and 10.10)
+  or Ubuntu Software Center (11.04 onwards). Update your package lists to
+  ensure that you get the latest packages::
 
-.. note:: Debian and Ubuntu
+    $ sudo apt-get update
 
-    For Ubuntu you need to enable the **universe** repository.  This
-    should be enabled by default.  If not enabled, it may be enabled by
-    editing :file:`/etc/apt/sources.list` directly, in which case the
-    entries may already exist but are commented out, or by using
-    Synaptic (10.04 & 10.10) or Ubuntu Software Center (11.04 onwards).
+  Install packages by running::
 
-    Update your package lists to ensure that you get the latest packages::
+    $ sudo apt-get install package
 
-        $ sudo apt-get update
-
-    Install packages by running::
-
-        $ sudo apt-get install package
-
-    where *package* is the package name to install.
+  where *package* is the package name to install.
 
 Overview
 ^^^^^^^^
@@ -147,7 +139,7 @@ version is too old, Oracle Java may be downloaded from the `Oracle
 website
 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
 
-.. note:: Security
+.. warning:: **Security**
 
     Installing Oracle Java outside the system's package manager will
     leave your system without regular distribution-supplied security
@@ -496,7 +488,7 @@ For the purposes of this guide, the following dummy data is used::
     Password: db_password
     Database: omero_database
 
-.. warning:: Security
+.. warning:: **Security**
 
     These dummy values are examples only and should **not** be used.
     For a live or public server install these values should be altered
@@ -509,25 +501,19 @@ For the purposes of this guide, the following dummy data is used::
 
 - Create a non-superuser database user and record the name and
   password used. You will need to configure OMERO to use this username
-  and password later on.
+  and password later on.::
 
-   ::
+      $ sudo -u postgres createuser -P -D -R -S db_user
+      Enter password for new role:       # db_password
+      Enter it again:       # db_password
 
-       $ sudo -u postgres createuser -P -D -R -S db_user
-       Enter password for new role:       # db_password
-       Enter it again:       # db_password
+-  Create a database for OMERO to reside in::
 
--  Create a database for OMERO to reside in
+      $ sudo -u postgres createdb -O db_user omero_database
 
-   ::
+-  Add the PL/pgSQL language to your database::
 
-       $ sudo -u postgres createdb -O db_user omero_database
-
--  Add the PL/pgSQL language to your database
-
-   ::
-
-       $ sudo -u postgres createlang plpgsql omero_database
+      $ sudo -u postgres createlang plpgsql omero_database
 
    .. note::
 
@@ -638,14 +624,14 @@ Configuration
         Please re-enter password for new OMERO root user: # omero_root_password
         Saving to ~/Desktop/omero/OMERO\ |version|\ __0.sql
 
-   .. warning:: Security
+   .. warning:: **Security**
 
-       For illustrative purposes, the default password for the OMERO
-       root user is shown as ``omero_root_password``. However, you
-       should **not** use this default values for your installation,
-       but use your own choice of password instead.  This should
-       **not** be the same password as your Linux/Mac/Windows root
-       user or the database user!
+      For illustrative purposes, the default password for the OMERO
+      root user is shown as ``omero_root_password``. However, you
+      should **not** use this default values for your installation,
+      but use your own choice of password instead.  This should
+      **not** be the same password as your Linux/Mac/Windows root
+      user or the database user!
 
 -   Initialize your database with the script.
 
