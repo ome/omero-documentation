@@ -131,7 +131,13 @@ working with your IIS deployment.
 
        C:\omero_dist>bin\omero web iis
 
-.. note::  As OMERO.web 5 is based on Django 1.6, ``omero.web.session_engine`` and ``omero.web.cache_backend`` should be unset.
+   .. note::  As OMERO.web 5 is based on Django 1.6, ``omero.web.session_engine`` and ``omero.web.cache_backend`` should be unset.
+
+   ::
+
+       C:\omero_dist>bin\omero config set omero.web.session_engine
+       C:\omero_dist>bin\omero config set omero.web.cache_backend
+
 
 Using the lightweight development server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
