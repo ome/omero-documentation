@@ -387,7 +387,10 @@ The release :file:`OMERO.server.zip` is available from the
 :downloads:`OMERO downloads <>` page.  Download the version matching
 the version of Ice installed on your system before continuing.
 
-.. include:: development-server
+Installing a development version from source is also possible.  See
+the :ref:`install_from_source` section for further details.  This is not
+recommended unless you have a specific reason *not* to use a release
+version.
 
 Once you have obtained the OMERO.server zip archive, unpack it:
 
