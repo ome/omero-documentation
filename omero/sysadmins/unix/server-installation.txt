@@ -46,20 +46,20 @@ available for your system as it may be provided under an alternate name.
 "RedHat" refers to RedHat and related distributions such as CentOS, Fedora and
 Scientific Linux.
 
-For Ubuntu you need to enable the **universe** repository.  This should be
-enabled by default.  If not enabled, it may be enabled by editing
-:file:`/etc/apt/sources.list` directly, in which case the entries may already
-exist but are commented out, or by using Synaptic (10.04 & 10.10) or Ubuntu
-Software Center (11.04 onwards). Update your package lists to ensure that you
-get the latest packages::
+* For Ubuntu you need to enable the **universe** repository.  This should be
+  enabled by default.  If not enabled, it may be enabled by editing
+  :file:`/etc/apt/sources.list` directly, in which case the entries may
+  already exist but are commented out, or by using Synaptic (10.04 and 10.10)
+  or Ubuntu Software Center (11.04 onwards). Update your package lists to
+  ensure that you get the latest packages::
 
     $ sudo apt-get update
 
-Install packages by running::
+  Install packages by running::
 
     $ sudo apt-get install package
 
-where *package* is the package name to install.
+  where *package* is the package name to install.
 
 Overview
 ^^^^^^^^
