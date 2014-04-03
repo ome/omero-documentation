@@ -69,6 +69,13 @@ the :ref:`troubleshooting-password` section for explanation.  In particular,
 make sure to replace the values of **db_user** and **omero_database**
 with the actual database user and database name for your installation.
 
+Re-indexing for search
+^^^^^^^^^^^^^^^^^^^^^^
+
+If you have experienced any issues with search in the past,
+**especially prior to 5.0.1**, you will likely want to take
+the opportunity to reindex your full text index. See
+:ref:`search-reindexing` for more information.
 
 Upgrade steps
 -------------
