@@ -710,19 +710,6 @@ turn debugging on, in order that static files can be served by Django:
     C:\OMERO.server> bin\omero config set omero.web.application_server development
     C:\OMERO.server> bin\omero config set omero.web.debug True
 
-.. note::  As OMERO.web 5 is based on Django 1.6,
-    ``omero.web.session_engine`` and ``omero.web.cache_backend`` should be
-    unset.
-    
-    ::
-
-        C:\omero_dist>bin\omero config set omero.web.session_engine
-        C:\omero_dist>bin\omero config set omero.web.cache_backend
-
-    If your deployment requires additional cache store please follow 
-    `Django documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
-    for more details.
-
 then start by
 
 ::
@@ -735,6 +722,19 @@ then start by
     Django version 1.1.1, using settings 'omeroweb.settings'
     Development server is running at http://0.0.0.0:4080/
     Quit the server with CONTROL-C.
+
+.. note::  As OMERO.web 5 is based on Django 1.6,
+    ``omero.web.session_engine`` and ``omero.web.cache_backend`` should be
+    unset.
+    
+    ::
+
+        C:\omero_dist>bin\omero config set omero.web.session_engine
+        C:\omero_dist>bin\omero config set omero.web.cache_backend
+
+    If your deployment requires additional cache store please follow 
+    `Django documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
+    for more details.
 
 Once you have deployed and started the server you can use your browser
 to access the OMERO.web interface:
