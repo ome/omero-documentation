@@ -753,7 +753,7 @@ and then start by running::
     0 errors found
     Django version 1.6, using settings 'omeroweb.settings'
     Starting development server at http://0.0.0.0:4080/
-    Quit the server with CTRL-BREAK.
+    Quit the server with CONTROL-C.
 	
 Once you have deployed and started the server you can use your browser
 to access the OMERO.web interface:

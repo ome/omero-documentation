@@ -275,7 +275,7 @@ is to set the *omero.web.application\_server* configuration option, turn Debuggi
     0 errors found
     Django version 1.6, using settings 'omeroweb.settings'
     Starting development server at http://0.0.0.0:4080/
-    Quit the server with CTRL-BREAK.
+    Quit the server with CONTROL-C.
 
 Logging in to OMERO.web
 -----------------------
