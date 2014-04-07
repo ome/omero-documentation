@@ -56,8 +56,8 @@ Binary delete
 ^^^^^^^^^^^^^
 
 On Windows servers not all binary files corresponding to a delete may
-be removed from the binary repository. See 
-:ref:`DeleteBinaryData` for more details.
+be removed from the binary repository. See :ref:`DeleteBinaryData` for more
+details.
 
 Ice 3.5
 ^^^^^^^
@@ -74,18 +74,9 @@ Mac OS X issues
 C++ compilation problems on Mac OS X 10.6 (Snow Leopard)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Under certain circumstances building OmeroCpp can fail with "ld: symbol(s) not 
-found". You can find further details, a potential solution and make any 
+Under certain circumstances building OmeroCpp can fail with "ld: symbol(s) not
+found". You can find further details, a potential solution and make any
 comments on your experience with the problem on :ticket:`3210`.
-
-Web Start problems on Mac OS X 10.8 (Mountain Lion)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The new security features prevent users from launching
-OMERO.insight via Java Web Start using the standard system security
-settings. The system wide setting needs to be changed in preferences,
-and this would have security implications. We are looking into code 
-signing to resolve this issue.
 
 Ubuntu issues
 -------------
@@ -93,7 +84,7 @@ Ubuntu issues
 Importing using desktop clients
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Under older Ubuntu installations, the 'import folder' option in the desktop 
+Under older Ubuntu installations, the 'import folder' option in the desktop
 clients currently does not work.
 
 Searching
