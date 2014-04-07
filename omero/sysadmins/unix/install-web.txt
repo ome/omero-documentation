@@ -473,6 +473,12 @@ Customizing your OMERO.web installation
 
           $ bin/omero config set omero.web.debug "True"
 
+-  Cache:
+
+   -  If your deployment requires additional cache store please follow
+      `Django documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
+      for more details.
+
 .. _custom_web_location:
 
 -  Custom OMERO.web location:

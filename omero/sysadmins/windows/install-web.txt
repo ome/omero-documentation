@@ -142,6 +142,11 @@ working with your IIS deployment.
            C:\omero_dist>bin\omero config set omero.web.session_engine
            C:\omero_dist>bin\omero config set omero.web.cache_backend
 
+       If your deployment requires additional cache store please follow 
+       `Django documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
+       for more details.
+
+
 Using the lightweight development server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
