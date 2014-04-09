@@ -1,0 +1,52 @@
+ADVANCED OPTIONS:
+
+  These options are not intended for general use. Make sure you have read the
+  documentation regarding them. They may change in future releases.
+
+  In-place imports:
+  -----------------
+
+    --transfer=ARG              File transfer method
+
+        General options:
+          upload              # Default
+          some.class.Name     # Use a class on the CLASSPATH.
+
+        Server-side options:
+          ln                  # Use hard-link.
+          ln_s                # Use soft-link.
+          ln_rm               # Caution! Hard-link followed by source deletion.
+
+
+  ex. $ bin/omero import -- --transfer=ln_s foo.tiff
+      $ ./importer-cli --transfer=ln bar.tiff
+      $ CLASSPATH=mycode.jar ./importer-cli --transfer=com.example.MyTransfer baz.tiff
+
+  Background imports:
+  -------------------
+
+    --minutes_wait=ARG          Choose how long the importer will wait on server-side processing.
+                                ARG > 0 implies the number of minutes to wait.
+                                ARG = 0 exits immediately. Use a *_completed option to clean up.
+                                ARG < 0 waits indefinitely. This is the default.
+
+    --close_completed           Close completed imports.
+
+    --wait_completed            Wait for all background imports to complete.
+
+
+  ex. $ bin/omero import -- --minutes_wait=0 file1.tiff file2.tiff file3.tiff
+      $ ./importer-cli --minutes_wait=0 some_directory/
+      $ ./importer-cli --wait_completed # Waits on all 3 imports.
+
+  Import speed:
+  -------------
+
+    --checksum_algorithm=ARG    Choose a possibly faster algorithm for detecting file corruption,
+                                e.g. Adler-32 (fast), CRC-32 (fast), MD5-128,
+                                     Murmur3-32, Murmur3-128, SHA1-160 (slow, default)
+
+  ex. $ bin/omero import --checksum_algorithm=CRC-32 foo.tiff
+      $ ./importer-cli --checksum_algorithm=Murmur3-128 bar.tiff
+
+Report bugs to <ome-users@lists.openmicroscopy.org.uk>

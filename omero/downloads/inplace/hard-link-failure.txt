@@ -1,0 +1,53 @@
+...[      main] INFO          ome.formats.importer.ImportConfig - OMERO Version: 5.0.0-rc1-DEV-ice35
+...[      main] INFO          ome.formats.importer.ImportConfig - Bioformats version: 5.0.0-rc1-DEV-ice35 revision: 101008f date: 31 January 2014
+...[      main] INFO   formats.importer.cli.CommandLineImporter - Setting transfer to ln
+...[      main] INFO   formats.importer.cli.CommandLineImporter - Log levels -- Bio-Formats: ERROR OMERO.importer: INFO
+...[      main] INFO      ome.formats.importer.ImportCandidates - Depth: 4 Metadata Level: MINIMUM
+...[      main] INFO      ome.formats.importer.ImportCandidates - 1 file(s) parsed into 1 group(s) with 1 call(s) to setId in 96ms. (98ms total) [0 unknowns]
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - Attempting initial SSL connection to localhost:4064
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - Insecure connection requested, falling back
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - Server: 5.0.0
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - Client: 5.0.0-rc1-DEV-ice35
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - Java Version: 1.7.0_51
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - OS Name: Linux
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - OS Arch: amd64
+...[      main] INFO       ome.formats.OMEROMetadataStoreClient - OS Version: 3.8.0-27-generic
+...[      main] INFO   ormats.importer.cli.LoggingImportMonitor - FILESET_UPLOAD_PREPARATION
+...[      main] INFO          ome.formats.importer.ImportConfig - OMERO Version: 5.0.0-rc1-DEV-ice35
+...[      main] INFO          ome.formats.importer.ImportConfig - Bioformats version: 5.0.0-rc1-DEV-ice35 revision: 101008f date: 31 January 2014
+...[      main] INFO   ormats.importer.cli.LoggingImportMonitor - FILESET_UPLOAD_START
+...[      main] INFO   .importer.transfers.HardlinkFileTransfer - Transferring /tmp/a.fake...
+...[      main] INFO   ormats.importer.cli.LoggingImportMonitor - FILE_UPLOAD_STARTED: /tmp/a.fake
+...[      main] ERROR  .importer.transfers.HardlinkFileTransfer - transfer process returned 1
+...[      main] ERROR  .importer.transfers.HardlinkFileTransfer - error in closing raw file store
+omero.ResourceError: null
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_51]
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_51]
+    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_51]
+    at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_51]
+    at java.lang.Class.newInstance(Class.java:374) ~[na:1.7.0_51]
+    at IceInternal.BasicStream.createUserException(BasicStream.java:2615) ~[ice.jar:na]
+    at IceInternal.BasicStream.access$300(BasicStream.java:12) ~[ice.jar:na]
+    at IceInternal.BasicStream$EncapsDecoder10.throwException(BasicStream.java:3099) ~[ice.jar:na]
+    at IceInternal.BasicStream.throwException(BasicStream.java:2077) ~[ice.jar:na]
+    at IceInternal.Outgoing.throwUserException(Outgoing.java:538) ~[ice.jar:na]
+    at omero.api._RawFileStoreDelM.close(_RawFileStoreDelM.java:466) ~[blitz.jar:na]
+    at omero.api.RawFileStorePrxHelper.close(RawFileStorePrxHelper.java:1739) ~[blitz.jar:na]
+    at omero.api.RawFileStorePrxHelper.close(RawFileStorePrxHelper.java:1701) ~[blitz.jar:na]
+    at ome.formats.importer.transfers.AbstractFileTransfer.cleanupUpload(AbstractFileTransfer.java:123) ~[blitz.jar:na]
+    at ome.formats.importer.transfers.AbstractExecFileTransfer.transfer(AbstractExecFileTransfer.java:63) [blitz.jar:na]
+    at ome.formats.importer.ImportLibrary.uploadFile(ImportLibrary.java:410) [blitz.jar:na]
+    at ome.formats.importer.ImportLibrary.importImage(ImportLibrary.java:465) [blitz.jar:na]
+    at ome.formats.importer.ImportLibrary.importCandidates(ImportLibrary.java:274) [blitz.jar:na]
+    at ome.formats.importer.cli.CommandLineImporter.start(CommandLineImporter.java:218) [blitz.jar:na]
+    at ome.formats.importer.cli.CommandLineImporter.main(CommandLineImporter.java:658) [blitz.jar:na]
+2014-01-31 12:59:20,338 3152       [      main] ERROR        ome.formats.importer.ImportLibrary - Error on import
+java.lang.RuntimeException: transfer process returned 1
+    at ome.formats.importer.transfers.AbstractExecFileTransfer.exec(AbstractExecFileTransfer.java:137) ~[blitz.jar:na]
+    at ome.formats.importer.transfers.AbstractExecFileTransfer.transfer(AbstractExecFileTransfer.java:57) ~[blitz.jar:na]
+    at ome.formats.importer.ImportLibrary.uploadFile(ImportLibrary.java:410) ~[blitz.jar:na]
+    at ome.formats.importer.ImportLibrary.importImage(ImportLibrary.java:465) ~[blitz.jar:na]
+    at ome.formats.importer.ImportLibrary.importCandidates(ImportLibrary.java:274) ~[blitz.jar:na]
+    at ome.formats.importer.cli.CommandLineImporter.start(CommandLineImporter.java:218) [blitz.jar:na]
+    at ome.formats.importer.cli.CommandLineImporter.main(CommandLineImporter.java:658) [blitz.jar:na]
+2014-01-31 12:59:20,338 3152       [      main] INFO         ome.formats.importer.ImportLibrary - Exiting on error
