@@ -82,6 +82,8 @@ editor.
 Quick start
 -----------
 
+.. _using_iis:
+
 Using IIS
 ~~~~~~~~~
 
@@ -134,7 +136,7 @@ working with your IIS deployment.
    .. note::  As OMERO.web 5 is based on Django 1.6,
        ``omero.web.session_engine`` and ``omero.web.cache_backend`` should be
        unset.
-    
+
        ::
 
            C:\omero_dist>bin\omero config set omero.web.session_engine
@@ -149,7 +151,7 @@ Using the lightweight development server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All that is required to use the Django lightweight development server
-is to set the *omero.web.application\_server* configuration option, turn 
+is to set the *omero.web.application\_server* configuration option, turn
 Debugging on and start the server up:
 
 ::
