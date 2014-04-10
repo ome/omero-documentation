@@ -1,0 +1,195 @@
+Consortium jobs
+---------------
+
+This section lists all CI jobs used for building and deploying the partner
+projects.  All jobs are listed under the :jenkinsview:`Consortium` view tab of
+Jenkins.
+
+.. list-table::
+	:header-rows: 1
+
+	- 	* Partner project
+		* Latest jobs
+		* Release jobs
+
+	- 	* FLIMfit
+		* | :term:`FLIMfit-latest-mac`
+		  | :term:`FLIMfit-latest-win`
+		* | :term:`FLIMfit-release`
+		  | :term:`FLIMfit-release-mac`
+		  | :term:`FLIMfit-release-win`
+		  | :term:`FLIMfit-release-downloads`
+
+	- 	* OMERO.figure
+		*
+		* :term:`FIGURE-release-downloads`
+
+	- 	* OMERO.mtools
+		*
+		* :term:`MTOOLS-release-downloads`
+
+	- 	* OMERO.webtagging
+		*
+		* :term:`WEBTAGGING-release-downloads`
+
+	- 	* u-track
+		* | :term:`U-TRACK-latest`
+		* | :term:`U-TRACK-release`
+		  | :term:`U-TRACK-release-downloads`
+
+FLIMfit
+^^^^^^^
+
+The source code for the FLIMfit is hosted under
+https://github.com/openmicroscopy/Imperial-FLIMfit
+
+.. digraph:: FLIMfit
+
+   "FLIMfit-latest-mac" -> "FLIMfit-latest-win";
+
+   "FLIMfit-release" -> "FLIMfit-release-mac";
+   "FLIMfit-release" -> "FLIMfit-release-win";
+   "FLIMfit-release-mac" -> "FLIMfit-release-downloads";
+   "FLIMfit-release-win" -> "FLIMfit-release-downloads";
+
+.. glossary::
+
+	:jenkinsjob:`FLIMfit-latest-mac`
+
+		This job is used to build the latest Mac OS X compiled version of
+		FLIMfit with OMERO 4.4 or 5.0
+
+		#. Polls the repo for SCM change
+		#. Check out the `master` branch of FLIMfit
+		#. Build FLIMfit using :file:`compile.m`
+		#. Trigger `FLIMfit-latest-win`
+
+	:jenkinsjob:`FLIMfit-latest-win`
+
+		This job is used to build the latest Windows compiled version of
+		FLIMfit with OMERO 4.4 or 5.0
+
+		#. Check out the `master` branch of FLIMfit
+		#. Build FLIMfit using :file:`compile.m`
+
+	:jenkinsjob:`FLIMfit-release`
+
+		This job is used to prepare a release of FLIMfit and
+
+		#. Trigger :term:`FLIMfit-release-mac` and
+		   :term:`FLIMfit-release-win`
+		#. Upon completion, trigger :term:`FLIMfit-release-downloads`
+
+	:jenkinsjob:`FLIMfit-release-mac`
+
+		This job is used to build the release Mac OS X compiled version of
+		FLIMfit with OMERO 4.4 or 5.0
+
+		#. Build FLIMfit using :file:`compile.m`
+		#. Copy the FLIMfit artifacts over SSH to
+		   :file:`/ome/apache_repo/public/flimfit/RELEASE`
+
+	:jenkinsjob:`FLIMfit-release-win`
+
+		This job is used to build the release Windows compiled version of
+		FLIMfit with OMERO 4.4 or 5.0
+
+		#. Build FLIMfit using :file:`compile.m`
+
+	:jenkinsjob:`FLIMfit-release-downloads`
+
+		This job is used to build the FLIMfit downloads page
+
+		#. Check out the `dev_5_0` branch of
+		   https://github.com/openmicroscopy/ome-release
+		#. Merge PRs opened against `dev_5_0`
+		#. Copy the FLIMfit Windows artifacts over SSH to
+		   :file:`/ome/apache_repo/public/flimfit/RELEASE`
+		#. Build the FLIMfit downloads pages using :command:`make flimfit`
+		#. Copy the FLIMfit downloads page over SSH to
+		   :file:`/ome/apache_repo/public/flimfit/RELEASE`
+
+OMERO.figure
+^^^^^^^^^^^^
+
+.. glossary::
+
+	:jenkinsjob:`FIGURE-release-downloads`
+
+		This job is used to build the OMERO.figure downloads page
+
+		#. Download the :envvar:`RELEASE` artifacts from
+		   https://github.com/will-moore/figure
+		#. Copy the OMERO.figure source zip over SSH to
+		   :file:`/ome/apache_repo/public/figure/RELEASE`
+		#. Merge PRs opened against `dev_5_0`
+		#. Build the OMERO.figure downloads pages using :command:`make figure`
+		#. Copy the OMERO.figure downloads page over SSH to
+		   :file:`/ome/apache_repo/public/figure/RELEASE`
+
+OMERO.mtools
+^^^^^^^^^^^^
+
+.. glossary::
+
+	:jenkinsjob:`MTOOLS-release-downloads`
+
+		This job is used to build the OMERO.mtools downloads page
+
+		#. Merge PRs opened against `dev_5_0`
+		#. Build the OMERO.mtools downloads pages using :command:`make mtools`
+		#. Copy the OMERO.mtools downloads page over SSH to
+		   :file:`/ome/apache_repo/public/mtools/RELEASE`
+
+OMERO.webtagging
+^^^^^^^^^^^^^^^^
+
+.. glossary::
+
+	:jenkinsjob:`WEBTAGGING-release-downloads`
+
+		This job is used to build the OMERO.webtagging downloads page
+
+		#. Download the :envvar:`RELEASE` artifacts from
+		   https://github.com/dpwrussell/webtagging
+		#. Copy the OMERO.webtagging source zip over SSH to
+		   :file:`/ome/apache_repo/public/webtagging/RELEASE`
+		#. Merge PRs opened against `dev_5_0`
+		#. Build the OMERO.webtagging downloads pages using
+		   :command:`make webtagging`
+		#. Copy the OMERO.webtagging downloads page over SSH to
+		   :file:`/ome/apache_repo/public/webtagging/RELEASE`
+
+
+
+u-track
+^^^^^^^
+
+.. glossary::
+
+	:jenkinsjob:`U-TRACK-latest`
+
+		This job is used to build the latest version of u-track
+
+		#. Build u-track
+		#. Run the unit and integration tests
+
+	:jenkinsjob:`U-TRACK-release`
+
+		This job is used to build the release artifacts for u-track
+
+		#. Build u-track
+		#. Copy the u-track artifacts over SSH to
+		   :file:`/ome/apache_repo/public/u-track/RELEASE`
+		#. Trigger :term:`U-TRACK-release-downloads`
+
+	:jenkinsjob:`U-TRACK-release-downloads`
+
+		This job is used to build the u-track downloads page
+
+		#. Check out the `dev_5_0` branch of
+		   https://github.com/openmicroscopy/ome-release
+		#. Merge PRs opened against `dev_5_0`
+		#. Build the u-track downloads pages using :command:`make u-track`
+		#. Copy the u-track downloads page over SSH to
+		   :file:`/ome/apache_repo/public/u-track/RELEASE`
