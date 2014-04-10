@@ -81,10 +81,10 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 		#. Upon completion, trigger :term:`FLIMfit-release-downloads`
 
 	:jenkinsjob:`FLIMfit-release-mac`
-	
+
 		This job is used to build the release Mac OS X compiled version of
 		FLIMfit with OMERO 4.4 or 5.0
-	
+
 		#. Build FLIMfit using :file:`compile.m`
 		#. Copy the FLIMfit artifacts over SSH to
 		   :file:`/ome/apache_repo/public/flimfit/RELEASE`
@@ -95,7 +95,7 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 		FLIMfit with OMERO 4.4 or 5.0
 
 		#. Build FLIMfit using :file:`compile.m`
-			
+
 	:jenkinsjob:`FLIMfit-release-downloads`
 
 		This job is used to build the FLIMfit downloads page
@@ -120,7 +120,7 @@ OMERO.figure
 
 		#. Download the :envvar:`RELEASE` artifacts from
 		   https://github.com/will-moore/figure
-		#. Copy the OMERO.figure source izip over SSH to
+		#. Copy the OMERO.figure source zip over SSH to
 		   :file:`/ome/apache_repo/public/figure/RELEASE`
 		#. Merge PRs opened against `dev_5_0`
 		#. Build the OMERO.figure downloads pages using :command:`make figure`
