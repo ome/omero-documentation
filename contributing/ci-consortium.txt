@@ -28,10 +28,6 @@ Jenkins.
 		*
 		* :term:`MTOOLS-release-downloads`
 
-	- 	* OMERO.searcher
-		*
-		* :term:`WEBTAGGING-release-downloads`
-
 	- 	* OMERO.webtagging
 		*
 		* :term:`WEBTAGGING-release-downloads`
@@ -90,7 +86,7 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 		FLIMfit with OMERO 4.4 or 5.0
 	
 		#. Build FLIMfit using :file:`compile.m`
-		#. Copies the FLIMfit artifacts over SSH to
+		#. Copy the FLIMfit artifacts over SSH to
 		   :file:`/ome/apache_repo/public/flimfit/RELEASE`
 
 	:jenkinsjob:`FLIMfit-release-win`
@@ -124,11 +120,11 @@ OMERO.figure
 
 		#. Download the :envvar:`RELEASE` artifacts from
 		   https://github.com/will-moore/figure
-		#. Copy the figure downloads page over SSH to
+		#. Copy the OMERO.figure source izip over SSH to
 		   :file:`/ome/apache_repo/public/figure/RELEASE`
 		#. Merge PRs opened against `dev_5_0`
-		#. Build the figure downloads pages using :command:`make figure`
-		#. Copy the figure downloads page over SSH to
+		#. Build the OMERO.figure downloads pages using :command:`make figure`
+		#. Copy the OMERO.figure downloads page over SSH to
 		   :file:`/ome/apache_repo/public/figure/RELEASE`
 
 OMERO.mtools
@@ -141,8 +137,8 @@ OMERO.mtools
 		This job is used to build the OMERO.mtools downloads page
 
 		#. Merge PRs opened against `dev_5_0`
-		#. Build the figure downloads pages using :command:`make mtools`
-		#. Copy the figure downloads page over SSH to
+		#. Build the OMERO.mtools downloads pages using :command:`make mtools`
+		#. Copy the OMERO.mtools downloads page over SSH to
 		   :file:`/ome/apache_repo/public/mtools/RELEASE`
 
 OMERO.webtagging
@@ -156,11 +152,12 @@ OMERO.webtagging
 
 		#. Download the :envvar:`RELEASE` artifacts from
 		   https://github.com/dpwrussell/webtagging
-		#. Copy the figure downloads page over SSH to
+		#. Copy the OMERO.webtagging source zip over SSH to
 		   :file:`/ome/apache_repo/public/webtagging/RELEASE`
 		#. Merge PRs opened against `dev_5_0`
-		#. Build the figure downloads pages using :command:`make webtagging`
-		#. Copy the figure downloads page over SSH to
+		#. Build the OMERO.webtagging downloads pages using
+		   :command:`make webtagging`
+		#. Copy the OMERO.webtagging downloads page over SSH to
 		   :file:`/ome/apache_repo/public/webtagging/RELEASE`
 
 
@@ -182,7 +179,7 @@ u-track
 		This job is used to build the release artifacts for u-track
 
 		#. Build u-track
-		#. Copies the u-track artifacts over SSH to
+		#. Copy the u-track artifacts over SSH to
 		   :file:`/ome/apache_repo/public/u-track/RELEASE`
 		#. Trigger :term:`U-TRACK-release-downloads`
 
