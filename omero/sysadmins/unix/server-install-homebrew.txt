@@ -1,11 +1,16 @@
-OMERO.server Mac OS X installation walk-through with Homebrew 
+OMERO.server Mac OS X installation walk-through with Homebrew
 =============================================================
 
 
 .. topic:: Overview
 
-    This walk-through is a list of the commands used to install OMERO on a  
-    clean Mac OS X 10.7 Lion using Homebrew.
+    This walk-through demonstrates how to install OMERO on a clean Mac
+    OS X 10.7 Lion system using Homebrew.  Note that this demonstrates
+    how to install OMERO.server *from the source code* via Homebrew, in
+    addition to all its prerequisites. **The default instructions for UNIX
+    platforms in the** :doc:`server-installation` **guide are all you need to
+    install the prerequisites with Homebrew and then install the server zip
+    from the downloads page.**
 
 The instructions provided here depend on Homebrew 0.9 or later, including
 support for the ``brew tap`` command. These instructions are implemented in an
@@ -35,7 +40,7 @@ the following configuration:
       * 10.7.5
       * 4.6
 
-.. note:: 
+.. note::
 
     For Xcode 4.x, make sure that the Command line tools are installed
     (:menuselection:`Preferences --> Downloads --> Components`)
@@ -118,18 +123,18 @@ simple Homebrew install is sufficient, e.g.
 
     $ brew tap homebrew/science
     $ brew tap ome/alt
-    $ brew install omero --devel
+    $ brew install omero
 
 This should install OMERO along with most of the non-Python requirements.
 
 The default version of Ice installed by the OMERO formula is Ice 3.5. To
 install OMERO with Ice 3.4, use::
 
-	$ brew install omero --devel --with-ice34
+	$ brew install omero --with-ice34
 
 or to install OMERO with Ice 3.3, use::
 
-	$ brew install omero --devel --with-ice33
+	$ brew install omero --with-ice33
 
 Additional installation options can be listed using the ``info`` command:
 
@@ -183,6 +188,8 @@ can use.
 
 ::
 
+    $ postgres --version            # Check if you have postgres
+    postgres (PostgreSQL) 9.3.4
     $ brew install postgresql
 
 
@@ -220,22 +227,20 @@ Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
 Edit your :file:`.profile` as appropriate. The following are indicators of
-required entries and correspond to a Homebrew installation of OMERO |version|:
+required entries and correspond to a Homebrew installation of OMERO |release|:
 
 ::
 
-    export ICE_CONFIG=$(brew --prefix omero)/etc/ice.config
-    export ICE_HOME=$(brew --prefix ice)
-    export PYTHONPATH=$(brew --prefix omero)/lib/python:/usr/local/lib/python2.7/site-packages
+    export PYTHONPATH=$(brew --prefix omero)/lib/python
+    export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/lib/node_modules:$PATH
 
-    export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/lib/node_modules:$ICE_HOME/bin:$PATH
-    export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$DYLD_LIBRARY_PATH
+If you have installed Ice 3.3 or Ice 3.4, you will need to specify the path to
+Ice Python and dynamic libraries::
 
-If you have installed Ice 3.3, replace :envvar:`ICE_HOME` by
-``$(brew --prefix zeroc-ice33)``. If you have installed Ice 3.4, replace
-:envvar:`ICE_HOME` by ``$(brew --prefix zeroc-ice34)``. For both Ice 3.3 and
-Ice 3.4, use
-``export PYTHONPATH=$(brew --prefix omero)/lib/python:$ICE_HOME/python``.
+     export PYTHONPATH=$(brew --prefix omero)/lib/python:$ICE_HOME/python
+     export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$DYLD_LIBRARY_PATH
+
+where ``ICE_HOME`` needs to be replaced by ``$(brew --prefix zeroc-ice33)`` or ``$(brew --prefix zeroc-ice34)`` depending on your configuration.
 
 .. note::
     If you have a local :file:`.bash_profile` file, it will override your
@@ -253,7 +258,7 @@ Ice 3.4, use
     make sure :file:`/usr/local/bin` is at the beginning of your
     :envvar:`PATH` (see also `this post <http://nextmarvel.net/blog/2011/09/brew-install-postgresql-on-os-x-lion/>`_).
 
-   
+
 Database creation
 ^^^^^^^^^^^^^^^^^
 
@@ -292,9 +297,9 @@ This command should give similar output to the following:
      omero_database | db_user | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 |
      postgres       | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 |
      template0      | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/ome           +
-                    |         |          |             |             | ome=CTc/ome  
+                    |         |          |             |             | ome=CTc/ome
      template1      | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/ome           +
-                    |         |          |             |             | ome=CTc/ome  
+                    |         |          |             |             | ome=CTc/ome
     (4 rows)
 
 OMERO.server
@@ -309,8 +314,8 @@ Now tell OMERO.server about our database.
     $ omero config set omero.db.pass db_password
 
     $ omero db script
-    Please enter omero.db.version [OMERO\ |version|\ ]: 
-    Please enter omero.db.patch [0]: 
+    Please enter omero.db.version [OMERO\ |version|\ ]:
+    Please enter omero.db.patch [0]:
     Please enter password for new OMERO root user:       # root_password
     Please re-enter password for new OMERO root user:      # root_password
     Saving to ~/OMERO\ |version|\ __0.sql
@@ -367,7 +372,7 @@ Then start the webserver with:
 ::
 
     $ omero web start
-    Starting django development webserver... 
+    Starting django development webserver...
     Validating models...
     0 errors found
 
@@ -476,23 +481,23 @@ szip
     Archive: /Library/Caches/Homebrew/szip-2.1.tar.gz
     (To retry an incomplete download, remove the file above.)
 
-Manually remove the archived version located under 
+Manually remove the archived version located under
 :file:`/Library/Caches/Homebrew` since the maintainer may have updated the
 file.
 
 numexpr (and other Python packages)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you encounter an issue related to numexpr complaining about NumPy having a 
-too low version number, verify that you have not before installed any Python 
-packages using pip. In the case where pip has been installed before homebrew, 
+If you encounter an issue related to numexpr complaining about NumPy having a
+too low version number, verify that you have not before installed any Python
+packages using pip. In the case where pip has been installed before homebrew,
 uninstall it:
 
 ::
 
     $ sudo pip uninstall pip
 
-After that try running ``python_deps.sh`` again. That should install ``pip`` 
+After that try running ``python_deps.sh`` again. That should install ``pip``
 via Homebrew and put the Python packages in correct folders.
 
 gfortran

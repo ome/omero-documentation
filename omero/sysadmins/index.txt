@@ -29,7 +29,7 @@ Server Background
 Basic UNIX Server Installation
 ******************************
 
-This chapter contains the instructions to install OMERO.server on 
+This chapter contains the instructions to install OMERO.server on
 UNIX & UNIX-like platforms.
 
 .. toctree::
@@ -39,9 +39,6 @@ UNIX & UNIX-like platforms.
     unix/server-installation
     unix/server-binary-repository
     unix/server-postgresql
-
-    unix/server-install-homebrew
-    unix/server-install-linux
     unix/install-web
 
 *********************************
@@ -74,9 +71,20 @@ Advanced Server Installation
     server-advanced-configuration
     server-ldap
     server-tables
-    fs-upload-configuration
     omeromovie
     installing-scripts
+
+*************************
+Data Import Options
+*************************
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    import-scenarios
+    in-place-import
+    fs-upload-configuration
 
 ******************
 Server Maintenance

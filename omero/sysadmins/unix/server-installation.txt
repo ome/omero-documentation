@@ -1,86 +1,174 @@
 OMERO.server installation
 =========================
 
+This section covers the installation of OMERO.server on UNIX and
+UNIX-like platforms.  This includes all BSD, Linux and Mac OS X
+systems.  Depending upon which platform you are using, you may find a
+more specific walk-through listed below.
+
 .. seealso::
 
-    :doc:`/sysadmins/server-upgrade`
-         Instructions for **upgrading** your OMERO.server installation.
-
     :doc:`server-install-homebrew`
-        Instructions for installing your OMERO.server on Mac OS X using Homebrew.
+        Instructions for installing and building OMERO.server on Mac OS X with
+        Homebrew using our special formulas (i.e. from the source code via
+        Homebrew). **You do not need to refer to this page to install the
+        prerequisites with Homebrew and then install the server zip from the
+        downloads page.**
 
-    :doc:`server-install-linux`
-        Instructions for installing your OMERO.server on Debian/Ubuntu.
+    Monash University also have a guide for `installing OMERO on
+    CentOS 6.3 (64-bit)
+    <https://confluence-vre.its.monash.edu.au/display/CVL/Installing+Omero+on+CentOS+6.3+(64-bit)>`_
+    which you may find useful.
 
-    :snapshot:`OMERO Installation for Mac OS X Snow Leopard (10.6) <omero/osx/Omero-MacInstalltionGuide-ver214.pdf>`
-        A guide provided by Janek Claus and Kenneth Arcieri (NIH/NICHD/UCSS) 
-        for users wishing to install OMERO 4.1 on Mac OS 10.6, including
-        details on how to build all dependencies from source. The OMERO 4.4
-        and 4.3 installs are almost identical to 4.2 and 4.1 (except for web
-        client), so this guide will still be useful.
-
-    :snapshot:`Omero Server Beta 4.2.0 installation on CentOS <omero/linux/OMERO-Server-4-2-0-Installation-CentOS.pdf>`
-        A guide provided by Caterina Strambio De Castillia and Vanni
-        Galli (University of Geneva/SUPSI in Lugano) for users wishing
-        to install OMERO 4.1.1 or 4.2.0 on CentOS.
-
-
-Limitations
------------
-
-Installation **will require a "root" level account** for which you
-know the password. If you are unsure of what it means to have a "root"
-level account, or if you are generally having issues with the various
-users/passwords described in this install guide, please see
-:ref:`troubleshooting-password`.
 
 Prerequisites
 -------------
 
-.. note:: The installation of these prerequisite applications is outside the scope of this document. For Linux distributions you should use the default package manager.
+Installation will require:
 
-The following are necessary:
+- a clean, minimal operating system installation
+- a "root" level account for which you know the password
 
-Java SE Development Kit (JDK) (1.6 or higher) 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note:: If you are unsure of what it means to have a "root" level account,
+    or if you are generally having issues with the various
+    users/passwords described in this install guide, please see
+    :ref:`troubleshooting-password`.
 
-Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
+The installation and configuration of the prerequisite applications is largely
+outside the scope of this document. For Linux distributions, use of the
+default package manager is recommended. For BSD systems, the ports system
+provides all the prerequisites. For MacOS X, Homebrew is recommended. This
+guide provides the package names to install for a number of contemporary
+systems. However, the names and versions provided vary between releases.
+Please do check for similar packages if the one documented here is not
+available for your system as it may be provided under an alternative name.
+"Debian" refers to Debian and derivative distributions such as Ubuntu.
+"RedHat" refers to RedHat and related distributions such as CentOS, Fedora and
+Scientific Linux.
 
-UNIX systems, you can check which version of Java is 
-currently available to you via your $PATH as follows:
+* For Ubuntu you need to enable the **universe** repository.  This should be
+  enabled by default.  If not enabled, it may be enabled by editing
+  :file:`/etc/apt/sources.list` directly, in which case the entries may
+  already exist but are commented out, or by using Synaptic (10.04 and 10.10)
+  or Ubuntu Software Center (11.04 onwards). Update your package lists to
+  ensure that you get the latest packages::
 
-::
+    $ sudo apt-get update
+
+  Install packages by running::
+
+    $ sudo apt-get install package
+
+  where *package* is the package name to install.
+
+Overview
+^^^^^^^^
+
+The following packages are required:
+
++--------------+-------------+---------+
+|              |          Version      |
++--------------+-------------+---------+
+| Package      | Recommended | Minimum |
++==============+=============+=========+
+| Ice          | 3.5         | 3.3     |
++--------------+-------------+---------+
+| Java         | 1.7         | 1.6     |
++--------------+-------------+---------+
+| OMERO.server | |release|             |
++--------------+-------------+---------+
+| Python       | 2.7         | 2.6     |
++--------------+-------------+---------+
+| PostgreSQL   | 9.1         | 8.4     |
++--------------+-------------+---------+
+
+One of the following packages is recommended if you wish to use
+OMERO.web.
+
++--------------+-------------+---------+
+|              |          Version      |
++--------------+-------------+---------+
+| Package      | Recommended | Minimum |
++==============+=============+=========+
+| Apache       | 2.4         | 2.2     |
++--------------+-------------+---------+
+| Nginx        | 1.4.7       | 1.4.2   |
++--------------+-------------+---------+
+
+These packages are required to make full use of OMERO.scripts:
+
++--------------+-------------+---------+
+|              |          Version      |
++--------------+-------------+---------+
+| Package      | Recommended | Minimum |
++==============+=============+=========+
+| MEncoder     | 2           | 1       |
++--------------+-------------+---------+
+
+
+The following subsections cover the details for each package, in the
+order recommended for installation.
+
+Java SE Runtime Environment (JRE)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If possible, install one of the following packages:
+
++-----------+--------------------+
+| System    | Package            |
++===========+====================+
+| BSD Ports | java/openjdk7      |
++-----------+--------------------+
+| Debian    | openjdk-7-jre      |
++-----------+--------------------+
+| Homebrew  | N/A                |
++-----------+--------------------+
+| RedHat    | java-1.7.0-openjdk |
++-----------+--------------------+
+
+OMERO works with the OpenJDK JRE provided by most systems, or with
+Oracle Java.  Version 6 or later is required.  Version 7 or later is
+recommended (version 6 is end of line and no longer has updates or
+security support).  Your system may already provide a suitable JRE, in
+which case no extra steps are necessary.  Linux distributions usually
+provide OpenJDK, and older MacOS X versions have Java installed by
+default.  Oracle Java is no longer provided by BSD or Linux
+distributions for licensing reasons.  If your system does not have
+Java available, for example on newer MacOS X versions, or the provided
+version is too old, Oracle Java may be downloaded from the `Oracle
+website
+<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
+
+.. warning:: **Security**
+
+    Installing Oracle Java outside the system's package manager will
+    leave your system without regular distribution-supplied security
+    updates, and so is not recommended.
+
+
+To check which version of Java is currently available::
 
     $ which java
     /usr/bin/java
     $ java -version
-    java version "1.6.0"
-    Java(TM) SE Runtime Environment (build 1.6.0-b105)
-    Java HotSpot(TM) Server VM (build 1.6.0-b105, mixed mode)
+    java version "1.7.0_51"
+    Java(TM) SE Runtime Environment (build 1.7.0_51-b13)
+    Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 
-Further, you can see if you have the Java compiler (Java SDK)
-installed and available via your $PATH as follows…
+Python 2
+^^^^^^^^
 
-::
-
-    $ which javac
-    /usr/bin/javac
-    $ javac -version
-    javac 1.6.0
-
-Python 2 (2.6 or later)
-^^^^^^^^^^^^^^^^^^^^^^^
-
-Check you have Python (and what version) by typing:
+Check you have Python (and check its version) by running:
 
 ::
 
     $ python --version
     Python 2.7.5+
 
-OMERO does not currently support Python 3.
+.. note:: OMERO does not currently support Python 3; you must use 2.6 or
+   a later 2.x release.
 
-The following are optional depending on what services you require:
+The following Python packages are required:
 
 .. tabularcolumns:: |l|l|l|
 
@@ -117,167 +205,338 @@ The following are optional depending on what services you require:
 
 .. [3] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
 
+.. note:: Some of these can be ignored if you wish to forego some
+    functionality but we recommend you just install everything. For example,
+    scripting is enabled by default so should not be assumed optional even if
+    you never expect your users to run scripts from the clients.
 
-Ice (3.3.x or 3.4.x)
-^^^^^^^^^^^^^^^^^^^^
+If possible, install the following packages:
+
+.. tabularcolumns:: |l|l|
+
+.. list-table::
+    :header-rows: 1
+    :widths: 1,8
+
+    * - System
+      - Package
+
+    * - BSD Ports
+      - lang/python27 graphics/py-pillow math/py-matplotlib math/py-numpy devel/py-tables science/py-scipy
+
+    * - Debian
+      - python2.7 python-pil python-matplotlib python-numpy python-tables python-scipy
+
+    * - Homebrew
+      - python python/pillow python/numpy python/matplotlib
+
+    * - RedHat
+      - python
+
+Ice
+^^^
 
 .. note::
 
-    OMERO |version| supports Ice3.4, but this requires the correct
-    version of OMERO.server (see :downloads:`Downloads
-    <>`). See :faq_plone:`"Do I use Ice 3.3 or
+    OMERO |version| supports Ice 3.3, 3.4 and 3.5 on UNIX and UNIX-like
+    platforms, but you must install the correct version of OMERO.server (see
+    :downloads:`Downloads <>`). See :faq_plone:`"Do I use Ice 3.3 or
     Ice 3.4?" <omero/do-i-use-ice-3.3-or-ice-3.4>` in
     the FAQ. If you have further questions, consult the :forum:`Forums <>`.
 
+If possible, install one of the following packages:
 
-UNIX source downloads and binary packages are available from ZeroC_.
-The latest compatible distribution is the :zeroc:`3.3.1 release
-<download_3_3_1.html>`. ZeroC does not provide binaries which work out of the
-box for Mac OS X Snow Leopard (10.6), so we recommend you follow the
-instructions for installation using :doc:`Homebrew <server-install-homebrew>`
-instead if this is your OS.
++-----------+-----------+
+| System    | Package   |
++===========+===========+
+| BSD Ports | devel/ice |
++-----------+-----------+
+| Debian    | zeroc-ice |
++-----------+-----------+
+| Homebrew  | ice       |
++-----------+-----------+
+| RedHat    | N/A       |
++-----------+-----------+
 
-PostgreSQL (8.4 or higher)
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+The Ice version may vary, depending upon the distribution version you
+are using.  The Ice versions in currently supported versions of Debian
+and Ubuntu are shown below:
 
-PostgreSQL installed and configured with PL/pgSQL and to accept TCP
-connections. PostgreSQL 8.3 and earlier are not supported. See
-:doc:`server-postgresql` for specifics about each version.
++--------+--------------+-------------------+---------------+
+| Distribution          | ZeroC Ice version | OMERO version |
++========+==============+===================+===============+
+| Debian | 7.0          | 3.4               | 4.4.x, 5.x.x  |
+|        +--------------+-------------------+---------------+
+|        | 6.0          | 3.3               | 4.4.x, 5.0.x  |
++--------+--------------+-------------------+---------------+
+| Ubuntu | 14.04 (LTS)  | 3.5               | 4.4.x, 5.x.x  |
+|        +--------------+-------------------+---------------+
+|        | 13.10        | 3.4               | 4.4.x, 5.x.x  |
+|        +--------------+-------------------+---------------+
+|        | 13.04        | 3.4               | 4.4.x, 5.x.x  |
+|        +--------------+-------------------+---------------+
+|        | 12.10        | 3.4               | 4.4.x, 5.x.x  |
+|        +--------------+-------------------+---------------+
+|        | 12.04 (LTS)  | 3.4               | 4.4.x, 5.x.x  |
++--------+--------------+-------------------+---------------+
+
+Using the latest version of Ice is recommended, where possible.  If
+your package manager provides Ice packages, using these is recommended
+where possible.  Distribution-provided packages often have additional
+bugfixes which are not present in the upstream releases.
+
+If needed, source and binary packages are available from ZeroC_.  The
+latest release is available from the :zeroc:`ZeroC website
+<download.html>`.
+
+.. note::
+    ZeroC_ Ice can always be built from source code for specific
+    platforms if a binary package is not available.
+
+PostgreSQL
+^^^^^^^^^^
+
+If possible, install the following packages:
+
++-----------+-------------------------------------------------------------+
+| System    | Packages                                                    |
++===========+=============================================================+
+| BSD Ports | databases/postgresql93-client databases/postgresql93-server |
++-----------+-------------------------------------------------------------+
+| Debian    | postgresql                                                  |
++-----------+-------------------------------------------------------------+
+| Homebrew  | postgresql92                                                |
++-----------+-------------------------------------------------------------+
+| RedHat    | postgresql postgresql-server                                |
++-----------+-------------------------------------------------------------+
+
+PostgreSQL 8.4 or later is required.  See :doc:`server-postgresql` for
+further details.
+
+
+OMERO.web
+^^^^^^^^^
+
+Please install one of :program:`apache` (and its fastcgi module) or
+:program:`nginx` in order to run OMERO.web.
+
++-----------+--------------------------------------+
+| System    | Packages                             |
++===========+======================================+
+| BSD Ports | www/apache24 www/nginx               |
++-----------+--------------------------------------+
+| Debian    | apache2 libapache2-mod-fastcgi nginx |
++-----------+--------------------------------------+
+| Homebrew  | nginx                                |
++-----------+--------------------------------------+
+| RedHat    | httpd mod_fastcgi nginx              |
++-----------+--------------------------------------+
+
+OMERO.scripts
+^^^^^^^^^^^^^
+
+If you wish to run the "Movie Maker" script, please install :program:`mencoder`.
+
++-----------+---------------------+
+| System    | Packages            |
++===========+=====================+
+| BSD Ports | multimedia/mencoder |
++-----------+---------------------+
+| Debian    | mencoder            |
++-----------+---------------------+
+| Homebrew  | N/A                 |
++-----------+---------------------+
+| RedHat    | mencoder            |
++-----------+---------------------+
+
+Installation
+------------
+
+Once the above prerequisites have been downloaded, installed and
+configured appropriately, the OMERO server itself may be installed.
+You may wish to create a user account solely for the purpose of
+running the server, and switch to this user for the next steps.
+
+Server directory
+^^^^^^^^^^^^^^^^
+
+Firstly, a directory needs to be created to contain the server. In
+this case :file:`~/omero` is used as an example::
+
+    $ mkdir -p ~/omero
+
+Next, change into this directory::
+
+    $ cd ~/omero
+
 
 OMERO.server
 ^^^^^^^^^^^^
 
-The :file:`OMERO.server.zip` is available from the :downloads:`OMERO downloads
-<>` page.
+The release :file:`OMERO.server.zip` is available from the
+:downloads:`OMERO downloads <>` page.  Download the version matching
+the version of Ice installed on your system before continuing.
+
+Installing a development version from source is also possible.  See
+the :ref:`install_from_source` section for further details.  This is not
+recommended unless you have a specific reason *not* to use a release
+version.
+
+Once you have obtained the OMERO.server zip archive, unpack it:
+
+.. parsed-literal::
+
+    $ unzip OMERO.server-|release|-ice34-byy.zip
+
+If your system does not provide an :program:`unzip` command by default, install
+one of the following:
+
++-----------+-----------------+
+| System    | Package         |
++===========+=================+
+| BSD Ports | archivers/unzip |
++-----------+-----------------+
+| Debian    | unzip           |
++-----------+-----------------+
+| Homebrew  | unzip           |
++-----------+-----------------+
+| RedHat    | unzip           |
++-----------+-----------------+
+
+
+Optionally, give your OMERO software install a short name to save some
+typing later, to reflect what you set :envvar:`OMERO_PREFIX` to in the
+:ref:`server_env` section, below:
+
+.. parsed-literal::
+
+    $ ln -s OMERO.server-|release|-ice34-byy OMERO.server
+
+This will also ease installation of newer versions of the server at a
+later date, by simply updating the link.
+
+.. _server_env:
 
 Environment variables
 ---------------------
 
-For the prerequisite software to run properly, your PATH, PYTHONPATH,
-and (DY)LD\_LIBRARY\_PATH environment variables must be configured. If
-you installed via a package manager such as rpm, apt-get, or macports,
-they should be set for you. If not correctly configured or if you
-installed manually to /opt/Ice-… or a similar location, you will need
-to set the values yourself.
+If using distribution-provided packages such as Debian or RPM
+packages, or via the homebrew or macports package manager, it should
+not be necessary to set any environment variables.  However, if using
+third-party packages for any required components, several variables
+may require setting in order for them to function correctly.
 
-If you are running a Linux distribution such as Debian or Ubuntu and
-have used APT to install the prerequisites then the installed software
-will have been installed to locations in your file system according to
-the Debian Policy Manual for software packaging. You can explicitly set
-your environment variables to reflect these install locations by editing
-the .bashrc (if on Linux) or .profile (if on Mac OS X) file which can be
-found within your home directory. For example, as of writing, on Debian
-and Ubuntu the following environment variables should be set:
+Please note that the precise details of these environment variables
+can change as new versions of software are released.
 
-::
+There are several methods for setting environment variables; which is
+most appropriate will depend upon how the OMERO server is started.
+Options include:
 
-        export JAVA_HOME=/usr/lib/jvm/java-6-sun
-        export JRE_HOME=/usr/lib/jvm/java-6-sun
-        export ICE_HOME=/usr/share/Ice-3.3.1
-        export POSTGRES_HOME=/usr/lib/postgresql/8.4
-        export PYTHONPATH=/usr/lib/pymodules/python2.6:$PYTHONPATH
-        export DYLD_LIBRARY_PATH=/usr/share/java:/usr/lib/:$DYLD_LIBRARY_PATH
-        export LD_LIBRARY_PATH=/usr/share/java:/usr/lib:$LD_LIBRARY_PATH
-        export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin:$ICE_HOME/bin:$POSTGRES_HOME/bin
+:file:`/etc/security/pam_env.conf`
+  Global environment set at login by PAM
+:file:`/etc/profile` or :file:`/etc/profile.d/omero`
+  Global Bourne shell defaults (also used by derived shells such as :program:`bash` and :program:`zsh`)
+:file:`~/.profile`
+  User's Bourne shell defaults (also used by derived shells)
+:file:`/etc/bash.bashrc`
+  Global :program:`bash` defaults
+:file:`~/.bashrc`, :file:`~/.bash_profile` or :file:`~/.bash_login`
+  User's :program:`bash` configuration.
 
-Please note that the precise details of these environment variables can
-change as new versions of software are released. You can retrieve the
-pathname for a file by using the which command. So if you are unsure
-what path to use in your environment variables, e.g. for the ICE\_HOME
-variable you can execute the following command:
+If OMERO is started as a service using an init script, a global
+setting should be preferred.  If being started by hand using a
+particular user, a user-specific configuration file may be more
+appropriate.
 
-::
+The following environment variables may be configured:
 
-        $ which icegridnode
-        /Users/ome/apps/OMERO.libs/bin/icegridnode
+:envvar:`LD_LIBRARY_PATH` (Linux) or :envvar:`DYLD_LIBRARY_PATH` (MacOS X)
+  The Ice and PostgreSQL libraries must be on the library search path.
+  If using the packages provided by your distribution, this will
+  already be the case.  If using third-party binary distributions the
+  :file:`lib` (or :file:`lib64` if present and using a 64-bit system)
+  directory for each will require adding to the library search path.
+:envvar:`OMERO_PREFIX`
+  This is not strictly required, but may be set for convenience to
+  point to the OMERO server installation, and is used in this
+  documentation as a shorthand for the installation path.
+:envvar:`OMERO_TEMPDIR`
+  Directory used for temporary files.  If the home directory of the
+  user running the OMERO server is located on a slow filesystem, such
+  as NFS, this may be used to store the temporary files on fast local
+  storage.
+:envvar:`PATH`
+  The search path must include the programs :program:`java`,
+  :program:`python`, :program:`icegridnode` and PostgreSQL commands
+  such as :program:`psql`.  If using the packages provided by your
+  distribution, this will already be the case.  If using third-party
+  binary distributions such as the ZeroC Ice package, Oracle Java, or
+  PostgreSQL, the :file:`bin` directory for each must be added
+  to the path.  The OMERO :file:`bin` directory may also be added to
+  the search path (:file:`${OMERO_PREFIX}/bin` if
+  :envvar:`OMERO_PREFIX` has been set).
+:envvar:`PYTHONPATH`
+  The Ice :file:`python` directory must be made available to python.
+  If using the Ice packages provided by your distribution, this will
+  already be the case.  If using the ZeroC ice package, add the
+  :file:`python` directory to the python path.
 
-You can now set the ICE\_HOME path to something similar to
-**/Users/ome/apps/OMERO.libs/bin** based upon the output from which,
-e.g.
+.. warning::
+    The :envvar:`OMERO_HOME` environment variable is used internally
+    by OMERO.  Unless you really know what you are doing, it is
+    strongly recommended that you do not set this variable (see
+    :doc:`/sysadmins/omero-home-prefix` for details).  You can use a
+    different name of your choice instead, indicated by
+    :envvar:`OMERO_PREFIX` in this documentation.
 
-::
+After making any needed changes, either source the corresponding file
+or log back in for them to take effect.  Run ``env`` to check them.
 
-        export ICE_HOME=/Users/ome/apps/OMERO.libs/bin/icegridnode
-
-As a last ditch effort, on a Linux or Mac OS X machine you can use the
-find command to help you discover whereabouts something is located in
-your filesystem. e.g.
-
-::
-
-        $ find / -name "icegridnode" 2>/dev/null
-
-However this might take a long time to run, especially on a big
-filesystem, so you might get a more timely solution by going to the
-OMERO forums.
-
-If the command gives no output then perhaps Ice is not installed, in
-which case you should see the section above on installing Ice.
-
-You can also add your OMERO bin directory to your path like so:
-
-::
-
-        export PATH=$PATH:path-to-your-omero-install-directory/bin
-
-When performing some operations the clients make use of temporary file
-storage and log directories. By default these files are stored below the
-users HOME directory in ``$HOME/omero/tmp``, ``$HOME/omero/log`` and
-``$HOME/omero/sessions`` (resp. ``$HOME\omero\tmp``, ``$HOME\omero\log`` and
-``$HOME\omero\sessions``). If your home(\ ``~``) directory ``$HOME`` is
-stored on a network, possibly NFS mounted (or similar), then these
-temporary files are being written and read over the network. This can
-slow access down.
-
-The OMERO.server also access the ``$HOME/omero/tmp`` and
-``$HOME/omero/log`` folders of **the user the server process is running
-as** (resp. ``$HOME\omero\tmp`` and ``$HOME\omero\log``). 
-As the server makes heavier use of these folders than the clients,
-if the users home(\ ``~``) is stored on a network the server can be
-slowed down. To get round this for the OMERO.server you can define an
-``OMERO_TEMPDIR`` environment variable pointing to a temporary directory
-located on the local file system e.g. ``/tmp`` (resp. ``C:\tmp\``).
-
-
-Creating a database as root
----------------------------
-
-Probably the most important step towards having a working server system
-is having a properly configured database.
+Creating a database
+-------------------
 
 On most systems, a "postgres" user will be created which has admin
 privileges, while the UNIX ``root`` user itself does *not* have admin
 privileges. Therefore it is necessary to either become the ``postgres``
-user or use sudo as below:
+user, or use :program:`sudo` as shown below.
 
--  Create a non-superuser database user and record the name and password. You 
-   will need to configure OMERO to use your username and  password by setting 
-   the omero.db.name and omero.db.pass properties (below).
+For the purposes of this guide, the following dummy data is used::
 
-   ::
+    Username: db_user
+    Password: db_password
+    Database: omero_database
 
-       # For PostgreSQL 8.4.x and later
-       $ sudo -u postgres createuser -P -D -R -S db_user
-       Enter password for new role:       # db_password
-       Enter it again:       # db_password
+.. warning:: **Security**
 
-   .. warning:: 	 
-       For illustrative purposes, the default name and password for the user 
-       are ``db_user``  and ``db_password`` respectively. However, you 
-       should not use these default values for your installation but use 
-       your own choice of username and password instead.
+    These dummy values are examples only and should **not** be used.
+    For a live or public server install these values should be altered
+    to reflect your security requirements---i.e. use your own choice
+    of username and password instead.  These should **not** be the
+    same username and/or password as your Linux/Mac/Windows root user!
 
--  Create a database for OMERO to reside in
+    You should also consider restricting access to your server
+    machine, but that is outside the scope of this document.
 
-   ::
+- Create a non-superuser database user and record the name and
+  password used. You will need to configure OMERO to use this username
+  and password later on.::
 
-       $ sudo -u postgres createdb -O db_user omero_database
+      $ sudo -u postgres createuser -P -D -R -S db_user
+      Enter password for new role:       # db_password
+      Enter it again:       # db_password
 
--  Add the PL/pgSQL language to your database
+-  Create a database for OMERO to reside in::
 
-   ::
+      $ sudo -u postgres createdb -O db_user omero_database
 
-       $ sudo -u postgres createlang plpgsql omero_database
+-  Add the PL/pgSQL language to your database::
+
+      $ sudo -u postgres createlang plpgsql omero_database
+
+   .. note::
+
+      PostgreSQL 9.0 and later enable PL/pgSQL by default.
 
 -  Check to make sure the database has been created, you have PostgreSQL
    client authentication correctly set up and the database is owned by
@@ -303,13 +562,14 @@ is probably not properly configured.
 Location for the your OMERO binary repository
 ---------------------------------------------
 
--  Create a directory for the OMERO binary data repository. ``/OMERO`` (resp. ``C:\OMERO``)
-   is the default location and should be used unless you explicitly have
-   a reason not to and know what you are doing.
+-  Create a directory for the OMERO binary data
+   repository. :file:`/OMERO` is the default location and should be
+   used unless you explicitly have a reason not to and know what you
+   are doing.
 
 -  This is *not* where you want the OMERO application to be installed,
-   it is a *separate* directory that OMERO.server will use to store
-   binary data:
+   it is a *separate* directory which the OMERO.server will use to store
+   binary data.
 
 -  You can read more about the :doc:`OMERO binary repository <server-binary-repository>`.
 
@@ -317,71 +577,80 @@ Location for the your OMERO binary repository
 
        $ sudo mkdir /OMERO
 
--  Change the ownership of the directory. ``/OMERO`` \*\ *must* either
-   be owned by the user starting the server (it is currently owned by
-   the system root) or that user **must** have permission to write to
-   the directory. You can find out your username and edit the correct
-   permissions as follows:
+-  Change the ownership of the directory. :file:`/OMERO` **must**
+   either be owned by the user starting the server (it is currently
+   owned by the system root) or that user **must** have permission to
+   write to the directory. You can find out your username and edit the
+   correct permissions as follows:
 
    ::
 
        $ whoami
-       ome
-       $ sudo chown -R ome /OMERO
+       omero
+       $ sudo chown -R omero /OMERO
 
 
-Installation
-------------
+Configuration
+-------------
 
--   Extract the OMERO tarball and note its location. Below it is referred  
-    to as: ``~/Desktop/omero``
-
--   Optionally, review ``~/Desktop/omero/etc/omero.properties`` which
-    contains all default settings.
-
-    You will need to open the file with a text editor. Do not edit the file. 
-    Any configuration settings you would like to change can be changed in the 
-    next step.
+-   Optionally, review
+    :file:`~/omero/OMERO.server/etc/omero.properties`, which contains
+    all default settings.  Do not edit this file---it is for reference
+    only.  Any configuration settings you would like to change can be
+    changed in the next step.
 
 -   Change any settings that are necessary using :omerocmd:`config`,
-    including the name and/or password for the 'db\_user' database user
-    you chose above or the database name if it is not "omero\_database".
-    (Quotes are only necessary if the value could be misinterpreted by
-    the shell. See :forum:`link <viewtopic.php?f=5&t=360#p922>`)
+    including the name and/or password for the 'db\_user' database
+    user you chose above or the database name if it is not
+    "omero\_database".  (Quotes are only necessary if the value could
+    be misinterpreted by the shell. See :forum:`link
+    <viewtopic.php?f=5&t=360#p922>`)
 
     ::
 
-        $ cd ~/Desktop/omero
+        $ cd ~/omero/OMERO.server
         $ bin/omero config set omero.db.name 'omero_database'
         $ bin/omero config set omero.db.user 'db_user'
         $ bin/omero config set omero.db.pass 'db_password'
 
--   If you have chosen a non-standard :doc:`OMERO binary repository <server-binary-repository>` 
-    location above, be sure to configure the ``omero.data.dir`` property.
+    You can also check the values that have been set using::
+
+        $ cd ~/omero/OMERO.server
+        $ bin/omero config get
+
+-   If you have chosen a non-standard :doc:`OMERO binary repository
+    <server-binary-repository>` location above, be sure to configure
+    the ``omero.data.dir`` property.  For example, to use
+    :file:`/srv/omero`::
+
+    $ omero config set omero.data.dir /srv/omero
 
 -   Create the OMERO database initialization script. You will be asked
-    for the version of the script which you would like to generate, where
-    both defaults can be accepted. Finally, you will be asked to enter and
-    confirm password for your newly created OMERO root user.
-    
-    .. warning:: 
-
-       For illustrative purposes, the default password for the OMERO rootuser 
-       is ``root_password``. However, you should not use this default value 
-       for your installation but use your own choice of password instead.
-
-       This should **not** be the same password as your Linux/Mac/Windows 
-       root user!
+    for the version of the script which you would like to generate,
+    where both defaults can be accepted. Finally, you will be asked to
+    enter and confirm password for your newly created OMERO root user.
+    Note that this password is for the root user of the
+    **OMERO.server**, and is not related to the root system user or a
+    PostgreSQL user role.
 
     .. parsed-literal::
 
-        $ cd ~/Desktop/omero 
+        $ cd ~/omero/OMERO.server
         $ bin/omero db script
         Please enter omero.db.version [OMERO\ |version|\ ]: 
         Please enter omero.db.patch [0]: 
-        Please enter password for new OMERO root user: # root_password
-        Please re-enter password for new OMERO root user: # root_password
+        Please enter password for new OMERO root user: # omero_root_password
+        Please re-enter password for new OMERO root user: # omero_root_password
         Saving to ~/Desktop/omero/OMERO\ |version|\ __0.sql
+
+   .. warning:: **Security**
+
+      For illustrative purposes, the default password for the OMERO
+      root user is shown as ``omero_root_password``. However, you
+      should **not** use this default values for your installation,
+      but use your own choice of password instead.  This should
+      **not** be the same password as your Linux/Mac/Windows root
+      user or the database user!
 
 -   Initialize your database with the script.
 
@@ -389,17 +658,17 @@ Installation
 
         $ psql -h localhost -U db_user omero_database < OMERO\ |version|\ __0.sql
 
+    At this point you should see some output from PostgreSQL as it
+    installs the schema for new OMERO database.
 
--   Before starting the OMERO.server we should run the OMERO diagnostics
-    script so that we check that all of our settings are correct, e.g.
+-   Before starting the OMERO.server, run the OMERO diagnostics script to
+    check that all of the settings are correct, e.g.
 
     ::
 
         $ bin/omero admin diagnostics
 
--   You can now start the server using:
-
-    ::
+-   You can now start the server using::
 
          $ bin/omero admin start
          Creating var/master
@@ -407,20 +676,22 @@ Installation
          Creating var/registry
          No descriptor given. Using etc/grid/default.xml
 
+.. note Windows
 
--  If you would like to move the directory again, see
+   If you would like to move the directory again, see
    ``bin\winconfig.bat --help``, which gets called automatically on an
    initial install.
 
--   You can now test that you can log-in as "root", either with the
-    OMERO.insight client or command-line:
-
-    ::
+-   Test that you can log in as "root", either with the OMERO.insight
+    client or on the command-line::
 
          $ bin/omero login
          Server: [localhost]
          Username: [root]
-         Password:         # root_password
+         Password:         # omero_root_password
+
+    You will be prompted for an OMERO username and password.  Use the
+    username and password set when running ``bin/omero db script``.
 
 JVM memory settings
 -------------------
@@ -458,19 +729,20 @@ using::
 OMERO.web and administration
 ----------------------------
 
-.. note:: In order to deploy OMERO.web in a production environment such as Apache or IIS please follow the instructions under :doc:`install-web`.
+.. note::
 
-Otherwise, the internal Django webserver can be used for evaluation and development. In this case, we need to
-turn debugging on, in order that static files can be served by Django:
+   In order to deploy OMERO.web in a production environment such as
+   Apache or IIS please follow the instructions under
+   :doc:`install-web`.
 
-::
+Otherwise, the internal Django webserver can be used for evaluation
+and development. In this case, we need to turn debugging on, in order
+that static files can be served by Django::
 
     $ bin/omero config set omero.web.application_server development
     $ bin/omero config set omero.web.debug True
 
-then start by
-
-::
+and then start by running::
 
     $ bin/omero web start
     Starting django development webserver... 
@@ -497,8 +769,8 @@ to access the OMERO.web interface:
 Enabling movie creation from OMERO.
 -----------------------------------
 
-OMERO has the facility to create AVI/MPEG Movies from Images, which can
-be called from OMERO.insight. The page :doc:`/sysadmins/omeromovie` gives details on how to enable them.
+OMERO has a facility to create AVI/MPEG Movies from images.  The page
+:doc:`/sysadmins/omeromovie` details how to enable it.
 
 Post-installation items
 -----------------------
@@ -506,44 +778,54 @@ Post-installation items
 Backup
 ^^^^^^
 
-One of your first steps after putting your OMERO server into production
-should be deciding on when and how you are going to :doc:`backup your
-database and binary data </sysadmins/server-backup-and-restore>`. Please do not omit this
-step.
+One of your first steps after putting your OMERO server into
+production should be deciding on when and how you are going to
+:doc:`backup your database and binary data
+</sysadmins/server-backup-and-restore>`. Please do not omit this step.
 
 Security
 ^^^^^^^^
 
-It is also now recommended that you read the :doc:`/sysadmins/server-security` page
-to get a good idea as to what you need to do to get OMERO clients
-speaking to your newly installed OMERO.server in accordance with your
-institution or company's security policy.
+It is also now recommended that you read the
+:doc:`/sysadmins/server-security` page to get a good idea as to what
+you need to do to get OMERO clients speaking to your newly installed
+OMERO.server in accordance with your institution or company's security
+policy.
 
 Advanced configuration
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Once you have the base server running, you may want to try enabling some
-of the advanced features such as :doc:`/sysadmins/dropbox` or :doc:`/sysadmins/server-ldap`.
-If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
-See the :omero_plone:`Feature list <feature-list>` for more advanced
-features you may want to use, and :doc:`/sysadmins/server-advanced-configuration` on how to get the most out of
-your server.
+Once you have the base server running, you may want to try enabling
+some of the advanced features such as :doc:`/sysadmins/dropbox` or
+:doc:`/sysadmins/server-ldap`.  If you have ***Flex data***, you may
+want to watch :snapshot:`the HCS configuration screencast
+<movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.  See the
+:omero_plone:`Feature list <feature-list>` for more advanced features
+you may want to use, and
+:doc:`/sysadmins/server-advanced-configuration` on how to get the most
+out of your server.
 
 Update notification
 ^^^^^^^^^^^^^^^^^^^
 
-Your OMERO.server installation will check for updates each time it is started from the *Open Microscopy Environment* update server. If you wish to disable this functionality you should do so now as outlined on the :doc:`/sysadmins/UpgradeCheck` page.
+Your OMERO.server installation will check for updates each time it is
+started from the *Open Microscopy Environment* update server. If you
+wish to disable this functionality you should do so now as outlined on
+the :doc:`/sysadmins/UpgradeCheck` page.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-My OMERO install doesn't work! What do I do now? Examine the :doc:`/sysadmins/troubleshooting` page and if all else fails post a
-message to our :mailinglist:`ome-users` mailing list discussed on the :doc:`/users/community-resources` page.
+My OMERO install doesn't work! What do I do now? Examine the
+:doc:`/sysadmins/troubleshooting` page and if all else fails post a
+message to our :mailinglist:`ome-users` mailing list discussed on the
+:doc:`/users/community-resources` page.
 
 OMERO diagnostics
 ^^^^^^^^^^^^^^^^^
 
-If you want help with your server installation, please include the output of the diagnostics command:
+If you want help with your server installation, please include the
+output of the diagnostics command:
 
 .. parsed-literal::
 
@@ -607,3 +889,9 @@ If you want help with your server installation, please include the output of the
 
     OMERO data dir: '/OMERO'    Exists? True    Is writable? True
     OMERO.web status... [RUNNING] (PID 28736)
+
+.. toctree::
+    :hidden:
+
+    server-install-homebrew
+

@@ -28,15 +28,13 @@ users/passwords described in this install guide, please see
    2008 and we recommend this version.
 -  OMERO does not currently support Ice 3.5 or Python 3.
 -  :doc:`/sysadmins/omeromovie` is not supported on Windows at present.
--  Spaces in installation path names are not currently supported - **do not 
-   use spaces in your folder names**:
-
-   .. note::
-
-      The default user paths on Windows usually contain spaces so you
-      will need to ensure the path has no spaces, :file:`C:\\OMERO.server`
-      for example.
 -  A reboot is required after installing the prerequisites.
+
+.. note::
+
+  The default user paths on Windows usually contain spaces so you will need
+  to ensure the the server installation path has no spaces,
+  :file:`C:\\OMERO.server` for example.
 
 Prerequisites
 -------------
@@ -62,41 +60,34 @@ Ice (3.3.x or 3.4.x)
 
 .. note::
 
-    OMERO 4.3 and earlier support only Ice 3.3. You
-    will need to download these from
-    :zeroc:`ZeroC's previous versions section <previous.html>`. OMERO 4.4 adds
-    support for Ice 3.4 while keeping support for Ice 3.3. For OMERO.server
-    you will need to pick the appropriate downloads for the version of Ice
+    OMERO 5.0 supports both Ice 3.3 and 3.4 for Windows. You will need to pick
+    the appropriate server download for the version of Ice
     you have installed locally. The downloads for Ice 3.4 have "ice34" in the
     zip name.
 
     If you are using precompiled packages of Ice and Python (recommended)
     you should use the versions specified below. In particular since OMERO
     does not support Python 3 **it will not work with the Ice 3.5 package for
-    Windows**. If you have previously installed Ice 3.5 you should uninstall it.
+    Windows**. If you have previously installed Ice 3.5 you should uninstall
+    it.
 
 
-Windows installers of Ice can be found on the :zeroc:`ZeroC download
-page <download_3_4_2.html>` and will be called something like 
-:file:`Ice-3.4.2.msi` (for Ice 3.4.2). If you plan to develop for C++, be sure 
+Windows installers of Ice can be found on the :zeroc:`ZeroC Ice 3.4.2 download
+page <download_3_4_2.html>`. If you plan to develop for C++, be sure
 to read the instructions on the |OmeroCpp| page.
 
-Users have reported that under certain conditions installing Ice in the
-default location (:file:`C:\\Program Files`) might break the Windows
-:envvar:`PATH` (due to special characters present in the file name). In cases
-where :omerocmd:`admin diagnostics` throws any errors related to unexpected
-paths with Ice, please consider installing Ice in the root of the partition
-(e.g. :file:`C:\\Ice`).
+Python 2
+^^^^^^^^
 
-Python 2 (2.6 or later)
-^^^^^^^^^^^^^^^^^^^^^^^
+.. note::
 
-Ice 3.4.x requires Python 2.6.x. You can download a precompiled version
-from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
-As this is the "vanilla" python distribution (no extra libraries),
-you will need to install further dependencies, making sure to
-download the correct version (2.6, 32/64-bit) for your Python
-distribution.
+    OMERO does not currently support Python 3.
+
+The ZeroC binary download of Ice version 3.4.2 requires Python 2.6. You can
+download a precompiled installer from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
+As this is the "vanilla" python distribution (no extra libraries), you will
+need to install further dependencies, making sure to download the correct
+version (2.6, 32/64-bit) for your Python distribution.
 
 32/64-bit
 """""""""
@@ -104,10 +95,6 @@ distribution.
 OMERO has been extensively tested with 32-bit Python on Windows. 64-bit Python
 should also work though it has not been tested as thoroughly. You can obtain
 64-bit precompiled dependencies from http://www.lfd.uci.edu/~gohlke/pythonlibs.
-
-.. note::
-
-    OMERO does not currently support Python 3.
 
 Python for Windows extensions
 """""""""""""""""""""""""""""
@@ -254,9 +241,8 @@ Environment variables
 ---------------------
 
 For the prerequisite software to run properly, your PATH and PYTHONPATH
-environment variables must be configured. If not correctly configured or if
-you installed any of the prerequisites manually to :file:`C:\\ice` or a 
-similar location, you will need to set the values yourself.
+environment variables must be configured. This is particularly important for
+Ice, which does not set the required variables by default.
 
 **Update your Windows environment variables: (REQUIRES RESTART!)**
 
@@ -707,7 +693,7 @@ using::
 
 	:ref:`gridconfiguration`
 		Section of the advanced server configuration documentation describing
-		:file:`etc\grid\templates.xml`.
+		:file:`etc\\grid\\templates.xml`.
 
 OMERO.web and administration
 ----------------------------
@@ -721,10 +707,18 @@ turn debugging on, in order that static files can be served by Django:
 
 ::
 
-    c:\OMERO.server> bin\omero config set omero.web.application_server development
-    c:\OMERO.server> bin\omero config set omero.web.debug True
-    c:\OMERO.server> bin\omero config set omero.web.session_engine "django.contrib.sessions.backends.cache"
-    c:\OMERO.server> bin\omero config set omero.web.cache_backend "file://C:/windows/temp/"
+    C:\OMERO.server> bin\omero config set omero.web.application_server development
+    C:\OMERO.server> bin\omero config set omero.web.debug True
+
+.. note::  As OMERO.web 5 is based on Django 1.6,
+    ``omero.web.session_engine`` and ``omero.web.cache_backend`` should be
+    unset.
+    
+    ::
+
+        C:\omero_dist>bin\omero config set omero.web.session_engine
+        C:\omero_dist>bin\omero config set omero.web.cache_backend
+
 
 then start by
 
