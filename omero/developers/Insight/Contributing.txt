@@ -1,6 +1,9 @@
 Contributing to OMERO.insight
 =============================
 
+.. note:: See the :devs_doc:`Contributing Developer <>` documentation for more 
+    information about contributing to OME projects in general.
+
 Getting started with OMERO.insight
 ----------------------------------
 
@@ -15,7 +18,7 @@ base. See :doc:`/developers/installation`, to check out code using
 http://git.openmicroscopy.org.
 
 Requirements
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 -  Install a Java 6 or Java 7 Development Kit (JDK), available from
    `Java SE Downloads 
@@ -24,7 +27,7 @@ Requirements
    environment variable to your JDK installation.
 
 Running code
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 It is helpful to set up the project in `Eclipse <http://www.eclipse.org>`_.
 Because the OMERO Java and Python source files are encoded in UTF-8, ensure
@@ -33,10 +36,10 @@ that the encoding in Eclipse
 is also set to UTF-8.
 
 Build system
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 Ant
-^^^
+"""
 
 The compilation, testing, launch, and delivery of the application are
 automated by means of an `Ant <http://ant.apache.org/>`_ build file,
@@ -62,36 +65,11 @@ some dependencies to satisfy before; these are clearly documented in the
 ``build.xml`` file itself.
 
 Jenkins
-^^^^^^^
+"""""""
 
-The OME project currently uses Jenkins_ (formerly known as hudson) as a 
-continuous integration server available :jenkins:`here <>`. OMERO.insight is 
-built as part of the :omerojob:`"OMERO" job <>`.
+The OME project currently uses Jenkins_ (formerly known as hudson) as a
+continuous integration server available :jenkins:`here <>`. OMERO.insight is
+built as part of the :omerojob:`"OMERO" job <>`. See the
+:devs_doc:`contributing developer continuous integration documentation </ci-omero.html>`
+for full details.
 
-Jenkins checks for SVN changes every 15 minutes and executes:
-
-::
-
-    export JBOSS_HOME=$HOME/root/opt/jboss
-    export JAVA_OPTS=&quot;-Xmx600M -Djavac.maxmem=600M -Djavadoc.maxmem=600M -XX:MaxPermSize=256m&quot;
-
-    #
-    # Build
-    #
-    J=7 java $JAVA_OPTS omero build-all
-    # integration unfinished
-
-
-    #
-    # Documentation and build reports
-    #
-    java $JAVA_OPTS omero -f components/antlib/resources/release.xml -Dbasedir=. javadoc
-    java $JAVA_OPTS omero findbugs # separate call to prevent PermGen OOM
-    java $JAVA_OPTS omero coverage
-
-
-    #
-    # Prepare a distribution
-    #
-    rm -f OMERO.insight-build*.zip
-    java -Domero.version=build$BUILD_NUMBER omero zip
