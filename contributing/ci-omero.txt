@@ -415,7 +415,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
    "OMERO-5.1-merge-daily" -> "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy";
    "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-docs"
-   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-integration"
+   "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-integration"
    "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-matlab"
    "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-robotframework"
    "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-java";
@@ -541,7 +541,7 @@ Jenkins.
    "OMERO-5.1-breaking-trigger" -> "OMERO-5.1-breaking-push";
    "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-build";
    "OMERO-5.1-breaking-build" -> "OMERO-5.1-breaking-deploy";
-   "OMERO-5.1-breaking-deploy" -> "OMERO-5.1-breaking-integration";
+   "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-integration";
    "OMERO-5.1-breaking-deploy" -> "OMERO-5.1-breaking-upgrade";
    "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-java";
    "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-python";
