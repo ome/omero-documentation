@@ -260,7 +260,7 @@ If possible, install one of the following packages:
 
 The Ice version may vary, depending upon the distribution version you
 are using.  The Ice versions in currently supported versions of Debian
-and Ubuntu are shown below:
+and `Ubuntu <https://wiki.ubuntu.com/Releases>`_ are shown below:
 
 +--------+--------------+-------------------+---------------+
 | Distribution          | ZeroC Ice version | OMERO version |
@@ -272,10 +272,6 @@ and Ubuntu are shown below:
 | Ubuntu | 14.04 (LTS)  | 3.5               | 4.4.x, 5.x.x  |
 |        +--------------+-------------------+---------------+
 |        | 13.10        | 3.4               | 4.4.x, 5.x.x  |
-|        +--------------+-------------------+---------------+
-|        | 13.04        | 3.4               | 4.4.x, 5.x.x  |
-|        +--------------+-------------------+---------------+
-|        | 12.10        | 3.4               | 4.4.x, 5.x.x  |
 |        +--------------+-------------------+---------------+
 |        | 12.04 (LTS)  | 3.4               | 4.4.x, 5.x.x  |
 +--------+--------------+-------------------+---------------+
