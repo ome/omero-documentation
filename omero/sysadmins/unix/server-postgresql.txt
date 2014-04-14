@@ -9,7 +9,9 @@ version and that it is installed and configured correctly.
 Ensuring you have a valid PostgreSQL version
 --------------------------------------------
 
-For OMERO |version|, PostgreSQL 8.4 or higher is required.
+For OMERO |version|, PostgreSQL version 8.4 or later is required;
+version 9.1 or later is recommended.  Make sure you are using a
+`supported version <http://www.postgresql.org/support/versioning/>`_.
 
 You can check which version of PostgreSQL you have installed with any of
 the following commands:
@@ -23,44 +25,19 @@ the following commands:
        $ createdb -V
        createdb (PostgreSQL) 9.1.4
        
-If your default PostgreSQL installation is version 8.3 or earlier, you
-will need to upgrade to a more up-to-date version. We suggest the
-installer from `EnterpriseDB <http://www.enterprisedb.com/>`_. Versions
-8.4, 9.0 and 9.1 are known to work with OMERO |version|; 9.1 is recommended.
+If your existing PostgreSQL installation is version 8.3 or earlier,
+you must upgrade to a more up-to-date version.  Before upgrading, stop
+the OMERO server and then perform a full dump of the database using
+:program:`pg_dump`.  See the :ref:`server_backup` section for further
+details.
 
-
-Compatibility matrix
-~~~~~~~~~~~~~~~~~~~~
-
-Versions of PostgreSQL which are compatible with OMERO are shown in
-the table below.
-
-.. tabularcolumns:: |l|l|l|l|l|
-
-========== =============== =============== =============== ==============
-PostgreSQL OMERO 4.1       OMERO 4.2       OMERO 4.3       OMERO 4.4
-========== =============== =============== =============== ==============
-7.4        YES             NO :term:`[1]`  NO :term:`[1]`  NO :term:`[4]`
-8.1        YES             NO :term:`[3]`  NO :term:`[1]`  NO :term:`[4]`
-8.2        YES             YES             NO :term:`[3]`  NO :term:`[4]`
-8.3        YES             YES             YES             NO :term:`[4]`
-8.4        YES             YES             YES             YES
-9.x        YES :term:`[2]` YES :term:`[2]` YES :term:`[2]` YES
-========== =============== =============== =============== ==============
-
-.. glossary::
-
-    [1]
-        Not suggested; see :ticket:`4902`
-
-    [2]
-        Configuration may be necessary; see :ticket:`5662`
-
-    [3]
-        Not suggested; see :ticket:`5861`
-
-    [4]
-        Unsupported; see :ticket:`7813`
+If using a Linux distribution-provided PostgreSQL server, upgrading to
+a newer version of the the distribution will usually make a newer
+version of PostgreSQL available.  If the database was not migrated to
+the new version automatically, restore your backup after installing,
+configuring and starting the new version of the database server.
+If a PostgreSQL server was not provided by your system, `EnterpriseDB
+<http://www.enterprisedb.com/>`_ provide an installer.
 
 
 Checking PostgreSQL port listening status
