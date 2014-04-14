@@ -69,7 +69,7 @@ Jenkins
 
 The OME project currently uses Jenkins_ (formerly known as hudson) as a
 continuous integration server available :jenkins:`here <>`. OMERO.insight is
-built as part of the "OMERO" job. See the
+built as part of the "OMERO" jobs. See the
 :devs_doc:`contributing developer continuous integration </ci-omero.html>`
 documentation for full details.
 
