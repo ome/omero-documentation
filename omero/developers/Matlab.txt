@@ -107,8 +107,8 @@ but it is not configurable from within MATLAB::
 Creating an unencrypted session
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to speed up the data transfer, you can create and use an
-unencrypted session as::
+Once a session has been created, if you want to speed up the data transfer,
+you can create and use an unencrypted session as::
 
 	unsecureClient = client.createClient(false);
 	sessionUnencrypted = unsecureClient.getSession();
