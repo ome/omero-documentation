@@ -32,12 +32,15 @@ As a quickstart example, the following lines create a secure connection to a
 server, read a series of images and close the connection.
 
 ::
-   
+
    client = loadOmero(servername, port);
    session = client.createSession(user, password);
    client.enableKeepAlive(60);
    images = getImages(session, ids);
    client.closeSession();
+
+Examples of usage of the OMERO.matlab toolbox are provided in the
+:sourcedir:`training examples <examples/Training/matlab>` directory.
 
 Configuring the OMERO.matlab connection
 ---------------------------------------
