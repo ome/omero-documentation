@@ -486,6 +486,27 @@ function::
 
 	tagAnnotations = getImageTagAnnotations(session, imageIds);
 
+Annotations can be filtered by namespace. To include only annotations with a
+given namespace ``ns``, use the ``include`` parameter/key value::
+
+   tagAnnotations = getImageTagAnnotations(session, imageIds, 'include', ns);
+
+To exclude all annotations with a given namespace ``ns``, use the ``exclude``
+parameter/key value::
+
+   tagAnnotations = getImageTagAnnotations(session, imageIds, 'exclude', ns);
+
+By default, only the annotations owned by the session owner are returned. To
+specify the owner of the annotations, use the ``owner`` paramter/key value
+pair. For instance to return all tag annotations owned by user 5::
+
+    tagAnnotations = getImageTagAnnotations(session, imageIds, 'owner', 5);
+
+To retrieve all annotations independently of their owner, use -1 as the owner
+identifier::
+
+   tagAnnotations = getImageTagAnnotations(session, imageIds, 'owner', -1);
+
 -  **Reading file annotations**
 
 The content of a file annotation can be downloaded to local disk using the
