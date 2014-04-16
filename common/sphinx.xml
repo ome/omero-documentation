@@ -14,16 +14,6 @@ Type "ant -p" for a list of targets.
   <property name="sphinx.builddir" location="_build"/>
   <property name="latex.opts" value=""/>
 
-  <!-- Non-core ant tasks -->
-
-  <!-- Ant-Contrib Tasks: http://ant-contrib.sourceforge.net/ -->
-  <taskdef resource="net/sf/antcontrib/antcontrib.properties"
-    classpath="${lib.dir}/ant-contrib-1.0b3.jar"/>
-  <!-- HACK - some environments do not install the antcontrib tasks properly
-    from antcontrib.properties above; also load them from antlib.xml -->
-  <taskdef resource="net/sf/antcontrib/antlib.xml"
-    classpath="${lib.dir}/ant-contrib-1.0b3.jar"/>
-
   <macrodef name="xelatex" description="Run XeLaTeX">
     <attribute name="file" default=""/>
     <sequential>

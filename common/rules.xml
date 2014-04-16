@@ -11,6 +11,12 @@ Type "ant -p" for a list of targets.
   <property name="root.dir" location=".."/>
   <import file="${root.dir}/common/sphinx.xml"/>
 
+  <!-- Ant-Contrib Tasks: http://ant-contrib.sourceforge.net/ -->
+  <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+  <!-- HACK - some environments do not install the antcontrib tasks properly
+    from antcontrib.properties above; also load them from antlib.xml -->
+  <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+
   <target name="html">
     <exec executable="${sphinx.build}" failonerror="true">
         <arg value="-b"/>
