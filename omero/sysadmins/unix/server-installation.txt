@@ -829,60 +829,57 @@ output of the diagnostics command:
     OMERO Diagnostics |release|
     ================================================================================
 
-    Commands:   java -version                  1.6.0     (/usr/bin/java)
-    Commands:   python -V                      2.6.5     (/usr/bin/python)
-    Commands:   icegridnode --version          3.3.1     (/usr/bin/icegridnode)
-    Commands:   icegridadmin --version         3.3.1     (/usr/bin/icegridadmin)
-    Commands:   psql --version                 8.4.12    (/usr/bin/psql)
+    Commands:   java -version                  1.7.0     (/usr/bin/java)
+    Commands:   python -V                      2.7.6     (/usr/bin/python)
+    Commands:   icegridnode --version          3.5.1     (/usr/bin/icegridnode)
+    Commands:   icegridadmin --version         3.5.1     (/usr/bin/icegridadmin)
+    Commands:   psql --version                 9.1.13    (/usr/bin/psql)
 
     Server:     icegridnode                    running
-    Server:     Blitz-0                        active (pid = 28933, enabled)
-    Server:     DropBox                        active (pid = 28951, enabled)
-    Server:     FileServer                     active (pid = 28954, enabled)
-    Server:     Indexer-0                      active (pid = 28957, enabled)
-    Server:     MonitorServer                  active (pid = 28960, enabled)
-    Server:     OMERO.Glacier2                 active (pid = 28962, enabled)
-    Server:     OMERO.IceStorm                 active (pid = 28964, enabled)
-    Server:     PixelData-0                    active (pid = 28963, enabled)
-    Server:     Processor-0                    active (pid = 28972, enabled)
-    Server:     Tables-0                       active (pid = 28974, enabled)
+    Server:     Blitz-0                        active (pid = 30324, enabled)
+    Server:     DropBox                        active (pid = 30343, enabled)
+    Server:     FileServer                     active (pid = 30345, enabled)
+    Server:     Indexer-0                      active (pid = 30348, enabled)
+    Server:     MonitorServer                  active (pid = 30351, enabled)
+    Server:     OMERO.Glacier2                 active (pid = 30353, enabled)
+    Server:     OMERO.IceStorm                 active (pid = 30376, enabled)
+    Server:     PixelData-0                    active (pid = 30393, enabled)
+    Server:     Processor-0                    active (pid = 30394, enabled)
+    Server:     Tables-0                       inactive (disabled)
     Server:     TestDropBox                    inactive (enabled)
 
-    Log dir:    /home/omero/OMERO.server-|version|
+    OMERO:      SSL port                       4064
+    OMERO:      TCP port                       4063
 
-    Log files:  Blitz-0.log                    360.0 MB      errors=9    warnings=2458
-    Log files:  DropBox.log                    3.0 KB        errors=0    warnings=1
+    Log dir:    /home/omero/OMERO.server-5.0.1-ice35-b21/var/log exists
+
+    Log files:  Blitz-0.log                    3.0 MB        errors=0    warnings=9
+    Log files:  DropBox.log                    4.0 KB        errors=0    warnings=1
     Log files:  FileServer.log                 0.0 KB
-    Log files:  Indexer-0.log                  506.0 KB      errors=0    warnings=90
+    Log files:  Indexer-0.log                  10.0 KB       errors=0    warnings=5
     Log files:  MonitorServer.log              2.0 KB
-    Log files:  OMEROweb.log                   710.0 KB      errors=5    warnings=2
-    Log files:  OMEROweb.log.1                 777.0 KB      errors=0    warnings=1
-    Log files:  OMEROweb.log.2                 776.0 KB      errors=0    warnings=2
-    Log files:  OMEROweb.log.3                 777.0 KB
-    Log files:  OMEROweb.log.4                 879.0 KB      errors=1    warnings=2
-    Log files:  OMEROweb.log.5                 258.0 KB
-    Log files:  OMEROweb_request.log           10.0 KB       errors=3    warnings=3
-    Log files:  PixelData-0.log                4.0 KB
-    Log files:  Processor-0.log                315.0 KB      errors=0    warnings=1
-    Log files:  Tables-0.log                   2.0 KB        errors=0    warnings=1
+    Log files:  OMEROweb.log                   642.0 KB      errors=0    warnings=1
+    Log files:  OMEROweb_request.log           0.0 KB
+    Log files:  PixelData-0.log                7.0 KB        errors=0    warnings=4
+    Log files:  Processor-0.log                2.0 KB        errors=0    warnings=1
+    Log files:  Tables-0.log                   n/a
     Log files:  TestDropBox.log                n/a
-    Log files:  master.err                     0.0 KB
+    Log files:  master.err                     0.0 KB        errors=2    warnings=0
     Log files:  master.out                     0.0 KB
-    Log files:  Total size                     365.49 MB
-
-    Parsing Blitz-0.log:[line:30] => Server restarted <=
-    Parsing Blitz-0.log:[line:213] => Server restarted <=
+    Log files:  Total size                     3.83 MB
 
     Environment:OMERO_HOME=(unset)
     Environment:OMERO_NODE=(unset)
     Environment:OMERO_MASTER=(unset)
-    Environment:PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+    Environment:OMERO_TEMPDIR=(unset)
+    Environment:PATH=/usr/local/bin:/usr/bin:/bin
     Environment:ICE_HOME=(unset)
     Environment:LD_LIBRARY_PATH=(unset)
     Environment:DYLD_LIBRARY_PATH=(unset)
 
-    OMERO data dir: '/OMERO'    Exists? True    Is writable? True
-    OMERO.web status... [RUNNING] (PID 28736)
+    OMERO data dir: '/OMERO'        Exists? True    Is writable? True
+    OMERO temp dir: '/home/omero/tmp'        Exists? True    Is writable? True   (Size: 0)
+    OMERO.web status... DEVELOPMENT: You will have to check status by hand!
 
 .. toctree::
     :hidden:
