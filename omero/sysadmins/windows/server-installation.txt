@@ -800,11 +800,11 @@ your server installation:
     OMERO Diagnostics |release|
     ================================================================================
 
-    Commands:   java -version                  1.6.0     (C:\\WINDOWS\\system32\\java.EXE -- 3 others)
-    Commands:   python -V                      2.6       (C:\\Python26\\python.EXE)
-    Commands:   icegridnode --version          3.3       (C:\\Ice-3.3.1\\bin\\x64\\icegridnode.EXE -- 2 others)
-    Commands:   icegridadmin --version         3.3       (C:\\Ice-3.3.1\\bin\\x64\\icegridadmin.EXE -- 2 others)
-    Commands:   psql --version                 8.3       (C:\\Program Files (x86)\\PostgreSQL\\8.3\\bin\\psql.EXE -- 2 others)
+    Commands:   java -version                  1.7.0     (C:\\WINDOWS\\system32\\java.EXE -- 3 others)
+    Commands:   python -V                      2.7       (C:\\Python27\\python.EXE)
+    Commands:   icegridnode --version          3.5       (C:\\Ice-3.3.1\\bin\\x64\\icegridnode.EXE -- 2 others)
+    Commands:   icegridadmin --version         3.5       (C:\\Ice-3.3.1\\bin\\x64\\icegridadmin.EXE -- 2 others)
+    Commands:   psql --version                 9.1       (C:\\Program Files (x86)\\PostgreSQL\\9.1\\bin\\psql.EXE -- 2 others)
 
     Server:     icegridnode                    running
     Server:     Blitz-0                        active (pid = 7704, enabled)
