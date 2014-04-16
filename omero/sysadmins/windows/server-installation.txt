@@ -23,10 +23,8 @@ users/passwords described in this install guide, please see
        :width: 35%
        :alt:
 
--  Installation on Windows XP is not explicitly supported, especially
-   for OMERO.web. Significant testing has taken place on Windows Server
-   2008 and we recommend this version.
--  OMERO does not currently support Ice 3.5 or Python 3.
+-  Significant testing has taken place on Windows Server 2008 and we
+   recommend this version.
 -  :doc:`/sysadmins/omeromovie` is not supported on Windows at present.
 -  A reboot is required after installing the prerequisites.
 
@@ -53,23 +51,20 @@ Java SE Development Kit (JDK)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_. JDK 6 
-and above are supported.
+Java 7 is recommended, Java 6 is supported.
 
-Ice (3.3.x or 3.4.x)
-^^^^^^^^^^^^^^^^^^^^
+Ice
+^^^
 
 .. note::
 
-    OMERO 5.0 supports both Ice 3.3 and 3.4 for Windows. You will need to pick
-    the appropriate server download for the version of Ice
-    you have installed locally. The downloads for Ice 3.4 have "ice34" in the
-    zip name.
+    OMERO |version| supports Ice 3.5 and 3.4. You will need to pick the
+    matching server download for the version of Ice you have installed.
 
     If you are using precompiled packages of Ice and Python (recommended)
     you should use the versions specified below. In particular since OMERO
     does not support Python 3 **it will not work with the Ice 3.5 package for
-    Windows**. If you have previously installed Ice 3.5 you should uninstall
-    it.
+    Windows**.  However, Ice 3.5 will work when built against Python 2.7.
 
 
 Windows installers of Ice can be found on the :zeroc:`ZeroC Ice 3.4.2 download

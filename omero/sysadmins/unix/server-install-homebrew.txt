@@ -127,14 +127,7 @@ simple Homebrew install is sufficient, e.g.
 
 This should install OMERO along with most of the non-Python requirements.
 
-The default version of Ice installed by the OMERO formula is Ice 3.5. To
-install OMERO with Ice 3.4, use::
-
-	$ brew install omero --with-ice34
-
-or to install OMERO with Ice 3.3, use::
-
-	$ brew install omero --with-ice33
+The default version of Ice installed by the OMERO formula is currently Ice 3.5.
 
 Additional installation options can be listed using the ``info`` command:
 
@@ -155,14 +148,7 @@ install the OMERO dependencies:
     $ brew tap ome/alt
     $ brew install `brew deps omero`
 
-The default version of Ice installed by the OMERO formula is Ice 3.5. To
-install the OMERO dependencies with Ice 3.4, use::
-
-	$ brew install `brew deps omero --with-ice34`
-
-or to install the OMERO dependencies with Ice 3.3, use::
-
-	$ brew install `brew deps omero --with-ice33`
+The default version of Ice installed by the OMERO formula is currently Ice 3.5.
 
 Prepare a place for your OMERO code to live, e.g.
 
@@ -233,14 +219,6 @@ required entries and correspond to a Homebrew installation of OMERO |release|:
 
     export PYTHONPATH=$(brew --prefix omero)/lib/python
     export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/lib/node_modules:$PATH
-
-If you have installed Ice 3.3 or Ice 3.4, you will need to specify the path to
-Ice Python and dynamic libraries::
-
-     export PYTHONPATH=$(brew --prefix omero)/lib/python:$ICE_HOME/python
-     export DYLD_LIBRARY_PATH=$ICE_HOME/lib:$DYLD_LIBRARY_PATH
-
-where ``ICE_HOME`` needs to be replaced by ``$(brew --prefix zeroc-ice33)`` or ``$(brew --prefix zeroc-ice34)`` depending on your configuration.
 
 .. note::
     If you have a local :file:`.bash_profile` file, it will override your
@@ -453,21 +431,6 @@ Try:
 
     $ brew cleanup
     $ brew link ossp-uuid
-
-Ice
-^^^
-
-::
-
-    Error: Failed executing: cd cpp && make M PP_HOME=/Users/sebastien/apps/    OMERO.libs/Cellar/mcpp/2.7.2 DB_HOME=/Users/sebastien/apps/OMERO.libs/Cellar/berkeley-    db46/4.6.21 OPTIMIZE=yes prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 embedded_runpath_prefix=/Users/sebastien/apps/OMERO.libs/Cellar/zeroc-ice33/3.3 install
-
-We have had problems building ``zeroc-ice33`` under MacOS 10.7.3 and 10.6.8
-(see :ticket:`8075`). You can try installing ``zeroc-ice34`` (Ice 3.4)
-instead. If you decide to go with ``zeroc-ice33``, make sure that you do not
-have :envvar:`DYLD_LIBRARY_PATH` set to an existing Ice's installation lib
-directory path. In essence your ``.bash_profile`` shouldn't have any
-OMERO-related environment variables set before executing the installation
-script.
 
 szip
 ^^^^
