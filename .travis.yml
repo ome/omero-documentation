@@ -16,7 +16,7 @@ python:
   - "2.6"
 
 env:
-  - SPHINXOPTS="-W"
+  - SPHINXOPTS="-W" CLASSPATH="/usr/share/java/ant-contrib.jar"
 
 install: "pip install -q Sphinx"
 
