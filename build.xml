@@ -1,0 +1,33 @@
+<!--
+build.xml
+
+Ant build file for OME Sphinx documentation.
+Download Apache Ant from http://ant.apache.org/.
+Type "ant -p" for a list of targets.
+-->
+
+<project name="sphinx" default="html" basedir=".">
+  <description>Build file for sphinx documentation</description>
+  <property name="root.dir" location="."/>
+
+  <target name="html">
+    <ant dir="omero" target="html"/>
+    <ant dir="formats" target="html"/>
+    <ant dir="contributing" target="html"/>
+  </target>
+
+  <target name="latexpdf">
+    <ant dir="omero" target="latexpdf"/>
+    <ant dir="formats" target="latexpdf"/>
+    <ant dir="contributing" target="latexpdf"/>
+  </target>
+
+  <target name="pdf" depends="latexpdf"/>
+
+  <target name="clean">
+    <ant dir="omero" target="clean"/>
+    <ant dir="formats" target="clean"/>
+    <ant dir="contributing" target="clean"/>
+  </target>
+
+</project>
