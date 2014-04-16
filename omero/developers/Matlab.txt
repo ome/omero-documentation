@@ -626,8 +626,9 @@ How to use OMERO tables
 ROIs
 ----
 
-To learn about the model see :model_doc:`developers/roi.html`. Note that
-annotation can be linked to ROI.
+To learn about the model, see the
+:model_doc:`developers guide to the ROI model <developers/roi.html>`. Note
+that annotations can be linked to ROI.
 
 -  **Creating ROI**
 
