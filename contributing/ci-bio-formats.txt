@@ -38,12 +38,7 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 
 	- 	* Build the merge Bio-Formats artifacts
 		* :term:`BIOFORMATS-4.4-merge-daily`
-		* :term:`BIOFORMATS-5.0-merge-daily`
-		* :term:`BIOFORMATS-5.1-merge-build`
-
-	- 	* Build the merge Bio-Formats artifacts
-		* :term:`BIOFORMATS-4.4-merge-daily`
-		* :term:`BIOFORMATS-5.0-merge-daily`
+		* :term:`BIOFORMATS-5.0-merge-build`
 		* :term:`BIOFORMATS-5.1-merge-build`
 
 	- 	* Build the merge native C++ implementation for Bio-Formats
@@ -158,8 +153,12 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
    "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-maven" -> "BIOFORMATS-5.0-latest-cppwrap";
    "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-docs-autogen";
 
-   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-docs";
-   "BIOFORMATS-5.0-merge-daily" -> "BIOFORMATS-5.0-merge-matlab";
+   "BIOFORMATS-5.0-merge-daily" -> "OMERO-5.0-merge-push";
+   "OMERO-5.0-merge-push" -> "BIOFORMATS-5.0-merge-build";
+   "OMERO-5.0-merge-push" -> "BIOFORMATS-5.0-merge-docs";
+   "OMERO-5.0-merge-push" -> "BIOFORMATS-5.0-merge-test_images_good";
+   "OMERO-5.0-merge-push" -> "BIOFORMATS-5.0-merge-performance";
+   "BIOFORMATS-5.0-merge-build" -> "BIOFORMATS-5.0-merge-matlab";
 
 The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
@@ -179,14 +178,26 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-daily`
 
-		This job is used to review the PRs opened against the dev_5_0 branch
-		of Bio-Formats by running basic unit tests, checking for open file
-		handles, and checking for regressions across a representative subset
-		of the data repository
+		This job is used to run the daily Bio-Formats jobs used for reviewing
+		the PRs opened against the develop branch of Bio-Formats by running
+		basic unit tests, checking for open file handles, and checking for
+		regressions across a representative subset of the data repository
 
-		#. |merge|
+		#. Trigger :term:`OMERO-5.1-merge-push`
+		#. Trigger :term:`BIOFORMATS-5.0-merge-build`,
+		   :term:`BIOFORMATS-5.0-merge-docs`,
+		   :term:`BIOFORMATS-5.0-merge-test_images_good` and
+		   BIOFORMATS-5.0-merge-performance
+
+	:jenkinsjob:`BIOFORMATS-5.0-merge-build`
+
+		This job build the merge artifacts of Bio-Formats
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of bioformats.git_
 		#. |buildBF|
 		#. |fulltestBF|
+		#. Trigger :term:`BIOFORMATS-5.0-merge-matlab`
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-matlab`
 
@@ -281,7 +292,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		   :term:`BIOFORMATS-5.1-merge-cpp`,
 		   :term:`BIOFORMATS-5.1-merge-docs`,
 		   :term:`BIOFORMATS-5.1-merge-test_images_good` and
-   		   BIOFORMATS-5.1-merge-performance
+		   BIOFORMATS-5.1-merge-performance
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-build`
 
