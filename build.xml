@@ -24,6 +24,12 @@ Type "ant -p" for a list of targets.
 
   <target name="pdf" depends="latexpdf"/>
 
+  <target name="linkcheck">
+    <ant dir="omero" target="linkcheck"/>
+    <ant dir="formats" target="linkcheck"/>
+    <ant dir="contributing" target="linkcheck"/>
+  </target>
+
   <target name="clean">
     <ant dir="omero" target="clean"/>
     <ant dir="formats" target="clean"/>
