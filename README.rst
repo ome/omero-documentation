@@ -98,6 +98,9 @@ found at `http://sphinx.pocoo.org <http://sphinx.pocoo.org/tutorial.html>`_.
 Building the documentation
 ==========================
 
+The documentation may be built with ``make`` or ``ant``.  Note that ``ant``
+requires ``ant-contrib`` to be on the classpath.
+
 Basic build commands
 --------------------
 
@@ -106,17 +109,20 @@ build the OMERO documentation::
 
     cd omero/
 
-To clean the build directory of any previous builds, use::
+To clean the build directory of any previous builds, use one of::
     
     make clean
+    ant clean
     
-To build the documentation locally in the form of HTML pages, use::
+To build the documentation locally in the form of HTML pages, use one of::
     
     make html
+    ant html
     
-To check the links (internal and external) of the documentation, use::
+To check the links (internal and external) of the documentation, use one of::
     
     make linkcheck
+    ant linkcheck
     
 To list all targets of the sphinx builder, use::
     
@@ -155,17 +161,20 @@ been removed on this branch and are only maintained on the develop branch).
 Note that the following commands currently work under UNIX-like platforms
 only.
 
-To clean the build directories of any previous builds, use::
+To clean the build directories of any previous builds, use one of::
 
     make clean
+    ant clean
 
-To build the documentation locally in the form of HTML pages, use::
+To build the documentation locally in the form of HTML pages, use one of::
 
     make html
+    ant html
 
-To build the documentation locally in the form of a PDF file, use::
+To build the documentation locally in the form of a PDF file, use one of::
 
     make latexpdf
+    ant latexpdf
 
 Makefile options
 ----------------
@@ -174,15 +183,16 @@ Additional options for sphinx-build can be passed using the ``SPHINXOPTS``
 variable. The ``-W`` option turns all warnings into errors::
 
     SPHINXOPTS=-W make clean html
+    SPHINXOPTS=-W ant clean html
 
 Release number
 --------------
 
 For the OMERO documentation, you can set the release number by setting the
-environment variable ``OMERO_RELEASE``,
-  e.g.::
+environment variable ``OMERO_RELEASE``, e.g.::
 
-      cd omero && OMERO_RELEASE=4.4.6 make clean html
+    cd omero && OMERO_RELEASE=4.4.6 make clean html
+    cd omero && OMERO_RELEASE=4.4.6 ant clean html
 
 
 ****************
@@ -498,6 +508,7 @@ and/or  branch, set the SOURCE_USER and SOURCE_BRANCH environment variables,
 e.g.::
 
     SOURCE_USER=sbesson SOURCE_BRANCH=my_branch make clean html
+    SOURCE_USER=sbesson SOURCE_BRANCH=my_branch ant clean html
 
 Jenkins links
 =============
@@ -513,6 +524,7 @@ By default, the OMERO job is set to ``OMERO-trunk``. To specify a different
 job, set the JENKINS_JOB environment variables, e.g.::
 
     JENKINS_JOB=OMERO-4.4 make clean html
+    JENKINS_JOB=OMERO-4.4 ant clean html
 
 Mailing-list links
 ==================
