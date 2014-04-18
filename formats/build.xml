@@ -1,0 +1,13 @@
+<!--
+build.xml
+
+Ant build file for OME Formats Sphinx documentation.
+Download Apache Ant from http://ant.apache.org/.
+Type "ant -p" for a list of targets.
+-->
+
+<project name="formats" default="html" basedir=".">
+  <description>Build file for sphinx documentation</description>
+  <property name="root.dir" location=".."/>
+  <import file="${root.dir}/common/rules.xml"/>
+</project>

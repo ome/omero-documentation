@@ -102,6 +102,9 @@ found at `http://sphinx.pocoo.org <http://sphinx.pocoo.org/tutorial.html>`_.
 Building the documentation
 ==========================
 
+The documentation may be built with ``make`` or ``ant``.  Note that ``ant``
+requires ``ant-contrib`` to be on the classpath.
+
 Basic build commands
 --------------------
 
@@ -118,17 +121,20 @@ or to build the Contributing Developer documentation::
 
    cd contributing/
 
-To clean the build directory of any previous builds, use::
+To clean the build directory of any previous builds, use one of::
     
     make clean
+    ant clean
     
-To build the documentation locally in the form of HTML pages, use::
+To build the documentation locally in the form of HTML pages, use one of::
     
     make html
+    ant html
     
-To check the links (internal and external) of the documentation, use::
+To check the links (internal and external) of the documentation, use one of::
     
     make linkcheck
+    ant linkcheck
     
 To list all targets of the sphinx builder, use::
     
@@ -165,17 +171,20 @@ The top-level directory Makefile also defines targets for building all the
 OMERO, Contributing, and Model and Formats sets of documentation at once. Note
 that the following commands currently work under UNIX-like platforms only.
 
-To clean the build directories of any previous builds, use::
+To clean the build directories of any previous builds, use one of::
 
     make clean
+    ant clean
 
-To build the sets of documentation locally in the form of HTML pages, use::
+To build the sets of documentation locally in the form of HTML pages, use one of::
 
     make html
+    ant html
 
-To build the sets of documentation locally in the form of a PDF file, use::
+To build the sets of documentation locally in the form of a PDF file, use one of::
 
     make latexpdf
+    ant latexpdf
 
 Makefile options
 ----------------
@@ -184,6 +193,7 @@ Additional options for sphinx-build can be passed using the ``SPHINXOPTS``
 variable. The ``-W`` option turns all warnings into errors::
 
     SPHINXOPTS=-W make clean html
+    SPHINXOPTS=-W ant clean html
 
 Release number
 --------------
@@ -195,11 +205,13 @@ To modify this value:
   e.g.::
 
       cd omero && OMERO_RELEASE=4.4.6 make clean html
+      cd omero && OMERO_RELEASE=4.4.6 ant clean html
 
 * for the OME Model and Formats documentation, set the environment variable
   ``FORMATS_RELEASE``, e.g.::
 
     cd formats && FORMATS_RELEASE=2012-06 make clean html
+    cd formats && FORMATS_RELEASE=2012-06 ant clean html
 
 The Contributing Developer documentation has the release version removed as
 the intention is to update these files as and when necessary, so that they
@@ -518,6 +530,7 @@ and/or  branch, set the SOURCE_USER and SOURCE_BRANCH environment variables,
 e.g.::
 
     SOURCE_USER=sbesson SOURCE_BRANCH=my_branch make clean html
+    SOURCE_USER=sbesson SOURCE_BRANCH=my_branch ant clean html
 
 Jenkins links
 =============
@@ -533,6 +546,7 @@ By default, the OMERO job is set to ``OMERO-trunk``. To specify a different
 job, set the JENKINS_JOB environment variables, e.g.::
 
     JENKINS_JOB=OMERO-4.4 make clean html
+    JENKINS_JOB=OMERO-4.4 ant clean html
 
 Mailing-list links
 ==================
