@@ -19,4 +19,4 @@ env:
 
 install: "pip install -q Sphinx"
 
-script: "ant html pdf clean"
+script: "ant -Domero.shortversion=5.0.2 html pdf clean"
