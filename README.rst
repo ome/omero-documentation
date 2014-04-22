@@ -158,8 +158,6 @@ Top-level build command
 The top-level directory Makefile also defines targets for building the
 OMERO documentation (as the contributing and formats documentation sets have
 been removed on this branch and are only maintained on the develop branch).
-Note that the following commands currently work under UNIX-like platforms
-only.
 
 To clean the build directories of any previous builds, use one of::
 
