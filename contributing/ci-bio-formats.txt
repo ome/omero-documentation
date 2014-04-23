@@ -12,58 +12,46 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 	:header-rows: 1
 
 	- 	* Job task
-		* 4.4.x series
 		* 5.0.x series
 		* 5.1.x series
 
 	- 	* Build the latest Bio-Formats artifacts
-		* :term:`BIOFORMATS-4.4-latest`
 		* :term:`BIOFORMATS-5.0-latest`
 		* :term:`BIOFORMATS-5.1-latest`
 
 	- 	* Publish the latest Bio-Formats to the OME artifactory
-		* :term:`BIOFORMATS-4.4-latest-maven`
 		* :term:`BIOFORMATS-5.0-latest-maven`
 		* :term:`BIOFORMATS-5.1-latest-maven`
 
 	- 	* Build the latest native C++ implementation for Bio-Formats
 		*
-		*
 		* :term:`BIOFORMATS-5.1-latest-cpp`
 
 	- 	* Run the daily Bio-Formats merge jobs
-		* :term:`BIOFORMATS-4.4-merge-daily`
 		* :term:`BIOFORMATS-5.0-merge-daily`
 		* :term:`BIOFORMATS-5.1-merge-daily`
 
 	- 	* Build the merge Bio-Formats artifacts
-		* :term:`BIOFORMATS-4.4-merge-daily`
 		* :term:`BIOFORMATS-5.0-merge-build`
 		* :term:`BIOFORMATS-5.1-merge-build`
 
 	- 	* Build the merge native C++ implementation for Bio-Formats
 		*
-		*
 		* :term:`BIOFORMATS-5.1-merge-cpp`
 
 	- 	* Run the MATLAB tests
-		* :term:`BIOFORMATS-4.4-merge-matlab`
 		* :term:`BIOFORMATS-5.0-merge-matlab`
 		* :term:`BIOFORMATS-5.1-merge-matlab`
 
 	- 	* Run automated tests against the full repository on squig
-		* :term:`BIOFORMATS-4.4-merge-full-repository`
 		* :term:`BIOFORMATS-5.0-merge-full-repository`
 		* :term:`BIOFORMATS-5.1-merge-full-repository`
 
 	- 	* Run automated tests against test_images_good on squig
-		*
 		* :term:`BIOFORMATS-5.0-merge-test_images_good`
 		* :term:`BIOFORMATS-5.1-merge-test_images_good`
 
 	- 	* Run openBytes performance test
-		* | :term:`BIOFORMATS-4.4-merge-openbytes-performance`
-		  | :term:`BIOFORMATS-4.4-merge-omero-openbytes`
 		* :term:`BIOFORMATS-5.0-merge-openbytes-performance`
 		* :term:`BIOFORMATS-5.1-merge-openbytes-performance`
 
@@ -356,8 +344,8 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 
 .. _bf_breaking:
 
-Bio-Formats breaking jobs
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Breaking jobs
+^^^^^^^^^^^^^
 
 Breaking jobs are jobs used to review breaking changes, for instance model
 changes. The branch for the breaking series of Bio-Formats is develop. All

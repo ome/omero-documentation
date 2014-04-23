@@ -12,55 +12,46 @@ OMERO jobs
 	:header-rows: 1
 
 	- 	* Job task
-		* 4.4.x series
 		* 5.0.x series
 		* 5.1.x series
+		* Breaking series
 
 	- 	* Build the latest OMERO artifacts
-		* | :term:`OMERO-4.4-latest-ice33`
-		  | :term:`OMERO-4.4-latest-ice34`
-		  | :term:`OMERO-4.4-latest-ice35`
-		  | :term:`OMERO-4.4-latest-virtualbox`
 		* :term:`OMERO-5.0-latest`
 		* :term:`OMERO-5.1-latest`
+		*
 
 	- 	* Deploy the latest OMERO server
-		*
 		* :term:`OMERO-5.0-latest-deploy`
 		* :term:`OMERO-5.1-latest-deploy`
+		*
 
 	- 	* Update submodules
-		* :term:`OMERO-4.4-latest-submods`
 		* :term:`OMERO-5.0-latest-submods`
 		* :term:`OMERO-5.0-latest-submods`
+		*
 
 	- 	* Run the daily OMERO merge builds
-		* :term:`OMERO-4.4-merge-daily`
 		* :term:`OMERO-5.0-merge-daily`
 		* :term:`OMERO-5.1-merge-daily`
+		* :term:`OMERO-5.1-breaking-trigger`
 
 	- 	* Merge the PRs
-		* :term:`OMERO-4.4-merge-daily`
 		* :term:`OMERO-5.0-merge-push`
 		* :term:`OMERO-5.1-merge-push`
+		* :term:`OMERO-5.1-breaking-push`
 
 	- 	* Build the merge OMERO  artifacts
-		* | :term:`OMERO-4.4-merge-ice33`
-		  | :term:`OMERO-4.4-merge-ice34`
-		  | :term:`OMERO-4.4-merge-ice35`
 		* :term:`OMERO-5.0-merge-build`
 		* :term:`OMERO-5.1-merge-build`
+		* :term:`OMERO-5.1-breaking-build`
 
 	- 	* Deploy the merge OMERO server
-		* :term:`OMERO-4.4-merge-daily`
 		* :term:`OMERO-5.0-merge-deploy`
 		* :term:`OMERO-5.1-merge-deploy`
+		* :term:`OMERO-5.1-breaking-deploy`
 
 	- 	* Run the OMERO integration tests
-		* | :term:`OMERO-4.4-merge-integration`
-		  | :term:`OMERO-4.4-merge-integration-java`
-		  | :term:`OMERO-4.4-merge-integration-python`
-		  | :term:`OMERO-4.4-merge-integration-broken`
 		* | :term:`OMERO-5.0-merge-integration`
 		  | :term:`OMERO-5.0-merge-integration-java`
 		  | :term:`OMERO-5.0-merge-integration-python`
@@ -69,49 +60,25 @@ OMERO jobs
 		  | :term:`OMERO-5.1-merge-integration-java`
 		  | :term:`OMERO-5.1-merge-integration-python`
 		  | :term:`OMERO-5.1-merge-integration-broken`
-
-	- 	* Run the OMERO.matlab tests
-		* :term:`OMERO-4.4-merge-matlab`
-		* :term:`OMERO-5.0-merge-matlab`
-		* :term:`OMERO-5.1-merge-matlab`
-
-	- 	* Run the robot framework tests
-		* :term:`OMERO-4.4-merge-robotframework`
-		* :term:`OMERO-5.0-merge-robotframework`
-		* :term:`OMERO-5.1-merge-robotframework`
-
-	- 	* Install OMERO using Homebrew
-		* :term:`OME-4.4-merge-homebrew`
-		* :term:`OME-5.0-merge-homebrew`
-		*
-
-	- 	* Trigger the breaking OMERO builds
-		*
-		*
-		* :term:`OMERO-5.1-breaking-trigger`
-
-	- 	* Merge the breaking PRs
-		*
-		*
-		* :term:`OMERO-5.1-breaking-push`
-
-	- 	* Build the breaking OMERO artifacts
-		*
-		*
-		* :term:`OMERO-5.1-breaking-build`
-
-	- 	* Deploy the breaking OMERO server
-		*
-		*
-		* :term:`OMERO-5.1-breaking-deploy`
-
-	- 	* Run the breaking OMERO integration tests
-		*
-		*
 		* | :term:`OMERO-5.1-breaking-integration`
 		  | :term:`OMERO-5.1-breaking-integration-java`
 		  | :term:`OMERO-5.1-breaking-integration-python`
 		  | :term:`OMERO-5.1-breaking-integration-broken`
+
+	- 	* Run the OMERO.matlab tests
+		* :term:`OMERO-5.0-merge-matlab`
+		* :term:`OMERO-5.1-merge-matlab`
+		*
+
+	- 	* Run the robot framework tests
+		* :term:`OMERO-5.0-merge-robotframework`
+		* :term:`OMERO-5.1-merge-robotframework`
+		*
+
+	- 	* Install OMERO using Homebrew
+		* :term:`OME-5.0-merge-homebrew`
+		*
+		*
 
 4.4.x series
 ^^^^^^^^^^^^
@@ -511,8 +478,8 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 .. _omero_breaking:
 
-OMERO breaking jobs
-^^^^^^^^^^^^^^^^^^^
+Breaking jobs
+^^^^^^^^^^^^^
 
 Breaking jobs are jobs containing breaking, irreversible changes typically
 database upgrade. The branch for the breaking series of OMERO is develop. All
