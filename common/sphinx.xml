@@ -54,4 +54,20 @@ Type "ant -p" for a list of targets.
     </sequential>
   </macrodef>
 
+  <macrodef name="apidoc" description="Run sphinx-apidoc">
+    <attribute name="source" default=""/>
+    <attribute name="output" default=""/>
+    <sequential>
+      <basename property="output.dir" file="@{output}"/>
+      <dirname property="output.path" file="@{output}"/>
+      <mkdir dir="@{output}"/>
+      <exec executable="sphinx-apidoc" failonerror="true" dir="${output.path}">
+        <arg value="-T"/>
+        <arg value="-o"/>
+        <arg value="${output.dir}"/>
+        <arg value="@{source}"/>
+      </exec>
+    </sequential>
+  </macrodef>
+
 </project>
