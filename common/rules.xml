@@ -9,7 +9,6 @@ Type "ant -p" for a list of targets.
 <project name="rules" basedir=".">
   <description>Common sphinx targets</description>
   <dirname property="imported.basedir" file="${ant.file.rules}"/>
-  <echo message="IMPL: ${ant.file.rules}  BD: ${imported.basedir}"/>
   <import file="${imported.basedir}/sphinx.xml"/>
 
   <!-- Ant-Contrib Tasks: http://ant-contrib.sourceforge.net/ -->
