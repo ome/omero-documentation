@@ -17,8 +17,12 @@ Type "ant -p" for a list of targets.
     from antcontrib.properties above; also load them from antlib.xml -->
   <taskdef resource="net/sf/antcontrib/antlib.xml"/>
 
+  <property name="omero.shortversion" value=""/>
+
   <target name="html">
     <exec executable="${sphinx.build}" failonerror="true">
+        <env key="SOURCE_BRANCH" value="v.${omero.shortversion}"/>
+        <env key="OMERO_RELEASE" value="${omero.shortversion}"/>
         <arg value="-b"/>
         <arg value="html"/>
         <arg line="${sphinx.opts}"/>
@@ -29,6 +33,8 @@ Type "ant -p" for a list of targets.
 
   <target name="latexpdf">
     <exec executable="${sphinx.build}" failonerror="true">
+      <env key="SOURCE_BRANCH" value="v.${omero.shortversion}"/>
+      <env key="OMERO_RELEASE" value="${omero.shortversion}"/>
       <arg value="-b"/>
       <arg value="latex"/>
       <arg line="${sphinx.opts}"/>
@@ -50,6 +56,8 @@ Type "ant -p" for a list of targets.
 
   <target name="linkcheck">
     <exec executable="${sphinx.build}" failonerror="true">
+        <env key="SOURCE_BRANCH" value="v.${omero.shortversion}"/>
+        <env key="OMERO_RELEASE" value="${omero.shortversion}"/>
         <arg value="-b"/>
         <arg value="linkcheck"/>
         <arg line="${sphinx.opts}"/>
