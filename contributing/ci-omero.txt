@@ -68,13 +68,15 @@ OMERO jobs
 		  | :term:`OMERO-4.4-merge-integration-python`
 		  | :term:`OMERO-4.4-merge-integration-broken`
 		* | :term:`OMERO-5.0-merge-integration`
+		  | :term:`OMERO-5.0-merge-integration-broken`
 		  | :term:`OMERO-5.0-merge-integration-java`
 		  | :term:`OMERO-5.0-merge-integration-python`
-		  | :term:`OMERO-5.0-merge-integration-broken`
+		  | :term:`OMERO-5.0-merge-integration-web`
 		* | :term:`OMERO-5.1-merge-integration`
+		  | :term:`OMERO-5.1-merge-integration-broken`
 		  | :term:`OMERO-5.1-merge-integration-java`
 		  | :term:`OMERO-5.1-merge-integration-python`
-		  | :term:`OMERO-5.1-merge-integration-broken`
+		  | :term:`OMERO-5.1-merge-integration-web`
 
 	- 	* Run the OMERO.matlab tests
 		* :term:`OMERO-4.4-merge-matlab`
@@ -270,9 +272,10 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
    "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-training";
    "OMERO-5.0-merge-daily" -> "OMERO-5.0-deploy-webtagging";
    "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-autoimport";
+   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-broken";
    "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-java";
    "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-python";
-   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-broken";
+   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-web";
 
 .. glossary::
 
@@ -347,30 +350,50 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		branch with the PRs opened against the dev_5_0 branch of OMERO
 
 		#. |merge|
-		#. Build OMERO.server and start it
-		#. Run the integration tests and collect the results (Java and Python)
+		#. Builds OMERO.server and start it
+		#. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
+		#. Archives the results
+		#. Triggers downstream collection jobs:
+		   :term:`OMERO-5.0-merge-integration-broken`,
+		   :term:`OMERO-5.0-merge-integration-java`,
+		   :term:`OMERO-5.0-merge-integration-python`,
+		   :term:`OMERO-5.0-merge-integration-web`,
 
+	:jenkinsjob:`OMERO-5.0-merge-integration-broken`
+
+		This job is used for parsing OMERO.java broken test results
+
+		#. Receives TestNG results under
+		   :file:`components/tools/OmeroJava/target/reports/broken` from
+		   :term:`OMERO-5.0-merge-integration`,
+		#. Generates TestNG report
 
 	:jenkinsjob:`OMERO-5.0-merge-integration-java`
 
-		This job is used for parsing OmeroJava integration test results
+		This job is used for parsing OMERO.java integration test results
 
-		#. Receives TestNG results from :term:`OMERO-5.0-merge-integration`,
+		#. Receives TestNG results under
+		   :file:`components/tools/OmeroJava/target/reports/integration` from
+		   :term:`OMERO-5.0-merge-integration`,
 		#. Generates TestNG report
 
 	:jenkinsjob:`OMERO-5.0-merge-integration-python`
 
-		This job is used for parsing OmeroPy integration test results
+		This job is used for parsing OMERO.py integration test results
 
-		#. Receives pytest results from :term:`OMERO-5.0-merge-integration`,
+		#. Receives pytest results under
+		   :file:`components/tools/OmeroPy/target/reports` from
+		   :term:`OMERO-5.0-merge-integration`,
 		#. Generates pytest report
 
-	:jenkinsjob:`OMERO-5.0-merge-integration-broken`
+	:jenkinsjob:`OMERO-5.0-merge-integration-web`
 
-		This job is used for parsing OmeroJava integration test results
+		This job is used for parsing OMERO.web integration test results
 
-		#. Receives TestNG results from :term:`OMERO-5.0-merge-integration`,
-		#. Generates TestNG report
+		#. Receives pytest results under
+		   :file:`components/tools/OmeroWeb/target/reports` from
+		   :term:`OMERO-5.0-merge-integration`,
+		#. Generates pytest report
 
 	:jenkinsjob:`OMERO-5.0-merge-matlab`
 
@@ -418,9 +441,10 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
    "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-integration"
    "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-matlab"
    "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-robotframework"
+   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-broken";
    "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-java";
    "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-python";
-   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-broken";
+   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-web";
 
 .. glossary::
 
@@ -480,29 +504,50 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 		#. Checks out the merge/develop/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
-		#. Build OMERO.server and start it
-		#. Run the integration tests and collect the results (Java and Python)
+		#. Builds OMERO.server and start it
+		#. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
+		#. Archives the results
+		#. Triggers downstream collection jobs:
+		   :term:`OMERO-5.1-merge-integration-broken`,
+		   :term:`OMERO-5.1-merge-integration-java`,
+		   :term:`OMERO-5.1-merge-integration-python`,
+		   :term:`OMERO-5.1-merge-integration-web`,
+
+	:jenkinsjob:`OMERO-5.1-merge-integration-broken`
+
+		This job is used for parsing OMERO.java broken test results
+
+		#. Receives TestNG results under
+		   :file:`components/tools/OmeroJava/target/reports/broken` from
+		   :term:`OMERO-5.1-merge-integration`,
+		#. Generates TestNG report
 
 	:jenkinsjob:`OMERO-5.1-merge-integration-java`
 
-		This job is used for parsing OmeroJava integration test results
+		This job is used for parsing OMERO.java integration test results
 
-		#. Receives TestNG results from :term:`OMERO-5.1-merge-integration`,
+		#. Receives TestNG results under
+		   :file:`components/tools/OmeroJava/target/reports/integration` from
+		   :term:`OMERO-5.1-merge-integration`,
 		#. Generates TestNG report
 
 	:jenkinsjob:`OMERO-5.1-merge-integration-python`
 
-		This job is used for parsing OmeroPy integration test results
+		This job is used for parsing OMERO.py integration test results
 
-		#. Receives pytest results from :term:`OMERO-5.1-merge-integration`,
+		#. Receives pytest results under
+		   :file:`components/tools/OmeroPy/target/reports` from
+		   :term:`OMERO-5.1-merge-integration`,
 		#. Generates pytest report
 
-	:jenkinsjob:`OMERO-5.1-merge-integration-broken`
+	:jenkinsjob:`OMERO-5.1-merge-integration-web`
 
-		This job is used for parsing OmeroJava integration test results
+		This job is used for parsing OMERO.web integration test results
 
-		#. Receives TestNG results from :term:`OMERO-5.1-merge-integration`,
-		#. Generates TestNG report
+		#. Receives pytest results under
+		   :file:`components/tools/OmeroWeb/target/reports` from
+		   :term:`OMERO-5.1-merge-integration`,
+		#. Generates pytest report
 
 	:jenkinsjob:`OMERO-5.1-merge-matlab`
 
