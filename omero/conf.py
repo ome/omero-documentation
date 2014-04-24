@@ -28,7 +28,7 @@ title = project + u' Documentation'
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-if "OMERO_RELEASE" in os.environ:
+if "OMERO_RELEASE" in os.environ and len(os.environ.get('OMERO_RELEASE')) > 0:
     release = os.environ.get('OMERO_RELEASE')
     [majornumber, minornumber, patchnumber] = split_release(release)
 
