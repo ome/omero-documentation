@@ -32,7 +32,6 @@ Type "ant -p" for a list of targets.
       <basename property="file.basename" file="@{file}"/>
       <dirname property="file.dirname" file="@{file}"/>
       <propertyregex property="file.index" input="${file.basename}" regexp="(.*)\.tex" select="\1.idx"/>
-      <echo message="BN: ${file.basename}  IN: ${file.index}"/>
       <exec executable="makeindex" failonerror="true" dir="${file.dirname}">
         <arg value="-s"/>
         <arg value="python.ist"/>
@@ -58,13 +57,12 @@ Type "ant -p" for a list of targets.
     <attribute name="source" default=""/>
     <attribute name="output" default=""/>
     <sequential>
-      <basename property="output.dir" file="@{output}"/>
       <dirname property="output.path" file="@{output}"/>
       <mkdir dir="@{output}"/>
       <exec executable="sphinx-apidoc" failonerror="true" dir="${output.path}">
         <arg value="-T"/>
         <arg value="-o"/>
-        <arg value="${output.dir}"/>
+        <arg value="@{output}"/>
         <arg value="@{source}"/>
       </exec>
     </sequential>
