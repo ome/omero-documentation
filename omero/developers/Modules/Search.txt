@@ -136,7 +136,7 @@ a re-indexing
 
    ::
 
-       > psql -U <omero-db-user> <omero-db-name> -c “update configuration set value = 0 where name like ‘PersistentEventLogLoader%’;”
+       > psql -U <omero-db-user> <omero-db-name> -c "update configuration set value = 0 where name like 'PersistentEventLogLoader%';"
 
    substituting in your local omero database's user and name
 
