@@ -185,8 +185,9 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 		branch with the PRs opened against the dev_4_4 branch of OMERO
 
 		#. |merge|
-		#. Build OMERO.server and start it
-		#. Run the integration tests and collect the results (Java and Python)
+		#. Builds OMERO.server and starts it
+		#. Runs the integration tests and collect the results (Java and
+		   Python)
 
 	:jenkinsjob:`OMERO-4.4-merge-integration-java`
 
@@ -217,8 +218,8 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 
 		#. Checks out the merge/dev_4_4/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
-		#. Build OMERO.server and start it
-		#. Run the robot framework tests and collect the results
+		#. Builds OMERO.server and starts it
+		#. Runs the robot framework tests and collect the results
 
 	:jenkinsjob:`OMERO-4.4-merge-matlab`
 
@@ -244,9 +245,9 @@ are listed under the :jenkinsview:`4.4` view tab of Jenkins.
 
 		This job is used to test the installation of OMERO 4.4 using Homebrew
 
-		#. Clean :file:`/usr/local`
-		#. Install Homebrew
-		#. Run :file:`docs/install/OMERO-homebrew-install.sh`
+		#. Cleans :file:`/usr/local`
+		#. Installs Homebrew
+		#. Runs :file:`docs/install/OMERO-homebrew-install.sh`
 
 5.0.x series
 ^^^^^^^^^^^^
@@ -350,7 +351,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		branch with the PRs opened against the dev_5_0 branch of OMERO
 
 		#. |merge|
-		#. Builds OMERO.server and start it
+		#. Builds OMERO.server and starts it
 		#. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
 		#. Archives the results
 		#. Triggers downstream collection jobs:
@@ -414,16 +415,16 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 
 		#. Checks out the merge/dev_5_0/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
-		#. Build OMERO.server and start it
-		#. Run the robot framework tests and collect the results
+		#. Builds OMERO.server and starts it
+		#. Runs the robot framework tests and collect the results
 
 	:jenkinsjob:`OME-5.0-merge-homebrew`
 
 		This job is used to test the installation of OMERO 5.0 using Homebrew
 
-		#. Clean :file:`/usr/local`
-		#. Install Homebrew
-		#. Run :file:`docs/install/OMERO-homebrew-install.sh`
+		#. Cleans :file:`/usr/local`
+		#. Installs Homebrew
+		#. Runs :file:`docs/install/OMERO-homebrew-install.sh`
 
 5.1.x series
 ^^^^^^^^^^^^
@@ -504,7 +505,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 		#. Checks out the merge/develop/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
-		#. Builds OMERO.server and start it
+		#. Builds OMERO.server and starts it
 		#. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
 		#. Archives the results
 		#. Triggers downstream collection jobs:
@@ -568,8 +569,8 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 		#. Checks out the merge/develop/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
-		#. Build OMERO.server and start it
-		#. Run the robot framework tests and collect the results
+		#. Builds OMERO.server and starts it
+		#. Runs the robot framework tests and collect the results
 
 .. _omero_breaking:
 
@@ -629,7 +630,7 @@ Jenkins.
 
 		#. Checks out the merge/develop/breaking branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
-		#. Builds OMERO.server and start it
+		#. Builds OMERO.server and starts it
 		#. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
 		#. Archives the results
 		#. Triggers downstream collection jobs:
