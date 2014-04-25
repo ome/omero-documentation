@@ -29,7 +29,7 @@ Configuration files are XML files which declares only two elements:
         <simpleContent >
           <extension base="string">
             <attribute name="name" type="string" use="required"/>
-            <attribute name=“type"type=“string"default=“string”/>
+            <attribute name=“type" type=“string" default="string"/>
             <simpleType>
               <restriction base="string">
                 <enumeration value="string"/>
@@ -39,7 +39,7 @@ Configuration files are XML files which declares only two elements:
                 <enumeration value="boolean"/>
               </restriction>
     . . . close all tags
-    <element name=“structuredEntry"minOccurs="0"maxOccurs="unbounded">
+    <element name="structuredEntry" minOccurs="0" maxOccurs="unbounded">
       <complexType>
         <sequence>
           <any maxOccurs="unbounded"/>
