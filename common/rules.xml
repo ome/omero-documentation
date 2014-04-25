@@ -6,10 +6,10 @@ Download Apache Ant from http://ant.apache.org/.
 Type "ant -p" for a list of targets.
 -->
 
-<project>
+<project name="rules" basedir=".">
   <description>Common sphinx targets</description>
-  <property name="root.dir" location=".."/>
-  <import file="${root.dir}/common/sphinx.xml"/>
+  <dirname property="imported.basedir" file="${ant.file.rules}"/>
+  <import file="${imported.basedir}/sphinx.xml"/>
 
   <!-- Ant-Contrib Tasks: http://ant-contrib.sourceforge.net/ -->
   <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
@@ -19,7 +19,10 @@ Type "ant -p" for a list of targets.
 
   <property name="omero.shortversion" value=""/>
 
-  <target name="html">
+  <target name="sphinx-deps"/>
+  <target name="clean-deps"/>
+
+  <target name="html" depends="sphinx-deps">
     <exec executable="${sphinx.build}" failonerror="true">
         <env key="SOURCE_BRANCH" value="v.${omero.shortversion}"/>
         <env key="OMERO_RELEASE" value="${omero.shortversion}"/>
@@ -31,7 +34,7 @@ Type "ant -p" for a list of targets.
       </exec>
   </target>
 
-  <target name="latexpdf">
+  <target name="latexpdf" depends="sphinx-deps">
     <exec executable="${sphinx.build}" failonerror="true">
       <env key="SOURCE_BRANCH" value="v.${omero.shortversion}"/>
       <env key="OMERO_RELEASE" value="${omero.shortversion}"/>
@@ -54,7 +57,7 @@ Type "ant -p" for a list of targets.
 
   <target name="pdf" depends="latexpdf"/>
 
-  <target name="linkcheck">
+  <target name="linkcheck" depends="sphinx-deps">
     <exec executable="${sphinx.build}" failonerror="true">
         <env key="SOURCE_BRANCH" value="v.${omero.shortversion}"/>
         <env key="OMERO_RELEASE" value="${omero.shortversion}"/>
@@ -66,7 +69,7 @@ Type "ant -p" for a list of targets.
       </exec>
   </target>
 
-  <target name="clean">
+  <target name="clean" depends="clean-deps">
     <delete dir="${sphinx.builddir}"/>
   </target>
 
