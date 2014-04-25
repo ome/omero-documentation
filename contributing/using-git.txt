@@ -165,7 +165,7 @@ will link the commit to the ticket on trac, and "Fixes
 
 ::
 
-        git commit  -m "Add message here and refer to the ticket number. See #1234. Fixes #5678"
+        git commit -m "Add message here and refer to the ticket number. See #1234. Fixes #5678"
 
 .. note::
 
@@ -795,7 +795,7 @@ Pull Request.
 
         git checkout -b new_stuff SOMEUSER/new_stuff
         # Modifications
-        git commit -a -m “My fix of the new_stuff”
+        git commit -a -m "My fix of the new_stuff"
         git push gh new_stuff
         # Now go to the new_stuff branch on github.com and open the PR
 
