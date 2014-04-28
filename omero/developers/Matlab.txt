@@ -1,4 +1,4 @@
-OMERO Matlab language bindings
+OMERO MATLAB language bindings
 ==============================
 
 See |DevelopingOmeroClients| and |OmeroModel|, for an introduction to
@@ -14,8 +14,8 @@ Installing the OMERO.matlab toolbox
    :omerojob:`here <lastSuccessfulBuild/>`, and download the OMERO.matlab zip
    file.
 -  Unzip the directory anywhere on your system.
--  In Matlab, move to the newly unzipped directory and run ``loadOmero;``.
--  The Matlab files are now on your path, and the necessary jars are on
+-  In MATLAB, move to the newly unzipped directory and run ``loadOmero;``.
+-  The MATLAB files are now on your path, and the necessary jars are on
    your java classpath. You can change directories and still have access
    to OMERO.
 
@@ -32,12 +32,15 @@ As a quickstart example, the following lines create a secure connection to a
 server, read a series of images and close the connection.
 
 ::
-   
+
    client = loadOmero(servername, port);
    session = client.createSession(user, password);
    client.enableKeepAlive(60);
    images = getImages(session, ids);
    client.closeSession();
+
+Examples of usage of the OMERO.matlab toolbox are provided in the
+:sourcedir:`training examples <examples/Training/matlab>` directory.
 
 Configuring the OMERO.matlab connection
 ---------------------------------------
@@ -47,7 +50,7 @@ Configuring the OMERO.matlab connection
 Creating a connection
 ^^^^^^^^^^^^^^^^^^^^^
 
-As described under |OmeroClients|, there are several ways to configure your 
+As described under |OmeroClients|, there are several ways to configure your
 connection to an OMERO server. OMERO.matlab comes with a few conveniences for
 making this work.
 
@@ -81,7 +84,7 @@ Keeping your session alive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For executing any long running task, you will need a background thread
-which keeps your session alive. If you are familiar with Matlab
+which keeps your session alive. If you are familiar with MATLAB
 ``Timers`` you can use
 :source:`omeroKeepAlive.m <components/tools/OmeroM/src/omeroKeepAlive.m>`
 directly or modify it to your liking.
@@ -94,7 +97,7 @@ directly or modify it to your liking.
     >> delete(t);             % Disable the keep-alive
 
 Alternatively, you can use the Java-based ``enableKeepAlive`` method,
-but it is not configurable from within Matlab::
+but it is not configurable from within MATLAB::
 
     c.enableKeepAlive(60); % Call session.keepAlive() every 60 seconds
     c.closeSession();      % Close session to end the keep-alive
@@ -104,8 +107,8 @@ but it is not configurable from within Matlab::
 Creating an unencrypted session
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to speed up the data transfer, you can create and use an
-unencrypted session as::
+Once a session has been created, if you want to speed up the data transfer,
+you can create and use an unencrypted session as::
 
 	unsecureClient = client.createClient(false);
 	sessionUnencrypted = unsecureClient.getSession();
@@ -115,7 +118,7 @@ unencrypted session as::
 Closing your connection
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-When you are done with OMERO, it is critical that you close your connection to 
+When you are done with OMERO, it is critical that you close your connection to
 save resources::
 
     client.closeSession();
@@ -326,7 +329,7 @@ method::
             ws.getId().getValue()
             pa = ws.getPlateAcquisition();
         end
-    end 
+    end
 
 Raw data access
 ---------------
@@ -483,6 +486,27 @@ function::
 
 	tagAnnotations = getImageTagAnnotations(session, imageIds);
 
+Annotations can be filtered by namespace. To include only annotations with a
+given namespace ``ns``, use the ``include`` parameter/key value::
+
+   tagAnnotations = getImageTagAnnotations(session, imageIds, 'include', ns);
+
+To exclude all annotations with a given namespace ``ns``, use the ``exclude``
+parameter/key value::
+
+   tagAnnotations = getImageTagAnnotations(session, imageIds, 'exclude', ns);
+
+By default, only the annotations owned by the session owner are returned. To
+specify the owner of the annotations, use the ``owner`` paramter/key value
+pair. For instance to return all tag annotations owned by user 5::
+
+    tagAnnotations = getImageTagAnnotations(session, imageIds, 'owner', 5);
+
+To retrieve all annotations independently of their owner, use -1 as the owner
+identifier::
+
+   tagAnnotations = getImageTagAnnotations(session, imageIds, 'owner', -1);
+
 -  **Reading file annotations**
 
 The content of a file annotation can be downloaded to local disk using the
@@ -578,7 +602,7 @@ How to use OMERO tables
 
 ::
 
-    of = omero.model.OriginalFileI(file.getId(), false); 
+    of = omero.model.OriginalFileI(file.getId(), false);
     tablePrx = session.sharedResources().openTable(of);
 
     % Read headers
@@ -602,8 +626,9 @@ How to use OMERO tables
 ROIs
 ----
 
-To learn about the model see :model_doc:`developers/roi.html`. Note that 
-annotation can be linked to ROI.
+To learn about the model, see the
+:model_doc:`developers guide to the ROI model <developers/roi.html>`. Note
+that annotations can be linked to ROI.
 
 -  **Creating ROI**
 
@@ -629,7 +654,7 @@ attaches it to an image::
     % Link the roi and the image
     roi.setImage(omero.model.ImageI(imageId, false));
     % Save
-    iUpdate = session.getUpdateService(); 
+    iUpdate = session.getUpdateService();
     roi = iUpdate.saveAndReturnObject(roi);
     % Check that the shape has been added.
     numShapes = roi.sizeOfShapes;
@@ -700,7 +725,7 @@ It is possible to delete projects, datasets, images, ROIs… and
 objects linked to them depending on the specified options (see
 :doc:`/developers/Modules/Delete`). For example, images of known identifiers
 can be deleted from the server using the
-:source:`deleteImages <components/tools/OmeroM/src/delete/deleteImages.m>` 
+:source:`deleteImages <components/tools/OmeroM/src/delete/deleteImages.m>`
 function::
 
 	deleteImages(session, imageIds);
@@ -713,7 +738,7 @@ function::
 Rendering images
 -----------------
 
-The :source:`RenderImages.m <examples/Training/matlab/RenderImages.m>` example 
+The :source:`RenderImages.m <examples/Training/matlab/RenderImages.m>` example
 script shows how to initialize the rendering engine and render an image.
 
 Creating Image
