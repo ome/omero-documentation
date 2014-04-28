@@ -29,7 +29,7 @@ Configuration files are XML files which declares only two elements:
         <simpleContent >
           <extension base="string">
             <attribute name="name" type="string" use="required"/>
-            <attribute name=“type" type=“string" default="string"/>
+            <attribute name="type" type="string" default="string"/>
             <simpleType>
               <restriction base="string">
                 <enumeration value="string"/>
