@@ -211,19 +211,20 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 
 .. digraph:: OMERO50jobs
 
-   "OMERO-5.0-latest" -> "OMERO-5.0-latest-deploy";
-
-   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-push";
-   "OMERO-5.0-merge-push" -> "OMERO-5.0-merge-build";
-   "OMERO-5.0-merge-build" -> "OMERO-5.0-merge-deploy";
-   "OMERO-5.0-merge-push" -> "OMERO-5.0-merge-integration"
-   "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-matlab"
-   "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-robotframework"
-   "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-doc"
-   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-broken";
-   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-java";
-   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-python";
-   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-web";
+  "OMERO-5.0-latest" -> "OMERO-5.0-latest-deploy";
+  "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-push";
+  subgraph cluster_0 {
+    "OMERO-5.0-merge-push" -> "OMERO-5.0-merge-build";
+    "OMERO-5.0-merge-build" -> "OMERO-5.0-merge-deploy";
+    }
+  "OMERO-5.0-merge-push" -> "OMERO-5.0-merge-integration"
+  "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-matlab"
+  "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-robotframework"
+  "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-doc"
+  "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-broken";
+  "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-java";
+  "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-python";
+  "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-web";
 
 .. glossary::
 
@@ -368,17 +369,20 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 .. digraph:: OMERO51jobs
 
-   "OMERO-5.1-latest" -> "OMERO-5.1-latest-deploy";
-
-   "OMERO-5.1-merge-daily" -> "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy";
-   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-docs"
-   "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-integration"
-   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-matlab"
-   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-robotframework"
-   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-broken";
-   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-java";
-   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-python";
-   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-web";
+  "OMERO-5.1-latest" -> "OMERO-5.1-latest-deploy";
+  "OMERO-5.1-merge-daily" -> "OMERO-5.1-merge-push"
+  subgraph cluster_0 {
+    "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-build";
+    "OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy";
+    }
+  "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-docs"
+  "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-integration"
+  "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-matlab"
+  "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-robotframework"
+  "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-broken";
+  "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-java";
+  "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-python";
+  "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-web";
 
 .. glossary::
 
@@ -516,15 +520,17 @@ Jenkins.
 
 .. digraph:: OMERObreakingjobs
 
-   "OMERO-5.1-breaking-trigger" -> "OMERO-5.1-breaking-push";
-   "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-build";
-   "OMERO-5.1-breaking-build" -> "OMERO-5.1-breaking-deploy";
-   "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-integration";
-   "OMERO-5.1-breaking-deploy" -> "OMERO-5.1-breaking-upgrade";
-   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-broken";
-   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-java";
-   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-python";
-   "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-web";
+  "OMERO-5.1-breaking-trigger" -> "OMERO-5.1-breaking-push";
+  subgraph cluster_0 {
+    "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-build";
+    "OMERO-5.1-breaking-build" -> "OMERO-5.1-breaking-deploy";
+    }
+  "OMERO-5.1-breaking-push" -> "OMERO-5.1-breaking-integration";
+  "OMERO-5.1-breaking-deploy" -> "OMERO-5.1-breaking-upgrade";
+  "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-broken";
+  "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-java";
+  "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-python";
+  "OMERO-5.1-breaking-integration" -> "OMERO-5.1-breaking-integration-web";
 
 .. glossary::
 
