@@ -1,14 +1,6 @@
-# MakeFile for building OMERO documentation
+# Delegate all make targets directly to ant
 
-.PHONY: clean html latexpdf
+CLASSPATH := $(pwd)/common/ant-contrib-1.0b3.jar
 
-# Loop over the possible products and call other build targets.
-html:
-	cd omero && make html
-
-latexpdf:
-	cd omero && make latexpdf
-
-clean:
-	cd omero && make clean
-
+%:
+	ant $@
