@@ -2,8 +2,9 @@ OMERO Java language bindings
 ============================
 
 Using the :zeroc:`Ice Java language mapping
-<doc/Ice-3.3.0/manual/Hello.4.4.html>` from ZeroC_, OMERO provides access to
-your data within an :doc:`/developers/server-blitz` server from Java code.
+:zerocdoc:`Hello World <display/Ice/Hello+World+Application>` from ZeroC_,
+ OMERO provides access to your data within an
+:doc:`/developers/server-blitz` server from Java code.
 
 Using the ``omero_client.jar``
 ------------------------------
