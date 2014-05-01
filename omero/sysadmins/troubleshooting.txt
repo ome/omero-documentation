@@ -218,8 +218,8 @@ most likely cause is that your PYTHONPATH is not properly set.
 -  If you installed Ice globally via your package manager, make sure you
    included ice-python.
 
--  If you installed Ice manually, e.g. under ``/opt/Ice-3.3.1`` you need
-   to add ``/opt/Ice-3.3.1/python`` (or similar) to your PYTHONPATH
+-  If you installed Ice manually, e.g. under ``/opt/Ice-3.5.1`` you need
+   to add ``/opt/Ice-3.5.1/python`` (or similar) to your PYTHONPATH
    environment variable. See the Ice installation instructions for more
    information.
 
