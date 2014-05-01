@@ -13,10 +13,11 @@ a PR.
 ## Suggesting a change
 
 * Fork the repository on Github.
-* Create a branch for your work based on the `develop` branch if you want to
-  make changes in `/contributing` or `/formats`, or for a future version of
-  OMERO, or on the latest `dev_x` e.g. dev_5_0 branch for the current major
-  version.
+* Create a branch for your work. If you want to make changes in
+  `/contributing` or `/formats`, or for a future major version of
+  OMERO, this should be based on the `develop` branch. For changes for the
+  current version of OMERO, base your branch on the latest `dev_x` branch e.g.
+  `dev_5_0`.
 * Make your commits and open a PR.
 * Make sure you explain your changes in the PR description.
 
