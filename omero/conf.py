@@ -79,7 +79,7 @@ omero_extlinks = {
     'omedocs' : (doc_github_root + '%s', ''),
     # Jenkins links
     'omerojob' : (omero_job_root + '/%s', ''),
-    'javadoc' : (omero_job_root + '/javadoc/%s', ''),
+    'javadoc' : (downloads_root + '/latest/omero5/api/%s', ''),
     'virtualjob' : (virtual_job_root + '/%s', ''),
     # Miscellaneous links
     'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
