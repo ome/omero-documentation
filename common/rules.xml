@@ -20,14 +20,20 @@ Type "ant -p" for a list of targets.
     classpath="${imported.basedir}/ant-contrib-1.0b3.jar"/>
 
   <property name="omero.shortversion" value=""/>
+  <property name="source.branch" value="v.${omero.shortversion}"/>
+  <property name="source.user" value="openmicroscopy"/>
+  <property name="omero.release" value="${omero.shortversion}"/>
+  <property name="formats.release" value="${omero.shortversion}"/>
 
   <target name="sphinx-deps"/>
   <target name="clean-deps"/>
 
   <target name="html" depends="sphinx-deps">
     <exec executable="${sphinx.build}" failonerror="true">
-        <env key="SOURCE_BRANCH" value="v.${omero.shortversion}"/>
-        <env key="OMERO_RELEASE" value="${omero.shortversion}"/>
+        <env key="SOURCE_BRANCH" value="${source.branch}"/>
+        <env key="SOURCE_USER" value="${source.user}"/>
+        <env key="OMERO_RELEASE" value="${omero.release}"/>
+        <env key="FORMATS_RELEASE" value="${formats.release}"/>
         <arg value="-b"/>
         <arg value="html"/>
         <arg line="${sphinx.opts}"/>
@@ -38,13 +44,15 @@ Type "ant -p" for a list of targets.
 
   <target name="latexpdf" depends="sphinx-deps">
     <exec executable="${sphinx.build}" failonerror="true">
-      <env key="SOURCE_BRANCH" value="v.${omero.shortversion}"/>
-      <env key="OMERO_RELEASE" value="${omero.shortversion}"/>
-      <arg value="-b"/>
-      <arg value="latex"/>
-      <arg line="${sphinx.opts}"/>
-      <arg value="."/>
-      <arg value="${sphinx.builddir}/latex"/>
+        <env key="SOURCE_BRANCH" value="${source.branch}"/>
+        <env key="SOURCE_USER" value="${source.user}"/>
+        <env key="OMERO_RELEASE" value="${omero.release}"/>
+        <env key="FORMATS_RELEASE" value="${formats.release}"/>
+        <arg value="-b"/>
+        <arg value="latex"/>
+        <arg line="${sphinx.opts}"/>
+        <arg value="."/>
+        <arg value="${sphinx.builddir}/latex"/>
     </exec>
 
     <for param="file">
@@ -61,8 +69,10 @@ Type "ant -p" for a list of targets.
 
   <target name="linkcheck" depends="sphinx-deps">
     <exec executable="${sphinx.build}" failonerror="true">
-        <env key="SOURCE_BRANCH" value="v.${omero.shortversion}"/>
-        <env key="OMERO_RELEASE" value="${omero.shortversion}"/>
+        <env key="SOURCE_BRANCH" value="${source.branch}"/>
+        <env key="SOURCE_USER" value="${source.user}"/>
+        <env key="OMERO_RELEASE" value="${omero.release}"/>
+        <env key="FORMATS_RELEASE" value="${formats.release}"/>
         <arg value="-b"/>
         <arg value="linkcheck"/>
         <arg line="${sphinx.opts}"/>

@@ -28,7 +28,7 @@ title = project + u' Documentation'
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-if "FORMATS_RELEASE" in os.environ:
+if "FORMATS_RELEASE" in os.environ and len(os.environ.get('FORMATS_RELEASE')) > 0:
     release = os.environ.get('FORMATS_RELEASE')
     version = release
 else:
