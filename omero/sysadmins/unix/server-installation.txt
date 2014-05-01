@@ -238,8 +238,8 @@ Ice
 
 .. note::
 
-    OMERO |version| supports 3.4 and 3.5 on UNIX and UNIX-like platforms,
-    but you must install the correct version of OMERO.server (see
+    OMERO |version| supports 3.5 and 3.4 on UNIX and UNIX-like platforms.
+    You must install the correct version of OMERO.server (see
     :downloads:`Downloads <>`).
 
 If possible, install one of the following packages:
