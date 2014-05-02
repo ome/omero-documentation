@@ -58,7 +58,7 @@ Ice
 
 .. note::
 
-    OMERO |version| supports Ice 3.5, 3.4 and 3.3.  Ice 3.3 support is
+    OMERO |version| supports Ice 3.4 and 3.3.  Ice 3.3 support is
     deprecated and will be removed in OMERO 5.1, which will require Ice
     3.5 or 3.4.  You will need to pick the matching server download for
     the version of Ice you have installed.
@@ -66,7 +66,7 @@ Ice
     If you are using precompiled packages of Ice and Python (recommended)
     you should use the versions specified below. In particular since OMERO
     does not support Python 3 **it will not work with the Ice 3.5 package for
-    Windows**.  However, Ice 3.5 will work when built against Python 2.7.
+    Windows**.
 
 
 Windows installers of Ice can be found on the :zeroc:`ZeroC Ice 3.4.2 download
