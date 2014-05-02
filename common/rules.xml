@@ -20,7 +20,13 @@ Type "ant -p" for a list of targets.
     classpath="${imported.basedir}/ant-contrib-1.0b3.jar"/>
 
   <property name="omero.shortversion" value=""/>
-  <property name="source.branch" value="v.${omero.shortversion}"/>
+  <if>
+    <equals arg1="omero.shortversion" arg2=""/>
+    <then>
+      <property name="source.branch" value="v.${omero.shortversion}"/>
+    </then>
+  </if>
+  <property name="source.branch" value=""/>
   <property name="source.user" value="openmicroscopy"/>
   <property name="omero.release" value="${omero.shortversion}"/>
   <property name="formats.release" value="${omero.shortversion}"/>
