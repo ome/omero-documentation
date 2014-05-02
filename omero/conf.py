@@ -63,7 +63,7 @@ rst_epilog += """
 """ % previousversion
 
 # Variables used to define OMERO Jenkins extlinks
-if "JENKINS_JOB" in os.environ:
+if "JENKINS_JOB" in os.environ and len(os.environ.get('JENKINS_JOB')) > 0:
     jenkins_job = os.environ.get('JENKINS_JOB')
 else:
     jenkins_job = 'OMERO-trunk'
