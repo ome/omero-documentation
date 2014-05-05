@@ -83,7 +83,7 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
 
 	:jenkinsjob:`BIOFORMATS-4.4-merge-daily`
 
-		This job merges the PRs opened against the dev_4_4	branch of
+		This job merges the PRs opened against the dev_4_4 branch of
 		Bio-Formats by running basic unit tests, checking for open file
 		handles, and checking for regressions across a representative
 		subset of the data repository
