@@ -10,7 +10,7 @@ Developing OMERO clients
     - This page is intended for developers already familiar with
       client/server programming. If you are not, **your best starting
       point is to read the**
-      :zeroc:`Hello World <doc/Ice-3.3.0/manual/Hello.html#22064>`
+      :zerocdoc:`Hello World <display/Ice/Hello+World+Application>`
       **chapter of the Ice manual (or more)**. A deeper understanding of
       Ice might not be necessary, but certainly understanding the Ice
       basics will make reading this guide **much** easier.
@@ -1183,8 +1183,8 @@ Example: :source:`examples/OmeroClients/smartpointers.cpp`
     a boolean or integer/long context, returns 1 for true (i.e. non-null) or
     0 for false (i.e. null). Be especially careful with the RTypes.
 
-For more information, see :zeroc:`6.14.6 Smart Pointers for
-Classes <doc/Ice-3.3.0/manual/Cpp.7.14.html>` in the
+For more information, see :zerocdoc:`6.14.6 Smart Pointers for
+Classes <display/Ice/Smart+Pointers+for+Classes>` in the
 Ice manual, which also describes the ``Ice.GC.Interval`` parameter which
 determines how often garbage collection runs in C++ to reap objects.
 This is necessary with the |OmeroModel| 
@@ -2396,5 +2396,3 @@ Other
    ``ome.model.*`` interfaces
 -  Annotation-link-loading can behave strangely if
    ``AnnotationLink.child`` is not loaded.
--  Python applications can segfault under certain orderings of imports:
-   See :zeroc:`Bus Error under Mac OX 10.4 and IcePy 3.3.0 <forums/bug-reports/3883-bus-error-under-mac-ox-10-4-icepy-3-3-0-a.html>`
