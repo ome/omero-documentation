@@ -165,7 +165,7 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		basic unit tests, checking for open file handles, and checking for
 		regressions across a representative subset of the data repository
 
-		#. Triggers :term:`OMERO-5.1-merge-push`
+		#. Triggers :term:`OMERO-5.0-merge-push`
 		#. Triggers :term:`BIOFORMATS-5.0-merge-build`,
 		   :term:`BIOFORMATS-5.0-merge-docs`,
 		   :term:`BIOFORMATS-5.0-merge-test_images_good` and
