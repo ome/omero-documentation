@@ -73,6 +73,8 @@ At the moment in-place import is only available under
 Posix systems (Unix, Linux, OSX). Support for Windows is
 forthcoming.
 
+Also, there is still some data duplication when pyramids are generated. We are
+hoping to find a work-around for this in the future.
 
 .. _safety_tips:
 
