@@ -1,7 +1,7 @@
 # Delegate all make targets directly to ant
 
-ifdef SPHINX_OPTS
-ANT_SPHINX_OPTS := -Dsphinx.opts="$(SPHINX_OPTS)"
+ifdef SPHINXOPTS
+ANT_SPHINXOPTS := -Dsphinx.opts="$(SPHINXOPTS)"
 endif
 
 ifdef FORMATS_RELEASE
@@ -23,6 +23,6 @@ endif
 default: html
 
 %:
-	ant $@ $(ANT_SPHINX_OPTS) $(ANT_FORMATS_RELEASE) $(ANT_OMERO_RELEASE) $(ANT_SOURCE_BRANCH) $(ANT_SOURCE_USER)
+	ant $@ $(ANT_SPHINXOPTS) $(ANT_FORMATS_RELEASE) $(ANT_OMERO_RELEASE) $(ANT_SOURCE_BRANCH) $(ANT_SOURCE_USER)
 
 .PHONY: default
