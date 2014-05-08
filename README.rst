@@ -538,14 +538,6 @@ Links to the continuous integration server can be created using the
 ``jenkins`` alias for the main server, e.g. ``:jenkins: `Jenkins server <>```,
 the ``jenkinsjob`` alias for a given job, e.g. ``:jenkinsjob: `OMERO-4.4``` or
 the ``jenkinsview`` alias for a given view, e.g. ``:jenkinsview: `4.4```.
-Two aliases have been defined for the main OMERO job: ``omerojob`` and
-``javadoc`` for the generated Javadoc, e.g. ``:javadoc:`main page <>```.
-
-By default, the OMERO job is set to ``OMERO-trunk``. To specify a different 
-job, set the JENKINS_JOB environment variables, e.g.::
-
-    JENKINS_JOB=OMERO-4.4 make clean html
-    JENKINS_JOB=OMERO-4.4 ant clean html
 
 Mailing-list links
 ==================
