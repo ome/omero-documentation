@@ -69,18 +69,16 @@ else:
     jenkins_job = 'OMERO-trunk'
 
 omero_job_root = jenkins_job_root + '/' + jenkins_job
-virtual_job_root = jenkins_job_root + '/' + jenkins_job + '-virtualbox'
 
 # OMERO-specific extlinks
 omero_extlinks = {
     # Github links
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
-    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),   
+    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
     # Jenkins links
     'omerojob' : (omero_job_root + '/%s', ''),
     'javadoc' : (downloads_root + '/latest/omero5/api/%s', ''),
-    'virtualjob' : (virtual_job_root + '/%s', ''),
     # Miscellaneous links
     'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
     }
