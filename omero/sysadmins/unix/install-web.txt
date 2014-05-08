@@ -535,15 +535,8 @@ Customizing your OMERO.web installation
       Logo images should ideally be 150 pixels high or less and will appear above
       the OMERO logo.
 
-   -  To use an image that is already hosted elsewhere:
+   -  You will need to host the image somewhere else and link to it with
 
       ::
 
           $ bin/omero config set omero.web.login_logo "http://www.openmicroscopy.org/site/logo.jpg"
-
-   -  Alternatively, you can replace the placeholder custom_login_logo.png with a different image
-      of the same name. within the static files of your OMERO.web deployment at:
-
-      ::
-
-          path/to/static/webclient/image/custom_login_logo.png
