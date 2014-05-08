@@ -12,7 +12,7 @@ OMERO.clients
 
 The OMERO model is implemented as a relational PostgreSQL database on
 the OMERO.server and mapped to code-generated model objects used by the
-clients in the various supported languages (linked above). The 
+clients in the various supported languages (linked above). The
 OMERO API consists of a number of services for working with these objects and
 associated binary data. Typically, clients will use various stateless
 services to query the OMERO model and then use the stateful services for
@@ -33,7 +33,7 @@ A typical client interaction might have an outline such as:
 
 OMERO.clients use a common 'gateway' to communicate with an OMERO.server
 installation and allow the user to import, display, edit, and manage
-server data. The OMERO team has developed a suite of clients 
+server data. The OMERO team has developed a suite of clients
 (see :doc:`/users/clients-overview`), but the
 open source nature of the OMERO project also allows developers to create
 their own, customized clients. If you are interested in doing this, further
@@ -58,9 +58,10 @@ alternatively you can use the latest development code. Instructions on
 how to download or check out the code can be found on the main
 :downloads:`downloads page <>`.
 
-Regular builds of the server are performed by Jenkins_ (formerly known as 
-hudson) and all results are available here :omerojob:`here <>`, 
-including generated :javadoc:`javadocs <>`.
+Regular builds of the server are performed by Jenkins_ including generated
+Javadocs. See the
+:devs_doc:`contributing developer continuous integration </ci-omero.html>` for
+more information.
 
 Environment variables
 ---------------------
@@ -166,7 +167,7 @@ Images
 
 .. figure:: /images/developer-model-img.png
    :align: center
-   :alt: 
+   :alt:
 
 Images in OMERO are made up many entities. These include core image components
 such as :javadoc:` Pixels <slice2html/omero/model/Pixels.html>` and
@@ -175,7 +176,7 @@ number of additional metadata objects such as Instrument (microscope),
 Objective, Filters, Light Sources, and Detectors.
 Image pixels data is stored as a single file, numbered by Pixels ID
 in the OMERO repository under /OMERO/Pixels/ and can be accessed using
-the Raw Pixels Store. 
+the Raw Pixels Store.
 
 .. note::
 
@@ -210,7 +211,7 @@ could write a query like this:
     queryService = session.getQueryService()
     params = omero.sys.Parameters()
     params.map = {"pid": rlong(projectId)}
-    query = "select p from Project p left outer join fetch p.datasetLinks as links left 
+    query = "select p from Project p left outer join fetch p.datasetLinks as links left
                 outer join fetch links.child as dataset where p.id=:pid"
     project = queryService.findByQuery(query, params)
     for dataset in project.linkedDatasetList:
@@ -235,10 +236,10 @@ HQL examples
 
 HQL is used for Query Service queries (see above). Some examples,
 coupled with a knowledge of the OMERO model should get you going, along
-with notes about object loading on the |OmeroModel|  page. 
+with notes about object loading on the |OmeroModel|  page.
 
 .. note::
-    If possible, it is advisable to use an existing API method from one 
+    If possible, it is advisable to use an existing API method from one
     of the other services (as for the container service above).
 
 Although it is possible to place query parameters directly into the string, it
@@ -265,7 +266,7 @@ Below are a number of example psql database queries:
     omero=#select id, name from Image i where i.id not in (select image from Pixels where image is not null) order by i.id desc;
 
     omero=# select id, name, ome_perms(permissions) from experimentergroup;
-     id  |                        name                        | ome_perms 
+     id  |                        name                        | ome_perms
     -----+----------------------------------------------------+-----------
        0 | system                                             | -rw----
        1 | user                                               | -rwr-r-
@@ -274,7 +275,7 @@ Below are a number of example psql database queries:
        4 | JRS-read-only                                      | -rwr---
 
     omero=# select id, name, path, owner_id, group_id, ome_perms(permissions) from originalfile order by id desc limit 100;
-     id |       name                        |          path                                         | owner_id | group_id | ome_perms 
+     id |       name                        |          path                                         | owner_id | group_id | ome_perms
     ----+-----------------------------------+-------------------------------------------------------+----------+----------+-----------
      56 | GFP-FRAP.cpe.xml                  | /Users/will/omero/editor/GFP-FRAP.cpe.xml             |        4 |        5 | -rwr---
 
@@ -285,20 +286,20 @@ Below are a number of example psql database queries:
     id            | 369
     discriminator | /type/OriginalFile/
     ns            | openmicroscopy.org/omero/import/companionFile
-    textvalue     | 
+    textvalue     |
     file          | 570
 
     omero=# \x
     Expanded display is off.
     omero=# select * from joboriginalfilelink where parent = 7;
-     id | permissions | version | child | creation_id | external_id | group_id | owner_id | update_id | parent 
+     id | permissions | version | child | creation_id | external_id | group_id | owner_id | update_id | parent
     ----+-------------+---------+-------+-------------+-------------+----------+----------+-----------+--------
      14 |        -103 |         |   110 |         891 |             |      208 |      207 |       891 |      7
      17 |        -103 |         |   113 |         926 |             |      208 |      207 |       926 |      7
     (2 rows)
 
     omero=# select id, name, path, owner_id, group_id, ome_perms(permissions) from originalfile where id in (110,113) order by id desc limit 100;
-     id  |       name        |                             path                             | owner_id | group_id | ome_perms 
+     id  |       name        |                             path                             | owner_id | group_id | ome_perms
     -----+-------------------+--------------------------------------------------------------+----------+----------+-----------
      113 | stdout            | /Users/will/omero/tmp/omero_will/75270/processuLq8fd.dir/out |      207 |      208 | -rw----
      110 | imagesFromRois.py | ScriptName061ea79c-f98c-447b-b720-d17003d6a72f               |        0 |        0 | -rw----
@@ -314,11 +315,11 @@ bin/omero hql
 ~~~~~~~~~~~~~
 
 You can use the omero :omerocmd:`hql` command to query a remote OMERO database, entering
-your login details when requested. 
+your login details when requested.
 
 .. note::
 
-    Because you will be querying the database under a particular login, the 
+    Because you will be querying the database under a particular login, the
     entries returned will be subject to the permissions of that login.
 
 ::

@@ -62,22 +62,13 @@ rst_epilog += """
 .. |iceversion| replace:: 3.5.0
 """ % previousversion
 
-# Variables used to define OMERO Jenkins extlinks
-if "JENKINS_JOB" in os.environ and len(os.environ.get('JENKINS_JOB')) > 0:
-    jenkins_job = os.environ.get('JENKINS_JOB')
-else:
-    jenkins_job = 'OMERO-trunk'
-
-omero_job_root = jenkins_job_root + '/' + jenkins_job
-
 # OMERO-specific extlinks
 omero_extlinks = {
     # Github links
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
-    # Jenkins links
-    'omerojob' : (omero_job_root + '/%s', ''),
+    # API links
     'javadoc' : (downloads_root + '/latest/omero5/api/%s', ''),
     # Miscellaneous links
     'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
