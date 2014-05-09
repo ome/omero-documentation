@@ -29,6 +29,7 @@ Type "ant -p" for a list of targets.
   <property name="source.branch" value=""/>
   <property name="source.user" value="openmicroscopy"/>
   <property name="omero.release" value="${omero.shortversion}"/>
+  <property name="jenkins.job" value=""/>
 
   <target name="sphinx-deps"/>
   <target name="clean-deps"/>
@@ -38,6 +39,7 @@ Type "ant -p" for a list of targets.
         <env key="SOURCE_BRANCH" value="${source.branch}"/>
         <env key="SOURCE_USER" value="${source.user}"/>
         <env key="OMERO_RELEASE" value="${omero.release}"/>
+        <env key="JENKINS_JOB" value="${jenkins.job}"/>
         <arg value="-b"/>
         <arg value="html"/>
         <arg line="${sphinx.opts}"/>
@@ -51,6 +53,7 @@ Type "ant -p" for a list of targets.
         <env key="SOURCE_BRANCH" value="${source.branch}"/>
         <env key="SOURCE_USER" value="${source.user}"/>
         <env key="OMERO_RELEASE" value="${omero.release}"/>
+        <env key="JENKINS_JOB" value="${jenkins.job}"/>
         <arg value="-b"/>
         <arg value="latex"/>
         <arg line="${sphinx.opts}"/>
@@ -75,6 +78,7 @@ Type "ant -p" for a list of targets.
         <env key="SOURCE_BRANCH" value="${source.branch}"/>
         <env key="SOURCE_USER" value="${source.user}"/>
         <env key="OMERO_RELEASE" value="${omero.release}"/>
+        <env key="JENKINS_JOB" value="${jenkins.job}"/>
         <arg value="-b"/>
         <arg value="linkcheck"/>
         <arg line="${sphinx.opts}"/>
