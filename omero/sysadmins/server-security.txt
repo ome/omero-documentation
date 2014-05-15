@@ -105,8 +105,8 @@ Change the password using the generated SQL statement::
 Java key- and truststores.
 ---------------------------
 
-If your server is connecting to another server over |SSL|, you will need
-to configure both a keystore and a truststore for the Java process. This
+If your server is connecting to another server over |SSL|, you may need
+to configure truststore and/or a keystore for the Java process. This
 happens, for example, when your LDAP server uses |SSL|. See the :doc:`LDAP
 plugin <server-ldap>` for information on how to configure the LDAP
 URLs. As with all configuration properties, you will need to restart
@@ -115,22 +115,6 @@ your server after changing them.
 To do this, you will need to configure several server properties,
 similar to the properties you configured during
 :doc:`installation <unix/server-installation>` (:doc:`Windows <windows/server-installation>`).
-
--  keystore path
-
-   ::
-
-       bin/omero config set omero.security.keyStore /home/user/.mystore
-
-       A keystore is a database of private keys and their associated
-       X.509 certificate chains authenticating the corresponding public
-       keys.
-
--  keystore password
-
-   ::
-
-       bin/omero config set omero.security.keyStorePassword secret
 
 -  truststore path
 
@@ -146,11 +130,37 @@ similar to the properties you configured during
        (confidential) data. This file must contain the public key
        certificates of the CA and the client's public key certificate.
 
+
+   if you don't have one you can create it using the following:
+
+   ::
+       
+       openssl s_client -connect {{host}}:{{port}} -prexit < /dev/null | openssl x509 -outform PEM | keytool -import  -alias ldap -storepass {{password}} -keystore {{truststore}} -noprompt
+
 -  truststore password
 
    ::
 
        bin/omero config set omero.security.trustStorePassword secret
+
+-  keystore path
+
+   ::
+
+       bin/omero config set omero.security.keyStore /home/user/.mystore
+
+       A keystore is a database of private keys and their associated
+       X.509 certificate chains authenticating the corresponding public
+       keys.
+       
+       A keystore is mostly needed if you are doing client side certificates 
+       for authentication against your ldap server
+
+-  keystore password
+
+   ::
+
+       bin/omero config set omero.security.keyStorePassword secret
 
 .. _security_ssl:
 
