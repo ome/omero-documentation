@@ -382,16 +382,16 @@ Customizing your OMERO.web installation
 
 - Customizing index page:
 
-  -  Ocasionally OMERO.web instance may require pre-login custom page. With
-     creating custom HTML page and setting ``INDEX_TEMPLATE`` it is possible
-     to get index page that for example will serve webstart and link to
-     webclient under your main domain.
+  -  Ocasionally, a pre-login custom page may be required for OMERO.web. By
+     creating a custom HTML page and setting ``INDEX_TEMPLATE``, it is possible
+     to have an index page that, for example, will serve webstart and link to
+     the webclient under your main domain.
      
      ::
      
          $ bin/omero config set omero.web.index_template 'webstart/start.html'
 
-  -  It is also possible to put custom index HTML page in custom location out
+  -  It is also possible to put the index HTML page in a custom location outside
      of OMERO.web by adding it to ``TEMPLATE_DIRS``
      
      ::
