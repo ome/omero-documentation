@@ -106,7 +106,7 @@ Java key- and truststores.
 ---------------------------
 
 If your server is connecting to another server over |SSL|, you may need
-to configure truststore and/or a keystore for the Java process. This
+to configure a truststore and/or a keystore for the Java process. This
 happens, for example, when your LDAP server uses |SSL|. See the :doc:`LDAP
 plugin <server-ldap>` for information on how to configure the LDAP
 URLs. As with all configuration properties, you will need to restart
@@ -131,7 +131,7 @@ similar to the properties you configured during
        certificates of the CA and the client's public key certificate.
 
 
-   if you don't have one you can create it using the following:
+   If you don't have one you can create it using the following:
 
    ::
        
@@ -153,8 +153,8 @@ similar to the properties you configured during
        X.509 certificate chains authenticating the corresponding public
        keys.
        
-       A keystore is mostly needed if you are doing client side certificates 
-       for authentication against your ldap server
+       A keystore is mostly needed if you are doing client-side certificates 
+       for authentication against your LDAP server.
 
 -  keystore password
 
