@@ -55,10 +55,10 @@ omero release-zip"
 Code-signing
 ~~~~~~~~~~~~
 
-The OMERO source tree includes a self-signed certificate for testing Insight
-webstart. This is not used by default to avoid problems with double signing
-official releases. The "release-webstart-signed" target can be used,
-alternatively see :source:`docs/hudson/OMERO.sh` and/or
+The OMERO source tree includes a self-signed certificate for testing
+OMERO.insight webstart. This is not used by default to avoid problems with
+double signing official releases. The "release-webstart-signed" target can be
+used, alternatively see :source:`docs/hudson/OMERO.sh` and/or
 :ref:`server_webstart_insight_codesign`.
 
 

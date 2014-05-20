@@ -1,16 +1,17 @@
 .. _server_webstart_insight_codesign:
 
-Insight webstart security and code-signing
-==========================================
+OMERO.insight webstart security and code-signing
+================================================
 
 Java 1.7 and later includes strict security settings which prevent Java web
 applications from running unless they are signed with a code-signing
-certificate. This includes the Insight webstart client included with
+certificate. This includes the OMERO.insight webstart client included with
 OMERO.server.
 
 All current OMERO.server releases are code-signed by the University of Dundee.
-If you build and distribute your own copies of OMERO and want to use Insight
-webstart you can either change the :ref:`Java security settings for all users
+If you build and distribute your own copies of OMERO and want to use
+OMERO.insight webstart you can either change the
+:ref:`Java security settings for all users
 <server_webstart_client_configuration>`, or buy a code-signing certificate and
 use this to :ref:`sign the client <server_webstart_codesign>`.
 

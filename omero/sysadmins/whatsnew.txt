@@ -34,6 +34,6 @@ its original format if they need to.
   server-side workflow.
 
 - :doc:`server-webstart-codesigning` has been added to explain
-  the requirement for code-signing the webstart version of Insight. Official
-  releases of OMERO.server are code-signed, instructions for using Insight
-  webstart with a custom build are included.
+  the requirement for code-signing the webstart version of OMERO.insight.
+  Official releases of OMERO.server are code-signed, instructions for using
+  OMERO.insight webstart with a custom build are included.
