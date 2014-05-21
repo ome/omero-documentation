@@ -69,7 +69,9 @@ Ice
 
 Windows installers of Ice can be found on the :zeroc:`ZeroC Ice 3.4.2 download
 page <download_3_4_2.html>`. If you plan to develop for C++, be sure
-to read the instructions on the |OmeroCpp| page.
+to read the instructions on the |OmeroCpp| page. Alternatively, you can
+download Ice 3.5.1 built against Python 2.7 from our
+`Ice downloads page <http://downloads.openmicroscopy.org/ice/3.5.1/>`_.
 
 Python 2
 ^^^^^^^^
