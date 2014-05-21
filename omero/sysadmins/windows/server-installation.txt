@@ -80,11 +80,19 @@ Python 2
 
     OMERO does not currently support Python 3.
 
-The ZeroC binary download of Ice version 3.4.2 requires Python 2.6. You can
-download a precompiled installer from `python.org <http://www.python.org/download/releases/2.6.6/>`_.
-As this is the "vanilla" python distribution (no extra libraries), you will
+**Make sure you install the correct Python 2 version for your Ice version:**
+
+- If you have installed Ice version 3.4.2 from ZeroC, you need Python version
+  2.6 which you can download from `Python 2.6.6 release downloads <http://www.python.org/download/releases/2.6.6/>`_.
+
+- If you have downloaded Ice 3.5.1 from our downloads page instead, you will
+  need to install the `latest Python 2.7 release <http://www.python.org/downloads/windows/>`_.
+
+As these are the "vanilla" python distributions (no extra libraries), you will
 need to install further dependencies, making sure to download the correct
-version (2.6, 32/64-bit) for your Python distribution.
+version (2.6/2.7, 32/64-bit) for your Python distribution.
+
+
 
 32/64-bit
 """""""""
