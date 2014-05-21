@@ -7,7 +7,7 @@ a dedicated system user, and should be read in conjunction with
 own test server. For production use you should also read
 :doc:`../server-advanced-configuration`.
 
-Example shell scripts for installing OMERO on Ubuntu 14.04 is included
+Example shell scripts for installing OMERO on Ubuntu 14.04 are included
 in-line, and can be downloaded. Separate instructions for installing on
 CentOS 6 are also available where this differs from the Ubuntu instructions.
 
@@ -37,7 +37,7 @@ Create an omero system user, and a directory for the OMERO repository:
 :download:`setup_postgres.sh <walkthrough/system_setup.sh>`
 
 
-Create a database user and initialise a new database for OMERO:
+Create a database user and initialize a new database for OMERO:
 
 .. literalinclude:: walkthrough/setup_postgres.sh
 
@@ -67,8 +67,8 @@ configuration directory, and the default configuration disabled:
 Running OMERO
 -------------
 
-OMERO should now be setup. To start the server log in as the omero system user,
-and run::
+OMERO should now be set up. To start the server log in as the omero system
+user, and run::
 
     OMERO.server/bin/omero admin start
 
@@ -79,8 +79,8 @@ To start the OMERO.web client run::
 Nginx should already be running, so you should be able to log in as the OMERO
 root user by going to http://localhost/ in your web browser.
 
-In addition some example init.d scripts are available should you wish to start
-OMERO and OMERO.web automatically:
+In addition some example `init.d` scripts are available should you wish to
+start OMERO and OMERO.web automatically:
 
 .. literalinclude:: walkthrough/setup_omero_daemon_ubuntu1404.sh
 
