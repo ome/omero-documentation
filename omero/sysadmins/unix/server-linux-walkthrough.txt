@@ -1,0 +1,92 @@
+OMERO.server Linux walkthrough
+==============================
+
+This is an example walkthrough for installing OMERO on Linux with Nginx, using
+a dedicated system user, and should be read in conjunction with
+:doc:`server-installation`. You can use this as a guide for setting up your
+own test server. For production use you should also read
+:doc:`../server-advanced-configuration`.
+
+Example shell scripts for installing OMERO on Ubuntu 14.04 is included
+in-line, and can be downloaded. Separate instructions for installing on
+CentOS 6 are also available where this differs from the Ubuntu instructions.
+
+For convenience in this walkthrough the main OMERO configuration options have
+been defined as environment variables. When following this walkthrough you can
+either use your own values, or alternatively source the following file:
+
+.. literalinclude:: walkthrough/settings.env
+
+:download:`settings.env <walkthrough/settings.env>`
+
+
+Prerequisites
+-------------
+
+As root install Ice, Java, Postgres and Nginx:
+
+.. literalinclude:: walkthrough/dependencies-ubuntu1404.sh
+
+| :download:`dependencies-ubuntu1404.sh <walkthrough/dependencies-ubuntu1404.sh>`
+| :download:`dependencies-centos6.sh <walkthrough/dependencies-centos6.sh>`
+
+Create an omero system user, and a directory for the OMERO repository:
+
+.. literalinclude:: walkthrough/system_setup.sh
+
+:download:`setup_postgres.sh <walkthrough/system_setup.sh>`
+
+
+Create a database user and initialise a new database for OMERO:
+
+.. literalinclude:: walkthrough/setup_postgres.sh
+
+:download:`Ubuntu 14.04 / CentOS 6 <walkthrough/setup_postgres.sh>`
+
+
+Installing OMERO.server
+-----------------------
+
+As the omero system user download, unzip and configure OMERO, and create a
+configuration file for Nginx:
+
+.. literalinclude:: walkthrough/setup_omero_ice35.sh
+
+:download:`setup_omero_ice35.sh <walkthrough/setup_omero_ice35.sh>`
+
+
+The Nginx OMERO configuration file needs to be copied into the Nginx
+configuration directory, and the default configuration disabled:
+
+.. literalinclude:: walkthrough/setup_nginx_ubuntu1404.sh
+
+| :download:`setup_nginx_ubuntu1404.sh <walkthrough/setup_nginx_ubuntu1404.sh>`
+| :download:`setup_nginx_centos6.sh <walkthrough/setup_nginx_centos6.sh>`
+
+
+Running OMERO
+-------------
+
+OMERO should now be setup. To start the server log in as the omero system user,
+and run::
+
+    OMERO.server/bin/omero admin start
+
+To start the OMERO.web client run::
+
+    OMERO.server/bin/omero web start
+
+Nginx should already be running, so you should be able to log in as the OMERO
+root user by going to http://localhost/ in your web browser.
+
+In addition some example init.d scripts are available should you wish to start
+OMERO and OMERO.web automatically:
+
+.. literalinclude:: walkthrough/setup_omero_daemon_ubuntu1404.sh
+
+| :download:`setup_omero_daemon_ubuntu1404.sh
+  <walkthrough/setup_omero_daemon_ubuntu1404.sh>`
+| :download:`setup_omero_daemon_centos6.sh
+  <walkthrough/setup_omero_daemon_centos6.sh>`
+| :download:`omero-init.d <walkthrough/omero-init.d>`
+| :download:`omero-web-init.d <walkthrough/omero-web-init.d>`
