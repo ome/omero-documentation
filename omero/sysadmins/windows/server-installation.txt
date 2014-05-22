@@ -63,15 +63,15 @@ Ice
 
     If you are using precompiled packages of Ice and Python (recommended)
     you should use the versions specified below. In particular since OMERO
-    does not support Python 3 **it will not work with the Ice 3.5 package for
-    Windows**.  However, Ice 3.5 will work when built against Python 2.7.
+    does not support Python 3 **it will not work with the ZeroC Ice 3.5
+    package for Windows**. However, Ice 3.5 will work when built against
+    Python 2.7.
 
-
-Windows installers of Ice can be found on the :zeroc:`ZeroC Ice 3.4.2 download
-page <download_3_4_2.html>`. If you plan to develop for C++, be sure
-to read the instructions on the |OmeroCpp| page. Alternatively, you can
-download Ice 3.5.1 built against Python 2.7 from our
+You can download Ice 3.5.1 built against Python 2.7 from our
 `Ice downloads page <http://downloads.openmicroscopy.org/ice/3.5.1/>`_.
+Alternatively, Windows installers of Ice 3.4 can be found on the
+:zeroc:`ZeroC Ice 3.4.2 download page <download_3_4_2.html>`. If you plan to
+develop for C++, be sure to read the instructions on the |OmeroCpp| page.
 
 Python 2
 ^^^^^^^^
@@ -82,17 +82,15 @@ Python 2
 
 **Make sure you install the correct Python 2 version for your Ice version:**
 
+- If you have downloaded Ice 3.5.1 from our downloads page, you will
+  need to install the `latest Python 2.7 release <http://www.python.org/downloads/windows/>`_.
+
 - If you have installed Ice version 3.4.2 from ZeroC, you need Python version
   2.6 which you can download from `Python 2.6.6 release downloads <http://www.python.org/download/releases/2.6.6/>`_.
-
-- If you have downloaded Ice 3.5.1 from our downloads page instead, you will
-  need to install the `latest Python 2.7 release <http://www.python.org/downloads/windows/>`_.
 
 As these are the "vanilla" python distributions (no extra libraries), you will
 need to install further dependencies, making sure to download the correct
 version (2.6/2.7, 32/64-bit) for your Python distribution.
-
-
 
 32/64-bit
 """""""""
