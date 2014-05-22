@@ -34,14 +34,14 @@ Create an omero system user, and a directory for the OMERO repository:
 
 .. literalinclude:: walkthrough/system_setup.sh
 
-:download:`setup_postgres.sh <walkthrough/system_setup.sh>`
+:download:`system_setup.sh <walkthrough/system_setup.sh>`
 
 
 Create a database user and initialize a new database for OMERO:
 
 .. literalinclude:: walkthrough/setup_postgres.sh
 
-:download:`Ubuntu 14.04 / CentOS 6 <walkthrough/setup_postgres.sh>`
+:download:`setup_postgres.sh <walkthrough/setup_postgres.sh>`
 
 
 Installing OMERO.server
