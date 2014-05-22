@@ -91,12 +91,12 @@ the server is started from will require restarting.  Run ``ulimit -a``
 as the user running OMERO to verify that the changes have taken
 effect.
 
-Deleting
---------
+Deleting datasets
+-----------------
 
-If you have images in multiple datasets, you will not be able to delete them.
-First, you must remove them from datasets by 'unlinking' them until they are
-only present in one.
+If you have a dataset containing any images which are also present in any
+another datasets, you will not be able to delete it. First, you must remove
+the shared images by cutting the links.
 
 Changing group permissions
 --------------------------
