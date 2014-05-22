@@ -112,10 +112,10 @@ for you:
 
 ::
 
-    Please enter password for new OMERO root user: 
-    Please re-enter password for new OMERO root user: 
-    UPDATE password SET hash = 'vvFwuczAmpyoRC0Nsv8FCw==' WHERE experimenter_id = 0;
-    $ 
+    $ bin/omero db password
+    Please enter password for OMERO root user:
+    Please re-enter password for OMERO root user:
+    UPDATE password SET hash = 'PJueOtwuTPHB8Nq/1rFVxg==' WHERE experimenter_id  = 0;
 
 Java key- and truststores.
 ---------------------------
