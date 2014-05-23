@@ -92,9 +92,9 @@ Python 2
 - If you have installed Ice version 3.4.2 from ZeroC, you need Python version
   2.6 which you can download from `Python 2.6.6 release downloads <http://www.python.org/download/releases/2.6.6/>`_.
 
-  - If you have downloaded Ice 3.5.1 from our downloads page, you will
-    need to install the `latest Python 2.7 release <http://www.python.org/downloads/windows/>`_.
-    
+- If you have downloaded Ice 3.5.1 from our downloads page, you will
+  need to install the `latest Python 2.7 release <http://www.python.org/downloads/windows/>`_.
+
 As these are the "vanilla" python distributions (no extra libraries), you will
 need to install further dependencies, making sure to download the correct
 version (2.6/2.7, 32/64-bit) for your Python distribution.
