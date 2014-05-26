@@ -15,9 +15,7 @@ bash -eux setup_postgres.sh
 cp settings.env setup_omero_ice35.sh ~omero
 su - omero -c "bash -eux setup_omero_ice35.sh"
 
-pushd ~omero
-bash -eux $INSTALL_SCRIPTS/setup_nginx_centos6.sh
-popd
+bash -eux setup_nginx_centos6.sh
 
 #su - omero -c "OMERO.server/bin/omero admin start"
 #su - omero -c "OMERO.server/bin/omero web start"
