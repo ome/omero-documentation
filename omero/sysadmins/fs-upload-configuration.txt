@@ -35,7 +35,7 @@ constraints are:
     :literal:`//` are owned by the :literal:`root` user.
 
   * Any newly created path components following the :literal:`//` are
-    owned by the user who owns the images. (This is the case for all
+    **owned by the user** who owns the images. (This is the case for all
     newly created path components if no :literal:`//` is used.)
 
 * The path must be unique for each import. It is for this reason that
