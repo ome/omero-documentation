@@ -76,21 +76,19 @@ Example Linux firewall rules
 Passwords
 ---------
 
-The password hashes stored in the ``password`` table are generated
-equivalent to the command:
+The passwords stored in the ``password`` table are salted and hashed, so it is
+impossible to recover a lost one, instead a new one must be set by an admin.
 
-::
+If the password for the root user is lost, the only way to reset it (in the
+absence of other admin accounts) is to manually update the password table. The
+``bin/omero`` command can generate the required SQL statement for you::
 
-    $ echo -n "ome" | openssl md5 -binary | openssl base64
-    vvFwuczAmpyoRC0Nsv8FCw==
+    $ bin/omero db password
+    Please enter password for OMERO root user:
+    Please re-enter password for OMERO root user:
+    UPDATE password SET hash = 'PJueOtwuTPHB8Nq/1rFVxg==' WHERE experimenter_id  = 0;
 
-If the password for the root user were lost, the only way to reset it
-(in the absence of other admin accounts) would be to manually update the
-password table.
-
-::
-
-    $ PASS=`echo -n "ome" | openssl md5 -binary | openssl base64`
+Current hashed password::
 
     $ psql mydatabase -c " select * from password"
      experimenter_id |           hash           
@@ -98,24 +96,11 @@ password table.
                    0 | Xr4ilOzQ4PCOq3aQ0qbuaQ==
     (1 row)
 
-    $ psql mydatabase -c "update password set hash = '$PASS' where experimenter_id = 0"
+Change the password using the generated SQL statement::
+
+    $ psql mydatabase -c "UPDATE password SET hash = 'PJueOtwuTPHB8Nq/1rFVxg==' WHERE experimenter_id  = 0;"
     UPDATE 1
 
-    $ psql mydatabase -c " select * from password"
-     experimenter_id |           hash           
-    -----------------+--------------------------
-                   0 | vvFwuczAmpyoRC0Nsv8FCw==
-    (1 row)
-
-If you prefer, the ``bin/omero`` command can generate this update string
-for you:
-
-::
-
-    Please enter password for new OMERO root user: 
-    Please re-enter password for new OMERO root user: 
-    UPDATE password SET hash = 'vvFwuczAmpyoRC0Nsv8FCw==' WHERE experimenter_id = 0;
-    $ 
 
 Java key- and truststores.
 ---------------------------
