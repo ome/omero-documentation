@@ -528,3 +528,15 @@ Customizing your OMERO.web installation
       ::
 
           $ bin/omero config set omero.web.apps '["<app name>"]'
+
+-  Customizing webclient login page:
+
+   -  You can customize the webclient login page with your own logo.
+      Logo images should ideally be 150 pixels high or less and will appear above
+      the OMERO logo.
+
+   -  You will need to host the image somewhere else and link to it with
+
+      ::
+
+          $ bin/omero config set omero.web.login_logo "http://www.openmicroscopy.org/site/logo.jpg"
