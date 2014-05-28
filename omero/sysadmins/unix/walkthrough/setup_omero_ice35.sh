@@ -4,7 +4,7 @@ set -e -u -x
 
 source settings.env
 
-SERVER=http://downloads.openmicroscopy.org/omero/5.0.1/artifacts/OMERO.server-5.0.1-ice35-b21.zip
+SERVER=http://downloads.openmicroscopy.org/omero/5.0.2/artifacts/OMERO.server-5.0.2-ice35-b26.zip
 
 wget $SERVER
 unzip -q `basename $SERVER`
