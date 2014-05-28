@@ -2,6 +2,7 @@ before_install:
   - sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu/ raring main universe"
   - sudo apt-get update
 
+  - sudo apt-get -y install ant ant-contrib ant-optional
   - sudo apt-get -y install texlive-latex-base texlive-latex-recommended texlive-xetex
   - sudo apt-get -y install texlive-latex-extra texlive-fonts-recommended fonts-texgyre
 
@@ -14,8 +15,8 @@ python:
   - "2.6"
 
 env:
-  - SPHINXOPTS="-W"
+  - SPHINXOPTS="-W" CLASSPATH="/usr/share/java/ant-contrib.jar"
 
 install: "pip install -q Sphinx"
 
-script: "make html latexpdf"
+script: "ant html pdf clean"

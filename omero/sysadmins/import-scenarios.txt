@@ -4,8 +4,8 @@ Advanced import scenarios
 Increasingly users of OMERO are needing to go beyond the traditional "upload
 via a GUI"-style import model to more powerful methods.
 
-There are a set of requirements for getting data into OMERO which are common to
-many institutions, some of which may be mutually exclusive.
+There are a set of requirements for getting data into OMERO which are common
+to many institutions, some of which may be mutually exclusive.
 
 * Users need to get data off microscopes quickly. This likely includes
   not waiting for import to complete. Users will often move data immediately,
@@ -85,10 +85,9 @@ Disadvantages
 Manual import (CLI)
 ^^^^^^^^^^^^^^^^^^^
 
-Another typical workflow is that rather than using the GUI,
-users perform the same procedure as under "Manual import"
-but with the :doc:`command-line (CLI) importer
-</users/command-line-import>`.
+Another typical workflow is that rather than using the GUI, users perform the
+same procedure as under "Manual import" but with the
+:doc:`command-line (CLI) importer </users/command-line-import>`.
 
 Advantages
 """"""""""
@@ -172,12 +171,9 @@ Common advantages
 Common disadvantages
 ^^^^^^^^^^^^^^^^^^^^
 
-* Like the DropBox import scenario above, all of the in-place scenarios which
-  follow require access to the user-based directories under the
-  ManagedRepository. That means that a system administrator must map a
-  directory such as `/OMERO/ManagedRepository/someuser_10` to a Unix login
-  such as "someuser" and give "someuser" rights to that directory and all of
-  its subdirectories.
+* Like the DropBox import scenario above, all in-place imports require the
+  user to have access to the user-based directories under the
+  ManagedRepository. See :ref:`limitations <limitations>` for more details.
 
 * Similarly, all the following scenarios carry the same burden of securing
   the data externally to OMERO. This is the primary difference between a
@@ -190,14 +186,14 @@ In-place manual import (CLI)
 
 The in-place version of a CLI manual import is quite similar to the normal
 CLI import, with the primary difference being that the data is not transferred
-from the shared file-system where the acquired data sits but instead is just
-"linked" into place.
+from the shared file-system where the data is initially stored after
+acquisition, but instead is just "linked" into place.
 
 Advantages
 """"""""""
 
-* For local filesystem in-place import, faster due to the lack of a data
-  transfer.
+* Local filesystem in-place import is faster than traditional importing, due
+  to the lack of a data transfer.
 
 Disadvantages
 """""""""""""
@@ -208,8 +204,8 @@ In-place Cronjob import
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Assuming all the restrictions are met, the cronjob-based workflow above
-can gain the advantages of in-place import by adding the in-place transfer
-flag. The advantages and disadvantages are as above.
+can carry out an in-place import by adding the in-place transfer flag. The
+advantages and disadvantages are as above.
 
 .. _inplace_dropbox_manual:
 
@@ -244,5 +240,5 @@ Disadvantages
   someone manually deletes them.
 
 * This option is only available if the filesystem which DropBox watches is
-  the same as which the ManagedRepository lives on which limits NFS and
-  similar remote shares.
+  the same as the file system which the ManagedRepository lives on. This
+  prevents the use of network file systems and similar remote shares.

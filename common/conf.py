@@ -102,12 +102,12 @@ pygments_style = 'sphinx'
 #modindex_common_prefix = []
 
 # Variables used to define Github extlinks
-if "SOURCE_BRANCH" in os.environ:
+if "SOURCE_BRANCH" in os.environ and len(os.environ.get('SOURCE_BRANCH')) > 0:
     branch = os.environ.get('SOURCE_BRANCH')
 else:
     branch = 'develop'
 
-if "SOURCE_USER" in os.environ:
+if "SOURCE_USER" in os.environ and len(os.environ.get('SOURCE_USER')) > 0:
     user = os.environ.get('SOURCE_USER')
 else:
     user = 'openmicroscopy'

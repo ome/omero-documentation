@@ -28,7 +28,7 @@ title = project + u' Documentation'
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-if "OMERO_RELEASE" in os.environ:
+if "OMERO_RELEASE" in os.environ and len(os.environ.get('OMERO_RELEASE')) > 0:
     release = os.environ.get('OMERO_RELEASE')
     [majornumber, minornumber, patchnumber] = split_release(release)
 
@@ -62,25 +62,14 @@ rst_epilog += """
 .. |iceversion| replace:: 3.5.0
 """ % previousversion
 
-# Variables used to define OMERO Jenkins extlinks
-if "JENKINS_JOB" in os.environ:
-    jenkins_job = os.environ.get('JENKINS_JOB')
-else:
-    jenkins_job = 'OMERO-trunk'
-
-omero_job_root = jenkins_job_root + '/' + jenkins_job
-virtual_job_root = jenkins_job_root + '/' + jenkins_job + '-virtualbox'
-
 # OMERO-specific extlinks
 omero_extlinks = {
     # Github links
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
-    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),   
+    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
-    # Jenkins links
-    'omerojob' : (omero_job_root + '/%s', ''),
-    'javadoc' : (omero_job_root + '/javadoc/%s', ''),
-    'virtualjob' : (virtual_job_root + '/%s', ''),
+    # API links
+    'javadoc' : (downloads_root + '/latest/omero5/api/%s', ''),
     # Miscellaneous links
     'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
     }

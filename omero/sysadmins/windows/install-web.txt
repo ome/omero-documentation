@@ -142,6 +142,11 @@ working with your IIS deployment.
            C:\omero_dist>bin\omero config set omero.web.session_engine
            C:\omero_dist>bin\omero config set omero.web.cache_backend
 
+       If your deployment requires additional cache store please follow 
+       `Django documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
+       for more details.
+
+
 Using the lightweight development server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -154,17 +159,15 @@ Debugging on and start the server up:
     C:\omero_dist>bin\omero config set omero.web.application_server development
     C:\omero_dist>bin\omero config set omero.web.debug True
     C:\omero_dist>bin\omero web start
-    Copying 'C:\omero_dist\lib\python\omeroweb\feedback\static\feedback\css\layout.css'
-    .....
-    Copying 'C:\omero_dist\lib\python\omeroweb\webstart\static\webstart\img\icon-omero-web.png'
-
-    735 static files copied to 'C:\omero_dist\lib\python\omeroweb\webstart\static'.
-    Starting OMERO.web... Validating models...
+    INFO:__main__:Application Starting...
+    INFO:root:Processing custom settings for module omeroweb.settings
+    ...
+    Validating models...
 
     0 errors found
-    Django version 1.3.1, using settings 'omeroweb.settings'
-    Development server is running at http://0.0.0.0:4080/
-    Quit the server with CONTROL-C.
+    Django version 1.6, using settings 'omeroweb.settings'
+    Starting development server at http://0.0.0.0:4080/
+    Quit the server with CTRL-BREAK.
 
 Logging in to OMERO.web
 -----------------------
@@ -271,6 +274,25 @@ Customizing your OMERO.web installation
 
           C:\omero_dist>bin\omero config set omero.web.scripts_to_ignore '[]'
           C:\omero_dist>bin\omero config set omero.web.scripts_to_ignore '["\omero\my_scripts\really_buggy.py", … ]'
+
+- Customizing index page:
+
+  -  Occasionally, a pre-login custom page may be required for OMERO.web. By
+     creating a custom HTML page and setting ``INDEX_TEMPLATE``, it is possible
+     to have an index page that, for example, will serve webstart and link to
+     the webclient under your main domain.
+     
+     ::
+     
+         C:\omero_dist>bin\omero config set omero.web.index_template 'webstart\start.html'
+
+  -  It is also possible to put the index HTML page in a custom location outside
+     of OMERO.web by adding it to ``TEMPLATE_DIRS``
+     
+     ::
+     
+         C:\omero_dist>bin\omero config set omero.web.template_dirs '["C:\path\to\templates_dir"]'
+         C:\omero_dist>bin\omero config set omero.web.index_template 'start.html'
 
 .. _install_web_public_user:
 
@@ -381,3 +403,15 @@ Customizing your OMERO.web installation
       ::
 
           C:\omero_dist>bin\omero config set omero.web.apps '["<app name>"]'
+
+-  Customizing webclient login page:
+
+   -  You can customize the webclient login page with your own logo.
+      Logo images should ideally be 150 pixels high or less and will appear above
+      the OMERO logo.
+
+   -  You will need to host the image somewhere else and link to it with
+
+      ::
+
+          C:\omero_dist>bin\omero config set omero.web.login_logo 'http://www.openmicroscopy.org/site/logo.jpg'

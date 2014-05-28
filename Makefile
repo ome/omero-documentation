@@ -1,14 +1,32 @@
-# MakeFile for building OMERO documentation
+# Delegate all make targets directly to ant
 
-.PHONY: clean html latexpdf
+ifdef SPHINXOPTS
+ANT_SPHINXOPTS := -Dsphinx.opts="$(SPHINXOPTS)"
+endif
 
-# Loop over the possible products and call other build targets.
-html:
-	cd omero && make html
+ifdef FORMATS_RELEASE
+ANT_FORMATS_RELEASE := -Dformats.release="$(FORMATS_RELEASE)"
+endif
 
-latexpdf:
-	cd omero && make latexpdf
+ifdef OMERO_RELEASE
+ANT_OMERO_RELEASE := -Domero.release="$(OMERO_RELEASE)"
+endif
 
-clean:
-	cd omero && make clean
+ifdef SOURCE_BRANCH
+ANT_SOURCE_BRANCH := -Dsource.branch="$(SOURCE_BRANCH)"
+endif
 
+ifdef SOURCE_USER
+ANT_SOURCE_USER := -Dsource.user="$(SOURCE_USER)"
+endif
+
+ifdef JENKINS_JOB
+ANT_JENKINS_JOB := -Djenkins.job="$(JENKINS_JOB)"
+endif
+
+default: html
+
+%:
+	ant $@ $(ANT_SPHINXOPTS) $(ANT_FORMATS_RELEASE) $(ANT_OMERO_RELEASE) $(ANT_SOURCE_BRANCH) $(ANT_SOURCE_USER) $(ANT_JENKINS_JOB)
+
+.PHONY: default

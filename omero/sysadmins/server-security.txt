@@ -76,21 +76,19 @@ Example Linux firewall rules
 Passwords
 ---------
 
-The password hashes stored in the ``password`` table are generated
-equivalent to the command:
+The passwords stored in the ``password`` table are salted and hashed, so it is
+impossible to recover a lost one, instead a new one must be set by an admin.
 
-::
+If the password for the root user is lost, the only way to reset it (in the
+absence of other admin accounts) is to manually update the password table. The
+``bin/omero`` command can generate the required SQL statement for you::
 
-    $ echo -n "ome" | openssl md5 -binary | openssl base64
-    vvFwuczAmpyoRC0Nsv8FCw==
+    $ bin/omero db password
+    Please enter password for OMERO root user:
+    Please re-enter password for OMERO root user:
+    UPDATE password SET hash = 'PJueOtwuTPHB8Nq/1rFVxg==' WHERE experimenter_id  = 0;
 
-If the password for the root user were lost, the only way to reset it
-(in the absence of other admin accounts) would be to manually update the
-password table.
-
-::
-
-    $ PASS=`echo -n "ome" | openssl md5 -binary | openssl base64`
+Current hashed password::
 
     $ psql mydatabase -c " select * from password"
      experimenter_id |           hash           
@@ -98,30 +96,17 @@ password table.
                    0 | Xr4ilOzQ4PCOq3aQ0qbuaQ==
     (1 row)
 
-    $ psql mydatabase -c "update password set hash = '$PASS' where experimenter_id = 0"
+Change the password using the generated SQL statement::
+
+    $ psql mydatabase -c "UPDATE password SET hash = 'PJueOtwuTPHB8Nq/1rFVxg==' WHERE experimenter_id  = 0;"
     UPDATE 1
 
-    $ psql mydatabase -c " select * from password"
-     experimenter_id |           hash           
-    -----------------+--------------------------
-                   0 | vvFwuczAmpyoRC0Nsv8FCw==
-    (1 row)
-
-If you prefer, the ``bin/omero`` command can generate this update string
-for you:
-
-::
-
-    Please enter password for new OMERO root user: 
-    Please re-enter password for new OMERO root user: 
-    UPDATE password SET hash = 'vvFwuczAmpyoRC0Nsv8FCw==' WHERE experimenter_id = 0;
-    $ 
 
 Java key- and truststores.
 ---------------------------
 
-If your server is connecting to another server over |SSL|, you will need
-to configure both a keystore and a truststore for the Java process. This
+If your server is connecting to another server over |SSL|, you may need
+to configure a truststore and/or a keystore for the Java process. This
 happens, for example, when your LDAP server uses |SSL|. See the :doc:`LDAP
 plugin <server-ldap>` for information on how to configure the LDAP
 URLs. As with all configuration properties, you will need to restart
@@ -130,22 +115,6 @@ your server after changing them.
 To do this, you will need to configure several server properties,
 similar to the properties you configured during
 :doc:`installation <unix/server-installation>` (:doc:`Windows <windows/server-installation>`).
-
--  keystore path
-
-   ::
-
-       bin/omero config set omero.security.keyStore /home/user/.mystore
-
-       A keystore is a database of private keys and their associated
-       X.509 certificate chains authenticating the corresponding public
-       keys.
-
--  keystore password
-
-   ::
-
-       bin/omero config set omero.security.keyStorePassword secret
 
 -  truststore path
 
@@ -161,11 +130,37 @@ similar to the properties you configured during
        (confidential) data. This file must contain the public key
        certificates of the CA and the client's public key certificate.
 
+
+   If you don't have one you can create it using the following:
+
+   ::
+       
+       openssl s_client -connect {{host}}:{{port}} -prexit < /dev/null | openssl x509 -outform PEM | keytool -import  -alias ldap -storepass {{password}} -keystore {{truststore}} -noprompt
+
 -  truststore password
 
    ::
 
        bin/omero config set omero.security.trustStorePassword secret
+
+-  keystore path
+
+   ::
+
+       bin/omero config set omero.security.keyStore /home/user/.mystore
+
+       A keystore is a database of private keys and their associated
+       X.509 certificate chains authenticating the corresponding public
+       keys.
+       
+       A keystore is mostly needed if you are doing client-side certificates 
+       for authentication against your LDAP server.
+
+-  keystore password
+
+   ::
+
+       bin/omero config set omero.security.keyStorePassword secret
 
 .. _security_ssl:
 

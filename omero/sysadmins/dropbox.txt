@@ -23,7 +23,7 @@ the following more specific requirements:
 
     -   Linux with kernel 2.6.13 and higher.
     -   Mac OS 10.6 and later.
-    -   Windows XP and Windows Server 2003.
+    -   Windows XP, Vista, 7, Server 2003 and Server 2008.
 
 -   In addition some platforms require further Python packages to be
     available:
@@ -60,7 +60,9 @@ Experimenters can add subdirectories under their named directory for
 convenience. Copying or moving a file of an importable file type into a
 named directory or nested subdirectory will initiate an automatic import
 of that file for that user. Multi-file formats will be imported after
-the last required file of a set is copied into the directory.
+the last required file of a set is copied into the directory. Images and
+plates will be imported into the group the user was last logged into, with
+images placed into ``Orphaned images``.
 
 Acquisition systems can then be configured to drop a user's images into
 a given DropBox.
