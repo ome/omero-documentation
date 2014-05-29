@@ -14,7 +14,7 @@
 
 import datetime
 import sys, os
-sys.path.insert(0, os.path.abspath('../_ext'))
+sys.path.insert(0, os.path.abspath('../common/_ext'))
 
 def split_release(release):
     import re
@@ -57,7 +57,7 @@ edit_on_github_project = 'openmicroscopy/ome-documentation'
 edit_on_github_branch = 'dev_5_0'
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ['../common/_templates']
 
 # The suffix of source filenames.
 source_suffix = '.txt'
