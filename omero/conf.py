@@ -75,6 +75,9 @@ omero_extlinks = {
     }
 extlinks.update(omero_extlinks)
 
+# Edit on GitHub prefix
+edit_on_github_prefix = 'omero'
+
 # -- Options for HTML output ---------------------------------------------------
 
 # Custom sidebar templates, maps document names to template names.

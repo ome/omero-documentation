@@ -24,7 +24,7 @@ from conf import *
 # General information about the project.
 project = u'OME Contributing Developer'
 title = project + u' Documentation'
-    
+
 # OME contributing-specific extlinks
 contributing_extlinks = {
     # Github links
@@ -51,6 +51,9 @@ rst_epilog += """
 .. _ome-documentation.git: https://github.com/openmicroscopy/ome-documentation
 .. _scripts.git: https://github.com/ome/scripts
 """
+
+# Edit on GitHub prefix
+edit_on_github_prefix = 'contributing'
 
 # -- Options for LaTeX output --------------------------------------------------
 

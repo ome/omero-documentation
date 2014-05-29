@@ -46,6 +46,10 @@ model_extlinks = {
     }
 extlinks.update(model_extlinks)
 
+
+# Edit on GitHub prefix
+edit_on_github_prefix = 'formats'
+
 # -- Options for LaTeX output --------------------------------------------------
 
 # Grouping the document tree into LaTeX files. List of tuples
