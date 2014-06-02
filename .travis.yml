@@ -20,4 +20,4 @@ env:
 
 install: "pip install -q Sphinx"
 
-script: "ant html pdf clean"
+script: "make html pdf clean"
