@@ -135,11 +135,13 @@ Individual parameters are:
        ?c=-1|400:505,2|463:2409,3|620:3879      # First channel inactive "-1"
        ?c=2|463:2409,3|620:3879     # OMERO 4.4.4 only: inactive channels can be omitted
 
--  Z-projection. Maximum intensity, Mean intensity or None (normal)
+-  Z-projection. Maximum intensity, Mean intensity or None (normal). By default we use all z-sections,
+   but a range can be specified.
 
    ::
 
-       ?p=intmax 
+       ?p=intmax
+       ?p=intmax|0:10       # Use z-sections 0-10 inclusive
        ?p=intmean
        ?p=normal
 
