@@ -1,0 +1,37 @@
+Example production server set-ups
+=================================
+
+Micron, Oxford
+--------------
+
+The OMERO server at
+`Micron, Oxford <http://www2.bioch.ox.ac.uk/microngroup/micron_home.php>`_
+houses two OMERO instances, the databases for both these instances, and a
+single OMERO.web instance which serves them both. The second OMERO instance
+(Raff OMERO) originated from another group's private OMERO server, which is
+now managed by Micron, but there was no way to merge this data into the main
+server. The main OMERO instance is configured to interface to a departmental
+LDAP server to authenticate users and get initial authorization details.
+
+.. figure:: ../images/oxford-server-layout.png
+   :align: center
+   :alt: server set-up diagram
+
+
+OMERO Data1 in the diagram is a large filestore server which hosts all the
+image data. This is made available to the OMERO server itself via a Samba
+mount. This server has 36 TiB of space of which OMERO is using 16 TiB and Raff
+OMERO is using 600 GiB. This is backed up to a tape robot.
+
+OMERO Processor1 consists of a 32 core, 128GiB RAM processing machine for
+doing image analysis. This is connected on a completely private network to the
+OMERO server (to avoid issues with configuring OMERO.grid to be secure) and
+runs scripts using OMERO.grid.
+
+Stats
+^^^^^
+
+-  90 users
+-  40 groups
+-  36 TiB of data storage space, of which 16.6 TiB is currently in use
+-  Performance statistics to come
