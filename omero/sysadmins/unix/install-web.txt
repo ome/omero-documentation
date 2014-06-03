@@ -379,6 +379,26 @@ Customizing your OMERO.web installation
           $ bin/omero config set omero.web.scripts_to_ignore '[]'
           $ bin/omero config set omero.web.scripts_to_ignore '["/omero/my_scripts/really_buggy.py", … ]'
 
+
+- Customizing index page:
+
+  -  Occasionally, a pre-login custom page may be required for OMERO.web. By
+     creating a custom HTML page and setting ``INDEX_TEMPLATE``, it is possible
+     to have an index page that, for example, will serve webstart and link to
+     the webclient under your main domain.
+     
+     ::
+     
+         $ bin/omero config set omero.web.index_template 'webstart/start.html'
+
+  -  It is also possible to put the index HTML page in a custom location outside
+     of OMERO.web by adding it to ``TEMPLATE_DIRS``
+     
+     ::
+     
+         $ bin/omero config set omero.web.template_dirs '["/path/to/templates_dir"]'
+         $ bin/omero config set omero.web.index_template 'start.html'
+
 .. _install_web_public_user:
 
 -  Enabling a public user (automatically log in a public user, OMERO 4.4.0 onwards):
