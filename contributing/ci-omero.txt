@@ -432,7 +432,8 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		This job tests the DB upgrade script from the last released 4.4.x
 		server or the 5.0.0-beta1 server
 
-		#. Initializes a database using the script from the 5.0.0 release
+		#. Initializes a database using the script from the last released 
+		   4.4.x server or the 5.0.0-beta1 server
 		#. Starts the OMERO server
 		#. Runs the upgrade script under :file:`sql/psql/OMERO5.0_0/`
 		#. Restarts the OMERO server
@@ -589,7 +590,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-5.1-merge-upgrade`
 
-		This job tests the DB upgrade script from the 5.0.0 server.
+		This job tests the DB upgrade script from the 5.0.0 server
 
 		#. Initializes a database using the script from the 5.0.0 release
 		#. Starts the OMERO server
