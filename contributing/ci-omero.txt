@@ -41,15 +41,20 @@ OMERO jobs
 		* :term:`OMERO-5.1-merge-push`
 		* :term:`OMERO-5.1-breaking-push`
 
-	- 	* Builds the merge OMERO  artifacts
+	- 	* Builds the OMERO artifacts
 		* :term:`OMERO-5.0-merge-build`
 		* :term:`OMERO-5.1-merge-build`
 		* :term:`OMERO-5.1-breaking-build`
 
-	- 	* Deploys the merge OMERO server
+	- 	* Deploys the OMERO server
 		* :term:`OMERO-5.0-merge-deploy`
 		* :term:`OMERO-5.1-merge-deploy`
 		* :term:`OMERO-5.1-breaking-deploy`
+
+	- 	* Runs the OMERO upgrade scripts
+		* :term:`OMERO-5.0-merge-upgrade`
+		* :term:`OMERO-5.1-merge-upgrade`
+		* :term:`OMERO-5.1-breaking-upgrade`
 
 	- 	* Runs the OMERO integration tests
 		* | :term:`OMERO-5.0-merge-integration`
@@ -221,6 +226,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
   "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-matlab"
   "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-robotframework"
   "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-doc"
+  "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-upgrade"
   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-broken";
   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-java";
   "OMERO-5.0-merge-integration" -> "OMERO-5.0-merge-integration-python";
@@ -360,6 +366,16 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. Installs Homebrew
 		#. Runs :file:`docs/install/OMERO-homebrew-install.sh`
 
+	:jenkinsjob:`OMERO-5.0-merge-upgrade`
+
+		This job tests the DB upgrade script from the last released 4.4.x
+		server or the 5.0.0-beta1 server
+
+		#. Initializes a database using the script from the 5.0.0 release
+		#. Starts the OMERO server
+		#. Runs the upgrade script under :file:`sql/psql/OMERO5.0_0/`
+		#. Restarts the OMERO server
+
 5.1.x series
 ^^^^^^^^^^^^
 
@@ -379,6 +395,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
   "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-integration"
   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-matlab"
   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-robotframework"
+  "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-upgrade"
   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-broken";
   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-java";
   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-python";
@@ -508,6 +525,15 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		#. Builds OMERO.server and starts it
 		#. Runs the robot framework tests and collect the results
 
+	:jenkinsjob:`OMERO-5.1-merge-upgrade`
+
+		This job tests the DB upgrade script from the 5.0.0 server.
+
+		#. Initializes a database using the script from the 5.0.0 release
+		#. Starts the OMERO server
+		#. Runs the upgrade script under :file:`sql/psql/OMERO5.1_DEVx/`
+		#. Restarts the OMERO server
+
 .. _omero_breaking:
 
 Breaking jobs
@@ -613,11 +639,11 @@ Jenkins.
 
 	:jenkinsjob:`OMERO-5.1-breaking-upgrade`
 
-		This job tests the DB upgrade script from the last release and the the
-		last patch number of the series.
+		This job tests the DB upgrade script from a 5.0.0 server and the
+		last patch number of the 5.1.x series
 
-		#. Initializes a database using the script from the last release or
-		   the last dbpatch of the series
-		#. Runs the corresponding upgrade script under
-		   :file:`sql/psql/OMERO5.1_DEVx/`
+		#. Initializes a database using the script from the 5.0.0 release or
+		   the last dbpatch of the 5.1.x series
 		#. Starts the OMERO server
+		#. Runs the upgrade script under :file:`sql/psql/OMERO5.1_DEVx/`
+		#. Restarts the OMERO server
