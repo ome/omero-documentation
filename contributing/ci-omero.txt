@@ -465,7 +465,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-5.1-latest`
 
-		This job builds the develop branch of OMERO with Ice 3.3, 3.4 or 3.5
+		This job builds the develop branch of OMERO with Ice 3.4 or 3.5
 
 		#. |buildOMERO|
 		#. |archiveOMEROartifacts|
@@ -502,7 +502,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-5.1-merge-build`
 
-		These jobs builds the OMERO components with Ice 3.3, 3.4 or 3.5
+		These jobs builds the OMERO components with Ice 3.4 or 3.5
 
 		#. Checks out the merge/develop/latest branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
@@ -633,7 +633,7 @@ Jenkins.
 
 	:jenkinsjob:`OMERO-5.1-breaking-build`
 
-		This matrix jobs builds the OMERO components with Ice 3.3, 3.4 or 3.5
+		This matrix jobs builds the OMERO components with Ice 3.4 or 3.5
 
 		#. Checks out the merge/develop/breaking branch of the
 		   snoopycrimecop fork of openmicroscopy.git_
