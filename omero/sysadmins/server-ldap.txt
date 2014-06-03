@@ -232,7 +232,7 @@ LDAP over |SSL|
 ---------------
 
 If you are connecting to your server over |SSL|,
-that is, if your URL is of the form ``ldaps://ldap.example.com:636`` you will
+that is, if your URL is of the form ``ldaps://ldap.example.com:636`` you may
 need to configure a key and trust store for Java. See the
 :doc:`server-security` page for more information.
 
