@@ -322,9 +322,10 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		This job triggers all the morning merge builds listed below
 
 		#. Triggers :term:`OMERO-5.0-merge-push`
-		#. Triggers :term:`OMERO-5.0-merge-build`
+		#. Triggers :term:`OMERO-5.0-merge-build` and
+		   :term:`OMERO-5.0-merge-integration`
 		#. Triggers :term:`OMERO-5.0-merge-deploy`
-		#. Triggers other merge jobs
+		#. Triggers other downstream merge jobs
 
 	:jenkinsjob:`OMERO-5.0-merge-push`
 
@@ -489,9 +490,10 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		This job triggers all the morning merge builds listed below
 
 		#. Triggers :term:`OMERO-5.1-merge-push`
-		#. Triggers :term:`OMERO-5.1-merge-build`
+		#. Triggers :term:`OMERO-5.1-merge-build` and
+		   :term:`OMERO-5.1-merge-integration`
 		#. Triggers :term:`OMERO-5.1-merge-deploy`
-		#. Triggers other merge jobs
+		#. Triggers other downstream merge jobs
 
 	:jenkinsjob:`OMERO-5.1-merge-push`
 
@@ -623,6 +625,12 @@ Jenkins.
 	:jenkinsjob:`OMERO-5.1-breaking-trigger`
 
 		This job triggers all the breaking jobs listed below
+
+		#. Triggers :term:`OMERO-5.1-breaking-push`
+		#. Triggers :term:`OMERO-5.1-breaking-build` and
+		   :term:`OMERO-5.1-breaking-integration`
+		#. Triggers :term:`OMERO-5.1-breaking-deploy`
+		#. Triggers other downstream breaking jobs
 
 	:jenkinsjob:`OMERO-5.1-breaking-push`
 
