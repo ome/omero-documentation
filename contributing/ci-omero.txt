@@ -88,6 +88,66 @@ OMERO jobs
 		*
 		*
 
+.. _deployment_servers:
+
+Deployment servers
+^^^^^^^^^^^^^^^^^^
+
+The table below lists all the hostnames, ports and URLs of the OMERO.web
+clients of the deployment jobs described above:
+
+.. list-table::
+	:header-rows: 1
+	:widths: 10,20,20,10,40
+
+	- 	* Series
+		* Deployment job
+		* Hostname
+		* Port
+		* Webclient
+
+	- 	* 5.0.x
+		* :term:`OMERO-5.0-merge-deploy`
+		* octopus.openmicroscopy.org
+		* 4064
+		* http://octopus.openmicroscopy.org/merge
+
+	- 	* 5.0.x
+		* :term:`OMERO-5.0-latest-deploy`
+		* octopus.openmicroscopy.org
+		* 14064
+		* http://octopus.openmicroscopy.org/latest
+
+	- 	* 5.0.x
+		* :term:`OMERO-5.0-merge-integration`
+		* octopus.openmicroscopy.org
+		* 24064
+		* http://octopus.openmicroscopy.org/integration
+
+	- 	* 5.1.x
+		* :term:`OMERO-5.1-merge-deploy`
+		* trout.openmicroscopy.org
+		* 4064
+		* http://trout.openmicroscopy.org/merge
+
+	- 	* 5.1.x
+		* :term:`OMERO-5.1-latest-deploy`
+		* trout.openmicroscopy.org
+		* 14064
+		* http://trout.openmicroscopy.org/latest
+
+	- 	* 5.1.x
+		* :term:`OMERO-5.1-merge-integration`
+		* trout.openmicroscopy.org
+		* 24064
+		* http://trout.openmicroscopy.org/integration
+
+	- 	* Breaking
+		* :term:`OMERO-5.1-breaking-deploy`
+		* trout.openmicroscopy.org
+		* 34064
+		* http://trout.openmicroscopy.org/breaking
+
 4.4.x series
 ^^^^^^^^^^^^
 
@@ -245,8 +305,8 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-5.0-latest-deploy`
 
-		This job deploys the latest server on port 14064 of
-		gretzky.openmicroscopy.org.uk
+		This job deploys the latest 5.0.x server (see
+		:ref:`deployment_servers`)
 
 	:jenkinsjob:`OMERO-5.0-latest-submods`
 
@@ -285,8 +345,8 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-5.0-merge-deploy`
 
-		This job deploys the merge server on port 4064 of
-		gretzky.openmicroscopy.org.uk
+		This job deploys the merge 5.0.x server (see
+		:ref:`deployment_servers`)
 
 	:jenkinsjob:`OMERO-5.0-merge-integration`
 
@@ -412,8 +472,8 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-5.1-latest-deploy`
 
-		This job deploys the latest server on port 14064 of
-		trout.openmicroscopy.org
+		This job deploys the latest 5.1.x server (see
+		:ref:`deployment_servers`)
 
 	:jenkinsjob:`OMERO-5.1-latest-submods`
 
@@ -452,8 +512,8 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-5.1-merge-deploy`
 
-		This job deploys the merge server on port 4064 of
-		trout.openmicroscopy.org
+		This job deploys the merge 5.1.x server (see
+		:ref:`deployment_servers`)
 
 	:jenkinsjob:`OMERO-5.1-merge-integration`
 
@@ -583,8 +643,7 @@ Jenkins.
 
 	:jenkinsjob:`OMERO-5.1-breaking-deploy`
 
-		This job deploys the breaking server on port 34064 of
-		trout.openmicroscopy.org
+		This job deploys the breaking server (see :ref:`deployment_servers`)
 
 	:jenkinsjob:`OMERO-5.1-breaking-integration`
 
