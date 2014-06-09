@@ -174,8 +174,8 @@ inside your OMERO installation directory.
 Some of the property values are passed directly to the underlying LDAP library
 (`Spring LDAP <http://projects.spring.io/spring-ldap/>`_), which in turn makes
 use of the Java API. OMERO does not modify the error messages thrown by the
-library or the API, so please consult the appropriate docs to diagnose any
-low-level problems.
+library or by Java, so please consult the appropriate documentation to diagnose
+any low-level problems.
  
 .. note::
 
