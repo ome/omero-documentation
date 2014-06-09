@@ -68,8 +68,8 @@ Acquisition systems can then be configured to drop a user's images into
 a given DropBox.
 
 .. note:: 
-    The DropBox system is designed for images filesets to be copied in at 
-    normal acquisition rates. Copying numbers of files en masse may result in 
+    The DropBox system is designed for image files to be copied in at 
+    normal acquisition rates. Copying many files en masse may result in 
     files failing to import.
 
 Log files
