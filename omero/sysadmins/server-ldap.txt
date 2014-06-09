@@ -170,6 +170,12 @@ Like many pieces of OMERO.server configuration, LDAP-specific configuration is
 done by specifying extra properties during installation. The default values
 for the LDAP properties are listed in the :file:`etc/omero.properties` file 
 inside your OMERO installation directory.
+
+Some of the property values are passed directly to the underlying LDAP library
+(`Spring LDAP <http://projects.spring.io/spring-ldap/>`_), which in turn makes
+use of the Java API. OMERO does not modify the error messages thrown by the
+library or the API, so please consult the appropriate docs to diagnose any
+low-level problems.
  
 .. note::
 
