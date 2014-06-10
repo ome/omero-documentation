@@ -435,6 +435,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. Initializes a database using the script from the last released 
 		   4.4.x server or the 5.0.0-beta1 server
 		#. Starts the OMERO server
+		#. Stops the OMERO server
 		#. Runs the upgrade script under :file:`sql/psql/OMERO5.0_0/`
 		#. Restarts the OMERO server
 
@@ -594,6 +595,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 		#. Initializes a database using the script from the 5.0.0 release
 		#. Starts the OMERO server
+		#. Stops the OMERO server
 		#. Runs the upgrade script under :file:`sql/psql/OMERO5.1_DEVx/`
 		#. Restarts the OMERO server
 
@@ -711,7 +713,8 @@ Jenkins.
 		last patch number of the 5.1.x series
 
 		#. Initializes a database using the script from the 5.0.0 release or
-		   the last dbpatch of the 5.1.x series
+		   the last patch number of the 5.1.x series
 		#. Starts the OMERO server
+		#. Stops the OMERO server
 		#. Runs the upgrade script under :file:`sql/psql/OMERO5.1_DEVx/`
 		#. Restarts the OMERO server
