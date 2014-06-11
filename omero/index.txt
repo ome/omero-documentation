@@ -29,8 +29,9 @@ Additional online resources can be found at:
 - ***NEW*** `Demo server <http://qa.openmicroscopy.org.uk/registry/demo_account/>`_
   is now available for OMERO 5
 
-OMERO version *5* uses the *June 2013* release of the
-:model_doc:`OME-Model <>`.
+OMERO version *5* uses the :schema_plone:`June 2013 release
+<Documentation/Generated/OME-2013-06/ome.html>` of the :model_doc:`OME Data
+Model <>`.
 
 .. note:: **If you are still using OMERO 4.4.x, you can find all the
     documentation for those releases via our**
