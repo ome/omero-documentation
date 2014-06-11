@@ -51,27 +51,27 @@ to adjust them for the Ice installation path and version in use.
 
 * Ice built from source and installed into :file:`/opt`:
 
-   .. parsed-literal::
+  ::
 
-       export ICE_HOME=/opt/Ice-|iceversion|
+      export ICE_HOME=/opt/Ice-|iceversion|
 
 * Ice installed on Linux using RPM packages:
 
-   .. parsed-literal::
+  ::
 
-       export ICE_HOME=/usr/share/Ice-|iceversion|
+      export ICE_HOME=/usr/share/Ice-|iceversion|
 
 * MacOS with homebrew:
 
-   .. parsed-literal::
+  ::
 
-       export ICE_HOME=/usr/local/Cellar/ice/|iceversion|
+      export ICE_HOME=/usr/local/Cellar/ice/|iceversion|
 
 * Windows using Visual Studio:
 
-   .. parsed-literal::
+  ::
 
-       set ICE_HOME=C:\\Ice-|iceversion|
+      set ICE_HOME=C:\\Ice-|iceversion|
 
 Users of a package manager will also need to set :envvar:`ICE\_HOME`
 if the Ice paths are not automatically detected correctly.  The
@@ -128,43 +128,37 @@ or to test only C++:
 
     ./build.py -f components/tools/OmeroCpp/build.xml test
 
-.. note::
 
-    If you would like to work on just the C++ code without worrying
-    about the rest of the build, you can install :program:`scons` and
-    use it directly. Alternatively, you can use the :program:`scons`
-    version which comes with the OMERO source code: ::
+If you would like to work on just the C++ code without worrying about the rest
+of the build, you can install :program:`scons` and use it directly. 
+Alternatively, you can use the :program:`scons` version which comes with the OMERO source code: ::
+
+    cd components/tools/OmeroCpp && python ../../../target/scons/scons.py test
     
-        cd components/tools/OmeroCpp && python ../../../target/scons/scons.py test
-    
-    This **does** require having run the top-level build (``build.py``) at
-    least once.
+This **does** require having run the top-level build (``build.py``) at
+least once.
 
-.. note::
+If the build fails with errors such as ::
 
-    If the build fails with errors such as
+    Checking for C++ header file Ice/Ice.h... no
+    Fatal Error: Ice/Ice.h not found
 
-    ::
+this can be caused by the Ice headers not being installed or not
+being on the search path.  However, also check
+:file:`components/tools/OmeroCpp/config.log`.  If this contains
+error messages such as
 
-        Checking for C++ header file Ice/Ice.h... no
-        Fatal Error: Ice/Ice.h not found
+::
 
-    this can be caused by the Ice headers not being installed or not
-    being on the search path.  However, also check
-    :file:`components/tools/OmeroCpp/config.log`.  If this contains
-    error messages such as
+    /usr/include/Ice/ProxyHandle.h:176:13: error: ‘upCast’ was not declared
+    in this scope, and no declarations were found by argument-dependent lookup
+    at the point of instantiation
 
-    ::
-
-         /usr/include/Ice/ProxyHandle.h:176:13: error: ‘upCast’ was not declared in this scope,
-         and no declarations were found by argument-dependent lookup at the point of
-         instantiation
-
-    this is caused by the Ice headers being buggy, and newer versions
-    of GCC rejecting the invalid code.  To compile in this situation,
-    add ``-fpermissive`` to :envvar:`CXXFLAGS` to allow the invalid
-    code to be accepted, but do note that this may also mask other
-    problems so should not be used unless strictly needed.
+this is caused by the Ice headers being buggy, and newer versions of GCC
+rejecting the invalid code.  To compile in this situation, add
+``-fpermissive`` to :envvar:`CXXFLAGS` to allow the invalid code to be
+accepted, but do note that this may also mask other problems so should not be
+used unless strictly needed.
 
 Further build configuration
 ---------------------------

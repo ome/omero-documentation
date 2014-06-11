@@ -5,11 +5,9 @@ OMERO.web framework
   :align: center
   :alt: OmeroWeb infrastructure components
 
-:snapshot:`MOVIE introduction to OmeroWeb
-<movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`
 
 OMERO.web is a framework for building web applications for OMERO. It
-uses ` Django <https://www.djangoproject.com/>`_ to generate HTML pages
+uses `Django <https://www.djangoproject.com/>`_ to generate HTML pages
 from data retrieved from the OMERO server. OMERO.web acts as a Python
 client of the OMERO server using the OMERO API, as well as being a web
 server itself (see 'infrastructure' info below). It uses Django 'apps'
@@ -25,28 +23,28 @@ OMERO.web infrastructure
 ------------------------
 
 OMERO Python API
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 The OMERO.web framework is all based on the OMERO Python API, using the
 Blitz Gateway (see |OmeroPy|). The OMERO.web framework
 provides functionality for creating and retrieving connections to OMERO
-(see example below & :doc:`/developers/Web/WritingViews` for more
+(see example below and :doc:`/developers/Web/WritingViews` for more
 details)
 
 Web gateway
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 The webgateway is a Django app that provides utility functionality for
 the other web components. This includes a full image viewer, as well as
-methods for rendering images etc. You can browse the :javadoc:` webgateway
+methods for rendering images etc. You can browse the :javadoc:`webgateway
 URLs <epydoc/omeroweb.webgateway.urls-module.html>`,
 or see the :doc:`/developers/Web/WebGateway` page for more info.
 
 Web apps
-~~~~~~~~
+^^^^^^^^
 
 The OMERO.web framework consists of several Django apps denoted by
-folders named 'web....'. These include webgateway & webtest, as
+folders named 'web....'. These include webgateway and webtest, as
 discussed above, as well as released tools (webadmin, webclient) and
 other apps in development:
 
@@ -71,7 +69,7 @@ Further documentation on editing the core OMERO.web code is at
 If you want to have a quick look at some example code, see below...
 
 Quick example - webtest
-~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: /images/webtest-dataset.png
   :align: center
@@ -79,12 +77,7 @@ Quick example - webtest
 
 This tiny example gives you a feel for how the OMERO.web framework
 gets data from OMERO and displays it on a web page. You can find this
-and other examples in the 'webtest' app. Also, see the
-:snapshot:`OMERO.web demo movie
-<movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`.
-
-.. note::
-    Some details of this code have changed in the OMERO 4.4 release - see below.
+and other examples in the 'webtest' app.
 
 There are 3 parts to each page: url, view and template. For example,
 this code below is for generating an HTML page of a Dataset (see
