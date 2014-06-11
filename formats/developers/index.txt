@@ -43,10 +43,12 @@ For more information about the OME team workflows, see the
 Working with the OME Data Model
 -------------------------------
 
-The :doc:`Model Overview collection of diagrams <model-overview>` shows the 
-structure and connections between different parts of the OME Model.
+The :doc:`Model Overview collection of diagrams <model-overview>` shows the
+structure and connections between different parts of the OME Model. Generated
+documentation for the :schema_plone:`current version of the entire Schema
+<Documentation/Generated/OME-2013-06/ome.html>` is also available.
 
-Individual parts of the model are covered in more detail in the following 
+Individual parts of the model are covered in more detail in the following
 sections:
 
 -  :doc:`Filter And FilterSet <filter-and-filterset>`
@@ -58,9 +60,9 @@ Support for additional dimensions is also covered:
 
 -  :doc:`6D, 7D and 8D Storage <6d-7d-and-8d-storage>`
 
-Legacy solutions for tiled images and Single (or Selective) Plane Illumination 
-Microscopy (also known as Light Sheet Microscopy) are detailed in the 
-following sections for reference but **both these methods have been superseded 
+Legacy solutions for tiled images and Single (or Selective) Plane Illumination
+Microscopy (also known as Light Sheet Microscopy) are detailed in the
+following sections for reference but **both these methods have been superseded
 by the above**:
 
 -  :doc:`SPIM Initial Support <legacy/spim-initial-support>`
@@ -70,22 +72,22 @@ The use of IDs and Life Science Identifiers is explained in this section:
 
 -  :doc:`id-and-lsid`
 
-The :doc:`Schema versions</schemas/index>` section shows the Model changes 
-with each release, helpful for those working with several versions of the OME 
+The :doc:`Schema versions</schemas/index>` section shows the Model changes
+with each release, helpful for those working with several versions of the OME
 Model, for example to support the loading/saving of a variety of files.
 
 -  The **current major release** - see :doc:`Changes For June
    2013 </schemas/june-2013>`.
 
 For further information, see the 
-:omero_doc:`OME Data Model <developers/index.html#the-ome-data-model>` section 
+:omero_doc:`OME Data Model <developers/index.html#the-ome-data-model>` section
 in the OMERO developer documentation.
 
 Working with OME-XML
 --------------------
 
 In some cases, it is useful to extract specific parameters or tweak
-certain values in a dataset's OME-XML metadata block. Further guidance on 
+certain values in a dataset's OME-XML metadata block. Further guidance on
 :doc:`using-ome-xml` is available, but below is a brief example of the
 OMEXMLMetadata class (which implements the MetadataStore and
 MetadataRetrieve interfaces) to greatly simplify OME-XML-related
@@ -138,6 +140,6 @@ infrastructure to ease  work with an XML DOM tree.
 
 .. only:: html
 
-    See :doc:`using-ome-xml` for further guidance on how to use OME schema 
+    See :doc:`using-ome-xml` for further guidance on how to use OME schema
     elements in XML files.
 
