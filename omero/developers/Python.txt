@@ -654,9 +654,8 @@ OMERO tables
     link.setChild(omero.model.FileAnnotationI(fileAnn.id.val, False))
     conn.getUpdateService().saveAndReturnObject(link) 
 
--  **Table API**
-
-    .. seealso:: :javadoc:`javadoc <slice2html/omero/grid/Table.html>`
+-  **Table API** (also see the
+   :javadoc:`Table javadocs <slice2html/omero/grid/Table.html>`)
 
 ::
 

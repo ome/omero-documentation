@@ -60,7 +60,7 @@ how to download or check out the code can be found on the main
 
 Regular builds of the server are performed by Jenkins_ including generated
 Javadocs. See the
-:devs_doc:`contributing developer continuous integration </ci-omero.html>`
+:devs_doc:`contributing developer continuous integration <ci-omero.html>`
 documentation for more information.
 
 Environment variables
@@ -70,14 +70,16 @@ In addition to the install instructions, you might find it useful to set
 the following variables:
 
 -  OMERO\_HOME: should be set to the directory containing the OMERO
-   distribution or build
+   distribution or build (**note that we do not recommend setting this
+   variable for production servers, it is for development usage only** - see
+   :doc:`/sysadmins/omero-home-prefix`)
 
    ::
 
        # E.g. If you built the server yourself
        export OMERO_PREFIX=~/Desktop/OMERO/dist
        # Or you downloaded a release package
-       export OMERO_PREFIX=~/Desktop/OMERO.server-Beta-4.2.2
+       export OMERO_PREFIX=~/Desktop/OMERO.server-|version|
 
 -  Add the /bin/ directory to your PATH - allows you to call the 'omero'
    command from anywhere
@@ -116,7 +118,7 @@ database, which can be achieved with a number of tools. E.g.
        omero=# \d annotation;         # list all the columns in a particular table
        omero=# select id, discriminator, ns, textValue, file from annotation order by id desc;   # query
 
--  ` pgAdmin <http://www.pgadmin.org/>`_ is a free, cross platform GUI
+-  `pgAdmin <http://www.pgadmin.org/>`_ is a free, cross platform GUI
    tool for working with PostgreSQL
 
 OMERO model
@@ -127,65 +129,53 @@ OMERO model
    :alt:
 
 You can browse the OMERO model in a number of ways, one of which is by
-looking at the database itself (see above). Another is via the on-line
-:javadoc:` OMERO model <slice2html/omero/model.html>` docs.
+looking at the database itself (see above). Another is via the
+:javadoc:`OMERO model API <slice2html/omero/model.html>` documentation.
 
 However, due to the complexity of the OMERO model, it is helpful to have
 some starting points (follow links below to the docs themselves).
 
 .. note::
 
-    Figures to the right show highly simplified outline of various model objects.
+    These figures show highly simplified outlines of various model objects.
 
 Projects, datasets and images
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:javadoc:` Projects <slice2html/omero/model/Project.html>`
+:javadoc:`Projects <slice2html/omero/model/Project.html>`
 and
-:javadoc:` Datasets <slice2html/omero/model/Dataset.html>`
+:javadoc:`Datasets <slice2html/omero/model/Dataset.html>`
 are many-to-many containers for
-:javadoc:` Images <slice2html/omero/model/Image.html>`
+:javadoc:`Images <slice2html/omero/model/Image.html>`
 (linked by
-:javadoc:` ProjectDatasetLinks <slice2html/omero/model/ProjectDatasetLink.html>`
+:javadoc:`ProjectDatasetLinks <slice2html/omero/model/ProjectDatasetLink.html>`
 and
-:javadoc:` DatasetImageLinks <slice2html/omero/model/DatasetImageLink.html>`
+:javadoc:`DatasetImageLinks <slice2html/omero/model/DatasetImageLink.html>`
 respectively).
 
 Projects, Datasets, Images and a number of other entities can be linked
-to Annotations :javadoc:` (abstract superclass) <slice2html/omero/model/Annotation.html>`
+to Annotations :javadoc:`(abstract superclass) <slice2html/omero/model/Annotation.html>`
 via specific links
-(:javadoc:` ProjectAnnotationLink <slice2html/omero/model/ProjectAnnotationLink.html>`,
-:javadoc:` DatasetAnnotationLink <slice2html/omero/model/DatasetAnnotationLink.html>`
+(:javadoc:`ProjectAnnotationLink <slice2html/omero/model/ProjectAnnotationLink.html>`,
+:javadoc:`DatasetAnnotationLink <slice2html/omero/model/DatasetAnnotationLink.html>`
 etc). Annotation subclasses such as
-:javadoc:` CommentAnnotation <slice2html/omero/model/CommentAnnotation.html>`,
-:javadoc:` FileAnnotation <slice2html/omero/model/FileAnnotation.html>`
+:javadoc:`CommentAnnotation <slice2html/omero/model/CommentAnnotation.html>`,
+:javadoc:`FileAnnotation <slice2html/omero/model/FileAnnotation.html>`
 etc. are stored in a single database table in OMERO (all Annotations have
 unique ID).
 
 Images
-~~~~~~
+^^^^^^
 
 .. figure:: /images/developer-model-img.png
    :align: center
    :alt:
 
 Images in OMERO are made up many entities. These include core image components
-such as :javadoc:` Pixels <slice2html/omero/model/Pixels.html>` and
-:javadoc:` Channels <slice2html/omero/model/Channel.html>`, as well as a large
+such as :javadoc:`Pixels <slice2html/omero/model/Pixels.html>` and
+:javadoc:`Channels <slice2html/omero/model/Channel.html>`, as well as a large
 number of additional metadata objects such as Instrument (microscope),
 Objective, Filters, Light Sources, and Detectors.
-Image pixels data is stored as a single file, numbered by Pixels ID
-in the OMERO repository under /OMERO/Pixels/ and can be accessed using
-the Raw Pixels Store.
-
-.. note::
-
-    Some features of the model are due to
-    historical changes and are not exercised in practice. For example, an
-    Image can have multiple sets of Pixels although only 1 is typically
-    used. Also, Logical Channel and Channel can be considered a single
-    entity (as they are now in the OME-model).
-
 
 Working with the OMERO model objects
 ------------------------------------
@@ -232,7 +222,7 @@ Examples
 --------
 
 HQL examples
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 HQL is used for Query Service queries (see above). Some examples,
 coupled with a knowledge of the OMERO model should get you going, along
@@ -256,7 +246,7 @@ omero.sys.Parameters object:
     queryService.findByQuery("from PixelsType as p where p.value=:pType", params)
 
 psql queries
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 Below are a number of example psql database queries:
 
@@ -312,10 +302,10 @@ Below are a number of example psql database queries:
     omero=# select * from pg_stat_activity ;
 
 bin/omero hql
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
-You can use the omero :omerocmd:`hql` command to query a remote OMERO database, entering
-your login details when requested.
+You can use the omero :omerocmd:`hql` command to query a remote OMERO
+database, entering your login details when requested.
 
 .. note::
 
