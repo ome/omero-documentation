@@ -88,6 +88,11 @@ OMERO jobs
 		*
 		*
 
+	- 	* Push SNAPSHOTS to Maven
+		* :term:`OMERO-5.0-merge-maven`
+		* :term:`OMERO-5.1-merge-maven`
+		*
+
 .. _deployment_servers:
 
 Deployment servers
@@ -284,6 +289,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
     }
   "OMERO-5.0-merge-push" -> "OMERO-5.0-merge-integration"
   "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-matlab"
+  "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-maven"
   "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-robotframework"
   "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-doc"
   "OMERO-5.0-merge-deploy" -> "OMERO-5.0-merge-upgrade"
@@ -410,6 +416,13 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. Run the MATLAB unit tests under
 		   :file:`components/tools/OmeroM/test/unit` and collect the results
 
+	:jenkinsjob:`OMERO-5.0-merge-maven`
+
+		This job is used to generate SNAPSHOT jars and push them to artifactory.
+
+		#. Runs :file:`docs/hudson/OMERO.sh`
+		#. Executes the `release-hudson` target for the `ome.unstable` repository.
+
 	:jenkinsjob:`OMERO-5.0-merge-robotframework`
 
 		This job runs the robot framework tests of OMERO
@@ -454,9 +467,10 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
     "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-build";
     "OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy";
     }
-  "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-docs"
   "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-integration"
+  "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-docs"
   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-matlab"
+  "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-maven"
   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-robotframework"
   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-upgrade"
   "OMERO-5.1-merge-integration" -> "OMERO-5.1-merge-integration-broken";
@@ -579,6 +593,13 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		#. Collects the MATLAB artifacts from :term:`OMERO-5.1-merge-build`
 		#. Runs the MATLAB unit tests under
 		   :file:`components/tools/OmeroM/test/unit` and collect the results
+
+	:jenkinsjob:`OMERO-5.1-merge-maven`
+
+		This job is used to generate SNAPSHOT jars and push them to artifactory.
+
+		#. Runs :file:`docs/hudson/OMERO.sh`
+		#. Executes the `release-hudson` target for the `ome.unstable` repository.
 
 	:jenkinsjob:`OMERO-5.1-merge-robotframework`
 
