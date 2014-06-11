@@ -101,12 +101,12 @@ omero.mem.*
 ^^^^^^^^^^^
 
 A number of configuration properties starting with ``omero.mem``
-control how OMERO calculate how much memory to allocate to each
-of a number of services started, most importantly:
+control OMERO's calculation of how much memory to allocate to
+various services which it starts, most importantly:
 
- * blitz
- * indexer
- * pixeldata
+* blitz
+* indexer
+* pixeldata
 
 Configuration properties can either be applied to all three service
 types at the same time or to each individually. Also, different
@@ -115,10 +115,10 @@ strategies may require different properties.
 General properties
 """"""""""""""""""
 
- * omero.mem.strategy -- selects which strategy to use
- * omero.mem.heap_size -- sets the -Xmx value for the JVM
- * omero.mem.heap_dump -- toggles on or off heap dumps on OOMs
- * omero.mem.perm_gen -- sets the MaxPermSize value for the JVM
+* omero.mem.strategy -- selects which strategy to use
+* omero.mem.heap_size -- sets the -Xmx value for the JVM
+* omero.mem.heap_dump -- toggles on or off heap dumps on OOMs
+* omero.mem.perm_gen -- sets the MaxPermSize value for the JVM
 
 For example, the default strategy set is equivalent to making the call:
 
@@ -138,16 +138,15 @@ PercentStrategy
 `PercentStrategy` is the default strategy and specifies a `percent`
 property which can be set globally or on a service-type basis:
 
-bin/omero 
 ::
 
 	$ bin/omero config set omero.mem.blitz.percent 50
 
 The default percentages are:
 
- * blitz -- 40%
- * pixeldata -- 20%
- * indexer -- 10%
+* blitz -- 40%
+* pixeldata -- 20%
+* indexer -- 10%
 
 ManualStrategy
 """"""""""""""
@@ -155,11 +154,11 @@ ManualStrategy
 The manual strategy will assume that you have configured all services
 previously. If no values are set, the following defaults are used:
 
- * heap_size -- 512m
- * perm_gen -- 128m
- * heap_dump -- off
+* heap_size -- 512m
+* perm_gen -- 128m
+* heap_dump -- off
 
-These values match represent the defaults in OMERO 5.0.2 and earlier.
+These values are equivalent to the defaults in OMERO 5.0.2 and earlier.
 
 Tips
 """"
@@ -174,7 +173,9 @@ If working with large images generates ``OutOfMemory`` exceptions in the
 
 After modifying any memory settings, be sure to restart your server.
 
-    $ bin/omero admin restart
+::
+
+	$ bin/omero admin restart
 
 .. seealso::
 
