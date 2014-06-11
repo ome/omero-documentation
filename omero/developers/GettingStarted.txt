@@ -79,7 +79,7 @@ the following variables:
        # E.g. If you built the server yourself
        export OMERO_PREFIX=~/Desktop/OMERO/dist
        # Or you downloaded a release package
-       export OMERO_PREFIX=~/Desktop/OMERO.server-|version|
+       export OMERO_PREFIX=~/Desktop/OMERO.server-5.0.x
 
 -  Add the /bin/ directory to your PATH - allows you to call the 'omero'
    command from anywhere
