@@ -89,8 +89,10 @@ OMERO jobs
 		*
 
 	- 	* Push SNAPSHOTS to Maven
-		* :term:`OMERO-5.0-merge-maven`
-		* :term:`OMERO-5.1-merge-maven`
+		* | :term:`OMERO-5.0-latest-maven`
+		  | :term:`OMERO-5.0-merge-maven`
+		* | :term:`OMERO-5.1-latest-maven`
+		  | :term:`OMERO-5.1-merge-maven`
 		*
 
 .. _deployment_servers:
@@ -282,6 +284,7 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 .. digraph:: OMERO50jobs
 
   "OMERO-5.0-latest" -> "OMERO-5.0-latest-deploy";
+  "OMERO-5.0-latest" -> "OMERO-5.0-latest-maven";
   "OMERO-5.0-merge-daily" -> "OMERO-5.0-merge-push";
   subgraph cluster_0 {
     "OMERO-5.0-merge-push" -> "OMERO-5.0-merge-build";
@@ -423,6 +426,10 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 		#. Runs :file:`docs/hudson/OMERO.sh`
 		#. Executes the `release-hudson` target for the `ome.unstable` repository.
 
+	:jenkinsjob:`OMERO-5.0-latest-maven`
+
+		The same as the merge job, but pushes to `ome.snapshots`.
+
 	:jenkinsjob:`OMERO-5.0-merge-robotframework`
 
 		This job runs the robot framework tests of OMERO
@@ -462,6 +469,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 .. digraph:: OMERO51jobs
 
   "OMERO-5.1-latest" -> "OMERO-5.1-latest-deploy";
+  "OMERO-5.1-latest" -> "OMERO-5.1-latest-maven";
   "OMERO-5.1-merge-daily" -> "OMERO-5.1-merge-push"
   subgraph cluster_0 {
     "OMERO-5.1-merge-push" -> "OMERO-5.1-merge-build";
@@ -600,6 +608,10 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 		#. Runs :file:`docs/hudson/OMERO.sh`
 		#. Executes the `release-hudson` target for the `ome.unstable` repository.
+
+	:jenkinsjob:`OMERO-5.1-latest-maven`
+
+		The same as the merge job, but pushes to `ome.snapshots`.
 
 	:jenkinsjob:`OMERO-5.1-merge-robotframework`
 
