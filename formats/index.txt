@@ -5,37 +5,36 @@ OME Model and Formats |release| Documentation
 This documentation covers the OME Data Model, OME-XML and OME-TIFF. 
 
 The OME Model is a specification for storing data on biological imaging.
-The model includes image parameters, such as XYZ dimensions and pixels type, 
-as well as extensive metadata on, for example, image acquisition, annotation, 
+The model includes image parameters, such as XYZ dimensions and pixels type,
+as well as extensive metadata on, for example, image acquisition, annotation,
 and regions of interest (ROIs). This common specification is essential
-for the exchange of image data between different software packages. OME-XML is 
-a file format used to store data according to the OME Model, serving as a 
-convenient file format for data migration from one site or user to another. 
-OME-TIFF is a multi-plane tiff file that contains OME metadata in the header, 
-in the form of OME-XML. This allows the pixels to be read with any 
-TIFF-compatible program, and the metadata to be extracted with any OME-aware 
+for the exchange of image data between different software packages. OME-XML is
+a file format used to store data according to the OME Model, serving as a
+convenient file format for data migration from one site or user to another.
+OME-TIFF is a multi-plane tiff file that contains OME metadata in the header,
+in the form of OME-XML. This allows the pixels to be read with any
+TIFF-compatible program, and the metadata to be extracted with any OME-aware
 application. Our `paper describing the design and implementation of the OME-XML file 
 <http://genomebiology.com/2005/6/5/R47>`_ appeared in Genome Biology.
 
 The OME consortium currently provides two major tools capable of working
 with OME-XML and OME-TIFF:
 
--  The :bf_plone:`Bio-Formats <>` library is a full-featured library with many 
-   features related to OME-XML, including conversion of third party file 
-   format metadata into OME-XML structures. It can write image data to the 
+-  The :bf_plone:`Bio-Formats <>` library is a full-featured library with many
+   features related to OME-XML, including conversion of third party file
+   format metadata into OME-XML structures. It can write image data to the
    OME-TIFF format.
 
--  The :omero_plone:`OMERO server <>` works directly with
-   OME-XML. It can import data from OME-XML and OME-TIFF, as well as
-   export to OME-TIFF.
+-  The :omero_plone:`OMERO server <>` works directly with OME-XML. It can
+   import data from OME-XML and OME-TIFF, as well as export to OME-TIFF.
 
 
 
-If you have used OME-XML, OME-TIFF, Bio-Formats or OMERO in your work please 
-use the :about_plone:`correct citations <licensing-attribution/citing-ome>` to 
+If you have used OME-XML, OME-TIFF, Bio-Formats or OMERO in your work please
+use the :about_plone:`correct citations <licensing-attribution/citing-ome>` to
 acknowledge us.
 
-We have received support from several companies who use our file formats, for 
+We have received support from several companies who use our file formats, for
 details see our list of :about_plone:`Partners <partners>`.
 
 
@@ -79,7 +78,7 @@ File Specifications
 
 
 ******************************
-Developer Tools And Guidelines
+Developer Tools and Guidelines
 ******************************
 
 .. toctree::
@@ -93,7 +92,7 @@ Developer Tools And Guidelines
     developers/id-and-lsid
 
 ************************
-The Data Model In Detail
+The Data Model in Detail
 ************************
 
 .. toctree::
