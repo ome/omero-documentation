@@ -3,8 +3,8 @@ Public data in OMERO.web
 
 Since OMERO 4.4, the OMERO.web framework has supported auto-login for a single
 username / password. This means that any "public" visitors to certain
-OMERO.web pages will be automatically logged in and will be able to access and
-data that is available to the defined 'public user'.
+OMERO.web pages will be automatically logged in and will be able to access the
+data available to the defined 'public user'.
 
 Here is how to go about setting this up on your OMERO.web install:
 
@@ -58,7 +58,7 @@ Here is how to go about setting this up on your OMERO.web install:
     `\http://your_host/webgateway/img_detail/IMAGE_ID/`. Please remember that
     public images must be in a public group where public user can access them.
 
-    Exotic matching techniques can be used but more explicit regular 
+    Exotic matching techniques can be used but more explicit regular
     expressions are needed when attempting to filter based on a base URL:
 
     ::

@@ -33,12 +33,12 @@ Access to the OMERO API services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you need access to API methods that are not provided by the gateway
-library, you can get hold of the |OmeroApi|. 
+library, you can get hold of the |OmeroApi|.
 
 .. note::
  
-    These services will always work
-    with omero.model objects and not the gateway wrapper objects.
+    These services will always work with omero.model objects and not the
+    gateway wrapper objects.
 
 The gateway handles creation and reuse of the API services, so that new
 ones are not created unnecessarily. Services can be accessed using the
@@ -153,17 +153,15 @@ that your subclasses are returned by calls to getObjects() For example:
     # IMPORTANT to update the map of wrappers for 'Image' etc. returned by getObjects("Image")
     omero.gateway.refreshWrappers()
 
-This page provides some background information on the OMERO Python
-client 'gateway' (omero.gateway module) and describes work to improve
-the API.
+This page provides some background information on the OMERO Python client
+'gateway' (omero.gateway module) and describes work to improve the API.
 
 The Blitz Gateway is a Python client-side library that facilitates working
-with the OMERO API, handling connection to the server, loading of data
-objects and providing convenience methods to access the data. It was
-originally designed as part of the |OmeroWeb| framework,
-to provide connection and data retrieval services to various
-web clients. However, we have now decided to encourage its use for all
-access to the OMERO Python API.
+with the OMERO API, handling connection to the server, loading of data objects
+and providing convenience methods to access the data. It was originally
+designed as part of the |OmeroWeb| framework, to provide connection and data
+retrieval services to various web clients. However, we have now decided to
+encourage its use for all access to the OMERO Python API.
 
 Wrapper objects
 ^^^^^^^^^^^^^^^
@@ -192,11 +190,11 @@ retrieving data objects from OMERO.
 Model object wrappers
 """""""""""""""""""""
 
-OMERO model objects, E.g. omero.model.Project, omero.model.Pixels etc
+OMERO model objects, e.g. omero.model.Project, omero.model.Pixels etc.
 (see :javadoc:`full list <slice2html/omero/model.html>`)
 are code-generated and mapped to the OMERO database schema. They are
 language agnostic and their data is in the form of omero.rtypes as
-described: :ref:`about model objects <AdvancedClientDevelopment#Objects>`).
+described in :ref:`about model objects <AdvancedClientDevelopment#Objects>`).
 
 ::
 
@@ -230,9 +228,9 @@ the use of rtypes.
 
     print project._obj                  # access the wrapped object with ._obj
 
-These wrappers also have a reference to the BlitzGateway connection
-wrapper, so they can make calls to the server and load more data when
-needed (lazy loading).
+These wrappers also have a reference to the BlitzGateway connection wrapper,
+so they can make calls to the server and load more data when needed (lazy
+loading).
 
 E.g.
 
@@ -247,11 +245,11 @@ E.g.
 Wrapper coverage
 """"""""""""""""
 
-The OMERO data model has a large number of objects, not all of which
-are used by the |OmeroWeb| framework. For this reason, the Blitz
-gateway (which was originally built for |OmeroWeb|) has not yet been
-extended to wrap every omero.model object with a specific Blitz Object
-Wrapper. The current list of object wrappers can be found in the
-omero.gateway module :javadoc:`API<epydoc/omero.gateway-module.html>`.
-As more functionality is provided by the Blitz Gateway, the coverage
-of object wrappers will increase accordingly.
+The OMERO data model has a large number of objects, not all of which are used
+by the |OmeroWeb|. Therefore, the Blitz gateway (which was
+originally built for this framework) has not yet been extended to wrap every
+omero.model object with a specific Blitz Object Wrapper. The current list of
+object wrappers can be found in the omero.gateway module
+:javadoc:`API <epydoc/omero.gateway-module.html>`.
+As more functionality is provided by the Blitz Gateway, the coverage of object
+wrappers will increase accordingly.

@@ -170,7 +170,7 @@ restart the OMERO.web server for the config settings to take effect)
 
 Go to `http://localhost:4080/ <http://localhost:4080/>`_\ <your-app>/
 OR `http://localhost:8000/ <http://localhost:8000/>`_\ <your-app>/
-Should see 'Welcome'
+and you should see 'Welcome'.
 
 Commit your code and push to GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
