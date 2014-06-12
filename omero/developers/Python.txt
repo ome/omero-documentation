@@ -5,21 +5,21 @@ OMERO Python language bindings
 <movies/omero-4-3/mov/BlitzGatewayIntro-4.3.mov>`
 
 
-In addition to the auto-generated Python libraries of the core |OmeroApi|, 
+In addition to the auto-generated Python libraries of the core |OmeroApi|,
 we have developed a more user-friendly Python module 'Blitz Gateway' that
 facilitates several aspects of working with the Python API, such as
 connection handling, object graph traversal and lazy loading.
 
-This page gives you a large number of code samples to get you 
+This page gives you a large number of code samples to get you
 started. Then we describe a bit more about :doc:`PythonBlitzGateway`.
 
 The Python libraries are part of the server build and can be found under
 OMERO\_HOME/lib/python. These include the core omero.model objects and
-services as well as the Blitz Gateway code 
+services as well as the Blitz Gateway code
 (at OMERO\_HOME/lib/python/omero/gateway/__init__.py).
 
 
-To use OmeroPy, you will need to download the libraries (E.g. as part of
+To use OmeroPy, you will need to download the libraries (e.g. as part of
 the server package) and setup your :envvar:`PYTHONPATH` to include them:
 
 .. parsed-literal::
@@ -31,11 +31,11 @@ the server package) and setup your :envvar:`PYTHONPATH` to include them:
 
 
 You will also need Ice libraries as described in the 
-:doc:`/sysadmins/unix/server-installation` and an OMERO server to connect to, 
+:doc:`/sysadmins/unix/server-installation` and an OMERO server to connect to,
 which must be the same major version, i.e. |version|.x.
 
 
-All the code examples below can be found at 
+All the code examples below can be found at
 :sourcedir:`examples/Training/python`.
 
 
@@ -52,12 +52,12 @@ Then you can run the example:
 If all goes well, you should be connected to your OMERO server and see some
 details of your session printed out.
 
-All the following code examples can be downloaded and run in the same way, and 
-they will use the USERNAME and PASSWORD from the file you just edited. 
-However, you will need to edit some other parameters, usually IDs from 
-Projects, Datasets, Images etc. You can use the OMERO.insight or OMERO.web 
-client to choose suitable data IDs before editing and running the code 
-samples. 
+All the following code examples can be downloaded and run in the same way, and
+they will use the USERNAME and PASSWORD from the file you just edited.
+However, you will need to edit some other parameters, usually IDs from
+Projects, Datasets, Images etc. You can use the OMERO.insight or OMERO.web
+client to choose suitable data IDs before editing and running the code
+samples.
 
 
 Code samples
@@ -186,7 +186,7 @@ Read data
 
     imageId = 1
     datasetId = 2
-    plateId = -1        # Don't need to set this 
+    plateId = -1        # Don't need to set this
 
 ::
 
@@ -200,7 +200,7 @@ Read data
                 obj.OMERO_CLASS,\
                 obj.getId(),\
                 obj.getName(),\
-                obj.getOwnerOmeName()) 
+                obj.getOwnerOmeName())
 
 -  **List all Projects available to me, and their Datasets and Images:**
 
@@ -233,13 +233,13 @@ Read data
 ::
 
     params = omero.sys.ParametersI()
-    params.exp(conn.getUser().getId())  # only show current user's Datasets 
+    params.exp(conn.getUser().getId())  # only show current user's Datasets
 
 ::
 
     datasets = conn.getObjects("Dataset", params=params)
     for dataset in datasets:
-        print_obj(dataset) 
+        print_obj(dataset)
 
 -  **Retrieve the images contained in a dataset:**
 
@@ -271,7 +271,7 @@ Read data
     t = 0
     renderedImage = image.renderImage(z, t)
     #renderedImage.show()               # popup (use for debug only)
-    #renderedImage.save("test.jpg")     # save in the current folder 
+    #renderedImage.save("test.jpg")     # save in the current folder
 
 -  **Retrieve Screening data:**
 
@@ -309,7 +309,7 @@ Read data
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession() 
+    conn._closeSession()
 
 Groups and permissions
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -319,20 +319,20 @@ Groups and permissions
 ::
 
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
-    conn.connect() 
+    conn.connect()
 
 -  **Configuration**
 
 ::
 
-    imageId = 1 
+    imageId = 1
 
 -  **We are logged in to our 'default' group**
 
 ::
 
     group = conn.getGroupFromContext()
-    print "Current group: ", group.getName() 
+    print "Current group: ", group.getName()
 
 -  **Each group has defined Permissions set**
 
@@ -344,25 +344,25 @@ Groups and permissions
         'rwr---':'READ-ONLY',
         'rwra--':'READ-ANNOTATE',
         'rwrw--':'READ-WRITE'}  # Not exposed in 4.4.0 clients
-    print "Permissions: %s (%s)" % (permission_names[perm_string], perm_string) 
+    print "Permissions: %s (%s)" % (permission_names[perm_string], perm_string)
 
 -  **By default, any query applies to ALL data that we can access in our
    Current group.**
 
-This will be determined by group permissions. E.g. in Read-Only or
-Read-Annotate groups, this will include other users' data See
+This will be determined by group permissions e.g. in Read-Only or
+Read-Annotate groups, this will include other users' data - see
 :doc:`/sysadmins/server-permissions`.
 
 ::
 
     projects = conn.listProjects()      # may include other users' data
     for p in projects:
-        print p.getName(), "Owner: ", p.getDetails().getOwner().getFullName() 
+        print p.getName(), "Owner: ", p.getDetails().getOwner().getFullName()
 
 ::
 
     image = conn.getObject("Image", imageId)     # Will return None if Image is not in current group
-    print "Image: ", image 
+    print "Image: ", image
 
 -  **In OMERO-4.4, we added 'cross-group' querying, use '-1'**
 
@@ -391,7 +391,7 @@ Read-Annotate groups, this will include other users' data See
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession() 
+    conn._closeSession()
 
 Raw data access
 ^^^^^^^^^^^^^^^
@@ -401,13 +401,13 @@ Raw data access
 ::
 
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
-    conn.connect() 
+    conn.connect()
 
 -  **Configuration**
 
 ::
 
-    imageId = 27544 
+    imageId = 27544
 
 -  **Retrieve a given plane**
 
@@ -429,7 +429,7 @@ Raw data access
     print plane
     print "shape: ", plane.shape
     print "min:", plane.min(), " max:", plane.max(),\
-            "pixel type:", plane.dtype.name 
+            "pixel type:", plane.dtype.name
 
 -  **Retrieve a given stack**
 
@@ -440,7 +440,7 @@ Raw data access
     # only opened once (not closed after each plane) Alternative is to use
     # getPlane() or getTile() multiple times - slightly slower.
     c, t = 0, 0                 # First channel and timepoint
-    tile = (50, 50, 10, 10)     # x, y, width, height of tile 
+    tile = (50, 50, 10, 10)     # x, y, width, height of tile
 
 ::
 
@@ -450,7 +450,7 @@ Raw data access
     planes = pixels.getTiles(zctList)
     for i, p in enumerate(planes):
         print "Tile:", zctList[i], " min:", p.min(),\
-                " max:", p.max(), " sum:", p.sum() 
+                " max:", p.max(), " sum:", p.sum()
 
 -  **Retrieve a given hypercube**
 
@@ -464,14 +464,14 @@ Raw data access
     print "\nHyper stack of planes:"
     planes = pixels.getPlanes(zctList)
     for i, p in enumerate(planes):
-        print "plane zct:", zctList[i], " min:", p.min(), " max:", p.max() 
+        print "plane zct:", zctList[i], " min:", p.min(), " max:", p.max()
 
 -  **Close connection:**
 
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession() 
+    conn._closeSession()
 
 Write data
 ^^^^^^^^^^
@@ -489,7 +489,7 @@ Write data
 
     projectId = 2
     #Specify a local file. E.g. could be result of some analysis
-    fileToUpload = "README.txt"   # This file should already exist 
+    fileToUpload = "README.txt"   # This file should already exist
 
 -  **Create a new Dataset**
 
@@ -499,7 +499,7 @@ Write data
     datasetObj.setName(rstring("New Dataset"))
     datasetObj = conn.getUpdateService().saveAndReturnObject(datasetObj)
     datasetId = datasetObj.getId().getValue()
-    print "New dataset, Id:", datasetId 
+    print "New dataset, Id:", datasetId
 
 -  **Link to Project**
 
@@ -513,7 +513,7 @@ Write data
     link = omero.model.ProjectDatasetLinkI()
     link.setParent(omero.model.ProjectI(project.getId(), False))
     link.setChild(datasetObj)
-    conn.getUpdateService().saveObject(link) 
+    conn.getUpdateService().saveObject(link)
 
 -  **How to create a file annotation and link to a Dataset**
 
@@ -525,7 +525,7 @@ Write data
     print "\nCreating an OriginalFile and FileAnnotation"
     fileAnn = conn.createFileAnnfromLocalFile(fileToUpload, mimetype="text/plain", ns=namespace, desc=None)
     print "Attaching FileAnnotation to Dataset: ", "File ID:", fileAnn.getId(), ",", fileAnn.getFile().getName(), "Size:", fileAnn.getFile().getSize()
-    dataset.linkAnnotation(fileAnn)     # link it to dataset. 
+    dataset.linkAnnotation(fileAnn)     # link it to dataset.
 
 -  **Download a file annotation linked to a Dataset**
 
@@ -534,7 +534,7 @@ Write data
     # make a location to download the file. "download" folder.
     path = os.path.join(os.path.dirname(__file__), "download")
     if not os.path.exists(path):
-        os.makedirs(path) 
+        os.makedirs(path)
 
 ::
 
@@ -542,11 +542,11 @@ Write data
     print "\nAnnotations on Dataset:", dataset.getName()
     for ann in dataset.listAnnotations():
         if isinstance(ann, omero.gateway.FileAnnotationWrapper):
-            print "File ID:", ann.getFile().getId(), ann.getFile().getName(), "Size:", ann.getFile().getSize() 
+            print "File ID:", ann.getFile().getId(), ann.getFile().getName(), "Size:", ann.getFile().getSize()
 
 ::
 
-            file_path = os.path.join(path, ann.getFile().getName()) 
+            file_path = os.path.join(path, ann.getFile().getName())
 
 ::
 
@@ -557,7 +557,7 @@ Write data
                     f.write(chunk)
             finally:
                 f.close()
-                print "File downloaded!" 
+                print "File downloaded!"
 
 -  **Load all the file annotations with a given namespace**
 
@@ -568,21 +568,21 @@ Write data
     metadataService = conn.getMetadataService()
     annotations = metadataService.loadSpecifiedAnnotations('omero.model.FileAnnotation', nsToInclude, nsToExclude, None)
     for ann in annotations:
-        print ann.getId().getValue(), ann.file.name.val 
+        print ann.getId().getValue(), ann.file.name.val
 
 -  **Get first annotation with specified namespace**
 
 ::
 
     ann = dataset.getAnnotation(namespace)
-    print "Found Annotation with namespace: ", ann.getNs() 
+    print "Found Annotation with namespace: ", ann.getNs()
 
 -  **Close connection:**
 
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession() 
+    conn._closeSession()
 
 .. _python_omero_tables_code_samples:
 
@@ -594,29 +594,29 @@ OMERO tables
 ::
 
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
-    conn.connect() 
+    conn.connect()
 
 -  **Configuration**
 
 ::
 
-    datasetId = 33 
+    datasetId = 33
 
 -  **Create a name for the Original File (should be unique)**
 
 ::
 
     from random import random
-    tablename = "TablesDemo:%s" % str(random()) 
+    tablename = "TablesDemo:%s" % str(random())
 
 ::
 
     col1 = omero.grid.LongColumn('Uid', 'testLong', [])
-    col2 = omero.grid.StringColumn('MyStringColumnInit', '', 64, []) 
+    col2 = omero.grid.StringColumn('MyStringColumnInit', '', 64, [])
 
 ::
 
-    columns = [col1, col2] 
+    columns = [col1, col2]
 
 -  **Create and initialize a new table.**
 
@@ -624,7 +624,7 @@ OMERO tables
 
     repositoryId = 1
     table = conn.c.sf.sharedResources().newTable(repositoryId, tablename)
-    table.initialize(columns) 
+    table.initialize(columns)
 
 -  **Add data to the table.**
 
@@ -637,7 +637,7 @@ OMERO tables
     data2 = omero.grid.StringColumn('MyStringColumn', '', 64, strings)
     data = [data1, data2]
     table.addData(data)
-    table.close()           # when we are done, close. 
+    table.close()           # when we are done, close.
 
 -  **Get the table as an original file…**
 
@@ -652,21 +652,21 @@ OMERO tables
     link = omero.model.DatasetAnnotationLinkI()
     link.setParent(omero.model.DatasetI(datasetId, False))
     link.setChild(omero.model.FileAnnotationI(fileAnn.id.val, False))
-    conn.getUpdateService().saveAndReturnObject(link) 
+    conn.getUpdateService().saveAndReturnObject(link)
 
 -  **Table API** (also see the
    :javadoc:`Table javadocs <slice2html/omero/grid/Table.html>`)
 
 ::
 
-    openTable = conn.c.sf.sharedResources().openTable(orig_file) 
+    openTable = conn.c.sf.sharedResources().openTable(orig_file)
 
     print "Table Columns:"
     for col in openTable.getHeaders():
         print "   ", col.name 
 
     rowCount = openTable.getNumberOfRows()
-    print "Row count:", rowCount 
+    print "Row count:", rowCount
 
 -  **Get data from every column of the specified rows**
 
@@ -678,7 +678,7 @@ OMERO tables
     for col in data.columns:
         print "Data for Column: ", col.name
         for v in col.values:
-            print "   ", v 
+            print "   ", v
 
 -  **Get data from specified columns of specified rows**
 
@@ -688,7 +688,7 @@ OMERO tables
     start = 3
     stop = 7
     print "\nGet Data for cols: ", colNumbers,\
-            " and between rows: ", start, "-", stop 
+            " and between rows: ", start, "-", stop
 
 ::
 
@@ -696,7 +696,7 @@ OMERO tables
     for col in data.columns:
         print "Data for Column: ", col.name
         for v in col.values:
-            print "   ", v 
+            print "   ", v
 
 -  **Query the table for rows where the 'Uid' is in a particular range**
 
@@ -709,7 +709,7 @@ OMERO tables
         print "Query Results for Column: ", col.name
         for v in col.values:
             print "   ", v
-    openTable.close()           # we're done 
+    openTable.close()           # we're done
 
 -  **In future, to get the table back from Original File**
 
@@ -717,14 +717,14 @@ OMERO tables
 
     orig_table_file = conn.getObject("OriginalFile", attributes={'name': tablename})    # if name is unique
     savedTable = conn.c.sf.sharedResources().openTable(orig_table_file._obj)
-    print "Opened table with row-count:", savedTable.getNumberOfRows() 
+    print "Opened table with row-count:", savedTable.getNumberOfRows()
 
 -  **Close connection:**
 
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession() 
+    conn._closeSession()
 
 ROIs
 ^^^^
@@ -735,13 +735,13 @@ ROIs
 
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
     conn.connect()
-    updateService = conn.getUpdateService() 
+    updateService = conn.getUpdateService()
 
 -  **Configuration**
 
 ::
 
-    imageId = 27544 
+    imageId = 27544
 
 -  **Create ROI.**
 
@@ -760,13 +760,13 @@ ROIs
     theZ = image.getSizeZ() / 2
     theT = 0
     print "Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s, height: %s" % \
-            (theZ, theT, x, y, width, height) 
+            (theZ, theT, x, y, width, height)
 
 ::
 
     # create an ROI, link it to Image
     roi = omero.model.RoiI()
-    roi.setImage(image._obj)    # use the omero.model.ImageI that underlies the 'image' wrapper 
+    roi.setImage(image._obj)    # use the omero.model.ImageI that underlies the 'image' wrapper
 
 ::
 
@@ -779,7 +779,7 @@ ROIs
     rect.theZ = rint(theZ)
     rect.theT = rint(theT)
     rect.textValue = rstring("test-Rectangle")
-    roi.addShape(rect) 
+    roi.addShape(rect)
 
 ::
 
@@ -792,12 +792,12 @@ ROIs
     ellipse.theZ = rint(theZ)
     ellipse.theT = rint(theT)
     ellipse.textValue = rstring("test-Ellipse")
-    roi.addShape(ellipse) 
+    roi.addShape(ellipse)
 
 ::
 
     # Save the ROI (saves any linked shapes too)
-    r = updateService.saveAndReturnObject(roi) 
+    r = updateService.saveAndReturnObject(roi)
 
 -  **Retrieve ROIs linked to an Image.**
 
@@ -842,7 +842,7 @@ ROIs
             print "   Shape:",
             for key, value in shape.items():
                 print "  ", key, value,
-            print "" 
+            print ""
 
 -  **Remove shape from ROI**
 
@@ -855,14 +855,14 @@ ROIs
             if s.getTextValue() and s.getTextValue().getValue() == "test-Ellipse":
                 print "Removing Shape from ROI..."
                 roi.removeShape(s)
-                roi = updateService.saveAndReturnObject(roi) 
+                roi = updateService.saveAndReturnObject(roi)
 
 -  **Close connection:**
 
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession() 
+    conn._closeSession()
 
 Delete data
 ^^^^^^^^^^^
@@ -872,13 +872,13 @@ Delete data
 ::
 
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
-    conn.connect() 
+    conn.connect()
 
 -  **Configuration**
 
 ::
 
-    projectId = 507        # NB: This will be deleted! 
+    projectId = 507        # NB: This will be deleted!
 
 -  **Load the Project**
 
@@ -888,11 +888,11 @@ Delete data
     if project is None:
         import sys
         sys.stderr.write("Error: Object does not exist.\n")
-        sys.exit(1) 
+        sys.exit(1)
 
 ::
 
-    print "\nProject:", project.getName() 
+    print "\nProject:", project.getName()
 
 -  **Delete Project**
 
@@ -904,7 +904,7 @@ Delete data
     obj_ids = [projectId]
     deleteChildren = False
     handle = conn.deleteObjects("Project", obj_ids,\
-            deleteAnns=True, deleteChildren=deleteChildren) 
+            deleteAnns=True, deleteChildren=deleteChildren)
 
 -  **Retrieve callback and wait until delete completes**
 
@@ -920,14 +920,14 @@ Delete data
     print "Error?", err
     if err:
         print cb.getResponse()
-    cb.close(True)      # close handle too 
+    cb.close(True)      # close handle too
 
 -  **Close connection:**
 
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession() 
+    conn._closeSession()
 
 Render Images
 ^^^^^^^^^^^^^
@@ -943,7 +943,7 @@ Render Images
 
 ::
 
-    imageId = 27544 
+    imageId = 27544
 
 -  **Get thumbnail**
 
@@ -954,7 +954,7 @@ Render Images
     img_data = image.getThumbnail()
     renderedThumb = Image.open(StringIO(img_data))
     #renderedThumb.show()           # shows a pop-up
-    renderedThumb.save("thumbnail.jpg") 
+    renderedThumb.save("thumbnail.jpg")
 
 -  **Get current settings**
 
@@ -966,7 +966,7 @@ Render Images
         print "  Color:", ch.getColor().getHtml()
         print "  Active:", ch.isActive()
         print "  Levels:", ch.getWindowStart(), "-", ch.getWindowEnd()
-    print "isGreyscaleRenderingModel:", image.isGreyscaleRenderingModel() 
+    print "isGreyscaleRenderingModel:", image.isGreyscaleRenderingModel()
 
 -  **Render each channel as a separate greyscale image**
 
@@ -981,7 +981,7 @@ Render Images
         image.setActiveChannels(channels)
         renderedImage = image.renderImage(z, t)
         #renderedImage.show()                        # popup (use for debug only)
-        renderedImage.save("channel%s.jpg" % c)     # save in the current folder 
+        renderedImage.save("channel%s.jpg" % c)     # save in the current folder
 
 -  **Turn 3 channels on, setting their colours**
 
@@ -995,7 +995,7 @@ Render Images
     renderedImage = image.renderImage(z, t)     # z and t are ignored for projections
     #renderedImage.show()
     renderedImage.save("all_channels.jpg")
-    image.setProjection('normal')               # turn off projection 
+    image.setProjection('normal')               # turn off projection
 
 -  **Turn 2 channels on, setting levels of the first one**
 
@@ -1006,20 +1006,20 @@ Render Images
     image.setActiveChannels(channels, windows=rangeList)
     renderedImage = image.renderImage(z, t, compression=0.5)    # default compression is 0.9
     #renderedImage.show()
-    renderedImage.save("two_channels.jpg") 
+    renderedImage.save("two_channels.jpg")
 
 -  **Save the current rendering settings**
 
 ::
 
-    image.saveDefaults() 
+    image.saveDefaults()
 
 -  **Close connection:**
 
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession() 
+    conn._closeSession()
 
 Create Image
 ^^^^^^^^^^^^
@@ -1029,13 +1029,13 @@ Create Image
 ::
 
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
-    conn.connect() 
+    conn.connect()
 
 -  **Configuration**
 
 ::
 
-    imageId = 27544     # This image must have at least 2 channels 
+    imageId = 27544     # This image must have at least 2 channels
 
 -  **Create an image from scratch**
 
@@ -1048,20 +1048,20 @@ Create Image
     sizeX, sizeY, sizeZ, sizeC, sizeT = 5, 4, 1, 2, 1
     plane1 = array([[0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [5, 6, 7, 8, 9]], dtype=int8)
     plane2 = array([[5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [0, 1, 2, 3, 4]], dtype=int8)
-    planes = [plane1, plane2] 
+    planes = [plane1, plane2]
 
 ::
 
     def planeGen():
         """generator will yield planes"""
         for p in planes:
-            yield p 
+            yield p
 
 ::
 
     desc = "Image created from a hard-coded arrays"
     i = conn.createImageFromNumpySeq(planeGen(), "numpy image",\
-            sizeZ, sizeC, sizeT, description=desc, dataset=None) 
+            sizeZ, sizeC, sizeT, description=desc, dataset=None)
 
 -  **Create an Image from an existing image**
 
@@ -1074,13 +1074,13 @@ Create Image
     sizeZ, sizeC, sizeT = image.getSizeZ(), image.getSizeC(), image.getSizeT()
     dataset = image.getParent()
     pixels = image.getPrimaryPixels()
-    newSizeC = 1 
+    newSizeC = 1
 
 ::
 
     def planeGen():
         """
-        set up a generator of 2D numpy arrays. 
+        set up a generator of 2D numpy arrays.
 
 ::
 
@@ -1095,20 +1095,20 @@ Create Image
                     # Here we can manipulate the data in many different ways. As an example we are doing "average"
                     newPlane = (channel0 + channel1) / 2    # average of 2 channels
                     print "newPlane for z,t:", z, t, newPlane.dtype, newPlane.min(), newPlane.max()
-                    yield newPlane 
+                    yield newPlane
 
 ::
 
     desc = "Image created from Image ID: %s by averaging Channel 1 and Channel 2" % imageId
     i = conn.createImageFromNumpySeq(planeGen(), "new image",\
-            sizeZ, newSizeC, sizeT, description=desc, dataset=dataset) 
+            sizeZ, newSizeC, sizeT, description=desc, dataset=dataset)
 
 -  **Close connection:**
 
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession() 
+    conn._closeSession()
 
 Filesets - New in OMERO 5
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1118,13 +1118,13 @@ Filesets - New in OMERO 5
 ::
 
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
-    conn.connect() 
+    conn.connect()
 
 -  **Configuration**
 
 ::
 
-    imageId = 101 
+    imageId = 101
 
 -  **Get the 'Fileset' for an Image**
 
@@ -1142,7 +1142,7 @@ Filesets - New in OMERO 5
     for origFile in fileset.listFiles():
         name = origFile.getName()
         path = origFile.getPath()
-        print path, name 
+        print path, name
 
 -  **Get Original Imported Files directly from the image**
 
@@ -1157,20 +1157,20 @@ Filesets - New in OMERO 5
         for origFile in image.getImportedImageFiles():
             name = origFile.getName()
             path = origFile.getPath()
-            print path, name 
+            print path, name
 
 -  **Can get the Fileset using conn.getObject()**
 
 ::
 
-    fileset = conn.getObject("Fileset", fsId) 
+    fileset = conn.getObject("Fileset", fsId)
 
 -  **Close connection:**
 
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession() 
+    conn._closeSession()
 
 Python OMERO.scripts
 ^^^^^^^^^^^^^^^^^^^^
@@ -1179,7 +1179,4 @@ It is relatively straightforward to take the code samples above and
 re-use them in OMERO.scripts. This allows the code to be run on the
 OMERO server and called from either the OMERO.insight client or
 OMERO.web by any users of the server. See :doc:`/developers/scripts/user-guide`.
-
-
-.. _Python#Blitz:
 

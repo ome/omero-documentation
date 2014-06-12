@@ -2,42 +2,42 @@ Working with OMERO
 ==================
 
 This page describes various tools and resources useful for working with
-the OMERO API, as well as some tips on setting up your working
-environment. It should be useful to client developers working in any of
-the supported languages. For language specific info, see the following
-links: |OmeroJava|, |OmeroPy|, |OmeroCpp|, |OmeroMatlab|.
+the OMERO API, as well as some tips on setting up your working environment. It
+should be useful to client developers working in any of the supported
+languages. For language specific info, see the following links: |OmeroJava|,
+|OmeroPy|, |OmeroCpp|, |OmeroMatlab|.
 
 OMERO.clients
 -------------
 
 The OMERO model is implemented as a relational PostgreSQL database on
 the OMERO.server and mapped to code-generated model objects used by the
-clients in the various supported languages (linked above). The
-OMERO API consists of a number of services for working with these objects and
+clients in the various supported languages (linked above). The OMERO API
+consists of a number of services for working with these objects and
 associated binary data. Typically, clients will use various stateless
 services to query the OMERO model and then use the stateful services for
 exchange of binary data or image rendering.
 
 A typical client interaction might have an outline such as:
 
--  Log in to OMERO, obtaining connection and 'service factory'
+-  Log in to OMERO, obtaining connection and 'service factory'.
 -  Use the stateless 'Query Service' or 'Container Service' to traverse
-   Projects, Datasets and Images
+   Projects, Datasets and Images.
 -  Use the stateful 'Rendering Engine' or 'Thumbnail Service' to view
-   images
+   images.
 -  Use the stateful 'Raw Pixels Service' or 'Raw File Store' to retrieve
-   pixel or file data for analysis
+   pixel or file data for analysis.
 -  Create new Annotations or other objects and save them with the
-   stateless 'Update Service'
--  Close stateful services to free resources and close the connection
+   stateless 'Update Service'.
+-  Close stateful services to free resources and close the connection.
 
 OMERO.clients use a common 'gateway' to communicate with an OMERO.server
 installation and allow the user to import, display, edit, and manage
 server data. The OMERO team has developed a suite of clients
-(see :doc:`/users/clients-overview`), but the
-open source nature of the OMERO project also allows developers to create
-their own, customized clients. If you are interested in doing this, further
-information is available on |DevelopingOmeroClients|.
+(see :doc:`/users/clients-overview`), but the open source nature of the OMERO
+project also allows developers to create their own, customized clients. If you
+are interested in doing this, further information is available on
+|DevelopingOmeroClients|.
 
 OMERO server
 ------------
@@ -53,10 +53,9 @@ to have the server package available locally, so as to give you the
 command line tools, Python libraries, etc. It is important that all
 OMERO server and client libraries you use are the same OMERO version.
 
-You may wish to work with the most recent OMERO release, or
-alternatively you can use the latest development code. Instructions on
-how to download or check out the code can be found on the main
-:downloads:`downloads page <>`.
+You may wish to work with the most recent OMERO release, or alternatively you
+can use the latest development code. Instructions on how to download or check
+out the code can be found on the main :downloads:`downloads page <>`.
 
 Regular builds of the server are performed by Jenkins_ including generated
 Javadocs. See the
@@ -106,7 +105,7 @@ Database access
 It is useful to be able to directly query or browse the OMERO PostgreSQL
 database, which can be achieved with a number of tools. E.g.
 
--  psql - This command line tool should already be installed.
+-  psql - this command line tool should already be installed.
    Depending on your permissions, you may need to connect as the
    'postgres' user:
 
@@ -186,15 +185,15 @@ Objects that you wish to work with on the client must be loaded from
 OMERO, with the query defining the extent of any data graph that is
 "fetched".
 
-The |OmeroApi| supports 2 principle ways of
-querying OMERO and retrieving the objects. You can write SQL-like
-queries using the query service (uses "HQL") or you can use one of the
-other services that already has suitable queries. Using the query
-service is very flexible but it requires detailed knowledge of the OMERO
-model (see above) and is susceptible to any change in the model.
+The |OmeroApi| supports two principle ways of querying OMERO and retrieving
+the objects. You can write SQL-like queries using the query service (uses
+"HQL") or you can use one of the other services that already has suitable
+queries. Using the query service is very flexible but it requires detailed
+knowledge of the OMERO model (see above) and is susceptible to any change in
+the model.
 
-For example, to load a specific Project and its linked Datasets you
-could write a query like this:
+For example, to load a specific Project and its linked Datasets you could
+write a query like this:
 
 ::
 
@@ -224,17 +223,17 @@ Examples
 HQL examples
 ^^^^^^^^^^^^
 
-HQL is used for Query Service queries (see above). Some examples,
-coupled with a knowledge of the OMERO model should get you going, along
-with notes about object loading on the |OmeroModel|  page.
+HQL is used for Query Service queries (see above). Some examples, coupled with
+a knowledge of the OMERO model should get you going, along with notes about
+object loading on the |OmeroModel| page.
 
 .. note::
     If possible, it is advisable to use an existing API method from one
     of the other services (as for the container service above).
 
 Although it is possible to place query parameters directly into the string, it
-is preferable (particularly for type-checking) to use the
-omero.sys.Parameters object:
+is preferable (particularly for type-checking) to use the omero.sys.Parameters
+object:
 
 ::
 

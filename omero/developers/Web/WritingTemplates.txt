@@ -179,7 +179,7 @@ These blocks can be used to add content to specific points in the page.
 See :source:`base_header.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/base_header.html>` 
 for full template details.
 
--  link: used to add CSS with <link> blocks to the page head e.g:
+-  link: used to add CSS with <link> blocks to the page head e.g.
 
    ::
 
