@@ -12,17 +12,17 @@ be valuable to a wider audience.
     - :doc:`source-code`
     - :doc:`using-git`
     - :doc:`code-contributions`
-    - :doc:`schema-changes`
     - :doc:`team-communication`
     - :doc:`team-workflow`
     - :doc:`continuous-integration`
     - :doc:`release-process`
+    - :doc:`schema-changes`
     - :doc:`standards`
 
 |
 
-Information specific to developing OMERO, the OME Data Model and file formats, 
-and Bio-Formats can be found in their respective developer documentation 
+Information specific to developing OMERO, the OME Data Model and file formats,
+and Bio-Formats can be found in their respective developer documentation
 sections:
 
 -  :omero_doc:`OMERO developer documentation <developers/index.html>`
@@ -31,9 +31,8 @@ sections:
 
 -  :model_doc:`OME Data Model, OME-TIFF and OME-XML documentation <index.html>`
 
-If you have any questions, please see our 
-:omero_doc:`Community support page <users/community-resources.html>` for ways 
-to get in touch.
+If you have any questions, please see our :community_plone:`Community page <>`
+for ways to get in touch.
 
 .. toctree::
     :maxdepth: 1
@@ -42,10 +41,10 @@ to get in touch.
     source-code
     using-git
     code-contributions
-    schema-changes
     team-communication
     team-workflow
     continuous-integration
     release-process
+    schema-changes
     standards
 
