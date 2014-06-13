@@ -36,7 +36,7 @@ San Francisco, CA 94110 USA
 Everyone is permitted to copy and distribute verbatim copies of this
 license document, but changing it is not allowed.
 
-````
+
 Developer's Certificate of Origin 1.1
 
 By making a contribution to this project, I certify that:
@@ -76,7 +76,7 @@ One way to automate this, is customise your get commit.template by adding a
 prepare-commit-msg hook to your OME source code checkout:
 
 ```
-curl -o $(git rev-parse --git-dir)/hooks/prepare-commit-msg https://raw.githubusercontent.com/dotcloud/docker/master/contrib/prepare-commit-msg.hook 
+curl -o $(git rev-parse --git-dir)/hooks/prepare-commit-msg https://raw.githubusercontent.com/openmicroscopy/ome-documentation/develop/contributing/downloads/prepare-commit-msg.hook 
 chmod +x $(git rev-parse --git-dir)/hooks/prepare-commit-msg
 git submodule foreach 'curl -o $(git rev-parse --git-dir)/hooks/prepare-commit-msg https://raw.githubusercontent.com/dotcloud/docker/master/contrib/prepare-commit-msg.hook'
 git submodule foreach 'chmod +x $(git rev-parse --git-dir)/hooks/prepare-commit-msg'
