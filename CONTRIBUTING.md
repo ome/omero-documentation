@@ -78,7 +78,7 @@ prepare-commit-msg hook to your OME source code checkout:
 ```
 curl -o $(git rev-parse --git-dir)/hooks/prepare-commit-msg https://raw.githubusercontent.com/openmicroscopy/ome-documentation/develop/contributing/downloads/prepare-commit-msg.hook 
 chmod +x $(git rev-parse --git-dir)/hooks/prepare-commit-msg
-git submodule foreach 'curl -o $(git rev-parse --git-dir)/hooks/prepare-commit-msg https://raw.githubusercontent.com/dotcloud/docker/master/contrib/prepare-commit-msg.hook'
+git submodule foreach 'curl -o $(git rev-parse --git-dir)/hooks/prepare-commit-msg https://raw.githubusercontent.com/openmicroscopy/ome-documentation/develop/contributing/downloads/prepare-commit-msg.hook'
 git submodule foreach 'chmod +x $(git rev-parse --git-dir)/hooks/prepare-commit-msg'
 
 ```
