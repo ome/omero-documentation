@@ -1,6 +1,6 @@
 #!/bin/sh
-#       Auto sign all commits to allow them to be used by the Docker project.
-#       see https://github.com/dotcloud/docker/blob/master/CONTRIBUTING.md#sign-your-work
+#       Auto sign all commits to allow them to be used by the OME project.
+#       see https://github.com/openmicroscopy/ome-documentation/blob/develop/CONTRIBUTING.md
 #
 GH_USER=$(git config --get github.user)
 SOB=$(git var GIT_AUTHOR_IDENT | sed -n "s/^\(.*>\).*$/OME-DCO-1.1-Signed-off-by: \1 \(github: $GH_USER\)/p")
