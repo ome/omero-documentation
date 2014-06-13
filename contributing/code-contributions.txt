@@ -21,9 +21,28 @@ Copyrights
 
 The copyright line for a newly created file is based on the
 institution of the creator of the file and will remain unchanged even
-if copied or moved.  Before redistribution of code can take place, an
-agreement must be reached between the OME team and the copyright
-holder.
+if copied or moved.
+
+Developer Certificate of Origin
+-------------------------------
+
+When submitting code to OME projects, you need to include a DCO signature to
+confirm that one or more of the following statements is true of your
+contribution:
+
+#.  You created this contribution/change and have the right to submit it to
+    the Project; or
+#.  You created this contribution/change based on a previous work with a
+    compatible open source license; or
+#.  This contribution/change has been provided to you by someone who did 1. or
+    2. and you are submitting the contribution unchanged.
+#.  You understand this contribution is public and may be redistributed as
+    open source software.
+
+All your commit messages should include ``--signed-off-by: Your_Name
+<your_email@example.com>``.
+
+(This is based on the `policy opted by Docker <http://blog.docker.com/2014/01/docker-code-contributions-require-developer-certificate-of-origin/>`_.)
 
 Licenses
 --------
@@ -62,6 +81,8 @@ submodules are compiled into the official distribution.
 The OME team cannot maintain or ship code which is only available as a
 long-living branch (a fork) of the code base, and we would encourage
 submitters to use one of the above methods.
+
+
 
 Examples of contribution templates
 ----------------------------------
