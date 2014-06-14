@@ -192,6 +192,15 @@ fashion. If you would then like to re-index the remaining objects in the
 system, follow the steps for the on-line reindexing above, skipping the step
 that involves clearing the ``FullText`` directory.
 
+During re-indexation, it is possible to estimate the percent indexed using the
+following SQL command::
+
+
+    omero=> select 'At ' ||  current_timestamp(0) || ', Percent indexed: ' || trunc(((select count(*) from eventlog el, configuration c where el.id < cast(c.value as int) and (c.name like 'PersistentEventLogLoader%')) * 1.0) / (select count(*) from eventlog) * 100, 2) || '%';
+                      ?column?
+    ----------------------------------------------------
+     At 2014-06-14 07:54:37+00, Percent indexed: 70.90%
+    (1 row)
 
 ome.api.IQuery
 ^^^^^^^^^^^^^^
@@ -211,7 +220,7 @@ at a time.
    -- File containing "metaphase"
 
 ome.api.Search
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 The Search API offers a number of different queries along with various
 filters and settings which are all maintained on the server.
