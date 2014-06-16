@@ -2,7 +2,7 @@ Search
 ======
 
 Scheduling indexing
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 Indexing is not driven by the user, but happens automatically in the
 background. Automatic indexing occurs at the frequency defined in
@@ -52,7 +52,7 @@ your search. Or alternatively use the ``oma.api.Search`` interface
 .. _search-reindexing:
 
 Re-indexing
-^^^^^^^^^^^
+-----------
 
 There are a few reasons that you may need to re-index your database, e.g. if
 the index has become corrupt or you would like to have large files, that were
@@ -60,6 +60,9 @@ previously skipped, added to the index (see
 :ref:`omero_search_max_file_size`).
 Under most circumstances, you should be able to re-index the database while
 the server is still running.
+
+Background re-indexing
+^^^^^^^^^^^^^^^^^^^^^^
 
 If you need to make any adjustments to the server configuration or the process
 heap size, first shut the server down and make these changes before restarting
@@ -96,6 +99,9 @@ Depending on the size of your database, it may take the indexer some time to
 finish re-indexing. During this time, your OMERO server will remain available
 for use, however the search functionality will be degraded until the
 re-indexing is finished.
+
+Off-line re-indexing
+^^^^^^^^^^^^^^^^^^^^
 
 It is also possible to re-index the database with the server off-line. First,
 shutdown the OMERO server as normal and make any adjustments to the
@@ -135,6 +141,9 @@ can restart the server and search capabilities will be available in a limited
 fashion. If you would then like to re-index the remaining objects in the
 system, follow the steps for the on-line reindexing above, skipping the step
 that involves clearing the ``FullText`` directory.
+
+Re-indexing duration
+^^^^^^^^^^^^^^^^^^^^
 
 During re-indexation, it is possible to estimate the percent indexed using the
 following SQL command::
