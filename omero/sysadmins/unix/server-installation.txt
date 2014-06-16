@@ -724,7 +724,7 @@ OMERO.web and administration
 .. note::
 
    In order to deploy OMERO.web in a production environment such as
-   Apache or IIS please follow the instructions under
+   Apache or Nginx please follow the instructions under
    :doc:`install-web`.
 
 Otherwise, the internal Django webserver can be used for evaluation
