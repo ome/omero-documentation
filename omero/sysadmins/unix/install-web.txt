@@ -91,35 +91,18 @@ OMERO.web is quite straightforward.
 
        $ bin/omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
 
--  Place a stanza in your web server configuration file. The location of the
-   file will depend on your system, please refer to your web server's manual.
-   Apache and nginx configurations can be automatically generated for you by
-   OMERO.web, see :ref:`apache_configuration` or :ref:`nginx_configuration`.
-
--  Start the Django FastCGI workers:
+-  By default OMERO.web expects to be run from the root URL of the web
+   server. It can be configured to run from a sub-directory, for example
+   `http://example.org/omero/`, as follows:
 
    ::
 
-       $ bin/omero web start
-       ....
-       Copying '/Users/omero/Desktop/omero/lib/python/omeroweb/webstart/static/webstart/img/icon-omero-web.png'
-
-       735 static files copied to '/Users/omero/Desktop/omero/lib/python/omeroweb/static'.
-       Starting OMERO.web... [OK]
-
-   .. note::
-     The Django FastCGI workers are managed **separately** from other
-     OMERO.server processes. You can check their status or stop them using the
-     following commands:
-
-     ::
-
-       $ bin/omero web status
-       OMERO.web status... [RUNNING] (PID 59217)
-       $ bin/omero web stop
-       Stopping OMERO.web... [OK]
-       Django FastCGI workers (PID 59217) killed.
-
+      $ bin/omero config set omero.web.force_script_name '/omero'
+          
+-  **Place one of the below stanza in your web server configuration file. The location of the
+   file will depend on your system, please refer to your web server's manual.
+   Apache and nginx configurations can be automatically generated for you by
+   OMERO.web, see** :ref:`apache_configuration` **or** :ref:`nginx_configuration`.
 
 .. _apache_configuration:
 
@@ -153,7 +136,7 @@ configuration redirect the output of the following command into a file:
         Allow from all
     </Directory>
 
-    Alias /static /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static
+    Alias /omero/static /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static
     Alias /omero "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi/"
 
 .. note::
@@ -168,114 +151,102 @@ configuration redirect the output of the following command into a file:
 Nginx configuration
 """""""""""""""""""
 
-To create a configuration file for a standalone instance of nginx redirect the
-output of the following command into a file:
-
-::
-
-    $ bin/omero web config nginx
-
-::
-
-    #
-    # nginx userland template
-    # this configuration is designed for running nginx as the omero user or similar
-    # nginx -c etc/nginx.conf
-    # for inclusion in a system-wide nginx configuration see omero web config nginx --system
-    #
-    pid /usr/local/dev/openmicroscopy/dist/var/pid.nginx;
-    error_log /usr/local/dev/openmicroscopy/dist/var/log/nginx_error.log;
-    worker_processes  5;
-    working_directory /usr/local/dev/openmicroscopy/dist/var;
-
-    events {
-        worker_connections  1024;
-    }
-
-
-    http {
-        access_log    /usr/local/dev/openmicroscopy/dist/var/log/nginx_access.log;
-        include    /usr/local/dev/openmicroscopy/dist/etc/mime.types;
-        default_type  application/octet-stream;
-        client_body_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
-
-        keepalive_timeout  65;
-
-        server {
-            listen       8080;
-            server_name  _;
-            fastcgi_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
-            proxy_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
-
-             # weblitz django apps serve static content from here
-            location /static {
-                alias /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static;
-            }
-
-            location / {
-                if (-f /usr/local/dev/openmicroscopy/dist/var/maintenance.html) {
-                   error_page 503 /maintenance.html;
-                   return 503;
-                }
-
-                fastcgi_pass 0.0.0.0:4080;
-
-                fastcgi_param PATH_INFO $fastcgi_script_name;
-
-
-                fastcgi_param REQUEST_METHOD $request_method;
-                fastcgi_param QUERY_STRING $query_string;
-                fastcgi_param CONTENT_TYPE $content_type;
-                fastcgi_param CONTENT_LENGTH $content_length;
-                fastcgi_param SERVER_NAME $server_name;
-                fastcgi_param SERVER_PROTOCOL $server_protocol;
-                fastcgi_param SERVER_PORT $server_port;
-                fastcgi_pass_header Authorization;
-                fastcgi_intercept_errors on;
-                fastcgi_read_timeout 300;
-                # Uncomment if nginx SSL module is enabled or you are using nginx 1.1.11 or later
-                # -- See: #10273, http://nginx.org/en/CHANGES
-                # fastcgi_param HTTPS $https;
-            }
-
-            location /maintenance.html {
-                root /usr/local/dev/openmicroscopy/dist/var;
-            }
-
-        }
-
-    }
-
-It is also possible to generate a site file for inclusion as part of a
-system-wide nginx instance:
+To create a site configuration file for inclusion system-wide nginx instance
+configuration redirect the output of the following command into a file:
 
 ::
 
     $ bin/omero web config nginx --system
+    
+::
 
-.. seealso:: :ref:`Custom OMERO.web location <custom_web_location>`.
+    server {
+        listen       80;
+        server_name  $hostname;
+
+         # weblitz django apps serve media from here
+        location /omero/static {
+            alias /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static;
+        }
+
+        location /omero {
+            if (-f /usr/local/dev/openmicroscopy/dist/var/maintenance.html) {
+               error_page 503 /maintenance.html;
+               return 503;
+            }
+
+            fastcgi_pass 0.0.0.0:4080;
+
+            fastcgi_split_path_info ^(/omero)(.*)$;
+            fastcgi_param PATH_INFO $fastcgi_path_info;
+            fastcgi_param SCRIPT_INFO $fastcgi_script_name;
 
 
-Using the lightweight development server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            fastcgi_param REQUEST_METHOD $request_method;
+            fastcgi_param QUERY_STRING $query_string;
+            fastcgi_param CONTENT_TYPE $content_type;
+            fastcgi_param CONTENT_LENGTH $content_length;
+            fastcgi_param SERVER_NAME $server_name;
+            fastcgi_param SERVER_PROTOCOL $server_protocol;
+            fastcgi_param SERVER_PORT $server_port;
+            fastcgi_pass_header Authorization;
+            fastcgi_intercept_errors on;
+            fastcgi_read_timeout 300;
+            # Uncomment if nginx SSL module is enabled or you are using nginx 1.1.11 or later
+            # -- See: #10273, http://nginx.org/en/CHANGES
+            # fastcgi_param HTTPS $https;
+        }
 
-All that is required to use the Django lightweight development server
-is to set the *omero.web.application\_server* configuration option, turn Debugging on and start the server up:
+        location /maintenance.html {
+            root /usr/local/dev/openmicroscopy/dist/var;
+        }
+
+    }
+
+.. note::
+    OMERO.web requires ``body_in_file_only`` and ``client_max_body_size`` 
+    adjusted in your default nginx config because nginx must buffer incoming 
+    data. Make sure you have that set to the following config:
+
+    ::
+
+        http {
+            ...
+            sendfile on;
+            send_timeout 300s;
+            client_body_in_file_only clean;
+            client_body_buffer_size 32K;
+            client_max_body_size 300M;
+            ...
+        }
+
+Starting OMERO.web
+~~~~~~~~~~~~~~~~~~
+
+Start the Django FastCGI workers:
 
 ::
 
-    $ bin/omero config set omero.web.application_server development
-    $ bin/omero config set omero.web.debug True
     $ bin/omero web start
-    INFO:__main__:Application Starting...
-    INFO:root:Processing custom settings for module omeroweb.settings
     ...
-    Validating models...
+    Copying '/Users/omero/Desktop/omero/lib/python/omeroweb/webstart/static/webstart/img/icon-omero-web.png'
 
-    0 errors found
-    Django version 1.6, using settings 'omeroweb.settings'
-    Starting development server at http://0.0.0.0:4080/
-    Quit the server with CONTROL-C.
+    735 static files copied to '/Users/omero/Desktop/omero/lib/python/omeroweb/static'.
+    Starting OMERO.web... [OK]
+
+.. note::
+    The Django FastCGI workers are managed **separately** from other
+    OMERO.server processes. You can check their status or stop them using the
+    following commands:
+
+    ::
+
+        $ bin/omero web status
+        OMERO.web status... [RUNNING] (PID 59217)
+        $ bin/omero web stop
+        Stopping OMERO.web... [OK]
+        Django FastCGI workers (PID 59217) killed.
+
 
 Logging in to OMERO.web
 -----------------------
@@ -526,15 +497,9 @@ Customizing your OMERO.web installation
           fastcgi_param PATH_INFO $fastcgi_path_info;
           fastcgi_param SCRIPT_INFO $fastcgi_script_name;
 
-   -  If `omero.web.force_script_name` is set then
-
-      ::
-
-          $ bin/omero web config nginx
-
-      will automatically generate the correct configuration.
-
-
+   -  If `omero.web.force_script_name` is set then 
+      ``$ bin/omero web config nginx --system`` will automatically generate 
+      the correct configuration.
 
 -  Configuring additional web apps:
 
