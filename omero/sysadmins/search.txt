@@ -154,3 +154,27 @@ following SQL command::
     ----------------------------------------------------
      At 2014-06-14 07:54:37+00, Percent indexed: 70.90%
     (1 row)
+
+The following table provides estimates of the re-indexing time for production 
+servers of various sizes with the corresponding memory settings:
+
+.. list-table::
+  :header-rows: 1
+
+  - * Re-indexing type
+    * Re-indexing duration
+    * Binary repository size
+    * Indexer JVM settings
+    * omero.search.batch
+
+  - * Background
+    * 31h
+    * 300GB
+    * -Xmx512M
+    * 50
+
+  - * Background
+    * 10 days
+    * 16TB
+    * -Xmx2048M
+    * 100
