@@ -421,14 +421,11 @@ under the :jenkinsview:`5.0` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-5.0-merge-maven`
 
-		This job is used to generate SNAPSHOT jars and push them to artifactory.
-
-		#. Runs :file:`docs/hudson/OMERO.sh`
-		#. Executes the `release-hudson` target for the `ome.unstable` repository.
+		The same as :term:`OMERO-5.1-merge-maven`, but for 5.0.
 
 	:jenkinsjob:`OMERO-5.0-latest-maven`
 
-		The same as the merge job, but pushes to `ome.snapshots`.
+		The same as :term:`OMERO-5.1-merge-maven`, but for 5.0 and pushes to `ome.snapshots`.
 
 	:jenkinsjob:`OMERO-5.0-merge-robotframework`
 
@@ -611,7 +608,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 	:jenkinsjob:`OMERO-5.1-latest-maven`
 
-		The same as the merge job, but pushes to `ome.snapshots`.
+		The same as :term:`OMERO-5.1-merge-maven`, but pushes to `ome.snapshots`.
 
 	:jenkinsjob:`OMERO-5.1-merge-robotframework`
 
