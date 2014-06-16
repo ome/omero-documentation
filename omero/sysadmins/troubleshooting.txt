@@ -264,7 +264,7 @@ wrong.
    are periodically being appended to the log file, then your indexer process
    may be running behind. You can either wait for it to catch up, or try
    increasing the search batch size in order to speed processing. See the
-   section on the :ref:`omero_search_batch` setting for more information.
+   section on the :term:`omero.search.batch` setting for more information.
 
 -  If there are no updates to the ``Indexer-0.log`` file even when new images,
    tags, files, etc. are added to the server, then it is possible that the
@@ -290,15 +290,15 @@ wrong.
 -  If the missing search terms are part of a very large text file, it is
    possible that the file has not been indexed due to exceeding the indexer's
    maximum file size limit. See the section on the
-   :ref:`omero_search_max_file_size` setting for more information on increasing
-   this limit.
+   :term:`omero.search.max_file_size` setting for more information on
+   increasing this limit.
 
 -  If none of the above steps have resolved the situation, it is possible that
    your search index has become corrupt. If this is the case, you will need to
    re-index your server's content. See the section on :ref:`search-reindexing`
    for more information. Keep in mind that you may also need to adjust
-   the settings for the search batch size, maximum file size, and indexer's heap
-   size, as outlined above.
+   the settings for the search batch size, maximum file size, and indexer's
+   heap size, as outlined above.
 
 OMERO.web issues
 ----------------

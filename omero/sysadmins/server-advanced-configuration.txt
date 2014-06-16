@@ -56,44 +56,6 @@ Your database installation will need to be configured to accept *at
 least* as many, preferably more, connections as the value of
 "omero.db.poolsize"
 
-.. _omero_search_batch:
-
-omero.search.batch
-^^^^^^^^^^^^^^^^^^
-
-The search indexer will process events in batches, the size of which is
-determined by the ``omero.search.batch`` setting (default is 50):
-
-::
-
-	$ bin/omero config set omero.search.batch 200
-
-Setting a larger batch size can potentially speed up indexing, but it also
-places more strain on the indexer heap. If you increase batch size, it may be
-necessary to also increase heap size (see: :ref:`out_of_memory_error`).
-
-.. _omero_search_max_file_size:
-
-omero.search.max_file_size
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The search indexer will not index any text or PDF files larger than
-``omero.search.max_file_size`` bytes. If a file larger than this is attached,
-e.g. to an image, the indexer will simply ignore the contents of the file
-when creating the search index. To allow larger files to be added to the search
-index you may increase the setting (default is 131072000, or 125 MB):
-
-::
-
-	$ bin/omero config set omero.search.max_file_size 262144000
-
-.. note:: If you set the max file size to greater than 1/2 the size of the
-    indexer's heap (256 MB by default), you may encounter Out of Memory errors in
-    the Indexer process or you may cause the search index to become corrupt. Be sure
-    that you also increase the heap size accordingly (see
-    :ref:`out_of_memory_error`).
-
-
 .. _gridconfiguration:
 
 Grid configuration
@@ -165,7 +127,7 @@ the next invocation of :omerocmd:`admin start` or :omerocmd:`admin deploy`
 
 .. note::
     You must remember to always apply the targets on each
-    :omerocmd:`admin` command. If not, the target will not be 
+    :omerocmd:`admin` command. If not, the target will not be
     removed. Therefore, they are often better used for debugging purposes;
     however, as opposed to alternative application descriptors, using
     the pre-existing targets should not require any special effort
@@ -218,8 +180,8 @@ Changing ports / multiple servers on a single host
 --------------------------------------------------
 
 Since changing all the references to port numbers (4061, 4063, 4064,
-etc) in the grid configuration can be cumbersome, a 
-:omerocmd:`admin` command is provided to make the modifications for 
+etc) in the grid configuration can be cumbersome, a
+:omerocmd:`admin` command is provided to make the modifications for
 you. See the :ref:`security_ssl`
 section of the :doc:`/sysadmins/server-security` page for more information.
 
@@ -236,7 +198,7 @@ OMERO servers on the same physical machine.
           cd /usr/local/omero-4.3
           bin/omero admin ports --prefix=2
           bin/omero admin start
-       
+
 
 Clients will need to use the appropriate port (either 14064 or 24064) to
 connect to OMERO.
