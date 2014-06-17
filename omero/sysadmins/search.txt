@@ -5,7 +5,7 @@ Scheduling indexing
 -------------------
 
 Indexing is not driven by the user, but happens automatically in the
-background and can be controlled .
+background and can be controlled by the following settings.
 
 .. glossary::
 
@@ -74,12 +74,6 @@ became
        PersistentEventLogLoader.v2.current_id
 
 in r2460.
-
-Once an entity is indexed, it is possible to start writing querying
-against the server via ``IQuery.findAllByFullText()``. Use
-``new Parameters(new Filter().owner())`` and ``.group()`` to restrict
-your search. Or alternatively use the ``oma.api.Search`` interface
-(below).
 
 .. _search-reindexing:
 
@@ -210,3 +204,8 @@ servers of various sizes with the corresponding memory settings:
     * 16TB
     * -Xmx2048M
     * 100
+
+.. seealso::
+  :doc:`/developers/Modules/Search`
+    Section of the developer documentation describing how to perform search
+    queries against the server.
