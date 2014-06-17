@@ -244,6 +244,7 @@ period (seconds) between retries in ``etc/grid/templates.xml``
     <property name="omero.fs.maxRetries"  value="5"/>
     <property name="omero.fs.retryInterval"  value="3"/>
 
+.. _troubleshooting-search:
 
 Search does not return expected results
 ---------------------------------------

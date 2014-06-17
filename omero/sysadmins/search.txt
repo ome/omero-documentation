@@ -72,20 +72,24 @@ table, will be incremented.
 Re-indexing
 -----------
 
-There are a few reasons that you may need to re-index your database, e.g. if
-the index has become corrupt or you would like to have large files, that were
-previously skipped, added to the index (see
-:term:`omero.search.max_file_size`).
-Under most circumstances, you should be able to re-index the database while
-the server is still running.
+There are a few reasons that you may need to re-index your database. The
+following list is non-exhaustive:
+
+- if you have upgraded from a server prior to 5.0.1 and you have experienced
+  issues with search in the past, re-indexing is highly recommended,
+- if searching does not return the expected results (see
+  :ref:`troubleshooting-search`)
+- if you would like to add large files that were previously skipped to the
+  index (see :term:`omero.search.max_file_size`).
 
 Background re-indexing
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If you need to make any adjustments to the server configuration or the process
-heap size, first shut the server down and make these changes before restarting
-the server. Then, with the server running, using the following steps to
-initiate a re-indexing
+Under most circumstances, you should be able to re-index the database while
+the server is still running. If you need to make any adjustments to the server
+configuration or the process heap size, first shut the server down and make
+these changes before restarting the server. Use the following steps to
+initiate a re-indexing.
 
 -  Disable the search indexer process and stop any currently running indexer
    processes:
