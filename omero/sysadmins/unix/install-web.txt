@@ -228,10 +228,7 @@ Start the Django FastCGI workers:
 ::
 
     $ bin/omero web start
-    ...
-    Copying '/Users/omero/Desktop/omero/lib/python/omeroweb/webstart/static/webstart/img/icon-omero-web.png'
-
-    735 static files copied to '/Users/omero/Desktop/omero/lib/python/omeroweb/static'.
+    ... static files copied to '/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static'.
     Starting OMERO.web... [OK]
 
 .. note::
