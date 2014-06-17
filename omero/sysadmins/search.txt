@@ -52,28 +52,20 @@ table, will be incremented.
 
 ::
 
-    omero3=# select value from configuration where name = 'PersistentEventLogLoader.current_id';
+    omero=# select value from configuration where name = 'PersistentEventLogLoader.v2.current_id';
      value
     -------
      30983
     (1 row)
 
-If you have more than one ``PersistentEventLogLoader.*`` value in your
-database, then you have run indexing with multiple versions of the
-server. This is fine. To allow a new server version to force an update,
-the configuration key may be changed. For example,
+.. note::
 
-::
-
-       PersistentEventLogLoader.currend_id
-
-became
-
-::
-
-       PersistentEventLogLoader.v2.current_id
-
-in r2460.
+   If you have more than one ``PersistentEventLogLoader.*`` value in your
+   database, then you have run indexing with multiple versions of the
+   server. This is fine. To allow a new server version to force an update,
+   the configuration key may be changed. For example,
+   ``PersistentEventLogLoader.currend_id`` became
+   ``PersistentEventLogLoader.v2.current_id`` in :commit:`a5cb64a`.
 
 .. _search-reindexing:
 
