@@ -9,6 +9,17 @@ more information). The index is stored under :file:`/OMERO/FullText` (or the
 :file:`FullText` subdirectory of your ${omero.data.dir}, and can be searched
 with Google-like queries.
 
+Once an entity is indexed, it is possible to start writing querying
+against the server via ``IQuery.findAllByFullText()``. Use
+``new Parameters(new Filter().owner())`` and ``.group()`` to restrict
+your search. Or alternatively use the ``oma.api.Search`` interface
+(below).
+
+.. seealso::
+  :doc:`/sysadmins/search`
+    Section of the sysadmin documentation describing the configuration of the
+    search and indexing for the server.
+
 Field names
 -----------
 
