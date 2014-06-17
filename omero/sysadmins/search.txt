@@ -164,8 +164,8 @@ fashion. If you would then like to re-index the remaining objects in the
 system, follow the steps for the on-line reindexing above, skipping the step
 that involves clearing the ``FullText`` directory.
 
-Re-indexing duration
-^^^^^^^^^^^^^^^^^^^^
+Monitoring re-indexing
+^^^^^^^^^^^^^^^^^^^^^^
 
 During re-indexing, it is possible to estimate the percent indexed using the
 following SQL command::
@@ -177,8 +177,10 @@ following SQL command::
      At 2014-06-14 07:54:37+00, Percent indexed: 70.90%
     (1 row)
 
-The following table provides estimates of the re-indexing time for production
-servers of various sizes with the corresponding memory settings:
+The overall re-indexing performance depends significantly on the memory
+settings and the size of the repository to index. The following table provides
+estimates of the process duration based on re-indexing of existing production
+servers of various sizes:
 
 .. list-table::
   :header-rows: 1
