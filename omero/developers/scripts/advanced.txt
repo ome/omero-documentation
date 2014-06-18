@@ -36,10 +36,10 @@ the client (see diagram, below).
    variables, as described in the server installation page (see 
    :doc:`Unix </sysadmins/unix/server-installation>` and 
    :doc:`Windows </sysadmins/windows/server-installation>` versions).
--  You also need the OMERO server download. Go to the :omero_plone:`OMERO
-   downloads <downloads>` page and get the appropriate server package (version 
-   must be OMERO 4.2 or later and match the server you are connecting to). 
-   Unzip the package in a suitable location.
+-  You also need the OMERO server download. Go to the :downloads:`OMERO
+   downloads <>` page and get the appropriate server package (version
+   must match the server you are connecting to). Unzip the package in a
+   suitable location.
 
 In a command line terminal, change into the unzipped OMERO package,
 connect to the server and start user processor. For example for host:

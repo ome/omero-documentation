@@ -53,7 +53,7 @@ omero release-zip"
 
 
 Code-signing
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 The OMERO source tree includes a self-signed certificate for testing
 OMERO.insight webstart. This is not used by default to avoid problems with
@@ -63,23 +63,13 @@ used, alternatively see :source:`docs/hudson/OMERO.sh` and/or
 
 
 Jenkins
-~~~~~~~
+^^^^^^^
 
 The OME project currently uses Jenkins_ as
 a continuous integration server available :jenkins:`here <>`, so many
-binary packages can be downloaded without compiling them yourself.
+binary packages can be downloaded without compiling them yourself. See the :devs_doc:`Continuous Integration documentation <ci-omero.html>` for further details.
 
-Hudson checks for git changes every 15 minutes and executes:
-
-::
-
-    (cd docs/hudson; python launcher.py)
-
-which invokes the "build-all", "javadoc" "findbugs", "coverage", and
-"release-zip" targets.
-
-The Javadocs are always made available :javadoc:`here <>`
-as well as several build metrics.
+The Javadocs are always made available :javadoc:`here <>`.
 
 Build tools
 -----------
@@ -91,7 +81,7 @@ dependency management provided by `Ivy <http://ant.apache.org/ivy>`_.
 distutils/setuptools tools.
 
 Structure of the build
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
 This is an (abbreviated) snapshot of the structure of the filesystem for
 OMERO:
@@ -164,21 +154,21 @@ Each of the components can also be built directly. For example,
     ./build.py -f components/server/build.xml
 
 Code generation
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 Unfortunately, just the above snapshot of the code repository omits some
 of the most important code. Many MB of source code is generated both by
 our own :sourcedir:`DSLTask <components/dsl>` as well as by
 the Ice_ ``slice2java``, ``slice2cpp``, and
 ``slice2py`` code generators. These take an intermediate representation
-of the :model_doc:`OME-Model <ome-xml/>` and generate our |OmeroModel|. 
-This code is not available in git, but once built, can be found in all the  
+of the :model_doc:`OME-Model <ome-xml/>` and generate our |OmeroModel|.
+This code is not available in git, but once built, can be found in all the
 directories named "generated".
 
 .. _build#OmeroTools:
 
 OmeroTools
-~~~~~~~~~~~
+^^^^^^^^^^
 
 Similarly, the ant build alone is not enough to describe all the
 products which get built. Namely, the builds for the non-Java components
@@ -215,7 +205,7 @@ include:
 		An Ice-based build requires further invocations of ``slice2*`` code generation. Currently this
 
 	Scons-based builds
-		Builds which have C++ targets are based generally on ` Scons <http://www.scons.org>`__. See |OmeroCpp| for more information.
+		Builds which have C++ targets are based generally on `Scons <http://www.scons.org>`__. See |OmeroCpp| for more information.
 
 
 Comments on Ivy
@@ -245,5 +235,5 @@ Comments on build.py
 ``./build.py`` is a complete replacement for your local ant install. In
 many cases on and on most OS, you will be fine running ``ant``. If you
 have any issues (for example ``OutOfMemory``) , please use
-``./build.py`` instead. **\*However**\ \*, only use one or the other. Do
-not mix calls between the two.
+``./build.py`` instead. **However, only use one or the other; do
+not mix calls between the two.**

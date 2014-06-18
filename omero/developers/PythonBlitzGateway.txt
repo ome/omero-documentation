@@ -2,15 +2,14 @@ Blitz Gateway documentation
 ---------------------------
 
 The epydoc-generated documentation of methods provided by OMERO Gateway
-is available showing :javadoc:` wrapper classes <epydoc/omero.gateway-module.html>`.
+is available showing :javadoc:`wrapper classes <epydoc/omero.gateway-module.html>`.
 
 Specifically, the API for the 'conn' connection wrapper created above is
-:javadoc:` here <epydoc/omero.gateway._BlitzGateway-class.html>`.
+:javadoc:`here <epydoc/omero.gateway._BlitzGateway-class.html>`.
 
-When working with :javadoc:` OMERO model objects <slice2html/omero/model.html>`
+When working with :javadoc:`OMERO model objects <slice2html/omero/model.html>`
 (omero.model.Image etc) the Gateway will wrap these objects in classes
-such as
-:javadoc:` omero.gateway.ImageWrapper <epydoc/omero.gateway._ImageWrapper-class.html>`
+such as :javadoc:`omero.gateway.ImageWrapper <epydoc/omero.gateway._ImageWrapper-class.html>`
 to handle object loading and hierarchy traversal. For example:
 
 ::
@@ -34,29 +33,29 @@ Access to the OMERO API services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you need access to API methods that are not provided by the gateway
-library, you can get hold of the |OmeroApi|. 
+library, you can get hold of the |OmeroApi|.
 
 .. note::
  
-    These services will always work
-    with omero.model objects and not the gateway wrapper objects.
+    These services will always work with omero.model objects and not the
+    gateway wrapper objects.
 
 The gateway handles creation and reuse of the API services, so that new
 ones are not created unnecessarily. Services can be accessed using the
-methods of the underlying :javadoc:` Service
+methods of the underlying :javadoc:`Service
 Factory <slice2html/omero/api/ServiceFactory.html>`
 with the Gateway handling reuse as needed. Stateless services (those
-retrieved with get… methods E.g.
-:javadoc:` getQueryService <slice2html/omero/api/ServiceFactory.html#getQueryService>`)
-are always reused for each call, E.g. blitzon.getQueryService() whereas
-stateful services E.g.
-:javadoc:` createRenderingEngine <slice2html/omero/api/ServiceFactory.html#createRenderingEngine>`
+retrieved with get… methods e.g.
+:javadoc:`getQueryService <slice2html/omero/api/ServiceFactory.html#getQueryService>`)
+are always reused for each call, e.g. blitzon.getQueryService() whereas
+stateful services e.g.
+:javadoc:`createRenderingEngine <slice2html/omero/api/ServiceFactory.html#createRenderingEngine>`
 may be created each time.
 
 Not all methods of the service factory are currently supported in the
 gateway. You can get an idea of the currently supported services by
 looking at the source code under the
-:javadoc:` \_createProxies <epydoc/omero.gateway-pysrc.html#_BlitzGateway._createProxies>`
+:javadoc:`\_createProxies <epydoc/omero.gateway-pysrc.html#_BlitzGateway._createProxies>`
 method.
 
 Example: ContainerService can load Projects and Datasets in a single
@@ -74,8 +73,8 @@ call to server (no lazy loading)
 Stateful services, reconnection, error handling etc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Blitz gateway was designed for use in the |OmeroWeb| framework and it is 
-not expected that stateful services will be maintained on the client for 
+The Blitz gateway was designed for use in the |OmeroWeb| framework and it is
+not expected that stateful services will be maintained on the client for
 significant time.
 There is various error-handling functionality in the Blitz gateway that
 will close existing services and recreate them in order to maintain a
@@ -88,9 +87,9 @@ Overwriting and extending omero.gateway classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When working with
-:javadoc:` omero.gateway <epydoc/omero.gateway._BlitzGateway-class.html>`
+:javadoc:`omero.gateway <epydoc/omero.gateway._BlitzGateway-class.html>`
 or wrapper classes such as
-:javadoc:` omero.gateway.ImageWrapper <epydoc/omero.gateway._ImageWrapper-class.html>`
+:javadoc:`omero.gateway.ImageWrapper <epydoc/omero.gateway._ImageWrapper-class.html>`
 you might want to add your own functionality or customize an existing
 one. NB: Note the call to ``omero.gateway.refreshWrappers()`` to ensure
 that your subclasses are returned by calls to getObjects() For example:
@@ -154,17 +153,15 @@ that your subclasses are returned by calls to getObjects() For example:
     # IMPORTANT to update the map of wrappers for 'Image' etc. returned by getObjects("Image")
     omero.gateway.refreshWrappers()
 
-This page provides some background information on the OMERO Python
-client 'gateway' (omero.gateway module) and describes work to improve
-the API, beginning with the OMERO 4.3 release.
+This page provides some background information on the OMERO Python client
+'gateway' (omero.gateway module) and describes work to improve the API.
 
-The Blitz Gateway is a Python client-side library that facilitates working 
-with the OMERO API, handling connection to the server, loading of data
-objects and providing convenience methods to access the data. It was
-originally designed as part of the |OmeroWeb| framework, 
-to provide connection and data retrieval services to various
-web clients. However, we have now decided to encourage its use for all
-access to the OMERO Python API.
+The Blitz Gateway is a Python client-side library that facilitates working
+with the OMERO API, handling connection to the server, loading of data objects
+and providing convenience methods to access the data. It was originally
+designed as part of the |OmeroWeb| framework, to provide connection and data
+retrieval services to various web clients. However, we have now decided to
+encourage its use for all access to the OMERO Python API.
 
 Wrapper objects
 ^^^^^^^^^^^^^^^
@@ -174,7 +171,7 @@ The Gateway consists of a number of wrapper objects:
 Connection wrapper
 """"""""""""""""""
 
-The BlitzGateway class (see :javadoc:` API of development code <epydoc/omero.gateway._BlitzGateway-class.html>`)
+The BlitzGateway class (see :javadoc:`API of development code <epydoc/omero.gateway._BlitzGateway-class.html>`)
 is a wrapper for the OMERO client and session objects. It provides
 various methods for connecting to the OMERO server, querying the status
 or context of the current connection and as a starting point for
@@ -193,11 +190,11 @@ retrieving data objects from OMERO.
 Model object wrappers
 """""""""""""""""""""
 
-OMERO model objects, E.g. omero.model.Project, omero.model.Pixels etc
-(see :javadoc:` full list <slice2html/omero/model.html>`)
+OMERO model objects, e.g. omero.model.Project, omero.model.Pixels etc.
+(see :javadoc:`full list <slice2html/omero/model.html>`)
 are code-generated and mapped to the OMERO database schema. They are
 language agnostic and their data is in the form of omero.rtypes as
-described: :ref:` about model objects <AdvancedClientDevelopment#Objects>`).
+described in :ref:`about model objects <AdvancedClientDevelopment#Objects>`).
 
 ::
 
@@ -231,9 +228,9 @@ the use of rtypes.
 
     print project._obj                  # access the wrapped object with ._obj
 
-These wrappers also have a reference to the BlitzGateway connection
-wrapper, so they can make calls to the server and load more data when
-needed (lazy loading).
+These wrappers also have a reference to the BlitzGateway connection wrapper,
+so they can make calls to the server and load more data when needed (lazy
+loading).
 
 E.g.
 
@@ -248,11 +245,11 @@ E.g.
 Wrapper coverage
 """"""""""""""""
 
-The OMERO data model has a large number of objects, not all of which
-are used by the |OmeroWeb| framework. For this reason, the Blitz
-gateway (which was originally built for |OmeroWeb|) has not yet been
-extended to wrap every omero.model object with a specific Blitz Object
-Wrapper. The current list of object wrappers can be found in the
-omero.gateway module :javadoc:`API<epydoc/omero.gateway-module.html>`.
-As more functionality is provided by the Blitz Gateway, the coverage
-of object wrappers will increase accordingly.
+The OMERO data model has a large number of objects, not all of which are used
+by the |OmeroWeb|. Therefore, the Blitz gateway (which was
+originally built for this framework) has not yet been extended to wrap every
+omero.model object with a specific Blitz Object Wrapper. The current list of
+object wrappers can be found in the omero.gateway module
+:javadoc:`API <epydoc/omero.gateway-module.html>`.
+As more functionality is provided by the Blitz Gateway, the coverage of object
+wrappers will increase accordingly.
