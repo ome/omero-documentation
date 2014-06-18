@@ -26,7 +26,7 @@ background and can be controlled by the following settings.
       $ bin/omero config set omero.search.batch 200
 
     Setting a larger batch size can potentially speed up indexing, but it also
-    places more strain on the indexer heap. If you increase  batch size, it
+    places more strain on the indexer heap. If you increase batch size, it
     may be necessary to also increase heap size (see:
     :ref:`out_of_memory_error`).
 
@@ -48,7 +48,7 @@ background and can be controlled by the following settings.
       (see :ref:`out_of_memory_error`).
 
 Upon successful completion, the persistent count in the ``configuration``
-table, will be incremented.
+table will be incremented.
 
 ::
 
@@ -64,7 +64,7 @@ table, will be incremented.
    database, then you have run indexing with multiple versions of the
    server. This is fine. To allow a new server version to force an update,
    the configuration key may be changed. For example,
-   ``PersistentEventLogLoader.currend_id`` became
+   ``PersistentEventLogLoader.current_id`` became
    ``PersistentEventLogLoader.v2.current_id`` in :commit:`a5cb64a`.
 
 .. _search-reindexing:
@@ -135,13 +135,13 @@ directory, then run
    $ bin/omero admin reindex --full
 
 Re-indexing the database in off-line mode will use a 1 GB heap by default (as
-opposed to the default 256MB heap for the indexer process in the running
+opposed to the default 256 MB heap for the indexer process in the running
 server). You can further adjust the size of the heap by passing an alternate
 value in the :envvar:`JAVA_OPTS` variable on the command line
 
 ::
 
-   $ JAVA_OPTS="-Xmx2056MB" bin/omero admin reindex --full
+   $ JAVA_OPTS="-Xmx2048MB" bin/omero admin reindex --full
 
 You may also want to increase the :term:`omero.search.batch` size to take
 advantage of the larger heap. The combination of a larger heap and batch size
