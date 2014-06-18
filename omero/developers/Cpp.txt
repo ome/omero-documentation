@@ -145,8 +145,8 @@ If the build fails with errors such as ::
     Fatal Error: Ice/Ice.h not found
 
 this can be caused by the Ice headers not being installed or not being on the
-search path.  However, also check
-:file:`components/tools/OmeroCpp/config.log`.  If this contains error messages
+search path. However, also check
+:file:`components/tools/OmeroCpp/config.log`. If this contains error messages
 such as
 
 ::
@@ -242,7 +242,7 @@ the mentioned directories above. A simple GNU :program:`make`
 A trivial example: :file:`yourcode.cpp`
 ---------------------------------------
 
-A simple example file might looking something like the following:
+A simple example file might be looking something like the following:
 
 .. literalinclude:: ../examples/omerocpp/yourcode.cpp
    :language: c++
