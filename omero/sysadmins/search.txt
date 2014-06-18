@@ -75,11 +75,11 @@ Re-indexing
 There are a few reasons that you may need to re-index your database. The
 following list is non-exhaustive:
 
-- if you have upgraded from a server prior to 5.0.1 and you have experienced
-  issues with search in the past, re-indexing is highly recommended,
-- if searching does not return the expected results (see
-  :ref:`troubleshooting-search`)
-- if you would like to add large files that were previously skipped to the
+- You have upgraded from a server prior to 5.0.1 and you have experienced
+  issues with search in the past, re-indexing is highly recommended.
+- Searching does not return the expected results (see
+  :ref:`troubleshooting-search`).
+- You would like to add large files that were previously skipped to the
   index (see :term:`omero.search.max_file_size`).
 
 Background re-indexing
