@@ -98,7 +98,8 @@ OMERO.web is quite straightforward.
    ::
 
       $ bin/omero config set omero.web.force_script_name '/omero'
-          
+      $ bin/omero config set omero.web.static_url '/omero/static/'
+
 -  **Place one of the below stanza in your web server configuration file. The location of the
    file will depend on your system, please refer to your web server's manual.
    Apache and nginx configurations can be automatically generated for you by
@@ -480,7 +481,8 @@ Customizing your OMERO.web installation
       ::
 
           $ bin/omero config set omero.web.force_script_name '/testing'
-
+          $ bin/omero config set omero.web.static_url '/testing/static/'
+          
    -  Update your web server configuration. For example, in the nginx
       configuration replace
 
