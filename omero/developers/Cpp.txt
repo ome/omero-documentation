@@ -242,7 +242,7 @@ the mentioned directories above. A simple GNU :program:`make`
 A trivial example: :file:`yourcode.cpp`
 ---------------------------------------
 
-A simple example file might be looking something like the following:
+A simple example might look something like the following:
 
 .. literalinclude:: ../examples/omerocpp/yourcode.cpp
    :language: c++
