@@ -101,30 +101,56 @@ omero.mem.*
 ^^^^^^^^^^^
 
 A number of configuration properties starting with ``omero.mem``
-control OMERO's calculation of how much memory to allocate to
-various services which it starts, most importantly:
+control the calculation of how much memory to allocate to
+various OMERO services on startup, most importantly:
 
 * blitz
 * indexer
 * pixeldata
 
+Configuration properties
+""""""""""""""""""""""""
+
 Configuration properties can either be applied to all three service
-types at the same time or to each individually. Also, different
-strategies may require different properties.
+types at the same time by omitting the service type (e.g.
+:term:`omero.mem.strategy`) or to each individually by including it
+(e.g. `omero.mem.blitz.strategy`).
 
-General properties
-""""""""""""""""""
+.. glossary::
 
-* omero.mem.strategy -- selects which strategy to use
-* omero.mem.heap_size -- sets the -Xmx value for the JVM
-* omero.mem.heap_dump -- toggles on or off heap dumps on OOMs
-* omero.mem.perm_gen -- sets the MaxPermSize value for the JVM
+    omero.mem.strategy
+        Selets which memory strategy to use
+
+    omero.mem.heap_size
+        Sets the -Xmx value for the JVM
+
+    omero.mem.heap_dump
+        Toggles on or off heap dumps on OOMs
+
+    omero.mem.perm_gen
+        Sets the MaxPermSize value for the JVM
+
+    omero.mem.append
+        User parameters which are appended after the rest.
+
+    omero.mem.max_total
+        Maximum amount of memory that OMERO will
+        see. By default, 16 GB.
+
+    omero.mem.min_total
+        Minimum amount of memory that OMERO will
+        see. By default, 3.4 GB.
+
+    omero.mem.use_total
+        Specify how much memory OMERO *thinks* your system has.
+        If unset, either `psutil` will be used if available
+        or JMX.
 
 For example, the default strategy set is equivalent to making the call:
 
 ::
 
-	$ bin/omero config set omero.mem.strategy percent
+	$ bin/omero config set omero.mem.strategy adaptive
 
 This could be changed to the ManualStrategy for a single server via:
 
@@ -132,44 +158,52 @@ This could be changed to the ManualStrategy for a single server via:
 
 	$ bin/omero config set omero.mem.indexer.strategy manual
 
-PercentStrategy
-"""""""""""""""
 
-`PercentStrategy` is the default strategy and specifies a `percent`
-property which can be set globally or on a service-type basis:
+Strategies
+""""""""""
+
+A number of strategies are available for calculating the effective
+JVM settings from the provided configuration properties.
+
+.. glossary::
+
+    AdaptiveStrategy
+        Default strategy which uses the system resources to scale
+        how much memory will be used. AdaptiveStrategy is a specific
+        type of :term:`PercentStrategy`.
+
+    PercentStrategy
+        Reads the `percent` configuration property which can also be
+        set globally or on a service-type basis. This percent (0-100)
+        of the system memory is used for the process.
+        :term:`omero.mem.use_total`, :term:`omero.mem.min_total`, and
+        :term:`omero.mem.max_total` are all used for defining the
+        system memory seen. The default percentages are: blitz and
+        pixeldata 15%, indexer 10%.
+
+
+    ManualStrategy
+        Simply provides the values given as the JVM settings. If no
+        value is set for a particular configuration property, then
+        the default is used: heap_size=512m and perm_gen=128m
+        These values are equivalent to the defaults in OMERO 5.0.2
+        and earlier.
 
 ::
 
 	$ bin/omero config set omero.mem.blitz.percent 50
 
-The default percentages are:
+would raise the blitz percentage to 50.
 
-* blitz -- 40%
-* pixeldata -- 20%
-* indexer -- 10%
+::
 
-ManualStrategy
-""""""""""""""
+	$ bin/omero config set omero.mem.max_total 24000
 
-The manual strategy will assume that you have configured all services
-previously. If no values are set, the following defaults are used:
-
-* heap_size -- 512m
-* perm_gen -- 128m
-* heap_dump -- off
-
-These values are equivalent to the defaults in OMERO 5.0.2 and earlier.
+would allow an OMERO installation to make use of 24GB
+of system memory.
 
 Tips
 """"
-
-It is highly recommended to increase the ``BlitzTemplate`` default JVM memory
-settings from ``-Xmx512M`` to ``-Xmx2048M`` and from ``XX:MaxPermSize=128m``
-to ``XX:MaxPermSize=256M`` in production.
-
-If working with large images generates ``OutOfMemory`` exceptions in the
-:file:`var/log/PixelData-0.log` file, you may consider increasing the
-``PixelDataTemplate`` default JVM memory settings to ``-Xmx1024M``.
 
 After modifying any memory settings, be sure to restart your server.
 
