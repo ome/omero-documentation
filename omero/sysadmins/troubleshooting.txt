@@ -174,37 +174,12 @@ OutOfMemoryError / PermGen space errors in OMERO.server logs
 Out of memory or permanent generation (PermGen) errors can be caused by
 many things. You may be asking too much of the server. Or you may
 require an increase in the maximum Java heap or the permanent generation
-space. This can be done by modifying the IceGrid configuration for your
-OMERO.server as follows:
+space. This can be done by modifying the configuration for your
+OMERO.server. See :ref:`jvm_memory_settings`.
 
--  In ``etc/grid/templates.xml``:
-
-   ::
-
-       …
-
-       <server-template id="BlitzTemplate">
-         <parameter name="index"/>
-         <parameter name="config" default="default"/>
-         <server id="Blitz-${index}" exe="java" activation="always" pwd="${OMERO_HOME}">
-           <!--
-           Debugging options:
-           <option>-Xdebug</option>
-           <option>-Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n</option>
-           -->
-           <option>-Xmx512M</option>
-           <option>-Djava.awt.headless=true</option>
-           <option>-Dlog4j.configuration=${OMERO_ETC}log4j.xml</option>
-           …
-
-   Replace ``-Xmx512M`` initially with ``-Xmx1024M`` or greater as required,
-   (use ``-Xmx1024M -XX:MaxPermSize=128m`` as an alternative).
-
-Alternatively, if you are finding out of memory errors in one of the other
-process logs (e.g. Indexer-0.log or PixelData-0.log), look for the entry in
-``etc/grid/templates.xml`` corresponding to that process and change the ``-Xmx``
-option there (e.g. under ``<server-template id="IndexerTemplate">`` or
-``<server-template id="PixelDataTemplate">``, respectively).
+Similarly, if you are finding out of memory errors in one of the other
+process logs (e.g. Indexer-0.log or PixelData-0.log), you might try
+optimizing the JVM memory settings.
 
 Furthermore, under certain conditions access of images greater than 4GB
 can be problematic on 32-bit platforms due to certain bugs within the
