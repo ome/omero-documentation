@@ -689,10 +689,11 @@ JVM memory settings
 -------------------
 
 The OMERO server starts a number of Java services. Memory settings
-for these are calculated on a system-by-system basis.
-
-To increase the performance of your system, you may want to tune
-the JVM. See :ref:`jvm_memory_settings`.
+for these are calculated on a system-by-system basis. An attempt
+has been made to have usable settings out of the box, but if you
+can afford to provide OMERO with more memory, it will certainly
+improve your overall performance. See :ref:`jvm_memory_settings`
+on how to tune the JVM.
 
 OMERO.web and administration
 ----------------------------
