@@ -122,6 +122,9 @@ Server fails to start
    problem, but it will be necessary to stop OMERO and delete the
    ``var/master`` directory (e.g. ``rm -rf var/master``). When
    restarting OMERO, the registry will be automatically re-created.
+5. If you see an error message mentioning "Protocol family unavailable",
+   you'll need to configure the "Ice.IPv6=0" property for your Java
+   servers in :file:`etc/grid/templates.xml`.
 
 Remote clients cannot connect to OMERO installation
 ---------------------------------------------------
