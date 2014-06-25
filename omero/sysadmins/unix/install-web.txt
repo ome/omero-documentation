@@ -477,13 +477,13 @@ Customizing your OMERO.web installation
 
 -  Session engine:
 
-   -  As users create new sessions on the OMERO.web, session data can 
-      accumulate in your session store. Because OMERO.web uses by default the 
-      file based session backend, your temporary directory will contain an 
-      increasing number of files. Django does not provide automatic purging 
-      of expired sessions. Therefore, it’s your job to purge expired 
-      sessions on a regular basis. OMERO provides a clean-up management 
-      command for this purpose: 
+   -  Each session for a logged in user in OMERO.web is kept in the session 
+      store. Stale sessions can cause the store to grow with time. OMERO.web 
+      uses by default the OS file system as the session store backend (see 
+      `Django documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-file-based-sessions>`_
+      ) and does not automatically purge stale sessions. It is therefor the 
+      responsibility of the OMERO administrator to purge the session cache 
+      using the provided management command:
 
       ::
 
@@ -493,12 +493,13 @@ Customizing your OMERO.web installation
       as a daily cron job.
 
       .. note::
-          OMERO.web offers alternative session backends. The cache backend 
-          isn’t vulnerable to this problem, because caches automatically 
-          delete stale data. To take the adventage of it, first install 
-          `Memcached <http://memcached.org/>`_  and a memcached binding 
+          OMERO.web offers alternative session backends to automatically 
+          delete stale data using cache session store backend (see
+          `Django documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-cached-sessions>`_
+          ) To take adventage, first install 
+          `Memcached <http://memcached.org/>`_  and a memcached binding: 
           `python-memcached <ftp://ftp.tummy.com/pub/python-memcached/>`_ 
-          and `pylibmc <http://sendapatch.se/projects/pylibmc/>`_. THen set
+          and `pylibmc <http://sendapatch.se/projects/pylibmc/>`_. Then set
           the following:
 
           ::
