@@ -475,6 +475,37 @@ Customizing your OMERO.web installation
       `Django documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
       for more details.
 
+-  Session engine:
+
+   -  As users create new sessions on the OMERO.web, session data can 
+      accumulate in your session store. Because OMERO.web uses by default the 
+      file based session backend, your temporary directory will contain an 
+      increasing number of files. Django does not provide automatic purging 
+      of expired sessions. Therefore, it’s your job to purge expired 
+      sessions on a regular basis. OMERO provides a clean-up management 
+      command for this purpose: 
+
+      ::
+
+          $ bin/omero web clearsessions
+
+      It’s recommended to call this command on a regular basis, for example 
+      as a daily cron job.
+
+      .. note::
+          OMERO.web offers alternative session backends. The cache backend 
+          isn’t vulnerable to this problem, because caches automatically 
+          delete stale data. To take the adventage of it, first install 
+          `Memcached <http://memcached.org/>`_  and a memcached binding 
+          `python-memcached <ftp://ftp.tummy.com/pub/python-memcached/>`_ 
+          and `pylibmc <http://sendapatch.se/projects/pylibmc/>`_. THen set
+          the following:
+
+          ::
+
+              $ bin/omero config set omero.web.caches '{"default": { "BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400" } }'
+              $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
+
 .. _custom_web_location:
 
 -  Custom OMERO.web location:
