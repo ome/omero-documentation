@@ -273,8 +273,8 @@ Windows systems and both make use of
 :source:`templates.xml <etc/grid/templates.xml>`.
 
 The default OMERO application descriptor deploys multiple server instances
-(Blitz-0, FileServer, Indexer-0, PixelData-0…) on a single node. Each server
-instance is defined by a ``server-template`` element in
+(Blitz-0, FileServer, :file:`Indexer-0`, :file:`PixelData-0.log`, ...) on
+a single node. Each server instance is defined by a ``server-template`` element in
 :source:`templates.xml <etc/grid/templates.xml>` with is own parameters.
 
 Modifying the application descriptors

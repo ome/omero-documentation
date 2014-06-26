@@ -178,8 +178,8 @@ space. This can be done by modifying the configuration for your
 OMERO.server. See :ref:`jvm_memory_settings`.
 
 Similarly, if you are finding out of memory errors in one of the other
-process logs (e.g. Indexer-0.log or PixelData-0.log), you might try
-optimizing the JVM memory settings.
+process logs (e.g. :file:`Indexer-0.log` or :file:`PixelData-0.log`),
+you might try optimizing the JVM memory settings.
 
 Furthermore, under certain conditions access of images greater than 4GB
 can be problematic on 32-bit platforms due to certain bugs within the
