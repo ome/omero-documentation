@@ -144,8 +144,10 @@ types at the same time by omitting the service type (e.g.
 
     omero.mem.use_total
         Specify how much memory OMERO *thinks* your system has.
-        If unset, either `psutil` will be used if available
-        or JMX.
+        If unset, an attempt will be made to detect the actual
+        amount: first by using the Python library `psutil` and
+        if that is not installed, by running a Java process. If
+        neither works, 4.0 GB is assumed.
 
 For example, the default strategy set is equivalent to making the call:
 
