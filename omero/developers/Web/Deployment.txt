@@ -15,7 +15,7 @@ debug to 'True' which is important when developing with OMERO.web and you
 should also be using the Django 'development' server.
 
 Using the lightweight development server on Unix
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------
 
 All that is required to use the Django lightweight development server
 is to set the ``omero.web.application_server`` configuration option, turn 
@@ -37,7 +37,7 @@ Debugging on and start the server up:
     Quit the server with CONTROL-C.
 
 Using the lightweight development server on Windows
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------------
 
 All that is required to use the Django lightweight development server
 is to set the ``omero.web.application_server`` configuration option, turn 
@@ -59,7 +59,7 @@ Debugging on and start the server up:
     Quit the server with CTRL-BREAK.
 
 Using FastCGI (Unix/Linux)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 Once you have installed a FastCGI capable web server, configuration of
 OMERO.web is quite straightforward.
