@@ -106,11 +106,8 @@ OMERO.web is quite straightforward.
            default_type  application/octet-stream;
  
            sendfile on;
-           send_timeout 300s;
-           client_body_in_file_only clean;
-           client_body_buffer_size 32K;
-           client_max_body_size 300M;
-           client_body_temp_path /usr/local/dev/openmicroscopy/dist/var/nginx_tmp;
+           send_timeout 60s;
+           client_max_body_size 0;
 
            keepalive_timeout  65;
 
