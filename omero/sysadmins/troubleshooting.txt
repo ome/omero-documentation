@@ -124,7 +124,16 @@ Server fails to start
    restarting OMERO, the registry will be automatically re-created.
 5. If you see an error message mentioning "Protocol family unavailable",
    you will need to configure the "Ice.IPv6=0" property for your Java
-   servers in :file:`etc/grid/templates.xml`.
+   servers in :file:`etc/grid/templates.xml`. Alternatively, you can set
+   it globally with :omerocmd:`config set IPv6 0`.
+6. If OMERO starts up, but fails to respond to connection requests, check
+   `netstat -a` for port 4064. If nothing is listening on 4064, you may
+   need to specify which network interface to use.
+   :omerocmd:`config set Ice.Default.Host 127.0.0.1`, for example, would
+   force OMERO to only listen on localhost. See
+   See
+   http://doc.zeroc.com/display/Ice/Proxy+and+Endpoint+Syntax#ProxyandEndpointSyntax-address
+   for more information.
 
 Remote clients cannot connect to OMERO installation
 ---------------------------------------------------
