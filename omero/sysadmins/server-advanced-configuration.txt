@@ -119,19 +119,20 @@ types at the same time by omitting the service type (e.g.
 .. glossary::
 
     omero.mem.strategy
-        Selets which memory strategy to use
+        Selects which memory strategy to use.
 
     omero.mem.heap_size
-        Sets the -Xmx value for the JVM
+        Sets the -Xmx value for the JVM.
 
     omero.mem.heap_dump
-        Toggles on or off heap dumps on OOMs
+        Toggles on or off heap dumps on OOMs.
 
     omero.mem.perm_gen
-        Sets the MaxPermSize value for the JVM
+        Sets the MaxPermSize value for the JVM.
 
     omero.mem.append
-        User parameters which are appended after the rest.
+        Is parsed breaking on non-escaped whitespace
+        and appended to the rest of the parameters.
 
     omero.mem.max_total
         Maximum amount of memory that OMERO will
