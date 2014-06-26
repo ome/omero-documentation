@@ -131,7 +131,6 @@ Server fails to start
    need to specify which network interface to use.
    :omerocmd:`config set Ice.Default.Host 127.0.0.1`, for example, would
    force OMERO to only listen on localhost. See
-   See
    http://doc.zeroc.com/display/Ice/Proxy+and+Endpoint+Syntax#ProxyandEndpointSyntax-address
    for more information.
 
