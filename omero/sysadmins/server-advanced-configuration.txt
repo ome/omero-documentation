@@ -181,7 +181,7 @@ JVM settings from the provided configuration properties.
         of the system memory is used for the process.
         :term:`omero.mem.use_total`, :term:`omero.mem.min_total`, and
         :term:`omero.mem.max_total` are all used for defining the
-        system memory seen. The default percentages are: blitz and
+        system memory seen. The default percents are: blitz and
         pixeldata 15%, indexer 10%.
 
 
@@ -196,7 +196,7 @@ JVM settings from the provided configuration properties.
 
 	$ bin/omero config set omero.mem.blitz.percent 50
 
-would raise the blitz percentage to 50.
+would raise the blitz percent to 50.
 
 ::
 
