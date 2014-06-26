@@ -490,12 +490,14 @@ Customizing your OMERO.web installation
 
           $ bin/omero web clearsessions
 
-      It’s recommended to call this command on a regular basis, for example 
-      as a daily cron job.
+      It is recommended to call this command on a regular basis, for example 
+      as a daily cron job, see 
+      ` Django clearing the session store documentation  <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#clearing-the-session-store>`_
+      for more information.
 
       .. note::
           OMERO.web offers alternative session backends to automatically 
-          delete stale data using cache session store backend, see
+          delete stale data using the cache session store backend, see
           `Django cached session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-cached-sessions>`_
           . After installing all the cache prerequisites set the following:
 
