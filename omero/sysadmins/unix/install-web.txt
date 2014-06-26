@@ -477,13 +477,14 @@ Customizing your OMERO.web installation
 
 -  Session engine:
 
-   -  Each session for a logged in user in OMERO.web is kept in the session 
+   -  Each session for a logged-in user in OMERO.web is kept in the session 
       store. Stale sessions can cause the store to grow with time. OMERO.web 
-      uses by default the OS file system as the session store backend (see 
-      `Django file based session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-file-based-sessions>`_
-      ) and does not automatically purge stale sessions. It is therefor the 
-      responsibility of the OMERO administrator to purge the session cache 
-      using the provided management command:
+      uses by default the OS file system as the session store backend and 
+      does not automatically purge stale sessions, see 
+      `Django file-based session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-file-based-sessions>`_
+      for more details. It is therefore the responsibility of the OMERO 
+      administrator to purge the session cache using the provided management 
+      command:
 
       ::
 
@@ -494,9 +495,9 @@ Customizing your OMERO.web installation
 
       .. note::
           OMERO.web offers alternative session backends to automatically 
-          delete stale data using cache session store backend (see
+          delete stale data using cache session store backend, see
           `Django cached session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-cached-sessions>`_
-          ). After installing all the cache prerequisites set the following:
+          . After installing all the cache prerequisites set the following:
 
           ::
 
