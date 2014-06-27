@@ -22,6 +22,9 @@ subdirectories of that parent to mirror the original directory
 structure before upload. The :literal:`omero.fs.repo.path` setting
 defines the creation of that parent directory.
 
+Path naming constraints
+^^^^^^^^^^^^^^^^^^^^^^^
+
 There is some flexibility in how this parent directory is named. The
 constraints are:
 
@@ -41,6 +44,89 @@ constraints are:
 * The path must be unique for each import. It is for this reason that
   the :literal:`%time%` term expands to a time with millisecond
   resolution.
+
+Expansion terms
+^^^^^^^^^^^^^^^
+
+Special terms may be used within path components: these are replaced
+with text that depends on the import.
+
+:literal:`%userId%`
+  expands to the user's numerical ID
+
+:literal:`%user%`
+  expands to the user's name
+
+:literal:`%institution%`
+  expands to the user's institution name; this path component is wholly
+  omitted if the user has no institution set
+
+:literal:`%institution:default%`
+  expands to the user's institution name, or to the supplied "default"
+  if the user has no institution set
+
+:literal:`%groupId%`
+  expands to the group's numerical ID
+
+:literal:`%group%`
+  expands to the group's name
+
+:literal:`%perms%`
+  expands to the group's six-character permissions string
+
+:literal:`%year%`
+  expands to the current year number
+
+:literal:`%month%`
+  expands to the current month number, zero-padded
+
+:literal:`%monthname%`
+  expands to the current month name
+
+:literal:`%day%`
+  expands to the current day number in the month, zero-padded
+
+:literal:`%time%`
+  expands to the current time, in hours, minutes, seconds, milliseconds
+
+:literal:`%sessionId%`
+  expands to the session's numerical ID
+
+:literal:`%session%`
+  expands to the session key (UUID) of the session
+
+:literal:`%hash%`
+  expands to an eight-digit hexadecimal hash code that is constant for
+  the set of files being imported
+
+:literal:`%hash:digits%`
+  expands as :literal:`%hash%`, where :literal:`digits` is a
+  comma-separated list of how many digits of the hash to use in
+  different subdirectories: for example, :literal:`hash-%hash:3,3,2%`
+  expands to a form like :literal:`hash-123/456/78`
+
+:literal:`%increment%`
+  expands to a natural number representing the next new directory
+
+:literal:`%increment:digits%`
+  expands as :literal:`%increment%` where :literal:`digits` specifies
+  a minimum length by which to zero-pad the natural number
+
+:literal:`%subdirs%`
+  expands to nothing until the directory has more than one thousand
+  entries, in which case it expands to an integer that increases
+  consecutively to similarly limit the entry count in subdirectories;
+  applies recursively to extend the number of path components as needed
+
+:literal:`%subdirs:digits%`
+  expands as :literal:`%subdirs%` where :literal:`digits` specifies
+  how many digits :literal:`%subdirs%` may expand to for each path
+  component: for example, :literal:`%subdirs:4%` allows ten thousand
+  entries in each directory before creating subdirectories underneath
+
+No more than one of either :literal:`%subdirs%` or
+:literal:`%increment%` may be used in any one path component, although
+they may each be used many times in the whole path.
 
 Legal file names
 ----------------
