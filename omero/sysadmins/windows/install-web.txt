@@ -92,12 +92,6 @@ steps is required to get the `ISAPI
 WSGI <http://code.google.com/p/isapi-wsgi/>`_ handler for OMERO.web
 working with your IIS deployment.
 
--  Choose between FastCGI TCP (recommended) or FastCGI (advanced):
-
-   ::
-
-       C:\omero_dist>bin\omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
-
 -  Ensure that the ISAPI for IIS options are installed
 -  Download and install `an ISAPI
    WSGI Installer <http://code.google.com/p/isapi-wsgi/downloads/list>`_ (we
@@ -145,6 +139,13 @@ working with your IIS deployment.
        If your deployment requires additional cache store please follow 
        `Django documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
        for more details.
+
+-  OMERO.web is configured to use FastCGI TCP by default. If you are using a
+   non-standard web server configuration you may wish to change this:
+
+   ::
+
+       C:\omero_dist>bin\omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
 
 
 Using the lightweight development server
