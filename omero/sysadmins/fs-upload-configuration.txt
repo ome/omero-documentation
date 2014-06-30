@@ -79,28 +79,33 @@ For any directory in the template path
   expands to the group's name
 
 :literal:`%perms%`
-  expands to the group's six-character permissions string
+  expands to the group's six-character permissions string, for example
+  :literal:`rw----` for a private group
 
 :literal:`%year%`
-  expands to the current year number
+  expands to the current year number, for example :literal:`2014`
 
 :literal:`%month%`
-  expands to the current month number, zero-padded
+  expands to the current month number, zero-padded, for example
+  :literal:`08`
 
 :literal:`%monthname%`
-  expands to the current month name
+  expands to the current month name, for example :literal:`August`
 
 :literal:`%day%`
-  expands to the current day number in the month, zero-padded
+  expands to the current day number in the month, zero-padded, for
+  example :literal:`04`
 
 :literal:`%time%`
-  expands to the current time, in hours, minutes, seconds, milliseconds
+  expands to the current time, in hours, minutes, seconds, milliseconds,
+  for example :literal:`13-49-07.727`
 
 :literal:`%sessionId%`
   expands to the session's numerical ID
 
 :literal:`%session%`
-  expands to the session key (UUID) of the session
+  expands to the session key (UUID) of the session, for example
+  :literal:`6c2dae43-cfad-48ce-af6f-025569f9e6df`
 
 For user-owned directories only
 """""""""""""""""""""""""""""""
@@ -110,7 +115,7 @@ path.
 
 :literal:`%hash%`
   expands to an eight-digit hexadecimal hash code that is constant for
-  the set of files being imported
+  the set of files being imported, for example :literal:`0554E3A1`
 
 :literal:`%hash:digits%`
   expands as :literal:`%hash%`, where :literal:`digits` is a
@@ -119,23 +124,32 @@ path.
   expands to a form like :literal:`hash-123/456/78`
 
 :literal:`%increment%`
-  expands to a natural number representing the next new directory
+  expands to a natural number representing the next new directory, for
+  example using :literal:`inc-%increment%` with preexisting directories
+  up to :literal:`inc-24` would expand to :literal:`inc-25`
 
 :literal:`%increment:digits%`
-  expands as :literal:`%increment%` where :literal:`digits` specifies
-  a minimum length by which to zero-pad the natural number
+  expands as :literal:`%increment%` where :literal:`digits` specifies a
+  minimum length by which to zero-pad the natural number, for example
+  using :literal:`inc-%increment:3%` with preexisting directories up to
+  :literal:`inc-024` would expand to :literal:`inc-025`
 
 :literal:`%subdirs%`
   expands to nothing until the directory has more than one thousand
   entries, in which case it expands to an integer that increases
   consecutively to similarly limit the entry count in subdirectories;
-  applies recursively to extend the number of path components as needed
+  applies recursively to extend the number of path components as needed,
+  so, using :literal:`below-%subdirs%` in the path, with
+  :literal:`below-000` to :literal:`below-999` all "full", three-digit
+  subdirectories below those are created, such as
+  :literal:`below-123/456`
 
 :literal:`%subdirs:digits%`
-  expands as :literal:`%subdirs%` where :literal:`digits` specifies
-  how many digits :literal:`%subdirs%` may expand to for each path
-  component: for example, :literal:`%subdirs:4%` allows ten thousand
-  entries in each directory before creating subdirectories underneath
+  expands as :literal:`%subdirs%` where :literal:`digits` specifies to
+  how many digits :literal:`%subdirs%` may expand for each path
+  component: for example, :literal:`%subdirs:4%-below` allows ten
+  thousand directory entries before creating subdirectories underneath
+  like :literal:`1234-below` and, much later, :literal:`1234-below/5678`
 
 No more than one of either :literal:`%subdirs%` or
 :literal:`%increment%` may be used in any one path component, although
