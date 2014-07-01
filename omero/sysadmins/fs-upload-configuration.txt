@@ -135,21 +135,22 @@ path.
   :literal:`inc-024` would expand to :literal:`inc-025`
 
 :literal:`%subdirs%`
-  expands to nothing until the directory has more than one thousand
-  entries, in which case it expands to an integer that increases
-  consecutively to similarly limit the entry count in subdirectories;
-  applies recursively to extend the number of path components as needed,
-  so, using :literal:`below-%subdirs%` in the path, with
-  :literal:`below-000` to :literal:`below-999` all "full", three-digit
-  subdirectories below those are created, such as
-  :literal:`below-123/456`
+  expands to nothing until the preceding directory has more than one
+  thousand entries, in which case it expands to an integer that
+  increases consecutively to similarly limit the entry count in
+  subdirectories; applies recursively to extend the number of path
+  components as needed, so, using :literal:`example/below-%subdirs%` in
+  the path, with :literal:`example/below-000` to
+  :literal:`example/below-999` all "full", three-digit subdirectories
+  below those are created, such as :literal:`example/below-123/456`
 
 :literal:`%subdirs:digits%`
   expands as :literal:`%subdirs%` where :literal:`digits` specifies to
   how many digits :literal:`%subdirs%` may expand for each path
-  component: for example, :literal:`%subdirs:4%-below` allows ten
-  thousand directory entries before creating subdirectories underneath
-  like :literal:`1234-below` and, much later, :literal:`1234-below/5678`
+  component: for example, :literal:`example/%subdirs:4%-below` allows
+  ten thousand directory entries in :literal:`example` before creating
+  :literal:`example/1234-below` and, much later,
+  :literal:`example/1234-below/5678`
 
 No more than one of either :literal:`%subdirs%` or
 :literal:`%increment%` may be used in any one path component, although
