@@ -122,6 +122,9 @@ OMERO.web is quite straightforward.
 
        $ bin/omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
 
+   The default `fastcgi-tcp` option uses a TCP connection for communication
+   between OMERO.web and your web server; `fastcgi` uses a file based socket
+   and will require you to manage the file permissions on it.
 
 .. _apache_configuration:
 
