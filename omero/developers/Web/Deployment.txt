@@ -104,7 +104,8 @@ OMERO.web is quite straightforward.
            access_log    /usr/local/dev/openmicroscopy/dist/var/log/nginx_access.log;
            include    /usr/local/dev/openmicroscopy/dist/etc/mime.types;
            default_type  application/octet-stream;
- 
+           client_body_temp_path %(ROOT)s/var/nginx_tmp;
+
            sendfile on;
            send_timeout 60s;
            client_max_body_size 0;
