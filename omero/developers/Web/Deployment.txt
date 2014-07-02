@@ -86,7 +86,7 @@ OMERO.web is quite straightforward.
 
    ::
 
-       $ bin/omero web config nginx >> etc/nginx.conf
+       $ bin/omero web config nginx > etc/nginx.conf
 
    ::
 
@@ -156,18 +156,18 @@ OMERO.web is quite straightforward.
 
        }
 
-   .. note::  
-       The above configuration is designed for running nginx as the omero 
-       user or similar. Now you can start your nginx instace with the 
-       following command:
 
-       ::
+-  The above configuration is designed for running nginx as the omero user 
+   or similar. Now you can start your nginx instace with the following 
+   command:
 
-           nginx -c /usr/local/dev/openmicroscopy/dist/etc/nginx.conf
+   ::
 
-       for inclusion in a system-wide nginx configuration see 
-       :doc:`Unix </sysadmins/unix/install-web>` or 
-       :doc:`Windows </sysadmins/windows/install-web>` version.
+       nginx -c /usr/local/dev/openmicroscopy/dist/etc/nginx.conf
+
+   for inclusion in a system-wide nginx configuration see 
+   :doc:`Unix </sysadmins/unix/install-web>` or 
+   :doc:`Windows </sysadmins/windows/install-web>` version.
 
 -  Start the Django FastCGI workers:
 
@@ -177,10 +177,10 @@ OMERO.web is quite straightforward.
        ... static files copied to '/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static'.
        Starting OMERO.web... [OK]
 
-   .. note::
-       The Django FastCGI workers are managed **separately** from other
-       OMERO.server processes. You can check their status or stop them using the
-       following commands:
+   .. note::  
+       The Django FastCGI workers are managed **separately** from other 
+       OMERO.server processes. You can check their status or stop them using 
+       the following commands:
 
    ::
 

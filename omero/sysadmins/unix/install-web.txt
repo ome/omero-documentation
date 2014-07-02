@@ -205,9 +205,9 @@ configuration redirect the output of the following command into a file:
     }
 
 .. note::
-    OMERO.web requires ``body_in_file_only`` and ``client_max_body_size`` 
-    adjusted in your default nginx config because nginx must buffer incoming 
-    data. Make sure you have that set to the following config:
+    OMERO.web requires ``body_in_file_only`` adjusted in your default nginx 
+    config because nginx must buffer incoming data. Make sure you have that 
+    set to the following config:
 
     ::
 
@@ -474,12 +474,12 @@ Customizing your OMERO.web installation
 
    -  By default OMERO.web expects to be run from the root URL of the web
       server. It can be configured to run from a sub-directory, for example
-      `http://example.org/testing/`, as follows:
+      `http://example.org/omero/`, as follows:
 
       ::
 
-          $ bin/omero config set omero.web.force_script_name '/testing'
-          $ bin/omero config set omero.web.static_url '/testing/static/'
+          $ bin/omero config set omero.web.force_script_name '/omero'
+          $ bin/omero config set omero.web.static_url '/omero/static/'
           
    -  Update your web server configuration. For example, in the nginx
       configuration replace
@@ -492,7 +492,7 @@ Customizing your OMERO.web installation
 
       ::
 
-          fastcgi_split_path_info ^(/testing)(.*)$;
+          fastcgi_split_path_info ^(/omero)(.*)$;
           fastcgi_param PATH_INFO $fastcgi_path_info;
           fastcgi_param SCRIPT_INFO $fastcgi_script_name;
 
