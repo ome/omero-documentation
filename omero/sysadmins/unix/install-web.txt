@@ -492,7 +492,7 @@ Customizing your OMERO.web installation
 
       It is recommended to call this command on a regular basis, for example 
       as a daily cron job, see 
-      ` Django clearing the session store documentation  <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#clearing-the-session-store>`_
+      `Django clearing the session store documentation  <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#clearing-the-session-store>`_
       for more information.
 
       .. note::
