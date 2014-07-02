@@ -28,8 +28,8 @@ Path naming constraints
 There is some flexibility in how this parent directory is named. The
 constraints are:
 
-* The path components must be :literal:`/`-separated, even on Windows
-  systems.
+* The path components must be :literal:`/`-separated, **even on Windows
+  systems**.
 
 * A path component separator may be written as :literal:`//` with at
   least one path component listed after it. In this case:
@@ -46,8 +46,8 @@ constraints are:
   resolution.
 
 Furthermore, due to the availability of the expansion terms enumerated
-below, it advisable to avoid other uses of the ":literal:`%`" character
-in path components.
+below, it is advisable to avoid other uses of the ":literal:`%`"
+character in path components.
 
 Expansion terms
 ^^^^^^^^^^^^^^^
@@ -73,10 +73,10 @@ For any directory in the template path
   if the user has no institution set
 
 :literal:`%groupId%`
-  expands to the group's numerical ID
+  expands to the OMERO group's numerical ID
 
 :literal:`%group%`
-  expands to the group's name
+  expands to the OMERO group's name
 
 :literal:`%perms%`
   expands to the group's six-character permissions string, for example
@@ -120,7 +120,7 @@ path.
 :literal:`%hash:digits%`
   expands as :literal:`%hash%`, where :literal:`digits` is a
   comma-separated list of how many digits of the hash to use in
-  different subdirectories: for example, :literal:`hash-%hash:3,3,2%`
+  different subdirectories; for example, :literal:`hash-%hash:3,3,2%`
   expands to a form like :literal:`hash-123/456/78`
 
 :literal:`%increment%`
@@ -209,9 +209,9 @@ As the client uploads each file to the server, it calculates a
 checksum for the file. After the upload is complete the client reports
 that checksum to the server. The server then calculates the checksum
 for the corresponding file from its local filesystem and checks that
-it matches what the client reported. File integrity is thus assured
-because corruption during transmission or writing would be revealed by
-a checksum mismatch.
+it matches what the client reported. **File integrity** is thus
+**assured** because corruption during transmission or writing would be
+revealed by a checksum mismatch.
 
 There are various algorithms by which checksums may be calculated. To
 calculate comparable checksums the client and server use the same
