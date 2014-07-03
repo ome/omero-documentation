@@ -1,0 +1,12 @@
+Upgrading and maintenance
+=========================
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    command-line-interface
+    server-backup-and-restore
+    server-upgrade
+    UpgradeCheck
+    
