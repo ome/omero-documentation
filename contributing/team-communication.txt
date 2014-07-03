@@ -55,16 +55,36 @@ Trac
 
 The Trac server is available under https://trac.openmicroscopy.org.uk/ome and
 uses your LDAP account for authentication. Trac is used to record all tickets
-(i.e. “bugs” or “issues”) as well as hierarchical groups of “tasks” in
-“requirements” and “stories”. This functionality is provided by a plugin for
-Trac named “Agilo” (http://agile42.com/en/) which you may want to read more
-about. Most importantly, it provides a whiteboard where tickets are arranged
-per story into 3 columns: new, accepted, and closed.
+and allows hierarchical groups of “tasks” in “requirements” and “stories”
+(functionality provided by a `plugin for Trac named “Agilo”
+<http://www.agilofortrac.com>`_ which you may want to read more about). Note
+that bugs should be recorded as "task" tickets with "BUG:" in the ticket
+summary, as the official Trac "Bug" tickets only allow limited functionality.
 
-.. _trac_screenshot:
 .. figure:: /images/trac_screenshot.png
-   :align:  center 
+   :align:  center
 
+Trac is also used for the milestone pages which summarize the tickets
+completed for each release (as opposed to the GitHub milestone pages
+which show all the code changes). Increasingly however, the team is moving
+away from using it for managing 'story'-level items and for tasks such as
+documentation and testing.
+
+Trello
+------
+
+`Trello <https://trello.com/>`_ is an online organizational tool used to
+manage "cards" arranged in "lists" on various subject-themed "boards". This is
+currently the team's main internal planning tool for higher level development
+goals and for managing documentation, testing, and the maintenance of our
+continuous integration tools.
+
+.. figure:: /images/trello_screenshot.png
+   :align:  center
+
+You can request access to the openmicroscopy boards as an external
+collaborator. Sign up for a free account and then get in touch with us to be
+added.
 
 Developer documentation
 -----------------------
