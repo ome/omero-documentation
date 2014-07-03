@@ -1,0 +1,12 @@
+Basic Windows server installation
+=================================
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    server-installation
+    server-binary-repository
+    server-postgresql
+    install-web
+    service-tools
