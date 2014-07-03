@@ -475,6 +475,24 @@ Customizing your OMERO.web installation
       `Django cache documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
       for more details.
 
+-  Session cookies:
+
+   -  A boolean that determines whether to expire the session when the user
+      closes their browser. See `Django Browser-length sessions vs. persistent
+      sessions documentation 
+      <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#browser-length-vs-persistent-sessions>`_
+      for more details. Default: ``True``.
+
+      ::
+
+          $ bin/omero config set omero.web.session_expire_at_browser_close "True"
+
+   -  The age of session cookies, in seconds. Default: ``86400``.
+
+      ::
+
+          $ bin/omero config set omero.web.session_cookie_age 86400
+
 -  Session engine:
 
    -  Each session for a logged-in user in OMERO.web is kept in the session 
