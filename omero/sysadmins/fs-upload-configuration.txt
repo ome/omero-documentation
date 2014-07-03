@@ -5,12 +5,13 @@ Background
 ----------
 
 Users import their image files to the OMERO.fs server. The contents of
-these files are kept intact by the server and effort is also made to
-preserve the files' path and name, so that OMERO.fs can become a
-trusted repository for the master copy of users' data. While the
-default server configuration from :source:`etc/omero.properties`
-should typically suffice, :omerocmd:`config set` may be used to adjust
-settings related to file uploads. These settings are explained below.
+these files are kept intact by the server and the import process
+preserves the files' path and name (at least within the rules of
+:literal:`omero.fs.repo.path_rules` below), so that OMERO.fs can become
+a trusted repository for the master copy of users' data. While the
+default server configuration from :source:`etc/omero.properties` should
+typically suffice, :omerocmd:`config set` may be used to adjust settings
+related to file uploads. These settings are explained below.
 
 Template path
 -------------
@@ -28,26 +29,27 @@ Path naming constraints
 There is some flexibility in how this parent directory is named. The
 constraints are:
 
-* The path components must be :literal:`/`-separated, **even on Windows
-  systems**.
+* The path components must be separated by :literal:`/` characters,
+  **even on Windows systems**.
 
-* A path component separator may be written as :literal:`//` with at
-  least one path component listed after it. In this case:
+* A path component separator may be written as :literal:`//` only if
+  followed by at least one more path component. In this case:
 
   * The server ensures that the path components preceding the
     :literal:`//` are owned by the :literal:`root` user.
 
   * Any newly created path components following the :literal:`//` are
-    **owned by the user** who owns the images. (This is the case for all
-    newly created path components if no :literal:`//` is used.)
+    **owned by the user** who owns the images.
+
+* If no :literal:`//` is present then *all* newly created path
+  components are **owned by the user** who owns the images.
 
 * The path must be unique for each import. It is for this reason that
   the :literal:`%time%` term expands to a time with millisecond
   resolution.
 
-Furthermore, due to the availability of the expansion terms enumerated
-below, it is advisable to avoid other uses of the ":literal:`%`"
-character in path components.
+* To avoid confusion with the expansion terms enumerated below, avoid
+  other uses of the :literal:`%` character in path components.
 
 Expansion terms
 ^^^^^^^^^^^^^^^
@@ -70,7 +72,9 @@ For any directory in the template path
 
 :literal:`%institution:default%`
   expands to the user's institution name, or to the supplied "default"
-  if the user has no institution set
+  if the user has no institution set; for instance,
+  :literal:`%institution:State College of Florida, Manatee-Sarasota%` is
+  permitted
 
 :literal:`%groupId%`
   expands to the OMERO group's numerical ID
