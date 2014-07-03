@@ -9,7 +9,8 @@ modify) AAA information for the purposes of automatic user creation.
 
 This allows OMERO users to be automatically created and placed in groups
 according to your existing institution policies. This can significantly
-simplify your user administration burden.
+simplify your user administration burden. Note that OMERO has its own
+concept of "groups" that is quite distinct from LDAP groups.
 
 The OMERO.server LDAP implementation can handle a number of use cases.
 For example:
