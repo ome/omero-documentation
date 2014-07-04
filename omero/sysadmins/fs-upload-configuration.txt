@@ -51,6 +51,11 @@ constraints are:
 * To avoid confusion with the expansion terms enumerated below, avoid
   other uses of the :literal:`%` character in path components.
 
+In the above, ownership of path components is in the context of OMERO
+users accessing the OMERO managed repository through its API. It does
+not relate to operating system users' permissions for the underlying
+filesystem.
+
 Expansion terms
 ^^^^^^^^^^^^^^^
 
