@@ -338,27 +338,14 @@ Now connect to your OMERO.server using OMERO.insight with the following credenti
 OMERO.web
 ^^^^^^^^^
 
-You can set up the internal development web server
+In order to deploy OMERO.web in a production environment such as Apache or 
+Nginx please follow the instructions under :doc:`install-web`.
 
-::
 
-    $ omero config set omero.web.application_server development
-    $ omero config set omero.web.debug True
-
-Then start the webserver with:
-
-::
-
-    $ omero web start
-    INFO:__main__:Application Starting...
-    INFO:root:Processing custom settings for module omeroweb.settings
-    ...
-    Validating models...
-
-    0 errors found
-    Django version 1.6, using settings 'omeroweb.settings'
-    Starting development server at http://0.0.0.0:4080/
-    Quit the server with CONTROL-C.
+.. note::
+    The internal Django webserver can be used for evaluation and development. 
+    In this case please follow the instructions under 
+    :doc:`/developers/Web/Deployment`.
 
 .. _install_homebrew_common_issues:
 

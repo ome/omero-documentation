@@ -721,43 +721,14 @@ using::
 OMERO.web and administration
 ----------------------------
 
+In order to deploy OMERO.web in a production environment such as Apache or 
+Nginx please follow the instructions under :doc:`install-web`.
+
+
 .. note::
-
-   In order to deploy OMERO.web in a production environment such as
-   Apache or IIS please follow the instructions under
-   :doc:`install-web`.
-
-Otherwise, the internal Django webserver can be used for evaluation
-and development. In this case, we need to turn debugging on, in order
-that static files can be served by Django::
-
-    $ bin/omero config set omero.web.application_server development
-    $ bin/omero config set omero.web.debug True
-
-and then start by running::
-
-    $ bin/omero web start
-    INFO:__main__:Application Starting...
-    INFO:root:Processing custom settings for module omeroweb.settings
-    ...
-    Validating models...
-
-    0 errors found
-    Django version 1.6, using settings 'omeroweb.settings'
-    Starting development server at http://0.0.0.0:4080/
-    Quit the server with CONTROL-C.
-	
-Once you have deployed and started the server you can use your browser
-to access the OMERO.web interface:
-
--  `http://localhost:4080/ <http://localhost:4080/>`_
-
-   .. figure:: /images/installation-images/login.png
-      :align: center
-      :width: 55%
-      :alt: OMERO.webadmin login
-
-      OMERO.webadmin login
+    The internal Django webserver can be used for evaluation and development. 
+    In this case please follow the instructions under 
+    :doc:`/developers/Web/Deployment`.
 
 
 Enabling movie creation from OMERO.
