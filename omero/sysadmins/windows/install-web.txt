@@ -121,6 +121,14 @@ working with your IIS deployment.
 
    IIS 7 Application Pool Advanced Settings
 
+
+-  To avoid rendering errors on OMERO.web it is recomended to add the custom
+   HTTP response header in the Web site pane.
+
+.. figure:: /images/installation-images/IIS7HTTPresponseheader.png
+   :align: center
+   :alt: IIS 7 HTTP response header
+
 -  Configure OMERO.web bindings for IIS
 
    ::
