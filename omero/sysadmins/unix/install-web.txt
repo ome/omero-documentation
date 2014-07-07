@@ -517,7 +517,7 @@ Customizing your OMERO.web installation
           OMERO.web offers alternative session backends to automatically 
           delete stale data using the cache session store backend, see
           `Django cached session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-cached-sessions>`_
-          . After installing all the cache prerequisites set the following:
+          for more details. After installing all the cache prerequisites set the following:
 
           ::
 
