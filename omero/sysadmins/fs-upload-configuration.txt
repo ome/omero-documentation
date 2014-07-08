@@ -29,8 +29,8 @@ Path naming constraints
 There is some flexibility in how this parent directory is named. The
 constraints are:
 
-* The path components must be separated by :literal:`/` characters,
-  **even on Windows systems**.
+* The path components (individual directories in the path) must be
+  separated by :literal:`/` characters, **even on Windows systems**.
 
 * A path component separator may be written as :literal:`//` only if
   followed by at least one more path component. In this case:
@@ -133,14 +133,15 @@ path.
   expands to a form like :literal:`hash-123/456/78`
 
 :literal:`%increment%`
-  expands to a natural number representing the next new directory, for
-  example using :literal:`inc-%increment%` with preexisting directories
-  up to :literal:`inc-24` would expand to :literal:`inc-25`
+  expands to an integer that increases consecutively so as to create the
+  next new directory, for example using :literal:`inc-%increment%` with
+  preexisting directories up to :literal:`inc-24` would expand to
+  :literal:`inc-25`
 
 :literal:`%increment:digits%`
   expands as :literal:`%increment%` where :literal:`digits` specifies a
-  minimum length by which to zero-pad the natural number, for example
-  using :literal:`inc-%increment:3%` with preexisting directories up to
+  minimum length to which to zero-pad the integer, for example using
+  :literal:`inc-%increment:3%` with preexisting directories up to
   :literal:`inc-024` would expand to :literal:`inc-025`
 
 :literal:`%subdirs%`
