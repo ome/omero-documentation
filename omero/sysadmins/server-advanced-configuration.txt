@@ -177,13 +177,8 @@ JVM settings from the provided configuration properties.
 
 .. glossary::
 
-    AdaptiveStrategy
-        Default strategy which uses the system resources to scale
-        how much memory will be used. AdaptiveStrategy is a specific
-        type of :term:`PercentStrategy`.
-
     PercentStrategy
-        Reads the `percent` configuration property which can also be
+        Default. Reads the `percent` configuration property which can also be
         set globally or on a service-type basis. This percent (0-100)
         of the system memory is used for the process.
         :term:`omero.mem.use_total`, :term:`omero.mem.min_total`, and
