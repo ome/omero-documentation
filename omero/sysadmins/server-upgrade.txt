@@ -202,11 +202,9 @@ variables are pointing to the new locations.
 JVM memory settings
 """""""""""""""""""
 
-If you modified your memory settings, these changes will be lost and you will
-need to update the memory settings for the new server. Refer to the
-`JVM memory settings` sub-section of the OMERO.server installation section
-(:doc:`Unix <unix/server-installation>` or
-:doc:`Windows <windows/server-installation>`) for more information.
+Your memory settings should be copied along with :file:`etc/grid/config.xml`,
+but you can check the current settings by running :omerocmd:`admin memory`.
+See :ref:`jvm_memory_settings` for more information.
 
 Python Imaging Library
 """"""""""""""""""""""
