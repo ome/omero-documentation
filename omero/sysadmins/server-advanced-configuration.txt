@@ -125,18 +125,25 @@ types at the same time by omitting the service type (e.g.
         Sets the -Xmx value for the JVM.
 
     omero.mem.heap_dump
-        Toggles on or off heap dumps on OOMs.
+        Toggles on or off heap dumps on OOMs. Default is "off".
+        The special value "tmp" will create the heap dumps in
+        your temp directory.
 
     omero.mem.perm_gen
         Sets the MaxPermSize value for the JVM.
+
+    omero.mem.percent
+        Used only by the percent strategy. An integer between 0
+        and 100 which is the percent of active memory that will
+        be used by the service.
 
     omero.mem.append
         Is parsed breaking on non-escaped whitespace
         and appended to the rest of the parameters.
 
     omero.mem.max_total
-        Maximum amount of memory that OMERO will
-        see. By default, 16 GB.
+        Maximum amount of active memory that OMERO will
+        use subject to use_total. By default, 48 GB.
 
     omero.mem.min_total
         Minimum amount of memory that OMERO will
@@ -165,7 +172,7 @@ This could be changed to the ManualStrategy for a single server via:
 Strategies
 """"""""""
 
-A number of strategies are available for calculating the effective
+A couple of strategies are available for calculating the effective
 JVM settings from the provided configuration properties.
 
 .. glossary::
