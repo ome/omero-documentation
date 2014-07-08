@@ -19,30 +19,8 @@ are empty.
 Getting set up
 --------------
 
-You will need to have an OMERO server running that you can connect to.
-This will typically be on your own machine, although it does not
-necessarily have to be. If you want to connect to another server (not
-localhost) you can edit the server list as described on the OMERO.web
-deployment page (see :doc:`Unix </sysadmins/unix/install-web>` or
-:doc:`Windows </sysadmins/windows/install-web>` version) and choose that
-server when you log in. That page also describes how to set debug to 'True'
-which is important when developing with OMERO.web and you should also be using
-the Django 'development' server.
-
-::
-
-    $ bin/omero web start
-    INFO:__main__:Application Starting...
-    INFO:root:Processing custom settings for module omeroweb.settings
-    ...
-    Validating models...
-
-    0 errors found
-    Django version 1.6, using settings 'omeroweb.settings'
-    Starting development server at http://0.0.0.0:4080/
-    Quit the server with CONTROL-C.
-
-.. note:: Port number is 4080
+In order to deploy OMERO.web in a development or testing environment please 
+follow the instructions under :doc:`Deployment`.
 
 You should make sure that you can access the webclient and webadmin on
 your local machine before starting to develop your own code. Be sure to
