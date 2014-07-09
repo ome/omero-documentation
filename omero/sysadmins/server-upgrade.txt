@@ -11,7 +11,7 @@ See the full details of OMERO |release| features in the
 :forum:`Announcements <viewforum.php?f=11>` forum.
 
 This guide aims to be as definitive as possible so please do not be put off by
-the level of detail; upgrading should be a straight forward process.
+the level of detail; upgrading should be a straightforward process.
 
 Upgrade check list
 ------------------
@@ -50,7 +50,7 @@ Password usage
 ^^^^^^^^^^^^^^
 
 The passwords and logins used here are examples. Please consult the
-:ref:`troubleshooting-password` section for explanation.  In particular, make
+:ref:`troubleshooting-password` section for explanation. In particular, be
 sure to replace the values of **db_user** and **omero_database** with the
 actual database user and database name for your installation.
 
