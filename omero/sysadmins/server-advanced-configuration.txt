@@ -138,8 +138,12 @@ types at the same time by omitting the service type (e.g.
         be used by the service.
 
     omero.mem.append
-        Is parsed breaking on non-escaped whitespace
-        and appended to the rest of the parameters.
+        Contains other parameters which should be passed to
+        the Java process. The value of "append" is treated
+        as if it were on the command-line and so will be
+        separated on whitespaces. For example,
+        '-XX:-PrintGC -XX:+UseCompressedOops' would result
+        in two new arguments.
 
     omero.mem.max_total
         Maximum amount of active memory that OMERO will
