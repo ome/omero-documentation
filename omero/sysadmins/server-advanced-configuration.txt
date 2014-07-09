@@ -160,13 +160,13 @@ types at the same time by omitting the service type (e.g.
         if that is not installed, by running a Java process. If
         neither works, 4.0 GB is assumed.
 
-For example, the default strategy set is equivalent to making the call:
+For example, the default, PercentStrategy, is equivalent to making the call:
 
 ::
 
-	$ bin/omero config set omero.mem.strategy adaptive
+	$ bin/omero config set omero.mem.strategy percent
 
-This could be changed to the ManualStrategy for a single server via:
+This could be changed to use the ManualStrategy for a single server via:
 
 ::
 
@@ -187,7 +187,7 @@ JVM settings from the provided configuration properties.
         of the system memory is used for the process.
         :term:`omero.mem.use_total`, :term:`omero.mem.min_total`, and
         :term:`omero.mem.max_total` are all used for defining the
-        system memory seen. The default percents are: blitz and
+        system memory seen. The default percentages are: blitz and
         pixeldata 15%, indexer 10%.
 
 
@@ -209,7 +209,8 @@ would raise the blitz percent to 50.
 	$ bin/omero config set omero.mem.max_total 24000
 
 would allow an OMERO installation to make use of 24GB
-of system memory.
+of system memory. With the default of 15%, Blitz would
+use use 3600MB.
 
 Tips
 """"
