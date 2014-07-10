@@ -138,6 +138,23 @@ See `Helpful command aliases`_ for more examples.
 
 .. _Helpful command aliases: http://gitready.com/intermediate/2009/02/06/helpful-command-aliases.html
 
+Developer Certificate of Origin
+-------------------------------
+
+From today, all commits you submit to the OME projects need to have the
+following sign off line in the commit message::
+
+    OME-DCO-1.1-Signed-off-by: Joe Smith <joe.smith@email.com> (github: github_handle)
+
+To automate this process, you can set up the following
+:download:`commit preparation hook </downloads/prepare-commit-msg.hook>` in
+each of your repositories::
+
+    curl -o $(git rev-parse --git-dir)/hooks/prepare-commit-msg https://raw.githubusercontent.com/openmicroscopy/ome-documentation/develop/contributing/downloads/prepare-commit-msg.hook
+    chmod +x $(git rev-parse --git-dir)/hooks/prepare-commit-msg
+    git submodule foreach 'curl -o $(git rev-parse --git-dir)/hooks/prepare-commit-msg https://raw.githubusercontent.com/openmicroscopy/ome-documentation/develop/contributing/downloads/prepare-commit-msg.hook'
+    git submodule foreach 'chmod +x $(git rev-parse --git-dir)/hooks/prepare-commit-msg'
+
 Cloning the source code
 -----------------------
 
@@ -145,12 +162,12 @@ Most OME development is currently happening on GitHub, therefore it is highly
 suggested that you become familiar with how it works, if not create an account
 for yourself.
 
-Start by cloning the official repository for the project you want to work with 
+Start by cloning the official repository for the project you want to work with
 e.g.::
 
         git clone https://github.com/openmicroscopy/openmicroscopy.git
 
-Since the openmicroscopy (OMERO) repository now makes use of submodules, you 
+Since the openmicroscopy (OMERO) repository now makes use of submodules, you
 first need to initialize all the submodules::
 
         cd openmicroscopy
@@ -161,15 +178,15 @@ Alternatively, with version 1.6.5 of git and later, you can pass the
 
         git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git
 
-.. Note:: The use of submodules does not apply to Bio-Formats, which has all 
-    code and documentation within a single repository at  
+.. Note:: The use of submodules does not apply to Bio-Formats, which has all
+    code and documentation within a single repository at
     https://github.com/openmicroscopy/bioformats.git
 
 The natural workflow when using GitHub is not just to download someone else’s
 repository, but also to create a personal working copy. Go to the repository
-page at `<https://github.com/openmicroscopy/openmicroscopy>`_ or 
+page at `<https://github.com/openmicroscopy/openmicroscopy>`_ or
 `<https://github.com/openmicroscopy/bioformats>`_ and click on
-“Fork”. This will create a copy of the repository in your own personal space 
+“Fork”. This will create a copy of the repository in your own personal space
 e.g.::
 
         https://github.com/YOURNAME/bioformats
@@ -184,8 +201,8 @@ which can be added to your local repository as another remote::
 
 Depending on which repository you cloned first, either origin/develop or
 gh/develop will be the “develop” branch of your own fork of
-openmicroscopy/openmicroscopy or openmicroscopy/bioformats. The example below 
-assumes that “gh” is your own personal GitHub repository, and “origin” is the 
+openmicroscopy/openmicroscopy or openmicroscopy/bioformats. The example below
+assumes that “gh” is your own personal GitHub repository, and “origin” is the
 official openmicroscopy repository.
 
 You may even want to remove the “develop” branch from your fork since all
