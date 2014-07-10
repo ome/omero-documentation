@@ -133,8 +133,8 @@ And finally, our diff:
 Acknowledgments
 ---------------
 
-Thanks to `Dave Kuhlman <http://www.rexx.com/~dkuhlman/>`_ for his work on
-`generateDS <http://www.rexx.com/~dkuhlman/generateDS.html>`_ which
+Thanks to `Dave Kuhlman <http://www.davekuhlman.org>`_ for his work on
+`generateDS <http://www.davekuhlman.org/generateDS.html>`_ which
 Enum Tool makes heavy use of internally.
 
 --------------
@@ -142,4 +142,4 @@ Enum Tool makes heavy use of internally.
 .. SeeAlso::
 
     - `http://genshi.edgewall.org/ <http://genshi.edgewall.org/>`_
-    - `http://www.rexx.com/~dkuhlman/generateDS.html <http://www.rexx.com/~dkuhlman/generateDS.html>`_
+    - `http://www.davekuhlman.org/generateDS.html <http://www.davekuhlman.org/generateDS.html>`_
