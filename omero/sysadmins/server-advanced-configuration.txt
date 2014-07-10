@@ -18,29 +18,31 @@ properties, stored in :file:`etc/grid/config.xml` and read on server startup.
 Backing up and copying these properties is as easy as copying this file to a
 new server version.
 
-The :source:`etc/omero.properties`
-file of your distribution defines all the default configuration
-properties used by the server. Changes made to the file are *not*
-recognized by the server. Instead, the :omerocmd:`config` command is
+The :source:`etc/omero.properties` file of your distribution defines all the
+default configuration properties used by the server. Changes made to the file
+are *not* recognized by the server. Instead, the :omerocmd:`config` command is
 used to change those properties that you would like to customize.
 
 Examples of doing this are on the main :doc:`Unix <unix/server-installation>`
 and :doc:`Windows <windows/server-installation>` pages, as well as the
 :doc:`LDAP installation <server-ldap>` page.
 
-Here we list some options which you are most likely to want to modify.
+The following sections detail properties which you are most likely to want to
+modify:
+
+- :doc:`db-configuration`
+- :doc:`server-ldap`
+- :doc:`memory-configuration`
+- :doc:`search`
+
 See :source:`etc/omero.properties` for more details.
 
-omero.sessions.timeout
-^^^^^^^^^^^^^^^^^^^^^^
+.. glossary::
 
-``omero.sessions.timeout`` sets the duration of inactivity in milliseconds
-after which a login is required (default is 600000, or 10 minutes). To
-change the default, for example, to 1 hour use:
+    omero.sessions.timeout
 
-::
-
-	$ bin/omero config set omero.sessions.timeout 3600000
+        Sets the duration of inactivity in milliseconds after which a login is
+        required (default is 600000, or 10 minutes).
 
 
 .. _gridconfiguration:
