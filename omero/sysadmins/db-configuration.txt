@@ -1,0 +1,13 @@
+PostgreSQL configuration
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. glossary::
+
+    omero.db.poolsize
+        Sets the number of connections to PostgreSQL which
+        will be used by OMERO (default is 10)
+		
+        Your database installation will need to be configured to accept *at
+        least* as many, preferably more, connections as the value of
+        "omero.db.poolsize"
