@@ -1,0 +1,134 @@
+.. _jvm_memory_settings:
+
+Memory configuration
+====================
+
+A number of configuration properties starting with ``omero.mem``
+control the calculation of how much memory to allocate to
+various OMERO services on startup, most importantly:
+
+* blitz
+* indexer
+* pixeldata
+
+Configuration properties
+------------------------
+
+Configuration properties can either be applied to all three service
+types at the same time by omitting the service type (e.g.
+:term:`omero.mem.strategy`) or to each individually by including it
+(e.g. `omero.mem.blitz.strategy`).
+
+.. glossary::
+
+    omero.mem.strategy
+        Selects which memory strategy to use.
+
+    omero.mem.heap_size
+        Sets the -Xmx value for the JVM.
+
+    omero.mem.heap_dump
+        Toggles on or off heap dumps on OOMs. Default is "off".
+        The special value "tmp" will create the heap dumps in
+        your temp directory.
+
+    omero.mem.perm_gen
+        Sets the MaxPermSize value for the JVM.
+
+    omero.mem.percent
+        Used only by the percent strategy. An integer between 0
+        and 100 which is the percent of active memory that will
+        be used by the service.
+
+    omero.mem.append
+        Contains other parameters which should be passed to
+        the Java process. The value of "append" is treated
+        as if it were on the command-line and so will be
+        separated on whitespaces. For example,
+        '-XX:-PrintGC -XX:+UseCompressedOops' would result
+        in two new arguments.
+
+    omero.mem.max_total
+        Maximum amount of active memory that OMERO will
+        use subject to use_total. By default, 48 GB.
+
+    omero.mem.min_total
+        Minimum amount of memory that OMERO will
+        see. By default, 3.4 GB.
+
+    omero.mem.use_total
+        Specify how much memory OMERO *thinks* your system has.
+        If unset, an attempt will be made to detect the actual
+        amount: first by using the Python library `psutil` and
+        if that is not installed, by running a Java process. If
+        neither works, 4.0 GB is assumed.
+
+For example, the default, PercentStrategy, is equivalent to making the call:
+
+::
+
+	$ bin/omero config set omero.mem.strategy percent
+
+This could be changed to use the ManualStrategy for a single server via:
+
+::
+
+	$ bin/omero config set omero.mem.indexer.strategy manual
+
+
+Strategies
+----------
+
+A couple of strategies are available for calculating the effective
+JVM settings from the provided configuration properties.
+
+.. glossary::
+
+    PercentStrategy
+        Default. Reads the `percent` configuration property which can also be
+        set globally or on a service-type basis. This percent (0-100)
+        of the system memory is used for the process.
+        :term:`omero.mem.use_total`, :term:`omero.mem.min_total`, and
+        :term:`omero.mem.max_total` are all used for defining the
+        system memory seen. The default percentages are: blitz and
+        pixeldata 15%, indexer 10%.
+
+
+    ManualStrategy
+        Simply provides the values given as the JVM settings. If no
+        value is set for a particular configuration property, then
+        the default is used: heap_size=512m and perm_gen=128m
+        These values are equivalent to the defaults in OMERO 5.0.2
+        and earlier.
+
+::
+
+	$ bin/omero config set omero.mem.blitz.percent 50
+
+would raise the blitz percent to 50.
+
+::
+
+	$ bin/omero config set omero.mem.max_total 24000
+
+would allow an OMERO installation to make use of 24GB
+of system memory. With the default of 15%, Blitz would
+use 3600MB.
+
+Tips
+----
+
+After modifying any memory settings, be sure to restart your server.
+
+::
+
+	$ bin/omero admin restart
+
+.. seealso::
+
+	http://www.openmicroscopy.org/community/viewtopic.php?f=4&t=7400
+		Forum thread on PixelData JVM memory settings
+
+	:ref:`gridconfiguration`
+		Section of the advanced server configuration documentation describing
+		:file:`etc/grid/templates.xml`.
