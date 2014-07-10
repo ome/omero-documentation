@@ -66,6 +66,11 @@ else:
     release = 'UNKNOWN'
     devbranch = 'develop'
 
+rst_prolog = """
+This documentation is for OMERO 4.4 and is no longer being updated, to see the documentation for
+the latest release, refer to http:/openmicroscopy.org/site/support/omero/
+"""
+
 rst_epilog += """
 .. |OmeroPy| replace:: :doc:`/developers/Python`
 .. |OmeroCpp| replace:: :doc:`/developers/Cpp`
