@@ -73,11 +73,10 @@ a given DropBox.
         at normal acquisition rates. Copying many files en masse may
         result in files failing to import.
 
-
     -   It is also intended as a write-once system. Modifying an image
         after it has been imported may result in that modified image also
-        being imported depending on the operating system and modifying
-        software.
+        being imported depending on the operating system and how it was
+        modified.
 
 Log files
 ---------
