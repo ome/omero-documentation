@@ -28,6 +28,44 @@ Database
         least* as many, preferably more, connections as the value of
         "omero.db.poolsize"
 
+.. _ldap_configuration:
+
+LDAP
+----
+
+.. _JNDI referrals documentation: http://docs.oracle.com/javase/jndi/tutorial/ldap/referral/jndi.html
+.. glossary::
+
+  omero.ldap.config
+    Enable or disable LDAP (true/false).
+
+  omero.ldap.urls
+    Set the URL of the LDAP server.
+
+    .. note::
+      A |SSL| URL above should look like this:
+      ldaps://ldap.example.com:636
+
+  omero.ldap.username
+    Set LDAP server bind DN (if required; can be empty)::
+
+       bin/omero config set omero.ldap.username cn=Manager,dc=example,dc=com
+
+  omero.ldap.password
+    Set the LDAP server bind password (if required; can be empty)
+
+  omero.ldap.base
+    Set the LDAP server base search DN.
+    The filter applied to all users; can be empty in which case any LDAP
+    user is valid.
+
+  omero.ldap.referral
+    Set the LDAP referral options. Defaults to "ignore"; available options are
+   "ignore, "follow" or "throw" as per the `JNDI referrals documentation`_)
+
+
+.. _memory_configuration:
+
 Memory
 ------
 
@@ -75,51 +113,7 @@ Memory
         if that is not installed, by running a Java process. If
         neither works, 4.0 GB is assumed.
 
-.. _ldap_configuration:
-
-LDAP
-----
-
-.. _JNDI referrals documentation: http://docs.oracle.com/javase/jndi/tutorial/ldap/referral/jndi.html
-.. glossary::
-
-  omero.ldap.config
-    Enable or disable LDAP (true/false).
-
-  omero.ldap.urls
-    Set the URL of the LDAP server.
-
-    .. note::
-      A |SSL| URL above should look like this:
-      ldaps://ldap.example.com:636
-
-  omero.ldap.username
-    Set LDAP server bind DN (if required; can be empty)::
-
-       bin/omero config set omero.ldap.username cn=Manager,dc=example,dc=com
-
-  omero.ldap.password
-    Set the LDAP server bind password (if required; can be empty)
-
-  omero.ldap.base
-    Set the LDAP server base search DN.
-    The filter applied to all users; can be empty in which case any LDAP
-    user is valid.
-
-  omero.ldap.referral
-    Set the LDAP referral options. Defaults to "ignore"; available options are
-   "ignore, "follow" or "throw" as per the `JNDI referrals documentation`_)
-
-Sessions
---------
-
-
-.. glossary::
-
-    omero.sessions.timeout
-
-        Sets the duration of inactivity in milliseconds after which a login is
-        required (default is 600000, or 10 minutes).
+.. _search_configuration:
 
 Search
 ------
@@ -163,3 +157,16 @@ Search
       errors in the Indexer process or you may cause the search index to
       become corrupt. Be sure that you also increase the heap size accordingly
       (see :ref:`out_of_memory_error`).
+
+.. _sessions_configuration:
+
+Sessions
+--------
+
+
+.. glossary::
+
+    omero.sessions.timeout
+
+        Sets the duration of inactivity in milliseconds after which a login is
+        required (default is 600000, or 10 minutes).
