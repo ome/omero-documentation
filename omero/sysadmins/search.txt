@@ -7,45 +7,6 @@ Scheduling indexing
 Indexing is not driven by the user, but happens automatically in the
 background and can be controlled by the following settings.
 
-.. glossary::
-
-  omero.search.cron
-
-    The automatic indexing will occur at the frequency defined by the
-    ``omero.search.batch`` setting (default is ``*/4 * * * * ?``). For
-    instance, the following configuration would imply indexing every thirty
-    seconds of every hour, day, month, year, etc.::
-
-      $ bin/omero config set omero.search.cron "0,30 * * * * ?"
-
-  omero.search.batch
-
-    The search indexer will process events in batches, the size of which
-    is determined by the ``omero.search.batch`` setting (default is 50)::
-
-      $ bin/omero config set omero.search.batch 200
-
-    Setting a larger batch size can potentially speed up indexing, but it also
-    places more strain on the indexer heap. If you increase batch size, it
-    may be necessary to also increase heap size (see:
-    :ref:`out_of_memory_error`).
-
-  omero.search.max_file_size
-
-    The search indexer will not index any text or PDF files larger than
-    ``omero.search.max_file_size`` bytes. If a file larger than this is
-    attached, e.g. to an image, the indexer will simply ignore the contents of
-    the file when creating the search index. To allow larger files to be added
-    to the search index you may increase the setting (default is 131072000, or
-    125 MB)::
-
-      $ bin/omero config set omero.search.max_file_size 262144000
-
-    .. note:: If you set the max file size to greater than 1/2 the size of the
-      indexer's heap (256 MB by default), you may encounter Out of Memory
-      errors in the Indexer process or you may cause the search index to
-      become corrupt. Be sure that you also increase the heap size accordingly
-      (see :ref:`out_of_memory_error`).
 
 Upon successful completion, the persistent count in the ``configuration``
 table will be incremented.
