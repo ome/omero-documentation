@@ -1,16 +1,17 @@
 OMERO.server upgrade
 ====================
 
-
-The OME team is committed to providing frequent, project-wide upgrades
-both with bug fixes and new functionality. We try to make the schedule
-for these releases as public as possible. You may want to take a look
-at the roadmap_ for exactly what will go into a release. We always inform our
-:community_plone:`mailing lists <>` of the development
-status.
+The OME team is committed to providing frequent, project-wide upgrades both
+with bug fixes and new functionality. We try to make the schedule for these
+releases as public as possible. You may want to take a look at the roadmap_
+for exactly what will go into a release. We always inform our
+:community_plone:`mailing lists <>` of the development status.
 
 See the full details of OMERO |release| features in the
 :forum:`Announcements <viewforum.php?f=11>` forum.
+
+This guide aims to be as definitive as possible so please do not be put off by
+the level of detail; upgrading should be a straightforward process.
 
 Upgrade check list
 ------------------
@@ -21,11 +22,11 @@ Upgrade check list
 
 Check Prerequisities
 ^^^^^^^^^^^^^^^^^^^^
-Before starting the upgrade, please ensure that you have
-obtained all the prerequisites for installation, documented for
-Unix and Windows. In particular, ensure that you are running a
-suitable version of PostgreSQL to enable successful upgrading of
-the database.
+
+Before starting the upgrade, please ensure that you have obtained all the
+prerequisites for installation, documented for Unix and Windows. In
+particular, ensure that you are running a suitable version of PostgreSQL to
+enable successful upgrading of the database.
 
 File limits
 ^^^^^^^^^^^
@@ -36,47 +37,44 @@ You may wish to review the open file limits.  Please consult the
 Password salting
 ^^^^^^^^^^^^^^^^
 
-With 5.0.0, the default JDBC password provider has been modified to
-add password salting support. This implies that once a server has been
-upgraded and deployed, if passwords are modified, you will not be able
-to easily revert to a configuration without salting. To keep using the
-legacy password provider without salting support, you will need to
-configure ``omero.security.password_provider`` to use the legacy
+With 5.0.0, the default JDBC password provider has been modified to add
+password salting support. This implies that once a server has been upgraded
+and deployed, if passwords are modified, you will not be able to easily revert
+to a configuration without salting. To keep using the legacy password provider
+without salting support, you will need to configure
+``omero.security.password_provider`` to use the legacy
 ``chainedPasswordProviderNoSalt`` as described in the
 :ref:`legacy_password_providers` section.
 
 Password usage
 ^^^^^^^^^^^^^^
 
-The passwords and logins used here are examples. Please consult
-the :ref:`troubleshooting-password` section for explanation.  In particular,
-make sure to replace the values of **db_user** and **omero_database**
-with the actual database user and database name for your installation.
+The passwords and logins used here are examples. Please consult the
+:ref:`troubleshooting-password` section for explanation. In particular, be
+sure to replace the values of **db_user** and **omero_database** with the
+actual database user and database name for your installation.
 
 Re-indexing for search
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If you have experienced any issues with search in the past,
-**especially prior to 5.0.1**, you could take
-the opportunity to reindex your full text index. See
-:ref:`search-reindexing` for more information.
+If you have experienced any issues with search in the past, **especially prior
+to 5.0.1**, you could take the opportunity to reindex your full text index.
+See :ref:`search-reindexing` for more information.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-If you encounter errors during a OMERO upgrade, database upgrade, etc.
-you should retain as much log information as possible and notify the
-OMERO.server team via the mailing lists available on the
-:community_plone:`community <>` page.
+If you encounter errors during an OMERO upgrade, database upgrade, etc. you
+should retain as much log information as possible and notify the OMERO.server
+team via the mailing lists available on the :community_plone:`community <>`
+page.
 
 Upgrade check
 ^^^^^^^^^^^^^
 
-All OMERO products check themselves with the
-OmeroRegistry for update notifications on startup. If you wish
-to disable this functionality you should do so now as outlined on the
-:doc:`/sysadmins/UpgradeCheck` page.
-
+All OMERO products check themselves with the OmeroRegistry for update
+notifications on startup. If you wish to disable this functionality you should
+do so now as outlined on the :doc:`UpgradeCheck` page.
 
 Upgrade steps
 -------------
@@ -140,10 +138,8 @@ Run the upgrade script
 
 You **must** use the same username and password you have defined during
 :doc:`unix/server-installation`. The |version| upgrade script should execute
-in a short time.
-
-From a |previousversion|.x server
-"""""""""""""""""""""""""""""""""
+in a short time. The example below assumes you are upgrading from a
+|previousversion| server.
 
 .. parsed-literal::
 
@@ -163,26 +159,6 @@ From a |previousversion|.x server
 
     (1 row)
 
-From a 5.0.0-beta1 server
-"""""""""""""""""""""""""
-
-.. parsed-literal::
-
-    $ cd OMERO.server
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO\ |version|\DEV\_\_6.sql
-    Password for user **db_user**:
-    ...
-    ...
-                               status
-    ---------------------------------------------------------------------
-                                                                        +
-                                                                        +
-                                                                        +
-    YOU HAVE SUCCESSFULLY UPGRADED YOUR DATABASE TO VERSION OMERO |version|\_\_0+
-                                                                        +
-                                                                        +
-
-    (1 row)
 
 Optimize an upgraded database (optional)
 """"""""""""""""""""""""""""""""""""""""
