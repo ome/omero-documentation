@@ -5,7 +5,8 @@ Scheduling indexing
 -------------------
 
 Indexing is not driven by the user, but happens automatically in the
-background and can be controlled by the following settings.
+background and can be controlled by the settings listed under
+:ref:`search_configuration`.
 
 
 Upon successful completion, the persistent count in the ``configuration``
