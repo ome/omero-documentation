@@ -56,11 +56,11 @@ performance and security.
     :titlesonly:
 
     server-security
-    server-advanced-configuration
     config
     server-ldap
     memory-configuration
     search
+    server-advanced-configuration
     server-webstart-codesigning
     omero-home-prefix
 

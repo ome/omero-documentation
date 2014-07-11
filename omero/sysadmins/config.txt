@@ -1,6 +1,20 @@
 Configuration properties
 ========================
 
+The primary form of configuration is via the use of key/value properties,
+stored in :file:`etc/grid/config.xml` and read on server startup. Backing up
+and copying these properties is as easy as copying this file to a new server
+version.
+
+The :source:`etc/omero.properties` file of your distribution defines all the
+default configuration properties used by the server. Changes made to the file
+are *not* recognized by the server. Instead, the :omerocmd:`config` command is
+used to change those properties that you would like to customize.
+
+Examples of doing this are on the main :doc:`Unix <unix/server-installation>`
+and :doc:`Windows <windows/server-installation>` pages, as well as the
+:doc:`LDAP installation <server-ldap>` page.
+
 Sessions
 --------
 
@@ -20,7 +34,7 @@ Database
     omero.db.poolsize
         Sets the number of connections to PostgreSQL which
         will be used by OMERO (default is 10)
-		
+
         Your database installation will need to be configured to accept *at
         least* as many, preferably more, connections as the value of
         "omero.db.poolsize"

@@ -1,38 +1,7 @@
-Advanced configuration
-======================
-
-.. topic:: Overview
-
-    Describes configuration options that not everyone will need, but may be
-    useful for optimizing, customizing, or monitoring your server.
-
-
-The OMERO server provides several different configuration/extension points
-that you may want to use.
-
-Configuration properties
-------------------------
-
-The primary form of configuration is via the use of key/value
-properties, stored in :file:`etc/grid/config.xml` and read on server startup.
-Backing up and copying these properties is as easy as copying this file to a
-new server version.
-
-The :source:`etc/omero.properties` file of your distribution defines all the
-default configuration properties used by the server. Changes made to the file
-are *not* recognized by the server. Instead, the :omerocmd:`config` command is
-used to change those properties that you would like to customize.
-
-Examples of doing this are on the main :doc:`Unix <unix/server-installation>`
-and :doc:`Windows <windows/server-installation>` pages, as well as the
-:doc:`LDAP installation <server-ldap>` page.
-
-See :doc:`config` for a list of all confugration properties.
-
 .. _gridconfiguration:
 
 Grid configuration
-------------------
+==================
 
 In some cases, the configuration properties will not suffice to fully
 configure your server. In that case, it may be necessary to make use of
@@ -49,7 +18,7 @@ a single node. Each server instance is defined by a ``server-template`` element 
 :source:`templates.xml <etc/grid/templates.xml>` with is own parameters.
 
 Modifying the application descriptors
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------
 
 When you run :omerocmd:`admin start` without any other arguments, it
 looks up the default **application descriptor** for your platform:
@@ -92,7 +61,7 @@ be used. You can also modify the default application descriptors in place.
     whatever changes you perform directly on the new files.
 
 Targets
-^^^^^^^
+-------
 
 **Targets** are elements within the application descriptors which can
 optionally turn on configuration. The target is only applicable until
@@ -107,7 +76,7 @@ the next invocation of :omerocmd:`admin start` or :omerocmd:`admin deploy`
     during upgrades.
 
 Debugging
-"""""""""
+^^^^^^^^^
 
 ::
 
@@ -126,7 +95,7 @@ Here, the "debug" target allows increasing the logging output of the
 Python servers without modifying any files.
 
 JMX configuration
-"""""""""""""""""
+^^^^^^^^^^^^^^^^^
 
 ::
 
