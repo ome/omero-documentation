@@ -48,7 +48,18 @@ LDAP properties
 The LDAP plugin is configured via several configuration properties, all
 starting with ``omero.ldap.``. The default values for these properties are
 set in the file :file:`etc/omero.properties`. An overview of all the
-properties is outlined in :ref:`ldap_configuration_overview`.
+properties is outlined in :ref:`ldap_configuration`.
+
+Some of the property values are passed directly to the underlying LDAP library
+(`Spring LDAP <http://projects.spring.io/spring-ldap/>`_), which in turn makes
+use of the Java API. OMERO does not modify the error messages thrown by the
+library or by Java, so please consult the appropriate documentation to
+diagnose any low-level problems.
+
+.. note::
+
+    Please remember that once a change has been made, a server restart will be
+    needed.
 
 Minimum configuration
 ^^^^^^^^^^^^^^^^^^^^^
@@ -76,8 +87,8 @@ Two user properties are used to look up users by login name and,
 if necessary, create new users based on the information in LDAP.
 
 ::
-    
-    omero.ldap.user_filter=(objectClass=person) 
+
+    omero.ldap.user_filter=(objectClass=person)
     omero.ldap.user_mapping=omeName=cn,firstName=givenName,lastName=sn,email=mail
 
 ``omero.ldap.user_filter`` will be AND'ed to the username query, and can
@@ -121,10 +132,10 @@ the value of ``new_user_group``, which can have several different values:
   ``:filtered_attribute:memberOf`` will mean that only the values of memberOf
   which match ``group_filter`` will be considered.
 - If prefixed with ``:dn_attribute:``, then the rest of the string is taken to
-  be an attribute all of whose values will be taken as group distinguished 
+  be an attribute all of whose values will be taken as group distinguished
   names. For example, ``omero.ldap.new_user_group=:dn_attribute:memberOf``
   would add a user to all the groups named by memberOf, where the name of the
-  group is mapped via ``group_mapping``. You can prefix this value with 
+  group is mapped via ``group_mapping``. You can prefix this value with
   ``filtered_`` to have the ``group_filter`` applied to the attribute values,
   i.e. ``:filtered_dn_attribute:memberOf`` will mean that only the values of
   memberOf which match ``group_filter`` will be considered.
@@ -132,7 +143,7 @@ the value of ``new_user_group``, which can have several different values:
   to be AND'ed to the group filter. In the query, values from the user such as
   "@{cn}", "@{email}", or "@{dn}" can be used as place holders.
 - If prefixed with ``:bean:``, then the rest of the string is the name of a
-  Spring bean which implements the NewUserGroupBean interface. See the  
+  Spring bean which implements the NewUserGroupBean interface. See the
   developer documentation :doc:`/developers/Server/Ldap` for more info.
 
 Compound Filters
@@ -142,7 +153,7 @@ Both the ``user_filter`` and the ``group_filter`` can contain any valid LDAP
 filter string. These must be a valid filter in themselves. e.g.
 
 ::
-   
+
    omero.ldap.group_filter=(&(objectClass=groupOfNames)(mail=omero.flag))
 
 This filter is valid and will cause the filter to only match groups that have
@@ -161,79 +172,6 @@ following setting is also required to remove unmatched groups:
 ::
 
    omero.ldap.new_user_group=:filtered_dn_attribute:memberOf
-
-.. _ldap_configuration_overview:
-
-LDAP configuration overview
----------------------------
-
-Like many pieces of OMERO.server configuration, LDAP-specific configuration is
-done by specifying extra properties during installation. The default values
-for the LDAP properties are listed in the :file:`etc/omero.properties` file 
-inside your OMERO installation directory.
-
-Some of the property values are passed directly to the underlying LDAP library
-(`Spring LDAP <http://projects.spring.io/spring-ldap/>`_), which in turn makes
-use of the Java API. OMERO does not modify the error messages thrown by the
-library or by Java, so please consult the appropriate documentation to diagnose
-any low-level problems.
- 
-.. note::
-
-    Please remember that once a change has been made, a server restart will be
-    needed.
-
-Change any settings that are necessary via bin/omero config.
-
--  Enable or disable LDAP (true/false)
-
-   ::
-
-       bin/omero config set omero.ldap.config true
-
--  LDAP server URL string
-
-   ::
-
-       bin/omero config set omero.ldap.urls ldap://ldap.example.com:389
-
-   .. note::
-
-       A |SSL| URL above should look like this:
-       ldaps://ldap.example.com:636
-
--  LDAP server bind DN (if required; can be empty)
-
-   ::
-
-       bin/omero config set omero.ldap.username cn=Manager,dc=example,dc=com
-
--  LDAP server bind password (if required; can be empty)
-
-   ::
-
-       bin/omero config set omero.ldap.password secret
-
--  LDAP server base search DN
-
-   ::
-
-       bin/omero config set omero.ldap.base dc=example,dc=com
-
--  The filter applied to all users; can be empty in which case any LDAP
-   user is valid
-
-   ::
-
-       bin/omero config set omero.ldap.user_filter '(objectClass=inetOrgPerson)'
-
--  LDAP referral options (defaults to "ignore"; available options are
-   "ignore, "follow" or "throw" as per the `JNDI referrals
-   documentation <http://docs.oracle.com/javase/jndi/tutorial/ldap/referral/jndi.html>`_)
-
-   ::
-
-       bin/omero config set omero.ldap.referral follow
 
 LDAP over |SSL|
 ---------------
