@@ -69,9 +69,21 @@ into, and then use their own OMERO accounts to import data. Alternatively,
 each OMERO user can be given an OS account with access rights to the data
 storage as well as the managed repository.
 
-At the moment in-place import is available only under
-Posix systems (Unix, Linux, OS X). Support for Windows is
-forthcoming.
+At the moment full in-place import functionality is available only under
+Posix systems (Unix, Linux, OS X). Windows is partially supported (``ln_rm``
+has limited functionality).
+
+.. note::
+
+  In-place operation on Windows breaks compatibility between different
+  server and client versions. Active file handle closing logic which
+  is needed for in-place import on Windows is disabled by default, and
+  needs to be activated through the client-side ``omero.import.active_close`` setting:
+
+  ``C:\set JAVA_OPTS=-Domero.import.active_close=true``
+
+  This has to be done in the same Command Prompt window from which the
+  in-place import will commence.
 
 For soft linking with :literal:`--transfer=ln_s` it has been noticed
 that some plate imports run rather more slowly than usual. Other
