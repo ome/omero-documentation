@@ -9,6 +9,9 @@ OMERO Command Line Interface
     :doc:`/sysadmins/command-line-interface`
         System Administrator documentation for the Command Line Interface
 
+Help for any specific CLI command can be displayed using the :option:`-h`
+argument. See :ref:`cli_help` for more information.
+
 Extensions
 ----------
 
