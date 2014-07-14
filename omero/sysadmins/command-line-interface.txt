@@ -9,6 +9,10 @@ OMERO Command Line Interface
     :doc:`/developers/command-line-interface`
         Developer Documentation for the Command Line Interface
 
+Help for any specific CLI command can be displayed using the :option:`-h`
+argument. See :ref:`cli_help` for more information.
+
+
 When first beginning to work with the OMERO server, the :omerocmd:`db`,
 :omerocmd:`config`, and :omerocmd:`admin` commands will be the first you will
 need.
@@ -17,8 +21,8 @@ Database tools
 --------------
 
 Rather than try to provide the functionality of a RDBM tool like ``psql``, the
-:omerocmd:`db script` command helps to generate SQL scripts for building your 
-database. You can then use those scripts from whatever tool is most 
+:omerocmd:`db script` command helps to generate SQL scripts for building your
+database. You can then use those scripts from whatever tool is most
 comfortable for you::
 
     $ bin/omero db script OMERO4 0 secretpassword
@@ -139,7 +143,7 @@ Server diagnostics
 User/group management
 ---------------------
 
-The :omerocmd:`user` and :omerocmd:`group` commands provide functionalities to 
+The :omerocmd:`user` and :omerocmd:`group` commands provide functionalities to
 add and manage users and groups on your database.
 
 User creation
@@ -156,13 +160,13 @@ enter::
 
     $ bin/omero user add jsmith John Smith 2
 
-Additional parameters such as the email address, institution, middle name etc 
+Additional parameters such as the email address, institution, middle name etc
 can be passed as optional arguments to the :omerocmd:`user add` command.
 
 Group creation
 ^^^^^^^^^^^^^^
 
-New groups can be added to the database using the :omerocmd:`group add` 
+New groups can be added to the database using the :omerocmd:`group add`
 command::
 
     $ bin/omero group add -h
@@ -173,7 +177,7 @@ group::
     $ bin/omero group add newgroup
 
 The permissions of the group are set to `private` by default. Alternatively you
-can specify the permissions using :option:`--perms` or :option:`--type` 
+can specify the permissions using :option:`--perms` or :option:`--type`
 optional arguments::
 
     $ bin/omero group add read-only-1 --perms='rwr---'
@@ -181,9 +185,9 @@ optional arguments::
 
 .. seealso::
 
-    :doc:`server-permissions` 
-        Description of the three group permissions levels (private, read-only, 
-        read-annotate). 
+    :doc:`server-permissions`
+        Description of the three group permissions levels (private, read-only,
+        read-annotate).
 
 Lists of users/groups on the OMERO server can be queried using the
 :omerocmd:`user list` and :omerocmd:`group list` commands::
@@ -194,9 +198,9 @@ Lists of users/groups on the OMERO server can be queried using the
 Group management
 ^^^^^^^^^^^^^^^^
 
-Users can be added to existing groups using the :omerocmd:`user joingroup` or 
-:omerocmd:`group adduser` commands. Similarly, users can be removed from 
-existing groups using the :omerocmd:`user leavegroup` or 
+Users can be added to existing groups using the :omerocmd:`user joingroup` or
+:omerocmd:`group adduser` commands. Similarly, users can be removed from
+existing groups using the :omerocmd:`user leavegroup` or
 :omerocmd:`group removeuser` commands::
 
     # Add jsmith to group read-annotate-1
@@ -223,7 +227,7 @@ To create a copy of a group, you must first create a new group using the
 
     $ bin/omero group add read-only-2 --perms='rwr---'
 
-Then you can use the :omerocmd:`group copyusers` command to copy all group 
+Then you can use the :omerocmd:`group copyusers` command to copy all group
 members from one group to  another::
 
     $ bin/omero group copyusers read-only-1 read-only-2
