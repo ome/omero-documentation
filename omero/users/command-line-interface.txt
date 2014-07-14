@@ -120,6 +120,8 @@ wish using the :omerocmd:`logout` command::
 Import images
 -------------
 
+.. program:: omero import
+
 :omerocmd:`import` is probably the first command many users will want to use.
 To import a file image.tiff, use::
 
@@ -129,6 +131,19 @@ Many options can be passed to the :omerocmd:`import`. They can be listed using
 the :option:`-h` option::
 
     $ bin/omero import -h
+
+.. option:: -f
+
+	Display all the used files for importing and exit::
+
+		$ bin/omero import -f image.tif
+		$ bin/omero import -f images_folder
+
+.. option:: --depth <depth>
+
+	Sets the number of directories to scan down for files. Default: 4::
+
+        $ bin/omero import --depth 1 images_folder
 
 Manage tags
 -----------
