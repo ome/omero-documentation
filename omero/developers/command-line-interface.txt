@@ -12,6 +12,60 @@ OMERO Command Line Interface
 Help for any specific CLI command can be displayed using the :option:`-h`
 argument. See :ref:`cli_help` for more information.
 
+Object manipulation
+-------------------
+
+.. program:: omero obj
+
+The :omerocmd:`obj` command allows to create and update OMERO objects. More
+information can be displayed using ``bin/omero obj -h``.
+
+Object creation
+^^^^^^^^^^^^^^^
+
+.. program:: omero obj new
+
+The  :omerocmd:`obj new` command allows to create new objects::
+
+   $ bin/omero obj new Object field=value
+
+where `Object` is the type of object to create, e.g. `Dataset` or
+`ProjectDatasetLink` and `field`/`value` is a valid key/value pair for the
+type of object.
+For example, the following command creates a new screen with a name and a
+description::
+
+
+	$ bin/omero obj new Screen name=Screen001 description="screen description"
+
+Object update
+^^^^^^^^^^^^^
+
+The :omerocmd:`obj update` command allows to update existing objects::
+
+   $ bin/omero obj update Object field=value
+
+where `Object:ID` is the type and the ID of object to update, e.g. `Image:1`
+or `PlateDatasetLink:10` and `field`/`value` is a valid key/value pair to
+update for the specified object.
+
+For example, the following command updates the exiting screen of ID with a
+name and a description::
+
+	$ bin/omero obj update Screen:2 name=Screen001 description="screen description"
+
+Piping output
+^^^^^^^^^^^^^
+
+The output of each :omerocmd:`obj` command is formatted as `Object:ID` so that
+the CLI commands can be redirected and piped together. For example, the
+following set of commands creates a dataset and a project and links them
+together::
+
+   $ project=$(bin/omero obj new Dataset name=dataset-1)
+   $ dataset=$(bin/omero obj new Project name=plate-1)
+   $ bin/omero obj new ProjectDatasetLink parent=$project child=$dataset
+
 Extensions
 ----------
 
