@@ -1,0 +1,90 @@
+.. _jvm_memory_settings:
+
+Memory configuration
+====================
+
+A number of configuration properties starting with ``omero.mem``
+control the calculation of how much memory to allocate to
+various OMERO services on startup, most importantly:
+
+* blitz
+* indexer
+* pixeldata
+
+Configuration properties
+------------------------
+
+Configuration properties can either be applied to all three service
+types at the same time by omitting the service type (e.g.
+:term:`omero.mem.strategy`) or to each individually by including it
+(e.g. `omero.mem.blitz.strategy`).
+
+
+For example, the default, PercentStrategy, is equivalent to making the call:
+
+::
+
+	$ bin/omero config set omero.mem.strategy percent
+
+This could be changed to use the ManualStrategy for a single server via:
+
+::
+
+	$ bin/omero config set omero.mem.indexer.strategy manual
+
+Strategies
+----------
+
+A couple of strategies are available for calculating the effective
+JVM settings from the provided configuration properties.
+
+.. glossary::
+
+    PercentStrategy
+        Default. Reads the `percent` configuration property which can also be
+        set globally or on a service-type basis. This percent (0-100)
+        of the system memory is used for the process.
+        :term:`omero.mem.use_total`, :term:`omero.mem.min_total`, and
+        :term:`omero.mem.max_total` are all used for defining the
+        system memory seen. The default percentages are: blitz and
+        pixeldata 15%, indexer 10%.
+
+
+    ManualStrategy
+        Simply provides the values given as the JVM settings. If no
+        value is set for a particular configuration property, then
+        the default is used: heap_size=512m and perm_gen=128m
+        These values are equivalent to the defaults in OMERO 5.0.2
+        and earlier.
+
+::
+
+	$ bin/omero config set omero.mem.blitz.percent 50
+
+would raise the blitz percent to 50.
+
+::
+
+	$ bin/omero config set omero.mem.max_total 24000
+
+would allow an OMERO installation to make use of 24GB
+of system memory. With the default of 15%, Blitz would
+use 3600MB.
+
+Tips
+----
+
+After modifying any memory settings, be sure to restart your server.
+
+::
+
+	$ bin/omero admin restart
+
+.. seealso::
+
+	http://www.openmicroscopy.org/community/viewtopic.php?f=4&t=7400
+		Forum thread on PixelData JVM memory settings
+
+	:ref:`gridconfiguration`
+		Section of the advanced server configuration documentation describing
+		:file:`etc/grid/templates.xml`.
