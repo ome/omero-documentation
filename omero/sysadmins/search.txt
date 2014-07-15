@@ -135,6 +135,11 @@ finish re-indexing. During this time, your OMERO server will remain available
 for use, however the search functionality will be degraded until the
 re-indexing is finished.
 
+.. note::
+
+   Once you wipe your full-text directory, searches will return fewer or no
+   results until re-indexing is complete.
+
 Off-line re-indexing
 ^^^^^^^^^^^^^^^^^^^^
 
