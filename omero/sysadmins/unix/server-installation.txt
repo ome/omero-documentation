@@ -310,9 +310,7 @@ PostgreSQL 8.4 or later is required.  See :doc:`server-postgresql` for
 further details.  PostgreSQL 9.2 or later is recommended; while you
 are unlikely to encounter problems, 9.1 and earlier have problems with
 some `floating point numbers
-<http://www.postgresql.org/message-id/BANLkTi=Z6cT8c_j6YrXHcx=CkrxUMt6NBw@mail.gmail.com>`_
-which was `fixed in 9.2
-<http://www.postgresql.org/message-id/10204.1401373150@sss.pgh.pa.us>`_.
+<https://trac.openmicroscopy.org.uk/ome/ticket/12466>`_.
 
 
 OMERO.web
