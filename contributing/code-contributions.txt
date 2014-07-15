@@ -26,44 +26,23 @@ if copied or moved.
 Developer Certificate of Origin
 -------------------------------
 
-When submitting code to OME projects, you need to include a DCO signature,
-certifying that you wrote it or otherwise have the right to pass it on as an
-open-source patch (from developercertificate.org):
+When submitting code to OME projects, you need to include a DCO signature to
+confirm that one or more of the following statements is true of your
+contribution:
 
-Developer Certificate of Origin
-Version 1.1
+#.  You created this contribution/change and have the right to submit it to
+    the Project; or
+#.  You created this contribution/change based on a previous work with a
+    compatible open source license; or
+#.  This contribution/change has been provided to you by someone who did 1. or
+    2. and you are submitting the contribution unchanged.
+#.  You understand this contribution is public and may be redistributed as
+    open source software.
 
-Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
-660 York Street, Suite 102,
-San Francisco, CA 94110 USA
+All your commit messages should include ``--signed-off-by: Your_Name
+<your_email@example.com>``.
 
-By making a contribution to this project, I certify that:
-
-(a) The contribution was created in whole or in part by me and I have the
-    right to submit it under the open source license indicated in the file; or
-
-(b) The contribution is based upon previous work that, to the best
-    of my knowledge, is covered under an appropriate open source
-    license and I have the right under that license to submit that
-    work with modifications, whether created in whole or in part by me, under
-    the same open source license (unless I am permitted to submit under a
-    different license), as indicated in the file; or
-
-(c) The contribution was provided directly to me by some other person who
-    certified (a), (b) or (c) and I have not modified it.
-
-(d) I understand and agree that this project and the contribution are public
-    and that a record of the contribution (including all personal information
-    I submit with it, including my sign-off) is maintained indefinitely and
-    may be redistributed consistent with this project or the open source
-    license(s) involved.
-
-
-All your commit messages should include ``OME-DOC-1.1-Signed-off-by: Your_Name
-<your_email@example.com> (github: your_GitHub_handle)``.
-
-It is possible to automate this, refer to the contributing guidelines
-(:file:`CONTRIBUTING.md`) for the repository you are submitting your code to.
+(This is based on the `policy opted by Docker <http://blog.docker.com/2014/01/docker-code-contributions-require-developer-certificate-of-origin/>`_.)
 
 Licenses
 --------
