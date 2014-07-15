@@ -168,9 +168,9 @@ set for the processing by setting the "JAVA_OPTS" environment variable:
 
 Once forground indexing is complete, re-enable the background indexer as above:
 
-   ::
+::
 
-       $ bin/omero admin reindex --finish
+    $ bin/omero admin reindex --finish
 
 Monitoring re-indexing
 ^^^^^^^^^^^^^^^^^^^^^^
