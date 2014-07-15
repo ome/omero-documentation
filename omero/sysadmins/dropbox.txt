@@ -75,8 +75,8 @@ a given DropBox.
 
     -   It is also intended as a write-once system. Modifying an image
         after it has been imported may result in that modified image also
-        being imported depending on the operating system and how it was
-        modified.
+        being imported depending on the operating system and how the image
+        was modified.
 
 Log files
 ---------
