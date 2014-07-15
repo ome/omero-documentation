@@ -2,10 +2,8 @@
 #       Auto sign all commits to allow them to be used by the OME project.
 #       see https://github.com/openmicroscopy/ome-documentation/blob/develop/CONTRIBUTING.md
 #
-USER_NAME=$(git config --get user.name)
-USER_EMAIL=$(git config --get user.email)
 GH_USER=$(git config --get github.user)
-SOB=$(git var GIT_AUTHOR_IDENT | sed -n "s/^\(.*>\).*$/OME-DCO-1.1-Signed-off-by: $USER_NAME <$USER_EMAIL> \(github: $GH_USER\)/p")
+SOB=$(git var GIT_AUTHOR_IDENT | sed -n "s/^\(.*>\).*$/OME-DCO-1.1-Signed-off-by: \1 \(github: $GH_USER\)/p")
 grep -qs "^$SOB" "$1" || { 
 	echo 
 	echo "$SOB" 
