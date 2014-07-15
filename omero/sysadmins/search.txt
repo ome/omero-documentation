@@ -30,20 +30,70 @@ table will be incremented.
    ``PersistentEventLogLoader.current_id`` became
    ``PersistentEventLogLoader.v2.current_id`` in :commit:`a5cb64a`.
 
+.. _search-failures:
+
+Missing search results
+----------------------
+
+If you are having any difficult with search results not appearing
+timely, first you should start by checking the health of the
+Indexer-0 process:
+
+-  Check the server's log directory for a file named ``Indexer-0.log`` and
+   monitor its progress (e.g. using ``tail`` or similar). If messages of the
+   format:
+
+   ::
+
+       INFO  [   ome.services.fulltext.FullTextIndexer ] (3-thread-2) INDEXED 2 objects in 1 batch(es) [2483 ms.]
+
+   are periodically being appended to the log file, then your indexer process
+   may be running behind. You can either wait for it to catch up, or try
+   increasing the search batch size in order to speed processing. See the
+   section on the :term:`omero.search.batch` setting for more information.
+
+-  If there are no updates to the ``Indexer-0.log`` file even when new images,
+   tags, files, etc. are added to the server, then it is possible that the
+   Indexer process has become stuck. It is possible to force a restart of the
+   indexer using the :ref:`icegrid_tools` like so:
+
+   ::
+
+       > bin/omero admin ice
+       > omero admin ice
+       Ice 3.4.2  Copyright 2003-2011 ZeroC, Inc.
+       >>> server list
+       Blitz-0
+       DropBox
+       FileServer
+       Indexer-0
+       ...
+       >>> server stop Indexer-0
+
+   You do not need to manually re-start the Indexer, as IceGrid will handle the
+   creation of a new Indexer process automatically.
+
+If neither of the above issues are seen, then the indexer is running normally and
+it is more likely that you will need to :ref:`re-index <search-reindexing>` OMERO.
+Reasons that this might be necessary include:
+
+-  If the missing search terms are part of a very large text file, it is
+   possible that the file has not been indexed due to exceeding the indexer's
+   maximum file size limit. See the section on the
+   :term:`omero.search.max_file_size` setting for more information on
+   increasing this limit.
+
+-  If none of the above steps have resolved the situation, it is possible that
+   your search index has become corrupt due to a bug in Lucene prior to OMERO
+   5.0.1. If this is the case, you will need to re-index your server's content.
+   See the section on :ref:`search-reindexing` for more information. Keep in
+   mind that you may also need to adjust the settings for the search batch size,
+   maximum file size, and indexer's heap size, as outlined above.
+
 .. _search-reindexing:
 
 Re-indexing
 -----------
-
-There are a few reasons that you may need to re-index your database. The
-following list is non-exhaustive:
-
-- You have upgraded from a server prior to 5.0.1 and you have experienced
-  issues with search in the past, re-indexing is highly recommended.
-- Searching does not return the expected results (see
-  :ref:`troubleshooting-search`).
-- You would like to add large files that were previously skipped to the
-  index (see :term:`omero.search.max_file_size`).
 
 Background re-indexing
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -129,6 +179,9 @@ following SQL command::
     ----------------------------------------------------
      At 2014-06-14 07:54:37+00, Percent indexed: 70.90%
     (1 row)
+
+This value is also logged periodically both when re-indexing in the background
+and the foreground and is available via JMX. See TODO:metrics for more information.
 
 The overall re-indexing performance depends significantly on the memory
 settings and the size of the repository to index. The following table provides
