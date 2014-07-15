@@ -57,9 +57,15 @@ actual database user and database name for your installation.
 Re-indexing for search
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If you have experienced any issues with search in the past, **especially prior
-to 5.0.1**, you could take the opportunity to reindex your full text index.
-See :ref:`search-reindexing` for more information.
+All OMERO databases created **prior to 5.0.1** were susceptible to a Lucene
+bug which could "hide" some search entries. For example, an image might show
+up in queries based on its name, but searching for a tag or similar might
+show nothing.
+
+*If you have experienced any issues with search in the past*, you should
+**strongly** consider reindexing your full text index, the process for
+which has been significantly stream-lined. See :ref:`search-reindexing`
+for more information.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
