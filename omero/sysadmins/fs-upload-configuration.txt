@@ -105,10 +105,6 @@ For any directory in the template path
   expands to the current day number in the month, zero-padded, for
   example :literal:`04`
 
-:literal:`%time%`
-  expands to the current time, in hours, minutes, seconds, milliseconds,
-  for example :literal:`13-49-07.727`
-
 :literal:`%sessionId%`
   expands to the session's numerical ID
 
@@ -121,6 +117,10 @@ For user-owned directories only
 
 These expansion terms may not precede :literal:`//` in the template
 path.
+
+:literal:`%time%`
+  expands to the current time, in hours, minutes, seconds, milliseconds,
+  for example :literal:`13-49-07.727`
 
 :literal:`%hash%`
   expands to an eight-digit hexadecimal hash code that is constant for
