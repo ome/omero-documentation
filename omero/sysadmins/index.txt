@@ -56,7 +56,6 @@ performance and security.
     :titlesonly:
 
     server-security
-    config
     server-ldap
     memory-configuration
     search
@@ -64,6 +63,7 @@ performance and security.
     server-advanced-configuration
     server-webstart-codesigning
     omero-home-prefix
+    config
 
 ***********************
 Data Import and Storage
