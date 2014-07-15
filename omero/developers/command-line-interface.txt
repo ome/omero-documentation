@@ -12,8 +12,8 @@ OMERO Command Line Interface
 Help for any specific CLI command can be displayed using the :option:`-h`
 argument. See :ref:`cli_help` for more information.
 
-Object manipulation
--------------------
+Working with objects
+--------------------
 
 .. program:: omero obj
 
@@ -25,7 +25,7 @@ Object creation
 
 .. program:: omero obj new
 
-The  :omerocmd:`obj new` command allows to create new objects::
+The  :omerocmd:`obj new` subcommand allows to create new objects::
 
    $ bin/omero obj new Object field=value
 
@@ -41,9 +41,9 @@ description::
 Object update
 ^^^^^^^^^^^^^
 
-The :omerocmd:`obj update` command allows to update existing objects::
+The :omerocmd:`obj update` subcommand allows to update existing objects::
 
-   $ bin/omero obj update Object field=value
+   $ bin/omero obj update Object:ID field=value
 
 where `Object:ID` is the type and the ID of object to update, e.g. `Image:1`
 or `PlateDatasetLink:10` and `field`/`value` is a valid key/value pair to

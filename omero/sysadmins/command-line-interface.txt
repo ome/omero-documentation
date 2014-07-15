@@ -241,7 +241,7 @@ Sudo functionality
 
 Since 5.0.2, the CLI includes a sudo functionality for administrators allowing
 them to execute commmands as another user. For example, to login as
-*username*, the root user can invoke the following command:
+*username*, the root user can invoke the following command::
 
     $ bin/omero login --sudo root -s servername -u username
     Password for root:
