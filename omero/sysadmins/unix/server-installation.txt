@@ -8,6 +8,10 @@ more specific walk-through listed below.
 
 .. seealso::
 
+    :doc:`server-linux-walkthrough`
+        Instructions for installing OMERO.server from scratch on Ubuntu 14.04
+        and CentOS 6.
+
     :doc:`server-install-homebrew`
         Instructions for installing and building OMERO.server on Mac OS X with
         Homebrew using our special formulas (i.e. from the source code via
@@ -832,5 +836,5 @@ output of the diagnostics command:
 .. toctree::
     :hidden:
 
+    server-linux-walkthrough
     server-install-homebrew
-
