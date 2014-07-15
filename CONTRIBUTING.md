@@ -72,11 +72,11 @@ OME-DCO-1.1-Signed-off-by: Joe Smith <joe.smith@email.com> (github: github_handl
 
 using your real name (sorry, no pseudonyms or anonymous contributions.)
 
-One way to automate this, is customize your Git commit.template by adding a
+One way to automate this, is customise your get commit.template by adding a 
 prepare-commit-msg hook to your OME source code checkout:
 
 ```
-curl -o $(git rev-parse --git-dir)/hooks/prepare-commit-msg https://raw.githubusercontent.com/openmicroscopy/ome-documentation/develop/contributing/downloads/prepare-commit-msg.hook
+curl -o $(git rev-parse --git-dir)/hooks/prepare-commit-msg https://raw.githubusercontent.com/openmicroscopy/ome-documentation/develop/contributing/downloads/prepare-commit-msg.hook 
 chmod +x $(git rev-parse --git-dir)/hooks/prepare-commit-msg
 git submodule foreach 'curl -o $(git rev-parse --git-dir)/hooks/prepare-commit-msg https://raw.githubusercontent.com/openmicroscopy/ome-documentation/develop/contributing/downloads/prepare-commit-msg.hook'
 git submodule foreach 'chmod +x $(git rev-parse --git-dir)/hooks/prepare-commit-msg'
