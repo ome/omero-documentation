@@ -1,13 +1,14 @@
 Search and indexing configuration
 =================================
 
-Scheduling indexing
--------------------
+How Indexing works
+------------------
 
 Indexing is not driven by the user, but happens automatically in the
 background and can be controlled by the settings listed under
-:ref:`search_configuration`.
-
+:ref:`search_configuration`. The indexer runs periodically as defined
+by :term:omero.search.cron and parses the latest batch of new or
+modified objects in the database.
 
 Upon successful completion, the persistent count in the ``configuration``
 table will be incremented.
