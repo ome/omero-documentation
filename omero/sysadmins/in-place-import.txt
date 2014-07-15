@@ -74,7 +74,7 @@ Posix systems (Unix, Linux, OS X).
 
 .. note::
 
-  Supporting in-place importing in Windows required breaking compatibility
+  Supporting in-place import in Windows required breaking compatibility
   with the 5.0.2 patch release by introducing active file handle closing
   logic. This code is disabled by default, and needs to be activated
   through the client-side ``omero.import.active_close`` setting:
@@ -82,7 +82,7 @@ Posix systems (Unix, Linux, OS X).
   ``C:\set JAVA_OPTS=-Domero.import.active_close=true``
 
   This must be done from the same Command Prompt window from which the
-  in-place import will commence. Be aware that ``ln_rm`` on Windows doesn't
+  in-place import will commence. Be aware that ``ln_rm`` on Windows does not
   automatically remove image files after import.
 
 For soft linking with :literal:`--transfer=ln_s` it has been noticed
