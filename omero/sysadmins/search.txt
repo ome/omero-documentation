@@ -5,7 +5,7 @@ How Indexing works
 ------------------
 
 Indexing is not driven by the user, but happens automatically in the
-background and can be controlled by the settings listed under
+background and can be controlled by a number of settings listed under
 :ref:`search_configuration`. The indexer runs periodically as defined
 by :term:omero.search.cron and parses the latest batch of new or
 modified objects in the database.
@@ -159,7 +159,7 @@ this can be specified on the command-line `--mem`:
 
    $ bin/omero admin reindex --foreground --mem=2g
 
-Other search configuration properties from :ref:`search_configuration` can be
+Other search configuration properties from TODO:search_configuration can be
 set for the processing by setting the "JAVA_OPTS" environment variable:
 
 ::
