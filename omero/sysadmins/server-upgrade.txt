@@ -61,6 +61,13 @@ If you have experienced any issues with search in the past, **especially prior
 to 5.0.1**, you could take the opportunity to reindex your full text index.
 See :ref:`search-reindexing` for more information.
 
+Web Plugin Updates
+^^^^^^^^^^^^^^^^^^
+OMERO.web plugins are very closely integrated into the webclient. For this
+reason, it is possible that an update of OMERO will cause issues with an older
+version of a plugin. It is best when updating the server to also install any
+available plugin updates according to their own documentation.
+
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
