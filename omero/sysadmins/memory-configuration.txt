@@ -3,7 +3,7 @@
 Memory configuration
 ====================
 
-A number of configuration properties starting with ``omero.mem``
+A number of configuration properties starting with ``omero.jvmcfg``
 control the calculation of how much memory to allocate to
 various OMERO services on startup, most importantly:
 
@@ -16,21 +16,21 @@ Configuration properties
 
 Configuration properties can either be applied to all three service
 types at the same time by omitting the service type (e.g.
-:term:`omero.mem.strategy`) or to each individually by including it
-(e.g. `omero.mem.blitz.strategy`).
+:term:`omero.jvmcfg.strategy`) or to each individually by including it
+(e.g. `omero.jvmcfg.blitz.strategy`).
 
 
 For example, the default, PercentStrategy, is equivalent to making the call:
 
 ::
 
-	$ bin/omero config set omero.mem.strategy percent
+	$ bin/omero config set omero.jvmcfg.strategy percent
 
 This could be changed to use the ManualStrategy for a single server via:
 
 ::
 
-	$ bin/omero config set omero.mem.indexer.strategy manual
+	$ bin/omero config set omero.jvmcfg.indexer.strategy manual
 
 Strategies
 ----------
@@ -44,8 +44,8 @@ JVM settings from the provided configuration properties.
         Default. Reads the `percent` configuration property which can also be
         set globally or on a service-type basis. This percent (0-100)
         of the system memory is used for the process.
-        :term:`omero.mem.use_total`, :term:`omero.mem.min_total`, and
-        :term:`omero.mem.max_total` are all used for defining the
+        :term:`omero.jvmcfg.system_memory`, :term:`omero.jvmcfg.min_system_memory`, and
+        :term:`omero.jvmcfg.max_system_memory` are all used for defining the
         system memory seen. The default percentages are: blitz and
         pixeldata 15%, indexer 10%.
 
@@ -59,13 +59,13 @@ JVM settings from the provided configuration properties.
 
 ::
 
-	$ bin/omero config set omero.mem.blitz.percent 50
+	$ bin/omero config set omero.jvmcfg.blitz.percent 50
 
 would raise the blitz percent to 50.
 
 ::
 
-	$ bin/omero config set omero.mem.max_total 24000
+	$ bin/omero config set omero.jvmcfg.max_system_memory 24000
 
 would allow an OMERO installation to make use of 24GB
 of system memory. With the default of 15%, Blitz would
