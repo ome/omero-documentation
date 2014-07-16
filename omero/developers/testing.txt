@@ -340,19 +340,20 @@ to rebuild or restart the server. A few basic options are shown below.
 
 .. option:: -h, --help
 
-    Displays the full list of available options::
+    This option displays the full list of available options::
 
         ./setup.py test -h
 
 .. option:: --markers
 
-    Lists available markers for decorating tests::
+    This option lists available markers for decorating tests::
 
         ./setup.py test --markers
 
 .. option:: -s <test_path>, --test-path <test_path>
 
-    Specifies the test suite to run. For instance to run a single test file::
+    This option specifies the test suite to run. For instance to run a single
+    test file::
 
         cd components/tools/OmeroPy
         ./setup.py test -s test/integration/test_admin.py
@@ -364,8 +365,8 @@ to rebuild or restart the server. A few basic options are shown below.
 
 .. option:: -k <string>
 
-    The :option:`-k` option will run all integration tests containing the
-    given string in their names. For example, to run all the tests under
+    This option will run all integration tests containing the given string in
+    their names. For example, to run all the tests under
     :file:`test/integration` with `permissions` in their names::
 
         ./setup.py test -s test/integration -k permissions
@@ -376,9 +377,9 @@ to rebuild or restart the server. A few basic options are shown below.
 
 .. option:: -m <marker>
 
-    The :option:`-m` option will run integration tests depending on the
-    markers they are decorated with. Available markers can be listed using
-    the :option:`--markers` option.
+    This option will run integration tests depending on the markers they are
+    decorated with. Available markers can be listed using the
+    :option:`--markers` option.
     For example, to run all integration tests excluding those decorated with
     the marker `long_running`::
 
@@ -392,19 +393,19 @@ be used directly.
 
 .. option:: -s
 
-    Allows the standard output to be shown on the console::
+    This option allows the standard output to be shown on the console::
 
         py.test test/integration/test_admin.py -s
 
 .. option:: -repeat <number>
 
-    Allows to repeat tests for *number* occurences::
+    This option allows to repeat tests for *number* occurences::
 
         py.test --repeat 20 test/unit/fstest
 
 .. option:: -h, --help
 
-    Display the full list of options::
+    This option displays the full list of options::
 
         py.test --help
 
