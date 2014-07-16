@@ -121,24 +121,28 @@ FS
       http://www.openmicroscopy.org/site/support/omero/developers/Modules/Search.html
       Template for FS managed repository paths.
       Allowable elements are:
-      %user%         bob
-      %userId%       4
-      %group%        bobLab
-      %groupId%      3
-      %year%         2011
-      %month%        01
-      %monthname%    January
-      %day%          01
-      %time%         15-13-54.014
-      %institution%  University of Dundee
-      %hash%         0D2D8DB7
-      %increment%    14
-      %subdirs%      023/613
-      %session%      c3fdd5d8-831a-40ff-80f2-0ba5baef448a
-      %sessionId%    592
-      %perms%        rw----
-      /              path separator
-      //             end of root-owned directories
+      
+      ::
+      
+         %user%         bob
+         %userId%       4
+         %group%        bobLab
+         %groupId%      3
+         %year%         2011
+         %month%        01
+         %monthname%    January
+         %day%          01
+         %time%         15-13-54.014
+         %institution%  University of Dundee
+         %hash%         0D2D8DB7
+         %increment%    14
+         %subdirs%      023/613
+         %session%      c3fdd5d8-831a-40ff-80f2-0ba5baef448a
+         %sessionId%    592
+         %perms%        rw----
+         /              path separator
+         //             end of root-owned directories
+      
       These are described further at:
       http://www.openmicroscopy.org/site/support/omero/sysadmins/fs-upload-configuration.html
       
@@ -212,17 +216,52 @@ Jvmcfg
 
 .. glossary::
 
+    omero.jvmcfg.append
+      Contains other parameters which should be passed to the
+      JVM. The value of "append" is treated as if it were on
+      the command-line and so will be separated on whitespaces.
+      For example, '-XX:-PrintGC -XX:+UseCompressedOops' would
+      results in two new arguments.
+      
+      Default: `[empty]`
+
+    omero.jvmcfg.heap_dump
+      Toggles on or off heap dumps on OOMs. Default is "off".
+      The special value "tmp" will create the heap dumps in
+      your temp directory.
+      
+      Default: `[empty]`
+
+    omero.jvmcfg.heap_size
+      Explicit value for the -Xmx argument, e.g.
+      "1g"
+      
+      Default: `[empty]`
+
     omero.jvmcfg.max_system_memory
-      Suggest for strategies as to the maximum memory
+      Suggestion for strategies as to the maximum memory
       that they will use for calculating JVM settings (MB).
       
       Default: `48000`
 
     omero.jvmcfg.min_system_memory
-      Suggest for strategies as to the minimum memory
+      Suggestion for strategies as to the minimum memory
       that they will use for calculating JVM settings (MB).
       
       Default: `3414`
+
+    omero.jvmcfg.percent
+      Used only by the percent strategy. An integer between 0
+      and 100 which is the percent of active memory that will
+      be used by the service.
+      
+      Default: `[empty]`
+
+    omero.jvmcfg.perm_gen
+      Explicit value for the MaxPermSize argument
+      to the JVM, e.g. "500M"
+      
+      Default: `[empty]`
 
     omero.jvmcfg.strategy
       Memory strategy which will be used by default.
@@ -232,9 +271,13 @@ Jvmcfg
 
     omero.jvmcfg.system_memory
       Manual override of the total system memory that
-      OMERO will think is present on the local OS (MB).
+      OMERO will *think* is present on the local OS (MB).
+      If unset, an attempt will be made to detect the actual
+      amount: first by using the Python library `psutil` and
+      if that is not installed, by running a Java tool. If
+      neither words, 4.0GB is assumed.
       
-      Default: `(empty)`
+      Default: `[empty]`
 
 
 
@@ -247,6 +290,9 @@ LDAP
 .. glossary::
 
     omero.ldap.base
+      LDAP server base search DN, i.e. the filter applied to
+      all users. (can be empty in which case any LDAP user is
+      valid)
       
       Default: `ou=example,o=com`
 
@@ -268,10 +314,13 @@ LDAP
       Default: `default`
 
     omero.ldap.password
+      LDAP server binard password (if required; can be empty)
       
-      Default: `(empty)`
+      Default: `[empty]`
 
     omero.ldap.referral
+      Available referral options are: "ignore", "follow", or "throw"
+      as per the JNDI referral documentation.
       
       Default: `ignore`
 
@@ -290,6 +339,8 @@ LDAP
       Default: `false`
 
     omero.ldap.urls
+      Set the URL of the LDAP server. A |SSL| URL for this
+      property would be of the form: ldaps://ldap.example.com:636
       
       Default: `ldap://localhost:389`
 
@@ -302,8 +353,9 @@ LDAP
       Default: `omeName=cn,firstName=givenName,lastName=sn,email=mail`
 
     omero.ldap.username
+      LDAP server bind DN (if required; can be empty)
       
-      Default: `(empty)`
+      Default: `[empty]`
 
 
 
@@ -325,7 +377,7 @@ Metrics
     omero.metrics.graphite
       Address for Metrics to send server data
       
-      Default: `(empty)`
+      Default: `[empty]`
 
     omero.metrics.slf4j_minutes
       Number of minutes to periodically print to slf4j
@@ -361,6 +413,8 @@ Performance
       timeout values are in milliseconds to make
       comparison with start/finish values more
       straightforward
+      Sets the duration of inactivity in milliseconds after which
+      a login is required.
       
       Default: `600000`
 
@@ -530,7 +584,7 @@ Scripts
       OMERO.scripts properties
       No value implies use sys.executable
       
-      Default: `(empty)`
+      Default: `[empty]`
 
     omero.process.jython
       
@@ -570,7 +624,7 @@ Search
       Extra bridge classes, comma-separated, to be invoked on each indexing.
       Bridges are used to parse more information out of the data.
       
-      Default: `(empty)`
+      Default: `[empty]`
 
     omero.search.cron
       To disable search indexing, leave blank.
@@ -716,7 +770,7 @@ Security
 
     omero.resetpassword.password
       
-      Default: `(empty)`
+      Default: `[empty]`
 
     omero.resetpassword.port
       
@@ -724,7 +778,7 @@ Security
 
     omero.resetpassword.username
       
-      Default: `(empty)`
+      Default: `[empty]`
 
     omero.security.chmod_strategy
       
@@ -736,11 +790,11 @@ Security
 
     omero.security.keyStore
       
-      Default: `(empty)`
+      Default: `[empty]`
 
     omero.security.keyStorePassword
       
-      Default: `(empty)`
+      Default: `[empty]`
 
     omero.security.login_failure_throttle_count
       
@@ -756,11 +810,11 @@ Security
 
     omero.security.trustStore
       
-      Default: `(empty)`
+      Default: `[empty]`
 
     omero.security.trustStorePassword
       
-      Default: `(empty)`
+      Default: `[empty]`
 
 
 
