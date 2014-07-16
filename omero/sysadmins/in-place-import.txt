@@ -97,7 +97,16 @@ wrong location) and that the files cannot be removed from the system
 while OMERO is still using them. Files may not be renamed or otherwise altered
 such that the OMERO server user cannot find them at the expected location.
 
-If possible, all the files should be added to your regular backup process.
+If possible, **all the files should be added to your regular backup
+process**. If the files for imported images are later removed or
+corrupted, the result will probably be that the images remain in their
+projects or screens with their annotations and basic metadata, they
+simply cannot be successfully viewed. However, this behavior is **not
+guaranteed**, so do *not* assume that the resulting problems will not
+extend further. Once the problem is noticed, replacing the original
+image files from backups, in the same place with the same name, is
+likely but **not guaranteed** to fully restore the images and their
+associated data in OMERO.
 
 Getting started
 ---------------
@@ -162,7 +171,8 @@ effectively free no space.
     `/home` (or equivalent) **will lead to a complete loss of the data since
     no copy is held in OMERO**. Therefore, this method should only be used in
     conjunction with a properly managed and backed-up data repository. If the
-    files are deleted, there is no way to use OMERO to retrieve them.
+    files are corrupted or deleted, there is no way to use OMERO to retrieve
+    them.
 
 "ln" - hard-linking
 ^^^^^^^^^^^^^^^^^^^
