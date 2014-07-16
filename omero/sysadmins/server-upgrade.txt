@@ -62,7 +62,7 @@ bug which could "hide" some search entries. For example, an image might show
 up in queries based on its name, but searching for a tag or similar might
 show nothing.
 
-*If you have experienced any issues with search in the past*, you should
+**If you have experienced any issues with search in the past**, you should
 **strongly** consider reindexing your full text index, the process for
 which has been significantly stream-lined. See :ref:`search-reindexing`
 for more information.
