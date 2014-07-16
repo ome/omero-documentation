@@ -137,7 +137,7 @@ The :option:`-f` option display all the used files for importing and exit::
     $ bin/omero import -f image.tif
     $ bin/omero import -f images_folder
 
-To :option:`--depth` option sets the number of directories to scan down for
+The :option:`--depth` option sets the number of directories to scan down for
 files (default: 4)::
 
     $ bin/omero import --depth 1 images_folder
