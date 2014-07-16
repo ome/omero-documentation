@@ -135,11 +135,11 @@ The branch for the 4.4.x series of Bio-Formats is dev_4_4.
    "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-maven" -> "BIOFORMATS-5.0-latest-cppwrap";
    "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-docs-autogen";
 
-   "BIOFORMATS-5.0-merge-daily" -> "OMERO-5.0-merge-push";
-   "OMERO-5.0-merge-push" -> "BIOFORMATS-5.0-merge-build";
-   "OMERO-5.0-merge-push" -> "BIOFORMATS-5.0-merge-docs";
-   "OMERO-5.0-merge-push" -> "BIOFORMATS-5.0-merge-test_images_good";
-   "OMERO-5.0-merge-push" -> "BIOFORMATS-5.0-merge-performance";
+   "BIOFORMATS-5.0-merge-daily" -> "OME-5.0-merge-push";
+   "OME-5.0-merge-push" -> "BIOFORMATS-5.0-merge-build";
+   "OME-5.0-merge-push" -> "BIOFORMATS-5.0-merge-docs";
+   "OME-5.0-merge-push" -> "BIOFORMATS-5.0-merge-test_images_good";
+   "OME-5.0-merge-push" -> "BIOFORMATS-5.0-merge-performance";
    "BIOFORMATS-5.0-merge-build" -> "BIOFORMATS-5.0-merge-matlab";
 
 The branch for the 5.0.x series of Bio-Formats is dev_5_0.
@@ -165,7 +165,7 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		basic unit tests, checking for open file handles, and checking for
 		regressions across a representative subset of the data repository
 
-		#. Triggers :term:`OMERO-5.0-merge-push`
+		#. Triggers :term:`OME-5.0-merge-push`
 		#. Triggers :term:`BIOFORMATS-5.0-merge-build`,
 		   :term:`BIOFORMATS-5.0-merge-docs`,
 		   :term:`BIOFORMATS-5.0-merge-test_images_good` and
@@ -227,12 +227,12 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
 .. digraph:: BIOFORMATS51mergedaily
 
-   "BIOFORMATS-5.1-merge-daily" -> "OMERO-5.1-merge-push";
-   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-build";
-   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-cpp";
-   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-docs";
-   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-test_images_good";
-   "OMERO-5.1-merge-push" -> "BIOFORMATS-5.1-merge-performance";
+   "BIOFORMATS-5.1-merge-daily" -> "OME-5.1-merge-push";
+   "OME-5.1-merge-push" -> "BIOFORMATS-5.1-merge-build";
+   "OME-5.1-merge-push" -> "BIOFORMATS-5.1-merge-cpp";
+   "OME-5.1-merge-push" -> "BIOFORMATS-5.1-merge-docs";
+   "OME-5.1-merge-push" -> "BIOFORMATS-5.1-merge-test_images_good";
+   "OME-5.1-merge-push" -> "BIOFORMATS-5.1-merge-performance";
    "BIOFORMATS-5.1-merge-build" -> "BIOFORMATS-5.1-merge-matlab";
 
 The branch for the 5.1.x series of Bio-Formats is develop.
@@ -262,7 +262,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		tests, checking for open file handles, and checking for regressions
 		across a representative subset of the data repository
 
-		#. Triggers :term:`OMERO-5.1-merge-push`
+		#. Triggers :term:`OME-5.1-merge-push`
 		#. Triggers :term:`BIOFORMATS-5.1-merge-build`,
 		   :term:`BIOFORMATS-5.1-merge-cpp`,
 		   :term:`BIOFORMATS-5.1-merge-docs`,
