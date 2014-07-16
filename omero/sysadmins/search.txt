@@ -7,7 +7,7 @@ How Indexing works
 Indexing is not driven by the user, but happens automatically in the
 background and can be controlled by a number of settings listed under
 :ref:`search_configuration`. The indexer runs periodically as defined
-by :term:omero.search.cron and parses the latest batch of new or
+by :term:`omero.search.cron` and parses the latest batch of new or
 modified objects in the database.
 
 Upon successful completion, the persistent count in the ``configuration``
@@ -23,8 +23,8 @@ table will be incremented.
 
 .. note::
 
-   If you have more than one ``PersistentEventLogLoader.*`` value in your
-   database, then you have run indexing with multiple versions of the
+   Presence of more than one ``PersistentEventLogLoader.*`` value in your
+   database indicates that you have run indexing with multiple versions of the
    server. This is fine. To allow a new server version to force an update,
    the configuration key may be changed. For example,
    ``PersistentEventLogLoader.current_id`` became
@@ -73,9 +73,10 @@ Indexer-0 process:
    You do not need to manually re-start the Indexer, as IceGrid will handle the
    creation of a new Indexer process automatically.
 
-If neither of the above issues are seen, then the indexer is running normally and
-it is more likely that you will need to :ref:`re-index <search-reindexing>` OMERO.
-Reasons that this might be necessary include:
+In case neither of the above seems to be the case, then your indexer is running
+normally and more likely your index has been corrupted. You will need to
+:ref:`re-index <search-reindexing>` OMERO. Reasons that this might have
+occurred include:
 
 -  If the missing search terms are part of a very large text file, it is
    possible that the file has not been indexed due to exceeding the indexer's
@@ -83,12 +84,9 @@ Reasons that this might be necessary include:
    :term:`omero.search.max_file_size` setting for more information on
    increasing this limit.
 
--  If none of the above steps have resolved the situation, it is possible that
-   your search index has become corrupt due to a bug in Lucene prior to OMERO
-   5.0.1. If this is the case, you will need to re-index your server's content.
-   See the section on :ref:`search-reindexing` for more information. Keep in
-   mind that you may also need to adjust the settings for the search batch size,
-   maximum file size, and indexer's heap size, as outlined above.
+-  A bug in Lucene prior to OMERO 5.0.1 caused some documents to be "sealed"
+   in that old search terms would return the document, but newer terms would
+   **not**.
 
 .. _search-reindexing:
 
@@ -133,7 +131,8 @@ initiate a re-indexing.
 Depending on the size of your database, it may take the indexer some time to
 finish re-indexing. During this time, your OMERO server will remain available
 for use, however the search functionality will be degraded until the
-re-indexing is finished.
+re-indexing is finished. See :ref:`search-monitoring` for information on how
+long this should take.
 
 .. note::
 
@@ -171,6 +170,8 @@ Once forground indexing is complete, re-enable the background indexer as above:
 ::
 
     $ bin/omero admin reindex --finish
+
+.. _search-monitoring:
 
 Monitoring re-indexing
 ^^^^^^^^^^^^^^^^^^^^^^
