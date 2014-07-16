@@ -249,3 +249,6 @@ enable it, use:
 
     :forum:`What are your LDAP requirements? <viewtopic.php?f=5&t=14>`
         Forum discussion if you have LDAP requirements that are not covered by the above configuration
+
+    JNDI referrals documentation
+        http://docs.oracle.com/javase/jndi/tutorial/ldap/referral/jndi.html
