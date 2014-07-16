@@ -78,11 +78,10 @@ normally and more likely your index has been corrupted. You will need to
 :ref:`re-index <search-reindexing>` OMERO. Reasons that this might have
 occurred include:
 
--  If the missing search terms are part of a very large text file, it is
-   possible that the file has not been indexed due to exceeding the indexer's
-   maximum file size limit. See the section on the
-   :term:`omero.search.max_file_size` setting for more information on
-   increasing this limit.
+-  Missing search terms are part of a very large text file. If the indexer's
+   maximum file size limit is reached, a file may not be indexed.
+   See the section on the :term:`omero.search.max_file_size` setting for
+   more information on increasing this limit.
 
 -  A bug in Lucene prior to OMERO 5.0.1 caused some documents to be "sealed"
    in that old search terms would return the document, but newer terms would
