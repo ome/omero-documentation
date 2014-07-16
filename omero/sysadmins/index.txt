@@ -57,10 +57,13 @@ performance and security.
 
     server-security
     server-ldap
-    server-advanced-configuration
+    memory-configuration
     search
+    fs-upload-configuration
+    server-advanced-configuration
     server-webstart-codesigning
     omero-home-prefix
+    config
 
 ***********************
 Data Import and Storage
@@ -76,5 +79,3 @@ data with OMERO 5.
     dropbox
     import-scenarios
     in-place-import
-    fs-upload-configuration
-
