@@ -3,9 +3,17 @@
 Memory configuration
 ====================
 
-A number of configuration properties starting with ``omero.jvmcfg``
-control the calculation of how much memory to allocate to
-various OMERO services on startup, most importantly:
+OMERO should automatically configure itself to take advantage of the physical
+memory installed on a system whilst leaving room for other services. You may
+wish to override the defaults on a production server, for instance if your
+machine is solely dedicated to running OMERO you can increase the amount of
+memory that OMERO will use. You may also need to modify your settings if you
+are seeing out-of-memory errors when dealing with certain types of images.
+
+A number of configuration properties starting with
+:ref:`omero.jvmcfg <jvmcfg_configuration>` control the calculation of how
+much memory to allocate to various OMERO services on startup, most
+importantly:
 
 * blitz
 * indexer
@@ -26,11 +34,11 @@ For example, the default, PercentStrategy, is equivalent to making the call:
 
 	$ bin/omero config set omero.jvmcfg.strategy percent
 
-This could be changed to use the ManualStrategy for a single server via:
+This could be changed to use the ManualStrategy for all servers:
 
 ::
 
-	$ bin/omero config set omero.jvmcfg.indexer.strategy manual
+	$ bin/omero config set omero.jvmcfg.strategy manual
 
 Strategies
 ----------
@@ -42,9 +50,11 @@ JVM settings from the provided configuration properties.
 
     PercentStrategy
         Default. Reads the `percent` configuration property which can also be
-        set globally or on a service-type basis. This percent (0-100)
-        of the system memory is used for the process.
-        :term:`omero.jvmcfg.system_memory`, :term:`omero.jvmcfg.min_system_memory`, and
+        set globally or on a service-type basis. This percentage (0-100)
+        of the system memory is used for the process, subject to minimum
+        and maximum limits which can be changed.
+        :term:`omero.jvmcfg.system_memory`,
+        :term:`omero.jvmcfg.min_system_memory`, and
         :term:`omero.jvmcfg.max_system_memory` are all used for defining the
         system memory seen. The default percentages are: blitz and
         pixeldata 15%, indexer 10%.
@@ -53,23 +63,43 @@ JVM settings from the provided configuration properties.
     ManualStrategy
         Simply provides the values given as the JVM settings. If no
         value is set for a particular configuration property, then
-        the default is used: heap_size=512m and perm_gen=128m
+        the default is used: `heap_size=512m` and `perm_gen=128m`
         These values are equivalent to the defaults in OMERO 5.0.2
         and earlier.
+
+Examples
+--------
 
 ::
 
 	$ bin/omero config set omero.jvmcfg.blitz.percent 50
 
-would raise the blitz percent to 50.
+would raise the blitz heap size to 50% of the system memory seen.
 
 ::
 
-	$ bin/omero config set omero.jvmcfg.max_system_memory 24000
+	$ bin/omero config set omero.jvmcfg.system_memory 24000
 
-would allow an OMERO installation to make use of 24GB
-of system memory. With the default of 15%, Blitz would
-use 3600MB.
+would set the system memory seen to 24GB regardless of the actual amount of
+memory present in the system. The PercentageStrategy would use this as the
+basis for setting the Java heap sizes for all services.
+
+::
+
+	$ bin/omero config set omero.jvmcfg.max_system_memory 64000
+
+would raise the maximum system memory seen by an OMERO installation to 64000MB
+of system memory. Assuming there was at least 64000MB of memory installed
+blitz would default to using 9600MB.
+
+::
+
+	$ bin/omero config set omero.jvmcfg.indexer.strategy manual
+	$ bin/omero config set omero.jvmcfg.indexer.heap_size 2000
+
+would set the indexer heap size to 2000MB without modifying the settings for
+the other services.
+
 
 Tips
 ----
