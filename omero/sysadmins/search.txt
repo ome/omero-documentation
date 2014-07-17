@@ -75,7 +75,7 @@ Indexer-0 process:
 
 In case neither of the above seems to be the case, then your indexer is running
 normally and more likely your index has been corrupted. You will need to
-:ref:`re-index <search-reindexing>` OMERO. Reasons that this might have
+:ref:`re-index <search-reindexing>` OMERO. Reasons why this might have
 occurred include:
 
 -  Missing search terms are part of a very large text file. If the indexer's
