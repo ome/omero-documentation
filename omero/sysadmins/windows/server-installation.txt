@@ -154,8 +154,9 @@ The following are optional depending on what services you require:
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PostgreSQL has to be installed and configured with PL/pgSQL and to accept
-TCP connections. PostgreSQL 8.3 and earlier are not supported.
+PostgreSQL has to be installed and configured with PL/pgSQL and to
+accept TCP connections. PostgreSQL 8.3 and earlier are not supported.
+9.2 or later is recommended.
 
 The *One click installer* can be found on the `PostgreSQL Windows
 download page <http://www.postgresql.org/download/windows>`_. You

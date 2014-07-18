@@ -83,7 +83,7 @@ The following packages are required:
 +--------------+-------------+---------+
 | Python       | 2.7         | 2.6     |
 +--------------+-------------+---------+
-| PostgreSQL   | 9.1         | 8.4     |
+| PostgreSQL   | 9.2         | 8.4     |
 +--------------+-------------+---------+
 
 One of the following packages is recommended if you wish to use
@@ -307,7 +307,10 @@ If possible, install the following packages:
 +-----------+-------------------------------------------------------------+
 
 PostgreSQL 8.4 or later is required.  See :doc:`server-postgresql` for
-further details.
+further details.  PostgreSQL 9.2 or later is recommended; while you
+are unlikely to encounter problems, 9.1 and earlier have problems with
+some `floating point numbers
+<https://trac.openmicroscopy.org.uk/ome/ticket/12466>`_.
 
 
 OMERO.web
