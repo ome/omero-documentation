@@ -255,16 +255,16 @@ from ``ServiceFactoryPrx``.
 Configuration properties
 ------------------------
 
-- ``omero.data.dir`` - singleton property (i.e. once globally) which points
+- :term:`omero.data.dir` - singleton property (i.e. once globally) which points
   to the legacy repository location for OMERO. For OMERO to run on multiple
   systems, the contents of this directory must be on a shared volume.
 
-- ``omero.managed.dir`` - singleton property point to the default
+- :term:`omero.managed.dir` - singleton property point to the default
   ``ManagedRepository``. In an OMERO install in which there is only one Blitz
   server, this will be the only repository. Need not be located under
   ``omero.data.dir`` but is by default.
 
-- ``omero.fs.repo.path`` - the template which determines the path that will be
+- :term:`omero.fs.repo.path` - the template which determines the path that will be
   created inside of a managed repository. It is this value which makes the
   ``ManagedRepository`` “managed”.
 
