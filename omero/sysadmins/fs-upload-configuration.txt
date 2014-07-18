@@ -13,6 +13,30 @@ default server configuration from :source:`etc/omero.properties` should
 typically suffice, :omerocmd:`config set` may be used to adjust settings
 related to file uploads. These settings are explained below.
 
+Repository location
+-------------------
+
+- :term:`omero.data.dir` - singleton property (i.e. once globally) which points
+  to the legacy repository location for OMERO. For OMERO to run on multiple
+  systems, the contents of this directory must be on a shared volume.
+
+- :term:`omero.managed.dir` - singleton property point to the default
+  ``ManagedRepository``. In an OMERO install in which there is only one Blitz
+  server, this will be the only repository. Need not be located under
+  ``omero.data.dir`` but is by default.
+
+- :term:`omero.fs.repo.path` - the template which determines the path that will be
+  created inside of a managed repository. It is this value which makes the
+  ``ManagedRepository`` “managed”.
+
+- ``omero.repo.dir`` - value passed to all non-legacy, standalone
+  repositories. This is not actively used, but would allow hosting
+  repositories on multiple physical systems without the need for a shared
+  volume. For example, after running ``bin/omero admin start`` on the main
+  machine, it would be possible to launch nodes on various machines via
+  ``bin/omero node start fs-B``, ``bin/omero node start fs-C``, etc. Each of
+  these would pass a different ``omero.repo.dir`` value to its process.
+
 Template path
 -------------
 
