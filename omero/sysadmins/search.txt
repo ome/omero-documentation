@@ -1,13 +1,14 @@
 Search and indexing configuration
 =================================
 
-Scheduling indexing
--------------------
+How Indexing works
+------------------
 
 Indexing is not driven by the user, but happens automatically in the
-background and can be controlled by the settings listed under
-:ref:`search_configuration`.
-
+background and can be controlled by a number of settings listed under
+:ref:`search_configuration`. The indexer runs periodically as defined
+by :term:`omero.search.cron` and parses the latest batch of new or
+modified objects in the database.
 
 Upon successful completion, the persistent count in the ``configuration``
 table will be incremented.
@@ -22,27 +23,74 @@ table will be incremented.
 
 .. note::
 
-   If you have more than one ``PersistentEventLogLoader.*`` value in your
-   database, then you have run indexing with multiple versions of the
+   Presence of more than one ``PersistentEventLogLoader.*`` value in your
+   database indicates that you have run indexing with multiple versions of the
    server. This is fine. To allow a new server version to force an update,
    the configuration key may be changed. For example,
    ``PersistentEventLogLoader.current_id`` became
    ``PersistentEventLogLoader.v2.current_id`` in :commit:`a5cb64a`.
 
+.. _search-failures:
+
+Missing search results
+----------------------
+
+If you are having any difficult with search results not appearing
+timely, first you should start by checking the health of the
+Indexer-0 process:
+
+-  Check the server's log directory for a file named ``Indexer-0.log`` and
+   monitor its progress (e.g. using ``tail`` or similar). If messages of the
+   format:
+
+   ::
+
+       INFO  [   ome.services.fulltext.FullTextIndexer ] (3-thread-2) INDEXED 2 objects in 1 batch(es) [2483 ms.]
+
+   are periodically being appended to the log file, then your indexer process
+   may be running behind. You can either wait for it to catch up, or try
+   increasing the search batch size in order to speed processing. See the
+   section on the :term:`omero.search.batch` setting for more information.
+
+-  If there are no updates to the ``Indexer-0.log`` file even when new images,
+   tags, files, etc. are added to the server, then it is possible that the
+   Indexer process has become stuck. It is possible to force a restart of the
+   indexer using the :ref:`icegrid_tools` like so:
+
+   ::
+
+       > bin/omero admin ice
+       > omero admin ice
+       Ice 3.4.2  Copyright 2003-2011 ZeroC, Inc.
+       >>> server list
+       Blitz-0
+       DropBox
+       FileServer
+       Indexer-0
+       ...
+       >>> server stop Indexer-0
+
+   You do not need to manually re-start the Indexer, as IceGrid will handle the
+   creation of a new Indexer process automatically.
+
+In case neither of the above seems to be the case, then your indexer is running
+normally and more likely your index has been corrupted. You will need to
+:ref:`re-index <search-reindexing>` OMERO. Reasons why this might have
+occurred include:
+
+-  Missing search terms are part of a very large text file. If the indexer's
+   maximum file size limit is reached, a file may not be indexed.
+   See the section on the :term:`omero.search.max_file_size` setting for
+   more information on increasing this limit.
+
+-  A bug in Lucene prior to OMERO 5.0.1 caused some documents to be "sealed"
+   in that old search terms would return the document, but newer terms would
+   **not**.
+
 .. _search-reindexing:
 
 Re-indexing
 -----------
-
-There are a few reasons that you may need to re-index your database. The
-following list is non-exhaustive:
-
-- You have upgraded from a server prior to 5.0.1 and you have experienced
-  issues with search in the past, re-indexing is highly recommended.
-- Searching does not return the expected results (see
-  :ref:`troubleshooting-search`).
-- You would like to add large files that were previously skipped to the
-  index (see :term:`omero.search.max_file_size`).
 
 Background re-indexing
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -58,31 +106,37 @@ initiate a re-indexing.
 
    ::
 
-       $ bin/omero admin ice server disable Indexer-0
-       $ bin/omero admin ice server stop Indexer-0
+       $ bin/omero admin reindex --prepare
 
 -  Remove the existing search Indexes by deleting the contents of the
-   :file:`FullText` subdirectory of your ${omero.data.dir}
-
--  Reset the indexer's progress counter in the database
+   :file:`FullText` subdirectory of your ${omero.data.dir}:
 
    ::
 
-       $ psql -U <omero-db-user> <omero-db-name> -c "update configuration set value = 0 where name like 'PersistentEventLogLoader%';"
+       $ bin/omero admin reindex --wipe
 
-   substituting in your local omero database's user and name
-
--  Re-enable/restart the indexer process (the Ice grid will handle
-   automatically restarting the process as soon as it is re-enabled)
+-  Reset the indexer's progress counter in the database:
 
    ::
 
-       $ bin/omero admin ice server enable Indexer-0
+       $ bin/omero admin reindex --reset 0
+
+-  Re-enable/restart the indexer process:
+
+   ::
+
+       $ bin/omero admin reindex --finish
 
 Depending on the size of your database, it may take the indexer some time to
 finish re-indexing. During this time, your OMERO server will remain available
 for use, however the search functionality will be degraded until the
-re-indexing is finished.
+re-indexing is finished. See :ref:`search-monitoring` for information on how
+long this should take.
+
+.. note::
+
+   Once you wipe your full-text directory, searches will return fewer or no
+   results until re-indexing is complete.
 
 Off-line re-indexing
 ^^^^^^^^^^^^^^^^^^^^
@@ -90,41 +144,33 @@ Off-line re-indexing
 It is also possible to re-index the database with the server off-line. First,
 shutdown the OMERO server as normal and make any adjustments to the
 configuration that need to be made. Clear the contents of the :file:`FullText`
-directory, then run
+directory as above, then run
 
 ::
 
-   $ bin/omero admin reindex --full
+   $ bin/omero admin reindex --foreground
 
-Re-indexing the database in off-line mode will use a 1 GB heap by default (as
-opposed to the default 256 MB heap for the indexer process in the running
-server). You can further adjust the size of the heap by passing an alternate
-value in the :envvar:`JAVA_OPTS` variable on the command line
+Re-indexing the database in off-line mode will use a 1 GB heap by default, but
+this can be specified on the command-line with the "mem" argument:
 
 ::
 
-   $ JAVA_OPTS="-Xmx2048MB" bin/omero admin reindex --full
+   $ bin/omero admin reindex --foreground --mem=2g
 
-You may also want to increase the :term:`omero.search.batch` size to take
-advantage of the larger heap. The combination of a larger heap and batch size
-should enable the re-index to complete sooner in off-line mode than it might
-in the context of a running server.
-
-Alternatively, you can re-index a specific class of objects in off-line mode,
-followed by a later re-index with the server running. Start by shutting down
-the server and clearing the contents of the :file:`FullText` directory. Then
-reindex a specific class of object with
+Other search configuration properties from TODO:search_configuration can be
+set for the processing by setting the "JAVA_OPTS" environment variable:
 
 ::
 
-   $ bin/omero admin reindex --class ome.model.core.Image
+   $ JAVA_OPTS=-Domero.search.max_partition_size=100000"" bin/omero admin reindex --foreground
 
-Multiple classes can be re-indexed together by appending extra ``--class ...``
-arguments on the command-line. Once this limited re-indexing is completed, you
-can restart the server and search capabilities will be available in a limited
-fashion. If you would then like to re-index the remaining objects in the
-system, follow the steps for the on-line reindexing above, skipping the step
-that involves clearing the ``FullText`` directory.
+Once forground indexing is complete, re-enable the background indexer as above:
+
+::
+
+    $ bin/omero admin reindex --finish
+
+.. _search-monitoring:
 
 Monitoring re-indexing
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -138,6 +184,9 @@ following SQL command::
     ----------------------------------------------------
      At 2014-06-14 07:54:37+00, Percent indexed: 70.90%
     (1 row)
+
+This value is also logged periodically both when re-indexing in the background
+and the foreground and is available via JMX. See TODO:metrics for more information.
 
 The overall re-indexing performance depends significantly on the memory
 settings and the size of the repository to index. The following table provides
