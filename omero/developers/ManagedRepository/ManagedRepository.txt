@@ -149,6 +149,22 @@ is expanded and pre-pended to all uploads. A further responsibility of the
 These ``ManagedImportProcessI`` instances further wrap ``RepoRawFileStoreI`` 
 instances with a subclass, ``ManagedRawFileStoreI``. 
 
+.. _fs_checksums:
+
+For file import through `ManagedRepository.importFileset`, although `hasher` is
+nullable ordinarily, it will be set through the mandatory
+`ImportSettings.checksumAlgorithm` property.
+`ManagedRepository.listChecksumAlgorithms` lists the hashers supported by the
+server. `ManagedRepository.suggestChecksumAlgorithm` helps the client and
+server to negotiate a mutually acceptable algorithm, as in
+`ImportLibrary.createImport`; the result is affected by the server's
+configuration setting for `omero.checksum.supported`. ImportLibrary calculates
+each file's hash using hashers obtained through
+ChecksumProviderFactory.getProvider. In fetching `OriginalFile` objects by HQL
+through the Query Service one may need `JOIN FETCH` on the hasher property to
+read the hasher's name.
+
+
 Server-side sequence
 --------------------
 
@@ -261,6 +277,3 @@ Configuration properties
   these would pass a different ``omero.repo.dir`` value to its process.
 
 .. seealso:: :doc:`/sysadmins/fs-upload-configuration`
-
-
-
