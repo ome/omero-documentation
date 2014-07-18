@@ -46,8 +46,9 @@ use of in your clients. There was, however, one breaking change.
 The definition of one of the `OriginalFile` model object properties has
 changed: `sha1` which used to contain the SHA1 hash (or checksum) of the file
 is now two properties: `hash` for the hash of the file, and `hasher`, an
-enumeration value that describes which algorithm was used, for instance
-`SHA1-160`. When `RawFileStore.save()` is called on a file with `hasher` set,
-it will set the file's `hash` property to the correct value.
+enumeration of type `omero.model.ChecksumAlgorithm` that describes which
+algorithm was used, for instance `SHA1-160`. When `RawFileStore.save()` is
+called on a file with `hasher` set, it will set the file's `hash` property to
+the correct value.
 
 See the :ref:`FS documentation <fs_checksums>` for more information.
