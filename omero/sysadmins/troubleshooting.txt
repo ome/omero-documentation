@@ -97,6 +97,8 @@ Other OMERO users can be created via the OMERO.web admin tool. None of the
 passwords have to be the same, in fact they should be different **unless you
 are using the LDAP plugin**.
 
+.. _server_fails_to_start:
+
 Server fails to start
 ---------------------
 
@@ -133,6 +135,8 @@ Server fails to start
    force OMERO to only listen on localhost. See
    http://doc.zeroc.com/display/Ice/Proxy+and+Endpoint+Syntax#ProxyandEndpointSyntax-address
    for more information.
+
+.. _remote_clients_cannot_connect:
 
 Remote clients cannot connect to OMERO installation
 ---------------------------------------------------
