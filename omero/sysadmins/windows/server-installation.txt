@@ -763,14 +763,17 @@ most out of your server.
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-If you encounter a problem which is not addressed by the 
+If you encounter a problem which is not addressed by the
 :doc:`/sysadmins/troubleshooting` page, you can post a
-message to our :mailinglist:`ome-users` mailing list as discussed on the 
+message to our :mailinglist:`ome-users` mailing list as discussed on the
 :doc:`/users/community-resources` page. Especially the
 :ref:`server_fails_to_start` and :ref:`remote_clients_cannot_connect`
 sections are a good starting point.
 
-Please include the output of the diagnostics command when asking for help with 
+OMERO diagnostics
+^^^^^^^^^^^^^^^^^
+
+Please include the output of the diagnostics command when asking for help with
 your server installation:
 
 .. parsed-literal::
