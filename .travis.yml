@@ -1,15 +1,3 @@
-before_install:
-  - sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu/ saucy main universe"
-  - travis_retry sudo apt-get update
-
-  - travis_retry sudo apt-get -y install ant ant-contrib ant-optional
-  - travis_retry sudo apt-get -y install texlive-latex-base texlive-latex-recommended texlive-xetex
-  - travis_retry sudo apt-get -y install texlive-latex-extra texlive-fonts-recommended fonts-texgyre
-  - travis_retry sudo apt-get -y install graphviz
-
-  - sudo fc-cache -rsfv
-  - fc-list
-
 language: python
 
 python:
@@ -18,6 +6,16 @@ python:
 env:
   - SPHINXOPTS="-W" CLASSPATH="/usr/share/java/ant-contrib.jar"
 
-install: "pip install -q Sphinx"
+before_install:
+  - sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu/ saucy main universe"
+  - travis_retry sudo apt-get update
+  - travis_retry sudo apt-get -y install ant ant-contrib ant-optional
+  - travis_retry sudo apt-get -y install texlive-latex-base texlive-latex-recommended texlive-xetex
+  - travis_retry sudo apt-get -y install texlive-latex-extra texlive-fonts-recommended fonts-texgyre
+  - travis_retry sudo apt-get -y install graphviz
+  - sudo fc-cache -rsfv
+  - fc-list
+  - sudo pip install scc Sphinx
+  - scc travis-merge
 
 script: "make html pdf clean"
