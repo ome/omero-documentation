@@ -760,14 +760,6 @@ See the :omero_plone:`Feature list <feature-list>` for more advanced
 features you may want to use, and :doc:`/sysadmins/config` on how to get the
 most out of your server.
 
-Update notification
-^^^^^^^^^^^^^^^^^^^
-
-Your OMERO.server installation will check for updates each time it is started 
-from the *Open Microscopy Environment* update server. If you wish to disable 
-this functionality you should do so now as outlined on the 
-:doc:`/sysadmins/UpgradeCheck` page.
-
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
@@ -846,3 +838,12 @@ your server installation:
     OMERO temp dir: 'C:\\Users\\omero\\AppData\\Roaming\\omero\\tmp'     Exists? True
     Is writable? True   (Size: 0)
     OMERO.web status... [NOT STARTED]
+
+Update notification
+^^^^^^^^^^^^^^^^^^^
+
+Your OMERO.server installation will check for updates each time it is started
+from the *Open Microscopy Environment* update server. If you wish to disable
+this functionality you should do so now as outlined on the
+:doc:`/sysadmins/UpgradeCheck` page.
+
