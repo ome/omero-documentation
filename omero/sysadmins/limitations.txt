@@ -40,15 +40,6 @@ Importing using desktop clients
 Under older Ubuntu installations, the 'import folder' option in the desktop
 clients currently does not work.
 
-Searching
----------
-
-Not finding certain pieces of data in wildcard searches
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Sometimes data is missed when certain types of wildcard searches are
-performed. You can find further details on :ticket:`3164`.
-
 Importing
 ---------
 
