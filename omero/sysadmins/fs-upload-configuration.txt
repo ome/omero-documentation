@@ -16,6 +16,8 @@ related to file uploads. These settings are explained below.
 Repository location
 -------------------
 
+Several properties determine where FS-imported files are stored:
+
 - :term:`omero.data.dir` - singleton property (i.e. once globally) which points
   to the legacy repository location for OMERO. For OMERO to run on multiple
   systems, the contents of this directory must be on a shared volume.
@@ -25,11 +27,7 @@ Repository location
   server, this will be the only repository. Need not be located under
   ``omero.data.dir`` but is by default.
 
-- :term:`omero.fs.repo.path` - the template which determines the path that will be
-  created inside of a managed repository. It is this value which makes the
-  ``ManagedRepository`` “managed”.
-
-- ``omero.repo.dir`` - value passed to all non-legacy, standalone
+- ``omero.repo.dir`` (experimental) - value passed to all non-legacy, standalone
   repositories. This is not actively used, but would allow hosting
   repositories on multiple physical systems without the need for a shared
   volume. For example, after running ``bin/omero admin start`` on the main
@@ -40,12 +38,13 @@ Repository location
 Template path
 -------------
 
-When files are uploaded to the repository, a parent directory is
+When files are uploaded to the managed repository, a parent directory is
 created to receive the upload. A multi-file image has all its files
 stored in the same parent directory, though they may be in different
 subdirectories of that parent to mirror the original directory
 structure before upload. The :literal:`omero.fs.repo.path` setting
-defines the creation of that parent directory.
+defines the creation of that parent directory. It is this value which
+makes the ``ManagedRepository`` “managed”.
 
 Path naming constraints
 ^^^^^^^^^^^^^^^^^^^^^^^
