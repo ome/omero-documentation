@@ -22,9 +22,9 @@ Several properties determine where FS-imported files are stored:
   to the legacy repository location for OMERO. For OMERO to run on multiple
   systems, the contents of this directory must be on a shared volume.
 
-- :term:`omero.managed.dir` - singleton property point to the default
+- :term:`omero.managed.dir` - singleton property which points to the default
   ``ManagedRepository``. In an OMERO install in which there is only one Blitz
-  server, this will be the only repository. Need not be located under
+  server, this will be the only repository. This need not be located under
   ``omero.data.dir`` but is by default.
 
 - ``omero.repo.dir`` (experimental) - value passed to all non-legacy, standalone
