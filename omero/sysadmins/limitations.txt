@@ -40,6 +40,20 @@ Importing using desktop clients
 Under older Ubuntu installations, the 'import folder' option in the desktop
 clients currently does not work.
 
+Windows issues
+--------------
+
+C++ compilation problems
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+OMERO.cpp will not currently build on Windows due to exceeding DLL
+symbol limits on this platform, leading to a failure when linking
+the DLL.  It is hoped that this platform limitation can be worked
+around in a future OMERO release.
+
+Searching
+---------
+
 .. _limitations-openfiles:
 
 Too many open file descriptors
