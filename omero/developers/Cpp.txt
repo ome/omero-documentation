@@ -221,8 +221,7 @@ environment variables are commonly needed:
     :file:`slice` subdirectory with the Slice language include files
     within it.  Note that the :file:`include` and :file:`lib`
     subdirectories will not be automatically searched; these *must* be
-    specified using :envvar:`CMAKE_INCLUDE_PATH` and
-    :envvar:`CMAKE_LIBRARY_PATH`.
+    specified using the appropriate compiler and linker options.
 
 :envvar:`SLICEPATH`
     location of Ice slice interface definitions.  This is typically
