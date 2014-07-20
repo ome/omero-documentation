@@ -45,12 +45,11 @@ Begin by following the instructions under :doc:`/developers/installation` to
 acquire the source code. Be **sure** that the git branch you are using
 matches the version of your server!
 
-Set the :envvar:`ICE\_HOME` environment variable for your installation. This
-location varies depending upon the installation location and Ice version in
-use. Some possible locations for the |iceversion| version of Ice follow. Note
-these are just examples; you need to adjust them for the Ice installation path
-and version in use.  It is also possible to use the :envvar:`SLICEPATH`
-environment variable instead; this is typically ``$ICE_HOME/slice``.
+Set the :envvar:`ICE\_HOME` or :envvar:`SLICEPATH` environment variable
+for your Ice installation (see below). This location varies depending upon the
+installation location and Ice version in use. Some possible locations for the
+|iceversion| version of Ice follow. Note these are just examples; you need to
+adjust them for the Ice installation path and version in use.
 
 * Ice built from source and installed into :file:`/opt`:
 
@@ -90,13 +89,19 @@ includes if this is left unset.
 Building the library
 --------------------
 
-To build the C++ dynamic library with :program:`build.py` or :program:`ant`::
+Building with :program:`build.py` or :program:`ant`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
 
     export ICE_HOME=/path/to/ice
     export GTEST_ROOT=/path/to/gtest
     cd /path/to/openmicroscopy
     ./build.py build-default
     ./build.py build-cpp [-Dcmake.args="cmake options"]
+
+Set any needed :program:`cmake` options using the :program:`ant`
+``cmake.args`` property, plus any needed environment variables.
 
 For example::
 
@@ -109,11 +114,15 @@ For example::
 This method is present for backward compatibility with the previous
 :program:`scons` build system.  While it is possible to customise the
 build somewhat, some behaviour is hardcoded and so this will not be
-suitable for all situations and is not recommended.  If you wish to
-have full control over the C++ build or wish to use a cmake generator
-to build within an IDE, then running cmake directly is recommended.
+suitable for all situations and is not recommended.  Parallel building
+is also not supported.  If you wish to have full control over the C++
+build or wish to use a cmake generator to build within an IDE, then
+running cmake directly is recommended.
 
-To build the C++ dynamic library on Linux, Unix and MacOS X with :program:`cmake` and :program:`make`::
+Building with :program:`cmake` directly
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+On Linux, Unix or MacOS X with :program:`make`::
 
     export ICE_HOME=/path/to/ice
     export GTEST_ROOT=/path/to/gtest
@@ -129,18 +138,24 @@ For example::
     "-DCMAKE_MODULE_LINKER_FLAGS=$CMAKE_LD_FLAGS" \
     "-DCMAKE_SHARED_LINKER_FLAGS=$CMAKE_LD_FLAGS" \
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON /path/to/openmicroscopy
+    make -j8
+
+Running :program:`cmake` directly allows full use of all command-line
+options and provides complete flexibility for building, e.g. to
+enable parallel building as shown above or to use an IDE of choice
+with an appropriate generator.
 
 If you would like to build the C++ tests, run the above with the
 :envvar:`GTEST_ROOT` environment variable set.
 
 .. note::
 
-    When :program:`cmake` is run, it will run `./build.py
-    build-default` in the openmicroscopy source tree to generate some
+    When :program:`cmake` is run, it will run ``./build.py
+    build-default`` in the openmicroscopy source tree to generate some
     of the C++ and Ice sources.  If you have previously done a build
-    by running `./build.py`, this step will be skipped.  However, if
+    by running ``./build.py``, this step will be skipped.  However, if
     you have recently switched branches *without cleaning the source
-    tree*, please run `./build.py clean` in the source tree to clean
+    tree*, please run ``./build.py clean`` in the source tree to clean
     up all the generated files prior to running :program:`cmake`.
 
 If the build fails with errors such as ::
@@ -172,7 +187,10 @@ environment variables are commonly needed:
         /opt/Ice-|iceversion|/include
 
     A ``:`` or ``;`` separator character is used to separate
-    directories, depending on the platform.
+    directories, depending on the platform.  Note these are used only
+    for feature tests, not for passing to the compiler when building,
+    for which ``CMAKE_CXX_FLAGS`` is needed.
+
 
 :envvar:`CMAKE_LIBRARY_PATH`
     directories to be searched for libraries, for example
@@ -182,13 +200,15 @@ environment variables are commonly needed:
         /opt/Ice-|iceversion|/lib
 
     Directories are separated by ``:`` or ``;`` as with
-    :envvar:`CMAKE_INCLUDE_PATH`.
+    :envvar:`CMAKE_INCLUDE_PATH`.  Note these are used only for
+    feature tests and finding libraries, not for passing to the linker
+    when building, for which ``CMAKE_*_LINKER_FLAGS`` is needed.
 
 :envvar:`CXX`
     C++ compiler executable. Useful with `ccache <http://ccache.samba.org/>`_.
 
 :envvar:`CXXFLAGS`
-    C++ compiler flags.
+    C++ compiler flags.  Use of ``CMAKE_CXX_FLAGS`` is preferred.
 
 :envvar:`ICE\_HOME`
     your Ice installation.  This directory must contain a
@@ -198,26 +218,42 @@ environment variables are commonly needed:
     specified using :envvar:`CMAKE_INCLUDE_PATH` and
     :envvar:`CMAKE_LIBRARY_PATH`.
 
+:envvar:`SLICEPATH`
+    location of Ice slice interface definitions.  This is typically
+    ``${ICE_HOME}/slice``.  Use for installations where
+    :envvar:`ICE\_HOME` does not contain :file:`slice` or situations
+    where you wish to build without setting :envvar:`ICE\_HOME`.
+
 :envvar:`VERBOSE`
     if set to `1`, show the actual build commands rather than the
     pretty "Compiling XYZ..." statements.
 
 In addition, cmake options may be defined directly when running cmake.
-Commonly needed options include::
+Commonly needed options include:
 
-``CMAKE_CXX_FLAGS``
-    C++ compiler flags.  Use to add additional directories to the include
-    search path, e.g. ``-I${ICE_HOME}/include``.  This may also be used to
-    set any additional compiler flags desired.
-``CMAKE_EXE_LINKER_FLAGS``
-``CMAKE_MODULE_LINKER_FLAGS``
-``CMAKE_SHARED_LINKER_FLAGS``
-   Linker flags.  Use to add additional directories to the library search
-   path e.g. ``-L${ICE_HOME}/lib``.  This may also be used to set any
-   additional linker flags desired.
-DCMAKE_VERBOSE_MAKEFILE
+:option:`CMAKE_CXX_FLAGS`
+    C++ compiler flags.  Use to add additional directories to the
+    include search path, e.g. ``-I${ICE_HOME}/include``.  This may
+    also be used to set any additional compiler flags desired.
+
+:option:`CMAKE_EXE_LINKER_FLAGS`
+   Executable linker flags.  Use to add additional directories to the
+   library search path e.g. ``-L${ICE_HOME}/lib``.  This may also be
+   used to set any additional linker flags desired.
+
+:option:`CMAKE_MODULE_LINKER_FLAGS`
+   Loadable module linker flags.  Use to add additional directories to
+   the library search path e.g. ``-L${ICE_HOME}/lib``.  This may also
+   be used to set any additional linker flags desired.
+
+:option:`CMAKE_SHARED_LINKER_FLAGS`
+   Shared library linker flags.  Use to add additional directories to
+   the library search path e.g. ``-L${ICE_HOME}/lib``.  This may also
+   be used to set any additional linker flags desired.
+
+:option:`CMAKE_VERBOSE_MAKEFILE`
    Default to printing all commands executed by make.  This may be
-  overridden with the make ``VERBOSE`` variable.
+   overridden with the make ``VERBOSE`` variable.
 
 :program:`Visual Studio` configuration
 --------------------------------------
