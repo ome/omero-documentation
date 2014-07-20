@@ -265,10 +265,10 @@ Commonly needed options include:
 
 .. warning::
 
-    OMERO.cpp will not currently build on Windows due to exceeding DLL
-    symbol limits on this platform, leading to a failure when linking
-    the DLL.  It is hoped that this platform limitation can be worked
-    around in a future OMERO release.
+    OMERO.cpp will not currently build on Windows with Ice 3.4 or 3.5
+    due to exceeding DLL symbol limits on this platform, leading to a
+    failure when linking the DLL.  It is hoped that this platform
+    limitation can be worked around in a future OMERO release.
 
 :program:`cmake` has full support for :program:`Visual Studio`.
 Windows users building with :program:`Visual Studio` will also need to
