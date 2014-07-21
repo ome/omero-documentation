@@ -520,7 +520,7 @@ Source code links
 =================
 
 Links to the OMERO source code hosted on Github can be created using the
-``source`` alias for single files, e.g. ``:source: `etc/omero.properties``` or
+``source`` alias for single files, e.g. ``:source: `etc/grid/default.xml``` or
 the ``sourcedir`` alias for directories, e.g. ``:sourcedir: `etc```.
 
 By default, these links will point at the code under the ``develop`` branch or
