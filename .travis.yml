@@ -16,6 +16,10 @@ before_install:
   - sudo fc-cache -rsfv
   - fc-list
   - sudo pip install scc Sphinx
+  - git config --global github.token 3bc7fc530b01081559eb911f59ccfec7f4fb2592
+  - git config --global user.email snoopycrimecop@gmail.com
+  - git config --global user.name 'Snoopy Crime Cop'
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - scc travis-merge
 
 script: "make html pdf clean"
