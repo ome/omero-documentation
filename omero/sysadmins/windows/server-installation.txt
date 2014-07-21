@@ -518,12 +518,9 @@ Installation
 -   Download and extract the OMERO.server zip file, and note its location. 
     Below it is referred to as :file:`C:\\OMERO.server`.
 
--   Optionally, review :file:`C:\\OMERO.server\\etc\\omero.properties` which
-    contains all default settings.
-
-    You will need to open the file with a text editor. Do not edit the file.
-    Any configuration settings you would like to change can be changed in
-    the next step.
+-   Optionally, review :doc:`/sysadmin/config`, which contains all default
+    settings. Any configuration settings you would like to change can be
+    changed in the next step.
 
 -   Change any settings that are necessary using ``bin\omero config``,
     including the name and/or password for the 'db\_user' database user

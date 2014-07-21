@@ -9,9 +9,9 @@ these files are kept intact by the server and the import process
 preserves the files' path and name (at least within the rules of
 :literal:`omero.fs.repo.path_rules` below), so that OMERO.fs can become
 a trusted repository for the master copy of users' data. While the
-default server configuration from :source:`etc/omero.properties` should
-typically suffice, :omerocmd:`config set` may be used to adjust settings
-related to file uploads. These settings are explained below.
+default server configuration from :doc:`config` should typically suffice,
+:omerocmd:`config set` may be used to adjust settings related to file uploads.
+These settings are explained below.
 
 Repository location
 -------------------

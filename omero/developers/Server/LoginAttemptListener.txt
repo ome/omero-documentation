@@ -10,7 +10,7 @@ to react to the login. Only one implementation is active by default (as
 of 4.2.1):
 :source:`ome.security.auth.LoginAttemptListener <components/server/src/ome/security/auth/LoginAttemptListener.java>`
 which throttles logins after a given number of failed attempts.
-Configuration for this listener is available in :source:`etc/omero.properties`:
+Configuration for this listener is available in :ref:`security_configuration`:
 
 ::
 
