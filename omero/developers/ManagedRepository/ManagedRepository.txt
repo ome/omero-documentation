@@ -141,10 +141,10 @@ repositories. Access to raw IO is provided by the ``RepoRawFileStoreI``
 servant, which wraps a ``RawFileBean``. 
 
 The ``ManagedRepository`` implementation is responsible for import and 
-enforces further constraints (beyond those of CheckedPath) on where and what 
-files are created. Most importantly, the ``omero.fs.repo.path`` template value 
-is expanded and pre-pended to all uploads. A further responsibility of the 
-``ManagedRepository`` is to maintain a list of all currently running 
+enforces further constraints (beyond those of CheckedPath) on where and what
+files are created. Most importantly, the :term:`omero.fs.repo.path` template
+value is expanded and pre-pended to all uploads. A further responsibility of
+the ``ManagedRepository`` is to maintain a list of all currently running
 ``ManagedImportProcessI``, each of which is held in the ``ProcessContainer``. 
 These ``ManagedImportProcessI`` instances further wrap ``RepoRawFileStoreI`` 
 instances with a subclass, ``ManagedRawFileStoreI``. 
