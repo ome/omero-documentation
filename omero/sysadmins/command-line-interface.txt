@@ -66,9 +66,9 @@ different profile, e.g.::
     example=my second value
 
 The values set via :omerocmd:`config set` override those compiled into the
-server jars. The default values which are set can be seen in
-:file:`etc/omero.properties`. To add several values to a configuration, you
-can pipe them via standard in using :omerocmd:`config load`::
+server jars. The default values which are set can be seen in :doc:`config`. To
+add several values to a configuration, you can pipe them via standard in using
+:omerocmd:`config load`::
 
     $ grep omero.ldap etc/omero.properties | OMERO_CONFIG=ldap bin/omero config load
 
