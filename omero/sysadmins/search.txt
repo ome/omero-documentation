@@ -109,7 +109,7 @@ initiate a re-indexing.
        $ bin/omero admin reindex --prepare
 
 -  Remove the existing search Indexes by deleting the contents of the
-   :file:`FullText` subdirectory of your ${omero.data.dir}:
+   :file:`FullText` subdirectory of your :term:`omero.data.dir`:
 
    ::
 
@@ -200,7 +200,7 @@ servers of various sizes:
     * Re-indexing duration
     * Binary repository size
     * Indexer JVM settings
-    * omero.search.batch
+    * :term:`omero.search.batch`
 
   - * Background
     * 31h

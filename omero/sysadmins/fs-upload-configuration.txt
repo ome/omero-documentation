@@ -7,7 +7,7 @@ Background
 Users import their image files to the OMERO.fs server. The contents of
 these files are kept intact by the server and the import process
 preserves the files' path and name (at least within the rules of
-:literal:`omero.fs.repo.path_rules` below), so that OMERO.fs can become
+:term:`omero.fs.repo.path_rules` below), so that OMERO.fs can become
 a trusted repository for the master copy of users' data. While the
 default server configuration from :doc:`config` should typically suffice,
 :omerocmd:`config set` may be used to adjust settings related to file uploads.
@@ -18,14 +18,14 @@ Repository location
 
 Several properties determine where FS-imported files are stored:
 
-- :term:`omero.data.dir` - singleton property (i.e. once globally) which points
-  to the legacy repository location for OMERO. For OMERO to run on multiple
-  systems, the contents of this directory must be on a shared volume.
+- :term:`omero.data.dir` - singleton property (i.e. once globally) which
+  points to the legacy repository location for OMERO. For OMERO to run on
+  multiple systems, the contents of this directory must be on a shared volume.
 
 - :term:`omero.managed.dir` - singleton property which points to the default
   ``ManagedRepository``. In an OMERO install in which there is only one Blitz
   server, this will be the only repository. This need not be located under
-  ``omero.data.dir`` but is by default.
+  :term:`omero.data.dir` but is by default.
 
 - ``omero.repo.dir`` (experimental) - value passed to all non-legacy, standalone
   repositories. This is not actively used, but would allow hosting
@@ -42,7 +42,7 @@ When files are uploaded to the managed repository, a parent directory is
 created to receive the upload. A multi-file image has all its files
 stored in the same parent directory, though they may be in different
 subdirectories of that parent to mirror the original directory
-structure before upload. The :literal:`omero.fs.repo.path` setting
+structure before upload. The :term:`omero.fs.repo.path` setting
 defines the creation of that parent directory. It is this value which
 makes the ``ManagedRepository`` “managed”.
 
@@ -200,7 +200,7 @@ less permissive system, or when it is anticipated that the server
 itself may be migrated to a less permissive system. The server never
 accepts Unicode control characters in file names.
 
-The :literal:`omero.fs.repo.path_rules` setting defines the combination
+The :term:`omero.fs.repo.path_rules` setting defines the combination
 of restrictions that the server must apply in accepting file uploads.
 The restrictions are grouped into named sets:
 
@@ -232,7 +232,7 @@ components :literal:`tmp` and :literal:`myfile.tif` contains a
 
 Applying the "optional" restrictions does not assist OMERO.fs at all;
 those restrictions are designed to ease manual maintenance of the
-directory specified by the :literal:`omero.managed.dir` setting, being
+directory specified by the :term:`omero.managed.dir` setting, being
 where the server stores users' uploaded files.
 
 Checksum algorithm
