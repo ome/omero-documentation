@@ -49,7 +49,7 @@ where `Object:ID` is the type and the ID of object to update, e.g. `Image:1`
 or `PlateDatasetLink:10` and `field`/`value` is a valid key/value pair to
 update for the specified object.
 
-For example, the following command updates the exiting screen of ID with a
+For example, the following command updates the exiting screen of ID 2 with a
 name and a description::
 
 	$ bin/omero obj update Screen:2 name=Screen001 description="screen description"

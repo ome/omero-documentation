@@ -240,13 +240,13 @@ Sudo functionality
 ------------------
 
 Since 5.0.2, the CLI includes a sudo functionality for administrators allowing
-them to execute commmands as another user. For example, to login as
+them to execute commands as another user. For example, to login as
 *username*, the root user can invoke the following command::
 
     $ bin/omero login --sudo root -s servername -u username
     Password for root:
 
-The :option:`--sudo` option is available to all command accepting command
+The :option:`--sudo` option is available to all command accepting connection
 arguments. For instance to import data for user *username*::
 
    $ bin/omero import --sudo root -s servername -u username image.tiff
