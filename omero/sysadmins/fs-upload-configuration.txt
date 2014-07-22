@@ -246,27 +246,11 @@ it matches what the client reported. **File integrity** is thus
 **assured** because corruption during transmission or writing would be
 revealed by a checksum mismatch.
 
-There are various algorithms by which checksums may be calculated. To
+There are various algorithms by which checksums may be calculated. The list of
+available algorithms is given by :term:`omero.checksum.supported`. To
 calculate comparable checksums the client and server use the same
 algorithm. The server API permits clients to specify the algorithm,
-but it is expected that they will typically accept the server default
-set with the :literal:`omero.checksum.default` setting.
-
-The available values, specified in
-:source:`components/model/resources/mappings/acquisition.ome.xml`, are
-presently:
-
-* :literal:`Adler-32`
-
-* :literal:`CRC-32`
-
-* :literal:`MD5-128`
-
-* :literal:`Murmur3-32`
-
-* :literal:`Murmur3-128`
-
-* :literal:`SHA1-160`
+but it is expected that they will typically accept the server default.
 
 The number that suffixes each of the checksum algorithm names
 specifies the bit width of the resulting checksum. A larger bit width
