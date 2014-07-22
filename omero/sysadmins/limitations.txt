@@ -40,23 +40,15 @@ Importing using desktop clients
 Under older Ubuntu installations, the 'import folder' option in the desktop
 clients currently does not work.
 
-Importing
----------
+.. _limitations-openfiles:
 
-.. _limitations-logback:
+Too many open file descriptors
+------------------------------
 
-Import failures when importing many filesets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Starting with OMERO 5, the importer creates an import log for each
-fileset stored by OMERO.fs.  These files are kept open for 30 minutes
-by `logback <http://jira.qos.ch/browse/LOGBACK-244>`_.  If many
-filesets are imported sequentially, this 30 minute timeout can lead to
-the server running out of file handles due to the amount of open log
-files, which are closed at a slower rate than new logs are opened.
-This problem is most likely to manifest when hundreds of very fast
-imports occur within a short period of time. This will be addressed in
-a future release.  In the interim, one workaround is to increase the
+Starting with OMERO 5, the server works directly from original files.
+At times, this requires a significant number of open file handles. If
+you are having problems with large or frequent imports, are seeing
+"Too many open file descriptors" or similar, you may need to to increase the
 maximum number of open files per process.  On Linux, this may be done
 by setting the `nofile` limit in :file:`/etc/security/limits.conf`,
 for example::
