@@ -2,17 +2,17 @@
 # MAKEFILE:
 #
 # Where the OMERO distribution was installed
-OMERO_DIST?=/opt/omero
+OMERO_DIST ?= /opt/omero
 
 # Where the Ice lib/ and include/ directories are to be found
-ICE_HOME?=/usr
+ICE_HOME ?= /usr/share/Ice
 
 INCLUDES=-I$(OMERO_DIST)/include -I$(ICE_HOME)/include 
 
-LIBS=-L$(OMERO_DIST)/lib -L$(ICE_HOME)/lib -L$(ICE_HOME)/lib64 \
-     -lIce -lIceUtil -lGlacier2 -lomero_client -lstdc++
+LIBS = -L$(OMERO_DIST)/lib -L$(ICE_HOME)/lib -L$(ICE_HOME)/lib64 \
+       -lIce -lIceUtil -lGlacier2 -lomero-client
 
-LIBPATH=$(LD_LIBRARY_PATH):$(ICE_HOME)/lib:$(ICE_HOME)/lib64:$(OMERO_DIST)/lib
+LIBPATH = $(LD_LIBRARY_PATH):$(ICE_HOME)/lib:$(ICE_HOME)/lib64:$(OMERO_DIST)/lib
 
 .PHONY: clean run
 
@@ -26,4 +26,4 @@ run:  yourcode
 	LD_LIBRARY_PATH="$(LIBPATH)" ./yourcode --Ice.Config=../etc/ice.config
 
 clean:
-	rm -f yourcode *.o *~ core 
+	rm -f yourcode *.o *~ core
