@@ -157,7 +157,7 @@ this can be specified on the command-line with the "mem" argument:
 
    $ bin/omero admin reindex --foreground --mem=2g
 
-Other search configuration properties from TODO:search_configuration can be
+Other search configuration properties from :ref:`search_configuration` can be
 set for the processing by setting the "JAVA_OPTS" environment variable:
 
 ::
