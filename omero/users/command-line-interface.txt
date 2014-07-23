@@ -132,7 +132,7 @@ the :option:`-h` option::
 
     $ bin/omero import -h
 
-The :option:`-f` option display all the used files for importing and exit::
+The :option:`-f` option displays all the used files for importing then exits::
 
     $ bin/omero import -f image.tif
     $ bin/omero import -f images_folder
