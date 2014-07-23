@@ -246,7 +246,7 @@ them to execute commands as another user. For example, to login as
     $ bin/omero login --sudo root -s servername -u username
     Password for root:
 
-The :option:`--sudo` option is available to all command accepting connection
+The :option:`--sudo` option is available to all commands accepting connection
 arguments. For instance to import data for user *username*::
 
    $ bin/omero import --sudo root -s servername -u username image.tiff
