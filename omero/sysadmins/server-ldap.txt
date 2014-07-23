@@ -252,3 +252,34 @@ enable it, use:
 
     JNDI referrals documentation
         http://docs.oracle.com/javase/jndi/tutorial/ldap/referral/jndi.html
+
+Active Directory
+----------------
+`Active Directory <http://en.wikipedia.org/wiki/Active_Directory>`_ (AD) supports
+a form of LDAP and can be used by OMERO like most other directory services.
+
+In AD, the `Domain Services <http://msdn.microsoft.com/en-us/library/aa362244(v=vs.85).aspx>`_ (DS)
+'forest' is a complete instance of an Active Directory which contains one or more domains. Querying
+a particular Domain Service will yield results which are local to that domain only. In an environment
+with just one domain it is possible to use the default configuration instructions for OMERO LDAP. If
+there are multiple domains in the forest then it is necessary to query the
+:ref:`ad_global_catalogue` to enable querying across all of them.
+
+.. _ad_global_catalogue:
+
+Global Catalogue
+^^^^^^^^^^^^^^^^
+In an AD DS forest, a `Global Catalogue <http://technet.microsoft.com/en-us/library/cc728188(v=ws.10).aspx>`_
+provides a central repository of all the domain information from all of the domains. This can be queried in
+the same way as a specific Domain Service using LDAP, but it runs on different ports; 3268 and 3269 (SSL).
+
+-  LDAP AD Global Catalogue server URL string
+
+   ::
+
+       bin/omero config set omero.ldap.urls ldap://ldap.example.com:3268
+
+   .. note::
+
+       A |SSL| URL above should look like this:
+       ldaps://ldap.example.com:3269
