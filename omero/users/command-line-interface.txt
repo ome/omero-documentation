@@ -260,3 +260,11 @@ If you want to use a custom session directory, use the
     $ bin/omero login --session-dir=/tmp
     $ bin/omero sessions list --session-dir=/tmp
     $ bin/omero logout --session-dir=/tmp
+
+Switching current group
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The sessions command can be used to switch the group of your current session::
+
+    $ bin/omero group list          # list your groups
+    $ bin/omero sessions group 2    # switch to group by ID or Name
