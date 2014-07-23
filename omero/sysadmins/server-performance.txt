@@ -186,27 +186,29 @@ etc) once per hour. This value can be configured via
 
     11:28:18,923 INFO  [                      ome.system.metrics] (r-thread-1) type=TIMER, name=ome.services.fulltext.FullTextIndexer.batch ...
 
-Values include basic statistics (`count`, `min, `max`, `mean`, etc.) as well as 75th, 90th, 95th, etc percentiles.
-Further, the rate over the last minute, the last 5 minutes, and the last 15 minutes is provided  (`m1`, `m5`, `m15`).
+Values include basic statistics (`count`, `min`, `max`, `mean`, etc.) as well
+as 75th, 90th, 95th, etc percentiles.
+Further, the rate over the last minute, the last 5 minutes, and the last 15
+minutes is provided  (`m1`, `m5`, `m15`).
 For example:
 
- * `count=3601`
- * `min=0.41...`
- * `max=7.85...`
- * `mean=0.94...`
- * `stddev=0.31...`
- * `median=0.96...`
- * `p75=1.08...`
- * `p95=1.25...`
- * `p98=1.35...`
- * `p99=1.43...`
- * `p999=7.69...`
- * `mean_rate=0.50...`
- * `m1=0.49...`
- * `m5=0.499...`
- * `m15=0.49...`
- * `rate_unit=events/second`
- * `duration_unit=milliseconds`
+* `count=3601`
+* `min=0.41...`
+* `max=7.85...`
+* `mean=0.94...`
+* `stddev=0.31...`
+* `median=0.96...`
+* `p75=1.08...`
+* `p95=1.25...`
+* `p98=1.35...`
+* `p99=1.43...`
+* `p999=7.69...`
+* `mean_rate=0.50...`
+* `m1=0.49...`
+* `m5=0.499...`
+* `m15=0.49...`
+* `rate_unit=events/second`
+* `duration_unit=milliseconds`
 
 Useful metrics include:
 
