@@ -25,8 +25,10 @@ its original format if they need to.
   OMERO.web on your server now requires Python 2.6.5 or later.
 
 - :doc:`troubleshooting` has been updated to guide you through what to do if
-  you are getting search errors, and how to adjust the :doc:`config` to take 
+  you are getting search errors, and how to adjust the :doc:`config` to take
   advantage of improvements to the server indexing system for 5.0.0.
+
+- :doc:`server-performance` provides further tips for tuning your installation.
 
 - :doc:`import-scenarios` and :doc:`in-place-import` documentation has been
   added to explain the new ways of importing data enabled by the change in
