@@ -81,7 +81,7 @@ Examples
 
 	$ bin/omero config set omero.jvmcfg.percent.blitz 50
 
-would raise the blitz heap size to 50% of thhttps://github.com/openmicroscopy/ome-documentation/pull/900e system memory seen.
+would raise the blitz heap size to 50% of the system memory seen.
 
 ::
 
