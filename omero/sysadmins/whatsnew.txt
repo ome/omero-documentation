@@ -28,7 +28,9 @@ its original format if they need to.
   you are getting search errors, and how to adjust the :doc:`config` to take
   advantage of improvements to the server indexing system for 5.0.0.
 
-- :doc:`server-performance` provides further tips for tuning your installation.
+- :doc:`server-performance` provides further tips for tuning your installation,
+  though now with the :ref:`automatic memory settings <jvm_memory_settings>`,
+  this may be less necessary.
 
 - :doc:`import-scenarios` and :doc:`in-place-import` documentation has been
   added to explain the new ways of importing data enabled by the change in
