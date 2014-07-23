@@ -48,7 +48,7 @@ Too many open file descriptors
 Starting with OMERO 5, the server works directly from original files.
 At times, this requires a significant number of open file handles. If
 you are having problems with large or frequent imports, are seeing
-"Too many open file descriptors" or similar, you may need to to increase the
+"Too many open file descriptors" or similar, you may need to increase the
 maximum number of open files per process.  On Linux, this may be done
 by setting the `nofile` limit in :file:`/etc/security/limits.conf`,
 for example::
