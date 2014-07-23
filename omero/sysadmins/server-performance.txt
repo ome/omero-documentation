@@ -158,9 +158,10 @@ to expose further properties.
    :width: 80%
    :alt: Screenshot of JConsole
 
-With further configuration, |JMX| properties can also be accessed remotely
-which can be very useful for monitoring your server with `CheckMK`_,
-`Nagios`_, `Zenoss`_, or similar.
+With :ref:`further configuration <jmx_configuration>`, |JMX| properties
+can also be accessed remotely which can be very useful for monitoring
+your server with `CheckMK`_, `Nagios`_, `Zenoss`_, or similar. However,
+care must be taken to protect the exposed ports.
 
 .. note::
 
