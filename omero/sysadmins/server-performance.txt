@@ -138,7 +138,7 @@ for example, can be used to visualize the memory use of each |JVM|:
 .. figure:: /images/JVisualVM.png
    :align: center
    :width: 80%
-   :alt: Screenshot of `JVisualVM`_
+   :alt: Screenshot of JVisualVM
 
 You will need to have the |PID| for the service you want to monitor, which
 will usually be the main Blitz process. You can find the |PID| either via
@@ -156,7 +156,7 @@ to expose further properties.
 .. figure:: /images/JConsole.png
    :align: center
    :width: 80%
-   :alt: Screenshot of `JConsole`_
+   :alt: Screenshot of JConsole
 
 With further configuration, |JMX| properties can also be accessed remotely
 which can be very useful for monitoring your server with `CheckMK`_,
