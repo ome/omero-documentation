@@ -1,7 +1,10 @@
+Performance and Monitoring
+==========================
+
 .. _jvm_memory_settings:
 
 Memory configuration
-====================
+--------------------
 
 OMERO should automatically configure itself to take advantage of the physical
 memory installed on a system whilst leaving room for other services. You may
@@ -20,7 +23,7 @@ importantly:
 * pixeldata
 
 Configuration properties
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Configuration properties can either be applied to all three service
 types at the same time by omitting the service type (e.g.
@@ -41,7 +44,7 @@ This could be changed to use the ManualStrategy for all servers:
 	$ bin/omero config set omero.jvmcfg.strategy manual
 
 Strategies
-----------
+^^^^^^^^^^
 
 A couple of strategies are available for calculating the effective
 JVM settings from the provided configuration properties.
@@ -68,7 +71,7 @@ JVM settings from the provided configuration properties.
         and earlier.
 
 Examples
---------
+^^^^^^^^
 
 ::
 
@@ -102,7 +105,7 @@ the other services.
 
 
 Tips
-----
+^^^^
 
 After modifying any memory settings, be sure to restart your server.
 
@@ -118,3 +121,9 @@ After modifying any memory settings, be sure to restart your server.
 	:ref:`gridconfiguration`
 		Section of the advanced server configuration documentation describing
 		:file:`etc/grid/templates.xml`.
+
+.. _jvm_metrics:
+
+Metrics
+-------
+

@@ -186,7 +186,7 @@ following SQL command::
     (1 row)
 
 This value is also logged periodically both when re-indexing in the background
-and the foreground and is available via JMX. See TODO:metrics for more information.
+and the foreground and is available via JMX. See :ref:`jvm_metrics` for more information.
 
 The overall re-indexing performance depends significantly on the memory
 settings and the size of the repository to index. The following table provides
