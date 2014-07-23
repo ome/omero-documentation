@@ -70,7 +70,7 @@ each OMERO user can be given an OS account with access rights to the data
 storage as well as the managed repository.
 
 At the moment full in-place import functionality is available only under
-Posix systems (Unix, Linux, OS X). Under Windows, ``ln`` and ``ln_s`` work
+POSIX systems (Unix, Linux, OS X). Under Windows, ``ln`` and ``ln_s`` work
 as expected but ``ln_rm`` does not automatically remove image files after
 import.
 
