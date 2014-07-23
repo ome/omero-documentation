@@ -25,7 +25,7 @@ Configuration properties
 Configuration properties can either be applied to all three service
 types at the same time by omitting the service type (e.g.
 :term:`omero.jvmcfg.strategy`) or to each individually by including it
-(e.g. `omero.jvmcfg.blitz.strategy`).
+(e.g. `omero.jvmcfg.strategy.blitz`).
 
 
 For example, the default, PercentStrategy, is equivalent to making the call:
@@ -72,7 +72,7 @@ Examples
 
 ::
 
-	$ bin/omero config set omero.jvmcfg.blitz.percent 50
+	$ bin/omero config set omero.jvmcfg.percent.blitz 50
 
 would raise the blitz heap size to 50% of the system memory seen.
 
@@ -94,8 +94,8 @@ blitz would default to using 9600MB.
 
 ::
 
-	$ bin/omero config set omero.jvmcfg.indexer.strategy manual
-	$ bin/omero config set omero.jvmcfg.indexer.heap_size 2000
+	$ bin/omero config set omero.jvmcfg.strategy.indexer manual
+	$ bin/omero config set omero.jvmcfg.heap_size.indexer 2000
 
 would set the indexer heap size to 2000MB without modifying the settings for
 the other services.
