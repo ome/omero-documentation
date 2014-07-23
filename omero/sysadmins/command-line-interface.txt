@@ -251,6 +251,8 @@ arguments. For instance to import data for user *username*::
 
    $ bin/omero import --sudo root -s servername -u username image.tiff
 
+.. _cli_omero_fs:
+
 Repository management
 ---------------------
 

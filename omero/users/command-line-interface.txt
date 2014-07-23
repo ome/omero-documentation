@@ -268,3 +268,10 @@ The sessions command can be used to switch the group of your current session::
 
     $ bin/omero group list          # list your groups
     $ bin/omero sessions group 2    # switch to group by ID or Name
+
+Repository management
+---------------------
+
+Since 5.0.3 it is possible to list images, filesets and the repositories that
+contain them. See :ref:`cli_omero_fs` in the System Administrator documentation
+for more information.
