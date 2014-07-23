@@ -209,11 +209,22 @@ For example:
 
 Useful metrics include:
 
- * `ch.qos.logback.core.Appender.error` (all services) - the number and rate of errors that have been logged
- * `jvm.fileDescriptorCountRatio` (all services) - the ratio of used to available file descriptors
- * `ome.services.eventlogs.EventLogQueue.priorityCount` (Indexer-only) - the number of items in the queue
- * `ome.io.nio.PixelsService.minmaxTimes` - (PixelData-only) time taken to generate min/max values per plane
- * `ome.io.nio.PixelsService.tileTimes`` - (PixelData-only) time taken to generate tiled-pyramids for a big image
+.. glossary::
+
+    ch.qos.logback.core.Appender.error
+      The number and rate of errors that have been logged. (All services)
+
+    jvm.fileDescriptorCountRatio
+      The ratio of used to available file descriptors. (All services)
+
+    ome.services.eventlogs.EventLogQueue.priorityCount
+      The number of items in the queue. (Indexer-only)
+
+    ome.io.nio.PixelsService.minmaxTimes
+      Time taken to generate min/max values per plane. (PixelData-only)
+
+    ome.io.nio.PixelsService.tileTimes`
+      Time taken to generate tiled-pyramids for a big image. (PixelData-only)
 
 .. _CheckMK: https://mathias-kettner.de/check_mk.html
 .. _Codahale: http://metrics.codahale.com/
