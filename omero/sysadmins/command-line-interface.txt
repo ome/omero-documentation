@@ -250,3 +250,251 @@ The :option:`--sudo` option is available to all commands accepting connection
 arguments. For instance to import data for user *username*::
 
    $ bin/omero import --sudo root -s servername -u username image.tiff
+
+Repository management
+---------------------
+
+Since 5.0.3 it is possible to list images, filesets and the repositories that
+contain them. At an administrator-only level it is also possible to move
+filesets. This functionality is provided by the :omerocmd:`fs` command. See
+::
+
+    $ bin/omero fs -h
+
+Listing repositories
+^^^^^^^^^^^^^^^^^^^^
+
+The :omerocmd:`fs repos` subcommand lists the repositories used by OMERO. For
+example
+::
+
+    bin/omero fs repos
+
+     # | Id | UUID                                 | Type    | Path
+    ---+----+--------------------------------------+---------+--------------------------
+     0 | 1  | 83bf5c68-8236-47ff-ae3e-728674eb0103 | Managed | /OMERO/ManagedRepository
+     1 | 2  | ad899754-bff0-4605-a234-acd4da178f3b | Public  | /OMERO
+     2 | 3  | ScriptRepo                           | Script  | /dist/lib/scripts
+
+The options available to this subcommand are:
+
+.. program:: omero fs repos
+
+.. option:: -h, --help
+
+    Display the help for this subcommand.
+
+.. option:: --style <{plain,csv,sql}>
+
+    This option determines the output style, tabular `sql` being the default as
+    in the previous example. The `csv` style is comma-separated values with an
+    initial header row, `plain` is the same as `csv` but without the header row.
+
+.. option:: --managed
+
+    This option lists only Managed repositories.
+
+For example
+::
+
+    bin/omero fs repos --managed --style=csv
+
+    #,Id,UUID,Type,Path
+    0,1,83bf5c68-8236-47ff-ae3e-728674eb0103,Managed,/OMERO/ManagedRepository
+
+Listing filesets
+^^^^^^^^^^^^^^^^
+
+The :omerocmd:`fs sets` subcommand lists filesets by various criteria.
+Filesets are bundles of original data imported into OMERO 5 and above, which
+represent one or more images. For example
+::
+
+    bin/omero fs sets
+
+     #  | Id    | Prefix                            | Images | Files | Transfer
+    ----+-------+-----------------------------------+--------+-------+----------
+     0  | 79853 | user-3_9/2014-07/22/16-41-04.244/ | 1      | 1     |
+     1  | 79852 | user-3_9/2014-07/22/10-44-11.235/ | 1      | 1     |
+     2  | 79851 | user-3_9/2014-07/22/10-44-07.300/ | 1      | 1     |
+     3  | 79813 | user-3_9/2014-07/21/14-13-02.353/ | 1      | 1     |
+     4  | 79812 | user-3_9/2014-07/21/14-13-00.182/ | 1      | 1     |
+     5  | 79811 | user-3_9/2014-07/21/14-12-59.212/ | 1      | 1     |
+     6  | 79810 | user-3_9/2014-07/21/14-12-57.896/ | 1      | 1     |
+     7  | 79809 | user-3_9/2014-07/21/14-10-22.436/ | 3      | 600   |
+     ...
+     24 | 79772 | user-4_5/2014-07/18/17-14-43.631/ | 1      | 1     |
+    (25 rows, starting at 0 of approx. 50173)
+
+The options available to this subcommand are:
+
+.. program:: omero fs sets
+
+.. option:: -h, --help
+
+    Display the help for this subcommand.
+
+.. option:: --style <{plain,csv,sql}>
+
+    See :option:`omero fs repos --style`
+
+.. option:: --limit <LIMIT>
+
+    This option specifies the maximum number of return values, the default
+    is 25.
+
+.. option:: --offset <OFFSET>
+
+    This option specifies the number of entries to skip before starting the
+    listing, the default, 0, is to skip no entries.
+
+.. option:: --order <{newest,oldest,prefix}>
+
+    This option determines the order of the rows returned, `newest` is the
+    default.
+
+.. option:: --without-images
+
+    This option lists only those filesets without images, these may be corrupt
+    filesets
+
+.. option:: --with-transfer <WITH_TRANSFER [WITH_TRANSFER ...]>
+
+    This option list sets by their in-place import method
+
+.. option:: --check
+
+    This option checks each fileset for validity by recaculating each file's
+    checksum and comparing it with the checksum recorded upon import. **This
+    option is available to administrators only.**
+
+.. option:: --extended
+
+    With this option more details are provided for each returned value.
+    This may be slow.
+
+For example
+::
+
+    bin/omero fs sets --order oldest --limit 3 --offset 5 --check
+
+     # | Id | Prefix                            | Images | Files | Transfer | Check
+    ---+----+-----------------------------------+--------+-------+----------+-------
+     0 | 54 | user-3_9/2014-06/09/09-24-28.037/ | 1      | 1     |          | OK
+     1 | 55 | user-3_9/2014-06/09/09-24-31.354/ | 1      | 1     |          | OK
+     2 | 57 | user-5_4/2014-06/09/11-01-00.557/ | 1      | 1     |          | OK
+    (3 rows, starting at 5 of approx. 78415)
+
+Listing images
+^^^^^^^^^^^^^^
+
+The :omerocmd:`fs images` subcommand lists imported images by various criteria.
+This subcommand is useful for showing pre-FS (i.e. OMERO 4.4 and before) images
+which have their original data archived with them. For example
+::
+
+    bin/omero fs images
+
+     #  | Image  | Name                              | FS    | # Files | Size
+    ----+--------+-----------------------------------+-------+---------+----------
+     0  | 102803 | kidney_TFl_1.bmp.ome.tiff         | 79853 | 1       | 435.1 KB
+     1  | 102802 | 4kx4k.jpg                         | 79852 | 1       | 1.7 MB
+     2  | 102801 | 2kx2k.jpg                         | 79851 | 1       | 486.3 KB
+     3  | 102773 | multi-channel.ome.tif             | 79813 | 1       | 220.3 KB
+     4  | 102772 | multi-channel-z-series.ome.tif    | 79812 | 1       | 1.1 MB
+     5  | 102771 | multi-channel-time-series.ome.tif | 79811 | 1       | 1.5 MB
+     6  | 102770 | multi-channel-4D-series.ome.tif   | 79810 | 1       | 7.4 MB
+     7  | 102769 | 001_001_000_000.tif [Well B6]     | 79809 | 600     | 1.1 GB
+    ...
+     24 | 102732 | 00027841.png                      | 79774 | 1       | 235 B
+    (25 rows, starting at 0 of approx. 117393)
+
+The options available to this subcommand are:
+
+.. program:: omero fs images
+
+.. option:: -h, --help
+
+    Display the help for this subcommand.
+
+.. option:: --style {plain,csv,sql}
+
+    See :option:`omero fs repos --style`
+
+.. option:: --limit <LIMIT>
+
+    See :option:`omero fs sets --limit`
+
+.. option:: --offset <OFFSET>
+
+    See :option:`omero fs sets --offset`
+
+.. option:: --order <{newest,oldest,prefix}>
+
+    See :option:`omero fs sets --order`
+
+.. option:: --archived
+
+    With this option the subcommand lists only images with archived data
+
+.. option:: --extended
+
+    With this option more details are provided for each returned value.
+    This may be slow.
+
+For example
+::
+
+    bin/omero fs images --archived --offset 16 --limit 3
+
+     # | Image | Name                      | FS | # Files | Size
+    ---+-------+---------------------------+----+---------+---------
+     0 | 15481 | UMD001_ORO.svs [Series 1] |    | 1       | 12.7 MB
+     1 | 15478 | biosamplefullframetif.tif |    | 1       | 32.0 MB
+     2 | 10018 | 050118.lei [07-13-a]      |    | 4       | 4.8 MB
+    (3 rows, starting at 16 of approx. 833)
+
+Renaming filesets
+^^^^^^^^^^^^^^^^^
+
+The :omerocmd:`fs rename` subcommand moves an existing fileset, specified by its
+ID, to a new location. **This subcommand is available to administrators only.**
+
+It may be useful to rename an existing fileset after the import template
+(`omero.fs.repo.path`) has been changed to match the new template. By default
+the files in the fileset and the accompanying import log are moved. For example,
+after adding the group name and group ID to template and chnaging the date
+format
+::
+
+    $ bin/omero fs rename 9
+
+    Renaming Fileset:9 to pg-0_3/user-0_2/2014-07-23/16-48-20.786/
+    Moving user-0_2/2014-07/23/16-31-51.070/ to pg-0_3/user-0_2/2014-07-23/16-48-20.786/
+    Moving user-0_2/2014-07/23/16-31-51.070.log to pg-0_3/user-0_2/2014-07-23/16-48-20.786.log
+
+The ID can be fiven as a number or in the form `Fileset:ID`.
+
+The options available to this subcommand are:
+
+.. program:: omero fs rename
+
+.. option:: -h, --help
+
+    Display the help for this subcommand.
+
+.. option:: --no-move
+
+    With this option the files will be left in place to be moved later. Advice
+    will be given as to which files need to be moved to complete the renaming.
+
+For example
+::
+
+    $ bin/omero fs rename Fileset:8 --no-move
+
+    Renaming Fileset:8 to pg-0_3/user-0_2/2014-07-23/16-49-23.543/
+    Done. You will now need to move these files manually:
+    -----------------------------------------------------
+    mv /OMERO/ManagedRepository/user-0_2/2014-07/23/16-29-14.809/ /OMERO/ManagedRepository/pg-0_3/user-0_2/2014-07-23/16-49-23.543/
+    mv /OMERO/ManagedRepository/user-0_2/2014-07/23/16-29-14.809.log /OMERO/ManagedRepository/pg-0_3/user-0_2/2014-07-23/16-49-23.543.log
