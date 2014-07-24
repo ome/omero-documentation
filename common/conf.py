@@ -195,7 +195,7 @@ rst_epilog = """
 .. |VM| replace:: :abbr:`VM (Virtual Machine)`
 .. |OS| replace:: :abbr:`OS (Operating System)`
 .. |SSL| replace:: :abbr:`SSL (Secure Socket Layer)`
-.. |JDK| replace:: :abbr:`JDK (Java Developerment Kit)`
+.. |JDK| replace:: :abbr:`JDK (Java Development Kit)`
 .. |JMX| replace:: :abbr:`JMX (Java Management Extensions)`
 .. |JRE| replace:: :abbr:`JRE (Java Runtime Environment)`
 .. |JVM| replace:: :abbr:`JVM (Java Virtual Machine)`
