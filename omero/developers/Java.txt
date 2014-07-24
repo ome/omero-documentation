@@ -19,9 +19,9 @@ The required :file:`.jar` files can be obtained in a number of ways:
   generators under "Client Settings" can help with obtaining configurations
   for different build systems.
 * using the :file:`OMERO.java` ZIP file downloaded from the
-  :downloads:`Components <#components>` part of the OMERO download page. The
-  :file:`libs` directory can then be used on the Java classpath (or attached
-  to a project in Eclipse).
+  :downloads:`Components <#components>` section of the OMERO download page.
+  The :file:`libs` directory can then be used on the Java classpath (or
+  attached to a project in Eclipse).
 * following the example in
   `minimal-omero-client <https://github.com/ome/minimal-omero-client>`_.
   Please make sure you are using the proper branch of the repository, as that
