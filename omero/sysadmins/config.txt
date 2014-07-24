@@ -49,7 +49,7 @@ Core
 
     omero.db.patch
       
-      Default: `0`
+      Default: `6`
 
     omero.db.poolsize
       Sets the number of connections to PostgreSQL which
@@ -87,7 +87,7 @@ Core
 
     omero.db.version
       
-      Default: `OMERO5.0`
+      Default: `OMERO5.1DEV`
 
 
 
@@ -109,7 +109,6 @@ FS
        - Murmur3-32
        - Murmur3-128
        - SHA1-160
-       - File-Size-64
       
       In negotiation with clients, this list is interpreted as being in
       descending order of preference.
@@ -166,10 +165,14 @@ FS
        - Windows optional
        - UNIX required
        - UNIX optional
+       - local required
+       - local optional
       
       Minimally, the "required" appropriate for the server is recommended.
-      Also applying optional rules may make sysadmin tasks easier,
+      Also applying "optional" rules may make sysadmin tasks easier,
       but may be more burdensome for users who name their files oddly.
+      "local" means "Windows" or "UNIX" depending on the local platform,
+      the latter being applied for Linux and Mac OS X.
       
       Default: `Windows required, UNIX required`
 
@@ -192,10 +195,6 @@ Grid
       Default: `false`
 
     omero.cluster.redirector
-      cluster configuration
-      
-      
-      http://www.openmicroscopy.org/site/support/omero/developers/Server/Clustering.html
       
       Default: `nullRedirector`
 
@@ -205,6 +204,23 @@ Grid
       on remote services to respond.
       
       Default: `5000`
+
+
+
+
+.. _ipv6_configuration:
+
+Ipv6
+----
+
+.. glossary::
+
+    Ice.IPv6
+      Disable IPv6 by setting to 0. Only needed in
+      certain situations. For more information see
+      https://www.openmicroscopy.org/site/support/omero/sysadmins/troubleshooting.html#server-fails-to-start
+      
+      Default: `1`
 
 
 
@@ -408,11 +424,6 @@ Performance
       Default: `120000`
 
     omero.sessions.timeout
-      session configuration
-      
-      timeout values are in milliseconds to make
-      comparison with start/finish values more
-      straightforward
       Sets the duration of inactivity in milliseconds after which
       a login is required.
       
@@ -431,16 +442,12 @@ Performance
       Default: `50`
 
     omero.threads.min_threads
-      threading configuring
-      
-      sets timeouts and thread pool information
-      for internal server threads.
       
       Default: `5`
 
     omero.throttling.method_time.error
       
-      Default: `15000`
+      Default: `20000`
 
     omero.throttling.method_time.error.indexer
       
@@ -457,13 +464,6 @@ Performance
       Default: `3600000`
 
     omero.throttling.objects_read_interval
-      throttling configuration
-      
-      timeout values are in milliseconds to make
-      comparison with start/finish values more
-      straightforward
-      
-      http://www.openmicroscopy.org/site/support/omero/developers/Server/Throttling.html
       
       Default: `1000`
 
@@ -581,8 +581,6 @@ Scripts
       Default: `matlab`
 
     omero.launcher.python
-      OMERO.scripts properties
-      No value implies use sys.executable
       
       Default: `[empty]`
 
@@ -597,6 +595,11 @@ Scripts
     omero.process.python
       
       Default: `omero.processor.ProcessI`
+
+    omero.scripts.timeout
+      No value implies use sys.executable
+      
+      Default: `3600000`
 
 
 
