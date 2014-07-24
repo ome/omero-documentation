@@ -18,7 +18,7 @@ memory that OMERO will use. You may also need to modify your settings if you
 are seeing out-of-memory errors when dealing with certain types of images.
 
 A number of configuration properties starting with
-:ref:`omero.jvmcfg <jvmcfg_configuration>` control the calculation of how
+:ref:`omero.jvmcfg <jvm_configuration>` control the calculation of how
 much memory to allocate to various OMERO services on startup, most
 importantly:
 
