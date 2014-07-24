@@ -338,7 +338,7 @@ The options available to this subcommand are:
 
 .. option:: --style <{plain,csv,sql}>
 
-    See :option:`omero fs repos --style`
+    See :option:`omero fs repos --style`.
 
 .. option:: --limit <LIMIT>
 
@@ -358,17 +358,18 @@ The options available to this subcommand are:
 .. option:: --without-images
 
     This option lists only those filesets without images, these may be corrupt
-    filesets
+    filesets.
 
 .. option:: --with-transfer <WITH_TRANSFER [WITH_TRANSFER ...]>
 
-    This option list sets by their in-place import method
+    This option lists only those filesets imported using the given in-place
+    import methods.
 
 .. option:: --check
 
-    This option checks each fileset for validity by recaculating each file's
-    checksum and comparing it with the checksum recorded upon import. **This
-    option is available to administrators only.**
+    This option checks each fileset for validity by recalculating each file's
+    checksum and comparing it with the checksum recorded upon import. This may
+    be slow. **This option is available to administrators only.**
 
 .. option:: --extended
 
@@ -421,11 +422,11 @@ The options available to this subcommand are:
 
 .. option:: --style {plain,csv,sql}
 
-    See :option:`omero fs repos --style`
+    See :option:`omero fs repos --style`.
 
 .. option:: --limit <LIMIT>
 
-    See :option:`omero fs sets --limit`
+    See :option:`omero fs sets --limit`.
 
 .. option:: --offset <OFFSET>
 
@@ -433,11 +434,11 @@ The options available to this subcommand are:
 
 .. option:: --order <{newest,oldest,prefix}>
 
-    See :option:`omero fs sets --order`
+    See :option:`omero fs sets --order`.
 
 .. option:: --archived
 
-    With this option the subcommand lists only images with archived data
+    With this option the subcommand lists only images with archived data.
 
 .. option:: --extended
 
@@ -463,10 +464,10 @@ The :omerocmd:`fs rename` subcommand moves an existing fileset, specified by its
 ID, to a new location. **This subcommand is available to administrators only.**
 
 It may be useful to rename an existing fileset after the import template
-(`omero.fs.repo.path`) has been changed to match the new template. By default
-the files in the fileset and the accompanying import log are moved. For example,
-after adding the group name and group ID to template and chnaging the date
-format
+(:term:`omero.fs.repo.path`) has been changed to match the new template. By
+default the files in the fileset and the accompanying import log are moved. For
+example, after adding the group name and group ID to template and chnaging the
+date format
 ::
 
     $ bin/omero fs rename 9
@@ -475,7 +476,7 @@ format
     Moving user-0_2/2014-07/23/16-31-51.070/ to pg-0_3/user-0_2/2014-07-23/16-48-20.786/
     Moving user-0_2/2014-07/23/16-31-51.070.log to pg-0_3/user-0_2/2014-07-23/16-48-20.786.log
 
-The ID can be fiven as a number or in the form `Fileset:ID`.
+The ID can be given as a number or in the form `Fileset:ID`.
 
 The options available to this subcommand are:
 
@@ -488,7 +489,9 @@ The options available to this subcommand are:
 .. option:: --no-move
 
     With this option the files will be left in place to be moved later. Advice
-    will be given as to which files need to be moved to complete the renaming.
+    will be given as to which files need to be moved to complete the renaming
+    process. Note that if the files are not moved then the renamed filesets will
+    not be accessible until the files have been moved into the new positions.
 
 For example
 ::
