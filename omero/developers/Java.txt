@@ -5,20 +5,27 @@ Using the :zerocdoc:`Ice Java language mapping
 <display/Ice/Hello+World+Application>` from ZeroC_, OMERO provides access to
 your data within an :doc:`/developers/server-blitz` server from Java code.
 
-Using the ``omero_client.jar``
-------------------------------
+Writing client apps
+-------------------
 
-The ``omero_client.jar`` is a combination of all necessary Java OMERO
-classes as well as the Ice classes needed to write a complete Java client
-for :doc:`/developers/server-blitz`.
+To make use of the OMERO Java API and interact with
+:doc:`/developers/server-blitz` from your code, a client application needs the
+Java bindings available on the classpath.
 
-The library is placed under OMERO\_HOME/dist/lib/client by the build. To use
-|OmeroJava|, setup you will need to setup your CLASSPATH:
+The required :file:`.jar` files can be obtained in a number of ways:
 
-::
-
-      CLASSPATH=path/omero_client.jar
-      javac mycode
+* manually from the OME
+  `Artifactory server <http://artifacts.openmicroscopy.org/artifactory>`_. The
+  generators under "Client Settings" can help with obtaining configurations
+  for different build systems.
+* using the :file:`OMERO.java` ZIP file downloaded from the
+  :downloads:`Components <#components>` part of the OMERO download page. The
+  :file:`libs` directory can then be used on the Java classpath (or attached
+  to a project in Eclipse).
+* following the example in
+  `minimal-omero-client <https://github.com/ome/minimal-omero-client>`_.
+  Please make sure you are using the proper branch of the repository, as that
+  influences the versions of dependencies defined in the Maven POM file.
 
 Extended classpath
 ------------------
