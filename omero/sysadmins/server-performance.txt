@@ -64,8 +64,9 @@ JVM settings from the provided configuration properties.
         :term:`omero.jvmcfg.min_system_memory`, and
         :term:`omero.jvmcfg.max_system_memory` are all used for defining the
         system memory seen. The default percentages are: blitz and
-        pixeldata 15%, indexer 10%.
-
+        pixeldata 15%, indexer 10%. If :term:`omero.jvmcfg.perm_gen` or
+        :term:`omero.jvmcfg.heap_size` are explicitly set, they will
+        be used directly as with the :term:`ManualStrategy`.
 
     ManualStrategy
         Simply provides the values given as the JVM settings. If no
