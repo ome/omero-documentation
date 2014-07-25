@@ -7,7 +7,7 @@ significantly changed. Please see the
 :doc:`sysadmin documentation </sysadmins/server-overview>`
 for how to configure your server installation.
 
-Under the ``etc/`` directory in both the source and the binary
+Under the :file:`etc/` directory in both the source and the binary
 distributions, several files are provided which help to configure
 OMERO.server:
 

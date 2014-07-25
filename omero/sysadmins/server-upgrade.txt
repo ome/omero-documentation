@@ -42,7 +42,7 @@ password salting support. This implies that once a server has been upgraded
 and deployed, if passwords are modified, you will not be able to easily revert
 to a configuration without salting. To keep using the legacy password provider
 without salting support, you will need to configure
-``omero.security.password_provider`` to use the legacy
+:term:`omero.security.password_provider` to use the legacy
 ``chainedPasswordProviderNoSalt`` as described in the
 :ref:`legacy_password_providers` section.
 

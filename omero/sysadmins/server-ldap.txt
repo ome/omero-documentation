@@ -15,7 +15,7 @@ concept of "groups" that is quite distinct from LDAP groups.
 The OMERO.server LDAP implementation can handle a number of use cases.
 For example:
 
-- Allow every "inetOrgPerson" under ``omero.ldap.base`` to login
+- Allow every "inetOrgPerson" under :term:`omero.ldap.base` to login
 - but restrict access based upon an arbitrary LDAP filter, e.g.
 
 ::
@@ -46,9 +46,7 @@ LDAP properties
 ---------------
 
 The LDAP plugin is configured via several configuration properties, all
-starting with ``omero.ldap.``. The default values for these properties are
-set in the file :file:`etc/omero.properties`. An overview of all the
-properties is outlined in :ref:`ldap_configuration`.
+starting with ``omero.ldap`` (see :ref:`ldap_configuration`).
 
 Some of the property values are passed directly to the underlying LDAP library
 (`Spring LDAP <http://projects.spring.io/spring-ldap/>`_), which in turn makes
@@ -76,7 +74,7 @@ using LDAP.
     omero.ldap.base=ou=example,o=com
 
 After having configured your connection, you can turn LDAP on and off
-between restarts by setting ``omero.ldap.config`` to false. The ``base``
+between restarts by setting :term:`omero.ldap.config` to false. The ``base``
 property determines where in the LDAP tree searches will begin. No users or
 groups will be found if they are not under the base provided.
 
@@ -91,10 +89,10 @@ if necessary, create new users based on the information in LDAP.
     omero.ldap.user_filter=(objectClass=person)
     omero.ldap.user_mapping=omeName=cn,firstName=givenName,lastName=sn,email=mail
 
-``omero.ldap.user_filter`` will be AND'ed to the username query, and can
+:term:`omero.ldap.user_filter` will be AND'ed to the username query, and can
 contain any valid LDAP filter string. The username query is taken from
 the LDAP attribute which gets mapped to "omeName" by
-``omero.ldap.user_mapping``. Here, the "cn" is mapped to "omeName", so the
+:term:`omero.ldap.user_mapping`. Here, the "cn" is mapped to "omeName", so the
 username query is ``(cn=[login name])``. The final query is
 ``(&(objectClass=person)(cn=[login name]))``, which must return a single
 result to be considered valid.
