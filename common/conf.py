@@ -199,7 +199,7 @@ rst_epilog = """
 .. |JMX| replace:: :abbr:`JMX (Java Management Extensions)`
 .. |JRE| replace:: :abbr:`JRE (Java Runtime Environment)`
 .. |JVM| replace:: :abbr:`JVM (Java Virtual Machine)`
-.. |PID| replace:: :abbr:`PID (Process ID)`
+.. |PID| replace:: :abbr:`PID (process ID)`
 .. |HDD| replace:: :abbr:`HDD (Hard Disk Drive)`
 .. |CLI| replace:: :abbr:`CLI (Command Line Interface)`
 
