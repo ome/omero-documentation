@@ -99,6 +99,26 @@ Now checkout the |CLI|.
 
     $ omero -h
 
+Network hopping for laptops
+---------------------------
+
+By default OMERO will bind to all available interfaces. On a laptop this
+has the undesirable effect of requiring an OMERO restart when changing
+network connections, e.g. from a home wifi connection to a work wifi
+connection. To avoid this, it is possible to bind only on the localhost
+interface which will never change.
+
+::
+
+    $ omero config set Ice.Default.Host 127.0.0.1
+    # Restart to activate the new setting
+    $ omero admin restart
+
+.. note::
+
+    Be warned, if doing this, it will no longer be possible to connect
+    to the OMERO server instance from anywhere except the local machine.
+
 Database access
 ---------------
 
