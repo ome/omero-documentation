@@ -57,7 +57,7 @@ handle in-place importing.
 Someone wanting to perform an in-place import **MUST** have:
 
 * a regular OMERO account
-* an |OS|-account with access to :omerocmd:`bin/omero`
+* an |OS|-account with access to `bin/omero`
 * read access to the location of the data
 * **write** access to the :doc:`ManagedRepository
   </developers/ManagedRepository/ManagedRepository>`
@@ -69,9 +69,13 @@ into, and then use their own OMERO accounts to import data. Alternatively,
 each OMERO user can be given an OS account with access rights to the data
 storage as well as the managed repository.
 
-At the moment in-place import is available only under
-Posix systems (Unix, Linux, OS X). Support for Windows is
-forthcoming.
+At the moment full in-place import functionality is available only under
+Posix systems (Unix, Linux, OS X).
+
+.. note::
+
+  In-place import is available on Windows, but be aware that ``ln_rm`` does
+  not automatically remove image files after import.
 
 For soft linking with :literal:`--transfer=ln_s` it has been noticed
 that some plate imports run rather more slowly than usual. Other
