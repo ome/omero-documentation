@@ -128,9 +128,9 @@ only be accessed using:
 
     $ bin/omero import -- --advanced-help
 
-The option for performing an in-place transfer is `--transfer`.
-A new extension point, file transfers allow a choice of which
-mechanism is used to get a file into OMERO.
+The option for performing an in-place transfer is
+:option:`--transfer`. A new extension point, file transfers allow
+a choice of which mechanism is used to get a file into OMERO.
 
 ::
 
