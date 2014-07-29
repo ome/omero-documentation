@@ -57,7 +57,7 @@ handle in-place importing.
 Someone wanting to perform an in-place import **MUST** have:
 
 * a regular OMERO account
-* an |OS|-account with access to `bin/omero`
+* an |OS|-account with access to :file:`bin/omero`
 * read access to the location of the data
 * **write** access to the :doc:`ManagedRepository
   </developers/ManagedRepository/ManagedRepository>`
@@ -70,7 +70,9 @@ each OMERO user can be given an OS account with access rights to the data
 storage as well as the managed repository.
 
 At the moment full in-place import functionality is available only under
-Posix systems (Unix, Linux, OS X).
+POSIX systems (Unix, Linux, OS X). Under Windows, ``ln`` and ``ln_s`` work
+as expected but ``ln_rm`` does not automatically remove image files after
+import.
 
 .. note::
 
@@ -82,8 +84,7 @@ Posix systems (Unix, Linux, OS X).
   ``C:\set JAVA_OPTS=-Domero.import.active_close=true``
 
   This must be done from the same Command Prompt window from which the
-  in-place import will commence. Be aware that ``ln_rm`` on Windows does not
-  automatically remove image files after import.
+  in-place import will commence.
 
 For soft linking with :literal:`--transfer=ln_s` it has been noticed
 that some plate imports run rather more slowly than usual. Other
