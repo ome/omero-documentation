@@ -153,6 +153,10 @@ configuration redirect the output of the following command into a file:
     conflicts with `FastCGIExternalServer` required by OMERO and must be
     removed or commented out.
 
+.. note::
+    To configure an HTTPS server follow
+    `the apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
+
 
 .. _nginx_configuration:
 
@@ -212,6 +216,11 @@ configuration redirect the output of the following command into a file:
     }
 
 .. note::
+    To configure an HTTPS server follow
+    `the nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
+    Make sure ``fastcgi_param HTTPS $https;`` is uncomment.
+
+.. note::
     OMERO.web requires ``body_in_file_only`` adjusted in your default nginx 
     config because nginx must buffer incoming data. Make sure you have that 
     set to the following config:
@@ -225,6 +234,7 @@ configuration redirect the output of the following command into a file:
             client_max_body_size 0;
             ...
         }
+
 
 Starting OMERO.web
 ~~~~~~~~~~~~~~~~~~
