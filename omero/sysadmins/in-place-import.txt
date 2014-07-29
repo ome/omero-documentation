@@ -112,14 +112,21 @@ associated data in OMERO.
 Getting started
 ---------------
 
-The 5.0.0 command-line import client has a new (hidden)
-help menu which explains the available options:
+From 5.0.0, the command-line import client has a new help menu which
+explains the available options:
+
+::
+
+    $ bin/omero import --advanced-help
+
+.. literalinclude:: /downloads/inplace/advanced-help.txt
+
+In versions prior to 5.0.3 this help option is hidden and it can
+only be accessed using:
 
 ::
 
     $ bin/omero import -- --advanced-help
-
-.. literalinclude:: /downloads/inplace/advanced-help.txt
 
 The option for performing an in-place transfer is `--transfer`.
 A new extension point, file transfers allow a choice of which
