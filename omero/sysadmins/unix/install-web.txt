@@ -155,7 +155,7 @@ configuration redirect the output of the following command into a file:
 
 .. note::
     To configure an HTTPS server follow
-    `the apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
+    `the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
 
 
 .. _nginx_configuration:
@@ -218,7 +218,7 @@ configuration redirect the output of the following command into a file:
 .. note::
     To configure an HTTPS server follow
     `the nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
-    Make sure ``fastcgi_param HTTPS $https;`` is uncomment.
+    Make sure ``fastcgi_param HTTPS $https;`` is uncommented.
 
 .. note::
     OMERO.web requires ``body_in_file_only`` adjusted in your default nginx 
