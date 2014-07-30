@@ -236,10 +236,10 @@ placed in the `lib/clients` directory, you can invoke it using:
 Related advanced options
 ------------------------
 
-In addition to the `--transfer` option in 5.0.0, a number of other
+In addition to the :option:`--transfer` option in 5.0.0, a number of other
 advanced options have been added which may be useful for either
 tweaking import performance or dealing with complicated situations.
-However, like `--transfer`, these options should be considered
+However, like :option:`--transfer`, these options should be considered
 experimental and **may change in subsequent releases**. Comments and
 suggestions are very welcome.
 
@@ -248,8 +248,8 @@ Checksums
 
 If you think that calculating the checksums for your large files is
 consuming too much time, you might want to configure the checksum
-algorithm used. This can be done with the `--checksum_algorithm`
-property. Available options are printed with the `--advanced-help`
+algorithm used. This can be done with the :option:`--checksum_algorithm`
+property. Available options are printed with the :option:`--advanced-help`
 option and include Adler-32, CRC-32, MD5-128, Murmur3-32, Murmur3-128,
 and the default SHA1-160.
 
