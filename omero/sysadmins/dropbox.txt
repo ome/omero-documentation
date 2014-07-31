@@ -136,8 +136,12 @@ be comma separated.
 
 -   importUsers
 
-    The importUsers is either ``default`` for the standard DropBox
-    configuration or a list of OMERO user names. The default is default.
+    The importUsers is either ``default`` or a list of OMERO user names. In the
+    case of the value being ``default``, the same configuration is applied to
+    all users and each subsequent configuration setting should be a single
+    value. In the case of this value being a list of users, each subsequent
+    value should be a list of the same length as the number of users. The
+    default value is ``default``.
 
     ::
 
