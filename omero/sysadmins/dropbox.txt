@@ -67,7 +67,7 @@ images placed into ``Orphaned images``.
 Acquisition systems can then be configured to drop a user's images into
 a given DropBox.
 
-.. note:: 
+.. note::
 
     -   The DropBox system is designed for image files to be copied in
         at normal acquisition rates. Copying many files en masse may
