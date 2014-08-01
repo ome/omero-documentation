@@ -104,9 +104,9 @@ Network hopping for laptops
 
 By default OMERO will bind to all available interfaces. On a laptop this
 has the undesirable effect of requiring an OMERO restart when changing
-network connections, e.g. from a home wifi connection to a work wifi
-connection. To avoid this, it is possible to bind only on the localhost
-interface which will never change.
+network connections, e.g. from a home to a work network connection. To
+avoid this, it is possible to bind only on the localhost interface which
+will never change IP address.
 
 ::
 
