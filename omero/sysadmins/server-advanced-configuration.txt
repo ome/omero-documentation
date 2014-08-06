@@ -94,6 +94,8 @@ Debugging
 Here, the "debug" target allows increasing the logging output of the
 Python servers without modifying any files.
 
+.. _jmx_configuration:
+
 JMX configuration
 ^^^^^^^^^^^^^^^^^
 

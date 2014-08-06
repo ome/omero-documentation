@@ -62,8 +62,8 @@ these are completely separate from the system accounts, above, existing only
 inside the database.  The database administrative user (“postgres”) is the 
 owner of all the database resources, and can create new users internal to the 
 database. A single database account is used at run time by OMERO to talk to 
-your database. Therefore, you must configure the “omero.db.***” values during 
-installation:
+your database. Therefore, you must configure the
+:ref:`database <core_configuration>` values during installation:
 
 ::
 
@@ -106,8 +106,8 @@ Server fails to start
    installation as outlined on the PostgreSQL page for your OS 
    (:doc:`Windows PostgreSQL page <windows/server-postgresql>` or 
    :doc:`UNIX/Mac PostgreSQL page <unix/server-postgresql>`).
-2. Check the permissions on your ``omero.data.dir`` (``/OMERO`` or 
-   ``C:\OMERO`` by default) as outlined on the 
+2. Check the permissions on your :term:`omero.data.dir` (:file:`/OMERO` or
+   :file:`C:\OMERO` by default) as outlined on the
    :doc:`unix/server-installation` page for Unix/Mac users, or the 
    :doc:`windows/server-binary-repository` page for Windows users.
 3. Are you on a laptop? If you see an error message mentioning 

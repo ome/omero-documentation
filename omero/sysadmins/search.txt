@@ -109,7 +109,7 @@ initiate a re-indexing.
        $ bin/omero admin reindex --prepare
 
 -  Remove the existing search Indexes by deleting the contents of the
-   :file:`FullText` subdirectory of your ${omero.data.dir}:
+   :file:`FullText` subdirectory of your :term:`omero.data.dir`:
 
    ::
 
@@ -157,7 +157,7 @@ this can be specified on the command-line with the "mem" argument:
 
    $ bin/omero admin reindex --foreground --mem=2g
 
-Other search configuration properties from TODO:search_configuration can be
+Other search configuration properties from :ref:`search_configuration` can be
 set for the processing by setting the "JAVA_OPTS" environment variable:
 
 ::
@@ -186,7 +186,7 @@ following SQL command::
     (1 row)
 
 This value is also logged periodically both when re-indexing in the background
-and the foreground and is available via JMX. See TODO:metrics for more information.
+and the foreground and is available via JMX. See :ref:`jvm_metrics` for more information.
 
 The overall re-indexing performance depends significantly on the memory
 settings and the size of the repository to index. The following table provides
@@ -200,7 +200,7 @@ servers of various sizes:
     * Re-indexing duration
     * Binary repository size
     * Indexer JVM settings
-    * omero.search.batch
+    * :term:`omero.search.batch`
 
   - * Background
     * 31h

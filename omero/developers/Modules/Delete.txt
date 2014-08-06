@@ -30,7 +30,7 @@ Finality of deletion
 
 Import in OMERO 5.x uploads the image and companion files intact and
 stores them within subdirectories of the directory configured by the
-value of :literal:`omero.managed.dir`, typically
+value of :term:`omero.managed.dir`, typically
 :file:`ManagedRepository`. The files relating to a specific fileset
 are stored together on the server's filesystem and they are read by
 Bio-Formats when images are viewed in OMERO clients. If any of a
