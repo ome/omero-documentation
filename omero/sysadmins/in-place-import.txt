@@ -57,7 +57,7 @@ handle in-place importing.
 Someone wanting to perform an in-place import **MUST** have:
 
 * a regular OMERO account
-* an |OS|-account with access to :omerocmd:`bin/omero`
+* an |OS|-account with access to :file:`bin/omero`
 * read access to the location of the data
 * **write** access to the :doc:`ManagedRepository
   </developers/ManagedRepository/ManagedRepository>`
@@ -69,9 +69,22 @@ into, and then use their own OMERO accounts to import data. Alternatively,
 each OMERO user can be given an OS account with access rights to the data
 storage as well as the managed repository.
 
-At the moment in-place import is available only under
-Posix systems (Unix, Linux, OS X). Support for Windows is
-forthcoming.
+At the moment full in-place import functionality is available only under
+POSIX systems (Unix, Linux, OS X). Under Windows, ``ln`` and ``ln_s`` work
+as expected but ``ln_rm`` does not automatically remove image files after
+import.
+
+.. note::
+
+  Supporting in-place import in Windows required breaking compatibility
+  with the 5.0.2 patch release by introducing active file handle closing
+  logic. This code is disabled by default, and needs to be activated
+  through the client-side ``omero.import.active_close`` setting:
+
+  ``C:\set JAVA_OPTS=-Domero.import.active_close=true``
+
+  This must be done from the same Command Prompt window from which the
+  in-place import will commence.
 
 For soft linking with :literal:`--transfer=ln_s` it has been noticed
 that some plate imports run rather more slowly than usual. Other
@@ -97,23 +110,39 @@ wrong location) and that the files cannot be removed from the system
 while OMERO is still using them. Files may not be renamed or otherwise altered
 such that the OMERO server user cannot find them at the expected location.
 
-If possible, all the files should be added to your regular backup process.
+If possible, **all the files should be added to your regular backup
+process**. If the files for imported images are later removed or
+corrupted, the result will probably be that the images remain in their
+projects or screens with their annotations and basic metadata, they
+simply cannot be successfully viewed. However, this behavior is **not
+guaranteed**, so do *not* assume that the resulting problems will not
+extend further. Once the problem is noticed, replacing the original
+image files from backups, in the same place with the same name, is
+likely but **not guaranteed** to fully restore the images and their
+associated data in OMERO.
 
 Getting started
 ---------------
 
-The 5.0.0 command-line import client has a new (hidden)
-help menu which explains the available options:
+From 5.0.0, the command-line import client has a new help menu which
+explains the available options:
+
+::
+
+    $ bin/omero import --advanced-help
+
+.. literalinclude:: /downloads/inplace/advanced-help.txt
+
+In versions prior to 5.0.3 this help option is hidden and it can
+only be accessed using:
 
 ::
 
     $ bin/omero import -- --advanced-help
 
-.. literalinclude:: /downloads/inplace/advanced-help.txt
-
-The option for performing an in-place transfer is `--transfer`.
-A new extension point, file transfers allow a choice of which
-mechanism is used to get a file into OMERO.
+The option for performing an in-place transfer is
+:option:`--transfer`. A new extension point, file transfers allow
+a choice of which mechanism is used to get a file into OMERO.
 
 ::
 
@@ -162,7 +191,8 @@ effectively free no space.
     `/home` (or equivalent) **will lead to a complete loss of the data since
     no copy is held in OMERO**. Therefore, this method should only be used in
     conjunction with a properly managed and backed-up data repository. If the
-    files are deleted, there is no way to use OMERO to retrieve them.
+    files are corrupted or deleted, there is no way to use OMERO to retrieve
+    them.
 
 "ln" - hard-linking
 ^^^^^^^^^^^^^^^^^^^
@@ -218,10 +248,10 @@ placed in the `lib/clients` directory, you can invoke it using:
 Related advanced options
 ------------------------
 
-In addition to the `--transfer` option in 5.0.0, a number of other
+In addition to the :option:`--transfer` option in 5.0.0, a number of other
 advanced options have been added which may be useful for either
 tweaking import performance or dealing with complicated situations.
-However, like `--transfer`, these options should be considered
+However, like :option:`--transfer`, these options should be considered
 experimental and **may change in subsequent releases**. Comments and
 suggestions are very welcome.
 
@@ -230,8 +260,8 @@ Checksums
 
 If you think that calculating the checksums for your large files is
 consuming too much time, you might want to configure the checksum
-algorithm used. This can be done with the `--checksum_algorithm`
-property. Available options are printed with the `--advanced-help`
+algorithm used. This can be done with the :option:`--checksum_algorithm`
+property. Available options are printed with the :option:`--advanced-help`
 option and include Adler-32, CRC-32, MD5-128, Murmur3-32, Murmur3-128,
 and the default SHA1-160.
 

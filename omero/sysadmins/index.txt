@@ -23,93 +23,59 @@ Server Background
     whatsnew
     server-overview
     system-requirements
+    server-setup-examples
     limitations
-
-******************************
-Basic UNIX Server Installation
-******************************
-
-This chapter contains the instructions to install OMERO.server on
-UNIX & UNIX-like platforms.
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    unix/server-installation
-    unix/server-binary-repository
-    unix/server-postgresql
-    unix/install-web
-
-*********************************
-Basic Windows Server Installation
-*********************************
-
-This chapter contains the instructions to install OMERO.server on 
-Windows platforms.
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    windows/server-installation
-    windows/server-binary-repository
-    windows/server-postgresql
-    windows/install-web
-    windows/service-tools
-
-****************************
-Advanced Server Installation
-****************************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    troubleshooting
-    server-security
-    server-advanced-configuration
-    server-ldap
-    server-tables
-    omeromovie
-    installing-scripts
-
-*************************
-Data Import Options
-*************************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    import-scenarios
-    in-place-import
-    fs-upload-configuration
-
-******************
-Server Maintenance
-******************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    server-backup-and-restore
-    server-upgrade
-    UpgradeCheck
-    command-line-interface
-
-
-***************
-Advanced topics
-***************
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
     server-permissions
-    dropbox
-    grid
-    omero-home-prefix
+
+***********************************
+Server Installation and Maintenance
+***********************************
+
+This chapter contains instructions for installing OMERO.server, and for
+troubleshooting, backing-up, and upgrading your server installation.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    unix/index
+    windows/index
+    maintenance
+    advanced-install
+    troubleshooting
+
+*******************************
+Optimizing Server Configuration
+*******************************
+
+This chapter discusses the options for configuring OMERO.server for optimum
+performance and security.
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    server-security
+    server-ldap
+    server-performance
+    search
+    fs-upload-configuration
+    server-advanced-configuration
     server-webstart-codesigning
+    omero-home-prefix
+    config
+
+***********************
+Data Import and Storage
+***********************
+
+This chapter contains details of how OMERO.fs allows you to import and store
+data with OMERO 5.
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    dropbox
+    in-place-import
+    import-scenarios

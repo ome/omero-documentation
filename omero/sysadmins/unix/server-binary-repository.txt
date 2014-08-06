@@ -58,10 +58,10 @@ Changing your repository location
 
     It is **strongly** recommended that you make all changes to your OMERO
     binary repository with the server shut down. Changing the
-    ``omero.data.dir`` configuration does **not** move the repository for you,
-    you must do this yourself.
+    :term:`omero.data.dir` configuration does **not** move the repository for
+    you, you must do this yourself.
 
-Your repository location can be changed from its ``/OMERO`` default by 
+Your repository location can be changed from its :file:`/OMERO` default by
 modifying your OMERO.server configuration as follows:
 
 ::
@@ -70,7 +70,7 @@ modifying your OMERO.server configuration as follows:
     $ bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
 
 The suggested procedure is to shut down your OMERO.server instance, move
-your repository, change your ``omero.data.dir`` and then start the
+your repository, change your :term:`omero.data.dir` and then start the
 instance back up. For example:
 
 ::

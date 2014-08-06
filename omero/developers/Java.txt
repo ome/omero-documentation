@@ -2,33 +2,39 @@ OMERO Java language bindings
 ============================
 
 Using the :zerocdoc:`Ice Java language mapping
-<display/Ice/Hello+World+Application>` from ZeroC_,
-OMERO provides access to your data within an
-:doc:`/developers/server-blitz` server from Java code.
+<display/Ice/Hello+World+Application>` from ZeroC_, OMERO provides access to
+your data within an :doc:`/developers/server-blitz` server from Java code.
 
-Using the ``omero_client.jar``
-------------------------------
+Writing client apps
+-------------------
 
-The ``omero_client.jar`` is a combination of all necessary Java OMERO
-class as well as the Ice classes needed to write a complete Java client
-for :doc:`/developers/server-blitz`.
+To make use of the OMERO Java API and interact with
+:doc:`/developers/server-blitz` from your code, a client application needs the
+Java bindings available on the classpath.
 
-The library is placed under OMERO\_HOME/dist/lib/client by the build. To use
-|OmeroJava|, setup you will need to setup your CLASSPATH:
+The required :file:`.jar` files can be obtained in a number of ways:
 
-::
-
-      CLASSPATH=path/omero_client.jar
-      javac mycode
+* manually from the OME
+  `Artifactory server <http://artifacts.openmicroscopy.org/artifactory>`_. All
+  available artifacts and their POM files can be browsed using the
+  `maven repository
+  <http://artifacts.openmicroscopy.org/artifactory/maven/>`_.
+* using the :file:`OMERO.java` ZIP file downloaded from the
+  :downloads:`Java <#java>` section of the OMERO download page.
+  The :file:`libs` directory can then be used on the Java classpath (or
+  attached to a project in Eclipse).
+* following the example in
+  `minimal-omero-client <https://github.com/ome/minimal-omero-client>`_.
+  Please make sure you are using the proper branch of the repository, as that
+  influences the versions of dependencies defined in the Maven POM file.
 
 Extended classpath
 ------------------
 
-To access all the functionality available in omero\_client.jar or to
-use the importer, you will need more jar files. To see all the
-current requirements, take a look at the builds on :jenkins:`jenkins
-<>`, or alternatively examine the
-dependencies in the ivy.xml files (e.g.
+To access all the functionality available in omero\_client.jar or to use the
+importer, you will need more jar files. To see all the current requirements,
+take a look at the builds on :jenkins:`jenkins <>`, or alternatively examine
+the dependencies in the ivy.xml files (e.g.
 :source:`components/insight/ivy.xml`)
 
 Connect to OMERO
@@ -616,8 +622,9 @@ In the following example, we create a table with 2 columns.
 ROIs
 ----
 
-To learn about the model see :model_doc:`developers/roi.html`. Note that
-annotation can be linked to ROI.
+To learn about the model see the
+:model_doc:`ROI Model documentation <developers/roi.html>`. Note that
+annotations can be linked to ROI.
 
 -  **Create ROI.**
 

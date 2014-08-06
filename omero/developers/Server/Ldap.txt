@@ -19,8 +19,8 @@ The LDAP plugin follows these steps:
    **not** against OMERO (changing the password via OMERO is *not* supported).
    This functionality is provided by the :doc:`/developers/Server/PasswordProvider`.
 #. If there is no OMERO user for a given name, the LDAP plugin will use
-   ``omero.ldap.user_filter`` and ``omero.ldap.user_mapping`` to look for a
-   valid user:
+   :term:`omero.ldap.user_filter` and :term:`omero.ldap.user_mapping` to look
+   for a valid user:
 
    #. The ``user_mapping`` property is of the form:
       ``omeName=<ldap attribute>;firstName=<ldapAttribute>;…``
@@ -29,17 +29,17 @@ The LDAP plugin follows these steps:
       ``user_mapping`` starts with ``omeName=cn;`` then the LDAP search
       will be for ``(cn=emma)``.
    #. The ``(cn=emma)`` LDAP filter is then added to the value of
-      ``omero.ldap.user_filter``. For example, if the user filter is
+      :term:`omero.ldap.user_filter`. For example, if the user filter is
       ``(objectClass=inetOrgPerson)``, the full query for the new user will
       be: ``(&(objectClass=inetOrgPerson)(cn=emma))``
 
 #. **If** the search returns a **single** LDAP user, then an OMERO user will
    be created with all properties mapped according to
-   ``omero.ldap.user_mapping``.
+   :term:`omero.ldap.user_mapping`.
 #. Then the user will be placed in groups according to the value of
-   ``omero.ldap.new_user_group``, which are created if necessary. Details of
-   the various options can be found under :doc:`/sysadmins/server-ldap`. Each
-   option is handled by a different ``NewUserGroupBean`` implementation.
+   :term:`omero.ldap.new_user_group`, which are created if necessary. Details
+   of the various options can be found under :doc:`/sysadmins/server-ldap`.
+   Each option is handled by a different ``NewUserGroupBean`` implementation.
 
 NewUserGroupBean.java
 ---------------------

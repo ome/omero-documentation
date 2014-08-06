@@ -67,6 +67,7 @@ omero_extlinks = {
     # Github links
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
+    'commit' : (omero_github_root + 'commit/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
     # API links
     'javadoc' : (downloads_root + '/latest/omero5/api/%s', ''),
@@ -75,10 +76,13 @@ omero_extlinks = {
     }
 extlinks.update(omero_extlinks)
 
+# Edit on GitHub prefix
+edit_on_github_prefix = 'omero'
+
 # -- Options for HTML output ---------------------------------------------------
 
 # Custom sidebar templates, maps document names to template names.
-html_sidebars['**'].insert(0, 'globalomerotoc.html')
+html_sidebars['**'].insert(1, 'globalomerotoc.html')
 
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path.extend(['themes'])

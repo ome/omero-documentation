@@ -216,6 +216,13 @@ a second optional argument. Only datasets will be loaded::
 
 	unloadedProjects = getProjects(session, ids, false)
 
+To return the orphaned datasets as well as the projects, you can query the
+second output argument of
+:source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`::
+
+	[projects, orphanedDatasets] = getProjects(session)
+	[unloadedProjects, unloadedOrphanedDatasets] = getProjects(session, [], false)
+
 -  **Datasets**
 
 The datasets owned by the user currently logged in can be retrieved using the
@@ -291,6 +298,13 @@ Note that the wells are not loaded. The plate objects can be accessed using::
             pa = plateAcquisitionList.get(i);
         end
     end
+
+To return the orphaned plates as well as the screens, you can query the
+second output argument of
+:source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>`::
+
+	[screens, orphanedPlates] = getScreens(session)
+	[unloadedScreens, unloadedOrphanedPlates] = getScreens(session, [], false)
 
 -  **Plates**
 

@@ -161,8 +161,9 @@ The following are optional depending on what services you require:
 PostgreSQL (8.4 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PostgreSQL has to be installed and configured with PL/pgSQL and to accept
-TCP connections. PostgreSQL 8.3 and earlier are not supported.
+PostgreSQL has to be installed and configured with PL/pgSQL and to
+accept TCP connections. PostgreSQL 8.3 and earlier are not supported.
+9.2 or later is recommended.
 
 The *One click installer* can be found on the `PostgreSQL Windows
 download page <http://www.postgresql.org/download/windows>`_. You
@@ -369,7 +370,7 @@ is having a properly configured database.
 
    #. Create a new role and record the name and password. You will need to 
       configure OMERO to use your username and password by setting the 
-      ``omero.db.name`` and ``omero.db.pass`` properties.
+      :term:`omero.db.name` and :term:`omero.db.pass` properties.
 
       .. warning::
           For illustrative purposes, the default name and password for the 
@@ -524,12 +525,9 @@ Installation
 -   Download and extract the OMERO.server zip file, and note its location. 
     Below it is referred to as :file:`C:\\OMERO.server`.
 
--   Optionally, review :file:`C:\\OMERO.server\\etc\\omero.properties` which
-    contains all default settings.
-
-    You will need to open the file with a text editor. Do not edit the file.
-    Any configuration settings you would like to change can be changed in
-    the next step.
+-   Optionally, review :doc:`/sysadmins/config`, which contains all default
+    settings. Any configuration settings you would like to change can be
+    changed in the next step.
 
 -   Change any settings that are necessary using ``bin\omero config``,
     including the name and/or password for the 'db\_user' database user
@@ -545,7 +543,7 @@ Installation
         C:\OMERO.server\> bin\omero config set omero.db.pass db_password
 
 -   If you have chosen a non-standard :doc:`OMERO binary repository <server-binary-repository>` 
-    location above, be sure to configure the ``omero.data.dir`` property.
+    location above, be sure to configure the :term:`omero.data.dir` property.
     
     When using ``C:\`` style file paths it is necessary to "escape" the 
     backslashes. For example:
@@ -675,41 +673,18 @@ Installation
 JVM memory settings
 -------------------
 
-To make your server production-ready, you will likely need to increase the JVM
-memory settings of your application descriptors. This is not done by default
-since it would prevent starting the server on some sites' test instance but
-for production use a setting higher than 512MB is **highly** recommended.
-
-To increase the JVM memory settings, you need to edit the
-:file:`etc\\grid\\templates.xml` file under the OMERO.server directory.
-
-It is highly recommended to increase the ``BlitzTemplate`` default JVM memory
-settings from ``-Xmx512M`` to ``-Xmx2048M`` and from ``XX:MaxPermSize=128m``
-to ``XX:MaxPermSize=256M`` in production.
-
-If working with large images generates ``OutOfMemory`` exceptions in the
-:file:`var\log\PixelData-0.log` file, you may consider increasing the
-``PixelDataTemplate`` default JVM memory settings to ``-Xmx1024M``.
-
-Once you have modified the :file:`templates.xml` file, restart the server
-using::
-
-    C:\OMERO.server> bin\omero admin restart
-
-.. seealso::
-
-	http://www.openmicroscopy.org/community/viewtopic.php?f=4&t=7400
-		Forum thread on PixelData JVM memory settings
-
-	:ref:`gridconfiguration`
-		Section of the advanced server configuration documentation describing
-		:file:`etc\\grid\\templates.xml`.
+The OMERO server starts a number of Java services. Memory settings
+for these are calculated on a system-by-system basis. An attempt
+has been made to have usable settings out of the box, but if you
+can afford to provide OMERO with more memory, it will certainly
+improve your overall performance. See :ref:`jvm_memory_settings`
+on how to tune the JVM.
 
 OMERO.web and administration
 ----------------------------
 
 .. note:: In order to deploy OMERO.web in a production environment such as 
-    Apache or IIS please follow the instructions under :doc:`install-web`.
+    IIS please follow the instructions under :doc:`install-web`.
 
 Otherwise, the internal Django webserver can be used for evaluation and 
 development. In this case, you need to
@@ -786,26 +761,23 @@ Once you have the base server running, you may want to try enabling some
 of the advanced features such as :doc:`/sysadmins/dropbox` or :doc:`/sysadmins/server-ldap`.
 If you have ***Flex data***, you may want to watch :snapshot:`the HCS configuration screencast <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`.
 See the :omero_plone:`Feature list <feature-list>` for more advanced
-features you may want to use, and :doc:`/sysadmins/server-advanced-configuration` on how to get the most out of
-your server.
-
-Update notification
-^^^^^^^^^^^^^^^^^^^
-
-Your OMERO.server installation will check for updates each time it is started 
-from the *Open Microscopy Environment* update server. If you wish to disable 
-this functionality you should do so now as outlined on the 
-:doc:`/sysadmins/UpgradeCheck` page.
+features you may want to use, and :doc:`/sysadmins/config` on how to get the
+most out of your server.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-If you encounter a problem which is not addressed by the 
+If you encounter a problem which is not addressed by the
 :doc:`/sysadmins/troubleshooting` page, you can post a
-message to our :mailinglist:`ome-users` mailing list as discussed on the 
-:doc:`/users/community-resources` page.
+message to our :mailinglist:`ome-users` mailing list as discussed on the
+:doc:`/users/community-resources` page. Especially the
+:ref:`server_fails_to_start` and :ref:`remote_clients_cannot_connect`
+sections are a good starting point.
 
-Please include the output of the diagnostics command when asking for help with 
+OMERO diagnostics
+^^^^^^^^^^^^^^^^^
+
+Please include the output of the diagnostics command when asking for help with
 your server installation:
 
 .. parsed-literal::
@@ -873,3 +845,12 @@ your server installation:
     OMERO temp dir: 'C:\\Users\\omero\\AppData\\Roaming\\omero\\tmp'     Exists? True
     Is writable? True   (Size: 0)
     OMERO.web status... [NOT STARTED]
+
+Update notification
+^^^^^^^^^^^^^^^^^^^
+
+Your OMERO.server installation will check for updates each time it is started
+from the *Open Microscopy Environment* update server. If you wish to disable
+this functionality you should do so now as outlined on the
+:doc:`/sysadmins/UpgradeCheck` page.
+

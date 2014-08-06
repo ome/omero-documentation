@@ -1,5 +1,6 @@
- Usage:  importer-cli [OPTION]... [path [path ...]]...
-   or:   importer-cli [OPTION]... -
+
+ Usage:  importer-cli [OPTION]... [path [path ...]]... 
+   or:   importer-cli [OPTION]... - 
 
 Import any number of files into an OMERO instance.
 If "-" is the only path, a list of files or directories 
@@ -7,42 +8,42 @@ is read from standard in. Directories will be searched for
 all valid imports.
 
 Session arguments:
-  Mandatory arguments for creating a session are 1- either the OMERO server
-  hostname, username and password or 2- the OMERO server hostname and a valid
-  session key.
-  -s SERVER     OMERO server hostname
-  -u USER       OMERO username
-  -w PASSWORD   OMERO password
-  -k KEY        OMERO session key (UUID of an active session)
-  -p PORT       OMERO server port (default: 4064)
+  Mandatory arguments for creating a session are 1- either the OMERO server hostname,
+username and password or 2- the OMERO server hostname and a valid session key.
+  -s SERVER	OMERO server hostname
+  -u USER	OMERO username
+  -w PASSWORD	OMERO password
+  -k KEY	OMERO session key (UUID of an active session)
+  -p PORT	OMERO server port (default: 4064)
 
 Naming arguments:
-All naming arguments are optional but only image OR plate values should be set
-  -n NAME                           Image name to use
-  -x DESCRIPTION                    Image description to use
-  --plate_name NAME                 Plate name to use
-  --plate_description DESCRIPTION   Plate description to use
+All naming arguments are optional
+  -n NAME				Image or plate name to use
+  -x DESCRIPTION			Image or plate description to use
+  --name NAME				Image or plate name to use
+  --description DESCRIPTION		Image or plate description to use
 
 Optional arguments:
-  -h                                Display this help and exit
-  -f                                Display the used files and exit
-  -c                                Continue importing after errors
-  -l READER_FILE                    Use the list of readers rather than the default
-  -d DATASET_ID                     OMERO dataset ID to import image into
-  -r SCREEN_ID                      OMERO screen ID to import plate into
-  --report                          Report errors to the OME team
-  --upload                          Upload broken files with report
-  --logs                            Upload log file with report
-  --email EMAIL                     Email for reported errors
-  --debug LEVEL                     Turn debug logging on (optional level)
-  --annotation_ns ANNOTATION_NS     Namespace to use for subsequent annotation
-  --annotation_text ANNOTATION_TEXT Content for a text annotation (requires namespace)
-  --annotation_link ANNOTATION_LINK Comment annotation ID to link all images to
-  --no_thumbnails                   Do not perform thumbnailing after import
+  -h					Display this help and exit
+  -f					Display the used files and exit
+  -c					Continue importing after errors
+  -l READER_FILE			Use the list of readers rather than the default
+  -d DATASET_ID				OMERO dataset ID to import image into
+  -r SCREEN_ID				OMERO screen ID to import plate into
+  --report				Report errors to the OME team
+  --upload				Upload broken files with report
+  --logs				Upload log file with report
+  --email EMAIL				Email for reported errors
+  --debug LEVEL				Turn debug logging on (optional level)
+  --annotation_ns ANNOTATION_NS		Namespace to use for subsequent annotation
+  --annotation_text ANNOTATION_TEXT	Content for a text annotation (requires namespace)
+  --annotation_link ANNOTATION_LINK	Comment annotation ID to link all images to
+  --no_thumbnails			Do not perform thumbnailing after import
 
 Examples:
 
   $ importer-cli -s localhost -u user -w password -d 50 foo.tiff
+  $ importer-cli -s localhost -u user -w password -d Dataset:50 foo.tiff
   $ importer-cli -f foo.tiff
   $ importer-cli -s localhost -u username -w password -d 50 --debug ALL foo.tiff
 

@@ -1,16 +1,17 @@
 OMERO.server upgrade
 ====================
 
-
-The OME team is committed to providing frequent, project-wide upgrades
-both with bug fixes and new functionality. We try to make the schedule
-for these releases as public as possible. You may want to take a look
-at the roadmap_ for exactly what will go into a release. We always inform our
-:community_plone:`mailing lists <>` of the development
-status.
+The OME team is committed to providing frequent, project-wide upgrades both
+with bug fixes and new functionality. We try to make the schedule for these
+releases as public as possible. You may want to take a look at the roadmap_
+for exactly what will go into a release. We always inform our
+:community_plone:`mailing lists <>` of the development status.
 
 See the full details of OMERO |release| features in the
 :forum:`Announcements <viewforum.php?f=11>` forum.
+
+This guide aims to be as definitive as possible so please do not be put off by
+the level of detail; upgrading should be a straightforward process.
 
 Upgrade check list
 ------------------
@@ -21,62 +22,72 @@ Upgrade check list
 
 Check Prerequisities
 ^^^^^^^^^^^^^^^^^^^^
-Before starting the upgrade, please ensure that you have
-obtained all the prerequisites for installation, documented for
-Unix and Windows. In particular, ensure that you are running a
-suitable version of PostgreSQL to enable successful upgrading of
-the database.
+
+Before starting the upgrade, please ensure that you have obtained all the
+prerequisites for installation, documented for Unix and Windows. In
+particular, ensure that you are running a suitable version of PostgreSQL to
+enable successful upgrading of the database.
 
 File limits
 ^^^^^^^^^^^
 
 You may wish to review the open file limits.  Please consult the
-:ref:`limitations-logback` section for further details.
+:ref:`limitations-openfiles` section for further details.
 
 Password salting
 ^^^^^^^^^^^^^^^^
 
-With 5.0.0, the default JDBC password provider has been modified to
-add password salting support. This implies that once a server has been
-upgraded and deployed, if passwords are modified, you will not be able
-to easily revert to a configuration without salting. To keep using the
-legacy password provider without salting support, you will need to
-configure ``omero.security.password_provider`` to use the legacy
+With 5.0.0, the default JDBC password provider has been modified to add
+password salting support. This implies that once a server has been upgraded
+and deployed, if passwords are modified, you will not be able to easily revert
+to a configuration without salting. To keep using the legacy password provider
+without salting support, you will need to configure
+:term:`omero.security.password_provider` to use the legacy
 ``chainedPasswordProviderNoSalt`` as described in the
 :ref:`legacy_password_providers` section.
 
 Password usage
 ^^^^^^^^^^^^^^
 
-The passwords and logins used here are examples. Please consult
-the :ref:`troubleshooting-password` section for explanation.  In particular,
-make sure to replace the values of **db_user** and **omero_database**
-with the actual database user and database name for your installation.
+The passwords and logins used here are examples. Please consult the
+:ref:`troubleshooting-password` section for explanation. In particular, be
+sure to replace the values of **db_user** and **omero_database** with the
+actual database user and database name for your installation.
 
 Re-indexing for search
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If you have experienced any issues with search in the past,
-**especially prior to 5.0.1**, you could take
-the opportunity to reindex your full text index. See
-:ref:`search-reindexing` for more information.
+All OMERO databases created **prior to 5.0.1** were susceptible to a Lucene
+bug which could "hide" some search entries. For example, an image might show
+up in queries based on its name, but searching for a tag or similar might
+show nothing.
+
+**If you have experienced any issues with search in the past**, you should
+**strongly** consider reindexing your full text index, the process for
+which has been significantly stream-lined. See :ref:`search-reindexing`
+for more information.
+
+Web Plugin Updates
+^^^^^^^^^^^^^^^^^^
+OMERO.web plugins are very closely integrated into the webclient. For this
+reason, it is possible that an update of OMERO will cause issues with an older
+version of a plugin. It is best when updating the server to also install any
+available plugin updates according to their own documentation.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-If you encounter errors during a OMERO upgrade, database upgrade, etc.
-you should retain as much log information as possible and notify the
-OMERO.server team via the mailing lists available on the
-:community_plone:`community <>` page.
+If you encounter errors during an OMERO upgrade, database upgrade, etc. you
+should retain as much log information as possible and notify the OMERO.server
+team via the mailing lists available on the :community_plone:`community <>`
+page.
 
 Upgrade check
 ^^^^^^^^^^^^^
 
-All OMERO products check themselves with the
-OmeroRegistry for update notifications on startup. If you wish
-to disable this functionality you should do so now as outlined on the
-:doc:`/sysadmins/UpgradeCheck` page.
-
+All OMERO products check themselves with the OmeroRegistry for update
+notifications on startup. If you wish to disable this functionality you should
+do so now as outlined on the :doc:`UpgradeCheck` page.
 
 Upgrade steps
 -------------
@@ -140,10 +151,8 @@ Run the upgrade script
 
 You **must** use the same username and password you have defined during
 :doc:`unix/server-installation`. The |version| upgrade script should execute
-in a short time.
-
-From a |previousversion|.x server
-"""""""""""""""""""""""""""""""""
+in a short time. The example below assumes you are upgrading from a
+|previousversion| server.
 
 .. parsed-literal::
 
@@ -163,26 +172,6 @@ From a |previousversion|.x server
 
     (1 row)
 
-From a 5.0.0-beta1 server
-"""""""""""""""""""""""""
-
-.. parsed-literal::
-
-    $ cd OMERO.server
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO\ |version|\DEV\_\_6.sql
-    Password for user **db_user**:
-    ...
-    ...
-                               status
-    ---------------------------------------------------------------------
-                                                                        +
-                                                                        +
-                                                                        +
-    YOU HAVE SUCCESSFULLY UPGRADED YOUR DATABASE TO VERSION OMERO |version|\_\_0+
-                                                                        +
-                                                                        +
-
-    (1 row)
 
 Optimize an upgraded database (optional)
 """"""""""""""""""""""""""""""""""""""""
@@ -226,11 +215,9 @@ variables are pointing to the new locations.
 JVM memory settings
 """""""""""""""""""
 
-If you modified your memory settings, these changes will be lost and you will
-need to update the memory settings for the new server. Refer to the
-`JVM memory settings` sub-section of the OMERO.server installation section
-(:doc:`Unix <unix/server-installation>` or
-:doc:`Windows <windows/server-installation>`) for more information.
+Your memory settings should be copied along with :file:`etc/grid/config.xml`,
+but you can check the current settings by running :omerocmd:`admin memory`.
+See :ref:`jvm_memory_settings` for more information.
 
 Python Imaging Library
 """"""""""""""""""""""

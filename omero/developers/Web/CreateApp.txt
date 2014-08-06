@@ -10,79 +10,58 @@ database mapping, since all data comes from the OMERO server and is
 saved back there. You will notice that the models.py files in each app
 are empty.
 
-.. note:: Since OMERO 5.0, the web framework uses Django 1.6 instead of Django 1.3.
-    One important change is the syntax of the
+.. note:: Since OMERO 5.0, the web framework uses Django 1.6 instead of Django
+    1.3. One important change is the syntax of the
     `url template tag <https://docs.djangoproject.com/en/dev/ref/templates/builtins/#std:templatetag-url>`_,
-    which now requires quotes, and will need to be updated for OMERO 4.4 web apps moving to OMERO 5.0.
+    which now requires quotes, and will need to be updated for OMERO 4.4 web
+    apps moving to OMERO 5.0.
 
 Getting set up
 --------------
 
-You will need to have an OMERO server running that you can connect to.
-This will typically be on your own machine, although it does not
-necessarily have to be. If you want to connect to another server (not
-localhost) you can edit the server list as described on the OMERO.web 
-deployment page (see :doc:`Unix </sysadmins/unix/install-web>` or 
-:doc:`Windows </sysadmins/windows/install-web>` version) and choose that 
-server when you log in. That page also describes how to set debug to 'True' 
-which is important when developing with OMERO.web and you should also be using 
-the Django 'development' server.
-
-::
-
-    $ bin/omero web start
-    INFO:__main__:Application Starting...
-    INFO:root:Processing custom settings for module omeroweb.settings
-    ...
-    Validating models...
-
-    0 errors found
-    Django version 1.6, using settings 'omeroweb.settings'
-    Starting development server at http://0.0.0.0:4080/
-    Quit the server with CONTROL-C.
-
-.. note:: Port number is 4080
+In order to deploy OMERO.web in a development or testing environment please 
+follow the instructions under :doc:`Deployment`.
 
 You should make sure that you can access the webclient and webadmin on
 your local machine before starting to develop your own code. Be sure to
 use the correct port number, E.g:
 
--  ` http://localhost:4080/webclient/ <http://localhost:4080/webclient/>`_
+-  `http://localhost:4080/webclient/ <http://localhost:4080/webclient/>`_
 
-When you edit and save your app, Django will
-automatically detect this and you only need to refresh your browser
-to see the changes. You can see this in the :snapshot:`OMERO.web intro
-movie <movies/omero-4-3/mov/OmeroWebIntro-4.3.mov>`.
+When you edit and save your app, Django will automatically detect this and you
+only need to refresh your browser to see the changes.
 
-If you want to run OMERO.web from source code, see :doc:`/developers/Web/EditingOmeroWeb`.
+If you want to run OMERO.web from source code, see
+:doc:`/developers/Web/EditingOmeroWeb`.
 
 You can place your app anywhere on your :envvar:`PYTHONPATH`,
 as long as it can be imported by OMERO.web.
 
 .. note::
 
-   OMERO 5 uses Django 1.6 which has a different project layout from OMERO 4.4. 
-   If you are upgrading your app from 4.4.x you may need to update some import
-   statements. E.g. ``from omeroweb import webgateway`` will become
-   ``import webgateway``.
+    OMERO 5 uses Django 1.6 which has a different project layout from OMERO
+    4.4.
+    If you are upgrading your app from 4.4.x you will need to update some
+    import statements, e.g. ``from omeroweb import webgateway`` will become
+    ``import webgateway``.
 
 Creating an app
 ---------------
 
-We suggest you use github (as we do) since it is much easier for us to
+We suggest you use GitHub (as we do) since it is much easier for us to
 help you with any problems you have if we can see your code. The steps below
-describe how to create a stand-alone git repository for your app, similar to 
+describe how to create a stand-alone git repository for your app, similar to
 `webtagging <https://github.com/dpwrussell/webtagging>`_.
-If you do not want to use github, simply ignore the github steps below.
+If you do not want to use GitHub, simply ignore the GitHub steps below.
 
 The steps below describe setting up a new app. You should choose an
 appropriate name for your app and use it in place of <your-app> in the
 examples below:
 
-Create and checkout a new github repository OR manually create a new directory
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Create and checkout a new GitHub repository OR manually create a new directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Login to your github account homepage (E.g.
+-  Login to your GitHub account homepage (e.g.
    `<https://github.com/>`_\ <your-name>/) and click
    "New repository"
 -  Enter the name of <your-app>, add description and choose to add
@@ -95,14 +74,15 @@ Create and checkout a new github repository OR manually create a new directory
        $ git clone git@github.com:<your-name>/<your-app>.git
 
 
--  OR: If you haven't used git to create your app directory above, then
+-  OR: If you have not used git to create your app directory above, then
 
    ::
 
         $ mkdir <your-app>
 
 Add your app location to your PYTHONPATH
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 If your app is not in a directory that is already on your :envvar:`PYTHONPATH`
 then you need to add it:
 
@@ -111,7 +91,7 @@ then you need to add it:
     $ export PYTHONPATH=$PYTHONPATH:/path/to/your-app
 
 Add the essential files to your app
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Create an empty file ``<your-app>/__init__.py`` (NB: both double
    underscores)
@@ -142,7 +122,7 @@ Add the essential files to your app
             return HttpResponse("Welcome to your app home-page!")
 
 Add your app to OMERO.web
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This will add your app to the INSTALLED\_APPS, so that URLs are
 registered etc.
@@ -153,13 +133,10 @@ registered etc.
 
 .. note::
 
-    For releases before 4.4, you need to 'register' your app with Django
-    manually by adding it to the INSTALLED\_APPS list in
-    omeroweb/settings.py following the pattern of existing apps there. You
-    also need to edit omeroweb/urls.py to add your app's urls.py file to the
-    list of "urlpatterns". Again, you should be able to follow the existing
-    examples there. You can also specify at this point the URL under which
-    your app will be found.
+    You also need to edit omeroweb/urls.py to add your app's urls.py file to
+    the list of "urlpatterns". Again, you should be able to follow the
+    existing examples there. You can also specify at this point the URL under
+    which your app will be found.
 
 Now you can view the home-page we created above (NB: you will need to
 restart the OMERO.web server for the config settings to take effect)
@@ -169,12 +146,12 @@ restart the OMERO.web server for the config settings to take effect)
      $ bin/omero web stop
      $ bin/omero web start
 
-Go to ` http://localhost:4080/ <http://localhost:4080/>`_\ <your-app>/
-OR ` http://localhost:8000/ <http://localhost:8000/>`_\ <your-app>/
-Should see 'Welcome'
+Go to `http://localhost:4080/ <http://localhost:4080/>`_\ <your-app>/
+OR `http://localhost:8000/ <http://localhost:8000/>`_\ <your-app>/
+and you should see 'Welcome'.
 
-Commit your code and push to github
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Commit your code and push to GitHub
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -187,7 +164,7 @@ Commit your code and push to github
     $ git push origin master
 
 Connect to OMERO: example
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We have got our new app working, but it is not connecting to OMERO yet.
 Let us create a simple "stack preview" for an Image with multiple
@@ -198,7 +175,7 @@ under /omeroweb/<your-app>/templates/<your-app>/
 
 .. note::
 
-   note that /<your-app>/ appears twice in that path (need an extra folder 
+   note that /<your-app>/ appears twice in that path (need an extra folder
    under templates). This example can be found in webtest.
 
 -  **urls.py**
@@ -253,21 +230,21 @@ under /omeroweb/<your-app>/templates/<your-app>/
        </html>
 
 
-Viewing the page at http://localhost:4080/<your-app>/stack_preview/<image-id>/ 
-should give you the image name and 5 planes from the Z stack. You will notice 
-that we are using webgateway to handle the image rendering using a URL 
+Viewing the page at http://localhost:4080/<your-app>/stack_preview/<image-id>/
+should give you the image name and 5 planes from the Z stack. You will notice
+that we are using webgateway to handle the image rendering using a URL
 auto-generated by Django - see :doc:`/developers/Web/WebGateway`.
 
 Resources for writing your own code
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 The webtest app has a number of examples. If you go to the webtest
-homepage E.g. `<http://localhost:8000/webtest>`_ you will
+homepage e.g. `<http://localhost:8000/webtest>`_ you will
 see an introduction to some of them. This page tries to find random
 image and dataset from your OMERO server to use in the webtest examples.
 
 Extending templates
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 We provide several HTML templates in
 webgateway/templates/webgateway/base. This is a nice way of giving users
@@ -279,7 +256,7 @@ components (links, logout etc), so you can make changes to all your
 pages at once. See :doc:`/developers/Web/WritingTemplates` for more info.
 
 App settings
-~~~~~~~~~~~~
+------------
 
 You can add settings to your app that allow configuration via the command line
 in the same way as for the base OMERO.web in omeroweb/settings.py.
@@ -313,12 +290,13 @@ Users can then configure this on the command line as follows:
 
 
 OMERO.web top links
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
-You can configure settings 'top_links' to add a link to the list of links at the
-top of the webclient main pages.
+You can configure settings 'top_links' to add a link to the list of links at
+the top of the webclient main pages.
 
--  **Name your url in urls.py** (optional). Preferably we use url names to refer to urls.
+-  **Name your URL in urls.py** (optional). Preferably we use URL names to
+   refer to URLs.
    For example, the homepage of your app might be named like this in urls.py.
 
    ::
@@ -344,7 +322,7 @@ You can also create **external** links by specifying the full URL instead of the
     $ bin/omero config set omero.web.ui.top_links '[["Mobile", "webmobile_index"], ["OME", "https://www.openmicroscopy.org"]]'
 
 
-OMERO.web plugins (OMERO 4.4)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OMERO.web plugins
+-----------------
 
 If you want to display content from your app within the webclient UI, please see :doc:`/developers/Web/WebclientPlugin`.

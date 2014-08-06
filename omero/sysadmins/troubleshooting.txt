@@ -62,8 +62,8 @@ these are completely separate from the system accounts, above, existing only
 inside the database.  The database administrative user (“postgres”) is the 
 owner of all the database resources, and can create new users internal to the 
 database. A single database account is used at run time by OMERO to talk to 
-your database. Therefore, you must configure the “omero.db.***” values during 
-installation:
+your database. Therefore, you must configure the
+:ref:`database <core_configuration>` values during installation:
 
 ::
 
@@ -97,6 +97,8 @@ Other OMERO users can be created via the OMERO.web admin tool. None of the
 passwords have to be the same, in fact they should be different **unless you
 are using the LDAP plugin**.
 
+.. _server_fails_to_start:
+
 Server fails to start
 ---------------------
 
@@ -104,8 +106,8 @@ Server fails to start
    installation as outlined on the PostgreSQL page for your OS 
    (:doc:`Windows PostgreSQL page <windows/server-postgresql>` or 
    :doc:`UNIX/Mac PostgreSQL page <unix/server-postgresql>`).
-2. Check the permissions on your ``omero.data.dir`` (``/OMERO`` or 
-   ``C:\OMERO`` by default) as outlined on the 
+2. Check the permissions on your :term:`omero.data.dir` (:file:`/OMERO` or
+   :file:`C:\OMERO` by default) as outlined on the
    :doc:`unix/server-installation` page for Unix/Mac users, or the 
    :doc:`windows/server-binary-repository` page for Windows users.
 3. Are you on a laptop? If you see an error message mentioning 
@@ -122,6 +124,18 @@ Server fails to start
    problem, but it will be necessary to stop OMERO and delete the
    ``var/master`` directory (e.g. ``rm -rf var/master``). When
    restarting OMERO, the registry will be automatically re-created.
+5. If you see an error message mentioning "Protocol family unavailable",
+   you will need to set the :term:`Ice.IPv6` property with
+   :omerocmd:`config set IPv6 0`.
+6. If OMERO starts up, but fails to respond to connection requests, check
+   `netstat -a` for port 4064. If nothing is listening on 4064, you may
+   need to specify which network interface to use.
+   :omerocmd:`config set Ice.Default.Host 127.0.0.1`, for example, would
+   force OMERO to only listen on localhost. See
+   http://doc.zeroc.com/display/Ice/Proxy+and+Endpoint+Syntax#ProxyandEndpointSyntax-address
+   for more information.
+
+.. _remote_clients_cannot_connect:
 
 Remote clients cannot connect to OMERO installation
 ---------------------------------------------------
@@ -163,37 +177,12 @@ OutOfMemoryError / PermGen space errors in OMERO.server logs
 Out of memory or permanent generation (PermGen) errors can be caused by
 many things. You may be asking too much of the server. Or you may
 require an increase in the maximum Java heap or the permanent generation
-space. This can be done by modifying the IceGrid configuration for your
-OMERO.server as follows:
+space. This can be done by modifying the configuration for your
+OMERO.server. See :ref:`jvm_memory_settings`.
 
--  In ``etc/grid/templates.xml``:
-
-   ::
-
-       …
-
-       <server-template id="BlitzTemplate">
-         <parameter name="index"/>
-         <parameter name="config" default="default"/>
-         <server id="Blitz-${index}" exe="java" activation="always" pwd="${OMERO_HOME}">
-           <!--
-           Debugging options:
-           <option>-Xdebug</option>
-           <option>-Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n</option>
-           -->
-           <option>-Xmx512M</option>
-           <option>-Djava.awt.headless=true</option>
-           <option>-Dlog4j.configuration=${OMERO_ETC}log4j.xml</option>
-           …
-
-   Replace ``-Xmx512M`` initially with ``-Xmx1024M`` or greater as required,
-   (use ``-Xmx1024M -XX:MaxPermSize=128m`` as an alternative).
-
-Alternatively, if you are finding out of memory errors in one of the other
-process logs (e.g. Indexer-0.log or PixelData-0.log), look for the entry in
-``etc/grid/templates.xml`` corresponding to that process and change the ``-Xmx``
-option there (e.g. under ``<server-template id="IndexerTemplate">`` or
-``<server-template id="PixelDataTemplate">``, respectively).
+Similarly, if you are finding out of memory errors in one of the other
+process logs (e.g. :file:`Indexer-0.log` or :file:`PixelData-0.log`),
+you might try optimizing the JVM memory settings.
 
 Furthermore, under certain conditions access of images greater than 4GB
 can be problematic on 32-bit platforms due to certain bugs within the
@@ -244,61 +233,16 @@ period (seconds) between retries in ``etc/grid/templates.xml``
     <property name="omero.fs.maxRetries"  value="5"/>
     <property name="omero.fs.retryInterval"  value="3"/>
 
+.. _troubleshooting-search:
 
 Search does not return expected results
 ---------------------------------------
 
 If searching for a specific term does not return the expected results (e.g.
 searching for the name of a tag does not return the full list of a user's images
-annotated with that tag) there are a few things that may have gone
-wrong.
+annotated with that tag), there are a few things that may have gone
+wrong. See :ref:`search-failures` for more details.
 
--  Check the server's log directory for a file named ``Indexer-0.log`` and
-   monitor its progress (e.g. using ``tail`` or similar). If messages of the
-   format:
-
-   ::
-
-       INFO  [   ome.services.fulltext.FullTextIndexer ] (3-thread-2) INDEXED 2 objects in 1 batch(es) [2483 ms.]
-
-   are periodically being appended to the log file, then your indexer process
-   may be running behind. You can either wait for it to catch up, or try
-   increasing the search batch size in order to speed processing. See the
-   section on the :ref:`omero_search_batch` setting for more information.
-
--  If there are no updates to the ``Indexer-0.log`` file even when new images,
-   tags, files, etc. are added to the server, then it is possible that the
-   Indexer process has become stuck. It is possible to force a restart of the
-   indexer using the :ref:`icegrid_tools` like so:
-
-   ::
-
-       > bin/omero admin ice
-       > omero admin ice
-       Ice 3.4.2  Copyright 2003-2011 ZeroC, Inc.
-       >>> server list
-       Blitz-0
-       DropBox
-       FileServer
-       Indexer-0
-       ...
-       >>> server stop Indexer-0
-
-   You do not need to manually re-start the Indexer, as IceGrid will handle the
-   creation of a new Indexer process automatically.
-
--  If the missing search terms are part of a very large text file, it is
-   possible that the file has not been indexed due to exceeding the indexer's
-   maximum file size limit. See the section on the
-   :ref:`omero_search_max_file_size` setting for more information on increasing
-   this limit.
-
--  If none of the above steps have resolved the situation, it is possible that
-   your search index has become corrupt. If this is the case, you will need to
-   re-index your server's content. See the section on :ref:`search-reindexing`
-   for more information. Keep in mind that you may also need to adjust
-   the settings for the search batch size, maximum file size, and indexer's heap
-   size, as outlined above.
 
 OMERO.web issues
 ----------------

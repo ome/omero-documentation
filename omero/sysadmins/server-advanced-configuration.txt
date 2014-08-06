@@ -1,103 +1,7 @@
-Advanced configuration
-======================
-
-.. topic:: Overview
-
-    Describes configuration options that not everyone will need, but may be
-    useful for optimizing, customizing, or monitoring your server.
-
-
-The OMERO server provides several different configuration/extension points
-that you may want to use.
-
-Configuration properties
-------------------------
-
-The primary form of configuration is via the use of key/value
-properties, stored in :file:`etc/grid/config.xml` and read on server startup.
-Backing up and copying these properties is as easy as copying this file to a
-new server version.
-
-The :source:`etc/omero.properties`
-file of your distribution defines all the default configuration
-properties used by the server. Changes made to the file are *not*
-recognized by the server. Instead, the :omerocmd:`config` command is
-used to change those properties that you would like to customize.
-
-Examples of doing this are on the main :doc:`Unix <unix/server-installation>`
-and :doc:`Windows <windows/server-installation>` pages, as well as the
-:doc:`LDAP installation <server-ldap>` page.
-
-Here we list some options which you are most likely to want to modify.
-See :source:`etc/omero.properties` for more details.
-
-omero.sessions.timeout
-^^^^^^^^^^^^^^^^^^^^^^
-
-``omero.sessions.timeout`` sets the duration of inactivity in milliseconds
-after which a login is required (default is 600000, or 10 minutes). To
-change the default, for example, to 1 hour use:
-
-::
-
-	$ bin/omero config set omero.sessions.timeout 3600000
-
-omero.db.poolsize
-^^^^^^^^^^^^^^^^^
-
-``omero.db.poolsize`` sets the number of connections to PostgreSQL which
-will be used by OMERO (default is 10):
-
-::
-
-	$ bin/omero config set omero.db.poolsize 50
-
-Your database installation will need to be configured to accept *at
-least* as many, preferably more, connections as the value of
-"omero.db.poolsize"
-
-.. _omero_search_batch:
-
-omero.search.batch
-^^^^^^^^^^^^^^^^^^
-
-The search indexer will process events in batches, the size of which is
-determined by the ``omero.search.batch`` setting (default is 50):
-
-::
-
-	$ bin/omero config set omero.search.batch 200
-
-Setting a larger batch size can potentially speed up indexing, but it also
-places more strain on the indexer heap. If you increase batch size, it may be
-necessary to also increase heap size (see: :ref:`out_of_memory_error`).
-
-.. _omero_search_max_file_size:
-
-omero.search.max_file_size
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The search indexer will not index any text or PDF files larger than
-``omero.search.max_file_size`` bytes. If a file larger than this is attached,
-e.g. to an image, the indexer will simply ignore the contents of the file
-when creating the search index. To allow larger files to be added to the search
-index you may increase the setting (default is 131072000, or 125 MB):
-
-::
-
-	$ bin/omero config set omero.search.max_file_size 262144000
-
-.. note:: If you set the max file size to greater than 1/2 the size of the
-    indexer's heap (256 MB by default), you may encounter Out of Memory errors in
-    the Indexer process or you may cause the search index to become corrupt. Be sure
-    that you also increase the heap size accordingly (see
-    :ref:`out_of_memory_error`).
-
-
 .. _gridconfiguration:
 
 Grid configuration
-------------------
+==================
 
 In some cases, the configuration properties will not suffice to fully
 configure your server. In that case, it may be necessary to make use of
@@ -109,12 +13,12 @@ Windows systems and both make use of
 :source:`templates.xml <etc/grid/templates.xml>`.
 
 The default OMERO application descriptor deploys multiple server instances
-(Blitz-0, FileServer, Indexer-0, PixelData-0…) on a single node. Each server
-instance is defined by a ``server-template`` element in
+(Blitz-0, FileServer, Indexer-0, PixelData-0, ...) on
+a single node. Each server instance is defined by a ``server-template`` element in
 :source:`templates.xml <etc/grid/templates.xml>` with is own parameters.
 
 Modifying the application descriptors
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------
 
 When you run :omerocmd:`admin start` without any other arguments, it
 looks up the default **application descriptor** for your platform:
@@ -157,7 +61,7 @@ be used. You can also modify the default application descriptors in place.
     whatever changes you perform directly on the new files.
 
 Targets
-^^^^^^^
+-------
 
 **Targets** are elements within the application descriptors which can
 optionally turn on configuration. The target is only applicable until
@@ -165,14 +69,14 @@ the next invocation of :omerocmd:`admin start` or :omerocmd:`admin deploy`
 
 .. note::
     You must remember to always apply the targets on each
-    :omerocmd:`admin` command. If not, the target will not be 
+    :omerocmd:`admin` command. If not, the target will not be
     removed. Therefore, they are often better used for debugging purposes;
     however, as opposed to alternative application descriptors, using
     the pre-existing targets should not require any special effort
     during upgrades.
 
 Debugging
-"""""""""
+^^^^^^^^^
 
 ::
 
@@ -190,8 +94,10 @@ Debugging
 Here, the "debug" target allows increasing the logging output of the
 Python servers without modifying any files.
 
+.. _jmx_configuration:
+
 JMX configuration
-"""""""""""""""""
+^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -218,8 +124,8 @@ Changing ports / multiple servers on a single host
 --------------------------------------------------
 
 Since changing all the references to port numbers (4061, 4063, 4064,
-etc) in the grid configuration can be cumbersome, a 
-:omerocmd:`admin` command is provided to make the modifications for 
+etc) in the grid configuration can be cumbersome, a
+:omerocmd:`admin` command is provided to make the modifications for
 you. See the :ref:`security_ssl`
 section of the :doc:`/sysadmins/server-security` page for more information.
 
@@ -236,7 +142,7 @@ OMERO servers on the same physical machine.
           cd /usr/local/omero-4.3
           bin/omero admin ports --prefix=2
           bin/omero admin start
-       
+
 
 Clients will need to use the appropriate port (either 14064 or 24064) to
 connect to OMERO.

@@ -2,12 +2,23 @@ OMERO search
 ============
 
 Beginning with 3.0-Beta3, the OMERO server will use
-` Lucene <http://lucene.apache.org>`_ to index all string and timestamp
+`Lucene <http://lucene.apache.org>`_ to index all string and timestamp
 information in the database, as well as all ``OriginalFiles`` which can
 be parsed to simple text (see :doc:`/developers/Search/FileParsers` for
-more information). The index is stored under /OMERO/FullText (or the
-``FullText`` subdirectory of your ${omero.data.dir}, and can be searched
-with Google-like queries.
+more information). The index is stored under :file:`/OMERO/FullText` (or the
+:file:`FullText` subdirectory of your :term:`omero.data.dir`, and can be
+searched with Google-like queries.
+
+Once an entity is indexed, it is possible to start writing querying
+against the server via ``IQuery.findAllByFullText()``. Use
+``new Parameters(new Filter().owner())`` and ``.group()`` to restrict
+your search. Or alternatively use the ``oma.api.Search`` interface
+(below).
+
+.. seealso::
+  :doc:`/sysadmins/search`
+    Section of the sysadmin documentation describing the configuration of the
+    search and indexing for the server.
 
 Field names
 -----------
@@ -54,146 +65,11 @@ Assuming these entries above for Image.name:
 -  searching for **GFP H2B** returns 1, 2, and 3, since the two terms
    are joined by an **OR**.
 
-Information for developers and system administrators
-----------------------------------------------------
-
-Scheduling indexing
-~~~~~~~~~~~~~~~~~~~
-
-Indexing is not driven by the user, but happens automatically in the
-background. Automatic indexing occurs at the frequency defined in
-etc/omero.properties:
-
-::
-
-    omero.search.cron=0,30 * * * * ?
-    omero.search.batch=100
-
-which implies every thirty seconds of every hour, day, month, year, etc.
-During each iteration, 100 ``EventLogs`` will be loaded from the
-database and processed. Upon successful completion, the persistent count
-in the ``configuration`` table, will be incremented.
-
-::
-
-    omero3=# select value from configuration where name = 'PersistentEventLogLoader.current_id';
-     value 
-    -------
-     30983
-    (1 row)
-
-If you have more than one ``PersistentEventLogLoader.*`` value in your
-database, then you have run indexing with multiple versions of the
-server. This is fine. To allow a new server version to force an update,
-the configuration key may be changed. For example,
-
-::
-
-       PersistentEventLogLoader.currend_id
-
-became
-
-::
-
-       PersistentEventLogLoader.v2.current_id
-
-in r2460.
-
-Once an entity is indexed, it is possible to start writing querying
-against the server via ``IQuery.findAllByFullText()``. Use
-``new Parameters(new Filter().owner())`` and ``.group()`` to restrict
-your search. Or alternatively use the ``oma.api.Search`` interface
-(below).
-
-.. _search-reindexing:
-
-Re-indexing
-^^^^^^^^^^^
-
-There are a few reasons that you may need to re-index your database, e.g. if the
-index has become corrupt or you would like to have large files, that were
-previously skipped, added to the index (see :ref:`omero_search_max_file_size`).
-Under most circumstances, you should be able to re-index the database while the
-server is still running.
-
-If you need to make any adjustments to the server configuration or the process
-heap size, first shut the server down and make these changes before restarting
-the server. Then, with the server running, using the following steps to initiate
-a re-indexing
-
--  Disable the search indexer process and stop any currently running indexer
-   processes:
-
-   ::
-
-       > bin/omero admin ice server disable Indexer-0
-       > bin/omero admin ice server stop Indexer-0
-
--  Remove the existing search Indexes by deleting the contents of the
-   ``FullText`` subdirectory of your ${omero.data.dir}
-
--  Reset the indexer's progress counter in the database
-
-   ::
-
-       > psql -U <omero-db-user> <omero-db-name> -c "update configuration set value = 0 where name like 'PersistentEventLogLoader%';"
-
-   substituting in your local omero database's user and name
-
--  Re-enable/restart the indexer process (the Ice grid will handle automatically
-   restarting the process as soon as it is re-enabled)
-
-   ::
-
-       > bin/omero admin ice server enable Indexer-0
-
-Depending on the size of your database, it may take the indexer some time to
-finish re-indexing. During this time, your OMERO server will remain available
-for use, however the search functionality will be degraded until the re-indexing
-is finished.
-
-It is also possible to re-index the database with the server off-line. First,
-shutdown the OMERO server as normal and make any adjustments to the
-configuration that need to be made. Clear the contents of the ``FullText``
-directory, then run
-
-::
-
-   > bin/omero admin reindex --full
-
-Re-indexing the database in off-line mode will use a 1 GB heap by default (as
-opposed to the default 256MB heap for the indexer process in the running
-server). You can further adjust the size of the heap by passing an alternate
-value in the ``JAVA_OPTS`` variable on the command line
-
-::
-
-   > JAVA_OPTS="-Xmx2056MB" bin/omero admin reindex --full
-
-You may also want to increase the :ref:`omero_search_batch` size to take
-advantage of the larger heap. The combination of a larger heap and batch size
-should enable the re-index to complete sooner in off-line mode than it might in
-the context of a running server.
-
-Alternatively, you can re-index a specific class of objects in off-line mode,
-followed by a later re-index with the server running. Start by shutting down the
-server and clearing the contents of the ``FullText`` directory. Then reindex a
-specific class of object with
-
-::
-
-   > bin/omero admin reindex --class ome.model.core.Image
-
-Multiple classes can be re-indexed together by appending extra ``--class ...``
-arguments on the command-line. Once this limited re-indexing is completed, you
-can restart the server and search capabilities will be available in a limited
-fashion. If you would then like to re-index the remaining objects in the system,
-follow the steps for the on-line reindexing above, skipping the step that
-involves clearing the ``FullText`` directory.
-
+Information for developers
+--------------------------
 
 ome.api.IQuery
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 The current IQuery implementation restricts searches to a single class
 at a time.
@@ -210,7 +86,7 @@ at a time.
    -- File containing "metaphase"
 
 ome.api.Search
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 The Search API offers a number of different queries along with various
 filters and settings which are all maintained on the server.
@@ -219,45 +95,99 @@ The matrix below show which combinations of parameters and queries are
 supported (S), will throw an exception (X), and which will simply silently be
 ignored (I).
 
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| **Query Method** -->     | byFullText/SomeMustNone   | byGroupForTags/byTagsForGroup   | byAnnotatedWith   |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| **Parameters**           |                           |                                 |                   |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| annotated between        | S                         | S                               | S                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| annotated by             | S                         | S                               | S                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| annotated with           | S                         | I                               | I                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| created between          | S                         | S                               | S                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| modified between         | S                         | I (Immutable)                   | S                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| owned by                 | S                         | S                               | S                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| all types                | X                         | I                               | X                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| 1 type                   | S                         | I                               | S                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| N types                  | X                         | I                               | X                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| only ids                 | S                         | I                               | S                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| **Ordering / Fetches**   |                           |                                 |                   |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| orderBy                  | S                         | I                               | S                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| fetchAnnotations         | [1]_                      | I                               | [2]_              |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| **Other**                |                           |                                 |                   |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| setProjections [3]_      | X                         | X                               | X                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| current\*Metdata [4]_    | X                         | X                               | X                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
-| setProjections [3]_      | X                         | X                               | X                 |
-+--------------------------+---------------------------+---------------------------------+-------------------+
+.. list-table::
+  :header-rows: 1
+
+  - * Query Method -->
+    * byGroupForTags/byTagsForGroup
+    * byFullText/SomeMustNone
+    * byAnnotatedWith
+
+  - * **Parameters**
+    *
+    *
+    *
+
+  - * annotated between
+    * S
+    * S
+    * S
+
+  - * annotated by
+    * S
+    * S
+    * S
+
+  - * annotated by
+    * S
+    * I
+    * I
+
+  - * created between
+    * S
+    * I
+    * I
+
+  - * modified between
+    * S
+    * I (Immutable)
+    * S
+
+  - * owned by
+    * S
+    * S
+    * S
+
+  - * all types
+    * X
+    * I
+    * X
+
+  - * 1 type
+    * S
+    * I
+    * S
+
+  - * N types
+    * X
+    * I
+    * X
+
+  - * only ids
+    * S
+    * I
+    * S
+
+  - * **Ordering / Fetches**
+    *
+    *
+    *
+
+  - * orderBy
+    * S
+    * I
+    * S
+
+  - * fetchAnnotations
+    * [1]_
+    * I
+    * [2]_
+
+  - * **Other**
+    *
+    *
+    *
+
+  - * setProjections [3]_
+    * X
+    * X
+    * X
+
+  - * current\*Metdata [4]_
+    * X
+    * X
+    * X
+
 
 .. rubric:: Footnotes
 
@@ -273,7 +203,7 @@ Leading wildcard searches
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Leading wildcard searches are disallowed by default. "?omething" or
-"\*hatever", for example, would both throw exceptions. They can be run by 
+"\*hatever", for example, would both throw exceptions. They can be run by
 using:
 
 ::
@@ -296,14 +226,14 @@ gets expanded to:
 
       ACELL OR BCELL OR CCELL
 
-If there are more than "omero.search.maxclause" terms in the expansion
+If there are more than :term:`omero.search.maxclause` terms in the expansion
 (default is 4096), then an exception will be thrown. This requires the
 user to enter a more refined search, but not because there are too many
 results, only because there is not enough room in memory to search on
 all terms at once.
 
 Extension points
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 Two extension points are currently available for searching. The first
 are the :doc:`/developers/Search/FileParsers` mentioned above. By
@@ -320,8 +250,8 @@ it is possible to extract more information specific to your site.
 .. seealso::
     :doc:`/developers/Modules/StructuredAnnotations`,
     :doc:`/developers/Modules/Search/Bridges`,
-    :doc:`/developers/Search/FileParsers`, 
+    :doc:`/developers/Search/FileParsers`,
     `Query Parser Syntax <http://lucene.apache.org/core/3_6_0/queryparsersyntax.html>`_,
 
-    ` Luke <http://www.getopt.org/luke/>`_ 
+    ` Luke <http://www.getopt.org/luke/>`_
         a Java application which you can download and point at your ``/OMERO/FullText`` directory to get a better feeling for Lucene queries.

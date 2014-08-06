@@ -1,0 +1,11 @@
+Basic UNIX (and UNIX-like platforms) server installation
+========================================================
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    server-installation
+    server-binary-repository
+    server-postgresql
+    install-web

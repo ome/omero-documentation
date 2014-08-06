@@ -44,6 +44,7 @@ Introduction to OMERO
 
     whatsnew
     installation
+    build-system
     GettingStarted
     testing
 
@@ -101,6 +102,7 @@ Web
     :titlesonly:
 
     Web
+    Web/Deployment
     Web/CreateApp
     Web/WebclientPlugin
     Web/EditingOmeroWeb
