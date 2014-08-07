@@ -118,8 +118,8 @@ For example::
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON"
 
 This method is present for backward compatibility with the previous
-:program:`scons` build system.  While it is possible to customise the
-build somewhat, some behaviour is hardcoded and so this will not be
+:program:`scons` build system.  While it is possible to customize the
+build somewhat, some behavior is hardcoded and so this will not be
 suitable for all situations and is not recommended.  Parallel building
 is also not supported.  If you wish to have full control over the C++
 build or wish to use a cmake generator to build within an IDE, then
