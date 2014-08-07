@@ -3,9 +3,9 @@ OMERO C++ language bindings
 
 Using the :zerocdoc:`Ice C++ language mapping
 <display/Ice/Hello+World+Application>` from ZeroC_, OMERO provides
-native access to your data from C++ code. The ``build-cpp`` build
-target produces a platform-dependent shared library which can be
-linked to your application.
+native access to your data from C++ code.  `CMake
+<http://http://www.cmake.org/>`_ is used for building the C++
+bindings.
 
 **Binaries are not provided**, therefore it will be necessary for you
 to compile your own.
@@ -17,19 +17,23 @@ Prerequisites
 * A C++ compiler
 
   * GCC is recommended for Linux and MacOS X
-  * Visual Studio or the Platform SDK for Windows
+  * :program:`Visual Studio` or the :program:`Platform SDK` for Windows
 
-* The ZeroC Ice libraries, headers and slice definitions
+* The ZeroC :program:`Ice` libraries, headers and slice definitions
+* :program:`cmake`
+* Google Test (optional; needed to build the unit and integration tests)
 
 Restrictions
 ------------
 
 Ice 3.4 will only build with GCC versions *older* than 4.6 (it contains
 broken headers which newer GCC versions will not parse).  GCC 4.4 is
-tested and recommended.
+tested and recommended.  This version will also fail to build with
+LLVM/clang++.
 
-Ice 3.5 will build with any GCC version up to 4.8, the latest stable
-version; later versions may work, but are untested.
+Ice 3.5 will build with any GCC version up to 4.9, the latest stable
+version; later versions may work, but are untested.  This version
+will also build with LLVM/clang++.
 
 The version of GCC and/or Ice provided on your system should be
 compatible, but if you are restricted to a particular version of GCC
@@ -39,15 +43,15 @@ GCC, respectively.
 Preparing to build
 -------------------
 
-Begin by following the instructions under :doc:`/developers/installation` on
-acquiring the source code. Be **sure** that the git branch you are using
+Begin by following the instructions under :doc:`/developers/installation` to
+acquire the source code. Be **sure** that the git branch you are using
 matches the version of your server!
 
-Set the :envvar:`ICE\_HOME` environment variable for your installation. This
-location varies depending upon the installation location and Ice version in
-use. Some possible locations for the |iceversion| version of Ice follow. Note
-these are just examples; you need to adjust them for the Ice installation path
-and version in use.
+Set the :envvar:`ICE\_HOME` or :envvar:`SLICEPATH` environment variable
+for your Ice installation (see below). This location varies depending upon the
+installation location and Ice version in use. Some possible locations for the
+|iceversion| version of Ice follow. Note these are just examples; you need to
+adjust them for the Ice installation path and version in use.
 
 * Ice built from source and installed into :file:`/opt`:
 
@@ -61,99 +65,110 @@ and version in use.
 
       export ICE_HOME=/usr/share/Ice-|iceversion|
 
-* MacOS with homebrew:
+* MacOS X with homebrew:
 
   .. parsed-literal::
 
       export ICE_HOME=/usr/local/Cellar/ice/|iceversion|
 
-* Windows using Visual Studio:
+* Windows using :program:`Visual Studio`:
 
   .. parsed-literal::
 
-      set ICE_HOME=C:\\Ice-|iceversion|
+       set ICE_HOME=C:\\Program Files (x86)\\ZeroC\\Ice-|iceversion|
 
 Users of a package manager will also need to set :envvar:`ICE\_HOME`
-if the Ice paths are not automatically detected correctly. The
-:program:`slice2xxx` tools generally does not pick up the location of the
-slice definitions by default if this is unset.
+or :envvar:`SLICEPATH` if the Ice paths are not automatically detected.
+The :program:`slice2xxx` tools will not know the location of the slice
+includes if this is left unset.
 
 .. note ::
 
     If the Ice headers and libraries are not present on the standard
-    search paths, these will need to be specified using the
-    :envvar:`CPPPATH` and :envvar:`LIBPATH` environment variables (see
-    below).
-
-Windows users building with Visual Studio will also need to run the
-Visual Studio environment setup scripts:
-
-::
-
-    C:\Documents and Settings\USER>c:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcvarsall.bat
-    Setting environment for using Microsoft Visual Studio 2008 x86 tools.
-
-or otherwise guarantee that your environment is properly configured.
-For the 64bit build, be sure to use the right setup, namely
-:menuselection:`Start-->Microsoft Visual Studio 2008-->Visual Studio Tools-->Visual Studio
-+2008 Command Prompt`.
+    search paths, these will need to be specified using appropriate
+    cmake options (see below).
 
 Building the library
 --------------------
 
-To build the C++ dynamic library:
+For all build methods, the shared library and examples are always
+built by default.  The unit and integration tests are built if
+Google test (gtest) is detected.
+
+Building with :program:`build.py` or :program:`ant`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    cd omero
-    ./build.py
-    ./build.py build-cpp
+    export ICE_HOME=/path/to/ice
+    export GTEST_ROOT=/path/to/gtest
+    cd /path/to/openmicroscopy
+    ./build.py build-default
+    ./build.py build-cpp [-Dcmake.args="cmake options"]
 
-or
+Set any needed :program:`cmake` options using the :program:`ant`
+``cmake.args`` property, plus any needed environment variables.
 
-::
+For example::
 
-    ./build.py build-all
+    ./build.py -Dcmake.args="'-DCMAKE_CXX_FLAGS=$CMAKE_CXX_FLAGS' \
+    '-DCMAKE_EXE_LINKER_FLAGS=$CMAKE_LD_FLAGS' \
+    '-DCMAKE_MODULE_LINKER_FLAGS=$CMAKE_LD_FLAGS' \
+    '-DCMAKE_SHARED_LINKER_FLAGS=$CMAKE_LD_FLAGS' \
+    -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON"
 
-If you would like to build the C++ tests, you can run:
+This method is present for backward compatibility with the previous
+:program:`scons` build system.  While it is possible to customize the
+build somewhat, some behavior is hardcoded and so this will not be
+suitable for all situations and is not recommended.  Parallel building
+is also not supported.  If you wish to have full control over the C++
+build or wish to use a cmake generator to build within an IDE, then
+running cmake directly is recommended.
 
-::
+Building with :program:`cmake` directly
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    ./build.py test-compile-all
-    ./build.py test-unit
+On Linux, Unix or MacOS X with :program:`make`::
 
-or to test only C++:
+    export ICE_HOME=/path/to/ice
+    export GTEST_ROOT=/path/to/gtest
+    mkdir omero-build
+    cd omero-build
+    cmake [-Dtest=(TRUE|FALSE)] [cmake options] /path/to/openmicroscopy
+    make
 
-::
+For example::
 
-    ./build.py -f components/tools/OmeroCpp/build.xml test
+    cmake "-DCMAKE_CXX_FLAGS=$CMAKE_CXX_FLAGS" \
+    "-DCMAKE_EXE_LINKER_FLAGS=$CMAKE_LD_FLAGS" \
+    "-DCMAKE_MODULE_LINKER_FLAGS=$CMAKE_LD_FLAGS" \
+    "-DCMAKE_SHARED_LINKER_FLAGS=$CMAKE_LD_FLAGS" \
+    -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON /path/to/openmicroscopy
+    make -j8
 
+Running :program:`cmake` directly allows full use of all command-line
+options and provides complete flexibility for building, e.g. to
+enable parallel building as shown above or to use an IDE of choice
+with an appropriate generator.
 
-If you would like to work on just the C++ code without worrying about the rest
-of the build, you can install :program:`scons` and use it directly.
-Alternatively, you can use the :program:`scons` version which comes with the
-OMERO source code: ::
+If you would like to build the C++ tests, run the above with the
+:envvar:`GTEST_ROOT` environment variable set.
 
-    cd components/tools/OmeroCpp && python ../../../target/scons/scons.py test
-    
-This **does** require having run the top-level build (``build.py``) at
-least once.
+.. note::
+
+    When :program:`cmake` is run, it will run ``./build.py
+    build-default`` in the openmicroscopy source tree to generate some
+    of the C++ and Ice sources.  If you have previously done a build
+    by running ``./build.py``, this step will be skipped.  However, if
+    you have recently switched branches *without cleaning the source
+    tree*, please run ``./build.py clean`` in the source tree to clean
+    up all the generated files prior to running :program:`cmake`.
 
 If the build fails with errors such as ::
 
-    Checking for C++ header file Ice/Ice.h... no
-    Fatal Error: Ice/Ice.h not found
-
-this can be caused by the Ice headers not being installed or not being on the
-search path. However, also check
-:file:`components/tools/OmeroCpp/config.log`. If this contains error messages
-such as
-
-::
-
-    /usr/include/Ice/ProxyHandle.h:176:13: error: ‘upCast’ was not declared
-    in this scope, and no declarations were found by argument-dependent lookup
-    at the point of instantiation
+         /usr/include/Ice/ProxyHandle.h:176:13: error: ‘upCast’ was not declared in this scope,
+         and no declarations were found by argument-dependent lookup at the point of
+         instantiation
 
 this is caused by the Ice headers being buggy, and newer versions of GCC
 rejecting the invalid code. To compile in this situation, add
@@ -161,72 +176,156 @@ rejecting the invalid code. To compile in this situation, add
 accepted, but do note that this may also mask other problems so should not be
 used unless strictly needed.
 
-Further build configuration
----------------------------
+:program:`cmake` build configuration
+------------------------------------
 
-The C++ bindings use `scons <http://www.scons.org>`_ as a build system.
-:program:`scons` provides several hooks into its operation. The following
-environment variables as defined in :source:`components/blitz/blitz_tools.py`
-are considered:
+:program:`cmake` supports configuration of the build using many
+different environment variables and options; for a full list, see the
+`cmake reference documentation
+<http://www.cmake.org/cmake/help/documentation.html>`_.  The following
+environment variables are commonly needed:
 
-:envvar:`ARCH`
-    either ``x86`` or ``x64``. ``x64`` will be used by default on a
-    64-bit machine, otherwise ``x86``
-
-:envvar:`CPPPATH`
+:envvar:`CMAKE_INCLUDE_PATH`
     directories to be searched for include files, for example
 
     .. parsed-literal::
 
-        -I/opt/Ice-|iceversion|/include
+        /opt/Ice-|iceversion|/include
 
     A ``:`` or ``;`` separator character is used to separate
-    directories, depending on the platform.
+    directories, depending on the platform.  Note these are used only
+    for feature tests, not for passing to the compiler when building,
+    for which ``CMAKE_CXX_FLAGS`` is needed.
 
-:envvar:`CXXFLAGS`
-    standard :program:`make`-like CXXFLAGS variable
 
-:envvar:`CXX`
-    compiler executable. Useful with `ccache <http://ccache.samba.org/>`_.
-
-:envvar:`LIBPATH`
+:envvar:`CMAKE_LIBRARY_PATH`
     directories to be searched for libraries, for example
 
     .. parsed-literal::
 
-        -L/opt/Ice-|iceversion|/lib
+        /opt/Ice-|iceversion|/lib
 
-    Directories are separated by ``:`` or ``;`` as with CPPPATH.
+    Directories are separated by ``:`` or ``;`` as with
+    :envvar:`CMAKE_INCLUDE_PATH`.  Note these are used only for
+    feature tests and finding libraries, not for passing to the linker
+    when building, for which ``CMAKE_*_LINKER_FLAGS`` is needed.
+
+:envvar:`CXX`
+    C++ compiler executable. Useful with `ccache <http://ccache.samba.org/>`_.
+
+:envvar:`CXXFLAGS`
+    C++ compiler flags.  Use of ``CMAKE_CXX_FLAGS`` is preferred.
 
 :envvar:`ICE\_HOME`
-    your Ice installation. The contained ``include`` directory will be
-    added to your :envvar:`CPPPATH`, but the contained ``lib``
-    directory will *not* be added to your :envvar:`LIBPATH` since this
-    may not contain the needed 32- or 64-bit libraries; this will need
-    setting with the correct value for your system.
+    your Ice installation.  This directory must contain a
+    :file:`slice` subdirectory with the Slice language include files
+    within it.  Note that the :file:`include` and :file:`lib`
+    subdirectories will not be automatically searched; these *must* be
+    specified using the appropriate compiler and linker options.
 
-:envvar:`J`
-    specifies the number of concurrent build tasks as with :program:`make`.
-
-:envvar:`RELEASE`
-    ``debug`` or ``Os`` (i.e. optimize for size). ``debug`` is used by
-    default.
+:envvar:`SLICEPATH`
+    location of Ice slice interface definitions.  This is typically
+    ``${ICE_HOME}/slice``.  Use for installations where
+    :envvar:`ICE\_HOME` does not contain :file:`slice` or situations
+    where you wish to build without setting :envvar:`ICE\_HOME`.
 
 :envvar:`VERBOSE`
-    show the actual build commands rather than the pretty "Compiling
-    XYZ…" statements.
+    if set to `1`, show the actual build commands rather than the
+    pretty "Compiling XYZ..." statements.
 
-Zip files containing the C++ header files, the libraries, and source
-code are placed under :file:`OMERO\_HOME/target` with other zip
-artifacts.
+In addition, cmake options may be defined directly when running cmake.
+Commonly needed options include:
+
+:option:`CMAKE_CXX_FLAGS`
+    C++ compiler flags.  Use to add additional directories to the
+    include search path, e.g. ``-I${ICE_HOME}/include``.  This may
+    also be used to set any additional compiler flags desired.
+
+:option:`CMAKE_EXE_LINKER_FLAGS`
+   Executable linker flags.  Use to add additional directories to the
+   library search path e.g. ``-L${ICE_HOME}/lib``.  This may also be
+   used to set any additional linker flags desired.
+
+:option:`CMAKE_MODULE_LINKER_FLAGS`
+   Loadable module linker flags.  Use to add additional directories to
+   the library search path e.g. ``-L${ICE_HOME}/lib``.  This may also
+   be used to set any additional linker flags desired.
+
+:option:`CMAKE_SHARED_LINKER_FLAGS`
+   Shared library linker flags.  Use to add additional directories to
+   the library search path e.g. ``-L${ICE_HOME}/lib``.  This may also
+   be used to set any additional linker flags desired.
+
+:option:`CMAKE_VERBOSE_MAKEFILE`
+   Default to printing all commands executed by make.  This may be
+   overridden with the make ``VERBOSE`` variable.
+
+:program:`Visual Studio` configuration
+--------------------------------------
+
+.. warning::
+
+    OMERO.cpp will not currently build on Windows due to exceeding DLL
+    symbol limits on this platform, leading to a failure when linking
+    the DLL.  It is hoped that this platform limitation can be worked
+    around in a future OMERO release.
+
+:program:`cmake` has full support for :program:`Visual Studio`.
+Windows users building with :program:`Visual Studio` will also need to
+run the :program:`Visual Studio` environment setup scripts:
+
+::
+
+    C:\Documents and Settings\USER>c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat
+    Setting environment for using Microsoft Visual Studio 2010 x86 tools.
+
+or otherwise guarantee that the environment is properly configured.
+For a 64-bit build, be sure to use the right setup, for example
+:menuselection:`Start-->Microsoft Visual Studio 2010-->Visual Studio
+Tools-->Visual Studio x64 Win64 Command Prompt`.  With a suitable
+command prompt, run:
+
+::
+
+    cmake -G "Visual Studio 10 Win64" [cmake options] /path/to/openmicroscopy
+
+This is for a 64-bit :program:`Visual Studio 2010` build.  Modify appropriately
+for other versions and compilers.  Running
+
+::
+
+    cmake --help
+
+will list the available generators for your platform (without the
+`Win64` suffix).  Make sure that the :program:`Visual Studio` command
+prompt matches the generator chosen.
+
+Once :program:`cmake` has finished running, the generated project and solution
+files may be then opened in :program:`Visual Studio`, or built directly using
+the :program:`msbuild` command-line tool.
+
+As for the Unix build, above, it is also possible to build on Windows
+using :program:`build.py` or :program:`ant`, providing that you
+configure the generator appropriately using the correct cmake
+options.  However, this will not work for all generators reliably,
+so running cmake by hand is recommended.
 
 .. note::
 
-    If you are using :program:`make`, you can unpack the main zip
-    (e.g. :file:`OMERO.cpp-<version>-64dbg.zip`) to some directory
-    (:file:`OMERO_DIST`) and follow the instructions below to get
-    started. For help with other build systems, please contact the
-    mailing list.
+    It may be necessary to specify ``/Zm1000`` as an additional
+    compiler setting.
+
+Installing the library
+----------------------
+
+If using :program:`make`, run:
+
+::
+
+    make [DESTDIR=/path/to/staging/directory] install
+
+If using another build system, please invoke the equivalent install
+target for that system.
 
 Using the library
 -----------------
@@ -255,9 +354,8 @@ services, and prints the user's name. For serious examples, see
 Compiling and running your code
 -------------------------------
 
-To compile and run :program:`yourcode`, you will need to download the two
-files above (:file:`Makefile` and :file:`yourcode.cpp`) and then from the
-shell:
+To compile and run :program:`yourcode`, download the two files above
+(:file:`Makefile` and :file:`yourcode.cpp`) and then in a shell:
 
 ::
 
@@ -279,28 +377,11 @@ Alternatively, you can pass these on the command-line:
 
     LD_LIBRARY_PATH=dist/lib ./yourcode omero.host=localhost --omero.user=foo --omero.pass=bar
 
-Notes for Mac users
--------------------
-
-This example explains how to build on Linux only. To do the same on Mac OS X,
-change all instances of :envvar:`LD\_LIBRARY\_PATH` to
-:envvar:`DYLD\_LIBRARY\_PATH`.
-
-Notes for Visual Studio users
------------------------------
-
-The :file:`SConstruct` build file in |OmeroCpp| defines a target
-``msproj`` which can be used to generate an MS Visual Studio project
-and solution. There is also a similarly named :program:`ant` target:
-
-::
-
-    build -f components\tools\OmeroCpp\build.xml msproj
-
 .. note::
 
-    It may be necessary to specify ``/Zm1000`` as an additional
-    compiler setting.
+    This example explains how to run on Linux only. For doing the
+    same on MacOS X, change all instances of
+    :envvar:`LD\_LIBRARY\_PATH` to :envvar:`DYLD\_LIBRARY\_PATH`.
 
 Further information
 -------------------
@@ -311,4 +392,4 @@ see |OmeroClients|.
 .. seealso::
 
     Ice_, |OmeroGrid|, |OmeroApi|, :doc:`/developers/build-system`,
-    :ticket:`1596` which added 64bit support
+    :ticket:`1596` which added 64-bit support
