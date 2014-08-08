@@ -273,7 +273,7 @@ JVM
       If unset, an attempt will be made to detect the actual
       amount: first by using the Python library `psutil` and
       if that is not installed, by running a Java tool. If
-      neither words, 4.0GB is assumed.
+      neither works, 4.0GB is assumed.
 
       Default: `[empty]`
 
