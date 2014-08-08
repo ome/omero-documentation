@@ -46,7 +46,7 @@ Core
 
     omero.db.patch
 
-      Default: `7`
+      Default: `8`
 
     omero.db.poolsize
       Sets the number of connections to PostgreSQL which
@@ -314,7 +314,7 @@ LDAP
       Default: `default`
 
     omero.ldap.password
-      LDAP server binard password (if required; can be empty)
+      LDAP server bind password (if required; can be empty)
 
       Default: `[empty]`
 
@@ -326,7 +326,7 @@ LDAP
 
     omero.ldap.sync_on_login
       Whether or not values from LDAP will be
-      sychronized to OMERO on each login. This includes
+      synchronized to OMERO on each login. This includes
       not just the user name, email, etc, but also the
       groups that the user is a member of.
 
@@ -477,12 +477,12 @@ Pixeldata
 
     omero.pixeldata.cron
       Polling frequency of the pixeldata processing. Set empty to disable
-      pixelsdata processing.
+      pixeldata processing.
 
       .. |cron| replace::
         Cron Format: seconds minutes hours day-of-month month day-of-week year
         (optional). For example, "0,30 * * * * ?" is equivalent to running every
-        30 seconds. For more informatin, see the `CronTrigger Tutorial`_.
+        30 seconds. For more information, see the `CronTrigger Tutorial`_.
 
       .. _CronTrigger Tutorial: http://quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger
 
@@ -688,7 +688,7 @@ Search
 
     omero.search.repetitions
       Instead, it is possible to tell the server
-      to run more indexing reptitions, each of
+      to run more indexing repetitions, each of
       which gets completely committed before the
       next. This will only occur when there is
       a substantial backlog of searches to perform.
