@@ -43,6 +43,12 @@ else:
     previousversion = 'UNKNOWN'
     release = 'UNKNOWN'
 
+rst_prolog = """
+**This documentation is a PREVIEW for the as-yet unreleased OMERO 5.1. It is provided
+for the benefit of developers and should be considered a work in progress until the
+public release.**
+"""
+
 rst_epilog += """
 .. |OmeroPy| replace:: :doc:`/developers/Python`
 .. |OmeroCpp| replace:: :doc:`/developers/Cpp`

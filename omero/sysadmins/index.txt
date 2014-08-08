@@ -2,15 +2,11 @@
 System Administrator Documentation
 ##################################
 
-.. note:: This documentation is for the new OMERO 5 server. **If you are
-    looking to upgrade to 5.x from OMERO 4.x, this is the right
-    documentation to refer to** but if you want to continue using OMERO 4, you
-    can find all the documentation for those releases on our
-    :legacy_plone:`previous versions <>` page.
-    
-    OMERO 4.4.x will continue to be supported during 2014 but a new release
-    will only be made if a major bug fix is necessary.
-
+.. note:: This documentation is a PREVIEW for the as-yet unreleased OMERO 5.1
+    series. Please refer to the documentation for the `latest OMERO 5.0.x
+    version <http://www.openmicroscopy.org/site/support/omero5/>`_ or the
+    :legacy_plone:`previous versions <>` page to find documentation for your
+    server version.
 
 *****************
 Server Background
