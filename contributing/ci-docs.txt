@@ -21,12 +21,12 @@ tab of Jenkins.
 	- 	* Publish OMERO documentation
 		* :term:`OMERO-4.4-release-docs`
 		* :term:`OMERO-5.0-release-docs`
-		*
+		* :term:`OMERO-5.1-release-docs`
 
 	- 	* Publish Bio-Formats documentation
 		* :term:`BIOFORMATS-4.4-release-docs`
 		* :term:`BIOFORMATS-5.0-release-docs`
-		*
+		* :term:`BIOFORMATS-5.1-release-docs`
 
 	- 	* Review OMERO documentation PRs
 		* :term:`OMERO-4.4-merge-docs`
@@ -198,6 +198,30 @@ The branch for the 5.1.x series of the OMERO/Bio-Formats documentation is
 develop.
 
 .. glossary::
+
+	:jenkinsjob:`OMERO-5.1-release-docs`
+
+		This job is used to build the develop branch of the OMERO
+		documentation and publish the official documentation for the 5.1.x
+		release of OMERO
+
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. If the build is promoted,
+			#. |ssh-doc| :file:`omero-5.1-release.tmp`
+			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.1/
+
+	:jenkinsjob:`BIOFORMATS-5.1-release-docs`
+
+		This job is used to build the develop branch of the Bio-Formats
+		documentation and publish the official documentation for the 5.1.x
+		release of Bio-Formats
+
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. If the build is promoted,
+			#. |ssh-doc| :file:`bf-5.1-release.tmp`
+			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.1/
 
 	:jenkinsjob:`OMERO-5.1-merge-docs`
 
