@@ -268,7 +268,10 @@ Commonly needed options include:
     location of Ice slice interface definitions.  This is typically
     ``${ICE_HOME}/slice``.  Use for installations where
     :option:`ICE\_HOME` does not contain :file:`slice` or situations
-    where you wish to build without setting :option:`ICE\_HOME`.
+    where you wish to build without setting :option:`ICE\_HOME`.  Note
+    that when building using :program:`build.py` the
+    :envvar:`SLICEPATH` environment variable should be used instead
+    (the ant build can't use the cmake variables).
 
 :option:`ICE_LIBRARY_DIR`
     location of Ice libraries.  This is typically ``${ICE_HOME}/lib``
