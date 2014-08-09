@@ -47,11 +47,14 @@ Begin by following the instructions under :doc:`/developers/installation` to
 acquire the source code. Be **sure** that the git branch you are using
 matches the version of your server!
 
-Set the :envvar:`ICE\_HOME` or :envvar:`SLICEPATH` environment variable
-for your Ice installation (see below). This location varies depending upon the
-installation location and Ice version in use. Some possible locations for the
-|iceversion| version of Ice follow. Note these are just examples; you need to
-adjust them for the Ice installation path and version in use.
+The location of your Ice installation should be automatically detected
+if installed into a standard location.  If this is not the case, set
+the location of your Ice installation using the :envvar:`ICE\_HOME`
+environment variable or the :option:`ICE\_HOME` or
+:option:`ICE_SLICE_DIR` cmake options for your Ice installation (see
+below).  Some possible locations for the |iceversion| version of Ice
+follow. Note these are just examples; you need to adjust them for the
+Ice installation path and version in use on your system.
 
 * Ice built from source and installed into :file:`/opt`:
 
@@ -77,16 +80,11 @@ adjust them for the Ice installation path and version in use.
 
        set ICE_HOME=C:\\Program Files (x86)\\ZeroC\\Ice-|iceversion|
 
-Users of a package manager will also need to set :envvar:`ICE\_HOME`
-or :envvar:`SLICEPATH` if the Ice paths are not automatically detected.
-The :program:`slice2xxx` tools will not know the location of the slice
-includes if this is left unset.
-
 .. note ::
 
-    If the Ice headers and libraries are not present on the standard
-    search paths, these will need to be specified using appropriate
-    cmake options (see below).
+    If the Ice headers and libraries are not automatically discovered,
+    these will need to be specified using appropriate cmake options
+    (see below).
 
 Building the library
 --------------------
@@ -217,17 +215,11 @@ environment variables are commonly needed:
     C++ compiler flags.  Use of ``CMAKE_CXX_FLAGS`` is preferred.
 
 :envvar:`ICE\_HOME`
-    your Ice installation.  This directory must contain a
-    :file:`slice` subdirectory with the Slice language include files
-    within it.  Note that the :file:`include` and :file:`lib`
-    subdirectories will not be automatically searched; these *must* be
-    specified using the appropriate compiler and linker options.
-
-:envvar:`SLICEPATH`
-    location of Ice slice interface definitions.  This is typically
-    ``${ICE_HOME}/slice``.  Use for installations where
-    :envvar:`ICE\_HOME` does not contain :file:`slice` or situations
-    where you wish to build without setting :envvar:`ICE\_HOME`.
+    The location of the Ice installation.  If this is not sufficient
+    to discover the correct binary and library directories, they may
+    otherwise be manually specified with the options below.  Likewise
+    for the :file:`include` and :file:`slice` directories.  This may
+    also be set as a cmake cache variable (see below).
 
 :envvar:`VERBOSE`
     if set to `1`, show the actual build commands rather than the
@@ -237,28 +229,55 @@ In addition, cmake options may be defined directly when running cmake.
 Commonly needed options include:
 
 :option:`CMAKE_CXX_FLAGS`
-    C++ compiler flags.  Use to add additional directories to the
-    include search path, e.g. ``-I${ICE_HOME}/include``.  This may
-    also be used to set any additional compiler flags desired.
+    C++ compiler flags.  Use to set any additional linker flags
+    desired.
 
 :option:`CMAKE_EXE_LINKER_FLAGS`
-   Executable linker flags.  Use to add additional directories to the
-   library search path e.g. ``-L${ICE_HOME}/lib``.  This may also be
-   used to set any additional linker flags desired.
+    Executable linker flags. Use to set any additional linker flags
+    desired.
 
 :option:`CMAKE_MODULE_LINKER_FLAGS`
-   Loadable module linker flags.  Use to add additional directories to
-   the library search path e.g. ``-L${ICE_HOME}/lib``.  This may also
-   be used to set any additional linker flags desired.
+    Loadable module linker flags.  Use to set any additional linker
+    flags desired.
 
 :option:`CMAKE_SHARED_LINKER_FLAGS`
-   Shared library linker flags.  Use to add additional directories to
-   the library search path e.g. ``-L${ICE_HOME}/lib``.  This may also
-   be used to set any additional linker flags desired.
+    Shared library linker flags.  Use to set any additional linker
+    flags desired.
 
 :option:`CMAKE_VERBOSE_MAKEFILE`
-   Default to printing all commands executed by make.  This may be
-   overridden with the make ``VERBOSE`` variable.
+    Default to printing all commands executed by make.  This may be
+    overridden with the make ``VERBOSE`` variable.
+
+:option:`ICE\_HOME`
+    The location of the Ice installation.  If this is not sufficient
+    to discover the correct binary and library directories, they may
+    otherwise be manually specified with the options below.  Likewise
+    for the :file:`include` and :file:`slice` directories.
+
+:option:`ICE_BINARY_DIR`
+    location of Ice programs such as :program:`slice2cpp`.  This is
+    typically ``${ICE_HOME}/bin`` or on the default :option:`PATH`.
+    This will not normally require setting.
+
+:option:`ICE_INCLUDE_DIR`
+    location of Ice headers.  This is typically
+    ``${ICE_HOME}/include`` or on the default include search path.
+    This will not normally require setting.
+
+:option:`ICE_SLICE_DIR`
+    location of Ice slice interface definitions.  This is typically
+    ``${ICE_HOME}/slice``.  Use for installations where
+    :option:`ICE\_HOME` does not contain :file:`slice` or situations
+    where you wish to build without setting :option:`ICE\_HOME`.
+
+:option:`ICE_LIBRARY_DIR`
+    location of Ice libraries.  This is typically ``${ICE_HOME}/lib``
+    or on the default library search path.  This will not normally
+    require setting.
+
+:option:`ICE_DEBUG`
+    set to ON to print detailed diagnostics about the detected Ice
+    installation.  Use if there are any problems finding Ice.
 
 :program:`Visual Studio` configuration
 --------------------------------------
@@ -270,20 +289,11 @@ Commonly needed options include:
     the DLL.  It is hoped that this platform limitation can be worked
     around in a future OMERO release.
 
-:program:`cmake` has full support for :program:`Visual Studio`.
-Windows users building with :program:`Visual Studio` will also need to
-run the :program:`Visual Studio` environment setup scripts:
-
-::
-
-    C:\Documents and Settings\USER>c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat
-    Setting environment for using Microsoft Visual Studio 2010 x86 tools.
-
-or otherwise guarantee that the environment is properly configured.
-For a 64-bit build, be sure to use the right setup, for example
-:menuselection:`Start-->Microsoft Visual Studio 2010-->Visual Studio
-Tools-->Visual Studio x64 Win64 Command Prompt`.  With a suitable
-command prompt, run:
+:program:`cmake` has full support for :program:`Visual Studio`.  Use
+the cmake :option:`-G` option to set the generator for your Visual
+Studio version, with a ``Win64`` suffix for an x64 build.  The correct
+Ice programs and libraries for your Ice installation should be
+automatically discovered.
 
 ::
 
@@ -297,17 +307,21 @@ for other versions and compilers.  Running
     cmake --help
 
 will list the available generators for your platform (without the
-`Win64` suffix).  Make sure that the :program:`Visual Studio` command
-prompt matches the generator chosen.
+``Win64`` suffix).
 
-Once :program:`cmake` has finished running, the generated project and solution
-files may be then opened in :program:`Visual Studio`, or built directly using
-the :program:`msbuild` command-line tool.
+Once :program:`cmake` has finished running, the generated project and
+solution files may be then opened in :program:`Visual Studio`, or
+built directly using the :program:`msbuild` command-line tool (make
+sure that the :program:`Visual Studio` command prompt matches the
+generator chosen) or by running::
+
+    cmake --build .
 
 As for the Unix build, above, it is also possible to build on Windows
 using :program:`build.py` or :program:`ant`, providing that you
-configure the generator appropriately using the correct cmake
-options.  However, this will not work for all generators reliably,
+configure the generator appropriately using the correct cmake options.
+However, this will not work for all generators reliably, and the
+Windows shell quoting makes passing nested quotes to ant quite tricky,
 so running cmake by hand is recommended.
 
 .. note::
