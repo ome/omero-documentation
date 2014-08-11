@@ -228,7 +228,7 @@ dev_5_0.
 	:jenkinsjob:`BIOFORMATS-5.0-merge-docs-autogen`
 
 		This job is used to review the auto-generation of the format and
-		reader pages for the dev_5_0 branch of the OMERO documentation
+		reader pages for the dev_5_0 branch of the Bio-Formats documentation
 
 		#. Checks out the merge/dev_5_0/latest branch of the
 		   snoopycrimecop fork of bioformats.git_
