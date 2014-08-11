@@ -223,7 +223,7 @@ dev_5_0.
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
 		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/bioformats/tree/autogen/dev_5_0/merge
+		   https://github.com/snoopycrimecop/bioformats/tree/dev_5_0/merge/autogen
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-docs-autogen`
 
@@ -237,7 +237,7 @@ dev_5_0.
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
 		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/bioformats/tree/autogen/dev_5_0/latest
+		   https://github.com/snoopycrimecop/bioformats/tree/dev_5_0/latest/autogen
 
 	:jenkinsjob:`OMERO-5.0-latest-docs-autogen`
 
@@ -305,7 +305,7 @@ develop.
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
 		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/bioformats/tree/autogen/develop/merge
+		   https://github.com/snoopycrimecop/bioformats/tree/develop/merge/autogen
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-docs-autogen`
 
@@ -319,7 +319,7 @@ develop.
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
 		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/bioformats/tree/autogen/develop/latest
+		   https://github.com/snoopycrimecop/bioformats/tree/develop/latest/autogen
 
 	:jenkinsjob:`OMERO-5.1-latest-docs-autogen`
 
