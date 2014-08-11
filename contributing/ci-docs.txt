@@ -222,8 +222,8 @@ dev_5_0.
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/bioformats/tree/dev_5_0/merge/autogen
+		#. Pushes the auto-generated changes to the `dev_5_0/latest/autogen`
+		   branch of https://github.com/snoopycrimecop/bioformats
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-docs-autogen`
 
@@ -236,8 +236,8 @@ dev_5_0.
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/bioformats/tree/dev_5_0/latest/autogen
+		#. Pushes the auto-generated changes to the `dev_5_0/merge/autogen`
+		   branch of https://github.com/snoopycrimecop/bioformats
 
 	:jenkinsjob:`OMERO-5.0-latest-docs-autogen`
 
@@ -249,8 +249,8 @@ dev_5_0.
 		#. Parses the content of :file:`etc/omero.properties` under
 		   :file:`omero/sysadmin/config.txt`
 		#. Dumps CLI import help under :file:`omero/downloads`
-		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/ome-documentation/tree/dev_5_0/latest/autogen
+		#. Pushes the auto-generated changes to the `dev_5_0/latest/autogen`
+		   branch of https://github.com/snoopycrimecop/ome-documentation
 
 	:jenkinsjob:`OMERO-5.0-merge-docs-autogen`
 
@@ -262,8 +262,8 @@ dev_5_0.
 		#. Parses the content of :file:`etc/omero.properties` under
 		   :file:`omero/sysadmin/config.txt`
 		#. Dumps CLI import help under :file:`omero/downloads`
-		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/ome-documentation/tree/dev_5_0/merge/autogen
+		#. Pushes the auto-generated changes to the `dev_5_0/merge/autogen`
+		   branch of https://github.com/snoopycrimecop/ome-documentation
 
 5.1.x series
 ^^^^^^^^^^^^
@@ -304,8 +304,9 @@ develop.
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/bioformats/tree/develop/merge/autogen
+		#. Pushes the auto-generated changes to the `develop/latest/autogen`
+		   branch of https://github.com/snoopycrimecop/bioformats
+
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-docs-autogen`
 
@@ -318,8 +319,8 @@ develop.
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/bioformats/tree/develop/latest/autogen
+		#. Pushes the auto-generated changes to the `develop/merge/autogen`
+		   branch of https://github.com/snoopycrimecop/bioformats
 
 	:jenkinsjob:`OMERO-5.1-latest-docs-autogen`
 
@@ -331,8 +332,8 @@ develop.
 		#. Parses the content of :file:`etc/omero.properties` under
 		   :file:`omero/sysadmin/config.txt`
 		#. Dumps CLI import help under :file:`omero/downloads`
-		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/ome-documentation/tree/develop/latest/autogen
+		#. Pushes the auto-generated changes to the `develop/latest/autogen`
+		   branch of https://github.com/snoopycrimecop/ome-documentation
 
 	:jenkinsjob:`OMERO-5.1-merge-docs-autogen`
 
@@ -344,8 +345,8 @@ develop.
 		#. Parses the content of :file:`etc/omero.properties` under
 		   :file:`omero/sysadmin/config.txt`
 		#. Dumps CLI import help under :file:`omero/downloads`
-		#. Pushes the auto-generated branch to
-		   https://github.com/snoopycrimecop/ome-documentation/tree/develop/merge/autogen
+		#. Pushes the auto-generated changes to the `develop/merge/autogen`
+		   branch of https://github.com/snoopycrimecop/ome-documentation
 
 
 OME Model and OME Contributing
