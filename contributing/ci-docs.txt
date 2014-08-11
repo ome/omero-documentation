@@ -215,8 +215,8 @@ dev_5_0.
 
 	:jenkinsjob:`BIOFORMATS-5.0-latest-docs-autogen`
 
-		This job is used to build the auto-generated format and	reader pages
-		of the Bio-Formats documentation for the dev_5_0 branch
+		This job is used to build the latest auto-generated formats and
+		readers pages for the dev_5_0 branch of the Bio-Formats documentation
 
 		#. Builds Bio-Formats using ``ant clean jars``
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
@@ -227,8 +227,8 @@ dev_5_0.
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-docs-autogen`
 
-		This job is used to review the auto-generation of the format and
-		reader pages for the dev_5_0 branch of the Bio-Formats documentation
+		This job is used to build the merge auto-generated formats and
+		readers pages for the dev_5_0 branch of the Bio-Formats documentation
 
 		#. Checks out the merge/dev_5_0/latest branch of the
 		   snoopycrimecop fork of bioformats.git_
@@ -241,8 +241,8 @@ dev_5_0.
 
 	:jenkinsjob:`OMERO-5.0-latest-docs-autogen`
 
-		This job is used to build the auto-generated components of the OMERO
-		documentation for the dev_5_0 branch
+		This job is used to build the latest auto-generated pages for the
+		dev_5_0 branch of the OMERO documentation
 
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-5.0-latest`
@@ -254,7 +254,7 @@ dev_5_0.
 
 	:jenkinsjob:`OMERO-5.0-merge-docs-autogen`
 
-		This job is used to review the component auto-generation for the
+		This job is used to build the merge auto-generated pages for the
 		dev_5_0 branch of the OMERO documentation
 
 		#. Downloads the OMERO.server and OMERO.clients from
@@ -297,8 +297,8 @@ develop.
 
 	:jenkinsjob:`BIOFORMATS-5.1-latest-docs-autogen`
 
-		This job is used to build the auto-generated format and	reader pages
-		of the Bio-Formats documentation for the develop branch
+		This job is used to build the latest auto-generated formats and
+		readers pages for the develop branch of the Bio-Formats documentation
 
 		#. Builds Bio-Formats using ``ant clean jars``
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
@@ -309,8 +309,8 @@ develop.
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-docs-autogen`
 
-		This job is used to review the auto-generation of the format and
-		reader pages for the develop branch of the OMERO documentation
+		This job is used to build the merge auto-generated pages for the
+		develop branch of the OMERO documentation
 
 		#. Checks out the merge/develop/latest branch of the
 		   snoopycrimecop fork of bioformats.git_
@@ -323,8 +323,8 @@ develop.
 
 	:jenkinsjob:`OMERO-5.1-latest-docs-autogen`
 
-		This job is used to build the auto-generated components of the OMERO
-		documentation for the develop branch
+		This job is used to build the latest auto-generated pages for the
+		develop branch of the OMERO documentation
 
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-5.1-latest`
