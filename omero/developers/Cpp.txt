@@ -98,7 +98,6 @@ Building with :program:`build.py` or :program:`ant`
 
 ::
 
-    export ICE_HOME=/path/to/ice
     export GTEST_ROOT=/path/to/gtest
     cd /path/to/openmicroscopy
     ./build.py build-default
@@ -128,7 +127,6 @@ Building with :program:`cmake` directly
 
 On Linux, Unix or MacOS X with :program:`make`::
 
-    export ICE_HOME=/path/to/ice
     export GTEST_ROOT=/path/to/gtest
     mkdir omero-build
     cd omero-build
