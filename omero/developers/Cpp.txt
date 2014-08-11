@@ -51,10 +51,11 @@ The location of your Ice installation should be automatically detected
 if installed into a standard location.  If this is not the case, set
 the location of your Ice installation using the :envvar:`ICE\_HOME`
 environment variable or the :option:`ICE\_HOME` or
-:option:`ICE_SLICE_DIR` cmake options for your Ice installation (see
-below).  Some possible locations for the |iceversion| version of Ice
-follow. Note these are just examples; you need to adjust them for the
-Ice installation path and version in use on your system.
+:option:`ICE_SLICE_DIR` :program:`cmake` options for your Ice
+installation (see below).  Some possible locations for the
+|iceversion| version of Ice follow. Note these are just examples; you
+need to adjust them for the Ice installation path and version in use
+on your system.
 
 * Ice built from source and installed into :file:`/opt`:
 
@@ -83,8 +84,8 @@ Ice installation path and version in use on your system.
 .. note ::
 
     If the Ice headers and libraries are not automatically discovered,
-    these will need to be specified using appropriate cmake options
-    (see below).
+    these will need to be specified using appropriate :program:`cmake`
+    options (see below).
 
 Building the library
 --------------------
@@ -120,8 +121,8 @@ This method is present for backward compatibility with the previous
 build somewhat, some behavior is hardcoded and so this will not be
 suitable for all situations and is not recommended.  Parallel building
 is also not supported.  If you wish to have full control over the C++
-build or wish to use a cmake generator to build within an IDE, then
-running cmake directly is recommended.
+build or wish to use a :program:`cmake` generator to build within an
+IDE, then running :program:`cmake` directly is recommended.
 
 Building with :program:`cmake` directly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -145,9 +146,9 @@ For example::
     make -j8
 
 Running :program:`cmake` directly allows full use of all command-line
-options and provides complete flexibility for building, e.g. to
-enable parallel building as shown above or to use an IDE of choice
-with an appropriate generator.
+options and provides complete flexibility for building, e.g. to enable
+parallel building as shown above or to use an IDE of choice with an
+appropriate generator.
 
 If you would like to build the C++ tests, run the above with the
 :envvar:`GTEST_ROOT` environment variable set.
@@ -219,14 +220,14 @@ environment variables are commonly needed:
     to discover the correct binary and library directories, they may
     otherwise be manually specified with the options below.  Likewise
     for the :file:`include` and :file:`slice` directories.  This may
-    also be set as a cmake cache variable (see below).
+    also be set as a :program:`cmake` cache variable (see below).
 
 :envvar:`VERBOSE`
     if set to `1`, show the actual build commands rather than the
     pretty "Compiling XYZ..." statements.
 
-In addition, cmake options may be defined directly when running cmake.
-Commonly needed options include:
+In addition, :program:`cmake` options may be defined directly when
+running :program:`cmake`.  Commonly needed options include:
 
 :option:`CMAKE_CXX_FLAGS`
     C++ compiler flags.  Use to set any additional linker flags
@@ -271,7 +272,7 @@ Commonly needed options include:
     where you wish to build without setting :option:`ICE\_HOME`.  Note
     that when building using :program:`build.py` the
     :envvar:`SLICEPATH` environment variable should be used instead
-    (the ant build can't use the cmake variables).
+    (the ant build can't use the :program:`cmake` variables).
 
 :option:`ICE_LIBRARY_DIR`
     location of Ice libraries.  This is typically ``${ICE_HOME}/lib``
@@ -293,9 +294,9 @@ Commonly needed options include:
     around in a future OMERO release.
 
 :program:`cmake` has full support for :program:`Visual Studio`.  Use
-the cmake :option:`-G` option to set the generator for your Visual
-Studio version, with a ``Win64`` suffix for an x64 build.  The correct
-Ice programs and libraries for your Ice installation should be
+the :program:`cmake` :option:`-G` option to set the generator for your
+Visual Studio version, with a ``Win64`` suffix for an x64 build.  The
+correct Ice programs and libraries for your Ice installation should be
 automatically discovered.
 
 ::
@@ -322,10 +323,11 @@ generator chosen) or by running::
 
 As for the Unix build, above, it is also possible to build on Windows
 using :program:`build.py` or :program:`ant`, providing that you
-configure the generator appropriately using the correct cmake options.
-However, this will not work for all generators reliably, and the
-Windows shell quoting makes passing nested quotes to ant quite tricky,
-so running cmake by hand is recommended.
+configure the generator appropriately using the correct
+:program:`cmake` options.  However, this will not work for all
+generators reliably, and the Windows shell quoting makes passing
+nested quotes to ant quite tricky, so running :program:`cmake` by hand
+is recommended.
 
 .. note::
 
