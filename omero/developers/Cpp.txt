@@ -35,10 +35,9 @@ Ice 3.5 will build with any GCC version up to 4.9, the latest stable
 version; later versions may work, but are untested.  This version
 will also build with LLVM/clang++.
 
-The version of GCC and/or Ice provided on your system should be
-compatible, but if you are restricted to a particular version of GCC
-or Ice, you may need to obtain or build a compatible version of Ice or
-GCC, respectively.
+If you are restricted to a specific version of GCC or Ice, you may
+need to obtain or build a compatible version of Ice or GCC,
+respectively.
 
 Preparing to build
 -------------------
