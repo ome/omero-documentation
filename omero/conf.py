@@ -59,7 +59,7 @@ rst_epilog += """
 .. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
 .. _Spring: http://spring.io
 .. |previousversion| replace:: %s
-.. |iceversion| replace:: 3.5.0
+.. |iceversion| replace:: 3.5.1
 """ % previousversion
 
 # OMERO-specific extlinks
