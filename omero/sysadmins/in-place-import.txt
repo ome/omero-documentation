@@ -100,7 +100,7 @@ such that the OMERO server user cannot find them at the expected location.
 
 If possible, **all the files should be added to your regular backup
 process**. If the files for imported images are later removed or
-corrupted, the result will probably be that the images remain in their
+corrupted, the result will probably be that while the images remain in their
 projects or screens with their annotations and basic metadata, they
 simply cannot be successfully viewed. However, this behavior is **not
 guaranteed**, so do *not* assume that the resulting problems will not
