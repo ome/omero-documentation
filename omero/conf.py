@@ -70,7 +70,7 @@ omero_extlinks = {
     'commit' : (omero_github_root + 'commit/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
     # API links
-    'javadoc' : (downloads_root + '/latest/omero5/api/%s', ''),
+    'javadoc' : (downloads_root + '/latest/omero5.0/api/%s', ''),
     # Miscellaneous links
     'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
     }
