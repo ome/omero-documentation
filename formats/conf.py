@@ -42,7 +42,7 @@ model_extlinks = {
     'sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
     'omero_source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     # API
-    'javadoc' : (downloads_root + '/latest/bio-formats/api/%s', ''),
+    'javadoc' : (downloads_root + '/latest/bio-formats5.1/api/%s', ''),
     }
 extlinks.update(model_extlinks)
 
