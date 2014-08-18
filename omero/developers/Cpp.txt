@@ -49,7 +49,7 @@ The location of your Ice installation should be automatically detected
 if installed into a standard location. If this is not the case, set
 the location of your Ice installation using the :envvar:`ICE\_HOME`
 environment variable or the :option:`ICE\_HOME` or
-:option:`ICE_SLICE_DIR` :program:`cmake` options for your Ice
+:option:`Ice_SLICE_DIR` :program:`cmake` options for your Ice
 installation (see below). Some possible locations for the |iceversion|
 version of Ice follow. Note these are just examples; you need to
 adjust them for the Ice installation path and version in use on your
@@ -181,7 +181,7 @@ different environment variables and options; for a full list, see the
 environment variables are commonly needed:
 
 :envvar:`CMAKE_INCLUDE_PATH`
-    directories to be searched for include files, for example
+    Directories to be searched for include files, for example
 
     .. parsed-literal::
 
@@ -194,7 +194,7 @@ environment variables are commonly needed:
 
 
 :envvar:`CMAKE_LIBRARY_PATH`
-    directories to be searched for libraries, for example
+    Directories to be searched for libraries, for example
 
     .. parsed-literal::
 
@@ -220,7 +220,7 @@ environment variables are commonly needed:
     also be set as a :program:`cmake` cache variable (see below).
 
 :envvar:`VERBOSE`
-    if set to `1`, show the actual build commands rather than the
+    If set to `1`, show the actual build commands rather than the
     pretty "Compiling XYZ..." statements.
 
 In addition, :program:`cmake` options may be defined directly when
@@ -266,26 +266,26 @@ running :program:`cmake`. Commonly needed options include:
     Default to printing all commands executed by make. This may be
     overridden with the make ``VERBOSE`` variable.
 
-:option:`ICE\_HOME`
+:option:`Ice\_HOME`
     The location of the Ice installation. If this is not sufficient to
     discover the correct binary and library directories, they may
     otherwise be manually specified with the options below. Likewise
     for the :file:`include` and :file:`slice` directories.
 
-:option:`ICE_SLICE2XXX_EXECUTABLE`
-    specific location of individual Ice ``slice2xxx`` programs, e.g.
-    ``ICE_SLICE2CPP_EXECUTABLE`` for :program:`slice2cpp` or
-    ``ICE_SLICE2JAVA_EXECUTABLE`` for :program:`slice2java`. These are
+:option:`Ice_SLICE2XXX_EXECUTABLE`
+    Specific location of individual Ice ``slice2xxx`` programs, e.g.
+    ``Ice_SLICE2CPP_EXECUTABLE`` for :program:`slice2cpp` or
+    ``Ice_SLICE2JAVA_EXECUTABLE`` for :program:`slice2java`. These are
     typically found in ``${ICE_HOME}/bin`` or on the default
     :option:`PATH`.  These will not normally require setting.
 
-:option:`ICE_INCLUDE_DIR`
-    location of Ice headers. This is typically ``${ICE_HOME}/include``
+:option:`Ice_INCLUDE_DIR`
+    Location of Ice headers. This is typically ``${ICE_HOME}/include``
     or on the default include search path.  This will not normally
     require setting.
 
-:option:`ICE_SLICE_DIR`
-    location of Ice slice interface definitions. This is typically
+:option:`Ice_SLICE_DIR`
+    Location of Ice slice interface definitions. This is typically
     ``${ICE_HOME}/slice``. Use for installations where
     :option:`ICE\_HOME` does not contain :file:`slice` or situations
     where you wish to build without setting :option:`ICE\_HOME`. Note
@@ -293,18 +293,18 @@ running :program:`cmake`. Commonly needed options include:
     directly with :program:`cmake`, the :envvar:`SLICEPATH`
     environment variable should be used instead (the :program:`ant`
     build can't use the :program:`cmake` variables since it only runs
-    :program:`cmake` after a full build of the java server).
+    :program:`cmake` after a full build of the Java server).
 
-:option:`ICE_<C>_LIBRARIES`
-    specific libraries for Ice component ``<C>``, where ``<C>`` is the
+:option:`Ice_<C>_LIBRARIES`
+    Specific libraries for Ice component ``<C>``, where ``<C>`` is the
     uppercased name of the Ice component, e.g. ``ICE`` for the ``Ice``
     component, ``ICEUTIL`` for the ``IceUtil`` component or
     ``GLACIER2`` for the ``Glacier2`` component. These libraries are
     typically found in ``${ICE_HOME}/lib`` or on the default library
     search path. These will not normally require setting.
 
-:option:`ICE_DEBUG`
-    set to ON to print detailed diagnostics about the detected Ice
+:option:`Ice_DEBUG`
+    Set to ON to print detailed diagnostics about the detected Ice
     installation. Use if there are any problems finding Ice.
 
 :program:`cmake` offers many additional options.  Please refer to the
