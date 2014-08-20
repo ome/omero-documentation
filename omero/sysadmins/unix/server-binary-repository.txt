@@ -5,8 +5,11 @@ OMERO.server binary repository
 
     The OMERO.server binary data repository is a fundamental piece of   
     server-side functionality. It provides optimized and indexed storage of
-    original file, pixel and thumbnail data, attachments and full text 
-    indexes. Its structure is based on :legacy_plone:`OMEIS <ome-server/system-overview/ome-image-server/>`.
+    original file, pixel and thumbnail data, attachments and full-text 
+    indexes.  The repository's directories contain various files that,
+    together with your SQL database, constitute the information about
+    your users and their data that OMERO.server relies upon for normal
+    operation.
 
 Layout
 ------
@@ -16,11 +19,11 @@ The repository is internally laid out as follows:
 ::
 
     /OMERO
-    /OMERO/Pixels             <--- Pixel data
+    /OMERO/Pixels             <--- Pixel data and pyramids
     /OMERO/Files              <--- Original file data
     /OMERO/Thumbnails         <--- Thumbnail data
     /OMERO/FullText           <--- Lucene full text search index
-    /OMERO/ManagedRepository  <--- OMERO.fs filesets
+    /OMERO/ManagedRepository  <--- OMERO.fs filesets, with import logs
     /OMERO/BioFormatsCache    <--- Cached Bio-Formats state for rendering
 
 **Your repository is not:**
@@ -81,8 +84,19 @@ instance back up. For example:
     $ bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
     $ bin/omero admin start
 
-Permissions
------------
+The :term:`omero.managed.dir` property for the OMERO.fs managed
+repository may be adjusted similarly, even to a directory outside
+:term:`omero.data.dir`.
+
+.. note::
+
+    The managed repository should be located and configured to allow the
+    OMERO server processes good, fast access to the uploaded filesets it
+    contains.
+
+
+Access permissions
+------------------
 
 Your repository should be owned by the same user that is starting your
 OMERO.server instance. This is often either yourself (find this out by
@@ -102,3 +116,13 @@ dedicated to running OMERO.server. For example:
     drwxr-xr-x 150  omero  omero 12288 Dec 20 10:00 ManagedRepository
     drwxr-xr-x  25  omero  omero 23256 Dec 10 19:06 Pixels
     drwxr-xr-x   2  omero  omero    48 Dec  8  2006 Thumbnails
+
+
+Repository size
+---------------
+
+At minimum, the binary repository should be comfortably larger than the
+images and other files that users may be uploading to it. It is fine to
+set :term:`omero.data.dir` or :term:`omero.managed.dir` to very large
+volumes, or to use logical volume management to conveniently increase
+space as necessary.

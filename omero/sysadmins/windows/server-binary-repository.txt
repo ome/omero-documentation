@@ -5,8 +5,11 @@ OMERO.server binary repository
 
     The OMERO.server binary data repository is a fundamental piece of   
     server-side functionality. It provides optimized and indexed storage of
-    original file, pixel and thumbnail data, attachments and full text 
-    indexes. Its structure is based on :legacy_plone:`OMEIS <ome-server/system-overview/ome-image-server/>`.
+    original file, pixel and thumbnail data, attachments and full-text 
+    indexes. The repository's directories contain various files that,
+    together with your SQL database, constitute the information about
+    your users and their data that OMERO.server relies upon for normal
+    operation.
 
 Layout
 ------
@@ -16,11 +19,11 @@ The repository is internally laid out as follows:
 ::
 
     C:\OMERO
-    C:\OMERO\Pixels             <--- Pixel data
+    C:\OMERO\Pixels             <--- Pixel data and pyramids
     C:\OMERO\Files              <--- Original file data
     C:\OMERO\Thumbnails         <--- Thumbnail data
     C:\OMERO\FullText           <--- Lucene full text search index
-    C:\OMERO\ManagedRepository  <--- OMERO.fs filesets
+    C:\OMERO\ManagedRepository  <--- OMERO.fs filesets, with import logs
     C:\OMERO\BioFormatsCache    <--- Cached Bio-Formats state for rendering
 
 **Your repository is not:**
@@ -50,7 +53,8 @@ directly connected disks.
     instead! To prevent this, make the mount point read-only for the OMERO
     user so that no data can be written to the mount point.
 
-Repository Location
+
+Repository location
 -------------------
 
 .. note::
@@ -82,7 +86,18 @@ instance back up. For example:
     C:\OMERO.server\> bin\omero config set omero.data.dir D:\\OMERO
     C:\OMERO.server\> bin\omero admin start
 
-Access Permissions
+The :term:`omero.managed.dir` property for the OMERO.fs managed
+repository may be adjusted similarly, even to a directory outside
+:term:`omero.data.dir`.
+
+.. note::
+
+    The managed repository should be located and configured to allow the
+    OMERO server processes good, fast access to the uploaded filesets it
+    contains.
+
+
+Access permissions
 ------------------
 
 Your repository should be owned or accessible by the same user that is
@@ -111,3 +126,12 @@ and write (`W`) from and to the ``OMERO`` directory:
 
     Repository Folder Permissions
 
+
+Repository size
+---------------
+
+At minimum, the binary repository should be comfortably larger than the
+images and other files that users may be uploading to it. It is fine to
+set :term:`omero.data.dir` or :term:`omero.managed.dir` to very large
+volumes, or to use logical volume management to conveniently increase
+space as necessary.
