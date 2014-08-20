@@ -22,6 +22,7 @@ OMERO.py       Required for some functionality          Required Required
 OMERO.cpp      Required for some functionality                   Required
 ============== =============================== ======== ======== ======== ==========
 
+
 OMERO.server
 ============
 
@@ -29,7 +30,7 @@ The system requirements for OMERO.server vary greatly depending on image
 size and number of users. At a minimum we suggest:
 
 -  Mac OS X 10.6 or later; Windows XP or later; Ubuntu 10.04 or
-   later/CentOS 6/Debian Squeeze or other Linux distribution
+   later/CentOS 6/Debian 6 (squeeze) or other Linux distribution
 -  Single core 1.33GHz Intel or AMD CPU
 -  2GB RAM
 -  500MB of hard drive space for OMERO.server distribution
@@ -63,6 +64,8 @@ JVM size (there is really not much point in having it larger anyway).
 With a large database and aggressive PostgreSQL caching your RAM usage
 could be larger but I would surely doubt a large deployment using more
 than a few GBs of RAM for this purpose, it is just not cost effective.
+:doc:`server-performance` provides information about fine-tuning the
+server processes' memory usage.
 
 Summary: Depending on hardware layout 16, 24 or 32GB of RAM would be
 ideal for your OMERO server. If you have a separate database server more
@@ -76,13 +79,14 @@ performance increase by, for example, throwing 24 cores at the problem.
 Summary: Depending on hardware layout 2 x 4, 2 x 6 system core count
 should be more than enough.
 
+
 OMERO.insight, OMERO.editor and OMERO.importer
 ==============================================
 
 The recommended client specification is:
 
 -  Mac OS X 10.6 or later; Windows XP or later; Ubuntu 12.04 or
-   later/CentOS 6/Debian Wheezy or other Linux distribution
+   later/CentOS 6/Debian 7 (wheezy) or other Linux distribution
 -  Single core 1.33GHz Intel or AMD CPU
 -  2GB RAM
 -  100MB hard drive space for OMERO.clients distribution
@@ -90,22 +94,13 @@ The recommended client specification is:
 
 Large imports may require 4GB RAM.
 
-OpenGL versions of OMERO.insight
-================================
-
--  NVIDIA 7xxx or later GPU; ATI 4xxx or later GPU
--  2GB RAM
-
-.. note::
-    These are suggested requirements based on limited testing. Your
-    mileage may vary. Any OpenGL 1.3 capable card *should* work.
 
 Client configuration
 ====================
 
 When performing some operations the clients make use of temporary file
 storage and log directories. By default these files are stored below
-the users HOME directory in ``$HOME/omero/tmp``, ``$HOME/omero/log``
+the user's HOME directory in ``$HOME/omero/tmp``, ``$HOME/omero/log``
 and ``$HOME/omero/sessions`` (resp. ``$HOME\omero\tmp``,
 ``$HOME\omero\log`` and ``$HOME\omero\sessions``). If your home
 directory is stored on a network, possibly NFS mounted (or similar),
