@@ -38,17 +38,18 @@ Installation will require:
     users/passwords described in this install guide, please see
     :ref:`troubleshooting-password`.
 
-The installation and configuration of the prerequisite applications is largely
-outside the scope of this document. For Linux distributions, use of the
-default package manager is recommended. For BSD systems, the ports system
-provides all the prerequisites. For MacOS X, Homebrew is recommended. This
-guide provides the package names to install for a number of contemporary
-systems. However, the names and versions provided vary between releases.
-Please do check for similar packages if the one documented here is not
-available for your system as it may be provided under an alternative name.
-"Debian" refers to Debian and derivative distributions such as Ubuntu.
-"RedHat" refers to RedHat and related distributions such as CentOS, Fedora and
-Scientific Linux.
+The installation and configuration of the prerequisite applications
+are mostly outside the scope of this document. For Linux
+distributions, use of the default package manager is recommended. For
+BSD systems, the ports system provides all the prerequisites. For
+MacOS X, Homebrew is recommended. This guide provides the package
+names to install for a number of contemporary systems. However, the
+names and versions provided vary between releases.  Please do check
+for similar packages if the one documented here is not available for
+your system as it may be provided under an alternative name.  "Debian"
+refers to Debian and derivative distributions such as Ubuntu.
+"RedHat" refers to RedHat and related distributions such as CentOS,
+Fedora and Scientific Linux.
 
 * For Ubuntu you need to enable the **universe** repository.  This should be
   enabled by default.  If not enabled, it may be enabled by editing
