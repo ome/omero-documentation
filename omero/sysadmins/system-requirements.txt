@@ -62,8 +62,8 @@ RAM is not going to scale linearly, particularly with the way the JVM
 works. You are probably going to hit a hard ceiling between 4 and 6GB for
 JVM size (there is really not much point in having it larger anyway).
 With a large database and aggressive PostgreSQL caching your RAM usage
-could be larger but I would surely doubt a large deployment using more
-than a few GBs of RAM for this purpose, it is just not cost effective.
+could be larger. Still, even for a large deployment, it is not cost
+effective to use more than a few GBs of RAM for this purpose.
 :doc:`server-performance` provides information about fine-tuning the
 server processes' memory usage.
 
