@@ -29,8 +29,8 @@ OMERO.server
 The system requirements for OMERO.server vary greatly depending on image
 size and number of users. At a minimum we suggest:
 
--  Mac OS X 10.6 or later; Windows XP or later; Ubuntu 10.04 or
-   later/CentOS 6/Debian 6 (squeeze) or other Linux distribution
+-  Ubuntu 10.04 or later / CentOS 6 / Debian 6 (squeeze) or other Linux
+   distribution; Mac OS X 10.6 or later; Windows XP or later
 -  Single core 1.33GHz Intel or AMD CPU
 -  2GB RAM
 -  500MB of hard drive space for OMERO.server distribution
@@ -48,8 +48,8 @@ size and number of users. At a minimum we suggest:
 The recommended OMERO.server specification we suggest for between 25-50
 users is:
 
--  Mac OS X 10.6 or later; Windows Server 2008 or later; Ubuntu 12.04 or
-   later/CentOS 6/Debian Wheezy or other Linux distribution
+-  Ubuntu 12.04 or later / CentOS 6 / Debian 7 (wheezy) or other Linux
+   distribution; Mac OS X 10.6 or later; Windows Server 2008
 -  Quad core 1.33GHz Intel or AMD CPU
 -  8GB RAM
 -  500MB hard drive space for OMERO.server distribution
@@ -85,8 +85,8 @@ OMERO.insight, OMERO.editor and OMERO.importer
 
 The recommended client specification is:
 
--  Mac OS X 10.6 or later; Windows XP or later; Ubuntu 12.04 or
-   later/CentOS 6/Debian 7 (wheezy) or other Linux distribution
+-  Ubuntu 12.04 or later / CentOS 6 / Debian 7 (wheezy) or other Linux
+   distribution; Mac OS X 10.6 or later; Windows XP or later
 -  Single core 1.33GHz Intel or AMD CPU
 -  2GB RAM
 -  100MB hard drive space for OMERO.clients distribution
