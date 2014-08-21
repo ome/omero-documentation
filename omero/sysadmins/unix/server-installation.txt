@@ -118,17 +118,17 @@ Java SE Runtime Environment (JRE)
 
 If possible, install one of the following packages:
 
-+-----------+--------------------+
-| System    | Package            |
-+===========+====================+
-| BSD Ports | java/openjdk7      |
-+-----------+--------------------+
-| Debian    | openjdk-7-jre      |
-+-----------+--------------------+
-| Homebrew  | N/A                |
-+-----------+--------------------+
-| RedHat    | java-1.7.0-openjdk |
-+-----------+--------------------+
++-----------+---------------------------+
+| System    | Package                   |
++===========+===========================+
+| BSD Ports | java/openjdk7             |
++-----------+---------------------------+
+| Debian    | openjdk-7-jre             |
++-----------+---------------------------+
+| Homebrew  | N/A (install Oracle Java) |
++-----------+---------------------------+
+| RedHat    | java-1.7.0-openjdk        |
++-----------+---------------------------+
 
 OMERO works with the OpenJDK JRE provided by most systems, or with
 Oracle Java.  Version 6 or later is required.  Version 7 or later is
@@ -248,17 +248,17 @@ Ice
 
 If possible, install one of the following packages:
 
-+-----------+-----------+
-| System    | Package   |
-+===========+===========+
-| BSD Ports | devel/ice |
-+-----------+-----------+
-| Debian    | zeroc-ice |
-+-----------+-----------+
-| Homebrew  | ice       |
-+-----------+-----------+
-| RedHat    | N/A       |
-+-----------+-----------+
++-----------+--------------------------+
+| System    | Package                  |
++===========+==========================+
+| BSD Ports | devel/ice                |
++-----------+--------------------------+
+| Debian    | zeroc-ice                |
++-----------+--------------------------+
+| Homebrew  | ice                      |
++-----------+--------------------------+
+| RedHat    | N/A (install ZeroC RPMs) |
++-----------+--------------------------+
 
 The Ice version may vary, depending upon the distribution version you
 are using.  The Ice versions in currently supported versions of Debian
@@ -336,17 +336,17 @@ OMERO.scripts
 
 If you wish to run the "Movie Maker" script, please install :program:`mencoder`.
 
-+-----------+---------------------+
-| System    | Packages            |
-+===========+=====================+
-| BSD Ports | multimedia/mencoder |
-+-----------+---------------------+
-| Debian    | mencoder            |
-+-----------+---------------------+
-| Homebrew  | N/A                 |
-+-----------+---------------------+
-| RedHat    | mencoder            |
-+-----------+---------------------+
++-----------+----------------------------+
+| System    | Packages                   |
++===========+============================+
+| BSD Ports | multimedia/mencoder        |
++-----------+----------------------------+
+| Debian    | mencoder                   |
++-----------+----------------------------+
+| Homebrew  | N/A (Obtain independently) |
++-----------+----------------------------+
+| RedHat    | mencoder                   |
++-----------+----------------------------+
 
 Installation
 ------------
