@@ -336,17 +336,17 @@ OMERO.scripts
 
 If you wish to run the "Movie Maker" script, please install :program:`mencoder`.
 
-+-----------+----------------------------+
-| System    | Packages                   |
-+===========+============================+
-| BSD Ports | multimedia/mencoder        |
-+-----------+----------------------------+
-| Debian    | mencoder                   |
-+-----------+----------------------------+
-| Homebrew  | N/A (Obtain independently) |
-+-----------+----------------------------+
-| RedHat    | mencoder                   |
-+-----------+----------------------------+
++-----------+---------------------+
+| System    | Packages            |
++===========+=====================+
+| BSD Ports | multimedia/mencoder |
++-----------+---------------------+
+| Debian    | mencoder            |
++-----------+---------------------+
+| Homebrew  | mplayer             |
++-----------+---------------------+
+| RedHat    | mencoder            |
++-----------+---------------------+
 
 Installation
 ------------
