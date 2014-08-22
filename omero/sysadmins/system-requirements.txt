@@ -30,14 +30,12 @@ The system requirements for OMERO.server vary greatly depending on image
 size and number of users. At a minimum we suggest:
 
 -  Ubuntu 10.04 or later / CentOS 6 / Debian 6 (squeeze) or other Linux
-   distribution; Mac OS X 10.6 or later; Windows XP or later
+   distribution; Mac OS X 10.8 or later; Windows Vista or later
 -  Single core 1.33GHz Intel or AMD CPU
 -  2GB RAM
 -  500MB of hard drive space for OMERO.server distribution
 -  Java 1.6 or later
--  Python 2 (2.6.5 or later - note that this is not the standard version
-   disturbed with Mac OS X 10.6; you may find it easier to upgrade your OS to
-   obtain a later version of Python)
+-  Python 2 (2.6.5 or later)
 -  Hard drive space proportional to the image sizes expected.
    The drive space should permit **proper locking**, which is
    often not the case with remotely mounted shares. See the
@@ -49,7 +47,7 @@ The recommended OMERO.server specification we suggest for between 25-50
 users is:
 
 -  Ubuntu 12.04 or later / CentOS 6 / Debian 7 (wheezy) or other Linux
-   distribution; Mac OS X 10.6 or later; Windows Server 2008
+   distribution; Mac OS X 10.8 or later; Windows Server 2008
 -  Quad core 1.33GHz Intel or AMD CPU
 -  8GB RAM
 -  500MB hard drive space for OMERO.server distribution
@@ -86,7 +84,7 @@ OMERO.insight, OMERO.editor and OMERO.importer
 The recommended client specification is:
 
 -  Ubuntu 12.04 or later / CentOS 6 / Debian 7 (wheezy) or other Linux
-   distribution; Mac OS X 10.6 or later; Windows XP or later
+   distribution; Mac OS X 10.8 or later; Windows Vista or later
 -  Single core 1.33GHz Intel or AMD CPU
 -  2GB RAM
 -  100MB hard drive space for OMERO.clients distribution
@@ -100,9 +98,10 @@ Client configuration
 
 When performing some operations the clients make use of temporary file
 storage and log directories. By default these files are stored below
-the user's HOME directory in ``$HOME/omero/tmp``, ``$HOME/omero/log``
-and ``$HOME/omero/sessions`` (resp. ``$HOME\omero\tmp``,
-``$HOME\omero\log`` and ``$HOME\omero\sessions``). If your home
+the user's HOME directory in :file:`$HOME/omero/tmp`,
+:file:`$HOME/omero/log`, and :file:`$HOME/omero/sessions`
+(resp. :file:`$HOME\\omero\\tmp`, :file:`$HOME\\omero\\log`, and
+:file:`$HOME\\omero\\sessions`). If your home
 directory is stored on a network, possibly NFS mounted (or similar),
 then these temporary files are being written and read over the
 network. This can slow access down.  The :envvar:`OMERO_TEMPDIR`
