@@ -2,14 +2,14 @@ Using Git
 =========
 
 The following is primarily designed for the core OME developers who are
-contributing to our code base using git. It should contain all the useful
-commands and configuration you need for doing most git tasks.
+contributing to our code base using Git. It should contain all the useful
+commands and configuration you need for doing most Git tasks.
 
 .. note::
     This section assumes that “gh” is your own personal GitHub repository, and
     “origin” is one of the official openmicroscopy repositories.
 
-Installing git
+Installing Git
 --------------
 
 In general, see the Git `downloads page <http://git-scm.com/download>`_ for
@@ -26,7 +26,7 @@ example, on Debian or Ubuntu::
 Mac OS X
 ^^^^^^^^
 
-You can install git using `Homebrew <https://github.com/mxcl/homebrew/>`_::
+You can install Git using `Homebrew <https://github.com/mxcl/homebrew/>`_::
 
         brew install git
 
@@ -35,11 +35,11 @@ Or you can use the `binary installer <http://git-scm.com/download>`_.
 Windows
 ^^^^^^^
 
-We recommend using either msysGit_ for a basic git installation, or Cygwin_
-for a full-featured Unix-style environment that includes git. You can also use
-TortoiseGit_ for git shell integration. You may also want to consider
+We recommend using either msysGit_ for a basic Git installation, or Cygwin_
+for a full-featured Unix-style environment that includes Git. You can also use
+TortoiseGit_ for Git shell integration. You may also want to consider
 installing VirtualBox_ with a Linux guest OS to make your life easier. Lastly,
-when using git on Windows, please be aware of the `CRLF conversion issue`_.
+when using Git on Windows, please be aware of the `CRLF conversion issue`_.
 
 .. _msysGit: http://code.google.com/p/msysgit
 .. _Cygwin: http://www.cygwin.com/
@@ -52,7 +52,7 @@ Git configuration
 -----------------
 
 If you are looking to get started as quickly as possible, the minimum you will
-need is to have git installed (see next section) and then::
+need is to have Git installed and then::
 
         git config --global user.name "Full name"
         git config --global user.email YOUR_EMAIL
@@ -90,7 +90,7 @@ Color and display options make log and diff output much more friendly::
          git config --global core.ui always
          git config --global core.editor mate_wait
 
-Aliases provide a way to make shortcuts for longer git commands. One that is
+Aliases provide a way to make shortcuts for longer Git commands. One that is
 often used among the OME team is ``graph``::
 
          git config --global alias.graph "log --date-order --graph --decorate --oneline"
@@ -201,7 +201,7 @@ Common Git Commands
 
 Although everyone has a slightly different way of working, the following
 command examples should show you much of what you will want to do on a
-daily or weekly basis when working with OME via git.
+daily or weekly basis when working with OME via Git.
 
 See if you have any changes that you might need to commit. This also
 displays some useful tips on how to add and remove files:
@@ -257,7 +257,7 @@ will link the commit to the ticket on trac, and "Fixes
 .. note::
 
     If you want to add more than a short one-line message, you can omit the
-    -m "message" and git will open your specified editor, where you should
+    -m "message" and Git will open your specified editor, where you should
     add a single line summary followed by line space and then a paragraph of
     more text. See :ref:`usinggit/commitmessages` for more discussion.
 
@@ -399,7 +399,7 @@ organize your commits before merging.
 
 It can strip whitespace, since it is good practice not to commit extra
 whitespace at the end of lines or files. Git allows you to remove all
-extra whitespace during rebase - E.g. to origin/develop branch
+extra whitespace during rebase e.g. to origin/develop branch
 
 ::
 
@@ -470,12 +470,12 @@ different state of the submodule:
         # no changes added to commit (use "git add" and/or "git commit -a")
 
 If you do not want to modify the submodule state, run
-command:`git submodule update`. Be careful though, the
-command:`git subdmodule update` command will silently delete all local
+:command:`git submodule update`. Be careful though, the
+:command:`git subdmodule update` command will silently delete all local
 changes under the submodule. If you want to keep your changes, make sure
 you have pushed them to GitHub.
 
-To advance the submodule to another commit, you can run the command:`git add`
+To advance the submodule to another commit, you can run the :command:`git add`
 command:
 
 ::
@@ -499,7 +499,7 @@ command:
 
             git add components/bioformats/
 
-There are git hooks available to make working with submodules safer. See 
+There are Git hooks available to make working with submodules safer. See
 post-merge-checkout_ for an example.
 
 .. _post-merge-checkout: https://github.com/chaitanyagupta/gitutils/blob/master/submodule-hooks/post-merge-checkout
@@ -874,7 +874,7 @@ a deliverable branch. For background, see
 -  `Pull Requests 2.0 <https://github.com/blog/712-pull-requests-2-0>`_
 
 If you have discovered that something in the proposed branch needs
-changing (and you don’t have write access to the branch itself), then
+changing (and you do not have write access to the branch itself), then
 you can checkout the branch, make the fixes, push the branch, and open a
 Pull Request.
 
@@ -891,7 +891,7 @@ Pull Request conflicts
 
 When issuing a pull request, usually you will the following message
 "This pull request can be automatically merged". If this is not the
-case, follow a possible workflow to fix the problem. For the sake of this 
+case, follow a possible workflow to fix the problem. For the sake of this
 example, *bugs* is the branch we are working on:
 
 ::
@@ -912,7 +912,7 @@ Now we need to fix the conflict:
         # Edit the conflicting files to fix conflicts, then
         git add path/to/file
         git commit                          # Use the suggested 'merging...' message
-        git push gh bugs 
+        git push gh bugs
 
 Your branch should now be able to merge back into develop. This should
 only be done at the very end of a pull request just before it is merged
@@ -926,7 +926,7 @@ Git resources
 -  `<http://git-scm.com/book/ch3-6.html>`_
 -  `A successful Git branching model <http://nvie.com/posts/a-successful-git-branching-model/>`_
 -  `<http://users.openmicroscopy.org.uk/~jmoore/git/>`_
-   If you have some time to spend on this, you may find Josh's git
+   If you have some time to spend on this, you may find Josh's Git
    movies useful. Covers a lot of the workflows, as well as being
-   an intro for when the team was moving from svn to git (before we got
+   an intro for when the team was moving from svn to Git (before we got
    set up with current repository and branches etc).
