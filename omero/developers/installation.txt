@@ -9,6 +9,12 @@ Using the source code
 The source code of each release of OMERO is available for download from the
 :downloads:`Source code <#code>` section of the OMERO download page.
 
+.. note::
+  At the moment, this source code bundle does not contain the version of
+  Bio-Formats. To include this version information, you will need to manually
+  copy the :file:`ant/gitversion.xml` file included in the source code bundle
+  of Bio-Formats for the same release under :file:`components/bioformats/ant`.
+
 Using the Git source repository
 -------------------------------
 
