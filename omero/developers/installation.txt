@@ -3,46 +3,18 @@
 Installing OMERO from source
 ============================
 
-Installing Git
---------------
+Using the source code
+---------------------
 
-In general, see the Git `downloads page <http://git-scm.com/download>`_ for
-installation options.
+The source code of each release of OMERO is available for download from the
+:downloads:`Source code <#code>` section of the OMERO download page.
 
-Linux
-^^^^^
+Using the Git source repository
+-------------------------------
 
-Most flavors of Linux have git available through the package manager. For
-example, on Debian or Ubuntu::
-
-  sudo apt-get install git
-
-Mac OS X
-^^^^^^^^
-
-You can install git using `Homebrew <https://github.com/mxcl/homebrew/>`_::
-
-  brew install git
-
-Or you can use the `binary installer <http://git-scm.com/download>`_.
-
-Windows
-^^^^^^^
-
-We recommend using either msysGit_ for a basic git installation, or Cygwin_
-for a full-featured Unix-style environment that includes git. You can also use
-TortoiseGit_ for git shell integration. You may also want to consider
-installing VirtualBox_ with a Linux guest OS to make your life easier. Lastly,
-when using git on Windows, please be aware of the `CRLF conversion issue`_.
-
-.. _msysGit: http://code.google.com/p/msysgit
-.. _Cygwin: http://www.cygwin.com/
-.. _TortoiseGit: http://code.google.com/p/tortoisegit/
-.. _VirtualBox: https://www.virtualbox.org/
-.. _CRLF conversion issue: http://help.github.com/articles/dealing-with-line-endings
-
-Cloning the source code
------------------------
+To use the Git source repository, you will need to install Git on your system.
+See the :devs_doc:`Using Git <using-git.html>` section of the Contributing
+documentation for more information on how to install and configure Git.
 
 The main repository for OMERO, known as ome.git, is available from:
 
