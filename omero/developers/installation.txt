@@ -23,14 +23,14 @@ Linux
 Most flavors of Linux have git available through the package manager. For
 example, on Debian or Ubuntu::
 
-        sudo apt-get install git
+  sudo apt-get install git
 
 Mac OS X
 ^^^^^^^^
 
 You can install git using `Homebrew <https://github.com/mxcl/homebrew/>`_::
 
-        brew install git
+  brew install git
 
 Or you can use the `binary installer <http://git-scm.com/download>`_.
 
@@ -58,18 +58,18 @@ for yourself.
 
 Start by cloning the official repository::
 
-        git clone https://github.com/openmicroscopy/openmicroscopy.git
+  git clone https://github.com/openmicroscopy/openmicroscopy.git
 
 Since the openmicroscopy repository now makes use of submodules, you first
 need to initialize all the submodules::
 
-        cd openmicroscopy
-        git submodule update --init
+  cd openmicroscopy
+  git submodule update --init
 
 Alternatively, with version 1.6.5 of git and later, you can pass the
 :option:`--recursive` option to git clone and initialize all submodules::
 
-        git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git
+  git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git
 
 Installing OMERO
 ----------------
@@ -78,3 +78,31 @@ To install the dependencies required to run the OMERO.server on Linux
 or Mac OS X, take a look at the
 :doc:`/sysadmins/unix/server-installation` or the
 :doc:`/sysadmins/unix/server-install-homebrew` sections.
+
+Additional dependencies are necessary for building the server and clients:
+
+- `Genshi <http://genshi.edgewall.org/>`_ can be installed using either the
+  package manager or Python packaging tools such as ``easy_intall`` or
+  ``pip``::
+
+    pip install Genshi
+
+Finally, some environment variables need to be properly setup before building
+the server:
+
+- :envvar:`SLICE_PATH` need to point at the :file:`slice` directory of the Ice
+  installation.
+
+Once all the dependencies and environment variables are set-up, you can build
+the server using::
+
+    python build.py
+
+or the clients using::
+
+    python build.py release-clients
+
+.. seealso::
+
+    :doc:`build-system`
+        Section of the developer documentation detailing the build system
