@@ -71,6 +71,11 @@ Alternatively, with version 1.6.5 of git and later, you can pass the
 
   git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git
 
+.. seealso::
+  :devs_doc:`Using Git <using-git.html>`
+    Section of the contributing documentation explaining how to use Git for
+    contributing to the source code.
+
 Installing OMERO
 ----------------
 
