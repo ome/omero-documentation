@@ -3,15 +3,7 @@
 Installing OMERO from source
 ============================
 
-Code locations
---------------
-
-The main repository for OMERO, known as ome.git, is available from:
-
--  https://github.com/openmicroscopy/openmicroscopy
--  git://openmicroscopy.org/ome.git
-
-Installing git
+Installing Git
 --------------
 
 In general, see the Git `downloads page <http://git-scm.com/download>`_ for
@@ -51,6 +43,11 @@ when using git on Windows, please be aware of the `CRLF conversion issue`_.
 
 Cloning the source code
 -----------------------
+
+The main repository for OMERO, known as ome.git, is available from:
+
+-  https://github.com/openmicroscopy/openmicroscopy
+-  git://openmicroscopy.org/ome.git
 
 Most OME development is currently happening on GitHub, therefore it is highly
 suggested that you become familiar with how it works, if not create an account
