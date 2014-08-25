@@ -61,10 +61,10 @@ Additional dependencies are necessary for building the server and clients:
 
     pip install Genshi
 
-Finally, some environment variables need to be properly setup before building
+Finally, some environment variables need to be properly set up before building
 the server:
 
-- :envvar:`SLICE_PATH` must point at the :file:`slice` directory of the Ice
+- :envvar:`SLICEPATH` must point at the :file:`slice` directory of the Ice
   installation.
 
 Once all the dependencies and environment variables are set up, you can build
