@@ -91,7 +91,7 @@ repository may be adjusted similarly, even to a directory outside
 .. note::
 
     The managed repository should be located and configured to allow the
-    OMERO server processes good, fast access to the uploaded filesets it
+    OMERO server processes fast access to the uploaded filesets that it
     contains.
 
 
