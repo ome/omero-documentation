@@ -22,11 +22,8 @@ To use the Git source repository, you will need to install Git on your system.
 See the :devs_doc:`Using Git <using-git.html>` section of the Contributing
 documentation for more information on how to install and configure Git.
 
-The main repository for OMERO, known as ome.git, is available from:
-
--  https://github.com/openmicroscopy/openmicroscopy
--  git://openmicroscopy.org/ome.git
-
+The main repository for OMERO is available from
+https://github.com/openmicroscopy/openmicroscopy.
 Most OME development is currently happening on GitHub, therefore it is highly
 suggested that you become familiar with how it works, if not create an account
 for yourself.
