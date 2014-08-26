@@ -64,11 +64,26 @@ Additional dependencies are necessary for building the server and clients:
 
     pip install Genshi
 
-Finally, some environment variables need to be properly set up before building
+- Ice Python and Java development packages may need to be explicitly installed
+  on Linux.
+
+Finally, some environment variables may need to be set up before building
 the server:
 
-- :envvar:`SLICEPATH` must point at the :file:`slice` directory of the Ice
-  installation.
+- If the system slice files cannot be found you must set :envvar:`SLICEPATH`
+  to point to the :file:`slice` directory of the Ice installation.
+
+For example, on CentOS 6 the following should be sufficient to run the default
+build::
+
+    yum install java-1.7.0-openjdk-devel python-genshi python-setuptools \
+        ice-servers ice-python-devel ice-java-devel ice-c++-devel
+
+    export SLICEPATH=/usr/share/Ice-3.5.1/slice
+
+On Ubuntu 14.04::
+
+    apt-get install openjdk-7-jdk python-genshi python-setuptools zeroc-ice
 
 Once all the dependencies and environment variables are set up, you can build
 the server using::
