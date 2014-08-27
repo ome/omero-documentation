@@ -1,7 +1,26 @@
 Team workflow summary
 =====================
 
-Development process
--------------------
+Development management
+----------------------
 
-The OME team uses a Kanban based approach to manage development work. 
+The OME team uses a Kanban-based approach to manage development work. New
+features, or bug fixes which require significant amounts of work, are
+identified as priorities and then listed in the 'Upcoming Features' board on
+Trello. They then move through 'scoping' to 'implementing' to 'ready for QA'
+as work on them is progressed.
+
+.. figure:: /images/trello_features.png
+   :align:  center
+
+This board acts to give an overview of the
+development work while the individual components of work required to complete
+each feature or fix are managed on further boards such as the UX board for
+client UI work.
+
+
+Public-facing workflow
+----------------------
+
+Currently, the Trello boards are only viewable to members of the openmicroscopy organisation. To follow the development process from outside the project, you can view the milestone pages on Trac and Trac tickets for externally reported bugs.
+ 
