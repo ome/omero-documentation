@@ -146,7 +146,7 @@ install the OMERO dependencies:
 
     $ brew tap homebrew/science
     $ brew tap ome/alt
-    $ brew install `brew deps omero`
+    $ brew install --only-dependencies omero
 
 The default version of Ice installed by the OMERO formula is currently Ice 3.5.
 
