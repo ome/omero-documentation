@@ -1,6 +1,13 @@
 OMERO version history
 =====================
 
+5.0.4 (September 2014)
+----------------------
+
+This is a bug-fix release for the Java 8 issues. You also need to upgrade your
+OMERO server if you want to take advantage of further improvements in
+Bio-Formats support for ND2 files.
+
 5.0.3 (August 2014)
 -------------------
 
