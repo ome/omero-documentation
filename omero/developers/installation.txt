@@ -79,8 +79,6 @@ build::
     yum install java-1.7.0-openjdk-devel python-genshi python-setuptools \
         ice-servers ice-python-devel ice-java-devel ice-c++-devel
 
-    export SLICEPATH=/usr/share/Ice-3.5.1/slice
-
 On Ubuntu 14.04::
 
     apt-get install openjdk-7-jdk python-genshi python-setuptools zeroc-ice
