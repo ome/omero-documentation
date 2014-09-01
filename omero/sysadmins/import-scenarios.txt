@@ -245,7 +245,7 @@ In-place DropBox import (automatic delete)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One option that only exists in the in-place scenario is to have
-files removed from DropBox automatically after a successful delete.
+files removed from DropBox automatically after a successful import.
 This is achieved by first performing a "hardlink in-place import" from
 the DropBox directory to the ManagedRepository and then by deleting
 the data from DropBox **if and only if** the import was successful.
