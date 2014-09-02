@@ -42,7 +42,7 @@ jobs should be listed under the :jenkinsview:`Release` view.
 		* :jenkinsjob:`BIOFORMATS-5.0-release-docs`
 		* :jenkinsjob:`BIOFORMATS-5.1-release-docs`
 
-The trigger jobs generate a cascade of downstream jobs to build the OMERO and
+The "trigger" jobs generate a cascade of downstream jobs to build the OMERO and
 Bio-Formats components, deploy them under the downloads page and the
 artifactory and run the OMERO integration tests.
 
@@ -176,7 +176,7 @@ Public release
   :jenkinsjob:`OMERO-5.1-release-downloads` job, set the
   :envvar:`ANNOUNCEMENT_URL` variable to the value of the URL of the public
   post.
-- Check the link to the announcement and the URL of the tags have been updated
+- Check that the link to the announcement and the URL of the tags have been updated
   in the OMERO and Bio-Formats downloads pages.
 - Remove the :file:`.htaccess` file from the release folders and make the
   release folders read-only::
@@ -196,7 +196,7 @@ Public release
 - Update openmicroscopy.org home page with latest release number, date and
   Milestone page link.
 - Update the OMERO version history plone page.
-- Add the OMERO version release date to the Web Stats Spreadsheet
+- Add the OMERO version release date to the Web Stats Spreadsheet.
 
 Post release
 ^^^^^^^^^^^^
