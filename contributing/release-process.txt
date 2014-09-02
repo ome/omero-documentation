@@ -6,7 +6,7 @@ This page describes the steps to follow for releasing OMERO and Bio-Formats.
 Repositories
 ------------
 
-A set of release scripts are hosted under
+A set of release scripts is hosted under
 https://github.com/openmicroscopy/ome-release. These scripts are executed
 by the `OME-release` jobs.
 
