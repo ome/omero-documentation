@@ -14,7 +14,7 @@ Jenkins jobs
 ------------
 
 The following table lists the main Jenkins jobs used during the release
-process depending on the release branch (4.4 or 5.0 release). All release
+process depending on the release branch (5.0 or 5.1 release). All release
 jobs should be listed under the :jenkinsview:`Release` view.
 
 .. list-table::
