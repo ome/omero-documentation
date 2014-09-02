@@ -117,6 +117,8 @@ address (``127.0.0.1``) as follows:
     # TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
     # IPv4 local connections:
     host    all         all         127.0.0.1/32          md5
+    # IPv6 local connections:
+    host    all         all         ::1/128               md5
 
 .. note:: 
     The other lines that are in your ``pg_hba.conf`` are important

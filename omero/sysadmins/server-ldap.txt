@@ -152,9 +152,17 @@ filter string. These must be a valid filter in themselves. e.g.
 
 ::
 
+   omero.ldap.user_filter=(|(ou=Queensland Brain Institute)(ou=Ageing Dementia Research))
+
+The "|" operator (read: "OR") above allows members of two organizational units
+to login to OMERO. Expanding the list allows concentric "rings" of more and more
+OU's granular access to OMERO.
+
+::
+
    omero.ldap.group_filter=(&(objectClass=groupOfNames)(mail=omero.flag))
 
-This filter is valid and will cause the filter to only match groups that have
+The "&" operator (read: "AND") produces a filter that will only match groups that have
 the ``mail`` attribute set to the value ``omero.flag``. When combined with
 the ``group_mapping``, the final query would be
 ``(&(&(objectClass=groupOfNames)(mail=omero.flag))(cn=[group name]))``
@@ -213,24 +221,24 @@ command:
 When the LDAP password provider implementation changes, previous versions can
 be configured as necessary.
 
-chainedPasswordProviderNoSalt
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- ``chainedPasswordProviderNoSalt``
 
-The ``chainedPasswordProviderNoSalt`` uses the version of the JDBC password
-provider without password salting support as available in the OMERO 4.4.x
-series. To enable it, use::
+  The ``chainedPasswordProviderNoSalt`` uses the version of the JDBC
+  password provider without password salting support as available in the
+  OMERO 4.4.x series. To enable it, use:
+
+  ::
 
     bin/omero config set omero.security.password_provider chainedPasswordProviderNoSalt
 
-chainedPasswordProvider431
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+- ``chainedPasswordProvider431``
 
-With the 431 password provider, the user filter is only checked on first login
-and not kept on subsequent logins. This allows for an OMERO admin to change
-the username of a user in omero to be different than the one kept in LDAP. To
-enable it, use:
+  With the 431 password provider, the user filter is only checked on first
+  login and not kept on subsequent logins. This allows for an OMERO admin
+  to change the username of a user in omero to be different than the one
+  kept in LDAP. To enable it, use:
 
-::
+  ::
 
     bin/omero config set omero.security.password_provider chainedPasswordProvider431
 

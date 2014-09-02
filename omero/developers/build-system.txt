@@ -175,38 +175,7 @@ products which get built. Namely, the builds for the non-Java components
 stored under :sourcedir:`components/tools`
 are a bit more complex. Each tools component installs its artifacts to
 the tools/target directory which is copied **on top of** the
-OMERO\_HOME/dist top-level distribution directory. Current tools
-include:
-
-.. |OmeroFs| replace:: :doc:`/developers/Server/FS`
-.. |ant| replace:: :term:`Ant-based builds`
-.. |ice| replace:: :term:`Ice-based builds`
-.. |scons| replace:: :term:`Scons-based builds`
-
-+------------------+-------+-------+---------+
-|                  | |ant| | |ice| | |scons| |
-+------------------+-------+-------+---------+
-|    |OmeroCpp|    |       |       |    X    |
-+------------------+-------+-------+---------+
-|    |OmeroWeb|    |   X   |       |         |   
-+------------------+-------+-------+---------+
-|    |OmeroFs|     |       |   X   |         |   
-+------------------+-------+-------+---------+
-|    |OmeroPy|     |       |   X   |         |   
-+------------------+-------+-------+---------+
-|  LicenseService  |   X   |       |    X    |
-+------------------+-------+-------+---------+
-
-.. glossary::
-	Ant-based builds
-		Some of the tools also contain Java code which imports files from ``antlib/resources`` and then proceeds like the other regular components.
-
-	Ice-based builds
-		An Ice-based build requires further invocations of ``slice2*`` code generation. Currently this
-
-	Scons-based builds
-		Builds which have C++ targets are based generally on `Scons <http://www.scons.org>`__. See |OmeroCpp| for more information.
-
+OMERO\_HOME/dist top-level distribution directory.
 
 Comments on Ivy
 ---------------

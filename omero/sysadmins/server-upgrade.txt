@@ -216,7 +216,7 @@ JVM memory settings
 """""""""""""""""""
 
 Your memory settings should be copied along with :file:`etc/grid/config.xml`,
-but you can check the current settings by running :omerocmd:`admin memory`.
+but you can check the current settings by running :omerocmd:`admin jvmcfg`.
 See :ref:`jvm_memory_settings` for more information.
 
 Python Imaging Library
