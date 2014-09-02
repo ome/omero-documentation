@@ -546,13 +546,13 @@ For example, to create a new tag annotation ``tag_name`` and attach it to the
 image ``image_id``::
 
 	tagAnnotation = writeTagAnnotation(session, tag_name);
-	link = linkAnnotation(session, tagAnnotation, 'Image', image_id);
+	link = linkAnnotation(session, tagAnnotation, 'image', image_id);
 
 To create a file annotations from the content of a ``local_file_path`` and
 attach it to the image ``image_id``::
 
 	fileAnnotation = writeFileAnnotation(session, local_file_path);
-	link = linkAnnotation(session, fileAnnotation, 'Image', image_id);
+	link = linkAnnotation(session, fileAnnotation, 'image', image_id);
 
 For existing file annotations, it is possible to replace the content of the
 original file without having to recreate a new file annotation using the
