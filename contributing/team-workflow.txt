@@ -8,7 +8,7 @@ The OME team uses a Kanban-based approach to manage development work. New
 features, or bug fixes which require significant amounts of work, are
 identified as priorities and then listed in the 'Upcoming Features' board on
 Trello. They then move through 'scoping' to 'implementing' to 'ready for QA'
-as work on them is progressed. This board acts to give an overview of the
+as work on them progresses. This board acts to give an overview of the
 development work.
 
 .. figure:: /images/trello_features.png
@@ -17,12 +17,13 @@ development work.
 
 The individual components of work required to complete each feature or fix are
 managed on further boards, for example the UX board for client UI work. Each
-developer has a primary board where their main effort is focused and comments
-on the relevant cards to update their colleagues on progress. Cards also
-progress through 'to do', 'in progress' and 'done' equivalent lists, the exact
-titling of which vary from board to board but should be self-explanatory.
+developer has a primary board where their main effort is focused and they
+comment on the relevant cards to update their colleagues on progress. Cards
+also progress through 'to do', 'in progress' and 'done' equivalent lists, the
+exact titling of which vary from board to board but should be
+self-explanatory.
 Developers should focus on the tasks identified as priorities for the next
-point release or longer term work towards the next major version based on the
+point release or longer0term work towards the next major version based on the
 outcome of team meetings. Constant communication is vital to ensure everyone
 is working together to the same goals.
 
@@ -30,14 +31,14 @@ Public-facing workflow
 ----------------------
 
 Currently, the Trello boards are only viewable to members of the
-openmicroscopy organisation. To follow the development process from outside
+openmicroscopy organization. To follow the development process from outside
 the project, you can view the milestones on the
 :milestone:`Trac Roadmap page <>` and Trac tickets for :report:`bugs <8>`.
 Internally reported issues are increasingly being managed on Trello cards
 rather than Trac tickets so it is likely that at least one board will be made
-public in the future. The workflow is still in transition currently as we work
+public in the future. The workflow is still in transition as we work
 on ways to integrate Trello with our other tools more effectively.
 
-For information about keeping up-to-date with OME projects, refer to the
+For information about keeping up to date with OME projects, refer to the
 :doc:`team-communication` guide.
  
