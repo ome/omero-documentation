@@ -157,25 +157,20 @@ Disadvantages
 .. _upload_dropbox_auto:
 
 DropBox import (automatic delete)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One option that exists from OMERO 5.0.3 is to have files removed from DropBox
 automatically after a successful import. This is achieved by first performing
 an "upload" import from the DropBox directory to the ManagedRepository and
 then by deleting the data from DropBox **if and only if** the import was
-successful.
+successful. For failed imports, files will remain in the DropBox directories
+until someone manually deletes them.
 
 Advantages
 """"""""""
 
 * For all successful imports, files will be automatically removed
-  from the DropBox directories.
-
-Disadvantages
-"""""""""""""
-
-* For failed imports, files will remain in the DropBox directories until
-  someone manually deletes them.
+  from the DropBox directories thus reducing duplication.
 
 In-place import
 ---------------
@@ -244,11 +239,13 @@ and disadvantages of in-place import apply.
 In-place DropBox import (automatic delete)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One option that only exists in the in-place scenario is to have
+An option that also exists in the in-place scenario is to have
 files removed from DropBox automatically after a successful import.
 This is achieved by first performing a "hardlink in-place import" from
 the DropBox directory to the ManagedRepository and then by deleting
-the data from DropBox **if and only if** the import was successful.
+the data from DropBox **if and only if** the import was successful. For
+failed imports, files will remain in the DropBox directories until someone
+manually deletes them.
 
 Advantages
 """"""""""
@@ -258,9 +255,6 @@ Advantages
 
 Disadvantages
 """""""""""""
-
-* For failed imports, files will remain in the DropBox directories until
-  someone manually deletes them.
 
 * This option is only available if the filesystem which DropBox watches is
   the same as the file system which the ManagedRepository lives on. This

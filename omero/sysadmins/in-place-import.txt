@@ -214,15 +214,17 @@ Finally, the least favored option is `ln_rm`. It first performs
 a hard-link like `ln`, but once the import is complete it attempts
 to delete the original file. This is currently in testing as
 an option for DropBox but is unlikely to be of use to general users.
+Although this option is more limited than the `upload_rm` option below it
+will be much faster.
 
 "upload_rm" - uploading and deleting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This option, available from OMERO 5.0.3, is not strictly an in-place option
 but is detailed here for convenience. It first performs a file upload like
-`upload`, but once the import is complete it attempts to delete the original
-files. It deletes the original files **if and only if** the import is
-successful.
+default import, but once the import is complete it attempts to delete the
+original files. It deletes the original files **if and only if** the import
+is successful.
 
 Your own file transfer
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -265,11 +267,10 @@ and the default SHA1-160.
 DropBox
 ^^^^^^^
 
-As described in the scenarios ":ref:`upload_dropbox_auto`",
-:doc:`DropBox </sysadmins/dropbox>` and ":ref:`inplace_dropbox_auto`",
-:doc:`DropBox </sysadmins/dropbox>` can be configured to use
-any of the options described above. The configuration property to
-modify is `omero.fs.importArgs`:
+As described in the scenarios ":ref:`upload_dropbox_auto`" and
+":ref:`inplace_dropbox_auto`", :doc:`DropBox </sysadmins/dropbox>` can be
+configured to use any of the options described above. The configuration
+property to modify is `omero.fs.importArgs`:
 
 ::
 
