@@ -60,8 +60,8 @@ tab of Jenkins.
 		* :term:`BIOFORMATS-5.1-merge-docs-autogen`
 
 
-The OME Model and OME Contributing documentation sets are independent of the
-current OMERO/Bio-Formats version.
+The OME Model, OME help and OME Contributing documentation sets are
+independent of the current OMERO/Bio-Formats version.
 
 .. list-table::
 	:header-rows: 1
@@ -80,6 +80,9 @@ current OMERO/Bio-Formats version.
 
 	- 	* Review OME Contributing documentation PRs
 		* :term:`CONTRIBUTING-merge-docs`
+
+	- 	* Review OME help documentation PRs
+		* :term:`OME-HELP-staging`
 
 Configuration
 ^^^^^^^^^^^^^
@@ -422,6 +425,21 @@ sets is develop.
 		#. |linkcheck|
 		#. |ssh-doc| :file:`contributing-release.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing/
+
+OME Help
+^^^^^^^^
+
+The repository for the OME help is https://github.com/openmicroscopy/ome-help.
+
+.. glossary::
+
+	:jenkinsjob:`OME-help-staging`
+
+		This job is used to review the PRs opened against the master branch
+		of the OME help documentation
+
+		#. |merge| and pushes the resulting branch to https://github.com/snoopycrimecop/ome-help/tree/gh-pages
+		#. Updates the content of http://snoopycrimecop.github.io/ome-help/
 
 .. _linkcheck_parser:
 
