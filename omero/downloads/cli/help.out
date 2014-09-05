@@ -31,6 +31,7 @@ Optional arguments:
   -d DATASET_ID				OMERO dataset ID to import image into
   -r SCREEN_ID				OMERO screen ID to import plate into
   --report				Report errors to the OME team
+  --summary				Print overall import summary
   --upload				Upload broken files with report
   --logs				Upload log file with report
   --email EMAIL				Email for reported errors
