@@ -10,6 +10,7 @@ ADVANCED OPTIONS:
 
         General options:    	
           upload          	# Default
+          upload_rm       	# Caution! File upload followed by source deletion.
           some.class.Name 	# Use a class on the CLASSPATH.
 
         Server-side options:	

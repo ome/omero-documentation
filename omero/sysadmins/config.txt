@@ -1,7 +1,7 @@
 .. This file is auto-generated from omero.properties. DO NOT EDIT IT
 
-Configuration properties
-========================
+Configuration properties glossary
+=================================
 
 The primary form of configuration is via the use of key/value properties,
 stored in :file:`etc/grid/config.xml` and read on server startup. Backing up
@@ -277,7 +277,7 @@ JVM
       If unset, an attempt will be made to detect the actual
       amount: first by using the Python library `psutil` and
       if that is not installed, by running a Java tool. If
-      neither words, 4.0GB is assumed.
+      neither works, 4.0GB is assumed.
 
       Default: `[empty]`
 
