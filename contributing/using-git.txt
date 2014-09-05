@@ -21,14 +21,14 @@ Linux
 Most flavors of Linux have git available through the package manager. For
 example, on Debian or Ubuntu::
 
-        sudo apt-get install git
+    sudo apt-get install git
 
 Mac OS X
 ^^^^^^^^
 
 You can install Git using `Homebrew <https://github.com/mxcl/homebrew/>`_::
 
-        brew install git
+    brew install git
 
 Or you can use the `binary installer <http://git-scm.com/download>`_.
 
@@ -54,10 +54,10 @@ Git configuration
 If you are looking to get started as quickly as possible, the minimum you will
 need is to have Git installed and then::
 
-        git config --global user.name "Full name"
-        git config --global user.email YOUR_EMAIL
-        git clone --recursive https://github.com/openmicroscopy/REPOSITORY_NAME
-        cd REPOSITORY_NAME
+    git config --global user.name "Full name"
+    git config --global user.email YOUR_EMAIL
+    git clone --recursive https://github.com/openmicroscopy/REPOSITORY_NAME
+    cd REPOSITORY_NAME
 
 You will not be able to push back to this repository, but you will at least
 have something you can start looking at.
@@ -71,29 +71,29 @@ command, as illustrated in the examples following.
 The most important thing is to update your 'global' credentials that are used
 in your commits. These values are saved in :file:`~/.gitconfig`::
 
-        git config --global user.name "Full name"
-        git config --global user.email YOUR_EMAIL
+    git config --global user.name "Full name"
+    git config --global user.email YOUR_EMAIL
 
 If you have a PGP key for signing commits and tags, you may want to add it as
 well::
 
-        git config --global user.signingkey YOUR_PGP_KEY_ID
+    git config --global user.signingkey YOUR_PGP_KEY_ID
 
 Color and display options make log and diff output much more friendly::
 
-         git config --global color.ui true
-         git config --global color.diff auto
-         git config --global color.graph auto
-         git config --global color.status auto
-         git config --global color.branch auto
+    git config --global color.ui true
+    git config --global color.diff auto
+    git config --global color.graph auto
+    git config --global color.status auto
+    git config --global color.branch auto
 
-         git config --global core.ui always
-         git config --global core.editor mate_wait
+    git config --global core.ui always
+    git config --global core.editor mate_wait
 
 Aliases provide a way to make shortcuts for longer Git commands. One that is
 often used among the OME team is ``graph``::
 
-         git config --global alias.graph "log --date-order --graph --decorate --oneline"
+    git config --global alias.graph "log --date-order --graph --decorate --oneline"
 
 See `Helpful command aliases`_ for more examples.
 
@@ -101,6 +101,21 @@ See `Helpful command aliases`_ for more examples.
 
 Interacting with GitHub
 -----------------------
+
+Cloning the repositories
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can fork any of the openmicroscopy repositories you will be working on by
+clicking the fork icon in the top righthand corner of each repo's homepage on
+GitHub. This will give you your own copy of the repo on GitHub. To set this up
+from the command line so you can push to it and open PRs, you need to clone
+the repo. The following example uses the documentation repo:
+
+::
+
+    git clone https://github.com/openmicroscopy/ome-documentation
+    cd ome-documentation
+    git remote add gh git@github.com:YOUR_USERNAME/ome-documentation.git
 
 GitHub remotes
 ^^^^^^^^^^^^^^
@@ -110,8 +125,8 @@ can follow what they are doing:
 
 ::
 
-        git remote add SOMEUSER git://github.com/SOMEUSER/openmicroscopy.git
-        git fetch SOMEUSER
+    git remote add SOMEUSER git://github.com/SOMEUSER/openmicroscopy.git
+    git fetch SOMEUSER
 
 If you would like to work more closely with someone, via pushing directly to
 their branch or they from yours, then you can have them add you as a
@@ -123,13 +138,13 @@ do so using the |SSH| protocol:
 
 ::
 
-        git remote add SOMEUSER git@github.com:SOMEUSER/openmicroscopy.git
+    git remote add SOMEUSER git@github.com:SOMEUSER/openmicroscopy.git
 
 Otherwise, you will need to modify its URL
 
 ::
 
-        git remote set-url SOMEUSER git@github.com:SOMEUSER/openmicroscopy.git
+    git remote set-url SOMEUSER git@github.com:SOMEUSER/openmicroscopy.git
 
 If you would like to be kept up-to-date on what several users are doing on
 GitHub, you can set the “default remotes” value to the list of people
@@ -137,7 +152,7 @@ you would like to check in .git/config:
 
 ::
 
-        git config remotes.default "ome team origin gh official chris ola will jm colin elwood"
+    git config remotes.default "ome team origin gh official chris ola will jm colin elwood"
 
 Now, ``git remote update`` will check the above list of repositories.
 
@@ -149,7 +164,7 @@ it is vital that you push it to your GitHub fork.
 
 ::
 
-        git push gh your-branch
+    git push gh your-branch
 
 This will create a new branch, and the same command can be used to
 subsequently update that branch.
@@ -159,7 +174,7 @@ do:
 
 ::
 
-        git push gh your-branch:refs/heads/branch-name-on-gh
+    git push gh your-branch:refs/heads/branch-name-on-gh
 
 As mentioned elsewhere, the "refs/heads/" prefix only needs to be used to
 create a new branch, and can be dropped for subsequent pushes.
@@ -190,8 +205,8 @@ repository.
 
 ::
 
-        git branch -d your-branch
-        git push gh :your-branch
+    git branch -d your-branch
+    git push gh :your-branch
 
 This way, anyone looking at your fork clearly sees what is currently in
 progress or upcoming.
@@ -208,22 +223,22 @@ displays some useful tips on how to add and remove files:
 
 ::
 
-        git status   
+    git status
 
 Create a branch from the “develop” branch:
 
 ::
 
-        git checkout -b feature/foo origin/develop
+    git checkout -b feature/foo origin/develop
 
 At this point, you are ready to do some work:
 
 ::
 
-        git checkout my-work  # Just to be sure.
-        vim README.txt        # edit files
-        git merge anotheruser/some-work
-        git status            # See what you have done
+    git checkout my-work  # Just to be sure.
+    vim README.txt        # edit files
+    git merge anotheruser/some-work
+    git status            # See what you have done
 
 You can also add files or directories to the 'cache' with interactive
 choice of which 'chunks' to accept or decline (useful for checking that
@@ -231,19 +246,19 @@ you are not adding any unintended changes, print statements etc.):
 
 ::
 
-        git add -p path/to/dir/or/file
+    git add -p path/to/dir/or/file
 
 Check the status again - to see summary of what you are about to commit:
 
 ::
 
-        git status
+    git status
 
 Any remaining changes that you want to discard can be reverted by:
 
 ::
 
-        git checkout -- path/to/file.txt
+    git checkout -- path/to/file.txt
 
 When committing the code you have just modified/merged your commit message
 should refer to related tickets. E.g. "See :ticket:`1111`"
@@ -252,7 +267,7 @@ will link the commit to the ticket on trac, and "Fixes
 
 ::
 
-        git commit -m "Add message here and refer to the ticket number. See #1234. Fixes #5678"
+    git commit -m "Add message here and refer to the ticket number. See #1234. Fixes #5678"
 
 .. note::
 
@@ -269,7 +284,7 @@ different feature. To see a list branches:
 
 ::
 
-        git branch
+    git branch
 
 Add the ``-a`` to list remote branches too.
 
@@ -278,7 +293,7 @@ your file-system will be updated to the new branch:
 
 ::
 
-        git checkout dev_4_2
+    git checkout dev_4_2
 
 .. note:: Make sure they are refreshed if you have files open in an editor or IDE
 
@@ -290,26 +305,26 @@ log at a certain commit. E.g. show diff for commit 83dad:
 
 ::
 
-        git log 83dad -p
+    git log 83dad -p
 
 Or to display a nice graph:
 
 ::
 
-        git log --graph --decorate --oneline
+    git log --graph --decorate --oneline
 
 If an alias has been set-up as described in the configuration section above, 
 you can just do:
 
 ::
 
-        git graph
+    git graph
 
 This is most useful when showing how two branches are related:
 
 ::
 
-        git graph origin/develop develop
+    git graph origin/develop develop
 
 When you are ready, you will need to push your local changes to your own
 forked repository in order to share with others. If the branch does not
@@ -318,23 +333,23 @@ with ``refs/heads``:
 
 ::
 
-        git push gh my_fix_123:refs/heads/my_fix_123
+    git push gh my_fix_123:refs/heads/my_fix_123
 
 After that initial push, the following will suffice as long as you are
 on the my\_fix\_123 branch:
 
 ::
 
-        git push gh my_fix_123
+    git push gh my_fix_123
 
 You will find it easier if you name remote branches the same as local
 branch though it is not a requirement:
 
 ::
 
-        git push gh name/of/branch:refs/heads/name/of/branch
-        # E.g:
-        git push gh feature/export:refs/heads/feature/export
+    git push gh name/of/branch:refs/heads/name/of/branch
+    # E.g:
+    git push gh feature/export:refs/heads/feature/export
 
 Once you have pushed, you can open a “Pull Request” to inform the team
 about the changes. More on that below.
@@ -345,9 +360,9 @@ commits you push automatically go to the corresponding remote branch:
 
 ::
 
-        git fetch SOMEUSER && git checkout -b name/of/branch SOMEUSER/name/of/branch
-        # work on the branch then:
-        git push SOMEUSER name/of/branch
+    git fetch SOMEUSER && git checkout -b name/of/branch SOMEUSER/name/of/branch
+    # work on the branch then:
+    git push SOMEUSER name/of/branch
 
 Collaborating via git rebase
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -363,35 +378,35 @@ messages, you will first need to access the latest remote changes:
 
 ::
 
-        git fetch gh
+    git fetch gh
 
 To see the differences between your local changes ('my\_fix\_123') and
 the remote changes ('gh/my\_fix\_123'), you can use the log command:
 
 ::
 
-        git log --graph --date-order gh/my_fix_123 my_fix_123
+    git log --graph --date-order gh/my_fix_123 my_fix_123
 
 If the remote branch (‘gh/my\_fix\_123’) have moved ahead of yours, then
 you will want to rebase your work on top of this new work:
 
 ::
 
-        git rebase gh/my_fix_123
+    git rebase gh/my_fix_123
 
 Now your local changes will follow the remote changes in the log. You
 can check how this looks by viewing the graph again:
 
 ::
 
-        git log --graph --date-order gh/my_fix_123 my_fix_123
+    git log --graph --date-order gh/my_fix_123 my_fix_123
 
 Now you can push your changes on the 'my\_fix\_123' branch to the remote
 repository:
 
 ::
 
-        git push gh my_fix_123
+    git push gh my_fix_123
 
 Rebasing allows you to update the 'base' point at which you branched
 from another branch (as described above). You can also use 'rebase' to
@@ -403,7 +418,7 @@ extra whitespace during rebase e.g. to origin/develop branch
 
 ::
 
-        git rebase --whitespace=strip origin/develop
+    git rebase --whitespace=strip origin/develop
 
 Rebase "interactive" using the ``-i`` flag allows you to remove, edit,
 combine etc commits. Git will open an editor to allow you to edit the
@@ -412,7 +427,7 @@ For example, to rebase onto origin/develop branch:
 
 ::
 
-        git rebase -i origin/develop
+    git rebase -i origin/develop
 
 Working with submodules
 -----------------------
@@ -423,17 +438,17 @@ submodule repository:
 
 ::
 
-        $ cd components/bioformats
-        $ git remote add melissalinkert git@github.com:melissalinkert/bioformats.git
-        $ git remote
-        origin
-        melissalinkert
-        sbesson
-        $ git checkout -b new_branch origin/develop
-        $ vim Readme.txt
-        $ git merge melissalinkert/branch
-        $ git commit -m "Merge branch"
-        $ git push sbesson new_branch
+    $ cd components/bioformats
+    $ git remote add melissalinkert git@github.com:melissalinkert/bioformats.git
+    $ git remote
+    origin
+    melissalinkert
+    sbesson
+    $ git checkout -b new_branch origin/develop
+    $ vim Readme.txt
+    $ git merge melissalinkert/branch
+    $ git commit -m "Merge branch"
+    $ git push sbesson new_branch
 
 Additionally, you can perform an update of the submodule from the parent
 project, i.e. checkout a specific commit. After updating, the submodule
@@ -441,33 +456,33 @@ ends up in a detached HEAD state:
 
 ::
 
-        $ cd code/openmicroscopy
-        $ git submodule update
-        Submodule path 'components/bioformats': checked out '9328b869b9ba61851adaa3db428ce25f0ca56845'  
-        $ cd components/bioformats
-        $ git branch
-        * (no branch)
-          develop
+    $ cd code/openmicroscopy
+    $ git submodule update
+    Submodule path 'components/bioformats': checked out '9328b869b9ba61851adaa3db428ce25f0ca56845'  
+    $ cd components/bioformats
+    $ git branch
+    * (no branch)
+      develop
 
 If you move between branches in the project, you may end up in a
 different state of the submodule:
 
 ::
 
-        $ cd ../..
-        $ git checkout my-branch
-        M   components/bioformats
-        Switched to branch 'my-branch'
-        
-        $ git status
-        # On branch my-branch
-        # Changes not staged for commit:
-        #   (use "git add <file>..." to update what will be committed)
-        #   (use "git checkout -- <file>..." to discard changes in working directory)
-        #
-        #   modified:   components/bioformats (new commits)
-        #
-        # no changes added to commit (use "git add" and/or "git commit -a")
+    $ cd ../..
+    $ git checkout my-branch
+    M   components/bioformats
+    Switched to branch 'my-branch'
+    
+    $ git status
+    # On branch my-branch
+    # Changes not staged for commit:
+    #   (use "git add <file>..." to update what will be committed)
+    #   (use "git checkout -- <file>..." to discard changes in working directory)
+    #
+    #   modified:   components/bioformats (new commits)
+    #
+    # no changes added to commit (use "git add" and/or "git commit -a")
 
 If you do not want to modify the submodule state, run
 :command:`git submodule update`. Be careful though, the
@@ -480,14 +495,14 @@ command:
 
 ::
 
-        cd components/bioformats
-        git merge gh/branch
-        git commit -m "Merged branch"
-        git push
+    cd components/bioformats
+    git merge gh/branch
+    git commit -m "Merged branch"
+    git push
 
-        cd ..
-        git add bioformats
-        git commit -m "Move to latest bioformats"
+    cd ..
+    git add bioformats
+    git commit -m "Move to latest bioformats"
 
 .. warning::
 
@@ -497,7 +512,7 @@ command:
 
     ::
 
-            git add components/bioformats/
+        git add components/bioformats/
 
 There are Git hooks available to make working with submodules safer. See
 post-merge-checkout_ for an example.
@@ -516,9 +531,9 @@ text.
 
 ::
 
-        Add feature X (See #123, Fix #321)
+    Add feature X (See #123, Fix #321)
     <this line left blank>
-        More description about X. It’s really great …
+    More description about X. It’s really great …
 
 Many git tools expect exactly this format, not the least of which is
 GitHub. If you would like to see how these commit messages are rendered
@@ -542,14 +557,14 @@ organize your commits before merging.
 
    ::
 
-           git rebase --whitespace=strip origin/develop
+        git rebase --whitespace=strip origin/develop
 
 -  If you used the set-up script above, the alias 'ws' was added to
    allow you to achieve the same action with:
 
    ::
 
-           git ws origin/develop
+        git ws origin/develop
 
 -  Rebase "interactive": To remove, edit, combine etc. your commits, use
    the ``-i`` flag. Git will open an editor to allow you to edit the commit
@@ -558,7 +573,7 @@ organize your commits before merging.
 
    ::
 
-           git rebase -i origin/develop
+        git rebase -i origin/develop
 
 'team.git'
 ----------
@@ -569,25 +584,25 @@ to collaborate on a branch or simply to back-up your work.
 
 ::
 
-        git remote add team ssh://git.openmicroscopy.org/home/git/team.git
+    git remote add team ssh://git.openmicroscopy.org/home/git/team.git
 
 Create new branches for others to see:
 
 ::
 
-        git push team new_feature_name:refs/heads/new_feature_name
+    git push team new_feature_name:refs/heads/new_feature_name
 
 Get changes from others:
 
 ::
 
-        git pull --ff-only team new_feature_name
+    git pull --ff-only team new_feature_name
 
 Send changes to others:
 
 ::
 
-        git push team new_feature_name
+    git push team new_feature_name
 
 You can also create a local branch from a remote branch. These will be
 'tracked' so that commits you push automatically go to the corresponding
@@ -595,28 +610,28 @@ remote branch:
 
 ::
 
-        git fetch team && git checkout -b name/of/branch team/name/of/branch
-        # work on the branch then:
-        git push team name/of/branch
+    git fetch team && git checkout -b name/of/branch team/name/of/branch
+    # work on the branch then:
+    git push team name/of/branch
 
 Now go back to your regular work and finish the feature and commit to
 develop when ready. Once the branch is no longer needed, remove the name:
 
 ::
 
-        git push team :refs/heads/new_feature_name
+    git push team :refs/heads/new_feature_name
 
 You will find it easier if you name remote branches the same as local
 branch:
 
 ::
 
-        git push team name/of/branch:refs/heads/name/of/branch
-        # E.g:
-        git push team feature/export:refs/heads/feature/export
+    git push team name/of/branch:refs/heads/name/of/branch
+    # E.g:
+    git push team feature/export:refs/heads/feature/export
 
-        # after committing to local branch you can push to team
-        git push team name/of/branch
+    # after committing to local branch you can push to team
+    git push team name/of/branch
 
 
 Branch naming
@@ -757,42 +772,42 @@ and see all changes that the team have made:
 
 ::
 
-        ~/git $ git remote update
-        Fetching team
-        Fetching origin
-        remote: Counting objects: 22, done.
-        remote: Compressing objects: 100% (8/8), done.
-        remote: Total 8 (delta 7), reused 0 (delta 0)
-        Unpacking objects: 100% (8/8), done.
-        From ssh://lust/home/git/omero
-        3f2ab6f..f80cbc4  dev_4_1_jcb -> origin/dev_4_1_jcb
-        Fetching gh
-        ...
-        Fetching jm
-        remote: Counting objects: 46, done.
-        remote: Compressing objects: 100% (2/2), done.
-        remote: Total 24 (delta 19), reused 24 (delta 19)
-        Unpacking objects: 100% (24/24), done.
-        From git://github.com/jburel/openmicroscopy
-        * [new branch]      feature/plateAcquisitionAnnotation -> jm/feature/plateAcquisitionAnnotation
-        Fetching colin
-        From git://github.com/ximenesuk/openmicroscopy
-        * [new branch]      909-Proposal2 -> colin/909-Proposal2
+    ~/git $ git remote update
+    Fetching team
+    Fetching origin
+    remote: Counting objects: 22, done.
+    remote: Compressing objects: 100% (8/8), done.
+    remote: Total 8 (delta 7), reused 0 (delta 0)
+    Unpacking objects: 100% (8/8), done.
+    From ssh://lust/home/git/omero
+    3f2ab6f..f80cbc4  dev_4_1_jcb -> origin/dev_4_1_jcb
+    Fetching gh
+    ...
+    Fetching jm
+    remote: Counting objects: 46, done.
+    remote: Compressing objects: 100% (2/2), done.
+    remote: Total 24 (delta 19), reused 24 (delta 19)
+    Unpacking objects: 100% (24/24), done.
+    From git://github.com/jburel/openmicroscopy
+    * [new branch]      feature/plateAcquisitionAnnotation -> jm/feature/plateAcquisitionAnnotation
+    Fetching colin
+    From git://github.com/ximenesuk/openmicroscopy
+    * [new branch]      909-Proposal2 -> colin/909-Proposal2
 
 If you want to get the changes for all submodules, you can use:
 
 ::
 
-        git submodule foreach --recursive git remote update
+    git submodule foreach --recursive git remote update
 
 At this point, you may need to “merge --ff-only” or just “rebase” your
 work to incorporate the new commits:
 
 ::
 
-        git checkout 909-Proposal2
-        git show-branch 909-Proposal2 colin/909-Proposal2
-        git rebase colin/909-Proposal2
+    git checkout 909-Proposal2
+    git show-branch 909-Proposal2 colin/909-Proposal2
+    git rebase colin/909-Proposal2
 
 Finally, the WIP branch will have advanced far enough that it should be
 made release-ready, which will need to be discussed at a weekly meeting.
@@ -835,9 +850,9 @@ Then we can create a temporary test branch:
 
 ::
 
-        git checkout -b test-909-and-plate origin/develop
-        git merge --no-ff jm/feature/plateAcquisitionAnnotation
-        git merge --no-ff colin/909-Proposal2
+    git checkout -b test-909-and-plate origin/develop
+    git merge --no-ff jm/feature/plateAcquisitionAnnotation
+    git merge --no-ff colin/909-Proposal2
 
 and build and test this composite. This need not be done manually, but
 assuming there’s a convention like “all branches for immediate release
@@ -880,11 +895,11 @@ Pull Request.
 
 ::
 
-        git checkout -b new_stuff SOMEUSER/new_stuff
-        # Modifications
-        git commit -a -m "My fix of the new_stuff"
-        git push gh new_stuff
-        # Now go to the new_stuff branch on github.com and open the PR
+    git checkout -b new_stuff SOMEUSER/new_stuff
+    # Modifications
+    git commit -a -m "My fix of the new_stuff"
+    git push gh new_stuff
+    # Now go to the new_stuff branch on github.com and open the PR
 
 Pull Request conflicts
 """"""""""""""""""""""
@@ -896,23 +911,23 @@ example, *bugs* is the branch we are working on:
 
 ::
 
-        # push the branch to GitHub
-        git push gh bugs:refs/heads/bugs
-        # issue a pull request, not possible to merge due to a conflict.
+    # push the branch to GitHub
+    git push gh bugs:refs/heads/bugs
+    # issue a pull request, not possible to merge due to a conflict.
 
 Now we need to fix the conflict:
 
 ::
 
-        # checkout your local branch
-        git checkout bugs
-        # fetch and merge origin/develop
-        git fetch origin
-        git merge origin/develop            # Any conflicts will be listed
-        # Edit the conflicting files to fix conflicts, then
-        git add path/to/file
-        git commit                          # Use the suggested 'merging...' message
-        git push gh bugs
+    # checkout your local branch
+    git checkout bugs
+    # fetch and merge origin/develop
+    git fetch origin
+    git merge origin/develop            # Any conflicts will be listed
+    # Edit the conflicting files to fix conflicts, then
+    git add path/to/file
+    git commit                          # Use the suggested 'merging...' message
+    git push gh bugs
 
 Your branch should now be able to merge back into develop. This should
 only be done at the very end of a pull request just before it is merged
