@@ -56,6 +56,11 @@ Most OME development is currently happening on GitHub, therefore it is highly
 suggested that you become familiar with how it works, if not create an account
 for yourself.
 
+.. note:: There is extensive guidance on the :doc:`using-git` page and the
+    following examples assume you have set up your account using "gh" for your
+    personal repositories and "origin" as the official repositories as
+    described there.
+
 Start by cloning the official repository for the project you want to work with
 e.g.::
 

@@ -152,7 +152,7 @@ you would like to check in .git/config:
 
 ::
 
-    git config remotes.default "ome team origin gh official chris ola will jm colin elwood"
+    git config remotes.default "ome team origin gh official chris ola will jm colin"
 
 Now, ``git remote update`` will check the above list of repositories.
 
