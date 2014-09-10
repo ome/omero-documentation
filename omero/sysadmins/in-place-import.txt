@@ -207,6 +207,8 @@ If you are unclear about how hard-linking works, please see the
 `Hard link <http://en.wikipedia.org/wiki/Hard_link>`_ article on
 Wikipedia.
 
+.. _inplace_import_ln_rm:
+
 "ln_rm" - moving
 ^^^^^^^^^^^^^^^^
 
@@ -286,6 +288,7 @@ DropBox directory.
 This will also **move** files into OMERO rather than leaving a copy in the
 DropBox directory. For this to work, the two directories will need to
 be on the same file system. This option is much faster than `upload_rm`.
-Please read and understand the implications of the `ln_rm` option.
+Please read :ref:`inplace_import_ln_rm` carefully to ensure you fully
+understand the implications of using this option.
 
 .. warning:: **Use at your own risk!**
