@@ -399,6 +399,16 @@ Customizing your OMERO.web installation
 
           C:\omero_dist>bin\omero config set omero.web.ping_interval 12000
 
+- Page size:
+
+   -  Datasets and the 'orphaned' image container are paginated to handle
+      large numbers of images. You can set the number of images per page.
+      Default: ``200`` images.
+
+      ::
+
+          C:\omero_dist>bin\omero config set omero.web.page_size 500
+
 -  Debug mode:
 
    -  A boolean that turns on/off debug mode. Default: ``False``.
