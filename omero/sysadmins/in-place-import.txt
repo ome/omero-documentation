@@ -207,6 +207,8 @@ If you are unclear about how hard-linking works, please see the
 `Hard link <http://en.wikipedia.org/wiki/Hard_link>`_ article on
 Wikipedia.
 
+.. _inplace_import_ln_rm:
+
 "ln_rm" - moving
 ^^^^^^^^^^^^^^^^
 
@@ -214,6 +216,17 @@ Finally, the least favored option is `ln_rm`. It first performs
 a hard-link like `ln`, but once the import is complete it attempts
 to delete the original file. This is currently in testing as
 an option for DropBox but is unlikely to be of use to general users.
+Although this option is more limited than the `upload_rm` option below it
+will be much faster.
+
+"upload_rm" - uploading and deleting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This option, available from OMERO 5.0.3, is not strictly an in-place option
+but is detailed here for convenience. It first performs a file upload like
+default import, but once the import is complete it attempts to delete the
+original files. It deletes the original files **if and only if** the import
+is successful.
 
 Your own file transfer
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -256,18 +269,26 @@ and the default SHA1-160.
 DropBox
 ^^^^^^^
 
-As described in the scenario ":ref:`inplace_dropbox_auto`",
-:doc:`DropBox </sysadmins/dropbox>` can be configured to use
-any of the options described above. The configuration property to
-modify is `omero.fs.importArgs`:
+As described in the scenarios ":ref:`upload_dropbox_auto`" and
+":ref:`inplace_dropbox_auto`", :doc:`DropBox </sysadmins/dropbox>` can be
+configured to use any of the options described above. The configuration
+property to modify is `omero.fs.importArgs`:
+
+::
+
+    $ bin/omero config set -- omero.fs.importArgs "--transfer=upload_rm"
+
+This will **move** files into OMERO rather than leaving a copy in the
+DropBox directory.
 
 ::
 
     $ bin/omero config set -- omero.fs.importArgs "--transfer=ln_rm"
 
-This will **move** files into OMERO rather than leaving a copy in the
+This will also **move** files into OMERO rather than leaving a copy in the
 DropBox directory. For this to work, the two directories will need to
-be on the same file system. Please read and understand the implications
-of the `ln_rm` option.
+be on the same file system. This option is much faster than `upload_rm`.
+Please read :ref:`inplace_import_ln_rm` carefully to ensure you fully
+understand the implications of using this option.
 
 .. warning:: **Use at your own risk!**
