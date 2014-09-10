@@ -106,7 +106,7 @@ Server fails to start
    installation as outlined on the PostgreSQL page for your OS 
    (:doc:`Windows PostgreSQL page <windows/server-postgresql>` or 
    :doc:`UNIX/Mac PostgreSQL page <unix/server-postgresql>`).
-2. Check the permissions on your :term:`omero.data.dir` (:file:`/OMERO` or
+2. Check the permissions on your :property:`omero.data.dir` (:file:`/OMERO` or
    :file:`C:\OMERO` by default) as outlined on the
    :doc:`unix/server-installation` page for Unix/Mac users, or the 
    :doc:`windows/server-binary-repository` page for Windows users.
@@ -125,7 +125,7 @@ Server fails to start
    ``var/master`` directory (e.g. ``rm -rf var/master``). When
    restarting OMERO, the registry will be automatically re-created.
 5. If you see an error message mentioning "Protocol family unavailable",
-   you will need to set the :term:`Ice.IPv6` property with
+   you will need to set the :property:`Ice.IPv6` property with
    :omerocmd:`config set IPv6 0`.
 6. If OMERO starts up, but fails to respond to connection requests, check
    `netstat -a` for port 4064. If nothing is listening on 4064, you may

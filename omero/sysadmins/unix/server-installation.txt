@@ -626,7 +626,7 @@ Configuration
 
 -   If you have chosen a non-standard :doc:`OMERO binary repository
     <server-binary-repository>` location above, be sure to configure
-    the :term:`omero.data.dir` property. For example, to use
+    the :property:`omero.data.dir` property. For example, to use
     :file:`/srv/omero`::
 
     $ omero config set omero.data.dir /srv/omero

@@ -31,7 +31,7 @@ Configuration properties
 
 Configuration properties can either be applied to all three service
 types at the same time by omitting the service type (e.g.
-:term:`omero.jvmcfg.strategy`) or to each individually by including it
+:property:`omero.jvmcfg.strategy`) or to each individually by including it
 (e.g. `omero.jvmcfg.strategy.blitz`).
 
 
@@ -60,12 +60,12 @@ JVM settings from the provided configuration properties.
         set globally or on a service-type basis. This percentage (0-100)
         of the system memory is used for the process, subject to minimum
         and maximum limits which can be changed.
-        :term:`omero.jvmcfg.system_memory`,
-        :term:`omero.jvmcfg.min_system_memory`, and
-        :term:`omero.jvmcfg.max_system_memory` are all used for defining the
+        :property:`omero.jvmcfg.system_memory`,
+        :property:`omero.jvmcfg.min_system_memory`, and
+        :property:`omero.jvmcfg.max_system_memory` are all used for defining the
         system memory seen. The default percentages are: blitz and
-        pixeldata 15%, indexer 10%. If :term:`omero.jvmcfg.perm_gen` or
-        :term:`omero.jvmcfg.heap_size` are explicitly set, they will
+        pixeldata 15%, indexer 10%. If :property:`omero.jvmcfg.perm_gen` or
+        :property:`omero.jvmcfg.heap_size` are explicitly set, they will
         be used directly as with the :term:`ManualStrategy`.
 
     ManualStrategy
@@ -181,7 +181,7 @@ events and makes them available both via |JMX| as described under
 By default, these values are printed to each of the |JVM|-based log
 files (e.g. :file:`var/log/Blitz-0.log`, :file:`var/log/Indexer-0.log`,
 etc) once per hour. This value can be configured via
-:term:`omero.metrics.slf4j_minutes`. A typical value might look like:
+:property:`omero.metrics.slf4j_minutes`. A typical value might look like:
 
 .. parsed-literal::
 

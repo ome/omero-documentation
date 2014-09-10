@@ -363,7 +363,7 @@ is having a properly configured database.
 
    #. Create a new role and record the name and password. You will need to 
       configure OMERO to use your username and password by setting the 
-      :term:`omero.db.name` and :term:`omero.db.pass` properties.
+      :property:`omero.db.name` and :property:`omero.db.pass` properties.
 
       .. warning::
           For illustrative purposes, the default name and password for the 
@@ -536,7 +536,7 @@ Installation
         C:\OMERO.server\> bin\omero config set omero.db.pass db_password
 
 -   If you have chosen a non-standard :doc:`OMERO binary repository <server-binary-repository>` 
-    location above, be sure to configure the :term:`omero.data.dir` property.
+    location above, be sure to configure the :property:`omero.data.dir` property.
     
     When using ``C:\`` style file paths it is necessary to "escape" the 
     backslashes. For example:

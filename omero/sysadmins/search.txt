@@ -7,7 +7,7 @@ How Indexing works
 Indexing is not driven by the user, but happens automatically in the
 background and can be controlled by a number of settings listed under
 :ref:`search_configuration`. The indexer runs periodically as defined
-by :term:`omero.search.cron` and parses the latest batch of new or
+by :property:`omero.search.cron` and parses the latest batch of new or
 modified objects in the database.
 
 Upon successful completion, the persistent count in the ``configuration``
@@ -50,7 +50,7 @@ Indexer-0 process:
    are periodically being appended to the log file, then your indexer process
    may be running behind. You can either wait for it to catch up, or try
    increasing the search batch size in order to speed processing. See the
-   section on the :term:`omero.search.batch` setting for more information.
+   section on the :property:`omero.search.batch` setting for more information.
 
 -  If there are no updates to the ``Indexer-0.log`` file even when new images,
    tags, files, etc. are added to the server, then it is possible that the
@@ -80,7 +80,7 @@ occurred include:
 
 -  Missing search terms are part of a very large text file. If the indexer's
    maximum file size limit is reached, a file may not be indexed.
-   See the section on the :term:`omero.search.max_file_size` setting for
+   See the section on the :property:`omero.search.max_file_size` setting for
    more information on increasing this limit.
 
 -  A bug in Lucene prior to OMERO 5.0.1 caused some documents to be "sealed"
@@ -109,7 +109,7 @@ initiate a re-indexing.
        $ bin/omero admin reindex --prepare
 
 -  Remove the existing search Indexes by deleting the contents of the
-   :file:`FullText` subdirectory of your :term:`omero.data.dir`:
+   :file:`FullText` subdirectory of your :property:`omero.data.dir`:
 
    ::
 
@@ -200,7 +200,7 @@ servers of various sizes:
     * Re-indexing duration
     * Binary repository size
     * Indexer JVM settings
-    * :term:`omero.search.batch`
+    * :property:`omero.search.batch`
 
   - * Background
     * 31h
