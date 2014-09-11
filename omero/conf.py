@@ -67,8 +67,12 @@ else:
     devbranch = 'develop'
 
 rst_prolog = """
-This documentation is for OMERO 4.4 and is no longer being updated, to see the documentation for
-the latest release, refer to http:/openmicroscopy.org/site/support/omero/
+.. warning:: This documentation is for OMERO 4.4 and is no longer being updated,
+    to see the documentation for the latest release, refer to
+    http:/openmicroscopy.org/site/support/omero/
+    
+    We will continue to support 4.4 into spring 2015 but you should not develop
+    against this version or use it for new installations.
 """
 
 rst_epilog += """
