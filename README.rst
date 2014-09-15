@@ -426,6 +426,9 @@ improving the semantics of the document elements.
   the command in the generated index.
 * Other commands should be formatted using the literal markup:
   ``:literal: `command``` or double back quoted markup
+* Configuration properties for OMERO.server and OMERO.web are marked using
+  the custom ``property`` directive and can be cross referenced e.g. using
+  ``:property: `omero.data.dir```
 * Other useful inline markups include: ``:option:`` and ``:guilabel:``
 * Do not use inline highlighting or other markups in headings or subheadings
 
