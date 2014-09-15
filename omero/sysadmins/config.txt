@@ -10,81 +10,150 @@ version.
 
 The :source:`etc/omero.properties` file of your distribution defines all the
 default configuration properties used by the server. Changes made to the file
-are *not* recognized by the server. Instead, the :omerocmd:`config` command is
-used to change those properties that you would like to customize.
+are *not* recognized by the server. Instead, configuration options can be set
+using the :omerocmd:`config set` command:
+
+::
+
+    $ bin/omero config set <parameter> <value>
+
+When supplying a value with spaces or multiple elements, use **single
+quotes**. The quotes will not be saved as part of the value (see below).
+
+To remove a configuration option (to return to default values where
+mentioned), simply omit the value:
+
+::
+
+    $ bin/omero config set <parameter>
+
+These options will be stored in a file: ``etc/grid/config.xml`` which
+you can read for reference. **DO NOT** edit this file directly.
+
+You can also review all your settings by using:
+
+::
+
+    $ bin/omero config get
+
+which should return values without quotation marks.
+
+A final useful option of :omerocmd:`config edit` is:
+
+::
+
+    $ bin/omero config edit
+
+which will allow for editing the configuration in a system-default text
+editor.
 
 Examples of doing this are on the main :doc:`Unix <unix/server-installation>`
 and :doc:`Windows <windows/server-installation>` pages, as well as the
 :doc:`LDAP installation <server-ldap>` page.
+
 
 .. _core_configuration:
 
 Core
 ----
 
-.. glossary::
+.. property:: omero.data.dir
 
-    omero.data.dir
+omero.data.dir
+~~~~~~~~~~~~~~
 
-      Default: `/OMERO/`
+Default: `/OMERO/`
 
-    omero.db.authority
+.. property:: omero.db.authority
 
-      Default: `export.openmicroscopy.org`
+omero.db.authority
+~~~~~~~~~~~~~~~~~~
 
-    omero.db.host
+Default: `export.openmicroscopy.org`
 
-      Default: `localhost`
+.. property:: omero.db.host
 
-    omero.db.name
+omero.db.host
+~~~~~~~~~~~~~
 
-      Default: `omero`
+Default: `localhost`
 
-    omero.db.pass
+.. property:: omero.db.name
 
-      Default: `omero`
+omero.db.name
+~~~~~~~~~~~~~
 
-    omero.db.patch
+Default: `omero`
 
-      Default: `8`
+.. property:: omero.db.pass
 
-    omero.db.poolsize
-      Sets the number of connections to PostgreSQL which
-      will be used by OMERO. Your database installation
-      will need to be configured to accept *at least* as
-      many, preferably more, connections as this value.
+omero.db.pass
+~~~~~~~~~~~~~
 
-      Default: `10`
+Default: `omero`
 
-    omero.db.prepared_statement_cache_size
+.. property:: omero.db.patch
 
-      Default: `10`
+omero.db.patch
+~~~~~~~~~~~~~~
 
-    omero.db.profile
-      Default values for the current profile will be
-      hard-coded into the hibernate.properties file
-      in the `model-*.jar`. By using a different jar,
-      you can modify the defaults.
+Default: `8`
 
-      Note: some other properties are defined in
-      the file etc/profiles/${omero.db.profile}
-      Especially of importance is omero.db.port
+.. property:: omero.db.poolsize
 
-      Default: `psql`
+omero.db.poolsize
+~~~~~~~~~~~~~~~~~
+Sets the number of connections to PostgreSQL which
+will be used by OMERO. Your database installation
+will need to be configured to accept *at least* as
+many, preferably more, connections as this value.
 
-    omero.db.statistics
-      Whether JMX statistics are collected
-      for DB usage (by Hibernate, etc)
+Default: `10`
 
-      Default: `true`
+.. property:: omero.db.prepared_statement_cache_size
 
-    omero.db.user
+omero.db.prepared_statement_cache_size
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `omero`
+Default: `10`
 
-    omero.db.version
+.. property:: omero.db.profile
 
-      Default: `OMERO5.1DEV`
+omero.db.profile
+~~~~~~~~~~~~~~~~
+Default values for the current profile will be
+hard-coded into the hibernate.properties file
+in the `model-*.jar`. By using a different jar,
+you can modify the defaults.
+
+Note: some other properties are defined in
+the file etc/profiles/${omero.db.profile}
+Especially of importance is omero.db.port
+
+Default: `psql`
+
+.. property:: omero.db.statistics
+
+omero.db.statistics
+~~~~~~~~~~~~~~~~~~~
+Whether JMX statistics are collected
+for DB usage (by Hibernate, etc)
+
+Default: `true`
+
+.. property:: omero.db.user
+
+omero.db.user
+~~~~~~~~~~~~~
+
+Default: `omero`
+
+.. property:: omero.db.version
+
+omero.db.version
+~~~~~~~~~~~~~~~~
+
+Default: `OMERO5.1DEV`
 
 
 .. _fs_configuration:
@@ -92,86 +161,96 @@ Core
 FS
 --
 
-.. glossary::
+.. property:: omero.checksum.supported
 
-    omero.checksum.supported
-      Checksum algorithms supported by the server for new file uploads,
-      being any comma-separated non-empty subset of:
+omero.checksum.supported
+~~~~~~~~~~~~~~~~~~~~~~~~
+Checksum algorithms supported by the server for new file uploads,
+being any comma-separated non-empty subset of:
 
-      - Adler-32
-      - CRC-32
-      - MD5-128
-      - Murmur3-32
-      - Murmur3-128
-      - SHA1-160
-      - File-Size-64
+- Adler-32
+- CRC-32
+- MD5-128
+- Murmur3-32
+- Murmur3-128
+- SHA1-160
+- File-Size-64
 
-      In negotiation with clients, this list is interpreted as being in
-      descending order of preference.
+In negotiation with clients, this list is interpreted as being in
+descending order of preference.
 
-      Default: `SHA1-160, MD5-128, Murmur3-128, Murmur3-32, CRC-32, Adler-32, File-Size-64`
+Default: `SHA1-160, MD5-128, Murmur3-128, Murmur3-32, CRC-32, Adler-32, File-Size-64`
 
-    omero.fs.repo.path
-      Template for FS managed repository paths.
-      Allowable elements are:
+.. property:: omero.fs.repo.path
 
-      ::
+omero.fs.repo.path
+~~~~~~~~~~~~~~~~~~
+Template for FS managed repository paths.
+Allowable elements are:
 
-         %user%         bob
-         %userId%       4
-         %group%        bobLab
-         %groupId%      3
-         %year%         2011
-         %month%        01
-         %monthname%    January
-         %day%          01
-         %time%         15-13-54.014
-         %institution%  University of Dundee
-         %hash%         0D2D8DB7
-         %increment%    14
-         %subdirs%      023/613
-         %session%      c3fdd5d8-831a-40ff-80f2-0ba5baef448a
-         %sessionId%    592
-         %perms%        rw----
-         /              path separator
-         //             end of root-owned directories
+::
 
-      These are described further at :doc:`fs-upload-configuration`
+   %user%         bob
+   %userId%       4
+   %group%        bobLab
+   %groupId%      3
+   %year%         2011
+   %month%        01
+   %monthname%    January
+   %day%          01
+   %time%         15-13-54.014
+   %institution%  University of Dundee
+   %hash%         0D2D8DB7
+   %increment%    14
+   %subdirs%      023/613
+   %session%      c3fdd5d8-831a-40ff-80f2-0ba5baef448a
+   %sessionId%    592
+   %perms%        rw----
+   /              path separator
+   //             end of root-owned directories
 
-      The path must be unique per fileset to prevent upload conflicts,
-      which is why %time% includes milliseconds.
+These are described further at :doc:`fs-upload-configuration`
 
-      A // may be used as a path separator: the directories preceding
-      it are created with root ownership, the remainder are the user's.
-      At least one user-owned directory must be included in the path.
+The path must be unique per fileset to prevent upload conflicts,
+which is why %time% includes milliseconds.
 
-      The template path is created below :term:`omero.managed.dir`,
-      e.g. /OMERO/ManagedRepository/<omero.fs.repo.path>/
+A // may be used as a path separator: the directories preceding
+it are created with root ownership, the remainder are the user's.
+At least one user-owned directory must be included in the path.
 
-      Default: `%user%_%userId%//%year%-%month%/%day%/%time%`
+The template path is created below :property:`omero.managed.dir`,
+e.g. /OMERO/ManagedRepository/<omero.fs.repo.path>/
 
-    omero.fs.repo.path_rules
-      Rules to apply to judge the acceptability of FS paths for writing into
-      :term:`omero.managed.dir`, being any comma-separated non-empty subset of:
+Default: `%user%_%userId%//%year%-%month%/%day%/%time%`
 
-      - Windows required
-      - Windows optional
-      - UNIX required
-      - UNIX optional
-      - local required
-      - local optional
+.. property:: omero.fs.repo.path_rules
 
-      Minimally, the "required" appropriate for the server is recommended.
-      Also applying "optional" rules may make sysadmin tasks easier,
-      but may be more burdensome for users who name their files oddly.
-      "local" means "Windows" or "UNIX" depending on the local platform,
-      the latter being applied for Linux and Mac OS X.
+omero.fs.repo.path_rules
+~~~~~~~~~~~~~~~~~~~~~~~~
+Rules to apply to judge the acceptability of FS paths for writing into
+:property:`omero.managed.dir`, being any comma-separated non-empty subset of:
 
-      Default: `Windows required, UNIX required`
+- Windows required
+- Windows optional
+- UNIX required
+- UNIX optional
+- local required
+- local optional
 
-    omero.managed.dir
+Minimally, the "required" appropriate for the server is recommended.
+Also applying "optional" rules may make sysadmin tasks easier,
+but may be more burdensome for users who name their files oddly.
+"local" means "Windows" or "UNIX" depending on the local platform,
+the latter being applied for Linux and Mac OS X.
 
-      Default: `${omero.data.dir}/ManagedRepository`
+Default: `Windows required, UNIX required`
+
+.. property:: omero.managed.dir
+
+omero.managed.dir
+~~~~~~~~~~~~~~~~~
+
+Default: `${omero.data.dir}/ManagedRepository`
 
 
 .. _grid_configuration:
@@ -179,22 +258,29 @@ FS
 Grid
 ----
 
-.. glossary::
+.. property:: omero.cluster.read_only
 
-    omero.cluster.read_only
+omero.cluster.read_only
+~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `false`
+Default: `false`
 
-    omero.cluster.redirector
+.. property:: omero.cluster.redirector
 
-      Default: `nullRedirector`
+omero.cluster.redirector
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-    omero.grid.registry_timeout
-      registry_timeout is the milliseconds which
-      the registry and other services will wait
-      on remote services to respond.
+Default: `nullRedirector`
 
-      Default: `5000`
+.. property:: omero.grid.registry_timeout
+
+omero.grid.registry_timeout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+registry_timeout is the milliseconds which
+the registry and other services will wait
+on remote services to respond.
+
+Default: `5000`
 
 
 .. _ice_configuration:
@@ -202,13 +288,14 @@ Grid
 Ice
 ---
 
-.. glossary::
+.. property:: Ice.IPv6
 
-    Ice.IPv6
-      Disable IPv6 by setting to 0. Only needed in
-      certain situations.
+Ice.IPv6
+~~~~~~~~
+Disable IPv6 by setting to 0. Only needed in
+certain situations.
 
-      Default: `1`
+Default: `1`
 
 
 .. _jvm_configuration:
@@ -216,70 +303,95 @@ Ice
 JVM
 ---
 
-.. glossary::
+.. property:: omero.jvmcfg.append
 
-    omero.jvmcfg.append
-      Contains other parameters which should be passed to the
-      JVM. The value of "append" is treated as if it were on
-      the command-line and so will be separated on whitespace.
-      For example, '-XX:-PrintGC -XX:+UseCompressedOops' would
-      results in two new arguments.
+omero.jvmcfg.append
+~~~~~~~~~~~~~~~~~~~
+Contains other parameters which should be passed to the
+JVM. The value of "append" is treated as if it were on
+the command-line and so will be separated on whitespace.
+For example, '-XX:-PrintGC -XX:+UseCompressedOops' would
+results in two new arguments.
 
-      Default: `[empty]`
+Default: `[empty]`
 
-    omero.jvmcfg.heap_dump
-      Toggles on or off heap dumps on OOMs. Default is "off".
-      The special value "tmp" will create the heap dumps in
-      your temp directory.
+.. property:: omero.jvmcfg.heap_dump
 
-      Default: `[empty]`
+omero.jvmcfg.heap_dump
+~~~~~~~~~~~~~~~~~~~~~~
+Toggles on or off heap dumps on OOMs. Default is "off".
+The special value "tmp" will create the heap dumps in
+your temp directory.
 
-    omero.jvmcfg.heap_size
-      Explicit value for the `-Xmx` argument, e.g.
-      "1g"
+Default: `[empty]`
 
-      Default: `[empty]`
+.. property:: omero.jvmcfg.heap_size
 
-    omero.jvmcfg.max_system_memory
-      Suggestion for strategies as to the maximum memory
-      that they will use for calculating JVM settings (MB).
+omero.jvmcfg.heap_size
+~~~~~~~~~~~~~~~~~~~~~~
+Explicit value for the `-Xmx` argument, e.g.
+"1g"
 
-      Default: `48000`
+Default: `[empty]`
 
-    omero.jvmcfg.min_system_memory
-      Suggestion for strategies as to the minimum memory
-      that they will use for calculating JVM settings (MB).
+.. property:: omero.jvmcfg.max_system_memory
 
-      Default: `3414`
+omero.jvmcfg.max_system_memory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Suggestion for strategies as to the maximum memory
+that they will use for calculating JVM settings (MB).
 
-    omero.jvmcfg.percent
-      Used only by the percent strategy. An integer between 0
-      and 100 which is the percent of active memory that will
-      be used by the service.
+Default: `48000`
 
-      Default: `[empty]`
+.. property:: omero.jvmcfg.min_system_memory
 
-    omero.jvmcfg.perm_gen
-      Explicit value for the MaxPermSize argument
-      to the JVM, e.g. "500M"
+omero.jvmcfg.min_system_memory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Suggestion for strategies as to the minimum memory
+that they will use for calculating JVM settings (MB).
 
-      Default: `[empty]`
+Default: `3414`
 
-    omero.jvmcfg.strategy
-      Memory strategy which will be used by default.
-      Options include: percent, manual
+.. property:: omero.jvmcfg.percent
 
-      Default: `percent`
+omero.jvmcfg.percent
+~~~~~~~~~~~~~~~~~~~~
+Used only by the percent strategy. An integer between 0
+and 100 which is the percent of active memory that will
+be used by the service.
 
-    omero.jvmcfg.system_memory
-      Manual override of the total system memory that
-      OMERO will *think* is present on the local OS (MB).
-      If unset, an attempt will be made to detect the actual
-      amount: first by using the Python library `psutil` and
-      if that is not installed, by running a Java tool. If
-      neither works, 4.0GB is assumed.
+Default: `[empty]`
 
-      Default: `[empty]`
+.. property:: omero.jvmcfg.perm_gen
+
+omero.jvmcfg.perm_gen
+~~~~~~~~~~~~~~~~~~~~~
+Explicit value for the MaxPermSize argument
+to the JVM, e.g. "500M"
+
+Default: `[empty]`
+
+.. property:: omero.jvmcfg.strategy
+
+omero.jvmcfg.strategy
+~~~~~~~~~~~~~~~~~~~~~
+Memory strategy which will be used by default.
+Options include: percent, manual
+
+Default: `percent`
+
+.. property:: omero.jvmcfg.system_memory
+
+omero.jvmcfg.system_memory
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Manual override of the total system memory that
+OMERO will *think* is present on the local OS (MB).
+If unset, an attempt will be made to detect the actual
+amount: first by using the Python library `psutil` and
+if that is not installed, by running a Java tool. If
+neither works, 4.0GB is assumed.
+
+Default: `[empty]`
 
 
 .. _ldap_configuration:
@@ -287,75 +399,236 @@ JVM
 LDAP
 ----
 
-.. glossary::
+.. property:: omero.ldap.base
 
-    omero.ldap.base
-      LDAP server base search DN, i.e. the filter that is applied
-      to all users. (can be empty in which case any LDAP user is
-      valid)
+omero.ldap.base
+~~~~~~~~~~~~~~~
+LDAP server base search DN, i.e. the filter that is applied
+to all users. (can be empty in which case any LDAP user is
+valid)
 
-      Default: `ou=example,o=com`
+Default: `ou=example,o=com`
 
-    omero.ldap.config
-      Enable or disable LDAP (`true` or `false`).
+.. property:: omero.ldap.config
 
-      Default: `false`
+omero.ldap.config
+~~~~~~~~~~~~~~~~~
+Enable or disable LDAP (`true` or `false`).
 
-    omero.ldap.group_filter
+Default: `false`
 
-      Default: `(objectClass=groupOfNames)`
+.. property:: omero.ldap.group_filter
 
-    omero.ldap.group_mapping
+omero.ldap.group_filter
+~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `name=cn`
+Default: `(objectClass=groupOfNames)`
 
-    omero.ldap.new_user_group
+.. property:: omero.ldap.group_mapping
 
-      Default: `default`
+omero.ldap.group_mapping
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-    omero.ldap.password
-      LDAP server bind password (if required; can be empty)
+Default: `name=cn`
 
-      Default: `[empty]`
+.. property:: omero.ldap.new_user_group
 
-    omero.ldap.referral
-      Available referral options are: "ignore", "follow", or "throw"
-      as per the JNDI referral documentation.
+omero.ldap.new_user_group
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `ignore`
+Default: `default`
 
-    omero.ldap.sync_on_login
-      Whether or not values from LDAP will be
-      synchronized to OMERO on each login. This includes
-      not just the user name, email, etc, but also the
-      groups that the user is a member of.
+.. property:: omero.ldap.password
 
-      .. warning::
-         Currently setting this to true the user will be
-         removed from any groups to which they have been
-         added outside of LDAP! Please use carefully.
+omero.ldap.password
+~~~~~~~~~~~~~~~~~~~
+LDAP server bind password (if required; can be empty)
+
+Default: `[empty]`
+
+.. property:: omero.ldap.referral
+
+omero.ldap.referral
+~~~~~~~~~~~~~~~~~~~
+Available referral options are: "ignore", "follow", or "throw"
+as per the JNDI referral documentation.
+
+Default: `ignore`
+
+.. property:: omero.ldap.sync_on_login
+
+omero.ldap.sync_on_login
+~~~~~~~~~~~~~~~~~~~~~~~~
+Whether or not values from LDAP will be
+synchronized to OMERO on each login. This includes
+not just the user name, email, etc, but also the
+groups that the user is a member of.
+
+.. warning::
+   Currently setting this to true the user will be
+   removed from any groups to which they have been
+   added outside of LDAP! Please use carefully.
 
 
-      Default: `false`
+Default: `false`
 
-    omero.ldap.urls
-      Set the URL of the LDAP server. A |SSL| URL for this
-      property would be of the form: ldaps://ldap.example.com:636
+.. property:: omero.ldap.urls
 
-      Default: `ldap://localhost:389`
+omero.ldap.urls
+~~~~~~~~~~~~~~~
+Set the URL of the LDAP server. A |SSL| URL for this
+property would be of the form: ldaps://ldap.example.com:636
 
-    omero.ldap.user_filter
+Default: `ldap://localhost:389`
 
-      Default: `(objectClass=person)`
+.. property:: omero.ldap.user_filter
 
-    omero.ldap.user_mapping
+omero.ldap.user_filter
+~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `omeName=cn,firstName=givenName,lastName=sn,email=mail`
+Default: `(objectClass=person)`
 
-    omero.ldap.username
-      LDAP server bind DN (if required; can be empty)
+.. property:: omero.ldap.user_mapping
 
-      Default: `[empty]`
+omero.ldap.user_mapping
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `omeName=cn,firstName=givenName,lastName=sn,email=mail`
+
+.. property:: omero.ldap.username
+
+omero.ldap.username
+~~~~~~~~~~~~~~~~~~~
+LDAP server bind DN (if required; can be empty)
+
+Default: `[empty]`
+
+
+.. _mail_configuration:
+
+Mail
+----
+
+.. property:: omero.mail.bean
+
+omero.mail.bean
+~~~~~~~~~~~~~~~
+Mail sender properties
+
+Default: `defaultMailSender`
+
+.. property:: omero.mail.config
+
+omero.mail.config
+~~~~~~~~~~~~~~~~~
+Enable or disable mail sender (`true` or `false`).
+
+Default: `false`
+
+.. property:: omero.mail.from
+
+omero.mail.from
+~~~~~~~~~~~~~~~
+the email address used for the "from" field
+
+Default: `ADDRESS@domain`
+
+.. property:: omero.mail.host
+
+omero.mail.host
+~~~~~~~~~~~~~~~
+the hostname of smtp server
+
+Default: `smtp.domain`
+
+.. property:: omero.mail.password
+
+omero.mail.password
+~~~~~~~~~~~~~~~~~~~
+the password to connect to the smtp server (if required; can be empty)
+
+Default: `[empty]`
+
+.. property:: omero.mail.port
+
+omero.mail.port
+~~~~~~~~~~~~~~~
+the port of smtp server 
+
+Default: `25`
+
+.. property:: omero.mail.smtp.auth
+
+omero.mail.smtp.auth
+~~~~~~~~~~~~~~~~~~~~
+see javax.mail.Session properties
+
+Default: `false`
+
+.. property:: omero.mail.smtp.connectiontimeout
+
+omero.mail.smtp.connectiontimeout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `60000`
+
+.. property:: omero.mail.smtp.debug
+
+omero.mail.smtp.debug
+~~~~~~~~~~~~~~~~~~~~~
+
+Default: `false`
+
+.. property:: omero.mail.smtp.socketFactory.class
+
+omero.mail.smtp.socketFactory.class
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `javax.net.SocketFactory`
+
+.. property:: omero.mail.smtp.socketFactory.fallback
+
+omero.mail.smtp.socketFactory.fallback
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `false`
+
+.. property:: omero.mail.smtp.socketFactory.port
+
+omero.mail.smtp.socketFactory.port
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `25`
+
+.. property:: omero.mail.smtp.starttls.enable
+
+omero.mail.smtp.starttls.enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `false`
+
+.. property:: omero.mail.smtp.timeout
+
+omero.mail.smtp.timeout
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `60000`
+
+.. property:: omero.mail.transport.protocol
+
+omero.mail.transport.protocol
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+other smtp parameters; see org.springframework.mail.javamail.JavaMailSenderImpl
+
+Default: `smtp`
+
+.. property:: omero.mail.username
+
+omero.mail.username
+~~~~~~~~~~~~~~~~~~~
+the user name to connect to the smtp server (if required; can be empty)
+
+Default: `[empty]`
 
 
 .. _metrics_configuration:
@@ -363,25 +636,32 @@ LDAP
 Metrics
 -------
 
-.. glossary::
+.. property:: omero.metrics.bean
 
-    omero.metrics.bean
-      Which bean to use:
-      nullMetrics does nothing
-      defaultMetrics uses the properties defined below
+omero.metrics.bean
+~~~~~~~~~~~~~~~~~~
+Which bean to use:
+nullMetrics does nothing
+defaultMetrics uses the properties defined below
 
-      Default: `defaultMetrics`
+Default: `defaultMetrics`
 
-    omero.metrics.graphite
-      Address for Metrics to send server data
+.. property:: omero.metrics.graphite
 
-      Default: `[empty]`
+omero.metrics.graphite
+~~~~~~~~~~~~~~~~~~~~~~
+Address for Metrics to send server data
 
-    omero.metrics.slf4j_minutes
-      Number of minutes to periodically print to slf4j
-      0 or lower disables the printout.
+Default: `[empty]`
 
-      Default: `60`
+.. property:: omero.metrics.slf4j_minutes
+
+omero.metrics.slf4j_minutes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Number of minutes to periodically print to slf4j
+0 or lower disables the printout.
+
+Default: `60`
 
 
 .. _performance_configuration:
@@ -389,71 +669,114 @@ Metrics
 Performance
 -----------
 
-.. glossary::
+.. property:: omero.sessions.maximum
 
-    omero.sessions.maximum
+omero.sessions.maximum
+~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `0`
+Default: `0`
 
-    omero.sessions.sync_force
+.. property:: omero.sessions.sync_force
 
-      Default: `1800000`
+omero.sessions.sync_force
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    omero.sessions.sync_interval
+Default: `1800000`
 
-      Default: `120000`
+.. property:: omero.sessions.sync_interval
 
-    omero.sessions.timeout
-      Sets the duration of inactivity in milliseconds after which
-      a login is required.
+omero.sessions.sync_interval
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `600000`
+Default: `120000`
 
-    omero.threads.cancel_timeout
+.. property:: omero.sessions.timeout
 
-      Default: `5000`
+omero.sessions.timeout
+~~~~~~~~~~~~~~~~~~~~~~
+Sets the duration of inactivity in milliseconds after which
+a login is required.
 
-    omero.threads.idle_timeout
+Default: `600000`
 
-      Default: `5000`
+.. property:: omero.threads.cancel_timeout
 
-    omero.threads.max_threads
+omero.threads.cancel_timeout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `50`
+Default: `5000`
 
-    omero.threads.min_threads
+.. property:: omero.threads.idle_timeout
 
-      Default: `5`
+omero.threads.idle_timeout
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    omero.throttling.method_time.error
+Default: `5000`
 
-      Default: `20000`
+.. property:: omero.threads.max_threads
 
-    omero.throttling.method_time.error.indexer
-      Value for the indexer is extended to 1 day
+omero.threads.max_threads
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `86400000`
+Default: `50`
 
-    omero.throttling.method_time.warn
+.. property:: omero.threads.min_threads
 
-      Default: `5000`
+omero.threads.min_threads
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    omero.throttling.method_time.warn.indexer
-      Value for the indexer is extended to 1 hour
+Default: `5`
 
-      Default: `3600000`
+.. property:: omero.throttling.method_time.error
 
-    omero.throttling.objects_read_interval
+omero.throttling.method_time.error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `1000`
+Default: `20000`
 
-    omero.throttling.objects_written_interval
+.. property:: omero.throttling.method_time.error.indexer
 
-      Default: `1000`
+omero.throttling.method_time.error.indexer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Value for the indexer is extended to 1 day
 
-    omero.throttling.servants_per_session
+Default: `86400000`
 
-      Default: `10000`
+.. property:: omero.throttling.method_time.warn
+
+omero.throttling.method_time.warn
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `5000`
+
+.. property:: omero.throttling.method_time.warn.indexer
+
+omero.throttling.method_time.warn.indexer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Value for the indexer is extended to 1 hour
+
+Default: `3600000`
+
+.. property:: omero.throttling.objects_read_interval
+
+omero.throttling.objects_read_interval
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `1000`
+
+.. property:: omero.throttling.objects_written_interval
+
+omero.throttling.objects_written_interval
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `1000`
+
+.. property:: omero.throttling.servants_per_session
+
+omero.throttling.servants_per_session
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `10000`
 
 
 .. _pixeldata_configuration:
@@ -461,92 +784,138 @@ Performance
 Pixeldata
 ---------
 
-.. glossary::
+.. property:: omero.pixeldata.backoff
 
-    omero.pixeldata.backoff
-      Name of the spring bean which will be used
-      to calculate the backoff (in ms) that users
-      should wait for an image to be ready to view.
+omero.pixeldata.backoff
+~~~~~~~~~~~~~~~~~~~~~~~
+Name of the spring bean which will be used
+to calculate the backoff (in ms) that users
+should wait for an image to be ready to view.
 
-      Default: `ome.io.nio.SimpleBackOff`
+Default: `ome.io.nio.SimpleBackOff`
 
-    omero.pixeldata.batch
-      Number of instances indexed per indexing.
+.. property:: omero.pixeldata.batch
 
-      Default: `50`
+omero.pixeldata.batch
+~~~~~~~~~~~~~~~~~~~~~
+Number of instances indexed per indexing.
+(Ignored by pixelDataEventLogQueue)
 
-    omero.pixeldata.cron
-      Polling frequency of the pixeldata processing. Set empty to disable
-      pixeldata processing.
+Default: `50`
 
-      .. |cron| replace::
-        Cron Format: seconds minutes hours day-of-month month day-of-week year
-        (optional). For example, "0,30 * * * * ?" is equivalent to running every
-        30 seconds. For more information, see the `CronTrigger Tutorial`_.
+.. property:: omero.pixeldata.cron
 
-      .. _CronTrigger Tutorial: http://quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger
+omero.pixeldata.cron
+~~~~~~~~~~~~~~~~~~~~
+Polling frequency of the pixeldata processing. Set empty to disable
+pixeldata processing.
 
-      |cron|
+.. |cron| replace::
+  Cron Format: seconds minutes hours day-of-month month day-of-week year
+  (optional). For example, "0,30 * * * * ?" is equivalent to running every
+  30 seconds. For more information, see the `CronTrigger Tutorial`_.
 
-      Default: `*/4 * * * * ?`
+.. _CronTrigger Tutorial: http://quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger
 
-    omero.pixeldata.dispose
-      Whether the PixelData.dispose() method should
-      try to clean up ByteBuffer instances which may
-      lead to memory exceptions. See ticket #11675
-      for more information. Note: the property is
-      set globally for the JVM.
+|cron|
 
-      Default: `false`
+Default: `*/4 * * * * ?`
 
-    omero.pixeldata.max_plane_height
+.. property:: omero.pixeldata.dispose
 
-      Default: `3192`
+omero.pixeldata.dispose
+~~~~~~~~~~~~~~~~~~~~~~~
+Whether the PixelData.dispose() method should
+try to clean up ByteBuffer instances which may
+lead to memory exceptions. See ticket #11675
+for more information. Note: the property is
+set globally for the JVM.
 
-    omero.pixeldata.max_plane_width
+Default: `false`
 
-      Default: `3192`
+.. property:: omero.pixeldata.event_log_loader
 
-    omero.pixeldata.memoizer_wait
-      Maximum time in milliseconds that file parsing
-      can take without the parsed metadata being
-      cached to BioFormatsCache.
+omero.pixeldata.event_log_loader
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+EventLogLoader that will be used for loading EventLogs for
+the action "PIXELDATA". Choices include: pixelDataEventLogQueue
+and the older pixelDataPersistentEventLogLoader
 
-      Default: `0`
+Default: `pixelDataEventLogQueue`
 
-    omero.pixeldata.repetitions
-      Instead, it is possible to tell the server
-      to run more pixeldata repetitions, each of
-      which gets completely committed before the
-      next. This will only occur when there is
-      a substantial backlog of pixels to process.
+.. property:: omero.pixeldata.max_plane_height
 
+omero.pixeldata.max_plane_height
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `1`
+Default: `3192`
 
-    omero.pixeldata.threads
-      How many pixel pyramids will be generated
-      at a single time. The value should typically
-      not be set to higher than the number of
-      cores on the server machine.
+.. property:: omero.pixeldata.max_plane_width
 
-      Default: `2`
+omero.pixeldata.max_plane_width
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    omero.pixeldata.tile_height
+Default: `3192`
 
-      Default: `256`
+.. property:: omero.pixeldata.memoizer_wait
 
-    omero.pixeldata.tile_sizes_bean
-      Default sizes for tiles are provided by a
-      ome.io.nio.TileSizes implementation. By default
-      the bean ("configuredTileSizes") uses the properties
-      provided here.
+omero.pixeldata.memoizer_wait
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Maximum time in milliseconds that file parsing
+can take without the parsed metadata being
+cached to BioFormatsCache.
 
-      Default: `configuredTileSizes`
+Default: `0`
 
-    omero.pixeldata.tile_width
+.. property:: omero.pixeldata.repetitions
 
-      Default: `256`
+omero.pixeldata.repetitions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Instead, it is possible to tell the server
+to run more pixeldata repetitions, each of
+which gets completely committed before the
+next. This will only occur when there is
+a substantial backlog of pixels to process.
+
+(Ignored by pixelDataEventLogQueue; uses threads instead)
+
+Default: `1`
+
+.. property:: omero.pixeldata.threads
+
+omero.pixeldata.threads
+~~~~~~~~~~~~~~~~~~~~~~~
+How many pixel pyramids will be generated
+at a single time. The value should typically
+not be set to higher than the number of
+cores on the server machine.
+
+Default: `2`
+
+.. property:: omero.pixeldata.tile_height
+
+omero.pixeldata.tile_height
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `256`
+
+.. property:: omero.pixeldata.tile_sizes_bean
+
+omero.pixeldata.tile_sizes_bean
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Default sizes for tiles are provided by a
+ome.io.nio.TileSizes implementation. By default
+the bean ("configuredTileSizes") uses the properties
+provided here.
+
+Default: `configuredTileSizes`
+
+.. property:: omero.pixeldata.tile_width
+
+omero.pixeldata.tile_width
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `256`
 
 
 .. _scripts_configuration:
@@ -554,36 +923,55 @@ Pixeldata
 Scripts
 -------
 
-.. glossary::
+.. property:: omero.launcher.jython
 
-    omero.launcher.jython
+omero.launcher.jython
+~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `jython`
+Default: `jython`
 
-    omero.launcher.matlab
+.. property:: omero.launcher.matlab
 
-      Default: `matlab`
+omero.launcher.matlab
+~~~~~~~~~~~~~~~~~~~~~
 
-    omero.launcher.python
-      No value implies use sys.executable
+Default: `matlab`
 
-      Default: `[empty]`
+.. property:: omero.launcher.python
 
-    omero.process.jython
+omero.launcher.python
+~~~~~~~~~~~~~~~~~~~~~
+No value implies use sys.executable
 
-      Default: `omero.processor.ProcessI`
+Default: `[empty]`
 
-    omero.process.matlab
+.. property:: omero.process.jython
 
-      Default: `omero.processor.MATLABProcessI`
+omero.process.jython
+~~~~~~~~~~~~~~~~~~~~
 
-    omero.process.python
+Default: `omero.processor.ProcessI`
 
-      Default: `omero.processor.ProcessI`
+.. property:: omero.process.matlab
 
-    omero.scripts.timeout
+omero.process.matlab
+~~~~~~~~~~~~~~~~~~~~
 
-      Default: `3600000`
+Default: `omero.processor.MATLABProcessI`
+
+.. property:: omero.process.python
+
+omero.process.python
+~~~~~~~~~~~~~~~~~~~~
+
+Default: `omero.processor.ProcessI`
+
+.. property:: omero.scripts.timeout
+
+omero.scripts.timeout
+~~~~~~~~~~~~~~~~~~~~~
+
+Default: `3600000`
 
 
 .. _search_configuration:
@@ -591,118 +979,164 @@ Scripts
 Search
 ------
 
-.. glossary::
+.. property:: omero.search.analyzer
 
-    omero.search.analyzer
-      Analyzer used both index and to parse queries
+omero.search.analyzer
+~~~~~~~~~~~~~~~~~~~~~
+Analyzer used both index and to parse queries
 
-      Default: `ome.services.fulltext.FullTextAnalyzer`
+Default: `ome.services.fulltext.FullTextAnalyzer`
 
-    omero.search.batch
-      Size of the batches to process events per indexing.
-      Larger batches can speed up indexing, but at the cost of memory.
+.. property:: omero.search.batch
 
-      Default: `5000`
+omero.search.batch
+~~~~~~~~~~~~~~~~~~
+Size of the batches to process events per indexing.
+Larger batches can speed up indexing, but at the cost of memory.
 
-    omero.search.bridges
-      Extra bridge classes, comma-separated, to be invoked on each indexing.
-      Bridges are used to parse more information out of the data.
+Default: `5000`
 
-      Default: `[empty]`
+.. property:: omero.search.bridges
 
-    omero.search.cron
-      Polling frequency of the indexing. Set empty to disable search indexing.
+omero.search.bridges
+~~~~~~~~~~~~~~~~~~~~
+Extra bridge classes, comma-separated, to be invoked on each indexing.
+Bridges are used to parse more information out of the data.
 
-      |cron|
+Default: `[empty]`
 
-      Default: `*/2 * * * * ?`
+.. property:: omero.search.cron
 
-    omero.search.event_log_loader
+omero.search.cron
+~~~~~~~~~~~~~~~~~
+Polling frequency of the indexing. Set empty to disable search indexing.
 
-      Default: `eventLogQueue`
+|cron|
 
-    omero.search.excludes
-      Indexing takes place on all EventLogs as they occur in the database.
-      The types listed here will be skipped if they appear in the "entityType"
-      field of the EventLog table.
+Default: `*/2 * * * * ?`
 
-      Default: `ome.model.annotations.ChannelAnnotationLink,ome.model.core.Channel,ome.model.core.PlaneInfo,ome.model.core.PixelsOriginalFileMap,ome.model.containers.DatasetImageLink,ome.model.containers.ProjectDatasetLink,ome.model.containers.CategoryGroupCategoryLink,ome.model.containers.CategoryImageLink,ome.model.display.ChannelBinding,ome.model.display.QuantumDef,ome.model.display.Thumbnail,ome.model.meta.Share,ome.model.meta.Event,ome.model.meta.EventLog,ome.model.meta.GroupExperimenterMap,ome.model.meta.Node,ome.model.meta.Session,ome.model.annotations.RoiAnnotationLink,ome.model.roi.Roi,ome.model.roi.Shape,ome.model.roi.Text,ome.model.roi.Rect,ome.model.roi.Mask,ome.model.roi.Ellipse,ome.model.roi.Point,ome.model.roi.Path,ome.model.roi.Polygon,ome.model.roi.Polyline,ome.model.roi.Line,ome.model.screen.ScreenAcquisitionWellSampleLink,ome.model.screen.ScreenPlateLink,ome.model.screen.WellReagentLink,ome.model.stats.StatsInfo`
+.. property:: omero.search.event_log_loader
 
-    omero.search.include_actions
-      EventLog.action values which will be indexed.
-      Unless custom code is generating other action
-      types, this property should not need to be
-      modified.
+omero.search.event_log_loader
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `INSERT,UPDATE,REINDEX,DELETE`
+Default: `eventLogQueue`
 
-    omero.search.include_types
-      Whitelist of object types which will be
-      indexed. All other types will be ignored.
-      This matches the currently available UI
-      options but may need to be expanded for
-      custom search bridges.
+.. property:: omero.search.excludes
 
-      Default: `ome.model.core.Image,ome.model.containers.Project,ome.model.containers.Dataset,ome.model.screen.Plate,ome.model.screen.Screen`
+omero.search.excludes
+~~~~~~~~~~~~~~~~~~~~~
+Indexing takes place on all EventLogs as they occur in the database.
+The types listed here will be skipped if they appear in the "entityType"
+field of the EventLog table.
 
-    omero.search.locking_strategy
+Default: `ome.model.annotations.ChannelAnnotationLink,ome.model.core.Channel,ome.model.core.PlaneInfo,ome.model.core.PixelsOriginalFileMap,ome.model.containers.DatasetImageLink,ome.model.containers.ProjectDatasetLink,ome.model.containers.CategoryGroupCategoryLink,ome.model.containers.CategoryImageLink,ome.model.display.ChannelBinding,ome.model.display.QuantumDef,ome.model.display.Thumbnail,ome.model.meta.Share,ome.model.meta.Event,ome.model.meta.EventLog,ome.model.meta.GroupExperimenterMap,ome.model.meta.Node,ome.model.meta.Session,ome.model.annotations.RoiAnnotationLink,ome.model.roi.Roi,ome.model.roi.Shape,ome.model.roi.Text,ome.model.roi.Rect,ome.model.roi.Mask,ome.model.roi.Ellipse,ome.model.roi.Point,ome.model.roi.Path,ome.model.roi.Polygon,ome.model.roi.Polyline,ome.model.roi.Line,ome.model.screen.ScreenAcquisitionWellSampleLink,ome.model.screen.ScreenPlateLink,ome.model.screen.WellReagentLink,ome.model.stats.StatsInfo`
 
-      Default: `native`
+.. property:: omero.search.include_actions
 
-    omero.search.max_file_size
-      Maximum file size for text indexing (bytes)
-      If a file larger than this is attached, e.g. to an image, the indexer will
-      simply ignore the contents of the file when creating the search index.
-      This should not be set to more than half of the Indexer heap space.
+omero.search.include_actions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+EventLog.action values which will be indexed.
+Unless custom code is generating other action
+types, this property should not need to be
+modified.
 
-      .. note::
-        If you set the max file size to greater than 1/2 the size of the
-        indexer's heap (256 MB by default), you may encounter Out of Memory
-        errors in the Indexer process or you may cause the search index to
-        become corrupt. Be sure that you also increase the heap size accordingly
-        (see :ref:`out_of_memory_error`).
+Default: `INSERT,UPDATE,REINDEX,DELETE`
 
-      Default: `131072000`
+.. property:: omero.search.include_types
 
-    omero.search.max_partition_size
-      Number of objects to load in a single
-      indexing window. The larger this value
-      the fewer times a single object will be
-      indexed unnecessarily. Each object uses
-      roughly 100 bytes of memory.
+omero.search.include_types
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Whitelist of object types which will be
+indexed. All other types will be ignored.
+This matches the currently available UI
+options but may need to be expanded for
+custom search bridges.
 
-      Default: `1000000`
+Default: `ome.model.core.Image,ome.model.containers.Project,ome.model.containers.Dataset,ome.model.screen.Plate,ome.model.screen.Screen`
 
-    omero.search.maxclause
-      Maximum number of OR-clauses to which a single search can expand
+.. property:: omero.search.locking_strategy
 
-      Default: `4096`
+omero.search.locking_strategy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    omero.search.merge_factor
+Default: `native`
 
-      Default: `25`
+.. property:: omero.search.max_file_size
 
-    omero.search.ram_buffer_size
+omero.search.max_file_size
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Maximum file size for text indexing (bytes)
+If a file larger than this is attached, e.g. to an image, the indexer will
+simply ignore the contents of the file when creating the search index.
+This should not be set to more than half of the Indexer heap space.
 
-      Default: `64`
+.. note::
+  If you set the max file size to greater than 1/2 the size of the
+  indexer's heap (256 MB by default), you may encounter Out of Memory
+  errors in the Indexer process or you may cause the search index to
+  become corrupt. Be sure that you also increase the heap size accordingly
+  (see :ref:`out_of_memory_error`).
 
-    omero.search.repetitions
-      Instead, it is possible to tell the server
-      to run more indexing repetitions, each of
-      which gets completely committed before the
-      next. This will only occur when there is
-      a substantial backlog of searches to perform.
-      (More than 1 hours worth)
+Default: `131072000`
+
+.. property:: omero.search.max_partition_size
+
+omero.search.max_partition_size
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Number of objects to load in a single
+indexing window. The larger this value
+the fewer times a single object will be
+indexed unnecessarily. Each object uses
+roughly 100 bytes of memory.
+
+Default: `1000000`
+
+.. property:: omero.search.maxclause
+
+omero.search.maxclause
+~~~~~~~~~~~~~~~~~~~~~~
+Maximum number of OR-clauses to which a single search can expand
+
+Default: `4096`
+
+.. property:: omero.search.merge_factor
+
+omero.search.merge_factor
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `25`
+
+.. property:: omero.search.ram_buffer_size
+
+omero.search.ram_buffer_size
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `64`
+
+.. property:: omero.search.repetitions
+
+omero.search.repetitions
+~~~~~~~~~~~~~~~~~~~~~~~~
+Instead, it is possible to tell the server
+to run more indexing repetitions, each of
+which gets completely committed before the
+next. This will only occur when there is
+a substantial backlog of searches to perform.
+(More than 1 hours worth)
 
 
-      Default: `1`
+Default: `1`
 
-    omero.search.reporting_loops
-      Periodically the completion percentage will be printed.
-      The calculation can be expensive and so is not done
-      frequently.
+.. property:: omero.search.reporting_loops
 
-      Default: `100`
+omero.search.reporting_loops
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Periodically the completion percentage will be printed.
+The calculation can be expensive and so is not done
+frequently.
+
+Default: `100`
 
 
 .. _security_configuration:
@@ -710,114 +1144,484 @@ Search
 Security
 --------
 
-.. glossary::
+.. property:: omero.security.chmod_strategy
 
-    omero.resetpassword.bean
+omero.security.chmod_strategy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `defaultMailSender`
+Default: `groupChmodStrategy`
 
-    omero.resetpassword.config
+.. property:: omero.security.filter.bitand
 
-      Default: `false`
+omero.security.filter.bitand
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    omero.resetpassword.from
+Default: `(int8and(permissions,%s) = %s)`
 
-      Default: `ADDRESS@domain`
+.. property:: omero.security.keyStore
 
-    omero.resetpassword.host
+omero.security.keyStore
+~~~~~~~~~~~~~~~~~~~~~~~
+A keystore is a database of private keys and their associated X.509
+certificate chains authenticating the corresponding public keys.
+A keystore is mostly needed if you are doing client-side certificates
+for authentication against your LDAP server.
 
-      Default: `smtp.domain`
+Default: `[empty]`
 
-    omero.resetpassword.mail.debug
+.. property:: omero.security.keyStorePassword
 
-      Default: `false`
+omero.security.keyStorePassword
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sets the password of the keystore
 
-    omero.resetpassword.mail.smtp.auth
+Default: `[empty]`
 
-      Default: `false`
+.. property:: omero.security.login_failure_throttle_count
 
-    omero.resetpassword.mail.smtp.socketFactory.class
+omero.security.login_failure_throttle_count
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `javax.net.SocketFactory`
+Default: `1`
 
-    omero.resetpassword.mail.smtp.socketFactory.fallback
+.. property:: omero.security.login_failure_throttle_time
 
-      Default: `false`
+omero.security.login_failure_throttle_time
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    omero.resetpassword.mail.smtp.socketFactory.port
+Default: `3000`
 
-      Default: `25`
+.. property:: omero.security.password_provider
 
-    omero.resetpassword.mail.smtp.starttls.enable
+omero.security.password_provider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `false`
+Default: `chainedPasswordProvider`
 
-    omero.resetpassword.mail.smtp.timeout
+.. property:: omero.security.trustStore
 
-      Default: `25000`
+omero.security.trustStore
+~~~~~~~~~~~~~~~~~~~~~~~~~
+A truststore is a database of trusted entities and their associated X.509
+certificate chains authenticating the corresponding public keys. The
+truststore contains the Certificate Authority (CA) certificates and the
+certificate(s) of the other party to which this entity intends to send
+encrypted (confidential) data. This file must contain the public key
+certificates of the CA and the client's public key certificate.
 
-    omero.resetpassword.mail.transport.protocol
+Default: `[empty]`
 
-      Default: `smtp`
+.. property:: omero.security.trustStorePassword
 
-    omero.resetpassword.password
+omero.security.trustStorePassword
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sets the password of the truststore
 
-      Default: `[empty]`
+Default: `[empty]`
 
-    omero.resetpassword.port
 
-      Default: `25`
+.. _web_configuration:
 
-    omero.resetpassword.username
+OMERO.web
+---------
 
-      Default: `[empty]`
 
-    omero.security.chmod_strategy
+.. property:: omero.web.admins 
 
-      Default: `groupChmodStrategy`
+omero.web.admins
+~~~~~~~~~~~~~~~~
 
-    omero.security.filter.bitand
+A tuple that lists people who get code error notifications. When :property:`omero.web.debug` False and a view raises an exception, Django will email these people with the full exception information. Each member of the tuple should be a tuple of (Full name, email address).
 
-      Default: `(int8and(permissions,%s) = %s)`
+Default: ``[]`` 
 
-    omero.security.keyStore
-      A keystore is a database of private keys and their associated X.509
-      certificate chains authenticating the corresponding public keys.
-      A keystore is mostly needed if you are doing client-side certificates
-      for authentication against your LDAP server.
 
-      Default: `[empty]`
+.. property:: omero.web.application_server 
 
-    omero.security.keyStorePassword
-      Sets the password of the keystore
+omero.web.application_server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `[empty]`
+OMERO.web is configured to use FastCGI TCP by default. If you are using a non-standard web server configuration you may wish to change this before generating your web server configuration. Available options "fastcgi" / "fastcgi-tcp"
 
-    omero.security.login_failure_throttle_count
+Default: ``fastcgi-tcp`` 
 
-      Default: `1`
 
-    omero.security.login_failure_throttle_time
+.. property:: omero.web.application_server.host 
 
-      Default: `3000`
+omero.web.application_server.host
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    omero.security.password_provider
+Upstream application host
 
-      Default: `chainedPasswordProvider`
+Default: ``0.0.0.0`` 
 
-    omero.security.trustStore
-      A truststore is a database of trusted entities and their associated X.509
-      certificate chains authenticating the corresponding public keys. The
-      truststore contains the Certificate Authority (CA) certificates and the
-      certificate(s) of the other party to which this entity intends to send
-      encrypted (confidential) data. This file must contain the public key
-      certificates of the CA and the client's public key certificate.
 
-      Default: `[empty]`
+.. property:: omero.web.application_server.port 
 
-    omero.security.trustStorePassword
-      Sets the password of the truststore
+omero.web.application_server.port
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      Default: `[empty]`
+Upstream application port
 
+Default: ``4080`` 
+
+
+.. property:: omero.web.caches 
+
+omero.web.caches
+~~~~~~~~~~~~~~~~
+
+OMERO.web offers alternative session backends to automatically delete stale data using the cache session store backend, see `Django cached session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-cached-sessions>`_ for more details.
+
+Default: ``{"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}`` 
+
+
+.. property:: omero.web.debug 
+
+omero.web.debug
+~~~~~~~~~~~~~~~
+
+A boolean that turns on/off debug mode.
+
+Default: ``false`` 
+
+
+.. property:: omero.web.email_host 
+
+omero.web.email_host
+~~~~~~~~~~~~~~~~~~~~
+
+The SMTP server host to use for sending email.
+
+Default: ``None`` 
+
+
+.. property:: omero.web.email_host_password 
+
+omero.web.email_host_password
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Password to use for the SMTP server.
+
+Default: ``None`` 
+
+
+.. property:: omero.web.email_host_user 
+
+omero.web.email_host_user
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Username to use for the SMTP server.
+
+Default: ``None`` 
+
+
+.. property:: omero.web.email_port 
+
+omero.web.email_port
+~~~~~~~~~~~~~~~~~~~~
+
+Port to use for the SMTP server.
+
+Default: ``None`` 
+
+
+.. property:: omero.web.email_subject_prefix 
+
+omero.web.email_subject_prefix
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Subject-line prefix for email messages
+
+Default: ``[OMERO.web]`` 
+
+
+.. property:: omero.web.email_use_tls 
+
+omero.web.email_use_tls
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Whether to use a TLS (secure) connection when talking to the SMTP server.
+
+Default: ``false`` 
+
+
+.. property:: omero.web.force_script_name 
+
+omero.web.force_script_name
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Used as the value of the SCRIPT_NAME environment variable in any HTTP request.
+
+Default: ``None`` 
+
+
+.. property:: omero.web.index_template 
+
+omero.web.index_template
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Define template used as an index page http://your_host/omero/. If None user is automaticaly redirected to the login page.For example use 'webstart/start.html'. 
+
+Default: ``None`` 
+
+
+.. property:: omero.web.logdir 
+
+omero.web.logdir
+~~~~~~~~~~~~~~~~
+
+A path to the custom log directory.
+
+Default: ``/opt/hudson/workspace/OMERO-5.1-latest-docs-autogen/OMERO.server/var/log`` 
+
+
+.. property:: omero.web.login_logo 
+
+omero.web.login_logo
+~~~~~~~~~~~~~~~~~~~~
+
+Customize webclient login page with your own logo. Logo images should ideally be 150 pixels high or less and will appear above the OMERO logo. You will need to host the image somewhere else and link to it with "http://www.openmicroscopy.org/site/logo.jpg" 
+
+Default: ``None`` 
+
+
+.. property:: omero.web.login_redirect 
+
+omero.web.login_redirect
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Redirect to the givin location after loging in. It only support arguments for `Django reverse function <https://docs.djangoproject.com/en/1.6/ref/urlresolvers/#django.core.urlresolvers.reverse>`_. For example: {"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}
+
+Default: ``{}`` 
+
+
+.. property:: omero.web.page_size 
+
+omero.web.page_size
+~~~~~~~~~~~~~~~~~~~
+
+Number of images displayed within a dataset or 'orphaned' container to prevent from loading them all at once.
+
+Default: ``200`` 
+
+
+.. property:: omero.web.ping_interval 
+
+omero.web.ping_interval
+~~~~~~~~~~~~~~~~~~~~~~~
+
+description
+
+Default: ``60000`` 
+
+
+.. property:: omero.web.pipeline_css_compressor 
+
+omero.web.pipeline_css_compressor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Compressor class to be applied to CSS files. If empty or None, CSS files won't be compressed.
+
+Default: ``None`` 
+
+
+.. property:: omero.web.pipeline_js_compressor 
+
+omero.web.pipeline_js_compressor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Compressor class to be applied to JavaScript files. If empty or None, JavaScript files won't be compressed.
+
+Default: ``None`` 
+
+
+.. property:: omero.web.pipeline_staticfile_storage 
+
+omero.web.pipeline_staticfile_storage
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The file storage engine to use when collecting static files with the collectstatic management command. See `the documentation <http://django-pipeline.readthedocs.org/en/latest/storages.html>`_ for more details.
+
+Default: ``pipeline.storage.PipelineStorage`` 
+
+
+.. property:: omero.web.public.enabled 
+
+omero.web.public.enabled
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Enable and disable the OMERO.web public user functionality.
+
+Default: ``false`` 
+
+
+.. property:: omero.web.public.password 
+
+omero.web.public.password
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Password to use during authentication.
+
+Default: ``None`` 
+
+
+.. property:: omero.web.public.server_id 
+
+omero.web.public.server_id
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Server to authenticate against.
+
+Default: ``1`` 
+
+
+.. property:: omero.web.public.url_filter 
+
+omero.web.public.url_filter
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Set a URL filter for which the OMERO.web public user is allowed to navigate. The idea is that you can create the public pages yourself (see OMERO.web framework since we do not provide public pages.
+
+Default: ``^/(?!webadmin)`` 
+
+
+.. property:: omero.web.public.user 
+
+omero.web.public.user
+~~~~~~~~~~~~~~~~~~~~~
+
+Username to use during authentication.
+
+Default: ``None`` 
+
+
+.. property:: omero.web.server_email 
+
+omero.web.server_email
+~~~~~~~~~~~~~~~~~~~~~~
+
+The email address that error messages come from, such as those sent to :property:`omero.web.admins`.  Requires EMAIL properties below.
+
+Default: ``None`` 
+
+
+.. property:: omero.web.server_list 
+
+omero.web.server_list
+~~~~~~~~~~~~~~~~~~~~~
+
+A list of servers the Web client can connect to.
+
+Default: ``[["localhost", 4064, "omero"]]`` 
+
+
+.. property:: omero.web.session_cookie_age 
+
+omero.web.session_cookie_age
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The age of session cookies, in seconds.
+
+Default: ``86400`` 
+
+
+.. property:: omero.web.session_engine 
+
+omero.web.session_engine
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Controls where Django stores session data. See `Configuring the session engine for more details  <https://docs.djangoproject.com/en/1.6/ref/settings/#session-engine>`_.
+
+Default: ``omeroweb.filesessionstore`` 
+
+
+.. property:: omero.web.session_expire_at_browser_close 
+
+omero.web.session_expire_at_browser_close
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A boolean that determines whether to expire the session when the user closes their browser. See `Django Browser-length sessions vs. persistent sessions documentation  <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#browser-length-vs-persistent-sessions>`_ for more details.
+
+Default: ``true`` 
+
+
+.. property:: omero.web.static_url 
+
+omero.web.static_url
+~~~~~~~~~~~~~~~~~~~~
+
+URL to use when referring to static files. Example: '/static/' or 'http://static.example.com/'. Used as the base path for asset definitions (the Media class) and the staticfiles app. It must end in a slash if set to a non-empty value.
+
+Default: ``/static/`` 
+
+
+.. property:: omero.web.staticfile_dirs 
+
+omero.web.staticfile_dirs
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Defines the additional locations the staticfiles app will traverse if the FileSystemFinder finder is enabled, e.g. if you use the collectstatic or findstatic management command or use the static file serving view.
+
+Default: ``[]`` 
+
+
+.. property:: omero.web.template_dirs 
+
+omero.web.template_dirs
+~~~~~~~~~~~~~~~~~~~~~~~
+
+List of locations of the template source files, in search order. Note that these paths should use Unix-style forward slashes, even on Windows.
+
+Default: ``[]`` 
+
+
+.. property:: omero.web.ui.center_plugins 
+
+omero.web.ui.center_plugins
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Add plugins to the center panels. Plugins are ['Channel overlay', 'webtest/webclient_plugins/center_plugin.overlay.js.html', 'channel_overlay_panel']. The javascript loads data into $('#div_id').
+
+Default: ``[]`` 
+
+
+.. property:: omero.web.ui.menu.dropdown 
+
+omero.web.ui.menu.dropdown
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Shows/hides users in dropdown menu.
+
+Default: ``{"LEADERS": "Owners", "COLLEAGUES": "Members", "ALL": "All members"}`` 
+
+
+.. property:: omero.web.ui.right_plugins 
+
+omero.web.ui.right_plugins
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Add plugins to the right-hand panel. Plugins are ['Label', 'include.js', 'div_id']. The javascript loads data into $('#div_id').
+
+Default: ``[["Acquisition", "webclient/data/includes/right_plugin.acquisition.js.html", "metadata_tab"],["Preview", "webclient/data/includes/right_plugin.preview.js.html", "preview_tab"]]`` 
+
+
+.. property:: omero.web.ui.top_links 
+
+omero.web.ui.top_links
+~~~~~~~~~~~~~~~~~~~~~~
+
+Add links to the top header: links are ['Link Text', 'link'], where the url is reverse('link') OR simply 'link' (for external urls). E.g. '[["Webtest", "webtest_index"]]'
+
+Default: ``[["Data", "webindex", {"title": "Browse Data via Projects, Tags etc"}],["History", "history", {"title": "History"}]]`` 
+
+
+.. property:: omero.web.viewer.initial_zoom_level 
+
+omero.web.viewer.initial_zoom_level
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Configuration options for the viewer. -1: zoom in fully, 0: zoom out fully, unset: zoom to fit window
+
+Default: ``None`` 
 
