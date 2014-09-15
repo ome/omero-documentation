@@ -61,7 +61,7 @@ Changing your repository location
 
     It is **strongly** recommended that you make all changes to your OMERO
     binary repository with the server shut down. Changing the
-    :term:`omero.data.dir` configuration does **not** move the repository for
+    :property:`omero.data.dir` configuration does **not** move the repository for
     you, you must do this yourself.
 
 Your repository location can be changed from its :file:`/OMERO` default by
@@ -73,7 +73,7 @@ modifying your OMERO.server configuration as follows:
     $ bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
 
 The suggested procedure is to shut down your OMERO.server instance, move
-your repository, change your :term:`omero.data.dir` and then start the
+your repository, change your :property:`omero.data.dir` and then start the
 instance back up. For example:
 
 ::
@@ -84,9 +84,9 @@ instance back up. For example:
     $ bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
     $ bin/omero admin start
 
-The :term:`omero.managed.dir` property for the OMERO.fs managed
+The :property:`omero.managed.dir` property for the OMERO.fs managed
 repository may be adjusted similarly, even to a directory outside
-:term:`omero.data.dir`.
+:property:`omero.data.dir`.
 
 .. note::
 
@@ -123,6 +123,6 @@ Repository size
 
 At minimum, the binary repository should be comfortably larger than the
 images and other files that users may be uploading to it. It is fine to
-set :term:`omero.data.dir` or :term:`omero.managed.dir` to very large
+set :property:`omero.data.dir` or :property:`omero.managed.dir` to very large
 volumes, or to use logical volume management to conveniently increase
 space as necessary.

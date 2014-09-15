@@ -473,7 +473,7 @@ The :omerocmd:`fs rename` subcommand moves an existing fileset, specified by its
 ID, to a new location. **This subcommand is available to administrators only.**
 
 It may be useful to rename an existing fileset after the import template
-(:term:`omero.fs.repo.path`) has been changed to match the new template. By
+(:property:`omero.fs.repo.path`) has been changed to match the new template. By
 default the files in the fileset and the accompanying import log are moved. For
 example, after adding the group name and group ID to template and chnaging the
 date format

@@ -142,7 +142,7 @@ servant, which wraps a ``RawFileBean``.
 
 The ``ManagedRepository`` implementation is responsible for import and 
 enforces further constraints (beyond those of CheckedPath) on where and what
-files are created. Most importantly, the :term:`omero.fs.repo.path` template
+files are created. Most importantly, the :property:`omero.fs.repo.path` template
 value is expanded and pre-pended to all uploads. A further responsibility of
 the ``ManagedRepository`` is to maintain a list of all currently running
 ``ManagedImportProcessI``, each of which is held in the ``ProcessContainer``. 
@@ -158,7 +158,7 @@ nullable ordinarily, it will be set through the mandatory
 server. `ManagedRepository.suggestChecksumAlgorithm` helps the client and
 server to negotiate a mutually acceptable algorithm, as in
 `ImportLibrary.createImport`; the result is affected by the server's
-configuration setting for :term:`omero.checksum.supported`. ImportLibrary
+configuration setting for :property:`omero.checksum.supported`. ImportLibrary
 calculates each file's hash using hashers obtained through
 `ChecksumProviderFactory.getProvider`. In fetching `OriginalFile` objects by HQL
 through the Query Service one may need `JOIN FETCH` on the hasher property to
