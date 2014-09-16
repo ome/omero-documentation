@@ -383,6 +383,22 @@ Alternatively, the image identifier can be passed to the function::
 
 	stack = getStack(session, imageID, c, t);
 
+All the methods described above will internally initialize a raw pixels store
+to retrieve the pixels data and close this store at the end of the call. This
+is inefficient when multiple planes/tiles/stacks need to be retrieved. For
+each function, it is possible to initialize a pixels store and pass this store
+directly to the pixel retrieval function, e.g.::
+
+  [store, pixels] = getRawPixelsStore(session, image);
+  for z = 0 : sizeZ - 1
+    for c = 0 : sizeC - 1
+      for t = 0 : sizeT - 1
+        plane = getPlane(pixels, store, z, c, t);
+      end
+    end
+  end
+  store.close();
+
 -  **Hypercube**
 
 This is useful when you need the ``Pixels`` intensity.
@@ -422,6 +438,10 @@ This is useful when you need the ``Pixels`` intensity.
     store.getHypercube(offset, size, step);
     % Close the store
     store.close();
+
+.. seealso::
+  :source:`RawDataAccess.m <examples/Training/matlab/RawDataAccess.m>`
+    Example script showing methods to retrieve the pixel data from an image
 
 Annotations
 -----------
