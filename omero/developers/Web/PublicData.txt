@@ -16,7 +16,9 @@ Here is how to go about setting this up on your OMERO.web install:
     enter these below). Again, the First Name, Last Name, username and
     password can be anything you like.
 
--   Enable the public user and set their username and password:
+-   Enable the :property:`omero.web.public.enabled` and set their
+    :property:`omero.web.public.user` and
+    :property:`omero.web.public.password`:
 
     ::
 
@@ -26,8 +28,8 @@ Here is how to go about setting this up on your OMERO.web install:
 
         $ bin/omero config set omero.web.public.password '<password>'
 
--   Set a URL filter for which the OMERO.web public user is allowed to 
-    navigate.
+-   Set a URL :property:`omero.web.public.url_filter` for which the OMERO.web
+    public user is allowed to navigate.
     Default: '^/(?!webadmin)' (Python reqular expression). You probably do not
     want the whole webclient UI to be publicly visible (although you could do
     this).
@@ -68,8 +70,8 @@ Here is how to go about setting this up on your OMERO.web install:
         '/webtest' matches '/webtest…' but also '/webclient/webtest'
         '/webtest' matches '/webtest…' but not '/webclient/webtest'
 
-    Set a server to connect to. Default: 1 (the first server in
-    omero.web.server_list)
+    Set a :property:`omero.web.public.server_id` public user will be automatically
+    connected to. Default: 1 (the first server in :property:`omero.web.server_list`)
 
     ::
 

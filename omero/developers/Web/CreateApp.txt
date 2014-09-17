@@ -124,8 +124,8 @@ Add the essential files to your app
 Add your app to OMERO.web
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This will add your app to the INSTALLED\_APPS, so that URLs are
-registered etc.
+:property:`omero.web.apps` adds your custom application to the INSTALLED\_APPS,
+so that URLs are registered etc.
 
 ::
 
@@ -292,8 +292,8 @@ Users can then configure this on the command line as follows:
 OMERO.web top links
 ^^^^^^^^^^^^^^^^^^^
 
-You can configure settings 'top_links' to add a link to the list of links at
-the top of the webclient main pages.
+You can configure :property:`omero.web.ui.top_links` to add a link to the list
+of links at the top of the webclient main pages.
 
 -  **Name your URL in urls.py** (optional). Preferably we use URL names to
    refer to URLs.
