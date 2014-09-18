@@ -512,3 +512,88 @@ For example
     -----------------------------------------------------
     mv /OMERO/ManagedRepository/user-0_2/2014-07/23/16-29-14.809/ /OMERO/ManagedRepository/pg-0_3/user-0_2/2014-07-23/16-49-23.543/
     mv /OMERO/ManagedRepository/user-0_2/2014-07/23/16-29-14.809.log /OMERO/ManagedRepository/pg-0_3/user-0_2/2014-07-23/16-49-23.543.log
+
+Detailing disk usage
+^^^^^^^^^^^^^^^^^^^^
+
+The :omerocmd:`fs usage` subcommand provides details of the underlying disk usage
+for various types of objects.
+For example
+::
+
+    bin/omero fs usage --report
+
+    Total disk usage: 4526436430274 bytes in 26078 files
+    component    | size (bytes)  | files
+    --------------+---------------+-------
+    Pixels       | 14654902013   | 2961
+    FilesetEntry | 4510839804505 | 8820
+    Thumbnail    | 17337131      | 8110
+    Job          | 265665153     | 2792
+    OriginalFile | 1757277       | 109
+    Annotation   | 13167582976   | 3910
+    (6 rows)
+
+This command takes optional positional arguments of object types and ids to and
+returns the total disk usage of those objects. If no positional argument is given,
+as in the example above, then the total usage for the current user across all of
+this user's groups is given.
+
+If multiple objects are given and those objects contain common data then that usage
+will not be counted twice. For example, if two datasets contain the same image then
+the Fileset for that image will not be double-counted in the total disk usage.
+
+The options available to this subcommand are:
+
+.. program:: omero fs usage
+
+.. option:: -h, --help
+
+    Display the help for this subcommand.
+
+.. option:: --style {plain,csv,sql}
+
+    See :option:`omero fs repos --style`.
+
+.. option:: --wait WAIT
+
+    Number of seconds to wait for the processing to complete.
+    To wait indefinitely, the default, use < 0, for no wait use 0.
+
+.. option:: --size_only
+
+    Print total bytes used, in bytes, with no extra text, this is useful
+    for automated scripting.
+
+.. option:: --report
+
+    Print detailed breakdown of disk usage by types of files.
+    This option is ignored if `--size_only` is used.
+
+.. option::  --units {K,M,G,T,P}
+
+    Units to use for disk usage for the total size. The default is
+    bytes.
+
+.. option:: --groups
+
+    Print size for all current user's groups, this includes the user's
+    own data and the data of other group members visible to the user.
+    This option only applies if no positional arguments are given.
+
+For example
+::
+
+    bin/omero fs usage Image:1,2,3,4,5 --size_only
+
+    63205066
+
+    bin/omero fs usage Project:1,2 Dataset:5 --units M --report
+
+    Total disk usage: 1432 MiB in 121 files
+     component  | size (bytes) | files
+    ------------+--------------+-------
+     Thumbnail  | 73710        | 34
+     Pixels     | 1499341282   | 34
+     Annotation | 3000028      | 53
+    (3 rows)
