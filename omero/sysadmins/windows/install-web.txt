@@ -205,9 +205,9 @@ All configuration options can be found on various secections of
 :ref:`web_index` developers documentation. For the full list refer to 
 :ref:`web_configuration` properties or: 
 
-	::
-	
-		$ bin/omero web -h 
+::
+
+	$ bin/omero web -h 
 
 The most popular configuration options:
 
