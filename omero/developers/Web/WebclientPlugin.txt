@@ -168,7 +168,7 @@ only want to add a single plugin to the center, you can simply do:
 
 The right_plugins list includes the `Acquisition` tab and `Preview` tab by
 default. For example, if you want to append the webtest ROI plugin or your own
-plugin to the list, you can simply do:. :
+plugin to the list, you can simply do:
 
 ::
 
