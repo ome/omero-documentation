@@ -68,7 +68,7 @@ else:
 
 rst_prolog = """
 This documentation is for OMERO 4.4 and is no longer being updated, to see the documentation for
-the latest release, refer to http:/openmicroscopy.org/site/support/omero/
+the latest release, refer to http://openmicroscopy.org/site/support/omero/
 """
 
 rst_epilog += """
@@ -104,7 +104,7 @@ virtual_job_root = jenkins_job_root + '/' + jenkins_job + '-virtualbox'
 omero_extlinks = {
     # Github links
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
-    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),   
+    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
     'commit' : (omero_github_root + 'commit/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
     # Jenkins links
