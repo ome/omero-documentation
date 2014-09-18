@@ -101,12 +101,12 @@ working with your IIS deployment.
 
    .. note::  As OMERO.web 5 is based on Django 1.6,
        :property:`omero.web.session_engine` and 
-       :property:`omero.web.cache_backend` should be unset.
+       :property:`omero.web.caches` should be unset.
 
        ::
 
            C:\omero_dist>bin\omero config set omero.web.session_engine
-           C:\omero_dist>bin\omero config set omero.web.cache_backend
+           C:\omero_dist>bin\omero config set omero.web.caches
 
        If your deployment requires additional cache store please follow 
        `Django documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
