@@ -704,7 +704,7 @@ then start by
     Quit the server with CTRL-BREAK.
 
 .. note::  As OMERO.web 5 is based on Django 1.6,
-    ``omero.web.session_engine`` and ``omero.web.caches`` should be
+    :property:`omero.web.session_engine` and :property:`omero.web.caches` should be
     unset.
     
     ::
