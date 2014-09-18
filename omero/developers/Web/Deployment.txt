@@ -5,10 +5,11 @@ Getting set up
 --------------
 
 You will need to have an OMERO server running that you can connect to. This
-will typically be either on your own machine or external server. You can edit
+will typically be on your own machine, although you can also connect to an
+external OMERO server. You can add the server to the
 :property:`omero.web.server_list` and choose that server when you log in.
-Enable :property:`omero.web.debug` and starts a lightweight development Web
-server on the local machine:
+You should enable :property:`omero.web.debug` and start a lightweight
+development Web server on your local machine.
 
 Using the lightweight development server on Unix
 ------------------------------------------------
