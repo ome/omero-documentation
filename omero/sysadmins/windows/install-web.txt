@@ -156,13 +156,13 @@ OMERO.web Maintenance
 
       ::
 
-          $ bin/omero config set omero.web.session_expire_at_browser_close "True"
+          C:\omero_dist>bin\omero config set omero.web.session_expire_at_browser_close "True"
 
    -  The age of session cookies, in seconds. Default: ``86400``.
 
       ::
 
-          $ bin/omero config set omero.web.session_cookie_age 86400
+          C:\omero_dist>bin\omero config set omero.web.session_cookie_age 86400
 
 -  Session engine:
 
@@ -177,7 +177,7 @@ OMERO.web Maintenance
 
       ::
 
-          $ bin/omero web clearsessions
+          C:\omero_dist>bin\omero web clearsessions
 
       It is recommended to call this command on a regular basis, for example 
       as a daily cron job, see 
@@ -192,8 +192,8 @@ OMERO.web Maintenance
 
           ::
 
-              $ bin/omero config set omero.web.caches '{"default": { "BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400" } }'
-              $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
+              C:\omero_dist>bin\omero config set omero.web.caches '{"default": { "BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400" } }'
+              C:\omero_dist>bin\omero config set omero.web.session_engine django.contrib.sessions.backends.cache
 
 
 .. _customizing_your_omero_web_installation_windows:
@@ -207,7 +207,7 @@ All configuration options can be found on various secections of
 
 ::
 
-	$ bin/omero web -h 
+	C:\omero_dist>bin\omero web -h
 
 The most popular configuration options:
 
