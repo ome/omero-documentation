@@ -517,7 +517,27 @@ Detailing disk usage
 ^^^^^^^^^^^^^^^^^^^^
 
 The :omerocmd:`fs usage` subcommand provides details of the underlying disk usage
-for various types of objects.
+for various types of objects. This subcommand takes optional positional arguments
+of object types with ids and returns the total disk usage of the specified objects.
+
+For example
+::
+
+    bin/omero fs usage Image:30001,30051 Plate:1051 --report
+
+    Total disk usage: 1064320138 bytes in 436 files
+     component    | size (bytes) | files
+    --------------+--------------+-------
+     Thumbnail    | 582030       | 256
+     Job          | 1772525      | 2
+     Pixels       | 49545216     | 12
+     FilesetEntry | 1011947729   | 124
+     Annotation   | 472638       | 42
+    (5 rows)
+
+If no positional argument is given then the total usage for the current user across
+all of that user's groups is returned.
+
 For example
 ::
 
@@ -534,14 +554,9 @@ For example
     Annotation   | 13167582976   | 3910
     (6 rows)
 
-This command takes optional positional arguments of object types and ids to and
-returns the total disk usage of those objects. If no positional argument is given,
-as in the example above, then the total usage for the current user across all of
-this user's groups is given.
-
 If multiple objects are given and those objects contain common data then that usage
 will not be counted twice. For example, if two datasets contain the same image then
-the Fileset for that image will not be double-counted in the total disk usage.
+the fileset for that image will not be double-counted in the total disk usage.
 
 The options available to this subcommand are:
 
@@ -558,7 +573,8 @@ The options available to this subcommand are:
 .. option:: --wait WAIT
 
     Number of seconds to wait for the processing to complete.
-    To wait indefinitely, the default, use < 0, for no wait use 0.
+    To wait indefinitely use < 0, for no wait use 0. The default
+    is to wait indefinitely.
 
 .. option:: --size_only
 
@@ -572,21 +588,22 @@ The options available to this subcommand are:
 
 .. option::  --units {K,M,G,T,P}
 
-    Units to use for disk usage for the total size. The default is
+    Units to use for disk usage for the total size using base-2. The default is
     bytes.
 
 .. option:: --groups
 
-    Print size for all current user's groups, this includes the user's
+    Print size for all of the current user's groups, this includes the user's
     own data and the data of other group members visible to the user.
     This option only applies if no positional arguments are given.
 
 For example
 ::
 
-    bin/omero fs usage Image:1,2,3,4,5 --size_only
+    bin/omero fs usage --groups --size_only -C -u user-1
 
-    63205066
+    4576108188820
+
 
     bin/omero fs usage Project:1,2 Dataset:5 --units M --report
 
