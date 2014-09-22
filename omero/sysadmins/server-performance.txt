@@ -112,6 +112,12 @@ the other services.
 Tips
 ^^^^
 
+View the memory settings that apply to newly started servers.
+
+::
+
+	$ bin/omero admin jvmcfg
+
 After modifying any memory settings, be sure to restart your server.
 
 ::
