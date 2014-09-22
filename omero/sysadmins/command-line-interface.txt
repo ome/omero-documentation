@@ -544,14 +544,14 @@ For example
     bin/omero fs usage --report
 
     Total disk usage: 4526436430274 bytes in 26078 files
-    component    | size (bytes)  | files
+     component    | size (bytes)  | files
     --------------+---------------+-------
-    Pixels       | 14654902013   | 2961
-    FilesetEntry | 4510839804505 | 8820
-    Thumbnail    | 17337131      | 8110
-    Job          | 265665153     | 2792
-    OriginalFile | 1757277       | 109
-    Annotation   | 13167582976   | 3910
+     Pixels       | 14654902013   | 2961
+     FilesetEntry | 4510839804505 | 8820
+     Thumbnail    | 17337131      | 8110
+     Job          | 265665153     | 2792
+     OriginalFile | 1757277       | 109
+     Annotation   | 13167582976   | 3910
     (6 rows)
 
 If multiple objects are given and those objects contain common data then that usage
