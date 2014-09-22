@@ -270,6 +270,15 @@ command:
 When the LDAP password provider implementation changes, previous versions can
 be configured as necessary.
 
+chainedPasswordProviderNoSalt
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``chainedPasswordProviderNoSalt`` uses the version of the JDBC password
+provider without password salting support as available in the OMERO 4.4.x
+series. To enable it, use::
+
+    bin/omero config set omero.security.password_provider chainedPasswordProviderNoSalt
+
 chainedPasswordProvider431
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 

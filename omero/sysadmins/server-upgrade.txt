@@ -34,6 +34,16 @@ below. Please refer to each section for additional details.
     :local:
     :depth: 1
 
+.. warning::
+	With 4.4.12, the default JDBC password provider has been modified to
+	add password salting support. This implies that once a server has been
+	upgraded and deployed, if passwords are modified, you will not be able
+	to easily revert to a configuration without salting. To keep using the
+	legacy password provider without salting support, you will need to
+	configure ``omero.security.password_provider`` to use the legacy
+	``chainedPasswordProviderNoSalt`` as described in the
+	:ref:`legacy_password_providers` section.
+
 .. warning:: The passwords and logins used here are examples. Please consult
     the :ref:`troubleshooting-password` section for explanation.  In particular,
     make sure to replace the values of **db_user** and **omero_database**
@@ -118,8 +128,8 @@ database which can both save disk space and speed up access times.
 
 .. parsed-literal::
 
-    $ psql -h localhost -U **db_user** **omero_database** -c "REINDEX DATABASE **omero_database** FORCE;"
-    $ psql -h localhost -U **db_user** **omero_database** -c "VACUUM FULL VERBOSE ANALYZE;"
+    $ psql -h localhost -U **db_user** **omero_database** -c 'REINDEX DATABASE "**omero_database**" FORCE;'
+    $ psql -h localhost -U **db_user** **omero_database** -c 'VACUUM FULL VERBOSE ANALYZE;'
 
 .. _upgrademergescript:
 
@@ -138,8 +148,8 @@ For further information on managing your scripts, refer to
 :doc:`installing-scripts`. If you require help, please contact the OME 
 developers.
 
-Update your environment variables
----------------------------------
+Update your configuration
+-------------------------
 
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
@@ -148,6 +158,15 @@ If you changed the directory name where the |release| server code resides,
 make sure to update any system environment variables. Before restarting
 the server, make sure your PATH and PYTHONPATH system environment
 variables are pointing to the new locations.
+
+JVM memory settings
+^^^^^^^^^^^^^^^^^^^
+
+If you modified your memory settings, these changes will be lost and you will
+need to update the memory settings for the new server. Refer to the
+`JVM memory settings` sub-section of the OMERO.server installation section
+(:doc:`Unix <unix/server-installation>` or
+:doc:`Windows <windows/server-installation>`) for more information.
 
 Changes to OMERO.web URLs
 ^^^^^^^^^^^^^^^^^^^^^^^^^
