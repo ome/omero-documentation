@@ -160,6 +160,7 @@ extlinks = {
     'training_plone' : (oo_site_root + '/support/training/%s', ''),
     'schema_plone' : (oo_root + '/Schemas/%s', ''),
     'omero_plone' : (oo_site_root + '/products/omero/%s', ''),
+    'secvuln' : (oo_root + '/info/vulnerabilities/%s', ''),
     'omero_doc' : (oo_site_root + '/support/omero5/%s', ''),
     'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),
     'devs_doc' : (oo_site_root + '/support/contributing/%s', ''),
