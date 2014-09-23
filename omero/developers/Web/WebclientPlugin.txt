@@ -167,8 +167,8 @@ only want to add a single plugin to the center, you can simply do:
         '["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]'
 
 The right_plugins list includes the `Acquisition` tab and `Preview` tab by
-default. For example, if you want to append the webtest ROI plugin or your own
-plugin to the list, you can simply do:
+default. If you want to append the webtest ROI plugin or your own plugin to
+the list, you can simply do:
 
 ::
 
