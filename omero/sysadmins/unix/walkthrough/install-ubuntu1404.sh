@@ -2,9 +2,6 @@
 
 set -e -u -x
 
-# Full path of the current directory containing the install scripts
-INSTALL_SCRIPTS=$(readlink -f $(dirname $0))
-
 source settings.env
 
 bash -eux dependencies-ubuntu1404.sh

@@ -35,14 +35,3 @@ service postgresql-9.3 initdb
 sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/9.3/data/pg_hba.conf
 chkconfig postgresql-9.3 on
 service postgresql-9.3 start
-
-# Nginx
-cat << EOF > /etc/yum.repos.d/nginx.repo
-[nginx]
-name=nginx repo
-baseurl=http://nginx.org/packages/centos/\$releasever/\$basearch/
-gpgcheck=0
-enabled=1
-EOF
-
-yum -y install nginx
