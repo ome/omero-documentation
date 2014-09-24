@@ -23,7 +23,7 @@ either use your own values, or alternatively source the following file:
 Prerequisites
 -------------
 
-As **root** install Ice, Java, Postgres and Nginx:
+As **root** install Ice, Java, Postgres:
 
 .. literalinclude:: walkthrough/dependencies-ubuntu1404.sh
 
@@ -60,11 +60,11 @@ the omero user.
 :download:`setup_omero_ice35.sh <walkthrough/setup_omero_ice35.sh>`
 
 
-Configuring Nginx
------------------
+Installing Nginx
+----------------
 
-As **root** copy the Nginx OMERO configuration file into the Nginx
-configuration directory, and disable the default configuration:
+As **root** install Nginx, copy the Nginx OMERO configuration file into the
+Nginx configuration directory, and disable the default configuration:
 
 .. literalinclude:: walkthrough/setup_nginx_ubuntu1404.sh
 
