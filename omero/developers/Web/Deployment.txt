@@ -4,22 +4,19 @@ OMERO.web deployment for developers
 Getting set up
 --------------
 
-You will need to have an OMERO server running that you can connect to.
-This will typically be on your own machine, although it does not
-necessarily have to be. If you want to connect to another server (not
-localhost) you can edit the server list as described on the OMERO.web
-deployment page (see Unix :ref:`customizing_your_omero_web_installation_unix`
-or Windows :ref:`customizing_your_omero_web_installation_windows` version) 
-and choose that server when you log in. That page also describes how to set 
-debug to 'True' which is important when developing with OMERO.web and you 
-should also be using the Django 'development' server.
+You will need to have an OMERO server running that you can connect to. This
+will typically be on your own machine, although you can also connect to an
+external OMERO server. You can add the server to the
+:property:`omero.web.server_list` and choose that server when you log in.
+You should enable :property:`omero.web.debug` and start a lightweight
+development Web server on your local machine.
 
 Using the lightweight development server on Unix
 ------------------------------------------------
 
 All that is required to use the Django lightweight development server
-is to set the ``omero.web.application_server`` configuration option, turn 
-Debugging on and start the server up:
+is to set the :property:`omero.web.application_server` configuration option,
+turn :property:`omero.web.debug` on and start the server up:
 
 ::
 
@@ -40,7 +37,7 @@ Using the lightweight development server on Windows
 ---------------------------------------------------
 
 All that is required to use the Django lightweight development server
-is to set the ``omero.web.application_server`` configuration option, turn 
+is to set the :property:`omero.web.application_server` configuration option, turn
 Debugging on and start the server up:
 
 ::
@@ -62,17 +59,24 @@ Using FastCGI (Unix/Linux)
 --------------------------
 
 Once you have installed a FastCGI capable web server, configuration of
-OMERO.web is quite straightforward.
+:property:`omero.web.application_server` OMERO.web is quite straightforward.
 
--  Choose between FastCGI TCP (recommended) or FastCGI (advanced):
+-  OMERO.web is configured to use FastCGI TCP by default. If you are using a
+   non-standard web server configuration you may wish to change this before
+   generating your web server configuration:
 
    ::
 
        $ bin/omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
        $ bin/omero config set omero.web.debug True
 
+   The default `fastcgi-tcp` option uses a TCP connection for communication
+   between OMERO.web and your web server; `fastcgi` uses a file based socket
+   and will require you to manage the file permissions on it.
+
 -  By default OMERO.web expects to be run from the root URL of the web
-   server. It can be configured to run from a sub-directory, for example
+   server. :property:`omero.web.force_script_name` and
+   :property:`omero.web.static_url` can be configured, for example
    `http://example.org/omero/`, as follows:
 
    ::

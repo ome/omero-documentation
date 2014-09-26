@@ -252,7 +252,7 @@ Changes to OMERO.web config (Windows-only)
 """"""""""""""""""""""""""""""""""""""""""
 
 Starting with OMERO.web 5.0, the special configuration of
-"omero.web.cache_backend" is no longer required and may in
+:property:`omero.web.caches` is no longer required and may in
 fact cause issues. Please see the instructions under
 :ref:`using_iis` for how to remove the
 configuration.

@@ -37,45 +37,6 @@ Prerequisites
 
 -  A FastCGI capable web server
 
-Configuring OMERO from the command line
----------------------------------------
-
-Configuration options can be set using the :omerocmd:`config set` command:
-
-::
-
-    $ bin/omero config set <parameter> <value>
-
-When supplying a value with spaces or multiple elements, use **single
-quotes**. The quotes will not be saved as part of the value (see below).
-
-To remove a configuration option (to return to default values where
-mentioned), simply omit the value:
-
-::
-
-    $ bin/omero config set <parameter>
-
-These options will be stored in a file: ``etc/grid/config.xml`` which
-you can read for reference. **DO NOT** edit this file directly.
-
-You can also review all your settings by using:
-
-::
-
-    $ bin/omero config get
-
-which should return values without quotation marks.
-
-A final useful option of :omerocmd:`config edit` is:
-
-::
-
-    $ bin/omero config edit
-
-which will allow for editing the configuration in a system-default text
-editor.
-
 Quick Start
 -----------
 
@@ -83,7 +44,7 @@ Using FastCGI (Unix/Linux)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once you have installed a FastCGI capable web server, configuration of
-OMERO.web is quite straightforward.
+:property:`omero.web.application_server` OMERO.web is quite straightforward.
 
 -  OMERO.web is configured to use FastCGI TCP by default. If you are using a
    non-standard web server configuration you may wish to change this before
@@ -98,7 +59,8 @@ OMERO.web is quite straightforward.
    and will require you to manage the file permissions on it.
 
 -  By default OMERO.web expects to be run from the root URL of the web
-   server. It can be configured to run from a sub-directory, for example
+   server. :property:`omero.web.force_script_name` and
+   :property:`omero.web.static_url` can be configured, for example
    `http://example.org/omero/`, as follows:
 
    ::
@@ -282,210 +244,11 @@ to access OMERO.webadmin or the OMERO.webclient:
 	responsibility to place it in the background, if required, and
 	manage its shutdown.
 
-.. _customizing_your_omero_web_installation_unix:
 
-Customizing your OMERO.web installation
----------------------------------------
+OMERO.web Maintenance
+~~~~~~~~~~~~~~~~~~~~~
 
-.. note::
-	For clarity, some edge-case/in-development options may not
-	be documented below. For the full list see: 
-
-	::
-	
-		$ bin/omero web -h 
-
-	OR look in lib/python/omeroweb/settings.py
-
--  A list of servers the Web client can connect to. Default:
-   ``[["localhost", 4064, "omero"]]``.
-
-   ::
-
-       $ bin/omero config set omero.web.server_list '[["prod.example.com", 4064, "prod"], ["dev.example.com", 4064, "dev"]]'
-
-
--  Email server and notification:
-
-   -  (**REQUIRED**) From : address to be used when sending e-mail.
-      Default: ``root@localhost``
-
-      ::
-
-          $ bin/omero config set omero.web.server_email "webmaster@example.com"
-
-   -  (**REQUIRED**) Mail server hostname. Default: ``localhost``.
-
-      ::
-
-          $ bin/omero config set omero.web.email_host "email.example.com"
-
-   -  Mail server login username. Default: '' (Empty string).
-
-      ::
-
-          $ bin/omero config set omero.web.email_host_user "username"
-
-   -  Mail server login password. Default: '' (Empty string).
-
-      ::
-
-          $ bin/omero config set omero.web.email_host_password "password"
-
-   -  Mail server port. Default: ``25``.
-
-      ::
-
-          $ bin/omero config set omero.web.email_host_port "2255"
-
-   -  Use TLS when sending e-mail. Default: ``False``.
-
-      ::
-
-          $ bin/omero config set omero.web.email_use_tls "True"
-
-   -  Subject prefix for outgoing e-mail. Default: ``"[Django] "``.
-
-      ::
-
-          $ bin/omero config set omero.web.email_subject_prefix "Subject prefix for outgoing e-mail"
-
--  Controlling displayed scripts:
-
-   -  Since OMERO 4.3.2, OMERO.web has the ability to dynamically
-      display scripts in the script runner menu just like OMERO.insight.
-      Some scripts were not suitable for display initially and are
-      excluded from the menu. You may wish to control which scripts your
-      users can see in OMERO.web using this configuration option.
-      Default:
-      ``'["/omero/figure_scripts/Movie_Figure.py", "/omero/figure_scripts/Split_View_Figure.py", "/omero/figure_scripts/Thumbnail_Figure.py", "/omero/figure_scripts/ROI_Split_Figure.py", "/omero/export_scripts/Make_Movie.py"]'``
-
-      ::
-
-          $ bin/omero config set omero.web.scripts_to_ignore '[]'
-          $ bin/omero config set omero.web.scripts_to_ignore '["/omero/my_scripts/really_buggy.py", … ]'
-
-
-- Customizing index page:
-
-  -  Occasionally, a pre-login custom page may be required for OMERO.web. By
-     creating a custom HTML page and setting ``INDEX_TEMPLATE``, it is possible
-     to have an index page that, for example, will serve webstart and link to
-     the webclient under your main domain.
-     
-     ::
-     
-         $ bin/omero config set omero.web.index_template 'webstart/start.html'
-
-  -  It is also possible to put the index HTML page in a custom location outside
-     of OMERO.web by adding it to ``TEMPLATE_DIRS``
-     
-     ::
-     
-         $ bin/omero config set omero.web.template_dirs '["/path/to/templates_dir"]'
-         $ bin/omero config set omero.web.index_template 'start.html'
-
-.. _install_web_public_user:
-
--  Enabling a public user (automatically log in a public user, OMERO 4.4.0 onwards):
-
-   -  First, create a public user. You can use any username and
-      password you wish. If you do not want this user to be able to
-      modify any of the data they see, you should put this user in a
-      Read-Only group and the public data should be owned by another
-      member(s) of this group.
-
-   -  Enable the OMERO.web public user functionality, which is disabled (False) by default.
-
-      ::
-
-           $ bin/omero config set omero.web.public.enabled True
-
-   -  Set a URL filter for which the OMERO.web public user is allowed
-      to navigate. Default: ``^/(?!webadmin)`` (`Python regular
-      expression <http://docs.python.org/2/library/re.html>`_). You
-      probably do not want the whole webclient UI to be publicly
-      visible (although you could do this). The idea is that you can
-      create the public pages yourself (see :doc:`/developers/Web`)
-      since we do not provide public pages. E.g. to allow only URLs
-      that start with '/my\_web\_public' you would use:
-
-      ::
-
-          $ bin/omero config set omero.web.public.url_filter '/my_web_public'
-
-      Exotic matching techniques can be used but more explicit regular
-      expressions are needed when attempting to filter based on a base
-      URL:
-
-      ::
-
-          'webtest' matches '/webtest' but also '/webclient/webtest'
-          'dataset' matches '/webtest/dataset' and also '/webclient/dataset'
-          '/webtest' matches '/webtest…' but also '/webclient/webtest'
-          '^/webtest' matches '/webtest…' but not '/webclient/webtest'
-
-      If you need more examples of how to configure public url filters, 
-      see the :doc:`/developers/Web/PublicData` page.
-
-   -  Server to authenticate against. Default: ``1`` (the first
-      server in ``omero.web.server_list``)
-
-      ::
-
-          $ bin/omero config set omero.web.public.server_id 1
-
-   -  Username to use during authentication. Default: ``Not set.``
-      (required if ``omero.web.public.enabled=True``):
-
-      ::
-
-          $ bin/omero config set omero.web.public.user '__public__'
-
-   -  Password to use during authentication. Default: ``Not set.``
-      (required if ``omero.web.public.enabled=True``):
-
-      ::
-
-          $ bin/omero config set omero.web.public.password 'secret'
-
--  Administrator e-mail notification:
-
-   -  Admins list of people who get code error notifications. When debug
-      mode is off and a view raises an exception, Django will e-mail
-      these people with the full exception information. Default: ``[]``
-      (Empty list).
-
-      ::
-
-          $ bin/omero config set omero.web.admins '[["Dave", "dave@example.com"], ["Bob", "bob@example.com"]]'
-
--  Ping interval:
-
-   -  Since OMERO 4.4.0, OMERO.web now pings the server to keep your
-      session alive when you are logged in and have an active browser
-      window. The duration between these pings can be configured.
-      Default: ``60000.`` (every 60 seconds)
-
-      ::
-
-          $ bin/omero config set omero.web.ping_interval 12000
-
--  Debug mode:
-
-   -  A boolean that turns on/off debug mode. Default: ``False``.
-
-      ::
-
-          $ bin/omero config set omero.web.debug "True"
-
--  Cache:
-
-   -  If your deployment requires additional cache store please follow
-      `Django cache documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
-      for more details.
-
--  Session cookies:
+-  Session cookies :property:`omero.web.session_expire_at_browser_close`:
 
    -  A boolean that determines whether to expire the session when the user
       closes their browser. See `Django Browser-length sessions vs. persistent
@@ -534,59 +297,26 @@ Customizing your OMERO.web installation
               $ bin/omero config set omero.web.caches '{"default": { "BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400" } }'
               $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
 
-.. _custom_web_location:
 
--  Custom OMERO.web location:
+.. _customizing_your_omero_web_installation_unix:
 
-   -  By default OMERO.web expects to be run from the root URL of the web
-      server. It can be configured to run from a sub-directory, for example
-      `http://example.org/omero/`, as follows:
+Customizing your OMERO.web installation
+---------------------------------------
 
-      ::
+All configuration options can be found on various secections of
+:ref:`web_index` developers documentation. For the full list refer to 
+:ref:`web_configuration` properties or: 
 
-          $ bin/omero config set omero.web.force_script_name '/omero'
-          $ bin/omero config set omero.web.static_url '/omero/static/'
-          
-   -  Update your web server configuration. For example, in the nginx
-      configuration replace
+::
 
-      ::
+	$ bin/omero web -h 
 
-          fastcgi_param PATH_INFO $fastcgi_script_name;
+The most popular configuration options:
 
-      with
+-  Debug mode, see :property:`omero.web.debug`.
 
-      ::
+-  Customize login page with your own logo, see :property:`omero.web.login_logo`.
 
-          fastcgi_split_path_info ^(/omero)(.*)$;
-          fastcgi_param PATH_INFO $fastcgi_path_info;
-          fastcgi_param SCRIPT_INFO $fastcgi_script_name;
+-  Customizing index page, see :property:`omero.web.index_template`.
 
-   -  If `omero.web.force_script_name` is set then 
-      ``$ bin/omero web config nginx --system`` will automatically generate 
-      the correct configuration.
-
--  Configuring additional web apps:
-
-   -  The OMERO.web framework allows you to add additional Django apps.
-      For an example with installation instructions, see
-      `webmobile <https://github.com/will-moore/webmobile/>`_
-
-   -  Download or clone from the git repository into the /omeroweb/
-      directory, then run
-
-      ::
-
-          $ bin/omero config set omero.web.apps '["<app name>"]'
-
--  Customizing webclient login page:
-
-   -  You can customize the webclient login page with your own logo.
-      Logo images should ideally be 150 pixels high or less and will appear above
-      the OMERO logo.
-
-   -  You will need to host the image somewhere else and link to it with
-
-      ::
-
-          $ bin/omero config set omero.web.login_logo "http://www.openmicroscopy.org/site/logo.jpg"
+-  Enabling a public user see :doc:`/developers/Web/PublicData`.
