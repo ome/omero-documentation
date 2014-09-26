@@ -801,6 +801,14 @@ Security
 
       Default: `chainedPasswordProvider`
 
+    omero.security.password_required
+      Controls whether the server will allow creation of user accounts
+      with an empty password. If set to true (default, strict mode),
+      empty passwords are disallowed. This still allows the guest user
+      to interact with the server.
+
+      Default: `true`
+
     omero.security.trustStore
       A truststore is a database of trusted entities and their associated X.509
       certificate chains authenticating the corresponding public keys. The
