@@ -439,7 +439,7 @@ The repository for the OME help is https://github.com/openmicroscopy/ome-help.
 		of the OME help documentation
 
 		#. |merge| and pushes the resulting branch to https://github.com/snoopycrimecop/ome-help/tree/gh-pages
-		#. Updates the content of http://snoopycrimecop.github.io/ome-help/
+		#. Updates the content of http://help.staging.openmicroscopy.org
 
 .. _linkcheck_parser:
 
