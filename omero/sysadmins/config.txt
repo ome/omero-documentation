@@ -1211,6 +1211,17 @@ omero.security.password_provider
 
 Default: `chainedPasswordProvider`
 
+.. property:: omero.security.password_required
+
+omero.security.password_required
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Controls whether the server will allow creation of user accounts
+with an empty password. If set to true (default, strict mode),
+empty passwords are disallowed. This still allows the guest user
+to interact with the server.
+
+Default: `true`
+
 .. property:: omero.security.trustStore
 
 omero.security.trustStore
