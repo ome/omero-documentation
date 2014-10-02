@@ -438,8 +438,12 @@ The repository for the OME help is https://github.com/openmicroscopy/ome-help.
 		This job is used to review the PRs opened against the master branch
 		of the OME help documentation
 
-		#. |merge| and pushes the resulting branch to https://github.com/snoopycrimecop/ome-help/tree/gh-pages
-		#. Updates the content of http://snoopycrimecop.github.io/ome-help/
+		#. |merge| (and also incorporates
+		   https://github.com/sbesson/ome-help/tree/cname_staging to allow 
+		   deployment to a non-GitHub URL) then pushes
+		   the resulting branch to
+		   https://github.com/snoopycrimecop/ome-help/tree/gh-pages
+		#. Updates the content of http://help.staging.openmicroscopy.org
 
 .. _linkcheck_parser:
 
