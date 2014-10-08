@@ -63,8 +63,8 @@ The OME team cannot maintain or ship code which is only available as a
 long-living branch (a fork) of the code base, and we would encourage
 submitters to use one of the above methods.
 
-External code contributions
----------------------------
+Procedure for accepting code contributions
+------------------------------------------
 
 Pull requests submitted from outside OME will get an initial review to
 identify if they are suitable to pass into our
@@ -106,7 +106,6 @@ the rationale, please see:
 	
 	http://en.wikipedia.org/wiki/Technical_debt
 		Wikipedia article on Technical debt
-
 
 .. _header templates: https://github.com/openmicroscopy/openmicroscopy/blob/develop/docs/headers.txt
 .. _git submodules: http://git-scm.com/book/en/Git-Tools-Submodules
