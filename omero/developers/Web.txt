@@ -35,8 +35,8 @@ Web gateway
 
 The webgateway is a Django app that provides utility functionality for the
 other web components. This includes a full image viewer, as well as methods
-for rendering images etc. You can browse the :javadoc:`webgateway
-URLs <epydoc/omeroweb.webgateway.urls-module.html>`,
+for rendering images etc. You can browse the :pythondoc:`webgateway
+URLs <omeroweb/omeroweb.webgateway.html#module-omeroweb.webgateway.urls>`,
 or see the :doc:`/developers/Web/WebGateway` page for more info.
 
 Web apps

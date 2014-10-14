@@ -1,15 +1,15 @@
 Blitz Gateway documentation
 ---------------------------
 
-The epydoc-generated documentation of methods provided by OMERO Gateway
-is available showing :javadoc:`wrapper classes <epydoc/omero.gateway-module.html>`.
+The Sphinx-generated documentation of methods provided by OMERO Gateway
+is available showing :pythondoc:`wrapper classes <omero/omero.gateway.html>`.
 
 Specifically, the API for the 'conn' connection wrapper created above is
-:javadoc:`here <epydoc/omero.gateway._BlitzGateway-class.html>`.
+:pythondoc:`here <omero/omero.gateway.html#omero.gateway.BlitzGateway>`.
 
 When working with :javadoc:`OMERO model objects <slice2html/omero/model.html>`
 (omero.model.Image etc) the Gateway will wrap these objects in classes
-such as :javadoc:`omero.gateway.ImageWrapper <epydoc/omero.gateway._ImageWrapper-class.html>`
+such as :pythondoc:`omero.gateway.ImageWrapper <omero/omero.gateway.html#omero.gateway.ImageWrapper>`
 to handle object loading and hierarchy traversal. For example:
 
 ::
@@ -55,7 +55,7 @@ may be created each time.
 Not all methods of the service factory are currently supported in the
 gateway. You can get an idea of the currently supported services by
 looking at the source code under the
-:javadoc:`\_createProxies <epydoc/omero.gateway-pysrc.html#_BlitzGateway._createProxies>`
+:pythondoc:`\_createProxies <omero/omero.gateway.html#omero.gateway._BlitzGateway._createProxies>`
 method.
 
 Example: ContainerService can load Projects and Datasets in a single
@@ -87,9 +87,9 @@ Overwriting and extending omero.gateway classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When working with
-:javadoc:`omero.gateway <epydoc/omero.gateway._BlitzGateway-class.html>`
+:pythondoc:`omero.gateway <omero/omero.gateway.html>`
 or wrapper classes such as
-:javadoc:`omero.gateway.ImageWrapper <epydoc/omero.gateway._ImageWrapper-class.html>`
+:pythondoc:`omero.gateway.ImageWrapper <omero/omero.gateway.html#omero.gateway.ImageWrapper>`
 you might want to add your own functionality or customize an existing
 one. NB: Note the call to ``omero.gateway.refreshWrappers()`` to ensure
 that your subclasses are returned by calls to getObjects() For example:
@@ -171,7 +171,7 @@ The Gateway consists of a number of wrapper objects:
 Connection wrapper
 """"""""""""""""""
 
-The BlitzGateway class (see :javadoc:`API of development code <epydoc/omero.gateway._BlitzGateway-class.html>`)
+The BlitzGateway class (see :pythondoc:`API of development code <omero/omero.gateway.html#omero.gateway._BlitzGateway>`)
 is a wrapper for the OMERO client and session objects. It provides
 various methods for connecting to the OMERO server, querying the status
 or context of the current connection and as a starting point for
@@ -250,6 +250,6 @@ by the |OmeroWeb|. Therefore, the Blitz gateway (which was
 originally built for this framework) has not yet been extended to wrap every
 omero.model object with a specific Blitz Object Wrapper. The current list of
 object wrappers can be found in the omero.gateway module
-:javadoc:`API <epydoc/omero.gateway-module.html>`.
+:pythondoc:`API <omero/omero.gateway.html>`.
 As more functionality is provided by the Blitz Gateway, the coverage of object
 wrappers will increase accordingly.
