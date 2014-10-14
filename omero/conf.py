@@ -80,6 +80,7 @@ omero_extlinks = {
     'omedocs' : (doc_github_root + '%s', ''),
     # API links
     'javadoc' : (downloads_root + '/latest/omero5.1/api/%s', ''),
+    'pythondoc' : (downloads_root + '/latest/omero5.1/api/python/%s', ''),
     # Miscellaneous links
     'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
     }
