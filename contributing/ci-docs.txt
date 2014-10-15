@@ -82,7 +82,10 @@ independent of the current OMERO/Bio-Formats version.
 		* :term:`CONTRIBUTING-merge-docs`
 
 	- 	* Review OME help documentation PRs
-		* :term:`OME-HELP-staging`
+		* :term:`OME-help-staging`
+
+	- 	* Publish OME help documentation
+		* :term:`OME-help-release`
 
 Configuration
 ^^^^^^^^^^^^^
@@ -439,11 +442,24 @@ The repository for the OME help is https://github.com/openmicroscopy/ome-help.
 		of the OME help documentation
 
 		#. |merge| (and also incorporates
-		   https://github.com/sbesson/ome-help/tree/cname_staging to allow 
-		   deployment to a non-GitHub URL) then pushes
-		   the resulting branch to
-		   https://github.com/snoopycrimecop/ome-help/tree/gh-pages
-		#. Updates the content of http://help.staging.openmicroscopy.org
+		   https://github.com/snoopycrimecop/ome-help/tree/cname_staging to
+		   allow  deployment to a non-GitHub URL) then pushes the resulting
+		   branch to https://github.com/snoopycrimecop/ome-help/tree/gh-pages
+		#. The GitHub Pages services updates the content of
+		   http://help.staging.openmicroscopy.org
+
+	:jenkinsjob:`OME-help-release`
+
+		This job is used to deploy the OME help documentation
+
+		#. Opens a Pull Request from
+		   https://github.com/openmicroscopy/ome-help/tree/master
+		   to https://github.com/openmicroscopy/ome-help/tree/gh-pages. If
+		   this PR is merged, the GitHub Pages services updates the content of
+		   http://help.openmicroscopy.org
+		#. If the build is promoted,
+			#. rysnc the content of :file:`/ome/data_repo/public/help-staging`
+			   to :file:`/ome/data_repo/public/help`
 
 .. _linkcheck_parser:
 
