@@ -7,15 +7,15 @@ image data recorded in a range of file formats. Ideally a single set of
 applications, running on a user's laptop or workstation, could access
 all sets of data, and provide easy-to-use access to this data.
 
-OMERO ships as a server application called :program:`OMERO.server` and a 
-series of client applications (known simply as clients): :program:`OMERO.web`, 
-:program:`OMERO.insight`, :program:`OMERO.editor` and 
-:program:`OMERO.importer`. All run on the major operating systems 
-and provide image visualization, management, and annotation to users from 
-remote locations. With a large number of OMERO.server installations worldwide, 
-OMERO has been shown to be relatively easy to install and get running.
+OMERO ships as a server application called :program:`OMERO.server` and a
+series of client applications (known simply as clients): :program:`OMERO.web`,
+:program:`OMERO.insight` and :program:`OMERO.importer`. All run on the major
+operating systems and provide image visualization, management, and annotation
+to users from remote locations. With a large number of OMERO.server
+installations worldwide, OMERO has been shown to be relatively easy to install
+and get running.
 
-OMERO.insight (.editor, .importer) are desktop applications written in Java
+OMERO.insight and OMERO.importer are desktop applications written in Java
 and require Java 1.6 (or higher) to be installed on the user's computer
 (automatically installed on most up-to-date OS X and Windows XP systems).
 
@@ -105,45 +105,9 @@ Among many features, the noteworthy OMERO.insight elements are:
 - User administration.
 - Image import.
 
-Our user assistance :help:`help website <>` features a number of 
-workflow-based guides to importing, viewing, managing and exporting your data 
+Our user assistance :help:`help website <>` features a number of
+workflow-based guides to importing, viewing, managing and exporting your data
 using OMERO.insight.
-
-.. _omero-editor:
-
-OMERO.editor
-------------
-
-OMERO.editor is an editing tool designed to facilitate recording of
-experimental metadata, for annotation of images in OMERO, where users can
-create a "template" (for example, to describe a protocol) and then use this
-template to create individual "experiment" files, which contain the
-experimental metadata. A summary of the experiment can be viewed alongside
-annotated images in OMERO.insight. This workflow makes it easy to reuse
-protocols, and to build up a detailed description of an experiment by
-combining several smaller protocols.
-
-.. figure:: /images/omero_editor_4_4.png
-    :align: center
-    :width: 60%
-    :alt: OMERO.editor
-
-    OMERO.editor
-
-.. figure:: /images/EditorParamsContext.png
-    :align: center
-    :width: 60%
-    :alt: OMERO.editor
-
-    OMERO.editor
-
-The OMERO.editor is part of the OMERO.insight client, but can also run as a
-stand-alone application. OMERO.editor saves files as XML documents, which
-makes it possible for them to be read by other software. More information can
-be found in the :help:`OMERO.editor user guide <editor.html>`.
-
-.. note:: OMERO.editor is no longer actively developed but is still shipped 
-    with OMERO releases.
 
 .. _omero-importer:
 

@@ -15,7 +15,6 @@ Package        OMERO.server                    Java     Python   Ice      Postgr
 ============== =============================== ======== ======== ======== ==========
 OMERO.importer Required                        Required
 OMERO.insight  Required                        Required
-OMERO.editor   Required for some functionality Required
 OMERO.server                                   Required Required Required Required
 OMERO.web      Required                                 Required Required
 OMERO.py       Required for some functionality          Required Required
@@ -78,8 +77,8 @@ Summary: Depending on hardware layout 2 x 4, 2 x 6 system core count
 should be more than enough.
 
 
-OMERO.insight, OMERO.editor and OMERO.importer
-==============================================
+OMERO.insight and OMERO.importer
+================================
 
 The recommended client specification is:
 
