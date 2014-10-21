@@ -18,15 +18,14 @@ The ``agents`` package is further broken down into:
 
 -  ``events``
 -  ``dataBrowser``
--  ``editor``
 -  ``imviewer``
 -  ``measurement``
 -  ``metadata``
 -  ``treeviewer``
 -  ``util``
 
-These packages contain the code for the Data Browser, Data Manager,
-Editor, Viewer, and Measurement agents. The events package contains the
+These packages contain the code for the Data Browser, Data Manager, Viewer,
+and Measurement agents. The events package contains the
 events that are used by all these agents.
 
 The ``env`` package is also broken down into further sub-packages:
