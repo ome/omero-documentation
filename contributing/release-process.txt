@@ -125,7 +125,7 @@ Release components review
 
 - Set up servers for testing with the latest release of the OMERO.server
   built with the different Ice versions.
-- Test the OMERO clients (OMERO.insight, OMERO.editor, OMERO.importer) for all
+- Test the OMERO clients (OMERO.insight and OMERO.importer) for all
   versions of Ice under Windows, Linux and MacOSX.
 - Test the OMERO.server built with the different Ice versions.
 - Test the OMERO ImageJ plugin.
