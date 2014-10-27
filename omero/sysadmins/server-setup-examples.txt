@@ -35,3 +35,61 @@ Stats
 -  40 groups
 -  36 TiB of data storage space, of which 16.6 TiB is currently in use
 -  Performance statistics to come
+
+Biozentrum, University of Basel
+-------------------------------
+
+The OMERO server at `Biozentrum <http://www.biozentrum.unibas.ch>`_ has around
+82 users and currently uses 9.8 TB of data storage space, with an average
+monthly increase of 200-300 GB. It is run on CentOS 6.5 with data hosted on an
+NFS-mounted NAS system.
+
+Hardware
+^^^^^^^^
+
+Remote storage consists of:
+
+-  NFS-mounted NAS system
+
+Local storage consists of:
+
+-  2 x 146 GB 6Gbit/s SAS HD,  RAID 1. OS and OMERO software
+-  2 x 128 GB SSD, RAID 1, Postgres DB
+-  2 x 600 GB 6Gbit/s SAS HD, scratch space, buffer, etc.
+
+Computational resources:
+
+-  IBM x3550 M4, dual-CPU Intel(R) Xeon(R) E5-2643 3.3GHz, physical
+-  32 GB of memory
+
+Network infrastructure
+^^^^^^^^^^^^^^^^^^^^^^
+
+-  1 Gbit/s Ethernet, local, VPN support, dedicated
+
+GReD Research Center, Clermont-Ferrand, France
+----------------------------------------------
+
+The `Genetics, Reproduction and Development Research Center <https://www.gred-clermont.fr>`_
+has 65 users and currently uses 3 TB of storage, with an average monthly
+increase of 90 GB. It is run on Debian Squeeze.
+
+Hardware
+^^^^^^^^
+
+-  11 TB of storage spread over 8 local hard drives (2 TB), RAID 5
+
+Computational resources:
+
+-  1 Intel Xeon E5506 (4 physical cores)
+-  8 GB of memory
+
+Network infrastructure
+^^^^^^^^^^^^^^^^^^^^^^
+
+The server is hosted inside the faculty of medicine where the network works at
+100 Mbit/s. There are are 4 Gbit/s ports on the server but only one is
+currently in use.
+
+
+
