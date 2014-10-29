@@ -1,11 +1,6 @@
 Bio-Formats jobs
 ----------------
 
-..  |merge| replace:: Merges PRs using :ref:`scc merge`
-..  |buildBF| replace:: Builds Bio-Formats using ``ant clean jars tools tools-ome utils dist-bftools``
-..  |testBF| replace:: Runs Bio-Formats tests using ``ant test-common test-ome-xml test-formats test-ome-io``
-..  |fulltestBF| replace:: Runs Bio-Formats full test-suite using ``ant test``
-
 All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 
 .. list-table::

@@ -50,6 +50,20 @@ rst_epilog += """
 .. _bioformats.git: https://github.com/openmicroscopy/bioformats
 .. _ome-documentation.git: https://github.com/openmicroscopy/ome-documentation
 .. _scripts.git: https://github.com/ome/scripts
+..  |merge| replace:: Merges PRs using :ref:`scc merge`
+..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
+..  |archiveOMEROartifacts| replace:: Archives the build artifacts
+..  |copyreleaseartifacts| replace:: Copies the build artifacts to a LDAP-protected folder under downloads.openmicroscopy.org
+..  |promoteOMERO| replace:: copies the artifacts to necromancer
+..  |buildVM| replace:: Builds a |VM| using :source:`omerovm.sh <docs/install/VM/omerovm.sh>`
+..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
+..  |buildBF| replace:: Builds Bio-Formats using ``ant clean jars tools tools-ome utils dist-bftools``
+..  |testBF| replace:: Runs Bio-Formats tests using ``ant test-common test-ome-xml test-formats test-ome-io``
+..  |fulltestBF| replace:: Runs Bio-Formats full test-suite using ``ant test``
+..  |sphinxbuild| replace:: Runs ``make clean html latexpdf`` to build the HTML and PDF versions of the Sphinx documentation
+..  |linkcheck| replace:: Runs ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`
+..  |ssh-doc| replace:: Copies the HTML and PDF documentation over SSH to
+..  |deploy-doc| replace:: Runs :ref:`scc deploy` to update
 """
 
 # Edit on GitHub prefix

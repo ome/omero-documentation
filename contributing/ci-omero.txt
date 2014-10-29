@@ -1,13 +1,6 @@
 OMERO jobs
 ----------
 
-..  |merge| replace:: Merges PRs using :ref:`scc merge`
-..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
-..  |archiveOMEROartifacts| replace:: Archives the build artifacts
-..  |promoteOMERO| replace:: copies the artifacts to necromancer
-..  |buildVM| replace:: Builds a |VM| using :source:`omerovm.sh <docs/install/VM/omerovm.sh>`
-..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
-
 .. list-table::
 	:header-rows: 1
 
