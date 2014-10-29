@@ -110,43 +110,43 @@ clients of the deployment jobs described above:
 		* :term:`OMERO-5.0-merge-deploy`
 		* octopus.openmicroscopy.org
 		* 4064
-		* http://octopus.openmicroscopy.org/merge
+		* https://octopus.openmicroscopy.org/merge
 
 	- 	* 5.0.x
 		* :term:`OMERO-5.0-latest-deploy`
 		* octopus.openmicroscopy.org
 		* 14064
-		* http://octopus.openmicroscopy.org/latest
+		* https://octopus.openmicroscopy.org/latest
 
 	- 	* 5.0.x
 		* :term:`OMERO-5.0-merge-integration`
 		* octopus.openmicroscopy.org
 		* 24064
-		* http://octopus.openmicroscopy.org/integration
+		* https://octopus.openmicroscopy.org/integration
 
 	- 	* 5.1.x
 		* :term:`OMERO-5.1-merge-deploy`
 		* trout.openmicroscopy.org
 		* 4064
-		* http://trout.openmicroscopy.org/merge
+		* https://trout.openmicroscopy.org/merge
 
 	- 	* 5.1.x
 		* :term:`OMERO-5.1-latest-deploy`
 		* trout.openmicroscopy.org
 		* 14064
-		* http://trout.openmicroscopy.org/latest
+		* https://trout.openmicroscopy.org/latest
 
 	- 	* 5.1.x
 		* :term:`OMERO-5.1-merge-integration`
 		* trout.openmicroscopy.org
 		* 24064
-		* http://trout.openmicroscopy.org/integration
+		* https://trout.openmicroscopy.org/integration
 
 	- 	* Breaking
 		* :term:`OMERO-5.1-breaking-deploy`
 		* trout.openmicroscopy.org
 		* 34064
-		* http://trout.openmicroscopy.org/breaking
+		* https://trout.openmicroscopy.org/breaking
 
 4.4.x series
 ^^^^^^^^^^^^
