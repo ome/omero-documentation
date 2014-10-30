@@ -109,6 +109,16 @@ image files from backups, in the same place with the same name, is
 likely but **not guaranteed** to fully restore the images and their
 associated data in OMERO.
 
+Additional setup requirements
+-----------------------------
+
+In-place import requires additional user and group setup. As no-one should be
+allowed to log into the server account, to permit in-place imports you need to
+create a different user account, allowing someone to log in to the box but not
+accidentally delete any files. Therefore, you should set up an 'in-place' user
+and an 'in-place' group and configure a subset of directories under
+`ManagedRepository` to let members of that group write to them.
+
 Getting started
 ---------------
 
