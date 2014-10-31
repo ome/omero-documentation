@@ -117,7 +117,64 @@ allowed to log into the server account, to permit in-place imports you need to
 create a different user account, allowing someone to log in to the box but not
 accidentally delete any files. Therefore, you should set up an 'in-place' user
 and an 'in-place' group and configure a subset of directories under
-`ManagedRepository` to let members of that group write to them.
+:doc:`ManagedRepository </developers/ManagedRepository/ManagedRepository>` to
+let members of that group write to them:
+
+::
+
+    ### STATUS BEFORE
+
+    [sysadmin@ome-server omero_system_user]$ ls -ltrad ManagedRepository/
+    drwxrwxr-x 8 omero_system_user omero_system_user 4096 Apr 24 10:13 ManagedRepository/
+
+    [sysadmin@ome-server omero_system_user]$ grep inplace /etc/passwd /etc/group
+    /etc/passwd:inplace_user:x:501:501::/home/inplace_user:/bin/bash
+    /etc/group:omero_system_user:x:500:inplace_user
+    /etc/group:inplace_user:x:501:
+
+    [sysadmin@ome-server omero_system_user]$ grep omero_system_user /etc/passwd /etc/group
+    /etc/passwd:omero_system_user:x:500:500::/home/omero_system_user:/bin/bash
+    /etc/group:omero_system_user:x:500:inplace_user
+
+    [sysadmin@ome-server omero_system_user]$ sudo -u inplace_user -i
+    [inplace_user@ome-server ~]$ umask
+    0002
+
+
+    ### SCRIPT
+    chgrp inplace_user /repositories/binary-repository/ManagedRepository
+    chmod g+rws /repositories/binary-repository/ManagedRepository
+
+    chmod g+rws /repositories/binary-repository/ManagedRepository/*
+    chmod g+rws /repositories/binary-repository/ManagedRepository/*/*
+    chmod g+rws /repositories/binary-repository/ManagedRepository/*/*/*
+
+    chgrp inplace_user /repositories/binary-repository/ManagedRepository/*   
+    chgrp inplace_user /repositories/binary-repository/ManagedRepository/*/*
+    chgrp inplace_user /repositories/binary-repository/ManagedRepository/*/*/* 
+
+    # With the above, newly created directories should be in the inplace group
+    # As long as the file is readable by omero_system_user, then it should work fine!
+
+
+
+    ### AFTER SCRIPT
+
+    [root@ome-server omero_system_user]# ls -ltrad ManagedRepository/
+    drwxrwsr-x 8 omero_system_user inplace_user 4096 Apr 24 10:13 ManagedRepository/
+
+    ### TEST
+
+    # with default umask this likely has to do 
+    [inplace_user@ome-server ~]$ cd /repositories/binary-repository/ManagedRepository/
+    [inplace_user@ome-server ManagedRepository]$ mkdir inplace.test
+    [inplace_user@ome-server ManagedRepository]$ ls -ltrad inplace.test/
+    drwxrwsr-x 2 inplace_user inplace_user 4096 Apr 30 11:35 inplace.test/
+
+    [omero_system_user@ome-server omero_system_user]$ cd /repositories/binary-repository/ManagedRepository/
+    [omero_system_user@ome-server ManagedRepository]$ rmdir inplace.test/
+    [omero_system_user@ome-server ManagedRepository]$
+
 
 Getting started
 ---------------
