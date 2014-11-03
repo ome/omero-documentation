@@ -115,7 +115,7 @@ clients of the deployment jobs described above:
 
 		This job creates a tag on the `dev_5_0` branch
 
-		#. Runs `scc tag-release $RELEASE` and pushed the tag to the
+		#. Runs `scc tag-release $RELEASE` and pushes the tag to the
 		   snoopycrimecop fork of openmicroscopy.git_
 
 	:jenkinsjob:`OMERO-5.0-release`
@@ -135,9 +135,9 @@ clients of the deployment jobs described above:
 
 		This job builds the OMERO downloads page
 
-		#. Check out the `dev_5_0` branch of
+		#. Checks out the `dev_5_0` branch of
 		   https://github.com/openmicroscopy/ome-release.git
-		#. Run `make clean omero`
+		#. Runs `make clean omero`
 
 	:jenkinsjob:`OMERO-5.0-release-integration`
 
@@ -203,7 +203,7 @@ clients of the deployment jobs described above:
 
 		This job builds the downloads artifacts of Bio-Formats
 
-		#. Checks out the envvar:`RELEASE` tag of the
+		#. Checks out the :envvar:`RELEASE` tag of the
 		   snoopycrimecop fork of bioformats.git_
 		#. |buildBF|
 		#. |fulltestBF|
@@ -214,9 +214,9 @@ clients of the deployment jobs described above:
 
 		This job builds the Bio-Formats downloads page
 
-		#. Check out the `dev_5_0` branch of
+		#. Checks out the `dev_5_0` branch of
 		   https://github.com/openmicroscopy/ome-release.git
-		#. Run `make clean bf`
+		#. Runs `make clean bf`
 
 5.1.x series
 ------------
@@ -259,7 +259,7 @@ clients of the deployment jobs described above:
 
 		This job creates a tag on the `develop` branch
 
-		#. Runs `scc tag-release $RELEASE` and pushed the tag to the
+		#. Runs `scc tag-release $RELEASE` and pushes the tag to the
 		   snoopycrimecop fork of openmicroscopy.git_
 
 	:jenkinsjob:`OMERO-5.1-release`
@@ -271,7 +271,7 @@ clients of the deployment jobs described above:
 		#. |buildOMERO| for each version of Ice
 		#. |buildVM|
 		#. Executes the `release-hudson` target for the `ome.staging` Maven
-		   repository.
+		   repository
 		#. |copyreleaseartifacts|
 		#. Triggers :term:`OMERO-5.1-release-downloads`
 
@@ -279,9 +279,9 @@ clients of the deployment jobs described above:
 
 		This job builds the OMERO downloads page
 
-		#. Check out the `develop` branch of
+		#. Checks out the `develop` branch of
 		   https://github.com/openmicroscopy/ome-release.git
-		#. Run `make clean omero`
+		#. Runs `make clean omero`
 
 	:jenkinsjob:`OMERO-5.1-release-integration`
 
@@ -304,7 +304,7 @@ clients of the deployment jobs described above:
 
 		#. Receives TestNG results under
 		   :file:`components/tools/OmeroJava/target/reports/broken` from
-		   :term:`OMERO-5.0-release-integration`,
+		   :term:`OMERO-5.0-release-integration`
 		#. Generates TestNG report
 
 	:jenkinsjob:`OMERO-5.1-release-integration-java`
@@ -313,7 +313,7 @@ clients of the deployment jobs described above:
 
 		#. Receives TestNG results under
 		   :file:`components/tools/OmeroJava/target/reports/integration` from
-		   :term:`OMERO-5.1-release-integration`,
+		   :term:`OMERO-5.1-release-integration`
 		#. Generates TestNG report
 
 	:jenkinsjob:`OMERO-5.1-release-integration-python`
@@ -322,7 +322,7 @@ clients of the deployment jobs described above:
 
 		#. Receives pytest results under
 		   :file:`components/tools/OmeroPy/target/reports` from
-		   :term:`OMERO-5.1-release-integration`,
+		   :term:`OMERO-5.1-release-integration`
 		#. Generates pytest report
 
 	:jenkinsjob:`OMERO-5.1-release-integration-web`
@@ -331,7 +331,7 @@ clients of the deployment jobs described above:
 
 		#. Receives pytest results under
 		   :file:`components/tools/OmeroWeb/target/reports` from
-		   :term:`OMERO-5.1-release-integration`,
+		   :term:`OMERO-5.1-release-integration`
 		#. Generates pytest report
 
 	:jenkinsjob:`OMERO-5.1-release-robotframework`
@@ -347,7 +347,7 @@ clients of the deployment jobs described above:
 
 		This job builds the downloads artifacts of Bio-Formats
 
-		#. Checks out the envvar:`RELEASE` tag of the
+		#. Checks out the :envvar:`RELEASE` tag of the
 		   snoopycrimecop fork of bioformats.git_
 		#. |buildBF|
 		#. |fulltestBF|
