@@ -62,8 +62,8 @@ the CLI commands can be redirected and piped together. For example, the
 following set of commands creates a dataset and a project and links them
 together::
 
-   $ project=$(bin/omero obj new Dataset name=dataset-1)
-   $ dataset=$(bin/omero obj new Project name=plate-1)
+   $ dataset=$(bin/omero obj new Dataset name=dataset-1)
+   $ project=$(bin/omero obj new Project name=plate-1)
    $ bin/omero obj new ProjectDatasetLink parent=$project child=$dataset
 
 Extensions
