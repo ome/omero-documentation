@@ -99,8 +99,11 @@ clients of the deployment jobs described above:
 		need to be properly configured:
 
 		- :envvar:`RELEASE` is the release number for OMERO and Bio-Formats.
-		- :envvar:`ANNOUNCEMENT_URL` is the URL of the forum release announcement and should be set to the value of the URL of the private post until it becomes public.
-		- :envvar:`MILESTONE` is the name of the Trac milestone which the  download pages should be linked to.
+		- :envvar:`ANNOUNCEMENT_URL` is the URL of the forum release
+		  announcement and should be set to the value of the URL of the
+		  private post until it becomes public.
+		- :envvar:`MILESTONE` is the name of the Trac milestone which the
+		  download pages should be linked to.
 
 
 		#. Triggers :term:`OME-5.0-release-push`
@@ -241,13 +244,16 @@ clients of the deployment jobs described above:
 		need to be properly configured:
 
 		- :envvar:`RELEASE` is the release number for OMERO and Bio-Formats.
-		- :envvar:`ANNOUNCEMENT_URL` is the URL of the forum release announcement and should be set to the value of the URL of the private post until it becomes public.
-		- :envvar:`MILESTONE` is the name of the Trac milestone which the  download pages should be linked to.
+		- :envvar:`ANNOUNCEMENT_URL` is the URL of the forum release
+		  announcement and should be set to the value of the URL of the
+		  private post until it becomes public.
+		- :envvar:`MILESTONE` is the name of the Trac milestone which the
+		  download pages should be linked to.
 
 		#. Triggers :term:`OME-5.1-release-push`
 		#. Triggers :term:`OMERO-5.1-release-integration`
 		#. Triggers :term:`OMERO-5.1-release` and
-			   :term:`BIOFORMATS-5.1-release`
+		   :term:`BIOFORMATS-5.1-release`
 
 	:jenkinsjob:`OME-5.1-release-push`
 
