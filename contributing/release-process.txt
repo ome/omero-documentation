@@ -127,7 +127,7 @@ clients of the deployment jobs described above:
 		#. |buildOMERO| for each version of Ice
 		#. |buildVM|
 		#. Executes the `release-hudson` target for the `ome.staging` Maven
-		   repository.
+		   repository
 		#. |copyreleaseartifacts|
 		#. Triggers :term:`OMERO-5.0-release-downloads`
 
@@ -161,7 +161,7 @@ clients of the deployment jobs described above:
 
 		#. Receives TestNG results under
 		   :file:`components/tools/OmeroJava/target/reports/broken` from
-		   :term:`OMERO-5.0-release-integration`,
+		   :term:`OMERO-5.0-release-integration`
 		#. Generates TestNG report
 
 	:jenkinsjob:`OMERO-5.0-release-integration-java`
@@ -170,7 +170,7 @@ clients of the deployment jobs described above:
 
 		#. Receives TestNG results under
 		   :file:`components/tools/OmeroJava/target/reports/integration` from
-		   :term:`OMERO-5.0-release-integration`,
+		   :term:`OMERO-5.0-release-integration`
 		#. Generates TestNG report
 
 	:jenkinsjob:`OMERO-5.0-release-integration-python`
@@ -179,7 +179,7 @@ clients of the deployment jobs described above:
 
 		#. Receives pytest results under
 		   :file:`components/tools/OmeroPy/target/reports` from
-		   :term:`OMERO-5.0-release-integration`,
+		   :term:`OMERO-5.0-release-integration`
 		#. Generates pytest report
 
 	:jenkinsjob:`OMERO-5.0-release-integration-web`
@@ -188,7 +188,7 @@ clients of the deployment jobs described above:
 
 		#. Receives pytest results under
 		   :file:`components/tools/OmeroWeb/target/reports` from
-		   :term:`OMERO-5.0-release-integration`,
+		   :term:`OMERO-5.0-release-integration`
 		#. Generates pytest report
 
 	:jenkinsjob:`OMERO-5.0-release-robotframework`
@@ -358,9 +358,9 @@ clients of the deployment jobs described above:
 
 		This job builds the Bio-Formats downloads page
 
-		#. Check out the `develop` branch of
+		#. Checks out the `develop` branch of
 		   https://github.com/openmicroscopy/ome-release.git
-		#. Run `make clean bf`
+		#. Runs `make clean bf`
 
 The following instructions use the point/minor release jobs as examples. For
 the major release process, the jobs used in these instructions should be
