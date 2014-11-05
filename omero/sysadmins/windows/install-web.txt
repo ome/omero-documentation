@@ -201,19 +201,20 @@ OMERO.web Maintenance
 Customizing your OMERO.web installation
 ---------------------------------------
 
-All configuration options can be found on various secections of
-:ref:`web_index` developers documentation. For the full list refer to 
+All configuration options can be found on various sections of
+:ref:`web_index` developers documentation. For the full list, refer to
 :ref:`web_configuration` properties or: 
 
 ::
 
 	C:\omero_dist>bin\omero web -h
 
-The most popular configuration options:
+The most popular configuration options include:
 
 -  Debug mode, see :property:`omero.web.debug`.
 
--  Customize login page with your own logo, see :property:`omero.web.login_logo`.
+-  Customize login page with your own logo, see
+   :property:`omero.web.login_logo`.
 
 -  Customizing index page, see :property:`omero.web.index_template`.
 
