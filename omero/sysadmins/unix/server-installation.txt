@@ -133,16 +133,16 @@ If possible, install one of the following packages:
 | RedHat    | java-1.7.0-openjdk        |
 +-----------+---------------------------+
 
-OMERO works with the OpenJDK JRE provided by most systems (except OpenJDK8
-which is not currently supported), or with
+OMERO works with the OpenJDK JRE provided by most systems, or with
 Oracle Java. Version 6 or later is required. Version 7 or later is
 recommended (version 6 is end of line and no longer has updates or
-security support). Your system may already provide a suitable JRE, in
-which case no extra steps are necessary. Linux distributions usually
-provide OpenJDK, and older MacOS X versions have Java installed by
-default. Oracle Java is no longer provided by BSD or Linux
-distributions for licensing reasons. If your system does not have Java
-available, for example on newer MacOS X versions, or the provided
+security support). **OpenJDK version 8 is not currently supported**.
+
+Your system may already provide a suitable JRE, in which case no extra steps
+are necessary. Linux distributions usually provide OpenJDK, and older MacOS X
+versions have Java installed by default. Oracle Java is no longer provided by
+BSD or Linux distributions for licensing reasons. If your system does not have
+Java available, for example on newer MacOS X versions, or the provided
 version is too old, Oracle Java may be downloaded from the `Oracle
 website
 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
