@@ -1,6 +1,12 @@
 Known limitations
 =================
 
+Java issues
+-----------
+
+OpenJDK8 is not currently supported, however the OracleJDK version should be
+fine.
+
 Windows OS issues
 -----------------
 
