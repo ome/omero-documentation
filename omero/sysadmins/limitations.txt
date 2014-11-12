@@ -4,6 +4,14 @@ Known limitations
 Windows OS issues
 -----------------
 
+UTF-8 character limitations in passwords
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Windows does not handle non-Latin characters well in the command prompt
+(console). If you use Unicode characters in your passwords, you may find they
+are not correctly formed. Therefore, we recommend you avoid them if at all
+possible.
+
 OMERO.web 'development server' does not work under Windows XP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

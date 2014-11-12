@@ -7,7 +7,6 @@ apt-get -y install \
 	python-{imaging,matplotlib,numpy,pip,scipy,tables,virtualenv} \
 	openjdk-7-jre-headless \
 	ice-services python-zeroc-ice \
-	postgresql \
-	nginx
+	postgresql
 
 service postgresql start
