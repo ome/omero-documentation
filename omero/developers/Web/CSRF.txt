@@ -1,14 +1,14 @@
 Cross Site Request Forgery protection
-===============================================
+=====================================
 
 
-OMERO.web provides easy-to-use protection against Cross Site Request Forgeries
-for more information see 
-`Django documentation <https://docs.djangoproject.com/en/1.6/ref/contrib/csrf/>`_.
 CSRF is an attack which forces an end user to execute unwanted actions on a web
-application in which is currently authenticated. For more details see
-`Cross-Site Request Forgery <https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)>`_
+application in which they are currently authenticated. For more details see
+`Cross-Site Request Forgery <https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)>`_.
 
+OMERO.web provides easy-to-use protection against Cross Site Request
+Forgeries, for more information see
+`Django documentation <https://docs.djangoproject.com/en/1.6/ref/contrib/csrf/>`_.
 
 The first defense against CSRF attacks is to ensure that GET requests
 (and other ‘safe’ methods, as defined by 9.1.1 Safe Methods, HTTP 1.1,
@@ -21,38 +21,38 @@ POST, PUT and DELETE, can then be protected by following:
 - In any template that uses a POST form, use the ``csrf_token`` tag inside
   the ``<form>`` element if the form is for an internal URL, e.g.:
 
-   ::
+  ::
 
-       <form action="." method="post">{% csrf_token %}
+    <form action="." method="post">{% csrf_token %}
 
-   .. note::
+  .. note::
 
-       This should not be done for POST forms that target external URLs, since
-       that would cause the CSRF token to be leaked, leading to a vulnerability.
+    This should not be done for POST forms that target external URLs, since
+    that would cause the CSRF token to be leaked, leading to a vulnerability.
 
 - In the corresponding view functions, ensure that the
   ``django.core.context_processors.csrf`` context processor is being used.
   For more details see
-  `Django examples <https://docs.djangoproject.com/en/1.6/ref/contrib/csrf/#how-to-use-it>`_
+  `Django examples <https://docs.djangoproject.com/en/1.6/ref/contrib/csrf/#how-to-use-it>`_.
 
 - On each XMLHttpRequest set a custom X-CSRFToken header to the value of the
   CSRF token and pass the CSRF token in data with every AJAX POST request. If
-  your custom application is are already using script_src_jquery.html you do
+  your custom application is already using script_src_jquery.html you do
   not need to do anything. Otherwise simply import 
 
-   ::
+  ::
 
-       <script type="text/javascript" src="{% static "webgateway/js/ome.csrf.js" %}"></script>
+    <script type="text/javascript" src="{% static "webgateway/js/ome.csrf.js" %}"></script>
 
   For more details see
-  `CSRF for ajax <https://docs.djangoproject.com/en/1.6/ref/contrib/csrf/#ajax>`_
+  `CSRF for ajax <https://docs.djangoproject.com/en/1.6/ref/contrib/csrf/#ajax>`_.
 
 
-Django framework also offer decorator methods that can help you protect your
+The Django framework also offers decorator methods that can help you protect your
 view methods and restrict access to views based on the request method.
 For more details see `Django decorators <https://docs.djangoproject.com/en/1.6/topics/http/decorators/>`_.
 
 
-By default OMERO.web provides built in view that handle all unsafe incomming
-request failing with **403 Forbidden** response if CSRF token has not been
+By default OMERO.web provides a build-in view that handles all unsafe incomming
+requests failing with **403 Forbidden** response if the CSRF token has not been
 included with a POST form.
