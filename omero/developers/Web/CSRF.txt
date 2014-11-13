@@ -53,6 +53,6 @@ view methods and restrict access to views based on the request method.
 For more details see `Django decorators <https://docs.djangoproject.com/en/1.6/topics/http/decorators/>`_.
 
 
-By default OMERO.web provides a build-in view that handles all unsafe incomming
+By default OMERO.web provides a built-in view that handles all unsafe incoming
 requests failing with **403 Forbidden** response if the CSRF token has not been
 included with a POST form.
