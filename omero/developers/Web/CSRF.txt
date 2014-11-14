@@ -18,10 +18,8 @@ reading data from the server.
 Requests that write data to the server should only use methods such as
 POST, PUT and DELETE. These requests can then be protected as follows:
 
-  .. note::
-
-    By default OMERO.web has the middleware ``django.middleware.csrf.CsrfViewMiddleware``
-    added to the list of middleware classes.
+- By default OMERO.web has the middleware ``django.middleware.csrf.CsrfViewMiddleware``
+  added to the list of middleware classes.
 
 - In any template that uses a POST form, use the ``csrf_token`` tag inside
   the ``<form>`` element if the form is for an internal URL, e.g.:
