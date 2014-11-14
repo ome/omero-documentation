@@ -16,7 +16,12 @@ The first defense against CSRF attacks is to ensure that GET requests
 reading data from the server.
 
 Requests that write data to the server should only use methods such as
-POST, PUT and DELETE, can then be protected by following:
+POST, PUT and DELETE. These requests can then be protected as follows:
+
+  .. note::
+
+    By default OMERO.web has the middleware ``django.middleware.csrf.CsrfViewMiddleware``
+    added to the list of middleware classes.
 
 - In any template that uses a POST form, use the ``csrf_token`` tag inside
   the ``<form>`` element if the form is for an internal URL, e.g.:
@@ -30,15 +35,11 @@ POST, PUT and DELETE, can then be protected by following:
     This should not be done for POST forms that target external URLs, since
     that would cause the CSRF token to be leaked, leading to a vulnerability.
 
-- In the corresponding view functions, ensure that the
-  ``django.core.context_processors.csrf`` context processor is being used.
-  For more details see
-  `Django examples <https://docs.djangoproject.com/en/1.6/ref/contrib/csrf/#how-to-use-it>`_.
-
 - On each XMLHttpRequest set a custom X-CSRFToken header to the value of the
   CSRF token and pass the CSRF token in data with every AJAX POST request. If
-  your custom application is already using script_src_jquery.html you do
-  not need to do anything. Otherwise simply import 
+  your custom application is already using :ref:`jquery_and_jquery_ui` you do
+  not need to do anything. Otherwise simply import the script, setting the
+  header on your AJAX request
 
   ::
 
