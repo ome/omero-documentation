@@ -401,7 +401,7 @@ Ice.MessageSizeMax
 ^^^^^^^^^^^^^^^^^^
 
 Ice imposes an upper limit on all method invocations. This limit,
-:option:`Ice.MessageSizeMax`, is configured in your application descriptor
+``Ice.MessageSizeMax``, is configured in your application descriptor
 (e.g. :source:`templates.xml <etc/grid/templates.xml>`)
 and configuration files (e.g.
 :source:`ice.config <etc/ice.config>`). The setting must
