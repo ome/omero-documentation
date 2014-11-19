@@ -85,7 +85,7 @@ Individual test groups
 
 To run individual OmeroJava test groups (or comma-separated sets of groups)
 of tests, the :option:`-DGROUPS` parameter can be used together with the
-:option:`test` target
+``test`` target
 
 ::
 
@@ -96,7 +96,7 @@ Individual tests
 ^^^^^^^^^^^^^^^^
 
 Alternatively, you can run individual tests which you may currently be
-working on. This can be done by using the :option:`test` option. For example:
+working on. This can be done using the ``test`` target. For example:
 
 ::
 
@@ -108,8 +108,8 @@ Individual test class methods
 
 Individual OmeroJava test class methods (or a comma-separated list of
 methods) can be run using the :option:`-DMETHODS` parameter together with
-the :option:`test` target. The test method must be provided in the fully
-qualified name form (:option:`package.class.method`).
+the ``test`` target. The test method must be provided in the fully
+qualified name form (:option:`-Dpackage.class.method`).
 
 ::
 
@@ -131,7 +131,7 @@ See :ref:`writing-python-tests` for more information on this.
 Failing tests
 ^^^^^^^^^^^^^
 
-The :option:`test.with.fail` ant property is set to ``false`` by default,
+The ``test.with.fail`` ant property is set to ``false`` by default,
 which prevents test failures from failing the build. However, it can instead
 be set to ``true`` to allow test failures to fail the build. For example:
 
@@ -140,7 +140,7 @@ be set to ``true`` to allow test failures to fail the build. For example:
     ./build.py -Dtest.with.fail=true integration
 
 Some components might provide individual targets for specific tests (e.g.
-OmeroJava provides the :option:`broken` target for running broken tests).
+OmeroJava provides the ``broken`` target for running broken tests).
 The :file:`build.xml` file is the reference in each component.
 
 Writing Java tests
