@@ -76,3 +76,6 @@ arguments to the importer.
 Sample :file:`config/importer.config` INI file:
 
 .. literalinclude:: /downloads/cli/import.config
+
+.. seealso:: :doc:`/sysadmins/import-scenarios`
+
