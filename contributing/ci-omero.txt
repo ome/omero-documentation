@@ -16,7 +16,8 @@ OMERO jobs
 
 	- 	* Deploys the latest OMERO server
 		* :term:`OMERO-5.0-latest-deploy`
-		* :term:`OMERO-5.1-latest-deploy`
+		* | :term:`OMERO-5.1-latest-deploy`
+		  | :term:`OMERO-5.1-latest-deploy-win`
 		*
 
 	- 	* Updates submodules
@@ -41,7 +42,8 @@ OMERO jobs
 
 	- 	* Deploys the OMERO server
 		* :term:`OMERO-5.0-merge-deploy`
-		* :term:`OMERO-5.1-merge-deploy`
+		* | :term:`OMERO-5.1-merge-deploy`
+		  | :term:`OMERO-5.1-merge-deploy-win`
 		* :term:`OMERO-5.1-breaking-deploy`
 
 	- 	* Runs the OMERO upgrade scripts
@@ -131,10 +133,22 @@ clients of the deployment jobs described above:
 		* https://trout.openmicroscopy.org/merge
 
 	- 	* 5.1.x
+		* :term:`OMERO-5.1-merge-deploy-win`
+		* hake.openmicroscopy.org
+		* 4064
+		* http://hake.openmicroscopy.org/merge
+
+	- 	* 5.1.x
 		* :term:`OMERO-5.1-latest-deploy`
 		* trout.openmicroscopy.org
 		* 14064
 		* https://trout.openmicroscopy.org/latest
+
+	- 	* 5.1.x
+		* :term:`OMERO-5.1-latest-deploy-win`
+		* hake.openmicroscopy.org
+		* 14064
+		* http://hake.openmicroscopy.org/latest
 
 	- 	* 5.1.x
 		* :term:`OMERO-5.1-merge-integration`
@@ -490,6 +504,11 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 		This job deploys the latest 5.1.x server (see
 		:ref:`deployment_servers`)
 
+	:jenkinsjob:`OMERO-5.1-latest-deploy-win`
+
+		This job deploys the latest 5.1.x server on Windows (see
+		:ref:`deployment_servers`)
+
 	:jenkinsjob:`OMERO-5.1-latest-submods`
 
 		This job updates the submodules on the develop branch
@@ -529,6 +548,11 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 	:jenkinsjob:`OMERO-5.1-merge-deploy`
 
 		This job deploys the merge 5.1.x server (see
+		:ref:`deployment_servers`)
+
+	:jenkinsjob:`OMERO-5.1-merge-deploy-win`
+
+		This job deploys the merge 5.1.x server on Windows (see
 		:ref:`deployment_servers`)
 
 	:jenkinsjob:`OMERO-5.1-merge-integration`
