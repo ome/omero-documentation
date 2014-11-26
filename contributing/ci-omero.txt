@@ -473,11 +473,13 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 .. digraph:: OMERO51jobs
 
   "OMERO-5.1-latest" -> "OMERO-5.1-latest-deploy";
+  "OMERO-5.1-latest" -> "OMERO-5.1-latest-deploy-win";
   "OMERO-5.1-latest" -> "OMERO-5.1-latest-maven";
   "OMERO-5.1-merge-daily" -> "OME-5.1-merge-push"
   subgraph cluster_0 {
     "OME-5.1-merge-push" -> "OMERO-5.1-merge-build";
     "OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy";
+	"OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy-win";
     }
   "OME-5.1-merge-push" -> "OMERO-5.1-merge-integration"
   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-docs"
