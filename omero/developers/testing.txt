@@ -120,13 +120,15 @@ Using markers in OmeroPy tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Tests under OmeroPy can be included or excluded according to markers defined in the tests.
-This can be done by using the :option:`-DMARK` option. For example:
+This can be done by using the :option:`-DMARK` option. For example, to run all the
+integration tests except for those marked as ``long_running``:
 
 ::
 
-    ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK=long_running
+    ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK="not long_running"
 
-See :ref:`writing-python-tests` for more information on this.
+See :ref:`writing-python-tests` and :ref:`running-python-tests-directly`
+for more information on this.
 
 Failing tests
 ^^^^^^^^^^^^^
