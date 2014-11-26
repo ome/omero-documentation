@@ -327,6 +327,47 @@ The file names must begin with `test_` for the tests to be found by `pytest`.
         ec = client.getSession().getAdminService().getEventContext()
         assert ec, "No EventContext!"
 
+Markers
+^^^^^^^
+
+Methods, classes and functions can be decorated with `pytest` markers to allow for
+the selection of tests. `pytest` provides some predefined markers and markers can
+be simply defined as they are used. However, to centralize the use of custom
+markers they should be defined in :sourcedir:`components/tools/pytest.ini`.
+To view all available markers the :option:`--markers` option can be used with
+:program:`setup.py test` or :program:`py.test` as detailed in
+:ref:`running-python-tests-directly`.
+
+There are currently two custom markers defined:
+
+  `long_running`: for long running tests. These are tests that typically take
+  10 minutes or more and are normally excluded from the daily integration
+  builds.
+
+  `broken`: for broken tests. These are tests that are either broken or fail
+  intermittently with no obvious quick fix. Broken tests are excluded from the
+  main integration builds and instead are run in a separate daily build.
+  `broken` markers should have a reason, an associated ticket number or both.
+  If there are multiple associated tickets then a comma-separated list should
+  be used.
+
+::
+
+    import pytest
+
+    class TestExample2(object)
+
+      @pytest.mark.broken(reason="Asserting false", ticket="12345,67890")
+      def testBroken():
+          assert False, "Bound to fail"
+
+      @pytest.mark.long_running
+      def testBroken():
+          self.somePotentiallyLongCall()
+
+
+.. _running-python-tests-directly:
+
 Running tests directly
 ^^^^^^^^^^^^^^^^^^^^^^
 
