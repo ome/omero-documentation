@@ -9,16 +9,16 @@ converting their internal unit to the OME default.
 
 Supported units
 ---------------
- * Electric potential
- * Frequency
- * Length
- * Power
- * Pressure
- * Temperature
- * Time
+* Electric potential
+* Frequency
+* Length
+* Power
+* Pressure
+* Temperature
+* Time
 
 Each of the supported units contain a number of values from the
-Internal System of Units (SI) in the most common prefixes from
+International System of Units (SI) in the most common prefixes from
 yotta (10^24) to yocto (10^-24). The Length unit also contains
 values from the Imperial system as well as internal values which
 are internal to OME: reference frame and pixel.
