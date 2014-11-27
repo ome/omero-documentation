@@ -430,7 +430,10 @@ to rebuild or restart the server. A few basic options are shown below.
 
 To make use of the more advanced options available in `pytest` that are not
 accessible using :program:`setup.py test`, the :program:`py.test` script can
-be used directly.
+be used directly. To use this `PYTHONPATH` must contain the path to the OMERO
+Python libraries, see :doc:`/developers/Python`. Alternatively, the `pytest`
+plugin `pytest-pythonpath <http://pypi.python.org/pypi/pytest-pythonpath/>`_
+can be used to add paths to `PYTHONPATH` specifically for `pytest`.
 
 .. program:: py.test
 
