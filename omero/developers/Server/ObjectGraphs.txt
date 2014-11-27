@@ -182,12 +182,11 @@ If a fileset is to be deleted, then also delete its images.
 
 .. code-block:: xml
 
-  p:matches="T:Thumbnail[E]{r}/!d.pixels = Pixels/d"
-  p:changes="T:{o}/n"
+  p:matches="T:Thumbnail[E].pixels =/!o [D]"
+  p:changes="T:[D]/n"
 
-If a pixels object that the user can delete has a relevant thumbnail
-that the user cannot delete, regard that thumbnail as an orphan and
-ignore permissions on it.
+If a thumbnail's pixels are to be deleted, and are owned by a different
+user, then delete the thumbnail regardless of permissions on it.
 
 
 Curtailing deletion
@@ -245,6 +244,14 @@ do not need to match on links among multiple objects.)
 
 Throw an error if a fileset that is not to be deleted includes an image
 that is to be deleted and an image that is not to be deleted.
+
+In reviewing the ``chgrpRules`` list, one sees conditions that require
+matching ``$to_private`` or ``!$to_private``. A request, in this case
+:source:`Chgrp2I.java
+<components/blitz/src/omero/cmd/graphs/Chgrp2I.java>`, may set arbitrary
+conditions upon which rules may be predicated. The ``to_private``
+condition, or its absence, is used to cause different behavior when the
+objects are being moved into a private group.
 
 
 Logging
