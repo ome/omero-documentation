@@ -52,8 +52,9 @@ Converting a unit
 ::
 
      Pixels p = ...; // As saved above
-     Length x = p.getPhysicalSizeX(); // 2.1 microns
-     x.convert(UnitsLength.NM); // As nanometers
+     Length x1 = p.getPhysicalSizeX(); // 2.1 microns
+     Length x2 = new LengthI(x1, UnitsLength.NM); // As nanometers
+
 
 .. seealso::
 
