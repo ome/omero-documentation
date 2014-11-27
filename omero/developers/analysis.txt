@@ -31,7 +31,7 @@ Storing external data in OMERO
 
 There are several options for storing external or schema-less data in OMERO,
 including
-:doc:`StructuredAnnotations </developers/Modules/StructuredAnnotations>`
+:doc:`StructuredAnnotations </developers/Model/StructuredAnnotations>`
 for small quantities of data, or extending the OME model, but this risks
 interoperability issues. (See
 :doc:`ExtendingOmero </developers/Server/ExtendingOmero>`).

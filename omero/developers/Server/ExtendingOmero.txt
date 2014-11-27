@@ -68,7 +68,7 @@ Structured annotations
 ^^^^^^^^^^^^^^^^^^^^^^
 
 The primary extension point for including external data are the
-:doc:`/developers/Modules/StructuredAnnotations` (SAs). SAs
+:doc:`/developers/Model/StructuredAnnotations` (SAs). SAs
 are designed as email-like attachments which can be associated with
 various core metadata types. In general, they should link to information
 outside of the OME model, i.e. information which OMERO clients and
