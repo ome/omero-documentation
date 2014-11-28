@@ -42,12 +42,13 @@ Here is how to go about setting this up on your OMERO.web install:
 
         $ bin/omero config set omero.web.public.url_filter '/my_web_public'
 
-    To enable public access to view images in a public group in the webclient
-    while still preventing data manipulation, use the following command:
+    To enable public access to view images in a public group in the webclient,
+    while still being able to access the login page and preventing data
+    manipulation, use the following command:
 
     ::
 
-        $ bin/omero config set omero.web.public.url_filter '^/(?!webadmin|webclient/action/\w+|webclient/annotate_(file|tags|comment))'
+        $ bin/omero config set omero.web.public.url_filter '^/(?!webadmin|webclient/logout/|webclient/action/\w+|webclient/annotate_(file|tags|comment))'
 
     If you simply want to enable the image viewer, making sure all data stays
     secure you would use:
