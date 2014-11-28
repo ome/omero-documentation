@@ -34,8 +34,8 @@ Then in **<BODY>** insert the following:
 Embedding OMERO.web viewport to the custom HTML content
 -------------------------------------------------------
 
-This website will show you how to easily embed OMERO.web image viewer to
-custom HTML page using OMERO.web resources straight from your OMERO site.
+This website will show you how to easily embed the OMERO.web image viewer in
+a custom HTML page using OMERO.web resources straight from your OMERO site.
 
 .. note:: This example should be used with publicly available images.
     Simply enable the image viewer, making sure all data stays secure you
@@ -47,7 +47,8 @@ custom HTML page using OMERO.web resources straight from your OMERO site.
 
     Then you can access public images via the following link
     `\http://your_host/webgateway/img_detail/IMAGE_ID/`. Please remember that
-    public images must be in a public group where public user can access them.
+    public images must be in a public group where a public user can access
+    them.
 
     If you need more examples of how to configure public url filters, see the
     :doc:`/developers/Web/PublicData` page.
@@ -97,7 +98,7 @@ Then in **<BODY>** insert the following:
 
 To make your page more interactive for example you can load metadata, ROIs
 and add zoom or channel buttons. All interaction has to be handled in
-asynchronius call that require loading.
+asynchronous call that requires loading.
 
 Add Channel buttons
 ^^^^^^^^^^^^^^^^^^^
