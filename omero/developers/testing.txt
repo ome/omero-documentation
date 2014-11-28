@@ -120,13 +120,15 @@ Using markers in OmeroPy tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Tests under OmeroPy can be included or excluded according to markers defined in the tests.
-This can be done by using the :option:`-DMARK` option. For example:
+This can be done by using the :option:`-DMARK` option. For example, to run all the
+integration tests except for those marked as ``long_running``:
 
 ::
 
-    ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK=long_running
+    ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK="not long_running"
 
-See :ref:`writing-python-tests` for more information on this.
+See :ref:`writing-python-tests` and :ref:`running-python-tests-directly`
+for more information on this.
 
 Failing tests
 ^^^^^^^^^^^^^
@@ -327,6 +329,47 @@ The file names must begin with `test_` for the tests to be found by `pytest`.
         ec = client.getSession().getAdminService().getEventContext()
         assert ec, "No EventContext!"
 
+Markers
+^^^^^^^
+
+Methods, classes and functions can be decorated with `pytest` markers to allow for
+the selection of tests. `pytest` provides some predefined markers and markers can
+be simply defined as they are used. However, to centralize the use of custom
+markers they should be defined in :sourcedir:`components/tools/pytest.ini`.
+To view all available markers the :option:`--markers` option can be used with
+:program:`setup.py test` or :program:`py.test` as detailed in
+:ref:`running-python-tests-directly`.
+
+There are currently two custom markers defined:
+
+  `long_running`: for long running tests. These are tests that typically take
+  10 minutes or more and are normally excluded from the daily integration
+  builds.
+
+  `broken`: for broken tests. These are tests that are either broken or fail
+  intermittently with no obvious quick fix. Broken tests are excluded from the
+  main integration builds and instead are run in a separate daily build.
+  `broken` markers should have a reason, an associated ticket number or both.
+  If there are multiple associated tickets then a comma-separated list should
+  be used.
+
+::
+
+    import pytest
+
+    class TestExample2(object)
+
+      @pytest.mark.broken(reason="Asserting false", ticket="12345,67890")
+      def testBroken():
+          assert False, "Bound to fail"
+
+      @pytest.mark.long_running
+      def testBroken():
+          self.somePotentiallyLongCall()
+
+
+.. _running-python-tests-directly:
+
 Running tests directly
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -387,7 +430,10 @@ to rebuild or restart the server. A few basic options are shown below.
 
 To make use of the more advanced options available in `pytest` that are not
 accessible using :program:`setup.py test`, the :program:`py.test` script can
-be used directly.
+be used directly. To use this :envvar:`PYTHONPATH` must contain the path to
+the OMERO Python libraries, see |BlitzGateway|. Alternatively, the `pytest`
+plugin `pytest-pythonpath <http://pypi.python.org/pypi/pytest-pythonpath/>`__
+can be used to add paths to :envvar:`PYTHONPATH` specifically for `pytest`.
 
 .. program:: py.test
 
@@ -397,7 +443,7 @@ be used directly.
 
         py.test test/integration/test_admin.py -s
 
-.. option:: -repeat <number>
+.. option:: --repeat <number>
 
     This option allows to repeat tests for *number* occurences::
 
