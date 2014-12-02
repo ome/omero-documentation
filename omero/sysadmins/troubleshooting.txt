@@ -233,8 +233,8 @@ Search does not return expected results
 ---------------------------------------
 
 If searching for a specific term does not return the expected results (e.g.
-searching for the name of a tag does not return the full list of a user's images
-annotated with that tag), there are a few things that may have gone
+searching for the name of a tag does not return the full list of a user's
+images annotated with that tag), there are a few things that may have gone
 wrong. See :ref:`search-failures` for more details.
 
 
@@ -244,8 +244,8 @@ OMERO.web issues
 OMERO.web is not accessible from remote computer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To configure the out-of-the box setup to listen for 
-webadmin and webclient connections on different host run:
+To configure the out-of-the box setup to listen for webadmin and webclient
+connections on different host run:
 
 ::
 
@@ -309,6 +309,32 @@ more details. There are a few known possibilities:
    if all of the prerequisites were installed from OMERO.web deployment 
    (:doc:`UNIX instructions <unix/install-web>` or :doc:`Windows instructions 
    <windows/install-web>`).
+
+Performance issues with the clients
+-----------------------------------
+
+If you are having issues with slowdown and timeouts in the clients, there are
+three things to check:
+
+-  your network connection
+-  if you are running out of memory (processing large datasets can cause
+   problems)
+-  whether your server's HOME directory is on a network share
+
+In the final case, two issues arise. Firstly, when performing some operations,
+the clients make use of temporary file storage and log directories, as
+described in the client configuration section of :doc:`system-requirements`.
+If your home directory is stored on a network, possibly NFS mounted (or
+similar), then these temporary files are being written and read over the
+network which can slow access down. Secondly, the OMERO.server also accesses
+the ``$HOME/omero/tmp`` and ``$HOME/omero/log`` folders of the user the server
+process is running as. As the server makes heavier use of these folders than
+the clients, if the OMERO.server user's home(~) is stored on a network drive
+then slow performance can occur.
+
+To resolve this, you can define an :envvar:`OMERO_TEMPDIR` environment
+variable pointing to a temporary directory located on the local file system
+(e.g. `/tmp/`).
 
 Other issues
 ------------
