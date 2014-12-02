@@ -172,6 +172,38 @@ enter::
 Additional parameters such as the email address, institution, middle name etc
 can be passed as optional arguments to the :omerocmd:`user add` command.
 
+.. _ldap_setdn:
+
+Converting non-LDAP users to LDAP authentication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you want to take an existing (non-LDAP) user and 'upgrade' them to using
+LDAP you can do so using the :omerocmd:`ldap setdn` command::
+
+    $ bin/omero ldap setdn
+
+The process is also reversible so that the OMERO password for a user rather than the LDAP password will be used. See the caveat in the setdn help output below:
+
+::
+
+    usage: bin/omero ldap setdn [-h] username dn
+
+    Set DN for user (admins only)
+
+    Once the DN is set for a user, the password set via OMERO is
+    ignored, and any attempt to change it will result in an error. When
+    you remove the DN, the previous password will be in effect, but if the
+    user never had a password, one will need to be set!
+
+    Positional Arguments:
+      username            User's OMERO login name
+      dn                  User's LDAP distinguished name. If empty, LDAP will be disabled for the user
+
+    Optional Arguments:
+      In addition to any higher level options
+
+      -h, --help          show this help message and exit
+
 Group creation
 ^^^^^^^^^^^^^^
 

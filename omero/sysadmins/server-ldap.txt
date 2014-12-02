@@ -42,6 +42,9 @@ against the LDAP server, and if there is no longer a match, login is refused.
 If you would prefer to only have the ``user_filter`` applied during user
 creation and not on every login, see :ref:`legacy_password_providers`.
 
+You can take existing non-LDAP users and 'upgrade' them to using LDAP with the
+OMERO command line tool, see :ref:`ldap_setdn`.
+
 LDAP properties
 ---------------
 
@@ -147,6 +150,16 @@ the value of ``new_user_group``, which can have several different values:
 Compound Filters
 ^^^^^^^^^^^^^^^^
 
+.. note:: OMERO uses standard
+    `RFC 2254 LDAP filters <http://www.faqs.org/rfcs/rfc2254.html>`_, so they
+    must conform to that syntax and are only able to do what those filters can
+    do. You can test the filters via ldapsearch on your OMERO server (assuming
+    you have the OpenLDAP binaries installed).
+    
+    If you are using OpenLDAP make sure your directory has the ``memberOf``
+    attribute correctly configured. Some versions of ApacheDS do not support
+    ``memberOf`` at all.
+
 Both the ``user_filter`` and the ``group_filter`` can contain any valid LDAP
 filter string. These must be a valid filter in themselves. e.g.
 
@@ -155,8 +168,8 @@ filter string. These must be a valid filter in themselves. e.g.
    omero.ldap.user_filter=(|(ou=Queensland Brain Institute)(ou=Ageing Dementia Research))
 
 The "|" operator (read: "OR") above allows members of two organizational units
-to login to OMERO. Expanding the list allows concentric "rings" of more and more
-OU's granular access to OMERO.
+to login to OMERO. Expanding the list allows concentric "rings" of more and
+more OU's granular access to OMERO.
 
 ::
 
