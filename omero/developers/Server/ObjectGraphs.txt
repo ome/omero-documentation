@@ -108,16 +108,17 @@ outside objects and other objects. Outside objects typically implement
 :source:`IGlobal.java <components/model/src/ome/model/IGlobal.java>` and
 have no owner or group.
 
-An additional aspect of objects' state is if permissions are to be checked
-for them. For instance, typically a user may move only their own objects
-to a different group, but if a different user tags our image with our
-tag, then we may still move our image and tag to a different group, also
-moving that link even though it is not our own object: in that case,
-permissions checking is disabled for that ``ImageAnnotationLink``. All
-objects initially have permissions checking enabled, but the consequence
-of a rule may be to disable permissions checking, and if an object with
-permissions checking disabled matches a further rule, the objects
-changed by that rule also have permissions checking disabled.
+An additional aspect of objects' state is if permissions are to be
+checked for them. For instance, typically a user may move only their own
+objects to a different group, but if a different user tags our image
+with our tag, then we may still move our image and tag to a different
+group, also moving that link even though it is not our own object: in
+that case, permissions checking is disabled for that
+``ImageAnnotationLink``. All objects initially have permissions checking
+enabled, but the consequence of a rule may be to disable permissions
+checking, and if an object with permissions checking disabled matches a
+further rule, the objects changed by that rule also have permissions
+checking disabled.
 
 
 Configuration
