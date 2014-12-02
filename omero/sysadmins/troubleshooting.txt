@@ -1,12 +1,6 @@
 Troubleshooting OMERO
 =====================
 
-Frequently Asked Questions
---------------------------
-
-If you cannot find what you are looking for here, try the :faq_plone:`FAQ <>`.
-
-
 .. _troubleshooting-password:
 
 Which user account and password do I use where?
@@ -140,9 +134,9 @@ Server fails to start
 Remote clients cannot connect to OMERO installation
 ---------------------------------------------------
 
-The Admin section of OMERO.web appears to work properly and you may or may not 
-have created some users, but no matter what you do remote clients will not 
-speak to OMERO. OMERO.insight gives you an error message similar to the 
+The Admin section of OMERO.web appears to work properly and you may or may not
+have created some users, but no matter what you do remote clients will not
+speak to OMERO. OMERO.insight gives you an error message similar to the
 following despite giving the correct username and password:
 
 .. figure:: /images/login_failure.png
@@ -155,7 +149,7 @@ your OMERO server, affecting the ability of remote clients to locate
 it. Please see the :doc:`/sysadmins/server-security` page.
 
 Server crashes with…
-----------------------
+--------------------
 
 -  ``X11 connection rejected because of wrong authentication``
 -  ``X connection to localhost:10.0 broken (explicit kill or server shutdown).``
