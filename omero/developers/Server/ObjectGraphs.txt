@@ -1,5 +1,5 @@
-Model Object Graph Traversal
-============================
+Model graph operations
+======================
 
 Motivation
 ----------
@@ -13,7 +13,7 @@ share an instrument with the projection of that image. All these
 entities are separate objects that can be thought of as forming the
 nodes (vertices) of a directed graph of relationships.
 
-Various operations supported by OMERO.blitz, most commonly moving
+Various operations supported by the OMERO server, most commonly moving
 objects to a different group, or deleting them, may implicitly include
 many related objects. For example, if one deletes a fileset, one also
 deletes the images from that fileset, and even the comments on those
@@ -44,17 +44,17 @@ Graph node states and transitions
 In determining which model objects to process, and how, each
 corresponding graph node is in one of these states:
 
-==========  ===========  ===============  ================
-adjective   rule format  ``Action`` enum  ``Orphan``  enum
-==========  ===========  ===============  ================
-irrelevant  ``[E]{i}``   ``EXCLUDE``      ``IRRELEVANT``
-relevant    ``[E]{r}``   ``EXCLUDE``      ``RELEVANT``
-orphaned    ``[E]{o}``   ``EXCLUDE``      ``IS_LAST``
-attached    ``[E]{a}``   ``EXCLUDE``      ``IS_NOT_LAST``
-to delete   ``[D]``      ``DELETE``       n/a
-to include  ``[I]``      ``INCLUDE``      n/a
-outside     ``[O]``      ``OUTSIDE``      n/a
-==========  ===========  ===============  ================
+==========  ===========  ===========  ===============
+adjective   rule format  Action enum  Orphan enum
+==========  ===========  ===========  ===============
+irrelevant  ``[E]{i}``   ``EXCLUDE``  ``IRRELEVANT``
+relevant    ``[E]{r}``   ``EXCLUDE``  ``RELEVANT``
+orphaned    ``[E]{o}``   ``EXCLUDE``  ``IS_LAST``
+attached    ``[E]{a}``   ``EXCLUDE``  ``IS_NOT_LAST``
+to delete   ``[D]``      ``DELETE``   n/a
+to include  ``[I]``      ``INCLUDE``  n/a
+outside     ``[O]``      ``OUTSIDE``  n/a
+==========  ===========  ===========  ===============
 
 "enum" refers to the enumerations defined in :source:`GraphPolicy.java
 <components/server/src/ome/services/graphs/GraphPolicy.java>`. Note also
@@ -108,7 +108,7 @@ outside objects and other objects. Outside objects typically implement
 :source:`IGlobal.java <components/model/src/ome/model/IGlobal.java>` and
 have no owner or group.
 
-An additional aspect of objects' state is if permissions are to checked
+An additional aspect of objects' state is if permissions are to be checked
 for them. For instance, typically a user may move only their own objects
 to a different group, but if a different user tags our image with our
 tag, then we may still move our image and tag to a different group, also
@@ -317,13 +317,12 @@ cause and a minor adjustment to :source:`blitz-graph-rules.xml
 <components/blitz/resources/ome/services/blitz-graph-rules.xml>` often
 suffices as the fix, with integration tests providing reassurance that
 the adjustment was acceptable. Sometimes it can take time and thought to
-devise that fix but note that, in getting this new graph traversal
-implementation to initially pass integration testing, no test failures
-required a substantial rethink of the basic approach and
-:source:`GraphTraversal.java
+devise that fix, but one can expect small changes to suffice to fix most
+bugs. In getting this new graph traversal implementation to initially
+pass integration testing, no test failures required a substantial
+rethink of the basic approach and :source:`GraphTraversal.java
 <components/server/src/ome/services/graphs/GraphTraversal.java>` itself
-did not require a significant rewrite: one can expect small changes to
-suffice to fix most bugs.
+did not require a significant rewrite.
 
 The actual lists of transition rules arose in part as a way to achieve
 the desired behavior and are not yet as simple and comprehensive as they
