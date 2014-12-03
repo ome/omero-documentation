@@ -49,11 +49,32 @@ physical lengths of "µm".
 Converting a unit
 ~~~~~~~~~~~~~~~~~
 
+Often a measurement will not be in the most convenient unit for
+display, e.g. 0.00001 mm. could better be expressed in microns.
+In order to convert between units, pass the measurement that
+you have available to a constructor of the same type, passing in
+the target unit that you would like to see:
+
 ::
 
      Pixels p = ...; // As saved above
-     Length x1 = p.getPhysicalSizeX(); // 2.1 microns
-     Length x2 = new LengthI(x1, UnitsLength.NM); // As nanometers
+     Length l1 = p.getPhysicalSizeX(); // 2.1 microns
+     Length l2 = new LengthI(x1, UnitsLength.NM); // As nanometers
+
+Getting a symbol
+~~~~~~~~~~~~~~~~
+
+The enumerations used in the "units" field of each measurement
+is of type `omero.model.enums.UnitsNAME` where NAME is `Length`,
+`Temperature`, etc. These members of that enumeration are all
+uppercased, code-safe versions of the unit name. To get the symbol
+as defined in the SI specification, for example, use the
+`getSymbol` method:
+
+::
+
+    Length l1 = ...; // As above
+    l1.getSymbol(); // Returns "µm"
 
 
 .. seealso::
@@ -61,3 +82,4 @@ Converting a unit
     * http://en.wikipedia.org/wiki/Units_of_measurement
     * http://en.wikipedia.org/wiki/System_of_measurement
     * http://en.wikipedia.org/wiki/International_System_of_Units
+
