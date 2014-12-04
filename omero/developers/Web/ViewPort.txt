@@ -1,8 +1,9 @@
-Embedding OMERO.web viewport to your website
-============================================
+Embedding an OMERO.web viewport in a web page
+=============================================
 
-Insert the following: **WARNING**: Please note that you are giving plain
-password and everyone can read from your HTML source code!
+Insert the following: **WARNING**: Please note that embedding the OMERO.web
+viewport in a web page will reveal the password in plain text, making it
+readable in the HTML code.
 
 ::
 
@@ -31,27 +32,26 @@ Then in **<BODY>** insert the following:
 
         <a href="#" onclick="return openPopup('http://localhost:8000/webclient/img_detail/IMAGE_ID/')">Open viewer</a>
 
-Embedding OMERO.web viewport to the custom HTML content
--------------------------------------------------------
+Customising the content of the embedded OMERO.web viewport
+----------------------------------------------------------
 
-This website will show you how to easily embed the OMERO.web image viewer in
-a custom HTML page using OMERO.web resources straight from your OMERO site.
+This web page demonstrates how easy it is to embed an OMERO.web image viewer
+in any HTML page, allowing use of resources directly from an OMERO server.
 
-.. note:: This example should be used with publicly available images.
-    Simply enable the image viewer, making sure all data stays secure you
-    would use:
+.. note:: This example is intended to be used with images that have been added
+    to the PUBLIC group with a Public member in OMERO, making them publicly
+    available. To see how to configure public url filters,
+    see :doc:`/developers/Web/PublicData` page.
 
     ::
 
         $ bin/omero config set omero.web.public.url_filter '/webgateway'
 
-    Then you can access public images via the following link
+    Provided the image corresponding to IMAGE_ID is in the PUBLIC group, it
+    can be accessed via the link: 
     `\http://your_host/webgateway/img_detail/IMAGE_ID/`. Please remember that
     public images must be in a public group where a public user can access
     them.
-
-    If you need more examples of how to configure public url filters, see the
-    :doc:`/developers/Web/PublicData` page.
 
 Use the following code to load stylesheets and scripts.
 
@@ -96,9 +96,9 @@ Then in **<BODY>** insert the following:
     <div id="viewport" class="viewport"></div>
 
 
-To make your page more interactive for example you can load metadata, ROIs
-and add zoom or channel buttons. All interaction has to be handled in
-asynchronous call that requires loading.
+The viewport can be made more interactive by adding buttons or links to allow
+display of scale bars, ROIs, zooming and selection of channels. All these
+interactions are handled by asynchronous calls that require loading.
 
 Add Channel buttons
 ^^^^^^^^^^^^^^^^^^^
