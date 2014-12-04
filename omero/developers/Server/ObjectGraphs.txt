@@ -88,7 +88,8 @@ with an error condition or, more usually, change the state of any of the
 objects it matches. Changed objects are themselves queued for
 examination and rule matching. The traversal is complete when all queued
 objects have been examined with no further transition rule matches.
-:source:`GraphTraversal.java
+Rules that can abort the operation are checked only after the other
+rules have completed processing. :source:`GraphTraversal.java
 <components/server/src/ome/services/graphs/GraphTraversal.java>`'s
 ``planOperation`` method is at the heart of this matching process.
 
