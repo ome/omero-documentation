@@ -27,7 +27,8 @@ The same can be done for all components using:
     ./build.py test-unit
 
 Note that for tests written in Python the package `pytest` must be installed,
-see :ref:`writing-python-tests`.
+see :ref:`writing-python-tests`. Also note that some Python tests are excluded
+by default, see :ref:`using-markers-in-python-tests` for more details.
 
 Running integration tests
 -------------------------
@@ -67,6 +68,10 @@ To run all the integration tests, use
 ::
 
     ./build.py test-integration
+
+
+Note that some Python tests are excluded by default,
+see :ref:`using-markers-in-python-tests` for more details.
 
 Component tests
 ^^^^^^^^^^^^^^^
@@ -116,16 +121,33 @@ qualified name form (:option:`-Dpackage.class.method`).
     ./build.py -f components/tools/OmeroJava/build.xml test -DMETHODS=integration.chgrp.AnnotationMoveTest.testMoveTaggedImage
 
 
+.. _using-markers-in-python-tests:
+
 Using markers in OmeroPy tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Tests under OmeroPy can be included or excluded according to markers defined in the tests.
 This can be done by using the :option:`-DMARK` option. For example, to run all the
-integration tests except for those marked as ``long_running``:
+integration tests marked as ``broken``:
 
 ::
 
-    ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK="not long_running"
+    ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK=broken
+
+By default tests marked as ``long_running`` and ``broken`` are excluded and so
+the following two builds are equivalent:
+
+::
+
+    ./build.py -f components/tools/OmeroPy/build.xml integration
+    ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK="not (long_running or broken)"
+
+In order to run **all** tests, including ``long_running`` and ``broken``,
+an empty marker must be used:
+
+::
+
+    ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK=
 
 See :ref:`writing-python-tests` and :ref:`running-python-tests-directly`
 for more information on this.
