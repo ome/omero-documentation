@@ -76,10 +76,6 @@ working with your IIS deployment.
 -  The :guilabel:`Advanced Settings...` for the application pool
    assigned to your default site require modification using the *IIS Manager* as follows:
 
-   - :guilabel:`Enable 32-bit Applications` - OMERO.web and ISAPI WSGI
-     are 32-bit applications on Windows at present. If you are attempting
-     to run OMERO.web on a 64-bit version of Windows, you must enable 32-bit
-     compatibility.
    - :guilabel:`Idle Time-out (minutes)` - to stop the worker process from
      suspending during inactivity periods, this setting needs to be
      changed to 0.
