@@ -101,6 +101,14 @@ working with your IIS deployment.
 
        C:\omero_dist>bin\omero web iis
 
+   This will automatically add two applications, `/omero` and `/static`,
+   to the default web site and application pool. You can customise these
+   locations by setting :property:`omero.web.force_script_name` and
+   :property:`omero.web.static_url`.
+
+   .. note::  You can make manual changes to the IIS OMERO configuration
+       but they may be lost when OMERO.server is upgraded.
+
    .. note::  As OMERO.web 5 is based on Django 1.6,
        :property:`omero.web.session_engine` and 
        :property:`omero.web.caches` should be unset.
