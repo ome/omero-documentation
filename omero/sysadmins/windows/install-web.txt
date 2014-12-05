@@ -36,7 +36,7 @@ Prerequisites
 
    -  Matplotlib_ should be available for your distribution
 
--  A FastCGI capable web server
+-  IIS or a FastCGI capable web server
 
 Quick start
 -----------
@@ -52,9 +52,15 @@ WSGI <http://code.google.com/p/isapi-wsgi/>`_ handler for OMERO.web
 working with your IIS deployment.
 
 -  Ensure that the ISAPI for IIS options are installed
--  Download and install `an ISAPI
-   WSGI Installer <http://code.google.com/p/isapi-wsgi/downloads/list>`_ (we
-   suggest the *Windows Installer*)
+-  Download and install `an ISAPI WSGI
+   <http://code.google.com/p/isapi-wsgi/downloads/list>`_.
+   If you download the *Source Distribution* (should be compatible with all
+   versions of Windows/IIS) unzip the archive and run::
+
+        python setup.py install
+
+   Alternatively if you are using a 32-bit system you can use the *Windows
+   Installer*.
 -  For extended compatibility with multiple IIS versions ISAPI WSGI uses
    the IIS 5/6 WMI interface to interact with your IIS deployment. If
    you are using IIS 7 you must enable the IIS 6 WMI backwards
@@ -70,10 +76,6 @@ working with your IIS deployment.
 -  The :guilabel:`Advanced Settings...` for the application pool
    assigned to your default site require modification using the *IIS Manager* as follows:
 
-   - :guilabel:`Enable 32-bit Applications` - OMERO.web and ISAPI WSGI
-     are 32-bit applications on Windows at present. If you are attempting
-     to run OMERO.web on a 64-bit version of Windows, you must enable 32-bit
-     compatibility.
    - :guilabel:`Idle Time-out (minutes)` - to stop the worker process from
      suspending during inactivity periods, this setting needs to be
      changed to 0.
@@ -99,6 +101,14 @@ working with your IIS deployment.
 
        C:\omero_dist>bin\omero web iis
 
+   This will automatically add two applications, `/omero` and `/static`,
+   to the default web site and application pool. You can customise these
+   locations by setting :property:`omero.web.force_script_name` and
+   :property:`omero.web.static_url`.
+
+   .. note::  You can make manual changes to the IIS OMERO configuration
+       but they may be lost when OMERO.server is upgraded.
+
    .. note::  As OMERO.web 5 is based on Django 1.6,
        :property:`omero.web.session_engine` and 
        :property:`omero.web.caches` should be unset.
@@ -112,13 +122,11 @@ working with your IIS deployment.
        `Django documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
        for more details.
 
--  OMERO.web is configured to use FastCGI TCP by default. If you are using a
-   non-standard web server configuration you may wish to change
-   :property:`omero.web.application_server`:
+Using Apache or Nginx
+~~~~~~~~~~~~~~~~~~~~~
 
-   ::
-
-       C:\omero_dist>bin\omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
+If you wish to use Apache or Nginx please follow the Unix instructions,
+see :doc:`/sysadmins/unix/install-web`.
 
 
 Logging in to OMERO.web
