@@ -47,9 +47,6 @@ Service Level 1 (direct database and Hibernate connections)
 -  ContainerService:
    :javadoc:`API <slice2html/omero/api/IContainer.html>`
    for loading Project, Dataset and Image hierarchies.
--  DeleteService:
-   :javadoc:`API <slice2html/omero/api/IDelete.html>`
-   for deleting objects asynchronously (delete queue).
 -  LdapService:
    :source:`src <components/common/src/ome/api/ILdap.java>`,
    :javadoc:`API <slice2html/omero/api/ILdap.html>`

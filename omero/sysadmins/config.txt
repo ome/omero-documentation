@@ -111,7 +111,7 @@ Default: `omero`
 omero.db.patch
 ^^^^^^^^^^^^^^
 
-Default: `15`
+Default: `16`
 
 .. property:: omero.db.poolsize
 
