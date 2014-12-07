@@ -1,13 +1,16 @@
 Embedding an OMERO.web viewport in a web page
 =============================================
 
-Insert the following: **WARNING**: Please note that embedding the OMERO.web
-viewport in a web page will reveal the password in plain text, making it
-readable in the HTML code.
+Insert the following:
 
 ::
 
         <div id="omeroviewport"><iframe width="850" height="600" src="http://localhost:8000/webclient/login/?username=TEST_USER&password=SECRET&server=1&url=http://localhost:8000/webclient/img_detail/IMAGE_ID/" id="omeroviewport" name="omeroviewport"></iframe></div>
+
+
+.. note:: **WARNING**: Please note that embedding the OMERO.web
+    viewport in a web page will reveal the password in plain text, making it
+    readable in the HTML code.
 
 Launching OMERO.web viewer
 --------------------------
@@ -26,7 +29,7 @@ Use the following code to reference the scripts.
 
     </script>
 
-Then in **<BODY>** insert the following:
+Then in ``<BODY>`` insert the following:
 
 ::
 
@@ -40,14 +43,14 @@ in any HTML page, allowing use of resources directly from an OMERO server.
 
 .. note:: This example is intended to be used with images that have been added
     to the PUBLIC group with a Public member in OMERO, making them publicly
-    available. To see how to configure public url filters,
-    see :doc:`/developers/Web/PublicData` page.
+    available. To see how to configure public url filters, see
+    :doc:`/developers/Web/PublicData` page.
 
     ::
 
         $ bin/omero config set omero.web.public.url_filter '/webgateway'
 
-    Provided the image corresponding to IMAGE_ID is in the PUBLIC group, it
+    Provided the image corresponding to ``IMAGE_ID`` is in the PUBLIC group, it
     can be accessed via the link: 
     `\http://your_host/webgateway/img_detail/IMAGE_ID/`. Please remember that
     public images must be in a public group where a public user can access
@@ -89,7 +92,7 @@ to view particular image defined by **IMAGE\_ID**.
         });
     </script>
 
-Then in **<BODY>** insert the following:
+Then in ``<BODY>`` insert the following:
 
 ::
 
@@ -102,6 +105,8 @@ interactions are handled by asynchronous calls that require loading.
 
 Add Channel buttons
 ^^^^^^^^^^^^^^^^^^^
+
+In ``<BODY>`` insert the following:
 
 ::
 
@@ -166,6 +171,8 @@ Then add JavaScript
 
 Add Zoom buttons
 ^^^^^^^^^^^^^^^^
+
+In ``<BODY>`` insert the following:
 
 ::
 
@@ -243,6 +250,8 @@ Then add Javascript
 
 Turn on and off ROIs
 ^^^^^^^^^^^^^^^^^^^^
+
+In ``<BODY>`` insert the following:
 
 ::
 
@@ -342,6 +351,8 @@ Then add Javascript
 
 Turn on and off Scalebar
 ^^^^^^^^^^^^^^^^^^^^^^^^
+
+In ``<BODY>`` insert the following:
 
 ::
 
