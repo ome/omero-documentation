@@ -1,0 +1,33 @@
+usage: OMERO.server/bin/omero ldap setdn [-h] [-C] [-s SERVER] [-p PORT]
+                                         [-g GROUP] [-u USER] [-w PASSWORD]
+                                         [-k KEY] [--sudo ADMINUSER] [-q]
+                                         username dn
+
+Set DN for user (admins only)
+
+Once the DN is set for a user, the password set via OMERO is
+ignored, and any attempt to change it will result in an error. When
+you remove the DN, the previous password will be in effect, but if the
+user never had a password, one will need to be set!
+
+Positional Arguments:
+  username                          User's OMERO login name
+  dn                                User's LDAP distinguished name. If empty, LDAP will be disabled for the user
+
+Optional Arguments:
+  In addition to any higher level options
+
+  -h, --help                        show this help message and exit
+
+Login arguments:
+  Optional session arguments
+
+  -C, --create                      Create a new session regardless of existing ones
+  -s SERVER, --server SERVER        OMERO server hostname
+  -p PORT, --port PORT              OMERO server port
+  -g GROUP, --group GROUP           OMERO server default group
+  -u USER, --user USER              OMERO username
+  -w PASSWORD, --password PASSWORD  OMERO password
+  -k KEY, --key KEY                 OMERO session key (UUID of an active session)
+  --sudo ADMINUSER                  Create session as this admin. Changes meaning of password!
+  -q, --quiet                       Quiet mode. Causes most warning and diagnostic messages to be suppressed.
