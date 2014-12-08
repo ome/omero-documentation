@@ -118,5 +118,4 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     'http://www.hibernate.org',
     r'^https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
-    r'^https?://www\.openmicroscopy\.org/site/support/faq.*',
     r'^https://spreadsheets.google.com/.*']
