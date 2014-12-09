@@ -24,7 +24,8 @@ functionality (see :ticket:`2615` for tickets):
    time - required sysadmin to clean up later
 
 Future releases will continue this work (see :ticket:`2911`) and the
-5.1.0 release of OMERO offers a new implementation of deletion.
+5.1.0 release of OMERO offers a new implementation of deletion while
+leaving the previous available via a configuration setting.
 
 Finality of deletion
 ^^^^^^^^^^^^^^^^^^^^
