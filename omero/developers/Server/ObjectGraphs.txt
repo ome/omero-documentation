@@ -276,14 +276,14 @@ Changing the log level
 It is informative to observe the sequence of rule applications as the
 graph is traversed and decisions about model objects are made. To do so
 requires configuring :doc:`../logging` for the server, specifically
-:source:`etc/logback.xml`: remove the filter that excludes debug-level
-logging from ``omero.*``, then find the later line,
+:source:`etc/logback.xml`. To activate graph traversal debug logging,
+replace the line,
 
 .. code-block:: xml
 
   <logger name="ome.services.graphs" level="INFO"/>
 
-and activate graph traversal debug logging by replacing it with,
+with,
 
 .. code-block:: xml
 
