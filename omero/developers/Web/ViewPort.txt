@@ -8,7 +8,7 @@ Insert the following:
         <div id="omeroviewport"><iframe width="850" height="600" src="http://localhost:8000/webclient/login/?username=TEST_USER&password=SECRET&server=1&url=http://localhost:8000/webclient/img_detail/IMAGE_ID/" id="omeroviewport" name="omeroviewport"></iframe></div>
 
 
-.. note:: **WARNING**: Please note that embedding the OMERO.web
+.. warning:: Please note that embedding the OMERO.web
     viewport in a web page will reveal the password in plain text, making it
     readable in the HTML code.
 
