@@ -1,16 +1,21 @@
 Embedding an OMERO.web viewport in a web page
 =============================================
 
+.. note:: These example are intended to be used with images that have been
+    added to the PUBLIC group with a Public member in OMERO, making them
+    publicly available. To see how to configure public url filters, see
+    :doc:`/developers/Web/PublicData` page.
+
+OMERO.web viewer in iframe
+--------------------------
+
 Insert the following:
 
 ::
 
-        <div id="omeroviewport"><iframe width="850" height="600" src="http://localhost:8000/webclient/login/?username=TEST_USER&password=SECRET&server=1&url=http://localhost:8000/webclient/img_detail/IMAGE_ID/" id="omeroviewport" name="omeroviewport"></iframe></div>
+    <div id="omeroviewport"><iframe width="850" height="600" src="http://localhost:8000/webclient/img_detail/IMAGE_ID/" id="omeroviewport" name="omeroviewport"></iframe></div>
 
 
-.. warning:: Please note that embedding the OMERO.web
-    viewport in a web page will reveal the password in plain text, making it
-    readable in the HTML code.
 
 Launching OMERO.web viewer
 --------------------------
@@ -38,13 +43,8 @@ Then in ``<BODY>`` insert the following:
 Customising the content of the embedded OMERO.web viewport
 ----------------------------------------------------------
 
-This web page demonstrates how easy it is to embed an OMERO.web image viewer
+This web page demonstrates how to embed an OMERO.web image viewer
 in any HTML page, allowing use of resources directly from an OMERO server.
-
-.. note:: This example is intended to be used with images that have been added
-    to the PUBLIC group with a Public member in OMERO, making them publicly
-    available. To see how to configure public url filters, see
-    :doc:`/developers/Web/PublicData` page.
 
     ::
 
@@ -69,13 +69,11 @@ to view particular image defined by **IMAGE\_ID**.
 ::
 
     <style type="text/css">
-        <!--
         .viewport {
             height: 500px;
             width: 800px;
             padding: 10px;
         }
-        -->
     </style>
 
     <script type="text/javascript">
@@ -100,7 +98,7 @@ Then in ``<BODY>`` insert the following:
 
 
 The viewport can be made more interactive by adding buttons or links to allow
-display of scale bars, ROIs, zooming and selection of channels. All these
+display of scalebars, ROIs, zooming and selection of channels. All these
 interactions are handled by asynchronous calls that require loading.
 
 Add Channel buttons
@@ -134,7 +132,7 @@ Then add JavaScript
              * Load channels and create buttons
              */
             var channels = viewport.getChannels();
-            for (i in channels) {
+            for (var i=0; i<channels.length; i++) {
                 $('#viewport-channels-box').append('<button id="viewer-ch-' + i + '"\
                     class="squared' + (channels[i].active ? ' pressed' : '') + '"\
                     style="background-color: #' + channels[i].color + '"\
