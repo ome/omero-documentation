@@ -197,8 +197,9 @@ If a fileset is to be deleted, then also delete its images.
   p:matches="T:Thumbnail[E].pixels =/!o [D]"
   p:changes="T:[D]/n"
 
-If a thumbnail's pixels are to be deleted, and are owned by a different
-user, then delete the thumbnail regardless of permissions on it.
+If the pixels of a thumbnail are to be deleted, and are owned by a
+different user, then delete the thumbnail regardless of permissions on
+it.
 
 
 Curtailing deletion
