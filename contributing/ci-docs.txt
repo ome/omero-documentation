@@ -442,6 +442,8 @@ The repository for the OME help is https://github.com/openmicroscopy/ome-help.
 		#. The GitHub Pages services updates the content of
 		   http://help.staging.openmicroscopy.org
 
+		.. seealso:: :doc:`jekyll`
+
 	:jenkinsjob:`OME-help-release`
 
 		This job is used to deploy the OME help documentation
