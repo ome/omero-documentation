@@ -14,11 +14,12 @@ be valuable to a wider audience.
     - :doc:`code-contributions`
     - :doc:`team-communication`
     - :doc:`team-workflow`
+    - :doc:`development-tools`
     - :doc:`continuous-integration`
     - :doc:`release-process`
     - :doc:`schema-changes`
 
-|
+
 
 Information specific to developing OMERO, the OME Data Model and file formats,
 and Bio-Formats can be found in their respective developer documentation
@@ -42,6 +43,7 @@ for ways to get in touch.
     code-contributions
     team-communication
     team-workflow
+    development-tools
     continuous-integration
     release-process
     schema-changes
