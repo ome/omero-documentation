@@ -226,8 +226,8 @@ channel as attached.
   p:changes="P:{a}"
 
 If a pixels object is to be deleted, regard any related, excluded pixels
-objects as attached. This prevents the deletion of an image also
-deleting projections of it.
+objects as attached. This prevents inadvertent deletion of any
+projections of an image that is being deleted.
 
 .. code-block:: xml
 
