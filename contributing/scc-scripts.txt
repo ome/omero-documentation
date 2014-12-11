@@ -17,9 +17,9 @@ can be installed using ``pip``::
 
 	$ pip install -U scc
 
-If your Python is old then this may also install the **PyGithub** and
-**argparse** packages, but since Python 2.7 **argparse** is already included
-with the standard library.
+This command will install and/or upgrade the **PyGithub** and **yaclifw**
+package dependencies. If your Python is older than 2.7, this may also install
+the **argparse** package.
 
 Github connection
 -----------------

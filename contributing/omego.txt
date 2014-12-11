@@ -17,6 +17,6 @@ can be installed using ``pip``::
 
 	$ pip install -U omego
 
-If your Python is older than 2.7 then this may also install the **argparse**
-package, but since Python 2.7 **argparse** is already included with the
-standard library.
+This command will install and/or upgrade the **yaclifw** package dependency.
+If your Python is older than 2.7, this may also install the **argparse**
+package.
