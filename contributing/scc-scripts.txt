@@ -1,8 +1,9 @@
-Continuous integration (scc) scripts
-====================================
+Code management: scc
+====================
 
-https://github.com/openmicroscopy/snoopycrimecop hosts a series of utility
-scripts used in the continuous integration.
+scc is a Python library with a set of utility commands used for code
+management and used in the OME :doc:`continuous-integration`.
+More information can be found in the `Python package page <https://pypi.python.org/pypi/scc>`_ or  in the `source code page <https://github.com/openmicroscopy/snoopycrimecop>`_.
 
 If you find a bug or if you want an additional feature to be implemented,
 please `open an issue <https://github.com/openmicroscopy/snoopycrimecop/issues>`_.
