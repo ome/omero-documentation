@@ -1,21 +1,21 @@
 Development tools: maintenance
 ==============================
 
-Most of the development tools used internally by the OME project are Python 
-based and hosted on the :pypi:`Python Package Index <>`. Their source code is
-on GitHub.
+Most of the development tools used internally by the OME project are
+Python-based and hosted on the :pypi:`Python Package Index <>`. Their source
+code is on GitHub.
 
-Maintainer pre-requisites
+Maintainer prerequisites
 -------------------------
 
 To be able to maintain a Python development tool, a developer must:
 
-- have a GitHub account and have push rights to the GitHub source code 
+- have a GitHub account and have push rights to the GitHub source code
   repository
 - have a PyPI account and be registered as a maintainer of the PyPI repository
 - have a valid PGP key for signing the tags
 
-For uploading your package to PyPI, you will also need to create a 
+For uploading your package to PyPI, you will also need to create a
 :file:`~/.pypirc` file.
 
 Release process
