@@ -175,6 +175,7 @@ extlinks = {
     'zeroc' : ('http://zeroc.com/%s', ''),
     'zerocdoc' : ('http://doc.zeroc.com/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
+    'pypi': ('https://pypi.python.org/pypi/%s', '')
     }
 
 rst_epilog = """

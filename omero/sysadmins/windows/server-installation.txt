@@ -129,7 +129,7 @@ The following are optional depending on what services you require:
 
     * - `Pillow`_
       - OMERO.web and Figure Export
-      - `Pillow page <https://pypi.python.org/pypi/Pillow>`_
+      - :pypi:`Pillow` page
 
     * - Matplotlib
       - OMERO.web

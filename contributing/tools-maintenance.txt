@@ -2,8 +2,7 @@ Development tools: maintenance
 ==============================
 
 Most of the development tools used internally by the OME project are Python 
-based and hosted on the
-`Python Package Index <https://pypi.python.org/pypi>`_. Their source code is
+based and hosted on the :pypi:`Python Package Index <>`. Their source code is
 on GitHub.
 
 Maintainer pre-requisites

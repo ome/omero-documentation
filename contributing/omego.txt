@@ -3,7 +3,8 @@ OME administration: omego
 
 omego is a Python library with a set of utility commands used for managing
 the intallation and administration of OME applications like OMERO.
-More information can be found in the `Python package page <https://pypi.python.org/pypi/omego>`_ or  in the `source code page <https://github.com/ome/omego>`_.
+More information can be found in the :pypi:`Python package page <omego>` or
+in the `source code page <https://github.com/ome/omego>`_.
 
 If you find a bug or if you want an additional feature to be implemented,
 please `open an issue <https://github.com/ome/omego/issues>`_.
