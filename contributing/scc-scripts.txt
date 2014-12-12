@@ -18,8 +18,8 @@ can be installed using ``pip``::
 	$ pip install -U scc
 
 This command will install and/or upgrade the **PyGithub** and **yaclifw**
-package dependencies. If your Python is older than 2.7, this may also install
-the **argparse** package.
+package dependencies. If the version of Python installed is older than 2.7,
+this may also install the **argparse** package.
 
 Github connection
 -----------------
