@@ -55,8 +55,30 @@ describe how to create a stand-alone git repository for your app, similar to
 If you do not want to use GitHub, simply ignore the GitHub steps below.
 
 The steps below describe setting up a new app. You should choose an
-appropriate name for your app and use it in place of <your-app> in the
+appropriate name for your app and use it in place of <YOUR-APP> or <your-app> in the
 examples below:
+
+
+Add your app to your PYTHONPATH
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Your app needs to be within a directory that is on your :envvar:`PYTHONPATH`.
+I usually create a new container for a new app, and add it to my
+:envvar:`PYTHONPATH`.
+
+::
+
+    $ mkdir YOUR-APP
+    $ cd YOUR-APP
+    $ export PYTHONPATH=$PYTHONPATH:/path/to/YOUR-APP
+
+
+OR you could simply choose an existing location:
+
+::
+
+    $ cd /somewhere/on/your/pythonpath/
+
 
 Create and checkout a new GitHub repository OR manually create a new directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -80,15 +102,9 @@ Create and checkout a new GitHub repository OR manually create a new directory
 
         $ mkdir <your-app>
 
-Add your app location to your PYTHONPATH
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-  In either case, you should now have a directory called ``your-app`` within
+   a directory that is on your :envvar:`PYTHONPATH`.
 
-If your app is not in a directory that is already on your :envvar:`PYTHONPATH`
-then you need to add it:
-
-::
-
-    $ export PYTHONPATH=$PYTHONPATH:/path/to/your-app
 
 Add the essential files to your app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -99,8 +115,8 @@ Add the essential files to your app
 
    ::
 
-       from django.conf.urls.defaults import *
-       from omeroweb.<your-app> import views
+       from django.conf.urls import *
+       from <your-app> import views
 
        urlpatterns = patterns('django.views.generic.simple',
 
@@ -127,16 +143,15 @@ Add your app to OMERO.web
 :property:`omero.web.apps` adds your custom application to the INSTALLED\_APPS,
 so that URLs are registered etc.
 
-::
-
-    $ bin/omero config set omero.web.apps '["<your-app>"]'
-
 .. note::
 
-    You also need to edit omeroweb/urls.py to add your app's urls.py file to
-    the list of "urlpatterns". Again, you should be able to follow the
-    existing examples there. You can also specify at this point the URL under
-    which your app will be found.
+    Here we use single quotes around double quotes, since we are
+    passing a double-quoted string as a json object.
+
+::
+
+    $ bin/omero config append omero.web.apps '"<your-app>"'
+
 
 Now you can view the home-page we created above (NB: you will need to
 restart the OMERO.web server for the config settings to take effect)
