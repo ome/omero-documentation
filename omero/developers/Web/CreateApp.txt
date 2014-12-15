@@ -176,7 +176,9 @@ under /omeroweb/<your-app>/templates/<your-app>/
 .. note::
 
    note that /<your-app>/ appears twice in that path (need an extra folder
-   under templates). This example can be found in webtest.
+   under templates).
+
+The following example can be found in the `webtest <https://github.com/openmicroscopy/webtest/>`_ app.
 
 -  **urls.py**
 
