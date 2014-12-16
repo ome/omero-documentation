@@ -1,8 +1,10 @@
-Continuous integration (scc) scripts
-====================================
+Code management: scc
+====================
 
-https://github.com/openmicroscopy/snoopycrimecop hosts a series of utility
-scripts used in the continuous integration.
+scc is a Python library with a set of utility commands used for code
+management and used in the OME :doc:`continuous-integration`.
+More information can be found in the :pypi:`Python package page <scc>` or  in
+the `source code page <https://github.com/openmicroscopy/snoopycrimecop>`_.
 
 If you find a bug or if you want an additional feature to be implemented,
 please `open an issue <https://github.com/openmicroscopy/snoopycrimecop/issues>`_.
@@ -15,9 +17,9 @@ can be installed using ``pip``::
 
 	$ pip install -U scc
 
-If your Python is old then this may also install the **PyGithub** and
-**argparse** packages, but since Python 2.7 **argparse** is already included
-with the standard library.
+This command will install and/or upgrade the **PyGithub** and **yaclifw**
+package dependencies. If the version of Python installed is older than 2.7,
+this may also install the **argparse** package.
 
 Github connection
 -----------------

@@ -454,8 +454,8 @@ To make use of the more advanced options available in `pytest` that are not
 accessible using :program:`setup.py test`, the :program:`py.test` script can
 be used directly. To use this :envvar:`PYTHONPATH` must contain the path to
 the OMERO Python libraries, see |BlitzGateway|. Alternatively, the `pytest`
-plugin `pytest-pythonpath <http://pypi.python.org/pypi/pytest-pythonpath/>`__
-can be used to add paths to :envvar:`PYTHONPATH` specifically for `pytest`.
+plugin :pypi:`pytest-pythonpath` can be used to add paths to
+:envvar:`PYTHONPATH` specifically for `pytest`.
 
 .. program:: py.test
 
