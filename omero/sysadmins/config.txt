@@ -111,7 +111,7 @@ Default: `omero`
 omero.db.patch
 ^^^^^^^^^^^^^^
 
-Default: `16`
+Default: `17`
 
 .. property:: omero.db.poolsize
 
@@ -265,6 +265,20 @@ omero.managed.dir
 ^^^^^^^^^^^^^^^^^
 
 Default: `${omero.data.dir}/ManagedRepository`
+
+
+.. _graphs_configuration:
+
+Graphs
+------
+
+.. property:: omero.graphs.wrap
+
+omero.graphs.wrap
+^^^^^^^^^^^^^^^^^
+Whether to use the new Chgrp, Chown, Delete implementations.
+
+Default: `true`
 
 
 .. _grid_configuration:
@@ -1306,7 +1320,7 @@ Default: ``[]``
 omero.web.caches
 ^^^^^^^^^^^^^^^^
 
-OMERO.web offers alternative session backends to automatically delete stale data using the cache session store backend, see `Django cached session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-cached-sessions>`_ for more details.
+OMERO.web offers alternative session backends to automatically delete stale data using the cache session store backend, see `Django cached session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-cached-sessions>`_  for more details.
 
 Default: ``{"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}`` 
 
@@ -1586,7 +1600,7 @@ Default: ``true``
 omero.web.static_url
 ^^^^^^^^^^^^^^^^^^^^
 
-URL to use when referring to static files. Example: ``'/static/'`` or ``'http://static.example.com/'``. Used as the base path for asset definitions (the Media class) and the staticfiles app. It must end in a slash if set to a non-empty value.
+URL to use when referring to static files. Example: ``'/static/'`` or ``'http://static.example.com/'``. Used as the base path for asset  definitions (the Media class) and the staticfiles app. It must end in a slash if set to a non-empty value.
 
 Default: ``/static/`` 
 
