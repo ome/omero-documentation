@@ -55,7 +55,7 @@ describe how to create a stand-alone git repository for your app, similar to
 If you do not want to use GitHub, simply ignore the GitHub steps below.
 
 The steps below describe setting up a new app. You should choose an
-appropriate name for your app and use it in place of <YOUR-APP> or <your-app> in the
+appropriate name for your app and use it in place of <your-app> in the
 examples below:
 
 
@@ -68,9 +68,9 @@ I usually create a new container for a new app, and add it to my
 
 ::
 
-    $ mkdir YOUR-APP
-    $ cd YOUR-APP
-    $ export PYTHONPATH=$PYTHONPATH:/path/to/YOUR-APP
+    $ mkdir PARENT-APP-DIR
+    $ cd PARENT-APP-DIR
+    $ export PYTHONPATH=$PYTHONPATH:/path/to/PARENT-APP-DIR
 
 
 OR you could simply choose an existing location:
