@@ -60,7 +60,7 @@ examples below:
 
 
 Add your app to your PYTHONPATH
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Your app needs to be within a directory that is on your :envvar:`PYTHONPATH`.
 I usually create a new container for a new app, and add it to my
