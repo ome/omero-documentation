@@ -1,0 +1,1606 @@
+********************
+Version requirements
+********************
+
+Support levels
+--------------
+
+The following sections use the terminology in the table below to
+describe the support status of a given component, as it progresses
+from being new and not supported, to supported and regularly tested,
+and to finally to being old and no longer supported or tested.
+
+.. tabularcolumns:: |l|l|J|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Level
+      - Meaning
+      - Description
+    * - Upcoming
+      - unsupported/new
+      - New version not yet regularly tested and not officially supported; may or may not work (use at own risk)
+    * - Recommended
+      - supported/optimal
+      - Current version which is regularly tested, confirmed to work correctly, recommended for optimal performance/experience
+    * - Supported
+      - supported/suboptimal
+      - Older version which is tested, confirmed to work correctly, but may not offer optimal performance/experience
+    * - Dropped
+      - unsupported/old
+      - Old version not longer tested and no longer officially supported; may or may not work (use at own risk)
+    * - Broken
+      - unsupported/broken
+      - Known to not work
+    * - Unsupported
+      - unsupported/misc
+      - Not supported for some reason other than the above
+
+Operating system support
+------------------------
+
+The following subsections detail the versions of each operating system
+which are supported by both its upstream developers (for security and
+general updates) and by OME for OMERO building and server and client
+deployment.
+
+Microsoft Windows
+^^^^^^^^^^^^^^^^^
+
+`General overview <http://support.microsoft.com/gp/lifeselectindex#W>`__
+
+.. tabularcolumns:: |l|l|l|l|l|l|J|
+
+.. list-table::
+    :header-rows: 2
+
+    * - 
+      - 
+      - Upstream
+      - support
+      - 
+      - 
+      - 
+    * - Version
+      - Release date
+      - (mainline)
+      - (extended)
+      - OME (build)
+      - OME (deploy)
+      - Details
+    * - XP
+      - from Dec 2001
+      - to Apr 2014
+      - to Apr 2014
+      - Dropped
+      - Dropped
+      - `Link <http://support.microsoft.com/lifecycle/?p1=12757>`__
+    * - Server 2003 R2
+      - from May 2003
+      - to Jul 2010
+      - to Jul 2015
+      - Dropped
+      - Dropped
+      - `Link <http://support.microsoft.com/lifecycle/?p1=10394>`__
+    * - Vista
+      - from Jan 2007
+      - to Apr 2012
+      - to Apr 2017
+      - Dropped
+      - Dropped
+      - `Link <http://support.microsoft.com/lifecycle/?p1=11737>`__
+    * - Win 7
+      - from Oct 2009
+      - to Jan 2015
+      - to Jan 2020
+      - Recommended
+      - Supported
+      - `Link <http://support.microsoft.com/lifecycle/?p1=14481>`__
+    * - Server 2008 R2
+      - from May 2008
+      - to Jan 2018
+      - to Jan 2023
+      - Recommended
+      - Supported
+      - `Link <http://support.microsoft.com/lifecycle/?p1=17383>`__
+    * - Win 8
+      - from Oct 2012
+      - to Jan 2018
+      - to Jan 2023
+      - Supported
+      - Upcoming
+      - `Link <http://support.microsoft.com/lifecycle/?p1=16799>`__
+    * - Server 2012
+      - from Oct 2012
+      - to Jan 2018
+      - to Jan 2023
+      - Supported
+      - Upcoming
+      - `Link <http://support.microsoft.com/lifecycle/?p1=16526>`__
+
+XP is now unsupported upstream, and Server 2003 will be unsupported
+within the timeframe of 5.1 support.  Vista is likely supported but
+usage is minimal and it's untested, hence marked as dropped.  7/Server
+2008 and 8/Server 2012 are both supported and used.  Server 2008
+builds in place; no 2012 builds or testing in place yet.  No regular
+Windows CI deployment and testing in place other than manually.  Some
+manual testing on Windows 7 VMs and machines.
+
+UNIX (MacOS X)
+^^^^^^^^^^^^^^
+
+`General overview <http://en.wikipedia.org/wiki/OS_X>`__
+
+.. tabularcolumns:: |l|J|J|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - Homebrew support
+      - OME (build)
+      - OME (deploy)
+    * - 10.6
+      - from Jun 2008
+      - Ended
+      - Ended
+      - Dropped
+      - Dropped
+    * - 10.7
+      - from Oct 2010
+      - Ended
+      - Supported for the moment
+      - Dropped
+      - Dropped
+    * - 10.8
+      - from Feb 2012
+      - Supported for the moment
+      - Supported
+      - Supported
+      - Supported
+    * - 10.9
+      - from Jun 2013
+      - Supported
+      - Supported
+      - Supported
+      - Supported
+    * - 10.10
+      - from Oct 2014
+      - Supported
+      - Supported
+      - Recommended
+      - Recommended
+
+Apple don't formally announce end of life for their releases, but 10.6
+security fixes ended some time back, and 10.7 has now also ended with
+the release of 10.10.  We have regular CI testing of 10.8, 10.9 and
+10.10 builds plus developer testing of building and client and server
+deployment.  10.6 and 10.7 are marked as dropped since we no longer
+use 10.6 internally, and never used 10.7, and they are no longer
+tested by the CI infrastructure (all 10.6 and 10.7 nodes retired).
+
+UNIX (FreeBSD)
+^^^^^^^^^^^^^^
+
+It only really makes sense to support the base toolchain for major
+releases and the Ports tree (which is continually updated); these will
+be covered in the dependencies, below.
+
+Linux (Centos and RHEL)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+General overview for `RHEL
+<https://access.redhat.com/site/articles/3078>`__ and `CentOS
+<http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+
+.. tabularcolumns:: |l|l|l|l|l|J|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+      - Details
+    * - 5
+      - from Mar 2007
+      - to Mar 2017
+      - Dropped
+      - Dropped
+      - `Link <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+    * - 6
+      - from Nov 2010
+      - to Nov 2020
+      - Recommended
+      - Recommended
+      - `Link <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+    * - 7
+      - from June 2014
+      - to June 2024
+      - Upcoming
+      - Upcoming
+      - `Link <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+
+Only RHEL and CentOS 6 are supported at present.  Given the long life
+of enterprise releases, I'd suggest we should only support the latest
+one at any given time or else it ties us into very old dependencies;
+6.x is already very long in the tooth.  I'd suggest moving to 7 once
+it's released and tested by us.  There is extensive CI support for
+building and deployment with CentOS 6 but it's not used directly by
+developers in general.
+
+Linux (Fedora)
+^^^^^^^^^^^^^^
+
+`General overview <https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle>`__
+
+Due to the fast pace of Fedora development, it only really makes sense
+to support the current and perhaps the previous release; these will be
+covered in the dependencies, below.
+
+Linux (Ubuntu)
+^^^^^^^^^^^^^^
+
+`General overview <https://wiki.ubuntu.com/Releases>`__
+
+.. tabularcolumns:: |l|l|l|l|l|J|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+      - Details
+    * - 10.04 (.4) LTS
+      - from Apr 2010
+      - to Apr 2015 (server only)
+      - Supported
+      - Supported
+      - `Link <https://wiki.ubuntu.com/Releases>`__
+    * - 10.10
+      - from Oct 2010
+      - to Apr 2012
+      - Dropped
+      - Dropped
+      - `Link <https://wiki.ubuntu.com/Releases>`__
+    * - 11.04
+      - from Apr 2011
+      - to Oct 2012
+      - Dropped
+      - Dropped
+      - `Link <https://wiki.ubuntu.com/Releases>`__
+    * - 11.10
+      - from Oct 2011
+      - to May 2013
+      - Dropped
+      - Dropped
+      - `Link <https://wiki.ubuntu.com/Releases>`__
+    * - 12.04 (.4) LTS
+      - from Apr 2012
+      - to Apr 2017
+      - Supported
+      - Supported
+      - `Link <https://wiki.ubuntu.com/Releases>`__
+    * - 12.10
+      - from Oct 2012
+      - to May 2014
+      - Dropped
+      - Dropped
+      - `Link <https://wiki.ubuntu.com/Releases>`__
+    * - 13.04
+      - from Apr 2013
+      - to Jan 2014
+      - Dropped
+      - Dropped
+      - `Link <https://wiki.ubuntu.com/Releases>`__
+    * - 13.10
+      - from Oct 2013
+      - to Jul 2014
+      - Dropped
+      - Dropped
+      - `Link <https://wiki.ubuntu.com/Releases>`__
+    * - 14.04 LTS
+      - from Apr 2014
+      - to Apr 2019
+      - Recommended
+      - Recommended
+      - `Link <https://wiki.ubuntu.com/Releases>`__
+    * - 14.10
+      - from Oct 2014
+      - to Jul 2015
+      - Supported
+      - Supported
+      - `Link <https://wiki.ubuntu.com/Releases>`__
+    * - 15.04
+      - TBA
+      - TBA
+      - Upcoming
+      - Upcoming
+      - `Link <https://wiki.ubuntu.com/Releases>`__
+
+Only the LTS and 13.10 releases are supported.  We may wish to only
+formally support e.g. the last one or two LTS releases (being a bit
+more frequent than CentOS/RHEL; 10.04 has quite old dependencies and
+could be considered for dropping.  No CI testing for any version
+except 10.04 on howe/gretzky; some developer use of 12.04 LTS, 14.04
+LTS and more recent non-LTS releases.
+
+Linux (Debian stable)
+^^^^^^^^^^^^^^^^^^^^^
+
+`General overview <https://www.debian.org/releases/>`__
+
+.. tabularcolumns:: |l|l|l|l|l|J|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+      - Details
+    * - 5.0
+      - from Feb 2009
+      - to Feb 2012
+      - Dropped
+      - Dropped
+      - `Link <https://www.debian.org/releases/lenny/>`__
+    * - 6.0
+      - from Feb 2011
+      - to Feb 2016
+      - Supported
+      - Supported
+      - `Link <https://www.debian.org/releases/squeeze/>`__
+    * - 7.0
+      - from May 2013
+      - TBA
+      - Recommended
+      - Recommended
+      - `Link <https://www.debian.org/releases/wheezy/>`__
+    * - 8.0
+      - TBA
+      - TBA
+      - Upcoming
+      - Upcoming
+      - `Link <https://www.debian.org/releases/jessie/>`__
+
+Stable releases 7.x and v6.x are supported.  There is no CI testing for
+any version, and some developer use of 7.x.
+
+Linux (Debian testing and unstable)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Due to the fast pace of Debian developement, it only really makes
+sense to support the last one or two stable releases; the testing and
+unstable requirements will be covered in the dependencies, below.
+
+Hardware support
+----------------
+
+
+Microsoft Windows
+^^^^^^^^^^^^^^^^^
+
+Supports amd64 (64-bit) and i386 / x86 (32-bit) for all supported
+versions; most systems are today running x64 with most hardware being
+x64, but there is still a niche of x86 users, estimated <25% and
+falling globally (OMERO usage stats here?)
+
+Unix (MacOS X)
+^^^^^^^^^^^^^^
+
+Currently all supported versions are amd64 (64-bit) only.
+
+Unix (FreeBSD)
+^^^^^^^^^^^^^^
+
+Supports amd64 (64-bit) and i386 / x86 (32-bit) for all supported
+releases.  Other platforms are supported, but may require manual
+building of prerequisites.
+
+Linux (RHEL and CentOS)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Version 6 supports amd64 (64-bit) and i386 / x86 (32-bit).  Version 7
+supports amd64 (64-bit) only.
+
+Linux (other)
+^^^^^^^^^^^^^
+
+Most distributions support i386 / x86 (32-bit) as well, while some
+support additional architectures such as 32-bit and/or 64-bit arm and
+powerpc.
+
+Additional notes
+^^^^^^^^^^^^^^^^
+
+The OMERO server is de-facto 64-bit-only due to the large memory
+requirements; this could safely be made a requirement.  On the client
+side, there is a requirement for 32-bit support for Windows clients
+and to a lesser extent on Linux, and zero on MacOS X at present.
+Dropping 32-bit support for OMERO.server and C++ Ice and other builds
+should be considered, given the vast reduction in the support burden
+and steadily dropping need for these builds.
+
+Dependencies
+------------
+
+The following subsections detail the versions of each dependency
+needed by OMERO which are supported by both its upstream developers
+(for security and general updates) and by OME for OMERO building and
+server and client deployment.
+
+.. note::
+    Versions in brackets are in development distributions and may
+    change without notice.
+
+Package lists
+^^^^^^^^^^^^^
+
+.. tabularcolumns:: |l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Operating system
+      - Details
+    * - CentOS 6 / RHEL 6
+      - `Link <http://mirror.centos.org/centos/6/os/x86_64/Packages/>`__
+    * - CentOS 7 / RHEL 7
+      - `Link <http://mirror.centos.org/centos/7/os/x86_64/Packages/>`__
+    * - Fedora (general)
+      - `Link <https://fedoraproject.org/wiki/Releases#Current_Supported_Releases>`__
+    * - Fedora 19
+      - `Link <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f19&status=&owner=>`__
+    * - Fedora 20
+      - `Link <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f20&status=&owner=>`__
+    * - Fedora 21
+      - `Link <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f21&status=&owner=>`__
+    * - Ubuntu
+      - `Link <http://packages.ubuntu.com/search?keywords=foo&searchon=names&suite=all&section=all>`__
+    * - Debian
+      - `Link <https://packages.debian.org/search?keywords=foo&searchon=names&suite=all&section=all>`__
+    * - Homebrew
+      - `Link <https://github.com/Homebrew/homebrew/tree/master/Library/Formula>`__
+    * - FreeBSD Ports
+      - `Link <http://svnweb.freebsd.org/ports/head/>`__
+
+
+PostgreSQL
+^^^^^^^^^^
+
+`General overview <http://www.postgresql.org/support/versioning/>`__
+
+.. tabularcolumns:: |l|l|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+    * - 8.4
+      - from Jul 2009
+      - to Jul 2014
+      - Supported
+      - Supported
+    * - 9.0
+      - from Sep 2010
+      - to Sep 2015
+      - Supported
+      - Supported
+    * - 9.1
+      - from Sep 2011
+      - to Sep 2016
+      - Supported
+      - Supported
+    * - 9.2
+      - from Sep 2012
+      - to Sep 2017
+      - Recommended
+      - Recommended
+    * - 9.3
+      - from Sep 2013
+      - to Sep 2018
+      - Recommended
+      - Recommended
+    * - 9.4
+      - from Dec 2014
+      - to Dec 2019
+      - Upcoming
+      - Upcoming
+    * - 9.5
+      - TBA
+      - TBA
+      - Upcoming
+      - Upcoming
+    * - Details
+      - 
+      - `Link <http://www.postgresql.org/support/versioning/>`__
+      - 
+      - 
+
+Distribution support:
+
+.. tabularcolumns:: |l|l|L|L|L|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - CentOS/RHEL
+      - Fedora
+      - Ubuntu
+      - Debian
+      - Homebrew
+      - FreeBSD Ports
+    * - 8.4
+      - 6.x
+      - N/A
+      - 10.04, 12.04
+      - 6.0, 7.0
+      - Yes
+      - Yes
+    * - 9.0
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - Yes
+      - Yes
+    * - 9.1
+      - N/A
+      - N/A
+      - 12.04, 13.04, 13.10
+      - 7.0, (8.0), 6.0 bpo
+      - Yes
+      - Yes
+    * - 9.2
+      - 7.x
+      - 19
+      - N/A
+      - N/A
+      - Yes
+      - Yes
+    * - 9.3
+      - N/A
+      - 20, 21
+      - 14.04
+      - N/A
+      - N/A
+      - Yes
+    * - 9.4
+      - N/A
+      - N/A
+      - 14.10
+      - (8.0)
+      - N/A
+      - Yes
+    * - 9.5
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+    * - Details
+      - 
+      - `Link <https://apps.fedoraproject.org/packages/postgresql>`__
+      - `Link <http://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
+      - `Link <https://packages.debian.org/search?keywords=postgresql&searchon=sourcenames&suite=all&section=all>`__
+      - 
+      - 
+
+The PostgreSQL project provides `packages
+<http://www.postgresql.org/download/>`__ for supported platform.
+Therefore distribution support is not critical since 9.3 and 9.4 are
+available for all platforms.
+
+Python
+^^^^^^
+
+.. tabularcolumns:: |l|l|l|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+      - Details
+    * - 2.5
+      - from Sep 2006
+      - to Oct 2011
+      - Dropped
+      - Dropped
+      - `Link 1 <https://mail.python.org/pipermail/python-committers/2011-October/001844.html>`__
+        `Link 2 <https://www.python.org/download/releases/2.5/>`__
+    * - 2.6
+      - from Oct 2008
+      - to Oct 2013
+      - Supported
+      - Supported
+      - `Link <http://legacy.python.org/dev/peps/pep-0361/>`__
+    * - 2.7
+      - from Jul 2010
+      - to 2020
+      - Recommended
+      - Recommended
+      - `Link <http://legacy.python.org/dev/peps/pep-0373/>`__
+    * - 3.0
+      - from Dec 2008
+      - to Feb 2009
+      - Unsupported
+      - Unsupported
+      - `Link <http://legacy.python.org/dev/peps/pep-0361/>`__
+    * - 3.1
+      - from Jun 2009
+      - to June 2014
+      - Unsupported
+      - Unsupported
+      - `Link <http://legacy.python.org/dev/peps/pep-0375/>`__
+    * - 3.2
+      - from Feb 2011
+      - to Feb 2016
+      - Unsupported
+      - Unsupported
+      - `Link <http://legacy.python.org/dev/peps/pep-0392/>`__
+    * - 3.3
+      - from Sep 2012
+      - to Sep 2017
+      - Unsupported
+      - Unsupported
+      - `Link <http://legacy.python.org/dev/peps/pep-0398/>`__
+    * - 3.4
+      - from Mar 2014
+      - TBA
+      - Unsupported
+      - Unsupported
+      - `Link <http://legacy.python.org/dev/peps/pep-0429/>`__
+    * - 3.5
+      - TBA (probably Sep 2015)
+      - TBA
+      - Unsupported
+      - Unsupported
+      - `Link <https://www.python.org/dev/peps/pep-0478>`__
+
+Distribution support:
+
+.. tabularcolumns:: |l|l|L|L|L|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - CentOS/RHEL
+      - Fedora
+      - Ubuntu
+      - Debian
+      - Homebrew
+      - FreeBSD Ports
+    * - 2.5
+      - N/A
+      - N/A
+      - N/A
+      - 6.0
+      - N/A
+      - N/A
+    * - 2.6
+      - 6.x
+      - N/A
+      - 10.04
+      - 6.0, 7.0
+      - N/A
+      - Yes
+    * - 2.7
+      - 7.x
+      - 19, 20, 21
+      - 12.04, 13.04, 13.10, 14.04, 14.10, (15.04)
+      - 7.0, (8.0)
+      - Yes
+      - Yes
+    * - 3.0
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+    * - 3.1
+      - N/A
+      - N/A
+      - 10.04
+      - 6.0
+      - N/A
+      - N/A
+    * - 3.2
+      - N/A
+      - N/A
+      - 12.04
+      - 7.0
+      - N/A
+      - Yes
+    * - 3.3
+      - N/A
+      - 19, 20
+      - 13.04, 13.10
+      - N/A
+      - N/A
+      - Yes
+    * - 3.4
+      - N/A
+      - 21
+      - 14.04, 14.10, (15.04)
+      - (8.0)
+      - Yes
+      - Yes
+    * - 3.5
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+    * - Details
+      - 
+      - `Python 2 <https://apps.fedoraproject.org/packages/python>`__
+        `Python 3 <https://apps.fedoraproject.org/packages/python3>`__
+      - `Python 2 <http://packages.ubuntu.com/search?keywords=python2&searchon=names&suite=all&section=all>`__
+        `Python 3 <http://packages.ubuntu.com/search?keywords=python3&searchon=names&suite=all&section=all>`__
+      - `Python 2 <https://packages.debian.org/search?keywords=python2&searchon=sourcenames&suite=all&section=all>`__
+        `Python 3 <https://packages.debian.org/search?keywords=python3&searchon=sourcenames&suite=all&section=all>`__
+      - 
+      - 
+
+At the moment 2.7 support is present upstream for the foreseeable
+future; 3.x versions continue to be released and retired regularly in
+parallel.  The limiting factor will be distribution support for 2.7 as
+major packages are slowly switching to 3.x, and this might leave us in
+a mess if our python module dependencies are no longer available
+without major effort.  Ice in particular has dropped 2.7 support for
+Windows.
+
+GCC
+^^^
+
+`General overview <https://gcc.gnu.org/develop.html#timeline>`__
+
+.. tabularcolumns:: |l|l|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+    * - 4.2
+      - from May 2007
+      - to May 2008
+      - Dropped
+      - Dropped
+    * - 4.3
+      - from Mar 2008
+      - to Jun 2011
+      - Dropped
+      - Dropped
+    * - 4.4
+      - from Apr 2009
+      - to Mar 2012
+      - Supported
+      - Supported
+    * - 4.5
+      - from Apr 2010
+      - to Jul 2012
+      - Supported
+      - Supported
+    * - 4.6
+      - from Mar 2011
+      - to Apr 2013
+      - Supported
+      - Supported
+    * - 4.7
+      - from Mar 2012
+      - to Apr 2013
+      - Supported
+      - Supported
+    * - 4.8
+      - from Mar 2013
+      - to May 2014
+      - Recommended
+      - Recommended
+    * - 4.9
+      - from Apr 2014
+      - TBA
+      - Recommended
+      - Recommended
+    * - 5.0
+      - TBA
+      - TBA
+      - Upcoming
+      - Upcoming
+
+Distribution support:
+
+.. tabularcolumns:: |l|l|L|L|L|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - CentOS/RHEL
+      - Fedora
+      - Ubuntu
+      - Debian
+      - Homebrew
+      - FreeBSD Ports
+    * - 4.2
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - Yes
+      - N/A
+    * - 4.3
+      - N/A
+      - N/A
+      - 10.04
+      - 6.0
+      - Yes
+      - N/A
+    * - 4.4
+      - 6.x
+      - N/A
+      - 10.04, 12.04, 13.04, 13.10, 14.04, 14.10
+      - 6.0, 7.0
+      - Yes
+      - N/A
+    * - 4.5
+      - N/A
+      - N/A
+      - 12.04
+      - N/A
+      - Yes
+      - N/A
+    * - 4.6
+      - N/A
+      - N/A
+      - 12.04, 13.04, 13.10, 14.04, 14.10
+      - 7.0, (8.0)
+      - Yes
+      - N/A
+    * - 4.7
+      - N/A
+      - N/A
+      - 13.04, 13.10, 14.04, 14.10
+      - 7.0, (8.0)
+      - Yes
+      - Yes
+    * - 4.8
+      - 7.x
+      - 19, 20
+      - 13.10, 14.04, 14.10, (15.04)
+      - (8.0)
+      - Yes
+      - Yes
+    * - 4.9
+      - N/A
+      - 21
+      - 14.04, 14.10, (15.04)
+      - (8.0)
+      - Yes
+      - Yes
+    * - 5.0
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+    * - Details
+      - 
+      - `Link <https://apps.fedoraproject.org/packages/gcc>`__
+      - `Link <http://packages.ubuntu.com/search?keywords=g%2B%2B&searchon=names&suite=all&section=all>`__
+      - `Link <https://packages.debian.org/search?keywords=g%2B%2B&searchon=names&suite=all&section=all>`__
+      - 
+      - 
+
+GCC 4.2 support was dropped with the dropping of MacOS 10.6; the
+current baseline is GCC 4.4.
+
+LLVM/clang
+^^^^^^^^^^
+
+`General overview <http://llvm.org/releases/>`__
+
+.. tabularcolumns:: |l|l|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+    * - 3.1
+      - from May 2012
+      - to May 2012
+      - Unsupported
+      - Unsupported
+    * - 3.2
+      - from Dec 2012
+      - to Dec 2012
+      - Unsupported
+      - Unsupported
+    * - 3.3
+      - from Jen 2013
+      - to Jen 2013
+      - Supported
+      - Supported
+    * - 3.4
+      - from Jan 2014 to May 2014
+      - from Jan 2014 to May 2014
+      - Recommended
+      - Recommended
+    * - 3.5
+      - from Sep 2014
+      - to Sep 2014
+      - Upcoming
+      - Upcoming
+    * - 3.6
+      - TBA
+      - TBA
+      - Upcoming
+      - Upcoming
+
+Distribution support:
+
+.. tabularcolumns:: |l|l|L|L|L|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - CentOS/RHEL
+      - Fedora
+      - Ubuntu
+      - Debian
+      - Homebrew
+      - FreeBSD Ports
+    * - 3.1
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - Yes
+      - N/A
+    * - 3.2
+      - N/A
+      - N/A
+      - 13.04, 13.10
+      - N/A
+      - Yes
+      - Yes
+    * - 3.3
+      - N/A
+      - 19
+      - 12.04, 13.10, 14.04. 14.10, (15.04)
+      - (8.0)
+      - Yes
+      - Yes
+    * - 3.4
+      - N/A
+      - 20, 21
+      - 12.04, 13.10, 14.04, 14.10, (15.04)
+      - (8.0)
+      - Yes
+      - Yes
+    * - 3.5
+      - N/A
+      - \(22\)
+      - 14.10, (15.04)
+      - (8.0)
+      - Yes
+      - Yes
+    * - 3.6
+      - N/A
+      - N/A
+      - N/A
+      - (8.0)
+      - N/A
+      - N/A
+    * - Details
+      - 
+      - `Link <https://apps.fedoraproject.org/packages/clang>`__
+      - `Link <http://packages.ubuntu.com/search?keywords=clang&searchon=names&suite=all&section=all>`__
+      - `Link <https://packages.debian.org/search?keywords=clang&searchon=names&suite=all&section=all>`__
+      - 
+      - 
+
+Note that clang++ 3.3 is used in MacOS 10.8 and FreeBSD 10; earlier
+versions were not much used as a default compiler and are probably not
+worth supporting; 3.4 is used in MacOS X 10.9 and 10.10 and in FreeBSD
+10.1. Until 3.4, no point releases were made for major versions.
+
+
+ICE
+^^^
+
+`General overview <http://www.zeroc.com/download.html>`__
+
+.. tabularcolumns:: |l|l|l|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+      - Details
+    * - 3.3
+      - from May 2008
+      - to May 2009
+      - Dropped
+      - Dropped
+      - `Link <http://www.zeroc.com/forums/announcements/3749-ice-3-3-released.html>`__
+        `Link <http://www.zeroc.com/forums/announcements/4248-ice-3-3-1-released.html>`__
+    * - 3.4
+      - from Mar 2010
+      - to Jun 2011
+      - Supported
+      - Supported
+      - `Link <http://www.zeroc.com/forums/announcements/4821-ice-3-4-released.html>`__
+        `Link <http://www.zeroc.com/forums/announcements/5406-ice-3-4-2-released.html>`__
+    * - 3.5
+      - from Mar 2013
+      - to Oct 2013
+      - Recommended
+      - Recommended
+      - `Link <http://www.zeroc.com/forums/announcements/5943-ice-3-5-0-released.html>`__
+        `Link <http://www.zeroc.com/forums/announcements/6118-ice-3-5-1-released.html>`__
+    * - 3.6
+      - TBA (in beta)
+      - TBA
+      - Upcoming
+      - Upcoming
+      -
+
+Distribution support:
+
+.. tabularcolumns:: |l|l|L|L|L|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - CentOS/RHEL
+      - Fedora
+      - Ubuntu
+      - Debian
+      - Homebrew
+      - FreeBSD Ports
+    * - 3.3
+      - N/A
+      - N/A
+      - 14.10
+      - 6.0
+      - N/A
+      - N/A
+    * - 3.4
+      - N/A
+      - N/A
+      - 12.04, 13.04, 13.10
+      - 7.0
+      - N/A
+      - N/A
+    * - 3.5
+      - N/A
+      - 19, 20, 21
+      - 14.04, 14.10, (15.04)
+      - (8.0)
+      - Yes
+      - Yes
+    * - 3.6
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+
+Java
+^^^^
+
+`General overview <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+
+.. tabularcolumns:: |l|l|l|l|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+      - Link
+    * - 5
+      - from May 2004
+      - to Oct 2009
+      - Dropped
+      - Dropped
+      - `Link <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+    * - 6
+      - from Dec 2006
+      - to Feb 2013
+      - Supported
+      - Supported
+      - `Link <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+    * - 7
+      - From Jul 2011
+      - to Apr 2015
+      - Recommended
+      - Recommended
+      - `Link <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+    * - 8
+      - From Mar 2014
+      - to Mar 2017
+      - Supported
+      - Supported
+      - `Link <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+
+Distribution support:
+
+.. tabularcolumns:: |l|l|L|L|L|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - CentOS/RHEL
+      - Fedora
+      - Ubuntu
+      - Debian
+      - Homebrew
+      - FreeBSD Ports
+    * - 5
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+    * - 6
+      - 6.x, 7.x
+      - N/A
+      - 10.04, 12.04, 13.04, 13.10, 14.04, 14.10, (15.04)
+      - 6.0, 7.0, (8.0)
+      - N/A
+      - Yes
+    * - 7
+      - 6.x, 7.x
+      - 19, 20, 21, (22)
+      - 12.04, 13.04, 13.10, 14.04, 14.10, (15.04)
+      - 7.0, (8.0)
+      - N/A
+      - Yes
+    * - 8
+      - N/A
+      - 19, 20, 21, (22)
+      - 14.10, (15.04)
+      - (8.0)
+      - N/A
+      - Yes
+    * - Details
+      - 
+      - `Link 1 <https://apps.fedoraproject.org/packages/java-1.7.0-openjdk>`__
+        `Link 2 <https://admin.fedoraproject.org/pkgdb/package/java-1.8.0-openjdk/>`__
+      - `Link <http://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
+      - `Link <https://packages.debian.org/search?keywords=jdk&searchon=names&suite=all&section=all>`__
+      - 
+      - 
+
+Note that all distributions provide OpenJDK 6, 7 and 8 due to
+distribution restrictions by Oracle.  Oracle Java may be used if
+downloaded separately.
+
+Oracle no longer allow general downloading of Java 6.  Java 7 is
+available for all platforms except for OSX 10.6 (where it's
+installable manually by unpacking the 10.7 installer).  Some 1.8
+openjdk versions are broken (Debian/Ubuntu 1.8.0u40 broken), but some
+work (1.8.0u25, FreeBSD).
+
+OpenGL
+^^^^^^
+
+`General overview <http://en.wikipedia.org/wiki/OpenGL>`__
+
+.. tabularcolumns:: |l|l|l|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+    * - 2.0
+      - in Sep 2004
+      - N/A
+      - Unsupported
+      - Unsupported
+    * - 2.1
+      - in Jun 2006
+      - N/A
+      - Unsupported
+      - Unsupported
+    * - 3.0
+      - in Aug 2008
+      - N/A
+      - Unsupported
+      - Unsupported
+    * - 3.1
+      - in Mar 2009
+      - N/A
+      - Unsupported
+      - Unsupported
+    * - 3.2
+      - in Aug 2009
+      - N/A
+      - Unsupported
+      - Unsupported
+    * - 3.3
+      - in Mar 2010
+      - N/A
+      - Unsupported
+      - Unsupported
+    * - 4.0
+      - in Mar 2010
+      - N/A
+      - Unsupported
+      - Unsupported
+    * - 4.1
+      - in Jul 2010
+      - N/A
+      - Unsupported
+      - Unsupported
+    * - 4.2
+      - in Aug 2010
+      - N/A
+      - Unsupported
+      - Unsupported
+    * - 4.3
+      - in Aug 2012
+      - N/A
+      - Unsupported
+      - Unsupported
+    * - 4.4
+      - in Jul 2013
+      - N/A
+      - Unsupported
+      - Unsupported
+    * - 4.5
+      - in Aug 2014
+      - N/A
+      - Unsupported
+      - Unsupported
+
+Distribution support:
+
+.. tabularcolumns:: |l|l|l|l|l|l|J|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Windows
+      - CentOS/RHEL
+      - Fedora
+      - Ubuntu
+      - Debian
+      - MacOS
+      - FreeBSD Ports
+    * - 2.0
+      - Varies*
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - N/A
+      - Varies†
+    * - 2.1
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - 10.7, 10.8, 10.9, 10.10 (legacy profile)
+      - Varies†
+    * - 3.0
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - N/A
+      - Varies†
+    * - 3.1
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - N/A
+      - Varies†
+    * - 3.2
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - 10.7, 10.8 (core profile)
+      - Varies†
+    * - 3.3
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - 10.9, 10.10 (core profile min)
+      - Varies†
+    * - 4.0
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - N/A
+      - Varies†
+    * - 4.1
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - 10.9, 10.10 (core profile max)
+      - Varies†
+    * - 4.2
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - N/A
+      - Varies†
+    * - 4.3
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - N/A
+      - Varies†
+    * - 4.4
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - N/A
+      - Varies†
+    * - 4.5
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - Varies†
+      - N/A
+      - Varies†
+    * - Details
+      - 
+      - 
+      - 
+      - 
+      - 
+      - `Link <https://developer.apple.com/graphicsimaging/opengl/capabilities/index.html>`__
+      - 
+
+\*
+  Driver/hardware dependent, but the Windows Vista/7/8 DirectX 9
+  requirement is mostly the same as OpenGL 2.0, so any badged machine
+  should have OpenGL 2.0-capable hardware (it will also require a
+  functional driver)
+
+†
+  Driver/hardware dependent
+
+Support is largely down to the system hardware (GPU) and drivers.  No
+guarantees for 2.0 and greater on Windows (1.4 only guaranteed), but
+AMD, Intel and nVidia all provide GL drivers supporting newer
+versions.  The minimum baseline is probably 2.1.  However, 3.2/3.3 is
+probably the baseline for most hardware under 5 years old, with 4.x
+being the typical baseline for hardware from a year back.
+
+Apache
+^^^^^^
+
+`General overview <http://www.apachehaus.com/index.php?option=com_content&view=article&id=119&Itemid=104>`__ and `website <http://httpd.apache.org/>`__.
+
+.. tabularcolumns:: |l|l|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+    * - 2.0
+      - from Nov 2001
+      - to Jul2013
+      - N/A
+      - Dropped
+    * - 2.2
+      - from Dec 2005
+      - TBA
+      - N/A
+      - Supported
+    * - 2.4
+      - from Feb 2012
+      - TBA
+      - N/A
+      - Recommended
+
+Distribution support:
+
+.. tabularcolumns:: |l|l|L|L|L|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - CentOS/RHEL
+      - Fedora
+      - Ubuntu
+      - Debian
+      - Homebrew
+      - FreeBSD Ports
+    * - 2.0
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+    * - 2.2
+      - 6.x
+      - N/A
+      - 10.04, 12.04, 13.10
+      - 6.0, 7.0
+      - N/A
+      - Yes
+    * - 2.4
+      - 7.x
+      - 19, 20, 21, (22)
+      - 13.10, 14.04, 14.10, (15.04)
+      - (8.0)
+      - N/A
+      - Yes
+    * - Details
+      - 
+      - `Link <https://apps.fedoraproject.org/packages/httpd>`__
+      - `Link <http://packages.ubuntu.com/search?keywords=apache&searchon=names&suite=all&section=all>`__
+      - `Link <https://packages.debian.org/search?keywords=apache&searchon=names&suite=all&section=all>`__
+      - 
+      - 
+
+Apache 2.2 requires mod_fastcgi (from external repository, for
+CentOS6).  Apache 2.4 requires mod_proxy_cfgi (`to be tested
+<https://trello.com/c/ROD6R0L7/180-omero-web-custom-prefix>`__).
+
+nginx
+^^^^^
+
+`General overview <http://nginx.org/en/download.html>`__ and `roadmap
+<http://trac.nginx.org/nginx/roadmap>`__
+
+.. tabularcolumns:: |l|l|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Release date
+      - Upstream support
+      - OME (build)
+      - OME (deploy)
+    * - 1.0
+      - from Apr 2011
+      - to Apr 2012
+      - N/A
+      - Supported
+    * - 1.2
+      - from Apr 2012
+      - to May 2013
+      - N/A
+      - Supported
+    * - 1.4
+      - from Apr 2013
+      - to Mar 2014
+      - N/A
+      - Supported
+    * - 1.6
+      - from Apr 2014
+      - TBA
+      - N/A
+      - Recommended
+
+Distribution support:
+
+.. tabularcolumns:: |l|l|l|L|L|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - CentOS/RHEL
+      - Fedora
+      - Ubuntu
+      - Debian
+      - Homebrew
+      - FreeBSD Ports
+    * - 1.0
+      - N/A
+      - N/A
+      - 12.04 (1.1)
+      - N/A
+      - N/A
+      - N/A
+    * - 1.2
+      - N/A
+      - N/A
+      - 13.04
+      - 7.0, 6.0 bpo
+      - N/A
+      - N/A
+    * - 1.4
+      - N/A
+      - 19, 20
+      - 13.10, 14.04
+      - N/A
+      - N/A
+      - N/A
+    * - 1.6
+      - N/A
+      - 21, (22)
+      - 14.10, (15.04)
+      - (8.0), 7.0 bpo
+      - Yes
+      - Yes
+    * - Details
+      - 
+      - 
+      - `Link <http://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
+      - `Link <https://packages.debian.org/search?keywords=nginx&searchon=names&suite=all&section=all>`__
+      - 
+      - 
