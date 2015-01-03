@@ -108,8 +108,8 @@ Creating an unencrypted session
 Once a session has been created, if you want to speed up the data transfer,
 you can create and use an unencrypted session as::
 
-	unsecureClient = client.createClient(false);
-	sessionUnencrypted = unsecureClient.getSession();
+    unsecureClient = client.createClient(false);
+    sessionUnencrypted = unsecureClient.getSession();
 
 .. _connection_close:
 
@@ -140,32 +140,32 @@ Then if you would like, you can unload OMERO as well::
 
 You may see the following warning when unloading OMERO::
 
-	>> unloadOmero()
-	Warning: Objects of omero/client class exist - not clearing java
-	> In javaclasspath>doclear at 377
-	  In javaclasspath>local_javapath at 194
-	  In javaclasspath at 105
-	  In javarmpath at 48
-	  In unloadOmero at 75
+    >> unloadOmero()
+    Warning: Objects of omero/client class exist - not clearing java
+    > In javaclasspath>doclear at 377
+      In javaclasspath>local_javapath at 194
+      In javaclasspath at 105
+      In javarmpath at 48
+      In unloadOmero at 75
 
-	===============================================================
-	While unloading OMERO, found java objects left in workspace.
-	Please remove with 'clear <name>' and then run 'unloadOmero'
-	again.  Printing all objects...
-	===============================================================
+    ===============================================================
+    While unloading OMERO, found java objects left in workspace.
+    Please remove with 'clear <name>' and then run 'unloadOmero'
+    again.  Printing all objects...
+    ===============================================================
 
-	  Name      Size            Bytes  Class           Attributes
+      Name      Size            Bytes  Class           Attributes
 
-	  c         1x1                    omero.client
+      c         1x1                    omero.client
 
-	Closing session(s) for 1 found client(s): c
+    Closing session(s) for 1 found client(s): c
 
 This means that there is still an OMERO.matlab object in your workspace. If
 not listed, use ``whos`` to find such objects, and ``clear`` to remove them.
 After that, run ``unloadOmero()`` again::
 
-	>> clear c
-	>> unloadOmero()
+    >> clear c
+    >> unloadOmero()
 
 .. warning::
     You should also unload OMERO before installing a new version of
@@ -192,11 +192,11 @@ The projects owned by the user currently logged in can be retrieved using the
 :source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`
 function::
 
-	projects = getProjects(session)
+    projects = getProjects(session)
 
 If the project identifiers are known, they can be specified as::
 
-	projects = getProjects(session, ids)
+    projects = getProjects(session, ids)
 
 If the projects contain datasets, the datasets will automatically be loaded::
 
@@ -214,14 +214,14 @@ If the datasets contain images, the images will automatically be loaded::
 To avoid loading the whole graph (projects, datasets, images), pass `false` as
 a second optional argument. Only datasets will be loaded::
 
-	unloadedProjects = getProjects(session, ids, false)
+    unloadedProjects = getProjects(session, ids, false)
 
 To return the orphaned datasets as well as the projects, you can query the
 second output argument of
 :source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`::
 
-	[projects, orphanedDatasets] = getProjects(session)
-	[unloadedProjects, unloadedOrphanedDatasets] = getProjects(session, [], false)
+    [projects, orphanedDatasets] = getProjects(session)
+    [unloadedProjects, unloadedOrphanedDatasets] = getProjects(session, [], false)
 
 -  **Datasets**
 
@@ -229,11 +229,11 @@ The datasets owned by the user currently logged in can be retrieved using the
 :source:`getDatasets <components/tools/OmeroM/src/io/getDatasets.m>`
 function::
 
-	datasets = getDatasets(session)
+    datasets = getDatasets(session)
 
 If the dataset identifiers are known, they can be specified as::
 
-	datasets = getDatasets(session, ids)
+    datasets = getDatasets(session, ids)
 
 If the datasets contain images, the images will automatically be loaded::
 
@@ -241,7 +241,7 @@ If the datasets contain images, the images will automatically be loaded::
 
 To avoid loading the images, pass `false` as a second optional argument::
 
-	unloadedDatasets = getDatasets(session, ids, false)
+    unloadedDatasets = getDatasets(session, ids, false)
 
 -  **Images**
 
@@ -249,21 +249,21 @@ All the images owned by the user currently logged in can be retrieved using
 the :source:`getImages <components/tools/OmeroM/src/io/getImages.m>`
 function::
 
-	images = getImages(session)
+    images = getImages(session)
 
 If the image identifiers are known, they can be specified as::
 
-	images = getImages(session, ids)
+    images = getImages(session, ids)
 
 All the images contained in a subset of datasets of known identifiers
 ``datasetsIds`` can be returned using::
 
-	datasetImages = getImages(session, 'dataset', datasetsIds)
+    datasetImages = getImages(session, 'dataset', datasetsIds)
 
 All the images contained in all the datasets under a subset of projects of
 known identifiers ``projectIds`` can be returned using::
 
-	projectImages = getImages(session, 'project', projectIds)
+    projectImages = getImages(session, 'project', projectIds)
 
 The ``Image``-``Pixels`` model implies you need to use the ``Pixels`` objects
 to access valuable data about the ``Image``::
@@ -281,11 +281,11 @@ The screens owned by the user currently logged in can be retrieved using the
 :source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>`
 function::
 
-	screens = getScreens(session)
+    screens = getScreens(session)
 
 If the screen identifiers are known, they can be specified as::
 
-	screens = getScreens(session, ids)
+    screens = getScreens(session, ids)
 
 Note that the wells are not loaded. The plate objects can be accessed using::
 
@@ -303,8 +303,8 @@ To return the orphaned plates as well as the screens, you can query the
 second output argument of
 :source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>`::
 
-	[screens, orphanedPlates] = getScreens(session)
-	[unloadedScreens, unloadedOrphanedPlates] = getScreens(session, [], false)
+    [screens, orphanedPlates] = getScreens(session)
+    [unloadedScreens, unloadedOrphanedPlates] = getScreens(session, [], false)
 
 -  **Plates**
 
@@ -312,11 +312,11 @@ The plates owned by the user currently logged in can be retrieved using the
 :source:`getPlates <components/tools/OmeroM/src/io/getPlates.m>`
 function::
 
-	plates = getPlates(session)
+    plates = getPlates(session)
 
 If the plate identifiers are known, they can be specified as::
 
-	plates = getPlates(session, ids)
+    plates = getPlates(session, ids)
 
 -  **Wells**
 
@@ -354,11 +354,11 @@ The plane of an input image at coordinates (z, c, t) can be retrieved using
 the :source:`getPlane <components/tools/OmeroM/src/image/getPlane.m>`
 function::
 
-	plane = getPlane(session, image, z, c, t);
+    plane = getPlane(session, image, z, c, t);
 
 Alternatively, the image identifier can be passed to the function::
 
-	plane = getPlane(session, imageID, z, c, t);
+    plane = getPlane(session, imageID, z, c, t);
 
 -  **Tile**
 
@@ -366,22 +366,22 @@ The tile of an input image at coordinates (z, c, t) originated at (x, y) and
 of dimensions (w, h) can be retrieved using the
 :source:`getTile <components/tools/OmeroM/src/image/getTile.m>` function::
 
-	tile = getTile(session, image, z, c, t, x, y, w, h);
+    tile = getTile(session, image, z, c, t, x, y, w, h);
 
 Alternatively, the image identifier can be passed to the function::
 
-	tile = getTile(session, imageID, z, c, t, x, y, w, h);
+    tile = getTile(session, imageID, z, c, t, x, y, w, h);
 
 -  **Stack**
 
 The stack of an input image at coordinates (c, t) can be retrieved using the
 :source:`getStack <components/tools/OmeroM/src/image/getStack.m>` function::
 
-	stack = getStack(session, image, c, t);
+    stack = getStack(session, image, c, t);
 
 Alternatively, the image identifier can be passed to the function::
 
-	stack = getStack(session, imageID, c, t);
+    stack = getStack(session, imageID, c, t);
 
 -  **Hypercube**
 
@@ -430,57 +430,73 @@ The following table lists all OMERO.matlab functions used to manipulate
 annotations from OMERO:
 
 .. list-table::
-	:header-rows: 1
-	:widths: 20, 20, 20, 20, 20
+    :header-rows: 1
+    :widths: 10, 15, 15, 15, 15, 15, 5
 
 
-	-	*
-		* Tag
-		* File
-		* Comment
-		* XML
+    -   *
+        * Comment
+        * Double
+        * File
+        * Tag
+        * Timestamp
+        * XML
 
-	-	* Get by identifier
-		* :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
-		* :source:`getFileAnnotations <components/tools/OmeroM/src/annotations/getFileAnnotations.m>`
-		* :source:`getCommentAnnotations <components/tools/OmeroM/src/annotations/getCommentAnnotations.m>`
-		* :source:`getXmlAnnotations <components/tools/OmeroM/src/annotations/getXmlAnnotations.m>`
+    -   * Get by identifier
+        * :source:`getCommentAnnotations <components/tools/OmeroM/src/annotations/getCommentAnnotations.m>`
+        * :source:`getDoubleAnnotations <components/tools/OmeroM/src/annotations/getDoubleAnnotations.m>`
+        * :source:`getFileAnnotations <components/tools/OmeroM/src/annotations/getFileAnnotations.m>`
+        * :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
+        * :source:`getTimestampAnnotations <components/tools/OmeroM/src/annotations/getTimestampAnnotations.m>`
+        * :source:`getXmlAnnotations <components/tools/OmeroM/src/annotations/getXmlAnnotations.m>`
 
-	-	* Linked to images
-		* :source:`getImageTagAnnotations <components/tools/OmeroM/src/annotations/getImageTagAnnotations.m>`
-		* :source:`getImageFileAnnotations <components/tools/OmeroM/src/annotations/getImageFileAnnotations.m>`
-		* :source:`getImageCommentAnnotations <components/tools/OmeroM/src/annotations/getImageCommentAnnotations.m>`
-		* :source:`getImageXmlAnnotations <components/tools/OmeroM/src/annotations/getImageXmlAnnotations.m>`
+    -   * Linked to images
+        * :source:`getImageCommentAnnotations <components/tools/OmeroM/src/annotations/getImageCommentAnnotations.m>`
+        * :source:`getImageDoubleAnnotations <components/tools/OmeroM/src/annotations/getImageDoubleAnnotations.m>`
+        * :source:`getImageFileAnnotations <components/tools/OmeroM/src/annotations/getImageFileAnnotations.m>`
+        * :source:`getImageTagAnnotations <components/tools/OmeroM/src/annotations/getImageTagAnnotations.m>`
+        * :source:`getImageTimestampAnnotations <components/tools/OmeroM/src/annotations/getImageTimestampAnnotations.m>`
+        * :source:`getImageXmlAnnotations <components/tools/OmeroM/src/annotations/getImageXmlAnnotations.m>`
 
-	-	* Linked to datasets
-		* :source:`getDatasetTagAnnotations <components/tools/OmeroM/src/annotations/getDatasetTagAnnotations.m>`
-		* :source:`getDatasetFileAnnotations <components/tools/OmeroM/src/annotations/getDatasetFileAnnotations.m>`
-		* :source:`getDatasetCommentAnnotations <components/tools/OmeroM/src/annotations/getDatasetCommentAnnotations.m>`
-		* :source:`getDatasetXmlAnnotations <components/tools/OmeroM/src/annotations/getDatasetXmlAnnotations.m>`
+    -   * Linked to datasets
+        * :source:`getDatasetCommentAnnotations <components/tools/OmeroM/src/annotations/getDatasetCommentAnnotations.m>`
+        * :source:`getDatasetDoubleAnnotations <components/tools/OmeroM/src/annotations/getDatasetDoubleAnnotations.m>`
+        * :source:`getDatasetFileAnnotations <components/tools/OmeroM/src/annotations/getDatasetFileAnnotations.m>`
+        * :source:`getDatasetTagAnnotations <components/tools/OmeroM/src/annotations/getDatasetTagAnnotations.m>`
+        * :source:`getDatasetTimestampAnnotations <components/tools/OmeroM/src/annotations/getDatasetTimestampAnnotations.m>`
+        * :source:`getDatasetXmlAnnotations <components/tools/OmeroM/src/annotations/getDatasetXmlAnnotations.m>`
 
-	-	* Linked to projects
-		* :source:`getProjectTagAnnotations <components/tools/OmeroM/src/annotations/getProjectTagAnnotations.m>`
-		* :source:`getProjectFileAnnotations <components/tools/OmeroM/src/annotations/getProjectFileAnnotations.m>`
-		* :source:`getProjectCommentAnnotations <components/tools/OmeroM/src/annotations/getProjectCommentAnnotations.m>`
-		* :source:`getProjectXmlAnnotations <components/tools/OmeroM/src/annotations/getProjectXmlAnnotations.m>`
+    -   * Linked to projects
+        * :source:`getProjectCommentAnnotations <components/tools/OmeroM/src/annotations/getProjectCommentAnnotations.m>`
+        * :source:`getProjectDoubleAnnotations <components/tools/OmeroM/src/annotations/getProjectDoubleAnnotations.m>`
+        * :source:`getProjectFileAnnotations <components/tools/OmeroM/src/annotations/getProjectFileAnnotations.m>`
+        * :source:`getProjectTagAnnotations <components/tools/OmeroM/src/annotations/getProjectTagAnnotations.m>`
+        * :source:`getProjectTimestampAnnotations <components/tools/OmeroM/src/annotations/getProjectTimestampAnnotations.m>`
+        * :source:`getProjectXmlAnnotations <components/tools/OmeroM/src/annotations/getProjectXmlAnnotations.m>`
 
-	-	* Linked to screens
-		* :source:`getScreenTagAnnotations <components/tools/OmeroM/src/annotations/getScreenTagAnnotations.m>`
-		* :source:`getScreenFileAnnotations <components/tools/OmeroM/src/annotations/getScreenFileAnnotations.m>`
-		* :source:`getScreenCommentAnnotations <components/tools/OmeroM/src/annotations/getScreenCommentAnnotations.m>`
-		* :source:`getScreenXmlAnnotations <components/tools/OmeroM/src/annotations/getScreenXmlAnnotations.m>`
+    -   * Linked to screens
+        * :source:`getScreenCommentAnnotations  <components/tools/OmeroM/src/annotations/getScreenCommentAnnotations.m>`
+        * :source:`getScreenDoubleAnnotations <components/tools/OmeroM/src/annotations/getScreenDoubleAnnotations.m>`
+        * :source:`getScreenFileAnnotations <components/tools/OmeroM/src/annotations/getScreenFileAnnotations.m>`
+        * :source:`getScreenTagAnnotations <components/tools/OmeroM/src/annotations/getScreenTagAnnotations.m>`
+        * :source:`getScreenTimestampAnnotations <components/tools/OmeroM/src/annotations/getScreenTimestampAnnotations.m>`
+        * :source:`getScreenXmlAnnotations <components/tools/OmeroM/src/annotations/getScreenXmlAnnotations.m>`
 
-	-	* Linked to plates
-		* :source:`getPlateTagAnnotations <components/tools/OmeroM/src/annotations/getPlateTagAnnotations.m>`
-		* :source:`getPlateFileAnnotations <components/tools/OmeroM/src/annotations/getPlateFileAnnotations.m>`
-		* :source:`getPlateCommentAnnotations <components/tools/OmeroM/src/annotations/getPlateCommentAnnotations.m>`
-		* :source:`getPlateXmlAnnotations <components/tools/OmeroM/src/annotations/getPlateXmlAnnotations.m>`
+    -   * Linked to plates
+        * :source:`getPlateCommentAnnotations <components/tools/OmeroM/src/annotations/getPlateCommentAnnotations.m>`
+        * :source:`getPlateDoubleAnnotations <components/tools/OmeroM/src/annotations/getPlateDoubleAnnotations.m>`
+        * :source:`getPlateFileAnnotations <components/tools/OmeroM/src/annotations/getPlateFileAnnotations.m>`
+        * :source:`getPlateTagAnnotations <components/tools/OmeroM/src/annotations/getPlateTagAnnotations.m>`
+        * :source:`getPlateTimestampAnnotations <components/tools/OmeroM/src/annotations/getPlateTimestampAnnotations.m>`
+        * :source:`getPlateXmlAnnotations <components/tools/OmeroM/src/annotations/getPlateXmlAnnotations.m>`
 
-	-	* Write
-		* :source:`writeTagAnnotation <components/tools/OmeroM/src/annotations/writeTagAnnotation.m>`
-		* :source:`writeFileAnnotation <components/tools/OmeroM/src/annotations/writeFileAnnotation.m>`
-		* :source:`writeCommentAnnotation <components/tools/OmeroM/src/annotations/writeCommentAnnotation.m>`
-		* :source:`writeXmlAnnotation <components/tools/OmeroM/src/annotations/writeXmlAnnotation.m>`
+    -   * Write
+        * :source:`writeCommentAnnotation <components/tools/OmeroM/src/annotations/writeCommentAnnotation.m>`
+        * :source:`writeDoubleAnnotation <components/tools/OmeroM/src/annotations/writeDoubleAnnotation.m>`
+        * :source:`writeFileAnnotation <components/tools/OmeroM/src/annotations/writeFileAnnotation.m>`
+        * :source:`writeTagAnnotation <components/tools/OmeroM/src/annotations/writeTagAnnotation.m>`
+        * :source:`writeTimestampAnnotation <components/tools/OmeroM/src/annotations/writeTimestampAnnotation.m>`
+        * :source:`writeXmlAnnotation <components/tools/OmeroM/src/annotations/writeXmlAnnotation.m>`
 
 -  **Reading annotations**
 
@@ -489,14 +505,14 @@ can be retrieved from the server using the corresponding function, e.g. for
 tags using the :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
 function::
 
-	tagAnnotations = getTagAnnotations(session, tagIds);
+    tagAnnotations = getTagAnnotations(session, tagIds);
 
 Alternatively, the annotations of a given type linked to a given object can be
 retrieved using the corresponding function, e.g. to retrieve all tags linked
 to images :source:`getImageTagAnnotations <components/tools/OmeroM/src/annotations/getImageTagAnnotations.m>`
 function::
 
-	tagAnnotations = getImageTagAnnotations(session, imageIds);
+    tagAnnotations = getImageTagAnnotations(session, imageIds);
 
 Annotations can be filtered by namespace. To include only annotations with a
 given namespace ``ns``, use the ``include`` parameter/key value::
@@ -527,12 +543,12 @@ function. If the file annotation has been retrieved from the server as
 ``fileAnnotation``, then the content of its ``OriginalFile`` can be downloaded
 under ``target_file`` using::
 
-	getFileAnnotationContent(session, fileAnnotation, target_file);
+    getFileAnnotationContent(session, fileAnnotation, target_file);
 
 Alternatively, if only the identifier of the file annotation ``faId`` is
 known::
 
-	getFileAnnotationContent(session, faId, target_file);
+    getFileAnnotationContent(session, faId, target_file);
 
 -  **Writing annotations**
 
@@ -545,14 +561,14 @@ function.
 For example, to create a new tag annotation ``tag_name`` and attach it to the
 image ``image_id``::
 
-	tagAnnotation = writeTagAnnotation(session, tag_name);
-	link = linkAnnotation(session, tagAnnotation, 'image', image_id);
+    tagAnnotation = writeTagAnnotation(session, tag_name);
+    link = linkAnnotation(session, tagAnnotation, 'image', image_id);
 
 To create a file annotations from the content of a ``local_file_path`` and
 attach it to the image ``image_id``::
 
-	fileAnnotation = writeFileAnnotation(session, local_file_path);
-	link = linkAnnotation(session, fileAnnotation, 'image', image_id);
+    fileAnnotation = writeFileAnnotation(session, local_file_path);
+    link = linkAnnotation(session, fileAnnotation, 'image', image_id);
 
 For existing file annotations, it is possible to replace the content of the
 original file without having to recreate a new file annotation using the
@@ -561,7 +577,11 @@ If the file annotation has been retrieved from the server as
 ``fileAnnotation``, then the content of its ``OriginalFile`` can be replaced
 by the content of ``local_file_path`` using::
 
-	updateFileAnnotation(session, fileAnnotation, local_file_path);
+    updateFileAnnotation(session, fileAnnotation, local_file_path);
+
+.. seealso::
+  :source:`WriteData.m <examples/Training/matlab/WriteData.m>`
+    Example script showing methods to write, link and retrieve annotations
 
 Writing data
 ------------
@@ -740,12 +760,12 @@ can be deleted from the server using the
 :source:`deleteImages <components/tools/OmeroM/src/delete/deleteImages.m>`
 function::
 
-	deleteImages(session, imageIds);
+    deleteImages(session, imageIds);
 
 .. seealso::
 
-	:source:`deleteProjects <components/tools/OmeroM/src/delete/deleteProjects.m>`, :source:`deleteDatasets <components/tools/OmeroM/src/delete/deleteDatasets.m>`, :source:`deleteScreens <components/tools/OmeroM/src/delete/deleteScreens.m>`, :source:`deletePlates <components/tools/OmeroM/src/delete/deletePlates.m>`
-		Utility functions to delete objects
+    :source:`deleteProjects <components/tools/OmeroM/src/delete/deleteProjects.m>`, :source:`deleteDatasets <components/tools/OmeroM/src/delete/deleteDatasets.m>`, :source:`deleteScreens <components/tools/OmeroM/src/delete/deleteScreens.m>`, :source:`deletePlates <components/tools/OmeroM/src/delete/deletePlates.m>`
+        Utility functions to delete objects
 
 Rendering images
 -----------------
