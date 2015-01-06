@@ -364,16 +364,20 @@ To view all available markers the :option:`--markers` option can be used with
 
 There are currently two custom markers defined:
 
-  `long_running`: for long running tests. These are tests that typically take
-  10 minutes or more and are normally excluded from the daily integration
-  builds.
+.. glossary::
 
-  `broken`: for broken tests. These are tests that are either broken or fail
-  intermittently with no obvious quick fix. Broken tests are excluded from the
-  main integration builds and instead are run in a separate daily build.
-  `broken` markers should have a reason, an associated ticket number or both.
-  If there are multiple associated tickets then a comma-separated list should
-  be used.
+    `long_running`
+        for long running tests. These are tests that typically take
+        10 minutes or more and are normally excluded from the daily integration
+        builds.
+
+    `broken`
+        for broken tests. These are tests that are either broken or fail
+        intermittently with no obvious quick fix. Broken tests are excluded from the
+        main integration builds and instead are run in a separate daily build.
+        `broken` markers should have a reason, an associated ticket number or both.
+        If there are multiple associated tickets then a comma-separated list should
+        be used.
 
 ::
 
