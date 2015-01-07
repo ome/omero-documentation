@@ -428,18 +428,18 @@ to rebuild or restart the server. A few basic options are shown below.
 
         ./setup.py test --markers
 
-.. option:: -s <test_path>, --test-path <test_path>
+.. option:: -t <test_path>, --test-path <test_path>
 
     This option specifies the test suite to run. For instance to run a single
     test file::
 
         cd components/tools/OmeroPy
-        ./setup.py test -s test/integration/test_admin.py
+        ./setup.py test -t test/integration/test_admin.py
 
     Or to run all tests under a given folder::
 
         cd components/tools/OmeroPy
-        ./setup.py test -s test/integration/clitest
+        ./setup.py test -t test/integration/clitest
 
 .. option:: -k <string>
 
