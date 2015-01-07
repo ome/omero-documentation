@@ -472,12 +472,6 @@ plugin :pypi:`pytest-pythonpath` can be used to add paths to
 
 .. program:: py.test
 
-.. option:: -s
-
-    This option allows the standard output to be shown on the console::
-
-        py.test test/integration/test_admin.py -s
-
 .. option:: --repeat <number>
 
     This option allows to repeat tests for *number* occurences::
