@@ -416,18 +416,6 @@ to rebuild or restart the server. A few basic options are shown below.
 
 .. program:: setup.py test
 
-.. option:: -h, --help
-
-    This option displays the full list of available options::
-
-        ./setup.py test -h
-
-.. option:: --markers
-
-    This option lists available markers for decorating tests::
-
-        ./setup.py test --markers
-
 .. option:: -t <test_path>, --test-path <test_path>
 
     This option specifies the test suite to run. For instance to run a single
@@ -462,6 +450,18 @@ to rebuild or restart the server. A few basic options are shown below.
     the marker `long_running`::
 
         ./setup.py test -s test/integration -m "not long_running"
+
+.. option:: --markers
+
+    This option lists available markers for decorating tests::
+
+        ./setup.py test --markers
+
+.. option:: -h, --help
+
+    This option displays the full list of available options::
+
+        ./setup.py test -h
 
 To make use of the more advanced options available in `pytest` that are not
 accessible using :program:`setup.py test`, the :program:`py.test` script can
