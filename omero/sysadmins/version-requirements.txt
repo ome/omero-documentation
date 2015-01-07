@@ -7,8 +7,9 @@ Support levels
 
 The following sections use the terminology in the table below to
 describe the support status of a given component, as it progresses
-from being new and not supported, to supported and regularly tested,
-and to finally to being old and no longer supported or tested.
+from being new and not supported, to supported and tested on a
+routine basis, and to finally being old and no longer supported
+nor tested.
 
 .. tabularcolumns:: |l|l|J|
 
@@ -23,10 +24,10 @@ and to finally to being old and no longer supported or tested.
       - New version not yet regularly tested and not officially supported; may or may not work (use at own risk)
     * - Recommended
       - supported/optimal
-      - Current version which is regularly tested, confirmed to work correctly, recommended for optimal performance/experience
+      - Version which is regularly tested, confirmed to work correctly, recommended for optimal performance/experience
     * - Supported
       - supported/suboptimal
-      - Older version which is tested, confirmed to work correctly, but may not offer optimal performance/experience
+      - Version which is tested, confirmed to work correctly, but may not offer optimal performance/experience
     * - Dropped
       - unsupported/old
       - Old version not longer tested and no longer officially supported; may or may not work (use at own risk)
@@ -121,11 +122,11 @@ Microsoft Windows
 
 XP is now unsupported upstream, and Server 2003 will be unsupported
 within the timeframe of 5.1 support.  Vista is likely supported but
-usage is minimal and it's untested, hence marked as dropped.  7/Server
+usage is minimal and it is untested, hence marked as dropped.  7/Server
 2008 and 8/Server 2012 are both supported and used.  Server 2008
 builds in place; no 2012 builds or testing in place yet.  No regular
-Windows CI deployment and testing in place other than manually.  Some
-manual testing on Windows 7 VMs and machines.
+Windows CI deployment and testing is in place other than manually.
+Some manual testing on Windows 7 VMs and machines.
 
 UNIX (MacOS X)
 ^^^^^^^^^^^^^^
@@ -174,7 +175,7 @@ UNIX (MacOS X)
       - Recommended
       - Recommended
 
-Apple don't formally announce end of life for their releases, but 10.6
+Apple do not formally announce end of life for their releases, but 10.6
 security fixes ended some time back, and 10.7 has now also ended with
 the release of 10.10.  We have regular CI testing of 10.8, 10.9 and
 10.10 builds plus developer testing of building and client and server
@@ -230,8 +231,8 @@ Only RHEL and CentOS 6 are supported at present.  Given the long life
 of enterprise releases, I'd suggest we should only support the latest
 one at any given time or else it ties us into very old dependencies;
 6.x is already very long in the tooth.  I'd suggest moving to 7 once
-it's released and tested by us.  There is extensive CI support for
-building and deployment with CentOS 6 but it's not used directly by
+it is released and tested by us.  There is extensive CI support for
+building and deployment with CentOS 6 but it is not used directly by
 developers in general.
 
 Linux (Fedora)
@@ -328,7 +329,7 @@ Linux (Ubuntu)
 
 Only the LTS and 13.10 releases are supported.  We may wish to only
 formally support e.g. the last one or two LTS releases (being a bit
-more frequent than CentOS/RHEL; 10.04 has quite old dependencies and
+more frequent than CentOS/RHEL); 10.04 has quite old dependencies and
 could be considered for dropping.  No CI testing for any version
 except 10.04 on howe/gretzky; some developer use of 12.04 LTS, 14.04
 LTS and more recent non-LTS releases.
@@ -374,7 +375,7 @@ Linux (Debian stable)
       - Upcoming
       - `Link <https://www.debian.org/releases/jessie/>`__
 
-Stable releases 7.x and v6.x are supported.  There is no CI testing for
+Stable releases 7.x and 6.x are supported.  There is no CI testing for
 any version, and some developer use of 7.x.
 
 Linux (Debian testing and unstable)
@@ -604,7 +605,7 @@ Distribution support:
       - 
 
 The PostgreSQL project provides `packages
-<http://www.postgresql.org/download/>`__ for supported platform.
+<http://www.postgresql.org/download/>`__ for supported platforms.
 Therefore distribution support is not critical since 9.3 and 9.4 are
 available for all platforms.
 
@@ -1039,7 +1040,7 @@ worth supporting; 3.4 is used in MacOS X 10.9 and 10.10 and in FreeBSD
 10.1. Until 3.4, no point releases were made for major versions.
 
 
-ICE
+Ice
 ^^^
 
 `General overview <http://www.zeroc.com/download.html>`__
@@ -1223,7 +1224,7 @@ distribution restrictions by Oracle.  Oracle Java may be used if
 downloaded separately.
 
 Oracle no longer allow general downloading of Java 6.  Java 7 is
-available for all platforms except for OSX 10.6 (where it's
+available for all platforms except for OSX 10.6 (where it is
 installable manually by unpacking the 10.7 installer).  Some 1.8
 openjdk versions are broken (Debian/Ubuntu 1.8.0u40 broken), but some
 work (1.8.0u25, FreeBSD).
