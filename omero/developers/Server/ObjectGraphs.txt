@@ -278,13 +278,14 @@ It is informative to observe the sequence of rule applications as the
 graph is traversed and decisions about model objects are made. To do so
 requires configuring :doc:`../logging` for the server, specifically
 :source:`etc/logback.xml`. To activate graph traversal debug logging,
-replace the line,
+adjust the ends of the lines,
 
 .. code-block:: xml
 
+  <logger name="omero.cmd.graphs" level="INFO"/>
   <logger name="ome.services.graphs" level="INFO"/>
 
-with,
+such that they instead read,
 
 .. code-block:: xml
 
