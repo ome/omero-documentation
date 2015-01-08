@@ -15,7 +15,7 @@ installable independently. Criteria for what is considered to be
 supportable includes support by its developers upstream and within
 each operating system distribution for the lifetime of the 5.1 release
 (including security support), and also upon our resources allocated to
-CI and testing.  If we aren't actively testing it, we can't claim it's
+CI and testing. If we aren't actively testing it, we can't claim it's
 supported or functional.
 
 Proposed changes are made for both the forthcoming 5.1 release, and
@@ -24,14 +24,14 @@ in order that sysadmins may plan ahead and ensure that prerequisites
 are in place to ease future upgrades.
 
 As a system administrator, your feedback regarding these proposed
-changes would be most appreciated.  We would like to ensure that we
+changes would be most appreciated. We would like to ensure that we
 support deployment and upgrade of OMERO on the most commonly-used and
 supported Linux and Windows releases, and also on MacOS X, with a
-minimum of effort.  If any of the proposed changes will be problematic
+minimum of effort. If any of the proposed changes will be problematic
 (for example, the minimum requirement for a given component is not
 possible to meet), please do provide us with the details of your
 system so that we can consider this in future revisions to this
-proposal before the requirements are made final.  Please check the
+proposal before the requirements are made final. Please check the
 minimum Java and PostgreSQL versions in particular.
 
 Note that the following section contains the details which were used
@@ -325,12 +325,12 @@ Microsoft Windows
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16526>`__
 
 XP is now unsupported upstream, and Server 2003 will be unsupported
-within the timeframe of 5.1 support.  Vista is likely supported but
-usage is minimal and it is untested, hence marked as dropped.  7/Server
-2008 and 8/Server 2012 are both supported and used.  Server 2008
-builds in place; no 2012 builds or testing in place yet.  No regular
-Windows CI deployment and testing is in place other than manually.
-Some manual testing on Windows 7 VMs and machines.
+within the timeframe of 5.1 support. Vista is likely supported but
+usage is minimal and it is untested, hence marked as dropped. 7/Server
+2008 and 8/Server 2012 are both supported and used. Server 2008 builds
+in place; no 2012 builds or testing in place yet. No regular Windows
+CI deployment and testing is in place other than manually. Some manual
+testing on Windows 7 VMs and machines.
 
 UNIX (MacOS X)
 ^^^^^^^^^^^^^^
@@ -379,13 +379,14 @@ UNIX (MacOS X)
       - Recommended
       - Recommended
 
-Apple do not formally announce end of life for their releases, but 10.6
-security fixes ended some time back, and 10.7 has now also ended with
-the release of 10.10.  We have regular CI testing of 10.8, 10.9 and
-10.10 builds plus developer testing of building and client and server
-deployment.  10.6 and 10.7 are marked as dropped since we no longer
-use 10.6 internally, and never used 10.7, and they are no longer
-tested by the CI infrastructure (all 10.6 and 10.7 nodes retired).
+Apple do not formally announce end of life for their releases, but
+10.6 security fixes ended some time back, and 10.7 has now also ended
+with the release of 10.10. We have regular CI testing of 10.8, 10.9
+and 10.10 builds plus developer testing of building and client and
+server deployment. 10.6 and 10.7 are marked as dropped since we no
+longer use 10.6 internally, and never used 10.7, and they are no
+longer tested by the CI infrastructure (all 10.6 and 10.7 nodes
+retired).
 
 UNIX (FreeBSD)
 ^^^^^^^^^^^^^^
@@ -431,13 +432,13 @@ General overview for `RHEL
       - Upcoming
       - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
-Only RHEL and CentOS 6 are supported at present.  Given the long life
+Only RHEL and CentOS 6 are supported at present. Given the long life
 of enterprise releases, I'd suggest we should only support the latest
 one at any given time or else it ties us into very old dependencies;
 6.x is already quite long in the tooth, however is in wide use and so
-will require supporting for 5.1 at a minimum.  7.x can be the
+will require supporting for 5.1 at a minimum. 7.x can be the
 recommended version once it is properly tested by us and has
-appropriate CI support.  There is currently extensive CI support for
+appropriate CI support. There is currently extensive CI support for
 building and deployment with CentOS 6 but it is not used directly by
 developers in general.
 
@@ -534,8 +535,8 @@ Linux (Ubuntu)
       - `Reference <https://wiki.ubuntu.com/Releases>`__
 
 Only the LTS releases are supported due to resource limitations upon
-CI and testing.  Only the last two LTS releases are supported (being a
-bit more frequent than CentOS/RHEL).  There is currently no CI testing
+CI and testing. Only the last two LTS releases are supported (being a
+bit more frequent than CentOS/RHEL). There is currently no CI testing
 for any version, but some developer use of 12.04 LTS, 14.04 LTS and
 more recent non-LTS releases.
 
@@ -580,7 +581,7 @@ Linux (Debian stable)
       - Upcoming
       - `Reference <https://www.debian.org/releases/jessie/>`__
 
-Stable releases 7.x and 6.x are supported.  There is no CI testing for
+Stable releases 7.x and 6.x are supported. There is no CI testing for
 any version, and some developer use of 7.x.
 
 Linux (Debian testing and unstable)
@@ -611,13 +612,13 @@ Unix (FreeBSD)
 ^^^^^^^^^^^^^^
 
 Supports amd64 (64-bit) and i386 / x86 (32-bit) for all supported
-releases.  Other platforms are supported, but may require manual
+releases. Other platforms are supported, but may require manual
 building of prerequisites.
 
 Linux (RHEL and CentOS)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Version 6 supports amd64 (64-bit) and i386 / x86 (32-bit).  Version 7
+Version 6 supports amd64 (64-bit) and i386 / x86 (32-bit). Version 7
 supports amd64 (64-bit) only.
 
 Linux (other)
@@ -633,7 +634,7 @@ Additional notes
 The OMERO server is 64-bit-only due to the large memory requirements.
 On the client side, there is a requirement for 32-bit support for
 Windows clients and to a lesser extent on Linux, and zero on MacOS X
-at present.  Dropping 32-bit support for OMERO.server and C++ Ice and
+at present. Dropping 32-bit support for OMERO.server and C++ Ice and
 other builds should be considered, given the vast reduction in the
 support burden and steadily dropping need for these builds.
 
@@ -975,10 +976,10 @@ Distribution support
 
 At the moment 2.7 support is present upstream for the foreseeable
 future; 3.x versions continue to be released and retired regularly in
-parallel.  The limiting factor will be distribution support for 2.7 as
+parallel. The limiting factor will be distribution support for 2.7 as
 major packages are slowly switching to 3.x, and this might leave us in
 a mess if our python module dependencies are no longer available
-without major effort.  Ice in particular has dropped 2.7 support for
+without major effort. Ice in particular has dropped 2.7 support for
 Windows.
 
 GCC
@@ -1490,14 +1491,14 @@ Distribution support
       - 
 
 Note that all distributions provide OpenJDK 6, 7 and/or 8 due to
-distribution restrictions by Oracle.  Oracle Java may be used if
+distribution restrictions by Oracle. Oracle Java may be used if
 downloaded separately.
 
-Oracle no longer allow general downloading of Java 6.  Java 7 is
+Oracle no longer allow general downloading of Java 6. Java 7 is
 available for all platforms except for OSX 10.6 (where it is
-installable manually by unpacking the 10.7 installer).  Some 1.8
+installable manually by unpacking the 10.7 installer). Some 1.8
 OpenJDK versions are broken (Debian/Ubuntu 1.8.0u40 broken), but some
-work (1.8.0u25, FreeBSD).  1.8 should become recommended once working
+work (1.8.0u25, FreeBSD). 1.8 should become recommended once working
 versions exist in all distributions.
 
 OpenGL
@@ -1709,7 +1710,7 @@ Distribution support
 Support is largely down to the system hardware (GPU) and drivers.
 There are no guarantees for 2.0 and greater on Windows (1.4 only
 guaranteed), but AMD, Intel and nVidia all provide GL drivers
-supporting newer versions.  The minimum baseline is probably 2.1.
+supporting newer versions. The minimum baseline is probably 2.1.
 However, 3.2/3.3 is probably the baseline for most hardware under 5
 years old, with 4.x being the typical baseline for hardware from a
 year ago.
@@ -1790,7 +1791,7 @@ Distribution support
       - 
 
 Apache 2.2 requires mod_fastcgi (from external repository, for
-CentOS6).  Apache 2.4 requires mod_proxy_cfgi and isn't perfectly
+CentOS6). Apache 2.4 requires mod_proxy_cfgi and isn't perfectly
 supported by default (needs a manual tweak), should be working for
 5.1.
 
