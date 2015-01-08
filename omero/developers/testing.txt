@@ -435,11 +435,11 @@ to rebuild or restart the server. A few basic options are shown below.
     their names. For example, to run all the tests under
     :file:`test/integration` with `permissions` in their names::
 
-        ./setup.py test -s test/integration -k permissions
+        ./setup.py test -t test/integration -k permissions
 
     This option can also be used to run a named test within a test module::
 
-        ./setup.py test -s test/integration/test_admin.py -k testGetGroup
+        ./setup.py test -t test/integration/test_admin.py -k testGetGroup
 
 .. option:: -m <marker>
 
@@ -449,7 +449,7 @@ to rebuild or restart the server. A few basic options are shown below.
     For example, to run all integration tests excluding those decorated with
     the marker `long_running`::
 
-        ./setup.py test -s test/integration -m "not long_running"
+        ./setup.py test -t test/integration -m "not long_running"
 
 .. option:: --markers
 
