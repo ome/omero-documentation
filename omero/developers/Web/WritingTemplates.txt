@@ -152,9 +152,11 @@ Here is a full list of the templates under
 Webtest examples
 ^^^^^^^^^^^^^^^^
 
-You can find examples of how to extend the base templates in the webtest
-application. Look under ``omeroweb/webtest/templates/webtest/webgateway``.
-View live at <your-server-name>/webtest/webgateway_templates/base_header/>
+You can find examples of how to extend the base templates in the 
+`webtest <https://github.com/openmicroscopy/webtest/>`_
+application within the ``webtest/templates/webtest/webgateway`` directory.
+If you install the webtest app, you can view the template examples
+live at <your-server-name>/webtest/webgateway_templates/base_header/>
 
 The link is to an example that extends base\_header.html and
 contains links to all the other webtest examples. These pages indicate
