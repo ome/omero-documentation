@@ -457,6 +457,12 @@ to rebuild or restart the server. A few basic options are shown below.
 
         ./setup.py test --markers
 
+.. option:: -s
+
+    This option allows the standard output to be shown on the console::
+
+        ./setup.py test -t test/integration/test_admin.py -s
+
 .. option:: -h, --help
 
     This option displays the full list of available options::
