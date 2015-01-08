@@ -434,8 +434,10 @@ General overview for `RHEL
 Only RHEL and CentOS 6 are supported at present.  Given the long life
 of enterprise releases, I'd suggest we should only support the latest
 one at any given time or else it ties us into very old dependencies;
-6.x is already very long in the tooth.  I'd suggest moving to 7 once
-it is released and tested by us.  There is extensive CI support for
+6.x is already quite long in the tooth, however is in wide use and so
+will require supporting for 5.1 at a minimum.  7.x can be the
+recommended version once it is properly tested by us and has
+appropriate CI support.  There is currently extensive CI support for
 building and deployment with CentOS 6 but it is not used directly by
 developers in general.
 
@@ -531,12 +533,11 @@ Linux (Ubuntu)
       - Upcoming
       - `Link <https://wiki.ubuntu.com/Releases>`__
 
-Only the LTS and 13.10 releases are supported.  We may wish to only
-formally support e.g. the last one or two LTS releases (being a bit
-more frequent than CentOS/RHEL); 10.04 has quite old dependencies and
-could be considered for dropping.  No CI testing for any version
-except 10.04 on howe/gretzky; some developer use of 12.04 LTS, 14.04
-LTS and more recent non-LTS releases.
+Only the LTS releases are supported due to resource limitations upon
+CI and testing.  Only the last two LTS releases are supported (being a
+bit more frequent than CentOS/RHEL).  There is currently no CI testing
+for any version, but some developer use of 12.04 LTS, 14.04 LTS and
+more recent non-LTS releases.
 
 Linux (Debian stable)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -629,13 +630,12 @@ powerpc.
 Additional notes
 ^^^^^^^^^^^^^^^^
 
-The OMERO server is de-facto 64-bit-only due to the large memory
-requirements; this could safely be made a requirement.  On the client
-side, there is a requirement for 32-bit support for Windows clients
-and to a lesser extent on Linux, and zero on MacOS X at present.
-Dropping 32-bit support for OMERO.server and C++ Ice and other builds
-should be considered, given the vast reduction in the support burden
-and steadily dropping need for these builds.
+The OMERO server is 64-bit-only due to the large memory requirements.
+On the client side, there is a requirement for 32-bit support for
+Windows clients and to a lesser extent on Linux, and zero on MacOS X
+at present.  Dropping 32-bit support for OMERO.server and C++ Ice and
+other builds should be considered, given the vast reduction in the
+support burden and steadily dropping need for these builds.
 
 Dependencies
 ------------
@@ -1489,15 +1489,16 @@ Distribution support
       - 
       - 
 
-Note that all distributions provide OpenJDK 6, 7 and 8 due to
+Note that all distributions provide OpenJDK 6, 7 and/or 8 due to
 distribution restrictions by Oracle.  Oracle Java may be used if
 downloaded separately.
 
 Oracle no longer allow general downloading of Java 6.  Java 7 is
 available for all platforms except for OSX 10.6 (where it is
 installable manually by unpacking the 10.7 installer).  Some 1.8
-openjdk versions are broken (Debian/Ubuntu 1.8.0u40 broken), but some
-work (1.8.0u25, FreeBSD).
+OpenJDK versions are broken (Debian/Ubuntu 1.8.0u40 broken), but some
+work (1.8.0u25, FreeBSD).  1.8 should become recommended once working
+versions exist in all distributions.
 
 OpenGL
 ^^^^^^
@@ -1705,12 +1706,13 @@ Distribution support
 †
   Driver/hardware dependent
 
-Support is largely down to the system hardware (GPU) and drivers.  No
-guarantees for 2.0 and greater on Windows (1.4 only guaranteed), but
-AMD, Intel and nVidia all provide GL drivers supporting newer
-versions.  The minimum baseline is probably 2.1.  However, 3.2/3.3 is
-probably the baseline for most hardware under 5 years old, with 4.x
-being the typical baseline for hardware from a year back.
+Support is largely down to the system hardware (GPU) and drivers.
+There are no guarantees for 2.0 and greater on Windows (1.4 only
+guaranteed), but AMD, Intel and nVidia all provide GL drivers
+supporting newer versions.  The minimum baseline is probably 2.1.
+However, 3.2/3.3 is probably the baseline for most hardware under 5
+years old, with 4.x being the typical baseline for hardware from a
+year ago.
 
 Apache
 ^^^^^^
