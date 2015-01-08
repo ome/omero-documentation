@@ -15,8 +15,8 @@ installable independently. Criteria for what is considered to be
 supportable includes support by its developers upstream and within
 each operating system distribution for the lifetime of the 5.1 release
 (including security support), and also upon our resources allocated to
-CI and testing. If we aren't actively testing it, we can't claim it's
-supported or functional.
+CI and testing. If we are not actively testing it, we cannot claim it
+is supported or functional.
 
 Proposed changes are made for both the forthcoming 5.1 release, and
 also for the following 5.2 release, albeit tentatively at this point,
@@ -46,7 +46,7 @@ Operating systems
   * Proposal: [5.2] raise minimum to 8 (client) / Server 2012R2
     (server) if needed
   * Rationale: All prior versions prior to this are/will be out of
-    support shortly except Vista (which we don't test and is not
+    support shortly except Vista (which we do not test and is not
     widely used). We have no testing of these older systems.
 
 * MacOS X
@@ -64,7 +64,7 @@ Operating systems
   * Proposal: [5.1] 6.x
   * Proposal: [5.2] Recommend 7.x over 6.x; 6.x will either remain
     supported or become unsupported
-  * Rationale: 7 is quite new and not yet widely adopted, and so it's
+  * Rationale: 7 is quite new and not yet widely adopted, and so it is
     likely many institutions will wish to continue using 6 for the
     foreseeable future. However, the versions in 6 are getting quite
     old and this does affect the support for other components (see
@@ -80,7 +80,7 @@ Operating systems
   * Rationale: Both are newer than CentOS/RHEL 6.x, so both could be
     supported since all version requirements are satisfied. However,
     14.04 comes with Ice 3.5 and is generally more up to date, and we
-    don't have testing in place for either at present. We do not have
+    do not have testing in place for either at present. We do not have
     the resources to test non-LTS versions, though recent releases are
     in use by developers.
 
@@ -131,16 +131,15 @@ Components
   * Proposal: [5.1] 2.7 recommended, 2.6 supported, (3.x not
     supported)
   * Proposal: [5.2] 2.7 recommended, 2.6 dropped, (3.x not supported)
-  * Rationale: 2.7 is provided by all systems except for
-    CentOS/RHEL 6.x, however it is available officially via SCL so
-    could be made the minimum. Note that 3.3 is also available via
-    SCL, so there's potential for a 3.x migration in the 5.2
-    timeframe. Dropping 2.6 would unify python support to a single
-    major version, and remove a number of portability issues; now it's
-    restricted to CentOS/RHEL 6, it's in practice much less tested than
-    2.7 since no developer is using it routinely. Removing 2.6 support
-    will be dependent upon internal testing of the SCL python in
-    CentOS.
+  * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
+    6.x, however it is available officially via SCL so could be made
+    the minimum. Note that 3.3 is also available via SCL, so there is
+    potential for a 3.x migration in the 5.2 timeframe. Dropping 2.6
+    would unify python support to a single major version, and remove a
+    number of portability issues; now it is restricted to CentOS/RHEL
+    6, in practice it is much less tested than 2.7 since no developer
+    is using it routinely. Removing 2.6 support will be dependent upon
+    internal testing of the SCL python in CentOS.
 
 * GCC
 
@@ -156,7 +155,7 @@ Components
 * LLVM/clang
 
   * Proposal: 3.4 
-  * Rationale: It's the current toolchain on MacOS/FreeBSD and is
+  * Rationale: It is the current toolchain on MacOS/FreeBSD and is
     working well; 3.3 dropped due to no longer being used by current
     toolchains
 
@@ -183,7 +182,7 @@ Components
 
   * Proposal: [5.1] 7 recommended, 8 supported, 6 dropped
   * Proposal: [5.2] 7 supported, 8 recommended
-  * Rationale: It's 2 years this Februrary since the last Java 6
+  * Rationale: It will be 2 years this Februrary since the last Java 6
     security update. Java 7 is supported on all supported operating
     systems above, and in most cases is the default java version on
     those systems (it’s now 8 on some). This was mentioned recently,
@@ -196,8 +195,8 @@ Components
 
   * Proposal: [5.1] 2.2
   * Rationale: 2.2 is the CentOS/RHEL 6.x and Ubuntu 12.04
-    version. 2.4 support in OMERO isn't perfect at this point, needing
-    some manual tweaking (should be resolved for 5.1)
+    version. 2.4 support in OMERO is not perfect at this point,
+    needing some manual tweaking (should be resolved for 5.1)
 
 * nginx
 
@@ -1791,7 +1790,7 @@ Distribution support
       - 
 
 Apache 2.2 requires mod_fastcgi (from external repository, for
-CentOS6). Apache 2.4 requires mod_proxy_cfgi and isn't perfectly
+CentOS6). Apache 2.4 requires mod_proxy_cfgi and is not perfectly
 supported by default (needs a manual tweak), should be working for
 5.1.
 
