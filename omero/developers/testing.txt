@@ -368,21 +368,20 @@ There are a small number of custom markers defined:
 
     `long_running`
         Used to mark tests as long running. These are tests that typically take
-        10 minutes or more and are normally excluded from the daily integration
-        builds.
+        10 minutes or more and are excluded from the daily integration builds.
 
     `broken`
         Used to mark broken tests. These are tests that fail consistently with no
         obvious quick fix. Broken tests are excluded from the main integration builds
         and instead are run in a separate daily build. `broken` markers should have a
-        reason, an associated ticket number or both. If there are multiple associated
-        tickets then a comma-separated list should be used.
+        reason, an associated Trac ticket number or both. If there are multiple
+        associated tickets then a comma-separated list should be used.
 
     `intermittent`
-        Used to merk tests that fail intermittently. `intermittent` markers should
-        have a reason, an associated ticket number or both. If there are multiple
-        associated tickets then a comma-separated list should be used. Tests marked
-        as intermittent are normally included in the daily integration builds.
+        Used to mark tests that fail intermittently. `intermittent` markers should
+        have a reason, an associated Trac ticket number or both. If there are
+        multiple associated tickets then a comma-separated list should be used. Tests
+        marked as intermittent are included in the daily integration builds.
 
 ::
 
