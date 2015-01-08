@@ -56,12 +56,12 @@ Operating systems
   * Proposal: Support 10.8 for client only, test server only on
     10.9/10.10
   * Rationale: All prior versions no longer have security support and
-    it still leaves 3 versions to support. MacOS is typically suited
+    it still leaves 3 versions to support. MacOS X is typically suited
     only to client use, not serious server deployment
 
 * Linux (CentOS/RHEL)
 
-  * Proposal: [5.1] 6.6
+  * Proposal: [5.1] 6.x
   * Proposal: [5.2] Recommend 7.x over 6.x; 6.x will either remain
     supported or become unsupported
   * Rationale: 7 is quite new and not yet widely adopted, and so it's
@@ -77,7 +77,7 @@ Operating systems
   * Proposal: Only LTS versions are supported and tested. Non-LTS
     versions following a supported LTS release are likely to work but
     are not officially supported or tested.
-  * Rationale: Both are newer than CentOS/RHEL6.6, so both could be
+  * Rationale: Both are newer than CentOS/RHEL 6.x, so both could be
     supported since all version requirements are satisfied. However,
     14.04 comes with Ice 3.5 and is generally more up to date, and we
     don't have testing in place for either at present. We do not have
@@ -119,7 +119,7 @@ Components
   * Proposal: [5.2] 9.3 recommended, 9.4+ supported, 9.2 supported or
     dropped
   * Rationale: Current releases available for all supported systems
-    from upstream and for CentOS/RHEL6.6 officially via SCL (software
+    from upstream and for CentOS/RHEL 6.x officially via SCL (software
     collections). At a bare minimum, 8.4 and 9.0 must be dropped (end
     of security support); dropping 9.1 removes the floating point
     issues fixed by 9.2+. Due to its age, 8.4 no longer receives
@@ -132,12 +132,12 @@ Components
     supported)
   * Proposal: [5.2] 2.7 recommended, 2.6 dropped, (3.x not supported)
   * Rationale: 2.7 is provided by all systems except for
-    CentOS/RHEL6.6, however it is available officially via SCL so
+    CentOS/RHEL 6.x, however it is available officially via SCL so
     could be made the minimum. Note that 3.3 is also available via
     SCL, so there's potential for a 3.x migration in the 5.2
     timeframe. Dropping 2.6 would unify python support to a single
     major version, and remove a number of portability issues; now it's
-    restricted to CentOS/RHEL6, it's in practice much less tested than
+    restricted to CentOS/RHEL 6, it's in practice much less tested than
     2.7 since no developer is using it routinely. Removing 2.6 support
     will be dependent upon internal testing of the SCL python in
     CentOS.
@@ -147,7 +147,7 @@ Components
   * Proposal: [5.1] 4.4
   * Proposal: [5.2] Depends upon CentOS6 and Ubuntu 12.04 support
     status
-  * Rationale: 4.4 is the CentOS/RHEL6.6 default. It would be
+  * Rationale: 4.4 is the CentOS/RHEL 6.x default. It would be
     desirable to update but is probably not what external users will
     want given the compatibility concerns. The SCL DeveloperToolset3
     could bring this up to GCC 4.9.1, which would make the new
@@ -195,9 +195,9 @@ Components
 * Apache
 
   * Proposal: [5.1] 2.2
-  * Rationale: 2.2 is the CentOS/RHEL6.6 and Ubuntu 12.04 version. 2.4
-    support in OMERO isn't perfect at this point, needing some manual
-    tweaking (should be resolved for 5.1)
+  * Rationale: 2.2 is the CentOS/RHEL 6.x and Ubuntu 12.04
+    version. 2.4 support in OMERO isn't perfect at this point, needing
+    some manual tweaking (should be resolved for 5.1)
 
 * nginx
 
@@ -255,7 +255,7 @@ Microsoft Windows
 
 `General overview <http://support.microsoft.com/gp/lifeselectindex#W>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|J|
+.. tabularcolumns:: |l|l|l|l|l|l|L|
 
 .. list-table::
     :header-rows: 2
@@ -280,49 +280,49 @@ Microsoft Windows
       - to Apr 2014
       - Dropped
       - Dropped
-      - `Link <http://support.microsoft.com/lifecycle/?p1=12757>`__
+      - `Ref <http://support.microsoft.com/lifecycle/?p1=12757>`__
     * - Server 2003 R2
       - from May 2003
       - to Jul 2010
       - to Jul 2015
       - Dropped
       - Dropped
-      - `Link <http://support.microsoft.com/lifecycle/?p1=10394>`__
+      - `Ref <http://support.microsoft.com/lifecycle/?p1=10394>`__
     * - Vista
       - from Jan 2007
       - to Apr 2012
       - to Apr 2017
       - Dropped
       - Dropped
-      - `Link <http://support.microsoft.com/lifecycle/?p1=11737>`__
+      - `Ref <http://support.microsoft.com/lifecycle/?p1=11737>`__
     * - Win 7
       - from Oct 2009
       - to Jan 2015
       - to Jan 2020
       - Recommended
       - Supported
-      - `Link <http://support.microsoft.com/lifecycle/?p1=14481>`__
+      - `Ref <http://support.microsoft.com/lifecycle/?p1=14481>`__
     * - Server 2008 R2
       - from May 2008
       - to Jan 2018
       - to Jan 2023
       - Recommended
       - Supported
-      - `Link <http://support.microsoft.com/lifecycle/?p1=17383>`__
+      - `Ref <http://support.microsoft.com/lifecycle/?p1=17383>`__
     * - Win 8
       - from Oct 2012
       - to Jan 2018
       - to Jan 2023
       - Supported
       - Upcoming
-      - `Link <http://support.microsoft.com/lifecycle/?p1=16799>`__
+      - `Ref <http://support.microsoft.com/lifecycle/?p1=16799>`__
     * - Server 2012
       - from Oct 2012
       - to Jan 2018
       - to Jan 2023
       - Supported
       - Upcoming
-      - `Link <http://support.microsoft.com/lifecycle/?p1=16526>`__
+      - `Ref <http://support.microsoft.com/lifecycle/?p1=16526>`__
 
 XP is now unsupported upstream, and Server 2003 will be unsupported
 within the timeframe of 5.1 support.  Vista is likely supported but
@@ -417,19 +417,19 @@ General overview for `RHEL
       - to Mar 2017
       - Dropped
       - Dropped
-      - `Link <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 6
       - from Nov 2010
       - to Nov 2020
       - Recommended
       - Recommended
-      - `Link <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 7
       - from June 2014
       - to June 2024
       - Upcoming
       - Upcoming
-      - `Link <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
 Only RHEL and CentOS 6 are supported at present.  Given the long life
 of enterprise releases, I'd suggest we should only support the latest
@@ -471,67 +471,67 @@ Linux (Ubuntu)
       - to Apr 2015 (server only)
       - Dropped
       - Dropped
-      - `Link <https://wiki.ubuntu.com/Releases>`__
+      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 10.10
       - from Oct 2010
       - to Apr 2012
       - Dropped
       - Dropped
-      - `Link <https://wiki.ubuntu.com/Releases>`__
+      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 11.04
       - from Apr 2011
       - to Oct 2012
       - Dropped
       - Dropped
-      - `Link <https://wiki.ubuntu.com/Releases>`__
+      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 11.10
       - from Oct 2011
       - to May 2013
       - Dropped
       - Dropped
-      - `Link <https://wiki.ubuntu.com/Releases>`__
+      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 12.04 (.4) LTS
       - from Apr 2012
       - to Apr 2017
       - Supported
       - Supported
-      - `Link <https://wiki.ubuntu.com/Releases>`__
+      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 12.10
       - from Oct 2012
       - to May 2014
       - Dropped
       - Dropped
-      - `Link <https://wiki.ubuntu.com/Releases>`__
+      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 13.04
       - from Apr 2013
       - to Jan 2014
       - Dropped
       - Dropped
-      - `Link <https://wiki.ubuntu.com/Releases>`__
+      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 13.10
       - from Oct 2013
       - to Jul 2014
       - Dropped
       - Dropped
-      - `Link <https://wiki.ubuntu.com/Releases>`__
+      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 14.04 LTS
       - from Apr 2014
       - to Apr 2019
       - Recommended
       - Recommended
-      - `Link <https://wiki.ubuntu.com/Releases>`__
+      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 14.10
       - from Oct 2014
       - to Jul 2015
       - Supported
       - Supported
-      - `Link <https://wiki.ubuntu.com/Releases>`__
+      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 15.04
       - TBA
       - TBA
       - Upcoming
       - Upcoming
-      - `Link <https://wiki.ubuntu.com/Releases>`__
+      - `Reference <https://wiki.ubuntu.com/Releases>`__
 
 Only the LTS releases are supported due to resource limitations upon
 CI and testing.  Only the last two LTS releases are supported (being a
@@ -560,25 +560,25 @@ Linux (Debian stable)
       - to Feb 2012
       - Dropped
       - Dropped
-      - `Link <https://www.debian.org/releases/lenny/>`__
+      - `Reference <https://www.debian.org/releases/lenny/>`__
     * - 6.0
       - from Feb 2011
       - to Feb 2016
       - Supported
       - Supported
-      - `Link <https://www.debian.org/releases/squeeze/>`__
+      - `Reference <https://www.debian.org/releases/squeeze/>`__
     * - 7.0
       - from May 2013
       - TBA
       - Recommended
       - Recommended
-      - `Link <https://www.debian.org/releases/wheezy/>`__
+      - `Reference <https://www.debian.org/releases/wheezy/>`__
     * - 8.0
       - TBA
       - TBA
       - Upcoming
       - Upcoming
-      - `Link <https://www.debian.org/releases/jessie/>`__
+      - `Reference <https://www.debian.org/releases/jessie/>`__
 
 Stable releases 7.x and 6.x are supported.  There is no CI testing for
 any version, and some developer use of 7.x.
@@ -660,25 +660,25 @@ Package lists
     * - Operating system
       - Details
     * - CentOS 6 / RHEL 6
-      - `Link <http://mirror.centos.org/centos/6/os/x86_64/Packages/>`__
+      - `Reference <http://mirror.centos.org/centos/6/os/x86_64/Packages/>`__
     * - CentOS 7 / RHEL 7
-      - `Link <http://mirror.centos.org/centos/7/os/x86_64/Packages/>`__
+      - `Reference <http://mirror.centos.org/centos/7/os/x86_64/Packages/>`__
     * - Fedora (general)
-      - `Link <https://fedoraproject.org/wiki/Releases>`__
+      - `Reference <https://fedoraproject.org/wiki/Releases>`__
     * - Fedora 19
-      - `Link <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f19&status=&owner=>`__
+      - `Reference <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f19&status=&owner=>`__
     * - Fedora 20
-      - `Link <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f20&status=&owner=>`__
+      - `Reference <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f20&status=&owner=>`__
     * - Fedora 21
-      - `Link <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f21&status=&owner=>`__
+      - `Reference <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f21&status=&owner=>`__
     * - Ubuntu
-      - `Link <http://packages.ubuntu.com/search?keywords=foo&searchon=names&suite=all&section=all>`__
+      - `Reference <http://packages.ubuntu.com/search?keywords=foo&searchon=names&suite=all&section=all>`__
     * - Debian
-      - `Link <https://packages.debian.org/search?keywords=foo&searchon=names&suite=all&section=all>`__
+      - `Reference <https://packages.debian.org/search?keywords=foo&searchon=names&suite=all&section=all>`__
     * - Homebrew
-      - `Link <https://github.com/Homebrew/homebrew/tree/master/Library/Formula>`__
+      - `Reference <https://github.com/Homebrew/homebrew/tree/master/Library/Formula>`__
     * - FreeBSD Ports
-      - `Link <http://svnweb.freebsd.org/ports/head/>`__
+      - `Reference <http://svnweb.freebsd.org/ports/head/>`__
 
 
 PostgreSQL
@@ -733,7 +733,7 @@ PostgreSQL
       - Upcoming
     * - Details
       - 
-      - `Link <http://www.postgresql.org/support/versioning/>`__
+      - `Reference <http://www.postgresql.org/support/versioning/>`__
       - 
       - 
 
@@ -803,9 +803,9 @@ Distribution support
       - N/A
     * - Details
       - 
-      - `Link <https://apps.fedoraproject.org/packages/postgresql>`__
-      - `Link <http://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
-      - `Link <https://packages.debian.org/search?keywords=postgresql&searchon=sourcenames&suite=all&section=all>`__
+      - `Ref <https://apps.fedoraproject.org/packages/postgresql>`__
+      - `Ref <http://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
+      - `Ref <https://packages.debian.org/search?keywords=postgresql&searchon=sourcenames&suite=all&section=all>`__
       - 
       - 
 
@@ -833,56 +833,56 @@ Python
       - to Oct 2011
       - Dropped
       - Dropped
-      - `Link 1 <https://mail.python.org/pipermail/python-committers/2011-October/001844.html>`__
-        `Link 2 <https://www.python.org/download/releases/2.5/>`__
+      - `Reference <https://mail.python.org/pipermail/python-committers/2011-October/001844.html>`__
+        `Download <https://www.python.org/download/releases/2.5/>`__
     * - 2.6
       - from Oct 2008
       - to Oct 2013
       - Supported
       - Supported
-      - `Link <http://legacy.python.org/dev/peps/pep-0361/>`__
+      - `Reference <http://legacy.python.org/dev/peps/pep-0361/>`__
     * - 2.7
       - from Jul 2010
       - to 2020
       - Recommended
       - Recommended
-      - `Link <http://legacy.python.org/dev/peps/pep-0373/>`__
+      - `Reference <http://legacy.python.org/dev/peps/pep-0373/>`__
     * - 3.0
       - from Dec 2008
       - to Feb 2009
       - Unsupported
       - Unsupported
-      - `Link <http://legacy.python.org/dev/peps/pep-0361/>`__
+      - `Reference <http://legacy.python.org/dev/peps/pep-0361/>`__
     * - 3.1
       - from Jun 2009
       - to June 2014
       - Unsupported
       - Unsupported
-      - `Link <http://legacy.python.org/dev/peps/pep-0375/>`__
+      - `Reference <http://legacy.python.org/dev/peps/pep-0375/>`__
     * - 3.2
       - from Feb 2011
       - to Feb 2016
       - Unsupported
       - Unsupported
-      - `Link <http://legacy.python.org/dev/peps/pep-0392/>`__
+      - `Reference <http://legacy.python.org/dev/peps/pep-0392/>`__
     * - 3.3
       - from Sep 2012
       - to Sep 2017
       - Unsupported
       - Unsupported
-      - `Link <http://legacy.python.org/dev/peps/pep-0398/>`__
+      - `Reference <http://legacy.python.org/dev/peps/pep-0398/>`__
     * - 3.4
       - from Mar 2014
       - TBA
       - Unsupported
       - Unsupported
-      - `Link <http://legacy.python.org/dev/peps/pep-0429/>`__
+      - `Reference <http://legacy.python.org/dev/peps/pep-0429/>`__
     * - 3.5
       - TBA (probably Sep 2015)
       - TBA
       - Unsupported
       - Unsupported
-      - `Link <https://www.python.org/dev/peps/pep-0478>`__
+      - `Reference <https://www.python.org/dev/peps/pep-0478>`__
 
 Distribution support
 ,,,,,,,,,,,,,,,,,,,,
@@ -1122,9 +1122,9 @@ Distribution support
       - N/A
     * - Details
       - 
-      - `Link <https://apps.fedoraproject.org/packages/gcc>`__
-      - `Link <http://packages.ubuntu.com/search?keywords=g%2B%2B&searchon=names&suite=all&section=all>`__
-      - `Link <https://packages.debian.org/search?keywords=g%2B%2B&searchon=names&suite=all&section=all>`__
+      - `Ref <https://apps.fedoraproject.org/packages/gcc>`__
+      - `Ref <http://packages.ubuntu.com/search?keywords=g%2B%2B&searchon=names&suite=all&section=all>`__
+      - `Ref <https://packages.debian.org/search?keywords=g%2B%2B&searchon=names&suite=all&section=all>`__
       - 
       - 
 
@@ -1236,9 +1236,9 @@ Distribution support
       - N/A
     * - Details
       - 
-      - `Link <https://apps.fedoraproject.org/packages/clang>`__
-      - `Link <http://packages.ubuntu.com/search?keywords=clang&searchon=names&suite=all&section=all>`__
-      - `Link <https://packages.debian.org/search?keywords=clang&searchon=names&suite=all&section=all>`__
+      - `Ref <https://apps.fedoraproject.org/packages/clang>`__
+      - `Ref <http://packages.ubuntu.com/search?keywords=clang&searchon=names&suite=all&section=all>`__
+      - `Ref <https://packages.debian.org/search?keywords=clang&searchon=names&suite=all&section=all>`__
       - 
       - 
 
@@ -1329,22 +1329,22 @@ Ice
       - to May 2009
       - Dropped
       - Dropped
-      - `Link <http://www.zeroc.com/forums/announcements/3749-ice-3-3-released.html>`__
-        `Link <http://www.zeroc.com/forums/announcements/4248-ice-3-3-1-released.html>`__
+      - `Ice 3.3 <http://www.zeroc.com/forums/announcements/3749-ice-3-3-released.html>`__
+        `Ice 3.3.1 <http://www.zeroc.com/forums/announcements/4248-ice-3-3-1-released.html>`__
     * - 3.4
       - from Mar 2010
       - to Jun 2011
       - Supported
       - Supported
-      - `Link <http://www.zeroc.com/forums/announcements/4821-ice-3-4-released.html>`__
-        `Link <http://www.zeroc.com/forums/announcements/5406-ice-3-4-2-released.html>`__
+      - `Ice 3.4 <http://www.zeroc.com/forums/announcements/4821-ice-3-4-released.html>`__
+        `Ice 3.4.2 <http://www.zeroc.com/forums/announcements/5406-ice-3-4-2-released.html>`__
     * - 3.5
       - from Mar 2013
       - to Oct 2013
       - Recommended
       - Recommended
-      - `Link <http://www.zeroc.com/forums/announcements/5943-ice-3-5-0-released.html>`__
-        `Link <http://www.zeroc.com/forums/announcements/6118-ice-3-5-1-released.html>`__
+      - `Ice 3.5 <http://www.zeroc.com/forums/announcements/5943-ice-3-5-0-released.html>`__
+        `Ice 3.5.1 <http://www.zeroc.com/forums/announcements/6118-ice-3-5-1-released.html>`__
     * - 3.6
       - TBA (in beta)
       - TBA
@@ -1411,31 +1411,31 @@ Java
       - Upstream support
       - OME (build)
       - OME (deploy)
-      - Link
+      - Details
     * - 5
       - from May 2004
       - to Oct 2009
       - Dropped
       - Dropped
-      - `Link <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+      - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 6
       - from Dec 2006
       - to Feb 2013
       - Supported
       - Supported
-      - `Link <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+      - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 7
       - From Jul 2011
       - to Apr 2015
       - Recommended
       - Recommended
-      - `Link <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+      - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 8
       - From Mar 2014
       - to Mar 2017
       - Supported
       - Supported
-      - `Link <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+      - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
 
 Distribution support
 ,,,,,,,,,,,,,,,,,,,,
@@ -1482,10 +1482,10 @@ Distribution support
       - Yes
     * - Details
       - 
-      - `Link 1 <https://apps.fedoraproject.org/packages/java-1.7.0-openjdk>`__
-        `Link 2 <https://admin.fedoraproject.org/pkgdb/package/java-1.8.0-openjdk/>`__
-      - `Link <http://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
-      - `Link <https://packages.debian.org/search?keywords=jdk&searchon=names&suite=all&section=all>`__
+      - `Ref 1 <https://apps.fedoraproject.org/packages/java-1.7.0-openjdk>`__
+        `Ref 2 <https://admin.fedoraproject.org/pkgdb/package/java-1.8.0-openjdk/>`__
+      - `Ref <http://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
+      - `Ref <https://packages.debian.org/search?keywords=jdk&searchon=names&suite=all&section=all>`__
       - 
       - 
 
@@ -1694,7 +1694,7 @@ Distribution support
       - 
       - 
       - 
-      - `Link <https://developer.apple.com/graphicsimaging/opengl/capabilities/index.html>`__
+      - `Ref <https://developer.apple.com/graphicsimaging/opengl/capabilities/index.html>`__
       - 
 
 \*
@@ -1783,9 +1783,9 @@ Distribution support
       - Yes
     * - Details
       - 
-      - `Link <https://apps.fedoraproject.org/packages/httpd>`__
-      - `Link <http://packages.ubuntu.com/search?keywords=apache&searchon=names&suite=all&section=all>`__
-      - `Link <https://packages.debian.org/search?keywords=apache&searchon=names&suite=all&section=all>`__
+      - `Ref <https://apps.fedoraproject.org/packages/httpd>`__
+      - `Ref <http://packages.ubuntu.com/search?keywords=apache&searchon=names&suite=all&section=all>`__
+      - `Ref <https://packages.debian.org/search?keywords=apache&searchon=names&suite=all&section=all>`__
       - 
       - 
 
@@ -1877,7 +1877,7 @@ Distribution support
     * - Details
       - 
       - 
-      - `Link <http://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
-      - `Link <https://packages.debian.org/search?keywords=nginx&searchon=names&suite=all&section=all>`__
+      - `Ref <http://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
+      - `Ref <https://packages.debian.org/search?keywords=nginx&searchon=names&suite=all&section=all>`__
       - 
       - 
