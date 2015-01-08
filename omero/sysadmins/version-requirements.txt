@@ -2,6 +2,210 @@
 Version requirements
 ********************
 
+Proposal for revised minimum version requirements
+-------------------------------------------------
+
+Minimum software versions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is a proposal to the wider community to solicit their
+feedback. For each component, we need to decide upon the minumum
+supportable version which is provided by a distribution and/or is
+installable independently. Criteria for what is considered to be
+supportable includes support by its developers upstream and within
+each operating system distribution for the lifetime of the 5.1 release
+(including security support), and also upon our resources allocated to
+CI and testing.  If we aren't actively testing it, we can't claim it's
+supported or functional.
+
+Proposed changes are made for both the forthcoming 5.1 release, and
+also for the following 5.2 release, albeit tentatively at this point,
+in order that sysadmins may plan ahead and ensure that prerequisites
+are in place to ease future upgrades.
+
+As a system administrator, your feedback regarding these proposed
+changes would be most appreciated.  We would like to ensure that we
+support deployment and upgrade of OMERO on the most commonly-used and
+supported Linux and Windows releases, and also on MacOS X, with a
+minimum of effort.  If any of the proposed changes will be problematic
+(for example, the minimum requirement for a given component is not
+possible to meet), please do provide us with the details of your
+system so that we can consider this in future revisions to this
+proposal before the requirements are made final.  Please check the
+minimum Java and PostgreSQL versions in particular.
+
+Note that the following section contains the details which were used
+to create this proposal.
+
+Operating systems
+,,,,,,,,,,,,,,,,,
+
+* Microsoft Windows
+
+  * Proposal: [5.1] 7 (client) / Server 2008R2 (server)
+  * Proposal: [5.2] raise minimum to 8 (client) / Server 2012R2
+    (server) if needed
+  * Rationale: All prior versions prior to this are/will be out of
+    support shortly except Vista (which we don't test and is not
+    widely used). We have no testing of these older systems.
+
+* MacOS X
+
+  * Proposal: [5.1] 10.8
+  * Proposal: [5.2] 10.9
+  * Proposal: Support 10.8 for client only, test server only on
+    10.9/10.10
+  * Rationale: All prior versions no longer have security support and
+    it still leaves 3 versions to support. MacOS is typically suited
+    only to client use, not serious server deployment
+
+* Linux (CentOS/RHEL)
+
+  * Proposal: [5.1] 6.6
+  * Proposal: [5.2] Recommend 7.x over 6.x; 6.x will either remain
+    supported or become unsupported
+  * Rationale: 7 is quite new and not yet widely adopted, and so it's
+    likely many institutions will wish to continue using 6 for the
+    foreseeable future. However, the versions in 6 are getting quite
+    old and this does affect the support for other components (see
+    below)
+
+* Linux (Ubuntu LTS)
+
+  * Proposal: [5.1] 12.04 supported, 14.04 recommended
+  * Proposal: [5.2] 12.04 dropped, 14.04 recommended
+  * Proposal: Only LTS versions are supported and tested. Non-LTS
+    versions following a supported LTS release are likely to work but
+    are not officially supported or tested.
+  * Rationale: Both are newer than CentOS/RHEL6.6, so both could be
+    supported since all version requirements are satisfied. However,
+    14.04 comes with Ice 3.5 and is generally more up to date, and we
+    don't have testing in place for either at present. We do not have
+    the resources to test non-LTS versions, though recent releases are
+    in use by developers.
+
+* Linux (Debian)
+
+  * Proposal: [5.1] 7 recommended, 6 dropped
+  * Proposal: [5.2] 8 recommended, 7 supported
+  * Rationale: 6 is older than Ubuntu 12.04 and only has Ice 3.3;
+    extended support will be present for the 5.1 lifetime however so
+    will be usable if Ice is upgraded, but will not have official
+    support.
+
+Bitness
+,,,,,,,
+
+Currently 32- and 64-bit systems are supported for client and server
+on all platforms with the exception of MacOS X (64-bit only).
+
+* Proposal: [5.1] Drop 32-bit support for server, retain 32-bit
+  support for clients
+* Proposal: [5.2] Drop 32-bit support entirely
+* Rationale: It’s not practical to run a server on a 32-bit system due
+  to its memory requirements, so it’s safe to drop 32-bit support for
+  5.1 given that it’s de-facto 64-bit-only today. There are still a
+  number of 32-bit Windows clients, so support should probably be
+  retained. However, new systems are almost all 64-bit so dropping
+  32-bit support is a possibility for 5.2.
+
+Components
+,,,,,,,,,,
+
+* PostgreSQL
+
+  * Proposal: [5.1] 9.2 recommended, 9.3+ supported, 8.4 dropped, 9.0
+    and 9.1 also dropped
+  * Proposal: [5.2] 9.3 recommended, 9.4+ supported, 9.2 supported or
+    dropped
+  * Rationale: Current releases available for all supported systems
+    from upstream and for CentOS/RHEL6.6 officially via SCL (software
+    collections). At a bare minimum, 8.4 and 9.0 must be dropped (end
+    of security support); dropping 9.1 removes the floating point
+    issues fixed by 9.2+. Due to its age, 8.4 no longer receives
+    adequate testing and so we can’t claim to support it. The same
+    applies to 9.0 and 9.1.
+
+* Python
+
+  * Proposal: [5.1] 2.7 recommended, 2.6 supported, (3.x not
+    supported)
+  * Proposal: [5.2] 2.7 recommended, 2.6 dropped, (3.x not supported)
+  * Rationale: 2.7 is provided by all systems except for
+    CentOS/RHEL6.6, however it is available officially via SCL so
+    could be made the minimum. Note that 3.3 is also available via
+    SCL, so there's potential for a 3.x migration in the 5.2
+    timeframe. Dropping 2.6 would unify python support to a single
+    major version, and remove a number of portability issues; now it's
+    restricted to CentOS/RHEL6, it's in practice much less tested than
+    2.7 since no developer is using it routinely. Removing 2.6 support
+    will be dependent upon internal testing of the SCL python in
+    CentOS.
+
+* GCC
+
+  * Proposal: [5.1] 4.4
+  * Proposal: [5.2] Depends upon CentOS6 and Ubuntu 12.04 support
+    status
+  * Rationale: 4.4 is the CentOS/RHEL6.6 default. It would be
+    desirable to update but is probably not what external users will
+    want given the compatibility concerns. The SCL DeveloperToolset3
+    could bring this up to GCC 4.9.1, which would make the new
+    baseline GCC 4.6 (Ubuntu 12.04 and Travis)
+
+* LLVM/clang
+
+  * Proposal: 3.4 
+  * Rationale: It's the current toolchain on MacOS/FreeBSD and is
+    working well; 3.3 dropped due to no longer being used by current
+    toolchains
+
+* MSVC
+
+  * Proposal: [5.1] 2010
+  * Proposal: [5.2] 2012
+  * Rationale: The minimum (and maximum) MSVC version is determined by
+    the Windows Ice builds provided by ZeroC, and as such is limited
+    by our Ice version requirements. Raising the limit in 5.2 will
+    permit use of newer language features.
+
+* Ice
+
+  * Proposal: [5.1] 3.4 supported, 3.5 recommended, 3.6 likely not
+    supported
+  * Proposal: [5.2] 3.4 dropped, 3.5 supported, 3.6 recommended
+    (subject to testing)
+  * Rationale: 3.4 is no longer supported by ZeroC with 3.5 being
+    current. By the release of 5.2, Ice 3.6 will have been out for
+    some time and should be well tested.
+
+* Java
+
+  * Proposal: [5.1] 7 recommended, 8 supported, 6 dropped
+  * Proposal: [5.2] 7 supported, 8 recommended
+  * Rationale: It's 2 years this Februrary since the last Java 6
+    security update. Java 7 is supported on all supported operating
+    systems above, and in most cases is the default java version on
+    those systems (it’s now 8 on some). This was mentioned recently,
+    and also by the Fiji developers; 5.1 would be an opportune time to
+    drop Java 6. Also note that we no longer actively test with a Java
+    6 JVM; all internal testing is on Java 7 or 8 (Oracle and
+    OpenJDK), and there are some client issues with OpenJDK6
+
+* Apache
+
+  * Proposal: [5.1] 2.2
+  * Rationale: 2.2 is the CentOS/RHEL6.6 and Ubuntu 12.04 version. 2.4
+    support in OMERO isn't perfect at this point, needing some manual
+    tweaking (should be resolved for 5.1)
+
+* nginx
+
+  * Proposal: [5.1] 1.0
+  * Proposal: [5.2] 1.4
+  * Rationale: All versions work; 1.0 is the Ubuntu 12.04 version, 1.4
+    is the Ubuntu 14.04 and Debian 8 version.
+
 Support levels
 --------------
 
@@ -263,8 +467,8 @@ Linux (Ubuntu)
     * - 10.04 (.4) LTS
       - from Apr 2010
       - to Apr 2015 (server only)
-      - Supported
-      - Supported
+      - Dropped
+      - Dropped
       - `Link <https://wiki.ubuntu.com/Releases>`__
     * - 10.10
       - from Oct 2010
@@ -533,7 +737,8 @@ PostgreSQL
       - 
       - 
 
-Distribution support:
+Distribution support
+,,,,,,,,,,,,,,,,,,,,
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|l|
 
@@ -679,7 +884,8 @@ Python
       - Unsupported
       - `Link <https://www.python.org/dev/peps/pep-0478>`__
 
-Distribution support:
+Distribution support
+,,,,,,,,,,,,,,,,,,,,
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -836,7 +1042,8 @@ GCC
       - Upcoming
       - Upcoming
 
-Distribution support:
+Distribution support
+,,,,,,,,,,,,,,,,,,,,
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -970,7 +1177,8 @@ LLVM/clang
       - Upcoming
       - Upcoming
 
-Distribution support:
+Distribution support
+,,,,,,,,,,,,,,,,,,,,
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -1039,6 +1247,66 @@ versions were not much used as a default compiler and are probably not
 worth supporting; 3.4 is used in MacOS X 10.9 and 10.10 and in FreeBSD
 10.1. Until 3.4, no point releases were made for major versions.
 
+Microsoft Visual Studio
+^^^^^^^^^^^^^^^^^^^^^^^
+
+`General overview <http://support2.microsoft.com/lifecycle/search/?sort=PN&alpha=Visual+Studio>`__
+
+.. tabularcolumns:: |l|l|l|l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - 
+      - 
+      - Upstream
+      - support
+      - 
+      - 
+    * - Version
+      - Release date
+      - (mainline)
+      - (extended)
+      - OME (build)
+      - OME (deploy)
+    * - 2008
+      - from Aug 2008
+      - to Apr 2013
+      - to Apr 2018
+      - Unsupported
+      - Unsupported
+    * - 2010
+      - from Jun 2010
+      - to Jul 2015
+      - to Jul 2020
+      - Supported
+      - Supported
+    * - 2012
+      - from Oct 2012
+      - to Jan 2018
+      - to Jan 2023
+      - Supported
+      - Supported
+    * - 2013
+      - from Jan 2014
+      - to Apr 2019
+      - to Apr 2024
+      - Recommended
+      - Recommended
+    * - 2015
+      - from TBA
+      - to TBA
+      - to TBA
+      - Unsupported
+      - Unsupported
+
+The version to use is largely dependent upon the Ice support for a particular Visual Studio version.
+
+- Ice 3.5 supports 2013, 2012 and 2010
+- Ice 3.4 supports 2010 and 2008
+
+In general later versions have better C++ standards conformance and
+correctness, and should be preferred where possible.
 
 Ice
 ^^^
@@ -1084,7 +1352,8 @@ Ice
       - Upcoming
       -
 
-Distribution support:
+Distribution support
+,,,,,,,,,,,,,,,,,,,,
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -1101,7 +1370,7 @@ Distribution support:
     * - 3.3
       - N/A
       - N/A
-      - 14.10
+      - 10.04
       - 6.0
       - N/A
       - N/A
@@ -1168,7 +1437,8 @@ Java
       - Supported
       - `Link <http://www.oracle.com/technetwork/java/eol-135779.html>`__
 
-Distribution support:
+Distribution support
+,,,,,,,,,,,,,,,,,,,,
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -1305,7 +1575,8 @@ OpenGL
       - Unsupported
       - Unsupported
 
-Distribution support:
+Distribution support
+,,,,,,,,,,,,,,,,,,,,
 
 .. tabularcolumns:: |l|l|l|l|l|l|J|l|
 
@@ -1465,14 +1736,15 @@ Apache
       - from Dec 2005
       - TBA
       - N/A
-      - Supported
+      - Recommended
     * - 2.4
       - from Feb 2012
       - TBA
       - N/A
-      - Recommended
+      - Supported
 
-Distribution support:
+Distribution support
+,,,,,,,,,,,,,,,,,,,,
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -1516,8 +1788,9 @@ Distribution support:
       - 
 
 Apache 2.2 requires mod_fastcgi (from external repository, for
-CentOS6).  Apache 2.4 requires mod_proxy_cfgi (`to be tested
-<https://trello.com/c/ROD6R0L7/180-omero-web-custom-prefix>`__).
+CentOS6).  Apache 2.4 requires mod_proxy_cfgi and isn't perfectly
+supported by default (needs a manual tweak), should be working for
+5.1.
 
 nginx
 ^^^^^
@@ -1556,7 +1829,8 @@ nginx
       - N/A
       - Recommended
 
-Distribution support:
+Distribution support
+,,,,,,,,,,,,,,,,,,,,
 
 .. tabularcolumns:: |l|l|l|L|L|l|l|
 
