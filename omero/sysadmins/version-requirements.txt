@@ -12,11 +12,11 @@ This is a proposal to the wider community to solicit their
 feedback. For each component, we need to decide upon the minumum
 supportable version which is provided by a distribution and/or is
 installable independently. Criteria for what is considered to be
-supportable includes support by its developers upstream and within
-each operating system distribution for the lifetime of the 5.1 release
-(including security support), and also upon our resources allocated to
-CI and testing. If we are not actively testing it, we cannot claim it
-is supported or functional.
+supportable includes support both by its developers upstream and
+within each operating system distribution for the lifetime of the 5.1
+release (including security support), and also upon our resources
+allocated to CI and testing. If we are not actively testing it, we
+cannot claim it is supported or functional.
 
 Proposed changes are made for both the forthcoming 5.1 release, and
 also for the following 5.2 release, albeit tentatively at this point,
@@ -25,9 +25,9 @@ are in place to ease future upgrades.
 
 As a system administrator, your feedback regarding these proposed
 changes would be most appreciated. We would like to ensure that we
-support deployment and upgrade of OMERO on the most commonly-used and
+support deployment and upgrade of OMERO on the most commonly used and
 supported Linux and Windows releases, and also on MacOS X, with a
-minimum of effort. If any of the proposed changes will be problematic
+minimum of effort. If any of the proposed changes would be problematic
 (for example, the minimum requirement for a given component is not
 possible to meet), please do provide us with the details of your
 system so that we can consider this in future revisions to this
