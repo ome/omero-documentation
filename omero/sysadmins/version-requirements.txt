@@ -2,77 +2,64 @@
 Version requirements
 ********************
 
-Proposal for revised minimum version requirements
--------------------------------------------------
+Summary of planned changes for OMERO 5.1 and 5.2
+================================================
 
-Minimum software versions
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This is a proposal to the wider community to solicit their
-feedback. For each component, we need to decide upon the minumum
-supportable version which is provided by a distribution and/or is
-installable independently. Criteria for what is considered to be
-supportable includes support both by its developers upstream and
-within each operating system distribution for the lifetime of the 5.1
-release (including security support), and also upon our resources
-allocated to CI and testing. If we are not actively testing it, we
-cannot claim it is supported or functional.
+Criteria for what is considered to be supportable includes support
+both by its developers upstream and within each operating system
+distribution for the lifetime of the 5.1 release (including security
+support), and also upon our resources allocated to CI and testing. If
+we are not actively testing it, we cannot claim it is supported or
+functional.  Software components must be provided and supported either
+by a distribution or or the original developers.
 
 Proposed changes are made for both the forthcoming 5.1 release, and
 also for the following 5.2 release, albeit tentatively at this point,
-in order that sysadmins may plan ahead and ensure that prerequisites
-are in place to ease future upgrades.
+to provide a roadmap in order that sysadmins may plan ahead and ensure
+that prerequisites are in place ahead of time to ease future upgrades.
 
-As a system administrator, your feedback regarding these proposed
-changes would be most appreciated. We would like to ensure that we
-support deployment and upgrade of OMERO on the most commonly used and
-supported Linux and Windows releases, and also on MacOS X, with a
-minimum of effort. If any of the proposed changes would be problematic
-(for example, the minimum requirement for a given component is not
-possible to meet), please do provide us with the details of your
-system so that we can consider this in future revisions to this
-proposal before the requirements are made final. Please check the
-minimum Java and PostgreSQL versions in particular.
-
-Note that the following section contains the details which were used
-to create this proposal.
+This section is a summary of the detailed information provided in the
+following sections.
 
 Operating systems
-,,,,,,,,,,,,,,,,,
+-----------------
 
 * Microsoft Windows
 
-  * Proposal: [5.1] 7 (client) / Server 2008R2 (server)
-  * Proposal: [5.2] raise minimum to 8 (client) / Server 2012R2
-    (server) if needed
+  * Proposal: [5.1] 7 (client) recommended / Server 2008R2 (server)
+    recommended; XP/Server 2003/Vista Dropped
+  * Proposal: [5.2] 8 (client) recommended / Server 2012R2
+    (server) recommended; 7 / Server 2008R2 supported
   * Rationale: All prior versions prior to this are/will be out of
     support shortly except Vista (which we do not test and is not
     widely used). We have no testing of these older systems.
 
 * MacOS X
 
-  * Proposal: [5.1] 10.8
-  * Proposal: [5.2] 10.9
+  * Proposal: [5.1] 10.8 supported, 10.9 recommended, 10.10 supported;
+    10.6 and 10.7 dropped
+  * Proposal: [5.2] 10.8 deprecated, 10.9 supported, 10.10 recommended
   * Proposal: Support 10.8 for client only, test server only on
-    10.9/10.10
-  * Rationale: All prior versions no longer have security support and
-    it still leaves 3 versions to support. MacOS X is typically suited
-    only to client use, not serious server deployment
+    10.9/10.10 (for 5.1); test server only on 10.10+ for 5.2.
+  * Rationale: 10.6 and 10.7 no longer have security support and it
+    still leaves 3 versions to support. MacOS X is typically suited
+    only to client use, not serious server deployment, so limit
+    testing accordingly
 
 * Linux (CentOS/RHEL)
 
-  * Proposal: [5.1] 6.x
-  * Proposal: [5.2] Recommend 7.x over 6.x; 6.x will either remain
-    supported or become unsupported
+  * Proposal: [5.1] 6.x recommended, 7.x supported
+  * Proposal: [5.2] 7.x recommended, 6.x deprecated/dropped
   * Rationale: 7 is quite new and not yet widely adopted, and so it is
     likely many institutions will wish to continue using 6 for the
     foreseeable future. However, the versions in 6 are getting quite
     old and this does affect the support for other components (see
-    below)
+    below); schedule its deprecation/dropping in 5.2 depending upon
+    the circumstances
 
 * Linux (Ubuntu LTS)
 
-  * Proposal: [5.1] 12.04 supported, 14.04 recommended
+  * Proposal: [5.1] 10.04 dropped, 12.04 deprecated, 14.04 recommended
   * Proposal: [5.2] 12.04 dropped, 14.04 recommended
   * Proposal: Only LTS versions are supported and tested. Non-LTS
     versions following a supported LTS release are likely to work but
@@ -86,15 +73,15 @@ Operating systems
 
 * Linux (Debian)
 
-  * Proposal: [5.1] 7 recommended, 6 dropped
-  * Proposal: [5.2] 8 recommended, 7 supported
+  * Proposal: [5.1] 6 deprecated, 7 recommended
+  * Proposal: [5.2] 8 recommended, 7 deprecated
   * Rationale: 6 is older than Ubuntu 12.04 and only has Ice 3.3;
     extended support will be present for the 5.1 lifetime however so
     will be usable if Ice is upgraded, but will not have official
     support.
 
 Bitness
-,,,,,,,
+-------
 
 Currently 32- and 64-bit systems are supported for client and server
 on all platforms with the exception of MacOS X (64-bit only).
@@ -110,13 +97,12 @@ on all platforms with the exception of MacOS X (64-bit only).
   32-bit support is a possibility for 5.2.
 
 Components
-,,,,,,,,,,
+----------
 
 * PostgreSQL
 
-  * Proposal: [5.1] 9.2 recommended, 9.3+ supported, 8.4 dropped, 9.0
-    and 9.1 also dropped
-  * Proposal: [5.2] 9.3 recommended, 9.4+ supported, 9.2 supported or
+  * Proposal: [5.1] 8.4/9.0/9.1 dropped, 9.2 deprecated, 9.3+ recommended
+  * Proposal: [5.2] 9.2 dropped, 9.3 deprecated, 9.4+ recommended
     dropped
   * Rationale: Current releases available for all supported systems
     from upstream and for CentOS/RHEL 6.x officially via SCL (software
@@ -124,13 +110,13 @@ Components
     of security support); dropping 9.1 removes the floating point
     issues fixed by 9.2+. Due to its age, 8.4 no longer receives
     adequate testing and so we can’t claim to support it. The same
-    applies to 9.0 and 9.1.
+    applies to 9.0 and 9.1.  Given the annual release cycle, it would
+    make sense to deprecate 9.2 for 5.2.
 
 * Python
 
-  * Proposal: [5.1] 2.7 recommended, 2.6 supported, (3.x not
-    supported)
-  * Proposal: [5.2] 2.7 recommended, 2.6 dropped, (3.x not supported)
+  * Proposal: [5.1] 2.6 deprecated, 2.7 recommended, 3.x not supported
+  * Proposal: [5.2] 2.6 dropped, 2.7 recommended, 3.x not supported
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
     6.x, however it is available officially via SCL so could be made
     the minimum. Note that 3.3 is also available via SCL, so there is
@@ -143,26 +129,30 @@ Components
 
 * GCC
 
-  * Proposal: [5.1] 4.4
-  * Proposal: [5.2] Depends upon CentOS6 and Ubuntu 12.04 support
+  * Proposal: [5.1] 4.4 deprecated, 4.6+ supported, 4.8+ recommended
+  * Proposal: [5.2] 4.4 dropped, 4.6+ deprecated, 4.8+ recommended
     status
   * Rationale: 4.4 is the CentOS/RHEL 6.x default. It would be
     desirable to update but is probably not what external users will
     want given the compatibility concerns. The SCL DeveloperToolset3
     could bring this up to GCC 4.9.1, which would make the new
-    baseline GCC 4.6 (Ubuntu 12.04 and Travis)
+    baseline GCC 4.6 (Ubuntu 12.04 and Travis).  The proposed changes
+    for 5.2 depend upon our support of CentOS/RHEL 6.x and Ubuntu
+    12.04.
 
 * LLVM/clang
 
-  * Proposal: 3.4 
+  * Proposal: [5.1] 3.3 dropped, 3.4 recommended, 3.5 supported 
+  * Proposal: [5.2] 3.4 supported, 3.5 recommended
   * Rationale: It is the current toolchain on MacOS/FreeBSD and is
     working well; 3.3 dropped due to no longer being used by current
     toolchains
 
-* MSVC
+* Microsoft Visual Studio
 
-  * Proposal: [5.1] 2010
-  * Proposal: [5.2] 2012
+  * Proposal: [5.1] 2010 deprecated, 2012 supported, 2013 recommended
+  * Proposal: [5.2] 2010 dropped, 2012 deprecated, 2013 recommended,
+    2015 supported
   * Rationale: The minimum (and maximum) MSVC version is determined by
     the Windows Ice builds provided by ZeroC, and as such is limited
     by our Ice version requirements. Raising the limit in 5.2 will
@@ -170,18 +160,19 @@ Components
 
 * Ice
 
-  * Proposal: [5.1] 3.4 supported, 3.5 recommended, 3.6 likely not
-    supported
-  * Proposal: [5.2] 3.4 dropped, 3.5 supported, 3.6 recommended
-    (subject to testing)
+  * Proposal: [5.1] 3.4 deprecated, 3.5 recommended, 3.6 not supported
+  * Proposal: [5.2] 3.4 dropped, 3.5 deprecated, 3.6 recommended
   * Rationale: 3.4 is no longer supported by ZeroC with 3.5 being
     current. By the release of 5.2, Ice 3.6 will have been out for
     some time and should be well tested.
 
 * Java
 
-  * Proposal: [5.1] 7 recommended, 8 supported, 6 dropped
-  * Proposal: [5.2] 7 supported, 8 recommended
+  * Proposal: [5.1] 6 deprecated, 7 recommended, 8 supported
+  * Proposal: [5.1] Require 7 for OMERO.server
+  * Proposal: [5.1] Require 7 for OMERO.insight and other MacOS X clients
+  * Proposal: [5.1] Require 7 for OMERO.insight and other Windows clients
+  * Proposal: [5.2] 6 dropped, 7 deprecated, 8 recommended
   * Rationale: It will be 2 years this Februrary since the last Java 6
     security update. Java 7 is supported on all supported operating
     systems above, and in most cases is the default java version on
@@ -189,24 +180,35 @@ Components
     and also by the Fiji developers; 5.1 would be an opportune time to
     drop Java 6. Also note that we no longer actively test with a Java
     6 JVM; all internal testing is on Java 7 or 8 (Oracle and
-    OpenJDK), and there are some client issues with OpenJDK6
+    OpenJDK), and there are some client issues with OpenJDK6.  Also
+    note that Ice 3.6 drops Java 6 support.  For 5.2 deprecate 7; this
+    is because security support ends in April 2015.
+  * The requirement for 7 support in the server for 5.1 is due to
+    there being very little usage of 6 for server deployments even for
+    5.0 and it does bring useful benefits for the server.
+  * The requirement for 7 in the MacOS X clients is due to the Apple
+    Java application bundle support being limited to 6 only.
+  * The requirement for 7 in the Windows clients is less urgent, but
+    will encourage migration to a non-deprecated Java version ahead of
+    the removal of support for 6.
 
 * Apache
 
-  * Proposal: [5.1] 2.2
+  * Proposal: [5.1] 2.2 supported, 2.4 recommended
+  * Proposal: [5.2] 2.2 deprecated, 2.4 recommended
   * Rationale: 2.2 is the CentOS/RHEL 6.x and Ubuntu 12.04
-    version. 2.4 support in OMERO is not perfect at this point,
-    needing some manual tweaking (should be resolved for 5.1)
+    version which will be deprecated in 5.2.
 
 * nginx
 
-  * Proposal: [5.1] 1.0
-  * Proposal: [5.2] 1.4
+  * Proposal: [5.1] 1.0 deprecated, 1.2/1.4 supported, 1.6 recommended
+  * Proposal: [5.2] 1.0 dropped, 1.2/1.4 deprecated, 1.6 recommemded
   * Rationale: All versions work; 1.0 is the Ubuntu 12.04 version, 1.4
-    is the Ubuntu 14.04 and Debian 8 version.
+    is the Ubuntu 14.04 and Debian 8 version.  Deprecate and drop for
+    5.2 accordingly.
 
 Support levels
---------------
+==============
 
 The following sections use the terminology in the table below to
 describe the support status of a given component, as it progresses
@@ -225,15 +227,18 @@ nor tested.
     * - Upcoming
       - unsupported/new
       - New version not yet regularly tested and not officially supported; may or may not work (use at own risk)
-    * - Recommended
-      - supported/optimal
-      - Version which is regularly tested, confirmed to work correctly, recommended for optimal performance/experience
     * - Supported
       - supported/suboptimal
       - Version which is tested, confirmed to work correctly, but may not offer optimal performance/experience
+    * - Recommended
+      - supported/optimal
+      - Version which is regularly tested, confirmed to work correctly, recommended for optimal performance/experience
+    * - Deprecated
+      - supported/deprecated
+      - Version which is less tested, expected to work correctly, but may not offer optimal performance/experience; official support will be dropped in the next major OMERO release
     * - Dropped
       - unsupported/old
-      - Old version not longer tested and no longer officially supported; may or may not work (use at own risk)
+      - Old version no longer tested and no longer officially supported; may or may not work (use at own risk)
     * - Broken
       - unsupported/broken
       - Known to not work
@@ -242,7 +247,7 @@ nor tested.
       - Not supported for some reason other than the above
 
 Operating system support
-------------------------
+========================
 
 The following subsections detail the versions of each operating system
 which are supported by both its upstream developers (for security and
@@ -250,11 +255,11 @@ general updates) and by OME for OMERO building and server and client
 deployment.
 
 Microsoft Windows
-^^^^^^^^^^^^^^^^^
+-----------------
 
 `General overview <http://support.microsoft.com/gp/lifeselectindex#W>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|L|
+.. tabularcolumns:: |l|l|l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 2
@@ -266,17 +271,20 @@ Microsoft Windows
       - 
       - 
       - 
+      - 
     * - Version
       - Release date
       - (mainline)
       - (extended)
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
       - Details
     * - XP
       - from Dec 2001
       - to Apr 2014
       - to Apr 2014
+      - Deprecated
       - Dropped
       - Dropped
       - `Ref <http://support.microsoft.com/lifecycle/?p1=12757>`__
@@ -284,6 +292,7 @@ Microsoft Windows
       - from May 2003
       - to Jul 2010
       - to Jul 2015
+      - Deprecated
       - Dropped
       - Dropped
       - `Ref <http://support.microsoft.com/lifecycle/?p1=10394>`__
@@ -291,6 +300,7 @@ Microsoft Windows
       - from Jan 2007
       - to Apr 2012
       - to Apr 2017
+      - Deprecated
       - Dropped
       - Dropped
       - `Ref <http://support.microsoft.com/lifecycle/?p1=11737>`__
@@ -299,6 +309,7 @@ Microsoft Windows
       - to Jan 2015
       - to Jan 2020
       - Recommended
+      - Recommended
       - Supported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=14481>`__
     * - Server 2008 R2
@@ -306,21 +317,24 @@ Microsoft Windows
       - to Jan 2018
       - to Jan 2023
       - Recommended
+      - Recommended
       - Supported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=17383>`__
     * - Win 8
       - from Oct 2012
       - to Jan 2018
       - to Jan 2023
-      - Supported
       - Upcoming
+      - Supported
+      - Recommended
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16799>`__
     * - Server 2012
       - from Oct 2012
       - to Jan 2018
       - to Jan 2023
-      - Supported
       - Upcoming
+      - Supported
+      - Recommended
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16526>`__
 
 XP is now unsupported upstream, and Server 2003 will be unsupported
@@ -332,11 +346,11 @@ CI deployment and testing is in place other than manually. Some manual
 testing on Windows 7 VMs and machines.
 
 UNIX (MacOS X)
-^^^^^^^^^^^^^^
+--------------
 
 `General overview <http://en.wikipedia.org/wiki/OS_X>`__
 
-.. tabularcolumns:: |l|J|J|l|l|l|
+.. tabularcolumns:: |l|l|L|L|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -345,37 +359,43 @@ UNIX (MacOS X)
       - Release date
       - Upstream support
       - Homebrew support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
     * - 10.6
       - from Jun 2008
       - Ended
       - Ended
+      - Deprecated
       - Dropped
       - Dropped
     * - 10.7
       - from Oct 2010
       - Ended
       - Supported for the moment
+      - Deprecated
       - Dropped
       - Dropped
     * - 10.8
       - from Feb 2012
       - Supported for the moment
       - Supported
-      - Supported
-      - Supported
+      - Recommended
+      - Deprecated
+      - Dropped
     * - 10.9
       - from Jun 2013
       - Supported
       - Supported
       - Supported
+      - Recommended
       - Supported
     * - 10.10
       - from Oct 2014
       - Supported
       - Supported
-      - Recommended
+      - Supported
+      - Supported
       - Recommended
 
 Apple do not formally announce end of life for their releases, but
@@ -388,20 +408,20 @@ longer tested by the CI infrastructure (all 10.6 and 10.7 nodes
 retired).
 
 UNIX (FreeBSD)
-^^^^^^^^^^^^^^
+--------------
 
 It only really makes sense to support the base toolchain for major
 releases and the Ports tree (which is continually updated); these will
 be covered in the dependencies, below.
 
 Linux (Centos and RHEL)
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 General overview for `RHEL
 <https://access.redhat.com/site/articles/3078>`__ and `CentOS
 <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
-.. tabularcolumns:: |l|l|l|l|l|J|
+.. tabularcolumns:: |l|l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -409,27 +429,31 @@ General overview for `RHEL
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
       - Details
     * - 5
       - from Mar 2007
       - to Mar 2017
       - Dropped
       - Dropped
-      - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - Dropped
+      - `Ref <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 6
       - from Nov 2010
       - to Nov 2020
       - Recommended
       - Recommended
-      - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - Dropped
+      - `Ref <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 7
       - from June 2014
       - to June 2024
-      - Upcoming
-      - Upcoming
-      - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - Unsupported
+      - Supported
+      - Recommended
+      - `Ref <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
 Only RHEL and CentOS 6 are supported at present. Given the long life
 of enterprise releases, I'd suggest we should only support the latest
@@ -442,7 +466,7 @@ building and deployment with CentOS 6 but it is not used directly by
 developers in general.
 
 Linux (Fedora)
-^^^^^^^^^^^^^^
+--------------
 
 `General overview <https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle>`__
 
@@ -451,11 +475,11 @@ to support the current and perhaps the previous release; these will be
 covered in the dependencies, below.
 
 Linux (Ubuntu)
-^^^^^^^^^^^^^^
+--------------
 
 `General overview <https://wiki.ubuntu.com/Releases>`__
 
-.. tabularcolumns:: |l|l|l|l|l|J|
+.. tabularcolumns:: |l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -463,75 +487,75 @@ Linux (Ubuntu)
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
-      - Details
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
     * - 10.04 (.4) LTS
       - from Apr 2010
       - to Apr 2015 (server only)
+      - Deprecated
       - Dropped
       - Dropped
-      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 10.10
       - from Oct 2010
       - to Apr 2012
       - Dropped
       - Dropped
-      - `Reference <https://wiki.ubuntu.com/Releases>`__
+      - Dropped
     * - 11.04
       - from Apr 2011
       - to Oct 2012
       - Dropped
       - Dropped
-      - `Reference <https://wiki.ubuntu.com/Releases>`__
+      - Dropped
     * - 11.10
       - from Oct 2011
       - to May 2013
       - Dropped
       - Dropped
-      - `Reference <https://wiki.ubuntu.com/Releases>`__
+      - Dropped
     * - 12.04 (.4) LTS
       - from Apr 2012
       - to Apr 2017
-      - Supported
-      - Supported
-      - `Reference <https://wiki.ubuntu.com/Releases>`__
+      - Recommended
+      - Deprecated
+      - Dropped
     * - 12.10
       - from Oct 2012
       - to May 2014
       - Dropped
       - Dropped
-      - `Reference <https://wiki.ubuntu.com/Releases>`__
+      - Dropped
     * - 13.04
       - from Apr 2013
       - to Jan 2014
       - Dropped
       - Dropped
-      - `Reference <https://wiki.ubuntu.com/Releases>`__
+      - Dropped
     * - 13.10
       - from Oct 2013
       - to Jul 2014
       - Dropped
       - Dropped
-      - `Reference <https://wiki.ubuntu.com/Releases>`__
+      - Dropped
     * - 14.04 LTS
       - from Apr 2014
       - to Apr 2019
+      - Supported
       - Recommended
       - Recommended
-      - `Reference <https://wiki.ubuntu.com/Releases>`__
     * - 14.10
       - from Oct 2014
       - to Jul 2015
       - Supported
       - Supported
-      - `Reference <https://wiki.ubuntu.com/Releases>`__
+      - Supported
     * - 15.04
       - TBA
       - TBA
+      - Unsupported
+      - Unsupported
       - Upcoming
-      - Upcoming
-      - `Reference <https://wiki.ubuntu.com/Releases>`__
 
 Only the LTS releases are supported due to resource limitations upon
 CI and testing. Only the last two LTS releases are supported (being a
@@ -540,11 +564,11 @@ for any version, but some developer use of 12.04 LTS, 14.04 LTS and
 more recent non-LTS releases.
 
 Linux (Debian stable)
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 `General overview <https://www.debian.org/releases/>`__
 
-.. tabularcolumns:: |l|l|l|l|l|J|
+.. tabularcolumns:: |l|l|l|l|l|l|J|
 
 .. list-table::
     :header-rows: 1
@@ -552,12 +576,14 @@ Linux (Debian stable)
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
       - Details
     * - 5.0
       - from Feb 2009
       - to Feb 2012
+      - Dropped
       - Dropped
       - Dropped
       - `Reference <https://www.debian.org/releases/lenny/>`__
@@ -565,37 +591,40 @@ Linux (Debian stable)
       - from Feb 2011
       - to Feb 2016
       - Supported
-      - Supported
+      - Deprecated
+      - Dropped
       - `Reference <https://www.debian.org/releases/squeeze/>`__
     * - 7.0
       - from May 2013
       - TBA
       - Recommended
       - Recommended
+      - Deprecated
       - `Reference <https://www.debian.org/releases/wheezy/>`__
     * - 8.0
       - TBA
       - TBA
-      - Upcoming
-      - Upcoming
+      - Unsupported
+      - Unsupported
+      - Supported
       - `Reference <https://www.debian.org/releases/jessie/>`__
 
 Stable releases 7.x and 6.x are supported. There is no CI testing for
 any version, and some developer use of 7.x.
 
 Linux (Debian testing and unstable)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------
 
 Due to the fast pace of Debian developement, it only really makes
 sense to support the last one or two stable releases; the testing and
 unstable requirements will be covered in the dependencies, below.
 
 Hardware support
-----------------
+================
 
 
 Microsoft Windows
-^^^^^^^^^^^^^^^^^
+-----------------
 
 Supports amd64 (64-bit) and i386 / x86 (32-bit) for all supported
 versions; most systems are today running x64 with most hardware being
@@ -603,32 +632,32 @@ x64, but there is still a niche of x86 users, estimated <25% and
 falling globally (OMERO usage stats here?)
 
 Unix (MacOS X)
-^^^^^^^^^^^^^^
+--------------
 
 Currently all supported versions are amd64 (64-bit) only.
 
 Unix (FreeBSD)
-^^^^^^^^^^^^^^
+--------------
 
 Supports amd64 (64-bit) and i386 / x86 (32-bit) for all supported
 releases. Other platforms are supported, but may require manual
 building of prerequisites.
 
 Linux (RHEL and CentOS)
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 Version 6 supports amd64 (64-bit) and i386 / x86 (32-bit). Version 7
 supports amd64 (64-bit) only.
 
 Linux (other)
-^^^^^^^^^^^^^
+-------------
 
 Most distributions support i386 / x86 (32-bit) as well, while some
 support additional architectures such as 32-bit and/or 64-bit arm and
 powerpc.
 
 Additional notes
-^^^^^^^^^^^^^^^^
+----------------
 
 The OMERO server is 64-bit-only due to the large memory requirements.
 On the client side, there is a requirement for 32-bit support for
@@ -638,7 +667,7 @@ other builds should be considered, given the vast reduction in the
 support burden and steadily dropping need for these builds.
 
 Dependencies
-------------
+============
 
 The following subsections detail the versions of each dependency
 needed by OMERO which are supported by both its upstream developers
@@ -650,7 +679,7 @@ server and client deployment.
     change without notice.
 
 Package lists
-^^^^^^^^^^^^^
+-------------
 
 .. tabularcolumns:: |l|l|
 
@@ -682,11 +711,11 @@ Package lists
 
 
 PostgreSQL
-^^^^^^^^^^
+----------
 
 `General overview <http://www.postgresql.org/support/versioning/>`__
 
-.. tabularcolumns:: |l|l|l|l|l|
+.. tabularcolumns:: |l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -694,51 +723,60 @@ PostgreSQL
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
     * - 8.4
       - from Jul 2009
       - to Jul 2014
-      - Supported
-      - Supported
+      - Deprecated
+      - Dropped
+      - Dropped
     * - 9.0
       - from Sep 2010
       - to Sep 2015
-      - Supported
-      - Supported
+      - Deprecated
+      - Dropped
+      - Dropped
     * - 9.1
       - from Sep 2011
       - to Sep 2016
-      - Supported
-      - Supported
+      - Deprecated
+      - Dropped
+      - Dropped
     * - 9.2
       - from Sep 2012
       - to Sep 2017
       - Recommended
-      - Recommended
+      - Deprecated
+      - Dropped
     * - 9.3
       - from Sep 2013
       - to Sep 2018
+      - Supported
       - Recommended
-      - Recommended
+      - Deprecated
     * - 9.4
       - from Dec 2014
       - to Dec 2019
-      - Upcoming
-      - Upcoming
+      - Unsupported
+      - Supported
+      - Recommended
     * - 9.5
       - TBA
       - TBA
-      - Upcoming
+      - Unsupported
+      - Unsupported
       - Upcoming
     * - Details
       - 
       - `Reference <http://www.postgresql.org/support/versioning/>`__
       - 
       - 
+      - 
 
 Distribution support
-,,,,,,,,,,,,,,,,,,,,
+^^^^^^^^^^^^^^^^^^^^
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|l|
 
@@ -815,9 +853,9 @@ Therefore distribution support is not critical since 9.3 and 9.4 are
 available for all platforms.
 
 Python
-^^^^^^
+------
 
-.. tabularcolumns:: |l|l|l|l|l|l|
+.. tabularcolumns:: |l|l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -825,12 +863,14 @@ Python
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
       - Details
     * - 2.5
       - from Sep 2006
       - to Oct 2011
+      - Dropped
       - Dropped
       - Dropped
       - `Reference <https://mail.python.org/pipermail/python-committers/2011-October/001844.html>`__
@@ -839,11 +879,13 @@ Python
       - from Oct 2008
       - to Oct 2013
       - Supported
-      - Supported
+      - Deprecated
+      - Dropped
       - `Reference <http://legacy.python.org/dev/peps/pep-0361/>`__
     * - 2.7
       - from Jul 2010
       - to 2020
+      - Recommended
       - Recommended
       - Recommended
       - `Reference <http://legacy.python.org/dev/peps/pep-0373/>`__
@@ -852,10 +894,12 @@ Python
       - to Feb 2009
       - Unsupported
       - Unsupported
+      - Unsupported
       - `Reference <http://legacy.python.org/dev/peps/pep-0361/>`__
     * - 3.1
       - from Jun 2009
       - to June 2014
+      - Unsupported
       - Unsupported
       - Unsupported
       - `Reference <http://legacy.python.org/dev/peps/pep-0375/>`__
@@ -864,10 +908,12 @@ Python
       - to Feb 2016
       - Unsupported
       - Unsupported
+      - Unsupported
       - `Reference <http://legacy.python.org/dev/peps/pep-0392/>`__
     * - 3.3
       - from Sep 2012
       - to Sep 2017
+      - Unsupported
       - Unsupported
       - Unsupported
       - `Reference <http://legacy.python.org/dev/peps/pep-0398/>`__
@@ -876,16 +922,18 @@ Python
       - TBA
       - Unsupported
       - Unsupported
+      - Unsupported
       - `Reference <http://legacy.python.org/dev/peps/pep-0429/>`__
     * - 3.5
-      - TBA (probably Sep 2015)
       - TBA
+      - TBA
+      - Unsupported
       - Unsupported
       - Unsupported
       - `Reference <https://www.python.org/dev/peps/pep-0478>`__
 
 Distribution support
-,,,,,,,,,,,,,,,,,,,,
+--------------------
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -982,11 +1030,11 @@ without major effort. Ice in particular has dropped 2.7 support for
 Windows.
 
 GCC
-^^^
+---
 
 `General overview <https://gcc.gnu.org/develop.html#timeline>`__
 
-.. tabularcolumns:: |l|l|l|l|l|
+.. tabularcolumns:: |l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -994,11 +1042,13 @@ GCC
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
     * - 4.2
       - from May 2007
       - to May 2008
+      - Dropped
       - Dropped
       - Dropped
     * - 4.3
@@ -1006,44 +1056,52 @@ GCC
       - to Jun 2011
       - Dropped
       - Dropped
+      - Dropped
     * - 4.4
       - from Apr 2009
       - to Mar 2012
       - Supported
-      - Supported
+      - Deprecated
+      - Dropped
     * - 4.5
       - from Apr 2010
       - to Jul 2012
       - Supported
-      - Supported
+      - Deprecated
+      - Dropped
     * - 4.6
       - from Mar 2011
       - to Apr 2013
       - Supported
       - Supported
+      - Deprecated
     * - 4.7
       - from Mar 2012
       - to Apr 2013
       - Supported
       - Supported
+      - Deprecated
     * - 4.8
       - from Mar 2013
       - to May 2014
+      - Supported
       - Recommended
       - Recommended
     * - 4.9
       - from Apr 2014
       - TBA
+      - Supported
       - Recommended
       - Recommended
     * - 5.0
       - TBA
       - TBA
-      - Upcoming
+      - Unsupported
+      - Unsupported
       - Upcoming
 
 Distribution support
-,,,,,,,,,,,,,,,,,,,,
+^^^^^^^^^^^^^^^^^^^^
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -1132,11 +1190,11 @@ GCC 4.2 support was dropped with the dropping of MacOS 10.6; the
 current baseline is GCC 4.4.
 
 LLVM/clang
-^^^^^^^^^^
+----------
 
 `General overview <http://llvm.org/releases/>`__
 
-.. tabularcolumns:: |l|l|l|l|l|
+.. tabularcolumns:: |l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1144,11 +1202,13 @@ LLVM/clang
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
     * - 3.1
       - from May 2012
       - to May 2012
+      - Unsupported
       - Unsupported
       - Unsupported
     * - 3.2
@@ -1156,29 +1216,34 @@ LLVM/clang
       - to Dec 2012
       - Unsupported
       - Unsupported
+      - Unsupported
     * - 3.3
       - from Jen 2013
       - to Jen 2013
-      - Supported
-      - Supported
+      - Deprecated
+      - Dropped
+      - Dropped
     * - 3.4
       - from Jan 2014 to May 2014
       - from Jan 2014 to May 2014
       - Recommended
       - Recommended
+      - Supported
     * - 3.5
       - from Sep 2014
       - to Sep 2014
-      - Upcoming
-      - Upcoming
+      - Unsupported
+      - Supported
+      - Recommended
     * - 3.6
       - TBA
       - TBA
-      - Upcoming
+      - Unsupported
+      - Unsupported
       - Upcoming
 
 Distribution support
-,,,,,,,,,,,,,,,,,,,,
+^^^^^^^^^^^^^^^^^^^^
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -1248,14 +1313,14 @@ worth supporting; 3.4 is used in MacOS X 10.9 and 10.10 and in FreeBSD
 10.1. Until 3.4, no point releases were made for major versions.
 
 Microsoft Visual Studio
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 `General overview <http://support2.microsoft.com/lifecycle/search/?sort=PN&alpha=Visual+Studio>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|
+.. tabularcolumns:: |l|l|l|l|l|l|l|
 
 .. list-table::
-    :header-rows: 1
+    :header-rows: 2
 
     * - 
       - 
@@ -1263,16 +1328,19 @@ Microsoft Visual Studio
       - support
       - 
       - 
+      - 
     * - Version
       - Release date
       - (mainline)
       - (extended)
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
     * - 2008
       - from Aug 2008
       - to Apr 2013
       - to Apr 2018
+      - Unsupported
       - Unsupported
       - Unsupported
     * - 2010
@@ -1280,11 +1348,13 @@ Microsoft Visual Studio
       - to Jul 2015
       - to Jul 2020
       - Supported
-      - Supported
+      - Deprecated
+      - Dropped
     * - 2012
       - from Oct 2012
       - to Jan 2018
       - to Jan 2023
+      - Supported
       - Supported
       - Supported
     * - 2013
@@ -1293,15 +1363,18 @@ Microsoft Visual Studio
       - to Apr 2024
       - Recommended
       - Recommended
+      - Recommended
     * - 2015
       - from TBA
       - to TBA
       - to TBA
       - Unsupported
       - Unsupported
+      - Supported
 
 The version to use is largely dependent upon the Ice support for a particular Visual Studio version.
 
+- Ice 3.6 supports 2013 and 2012
 - Ice 3.5 supports 2013, 2012 and 2010
 - Ice 3.4 supports 2010 and 2008
 
@@ -1309,11 +1382,11 @@ In general later versions have better C++ standards conformance and
 correctness, and should be preferred where possible.
 
 Ice
-^^^
+---
 
 `General overview <http://www.zeroc.com/download.html>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|
+.. tabularcolumns:: |l|l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1321,12 +1394,14 @@ Ice
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
       - Details
     * - 3.3
       - from May 2008
       - to May 2009
+      - Dropped
       - Dropped
       - Dropped
       - `Ice 3.3 <http://www.zeroc.com/forums/announcements/3749-ice-3-3-released.html>`__
@@ -1335,7 +1410,8 @@ Ice
       - from Mar 2010
       - to Jun 2011
       - Supported
-      - Supported
+      - Deprecated
+      - Dropped
       - `Ice 3.4 <http://www.zeroc.com/forums/announcements/4821-ice-3-4-released.html>`__
         `Ice 3.4.2 <http://www.zeroc.com/forums/announcements/5406-ice-3-4-2-released.html>`__
     * - 3.5
@@ -1343,17 +1419,19 @@ Ice
       - to Oct 2013
       - Recommended
       - Recommended
+      - Deprecated
       - `Ice 3.5 <http://www.zeroc.com/forums/announcements/5943-ice-3-5-0-released.html>`__
         `Ice 3.5.1 <http://www.zeroc.com/forums/announcements/6118-ice-3-5-1-released.html>`__
     * - 3.6
       - TBA (in beta)
       - TBA
-      - Upcoming
-      - Upcoming
+      - Unsupported
+      - Unsupported
+      - Recommended
       -
 
 Distribution support
-,,,,,,,,,,,,,,,,,,,,
+^^^^^^^^^^^^^^^^^^^^
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -1397,7 +1475,7 @@ Distribution support
       - N/A
 
 Java
-^^^^
+----
 
 `General overview <http://www.oracle.com/technetwork/java/eol-135779.html>`__
 
@@ -1409,12 +1487,14 @@ Java
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
       - Details
     * - 5
       - from May 2004
       - to Oct 2009
+      - Dropped
       - Dropped
       - Dropped
       - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
@@ -1422,23 +1502,26 @@ Java
       - from Dec 2006
       - to Feb 2013
       - Supported
-      - Supported
+      - Deprecated
+      - Dropped
       - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 7
       - From Jul 2011
       - to Apr 2015
       - Recommended
-      - Recommended
+      - Supported
+      - Deprecated
       - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 8
       - From Mar 2014
       - to Mar 2017
       - Supported
-      - Supported
+      - Recommended
+      - Recommended
       - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
 
 Distribution support
-,,,,,,,,,,,,,,,,,,,,
+^^^^^^^^^^^^^^^^^^^^
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -1501,7 +1584,7 @@ work (1.8.0u25, FreeBSD). 1.8 should become recommended once working
 versions exist in all distributions.
 
 OpenGL
-^^^^^^
+------
 
 `General overview <http://en.wikipedia.org/wiki/OpenGL>`__
 
@@ -1513,11 +1596,13 @@ OpenGL
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
     * - 2.0
       - in Sep 2004
       - N/A
+      - Unsupported
       - Unsupported
       - Unsupported
     * - 2.1
@@ -1525,9 +1610,11 @@ OpenGL
       - N/A
       - Unsupported
       - Unsupported
+      - Unsupported
     * - 3.0
       - in Aug 2008
       - N/A
+      - Unsupported
       - Unsupported
       - Unsupported
     * - 3.1
@@ -1535,9 +1622,11 @@ OpenGL
       - N/A
       - Unsupported
       - Unsupported
+      - Unsupported
     * - 3.2
       - in Aug 2009
       - N/A
+      - Unsupported
       - Unsupported
       - Unsupported
     * - 3.3
@@ -1545,9 +1634,11 @@ OpenGL
       - N/A
       - Unsupported
       - Unsupported
+      - Unsupported
     * - 4.0
       - in Mar 2010
       - N/A
+      - Unsupported
       - Unsupported
       - Unsupported
     * - 4.1
@@ -1555,9 +1646,11 @@ OpenGL
       - N/A
       - Unsupported
       - Unsupported
+      - Unsupported
     * - 4.2
       - in Aug 2010
       - N/A
+      - Unsupported
       - Unsupported
       - Unsupported
     * - 4.3
@@ -1565,9 +1658,11 @@ OpenGL
       - N/A
       - Unsupported
       - Unsupported
+      - Unsupported
     * - 4.4
       - in Jul 2013
       - N/A
+      - Unsupported
       - Unsupported
       - Unsupported
     * - 4.5
@@ -1575,9 +1670,10 @@ OpenGL
       - N/A
       - Unsupported
       - Unsupported
+      - Unsupported
 
 Distribution support
-,,,,,,,,,,,,,,,,,,,,
+^^^^^^^^^^^^^^^^^^^^
 
 .. tabularcolumns:: |l|l|l|l|l|l|J|l|
 
@@ -1715,11 +1811,11 @@ years old, with 4.x being the typical baseline for hardware from a
 year ago.
 
 Apache
-^^^^^^
+------
 
 `General overview <http://www.apachehaus.com/index.php?option=com_content&view=article&id=119&Itemid=104>`__ and `website <http://httpd.apache.org/>`__.
 
-.. tabularcolumns:: |l|l|l|l|l|
+.. tabularcolumns:: |l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1727,26 +1823,30 @@ Apache
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
     * - 2.0
       - from Nov 2001
       - to Jul2013
-      - N/A
+      - Dropped
+      - Dropped
       - Dropped
     * - 2.2
       - from Dec 2005
       - TBA
-      - N/A
       - Recommended
+      - Supported
+      - Supported
     * - 2.4
       - from Feb 2012
       - TBA
-      - N/A
       - Supported
+      - Recommended
+      - Recommended
 
 Distribution support
-,,,,,,,,,,,,,,,,,,,,
+^^^^^^^^^^^^^^^^^^^^
 
 .. tabularcolumns:: |l|l|L|L|L|l|l|
 
@@ -1795,12 +1895,12 @@ supported by default (needs a manual tweak), should be working for
 5.1.
 
 nginx
-^^^^^
+-----
 
 `General overview <http://nginx.org/en/download.html>`__ and `roadmap
 <http://trac.nginx.org/nginx/roadmap>`__
 
-.. tabularcolumns:: |l|l|l|l|l|
+.. tabularcolumns:: |l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1808,31 +1908,36 @@ nginx
     * - Version
       - Release date
       - Upstream support
-      - OME (build)
-      - OME (deploy)
+      - OMERO 5.0
+      - OMERO 5.1
+      - OMERO 5.2
     * - 1.0
       - from Apr 2011
       - to Apr 2012
-      - N/A
       - Supported
+      - Deprecated
+      - Dropped
     * - 1.2
       - from Apr 2012
       - to May 2013
-      - N/A
       - Supported
+      - Supported
+      - Deprecated
     * - 1.4
       - from Apr 2013
       - to Mar 2014
-      - N/A
+      - Recommended
+      - Supported
       - Supported
     * - 1.6
       - from Apr 2014
       - TBA
-      - N/A
+      - Supported
+      - Recommended
       - Recommended
 
 Distribution support
-,,,,,,,,,,,,,,,,,,,,
+^^^^^^^^^^^^^^^^^^^^
 
 .. tabularcolumns:: |l|l|l|L|L|l|l|
 
