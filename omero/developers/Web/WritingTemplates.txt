@@ -26,7 +26,7 @@ Django templates
 
 We use Django templates for the OMERO.web pages. See docs here:
 https://docs.djangoproject.com/en/dev/ref/templates/ and `template
-inheritance <https://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance>`_.
+inheritance <https://docs.djangoproject.com/en/dev/ref/templates/language/#template-inheritance>`_.
 We have designed a number of OMERO.web base templates that you can
 extend. The base templates live in the 'webgateway' app under
 omeroweb/webgateway/templates/webgateway/base. You can use these to make pages
