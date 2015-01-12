@@ -174,6 +174,7 @@ extlinks = {
     'snapshot' : (cvs_root + '/snapshots/%s', ''),
     'zeroc' : ('http://zeroc.com/%s', ''),
     'zerocdoc' : ('http://doc.zeroc.com/%s', ''),
+    'djangodoc' : ('https://docs.djangoproject.com/en/1.6/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
     'pypi': ('https://pypi.python.org/pypi/%s', '')
     }
