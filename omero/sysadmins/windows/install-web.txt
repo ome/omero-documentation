@@ -440,8 +440,8 @@ Customizing your OMERO.web installation
           C:\omero_dist>bin\omero web clearsessions
 
       It is recommended to call this command on a regular basis, for example
-      as a Task Scheduler, see 
-      :djangodoc:`Django clearing the session store documentation  <topics/http/sessions/#clearing-the-session-store>`
+      as a Task Scheduler, see
+      :djangodoc:`Django clearing the session store documentation <topics/http/sessions/#clearing-the-session-store>`
       for more information.
 
       .. note::
