@@ -251,9 +251,9 @@ OMERO.web Maintenance
 -  Session cookies :property:`omero.web.session_expire_at_browser_close`:
 
    -  A boolean that determines whether to expire the session when the user
-      closes their browser. See `Django Browser-length sessions vs. persistent
-      sessions documentation 
-      <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#browser-length-vs-persistent-sessions>`_
+      closes their browser.
+      See :djangodoc:`Django Browser-length sessions vs. persistent
+      sessions documentation topics/http/sessions/#browser-length-vs-persistent-sessions>`
       for more details. Default: ``True``.
 
       ::
@@ -272,7 +272,7 @@ OMERO.web Maintenance
       store. Stale sessions can cause the store to grow with time. OMERO.web 
       uses by default the OS file system as the session store backend and 
       does not automatically purge stale sessions, see 
-      `Django file-based session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-file-based-sessions>`_
+      :djangodoc:`Django file-based session documentation <topics/http/sessions/#using-file-based-sessions>`
       for more details. It is therefore the responsibility of the OMERO 
       administrator to purge the session cache using the provided management 
       command:
@@ -282,14 +282,14 @@ OMERO.web Maintenance
           $ bin/omero web clearsessions
 
       It is recommended to call this command on a regular basis, for example 
-      as a daily cron job, see 
-      `Django clearing the session store documentation  <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#clearing-the-session-store>`_
+      as a daily cron job, see
+      :djangodoc:`Django clearing the session store documentation  <topics/http/sessions/#clearing-the-session-store>`
       for more information.
 
       .. note::
           OMERO.web offers alternative session backends to automatically 
           delete stale data using the cache session store backend, see
-          `Django cached session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-cached-sessions>`_
+          :djangodoc:`Django cached session documentation <topics/http/sessions/#using-cached-sessions>`
           for more details. After installing all the cache prerequisites set the following:
 
           ::

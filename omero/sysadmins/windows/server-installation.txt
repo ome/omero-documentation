@@ -712,8 +712,8 @@ then start by
         C:\omero_dist>bin\omero config set omero.web.session_engine
         C:\omero_dist>bin\omero config set omero.web.caches
 
-    If your deployment requires additional cache store please follow 
-    `Django documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
+    If your deployment requires additional cache store please follow
+    :djangodoc:`Django documentation <topics/cache/>`
     for more details.
 
 Once you have deployed and started the server you can use your browser
