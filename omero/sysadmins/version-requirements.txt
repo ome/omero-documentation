@@ -27,9 +27,9 @@ Operating systems
 * Microsoft Windows
 
   * Proposal: [5.1] 7 (client) recommended / Server 2008R2 (server)
-    recommended; XP/Server 2003/Vista Dropped
-  * Proposal: [5.2] 8 (client) recommended / Server 2012R2
-    (server) recommended; 7 / Server 2008R2 supported
+    recommended; XP/Server 2003/Vista dropped
+  * Proposal: [5.2] 7 / Server 2008R2 supported; 8 (client)
+    recommended / Server 2012R2 (server) recommended
   * Rationale: All prior versions prior to this are/will be out of
     support shortly except Vista (which we do not test and is not
     widely used). We have no testing of these older systems.
