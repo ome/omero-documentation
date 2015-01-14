@@ -11,8 +11,10 @@ OMERO.web is an integral part of the OMERO platform and can be deployed
 with:
 
 -  FastCGI using a FastCGI capable web server such as
-   `Apache <http://httpd.apache.org/>`_ (with
+   `Apache 2.2 <http://httpd.apache.org/>`_ (with
    `mod\_fastcgi <http://www.fastcgi.com/drupal/>`_ enabled),
+   `Apache 2.4+ <http://httpd.apache.org/>`_ (with the bundled
+   `mod\_proxy\_fcgi` enabled),
    `nginx <http://nginx.org/>`_ or
    `lighttpd <http://www.lighttpd.net/>`_ (since OMERO 4.2.1)
 -  The built-in Django lightweight development server (for **testing**
@@ -76,8 +78,8 @@ Once you have installed a FastCGI capable web server, configuration of
 
 .. _apache_configuration:
 
-Apache configuration
-""""""""""""""""""""
+Apache 2.2 configuration (mod_fastcgi)
+""""""""""""""""""""""""""""""""""""""
 
 To create a site configuration file for inclusion in the main Apache
 configuration redirect the output of the following command into a file:
@@ -97,6 +99,22 @@ configuration redirect the output of the following command into a file:
 .. note::
     To configure an HTTPS server follow
     `the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
+
+
+Apache 2.4+ configuration (mod_proxy_fcgi)
+""""""""""""""""""""""""""""""""""""""""""
+
+The `mod\_proxy\_fcgi`, `mod\_proxy` and `mod\_rewrite` Apache modules should
+already be installed and enabled as part of the Apache installation, if this
+is not the case then enable them.
+To create a site configuration file for inclusion in the main Apache
+configuration redirect the output of the following command into a file:
+
+::
+
+    $ bin/omero web config apache-fcgi
+
+.. literalinclude:: apache-fcgi-omero.conf
 
 
 .. _nginx_configuration:
