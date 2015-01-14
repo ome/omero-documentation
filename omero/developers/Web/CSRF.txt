@@ -8,7 +8,7 @@ application in which they are currently authenticated. For more details see
 
 OMERO.web provides easy-to-use protection against Cross Site Request
 Forgeries, for more information see
-`Django documentation <https://docs.djangoproject.com/en/1.6/ref/contrib/csrf/>`_.
+:djangodoc:`Django documentation <ref/contrib/csrf/>`.
 
 The first defense against CSRF attacks is to ensure that GET requests
 (and other ‘safe’ methods, as defined by 9.1.1 Safe Methods, HTTP 1.1,
@@ -45,12 +45,12 @@ POST, PUT and DELETE. These requests can then be protected as follows:
     <script type="text/javascript" src="{% static "webgateway/js/ome.csrf.js" %}"></script>
 
   For more details see
-  `CSRF for ajax <https://docs.djangoproject.com/en/1.6/ref/contrib/csrf/#ajax>`_.
+  :djangodoc:`CSRF for ajax <ref/contrib/csrf/#ajax>`.
 
 
 The Django framework also offers decorator methods that can help you protect your
 view methods and restrict access to views based on the request method.
-For more details see `Django decorators <https://docs.djangoproject.com/en/1.6/topics/http/decorators/>`_.
+For more details see :djangodoc:`Django decorators <topics/http/decorators/>`.
 
 
 By default OMERO.web provides a built-in view that handles all unsafe incoming
