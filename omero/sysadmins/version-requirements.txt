@@ -27,8 +27,8 @@ Operating systems
 
 * Microsoft Windows
 
-  * Proposal: [5.1] 7 (client) recommended / Server 2008R2 (server)
-    recommended; XP/Server 2003/Vista dropped
+  * Proposal: [5.1] XP/Server 2003/Vista dropped, 7 (client)
+    recommended / Server 2008R2 (server) recommended
   * Proposal: [5.2] 7 / Server 2008R2 supported; 8 (client)
     recommended / Server 2012R2 (server) recommended
   * Rationale: All prior versions prior to this are/will be out of
@@ -37,8 +37,8 @@ Operating systems
 
 * MacOS X
 
-  * Proposal: [5.1] 10.8 supported, 10.9 recommended, 10.10 supported;
-    10.6 and 10.7 dropped
+  * Proposal: [5.1] 10.6 and 10.7 dropped, 10.8 supported, 10.9
+    recommended, 10.10 supported
   * Proposal: [5.2] 10.8 deprecated, 10.9 supported, 10.10 recommended
   * Proposal: Support 10.8 for client only, test server only on
     10.9/10.10 (for 5.1); test server only on 10.10+ for 5.2.
@@ -75,7 +75,7 @@ Operating systems
 * Linux (Debian)
 
   * Proposal: [5.1] 6 deprecated, 7 recommended
-  * Proposal: [5.2] 8 recommended, 7 deprecated
+  * Proposal: [5.2] 7 deprecated, 8 recommended
   * Rationale: 6 is older than Ubuntu 12.04 and only has Ice 3.3;
     extended support will be present for the 5.1 lifetime however so
     will be usable if Ice is upgraded, but will not have official
@@ -89,13 +89,14 @@ on all platforms with the exception of MacOS X (64-bit only).
 
 * Proposal: [5.1] Drop 32-bit support for server, retain 32-bit
   support for clients
-* Proposal: [5.2] Drop 32-bit support entirely
+* Proposal: [5.2] Drop 32-bit support for Ice and native code
 * Rationale: It’s not practical to run a server on a 32-bit system due
   to its memory requirements, so it’s safe to drop 32-bit support for
-  5.1 given that it’s de-facto 64-bit-only today. There are still a
-  number of 32-bit Windows clients, so support should probably be
-  retained. However, new systems are almost all 64-bit so dropping
-  32-bit support is a possibility for 5.2.
+  OMERO.server in 5.1 given that it’s de-facto 64-bit-only
+  today. There are still a significant number of 32-bit Windows
+  clients (~60%), so support should be retained until this changes.
+  Maintaining custom builds of Ice for 32-bit systems is extremely
+  costly, and so we could consider dropping them for 5.2.
 
 Components
 ----------
@@ -104,7 +105,6 @@ Components
 
   * Proposal: [5.1] 8.4/9.0/9.1 dropped, 9.2 deprecated, 9.3+ recommended
   * Proposal: [5.2] 9.2 dropped, 9.3 deprecated, 9.4+ recommended
-    dropped
   * Rationale: Current releases available for all supported systems
     from upstream and for CentOS/RHEL 6.x officially via SCL (software
     collections). At a bare minimum, 8.4 and 9.0 must be dropped (end
@@ -132,7 +132,6 @@ Components
 
   * Proposal: [5.1] 4.4 deprecated, 4.6+ supported, 4.8+ recommended
   * Proposal: [5.2] 4.4 dropped, 4.6+ deprecated, 4.8+ recommended
-    status
   * Rationale: 4.4 is the CentOS/RHEL 6.x default. It would be
     desirable to update but is probably not what external users will
     want given the compatibility concerns. The SCL DeveloperToolset3
@@ -176,17 +175,18 @@ Components
   * Proposal: [5.2] 6 dropped, 7 deprecated, 8 recommended
   * Rationale: It will be 2 years this Februrary since the last Java 6
     security update. Java 7 is supported on all supported operating
-    systems above, and in most cases is the default java version on
+    systems above, and in most cases is the default Java version on
     those systems (it’s now 8 on some). This was mentioned recently,
     and also by the Fiji developers; 5.1 would be an opportune time to
-    drop Java 6. Also note that we no longer actively test with a Java
-    6 JVM; all internal testing is on Java 7 or 8 (Oracle and
-    OpenJDK), and there are some client issues with OpenJDK6.  Also
-    note that Ice 3.6 drops Java 6 support.  For 5.2 deprecate 7; this
-    is because security support ends in April 2015.
+    deprecate or preferably drop Java 6. Also note that we no longer
+    actively test with a Java 6 JVM; all internal testing is on Java 7
+    or 8 (Oracle and OpenJDK), and there are some client issues with
+    OpenJDK6.  Also note that Ice 3.6 drops Java 6 support.  For 5.2
+    deprecate 7; this is because security support ends in April 2015.
   * The requirement for 7 support in the server for 5.1 is due to
     there being very little usage of 6 for server deployments even for
-    5.0 and it does bring useful benefits for the server.
+    5.0 and it does bring useful benefits for the server
+    (e.g. AutoCloseable).
   * The requirement for 7 in the MacOS X clients is due to the Apple
     Java application bundle support being limited to 6 only.
   * The requirement for 7 in the Windows clients is less urgent, but
