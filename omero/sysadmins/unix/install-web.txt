@@ -86,28 +86,7 @@ configuration redirect the output of the following command into a file:
 
     $ bin/omero web config apache
 
-::
-
-    ...
-    ###
-    ### Stanza for OMERO.web created 2012-07-12 16:44:16.112099
-    ###
-    FastCGIExternalServer "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi" -host 0.0.0.0:4080 -idle-timeout 60
-
-    <Directory "/usr/local/dev/openmicroscopy/dist/var">
-        Options -Indexes FollowSymLinks
-        Order allow,deny
-        Allow from all
-    </Directory>
-
-    <Directory "/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static">
-        Options -Indexes FollowSymLinks
-        Order allow,deny
-        Allow from all
-    </Directory>
-
-    Alias /omero/static /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static
-    Alias /omero "/usr/local/dev/openmicroscopy/dist/var/omero.fcgi/"
+.. literalinclude:: apache-omero.conf
 
 .. note::
     The default configuration file installed with `mod_fastcgi` may be
@@ -131,51 +110,8 @@ configuration redirect the output of the following command into a file:
 ::
 
     $ bin/omero web config nginx --system
-    
-::
 
-    server {
-        listen       80;
-        server_name  $hostname;
-
-         # weblitz django apps serve media from here
-        location /omero/static {
-            alias /usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static;
-        }
-
-        location /omero {
-            if (-f /usr/local/dev/openmicroscopy/dist/var/maintenance.html) {
-               error_page 503 /maintenance.html;
-               return 503;
-            }
-
-            fastcgi_pass 0.0.0.0:4080;
-
-            fastcgi_split_path_info ^(/omero)(.*)$;
-            fastcgi_param PATH_INFO $fastcgi_path_info;
-            fastcgi_param SCRIPT_INFO $fastcgi_script_name;
-
-
-            fastcgi_param REQUEST_METHOD $request_method;
-            fastcgi_param QUERY_STRING $query_string;
-            fastcgi_param CONTENT_TYPE $content_type;
-            fastcgi_param CONTENT_LENGTH $content_length;
-            fastcgi_param SERVER_NAME $server_name;
-            fastcgi_param SERVER_PROTOCOL $server_protocol;
-            fastcgi_param SERVER_PORT $server_port;
-            fastcgi_pass_header Authorization;
-            fastcgi_intercept_errors on;
-            fastcgi_read_timeout 60;
-            # Uncomment if nginx SSL module is enabled or you are using nginx 1.1.11 or later
-            # -- See: #10273, http://nginx.org/en/CHANGES
-            # fastcgi_param HTTPS $https;
-        }
-
-        location /maintenance.html {
-            root /usr/local/dev/openmicroscopy/dist/var;
-        }
-
-    }
+.. literalinclude:: nginx-system-omero.conf
 
 .. note::
     To configure an HTTPS server follow
