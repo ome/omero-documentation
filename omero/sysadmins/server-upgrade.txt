@@ -286,7 +286,7 @@ want to restore a database backup. To do so, create a new database,
 
 .. parsed-literal::
 
-    $ createdb -h localhost -U postgres -O **db_user** omero_from_backup
+    $ createdb -h localhost -U postgres -E UTF8 -O **db_user** omero_from_backup
 
 restore the previous archive into this new database,
 

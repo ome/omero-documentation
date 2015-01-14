@@ -533,7 +533,7 @@ For the purposes of this guide, the following dummy data is used::
 
 -  Create a database for OMERO to reside in::
 
-      $ sudo -u postgres createdb -O db_user omero_database
+      $ sudo -u postgres createdb -E UTF8 -O db_user omero_database
 
 -  Add the PL/pgSQL language to your database::
 
