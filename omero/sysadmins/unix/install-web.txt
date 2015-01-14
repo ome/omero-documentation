@@ -122,7 +122,7 @@ configuration redirect the output of the following command into a file:
 Nginx configuration
 """""""""""""""""""
 
-To create a site configuration file for inclusion system-wide nginx instance
+To create a site configuration file for inclusion in a system-wide nginx
 configuration redirect the output of the following command into a file:
 
 ::
