@@ -42,45 +42,25 @@ Prerequisites
 Quick Start
 -----------
 
-Using FastCGI (Unix/Linux)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _fastcgi_configuration:
 
-Once you have installed a FastCGI capable web server, configuration of
-:property:`omero.web.application_server` OMERO.web is quite straightforward.
+FastCGI Configuration (Unix/Linux)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  OMERO.web is configured to use FastCGI TCP by default. If you are using a
-   non-standard web server configuration you may wish to change this before
-   generating your web server configuration:
-
-   ::
-
-       $ bin/omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
-
-   The default `fastcgi-tcp` option uses a TCP connection for communication
-   between OMERO.web and your web server; `fastcgi` uses a file based socket
-   and will require you to manage the file permissions on it.
-
--  By default OMERO.web expects to be run from the root URL of the web
-   server. :property:`omero.web.force_script_name` and
-   :property:`omero.web.static_url` can be configured, for example
-   `http://example.org/omero/`, as follows:
-
-   ::
-
-      $ bin/omero config set omero.web.force_script_name '/omero'
-      $ bin/omero config set omero.web.static_url '/omero/static/'
-
--  **Place one of the below stanza in your web server configuration file. The location of the
-   file will depend on your system, please refer to your web server's manual.
-   Apache and nginx configurations can be automatically generated for you by
-   OMERO.web, see** :ref:`apache_configuration` **or** :ref:`nginx_configuration`.
+If you have installed Nginx or Apache OMERO can automatically generate a
+configuration file for your web server, see :ref:`apache22_configuration`,
+:ref:`apache24_configuration` or :ref:`nginx_configuration`.
+The location of the file will depend on your system, please refer to your
+web server's manual. See :ref:`customizing_your_omero_web_installation_unix`
+for additional customization options.
 
 
-.. _apache_configuration:
+.. _apache22_configuration:
 
 Apache 2.2 configuration (mod_fastcgi)
 """"""""""""""""""""""""""""""""""""""
 
+Install `mod\_fastcgi <http://www.fastcgi.com/drupal/>`_.
 To create a site configuration file for inclusion in the main Apache
 configuration redirect the output of the following command into a file:
 
@@ -100,6 +80,8 @@ configuration redirect the output of the following command into a file:
     To configure an HTTPS server follow
     `the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
 
+
+.. _apache24_configuration:
 
 Apache 2.4+ configuration (mod_proxy_fcgi)
 """"""""""""""""""""""""""""""""""""""""""
@@ -256,6 +238,32 @@ OMERO.web Maintenance
 
 Customizing your OMERO.web installation
 ---------------------------------------
+
+By default OMERO.web expects to be run from the root URL of the web server.
+This can be changed by setting :property:`omero.web.force_script_name` and
+:property:`omero.web.static_url`. For example, to make OMERO.web appear at
+`http://example.org/omero/`:
+
+   ::
+
+      $ bin/omero config set omero.web.force_script_name '/omero'
+      $ bin/omero config set omero.web.static_url '/omero/static/'
+
+and regenerate your web-server configuration
+(see :ref:`fastcgi_configuration`).
+
+OMERO.web is configured to use FastCGI TCP by default. If you are using a
+non-standard web server configuration you may wish to change this:
+
+   ::
+
+       $ bin/omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
+
+The default `fastcgi-tcp` option uses a TCP connection for communication
+between OMERO.web and your web server; `fastcgi` uses a file based socket and
+will require you to manage the file permissions on it. You will have to
+regenerate your web server configuration after changing this property
+(see :ref:`fastcgi_configuration`).
 
 All configuration options can be found on various sections of
 :ref:`web_index` developers documentation. For the full list, refer to
