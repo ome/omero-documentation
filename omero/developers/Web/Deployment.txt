@@ -58,7 +58,20 @@ Debugging on and start the server up:
 Using FastCGI (Unix/Linux)
 --------------------------
 
-Please follow the server installation instructions, see
-:doc:`/sysadmins/unix/install-web`.
+For convenience you may wish to run a web server under your local user account
+instead of using a system server for testing. Install Nginx
+(See :doc:`/sysadmins/unix/install-web`) but generate a configuration file
+using the following command:
 
--  Next: Get started by :doc:`/developers/Web/CreateApp`....
+::
+
+    $ bin/omero web config nginx > nginx.conf
+
+Start nginx, and the Django FASTCGI workers:
+
+::
+
+    $ nginx -c $PWD/nginx.conf
+    $ bin/omero web start
+
+Next: Get started by :doc:`/developers/Web/CreateApp`....
