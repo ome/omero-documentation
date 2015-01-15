@@ -1320,7 +1320,7 @@ Default: ``[]``
 omero.web.caches
 ^^^^^^^^^^^^^^^^
 
-OMERO.web offers alternative session backends to automatically delete stale data using the cache session store backend, see `Django cached session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-cached-sessions>`_  for more details.
+OMERO.web offers alternative session backends to automatically delete stale data using the cache session store backend, see :djangodoc:`Django cached session documentation <topics/http/sessions/#using-cached-sessions>` for more details.
 
 Default: ``{"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}`` 
 
@@ -1440,7 +1440,7 @@ Default: ``None``
 omero.web.login_redirect
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Redirect to the givin location after loging in. It only support arguments for `Django reverse function <https://docs.djangoproject.com/en/1.6/ref/urlresolvers/#django.core.urlresolvers.reverse>`_. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'``
+Redirect to the givin location after loging in. It only support arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#django.core.urlresolvers.reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'``
 
 Default: ``{}`` 
 
@@ -1580,7 +1580,7 @@ Default: ``86400``
 omero.web.session_engine
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Controls where Django stores session data. See `Configuring the session engine for more details  <https://docs.djangoproject.com/en/1.6/ref/settings/#session-engine>`_.
+Controls where Django stores session data. See :djangodoc:`Configuring the session engine for more details <ref/settings/#session-engine>`.
 
 Default: ``omeroweb.filesessionstore`` 
 
@@ -1590,7 +1590,7 @@ Default: ``omeroweb.filesessionstore``
 omero.web.session_expire_at_browser_close
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A boolean that determines whether to expire the session when the user closes their browser. See `Django Browser-length sessions vs. persistent sessions documentation  <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#browser-length-vs-persistent-sessions>`_ for more details.
+A boolean that determines whether to expire the session when the user closes their browser. See :djangodoc:`Django Browser-length sessions vs. persistent sessions documentation <topics/http/sessions/#browser-length-vs-persistent-sessions>` for more details.
 
 Default: ``true`` 
 
