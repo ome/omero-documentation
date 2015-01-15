@@ -69,6 +69,7 @@ configuration redirect the output of the following command into a file:
     $ bin/omero web config apache
 
 .. literalinclude:: apache-omero.conf
+   :lines: 55-
 
 .. note::
     The default configuration file installed with `mod_fastcgi` may be
@@ -97,7 +98,7 @@ configuration redirect the output of the following command into a file:
     $ bin/omero web config apache-fcgi
 
 .. literalinclude:: apache-fcgi-omero.conf
-
+   :lines: 51-
 
 .. _nginx_configuration:
 
