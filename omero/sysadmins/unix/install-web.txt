@@ -109,9 +109,9 @@ configuration redirect the output of the following command into a file:
 
 ::
 
-    $ bin/omero web config nginx --system
+    $ bin/omero web config nginx
 
-.. literalinclude:: nginx-system-omero.conf
+.. literalinclude:: nginx-omero.conf
 
 .. note::
     To configure an HTTPS server follow

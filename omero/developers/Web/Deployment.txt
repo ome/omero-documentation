@@ -65,7 +65,7 @@ using the following command:
 
 ::
 
-    $ bin/omero web config nginx > nginx.conf
+    $ bin/omero web config nginx-development > nginx-development.conf
 
 Start nginx, and the Django FASTCGI workers:
 
