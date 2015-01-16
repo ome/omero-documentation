@@ -8,9 +8,10 @@ Model graph operations
   deleting users' rendering settings for that image, also the links to
   any datasets that the image is in. Version 5.1.0 of the OMERO server
   includes a new algorithm for determining which model objects to act
-  on. Understanding the details of the new implementation substantially
-  assists in debugging or creating server operations that act on the
-  directed graph of model objects.
+  on. Clients should be :doc:`GraphsMigration` because the previous ones
+  will be *removed* in OMERO 5.3. Understanding the details of the new
+  implementation substantially assists in debugging or creating server
+  operations that act on the directed graph of model objects.
 
 Motivation
 ----------
@@ -425,4 +426,5 @@ omero.graphs.wrap false` restores the older implementation, though the
 newer one remains available through its request object classes: for
 instance, :javadoc:`Chgrp <slice2html/omero/cmd/Chgrp.html>` would now
 use the old implementation but :javadoc:`Chgrp2
-<slice2html/omero/cmd/Chgrp2.html>` still offers the new.
+<slice2html/omero/cmd/Chgrp2.html>` still offers the new. That property
+is deprecated and will be *removed* in OMERO 5.2.
