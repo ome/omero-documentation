@@ -446,91 +446,27 @@ This is useful when you need the ``Pixels`` intensity.
 Annotations
 -----------
 
-The following table lists all OMERO.matlab functions used to manipulate
-annotations from OMERO:
-
-.. list-table::
-    :header-rows: 1
-    :widths: 10, 15, 15, 15, 15, 15, 5
-
-
-    -   *
-        * Comment
-        * Double
-        * File
-        * Tag
-        * Timestamp
-        * XML
-
-    -   * Get by identifier
-        * :source:`getCommentAnnotations <components/tools/OmeroM/src/annotations/getCommentAnnotations.m>`
-        * :source:`getDoubleAnnotations <components/tools/OmeroM/src/annotations/getDoubleAnnotations.m>`
-        * :source:`getFileAnnotations <components/tools/OmeroM/src/annotations/getFileAnnotations.m>`
-        * :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
-        * :source:`getTimestampAnnotations <components/tools/OmeroM/src/annotations/getTimestampAnnotations.m>`
-        * :source:`getXmlAnnotations <components/tools/OmeroM/src/annotations/getXmlAnnotations.m>`
-
-    -   * Linked to images
-        * :source:`getImageCommentAnnotations <components/tools/OmeroM/src/annotations/getImageCommentAnnotations.m>`
-        * :source:`getImageDoubleAnnotations <components/tools/OmeroM/src/annotations/getImageDoubleAnnotations.m>`
-        * :source:`getImageFileAnnotations <components/tools/OmeroM/src/annotations/getImageFileAnnotations.m>`
-        * :source:`getImageTagAnnotations <components/tools/OmeroM/src/annotations/getImageTagAnnotations.m>`
-        * :source:`getImageTimestampAnnotations <components/tools/OmeroM/src/annotations/getImageTimestampAnnotations.m>`
-        * :source:`getImageXmlAnnotations <components/tools/OmeroM/src/annotations/getImageXmlAnnotations.m>`
-
-    -   * Linked to datasets
-        * :source:`getDatasetCommentAnnotations <components/tools/OmeroM/src/annotations/getDatasetCommentAnnotations.m>`
-        * :source:`getDatasetDoubleAnnotations <components/tools/OmeroM/src/annotations/getDatasetDoubleAnnotations.m>`
-        * :source:`getDatasetFileAnnotations <components/tools/OmeroM/src/annotations/getDatasetFileAnnotations.m>`
-        * :source:`getDatasetTagAnnotations <components/tools/OmeroM/src/annotations/getDatasetTagAnnotations.m>`
-        * :source:`getDatasetTimestampAnnotations <components/tools/OmeroM/src/annotations/getDatasetTimestampAnnotations.m>`
-        * :source:`getDatasetXmlAnnotations <components/tools/OmeroM/src/annotations/getDatasetXmlAnnotations.m>`
-
-    -   * Linked to projects
-        * :source:`getProjectCommentAnnotations <components/tools/OmeroM/src/annotations/getProjectCommentAnnotations.m>`
-        * :source:`getProjectDoubleAnnotations <components/tools/OmeroM/src/annotations/getProjectDoubleAnnotations.m>`
-        * :source:`getProjectFileAnnotations <components/tools/OmeroM/src/annotations/getProjectFileAnnotations.m>`
-        * :source:`getProjectTagAnnotations <components/tools/OmeroM/src/annotations/getProjectTagAnnotations.m>`
-        * :source:`getProjectTimestampAnnotations <components/tools/OmeroM/src/annotations/getProjectTimestampAnnotations.m>`
-        * :source:`getProjectXmlAnnotations <components/tools/OmeroM/src/annotations/getProjectXmlAnnotations.m>`
-
-    -   * Linked to screens
-        * :source:`getScreenCommentAnnotations  <components/tools/OmeroM/src/annotations/getScreenCommentAnnotations.m>`
-        * :source:`getScreenDoubleAnnotations <components/tools/OmeroM/src/annotations/getScreenDoubleAnnotations.m>`
-        * :source:`getScreenFileAnnotations <components/tools/OmeroM/src/annotations/getScreenFileAnnotations.m>`
-        * :source:`getScreenTagAnnotations <components/tools/OmeroM/src/annotations/getScreenTagAnnotations.m>`
-        * :source:`getScreenTimestampAnnotations <components/tools/OmeroM/src/annotations/getScreenTimestampAnnotations.m>`
-        * :source:`getScreenXmlAnnotations <components/tools/OmeroM/src/annotations/getScreenXmlAnnotations.m>`
-
-    -   * Linked to plates
-        * :source:`getPlateCommentAnnotations <components/tools/OmeroM/src/annotations/getPlateCommentAnnotations.m>`
-        * :source:`getPlateDoubleAnnotations <components/tools/OmeroM/src/annotations/getPlateDoubleAnnotations.m>`
-        * :source:`getPlateFileAnnotations <components/tools/OmeroM/src/annotations/getPlateFileAnnotations.m>`
-        * :source:`getPlateTagAnnotations <components/tools/OmeroM/src/annotations/getPlateTagAnnotations.m>`
-        * :source:`getPlateTimestampAnnotations <components/tools/OmeroM/src/annotations/getPlateTimestampAnnotations.m>`
-        * :source:`getPlateXmlAnnotations <components/tools/OmeroM/src/annotations/getPlateXmlAnnotations.m>`
-
-    -   * Write
-        * :source:`writeCommentAnnotation <components/tools/OmeroM/src/annotations/writeCommentAnnotation.m>`
-        * :source:`writeDoubleAnnotation <components/tools/OmeroM/src/annotations/writeDoubleAnnotation.m>`
-        * :source:`writeFileAnnotation <components/tools/OmeroM/src/annotations/writeFileAnnotation.m>`
-        * :source:`writeTagAnnotation <components/tools/OmeroM/src/annotations/writeTagAnnotation.m>`
-        * :source:`writeTimestampAnnotation <components/tools/OmeroM/src/annotations/writeTimestampAnnotation.m>`
-        * :source:`writeXmlAnnotation <components/tools/OmeroM/src/annotations/writeXmlAnnotation.m>`
-
--  **Reading annotations**
+-  **Reading annotations by ID**
 
 If the identifier of the annotation of a given type is known, the annotation
-can be retrieved from the server using the corresponding function, e.g. for
-tags using the :source:`getTagAnnotations <components/tools/OmeroM/src/annotations/getTagAnnotations.m>`
-function::
+can be retrieved from the server using the generic :source:`getAnnotations <components/tools/OmeroM/src/annotations/getAnnotations.m>` function::
+
+    tagAnnotations = getAnnotations(session, 'tag', tagIds);
+
+Shortcut functions are available for the main object and annotation types,
+e.g. to retrieve tag annotations::
 
     tagAnnotations = getTagAnnotations(session, tagIds);
 
-Alternatively, the annotations of a given type linked to a given object can be
-retrieved using the corresponding function, e.g. to retrieve all tags linked
-to images :source:`getImageTagAnnotations <components/tools/OmeroM/src/annotations/getImageTagAnnotations.m>`
-function::
+-  **Reading annotations linked to an object**
+
+The annotations of a given type linked to a given object can be
+retrieved using the generic :source:`getObjectAnnotations <components/tools/OmeroM/src/annotations/getObjectAnnotations.m>` function::
+
+    tagAnnotations = getObjectAnnotations(session, 'tag', 'image', imageIds);
+
+Shortcut functions are available for the main object and annotation
+types, e.g. to retrieve the tag annotations linked to images::
 
     tagAnnotations = getImageTagAnnotations(session, imageIds);
 
@@ -570,25 +506,26 @@ known::
 
     getFileAnnotationContent(session, faId, target_file);
 
--  **Writing annotations**
+-  **Writing and linking annotations**
 
 New annotations can be created using the corresponding ``write*Annotation``
-function (see table above). Existing annotations can be linked to existing
-objects on the server using the
-:source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
-function.
-
-For example, to create a new tag annotation ``tag_name`` and attach it to the
-image ``image_id``::
+function. For example, to create a new tag annotation with value
+``tag_name``::
 
     tagAnnotation = writeTagAnnotation(session, tag_name);
-    link = linkAnnotation(session, tagAnnotation, 'image', image_id);
 
 To create a file annotations from the content of a ``local_file_path`` and
 attach it to the image ``image_id``::
 
     fileAnnotation = writeFileAnnotation(session, local_file_path);
-    link = linkAnnotation(session, fileAnnotation, 'image', image_id);
+
+Existing annotations can be linked to existing objects on the server using the
+:source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
+function. For example, to link a tag annotation and a file annotation to the
+image ``image_id``::
+
+    link1 = linkAnnotation(session, tagAnnotation, 'image', image_id);
+    link2 = linkAnnotation(session, fileAnnotation, 'image', image_id);
 
 For existing file annotations, it is possible to replace the content of the
 original file without having to recreate a new file annotation using the
