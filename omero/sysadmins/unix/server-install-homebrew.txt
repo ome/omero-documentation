@@ -244,7 +244,7 @@ Start the PostgreSQL server.
 
 ::
 
-    $ initdb /usr/local/var/postgres
+    $ initdb -E UTF8 /usr/local/var/postgres
     $ brew services start postgresql
     $ pg_ctl -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log start
 
