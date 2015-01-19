@@ -514,8 +514,7 @@ function. For example, to create a new tag annotation with value
 
     tagAnnotation = writeTagAnnotation(session, tag_name);
 
-To create a file annotations from the content of a ``local_file_path`` and
-attach it to the image ``image_id``::
+To create a file annotations from the content of a ``local_file_path``::
 
     fileAnnotation = writeFileAnnotation(session, local_file_path);
 
