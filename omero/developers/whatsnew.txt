@@ -32,6 +32,6 @@ in OMERO 5.2 and :javadoc:`Chgrp <slice2html/omero/cmd/Chgrp.html>`,
 :javadoc:`Chown <slice2html/omero/cmd/Chown.html>`, :javadoc:`Delete
 <slice2html/omero/cmd/Delete.html>`, and :javadoc:`GraphModify
 <slice2html/omero/cmd/GraphModify.html>`, will be *removed* in OMERO
-5.3. OMERO 5.1 users should thus be :doc:`Server/GraphsMigration` so
+5.3. OMERO 5.1 users should thus be :doc:`using the new 5.1 graph requests <Server/GraphsMigration>` so
 that problems may be detected and corrected before the deprecated
 features are removed.

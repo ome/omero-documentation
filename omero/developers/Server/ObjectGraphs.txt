@@ -8,7 +8,7 @@ Model graph operations
   deleting users' rendering settings for that image, also the links to
   any datasets that the image is in. Version 5.1.0 of the OMERO server
   includes a new algorithm for determining which model objects to act
-  on. Clients should be :doc:`GraphsMigration` because the previous ones
+  on. Clients should be :doc:`using the new 5.1 graph requests <GraphsMigration>` because the previous ones
   will be *removed* in OMERO 5.3. Understanding the details of the new
   implementation substantially assists in debugging or creating server
   operations that act on the directed graph of model objects.
