@@ -71,7 +71,7 @@ Start nginx, and the Django FASTCGI workers:
 
 ::
 
-    $ nginx -c $PWD/nginx.conf
+    $ nginx -c $PWD/nginx-development.conf
     $ bin/omero web start
 
 Next: Get started by :doc:`/developers/Web/CreateApp`....
