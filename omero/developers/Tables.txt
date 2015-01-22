@@ -237,6 +237,32 @@ Main methods
             obtained using :meth:`read` or :meth:`readCoordinates` with column
             values to be updated.
 
+    .. method:: setMetadata(key, value)
+
+        Store additional properties associated with a Table.
+
+        :param string key: A key name.
+        :param string/int/float/long value: The value of the property.
+
+    .. method:: setAllMetadata(keyvalues)
+
+        Store multiple additional properties associated with a Table. See
+        :meth:`setMetadata()`.
+
+        :param dict keyvalues: A dictionary of key-value pairs.
+
+    .. method:: getMetadata()
+
+        Get the value of a property.
+
+        :return: A property.
+
+    .. method:: getAllMetadata()
+
+        Get all additional properties. See :meth:`getMetadata()`.
+
+        :return: All key-value properties.
+
 
 You many find the :ref:`Python <python_omero_tables_code_samples>` and
 :ref:`Java <java_omero_tables_code_samples>` annotated code samples helpful,
