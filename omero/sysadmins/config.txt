@@ -66,6 +66,83 @@ and :doc:`Windows <windows/server-installation>` pages, as well as the
 :doc:`LDAP installation <server-ldap>` page.
 
 
+.. _client_configuration:
+
+Client
+------
+
+.. property:: omero.client.scripts_to_ignore
+
+omero.client.scripts_to_ignore
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Server-side scripts used in IScript service Clients shouldn't display.
+
+Default: `/omero/figure_scripts/Movie_Figure.py,/omero/figure_scripts/Split_View_Figure.py,/omero/figure_scripts/Thumbnail_Figure.py,/omero/figure_scripts/ROI_Split_Figure.py,/omero/export_scripts/Make_Movie.py,/omero/setup_scripts/FLIM_initialise.py,/omero/import_scripts/Populate_ROI.py`
+
+.. property:: omero.client.ui.menu.dropdown.colleagues
+
+omero.client.ui.menu.dropdown.colleagues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client dropdown menu colleagues label.
+
+Default: `Members`
+
+.. property:: omero.client.ui.menu.dropdown.colleagues.enabled
+
+omero.client.ui.menu.dropdown.colleagues.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Flag to show/hide colleagues
+
+Default: `true`
+
+.. property:: omero.client.ui.menu.dropdown.everyone
+
+omero.client.ui.menu.dropdown.everyone
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client dropdown menu all users label.
+
+Default: `All Members`
+
+.. property:: omero.client.ui.menu.dropdown.everyone.enabled
+
+omero.client.ui.menu.dropdown.everyone.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Flag to show/hide all users.
+
+Default: `true`
+
+.. property:: omero.client.ui.menu.dropdown.leaders
+
+omero.client.ui.menu.dropdown.leaders
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client dropdown menu leader label.
+
+Default: `Owners`
+
+.. property:: omero.client.ui.menu.dropdown.leaders.enabled
+
+omero.client.ui.menu.dropdown.leaders.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: `true`
+
+.. property:: omero.client.ui.tree.orphans.description
+
+omero.client.ui.tree.orphans.description
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Description of the "Orphaned images" container.
+
+Default: `This is a virtual container with orphaned images. These images are not linked anywhere. Just drag them to the selected container.`
+
+.. property:: omero.client.ui.tree.orphans.name
+
+omero.client.ui.tree.orphans.name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Name of the "Orphaned images" container located in client tree data manager.
+
+Default: `Orphaned images`
+
+
 .. _core_configuration:
 
 Core
@@ -111,7 +188,7 @@ Default: `omero`
 omero.db.patch
 ^^^^^^^^^^^^^^
 
-Default: `17`
+Default: `18`
 
 .. property:: omero.db.poolsize
 
@@ -1633,16 +1710,6 @@ omero.web.ui.center_plugins
 Add plugins to the center panels. Plugins are ``['Channel overlay', 'webtest/webclient_plugins/center_plugin.overlay.js.html', 'channel_overlay_panel']``. The javascript loads data into ``$('#div_id')``.
 
 Default: ``[]`` 
-
-
-.. property:: omero.web.ui.menu.dropdown 
-
-omero.web.ui.menu.dropdown
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Shows/hides users in dropdown menu.
-
-Default: ``{"LEADERS": "Owners", "COLLEAGUES": "Members", "ALL": "All members"}`` 
 
 
 .. property:: omero.web.ui.right_plugins 
