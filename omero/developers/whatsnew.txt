@@ -1,54 +1,37 @@
-What's new for OMERO 5
-======================
+What's new for OMERO 5.1
+========================
 
-OMERO 5.0 introduces the OMERO.fs (file system) changes needed to stop data
-duplication on import. Files are now imported and stored in their original
-format, preserving file names and directory structures, and reducing storage
-requirements. These changes, coupled with updates to :bf_doc:`Bio-Formats <>`
-and the clients, improve the way OMERO handles complex multidimensional
-datasets.
+OMERO 5.1 introduces units and some other stuff that others **will**
+write about.
 
-- :doc:`logging` and :doc:`Server/Properties` have been updated to explain the
-  new logging configuration in OMERO.fs.
-
-- :doc:`Modules/Delete` has been updated to explain how OMERO 5 handles
-  deleting multi-file images and image sets and to clarify the finality of
-  deletion.
-
-- :doc:`Server/FS` has been updated to give an overview of the OMERO.fs
-  project, and further details of the
-  :doc:`ManagedRepository/ManagedRepository` are being added.
-
-- :doc:`OMERO.web <Web>` has been upgraded to Django 1.6, requiring Python
-  2.6.5 or later. This enables more flexibility for developing new web
-  apps and plugins. All the :doc:`OMERO.web documentation <index>` has been
-  updated to reflect these changes.
-
-- :doc:`scripts/index` and :doc:`scripts/matlab-scripts` have been updated to 
-  reflect that MATLAB and Jython scripts are now supported natively.
-
-- Guidance for getting more involved with OME, and contributing to both OMERO
-  and Bio-Formats, has been moved to our new
-  :devs_doc:`Contributing Developer Documentation <>` section so it is easier
-  to find. It has also been updated to better explain our development
-  processes.
-
-- :doc:`Python` describes additions to the BlitzGateway API to support Filesets.
+- :doc:`Server/ObjectGraphs` explains how the new graph operations of
+  :javadoc:`omero::cmd <slice2html/omero/cmd.html>` are implemented.
 
 
 Breaking changes
 ----------------
 
-Breaking changes to the OMERO model and API were intentionally kept to
-a minimum. New methods and fields were added which you may want to make
-use of in your clients. There was, however, one breaking change.
-
-The definition of one of the `OriginalFile` model object properties has
-changed: `sha1` which used to contain the SHA1 hash (or checksum) of the file
-is now two properties: `hash` for the hash of the file, and `hasher`, an
-enumeration of type `omero.model.ChecksumAlgorithm` that describes which
-algorithm was used, for instance `SHA1-160`. When `RawFileStore.save()` is
-called on a file with `hasher` set, it will set the file's `hash` property to
-the correct value.
-
-See the :ref:`FS documentation <fs_checksums>` for more information.
+The API's request operations :javadoc:`Chgrp
+<slice2html/omero/cmd/Chgrp.html>`, :javadoc:`Chown
+<slice2html/omero/cmd/Chown.html>`, :javadoc:`Delete
+<slice2html/omero/cmd/Delete.html>`, and their superclass
+:javadoc:`GraphModify <slice2html/omero/cmd/GraphModify.html>`, are now
+deprecated. They are replaced by :javadoc:`Chgrp2
+<slice2html/omero/cmd/Chgrp2.html>`, :javadoc:`Chown2
+<slice2html/omero/cmd/Chown2.html>`, :javadoc:`Delete2
+<slice2html/omero/cmd/Delete2.html>`, and their superclass
+:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>`. To
+allow each deprecated request to be implemented by its corresponding
+replacement, a partial API compatibility layer is included in OMERO 5.1
+and is activated by default through the new configuration property
+:property:`omero.graphs.wrap`. If the new request implementations
+introduce regressions, setting that property to ``false`` will
+reactivate the implementations from OMERO 5.0. However, the
+configuration property :property:`omero.graphs.wrap` will be *removed*
+in OMERO 5.2 and :javadoc:`Chgrp <slice2html/omero/cmd/Chgrp.html>`,
+:javadoc:`Chown <slice2html/omero/cmd/Chown.html>`, :javadoc:`Delete
+<slice2html/omero/cmd/Delete.html>`, and :javadoc:`GraphModify
+<slice2html/omero/cmd/GraphModify.html>`, will be *removed* in OMERO
+5.3. OMERO 5.1 users should thus be :doc:`using the new 5.1 graph
+requests <Server/GraphsMigration>` so that problems may be detected and
+corrected before the deprecated features are removed.

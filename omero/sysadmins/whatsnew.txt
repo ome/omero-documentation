@@ -1,42 +1,17 @@
-What's new for OMERO 5
-======================
+What's new for OMERO 5.1
+========================
 
-From a sysadmin's point of view, the introduction of OMERO.fs as part of
-version 5.0 means that files are now stored on the server in their original
-format, preserving file names and directory structures. Therefore, the import
-process does not duplicate pixel data and storage requirements are roughly
-halved in comparison with a 4.4 import including archiving the original files.
-Combined with the new file integrity report, you should be confident that once
-a successful import has taken place, storing the original files outside of
-OMERO is no longer necessary as your users can always download their data in
-its original format if they need to.
+From a sysadmin's point of view, here is some introductory / overview
+text.
 
-- :doc:`server-upgrade` has been updated to explain the server upgrade
-  process from 4.4.x to OMERO 5, and also to describe the introduction of
-  password salting support.
+- :doc:`server-upgrade` has **not yet** been updated to explain the
+  server upgrade process from OMERO 5.0 to OMERO 5.1.
 
-- :doc:`fs-upload-configuration` has been added to explain the server-side FS
-  workflow for importing files.
+- :doc:`system-requirements` has been updated to reflect **various
+  things yet to be finalized**.
 
-- :doc:`dropbox` has been reworked to clarify the distinction between OMERO.fs
-  and OMERO.dropbox.
-
-- :doc:`system-requirements` has been updated to reflect that running
-  OMERO.web on your server now requires Python 2.6.5 or later.
-
-- :doc:`troubleshooting` has been updated to guide you through what to do if
-  you are getting search errors, and how to adjust the :doc:`config` to take
-  advantage of improvements to the server indexing system for 5.0.0.
-
-- :doc:`server-performance` provides further tips for tuning your installation,
-  though now with the :ref:`automatic memory settings <jvm_memory_settings>`,
-  this may be less necessary.
-
-- :doc:`import-scenarios` and :doc:`in-place-import` documentation has been
-  added to explain the new ways of importing data enabled by the change in
-  server-side workflow.
-
-- :doc:`server-webstart-codesigning` has been added to explain
-  the requirement for code-signing the webstart version of OMERO.insight.
-  Official releases of OMERO.server are code-signed, instructions for using
-  OMERO.insight webstart with a custom build are included.
+- A new configuration property :property:`omero.graphs.wrap` allows
+  switching back to the old server code for moving and deleting data. If
+  a regression with the new code requires changing this setting, ensure
+  that a bug is filed with the OME team so it can be fixed before this
+  configuration property is *removed* in OMERO 5.2.
