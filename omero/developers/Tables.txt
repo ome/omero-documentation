@@ -37,6 +37,12 @@ class :class:`omero.grid.Table`
     must have the same number of rows.
 
 
+.. note:: Attribute names (including column names) beginning with `__`
+    (double underscore) are reserved for internal use. This restriction was
+    introduced in OMERO 5.1, Tables created by older versions should continue
+    to work.
+
+
 Single value columns
 ^^^^^^^^^^^^^^^^^^^^
 
