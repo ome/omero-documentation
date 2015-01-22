@@ -12,8 +12,10 @@ with:
 
 -  IIS 5.1, 6.0 or 7.0 on Microsoft Windows (since OMERO 4.2.1)
 -  FastCGI using a FastCGI capable web server such as
-   `Apache <http://httpd.apache.org/>`_ (with
+   `Apache 2.2 <http://httpd.apache.org/>`_ (with
    `mod\_fastcgi <http://www.fastcgi.com/drupal/>`_ enabled),
+   `Apache 2.4+ <http://httpd.apache.org/>`_ (with the bundled
+   `mod\_proxy\_fcgi` enabled),
    `nginx <http://nginx.org/>`_ or
    `lighttpd <http://www.lighttpd.net/>`_ (since OMERO 4.2.1)
 -  The built-in Django lightweight development server (for **testing**
