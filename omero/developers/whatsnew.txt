@@ -12,7 +12,7 @@ Breaking changes
 ----------------
 
 Graphs
-~~~~~~
+^^^^^^
 
 The API's request operations :javadoc:`Chgrp
 <slice2html/omero/cmd/Chgrp.html>`, :javadoc:`Chown
@@ -40,7 +40,7 @@ requests <Server/GraphsMigration>` so that problems may be detected and
 corrected before the deprecated features are removed.
 
 Tables
-~~~~~~
+^^^^^^
 
 OMERO.tables attribute names beginning with `__` are reserved for internal
 use, see :doc:`Tables`.
