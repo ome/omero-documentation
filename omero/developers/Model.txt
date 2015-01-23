@@ -29,6 +29,8 @@ Because of its complexity, the object model is generated from a
 :sourcedir:`central definition <components/model>` using our own
 :sourcedir:`code-generator <components/dsl>`. It relies on no
 libraries and can be used in both the server and the RMI clients.
+The relationships among the objects are enumerated in a hyperlinked
+:doc:`reference document <Model/EveryObject>`.
 :doc:`/developers/server-blitz` uses a :sourcedir:`second
 mapping <components/blitz/resources/templates>` to
 generate |OmeroJava|, |OmeroPy|, and |OmeroCpp| classes, which can be
