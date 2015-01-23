@@ -11,6 +11,9 @@ write about.
 Breaking changes
 ----------------
 
+Graphs
+^^^^^^
+
 The API's request operations :javadoc:`Chgrp
 <slice2html/omero/cmd/Chgrp.html>`, :javadoc:`Chown
 <slice2html/omero/cmd/Chown.html>`, :javadoc:`Delete
@@ -35,3 +38,9 @@ in OMERO 5.2 and :javadoc:`Chgrp <slice2html/omero/cmd/Chgrp.html>`,
 5.3. OMERO 5.1 users should thus be :doc:`using the new 5.1 graph
 requests <Server/GraphsMigration>` so that problems may be detected and
 corrected before the deprecated features are removed.
+
+Tables
+^^^^^^
+
+OMERO.tables attribute names beginning with `__` are reserved for internal
+use, see :doc:`Tables`.
