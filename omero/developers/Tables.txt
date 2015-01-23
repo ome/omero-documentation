@@ -251,9 +251,11 @@ Main methods
 
         :param dict keyvalues: A dictionary of key-value pairs.
 
-    .. method:: getMetadata()
+    .. method:: getMetadata(key)
 
         Get the value of a property.
+
+        :param string key: The property name.
 
         :return: A property.
 
