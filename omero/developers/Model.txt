@@ -25,18 +25,18 @@ vocabulary has a representation in the :model_doc:`XML specification <ome-xml/>`
 in the database (the data model), and in code. This last representation
 is the object model with which we will concern ourselves here.
 
-Because of its complexity, the object model is generated from a 
+Because of its complexity, the object model is generated from a
 :sourcedir:`central definition <components/model>` using our own
-:sourcedir:`code-generator <components/dsl>`. It relies on no
-libraries and can be used in both the server and the RMI clients.
-The relationships among the objects are enumerated in a hyperlinked
+:sourcedir:`code-generator <components/dsl>`. It relies on no libraries
+and can be used in both the server and the RMI clients. The
+relationships among the objects are enumerated in a hyperlinked
 :doc:`reference document <Model/EveryObject>`.
-:doc:`/developers/server-blitz` uses a :sourcedir:`second
-mapping <components/blitz/resources/templates>` to
-generate |OmeroJava|, |OmeroPy|, and |OmeroCpp| classes, which can be
-:source:`mapped <components/blitz/src/omero/util/IceMapper.java>`
-back and forth to the server object model. *This document discusses only the
-server object-model and how it is used internally.*
+:doc:`/developers/server-blitz` uses a :sourcedir:`second mapping
+<components/blitz/resources/templates>` to generate |OmeroJava|,
+|OmeroPy|, and |OmeroCpp| classes, which can be :source:`mapped
+<components/blitz/src/omero/util/IceMapper.java>` back and forth to the
+server object model. *This document discusses only the server
+object-model and how it is used internally.*
 
 Instances of the object model have no direct interaction with the
 database, rather the mapping is handled externally by the O/R framework,
