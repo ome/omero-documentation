@@ -1,0 +1,93 @@
+Units
+=====
+
+A number of properties in the OME model are physical measurements
+which inherently have a unit associated with them. Earlier versions
+of OME defined a default unit for the measurement. Now users, clients,
+and acquisition systems can specify the unit themselves rather than
+converting their internal unit to the OME default.
+
+Supported units
+---------------
+* Electric potential
+* Frequency
+* Length
+* Power
+* Pressure
+* Temperature
+* Time
+
+Each of the supported units contain a number of values from the
+International System of Units (SI) in the most common prefixes from
+yotta (10^24) to yocto (10^-24). The Length unit also contains
+values from the Imperial system as well as internal values which
+are internal to OME: reference frame and pixel.
+
+Unit objects
+------------
+
+Each unit quantity consists of a double-precision scalar and an enumeration
+which chooses one of the pre-defined values from the model. In code, uppercase
+spellings of the enumerations are used, while in the schema, in OME-XML files,
+and in the database, the unicode symbol for the unit is used.
+
+=========================== ==============================================
+Language                    Representation
+=========================== ==============================================
+Ice                         `enum UnitsLength { MICROM, ... };`
+Java and Python             `omero.model.enums.UnitsLength.MICROM`
+C++                         `omero::model::enums::MICROM`
+PostgreSQL                  `'µm'::unitslength`
+=========================== ==============================================
+
+Defining a unit
+~~~~~~~~~~~~~~~
+
+::
+
+     Pixels p = ...; // Defined elsewhere
+     Length l = new LengthI(2.1, UnitsLength.MICROM); // µm
+     p.setPhysicalSizeX(l);
+     p.setPhysicalSizeY(l);
+     iUpdatePrx.saveObject(p);
+
+The above stores a Pixels object in the database with X and Y
+physical lengths of "µm".
+
+Converting a unit
+~~~~~~~~~~~~~~~~~
+
+Often a measurement will not be in the most convenient unit for
+display, e.g. 0.00001 mm. could better be expressed in microns.
+In order to convert between units, pass the measurement that
+you have available to a constructor of the same type, passing in
+the target unit that you would like to see:
+
+::
+
+     Pixels p = ...; // As saved above
+     Length l1 = p.getPhysicalSizeX(); // 2.1 microns
+     Length l2 = new LengthI(x1, UnitsLength.NM); // As nanometers
+
+Getting a symbol
+~~~~~~~~~~~~~~~~
+
+The enumerations used in the "units" field of each measurement
+is of type `omero.model.enums.UnitsNAME` where NAME is `Length`,
+`Temperature`, etc. These members of that enumeration are all
+uppercased, code-safe versions of the unit name. To get the symbol
+as defined in the SI specification, for example, use the
+`getSymbol` method:
+
+::
+
+    Length l1 = ...; // As above
+    l1.getSymbol(); // Returns "µm"
+
+
+.. seealso::
+
+    * http://en.wikipedia.org/wiki/Units_of_measurement
+    * http://en.wikipedia.org/wiki/System_of_measurement
+    * http://en.wikipedia.org/wiki/International_System_of_Units
+

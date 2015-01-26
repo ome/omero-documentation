@@ -213,7 +213,7 @@ OMERO annotations for validation
 --------------------------------
 
 The server-side implementation of these interfaces makes use of ((JDK5))
-:doc:`/developers/Modules/StructuredAnnotations` and an
+:doc:`/developers/Model/StructuredAnnotations` and an
 :doc:`AOP </developers/Server/Aop>` interceptor to validate all method
 parameters. Calls to ``pojos.findContainerHierarches`` are first caught by a
 method interceptor, which checks for annotations on the parameters and, if

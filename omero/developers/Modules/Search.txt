@@ -248,7 +248,7 @@ parses out the fields mentioned above, but by creating your own bridge
 it is possible to extract more information specific to your site.
 
 .. seealso::
-    :doc:`/developers/Modules/StructuredAnnotations`,
+    :doc:`/developers/Model/StructuredAnnotations`,
     :doc:`/developers/Modules/Search/Bridges`,
     :doc:`/developers/Search/FileParsers`,
     `Query Parser Syntax <http://lucene.apache.org/core/3_6_0/queryparsersyntax.html>`_,
