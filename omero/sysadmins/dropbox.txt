@@ -41,9 +41,14 @@ the following more specific requirements:
 
 .. note:: It is likely, but not guaranteed, that DropBox will run on later
     versions of Windows, however only tested versions are supported by default.
-    Setting the configuration ``omero.fs.platformCheck`` to ``False`` in
-    :file:`etc/grid/templates.xml` and restarting the server will allow DropBox
-    to be started on an untested version of Windows.
+    Setting the property :property:`omero.fs.platformCheck` to ``False`` in
+    :source:`templates.xml <etc/grid/templates.xml>` or using
+    :omerocmd:`config set` and restarting the server will allow DropBox to be
+    started on an untested version of Windows.
+
+    If you do successfully run DropBox on an as yet untested version of Windows
+    please do let us know via the
+    :community_plone:`forums and mailing lists <>`.
 
 Using DropBox
 -------------
