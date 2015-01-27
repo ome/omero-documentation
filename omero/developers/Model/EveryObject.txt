@@ -20,9 +20,9 @@ Reference
 AcquisitionMode
 """""""""""""""
 
-used by :ref:`LogicalChannel.mode <omero.model.LogicalChannel>`
+Used by: :ref:`LogicalChannel.mode <omero.model.LogicalChannel>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -32,11 +32,11 @@ properties are,
 Annotation
 """"""""""
 
-subclasses are :ref:`BasicAnnotation <omero.model.BasicAnnotation>`, :ref:`ListAnnotation <omero.model.ListAnnotation>`, :ref:`TextAnnotation <omero.model.TextAnnotation>`, :ref:`TypeAnnotation <omero.model.TypeAnnotation>`
+Subclasses: :ref:`BasicAnnotation <omero.model.BasicAnnotation>`, :ref:`ListAnnotation <omero.model.ListAnnotation>`, :ref:`TextAnnotation <omero.model.TextAnnotation>`, :ref:`TypeAnnotation <omero.model.TypeAnnotation>`
 
-used by :ref:`AnnotationAnnotationLink.child <omero.model.AnnotationAnnotationLink>`, :ref:`AnnotationAnnotationLink.parent <omero.model.AnnotationAnnotationLink>`, :ref:`ChannelAnnotationLink.child <omero.model.ChannelAnnotationLink>`, :ref:`DatasetAnnotationLink.child <omero.model.DatasetAnnotationLink>`, :ref:`ExperimenterAnnotationLink.child <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.child <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`FilesetAnnotationLink.child <omero.model.FilesetAnnotationLink>`, :ref:`ImageAnnotationLink.child <omero.model.ImageAnnotationLink>`, :ref:`NamespaceAnnotationLink.child <omero.model.NamespaceAnnotationLink>`, :ref:`NodeAnnotationLink.child <omero.model.NodeAnnotationLink>`, :ref:`OriginalFileAnnotationLink.child <omero.model.OriginalFileAnnotationLink>`, :ref:`PixelsAnnotationLink.child <omero.model.PixelsAnnotationLink>`, :ref:`PlaneInfoAnnotationLink.child <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlateAcquisitionAnnotationLink.child <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.child <omero.model.PlateAnnotationLink>`, :ref:`ProjectAnnotationLink.child <omero.model.ProjectAnnotationLink>`, :ref:`ReagentAnnotationLink.child <omero.model.ReagentAnnotationLink>`, :ref:`RoiAnnotationLink.child <omero.model.RoiAnnotationLink>`, :ref:`ScreenAnnotationLink.child <omero.model.ScreenAnnotationLink>`, :ref:`SessionAnnotationLink.child <omero.model.SessionAnnotationLink>`, :ref:`WellAnnotationLink.child <omero.model.WellAnnotationLink>`, :ref:`WellSampleAnnotationLink.child <omero.model.WellSampleAnnotationLink>`
+Used by: :ref:`AnnotationAnnotationLink.child <omero.model.AnnotationAnnotationLink>`, :ref:`AnnotationAnnotationLink.parent <omero.model.AnnotationAnnotationLink>`, :ref:`ChannelAnnotationLink.child <omero.model.ChannelAnnotationLink>`, :ref:`DatasetAnnotationLink.child <omero.model.DatasetAnnotationLink>`, :ref:`ExperimenterAnnotationLink.child <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.child <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`FilesetAnnotationLink.child <omero.model.FilesetAnnotationLink>`, :ref:`ImageAnnotationLink.child <omero.model.ImageAnnotationLink>`, :ref:`NamespaceAnnotationLink.child <omero.model.NamespaceAnnotationLink>`, :ref:`NodeAnnotationLink.child <omero.model.NodeAnnotationLink>`, :ref:`OriginalFileAnnotationLink.child <omero.model.OriginalFileAnnotationLink>`, :ref:`PixelsAnnotationLink.child <omero.model.PixelsAnnotationLink>`, :ref:`PlaneInfoAnnotationLink.child <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlateAcquisitionAnnotationLink.child <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.child <omero.model.PlateAnnotationLink>`, :ref:`ProjectAnnotationLink.child <omero.model.ProjectAnnotationLink>`, :ref:`ReagentAnnotationLink.child <omero.model.ReagentAnnotationLink>`, :ref:`RoiAnnotationLink.child <omero.model.RoiAnnotationLink>`, :ref:`ScreenAnnotationLink.child <omero.model.ScreenAnnotationLink>`, :ref:`SessionAnnotationLink.child <omero.model.SessionAnnotationLink>`, :ref:`WellAnnotationLink.child <omero.model.WellAnnotationLink>`, :ref:`WellSampleAnnotationLink.child <omero.model.WellSampleAnnotationLink>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple)
   | description: ``text`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -53,9 +53,9 @@ properties are,
 AnnotationAnnotationLink
 """"""""""""""""""""""""
 
-used by :ref:`Annotation.annotationLinks <omero.model.Annotation>`, :ref:`BasicAnnotation.annotationLinks <omero.model.BasicAnnotation>`, :ref:`BooleanAnnotation.annotationLinks <omero.model.BooleanAnnotation>`, :ref:`CommentAnnotation.annotationLinks <omero.model.CommentAnnotation>`, :ref:`DoubleAnnotation.annotationLinks <omero.model.DoubleAnnotation>`, :ref:`FileAnnotation.annotationLinks <omero.model.FileAnnotation>`, :ref:`ListAnnotation.annotationLinks <omero.model.ListAnnotation>`, :ref:`LongAnnotation.annotationLinks <omero.model.LongAnnotation>`, :ref:`NumericAnnotation.annotationLinks <omero.model.NumericAnnotation>`, :ref:`TagAnnotation.annotationLinks <omero.model.TagAnnotation>`, :ref:`TermAnnotation.annotationLinks <omero.model.TermAnnotation>`, :ref:`TextAnnotation.annotationLinks <omero.model.TextAnnotation>`, :ref:`TimestampAnnotation.annotationLinks <omero.model.TimestampAnnotation>`, :ref:`TypeAnnotation.annotationLinks <omero.model.TypeAnnotation>`, :ref:`XmlAnnotation.annotationLinks <omero.model.XmlAnnotation>`
+Used by: :ref:`Annotation.annotationLinks <omero.model.Annotation>`, :ref:`BasicAnnotation.annotationLinks <omero.model.BasicAnnotation>`, :ref:`BooleanAnnotation.annotationLinks <omero.model.BooleanAnnotation>`, :ref:`CommentAnnotation.annotationLinks <omero.model.CommentAnnotation>`, :ref:`DoubleAnnotation.annotationLinks <omero.model.DoubleAnnotation>`, :ref:`FileAnnotation.annotationLinks <omero.model.FileAnnotation>`, :ref:`ListAnnotation.annotationLinks <omero.model.ListAnnotation>`, :ref:`LongAnnotation.annotationLinks <omero.model.LongAnnotation>`, :ref:`NumericAnnotation.annotationLinks <omero.model.NumericAnnotation>`, :ref:`TagAnnotation.annotationLinks <omero.model.TagAnnotation>`, :ref:`TermAnnotation.annotationLinks <omero.model.TermAnnotation>`, :ref:`TextAnnotation.annotationLinks <omero.model.TextAnnotation>`, :ref:`TimestampAnnotation.annotationLinks <omero.model.TimestampAnnotation>`, :ref:`TypeAnnotation.annotationLinks <omero.model.TypeAnnotation>`, :ref:`XmlAnnotation.annotationLinks <omero.model.XmlAnnotation>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -71,7 +71,7 @@ properties are,
 Arc
 """
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`LightSource <omero.model.LightSource>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`LightSource <omero.model.LightSource>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`LightSource <omero.model.LightSource>`
@@ -92,9 +92,9 @@ properties are,
 ArcType
 """""""
 
-used by :ref:`Arc.type <omero.model.Arc>`
+Used by: :ref:`Arc.type <omero.model.Arc>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -104,9 +104,9 @@ properties are,
 BasicAnnotation
 """""""""""""""
 
-subclasses are :ref:`BooleanAnnotation <omero.model.BooleanAnnotation>`, :ref:`NumericAnnotation <omero.model.NumericAnnotation>`, :ref:`TermAnnotation <omero.model.TermAnnotation>`, :ref:`TimestampAnnotation <omero.model.TimestampAnnotation>`
+Subclasses: :ref:`BooleanAnnotation <omero.model.BooleanAnnotation>`, :ref:`NumericAnnotation <omero.model.NumericAnnotation>`, :ref:`TermAnnotation <omero.model.TermAnnotation>`, :ref:`TimestampAnnotation <omero.model.TimestampAnnotation>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -123,9 +123,9 @@ properties are,
 Binning
 """""""
 
-used by :ref:`DetectorSettings.binning <omero.model.DetectorSettings>`
+Used by: :ref:`DetectorSettings.binning <omero.model.DetectorSettings>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -135,7 +135,7 @@ properties are,
 BooleanAnnotation
 """""""""""""""""
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | boolValue: ``boolean`` (optional)
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
@@ -153,9 +153,9 @@ properties are,
 Channel
 """""""
 
-used by :ref:`ChannelAnnotationLink.parent <omero.model.ChannelAnnotationLink>`, :ref:`LogicalChannel.channels <omero.model.LogicalChannel>`, :ref:`Pixels.channels <omero.model.Pixels>`
+Used by: :ref:`ChannelAnnotationLink.parent <omero.model.ChannelAnnotationLink>`, :ref:`LogicalChannel.channels <omero.model.LogicalChannel>`, :ref:`Pixels.channels <omero.model.Pixels>`
 
-properties are,
+Properties:
   | alpha: ``integer`` (optional)
   | annotationLinks: :ref:`ChannelAnnotationLink <omero.model.ChannelAnnotationLink>` (multiple)
   | blue: ``integer`` (optional)
@@ -177,9 +177,9 @@ properties are,
 ChannelAnnotationLink
 """""""""""""""""""""
 
-used by :ref:`Channel.annotationLinks <omero.model.Channel>`
+Used by: :ref:`Channel.annotationLinks <omero.model.Channel>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -195,9 +195,9 @@ properties are,
 ChannelBinding
 """"""""""""""
 
-used by :ref:`RenderingDef.waveRendering <omero.model.RenderingDef>`
+Used by: :ref:`RenderingDef.waveRendering <omero.model.RenderingDef>`
 
-properties are,
+Properties:
   | active: ``boolean``
   | alpha: ``integer``
   | blue: ``integer``
@@ -222,9 +222,9 @@ properties are,
 ChecksumAlgorithm
 """""""""""""""""
 
-used by :ref:`OriginalFile.hasher <omero.model.OriginalFile>`
+Used by: :ref:`OriginalFile.hasher <omero.model.OriginalFile>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -234,11 +234,11 @@ properties are,
 CodomainMapContext
 """"""""""""""""""
 
-subclasses are :ref:`ContrastStretchingContext <omero.model.ContrastStretchingContext>`, :ref:`PlaneSlicingContext <omero.model.PlaneSlicingContext>`, :ref:`ReverseIntensityContext <omero.model.ReverseIntensityContext>`
+Subclasses: :ref:`ContrastStretchingContext <omero.model.ContrastStretchingContext>`, :ref:`PlaneSlicingContext <omero.model.PlaneSlicingContext>`, :ref:`ReverseIntensityContext <omero.model.ReverseIntensityContext>`
 
-used by :ref:`RenderingDef.spatialDomainEnhancement <omero.model.RenderingDef>`
+Used by: :ref:`RenderingDef.spatialDomainEnhancement <omero.model.RenderingDef>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -253,7 +253,7 @@ properties are,
 CommentAnnotation
 """""""""""""""""
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -271,9 +271,9 @@ properties are,
 ContrastMethod
 """"""""""""""
 
-used by :ref:`LogicalChannel.contrastMethod <omero.model.LogicalChannel>`
+Used by: :ref:`LogicalChannel.contrastMethod <omero.model.LogicalChannel>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -283,7 +283,7 @@ properties are,
 ContrastStretchingContext
 """""""""""""""""""""""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`CodomainMapContext <omero.model.CodomainMapContext>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`CodomainMapContext <omero.model.CodomainMapContext>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`CodomainMapContext <omero.model.CodomainMapContext>`
@@ -302,9 +302,9 @@ properties are,
 Correction
 """"""""""
 
-used by :ref:`Objective.correction <omero.model.Objective>`
+Used by: :ref:`Objective.correction <omero.model.Objective>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -314,7 +314,7 @@ properties are,
 DBPatch
 """""""
 
-properties are,
+Properties:
   | currentPatch: ``integer``
   | currentVersion: ``string``
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -329,9 +329,9 @@ properties are,
 Dataset
 """""""
 
-used by :ref:`DatasetAnnotationLink.parent <omero.model.DatasetAnnotationLink>`, :ref:`DatasetImageLink.parent <omero.model.DatasetImageLink>`, :ref:`ProjectDatasetLink.child <omero.model.ProjectDatasetLink>`
+Used by: :ref:`DatasetAnnotationLink.parent <omero.model.DatasetAnnotationLink>`, :ref:`DatasetImageLink.parent <omero.model.DatasetImageLink>`, :ref:`ProjectDatasetLink.child <omero.model.ProjectDatasetLink>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`DatasetAnnotationLink <omero.model.DatasetAnnotationLink>` (multiple)
   | description: ``text`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -350,9 +350,9 @@ properties are,
 DatasetAnnotationLink
 """""""""""""""""""""
 
-used by :ref:`Dataset.annotationLinks <omero.model.Dataset>`
+Used by: :ref:`Dataset.annotationLinks <omero.model.Dataset>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -368,9 +368,9 @@ properties are,
 DatasetImageLink
 """"""""""""""""
 
-used by :ref:`Dataset.imageLinks <omero.model.Dataset>`, :ref:`Image.datasetLinks <omero.model.Image>`
+Used by: :ref:`Dataset.imageLinks <omero.model.Dataset>`, :ref:`Image.datasetLinks <omero.model.Image>`
 
-properties are,
+Properties:
   | child: :ref:`Image <omero.model.Image>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -386,9 +386,9 @@ properties are,
 Detector
 """"""""
 
-used by :ref:`DetectorSettings.detector <omero.model.DetectorSettings>`, :ref:`Instrument.detector <omero.model.Instrument>`
+Used by: :ref:`DetectorSettings.detector <omero.model.DetectorSettings>`, :ref:`Instrument.detector <omero.model.Instrument>`
 
-properties are,
+Properties:
   | amplificationGain: ``double`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -413,9 +413,9 @@ properties are,
 DetectorSettings
 """"""""""""""""
 
-used by :ref:`LogicalChannel.detectorSettings <omero.model.LogicalChannel>`
+Used by: :ref:`LogicalChannel.detectorSettings <omero.model.LogicalChannel>`
 
-properties are,
+Properties:
   | binning: :ref:`Binning <omero.model.Binning>` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -437,9 +437,9 @@ properties are,
 DetectorType
 """"""""""""
 
-used by :ref:`Detector.type <omero.model.Detector>`
+Used by: :ref:`Detector.type <omero.model.Detector>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -449,9 +449,9 @@ properties are,
 Dichroic
 """"""""
 
-used by :ref:`FilterSet.dichroic <omero.model.FilterSet>`, :ref:`Instrument.dichroic <omero.model.Instrument>`, :ref:`LightPath.dichroic <omero.model.LightPath>`
+Used by: :ref:`FilterSet.dichroic <omero.model.FilterSet>`, :ref:`Instrument.dichroic <omero.model.Instrument>`, :ref:`LightPath.dichroic <omero.model.LightPath>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -470,9 +470,9 @@ properties are,
 DimensionOrder
 """"""""""""""
 
-used by :ref:`Pixels.dimensionOrder <omero.model.Pixels>`
+Used by: :ref:`Pixels.dimensionOrder <omero.model.Pixels>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -482,7 +482,7 @@ properties are,
 DoubleAnnotation
 """"""""""""""""
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -500,7 +500,7 @@ properties are,
 Ellipse
 """""""
 
-properties are,
+Properties:
   | cx: ``double`` (optional)
   | cy: ``double`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Shape <omero.model.Shape>`
@@ -543,9 +543,9 @@ properties are,
 Event
 """""
 
-used by :ref:`Annotation.details.creationEvent <omero.model.Annotation>`, :ref:`Annotation.details.updateEvent <omero.model.Annotation>`, :ref:`AnnotationAnnotationLink.details.creationEvent <omero.model.AnnotationAnnotationLink>`, :ref:`AnnotationAnnotationLink.details.updateEvent <omero.model.AnnotationAnnotationLink>`, :ref:`Arc.details.creationEvent <omero.model.Arc>`, :ref:`Arc.details.updateEvent <omero.model.Arc>`, :ref:`BasicAnnotation.details.creationEvent <omero.model.BasicAnnotation>`, :ref:`BasicAnnotation.details.updateEvent <omero.model.BasicAnnotation>`, :ref:`BooleanAnnotation.details.creationEvent <omero.model.BooleanAnnotation>`, :ref:`BooleanAnnotation.details.updateEvent <omero.model.BooleanAnnotation>`, :ref:`Channel.details.creationEvent <omero.model.Channel>`, :ref:`Channel.details.updateEvent <omero.model.Channel>`, :ref:`ChannelAnnotationLink.details.creationEvent <omero.model.ChannelAnnotationLink>`, :ref:`ChannelAnnotationLink.details.updateEvent <omero.model.ChannelAnnotationLink>`, :ref:`ChannelBinding.details.creationEvent <omero.model.ChannelBinding>`, :ref:`ChannelBinding.details.updateEvent <omero.model.ChannelBinding>`, :ref:`CodomainMapContext.details.creationEvent <omero.model.CodomainMapContext>`, :ref:`CodomainMapContext.details.updateEvent <omero.model.CodomainMapContext>`, :ref:`CommentAnnotation.details.creationEvent <omero.model.CommentAnnotation>`, :ref:`CommentAnnotation.details.updateEvent <omero.model.CommentAnnotation>`, :ref:`ContrastStretchingContext.details.creationEvent <omero.model.ContrastStretchingContext>`, :ref:`ContrastStretchingContext.details.updateEvent <omero.model.ContrastStretchingContext>`, :ref:`Dataset.details.creationEvent <omero.model.Dataset>`, :ref:`Dataset.details.updateEvent <omero.model.Dataset>`, :ref:`DatasetAnnotationLink.details.creationEvent <omero.model.DatasetAnnotationLink>`, :ref:`DatasetAnnotationLink.details.updateEvent <omero.model.DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.creationEvent <omero.model.DatasetImageLink>`, :ref:`DatasetImageLink.details.updateEvent <omero.model.DatasetImageLink>`, :ref:`Detector.details.creationEvent <omero.model.Detector>`, :ref:`Detector.details.updateEvent <omero.model.Detector>`, :ref:`DetectorSettings.details.creationEvent <omero.model.DetectorSettings>`, :ref:`DetectorSettings.details.updateEvent <omero.model.DetectorSettings>`, :ref:`Dichroic.details.creationEvent <omero.model.Dichroic>`, :ref:`Dichroic.details.updateEvent <omero.model.Dichroic>`, :ref:`DoubleAnnotation.details.creationEvent <omero.model.DoubleAnnotation>`, :ref:`DoubleAnnotation.details.updateEvent <omero.model.DoubleAnnotation>`, :ref:`Ellipse.details.creationEvent <omero.model.Ellipse>`, :ref:`Ellipse.details.updateEvent <omero.model.Ellipse>`, :ref:`Event.containingEvent <omero.model.Event>`, :ref:`EventLog.event <omero.model.EventLog>`, :ref:`Experiment.details.creationEvent <omero.model.Experiment>`, :ref:`Experiment.details.updateEvent <omero.model.Experiment>`, :ref:`ExperimenterAnnotationLink.details.creationEvent <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterAnnotationLink.details.updateEvent <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.details.creationEvent <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.details.updateEvent <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.creationEvent <omero.model.ExternalInfo>`, :ref:`Filament.details.creationEvent <omero.model.Filament>`, :ref:`Filament.details.updateEvent <omero.model.Filament>`, :ref:`FileAnnotation.details.creationEvent <omero.model.FileAnnotation>`, :ref:`FileAnnotation.details.updateEvent <omero.model.FileAnnotation>`, :ref:`Fileset.details.creationEvent <omero.model.Fileset>`, :ref:`Fileset.details.updateEvent <omero.model.Fileset>`, :ref:`FilesetAnnotationLink.details.creationEvent <omero.model.FilesetAnnotationLink>`, :ref:`FilesetAnnotationLink.details.updateEvent <omero.model.FilesetAnnotationLink>`, :ref:`FilesetEntry.details.creationEvent <omero.model.FilesetEntry>`, :ref:`FilesetEntry.details.updateEvent <omero.model.FilesetEntry>`, :ref:`FilesetJobLink.details.creationEvent <omero.model.FilesetJobLink>`, :ref:`FilesetJobLink.details.updateEvent <omero.model.FilesetJobLink>`, :ref:`FilesetVersionInfo.details.creationEvent <omero.model.FilesetVersionInfo>`, :ref:`FilesetVersionInfo.details.updateEvent <omero.model.FilesetVersionInfo>`, :ref:`Filter.details.creationEvent <omero.model.Filter>`, :ref:`Filter.details.updateEvent <omero.model.Filter>`, :ref:`FilterSet.details.creationEvent <omero.model.FilterSet>`, :ref:`FilterSet.details.updateEvent <omero.model.FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.creationEvent <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetEmissionFilterLink.details.updateEvent <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.creationEvent <omero.model.FilterSetExcitationFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.updateEvent <omero.model.FilterSetExcitationFilterLink>`, :ref:`Image.details.creationEvent <omero.model.Image>`, :ref:`Image.details.updateEvent <omero.model.Image>`, :ref:`ImageAnnotationLink.details.creationEvent <omero.model.ImageAnnotationLink>`, :ref:`ImageAnnotationLink.details.updateEvent <omero.model.ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.creationEvent <omero.model.ImagingEnvironment>`, :ref:`ImagingEnvironment.details.updateEvent <omero.model.ImagingEnvironment>`, :ref:`ImportJob.details.creationEvent <omero.model.ImportJob>`, :ref:`ImportJob.details.updateEvent <omero.model.ImportJob>`, :ref:`IndexingJob.details.creationEvent <omero.model.IndexingJob>`, :ref:`IndexingJob.details.updateEvent <omero.model.IndexingJob>`, :ref:`Instrument.details.creationEvent <omero.model.Instrument>`, :ref:`Instrument.details.updateEvent <omero.model.Instrument>`, :ref:`IntegrityCheckJob.details.creationEvent <omero.model.IntegrityCheckJob>`, :ref:`IntegrityCheckJob.details.updateEvent <omero.model.IntegrityCheckJob>`, :ref:`Job.details.creationEvent <omero.model.Job>`, :ref:`Job.details.updateEvent <omero.model.Job>`, :ref:`JobOriginalFileLink.details.creationEvent <omero.model.JobOriginalFileLink>`, :ref:`JobOriginalFileLink.details.updateEvent <omero.model.JobOriginalFileLink>`, :ref:`Label.details.creationEvent <omero.model.Label>`, :ref:`Label.details.updateEvent <omero.model.Label>`, :ref:`Laser.details.creationEvent <omero.model.Laser>`, :ref:`Laser.details.updateEvent <omero.model.Laser>`, :ref:`LightEmittingDiode.details.creationEvent <omero.model.LightEmittingDiode>`, :ref:`LightEmittingDiode.details.updateEvent <omero.model.LightEmittingDiode>`, :ref:`LightPath.details.creationEvent <omero.model.LightPath>`, :ref:`LightPath.details.updateEvent <omero.model.LightPath>`, :ref:`LightPathEmissionFilterLink.details.creationEvent <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathEmissionFilterLink.details.updateEvent <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.creationEvent <omero.model.LightPathExcitationFilterLink>`, :ref:`LightPathExcitationFilterLink.details.updateEvent <omero.model.LightPathExcitationFilterLink>`, :ref:`LightSettings.details.creationEvent <omero.model.LightSettings>`, :ref:`LightSettings.details.updateEvent <omero.model.LightSettings>`, :ref:`LightSource.details.creationEvent <omero.model.LightSource>`, :ref:`LightSource.details.updateEvent <omero.model.LightSource>`, :ref:`Line.details.creationEvent <omero.model.Line>`, :ref:`Line.details.updateEvent <omero.model.Line>`, :ref:`Link.details.creationEvent <omero.model.Link>`, :ref:`Link.details.updateEvent <omero.model.Link>`, :ref:`ListAnnotation.details.creationEvent <omero.model.ListAnnotation>`, :ref:`ListAnnotation.details.updateEvent <omero.model.ListAnnotation>`, :ref:`LogicalChannel.details.creationEvent <omero.model.LogicalChannel>`, :ref:`LogicalChannel.details.updateEvent <omero.model.LogicalChannel>`, :ref:`LongAnnotation.details.creationEvent <omero.model.LongAnnotation>`, :ref:`LongAnnotation.details.updateEvent <omero.model.LongAnnotation>`, :ref:`Mask.details.creationEvent <omero.model.Mask>`, :ref:`Mask.details.updateEvent <omero.model.Mask>`, :ref:`MetadataImportJob.details.creationEvent <omero.model.MetadataImportJob>`, :ref:`MetadataImportJob.details.updateEvent <omero.model.MetadataImportJob>`, :ref:`MicrobeamManipulation.details.creationEvent <omero.model.MicrobeamManipulation>`, :ref:`MicrobeamManipulation.details.updateEvent <omero.model.MicrobeamManipulation>`, :ref:`Microscope.details.creationEvent <omero.model.Microscope>`, :ref:`Microscope.details.updateEvent <omero.model.Microscope>`, :ref:`Namespace.details.creationEvent <omero.model.Namespace>`, :ref:`Namespace.details.updateEvent <omero.model.Namespace>`, :ref:`NamespaceAnnotationLink.details.creationEvent <omero.model.NamespaceAnnotationLink>`, :ref:`NamespaceAnnotationLink.details.updateEvent <omero.model.NamespaceAnnotationLink>`, :ref:`NodeAnnotationLink.details.creationEvent <omero.model.NodeAnnotationLink>`, :ref:`NodeAnnotationLink.details.updateEvent <omero.model.NodeAnnotationLink>`, :ref:`NumericAnnotation.details.creationEvent <omero.model.NumericAnnotation>`, :ref:`NumericAnnotation.details.updateEvent <omero.model.NumericAnnotation>`, :ref:`OTF.details.creationEvent <omero.model.OTF>`, :ref:`OTF.details.updateEvent <omero.model.OTF>`, :ref:`Objective.details.creationEvent <omero.model.Objective>`, :ref:`Objective.details.updateEvent <omero.model.Objective>`, :ref:`ObjectiveSettings.details.creationEvent <omero.model.ObjectiveSettings>`, :ref:`ObjectiveSettings.details.updateEvent <omero.model.ObjectiveSettings>`, :ref:`OriginalFile.details.creationEvent <omero.model.OriginalFile>`, :ref:`OriginalFile.details.updateEvent <omero.model.OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.creationEvent <omero.model.OriginalFileAnnotationLink>`, :ref:`OriginalFileAnnotationLink.details.updateEvent <omero.model.OriginalFileAnnotationLink>`, :ref:`ParseJob.details.creationEvent <omero.model.ParseJob>`, :ref:`ParseJob.details.updateEvent <omero.model.ParseJob>`, :ref:`Path.details.creationEvent <omero.model.Path>`, :ref:`Path.details.updateEvent <omero.model.Path>`, :ref:`PixelDataJob.details.creationEvent <omero.model.PixelDataJob>`, :ref:`PixelDataJob.details.updateEvent <omero.model.PixelDataJob>`, :ref:`Pixels.details.creationEvent <omero.model.Pixels>`, :ref:`Pixels.details.updateEvent <omero.model.Pixels>`, :ref:`PixelsAnnotationLink.details.creationEvent <omero.model.PixelsAnnotationLink>`, :ref:`PixelsAnnotationLink.details.updateEvent <omero.model.PixelsAnnotationLink>`, :ref:`PixelsOriginalFileMap.details.creationEvent <omero.model.PixelsOriginalFileMap>`, :ref:`PixelsOriginalFileMap.details.updateEvent <omero.model.PixelsOriginalFileMap>`, :ref:`PlaneInfo.details.creationEvent <omero.model.PlaneInfo>`, :ref:`PlaneInfo.details.updateEvent <omero.model.PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.creationEvent <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlaneInfoAnnotationLink.details.updateEvent <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlaneSlicingContext.details.creationEvent <omero.model.PlaneSlicingContext>`, :ref:`PlaneSlicingContext.details.updateEvent <omero.model.PlaneSlicingContext>`, :ref:`Plate.details.creationEvent <omero.model.Plate>`, :ref:`Plate.details.updateEvent <omero.model.Plate>`, :ref:`PlateAcquisition.details.creationEvent <omero.model.PlateAcquisition>`, :ref:`PlateAcquisition.details.updateEvent <omero.model.PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.creationEvent <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAcquisitionAnnotationLink.details.updateEvent <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.creationEvent <omero.model.PlateAnnotationLink>`, :ref:`PlateAnnotationLink.details.updateEvent <omero.model.PlateAnnotationLink>`, :ref:`Point.details.creationEvent <omero.model.Point>`, :ref:`Point.details.updateEvent <omero.model.Point>`, :ref:`Polygon.details.creationEvent <omero.model.Polygon>`, :ref:`Polygon.details.updateEvent <omero.model.Polygon>`, :ref:`Polyline.details.creationEvent <omero.model.Polyline>`, :ref:`Polyline.details.updateEvent <omero.model.Polyline>`, :ref:`Project.details.creationEvent <omero.model.Project>`, :ref:`Project.details.updateEvent <omero.model.Project>`, :ref:`ProjectAnnotationLink.details.creationEvent <omero.model.ProjectAnnotationLink>`, :ref:`ProjectAnnotationLink.details.updateEvent <omero.model.ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.creationEvent <omero.model.ProjectDatasetLink>`, :ref:`ProjectDatasetLink.details.updateEvent <omero.model.ProjectDatasetLink>`, :ref:`QuantumDef.details.creationEvent <omero.model.QuantumDef>`, :ref:`QuantumDef.details.updateEvent <omero.model.QuantumDef>`, :ref:`Reagent.details.creationEvent <omero.model.Reagent>`, :ref:`Reagent.details.updateEvent <omero.model.Reagent>`, :ref:`ReagentAnnotationLink.details.creationEvent <omero.model.ReagentAnnotationLink>`, :ref:`ReagentAnnotationLink.details.updateEvent <omero.model.ReagentAnnotationLink>`, :ref:`Rect.details.creationEvent <omero.model.Rect>`, :ref:`Rect.details.updateEvent <omero.model.Rect>`, :ref:`RenderingDef.details.creationEvent <omero.model.RenderingDef>`, :ref:`RenderingDef.details.updateEvent <omero.model.RenderingDef>`, :ref:`ReverseIntensityContext.details.creationEvent <omero.model.ReverseIntensityContext>`, :ref:`ReverseIntensityContext.details.updateEvent <omero.model.ReverseIntensityContext>`, :ref:`Roi.details.creationEvent <omero.model.Roi>`, :ref:`Roi.details.updateEvent <omero.model.Roi>`, :ref:`RoiAnnotationLink.details.creationEvent <omero.model.RoiAnnotationLink>`, :ref:`RoiAnnotationLink.details.updateEvent <omero.model.RoiAnnotationLink>`, :ref:`Screen.details.creationEvent <omero.model.Screen>`, :ref:`Screen.details.updateEvent <omero.model.Screen>`, :ref:`ScreenAnnotationLink.details.creationEvent <omero.model.ScreenAnnotationLink>`, :ref:`ScreenAnnotationLink.details.updateEvent <omero.model.ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.creationEvent <omero.model.ScreenPlateLink>`, :ref:`ScreenPlateLink.details.updateEvent <omero.model.ScreenPlateLink>`, :ref:`ScriptJob.details.creationEvent <omero.model.ScriptJob>`, :ref:`ScriptJob.details.updateEvent <omero.model.ScriptJob>`, :ref:`Session.events <omero.model.Session>`, :ref:`SessionAnnotationLink.details.creationEvent <omero.model.SessionAnnotationLink>`, :ref:`SessionAnnotationLink.details.updateEvent <omero.model.SessionAnnotationLink>`, :ref:`Shape.details.creationEvent <omero.model.Shape>`, :ref:`Shape.details.updateEvent <omero.model.Shape>`, :ref:`Share.events <omero.model.Share>`, :ref:`StageLabel.details.creationEvent <omero.model.StageLabel>`, :ref:`StageLabel.details.updateEvent <omero.model.StageLabel>`, :ref:`StatsInfo.details.creationEvent <omero.model.StatsInfo>`, :ref:`StatsInfo.details.updateEvent <omero.model.StatsInfo>`, :ref:`TagAnnotation.details.creationEvent <omero.model.TagAnnotation>`, :ref:`TagAnnotation.details.updateEvent <omero.model.TagAnnotation>`, :ref:`TermAnnotation.details.creationEvent <omero.model.TermAnnotation>`, :ref:`TermAnnotation.details.updateEvent <omero.model.TermAnnotation>`, :ref:`TextAnnotation.details.creationEvent <omero.model.TextAnnotation>`, :ref:`TextAnnotation.details.updateEvent <omero.model.TextAnnotation>`, :ref:`Thumbnail.details.creationEvent <omero.model.Thumbnail>`, :ref:`Thumbnail.details.updateEvent <omero.model.Thumbnail>`, :ref:`ThumbnailGenerationJob.details.creationEvent <omero.model.ThumbnailGenerationJob>`, :ref:`ThumbnailGenerationJob.details.updateEvent <omero.model.ThumbnailGenerationJob>`, :ref:`TimestampAnnotation.details.creationEvent <omero.model.TimestampAnnotation>`, :ref:`TimestampAnnotation.details.updateEvent <omero.model.TimestampAnnotation>`, :ref:`TransmittanceRange.details.creationEvent <omero.model.TransmittanceRange>`, :ref:`TransmittanceRange.details.updateEvent <omero.model.TransmittanceRange>`, :ref:`TypeAnnotation.details.creationEvent <omero.model.TypeAnnotation>`, :ref:`TypeAnnotation.details.updateEvent <omero.model.TypeAnnotation>`, :ref:`UploadJob.details.creationEvent <omero.model.UploadJob>`, :ref:`UploadJob.details.updateEvent <omero.model.UploadJob>`, :ref:`Well.details.creationEvent <omero.model.Well>`, :ref:`Well.details.updateEvent <omero.model.Well>`, :ref:`WellAnnotationLink.details.creationEvent <omero.model.WellAnnotationLink>`, :ref:`WellAnnotationLink.details.updateEvent <omero.model.WellAnnotationLink>`, :ref:`WellReagentLink.details.creationEvent <omero.model.WellReagentLink>`, :ref:`WellReagentLink.details.updateEvent <omero.model.WellReagentLink>`, :ref:`WellSample.details.creationEvent <omero.model.WellSample>`, :ref:`WellSample.details.updateEvent <omero.model.WellSample>`, :ref:`WellSampleAnnotationLink.details.creationEvent <omero.model.WellSampleAnnotationLink>`, :ref:`WellSampleAnnotationLink.details.updateEvent <omero.model.WellSampleAnnotationLink>`, :ref:`XmlAnnotation.details.creationEvent <omero.model.XmlAnnotation>`, :ref:`XmlAnnotation.details.updateEvent <omero.model.XmlAnnotation>`
+Used by: :ref:`Annotation.details.creationEvent <omero.model.Annotation>`, :ref:`Annotation.details.updateEvent <omero.model.Annotation>`, :ref:`AnnotationAnnotationLink.details.creationEvent <omero.model.AnnotationAnnotationLink>`, :ref:`AnnotationAnnotationLink.details.updateEvent <omero.model.AnnotationAnnotationLink>`, :ref:`Arc.details.creationEvent <omero.model.Arc>`, :ref:`Arc.details.updateEvent <omero.model.Arc>`, :ref:`BasicAnnotation.details.creationEvent <omero.model.BasicAnnotation>`, :ref:`BasicAnnotation.details.updateEvent <omero.model.BasicAnnotation>`, :ref:`BooleanAnnotation.details.creationEvent <omero.model.BooleanAnnotation>`, :ref:`BooleanAnnotation.details.updateEvent <omero.model.BooleanAnnotation>`, :ref:`Channel.details.creationEvent <omero.model.Channel>`, :ref:`Channel.details.updateEvent <omero.model.Channel>`, :ref:`ChannelAnnotationLink.details.creationEvent <omero.model.ChannelAnnotationLink>`, :ref:`ChannelAnnotationLink.details.updateEvent <omero.model.ChannelAnnotationLink>`, :ref:`ChannelBinding.details.creationEvent <omero.model.ChannelBinding>`, :ref:`ChannelBinding.details.updateEvent <omero.model.ChannelBinding>`, :ref:`CodomainMapContext.details.creationEvent <omero.model.CodomainMapContext>`, :ref:`CodomainMapContext.details.updateEvent <omero.model.CodomainMapContext>`, :ref:`CommentAnnotation.details.creationEvent <omero.model.CommentAnnotation>`, :ref:`CommentAnnotation.details.updateEvent <omero.model.CommentAnnotation>`, :ref:`ContrastStretchingContext.details.creationEvent <omero.model.ContrastStretchingContext>`, :ref:`ContrastStretchingContext.details.updateEvent <omero.model.ContrastStretchingContext>`, :ref:`Dataset.details.creationEvent <omero.model.Dataset>`, :ref:`Dataset.details.updateEvent <omero.model.Dataset>`, :ref:`DatasetAnnotationLink.details.creationEvent <omero.model.DatasetAnnotationLink>`, :ref:`DatasetAnnotationLink.details.updateEvent <omero.model.DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.creationEvent <omero.model.DatasetImageLink>`, :ref:`DatasetImageLink.details.updateEvent <omero.model.DatasetImageLink>`, :ref:`Detector.details.creationEvent <omero.model.Detector>`, :ref:`Detector.details.updateEvent <omero.model.Detector>`, :ref:`DetectorSettings.details.creationEvent <omero.model.DetectorSettings>`, :ref:`DetectorSettings.details.updateEvent <omero.model.DetectorSettings>`, :ref:`Dichroic.details.creationEvent <omero.model.Dichroic>`, :ref:`Dichroic.details.updateEvent <omero.model.Dichroic>`, :ref:`DoubleAnnotation.details.creationEvent <omero.model.DoubleAnnotation>`, :ref:`DoubleAnnotation.details.updateEvent <omero.model.DoubleAnnotation>`, :ref:`Ellipse.details.creationEvent <omero.model.Ellipse>`, :ref:`Ellipse.details.updateEvent <omero.model.Ellipse>`, :ref:`Event.containingEvent <omero.model.Event>`, :ref:`EventLog.event <omero.model.EventLog>`, :ref:`Experiment.details.creationEvent <omero.model.Experiment>`, :ref:`Experiment.details.updateEvent <omero.model.Experiment>`, :ref:`ExperimenterAnnotationLink.details.creationEvent <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterAnnotationLink.details.updateEvent <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.details.creationEvent <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.details.updateEvent <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.creationEvent <omero.model.ExternalInfo>`, :ref:`Filament.details.creationEvent <omero.model.Filament>`, :ref:`Filament.details.updateEvent <omero.model.Filament>`, :ref:`FileAnnotation.details.creationEvent <omero.model.FileAnnotation>`, :ref:`FileAnnotation.details.updateEvent <omero.model.FileAnnotation>`, :ref:`Fileset.details.creationEvent <omero.model.Fileset>`, :ref:`Fileset.details.updateEvent <omero.model.Fileset>`, :ref:`FilesetAnnotationLink.details.creationEvent <omero.model.FilesetAnnotationLink>`, :ref:`FilesetAnnotationLink.details.updateEvent <omero.model.FilesetAnnotationLink>`, :ref:`FilesetEntry.details.creationEvent <omero.model.FilesetEntry>`, :ref:`FilesetEntry.details.updateEvent <omero.model.FilesetEntry>`, :ref:`FilesetJobLink.details.creationEvent <omero.model.FilesetJobLink>`, :ref:`FilesetJobLink.details.updateEvent <omero.model.FilesetJobLink>`, :ref:`FilesetVersionInfo.details.creationEvent <omero.model.FilesetVersionInfo>`, :ref:`FilesetVersionInfo.details.updateEvent <omero.model.FilesetVersionInfo>`, :ref:`Filter.details.creationEvent <omero.model.Filter>`, :ref:`Filter.details.updateEvent <omero.model.Filter>`, :ref:`FilterSet.details.creationEvent <omero.model.FilterSet>`, :ref:`FilterSet.details.updateEvent <omero.model.FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.creationEvent <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetEmissionFilterLink.details.updateEvent <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.creationEvent <omero.model.FilterSetExcitationFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.updateEvent <omero.model.FilterSetExcitationFilterLink>`, :ref:`Image.details.creationEvent <omero.model.Image>`, :ref:`Image.details.updateEvent <omero.model.Image>`, :ref:`ImageAnnotationLink.details.creationEvent <omero.model.ImageAnnotationLink>`, :ref:`ImageAnnotationLink.details.updateEvent <omero.model.ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.creationEvent <omero.model.ImagingEnvironment>`, :ref:`ImagingEnvironment.details.updateEvent <omero.model.ImagingEnvironment>`, :ref:`ImportJob.details.creationEvent <omero.model.ImportJob>`, :ref:`ImportJob.details.updateEvent <omero.model.ImportJob>`, :ref:`IndexingJob.details.creationEvent <omero.model.IndexingJob>`, :ref:`IndexingJob.details.updateEvent <omero.model.IndexingJob>`, :ref:`Instrument.details.creationEvent <omero.model.Instrument>`, :ref:`Instrument.details.updateEvent <omero.model.Instrument>`, :ref:`IntegrityCheckJob.details.creationEvent <omero.model.IntegrityCheckJob>`, :ref:`IntegrityCheckJob.details.updateEvent <omero.model.IntegrityCheckJob>`, :ref:`Job.details.creationEvent <omero.model.Job>`, :ref:`Job.details.updateEvent <omero.model.Job>`, :ref:`JobOriginalFileLink.details.creationEvent <omero.model.JobOriginalFileLink>`, :ref:`JobOriginalFileLink.details.updateEvent <omero.model.JobOriginalFileLink>`, :ref:`Label.details.creationEvent <omero.model.Label>`, :ref:`Label.details.updateEvent <omero.model.Label>`, :ref:`Laser.details.creationEvent <omero.model.Laser>`, :ref:`Laser.details.updateEvent <omero.model.Laser>`, :ref:`LightEmittingDiode.details.creationEvent <omero.model.LightEmittingDiode>`, :ref:`LightEmittingDiode.details.updateEvent <omero.model.LightEmittingDiode>`, :ref:`LightPath.details.creationEvent <omero.model.LightPath>`, :ref:`LightPath.details.updateEvent <omero.model.LightPath>`, :ref:`LightPathEmissionFilterLink.details.creationEvent <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathEmissionFilterLink.details.updateEvent <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.creationEvent <omero.model.LightPathExcitationFilterLink>`, :ref:`LightPathExcitationFilterLink.details.updateEvent <omero.model.LightPathExcitationFilterLink>`, :ref:`LightSettings.details.creationEvent <omero.model.LightSettings>`, :ref:`LightSettings.details.updateEvent <omero.model.LightSettings>`, :ref:`LightSource.details.creationEvent <omero.model.LightSource>`, :ref:`LightSource.details.updateEvent <omero.model.LightSource>`, :ref:`Line.details.creationEvent <omero.model.Line>`, :ref:`Line.details.updateEvent <omero.model.Line>`, :ref:`Link.details.creationEvent <omero.model.Link>`, :ref:`Link.details.updateEvent <omero.model.Link>`, :ref:`ListAnnotation.details.creationEvent <omero.model.ListAnnotation>`, :ref:`ListAnnotation.details.updateEvent <omero.model.ListAnnotation>`, :ref:`LogicalChannel.details.creationEvent <omero.model.LogicalChannel>`, :ref:`LogicalChannel.details.updateEvent <omero.model.LogicalChannel>`, :ref:`LongAnnotation.details.creationEvent <omero.model.LongAnnotation>`, :ref:`LongAnnotation.details.updateEvent <omero.model.LongAnnotation>`, :ref:`Mask.details.creationEvent <omero.model.Mask>`, :ref:`Mask.details.updateEvent <omero.model.Mask>`, :ref:`MetadataImportJob.details.creationEvent <omero.model.MetadataImportJob>`, :ref:`MetadataImportJob.details.updateEvent <omero.model.MetadataImportJob>`, :ref:`MicrobeamManipulation.details.creationEvent <omero.model.MicrobeamManipulation>`, :ref:`MicrobeamManipulation.details.updateEvent <omero.model.MicrobeamManipulation>`, :ref:`Microscope.details.creationEvent <omero.model.Microscope>`, :ref:`Microscope.details.updateEvent <omero.model.Microscope>`, :ref:`Namespace.details.creationEvent <omero.model.Namespace>`, :ref:`Namespace.details.updateEvent <omero.model.Namespace>`, :ref:`NamespaceAnnotationLink.details.creationEvent <omero.model.NamespaceAnnotationLink>`, :ref:`NamespaceAnnotationLink.details.updateEvent <omero.model.NamespaceAnnotationLink>`, :ref:`NodeAnnotationLink.details.creationEvent <omero.model.NodeAnnotationLink>`, :ref:`NodeAnnotationLink.details.updateEvent <omero.model.NodeAnnotationLink>`, :ref:`NumericAnnotation.details.creationEvent <omero.model.NumericAnnotation>`, :ref:`NumericAnnotation.details.updateEvent <omero.model.NumericAnnotation>`, :ref:`OTF.details.creationEvent <omero.model.OTF>`, :ref:`OTF.details.updateEvent <omero.model.OTF>`, :ref:`Objective.details.creationEvent <omero.model.Objective>`, :ref:`Objective.details.updateEvent <omero.model.Objective>`, :ref:`ObjectiveSettings.details.creationEvent <omero.model.ObjectiveSettings>`, :ref:`ObjectiveSettings.details.updateEvent <omero.model.ObjectiveSettings>`, :ref:`OriginalFile.details.creationEvent <omero.model.OriginalFile>`, :ref:`OriginalFile.details.updateEvent <omero.model.OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.creationEvent <omero.model.OriginalFileAnnotationLink>`, :ref:`OriginalFileAnnotationLink.details.updateEvent <omero.model.OriginalFileAnnotationLink>`, :ref:`ParseJob.details.creationEvent <omero.model.ParseJob>`, :ref:`ParseJob.details.updateEvent <omero.model.ParseJob>`, :ref:`Path.details.creationEvent <omero.model.Path>`, :ref:`Path.details.updateEvent <omero.model.Path>`, :ref:`PixelDataJob.details.creationEvent <omero.model.PixelDataJob>`, :ref:`PixelDataJob.details.updateEvent <omero.model.PixelDataJob>`, :ref:`Pixels.details.creationEvent <omero.model.Pixels>`, :ref:`Pixels.details.updateEvent <omero.model.Pixels>`, :ref:`PixelsAnnotationLink.details.creationEvent <omero.model.PixelsAnnotationLink>`, :ref:`PixelsAnnotationLink.details.updateEvent <omero.model.PixelsAnnotationLink>`, :ref:`PixelsOriginalFileMap.details.creationEvent <omero.model.PixelsOriginalFileMap>`, :ref:`PixelsOriginalFileMap.details.updateEvent <omero.model.PixelsOriginalFileMap>`, :ref:`PlaneInfo.details.creationEvent <omero.model.PlaneInfo>`, :ref:`PlaneInfo.details.updateEvent <omero.model.PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.creationEvent <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlaneInfoAnnotationLink.details.updateEvent <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlaneSlicingContext.details.creationEvent <omero.model.PlaneSlicingContext>`, :ref:`PlaneSlicingContext.details.updateEvent <omero.model.PlaneSlicingContext>`, :ref:`Plate.details.creationEvent <omero.model.Plate>`, :ref:`Plate.details.updateEvent <omero.model.Plate>`, :ref:`PlateAcquisition.details.creationEvent <omero.model.PlateAcquisition>`, :ref:`PlateAcquisition.details.updateEvent <omero.model.PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.creationEvent <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAcquisitionAnnotationLink.details.updateEvent <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.creationEvent <omero.model.PlateAnnotationLink>`, :ref:`PlateAnnotationLink.details.updateEvent <omero.model.PlateAnnotationLink>`, :ref:`Point.details.creationEvent <omero.model.Point>`, :ref:`Point.details.updateEvent <omero.model.Point>`, :ref:`Polygon.details.creationEvent <omero.model.Polygon>`, :ref:`Polygon.details.updateEvent <omero.model.Polygon>`, :ref:`Polyline.details.creationEvent <omero.model.Polyline>`, :ref:`Polyline.details.updateEvent <omero.model.Polyline>`, :ref:`Project.details.creationEvent <omero.model.Project>`, :ref:`Project.details.updateEvent <omero.model.Project>`, :ref:`ProjectAnnotationLink.details.creationEvent <omero.model.ProjectAnnotationLink>`, :ref:`ProjectAnnotationLink.details.updateEvent <omero.model.ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.creationEvent <omero.model.ProjectDatasetLink>`, :ref:`ProjectDatasetLink.details.updateEvent <omero.model.ProjectDatasetLink>`, :ref:`QuantumDef.details.creationEvent <omero.model.QuantumDef>`, :ref:`QuantumDef.details.updateEvent <omero.model.QuantumDef>`, :ref:`Reagent.details.creationEvent <omero.model.Reagent>`, :ref:`Reagent.details.updateEvent <omero.model.Reagent>`, :ref:`ReagentAnnotationLink.details.creationEvent <omero.model.ReagentAnnotationLink>`, :ref:`ReagentAnnotationLink.details.updateEvent <omero.model.ReagentAnnotationLink>`, :ref:`Rect.details.creationEvent <omero.model.Rect>`, :ref:`Rect.details.updateEvent <omero.model.Rect>`, :ref:`RenderingDef.details.creationEvent <omero.model.RenderingDef>`, :ref:`RenderingDef.details.updateEvent <omero.model.RenderingDef>`, :ref:`ReverseIntensityContext.details.creationEvent <omero.model.ReverseIntensityContext>`, :ref:`ReverseIntensityContext.details.updateEvent <omero.model.ReverseIntensityContext>`, :ref:`Roi.details.creationEvent <omero.model.Roi>`, :ref:`Roi.details.updateEvent <omero.model.Roi>`, :ref:`RoiAnnotationLink.details.creationEvent <omero.model.RoiAnnotationLink>`, :ref:`RoiAnnotationLink.details.updateEvent <omero.model.RoiAnnotationLink>`, :ref:`Screen.details.creationEvent <omero.model.Screen>`, :ref:`Screen.details.updateEvent <omero.model.Screen>`, :ref:`ScreenAnnotationLink.details.creationEvent <omero.model.ScreenAnnotationLink>`, :ref:`ScreenAnnotationLink.details.updateEvent <omero.model.ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.creationEvent <omero.model.ScreenPlateLink>`, :ref:`ScreenPlateLink.details.updateEvent <omero.model.ScreenPlateLink>`, :ref:`ScriptJob.details.creationEvent <omero.model.ScriptJob>`, :ref:`ScriptJob.details.updateEvent <omero.model.ScriptJob>`, :ref:`Session.events <omero.model.Session>`, :ref:`SessionAnnotationLink.details.creationEvent <omero.model.SessionAnnotationLink>`, :ref:`SessionAnnotationLink.details.updateEvent <omero.model.SessionAnnotationLink>`, :ref:`Shape.details.creationEvent <omero.model.Shape>`, :ref:`Shape.details.updateEvent <omero.model.Shape>`, :ref:`Share.events <omero.model.Share>`, :ref:`StageLabel.details.creationEvent <omero.model.StageLabel>`, :ref:`StageLabel.details.updateEvent <omero.model.StageLabel>`, :ref:`StatsInfo.details.creationEvent <omero.model.StatsInfo>`, :ref:`StatsInfo.details.updateEvent <omero.model.StatsInfo>`, :ref:`TagAnnotation.details.creationEvent <omero.model.TagAnnotation>`, :ref:`TagAnnotation.details.updateEvent <omero.model.TagAnnotation>`, :ref:`TermAnnotation.details.creationEvent <omero.model.TermAnnotation>`, :ref:`TermAnnotation.details.updateEvent <omero.model.TermAnnotation>`, :ref:`TextAnnotation.details.creationEvent <omero.model.TextAnnotation>`, :ref:`TextAnnotation.details.updateEvent <omero.model.TextAnnotation>`, :ref:`Thumbnail.details.creationEvent <omero.model.Thumbnail>`, :ref:`Thumbnail.details.updateEvent <omero.model.Thumbnail>`, :ref:`ThumbnailGenerationJob.details.creationEvent <omero.model.ThumbnailGenerationJob>`, :ref:`ThumbnailGenerationJob.details.updateEvent <omero.model.ThumbnailGenerationJob>`, :ref:`TimestampAnnotation.details.creationEvent <omero.model.TimestampAnnotation>`, :ref:`TimestampAnnotation.details.updateEvent <omero.model.TimestampAnnotation>`, :ref:`TransmittanceRange.details.creationEvent <omero.model.TransmittanceRange>`, :ref:`TransmittanceRange.details.updateEvent <omero.model.TransmittanceRange>`, :ref:`TypeAnnotation.details.creationEvent <omero.model.TypeAnnotation>`, :ref:`TypeAnnotation.details.updateEvent <omero.model.TypeAnnotation>`, :ref:`UploadJob.details.creationEvent <omero.model.UploadJob>`, :ref:`UploadJob.details.updateEvent <omero.model.UploadJob>`, :ref:`Well.details.creationEvent <omero.model.Well>`, :ref:`Well.details.updateEvent <omero.model.Well>`, :ref:`WellAnnotationLink.details.creationEvent <omero.model.WellAnnotationLink>`, :ref:`WellAnnotationLink.details.updateEvent <omero.model.WellAnnotationLink>`, :ref:`WellReagentLink.details.creationEvent <omero.model.WellReagentLink>`, :ref:`WellReagentLink.details.updateEvent <omero.model.WellReagentLink>`, :ref:`WellSample.details.creationEvent <omero.model.WellSample>`, :ref:`WellSample.details.updateEvent <omero.model.WellSample>`, :ref:`WellSampleAnnotationLink.details.creationEvent <omero.model.WellSampleAnnotationLink>`, :ref:`WellSampleAnnotationLink.details.updateEvent <omero.model.WellSampleAnnotationLink>`, :ref:`XmlAnnotation.details.creationEvent <omero.model.XmlAnnotation>`, :ref:`XmlAnnotation.details.updateEvent <omero.model.XmlAnnotation>`
 
-properties are,
+Properties:
   | containingEvent: :ref:`Event <omero.model.Event>` (optional)
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
@@ -562,9 +562,9 @@ properties are,
 EventLog
 """"""""
 
-used by :ref:`Event.logs <omero.model.Event>`
+Used by: :ref:`Event.logs <omero.model.Event>`
 
-properties are,
+Properties:
   | action: ``string``
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
@@ -577,9 +577,9 @@ properties are,
 EventType
 """""""""
 
-used by :ref:`Event.type <omero.model.Event>`
+Used by: :ref:`Event.type <omero.model.Event>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -589,9 +589,9 @@ properties are,
 Experiment
 """"""""""
 
-used by :ref:`Image.experiment <omero.model.Image>`, :ref:`MicrobeamManipulation.experiment <omero.model.MicrobeamManipulation>`
+Used by: :ref:`Image.experiment <omero.model.Image>`, :ref:`MicrobeamManipulation.experiment <omero.model.MicrobeamManipulation>`
 
-properties are,
+Properties:
   | description: ``text`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -608,9 +608,9 @@ properties are,
 ExperimentType
 """"""""""""""
 
-used by :ref:`Experiment.type <omero.model.Experiment>`
+Used by: :ref:`Experiment.type <omero.model.Experiment>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -620,9 +620,9 @@ properties are,
 Experimenter
 """"""""""""
 
-used by :ref:`Annotation.details.owner <omero.model.Annotation>`, :ref:`AnnotationAnnotationLink.details.owner <omero.model.AnnotationAnnotationLink>`, :ref:`Arc.details.owner <omero.model.Arc>`, :ref:`BasicAnnotation.details.owner <omero.model.BasicAnnotation>`, :ref:`BooleanAnnotation.details.owner <omero.model.BooleanAnnotation>`, :ref:`Channel.details.owner <omero.model.Channel>`, :ref:`ChannelAnnotationLink.details.owner <omero.model.ChannelAnnotationLink>`, :ref:`ChannelBinding.details.owner <omero.model.ChannelBinding>`, :ref:`CodomainMapContext.details.owner <omero.model.CodomainMapContext>`, :ref:`CommentAnnotation.details.owner <omero.model.CommentAnnotation>`, :ref:`ContrastStretchingContext.details.owner <omero.model.ContrastStretchingContext>`, :ref:`Dataset.details.owner <omero.model.Dataset>`, :ref:`DatasetAnnotationLink.details.owner <omero.model.DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.owner <omero.model.DatasetImageLink>`, :ref:`Detector.details.owner <omero.model.Detector>`, :ref:`DetectorSettings.details.owner <omero.model.DetectorSettings>`, :ref:`Dichroic.details.owner <omero.model.Dichroic>`, :ref:`DoubleAnnotation.details.owner <omero.model.DoubleAnnotation>`, :ref:`Ellipse.details.owner <omero.model.Ellipse>`, :ref:`Event.experimenter <omero.model.Event>`, :ref:`Experiment.details.owner <omero.model.Experiment>`, :ref:`ExperimenterAnnotationLink.details.owner <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterAnnotationLink.parent <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.details.owner <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.owner <omero.model.ExternalInfo>`, :ref:`Filament.details.owner <omero.model.Filament>`, :ref:`FileAnnotation.details.owner <omero.model.FileAnnotation>`, :ref:`Fileset.details.owner <omero.model.Fileset>`, :ref:`FilesetAnnotationLink.details.owner <omero.model.FilesetAnnotationLink>`, :ref:`FilesetEntry.details.owner <omero.model.FilesetEntry>`, :ref:`FilesetJobLink.details.owner <omero.model.FilesetJobLink>`, :ref:`FilesetVersionInfo.details.owner <omero.model.FilesetVersionInfo>`, :ref:`Filter.details.owner <omero.model.Filter>`, :ref:`FilterSet.details.owner <omero.model.FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.owner <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.owner <omero.model.FilterSetExcitationFilterLink>`, :ref:`GroupExperimenterMap.child <omero.model.GroupExperimenterMap>`, :ref:`Image.details.owner <omero.model.Image>`, :ref:`ImageAnnotationLink.details.owner <omero.model.ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.owner <omero.model.ImagingEnvironment>`, :ref:`ImportJob.details.owner <omero.model.ImportJob>`, :ref:`IndexingJob.details.owner <omero.model.IndexingJob>`, :ref:`Instrument.details.owner <omero.model.Instrument>`, :ref:`IntegrityCheckJob.details.owner <omero.model.IntegrityCheckJob>`, :ref:`Job.details.owner <omero.model.Job>`, :ref:`JobOriginalFileLink.details.owner <omero.model.JobOriginalFileLink>`, :ref:`Label.details.owner <omero.model.Label>`, :ref:`Laser.details.owner <omero.model.Laser>`, :ref:`LightEmittingDiode.details.owner <omero.model.LightEmittingDiode>`, :ref:`LightPath.details.owner <omero.model.LightPath>`, :ref:`LightPathEmissionFilterLink.details.owner <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.owner <omero.model.LightPathExcitationFilterLink>`, :ref:`LightSettings.details.owner <omero.model.LightSettings>`, :ref:`LightSource.details.owner <omero.model.LightSource>`, :ref:`Line.details.owner <omero.model.Line>`, :ref:`Link.details.owner <omero.model.Link>`, :ref:`ListAnnotation.details.owner <omero.model.ListAnnotation>`, :ref:`LogicalChannel.details.owner <omero.model.LogicalChannel>`, :ref:`LongAnnotation.details.owner <omero.model.LongAnnotation>`, :ref:`Mask.details.owner <omero.model.Mask>`, :ref:`MetadataImportJob.details.owner <omero.model.MetadataImportJob>`, :ref:`MicrobeamManipulation.details.owner <omero.model.MicrobeamManipulation>`, :ref:`Microscope.details.owner <omero.model.Microscope>`, :ref:`Namespace.details.owner <omero.model.Namespace>`, :ref:`NamespaceAnnotationLink.details.owner <omero.model.NamespaceAnnotationLink>`, :ref:`NodeAnnotationLink.details.owner <omero.model.NodeAnnotationLink>`, :ref:`NumericAnnotation.details.owner <omero.model.NumericAnnotation>`, :ref:`OTF.details.owner <omero.model.OTF>`, :ref:`Objective.details.owner <omero.model.Objective>`, :ref:`ObjectiveSettings.details.owner <omero.model.ObjectiveSettings>`, :ref:`OriginalFile.details.owner <omero.model.OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.owner <omero.model.OriginalFileAnnotationLink>`, :ref:`ParseJob.details.owner <omero.model.ParseJob>`, :ref:`Path.details.owner <omero.model.Path>`, :ref:`PixelDataJob.details.owner <omero.model.PixelDataJob>`, :ref:`Pixels.details.owner <omero.model.Pixels>`, :ref:`PixelsAnnotationLink.details.owner <omero.model.PixelsAnnotationLink>`, :ref:`PixelsOriginalFileMap.details.owner <omero.model.PixelsOriginalFileMap>`, :ref:`PlaneInfo.details.owner <omero.model.PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.owner <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlaneSlicingContext.details.owner <omero.model.PlaneSlicingContext>`, :ref:`Plate.details.owner <omero.model.Plate>`, :ref:`PlateAcquisition.details.owner <omero.model.PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.owner <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.owner <omero.model.PlateAnnotationLink>`, :ref:`Point.details.owner <omero.model.Point>`, :ref:`Polygon.details.owner <omero.model.Polygon>`, :ref:`Polyline.details.owner <omero.model.Polyline>`, :ref:`Project.details.owner <omero.model.Project>`, :ref:`ProjectAnnotationLink.details.owner <omero.model.ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.owner <omero.model.ProjectDatasetLink>`, :ref:`QuantumDef.details.owner <omero.model.QuantumDef>`, :ref:`Reagent.details.owner <omero.model.Reagent>`, :ref:`ReagentAnnotationLink.details.owner <omero.model.ReagentAnnotationLink>`, :ref:`Rect.details.owner <omero.model.Rect>`, :ref:`RenderingDef.details.owner <omero.model.RenderingDef>`, :ref:`ReverseIntensityContext.details.owner <omero.model.ReverseIntensityContext>`, :ref:`Roi.details.owner <omero.model.Roi>`, :ref:`RoiAnnotationLink.details.owner <omero.model.RoiAnnotationLink>`, :ref:`Screen.details.owner <omero.model.Screen>`, :ref:`ScreenAnnotationLink.details.owner <omero.model.ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.owner <omero.model.ScreenPlateLink>`, :ref:`ScriptJob.details.owner <omero.model.ScriptJob>`, :ref:`Session.owner <omero.model.Session>`, :ref:`SessionAnnotationLink.details.owner <omero.model.SessionAnnotationLink>`, :ref:`Shape.details.owner <omero.model.Shape>`, :ref:`Share.owner <omero.model.Share>`, :ref:`ShareMember.child <omero.model.ShareMember>`, :ref:`StageLabel.details.owner <omero.model.StageLabel>`, :ref:`StatsInfo.details.owner <omero.model.StatsInfo>`, :ref:`TagAnnotation.details.owner <omero.model.TagAnnotation>`, :ref:`TermAnnotation.details.owner <omero.model.TermAnnotation>`, :ref:`TextAnnotation.details.owner <omero.model.TextAnnotation>`, :ref:`Thumbnail.details.owner <omero.model.Thumbnail>`, :ref:`ThumbnailGenerationJob.details.owner <omero.model.ThumbnailGenerationJob>`, :ref:`TimestampAnnotation.details.owner <omero.model.TimestampAnnotation>`, :ref:`TransmittanceRange.details.owner <omero.model.TransmittanceRange>`, :ref:`TypeAnnotation.details.owner <omero.model.TypeAnnotation>`, :ref:`UploadJob.details.owner <omero.model.UploadJob>`, :ref:`Well.details.owner <omero.model.Well>`, :ref:`WellAnnotationLink.details.owner <omero.model.WellAnnotationLink>`, :ref:`WellReagentLink.details.owner <omero.model.WellReagentLink>`, :ref:`WellSample.details.owner <omero.model.WellSample>`, :ref:`WellSampleAnnotationLink.details.owner <omero.model.WellSampleAnnotationLink>`, :ref:`XmlAnnotation.details.owner <omero.model.XmlAnnotation>`
+Used by: :ref:`Annotation.details.owner <omero.model.Annotation>`, :ref:`AnnotationAnnotationLink.details.owner <omero.model.AnnotationAnnotationLink>`, :ref:`Arc.details.owner <omero.model.Arc>`, :ref:`BasicAnnotation.details.owner <omero.model.BasicAnnotation>`, :ref:`BooleanAnnotation.details.owner <omero.model.BooleanAnnotation>`, :ref:`Channel.details.owner <omero.model.Channel>`, :ref:`ChannelAnnotationLink.details.owner <omero.model.ChannelAnnotationLink>`, :ref:`ChannelBinding.details.owner <omero.model.ChannelBinding>`, :ref:`CodomainMapContext.details.owner <omero.model.CodomainMapContext>`, :ref:`CommentAnnotation.details.owner <omero.model.CommentAnnotation>`, :ref:`ContrastStretchingContext.details.owner <omero.model.ContrastStretchingContext>`, :ref:`Dataset.details.owner <omero.model.Dataset>`, :ref:`DatasetAnnotationLink.details.owner <omero.model.DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.owner <omero.model.DatasetImageLink>`, :ref:`Detector.details.owner <omero.model.Detector>`, :ref:`DetectorSettings.details.owner <omero.model.DetectorSettings>`, :ref:`Dichroic.details.owner <omero.model.Dichroic>`, :ref:`DoubleAnnotation.details.owner <omero.model.DoubleAnnotation>`, :ref:`Ellipse.details.owner <omero.model.Ellipse>`, :ref:`Event.experimenter <omero.model.Event>`, :ref:`Experiment.details.owner <omero.model.Experiment>`, :ref:`ExperimenterAnnotationLink.details.owner <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterAnnotationLink.parent <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.details.owner <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.owner <omero.model.ExternalInfo>`, :ref:`Filament.details.owner <omero.model.Filament>`, :ref:`FileAnnotation.details.owner <omero.model.FileAnnotation>`, :ref:`Fileset.details.owner <omero.model.Fileset>`, :ref:`FilesetAnnotationLink.details.owner <omero.model.FilesetAnnotationLink>`, :ref:`FilesetEntry.details.owner <omero.model.FilesetEntry>`, :ref:`FilesetJobLink.details.owner <omero.model.FilesetJobLink>`, :ref:`FilesetVersionInfo.details.owner <omero.model.FilesetVersionInfo>`, :ref:`Filter.details.owner <omero.model.Filter>`, :ref:`FilterSet.details.owner <omero.model.FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.owner <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.owner <omero.model.FilterSetExcitationFilterLink>`, :ref:`GroupExperimenterMap.child <omero.model.GroupExperimenterMap>`, :ref:`Image.details.owner <omero.model.Image>`, :ref:`ImageAnnotationLink.details.owner <omero.model.ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.owner <omero.model.ImagingEnvironment>`, :ref:`ImportJob.details.owner <omero.model.ImportJob>`, :ref:`IndexingJob.details.owner <omero.model.IndexingJob>`, :ref:`Instrument.details.owner <omero.model.Instrument>`, :ref:`IntegrityCheckJob.details.owner <omero.model.IntegrityCheckJob>`, :ref:`Job.details.owner <omero.model.Job>`, :ref:`JobOriginalFileLink.details.owner <omero.model.JobOriginalFileLink>`, :ref:`Label.details.owner <omero.model.Label>`, :ref:`Laser.details.owner <omero.model.Laser>`, :ref:`LightEmittingDiode.details.owner <omero.model.LightEmittingDiode>`, :ref:`LightPath.details.owner <omero.model.LightPath>`, :ref:`LightPathEmissionFilterLink.details.owner <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.owner <omero.model.LightPathExcitationFilterLink>`, :ref:`LightSettings.details.owner <omero.model.LightSettings>`, :ref:`LightSource.details.owner <omero.model.LightSource>`, :ref:`Line.details.owner <omero.model.Line>`, :ref:`Link.details.owner <omero.model.Link>`, :ref:`ListAnnotation.details.owner <omero.model.ListAnnotation>`, :ref:`LogicalChannel.details.owner <omero.model.LogicalChannel>`, :ref:`LongAnnotation.details.owner <omero.model.LongAnnotation>`, :ref:`Mask.details.owner <omero.model.Mask>`, :ref:`MetadataImportJob.details.owner <omero.model.MetadataImportJob>`, :ref:`MicrobeamManipulation.details.owner <omero.model.MicrobeamManipulation>`, :ref:`Microscope.details.owner <omero.model.Microscope>`, :ref:`Namespace.details.owner <omero.model.Namespace>`, :ref:`NamespaceAnnotationLink.details.owner <omero.model.NamespaceAnnotationLink>`, :ref:`NodeAnnotationLink.details.owner <omero.model.NodeAnnotationLink>`, :ref:`NumericAnnotation.details.owner <omero.model.NumericAnnotation>`, :ref:`OTF.details.owner <omero.model.OTF>`, :ref:`Objective.details.owner <omero.model.Objective>`, :ref:`ObjectiveSettings.details.owner <omero.model.ObjectiveSettings>`, :ref:`OriginalFile.details.owner <omero.model.OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.owner <omero.model.OriginalFileAnnotationLink>`, :ref:`ParseJob.details.owner <omero.model.ParseJob>`, :ref:`Path.details.owner <omero.model.Path>`, :ref:`PixelDataJob.details.owner <omero.model.PixelDataJob>`, :ref:`Pixels.details.owner <omero.model.Pixels>`, :ref:`PixelsAnnotationLink.details.owner <omero.model.PixelsAnnotationLink>`, :ref:`PixelsOriginalFileMap.details.owner <omero.model.PixelsOriginalFileMap>`, :ref:`PlaneInfo.details.owner <omero.model.PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.owner <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlaneSlicingContext.details.owner <omero.model.PlaneSlicingContext>`, :ref:`Plate.details.owner <omero.model.Plate>`, :ref:`PlateAcquisition.details.owner <omero.model.PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.owner <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.owner <omero.model.PlateAnnotationLink>`, :ref:`Point.details.owner <omero.model.Point>`, :ref:`Polygon.details.owner <omero.model.Polygon>`, :ref:`Polyline.details.owner <omero.model.Polyline>`, :ref:`Project.details.owner <omero.model.Project>`, :ref:`ProjectAnnotationLink.details.owner <omero.model.ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.owner <omero.model.ProjectDatasetLink>`, :ref:`QuantumDef.details.owner <omero.model.QuantumDef>`, :ref:`Reagent.details.owner <omero.model.Reagent>`, :ref:`ReagentAnnotationLink.details.owner <omero.model.ReagentAnnotationLink>`, :ref:`Rect.details.owner <omero.model.Rect>`, :ref:`RenderingDef.details.owner <omero.model.RenderingDef>`, :ref:`ReverseIntensityContext.details.owner <omero.model.ReverseIntensityContext>`, :ref:`Roi.details.owner <omero.model.Roi>`, :ref:`RoiAnnotationLink.details.owner <omero.model.RoiAnnotationLink>`, :ref:`Screen.details.owner <omero.model.Screen>`, :ref:`ScreenAnnotationLink.details.owner <omero.model.ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.owner <omero.model.ScreenPlateLink>`, :ref:`ScriptJob.details.owner <omero.model.ScriptJob>`, :ref:`Session.owner <omero.model.Session>`, :ref:`SessionAnnotationLink.details.owner <omero.model.SessionAnnotationLink>`, :ref:`Shape.details.owner <omero.model.Shape>`, :ref:`Share.owner <omero.model.Share>`, :ref:`ShareMember.child <omero.model.ShareMember>`, :ref:`StageLabel.details.owner <omero.model.StageLabel>`, :ref:`StatsInfo.details.owner <omero.model.StatsInfo>`, :ref:`TagAnnotation.details.owner <omero.model.TagAnnotation>`, :ref:`TermAnnotation.details.owner <omero.model.TermAnnotation>`, :ref:`TextAnnotation.details.owner <omero.model.TextAnnotation>`, :ref:`Thumbnail.details.owner <omero.model.Thumbnail>`, :ref:`ThumbnailGenerationJob.details.owner <omero.model.ThumbnailGenerationJob>`, :ref:`TimestampAnnotation.details.owner <omero.model.TimestampAnnotation>`, :ref:`TransmittanceRange.details.owner <omero.model.TransmittanceRange>`, :ref:`TypeAnnotation.details.owner <omero.model.TypeAnnotation>`, :ref:`UploadJob.details.owner <omero.model.UploadJob>`, :ref:`Well.details.owner <omero.model.Well>`, :ref:`WellAnnotationLink.details.owner <omero.model.WellAnnotationLink>`, :ref:`WellReagentLink.details.owner <omero.model.WellReagentLink>`, :ref:`WellSample.details.owner <omero.model.WellSample>`, :ref:`WellSampleAnnotationLink.details.owner <omero.model.WellSampleAnnotationLink>`, :ref:`XmlAnnotation.details.owner <omero.model.XmlAnnotation>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`ExperimenterAnnotationLink <omero.model.ExperimenterAnnotationLink>` (multiple)
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
@@ -640,9 +640,9 @@ properties are,
 ExperimenterAnnotationLink
 """"""""""""""""""""""""""
 
-used by :ref:`Experimenter.annotationLinks <omero.model.Experimenter>`
+Used by: :ref:`Experimenter.annotationLinks <omero.model.Experimenter>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -658,9 +658,9 @@ properties are,
 ExperimenterGroup
 """""""""""""""""
 
-used by :ref:`Annotation.details.group <omero.model.Annotation>`, :ref:`AnnotationAnnotationLink.details.group <omero.model.AnnotationAnnotationLink>`, :ref:`Arc.details.group <omero.model.Arc>`, :ref:`BasicAnnotation.details.group <omero.model.BasicAnnotation>`, :ref:`BooleanAnnotation.details.group <omero.model.BooleanAnnotation>`, :ref:`Channel.details.group <omero.model.Channel>`, :ref:`ChannelAnnotationLink.details.group <omero.model.ChannelAnnotationLink>`, :ref:`ChannelBinding.details.group <omero.model.ChannelBinding>`, :ref:`CodomainMapContext.details.group <omero.model.CodomainMapContext>`, :ref:`CommentAnnotation.details.group <omero.model.CommentAnnotation>`, :ref:`ContrastStretchingContext.details.group <omero.model.ContrastStretchingContext>`, :ref:`Dataset.details.group <omero.model.Dataset>`, :ref:`DatasetAnnotationLink.details.group <omero.model.DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.group <omero.model.DatasetImageLink>`, :ref:`Detector.details.group <omero.model.Detector>`, :ref:`DetectorSettings.details.group <omero.model.DetectorSettings>`, :ref:`Dichroic.details.group <omero.model.Dichroic>`, :ref:`DoubleAnnotation.details.group <omero.model.DoubleAnnotation>`, :ref:`Ellipse.details.group <omero.model.Ellipse>`, :ref:`Event.experimenterGroup <omero.model.Event>`, :ref:`Experiment.details.group <omero.model.Experiment>`, :ref:`ExperimenterAnnotationLink.details.group <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.details.group <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.parent <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.group <omero.model.ExternalInfo>`, :ref:`Filament.details.group <omero.model.Filament>`, :ref:`FileAnnotation.details.group <omero.model.FileAnnotation>`, :ref:`Fileset.details.group <omero.model.Fileset>`, :ref:`FilesetAnnotationLink.details.group <omero.model.FilesetAnnotationLink>`, :ref:`FilesetEntry.details.group <omero.model.FilesetEntry>`, :ref:`FilesetJobLink.details.group <omero.model.FilesetJobLink>`, :ref:`FilesetVersionInfo.details.group <omero.model.FilesetVersionInfo>`, :ref:`Filter.details.group <omero.model.Filter>`, :ref:`FilterSet.details.group <omero.model.FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.group <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.group <omero.model.FilterSetExcitationFilterLink>`, :ref:`GroupExperimenterMap.parent <omero.model.GroupExperimenterMap>`, :ref:`Image.details.group <omero.model.Image>`, :ref:`ImageAnnotationLink.details.group <omero.model.ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.group <omero.model.ImagingEnvironment>`, :ref:`ImportJob.details.group <omero.model.ImportJob>`, :ref:`IndexingJob.details.group <omero.model.IndexingJob>`, :ref:`Instrument.details.group <omero.model.Instrument>`, :ref:`IntegrityCheckJob.details.group <omero.model.IntegrityCheckJob>`, :ref:`Job.details.group <omero.model.Job>`, :ref:`JobOriginalFileLink.details.group <omero.model.JobOriginalFileLink>`, :ref:`Label.details.group <omero.model.Label>`, :ref:`Laser.details.group <omero.model.Laser>`, :ref:`LightEmittingDiode.details.group <omero.model.LightEmittingDiode>`, :ref:`LightPath.details.group <omero.model.LightPath>`, :ref:`LightPathEmissionFilterLink.details.group <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.group <omero.model.LightPathExcitationFilterLink>`, :ref:`LightSettings.details.group <omero.model.LightSettings>`, :ref:`LightSource.details.group <omero.model.LightSource>`, :ref:`Line.details.group <omero.model.Line>`, :ref:`Link.details.group <omero.model.Link>`, :ref:`ListAnnotation.details.group <omero.model.ListAnnotation>`, :ref:`LogicalChannel.details.group <omero.model.LogicalChannel>`, :ref:`LongAnnotation.details.group <omero.model.LongAnnotation>`, :ref:`Mask.details.group <omero.model.Mask>`, :ref:`MetadataImportJob.details.group <omero.model.MetadataImportJob>`, :ref:`MicrobeamManipulation.details.group <omero.model.MicrobeamManipulation>`, :ref:`Microscope.details.group <omero.model.Microscope>`, :ref:`Namespace.details.group <omero.model.Namespace>`, :ref:`NamespaceAnnotationLink.details.group <omero.model.NamespaceAnnotationLink>`, :ref:`NodeAnnotationLink.details.group <omero.model.NodeAnnotationLink>`, :ref:`NumericAnnotation.details.group <omero.model.NumericAnnotation>`, :ref:`OTF.details.group <omero.model.OTF>`, :ref:`Objective.details.group <omero.model.Objective>`, :ref:`ObjectiveSettings.details.group <omero.model.ObjectiveSettings>`, :ref:`OriginalFile.details.group <omero.model.OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.group <omero.model.OriginalFileAnnotationLink>`, :ref:`ParseJob.details.group <omero.model.ParseJob>`, :ref:`Path.details.group <omero.model.Path>`, :ref:`PixelDataJob.details.group <omero.model.PixelDataJob>`, :ref:`Pixels.details.group <omero.model.Pixels>`, :ref:`PixelsAnnotationLink.details.group <omero.model.PixelsAnnotationLink>`, :ref:`PixelsOriginalFileMap.details.group <omero.model.PixelsOriginalFileMap>`, :ref:`PlaneInfo.details.group <omero.model.PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.group <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlaneSlicingContext.details.group <omero.model.PlaneSlicingContext>`, :ref:`Plate.details.group <omero.model.Plate>`, :ref:`PlateAcquisition.details.group <omero.model.PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.group <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.group <omero.model.PlateAnnotationLink>`, :ref:`Point.details.group <omero.model.Point>`, :ref:`Polygon.details.group <omero.model.Polygon>`, :ref:`Polyline.details.group <omero.model.Polyline>`, :ref:`Project.details.group <omero.model.Project>`, :ref:`ProjectAnnotationLink.details.group <omero.model.ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.group <omero.model.ProjectDatasetLink>`, :ref:`QuantumDef.details.group <omero.model.QuantumDef>`, :ref:`Reagent.details.group <omero.model.Reagent>`, :ref:`ReagentAnnotationLink.details.group <omero.model.ReagentAnnotationLink>`, :ref:`Rect.details.group <omero.model.Rect>`, :ref:`RenderingDef.details.group <omero.model.RenderingDef>`, :ref:`ReverseIntensityContext.details.group <omero.model.ReverseIntensityContext>`, :ref:`Roi.details.group <omero.model.Roi>`, :ref:`RoiAnnotationLink.details.group <omero.model.RoiAnnotationLink>`, :ref:`Screen.details.group <omero.model.Screen>`, :ref:`ScreenAnnotationLink.details.group <omero.model.ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.group <omero.model.ScreenPlateLink>`, :ref:`ScriptJob.details.group <omero.model.ScriptJob>`, :ref:`SessionAnnotationLink.details.group <omero.model.SessionAnnotationLink>`, :ref:`Shape.details.group <omero.model.Shape>`, :ref:`Share.group <omero.model.Share>`, :ref:`StageLabel.details.group <omero.model.StageLabel>`, :ref:`StatsInfo.details.group <omero.model.StatsInfo>`, :ref:`TagAnnotation.details.group <omero.model.TagAnnotation>`, :ref:`TermAnnotation.details.group <omero.model.TermAnnotation>`, :ref:`TextAnnotation.details.group <omero.model.TextAnnotation>`, :ref:`Thumbnail.details.group <omero.model.Thumbnail>`, :ref:`ThumbnailGenerationJob.details.group <omero.model.ThumbnailGenerationJob>`, :ref:`TimestampAnnotation.details.group <omero.model.TimestampAnnotation>`, :ref:`TransmittanceRange.details.group <omero.model.TransmittanceRange>`, :ref:`TypeAnnotation.details.group <omero.model.TypeAnnotation>`, :ref:`UploadJob.details.group <omero.model.UploadJob>`, :ref:`Well.details.group <omero.model.Well>`, :ref:`WellAnnotationLink.details.group <omero.model.WellAnnotationLink>`, :ref:`WellReagentLink.details.group <omero.model.WellReagentLink>`, :ref:`WellSample.details.group <omero.model.WellSample>`, :ref:`WellSampleAnnotationLink.details.group <omero.model.WellSampleAnnotationLink>`, :ref:`XmlAnnotation.details.group <omero.model.XmlAnnotation>`
+Used by: :ref:`Annotation.details.group <omero.model.Annotation>`, :ref:`AnnotationAnnotationLink.details.group <omero.model.AnnotationAnnotationLink>`, :ref:`Arc.details.group <omero.model.Arc>`, :ref:`BasicAnnotation.details.group <omero.model.BasicAnnotation>`, :ref:`BooleanAnnotation.details.group <omero.model.BooleanAnnotation>`, :ref:`Channel.details.group <omero.model.Channel>`, :ref:`ChannelAnnotationLink.details.group <omero.model.ChannelAnnotationLink>`, :ref:`ChannelBinding.details.group <omero.model.ChannelBinding>`, :ref:`CodomainMapContext.details.group <omero.model.CodomainMapContext>`, :ref:`CommentAnnotation.details.group <omero.model.CommentAnnotation>`, :ref:`ContrastStretchingContext.details.group <omero.model.ContrastStretchingContext>`, :ref:`Dataset.details.group <omero.model.Dataset>`, :ref:`DatasetAnnotationLink.details.group <omero.model.DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.group <omero.model.DatasetImageLink>`, :ref:`Detector.details.group <omero.model.Detector>`, :ref:`DetectorSettings.details.group <omero.model.DetectorSettings>`, :ref:`Dichroic.details.group <omero.model.Dichroic>`, :ref:`DoubleAnnotation.details.group <omero.model.DoubleAnnotation>`, :ref:`Ellipse.details.group <omero.model.Ellipse>`, :ref:`Event.experimenterGroup <omero.model.Event>`, :ref:`Experiment.details.group <omero.model.Experiment>`, :ref:`ExperimenterAnnotationLink.details.group <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.details.group <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.parent <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.group <omero.model.ExternalInfo>`, :ref:`Filament.details.group <omero.model.Filament>`, :ref:`FileAnnotation.details.group <omero.model.FileAnnotation>`, :ref:`Fileset.details.group <omero.model.Fileset>`, :ref:`FilesetAnnotationLink.details.group <omero.model.FilesetAnnotationLink>`, :ref:`FilesetEntry.details.group <omero.model.FilesetEntry>`, :ref:`FilesetJobLink.details.group <omero.model.FilesetJobLink>`, :ref:`FilesetVersionInfo.details.group <omero.model.FilesetVersionInfo>`, :ref:`Filter.details.group <omero.model.Filter>`, :ref:`FilterSet.details.group <omero.model.FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.group <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.group <omero.model.FilterSetExcitationFilterLink>`, :ref:`GroupExperimenterMap.parent <omero.model.GroupExperimenterMap>`, :ref:`Image.details.group <omero.model.Image>`, :ref:`ImageAnnotationLink.details.group <omero.model.ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.group <omero.model.ImagingEnvironment>`, :ref:`ImportJob.details.group <omero.model.ImportJob>`, :ref:`IndexingJob.details.group <omero.model.IndexingJob>`, :ref:`Instrument.details.group <omero.model.Instrument>`, :ref:`IntegrityCheckJob.details.group <omero.model.IntegrityCheckJob>`, :ref:`Job.details.group <omero.model.Job>`, :ref:`JobOriginalFileLink.details.group <omero.model.JobOriginalFileLink>`, :ref:`Label.details.group <omero.model.Label>`, :ref:`Laser.details.group <omero.model.Laser>`, :ref:`LightEmittingDiode.details.group <omero.model.LightEmittingDiode>`, :ref:`LightPath.details.group <omero.model.LightPath>`, :ref:`LightPathEmissionFilterLink.details.group <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.group <omero.model.LightPathExcitationFilterLink>`, :ref:`LightSettings.details.group <omero.model.LightSettings>`, :ref:`LightSource.details.group <omero.model.LightSource>`, :ref:`Line.details.group <omero.model.Line>`, :ref:`Link.details.group <omero.model.Link>`, :ref:`ListAnnotation.details.group <omero.model.ListAnnotation>`, :ref:`LogicalChannel.details.group <omero.model.LogicalChannel>`, :ref:`LongAnnotation.details.group <omero.model.LongAnnotation>`, :ref:`Mask.details.group <omero.model.Mask>`, :ref:`MetadataImportJob.details.group <omero.model.MetadataImportJob>`, :ref:`MicrobeamManipulation.details.group <omero.model.MicrobeamManipulation>`, :ref:`Microscope.details.group <omero.model.Microscope>`, :ref:`Namespace.details.group <omero.model.Namespace>`, :ref:`NamespaceAnnotationLink.details.group <omero.model.NamespaceAnnotationLink>`, :ref:`NodeAnnotationLink.details.group <omero.model.NodeAnnotationLink>`, :ref:`NumericAnnotation.details.group <omero.model.NumericAnnotation>`, :ref:`OTF.details.group <omero.model.OTF>`, :ref:`Objective.details.group <omero.model.Objective>`, :ref:`ObjectiveSettings.details.group <omero.model.ObjectiveSettings>`, :ref:`OriginalFile.details.group <omero.model.OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.group <omero.model.OriginalFileAnnotationLink>`, :ref:`ParseJob.details.group <omero.model.ParseJob>`, :ref:`Path.details.group <omero.model.Path>`, :ref:`PixelDataJob.details.group <omero.model.PixelDataJob>`, :ref:`Pixels.details.group <omero.model.Pixels>`, :ref:`PixelsAnnotationLink.details.group <omero.model.PixelsAnnotationLink>`, :ref:`PixelsOriginalFileMap.details.group <omero.model.PixelsOriginalFileMap>`, :ref:`PlaneInfo.details.group <omero.model.PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.group <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlaneSlicingContext.details.group <omero.model.PlaneSlicingContext>`, :ref:`Plate.details.group <omero.model.Plate>`, :ref:`PlateAcquisition.details.group <omero.model.PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.group <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.group <omero.model.PlateAnnotationLink>`, :ref:`Point.details.group <omero.model.Point>`, :ref:`Polygon.details.group <omero.model.Polygon>`, :ref:`Polyline.details.group <omero.model.Polyline>`, :ref:`Project.details.group <omero.model.Project>`, :ref:`ProjectAnnotationLink.details.group <omero.model.ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.group <omero.model.ProjectDatasetLink>`, :ref:`QuantumDef.details.group <omero.model.QuantumDef>`, :ref:`Reagent.details.group <omero.model.Reagent>`, :ref:`ReagentAnnotationLink.details.group <omero.model.ReagentAnnotationLink>`, :ref:`Rect.details.group <omero.model.Rect>`, :ref:`RenderingDef.details.group <omero.model.RenderingDef>`, :ref:`ReverseIntensityContext.details.group <omero.model.ReverseIntensityContext>`, :ref:`Roi.details.group <omero.model.Roi>`, :ref:`RoiAnnotationLink.details.group <omero.model.RoiAnnotationLink>`, :ref:`Screen.details.group <omero.model.Screen>`, :ref:`ScreenAnnotationLink.details.group <omero.model.ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.group <omero.model.ScreenPlateLink>`, :ref:`ScriptJob.details.group <omero.model.ScriptJob>`, :ref:`SessionAnnotationLink.details.group <omero.model.SessionAnnotationLink>`, :ref:`Shape.details.group <omero.model.Shape>`, :ref:`Share.group <omero.model.Share>`, :ref:`StageLabel.details.group <omero.model.StageLabel>`, :ref:`StatsInfo.details.group <omero.model.StatsInfo>`, :ref:`TagAnnotation.details.group <omero.model.TagAnnotation>`, :ref:`TermAnnotation.details.group <omero.model.TermAnnotation>`, :ref:`TextAnnotation.details.group <omero.model.TextAnnotation>`, :ref:`Thumbnail.details.group <omero.model.Thumbnail>`, :ref:`ThumbnailGenerationJob.details.group <omero.model.ThumbnailGenerationJob>`, :ref:`TimestampAnnotation.details.group <omero.model.TimestampAnnotation>`, :ref:`TransmittanceRange.details.group <omero.model.TransmittanceRange>`, :ref:`TypeAnnotation.details.group <omero.model.TypeAnnotation>`, :ref:`UploadJob.details.group <omero.model.UploadJob>`, :ref:`Well.details.group <omero.model.Well>`, :ref:`WellAnnotationLink.details.group <omero.model.WellAnnotationLink>`, :ref:`WellReagentLink.details.group <omero.model.WellReagentLink>`, :ref:`WellSample.details.group <omero.model.WellSample>`, :ref:`WellSampleAnnotationLink.details.group <omero.model.WellSampleAnnotationLink>`, :ref:`XmlAnnotation.details.group <omero.model.XmlAnnotation>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`ExperimenterGroupAnnotationLink <omero.model.ExperimenterGroupAnnotationLink>` (multiple)
   | description: ``text`` (optional)
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -674,9 +674,9 @@ properties are,
 ExperimenterGroupAnnotationLink
 """""""""""""""""""""""""""""""
 
-used by :ref:`ExperimenterGroup.annotationLinks <omero.model.ExperimenterGroup>`
+Used by: :ref:`ExperimenterGroup.annotationLinks <omero.model.ExperimenterGroup>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -692,9 +692,9 @@ properties are,
 ExternalInfo
 """"""""""""
 
-used by :ref:`AcquisitionMode.details.externalInfo <omero.model.AcquisitionMode>`, :ref:`Annotation.details.externalInfo <omero.model.Annotation>`, :ref:`AnnotationAnnotationLink.details.externalInfo <omero.model.AnnotationAnnotationLink>`, :ref:`Arc.details.externalInfo <omero.model.Arc>`, :ref:`ArcType.details.externalInfo <omero.model.ArcType>`, :ref:`BasicAnnotation.details.externalInfo <omero.model.BasicAnnotation>`, :ref:`Binning.details.externalInfo <omero.model.Binning>`, :ref:`BooleanAnnotation.details.externalInfo <omero.model.BooleanAnnotation>`, :ref:`Channel.details.externalInfo <omero.model.Channel>`, :ref:`ChannelAnnotationLink.details.externalInfo <omero.model.ChannelAnnotationLink>`, :ref:`ChannelBinding.details.externalInfo <omero.model.ChannelBinding>`, :ref:`ChecksumAlgorithm.details.externalInfo <omero.model.ChecksumAlgorithm>`, :ref:`CodomainMapContext.details.externalInfo <omero.model.CodomainMapContext>`, :ref:`CommentAnnotation.details.externalInfo <omero.model.CommentAnnotation>`, :ref:`ContrastMethod.details.externalInfo <omero.model.ContrastMethod>`, :ref:`ContrastStretchingContext.details.externalInfo <omero.model.ContrastStretchingContext>`, :ref:`Correction.details.externalInfo <omero.model.Correction>`, :ref:`DBPatch.details.externalInfo <omero.model.DBPatch>`, :ref:`Dataset.details.externalInfo <omero.model.Dataset>`, :ref:`DatasetAnnotationLink.details.externalInfo <omero.model.DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.externalInfo <omero.model.DatasetImageLink>`, :ref:`Detector.details.externalInfo <omero.model.Detector>`, :ref:`DetectorSettings.details.externalInfo <omero.model.DetectorSettings>`, :ref:`DetectorType.details.externalInfo <omero.model.DetectorType>`, :ref:`Dichroic.details.externalInfo <omero.model.Dichroic>`, :ref:`DimensionOrder.details.externalInfo <omero.model.DimensionOrder>`, :ref:`DoubleAnnotation.details.externalInfo <omero.model.DoubleAnnotation>`, :ref:`Ellipse.details.externalInfo <omero.model.Ellipse>`, :ref:`Event.details.externalInfo <omero.model.Event>`, :ref:`EventLog.details.externalInfo <omero.model.EventLog>`, :ref:`EventType.details.externalInfo <omero.model.EventType>`, :ref:`Experiment.details.externalInfo <omero.model.Experiment>`, :ref:`ExperimentType.details.externalInfo <omero.model.ExperimentType>`, :ref:`Experimenter.details.externalInfo <omero.model.Experimenter>`, :ref:`ExperimenterAnnotationLink.details.externalInfo <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterGroup.details.externalInfo <omero.model.ExperimenterGroup>`, :ref:`ExperimenterGroupAnnotationLink.details.externalInfo <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.externalInfo <omero.model.ExternalInfo>`, :ref:`Family.details.externalInfo <omero.model.Family>`, :ref:`Filament.details.externalInfo <omero.model.Filament>`, :ref:`FilamentType.details.externalInfo <omero.model.FilamentType>`, :ref:`FileAnnotation.details.externalInfo <omero.model.FileAnnotation>`, :ref:`Fileset.details.externalInfo <omero.model.Fileset>`, :ref:`FilesetAnnotationLink.details.externalInfo <omero.model.FilesetAnnotationLink>`, :ref:`FilesetEntry.details.externalInfo <omero.model.FilesetEntry>`, :ref:`FilesetJobLink.details.externalInfo <omero.model.FilesetJobLink>`, :ref:`FilesetVersionInfo.details.externalInfo <omero.model.FilesetVersionInfo>`, :ref:`Filter.details.externalInfo <omero.model.Filter>`, :ref:`FilterSet.details.externalInfo <omero.model.FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.externalInfo <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.externalInfo <omero.model.FilterSetExcitationFilterLink>`, :ref:`FilterType.details.externalInfo <omero.model.FilterType>`, :ref:`Format.details.externalInfo <omero.model.Format>`, :ref:`GroupExperimenterMap.details.externalInfo <omero.model.GroupExperimenterMap>`, :ref:`Illumination.details.externalInfo <omero.model.Illumination>`, :ref:`Image.details.externalInfo <omero.model.Image>`, :ref:`ImageAnnotationLink.details.externalInfo <omero.model.ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.externalInfo <omero.model.ImagingEnvironment>`, :ref:`Immersion.details.externalInfo <omero.model.Immersion>`, :ref:`ImportJob.details.externalInfo <omero.model.ImportJob>`, :ref:`IndexingJob.details.externalInfo <omero.model.IndexingJob>`, :ref:`Instrument.details.externalInfo <omero.model.Instrument>`, :ref:`IntegrityCheckJob.details.externalInfo <omero.model.IntegrityCheckJob>`, :ref:`Job.details.externalInfo <omero.model.Job>`, :ref:`JobOriginalFileLink.details.externalInfo <omero.model.JobOriginalFileLink>`, :ref:`JobStatus.details.externalInfo <omero.model.JobStatus>`, :ref:`Label.details.externalInfo <omero.model.Label>`, :ref:`Laser.details.externalInfo <omero.model.Laser>`, :ref:`LaserMedium.details.externalInfo <omero.model.LaserMedium>`, :ref:`LaserType.details.externalInfo <omero.model.LaserType>`, :ref:`LightEmittingDiode.details.externalInfo <omero.model.LightEmittingDiode>`, :ref:`LightPath.details.externalInfo <omero.model.LightPath>`, :ref:`LightPathEmissionFilterLink.details.externalInfo <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.externalInfo <omero.model.LightPathExcitationFilterLink>`, :ref:`LightSettings.details.externalInfo <omero.model.LightSettings>`, :ref:`LightSource.details.externalInfo <omero.model.LightSource>`, :ref:`Line.details.externalInfo <omero.model.Line>`, :ref:`Link.details.externalInfo <omero.model.Link>`, :ref:`ListAnnotation.details.externalInfo <omero.model.ListAnnotation>`, :ref:`LogicalChannel.details.externalInfo <omero.model.LogicalChannel>`, :ref:`LongAnnotation.details.externalInfo <omero.model.LongAnnotation>`, :ref:`Mask.details.externalInfo <omero.model.Mask>`, :ref:`Medium.details.externalInfo <omero.model.Medium>`, :ref:`MetadataImportJob.details.externalInfo <omero.model.MetadataImportJob>`, :ref:`MicrobeamManipulation.details.externalInfo <omero.model.MicrobeamManipulation>`, :ref:`MicrobeamManipulationType.details.externalInfo <omero.model.MicrobeamManipulationType>`, :ref:`Microscope.details.externalInfo <omero.model.Microscope>`, :ref:`MicroscopeType.details.externalInfo <omero.model.MicroscopeType>`, :ref:`Namespace.details.externalInfo <omero.model.Namespace>`, :ref:`NamespaceAnnotationLink.details.externalInfo <omero.model.NamespaceAnnotationLink>`, :ref:`Node.details.externalInfo <omero.model.Node>`, :ref:`NodeAnnotationLink.details.externalInfo <omero.model.NodeAnnotationLink>`, :ref:`NumericAnnotation.details.externalInfo <omero.model.NumericAnnotation>`, :ref:`OTF.details.externalInfo <omero.model.OTF>`, :ref:`Objective.details.externalInfo <omero.model.Objective>`, :ref:`ObjectiveSettings.details.externalInfo <omero.model.ObjectiveSettings>`, :ref:`OriginalFile.details.externalInfo <omero.model.OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.externalInfo <omero.model.OriginalFileAnnotationLink>`, :ref:`ParseJob.details.externalInfo <omero.model.ParseJob>`, :ref:`Path.details.externalInfo <omero.model.Path>`, :ref:`PhotometricInterpretation.details.externalInfo <omero.model.PhotometricInterpretation>`, :ref:`PixelDataJob.details.externalInfo <omero.model.PixelDataJob>`, :ref:`Pixels.details.externalInfo <omero.model.Pixels>`, :ref:`PixelsAnnotationLink.details.externalInfo <omero.model.PixelsAnnotationLink>`, :ref:`PixelsOriginalFileMap.details.externalInfo <omero.model.PixelsOriginalFileMap>`, :ref:`PixelsType.details.externalInfo <omero.model.PixelsType>`, :ref:`PlaneInfo.details.externalInfo <omero.model.PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.externalInfo <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlaneSlicingContext.details.externalInfo <omero.model.PlaneSlicingContext>`, :ref:`Plate.details.externalInfo <omero.model.Plate>`, :ref:`PlateAcquisition.details.externalInfo <omero.model.PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.externalInfo <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.externalInfo <omero.model.PlateAnnotationLink>`, :ref:`Point.details.externalInfo <omero.model.Point>`, :ref:`Polygon.details.externalInfo <omero.model.Polygon>`, :ref:`Polyline.details.externalInfo <omero.model.Polyline>`, :ref:`Project.details.externalInfo <omero.model.Project>`, :ref:`ProjectAnnotationLink.details.externalInfo <omero.model.ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.externalInfo <omero.model.ProjectDatasetLink>`, :ref:`Pulse.details.externalInfo <omero.model.Pulse>`, :ref:`QuantumDef.details.externalInfo <omero.model.QuantumDef>`, :ref:`Reagent.details.externalInfo <omero.model.Reagent>`, :ref:`ReagentAnnotationLink.details.externalInfo <omero.model.ReagentAnnotationLink>`, :ref:`Rect.details.externalInfo <omero.model.Rect>`, :ref:`RenderingDef.details.externalInfo <omero.model.RenderingDef>`, :ref:`RenderingModel.details.externalInfo <omero.model.RenderingModel>`, :ref:`ReverseIntensityContext.details.externalInfo <omero.model.ReverseIntensityContext>`, :ref:`Roi.details.externalInfo <omero.model.Roi>`, :ref:`RoiAnnotationLink.details.externalInfo <omero.model.RoiAnnotationLink>`, :ref:`Screen.details.externalInfo <omero.model.Screen>`, :ref:`ScreenAnnotationLink.details.externalInfo <omero.model.ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.externalInfo <omero.model.ScreenPlateLink>`, :ref:`ScriptJob.details.externalInfo <omero.model.ScriptJob>`, :ref:`Session.details.externalInfo <omero.model.Session>`, :ref:`SessionAnnotationLink.details.externalInfo <omero.model.SessionAnnotationLink>`, :ref:`Shape.details.externalInfo <omero.model.Shape>`, :ref:`Share.details.externalInfo <omero.model.Share>`, :ref:`ShareMember.details.externalInfo <omero.model.ShareMember>`, :ref:`StageLabel.details.externalInfo <omero.model.StageLabel>`, :ref:`StatsInfo.details.externalInfo <omero.model.StatsInfo>`, :ref:`TagAnnotation.details.externalInfo <omero.model.TagAnnotation>`, :ref:`TermAnnotation.details.externalInfo <omero.model.TermAnnotation>`, :ref:`TextAnnotation.details.externalInfo <omero.model.TextAnnotation>`, :ref:`Thumbnail.details.externalInfo <omero.model.Thumbnail>`, :ref:`ThumbnailGenerationJob.details.externalInfo <omero.model.ThumbnailGenerationJob>`, :ref:`TimestampAnnotation.details.externalInfo <omero.model.TimestampAnnotation>`, :ref:`TransmittanceRange.details.externalInfo <omero.model.TransmittanceRange>`, :ref:`TypeAnnotation.details.externalInfo <omero.model.TypeAnnotation>`, :ref:`UploadJob.details.externalInfo <omero.model.UploadJob>`, :ref:`Well.details.externalInfo <omero.model.Well>`, :ref:`WellAnnotationLink.details.externalInfo <omero.model.WellAnnotationLink>`, :ref:`WellReagentLink.details.externalInfo <omero.model.WellReagentLink>`, :ref:`WellSample.details.externalInfo <omero.model.WellSample>`, :ref:`WellSampleAnnotationLink.details.externalInfo <omero.model.WellSampleAnnotationLink>`, :ref:`XmlAnnotation.details.externalInfo <omero.model.XmlAnnotation>`
+Used by: :ref:`AcquisitionMode.details.externalInfo <omero.model.AcquisitionMode>`, :ref:`Annotation.details.externalInfo <omero.model.Annotation>`, :ref:`AnnotationAnnotationLink.details.externalInfo <omero.model.AnnotationAnnotationLink>`, :ref:`Arc.details.externalInfo <omero.model.Arc>`, :ref:`ArcType.details.externalInfo <omero.model.ArcType>`, :ref:`BasicAnnotation.details.externalInfo <omero.model.BasicAnnotation>`, :ref:`Binning.details.externalInfo <omero.model.Binning>`, :ref:`BooleanAnnotation.details.externalInfo <omero.model.BooleanAnnotation>`, :ref:`Channel.details.externalInfo <omero.model.Channel>`, :ref:`ChannelAnnotationLink.details.externalInfo <omero.model.ChannelAnnotationLink>`, :ref:`ChannelBinding.details.externalInfo <omero.model.ChannelBinding>`, :ref:`ChecksumAlgorithm.details.externalInfo <omero.model.ChecksumAlgorithm>`, :ref:`CodomainMapContext.details.externalInfo <omero.model.CodomainMapContext>`, :ref:`CommentAnnotation.details.externalInfo <omero.model.CommentAnnotation>`, :ref:`ContrastMethod.details.externalInfo <omero.model.ContrastMethod>`, :ref:`ContrastStretchingContext.details.externalInfo <omero.model.ContrastStretchingContext>`, :ref:`Correction.details.externalInfo <omero.model.Correction>`, :ref:`DBPatch.details.externalInfo <omero.model.DBPatch>`, :ref:`Dataset.details.externalInfo <omero.model.Dataset>`, :ref:`DatasetAnnotationLink.details.externalInfo <omero.model.DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.externalInfo <omero.model.DatasetImageLink>`, :ref:`Detector.details.externalInfo <omero.model.Detector>`, :ref:`DetectorSettings.details.externalInfo <omero.model.DetectorSettings>`, :ref:`DetectorType.details.externalInfo <omero.model.DetectorType>`, :ref:`Dichroic.details.externalInfo <omero.model.Dichroic>`, :ref:`DimensionOrder.details.externalInfo <omero.model.DimensionOrder>`, :ref:`DoubleAnnotation.details.externalInfo <omero.model.DoubleAnnotation>`, :ref:`Ellipse.details.externalInfo <omero.model.Ellipse>`, :ref:`Event.details.externalInfo <omero.model.Event>`, :ref:`EventLog.details.externalInfo <omero.model.EventLog>`, :ref:`EventType.details.externalInfo <omero.model.EventType>`, :ref:`Experiment.details.externalInfo <omero.model.Experiment>`, :ref:`ExperimentType.details.externalInfo <omero.model.ExperimentType>`, :ref:`Experimenter.details.externalInfo <omero.model.Experimenter>`, :ref:`ExperimenterAnnotationLink.details.externalInfo <omero.model.ExperimenterAnnotationLink>`, :ref:`ExperimenterGroup.details.externalInfo <omero.model.ExperimenterGroup>`, :ref:`ExperimenterGroupAnnotationLink.details.externalInfo <omero.model.ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.externalInfo <omero.model.ExternalInfo>`, :ref:`Family.details.externalInfo <omero.model.Family>`, :ref:`Filament.details.externalInfo <omero.model.Filament>`, :ref:`FilamentType.details.externalInfo <omero.model.FilamentType>`, :ref:`FileAnnotation.details.externalInfo <omero.model.FileAnnotation>`, :ref:`Fileset.details.externalInfo <omero.model.Fileset>`, :ref:`FilesetAnnotationLink.details.externalInfo <omero.model.FilesetAnnotationLink>`, :ref:`FilesetEntry.details.externalInfo <omero.model.FilesetEntry>`, :ref:`FilesetJobLink.details.externalInfo <omero.model.FilesetJobLink>`, :ref:`FilesetVersionInfo.details.externalInfo <omero.model.FilesetVersionInfo>`, :ref:`Filter.details.externalInfo <omero.model.Filter>`, :ref:`FilterSet.details.externalInfo <omero.model.FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.externalInfo <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.externalInfo <omero.model.FilterSetExcitationFilterLink>`, :ref:`FilterType.details.externalInfo <omero.model.FilterType>`, :ref:`Format.details.externalInfo <omero.model.Format>`, :ref:`GroupExperimenterMap.details.externalInfo <omero.model.GroupExperimenterMap>`, :ref:`Illumination.details.externalInfo <omero.model.Illumination>`, :ref:`Image.details.externalInfo <omero.model.Image>`, :ref:`ImageAnnotationLink.details.externalInfo <omero.model.ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.externalInfo <omero.model.ImagingEnvironment>`, :ref:`Immersion.details.externalInfo <omero.model.Immersion>`, :ref:`ImportJob.details.externalInfo <omero.model.ImportJob>`, :ref:`IndexingJob.details.externalInfo <omero.model.IndexingJob>`, :ref:`Instrument.details.externalInfo <omero.model.Instrument>`, :ref:`IntegrityCheckJob.details.externalInfo <omero.model.IntegrityCheckJob>`, :ref:`Job.details.externalInfo <omero.model.Job>`, :ref:`JobOriginalFileLink.details.externalInfo <omero.model.JobOriginalFileLink>`, :ref:`JobStatus.details.externalInfo <omero.model.JobStatus>`, :ref:`Label.details.externalInfo <omero.model.Label>`, :ref:`Laser.details.externalInfo <omero.model.Laser>`, :ref:`LaserMedium.details.externalInfo <omero.model.LaserMedium>`, :ref:`LaserType.details.externalInfo <omero.model.LaserType>`, :ref:`LightEmittingDiode.details.externalInfo <omero.model.LightEmittingDiode>`, :ref:`LightPath.details.externalInfo <omero.model.LightPath>`, :ref:`LightPathEmissionFilterLink.details.externalInfo <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.externalInfo <omero.model.LightPathExcitationFilterLink>`, :ref:`LightSettings.details.externalInfo <omero.model.LightSettings>`, :ref:`LightSource.details.externalInfo <omero.model.LightSource>`, :ref:`Line.details.externalInfo <omero.model.Line>`, :ref:`Link.details.externalInfo <omero.model.Link>`, :ref:`ListAnnotation.details.externalInfo <omero.model.ListAnnotation>`, :ref:`LogicalChannel.details.externalInfo <omero.model.LogicalChannel>`, :ref:`LongAnnotation.details.externalInfo <omero.model.LongAnnotation>`, :ref:`Mask.details.externalInfo <omero.model.Mask>`, :ref:`Medium.details.externalInfo <omero.model.Medium>`, :ref:`MetadataImportJob.details.externalInfo <omero.model.MetadataImportJob>`, :ref:`MicrobeamManipulation.details.externalInfo <omero.model.MicrobeamManipulation>`, :ref:`MicrobeamManipulationType.details.externalInfo <omero.model.MicrobeamManipulationType>`, :ref:`Microscope.details.externalInfo <omero.model.Microscope>`, :ref:`MicroscopeType.details.externalInfo <omero.model.MicroscopeType>`, :ref:`Namespace.details.externalInfo <omero.model.Namespace>`, :ref:`NamespaceAnnotationLink.details.externalInfo <omero.model.NamespaceAnnotationLink>`, :ref:`Node.details.externalInfo <omero.model.Node>`, :ref:`NodeAnnotationLink.details.externalInfo <omero.model.NodeAnnotationLink>`, :ref:`NumericAnnotation.details.externalInfo <omero.model.NumericAnnotation>`, :ref:`OTF.details.externalInfo <omero.model.OTF>`, :ref:`Objective.details.externalInfo <omero.model.Objective>`, :ref:`ObjectiveSettings.details.externalInfo <omero.model.ObjectiveSettings>`, :ref:`OriginalFile.details.externalInfo <omero.model.OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.externalInfo <omero.model.OriginalFileAnnotationLink>`, :ref:`ParseJob.details.externalInfo <omero.model.ParseJob>`, :ref:`Path.details.externalInfo <omero.model.Path>`, :ref:`PhotometricInterpretation.details.externalInfo <omero.model.PhotometricInterpretation>`, :ref:`PixelDataJob.details.externalInfo <omero.model.PixelDataJob>`, :ref:`Pixels.details.externalInfo <omero.model.Pixels>`, :ref:`PixelsAnnotationLink.details.externalInfo <omero.model.PixelsAnnotationLink>`, :ref:`PixelsOriginalFileMap.details.externalInfo <omero.model.PixelsOriginalFileMap>`, :ref:`PixelsType.details.externalInfo <omero.model.PixelsType>`, :ref:`PlaneInfo.details.externalInfo <omero.model.PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.externalInfo <omero.model.PlaneInfoAnnotationLink>`, :ref:`PlaneSlicingContext.details.externalInfo <omero.model.PlaneSlicingContext>`, :ref:`Plate.details.externalInfo <omero.model.Plate>`, :ref:`PlateAcquisition.details.externalInfo <omero.model.PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.externalInfo <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.externalInfo <omero.model.PlateAnnotationLink>`, :ref:`Point.details.externalInfo <omero.model.Point>`, :ref:`Polygon.details.externalInfo <omero.model.Polygon>`, :ref:`Polyline.details.externalInfo <omero.model.Polyline>`, :ref:`Project.details.externalInfo <omero.model.Project>`, :ref:`ProjectAnnotationLink.details.externalInfo <omero.model.ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.externalInfo <omero.model.ProjectDatasetLink>`, :ref:`Pulse.details.externalInfo <omero.model.Pulse>`, :ref:`QuantumDef.details.externalInfo <omero.model.QuantumDef>`, :ref:`Reagent.details.externalInfo <omero.model.Reagent>`, :ref:`ReagentAnnotationLink.details.externalInfo <omero.model.ReagentAnnotationLink>`, :ref:`Rect.details.externalInfo <omero.model.Rect>`, :ref:`RenderingDef.details.externalInfo <omero.model.RenderingDef>`, :ref:`RenderingModel.details.externalInfo <omero.model.RenderingModel>`, :ref:`ReverseIntensityContext.details.externalInfo <omero.model.ReverseIntensityContext>`, :ref:`Roi.details.externalInfo <omero.model.Roi>`, :ref:`RoiAnnotationLink.details.externalInfo <omero.model.RoiAnnotationLink>`, :ref:`Screen.details.externalInfo <omero.model.Screen>`, :ref:`ScreenAnnotationLink.details.externalInfo <omero.model.ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.externalInfo <omero.model.ScreenPlateLink>`, :ref:`ScriptJob.details.externalInfo <omero.model.ScriptJob>`, :ref:`Session.details.externalInfo <omero.model.Session>`, :ref:`SessionAnnotationLink.details.externalInfo <omero.model.SessionAnnotationLink>`, :ref:`Shape.details.externalInfo <omero.model.Shape>`, :ref:`Share.details.externalInfo <omero.model.Share>`, :ref:`ShareMember.details.externalInfo <omero.model.ShareMember>`, :ref:`StageLabel.details.externalInfo <omero.model.StageLabel>`, :ref:`StatsInfo.details.externalInfo <omero.model.StatsInfo>`, :ref:`TagAnnotation.details.externalInfo <omero.model.TagAnnotation>`, :ref:`TermAnnotation.details.externalInfo <omero.model.TermAnnotation>`, :ref:`TextAnnotation.details.externalInfo <omero.model.TextAnnotation>`, :ref:`Thumbnail.details.externalInfo <omero.model.Thumbnail>`, :ref:`ThumbnailGenerationJob.details.externalInfo <omero.model.ThumbnailGenerationJob>`, :ref:`TimestampAnnotation.details.externalInfo <omero.model.TimestampAnnotation>`, :ref:`TransmittanceRange.details.externalInfo <omero.model.TransmittanceRange>`, :ref:`TypeAnnotation.details.externalInfo <omero.model.TypeAnnotation>`, :ref:`UploadJob.details.externalInfo <omero.model.UploadJob>`, :ref:`Well.details.externalInfo <omero.model.Well>`, :ref:`WellAnnotationLink.details.externalInfo <omero.model.WellAnnotationLink>`, :ref:`WellReagentLink.details.externalInfo <omero.model.WellReagentLink>`, :ref:`WellSample.details.externalInfo <omero.model.WellSample>`, :ref:`WellSampleAnnotationLink.details.externalInfo <omero.model.WellSampleAnnotationLink>`, :ref:`XmlAnnotation.details.externalInfo <omero.model.XmlAnnotation>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -710,9 +710,9 @@ properties are,
 Family
 """"""
 
-used by :ref:`ChannelBinding.family <omero.model.ChannelBinding>`
+Used by: :ref:`ChannelBinding.family <omero.model.ChannelBinding>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -722,7 +722,7 @@ properties are,
 Filament
 """"""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`LightSource <omero.model.LightSource>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`LightSource <omero.model.LightSource>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`LightSource <omero.model.LightSource>`
@@ -743,9 +743,9 @@ properties are,
 FilamentType
 """"""""""""
 
-used by :ref:`Filament.type <omero.model.Filament>`
+Used by: :ref:`Filament.type <omero.model.Filament>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -755,7 +755,7 @@ properties are,
 FileAnnotation
 """"""""""""""
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -773,9 +773,9 @@ properties are,
 Fileset
 """""""
 
-used by :ref:`FilesetAnnotationLink.parent <omero.model.FilesetAnnotationLink>`, :ref:`FilesetEntry.fileset <omero.model.FilesetEntry>`, :ref:`FilesetJobLink.parent <omero.model.FilesetJobLink>`, :ref:`Image.fileset <omero.model.Image>`
+Used by: :ref:`FilesetAnnotationLink.parent <omero.model.FilesetAnnotationLink>`, :ref:`FilesetEntry.fileset <omero.model.FilesetEntry>`, :ref:`FilesetJobLink.parent <omero.model.FilesetJobLink>`, :ref:`Image.fileset <omero.model.Image>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`FilesetAnnotationLink <omero.model.FilesetAnnotationLink>` (multiple)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -794,9 +794,9 @@ properties are,
 FilesetAnnotationLink
 """""""""""""""""""""
 
-used by :ref:`Fileset.annotationLinks <omero.model.Fileset>`
+Used by: :ref:`Fileset.annotationLinks <omero.model.Fileset>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -812,9 +812,9 @@ properties are,
 FilesetEntry
 """"""""""""
 
-used by :ref:`Fileset.usedFiles <omero.model.Fileset>`
+Used by: :ref:`Fileset.usedFiles <omero.model.Fileset>`
 
-properties are,
+Properties:
   | clientPath: ``text``
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -831,9 +831,9 @@ properties are,
 FilesetJobLink
 """"""""""""""
 
-used by :ref:`Fileset.jobLinks <omero.model.Fileset>`
+Used by: :ref:`Fileset.jobLinks <omero.model.Fileset>`
 
-properties are,
+Properties:
   | child: :ref:`Job <omero.model.Job>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -849,9 +849,9 @@ properties are,
 FilesetVersionInfo
 """"""""""""""""""
 
-used by :ref:`MetadataImportJob.versionInfo <omero.model.MetadataImportJob>`, :ref:`UploadJob.versionInfo <omero.model.UploadJob>`
+Used by: :ref:`MetadataImportJob.versionInfo <omero.model.MetadataImportJob>`, :ref:`UploadJob.versionInfo <omero.model.UploadJob>`
 
-properties are,
+Properties:
   | bioformatsReader: ``string``
   | bioformatsVersion: ``string``
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -872,9 +872,9 @@ properties are,
 Filter
 """"""
 
-used by :ref:`FilterSetEmissionFilterLink.child <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.child <omero.model.FilterSetExcitationFilterLink>`, :ref:`Instrument.filter <omero.model.Instrument>`, :ref:`LightPathEmissionFilterLink.child <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.child <omero.model.LightPathExcitationFilterLink>`
+Used by: :ref:`FilterSetEmissionFilterLink.child <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.child <omero.model.FilterSetExcitationFilterLink>`, :ref:`Instrument.filter <omero.model.Instrument>`, :ref:`LightPathEmissionFilterLink.child <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.child <omero.model.LightPathExcitationFilterLink>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -898,9 +898,9 @@ properties are,
 FilterSet
 """""""""
 
-used by :ref:`FilterSetEmissionFilterLink.parent <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.parent <omero.model.FilterSetExcitationFilterLink>`, :ref:`Instrument.filterSet <omero.model.Instrument>`, :ref:`LogicalChannel.filterSet <omero.model.LogicalChannel>`, :ref:`OTF.filterSet <omero.model.OTF>`
+Used by: :ref:`FilterSetEmissionFilterLink.parent <omero.model.FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.parent <omero.model.FilterSetExcitationFilterLink>`, :ref:`Instrument.filterSet <omero.model.Instrument>`, :ref:`LogicalChannel.filterSet <omero.model.LogicalChannel>`, :ref:`OTF.filterSet <omero.model.OTF>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -922,9 +922,9 @@ properties are,
 FilterSetEmissionFilterLink
 """""""""""""""""""""""""""
 
-used by :ref:`Filter.emissionFilterLink <omero.model.Filter>`, :ref:`FilterSet.emissionFilterLink <omero.model.FilterSet>`
+Used by: :ref:`Filter.emissionFilterLink <omero.model.Filter>`, :ref:`FilterSet.emissionFilterLink <omero.model.FilterSet>`
 
-properties are,
+Properties:
   | child: :ref:`Filter <omero.model.Filter>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -940,9 +940,9 @@ properties are,
 FilterSetExcitationFilterLink
 """""""""""""""""""""""""""""
 
-used by :ref:`Filter.excitationFilterLink <omero.model.Filter>`, :ref:`FilterSet.excitationFilterLink <omero.model.FilterSet>`
+Used by: :ref:`Filter.excitationFilterLink <omero.model.Filter>`, :ref:`FilterSet.excitationFilterLink <omero.model.FilterSet>`
 
-properties are,
+Properties:
   | child: :ref:`Filter <omero.model.Filter>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -958,9 +958,9 @@ properties are,
 FilterType
 """"""""""
 
-used by :ref:`Filter.type <omero.model.Filter>`
+Used by: :ref:`Filter.type <omero.model.Filter>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -970,9 +970,9 @@ properties are,
 Format
 """"""
 
-used by :ref:`Image.format <omero.model.Image>`
+Used by: :ref:`Image.format <omero.model.Image>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -982,9 +982,9 @@ properties are,
 GroupExperimenterMap
 """"""""""""""""""""
 
-used by :ref:`Experimenter.groupExperimenterMap <omero.model.Experimenter>`, :ref:`ExperimenterGroup.groupExperimenterMap <omero.model.ExperimenterGroup>`
+Used by: :ref:`Experimenter.groupExperimenterMap <omero.model.Experimenter>`, :ref:`ExperimenterGroup.groupExperimenterMap <omero.model.ExperimenterGroup>`
 
-properties are,
+Properties:
   | child: :ref:`Experimenter <omero.model.Experimenter>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
@@ -997,9 +997,9 @@ properties are,
 Illumination
 """"""""""""
 
-used by :ref:`LogicalChannel.illumination <omero.model.LogicalChannel>`
+Used by: :ref:`LogicalChannel.illumination <omero.model.LogicalChannel>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -1009,9 +1009,9 @@ properties are,
 Image
 """""
 
-used by :ref:`DatasetImageLink.child <omero.model.DatasetImageLink>`, :ref:`Fileset.images <omero.model.Fileset>`, :ref:`ImageAnnotationLink.parent <omero.model.ImageAnnotationLink>`, :ref:`Pixels.image <omero.model.Pixels>`, :ref:`Roi.image <omero.model.Roi>`, :ref:`WellSample.image <omero.model.WellSample>`
+Used by: :ref:`DatasetImageLink.child <omero.model.DatasetImageLink>`, :ref:`Fileset.images <omero.model.Fileset>`, :ref:`ImageAnnotationLink.parent <omero.model.ImageAnnotationLink>`, :ref:`Pixels.image <omero.model.Pixels>`, :ref:`Roi.image <omero.model.Roi>`, :ref:`WellSample.image <omero.model.WellSample>`
 
-properties are,
+Properties:
   | acquisitionDate: ``timestamp``
   | annotationLinks: :ref:`ImageAnnotationLink <omero.model.ImageAnnotationLink>` (multiple)
   | archived: ``boolean`` (optional)
@@ -1042,9 +1042,9 @@ properties are,
 ImageAnnotationLink
 """""""""""""""""""
 
-used by :ref:`Image.annotationLinks <omero.model.Image>`
+Used by: :ref:`Image.annotationLinks <omero.model.Image>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -1060,9 +1060,9 @@ properties are,
 ImagingEnvironment
 """"""""""""""""""
 
-used by :ref:`Image.imagingEnvironment <omero.model.Image>`
+Used by: :ref:`Image.imagingEnvironment <omero.model.Image>`
 
-properties are,
+Properties:
   | airPressure: ``double`` (optional)
   | co2percent: ``double`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -1080,9 +1080,9 @@ properties are,
 Immersion
 """""""""
 
-used by :ref:`Objective.immersion <omero.model.Objective>`
+Used by: :ref:`Objective.immersion <omero.model.Objective>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -1092,7 +1092,7 @@ properties are,
 ImportJob
 """""""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Job <omero.model.Job>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Job <omero.model.Job>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Job <omero.model.Job>`
@@ -1118,7 +1118,7 @@ properties are,
 IndexingJob
 """""""""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Job <omero.model.Job>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Job <omero.model.Job>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Job <omero.model.Job>`
@@ -1142,9 +1142,9 @@ properties are,
 Instrument
 """"""""""
 
-used by :ref:`Arc.instrument <omero.model.Arc>`, :ref:`Detector.instrument <omero.model.Detector>`, :ref:`Dichroic.instrument <omero.model.Dichroic>`, :ref:`Filament.instrument <omero.model.Filament>`, :ref:`Filter.instrument <omero.model.Filter>`, :ref:`FilterSet.instrument <omero.model.FilterSet>`, :ref:`Image.instrument <omero.model.Image>`, :ref:`Laser.instrument <omero.model.Laser>`, :ref:`LightEmittingDiode.instrument <omero.model.LightEmittingDiode>`, :ref:`LightSource.instrument <omero.model.LightSource>`, :ref:`OTF.instrument <omero.model.OTF>`, :ref:`Objective.instrument <omero.model.Objective>`
+Used by: :ref:`Arc.instrument <omero.model.Arc>`, :ref:`Detector.instrument <omero.model.Detector>`, :ref:`Dichroic.instrument <omero.model.Dichroic>`, :ref:`Filament.instrument <omero.model.Filament>`, :ref:`Filter.instrument <omero.model.Filter>`, :ref:`FilterSet.instrument <omero.model.FilterSet>`, :ref:`Image.instrument <omero.model.Image>`, :ref:`Laser.instrument <omero.model.Laser>`, :ref:`LightEmittingDiode.instrument <omero.model.LightEmittingDiode>`, :ref:`LightSource.instrument <omero.model.LightSource>`, :ref:`OTF.instrument <omero.model.OTF>`, :ref:`Objective.instrument <omero.model.Objective>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -1166,7 +1166,7 @@ properties are,
 IntegrityCheckJob
 """""""""""""""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Job <omero.model.Job>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Job <omero.model.Job>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Job <omero.model.Job>`
@@ -1190,11 +1190,11 @@ properties are,
 Job
 """
 
-subclasses are :ref:`ImportJob <omero.model.ImportJob>`, :ref:`IndexingJob <omero.model.IndexingJob>`, :ref:`IntegrityCheckJob <omero.model.IntegrityCheckJob>`, :ref:`MetadataImportJob <omero.model.MetadataImportJob>`, :ref:`ParseJob <omero.model.ParseJob>`, :ref:`PixelDataJob <omero.model.PixelDataJob>`, :ref:`ScriptJob <omero.model.ScriptJob>`, :ref:`ThumbnailGenerationJob <omero.model.ThumbnailGenerationJob>`, :ref:`UploadJob <omero.model.UploadJob>`
+Subclasses: :ref:`ImportJob <omero.model.ImportJob>`, :ref:`IndexingJob <omero.model.IndexingJob>`, :ref:`IntegrityCheckJob <omero.model.IntegrityCheckJob>`, :ref:`MetadataImportJob <omero.model.MetadataImportJob>`, :ref:`ParseJob <omero.model.ParseJob>`, :ref:`PixelDataJob <omero.model.PixelDataJob>`, :ref:`ScriptJob <omero.model.ScriptJob>`, :ref:`ThumbnailGenerationJob <omero.model.ThumbnailGenerationJob>`, :ref:`UploadJob <omero.model.UploadJob>`
 
-used by :ref:`FilesetJobLink.child <omero.model.FilesetJobLink>`, :ref:`JobOriginalFileLink.parent <omero.model.JobOriginalFileLink>`
+Used by: :ref:`FilesetJobLink.child <omero.model.FilesetJobLink>`, :ref:`JobOriginalFileLink.parent <omero.model.JobOriginalFileLink>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -1218,9 +1218,9 @@ properties are,
 JobOriginalFileLink
 """""""""""""""""""
 
-used by :ref:`ImportJob.originalFileLinks <omero.model.ImportJob>`, :ref:`IndexingJob.originalFileLinks <omero.model.IndexingJob>`, :ref:`IntegrityCheckJob.originalFileLinks <omero.model.IntegrityCheckJob>`, :ref:`Job.originalFileLinks <omero.model.Job>`, :ref:`MetadataImportJob.originalFileLinks <omero.model.MetadataImportJob>`, :ref:`ParseJob.originalFileLinks <omero.model.ParseJob>`, :ref:`PixelDataJob.originalFileLinks <omero.model.PixelDataJob>`, :ref:`ScriptJob.originalFileLinks <omero.model.ScriptJob>`, :ref:`ThumbnailGenerationJob.originalFileLinks <omero.model.ThumbnailGenerationJob>`, :ref:`UploadJob.originalFileLinks <omero.model.UploadJob>`
+Used by: :ref:`ImportJob.originalFileLinks <omero.model.ImportJob>`, :ref:`IndexingJob.originalFileLinks <omero.model.IndexingJob>`, :ref:`IntegrityCheckJob.originalFileLinks <omero.model.IntegrityCheckJob>`, :ref:`Job.originalFileLinks <omero.model.Job>`, :ref:`MetadataImportJob.originalFileLinks <omero.model.MetadataImportJob>`, :ref:`ParseJob.originalFileLinks <omero.model.ParseJob>`, :ref:`PixelDataJob.originalFileLinks <omero.model.PixelDataJob>`, :ref:`ScriptJob.originalFileLinks <omero.model.ScriptJob>`, :ref:`ThumbnailGenerationJob.originalFileLinks <omero.model.ThumbnailGenerationJob>`, :ref:`UploadJob.originalFileLinks <omero.model.UploadJob>`
 
-properties are,
+Properties:
   | child: :ref:`OriginalFile <omero.model.OriginalFile>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -1236,9 +1236,9 @@ properties are,
 JobStatus
 """""""""
 
-used by :ref:`ImportJob.status <omero.model.ImportJob>`, :ref:`IndexingJob.status <omero.model.IndexingJob>`, :ref:`IntegrityCheckJob.status <omero.model.IntegrityCheckJob>`, :ref:`Job.status <omero.model.Job>`, :ref:`MetadataImportJob.status <omero.model.MetadataImportJob>`, :ref:`ParseJob.status <omero.model.ParseJob>`, :ref:`PixelDataJob.status <omero.model.PixelDataJob>`, :ref:`ScriptJob.status <omero.model.ScriptJob>`, :ref:`ThumbnailGenerationJob.status <omero.model.ThumbnailGenerationJob>`, :ref:`UploadJob.status <omero.model.UploadJob>`
+Used by: :ref:`ImportJob.status <omero.model.ImportJob>`, :ref:`IndexingJob.status <omero.model.IndexingJob>`, :ref:`IntegrityCheckJob.status <omero.model.IntegrityCheckJob>`, :ref:`Job.status <omero.model.Job>`, :ref:`MetadataImportJob.status <omero.model.MetadataImportJob>`, :ref:`ParseJob.status <omero.model.ParseJob>`, :ref:`PixelDataJob.status <omero.model.PixelDataJob>`, :ref:`ScriptJob.status <omero.model.ScriptJob>`, :ref:`ThumbnailGenerationJob.status <omero.model.ThumbnailGenerationJob>`, :ref:`UploadJob.status <omero.model.UploadJob>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -1248,7 +1248,7 @@ properties are,
 Label
 """""
 
-properties are,
+Properties:
   | anchor: ``string`` (optional)
   | baselineShift: ``string`` (optional)
   | decoration: ``string`` (optional)
@@ -1295,7 +1295,7 @@ properties are,
 Laser
 """""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`LightSource <omero.model.LightSource>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`LightSource <omero.model.LightSource>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`LightSource <omero.model.LightSource>`
@@ -1324,9 +1324,9 @@ properties are,
 LaserMedium
 """""""""""
 
-used by :ref:`Laser.laserMedium <omero.model.Laser>`
+Used by: :ref:`Laser.laserMedium <omero.model.Laser>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -1336,9 +1336,9 @@ properties are,
 LaserType
 """""""""
 
-used by :ref:`Laser.type <omero.model.Laser>`
+Used by: :ref:`Laser.type <omero.model.Laser>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -1348,7 +1348,7 @@ properties are,
 LightEmittingDiode
 """"""""""""""""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`LightSource <omero.model.LightSource>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`LightSource <omero.model.LightSource>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`LightSource <omero.model.LightSource>`
@@ -1368,9 +1368,9 @@ properties are,
 LightPath
 """""""""
 
-used by :ref:`LightPathEmissionFilterLink.parent <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.parent <omero.model.LightPathExcitationFilterLink>`, :ref:`LogicalChannel.lightPath <omero.model.LogicalChannel>`
+Used by: :ref:`LightPathEmissionFilterLink.parent <omero.model.LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.parent <omero.model.LightPathExcitationFilterLink>`, :ref:`LogicalChannel.lightPath <omero.model.LogicalChannel>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -1387,9 +1387,9 @@ properties are,
 LightPathEmissionFilterLink
 """""""""""""""""""""""""""
 
-used by :ref:`LightPath.emissionFilterLink <omero.model.LightPath>`
+Used by: :ref:`LightPath.emissionFilterLink <omero.model.LightPath>`
 
-properties are,
+Properties:
   | child: :ref:`Filter <omero.model.Filter>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -1405,9 +1405,9 @@ properties are,
 LightPathExcitationFilterLink
 """""""""""""""""""""""""""""
 
-used by :ref:`LightPath.excitationFilterLink <omero.model.LightPath>`
+Used by: :ref:`LightPath.excitationFilterLink <omero.model.LightPath>`
 
-properties are,
+Properties:
   | child: :ref:`Filter <omero.model.Filter>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -1423,9 +1423,9 @@ properties are,
 LightSettings
 """""""""""""
 
-used by :ref:`LogicalChannel.lightSourceSettings <omero.model.LogicalChannel>`, :ref:`MicrobeamManipulation.lightSourceSettings <omero.model.MicrobeamManipulation>`
+Used by: :ref:`LogicalChannel.lightSourceSettings <omero.model.LogicalChannel>`, :ref:`MicrobeamManipulation.lightSourceSettings <omero.model.MicrobeamManipulation>`
 
-properties are,
+Properties:
   | attenuation: ``double`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -1443,11 +1443,11 @@ properties are,
 LightSource
 """""""""""
 
-subclasses are :ref:`Arc <omero.model.Arc>`, :ref:`Filament <omero.model.Filament>`, :ref:`Laser <omero.model.Laser>`, :ref:`LightEmittingDiode <omero.model.LightEmittingDiode>`
+Subclasses: :ref:`Arc <omero.model.Arc>`, :ref:`Filament <omero.model.Filament>`, :ref:`Laser <omero.model.Laser>`, :ref:`LightEmittingDiode <omero.model.LightEmittingDiode>`
 
-used by :ref:`Instrument.lightSource <omero.model.Instrument>`, :ref:`Laser.pump <omero.model.Laser>`, :ref:`LightSettings.lightSource <omero.model.LightSettings>`
+Used by: :ref:`Instrument.lightSource <omero.model.Instrument>`, :ref:`Laser.pump <omero.model.Laser>`, :ref:`LightSettings.lightSource <omero.model.LightSettings>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -1467,7 +1467,7 @@ properties are,
 Line
 """"
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Shape <omero.model.Shape>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Shape <omero.model.Shape>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Shape <omero.model.Shape>`
@@ -1510,7 +1510,7 @@ properties are,
 Link
 """"
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -1524,7 +1524,7 @@ properties are,
 ListAnnotation
 """"""""""""""
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -1541,9 +1541,9 @@ properties are,
 LogicalChannel
 """"""""""""""
 
-used by :ref:`Channel.logicalChannel <omero.model.Channel>`
+Used by: :ref:`Channel.logicalChannel <omero.model.Channel>`
 
-properties are,
+Properties:
   | channels: :ref:`Channel <omero.model.Channel>` (multiple)
   | contrastMethod: :ref:`ContrastMethod <omero.model.ContrastMethod>` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -1575,7 +1575,7 @@ properties are,
 LongAnnotation
 """"""""""""""
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -1593,7 +1593,7 @@ properties are,
 Mask
 """"
 
-properties are,
+Properties:
   | bytes: ``binary`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Shape <omero.model.Shape>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Shape <omero.model.Shape>`
@@ -1638,9 +1638,9 @@ properties are,
 Medium
 """"""
 
-used by :ref:`ObjectiveSettings.medium <omero.model.ObjectiveSettings>`
+Used by: :ref:`ObjectiveSettings.medium <omero.model.ObjectiveSettings>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -1650,7 +1650,7 @@ properties are,
 MetadataImportJob
 """""""""""""""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Job <omero.model.Job>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Job <omero.model.Job>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Job <omero.model.Job>`
@@ -1675,9 +1675,9 @@ properties are,
 MicrobeamManipulation
 """""""""""""""""""""
 
-used by :ref:`Experiment.microbeamManipulation <omero.model.Experiment>`, :ref:`LightSettings.microbeamManipulation <omero.model.LightSettings>`
+Used by: :ref:`Experiment.microbeamManipulation <omero.model.Experiment>`, :ref:`LightSettings.microbeamManipulation <omero.model.LightSettings>`
 
-properties are,
+Properties:
   | description: ``text`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -1695,9 +1695,9 @@ properties are,
 MicrobeamManipulationType
 """""""""""""""""""""""""
 
-used by :ref:`MicrobeamManipulation.type <omero.model.MicrobeamManipulation>`
+Used by: :ref:`MicrobeamManipulation.type <omero.model.MicrobeamManipulation>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -1707,9 +1707,9 @@ properties are,
 Microscope
 """"""""""
 
-used by :ref:`Instrument.microscope <omero.model.Instrument>`
+Used by: :ref:`Instrument.microscope <omero.model.Instrument>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -1728,9 +1728,9 @@ properties are,
 MicroscopeType
 """"""""""""""
 
-used by :ref:`Microscope.type <omero.model.Microscope>`
+Used by: :ref:`Microscope.type <omero.model.Microscope>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -1740,9 +1740,9 @@ properties are,
 Namespace
 """""""""
 
-used by :ref:`NamespaceAnnotationLink.parent <omero.model.NamespaceAnnotationLink>`
+Used by: :ref:`NamespaceAnnotationLink.parent <omero.model.NamespaceAnnotationLink>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`NamespaceAnnotationLink <omero.model.NamespaceAnnotationLink>` (multiple)
   | description: ``text`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -1762,9 +1762,9 @@ properties are,
 NamespaceAnnotationLink
 """""""""""""""""""""""
 
-used by :ref:`Namespace.annotationLinks <omero.model.Namespace>`
+Used by: :ref:`Namespace.annotationLinks <omero.model.Namespace>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -1780,9 +1780,9 @@ properties are,
 Node
 """"
 
-used by :ref:`NodeAnnotationLink.parent <omero.model.NodeAnnotationLink>`, :ref:`Session.node <omero.model.Session>`, :ref:`Share.node <omero.model.Share>`
+Used by: :ref:`NodeAnnotationLink.parent <omero.model.NodeAnnotationLink>`, :ref:`Session.node <omero.model.Session>`, :ref:`Share.node <omero.model.Share>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`NodeAnnotationLink <omero.model.NodeAnnotationLink>` (multiple)
   | conn: ``string``
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -1799,9 +1799,9 @@ properties are,
 NodeAnnotationLink
 """"""""""""""""""
 
-used by :ref:`Node.annotationLinks <omero.model.Node>`
+Used by: :ref:`Node.annotationLinks <omero.model.Node>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -1817,9 +1817,9 @@ properties are,
 NumericAnnotation
 """""""""""""""""
 
-subclasses are :ref:`DoubleAnnotation <omero.model.DoubleAnnotation>`, :ref:`LongAnnotation <omero.model.LongAnnotation>`
+Subclasses: :ref:`DoubleAnnotation <omero.model.DoubleAnnotation>`, :ref:`LongAnnotation <omero.model.LongAnnotation>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -1836,9 +1836,9 @@ properties are,
 OTF
 """
 
-used by :ref:`Instrument.otf <omero.model.Instrument>`, :ref:`LogicalChannel.otf <omero.model.LogicalChannel>`
+Used by: :ref:`Instrument.otf <omero.model.Instrument>`, :ref:`LogicalChannel.otf <omero.model.LogicalChannel>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -1860,9 +1860,9 @@ properties are,
 Objective
 """""""""
 
-used by :ref:`Instrument.objective <omero.model.Instrument>`, :ref:`OTF.objective <omero.model.OTF>`, :ref:`ObjectiveSettings.objective <omero.model.ObjectiveSettings>`
+Used by: :ref:`Instrument.objective <omero.model.Instrument>`, :ref:`OTF.objective <omero.model.OTF>`, :ref:`ObjectiveSettings.objective <omero.model.ObjectiveSettings>`
 
-properties are,
+Properties:
   | calibratedMagnification: ``double`` (optional)
   | correction: :ref:`Correction <omero.model.Correction>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -1888,9 +1888,9 @@ properties are,
 ObjectiveSettings
 """""""""""""""""
 
-used by :ref:`Image.objectiveSettings <omero.model.Image>`
+Used by: :ref:`Image.objectiveSettings <omero.model.Image>`
 
-properties are,
+Properties:
   | correctionCollar: ``double`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -1908,9 +1908,9 @@ properties are,
 OriginalFile
 """"""""""""
 
-used by :ref:`FileAnnotation.file <omero.model.FileAnnotation>`, :ref:`FilesetEntry.originalFile <omero.model.FilesetEntry>`, :ref:`JobOriginalFileLink.child <omero.model.JobOriginalFileLink>`, :ref:`OriginalFileAnnotationLink.parent <omero.model.OriginalFileAnnotationLink>`, :ref:`PixelsOriginalFileMap.parent <omero.model.PixelsOriginalFileMap>`, :ref:`Roi.source <omero.model.Roi>`
+Used by: :ref:`FileAnnotation.file <omero.model.FileAnnotation>`, :ref:`FilesetEntry.originalFile <omero.model.FilesetEntry>`, :ref:`JobOriginalFileLink.child <omero.model.JobOriginalFileLink>`, :ref:`OriginalFileAnnotationLink.parent <omero.model.OriginalFileAnnotationLink>`, :ref:`PixelsOriginalFileMap.parent <omero.model.PixelsOriginalFileMap>`, :ref:`Roi.source <omero.model.Roi>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`OriginalFileAnnotationLink <omero.model.OriginalFileAnnotationLink>` (multiple)
   | atime: ``timestamp`` (optional)
   | ctime: ``timestamp`` (optional)
@@ -1935,9 +1935,9 @@ properties are,
 OriginalFileAnnotationLink
 """"""""""""""""""""""""""
 
-used by :ref:`OriginalFile.annotationLinks <omero.model.OriginalFile>`
+Used by: :ref:`OriginalFile.annotationLinks <omero.model.OriginalFile>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -1953,7 +1953,7 @@ properties are,
 ParseJob
 """"""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Job <omero.model.Job>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Job <omero.model.Job>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Job <omero.model.Job>`
@@ -1978,7 +1978,7 @@ properties are,
 Path
 """"
 
-properties are,
+Properties:
   | d: ``text`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Shape <omero.model.Shape>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Shape <omero.model.Shape>`
@@ -2018,9 +2018,9 @@ properties are,
 PhotometricInterpretation
 """""""""""""""""""""""""
 
-used by :ref:`LogicalChannel.photometricInterpretation <omero.model.LogicalChannel>`
+Used by: :ref:`LogicalChannel.photometricInterpretation <omero.model.LogicalChannel>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -2030,7 +2030,7 @@ properties are,
 PixelDataJob
 """"""""""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Job <omero.model.Job>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Job <omero.model.Job>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Job <omero.model.Job>`
@@ -2054,9 +2054,9 @@ properties are,
 Pixels
 """"""
 
-used by :ref:`Channel.pixels <omero.model.Channel>`, :ref:`Image.pixels <omero.model.Image>`, :ref:`Mask.pixels <omero.model.Mask>`, :ref:`Pixels.relatedTo <omero.model.Pixels>`, :ref:`PixelsAnnotationLink.parent <omero.model.PixelsAnnotationLink>`, :ref:`PixelsOriginalFileMap.child <omero.model.PixelsOriginalFileMap>`, :ref:`PlaneInfo.pixels <omero.model.PlaneInfo>`, :ref:`RenderingDef.pixels <omero.model.RenderingDef>`, :ref:`Thumbnail.pixels <omero.model.Thumbnail>`
+Used by: :ref:`Channel.pixels <omero.model.Channel>`, :ref:`Image.pixels <omero.model.Image>`, :ref:`Mask.pixels <omero.model.Mask>`, :ref:`Pixels.relatedTo <omero.model.Pixels>`, :ref:`PixelsAnnotationLink.parent <omero.model.PixelsAnnotationLink>`, :ref:`PixelsOriginalFileMap.child <omero.model.PixelsOriginalFileMap>`, :ref:`PlaneInfo.pixels <omero.model.PlaneInfo>`, :ref:`RenderingDef.pixels <omero.model.RenderingDef>`, :ref:`Thumbnail.pixels <omero.model.Thumbnail>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`PixelsAnnotationLink <omero.model.PixelsAnnotationLink>` (multiple)
   | channels: :ref:`Channel <omero.model.Channel>` (multiple)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -2094,9 +2094,9 @@ properties are,
 PixelsAnnotationLink
 """"""""""""""""""""
 
-used by :ref:`Pixels.annotationLinks <omero.model.Pixels>`
+Used by: :ref:`Pixels.annotationLinks <omero.model.Pixels>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2112,9 +2112,9 @@ properties are,
 PixelsOriginalFileMap
 """""""""""""""""""""
 
-used by :ref:`OriginalFile.pixelsFileMaps <omero.model.OriginalFile>`, :ref:`Pixels.pixelsFileMaps <omero.model.Pixels>`
+Used by: :ref:`OriginalFile.pixelsFileMaps <omero.model.OriginalFile>`, :ref:`Pixels.pixelsFileMaps <omero.model.Pixels>`
 
-properties are,
+Properties:
   | child: :ref:`Pixels <omero.model.Pixels>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2130,9 +2130,9 @@ properties are,
 PixelsType
 """"""""""
 
-used by :ref:`OTF.pixelsType <omero.model.OTF>`, :ref:`Pixels.pixelsType <omero.model.Pixels>`
+Used by: :ref:`OTF.pixelsType <omero.model.OTF>`, :ref:`Pixels.pixelsType <omero.model.Pixels>`
 
-properties are,
+Properties:
   | bitSize: ``integer`` (optional)
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
@@ -2143,9 +2143,9 @@ properties are,
 PlaneInfo
 """""""""
 
-used by :ref:`Pixels.planeInfo <omero.model.Pixels>`, :ref:`PlaneInfoAnnotationLink.parent <omero.model.PlaneInfoAnnotationLink>`
+Used by: :ref:`Pixels.planeInfo <omero.model.Pixels>`, :ref:`PlaneInfoAnnotationLink.parent <omero.model.PlaneInfoAnnotationLink>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`PlaneInfoAnnotationLink <omero.model.PlaneInfoAnnotationLink>` (multiple)
   | deltaT: ``double`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -2169,9 +2169,9 @@ properties are,
 PlaneInfoAnnotationLink
 """""""""""""""""""""""
 
-used by :ref:`PlaneInfo.annotationLinks <omero.model.PlaneInfo>`
+Used by: :ref:`PlaneInfo.annotationLinks <omero.model.PlaneInfo>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2187,7 +2187,7 @@ properties are,
 PlaneSlicingContext
 """""""""""""""""""
 
-properties are,
+Properties:
   | constant: ``boolean``
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`CodomainMapContext <omero.model.CodomainMapContext>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`CodomainMapContext <omero.model.CodomainMapContext>`
@@ -2207,9 +2207,9 @@ properties are,
 Plate
 """""
 
-used by :ref:`PlateAcquisition.plate <omero.model.PlateAcquisition>`, :ref:`PlateAnnotationLink.parent <omero.model.PlateAnnotationLink>`, :ref:`ScreenPlateLink.child <omero.model.ScreenPlateLink>`, :ref:`Well.plate <omero.model.Well>`
+Used by: :ref:`PlateAcquisition.plate <omero.model.PlateAcquisition>`, :ref:`PlateAnnotationLink.parent <omero.model.PlateAnnotationLink>`, :ref:`ScreenPlateLink.child <omero.model.ScreenPlateLink>`, :ref:`Well.plate <omero.model.Well>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`PlateAnnotationLink <omero.model.PlateAnnotationLink>` (multiple)
   | columnNamingConvention: ``string`` (optional)
   | columns: ``integer`` (optional)
@@ -2238,9 +2238,9 @@ properties are,
 PlateAcquisition
 """"""""""""""""
 
-used by :ref:`Plate.plateAcquisitions <omero.model.Plate>`, :ref:`PlateAcquisitionAnnotationLink.parent <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`WellSample.plateAcquisition <omero.model.WellSample>`
+Used by: :ref:`Plate.plateAcquisitions <omero.model.Plate>`, :ref:`PlateAcquisitionAnnotationLink.parent <omero.model.PlateAcquisitionAnnotationLink>`, :ref:`WellSample.plateAcquisition <omero.model.WellSample>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`PlateAcquisitionAnnotationLink <omero.model.PlateAcquisitionAnnotationLink>` (multiple)
   | description: ``text`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -2262,9 +2262,9 @@ properties are,
 PlateAcquisitionAnnotationLink
 """"""""""""""""""""""""""""""
 
-used by :ref:`PlateAcquisition.annotationLinks <omero.model.PlateAcquisition>`
+Used by: :ref:`PlateAcquisition.annotationLinks <omero.model.PlateAcquisition>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2280,9 +2280,9 @@ properties are,
 PlateAnnotationLink
 """""""""""""""""""
 
-used by :ref:`Plate.annotationLinks <omero.model.Plate>`
+Used by: :ref:`Plate.annotationLinks <omero.model.Plate>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2298,7 +2298,7 @@ properties are,
 Point
 """""
 
-properties are,
+Properties:
   | cx: ``double`` (optional)
   | cy: ``double`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Shape <omero.model.Shape>`
@@ -2339,7 +2339,7 @@ properties are,
 Polygon
 """""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Shape <omero.model.Shape>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Shape <omero.model.Shape>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Shape <omero.model.Shape>`
@@ -2379,7 +2379,7 @@ properties are,
 Polyline
 """"""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Shape <omero.model.Shape>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Shape <omero.model.Shape>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Shape <omero.model.Shape>`
@@ -2419,9 +2419,9 @@ properties are,
 Project
 """""""
 
-used by :ref:`ProjectAnnotationLink.parent <omero.model.ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.parent <omero.model.ProjectDatasetLink>`
+Used by: :ref:`ProjectAnnotationLink.parent <omero.model.ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.parent <omero.model.ProjectDatasetLink>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`ProjectAnnotationLink <omero.model.ProjectAnnotationLink>` (multiple)
   | datasetLinks: :ref:`ProjectDatasetLink <omero.model.ProjectDatasetLink>` (multiple)
   | description: ``text`` (optional)
@@ -2439,9 +2439,9 @@ properties are,
 ProjectAnnotationLink
 """""""""""""""""""""
 
-used by :ref:`Project.annotationLinks <omero.model.Project>`
+Used by: :ref:`Project.annotationLinks <omero.model.Project>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2457,9 +2457,9 @@ properties are,
 ProjectDatasetLink
 """"""""""""""""""
 
-used by :ref:`Dataset.projectLinks <omero.model.Dataset>`, :ref:`Project.datasetLinks <omero.model.Project>`
+Used by: :ref:`Dataset.projectLinks <omero.model.Dataset>`, :ref:`Project.datasetLinks <omero.model.Project>`
 
-properties are,
+Properties:
   | child: :ref:`Dataset <omero.model.Dataset>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2475,9 +2475,9 @@ properties are,
 Pulse
 """""
 
-used by :ref:`Laser.pulse <omero.model.Laser>`
+Used by: :ref:`Laser.pulse <omero.model.Laser>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -2487,9 +2487,9 @@ properties are,
 QuantumDef
 """"""""""
 
-used by :ref:`RenderingDef.quantization <omero.model.RenderingDef>`
+Used by: :ref:`RenderingDef.quantization <omero.model.RenderingDef>`
 
-properties are,
+Properties:
   | bitResolution: ``integer``
   | cdEnd: ``integer``
   | cdStart: ``integer``
@@ -2506,9 +2506,9 @@ properties are,
 Reagent
 """""""
 
-used by :ref:`ReagentAnnotationLink.parent <omero.model.ReagentAnnotationLink>`, :ref:`Screen.reagents <omero.model.Screen>`, :ref:`WellReagentLink.child <omero.model.WellReagentLink>`
+Used by: :ref:`ReagentAnnotationLink.parent <omero.model.ReagentAnnotationLink>`, :ref:`Screen.reagents <omero.model.Screen>`, :ref:`WellReagentLink.child <omero.model.WellReagentLink>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`ReagentAnnotationLink <omero.model.ReagentAnnotationLink>` (multiple)
   | description: ``text`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -2528,9 +2528,9 @@ properties are,
 ReagentAnnotationLink
 """""""""""""""""""""
 
-used by :ref:`Reagent.annotationLinks <omero.model.Reagent>`
+Used by: :ref:`Reagent.annotationLinks <omero.model.Reagent>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2546,7 +2546,7 @@ properties are,
 Rect
 """"
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Shape <omero.model.Shape>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Shape <omero.model.Shape>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Shape <omero.model.Shape>`
@@ -2590,9 +2590,9 @@ properties are,
 RenderingDef
 """"""""""""
 
-used by :ref:`ChannelBinding.renderingDef <omero.model.ChannelBinding>`, :ref:`CodomainMapContext.renderingDef <omero.model.CodomainMapContext>`, :ref:`ContrastStretchingContext.renderingDef <omero.model.ContrastStretchingContext>`, :ref:`Pixels.settings <omero.model.Pixels>`, :ref:`PlaneSlicingContext.renderingDef <omero.model.PlaneSlicingContext>`, :ref:`ReverseIntensityContext.renderingDef <omero.model.ReverseIntensityContext>`
+Used by: :ref:`ChannelBinding.renderingDef <omero.model.ChannelBinding>`, :ref:`CodomainMapContext.renderingDef <omero.model.CodomainMapContext>`, :ref:`ContrastStretchingContext.renderingDef <omero.model.ContrastStretchingContext>`, :ref:`Pixels.settings <omero.model.Pixels>`, :ref:`PlaneSlicingContext.renderingDef <omero.model.PlaneSlicingContext>`, :ref:`ReverseIntensityContext.renderingDef <omero.model.ReverseIntensityContext>`
 
-properties are,
+Properties:
   | compression: ``double`` (optional)
   | defaultT: ``integer``
   | defaultZ: ``integer``
@@ -2615,9 +2615,9 @@ properties are,
 RenderingModel
 """"""""""""""
 
-used by :ref:`RenderingDef.model <omero.model.RenderingDef>`
+Used by: :ref:`RenderingDef.model <omero.model.RenderingDef>`
 
-properties are,
+Properties:
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
   | value: ``string``, see :source:`IEnum <components/model/src/ome/model/IEnum.java>`
@@ -2627,7 +2627,7 @@ properties are,
 ReverseIntensityContext
 """""""""""""""""""""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`CodomainMapContext <omero.model.CodomainMapContext>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`CodomainMapContext <omero.model.CodomainMapContext>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`CodomainMapContext <omero.model.CodomainMapContext>`
@@ -2643,9 +2643,9 @@ properties are,
 Roi
 """
 
-used by :ref:`Ellipse.roi <omero.model.Ellipse>`, :ref:`Image.rois <omero.model.Image>`, :ref:`Label.roi <omero.model.Label>`, :ref:`Line.roi <omero.model.Line>`, :ref:`Mask.roi <omero.model.Mask>`, :ref:`Path.roi <omero.model.Path>`, :ref:`Point.roi <omero.model.Point>`, :ref:`Polygon.roi <omero.model.Polygon>`, :ref:`Polyline.roi <omero.model.Polyline>`, :ref:`Rect.roi <omero.model.Rect>`, :ref:`RoiAnnotationLink.parent <omero.model.RoiAnnotationLink>`, :ref:`Shape.roi <omero.model.Shape>`
+Used by: :ref:`Ellipse.roi <omero.model.Ellipse>`, :ref:`Image.rois <omero.model.Image>`, :ref:`Label.roi <omero.model.Label>`, :ref:`Line.roi <omero.model.Line>`, :ref:`Mask.roi <omero.model.Mask>`, :ref:`Path.roi <omero.model.Path>`, :ref:`Point.roi <omero.model.Point>`, :ref:`Polygon.roi <omero.model.Polygon>`, :ref:`Polyline.roi <omero.model.Polyline>`, :ref:`Rect.roi <omero.model.Rect>`, :ref:`RoiAnnotationLink.parent <omero.model.RoiAnnotationLink>`, :ref:`Shape.roi <omero.model.Shape>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`RoiAnnotationLink <omero.model.RoiAnnotationLink>` (multiple)
   | description: ``text`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -2666,9 +2666,9 @@ properties are,
 RoiAnnotationLink
 """""""""""""""""
 
-used by :ref:`Roi.annotationLinks <omero.model.Roi>`
+Used by: :ref:`Roi.annotationLinks <omero.model.Roi>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2684,9 +2684,9 @@ properties are,
 Screen
 """"""
 
-used by :ref:`Reagent.screen <omero.model.Reagent>`, :ref:`ScreenAnnotationLink.parent <omero.model.ScreenAnnotationLink>`, :ref:`ScreenPlateLink.parent <omero.model.ScreenPlateLink>`
+Used by: :ref:`Reagent.screen <omero.model.Reagent>`, :ref:`ScreenAnnotationLink.parent <omero.model.ScreenAnnotationLink>`, :ref:`ScreenPlateLink.parent <omero.model.ScreenPlateLink>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`ScreenAnnotationLink <omero.model.ScreenAnnotationLink>` (multiple)
   | description: ``text`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
@@ -2710,9 +2710,9 @@ properties are,
 ScreenAnnotationLink
 """"""""""""""""""""
 
-used by :ref:`Screen.annotationLinks <omero.model.Screen>`
+Used by: :ref:`Screen.annotationLinks <omero.model.Screen>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2728,9 +2728,9 @@ properties are,
 ScreenPlateLink
 """""""""""""""
 
-used by :ref:`Plate.screenLinks <omero.model.Plate>`, :ref:`Screen.plateLinks <omero.model.Screen>`
+Used by: :ref:`Plate.screenLinks <omero.model.Plate>`, :ref:`Screen.plateLinks <omero.model.Screen>`
 
-properties are,
+Properties:
   | child: :ref:`Plate <omero.model.Plate>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2746,7 +2746,7 @@ properties are,
 ScriptJob
 """""""""
 
-properties are,
+Properties:
   | description: ``string`` (optional)
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Job <omero.model.Job>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Job <omero.model.Job>`
@@ -2771,11 +2771,11 @@ properties are,
 Session
 """""""
 
-subclasses are :ref:`Share <omero.model.Share>`
+Subclasses: :ref:`Share <omero.model.Share>`
 
-used by :ref:`Event.session <omero.model.Event>`, :ref:`Node.sessions <omero.model.Node>`, :ref:`SessionAnnotationLink.parent <omero.model.SessionAnnotationLink>`
+Used by: :ref:`Event.session <omero.model.Event>`, :ref:`Node.sessions <omero.model.Node>`, :ref:`SessionAnnotationLink.parent <omero.model.SessionAnnotationLink>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`SessionAnnotationLink <omero.model.SessionAnnotationLink>` (multiple)
   | closed: ``timestamp`` (optional)
   | defaultEventType: ``string``
@@ -2797,9 +2797,9 @@ properties are,
 SessionAnnotationLink
 """""""""""""""""""""
 
-used by :ref:`Session.annotationLinks <omero.model.Session>`, :ref:`Share.annotationLinks <omero.model.Share>`
+Used by: :ref:`Session.annotationLinks <omero.model.Session>`, :ref:`Share.annotationLinks <omero.model.Share>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -2815,11 +2815,11 @@ properties are,
 Shape
 """""
 
-subclasses are :ref:`Ellipse <omero.model.Ellipse>`, :ref:`Label <omero.model.Label>`, :ref:`Line <omero.model.Line>`, :ref:`Mask <omero.model.Mask>`, :ref:`Path <omero.model.Path>`, :ref:`Point <omero.model.Point>`, :ref:`Polygon <omero.model.Polygon>`, :ref:`Polyline <omero.model.Polyline>`, :ref:`Rect <omero.model.Rect>`
+Subclasses: :ref:`Ellipse <omero.model.Ellipse>`, :ref:`Label <omero.model.Label>`, :ref:`Line <omero.model.Line>`, :ref:`Mask <omero.model.Mask>`, :ref:`Path <omero.model.Path>`, :ref:`Point <omero.model.Point>`, :ref:`Polygon <omero.model.Polygon>`, :ref:`Polyline <omero.model.Polyline>`, :ref:`Rect <omero.model.Rect>`
 
-used by :ref:`Roi.shapes <omero.model.Roi>`
+Used by: :ref:`Roi.shapes <omero.model.Roi>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -2857,9 +2857,9 @@ properties are,
 Share
 """""
 
-used by :ref:`ShareMember.parent <omero.model.ShareMember>`
+Used by: :ref:`ShareMember.parent <omero.model.ShareMember>`
 
-properties are,
+Properties:
   | active: ``boolean``
   | annotationLinks: :ref:`SessionAnnotationLink <omero.model.SessionAnnotationLink>` (multiple) from :ref:`Session <omero.model.Session>`
   | closed: ``timestamp`` (optional) from :ref:`Session <omero.model.Session>`
@@ -2885,7 +2885,7 @@ properties are,
 ShareMember
 """""""""""
 
-properties are,
+Properties:
   | child: :ref:`Experimenter <omero.model.Experimenter>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.permissions.perm1: ``long``
@@ -2897,9 +2897,9 @@ properties are,
 StageLabel
 """"""""""
 
-used by :ref:`Image.stageLabel <omero.model.Image>`
+Used by: :ref:`Image.stageLabel <omero.model.Image>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -2917,9 +2917,9 @@ properties are,
 StatsInfo
 """""""""
 
-used by :ref:`Channel.statsInfo <omero.model.Channel>`
+Used by: :ref:`Channel.statsInfo <omero.model.Channel>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -2935,7 +2935,7 @@ properties are,
 TagAnnotation
 """""""""""""
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -2953,7 +2953,7 @@ properties are,
 TermAnnotation
 """"""""""""""
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -2971,9 +2971,9 @@ properties are,
 TextAnnotation
 """"""""""""""
 
-subclasses are :ref:`CommentAnnotation <omero.model.CommentAnnotation>`, :ref:`TagAnnotation <omero.model.TagAnnotation>`, :ref:`XmlAnnotation <omero.model.XmlAnnotation>`
+Subclasses: :ref:`CommentAnnotation <omero.model.CommentAnnotation>`, :ref:`TagAnnotation <omero.model.TagAnnotation>`, :ref:`XmlAnnotation <omero.model.XmlAnnotation>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -2991,9 +2991,9 @@ properties are,
 Thumbnail
 """""""""
 
-used by :ref:`Pixels.thumbnails <omero.model.Pixels>`
+Used by: :ref:`Pixels.thumbnails <omero.model.Pixels>`
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>`
@@ -3012,7 +3012,7 @@ properties are,
 ThumbnailGenerationJob
 """"""""""""""""""""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Job <omero.model.Job>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Job <omero.model.Job>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Job <omero.model.Job>`
@@ -3036,7 +3036,7 @@ properties are,
 TimestampAnnotation
 """""""""""""""""""
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -3054,9 +3054,9 @@ properties are,
 TransmittanceRange
 """"""""""""""""""
 
-used by :ref:`Filter.transmittanceRange <omero.model.Filter>`
+Used by: :ref:`Filter.transmittanceRange <omero.model.Filter>`
 
-properties are,
+Properties:
   | cutIn: ``integer`` (optional)
   | cutInTolerance: ``integer`` (optional)
   | cutOut: ``integer`` (optional)
@@ -3075,9 +3075,9 @@ properties are,
 TypeAnnotation
 """"""""""""""
 
-subclasses are :ref:`FileAnnotation <omero.model.FileAnnotation>`
+Subclasses: :ref:`FileAnnotation <omero.model.FileAnnotation>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
@@ -3094,7 +3094,7 @@ properties are,
 UploadJob
 """""""""
 
-properties are,
+Properties:
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Job <omero.model.Job>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional) from :ref:`Job <omero.model.Job>`
   | details.group: :ref:`ExperimenterGroup <omero.model.ExperimenterGroup>` from :ref:`Job <omero.model.Job>`
@@ -3119,9 +3119,9 @@ properties are,
 Well
 """"
 
-used by :ref:`Plate.wells <omero.model.Plate>`, :ref:`WellAnnotationLink.parent <omero.model.WellAnnotationLink>`, :ref:`WellReagentLink.parent <omero.model.WellReagentLink>`, :ref:`WellSample.well <omero.model.WellSample>`
+Used by: :ref:`Plate.wells <omero.model.Plate>`, :ref:`WellAnnotationLink.parent <omero.model.WellAnnotationLink>`, :ref:`WellReagentLink.parent <omero.model.WellReagentLink>`, :ref:`WellSample.well <omero.model.WellSample>`
 
-properties are,
+Properties:
   | alpha: ``integer`` (optional)
   | annotationLinks: :ref:`WellAnnotationLink <omero.model.WellAnnotationLink>` (multiple)
   | blue: ``integer`` (optional)
@@ -3149,9 +3149,9 @@ properties are,
 WellAnnotationLink
 """"""""""""""""""
 
-used by :ref:`Well.annotationLinks <omero.model.Well>`
+Used by: :ref:`Well.annotationLinks <omero.model.Well>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -3167,9 +3167,9 @@ properties are,
 WellReagentLink
 """""""""""""""
 
-used by :ref:`Reagent.wellLinks <omero.model.Reagent>`, :ref:`Well.reagentLinks <omero.model.Well>`
+Used by: :ref:`Reagent.wellLinks <omero.model.Reagent>`, :ref:`Well.reagentLinks <omero.model.Well>`
 
-properties are,
+Properties:
   | child: :ref:`Reagent <omero.model.Reagent>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -3185,9 +3185,9 @@ properties are,
 WellSample
 """"""""""
 
-used by :ref:`Image.wellSamples <omero.model.Image>`, :ref:`PlateAcquisition.wellSample <omero.model.PlateAcquisition>`, :ref:`Well.wellSamples <omero.model.Well>`, :ref:`WellSampleAnnotationLink.parent <omero.model.WellSampleAnnotationLink>`
+Used by: :ref:`Image.wellSamples <omero.model.Image>`, :ref:`PlateAcquisition.wellSample <omero.model.PlateAcquisition>`, :ref:`Well.wellSamples <omero.model.Well>`, :ref:`WellSampleAnnotationLink.parent <omero.model.WellSampleAnnotationLink>`
 
-properties are,
+Properties:
   | annotationLinks: :ref:`WellSampleAnnotationLink <omero.model.WellSampleAnnotationLink>` (multiple)
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -3208,9 +3208,9 @@ properties are,
 WellSampleAnnotationLink
 """"""""""""""""""""""""
 
-used by :ref:`WellSample.annotationLinks <omero.model.WellSample>`
+Used by: :ref:`WellSample.annotationLinks <omero.model.WellSample>`
 
-properties are,
+Properties:
   | child: :ref:`Annotation <omero.model.Annotation>`, see :source:`ILink <components/model/src/ome/model/ILink.java>`
   | details.creationEvent: :ref:`Event <omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <omero.model.ExternalInfo>` (optional)
@@ -3226,7 +3226,7 @@ properties are,
 XmlAnnotation
 """""""""""""
 
-properties are,
+Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <omero.model.AnnotationAnnotationLink>` (multiple) from :ref:`Annotation <omero.model.Annotation>`
   | description: ``text`` (optional) from :ref:`Annotation <omero.model.Annotation>`
   | details.creationEvent: :ref:`Event <omero.model.Event>` from :ref:`Annotation <omero.model.Annotation>`
