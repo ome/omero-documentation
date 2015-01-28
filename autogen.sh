@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# This script is used by a Continuous Integration job to auto-generate
+# some components of the OMERO documentation from its deliverables (server,
+# clients). To run it locally, download the server and the linux clients
+# containing the importer-cli and name them OMERO.server and OMERO.clients.
 
 set -u
 set -e
