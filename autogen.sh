@@ -6,9 +6,9 @@ set -x
 OMERO_DIR=${OMERO_DIR:-$pwd}
 
 cp $OMERO_DIR/OMERO.server/history.txt omero/users/
-$OMERO_DIR/OMERO.server/bin/omero config parse --rst > omero/sysadmins/config.txt
+$OMERO_DIR/OMERO.server/bin/omero config parse --rst | sed "s|$OMERO_DIR|/home/omero|" > omero/sysadmins/config.txt
 mkdir -p omero/downloads/ldap
-$OMERO_DIR/OMERO.server/bin/omero ldap setdn -h > omero/downloads/ldap/setdn.out || echo "Dumped ldap setdn help"
+$OMERO_DIR/OMERO.server/bin/omero ldap setdn -h | sed "s|$OMERO_DIR|/home/omero|" > omero/downloads/ldap/setdn.out || echo "Dumped ldap setdn help"
 $OMERO_DIR/OMERO.server/bin/omero import --advanced-help 2> advanced-help.txt || echo "Dumped advanced CLI help"
 $OMERO_DIR/OMERO.server/bin/omero web config nginx | sed "s|$OMERO_DIR|/home/omero|" > omero/sysadmins/unix/nginx-omero.conf
 $OMERO_DIR/OMERO.server/bin/omero web config apache | sed "s|$OMERO_DIR|/home/omero|" > omero/sysadmins/unix/apache-omero.conf
