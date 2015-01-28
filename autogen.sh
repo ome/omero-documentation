@@ -24,7 +24,7 @@ $WORKSPACE/OMERO.server/bin/omero import --advanced-help 2> advanced-help.txt ||
 sed 1,3d advanced-help.txt > omero/downloads/inplace/advanced-help.txt
 $WORKSPACE/OMERO.clients/importer-cli -h 2> omero/downloads/cli/help.out || echo "Dumped"
 
-echo "Generating Web configuration temapltes"
+echo "Generating Web configuration templates"
 $WORKSPACE/OMERO.server/bin/omero web config nginx | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/nginx-omero.conf
 $WORKSPACE/OMERO.server/bin/omero web config apache | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/apache-omero.conf
 $WORKSPACE/OMERO.server/bin/omero web config apache-fcgi | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/apache-fcgi-omero.conf
