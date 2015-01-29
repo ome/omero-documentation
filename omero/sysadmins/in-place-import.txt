@@ -295,6 +295,29 @@ Finally, the least favored option is `ln_rm`. It first performs
 a hard-link like `ln`, but once the import is complete it attempts
 to delete the original file. This is currently in testing as
 an option for DropBox but is unlikely to be of use to general users.
+Although this option is more limited than the `upload_rm` option below it
+will be much faster.
+
+"upload_rm" - uploading and deleting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This option, available from OMERO 5.0.3, is not strictly an in-place option
+but is detailed here for convenience. It first performs a file upload like
+default import, but once the import is complete it attempts to delete the
+original files. It deletes the original files **if and only if** the import
+is successful.
+
+"cp" and "cp_rm" variants
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+New in 5.0.7, the `cp` and `cp_rm` commands provide the same functionality
+as `ln` and `ln_rm` but perform a copy rather than a link operation. The
+benefit of a copy is that it works over OS filesystem boundaries while
+still providing the integrity that `ln_s` cannot. The primary downside
+of a raw `cp` compared to `ln` is that there is data duplication. `cp_rm`
+being very similar to `ln_rm` *usually* works around this downside, except
+in the case of a failed import. Then the duplicated data will remain in
+OMERO and an explicit cleanup step will need to be taken.
 
 Your own file transfer
 ^^^^^^^^^^^^^^^^^^^^^^
