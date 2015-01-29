@@ -225,7 +225,7 @@ usually done via Continuous Integration builds. To generate these components
 manually, download the OMERO.server and OMERO.clients and run the
 auto-generation script as::
 
-      cd omero && WORSKSPACE=/path/to/OMERO/deliverables ./autogen_docs.sh
+      WORSKSPACE=/path/to/OMERO/deliverables ./omero/autogen_docs
 
 ****************
 Conventions Used
