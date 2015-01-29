@@ -216,6 +216,17 @@ The Contributing Developer documentation has the release version removed as
 the intention is to update these files as and when necessary, so that they
 always reflect our current practices.
 
+Auto-generated content
+----------------------
+
+Some parts of the OMERO documentation are auto-generated from the OMERO
+deliverables (e.g. templates, command-line output...). This auto-generation is
+usually done via Continuous Integration builds. To generate these components
+manually, download the OMERO.server and OMERO.clients and run the
+auto-generation script as::
+
+      cd omero && WORSKSPACE=/path/to/OMERO/deliverables ./autogen_docs.sh
+
 ****************
 Conventions Used
 ****************
