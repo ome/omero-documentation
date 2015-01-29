@@ -7,16 +7,16 @@
 set -u
 set -e
 set -x
-WORKSPACE=${WORKSPACE:-$pwd}
+WORKSPACE=${WORKSPACE:-$(pwd)}
 
 echo "Copying history"
 cp $WORKSPACE/OMERO.server/history.txt omero/users/
 
 echo "Generating configuration properties page"
 $WORKSPACE/OMERO.server/bin/omero config parse --rst | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/config.txt
-mkdir -p omero/downloads/ldap
 
 echo "Generating ldap setdn usage page"
+mkdir -p omero/downloads/ldap
 $WORKSPACE/OMERO.server/bin/omero ldap setdn -h | sed "s|$WORKSPACE|/home/omero|" > omero/downloads/ldap/setdn.out
 
 echo "Generating advanced CLI help"
