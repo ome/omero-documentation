@@ -497,8 +497,8 @@ well as many functionalities shared amongst all Python integration tests.
 
 Each concrete instance of the ``ITest`` will initiate a connection to the
 server specified by the :envvar:`ICE_CONFIG` environment variable at the
-``setup_class()`` level and two basic clients/sessions will be created and
-shared by all test methods of this class:
+``setup_class()`` level. Two basic clients/sessions are created by
+``ITest.setup_class()`` and shared by all test methods of this class:
 
 - ``self.root`` is a client for the root user
 - ``self.client`` is a client for a new user created at the class setup.
@@ -514,6 +514,14 @@ shared by all test methods of this class:
           ec = self.sf.getAdminService().getEventContext()
           assert ec, "No EventContext!"
 
+New user and groups can be instantiated by individual tests using the
+``ITest.new_user()`` and ``ITest.new_group()`` methods::
+
+      def testNewGroupOwner():
+          new_group = self.new_group(perms='rwa---')
+          new_owner = self.new_use(group=new_group, owner=True)
+          assert new_owner.id.val, "No EventContext!"
+
 New clients can be instantiated by individual tests using the
 ``ITest.new_client()`` or ``ITest.new_client_and_user()`` methods::
 
@@ -526,5 +534,36 @@ Images can be imported using the ``ITest.importSingleImage()`` or
 ``ITest.importSingleImageWithCompanion()`` or ``ITest.importMIF()`` methods::
 
       def testNewClient():
-	      images = self.importMIF(2)
-	      assert len(images) == 2
+          images = self.importMIF(2)
+          assert len(images) == 2
+
+Writing OMERO.web tests
+"""""""""""""""""""""""
+
+For OMERO.web integration tests, the :source:`OMERO.web test library <components/tools/OmeroWeb/test/integration/weblibrary.py>`
+defines an abstract ``IWebTest`` class that inherits from ``ITest`` and
+also implements Django clients at the class setup using the
+:djangodoc:`Django testing tools <topics/testing/tools>`.
+
+On top of the elements created by ``ITest.setup_class()``, the ``IWebTest``
+class creates:
+
+- ``self.django_root_client`` is a Django test client for the root user
+- ``self.django_client`` is a client for the new user created at the class
+  setup.
+
+::
+
+  from weblibrary import IWebTest
+
+  class TestExample(IWebTest):
+      def testSimple():
+          self.django_client.post('/login/', {'username': 'john'})
+
+New Django test clients can be instantiated by individual tests using the
+``IWebTest.new_django_client()`` method::
+
+      def testNewDjangoClient():
+          new_user = self.new_user()
+          omeName = new_user.omeName.val
+          new_django_client = self.new_django_client(omeName, omeName)
