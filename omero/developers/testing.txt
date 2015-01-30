@@ -462,14 +462,13 @@ To write and run Python tests you first need to install `pytest`:
 
 For more information on writing tests in general see `<http://pytest.org>`_.
 
-OMERO.py
-""""""""
-
 Similar to the OmeroJava tests, the tests under
-:sourcedir:`components/tools/OmeroPy/test` will be the starting point
+:sourcedir:`components/tools/OmeroPy/test`,
+:sourcedir:`components/tools/OmeroFS/test` and
+:sourcedir:`components/tools/OmeroWeb/test` will be the starting point
 for most Python-client developers coming to OMERO. Integration tests should
-be placed under :sourcedir:`components/tools/OmeroPy/test/integration`.
-The file names must begin with `test_` for the tests to be found by `pytest`.
+be placed under the :file:`integration` subfolders. The file names must begin
+with `test_` for the tests to be found by `pytest`.
 
 ::
 
@@ -488,3 +487,44 @@ The file names must begin with `test_` for the tests to be found by `pytest`.
         ec = client.getSession().getAdminService().getEventContext()
         assert ec, "No EventContext!"
 
+
+Using the Python test library
+"""""""""""""""""""""""""""""
+
+The :source:`OMERO Python test library <components/tests/python/library/__init__.py>`
+defines an abstract ``ITest`` class that implements the connection set up as
+well as many functionalities shared amongst all Python integration tests.
+
+Each concrete instance of the ``ITest`` will initiate a connection to the
+server specified by the :envvar:`ICE_CONFIG` environment variable at the
+``setup_class()`` level and two basic clients/sessions will be created and
+shared by all test methods of this class:
+
+- ``self.root`` is a client for the root user
+- ``self.client`` is a client for a new user created at the class setup.
+  ``self.sf``, ``self.update`` and ``self.query`` are shortcuts to this client
+  session, update service and query service.
+
+::
+
+  from library import ITest
+
+  class TestExample(ITest):
+      def testSimple():
+          ec = self.sf.getAdminService().getEventContext()
+          assert ec, "No EventContext!"
+
+New clients can be instantiated by individual tests using the
+``ITest.new_client()`` or ``ITest.new_client_and_user()`` methods::
+
+      def testNewClient():
+          new_client = self.new_user_and_client()
+          ec = new_client.getSession().getAdminService().getEventContext()
+          assert ec, "No EventContext!"
+
+Images can be imported using the ``ITest.importSingleImage()`` or
+``ITest.importSingleImageWithCompanion()`` or ``ITest.importMIF()`` methods::
+
+      def testNewClient():
+	      images = self.importMIF(2)
+	      assert len(images) == 2
