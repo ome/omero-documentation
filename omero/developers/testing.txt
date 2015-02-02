@@ -500,7 +500,7 @@ Using the Python test library
 
 The :source:`OMERO Python test library <components/tests/python/library/__init__.py>`
 defines an abstract ``ITest`` class that implements the connection set up as
-well as many functionalities shared amongst all Python integration tests.
+well as many methods shared amongst all Python integration tests.
 
 Each concrete instance of the ``ITest`` will initiate a connection to the
 server specified by the :envvar:`ICE_CONFIG` environment variable at the
@@ -574,3 +574,7 @@ New Django test clients can be instantiated by individual tests using the
           new_user = self.new_user()
           omeName = new_user.omeName.val
           new_django_client = self.new_django_client(omeName, omeName)
+
+.. seealso::
+  :source:`test_simple.py <components/tools/OmeroWeb/test/integration/test_simple.py>`
+     Example test class using the OMERO.web test library methods
