@@ -207,64 +207,15 @@ values are arbitrary and can be changed locally.
 Running Python tests
 ^^^^^^^^^^^^^^^^^^^^
 
-Markers
-"""""""
-
-Methods, classes and functions can be decorated with `pytest` markers to allow for
-the selection of tests. `pytest` provides some predefined markers and markers can
-be simply defined as they are used. However, to centralize the use of custom
-markers they should be defined in :sourcedir:`components/tools/pytest.ini`.
-To view all available markers the :option:`--markers` option can be used with
-:program:`setup.py test` or :program:`py.test` as detailed in
-:ref:`running-python-tests-directly`.
-
-There are a small number of custom markers defined:
-
-.. glossary::
-
-    `long_running`
-        Used to mark tests as long running. These are tests that typically take
-        10 minutes or more and are excluded from the daily integration builds.
-
-    `broken`
-        Used to mark broken tests. These are tests that fail consistently with no
-        obvious quick fix. Broken tests are excluded from the main integration builds
-        and instead are run in a separate daily build. `broken` markers should have a
-        reason, an associated Trac ticket number or both. If there are multiple
-        associated tickets then a comma-separated list should be used.
-
-    `intermittent`
-        Used to mark tests that fail intermittently. `intermittent` markers should
-        have a reason, an associated Trac ticket number or both. If there are
-        multiple associated tickets then a comma-separated list should be used. Tests
-        marked as intermittent are included in the daily integration builds.
-
-::
-
-    import pytest
-
-    class TestExample2(object)
-
-      @pytest.mark.broken(reason="Asserting false", ticket="12345,67890")
-      def testBroken():
-          assert False, "Bound to fail"
-
-      @pytest.mark.long_running
-      def testLongRunning():
-          self.somePotentiallyLongCall()
-
-      @pytest.mark.intermittent(reason="Occasionally times out", ticket="98765")
-      def testIntermittent():
-          self.somePotentiallyIntermittentCall()
-
 .. _using-markers-in-python-tests:
 
 Using markers in OmeroPy tests
 """"""""""""""""""""""""""""""
 
-Tests under OmeroPy can be included or excluded according to markers defined in the tests.
-This can be done by using the :option:`-DMARK` option. For example, to run all the
-integration tests marked as ``broken``:
+Tests under OmeroPy can be included or excluded according to markers defined
+in the tests.
+This can be done by using the :option:`-DMARK` option. For example, to run all
+the integration tests marked as ``broken``:
 
 ::
 
@@ -284,6 +235,9 @@ an empty marker must be used:
 ::
 
     ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK=
+
+.. seealso::
+	:ref:`marking-python-tests`
 
 .. _running-python-tests-directly:
 
@@ -487,6 +441,59 @@ with `test_` for the tests to be found by `pytest`.
         ec = client.getSession().getAdminService().getEventContext()
         assert ec, "No EventContext!"
 
+.. _marking-python-tests:
+
+Marking OmeroPy tests
+"""""""""""""""""""""
+
+Methods, classes and functions can be decorated with `pytest` markers to allow
+for the selection of tests. `pytest` provides some predefined markers and
+markers can be simply defined as they are used. However, to centralize the use
+of custom markers they should be defined in
+:sourcedir:`components/tools/pytest.ini`.
+
+To view all available markers the :option:`--markers` option can be used with
+:program:`setup.py test` or :program:`py.test` as detailed in
+:ref:`running-python-tests-directly`.
+
+There are a small number of custom markers defined:
+
+.. glossary::
+
+    `long_running`
+        Used to mark tests as long running. These are tests that typically take
+        10 minutes or more and are excluded from the daily integration builds.
+
+    `broken`
+        Used to mark broken tests. These are tests that fail consistently with no
+        obvious quick fix. Broken tests are excluded from the main integration builds
+        and instead are run in a separate daily build. `broken` markers should have a
+        reason, an associated Trac ticket number or both. If there are multiple
+        associated tickets then a comma-separated list should be used.
+
+    `intermittent`
+        Used to mark tests that fail intermittently. `intermittent` markers should
+        have a reason, an associated Trac ticket number or both. If there are
+        multiple associated tickets then a comma-separated list should be used. Tests
+        marked as intermittent are included in the daily integration builds.
+
+::
+
+  import pytest
+
+  class TestExample2(object):
+
+      @pytest.mark.broken(reason="Asserting false", ticket="12345,67890")
+      def testBroken():
+          assert False, "Bound to fail"
+
+      @pytest.mark.long_running
+      def testLongRunning():
+          self.somePotentiallyLongCall()
+
+      @pytest.mark.intermittent(reason="Occasionally times out", ticket="98765")
+      def testIntermittent():
+          self.somePotentiallyIntermittentCall()
 
 Using the Python test library
 """""""""""""""""""""""""""""
