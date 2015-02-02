@@ -13,9 +13,9 @@ OMERO.server Mac OS X installation walk-through with Homebrew
     from the downloads page.**
 
 The instructions provided here depend on Homebrew 0.9 or later, including
-support for the ``brew tap`` command. These instructions are implemented in an
-:source:`automated script <docs/hudson/OMERO-homebrew-install.sh>` which
-installs OMERO via Homebrew from a fresh configuration.
+support for the ``brew tap`` command. These instructions are implemented in a
+series of :source:`automated scripts <https://github.com/ome/omero-install>`
+which install OMERO via Homebrew from a fresh configuration.
 
 Prerequisites
 -------------
@@ -339,13 +339,13 @@ Now connect to your OMERO.server using OMERO.insight with the following credenti
 OMERO.web
 ^^^^^^^^^
 
-In order to deploy OMERO.web in a production environment such as Apache or 
+In order to deploy OMERO.web in a production environment such as Apache or
 Nginx please follow the instructions under :doc:`install-web`.
 
 
 .. note::
-    The internal Django webserver can be used for evaluation and development. 
-    In this case please follow the instructions under 
+    The internal Django webserver can be used for evaluation and development.
+    In this case please follow the instructions under
     :doc:`/developers/Web/Deployment`.
 
 .. _install_homebrew_common_issues:
