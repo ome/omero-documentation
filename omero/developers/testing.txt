@@ -89,18 +89,6 @@ explicitly via:
 
 Results are placed in ``components/<component>/target/reports``.
 
-Individual test groups
-""""""""""""""""""""""
-
-To run individual OmeroJava test groups (or comma-separated sets of groups)
-of tests, the :option:`-DGROUPS` parameter can be used together with the
-``test`` target
-
-::
-
-    ./build.py -f components/tools/OmeroJava/build.xml test -DGROUPS=integration
-
-
 Individual tests
 """"""""""""""""
 
@@ -127,6 +115,18 @@ qualified name form (:option:`-Dpackage.class.method`).
 ::
 
     ./build.py -f components/tools/OmeroJava/build.xml test -DMETHODS=integration.chgrp.AnnotationMoveTest.testMoveTaggedImage
+
+Individual test groups
+""""""""""""""""""""""
+
+To run individual OmeroJava test groups (or comma-separated sets of groups)
+of tests, the :option:`-DGROUPS` parameter can be used together with the
+``test`` target
+
+::
+
+    ./build.py -f components/tools/OmeroJava/build.xml test -DGROUPS=integration
+
 
 Using Eclipse to run tests
 """""""""""""""""""""""""""
