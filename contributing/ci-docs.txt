@@ -244,11 +244,10 @@ dev_5_0.
 		This job is used to build the latest auto-generated pages for the
 		dev_5_0 branch of the OMERO documentation
 
+		#. Checks out the dev_5_0 branch of ome-documentation.git_
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-5.0-latest`
-		#. Parses the content of :file:`etc/omero.properties` under
-		   :file:`omero/sysadmin/config.txt`
-		#. Dumps CLI import help under :file:`omero/downloads`
+		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to the `dev_5_0/latest/autogen`
 		   branch of https://github.com/snoopycrimecop/ome-documentation
 
@@ -257,11 +256,11 @@ dev_5_0.
 		This job is used to build the merge auto-generated pages for the
 		dev_5_0 branch of the OMERO documentation
 
+		#. Checks out the merge/dev_5_0/latest branch of the
+		   snoopycrimecop fork of ome-documentation.git_
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-5.0-merge-build`
-		#. Parses the content of :file:`etc/omero.properties` under
-		   :file:`omero/sysadmin/config.txt`
-		#. Dumps CLI import help under :file:`omero/downloads`
+		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to the `dev_5_0/merge/autogen`
 		   branch of https://github.com/snoopycrimecop/ome-documentation
 
@@ -351,11 +350,10 @@ develop.
 		This job is used to build the latest auto-generated pages for the
 		develop branch of the OMERO documentation
 
+		#. Checks out the develop branch of ome-documentation.git_
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-5.1-latest`
-		#. Parses the content of :file:`etc/omero.properties` under
-		   :file:`omero/sysadmin/config.txt`
-		#. Dumps CLI import help under :file:`omero/downloads`
+		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to the `develop/latest/autogen`
 		   branch of https://github.com/snoopycrimecop/ome-documentation
 
@@ -364,11 +362,11 @@ develop.
 		This job is used to review the component auto-generation for the
 		develop branch of the OMERO documentation
 
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of ome-documentation.git_
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-5.1-merge-build`
-		#. Parses the content of :file:`etc/omero.properties` under
-		   :file:`omero/sysadmin/config.txt`
-		#. Dumps CLI import help under :file:`omero/downloads`
+		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to the `develop/merge/autogen`
 		   branch of https://github.com/snoopycrimecop/ome-documentation
 
