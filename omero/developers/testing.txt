@@ -576,5 +576,5 @@ New Django test clients can be instantiated by individual tests using the
           new_django_client = self.new_django_client(omeName, omeName)
 
 .. seealso::
-  :source:`test_simple.py <components/tools/OmeroWeb/test/integration/test_simple.py>`
-     Example test class using the OMERO.web test library methods
+    :source:`test_simple.py <components/tools/OmeroWeb/test/integration/test_simple.py>`
+        Example test class using the OMERO.web test library methods
