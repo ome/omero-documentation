@@ -237,7 +237,7 @@ an empty marker must be used:
     ./build.py -f components/tools/OmeroPy/build.xml integration -DMARK=
 
 .. seealso::
-	:ref:`marking-python-tests`
+    :ref:`marking-python-tests`
 
 .. _running-python-tests-directly:
 
@@ -577,4 +577,5 @@ New Django test clients can be instantiated by individual tests using the
 
 .. seealso::
     :source:`test_simple.py <components/tools/OmeroWeb/test/integration/test_simple.py>`
+
         Example test class using the OMERO.web test library methods
