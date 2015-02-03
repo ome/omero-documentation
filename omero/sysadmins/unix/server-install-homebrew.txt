@@ -14,7 +14,7 @@ OMERO.server Mac OS X installation walk-through with Homebrew
 
 The instructions provided here depend on Homebrew 0.9 or later, including
 support for the ``brew tap`` command. These instructions are implemented in a
-series of :source:`automated scripts <https://github.com/ome/omero-install/tree/master/homebrew>`
+series of `automated scripts <https://github.com/ome/omero-install/tree/master/homebrew>`_
 which install OMERO via Homebrew from a fresh configuration.
 
 Prerequisites
