@@ -13,6 +13,7 @@ cp settings.env setup_omero_ice35.sh ~omero
 su - omero -c "bash -eux setup_omero_ice35.sh"
 
 bash -eux setup_nginx_centos6.sh
+bash -eux setup_nginx_centos6_selinux.sh
 
 #If you don't want to use the init.d scripts you can start OMERO manually:
 #su - omero -c "OMERO.server/bin/omero admin start"
