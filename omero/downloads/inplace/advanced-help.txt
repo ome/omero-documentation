@@ -16,6 +16,8 @@ ADVANCED OPTIONS:
           ln              	# Use hard-link.
           ln_s            	# Use soft-link.
           ln_rm           	# Caution! Hard-link followed by source deletion.
+          cp              	# Use local copy command.
+          cp_rm           	# Caution! Copy followed by source deletion.
 
 
   e.g. $ bin/omero import -- --transfer=ln_s foo.tiff

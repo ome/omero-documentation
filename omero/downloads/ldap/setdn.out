@@ -1,7 +1,7 @@
-usage: OMERO.server/bin/omero ldap setdn [-h] [-C] [-s SERVER] [-p PORT]
-                                         [-g GROUP] [-u USER] [-w PASSWORD]
-                                         [-k KEY] [--sudo ADMINUSER] [-q]
-                                         username dn
+usage: bin/omero ldap setdn [-h] [-C] [-s SERVER] [-p PORT] [-g GROUP]
+                            [-u USER] [-w PASSWORD] [-k KEY]
+                            [--sudo ADMINUSER] [-q]
+                            username dn
 
 Set DN for user (admins only)
 
