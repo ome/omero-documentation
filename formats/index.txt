@@ -95,6 +95,9 @@ Developer Tools and Guidelines
 The Data Model in Detail
 ************************
 
+Generated documentation for the :schema_plone:`current version of the entire
+Schema <Documentation/Generated/OME-2015-01/ome.html>` is also available.
+
 .. toctree::
     :maxdepth: 1
     :titlesonly:
@@ -117,6 +120,7 @@ Data Model History
     :titlesonly:
 
     schemas/index
+    schemas/january-2015
     schemas/june-2013
     schemas/june-2012
     schemas/june-2011
