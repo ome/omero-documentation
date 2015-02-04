@@ -222,8 +222,7 @@ Auto-generated content
 Some parts of the OMERO documentation are auto-generated from the OMERO
 deliverables (e.g. templates, command-line output...). This auto-generation is
 usually done via Continuous Integration builds. To generate these components
-manually, download the OMERO.server and OMERO.clients and run the
-auto-generation script as::
+manually, download the OMERO.server and run the auto-generation script as::
 
       WORSKSPACE=/path/to/OMERO/deliverables ./omero/autogen_docs
 
