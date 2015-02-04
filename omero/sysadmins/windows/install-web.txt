@@ -149,8 +149,8 @@ working with your IIS deployment.
            C:\omero_dist>bin\omero config set omero.web.session_engine
            C:\omero_dist>bin\omero config set omero.web.cache_backend
 
-       If your deployment requires additional cache store please follow 
-       `Django documentation <https://docs.djangoproject.com/en/1.6/topics/cache/>`_
+       If your deployment requires additional cache store please follow
+       :djangodoc:`Django documentation <topics/cache/>`
        for more details.
 
 -  OMERO.web is configured to use FastCGI TCP by default. If you are using a
@@ -410,9 +410,8 @@ Customizing your OMERO.web installation
 -  Session cookies:
 
    -  A boolean that determines whether to expire the session when the user
-      closes their browser. See `Django Browser-length sessions vs. persistent
-      sessions documentation 
-      <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#browser-length-vs-persistent-sessions>`_
+      closes their browser. See :djangodoc:`Django Browser-length sessions vs.
+      persistent sessions documentation  <topics/http/sessions/#browser-length-vs-persistent-sessions>`
       for more details. Default: ``True``.
 
       ::
@@ -427,13 +426,13 @@ Customizing your OMERO.web installation
 
 -  Session engine:
 
-   -  Each session for a logged-in user in OMERO.web is kept in the session
-      store. Stale sessions can cause the store to grow with time. OMERO.web
-      uses by default the OS file system as the session store backend and
+   -  Each session for a logged-in user in OMERO.web is kept in the session 
+      store. Stale sessions can cause the store to grow with time. OMERO.web 
+      uses by default the OS file system as the session store backend and 
       does not automatically purge stale sessions, see
-      `Django file-based session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-file-based-sessions>`_
-      for more details. It is therefore the responsibility of the OMERO
-      administrator to purge the session cache using the provided management
+      :djangodoc:`Django file-based session documentation <topics/http/sessions/#using-file-based-sessions>`
+      for more details. It is therefore the responsibility of the OMERO 
+      administrator to purge the session cache using the provided management 
       command:
 
       ::
@@ -441,16 +440,15 @@ Customizing your OMERO.web installation
           C:\omero_dist>bin\omero web clearsessions
 
       It is recommended to call this command on a regular basis, for example
-      as a Task Scheduler, see 
-      `Django clearing the session store documentation  <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#clearing-the-session-store>`_
+      as a Task Scheduler, see
+      :djangodoc:`Django clearing the session store documentation <topics/http/sessions/#clearing-the-session-store>`
       for more information.
 
       .. note::
           OMERO.web offers alternative session backends to automatically
           delete stale data using the cache session store backend, see
-          `Django cached session documentation <https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-cached-sessions>`_
-          for more details. After installing all the cache prerequisites set
-          the following:
+          :djangodoc:`Django cached session documentation <topics/http/sessions/#using-cached-sessions>`
+          for more details. After installing all the cache prerequisites set the following:
 
           ::
 

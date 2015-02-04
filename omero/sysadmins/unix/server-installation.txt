@@ -136,12 +136,13 @@ If possible, install one of the following packages:
 OMERO works with the OpenJDK JRE provided by most systems, or with
 Oracle Java. Version 6 or later is required. Version 7 or later is
 recommended (version 6 is end of line and no longer has updates or
-security support). Your system may already provide a suitable JRE, in
-which case no extra steps are necessary. Linux distributions usually
-provide OpenJDK, and older MacOS X versions have Java installed by
-default. Oracle Java is no longer provided by BSD or Linux
-distributions for licensing reasons. If your system does not have Java
-available, for example on newer MacOS X versions, or the provided
+security support). **OpenJDK version 8 is not currently supported**.
+
+Your system may already provide a suitable JRE, in which case no extra steps
+are necessary. Linux distributions usually provide OpenJDK, and older MacOS X
+versions have Java installed by default. Oracle Java is no longer provided by
+BSD or Linux distributions for licensing reasons. If your system does not have
+Java available, for example on newer MacOS X versions, or the provided
 version is too old, Oracle Java may be downloaded from the `Oracle
 website
 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
@@ -249,11 +250,8 @@ Ice
 
     OMERO |version| supports Ice 3.5, 3.4 and 3.3 on UNIX and UNIX-like
     platforms. Ice 3.3 support is deprecated and will be removed in
-    OMERO 5.1, which will require Ice 3.5 or 3.4.   You must install
+    OMERO 5.1, which will require Ice 3.5 or 3.4. You must install
     the correct version of OMERO.server (see :downloads:`Downloads <>`).
-    See :faq_plone:`"Do I use Ice 3.3 or Ice 3.4?"
-    <omero/do-i-use-ice-3.3-or-ice-3.4>` in
-    the FAQ. If you have further questions, consult the :forum:`Forums <>`.
 
 If possible, install one of the following packages:
 

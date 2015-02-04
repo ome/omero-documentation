@@ -25,8 +25,8 @@ Django templates
 ----------------
 
 We use Django templates for the OMERO.web pages. See docs here:
-https://docs.djangoproject.com/en/dev/ref/templates/ and `template
-inheritance <https://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance>`_.
+:djangodoc:`templates <ref/templates/>` and
+:djangodoc:`template inheritance <topics/templates/#template-inheritance>`.
 We have designed a number of OMERO.web base templates that you can
 extend. The base templates live in the 'webgateway' app under
 omeroweb/webgateway/templates/webgateway/base. You can use these to make pages
@@ -152,9 +152,11 @@ Here is a full list of the templates under
 Webtest examples
 ^^^^^^^^^^^^^^^^
 
-You can find examples of how to extend the base templates in the webtest
-application. Look under ``omeroweb/webtest/templates/webtest/webgateway``.
-View live at <your-server-name>/webtest/webgateway_templates/base_header/>
+You can find examples of how to extend the base templates in the 
+`webtest <https://github.com/openmicroscopy/webtest/>`_
+application within the ``webtest/templates/webtest/webgateway`` directory.
+If you install the webtest app, you can view the template examples
+live at <your-server-name>/webtest/webgateway_templates/base_header/>
 
 The link is to an example that extends base\_header.html and
 contains links to all the other webtest examples. These pages indicate
@@ -178,6 +180,7 @@ These blocks can be used to add content to specific points in the page.
 
 See :source:`base_header.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/base_header.html>` 
 for full template details.
+
 
 -  link: used to add CSS with <link> blocks to the page head e.g.
 
@@ -210,3 +213,22 @@ See
 :source:`container3.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/container3.html>` 
 for full template details.
 
+.. _jquery_and_jquery_ui:
+
+jQuery and jQuery UI
+^^^^^^^^^^^^^^^^^^^^
+
+If your application requires jQuery or jQuery UI libraries you can include
+them from internal resources by the following:
+
+::
+
+    {% include "webgateway/base/includes/script_src_jquery.html" %}
+    {% include "webgateway/base/includes/jquery-ui.html" %}
+
+
+.. note::
+
+    If your template extends
+    :source:`base_main.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/base_main.html>`
+    both libraries are already there.

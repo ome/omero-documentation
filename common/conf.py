@@ -156,8 +156,6 @@ extlinks = {
     'legacy_plone' : (oo_site_root + '/support/previous/%s', ''),
     'about_plone' : (oo_site_root + '/about/%s', ''),
     'team_plone' : (oo_site_root + '/team/%s', ''),
-    'faq_plone' : (oo_site_root + '/support/faq/%s', ''),
-    'training_plone' : (oo_site_root + '/support/training/%s', ''),
     'schema_plone' : (oo_root + '/Schemas/%s', ''),
     'omero_plone' : (oo_site_root + '/products/omero/%s', ''),
     'secvuln' : (oo_root + '/info/vulnerabilities/%s', ''),
@@ -176,6 +174,7 @@ extlinks = {
     'snapshot' : (cvs_root + '/snapshots/%s', ''),
     'zeroc' : ('http://zeroc.com/%s', ''),
     'zerocdoc' : ('http://doc.zeroc.com/%s', ''),
+    'djangodoc' : ('https://docs.djangoproject.com/en/1.6/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
     }
 

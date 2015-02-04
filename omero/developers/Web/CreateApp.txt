@@ -1,9 +1,8 @@
 Creating an app
 ===============
 
-The Django web site has a very good
-`tutorial <https://docs.djangoproject.com/en/dev/intro/tutorial01/>`_ to
-get you familiar with the Django framework. The more you know about
+The Django web site has a very good :djangodoc:`tutorial <intro/tutorial01/>`
+to get you familiar with the Django framework. The more you know about
 Django, the easier you will find it working with the OmeroWeb framework.
 One major feature of Django that we do not use in OmeroWeb is the Django
 database mapping, since all data comes from the OMERO server and is
@@ -12,7 +11,7 @@ are empty.
 
 .. note:: Since OMERO 5.0, the web framework uses Django 1.6 instead of Django
     1.3. One important change is the syntax of the
-    `url template tag <https://docs.djangoproject.com/en/dev/ref/templates/builtins/#std:templatetag-url>`_,
+    :djangodoc:`url template tag <ref/templates/builtins/#std:templatetag-url>`,
     which now requires quotes, and will need to be updated for OMERO 4.4 web
     apps moving to OMERO 5.0.
 
@@ -58,6 +57,28 @@ The steps below describe setting up a new app. You should choose an
 appropriate name for your app and use it in place of <your-app> in the
 examples below:
 
+
+Add your app to your PYTHONPATH
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Your app needs to be within a directory that is on your :envvar:`PYTHONPATH`.
+I usually create a new container for a new app, and add it to my
+:envvar:`PYTHONPATH`.
+
+::
+
+    $ mkdir PARENT-APP-DIR
+    $ cd PARENT-APP-DIR
+    $ export PYTHONPATH=$PYTHONPATH:/path/to/PARENT-APP-DIR
+
+
+OR you could simply choose an existing location:
+
+::
+
+    $ cd /somewhere/on/your/pythonpath/
+
+
 Create and checkout a new GitHub repository OR manually create a new directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -80,15 +101,9 @@ Create and checkout a new GitHub repository OR manually create a new directory
 
         $ mkdir <your-app>
 
-Add your app location to your PYTHONPATH
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-  In either case, you should now have a directory called ``your-app`` within
+   a directory that is on your :envvar:`PYTHONPATH`.
 
-If your app is not in a directory that is already on your :envvar:`PYTHONPATH`
-then you need to add it:
-
-::
-
-    $ export PYTHONPATH=$PYTHONPATH:/path/to/your-app
 
 Add the essential files to your app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -99,8 +114,8 @@ Add the essential files to your app
 
    ::
 
-       from django.conf.urls.defaults import *
-       from omeroweb.<your-app> import views
+       from django.conf.urls import *
+       from <your-app> import views
 
        urlpatterns = patterns('django.views.generic.simple',
 
@@ -127,16 +142,15 @@ Add your app to OMERO.web
 This will add your app to the INSTALLED\_APPS, so that URLs are
 registered etc.
 
-::
-
-    $ bin/omero config set omero.web.apps '["<your-app>"]'
-
 .. note::
 
-    You also need to edit omeroweb/urls.py to add your app's urls.py file to
-    the list of "urlpatterns". Again, you should be able to follow the
-    existing examples there. You can also specify at this point the URL under
-    which your app will be found.
+    Here we use single quotes around double quotes, since we are
+    passing a double-quoted string as a json object.
+
+::
+
+    $ bin/omero config append omero.web.apps '"<your-app>"'
+
 
 Now you can view the home-page we created above (NB: you will need to
 restart the OMERO.web server for the config settings to take effect)
@@ -176,7 +190,9 @@ under /omeroweb/<your-app>/templates/<your-app>/
 .. note::
 
    note that /<your-app>/ appears twice in that path (need an extra folder
-   under templates). This example can be found in webtest.
+   under templates).
+
+The following example can be found in the `webtest <https://github.com/openmicroscopy/webtest/>`_ app.
 
 -  **urls.py**
 
