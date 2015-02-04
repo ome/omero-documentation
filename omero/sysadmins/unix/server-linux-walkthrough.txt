@@ -10,6 +10,8 @@ under :ref:`index-optimizing-server`.
 Example shell scripts for installing OMERO on Ubuntu 14.04 are included
 in-line, and can be downloaded. Separate instructions for installing on
 CentOS 6 are also available where this differs from the Ubuntu instructions.
+These instructions assume your Linux distribution is configured with a UTF-8
+locale (this is normally the default).
 
 For convenience in this walkthrough the main OMERO configuration options have
 been defined as environment variables. When following this walkthrough you can
