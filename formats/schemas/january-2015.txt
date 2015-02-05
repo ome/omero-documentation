@@ -3,7 +3,7 @@ Changes For January 2015
 
 
 The list of the key changes for the January 2015 major release of the
-ome-xml data model. This schema release will tie in with the Bio-Formats
+OME-XML data model. This schema release will tie in with the Bio-Formats
 5.1 release.
 
 The new major release of the schema has a new namespace and all version
@@ -36,13 +36,11 @@ and the schema file is located at
 Overview of changes
 -------------------
 
-- This release is preparation for the release of Bio-Formats 5.1 and OMERO
-  5.1.
-- This version sees the introduction of a major new system of specifying units
+- This version introduces a major new system of specifying units
   for the values stored as lengths, times, pressures, angles, temperatures,
   electric potentials (voltages), powers and frequencies.
-- The annotation points have been greatly expanded and some rationalised.
-  Objects in the model are now directly annotatable or are in a 1 to 1
+- Many annotation points have been added and some removed.
+  Objects in the model are now directly annotatable or have a 1 to 1
   relationship with an object that is.
 
 
@@ -56,7 +54,7 @@ OME
 
 - Expanded documentation for ``AcquisitionDate`` describing supported
   precision.
-- Addition of Annotation points (``AnnotationRef``) to:
+- Added Annotation points (``AnnotationRef``) to:
     | ``Instrument``
     | ``Objective``
     | ``Detector``
@@ -64,7 +62,7 @@ OME
     | ``Dichroic``
     | ``LightPath``
     | ``LightSource``
-- Additional attributes to store:
+- Added attributes to store:
     | ``Pixels: PhysicalSizeXUnit``
     | ``Pixels: PhysicalSizeYUnit``
     | ``Pixels: PhysicalSizeZUnit``
@@ -94,9 +92,9 @@ OME
     | ``LightSourceSettings: WavelengthUnit``
     | ``DetectorSettings: VoltageUnit``
     | ``DetectorSettings: ReadOutRateUnit``
-- Removal of Annotation points from:
+- Removed Annotation points from:
     | ``Pixels: AnnotationRef``
-- Changed to float from int:
+- Changed from int to float:
     | ``Channel: ExcitationWavelength``
     | ``Channel: EmissionWavelength``
     | ``Filter: CutIn``
@@ -105,12 +103,12 @@ OME
     | ``Filter: CutOutTolerance``
     | ``Laser: Wavelength``
     | ``LightSourceSettings: Wavelength``
-- Adding a general ``Map`` to ``ImagingEnvironment`` to store key/value pairs
-- Adding new core type ``NonNegativeFloat``
-- Adding new core element ``Map`` and associated complex type ``MapPairs``.
+- Added a general ``Map`` to ``ImagingEnvironment`` to store key/value pairs
+- Added a new core type ``NonNegativeFloat``
+- Added a new core element ``Map`` and associated complex type ``MapPairs``.
   This in turn contains a collection of ``M`` elements that store a mapped
   value, each with its associated ``K`` key attribute.
-- Define new enumerations with the permitted values for:
+- Defined new enumerations with the permitted values for:
     | ``UnitsLength``
     | ``UnitsTime``
     | ``UnitsPressure``
@@ -119,7 +117,7 @@ OME
     | ``UnitsElectricPotential``
     | ``UnitsPower``
     | ``UnitsFrequency``
-- Adding new ``GenericExcitationSource`` to light source types. This using a
+- Added a new ``GenericExcitationSource`` to light source types. This using a
   ``Map`` of key/value pairs to store metadata for a light source that cannot
   be expressed as one of the other types.
 
@@ -131,27 +129,27 @@ OMERO
 ROI
 ^^^
 
-- Addition of Annotation points to:
+- Added Annotation points to:
     ``Shape: AnnotationRef``
-- Additional attributes to store:
+- Added attributes to store:
     ``ROI: StrokeWidthUnit``
     ``ROI: FontSizeUnit``
 
 SA
 ^^
 
-- A new ``MapAnnotation`` type has been added. This makes use of the new
+- Added a new ``MapAnnotation`` type. This makes use of the new
   ``Map`` element from ``ome.xsd`` to store a collection of key/value pairs.
 
 SPW
 ^^^
 
-- Additional attributes to store:
+- Added attributes to store:
     ``WellOriginXUnit``
     ``WellOriginYUnit``
     ``PositionXUnit``
     ``PositionYUnit``
-- Removal of Annotation points from:
+- Removed Annotation points from:
     ``WellSample: AnnotationRef``
 
 Upgrading and Downgrading
