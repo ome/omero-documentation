@@ -46,7 +46,7 @@ Working with the OME Data Model
 The :doc:`Model Overview collection of diagrams <model-overview>` shows the
 structure and connections between different parts of the OME Model. Generated
 documentation for the :schema_plone:`current version of the entire Schema
-<Documentation/Generated/OME-2013-06/ome.html>` is also available.
+<Documentation/Generated/OME-2015-01/ome.html>` is also available.
 
 Individual parts of the model are covered in more detail in the following
 sections:
@@ -76,8 +76,8 @@ The :doc:`Schema versions</schemas/index>` section shows the Model changes
 with each release, helpful for those working with several versions of the OME
 Model, for example to support the loading/saving of a variety of files.
 
--  The **current major release** - see :doc:`Changes For June
-   2013 </schemas/june-2013>`.
+-  The **current major release** - see :doc:`Changes For January
+   2015 </schemas/january-2015>`.
 
 For further information, see the 
 :omero_doc:`OME Data Model <developers/index.html#the-ome-data-model>` section
