@@ -203,16 +203,18 @@ servers of various sizes:
     * :property:`omero.search.batch`
 
   - * Background
-    * 31h
-    * 300GB
-    * -Xmx512M
-    * 50
+    * 8h
+    * 19TB
+    * -Xmx4800m
+    * 5000 [1]_
 
-  - * Background
-    * 10 days
+  - * Off-line
+    * 6h30
     * 16TB
     * -Xmx2048M
     * 100
+
+.. [1] :ome-users:`[ome-users] Re-indexing OMERO's search database <2015-February/005038.html>`
 
 .. seealso::
   :doc:`/developers/Modules/Search`
