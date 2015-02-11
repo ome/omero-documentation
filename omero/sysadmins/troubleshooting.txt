@@ -123,7 +123,7 @@ Server fails to start
    :omerocmd:`config set IPv6 0`.
 6. If you upgraded from a 5.0.2 server or older and copied the entire content
    of the :file:`etc/grid` directory from the old server to the new server,
-   you will need to revert the changes made :file:`templates.xml` to
+   you will need to revert the changes made to :file:`templates.xml` to
    :ticket:`generate the new memory settings <12527>`.
 7. If OMERO starts up, but fails to respond to connection requests, check
    `netstat -a` for port 4064. If nothing is listening on 4064, you may
