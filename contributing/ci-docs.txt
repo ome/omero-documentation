@@ -334,7 +334,7 @@ develop.
 	:jenkinsjob:`BIOFORMATS-5.1-merge-docs-autogen`
 
 		This job is used to build the merge auto-generated pages for the
-		develop branch of the OMERO documentation
+		develop branch of the Bio-Formats documentation
 
 		#. Checks out the merge/develop/latest branch of the
 		   snoopycrimecop fork of bioformats.git_
