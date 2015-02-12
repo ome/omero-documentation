@@ -23,28 +23,19 @@ Upgrade check list
 Check Prerequisities
 ^^^^^^^^^^^^^^^^^^^^
 
-Before starting the upgrade, please ensure that you have obtained all the
-prerequisites for installation, documented for Unix and Windows. In
-particular, ensure that you are running a suitable version of PostgreSQL to
-enable successful upgrading of the database.
+Before starting the upgrade, please ensure that you have obtained all
+the prerequisites for installation, documented for Unix and Windows. In
+particular, ensure that you are running a suitable version of PostgreSQL
+to enable successful upgrading of the database. If you are upgrading
+from a version earlier than OMERO 5.0 then first review the `previous
+upgrade notes
+<http://www.openmicroscopy.org/site/support/omero5/sysadmins/server-upgrade.html>`_.
 
 File limits
 ^^^^^^^^^^^
 
 You may wish to review the open file limits.  Please consult the
 :ref:`limitations-openfiles` section for further details.
-
-Password salting
-^^^^^^^^^^^^^^^^
-
-With 5.0.0, the default JDBC password provider has been modified to add
-password salting support. This implies that once a server has been upgraded
-and deployed, if passwords are modified, you will not be able to easily revert
-to a configuration without salting. To keep using the legacy password provider
-without salting support, you will need to configure
-:property:`omero.security.password_provider` to use the legacy
-``chainedPasswordProviderNoSalt`` as described in the
-:ref:`legacy_password_providers` section.
 
 Password usage
 ^^^^^^^^^^^^^^
@@ -53,19 +44,6 @@ The passwords and logins used here are examples. Please consult the
 :ref:`troubleshooting-password` section for explanation. In particular, be
 sure to replace the values of **db_user** and **omero_database** with the
 actual database user and database name for your installation.
-
-Re-indexing for search
-^^^^^^^^^^^^^^^^^^^^^^
-
-All OMERO databases created **prior to 5.0.1** were susceptible to a Lucene
-bug which could "hide" some search entries. For example, an image might show
-up in queries based on its name, but searching for a tag or similar might
-show nothing.
-
-**If you have experienced any issues with search in the past**, you should
-**strongly** consider reindexing your full text index, the process for
-which has been significantly stream-lined. See :ref:`search-reindexing`
-for more information.
 
 Web Plugin Updates
 ^^^^^^^^^^^^^^^^^^
@@ -219,17 +197,6 @@ Your memory settings should be copied along with :file:`etc/grid/config.xml`,
 but you can check the current settings by running :omerocmd:`admin jvmcfg`.
 See :ref:`jvm_memory_settings` for more information.
 
-Python Imaging Library
-""""""""""""""""""""""
-
-Since OMERO 5.0.0, `Pillow`_ is used as the default imaging library for Python
-instead of PIL. Refer to the installation page of `Pillow`_ documentation to
-install Pillow on your system.
-
-.. warning::
-    As mentioned in the Pillow installation section, if you installed PIL, you
-    will need to remove it first before installing Pillow.
-
 Changes to OMERO.web URLs
 """""""""""""""""""""""""
 
@@ -247,15 +214,6 @@ the previous version of ``bin/omero web config`` has to be replaced with
 the new version. To generate the relevant configuration, please run
 ``bin/omero web config <webserver>``, update and restart your web
 server.
-
-Changes to OMERO.web config (Windows-only)
-""""""""""""""""""""""""""""""""""""""""""
-
-Starting with OMERO.web 5.0, the special configuration of
-:property:`omero.web.caches` is no longer required and may in
-fact cause issues. Please see the instructions under
-:ref:`using_iis` for how to remove the
-configuration.
 
 Restart your database
 ^^^^^^^^^^^^^^^^^^^^^
