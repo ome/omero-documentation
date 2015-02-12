@@ -20,7 +20,7 @@ Upgrade check list
     :local:
     :depth: 1
 
-Check Prerequisities
+Check prerequisities
 ^^^^^^^^^^^^^^^^^^^^
 
 Before starting the upgrade, please ensure that you have obtained all
@@ -46,7 +46,7 @@ The passwords and logins used here are examples. Please consult the
 sure to replace the values of **db_user** and **omero_database** with the
 actual database user and database name for your installation.
 
-Web Plugin Updates
+Web plugin updates
 ^^^^^^^^^^^^^^^^^^
 OMERO.web plugins are very closely integrated into the webclient. For this
 reason, it is possible that an update of OMERO will cause issues with an older
