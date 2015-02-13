@@ -251,7 +251,7 @@ Start the PostgreSQL server.
 You will need to install ``brew services`` first:
 
 ::
-     $ brew tap gapple/services
+    $ brew tap gapple/services
 
 Create a user, a database and, if using PostgreSQL 8.4, add the PL/pgSQL
 language to your database.
