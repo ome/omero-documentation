@@ -322,7 +322,8 @@ datasets <data>` - as a guide for how to distribute OME-TIFF
 datasets across multiple files.
 
 Each of the files in the set has identical metadata apart from the 
-`UUID`, the unique identifier in each file.
+`UUID`, the unique identifier in each file. For example the identifiers
+could be distributed as follows:
 
 **spicule\_C1\_TP1.ome.tif** with ID 386a0ee1-336f-4a8d-afc3-d4c81bc0fd86
 

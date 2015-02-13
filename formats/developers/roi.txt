@@ -76,13 +76,15 @@ attributes or simple children.
    -  FillColor - the color of the fill - encoded as RGBA (optional).
    -  FillRule - which parts of the Shape to fill (optional).
    -  StrokeColor - the color of the stroke (optional).
-   -  StrokeWidth - the width of the stroke in pixels (optional).
+   -  StrokeWidth - the width of the stroke in pixels (optional). This also
+      has an optional length unit, StrokeWidthUnit.
    -  StrokeDashArray - e.g. "none", "10 20 30 10" (optional).
    -  LineCap - the shape of the end of the line (optional).
    -  Text - a text label that can optionally be displayed on the Shape
       (optional).
    -  FontFamily - the font family used to draw the text (optional).
-   -  FontSize - the size of the font in points (optional).
+   -  FontSize - the size of the font in points (optional). This also
+      has an optional length unit, FontSizeUnit.
    -  FontStyle - the style applied to the text (optional).
    -  Visible - The shape is visible if set to true, hidden otherwise
       (optional).
