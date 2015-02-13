@@ -248,6 +248,11 @@ Start the PostgreSQL server.
     $ brew services start postgresql
     $ pg_ctl -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log start
 
+You will need to install ``brew services`` first:
+
+::
+     $ brew tap gapple/services
+
 Create a user, a database and, if using PostgreSQL 8.4, add the PL/pgSQL
 language to your database.
 
