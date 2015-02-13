@@ -83,6 +83,8 @@ Alternative valid forms:
 -  would have a ``ome:TiffData`` block instead of the ``bf:BinData`` block 
    (this would be used in the header of an OME-TIFF file)
 -  would have a ``ome:MetadataOnly`` block instead of the ``bf:BinData`` 
-   block (this would **ONLY** be acceptable if the image data of the file
-   **CANNOT** be represented in an OME file for technical reasons)
+   block (this would be used as a companion to one or more ``ome:BinaryOnly``
+   OME-TIFF file)
 
+.. note:: A units system was added in January 2015. This sample assumes the
+   default unit for each value is used.
