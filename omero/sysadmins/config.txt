@@ -66,6 +66,89 @@ and :doc:`Windows <windows/server-installation>` pages, as well as the
 :doc:`LDAP installation <server-ldap>` page.
 
 
+.. _client_configuration:
+
+Client
+------
+
+.. property:: omero.client.scripts_to_ignore
+
+omero.client.scripts_to_ignore
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Server-side scripts used in IScript service Clients shouldn't display.
+
+Default: `/omero/figure_scripts/Movie_Figure.py,
+/omero/figure_scripts/Split_View_Figure.py,
+/omero/figure_scripts/Thumbnail_Figure.py,
+/omero/figure_scripts/ROI_Split_Figure.py,
+/omero/export_scripts/Make_Movie.py,
+/omero/setup_scripts/FLIM_initialise.py,
+/omero/import_scripts/Populate_ROI.py`
+
+.. property:: omero.client.ui.menu.dropdown.colleagues
+
+omero.client.ui.menu.dropdown.colleagues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client dropdown menu colleagues label.
+
+Default: `Members`
+
+.. property:: omero.client.ui.menu.dropdown.colleagues.enabled
+
+omero.client.ui.menu.dropdown.colleagues.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Flag to show/hide colleagues
+
+Default: `true`
+
+.. property:: omero.client.ui.menu.dropdown.everyone
+
+omero.client.ui.menu.dropdown.everyone
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client dropdown menu all users label.
+
+Default: `All Members`
+
+.. property:: omero.client.ui.menu.dropdown.everyone.enabled
+
+omero.client.ui.menu.dropdown.everyone.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Flag to show/hide all users.
+
+Default: `true`
+
+.. property:: omero.client.ui.menu.dropdown.leaders
+
+omero.client.ui.menu.dropdown.leaders
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client dropdown menu leader label.
+
+Default: `Owners`
+
+.. property:: omero.client.ui.menu.dropdown.leaders.enabled
+
+omero.client.ui.menu.dropdown.leaders.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: `true`
+
+.. property:: omero.client.ui.tree.orphans.description
+
+omero.client.ui.tree.orphans.description
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Description of the "Orphaned images" container.
+
+Default: `This is a virtual container with orphaned images. These images are not linked anywhere. Just drag them to the selected container.`
+
+.. property:: omero.client.ui.tree.orphans.name
+
+omero.client.ui.tree.orphans.name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Name of the "Orphaned images" container located in client tree data manager.
+
+Default: `Orphaned images`
+
+
 .. _core_configuration:
 
 Core
@@ -111,7 +194,7 @@ Default: `omero`
 omero.db.patch
 ^^^^^^^^^^^^^^
 
-Default: `17`
+Default: `20`
 
 .. property:: omero.db.poolsize
 
@@ -435,7 +518,8 @@ LDAP server base search DN, i.e. the filter that is applied
 to all users. (can be empty in which case any LDAP user is
 valid)
 
-Default: `ou=example,o=com`
+Default: `ou=example,
+o=com`
 
 .. property:: omero.ldap.config
 
@@ -521,7 +605,10 @@ Default: `(objectClass=person)`
 omero.ldap.user_mapping
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Default: `omeName=cn,firstName=givenName,lastName=sn,email=mail`
+Default: `omeName=cn,
+firstName=givenName,
+lastName=sn,
+email=mail`
 
 .. property:: omero.ldap.username
 
@@ -859,7 +946,7 @@ lead to memory exceptions. See ticket #11675
 for more information. Note: the property is
 set globally for the JVM.
 
-Default: `false`
+Default: `true`
 
 .. property:: omero.pixeldata.event_log_loader
 
@@ -1058,7 +1145,39 @@ Indexing takes place on all EventLogs as they occur in the database.
 The types listed here will be skipped if they appear in the "entityType"
 field of the EventLog table.
 
-Default: `ome.model.annotations.ChannelAnnotationLink,ome.model.core.Channel,ome.model.core.PlaneInfo,ome.model.core.PixelsOriginalFileMap,ome.model.containers.DatasetImageLink,ome.model.containers.ProjectDatasetLink,ome.model.containers.CategoryGroupCategoryLink,ome.model.containers.CategoryImageLink,ome.model.display.ChannelBinding,ome.model.display.QuantumDef,ome.model.display.Thumbnail,ome.model.meta.Share,ome.model.meta.Event,ome.model.meta.EventLog,ome.model.meta.GroupExperimenterMap,ome.model.meta.Node,ome.model.meta.Session,ome.model.annotations.RoiAnnotationLink,ome.model.roi.Roi,ome.model.roi.Shape,ome.model.roi.Text,ome.model.roi.Rect,ome.model.roi.Mask,ome.model.roi.Ellipse,ome.model.roi.Point,ome.model.roi.Path,ome.model.roi.Polygon,ome.model.roi.Polyline,ome.model.roi.Line,ome.model.screen.ScreenAcquisitionWellSampleLink,ome.model.screen.ScreenPlateLink,ome.model.screen.WellReagentLink,ome.model.stats.StatsInfo`
+Default: `ome.model.annotations.ChannelAnnotationLink,
+ome.model.core.Channel,
+ome.model.core.PlaneInfo,
+ome.model.core.PixelsOriginalFileMap,
+ome.model.containers.DatasetImageLink,
+ome.model.containers.ProjectDatasetLink,
+ome.model.containers.CategoryGroupCategoryLink,
+ome.model.containers.CategoryImageLink,
+ome.model.display.ChannelBinding,
+ome.model.display.QuantumDef,
+ome.model.display.Thumbnail,
+ome.model.meta.Share,
+ome.model.meta.Event,
+ome.model.meta.EventLog,
+ome.model.meta.GroupExperimenterMap,
+ome.model.meta.Node,
+ome.model.meta.Session,
+ome.model.annotations.RoiAnnotationLink,
+ome.model.roi.Roi,
+ome.model.roi.Shape,
+ome.model.roi.Text,
+ome.model.roi.Rect,
+ome.model.roi.Mask,
+ome.model.roi.Ellipse,
+ome.model.roi.Point,
+ome.model.roi.Path,
+ome.model.roi.Polygon,
+ome.model.roi.Polyline,
+ome.model.roi.Line,
+ome.model.screen.ScreenAcquisitionWellSampleLink,
+ome.model.screen.ScreenPlateLink,
+ome.model.screen.WellReagentLink,
+ome.model.stats.StatsInfo`
 
 .. property:: omero.search.include_actions
 
@@ -1069,7 +1188,10 @@ Unless custom code is generating other action
 types, this property should not need to be
 modified.
 
-Default: `INSERT,UPDATE,REINDEX,DELETE`
+Default: `INSERT,
+UPDATE,
+REINDEX,
+DELETE`
 
 .. property:: omero.search.include_types
 
@@ -1081,7 +1203,11 @@ This matches the currently available UI
 options but may need to be expanded for
 custom search bridges.
 
-Default: `ome.model.core.Image,ome.model.containers.Project,ome.model.containers.Dataset,ome.model.screen.Plate,ome.model.screen.Screen`
+Default: `ome.model.core.Image,
+ome.model.containers.Project,
+ome.model.containers.Dataset,
+ome.model.screen.Plate,
+ome.model.screen.Screen`
 
 .. property:: omero.search.locking_strategy
 
@@ -1184,7 +1310,8 @@ Default: `groupChmodStrategy`
 omero.security.filter.bitand
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Default: `(int8and(permissions,%s) = %s)`
+Default: `(int8and(permissions,
+%s) = %s)`
 
 .. property:: omero.security.keyStore
 
@@ -1261,416 +1388,407 @@ Default: `[empty]`
 
 .. _web_configuration:
 
-OMERO.web
----------
+Web
+---
 
-
-.. property:: omero.web.admins 
+.. property:: omero.web.admins
 
 omero.web.admins
 ^^^^^^^^^^^^^^^^
-
 A tuple that lists people who get code error notifications. When :property:`omero.web.debug` False and a view raises an exception, Django will email these people with the full exception information. Each member of the tuple should be a tuple of (Full name, email address).
 
-Default: ``[]`` 
+Default: `[]`
 
-
-.. property:: omero.web.application_server 
+.. property:: omero.web.application_server
 
 omero.web.application_server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 OMERO.web is configured to use FastCGI TCP by default. If you are using a non-standard web server configuration you may wish to change this before generating your web server configuration. Available options "fastcgi" / "fastcgi-tcp"
 
-Default: ``fastcgi-tcp`` 
+Default: `fastcgi-tcp`
 
-
-.. property:: omero.web.application_server.host 
+.. property:: omero.web.application_server.host
 
 omero.web.application_server.host
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Upstream application host
 
-Default: ``0.0.0.0`` 
+Default: `0.0.0.0`
+
+.. property:: omero.web.application_server.max_requests
+
+omero.web.application_server.max_requests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. property:: omero.web.application_server.port 
+Default: `400`
+
+.. property:: omero.web.application_server.port
 
 omero.web.application_server.port
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Upstream application port
 
-Default: ``4080`` 
+Default: `4080`
 
-
-.. property:: omero.web.apps 
+.. property:: omero.web.apps
 
 omero.web.apps
 ^^^^^^^^^^^^^^
-
 Add additional Django applications. For example, see :doc:`/developers/Web/CreateApp`
 
-Default: ``[]`` 
+Default: `[]`
 
-
-.. property:: omero.web.caches 
+.. property:: omero.web.caches
 
 omero.web.caches
 ^^^^^^^^^^^^^^^^
-
 OMERO.web offers alternative session backends to automatically delete stale data using the cache session store backend, see :djangodoc:`Django cached session documentation <topics/http/sessions/#using-cached-sessions>` for more details.
 
-Default: ``{"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}`` 
+Default: `{"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}`
+
+.. property:: omero.web.databases
+
+omero.web.databases
+^^^^^^^^^^^^^^^^^^^
 
 
-.. property:: omero.web.debug 
+Default: `{}`
+
+.. property:: omero.web.debug
 
 omero.web.debug
 ^^^^^^^^^^^^^^^
-
 A boolean that turns on/off debug mode.
 
-Default: ``false`` 
+Default: `false`
 
-
-.. property:: omero.web.email_host 
+.. property:: omero.web.email_host
 
 omero.web.email_host
 ^^^^^^^^^^^^^^^^^^^^
-
 The SMTP server host to use for sending email.
 
-Default: ``None`` 
+Default: `None`
 
-
-.. property:: omero.web.email_host_password 
+.. property:: omero.web.email_host_password
 
 omero.web.email_host_password
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Password to use for the SMTP server.
 
-Default: ``None`` 
+Default: `None`
 
-
-.. property:: omero.web.email_host_user 
+.. property:: omero.web.email_host_user
 
 omero.web.email_host_user
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Username to use for the SMTP server.
 
-Default: ``None`` 
+Default: `None`
 
-
-.. property:: omero.web.email_port 
+.. property:: omero.web.email_port
 
 omero.web.email_port
 ^^^^^^^^^^^^^^^^^^^^
-
 Port to use for the SMTP server.
 
-Default: ``None`` 
+Default: `None`
 
-
-.. property:: omero.web.email_subject_prefix 
+.. property:: omero.web.email_subject_prefix
 
 omero.web.email_subject_prefix
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Subject-line prefix for email messages
 
-Default: ``[OMERO.web]`` 
+Default: `[OMERO.web]`
 
-
-.. property:: omero.web.email_use_tls 
+.. property:: omero.web.email_use_tls
 
 omero.web.email_use_tls
 ^^^^^^^^^^^^^^^^^^^^^^^
-
 Whether to use a TLS (secure) connection when talking to the SMTP server.
 
-Default: ``false`` 
+Default: `false`
 
-
-.. property:: omero.web.force_script_name 
-
-omero.web.force_script_name
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Used as the value of the SCRIPT_NAME environment variable in any HTTP request.
-
-Default: ``None`` 
-
-
-.. property:: omero.web.index_template 
+.. property:: omero.web.index_template
 
 omero.web.index_template
 ^^^^^^^^^^^^^^^^^^^^^^^^
-
 Define template used as an index page ``http://your_host/omero/``.If None user is automaticaly redirected to the login page.For example use 'webstart/start.html'. 
 
-Default: ``None`` 
+Default: `None`
 
-
-.. property:: omero.web.logdir 
+.. property:: omero.web.logdir
 
 omero.web.logdir
 ^^^^^^^^^^^^^^^^
-
 A path to the custom log directory.
 
-Default: ``/opt/hudson/workspace/OMERO-5.1-latest-docs-autogen/OMERO.server/var/log`` 
+Default: `/home/omero/OMERO.server/var/log`
 
-
-.. property:: omero.web.login_logo 
+.. property:: omero.web.login_logo
 
 omero.web.login_logo
 ^^^^^^^^^^^^^^^^^^^^
-
 Customize webclient login page with your own logo. Logo images should ideally be 150 pixels high or less and will appear above the OMERO logo. You will need to host the image somewhere else and link to it with ``"http://www.openmicroscopy.org/site/logo.jpg"``.
 
-Default: ``None`` 
+Default: `None`
 
-
-.. property:: omero.web.login_redirect 
+.. property:: omero.web.login_redirect
 
 omero.web.login_redirect
 ^^^^^^^^^^^^^^^^^^^^^^^^
-
 Redirect to the givin location after loging in. It only support arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#django.core.urlresolvers.reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'``
 
-Default: ``{}`` 
+Default: `{}`
+
+.. property:: omero.web.login_view
+
+omero.web.login_view
+^^^^^^^^^^^^^^^^^^^^
 
 
-.. property:: omero.web.page_size 
+Default: `weblogin`
+
+.. property:: omero.web.open_astex_max_side
+
+omero.web.open_astex_max_side
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Default: `400`
+
+.. property:: omero.web.open_astex_max_voxels
+
+omero.web.open_astex_max_voxels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Default: `27000000`
+
+.. property:: omero.web.open_astex_min_side
+
+omero.web.open_astex_min_side
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Default: `20`
+
+.. property:: omero.web.page_size
 
 omero.web.page_size
 ^^^^^^^^^^^^^^^^^^^
-
 Number of images displayed within a dataset or 'orphaned' container to prevent from loading them all at once.
 
-Default: ``200`` 
+Default: `200`
 
-
-.. property:: omero.web.ping_interval 
+.. property:: omero.web.ping_interval
 
 omero.web.ping_interval
 ^^^^^^^^^^^^^^^^^^^^^^^
-
 description
 
-Default: ``60000`` 
+Default: `60000`
 
-
-.. property:: omero.web.pipeline_css_compressor 
+.. property:: omero.web.pipeline_css_compressor
 
 omero.web.pipeline_css_compressor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Compressor class to be applied to CSS files. If empty or None, CSS files won't be compressed.
 
-Default: ``None`` 
+Default: `None`
 
-
-.. property:: omero.web.pipeline_js_compressor 
+.. property:: omero.web.pipeline_js_compressor
 
 omero.web.pipeline_js_compressor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Compressor class to be applied to JavaScript files. If empty or None, JavaScript files won't be compressed.
 
-Default: ``None`` 
+Default: `None`
 
-
-.. property:: omero.web.pipeline_staticfile_storage 
+.. property:: omero.web.pipeline_staticfile_storage
 
 omero.web.pipeline_staticfile_storage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 The file storage engine to use when collecting static files with the collectstatic management command. See `the documentation <http://django-pipeline.readthedocs.org/en/latest/storages.html>`_ for more details.
 
-Default: ``pipeline.storage.PipelineStorage`` 
+Default: `pipeline.storage.PipelineStorage`
+
+.. property:: omero.web.prefix
+
+omero.web.prefix
+^^^^^^^^^^^^^^^^
+Used as the value of the SCRIPT_NAME environment variable in any HTTP request.
+
+Default: `None`
+
+.. property:: omero.web.public.cache.enabled
+
+omero.web.public.cache.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. property:: omero.web.public.enabled 
+Default: `false`
+
+.. property:: omero.web.public.cache.key
+
+omero.web.public.cache.key
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Default: `omero.web.public.cache.key`
+
+.. property:: omero.web.public.cache.timeout
+
+omero.web.public.cache.timeout
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Default: `86400`
+
+.. property:: omero.web.public.enabled
 
 omero.web.public.enabled
 ^^^^^^^^^^^^^^^^^^^^^^^^
-
 Enable and disable the OMERO.web public user functionality.
 
-Default: ``false`` 
+Default: `false`
 
-
-.. property:: omero.web.public.password 
+.. property:: omero.web.public.password
 
 omero.web.public.password
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Password to use during authentication.
 
-Default: ``None`` 
+Default: `None`
 
-
-.. property:: omero.web.public.server_id 
+.. property:: omero.web.public.server_id
 
 omero.web.public.server_id
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Server to authenticate against.
 
-Default: ``1`` 
+Default: `1`
 
-
-.. property:: omero.web.public.url_filter 
+.. property:: omero.web.public.url_filter
 
 omero.web.public.url_filter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Set a URL filter for which the OMERO.web public user is allowed to navigate. The idea is that you can create the public pages yourself (see OMERO.web framework since we do not provide public pages.
 
-Default: ``^/(?!webadmin)`` 
+Default: `^/(?!webadmin)`
 
-
-.. property:: omero.web.public.user 
+.. property:: omero.web.public.user
 
 omero.web.public.user
 ^^^^^^^^^^^^^^^^^^^^^
-
 Username to use during authentication.
 
-Default: ``None`` 
+Default: `None`
 
-
-.. property:: omero.web.server_email 
+.. property:: omero.web.server_email
 
 omero.web.server_email
 ^^^^^^^^^^^^^^^^^^^^^^
-
 The email address that error messages come from, such as those sent to :property:`omero.web.admins`.  Requires EMAIL properties below.
 
-Default: ``None`` 
+Default: `None`
 
-
-.. property:: omero.web.server_list 
+.. property:: omero.web.server_list
 
 omero.web.server_list
 ^^^^^^^^^^^^^^^^^^^^^
-
 A list of servers the Web client can connect to.
 
-Default: ``[["localhost", 4064, "omero"]]`` 
+Default: `[["localhost", 4064, "omero"]]`
 
-
-.. property:: omero.web.session_cookie_age 
+.. property:: omero.web.session_cookie_age
 
 omero.web.session_cookie_age
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 The age of session cookies, in seconds.
 
-Default: ``86400`` 
+Default: `86400`
 
-
-.. property:: omero.web.session_engine 
+.. property:: omero.web.session_engine
 
 omero.web.session_engine
 ^^^^^^^^^^^^^^^^^^^^^^^^
-
 Controls where Django stores session data. See :djangodoc:`Configuring the session engine for more details <ref/settings/#session-engine>`.
 
-Default: ``omeroweb.filesessionstore`` 
+Default: `omeroweb.filesessionstore`
 
-
-.. property:: omero.web.session_expire_at_browser_close 
+.. property:: omero.web.session_expire_at_browser_close
 
 omero.web.session_expire_at_browser_close
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 A boolean that determines whether to expire the session when the user closes their browser. See :djangodoc:`Django Browser-length sessions vs. persistent sessions documentation <topics/http/sessions/#browser-length-vs-persistent-sessions>` for more details.
 
-Default: ``true`` 
+Default: `true`
 
-
-.. property:: omero.web.static_url 
+.. property:: omero.web.static_url
 
 omero.web.static_url
 ^^^^^^^^^^^^^^^^^^^^
-
 URL to use when referring to static files. Example: ``'/static/'`` or ``'http://static.example.com/'``. Used as the base path for asset  definitions (the Media class) and the staticfiles app. It must end in a slash if set to a non-empty value.
 
-Default: ``/static/`` 
+Default: `/static/`
 
-
-.. property:: omero.web.staticfile_dirs 
+.. property:: omero.web.staticfile_dirs
 
 omero.web.staticfile_dirs
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Defines the additional locations the staticfiles app will traverse if the FileSystemFinder finder is enabled, e.g. if you use the collectstatic or findstatic management command or use the static file serving view.
 
-Default: ``[]`` 
+Default: `[]`
 
-
-.. property:: omero.web.template_dirs 
+.. property:: omero.web.template_dirs
 
 omero.web.template_dirs
 ^^^^^^^^^^^^^^^^^^^^^^^
-
 List of locations of the template source files, in search order. Note that these paths should use Unix-style forward slashes, even on Windows.
 
-Default: ``[]`` 
+Default: `[]`
 
-
-.. property:: omero.web.ui.center_plugins 
+.. property:: omero.web.ui.center_plugins
 
 omero.web.ui.center_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Add plugins to the center panels. Plugins are ``['Channel overlay', 'webtest/webclient_plugins/center_plugin.overlay.js.html', 'channel_overlay_panel']``. The javascript loads data into ``$('#div_id')``.
 
-Default: ``[]`` 
+Default: `[]`
 
-
-.. property:: omero.web.ui.menu.dropdown 
-
-omero.web.ui.menu.dropdown
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Shows/hides users in dropdown menu.
-
-Default: ``{"LEADERS": "Owners", "COLLEAGUES": "Members", "ALL": "All members"}`` 
-
-
-.. property:: omero.web.ui.right_plugins 
+.. property:: omero.web.ui.right_plugins
 
 omero.web.ui.right_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Add plugins to the right-hand panel. Plugins are ``['Label', 'include.js', 'div_id']``. The javascript loads data into ``$('#div_id')``.
 
-Default: ``[["Acquisition", "webclient/data/includes/right_plugin.acquisition.js.html", "metadata_tab"],["Preview", "webclient/data/includes/right_plugin.preview.js.html", "preview_tab"]]`` 
+Default: `[["Acquisition", "webclient/data/includes/right_plugin.acquisition.js.html", "metadata_tab"],["Preview", "webclient/data/includes/right_plugin.preview.js.html", "preview_tab"]]`
 
-
-.. property:: omero.web.ui.top_links 
+.. property:: omero.web.ui.top_links
 
 omero.web.ui.top_links
 ^^^^^^^^^^^^^^^^^^^^^^
-
 Add links to the top header: links are ``['Link Text', 'link', options]``, where the url is reverse('link') OR simply 'link' (for external urls). E.g. ``'[["Webtest", "webtest_index"], ["Homepage", "http://...", {"title": "Homepage", "target": "new"} ]]'``
 
-Default: ``[["Data", "webindex", {"title": "Browse Data via Projects, Tags etc"}],["History", "history", {"title": "History"}]]`` 
+Default: `[["Data", "webindex", {"title": "Browse Data via Projects, Tags etc"}],["History", "history", {"title": "History"}],["Help", "http://help.openmicroscopy.org/",{"title":"Open OMERO user guide in a new tab", "target":"new"}]]`
 
-
-.. property:: omero.web.viewer.initial_zoom_level 
+.. property:: omero.web.viewer.initial_zoom_level
 
 omero.web.viewer.initial_zoom_level
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Configuration options for the viewer. -1: zoom in fully, 0: zoom out fully, unset: zoom to fit window
 
-Default: ``None`` 
+Default: `None`
+
+.. property:: omero.web.webgateway_cache
+
+omero.web.webgateway_cache
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Default: `None`
+
 
