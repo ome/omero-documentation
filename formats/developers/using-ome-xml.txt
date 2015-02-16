@@ -381,7 +381,7 @@ Possible included objects
     - ``<xs:element ref="FilterSet">``
     - ``<xs:element ref="FilterSetRef">``
     - ``<xs:element ref="GenericExcitationSource">``
-    - ``<xs:element ref="HashSHA1">
+    - ``<xs:element ref="HashSHA1">``
     - ``<xs:element ref="Image">``
     - ``<xs:element ref="ImageRef">``
     - ``<xs:element ref="ImagingEnvironment">``
