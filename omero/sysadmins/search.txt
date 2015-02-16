@@ -199,22 +199,21 @@ servers of various sizes:
   - * Re-indexing type
     * Re-indexing duration
     * Binary repository size
-    * Indexer JVM settings
-    * :property:`omero.search.batch`
+    * Indexer memory settings
 
-  - * Background
+  - * Background [1]_
     * 8h
     * 19TB
     * -Xmx4800m
-    * 5000 [1]_
 
-  - * Off-line
+  - * Off-line [2]_
     * 6h30
     * 16TB
-    * -Xmx2048M
-    * 100
+    * -Xmx2g
 
-.. [1] :ome-users:`[ome-users] Re-indexing OMERO's search database <2015-February/005038.html>`
+.. [1] :ome-users:`[ome-users] Re-indexing OMERO's search database  <2015-February/005038.html>`
+
+.. [2] Passed to ``bin/omero admin reindex --foreground`` using the ``--mem 2g`` option
 
 .. seealso::
   :doc:`/developers/Modules/Search`
