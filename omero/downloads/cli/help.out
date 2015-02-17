@@ -1,4 +1,3 @@
-
  Usage:  importer-cli [OPTION]... [path [path ...]]... 
    or:   importer-cli [OPTION]... - 
 
@@ -31,9 +30,9 @@ Optional arguments:
   -d DATASET_ID				OMERO dataset ID to import image into
   -r SCREEN_ID				OMERO screen ID to import plate into
   --report				Report errors to the OME team
-  --upload				Upload broken files with report
-  --logs				Upload log file with report
-  --email EMAIL				Email for reported errors
+  --upload				Upload broken files and log file (if any) with report. Required --report
+  --logs				Upload log file (if any) with report. Required --report
+  --email EMAIL				Email for reported errors. Required --report
   --debug LEVEL				Turn debug logging on (optional level)
   --annotation_ns ANNOTATION_NS		Namespace to use for subsequent annotation
   --annotation_text ANNOTATION_TEXT	Content for a text annotation (requires namespace)

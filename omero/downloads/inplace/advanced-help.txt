@@ -17,6 +17,8 @@ ADVANCED OPTIONS:
           ln              	# Use hard-link.
           ln_s            	# Use soft-link.
           ln_rm           	# Caution! Hard-link followed by source deletion.
+          cp              	# Use local copy command.
+          cp_rm           	# Caution! Copy followed by source deletion.
 
 
   e.g. $ bin/omero import -- --transfer=ln_s foo.tiff
@@ -52,5 +54,12 @@ ADVANCED OPTIONS:
 
   e.g. $ bin/omero import -- --checksum_algorithm=CRC-32 foo.tiff
        $ ./importer-cli --checksum_algorithm=Murmur3-128 bar.tiff
+
+  Feedback:
+  ---------
+
+    --qa_baseurl=ARG	Specify the base URL for reporting feedback
+  e.g. $ bin/omero import -- --qa_baseurl=https://qa.staging.openmicroscopy.org/qa
+       $ ./importer-cli --qa_baseurl=https://qa.staging.openmicroscopy.org/qa
 
 Report bugs to <ome-users@lists.openmicroscopy.org.uk>
