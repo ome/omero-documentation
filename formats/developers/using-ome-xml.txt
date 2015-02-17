@@ -397,7 +397,7 @@ Possible included objects
     - ``<xs:element ref="Line">``
     - ``<xs:element ref="ListAnnotation">``
     - ``<xs:element ref="LongAnnotation">``
-    - ``<xs:element ref="M">``
+    - ``<xs:element ref="M">`` *(part of the Map key/value structure)*
     - ``<xs:element ref="Map">``
     - ``<xs:element ref="MapAnnotation">``
     - ``<xs:element ref="Mask">``
