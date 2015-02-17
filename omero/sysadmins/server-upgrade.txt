@@ -20,31 +20,23 @@ Upgrade check list
     :local:
     :depth: 1
 
-Check Prerequisities
+Check prerequisities
 ^^^^^^^^^^^^^^^^^^^^
 
-Before starting the upgrade, please ensure that you have obtained all the
-prerequisites for installation, documented for Unix and Windows. In
-particular, ensure that you are running a suitable version of PostgreSQL to
-enable successful upgrading of the database.
+Before starting the upgrade, please ensure that you have obtained all
+the prerequisites for installation, documented for Unix and Windows. In
+particular, ensure that you are running a suitable version of PostgreSQL
+to enable successful upgrading of the database. If you are upgrading
+from a version earlier than OMERO 5.0 then first review the `5.0 upgrade
+notes
+<http://www.openmicroscopy.org/site/support/omero5/sysadmins/server-upgrade.html>`_
+regarding previous changes in OMERO.
 
 File limits
 ^^^^^^^^^^^
 
 You may wish to review the open file limits.  Please consult the
 :ref:`limitations-openfiles` section for further details.
-
-Password salting
-^^^^^^^^^^^^^^^^
-
-With 5.0.0, the default JDBC password provider has been modified to add
-password salting support. This implies that once a server has been upgraded
-and deployed, if passwords are modified, you will not be able to easily revert
-to a configuration without salting. To keep using the legacy password provider
-without salting support, you will need to configure
-:property:`omero.security.password_provider` to use the legacy
-``chainedPasswordProviderNoSalt`` as described in the
-:ref:`legacy_password_providers` section.
 
 Password usage
 ^^^^^^^^^^^^^^
@@ -54,20 +46,7 @@ The passwords and logins used here are examples. Please consult the
 sure to replace the values of **db_user** and **omero_database** with the
 actual database user and database name for your installation.
 
-Re-indexing for search
-^^^^^^^^^^^^^^^^^^^^^^
-
-All OMERO databases created **prior to 5.0.1** were susceptible to a Lucene
-bug which could "hide" some search entries. For example, an image might show
-up in queries based on its name, but searching for a tag or similar might
-show nothing.
-
-**If you have experienced any issues with search in the past**, you should
-**strongly** consider reindexing your full text index, the process for
-which has been significantly stream-lined. See :ref:`search-reindexing`
-for more information.
-
-Web Plugin Updates
+Web plugin updates
 ^^^^^^^^^^^^^^^^^^
 OMERO.web plugins are very closely integrated into the webclient. For this
 reason, it is possible that an update of OMERO will cause issues with an older
@@ -98,6 +77,8 @@ below. Please refer to each section for additional details.
 .. contents::
     :local:
     :depth: 1
+
+.. _back-up-the-db:
 
 Perform a database backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -145,6 +126,34 @@ Upgrade your database
         This section only concerns users upgrading from a |previousversion| or
         earlier server. If upgrading from a |version| server, you do not need
         to upgrade the database.
+
+Ensure Unicode character encoding
+"""""""""""""""""""""""""""""""""
+
+OMERO 5.1 requires a Unicode-encoded database. From :command:`psql`::
+
+  # SELECT datname, pg_encoding_to_char(encoding) FROM pg_database;
+    datname   | pg_encoding_to_char 
+  ------------+---------------------
+   template1  | UTF8
+   template0  | UTF8
+   postgres   | UTF8
+   omero      | UTF8
+  (4 rows)
+
+Alternatively, simply run :command:`psql -l` and check the output. If
+your OMERO database is not Unicode-encoded with ``UTF8`` then it must be
+re-encoded.
+
+If you have the :command:`pg_upgradecluster` command available then its
+:option:`--locale` option can effect the change in encoding. Otherwise,
+create a Unicode-encoded dump of your database: dump it :ref:`as before
+<back-up-the-db>` but to a different dump file and with an additional
+:option:`-E UTF8` option. Then, create a Unicode-encoded database for
+OMERO and restore that dump into it with :command:`pg_restore`,
+similarly to :ref:`effecting a rollback <restore-the-db>`. If required
+to achieve this, the :option:`-E UTF8` option is accepted by both
+:command:`initdb` and :command:`createdb`.
 
 Run the upgrade script
 """"""""""""""""""""""
@@ -219,17 +228,6 @@ Your memory settings should be copied along with :file:`etc/grid/config.xml`,
 but you can check the current settings by running :omerocmd:`admin jvmcfg`.
 See :ref:`jvm_memory_settings` for more information.
 
-Python Imaging Library
-""""""""""""""""""""""
-
-Since OMERO 5.0.0, `Pillow`_ is used as the default imaging library for Python
-instead of PIL. Refer to the installation page of `Pillow`_ documentation to
-install Pillow on your system.
-
-.. warning::
-    As mentioned in the Pillow installation section, if you installed PIL, you
-    will need to remove it first before installing Pillow.
-
 Changes to OMERO.web URLs
 """""""""""""""""""""""""
 
@@ -247,15 +245,6 @@ the previous version of ``bin/omero web config`` has to be replaced with
 the new version. To generate the relevant configuration, please run
 ``bin/omero web config <webserver>``, update and restart your web
 server.
-
-Changes to OMERO.web config (Windows-only)
-""""""""""""""""""""""""""""""""""""""""""
-
-Starting with OMERO.web 5.0, the special configuration of
-:property:`omero.web.caches` is no longer required and may in
-fact cause issues. Please see the instructions under
-:ref:`using_iis` for how to remove the
-configuration.
 
 Restart your database
 ^^^^^^^^^^^^^^^^^^^^^
@@ -276,6 +265,8 @@ Restart your database
    ::
 
        $ bin/omero web start
+
+.. _restore-the-db:
 
 Restore a database backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^
