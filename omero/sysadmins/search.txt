@@ -203,16 +203,14 @@ servers of various sizes:
   - * Background [1]_
     * 8h
     * 19TB
-    * -Xmx4800m
+    * :option:`-Xmx4800m`
 
-  - * Off-line [2]_
+  - * Off-line
     * 6h30
     * 16TB
-    * -Xmx2g
+    * :option:`--mem 2g`
 
 .. [1] :ome-users:`[ome-users] Re-indexing OMERO's search database  <2015-February/005038.html>`
-
-.. [2] Passed to ``bin/omero admin reindex --foreground`` using the ``--mem 2g`` option
 
 .. seealso::
   :doc:`/developers/Modules/Search`
