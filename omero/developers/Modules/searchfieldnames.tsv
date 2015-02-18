@@ -19,7 +19,9 @@ file.format	For ``FileAnnotations`` and objects they are attached to, the format
 file.path	For ``FileAnnotations`` and objects they are attached to, the path of the ``OriginalFile``
 file.sha1	For ``FileAnnotations`` and objects they are attached to, the sha1 of the ``OriginalFile``
 file.contents	For ``FileAnnotations`` and objects they are attached to as well as the ``OriginalFile`` itself, the file contents themselves if their Format is configured with the File parsers.
-Internal,
+${NAME}	For ``MapAnnotations`` and objects they are attached to, dynamic fields are generated for each of the NamedValue entries in the annotation. For example, if ``NamedValue('temperature', '37')`` is one such value, a field named ``temperature`` will exist.
+has_key	As ``${NAME}``, but a single field of name ``has_key`` is generated for each ``NamedValue`` entry with a value of the key such that a search for ``has_key:temperature`` in the example above is possible.
+**Internal**	
 combined_fields	The default field prefix.
 _hibernate_class	Used by Hibernate Search to record the entity type. The class value, e.g. ome.model.core.Image is also entered in combined_fields. Unimportant for the casual users.
 id	The primary key of the entity. Unimportant for the casual user
