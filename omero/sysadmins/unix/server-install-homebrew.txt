@@ -68,7 +68,7 @@ requirements for OMERO will be installed to :file:`/usr/local`.
 
 ::
 
-    $ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     $ brew install git
 
 If you are having issues with curl, see the :ref:`install_homebrew_curl`
@@ -241,12 +241,19 @@ Database creation
 ^^^^^^^^^^^^^^^^^
 
 Start the PostgreSQL server.
+If you wish to use ``brew services`` to start postgresql, you will first need to 
+install it:
+
+::
+
+    $ brew tap gapple/services
 
 ::
 
     $ initdb -E UTF8 /usr/local/var/postgres
     $ brew services start postgresql
     $ pg_ctl -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log start
+
 
 Create a user, a database and, if using PostgreSQL 8.4, add the PL/pgSQL
 language to your database.
