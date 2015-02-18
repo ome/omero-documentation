@@ -1,0 +1,251 @@
+The OME System of Units
+=======================
+
+This sections explains the OME system of Units.
+
+Implementation
+^^^^^^^^^^^^^^
+
+The `ome.xsd` schema file defines new type enumerations: UnitsLength,
+UnitsTime, UnitsPressure, UnitsAngle, UnitsTemperature,
+UnitsElectricPotential, UnitsPower and UnitsFrequency. These types are used
+throughout the model. Each new unit attribute is in a pair with an existing
+attribute, e.g. PinholeSize and PinholeSizeUnit. The Xsd-Fu application then
+processes these into java classes that use types based on the new
+`ome.units.*` classes.
+
+The classes in `ome.units` are inspired by but not a direct implementation of
+the specification for a Units of Measurement API available from
+http://www.unitsofmeasurement.org.
+
+The classes have been constructed in a way that means they could in future be
+reworked as a wrapper for Units of Measurement API implementation developed
+at https://www.eclipse.org/uomo/ if future work on that project provides a
+more complete implementation.
+
+
+OME system of measurements
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Defines a system of measurements for:
+
+.. contents::
+  :depth: 1
+  :local:
+
+
+Angle
+-----
+
+Is based on the following unit:
+
+-  **rad** - radian (the SI unit of angle)
+
+And from this is derived the following units:
+
+-  **deg** - degree
+-  **gon** - gradian
+
+All angle units are freely convertible.
+
+
+Electric Potential (commonly called Voltage)
+--------------------------------------------
+
+Is based on the following unit:
+
+-  **V** - volt (the SI unit of electric potential)
+
+And from this is derived the following units:
+
+-  All SI range for volt from |10^24| yotta (**YV**) to |10^-24| yocto
+   (**yV**)
+
+All electric potential units are freely convertible.
+
+
+Frequency
+---------
+
+Is based on the following unit:
+
+-  **Hz** - hertz (the SI unit of frequency)
+
+And from this is derived the following units:
+
+-  All SI range for hertz from |10^24| yotta (**YHz**) to |10^-24| yocto
+   (**yHz**)
+
+All frequency units are freely convertible.
+
+
+Length
+------
+
+Is based on the following units:
+
+-  **m** - meter (the si unit of length)
+-  **in** - inch (the Imperial/US unit of length)
+-  **pixel** - a length measured in terms of the image pixel size
+-  **reference frame** - a length measured in terms of an arbitrary unit
+   based on the equipment used
+
+And from these are derived the following units:
+
+-  All SI range for meter from |10^24| yotta (**Ym**) to |10^-24| yocto
+   (**ym**)
+-  **Å** - ångströms
+-  **thou** - thou (or mil, 1/1000 of an inch)
+-  **li** - line (1/12 of an inch)
+-  **in** - inch
+-  **ft** - foot
+-  **yd** - yard
+-  **mi** - terrestrial mile
+-  **ua** - astronomical unit - *The official term is ua as the SI standard
+   assigned AU to absorbance unit.*
+-  **ly** - light year
+-  **pc** - parsec
+-  **pt** - typography point - *This unit should be limited to font sizes.*
+
+All length units are **NOT** freely convertible. It is not possible to convert
+to or from **pixel** and **reference frame**.
+
+Power
+-----
+
+Is based on the following unit:
+
+-  **W** - watt (the SI unit of power)
+
+And from this is derived the following units:
+
+-  All SI range for watt from |10^24| yotta (**YW**) to |10^-24| yocto
+   (**yW**)
+
+All power units are freely convertible.
+
+
+Pressure
+--------
+
+Is based on the following unit:
+
+-  **Pa** - pascal (the si unit of pressure)
+
+And from this is derived the following units:
+
+-  All SI range for pascal from |10^24| yotta (**YPa**) to |10^-24| yocto (**yPa**)
+-  **Mbar** - mega bar
+-  **kbar** - kilo bar
+-  **dbar** - deci bar
+-  **cbar** - centi bar
+-  **mbar** - milli bar
+-  **atm** - standard atmosphere
+-  **psi** - pounds per square inch
+-  **Torr** - torr
+-  **mTorr** - milli torr
+-  **mm Hg** -  millimetre of mercury
+
+All pressure units are freely convertible.
+
+
+Temperature
+-----------
+
+Is based on the following unit:
+
+-  **K** - kelvin (the SI unit of temperature)
+
+And from this is derived the following units:
+
+-  **°C** - degree Celsius
+-  **°F** - degree Fahrenheit
+-  **°R** - degree Rankine
+
+The degree sign and word was dropped from kelvin in 1968. 
+http://en.wikipedia.org/wiki/Kelvin
+
+All temperature units are freely convertible.
+
+
+Time
+------
+
+Is based on the following unit:
+
+-  **s** - second (the SI unit of time)
+
+And from this is derived the following units:
+
+-  All SI range for second from |10^24| yotta (Ys) to |10^-24| yocto (ys)
+-  **min** - minute
+-  **h** - hour
+-  **d** - day
+
+All time units are freely convertible.
+
+General points
+^^^^^^^^^^^^^^
+
+Unit abbreviations
+--------------------------
+
+The string used for each unit is the standard abbreviation for that unit.
+In a few cases these do not seem obvious but the set of abbreviation has
+been chosen by the scientific community to avoid abbreviation clashes.
+
+Unit names
+------------------
+
+The name and spelling used for each unit in long form is not defined by the
+scientific community, rather the abbreviation is standardised. For example,
+the unit of length with the symbol **m** is equally valid written as meter,
+metre, metr, or metro.
+
+The SI range of prefixes
+------------------------
+
+The following unit abbreviation are defined:
+
+- **Y** - |10^24| - yotta
+- **Z** - |10^21| - zetta
+- **E** - |10^18| - exa
+- **P** - |10^15| - peta
+- **T** - |10^12| - tera
+- **G** - |10^9| - giga
+- **M** - |10^6| - mega
+- **k** - |10^3| - kilo
+- **h** - |10^2| - hecto
+- **da** - |10^1| - deca
+- **d** - |10^-1| - deci
+- **c** - |10^-2| - centi
+- **m** - |10^-3| - milli
+- **µ** - |10^-6| - micro
+- **n** - |10^-9| - nano
+- **p** - |10^-12| - pico
+- **f** - |10^-15| - femto
+- **a** - |10^-18| - atto
+- **z** - |10^-21| - zepto
+- **y** - |10^-24| - yocto
+
+.. |10^24| replace:: 10\ :sup:`24`
+.. |10^21| replace:: 10\ :sup:`21`
+.. |10^18| replace:: 10\ :sup:`18`
+.. |10^15| replace:: 10\ :sup:`15`
+.. |10^12| replace:: 10\ :sup:`12`
+.. |10^9| replace:: 10\ :sup:`9`
+.. |10^6| replace:: 10\ :sup:`6`
+.. |10^3| replace:: 10\ :sup:`3`
+.. |10^2| replace:: 10\ :sup:`2`
+.. |10^1| replace:: 10\ :sup:`1`
+.. |10^-1| replace:: 10\ :sup:`-1`
+.. |10^-2| replace:: 10\ :sup:`-2`
+.. |10^-3| replace:: 10\ :sup:`-3`
+.. |10^-6| replace:: 10\ :sup:`-6`
+.. |10^-9| replace:: 10\ :sup:`-9`
+.. |10^-12| replace:: 10\ :sup:`-12`
+.. |10^-15| replace:: 10\ :sup:`-15`
+.. |10^-18| replace:: 10\ :sup:`-18`
+.. |10^-21| replace:: 10\ :sup:`-21`
+.. |10^-24| replace:: 10\ :sup:`-24`
+
