@@ -360,6 +360,8 @@ Graphs
 omero.graphs.wrap
 ^^^^^^^^^^^^^^^^^
 Whether to use the new Chgrp, Chown, Delete implementations.
+Available only for OMERO 5.1:
+from OMERO 5.2 the new implementations must be used.
 
 Default: `true`
 
