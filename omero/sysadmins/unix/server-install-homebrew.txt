@@ -245,6 +245,7 @@ If you wish to use ``brew services`` to start postgresql, you will first need to
 install it:
 
 ::
+
     $ brew tap gapple/services
 
 ::
