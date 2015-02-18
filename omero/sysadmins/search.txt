@@ -144,29 +144,28 @@ Off-line re-indexing
 It is also possible to re-index the database with the server off-line. First,
 shutdown the OMERO server as normal and make any adjustments to the
 configuration that need to be made. Clear the contents of the :file:`FullText`
-directory as above, then run
+directory and reset the indexing's progress counter as above::
 
-::
+  $ bin/omero admin reindex --wipe
+  $ bin/omero admin reindex --reset 0
+
+Then run the off-line re-indexing command::
 
    $ bin/omero admin reindex --foreground
 
 Re-indexing the database in off-line mode will use a 1 GB heap by default, but
-this can be specified on the command-line with the "mem" argument:
-
-::
+this can be specified on the command-line with the :option:`--mem` argument::
 
    $ bin/omero admin reindex --foreground --mem=2g
 
 Other search configuration properties from :ref:`search_configuration` can be
-set for the processing by setting the "JAVA_OPTS" environment variable:
+set for the processing by setting the :envvar:`JAVA_OPTS` environment
+variable::
 
-::
+   $ JAVA_OPTS="-Domero.search.max_partition_size=100000" bin/omero admin reindex --foreground
 
-   $ JAVA_OPTS=-Domero.search.max_partition_size=100000"" bin/omero admin reindex --foreground
-
-Once forground indexing is complete, re-enable the background indexer as above:
-
-::
+Once foreground indexing is complete, re-enable the background indexer as
+above::
 
     $ bin/omero admin reindex --finish
 
@@ -199,20 +198,19 @@ servers of various sizes:
   - * Re-indexing type
     * Re-indexing duration
     * Binary repository size
-    * Indexer JVM settings
-    * :property:`omero.search.batch`
+    * Indexer memory settings
 
-  - * Background
-    * 31h
-    * 300GB
-    * -Xmx512M
-    * 50
+  - * Background [1]_
+    * 8h
+    * 19TB
+    * :option:`-Xmx4800m`
 
-  - * Background
-    * 10 days
+  - * Off-line
+    * 6h30
     * 16TB
-    * -Xmx2048M
-    * 100
+    * :option:`--mem 2g`
+
+.. [1] :ome-users:`[ome-users] Re-indexing OMERO's search database  <2015-February/005038.html>`
 
 .. seealso::
   :doc:`/developers/Modules/Search`
