@@ -9,5 +9,6 @@ flexible user-added metadata. Other updates and new features include:
   different users' settings in the UI
 - improved functionality of the OMERO ImageJ plugin allowing you to save ROIs
   and overlays from ImageJ into OMERO
-- the ability to 'import to' specified groups, projects and datasets using
-  OMERO.dropbox or the Command Line Importer 
+- improved 'import-to' functionality allowing destination groups, projects and
+  datasets to be set automatically using information from the file path when
+  importing using OMERO.dropbox or the Command Line Importer
