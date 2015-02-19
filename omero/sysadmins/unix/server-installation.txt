@@ -201,7 +201,7 @@ The following Python packages are required:
 
     * - PyTables (2.1.0 or higher)
       - :doc:`OMERO.tables </sysadmins/server-tables>`
-      - `PyTables page <http://www.pytables.org/moin/Downloads>`_
+      - `PyTables page <https://pytables.github.io/downloads.html>`_
 
     * - scipy.ndimage
       - :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>` [3]_
