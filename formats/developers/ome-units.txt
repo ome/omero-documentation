@@ -83,7 +83,6 @@ Length
 Is based on the following units:
 
 -  **m** - meter (the si unit of length)
--  **in** - inch (the Imperial/US unit of length)
 -  **pixel** - a length measured in terms of the image pixel size
 -  **reference frame** - a length measured in terms of an arbitrary unit
    based on the equipment used
@@ -93,6 +92,7 @@ And from these are derived the following units:
 -  All the SI range for meter from |10^24| yotta (**Ym**) to |10^-24| yocto
    (**ym**)
 -  **Å** - ångströms
+-  **in** - inch (the Imperial/US unit of length)
 -  **thou** - thou (or mil, 1/1000 of an inch)
 -  **li** - line (1/12 of an inch)
 -  **in** - inch
