@@ -10,7 +10,7 @@ UnitsElectricPotential, UnitsPower and UnitsFrequency. These types are used
 throughout the model. Each new unit attribute is in a pair with an existing
 attribute, e.g. PinholeSize and PinholeSizeUnit. The 
 :bf_doc:`XSD Fu <developers/xsd-fu.html>` application then processes these
-attribute pairs into single unit aware attribute in the output java classes.
+attribute pairs into a single unit aware attribute in the output java classes.
 The java classes make use of the types from the new `ome.units.*` classes.
 
 The classes in `ome.units` are inspired by but not a direct implementation of
