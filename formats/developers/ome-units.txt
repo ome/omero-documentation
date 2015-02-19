@@ -1,7 +1,9 @@
 The OME System of Units
 =======================
 
-This sections explains the OME system of Units.
+.. topic:: Overview
+
+   This sections explains the OME system of Units.
 
 Implementation
 ^^^^^^^^^^^^^^
@@ -191,7 +193,7 @@ Unit abbreviations
 --------------------------
 
 The string used for each unit is the standard abbreviation for that unit.
-In a few cases these do not seem obvious but the set of abbreviation has
+In a few cases these do not seem obvious but the set of abbreviations has
 been chosen by the scientific community to avoid abbreviation clashes.
 
 Unit names
