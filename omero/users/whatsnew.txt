@@ -1,12 +1,14 @@
 What's new for OMERO 5.1
 ========================
 
-From a user's perspective, OMERO 5.1 introduces units and some other
-stuff that others **will** write about.
+From a user's perspective, OMERO 5.1 introduces support for units and new more
+flexible user-added metadata. Other updates and new features include:
 
-- Moving and deleting data is now faster.
-
-- There is **going to be** a new :help:`Getting Started guide
-  <getting-started-5.html>` for OMERO 5.1.
-
-.. note:: :doc:`demo-server` **is now available for OMERO 5.1.**
+- improved performance for moving and deleting data
+- the ability to copy and paste rendering settings and select between
+  different users' settings in the UI
+- improved functionality of the OMERO ImageJ plugin allowing you to save ROIs
+  and overlays from ImageJ into OMERO
+- improved 'import-to' functionality allowing destination groups, projects,
+  datasets and screens to be set automatically using information from the file
+  path when importing using OMERO.dropbox or the Command Line Importer
