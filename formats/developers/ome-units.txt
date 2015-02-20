@@ -107,7 +107,7 @@ And from these are derived the following units:
 -  **pt** - typography point - *This unit should be limited to font sizes.*
 
 All units are freely convertible **except** for **pixel** and 
-**reference frame**, both of which are not of specified length.
+**reference frame**, both of which are of unspecified length.
 
 Power
 -----
