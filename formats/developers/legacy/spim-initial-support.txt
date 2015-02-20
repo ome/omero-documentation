@@ -250,7 +250,7 @@ There are four image nodes each representing one SPIM angle.
     …
     <Image ID="Image:3" Name="Spim Sample Tile 2 Angle 2">
 
-They are connected together using a !SpimSet annotation.
+They are connected together using a SpimSet annotation.
 
 ::
 

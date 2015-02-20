@@ -10,11 +10,7 @@ metadata processing facilities form the backbone of the
 It is not to be confused with the 
 :legacy_plone:`OME-Java API <ome-server/developer/java-api>`
 for communicating with an :legacy_plone:`OME Server <ome-server>`
-from Java—previously, the OME-Java library was a combination of both
-the OME-XML Java library and the OME-Java API in one package, but as of
-September 2008 they have been split into two separate libraries:
-**ome-xml.jar** is the OME-XML Java library, and **ome-java.jar** is
-the OME-Java API.
+from Java.
 
 Download
 --------

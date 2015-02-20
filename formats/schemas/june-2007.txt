@@ -182,8 +182,3 @@ Plane
 This has been modified and now contains some of the structures that were
 in ``Image``.
 
-    Notes: in the XSD files the element and attribute names use
-    CamelCase and PascalCase. As these are also interpreted by
-    WikiFormatting this may result in links to seeming missing pages.
-    These will be display as follows: DummyElememtName
-

@@ -72,6 +72,10 @@ The use of IDs and Life Science Identifiers is explained in this section:
 
 -  :doc:`id-and-lsid`
 
+The system of units used by the model is covered in this section:
+
+-  :doc:`ome-units`
+
 The :doc:`Schema versions</schemas/index>` section shows the Model changes
 with each release, helpful for those working with several versions of the OME
 Model, for example to support the loading/saving of a variety of files.
