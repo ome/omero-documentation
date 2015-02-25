@@ -27,10 +27,9 @@ Before starting the upgrade, please ensure that you have obtained all
 the prerequisites for installation, documented for Unix and Windows. In
 particular, ensure that you are running a suitable version of PostgreSQL
 to enable successful upgrading of the database, otherwise the upgrade
-script aborts with a message saying that your database server version
-is less than the OMERO prerequisite. If you are upgrading
-from a version earlier than OMERO 5.0 then first review the `5.0 upgrade
-notes
+script aborts with a message saying that your database server version is
+less than the OMERO prerequisite. If you are upgrading from a version
+earlier than OMERO 5.0 then first review the `5.0 upgrade notes
 <http://www.openmicroscopy.org/site/support/omero5/sysadmins/server-upgrade.html>`_
 regarding previous changes in OMERO.
 
