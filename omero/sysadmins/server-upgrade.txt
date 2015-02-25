@@ -26,7 +26,9 @@ Check prerequisities
 Before starting the upgrade, please ensure that you have obtained all
 the prerequisites for installation, documented for Unix and Windows. In
 particular, ensure that you are running a suitable version of PostgreSQL
-to enable successful upgrading of the database. If you are upgrading
+to enable successful upgrading of the database, otherwise the upgrade
+script aborts with a message saying that your database server version
+is less than the OMERO prerequisite. If you are upgrading
 from a version earlier than OMERO 5.0 then first review the `5.0 upgrade
 notes
 <http://www.openmicroscopy.org/site/support/omero5/sysadmins/server-upgrade.html>`_
@@ -130,7 +132,9 @@ Upgrade your database
 Ensure Unicode character encoding
 """""""""""""""""""""""""""""""""
 
-OMERO 5.1 requires a Unicode-encoded database. From :command:`psql`::
+OMERO 5.1 requires a Unicode-encoded database; without it, the upgrade
+script aborts with a message warning how the "OMERO database character
+encoding must be UTF8". From :command:`psql`::
 
   # SELECT datname, pg_encoding_to_char(encoding) FROM pg_database;
     datname   | pg_encoding_to_char 
