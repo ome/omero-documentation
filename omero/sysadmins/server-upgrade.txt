@@ -23,8 +23,9 @@ Upgrade check list
 Check prerequisities
 ^^^^^^^^^^^^^^^^^^^^
 
-Before starting the upgrade, please ensure that you have obtained all
-the prerequisites for installation, documented for Unix and Windows. In
+Before starting the upgrade, please ensure that you have reviewed and
+satisfied all the :doc:`system requirements <system-requirements>` with
+:doc:`correct versions <version-requirements>` for installation. In
 particular, ensure that you are running a suitable version of PostgreSQL
 to enable successful upgrading of the database, otherwise the upgrade
 script aborts with a message saying that your database server version is
