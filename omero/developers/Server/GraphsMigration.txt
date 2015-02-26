@@ -122,3 +122,25 @@ becomes,
   delete = SkipHead(targetObjects=anchor, startFrom=targets,
                     request=Delete2())
   sf.submit(delete)
+
+
+Java request factory
+--------------------
+
+A utility class :source:`Request.java
+<components/insight/SRC/org/openmicroscopy/shoola/env/data/Requests.java>`
+provides convenient instantiation of graph requests. This class allows
+the requests from the above Python examples to be created by,
+
+.. code-block:: java
+
+  // move images
+  Chgrp2 example1 = Requests.chgrp("Image", Arrays.asList(1L,2L,3L), 5L);
+
+  // delete plate, but not annotations
+  ChildOption childOption = Requests.option(null, "Annotation");
+  Delete2 example2 = Requests.delete("Plate", 8L, childOption);
+
+  // delete an image's rendering settings
+  SkipHead example3 =
+      Requests.skipHead("Image", 6L, "RenderingDef", new Delete2());
