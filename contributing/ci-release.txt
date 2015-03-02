@@ -11,16 +11,13 @@ jobs should be listed under the :jenkinsview:`Release` view.
 	- 	* Job task
 		* 5.0.x
 		* 5.1.x
-	- 	* Generate a daily PR to bump the submodule pointers
-		* :jenkinsjob:`OMERO-5.0-latest-submods`
-		* :jenkinsjob:`OMERO-5.1-latest-submods`
 	- 	* Trigger the OME release jobs
 		* :jenkinsjob:`OME-5.0-release-trigger`
 		* :jenkinsjob:`OME-5.1-release-trigger`
 	- 	* Build the OMERO download artifacts
 		* :jenkinsjob:`OMERO-5.0-release`
 		* :jenkinsjob:`OMERO-5.1-release`
-	- 	* Re-generate OMERO download page
+	- 	* Generate the OMERO downloads page
 		* :jenkinsjob:`OMERO-5.0-release-downloads`
 		* :jenkinsjob:`OMERO-5.1-release-downloads`
 	- 	* Run the OMERO integration tests
@@ -30,15 +27,9 @@ jobs should be listed under the :jenkinsview:`Release` view.
 		* :jenkinsjob:`BIOFORMATS-5.0-release`
 		* :jenkinsjob:`BIOFORMATS-5.1-release`
 
-	- 	* Re-generate BIOFORMATS download page
+	- 	* Generate BIOFORMATS download page
 		* :jenkinsjob:`BIOFORMATS-5.0-release-downloads`
 		* :jenkinsjob:`BIOFORMATS-5.1-release-downloads`
-	- 	* Build and deploy the OMERO documentation
-		* :jenkinsjob:`OMERO-5.0-release-docs`
-		* :jenkinsjob:`OMERO-5.1-release-docs`
-	- 	* Build and deploy the Bio-Formats documentation
-		* :jenkinsjob:`BIOFORMATS-5.0-release-docs`
-		* :jenkinsjob:`BIOFORMATS-5.1-release-docs`
 
 Deployment servers
 ^^^^^^^^^^^^^^^^^^
@@ -259,7 +250,7 @@ clients of the deployment jobs described above:
 
 	:jenkinsjob:`OMERO-5.1-release`
 
-		This matrix job builds the OMERO components with Ice 3.3, 3.4 or 3.5
+		This matrix job builds the OMERO components with Ice 3.4 or 3.5
 
 		#. Checks out the :envvar:`RELEASE` tag of the
 		   snoopycrimecop fork of openmicroscopy.git_
@@ -299,7 +290,7 @@ clients of the deployment jobs described above:
 
 		#. Receives TestNG results under
 		   :file:`components/tools/OmeroJava/target/reports/broken` from
-		   :term:`OMERO-5.0-release-integration`
+		   :term:`OMERO-5.1-release-integration`
 		#. Generates TestNG report
 
 	:jenkinsjob:`OMERO-5.1-release-integration-java`
@@ -335,7 +326,6 @@ clients of the deployment jobs described above:
 
 		#. Checks out the :envvar:`RELEASE` tag of the
 		   snoopycrimecop fork of openmicroscopy.git_
-		#. Builds OMERO.server and starts it
 		#. Runs the robot framework tests and collect the results
 
 	:jenkinsjob:`BIOFORMATS-5.1-release`
@@ -356,8 +346,3 @@ clients of the deployment jobs described above:
 		#. Checks out the `develop` branch of
 		   https://github.com/openmicroscopy/ome-release.git
 		#. Runs `make clean bf`
-
-The following instructions use the point/minor release jobs as examples. For
-the major release process, the jobs used in these instructions should be
-replaced with the corresponding jobs in the table above. Specific distinctions
-between major and minor/point release processes will be described in the text.
