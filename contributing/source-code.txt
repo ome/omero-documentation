@@ -27,20 +27,6 @@ The Bio-Formats repository is available from:
 -  https://github.com/openmicroscopy/bioformats
 -  git://openmicroscopy.org/bioformats.git
 
-Other repositories
-^^^^^^^^^^^^^^^^^^
-
-Most of these repositories are read-only locations which are kept in sync for
-public consumption. There is a third centrally-available location but this is
-not public:
-
--  \ssh://git.openmicroscopy.org/home/git/team.git
-
-``team.git`` is useful for team-internal branches which are not yet ready for
-public consumption. Changes that are not ready to be reviewed by the public
-can be exchanged via team. This allows you to internally collaborate on a
-branch or simply to back-up your work.
-
 After that, each member of the GitHub openmicroscopy organization
 (https://github.com/openmicroscopy),
 as well as anyone else who has clicked the “Fork” button, will have their
