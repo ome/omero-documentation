@@ -27,7 +27,7 @@ Currently, these are:
 -  ``Channel``
 -  ``Annotation`` and all annotation subtypes in order to form hierarchies
 -  ScreenPlateWell: ``Screen``, ``ScreenAcquisition``, ``Plate``, ``Well``, 
-   ``WellSample``, ``Reagent``
+   ``Reagent``
 -  …
 
 Annotation hierarchy
