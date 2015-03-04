@@ -192,4 +192,5 @@ and :doc:`Windows </sysadmins/windows/server-binary-repository>` versions).
 It is possible that some files may not be successfully deleted if they
 are locked for any reason. This is a known problem on Windows servers.
 In this case, the undeleted files can be removed manually via
-``bin/omero admin cleanse``
+:omerocmd:`admin cleanse`\ . This also deletes any empty directories
+left behind after the binary data that they contained has been deleted.
