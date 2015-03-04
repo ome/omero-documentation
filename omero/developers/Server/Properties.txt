@@ -23,6 +23,9 @@ OMERO.server:
                                          (Name will change to "…default")
       etc/local.properties             - Local overrides for other properties (used by build only)
 
+The most useful of the properties are listed in a :doc:`glossary
+</sysadmins/config>`.
+
 During the build, these files get stored in the ``blitz.jar`` and are
 read-only. On creation of an :doc:`/developers/Server/Context`,
 the lookup for properties is (first wins):
