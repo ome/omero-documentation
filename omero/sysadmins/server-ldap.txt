@@ -139,7 +139,11 @@ the value of ``new_user_group``, which can have several different values:
   group is mapped via ``group_mapping``. You can prefix this value with
   ``filtered_`` to have the ``group_filter`` applied to the attribute values,
   i.e. ``:filtered_dn_attribute:memberOf`` will mean that only the values of
-  memberOf which match ``group_filter`` will be considered.
+  memberOf which match ``group_filter`` will be considered. Note that if an
+  attribute specified in ``omero.ldap.group_mapping`` does not constitute a
+  part of the Distinguished Name (DN) as determined by your LDAP server then it
+  can only be found by using ``:attribute:`` or ``:filtered_attribute:``
+  instead. Typical DN attributes are: DC, CN, OU, O, STREET, L, ST, C and UID.
 - If prefixed with ``:query:``, then the rest of the value is taken as a query
   to be AND'ed to the group filter. In the query, values from the user such as
   "@{cn}", "@{email}", or "@{dn}" can be used as place holders.
