@@ -131,7 +131,9 @@ the value of ``new_user_group``, which can have several different values:
   the groups named by memberOf. You can prefix this value with ``filtered_``
   to have the ``group_filter`` applied to the attribute values, i.e.
   ``:filtered_attribute:memberOf`` will mean that only the values of memberOf
-  which match ``group_filter`` will be considered.
+  which match ``group_filter`` will be considered. An example value
+  of the ``memberOf`` attribute would be: ``CN=mygroup,OU=My Group,OU=LabUsers,
+  DC=openmicroscopy,DC=org``
 - If prefixed with ``:dn_attribute:``, then the rest of the string is taken to
   be an attribute all of whose values will be taken as group distinguished
   names. For example, ``omero.ldap.new_user_group=:dn_attribute:memberOf``
@@ -139,11 +141,16 @@ the value of ``new_user_group``, which can have several different values:
   group is mapped via ``group_mapping``. You can prefix this value with
   ``filtered_`` to have the ``group_filter`` applied to the attribute values,
   i.e. ``:filtered_dn_attribute:memberOf`` will mean that only the values of
-  memberOf which match ``group_filter`` will be considered. Note that if an
-  attribute specified in ``omero.ldap.group_mapping`` does not constitute a
+  memberOf which match ``group_filter`` will be considered. An example value
+  of the ``memberOf`` attribute would be: ``CN=mygroup,OU=My Group,OU=LabUsers,
+  DC=openmicroscopy,DC=org``
+
+  Note that if an
+  attribute specified in :property:`omero.ldap.group_mapping` does not constitute a
   part of the Distinguished Name (DN) as determined by your LDAP server then it
   can only be found by using ``:attribute:`` or ``:filtered_attribute:``
-  instead. Typical DN attributes are: DC, CN, OU, O, STREET, L, ST, C and UID.
+  instead. Typical attributes that comprise the DN are: DC, CN, OU, O, STREET,
+  L, ST, C and UID.
 - If prefixed with ``:query:``, then the rest of the value is taken as a query
   to be AND'ed to the group filter. In the query, values from the user such as
   "@{cn}", "@{email}", or "@{dn}" can be used as place holders.
