@@ -146,7 +146,7 @@ the value of ``new_user_group``, which can have several different values:
   DC=openmicroscopy,DC=org``
 
   Note that if an
-  attribute specified in :property:`omero.ldap.group_mapping` does not constitute a
+  attribute specified in ``omero.ldap.group_mapping`` does not constitute a
   part of the Distinguished Name (DN) as determined by your LDAP server then it
   can only be found by using ``:attribute:`` or ``:filtered_attribute:``
   instead. Typical attributes that comprise the DN are: DC, CN, OU, O, STREET,
