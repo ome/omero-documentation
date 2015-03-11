@@ -645,10 +645,10 @@ Configuration
         $ cd ~/omero/OMERO.server
         $ bin/omero db script
         Please enter omero.db.version [OMERO\ |version|\ ]: 
-        Please enter omero.db.patch [0]: 
+        Please enter omero.db.patch [1]: 
         Please enter password for new OMERO root user: # omero_root_password
         Please re-enter password for new OMERO root user: # omero_root_password
-        Saving to ~/Desktop/omero/OMERO\ |version|\ __0.sql
+        Saving to ~/Desktop/omero/OMERO\ |version|\ __1.sql
 
    .. warning:: **Security**
 
@@ -663,7 +663,7 @@ Configuration
 
     .. parsed-literal::
 
-        $ psql -h localhost -U db_user omero_database < OMERO\ |version|\ __0.sql
+        $ psql -h localhost -U db_user omero_database < OMERO\ |version|\ __1.sql
 
     At this point you should see some output from PostgreSQL as it
     installs the schema for new OMERO database.
