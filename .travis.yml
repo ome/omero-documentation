@@ -15,7 +15,7 @@ before_install:
   - travis_retry sudo apt-get -y install graphviz
   - sudo fc-cache -rsfv
   - fc-list
-  - sudo pip install scc Sphinx
+  - sudo pip install scc Sphinx==1.2.3
   - git config --global github.token 3bc7fc530b01081559eb911f59ccfec7f4fb2592
   - git config --global user.email snoopycrimecop@gmail.com
   - git config --global user.name 'Snoopy Crime Cop'
