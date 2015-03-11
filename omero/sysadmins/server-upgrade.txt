@@ -71,7 +71,16 @@ show nothing.
 which has been significantly stream-lined. See :ref:`search-reindexing`
 for more information.
 
-Web Plugin Updates
+OMERO.web configuration
+^^^^^^^^^^^^^^^^^^^^^^^
+
+If you generated configuration stanzas using `bin/omero web config` which
+enable OMERO.web via Apache or Nginx, they may include hard-code links to
+your previous version of OMERO. We recommend using a future-proof symlink
+if possible, so that these stanzas do not need updating with each OMERO
+server upgrade. See also the :doc:`unix/install-web` page.
+
+Web Plugin updates
 ^^^^^^^^^^^^^^^^^^
 OMERO.web plugins are very closely integrated into the webclient. For this
 reason, it is possible that an update of OMERO will cause issues with an older
