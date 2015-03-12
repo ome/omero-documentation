@@ -52,7 +52,7 @@ OMERO.web configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 If you generated configuration stanzas using :omerocmd:`web config` which
-enable OMERO.web via Apache or Nginx, they may include hard-code links to
+enable OMERO.web via Apache or Nginx, they may include hard-coded links to
 your previous version of OMERO. We recommend using a future-proof symlink
 if possible, so that these stanzas do not need updating with each OMERO
 server upgrade. See also the :doc:`unix/install-web` page.
