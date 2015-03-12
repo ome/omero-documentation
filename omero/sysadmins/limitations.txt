@@ -118,13 +118,16 @@ group that data is in into a private group.
 File format support
 -------------------
 
-Floating-point data types
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Large images with floating-point pixel data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-No pyramids of image tiles are currently generated for these images, meaning
-the imported image may be scrambled. This primarily affects the following file
-formats:
+Pyramids of image tiles are currently not generated for images with
+floating-point pixel data, meaning the imported image will be scrambled if it
+is over a certain size. This primarily affects the following file formats:
 
+*  Gatan DM3
+*  MRC
+*  TIFF
 
 DeltaVision OMX files (.hdr) not viewable
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
