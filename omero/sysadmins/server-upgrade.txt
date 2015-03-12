@@ -74,7 +74,7 @@ for more information.
 OMERO.web configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-If you generated configuration stanzas using `bin/omero web config` which
+If you generated configuration stanzas using :omerocmd:`web config` which
 enable OMERO.web via Apache or Nginx, they may include hard-code links to
 your previous version of OMERO. We recommend using a future-proof symlink
 if possible, so that these stanzas do not need updating with each OMERO
