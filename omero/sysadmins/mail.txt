@@ -44,6 +44,23 @@ can be done from one of the UIs or via the :omerocmd:`obj` command:
 
 .. note:: Using a mailing list or an alias for the `root` user can simplify configuration.
 
+Other key properties
+--------------------
+
+Along with :property:`omero.mail.host`, a few general connection properties may
+be needed for your particular SMTP server:
+
+ * :property:`omero.mail.port`
+ * :property:`omero.mail.auth`
+ * :property:`omero.mail.smtp.starttls.enable`
+
+:property:`omero.mail.from` may not be necessary, though some servers may require
+it to match username. Regardless, it can be useful to inform users more clearly
+of who is getting in touch with them.
+
+All properties can be found under the :ref:`mail_configuration` section of
+:doc:`config`.
+
 Further configuration
 ---------------------
 
