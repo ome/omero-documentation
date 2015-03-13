@@ -123,7 +123,10 @@ Large images with floating-point pixel data
 
 Pyramids of image tiles are currently not generated for images with
 floating-point pixel data, meaning the imported image will be scrambled if it
-is over a certain size. This primarily affects the following file formats:
+is over a certain size (configurable using
+:property:`omero.pixeldata.max_plane_height` and
+:property:`omero.pixeldata.max_plane_width` but set to 3192x3192 pixels by
+default). This primarily affects the following file formats:
 
 *  Gatan DM3
 *  MRC
