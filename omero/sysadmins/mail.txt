@@ -1,0 +1,37 @@
+OMERO.mail
+==========
+
+The OMERO server has the ability to send email to any users who have a properly
+configured email address. OMERO system administrators can then use the
+:omerocmd:`admin email` command to contact those users.
+
+In order to activate the subsystem, minimally the :property:`omero.mail.config`
+property will need to be activated.
+
+Minimum configuration
+---------------------
+
+::
+
+    $ bin/omero config set omero.mail.config true
+
+By default, this will use "localhost" as the mail server on port 25 and send as
+the user "omero". Likely you will need to configure OMERO to use your actual mail server.
+
+For example,
+
+::
+
+    $ bin/omero config set omero.mail.host smtp.university.example
+
+If authentication is required, then also configure:
+
+::
+
+    $ bin/omero config set omero.mail.username USER
+    $ bin/omero config set omero.mail.password PASS
+
+Further configuration
+---------------------
+
+TBD
