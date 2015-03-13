@@ -31,6 +31,19 @@ If authentication is required, then also configure:
     $ bin/omero config set omero.mail.username USER
     $ bin/omero config set omero.mail.password PASS
 
+Setting email addresses
+-----------------------
+
+For the any user to receive email, a valid email address must be configured. By
+default, the `root` OMERO user will *not* have an email address configured. This
+can be done from one of the UIs or via the :omerocmd:`obj` command:
+
+::
+
+    $ bin/omero obj update Experimenter:0 email=root@university.example
+
+.. note:: Using a mailing list or an alias for the `root` user can simplify configuration.
+
 Further configuration
 ---------------------
 
