@@ -47,4 +47,10 @@ can be done from one of the UIs or via the :omerocmd:`obj` command:
 Further configuration
 ---------------------
 
-TBD
+Finally, if the above mail configuration properties do not cover your needs,
+you can add your own implementation as described under |ExtendingOmero|. The
+related property is :property:`omero.mail.bean`:
+
+::
+
+    $ bin/omero config set omero.mail.bean myMailImplementation
