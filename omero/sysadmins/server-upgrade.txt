@@ -48,6 +48,15 @@ The passwords and logins used here are examples. Please consult the
 sure to replace the values of **db_user** and **omero_database** with the
 actual database user and database name for your installation.
 
+OMERO.web configuration
+^^^^^^^^^^^^^^^^^^^^^^^
+
+If you generated configuration stanzas using :omerocmd:`web config` which
+enable OMERO.web via Apache or Nginx, they may include hard-coded links to
+your previous version of OMERO. We recommend using a future-proof symlink
+if possible, so that these stanzas do not need updating with each OMERO
+server upgrade. See also the :doc:`unix/install-web` page.
+
 Web plugin updates
 ^^^^^^^^^^^^^^^^^^
 OMERO.web plugins are very closely integrated into the webclient. For this
