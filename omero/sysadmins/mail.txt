@@ -44,6 +44,21 @@ can be done from one of the UIs or via the :omerocmd:`obj` command:
 
 .. note:: Using a mailing list or an alias for the `root` user can simplify configuration.
 
+Enabling mail notifications
+---------------------------
+
+A number of "mail senders" are available for sending notifications of certain
+events on the server. Those available include:
+
+* `ServerUpMailSender` and `ServerDownMailSender` which mail when the server goes up or down
+* `FailedLoginMailSender` which can be configured to send for particular users if a bad password is used
+* `ObjectMailSender` which can be configured to send an email under various conditions. Instances which are configured include:
+   * `newUserMailSender` which sends an email every time a user is created
+   * `newCommentMailSender` which sends an email every time a user's image is commented on by another user.
+
+To activate the senders, the :file:`etc/blitz/mail-senders.example` can be copied
+to a file ending with ".xml".
+
 Other key properties
 --------------------
 
