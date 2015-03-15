@@ -508,18 +508,23 @@ server specified by the :envvar:`ICE_CONFIG` environment variable at the
 ``ITest.setup_class()`` and shared by all test methods of this class:
 
 - ``self.root`` is a client for the root user
-- ``self.client`` is a client for a new user created at the class setup.
-  ``self.sf``, ``self.update`` and ``self.query`` are shortcuts to this client
-  session, update service and query service.
+- ``self.group`` is a new group with permissions set to
+  ``ITests.DEFAULT_PERMS`` by default
+- ``self.user`` is a new user and member of ``self.group``
+- ``self.client`` is a client for the ``self.user`` created at class setup
+- ``self.sf``, ``self.ctx``, ``self.update`` and ``self.query`` are shortcuts
+  to this client session, event context (at creation), update service and
+  query service
 
 ::
 
   from library import ITest
 
   class TestExample(ITest):
-      def testSimple():
-          ec = self.sf.getAdminService().getEventContext()
-          assert ec, "No EventContext!"
+
+      DEFAULT_PERMS = 'rwrw--'
+      def test1():
+          doAction(self.sf)
 
 New user and groups can be instantiated by individual tests using the
 ``ITest.new_user()`` and ``ITest.new_group()`` methods::
@@ -540,7 +545,7 @@ New clients can be instantiated by individual tests using the
 Images can be imported using the ``ITest.importSingleImage()`` or
 ``ITest.importSingleImageWithCompanion()`` or ``ITest.importMIF()`` methods::
 
-      def testNewClient():
+      def testImportMIF():
           images = self.importMIF(2)
           assert len(images) == 2
 
