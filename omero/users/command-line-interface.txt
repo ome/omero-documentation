@@ -175,6 +175,9 @@ The options available to the import command are:
 
         $ bin/omero import images_folder --debug WARN
 
+Other advanced import options are described in the :ref:`inplace_import`
+section.
+
 Manage tags
 -----------
 
