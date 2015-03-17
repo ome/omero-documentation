@@ -234,6 +234,11 @@ OMERO.web Maintenance
               $ bin/omero config set omero.web.caches '{"default": { "BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400" } }'
               $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
 
+.. note::
+    The generated Nginx and Apache configuration files will automatically
+    display a maintenance page if an attempt is made to access OMERO.web whilst
+    it is not runnning.
+
 
 .. _customizing_your_omero_web_installation_unix:
 
