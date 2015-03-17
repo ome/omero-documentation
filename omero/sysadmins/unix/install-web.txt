@@ -246,13 +246,13 @@ Customizing your OMERO.web installation
 ---------------------------------------
 
 By default OMERO.web expects to be run from the root URL of the web server.
-This can be changed by setting :property:`omero.web.force_script_name` and
+This can be changed by setting :property:`omero.web.prefix` and
 :property:`omero.web.static_url`. For example, to make OMERO.web appear at
 `http://example.org/omero/`:
 
 ::
 
-    $ bin/omero config set omero.web.force_script_name '/omero'
+    $ bin/omero config set omero.web.prefix '/omero'
     $ bin/omero config set omero.web.static_url '/omero/static/'
 
 and regenerate your web-server configuration
