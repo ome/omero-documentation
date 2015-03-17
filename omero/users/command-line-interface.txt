@@ -32,10 +32,10 @@ The |CLI| is currently bundled with the OMERO.server. Download the version
 corresponding to your system from the :downloads:`OMERO downloads <>` page.
 
 .. note::
-	The |CLI| is bundled with the OMERO.server but that does not imply you
-	must use that directory as a server. You can download the server zip to a
-	number of machines and use the |CLI| commands from each machine to access
-	an existing OMERO instance.
+    The |CLI| is bundled with the OMERO.server but that does not imply you
+    must use that directory as a server. You can download the server zip to a
+    number of machines and use the |CLI| commands from each machine to access
+    an existing OMERO instance.
 
 Once the server is downloaded, the |CLI| is located under the :file:`bin/`
 directory::
@@ -127,20 +127,53 @@ To import a file image.tiff, use::
 
     $ bin/omero import image.tiff
 
-Many options can be passed to the :omerocmd:`import`. They can be listed using
-the :option:`-h` option::
+The options available to the import command are:
 
-    $ bin/omero import -h
+.. option:: -h, --help
 
-The :option:`-f` option displays all the used files for importing then exits::
+    Display the help for the import command
 
-    $ bin/omero import -f image.tif
-    $ bin/omero import -f images_folder
+.. option:: -f
 
-The :option:`--depth` option sets the number of directories to scan down for
-files (default: 4)::
+    Display all the used files for importing then exits::
 
-    $ bin/omero import --depth 1 images_folder
+        $ bin/omero import -f image.tif
+        $ bin/omero import -f images_folder
+
+.. option:: --depth DEPTH
+
+    Set the number of directories to scan down for files (default: 4)::
+
+        $ bin/omero import --depth 1 images_folder
+
+.. option:: --skip [SKIP [SKIP]...]
+
+    Specify optional import steps to skip. Multiple steps can be skipped and
+    multiple arguments can be supplied. Available options that can be skipped
+    are currently:
+
+    all
+        Skip all optional steps described below
+    checksum
+        Skip all steps calculation checksums either on files after transfer
+        or on pixels
+    minmax
+        Skip computation of the minima and maxima pixel values
+    thumbnails
+        Skip generation of thumbnails
+    upgrade
+        Skip upgrade check for Bio-Formats
+
+    Example of usage::
+
+        $ bin/omero import large_image --skip all
+        $ bin/omero import large_image --skip checksum minmax
+
+.. option:: --debug DEBUG
+
+    Set the debug level for the command line import output::
+
+        $ bin/omero import images_folder --debug WARN
 
 Manage tags
 -----------
@@ -162,15 +195,15 @@ To create a new tag annotation, use the :omerocmd:`tag create` command::
 To create a tag set containing two existing tags of known identifiers
 ``1259`` and ``1260``, use the :omerocmd:`tag createset` command::
 
-	$ bin/omero tag createset --tag 1259 1260
-	Please enter a name for this tag set: my_tag_set
-	Please enter a description for this tag set: description of my_tag_set
+    $ bin/omero tag createset --tag 1259 1260
+    Please enter a name for this tag set: my_tag_set
+    Please enter a description for this tag set: description of my_tag_set
 
 For both tags and tag sets, the name and description can be passed using the
 :option:`--name` and :option:`--desc` options::
 
-	$ bin/omero tag create --name my_tag --desc 'description of my_tag'
-	$ bin/omero tag createset --tag 1259 1260 tag_id_2 --name my_tag_set --desc 'description of my_tag_set'
+    $ bin/omero tag create --name my_tag --desc 'description of my_tag'
+    $ bin/omero tag createset --tag 1259 1260 tag_id_2 --name my_tag_set --desc 'description of my_tag_set'
 
 List tags
 ^^^^^^^^^
