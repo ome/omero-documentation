@@ -258,10 +258,10 @@ The `webtest <https://github.com/openmicroscopy/webtest/>`_ app
 has a number of examples. Once installed, you can go to the webtest
 homepage e.g. `<http://localhost:4080/webtest>`_ and you will
 see an introduction to some of them. This page tries to find random
-image and dataset from your OMERO server to use in the webtest examples.
+images and datasets from your OMERO server to use in the webtest examples.
 
-Using jQuery & jQuery UI from OMERO.web
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Using jQuery and jQuery UI from OMERO.web
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 OMERO.web uses the jQuery and jQuery UI javascript libraries extensively.
 If you need to make use of these resources in your own pages, you can
