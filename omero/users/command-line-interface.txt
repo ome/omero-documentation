@@ -152,13 +152,13 @@ Some of the options available to the import command are:
 
     Specify optional step to skip during import.
 
-    The import of very large datasets like High-Contrent Screening data or
-    SPIM data can be time and resource consuming noth at the client and at the
-    server level. This option allows to disable some non-critical steps and
-    allow faster import of such datasets. The caveat associated with its usage
-    is that some elements are no longer generated at import time and may either
-    be re-generated during client access (e.g. thumbnails) or may need manual
-    intervention to be generated (e.g. minmax).
+    The import of very large datasets like High-Content Screening data or
+    SPIM data can be time and resource consuming both at the client and at the
+    server level. This option allows the disabling of some non-critical steps
+    and thus faster import of such datasets. The caveat associated with its
+    usage is that some elements are no longer generated at import time and may
+    either be re-generated during client access (e.g. thumbnails) or may need
+    manual intervention to be generated (e.g. minmax).
 
     Available options that can be skipped are currently:
 
