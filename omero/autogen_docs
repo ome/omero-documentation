@@ -33,6 +33,28 @@ $WORKSPACE/OMERO.server/bin/omero web config nginx | sed "s|$WORKSPACE|/home/ome
 $WORKSPACE/OMERO.server/bin/omero web config apache | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/apache-omero.conf
 $WORKSPACE/OMERO.server/bin/omero web config apache-fcgi | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/apache-fcgi-omero.conf
 
+echo "Copying omero-install Linux scripts"
+mkdir -p omero/sysadmins/unix/walkthrough/
+for f in \
+    dependencies-centos6.sh \
+    dependencies-ubuntu1404.sh \
+    install-centos6.sh \
+    install-ubuntu1404.sh \
+    omero-init.d \
+    omero-web-init.d \
+    settings.env \
+    setup_nginx_centos6.sh \
+    setup_nginx_centos6_selinux.sh \
+    setup_nginx_ubuntu1404.sh \
+    setup_omero_daemon_centos6.sh \
+    setup_omero_daemon_ubuntu1404.sh \
+    setup_omero_ice35.sh \
+    setup_postgres.sh \
+    system_setup.sh \
+    ; do
+    cp $WORKSPACE/omero-install/linux/$f omero/sysadmins/unix/walkthrough/
+done
+
 echo "Cleanup"
 rm java-help.txt
 rm advanced-help.txt
