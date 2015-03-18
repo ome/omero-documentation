@@ -25,6 +25,9 @@ sed 1,5d advanced-help.txt > omero/downloads/inplace/advanced-help.txt
 (cd $WORKSPACE/OMERO.server && bin/omero import --javahelp) 2> java-help.txt || echo "Dumped"
 sed 1,5d java-help.txt > omero/downloads/cli/help.out
 
+echo "Generating advanced CLI admin ports help"
+(cd $WORKSPACE/OMERO.server && bin/omero admin ports -h) > omero/downloads/cli/admin-ports-help.txt
+
 echo "Generating Web configuration templates"
 $WORKSPACE/OMERO.server/bin/omero web config nginx | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/nginx-omero.conf
 $WORKSPACE/OMERO.server/bin/omero web config apache | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/apache-omero.conf
