@@ -148,17 +148,24 @@ Some of the options available to the import command are:
 
         $ bin/omero import --depth 1 images_folder
 
-.. option:: --skip [SKIP [SKIP]...]
+.. option:: --skip SKIP
 
-    Specify optional import steps to skip. Multiple steps can be skipped and
-    multiple arguments can be supplied. Available options that can be skipped
-    are currently:
+    Specify optional step to skip during import.
+
+    The import of very large datasets like High-Contrent Screening data or
+    SPIM data can be time and resource consuming noth at the client and at the
+    server level. This option allows to disable some non-critical steps and
+    allow faster import of such datasets. The caveat associated with its usage
+    is that some elements are no longer generated at import time and may either
+    be re-generated during client access (e.g. thumbnails) or may need manual
+    intervention to be generated (e.g. minmax).
+
+    Available options that can be skipped are currently:
 
     all
         Skip all optional steps described below
     checksum
-        Skip all steps calculation checksums either on files after transfer
-        or on pixels
+        Skip checksum calculation either on files after transfer or on pixels
     minmax
         Skip computation of the minima and maxima pixel values
     thumbnails
@@ -169,6 +176,10 @@ Some of the options available to the import command are:
     Example of usage::
 
         $ bin/omero import large_image --skip all
+        $ bin/omero import large_image --skip minmax
+
+    Multiple import steps can be skipped by supplying multiple arguments::
+
         $ bin/omero import large_image --skip checksum --skip minmax
 
 .. option:: --debug DEBUG
