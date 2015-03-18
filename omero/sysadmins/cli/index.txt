@@ -1,18 +1,6 @@
 OMERO Command Line Interface
 ============================
 
-.. seealso::
-
-    :doc:`/users/cli/index`
-        User documentation for the Command Line Interface
-
-    :doc:`/developers/cli/index`
-        Developer Documentation for the Command Line Interface
-
-Help for any specific CLI command can be displayed using the :option:`-h`
-argument. See :ref:`cli_help` for more information.
-
-
 When first beginning to work with the OMERO server, the :omerocmd:`db`,
 :omerocmd:`config`, and :omerocmd:`admin` commands will be the first you will
 need.
@@ -26,3 +14,14 @@ need.
     admin
     usergroup
     fs
+
+.. seealso::
+
+    :doc:`/users/cli/index`
+        User documentation for the Command Line Interface
+
+    :doc:`/developers/cli/index`
+        Developer Documentation for the Command Line Interface
+
+Help for any specific CLI command can be displayed using the :option:`-h`
+argument. See :ref:`cli_help` for more information.

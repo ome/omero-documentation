@@ -1,6 +1,17 @@
 Import images
 -------------
 
+The |CLI| import command allows you to import images to an OMERO.server from
+the command line, and is ideally suited for anyone wanting to use a
+shell-scripted or web-based front-end interface for importing. Based upon the
+same set of libraries as the standard importer, the command line version
+supports the same files formats and functions in much the same way. Visit
+:bf_doc:`Supported Formats <supported-formats.html>` for a detailed list of
+supported formats.
+
+Import command
+^^^^^^^^^^^^^^
+
 .. program:: omero import
 
 :omerocmd:`import` is probably the first command many users will want to use.
@@ -23,16 +34,8 @@ files (default: 4)::
 
     $ bin/omero import --depth 1 images_folder
 
-The Command Line Importer tool (CLI) allows you to import images to an
-OMERO.server from the command line, and is ideally suited for anyone
-wanting to use a shell-scripted or web-based front-end interface for
-importing. Based upon the same set of libraries as the standard
-importer, the command line version supports the same files formats and
-functions in much the same way. Visit :bf_doc:`Supported Formats <supported-formats.html>`
-for a detailed list of supported formats.
-
 Java Command Line Importer
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are three ways to use the importer from the command line:
 
@@ -77,7 +80,7 @@ separated by "#" comments. Note that this usage does not require a running
 server to be available.
 
 Command Line options
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 The Command Line Importer tool takes a number of mandatory and optional
 arguments to run, as follows:

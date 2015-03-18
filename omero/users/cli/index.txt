@@ -22,11 +22,3 @@ used as a client against an OMERO server.
 
     :doc:`/developers/cli/index`
         Developer documentation for the Command Line Interface
-
-
-Repository management
----------------------
-
-Since 5.0.3 it is possible to list images, filesets and the repositories that
-contain them and get details of disk usage. See :ref:`cli_omero_fs` in the
-System Administrator documentation for more information.
