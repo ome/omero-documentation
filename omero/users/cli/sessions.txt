@@ -58,8 +58,6 @@ The sessions command can be used to switch the group of your current session::
     $ bin/omero group list          # list your groups
     $ bin/omero sessions group 2    # switch to group by ID or Name
 
-.. _cli_sudo::
-
 Sudo functionality
 ^^^^^^^^^^^^^^^^^^
 
