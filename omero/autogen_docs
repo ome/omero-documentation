@@ -36,19 +36,21 @@ $WORKSPACE/OMERO.server/bin/omero web config apache-fcgi | sed "s|$WORKSPACE|/ho
 echo "Copying omero-install Linux scripts"
 mkdir -p omero/sysadmins/unix/walkthrough/
 for f in \
+    README.md \
     dependencies-centos6.sh \
     dependencies-ubuntu1404.sh \
-    install-centos6.sh \
-    install-ubuntu1404.sh \
+    install.sh \
     omero-init.d \
+    omero-web-cron \
     omero-web-init.d \
     settings.env \
+    setup_cron.sh \
     setup_nginx_centos6.sh \
     setup_nginx_centos6_selinux.sh \
     setup_nginx_ubuntu1404.sh \
+    setup_omero51.sh \
     setup_omero_daemon_centos6.sh \
     setup_omero_daemon_ubuntu1404.sh \
-    setup_omero_ice35.sh \
     setup_postgres.sh \
     system_setup.sh \
     ; do

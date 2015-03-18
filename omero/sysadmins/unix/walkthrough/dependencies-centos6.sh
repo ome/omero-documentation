@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yum -y install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+yum -y install epel-release
 
 curl -o /etc/yum.repos.d/zeroc-ice-el6.repo \
 	http://download.zeroc.com/Ice/3.5/el6/zeroc-ice-el6.repo
@@ -28,10 +28,10 @@ pip install numexpr==1.4.2
 pip install tables==2.4.0
 
 # Postgres, reconfigure to allow TCP connections
-yum -y install http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm
-yum -y install postgresql93-server postgresql93
+yum -y install http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+yum -y install postgresql94-server postgresql94
 
-service postgresql-9.3 initdb
-sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/9.3/data/pg_hba.conf
-chkconfig postgresql-9.3 on
-service postgresql-9.3 start
+service postgresql-9.4 initdb
+sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/9.4/data/pg_hba.conf
+chkconfig postgresql-9.4 on
+service postgresql-9.4 start
