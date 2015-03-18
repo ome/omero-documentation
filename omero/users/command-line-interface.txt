@@ -167,7 +167,7 @@ The options available to the import command are:
     Example of usage::
 
         $ bin/omero import large_image --skip all
-        $ bin/omero import large_image --skip checksum minmax
+        $ bin/omero import large_image --skip checksum --skip minmax
 
 .. option:: --debug DEBUG
 
