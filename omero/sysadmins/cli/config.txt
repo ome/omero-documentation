@@ -1,0 +1,88 @@
+Server configuration
+--------------------
+
+The :omerocmd:`config` command is responsible for reading / writing
+user-specific profiles stored under :file:`etc/grid/config.xml`. To get
+the current profile, use the :omerocmd:`config def` command::
+
+    $ bin/omero config def
+    default
+
+You can then examine the current profile keys using :omerocmd:`config get`
+and set key-value pairs using :omerocmd:`config set`::
+
+    $ bin/omero config get
+
+    $ bin/omero config set example "my first value"
+
+    $ bin/omero config get
+    example=my first value
+
+You can use the :envvar:`OMERO_CONFIG` environment variable to point at a
+different profile, e.g.::
+
+    $ OMERO_CONFIG=another bin/omero config def
+    another
+
+    $ OMERO_CONFIG=another bin/omero config get
+
+    $ OMERO_CONFIG=another bin/omero config set example "my second value"
+
+    $ OMERO_CONFIG=another bin/omero config get
+    example=my second value
+
+The values set via :omerocmd:`config set` override those compiled into the
+server jars. The default values which are set can be seen in
+:doc:`/sysadmins/config`. To add several values to a configuration, you can
+pipe them via standard in using :omerocmd:`config load`::
+
+    $ grep omero.ldap etc/omero.properties | OMERO_CONFIG=ldap bin/omero config load
+
+    $ OMERO_CONFIG=ldap bin/omero config get
+    omero.ldap.attributes=objectClass
+    omero.ldap.base=ou=example,o=com
+    omero.ldap.config=false
+    omero.ldap.groups=
+    omero.ldap.keyStore=
+    omero.ldap.keyStorePassword=
+    omero.ldap.new_user_group=default
+    omero.ldap.password=
+    omero.ldap.protocol=
+    omero.ldap.trustStore=
+    omero.ldap.trustStorePassword=
+    omero.ldap.urls=ldap://localhost:389
+    omero.ldap.username=
+    omero.ldap.values=person
+
+Each of these values can then be modified to suit your local setup. To
+remove one of the key-value pairs, pass no second argument::
+
+    $ OMERO_CONFIG=ldap bin/omero config set omero.ldap.trustStore
+
+    $ OMERO_CONFIG=ldap bin/omero config set omero.ldap.trustStorePassword
+
+    $ OMERO_CONFIG=ldap bin/omero config set omero.ldap.keyStore
+
+    $ OMERO_CONFIG=ldap bin/omero config set omero.ldap.keyStorePassword
+
+    $ OMERO_CONFIG=ldap bin/omero config get
+    omero.ldap.attributes=objectClass
+    omero.ldap.base=ou=example,o=com
+    omero.ldap.config=false
+    omero.ldap.groups=
+    omero.ldap.new_user_group=default
+    omero.ldap.password=
+    omero.ldap.protocol=
+    omero.ldap.urls=ldap://localhost:389
+    omero.ldap.username=
+    omero.ldap.values=person
+
+If you will be using a particular profile more frequently you can set it
+as your default using the :omerocmd:`config def` command::
+
+    $ bin/omero config def ldap
+
+And finally, if you would like to remove a profile, for example to wipe a
+given password off of a system, use :omerocmd:`config drop`::
+
+    $ bin/omero config drop

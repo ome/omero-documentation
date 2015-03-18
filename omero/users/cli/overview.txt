@@ -1,3 +1,28 @@
+Command line interface overview
+-------------------------------
+
+.. _cli_help:
+
+Command line help
+^^^^^^^^^^^^^^^^^
+
+The |CLI| is divided into several commands which may themselves contain
+subcommands. You can investigate the various commands available using the
+:option:`-h` or :option:`--help` option::
+
+    $ bin/omero -h
+
+Again, you can use :option:`-h` repeatedly to get more details on each of
+these sub-commands::
+
+    $ bin/omero admin -h
+    $ bin/omero admin start -h
+
+The :omerocmd:`help` command can be used to get info on other commands or
+options::
+
+    $ bin/omero help debug       # debug is an option
+    $ bin/omero help admin       # same as bin/omero admin -h
 
 Command line workflow
 ^^^^^^^^^^^^^^^^^^^^^
@@ -46,27 +71,3 @@ Once you are done with your work, you can terminate the current session if you
 wish using the :omerocmd:`logout` command::
 
     $ bin/omero logout
-
-
-.. _cli_help:
-
-Command line help
-^^^^^^^^^^^^^^^^^
-
-The |CLI| is divided into several commands which may themselves contain
-subcommands. You can investigate the various commands available using the
-:option:`-h` or :option:`--help` option::
-
-    $ bin/omero -h
-
-Again, you can use :option:`-h` repeatedly to get more details on each of
-these sub-commands::
-
-    $ bin/omero admin -h
-    $ bin/omero admin start -h
-
-The :omerocmd:`help` command can be used to get info on other commands or
-options::
-
-    $ bin/omero help debug       # debug is an option
-    $ bin/omero help admin       # same as bin/omero admin -h
