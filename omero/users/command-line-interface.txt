@@ -38,11 +38,13 @@ corresponding to your system from the :downloads:`OMERO downloads <>` page.
     an existing OMERO instance.
 
 Once the server is downloaded, the |CLI| is located under the :file:`bin/`
-directory::
+directory:
+
+.. parsed-literal::
 
     $ cd OMERO.server
     $ bin/omero -h
-    OMERO Python Shell. Version 4.4.5-ice33
+    OMERO Python Shell. Version |release|-ice35
     Type "help" for more information, "quit" or Ctrl-D to exit
     omero>
 
