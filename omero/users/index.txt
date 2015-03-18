@@ -24,7 +24,7 @@ network connection, the client can be run anytime the user is connected to the
 internet.
 
 .. figure:: /images/omero-overview.png
-    :width: 85% 
+    :width: 85%
     :align: center
     :alt: The OMERO Platform
 
@@ -81,8 +81,7 @@ OMERO clients
     :titlesonly:
 
     clients-overview
-    command-line-interface
-    command-line-import
+    cli/index
 
 ************************
 Quickstart server access

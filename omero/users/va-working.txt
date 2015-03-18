@@ -19,7 +19,7 @@ interact with it.
    case, you must have an |SSH| client installed on your host machine to use
    to connect to the OMERO.server.
 
-.. note:: 
+.. note::
     The following examples assume that the OMERO |VM| is up and running on the
     same machine that you are working on.
 
@@ -80,7 +80,7 @@ Secure Shell
 ^^^^^^^^^^^^
 
 You can log into your |VM| using |SSH|, allowing you to use the
-:doc:`command-line-interface`.
+:doc:`cli/index`.
 In the following example, we assume that you have an |SSH| client installed
 on your host machine and also that your |VM| is up and running.
 
@@ -134,7 +134,7 @@ This should produce output similar to:
 
 ::
 
-    $ ssh-keygen -R [localhost]:2222 -f ~/.ssh/known_hosts 
+    $ ssh-keygen -R [localhost]:2222 -f ~/.ssh/known_hosts
     /Users/rleigh/.ssh/known_hosts updated.
     Original contents retained as /Users/rleigh/.ssh/known_hosts.old
 
@@ -163,7 +163,7 @@ that you have a shell open and logged into the |VM|:
 
 ::
 
-    omero@localhost's password: 
+    omero@localhost's password:
     Linux omerovm 2.6.32-5-686 #1 SMP Mon Jun 11 17:24:18 UTC 2012 i686
 
     The programs included with the Debian GNU/Linux system are free software;
@@ -213,6 +213,6 @@ to use the Bash shell which looks like this:
 
     omero@omerovm:~$ _
 
-From here you can interact with OMERO.server via the 
-:doc:`command-line-interface`. You will need to login as the 'omero' user to 
+From here you can interact with OMERO.server via the
+:doc:`cli/index`. You will need to login as the 'omero' user to
 access the OMERO CLI (user: "omero" / pw: "omero"). Logout using Ctrl-D.

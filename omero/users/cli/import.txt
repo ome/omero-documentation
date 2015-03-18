@@ -1,0 +1,24 @@
+Import images
+-------------
+
+.. program:: omero import
+
+:omerocmd:`import` is probably the first command many users will want to use.
+To import a file image.tiff, use::
+
+    $ bin/omero import image.tiff
+
+Many options can be passed to the :omerocmd:`import`. They can be listed using
+the :option:`-h` option::
+
+    $ bin/omero import -h
+
+The :option:`-f` option displays all the used files for importing then exits::
+
+    $ bin/omero import -f image.tif
+    $ bin/omero import -f images_folder
+
+The :option:`--depth` option sets the number of directories to scan down for
+files (default: 4)::
+
+    $ bin/omero import --depth 1 images_folder

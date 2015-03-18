@@ -3,10 +3,10 @@ OMERO Command Line Interface
 
 .. seealso::
 
-    :doc:`/users/command-line-interface`
+    :doc:`/users/cli/index`
         User documentation for the Command Line Interface
 
-    :doc:`/developers/command-line-interface`
+    :doc:`/developers/cli/index`
         Developer Documentation for the Command Line Interface
 
 Help for any specific CLI command can be displayed using the :option:`-h`
@@ -66,9 +66,9 @@ different profile, e.g.::
     example=my second value
 
 The values set via :omerocmd:`config set` override those compiled into the
-server jars. The default values which are set can be seen in :doc:`config`. To
-add several values to a configuration, you can pipe them via standard in using
-:omerocmd:`config load`::
+server jars. The default values which are set can be seen in
+:doc:`/sysadmins/config`. To add several values to a configuration, you can
+pipe them via standard in using :omerocmd:`config load`::
 
     $ grep omero.ldap etc/omero.properties | OMERO_CONFIG=ldap bin/omero config load
 
@@ -210,7 +210,7 @@ optional arguments::
 
 .. seealso::
 
-    :doc:`server-permissions`
+    :doc:`/sysadmins/server-permissions`
         Description of the three group permissions levels (private, read-only,
         read-annotate).
 
