@@ -259,17 +259,9 @@ and regenerate your web-server configuration
 (see :ref:`fastcgi_configuration`).
 
 OMERO.web is configured to use FastCGI TCP by default. If you are using a
-non-standard web server configuration you may wish to change this:
-
-::
-
-    $ bin/omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
-
-The default `fastcgi-tcp` option uses a TCP connection for communication
-between OMERO.web and your web server; `fastcgi` uses a file based socket and
-will require you to manage the file permissions on it. You will have to
-regenerate your web server configuration after changing this property
-(see :ref:`fastcgi_configuration`).
+non-standard web server configuration and wish to use a file based socket
+you can set :property:`omero.web.application_server` to `fastcgi`, but you
+will have to create your own web server configuration file.
 
 All configuration options can be found on various sections of
 :ref:`web_index` developers documentation. For the full list, refer to
