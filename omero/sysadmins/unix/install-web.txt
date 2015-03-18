@@ -237,7 +237,7 @@ OMERO.web Maintenance
 .. note::
     The generated Nginx and Apache configuration files will automatically
     display a maintenance page if an attempt is made to access OMERO.web whilst
-    it is not runnning.
+    it is not running.
 
 
 .. _customizing_your_omero_web_installation_unix:
