@@ -258,6 +258,11 @@ This can be changed by setting :property:`omero.web.prefix` and
 and regenerate your web-server configuration
 (see :ref:`fastcgi_configuration`).
 
+The front-end webserver (Nginx, Apache) can be setup to run on a different
+host from OMERO.web. You will need to set
+:property:`omero.web.application_server.host` to ensure OMERO.web is
+accessible on an external IP.
+
 OMERO.web is configured to use FastCGI TCP by default. If you are using a
 non-standard web server configuration and wish to use a file based socket
 you can set :property:`omero.web.application_server` to `fastcgi`, but you
