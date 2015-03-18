@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # This script is used by a Continuous Integration job to auto-generate
 # some components of the OMERO documentation from its deliverables (server,
-# clients). To run it locally, download the server and rename the folder as
-# OMERO.server.
+# clients). To run it locally:
+# - download the server and rename the folder as OMERO.server.
+# - Clone the ome/omero-install repository as omero-install.
 
 set -u
 set -e
