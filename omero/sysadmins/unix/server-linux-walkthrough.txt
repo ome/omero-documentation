@@ -3,9 +3,9 @@ OMERO.server Linux walkthrough
 
 This is an example walkthrough for installing OMERO on Linux with Nginx, using
 a dedicated system user, and should be read in conjunction with
-:doc:`server-installation`. You can use this as a guide for setting up your
-own test server. For production use you should also read the pages listed
-under :ref:`index-optimizing-server`.
+:doc:`server-installation` and :doc:`install-web`. You can use this as a guide
+for setting up your own test server. For production use you should also read
+the pages listed under :ref:`index-optimizing-server`.
 
 Example shell scripts for installing OMERO on Ubuntu 14.04 are included
 in-line, and can be downloaded. Separate instructions for installing on
@@ -57,9 +57,9 @@ Note that this script requires the same environment variables that were set
 earlier in `settings.env`, so you may need to copy and/or source this file as
 the omero user.
 
-.. literalinclude:: walkthrough/setup_omero_ice35.sh
+.. literalinclude:: walkthrough/setup_omero51.sh
 
-:download:`setup_omero_ice35.sh <walkthrough/setup_omero_ice35.sh>`
+:download:`setup_omero51.sh <walkthrough/setup_omero51.sh>`
 
 
 Installing Nginx
@@ -100,6 +100,23 @@ start OMERO and OMERO.web automatically:
   <walkthrough/setup_omero_daemon_centos6.sh>`
 | :download:`omero-init.d <walkthrough/omero-init.d>`
 | :download:`omero-web-init.d <walkthrough/omero-web-init.d>`
+
+
+Regular tasks
+-------------
+
+The default OMERO.web session handler uses temporary files to store sessions
+which should be deleted at regular intervals, for instance by creating a cron
+job:
+
+.. literalinclude:: walkthrough/omero-web-cron
+
+Copy this script into the appropriate location:
+
+.. literalinclude:: walkthrough/setup_cron.sh
+
+| :download:`omero-web-cron <walkthrough/omero-web-cron>`
+| :download:`setup_cron.sh <walkthrough/setup_cron.sh>`
 
 
 SELinux
