@@ -1890,9 +1890,7 @@ Distribution support
       - 
 
 Apache 2.2 requires mod_fastcgi (from external repository, for
-CentOS6). Apache 2.4 requires mod_proxy_cfgi and is not perfectly
-supported by default (needs a manual tweak), should be working for
-5.1.
+CentOS6). Apache 2.4 requires mod_proxy_fcgi.
 
 nginx
 -----
