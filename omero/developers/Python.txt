@@ -368,7 +368,7 @@ Groups and permissions
         'rw----': 'PRIVATE',
         'rwr---': 'READ-ONLY',
         'rwra--': 'READ-ANNOTATE',
-        'rwrw--': 'READ-WRITE'}  # Not exposed in 4.4.0 clients
+        'rwrw--': 'READ-WRITE'}  # Not exposed in clients
     print "Permissions: %s (%s)" % (permission_names[perm_string], perm_string)
 
 -  **By default, any query applies to ALL data that we can access in our
@@ -1061,13 +1061,13 @@ Render Images
         # renderedImage.show()                        # popup (use for debug only)
         renderedImage.save("channel%s.jpg" % c)     # save in the current folder
 
--  **Turn 3 channels on, setting their colours**
+-  **Turn 3 channels on, setting their colors**
 
 ::
 
     image.setColorRenderingModel()
     channels = [1, 2, 3]
-    colorList = ['F00', None, 'FFFF00']  # do not change colour of 2nd channel
+    colorList = ['F00', None, 'FFFF00']  # do not change color of 2nd channel
     image.setActiveChannels(channels, colors=colorList)
     # max intensity projection 'intmean' for mean-intensity
     image.setProjection('intmax')
