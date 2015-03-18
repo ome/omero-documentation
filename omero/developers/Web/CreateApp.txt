@@ -136,6 +136,10 @@ Add the essential files to your app
             """
             return HttpResponse("Welcome to your app home-page!")
 
+For more details how to write Views, forms, using templates, etc. check
+:djangodoc:`Django documentation <intro/tutorial03/#write-your-first-view>`.
+
+
 Add your app to OMERO.web
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
