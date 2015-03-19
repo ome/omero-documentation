@@ -73,7 +73,7 @@ Some of the options available to the import command are:
     all
         Skip all optional steps described below
     checksum
-        Skip checksum calculation either on files after transfer or on pixels
+        Skip checksum calculation on files after transfer
     minmax
         Skip computation of the minima and maxima pixel values
     thumbnails
