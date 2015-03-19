@@ -11,7 +11,7 @@ Additionally, Ice_ must be installed on your machine::
     $ python -c "import Ice"
 
 Check :doc:`/sysadmins/version-requirements` for the minimum and maximum
-versions of both requirements
+versions of both requirements.
 
 The |CLI| is currently bundled:
 
