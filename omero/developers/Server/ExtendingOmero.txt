@@ -9,7 +9,7 @@ Extending OMERO
     by third-party developers to extend, improve, and adapt OMERO. We
     outline most of these options below as well as some of their
     trade-offs. We are also always interested to hear other possible
-    extension points. Please contact the :mailinglist:`ome-devel mailing list <ome-devel/>` 
+    extension points. Please contact the :mailinglist:`ome-devel mailing list <ome-devel/>`
     with any such suggestions.
 
 Other starting points
@@ -39,7 +39,7 @@ point you back to this page for packaging and deploying your new code.
    further extend search
 -  :doc:`/developers/Server/LoginAttemptListener` - write a
    Java handler for failed login attempts
--  :doc:`/developers/command-line-interface` - write drop in Python extensions 
+-  :doc:`/developers/cli/index` - write drop in Python extensions
    for the command-line
 -  :doc:`/developers/scripts/index` - write python scripts to
    process data server-side
@@ -128,7 +128,7 @@ code-generation extensions are ideal. SAs cannot easily be aggregated,
 and code-generation would generate too many types. This is particularly
 clear in the storage and management of HCS analysis results.
 
-To solve this problem, we provide the :ref:`OMERO.tables <omerotables>` API 
+To solve this problem, we provide the :ref:`OMERO.tables <omerotables>` API
 for storing tabular data indexed via Roi, Well, or Image id.
 
 Services
@@ -162,7 +162,7 @@ The easiest possible service definition in slice is:
 
 This should be added to any existing or a new ``*.ice`` file under the
 ``blitz/resources/omero`` directory. After the next ant build, stubs
-will be created for all the :doc:`/developers/server-blitz` languages, 
+will be created for all the :doc:`/developers/server-blitz` languages,
 i.e.  |OmeroJava|, |OmeroPy|, and |OmeroCpp|.
 
 .. note::
@@ -252,7 +252,7 @@ The three patterns which are available are:
    not have access to ``blitz-*.xml`` objects.
 -  ``ome/services/db-*.xml`` - base connection and security objects.
    These will be included in background java process like the index and
-   pixeldata handlers. 
+   pixeldata handlers.
 
    .. note::
 
@@ -268,7 +268,7 @@ for all the available objects.
 Java deployment
 ^^^^^^^^^^^^^^^
 
-Finally, these resources should all be added to 
+Finally, these resources should all be added to
 ``OMERO_DIST/lib/server/extensions.jar``:
 
 -  the code generated classes
@@ -347,7 +347,7 @@ Putting ``MyLoginAttemptListener.class`` and
     MyLoginListener.java
     lib
     ...
-    ~/example $ jar cvf lib/server/extensions.jar MyLoginListener.class ome/services/blitz-myLoginListener.xml 
+    ~/example $ jar cvf lib/server/extensions.jar MyLoginListener.class ome/services/blitz-myLoginListener.xml
     added manifest
     adding: MyLoginListener.class(in = 0) (out= 0)(stored 0%)
     adding: ome/services/blitz-myLoginListener.xml(in = 0) (out= 0)(stored 0%)
@@ -378,7 +378,7 @@ which must refer to a ``<server-template>``.
 
 To clarify with an example, if you have a simple
 application which should watch for newly created Images and send you an
-email: ``mail_on_import.py``, you could add this in either of the following 
+email: ``mail_on_import.py``, you could add this in either of the following
 ways:
 
 Server element
@@ -409,7 +409,7 @@ Server-template and server-instance elements
 
       <node name="our-emailer-node">
         <server-instance id="emailer-template" user="ann">
-        <server-instance id="emailer-template" user="ann"> 
+        <server-instance id="emailer-template" user="ann">
       </node>
 
 .. seealso::

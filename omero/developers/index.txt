@@ -10,7 +10,7 @@ installation and administering OMERO can be found under the
 .. figure:: /images/developer-api-figure.png
    :align: center
    :width: 80%
-   :alt: 
+   :alt:
 
 **OMERO** is an open source client/server system written in Java for
 visualizing, managing, and annotating microscope images and metadata.
@@ -18,7 +18,7 @@ The |OmeroApi| allows clients to be
 written in :doc:`Java </developers/Java>`, :doc:`Python </developers/Python>`,
 :doc:`C++ </developers/Cpp>` or :doc:`MATLAB </developers/Matlab>`. OMERO
 releases include a Java client OMERO.insight, a Python-based web client
-OMERO.web and the :doc:`/developers/command-line-interface`, which also uses
+OMERO.web and the :doc:`/developers/cli/index`, which also uses
 Python. There is also an ImageJ plugin. OMERO can be extended by modifying
 these clients or by writing your own in any of the supported languages (see
 figure). OMERO also supports a :doc:`Scripting Service <scripts/index>` which
@@ -61,7 +61,7 @@ Using the OMERO API
 
     Python
     PythonBlitzGateway
-    command-line-interface
+    cli/index
     Java
     Matlab
     Cpp

@@ -1,0 +1,27 @@
+Server administration
+---------------------
+
+Server start
+^^^^^^^^^^^^
+
+Once your database has been properly configured and your config profile
+is set to use that database, you are ready to start your server using the
+:omerocmd:`admin start` command::
+
+    $ bin/omero admin start
+
+.. note::
+
+    :omerocmd:`admin start` and :omerocmd:`admin restart` provide a useful
+    debugging and maintenance option called :option:`--foreground`. Using
+    this option allows for starting the server up in the foreground, that is
+    without creating a daemon on UNIX-like systems or service on Windows.
+    During the lifetime of the server, the prompt from which it was launched
+    will be blocked.
+
+Server diagnostics
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    $ bin/omero admin diagnostics

@@ -1,0 +1,111 @@
+User/group management
+---------------------
+
+The :omerocmd:`user` and :omerocmd:`group` commands provide functionalities to
+add and manage users and groups on your database.
+
+User creation
+^^^^^^^^^^^^^
+
+New users can be added to the database using the :omerocmd:`user add` command::
+
+    $ bin/omero user add -h
+
+During the addition of the new user, you will need to specify the first and
+last name of the new user and their username as well as the groups the user
+belongs to. To add John Smith as a member of group 2 identified as jsmith,
+enter::
+
+    $ bin/omero user add jsmith John Smith 2
+
+Additional parameters such as the email address, institution, middle name etc
+can be passed as optional arguments to the :omerocmd:`user add` command.
+
+.. _ldap_setdn:
+
+Converting non-LDAP users to LDAP authentication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you want to take an existing (non-LDAP) user and 'upgrade' them to using
+LDAP you can do so using the :omerocmd:`ldap setdn` command::
+
+    $ bin/omero ldap setdn -h
+
+The process is also reversible so that the OMERO password for a user rather
+than the LDAP password will be used. See the caveat in the setdn help output
+below:
+
+.. literalinclude:: /downloads/ldap/setdn.out
+
+Group creation
+^^^^^^^^^^^^^^
+
+New groups can be added to the database using the :omerocmd:`group add`
+command::
+
+    $ bin/omero group add -h
+
+During the addition of the new group, you need to specify the name of the new
+group::
+
+    $ bin/omero group add newgroup
+
+The permissions of the group are set to `private` by default. Alternatively you
+can specify the permissions using :option:`--perms` or :option:`--type`
+optional arguments::
+
+    $ bin/omero group add read-only-1 --perms='rwr---'
+    $ bin/omero group add read-annotate-1 --type=read-annotate
+
+.. seealso::
+
+    :doc:`/sysadmins/server-permissions`
+        Description of the three group permissions levels (private, read-only,
+        read-annotate).
+
+Lists of users/groups on the OMERO server can be queried using the
+:omerocmd:`user list` and :omerocmd:`group list` commands::
+
+    $ bin/omero user list
+    $ bin/omero group list
+
+Group management
+^^^^^^^^^^^^^^^^
+
+Users can be added to existing groups using the :omerocmd:`user joingroup` or
+:omerocmd:`group adduser` commands. Similarly, users can be removed from
+existing groups using the :omerocmd:`user leavegroup` or
+:omerocmd:`group removeuser` commands::
+
+    # Add jsmith to group read-annotate-1
+    $ bin/omero group adduser jsmith --name=read-annotate-1
+    # Remove jsmith from group read-annotate-1
+    $ bin/omero group removeuser jsmith --name=read-annotate-1
+    # Add jsmith to group read-only-1
+    $ bin/omero user joingroup read-only-1 --name=jsmith
+    # Remove jsmith from group read-only-1
+    $ bin/omero user leavegroup read-only-1 --name=jsmith
+
+By passing the :option:`--as-owner` option, these commands can also be used to manage group owners ::
+
+    # Add jsmith to the owner list of group read-annotate-1
+    $ bin/omero group adduser jsmith --name=read-annotate-1 --as-owner
+    # Remove jsmith from the owner list of group read-annotate-1
+    $ bin/omero user leavegroup read-annotate-1 --name=jsmith --as-owner
+
+Group copy
+^^^^^^^^^^
+
+To create a copy of a group, you must first create a new group using the
+:omerocmd:`group add` command::
+
+    $ bin/omero group add read-only-2 --perms='rwr---'
+
+Then you can use the :omerocmd:`group copyusers` command to copy all group
+members from one group to  another::
+
+    $ bin/omero group copyusers read-only-1 read-only-2
+
+To copy the group owners, use the same command with the :option:`--as-owner` optional argument::
+
+    $ bin/omero group copyusers read-only-1 read-only-2 --as-owner

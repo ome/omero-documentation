@@ -1,0 +1,74 @@
+Manage sessions
+---------------
+
+The :omerocmd:`sessions` commands manage user sessions stored locally on disk.
+Several sessions can be active simultaneously, but only one will be used for a
+single invocation of `bin/omero`::
+
+    $ bin/omero sessions -h
+
+Multiple sessions
+^^^^^^^^^^^^^^^^^
+
+Stored sessions can be listed using the :omerocmd:`sessions list` command::
+
+    $ bin/omero sessions list
+     Server    | User | Group           | Session                              | Active    | Started
+    -----------+------+-----------------+--------------------------------------+-----------+--------------------------
+     localhost | test | read-annotate-2 | 22fccb8b-d04c-49ec-9d52-116a163728ca | Logged in | Fri Nov 23 14:55:25 2012
+     localhost | root | system          | 1f800a16-1dc2-407a-8a85-fb44005306be | True      | Fri Nov 23 14:55:18 2012
+    (2 rows)
+
+Sessions keys can then be reused to switch between stored sessions::
+
+    $ bin/omero sessions login -k 22fccb8b-d04c-49ec-9d52-116a163728ca
+    Server: [localhost]
+    Joined session 1f800a16-1dc2-407a-8a85-fb44005306be (root@localhost:4064).
+    $ bin/omero sessions list
+     Server    | User | Group           | Session                              | Active    | Started
+    -----------+------+-----------------+--------------------------------------+-----------+--------------------------
+     localhost | test | read-annotate-2 | 22fccb8b-d04c-49ec-9d52-116a163728ca | True      | Fri Nov 23 14:55:25 2012
+     localhost | root | system          | 1f800a16-1dc2-407a-8a85-fb44005306be | Logged in | Fri Nov 23 14:55:18 2012
+    (2 rows)
+
+Sessions directory
+^^^^^^^^^^^^^^^^^^
+
+By default sessions are saved locally on disk under :file:`~/omero/sessions`.
+The location of the current session file can be retrieved using the
+:omerocmd:`sessions file` command::
+
+    $ bin/omero sessions file
+    /Users/ome/omero/sessions/localhost/root/aec828e1-79bf-41f3-91e6-a4ac76ff1cd5
+
+If you want to use a custom session directory, use the
+:envvar:`OMERO_SESSION_DIR` environment variable::
+
+    $ export OMERO_SESSION_DIR=/tmp
+    $ bin/omero login
+    $ bin/omero sessions file
+    /tmp/omero/sessions/localhost/root/aec828e1-79bf-41f3-91e6-a4ac76ff1cd5
+    $ bin/omero logout
+
+Switching current group
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The sessions command can be used to switch the group of your current session::
+
+    $ bin/omero group list          # list your groups
+    $ bin/omero sessions group 2    # switch to group by ID or Name
+
+Sudo functionality
+^^^^^^^^^^^^^^^^^^
+
+Since 5.0.2, the CLI includes a sudo functionality for administrators allowing
+them to execute commands as another user. For example, to login as
+*username*, the root user can invoke the following command::
+
+    $ bin/omero login --sudo root -s servername -u username
+    Password for root:
+
+The :option:`--sudo` option is available to all commands accepting connection
+arguments. For instance to import data for user *username*::
+
+   $ bin/omero import --sudo root -s servername -u username image.tiff

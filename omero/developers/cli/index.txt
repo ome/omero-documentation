@@ -3,10 +3,10 @@ OMERO Command Line Interface
 
 .. seealso::
 
-    :doc:`/users/command-line-interface`
+    :doc:`/users/cli/index`
         User documentation on the Command Line Interface
 
-    :doc:`/sysadmins/command-line-interface`
+    :doc:`/sysadmins/cli/index`
         System Administrator documentation for the Command Line Interface
 
 Help for any specific CLI command can be displayed using the :option:`-h`

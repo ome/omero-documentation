@@ -1,0 +1,24 @@
+OMERO Command Line Interface
+============================
+
+The |CLI| is a set of Python_ based system-administration, deployment and
+advanced user tools. Most of commands work remotely so that the |CLI| can be
+used as a client against an OMERO server.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    installation
+    overview
+    import
+    sessions
+    tag
+
+.. seealso::
+
+    :doc:`/sysadmins/cli/index`
+        System administrator documentation for the Command Line Interface
+
+    :doc:`/developers/cli/index`
+        Developer documentation for the Command Line Interface

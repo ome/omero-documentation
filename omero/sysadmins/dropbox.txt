@@ -292,7 +292,7 @@ be comma separated.
     A string of extra arguments supplied to the importer. This could
     include, for example, an email address to report failed imports to:
     ``--report --email test@example.com``. The default is empty. For
-    details on available extra arguments see :doc:`/users/command-line-import`.
+    details on available extra arguments see :doc:`/users/cli/import`.
 
     ::
 
