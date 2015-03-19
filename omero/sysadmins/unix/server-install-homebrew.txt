@@ -255,8 +255,7 @@ install it:
     $ pg_ctl -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log start
 
 
-Create a user, a database and, if using PostgreSQL 8.4, add the PL/pgSQL
-language to your database.
+Create a user and database.
 
 ::
 
@@ -264,7 +263,6 @@ language to your database.
     Enter password for new role:       # db_password
     Enter it again:       # db_password
     $ createdb -E UTF8 -O db_user omero_database
-    $ createlang plpgsql omero_database
 
 Check to make sure the database has been created.
 
@@ -299,18 +297,15 @@ Now tell OMERO.server about our database.
     $ omero config set omero.db.user db_user
     $ omero config set omero.db.pass db_password
 
-    $ omero db script
-    Please enter omero.db.version [OMERO\ |version|\ ]:
-    Please enter omero.db.patch [0]:
-    Please enter password for new OMERO root user:       # root_password
-    Please re-enter password for new OMERO root user:      # root_password
-    Saving to ~/OMERO\ |version|\ __0.sql
+    $ omero db script --password secretpassword
+
+.. literalinclude:: /downloads/cli/db-script-example.txt
 
 Then enter the name of the .sql (see last line above) in the next command, to create the database:
 
 .. parsed-literal::
 
-    $ psql -h localhost -U db_user omero_database < OMERO\ |version|\ __0.sql
+    $ psql -h localhost -U db_user omero_database < |current_dbver|.sql
 
 Now create a location to store OMERO data, e.g.
 

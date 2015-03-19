@@ -187,30 +187,10 @@ respectively, and can be modified with command:
 
 ::
 
-        $ bin/omero admin ports --help
-        usage: bin/omero admin ports [-h] [--prefix PREFIX] [--registry REGISTRY]
-                                     [--tcp TCP] [--ssl SSL] [--revert]
+    $ bin/omero admin ports --help
 
-        Allows modifying the ports from a standard OMERO install
+.. literalinclude:: /downloads/cli/admin-ports-help.txt
 
-        To have two OMERO's running on the same machine, several ports must be modified from their default values.
-        Internally, this command uses the omero.install.change_ports module.
-
-        Examples:
-
-            bin/omero admin ports --prefix=1                             # sets ports to: 14061, 14063, 14064
-            bin/omero admin ports --prefix=1 --revert                    # sets ports back to: 4061, 4063, 4064
-            bin/omero admin ports --registry=4444 --tcp=5555 --ssl=6666  # sets ports to: 4444 5555 6666
-
-        Optional Arguments:
-          In addition to any higher level options
-
-          -h, --help           show this help message and exit
-          --prefix PREFIX      Adds a prefix to each port ON TOP OF any other settings
-          --registry REGISTRY  Registry port. (default: 4061)
-          --tcp TCP            The tcp port to be used by Glacier2 (default: 4063)
-          --ssl SSL            The ssl port to be used by Glacier2 (default: 4064
-          --revert             Used to rollback from the given settings to the defaults
 
 --------------
 
