@@ -325,7 +325,7 @@ of links at the top of the webclient main pages.
 
 -  **Update configuration** Use the OMERO command line interface to append the link to the ``top_links`` list.
 
-   Links use the format ``["Label", "URL_name"]`` or , you can follow this example:
+   Links use the format ``["Label", "URL_name"]`` or you can follow this example:
 
    ::
 
