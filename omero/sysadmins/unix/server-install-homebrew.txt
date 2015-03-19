@@ -255,8 +255,7 @@ install it:
     $ pg_ctl -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log start
 
 
-Create a user, a database and, if using PostgreSQL 8.4, add the PL/pgSQL
-language to your database.
+Create a user and database.
 
 ::
 
@@ -264,7 +263,6 @@ language to your database.
     Enter password for new role:       # db_password
     Enter it again:       # db_password
     $ createdb -E UTF8 -O db_user omero_database
-    $ createlang plpgsql omero_database
 
 Check to make sure the database has been created.
 
