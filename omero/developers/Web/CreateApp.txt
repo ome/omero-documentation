@@ -332,7 +332,7 @@ of links at the top of the webclient main pages.
        $ bin/omero config append omero.web.ui.top_links '["Mobile", "webmobile_index"]'
 
    From OMERO 5.1, you can add additional attributes to links using the format ``['Link Text', 'link', attrs]``.
-   This can be used to add tool-tips and open the link in a new 'target' tab. For example:
+   This can be used to add tool-tips and open the link in a new "target" tab. For example:
 
    ::
 
