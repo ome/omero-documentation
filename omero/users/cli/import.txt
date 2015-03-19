@@ -132,7 +132,7 @@ Command Line Importer
 The |CLI| import plugin calls the
 ``ome.formats.importer.cli.CommandLineImporter`` Java class. The Linux
 OMERO.importer also includes and :file:`importer-cli` shell script allowing to
-call the importer directly from Java.Using the importer using the shell script
+call the importer directly from Java. Using the importer using the shell script
 might look like this::
 
     ./importer-cli -s localhost -u user -w pass image.tif
