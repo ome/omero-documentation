@@ -17,6 +17,7 @@ import sys, os
 # Append the top level directory of the docs, so we can import from the config dir.
 sys.path.insert(0, os.path.abspath('../common'))
 from conf import *
+import conf_autogen
 
 
 # -- General configuration -----------------------------------------------------
@@ -68,8 +69,11 @@ rst_epilog += """
 .. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
 .. _Spring: http://spring.io
 .. |previousversion| replace:: %s
+.. |current_dbver|  replace:: %s
+.. |previous_dbver|  replace:: %s
 .. |iceversion| replace:: 3.5.1
-""" % previousversion
+""" % (previousversion, conf_autogen.current_dbver,
+       conf_autogen.previous_dbver)
 
 # OMERO-specific extlinks
 omero_extlinks = {
