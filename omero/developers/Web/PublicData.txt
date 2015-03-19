@@ -1,6 +1,11 @@
 Public data in OMERO.web
 ========================
 
+
+Public user
+-----------
+
+
 Since OMERO 4.4, the OMERO.web framework has supported auto-login for a single
 username / password. This means that any "public" visitors to certain
 OMERO.web pages will be automatically logged in and will be able to access the
@@ -82,3 +87,18 @@ Here is how to go about setting this up on your OMERO.web install:
     can always access the login page using the following link
     `\http://your_host/webclient/login/`.
 
+
+Reusing omero session
+---------------------
+
+Since OMERO 4.4, the OMERO.web framework has supported password-less, omero
+session key-based authentication. For example:
+
+    ::
+
+        http://your_host/webgateway/img_detail/IMAGE_ID/?server=SERVER_ID&bsession=omerosessionkey
+
+
+For more details about how to create omero session see
+:doc:`server-side session </developers/Server/Sessions>` or
+use :doc:`command line interface </users/cli/sessions>` to create one.
