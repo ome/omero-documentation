@@ -8,7 +8,6 @@ import sys
 
 
 def get_mmp(sqlfile):
-    # Ignore non-numeric version components
     m = re.search('.*/?OMERO(\d+)\.(\d+)(\w*)__(\d+)', sqlfile)
     mmp = (int(m.group(1)), int(m.group(2)), m.group(3), int(m.group(4)))
     return mmp
