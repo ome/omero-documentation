@@ -9,8 +9,8 @@ import sys
 
 def get_mmp(sqlfile):
     # Ignore non-numeric version components
-    m = re.search('.*/?OMERO(\d+)\.(\d+).*__(\w+)', sqlfile)
-    mmp = tuple(int(g) for g in m.groups())
+    m = re.search('.*/?OMERO(\d+)\.(\d+)(\w*)__(\d+)', sqlfile)
+    mmp = (int(m.group(1)), int(m.group(2)), m.group(3), int(m.group(4)))
     return mmp
 
 
@@ -35,11 +35,13 @@ for f in glob.glob(os.path.join(
     majorminorpatch.append(mmp)
     sqlfiles.append(sql)
 
-for previous_mmp in sorted(majorminorpatch, reverse=True):
+majorminorpatch = sorted(
+    majorminorpatch, key=lambda m: (-m[0], -m[1], m[2], -m[3]))
+for previous_mmp in majorminorpatch:
     if previous_mmp[0] < current_mmp[0] or (
             previous_mmp[0] == current_mmp[0] and
             previous_mmp[1] < current_mmp[1]):
         break
 
 print 'current_dbver = "%s"' % current_dbver
-print 'previous_dbver = "OMERO%d.%d__%d"' % previous_mmp
+print 'previous_dbver = "OMERO%d.%d%s__%d"' % previous_mmp
