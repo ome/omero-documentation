@@ -265,8 +265,10 @@ accessible on an external IP.
 
 OMERO.web is configured to use FastCGI TCP by default. If you are using a
 non-standard web server configuration and wish to use a file based socket
-you can set :property:`omero.web.application_server` to `fastcgi`, but you
-will have to create your own web server configuration file.
+you can set :property:`omero.web.application_server` to `fastcgi`. This is a
+highly specialized setup aimed at advanced users, so you will need to create
+your own web server configuration file, and file socket with correct
+permissions.
 
 All configuration options can be found on various sections of
 :ref:`web_index` developers documentation. For the full list, refer to
