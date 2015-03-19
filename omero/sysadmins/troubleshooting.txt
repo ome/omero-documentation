@@ -76,16 +76,8 @@ OMERO accounts
 These accounts only exist inside the OMERO system, and are completely separate 
 from both the system and database accounts, above.  The first user which you 
 will need to configure is the “root” OMERO user (different from any root-level 
-Unix account). This is done by setting the password in the database script:
-
-.. parsed-literal::
-
-   $ bin/omero db script
-   Please enter omero.db.version [OMERO\ |version|\ ]: 
-   Please enter omero.db.patch [0]: 
-   Please enter password for new OMERO root user:       # root_password
-   Please re-enter password for new OMERO root user:      # root_password
-   Saving to ~/OMERO\ |version|\ __0.sql
+Unix account). This is done by setting the password in the database script,
+see :doc:`cli/db`.
 
 Other OMERO users can be created via the OMERO.web admin tool. None of the 
 passwords have to be the same, in fact they should be different **unless you

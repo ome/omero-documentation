@@ -1,0 +1,6 @@
++ cd /home/omero/OMERO.server
++ bin/omero db script --password secretpassword
+Using OMERO5.1 for version
+Using 1 for patch
+Using password from commandline
+Saving to /home/omero/OMERO.server/OMERO5.1__1.sql
