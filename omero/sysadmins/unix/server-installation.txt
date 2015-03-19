@@ -535,14 +535,6 @@ For the purposes of this guide, the following dummy data is used::
 
       $ sudo -u postgres createdb -E UTF8 -O db_user omero_database
 
--  Add the PL/pgSQL language to your database::
-
-      $ sudo -u postgres createlang plpgsql omero_database
-
-   .. note::
-
-      PostgreSQL 9.0 and later enable PL/pgSQL by default.
-
 -  Check to make sure the database has been created, you have PostgreSQL
    client authentication correctly set up and the database is owned by
    the **db\_user** user.
