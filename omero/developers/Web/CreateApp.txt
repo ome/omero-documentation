@@ -308,7 +308,7 @@ Users can then configure this on the command line as follows:
 OMERO.web top links
 ^^^^^^^^^^^^^^^^^^^
 
-You can configure :property:`omero.web.ui.top_links` to add links to the list
+You can configure the "top_links" setting to add links to the list
 of links at the top of the webclient main pages.
 
 -  **Name your URL in urls.py** (optional). Preferably we use URL names to
