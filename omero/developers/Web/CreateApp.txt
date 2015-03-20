@@ -264,6 +264,10 @@ Using jQuery and jQuery UI from OMERO.web
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 OMERO.web uses the jQuery and jQuery UI javascript libraries extensively.
+If you need these libraries, you can include the OMERO.web versions of
+these libraries in your own pages. The alternative is to provide a specific
+version of jQuery or jQuery UI in your own app if, for example, you think
+that a version change may cause problems in your code.
 If you need to make use of these resources in your own pages, you can
 add the following statements to the ``<head>`` of your page templates:
 
