@@ -44,6 +44,15 @@ ADVANCED OPTIONS:
        $ ./importer-cli --minutes_wait=0 some_directory/
        $ ./importer-cli --wait_completed # Waits on all 3 imports.
 
+  File exclusion:
+  ---------------
+
+    --exclude=filename      	Exclude files based on filename.
+
+
+  e.g. $ bin/omero import -- --exclude=filename foo.tiff # First-time imports
+       $ bin/omero import -- --exclude=filename foo.tiff # Second-time skips
+
   Import speed:
   -------------
 
@@ -55,11 +64,26 @@ ADVANCED OPTIONS:
   e.g. $ bin/omero import -- --checksum_algorithm=CRC-32 foo.tiff
        $ ./importer-cli --checksum_algorithm=Murmur3-128 bar.tiff
 
+    --no-stats-info		Disable calculation of minima and maxima when as part of the Bio-Formats reader metadata
+
+  e.g. $ bin/omero import -- --no-stats-info foo.tiff
+       $ ./importer-cli --no-stats-info bar.tiff
+
+  --no_thumbnails		Do not perform thumbnailing after import
+
+  e.g. $ bin/omero import -- --no_thumbnails foo.tiff
+       $ ./importer-cli --no_thumbnails bar.tiff
+
+    --no-upgrade-check		Disable upgrade check for each import
+  e.g. $ bin/omero import -- --no-upgrade-check foo.tiff
+       $ ./importer-cli --no-upgrade-check bar.tiff
+
+
   Feedback:
   ---------
 
-    --qa_baseurl=ARG	Specify the base URL for reporting feedback
-  e.g. $ bin/omero import -- --qa_baseurl=https://qa.staging.openmicroscopy.org/qa
-       $ ./importer-cli --qa_baseurl=https://qa.staging.openmicroscopy.org/qa
+    --qa-baseurl=ARG	Specify the base URL for reporting feedback
+  e.g. $ bin/omero import -- --qa-baseurl=https://qa.staging.openmicroscopy.org/qa
+       $ ./importer-cli --qa-baseurl=https://qa.staging.openmicroscopy.org/qa
 
 Report bugs to <ome-users@lists.openmicroscopy.org.uk>
