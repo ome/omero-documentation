@@ -116,7 +116,7 @@ expects that wrapped view methods return a dict. This allows:
     For more details see :doc:`CSRF </developers/Web/csrf>`
 
 Extending render\_response
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The base render\_response class can be found in
 :file:`omeroweb/decorators.py`. It has a number of methods that can be
