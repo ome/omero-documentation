@@ -14,92 +14,148 @@ Import command
 
 .. program:: omero import
 
-:omerocmd:`import` is probably the first command many users will want to use.
-To import a file image.tiff, use::
+To import a file :file:`image.tif`, use::
 
-    $ bin/omero import image.tiff
+    $ bin/omero import image.tif
 
-Many options can be passed to the :omerocmd:`import`. They can be listed using
-the :option:`-h` option::
+Some of the options available to the import command are:
 
-    $ bin/omero import -h
+.. option:: -h, --help
 
-The :option:`-f` option displays all the used files for importing then exits::
+    Display the help for the import command
 
-    $ bin/omero import -f image.tif
-    $ bin/omero import -f images_folder
+.. option:: --java-help
 
-The :option:`--depth` option sets the number of directories to scan down for
-files (default: 4)::
+    Display the help for the Java option of the import command
 
-    $ bin/omero import --depth 1 images_folder
+    Java options can be passed after `--`, e.g.::
 
-Java Command Line Importer
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+       bin/omero import image.tif -- --name=test --description=description
 
-There are three ways to use the importer from the command line:
+.. option:: --advanced-help
 
-* ``importer-cli`` shell script, included for Linux and Macintosh only
-* ``ome.formats.importer.cli.CommandLineImporter`` Java class
-* ``bin/omero import`` command, from a server installation only
+    Display the advanced help for the import command
 
-Using the importer using the shell script might look like this:
+    Some advanced import options are described in the :ref:`inplace_import`
+    section.
 
-::
+.. option:: -f
 
-    ./importer-cli -s localhost -u user -w pass path/to/file
+    Display all the used files for importing then exits::
+
+        $ bin/omero import -f image.tif
+        $ bin/omero import -f images_folder
+
+    This will output a list of all the files which would be imported in groups
+    separated by "#" comments. Note that this usage does not require a running
+    server to be available.
+
+.. option:: --depth DEPTH
+
+    Set the number of directories to scan down for files (default: 4)::
+
+        $ bin/omero import --depth 1 images_folder
+
+.. option:: --skip SKIP
+
+    Specify optional step to skip during import.
+
+    The import of very large datasets like High-Content Screening data or
+    SPIM data can be time and resource consuming both at the client and at the
+    server level. This option allows the disabling of some non-critical steps
+    and thus faster import of such datasets. The caveat associated with its
+    usage is that some elements are no longer generated at import time.
+    Some of these elements, like thumbnails, will be generated at runtime
+    during client access.
+    Available options that can be skipped are currently:
+
+    all
+        Skip all optional steps described below
+    checksum
+        Skip checksum calculation on image files before and after transfer
+
+        This option effectively sets the :option:`--checksum_algorithm` to use
+        a fast algorithm, ``File-Size-64``, that considers only file size, not
+        the actual file contents.
+    minmax
+        Skip calculation of the minima and maxima pixel values
+
+        This option will also skip the calculation of the pixels checksum.
+        Recalculating minima and maxima pixel values post-import is currently
+        not supported. See :ref:`minmax_limitation` for more information.
+
+    thumbnails
+        Skip generation of thumbnails
+
+        Thumbnails will usually be generated when accessing the images
+        post-import via the OMERO clients.
+    upgrade
+        Skip upgrade check for Bio-Formats
+
+    Example of usage::
+
+        $ bin/omero import large_image --skip all
+        $ bin/omero import large_image --skip minmax
+
+    Multiple import steps can be skipped by supplying multiple arguments::
+
+        $ bin/omero import large_image --skip checksum --skip minmax
+
+.. option:: --debug DEBUG
+
+    Set the debug level for the command line import output::
+
+        $ bin/omero import images_folder --debug WARN
+
+.. option:: --report
+
+    Report emails to the OME team. This flag is mandatory for the
+    :option:`--upload` and :option:`--logs` arguments.
+
+.. option:: --email EMAIL
+
+    Set the contact email to use when reporting errors. This argument should
+    be used in conjunction with the :option:`--report` and :option:`--upload`
+    or :option:`--logs` arguments.
+
+.. option:: --upload
+
+    Upload broken files and log file (if any) with report
+
+    The following command would import a broken image and upload it together
+    with the import log if available in case of failure::
+
+        $ bin/omero import broken_image --report --upload --email my.email@domain.com
+
+.. option:: --logs
+
+    Upload log file (if any) with report
+
+    The following command would import a broken image and upload only the
+    import log if available in case of failure::
+
+        $ bin/omero import broken_image --report --logs --email my.email@domain.com
+
+
+Command Line Importer
+^^^^^^^^^^^^^^^^^^^^^
+
+The |CLI| import plugin calls the
+``ome.formats.importer.cli.CommandLineImporter`` Java class. The Linux
+OMERO.importer also includes and :file:`importer-cli` shell script allowing to
+call the importer directly from Java. Using the importer using the shell script
+might look like this::
+
+    ./importer-cli -s localhost -u user -w pass image.tif
 
 To use the ``ome.formats.importer.cli.CommandLineImporter`` class from java on
 the command line you will also need to include a classpath to the required
 support jars. Please look inside of the ``importer-cli`` script for an example
 of how to do this.
 
-With a server installation, from server directory, execute the following
-command:
-
-::
-
-    bin/omero -s localhost -u user import path/to/file
-
-Note that this method will prompt for any mandatory arguments not provided.
-
-The importer can also be used to detect what files *would* be imported:
-
-::
-
-    ./importer-cli -f /path/to/file
-
-or
-
-::
-
-    bin/omero import -f /path/to/file
-
-will output a list of all the files which would be imported in groups
-separated by "#" comments. Note that this usage does not require a running
-server to be available.
-
-Command Line options
-^^^^^^^^^^^^^^^^^^^^
-
 The Command Line Importer tool takes a number of mandatory and optional
-arguments to run, as follows:
+arguments to run. These options will also be displayed on the command line by passing no arguments to the importer:
 
 .. literalinclude:: /downloads/cli/help.out
-
-These options will also be displayed on the command line by passing no
-arguments to the importer.
-
-.. note::
-    - Using the ``--report`` option sends an automated error report to the QA application.
-      HTTP POST requests are currently used to upload the report. The default parameters (eg. endpoint URL)
-      may be overridden via an INI-formatted configuration file, which is expected to be located within
-      a ``config`` directory relative to the CLI importer (see example below).
-
-    - The ``--email`` option is the OMERO user's contact email. Note that errors are *not* sent to this address.
-
-Sample :file:`config/importer.config` INI file:
-
-.. literalinclude:: /downloads/cli/import.config
 
 .. seealso:: :doc:`/sysadmins/import-scenarios`

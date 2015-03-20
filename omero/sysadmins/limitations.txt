@@ -132,6 +132,17 @@ default). This primarily affects the following file formats:
 *  MRC
 *  TIFF
 
+.. _minmax_limitation:
+
+Calculation of minima and maxima pixel values
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If images are imported with one of the :option:`omero import --skip` options
+skipping calculation of the global minima and maxima pixel values, OMERO
+clients will use the extrema of the pixel type range by default. Users can
+adjust the minima/maxima via the rendering settings. Recalculating minima and
+maxima pixel values after import is currently not supported.
+
 LDAP
 ----
 
