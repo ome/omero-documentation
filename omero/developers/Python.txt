@@ -101,14 +101,17 @@ Connect to OMERO
         # =============================================================
         if not connected:
             import sys
-            sys.stderr.write("Error: Connection not available, please check your user name and password.\n")
+            sys.stderr.write(
+                "Error: Connection not available, please check your user name and"
+                " password.\n")
             sys.exit(1) 
 
 ::
 
         # Using secure connection.
         # =============================================================
-        # By default, once we have logged in, data transfer is not encrypted (faster)
+        # By default, once we have logged in, data transfer is not encrypted
+        # (faster)
         # To use a secure connection, call setSecure(True): 
 
 ::
@@ -140,22 +143,30 @@ Connect to OMERO
 
 ::
 
-        print "Other Members of current group:"
-        for exp in conn.listColleagues():
-            print "   ID:", exp.getId(), exp.getOmeName(), " Name:", exp.getFullName() 
+        # List the group owners and other members
+        owners, members = group.groupSummary()
+        print "   Group owners:"
+        for o in owners:
+            print "     ID: %s %s Name: %s" % (
+                o.getId(), o.getOmeName(), o.getFullName())
+        print "   Group members:"
+        for m in members:
+            print "     ID: %s %s Name: %s" % (
+                m.getId(), m.getOmeName(), m.getFullName())
 
 ::
 
         print "Owner of:"
         for g in conn.listOwnedGroups():
-            print "   ID:", g.getName(), " Name:", g.getId() 
+            print "   ID: ", g.getName(), " Name:", g.getId()
 
 ::
 
         # New in OMERO 5
         print "Admins:"
         for exp in conn.getAdministrators():
-            print "   ID:", exp.getId(), exp.getOmeName(), " Name:", exp.getFullName()
+            print "   ID: %s %s Name: %s" % (
+                exp.getId(), exp.getOmeName(), exp.getFullName())
 
 ::
 
@@ -195,12 +206,12 @@ Read data
         Helper method to display info about OMERO objects.
         Not all objects will have a "name" or owner field.
         """
-        print """%s%s:%s  Name:"%s" (owner=%s)""" % (\
-                " " * indent,
-                obj.OMERO_CLASS,\
-                obj.getId(),\
-                obj.getName(),\
-                obj.getOwnerOmeName())
+        print """%s%s:%s  Name:"%s" (owner=%s)""" % (
+            " " * indent,
+            obj.OMERO_CLASS,
+            obj.getId(),
+            obj.getName(),
+            obj.getOwnerOmeName())
 
 -  **List all Projects available to me, and their Datasets and Images:**
 
@@ -250,7 +261,7 @@ Read data
     dataset = conn.getObject("Dataset", datasetId)
     print "\nImages in Dataset:", dataset.getName()
     for image in dataset.listChildren():
-        print_obj(image) 
+        print_obj(image)
 
 -  **Retrieve an image by Image ID:**
 
@@ -270,8 +281,21 @@ Read data
     z = image.getSizeZ() / 2
     t = 0
     renderedImage = image.renderImage(z, t)
-    #renderedImage.show()               # popup (use for debug only)
-    #renderedImage.save("test.jpg")     # save in the current folder
+    # renderedImage.show()               # popup (use for debug only)
+    # renderedImage.save("test.jpg")     # save in the current folder
+
+-  **Get Pixel Sizes for the above Image:**
+
+::
+
+    sizeX = image.getPixelSizeX()       # E.g. 0.132
+    print " Pixel Size X:", sizeX
+    # Units support, new in OMERO 5.1.0
+    sizeXobj = image.getPixelSizeX(units=True)
+    print " Pixel Size X:", sizeXobj.getValue(), "(%s)" % sizeXobj.getSymbol()
+    # To get the size with different units, E.g. Angstroms
+    sizeXang = image.getPixelSizeX(units="ANGSTROM")
+    print " Pixel Size X:", sizeXang.getValue(), "(%s)" % sizeXang.getSymbol()
 
 -  **Retrieve Screening data:**
 
@@ -283,7 +307,7 @@ Read data
         print_obj(screen)
         for plate in screen.listChildren():
             print_obj(plate, 2)
-            plateId = plate.getId() 
+            plateId = plate.getId()
 
 -  **Retrieve Wells and Images within a Plate:**
 
@@ -301,8 +325,8 @@ Read data
             print "  Well: ", well.row, well.column, " Fields:", index
             for index in xrange(0, index):
                 print "    Image: ", \
-                        well.getImage(index).getName(),\
-                        well.getImage(index).getId() 
+                    well.getImage(index).getName(),\
+                    well.getImage(index).getId()
 
 -  **Close connection:**
 
@@ -340,10 +364,11 @@ Groups and permissions
 
     group_perms = group.getDetails().getPermissions()
     perm_string = str(group_perms)
-    permission_names = {'rw----':'PRIVATE',
-        'rwr---':'READ-ONLY',
-        'rwra--':'READ-ANNOTATE',
-        'rwrw--':'READ-WRITE'}  # Not exposed in 4.4.0 clients
+    permission_names = {
+        'rw----': 'PRIVATE',
+        'rwr---': 'READ-ONLY',
+        'rwra--': 'READ-ANNOTATE',
+        'rwrw--': 'READ-WRITE'}  # Not exposed in clients
     print "Permissions: %s (%s)" % (permission_names[perm_string], perm_string)
 
 -  **By default, any query applies to ALL data that we can access in our
@@ -361,7 +386,8 @@ Read-Annotate groups, this will include other users' data - see
 
 ::
 
-    image = conn.getObject("Image", imageId)     # Will return None if Image is not in current group
+    # Will return None if Image is not in current group
+    image = conn.getObject("Image", imageId)
     print "Image: ", image
 
 -  **In OMERO-4.4, we added 'cross-group' querying, use '-1'**
@@ -373,18 +399,18 @@ Read-Annotate groups, this will include other users' data - see
     print "Image: ", image,
     if image is not None:
         print "Group: ", image.getDetails().getGroup().getName(),
-        print image.details.group.id.val    # access groupId without loading group 
+        print image.details.group.id.val    # access groupId without loading group
 
--  **To query only a single group (not necessarily your 'current'
-   group)**
+-  **To query only a single group (not necessarily your 'current' group)**
 
 ::
 
     groupId = image.details.group.id.val
-    conn.SERVICE_OPTS.setOmeroGroup(groupId)   # This is how we 'switch group' in webclient
+    # This is how we 'switch group' in webclient
+    conn.SERVICE_OPTS.setOmeroGroup(groupId)
     projects = conn.listProjects()
     image = conn.getObject("Image", imageId)
-    print "Image: ", image, 
+    print "Image: ", image,
 
 -  **Close connection:**
 
@@ -429,7 +455,7 @@ Raw data access
     print plane
     print "shape: ", plane.shape
     print "min:", plane.min(), " max:", plane.max(),\
-            "pixel type:", plane.dtype.name
+        "pixel type:", plane.dtype.name
 
 -  **Retrieve a given stack**
 
@@ -444,13 +470,13 @@ Raw data access
 
 ::
 
-    # list of [ (0,0,0,(x,y,w,h)), (1,0,0,(x,y,w,h)), (2,0,0,(x,y,w,h))....etc... ]
-    zctList = [(z, c, t, tile) for z in range(sizeZ)]
+    # list of [ (0,0,0,(x,y,w,h)), (1,0,0,(x,y,w,h)), (2,0,0,(x,y,w,h))... ]
+    zctList = [(iz, c, t, tile) for iz in range(sizeZ)]
     print "\nZ stack of tiles:"
     planes = pixels.getTiles(zctList)
     for i, p in enumerate(planes):
         print "Tile:", zctList[i], " min:", p.min(),\
-                " max:", p.max(), " sum:", p.sum()
+            " max:", p.max(), " sum:", p.sum()
 
 -  **Retrieve a given hypercube**
 
@@ -481,14 +507,14 @@ Write data
 ::
 
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
-    conn.connect() 
+    conn.connect()
 
 -  **Configuration**
 
 ::
 
     projectId = 2
-    #Specify a local file. E.g. could be result of some analysis
+    # Specify a local file. E.g. could be result of some analysis
     fileToUpload = "README.txt"   # This file should already exist
 
 -  **Create a new Dataset**
@@ -515,6 +541,32 @@ Write data
     link.setChild(datasetObj)
     conn.getUpdateService().saveObject(link)
 
+-  **Annotate Project with a new 'tag'**
+
+::
+
+    tagAnn = omero.gateway.TagAnnotationWrapper(conn)
+    tagAnn.setValue("New Tag")
+    tagAnn.save()
+    project = conn.getObject("Project", projectId)
+    project.linkAnnotation(tagAnn)
+
+-  **New in OMERO 5.1: 'Map' annotations (list of key: value pairs)**
+
+::
+
+    keyValueData = [["Drug Name", "Monastrol"],
+                    ["Concentration", "5 mg/ml"]]
+    mapAnn = omero.gateway.MapAnnotationWrapper(conn)
+    # Use 'client' namespace to allow editing in Insight & web
+    namespace = omero.constants.metadata.NSCLIENTMAPANNOTATION
+    mapAnn.setNs(namespace)
+    mapAnn.setValue(keyValueData)
+    mapAnn.save()
+    project = conn.getObject("Project", projectId)
+    # NB: only link a client map annotation to a single object
+    project.linkAnnotation(mapAnn)
+
 -  **How to create a file annotation and link to a Dataset**
 
 ::
@@ -523,8 +575,10 @@ Write data
     # create the original file and file annotation (uploads the file etc.)
     namespace = "imperial.training.demo"
     print "\nCreating an OriginalFile and FileAnnotation"
-    fileAnn = conn.createFileAnnfromLocalFile(fileToUpload, mimetype="text/plain", ns=namespace, desc=None)
-    print "Attaching FileAnnotation to Dataset: ", "File ID:", fileAnn.getId(), ",", fileAnn.getFile().getName(), "Size:", fileAnn.getFile().getSize()
+    fileAnn = conn.createFileAnnfromLocalFile(
+        fileToUpload, mimetype="text/plain", ns=namespace, desc=None)
+    print "Attaching FileAnnotation to Dataset: ", "File ID:", fileAnn.getId(), \
+        ",", fileAnn.getFile().getName(), "Size:", fileAnn.getFile().getSize()
     dataset.linkAnnotation(fileAnn)     # link it to dataset.
 
 -  **Download a file annotation linked to a Dataset**
@@ -538,11 +592,13 @@ Write data
 
 ::
 
-    # Go through all the annotations on the Dataset. Download any file annotations we find.
+    # Go through all the annotations on the Dataset. Download any file annotations
+    # we find.
     print "\nAnnotations on Dataset:", dataset.getName()
     for ann in dataset.listAnnotations():
         if isinstance(ann, omero.gateway.FileAnnotationWrapper):
-            print "File ID:", ann.getFile().getId(), ann.getFile().getName(), "Size:", ann.getFile().getSize()
+            print "File ID:", ann.getFile().getId(), ann.getFile().getName(), \
+                "Size:", ann.getFile().getSize()
 
 ::
 
@@ -566,7 +622,8 @@ Write data
     nsToInclude = [namespace]
     nsToExclude = []
     metadataService = conn.getMetadataService()
-    annotations = metadataService.loadSpecifiedAnnotations('omero.model.FileAnnotation', nsToInclude, nsToExclude, None)
+    annotations = metadataService.loadSpecifiedAnnotations(
+        'omero.model.FileAnnotation', nsToInclude, nsToExclude, None)
     for ann in annotations:
         print ann.getId().getValue(), ann.file.name.val
 
@@ -631,7 +688,7 @@ OMERO tables
 ::
 
     ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    strings = ["one", "two", "three", "four", "five",\
+    strings = ["one", "two", "three", "four", "five",
                "six", "seven", "eight", "nine", "ten"]
     data1 = omero.grid.LongColumn('Uid', 'test Long', ids)
     data2 = omero.grid.StringColumn('MyStringColumn', '', 64, strings)
@@ -639,7 +696,7 @@ OMERO tables
     table.addData(data)
     table.close()           # when we are done, close.
 
--  **Get the table as an original file…**
+-  **Get the table as an original file...**
 
 ::
 
@@ -647,24 +704,29 @@ OMERO tables
     orig_file_id = orig_file.id.val
     # ...so you can attach this data to an object. E.g. Dataset
     fileAnn = omero.model.FileAnnotationI()
-    fileAnn.setFile(omero.model.OriginalFileI(orig_file_id, False))     # use unloaded OriginalFileI
+    # use unloaded OriginalFileI
+    fileAnn.setFile(omero.model.OriginalFileI(orig_file_id, False))
     fileAnn = conn.getUpdateService().saveAndReturnObject(fileAnn)
     link = omero.model.DatasetAnnotationLinkI()
     link.setParent(omero.model.DatasetI(datasetId, False))
     link.setChild(omero.model.FileAnnotationI(fileAnn.id.val, False))
     conn.getUpdateService().saveAndReturnObject(link)
 
--  **Table API** (also see the
-   :javadoc:`Table javadocs <slice2html/omero/grid/Table.html>`)
+-  **Table API**
+
+
+.. seealso:: :javadoc:` OMERO Tables <slice2html/omero/grid/Table.html>`
+
 
 ::
 
     openTable = conn.c.sf.sharedResources().openTable(orig_file)
 
+::
+
     print "Table Columns:"
     for col in openTable.getHeaders():
-        print "   ", col.name 
-
+        print "   ", col.name
     rowCount = openTable.getNumberOfRows()
     print "Row count:", rowCount
 
@@ -688,7 +750,7 @@ OMERO tables
     start = 3
     stop = 7
     print "\nGet Data for cols: ", colNumbers,\
-            " and between rows: ", start, "-", stop
+        " and between rows: ", start, "-", stop
 
 ::
 
@@ -702,8 +764,8 @@ OMERO tables
 
 ::
 
-    queryRows = openTable.getWhereList("(Uid > 2) & (Uid <= 8)",\
-            variables={}, start=0, stop=rowCount, step=0)
+    queryRows = openTable.getWhereList(
+        "(Uid > 2) & (Uid <= 8)", variables={}, start=0, stop=rowCount, step=0)
     data = openTable.readCoordinates(queryRows)
     for col in data.columns:
         print "Query Results for Column: ", col.name
@@ -715,7 +777,8 @@ OMERO tables
 
 ::
 
-    orig_table_file = conn.getObject("OriginalFile", attributes={'name': tablename})    # if name is unique
+    orig_table_file = conn.getObject(
+        "OriginalFile", attributes={'name': tablename})    # if name is unique
     savedTable = conn.c.sf.sharedResources().openTable(orig_table_file._obj)
     print "Opened table with row-count:", savedTable.getNumberOfRows()
 
@@ -747,11 +810,11 @@ ROIs
 
 ::
 
-    # We are using the core Python API and omero.model objects here, since ROIs are
-    # not yet supported in the Python Blitz Gateway.
+    # We are using the core Python API and omero.model objects here, since ROIs
+    # are not yet supported in the Python Blitz Gateway.
     #
-    # In this example, we create an ROI with a rectangular shape and attach it to an
-    # image.
+    # In this example, we create an ROI with a rectangular shape and attach it to
+    # an image.
     x = 50
     y = 200
     width = 100
@@ -759,14 +822,15 @@ ROIs
     image = conn.getObject("Image", imageId)
     theZ = image.getSizeZ() / 2
     theT = 0
-    print "Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s, height: %s" % \
-            (theZ, theT, x, y, width, height)
+    print ("Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s,"
+           " height: %s" % (theZ, theT, x, y, width, height))
 
 ::
 
     # create an ROI, link it to Image
     roi = omero.model.RoiI()
-    roi.setImage(image._obj)    # use the omero.model.ImageI that underlies the 'image' wrapper
+    # use the omero.model.ImageI that underlies the 'image' wrapper
+    roi.setImage(image._obj)
 
 ::
 
@@ -836,7 +900,8 @@ ROIs
                 shape['x2'] = s.getX2().getValue()
                 shape['y1'] = s.getY1().getValue()
                 shape['y2'] = s.getY2().getValue()
-            elif type(s) in (omero.model.MaskI, omero.model.LabelI, omero.model.PolygonI):
+            elif type(s) in (
+                    omero.model.MaskI, omero.model.LabelI, omero.model.PolygonI):
                 print type(s), " Not supported by this code"
             # Do some processing here, or just print:
             print "   Shape:",
@@ -903,8 +968,8 @@ Delete data
     # deleting a Project and you want to delete Datasets and Images.
     obj_ids = [projectId]
     deleteChildren = False
-    handle = conn.deleteObjects("Project", obj_ids,\
-            deleteAnns=True, deleteChildren=deleteChildren)
+    handle = conn.deleteObjects(
+        "Project", obj_ids, deleteAnns=True, deleteChildren=deleteChildren)
 
 -  **Retrieve callback and wait until delete completes**
 
@@ -937,7 +1002,7 @@ Render Images
 ::
 
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
-    conn.connect() 
+    conn.connect()
 
 -  **Configuration**
 
@@ -953,7 +1018,7 @@ Render Images
     image = conn.getObject("Image", imageId)
     img_data = image.getThumbnail()
     renderedThumb = Image.open(StringIO(img_data))
-    #renderedThumb.show()           # shows a pop-up
+    # renderedThumb.show()           # shows a pop-up
     renderedThumb.save("thumbnail.jpg")
 
 -  **Get current settings**
@@ -962,11 +1027,24 @@ Render Images
 
     print "Channel rendering settings:"
     for ch in image.getChannels():
-        print "Name: ", ch.getLabel()   # if no name, get emission wavelength or index
+        # if no name, get emission wavelength or index
+        print "Name: ", ch.getLabel()
         print "  Color:", ch.getColor().getHtml()
         print "  Active:", ch.isActive()
         print "  Levels:", ch.getWindowStart(), "-", ch.getWindowEnd()
     print "isGreyscaleRenderingModel:", image.isGreyscaleRenderingModel()
+    print "Default Z/T positions:"
+    print "    Z = %s, T = %s" % (image.getDefaultZ(), image.getDefaultT())
+
+-  **Show the saved rendering settings on this image**
+
+::
+
+    print "Rendering Defs on Image:"
+    for rdef in image.getAllRenderingDefs():
+        img_data = image.getThumbnail(rdefId=rdef['id'])
+        print "   ID: %s (owner: %s %s)" % (
+            rdef['id'], rdef['owner']['firstName'], rdef['owner']['lastName'])
 
 -  **Render each channel as a separate greyscale image**
 
@@ -980,20 +1058,21 @@ Render Images
         channels = [c]                  # Turn on a single channel at a time
         image.setActiveChannels(channels)
         renderedImage = image.renderImage(z, t)
-        #renderedImage.show()                        # popup (use for debug only)
+        # renderedImage.show()                        # popup (use for debug only)
         renderedImage.save("channel%s.jpg" % c)     # save in the current folder
 
--  **Turn 3 channels on, setting their colours**
+-  **Turn 3 channels on, setting their colors**
 
 ::
 
     image.setColorRenderingModel()
     channels = [1, 2, 3]
-    colorList = ['F00', None, 'FFFF00']         # do not change colour of 2nd channel
+    colorList = ['F00', None, 'FFFF00']  # do not change color of 2nd channel
     image.setActiveChannels(channels, colors=colorList)
-    image.setProjection('intmax')               # max intensity projection 'intmean' for mean-intensity
-    renderedImage = image.renderImage(z, t)     # z and t are ignored for projections
-    #renderedImage.show()
+    # max intensity projection 'intmean' for mean-intensity
+    image.setProjection('intmax')
+    renderedImage = image.renderImage(z, t)  # z and t are ignored for projections
+    # renderedImage.show()
     renderedImage.save("all_channels.jpg")
     image.setProjection('normal')               # turn off projection
 
@@ -1004,15 +1083,25 @@ Render Images
     channels = [1, 2]
     rangeList = [[100.0, 120.2], [None, None]]
     image.setActiveChannels(channels, windows=rangeList)
-    renderedImage = image.renderImage(z, t, compression=0.5)    # default compression is 0.9
-    #renderedImage.show()
+    # Set default Z & T. These will be used as defaults for further rendering
+    image.setDefaultZ(0)
+    image.setDefaultT(0)
+    # default compression is 0.9
+    renderedImage = image.renderImage(z=None, t=None, compression=0.5)
+    renderedImage.show()
     renderedImage.save("two_channels.jpg")
 
--  **Save the current rendering settings**
+-  **Save the current rendering settings & default Z/T**
 
 ::
 
     image.saveDefaults()
+
+-  **Reset to settings at import time, and optionally save**
+
+::
+
+    image.resetDefaults(save=True)
 
 -  **Close connection:**
 
@@ -1045,9 +1134,14 @@ Create Image
     # createImageFromNumpySeq() Here we create a multi-dimensional image from a
     # hard-coded array of data.
     from numpy import array, int8
+    import omero
     sizeX, sizeY, sizeZ, sizeC, sizeT = 5, 4, 1, 2, 1
-    plane1 = array([[0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [5, 6, 7, 8, 9]], dtype=int8)
-    plane2 = array([[5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [0, 1, 2, 3, 4]], dtype=int8)
+    plane1 = array(
+        [[0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [5, 6, 7, 8, 9]],
+        dtype=int8)
+    plane2 = array(
+        [[5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [0, 1, 2, 3, 4]],
+        dtype=int8)
     planes = [plane1, plane2]
 
 ::
@@ -1060,15 +1154,39 @@ Create Image
 ::
 
     desc = "Image created from a hard-coded arrays"
-    i = conn.createImageFromNumpySeq(planeGen(), "numpy image",\
-            sizeZ, sizeC, sizeT, description=desc, dataset=None)
+    i = conn.createImageFromNumpySeq(
+        planeGen(), "numpy image", sizeZ, sizeC, sizeT, description=desc,
+        dataset=None)
+
+::
+
+    print 'Created new Image:%s Name:"%s"' % (i.getId(), i.getName())
+
+-  **Set the pixel size using units (new in 5.1.0)**
+
+
+Lengths are specified by value and a unit enumeration
+Here we set the pixel size X and Y to be 9.8 Angstroms
+
+
+::
+
+    from omero.model.enums import UnitsLength
+    # Re-load the image to avoid update conflicts
+    i = conn.getObject("Image", i.getId())
+    u = omero.model.LengthI(9.8, UnitsLength.ANGSTROM)
+    p = i.getPrimaryPixels()._obj
+    p.setPhysicalSizeX(u)
+    p.setPhysicalSizeY(u)
+    conn.getUpdateService().saveObject(p)
 
 -  **Create an Image from an existing image**
 
 ::
 
     # We are going to create a new image by passing the method a 'generator' of 2D
-    # planes This will come from an existing image, by taking the average of 2 channels.
+    # planes This will come from an existing image, by taking the average of 2
+    # channels.
     zctList = []
     image = conn.getObject('Image', imageId)
     sizeZ, sizeC, sizeT = image.getSizeZ(), image.getSizeC(), image.getSizeT()
@@ -1084,24 +1202,30 @@ Create Image
 
 ::
 
-        The createImage method below expects planes in the order specified here (for
-        z.. for c.. for t..)
+        The createImage method below expects planes in the order specified here
+        (for z.. for c.. for t..)
         """
         for z in range(sizeZ):              # all Z sections
-            for c in range(newSizeC):       # Illustrative purposes only, since we only have 1 channel
+            # Illustrative purposes only, since we only have 1 channel
+            for c in range(newSizeC):
                 for t in range(sizeT):      # all time-points
                     channel0 = pixels.getPlane(z, 0, t)
                     channel1 = pixels.getPlane(z, 1, t)
-                    # Here we can manipulate the data in many different ways. As an example we are doing "average"
-                    newPlane = (channel0 + channel1) / 2    # average of 2 channels
-                    print "newPlane for z,t:", z, t, newPlane.dtype, newPlane.min(), newPlane.max()
+                    # Here we can manipulate the data in many different ways. As
+                    # an example we are doing "average"
+                    # average of 2 channels
+                    newPlane = (channel0 + channel1) / 2
+                    print "newPlane for z,t:", z, t, newPlane.dtype, \
+                        newPlane.min(), newPlane.max()
                     yield newPlane
 
 ::
 
-    desc = "Image created from Image ID: %s by averaging Channel 1 and Channel 2" % imageId
-    i = conn.createImageFromNumpySeq(planeGen(), "new image",\
-            sizeZ, newSizeC, sizeT, description=desc, dataset=dataset)
+    desc = ("Image created from Image ID: %s by averaging Channel 1 and Channel 2"
+            % imageId)
+    i = conn.createImageFromNumpySeq(
+        planeGen(), "new image", sizeZ, newSizeC, sizeT, description=desc,
+        dataset=dataset)
 
 -  **Close connection:**
 
