@@ -65,7 +65,8 @@ Some of the options available to the import command are:
     server level. This option allows the disabling of some non-critical steps
     and thus faster import of such datasets. The caveat associated with its
     usage is that some elements are no longer generated at import time.
-    Some of them will be re-generated during client access e.g. thumbnails.
+    Some of these elements like thumbnails will be generated at runtime during
+    client access.
     Available options that can be skipped are currently:
 
     all
