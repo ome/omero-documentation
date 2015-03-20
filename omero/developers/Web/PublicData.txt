@@ -90,8 +90,8 @@ Reusing OMERO session
 ---------------------
 
 Since OMERO 4.4, the OMERO.web framework has supported password-less, OMERO
-session key-based authentication. For example direct link to image will look
-as follow:
+session key-based authentication. For example a direct link to image will look
+as follows:
 
 ::
 
@@ -101,7 +101,7 @@ as follow:
 
     SERVER_ID should match the index from the list set using
     :property:`omero.web.server_list` from the server session
-    that was created.
+    you created.
 
 For more details about how to create an OMERO session see
 :doc:`server-side session </developers/Server/Sessions>` or
