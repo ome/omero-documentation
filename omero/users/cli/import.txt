@@ -14,7 +14,6 @@ Import command
 
 .. program:: omero import
 
-:omerocmd:`import` is probably the first command many users will want to use.
 To import a file :file:`image.tif`, use::
 
     $ bin/omero import image.tif
@@ -65,19 +64,29 @@ Some of the options available to the import command are:
     SPIM data can be time and resource consuming both at the client and at the
     server level. This option allows the disabling of some non-critical steps
     and thus faster import of such datasets. The caveat associated with its
-    usage is that some elements are no longer generated at import time and may
-    either be re-generated during client access (e.g. thumbnails) or may need
-    manual intervention to be generated (e.g. minmax).
+    usage is that some elements are no longer generated at import time.
+    Some of them will be re-generated during client access e.g. thumbnails.
     Available options that can be skipped are currently:
 
     all
         Skip all optional steps described below
     checksum
-        Skip checksum calculation on files after transfer
+        Skip checksum calculation on image files before and after transfer
+
+        This option effectively set the :option:`--checksum_algorithm` to use
+        a non computationally intensive comparison algorithm, ``File-Size-64``.
     minmax
-        Skip computation of the minima and maxima pixel values
+        Skip calculation of the minima and maxima pixel values
+
+        This option will also skip the calculation of the pixels checksum.
+        Recalculating minima and maxima pixel values post-import is currently
+        not supported. See :ref:`minmax_limitation` for more information.
+
     thumbnails
         Skip generation of thumbnails
+
+        Thumbnails will usually be generated when accessing the images
+        post-import via the OMERO clients.
     upgrade
         Skip upgrade check for Bio-Formats
 
