@@ -504,22 +504,36 @@ well as many methods shared amongst all Python integration tests.
 
 Each concrete instance of the ``ITest`` will initiate a connection to the
 server specified by the :envvar:`ICE_CONFIG` environment variable at the
-``setup_class()`` level. Two basic clients/sessions are created by
+``setup_class()`` level. The following objects are created by
 ``ITest.setup_class()`` and shared by all test methods of this class:
 
 - ``self.root`` is a client for the root user
-- ``self.client`` is a client for a new user created at the class setup.
-  ``self.sf``, ``self.update`` and ``self.query`` are shortcuts to this client
-  session, update service and query service.
+- ``self.group`` is a new group which permissions are set to
+  ``ITest.DEFAULT_PERMS`` by default. Overriding ``DEFAULTS_PERMS`` in a
+  subclass of ``ITest`` means the group will be created with the new
+  permissions.
+- ``self.user`` is a new user and member of ``self.group``
+- ``self.client`` is a client for the ``self.user`` created at class setup.
 
-::
+Additionally, for the ``self.client`` object, different shortcuts are available:
+
+- ``self.sf`` is the non-root client session
+- ``self.update`` is the update service for the non-root client session
+- ``self.query`` is the query service for the  non-root client session
+- ``self.ctx`` is the event context for the non-root client session. Note this
+  corresponds to the context at creation time and should be refreshed if the
+  context is modified.
+
+The example below inherits the ``ITest`` class and would create a read-write
+group by default ::
 
   from library import ITest
 
   class TestExample(ITest):
-      def testSimple():
-          ec = self.sf.getAdminService().getEventContext()
-          assert ec, "No EventContext!"
+
+      DEFAULT_PERMS = 'rwrw--'  # Override default permissions
+      def test1():
+          doAction(self.sf)
 
 New user and groups can be instantiated by individual tests using the
 ``ITest.new_user()`` and ``ITest.new_group()`` methods::
@@ -540,7 +554,7 @@ New clients can be instantiated by individual tests using the
 Images can be imported using the ``ITest.importSingleImage()`` or
 ``ITest.importSingleImageWithCompanion()`` or ``ITest.importMIF()`` methods::
 
-      def testNewClient():
+      def testImportMIF():
           images = self.importMIF(2)
           assert len(images) == 2
 
