@@ -49,6 +49,20 @@ passed to the function via the optional parameter ``conn=None``.
         ds = conn.getObject("Dataset", datasetId)
         return render(request, 'webtest/dataset.html', {'dataset': ds})
 
+or
+
+::
+
+    from omeroweb.decorators import login_required, render_response
+
+    @login_required()
+    @render_response()
+    def dataset(request, datasetId, conn=None, **kwargs):
+        ds = conn.getObject("Dataset", datasetId)
+        context['template'] = 'webtest/dataset.html'
+        context['dataset'] = ds
+        return context
+
 .. figure:: /images/web-get-blitz-connection-flow.png
   :align: center
   :alt: Blitz Connection Flow
@@ -79,6 +93,37 @@ extend its functionality. Again, it is best to look at an example of
 this. See :file:`webclient/decorators.py` to see how the base
 omeroweb.decorators.login\_required has been extended to configure the
 conn connection upon login, handle login failure differently etc.
+
+render\_response
+^^^^^^^^^^^^^^^^
+
+This decorator handles the rendering of view methods to HttpResponse. It
+expects that wrapped view methods return a dict. This allows:
+-  The template to be specified in the method arguments OR within the view
+   method itself
+-  The dict to be returned as json if required
+-  The request is passed to the template context, as required by some tags
+   etc
+-  A hook is provided for adding additional data to the context, from the
+   :doc:`PythonBlitzGateway` or from the request.
+
+.. note::
+
+    Using @render\_response guarantee using special
+    :djangodoc:`RequestContext class <ref/templates/api/#subclassing-context-requestcontext>`
+    which always uses 'django.template.context_processors.csrf' (no matter
+    what template context processors are configured in the TEMPLATES setting).
+    For more details see :doc:`CSRF </developers/Web/csrf>`
+
+Extending render\_response
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The base render\_response class can be found in
+:file:`omeroweb/decorators.py`. It has a number of methods that can be
+overwritten to customize or extend its functionality. Again, it is best to
+look at an example of this. See :file:`webclient/decorators.py` to see how
+the base omeroweb.decorators.render\_response has been extended to configure
+HttpResponse and its subclasses.
 
 Style guides
 ------------
