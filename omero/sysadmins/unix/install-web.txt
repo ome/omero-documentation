@@ -234,6 +234,11 @@ OMERO.web Maintenance
               $ bin/omero config set omero.web.caches '{"default": { "BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400" } }'
               $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
 
+.. note::
+    The generated Nginx and Apache configuration files will automatically
+    display a maintenance page if an attempt is made to access OMERO.web whilst
+    it is not running.
+
 
 .. _customizing_your_omero_web_installation_unix:
 
@@ -241,30 +246,29 @@ Customizing your OMERO.web installation
 ---------------------------------------
 
 By default OMERO.web expects to be run from the root URL of the web server.
-This can be changed by setting :property:`omero.web.force_script_name` and
+This can be changed by setting :property:`omero.web.prefix` and
 :property:`omero.web.static_url`. For example, to make OMERO.web appear at
 `http://example.org/omero/`:
 
 ::
 
-    $ bin/omero config set omero.web.force_script_name '/omero'
+    $ bin/omero config set omero.web.prefix '/omero'
     $ bin/omero config set omero.web.static_url '/omero/static/'
 
 and regenerate your web-server configuration
 (see :ref:`fastcgi_configuration`).
 
+The front-end webserver (Nginx, Apache) can be setup to run on a different
+host from OMERO.web. You will need to set
+:property:`omero.web.application_server.host` to ensure OMERO.web is
+accessible on an external IP.
+
 OMERO.web is configured to use FastCGI TCP by default. If you are using a
-non-standard web server configuration you may wish to change this:
-
-::
-
-    $ bin/omero config set omero.web.application_server "fastcgi" / "fastcgi-tcp"
-
-The default `fastcgi-tcp` option uses a TCP connection for communication
-between OMERO.web and your web server; `fastcgi` uses a file based socket and
-will require you to manage the file permissions on it. You will have to
-regenerate your web server configuration after changing this property
-(see :ref:`fastcgi_configuration`).
+non-standard web server configuration and wish to use a file based socket
+you can set :property:`omero.web.application_server` to `fastcgi`. This is a
+highly specialized setup aimed at advanced users, so you will need to create
+your own web server configuration file, and file socket with correct
+permissions.
 
 All configuration options can be found on various sections of
 :ref:`web_index` developers documentation. For the full list, refer to

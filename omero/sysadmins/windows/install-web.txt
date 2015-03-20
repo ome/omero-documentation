@@ -10,7 +10,7 @@ includes OMERO.webadmin for managing users and groups.
 OMERO.web is an integral part of the OMERO platform and can be deployed
 with:
 
--  IIS 5.1, 6.0 or 7.0 on Microsoft Windows (since OMERO 4.2.1)
+-  IIS 6.0 or 7.0 on Microsoft Windows
 -  FastCGI using a FastCGI capable web server such as
    `Apache 2.2 <http://httpd.apache.org/>`_ (with
    `mod\_fastcgi <http://www.fastcgi.com/drupal/>`_ enabled),
@@ -64,7 +64,7 @@ working with your IIS deployment.
    Alternatively if you are using a 32-bit system you can use the *Windows
    Installer*.
 -  For extended compatibility with multiple IIS versions ISAPI WSGI uses
-   the IIS 5/6 WMI interface to interact with your IIS deployment. If
+   the IIS 6 WMI interface to interact with your IIS deployment. If
    you are using IIS 7 you must enable the IIS 6 WMI backwards
    compatibility options, as shown on the figure:
 
@@ -105,7 +105,7 @@ working with your IIS deployment.
 
    This will automatically add two applications, `/omero` and `/static`,
    to the default web site and application pool. You can customise these
-   locations by setting :property:`omero.web.force_script_name` and
+   locations by setting :property:`omero.web.prefix` and
    :property:`omero.web.static_url`.
 
    .. note::  You can make manual changes to the IIS OMERO configuration
