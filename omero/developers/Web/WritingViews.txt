@@ -99,21 +99,21 @@ render\_response
 
 This decorator handles the rendering of view methods to HttpResponse. It
 expects that wrapped view methods return a dict. This allows:
--  The template to be specified in the method arguments OR within the view
+
+-  the template to be specified in the method arguments OR within the view
    method itself
--  The dict to be returned as json if required
--  The request is passed to the template context, as required by some tags
+-  the dict to be returned as json if required
+-  the request is passed to the template context, as required by some tags
    etc
--  A hook is provided for adding additional data to the context, from the
-   :doc:`PythonBlitzGateway` or from the request.
+-  a hook is provided for adding additional data to the context, from the
+   :doc:`/developers/PythonBlitzGateway` or from the request.
 
 .. note::
-
-    Using @render\_response guarantee using special
+    Using ``@render\_response`` guarantees using special
     :djangodoc:`RequestContext class <ref/templates/api/#subclassing-context-requestcontext>`
-    which always uses 'django.template.context_processors.csrf' (no matter
+    which always uses ``django.template.context_processors.csrf`` (no matter
     what template context processors are configured in the TEMPLATES setting).
-    For more details see :doc:`CSRF </developers/Web/csrf>`
+    For more details see :doc:`CSRF <CSRF>`.
 
 Extending render\_response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
