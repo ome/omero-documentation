@@ -99,7 +99,7 @@ as follows:
 
     SERVER_ID should match the index from the list set using
     :property:`omero.web.server_list` from the server session
-    you created.
+    you created. If your list contains only one server the index will be 1.
 
 For more details about how to create an OMERO session see
 :doc:`server-side session </developers/Server/Sessions>` or
