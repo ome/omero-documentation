@@ -73,8 +73,9 @@ Some of the options available to the import command are:
     checksum
         Skip checksum calculation on image files before and after transfer
 
-        This option effectively set the :option:`--checksum_algorithm` to use
-        a non computationally intensive comparison algorithm, ``File-Size-64``.
+        This option effectively sets the :option:`--checksum_algorithm` to use
+        a fast algorithm, ``File-Size-64``, that considers only file size, not
+        the actual file contents.
     minmax
         Skip calculation of the minima and maxima pixel values
 
