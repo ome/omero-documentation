@@ -194,7 +194,7 @@ Default: `omero`
 omero.db.patch
 ^^^^^^^^^^^^^^
 
-Default: `20`
+Default: `1`
 
 .. property:: omero.db.poolsize
 
@@ -250,7 +250,7 @@ Default: `omero`
 omero.db.version
 ^^^^^^^^^^^^^^^^
 
-Default: `OMERO5.1DEV`
+Default: `OMERO5.1`
 
 
 .. _fs_configuration:
@@ -648,7 +648,7 @@ omero.mail.from
 ^^^^^^^^^^^^^^^
 the email address used for the "from" field
 
-Default: `ADDRESS@domain`
+Default: `omero@${omero.mail.host}`
 
 .. property:: omero.mail.host
 
@@ -656,7 +656,7 @@ omero.mail.host
 ^^^^^^^^^^^^^^^
 the hostname of smtp server
 
-Default: `smtp.domain`
+Default: `localhost`
 
 .. property:: omero.mail.password
 
@@ -670,7 +670,7 @@ Default: `[empty]`
 
 omero.mail.port
 ^^^^^^^^^^^^^^^
-the port of smtp server 
+the port of smtp server
 
 Default: `25`
 
@@ -715,7 +715,7 @@ Default: `false`
 omero.mail.smtp.socketFactory.port
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Default: `25`
+Default: `${omero.mail.port}`
 
 .. property:: omero.mail.smtp.starttls.enable
 
@@ -1035,6 +1035,74 @@ omero.pixeldata.tile_width
 Default: `256`
 
 
+.. _policy_configuration:
+
+Policy
+------
+
+.. property:: omero.policy.bean
+
+omero.policy.bean
+^^^^^^^^^^^^^^^^^
+Instance of the PolicyService interface which
+will be responsible for checking certain server
+actions made by a user.
+
+Default: `defaultPolicyService`
+
+.. property:: omero.policy.binary_access
+
+omero.policy.binary_access
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Configuration for the policy of whether users
+can access binary files from disk. Binary access
+includes all attempts to download a file from the
+UI.
+
+The individual components of the string include:
+
+- write - whether or not users who have WRITE
+  access to the objects can access the binary.
+  This includes group and system administrators.
+
+- read - whether or not users who have READ
+  access to the objects can access the binary.
+
+- image - whether or not images are to be considered
+  accessible as a rule.
+
+- plate - whether or not plates and contained HCS
+  objects are to be considered accessible as a rule.
+  This includes wells, well samples, and plate runs.
+
+Though the order of the components of the property
+are not important, the order that they are listed above
+roughly corresponds to their priority. E.g. a -write
+value will override +plate.
+
+Example 1: "-read,+write,+image,-plate" only owners
+of an image and admins can download it.
+
+Example 2: "-read,-write,-image,-plate" no downloading
+is possible.
+
+Configuration properties of the same name can be applied
+to individual groups as well. E.g. adding,
+omero.policy.binary_access=-read to a group, you can
+prevent group-members from downloading original files.
+
+Configuration is pessimistic: if there is a negative
+*either* on the group *or* at the server-level, the
+restriction will be applied. A missing value at the
+server restricts the setting but allows the server
+to override.
+
+
+Default: `+read,
++write,
++image`
+
+
 .. _scripts_configuration:
 
 Scripts
@@ -1209,7 +1277,8 @@ Default: `ome.model.core.Image,
 ome.model.containers.Project,
 ome.model.containers.Dataset,
 ome.model.screen.Plate,
-ome.model.screen.Screen`
+ome.model.screen.Screen,
+ome.model.screen.PlateAcquisition`
 
 .. property:: omero.search.locking_strategy
 
@@ -1352,6 +1421,11 @@ Default: `3000`
 
 omero.security.password_provider
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Implementation of PasswordProvider that will be
+used to authenticate users. Typically, a chanined
+password provider will be used so that if one form
+of authentication (e.g. LDAP) does not work, other
+attempts will be made.
 
 Default: `chainedPasswordProvider`
 
@@ -1393,14 +1467,6 @@ Default: `[empty]`
 Web
 ---
 
-.. property:: omero.web.admins
-
-omero.web.admins
-^^^^^^^^^^^^^^^^
-A tuple that lists people who get code error notifications. When :property:`omero.web.debug` False and a view raises an exception, Django will email these people with the full exception information. Each member of the tuple should be a tuple of (Full name, email address).
-
-Default: `[]`
-
 .. property:: omero.web.application_server
 
 omero.web.application_server
@@ -1415,7 +1481,7 @@ omero.web.application_server.host
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Upstream application host
 
-Default: `0.0.0.0`
+Default: `127.0.0.1`
 
 .. property:: omero.web.application_server.max_requests
 
@@ -1462,54 +1528,6 @@ Default: `{}`
 omero.web.debug
 ^^^^^^^^^^^^^^^
 A boolean that turns on/off debug mode.
-
-Default: `false`
-
-.. property:: omero.web.email_host
-
-omero.web.email_host
-^^^^^^^^^^^^^^^^^^^^
-The SMTP server host to use for sending email.
-
-Default: `None`
-
-.. property:: omero.web.email_host_password
-
-omero.web.email_host_password
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Password to use for the SMTP server.
-
-Default: `None`
-
-.. property:: omero.web.email_host_user
-
-omero.web.email_host_user
-^^^^^^^^^^^^^^^^^^^^^^^^^
-Username to use for the SMTP server.
-
-Default: `None`
-
-.. property:: omero.web.email_port
-
-omero.web.email_port
-^^^^^^^^^^^^^^^^^^^^
-Port to use for the SMTP server.
-
-Default: `None`
-
-.. property:: omero.web.email_subject_prefix
-
-omero.web.email_subject_prefix
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Subject-line prefix for email messages
-
-Default: `[OMERO.web]`
-
-.. property:: omero.web.email_use_tls
-
-omero.web.email_use_tls
-^^^^^^^^^^^^^^^^^^^^^^^
-Whether to use a TLS (secure) connection when talking to the SMTP server.
 
 Default: `false`
 
@@ -1689,14 +1707,6 @@ Username to use during authentication.
 
 Default: `None`
 
-.. property:: omero.web.server_email
-
-omero.web.server_email
-^^^^^^^^^^^^^^^^^^^^^^
-The email address that error messages come from, such as those sent to :property:`omero.web.admins`.  Requires EMAIL properties below.
-
-Default: `None`
-
 .. property:: omero.web.server_list
 
 omero.web.server_list
@@ -1712,6 +1722,22 @@ omero.web.session_cookie_age
 The age of session cookies, in seconds.
 
 Default: `86400`
+
+.. property:: omero.web.session_cookie_domain
+
+omero.web.session_cookie_domain
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The domain to use for session cookies
+
+Default: `None`
+
+.. property:: omero.web.session_cookie_name
+
+omero.web.session_cookie_name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The name to use for session cookies
+
+Default: `None`
 
 .. property:: omero.web.session_engine
 

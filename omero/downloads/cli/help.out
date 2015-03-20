@@ -37,7 +37,6 @@ Optional arguments:
   --annotation_ns ANNOTATION_NS		Namespace to use for subsequent annotation
   --annotation_text ANNOTATION_TEXT	Content for a text annotation (requires namespace)
   --annotation_link ANNOTATION_LINK	Comment annotation ID to link all images to
-  --no_thumbnails			Do not perform thumbnailing after import
 
 Examples:
 
