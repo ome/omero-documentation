@@ -1,5 +1,5 @@
-Command line interface overview
--------------------------------
+Overview
+--------
 
 .. _cli_help:
 
@@ -18,7 +18,7 @@ these sub-commands::
     $ bin/omero admin -h
     $ bin/omero admin start -h
 
-The :omerocmd:`help` command can be used to get info on other commands or
+The :program:`omero help` command can be used to get info on other commands or
 options::
 
     $ bin/omero help debug       # debug is an option
@@ -30,34 +30,29 @@ Command line workflow
 There are three ways to use the command line tools:
 
 #.  By explicitly logging in to the server first i.e. by creating a session
-    using the :omerocmd:`login` command.
-    The connection parameters can be either passed directly in the connection
-    string::
+    using the :program:`omero login` command, e.g.::
 
         $ bin/omero login username@servername:4064
-
-    or using the :option:`-s`, :option:`-u` and :option:`-p` options::
-
-        $ bin/omero login -s servername -u username -p 4064
-
-    If no argument can be specified, the interface will ask for the
-    connection credentials::
-
-        $ bin/omero login
-        Previously logged in to localhost:4064 as root
-        Server: [localhost]
-        Username: [root]
         Password:
 
     During login, a session is created locally on disk and will remain active
     until you logout or it times out. You can then call the desired command,
-    e.g. the :omerocmd:`import` command::
+    e.g. the :program:`omero import` command::
 
         $ bin/omero import image.tiff
 
-#.  By passing the session arguments directly to the desired command, e.g.::
+#.  By passing the session arguments directly to the desired command. Most
+    commands support the same arguments as the :program:`omero login`::
 
         $ bin/omero -s servername -u username -p 4064 import image.tiff
+        Password:
+
+    The :option:`--sudo <omero login --sudo>` option is available to all
+    commands accepting connection arguments. For instance to import data for
+    user *username*::
+
+        $ bin/omero import --sudo root -s servername -u username image.tiff
+        Password for owner:
 
 #.  By calling the desired command without login arguments. You will be asked
     to login::
@@ -68,6 +63,6 @@ There are three ways to use the command line tools:
         Password:
 
 Once you are done with your work, you can terminate the current session if you
-wish using the :omerocmd:`logout` command::
+wish using the :program:`omero logout` command::
 
     $ bin/omero logout

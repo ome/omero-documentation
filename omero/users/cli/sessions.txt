@@ -1,16 +1,98 @@
 Manage sessions
 ---------------
 
-The :omerocmd:`sessions` commands manage user sessions stored locally on disk.
+The :program:`omero sessions` plugin manage user sessions stored locally on
+disk.
 Several sessions can be active simultaneously, but only one will be used for a
 single invocation of `bin/omero`::
 
     $ bin/omero sessions -h
 
+Login
+^^^^^
+
+The :program:`omero login` command is a shortcut for the
+:program:`omero sessions login` subcommand which creates a connection to the
+server. If no argument can be specified, the interface will ask for the
+connection credentials::
+
+    $ bin/omero login
+    Previously logged in to localhost:4064 as root
+    Server: [localhost:4064]
+    Username: [root]
+    Password:
+
+Some of the options available to the :program:`omero login` command are:
+
+.. program:: omero login
+
+.. option:: connection
+
+    Pass a connection string under the form ``[USER@]SERVER[:PORT]`` to
+    instantiate a connection::
+
+        $ bin/omero login username@servername
+        Password:
+        $ bin/omero login username@servername:14064
+        Password:
+
+.. option:: -s SERVER, --server SERVER
+
+    Set the name of the server to connect to::
+
+        $ bin/omero login -s servername
+        Username: [username]
+
+.. option:: -u USER, --user USER
+
+    Set the name of the username::
+
+        $ bin/omero login -u username -s servername
+        Password:
+
+.. option:: -p PORT, --port PORT
+
+    Set the port to use for connection. Default: 4064::
+
+        $ bin/omero login -u username -s servername -p 14064
+        Password:
+
+.. option:: -g GROUP, --group GROUP
+
+    Set the group to use for initalizing a connection::
+
+        $ bin/omero login -u username -s servername -g my_group
+        Password:
+
+.. option:: -k KEY, --key KEY
+
+    Use a valid session key to join an existing connection.
+
+    This option only requires a server argument::
+
+        $ bin/omero login servername -k 22fccb8b-d04c-49ec-9d52-116a163728ca
+
+.. option:: -w PASSWORD, --password PASSWORD
+
+    Set the password to use for the connection
+
+.. option:: --sudo ADMINUSER
+
+    Create a connection as another user.
+
+    The sudo functionality is available to administrators as well as group
+    owners::
+
+        $ bin/omero login --sudo root -s servername -u username
+        Password for root:
+        $ bin/omero login --sudo owner -s servername -u username
+        Password for owner:
+
 Multiple sessions
 ^^^^^^^^^^^^^^^^^
 
-Stored sessions can be listed using the :omerocmd:`sessions list` command::
+Stored sessions can be listed using the :program:`omero sessions list`
+command::
 
     $ bin/omero sessions list
      Server    | User | Group           | Session                              | Active    | Started
@@ -19,7 +101,8 @@ Stored sessions can be listed using the :omerocmd:`sessions list` command::
      localhost | root | system          | 1f800a16-1dc2-407a-8a85-fb44005306be | True      | Fri Nov 23 14:55:18 2012
     (2 rows)
 
-Sessions keys can then be reused to switch between stored sessions::
+Sessions keys can then be reused to switch between stored sessions using the
+:option:`omero login -k` option::
 
     $ bin/omero sessions login -k 22fccb8b-d04c-49ec-9d52-116a163728ca
     Server: [localhost]
@@ -36,7 +119,7 @@ Sessions directory
 
 By default sessions are saved locally on disk under :file:`~/omero/sessions`.
 The location of the current session file can be retrieved using the
-:omerocmd:`sessions file` command::
+:program:`omero sessions file` command::
 
     $ bin/omero sessions file
     /Users/ome/omero/sessions/localhost/root/aec828e1-79bf-41f3-91e6-a4ac76ff1cd5
@@ -53,22 +136,8 @@ If you want to use a custom session directory, use the
 Switching current group
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The sessions command can be used to switch the group of your current session::
+The :program:`sessions group` command can be used to switch the group of your
+current session::
 
     $ bin/omero group list          # list your groups
     $ bin/omero sessions group 2    # switch to group by ID or Name
-
-Sudo functionality
-^^^^^^^^^^^^^^^^^^
-
-Since 5.0.2, the CLI includes a sudo functionality for administrators allowing
-them to execute commands as another user. For example, to login as
-*username*, the root user can invoke the following command::
-
-    $ bin/omero login --sudo root -s servername -u username
-    Password for root:
-
-The :option:`--sudo` option is available to all commands accepting connection
-arguments. For instance to import data for user *username*::
-
-   $ bin/omero import --sudo root -s servername -u username image.tiff
