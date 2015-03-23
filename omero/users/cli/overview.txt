@@ -42,7 +42,7 @@ There are three ways to use the command line tools:
         $ bin/omero import image.tiff
 
 #.  By passing the session arguments directly to the desired command. Most
-    commands support the same arguments as the :program:`omero login`::
+    commands support the same arguments as :program:`omero login`::
 
         $ bin/omero -s servername -u username -p 4064 import image.tiff
         Password:
