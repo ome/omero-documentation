@@ -1,5 +1,3 @@
-+ cd /home/omero/OMERO.server
-+ bin/omero db script --password secretpassword
 Using OMERO5.1 for version
 Using 1 for patch
 Using password from commandline
