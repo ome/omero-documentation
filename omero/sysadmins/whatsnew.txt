@@ -15,3 +15,26 @@ text.
   a regression with the new code requires changing this setting, ensure
   that a bug is filed with the OME team so it can be fixed before this
   configuration property is *removed* in OMERO 5.2.
+
+
+OMERO.web
+---------
+
+- OMERO.web now defaults to being mounted at the root on all webservers with
+  the exception of IIS (Windows production deployment) where it continues to
+  be mounted on ``/omero``. Static files continue to be served from
+  ``/static``. :ref:`Both prefixes can be customized
+  <customizing_your_omero_web_installation_unix>` (including on IIS) but note
+  the configuration property :property:`omero.web.force_script_name` has
+  changed to :property:`omero.web.prefix`.
+
+- :ref:`Apache 2.4 with mod_proxy_fcgi <apache24_configuration>` is now
+  supported.
+
+- OMERO.web FastCGI processes default to listening on 127.0.0.1 instead of
+  all network interfaces. This improves security, see
+  :ref:`customizing_your_omero_web_installation_unix` if you need to listen
+  on another interface.
+
+- If OMERO.web is disabled the generated Nginx and Apache configurations
+  automatically display a maintenance page.
