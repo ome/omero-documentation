@@ -62,7 +62,7 @@ for f in \
 done
 
 echo "Getting db properties"
-omero/autogen_db_version.py $WORKSPACE/OMERO.server > common/conf_autogen.py
+omero/autogen_db_version.py $WORKSPACE/OMERO.server > omero/conf_autogen.py
 
 echo "Cleanup"
 rm java-help.txt

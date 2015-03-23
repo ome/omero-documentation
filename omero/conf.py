@@ -17,6 +17,7 @@ import sys, os
 # Append the top level directory of the docs, so we can import from the config dir.
 sys.path.insert(0, os.path.abspath('../common'))
 from conf import *
+sys.path.insert(1, os.path.abspath('../omero'))
 import conf_autogen
 
 
