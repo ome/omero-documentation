@@ -1381,7 +1381,7 @@ The version to use is largely dependent upon the Ice support for a particular Vi
 In general later versions have better C++ standards conformance and
 correctness, and should be preferred where possible.
 
-.. _ice-section:
+.. _ice-requirements:
 
 Ice
 ---
