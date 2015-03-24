@@ -102,5 +102,5 @@ as follows:
     you created. If your list contains only one server the index will be 1.
 
 For more details about how to create an OMERO session see
-:doc:`server-side session </developers/Server/Sessions>` or
-use :doc:`command line interface </users/cli/sessions>` to create one.
+:doc:`server-side session </developers/Server/Sessions>` or use
+:ref:`manage_sessions` to create one.
