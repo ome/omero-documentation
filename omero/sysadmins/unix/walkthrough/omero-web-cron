@@ -1,0 +1,4 @@
+#!/bin/sh
+OMERO_USER=omero
+OMERO_SERVER=/home/omero/OMERO.server
+su - ${OMERO_USER} -c "${OMERO_SERVER}/bin/omero web clearsessions"

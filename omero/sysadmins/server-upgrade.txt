@@ -179,7 +179,7 @@ in a short time. The example below assumes you are upgrading from a
 .. parsed-literal::
 
     $ cd OMERO.server
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/OMERO\ |version|\_\_0/OMERO\ |previousversion|\_\_0.sql
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/|previous_dbver|.sql
     Password for user **db_user**:
     ...
     ...
@@ -188,7 +188,7 @@ in a short time. The example below assumes you are upgrading from a
                                                                         +
                                                                         +
                                                                         +
-    YOU HAVE SUCCESSFULLY UPGRADED YOUR DATABASE TO VERSION OMERO |version|\_\_0+
+    YOU HAVE SUCCESSFULLY UPGRADED YOUR DATABASE TO VERSION |current_dbver| +
                                                                         +
                                                                         +
 

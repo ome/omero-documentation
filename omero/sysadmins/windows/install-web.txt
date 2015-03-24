@@ -154,7 +154,7 @@ to access OMERO.webadmin or the OMERO.webclient:
 
 
 OMERO.web Maintenance
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 -  Session cookies :property:`omero.web.session_expire_at_browser_close`:
 

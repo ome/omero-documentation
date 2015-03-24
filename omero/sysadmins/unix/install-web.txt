@@ -183,7 +183,7 @@ to access OMERO.webadmin or the OMERO.webclient:
 
 
 OMERO.web Maintenance
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 -  Session cookies :property:`omero.web.session_expire_at_browser_close`:
 
@@ -219,7 +219,7 @@ OMERO.web Maintenance
           $ bin/omero web clearsessions
 
       It is recommended to call this command on a regular basis, for example 
-      as a daily cron job, see
+      as a :ref:`daily cron job<linux_walkthrough_regular_tasks>`, see
       :djangodoc:`Django clearing the session store documentation <topics/http/sessions/#clearing-the-session-store>`
       for more information.
 

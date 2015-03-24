@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # This script is used by a Continuous Integration job to auto-generate
 # some components of the OMERO documentation from its deliverables (server,
-# clients). To run it locally, download the server and rename the folder as
-# OMERO.server.
+# clients). To run it locally:
+# - download the server and rename the folder as OMERO.server.
+# - Clone the ome/omero-install repository as omero-install.
 
 set -u
 set -e
@@ -25,10 +26,43 @@ sed 1,5d advanced-help.txt > omero/downloads/inplace/advanced-help.txt
 (cd $WORKSPACE/OMERO.server && bin/omero import --javahelp) 2> java-help.txt || echo "Dumped"
 sed 1,5d java-help.txt > omero/downloads/cli/help.out
 
+echo "Generating CLI admin ports help"
+(cd $WORKSPACE/OMERO.server && bin/omero admin ports -h) > omero/downloads/cli/admin-ports-help.txt
+
+echo "Generating DB script example"
+(cd $WORKSPACE/OMERO.server && bin/omero db script --password secretpassword 2>&1) | sed "s|$WORKSPACE|/home/omero|" > omero/downloads/cli/db-script-example.txt
+
 echo "Generating Web configuration templates"
 $WORKSPACE/OMERO.server/bin/omero web config nginx | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/nginx-omero.conf
 $WORKSPACE/OMERO.server/bin/omero web config apache | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/apache-omero.conf
 $WORKSPACE/OMERO.server/bin/omero web config apache-fcgi | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/apache-fcgi-omero.conf
+
+echo "Copying omero-install Linux scripts"
+mkdir -p omero/sysadmins/unix/walkthrough/
+for f in \
+    README.md \
+    dependencies-centos6.sh \
+    dependencies-ubuntu1404.sh \
+    install.sh \
+    omero-init.d \
+    omero-web-cron \
+    omero-web-init.d \
+    settings.env \
+    setup_cron.sh \
+    setup_nginx_centos6.sh \
+    setup_nginx_centos6_selinux.sh \
+    setup_nginx_ubuntu1404.sh \
+    setup_omero51.sh \
+    setup_omero_daemon_centos6.sh \
+    setup_omero_daemon_ubuntu1404.sh \
+    setup_postgres.sh \
+    system_setup.sh \
+    ; do
+    cp $WORKSPACE/omero-install/linux/$f omero/sysadmins/unix/walkthrough/
+done
+
+echo "Getting db properties"
+omero/autogen_db_version.py $WORKSPACE/OMERO.server > omero/conf_autogen.py
 
 echo "Cleanup"
 rm java-help.txt

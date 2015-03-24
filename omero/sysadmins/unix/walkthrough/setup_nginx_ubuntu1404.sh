@@ -2,7 +2,7 @@
 
 apt-get -y install nginx
 
-# See setup_omero.sh for the nginx config file creation
+# See setup_omero*.sh for the nginx config file creation
 
 cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/sites-available/omero-web
 rm /etc/nginx/sites-enabled/default

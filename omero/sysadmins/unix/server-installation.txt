@@ -537,14 +537,6 @@ For the purposes of this guide, the following dummy data is used::
 
       $ sudo -u postgres createdb -E UTF8 -O db_user omero_database
 
--  Add the PL/pgSQL language to your database::
-
-      $ sudo -u postgres createlang plpgsql omero_database
-
-   .. note::
-
-      PostgreSQL 9.0 and later enable PL/pgSQL by default.
-
 -  Check to make sure the database has been created, you have PostgreSQL
    client authentication correctly set up and the database is owned by
    the **db\_user** user.
@@ -634,10 +626,9 @@ Configuration
 
     $ omero config set omero.data.dir /srv/omero
 
--   Create the OMERO database initialization script. You will be asked
-    for the version of the script which you would like to generate,
-    where both defaults can be accepted. Finally, you will be asked to
-    enter and confirm password for your newly created OMERO root user.
+-   Create the OMERO database initialization script. You will need to
+    provide a password for the newly created OMERO root user, either by
+    using the ``--password`` argument or by entering it when prompted.
     Note that this password is for the root user of the
     **OMERO.server**, and is not related to the root system user or a
     PostgreSQL user role.
@@ -645,12 +636,9 @@ Configuration
     .. parsed-literal::
 
         $ cd ~/omero/OMERO.server
-        $ bin/omero db script
-        Please enter omero.db.version [OMERO\ |version|\ ]: 
-        Please enter omero.db.patch [0]: 
-        Please enter password for new OMERO root user: # omero_root_password
-        Please re-enter password for new OMERO root user: # omero_root_password
-        Saving to ~/Desktop/omero/OMERO\ |version|\ __0.sql
+        $ bin/omero db script --password omero_root_password
+
+    .. literalinclude:: /downloads/cli/db-script-example.txt
 
    .. warning:: **Security**
 
@@ -665,7 +653,7 @@ Configuration
 
     .. parsed-literal::
 
-        $ psql -h localhost -U db_user omero_database < OMERO\ |version|\ __0.sql
+        $ psql -h localhost -U db_user omero_database < |current_dbver|.sql
 
     At this point you should see some output from PostgreSQL as it
     installs the schema for new OMERO database.
