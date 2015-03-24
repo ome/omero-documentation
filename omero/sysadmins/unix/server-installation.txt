@@ -80,15 +80,15 @@ The following packages are required:
 +--------------+-------------+---------+
 | Package      | Recommended | Minimum |
 +==============+=============+=========+
-| Ice          | 3.5         | 3.5     |
+| Ice          | 3.5         | 3.4     |
 +--------------+-------------+---------+
-| Java         | 1.8         | 1.7     |
+| Java         | 1.8         | 1.6     |
 +--------------+-------------+---------+
 | OMERO.server | |release|             |
 +--------------+-------------+---------+
-| Python       | 2.7         | 2.7     |
+| Python       | 2.7         | 2.6     |
 +--------------+-------------+---------+
-| PostgreSQL   | 9.3         | 9.3     |
+| PostgreSQL   | 9.3         | 9.2     |
 +--------------+-------------+---------+
 
 One of the following packages is recommended if you wish to use
@@ -174,7 +174,8 @@ Check you have Python (and check its version) by running:
     $ python --version
     Python 2.7.5+
 
-.. note:: OMERO does not currently support Python 3; you should use 2.7.
+.. note:: OMERO does not currently support Python 3; you must use 2.6 or a
+    later 2.x release.
 
 The following Python packages are required:
 
@@ -248,8 +249,9 @@ Ice
 
 .. note::
 
-    OMERO |version| supports 3.5 on UNIX and UNIX-like
-    platforms.
+    OMERO |version| supports 3.5 and 3.4 on UNIX and UNIX-like
+    platforms.You must install the correct version of OMERO.server
+    (see :downloads:`Downloads <>`).
 
 If possible, install one of the following packages:
 
@@ -300,7 +302,7 @@ If possible, install the following packages:
 | RedHat    | postgresql postgresql-server                                |
 +-----------+-------------------------------------------------------------+
 
-PostgreSQL 9.3 or later is required. See :doc:`server-postgresql` for
+PostgreSQL 9.2 or later is required. See :doc:`server-postgresql` for
 further details.
 
 OMERO.web
