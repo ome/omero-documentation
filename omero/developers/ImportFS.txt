@@ -50,9 +50,9 @@ See :file:`acquisition.ome.xml`
 - ``ome.model.fs.Fileset``
 
   - Represents a group of files which are considered to belong together.
-  - There is the possibility that a single client fileset will be one or more
-    datasets in Bio-Formats. We need to decide to either model this or to use
-    a special reader (DirectoryReader ?) on the server.
+  - In the future the client may upload a single "import set" that is
+    subsequently resolved by Bio-Formats into multiple filesets on the
+    server.
   - Also links to multiple ome.model.jobs.Job instances.
   - *In development*: links to the plate and image objects which are created
     during import.
