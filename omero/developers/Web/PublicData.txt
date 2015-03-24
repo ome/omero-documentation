@@ -73,7 +73,7 @@ Here is how to go about setting this up on your OMERO.web install:
         '/webtest' matches '/webtest…' but not '/webclient/webtest'
 
     Set a server to connect to. Default: 1 (the first server in
-    omero.web.server_list)
+    ```omero.web.server_list```)
 
     ::
 
@@ -98,7 +98,7 @@ as follows:
 .. note::
 
     SERVER_ID should match the index from the list set using
-    :property:`omero.web.server_list` from the server session
+    ```omero.web.server_list``` from the server session
     you created. If your list contains only one server the index will be 1.
 
 For more details about how to create an OMERO session see
