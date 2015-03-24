@@ -159,7 +159,7 @@ server to negotiate a mutually acceptable algorithm, as in
 configuration setting for :property:`omero.checksum.supported`. ImportLibrary
 calculates each file's hash using hashers obtained through
 `ChecksumProviderFactory.getProvider`. In fetching `OriginalFile` objects by HQL
-through the Query Service one may need `JOIN FETCH` on the hasher property to
+through the Query Service one needs `JOIN FETCH` on the hasher property to
 read the hasher's name.
 
 
