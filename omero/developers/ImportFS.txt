@@ -175,7 +175,7 @@ directly retrievable from ``ServiceFactoryPrx``.
 
 - ``ManagedRepositoryI.importPaths()``
 
-  - re-uses ``ImportContainer.fillData()`` to create an ``ImportSettings``
+  - reuses ``ImportContainer.fillData()`` to create an ``ImportSettings``
     and a ``Fileset`` and then calls ``importFileset(Fileset, ImportSettings)``
 
 - ``ManagedRepositoryI.importFileset()``
