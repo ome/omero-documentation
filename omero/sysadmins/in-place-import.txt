@@ -60,7 +60,7 @@ Someone wanting to perform an in-place import **MUST** have:
 * an |OS|-account with access to :file:`bin/omero`
 * read access to the location of the data
 * **write** access to the :doc:`ManagedRepository
-  </developers/ManagedRepository/ManagedRepository>`
+  </developers/ImportFS>`
   or one of its subdirectories
 
 The above means that it may be useful to create a single OS
@@ -118,7 +118,7 @@ imports you need to create a different user account, allowing someone to log
 into the server but not accidentally delete any files. Therefore, you should
 set up an 'in-place' user and an 'in-place' group and configure a subset of
 directories under
-:doc:`ManagedRepository </developers/ManagedRepository/ManagedRepository>` to
+:doc:`ManagedRepository </developers/ImportFS>` to
 let members of that group write to them. The example below details how this
 was done for one of our test servers in Dundee:
 
