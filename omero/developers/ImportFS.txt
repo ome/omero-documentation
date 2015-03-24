@@ -5,12 +5,13 @@ The OMERO 5 release introduces OMERO.fs, a new way of storing files in the
 OMERO binary repository and thus a new method of importing images to the
 server.
 
-In previous versions of OMERO the import process was very much client-centered.
-When importing an image the client pushed pixel data, metadata and,
-optionally, original image files to the OMERO server. With the advent of OMERO
-5, OMERO.fs allows the pixels to be accessed directly from the original image
-files. This means that much of the import process can now take place on the
-server once the original image files have been uploaded.
+In previous versions of OMERO the import process was very much
+client-centered. When importing an image the client pushed pixel data,
+metadata and, optionally, original image files to the OMERO server. With
+the advent of OMERO 5, OMERO.fs allows the pixels to be accessed
+directly from the original image files. This means that much of the
+import process can now take place on the server once the original image
+files have been uploaded.
 
 This page looks at the implications for the developer writing import clients.
 A broad description of the import workflow is followed by some of the model
