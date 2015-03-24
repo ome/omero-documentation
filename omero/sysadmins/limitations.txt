@@ -153,3 +153,9 @@ result in users being removed from these groups. The groups will still
 exist in OMERO but user membership will be treated as being defined by
 LDAP alone.
 
+OMERO.tables
+------------
+
+There are currently issues with the integration of some third-party analysis
+data via :doc:`OMERO.tables </developers/analysis>`. Tabulated data may not be
+properly associated with the image they relate to.
