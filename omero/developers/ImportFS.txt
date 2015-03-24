@@ -65,9 +65,9 @@ See :file:`acquisition.ome.xml`
     files were not uploaded however, this may not be the case. Then a
     ``MetadataImportJob`` follows, which is the basic import.
   - Other jobs may be necessary for regular usage (``PixelDataJob``,
-    ``IndexingJob``, etc.). *Later jobs may also be added like a re-parse job,
-    a re-check of the hashes to detect
-    corruption, or an archive job*.
+    ``IndexingJob``, etc.). *Later jobs may also be added like a
+    re-parse job, a re-check of the hashes to detect corruption, or an
+    archive job*.
   - For job definitions, see :file:`jobs.ome.xml`
 
 - ``ome.model.fs.FilesetEntry``
