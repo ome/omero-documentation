@@ -69,19 +69,17 @@ See :file:`acquisition.ome.xml`
     re-parse job, a re-check of the hashes to detect corruption, or an
     archive job*.
   - For job definitions, see :file:`jobs.ome.xml`
+  - Some subclasses have a ``versionInfo`` property for storing
+    a snapshot of process information along with software
+    versions. Most important for knowing how files were parsed, therefore
+    when using ``importPaths``, a “synthetic” version info might be created
+    to say that these were just uploaded blindly.
 
 - ``ome.model.fs.FilesetEntry``
 
   - Link from a ``Fileset`` to exactly one ``ome.model.core.OriginalFile``
   - Critically, it also contains the original absolute client path of that
     file.
-
-- ``ome.model.fs.FilesetVersionInfo``
-
-  - *In development*: A snapshot of process information along with software
-    versions. Most important for knowing how files were parsed, therefore
-    when using ``importPaths``, a “synthetic” version info might be created
-    to say that these were just uploaded blindly.
 
 API sequence
 ------------
