@@ -54,8 +54,7 @@ See :file:`acquisition.ome.xml`
     subsequently resolved by Bio-Formats into multiple filesets on the
     server.
   - Also links to multiple ome.model.jobs.Job instances.
-  - *In development*: links to the plate and image objects which are created
-    during import.
+  - Links to the image objects that are created during import.
 
 - ``ome.model.jobs.Job`` subclasses
 
