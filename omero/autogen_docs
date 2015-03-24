@@ -50,7 +50,7 @@ for f in \
     settings.env \
     setup_cron.sh \
     setup_nginx_centos6.sh \
-    setup_nginx_centos6_selinux.sh \
+    setup_centos6_selinux.sh \
     setup_nginx_ubuntu1404.sh \
     setup_omero51.sh \
     setup_omero_daemon_centos6.sh \
