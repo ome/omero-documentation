@@ -143,6 +143,15 @@ clients will use the extrema of the pixel type range by default. Users can
 adjust the minima/maxima via the rendering settings. Recalculating minima and
 maxima pixel values after import is currently not supported.
 
+Flex data with Acapella results in OMERO.tables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There are currently issues with the configuration required to access the raw
+data in combination with the analysis results via
+:doc:`OMERO.tables </developers/analysis>`. You may not be able to view the
+ROIs overlayed on the associated image by selecting the results they relate to
+in the table.
+
 LDAP
 ----
 
@@ -152,10 +161,3 @@ available groups. Any groups defined in OMERO and not in LDAP will
 result in users being removed from these groups. The groups will still
 exist in OMERO but user membership will be treated as being defined by
 LDAP alone.
-
-OMERO.tables
-------------
-
-There are currently issues with the integration of some third-party analysis
-data via :doc:`OMERO.tables </developers/analysis>`. Tabulated data may not be
-properly associated with the image they relate to.
