@@ -143,14 +143,12 @@ clients will use the extrema of the pixel type range by default. Users can
 adjust the minima/maxima via the rendering settings. Recalculating minima and
 maxima pixel values after import is currently not supported.
 
-Flex data with Acapella results in OMERO.tables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Flex data in OMERO.tables
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There are currently issues with the configuration required to access the raw
-data in combination with the analysis results via
-:doc:`OMERO.tables </developers/analysis>`. You may not be able to view the
-ROIs overlayed on the associated image by selecting the results they relate to
-in the table.
+If you are using the advanced configuration setting ``FlexReaderServerMaps``
+for importing Flex data split between multiple directories for use with
+:doc:`OMERO.tables </developers/analysis>`, you should not upgrade to 5.1.0.
 
 LDAP
 ----
