@@ -23,4 +23,7 @@ storage requirements and using Bio-Formats to recognize 'filesets'
 (groups of files which correspond to multi-dimensional images and
 accompanying information) so they can be treated as single entities
 within the OMERO clients. OMERO.fs has some :ref:`configuration
-properties <fs_configuration>` that allow site customization.
+properties <fs_configuration>` that allow sysadmins to customize it for
+their site; developers should be aware of the :doc:`how the new import
+process works </developers/ImportFS>` and how this is affected by the
+configuration.
