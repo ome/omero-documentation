@@ -31,7 +31,7 @@ The “OMERO binary repository” (or repo) is the directory belonging to the
 OMERO user where files are imported:
 
 * The :doc:`ManagedRepository
-  </developers/ImportFS>` directory inside of
+  </developers/Server/FS>` directory inside of
   the repo is where files go during import into OMERO 5. Each user receives a
   top-level directory inside of “ManagedRepository” which fills with
   timestamped directories as imports accrue.

@@ -60,7 +60,7 @@ Someone wanting to perform an in-place import **MUST** have:
 * an |OS|-account with access to :file:`bin/omero`
 * read access to the location of the data
 * **write** access to the :doc:`ManagedRepository
-  </developers/ImportFS>`
+  </developers/Server/FS>`
   or one of its subdirectories
 
 The above means that it may be useful to create a single OS
