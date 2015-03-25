@@ -31,50 +31,42 @@ Here is how to go about setting this up on your OMERO.web install:
 
         $ bin/omero config set omero.web.public.password '<password>'
 
--   Set a :property:`omero.web.public.url_filter` for which the OMERO.web
-    public user is allowed to navigate.
-    Default: '^/(?!webadmin)' (Python reqular expression). You probably do not
-    want the whole webclient UI to be publicly visible (although you could do
-    this).
+-   Set the :property:`omero.web.public.url_filter`. This filter is a
+    regex expression that will only allow matching urls to be accessed
+    by the public user.
 
-    The idea is that you can create the public pages yourself since we do not
-    provide them. For example, to allow only
-    URLs that start with '/my_web_public' you would use:
+    There are three common use cases for the url filter:
 
-    ::
+    -   Enable 'webgateway' urls which include everything needed for the
+        full image viewer:
 
-        $ bin/omero config set omero.web.public.url_filter '/my_web_public'
+        ::
 
-    To enable public access to view images in a public group in the webclient,
-    while still being able to access the login page and preventing data
-    manipulation, use the following command:
-
-    ::
-
-        $ bin/omero config set omero.web.public.url_filter '^/(?!webadmin|webclient/logout/|webclient/action/\w+|webclient/annotate_(file|tags|comment))'
-
-    If you simply want to enable the image viewer, making sure all data stays
-    secure you would use:
-
-    ::
-
-        $ bin/omero config set omero.web.public.url_filter '/webgateway'
+            $ bin/omero config set omero.web.public.url_filter '/webgateway'
     
-    Then you can access public images via the following link
-    `\http://your_host/webgateway/img_detail/IMAGE_ID/`. Please remember that
-    public images must be in a public group where public user can access them.
+        Then you can access public images via the following link
+        `\http://your_host/webgateway/img_detail/IMAGE_ID/`.
 
-    Exotic matching techniques can be used but more explicit regular
-    expressions are needed when attempting to filter based on a base URL:
+    -   Create your own public pages in a separate app
+        (see :doc:`create app </developers/Web/CreateApp>`) and allow
+        public access to that app. For example, to allow only
+        URLs that start with '/my_web_public' you would use:
 
-    ::
+        ::
 
-        'webtest' matches '/webtest' but also '/webclient/webtest'
-        'dataset' matches  '/webtest/dataset' and also '/webclient/dataset'
-        '/webtest' matches '/webtest…' but also '/webclient/webtest'
-        '/webtest' matches '/webtest…' but not '/webclient/webtest'
+            $ bin/omero config set omero.web.public.url_filter '/my_web_public'
 
-    Set a :property:`omero.web.public.server_id` public user will be automatically
+
+    -   You can use the full webclient UI for public browsing of images. However,
+        the webclient UI was not designed for public use and allows various actions
+        that create data or are resource intensive.
+        These can be selectively disabled using the following command:
+
+        ::
+
+            $ bin/omero config set omero.web.public.url_filter '^/(?!webadmin|webclient/(action|logout|annotate_(file|tags|comment|rating|map)|script_ui|ome_tiff|figure_script)|webgateway/(archived_files|download_as))'
+
+-   Set the :property:`omero.web.public.server_id` public user will be automatically
     connected to. Default: 1 (the first server in :property:`omero.web.server_list`)
 
     ::
