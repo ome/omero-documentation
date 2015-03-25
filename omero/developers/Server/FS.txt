@@ -1,16 +1,16 @@
 OMERO.fs
 ========
 
-OMERO.fs is a series of on-going changes designed to improve the way an 
+**OMERO.fs** is a series of on-going changes designed to improve the way an 
 OMERO.server interacts with existing directories of acquired image data. It 
 currently consists of two components:
 
-OMERO.dropbox is designed for watching a
+**OMERO.dropbox** is designed for watching a
 directory and kicking off an automatic import. The configuration of the
 DropBox system is covered on the :doc:`/sysadmins/dropbox` system 
 administrator's page.
 
-OMERO.fs Managed Repository is designed to store original data in an
+**OMERO.fs Managed Repository** is designed to store original data in an
 unaltered form without requiring the data duplication that was carried
 out by a pre-5.0 import. The changes to the import system mean that an
 OMERO.fs server stores the original files in the
