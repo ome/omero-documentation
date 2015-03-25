@@ -26,7 +26,7 @@ For both tags and tag sets, the name and description can be passed using the
 :option:`--name` and :option:`--desc` options::
 
 	$ bin/omero tag create --name my_tag --desc 'description of my_tag'
-	$ bin/omero tag createset --tag 1259 1260 tag_id_2 --name my_tag_set --desc 'description of my_tag_set'
+	$ bin/omero tag createset --tag 1259 1260 --name my_tag_set --desc 'description of my_tag_set'
 
 List tags
 ^^^^^^^^^
