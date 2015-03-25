@@ -216,6 +216,7 @@ OMERO.server in depth
     Server/ExtendingOmero
     server-blitz
     Server/FS
+    ImportFS
     server-processor
     server-rendering
     Server/Clustering
