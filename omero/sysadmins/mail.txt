@@ -91,7 +91,7 @@ OMERO.web error reporting
 -------------------------
 
 OMERO.web will email the users listed in the :property:`omero.web.admins`
-whenever application identify broken link (HTTP status code 404) or raises
+whenever the application identify broken link (HTTP status code 404) or raises
 an unhandled exception that results in an internal server error (HTTP status
 code 500). This gives the administrators immediate notification of any errors.
 The :property:`omero.web.admins` will get a description of the error,
