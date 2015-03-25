@@ -1467,6 +1467,14 @@ Default: `[empty]`
 Web
 ---
 
+.. property:: omero.web.admins
+
+omero.web.admins
+^^^^^^^^^^^^^^^^
+A list of people who get code error notifications whenever the application identify broken link or raises an unhandled exception that results in an internal server error. This gives the administrators immediate notification of any errors, see :doc:`/sysadmins/mail`. Example:``'[["Full Name", "email address"]]'``.
+
+Default: `[]`
+
 .. property:: omero.web.application_server
 
 omero.web.application_server
