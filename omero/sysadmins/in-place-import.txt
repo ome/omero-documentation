@@ -118,7 +118,7 @@ imports you need to create a different user account, allowing someone to log
 into the server but not accidentally delete any files. Therefore, you should
 set up an 'in-place' user and an 'in-place' group and configure a subset of
 directories under
-:doc:`ManagedRepository </developers/ImportFS>` to
+:doc:`ManagedRepository </developers/Server/FS>` to
 let members of that group write to them. The example below details how this
 was done for one of our test servers in Dundee:
 
