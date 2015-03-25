@@ -49,11 +49,11 @@ su - omero -c "bash -eux setup_$OMEROVER.sh"
 if [ $DISTRO = centos6 ]; then
 	if [ $WEBSERVER = nginx ]; then
 		bash -eux setup_nginx_centos6.sh
-		bash -eux setup_nginx_centos6_selinux.sh
 	else
 		su - omero -c "bash -eux setup_omero_apache.sh"
 		bash -eux setup_apache_centos6.sh
 	fi
+	bash -eux setup_centos6_selinux.sh
 else
 	if [ $WEBSERVER = nginx ]; then
 		bash -eux setup_nginx_ubuntu1404.sh
