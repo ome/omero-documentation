@@ -143,6 +143,13 @@ clients will use the extrema of the pixel type range by default. Users can
 adjust the minima/maxima via the rendering settings. Recalculating minima and
 maxima pixel values after import is currently not supported.
 
+Flex data in OMERO.tables
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are using the advanced configuration setting ``FlexReaderServerMaps``
+for importing Flex data split between multiple directories for use with
+:doc:`OMERO.tables </developers/analysis>`, you should not upgrade to 5.1.0.
+
 LDAP
 ----
 
@@ -152,4 +159,3 @@ available groups. Any groups defined in OMERO and not in LDAP will
 result in users being removed from these groups. The groups will still
 exist in OMERO but user membership will be treated as being defined by
 LDAP alone.
-
