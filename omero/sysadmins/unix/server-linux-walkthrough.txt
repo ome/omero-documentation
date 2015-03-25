@@ -126,9 +126,8 @@ SELinux
 
 If you are running a system with SELinux enabled (for example, it is
 `enabled by default on CentOS6 <http://wiki.centos.org/HowTos/SELinux>`_)
-and are unable to access OMERO.web via Nginx you may need to adjust the
-security policy:
+and are unable to access OMERO.web you may need to adjust the security policy:
 
-.. literalinclude:: walkthrough/setup_nginx_centos6_selinux.sh
+.. literalinclude:: walkthrough/setup_centos6_selinux.sh
 
-| :download:`setup_nginx_centos6_selinux.sh <walkthrough/setup_nginx_centos6_selinux.sh>`
+| :download:`setup_centos6_selinux.sh <walkthrough/setup_centos6_selinux.sh>`
