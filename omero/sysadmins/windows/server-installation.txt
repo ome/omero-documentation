@@ -167,80 +167,29 @@ will need the postgres user's password later in the install.
    this document; other PostgreSQL installation environments are
    supported but are outside the scope of this document.
 
-#. Run the downloaded installer:
-
-   .. figure:: /images/install-windows-screenshots/pginstall-01explorer.png
-      :align: center
-      :width: 55%
-      :alt: 1
+#. Run the downloaded installer.
 
 #. You may be prompted for permission to continue with a "user account
    control" dialog. Click :guilabel:`yes` to continue.
 
-   .. figure:: /images/install-windows-screenshots/pginstall-02uac.png
-      :align: center
-      :width: 35%
-      :alt: 1
-
 #. The installer will now start.
 
-   .. figure:: /images/install-windows-screenshots/pginstall-03start.png
-      :align: center
-      :width: 55%
-      :alt: 1
-
 #. Choose the installation directory. The default is fine.
-
-   .. figure:: /images/install-windows-screenshots/pginstall-04bindir.png
-      :align: center
-      :width: 55%
-      :alt: 1
 
 #. Choose the data directory. The default is fine, but if you want to
    keep the data in a specific location, you may choose an alternative
    location here.
 
-   .. figure:: /images/install-windows-screenshots/pginstall-05datadir.png
-      :align: center
-      :width: 55%
-      :alt: 1
-
 #. Enter a password for the special "postgres" system account. OMERO
    does not use this account, but you will need to remember the password
    for creating the database, below.
 
-   .. figure:: /images/install-windows-screenshots/pginstall-06passwd.png
-      :align: center
-      :width: 55%
-      :alt: 1
-
 #. Enter the port number for PostgreSQL to listen on for incoming
    connections. The default, 5432, is fine and should not be changed.
 
-   .. figure:: /images/install-windows-screenshots/pginstall-07port.png
-      :align: center
-      :width: 55%
-      :alt: PostgreSQL port
-
 #. Select the locale. The default here is fine.
 
-   .. figure:: /images/install-windows-screenshots/pginstall-08locale.png
-      :align: center
-      :width: 55%
-      :alt: PostgreSQL locale
-
 #. PostgreSQL will now be installed and started.
-
-   .. |pginstall-begincopy| image:: /images/ install-windows-screenshots/pginstall-09begincopy.png
-      :width: 45%
-      :alt: PostgreSQL Begin copy
-
-   .. |pginstall-complete| image:: /images/install-windows-screenshots/pginstall-10complete.png
-      :width: 45%
-      :alt: PostgreSQL Complete
-
-   |pginstall-begincopy| |pginstall-complete|
-
 
 Environment variables
 ---------------------
@@ -329,120 +278,35 @@ is having a properly configured database.
 
 -  Create a non-superuser database user (make sure to note down the name
    and password) using pgAdmin III. You can find pgAdmin III on
-   the Start Menu under :menuselection:`Programs --> PostgreSQL 9.1 --> pgAdmin III`:
+   the Start Menu under :menuselection:`Programs --> PostgreSQL --> pgAdmin III`:
 
-   #. Double-click on the :guilabel:`PostgreSQL 9.1` database (or right-
+   #. Double-click on the :guilabel:`PostgreSQL` database (or right-
       click and choose :guilabel:`Connect`) and provide your *postgres* user
       login password set during the installation, above.
-
-      .. figure:: /images/install-windows-screenshots/pgadmin-02initialview.png
-         :figwidth: 65%
-         :width: 60%
-         :align: center
-         :alt: Connect to the database server
-
-         Connect to the database server
-
-      .. figure::  /images/install-windows-screenshots/pgadmin-03connect.png
-         :figwidth: 65%
-         :width: 60%
-         :align: center
-         :alt: Enter password
-
-         Enter password
 
    #. Right-click on :guilabel:`Login Roles` and select :guilabel:`New Login
       Role...`
 
-      .. figure:: /images/install-windows-screenshots/pgadmin-04newrole-context.png
-         :figwidth: 65%
-         :width: 60%
-         :align: center
-         :alt: New login role
-
-         New login role
-
-   #. Create a new role and record the name and password. You will need to 
-      configure OMERO to use your username and password by setting the 
+   #. Create a new role and record the name and password. You will need to
+      configure OMERO to use your username and password by setting the
       :property:`omero.db.name` and :property:`omero.db.pass` properties.
 
-      .. warning::
-          For illustrative purposes, the default name and password for the 
-          role are ``db_user``  and ``db_password`` respectively. However, 
-          you should not use these default values for your installation but 
-          use your own choice of username and password instead.
-
-   .. figure:: /images/install-windows-screenshots/pgadmin-05newrole-name.png
-      :figwidth: 65%
-      :width: 60%
-      :align: center
-      :alt: New role name
-
-      Setting name of new login role
-
-   .. figure:: /images/install-windows-screenshots/pgadmin-06newrole-passwd.png
-      :figwidth: 65%
-      :width: 60%
-      :align: center
-      :alt: New role password
-
-      Setting password of new login role
 
 -  Create an ``omero_database`` database:
 
    #. Right-click on :guilabel:`Databases` and select :guilabel:`New Database
       ...`
 
-      .. figure:: /images/install-windows-screenshots/pgadmin-07newdatabase-context.png
-         :figwidth: 65%
-         :width: 60%
-         :align: center
-         :alt: New database
-
-         New database
-
    #. Create a new database with the :guilabel:`Name` ``omero_database`` and
       :guilabel:`Owner` ``db_user`` (this may take a few moments)
-
-      .. figure:: /images/install-windows-screenshots/pgadmin-08newdatabase-name.png
-         :figwidth: 65%
-         :width: 60%
-         :align: center
-         :alt: New database name
-
-         New database name
 
 -  Confirm PL/pgSQL language support in your newly created database
 
    #. First, go to :menuselection:`File --> Options` select the
-      :guilabel:`Browser` tab and activate the *Languages* option:
-
-      .. figure:: /images/install-windows-screenshots/pgadmin-09optionsmenu.png
-         :figwidth: 65%
-         :width: 60%
-         :align: center
-         :alt: Options menu
-
-         Options menu
-
-      .. figure:: /images/install-windows-screenshots/pgadmin-10viewlanguages.png
-         :figwidth: 65%
-         :width: 60%
-         :align: center
-         :alt: Enable display of installed languages
-
-         Enable display of installed languages
+      :guilabel:`Browser` tab and activate the *Languages* option
 
    #. Navigate back to your database, expand the database's tree view
-      and finally expand the now available :guilabel:`Languages` item:
-
-      .. figure:: /images/install-windows-screenshots/pgadmin-11installedlanguages.png
-         :figwidth: 65%
-         :width: 60%
-         :align: center
-         :alt: View installed languages
-
-         View installed languages
+      and finally expand the now available :guilabel:`Languages` item
 
    #. If the ``plpgsql`` language is missing, right-click on the
       :guilabel:`Extensions` item and select the
@@ -452,23 +316,6 @@ is having a properly configured database.
       extensions, right-click on the :guilabel:`Languages` item and select
       the :guilabel:`New language...` option in the menu. Finally, add the
       ``plpgsql`` language, accepting all defaults.
-
-      .. figure:: /images/install-windows-screenshots/pgadmin-12newlanguage-context.png
-         :figwidth: 65%
-         :width: 60%
-         :align: center
-         :alt: Add new language
-
-         Add new language
-
-      .. figure:: /images/install-windows-screenshots/pgadmin-13newlanguage-name.png
-         :figwidth: 65%
-         :width: 60%
-         :align: center
-         :alt: New language name
-
-         New language name
-
 
 Location for your OMERO binary repository
 -----------------------------------------
@@ -579,7 +426,7 @@ Installation
 -   Initialize your database with the script.
 
     #. Launch *SQL Shell (psql)* from the Start Menu under 
-       :menuselection:`Programs --> PostgreSQL 9.1 --> SQL Shell (psql)`
+       :menuselection:`Programs --> PostgreSQL --> SQL Shell (psql)`
 
        .. parsed-literal::
 
@@ -588,7 +435,7 @@ Installation
           Port [5432]:
           Username [postgres]: db_user
           Password for user db_user:
-          Welcome to psql 9.1.4, the PostgreSQL interactive terminal.
+          Welcome to psql 9.3.4, the PostgreSQL interactive terminal.
 
           Type:  \copyright for distribution terms
                   \h for help with SQL commands
@@ -621,7 +468,7 @@ Installation
     The diagnostic tool may say that psql is not found. This should not be a
     problem but you can fix it by adding its bin folder to the path. For 
     example,
-    :file:`C:\\Program Files (x86)\\PostgreSQL\\9.2\\bin`. Remember to reboot 
+    :file:`C:\\Program Files (x86)\\PostgreSQL\\9.3\\bin`. Remember to reboot 
     after changing the environment.
 
 -   You can now start the server using:
