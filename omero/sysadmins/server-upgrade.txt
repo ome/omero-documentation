@@ -37,7 +37,7 @@ regarding previous changes in OMERO.
 File limits
 ^^^^^^^^^^^
 
-You may wish to review the open file limits.  Please consult the
+You may wish to review the open file limits. Please consult the
 :ref:`limitations-openfiles` section for further details.
 
 Password usage
@@ -265,7 +265,7 @@ Restart your database
        $ bin/omero admin start
 
 -  If anything goes wrong, please send the output of
-   ``bin/omero admin diagnostics`` to
+   :omerocmd:`admin diagnostics` to
    ome-users@lists.openmicroscopy.org.uk.
 
 -  Start OMERO.web with the following command:
