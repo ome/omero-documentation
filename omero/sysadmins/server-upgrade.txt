@@ -245,12 +245,12 @@ OMERO.web server configuration
 """"""""""""""""""""""""""""""
 
 The generated web-server configurations for Nginx and Apache have been
-revised in OMERO 5.1. It is highly recommend that you :ref:`regenerate your
+revised in OMERO 5.1. It is highly recommended that you :ref:`regenerate your
 configuration <fastcgi_configuration>`, remembering to merge in any of your
 own modifications if necessary. See :doc:`/sysadmins/whatsnew` for details
 of changes.
 
-If necessary ensure you have setup a regular task to clear out any stale
+If necessary ensure you have set up a regular task to clear out any stale
 OMERO.web session files as described in :ref:`unix_omero_web_maintenance`.
 
 
