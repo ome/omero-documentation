@@ -23,7 +23,7 @@ the following commands:
        $ psql -V
        psql (PostgreSQL) 9.3.4
        $ createdb -V
-       createdb (PostgreSQL) 9.3.4
+       createdb (PostgreSQL) 9.3q.4
 
 If your existing PostgreSQL installation is version 9.2 or earlier, it
 is recommended that you upgrade to a more up-to-date version.  Before
