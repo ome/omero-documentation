@@ -1,21 +1,17 @@
 What's new for OMERO 5.1
 ========================
 
-From a sysadmin's point of view, here is some introductory / overview
-text.
-
-- :doc:`server-upgrade` has **not yet** been updated to explain the
-  server upgrade process from OMERO 5.0 to OMERO 5.1.
-
-- :doc:`system-requirements` has been updated to reflect **various
-  things yet to be finalized**.
+- :doc:`version-requirements` provides extensive details about what operating
+  systems and dependency versions we will be supporting for the life of 5.1
+  and the likely changes to these for the next major release (currently slated
+  to be 5.2). :doc:`system-requirements` has been updated to reflect these
+  updates.
 
 - A new configuration property :property:`omero.graphs.wrap` allows
   switching back to the old server code for moving and deleting data. If
   a regression with the new code requires changing this setting, ensure
   that a bug is filed with the OME team so it can be fixed before this
   configuration property is *removed* in OMERO 5.2.
-
 
 OMERO.web
 ---------
@@ -38,3 +34,10 @@ OMERO.web
 
 - If OMERO.web is disabled the generated Nginx and Apache configurations
   automatically display a maintenance page.
+
+OMERO.mail
+----------
+
+A new :doc:`additional feature <advanced-install>` has been added. :doc:`mail`
+allows you to configure the server to email users, for example to alert group
+owners to broken links in OMERO.web. 
