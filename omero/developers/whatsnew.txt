@@ -1,6 +1,11 @@
 What's new for OMERO 5.1
 ========================
 
+- :doc:`/sysadmins/version-requirements` provides extensive details about what
+  operating systems and dependency versions we will be supporting for the life
+  of 5.1 and the likely changes to these for the next major release (currently
+  slated to be 5.2). Most notably for development purposes, we are deprecating
+  support for Java 1.6 and Python 2.6.
 - :doc:`Server/ObjectGraphs` explains how the new graph operations of
   :javadoc:`omero::cmd <slice2html/omero/cmd.html>` are implemented.
 - Deprecated methods in IContainer and RenderingEngine have been removed, as
@@ -9,7 +14,6 @@ What's new for OMERO 5.1
   methods.
 - OMERO 5.1 requires a Unicode-encoded (UTF8) database.
 - Transient-ness is now part of the public API.
-
 
 Breaking changes
 ----------------
