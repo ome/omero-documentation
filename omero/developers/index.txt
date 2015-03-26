@@ -204,9 +204,9 @@ Authentication and Security
     Server/Permissions
 
 
-**********************
-Extending OMERO Server
-**********************
+*********************
+OMERO.server in depth
+*********************
 
 .. toctree::
     :maxdepth: 1
@@ -216,6 +216,7 @@ Extending OMERO Server
     Server/ExtendingOmero
     server-blitz
     Server/FS
+    ImportFS
     server-processor
     server-rendering
     Server/Clustering
