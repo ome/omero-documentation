@@ -136,6 +136,10 @@ Add the essential files to your app
             """
             return HttpResponse("Welcome to your app home-page!")
 
+For more details on how to write views, forms, using templates, etc. check
+:djangodoc:`Django documentation <intro/tutorial03/#write-your-first-view>`.
+
+
 Add your app to OMERO.web
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -210,7 +214,7 @@ The following example can be found in the `webtest <https://github.com/openmicro
    ::
 
        from omeroweb.webclient.decorators import login_required
-       from django.shortcuts import render_to_response
+       from django.shortcuts import render
 
 
        @login_required()
@@ -222,7 +226,7 @@ The following example can be found in the `webtest <https://github.com/openmicro
            # 5 Z-planes
            z_indexes = [0, int(sizeZ*0.25), 
                     int(sizeZ*0.5), int(sizeZ*0.75), sizeZ-1]
-           return render_to_response('webtest/stack_preview.html',
+           return render(request, 'webtest/stack_preview.html',
                 {'imageId':imageId, 
                 'image_name':image_name, 
                 'z_indexes':z_indexes})
@@ -308,34 +312,34 @@ Users can then configure this on the command line as follows:
 OMERO.web top links
 ^^^^^^^^^^^^^^^^^^^
 
-You can configure settings 'top_links' to add a link to the list of links at
-the top of the webclient main pages.
+You can configure the "top_links" setting to add links to the list
+of links at the top of the webclient main pages.
 
 -  **Name your URL in urls.py** (optional). Preferably we use URL names to
    refer to URLs.
-   For example, the homepage of your app might be named like this in urls.py.
+   For example, the homepage of your app might be named like this in yourapp/urls.py.
 
    ::
 
        url( r'^$', views.index, name='webmobile_index' ),
 
+   You can then refer to this link using this 'name', or you can simply use a full url for external links.
 
--  **Update configuration** Use the OMERO command line interface to add the link or links to the appropriate list.
-   NB: Since there is not currently an option to **add** to web settings lists, you will need to include
-   the full list of links when you configure the list.
 
-To add a single link, using the format ["Label", "URL_name"], you can follow this example:
 
-::
+-  **Update configuration** Use the OMERO command line interface to append the link to the ``top_links`` list.
 
-    $ bin/omero config set omero.web.ui.top_links '[["Mobile", "webmobile_index"]]'
+   Links use the format ``["Label", "URL_name"]`` as shown in this example:
 
-Multiple links can be added in the same way. 
-You can also create **external** links by specifying the full URL instead of the "URL_name". For example:
+   ::
 
-::
+       $ bin/omero config append omero.web.ui.top_links '["Mobile", "webmobile_index"]'
 
-    $ bin/omero config set omero.web.ui.top_links '[["Mobile", "webmobile_index"], ["OME", "https://www.openmicroscopy.org"]]'
+   Example of adding an **external** link using a full url in place of name.
+
+   ::
+
+       $ bin/omero config append omero.web.ui.top_links '["OME", "https://www.openmicroscopy.org"]'
 
 
 OMERO.web plugins
