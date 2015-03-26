@@ -64,7 +64,7 @@ Here is how to go about setting this up on your OMERO.web install:
             $ bin/omero config set omero.web.public.url_filter '^/(?!webadmin|webclient/(action|logout|annotate_(file|tags|comment|rating|map)|script_ui|ome_tiff|figure_script)|webgateway/(archived_files|download_as))'
 
 
--    Set a server to connect to. Default: 1 (the first server in
+-   Set a server to connect to. Default: 1 (the first server in
     ```omero.web.server_list```)
 
     ::
