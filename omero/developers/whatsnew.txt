@@ -5,6 +5,8 @@ What's new for OMERO 5.1
   :javadoc:`omero::cmd <slice2html/omero/cmd.html>` are implemented.
 - Deprecated methods in IContainer and RenderingEngine have been removed, as
   have the deprecated services IDelete and Gateway.
+- Pojos methods have been deprecated and replaced by corresponding units
+  methods.
 - OMERO 5.1 requires a Unicode-encoded (UTF8) database.
 - Transient-ness is now part of the public API.
 
