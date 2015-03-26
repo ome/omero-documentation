@@ -13,6 +13,11 @@ What's new for OMERO 5.1
   that a bug is filed with the OME team so it can be fixed before this
   configuration property is *removed* in OMERO 5.2.
 
+- OMERO 5.1 requires a Unicode-encoded (UTF8) database, the
+  :doc:`server-upgrade` page has been updated to reflect this.
+
+.. _web-breaking-changes:
+
 OMERO.web
 ---------
 
