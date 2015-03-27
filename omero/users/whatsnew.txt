@@ -3,9 +3,9 @@ What's new for OMERO 5.1
 
 Updates and new features for OMERO 5.1 include:
 
-- support for units throughout the Data Model allowing for example, image
-  sizes for electron microscopy to be stored in nanometers rather than all
-  image sizes being set as micrometers
+- support for units throughout the Data Model allowing for example, pixel
+  sizes for electron microscopy to be stored in nanometers rather than being
+  set as micrometers
 - new, searchable key-value pair annotations for adding experimental metadata
 - improved performance for moving and deleting data
 - improved performance for many file formats, including much faster import for
