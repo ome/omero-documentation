@@ -155,24 +155,18 @@ The following are optional depending on what services you require:
 PostgreSQL (9.2 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PostgreSQL has to be installed and configured with PL/pgSQL and to
-accept TCP connections. PostgreSQL 9.1 and earlier are not supported.
-9.3 or later is recommended.
+PostgreSQL has to be installed and configured to accept TCP connections.
+PostgreSQL 9.1 and earlier are not supported. 9.3 or later is recommended.
 
 The *One click installer* can be found on the `PostgreSQL Windows
-download page <http://www.postgresql.org/download/windows>`_. You
-will need the postgres user's password later in the install.
+download page <http://www.postgresql.org/download/windows>`_.
 
 -  You must install PostgreSQL as a service if you want to follow
-   this document; other PostgreSQL installation environments are
-   supported but are outside the scope of this document.
+   this document.
 
-#. Run the downloaded installer.
-
-#. You may be prompted for permission to continue with a "user account
-   control" dialog. Click :guilabel:`yes` to continue.
-
-#. The installer will now start.
+#. Run the downloaded installer. You may be prompted for permission to
+   continue with a "user account control" dialog. Click :guilabel:`yes` to
+   continue. The installer will now start.
 
 #. Choose the installation directory. The default is fine.
 
@@ -273,49 +267,35 @@ Ice, which does not set the required variables by default.
 Creating a database for OMERO
 -----------------------------
 
-Probably the most important step towards having a working server system
-is having a properly configured database.
-
--  Create a non-superuser database user (make sure to note down the name
-   and password) using pgAdmin III. You can find pgAdmin III on
-   the Start Menu under :menuselection:`Programs --> PostgreSQL --> pgAdmin III`:
+-  Create a new (non-superuser) database user for OMERO using pgAdmin III. You
+   can find pgAdmin III on the Start Menu under
+   :menuselection:`Programs --> PostgreSQL --> pgAdmin III`:
 
    #. Double-click on the :guilabel:`PostgreSQL` database (or right-
       click and choose :guilabel:`Connect`) and provide your *postgres* user
       login password set during the installation, above.
 
    #. Right-click on :guilabel:`Login Roles` and select :guilabel:`New Login
-      Role...`
+      Role...`.
 
-   #. Create a new role and record the name and password. You will need to
-      configure OMERO to use your username and password by setting the
+   #. On the :guilabel:`Properties` tab, enter a name for the OMERO database
+      user (referenced as ``db_user`` below) as the ``Role name``, for example
+      ``omero``. On the :guilabel:`Definition` tab, enter the password for the
+      user twice and then press :guilabel:`OK`.
+
+   #. Make sure you record this username and password for later use; you will
+      need to configure OMERO to use your username and password by setting the
       :property:`omero.db.name` and :property:`omero.db.pass` properties.
 
 
--  Create an ``omero_database`` database:
+-  Create a new database for OMERO:
 
    #. Right-click on :guilabel:`Databases` and select :guilabel:`New Database
       ...`
 
-   #. Create a new database with the :guilabel:`Name` ``omero_database`` and
-      :guilabel:`Owner` ``db_user`` (this may take a few moments)
-
--  Confirm PL/pgSQL language support in your newly created database
-
-   #. First, go to :menuselection:`File --> Options` select the
-      :guilabel:`Browser` tab and activate the *Languages* option
-
-   #. Navigate back to your database, expand the database's tree view
-      and finally expand the now available :guilabel:`Languages` item
-
-   #. If the ``plpgsql`` language is missing, right-click on the
-      :guilabel:`Extensions` item and select the
-      :guilabel:`New extension...` option in the menu. Finally, add the
-      ``plpgsql`` extension, accepting all defaults. This will add both the
-      extension and the language. In older PostgreSQL versions without
-      extensions, right-click on the :guilabel:`Languages` item and select
-      the :guilabel:`New language...` option in the menu. Finally, add the
-      ``plpgsql`` language, accepting all defaults.
+   #. On the :guilabel:`Properties` tab, enter a name for the OMERO
+      database (referenced as ``omero_database`` below) as the ``Name``, for
+      example ``omero``, then press :guilabel:`OK`.
 
 Location for your OMERO binary repository
 -----------------------------------------
