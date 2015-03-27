@@ -39,11 +39,13 @@ All the code examples below can be found at
 :sourcedir:`examples/Training/python`.
 
 
-Start by downloading the first example below: 
-:source:`examples/Training/python/Connect_To_OMERO.py` and edit the
-USERNAME and PASSWORD variables according to your log-in.
+If you want to run the examples, you will need to download and
+configure them to connect to your own server. E.g. ``HOST = "localhost"``
+You can edit ``HOST, PORT, USERNAME and PASSWORD`` in
+the ``Parse_OMERO_Properties.py`` file and these values will be imported
+into the other scripts.
 
-Then you can run the example:
+Then you can run the scripts:
 
 ::
 
@@ -52,9 +54,8 @@ Then you can run the example:
 If all goes well, you should be connected to your OMERO server and see some
 details of your session printed out.
 
-All the following code examples can be downloaded and run in the same way, and
-they will use the USERNAME and PASSWORD from the file you just edited.
-However, you will need to edit some other parameters, usually IDs from
+All the following code examples can be downloaded and run in the same way.
+Some scripts will also need editing of other parameters, usually IDs from
 Projects, Datasets, Images etc. You can use the OMERO.insight or OMERO.web
 client to choose suitable data IDs before editing and running the code
 samples.
@@ -65,26 +66,6 @@ Code samples
 
 Connect to OMERO
 ^^^^^^^^^^^^^^^^
-
-::
-
-    # These values will be imported by all the other training scripts.
-    HOST = 'localhost'
-    PORT = 4064
-    USERNAME = 'username'
-    PASSWORD = 'passwd' 
-
-::
-
-    from omero.gateway import BlitzGateway 
-
-::
-
-    if __name__ == '__main__':
-        """
-        NB: This block is only run when calling this file directly
-        and not when imported.
-        """ 
 
 ::
 
