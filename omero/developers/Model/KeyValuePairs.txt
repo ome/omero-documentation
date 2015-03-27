@@ -1,0 +1,85 @@
+Key-value pairs
+===============
+
+Ongoing advancements in microscopic techniques, analysis
+systems, and other areas for which OME attempts to provide
+metadata exchange require a certain flexibility in the OME
+model. There was a need to be able to store instrument
+configuration, script parameters, and similar for later use.
+
+Basic text representations are too difficult to parse to be
+of significant use. An XML format can be more easily parsed,
+but a single format would have to be agreed upon by all
+users. It seemed most useful to add particular extension
+points to the model for which no consensus on a data format
+has been reached, but where more structure than just text is
+needed. A `hash map` was the most likely candidate for this
+data.
+
+However, rather than limit this to the programming concept
+of a `hash map` or `associative array`, OME maps are defined
+as a **"non-unique ordered list of of key-value pairs"**.
+The benefit of this representation is that configuration
+files such as is standard for Java java.util.Properties
+objects can be represented fully in a single map.
+
+In most cases, the interpretation of the ordered list will
+be such that the final value for a particular key "wins" as
+if each value were placed into a hash map in order, with
+duplicate values replacing previous ones.
+
+OME-XML
+-------
+
+In the OME-XML model these are represented in a compact
+format. Any map field is defined by the MapPairs complex
+type which consists of M elements of the form:
+
+    <M K="key">value</M>
+
+OMERO languages
+---------------
+
+In OMERO, a slightly more verbose representation of these
+objects is used. Each map type consists of a list or vector
+in the respective language, composed of NamedValue objects
+and possibly nulls.
+
+
+    // OMERO.java
+    ImagingEnvironment environment = new ImagingEnvironmentI();
+    environment.setMap(new List<NamedValue>());
+    environment.getMap().add(new NamedValue("altitude", "1000m"));
+    image.setImagingEnvironment(environment);
+
+Fields
+^^^^^^
+
+The concrete fields which are present in the model are
+currently:
+
+* ExperimenterGroup.config
+* GenericExcitationSource.map
+* ImagingEnvironment.map
+* ImportJob.versionInfo
+
+More will be added as demand increases.
+
+MapAnnotations
+--------------
+
+In addition to the fields above, there is also a
+:doc:`structured annotation </developers/Model/StructuredAnnotations>`
+which contains a key-valued pair, the **``MapAnnotation``**.
+
+    // OMERO.cpp
+    MapAnnotation ann = new MapAnnotationI();
+    ann->getMapValue().push_back(new NamedValueI("run", "5.0"));
+    ann->getMapValue().push_back(new NamedValueI("run", "4.9"));
+    ann->getMapValue().push_back(new NamedValueI("run", "5.1"));
+
+This permits the flexible attachment of key-value pairs to
+any of the OME types which are annotatable. Such annotations
+attached to key UI elements like images and datasets will be
+presented by the clients, and can be edited with the
+appropriate permissions. See TBD.
