@@ -254,8 +254,8 @@ If necessary ensure you have set up a regular task to clear out any stale
 OMERO.web session files as described in :ref:`unix_omero_web_maintenance`.
 
 
-Restart your database
-^^^^^^^^^^^^^^^^^^^^^
+Restart your server
+^^^^^^^^^^^^^^^^^^^
 
 -  Following a successful database upgrade, you can start the server.
 
