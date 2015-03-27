@@ -25,6 +25,9 @@ There have been many updates to this client for 5.1. See the
 :ref:`web-breaking-changes` section on the :doc:`/sysadmins/whatsnew` for
 sysadmins page for further details.
 
+OMERO.web template and view writers need to use the ``@render_response()``
+decorator, see :ref:`render-response` for more details.
+
 Graphs
 ^^^^^^
 

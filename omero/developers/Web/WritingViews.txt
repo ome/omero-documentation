@@ -94,6 +94,8 @@ this. See :file:`webclient/decorators.py` to see how the base
 omeroweb.decorators.login\_required has been extended to configure the
 conn connection upon login, handle login failure differently etc.
 
+.. _render-response:
+
 render\_response
 ^^^^^^^^^^^^^^^^
 
