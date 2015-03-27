@@ -307,13 +307,14 @@ App settings
 ------------
 
 You can add settings to your app that allow configuration via the command line
-in the same way as for the base OMERO.web in omeroweb/settings.py.
-The list of CUSTOM_SETTINGS_MAPPINGS in omeroweb/settings.py code is a good
+in the same way as for the base OMERO.web.
+The list of ``CUSTOM_SETTINGS_MAPPINGS`` in
+:sourcedir:`components/tools/OmeroWeb/omeroweb/settings.py` is a good
 source for examples of the different data types and parsers you can use.
 
 For example, if you want to create a user-defined setting yourapp.foo,
 that contains a dictionary of key-value pairs, you can add to
-CUSTOM_SETTINGS_MAPPINGS in yourapp/settings.py:
+``CUSTOM_SETTINGS_MAPPINGS`` in ``yourapp/settings.py``:
 
 ::
 
