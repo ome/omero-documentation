@@ -16,6 +16,9 @@ What's new for OMERO 5.1
 - OMERO 5.1 requires a Unicode-encoded (UTF8) database, the
   :doc:`server-upgrade` page has been updated to reflect this.
 
+- The server download policy can now be configured to restrict users' ability
+  to download the original data e.g. by user or by data type.
+
 .. _web-breaking-changes:
 
 OMERO.web
