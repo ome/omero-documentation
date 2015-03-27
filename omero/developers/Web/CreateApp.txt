@@ -30,7 +30,7 @@ use the correct port number, E.g:
 When you edit and save your app, Django will automatically detect this and you
 only need to refresh your browser to see the changes.
 
-If you want to run OMERO.web from source code, see
+If you want to make changes to the OMERO.web code itself, you should see
 :doc:`/developers/Web/EditingOmeroWeb`.
 
 You can place your app anywhere on your :envvar:`PYTHONPATH`,
