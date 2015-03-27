@@ -40,9 +40,25 @@ OMERO.web
 - If OMERO.web is disabled the generated Nginx and Apache configurations
   automatically display a maintenance page.
 
+- The semantics of the command for generating the Nginx configuration has
+  been modified as described below:
+
+  .. list-table::
+    :header-rows: 1
+
+    * - Version
+      - 5.0.x command
+      - 5.1.x command
+    * - System configuration
+      - ``omero web config nginx --system``
+      - ``omero web config nginx``
+    * - User configuration
+      - ``omero web config nginx``
+      - ``omero web config nginx-development``
+
 OMERO.mail
 ----------
 
 A new :doc:`additional feature <advanced-install>` has been added. :doc:`mail`
 allows you to configure the server to email users, for example to alert group
-owners to broken links in OMERO.web. 
+owners to broken links in OMERO.web.
