@@ -13,7 +13,6 @@ What's new for OMERO 5.1
 - Pojos methods have been deprecated and replaced by corresponding units
   methods.
 - OMERO 5.1 requires a Unicode-encoded (UTF8) database.
-- Transience is now part of the public API.
 
 Breaking changes
 ----------------
