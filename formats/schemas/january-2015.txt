@@ -57,6 +57,7 @@ OME
 
 - Expanded documentation for ``AcquisitionDate`` describing supported
   precision.
+- Update documentation for ``NDFilter`` to reflect usage
 - Added Annotation points (``AnnotationRef``) to:
     | ``Instrument``
     | ``Objective``
