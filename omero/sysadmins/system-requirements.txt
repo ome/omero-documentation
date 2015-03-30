@@ -27,9 +27,10 @@ users is:
 -  Hard drive space proportional to the image sizes expected (Likely
    between 10 and 100TB)
 
-Hard drive space proportional to the image sizes expected. The drive space
-should permit **proper locking**, which is often not the case with remotely
-mounted shares. See the :doc:`Unix </sysadmins/unix/server-binary-repository>`
+Hard drive space should be proportional to the image sizes expected. The drive
+space should permit **proper locking**, which is often not the case with
+remotely mounted shares. See the
+:doc:`Unix </sysadmins/unix/server-binary-repository>`
 and :doc:`Windows </sysadmins/windows/server-binary-repository>` binary
 repository sections for more information.
 
@@ -45,11 +46,11 @@ server processes' memory usage. In summary, depending on hardware layout 16,
 database server more than 16GB of RAM may not be of much benefit to you at
 all.
 
-CPU is really not something that an OMERO system is almost ever limited
-by. However, when it is limited it is almost always limited by GHz and
-not by the CPU count. So you are not going to get a huge OMERO experience
+CPU is not something that an OMERO system is usually ever limited
+by. However, when it is limited, it is almost always limited by GHz and
+not by the CPU count. So you are not going to get a huge OMERO
 performance increase by, for example, throwing 24 cores at the problem. In
-summary, depending on hardware layout 2 x 4, 2 x 6 system core count should be
+summary, depending on hardware layout 2 × 4, 2 × 6 system core count should be
 more than enough.
 
 :doc:`server-setup-examples` provides details on some production set-ups
@@ -63,7 +64,7 @@ The recommended client specification is:
 
 -  Single core 1.33GHz Intel or AMD CPU
 -  2GB RAM
--  100MB hard drive space for OMERO.clients distribution
+-  200MB hard drive space for OMERO.clients distribution
 
 Large imports may require 4GB RAM.
 
@@ -101,6 +102,6 @@ OMERO.py       Required for some functionality          Required Required
 OMERO.cpp      Required for some functionality                   Required
 ============== =============================== ======== ======== ======== ==========
 
-Full details on which versions of these are supported for 5.1.x and how we
-intend to update these going forward is provided on the
-:doc:`version-requirements` page.
+For full details on which versions of these are supported for 5.1.x and how we
+intend to update these going forward, see the :doc:`version-requirements`
+section.
