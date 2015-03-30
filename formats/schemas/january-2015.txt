@@ -13,7 +13,8 @@ correctly using this new release. Some files that failed to validate
 before will now be valid. It is important to update any file readers and
 writers to understand the changes.
 
-The version number of all schema files is now 1.
+The version number of all schema files is now 1, expected ome.xsd which
+version number is 2.
 
 This schema uses the new namespace:
 
