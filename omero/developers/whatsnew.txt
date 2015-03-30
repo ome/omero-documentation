@@ -1,15 +1,31 @@
 What's new for OMERO 5.1
 ========================
 
-OMERO 5.1 introduces units and some other stuff that others **will**
-write about.
-
+- :doc:`/sysadmins/version-requirements` provides extensive details about
+  which operating systems and dependency versions we will be supporting for
+  the life of 5.1 and the likely changes to these for the next major release
+  (currently slated to be 5.2). Most notably for development purposes, we are
+  deprecating support for Java 1.6 and Python 2.6.
 - :doc:`Server/ObjectGraphs` explains how the new graph operations of
   :javadoc:`omero::cmd <slice2html/omero/cmd.html>` are implemented.
-
+- Deprecated methods in IContainer and RenderingEngine have been removed, as
+  have the deprecated services IDelete and Gateway.
+- Pojos methods have been deprecated and replaced by corresponding units
+  methods.
+- OMERO 5.1 requires a Unicode-encoded (UTF8) database.
 
 Breaking changes
 ----------------
+
+OMERO.web
+^^^^^^^^^
+
+There have been many updates to this client for 5.1. See the
+:ref:`web-breaking-changes` section on the :doc:`/sysadmins/whatsnew` for
+sysadmins page for further details.
+
+OMERO.web template and view writers need to use the ``@render_response()``
+decorator, see :ref:`render-response` for more details.
 
 Graphs
 ^^^^^^
@@ -44,3 +60,10 @@ Tables
 
 OMERO.tables attribute names beginning with `__` are reserved for internal
 use, see :doc:`Tables`.
+
+ImportContainer
+^^^^^^^^^^^^^^^
+
+Changes to ImportContainer will break any listeners implemented by external
+developers.
+
