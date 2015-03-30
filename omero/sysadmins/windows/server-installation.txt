@@ -268,7 +268,7 @@ Creating a database for OMERO
 -----------------------------
 
 -  Open pgAdmin III; you can find it on the Start Menu under
-   :menuselection:`Programs --> PostgreSQL --> pgAdmin III`:
+   :menuselection:`Programs --> PostgreSQL --> pgAdmin III`.
 
 -  Connect to the database by double-clicking on the :guilabel:`PostgreSQL`
    database (or right-click and choose :guilabel:`Connect`) and providing your
