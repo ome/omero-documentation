@@ -267,9 +267,10 @@ Ice, which does not set the required variables by default.
 Creating a database for OMERO
 -----------------------------
 
--  Create a new (non-superuser) database user for OMERO using pgAdmin III. You
-   can find pgAdmin III on the Start Menu under
-   :menuselection:`Programs --> PostgreSQL --> pgAdmin III`:
+Open pgAdmin III; you can find it on the Start Menu under
+:menuselection:`Programs --> PostgreSQL --> pgAdmin III`:
+
+-  Create a new (non-superuser) database user for OMERO:
 
    #. Double-click on the :guilabel:`PostgreSQL` database (or right-
       click and choose :guilabel:`Connect`) and provide your *postgres* user
@@ -281,12 +282,10 @@ Creating a database for OMERO
    #. On the :guilabel:`Properties` tab, enter a name for the OMERO database
       user (referenced as ``db_user`` below) as the ``Role name``, for example
       ``omero``. On the :guilabel:`Definition` tab, enter the password for the
-      user twice and then press :guilabel:`OK`.
-
-   #. Make sure you record this username and password for later use; you will
-      need to configure OMERO to use your username and password by setting the
-      :property:`omero.db.name` and :property:`omero.db.pass` properties.
-
+      user twice and then press :guilabel:`OK`. Make sure you record this
+      username and password for later use; you will need to configure OMERO to
+      use your username and password by setting the :property:`omero.db.name`
+      and :property:`omero.db.pass` properties.
 
 -  Create a new database for OMERO:
 
