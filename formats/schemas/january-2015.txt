@@ -13,7 +13,7 @@ correctly using this new release. Some files that failed to validate
 before will now be valid. It is important to update any file readers and
 writers to understand the changes.
 
-The version number of all schema files is now 1, expected ome.xsd which
+The version number of all schema files is now 1, except ome.xsd which
 version number is 2.
 
 This schema uses the new namespace:
@@ -57,7 +57,7 @@ OME
 
 - Expanded documentation for ``AcquisitionDate`` describing supported
   precision.
-- Update documentation for ``NDFilter`` to reflect usage
+- Updated documentation for ``NDFilter`` to reflect usage
 - Added Annotation points (``AnnotationRef``) to:
     | ``Instrument``
     | ``Objective``
