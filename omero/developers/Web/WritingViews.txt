@@ -94,6 +94,8 @@ this. See :file:`webclient/decorators.py` to see how the base
 omeroweb.decorators.login\_required has been extended to configure the
 conn connection upon login, handle login failure differently etc.
 
+.. _render-response:
+
 render\_response
 ^^^^^^^^^^^^^^^^
 
@@ -151,6 +153,8 @@ URLs.
 
        >>> from django.core.urlresolvers import reverse
        >>> reverse('url_name', kwargs={'object_id': 1})
+
+.. _omeroweb_error_handling:
 
 OMERO.web error handling
 ------------------------

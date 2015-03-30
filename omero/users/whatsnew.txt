@@ -3,15 +3,15 @@ What's new for OMERO 5.1
 
 Updates and new features for OMERO 5.1 include:
 
-- support for units throughout the Data Model allowing for example, image
-  sizes for electron microscopy to be stored in nanometers rather than all
-  image sizes being set as micrometers
-- new more flexible user-added metadata - key-value pair annotations
+- support for units throughout the Data Model allowing for example, pixel
+  sizes for electron microscopy to be stored in nanometers rather than being
+  set as micrometers
+- new, searchable key-value pair annotations for adding experimental metadata
 - improved performance for moving and deleting data
 - improved performance for many file formats, including much faster import for
   HCS data and new supported formats via Bio-Formats (now over 140)
-- the ability to copy and paste rendering settings and select between
-  different users' settings in the UI
+- improvements in rendering settings workflow to make it more transparent and
+  also to align the functionality between OMERO.insight and OMERO.web
 - improved functionality of the OMERO ImageJ plugin allowing you to import
   images to OMERO from ImageJ (both modified e.g. cropped and unmodified) and
   also save ROIs and overlays from ImageJ into OMERO without having to
