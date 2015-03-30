@@ -82,13 +82,13 @@ The following packages are required:
 +==============+=============+=========+
 | Ice          | 3.5         | 3.4     |
 +--------------+-------------+---------+
-| Java         | 1.7         | 1.6     |
+| Java         | 1.8         | 1.6     |
 +--------------+-------------+---------+
 | OMERO.server | |release|             |
 +--------------+-------------+---------+
 | Python       | 2.7         | 2.6     |
 +--------------+-------------+---------+
-| PostgreSQL   | 9.2         | 8.4     |
+| PostgreSQL   | 9.3         | 9.2     |
 +--------------+-------------+---------+
 
 One of the following packages is recommended if you wish to use
@@ -101,7 +101,7 @@ OMERO.web.
 +==============+=============+=========+
 | Apache       | 2.4         | 2.2     |
 +--------------+-------------+---------+
-| Nginx        | 1.4.7       | 1.4.2   |
+| Nginx        | 1.6         | 1.4.2   |
 +--------------+-------------+---------+
 
 These packages are required to make full use of OMERO.scripts:
@@ -136,9 +136,8 @@ If possible, install one of the following packages:
 +-----------+---------------------------+
 
 OMERO works with the OpenJDK JRE provided by most systems, or with
-Oracle Java. Version 6 or later is required. Version 7 or later is
-recommended (version 6 is end of line and no longer has updates or
-security support). **OpenJDK version 8 is not currently supported**.
+Oracle Java. Version 7 or later is
+recommended. **OpenJDK version 8 is not currently supported**.
 
 Your system may already provide a suitable JRE, in which case no extra steps
 are necessary. Linux distributions usually provide OpenJDK, and older MacOS X
@@ -175,8 +174,7 @@ Check you have Python (and check its version) by running:
     $ python --version
     Python 2.7.5+
 
-.. note:: OMERO does not currently support Python 3; you must use 2.6 or
-   a later 2.x release.
+.. note:: OMERO does not currently support Python 3; you must use 2.6 or 2.7.
 
 The following Python packages are required:
 
@@ -270,19 +268,8 @@ If possible, install one of the following packages:
 
 The Ice version may vary, depending upon the distribution version you
 are using. The Ice versions in currently supported versions of Debian
-and `Ubuntu <https://wiki.ubuntu.com/Releases>`_ are shown below:
-
-+--------+--------------+-------------------+---------------+
-| Distribution          | ZeroC Ice version | OMERO version |
-+========+==============+===================+===============+
-| Debian | 7.0          | 3.4               | 4.4.x, 5.x.x  |
-+--------+--------------+-------------------+---------------+
-| Ubuntu | 14.04 (LTS)  | 3.5               | 4.4.x, 5.x.x  |
-|        +--------------+-------------------+---------------+
-|        | 13.10        | 3.4               | 4.4.x, 5.x.x  |
-|        +--------------+-------------------+---------------+
-|        | 12.04 (LTS)  | 3.4               | 4.4.x, 5.x.x  |
-+--------+--------------+-------------------+---------------+
+and `Ubuntu <https://wiki.ubuntu.com/Releases>`_ are shown in the
+:ref:`ice-requirements` of the :doc:`/sysadmins/version-requirements` page.
 
 Using the latest version of Ice is recommended, where possible. If
 your package manager provides Ice packages, using these is recommended
@@ -314,12 +301,8 @@ If possible, install the following packages:
 | RedHat    | postgresql postgresql-server                                |
 +-----------+-------------------------------------------------------------+
 
-PostgreSQL 8.4 or later is required. See :doc:`server-postgresql` for
-further details. PostgreSQL 9.2 or later is recommended; while you are
-unlikely to encounter problems, 9.1 and earlier have problems with
-some `floating point numbers
-<https://trac.openmicroscopy.org.uk/ome/ticket/12466>`_.
-
+PostgreSQL 9.2 or later is required. See :doc:`server-postgresql` for
+further details.
 
 OMERO.web
 ^^^^^^^^^
