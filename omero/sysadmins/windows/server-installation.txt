@@ -175,7 +175,7 @@ download page <http://www.postgresql.org/download/windows>`_.
    location here.
 
 #. Enter a password for the special "postgres" system account. OMERO
-   does not use this account, but you will need to remember the password
+   does not use this account, but you will need to record the password
    for creating the database, below.
 
 #. Enter the port number for PostgreSQL to listen on for incoming
@@ -267,14 +267,14 @@ Ice, which does not set the required variables by default.
 Creating a database for OMERO
 -----------------------------
 
-Open pgAdmin III; you can find it on the Start Menu under
-:menuselection:`Programs --> PostgreSQL --> pgAdmin III`:
+-  Open pgAdmin III; you can find it on the Start Menu under
+   :menuselection:`Programs --> PostgreSQL --> pgAdmin III`:
+
+-  Connect to the database by double-clicking on the :guilabel:`PostgreSQL`
+   database (or right-click and choose :guilabel:`Connect`) and providing your
+   *postgres* user login password set during the installation, above.
 
 -  Create a new (non-superuser) database user for OMERO:
-
-   #. Double-click on the :guilabel:`PostgreSQL` database (or right-
-      click and choose :guilabel:`Connect`) and provide your *postgres* user
-      login password set during the installation, above.
 
    #. Right-click on :guilabel:`Login Roles` and select :guilabel:`New Login
       Role...`.
