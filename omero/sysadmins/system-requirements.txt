@@ -17,14 +17,10 @@ size and number of users. At a minimum we suggest:
 The recommended OMERO.server specification we suggest for between 25-50
 users is:
 
--  Ubuntu 12.04 or later / CentOS 6 / Debian 7 (wheezy) or other Linux
-   distribution; Mac OS X 10.8 or later; Windows Server 2008
 -  Quad core 1.33GHz Intel or AMD CPU
 -  8GB RAM
 -  500MB hard drive space for OMERO.server distribution
--  Java 1.6 or later
--  Python 2 (2.6.5 or later)
--  Hard drive space proportional to the image sizes expected (Likely
+-  Hard drive space proportional to the image sizes expected (likely
    between 10 and 100TB)
 
 Hard drive space should be proportional to the image sizes expected. The drive
