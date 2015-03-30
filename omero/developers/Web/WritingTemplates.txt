@@ -212,23 +212,3 @@ extent it (see above). In addition, they also add the following blocks:
 See 
 :source:`container3.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/container3.html>` 
 for full template details.
-
-.. _jquery_and_jquery_ui:
-
-jQuery and jQuery UI
-^^^^^^^^^^^^^^^^^^^^
-
-If your application requires jQuery or jQuery UI libraries you can include
-them from internal resources by the following:
-
-::
-
-    {% include "webgateway/base/includes/script_src_jquery.html" %}
-    {% include "webgateway/base/includes/jquery-ui.html" %}
-
-
-.. note::
-
-    If your template extends
-    :source:`base_main.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/base_main.html>`
-    both libraries are already there.
