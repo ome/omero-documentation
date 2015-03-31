@@ -35,6 +35,8 @@ In the OME-XML model these are represented in a compact
 format. Any map field is defined by the MapPairs complex
 type which consists of M elements of the form:
 
+::
+
     <M K="key">value</M>
 
 OMERO languages
@@ -45,6 +47,7 @@ objects is used. Each map type consists of a list or vector
 in the respective language, composed of NamedValue objects
 and possibly nulls.
 
+::
 
     // OMERO.java
     ImagingEnvironment environment = new ImagingEnvironmentI();
@@ -71,6 +74,8 @@ MapAnnotations
 In addition to the fields above, there is also a
 :doc:`structured annotation </developers/Model/StructuredAnnotations>`
 which contains a key-valued pair, the ``MapAnnotation``.
+
+::
 
     // OMERO.cpp
     MapAnnotation ann = new MapAnnotationI();
