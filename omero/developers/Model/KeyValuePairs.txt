@@ -87,4 +87,6 @@ This permits the flexible attachment of key-value pairs to
 any of the OME types which are annotatable. Such annotations
 attached to key UI elements like images and datasets will be
 presented by the clients, and can be edited with the
-appropriate permissions. See TBD.
+appropriate permissions. See :help:`Managing Data
+<managing-data.html#keyvalue>` on :help:`OMERO User Help<>`
+for more information.
