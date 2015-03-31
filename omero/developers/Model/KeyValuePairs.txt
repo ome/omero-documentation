@@ -91,3 +91,56 @@ presented by the clients, and can be edited with the
 appropriate permissions. See :help:`Managing Data
 <managing-data.html#keyvalue>` on :help:`OMERO User Help<>`
 for more information.
+
+Storage and queries
+-------------------
+
+Each map-based field in the OMERO model is represented by an
+extra table of the form `$className_$fieldName`. For example,
+MapAnnotation.mapValue becomes `annotation.mapValue`. (The
+loss of "map" from the class name is due to the subclassing
+of `Annotation` by `MapAnnotation`.)
+
+In general, use of the specific tables is not necessary and
+it suffices to write HQL queries based on the classes and
+field names themselves.
+
+Find the value for a key
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    select nv.value from MapAnnotation ann
+      join ann.mapValue as nv
+     where nv.name = 'altitude'
+
+Finding objects with a key
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    select ann from MapAnnotation ann
+      join ann.mapValue as nv
+     where nv.name = 'altitude'
+
+Finding objects **without** a key
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    select ann from MapAnnotation ann
+     where not exists(
+        from MapAnnotation m2
+        join m2.mapValue as nv2
+       where nv2.name like 'size%')
+
+Finding objects with multiple values
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    select ann from MapAnnotation ann
+      join ann.mapValue as nv1
+      join ann.mapValue as nv2
+     where nv1.name = 'date'
+       and nv2.name = 'owner'
