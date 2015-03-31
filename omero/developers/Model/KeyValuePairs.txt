@@ -4,22 +4,22 @@ Key-value pairs
 Ongoing advancements in microscopic techniques, analysis
 systems, and other areas for which OME attempts to provide
 metadata exchange require a certain flexibility in the OME
-model. There is a need to be able to store instrument
-configuration, script parameters, and similar for later use.
+model. There is a need to store instrument configuration,
+script parameters, and similar for later use.
 
 Basic text representations are too difficult to parse to be
 of significant use. An XML format can be more easily parsed,
 but a single format would have to be agreed upon by all
-users. It seemed most useful to add particular extension
+users. Therefore, it is useful to add particular extension
 points to the model for which no consensus on a data format
 has been reached, but where more structure than just text is
-needed. A `hash map` was the most likely candidate for this
-data.
+needed.
 
-However, rather than limit this to the programming concept
-of a `hash map` or `associative array`, OME maps are defined
-as a **"ordered list of key-value pairs"**. The benefit of
-this representation is that configuration files such as is
+A `hash map` was the most likely candidate for this
+data; however, rather than limit this to traditional
+associative arrays, OME maps are defined as a
+**"ordered list of key-value pairs"**. The benefit of
+this representation is that configuration files which are
 standard for Java ``java.util.Properties`` objects can be
 represented fully in a single map. Duplicates are maintained
 since there is no unique constraint on the list of pairs.
@@ -97,9 +97,9 @@ Storage and queries
 
 Each map-based field in the OMERO model is represented by an
 extra table of the form `$className_$fieldName`. For example,
-MapAnnotation.mapValue becomes `annotation.mapValue`. (The
-loss of "map" from the class name is due to the subclassing
-of `Annotation` by `MapAnnotation`.)
+MapAnnotation.mapValue becomes `annotation.mapValue`, where
+the loss of "map" from the class name is due to the subclassing
+of `Annotation` by `MapAnnotation`.
 
 In general, use of the specific tables is not necessary and
 it suffices to write HQL queries based on the classes and

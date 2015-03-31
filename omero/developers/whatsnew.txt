@@ -1,15 +1,15 @@
 What's new for OMERO 5.1
 ========================
 
-- :doc:`Model/Units` introduces the new Units-types which are available
-  for use from all model objects.
-- Similarly, doc:`Model/KeyValuePairs` introduces the new concept of a
-  "map" type, which consists of ordered lists of key-value pairs.
 - :doc:`/sysadmins/version-requirements` provides extensive details about
   which operating systems and dependency versions we will be supporting for
   the life of 5.1 and the likely changes to these for the next major release
   (currently slated to be 5.2). Most notably for development purposes, we are
   deprecating support for Java 1.6 and Python 2.6.
+- :doc:`Model/Units` introduces the new Units-types which are available
+  for use from all model objects.
+- Similarly, :doc:`Model/KeyValuePairs` introduces the new concept of a
+  "map" type, which consists of ordered lists of key-value pairs.
 - :doc:`Server/ObjectGraphs` explains how the new graph operations of
   :javadoc:`omero::cmd <slice2html/omero/cmd.html>` are implemented.
 - Deprecated methods in IContainer and RenderingEngine have been removed, as
