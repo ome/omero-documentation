@@ -83,7 +83,7 @@ ADVANCED OPTIONS:
   ---------
 
     --qa-baseurl=ARG	Specify the base URL for reporting feedback
-  e.g. $ bin/omero import -- --qa-baseurl=https://qa.staging.openmicroscopy.org/qa
-       $ ./importer-cli --qa-baseurl=https://qa.staging.openmicroscopy.org/qa
+  e.g. $ bin/omero import broken_image.tif -- --email EMAIL --report --upload --logs --qa-baseurl=https://qa.staging.openmicroscopy.org/qa
+       $ ./importer-cli broken_image.tif --email EMAIL --report --upload --logs --qa-baseurl=https://qa.staging.openmicroscopy.org/qa
 
 Report bugs to <ome-users@lists.openmicroscopy.org.uk>
