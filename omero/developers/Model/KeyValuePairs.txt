@@ -18,10 +18,11 @@ data.
 
 However, rather than limit this to the programming concept
 of a `hash map` or `associative array`, OME maps are defined
-as a **"non-unique ordered list of key-value pairs"**.
-The benefit of this representation is that configuration
-files such as is standard for Java java.util.Properties
-objects can be represented fully in a single map.
+as a **"ordered list of key-value pairs"**. The benefit of
+this representation is that configuration files such as is
+standard for Java ``java.util.Properties`` objects can be
+represented fully in a single map. Duplicates are maintained
+since there is no unique constraint on the list of pairs.
 
 In most cases, the interpretation of the ordered list will
 be such that the final value for a particular key "wins" as
@@ -31,7 +32,7 @@ duplicate values replacing previous ones.
 OME-XML
 -------
 
-In the OME-XML model these are represented in a compact
+In the OME-XML model, these maps are represented in a compact
 format. Any map field is defined by the MapPairs complex
 type which consists of M elements of the form:
 
