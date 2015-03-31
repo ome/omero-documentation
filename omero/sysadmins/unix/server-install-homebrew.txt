@@ -52,7 +52,7 @@ running::
 Homebrew
 ^^^^^^^^
 
-.. _`Homebrew wiki`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Installation.md#installation
+.. _`Homebrew wiki`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Installation.md
 
 Follow the installation instructions on the `Homebrew wiki`_. All the
 requirements for OMERO will be installed under :file:`/usr/local`.
@@ -221,18 +221,18 @@ Database creation
 
 #. Start the PostgreSQL server.
 
-  - If you wish to use ``brew services`` to start postgresql, you will
-    first need to install it, then start the service::
+   If you wish to use ``brew services`` to start postgresql, you will
+   first need to install it, then start the service::
 
     $ brew tap gapple/services
     $ brew services start postgresql
 
-  - Alternatively, to start by hand::
+   Alternatively, to start by hand::
 
     $ pg_ctl -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log start
 
-  - It is also possible to configure :program:`launchd` to start
-    PostgreSQL at boot
+   It is also possible to configure :program:`launchd` to start
+   PostgreSQL at boot
 
 #. Create a user and database::
 
