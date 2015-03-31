@@ -4,7 +4,7 @@ Key-value pairs
 Ongoing advancements in microscopic techniques, analysis
 systems, and other areas for which OME attempts to provide
 metadata exchange require a certain flexibility in the OME
-model. There was a need to be able to store instrument
+model. There is a need to be able to store instrument
 configuration, script parameters, and similar for later use.
 
 Basic text representations are too difficult to parse to be
@@ -18,7 +18,7 @@ data.
 
 However, rather than limit this to the programming concept
 of a `hash map` or `associative array`, OME maps are defined
-as a **"non-unique ordered list of of key-value pairs"**.
+as a **"non-unique ordered list of key-value pairs"**.
 The benefit of this representation is that configuration
 files such as is standard for Java java.util.Properties
 objects can be represented fully in a single map.
@@ -70,7 +70,7 @@ MapAnnotations
 
 In addition to the fields above, there is also a
 :doc:`structured annotation </developers/Model/StructuredAnnotations>`
-which contains a key-valued pair, the **``MapAnnotation``**.
+which contains a key-valued pair, the ``MapAnnotation``.
 
     // OMERO.cpp
     MapAnnotation ann = new MapAnnotationI();
