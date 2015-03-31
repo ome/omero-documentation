@@ -70,8 +70,8 @@ Memoization files invalidation
 All cached Bio-Formats memoization files created at import time will be
 invalidated by the server upgrade. This means the very first loading of each
 image after upgrade will be slower. After re-initialization, a new memoization
-file will be created and OMERO will be able to load images in a performant
-manner again.
+file will be automatically generated and OMERO will be able to load images in
+a performant manner again.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
