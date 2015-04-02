@@ -12,11 +12,19 @@ What's new for OMERO 5.1
   that a bug is filed with the OME team so it can be fixed before this
   configuration property is *removed* in OMERO 5.2.
 
+- The server download policy can now be configured to restrict users' ability
+  to download the original data e.g. by user or by data type.
+
+
+Database
+--------
+
+- OMERO 5.1 requires Postgres 9.2 or later, the OMERO database upgrade script
+  will not run on older versions.
+
 - OMERO 5.1 requires a Unicode-encoded (UTF8) database, the
   :doc:`server-upgrade` page has been updated to reflect this.
 
-- The server download policy can now be configured to restrict users' ability
-  to download the original data e.g. by user or by data type.
 
 .. _web-breaking-changes:
 
