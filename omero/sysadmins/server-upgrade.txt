@@ -75,7 +75,7 @@ a performant manner again.
 
 These files are stored under :file:`BioFormatsCache` in the OMERO data
 directory, e.g. :file:`/OMERO/BioFormatsCache`. You may see error messages in
-your log files when an old memoization file is found, to avoid these messages
+your log files when an old memoization file is found; to avoid these messages
 delete everything under this directory before starting the upgraded server.
 
 Troubleshooting
