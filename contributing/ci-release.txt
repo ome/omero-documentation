@@ -341,12 +341,7 @@ clients of the deployment jobs described above:
 
     :jenkinsjob:`OMERO-5.1-release-training`
 
-        This jobruns the training examples
-
-        #. Receives pytest results under
-           :file:`components/tools/OmeroWeb/target/reports` from
-           :term:`OMERO-5.1-release-integration`
-        #. Generates pytest report
+        This job runs the training examples under :file:`examples/Training`
 
     :jenkinsjob:`OMERO-5.1-release-robotframework`
 
@@ -358,7 +353,7 @@ clients of the deployment jobs described above:
 
     :jenkinsjob:`BIOFORMATS-5.1-release`
 
-        This job triggers the release of Bio-Formats (Java & C++)
+        This job triggers the release of Bio-Formats (Java and C++)
 
         #. Triggers :term:`BIOFORMATS-5.1-release-java`
         #. Triggers :term:`BIOFORMATS-5.1-release-cpp`
@@ -397,8 +392,6 @@ clients of the deployment jobs described above:
 
         This job builds the Bio-Formats C++ downloads page
 
-        #. Checks out the :envvar:`RELEASE` tag of the
-           snoopycrimecop fork of bioformats.git_
-        #. |buildBF|
-        #. |copyreleaseartifacts|
-        #. Triggers :term:`BIOFORMATS-5.1-release-cpp-downloads`
+        #. Checks out the `develop` branch of
+           https://github.com/openmicroscopy/ome-release.git
+        #. Runs `make clean bfcpp`
