@@ -341,7 +341,8 @@ clients of the deployment jobs described above:
 
     :jenkinsjob:`OMERO-5.1-release-training`
 
-        This job runs the training examples under :file:`examples/Training`
+        This job runs the Java, MATLAB and Python training examples under
+        :file:`examples/Training`
 
     :jenkinsjob:`OMERO-5.1-release-robotframework`
 
