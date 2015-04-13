@@ -187,8 +187,7 @@ Run the upgrade script
 
 You **must** use the same username and password you have defined during
 :doc:`unix/server-installation`. The |version| upgrade script should execute
-in a short time. The example below assumes you are upgrading from a
-|previousversion| server.
+in a short time.
 
 .. parsed-literal::
 
@@ -208,6 +207,12 @@ in a short time. The example below assumes you are upgrading from a
 
     (1 row)
 
+
+.. note::
+
+   If you perform the database upgrade using *SQL shell*, make sure you are
+   connected to the database using **db_user** before running the script. See
+   :forum:`this forum thread <viewtopic.php?f=5&t=7778>` for more information.
 
 Optimize an upgraded database (optional)
 """"""""""""""""""""""""""""""""""""""""
