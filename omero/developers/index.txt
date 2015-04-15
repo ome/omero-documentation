@@ -115,8 +115,13 @@ Web
     Web/WritingViews
     Web/WritingTemplates
     Web/CSRF
-    Web/PublicData
 
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    Web/PublicData
 
 *******
 Insight
