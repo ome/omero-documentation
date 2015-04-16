@@ -4,7 +4,7 @@ set -e -u -x
 
 DISTRO=
 WEBSERVER=nginx
-OMEROVER=omero50
+OMEROVER=omero51
 
 for arg in "$@"; do
 	case "$arg" in
