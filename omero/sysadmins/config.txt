@@ -1811,14 +1811,6 @@ Add links to the top header: links are ``['Link Text', 'link', options]``, where
 
 Default: `[["Data", "webindex", {"title": "Browse Data via Projects, Tags etc"}],["History", "history", {"title": "History"}],["Help", "http://help.openmicroscopy.org/",{"title":"Open OMERO user guide in a new tab", "target":"new"}]]`
 
-.. property:: omero.web.viewer.initial_zoom_level
-
-omero.web.viewer.initial_zoom_level
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Configuration options for the viewer. -1: zoom in fully, 0: zoom out fully, unset: zoom to fit window
-
-Default: `None`
-
 .. property:: omero.web.webgateway_cache
 
 omero.web.webgateway_cache

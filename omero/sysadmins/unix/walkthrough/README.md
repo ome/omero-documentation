@@ -9,9 +9,9 @@ Copy the files from this directory, then run one of
     bash install.sh centos6 nginx
     bash install.sh centos6 apache
 
-To install OMERO 5.1 add `omero51` as an argument, e.g.
+To install OMERO 5.0 instead of 5.1 add `omero50` as an argument, e.g.
 
-    bash install.sh centos6 nginx omero51
+    bash install.sh centos6 nginx omero50
 
 Usernames and passwords can be customized in `settings.env`.
 
