@@ -2,22 +2,26 @@ Public data in the repository
 =============================
 
 The OMERO.web framework allows raw data to be published using built-in tools
-or supplied through webservices to the external web resources. This feature is
-available only after granting access to the selected datasets and making them
-visible to the 'public user', ensuring you always have control over access to
+or supplied through webservices to external web pages. Selected datasets
+can be made visible to a 'public user' using the standard OMERO permissions
+system, ensuring you always have control over how users can interact with
 your data.
 
-There are three ways of publishing data using OMERO.web:
+There are several ways of publishing data using OMERO.web:
 
 - using a URL to launch the web-based Image viewer, as described in
   :ref:`launching_web_viewer`, which can be accompanied by a thumbnail. For
   more details of how to load the thumbnail see
   :ref:`urls_from_within_OMERO_web`
 
-- embedding the image viewport directly into other web resources, for more
+- embedding the image viewport directly into other web pages, for more
   details see :ref:`embedding_web_viewport`
 
 - allowing public access to the OMERO.web data manager
+
+- writing your own app to host your public data (see
+  :doc:`/developers/Web/CreateApp`) and then allowing public access to the
+  chosen URL for that app
 
 The sections below describe how to set up these features.
 
@@ -107,9 +111,9 @@ To set this up on your OMERO.web installation:
 
      $ bin/omero config set omero.web.public.server_id 1
 
-If you wish to mix public and restricted access to the system, a registered
-user can always access the login page using the following link
-`\https://your_host/webclient/login/`.
+If you enable public access to the main webclient but still wish registered
+users to be able to login, the login page can always be accessed using a link
+of the form `\https://your_host/webclient/login/`.
 
 
 Reusing OMERO session
