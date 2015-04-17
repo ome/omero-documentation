@@ -749,7 +749,7 @@ In the following example, we create an image and delete it.
     img.setAcquisitionDate(omero.rtypes.rtime(1000000));
     img = (Image) entryUnencrypted.getUpdateService().saveAndReturnObject(img);
 
-    HashMap<String, List<Long>> targetObject = new HashMap<String, List<Long>>();
+    java.util.Map<String, List<Long>> targetObject = new HashMap<String, List<Long>>();
     List<Long> idlist = new ArrayList<Long>();
     idlist.add(img.getId().getValue());
     targetObject.put("Image", idlist);
