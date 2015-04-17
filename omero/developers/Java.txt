@@ -749,8 +749,8 @@ In the following example, we create an image and delete it.
     img.setAcquisitionDate(omero.rtypes.rtime(1000000));
     img = (Image) entryUnencrypted.getUpdateService().saveAndReturnObject(img);
 
-    Hashtable targetObject = new Hashtable();
-    ArrayList<Long> idlist = new ArrayList();
+    HashMap<String, List<Long>> targetObject = new HashMap<String, List<Long>>();
+    List<Long> idlist = new ArrayList<Long>();
     idlist.add(img.getId().getValue());
     targetObject.put("Image", idlist);
     Delete2 deleteCommands = new Delete2(targetObject, null, false);
@@ -911,4 +911,4 @@ please see |OmeroClients|.
 --------------
 
 .. seealso::
-	ZeroC_, |OmeroGrid|, :ref:`build#OmeroTools`, |OmeroApi|
+    ZeroC_, |OmeroGrid|, :ref:`build#OmeroTools`, |OmeroApi|
