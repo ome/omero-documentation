@@ -438,7 +438,7 @@ created:
     originalFile.setName(omero.rtypes.rstring(name));
     originalFile.setPath(omero.rtypes.rstring(path));
     originalFile.setSize(omero.rtypes.rlong(file.length()));
-    originalFile.setSha1(omero.rtypes.rstring(generatedSha1));
+    originalFile.setHash(omero.rtypes.rstring(generatedSha1));
     originalFile.setMimetype(omero.rtypes.rstring(fileMimeType)); // or "application/octet-stream"
     // now we save the originalFile object
     originalFile = (OriginalFile) iUpdate.saveAndReturnObject(originalFile);
@@ -517,7 +517,11 @@ First load the annotations, cf. above.
       if (annotation instanceof FileAnnotation && index == 0) { //read the first one.
         fa = new FileAnnotationData((FileAnnotation) annotation);
         //The id of the original file
-        of = getOriginalFile(fa.getFileID());
+        param.map.put("id", omero.rtypes.rlong(fa.getFileID()));
+        IQueryPrx svc = entryUnencrypted.getQueryService();
+        of = (OriginalFile) svc.findByQuery(
+                            "select p from OriginalFile as p " +
+                            "where p.id = :id", param);
         store.setFileId(fa.getFileID());
         int offset = 0;
         long size = of.getSize().getValue();
@@ -745,18 +749,18 @@ In the following example, we create an image and delete it.
     img.setAcquisitionDate(omero.rtypes.rtime(1000000));
     img = (Image) entryUnencrypted.getUpdateService().saveAndReturnObject(img);
 
-    DeleteCommand[] cmds = new DeleteCommand[1];
-    //Command to delete the image.
-    cmds[0] = new DeleteCommand("/Image", img.getId().getValue(), null);
-    DeleteHandlePrx handle = entryUnencrypted.getDeleteService().queueDelete(cmds);
+    java.util.Map<String, List<Long>> targetObject = new HashMap<String, List<Long>>();
+    List<Long> idlist = new ArrayList<Long>();
+    idlist.add(img.getId().getValue());
+    targetObject.put("Image", idlist);
+    Delete2 deleteCommands = new Delete2(targetObject, null, false);
+    HandlePrx handle = entryUnencrypted.submit(deleteCommands);
+    handle.getResponse();
 
     //If you want to interact with call-back and handle.
-    DeleteCallbackI cb = new DeleteCallbackI(client, handle);
-    DeleteReport[] reports = handle.report();
-    for (int i = 0; i < reports.length; i++) {
-      DeleteReport report = reports[i];
-      String error = report.error;
-    }
+    CmdCallbackI cb = new CmdCallbackI(client, handle);
+    cb.loop(10, 500);
+    cb.getResponse();
 
 Render Images
 -------------
@@ -771,7 +775,7 @@ Render Images
     RenderingEnginePrx proxy = entryUnencrypted.createRenderingEngine();
     proxy.lookupPixels(pixelsId);
     if (!(proxy.lookupRenderingDef(pixelsId))) {
-      proxy.resetDefaults();
+      proxy.resetDefaultSettings(true);
       proxy.lookupRenderingDef(pixelsId);
     }
     proxy.load();
@@ -872,7 +876,10 @@ in OMERO. Similar approach can be applied when uploading an image.
             "From Image ID: "+image.getId());
     if (idNew == null)
         throw new Exception("New image could not be created.");
-    ImageData newImage = loadImage(idNew.getValue());
+    IContainerPrx proxyCS = entryUnencrypted.getContainerService();
+    List<Image> results = proxyCS.getImages(Image.class.getName(),
+                    Arrays.asList(idNew.getValue()), new ParametersI());
+    ImageData newImage = new ImageData(results.get(0));
 
     //Link the new image and the dataset hosting the source image.
     DatasetImageLink link = new DatasetImageLinkI();
@@ -904,4 +911,4 @@ please see |OmeroClients|.
 --------------
 
 .. seealso::
-	ZeroC_, |OmeroGrid|, :ref:`build#OmeroTools`, |OmeroApi|
+    ZeroC_, |OmeroGrid|, :ref:`build#OmeroTools`, |OmeroApi|
