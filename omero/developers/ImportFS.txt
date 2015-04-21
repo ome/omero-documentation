@@ -22,6 +22,10 @@ configuration required for OMERO.fs is specified.
 Import overview
 ---------------
 
+.. figure:: /images/upload.png
+   :align: center
+   :alt: Upload sequence
+
 The broad import workflow comprises selecting a file or set of files to be
 imported client-side. Using Bio-Formats on the client this selection is
 resolved into a number of import candidates. Here an import candidate is a
@@ -41,6 +45,35 @@ Once the ``Fileset`` is on the server and an import has been initiated by the
 client all processing then takes place on the server. The server then uses
 Bio-Formats to extract and store the metadata, calculate the minimum and
 maximum pixel values and do other import processing.
+
+.. _filesets:
+
+Filesets
+--------
+
+A ``fileset`` is a concept new in OMERO.fs that captures how
+:bf_doc:`Bio-Formats <>` relates files to the images that they encode. If
+importing a single file leads to a single corresponding image being viewable
+then a one-to-one mapping exists from file to image. However, an image's
+information may be split among multiple files, or a single file may encode
+multiple images. In other cases, especially in high-content screening, many
+images of wells may be encoded in a complex manner by many files. In all these
+cases, a fileset is used to hold the set of files and the set of images to
+which those files correspond.
+
+.. figure:: /images/fileset-diagram.png
+  :align: center
+  :alt: Filesets can be many-to-one, one-to-one, one-to-many or
+        many-to-many
+
+Filesets are essentially indivisible: the files or images that a fileset
+represents are deleted, or moved between groups, only as one unit together,
+and on the server each fileset has a directory in which only its files are
+stored. Each fileset firmly binds its brittle sets of files and images because
+the dependencies among them mean that **splitting components away leaves a
+partial fileset and makes the remaining data unreadable**. Similarly,
+**you should not rename any components of a fileset** as this will also break
+the dependencies holding them together.
 
 Model description
 -----------------
