@@ -51,7 +51,7 @@ maximum pixel values and do other import processing.
 Filesets
 --------
 
-A ``fileset`` is a concept new in OMERO.fs that captures how
+A ``fileset`` is a concept new to OMERO.fs which captures how
 :bf_doc:`Bio-Formats <>` relates files to the images that they encode. If
 importing a single file leads to a single corresponding image being viewable
 then a one-to-one mapping exists from file to image. However, an image's
@@ -69,9 +69,9 @@ which those files correspond.
 Filesets are essentially indivisible: the files or images that a fileset
 represents are deleted, or moved between groups, only as one unit together,
 and on the server each fileset has a directory in which only its files are
-stored. Each fileset firmly binds its brittle sets of files and images because
+stored. Each fileset firmly binds sets of files and images because
 the dependencies among them mean that **splitting components away leaves a
-partial fileset and makes the remaining data unreadable**. Similarly,
+partial fileset making the remaining data unreadable**. Similarly,
 **you should not rename any components of a fileset** as this will also break
 the dependencies holding them together.
 
