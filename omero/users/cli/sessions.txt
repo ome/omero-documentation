@@ -134,6 +134,21 @@ If you want to use a custom session directory, use the
     /tmp/my_sessions/localhost/root/bf7b9fee-5e3f-40fa-94a6-1e23ceb43dbd
     $ bin/omero logout
 
+.. note::
+    The :envvar:`OMERO_SESSION_DIR` environment variable introduced in 5.1.0
+    to specify a custom sessions directory is deprecated in 5.1.1 and above in
+    favor of :envvar:`OMERO_SESSIONDIR`.
+
+    If you have been using :envvar:`OMERO_SESSION_DIR` and want to upgrade
+    your custom sessions directory without losing locally stored sessions:
+
+    - either set :envvar:`OMERO_SESSIONDIR` to point at the same location as
+      :file:`OMERO_SESSION_DIR/omero/sessions`
+    - or move all local sessions stored under the
+      :file:`OMERO_SESSION_DIR/omero/sessions` directory
+      under the :file:`OMERO_SESSION_DIR` directory and
+      replace :envvar:`OMERO_SESSION_DIR` by :envvar:`OMERO_SESSIONDIR`.
+
 Switching current group
 ^^^^^^^^^^^^^^^^^^^^^^^
 
