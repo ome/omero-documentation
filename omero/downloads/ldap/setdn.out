@@ -25,7 +25,8 @@ Optional Arguments:
 
 Login arguments:
   Environment variables:
-      OMERO_SESSION_DIR - Set the sessions directory (Default: $HOME/omero/sessions)
+      OMERO_SESSIONDIR - Set the sessions directory (Default:
+   $HOME/omero/sessions)
   
   Optional session arguments:
 
