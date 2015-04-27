@@ -7,12 +7,12 @@ env:
   - SPHINXOPTS="-W" CLASSPATH="/usr/share/java/ant-contrib.jar"
 
 before_install:
-  - sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu/ saucy main universe"
+  - travis_retry sudo apt-get -y -f install graphviz
+  - sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu/ trusty main universe"
   - travis_retry sudo apt-get update
   - travis_retry sudo apt-get -y install ant ant-contrib ant-optional
   - travis_retry sudo apt-get -y install texlive-latex-base texlive-latex-recommended texlive-xetex
   - travis_retry sudo apt-get -y install texlive-latex-extra texlive-fonts-recommended fonts-texgyre
-  - travis_retry sudo apt-get -y install graphviz
   - sudo fc-cache -rsfv
   - fc-list
   - sudo pip install scc Sphinx==1.2.3
