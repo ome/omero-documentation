@@ -43,15 +43,6 @@ FLIMfit
 The source code for the FLIMfit is hosted under
 https://github.com/openmicroscopy/Imperial-FLIMfit
 
-.. digraph:: FLIMfit
-
-   "FLIMfit-latest-mac" -> "FLIMfit-latest-win";
-
-   "FLIMfit-release" -> "FLIMfit-release-mac";
-   "FLIMfit-release" -> "FLIMfit-release-win";
-   "FLIMfit-release-mac" -> "FLIMfit-release-downloads";
-   "FLIMfit-release-win" -> "FLIMfit-release-downloads";
-
 .. glossary::
 
 	:jenkinsjob:`FLIMfit-latest-mac`
@@ -79,6 +70,8 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 		#. Trigger :term:`FLIMfit-release-mac` and
 		   :term:`FLIMfit-release-win`
 		#. Upon completion, trigger :term:`FLIMfit-release-downloads`
+
+        See :jenkinsjob:`the build graph <FLIMfit-release/lastSuccessfulBuild/BuildGraph>`
 
 	:jenkinsjob:`FLIMfit-release-mac`
 

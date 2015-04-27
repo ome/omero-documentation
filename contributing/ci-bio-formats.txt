@@ -50,92 +50,8 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-5.0-merge-openbytes-performance`
 		* :term:`BIOFORMATS-5.1-merge-openbytes-performance`
 
-4.4.x series
-^^^^^^^^^^^^
-
-.. digraph:: BIOFORMATS44latest
-
-   "BIOFORMATS-4.4-latest" -> "BIOFORMATS-4.4-latest-maven";
-
-   "BIOFORMATS-4.4-merge-daily" -> "BIOFORMATS-4.4-merge-docs";
-   "BIOFORMATS-4.4-merge-daily" -> "BIOFORMATS-4.4-merge-matlab";
-
-The branch for the 4.4.x series of Bio-Formats is dev_4_4.
-
-.. glossary::
-
-	:jenkinsjob:`BIOFORMATS-4.4-latest`
-
-		This job builds the dev_4_4 branch of Bio-Formats
-
-		#. |buildBF|
-		#. |testBF|
-
-	:jenkinsjob:`BIOFORMATS-4.4-latest-maven`
-
-		This job publishes the dev_4_4 branch of Bio-Formats to the LOCI Nexus
-		repository
-
-	:jenkinsjob:`BIOFORMATS-4.4-merge-daily`
-
-		This job merges the PRs opened against the dev_4_4 branch of
-		Bio-Formats by running basic unit tests, checking for open file
-		handles, and checking for regressions across a representative
-		subset of the data repository
-
-		#. |merge|
-		#. |buildBF|
-		#. |fulltestBF|
-
-	:jenkinsjob:`BIOFORMATS-4.4-merge-matlab`
-
-		This job runs the MATLAB tests of Bio-Formats
-
-		#. Collects the MATLAB artifacts and unit tests from
-		   :term:`BIOFORMATS-4.4-merge-daily`
-		#. Runs the MATLAB unit tests under
-		   :file:`components/bio-formats/test/matlab` and collect the results
-
-	:jenkinsjob:`BIOFORMATS-4.4-merge-full-repository`
-
-		This job is runs the automated tests against the full repository on
-		squig
-
-		#. |merge|
-		#. Runs tests against directories configured by
-		   ``--test dirname`` under :file:`/ome/data_repo/from_skyking/`
-
-	:jenkinsjob:`BIOFORMATS-4.4-merge-omero-openbytes`
-
-		This job runs OMERO openBytes tests against directories on squig
-
-		#. |merge|
-		#. Runs ``loci.tests.testng.OmeroOpenBytesTest`` tests against
-		   directories specified by :file:`BIOFORMATS-omero-openbytes.txt`
-
-	:jenkinsjob:`BIOFORMATS-4.4-merge-openbytes-performance`
-
-		This job runs openBytes performance tests against directories on squig
-
-		#. |merge|
-		#. Runs ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
-		   directories specified by
-		   :file:`BIOFORMATS-openbytes-performance.txt`
-
 5.0.x series
 ^^^^^^^^^^^^
-
-.. digraph:: BIOFORMATS50latest
-
-   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-maven" -> "BIOFORMATS-5.0-latest-cppwrap";
-   "BIOFORMATS-5.0-latest" -> "BIOFORMATS-5.0-latest-docs-autogen";
-
-   "BIOFORMATS-5.0-merge-daily" -> "OME-5.0-merge-push";
-   "OME-5.0-merge-push" -> "BIOFORMATS-5.0-merge-build";
-   "OME-5.0-merge-push" -> "BIOFORMATS-5.0-merge-docs";
-   "OME-5.0-merge-push" -> "BIOFORMATS-5.0-merge-test_images_good";
-   "OME-5.0-merge-push" -> "BIOFORMATS-5.0-merge-performance";
-   "BIOFORMATS-5.0-merge-build" -> "BIOFORMATS-5.0-merge-matlab";
 
 The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 
@@ -165,6 +81,8 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		   :term:`BIOFORMATS-5.0-merge-docs`,
 		   :term:`BIOFORMATS-5.0-merge-test_images_good` and
 		   BIOFORMATS-5.0-merge-performance
+
+        See :jenkinsjob:`the build graph <BIOFORMATS-5.0-merge-daily/lastSuccessfulBuild/BuildGraph>`
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-build`
 
@@ -214,22 +132,6 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 5.1.x series
 ^^^^^^^^^^^^
 
-.. digraph:: BIOFORMATS51latest
-
-   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-maven" -> "BIOFORMATS-5.1-latest-cppwrap";
-   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-cpp";
-   "BIOFORMATS-5.1-latest" -> "BIOFORMATS-5.1-latest-docs-autogen";
-
-.. digraph:: BIOFORMATS51mergedaily
-
-   "BIOFORMATS-5.1-merge-daily" -> "OME-5.1-merge-push";
-   "OME-5.1-merge-push" -> "BIOFORMATS-5.1-merge-build";
-   "OME-5.1-merge-push" -> "BIOFORMATS-5.1-merge-cpp";
-   "OME-5.1-merge-push" -> "BIOFORMATS-5.1-merge-docs";
-   "OME-5.1-merge-push" -> "BIOFORMATS-5.1-merge-test_images_good";
-   "OME-5.1-merge-push" -> "BIOFORMATS-5.1-merge-performance";
-   "BIOFORMATS-5.1-merge-build" -> "BIOFORMATS-5.1-merge-matlab";
-
 The branch for the 5.1.x series of Bio-Formats is develop.
 
 .. glossary::
@@ -263,6 +165,8 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		   :term:`BIOFORMATS-5.1-merge-docs`,
 		   :term:`BIOFORMATS-5.1-merge-test_images_good` and
 		   BIOFORMATS-5.1-merge-performance
+
+        See :jenkinsjob:`the build graph <BIOFORMATS-5.1-merge-daily/lastSuccessfulBuild/BuildGraph>`
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-build`
 
