@@ -19,7 +19,7 @@ may even contain direct :doc:`in-place links
 </sysadmins/in-place-import>` to original data without an file upload
 step. These changes improve the way OMERO deals with High Content
 Screening (HCS) and other complex heterogeneous data types, reducing
-storage requirements and using Bio-Formats to recognize 'filesets'
+storage requirements and using Bio-Formats to recognize :ref:`filesets`
 (groups of files which correspond to multi-dimensional images and
 accompanying information) so they can be treated as single entities
 within the OMERO clients. OMERO.fs has some :ref:`configuration
