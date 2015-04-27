@@ -8,48 +8,39 @@ tab of Jenkins.
 	:header-rows: 1
 
 	- 	* Job task
-		* 4.4.x series
 		* 5.0.x series
 		* 5.1.x series
 
 	- 	* Builds the OMERO documentation for publishing
-		* :term:`OMERO-4.4-release-docs`
 		* :term:`OMERO-5.0-release-docs`
 		* :term:`OMERO-5.1-release-docs`
 
 	- 	* Builds the Bio-Formats documentation for publishing
-		* :term:`BIOFORMATS-4.4-release-docs`
 		* :term:`BIOFORMATS-5.0-release-docs`
 		* :term:`BIOFORMATS-5.1-release-docs`
 
 	- 	* Builds the OMERO documentation for review
-		* :term:`OMERO-4.4-merge-docs`
 		* :term:`OMERO-5.0-merge-docs`
 		* :term:`OMERO-5.1-merge-docs`
 
 
 	- 	* Builds the Bio-Formats documentation for review
-		* :term:`BIOFORMATS-4.4-merge-docs`
 		* :term:`BIOFORMATS-5.0-merge-docs`
 		* :term:`BIOFORMATS-5.1-merge-docs`
 
 	- 	* Builds the auto-generated OMERO documentation
-		*
 		* :term:`OMERO-5.0-latest-docs-autogen`
 		* :term:`OMERO-5.1-latest-docs-autogen`
 
 	- 	* Builds the auto-generated OMERO documentation for review
-		*
 		* :term:`OMERO-5.0-merge-docs-autogen`
 		* :term:`OMERO-5.1-merge-docs-autogen`
 
 	- 	* Builds the auto-generated Bio-Formats documentation
-		*
 		* :term:`BIOFORMATS-5.0-latest-docs-autogen`
 		* :term:`BIOFORMATS-5.1-latest-docs-autogen`
 
 	- 	* Builds the auto-generated OMERO documentation for review
-		*
 		* :term:`BIOFORMATS-5.0-merge-docs-autogen`
 		* :term:`BIOFORMATS-5.1-merge-docs-autogen`
 
@@ -105,59 +96,6 @@ necromancer.openmicroscopy.org.uk under the
 :file:`/var/www/www.openmicroscopy.org/sphinx-docs` directory using the
 :program:`scc deploy` command. The :jenkinsjob:`OME-docs-deployment-setup` job
 is used to initialize new deployment folders.
-
-4.4.x series
-^^^^^^^^^^^^
-
-The branch for the 4.4.x series of the OMERO/Bio-Formats documentation is dev_4_4.
-
-.. glossary::
-
-	:jenkinsjob:`OMERO-4.4-release-docs`
-
-		This job is used to build the dev_4_4 of the OMERO documentation
-		and publish the official documentation for the current release of
-		OMERO
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. If the build is promoted,
-			#. |ssh-doc| :file:`omero-stable-release.tmp`
-			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4/
-
-	:jenkinsjob:`BIOFORMATS-4.4-release-docs`
-
-		This job is used to build the dev_4_4 of the Bio-Formats
-		documentation and publish the official documentation for the current
-		release of Bio-Formats
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. If the build is promoted,
-			#. |ssh-doc| :file:`bf-stable-release.tmp`
-			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats4/
-
-	:jenkinsjob:`OMERO-4.4-merge-docs`
-
-		This job is used to review the PRs opened against the dev_4_4
-		branch of the OMERO documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. |ssh-doc| :file:`omero-stable-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero4-staging/
-
-	:jenkinsjob:`BIOFORMATS-4.4-merge-docs`
-
-		This job is used to review the PRs opened against the dev_4_4
-		branch of the Bio-Formats documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. |ssh-doc| :file:`bf-stable-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats4-staging/
 
 5.0.x series
 ^^^^^^^^^^^^

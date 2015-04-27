@@ -70,7 +70,7 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 		#. Trigger :term:`FLIMfit-release-mac` and
 		   :term:`FLIMfit-release-win`
 		#. Upon completion, trigger :term:`FLIMfit-release-downloads`
-
+        
         See :jenkinsjob:`the build graph <FLIMfit-release/lastSuccessfulBuild/BuildGraph>`
 
 	:jenkinsjob:`FLIMfit-release-mac`
