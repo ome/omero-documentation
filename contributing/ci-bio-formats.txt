@@ -6,47 +6,47 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 .. list-table::
 	:header-rows: 1
 
-	- 	* Job task
+	-	* Job task
 		* 5.0.x series
 		* 5.1.x series
 
-	- 	* Builds the latest Bio-Formats artifacts
+	-	* Builds the latest Bio-Formats artifacts
 		* :term:`BIOFORMATS-5.0-latest`
 		* :term:`BIOFORMATS-5.1-latest`
 
-	- 	* Publishes the latest Bio-Formats to the OME artifactory
+	-	* Publishes the latest Bio-Formats to the OME artifactory
 		* :term:`BIOFORMATS-5.0-latest-maven`
 		* :term:`BIOFORMATS-5.1-latest-maven`
 
-	- 	* Builds the latest native C++ implementation for Bio-Formats
+	-	* Builds the latest native C++ implementation for Bio-Formats
 		*
 		* :term:`BIOFORMATS-5.1-latest-cpp`
 
-	- 	* Runs the daily Bio-Formats merge jobs
+	-	* Runs the daily Bio-Formats merge jobs
 		* :term:`BIOFORMATS-5.0-merge-daily`
 		* :term:`BIOFORMATS-5.1-merge-daily`
 
-	- 	* Builds the merge Bio-Formats artifacts
+	-	* Builds the merge Bio-Formats artifacts
 		* :term:`BIOFORMATS-5.0-merge-build`
 		* :term:`BIOFORMATS-5.1-merge-build`
 
-	- 	* Builds the merge native C++ implementation for Bio-Formats
+	-	* Builds the merge native C++ implementation for Bio-Formats
 		*
 		* :term:`BIOFORMATS-5.1-merge-cpp`
 
-	- 	* Runs the MATLAB tests
+	-	* Runs the MATLAB tests
 		* :term:`BIOFORMATS-5.0-merge-matlab`
 		* :term:`BIOFORMATS-5.1-merge-matlab`
 
-	- 	* Runs automated tests against the full repository on squig
+	-	* Runs automated tests against the full repository on squig
 		* :term:`BIOFORMATS-5.0-merge-full-repository`
 		* :term:`BIOFORMATS-5.1-merge-full-repository`
 
-	- 	* Runs automated tests against test_images_good on squig
+	-	* Runs automated tests against test_images_good on squig
 		* :term:`BIOFORMATS-5.0-merge-test_images_good`
 		* :term:`BIOFORMATS-5.1-merge-test_images_good`
 
-	- 	* Runs openBytes performance test
+	-	* Runs openBytes performance test
 		* :term:`BIOFORMATS-5.0-merge-openbytes-performance`
 		* :term:`BIOFORMATS-5.1-merge-openbytes-performance`
 
@@ -82,7 +82,7 @@ The branch for the 5.0.x series of Bio-Formats is dev_5_0.
 		   :term:`BIOFORMATS-5.0-merge-test_images_good` and
 		   BIOFORMATS-5.0-merge-performance
 
-        See :jenkinsjob:`the build graph <BIOFORMATS-5.0-merge-daily/lastSuccessfulBuild/BuildGraph>`
+		See :jenkinsjob:`the build graph <BIOFORMATS-5.0-merge-daily/lastSuccessfulBuild/BuildGraph>`
 
 	:jenkinsjob:`BIOFORMATS-5.0-merge-build`
 
@@ -166,7 +166,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		   :term:`BIOFORMATS-5.1-merge-test_images_good` and
 		   BIOFORMATS-5.1-merge-performance
 
-        See :jenkinsjob:`the build graph <BIOFORMATS-5.1-merge-daily/lastSuccessfulBuild/BuildGraph>`
+		See :jenkinsjob:`the build graph <BIOFORMATS-5.1-merge-daily/lastSuccessfulBuild/BuildGraph>`
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-build`
 

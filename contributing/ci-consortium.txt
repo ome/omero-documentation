@@ -8,11 +8,11 @@ Jenkins.
 .. list-table::
 	:header-rows: 1
 
-	- 	* Partner project
+	-	* Partner project
 		* Latest jobs
 		* Release jobs
 
-	- 	* FLIMfit
+	-	* FLIMfit
 		* | :term:`FLIMfit-latest-mac`
 		  | :term:`FLIMfit-latest-win`
 		* | :term:`FLIMfit-release`
@@ -20,19 +20,19 @@ Jenkins.
 		  | :term:`FLIMfit-release-win`
 		  | :term:`FLIMfit-release-downloads`
 
-	- 	* OMERO.figure
+	-	* OMERO.figure
 		*
 		* :term:`FIGURE-release-downloads`
 
-	- 	* OMERO.mtools
+	-	* OMERO.mtools
 		*
 		* :term:`MTOOLS-release-downloads`
 
-	- 	* OMERO.webtagging
+	-	* OMERO.webtagging
 		*
 		* :term:`WEBTAGGING-release-downloads`
 
-	- 	* u-track
+	-	* u-track
 		* | :term:`U-TRACK-latest`
 		* | :term:`U-TRACK-release`
 		  | :term:`U-TRACK-release-downloads`
@@ -70,8 +70,8 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 		#. Trigger :term:`FLIMfit-release-mac` and
 		   :term:`FLIMfit-release-win`
 		#. Upon completion, trigger :term:`FLIMfit-release-downloads`
-        
-        See :jenkinsjob:`the build graph <FLIMfit-release/lastSuccessfulBuild/BuildGraph>`
+		
+		See :jenkinsjob:`the build graph <FLIMfit-release/lastSuccessfulBuild/BuildGraph>`
 
 	:jenkinsjob:`FLIMfit-release-mac`
 
