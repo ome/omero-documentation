@@ -432,6 +432,7 @@ Installation
 
        .. parsed-literal::
 
+           omero=> SET client_encoding = 'UTF8';
            omero=> \\i C:/OMERO.server/|current_dbver|.sql
            ...
            ...
