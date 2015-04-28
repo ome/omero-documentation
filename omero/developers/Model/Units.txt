@@ -29,7 +29,7 @@ Unit objects
 Each unit quantity consists of a double-precision scalar and an enumeration
 which chooses one of the pre-defined values from the model. In code, uppercase
 spellings of the enumerations are used, while in the schema, in OME-XML files,
-and in the database, the unicode symbol for the unit is used.
+and in the database, the Unicode symbol for the unit is used.
 
 =========================== ==============================================
 Language                    Representation

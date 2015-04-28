@@ -34,7 +34,7 @@ In OME-XML this is implemented as
     urn:lsid:<domain-name>:<element-name>:<uniqueID>
 
 The uniqueID can be any non-whitespace characters. The domain-name is
-any standard character (including unicode) with dash and dot. It must
+any standard character (including Unicode) with dash and dot. It must
 contain at least one dot. The version block is not required but will be
 accepted if present.
 
