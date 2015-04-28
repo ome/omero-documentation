@@ -240,13 +240,15 @@ OMERO.web issues
 OMERO.web did not start on the production
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Stop your server
-
--  If the Apache/Nginx contain lines of type ``Permission denied`` you may
-   need to modify the
+-  If the Apache error logs contain lines of type
+   ``Permission denied: access to xxx denied``, you need to check the
+   permissions of the folder and make sure it is readable and executable by
+   the Apache user.
 
    .. seealso::
      :forum:`What are your LDAP requirements? <viewtopic.php?f=5&t=14>`
+
+     :ome-users:`upgrade 5.0.5 to 5.1.1 omero.web forbidden <2015-April/005316.html>`
 
 OMERO.web piecharts
 ^^^^^^^^^^^^^^^^^^^
