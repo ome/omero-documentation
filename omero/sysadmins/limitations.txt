@@ -26,6 +26,29 @@ correctly. OpenJDK and OracleJDK versions 6 and 7 are also supported.
 Windows OS issues
 -----------------
 
+Failure response on import for new databases
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you have import failures with an error such as::
+
+   java.lang.RuntimeException: Failure response on import!
+   Category: ::omero::grid::ImportRequest
+   Name: import-request-failure
+   Parameters: {stacktrace=java.lang.RuntimeException: omero.ValidationException
+       serverStackTrace = "ome.conditions.ValidationException: could not insert: [ome.model.core.Pixels];
+
+when trying to import data to a new database (or possibly one just upgraded to
+5.1), it may be an issue with the database initialization. If you are working
+with a fresh install, the easiest fix would be to drop the OMERO database and
+re-create it. If you already deleted the initialization script
+(OMERO5.1__0.sql), recreate it by running ``bin/omero db script``. Edit the
+script to add ``SET CLIENT_ENCODING TO 'UTF8';`` as the first line of the
+script. Connect to the database via psql and run the script with ``\i [path to
+script]OMERO5.1__0.sql``.
+
+Alternatively, switch the language in pgadmin and then recreate the DB and DB
+User.
+
 UTF-8 character limitations in passwords
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
