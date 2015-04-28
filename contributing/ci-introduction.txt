@@ -29,12 +29,6 @@ Most of the OME code is split between four repositories: openmicroscopy.git_,
 bioformats.git_, scripts.git_, ome-documentation.git_. Each repository
 contains several development branches associated with development series:
 
-* The "dev_4_4" branch contains work on the 4.4.x series.
-
-  .. note::
-    This branch has now entered maintenance mode and should only be updated
-    for major bug fixes.
-
 * The "dev_5_0" branch contains work on the 5.0.x series.
 
 * The "develop" branch contains work on the 5.1.x series.
@@ -48,9 +42,6 @@ Labels
 ^^^^^^
 
 Labels are applied to PRs on GitHub under the “Issues” tab of each repository.
-
-The 4.4.x series consists of PRs labeled with “dev_4_4”, which
-is the name of the branch which they will be merged into.
 
 The 5.0.x series consists of PRs labeled with “dev_5_0”, which is also
 the name of the branch which they will be merged into.
