@@ -49,7 +49,7 @@ If you have import failures with an error such as::
 
 when trying to import data to a new database (or possibly one just upgraded to
 5.1), it may be an issue with the language encoding during database
-initialization leading to corrupt unicode characters, such that any import
+initialization leading to corrupted Unicode characters, such that any import
 containing these characters (e.g. µ) will fail with the above exception. A
 ``SET CLIENT_ENCODING TO 'UTF8';`` command has been added to the database
 initialization instructions on :doc:`windows/server-installation` to prevent
