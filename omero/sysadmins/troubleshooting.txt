@@ -210,7 +210,7 @@ Other import errors
 Too many open files
 ^^^^^^^^^^^^^^^^^^^
 
-This is most often see as an error during importing and is caused by the
+This is most often seen as an error during importing and is caused by the
 number of opened files exceeding the limit imposed
 by your operating system. It might be due to OMERO leaking file
 descriptors; if you are not using the latest version, please upgrade,
