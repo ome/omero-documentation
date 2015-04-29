@@ -237,55 +237,18 @@ wrong. See :ref:`search-failures` for more details.
 OMERO.web issues
 ----------------
 
-OMERO.web is not accessible from remote computer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To configure the out-of-the box setup to listen for webadmin and webclient
-connections on different host run:
-
-::
-
-    c:\omero_dist> bin/omero web start 'host' 'port'
-
-
 OMERO.web did not start on the production
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The user opening OMEROweb.log files needs write permissions to the
-directory containing the log files. So, be sure you have a ``log``
-directory with the correct ownership and the path set in ``LOGDIR``
-matches the log directory.
+-  If the Apache error logs contain lines of type
+   ``Permission denied: access to xxx denied``, you need to check the
+   permissions of the folder and make sure it is readable and executable by
+   the Apache user.
 
--  In your ``/home/omero/omero_dist/var/lib/`` directory add the
-   following to your ``custom_settings.py`` file:
+   .. seealso::
+     :forum:`What are your LDAP requirements? <viewtopic.php?f=5&t=14>`
 
-   -  LOGDIR
-
-      ::
-
-          LOGDIR = '/home/omero/weblog/'
-
--  Check if ``/home/omero/omero_dist/var/lib/custom_settings.py``
-   exists.
-
--  Check who owns the log directory and log files:
-
-   ::
-
-       $ ls -al /home/omero/weblog/
-       total 49
-       drwxr-xr-x  2 apache apache   120 Mar 31 11:29 .
-       drwxr-xr-x 10 apache apache   520 Mar 31 11:29 ..
-       -rw-r--r--  1 apache apache 23766 Mar 31 11:41 OMEROweb.log
-       -rw-r--r--  1 apache apache 23978 Mar 31 11:41 OMEROweb.log.2009-03-31
-
--  or create log and database directories with, for example,
-   ``apache_user:apache_group`` ownership:
-
-   ::
-
-       mkdir /home/omero/weblog
-       chown apache_user:apache_group /home/omero/weblog
+     :ome-users:`upgrade 5.0.5 to 5.1.1 omero.web forbidden <2015-April/005316.html>`
 
 OMERO.web piecharts
 ^^^^^^^^^^^^^^^^^^^
