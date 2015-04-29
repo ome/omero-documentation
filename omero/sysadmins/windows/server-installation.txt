@@ -586,6 +586,11 @@ See the :omero_plone:`Feature list <feature-list>` for more advanced
 features you may want to use, and :doc:`/sysadmins/config` on how to get the
 most out of your server.
 
+If your users are going to be importing many files in one go, for example
+multiple plates, you should make sure you set the maximum number of open files
+to a sensible level (i.e. at least 8K for production systems, 16K for bigger
+machines). See :ref:`ulimit` for more information.
+
 Troubleshooting
 ^^^^^^^^^^^^^^^
 

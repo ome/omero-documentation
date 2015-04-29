@@ -202,6 +202,68 @@ most likely cause is that your PYTHONPATH is not properly set.
    environment variable. See the Ice installation instructions for more
    information.
 
+Other import errors
+-------------------
+
+.. _ulimit:
+
+Too many open files
+^^^^^^^^^^^^^^^^^^^
+
+This is most often see as an error during importing and is caused by the
+number of opened files exceeding the limit imposed
+by your operating system. It might be due to OMERO leaking file
+descriptors; if you are not using the latest version, please upgrade,
+since a number of bugs which could cause this behavior have been fixed.
+It is also possible for buggy scripts which do not properly release
+resources to cause this error.
+
+To view the current per-process limit, run
+
+::
+
+            ulimit -Hn
+
+which will show the hard limit for the maximum number of file
+descriptors (-Sn will show the soft limit). This limit may be increased.
+On Linux, see ``/etc/security/limits.conf`` (global PAM per-user limits
+configuration); it is also possible to increase the limit in the shell
+with
+
+::
+
+            ulimit -n newlimit
+
+providing that you are uid 0 (other users can only increase the soft
+limit up to the hard limit). To view the system limit, run
+
+::
+
+            cat /proc/sys/fs/file-max
+
+**We recommend 8K as a minimum number of files limit for production systems,
+with 16K being reasonable for bigger machines.**
+
+On Mac OS X, the standard ulimit will not work properly. There are several
+different ways of setting the ulimit, depending upon the version of OS X
+you are using, but the most common are to edit ``sysctl.conf`` or
+``launchd.conf`` to raise the limit. However, note that both of these
+methods change the defaults for every process on the system, not just
+for a single user or service.
+
+Increasing the number of available filehandles via 'ulimit -n'
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ValueError: filedescriptor out of range in select() - this is a known issue in 
+Python versions prior to 2.7.0. See
+:ticket:`6201` and Python `Issue #3392
+<http://bugs.python.org/issue3392>`_ for more details.
+
+Windows import errors
+^^^^^^^^^^^^^^^^^^^^^
+
+See :ref:`windows-database-encoding`.
+
 DropBox fails to start: failed to get session
 ---------------------------------------------
 
@@ -237,8 +299,8 @@ wrong. See :ref:`search-failures` for more details.
 OMERO.web issues
 ----------------
 
-OMERO.web did not start on the production
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OMERO.web did not start
+^^^^^^^^^^^^^^^^^^^^^^^
 
 -  If the Apache error logs contain lines of type
    ``Permission denied: access to xxx denied``, you need to check the
@@ -327,49 +389,3 @@ http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=4751177 or this
 :ome-users:`ome-users thread <2009-March/001465.html>` on our mailing list for
 more information.
 
-Too many open files
-^^^^^^^^^^^^^^^^^^^
-
-This is caused by the number of opened files exceeding the limit imposed
-by your operating system. It might be due to OMERO leaking file
-descriptors; if you are not using the latest version, please upgrade,
-since a number of bugs which could cause this behavior have been fixed.
-It is also possible for buggy scripts which do not properly release
-resources to cause this to occur. To view the current per-process limit,
-run
-
-::
-
-            ulimit -Hn
-
-which will show the hard limit for the maximum number of file
-descriptors (-Sn will show the soft limit). This limit may be increased.
-On Linux, see ``/etc/security/limits.conf`` (global PAM per-user limits
-configuration); it is also possible to increase the limit in the shell
-with
-
-::
-
-            ulimit -n newlimit
-
-providing that you are uid 0 (other users can only increase the soft
-limit up to the hard limit). To view the system limit, run
-
-::
-
-            cat /proc/sys/fs/file-max
-
-On Mac OS X, the standard ulimit will not work properly. There are several
-different ways of setting the ulimit, depending upon the version of OS X
-you are using, but the most common are to edit ``sysctl.conf`` or
-``launchd.conf`` to raise the limit. However, note that both of these
-methods change the defaults for every process on the system, not just
-for a single user or service.
-
-Increasing the number of available filehandles via 'ulimit -n'
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ValueError: filedescriptor out of range in select() - this is a known issue in 
-Python versions prior to 2.7.0. See
-:ticket:`6201` and Python `Issue #3392
-<http://bugs.python.org/issue3392>`_ for more details.

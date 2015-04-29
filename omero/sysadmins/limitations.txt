@@ -26,6 +26,8 @@ correctly. OpenJDK and OracleJDK versions 6 and 7 are also supported.
 Windows OS issues
 -----------------
 
+.. _windows-database-encoding:
+
 Failure response on import for new databases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
