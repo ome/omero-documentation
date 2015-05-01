@@ -42,7 +42,7 @@ the following steps are required:
    version 0x2A, this information is stored in bytes 4-7, with the
    proper endianness.  For TIFF version 0x2B, this information is
    stored starting at byte 8, sized according to the specified offset
-   size.
+   size and with the proper endianness.
 #. Skip to the first IFD, and read in the IFD's header.
 #. Iterate through the directory entries looking for the
    ImageDescription (270) tag.
