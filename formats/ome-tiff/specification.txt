@@ -33,17 +33,20 @@ are stored within the TIFF structure, not the XML.
    OME-TIFF header
 
 
-The diagram :ref:`figure-tiff-header` (adapted from the TIFF specification) 
-shows the organization of a TIFF header along with the placement of the 
-OME-XML metadata block. A TIFF file can contain any number of IFDs, with each
-one specifying an image plane along with certain accompanying metadata
-such as pixel dimensions, physical dimensions, bit depth, color table,
-etc. One of the fields an IFD can contain is ImageDescription, which
-provides a place to write a comment describing the corresponding image
-plane. This field is a convenient place to store the OME-XML metadata
-block—any TIFF library capable of parsing IFDs and extracting an
-ImageDescription comment can easily obtain an OME-TIFF file's entire set
-of metadata as OME-XML.
+The diagram :ref:`figure-tiff-header` (adapted from the TIFF
+specification) shows the organization of a TIFF header along with the
+placement of the OME-XML metadata block.  Note this is for the TIFF
+standard specification only; the header structure is slightly
+different for BigTIFF; see the `BigTIFF file format specification
+<http://bigtiff.org/#FILE_FORMAT>`__. A TIFF file can contain any
+number of IFDs, with each one specifying an image plane along with
+certain accompanying metadata such as pixel dimensions, physical
+dimensions, bit depth, color table, etc. One of the fields an IFD can
+contain is ImageDescription, which provides a place to write a comment
+describing the corresponding image plane. This field is a convenient
+place to store the OME-XML metadata block—any TIFF library capable of
+parsing IFDs and extracting an ImageDescription comment can easily
+obtain an OME-TIFF file's entire set of metadata as OME-XML.
 
 .. note:: 
     A TIFF file contains one IFD per image plane, but the
