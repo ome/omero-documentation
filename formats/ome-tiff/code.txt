@@ -28,21 +28,22 @@ the following steps are required:
 
 #. Read in the 8-byte header.
 #. Determine if the file is a valid TIFF, and if so, whether its byte
-   order is big endian or little endian. Bytes 0-1 must equal "II"
-   (little endian, "Intel") or "MM" (big endian, "Motorola"), which is
-   0x4D4D in the correct endian format.
-#. Check TIFF version.  Bytes 2-3 must equal 42 (0x2A) or 43 (0x2B)
+   order is big endian or little endian. Bytes 0–1 must equal "II"
+   (0x4949, little endian, "Intel") or "MM" (0x4D4D, big endian,
+   "Motorola").
+#. Check TIFF version.  Bytes 2–3 must equal 42 (0x2A) or 43 (0x2B)
    with the proper endianness, which are the TIFF specification or the
    newer BigTIFF specification, respectively.
 #. If the TIFF version is 0x2A, offsets are 4 bytes (32-bit).  If the
-   TIFF version is 0x2B, bytes 4-5 are the size of offsets in bytes
+   TIFF version is 0x2B, bytes 4–5 are the size of offsets in bytes
    (should be 0x0008 for 8-byte 64-bit offsets, but could be
    different), and bytes 6-7 are padding (should be 0x0000).
 #. Determine the byte offset into the file of the first IFD. For TIFF
-   version 0x2A, this information is stored in bytes 4-7, with the
+   version 0x2A, this information is stored in bytes 4–7, with the
    proper endianness.  For TIFF version 0x2B, this information is
    stored starting at byte 8, sized according to the specified offset
-   size and with the proper endianness.
+   size and with the proper endianness.  This will be bytes 8–15 for
+   8-byte offsets.
 #. Skip to the first IFD, and read in the IFD's header.
 #. Iterate through the directory entries looking for the
    ImageDescription (270) tag.
