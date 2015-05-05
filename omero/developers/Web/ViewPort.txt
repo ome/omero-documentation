@@ -61,18 +61,18 @@ Then in ``<BODY>`` insert the following:
 Customizing the content of the embedded OMERO.web viewport
 ----------------------------------------------------------
 
-This web page demonstrates how to embed an OMERO.web image viewer
+This section demonstrates how to embed an OMERO.web image viewer
 in any HTML page, allowing use of resources directly from an OMERO server.
 
-    ::
+::
 
-        $ bin/omero config set omero.web.public.url_filter '^/webgateway'
+    $ bin/omero config set omero.web.public.url_filter '^/webgateway'
 
-    Provided the image corresponding to ``IMAGE_ID`` is in the PUBLIC group, it
-    can be accessed via the link: 
-    `\http://your_host/webgateway/img_detail/IMAGE_ID/`. Please remember that
-    public images must be in a public group where a public user can access
-    them.
+Provided the image corresponding to ``IMAGE_ID`` is in the PUBLIC group, it
+can be accessed via the link:
+`\http://your_host/webgateway/img_detail/IMAGE_ID/`. Please remember that
+public images must be in a public group where a public user can access
+them.
 
 Use the following code to load stylesheets and scripts.
 
