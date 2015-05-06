@@ -144,9 +144,6 @@ The following are optional depending on what services you require:
       - :doc:`OMERO.tables </sysadmins/server-tables>`
       - `PyTables page <https://pytables.github.io/downloads.html>`_
 
-    * - scipy.ndimage
-      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
-
 .. [1] May already have been installed as a dependency of Matplot Lib.
 
 
