@@ -203,9 +203,6 @@ The following Python packages are required:
       - :doc:`OMERO.tables </sysadmins/server-tables>`
       - `PyTables page <https://pytables.github.io/downloads.html>`_
 
-    * - scipy.ndimage
-      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
-
 .. [1] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ installed when building `Pillow`_.
 
 .. [2] May already have been installed as a dependency of Matplot Lib.
