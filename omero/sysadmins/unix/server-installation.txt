@@ -203,15 +203,9 @@ The following Python packages are required:
       - :doc:`OMERO.tables </sysadmins/server-tables>`
       - `PyTables page <https://pytables.github.io/downloads.html>`_
 
-    * - scipy.ndimage
-      - :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>` [3]_
-      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
-
 .. [1] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ installed when building `Pillow`_.
 
 .. [2] May already have been installed as a dependency of Matplot Lib.
-
-.. [3] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
 
 .. note::
     Some of these can be ignored if you wish to forego some
