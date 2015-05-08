@@ -353,9 +353,9 @@ process is running as. As the server makes heavier use of these folders than
 the clients, if the OMERO.server user's home(~) is stored on a network drive
 then slow performance can occur.
 
-To resolve this, you can define an :envvar:`OMERO_TEMPDIR` environment
+To resolve this, you can define an :envvar:`OMERO_TMPDIR` environment
 variable pointing to a temporary directory located on the local file system
-(e.g. `/tmp/`).
+(e.g. :file:`/tmp/omero_tmp`).
 
 Other issues
 ------------

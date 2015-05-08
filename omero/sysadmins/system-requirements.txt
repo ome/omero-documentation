@@ -75,7 +75,7 @@ the user's HOME directory in :file:`$HOME/omero/tmp`,
 :file:`$HOME\\omero\\sessions`). If your home
 directory is stored on a network, possibly NFS mounted (or similar),
 then these temporary files are being written and read over the
-network. This can slow access down.  The :envvar:`OMERO_TEMPDIR`
+network. This can slow access down.  The :envvar:`OMERO_TMPDIR`
 environment variable may used to set the directory used for temporary
 files, for example on fast local storage.
 
