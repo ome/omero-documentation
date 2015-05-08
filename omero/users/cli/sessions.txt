@@ -117,14 +117,25 @@ Session keys can then be reused to switch between stored sessions using the
 Sessions directory
 ^^^^^^^^^^^^^^^^^^
 
-By default sessions are saved locally on disk under :file:`~/omero/sessions`.
+By default sessions are saved locally on disk under the OMERO user directory
+located at :file:`~/omero/sessions`.
 The location of the current session file can be retrieved using the
 :program:`omero sessions file` command::
 
     $ bin/omero sessions file
     /Users/ome/omero/sessions/localhost/root/aec828e1-79bf-41f3-91e6-a4ac76ff1cd5
 
-If you want to use a custom session directory, use the
+To customize the OMERO user directory, use the :envvar:`OMERO_USERDIR`
+environment variable::
+
+    $ export OMERO_USERDIR=/tmp/omero_dir
+    $ bin/omero login root@localhost:4064 -w omero
+    Created session bf7b9fee-5e3f-40fa-94a6-1e23ceb43dbd (root@localhost:4064). Idle timeout: 10.0 min. Current group: system
+    $ bin/omero sessions file
+ /tmp/omero_dir/omero/sessions/localhost/root/bf7b9fee-5e3f-40fa-94a6-1e23ceb43dbd
+    $ bin/omero logout
+
+If you want to use a custom directory for sessions exclusively, use the
 :envvar:`OMERO_SESSIONDIR` environment variable::
 
     $ export OMERO_SESSIONDIR=/tmp/my_sessions
