@@ -650,6 +650,13 @@ Configuration
          Creating var/registry
          No descriptor given. Using etc/grid/default.xml
 
+-   If multiple users have access to the system running OMERO you should
+    restrict access to the :file:`OMERO.server/etc` and
+    :file:`OMERO.server/var` directories, for example by changing the
+    permissions on them individually or on one of the parent directories::
+
+        $ chmod 700 ~/omero/OMERO.server
+
 .. note Windows
 
    If you would like to move the directory again, see
