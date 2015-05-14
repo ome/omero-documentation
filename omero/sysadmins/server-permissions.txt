@@ -73,7 +73,7 @@ The various permission levels are:
          has very limited collaboration potential other than for the
          :term:`Group owner` to see other group members' data.
       
-      **Potential use-cases of Private group:**
+      **Potential use cases of Private group:**
       
       -  A PI as :term:`Group owner` and
          their student, as a :term:`Group member`, can access the student's
@@ -93,7 +93,7 @@ The various permission levels are:
       -  :term:`Group member` can see who other members are and view their
          data, but cannot annotate another members' data at all.
       
-      **Potential use-cases of Read-only group:**
+      **Potential use cases of Read-only group:**
       
       -  A scientist might move data into a read-only group when they want
          other group members to access and view their data. Their PI, as a
@@ -110,7 +110,7 @@ The various permission levels are:
       -  :term:`Group member` can view other members, their data and can
          make annotations on those other members' data.
       
-      **Potential use-cases:**
+      **Potential use cases of Read-annotate group:**
       
       -  This could be used by a group of scientists working together with
          data for a publication.
@@ -123,7 +123,7 @@ The various permission levels are:
          data; the only restriction is that they cannot move other members'
          data into another group.
       
-      **Potential Use-Cases:**
+      **Potential use cases of Read-write group:**
       
       -  A group of scientists working in a completely collaborative way,
          trusting every member of the group to have equal rights and access
@@ -180,10 +180,10 @@ The main actions available include, but are not limited to:
 -  change rendering settings on images
 -  annotate images (rate, tag, add attachments and comments)
 -  de-annotate (remove annotations that you have added)
--  use Regions of Interest (ROIs) (add, import, edit, delete, save and analyze 
-   with them)
+-  use Regions of Interest (ROIs) (add, import, edit, delete, save and analyze
+   them)
 -  run scripts
--  Move data between groups, if you belong to more than one group
+-  move data between groups, if you belong to more than one group
 
 **What can you do with someone else's data in your group?**
 
