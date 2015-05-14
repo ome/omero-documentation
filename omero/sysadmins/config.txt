@@ -575,7 +575,7 @@ omero.ldap.sync_on_login
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Whether or not values from LDAP will be
 synchronized to OMERO on each login. This includes
-not just the user name, email, etc, but also the
+not just the username, email, etc, but also the
 groups that the user is a member of.
 
 .. warning::
@@ -743,7 +743,7 @@ Default: `smtp`
 
 omero.mail.username
 ^^^^^^^^^^^^^^^^^^^
-the user name to connect to the smtp server (if required; can be empty)
+the username to connect to the smtp server (if required; can be empty)
 
 Default: `[empty]`
 
@@ -1422,7 +1422,7 @@ Default: `3000`
 omero.security.password_provider
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Implementation of PasswordProvider that will be
-used to authenticate users. Typically, a chanined
+used to authenticate users. Typically, a chained
 password provider will be used so that if one form
 of authentication (e.g. LDAP) does not work, other
 attempts will be made.
@@ -1471,7 +1471,7 @@ Web
 
 omero.web.admins
 ^^^^^^^^^^^^^^^^
-A list of people who get code error notifications whenever the application identify broken link or raises an unhandled exception that results in an internal server error. This gives the administrators immediate notification of any errors, see :doc:`/sysadmins/mail`. Example:``'[["Full Name", "email address"]]'``.
+A list of people who get code error notifications whenever the application identifies a broken link or raises an unhandled exception that results in an internal server error. This gives the administrators immediate notification of any errors, see :doc:`/sysadmins/mail`. Example:``'[["Full Name", "email address"]]'``.
 
 Default: `[]`
 
@@ -1543,7 +1543,7 @@ Default: `false`
 
 omero.web.index_template
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Define template used as an index page ``http://your_host/omero/``.If None user is automaticaly redirected to the login page.For example use 'webstart/start.html'. 
+Define template used as an index page ``http://your_host/omero/``.If None user is automatically redirected to the login page.For example use 'webstart/start.html'. 
 
 Default: `None`
 
@@ -1567,7 +1567,7 @@ Default: `None`
 
 omero.web.login_redirect
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Redirect to the givin location after loging in. It only support arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#django.core.urlresolvers.reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'``
+Redirect to the given location after logging in. It only supports arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#django.core.urlresolvers.reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'``
 
 Default: `{}`
 
