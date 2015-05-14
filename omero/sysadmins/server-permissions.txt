@@ -157,7 +157,7 @@ with data, with the following limitations:
 -  Only :term:`Administrator` can promote a group to :term:`Read-write`
    permissions. **Make certain all the members understand that this allows
    anyone in the group to permanently delete any of the data before performing
-   this action**
+   this action.**
 
 .. warning:: Please be very careful before downgrading a group's
     permission level. If a user has annotated other users' data and
@@ -212,18 +212,18 @@ the type of the user performing the action.
 
 |
 
-.. tabularcolumns:: |l|c|c|c|
+.. tabularcolumns:: |l|c|c|c|c|
 
 =============================== ======================= ===================== ====================== ===================
 :term:`Action`                      :term:`Private`      :term:`Read-only`     :term:`Read-annotate`  :term:`Read-write`
 ------------------------------- ----------------------- --------------------- ---------------------- -------------------
-:term:`View`                              Y                      Y                       Y                         
-:term:`Annotate`                          N                      Y                       Y
-:term:`Delete`                            Y                      Y                       Y
-:term:`Edit`                              Y                      Y                       Y
-:term:`Move between groups`               Y                      Y                       Y
-:term:`Remove annotations`                Y                      Y                       Y
-:term:`Mix data`                              N                      Y                       Y
+:term:`View`                              Y                      Y                       Y              Y
+:term:`Annotate`                          N                      Y                       Y              Y
+:term:`Delete`                            Y                      Y                       Y              Y
+:term:`Edit`                              Y                      Y                       Y              Y
+:term:`Move between groups`               Y                      Y                       Y              Y
+:term:`Remove annotations`                Y                      Y                       Y              Y
+:term:`Mix data`                          N                      Y                       Y              Y
 =============================== ======================= ===================== ====================== ===================
 
 |
@@ -233,19 +233,19 @@ the type of the user performing the action.
 
 |
 
-.. tabularcolumns:: |l|c|c|c|
+.. tabularcolumns:: |l|c|c|c|c|
 
-=============================== ======================= ===================== ======================
-:term:`Action`                      :term:`Private`      :term:`Read-only`     :term:`Read-annotate`
-------------------------------- ----------------------- --------------------- ----------------------
-:term:`View`                              Y                      Y                       Y
-:term:`Annotate`                          N                      Y                       Y
-:term:`Delete`                            Y                      Y                       Y
-:term:`Edit`                              Y                      Y                       Y
-:term:`Move between groups`               N                      N                       N
-:term:`Remove annotations`                Y                      Y                       Y
-:term:`Mix data`                              N                      Y                       Y
-=============================== ======================= ===================== ======================
+=============================== ======================= ===================== ====================== ===================
+:term:`Action`                      :term:`Private`      :term:`Read-only`     :term:`Read-annotate`  :term:`Read-write`
+------------------------------- ----------------------- --------------------- ---------------------- -------------------
+:term:`View`                              Y                      Y                       Y              Y
+:term:`Annotate`                          N                      Y                       Y              Y
+:term:`Delete`                            Y                      Y                       Y              Y
+:term:`Edit`                              Y                      Y                       Y              Y
+:term:`Move between groups`               N                      N                       N              N
+:term:`Remove annotations`                Y                      Y                       Y              Y
+:term:`Mix data`                              N                      Y                       Y              Y
+=============================== ======================= ===================== ====================== ===================
 
 |
 
@@ -254,19 +254,19 @@ the type of the user performing the action.
 
 |
 
-.. tabularcolumns:: |l|c|c|c|
+.. tabularcolumns:: |l|c|c|c|c|
 
-=============================== ======================= ===================== ======================
-:term:`Action`                      :term:`Private`      :term:`Read-only`     :term:`Read-annotate`
-------------------------------- ----------------------- --------------------- ----------------------
-:term:`View`                              N                      Y                       Y
-:term:`Annotate`                          N                      N                       Y
-:term:`Delete`                            N                      N                       N
-:term:`Edit`                              N                      N                       N
-:term:`Move between groups`               N                      N                       N
-:term:`Remove annotations`                N                      N                       N
-:term:`Mix data`                              N                      N                       N
-=============================== ======================= ===================== ======================
+=============================== ======================= ===================== ====================== ===================
+:term:`Action`                      :term:`Private`      :term:`Read-only`     :term:`Read-annotate`  :term:`Read-write`
+------------------------------- ----------------------- --------------------- ---------------------- -------------------
+:term:`View`                              N                      Y                       Y              Y
+:term:`Annotate`                          N                      N                       Y              Y
+:term:`Delete`                            N                      N                       N              Y
+:term:`Edit`                              N                      N                       N              Y
+:term:`Move between groups`               N                      N                       N              N
+:term:`Remove annotations`                N                      N                       N              Y
+:term:`Mix data`                              N                      N                       N              Y
+=============================== ======================= ===================== ====================== ===================
 
 Key
 ^^^
