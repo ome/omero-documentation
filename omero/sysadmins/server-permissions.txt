@@ -22,19 +22,19 @@ Users
 .. glossary::
 
 
-	**Administrator**
-		Your OMERO server will have one or more
-		administrators. Each group can be administrated by any of your server
-		administrators. The administrators control all settings for groups.
+    **Administrator**
+        Your OMERO server will have one or more
+        administrators. Each group can be administrated by any of your server
+        administrators. The administrators control all settings for groups.
 
-	**Group owner**
-		Your group may have one or more owners. The group
-		owner has some additional rights within each group than a standard
-		group member, including the ability to add other members to the
-		group.
-	
-	**Group member**
-		This is the standard user.
+    **Group owner**
+        Your group may have one or more owners. The group
+        owner has some additional rights within each group than a standard
+        group member, including the ability to add other members to the
+        group.
+
+    **Group member**
+        This is the standard user.
 
 
 Groups and users must be created by the server administrator. Users can
@@ -276,53 +276,53 @@ Key
 
 
 
-	Action
-		Action on other users' data
+    Action
+        Action on other users' data
 
-	View
-		View other users' data such as images. View ROIs added by others.  Draw ROIs on other
-		users' data, but they cannot be saved.
+    View
+        View other users' data such as images. View ROIs added by others.
+        Draw ROIs on other users' data, but they cannot be saved.
 
-	Annotate
-		Add annotations (rating, tag, attachment, comment ROI)
-		to another users' data.  Also create & save ROIs (save
-		ROIs that you draw on another users' data).
+    Annotate
+        Add annotations (rating, tag, attachment, comment ROI)
+        to another users' data. Also create & save ROIs (save
+        ROIs that you draw on another users' data).
 
-	Render
-		Create your own rendering settings (this will not
-		modify the settings of the owner).
+    Render
+        Create your own rendering settings (this will not
+        modify the settings of the owner).
 
-	Delete
+    Delete
+        Delete data such as images or ROIs.  ROIs may have been
+        added by others or yourself.
 
-		Delete data such as images or ROIs.  ROIs may have been
-		added by others or yourself.
-		
+    Edit
+        Modify the name or description of other users'
+        objects such as images.
 
-	Edit
-		Modify the name or description of other users'
-		objects such as images.
+    Move between groups
+        Only the admin has the right to move other users’
+        data between groups.
 
-	Move between groups
-		Only the admin has the right to move other users’
-		data between groups.
+        .. note::
+            The admin does not have to be member of the
+            destination group.
 
-		.. note::
-			The admin does not have to be member of the
-			destination group.
+    Remove annotations
+        Remove annotations made by others on your data.
 
-	Remove annotations
-		Remove annotations made by others on your data.
+    Mix data
+        Copy, Move or Remove other users' data to or from your Projects,
+        Datasets or Screens.
+        Copy, Move or Remove your or others' data to or from others' Projects,
+        Datasets or Screens.
 
-	Mix data
-		Copy, Move or Remove other users' data to or from your Projects, Datasets or Screens.
-		Copy, Move or Remove your or others' data to or from others' Projects, Datasets or Screens.
-
-		.. note::
-			You should always be able to remove
-			annotations (such as tags) that you linked to
-			other users' data (you own the link).  The
-			link can be deleted, but the tag itself will
-			not be deleted.
+        .. note::
+            You should always be able to remove
+            annotations (such as tags) that you linked to
+            other users' data (you own the link).  The
+            link can be deleted, but the tag itself will
+            not be deleted.
 
 
 Issues to be aware of
