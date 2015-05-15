@@ -76,10 +76,10 @@ each directory and the environment variables allowing to set their locations:
 .. list-table::
   :header-rows: 1
 
-  - * Directory
+  - * Client directory
     * Environment variable
-    * Default (Linux)
-    * Default (Windows)
+    * Default location (UNIX)
+    * Default location (Windows)
   - * OMERO user directory
     * :envvar:`OMERO_USERDIR`
     * :file:`$HOME/omero`
@@ -97,6 +97,8 @@ each directory and the environment variables allowing to set their locations:
     * :file:`$HOME/omero/log`
     * :file:`%HOMEPATH%\\omero\log`
 
+Note that setting :envvar:`OMERO_USERDIR` will also change the default location
+for the temporary files and the local sessions.
 
 If your home directory is stored on a network, possibly NFS mounted (or similar), then these temporary files are being written and read over the
 network. This can slow access down.
