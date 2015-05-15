@@ -64,20 +64,46 @@ The recommended client specification is:
 
 Large imports may require 4GB RAM.
 
+.. _client_directories:
+
 Client configuration
 ^^^^^^^^^^^^^^^^^^^^
 
 When performing some operations the clients make use of temporary file
-storage and log directories. By default these files are stored below
-the user's HOME directory in :file:`$HOME/omero/tmp`,
-:file:`$HOME/omero/log`, and :file:`$HOME/omero/sessions`
-(resp. :file:`$HOME\\omero\\tmp`, :file:`$HOME\\omero\\log`, and
-:file:`$HOME\\omero\\sessions`). If your home
-directory is stored on a network, possibly NFS mounted (or similar),
-then these temporary files are being written and read over the
-network. This can slow access down.  The :envvar:`OMERO_TMPDIR`
-environment variable may used to set the directory used for temporary
-files, for example on fast local storage.
+storage and log directories. The table below indicates the default values for
+each directory and the environment variables allowing to set their locations:
+
+.. list-table::
+  :header-rows: 1
+
+  - * Directory
+    * Environment variable
+    * Default (Linux)
+    * Default (Windows)
+  - * OMERO user directory
+    * :envvar:`OMERO_USERDIR`
+    * :file:`$HOME/omero`
+    * :file:`%HOMEPATH%\\omero`
+  - * Temporary files
+    * :envvar:`OMERO_TMPDIR`
+    * :file:`$HOME/omero/tmp`
+    * :file:`%HOMEPATH%\\omero\\tmp`
+  - * Local sessions
+    * :envvar:`OMERO_SESSIONDIR`
+    * :file:`$HOME/omero/sessions`
+    * :file:`%HOMEPATH%\\omero\\sessions`
+  - * Log files
+    *
+    * :file:`$HOME/omero/log`
+    * :file:`%HOMEPATH%\\omero\log`
+
+
+If your home directory is stored on a network, possibly NFS mounted (or similar), then these temporary files are being written and read over the
+network. This can slow access down.
+
+.. seealso::
+   :ref:`client_performance`
+       Troubleshooting section about client performance issues on NFS
 
 Software
 --------
