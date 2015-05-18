@@ -97,7 +97,7 @@ each directory and the environment variables for overriding their locations:
   - * Log files
     *
     * :file:`$HOME/omero/log`
-    * :file:`%HOMEPATH%\\omero\log`
+    * :file:`%HOMEPATH%\\omero\\log`
 
 Note that setting :envvar:`OMERO_USERDIR` will also change the default location
 for the temporary files and the local sessions.
