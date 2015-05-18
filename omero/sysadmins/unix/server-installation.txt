@@ -653,9 +653,9 @@ Configuration
 -   If multiple users have access to the system running OMERO you should
     restrict access to the :file:`OMERO.server/etc` and
     :file:`OMERO.server/var` directories, for example by changing the
-    permissions on them individually or on one of the parent directories::
+    permissions on them::
 
-        $ chmod 700 ~/omero/OMERO.server
+        $ chmod 700 ~/omero/OMERO.server/etc ~/omero/OMERO.server/var
 
 .. note Windows
 
