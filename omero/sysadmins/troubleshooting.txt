@@ -333,8 +333,8 @@ more details. There are a few known possibilities:
 
 .. _client_performance:
 
-Performance issues with the clients
------------------------------------
+Troubleshooting performance issues with the clients
+---------------------------------------------------
 
 If you are having issues with slowdown and timeouts in the clients, there are
 three things to check:
@@ -356,9 +356,9 @@ the server makes heavier use of these folders than the clients, if the
 OMERO.server user directory is stored on a network drive then slow performance
 can occur.
 
-To resolve this, you can define an :envvar:`OMERO_TMPDIR` environment
-variable pointing to a temporary directory located on the local file system
-(e.g. :file:`/tmp/omero_tmp`).
+To resolve this, define the :envvar:`OMERO_TMPDIR` environment variable
+to point at a temporary directory located on the local file system
+(e.g. :file:`/tmp/omero`).
 
 Other issues
 ------------

@@ -71,7 +71,7 @@ Client configuration
 
 When performing some operations the clients make use of temporary file
 storage and log directories. The table below indicates the default values for
-each directory and the environment variables allowing to set their locations:
+each directory and the environment variables for overriding their locations:
 
 .. list-table::
   :header-rows: 1
