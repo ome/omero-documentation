@@ -25,10 +25,16 @@ options.
 
 .. option:: command
 
-    Display the information on a particular command or option::
+    Display the information on a particular command::
 
-        $ bin/omero help debug       # debug is an option
         $ bin/omero help admin       # same as bin/omero admin -h
+
+    In addition to the |CLI| commands which can be listed using
+    :option:`--list`, :program:`omero help` can be used to retrieve information
+    about the `debug` and `env` options::
+
+        $ bin/omero help debug     # display help about debugging options
+        $ bin/omero help env       # display help about environment variables
 
 .. option:: --all
 

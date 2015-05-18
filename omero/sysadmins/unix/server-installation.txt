@@ -445,7 +445,7 @@ The following environment variables may be configured:
   This is not strictly required, but may be set for convenience to
   point to the OMERO server installation, and is used in this
   documentation as a shorthand for the installation path.
-:envvar:`OMERO_TEMPDIR`
+:envvar:`OMERO_TMPDIR`
   Directory used for temporary files. If the home directory of the
   user running the OMERO server is located on a slow filesystem, such
   as NFS, this may be used to store the temporary files on fast local

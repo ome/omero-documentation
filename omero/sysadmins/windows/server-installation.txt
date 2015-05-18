@@ -331,7 +331,7 @@ The OMERO.server also accesses the :file:`omero\\tmp` and
 process**. As the server makes heavier use of these folders than the clients,
 if that user's home folder is stored on a network the server can be
 slowed down. To get around this for the OMERO.server you can define an
-``OMERO_TEMPDIR`` environment variable pointing to a temporary directory
+:envvar:`OMERO_TMPDIR` environment variable pointing to a temporary directory
 located on the local file system e.g. :file:`C:\\tmp\\`.
 
 Installation
