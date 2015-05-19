@@ -232,7 +232,7 @@ If possible, install the following packages:
       - python2.7 python-pil python-matplotlib python-numpy python-tables python-scipy
 
     * - Homebrew
-      - python python/pillow python/numpy python/matplotlib
+      - python pillow numpy matplotlib
 
     * - RedHat
       - python
@@ -290,7 +290,7 @@ If possible, install the following packages:
 +-----------+-------------------------------------------------------------+
 | Debian    | postgresql                                                  |
 +-----------+-------------------------------------------------------------+
-| Homebrew  | postgresql92                                                |
+| Homebrew  | postgresql                                                  |
 +-----------+-------------------------------------------------------------+
 | RedHat    | postgresql postgresql-server                                |
 +-----------+-------------------------------------------------------------+
