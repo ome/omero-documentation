@@ -181,8 +181,11 @@ Java Virtual Machine including `Bug ID:
 A 64-bit platform for your OMERO.server is **HIGHLY** recommended.
 
 
+Import errors
+-------------
+
 Import error when running bin/omero
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -202,8 +205,6 @@ most likely cause is that your PYTHONPATH is not properly set.
    environment variable. See the Ice installation instructions for more
    information.
 
-Other import errors
--------------------
 
 .. _ulimit:
 
