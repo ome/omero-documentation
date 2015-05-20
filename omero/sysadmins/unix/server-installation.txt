@@ -253,17 +253,17 @@ Ice
 
 If possible, install one of the following packages:
 
-+-----------+--------------------------+
-| System    | Package                  |
-+===========+==========================+
-| BSD Ports | devel/ice                |
-+-----------+--------------------------+
-| Debian    | zeroc-ice                |
-+-----------+--------------------------+
-| Homebrew  | ice                      |
-+-----------+--------------------------+
-| RedHat    | N/A (install ZeroC RPMs) |
-+-----------+--------------------------+
++-----------+---------------------------------+
+| System    | Package                         |
++===========+=================================+
+| BSD Ports | devel/ice                       |
++-----------+---------------------------------+
+| Debian    | zeroc-ice                       |
++-----------+---------------------------------+
+| Homebrew  | ice (with --with-python option) |
++-----------+---------------------------------+
+| RedHat    | N/A (install ZeroC RPMs)        |
++-----------+---------------------------------+
 
 The Ice version may vary, depending upon the distribution version you
 are using. The Ice versions in currently supported versions of Debian
