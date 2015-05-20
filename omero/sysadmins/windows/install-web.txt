@@ -227,4 +227,4 @@ The most popular configuration options include:
 
 -  Customizing index page, see :property:`omero.web.index_template`.
 
--  Enabling a public user see :doc:`/developers/Web/PublicData`.
+-  Enabling a public user see :doc:`/sysadmins/public`.
