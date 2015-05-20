@@ -68,6 +68,11 @@ Fedora and Scientific Linux.
 
   where *package* is the package name to install.
 
+* For homebrew you need to enable the "python" and "science" taps::
+
+    $ brew tap homebrew/python
+    $ brew tap homebrew/science
+
 .. _server-requirements:
 
 Overview
