@@ -68,6 +68,11 @@ Fedora and Scientific Linux.
 
   where *package* is the package name to install.
 
+* For homebrew you need to enable the "python" and "science" taps::
+
+    $ brew tap homebrew/python
+    $ brew tap homebrew/science
+
 .. _server-requirements:
 
 Overview
@@ -232,7 +237,7 @@ If possible, install the following packages:
       - python2.7 python-pil python-matplotlib python-numpy python-tables python-scipy
 
     * - Homebrew
-      - python python/pillow python/numpy python/matplotlib
+      - python pillow numpy matplotlib
 
     * - RedHat
       - python
@@ -248,17 +253,17 @@ Ice
 
 If possible, install one of the following packages:
 
-+-----------+--------------------------+
-| System    | Package                  |
-+===========+==========================+
-| BSD Ports | devel/ice                |
-+-----------+--------------------------+
-| Debian    | zeroc-ice                |
-+-----------+--------------------------+
-| Homebrew  | ice                      |
-+-----------+--------------------------+
-| RedHat    | N/A (install ZeroC RPMs) |
-+-----------+--------------------------+
++-----------+---------------------------------+
+| System    | Package                         |
++===========+=================================+
+| BSD Ports | devel/ice                       |
++-----------+---------------------------------+
+| Debian    | zeroc-ice                       |
++-----------+---------------------------------+
+| Homebrew  | ice (with --with-python option) |
++-----------+---------------------------------+
+| RedHat    | N/A (install ZeroC RPMs)        |
++-----------+---------------------------------+
 
 The Ice version may vary, depending upon the distribution version you
 are using. The Ice versions in currently supported versions of Debian
@@ -290,7 +295,7 @@ If possible, install the following packages:
 +-----------+-------------------------------------------------------------+
 | Debian    | postgresql                                                  |
 +-----------+-------------------------------------------------------------+
-| Homebrew  | postgresql92                                                |
+| Homebrew  | postgresql                                                  |
 +-----------+-------------------------------------------------------------+
 | RedHat    | postgresql postgresql-server                                |
 +-----------+-------------------------------------------------------------+
