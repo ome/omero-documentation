@@ -272,8 +272,8 @@ Directory exists but is not registered
 Import errors of type ``Directory exists but is not registered: CheckedPath(username_id)``
 suggest a server-side issue under the ManagedRepository.
 
-For production servers, this can be caused by a server crash during an import
-or a issue at the file system level (permissions, renaming). If the
+For production servers, this can be caused by a server crash during import
+or an issue at the file system level (permissions, renaming). If the
 :file:`ManagedRepository/username_id` folder is empty, you should try removing 
 it before trying another import.
 
