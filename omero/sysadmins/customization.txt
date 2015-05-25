@@ -11,15 +11,13 @@ Create new custom template in /your/path/to/templates/mytemplate/index.html
 and add the following
 
 .. note::
-    User will no longer be automaticaly redirected to the login page from
-    http://your_host/omero/
+    User will no longer be automaticaly redirected to the login page
 
 ::
 
     $ bin/omero config set omero.web.template_dirs '/your/path/to/templates/'
     $ bin/omero config set omero.web.index_template 'mytemplate/index.html'
 
-.. _index_page:
 .. figure:: /images/indexPage.png
 
 
@@ -35,7 +33,6 @@ somewhere else and link to it with
 
     $ bin/omero config set omero.web.login_logo 'http://www.url/to/image.png'
 
-.. _custom_login:
 .. figure:: /images/customLogin.png
 
 
@@ -61,14 +58,14 @@ Top Links Menu
     $ bin/omero config append omero.web.ui.top_links '["Figure", "webfigure"]'
     $ bin/omero config set omero.web.ui.top_links '["GRE", "http://lifesci.dundee.ac.uk/gre"]'
 
-.. top_link:
 .. figure:: /images/topLink.png
 
 
 Group and Users in dropdown menu
 --------------------------------
 
-Customize group and users drop down menu by changing labels or hiding entire list.
+Customize group and users drop down menu by changing labels or hiding entire
+list.
 
 ::
 
@@ -79,7 +76,6 @@ Customize group and users drop down menu by changing labels or hiding entire lis
     $ bin/omero config set omero.client.ui.menu.dropdown.all "All Members"
     $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.enabled true
 
-.. _dropdown_menu:
 .. figure:: /images/dropdownMenu.png
 
 
@@ -93,7 +89,6 @@ Orphaned container
 
     $ bin/omero config set omero.client.ui.tree.orphans.name "Orphaned images"
 
-.. _orphans:
 .. figure:: /images/orphans.png
 
 
@@ -107,7 +102,6 @@ shouldn’t display.
 
     $ bin/omero config append omero.client.scripts_to_ignore "/my_scripts/script.py"
 
-.. _disable_scripts:
 .. figure:: /images/disableScripts.png
 
 
@@ -122,6 +116,4 @@ a file from the UI.
 
     $ bin/omero config set omero.policy.binary_access "+read,+write,+image"
 
-.. _download_restriction:
 .. figure:: /images/downloadRestriction.png
-
