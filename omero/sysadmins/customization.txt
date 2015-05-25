@@ -1,0 +1,127 @@
+Customize your public repository
+================================
+
+The OMERO clients offer flexible user interface that can be customized.
+The sections below describe how to set up these features.
+
+Index Page
+----------
+
+Create new custom template in /your/path/to/templates/mytemplate/index.html
+and add the following
+
+.. note::
+    User will no longer be automaticaly redirected to the login page from
+    http://your_host/omero/
+
+::
+
+    $ bin/omero config set omero.web.template_dirs '/your/path/to/templates/'
+    $ bin/omero config set omero.web.index_template 'mytemplate/index.html'
+
+.. _index_page:
+.. figure:: /images/indexPage.png
+
+
+Login Page
+----------
+
+:property:`omero.web.login_logo` allows to customize webclient login page
+with your own logo. Logo images should ideally be 150 pixels high or less
+and will appear above the OMERO logo. You will need to host the image
+somewhere else and link to it with 
+
+::
+
+    $ bin/omero config set omero.web.login_logo 'http://www.url/to/image.png'
+
+.. _custom_login:
+.. figure:: /images/customLogin.png
+
+
+Login redirection
+-----------------
+
+:property:`omero.web.login_redirect` property redirects to the givin location
+after loging in.
+
+::
+
+    $ bin/omero config set omero.web.login_redirect '{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'
+
+
+
+Top Links Menu
+--------------
+
+:property:`omero.web.ui.top_links` adds links to the top header.
+
+::
+
+    $ bin/omero config append omero.web.ui.top_links '["Figure", "webfigure"]'
+    $ bin/omero config set omero.web.ui.top_links '["GRE", "http://lifesci.dundee.ac.uk/gre"]'
+
+.. top_link:
+.. figure:: /images/topLink.png
+
+
+Group and Users in dropdown menu
+--------------------------------
+
+Customize group and users drop down menu by changing labels or hiding entire list.
+
+::
+
+    $ bin/omero config set omero.client.ui.menu.dropdown.leaders "Owners"
+    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.enabled true
+    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues "Members"
+    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.enabled true
+    $ bin/omero config set omero.client.ui.menu.dropdown.all "All Members"
+    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.enabled true
+
+.. _dropdown_menu:
+.. figure:: /images/dropdownMenu.png
+
+
+Orphaned container
+------------------
+
+:property:`omero.client.ui.tree.orphans.name` allows to changes name of
+“Orphaned images” container located in client tree data manager.
+
+::
+
+    $ bin/omero config set omero.client.ui.tree.orphans.name "Orphaned images"
+
+.. _orphans:
+.. figure:: /images/orphans.png
+
+
+Disabling scripts
+-----------------
+
+:property:`omero.client.scripts_to_ignore` hides list of scripts Clients
+shouldn’t display.
+
+::
+
+    $ bin/omero config append omero.client.scripts_to_ignore "/my_scripts/script.py"
+
+.. _disable_scripts:
+.. figure:: /images/disableScripts.png
+
+
+Download Restricitons
+---------------------
+
+:property:`omero.policy.binary_access` determine whether users can access
+binary files from disk. Binary access includes all attempts to download
+a file from the UI.
+
+::
+
+    $ bin/omero config set omero.policy.binary_access "+read,+write,+image"
+
+.. _download_restriction:
+.. figure:: /images/downloadRestriction.png
+
