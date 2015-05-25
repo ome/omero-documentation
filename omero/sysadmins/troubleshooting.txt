@@ -181,8 +181,11 @@ Java Virtual Machine including `Bug ID:
 A 64-bit platform for your OMERO.server is **HIGHLY** recommended.
 
 
+Import errors
+-------------
+
 Import error when running bin/omero
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -202,8 +205,6 @@ most likely cause is that your PYTHONPATH is not properly set.
    environment variable. See the Ice installation instructions for more
    information.
 
-Other import errors
--------------------
 
 .. _ulimit:
 
@@ -263,6 +264,29 @@ Windows import errors
 ^^^^^^^^^^^^^^^^^^^^^
 
 See :ref:`windows-database-encoding`.
+
+
+Directory exists but is not registered
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Import errors of type ``Directory exists but is not registered: CheckedPath(username_id)``
+suggest a server-side issue under the ManagedRepository.
+
+For production servers, this can be caused by a server crash during import
+or an issue at the file system level (permissions, renaming). If the
+:file:`ManagedRepository/username_id` folder is empty, you should try removing 
+it before trying another import.
+
+For development servers, this may be caused by the binary directory not being
+cleaned after the database has been wiped.
+
+.. seealso::
+
+    :forum:`Upload problem: Directory exists but is not registered. <viewtopic.php?f=5&t=7537>`
+
+    :forum:`import: Directory exists but is not registered: CheckedPath( <viewtopic.php?f=6&t=7722&p=15264&hilit=CheckedPath#p15264>`
+
+    :ome-devel:`[ome-devel] Directory exists but is not registered: CheckedPath(username_id) <2014-October/003020.html>`
 
 DropBox fails to start: failed to get session
 ---------------------------------------------
