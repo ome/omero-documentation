@@ -1,0 +1,8 @@
+Moving objects between groups
+-----------------------------
+
+The :omerocmd:`chgrp` command moves objects between groups. Further help is
+available using the :option:`-h` option::
+
+    $ bin/omero chgrp -h
+
