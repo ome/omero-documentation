@@ -99,15 +99,15 @@ directories need to be modfied it is recommended that the DropBox system is
 stopped and then restarted around any changes, as below.
 ::
 
-    $ bin/omero admin server disable DropBox
-    $ bin/omero admin server stop DropBox
-    $ bin/omero admin server disable MonitorServer
-    $ bin/omero admin server stop MonitorServer
+    $ bin/omero admin ice server disable DropBox
+    $ bin/omero admin ice server stop DropBox
+    $ bin/omero admin ice server disable MonitorServer
+    $ bin/omero admin ice server stop MonitorServer
 
     # make any directory changes
 
-    $ bin/omero admin server enable DropBox
-    $ bin/omero admin server enable MonitorServer
+    $ bin/omero admin ice server enable MonitorServer
+    $ bin/omero admin ice server enable DropBox
 
 .. note::
 
