@@ -55,6 +55,7 @@ for f in \
     setup_omero51.sh \
     setup_omero_daemon_centos6.sh \
     setup_omero_daemon_ubuntu1404.sh \
+    setup_permissions.sh \
     setup_postgres.sh \
     system_setup.sh \
     ; do
