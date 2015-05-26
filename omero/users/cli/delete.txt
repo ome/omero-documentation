@@ -50,7 +50,8 @@ Deleting multiple objects
 Multiple objects can be specified with each type being followed by an ID
 or a comma-separated list of IDs. The order of objects or IDs is not
 significant, thus all three calls below are identical in deleting
-project 51 and datasets 53 and 54.::
+project 51 and datasets 53 and 54.
+::
 
     $ bin/omero delete Project:51 Dataset:53,54
     $ bin/omero delete Dataset:54,53 Project:51
@@ -60,7 +61,8 @@ Deleting lower level objects
 ============================
 
 To delete objects below a specified top-level object the following form
-of the object specifier is used.::
+of the object specifier is used.
+::
 
     $ bin/omero delete Project/Dataset/Image:51
 
@@ -83,13 +85,13 @@ Including and excluding objects
 .. option:: --include
 
     Linked objects that would not ordinarily be deleted can be included in the
-    delete using the `--include` option.::
+    delete using the `--include` option::
 
         $ bin/omero delete Image:51 --include FileAnnotation,TagAnnotation,TermAnnotation
 
     As mentioned above these three annotation types are not deleted by default
     and so this call overrides that default by including any of the three
-    annotation types in the delete.::
+    annotation types in the delete::
 
          $ bin/omero delete Image:51 --include Annotation
 
@@ -98,13 +100,13 @@ Including and excluding objects
 .. option:: --exclude
 
     Linked objects that would ordinarily be deleted can be excluded from the
-    delete using the `--exclude` option.::
+    delete using the `--exclude` option::
 
         $ bin/omero delete Project:51 --exclude Dataset
 
     This will delete project 51 but not any datasets contained in that project.
 
-The two options can be used together.::
+The two options can be used together::
 
      $ bin/omero delete Project/Dataset:53 --exclude Image --include:FileAnnotation
 
