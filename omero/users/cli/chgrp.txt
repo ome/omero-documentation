@@ -93,7 +93,7 @@ Including and excluding objects
 
 The two options can be used together::
 
-     $ bin/omero chgrp 5 Project/Dataset:53 --exclude Image --include:FileAnnotation
+     $ bin/omero chgrp 5 Project/Dataset:53 --exclude Image --include FileAnnotation
 
 This will move any datasets under project 53, that are not otherwise
 contained elsewhere, excluding any images in those datasets but including
