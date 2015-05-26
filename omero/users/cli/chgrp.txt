@@ -12,10 +12,6 @@ of objects that would, by default, be excluded or exclude objects that would,
 by default, be included using the :option:`--include` and :option:`--exclude`
 options.
 
-Unlike the :ref:`delete command <cli_delete>`, objects of the three annotation
-types, `FileAnnotation`, `TagAnnotation` and `TermAnnotation` are not moved
-by default when the objects to which they are linked are moved.
-
 It is also possible to move objects lower in the hierarchy by specifying
 the type and ID of a topmost object and the type of the lower object. For
 instance, moving all of the images under a given project.
@@ -39,10 +35,11 @@ Basic move
     $ bin/omero chgrp lab_group Project:51
 
 In the first line, the original file with ID 101 will be moved to the group
-with ID 5. In the second, project 51 will be moved to group 5 including any
-datasets inside only that project and any images that are only contained within
-any moved datasets. If group 5 is named 'lab_group' then the last two lines
-will have the same effect as the second.
+with ID 5. In the second and third, project 51 will be moved to group 5
+including any datasets inside only that project and any images that are
+contained within moved datasets only. If group 5 is named 'lab_group' then the
+last line will have the same effect as the previous two. Note that any linked
+annotations will also be moved.
 
 Moving multiple objects
 =======================
@@ -66,18 +63,12 @@ of the object specifier is used.
 
     $ bin/omero chgrp 5 Project/Dataset/Image:51
 
-Here the all of images under the project 51 would be moved. It is
+Here the all of images under the project 51 would be moved. It is not
 necessary to specify intermediate objects in the hierarchy and so::
 
     $ bin/omero chgrp 5 Project/Image:51
 
-would have the same effect as the call above. Links can also be moved
-and so::
-
-$ bin/omero chgrp 5 Project/DatasetImageLink:51 Dataset/DatasetImageLink:53
-
-would effectively orphan all images under project 51 and dataset 53 that are
-not also under other datasets.
+would have the same effect as the call above.
 
 Including and excluding objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -106,7 +97,7 @@ The two options can be used together::
 
 This will move any datasets under project 53, that are not otherwise
 contained elsewhere, excluding any images in those datasets but including
-and file annotations linked to the moved datasets. In this case the images
+any file annotations linked to the moved datasets. In this case the images
 that are not otherwise contained in datasets will be orphaned.
 
 Further options
@@ -117,8 +108,8 @@ Further options
     Move the objects in the order specified.
 
     Normally all of the specified objects are grouped into a single move
-    command if possible. However, each object can be moved separately and
-    in the order given. Thus::
+    command. However, each object can be moved separately and in the order
+    given. Thus::
 
         $ bin/omero chgrp 5 Dataset:53 Project:51 Dataset:54 --ordered
 

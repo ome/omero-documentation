@@ -1,5 +1,3 @@
-.. _cli_delete:
-
 Deleting objects
 ----------------
 
@@ -40,9 +38,8 @@ Basic delete
 
 In the first line, the original file with ID 101 will be deleted. In the
 second, the project with ID 51 will be deleted including any datasets inside
-only that project and any images that are only contained within any deleted
-datasets. Note that any linked file, tag or term annotations will not be
-deleted.
+only that project and any images that are contained within moved datasets only.
+Note that any linked file, tag or term annotations will not be deleted.
 
 Deleting multiple objects
 =========================
@@ -66,7 +63,7 @@ of the object specifier is used.
 
     $ bin/omero delete Project/Dataset/Image:51
 
-Here the all of images under the project 51 would be deleted. It is
+Here the all of images under the project 51 would be deleted. It is not
 necessary to specify intermediate objects in the hierarchy and so::
 
     $ bin/omero delete Project/Image:51
@@ -112,7 +109,7 @@ The two options can be used together::
 
 This will delete any datasets under project 53, that are not otherwise
 contained elsewhere, excluding any images in those datasets but including
-and file annotations linked to the deleted datasets. In this case the images
+any file annotations linked to the deleted datasets. In this case the images
 that are not otherwise contained in datasets will be orphaned.
 
 Further options
@@ -123,8 +120,8 @@ Further options
     Delete the objects in the order specified.
 
     Normally all of the specified objects are grouped into a single delete
-    command if possible. However, each object can be deleted separately and
-    in the order given. Thus::
+    command. However, each object can be deleted separately and in the order
+    given. Thus::
 
         $ bin/omero delete Dataset:53 Project:51 Dataset:54 --ordered
 
