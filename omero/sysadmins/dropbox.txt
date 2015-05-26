@@ -90,6 +90,31 @@ a given DropBox.
         being imported depending on the operating system and how the image
         was modified.
 
+Permissions
+-----------
+
+Changing the permissions of a directory within DropBox may result in duplicate
+imports as a newly readable directory appears identical to a new directory. If
+directories need to be modfied it is recommended that the DropBox system is
+stopped and then restarted around any changes, as below.
+::
+
+    $ bin/omero admin server disable DropBox
+    $ bin/omero admin server stop DropBox
+    $ bin/omero admin server disable MonitorServer
+    $ bin/omero admin server stop MonitorServer
+
+    # make any directory changes
+
+    $ bin/omero admin server enable DropBox
+    $ bin/omero admin server enable MonitorServer
+
+.. note::
+
+    Any new files copied into DropBox during this disabled period will not
+    be detected and thus not imported.
+
+
 Log files
 ---------
 
