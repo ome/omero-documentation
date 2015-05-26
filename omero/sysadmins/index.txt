@@ -57,9 +57,20 @@ performance and security.
     server-advanced-configuration
     server-webstart-codesigning
     omero-home-prefix
-    public
-    customization
     config
+
+*****************************************
+Optimizing and Publishing Data Repository
+*****************************************
+
+This chapter explains how to customise your OMERO data repository.
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    customization
+    public
 
 ***********************
 Data Import and Storage

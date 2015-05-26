@@ -1,17 +1,17 @@
 Customize your public repository
 ================================
 
-The OMERO clients offer flexible user interface that can be customized.
+The OMERO clients offer a flexible user interface that can be customized.
 The sections below describe how to set up these features.
 
-Index Page
+Index page
 ----------
 
 Create new custom template in /your/path/to/templates/mytemplate/index.html
 and add the following
 
 .. note::
-    User will no longer be automaticaly redirected to the login page
+    Users will no longer be automatically redirected to the login page
 
 ::
 
@@ -21,12 +21,12 @@ and add the following
 .. figure:: /images/indexPage.png
 
 
-Login Page
+Login page
 ----------
 
-:property:`omero.web.login_logo` allows to customize webclient login page
-with your own logo. Logo images should ideally be 150 pixels high or less
-and will appear above the OMERO logo. You will need to host the image
+:property:`omero.web.login_logo` allows you to customize the webclient login
+page with your own logo. Logo images should ideally be 150 pixels high or
+less and will appear above the OMERO logo. You will need to host the image
 somewhere else and link to it with 
 
 ::
@@ -39,8 +39,8 @@ somewhere else and link to it with
 Login redirection
 -----------------
 
-:property:`omero.web.login_redirect` property redirects to the givin location
-after loging in.
+:property:`omero.web.login_redirect` property redirects to the given location
+after logging in.
 
 ::
 
@@ -48,7 +48,7 @@ after loging in.
 
 
 
-Top Links Menu
+Top links menu
 --------------
 
 :property:`omero.web.ui.top_links` adds links to the top header.
@@ -64,8 +64,8 @@ Top Links Menu
 Group and Users in dropdown menu
 --------------------------------
 
-Customize group and users drop down menu by changing labels or hiding entire
-list.
+Customize the groups and users dropdown menu by changing the labels or hiding
+the entire list.
 
 ::
 
@@ -82,8 +82,8 @@ list.
 Orphaned container
 ------------------
 
-:property:`omero.client.ui.tree.orphans.name` allows to changes name of
-“Orphaned images” container located in client tree data manager.
+:property:`omero.client.ui.tree.orphans.name` allows you to change the name
+of the "Orphaned images" container located in the client data manager tree.
 
 ::
 
@@ -95,8 +95,8 @@ Orphaned container
 Disabling scripts
 -----------------
 
-:property:`omero.client.scripts_to_ignore` hides list of scripts Clients
-shouldn’t display.
+:property:`omero.client.scripts_to_ignore` hides the scripts that
+the clients should not display
 
 ::
 
@@ -105,10 +105,10 @@ shouldn’t display.
 .. figure:: /images/disableScripts.png
 
 
-Download Restricitons
+Download restrictions
 ---------------------
 
-:property:`omero.policy.binary_access` determine whether users can access
+:property:`omero.policy.binary_access` determines whether users can access
 binary files from disk. Binary access includes all attempts to download
 a file from the UI.
 
