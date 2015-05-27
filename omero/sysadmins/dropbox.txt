@@ -90,6 +90,11 @@ a given DropBox.
         being imported depending on the operating system and how the image
         was modified.
 
+    -   Once directories are created within DropBox or files are copied or
+        moved into DropBox they should not be moved, renamed or otherwise
+        changed. Images may be imported again or already imported images may
+        become unreadable.
+
 Permissions
 -----------
 
