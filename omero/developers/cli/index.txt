@@ -1,6 +1,5 @@
-OMERO Command Line Interface
-============================
-
+Command Line Interface as an OMERO development tool
+===================================================
 
 
 .. toctree::
@@ -21,9 +20,6 @@ OMERO Command Line Interface
 
 Help for any specific CLI command can be displayed using the :option:`-h`
 argument. See :ref:`cli_help` for more information.
-
-
-
 
 General notes
 -------------

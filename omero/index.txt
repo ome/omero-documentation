@@ -2,12 +2,17 @@
 OMERO |release| Documentation
 #############################
 
-The OMERO |release| documentation is divided into three parts.
+The OMERO |release| documentation is divided into three parts:
+
 :doc:`users/index` introduces the user-facing client applications and how to
-get started, as well as detailing where users can access further help and
-support. System administrators wanting to install an OMERO server can find
-instructions in the :doc:`sysadmins/index`. Finally, developers can find more
-specific and technical information about OMERO in the :doc:`developers/index`.
+get started, details the CLI client, and indicates where users can access
+further help and support.
+
+System administrators wanting to install and manage an OMERO server can find
+instructions in the :doc:`sysadmins/index`.
+
+Developers can find more specific and technical information about OMERO in the
+:doc:`developers/index`.
 
 .. only:: html
 

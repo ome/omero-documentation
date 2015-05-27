@@ -170,10 +170,10 @@ Components
 
   * [5.1] 6 deprecated, 7 recommended, 8 supported
   * [5.2] 6 dropped, 7 deprecated, 8 recommended
-  * Rationale: It will be 2 years this Februrary since the last Java 6
+  * Rationale: It will be 2 years this February since the last Java 6
     security update. Java 7 is supported on all supported operating
     systems above, and in most cases is the default Java version on
-    those systems (it’s now 8 on some). This was mentioned recently,
+    those systems (it is now 8 on some). This was mentioned recently,
     and also by the Fiji developers; 5.1 would be an opportune time to
     deprecate or preferably drop Java 6. Also note that we no longer
     actively test with a Java 6 JVM; all internal testing is on Java 7
