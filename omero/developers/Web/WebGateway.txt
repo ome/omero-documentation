@@ -31,6 +31,8 @@ then go to ``webgateway/…`` or if you have logged in to a server at
   Rendered thumbnail
 
 
+.. _urls_from_within_OMERO_web:
+
 URLs from within OMERO web
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -47,8 +49,9 @@ Image viewer
 
     ::
     
-        webgateway/img_detail/<imageid>/
-        {% url 'webgateway.views.full_viewer' image_id %}
+        URL: https://your_host/webgateway/img_detail/<imageid>/
+
+        Template tag: {% url 'webgateway.views.full_viewer' image_id %}
 
 
 
@@ -59,33 +62,42 @@ Images
 
    ::
 
-       webgateway/render_image/<imageid>/<z>/<t>/
-       {% url 'webgateway.views.render_image' image_id theZ theT %}
+       URL: https://your_host/webgateway/render_image/<imageid>/<z>/<t>/
+
+       Template tag: {% url 'webgateway.views.render_image' image_id theZ theT %}
        
-       From OMERO 4.4.4, omitting Z and T will use the default values:
-       webgateway/render_image/<imageid>/
-       {% url 'webgateway.views.render_image' image_id %}
+   From OMERO 4.4.4, omitting Z and T will use the default values:
+
+
+   ::
+
+       URL: https://your_host/webgateway/render_image/<imageid>/
+
+       Template tag: {% url 'webgateway.views.render_image' image_id %}
 
 -  Makes a jpeg laying out each active channel in a separate panel
 
    ::
 
-       webgateway/render_split_channel/<imageId>/<z>/<t>/
-       {% url 'webgateway.views.render_split_channel' image_id theZ theT %}
+       URL: https://your_host/webgateway/render_split_channel/<imageId>/<z>/<t>/
+
+       Template tag: {% url 'webgateway.views.render_split_channel' image_id theZ theT %}
 
 -  Plots the intensity of a row of pixels in an image. w is line width
 
    ::
 
-       webgateway/render_row_plot/<imageId>/<z>/<t>/<y>/<w>
-       {% url 'webgateway.views.render_row_plot' image_id theZ theT yPos width %}
+       URL: https://your_host/webgateway/render_row_plot/<imageId>/<z>/<t>/<y>/<w>
+
+       Template tag: {% url 'webgateway.views.render_row_plot' image_id theZ theT yPos width %}
 
 -  Plots the intensity of a column of pixels in an image.
 
    ::
 
-       webgateway/render_col_plot/<imageId>/<z>/<t>/<x>/<w>/
-       {% url 'webgateway.views.render_col_plot' image_id theZ theT xPos width %}
+       URL: https://your_host/webgateway/render_col_plot/<imageId>/<z>/<t>/<x>/<w>/
+
+       Template tag: {% url 'webgateway.views.render_col_plot' image_id theZ theT xPos width %}
 
 -  Returns a jpeg of a thumbnail for an image. w and h are optional
    (default is 64). Specify just one to retain aspect ratio.
@@ -93,10 +105,14 @@ Images
 
    ::
 
-       webgateway/render_thumbnail/<imageId>/<w>/<h>
-       webgateway/render_thumbnail/<imageId>/?z=10                    # default size, z=10
-       {% url 'webgateway.views.render_thumbnail' image_id 100 %}     # size 100
-       {% url 'webgateway.views.render_thumbnail' image_id %}         # default size
+       URL: https://your_host/webgateway/render_thumbnail/<imageId>/?z=10
+
+       Template tag: {% url 'webgateway.views.render_thumbnail' image_id %}?z=10    # default size, z=10
+
+       URL: https://your_host/webgateway/render_thumbnail/<imageId>/<w>/<h>
+
+       Template tag: {% url 'webgateway.views.render_thumbnail' image_id 100 %}     # size 100
+
 
 Rendering settings
 """"""""""""""""""
@@ -156,7 +172,7 @@ Individual parameters are:
 
    ::
 
-       webgateway/render_image/2602/10/0/?c=1|100:505$0000FF,2|463:2409$00FF00,3|620:3879$FF0000,-4|447:4136$FF0000&p=normal
+       https://your_host/webgateway/render_image/2602/10/0/?c=1|100:505$0000FF,2|463:2409$00FF00,3|620:3879$FF0000,-4|447:4136$FF0000&p=normal
 
 JSON methods
 """"""""""""

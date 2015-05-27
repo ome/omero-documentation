@@ -59,6 +59,20 @@ performance and security.
     omero-home-prefix
     config
 
+*************************************
+Optimizing OMERO as a Data Repository
+*************************************
+
+This chapter explains how to customize the appearance and functionality of
+OMERO clients to host images for groups or public viewing.
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    customization
+    public
+
 ***********************
 Data Import and Storage
 ***********************
