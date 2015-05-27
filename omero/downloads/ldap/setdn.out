@@ -25,8 +25,14 @@ Optional Arguments:
 
 Login arguments:
   Environment variables:
-      OMERO_SESSIONDIR - Set the sessions directory (Default:
-   $HOME/omero/sessions)
+  
+    OMERO_USERDIR     Set the base directory containing the user's files.
+                      Default: $HOME/omero
+    OMERO_SESSIONDIR  Set the base directory containing local sessions.
+                      Default: $OMERO_USERDIR/sessions
+    OMERO_TMPDIR      Set the base directory containing temporary files.
+                      Default: $OMERO_USERDIR/tmp
+  
   
   Optional session arguments:
 
