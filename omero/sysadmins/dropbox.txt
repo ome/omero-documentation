@@ -95,7 +95,7 @@ Permissions
 
 Changing the permissions of a directory within DropBox may result in duplicate
 imports as a newly readable directory appears identical to a new directory. If
-directories need to be modfied it is recommended that the DropBox system is
+directories need to be modified it is recommended that the DropBox system is
 stopped and then restarted around any changes, as below.
 ::
 
