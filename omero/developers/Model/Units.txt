@@ -132,6 +132,45 @@ as defined in the SI specification, for example, use the
     Length l1 = ...; // As above
     l1.getSymbol(); // Returns "µm"
 
+Querying units
+--------------
+
+In HQL queries, the scalar and the enumeration value can be separately
+retrieved.
+
+::
+
+     select planeInfo.exposureTime.value from PlaneInfo planeInfo ...
+
+will retrieve just the double scalar value while
+
+::
+
+     select planeInfo.exposureTime.unit from PlaneInfo planeInfo ...
+
+will retrieve a string representation of the enum as a string which
+can be used in each language to create an enum object, e.g.:
+
+::
+
+     UnitsTime.valueOf(unit); // Java
+     getattr(UnitsTime, unit) # Python
+
+To load the symbolic representation of the enum which is used
+internally in the database and is more concise, use an HQL cast:
+
+::
+
+     select cast(planeInfo.exposureTime.unit as text) from PlaneInfo planeInfo ...
+
+Returning the entire unit quantity will result in a hash map with the
+various representations:
+
+::
+
+     select planeInfo.exposureTime from PlaneInfo planeInfo ...
+     {'symbol': 's', 'unit': 'SECOND', 'value': 1.2000000476837158}
+
 
 .. seealso::
 
