@@ -68,8 +68,8 @@ WellSample             PositionX            Length             reference frame
 WellSample             PositionY            Length             reference frame
 ===================== ===================== ================== =============
 
-Units of type `reference frame` cannot be assumed comparable to other units,
-including those with type `reference frame`.
+Units of type `reference frame` cannot be assumed comparable to units from
+other properties including those with type `reference frame`.
 
 Unit objects
 ------------
