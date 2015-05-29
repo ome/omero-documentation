@@ -7,6 +7,9 @@ of OME defined a default unit for the measurement. Now users, clients,
 and acquisition systems can specify the unit themselves rather than
 converting their internal unit to the OME default.
 
+.. seealso::
+    :model_doc:`Data Model documentation for units <developers/ome-units.html>`
+
 Supported units
 ---------------
 * Electric potential

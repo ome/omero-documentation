@@ -1422,8 +1422,8 @@ Properties:
   | tuneable: ``boolean`` (optional)
   | type: :ref:`LaserType <Hibernate version of class omero.model.LaserType>`
   | version: ``integer`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
-  | wavelength.unit: enumeration (optional)
-  | wavelength.value: ``double`` (optional)
+  | wavelength.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | wavelength.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
 
 .. _Hibernate version of class omero.model.LaserMedium:
 
