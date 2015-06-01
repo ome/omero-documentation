@@ -73,3 +73,19 @@ ImportContainer
 Changes to ImportContainer will break any listeners implemented by external
 developers.
 
+Units
+^^^^^
+
+A number of Objects formerly of numerical type are now unit quantities. As a
+result, code working with these types will no longer compile and queries of
+these types will now return different values. For example, as explained in
+:ref:`querying-units`, to return the floating point number using::
+
+   select planeInfo.exposureTime from PlaneInfo planeInfo ...
+
+you now need to add ``.value`` as follows::
+
+   select planeInfo.exposureTime.value from PlaneInfo planeInfo ...
+
+and you also need the enum to go along with it.
+
