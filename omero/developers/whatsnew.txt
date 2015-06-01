@@ -7,7 +7,9 @@ What's new for OMERO 5.1
   (currently slated to be 5.2). Most notably for development purposes, we are
   deprecating support for Java 1.6 and Python 2.6.
 - :doc:`Model/Units` introduces the new Units-types which are available
-  for use from all model objects.
+  for use from :doc:`Model Objects <Model/EveryObject>` (note that this
+  documentation has been expanded since the release of 5.1.2 and is still a
+  work in progress).
 - Similarly, :doc:`Model/KeyValuePairs` introduces the new concept of a
   "map" type, which consists of ordered lists of key-value pairs.
 - :doc:`Server/ObjectGraphs` explains how the new graph operations of

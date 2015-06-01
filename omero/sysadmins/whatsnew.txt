@@ -13,7 +13,10 @@ What's new for OMERO 5.1
   configuration property is *removed* in OMERO 5.2.
 
 - The server download policy can now be configured to restrict users' ability
-  to download the original data e.g. by user or by data type.
+  to download the original data e.g. by user or by data type. This is one of
+  the features we have introduced to help support using OMERO for data
+  publication. More information about how to configure your server for this
+  purpose is available in the updated :ref:`index-public-data` section.
 
 
 Database
@@ -72,3 +75,13 @@ OMERO.mail
 A new :doc:`additional feature <advanced-install>` has been added. :doc:`mail`
 allows you to configure the server to email users, for example to alert group
 owners to broken links in OMERO.web.
+
+OMERO permissions system
+------------------------
+
+Read-Write groups are now (as of OMERO version 5.1.2) supported in the
+clients. Existing groups can be promoted to this permissions level, which
+essentially allows all members to act as if they co-own the data except for
+the ability to move it between groups, via your usual OMERO admin tool. See
+:doc:`server-permissions` for more details.
+
