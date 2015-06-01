@@ -84,8 +84,8 @@ Properties:
   | lotNumber: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | manufacturer: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | model: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
-  | power.unit: enumeration (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
-  | power.value: ``double`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
+  | power.unit: enumeration (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`, see :javadoc:`PowerI <omero/model/PowerI.html>`
+  | power.value: ``double`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`, see :javadoc:`PowerI <omero/model/PowerI.html>`
   | serialNumber: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | type: :ref:`ArcType <Hibernate version of class omero.model.ArcType>`
   | version: ``integer`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
@@ -412,8 +412,8 @@ Properties:
   | serialNumber: ``string`` (optional)
   | type: :ref:`DetectorType <Hibernate version of class omero.model.DetectorType>`
   | version: ``integer`` (optional), see :source:`IMutable <components/model/src/ome/model/IMutable.java>`
-  | voltage.unit: enumeration (optional)
-  | voltage.value: ``double`` (optional)
+  | voltage.unit: enumeration (optional), see :javadoc:`ElectricPotentialI <omero/model/ElectricPotentialI.html>`
+  | voltage.value: ``double`` (optional), see :javadoc:`ElectricPotentialI <omero/model/ElectricPotentialI.html>`
   | zoom: ``double`` (optional)
 
 .. _Hibernate version of class omero.model.DetectorAnnotationLink:
@@ -453,11 +453,11 @@ Properties:
   | gain: ``double`` (optional)
   | integration: ``integer`` (optional)
   | offsetValue: ``double`` (optional)
-  | readOutRate.unit: enumeration (optional)
-  | readOutRate.value: ``double`` (optional)
+  | readOutRate.unit: enumeration (optional), see :javadoc:`FrequencyI <omero/model/FrequencyI.html>`
+  | readOutRate.value: ``double`` (optional), see :javadoc:`FrequencyI <omero/model/FrequencyI.html>`
   | version: ``integer`` (optional), see :source:`IMutable <components/model/src/ome/model/IMutable.java>`
-  | voltage.unit: enumeration (optional)
-  | voltage.value: ``double`` (optional)
+  | voltage.unit: enumeration (optional), see :javadoc:`ElectricPotentialI <omero/model/ElectricPotentialI.html>`
+  | voltage.value: ``double`` (optional), see :javadoc:`ElectricPotentialI <omero/model/ElectricPotentialI.html>`
   | zoom: ``double`` (optional)
 
 .. _Hibernate version of class omero.model.DetectorType:
@@ -561,8 +561,8 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | fontStretch: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontVariant: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -578,8 +578,8 @@ Properties:
   | strokeLineCap: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeLineJoin: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeMiterLimit: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | theT: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -788,8 +788,8 @@ Properties:
   | lotNumber: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | manufacturer: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | model: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
-  | power.unit: enumeration (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
-  | power.value: ``double`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
+  | power.unit: enumeration (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`, see :javadoc:`PowerI <omero/model/PowerI.html>`
+  | power.value: ``double`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`, see :javadoc:`PowerI <omero/model/PowerI.html>`
   | serialNumber: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | type: :ref:`FilamentType <Hibernate version of class omero.model.FilamentType>`
   | version: ``integer`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
@@ -1140,8 +1140,8 @@ ImagingEnvironment
 Used by: :ref:`Image.imagingEnvironment <Hibernate version of class omero.model.Image>`
 
 Properties:
-  | airPressure.unit: enumeration (optional)
-  | airPressure.value: ``double`` (optional)
+  | airPressure.unit: enumeration (optional), see :javadoc:`PressureI <omero/model/PressureI.html>`
+  | airPressure.value: ``double`` (optional), see :javadoc:`PressureI <omero/model/PressureI.html>`
   | co2percent: ``double`` (optional)
   | details.creationEvent: :ref:`Event <Hibernate version of class omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <Hibernate version of class omero.model.ExternalInfo>` (optional)
@@ -1151,8 +1151,8 @@ Properties:
   | details.updateEvent: :ref:`Event <Hibernate version of class omero.model.Event>`
   | humidity: ``double`` (optional)
   | map: list (multiple)
-  | temperature.unit: enumeration (optional)
-  | temperature.value: ``double`` (optional)
+  | temperature.unit: enumeration (optional), see :javadoc:`TemperatureI <omero/model/TemperatureI.html>`
+  | temperature.value: ``double`` (optional), see :javadoc:`TemperatureI <omero/model/TemperatureI.html>`
   | version: ``integer`` (optional), see :source:`IMutable <components/model/src/ome/model/IMutable.java>`
 
 .. _Hibernate version of class omero.model.Immersion:
@@ -1362,8 +1362,8 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | fontStretch: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontVariant: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -1378,8 +1378,8 @@ Properties:
   | strokeLineCap: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeLineJoin: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeMiterLimit: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | theT: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -1412,18 +1412,18 @@ Properties:
   | manufacturer: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | model: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | pockelCell: ``boolean`` (optional)
-  | power.unit: enumeration (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
-  | power.value: ``double`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
+  | power.unit: enumeration (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`, see :javadoc:`PowerI <omero/model/PowerI.html>`
+  | power.value: ``double`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`, see :javadoc:`PowerI <omero/model/PowerI.html>`
   | pulse: :ref:`Pulse <Hibernate version of class omero.model.Pulse>` (optional)
   | pump: :ref:`LightSource <Hibernate version of class omero.model.LightSource>` (optional)
-  | repetitionRate.unit: enumeration (optional)
-  | repetitionRate.value: ``double`` (optional)
+  | repetitionRate.unit: enumeration (optional), see :javadoc:`FrequencyI <omero/model/FrequencyI.html>`
+  | repetitionRate.value: ``double`` (optional), see :javadoc:`FrequencyI <omero/model/FrequencyI.html>`
   | serialNumber: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | tuneable: ``boolean`` (optional)
   | type: :ref:`LaserType <Hibernate version of class omero.model.LaserType>`
   | version: ``integer`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
-  | wavelength.unit: enumeration (optional)
-  | wavelength.value: ``double`` (optional)
+  | wavelength.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | wavelength.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
 
 .. _Hibernate version of class omero.model.LaserMedium:
 
@@ -1466,8 +1466,8 @@ Properties:
   | lotNumber: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | manufacturer: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | model: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
-  | power.unit: enumeration (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
-  | power.value: ``double`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
+  | power.unit: enumeration (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`, see :javadoc:`PowerI <omero/model/PowerI.html>`
+  | power.value: ``double`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`, see :javadoc:`PowerI <omero/model/PowerI.html>`
   | serialNumber: ``string`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | version: ``integer`` (optional) from :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
 
@@ -1563,8 +1563,8 @@ Properties:
   | lightSource: :ref:`LightSource <Hibernate version of class omero.model.LightSource>`
   | microbeamManipulation: :ref:`MicrobeamManipulation <Hibernate version of class omero.model.MicrobeamManipulation>` (optional)
   | version: ``integer`` (optional), see :source:`IMutable <components/model/src/ome/model/IMutable.java>`
-  | wavelength.unit: enumeration (optional)
-  | wavelength.value: ``double`` (optional)
+  | wavelength.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | wavelength.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
 
 .. _Hibernate version of class omero.model.LightSource:
 
@@ -1587,8 +1587,8 @@ Properties:
   | lotNumber: ``string`` (optional)
   | manufacturer: ``string`` (optional)
   | model: ``string`` (optional)
-  | power.unit: enumeration (optional)
-  | power.value: ``double`` (optional)
+  | power.unit: enumeration (optional), see :javadoc:`PowerI <omero/model/PowerI.html>`
+  | power.value: ``double`` (optional), see :javadoc:`PowerI <omero/model/PowerI.html>`
   | serialNumber: ``string`` (optional)
   | version: ``integer`` (optional), see :source:`IMutable <components/model/src/ome/model/IMutable.java>`
 
@@ -1626,8 +1626,8 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | fontStretch: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontVariant: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -1641,8 +1641,8 @@ Properties:
   | strokeLineCap: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeLineJoin: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeMiterLimit: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | theT: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -1705,10 +1705,10 @@ Properties:
   | details.permissions.perm1: ``long``
   | details.updateEvent: :ref:`Event <Hibernate version of class omero.model.Event>`
   | detectorSettings: :ref:`DetectorSettings <Hibernate version of class omero.model.DetectorSettings>` (optional)
-  | emissionWave.unit: enumeration (optional)
-  | emissionWave.value: ``double`` (optional)
-  | excitationWave.unit: enumeration (optional)
-  | excitationWave.value: ``double`` (optional)
+  | emissionWave.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | emissionWave.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | excitationWave.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | excitationWave.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
   | filterSet: :ref:`FilterSet <Hibernate version of class omero.model.FilterSet>` (optional)
   | fluor: ``string`` (optional)
   | illumination: :ref:`Illumination <Hibernate version of class omero.model.Illumination>` (optional)
@@ -1719,8 +1719,8 @@ Properties:
   | ndFilter: ``double`` (optional)
   | otf: :ref:`OTF <Hibernate version of class omero.model.OTF>` (optional)
   | photometricInterpretation: :ref:`PhotometricInterpretation <Hibernate version of class omero.model.PhotometricInterpretation>` (optional)
-  | pinHoleSize.unit: enumeration (optional)
-  | pinHoleSize.value: ``double`` (optional)
+  | pinHoleSize.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | pinHoleSize.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
   | pockelCellSetting: ``integer`` (optional)
   | samplesPerPixel: ``integer`` (optional)
   | version: ``integer`` (optional), see :source:`IMutable <components/model/src/ome/model/IMutable.java>`
@@ -1780,8 +1780,8 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | fontStretch: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontVariant: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -1797,8 +1797,8 @@ Properties:
   | strokeLineCap: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeLineJoin: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeMiterLimit: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | theT: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -2058,8 +2058,8 @@ Properties:
   | nominalMagnification: ``double`` (optional)
   | serialNumber: ``string`` (optional)
   | version: ``integer`` (optional), see :source:`IMutable <components/model/src/ome/model/IMutable.java>`
-  | workingDistance.unit: enumeration (optional)
-  | workingDistance.value: ``double`` (optional)
+  | workingDistance.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | workingDistance.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
 
 .. _Hibernate version of class omero.model.ObjectiveAnnotationLink:
 
@@ -2186,8 +2186,8 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | fontStretch: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontVariant: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -2201,8 +2201,8 @@ Properties:
   | strokeLineCap: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeLineJoin: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeMiterLimit: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | theT: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -2266,12 +2266,12 @@ Properties:
   | dimensionOrder: :ref:`DimensionOrder <Hibernate version of class omero.model.DimensionOrder>`
   | image: :ref:`Image <Hibernate version of class omero.model.Image>`
   | methodology: ``string`` (optional)
-  | physicalSizeX.unit: enumeration (optional)
-  | physicalSizeX.value: ``double`` (optional)
-  | physicalSizeY.unit: enumeration (optional)
-  | physicalSizeY.value: ``double`` (optional)
-  | physicalSizeZ.unit: enumeration (optional)
-  | physicalSizeZ.value: ``double`` (optional)
+  | physicalSizeX.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | physicalSizeX.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | physicalSizeY.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | physicalSizeY.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | physicalSizeZ.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | physicalSizeZ.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
   | pixelsFileMaps: :ref:`PixelsOriginalFileMap <Hibernate version of class omero.model.PixelsOriginalFileMap>` (multiple)
   | pixelsType: :ref:`PixelsType <Hibernate version of class omero.model.PixelsType>`
   | planeInfo: :ref:`PlaneInfo <Hibernate version of class omero.model.PlaneInfo>` (multiple)
@@ -2285,8 +2285,8 @@ Properties:
   | sizeY: ``integer``
   | sizeZ: ``integer``
   | thumbnails: :ref:`Thumbnail <Hibernate version of class omero.model.Thumbnail>` (multiple)
-  | timeIncrement.unit: enumeration (optional)
-  | timeIncrement.value: ``double`` (optional)
+  | timeIncrement.unit: enumeration (optional), see :javadoc:`TimeI <omero/model/TimeI.html>`
+  | timeIncrement.value: ``double`` (optional), see :javadoc:`TimeI <omero/model/TimeI.html>`
   | version: ``integer`` (optional), see :source:`IMutable <components/model/src/ome/model/IMutable.java>`
   | waveIncrement: ``integer`` (optional)
   | waveStart: ``integer`` (optional)
@@ -2331,23 +2331,23 @@ Used by: :ref:`Pixels.planeInfo <Hibernate version of class omero.model.Pixels>`
 
 Properties:
   | annotationLinks: :ref:`PlaneInfoAnnotationLink <Hibernate version of class omero.model.PlaneInfoAnnotationLink>` (multiple)
-  | deltaT.unit: enumeration (optional)
-  | deltaT.value: ``double`` (optional)
+  | deltaT.unit: enumeration (optional), see :javadoc:`TimeI <omero/model/TimeI.html>`
+  | deltaT.value: ``double`` (optional), see :javadoc:`TimeI <omero/model/TimeI.html>`
   | details.creationEvent: :ref:`Event <Hibernate version of class omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <Hibernate version of class omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <Hibernate version of class omero.model.ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <Hibernate version of class omero.model.Experimenter>`
   | details.permissions.perm1: ``long``
   | details.updateEvent: :ref:`Event <Hibernate version of class omero.model.Event>`
-  | exposureTime.unit: enumeration (optional)
-  | exposureTime.value: ``double`` (optional)
+  | exposureTime.unit: enumeration (optional), see :javadoc:`TimeI <omero/model/TimeI.html>`
+  | exposureTime.value: ``double`` (optional), see :javadoc:`TimeI <omero/model/TimeI.html>`
   | pixels: :ref:`Pixels <Hibernate version of class omero.model.Pixels>`
-  | positionX.unit: enumeration (optional)
-  | positionX.value: ``double`` (optional)
-  | positionY.unit: enumeration (optional)
-  | positionY.value: ``double`` (optional)
-  | positionZ.unit: enumeration (optional)
-  | positionZ.value: ``double`` (optional)
+  | positionX.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | positionX.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | positionY.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | positionY.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | positionZ.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | positionZ.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
   | theC: ``integer``
   | theT: ``integer``
   | theZ: ``integer``
@@ -2418,10 +2418,10 @@ Properties:
   | screenLinks: :ref:`ScreenPlateLink <Hibernate version of class omero.model.ScreenPlateLink>` (multiple)
   | status: ``string`` (optional)
   | version: ``integer`` (optional), see :source:`IMutable <components/model/src/ome/model/IMutable.java>`
-  | wellOriginX.unit: enumeration (optional)
-  | wellOriginX.value: ``double`` (optional)
-  | wellOriginY.unit: enumeration (optional)
-  | wellOriginY.value: ``double`` (optional)
+  | wellOriginX.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | wellOriginX.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | wellOriginY.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | wellOriginY.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
   | wells: :ref:`Well <Hibernate version of class omero.model.Well>` (multiple)
 
 .. _Hibernate version of class omero.model.PlateAcquisition:
@@ -2502,8 +2502,8 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | fontStretch: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontVariant: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -2517,8 +2517,8 @@ Properties:
   | strokeLineCap: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeLineJoin: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeMiterLimit: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | theT: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -2544,8 +2544,8 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | fontStretch: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontVariant: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -2560,8 +2560,8 @@ Properties:
   | strokeLineCap: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeLineJoin: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeMiterLimit: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | theT: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -2587,8 +2587,8 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | fontStretch: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontVariant: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -2603,8 +2603,8 @@ Properties:
   | strokeLineCap: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeLineJoin: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeMiterLimit: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | theT: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -2757,8 +2757,8 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | fontSize.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | fontSize.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | fontStretch: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | fontVariant: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -2774,8 +2774,8 @@ Properties:
   | strokeLineCap: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeLineJoin: ``string`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | strokeMiterLimit: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
-  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
+  | strokeWidth.unit: enumeration (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | strokeWidth.value: ``double`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`, see :javadoc:`LengthI <omero/model/LengthI.html>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
   | theT: ``integer`` (optional) from :ref:`Shape <Hibernate version of class omero.model.Shape>`
@@ -3035,8 +3035,8 @@ Properties:
   | fillColor: ``integer`` (optional)
   | fillRule: ``string`` (optional)
   | fontFamily: ``string`` (optional)
-  | fontSize.unit: enumeration (optional)
-  | fontSize.value: ``double`` (optional)
+  | fontSize.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | fontSize.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
   | fontStretch: ``string`` (optional)
   | fontStyle: ``string`` (optional)
   | fontVariant: ``string`` (optional)
@@ -3050,8 +3050,8 @@ Properties:
   | strokeLineCap: ``string`` (optional)
   | strokeLineJoin: ``string`` (optional)
   | strokeMiterLimit: ``integer`` (optional)
-  | strokeWidth.unit: enumeration (optional)
-  | strokeWidth.value: ``double`` (optional)
+  | strokeWidth.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | strokeWidth.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
   | theC: ``integer`` (optional)
   | theT: ``integer`` (optional)
   | theZ: ``integer`` (optional)
@@ -3134,12 +3134,12 @@ Properties:
   | details.permissions.perm1: ``long``
   | details.updateEvent: :ref:`Event <Hibernate version of class omero.model.Event>`
   | name: ``string``
-  | positionX.unit: enumeration (optional)
-  | positionX.value: ``double`` (optional)
-  | positionY.unit: enumeration (optional)
-  | positionY.value: ``double`` (optional)
-  | positionZ.unit: enumeration (optional)
-  | positionZ.value: ``double`` (optional)
+  | positionX.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | positionX.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | positionY.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | positionY.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | positionZ.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | positionZ.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
   | version: ``integer`` (optional), see :source:`IMutable <components/model/src/ome/model/IMutable.java>`
 
 .. _Hibernate version of class omero.model.StatsInfo:
@@ -3291,14 +3291,14 @@ TransmittanceRange
 Used by: :ref:`Filter.transmittanceRange <Hibernate version of class omero.model.Filter>`
 
 Properties:
-  | cutIn.unit: enumeration (optional)
-  | cutIn.value: ``double`` (optional)
-  | cutInTolerance.unit: enumeration (optional)
-  | cutInTolerance.value: ``double`` (optional)
-  | cutOut.unit: enumeration (optional)
-  | cutOut.value: ``double`` (optional)
-  | cutOutTolerance.unit: enumeration (optional)
-  | cutOutTolerance.value: ``double`` (optional)
+  | cutIn.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | cutIn.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | cutInTolerance.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | cutInTolerance.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | cutOut.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | cutOut.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | cutOutTolerance.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | cutOutTolerance.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
   | details.creationEvent: :ref:`Event <Hibernate version of class omero.model.Event>`
   | details.externalInfo: :ref:`ExternalInfo <Hibernate version of class omero.model.ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <Hibernate version of class omero.model.ExperimenterGroup>`
@@ -3435,10 +3435,10 @@ Properties:
   | details.updateEvent: :ref:`Event <Hibernate version of class omero.model.Event>`
   | image: :ref:`Image <Hibernate version of class omero.model.Image>`
   | plateAcquisition: :ref:`PlateAcquisition <Hibernate version of class omero.model.PlateAcquisition>` (optional)
-  | posX.unit: enumeration (optional)
-  | posX.value: ``double`` (optional)
-  | posY.unit: enumeration (optional)
-  | posY.value: ``double`` (optional)
+  | posX.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | posX.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | posY.unit: enumeration (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
+  | posY.value: ``double`` (optional), see :javadoc:`LengthI <omero/model/LengthI.html>`
   | timepoint: ``timestamp`` (optional)
   | version: ``integer`` (optional), see :source:`IMutable <components/model/src/ome/model/IMutable.java>`
   | well: :ref:`Well <Hibernate version of class omero.model.Well>`
