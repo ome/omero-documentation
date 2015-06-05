@@ -80,8 +80,8 @@ OMERO permissions system
 ------------------------
 
 Read-Write groups are now (as of OMERO version 5.1.2) supported in the
-clients. Existing groups can be promoted to this permissions level, which
-essentially allows all members to act as if they co-own the data except for
-the ability to move it between groups, via your usual OMERO admin tool. See
-:doc:`server-permissions` for more details.
+clients. This group type essentially allows all members to act as if they
+co-own the data except for the ability to move it between groups. Existing
+groups can be promoted to this permissions level via your usual OMERO admin
+tool. See :doc:`server-permissions` for more details.
 
