@@ -1,11 +1,11 @@
-What's new for OMERO 5.1
-========================
+What's new for OMERO 5.1 for developers
+=======================================
 
-- :doc:`/sysadmins/version-requirements` provides extensive details about
-  which operating systems and dependency versions we will be supporting for
-  the life of 5.1 and the likely changes to these for the next major release
-  (currently slated to be 5.2). Most notably for development purposes, we are
-  deprecating support for Java 1.6 and Python 2.6.
+- The :doc:`/sysadmins/version-requirements` section provides extensive
+  details about which operating systems and dependency versions we will be
+  supporting for the life of 5.1 and the likely changes to these for the next
+  major release (currently planned to be 5.2). Most notably for development
+  purposes, we are deprecating support for Java 1.6 and Python 2.6.
 - :doc:`Model/Units` introduces the new Units-types which are available
   for use from :doc:`Model Objects <Model/EveryObject>` (note that this
   documentation has been expanded since the release of 5.1.2 and is still a
@@ -27,8 +27,8 @@ OMERO.web
 ^^^^^^^^^
 
 There have been many updates to this client for 5.1. See the
-:ref:`web-breaking-changes` section on the :doc:`/sysadmins/whatsnew` for
-sysadmins page for further details.
+:ref:`web-breaking-changes` section on the :doc:`/sysadmins/whatsnew` page for
+further details.
 
 OMERO.web template and view writers need to use the ``@render_response()``
 decorator, see :ref:`render-response` for more details.

@@ -1,10 +1,10 @@
-What's new for OMERO 5.1
-========================
+What's new for OMERO 5.1 for sysadmins
+======================================
 
-- :doc:`version-requirements` provides extensive details about which operating
-  systems and dependency versions we will be supporting for the life of 5.1
-  and the likely changes to these for the next major release (currently slated
-  to be 5.2).
+- The :doc:`version-requirements` section provides extensive details about
+  which operating systems and dependency versions we will be supporting for
+  the life of 5.1 and the likely changes to these for the next major release
+  (currently slated to be 5.2).
 
 - A new configuration property :property:`omero.graphs.wrap` allows
   switching back to the old server code for moving and deleting data. If
