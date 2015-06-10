@@ -136,6 +136,8 @@ as defined in the SI specification, for example, use the
     Length l1 = ...; // As above
     l1.getSymbol(); // Returns "µm"
 
+.. _querying-units:
+
 Querying units
 --------------
 

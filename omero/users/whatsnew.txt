@@ -1,5 +1,5 @@
-What's new for OMERO 5.1
-========================
+What's new for OMERO 5.1 for users
+==================================
 
 Updates and new features for OMERO 5.1 include:
 
@@ -20,3 +20,6 @@ Updates and new features for OMERO 5.1 include:
 See the updated user guides for :help:`managing data <managing-data.html>`,
 :help:`viewing data <viewing-data.html>` and
 :help:`using ImageJ with OMERO <imagej.html>` for further information.
+
+OMERO 5.1.2 introduced support for Read-Write groups - see the updated
+:help:`sharing data <sharing-data.html>` guide for details.
