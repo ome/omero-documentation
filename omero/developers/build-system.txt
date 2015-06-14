@@ -114,22 +114,53 @@ This will call the default ``dist`` target for each component.
 Ivy
 ^^^
 
--  Resolvers are key to how Ivy functions. Currently, the default
-   resolver is called "omero-resolver" and simply looks in our
-   repository (``./lib/repository``) for the jars which were downloaded
-   from git. Multi-resolvers can be defined (as granular as for an
-   individual jar) in order to pick up the latest version of whatever
-   library from HTTP, |SSH|, or from the local file system.
+The build system uses Ivy_ 2.3.0 as the dependency manager. The general Ivy
+configuration is defined in a :ivydoc:`settings file <settings.html>` located
+under :source:`etc/ivysettings.xml`.
 
--  OMERO\_HOME/lib/cache : in order to determine the transitive closure
-   of all dependencies, Ivy "resolves" each ivy.xml and stores the
-   resolved ivy.xml in its cache (in our build, ``./lib/cache``) to
-   speed up other processes. However, when changing the Ivy
-   configuration (``./etc/ivyconf.xml``) or version number
-   (``etc/omero.properties->omero.version``) the cache can become stale.
-   This should not happen, but currently does. It may be beneficial for
-   the time being to call ``ant clean`` from the top-level build which
-   will delete the cache.
+In order to determine the transitive closure of all dependencies, Ivy resolves
+each :file:`ivy.xml` file and stores the resolved artifacts in a
+:ivydoc:`cache <settings/caches/cache.html>` to speed up other processes. The
+OMERO build system defines and uses two kinds of caches:
+
+#. a local cache under :file:`lib/cache`
+#. the maven cache under :file:`~/.m2/repository`
+
+Note when the Ivy configuration file or the version number is changed, the
+cache can become stale. Calling ``./build.py clean`` from the top-level build
+will delete the content of the local cache.
+
+:ivydoc:`Resolvers <settings/resolvers.html>` are key to how Ivy functions. Multi-resolvers can be defined (as granular as for an individual jar) in order
+to pick up the latest version of any library from a
+:ivydoc:`repository <resolver/ibiblio.html>`, a
+:ivydoc:`generic URL <resolver/url.html>` or from the
+:ivydoc:`local file system <resolver/filesystem.html>`.
+
+Currently, the default resolver used by the build system, called
+``omero-resolver``, looks in the following locations by order of precedence:
+
+#. :file:`target/repository`
+#. :file:`lib/repository`
+#. :file:`target/test-repository`
+#. :file:`~/.m2/repository`
+#. `Maven central repository <http://search.maven.org>`_
+#. `OME artifactory <http://artifacts.openmicroscopy.org>`_
+#. `SpringSource repository <http://repository.springsource.com/>`_
+
+Note that the Maven Central and OME artifactory resolvers currently have
+`usepoms` set to `false` meaning they do not resolve transitive dependencies.
+
+To define its dependencies, each component uses a top-level
+:ivydoc:`Ivy file <ivyfile.html>`, :file:`ivy.xml`, for the build and
+optionally another Ivy file, :file:`test.xml`, for the tests.
+
+The OMERO build system defines and uses four Ivy
+:ivydoc:`configurations <ivyfile/configurations.html>`:
+
+#. build
+#. server
+#. client
+#. test
 
 .. _build#OmeroTools:
 
@@ -141,7 +172,7 @@ products which get built. Namely, the builds for the non-Java components
 stored under :sourcedir:`components/tools`
 are a bit more complex. Each tools component installs its artifacts to
 the tools/target directory which is copied **on top of** the
-OMERO\_HOME/dist top-level distribution directory.
+:file:`dist` top-level distribution directory.
 
 Code-signing
 ^^^^^^^^^^^^

@@ -86,6 +86,7 @@ omero_extlinks = {
     'pythondoc' : (downloads_root + '/latest/omero5.1/api/python/%s', ''),
     # Miscellaneous links
     'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
+    'ivydoc' : ('http://ant.apache.org/ivy/history/2.3.0/%s', ''),
     }
 extlinks.update(omero_extlinks)
 
