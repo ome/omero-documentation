@@ -20,34 +20,35 @@ OMERO::
 
       OMERO_SOURCE_PREFIX
       |
-      |-- build.xml .......................... Top-level build driver
+      |-- build.xml .......................... Top-level build file
       |
       |-- build.py ........................... Python wrapper to handle OS-specific configuration
       |
       |-- omero.class ........................ Self-contained Ant launcher
       |
-      |--etc/ ................................ All configuration
-      |   |-- grid/* ......................... Deployment files
-      |   |-- ivysettings.xml ................ Main Ivy configuration
+      |--etc ................................. Configuration folder
+      |   |-- grid ........................... Deployment files folder
+      |   |-- ivysettings.xml ................ Main Ivy configuration file
       |   |-- hibernate.properties
       |   |-- local.properties.example
       |   |-- logback.xml
-      |   |-- omero.properties ............... Server properties
+      |   |-- omero.properties
       |   \-- profiles
       |
       |-- examples ........................... User examples
       |
       \components
         |
-        |
         |--<component-name> .................. Each component has this same basic structure.
-        |    |-- build.xml ................... Build scripts
+        |    |-- build.xml ................... Build file
         |    |-- ivy.xml ..................... Jar dependencies
         |    |-- test.xml .................... Test dependencies
         |    |-- src ......................... Source code
         |    |-- resources ................... Other files of interest
         |    |-- test ........................ Test source code and test resources
         |    \-- target ...................... Build output (deleted on clean)
+        |
+        |  NOTABLE COMPONENTS
         |
         |-- model ............................ The model component is special in that in produces
         |                                      a jar specific to your database choice: model-psql.jar
@@ -56,23 +57,23 @@ OMERO::
         |
         |-- blitz ............................ The blitz component also performs code generation
         |    |                                 producing artifacts for Java, Python, and C++.
-        |    |
         |    \ blitz_tools.py ................ OMERO-specific SCons Environment definition
         |                                      and other build tools.
         |     
         |--tools ............................. Other server-components with special build needs.
-        |    |--build.xml
+        |    |--build.xml .................... Build scripts
+        |    |
         |    \--<tool-name>
-        |         |--build.xml
-        |         `--ivy.xml
+        |         |--build.xml ............... Build file
+        |         \--ivy.xml ................. Jar dependencies
         |
         \--antlib ............................ Special component which is not built, but referenced by the build
             |
             \--resources ..................... Build resources
-                |--global.xml ................ Global propertiees
+                |--global.xml ................ Global build properties
                 |--hibernate.xml
-                |--lifecycle.xml
-                \--version.xml
+                |--lifecycle.xml ............. Ivy-related targets
+                \--version.xml ............... Version properties
 
 .. note::
     User examples are explained under :doc:`/developers/GettingStarted`
@@ -93,11 +94,22 @@ Ant
 ^^^
 
 ``./build.py`` is a complete replacement for your local ant install. In
-many cases on and on most OS, you will be fine running ``ant``. If you
+many cases on and on most OS, you will be fine running :program:`ant`. If you
 have any issues (for example ``OutOfMemory``) , please use
 ``./build.py`` instead. **However, only use one or the other; do
 not mix calls between the two.**
 
+The main build targets are defined in the top-level :file:`build.xml` file.
+All available targets can be listed using::
+
+    ./build.py -p
+
+Each of the component contains a :file:`build.xml` and can be built directly
+using::
+
+    ./build.py -f components/server/build.xml
+
+This will call the default ``dist`` target for each component.
 
 Ivy
 ^^^
