@@ -148,8 +148,11 @@ Currently, the default resolver used by the build system, called
 #. `OME artifactory <http://artifacts.openmicroscopy.org>`_
 #. `SpringSource repository <http://repository.springsource.com/>`_
 
-Note that the Maven Central and OME artifactory resolvers currently have
-`usepoms` set to `false` meaning they do not resolve transitive dependencies.
+.. note::
+
+   The Maven Central and OME artifactory resolvers currently have
+   `usepoms` set to `false` meaning they do not resolve transitive
+   dependencies.
 
 To define its dependencies, each component uses a top-level
 :ivydoc:`Ivy file <ivyfile.html>`, :file:`ivy.xml`, for the build and
