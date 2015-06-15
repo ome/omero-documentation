@@ -119,7 +119,7 @@ omero.model.ImageI object. This will then get converted to an
 ome.model.core.Image, which can finally be persisted to the database.
 
 Keywords
-~~~~~~~~
+^^^^^^^^
 
 Some words are not allowed as properties/fields of OMERO types. These
 include:
@@ -131,7 +131,8 @@ include:
 
 
 Properties
-~~~~~~~~~~
+^^^^^^^^^^
+
 Mutable, annotated, global.
 
 
@@ -139,7 +140,7 @@ Improving generated data objects
 --------------------------------
 
 Constructors
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 Two special constructors are generated for each model object. One is for
 creating proxy instances, and the other is for filling all NOT-NULL
@@ -170,7 +171,7 @@ record only the string ``"text/plain"`` and not need to know the actual id
 value for ``"text/plain"``.
 
 Details
-~~~~~~~
+^^^^^^^
 
 Each table in the database has several columns handling low-level
 matters such as security, ownership, and provenance. To hide some of
@@ -234,7 +235,7 @@ keywords in the type language (above).
 .. _Model#Interfaces:
 
 Interfaces
-~~~~~~~~~~
+^^^^^^^^^^
 
 To help work with the generated objects, several interfaces are added to
 their "implements" clause:
@@ -276,7 +277,7 @@ of enums, you will need to use the ``ome.api.ITypes`` interface).
 .. _Model#Inheritance:
 
 Inheritance
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 Inheritance is supported in the object model. The superclass
 relationships can be defined simply in the mapping files. One example is
@@ -295,7 +296,7 @@ Hibernate. Instead, we must first parse that class String with
 :source:`Utils#trueClass() <components/model/src/ome/util/Utils.java>`.
 
 Model report objects
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
 To support the Collection Counts
 requirement in which users would like to know how many objects are in a
@@ -306,14 +307,14 @@ collection by owner, it was necessary to add read-only
 .. _Model#dynamic:
 
 Dynamic methods
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 Finally, because not all programming fits into the static programming
 frame, the object model provides several methods for working dynamically
 with all IObject subclasses.
 
 fieldSet / putAt / retrieve
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""
 
 Each model class contains a public final static String for each field in
 that class (superclass fields are omitted.) A copy of all these fields
@@ -325,7 +326,7 @@ value is stored in lazily-initialized Map (if no data is stored, the
 map is :literal:`null`).
 
 acceptFilter
-^^^^^^^^^^^^
+""""""""""""
 
 An automation of calls to ``putAt / retrieve`` can be achieved by
 implementing an ome.util.Filter. A Filter is a VisitorPattern-like
@@ -334,15 +335,13 @@ the chance to replace the field value with an arbitrary other value.
 Much of the internal functionality in OMERO is achieved through filters.
 
 Limitations
-^^^^^^^^^^^
+"""""""""""
 
 -  The filter methods override all standard checks such as
    IObject#isLoaded and so null-pointer exceptions etc. may be thrown.
 -  The types stored in the dynamic map currently do not propagate to the
    :doc:`/developers/server-blitz` model objects, since not all
    java.lang.Objects can be converted.
-
-
 
 Entity lifecycle
 ----------------
@@ -355,7 +354,7 @@ well as its current state to understand what will and can happen with
 it.
 
 States
-~~~~~~
+^^^^^^
 
 Each instance can be found in one of several states. Quickly, they are:
 
@@ -385,7 +384,7 @@ Each instance can be found in one of several states. Quickly, they are:
     :alt: Object states
 
 Identity, references, and versions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Critical for understanding these states is understanding the concepts of
 identity and versioning as it relates to ORM. Every object has an id
@@ -464,7 +463,7 @@ RMI client, an :doc:`server-blitz` client, or even
 being generated internally.
 
 Writing
-~~~~~~~
+^^^^^^^
 
 Creating new objects is as simple as instantiating objects and linking
 them together. If all NOT-NULL fields are not filled, then a
@@ -496,7 +495,7 @@ filled. This works on arbitrarily complex graphs of objects:
        update.saveAndReturnObject(i);   
 
 Reading
-~~~~~~~
+^^^^^^^
 
 Reading is a similarly straightforward operation. From a simple id
 based lookup, ``iQuery.get(Experimenter.class, 1L)`` to a search for an
@@ -524,7 +523,7 @@ same class with the same id are the same object. For example:
        }
 
 Reading and writing
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 Complications arise when you try to mix objects from different read
 operations because of the difference in equality. In all but the most
@@ -579,7 +578,7 @@ Various techniques to help to manage these duplications are:
 -  Use a :literal:`ClientSession`.
 
 Lazy loading
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 An issue related to identity is lazy loading. When an object graph is
 requested, Hibernate only loads the objects which are directly
@@ -615,7 +614,7 @@ instances which are required on the client-side. See
 for the implementation.
 
 Collections
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 More than just the nulling during serialization, collections pose
 several interesting problems.
@@ -640,7 +639,7 @@ remains for 1-N collections.
 .. _Model#Links:
 
 Links
-~~~~~
+^^^^^
 
 A special form of links collection model the many-to-many
 relationship between two other objects. A Project can contain any number
@@ -710,40 +709,17 @@ and deletes the ProjectDatasetLink (this is achieved via the
 collection has had its link removed, an exception will be thrown.
 
 Synchronization
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 Another important point is that the model objects are in no way
 synchronized. All synchronization must occur within application code.
 
+Limitations
+-----------
 
+We try to minimize differences between the Model as described by the XML
+specification and its implementation in the OMERO database but some Objects
+may behave in a more restricted fashion within OMERO. Examples include:
 
-Future topics
--------------
+-  ROIs and rendering settings can only belong to one Image
 
--  Validation: Since the accessor methods themselves are largely
-   logic-less, the work of validating the objects has been offset to
-   validation objects and the Hibernate system. For each given object, a
-   validation method can be specified which will check instance fields
-   (TODO: the null-policy should be configurable based on whether or not
-   the object is currently in a session). Validation is intended to
-   verify the specification constraints which cannot (easily and/or
-   quickly) be verified by the database.
--  Versioning/Locking
--  :literal:`ObjectFactory` for wrapping model objects from
-   :doc:`/developers/server-blitz`
--  Links to external models
--  Client cache
--  Document collection methods
--  Add info on the ILink interface to the section above.
--  In addition to the extended functionality of the new object model,
-   there are some changes to the actual structure, the specification,
-   that are needed.
-
-   -  image\_id ==> pixel\_id where appropriate
-   -  plane\_info
-   -  ACL (getting ownership in each table not MEX)
-   -  one table ; one class
-   -  cleaning up container relationships (project, category, screen,
-      etc.)
-   -  replace ST definition ("ST is immutable") with locking meechanism
-   -  possibly versioning
