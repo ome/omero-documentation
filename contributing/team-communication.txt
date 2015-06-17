@@ -34,9 +34,9 @@ The daily stand-up meeting is managed via this chatroom, with notes in google
 docs that are edited throughout the day as people complete the tasks assigned
 to them.
 
-Slightly less frequently, the team meets on Skype or in Google hangouts
-for voice discussions. These subgroup, or “mini group”, meetings
-are organized as needed, but should provide feedback (tickets, notes,
+Slightly less frequently, the team meets on Skype, Google hangouts, or most
+frequently, Zoom for voice discussions. These subgroup, or “mini group”,
+meetings are organized as needed, but should provide feedback (tickets, notes,
 etc). More information is available under :community_plone:`conference-calls
 <minutes/conference-calls>`.
 
@@ -84,7 +84,9 @@ continuous integration tools.
 
 You can request access to the openmicroscopy boards as an external
 collaborator. Sign up for a free account and then get in touch with us to be
-added.
+added. We have now added a `public OME organisation <https://trello.com/ome>`_
+to allow anyone to follow our development progress (see :ref:`public-trello`
+for more information).
 
 Developer documentation
 -----------------------
@@ -249,4 +251,4 @@ for review by the team. Either an email should be sent to ome-nitpick
 with a link to the mini group notes, or it should be brought up during
 the weekly meeting.
 
-.. _DevContactList spreadsheet: https://spreadsheets.google.com/spreadsheet/ccc?key=0AuHdV7GT-8hmcDBjMldqTEJ4OHRuQVZGbS03UkcwWUE&hl=en_GB#gid=0
+.. _DevContactList spreadsheet: https://docs.google.com/spreadsheets/d/1oHHU1GdEQq03dDf1FzUe0xoEi1RK1BOLOaL0HhMAeEA/edit

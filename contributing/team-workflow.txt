@@ -6,38 +6,41 @@ Development management
 
 The OME team uses a Kanban-based approach to manage development work. New
 features, or bug fixes which require significant amounts of work, are
-identified as priorities and then listed in the 'Upcoming Features' board on
-Trello. They then move through 'scoping' to 'implementing' to 'ready for QA'
-as work on them progresses. This board acts to give an overview of the
-development work.
+identified as priorities and listed in the 'Priorities List' board on
+Trello. They are then assigned to a target release and, if this is the next
+release, moved to a release board to allow all the current work to be tracked
+in one place. 'Epic' bodies of work may be managed via topic-based boards.
 
-.. figure:: /images/trello_features.png
+.. figure:: /images/priorities_trello.png
    :align:  center
 
-
-The individual components of work required to complete each feature or fix are
-managed on further boards, for example the UX board for client UI work. Each
-developer has a primary board where their main effort is focused and they
-comment on the relevant cards to update their colleagues on progress. Cards
-also progress through 'to do', 'in progress' and 'done' equivalent lists, the
-exact titling of which vary from board to board but should be
-self-explanatory.
 Developers should focus on the tasks identified as priorities for the next
 point release or longer-term work towards the next major version based on the
 outcome of team meetings. Constant communication is vital to ensure everyone
 is working together to the same goals.
 
+.. _public-trello:
+
 Public-facing workflow
 ----------------------
 
-Currently, the Trello boards are only viewable to members of the
-openmicroscopy organization. To follow the development process from outside
-the project, you can view the milestones on the
-:milestone:`Trac Roadmap page <>` and Trac tickets for :report:`bugs <8>`.
-Internally reported issues are increasingly being managed on Trello cards
-rather than Trac tickets so it is likely that at least one board will be made
-public in the future. The workflow is still in transition as we work
-on ways to integrate Trello with our other tools more effectively.
+To follow the development process from outside the project, you can view the
+milestones on the :milestone:`Trac Roadmap page <>` and Trac tickets for
+:report:`bugs <8>` and/or follow our new
+`public Trello OME organization <https://trello.com/ome>`_. Trello is now used
+for higher level planning and will be of most interest to those concerned with
+new features and functionality (Trac is still used for individual bug
+tracking). The 'Getting Started' board provides full instructions and an index
+of current boards, allowing you to browse upcoming work for the next releases
+and topic-based 'epic' work plans.
+
+.. figure:: /images/public_trello.png
+   :align:  center
+
+You can sign up for a free Trello account to add comments and need to be added
+to the organization (by commenting on the 'Add me, please' card) to gain extra
+permissions e.g. to vote on or add cards.
+
 
 For information about keeping up to date with OME projects, refer to the
 :doc:`team-communication` guide.
