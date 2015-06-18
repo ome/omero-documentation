@@ -9,7 +9,7 @@ Build System
 .. _Ivy: http://ant.apache.org/ivy
 
 OMERO mostly uses an Ant_-based build with dependency management provided by
-Ivy_. :doc:`Native code </developers/Cpp>` is built using Cmake and Python
+Ivy_. :doc:`C++ code </developers/Cpp>` is built using Cmake and Python
 uses the traditional distutils/setuptools tools.
 
 Structure of the build
@@ -56,8 +56,7 @@ OMERO::
         |                                      annotations for object-relational mapping.
         |
         |-- blitz ............................ The blitz component also performs code generation
-        |    |                                 producing artifacts for Java, Python, and C++.
-        |    \ blitz_tools.py ................ OMERO-specific SCons Environment definition
+        |                                      producing artifacts for Java, Python, and C++.
         |                                      and other build tools.
         |     
         |--tools ............................. Other server-components with special build needs.
@@ -79,7 +78,7 @@ OMERO::
     User examples are explained under :doc:`/developers/GettingStarted`
 
 Unfortunately, just the above snapshot of the code repository omits some
-of the most important code. Many MB of source code is generated both by
+of the most important code. Many megabytes of source code is generated both by
 our own :sourcedir:`DSLTask <components/dsl>` as well as by
 the Ice_ ``slice2java``, ``slice2cpp``, and
 ``slice2py`` code generators. These take an intermediate representation
@@ -192,12 +191,10 @@ their :file:`build.xml`.
 OmeroTools
 ^^^^^^^^^^
 
-Similarly, the ant build alone is not enough to describe all the
-products which get built. Namely, the builds for the non-Java components
-stored under :sourcedir:`components/tools`
-are a bit more complex. Each tools component installs its artifacts to
-the tools/target directory which is copied **on top of** the
-:file:`dist` top-level distribution directory.
+The Ant_ build alone is not enough to describe all the products which get
+built. Namely, the builds for the non-Java components stored under
+:sourcedir:`components/tools` are a bit more complex. Each tools component
+installs its artifacts to the tools/target directory which is copied **on top of** the :file:`dist` top-level distribution directory.
 
 Code-signing
 ^^^^^^^^^^^^
@@ -254,6 +251,6 @@ it is put, and what role it plays in the distribution.
 
 
 .. note::
-    By default, |OmeroCpp| is not built. Use ``build-all`` for that.
+    By default, |OmeroCpp| are not built. Use ``build-all`` for that.
 
 These files are then zipped to OMERO.server-<version>.zip via ``release-zip``
