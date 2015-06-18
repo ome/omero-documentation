@@ -130,14 +130,14 @@ OMERO build system defines and uses two kinds of caches:
    cache can become stale. Calling ``./build.py clean`` from the top-level
    build will delete the content of the local cache.
 
-:ivydoc:`Resolvers <settings/resolvers.html>` are key to how Ivy functions. Multi-resolvers can be defined (as granular as for an individual jar) in order
-to pick up the latest version of any library from a
+:ivydoc:`Resolvers <settings/resolvers.html>` are key to how Ivy functions. Multiple dependency resolvers can be defined fine-grained enough to resolve an individual jar in order to pick up the latest version of any library from a
 :ivydoc:`repository <resolver/ibiblio.html>`, a
 :ivydoc:`generic URL <resolver/url.html>` or from the
 :ivydoc:`local file system <resolver/filesystem.html>`.
 
-Currently, the default resolver used by the build system, called
-``omero-resolver``, looks in the following locations by order of precedence:
+The build system uses by default a
+:ivydoc:`chain resolver <resolver/chain.html>` called ``omero-resolver`` which
+resolves the following locations in order:
 
 #. :file:`target/repository`
 #. :file:`lib/repository`
