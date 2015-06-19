@@ -415,7 +415,7 @@ example, a user can do the following:
       iUpdate.saveObject(p);
 
 The server, in turn, also uses references to replace backend proxies
-that would otherwise throw ``LazyInitializationException``s on
+that would otherwise throw ``LazyInitializationException``\ s on
 serialization. Clients, therefore, must code with the expectation that
 the leaves in an object graph may be unloaded. Extending a query with
 "outer join fetch" will cause these objects to be loaded as well. For
