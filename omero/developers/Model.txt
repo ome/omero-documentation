@@ -44,7 +44,7 @@ Hibernate_. That means, by and large,
 generated classes are data objects, composed only of getter and setter
 fields for fields representing columns in the database, and contain no
 business logic. However, to make working with the model easier, and
-perhaps more powerful, there are several features which we have built-in.
+perhaps more powerful, there are several features which we have built in.
 
 .. note::
 
@@ -58,7 +58,7 @@ OMERO type language
 -------------------
 
 The Model has two general parts:
-first, the long studied and well-established core model and second, the
+first, the long-studied and well-established core model and second, the
 user-specified portion. It is vital that there is a central definition
 of both parts of the object model. To allow users to easily define new
 types, we need a simple domain specific language (or little language)
@@ -81,14 +81,14 @@ source directory are the starting point for all code generation. Currently
 however, the files under :sourcedir:`components/model/resources/mappings`
 are hand-written based on the XSD files.
 
-The ant-task created from the :sourcedir:`components/dsl/src` Java files
+The ant task created from the :sourcedir:`components/dsl/src` Java files
 is then used to turn the mapping files into generated Java code under the
 :file:`model/target/generated/src` directory. These classes are all within the
 ome.model package. A few hand-written Java classes can also be found in
 :sourcedir:`components/model/src/ome/model/internal`.
 
-The build-schema target takes the generated ome.model classes as input and
-generates the :sourcedir:`sql/psql` scripts which get used on :omerocmd:`db
+The build-schema ant target takes the generated ome.model classes as input and
+generates the :sourcedir:`sql/psql` scripts which get used by :omerocmd:`db
 script` to generate a working OMERO database. Files named like
 :file:`OMEROVERSION__PATCH.sql` are hand-written update scripts.
 
@@ -282,7 +282,7 @@ relationships can be defined simply in the mapping files. One example is
 the annotation hierarchy in 
 :source:`components/model/resources/mappings/annotations.ome.xml`.
 Hibernate supports this polymorphism, and will search all subclasses
-when a super class is returned. *However*, due to Hibernate's use of
+when a superclass is returned. *However*, due to Hibernate's use of
 bytecode-generated proxies, testing for class equality is not always
 straightforward.
 
@@ -315,10 +315,10 @@ fieldSet / putAt / retrieve
 """""""""""""""""""""""""""
 
 Each model class contains a public final static String for each field in
-that class (superclass fields are omitted.) A copy of all these fields
+that class (superclass fields are omitted). A copy of all these fields
 is available through ``fieldSet()``. This field identifier can be used in
 combination with the putAt and retrieve methods to store arbitrary data
-a class instance. Calls to ``putAt/retrieve`` with a string found in
+in a class instance. Calls to ``putAt/retrieve`` with a string found in
 fieldSet delegate to the traditional getters/setters. Otherwise, the
 value is stored in lazily-initialized Map (if no data is stored, the
 map is :literal:`null`).
@@ -374,7 +374,7 @@ Each instance can be found in one of several states. Quickly, they are:
     the id. Attempts to get or set any other property will result in an
     exception. The backend detects these proxies and restores their
     value before operating on the graph. There are two related states
-    for collections -- :literal:`null` which is completely unloaded and filtered in
+    for collections -- :literal:`null` which is completely unloaded, and filtered in
     which certain items have been removed (more on this below).
 
 .. figure:: /images/ObjectStates.png
@@ -423,7 +423,9 @@ example:
 
 ::
 
-    select p from Project p left outer join fetch p.datasetLinks as links left outer join fetch links.child as dataset
+    select p from Project p
+        left outer join fetch p.datasetLinks as links
+        left outer join fetch links.child as dataset
 
 but eventually in the complex OME metadata graph, it is certain that
 something will remain unloaded.
@@ -493,8 +495,8 @@ works on arbitrarily complex graphs of objects:
 Reading
 ^^^^^^^
 
-Reading is a similarly straightforward operation. From a simple id
-based lookup, ``iQuery.get(Experimenter.class, 1L)`` to a search for an
+Reading is a similarly straightforward operation. From a simple id-based
+lookup, ``iQuery.get(Experimenter.class, 1L)`` to a search for an
 arbitrarily complex graph:
 
 ::
@@ -576,7 +578,7 @@ Lazy loading
 ^^^^^^^^^^^^
 
 An issue related to identity is lazy loading. When an object graph is
-requested, Hibernate only loads the objects which are directly
+requested, Hibernate loads only the objects which are directly
 requested. All others are replaced with proxy objects. Within the
 Hibernate session, these objects are "active" and if accessed, they
 will be automatically loaded. This is taken care of by the first-level
@@ -614,7 +616,7 @@ Collections
 More than just the nulling during serialization, collections pose
 several interesting problems.
 
-For example, a collection may filtered on retrieval:
+For example, a collection may be filtered on retrieval:
 
 ::
 
