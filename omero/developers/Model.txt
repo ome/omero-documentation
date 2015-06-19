@@ -447,7 +447,6 @@ sometimes, but guarantee that our data is never corrupted.
 
 .. note:: 
     There is one exception to this discussed below under :ref:`Model#Links`. 
-    See that section or :ticket:`1649` for more information.
 
 
 Working with the object model
@@ -564,7 +563,6 @@ multiple threads, but simply due to stale state.
 .. note:: 
     There is an issue with multiple users in which a 
     ``SecurityViolation`` is thrown instead of an ``OptimisticLockException``.
-    See :ticket:`1649` for more information.
 
 Various techniques to help to manage these duplications are:
 
