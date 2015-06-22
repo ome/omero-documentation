@@ -6,10 +6,11 @@ Development management
 
 The OME team uses a Kanban-based approach to manage development work. New
 features, or bug fixes which require significant amounts of work, are
-identified as priorities and listed in the 'Priorities List' board on
-Trello. They are then assigned to a target release and, if this is the next
-release, moved to a release board to allow all the current work to be tracked
-in one place. 'Epic' bodies of work may be managed via topic-based boards.
+identified as priorities, listed in the 'Priorities List' board on
+Trello and then assigned to a target release. As the particular release
+becomes imminent, cards assigned to it are moved to a dedicated release board
+to allow all the current work to be tracked in one place. 'Epic' bodies of
+work may be managed via topic-based boards.
 
 .. figure:: /images/priorities_trello.png
    :align:  center
