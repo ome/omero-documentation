@@ -129,11 +129,6 @@ include:
 -  details
 -  … any SQL keyword
 
-Properties
-^^^^^^^^^^
-
-Mutable, annotated, global.
-
 Improving generated data objects
 --------------------------------
 
@@ -555,7 +550,7 @@ not know whether the object should be removed or not.
     assert newProject.sizeOfDatasetLinks() == oldProject.sizeOfDatasetLinks() :
             "if this is false, then saving oldProject is a problem";
 
-Without optimistic locks, return oldProject, trying to save oldProject
+Without optimistic locks, trying to save oldProject
 would cause whatever Datasets were missing from it to be removed from
 newProject as well. Instead, an ``OptimisticLockException`` is thrown
 if a user tries to change an older reference to an entity. Similar
