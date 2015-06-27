@@ -160,7 +160,7 @@ Components
 
 * Ice
 
-  * [5.1] 3.4 deprecated, 3.5 recommended, 3.6 not supported
+  * [5.1] 3.4 deprecated, 3.5 recommended, 3.6 supported
   * [5.2] 3.4 dropped, 3.5 deprecated, 3.6 recommended
   * Rationale: 3.4 is no longer supported by ZeroC with 3.5 being
     current. By the release of 5.2, Ice 3.6 will have been out for
@@ -1026,8 +1026,9 @@ future; 3.x versions continue to be released and retired regularly in
 parallel. The limiting factor will be distribution support for 2.7 as
 major packages are slowly switching to 3.x, and this might cause
 problems if our python module dependencies are no longer available
-without major effort. Ice in particular has dropped 2.7 support for
-Windows, and has a significant cost in providing custom rebuilds.
+without major effort. Ice 3.5 in particular has dropped 2.7 support
+for Windows, and has a significant cost in providing custom rebuilds.
+However, Ice 3.6 restores Python 2 support.
 
 GCC
 ---
@@ -1425,12 +1426,12 @@ Ice
       - `Ice 3.5 <http://www.zeroc.com/forums/announcements/5943-ice-3-5-0-released.html>`__
         `Ice 3.5.1 <http://www.zeroc.com/forums/announcements/6118-ice-3-5-1-released.html>`__
     * - 3.6
-      - TBA (in beta)
-      - TBA
+      - from June 2015
+      - to TBA
       - Unsupported
-      - Unsupported
+      - Supported
       - Recommended
-      -
+      - `Ice 3.6.0 <http://zeroc.com/forums/announcements/6468-ice-3-6-0-ice-touch-3-6-0-released.html>`__
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
