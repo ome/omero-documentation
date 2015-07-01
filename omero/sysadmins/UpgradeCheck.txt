@@ -76,28 +76,6 @@ code, it is necessary to have ``common.jar`` on your classpath. Then,
 will connect to the server and check your current version against the
 latest release.
 
-Updating the registry version after a release
----------------------------------------------
-
-::
-
-    $ psql -h localhost -U postgres feedback
-
-    feedback=# select * from registry_version;
-     id |  version   
-    ----+------------
-      1 | Beta-4.2.2
-    (1 row)
-
-    feedback=# select now();
-                  now              
-    -------------------------------
-     2011-06-27 16:01:30.749654+01
-    (1 row)
-
-    feedback=# update registry_version set version = 'Beta-4.3.0' where id = 1;
-    UPDATE 1
-
 .. seealso:: 
 
 
