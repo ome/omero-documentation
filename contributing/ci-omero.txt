@@ -33,8 +33,8 @@ OMERO jobs
 
     -   * Merges the PRs
         * :term:`OME-5.0-merge-push`
-        * :term:`OME-5.1-merge-push`
-        * :term:`OME-5.1-breaking-push`
+        * :term:`OMERO-5.1-merge-push`
+        * :term:`OMERO-5.1-breaking-push`
 
     -   * Builds the OMERO artifacts
         * :term:`OMERO-5.0-merge-build`
@@ -386,7 +386,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
         This job triggers all the morning merge builds listed below
 
-        #. Triggers :term:`OME-5.1-merge-push`
+        #. Triggers :term:`OMERO-5.1-merge-push`
         #. Triggers :term:`OMERO-5.1-merge-build` and
            :term:`OMERO-5.1-merge-integration`
         #. Triggers :term:`OMERO-5.1-merge-deploy`
@@ -394,7 +394,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
         See :jenkinsjob:`the build graph <OMERO-5.1-merge-daily/lastSuccessfulBuild/BuildGraph>`
 
-    :jenkinsjob:`OME-5.1-merge-push`
+    :jenkinsjob:`OMERO-5.1-merge-push`
 
         This job merges all the PRs opened against develop
 
@@ -541,13 +541,13 @@ Jenkins.
 
         This job triggers all the breaking jobs listed below
 
-        #. Triggers :term:`OME-5.1-breaking-push`
+        #. Triggers :term:`OMERO-5.1-breaking-push`
         #. Triggers :term:`OMERO-5.1-breaking-build` and
            :term:`OMERO-5.1-breaking-integration`
         #. Triggers :term:`OMERO-5.1-breaking-deploy`
         #. Triggers other downstream breaking jobs
 
-    :jenkinsjob:`OME-5.1-breaking-push`
+    :jenkinsjob:`OMERO-5.1-breaking-push`
 
         This job merges all the breaking PRs
 
