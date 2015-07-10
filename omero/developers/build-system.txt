@@ -135,14 +135,14 @@ OMERO build system defines and uses two kinds of caches:
 :ivydoc:`repository <resolver/ibiblio.html>`, a
 :ivydoc:`generic URL <resolver/url.html>` or from the
 :ivydoc:`local file system <resolver/filesystem.html>`.
-Since OMERO 5.1.3, the rremote repository resolvers are set up to resolve
+Since OMERO 5.1.3, the remote repository resolvers are set up to resolve
 transitive dependencies.
 
 The OMERO build system uses by default a
 :ivydoc:`chain resolver <resolver/chain.html>` called ``omero-resolver`` which
 resolves the following locations in order:
 
-#. the :file:`target/repository` which contains most artifacts published by the
+#. :file:`target/repository` which contains most artifacts published by the
    build system in the `install` step of the lifecycle
 #. the local dependency repository under :file:`lib/repository`
 #. the local Maven cache under :file:`~/.m2/repository`
