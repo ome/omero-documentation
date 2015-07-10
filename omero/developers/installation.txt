@@ -58,12 +58,6 @@ or Mac OS X, take a look at the
 
 Additional dependencies are necessary for building the server and clients:
 
-- `Genshi <http://genshi.edgewall.org/>`_ can be installed using either the
-  package manager or Python packaging tools such as ``easy_install`` or
-  ``pip``::
-
-    pip install Genshi
-
 - Ice Python and Java development packages may need to be explicitly installed
   on Linux.
 
