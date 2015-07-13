@@ -453,8 +453,8 @@ Python                      http://python.org
 Matplotlib                  http://matplotlib.org/
 Pillow                      http://pillow.readthedocs.org
 Hibernate                   http://www.hibernate.org
-ZeroC                       http://www.zeroc.com
-Ice                         http://www.zeroc.com
+ZeroC                       https://zeroc.com
+Ice                         https://zeroc.com
 Jenkins                     http://jenkins-ci.org
 roadmap                     https://trac.openmicroscopy.org.uk/ome/roadmap
 Open Microscopy Environment http://www.openmicroscopy.org/site
