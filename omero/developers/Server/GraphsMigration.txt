@@ -127,8 +127,8 @@ becomes,
 Java request factory
 --------------------
 
-A utility class :source:`Request.java
-<components/insight/SRC/org/openmicroscopy/shoola/env/data/Requests.java>`
+A utility class :source:`Requests.java
+<components/blitz/src/omero/gateway/util/Requests.java>`
 provides convenient instantiation of graph requests. This class allows
 the requests from the above Python examples to be created by,
 
