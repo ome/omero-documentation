@@ -190,7 +190,7 @@ rst_epilog = """
 .. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
 .. _Pillow: http://pillow.readthedocs.org
 .. _Matplotlib: http://matplotlib.org/
-.. _Python: http://python.org
+.. _Python: http://www.python.org
 .. _Libjpeg: http://libjpeg.sourceforge.net/
 
 .. |SSH| replace:: :abbr:`SSH (Secure Shell)`

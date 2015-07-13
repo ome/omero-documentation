@@ -391,7 +391,7 @@ more than once, e.g.::
     
     ...
     
-    .. _Python.org: http://python.org
+    .. _Python.org: http://www.python.org
     
 If a hyperlink appears only once, please use anonymous, "one-off" hyperlinks
 (two underscores)::
@@ -449,7 +449,7 @@ The table below lists targets for common hyperlinks.
 =========================== ==============================================
 Target name                 Link
 =========================== ==============================================
-Python                      http://python.org
+Python                      http://www.python.org
 Matplotlib                  http://matplotlib.org/
 Pillow                      http://pillow.readthedocs.org
 Hibernate                   http://www.hibernate.org
