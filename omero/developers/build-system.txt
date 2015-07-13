@@ -121,8 +121,9 @@ each :file:`ivy.xml` file and stores the resolved artifacts in a
 :ivydoc:`cache <settings/caches/cache.html>` to speed up other processes. The
 OMERO build system defines and uses two kinds of caches:
 
-#. a local cache under :file:`lib/cache`
-#. the maven cache under :file:`~/.m2/repository`
+#. the local dependencies cache under :file:`lib/cache` is used by most
+   resolvers
+#. Maven resolvers use the Maven cache under :file:`~/.m2/repository`
 
 .. note::
 
@@ -134,24 +135,26 @@ OMERO build system defines and uses two kinds of caches:
 :ivydoc:`repository <resolver/ibiblio.html>`, a
 :ivydoc:`generic URL <resolver/url.html>` or from the
 :ivydoc:`local file system <resolver/filesystem.html>`.
+Since OMERO 5.1.3, the remote repository resolvers are set up to resolve
+transitive dependencies.
 
-The build system uses by default a
+The OMERO build system uses by default a
 :ivydoc:`chain resolver <resolver/chain.html>` called ``omero-resolver`` which
 resolves the following locations in order:
 
-#. :file:`target/repository`
-#. :file:`lib/repository`
-#. :file:`target/test-repository`
-#. :file:`~/.m2/repository`
-#. `Maven central repository <http://central.sonatype.org/>`_
-#. `OME artifactory <http://artifacts.openmicroscopy.org>`_
-#. `SpringSource repository <http://repository.springsource.com/>`_
+#. :file:`target/repository` which contains most artifacts published by the
+   build system in the `install` step of the lifecycle
+#. the local dependency repository under :file:`lib/repository`
+#. the local Maven cache under :file:`~/.m2/repository`
+#. the `Maven central repository <http://search.maven.org/>`_
+#. the `OME artifactory <http://artifacts.openmicroscopy.org>`_
 
-.. note::
+Bio-Formats dependencies are resolved using a specific
+:ivydoc:`chain resolver <resolver/chain.html>` called ``ome-resolver`` which
+resolves the following locations in order:
 
-   The Maven Central and OME artifactory resolvers currently have
-   `usepoms` set to `false` meaning they do not resolve transitive
-   dependencies.
+#. the local Maven cache under :file:`~/.m2/repository`
+#. the `OME artifactory <http://artifacts.openmicroscopy.org>`_
 
 To define its dependencies, each component uses a top-level
 :ivydoc:`Ivy file <ivyfile.html>`, :file:`ivy.xml`, for the build and
@@ -160,10 +163,10 @@ optionally another Ivy file, :file:`test.xml`, for the tests.
 The OMERO build system defines and uses four types of Ivy
 :ivydoc:`configurations <ivyfile/configurations.html>`:
 
-#. build
-#. server
-#. client
-#. test
+#. build: defines dependencies to be used for building
+#. server: defines dependencies to be bundled under :file:`lib/server`
+#. client: defines dependencies to be bundled under :file:`lib/client`
+#. test: defines dependencies to be used for running the tests
 
 While building, most Java components follow the same lifecycle define in
 :source:`lifecycle.xml <components/antlib/resources/lifecycle.xml>`. The
