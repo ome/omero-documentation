@@ -62,11 +62,8 @@ Python 2
 
 **Make sure you install the correct Python 2 version for your Ice version:**
 
-- If you have downloaded Ice 3.6.0 from ZeroC or Ice 3.5.1 from our
-  downloads page, you will need to install the `latest Python 2.7
-  release <http://www.python.org/downloads/windows/>`_.
-
-- If you have downloaded Ice 3.5.1 from our downloads page, you will
+- If you have downloaded Ice 3.5.1 from our downloads page or Ice
+  3.6.0 from ZeroC (note that support is currently upcoming), you will
   need to install the `latest Python 2.7 release
   <http://www.python.org/downloads/windows/>`_.
 
@@ -136,22 +133,23 @@ Ice
 
 .. note::
 
-    OMERO |version| supports Ice 3.6, 3.5 and 3.4. You will need to pick the
-    matching server download for the version of Ice you have installed.
+    OMERO |version| supports Ice 3.5 and 3.4; support for 3.6 is
+    currently upcoming. You will need to pick the matching server
+    download for the version of Ice you have installed.
 
     If you are using precompiled packages of Ice and Python
     (recommended) you should use the versions specified below. In
     particular since OMERO does not support Python 3 **it will not
     work with the ZeroC Ice 3.5 package for Windows**. However, Ice
-    3.5 will work when built against Python 2.7.  Using the ZeroC Ice
-    3.6 packages is recommended, which do support Python 2.7.
+    3.5 will work when built against Python 2.7.  However, the ZeroC
+    Ice 3.6 packages do support Python 2.7.
 
-The :zeroc:`Ice 3.6.0 download page <download.html>` provides
-installers for Windows, and is the recommended choice.  Alternatively,
 Ice 3.5.1 built against Python 2.7 is available from our `Ice
 downloads page <http://downloads.openmicroscopy.org/ice/3.5.1/>`_, or
 Ice 3.4 installers can be found on the old :zeroc:`ZeroC Ice 3.4.2
-download page <download_3_4_2.html>`.
+download page <download_3_4_2.html>`.  Alternatively, the :zeroc:`Ice
+3.6.0 download page <download.html>` provides installers for Windows,
+but support for this release is currently upcoming.
 
 If you plan to develop for C++, be sure to read the instructions on the
 |OmeroCpp| page.
