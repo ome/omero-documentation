@@ -63,8 +63,8 @@ Python 2
 **Make sure you install the correct Python 2 version for your Ice version:**
 
 - If you have downloaded Ice 3.5.1 from our downloads page or Ice
-  3.6.0 from ZeroC (note that support is currently upcoming), you will
-  need to install the `latest Python 2.7 release
+  3.6.0 from ZeroC (note that support is currently upcoming, see
+  below), you will need to install the `latest Python 2.7 release
   <http://www.python.org/downloads/windows/>`_.
 
 - If you have installed Ice version 3.4.2 from ZeroC, you need Python
@@ -134,8 +134,9 @@ Ice
 .. note::
 
     OMERO |version| supports Ice 3.5 and 3.4; support for 3.6 is
-    currently upcoming. You will need to pick the matching server
-    download for the version of Ice you have installed.
+    currently upcoming (experimental and used at your own risk). You
+    will need to pick the matching server download for the version of
+    Ice you have installed.
 
     If you are using precompiled packages of Ice and Python
     (recommended) you should use the versions specified below. In
