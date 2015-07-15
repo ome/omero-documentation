@@ -142,8 +142,8 @@ Ice
     (recommended) you should use the versions specified below. In
     particular since OMERO does not support Python 3 **it will not
     work with the ZeroC Ice 3.5 package for Windows**. However, Ice
-    3.5 will work when built against Python 2.7.  However, the ZeroC
-    Ice 3.6 packages do support Python 2.7.
+    3.5 will work when built against Python 2.7.  The ZeroC Ice 3.6
+    packages do support Python 2.7.
 
 Ice 3.5.1 built against Python 2.7 is available from our `Ice
 downloads page <http://downloads.openmicroscopy.org/ice/3.5.1/>`_, or
