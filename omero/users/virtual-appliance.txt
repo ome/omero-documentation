@@ -1,6 +1,9 @@
 OMERO virtual appliance
 =======================
 
+.. note:: As of OMERO 5.1.2, the Virtual Appliance is now available from a
+    separate :downloads_va:`downloads page <>`.
+
 The OMERO virtual appliance is a quick, easy, and low-cost way to try
 out OMERO.server on your laptop or desktop. This enables you to make
 an informed decision about whether committing to an OMERO.server
@@ -44,7 +47,7 @@ Getting started
 To use the virtual appliance you should do the following:
 
 -  Install VirtualBox
--  Download the OMERO.server virtual appliance
+-  :downloads_va:`Download the OMERO.server virtual appliance <>`
 -  Import the virtual appliance into VirtualBox to create a virtual
    machine
 -  Start the virtual machine
@@ -76,9 +79,8 @@ screenshot:
 Download the OMERO.server virtual appliance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The virtual appliance can be downloaded from the 
-:downloads:`OMERO download page <>` and should have a filename 
-similar to omero-vm-|release|.ova.
+The virtual appliance has its own :downloads_va:`download page <>` and will
+have a filename similar to omero-vm-|release|.ova.
 
 Import OMERO virtual appliance into VirtualBox
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
