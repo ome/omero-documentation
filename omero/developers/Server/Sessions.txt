@@ -1,25 +1,8 @@
 OMERO sessions
 ==============
 
-.. _JAAS: http://www.oracle.com/technetwork/java/javase/tech/index-jsp-136007.html
-
-Beginning with OMERO-3.0-Beta3, the OMERO server has unified the handling of 
-login sessions among both the JBoss and the :doc:`/developers/server-blitz` 
-servers. 
-Previously JBoss logins were handled via the standard `JAAS`_ mechanisms, 
-using a modified ``DatabaseLoginModule``. This proved problematic for several 
-reasons:
-
-#. Exceptions thrown during login could not easily be caught or
-   specified.
-#. Passwords were sent in the clear on every invocation.
-#. Sql queries on every invocation caused significant overhead.
-
-Blitz did not suffer from these problems, but the login functionality
-was largely outside of the core server code and sessions were more
-volatile: a loss of an Ice connection caused all resources to be lost.
-With |OmeroSessions|, both login systems have been brought together and 
-simplified.
+OMERO sessions simplifies the handling of login session for
+:doc:`/developers/server-blitz`.
 
 .. figure:: /images/omero-BlitzSessionCreationDestruction.png
   :align: center
@@ -103,12 +86,9 @@ the session via:
 Existing sessions
 -----------------
 
-In :doc:`/developers/server-blitz`, once the connection to a
-``ServiceFactoryPrx`` (a Glacier2.Session subclass) was lost, it was not
-possible to reconnect to any of the services created using that
-connection. Now it is possible to reacquire the session if it is still
-active, by passing the previous session UUID as your password (User
-principal is ignored).
+In :doc:`/developers/server-blitz`, it is possible to reacquire the session if
+it is still active, by passing the previous session UUID as your password
+(User principal is ignored).
 
 ::
 
@@ -121,23 +101,6 @@ principal is ignored).
 
       client = omero.client()
       servicefactory = client.createSession(omero.sys.Principal(), olduuid)
-      // now reattached  
-
-
-Backwards compatibility
------------------------
-
-In the short-term, there is no need for any change to client code to
-make use of the new sessions.
-
-``ome.system.ServiceFactory`` has been modified to automatically acquire
-a session before the first service call is made. Eventually, clients
-will want to make use of the session API and catch session exceptions to
-have a finer control of the client lifecycle.
-
-Similarly, no changes are needed in :doc:`/developers/server-blitz`
-client code since Glacier2 sessions now delegate to |OmeroSessions|. 
-Clients can access the ISession service when necessary. 
-Exceptions thrown are still Ice-based.
+      // now reattached
 
 .. seealso:: :doc:`/sysadmins/server-security`
