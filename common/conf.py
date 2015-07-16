@@ -172,8 +172,9 @@ extlinks = {
     'help' : (help_root + '/%s', ''),
     # Miscellaneous links
     'snapshot' : (cvs_root + '/snapshots/%s', ''),
-    'zeroc' : ('http://zeroc.com/%s', ''),
-    'zerocdoc' : ('http://doc.zeroc.com/%s', ''),
+    'zeroc' : ('https://zeroc.com/%s', ''),
+    'zerocforum' : ('https://forums.zeroc.com/forum/%s', ''),
+    'zerocdoc' : ('https://doc.zeroc.com/%s', ''),
     'djangodoc' : ('https://docs.djangoproject.com/en/1.6/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
     'pypi': ('https://pypi.python.org/pypi/%s', '')
@@ -181,15 +182,15 @@ extlinks = {
 
 rst_epilog = """
 .. _Hibernate: http://www.hibernate.org
-.. _ZeroC: http://www.zeroc.com
-.. _Ice: http://www.zeroc.com
+.. _ZeroC: https://zeroc.com
+.. _Ice: https://zeroc.com
 .. _Jenkins: http://jenkins-ci.org
 .. _roadmap: https://trac.openmicroscopy.org.uk/ome/roadmap
 .. _Open Microscopy Environment: http://www.openmicroscopy.org/site
 .. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
 .. _Pillow: http://pillow.readthedocs.org
 .. _Matplotlib: http://matplotlib.org/
-.. _Python: http://python.org
+.. _Python: http://www.python.org
 .. _Libjpeg: http://libjpeg.sourceforge.net/
 
 .. |SSH| replace:: :abbr:`SSH (Secure Shell)`

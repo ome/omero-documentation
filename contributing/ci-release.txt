@@ -11,9 +11,12 @@ jobs should be listed under the :jenkinsview:`Release` view.
     -   * Job task
         * 5.0.x
         * 5.1.x
-    -   * Trigger the OME release jobs
+    -   * Trigger the OMERO release jobs
         * :jenkinsjob:`OME-5.0-release-trigger`
-        * :jenkinsjob:`OME-5.1-release-trigger`
+        * :jenkinsjob:`OMERO-5.1-release-trigger`
+    -   * Tags the OMERO source code repository
+        * :jenkinsjob:`OME-5.0-release-push`
+        * :jenkinsjob:`OMERO-5.1-release-push`
     -   * Build the OMERO download artifacts
         * :jenkinsjob:`OMERO-5.0-release`
         * :jenkinsjob:`OMERO-5.1-release`
@@ -25,17 +28,20 @@ jobs should be listed under the :jenkinsview:`Release` view.
         * :jenkinsjob:`OMERO-5.1-release-integration`
     -   * Trigger the Bio-Formats release jobs
         *
-        * :jenkinsjob:`BIOFORMATS-5.1-release`
+        * :jenkinsjob:`BIOFORMATS-5.1-release-trigger`
+    -   * Tags the Bio-Formats source code repository
+        * :jenkinsjob:`OME-5.0-release-push`
+        * :jenkinsjob:`BIOFORMATS-5.1-release-push`
     -   * Build the Bio-Formats Java download artifacts
         * :jenkinsjob:`BIOFORMATS-5.0-release`
         * :jenkinsjob:`BIOFORMATS-5.1-release-java`
-    -   * Generate BIOFORMATS Java downloads page
+    -   * Generate the Bio-Formats Java downloads page
         * :jenkinsjob:`BIOFORMATS-5.0-release-downloads`
         * :jenkinsjob:`BIOFORMATS-5.1-release-downloads`
     -   * Build the Bio-Formats C++ download artifacts
         *
         * :jenkinsjob:`BIOFORMATS-5.1-release-cpp`
-    -   * Generate BIOFORMATS C++ downloads page
+    -   * Generate the Bio-Formats C++ downloads page
         *
         * :jenkinsjob:`BIOFORMATS-5.1-release-cpp-downloads`
 
@@ -204,26 +210,25 @@ clients of the deployment jobs described above:
 
 .. glossary::
 
-    :jenkinsjob:`OME-5.1-release-trigger`
+    :jenkinsjob:`OMERO-5.1-release-trigger`
 
-        This job triggers the release jobs. Prior to running it, its variables
-        need to be properly configured:
+        This job triggers the OMERO release jobs. Prior to running it, its
+        variables need to be properly configured:
 
-        - :envvar:`RELEASE` is the release number for OMERO and Bio-Formats.
+        - :envvar:`RELEASE` is the OMERO release number.
         - :envvar:`ANNOUNCEMENT_URL` is the URL of the forum release
           announcement and should be set to the value of the URL of the
           private post until it becomes public.
         - :envvar:`MILESTONE` is the name of the Trac milestone which the
           download pages should be linked to.
 
-        #. Triggers :term:`OME-5.1-release-push`
+        #. Triggers :term:`OMERO-5.1-release-push`
         #. Triggers :term:`OMERO-5.1-release-integration`
-        #. Triggers :term:`OMERO-5.1-release` and
-           :term:`BIOFORMATS-5.1-release`
+        #. Triggers :term:`OMERO-5.1-release`
 
-        See :jenkinsjob:`the build graph <OME-5.1-release-trigger/lastSuccessfulBuild/BuildGraph>`
+        See :jenkinsjob:`the build graph <OMERO-5.1-release-trigger/lastSuccessfulBuild/BuildGraph>`
 
-    :jenkinsjob:`OME-5.1-release-push`
+    :jenkinsjob:`OMERO-5.1-release-push`
 
         This job creates a tag on the `develop` branch
 
@@ -317,12 +322,23 @@ clients of the deployment jobs described above:
            snoopycrimecop fork of openmicroscopy.git_
         #. Runs the robot framework tests and collect the results
 
-    :jenkinsjob:`BIOFORMATS-5.1-release`
+    :jenkinsjob:`BIOFORMATS-5.1-release-trigger`
 
-        This job triggers the release of Bio-Formats (Java and C++)
+        This job triggers the Bio-Formats (Java and C++) release  jobs. Prior
+        to running it, its variables need to be properly configured:
 
+        - :envvar:`RELEASE` is the Bio-Formats release number.
+
+        #. Triggers :term:`BIOFORMATS-5.1-release-push`
         #. Triggers :term:`BIOFORMATS-5.1-release-java`
         #. Triggers :term:`BIOFORMATS-5.1-release-cpp`
+
+    :jenkinsjob:`BIOFORMATS-5.1-release-push`
+
+        This job creates a tag on the `develop` branch
+
+        #. Runs `scc tag-release $RELEASE` and pushes the tag to the
+           snoopycrimecop fork of bioformats.git_
 
     :jenkinsjob:`BIOFORMATS-5.1-release-java`
 
