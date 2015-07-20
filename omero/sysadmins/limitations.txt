@@ -193,7 +193,8 @@ LDAP
 
 Enabling synchronization of LDAP on user login will result in LDAP
 being treated as the authority on both group membership and also the
-available groups. Any groups defined in OMERO and not in LDAP will
-result in users being removed from these groups. The groups will still
-exist in OMERO but user membership will be treated as being defined by
-LDAP alone.
+available groups. Admin actions carried out in the clients may not survive
+this synchronization e.g. if an admin has removed an LDAP user from an LDAP
+group in the UI, the user will be re-added to the group when logging in again
+after the synchronization.
+
