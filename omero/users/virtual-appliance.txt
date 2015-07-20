@@ -263,7 +263,9 @@ Using the virtual appliance
 ---------------------------
 
 Further guidance on how to interact with the server and troubleshoot common
-issues is available. See :doc:`va-working` and :doc:`va-troubleshooting`.
+issues is available. See :doc:`va-working` and :doc:`va-troubleshooting`. In
+particular, :ref:`increasing the base memory allocation <memory-allocation>`
+may significantly improve import performance.
 
 .. toctree::
     :maxdepth: 1

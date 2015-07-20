@@ -65,6 +65,42 @@ port-forwarding already being in use.
 
 	       $ lsof -nP | grep -E '(:4063)|(:4064)'
 
+.. _memory-allocation:
+
+Slow import speed due to low memory allocation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By default, the base memory of the |VM| is set to 1024 MB to allow it to run
+on any machine. However, this is likely to result in very poor import
+performance such that increasing the memory allocation to 2048 MB should
+result in import speeds being improved by a factor of 3-4 times.
+
+To increase the base memory allocation, right-click on the OMERO virtual
+appliance in Virtual Box and select :menuselection:`Settings`:
+
+.. figure:: /images/va-settings.png
+   :align: center
+   :alt: Settings menu option
+
+Then go to the :menuselection:`System` tab:
+
+.. figure:: /images/va-memory.png
+   :align: center
+   :figwidth: 70%
+   :width: 70%
+   :alt: Systems tab in Virtual Appliance settings
+
+Increase the Base Memory by typing into the text box:
+
+.. figure:: /images/va-textbox.png
+   :align: center
+   :figwidth: 70%
+   :width: 70%
+   :alt: Increasing Base Memory
+
+If your |VM| is already running, you will need to restart it for this change
+to take effect.
+
 |VM| will not boot because the |HDD| is full
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
