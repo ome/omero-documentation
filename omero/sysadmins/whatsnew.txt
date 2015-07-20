@@ -18,6 +18,7 @@ What's new for OMERO 5.1 for sysadmins
   publication. More information about how to configure your server for this
   purpose is available in the updated :ref:`index-public-data` section.
 
+- OMERO usernames can now be made :ref:`case insensitive <case-sensitivity>`.
 
 Database
 --------
