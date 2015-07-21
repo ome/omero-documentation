@@ -101,6 +101,11 @@ Increase the Base Memory by typing into the text box:
 If your |VM| is already running, you will need to restart it for this change
 to take effect.
 
+Alternatively, you can use the command line::
+
+    VBoxManage modifyvm OMERO.vm-5.1.2-b45 --memory 2048
+
+
 |VM| will not boot because the |HDD| is full
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
