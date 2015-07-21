@@ -216,7 +216,8 @@ using::
 
 .. warning:: Enabling this option will affect all usernames in your OMERO
    system. It is the system administrator's responsibility to handle any
-   username clashes which may result.
+   username clashes which may result. Making all usernames lowercase is
+   recommended.
 
 LDAP over |SSL|
 ---------------
@@ -226,20 +227,27 @@ that is, if your URL is of the form ``ldaps://ldap.example.com:636`` you may
 need to configure a key and trust store for Java. See the
 :doc:`server-security` page for more information.
 
+.. _synchronizing-ldap:
+
 Synchronizing LDAP on user login
 --------------------------------
 
 This feature allows for LDAP to be considered the authority on user/group
-membership. With the following settings enabled each time a user logs in to
+membership. With the following setting enabled, each time a user logs in to
 OMERO their LDAP groups will be read from the LDAP server and reflected in
-OMERO. Admin actions carried out in the clients may not survive this
+OMERO::
+
+    bin/omero config set omero.ldap.sync_on_login true
+
+Admin actions carried out in the clients may not survive this
 synchronization e.g. if an admin has removed an LDAP user from an LDAP group
 in the UI, the user will be re-added to the group when logging in again after
 the synchronization.
 
-::
-
-    bin/omero config set omero.ldap.sync_on_login true
+.. note:: This applies to groups created by LDAP in OMERO 5.1.x. Groups
+    created in older versions of OMERO will not be registered as LDAP groups
+    if you have manually altered their membership, even if the membership now
+    matches the LDAP group.
 
 .. _legacy_password_providers:
 
