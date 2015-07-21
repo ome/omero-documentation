@@ -18,6 +18,7 @@ been defined as environment variables. When following this walkthrough you can
 either use your own values, or alternatively source the following file:
 
 .. literalinclude:: walkthrough/settings.env
+   :start-after: Substitute
 
 :download:`settings.env <walkthrough/settings.env>`
 
