@@ -36,6 +36,9 @@ further details.
 OMERO.web template and view writers need to use the ``@render_response()``
 decorator, see :ref:`render-response` for more details.
 
+The redundant ``-locked`` flag has been removed from data manager tree nodes
+e.g. ``dataset-locked`` is now simply ``dataset``.
+
 Graphs
 ^^^^^^
 
