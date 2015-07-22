@@ -248,6 +248,9 @@ the synchronization.
     created in older versions of OMERO will not be registered as LDAP groups
     if you have manually altered their membership, even if the membership now
     matches the LDAP group.
+    
+    ``bin/omero ldap setdn true --group-name $NAME`` can be used to make these
+    previous OMERO groups into LDAP groups.
 
 .. _legacy_password_providers:
 
