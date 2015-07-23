@@ -1,0 +1,108 @@
+OMERO.web WSGI deployment
+=========================
+
+Quick Start
+-----------
+
+.. _wsgi_configuration:
+
+WSGI Configuration (Unix/Linux)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you have installed Nginx or Apache OMERO can automatically generate a
+configuration file for your web server, see :ref:`apache_wsgi_configuration`
+or :ref:`nginx_gunicorn_wsgi_configuration`.
+The location of the file will depend on your system, please refer to your
+web server's manual. See :ref:`customizing_your_omero_web_installation_unix`
+for additional customization options.
+
+.. _apache_wsgi_configuration:
+
+Apache 2.2+ configuration (mod_wsgi)
+""""""""""""""""""""""""""""""""""""
+
+Install `mod\_wsgi <https://www.modwsgi.org/>`_.
+
+Set the following:
+
+::
+
+    $bin/omero config set omero.web.application_server "wsgi"
+
+
+To create a site configuration file for inclusion in the main Apache
+configuration redirect the output of the following command into a file:
+
+::
+
+    $ bin/omero web config apache-wsgi
+
+.. literalinclude:: apache-wsgi-omero.conf
+   :lines: 55-
+
+.. note::
+    To configure an HTTPS server follow
+    `the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
+
+
+.. _nginx_gunicorn_wsgi_configuration:
+
+Nginx Gunicorn configuration
+""""""""""""""""""""""""""""
+
+Set the following:
+
+::
+
+    $bin/omero config set omero.web.application_server "wsgi-tcp"
+
+
+To create a site configuration file for inclusion in a system-wide nginx
+configuration redirect the output of the following command into a file:
+
+::
+
+    $ bin/omero web config nginx-wsgi
+
+.. literalinclude:: nginx-gunicorn-omero.conf
+
+.. note::
+    To configure an HTTPS server follow
+    `the nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
+
+.. note::
+    OMERO.web requires ``body_in_file_only`` adjusted in your default nginx 
+    config because nginx must buffer incoming data. Make sure you have that 
+    set to the following config:
+
+    ::
+
+        http {
+            ...
+            sendfile on;
+            send_timeout 60s;
+            client_max_body_size 0;
+            ...
+        }
+
+
+Start the Gunicorn server process running one thread listening on 127.0.0.1:4080:
+
+::
+
+    $ bin/omero web start
+    ... static files copied to '/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static'.
+    Starting OMERO.web... [OK]
+
+.. note::
+    The Gunicorn workers are managed **separately** from other OMERO.server
+    processes. You can check their status or stop them using the
+    following commands:
+
+    ::
+
+        $ bin/omero web status
+        OMERO.web status... [RUNNING] (PID 59217)
+        $ bin/omero web stop
+        Stopping OMERO.web... [OK]
+        Django WSGI workers (PID 59217) killed.
