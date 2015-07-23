@@ -29,7 +29,6 @@ Set the following:
 
     $bin/omero config set omero.web.application_server "wsgi"
 
-
 To create a site configuration file for inclusion in the main Apache
 configuration redirect the output of the following command into a file:
 
@@ -84,7 +83,6 @@ configuration redirect the output of the following command into a file:
             client_max_body_size 0;
             ...
         }
-
 
 Start the Gunicorn server process running one thread listening on 127.0.0.1:4080:
 
