@@ -1,13 +1,10 @@
 OMERO.web WSGI deployment
 =========================
 
-Quick Start
------------
-
 .. _wsgi_configuration:
 
 WSGI Configuration (Unix/Linux)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 
 If you have installed Nginx or Apache OMERO can automatically generate a
 configuration file for your web server, see :ref:`apache_wsgi_configuration`
@@ -19,7 +16,7 @@ for additional customization options.
 .. _apache_wsgi_configuration:
 
 Apache 2.2+ configuration (mod_wsgi)
-""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Install `mod\_wsgi <https://www.modwsgi.org/>`_.
 
@@ -47,7 +44,7 @@ configuration redirect the output of the following command into a file:
 .. _nginx_gunicorn_wsgi_configuration:
 
 Nginx Gunicorn configuration
-""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Set the following:
 

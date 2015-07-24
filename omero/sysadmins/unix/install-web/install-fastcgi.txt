@@ -1,13 +1,10 @@
 OMERO.web FastCGI deployment
 ============================
 
-Quick Start
------------
-
 .. _fastcgi_configuration:
 
 FastCGI Configuration (Unix/Linux)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 If you have installed Nginx or Apache OMERO can automatically generate a
 configuration file for your web server, see :ref:`apache22_configuration`,
@@ -20,7 +17,7 @@ for additional customization options.
 .. _apache22_configuration:
 
 Apache 2.2 configuration (mod_fastcgi)
-""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Install `mod\_fastcgi <http://www.fastcgi.com/drupal/>`_.
 To create a site configuration file for inclusion in the main Apache
@@ -47,7 +44,7 @@ configuration redirect the output of the following command into a file:
 .. _apache24_configuration:
 
 Apache 2.4+ configuration (mod_proxy_fcgi)
-""""""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The `mod\_proxy\_fcgi`, `mod\_proxy` and `mod\_rewrite` Apache modules should
 already be installed and enabled as part of the Apache installation, if this
@@ -66,7 +63,7 @@ configuration redirect the output of the following command into a file:
 .. _nginx_configuration:
 
 Nginx FastCGI configuration
-"""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To create a site configuration file for inclusion in a system-wide nginx
 configuration redirect the output of the following command into a file:
@@ -99,7 +96,7 @@ configuration redirect the output of the following command into a file:
 
 
 Starting OMERO.web
-~~~~~~~~~~~~~~~~~~
+------------------
 
 Start the Django FastCGI workers:
 
