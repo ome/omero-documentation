@@ -40,6 +40,8 @@ configuration redirect the output of the following command into a file:
     To configure an HTTPS server follow
     `the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
 
+Then reload apache.
+
 
 .. _nginx_gunicorn_wsgi_configuration:
 
