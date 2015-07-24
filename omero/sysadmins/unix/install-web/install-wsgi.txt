@@ -60,7 +60,7 @@ configuration redirect the output of the following command into a file:
 
     $ bin/omero web config nginx-wsgi
 
-.. literalinclude:: nginx-gunicorn-omero.conf
+.. literalinclude:: nginx-wsgi-omero.conf
 
 .. note::
     To configure an HTTPS server follow

@@ -39,7 +39,7 @@ $WORKSPACE/OMERO.server/bin/omero web config apache-fcgi | sed "s|$WORKSPACE|/ho
 $WORKSPACE/OMERO.server/bin/omero config set omero.web.application_server "wsgi"
 $WORKSPACE/OMERO.server/bin/omero web config apache-wsgi | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/install-web/apache-wsgi-omero.conf
 $WORKSPACE/OMERO.server/bin/omero config set omero.web.application_server "wsgi-tcp"
-$WORKSPACE/OMERO.server/bin/omero web config nginx-wsgi | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/install-web/nginx-gunicorn-omero.conf
+$WORKSPACE/OMERO.server/bin/omero web config nginx-wsgi | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/unix/install-web/nginx-wsgi-omero.conf
 $WORKSPACE/OMERO.server/bin/omero config set omero.web.application_server
 echo "Copying omero-install Linux scripts"
 mkdir -p omero/sysadmins/unix/walkthrough/
