@@ -53,7 +53,7 @@ developer documentation, Jenkins, and GitHub.
 Trac
 ----
 
-The Trac server is available under https://trac.openmicroscopy.org.uk/ome and
+The Trac server is available under https://trac.openmicroscopy.org/ome and
 uses your LDAP account for authentication. Trac is used to record all tickets
 and allows hierarchical groups of “tasks” in “requirements” and “stories”
 (functionality provided by a `plugin for Trac named “Agilo”

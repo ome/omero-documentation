@@ -35,7 +35,7 @@ Process workflow:
    we are trying to keep schema changes in step with new versions of
    OMERO so they are released simultaneous. This is why the tickets for
    OME-XML development have been moved to the main `OME
-   Trac <http://trac.openmicroscopy.org.uk/ome>`_
+   Trac <https://trac.openmicroscopy.org/ome>`_
 
 For more information about the OME team workflows, see the
 :devs_doc:`Contributing Developer <index.html>` documentation.
