@@ -80,9 +80,8 @@ HTTP request (top left) and either a connection is returned (bottom
 left) OR we are redirected to login page (right).
 
 .. note:: 
-    Options to configure a "public user" are described on the OMERO.web
-    configuration page (see :doc:`Unix </sysadmins/unix/install-web>` or
-    :doc:`Windows </sysadmins/windows/install-web>` version).
+    Options to configure a "public user" are described in the
+    :doc:`/sysadmins/public` documentation.
 
 Extending login\_required
 ^^^^^^^^^^^^^^^^^^^^^^^^^
