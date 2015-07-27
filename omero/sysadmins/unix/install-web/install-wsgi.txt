@@ -36,9 +36,8 @@ configuration redirect the output of the following command into a file:
 .. literalinclude:: apache-wsgi-omero.conf
    :lines: 55-
 
-.. note::
-    To configure an HTTPS server follow
-    `the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
+To configure an HTTPS server follow
+`the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
 
 Then reload apache.
 
@@ -65,10 +64,6 @@ configuration redirect the output of the following command into a file:
 .. literalinclude:: nginx-wsgi-omero.conf
 
 .. note::
-    To configure an HTTPS server follow
-    `the nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
-
-.. note::
     OMERO.web requires ``body_in_file_only`` adjusted in your default nginx 
     config because nginx must buffer incoming data. Make sure you have that 
     set to the following config:
@@ -83,7 +78,10 @@ configuration redirect the output of the following command into a file:
             ...
         }
 
-Start the Gunicorn server process running one thread listening on 127.0.0.1:4080:
+To configure an HTTPS server follow
+`the nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
+
+Start the Gunicorn worker processes running one thread listening on 127.0.0.1:4080:
 
 ::
 
@@ -91,15 +89,14 @@ Start the Gunicorn server process running one thread listening on 127.0.0.1:4080
     ... static files copied to '/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static'.
     Starting OMERO.web... [OK]
 
-.. note::
-    The Gunicorn workers are managed **separately** from other OMERO.server
-    processes. You can check their status or stop them using the
-    following commands:
+The Gunicorn workers are managed **separately** from other OMERO.server
+processes. You can check their status or stop them using the
+following commands:
 
-    ::
+::
 
-        $ bin/omero web status
-        OMERO.web status... [RUNNING] (PID 59217)
-        $ bin/omero web stop
-        Stopping OMERO.web... [OK]
-        Django WSGI workers (PID 59217) killed.
+    $ bin/omero web status
+    OMERO.web status... [RUNNING] (PID 59217)
+    $ bin/omero web stop
+    Stopping OMERO.web... [OK]
+    Django WSGI workers (PID 59217) killed.
