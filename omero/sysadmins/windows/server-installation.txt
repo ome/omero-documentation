@@ -53,27 +53,6 @@ Java SE Development Kit (JDK)
 Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
 Java 7 is recommended, Java 6 is supported.
 
-Ice
-^^^
-
-.. note::
-
-    OMERO |version| supports Ice 3.5 and 3.4. You will need to pick the
-    matching server download for the version of Ice you have installed.
-
-    If you are using precompiled packages of Ice and Python (recommended)
-    you should use the versions specified below. In particular since OMERO
-    does not support Python 3 **it will not work with the ZeroC Ice 3.5
-    package for Windows**. However, Ice 3.5 will work when built against
-    Python 2.7.
-
-You can download Ice 3.5.1 built against Python 2.7 from our
-`Ice downloads page <http://downloads.openmicroscopy.org/ice/3.5.1/>`_.
-Alternatively, Windows installers of Ice 3.4 can be found on the
-:zeroc:`ZeroC Ice 3.4.2 download page <download_3_4_2.html>`.
-If you plan to develop for C++, be sure to read the instructions on the
-|OmeroCpp| page.
-
 Python 2
 ^^^^^^^^
 
@@ -83,11 +62,14 @@ Python 2
 
 **Make sure you install the correct Python 2 version for your Ice version:**
 
-- If you have downloaded Ice 3.5.1 from our downloads page, you will
-  need to install the `latest Python 2.7 release <http://www.python.org/downloads/windows/>`_.
+- If you have downloaded Ice 3.5.1 from our downloads page or Ice
+  3.6.0 from ZeroC (note that support is currently upcoming, see
+  below), you will need to install the `latest Python 2.7 release
+  <http://www.python.org/downloads/windows/>`_.
 
-- If you have installed Ice version 3.4.2 from ZeroC, you need Python version
-  2.6 which you can download from `Python 2.6.6 release downloads <http://www.python.org/download/releases/2.6.6/>`_.
+- If you have installed Ice version 3.4.2 from ZeroC, you need Python
+  version 2.6 which you can download from `Python 2.6.6 release
+  downloads <http://www.python.org/download/releases/2.6.6/>`_.
 
 As these are the "vanilla" python distributions (no extra libraries), you will
 need to install further dependencies, making sure to download the correct
@@ -96,9 +78,9 @@ version (2.6/2.7, 32/64-bit) for your Python distribution.
 32/64-bit
 """""""""
 
-OMERO has been extensively tested with 32-bit Python on Windows. 64-bit Python
-should also work though it has not been tested as thoroughly. You can obtain
-64-bit precompiled dependencies from http://www.lfd.uci.edu/~gohlke/pythonlibs.
+OMERO has been extensively tested with both 32-bit and 64-bit Python
+on Windows.  You can obtain 64-bit precompiled dependencies from
+http://www.lfd.uci.edu/~gohlke/pythonlibs.
 
 Python for Windows extensions
 """""""""""""""""""""""""""""
@@ -146,6 +128,41 @@ The following are optional depending on what services you require:
 
 .. [1] May already have been installed as a dependency of Matplot Lib.
 
+Ice
+^^^
+
+.. note::
+
+    OMERO |version| supports Ice 3.5 and 3.4; support for 3.6 is
+    currently upcoming (experimental and used at your own risk). You
+    will need to pick the matching server download for the version of
+    Ice you have installed.
+
+    If you are using precompiled packages of Ice and Python
+    (recommended) you should use the versions specified below. In
+    particular since OMERO does not support Python 3 **it will not
+    work with the ZeroC Ice 3.5 package for Windows**. However, Ice
+    3.5 will work when built against Python 2.7.  The ZeroC Ice 3.6
+    packages do support Python 2.7.
+
+Ice 3.5.1 built against Python 2.7 is available from our `Ice
+downloads page <http://downloads.openmicroscopy.org/ice/3.5.1/>`_, or
+Ice 3.4 installers can be found on the old :zeroc:`ZeroC Ice 3.4.2
+download page <download_3_4_2.html>`.  Alternatively, the :zeroc:`Ice
+3.6.0 download page <download.html>` provides installers for Windows,
+but support for this release is currently upcoming.
+
+If you plan to develop for C++, be sure to read the instructions on the
+|OmeroCpp| page.
+
+If you installed Ice 3.6.0, you must then run::
+
+    pip install zeroc-ice
+
+to install the Ice Python bindings.  See `Using the Python
+Distribution
+<https://doc.zeroc.com/display/Ice36/Using+the+Python+Distribution>`__
+for further details.
 
 PostgreSQL (9.2 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
