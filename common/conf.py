@@ -129,7 +129,7 @@ jenkins_view_root = jenkins_root + '/view'
 
 # Variables used to define other extlinks
 cvs_root = 'http://cvs.openmicroscopy.org.uk'
-trac_root = 'http://trac.openmicroscopy.org.uk/ome'
+trac_root = 'https://trac.openmicroscopy.org/ome'
 oo_root = 'http://www.openmicroscopy.org'
 oo_site_root = oo_root + '/site'
 lists_root = 'http://lists.openmicroscopy.org.uk'
@@ -185,7 +185,7 @@ rst_epilog = """
 .. _ZeroC: https://zeroc.com
 .. _Ice: https://zeroc.com
 .. _Jenkins: http://jenkins-ci.org
-.. _roadmap: https://trac.openmicroscopy.org.uk/ome/roadmap
+.. _roadmap: https://trac.openmicroscopy.org/ome/roadmap
 .. _Open Microscopy Environment: http://www.openmicroscopy.org/site
 .. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
 .. _Pillow: http://pillow.readthedocs.org
