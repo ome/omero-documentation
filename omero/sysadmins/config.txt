@@ -65,6 +65,123 @@ Examples of doing this are on the main :doc:`Unix <unix/server-installation>`
 and :doc:`Windows <windows/server-installation>` pages, as well as the
 :doc:`LDAP installation <server-ldap>` page.
 
+.. _core_configuration:
+
+Mandatory properties
+--------------------
+
+The following properties need to be correctly set for all installations of the
+OMERO.server. Depending on your set-up, default values may be sufficient.
+
+- :property:`omero.data.dir`
+- :property:`omero.db.host`
+- :property:`omero.db.name`
+- :property:`omero.db.pass`
+
+
+.. _fs_configuration:
+
+Binary repository
+-----------------
+
+.. property:: omero.checksum.supported
+
+omero.checksum.supported
+^^^^^^^^^^^^^^^^^^^^^^^^
+Checksum algorithms supported by the server for new file uploads,
+being any comma-separated non-empty subset of:
+
+- Adler-32
+- CRC-32
+- MD5-128
+- Murmur3-32
+- Murmur3-128
+- SHA1-160
+- File-Size-64
+
+In negotiation with clients, this list is interpreted as being in
+descending order of preference.
+
+Default: `SHA1-160, MD5-128, Murmur3-128, Murmur3-32, CRC-32, Adler-32, File-Size-64`
+
+.. property:: omero.data.dir
+
+omero.data.dir
+^^^^^^^^^^^^^^
+
+Default: `/OMERO/`
+
+.. property:: omero.fs.repo.path
+
+omero.fs.repo.path
+^^^^^^^^^^^^^^^^^^
+Template for FS managed repository paths.
+Allowable elements are:
+
+::
+
+   %user%         bob
+   %userId%       4
+   %group%        bobLab
+   %groupId%      3
+   %year%         2011
+   %month%        01
+   %monthname%    January
+   %day%          01
+   %time%         15-13-54.014
+   %institution%  University of Dundee
+   %hash%         0D2D8DB7
+   %increment%    14
+   %subdirs%      023/613
+   %session%      c3fdd5d8-831a-40ff-80f2-0ba5baef448a
+   %sessionId%    592
+   %perms%        rw----
+   /              path separator
+   //             end of root-owned directories
+
+These are described further at :doc:`fs-upload-configuration`
+
+The path must be unique per fileset to prevent upload conflicts,
+which is why %time% includes milliseconds.
+
+A // may be used as a path separator: the directories preceding
+it are created with root ownership, the remainder are the user's.
+At least one user-owned directory must be included in the path.
+
+The template path is created below :property:`omero.managed.dir`,
+e.g. :file:`/OMERO/ManagedRepository/${omero.fs.repo.path}/`
+
+Default: `%user%_%userId%//%year%-%month%/%day%/%time%`
+
+.. property:: omero.fs.repo.path_rules
+
+omero.fs.repo.path_rules
+^^^^^^^^^^^^^^^^^^^^^^^^
+Rules to apply to judge the acceptability of FS paths for writing into
+:property:`omero.managed.dir`, being any comma-separated non-empty subset of:
+
+- Windows required
+- Windows optional
+- UNIX required
+- UNIX optional
+- local required
+- local optional
+
+Minimally, the "required" appropriate for the server is recommended.
+Also applying "optional" rules may make sysadmin tasks easier,
+but may be more burdensome for users who name their files oddly.
+"local" means "Windows" or "UNIX" depending on the local platform,
+the latter being applied for Linux and Mac OS X.
+
+Default: `Windows required, UNIX required`
+
+.. property:: omero.managed.dir
+
+omero.managed.dir
+^^^^^^^^^^^^^^^^^
+
+Default: `${omero.data.dir}/ManagedRepository`
+
 
 .. _client_configuration:
 
@@ -157,17 +274,10 @@ Absolute omeroweb host http(s)://your_domain/prefix/
 Default: `[empty]`
 
 
-.. _core_configuration:
+.. _db_configuration:
 
-Core
-----
-
-.. property:: omero.data.dir
-
-omero.data.dir
-^^^^^^^^^^^^^^
-
-Default: `/OMERO/`
+Database
+--------
 
 .. property:: omero.db.authority
 
@@ -281,8 +391,8 @@ in the `model-*.jar`. By using a different jar,
 you can modify the defaults.
 
 Note: some other properties are defined in
-the file etc/profiles/${omero.db.profile}
-Especially of importance is omero.db.port
+the file :file:`etc/profiles/${omero.db.profile}`
+Especially of importance is :property:`omero.db.port`
 
 Default: `psql`
 
@@ -325,103 +435,6 @@ only developers will change this version to bump
 to a new major version.
 
 Default: `OMERO5.1`
-
-
-.. _fs_configuration:
-
-FS
---
-
-.. property:: omero.checksum.supported
-
-omero.checksum.supported
-^^^^^^^^^^^^^^^^^^^^^^^^
-Checksum algorithms supported by the server for new file uploads,
-being any comma-separated non-empty subset of:
-
-- Adler-32
-- CRC-32
-- MD5-128
-- Murmur3-32
-- Murmur3-128
-- SHA1-160
-- File-Size-64
-
-In negotiation with clients, this list is interpreted as being in
-descending order of preference.
-
-Default: `SHA1-160, MD5-128, Murmur3-128, Murmur3-32, CRC-32, Adler-32, File-Size-64`
-
-.. property:: omero.fs.repo.path
-
-omero.fs.repo.path
-^^^^^^^^^^^^^^^^^^
-Template for FS managed repository paths.
-Allowable elements are:
-
-::
-
-   %user%         bob
-   %userId%       4
-   %group%        bobLab
-   %groupId%      3
-   %year%         2011
-   %month%        01
-   %monthname%    January
-   %day%          01
-   %time%         15-13-54.014
-   %institution%  University of Dundee
-   %hash%         0D2D8DB7
-   %increment%    14
-   %subdirs%      023/613
-   %session%      c3fdd5d8-831a-40ff-80f2-0ba5baef448a
-   %sessionId%    592
-   %perms%        rw----
-   /              path separator
-   //             end of root-owned directories
-
-These are described further at :doc:`fs-upload-configuration`
-
-The path must be unique per fileset to prevent upload conflicts,
-which is why %time% includes milliseconds.
-
-A // may be used as a path separator: the directories preceding
-it are created with root ownership, the remainder are the user's.
-At least one user-owned directory must be included in the path.
-
-The template path is created below :property:`omero.managed.dir`,
-e.g. /OMERO/ManagedRepository/<omero.fs.repo.path>/
-
-Default: `%user%_%userId%//%year%-%month%/%day%/%time%`
-
-.. property:: omero.fs.repo.path_rules
-
-omero.fs.repo.path_rules
-^^^^^^^^^^^^^^^^^^^^^^^^
-Rules to apply to judge the acceptability of FS paths for writing into
-:property:`omero.managed.dir`, being any comma-separated non-empty subset of:
-
-- Windows required
-- Windows optional
-- UNIX required
-- UNIX optional
-- local required
-- local optional
-
-Minimally, the "required" appropriate for the server is recommended.
-Also applying "optional" rules may make sysadmin tasks easier,
-but may be more burdensome for users who name their files oddly.
-"local" means "Windows" or "UNIX" depending on the local platform,
-the latter being applied for Linux and Mac OS X.
-
-Default: `Windows required, UNIX required`
-
-.. property:: omero.managed.dir
-
-omero.managed.dir
-^^^^^^^^^^^^^^^^^
-
-Default: `${omero.data.dir}/ManagedRepository`
 
 
 .. _graphs_configuration:
@@ -1310,6 +1323,30 @@ on the server.
 
 Default: `omero.processor.ProcessI`
 
+.. property:: omero.scripts.cache.cron
+
+omero.scripts.cache.cron
+^^^^^^^^^^^^^^^^^^^^^^^^
+Frequency to reload script params. By default,
+once a day at midnight.
+
+|cron|
+
+Default: `0 0 0 * * ?`
+
+.. property:: omero.scripts.cache.spec
+
+omero.scripts.cache.spec
+^^^^^^^^^^^^^^^^^^^^^^^^
+Guava LoadingCache spec for configuring how
+many script JobParams will be kept in memory
+for how long.
+
+For more information, see
+http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/cache/CacheBuilderSpec.html
+
+Default: `maximumSize=1000`
+
 .. property:: omero.scripts.timeout
 
 omero.scripts.timeout
@@ -1638,7 +1675,7 @@ Default: `[]`
 
 omero.web.application_server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-OMERO.web is configured to use FastCGI TCP by default. If you are using a non-standard web server configuration you may wish to change this before generating your web server configuration. Available options "fastcgi" / "fastcgi-tcp"
+OMERO.web is configured to use FastCGI TCP by default. If you are using a non-standard web server configuration you may wish to change this before generating your web server configuration. Available options: "fastcgi-tcp", "wsgi-tcp", "wsgi"
 
 Default: `fastcgi-tcp`
 
@@ -1969,6 +2006,14 @@ omero.web.ui.top_links
 Add links to the top header: links are ``['Link Text', 'link', options]``, where the url is reverse('link') OR simply 'link' (for external urls). E.g. ``'[["Webtest", "webtest_index"], ["Homepage", "http://...", {"title": "Homepage", "target": "new"} ]]'``
 
 Default: `[["Data", "webindex", {"title": "Browse Data via Projects, Tags etc"}],["History", "history", {"title": "History"}],["Help", "http://help.openmicroscopy.org/",{"title":"Open OMERO user guide in a new tab", "target":"new"}]]`
+
+.. property:: omero.web.use_x_forwarded_host
+
+omero.web.use_x_forwarded_host
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Specifies whether to use the X-Forwarded-Host header in preference to the Host header. This should only be enabled if a proxy which sets this header is in use.
+
+Default: `false`
 
 .. property:: omero.web.webgateway_cache
 
