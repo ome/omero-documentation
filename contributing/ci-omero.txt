@@ -381,16 +381,6 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         This job deploys the latest 5.1.x server (see
         :ref:`deployment_servers`)
 
-    :jenkinsjob:`OMERO-DEV-latest-deploy-win`
-
-        This job deploys the latest 5.1.x server on Windows (see
-        :ref:`deployment_servers`)
-
-    :jenkinsjob:`OMERO-DEV-latest-deploy-win2012`
-
-        This job deploys the latest 5.1.x server on Windows 2012
-        (see :ref:`deployment_servers`)
-
     :jenkinsjob:`OMERO-DEV-latest-submods`
 
         This job updates the submodules on the develop branch
