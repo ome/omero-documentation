@@ -8,41 +8,41 @@ tab of Jenkins.
 	:header-rows: 1
 
 	- 	* Job task
-		* 5.0.x series
 		* 5.1.x series
+		* 5.2.x series
 
-	- 	* Builds the OMERO documentation for publishing
-		* :term:`OMERO-5.0-release-docs`
-		* :term:`OMERO-5.1-release-docs`
+	- 	* Builds the latest OMERO documentation for publishing
+		* :term:`OMERO-5.1-latest-docs`
+		* :term:`OMERO-DEV-latest-docs`
 
-	- 	* Builds the Bio-Formats documentation for publishing
-		* :term:`BIOFORMATS-5.0-release-docs`
-		* :term:`BIOFORMATS-5.1-release-docs`
+	- 	* Builds the latest Bio-Formats documentation for publishing
+		* :term:`BIOFORMATS-5.1-latest-docs`
+		*
 
 	- 	* Builds the OMERO documentation for review
-		* :term:`OMERO-5.0-merge-docs`
 		* :term:`OMERO-5.1-merge-docs`
+		* :term:`OMERO-DEV-merge-docs`
 
 
 	- 	* Builds the Bio-Formats documentation for review
-		* :term:`BIOFORMATS-5.0-merge-docs`
 		* :term:`BIOFORMATS-5.1-merge-docs`
+		*
 
 	- 	* Builds the auto-generated OMERO documentation
-		* :term:`OMERO-5.0-latest-docs-autogen`
 		* :term:`OMERO-5.1-latest-docs-autogen`
+		* :term:`OMERO-DEV-latest-docs-autogen`
 
 	- 	* Builds the auto-generated OMERO documentation for review
-		* :term:`OMERO-5.0-merge-docs-autogen`
 		* :term:`OMERO-5.1-merge-docs-autogen`
+		* :term:`OMERO-DEV-merge-docs-autogen`
 
 	- 	* Builds the auto-generated Bio-Formats documentation
-		* :term:`BIOFORMATS-5.0-latest-docs-autogen`
 		* :term:`BIOFORMATS-5.1-latest-docs-autogen`
+		*
 
 	- 	* Builds the auto-generated OMERO documentation for review
-		* :term:`BIOFORMATS-5.0-merge-docs-autogen`
 		* :term:`BIOFORMATS-5.1-merge-docs-autogen`
+		*
 
 
 The OME Model, OME help and OME Contributing documentation sets are
@@ -55,10 +55,10 @@ independent of the current OMERO/Bio-Formats version.
 		*
 
 	- 	* Publish OME Model documentation
-		* :term:`FORMATS-release-docs`
+		* :term:`FORMATS-latest-docs`
 
 	- 	* Publish OME Contributing documentation
-		* :term:`CONTRIBUTING-release-docs`
+		* :term:`CONTRIBUTING-latest-docs`
 
 	- 	* Review OME Model documentation PRs
 		* :term:`FORMATS-merge-docs`
@@ -97,120 +97,15 @@ necromancer.openmicroscopy.org.uk under the
 :program:`scc deploy` command. The :jenkinsjob:`OME-docs-deployment-setup` job
 is used to initialize new deployment folders.
 
-5.0.x series
-^^^^^^^^^^^^
-
-The branch for the 5.0.x series of the OMERO/Bio-Formats documentation is
-dev_5_0.
-
-.. glossary::
-
-	:jenkinsjob:`OMERO-5.0-release-docs`
-
-		This job is used to build the dev_5_0 branch of the OMERO
-		documentation and publish the official documentation for the next
-		major release of OMERO
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. If the build is promoted,
-			#. |ssh-doc| :file:`omero-5.0-release.tmp`
-			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5/
-
-	:jenkinsjob:`BIOFORMATS-5.0-release-docs`
-
-		This job is used to build the dev_5_0 branch of the Bio-Formats
-		documentation and publish the official documentation for the next
-		major release of Bio-Formats
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. If the build is promoted,
-			#. |ssh-doc| :file:`bf-5.0-release.tmp`
-			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5/
-
-	:jenkinsjob:`OMERO-5.0-merge-docs`
-
-		This job is used to review the PRs opened against the dev_5_0 branch
-		of the OMERO documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. |ssh-doc| :file:`omero-5.0-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5-staging/
-
-	:jenkinsjob:`BIOFORMATS-5.0-merge-docs`
-
-		This job is used to review the PRs opened against the dev_5_0 branch
-		of the Bio-Formats documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. |ssh-doc| :file:`bf-5.0-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5-staging/
-
-	:jenkinsjob:`BIOFORMATS-5.0-latest-docs-autogen`
-
-		This job is used to build the latest auto-generated formats and
-		readers pages for the dev_5_0 branch of the Bio-Formats documentation
-
-		#. Builds Bio-Formats using ``ant clean jars``
-		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
-		   from :file:`components/autogen`
-		#. Check for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to the `dev_5_0/latest/autogen`
-		   branch of https://github.com/snoopycrimecop/bioformats
-
-	:jenkinsjob:`BIOFORMATS-5.0-merge-docs-autogen`
-
-		This job is used to build the merge auto-generated formats and
-		readers pages for the dev_5_0 branch of the Bio-Formats documentation
-
-		#. Checks out the merge/dev_5_0/latest branch of the
-		   snoopycrimecop fork of bioformats.git_
-		#. Builds Bio-Formats using ``ant clean jars``
-		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
-		   from :file:`components/autogen`
-		#. Check for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to the `dev_5_0/merge/autogen`
-		   branch of https://github.com/snoopycrimecop/bioformats
-
-	:jenkinsjob:`OMERO-5.0-latest-docs-autogen`
-
-		This job is used to build the latest auto-generated pages for the
-		dev_5_0 branch of the OMERO documentation
-
-		#. Checks out the dev_5_0 branch of ome-documentation.git_
-		#. Downloads the OMERO.server and OMERO.clients from
-		   :term:`OMERO-5.0-latest`
-		#. Runs the :file:`omero/autogen_docs` autogeneration script
-		#. Pushes the auto-generated changes to the `dev_5_0/latest/autogen`
-		   branch of https://github.com/snoopycrimecop/ome-documentation
-
-	:jenkinsjob:`OMERO-5.0-merge-docs-autogen`
-
-		This job is used to build the merge auto-generated pages for the
-		dev_5_0 branch of the OMERO documentation
-
-		#. Checks out the merge/dev_5_0/latest branch of the
-		   snoopycrimecop fork of ome-documentation.git_
-		#. Downloads the OMERO.server and OMERO.clients from
-		   :term:`OMERO-5.0-merge-build`
-		#. Runs the :file:`omero/autogen_docs` autogeneration script
-		#. Pushes the auto-generated changes to the `dev_5_0/merge/autogen`
-		   branch of https://github.com/snoopycrimecop/ome-documentation
-
 5.1.x series
 ^^^^^^^^^^^^
 
 The branch for the 5.1.x series of the OMERO/Bio-Formats documentation is
-develop.
+dev_5_1.
 
 .. glossary::
 
-	:jenkinsjob:`OMERO-5.1-release-docs`
+	:jenkinsjob:`OMERO-5.1-latest-docs`
 
 		This job is used to build the develop branch of the OMERO
 		documentation and publish the official documentation for the 5.1.x
@@ -222,7 +117,7 @@ develop.
 			#. |ssh-doc| :file:`omero-5.1-release.tmp`
 			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.1/
 
-	:jenkinsjob:`BIOFORMATS-5.1-release-docs`
+	:jenkinsjob:`BIOFORMATS-5.1-latest-docs`
 
 		This job is used to build the develop branch of the Bio-Formats
 		documentation and publish the official documentation for the 5.1.x
@@ -242,7 +137,7 @@ develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`omero-5.0-staging.tmp`
+		#. |ssh-doc| :file:`omero-5.1-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.1-staging/
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-docs`
@@ -265,7 +160,7 @@ develop.
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to the `develop/latest/autogen`
+		#. Pushes the auto-generated changes to the `dev_5_1/latest/autogen`
 		   branch of https://github.com/snoopycrimecop/bioformats
 
 
@@ -280,7 +175,7 @@ develop.
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to the `develop/merge/autogen`
+		#. Pushes the auto-generated changes to the `dev_5_1/merge/autogen`
 		   branch of https://github.com/snoopycrimecop/bioformats
 
 	:jenkinsjob:`OMERO-5.1-latest-docs-autogen`
@@ -292,7 +187,7 @@ develop.
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-5.1-latest`
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
-		#. Pushes the auto-generated changes to the `develop/latest/autogen`
+		#. Pushes the auto-generated changes to the `dev_5_1/latest/autogen`
 		   branch of https://github.com/snoopycrimecop/ome-documentation
 
 	:jenkinsjob:`OMERO-5.1-merge-docs-autogen`
@@ -305,9 +200,63 @@ develop.
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-5.1-merge-build`
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
-		#. Pushes the auto-generated changes to the `develop/merge/autogen`
+		#. Pushes the auto-generated changes to the `dev_5_1/merge/autogen`
 		   branch of https://github.com/snoopycrimecop/ome-documentation
 
+5.2.x series
+^^^^^^^^^^^^
+
+The branch for the 5.2.x series of the OMERO/Bio-Formats documentation is
+develop.
+
+.. glossary::
+
+	:jenkinsjob:`OMERO-DEV-latest-docs`
+
+		This job is used to review the PRs opened against the develop branch
+		of the OMERO documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`omero-5.2.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.2/
+
+	:jenkinsjob:`OMERO-DEV-merge-docs`
+
+		This job is used to review the PRs opened against the develop branch
+		of the OMERO documentation
+
+		#. |merge|
+		#. |sphinxbuild|
+		#. |linkcheck|
+		#. |ssh-doc| :file:`omero-5.2-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.2-staging/
+
+	:jenkinsjob:`OMERO-DEV-latest-docs-autogen`
+
+		This job is used to build the latest auto-generated pages for the
+		develop branch of the OMERO documentation
+
+		#. Checks out the develop branch of ome-documentation.git_
+		#. Downloads the OMERO.server and OMERO.clients from
+		   :term:`OMERO-5.1-latest`
+		#. Runs the :file:`omero/autogen_docs` autogeneration script
+		#. Pushes the auto-generated changes to the `develop/latest/autogen`
+		   branch of https://github.com/snoopycrimecop/ome-documentation
+
+	:jenkinsjob:`OMERO-DEV-merge-docs-autogen`
+
+		This job is used to review the component auto-generation for the
+		develop branch of the OMERO documentation
+
+		#. Checks out the merge/develop/latest branch of the
+		   snoopycrimecop fork of ome-documentation.git_
+		#. Downloads the OMERO.server and OMERO.clients from
+		   :term:`OMERO-5.1-merge-build`
+		#. Runs the :file:`omero/autogen_docs` autogeneration script
+		#. Pushes the auto-generated changes to the `develop/merge/autogen`
+		   branch of https://github.com/snoopycrimecop/ome-documentation
 
 OME Model and OME Contributing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -339,7 +288,7 @@ sets is develop.
 		#. |ssh-doc| :file:`contributing-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing-staging/
 
-	:jenkinsjob:`FORMATS-release-docs`
+	:jenkinsjob:`FORMATS-latest-docs`
 
 		This job is used to build the develop branch of the OME Model
 		documentation and publish the official documentation
@@ -349,7 +298,7 @@ sets is develop.
 		#. |ssh-doc| :file:`formats-release.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
 
-	:jenkinsjob:`CONTRIBUTING-release-docs`
+	:jenkinsjob:`CONTRIBUTING-latest-docs`
 
 		This job is used to build the develop branch of the OME Contributing
 		documentation and publish the official documentation
