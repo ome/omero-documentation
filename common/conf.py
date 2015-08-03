@@ -54,7 +54,7 @@ extensions = ['omerodocs', 'sphinx.ext.extlinks', 'edit_on_github']
 
 # Configuration for the edit_on_github extension
 edit_on_github_project = 'openmicroscopy/ome-documentation'
-edit_on_github_branch = 'develop'
+edit_on_github_branch = 'dev_5_1'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['../common/_templates']
