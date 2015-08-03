@@ -12,28 +12,20 @@ Type "ant -p" for a list of targets.
 
   <target name="html">
     <ant dir="omero" target="html"/>
-    <ant dir="formats" target="html"/>
-    <ant dir="contributing" target="html"/>
   </target>
 
   <target name="latexpdf">
     <ant dir="omero" target="latexpdf"/>
-    <ant dir="formats" target="latexpdf"/>
-    <ant dir="contributing" target="latexpdf"/>
   </target>
 
   <target name="pdf" depends="latexpdf"/>
 
   <target name="linkcheck">
     <ant dir="omero" target="linkcheck"/>
-    <ant dir="formats" target="linkcheck"/>
-    <ant dir="contributing" target="linkcheck"/>
   </target>
 
   <target name="clean">
     <ant dir="omero" target="clean"/>
-    <ant dir="formats" target="clean"/>
-    <ant dir="contributing" target="clean"/>
   </target>
 
 </project>
