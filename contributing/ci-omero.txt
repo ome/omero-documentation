@@ -179,14 +179,14 @@ clients of the deployment jobs described above:
 5.1.x series
 ^^^^^^^^^^^^
 
-The branch for the 5.1.x series of OMERO is dv_1. All jobs are listed
+The branch for the 5.1.x series of OMERO is dev_5_1. All jobs are listed
 under the :jenkinsview:`5.1` view tab of Jenkins.
 
 .. glossary::
 
     :jenkinsjob:`OMERO-5.1-latest`
 
-        This job builds the develop branch of OMERO with Ice 3.4 or 3.5
+        This job builds the dev_5_1 branch of OMERO with Ice 3.4 or 3.5
 
         #. |buildOMERO|
         #. |archiveOMEROartifacts|
@@ -210,12 +210,12 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
     :jenkinsjob:`OMERO-5.1-latest-submods`
 
-        This job updates the submodules on the develop branch
+        This job updates the submodules on the dev_5_1 branch
 
         #. |updatesubmodules| and pushes the merge branch to
            snoopycrimecop/dev_5_1/latest/submodules
         #. If the submodules are updated, opens a new PR or updates the
-           existing develop submodules PR
+           existing dev_5_1 submodules PR
 
     :jenkinsjob:`OMERO-5.1-merge-daily`
 
@@ -231,7 +231,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
     :jenkinsjob:`OMERO-5.1-merge-push`
 
-        This job merges all the PRs opened against develop
+        This job merges all the PRs opened against dev_5_1
 
         #. |merge|
         #. Pushes the branch to snoopycrimecop/dev_5_1/merge/daily
