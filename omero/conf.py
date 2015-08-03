@@ -39,7 +39,7 @@ if "OMERO_RELEASE" in os.environ and len(os.environ.get('OMERO_RELEASE')) > 0:
 
     if patchnumber > 0:
         tags.add('point_release')
-    previousversion = get_previous_version(majornumber)
+    previousversion = get_previous_version(majornumber, minornumber)
 else:
     version = 'UNKNOWN'
     previousversion = 'UNKNOWN'

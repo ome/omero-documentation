@@ -18,6 +18,7 @@ OMERO jobs
 		* :term:`OMERO-5.0-latest-deploy`
 		* | :term:`OMERO-5.1-latest-deploy`
 		  | :term:`OMERO-5.1-latest-deploy-win`
+		  | :term:`OMERO-5.1-latest-deploy-win2012`
 		*
 
 	- 	* Updates submodules
@@ -44,6 +45,7 @@ OMERO jobs
 		* :term:`OMERO-5.0-merge-deploy`
 		* | :term:`OMERO-5.1-merge-deploy`
 		  | :term:`OMERO-5.1-merge-deploy-win`
+		  | :term:`OMERO-5.1-merge-deploy-win2012`
 		* :term:`OMERO-5.1-breaking-deploy`
 
 	- 	* Runs the OMERO upgrade scripts
@@ -139,6 +141,12 @@ clients of the deployment jobs described above:
 		* http://hake.openmicroscopy.org/merge
 
 	- 	* 5.1.x
+		* :term:`OMERO-5.1-merge-deploy-win2012`
+		* ome-w2012r2-01.openmicroscopy.org
+		* 4064
+		* http://ome-w2012r2-01.openmicroscopy.org/merge
+
+	- 	* 5.1.x
 		* :term:`OMERO-5.1-latest-deploy`
 		* trout.openmicroscopy.org
 		* 14064
@@ -149,6 +157,12 @@ clients of the deployment jobs described above:
 		* hake.openmicroscopy.org
 		* 14064
 		* http://hake.openmicroscopy.org/latest
+
+	- 	* 5.1.x
+		* :term:`OMERO-5.1-latest-deploy-win2012`
+		* ome-w2012r2-01.openmicroscopy.org
+		* 14064
+		* http://ome-w2012r2-01.openmicroscopy.org/latest
 
 	- 	* 5.1.x
 		* :term:`OMERO-5.1-merge-integration`
@@ -474,12 +488,14 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
   "OMERO-5.1-latest" -> "OMERO-5.1-latest-deploy";
   "OMERO-5.1-latest" -> "OMERO-5.1-latest-deploy-win";
+  "OMERO-5.1-latest" -> "OMERO-5.1-latest-deploy-win2012";
   "OMERO-5.1-latest" -> "OMERO-5.1-latest-maven";
   "OMERO-5.1-merge-daily" -> "OME-5.1-merge-push"
   subgraph cluster_0 {
     "OME-5.1-merge-push" -> "OMERO-5.1-merge-build";
     "OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy";
 	"OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy-win";
+	"OMERO-5.1-merge-build" -> "OMERO-5.1-merge-deploy-win2012";
     }
   "OME-5.1-merge-push" -> "OMERO-5.1-merge-integration"
   "OMERO-5.1-merge-deploy" -> "OMERO-5.1-merge-docs"
@@ -510,6 +526,11 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 		This job deploys the latest 5.1.x server on Windows (see
 		:ref:`deployment_servers`)
+
+	:jenkinsjob:`OMERO-5.1-latest-deploy-win2012`
+
+		This job deploys the latest 5.1.x server on Windows 2012
+		(see :ref:`deployment_servers`)
 
 	:jenkinsjob:`OMERO-5.1-latest-submods`
 
@@ -556,6 +577,11 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
 		This job deploys the merge 5.1.x server on Windows (see
 		:ref:`deployment_servers`)
+
+	:jenkinsjob:`OMERO-5.1-merge-deploy-win2012`
+
+		This job deploys the merge 5.1.x server on Windows 2012
+		(see :ref:`deployment_servers`)
 
 	:jenkinsjob:`OMERO-5.1-merge-integration`
 
