@@ -22,6 +22,10 @@ Units of Measurement API implementation developed at
 https://www.eclipse.org/uomo/ if future work on that project provides a
 more complete implementation.
 
+.. seealso:: 
+    :omero_doc:`OMERO developer documentation on units <developers/Model/Units.html>`
+    for further details of how this aspect of the Data Model is implemented in
+    OMERO.
 
 OME system of measurements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

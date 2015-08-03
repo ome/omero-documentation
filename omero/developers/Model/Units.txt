@@ -7,21 +7,73 @@ of OME defined a default unit for the measurement. Now users, clients,
 and acquisition systems can specify the unit themselves rather than
 converting their internal unit to the OME default.
 
+.. seealso::
+    :model_doc:`Data Model documentation for units <developers/ome-units.html>`
+
 Supported units
 ---------------
-* Electric potential
-* Frequency
-* Length
-* Power
-* Pressure
-* Temperature
-* Time
+
+* :javadoc:`Electric potential <omero/model/ElectricPotentialI.html>`
+* :javadoc:`Frequency <omero/model/FrequencyI.html>`
+* :javadoc:`Length <omero/model/LengthI.html>`
+* :javadoc:`Power <omero/model/PowerI.html>`
+* :javadoc:`Pressure <omero/model/PressureI.html>`
+* :javadoc:`Temperature <omero/model/TemperatureI.html>`
+* :javadoc:`Time <omero/model/TimeI.html>`
 
 Each of the supported units contain a number of values from the
 International System of Units (SI) in the most common prefixes from
 yotta (10^24) to yocto (10^-24). The Length unit also contains
 values from the Imperial system as well as internal values which
 are internal to OME: reference frame and pixel.
+
+Unit fields
+-----------
+
+The following fields in the OMERO model have a unit type:
+
+===================== ===================== ================== =============
+Class                 Field                 Type               Default value
+===================== ===================== ================== =============
+Channel               EmissionWavelength    Length             nm
+Channel               ExcitationWavelength  Length             nm
+Channel               PinholeSize           Length             µm
+Detector              Voltage               ElectricPotential  V
+DetectorSettings      ReadOutRate           Frequency          MHz
+DetectorSettings      Voltage               ElectricPotential  V
+ImagingEnvironment    AirPressure           Pressure           mbar
+ImagingEnvironment    Temperature           Temperature        °C
+Laser                 RepetitionRate        Frequency          Hz
+Laser                 Wavelength            Length             nm
+LightSource           Power                 Power              mW
+LightSourceSettings   Wavelength            Length             nm
+Objective             WorkingDistance       Length             µm
+Pixels                PhysicalSizeX         Length             µm
+Pixels                PhysicalSizeY         Length             µm
+Pixels                PhysicalSizeZ         Length             µm
+Pixels                TimeIncrement         Time               s
+Plane                 DeltaT                Time               s
+Plane                 ExposureTime          Time               s
+Plane                 PositionX             Length             reference frame
+Plane                 PositionY             Length             reference frame
+Plane                 PositionZ             Length             reference frame
+Plate                 WellOriginX           Length             reference frame
+Plate                 WellOriginY           Length             reference frame
+Shape                 FontSize              Length             pt
+Shape                 StrokeWidth           Length             pixel
+StageLabel             X                    Length             reference frame
+StageLabel             Y                    Length             reference frame
+StageLabel             Z                    Length             reference frame
+TransmittanceRange     CutIn                Length             nm
+TransmittanceRange     CutInTolerance       Length             nm
+TransmittanceRange     CutOut               Length             nm
+TransmittanceRange     CutOutTolerance      Length             nm
+WellSample             PositionX            Length             reference frame
+WellSample             PositionY            Length             reference frame
+===================== ===================== ================== =============
+
+Units of type `reference frame` cannot be assumed comparable to units from
+other properties including those with type `reference frame`.
 
 Unit objects
 ------------
@@ -83,6 +135,47 @@ as defined in the SI specification, for example, use the
 
     Length l1 = ...; // As above
     l1.getSymbol(); // Returns "µm"
+
+.. _querying-units:
+
+Querying units
+--------------
+
+In HQL queries, the scalar and the enumeration value can be separately
+retrieved.
+
+::
+
+     select planeInfo.exposureTime.value from PlaneInfo planeInfo ...
+
+will retrieve just the double scalar value while
+
+::
+
+     select planeInfo.exposureTime.unit from PlaneInfo planeInfo ...
+
+will retrieve a string representation of the enum which
+can be used in each language to create an enum object, e.g.:
+
+::
+
+     UnitsTime.valueOf(unit); // Java
+     getattr(UnitsTime, unit) # Python
+
+To load the symbolic representation of the enum which is used
+internally in the database and is more concise, use an HQL cast:
+
+::
+
+     select cast(planeInfo.exposureTime.unit as text) from PlaneInfo planeInfo ...
+
+Returning the entire unit quantity will result in a hash map with the
+various representations:
+
+::
+
+     select planeInfo.exposureTime from PlaneInfo planeInfo ...
+     {'symbol': 's', 'unit': 'SECOND', 'value': 1.2000000476837158}
 
 
 .. seealso::

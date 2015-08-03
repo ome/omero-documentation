@@ -17,8 +17,13 @@ with:
    `mod\_proxy\_fcgi` enabled),
    `nginx <http://nginx.org/>`_ or
    `lighttpd <http://www.lighttpd.net/>`_ (since OMERO 4.2.1)
+-  `WSGI <http://wsgi.readthedocs.org>`_ using a WSGI capable web server
+   such as
+   `Apache 2.2+ <http://httpd.apache.org/>`_ (with
+   `mod\_wsgi <http://www.modwsgi.org/>`_ enabled) or 
+   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
 -  The built-in Django lightweight development server (for **testing**
-   only; see the :doc:`/developers/Web/Deployment` page)
+   only; see the :doc:`/developers/Web/Deployment` page).
 
 You can find more information about FastCGI and where to get modules or
 packages for your distribution on the
@@ -37,127 +42,26 @@ Prerequisites
 
    -  Matplotlib_ should be available for your distribution
 
--  A FastCGI capable web server
+-  A FastCGI or WSGI capable web server
 
-Quick Start
------------
 
-.. _fastcgi_configuration:
+Deployment
+----------
 
-FastCGI Configuration (Unix/Linux)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+There’s a number of good ways to easily deploy OMERO.web.
 If you have installed Nginx or Apache OMERO can automatically generate a
-configuration file for your web server, see :ref:`apache22_configuration`,
-:ref:`apache24_configuration` or :ref:`nginx_configuration`.
-The location of the file will depend on your system, please refer to your
-web server's manual. See :ref:`customizing_your_omero_web_installation_unix`
-for additional customization options.
+configuration file for your web server, see :doc:`install-web/install-fastcgi`
+or :doc:`install-web/install-wsgi`. The location of the file will depend on
+your system, please refer to your web server's manual.
+See :ref:`customizing_your_omero_web_installation_unix` for additional
+customization options.
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
 
-.. _apache22_configuration:
-
-Apache 2.2 configuration (mod_fastcgi)
-""""""""""""""""""""""""""""""""""""""
-
-Install `mod\_fastcgi <http://www.fastcgi.com/drupal/>`_.
-To create a site configuration file for inclusion in the main Apache
-configuration redirect the output of the following command into a file:
-
-::
-
-    $ bin/omero web config apache
-
-.. literalinclude:: apache-omero.conf
-   :lines: 55-
-
-.. note::
-    The default configuration file installed with `mod_fastcgi` may be
-    incompatible with OMERO. In particular, the `FastCGIWrapper` option
-    conflicts with `FastCGIExternalServer` required by OMERO and must be
-    removed or commented out.
-
-.. note::
-    To configure an HTTPS server follow
-    `the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
-
-
-.. _apache24_configuration:
-
-Apache 2.4+ configuration (mod_proxy_fcgi)
-""""""""""""""""""""""""""""""""""""""""""
-
-The `mod\_proxy\_fcgi`, `mod\_proxy` and `mod\_rewrite` Apache modules should
-already be installed and enabled as part of the Apache installation, if this
-is not the case then enable them.
-To create a site configuration file for inclusion in the main Apache
-configuration redirect the output of the following command into a file:
-
-::
-
-    $ bin/omero web config apache-fcgi
-
-.. literalinclude:: apache-fcgi-omero.conf
-   :lines: 51-
-
-.. _nginx_configuration:
-
-Nginx configuration
-"""""""""""""""""""
-
-To create a site configuration file for inclusion in a system-wide nginx
-configuration redirect the output of the following command into a file:
-
-::
-
-    $ bin/omero web config nginx
-
-.. literalinclude:: nginx-omero.conf
-
-.. note::
-    To configure an HTTPS server follow
-    `the nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
-    Make sure ``fastcgi_param HTTPS $https;`` is uncommented.
-
-.. note::
-    OMERO.web requires ``body_in_file_only`` adjusted in your default nginx 
-    config because nginx must buffer incoming data. Make sure you have that 
-    set to the following config:
-
-    ::
-
-        http {
-            ...
-            sendfile on;
-            send_timeout 60s;
-            client_max_body_size 0;
-            ...
-        }
-
-
-Starting OMERO.web
-~~~~~~~~~~~~~~~~~~
-
-Start the Django FastCGI workers:
-
-::
-
-    $ bin/omero web start
-    ... static files copied to '/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static'.
-    Starting OMERO.web... [OK]
-
-.. note::
-    The Django FastCGI workers are managed **separately** from other
-    OMERO.server processes. You can check their status or stop them using the
-    following commands:
-
-    ::
-
-        $ bin/omero web status
-        OMERO.web status... [RUNNING] (PID 59217)
-        $ bin/omero web stop
-        Stopping OMERO.web... [OK]
-        Django FastCGI workers (PID 59217) killed.
+    install-web/install-fastcgi
+    install-web/install-wsgi
 
 
 Logging in to OMERO.web
@@ -258,19 +162,12 @@ This can be changed by setting :property:`omero.web.prefix` and
     $ bin/omero config set omero.web.static_url '/omero/static/'
 
 and regenerate your web-server configuration
-(see :ref:`fastcgi_configuration`).
+(see :ref:`fastcgi_configuration` or :ref:`wsgi_configuration`).
 
 The front-end webserver (Nginx, Apache) can be setup to run on a different
 host from OMERO.web. You will need to set
 :property:`omero.web.application_server.host` to ensure OMERO.web is
 accessible on an external IP.
-
-OMERO.web is configured to use FastCGI TCP by default. If you are using a
-non-standard web server configuration and wish to use a file based socket
-you can set :property:`omero.web.application_server` to `fastcgi`. This is a
-highly specialized setup aimed at advanced users, so you will need to create
-your own web server configuration file, and file socket with correct
-permissions.
 
 All configuration options can be found on various sections of
 :ref:`web_index` developers documentation. For the full list, refer to

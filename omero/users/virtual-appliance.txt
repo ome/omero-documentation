@@ -1,6 +1,9 @@
 OMERO virtual appliance
 =======================
 
+.. note:: As of OMERO 5.1.2, the Virtual Appliance is now available from a
+    separate :downloads_va:`downloads page <>`.
+
 The OMERO virtual appliance is a quick, easy, and low-cost way to try
 out OMERO.server on your laptop or desktop. This enables you to make
 an informed decision about whether committing to an OMERO.server
@@ -44,7 +47,7 @@ Getting started
 To use the virtual appliance you should do the following:
 
 -  Install VirtualBox
--  Download the OMERO.server virtual appliance
+-  :downloads_va:`Download the OMERO.server virtual appliance <>`
 -  Import the virtual appliance into VirtualBox to create a virtual
    machine
 -  Start the virtual machine
@@ -76,9 +79,8 @@ screenshot:
 Download the OMERO.server virtual appliance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The virtual appliance can be downloaded from the 
-:downloads:`OMERO download page <>` and should have a filename 
-similar to omero-vm-|release|.ova.
+The virtual appliance has its own :downloads_va:`download page <>` and will
+have a filename similar to omero-va-|release|.ova.
 
 Import OMERO virtual appliance into VirtualBox
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -228,11 +230,10 @@ interact with OMERO without further setup.
 Credentials
 ^^^^^^^^^^^
 
-There are a number of accounts that are preconfigured in the OMERO
-virtual appliance. Two of these are |OS| accounts, for logging into the |VM|
-as either the **root** user or the **omero** user. There is also a
-single OMERO.server account which is used to access the OMERO.server
-software as the OMERO.server **root** user.
+The following accounts are preconfigured in the OMERO virtual appliance: an
+|OS| account, for logging into the |VM| as the **omero** user, and a single
+OMERO.server account which is used to access the OMERO.server software as the
+OMERO.server **root** user.
 
 Virtual Appliance |OS| credentials
 """"""""""""""""""""""""""""""""""
@@ -240,12 +241,11 @@ Virtual Appliance |OS| credentials
 ======== =========
 Username Password
 ======== =========
-root     [1]
 omero      omero
 ======== =========
 
-[1] The omero account is able to run administrative commands via sudo with no
-password required.
+A 'root' |OS| account is not needed as the omero account is able to run
+administrative commands via sudo with no password required.
 
 OMERO.server credentials
 """"""""""""""""""""""""
@@ -263,7 +263,9 @@ Using the virtual appliance
 ---------------------------
 
 Further guidance on how to interact with the server and troubleshoot common
-issues is available. See :doc:`va-working` and :doc:`va-troubleshooting`.
+issues is available. See :doc:`va-working` and :doc:`va-troubleshooting`. In
+particular, :ref:`increasing the base memory allocation <memory-allocation>`
+may significantly improve import performance.
 
 .. toctree::
     :maxdepth: 1
