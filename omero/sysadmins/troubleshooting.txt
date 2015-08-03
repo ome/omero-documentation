@@ -181,8 +181,11 @@ Java Virtual Machine including `Bug ID:
 A 64-bit platform for your OMERO.server is **HIGHLY** recommended.
 
 
+Import errors
+-------------
+
 Import error when running bin/omero
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -201,6 +204,89 @@ most likely cause is that your PYTHONPATH is not properly set.
    to add ``/opt/Ice-3.5.1/python`` (or similar) to your PYTHONPATH
    environment variable. See the Ice installation instructions for more
    information.
+
+
+.. _ulimit:
+
+Too many open files
+^^^^^^^^^^^^^^^^^^^
+
+This is most often seen as an error during importing and is caused by the
+number of opened files exceeding the limit imposed
+by your operating system. It might be due to OMERO leaking file
+descriptors; if you are not using the latest version, please upgrade,
+since a number of bugs which could cause this behavior have been fixed.
+It is also possible for buggy scripts which do not properly release
+resources to cause this error.
+
+To view the current per-process limit, run
+
+::
+
+            ulimit -Hn
+
+which will show the hard limit for the maximum number of file
+descriptors (-Sn will show the soft limit). This limit may be increased.
+On Linux, see ``/etc/security/limits.conf`` (global PAM per-user limits
+configuration); it is also possible to increase the limit in the shell
+with
+
+::
+
+            ulimit -n newlimit
+
+providing that you are uid 0 (other users can only increase the soft
+limit up to the hard limit). To view the system limit, run
+
+::
+
+            cat /proc/sys/fs/file-max
+
+**We recommend 8K as a minimum number of files limit for production systems,
+with 16K being reasonable for bigger machines.**
+
+On Mac OS X, the standard ulimit will not work properly. There are several
+different ways of setting the ulimit, depending upon the version of OS X
+you are using, but the most common are to edit ``sysctl.conf`` or
+``launchd.conf`` to raise the limit. However, note that both of these
+methods change the defaults for every process on the system, not just
+for a single user or service.
+
+Increasing the number of available filehandles via 'ulimit -n'
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ValueError: filedescriptor out of range in select() - this is a known issue in 
+Python versions prior to 2.7.0. See
+:ticket:`6201` and Python `Issue #3392
+<http://bugs.python.org/issue3392>`_ for more details.
+
+Windows import errors
+^^^^^^^^^^^^^^^^^^^^^
+
+See :ref:`windows-database-encoding`.
+
+
+Directory exists but is not registered
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Import errors of type ``Directory exists but is not registered: CheckedPath(username_id)``
+suggest a server-side issue under the ManagedRepository.
+
+For production servers, this can be caused by a server crash during import
+or an issue at the file system level (permissions, renaming). If the
+:file:`ManagedRepository/username_id` folder is empty, you should try removing 
+it before trying another import.
+
+For development servers, this may be caused by the binary directory not being
+cleaned after the database has been wiped.
+
+.. seealso::
+
+    :forum:`Upload problem: Directory exists but is not registered. <viewtopic.php?f=5&t=7537>`
+
+    :forum:`import: Directory exists but is not registered: CheckedPath( <viewtopic.php?f=6&t=7722&p=15264&hilit=CheckedPath#p15264>`
+
+    :ome-devel:`[ome-devel] Directory exists but is not registered: CheckedPath(username_id) <2014-October/003020.html>`
 
 DropBox fails to start: failed to get session
 ---------------------------------------------
@@ -237,55 +323,18 @@ wrong. See :ref:`search-failures` for more details.
 OMERO.web issues
 ----------------
 
-OMERO.web is not accessible from remote computer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OMERO.web did not start
+^^^^^^^^^^^^^^^^^^^^^^^
 
-To configure the out-of-the box setup to listen for webadmin and webclient
-connections on different host run:
+-  If the Apache error logs contain lines of type
+   ``Permission denied: access to xxx denied``, you need to check the
+   permissions of the folder and make sure it is readable and executable by
+   the Apache user.
 
-::
+   .. seealso::
+     :forum:`What are your LDAP requirements? <viewtopic.php?f=5&t=14>`
 
-    c:\omero_dist> bin/omero web start 'host' 'port'
-
-
-OMERO.web did not start on the production
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The user opening OMEROweb.log files needs write permissions to the
-directory containing the log files. So, be sure you have a ``log``
-directory with the correct ownership and the path set in ``LOGDIR``
-matches the log directory.
-
--  In your ``/home/omero/omero_dist/var/lib/`` directory add the
-   following to your ``custom_settings.py`` file:
-
-   -  LOGDIR
-
-      ::
-
-          LOGDIR = '/home/omero/weblog/'
-
--  Check if ``/home/omero/omero_dist/var/lib/custom_settings.py``
-   exists.
-
--  Check who owns the log directory and log files:
-
-   ::
-
-       $ ls -al /home/omero/weblog/
-       total 49
-       drwxr-xr-x  2 apache apache   120 Mar 31 11:29 .
-       drwxr-xr-x 10 apache apache   520 Mar 31 11:29 ..
-       -rw-r--r--  1 apache apache 23766 Mar 31 11:41 OMEROweb.log
-       -rw-r--r--  1 apache apache 23978 Mar 31 11:41 OMEROweb.log.2009-03-31
-
--  or create log and database directories with, for example,
-   ``apache_user:apache_group`` ownership:
-
-   ::
-
-       mkdir /home/omero/weblog
-       chown apache_user:apache_group /home/omero/weblog
+     :ome-users:`upgrade 5.0.5 to 5.1.1 omero.web forbidden <2015-April/005316.html>`
 
 OMERO.web piecharts
 ^^^^^^^^^^^^^^^^^^^
@@ -306,8 +355,10 @@ more details. There are a few known possibilities:
    (:doc:`UNIX instructions <unix/install-web>` or :doc:`Windows instructions 
    <windows/install-web>`).
 
-Performance issues with the clients
------------------------------------
+.. _client_performance:
+
+Troubleshooting performance issues with the clients
+---------------------------------------------------
 
 If you are having issues with slowdown and timeouts in the clients, there are
 three things to check:
@@ -319,18 +370,19 @@ three things to check:
 
 In the final case, two issues arise. Firstly, when performing some operations,
 the clients make use of temporary file storage and log directories, as
-described in the client configuration section of :doc:`system-requirements`.
+described in the :ref:`client_directories` section of
+:doc:`system-requirements`.
 If your home directory is stored on a network, possibly NFS mounted (or
 similar), then these temporary files are being written and read over the
 network which can slow access down. Secondly, the OMERO.server also accesses
-the ``$HOME/omero/tmp`` and ``$HOME/omero/log`` folders of the user the server
-process is running as. As the server makes heavier use of these folders than
-the clients, if the OMERO.server user's home(~) is stored on a network drive
-then slow performance can occur.
+the temporary and log folders of the user the server process is running as. As
+the server makes heavier use of these folders than the clients, if the
+OMERO.server user directory is stored on a network drive then slow performance
+can occur.
 
-To resolve this, you can define an :envvar:`OMERO_TEMPDIR` environment
-variable pointing to a temporary directory located on the local file system
-(e.g. `/tmp/`).
+To resolve this, define the :envvar:`OMERO_TMPDIR` environment variable
+to point at a temporary directory located on the local file system
+(e.g. :file:`/tmp/omero`).
 
 Other issues
 ------------
@@ -364,49 +416,3 @@ http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=4751177 or this
 :ome-users:`ome-users thread <2009-March/001465.html>` on our mailing list for
 more information.
 
-Too many open files
-^^^^^^^^^^^^^^^^^^^
-
-This is caused by the number of opened files exceeding the limit imposed
-by your operating system. It might be due to OMERO leaking file
-descriptors; if you are not using the latest version, please upgrade,
-since a number of bugs which could cause this behavior have been fixed.
-It is also possible for buggy scripts which do not properly release
-resources to cause this to occur. To view the current per-process limit,
-run
-
-::
-
-            ulimit -Hn
-
-which will show the hard limit for the maximum number of file
-descriptors (-Sn will show the soft limit). This limit may be increased.
-On Linux, see ``/etc/security/limits.conf`` (global PAM per-user limits
-configuration); it is also possible to increase the limit in the shell
-with
-
-::
-
-            ulimit -n newlimit
-
-providing that you are uid 0 (other users can only increase the soft
-limit up to the hard limit). To view the system limit, run
-
-::
-
-            cat /proc/sys/fs/file-max
-
-On Mac OS X, the standard ulimit will not work properly. There are several
-different ways of setting the ulimit, depending upon the version of OS X
-you are using, but the most common are to edit ``sysctl.conf`` or
-``launchd.conf`` to raise the limit. However, note that both of these
-methods change the defaults for every process on the system, not just
-for a single user or service.
-
-Increasing the number of available filehandles via 'ulimit -n'
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ValueError: filedescriptor out of range in select() - this is a known issue in 
-Python versions prior to 2.7.0. See
-:ticket:`6201` and Python `Issue #3392
-<http://bugs.python.org/issue3392>`_ for more details.

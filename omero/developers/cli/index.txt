@@ -1,5 +1,14 @@
-OMERO Command Line Interface
-============================
+Command Line Interface as an OMERO development tool
+===================================================
+
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    obj
+    extending
+
 
 .. seealso::
 
@@ -11,82 +20,6 @@ OMERO Command Line Interface
 
 Help for any specific CLI command can be displayed using the :option:`-h`
 argument. See :ref:`cli_help` for more information.
-
-Working with objects
---------------------
-
-.. program:: omero obj
-
-The :omerocmd:`obj` command allows to create and update OMERO objects. More
-information can be displayed using ``bin/omero obj -h``.
-
-Object creation
-^^^^^^^^^^^^^^^
-
-.. program:: omero obj new
-
-The  :omerocmd:`obj new` subcommand allows to create new objects::
-
-   $ bin/omero obj new Object field=value
-
-where `Object` is the type of object to create, e.g. `Dataset` or
-`ProjectDatasetLink` and `field`/`value` is a valid key/value pair for the
-type of object.
-For example, the following command creates a new screen with a name and a
-description::
-
-
-	$ bin/omero obj new Screen name=Screen001 description="screen description"
-
-Object update
-^^^^^^^^^^^^^
-
-The :omerocmd:`obj update` subcommand allows to update existing objects::
-
-   $ bin/omero obj update Object:ID field=value
-
-where `Object:ID` is the type and the ID of object to update, e.g. `Image:1`
-or `PlateDatasetLink:10` and `field`/`value` is a valid key/value pair to
-update for the specified object.
-
-For example, the following command updates the existing screen of ID 2 with a
-name and a description::
-
-	$ bin/omero obj update Screen:2 name=Screen001 description="screen description"
-
-Piping output
-^^^^^^^^^^^^^
-
-The output of each :omerocmd:`obj` command is formatted as `Object:ID` so that
-the CLI commands can be redirected and piped together. For example, the
-following set of commands creates a dataset and a project and links them
-together::
-
-   $ dataset=$(bin/omero obj new Dataset name=dataset-1)
-   $ project=$(bin/omero obj new Project name=plate-1)
-   $ bin/omero obj new ProjectDatasetLink parent=$project child=$dataset
-
-Extensions
-----------
-
-Plugins can be written and put in the ``lib/python/omero/plugins``
-directory. On execution, all plugins in that directory are registered
-with the |CLI|. Alternatively, the "--path" argument can be used to point to
-other plugin files or directories.
-
-Thread-safety
-^^^^^^^^^^^^^
-
-The ``omero.cli.CLI`` should be considered thread-*un*\ safe. A single
-connection object is accessible from all plugins via
-``self.ctx.conn(args)``, and it is assumed that changes to this object
-will only take place in the current thread. The |CLI| instance itself,
-however, can be passed between multiple threads, as long as only one
-accesses it sequentially, possibly via locking.
-
-.. seealso::
-    |ExtendingOmero|
-        Other extensions to OMERO
 
 General notes
 -------------

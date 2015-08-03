@@ -144,13 +144,8 @@ The following are optional depending on what services you require:
       - :doc:`OMERO.tables </sysadmins/server-tables>`
       - `PyTables page <https://pytables.github.io/downloads.html>`_
 
-    * - scipy.ndimage
-      - :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>` [2]_
-      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
-
 .. [1] May already have been installed as a dependency of Matplot Lib.
 
-.. [2] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
 
 PostgreSQL (9.2 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -336,7 +331,7 @@ The OMERO.server also accesses the :file:`omero\\tmp` and
 process**. As the server makes heavier use of these folders than the clients,
 if that user's home folder is stored on a network the server can be
 slowed down. To get around this for the OMERO.server you can define an
-``OMERO_TEMPDIR`` environment variable pointing to a temporary directory
+:envvar:`OMERO_TMPDIR` environment variable pointing to a temporary directory
 located on the local file system e.g. :file:`C:\\tmp\\`.
 
 Installation
@@ -432,6 +427,7 @@ Installation
 
        .. parsed-literal::
 
+           omero=> SET client_encoding = 'UTF8';
            omero=> \\i C:/OMERO.server/|current_dbver|.sql
            ...
            ...
@@ -584,6 +580,11 @@ If you have ***Flex data***, you may want to watch :snapshot:`the HCS configurat
 See the :omero_plone:`Feature list <feature-list>` for more advanced
 features you may want to use, and :doc:`/sysadmins/config` on how to get the
 most out of your server.
+
+If your users are going to be importing many files in one go, for example
+multiple plates, you should make sure you set the maximum number of open files
+to a sensible level (i.e. at least 8K for production systems, 16K for bigger
+machines). See :ref:`ulimit` for more information.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^

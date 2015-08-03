@@ -148,6 +148,14 @@ Name of the "Orphaned images" container located in client tree data manager.
 
 Default: `Orphaned images`
 
+.. property:: omero.client.web.host
+
+omero.client.web.host
+^^^^^^^^^^^^^^^^^^^^^
+Absolute omeroweb host http(s)://your_domain/prefix/
+
+Default: `[empty]`
+
 
 .. _core_configuration:
 
@@ -165,13 +173,43 @@ Default: `/OMERO/`
 
 omero.db.authority
 ^^^^^^^^^^^^^^^^^^
+The string that will be used as the base for LSIDs
+in all exported OME objects including OME-XML and
+OME-TIFF. It's usually not necessary to modify this
+value since the database UUID (stored in the database)
+is sufficient to uniquely identify the source.
 
 Default: `export.openmicroscopy.org`
+
+.. property:: omero.db.dialect
+
+omero.db.dialect
+^^^^^^^^^^^^^^^^
+Implementation of the org.hibernate.dialect.Dialect interface which will
+be used to convert HQL queries and save operations into SQL SELECTs and
+DML statements.
+
+(PostgreSQL default)
+
+Default: `ome.util.PostgresqlDialect`
+
+.. property:: omero.db.driver
+
+omero.db.driver
+^^^^^^^^^^^^^^^
+JDBC driver used to access the database. Other drivers can be configured
+which wrap this driver to provide logging, monitoring, etc.
+
+(PostgreSQL default)
+
+Default: `org.postgresql.Driver`
 
 .. property:: omero.db.host
 
 omero.db.host
 ^^^^^^^^^^^^^
+The host name of the machine on which the database server is running.
+A TCP port must be accessible from the server on which OMERO is running.
 
 Default: `localhost`
 
@@ -179,6 +217,7 @@ Default: `localhost`
 
 omero.db.name
 ^^^^^^^^^^^^^
+The name of the database instance to which OMERO will connect.
 
 Default: `omero`
 
@@ -186,6 +225,7 @@ Default: `omero`
 
 omero.db.pass
 ^^^^^^^^^^^^^
+The password to use to connect to the database server
 
 Default: `omero`
 
@@ -193,6 +233,11 @@ Default: `omero`
 
 omero.db.patch
 ^^^^^^^^^^^^^^
+The patch version of the database which is in use.
+This value need not match the patch version of the
+server that is is being used with. Any changes by
+developers to the database schema will result in
+a bump to this value.
 
 Default: `1`
 
@@ -200,12 +245,24 @@ Default: `1`
 
 omero.db.poolsize
 ^^^^^^^^^^^^^^^^^
-Sets the number of connections to PostgreSQL which
+Sets the number of database server connections which
 will be used by OMERO. Your database installation
 will need to be configured to accept *at least* as
 many, preferably more, connections as this value.
 
 Default: `10`
+
+.. property:: omero.db.port
+
+omero.db.port
+^^^^^^^^^^^^^
+TCP port on which the database server is listening for connections.
+Used by the JDBC driver to access the database. Use of a local UNIX
+socket is not supported.
+
+(PostgreSQL default)
+
+Default: `5432`
 
 .. property:: omero.db.prepared_statement_cache_size
 
@@ -229,6 +286,17 @@ Especially of importance is omero.db.port
 
 Default: `psql`
 
+.. property:: omero.db.sql_action_class
+
+omero.db.sql_action_class
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Implementation of the ome.util.SqlAction interface which will be used to
+perform all direct SQL actions, i.e. without Hibernate.
+
+(PostgreSQL default)
+
+Default: `ome.util.actions.PostgresSqlAction`
+
 .. property:: omero.db.statistics
 
 omero.db.statistics
@@ -242,6 +310,7 @@ Default: `true`
 
 omero.db.user
 ^^^^^^^^^^^^^
+The username to use to connect to the database server
 
 Default: `omero`
 
@@ -249,6 +318,11 @@ Default: `omero`
 
 omero.db.version
 ^^^^^^^^^^^^^^^^
+Version of the database which is in use. This
+value typically matches the major.minor version
+of the server that it is being used with. Typically,
+only developers will change this version to bump
+to a new major version.
 
 Default: `OMERO5.1`
 
@@ -359,7 +433,7 @@ Graphs
 
 omero.graphs.wrap
 ^^^^^^^^^^^^^^^^^
-Whether to use the new Chgrp, Chown, Delete implementations.
+Whether to use the new Chgrp, Chmod, Chown, Delete implementations.
 Available only for OMERO 5.1:
 from OMERO 5.2 the new implementations must be used.
 
@@ -480,7 +554,7 @@ Default: `[empty]`
 omero.jvmcfg.perm_gen
 ^^^^^^^^^^^^^^^^^^^^^
 Explicit value for the MaxPermSize argument
-to the JVM, e.g. "500M"
+to the JVM, e.g. "500M". Ignored for Java8+
 
 Default: `[empty]`
 
@@ -549,8 +623,67 @@ Default: `name=cn`
 
 omero.ldap.new_user_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+Without a prefix the "new_user_group" property specifies
+the name of a single group which all new users will be
+added to. Other new_user_group strings are prefixed with
+``:x:`` and specify various lookups which should take
+place to find one or more target groups for the new user.
+
+``:ou:`` uses the final organizational unit of a user's dn
+as the single OMERO group e.g. ``omero.ldap.new_user_group=:ou:``
+
+
+``:attribute:`` uses all the values of the specified
+attribute as the name of multiple OMERO groups. e.g.
+``omero.ldap.new_user_group=:attribute:memberOf``
+
+Like ``:attribute:``, ``:filtered_attribute:`` uses all the
+values of the specified attribute as the name of
+multiple OMERO groups but the attribute must pass
+the same filter as ``:query:`` does. e.g.
+``omero.ldap.new_user_group=:filtered_attribute:memberOf``
+
+Similar to ``:attribute:``, ``:dn_attribute:`` uses all the
+values of the specified attribute as the DN of
+multiple OMERO groups. e.g.
+``omero.ldap.new_user_group=:dn_attribute:memberOf``
+
+A combination of filtered_attribute and dn_attribute,
+``:filtered_dn_attribute:`` uses all of the values of the
+specified attribute as the DN of multiple OMERO groups
+but the attribute must pass the same filter as ``:query:``
+e.g. ``omero.ldap.new_user_group=:filtered_dn_attribute:memberOf``
+
+``:query:`` performs a query for groups. The "name"
+property will be taken as defined by omero.ldap.group_mapping
+and the resulting filter will be AND'ed with the value
+group_filter (above) e.g.
+``omero.ldap.new_user_group=:query:(member=@{dn})``
+
+``:bean:`` looks in the server's context for a
+bean with the given name which implements
+``ome.security.auth.NewUserGroupBean`` e.g.
+``omero.ldap.new_user_group=:bean:myNewUserGroupMapperBean``
+
 
 Default: `default`
+
+.. property:: omero.ldap.new_user_group_owner
+
+omero.ldap.new_user_group_owner
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A query element to check if user who is being created
+via the new_user_group setting should be made a
+"manager", i.e. owner, of the queried group. E.g.
+``omero.ldap.new_user_group_owner=(owner=@{dn})``
+will use the 'manager' attribute to set the 'owner'
+flag in the database. This query element is appened
+to any query used by new_user_group with an AND.
+
+This property is not used by new_user_group type
+'default' and only potentially by ``:bean:``.
+
+Default: `[empty]`
 
 .. property:: omero.ldap.password
 
@@ -575,7 +708,7 @@ omero.ldap.sync_on_login
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Whether or not values from LDAP will be
 synchronized to OMERO on each login. This includes
-not just the user name, email, etc, but also the
+not just the username, email, etc, but also the
 groups that the user is a member of.
 
 .. warning::
@@ -743,7 +876,7 @@ Default: `smtp`
 
 omero.mail.username
 ^^^^^^^^^^^^^^^^^^^
-the user name to connect to the smtp server (if required; can be empty)
+the username to connect to the smtp server (if required; can be empty)
 
 Default: `[empty]`
 
@@ -848,6 +981,11 @@ Default: `5`
 
 omero.throttling.method_time.error
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Time in milliseconds after which a single method invocation
+will print a ERROR statement to the server log. If ERRORs
+are frequently being printed to your logs, you may want to
+increase this value after checking that no actual problem
+exists. Values of more than 60000 (1 minute) are not advised.
 
 Default: `20000`
 
@@ -863,6 +1001,8 @@ Default: `86400000`
 
 omero.throttling.method_time.warn
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Time in milliseconds after which a single method invocation
+will print a WARN statement to the server log.
 
 Default: `5000`
 
@@ -1112,6 +1252,8 @@ Scripts
 
 omero.launcher.jython
 ^^^^^^^^^^^^^^^^^^^^^
+Executable on the PATH which will be used for scripts
+with the mimetype 'text/x-jython'.
 
 Default: `jython`
 
@@ -1119,6 +1261,8 @@ Default: `jython`
 
 omero.launcher.matlab
 ^^^^^^^^^^^^^^^^^^^^^
+Executable on the PATH which will be used for scripts
+with the mimetype 'text/x-matlab'.
 
 Default: `matlab`
 
@@ -1126,6 +1270,9 @@ Default: `matlab`
 
 omero.launcher.python
 ^^^^^^^^^^^^^^^^^^^^^
+Executable on the PATH which will be used for scripts
+with the mimetype 'text/x-python'.
+
 No value implies use sys.executable
 
 Default: `[empty]`
@@ -1134,6 +1281,10 @@ Default: `[empty]`
 
 omero.process.jython
 ^^^^^^^^^^^^^^^^^^^^
+Server implementation which will be used for scripts
+with the mimetype 'text/x-jython'. Changing this value
+requires that the appropriate class has been installed
+on the server.
 
 Default: `omero.processor.ProcessI`
 
@@ -1141,6 +1292,10 @@ Default: `omero.processor.ProcessI`
 
 omero.process.matlab
 ^^^^^^^^^^^^^^^^^^^^
+Server implementation which will be used for scripts
+with the mimetype 'text/x-matlab'. Changing this value
+requires that the appropriate class has been installed
+on the server.
 
 Default: `omero.processor.MATLABProcessI`
 
@@ -1148,6 +1303,10 @@ Default: `omero.processor.MATLABProcessI`
 
 omero.process.python
 ^^^^^^^^^^^^^^^^^^^^
+Server implementation which will be used for scripts
+with the mimetype 'text/x-python'. Changing this value
+requires that the appropriate class has been installed
+on the server.
 
 Default: `omero.processor.ProcessI`
 
@@ -1422,7 +1581,7 @@ Default: `3000`
 omero.security.password_provider
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Implementation of PasswordProvider that will be
-used to authenticate users. Typically, a chanined
+used to authenticate users. Typically, a chained
 password provider will be used so that if one form
 of authentication (e.g. LDAP) does not work, other
 attempts will be made.
@@ -1471,7 +1630,7 @@ Web
 
 omero.web.admins
 ^^^^^^^^^^^^^^^^
-A list of people who get code error notifications whenever the application identify broken link or raises an unhandled exception that results in an internal server error. This gives the administrators immediate notification of any errors, see :doc:`/sysadmins/mail`. Example:``'[["Full Name", "email address"]]'``.
+A list of people who get code error notifications whenever the application identifies a broken link or raises an unhandled exception that results in an internal server error. This gives the administrators immediate notification of any errors, see :doc:`/sysadmins/mail`. Example:``'[["Full Name", "email address"]]'``.
 
 Default: `[]`
 
@@ -1543,7 +1702,7 @@ Default: `false`
 
 omero.web.index_template
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Define template used as an index page ``http://your_host/omero/``.If None user is automaticaly redirected to the login page.For example use 'webstart/start.html'. 
+Define template used as an index page ``http://your_host/omero/``.If None user is automatically redirected to the login page.For example use 'webstart/start.html'. 
 
 Default: `None`
 
@@ -1567,7 +1726,7 @@ Default: `None`
 
 omero.web.login_redirect
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Redirect to the givin location after loging in. It only support arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#django.core.urlresolvers.reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'``
+Redirect to the given location after logging in. It only supports arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#django.core.urlresolvers.reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'``
 
 Default: `{}`
 

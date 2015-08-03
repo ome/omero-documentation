@@ -68,6 +68,11 @@ Fedora and Scientific Linux.
 
   where *package* is the package name to install.
 
+* For homebrew you need to enable the "python" and "science" taps::
+
+    $ brew tap homebrew/python
+    $ brew tap homebrew/science
+
 .. _server-requirements:
 
 Overview
@@ -203,15 +208,9 @@ The following Python packages are required:
       - :doc:`OMERO.tables </sysadmins/server-tables>`
       - `PyTables page <https://pytables.github.io/downloads.html>`_
 
-    * - scipy.ndimage
-      - :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>` [3]_
-      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
-
 .. [1] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ installed when building `Pillow`_.
 
 .. [2] May already have been installed as a dependency of Matplot Lib.
-
-.. [3] Allows larger volumes to be viewed in the :omero_plone:`Volume Viewer <volume-viewer-in-omero.web>`.
 
 .. note::
     Some of these can be ignored if you wish to forego some
@@ -238,7 +237,7 @@ If possible, install the following packages:
       - python2.7 python-pil python-matplotlib python-numpy python-tables python-scipy
 
     * - Homebrew
-      - python python/pillow python/numpy python/matplotlib
+      - python pillow numpy matplotlib
 
     * - RedHat
       - python
@@ -254,17 +253,17 @@ Ice
 
 If possible, install one of the following packages:
 
-+-----------+--------------------------+
-| System    | Package                  |
-+===========+==========================+
-| BSD Ports | devel/ice                |
-+-----------+--------------------------+
-| Debian    | zeroc-ice                |
-+-----------+--------------------------+
-| Homebrew  | ice                      |
-+-----------+--------------------------+
-| RedHat    | N/A (install ZeroC RPMs) |
-+-----------+--------------------------+
++-----------+---------------------------------+
+| System    | Package                         |
++===========+=================================+
+| BSD Ports | devel/ice                       |
++-----------+---------------------------------+
+| Debian    | zeroc-ice                       |
++-----------+---------------------------------+
+| Homebrew  | ice (with --with-python option) |
++-----------+---------------------------------+
+| RedHat    | N/A (install ZeroC RPMs)        |
++-----------+---------------------------------+
 
 The Ice version may vary, depending upon the distribution version you
 are using. The Ice versions in currently supported versions of Debian
@@ -296,7 +295,7 @@ If possible, install the following packages:
 +-----------+-------------------------------------------------------------+
 | Debian    | postgresql                                                  |
 +-----------+-------------------------------------------------------------+
-| Homebrew  | postgresql92                                                |
+| Homebrew  | postgresql                                                  |
 +-----------+-------------------------------------------------------------+
 | RedHat    | postgresql postgresql-server                                |
 +-----------+-------------------------------------------------------------+
@@ -451,7 +450,7 @@ The following environment variables may be configured:
   This is not strictly required, but may be set for convenience to
   point to the OMERO server installation, and is used in this
   documentation as a shorthand for the installation path.
-:envvar:`OMERO_TEMPDIR`
+:envvar:`OMERO_TMPDIR`
   Directory used for temporary files. If the home directory of the
   user running the OMERO server is located on a slow filesystem, such
   as NFS, this may be used to store the temporary files on fast local
@@ -656,6 +655,17 @@ Configuration
          Creating var/registry
          No descriptor given. Using etc/grid/default.xml
 
+-   If multiple users have access to the system running OMERO you should
+    restrict access to the :file:`OMERO.server/etc` and
+    :file:`OMERO.server/var` directories, for example by changing the
+    permissions on them::
+
+        $ chmod 700 ~/omero/OMERO.server/etc ~/omero/OMERO.server/var
+
+    You should also consider restricting access to the OMERO data repository.
+    The required permissions will depend on whether you are using
+    :doc:`/sysadmins/import-scenarios`.
+
 .. note Windows
 
    If you would like to move the directory again, see
@@ -727,12 +737,17 @@ Advanced configuration
 
 Once you have the base server running, you may want to try enabling
 some of the advanced features such as :doc:`/sysadmins/dropbox` or
-:doc:`/sysadmins/server-ldap`. If you have ***Flex data***, you may
+:doc:`/sysadmins/server-ldap`. If you have **Flex data**, you may
 want to watch :snapshot:`the HCS configuration screencast
 <movies/omero-4-1/mov/FlexPreview4.1-configuration.mov>`. See the
 :omero_plone:`Feature list <feature-list>` for more advanced features
 you may want to use, and :doc:`/sysadmins/config` on how to get the
 most out of your server.
+
+If your users are going to be importing many files in one go, for example
+multiple plates, you should make sure you set the maximum number of open files
+to a sensible level (i.e. at least 8K for production systems, 16K for bigger
+machines). See :ref:`ulimit` for more information.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^

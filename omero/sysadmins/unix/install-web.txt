@@ -18,7 +18,7 @@ with:
    `nginx <http://nginx.org/>`_ or
    `lighttpd <http://www.lighttpd.net/>`_ (since OMERO 4.2.1)
 -  The built-in Django lightweight development server (for **testing**
-   only)
+   only; see the :doc:`/developers/Web/Deployment` page)
 
 You can find more information about FastCGI and where to get modules or
 packages for your distribution on the
@@ -289,4 +289,4 @@ The most popular configuration options include:
 
 -  Customizing index page, see :property:`omero.web.index_template`.
 
--  Enabling a public user see :doc:`/developers/Web/PublicData`.
+-  Enabling a public user see :doc:`/sysadmins/public`.

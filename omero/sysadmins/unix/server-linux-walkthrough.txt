@@ -102,6 +102,18 @@ start OMERO and OMERO.web automatically:
 | :download:`omero-web-init.d <walkthrough/omero-web-init.d>`
 
 
+Securing OMERO
+--------------
+
+If multiple users have access to the machine running OMERO you should restrict
+access to OMERO.server's configuration and runtime directories, and optionally
+the OMERO data directory:
+
+.. literalinclude:: walkthrough/setup_permissions.sh
+
+| :download:`setup_permissions.sh <walkthrough/setup_permissions.sh>`
+
+
 .. _linux_walkthrough_regular_tasks:
 
 Regular tasks

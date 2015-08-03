@@ -70,21 +70,6 @@ clients of the deployment jobs described above:
 5.0.x series
 ^^^^^^^^^^^^
 
-.. digraph:: OME50releasejobs
-
-  subgraph cluster_0 {
-    "OME-5.0-release-push" -> "OMERO-5.0-release";
-    "OME-5.0-release-push" -> "BIOFORMATS-5.0-release";
-  }
-  "OME-5.0-release-trigger" -> "OME-5.0-release-push" [lhead=cluster_0];
-  "OME-5.0-release-push" -> "OMERO-5.0-release-integration";
-  "OMERO-5.0-release" -> "OMERO-5.0-release-downloads";
-  "BIOFORMATS-5.0-release" -> "BIOFORMATS-5.0-release-downloads";
-  "OMERO-5.0-release-integration" -> "OMERO-5.0-release-integration-broken";
-  "OMERO-5.0-release-integration" -> "OMERO-5.0-release-integration-java";
-  "OMERO-5.0-release-integration" -> "OMERO-5.0-release-integration-python";
-  "OMERO-5.0-release-integration" -> "OMERO-5.0-release-integration-web";
-
 .. glossary::
 
     :jenkinsjob:`OME-5.0-release-trigger`
@@ -104,6 +89,8 @@ clients of the deployment jobs described above:
         #. Triggers :term:`OMERO-5.0-release-integration`
         #. Triggers :term:`OMERO-5.0-release` and
            :term:`BIOFORMATS-5.0-release`
+
+        See :jenkinsjob:`the build graph <OME-5.0-release-trigger/lastSuccessfulBuild/BuildGraph>`
 
     :jenkinsjob:`OME-5.0-release-push`
 
@@ -215,30 +202,6 @@ clients of the deployment jobs described above:
 5.1.x series
 ^^^^^^^^^^^^
 
-.. digraph:: OME51releasejobs
-
-  compound=true;
-  subgraph cluster0 {
-    "OME-5.1-release-push" -> "OMERO-5.1-release";
-    label = "OMERO-5.1-release-trigger";
-    
-  }
-  subgraph cluster1 {
-    "BIOFORMATS-5.1-release-java" -> "BIOFORMATS-5.1-release-cpp";
-    label = "BIOFORMATS-5.1-release";
-  }
-  
-  "OME-5.1-release-push" -> "BIOFORMATS-5.1-release-java" [lhead=cluster1];
-  "OME-5.1-release-push" -> "OMERO-5.1-release-integration";
-  "OMERO-5.1-release" -> "OMERO-5.1-release-downloads";
-  
-  "BIOFORMATS-5.1-release-java" -> "BIOFORMATS-5.1-release-downloads";
-  "BIOFORMATS-5.1-release-cpp" -> "BIOFORMATS-5.1-release-cpp-downloads";
-  "OMERO-5.1-release-integration" -> "OMERO-5.1-release-integration-broken";
-  "OMERO-5.1-release-integration" -> "OMERO-5.1-release-integration-java";
-  "OMERO-5.1-release-integration" -> "OMERO-5.1-release-integration-python";
-  "OMERO-5.1-release-integration" -> "OMERO-5.1-release-integration-web";
-
 .. glossary::
 
     :jenkinsjob:`OME-5.1-release-trigger`
@@ -257,6 +220,8 @@ clients of the deployment jobs described above:
         #. Triggers :term:`OMERO-5.1-release-integration`
         #. Triggers :term:`OMERO-5.1-release` and
            :term:`BIOFORMATS-5.1-release`
+
+        See :jenkinsjob:`the build graph <OME-5.1-release-trigger/lastSuccessfulBuild/BuildGraph>`
 
     :jenkinsjob:`OME-5.1-release-push`
 

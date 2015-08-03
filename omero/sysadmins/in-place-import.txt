@@ -126,6 +126,9 @@ was done for one of our test servers in Dundee:
 
     ### STATUS BEFORE
 
+    [sysadmin@ome-server omero_system_user]$ umask
+    0002
+
     [sysadmin@ome-server omero_system_user]$ ls -ltrad ManagedRepository/
     drwxrwxr-x 8 omero_system_user omero_system_user 4096 Apr 24 10:13 ManagedRepository/
 
