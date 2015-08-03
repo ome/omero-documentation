@@ -110,7 +110,7 @@ pygments_style = 'sphinx'
 if "SOURCE_BRANCH" in os.environ and len(os.environ.get('SOURCE_BRANCH')) > 0:
     branch = os.environ.get('SOURCE_BRANCH')
 else:
-    branch = 'develop'
+    branch = 'dev_5_1'
 
 if "SOURCE_USER" in os.environ and len(os.environ.get('SOURCE_USER')) > 0:
     user = os.environ.get('SOURCE_USER')
