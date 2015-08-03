@@ -244,7 +244,7 @@ HQL examples
 ^^^^^^^^^^^^
 
 HQL is used for Query Service queries (see above). Some examples, coupled with
-a knowledge of the OMERO model should get you going, along with notes about
+the references for the `OMERO model <Model/EveryObject.html>`_ and `HQL syntax <https://docs.jboss.org/hibernate/orm/3.5/reference/en/html/queryhql.html>`_ should get you going, along with notes about
 object loading on the |OmeroModel| page.
 
 .. note::
