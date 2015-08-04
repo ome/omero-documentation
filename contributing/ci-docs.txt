@@ -240,7 +240,7 @@ develop.
 
 		#. Checks out the develop branch of ome-documentation.git_
 		#. Downloads the OMERO.server and OMERO.clients from
-		   :term:`OMERO-5.1-latest`
+		   :term:`OMERO-DEV-latest`
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to the `develop/latest/autogen`
 		   branch of https://github.com/snoopycrimecop/ome-documentation
@@ -253,7 +253,7 @@ develop.
 		#. Checks out the develop/merge/daily branch of the
 		   snoopycrimecop fork of ome-documentation.git_
 		#. Downloads the OMERO.server and OMERO.clients from
-		   :term:`OMERO-5.1-merge-build`
+		   :term:`OMERO-DEV-merge-build`
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to the `develop/merge/autogen`
 		   branch of https://github.com/snoopycrimecop/ome-documentation
