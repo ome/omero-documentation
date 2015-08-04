@@ -378,7 +378,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
     :jenkinsjob:`OMERO-DEV-latest-deploy`
 
-        This job deploys the latest 5.1.x server (see
+        This job deploys the latest 5.2.x server (see
         :ref:`deployment_servers`)
 
     :jenkinsjob:`OMERO-DEV-latest-submods`
