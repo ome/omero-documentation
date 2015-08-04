@@ -46,8 +46,8 @@ else:
     release = 'UNKNOWN'
 
 rst_prolog = """
-.. note:: **This documentation is for the new OMERO 5.1. version.** See the `latest OMERO 5.0.x
-    version <http://www.openmicroscopy.org/site/support/omero5.0/>`_ or the
+.. note:: **This documentation is for the new OMERO 5.2 version.** See the `latest OMERO 5.1.x
+    version <http://www.openmicroscopy.org/site/support/omero5.1/>`_ or the
     :legacy_plone:`previous versions <>` page to find documentation for the
     OMERO version you are using if you have not upgraded yet.
 """
@@ -82,8 +82,8 @@ omero_extlinks = {
     'commit' : (omero_github_root + 'commit/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
     # API links
-    'javadoc' : (downloads_root + '/latest/omero5.1/api/%s', ''),
-    'pythondoc' : (downloads_root + '/latest/omero5.1/api/python/%s', ''),
+    'javadoc' : (downloads_root + '/latest/omero5.2/api/%s', ''),
+    'pythondoc' : (downloads_root + '/latest/omero5.2/api/python/%s', ''),
     # Virtual Appliance downloads
     'downloads_va' : (downloads_root + '/latest/omero-virtual-appliance/%s', ''),
     # Miscellaneous links
