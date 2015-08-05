@@ -72,6 +72,21 @@ independent of the current OMERO/Bio-Formats version.
 	- 	* Publish OME help documentation
 		* :term:`OME-help-release`
 
+Since OMERO.figure came under the management of the wider OME team, there are also builds to manage its GitHub pages website, which operate the same way as the help builds.
+
+.. list-table::
+	:header-rows: 1
+
+	- 	* Job task
+		*
+
+	- 	* Review Figure website PRs
+		* :term:`FIGURE-help-staging`
+
+	- 	* Publish Figure website
+		* :term:`FIGURE-help-release`
+
+
 Configuration
 ^^^^^^^^^^^^^
 
@@ -341,6 +356,37 @@ The repository for the OME help is https://github.com/openmicroscopy/ome-help.
 		#. If the build is promoted,
 			#. rysnc the content of :file:`/ome/data_repo/public/help-staging`
 			   to :file:`/ome/data_repo/public/help`
+
+OMERO.figure website
+^^^^^^^^^^^^^^^^^^^^
+
+The repository for OMERO.figure is https://github.com/openmicroscopy/figure.
+
+.. glossary::
+
+	:jenkinsjob:`FIGURE-help-staging`
+
+		This job is used to review the PRs opened against the gh-pages-staging
+		branch of figure repository
+
+		#. |merge| (and also incorporates
+		   https://github.com/snoopycrimecop/figure/tree/cname_staging to
+		   allow  deployment to a non-GitHub URL) then pushes the resulting
+		   branch to https://github.com/snoopycrimecop/figure/tree/gh-pages
+		#. The GitHub Pages services updates the content of
+		   http://figure.staging.openmicroscopy.org
+
+		.. seealso:: :doc:`jekyll`
+
+	:jenkinsjob:`FIGURE-help-release`
+
+		This job is used to deploy the OME help documentation
+
+		#. Opens a Pull Request from
+		   https://github.com/openmicroscopy/figure/tree/gh-pages-staging
+		   to https://github.com/openmicroscopy/figure/tree/gh-pages. If
+		   this PR is merged, the GitHub Pages services updates the content of
+		   http://figure.openmicroscopy.org
 
 .. _linkcheck_parser:
 
