@@ -4,13 +4,13 @@ Using the new 5.1 graph requests
 Migration is required
 ---------------------
 
-OMERO 5.1 introduced a new implementation of :doc:`ObjectGraphs` offered
-through the API via :javadoc:`Chgrp2
+OMERO 5.1.0 introduced a new implementation of :doc:`ObjectGraphs`
+offered through the API via :javadoc:`Chgrp2
 <slice2html/omero/cmd/Chgrp2.html>`, :javadoc:`Chown2
 <slice2html/omero/cmd/Chown2.html>`, :javadoc:`Delete2
 <slice2html/omero/cmd/Delete2.html>`, and their superclass
 :javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>`. OMERO
-5.1.2 adds :javadoc:`Chmod2 <slice2html/omero/cmd/Chmod2.html>`. The
+5.1.2 added :javadoc:`Chmod2 <slice2html/omero/cmd/Chmod2.html>`. The
 legacy request operations :javadoc:`Chgrp
 <slice2html/omero/cmd/Chgrp.html>`, :javadoc:`Chmod
 <slice2html/omero/cmd/Chmod.html>`, :javadoc:`Chown
