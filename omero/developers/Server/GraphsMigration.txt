@@ -4,7 +4,7 @@ Using the new 5.1 graph requests
 Migration is required
 ---------------------
 
-OMERO 5.1 introduces a new implementation of :doc:`ObjectGraphs` offered
+OMERO 5.1 introduced a new implementation of :doc:`ObjectGraphs` offered
 through the API via :javadoc:`Chgrp2
 <slice2html/omero/cmd/Chgrp2.html>`, :javadoc:`Chown2
 <slice2html/omero/cmd/Chown2.html>`, :javadoc:`Delete2
