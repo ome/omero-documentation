@@ -351,7 +351,7 @@ The repository for the OME help is https://github.com/openmicroscopy/ome-help.
 		#. Opens a Pull Request from
 		   https://github.com/openmicroscopy/ome-help/tree/master
 		   to https://github.com/openmicroscopy/ome-help/tree/gh-pages. If
-		   this PR is merged, the GitHub Pages services updates the content of
+		   this PR is merged, the GitHub Pages service updates the content of
 		   http://help.openmicroscopy.org
 		#. If the build is promoted,
 			#. rysnc the content of :file:`/ome/data_repo/public/help-staging`
@@ -360,7 +360,7 @@ The repository for the OME help is https://github.com/openmicroscopy/ome-help.
 OMERO.figure website
 ^^^^^^^^^^^^^^^^^^^^
 
-The repository for OMERO.figure is https://github.com/openmicroscopy/figure.
+The repository for OMERO.figure is https://github.com/ome/figure.
 
 .. glossary::
 
@@ -373,7 +373,7 @@ The repository for OMERO.figure is https://github.com/openmicroscopy/figure.
 		   https://github.com/snoopycrimecop/figure/tree/cname_staging to
 		   allow  deployment to a non-GitHub URL) then pushes the resulting
 		   branch to https://github.com/snoopycrimecop/figure/tree/gh-pages
-		#. The GitHub Pages services updates the content of
+		#. The GitHub Pages service updates the content of
 		   http://figure.staging.openmicroscopy.org
 
 		.. seealso:: :doc:`jekyll`
@@ -383,8 +383,8 @@ The repository for OMERO.figure is https://github.com/openmicroscopy/figure.
 		This job is used to deploy the OME help documentation
 
 		#. Opens a Pull Request from
-		   https://github.com/openmicroscopy/figure/tree/gh-pages-staging
-		   to https://github.com/openmicroscopy/figure/tree/gh-pages. If
+		   https://github.com/ome/figure/tree/gh-pages-staging
+		   to https://github.com/ome/figure/tree/gh-pages. If
 		   this PR is merged, the GitHub Pages services updates the content of
 		   http://figure.openmicroscopy.org
 
