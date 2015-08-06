@@ -174,7 +174,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		#. |merge|
 		#. Run automated tests against a subset of format directories under
 		   :file:`/ome/data_repo/from_skyking/`. The list of directories to
-		   test by setting a space separated list of formats for the
+		   test by setting a space-separated list of formats for the
 		   ``DEFAULT_FORMAT_LIST`` variable.
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-openbytes-performance`
@@ -219,7 +219,7 @@ Jenkins.
 
 		This job merges all the breaking PRs opened against develop
 
-		#. |merge| labelled as breaking
+		#. |merge| labeled as breaking
 		#. Pushes the branch to develop/breaking/trigger
 
 	:jenkinsjob:`BIOFORMATS-5.1-breaking-build`
@@ -279,8 +279,8 @@ Jenkins.
 
 		This job runs automated tests against a subset of the data repository
 
-		#. |merge| labelled as breaking
+		#. |merge| labeled as breaking
 		#. Run automated tests against a subset of format directories under
 		   :file:`/ome/data_repo/from_skyking/`. The list of directories to
-		   test by setting a space separated list of formats for the
+		   test by setting a space-separated list of formats for the
 		   ``DEFAULT_FORMAT_LIST`` variable.
