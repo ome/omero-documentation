@@ -124,9 +124,9 @@ clients of the deployment jobs described above:
 
     -   * 5.1.x
         * :term:`OMERO-5.1-merge-deploy-win2012`
-        * ome-w2012r2-01.openmicroscopy.org
+        * burbot.openmicroscopy.org
         * 4064
-        * http://ome-w2012r2-01.openmicroscopy.org/merge
+        * http://burbot.openmicroscopy.org/merge
 
     -   * 5.1.x
         * :term:`OMERO-5.1-latest-deploy`
@@ -142,9 +142,9 @@ clients of the deployment jobs described above:
 
     -   * 5.1.x
         * :term:`OMERO-5.1-latest-deploy-win2012`
-        * ome-w2012r2-01.openmicroscopy.org
+        * burbot.openmicroscopy.org
         * 14064
-        * http://ome-w2012r2-01.openmicroscopy.org/latest
+        * http://burbot.openmicroscopy.org/latest
 
     -   * 5.1.x
         * :term:`OMERO-5.1-merge-integration`
