@@ -145,7 +145,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		#. Checks out the develop/merge/daily branch of the
 		   snoopycrimecop fork of bioformats.git_
 		#. Runs automated tests against
-		   :file:`\\squig.openmicroscopy.org.uk\ome-data-repo\from_skyking`
+		   :file:`\\\\squig.openmicroscopy.org.uk\\ome-data-repo\\from_skyking`
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-test_images_good`
 
@@ -165,7 +165,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		#. Checks out the develop/merge/daily branch of the
 		   snoopycrimecop fork of bioformats.git_
 		#. Runs automated tests against
-		   :file:`\\squig.openmicroscopy.org.uk\ome-data-repo\test_images_good`
+		   :file:`\\\\squig.openmicroscopy.org.uk\\ome-data-repo\\test_images_good`
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-repository-subset`
 
@@ -265,7 +265,7 @@ Jenkins.
 		#. Checks out the develop/breaking/trigger of the
 		   snoopycrimecop fork of bioformats.git_
 		#. Runs automated tests against
-		   :file:`\\squig.openmicroscopy.org.uk\ome-data-repo\test_images_good`
+		   :file:`\\\\squig.openmicroscopy.org.uk\\ome-data-repo\\test_images_good`
 
 	:jenkinsjob:`BIOFORMATS-5.1-breaking-full-repository`
 
