@@ -49,7 +49,7 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 
 	-	* Runs automated tests against test_images_good on squig
 		* | :term:`BIOFORMATS-5.1-merge-test_images_good`
-		  | :term:`BIOFORMATS-5.1-merge-test_images_good`
+		  | :term:`BIOFORMATS-5.1-merge-test_images_good-win`
 		*
 
 	-	* Runs automated tests against a subset of the data repository on squig
