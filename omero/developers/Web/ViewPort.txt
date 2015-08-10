@@ -118,5 +118,5 @@ Then in ``<BODY>`` insert the following:
 The viewport can be made more interactive by adding buttons or links to allow
 display of scalebars, ROIs, zooming and selection of channels. Full examples
 of how to embed microscopy or Whole Slide Image are available
-:source:`here <examples/Web>`.
+:source:`here <templates/webtest/examples>`.
 
