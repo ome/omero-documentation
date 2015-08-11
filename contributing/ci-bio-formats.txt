@@ -14,6 +14,10 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 		* :term:`BIOFORMATS-5.1-latest`
 		*
 
+	-	* Generates the latest generated-sources
+		* :term:`BIOFORMATS-5.1-latest-generated-sources`
+		*
+
 	-	* Publishes the latest Bio-Formats to the OME artifactory
 		* :term:`BIOFORMATS-5.1-latest-maven`
 		*
@@ -32,6 +36,10 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
 
 	-	* Builds the merge Bio-Formats artifacts
 		* :term:`BIOFORMATS-5.1-merge-build`
+		*
+
+	-	* Generates the merge  generated sources
+		* :term:`BIOFORMATS-5.1-merge-generated-sources`
 		*
 
 	-	* Builds the merge native C++ implementation for Bio-Formats
@@ -79,6 +87,15 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		This job publishes the develop branch of Bio-Formats to the
 		OME artifactory at http://artifacts.openmicroscopy.org/
 
+	:jenkinsjob:`BIOFORMATS-5.1-latest-generated-sources`
+
+		This job builds the generate sources of Bio-Formats
+
+		#. Builds the Java generated sources using `ant clean gen-ome-xml-src`
+		#. Builds the C++ generated sources using `ant clean gen-ome-xml-src`
+		#. Commits all the generated sources
+		#. Pushes the branch to develop/latest/generated-sources
+
 	:jenkinsjob:`BIOFORMATS-5.1-latest-cpp`
 
 		This job builds the latest native C++ implementation for Bio-Formats
@@ -115,6 +132,19 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		#. |buildBF|
 		#. |fulltestBF|
 		#. Triggers :term:`BIOFORMATS-5.1-merge-matlab`
+
+	:jenkinsjob:`BIOFORMATS-5.1-merge-generated-sources`
+
+		This job builds the merge generate sources of Bio-Formats
+
+		#. Checks out the develop/merge/daily branch of the
+		   snoopycrimecop fork of bioformats.git_
+		#. Builds the Java generated sources using `ant clean gen-ome-xml-src`
+		#. Builds the C++ generated sources using `cmake .. && make gensrc`
+		#. Commits all the generated sources and pushes to the
+		   develop/merge/generated-sources branch
+		#. Computes the diff with develop/latest/generated-sources and archives
+		   the artifacts
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-cpp`
 
