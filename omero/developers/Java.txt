@@ -94,8 +94,8 @@ loaded.
     DatasetData dataset;
     while (i.hasNext()) {
         project = i.next();
-        System.err.println("Project:" + project.getId() + " "
-                + project.getName());
+        String name = projet.getName();
+        long id = project.getId();
         datasets = project.getDatasets();
         j = datasets.iterator();
         while (j.hasNext()) {
