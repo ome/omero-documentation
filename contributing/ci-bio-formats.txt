@@ -90,7 +90,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 	:jenkinsjob:`BIOFORMATS-5.1-latest-generated-sources`
 
 		This job builds the generated sources of Bio-Formats for the develop
-        branch
+		branch
 
 		#. Builds the Java generated sources using ``ant clean ome-xml-src``
 		#. Builds the C++ generated sources using ``cmake .. && make gensrc``
