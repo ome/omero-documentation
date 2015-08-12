@@ -82,9 +82,13 @@ omero_extlinks = {
     'commit' : (omero_github_root + 'commit/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
     # API links
-    'javadoc' : (downloads_root + '/latest/omero5.2/api/%s', ''),
-    'pythondoc' : (downloads_root + '/latest/omero5.2/api/python/%s', ''),
-    # Virtual Appliance downloads
+    'javadoc' : (downloads_root + '/latest/omero/api/%s', ''),
+    'pythondoc' : (downloads_root + '/latest/omero/api/python/%s', ''),
+    # Doc links
+    'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
+    # Downloads
+    'downloads' : (downloads_root + '/latest/omero/%s', ''),
+    'bf_downloads' : (downloads_root + '/latest/bio-formats/%s', ''),
     'downloads_va' : (downloads_root + '/latest/omero-virtual-appliance/%s', ''),
     # Miscellaneous links
     'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
