@@ -159,15 +159,12 @@ extlinks = {
     'schema_plone' : (oo_root + '/Schemas/%s', ''),
     'omero_plone' : (oo_site_root + '/products/omero/%s', ''),
     'secvuln' : (oo_root + '/info/vulnerabilities/%s', ''),
-    'omero_doc' : (oo_site_root + '/support/omero5.1/%s', ''),
+    'bf_plone' : (oo_site_root + '/products/bio-formats/%s', ''),
+    'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
+    # One branch only doc links. Branched docs links in conf.py files for
+    # individual doc sets
     'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),
     'devs_doc' : (oo_site_root + '/support/contributing/%s', ''),
-    'bf_plone' : (oo_site_root + '/products/bio-formats/%s', ''),
-    'bf_doc' : (oo_site_root + '/support/bio-formats5.1/%s', ''),
-    'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
-    # Downloads
-    'downloads' : (downloads_root + '/latest/omero5.1/%s', ''),
-    'bf_downloads' : (downloads_root + '/latest/bio-formats5.1/%s', ''),
     # Help links
     'help' : (help_root + '/%s', ''),
     # Miscellaneous links

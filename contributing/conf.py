@@ -34,6 +34,9 @@ contributing_extlinks = {
     'bf_source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
     'bf_sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
     'bf_commit' : (bf_github_root + 'commit/%s', ''),
+    # Doc links
+    'omero_doc' : (oo_site_root + '/support/omero/%s', ''),
+    'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
     }
 extlinks.update(contributing_extlinks)
 
