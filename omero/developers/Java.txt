@@ -39,7 +39,7 @@ the dependencies in the ivy.xml files (e.g.
 
 Connect to OMERO
 ----------------
-(**Note:** The usage of the :source:`Gateway.java` <components/blitz/src/omero/gateway/Gateway.java> API is currently still experimental)
+(**Note:** The usage of the :source:`Gateway.java <components/blitz/src/omero/gateway/Gateway.java>` API is currently still experimental)
 
 -  **Connect to the server**. Remember to close the session.
 
