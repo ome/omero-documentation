@@ -88,7 +88,6 @@ omero_extlinks = {
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
     # Downloads
     'downloads' : (downloads_root + '/latest/omero/%s', ''),
-    'bf_downloads' : (downloads_root + '/latest/bio-formats/%s', ''),
     'downloads_va' : (downloads_root + '/latest/omero-virtual-appliance/%s', ''),
     # Miscellaneous links
     'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
