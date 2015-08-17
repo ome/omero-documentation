@@ -409,23 +409,8 @@ classes derived from :javadoc:`GraphModify
 API compatibility a set of "facade" requests are defined by the new
 implementation that offer an approximation of the older API but run the
 newer code under the hood. For instance, :javadoc:`Chgrp
-<slice2html/omero/cmd/Chgrp.html>` is implemented by the older
-:source:`ChgrpI.java
-<components/blitz/src/omero/cmd/graphs/ChgrpI.java>` but also by the
-newer :source:`ChgrpFacadeI.java
+<slice2html/omero/cmd/Chgrp.html>` is implemented by
+:source:`ChgrpFacadeI.java
 <components/blitz/src/omero/cmd/graphs/ChgrpFacadeI.java>` by means of
 :source:`Chgrp2I.java
 <components/blitz/src/omero/cmd/graphs/Chgrp2I.java>`.
-
-:source:`etc/omero.properties` defines a property
-:property:`omero.graphs.wrap` which by default is set to ``true``. In
-this state :source:`RequestObjectFactoryRegistry.java
-<components/blitz/src/omero/cmd/RequestObjectFactoryRegistry.java>` uses
-the available facades to implement the older API with the newer
-implementation. Running the server with :omerocmd:`config set
-omero.graphs.wrap false` restores the older implementation, though the
-newer one remains available through its request object classes: for
-instance, :javadoc:`Chgrp <slice2html/omero/cmd/Chgrp.html>` would now
-use the old implementation but :javadoc:`Chgrp2
-<slice2html/omero/cmd/Chgrp2.html>` still offers the new. That property
-is deprecated and will be *removed* in OMERO 5.2.
