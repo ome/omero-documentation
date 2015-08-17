@@ -39,36 +39,41 @@ the dependencies in the ivy.xml files (e.g.
 
 Connect to OMERO
 ----------------
+(**Note:** The usage of the :source:`Gateway.java <components/blitz/src/omero/gateway/Gateway.java>` API is currently still experimental)
 
 -  **Connect to the server**. Remember to close the session.
 
 ::
 
-    client client = new client(hostName, port);
-    ServiceFactoryPrx entry = client.createSession(userName, password);
-    // if you want to have the data transfer encrypted then you can
-    // use the entry variable otherwise use the following
-    client unsecureClient = client.createClient(false);
-    ServiceFactoryPrx entryUnencrypted = unsecureClient.getSession();
+    LoginCredentials cred = new LoginCredentials();
+    cred.getServer().setHostname(hostName);
+    cred.getServer().setPort(port);
+    cred.getUser().setUsername(userName);
+    cred.getUser().setPassword(password);
 
-    //Retrieve the user id.
-    long userId = entryUnencrypted.getAdminService().getEventContext().userId;
+    // Create a simple Logger object which just writes
+    // to System.out or System.err
+    Logger simpleLogger = new SimpleLogger();
 
-    long groupId = entryUnencrypted.getAdminService().getEventContext().groupId;
+    Gateway gateway = new Gateway(simpleLogger);
+    ExperimenterData user = gateway.connect(cred);
+
+    // for every subsequent call to the server you'll need the
+    // SecurityContext for a certain group; in this case create
+    // a SecurityContext for the user's default group.
+    SecurityContext ctx = new SecurityContext(user.getGroupId());
 
 -  **Close connection**. **IMPORTANT**
 
 ::
 
-    client.closeSession();
-    //if unsecure client exists.
-    if (unsecureClient != null) unsecureClient.closeSession();
+    gateway.disconnect();
 
 Read data
 ---------
 
-The IContainer service provides method to load the data management
-hierarchy in OMERO. A list of examples follows, indicating how to load
+The BrowseFacility offers methods for browsing within the data hierarchy.
+A list of examples follows, indicating how to load
 Project, Dataset, Screen, etc.
 
 -  **Retrieve the projects** owned by the user currently logged in.
@@ -78,96 +83,71 @@ loaded.
 
 ::
 
-    IContainerPrx proxy = entryUnencrypted.getContainerService();
-    ParametersI param = new ParametersI();
-    long userId = entryUnencrypted.getAdminService().getEventContext().userId;
-    param.exp(omero.rtypes.rlong(userId));
-    param.leaves(); //indicate to load the images
-    //param.noLeaves(); //no images loaded, this is the default value.
-    List<IObject> results = proxy.loadContainerHierarchy(
-    Project.class.getName(), new ArrayList<Long>(), param);
-    //You can directly interact with the IObject or the Pojos object.
-    //Follow interaction with the Pojos.
-    Iterator<IObject> i = results.iterator();
+    BrowseFacility browse = gateway.getFacility(BrowseFacility.class);
+
+    Collection<ProjectData> projects = browse.getProjects(ctx);
+
+    Iterator<ProjectData> i = projects.iterator();
     ProjectData project;
     Set<DatasetData> datasets;
     Iterator<DatasetData> j;
     DatasetData dataset;
     while (i.hasNext()) {
-      project = new ProjectData((Project) i.next());
-      datasets = project.getDatasets();
-      j = datasets.iterator();
-      while (j.hasNext()) {
-        dataset = j.next();
-        //Do something here
-        //If images loaded.
-        //dataset.getImages();
-     }
+        project = i.next();
+        String name = projet.getName();
+        long id = project.getId();
+        datasets = project.getDatasets();
+        j = datasets.iterator();
+        while (j.hasNext()) {
+            dataset = j.next();
+            // Do something here
+            // If images loaded.
+            // dataset.getImages();
+        }
     }
 
 -  **Retrieve the Datasets** owned by the user currently logged in.
 
 ::
 
-    IContainerPrx proxy = entryUnencrypted.getContainerService();
-    ParametersI param = new ParametersI();
-    long userId = entryUnencrypted.getAdminService().getEventContext().userId;
-    param.exp(omero.rtypes.rlong(userId));
-
-    //indicate to load the images
-    param.leaves();
-    List<IObject> results = proxy.loadContainerHierarchy(Dataset.class.getName(), new ArrayList<Long>(), param);
-    //You can directly interact with the IObject or the Pojos object.
-    //Follow interaction with the Pojos.
-    Iterator<IObject> i = results.iterator();
+    BrowseFacility browse = gateway.getFacility(BrowseFacility.class);
+    Collection<DatasetData> datasets = browse.getDatasets(ctx);
+        
+    Iterator<DatasetData> i = datasets.iterator();
     DatasetData dataset;
     Set<ImageData> images;
     Iterator<ImageData> j;
     ImageData image;
     while (i.hasNext()) {
-      dataset = new DatasetData((Dataset) i.next());
-      images = dataset.getImages();
-      j = images.iterator();
-      while (j.hasNext()) {
-        image = j.next();
-        //Do something
-      }
+        dataset = i.next();
+        images = dataset.getImages();
+        j = images.iterator();
+        while (j.hasNext()) {
+            image = j.next();
+            //Do something
+        }
     }
 
 -  **Retrieve the Images** contained in a Dataset.
 
 ::
 
-    IContainerPrx proxy = entryUnencrypted.getContainerService();
-    ParametersI param = new ParametersI();
-    param.leaves(); //indicate to load the images
+    BrowseFacility browse = gateway.getFacility(BrowseFacility.class);
+    Collection<ImageData> images = browse.getImagesForDatasets(ctx, Arrays.asList(datasetId));
 
-    List<IObject> results = proxy.loadContainerHierarchy(Dataset.class.getName(), Arrays.asList(datasetId), param);
-
-    if (results.size() == 0) return;
-    //You can directly interact with the IObject or the Pojos object.
-    //Follow interaction with the Pojos.
-
-    DatasetData dataset = new DatasetData((Dataset) results.get(0));
-    Set<ImageData> images = dataset.getImages();
     Iterator<ImageData> j = images.iterator();
     ImageData image;
     while (j.hasNext()) {
-      image = j.next();
-      //Do something
+        image = j.next();
+        // Do something
     }
 
 -  **Retrieve an Image** if the identifier is known.
 
 ::
 
-    IContainerPrx proxy = entryUnencrypted.getContainerService();
-    List<Image> results = proxy.getImages(Image.class.getName(), Arrays.asList(imageId), new ParametersI());
-
-    if (results.size() == 0) return;
-    //You can directly interact with the IObject or the Pojos object.
-    //Follow interaction with the Pojos.
-    ImageData image = new ImageData(results.get(0));
+    BrowseFacility browse = gateway.getFacility(BrowseFacility.class);
+    ImageData image = browse.getImage(ctx, imageId);
 
 -  **Access information about the image** for example to draw it.
 
@@ -191,26 +171,21 @@ Note that the wells are not loaded.
 
 ::
 
-    IContainerPrx proxy = entryUnencrypted.getContainerService();
-    ParametersI param = new ParametersI();
-    long userId = entryUnencrypted.getAdminService().getEventContext().userId;
-    param.exp(omero.rtypes.rlong(userId));
+    BrowseFacility browse = gateway.getFacility(BrowseFacility.class);
+    Collection<ScreenData> screens = browse.getScreens(ctx);
 
-    List<IObject> results = proxy.loadContainerHierarchy(Screen.class.getName(), new ArrayList(), param);
-    //You can directly interact with the IObject or the Pojos object.
-    //Follow interaction with the Pojos.
-    Iterator<IObject> i = results.iterator();
+    Iterator<ScreenData> i = screens.iterator();
     ScreenData screen;
     Set<PlateData> plates;
     Iterator<PlateData> j;
     PlateData plate;
     while (i.hasNext()) {
-      screen = new ScreenData((Screen) i.next());
-      plates = screen.getPlates();
-      j = plates.iterator();
-      while (j.hasNext()) {
-        plate = j.next();
-      }
+        screen = i.next();
+        plates = screen.getPlates();
+        j = plates.iterator();
+        while (j.hasNext()) {
+            plate = j.next();
+        }
     }
 
 -  **Retrieve Wells within a Plate**.
@@ -220,29 +195,16 @@ Given a plate ID, load the wells. You will have to use the
 
 ::
 
-    IQueryPrx proxy = entryUnencrypted.getQueryService();
-    StringBuilder sb = new StringBuilder();
-    ParametersI param = new ParametersI();
-    param.addLong("plateID", plateId);
-    sb.append("select well from Well as well ");
-    sb.append("left outer join fetch well.plate as pt ");
-    sb.append("left outer join fetch well.wellSamples as ws ");
-    sb.append("left outer join fetch ws.plateAcquisition as pa ");
-    sb.append("left outer join fetch ws.image as img ");
-    sb.append("left outer join fetch img.pixels as pix ");
-    sb.append("left outer join fetch pix.pixelsType as pt ");
-    sb.append("where well.plate.id = :plateID");
-    if (plateAcquisitionId > 0) {
-      sb.append(" and pa.id = :acquisitionID");
-      param.addLong("acquisitionID", plateAcquisitionId);
-    }
-    List<IObject> results = proxy.findAllByQuery(sb.toString(), param);
-    Iterator<IObject> i = results.iterator();
+    BrowseFacility browse = gateway.getFacility(BrowseFacility.class);
+    Collection<WellData> wells = browse.getWells(ctx, plateId);
+
+    Iterator<WellData> i = wells.iterator();
     WellData well;
     while (i.hasNext()) {
-      well = new WellData((Well) i.next());
-      //Do something
+        well = i.next();
+        //Do something
     }
+
 
 Raw data access
 ---------------
@@ -253,50 +215,41 @@ This is useful when you need the pixels intensity.
 
 ::
 
-    //To retrieve the image, see above.
+    RawDataFacility rdf = gateway.getFacility(RawDataFacility.class);
     PixelsData pixels = image.getDefaultPixels();
     int sizeZ = pixels.getSizeZ();
     int sizeT = pixels.getSizeT();
     int sizeC = pixels.getSizeC();
-    long pixelsId = pixels.getId();
-    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
-    store.setPixelsId(pixelsId, false);
-    for (int z = 0; z < sizeZ; z++) {
-      for (int t = 0; t < sizeT; t++) {
-        for (int c = 0; c < sizeC; c++) {
-          byte[] plane = store.getPlane(z, c, t);
-          //Do something
-        }
-      }
-    }
-    store.close();
+        
+    Plane2D p;
+    for (int z = 0; z < sizeZ; z++) 
+        for (int t = 0; t < sizeT; t++) 
+            for (int c = 0; c < sizeC; c++) {
+                p = rdf.getPlane(ctx, pixels, z, t, c);
+            }
 
 -  **Retrieve a given tile.**
 
 ::
 
-    //To retrieve the image, see above.
+    RawDataFacility rdf = gateway.getFacility(RawDataFacility.class);
+	    
     PixelsData pixels = image.getDefaultPixels();
     int sizeZ = pixels.getSizeZ();
     int sizeT = pixels.getSizeT();
     int sizeC = pixels.getSizeC();
-    long pixelsId = pixels.getId();
-    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
-    store.setPixelsId(pixelsId, false);
-    //tile is the top-left corner
     int x = 0;
     int y = 0;
     int width = pixels.getSizeX()/2;
     int height = pixels.getSizeY()/2;
+    Plane2D p;
     for (int z = 0; z < sizeZ; z++) {
-      for (int t = 0; t < sizeT; t++) {
-        for (int c = 0; c < sizeC; c++) {
-          byte[] plane = store.getTile(z, c, t, x, y, width, height);
-          //Do something
+        for (int t = 0; t < sizeT; t++) {
+            for (int c = 0; c < sizeC; c++) {
+                p = rdf.getTile(ctx, pixels, z, t, c, x, y, width, height);
+            }    
         }
-      }
     }
-    store.close();
 
 -  **Retrieve a given stack.**
 
@@ -304,18 +257,17 @@ This is useful when you need the pixels intensity.
 
 ::
 
-    //To retrieve the image, see above.
     PixelsData pixels = image.getDefaultPixels();
     int sizeT = pixels.getSizeT();
     int sizeC = pixels.getSizeC();
     long pixelsId = pixels.getId();
-    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
+    RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
     store.setPixelsId(pixelsId, false);
     for (int t = 0; t < sizeT; t++) {
-      for (int c = 0; c < sizeC; c++) {
-        byte[] plane = store.getStack(c, t);
-        //Do something
-      }
+        for (int c = 0; c < sizeC; c++) {
+            byte[] plane = store.getStack(c, t);
+            //Do something
+        }
     }
     store.close();
 
@@ -325,18 +277,14 @@ This is useful when you need the pixels intensity.
 
 ::
 
-    //To retrieve the image, see above.
     PixelsData pixels = image.getDefaultPixels();
     long pixelsId = pixels.getId();
-    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
-    store.setPixelsId(pixelsId, false);
     // offset values in each dimension XYZCT
     List<Integer> offset = new ArrayList<Integer>();
-    offset.add(0);
-    offset.add(0);
-    offset.add(0);
-    offset.add(0);
-    offset.add(0);
+    int n = 5;
+    for (int i = 0; i < n; i++) {
+        offset.add(i, 0);
+    }
 
     List<Integer> size = new ArrayList<Integer>();
     size.add(pixels.getSizeX());
@@ -345,15 +293,15 @@ This is useful when you need the pixels intensity.
     size.add(pixels.getSizeC());
     size.add(pixels.getSizeT());
 
-    // indicate the step in each direction, step = 1,
+    // indicate the step in each direction, step = 1, 
     //will return values at index 0, 1, 2.
     //step = 2, values at index 0, 2, 4 etc.
     List<Integer> step = new ArrayList<Integer>();
-    step.add(1);
-    step.add(1);
-    step.add(1);
-    step.add(1);
-    step.add(1);
+    for (int i = 0; i < n; i++) {
+        step.add(i, 1);
+    }
+    RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
+    store.setPixelsId(pixelsId, false);
     byte[] values = store.getHypercube(offset, size, step);
     //Do something
     store.close();
@@ -365,53 +313,52 @@ Write data
 
 ::
 
+    DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
+        
     //Using IObject directly
     Dataset dataset = new DatasetI();
     dataset.setName(omero.rtypes.rstring("new Name 1"));
     dataset.setDescription(omero.rtypes.rstring("new description 1"));
-
-    //Using pojo object
+        
+    //Using the pojo
     DatasetData datasetData = new DatasetData();
     datasetData.setName("new Name 2");
     datasetData.setDescription("new description 2");
-
+        
+        
     ProjectDatasetLink link = new ProjectDatasetLinkI();
     link.setChild(dataset);
-    link.setParent(new ProjectI(projectId, false));
-    IObject r = entryUnencrypted.getUpdateService().saveAndReturnObject(link);
-
+    link.setParent(new ProjectI(info.getProjectId(), false));
+    IObject r = dm.saveAndReturnObject(ctx, link);
     //With pojo
     link = new ProjectDatasetLinkI();
     link.setChild(datasetData.asDataset());
-    link.setParent(new ProjectI(projectId, false));
-    r = entryUnencrypted.getUpdateService().saveAndReturnObject(link);
+    link.setParent(new ProjectI(info.getProjectId(), false));
+    r = dm.saveAndReturnObject(ctx, link);
 
 -  **Create a tag (tag annotation) and link it to an existing project.**
 
 ::
 
-    //Using the IObject.
+    DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
+        
     TagAnnotation tag = new TagAnnotationI();
     tag.setTextValue(omero.rtypes.rstring("new tag 1"));
     tag.setDescription(omero.rtypes.rstring("new tag 1"));
-
-    //Using the Pojo
+        
+    //Using the pojo
     TagAnnotationData tagData = new TagAnnotationData("new tag 2");
     tagData.setTagDescription("new tag 2");
-
-    //link project and annotation
+        
     ProjectAnnotationLink link = new ProjectAnnotationLinkI();
     link.setChild(tag);
-    link.setParent(new ProjectI(projectId, false));
-
-    IObject r = entryUnencrypted.getUpdateService().saveAndReturnObject(link);
-
+    link.setParent(new ProjectI(info.getProjectId(), false));
+    IObject r = dm.saveAndReturnObject(ctx, link);
     //With pojo
-
     link = new ProjectAnnotationLinkI();
     link.setChild(tagData.asAnnotation());
-    link.setParent(new ProjectI(projectId, false));
-    r = entryUnencrypted.getUpdateService().saveAndReturnObject(link);
+    link.setParent(new ProjectI(info.getProjectId(), false));
+    r = dm.saveAndReturnObject(ctx, link);
 
 -  **Create a file annotation and link to an image.**
 
@@ -424,78 +371,80 @@ created:
 
 ::
 
-    // To retrieve the image see above.
     int INC = 262144;
-    File file = new File(fileToUpload);
+    DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
+        
+    // To retrieve the image see above.
+    File file = File.createTempFile("temp-file-name_", ".tmp"); 
     String name = file.getName();
     String absolutePath = file.getAbsolutePath();
-    String path = absolutePath.substring(0,
-      absolutePath.length()-name.length());
-
-    IUpdatePrx iUpdate = entryUnencrypted.getUpdateService(); // service used to write object
+    String path = absolutePath.substring(0, 
+            absolutePath.length()-name.length());
+    
     // create the original file object.
     OriginalFile originalFile = new OriginalFileI();
     originalFile.setName(omero.rtypes.rstring(name));
     originalFile.setPath(omero.rtypes.rstring(path));
     originalFile.setSize(omero.rtypes.rlong(file.length()));
-    originalFile.setHash(omero.rtypes.rstring(generatedSha1));
+    final ChecksumAlgorithm checksumAlgorithm = new ChecksumAlgorithmI();
+    checksumAlgorithm.setValue(omero.rtypes.rstring(ChecksumAlgorithmSHA1160.value));
+    originalFile.setHasher(checksumAlgorithm);
     originalFile.setMimetype(omero.rtypes.rstring(fileMimeType)); // or "application/octet-stream"
     // now we save the originalFile object
-    originalFile = (OriginalFile) iUpdate.saveAndReturnObject(originalFile);
+    originalFile = (OriginalFile) dm.saveAndReturnObject(ctx, originalFile);
 
     // Initialize the service to load the raw data
-    RawFileStorePrx rawFileStore = entryUnencrypted.createRawFileStore();
+    RawFileStorePrx rawFileStore = gateway.getRawFileService(ctx);
     rawFileStore.setFileId(originalFile.getId().getValue());
-
+    // open file and read stream.
     FileInputStream stream = new FileInputStream(file);
     long pos = 0;
     int rlen;
     byte[] buf = new byte[INC];
     ByteBuffer bbuf;
     while ((rlen = stream.read(buf)) > 0) {
-      rawFileStore.write(buf, pos, rlen);
-      pos += rlen;
-      bbuf = ByteBuffer.wrap(buf);
-      bbuf.limit(rlen);
+        rawFileStore.write(buf, pos, rlen);
+        pos += rlen;
+        bbuf = ByteBuffer.wrap(buf);
+        bbuf.limit(rlen);
     }
     stream.close();
-
     originalFile = rawFileStore.save();
-    // Important to close the service
     rawFileStore.close();
 
-    //now we have an original File in the database and raw data uploaded.
-    // We now need to link the Original file to the image using
-    // the File annotation object. This is the way to do it.
+    //now we have an original File in DB and raw data uploaded.
+    // We now need to link the Original file to the image using 
+    // the File annotation object. That's the way to do it.
     FileAnnotation fa = new FileAnnotationI();
     fa.setFile(originalFile);
-    fa.setDescription(omero.rtypes.rstring(description));
+    fa.setDescription(omero.rtypes.rstring(description)); // The description set above e.g. PointsModel
     fa.setNs(omero.rtypes.rstring(NAME_SPACE_TO_SET)); // The name space you have set to identify the file annotation.
 
     // save the file annotation.
-    fa = (FileAnnotation) iUpdate.saveAndReturnObject(fa);
+    fa = (FileAnnotation) dm.saveAndReturnObject(ctx, fa);
 
     // now link the image and the annotation
     ImageAnnotationLink link = new ImageAnnotationLinkI();
     link.setChild(fa);
     link.setParent(image.asImage());
     // save the link back to the server.
-    link = (ImageAnnotationLink) iUpdate.saveAndReturnObject(link);
+    link = (ImageAnnotationLink) dm.saveAndReturnObject(ctx, link);
     // To attach to a Dataset use DatasetAnnotationLink;
 
 -  **Load all the annotations with a given namespace linked to images.**
 
 ::
 
-    long userId = entryUnencrypted.getAdminService().getEventContext().userId;
+    long userId = gateway.getLoggedInUser().getId();
     List<String> nsToInclude = new ArrayList<String>();
     nsToInclude.add(NAME_SPACE_TO_SET);
     List<String> nsToExclude = new ArrayList<String>();
     ParametersI param = new ParametersI();
     param.exp(omero.rtypes.rlong(userId)); //load the annotation for a given user.
-    IMetadataPrx proxy = entryUnencrypted.getMetadataService();
+    IMetadataPrx proxy = gateway.getMetadataService(ctx);
     // retrieve the annotations linked to images, for datasets use: omero.model.Dataset.class
-    List<Annotation> annotations = proxy.loadSpecifiedAnnotations(FileAnnotation.class.getName(), nsToInclude, nsToExclude, param);
+    List<Annotation> annotations = proxy.loadSpecifiedAnnotations(
+            FileAnnotation.class.getName(), nsToInclude, nsToExclude, param);
     //Do something with annotations.
 
 -  **Read the attachment**.
@@ -507,39 +456,35 @@ First load the annotations, cf. above.
     Iterator<Annotation> j = annotations.iterator();
     Annotation annotation;
     FileAnnotationData fa;
-    RawFileStorePrx store = entryUnencrypted.createRawFileStore();
+    RawFileStorePrx store = null;
+    File file = File.createTempFile("temp-file-name_", ".tmp"); 
+    store = gateway.getRawFileService(ctx);
     int index = 0;
-    File file = new File(downloadFileName); //This file should be there.
     FileOutputStream stream = new FileOutputStream(file);
     OriginalFile of;
     while (j.hasNext()) {
-      annotation = j.next();
-      if (annotation instanceof FileAnnotation && index == 0) { //read the first one.
-        fa = new FileAnnotationData((FileAnnotation) annotation);
-        //The id of the original file
-        param.map.put("id", omero.rtypes.rlong(fa.getFileID()));
-        IQueryPrx svc = entryUnencrypted.getQueryService();
-        of = (OriginalFile) svc.findByQuery(
-                            "select p from OriginalFile as p " +
-                            "where p.id = :id", param);
-        store.setFileId(fa.getFileID());
-        int offset = 0;
-        long size = of.getSize().getValue();
-        //name of the file
-        //of.getName().getValue();
-        try {
-        for (offset = 0; (offset+INC) < size;) {
-          stream.write(store.read(offset, INC));
-          offset += INC;
+        annotation = j.next();
+        if (annotation instanceof FileAnnotation && index == 0) {
+            fa = new FileAnnotationData((FileAnnotation) annotation);
+            //The id of te original file
+            of = getOriginalFile(fa.getFileID());
+            store.setFileId(fa.getFileID());
+            int offset = 0;
+            long size = of.getSize().getValue();
+            //name of the file
+            of.getName().getValue();
+            try {
+                for (offset = 0; (offset+INC) < size;) {
+                    stream.write(store.read(offset, INC));
+                    offset += INC;
+                }   
+            } finally {
+                stream.write(store.read(offset, (int) (size-offset))); 
+                stream.close();
+            }
+            index++;
         }
-        } finally {
-        stream.write(store.read(offset, (int) (size-offset)));
-        stream.close();
-        }
-        break;
-      }
     }
-
     store.close();
 
 .. _java_omero_tables_code_samples:
@@ -573,7 +518,8 @@ In the following example, we create a table with 2 columns.
     Column[] columns = createColumns(rows);
 
     //create a new table.
-    TablePrx table = entryUnencrypted.sharedResources().newTable(1, name);
+    SharedResourcesPrx store = gateway.getSharedResources(ctx);
+    TablePrx table = store.newTable(1, name);
 
     //initialize the table
     table.initialize(columns);
@@ -584,11 +530,12 @@ In the following example, we create a table with 2 columns.
     LongColumn uids = (LongColumn) newRow[0];
     LongColumn myLongs = (LongColumn) newRow[1];
     for (int i = 0; i < rows; i++) {
-      uids.values[i] = i;
-      myLongs.values[i] = i;
+        uids.values[i] = i;
+        myLongs.values[i] = i;
     }
 
     table.addData(newRow);
+
     OriginalFile file = table.getOriginalFile(); // if you need to interact with the table
 
 -  **Read the contents of the table.**
@@ -596,7 +543,7 @@ In the following example, we create a table with 2 columns.
 ::
 
     file = new OriginalFileI(file.getId(), false);
-    table = entryUnencrypted.sharedResources().openTable(file);
+    table = store.openTable(file);
 
     //read headers
     Column[] cols = table.getHeaders();
@@ -637,6 +584,9 @@ to an image.
 
 ::
 
+    DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
+    ROIFacility roifac = gateway.getFacility(ROIFacility.class);
+
     //to retrieve he image see above.
     Roi roi = new RoiI();
     roi.setImage(image);
@@ -664,11 +614,11 @@ to an image.
 
     //Add the shape
     roi.addShape(ellipse);
+
     //Save ROI and shape
-    roi = (Roi) entryUnencrypted.getUpdateService().saveAndReturnObject(roi);
+    ROIData roiData = roifac.saveROIs(ctx, image.getId(), Arrays.asList(new ROIData(roi))).iterator().next();
 
     //now check that the shape has been added.
-    ROIData roiData = new ROIData(roi);
     //Retrieve the shape on plane )z, t) = (0, 0)
     List<ShapeData> shapes = roiData.getShapes(0, 0);
     Iterator<ShapeData> i = shapes.iterator();
@@ -697,8 +647,11 @@ to an image.
 
 ::
 
+    ROIFacility roifac = gateway.getFacility(ROIFacility.class);
+
     // Retrieve the roi linked to an image
-    RoiResult r = entryUnencrypted.getRoiService().findByImage(image.getId().getValue(), new RoiOptions());
+    List<ROIResult> roiresults = roifac.loadROIs(ctx, image.getId());
+    ROIResult r = roiresults.iterator().next();
     if (r == null) return;
     List<Roi> rois = r.rois;
     List<Shape> list;
@@ -712,9 +665,13 @@ to an image.
 -  **Remove a shape from ROI.**
 
 ::
+    
+    DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
+    ROIFacility roifac = gateway.getFacility(ROIFacility.class);
 
     // Retrieve the roi linked to an image
-    RoiResult r = entryUnencrypted.getRoiService().findByImage(image.getId().getValue(), new RoiOptions());
+    List<ROIResult> roiresults = roifac.loadROIs(ctx, image.getId());
+    ROIResult r = roiresults.iterator().next();
     List<Roi> rois = r.rois;
     List<Shape> list;
     Iterator<Roi> j = rois.iterator();
@@ -725,7 +682,7 @@ to an image.
       if (list.size() > 0) {
         roi.removeShape(list.get(0));
         //update the roi.
-        entryUnencrypted.getUpdateService().saveAndReturnObject(roi);
+        dm.saveAndReturnObject(ctx, roi).saveAndReturnObject(roi);
       }
     }
 
@@ -742,25 +699,15 @@ In the following example, we create an image and delete it.
 
 ::
 
+    DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
+    
     //First create an image.
     Image img = new ImageI();
     img.setName(omero.rtypes.rstring("image1"));
     img.setDescription(omero.rtypes.rstring("descriptionImage1"));
-    img.setAcquisitionDate(omero.rtypes.rtime(1000000));
-    img = (Image) entryUnencrypted.getUpdateService().saveAndReturnObject(img);
+    img = (Image) dm.saveAndReturnObject(ctx, img);
 
-    java.util.Map<String, List<Long>> targetObject = new HashMap<String, List<Long>>();
-    List<Long> idlist = new ArrayList<Long>();
-    idlist.add(img.getId().getValue());
-    targetObject.put("Image", idlist);
-    Delete2 deleteCommands = new Delete2(targetObject, null, false);
-    HandlePrx handle = entryUnencrypted.submit(deleteCommands);
-    handle.getResponse();
-
-    //If you want to interact with call-back and handle.
-    CmdCallbackI cb = new CmdCallbackI(client, handle);
-    cb.loop(10, 500);
-    cb.getResponse();
+    Response rsp = dm.deleteObject(ctx, img);
 
 Render Images
 -------------
@@ -769,14 +716,14 @@ Render Images
 
 ::
 
-    //See above how to load the image.
     PixelsData pixels = image.getDefaultPixels();
     long pixelsId = pixels.getId();
-    RenderingEnginePrx proxy = entryUnencrypted.createRenderingEngine();
+    RenderingEnginePrx proxy = null;
+    proxy = gateway.getRenderingService(ctx, pixelsId);
     proxy.lookupPixels(pixelsId);
     if (!(proxy.lookupRenderingDef(pixelsId))) {
-      proxy.resetDefaultSettings(true);
-      proxy.lookupRenderingDef(pixelsId);
+        proxy.resetDefaultSettings(true);
+        proxy.lookupRenderingDef(pixelsId);
     }
     proxy.load();
     // Now can interact with the rendering engine.
@@ -789,35 +736,31 @@ Render Images
     //render the data uncompressed.
     int[] uncompressed = proxy.renderAsPackedInt(pDef);
     byte[] compressed = proxy.renderCompressed(pDef);
-
     //Create a buffered image
     ByteArrayInputStream stream = new ByteArrayInputStream(compressed);
     BufferedImage image = ImageIO.read(stream);
-
-    // Close
     proxy.close();
+        
 
 -  **Retrieve thumbnails.**
 
 ::
 
-    //See above how to load the image.
-    PixelsData pixels = image.getDefaultPixels();
-    ThumbnailStorePrx store = entryUnencrypted.createThumbnailStore();
+    ThumbnailStorePrx store = gateway.getThumbnailService(ctx);
     PixelsData pixels = image.getDefaultPixels();
     Map<Long, byte[]> map = store.getThumbnailByLongestSideSet(
-       omero.rtypes.rint(96), Arrays.asList(pixels.getId()));
-    //Convert the byte array
-    Entry entry;
-    Iterator i = map.entrySet().iterator();
+            omero.rtypes.rint(96), Arrays.asList(pixels.getId()));
+    Entry<Long, byte[]> entry;
+    Iterator<Entry<Long, byte[]>> i = map.entrySet().iterator();
     ByteArrayInputStream stream;
     //Create a buffered image to display
     Map<Long, BufferedImage> results = new HashMap<Long, BufferedImage>();
     while (i.hasNext()) {
-      entry = (Entry) i.next();
-      stream = new ByteArrayInputStream((byte[]) entry.getValue());
-      results.put((Long) entry.getKey(), ImageIO.read(stream));
+        entry = i.next();
+        stream = new ByteArrayInputStream(entry.getValue());
+        results.put(entry.getKey(), ImageIO.read(stream));
     }
+    store.close();
 
 Create Image
 ------------
@@ -837,7 +780,7 @@ in OMERO. Similar approach can be applied when uploading an image.
     long pixelsId = pixels.getId();
 
     //Read the pixels from the source image.
-    RawPixelsStorePrx store = entryUnencrypted.createRawPixelsStore();
+    RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
     store.setPixelsId(pixelsId, false);
 
     List<byte[]> planes = new ArrayList<byte[]>();
@@ -852,7 +795,7 @@ in OMERO. Similar approach can be applied when uploading an image.
     store.close();
 
     //Now we are going to create the new image.
-    IPixelsPrx proxy = entryUnencrypted.getPixelsService();
+    IPixelsPrx proxy = gateway.getPixelsService(ctx);
 
     //Search for PixelsType object matching the source image.
     List<IObject> l = proxy.getAllEnumerations(PixelsType.class.getName());
@@ -885,10 +828,10 @@ in OMERO. Similar approach can be applied when uploading an image.
     DatasetImageLink link = new DatasetImageLinkI();
     link.setParent(new DatasetI(datasetId, false));
     link.setChild(new ImageI(newImage.getId(), false));
-    entryUnencrypted.getUpdateService().saveAndReturnObject(link);
+    gateway.getUpdateService(ctx).saveAndReturnObject(link);
 
     //Write the data.
-    store = entryUnencrypted.createRawPixelsStore();
+    store = gateway.getPixelsStore(ctx);
     store.setPixelsId(newImage.getDefaultPixels().getId(), false);
     int index = 0;
     for (int z = 0; z < sizeZ; z++) {
