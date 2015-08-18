@@ -7,40 +7,40 @@ tab of Jenkins.
 .. list-table::
 	:header-rows: 1
 
-	- 	* Job task
+	-	* Job task
 		* 5.1.x series
 		* 5.2.x series
 
-	- 	* Builds the latest OMERO documentation for publishing
+	-	* Builds the latest OMERO documentation for publishing
 		* :term:`OMERO-5.1-latest-docs`
 		* :term:`OMERO-DEV-latest-docs`
 
-	- 	* Builds the latest Bio-Formats documentation for publishing
+	-	* Builds the latest Bio-Formats documentation for publishing
 		* :term:`BIOFORMATS-5.1-latest-docs`
 		*
 
-	- 	* Builds the OMERO documentation for review
+	-	* Builds the OMERO documentation for review
 		* :term:`OMERO-5.1-merge-docs`
 		* :term:`OMERO-DEV-merge-docs`
 
 
-	- 	* Builds the Bio-Formats documentation for review
+	-	* Builds the Bio-Formats documentation for review
 		* :term:`BIOFORMATS-5.1-merge-docs`
 		*
 
-	- 	* Builds the auto-generated OMERO documentation
+	-	* Builds the auto-generated OMERO documentation
 		* :term:`OMERO-5.1-latest-docs-autogen`
 		* :term:`OMERO-DEV-latest-docs-autogen`
 
-	- 	* Builds the auto-generated OMERO documentation for review
+	-	* Builds the auto-generated OMERO documentation for review
 		* :term:`OMERO-5.1-merge-docs-autogen`
 		* :term:`OMERO-DEV-merge-docs-autogen`
 
-	- 	* Builds the auto-generated Bio-Formats documentation
+	-	* Builds the auto-generated Bio-Formats documentation
 		* :term:`BIOFORMATS-5.1-latest-docs-autogen`
 		*
 
-	- 	* Builds the auto-generated OMERO documentation for review
+	-	* Builds the auto-generated OMERO documentation for review
 		* :term:`BIOFORMATS-5.1-merge-docs-autogen`
 		*
 
@@ -51,25 +51,25 @@ independent of the current OMERO/Bio-Formats version.
 .. list-table::
 	:header-rows: 1
 
-	- 	* Job task
+	-	* Job task
 		*
 
-	- 	* Publish OME Model documentation
+	-	* Publish OME Model documentation
 		* :term:`FORMATS-latest-docs`
 
-	- 	* Publish OME Contributing documentation
+	-	* Publish OME Contributing documentation
 		* :term:`CONTRIBUTING-latest-docs`
 
-	- 	* Review OME Model documentation PRs
+	-	* Review OME Model documentation PRs
 		* :term:`FORMATS-merge-docs`
 
-	- 	* Review OME Contributing documentation PRs
+	-	* Review OME Contributing documentation PRs
 		* :term:`CONTRIBUTING-merge-docs`
 
-	- 	* Review OME help documentation PRs
+	-	* Review OME help documentation PRs
 		* :term:`OME-help-staging`
 
-	- 	* Publish OME help documentation
+	-	* Publish OME help documentation
 		* :term:`OME-help-release`
 
 Since OMERO.figure came under the management of the wider OME team, there are also builds to manage its GitHub pages website, which operate the same way as the help builds.
@@ -77,13 +77,13 @@ Since OMERO.figure came under the management of the wider OME team, there are al
 .. list-table::
 	:header-rows: 1
 
-	- 	* Job task
+	-	* Job task
 		*
 
-	- 	* Review Figure website PRs
+	-	* Review Figure website PRs
 		* :term:`FIGURE-help-staging`
 
-	- 	* Publish Figure website
+	-	* Publish Figure website
 		* :term:`FIGURE-help-release`
 
 
@@ -175,8 +175,9 @@ dev_5_1.
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to the `dev_5_1/latest/autogen`
-		   branch of https://github.com/snoopycrimecop/bioformats
+		#. Pushes the auto-generated changes to
+		   :bf_scc_branch:`dev_5_1/latest/autogen`
+
 
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-docs-autogen`
@@ -184,14 +185,13 @@ dev_5_1.
 		This job is used to build the merge auto-generated pages for the
 		dev_5_1 branch of the Bio-Formats documentation
 
-		#. Checks out the dev_5_1/merge/daily branch of the
-		   snoopycrimecop fork of bioformats.git_
+		#. Checks out :bf_scc_branch:`dev_5_1/merge/daily`
 		#. Builds Bio-Formats using ``ant clean jars``
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to the `dev_5_1/merge/autogen`
-		   branch of https://github.com/snoopycrimecop/bioformats
+		#. Pushes the auto-generated changes to 
+		   :bf_scc_branch:`dev_5_1/merge/autogen`
 
 	:jenkinsjob:`OMERO-5.1-latest-docs-autogen`
 
@@ -202,21 +202,20 @@ dev_5_1.
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-5.1-latest`
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
-		#. Pushes the auto-generated changes to the `dev_5_1/latest/autogen`
-		   branch of https://github.com/snoopycrimecop/ome-documentation
+		#. Pushes the auto-generated changes to
+		   :omedoc_scc_branch:`dev_5_1/latest/autogen`
 
 	:jenkinsjob:`OMERO-5.1-merge-docs-autogen`
 
 		This job is used to review the component auto-generation for the
 		dev_5_1 branch of the OMERO documentation
 
-		#. Checks out the dev_5_1/merge/daily branch of the
-		   snoopycrimecop fork of ome-documentation.git_
+		#. Checks out :omedoc_scc_branch:`dev_5_1/merge/daily`
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-5.1-merge-build`
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
-		#. Pushes the auto-generated changes to the `dev_5_1/merge/autogen`
-		   branch of https://github.com/snoopycrimecop/ome-documentation
+		#. Pushes the auto-generated changes to
+		   :omedoc_scc_branch:`dev_5_1/merge/autogen`
 
 5.2.x series
 ^^^^^^^^^^^^
@@ -243,6 +242,7 @@ develop.
 		of the OMERO documentation
 
 		#. |merge|
+		#. Pushes the branch to :omedoc_scc_branch:`develop/merge/daily`
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. |ssh-doc| :file:`omero-5.2-staging.tmp`
@@ -257,21 +257,20 @@ develop.
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-DEV-latest`
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
-		#. Pushes the auto-generated changes to the `develop/latest/autogen`
-		   branch of https://github.com/snoopycrimecop/ome-documentation
+		#. Pushes the auto-generated changes to
+		   :omedoc_scc_branch:`develop/latest/autogen`
 
 	:jenkinsjob:`OMERO-DEV-merge-docs-autogen`
 
 		This job is used to review the component auto-generation for the
 		develop branch of the OMERO documentation
 
-		#. Checks out the develop/merge/daily branch of the
-		   snoopycrimecop fork of ome-documentation.git_
+		#. Checks out :omedoc_scc_branch:`develop/merge/daily`
 		#. Downloads the OMERO.server and OMERO.clients from
 		   :term:`OMERO-DEV-merge-build`
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
-		#. Pushes the auto-generated changes to the `develop/merge/autogen`
-		   branch of https://github.com/snoopycrimecop/ome-documentation
+		#. Pushes the auto-generated changes to
+		   :omedoc_scc_branch:`develop/merge/autogen`
 
 OME Model and OME Contributing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -335,10 +334,9 @@ The repository for the OME help is https://github.com/openmicroscopy/ome-help.
 		This job is used to review the PRs opened against the master branch
 		of the OME help documentation
 
-		#. |merge| (and also incorporates
-		   https://github.com/snoopycrimecop/ome-help/tree/cname_staging to
-		   allow  deployment to a non-GitHub URL) then pushes the resulting
-		   branch to https://github.com/snoopycrimecop/ome-help/tree/gh-pages
+		#. |merge| (and also incorporates :omehelp_scc_branch:`cname_staging`
+		   to allow	 deployment to a non-GitHub URL) then pushes the resulting
+		   branch to :omehelp_scc_branch:`gh-pages`
 		#. The GitHub Pages service updates the content of
 		   http://help.staging.openmicroscopy.org
 
@@ -369,10 +367,9 @@ The repository for OMERO.figure is https://github.com/ome/figure.
 		This job is used to review the PRs opened against the gh-pages-staging
 		branch of figure repository
 
-		#. |merge| (and also incorporates
-		   https://github.com/snoopycrimecop/figure/tree/cname_staging to
+		#. |merge| (and also incorporates :figure_scc_branch:`cname_staging` to
 		   allow  deployment to a non-GitHub URL) then pushes the resulting
-		   branch to https://github.com/snoopycrimecop/figure/tree/gh-pages
+		   branch to :figure_scc_branch:`gh-pages`
 		#. The GitHub Pages service updates the content of
 		   http://figure.staging.openmicroscopy.org
 
@@ -400,12 +397,12 @@ parsed using the `Warnings Plugin`_. Depending on the nature of the links,
 warnings are generated as described in the following table:
 
 ====== ================ ========
-Type   Error code       Priority
+Type   Error code		Priority
 ====== ================ ========
-local                   High
-broken HTTP Error 404   Normal
+local					High
+broken HTTP Error 404	Normal
 broken Anchor not found Normal
-broken HTTP Error 403   Low
+broken HTTP Error 403	Low
 ====== ================ ========
 
 The build is marked as FAILED or UNSTABLE if the number of warnings of a given
@@ -415,7 +412,7 @@ all the documentation builds:
 ======== ====== ========
 Priority FAILED UNSTABLE
 ======== ====== ========
-High     0
-Normal          0
-Low             10
+High	 0
+Normal			0
+Low				10
 ======== ====== ========

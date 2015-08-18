@@ -25,15 +25,23 @@ from conf import *
 project = u'OME Contributing Developer'
 title = project + u' Documentation'
 
+scc_github_root = github_root + 'snoopycrimecop'
+
 # OME contributing-specific extlinks
 contributing_extlinks = {
     # Github links
     'omero_source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'omero_sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
     'omero_commit' : (omero_github_root + 'commit/%s', ''),
+    'omero_scc_branch' : (scc_github_root + '/openmicroscopy/tree/%s', ''),
     'bf_source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
     'bf_sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
     'bf_commit' : (bf_github_root + 'commit/%s', ''),
+    'bf_scc_branch' : (scc_github_root + '/bioformats/tree/%s', ''),
+    'omedoc_scc_branch' : (scc_github_root + '/ome-documentation/tree/%s', ''),
+    'omehelp_scc_branch' : (scc_github_root + '/ome-help/tree/%s', ''),
+    'figure_scc_branch' : (scc_github_root + '/figure/tree/%s', ''),
+    
     # Doc links
     'omero_doc' : (oo_site_root + '/support/omero/%s', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),

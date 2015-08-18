@@ -213,7 +213,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
         This job updates the submodules on the dev_5_1 branch
 
         #. |updatesubmodules| and pushes the merge branch to
-           snoopycrimecop/dev_5_1/latest/submodules
+           :omero_scc_branch:`dev_5_1/latest/submodules`
         #. If the submodules are updated, opens a new PR or updates the
            existing dev_5_1 submodules PR
 
@@ -234,14 +234,13 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
         This job merges all the PRs opened against dev_5_1
 
         #. |merge|
-        #. Pushes the branch to snoopycrimecop/dev_5_1/merge/daily
+        #. Pushes the branch to :omero_scc_branch:`dev_5_1/merge/daily`
 
     :jenkinsjob:`OMERO-5.1-merge-build`
 
         These jobs builds the OMERO components with Ice 3.4 or 3.5
 
-        #. Checks out the dev_5_1/merge/daily branch of the
-           snoopycrimecop fork of openmicroscopy.git_
+        #. Checks out :omero_scc_branch:`dev_5_1/merge/daily`
         #. |buildOMERO| for each version of Ice
         #. |archiveOMEROartifacts|
 
@@ -264,8 +263,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
         This job runs the integration tests of OMERO
 
-        #. Checks out the dev_5_1/merge/daily branch of the
-           snoopycrimecop fork of openmicroscopy.git_
+        #. Checks out :omero_scc_branch:`dev_5_1/merge/daily`
         #. Builds OMERO.server and starts it
         #. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
         #. Archives the results
@@ -315,8 +313,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
         This job runs the OMERO.matlab tests
 
-        #. Checks out the dev_5_1/merge/daily branch of the
-           snoopycrimecop fork of openmicroscopy.git_
+        #. Checks out :omero_scc_branch:`dev_5_1/merge/daily`
         #. Collects the MATLAB artifacts from :term:`OMERO-5.1-merge-build`
         #. Runs the MATLAB unit tests under
            :file:`components/tools/OmeroM/test/unit` and collect the results
@@ -336,8 +333,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
 
         This job runs the robot framework tests of OMERO
 
-        #. Checks out the dev_5_1/merge/daily branch of the
-           snoopycrimecop fork of openmicroscopy.git_
+        #. Checks out :omero_scc_branch:`dev_5_1/merge/daily`
         #. Builds OMERO.server and starts it
         #. Runs the robot framework tests and collect the results
 
@@ -386,7 +382,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         This job updates the submodules on the develop branch
 
         #. |updatesubmodules| and pushes the merge branch to
-           snoopycrimecop/develop/latest/submodules
+           :omero_scc_branch:`develop/latest/submodules`
         #. If the submodules are updated, opens a new PR or updates the
            existing develop submodules PR
 
@@ -407,14 +403,13 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         This job merges all the PRs opened against develop
 
         #. |merge|
-        #. Pushes the branch to snoopycrimecop/develop/merge/daily
+        #. Pushes the branch to :omero_scc_branch:`develop/merge/daily`
 
     :jenkinsjob:`OMERO-DEV-merge-build`
 
         These jobs builds the OMERO components with Ice 3.5 or 3.6
 
-        #. Checks out the develop/merge/daily branch of the
-           snoopycrimecop fork of openmicroscopy.git_
+        #. Checks out :omero_scc_branch:`develop/merge/daily` 
         #. |buildOMERO| for each version of Ice
         #. |archiveOMEROartifacts|
 
@@ -427,8 +422,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
         This job runs the integration tests of OMERO
 
-        #. Checks out the develop/merge/daily branch of the
-           snoopycrimecop fork of openmicroscopy.git_
+        #. Checks out :omero_scc_branch:`develop/merge/daily` 
         #. Builds OMERO.server and starts it
         #. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
         #. Archives the results
@@ -478,8 +472,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
         This job runs the OMERO.matlab tests
 
-        #. Checks out the develop/merge/daily branch of the
-           snoopycrimecop fork of openmicroscopy.git_
+        #. Checks out :omero_scc_branch:`develop/merge/daily` 
         #. Collects the MATLAB artifacts from :term:`OMERO-DEV-merge-build`
         #. Runs the MATLAB unit tests under
            :file:`components/tools/OmeroM/test/unit` and collect the results
@@ -499,8 +492,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
         This job runs the robot framework tests of OMERO
 
-        #. Checks out the develop/merge/daily branch of the
-           snoopycrimecop fork of openmicroscopy.git_
+        #. Checks out :omero_scc_branch:`develop/merge/daily` 
         #. Builds OMERO.server and starts it
         #. Runs the robot framework tests and collect the results
 
@@ -531,14 +523,13 @@ Jenkins.
         This job merges all the breaking PRs
 
         #. |merge| including only PRs labeled as `breaking`
-        #. Push the branch to snoopycrimecop/develop/breaking/trigger
+        #. Push the branch to :omero_scc_branch:`develop/breaking/trigger` 
 
     :jenkinsjob:`OMERO-DEV-breaking-build`
 
         This matrix jobs builds the OMERO components with Ice 3.4 or 3.5
 
-        #. Checks out the develop/breaking/trigger branch of the
-           snoopycrimecop fork of openmicroscopy.git_
+        #. Checks out :omero_scc_branch:`develop/breaking/trigger` 
         #. |buildOMERO| for each version of Ice
         #. |archiveOMEROartifacts|
 
@@ -550,8 +541,7 @@ Jenkins.
 
         This job runs the integration tests of OMERO
 
-        #. Checks out the develop/breaking/trigger branch of the
-           snoopycrimecop fork of openmicroscopy.git_
+        #. Checks out :omero_scc_branch:`develop/breaking/trigger` 
         #. Builds OMERO.server and starts it
         #. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
         #. Archives the results
