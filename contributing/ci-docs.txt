@@ -176,7 +176,7 @@ dev_5_1.
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
 		#. Pushes the auto-generated changes to
-		   :bf_scc_branch:`dev_5_1/latest/autogen`
+		   :bf_scc_branch:`develop/latest/autogen`
 
 
 
@@ -185,13 +185,13 @@ dev_5_1.
 		This job is used to build the merge auto-generated pages for the
 		dev_5_1 branch of the Bio-Formats documentation
 
-		#. Checks out :bf_scc_branch:`dev_5_1/merge/daily`
+		#. Checks out :bf_scc_branch:`develop/merge/daily`
 		#. Builds Bio-Formats using ``ant clean jars``
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
 		   from :file:`components/autogen`
 		#. Check for file changes under :file:`docs/sphinx`
 		#. Pushes the auto-generated changes to 
-		   :bf_scc_branch:`dev_5_1/merge/autogen`
+		   :bf_scc_branch:`develop/merge/autogen`
 
 	:jenkinsjob:`OMERO-5.1-latest-docs-autogen`
 
