@@ -229,9 +229,11 @@ second output argument of
 To filter projects by owner, use the ``owner`` parameter/key value. A value of
 -1 means projects are retrieved independently of their owner::
 
-    % Returns all projects owned by ownerId in the context of the session group
+    % Returns all projects owned by the specified user in the context of the
+    % session group
     projects = getProjects(session, 'owner', ownerId);
-    % Returns all projects with the input identifiers owned by ownerId
+    % Returns all projects with the input identifiers owned by the specified
+    % user
     projects = getProjects(session, ids, 'owner', ownerId);
     % Returns all projects owned by any user in the context of the session
     % group
@@ -240,7 +242,7 @@ To filter projects by owner, use the ``owner`` parameter/key value. A value of
 To filter projects by group, use the ``group`` parameter/key value. A value of
 -1 means projects are retrieved independently of their group::
 
-    % Returns all projects owned by the session user in the  specified group
+    % Returns all projects owned by the session user in the specified group
     projects = getProjects(session, 'group', groupId);
     % Returns all projects with the input identifiers in the specified group
     projects = getProjects(session, ids, 'group', groupId);
@@ -273,9 +275,11 @@ load the whole graph (datasets, images), pass `true` as an optional argument::
 To filter datasets by owner, use the ``owner`` parameter/key value. A value of
 -1 means datasets are retrieved independently of their owner::
 
-    % Returns all datasets owned by ownerId in the context of the session group
+    % Returns all datasets owned by the specified user in the context of the
+    % session group
     datasets = getDatasets(session, 'owner', ownerId);
-    % Returns all datasets with the input identifiers owned by ownerId
+    % Returns all datasets with the input identifiers owned by the specified
+    % user
     datasets = getDatasets(session, ids, 'owner', ownerId);
     % Returns all datasets owned by any user in the context of the session
     % group
@@ -284,7 +288,7 @@ To filter datasets by owner, use the ``owner`` parameter/key value. A value of
 To filter datasets by group, use the ``group`` parameter/key value. A value of
 -1 means datasets are retrieved independently of their group::
 
-    % Returns all datasets owned by the session user in the  specified group
+    % Returns all datasets owned by the session user in the specified group
     datasets = getDatasets(session, 'group', groupId);
     % Returns all datasets with the input identifiers in the specified group
     datasets = getDatasets(session, ids, 'group', groupId);
@@ -318,9 +322,10 @@ or group using::
 To filter images by owner, use the ``owner`` parameter/key value. A value of
 -1 means images are retrieved independently of their owner::
 
-    % Returns all images owned by ownerId in the context of the session group
+    % Returns all images owned by the specified user in the context of the
+    % session group
     images = getImages(session, 'owner', ownerId);
-    % Returns all images with the input identifiers owned by ownerId
+    % Returns all images with the input identifiers owned by the specified user
     images = getImages(session, ids, 'owner', ownerId);
     % Returns all images owned by any user in the context of the session
     % group
@@ -329,7 +334,7 @@ To filter images by owner, use the ``owner`` parameter/key value. A value of
 To filter images by group, use the ``group`` parameter/key value. A value of
 -1 means images are retrieved independently of their group::
 
-    % Returns all images owned by the session user in the  specified group
+    % Returns all images owned by the session user in the specified group
     images = getImages(session, 'group', groupId);
     % Returns all images with the input identifiers in the specified group
     images = getImages(session, ids, 'group', groupId);
@@ -380,9 +385,11 @@ second output argument of
 To filter screens by owner, use the ``owner`` parameter/key value. A value of
 -1 means screens are retrieved independently of their owner::
 
-    % Returns all screens owned by ownerId in the context of the session group
+    % Returns all screens owned by the specified user in the context of the
+    % session group
     screens = getScreens(session, 'owner', ownerId);
-    % Returns all screens with the input identifiers owned by ownerId
+    % Returns all screens with the input identifiers owned by the specified
+    % user
     screens = getScreens(session, ids, 'owner', ownerId);
     % Returns all screens owned by any user in the context of the session
     % group
@@ -391,7 +398,7 @@ To filter screens by owner, use the ``owner`` parameter/key value. A value of
 To filter screens by group, use the ``group`` parameter/key value. A value of
 -1 means screens are retrieved independently of their group::
 
-    % Returns all screens owned by the session user in the  specified group
+    % Returns all screens owned by the session user in the specified group
     screens = getScreens(session, 'group', groupId);
     % Returns all screens with the input identifiers in the specified group
     screens = getScreens(session, ids, 'group', groupId);
@@ -414,9 +421,10 @@ their owner or group using::
 To filter plates by owner, use the ``owner`` parameter/key value. A value of
 -1 means plates are retrieved independently of their owner::
 
-    % Returns all plates owned by ownerId in the context of the session group
+    % Returns all plates owned by the specified user in the context of the
+    % session group
     plates = getPlates(session, 'owner', ownerId);
-    % Returns all plates with the input identifiers owned by ownerId
+    % Returns all plates with the input identifiers owned by the specified user
     plates = getPlates(session, ids, 'owner', ownerId);
     % Returns all plates owned by any user in the context of the session
     % group
@@ -425,7 +433,7 @@ To filter plates by owner, use the ``owner`` parameter/key value. A value of
 To filter plates by group, use the ``group`` parameter/key value. A value of
 -1 means plates are retrieved independently of their group::
 
-    % Returns all plates owned by the session user in the  specified group
+    % Returns all plates owned by the session user in the specified group
     plates = getPlates(session, 'group', groupId);
     % Returns all plates with the input identifiers in the specified group
     plates = getPlates(session, ids, 'group', groupId);
