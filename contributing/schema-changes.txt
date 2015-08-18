@@ -37,23 +37,23 @@ Model object proxies
 --------------------
 
 Changes to model objects that are passed from the server to clients may
-require corresponding changes to be made to the :source:`IceMapper
+require corresponding changes to be made to the :omero_source:`IceMapper
 <components/blitz/src/omero/util/IceMapper.java>` class so that the
 client-side proxy objects are properly populated.
 
-For example, :commit:`commit 8815a409
+For example, :omero_commit:`commit 8815a409
 <8815a409e24b41ff4c68829657ad98a278594ade>` adds fields to the `Roles` class
-in the server's :source:`System.ice
+in the server's :omero_source:`System.ice
 <components/blitz/resources/omero/System.ice>` whose instances can be passed
-to clients via the :source:`admin service API
+to clients via the :omero_source:`admin service API
 <components/blitz/resources/omero/api/IAdmin.ice>` so a further
-:commit:`commit 2426042a <2426042a4f0b5e31a6e9743844da168a9e550375>` was
+:omero_commit:`commit 2426042a <2426042a4f0b5e31a6e9743844da168a9e550375>` was
 needed to populate those fields in the proxy object.
 
 Database patch numbers
 ----------------------
 
-:source:`omero.properties <etc/omero.properties>` contains a
+:omero_source:`omero.properties <etc/omero.properties>` contains a
 configuration setting for :literal:`omero.db.patch`. An existing OMERO
 database records the patch number of its schema, as demonstrated from
 the :literal:`psql` shell:
@@ -84,16 +84,16 @@ Users may wish to upgrade their database from an older version of OMERO to one
 that has your new schema. SQL upgrade scripts are provided to allow users to
 upgrade easily without having to understand the schema changes themselves, and
 part of the upgrade script will involve making the schema changes entailed
-with your pull request.  The :source:`sql/README.txt` file describes where to
-find the appropriate script for you to adjust. SQL upgrade scripts must be
-supplied as part of the code changes to upgrade the database from:
+with your pull request.  The :omero_source:`sql/README.txt` file describes
+where to find the appropriate script for you to adjust. SQL upgrade scripts
+must be supplied as part of the code changes to upgrade the database from:
 
 * the last release database, e.g. :file:`sql/psql/OMERO5.1DEV__5/OMERO5.0__0`,
 * the previous patch's database, e.g.
   :file:`sql/psql/OMERO5.1DEV__5/OMERO5.1DEV__4`.
 
 In your git branch with the code that requires a schema change, edit
-:source:`omero.properties <etc/omero.properties>` and increment the
+:omero_source:`omero.properties <etc/omero.properties>` and increment the
 value of :literal:`omero.db.patch`. For instance, in the above
 example, edit the file so that
 
@@ -122,8 +122,8 @@ that your code requires. Use this script to set up your database so
 that you can start OMERO.server and test your changes thoroughly.
 
 When you commit your code and issue a pull request, include the
-changes to :source:`omero.properties <etc/omero.properties>` and
-:sourcedir:`sql/psql` among the commits in the pull request.
+changes to :omero_source:`omero.properties <etc/omero.properties>` and
+:omero_sourcedir:`sql/psql` among the commits in the pull request.
 
 Review workflow
 ---------------

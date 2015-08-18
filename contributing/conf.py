@@ -28,9 +28,9 @@ title = project + u' Documentation'
 # OME contributing-specific extlinks
 contributing_extlinks = {
     # Github links
-    'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
-    'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
-    'commit' : (omero_github_root + 'commit/%s', ''),
+    'omero_source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
+    'omero_sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
+    'omero_commit' : (omero_github_root + 'commit/%s', ''),
     'bf_source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
     'bf_sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
     'bf_commit' : (bf_github_root + 'commit/%s', ''),
@@ -54,11 +54,10 @@ rst_epilog += """
 .. _ome-documentation.git: https://github.com/openmicroscopy/ome-documentation
 .. _scripts.git: https://github.com/ome/scripts
 ..  |merge| replace:: Merges PRs using :ref:`scc merge`
-..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :source:`OMERO.sh <docs/hudson/OMERO.sh>`
+..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :omero_source:`OMERO.sh <docs/hudson/OMERO.sh>`
 ..  |archiveOMEROartifacts| replace:: Archives the build artifacts
 ..  |copyreleaseartifacts| replace:: Copies the build artifacts to a LDAP-protected folder under downloads.openmicroscopy.org
 ..  |promoteOMERO| replace:: copies the artifacts to necromancer
-..  |buildVM| replace:: Builds a |VM| using :source:`omerovm.sh <docs/install/VM/omerovm.sh>`
 ..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
 ..  |buildBF| replace:: Builds Bio-Formats using ``ant clean jars tools tools-ome utils dist-bftools``
 ..  |testBF| replace:: Runs Bio-Formats tests using ``ant test-common test-ome-xml test-formats test-ome-io``
