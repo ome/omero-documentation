@@ -188,13 +188,14 @@ indicating how to load projects, datasets, screens…
 
 -  **Projects**
 
-The projects owned by the user currently logged in can be retrieved using the
-:source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`
-function::
+The projects owned by the session user in the context of the session group can
+be retrieved using the
+:source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>` function::
 
     projects = getProjects(session)
 
-If the project identifiers are known, they can be specified as::
+If the project identifiers are known, they can be retrieved independently of
+their owner or group using::
 
     projects = getProjects(session, ids)
 
@@ -207,63 +208,138 @@ If the projects contain datasets, the datasets will automatically be loaded::
         end
     end
 
-If the datasets contain images, the images will automatically be loaded::
+If the datasets contain images, the images are not automatically loaded. To
+load the whole graph (projects, datasets, images), pass `true` as an optional
+argument::
 
-    imageList = projects(1).linkedDatasetList.get(0).linkedImageList;
+    myLoadedProjects = getProjects(session, true)
+    loadedProjects = getProjects(session, ids, true)
+    imageList = loadedProjects(1).linkedDatasetList.get(0).linkedImageList;
 
-To avoid loading the whole graph (projects, datasets, images), pass `false` as
-a second optional argument. Only datasets will be loaded::
-
-    unloadedProjects = getProjects(session, ids, false)
+.. warning::
+  Loading the entire projects/datasets/images graph can be time-consuming and
+  memory-consuming depending on the amount of data.
 
 To return the orphaned datasets as well as the projects, you can query the
 second output argument of
 :source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`::
 
     [projects, orphanedDatasets] = getProjects(session)
-    [unloadedProjects, unloadedOrphanedDatasets] = getProjects(session, [], false)
+
+To filter projects by owner, use the ``owner`` parameter/key value. A value of
+-1 means projects are retrieved independently of their owner::
+
+    % Returns all projects owned by the specified user in the context of the
+    % session group
+    projects = getProjects(session, 'owner', ownerId);
+    % Returns all projects with the input identifiers owned by the specified
+    % user
+    projects = getProjects(session, ids, 'owner', ownerId);
+    % Returns all projects owned by any user in the context of the session
+    % group
+    projects = getProjects(session, 'owner', -1);
+
+To filter projects by group, use the ``group`` parameter/key value. A value of
+-1 means projects are retrieved independently of their group::
+
+    % Returns all projects owned by the session user in the specified group
+    projects = getProjects(session, 'group', groupId);
+    % Returns all projects with the input identifiers in the specified group
+    projects = getProjects(session, ids, 'group', groupId);
+    % Returns all projects owned by the session user across groups
+    projects = getProjects(session, 'group', -1);
 
 -  **Datasets**
 
-The datasets owned by the user currently logged in can be retrieved using the
-:source:`getDatasets <components/tools/OmeroM/src/io/getDatasets.m>`
-function::
+The datasets owned by the session user in the context of the session group can
+be retrieved using the
+:source:`getDatasets <components/tools/OmeroM/src/io/getDatasets.m>` function::
 
     datasets = getDatasets(session)
 
-If the dataset identifiers are known, they can be specified as::
+If the dataset identifiers are known, they can be retrieved independently of
+their owner or group using::
 
     datasets = getDatasets(session, ids)
 
-If the datasets contain images, the images will automatically be loaded::
+If the datasets contain images, the images are not automatically loaded. To
+load the whole graph (datasets, images), pass `true` as an optional argument::
 
-    imageList = datasets(1).linkedImageList;
+    loadedDatasets = getDatasets(session, ids, true);
+    imageList = loadedDatasets(1).linkedImageList;
 
-To avoid loading the images, pass `false` as a second optional argument::
+.. warning::
+  Loading the entire datasets/images graph can be time-consuming and
+  memory-consuming depending on the amount of data.
 
-    unloadedDatasets = getDatasets(session, ids, false)
+To filter datasets by owner, use the ``owner`` parameter/key value. A value of
+-1 means datasets are retrieved independently of their owner::
+
+    % Returns all datasets owned by the specified user in the context of the
+    % session group
+    datasets = getDatasets(session, 'owner', ownerId);
+    % Returns all datasets with the input identifiers owned by the specified
+    % user
+    datasets = getDatasets(session, ids, 'owner', ownerId);
+    % Returns all datasets owned by any user in the context of the session
+    % group
+    datasets = getDatasets(session, 'owner', -1);
+
+To filter datasets by group, use the ``group`` parameter/key value. A value of
+-1 means datasets are retrieved independently of their group::
+
+    % Returns all datasets owned by the session user in the specified group
+    datasets = getDatasets(session, 'group', groupId);
+    % Returns all datasets with the input identifiers in the specified group
+    datasets = getDatasets(session, ids, 'group', groupId);
+    % Returns all datasets owned by the session user across groups
+    datasets = getDatasets(session, 'group', -1);
 
 -  **Images**
 
-All the images owned by the user currently logged in can be retrieved using
-the :source:`getImages <components/tools/OmeroM/src/io/getImages.m>`
-function::
+The images owned by the session user in the context of the session group can
+be retrieved using the
+:source:`getImages <components/tools/OmeroM/src/io/getImages.m>` function::
 
     images = getImages(session)
 
-If the image identifiers are known, they can be specified as::
+If the image identifiers are known, they can be retrieved independently of
+their owner or group using::
 
     images = getImages(session, ids)
 
 All the images contained in a subset of datasets of known identifiers
-``datasetsIds`` can be returned using::
+``datasetsIds`` can be returned independently of their owner or group using::
 
     datasetImages = getImages(session, 'dataset', datasetsIds)
 
 All the images contained in all the datasets under a subset of projects of
-known identifiers ``projectIds`` can be returned using::
+known identifiers ``projectIds`` can be returned independently of their owner
+or group using::
 
     projectImages = getImages(session, 'project', projectIds)
+
+To filter images by owner, use the ``owner`` parameter/key value. A value of
+-1 means images are retrieved independently of their owner::
+
+    % Returns all images owned by the specified user in the context of the
+    % session group
+    images = getImages(session, 'owner', ownerId);
+    % Returns all images with the input identifiers owned by the specified user
+    images = getImages(session, ids, 'owner', ownerId);
+    % Returns all images owned by any user in the context of the session
+    % group
+    images = getImages(session, 'owner', -1);
+
+To filter images by group, use the ``group`` parameter/key value. A value of
+-1 means images are retrieved independently of their group::
+
+    % Returns all images owned by the session user in the specified group
+    images = getImages(session, 'group', groupId);
+    % Returns all images with the input identifiers in the specified group
+    images = getImages(session, ids, 'group', groupId);
+    % Returns all images owned by the session user across groups
+    images = getImages(session, 'group', -1);
 
 The ``Image``-``Pixels`` model implies you need to use the ``Pixels`` objects
 to access valuable data about the ``Image``::
@@ -277,13 +353,14 @@ to access valuable data about the ``Image``::
 
 -  **Screens**
 
-The screens owned by the user currently logged in can be retrieved using the
-:source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>`
-function::
+The screens owned by the session user in the context of the session group can
+be retrieved using the
+:source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>` function::
 
     screens = getScreens(session)
 
-If the screen identifiers are known, they can be specified as::
+If the screen identifiers are known, they can be retrieved independently of
+their owner or group using::
 
     screens = getScreens(session, ids)
 
@@ -304,19 +381,64 @@ second output argument of
 :source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>`::
 
     [screens, orphanedPlates] = getScreens(session)
-    [unloadedScreens, unloadedOrphanedPlates] = getScreens(session, [], false)
+
+To filter screens by owner, use the ``owner`` parameter/key value. A value of
+-1 means screens are retrieved independently of their owner::
+
+    % Returns all screens owned by the specified user in the context of the
+    % session group
+    screens = getScreens(session, 'owner', ownerId);
+    % Returns all screens with the input identifiers owned by the specified
+    % user
+    screens = getScreens(session, ids, 'owner', ownerId);
+    % Returns all screens owned by any user in the context of the session
+    % group
+    screens = getScreens(session, 'owner', -1);
+
+To filter screens by group, use the ``group`` parameter/key value. A value of
+-1 means screens are retrieved independently of their group::
+
+    % Returns all screens owned by the session user in the specified group
+    screens = getScreens(session, 'group', groupId);
+    % Returns all screens with the input identifiers in the specified group
+    screens = getScreens(session, ids, 'group', groupId);
+    % Returns all screens owned by the session user across groups
+    screens = getScreens(session, 'group', -1);
 
 -  **Plates**
 
-The plates owned by the user currently logged in can be retrieved using the
-:source:`getPlates <components/tools/OmeroM/src/io/getPlates.m>`
-function::
+The screens owned by the session user in the context of the session group can
+be retrieved using the
+:source:`getPlates <components/tools/OmeroM/src/io/getPlates.m>` function::
 
     plates = getPlates(session)
 
-If the plate identifiers are known, they can be specified as::
+If the plate identifiers are known, they can be retrieved independently of
+their owner or group using::
 
     plates = getPlates(session, ids)
+
+To filter plates by owner, use the ``owner`` parameter/key value. A value of
+-1 means plates are retrieved independently of their owner::
+
+    % Returns all plates owned by the specified user in the context of the
+    % session group
+    plates = getPlates(session, 'owner', ownerId);
+    % Returns all plates with the input identifiers owned by the specified user
+    plates = getPlates(session, ids, 'owner', ownerId);
+    % Returns all plates owned by any user in the context of the session
+    % group
+    plates = getPlates(session, 'owner', -1);
+
+To filter plates by group, use the ``group`` parameter/key value. A value of
+-1 means plates are retrieved independently of their group::
+
+    % Returns all plates owned by the session user in the specified group
+    plates = getPlates(session, 'group', groupId);
+    % Returns all plates with the input identifiers in the specified group
+    plates = getPlates(session, ids, 'group', groupId);
+    % Returns all plates owned by the session user across groups
+    plates = getPlates(session, 'group', -1);
 
 -  **Wells**
 
