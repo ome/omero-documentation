@@ -134,7 +134,7 @@ dev_5_1.
 
 	:jenkinsjob:`BIOFORMATS-5.1-latest-docs`
 
-		This job is used to build the dev_5_1 branch of the Bio-Formats
+		This job is used to build the develop branch of the Bio-Formats
 		documentation and publish the official documentation for the 5.1.x
 		release of Bio-Formats
 
@@ -157,7 +157,7 @@ dev_5_1.
 
 	:jenkinsjob:`BIOFORMATS-5.1-merge-docs`
 
-		This job is used to review the PRs opened against the dev_5_1 branch
+		This job is used to review the PRs opened against the develop branch
 		of the Bio-Formats documentation
 
 		#. |merge|
@@ -169,7 +169,7 @@ dev_5_1.
 	:jenkinsjob:`BIOFORMATS-5.1-latest-docs-autogen`
 
 		This job is used to build the latest auto-generated formats and
-		readers pages for the dev_5_1 branch of the Bio-Formats documentation
+		readers pages for the develop branch of the Bio-Formats documentation
 
 		#. Builds Bio-Formats using ``ant clean jars``
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
@@ -183,7 +183,7 @@ dev_5_1.
 	:jenkinsjob:`BIOFORMATS-5.1-merge-docs-autogen`
 
 		This job is used to build the merge auto-generated pages for the
-		dev_5_1 branch of the Bio-Formats documentation
+		develop branch of the Bio-Formats documentation
 
 		#. Checks out :bf_scc_branch:`develop/merge/daily`
 		#. Builds Bio-Formats using ``ant clean jars``
