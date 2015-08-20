@@ -84,7 +84,7 @@ Users may wish to upgrade their database from an older version of OMERO to one
 that has your new schema. SQL upgrade scripts are provided to allow users to
 upgrade easily without having to understand the schema changes themselves, and
 part of the upgrade script will involve making the schema changes entailed
-with your pull request.  The :omero_source:`sql/README.txt` file describes
+with your pull request. The :omero_source:`sql/README.txt` file describes
 where to find the appropriate script for you to adjust. SQL upgrade scripts
 must be supplied as part of the code changes to upgrade the database from:
 

@@ -174,7 +174,7 @@ dev_5_1.
 		#. Builds Bio-Formats using ``ant clean jars``
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
 		   from :file:`components/autogen`
-		#. Check for file changes under :file:`docs/sphinx`
+		#. Checks for file changes under :file:`docs/sphinx`
 		#. Pushes the auto-generated changes to
 		   :bf_scc_branch:`develop/latest/autogen`
 
@@ -189,7 +189,7 @@ dev_5_1.
 		#. Builds Bio-Formats using ``ant clean jars``
 		#. Runs the auto-generation using ``ant gen-format-pages gen-original-meta-support gen-meta-support gen-meta-support``
 		   from :file:`components/autogen`
-		#. Check for file changes under :file:`docs/sphinx`
+		#. Checks for file changes under :file:`docs/sphinx`
 		#. Pushes the auto-generated changes to 
 		   :bf_scc_branch:`develop/merge/autogen`
 

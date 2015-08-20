@@ -201,7 +201,7 @@ The branch for the 5.1.x series of Bio-Formats is develop.
 		This job runs automated tests against a subset of the data repository
 
 		#. |merge|
-		#. Run automated tests against a subset of format directories under
+		#. Runs automated tests against a subset of format directories under
 		   :file:`/ome/data_repo/from_skyking/`. The list of directories to
 		   test by setting a space-separated list of formats for the
 		   ``DEFAULT_FORMAT_LIST`` variable.
@@ -307,14 +307,14 @@ Jenkins.
 		This job runs automated tests against the full repository on Linux
 
 		#. Checks out :bf_scc_branch:`develop/breaking/trigger`
-		#. Run automated tests against :file:`/ome/data_repo/from_skyking/`
+		#. Runs automated tests against :file:`/ome/data_repo/from_skyking/`
 
 	:jenkinsjob:`BIOFORMATS-5.1-breaking-repository-subset`
 
 		This job runs automated tests against a subset of the data repository
 
 		#. |merge| labeled as breaking
-		#. Run automated tests against a subset of format directories under
+		#. Runs automated tests against a subset of format directories under
 		   :file:`/ome/data_repo/from_skyking/`. The list of directories to
 		   test by setting a space-separated list of formats for the
 		   ``DEFAULT_FORMAT_LIST`` variable.

@@ -85,7 +85,7 @@ OMERO jobs
         *
         *
 
-    -   * Push SNAPSHOTS to Maven
+    -   * Pushes SNAPSHOTS to Maven
         * | :term:`OMERO-5.1-latest-maven`
           | :term:`OMERO-5.1-merge-maven`
         * | :term:`OMERO-DEV-latest-maven`
@@ -523,7 +523,7 @@ Jenkins.
         This job merges all the breaking PRs
 
         #. |merge| including only PRs labeled as `breaking`
-        #. Push the branch to :omero_scc_branch:`develop/breaking/trigger` 
+        #. Pushes the branch to :omero_scc_branch:`develop/breaking/trigger` 
 
     :jenkinsjob:`OMERO-DEV-breaking-build`
 
