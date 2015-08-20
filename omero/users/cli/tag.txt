@@ -65,6 +65,8 @@ the tag of identifier ``1260`` to the Image of identifier ``1000``, use::
 
     $ bin/omero tag link Image:1000 1260
 
+.. _delete_tags:
+
 Delete tags
 ^^^^^^^^^^^
 
