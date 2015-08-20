@@ -80,6 +80,10 @@ stopping the :doc:`/developers/server-blitz` server and other
 processes. Instead, that job is delegated to the native Windows service
 system. A brief explanation is available under :doc:`windows/service-tools`.
 
+As noted below, multi-node deployment is not supported for Windows - no
+testing of this type of configuration is carried out and you use it at your
+own risk.
+
 How it works
 ------------
 
@@ -222,6 +226,10 @@ Nodes on multiple hosts
 .. warning::
     Before attempting this type of deployment, make sure that the hosts
     can ping each other and that required ports are open and not firewalled.
+    
+    Note that we do not carry out any testing for Windows multi-node
+    configurations so you should consider this unsupported and
+    use-at-your-own-risk.
 
 A more complex deployment example is running multiple nodes on networked
 hosts. Initially, the host's loopback IP address (127.0.0.1) is used in the grid configuration files.
