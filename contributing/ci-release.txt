@@ -112,7 +112,6 @@ clients of the deployment jobs described above:
         #. Checks out the :envvar:`RELEASE` tag of the
            snoopycrimecop fork of openmicroscopy.git_
         #. |buildOMERO| for each version of Ice
-        #. |buildVM|
         #. Executes the `release-hudson` target for the `ome.staging` Maven
            repository
         #. |copyreleaseartifacts|
@@ -242,7 +241,6 @@ clients of the deployment jobs described above:
         #. Checks out the :envvar:`RELEASE` tag of the
            snoopycrimecop fork of openmicroscopy.git_
         #. |buildOMERO| for each version of Ice
-        #. |buildVM|
         #. Executes the `release-hudson` target for the `ome.staging` Maven
            repository
         #. |copyreleaseartifacts|
