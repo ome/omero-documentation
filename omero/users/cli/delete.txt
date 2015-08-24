@@ -112,6 +112,8 @@ contained elsewhere, excluding any images in those datasets but including
 any file annotations linked to the deleted datasets. In this case the images
 that are not otherwise contained in datasets will be orphaned.
 
+For an example on deleting tags directly see :ref:`delete_tags`.
+
 Further options
 ^^^^^^^^^^^^^^^
 
