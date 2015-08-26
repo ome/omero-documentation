@@ -329,11 +329,11 @@ if not (sys.version_info[0] == 2 and sys.version_info[1] <= 5):
 
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
 linkcheck_ignore = []
-import urllib
-brokenfiles_url = 'https://raw.github.com/openmicroscopy/sphinx-ignore-links/master/broken_links.txt'
 try:
-   brokenlinks = urllib.urlopen(brokenfiles_url)
-   linkcheck_ignore.extend(brokenlinks.read().splitlines())
+    import urllib
+    brokenfiles_url = 'https://raw.github.com/openmicroscopy/sphinx-ignore-links/master/broken_links.txt'
+    brokenlinks = urllib.urlopen(brokenfiles_url)
+    linkcheck_ignore.extend(brokenlinks.read().splitlines())
 except IOError:
     print "Could not open list of broken links."
 
