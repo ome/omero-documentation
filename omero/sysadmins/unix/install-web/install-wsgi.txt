@@ -89,6 +89,18 @@ Start the Gunicorn worker processes running one thread listening on 127.0.0.1:40
     ... static files copied to '/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static'.
     Starting OMERO.web... [OK]
 
+.. note::
+    Additional setting can be configured from command line arguments:
+
+    * --workers WORKERS - The number of worker processes for handling requests.
+
+    * --worker-connections WORKER_CONNECTIONS - he maximum number of
+      simultaneous clients.
+
+    * --wsgi-args WSGI_ARGS - Additional arguments. For more details
+      check `Gunicorn Documentation <http://docs.gunicorn.org/en/latest/settings.html>`_.
+
+
 The Gunicorn workers are managed **separately** from other OMERO.server
 processes. You can check their status or stop them using the
 following commands:
