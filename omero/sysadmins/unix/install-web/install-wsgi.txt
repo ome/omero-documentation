@@ -91,13 +91,18 @@ Start the Gunicorn worker processes running one thread listening on 127.0.0.1:40
 
 Additional settings can be configured from command line arguments:
 
-* `--workers WORKERS` - the number of worker processes for handling requests.
+.. option:: --workers WORKERS
 
-* `--worker-connections WORKER_CONNECTIONS` - the maximum number of
-  simultaneous clients.
+    The number of worker processes for handling requests.
 
-* `--wsgi-args WSGI_ARGS` - additional arguments. For more details
-  check `Gunicorn Documentation <http://docs.gunicorn.org/en/latest/settings.html>`_.
+.. option:: --worker-connections WORKER_CONNECTIONS
+
+    The maximum number of simultaneous clients.
+
+.. option:: --wsgi-args WSGI_ARGS
+
+    Additional arguments. For more details check
+    `Gunicorn Documentation <http://docs.gunicorn.org/en/latest/settings.html>`_.
 
 
 The Gunicorn workers are managed **separately** from other OMERO.server
