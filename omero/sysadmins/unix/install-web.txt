@@ -60,8 +60,8 @@ customization options.
     :maxdepth: 1
     :titlesonly:
 
-    install-web/install-fastcgi
     install-web/install-wsgi
+    install-web/install-fastcgi
 
 
 Logging in to OMERO.web
