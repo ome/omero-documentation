@@ -4,7 +4,7 @@ OMERO.web FastCGI deployment (DEPRECATED)
 .. note::
     Deprecated since version 5.1.4: OMERO.web deployment using FastCGI
     is deprecated and will be removed in OMERO 5.2.
-    Use (see :doc:`install-wsgi`)
+    Use :doc:`install-wsgi` as an alternative.
 
 
 .. _fastcgi_configuration:

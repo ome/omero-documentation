@@ -93,7 +93,7 @@ Additional settings can be configured from command line arguments:
 
 * `--workers WORKERS` - the number of worker processes for handling requests.
 
-* `--worker-connections` WORKER_CONNECTIONS - the maximum number of
+* `--worker-connections WORKER_CONNECTIONS` - the maximum number of
   simultaneous clients.
 
 * `--wsgi-args WSGI_ARGS` - additional arguments. For more details
