@@ -17,16 +17,10 @@ with:
    `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
 -  The built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page).
--  FastCGI is DEPRECATED as of 5.1.4 but if you cannot use WSGI as an
-   alternative, a FastCGI capable web server such as
-   `Apache 2.2 <http://httpd.apache.org/>`_ (with
-   `mod\_fastcgi <http://www.fastcgi.com/drupal/>`_ enabled),
-   `Apache 2.4+ <http://httpd.apache.org/>`_ (with the bundled   
-   `mod\_proxy\_fcgi` enabled), `nginx <http://nginx.org/>`_ or
-   `lighttpd <http://www.lighttpd.net/>`_ is still usable on the 5.1.x line
-   (although note that support will be removed in 5.2). You can find more
-   information about FastCGI and where to get modules or packages for your
-   distribution on the `FastCGI website <http://www.fastcgi.com/drupal/node/3>`_.
+-  FastCGI is DEPRECATED as of 5.1.4 and note that support will be removed in
+   5.2. You can find more information about FastCGI and where to get modules
+   or packages for your distribution on the
+   `FastCGI website <http://www.fastcgi.com/drupal/node/3>`_.
 
 If you need help configuring your firewall rules, see the
 :doc:`/sysadmins/server-security` page.
@@ -51,9 +45,8 @@ Deployment
 There is a number of good ways to easily deploy OMERO.web.
 If you have installed Nginx or Apache OMERO can automatically generate a
 configuration file for your web server, see :doc:`install-web/install-wsgi`
-(or :doc:`install-web/install-fastcgi` if you do not have a WSGI capable web
-server). The location of the file will depend on your system, please refer to
-your web server's manual. See
+(or :doc:`install-web/install-fastcgi`). The location of the file will depend
+on your system, please refer to your web server's manual. See
 :ref:`customizing_your_omero_web_installation_unix` for additional
 customization options.
 

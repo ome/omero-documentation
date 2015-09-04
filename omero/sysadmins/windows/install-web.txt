@@ -11,21 +11,20 @@ OMERO.web is an integral part of the OMERO platform and can be deployed
 with:
 
 -  IIS 6.0 or 7.0 on Microsoft Windows
--  FastCGI using a FastCGI capable web server such as
-   `Apache 2.2 <http://httpd.apache.org/>`_ (with
-   `mod\_fastcgi <http://www.fastcgi.com/drupal/>`_ enabled),
-   `Apache 2.4+ <http://httpd.apache.org/>`_ (with the bundled
-   `mod\_proxy\_fcgi` enabled),
-   `nginx <http://nginx.org/>`_ or
-   `lighttpd <http://www.lighttpd.net/>`_ (since OMERO 4.2.1)
+-  `WSGI <http://wsgi.readthedocs.org/en/latest/>`_ using a WSGI capable web
+   server such as `Apache 2.2+ <http://httpd.apache.org>`_ (with
+   `mod wsgi <http://modwsgi.readthedocs.org/en/develop/>`_ enabled) or
+   `nginx <http://nginx.org>`_ and
+   `gunicorn <http://docs.gunicorn.org/en/19.3/>`_.
 -  The built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page)
+-  FastCGI is DEPRECATED as of 5.1.4 and note that support will be removed in
+   5.2. You can find more information about FastCGI and where to get modules
+   or packages for your distribution on the
+   `FastCGI website <http://www.fastcgi.com/drupal/node/3>`_.
 
-You can find more information about FastCGI and where to get modules or
-packages for your distribution on the
-`FastCGI website <http://www.fastcgi.com/drupal/node/3>`_.
-
-If you need help configuring your firewall rules, see the :doc:`/sysadmins/server-security` page.
+If you need help configuring your firewall rules, see the
+:doc:`/sysadmins/server-security` page.
 
 Prerequisites
 -------------
@@ -38,7 +37,7 @@ Prerequisites
 
    -  Matplotlib_ should be available for your distribution
 
--  IIS or a FastCGI capable web server
+-  IIS or WSGI (or FastCGI) capable web server
 
 Quick start
 -----------
