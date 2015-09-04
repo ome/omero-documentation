@@ -159,15 +159,15 @@ defines all the actions necessary to administer the
 :doc:`/sysadmins/server-security` . It is explained further on the
 :doc:`/developers/Modules/Api/AdminInterface` page.
 
-Pojos
-^^^^^
+Model Object Java
+^^^^^^^^^^^^^^^^^
 
 Certain operations, like those dealing with data management and viewing,
 happen more frequently than others (like defining microscopes). Those have
 been collected in the 
 :source:`IContainer <components/common/src/ome/api/IContainer.java>`
 interface. IContainer simplifies a few very common queries, and there is a
-related package ("pojos.\*") for working with the returned graphs.
+related package ("omero.gateway.model.\*") for working with the returned graphs.
 OMERO.insight works almost exclusively with the IContainer interface for its
 non-binary needs.
 
