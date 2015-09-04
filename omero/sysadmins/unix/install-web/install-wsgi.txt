@@ -91,6 +91,8 @@ Start the Gunicorn worker processes running one thread listening on 127.0.0.1:40
 
 Additional settings can be configured from command line arguments:
 
+.. program:: omero web start
+
 .. option:: --workers WORKERS
 
     The number of worker processes for handling requests.
