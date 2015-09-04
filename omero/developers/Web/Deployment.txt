@@ -80,9 +80,7 @@ listening on 127.0.0.1:4080 that will autoreload on source change:
 Using FastCGI (Unix/Linux) (DEPRECATED)
 ---------------------------------------
 
-.. note::
-    **Deprecated since version 5.1.4**
-    
+.. deprecated:: 5.1.4
     OMERO.web deployment using FastCGI
     is deprecated and will be removed in OMERO 5.2.
     Use :ref:`wsgi_configuration` as an alternative.
