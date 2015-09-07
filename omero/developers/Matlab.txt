@@ -664,21 +664,56 @@ by the content of ``local_file_path`` using::
 Writing data
 ------------
 
--  **Create a Dataset** and link it to an existing project.
+-  **Projects/Datasets**
 
-::
+Projects and datasets can be created in the context of the session group
+using the :source:`createProject <components/tools/OmeroM/src/io/createProject.m>` and :source:`createDataset <components/tools/OmeroM/src/io/createDataset.m>` functions::
 
-    dataset = omero.model.DatasetI;
-    dataset.setName(omero.rtypes.rstring(char('name dataset')));
-    dataset.setDescription(omero.rtypes.rstring(char('description dataset')));
+    % Create a new project and a dataset
+    newproject = createProject(session, 'project name');
+    newdataset = createDataset(session, 'dataset name');
 
-    % Link Dataset and Project
+When creating a dataset, it is possible to link it to an existing project
+using either the project object or its identifier::
 
-    link = omero.model.ProjectDatasetLinkI;
-    link.setChild(dataset);
-    link.setParent(omero.model.ProjectI(projectId, false));
+    % Create a new dataset linked to an existing project
+    newdataset = createDataset(session, 'dataset name', project);
+    newdataset = createDataset(session, 'dataset name', projectId);
 
-    session.getUpdateService().saveAndReturnObject(link);
+Writing projects/datasets in a different context than the session group can be
+achieved by passing the group identifier using the `group` parameter::
+
+    % Create a new project and a linked dataset in the specified group
+    newproject = createProject(session, 'project name', 'group', groupId);
+    newdataset = createDataset(session, 'dataset name', project, 'group', groupId);
+
+-  **Screens/Plates**
+
+Screens and plates can be created in the context of the session group
+using the :source:`createScreen <components/tools/OmeroM/src/io/createScreen.m>` and :source:`createPlate <components/tools/OmeroM/src/io/createPlate.m>` functions::
+
+    % Create a new screen and a plate
+    newscreen = createScreen(session, 'screen name');
+    newplate = createPlate(session, 'plate name');
+
+When creating a plate, it is possible to link it to an existing screen
+using either the screen object or its identifier::
+
+    % Create a new plate linked to an existing screen
+    newplate = createPlate(session, 'plate name', screen);
+    newplate = createPlate(session, 'plate name', screenId);
+
+Writing screens/plates in a different context than the session group can be
+achieved by passing the group identifier using the `group` parameter::
+
+    % Create a new screen and a linked plate in the specified group
+    newscreen = createScreen(session, 'screen name', 'group', groupId);
+    newplate = createPlate(session, 'plate name', screen, 'group', groupId);
+
+.. seealso::
+  :source:`WriteData.m <examples/Training/matlab/WriteData.m>`
+    Example script showing methods to create projects, datasets, plates and
+    screens
 
 How to use OMERO tables
 -----------------------
