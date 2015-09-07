@@ -638,7 +638,7 @@ function::
     % Create a double annotation
     doubleAnnotation = writeDoubleAnnotation(session, .5);
     % Create a map annotation
-    mapAnnotation = writeDoubleAnnotation(session, 'key', value);
+    mapAnnotation = writeMapAnnotation(session, 'key', value);
     % Create a tag annotation
     tagAnnotation = writeTagAnnotation(session, 'tag name');
     % Create a timestamp annotation
@@ -657,7 +657,7 @@ key/value pair::
 
     commentAnnotation = writeCommentAnnotation(session, 'comment', 'group', groupId);
     doubleAnnotation = writeDoubleAnnotation(session, .5, 'group', groupId);
-    mapAnnotation = writeDoubleAnnotation(session, 'key', value, 'group', groupId);
+    mapAnnotation = writeMapAnnotation(session, 'key', value, 'group', groupId);
     tagAnnotation = writeTagAnnotation(session, 'tag name', 'group', groupId);
     timestampAnnotation = writeTimestampAnnotation(session, now, 'group', groupId);
     xmlAnnotation = writeXmlAnnotation(session, xmlString, 'group', groupId);
