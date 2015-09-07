@@ -631,14 +631,37 @@ known::
 -  **Writing and linking annotations**
 
 New annotations can be created using the corresponding ``write*Annotation``
-function. For example, to create a new tag annotation with value
-``tag_name``::
+function::
+    
+    % Create a comment annotation
+    commentAnnotation = writeCommentAnnotation(session, 'comment');
+    % Create a double annotation
+    doubleAnnotation = writeDoubleAnnotation(session, .5);
+    % Create a map annotation
+    mapAnnotation = writeDoubleAnnotation(session, 'key', value);
+    % Create a tag annotation
+    tagAnnotation = writeTagAnnotation(session, 'tag name');
+    % Create a timestamp annotation
+    timestampAnnotation = writeTimestampAnnotation(session, now);
+    % Create a XML annotation
+    xmlAnnotation = writeXmlAnnotation(session, xmlString);
 
-    tagAnnotation = writeTagAnnotation(session, tag_name);
-
-To create a file annotations from the content of a ``local_file_path``::
+File annotations can also be created from the content of a
+:file:`local_file_path`::
 
     fileAnnotation = writeFileAnnotation(session, local_file_path);
+
+Each annotation creation function will use the context of the session group by
+default. To create the annotation in a different group, use the ``group``
+key/value pair::
+
+    commentAnnotation = writeCommentAnnotation(session, 'comment', 'group', groupId);
+    doubleAnnotation = writeDoubleAnnotation(session, .5, 'group', groupId);
+    mapAnnotation = writeDoubleAnnotation(session, 'key', value, 'group', groupId);
+    tagAnnotation = writeTagAnnotation(session, 'tag name', 'group', groupId);
+    timestampAnnotation = writeTimestampAnnotation(session, now, 'group', groupId);
+    xmlAnnotation = writeXmlAnnotation(session, xmlString, 'group', groupId);
+    fileAnnotation = writeFileAnnotation(session, local_file_path, 'group', groupId);
 
 Existing annotations can be linked to existing objects on the server using the
 :source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
