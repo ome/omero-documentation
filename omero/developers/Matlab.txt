@@ -651,7 +651,7 @@ File annotations can also be created from the content of a
 
     fileAnnotation = writeFileAnnotation(session, local_file_path);
 
-Each annotation creation function will use the context of the session group by
+Each annotation creation function uses the context of the session group by
 default. To create the annotation in a different group, use the ``group``
 key/value pair::
 
