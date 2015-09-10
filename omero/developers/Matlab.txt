@@ -692,15 +692,17 @@ Writing data
 Projects and datasets can be created in the context of the session group
 using the :source:`createProject <components/tools/OmeroM/src/io/createProject.m>` and :source:`createDataset <components/tools/OmeroM/src/io/createDataset.m>` functions::
 
-    % Create a new project and a dataset
+    % Create a new project in the context of the session group
     newproject = createProject(session, 'project name');
+    % Create a new dataset in the context of the session group
     newdataset = createDataset(session, 'dataset name');
 
 Writing projects/datasets in a different context than the session group can be
 achieved by passing the group identifier using the `group` parameter::
 
-    % Create a new project and a linked dataset in the specified group
+    % Create a new project in the specified group
     newproject = createProject(session, 'project name', 'group', groupId);
+    % Create a new dataset in the specified group
     newdataset = createDataset(session, 'dataset name', 'group', groupId);
 
 When creating a dataset, it is possible to link it to an existing project
@@ -719,15 +721,17 @@ context is determined by the parent project:
 Screens and plates can be created in the context of the session group
 using the :source:`createScreen <components/tools/OmeroM/src/io/createScreen.m>` and :source:`createPlate <components/tools/OmeroM/src/io/createPlate.m>` functions::
 
-    % Create a new screen and a plate
+    % Create a new screen in the context of the session group
     newscreen = createScreen(session, 'screen name');
+    % Create a new plate in the context of the session group
     newplate = createPlate(session, 'plate name');
 
 Writing screens/plates in a different context than the session group can be
 achieved by passing the group identifier using the `group` parameter::
 
-    % Create a new screen and a linked plate in the specified group
+    % Create a new screen in the specified group
     newscreen = createScreen(session, 'screen name', 'group', groupId);
+    % Create a new plate in the specified group
     newplate = createPlate(session, 'plate name', 'group', groupId);
 
 When creating a plate, it is possible to link it to an existing screen
