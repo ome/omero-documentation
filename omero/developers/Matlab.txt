@@ -643,7 +643,7 @@ function::
     tagAnnotation = writeTagAnnotation(session, 'tag name');
     % Create a timestamp annotation
     timestampAnnotation = writeTimestampAnnotation(session, now);
-    % Create a XML annotation
+    % Create an XML annotation
     xmlAnnotation = writeXmlAnnotation(session, xmlString);
 
 File annotations can also be created from the content of a
