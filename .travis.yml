@@ -13,6 +13,6 @@ env:
   - SPHINXOPTS="-W"
 
 before_install:
-  - pip install --user Sphinx==1.2.3
+  - pip install Sphinx==1.2.3
 
 script: make clean html
