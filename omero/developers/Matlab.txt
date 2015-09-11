@@ -707,7 +707,7 @@ achieved by passing the group identifier using the `group` parameter::
 
 When creating a dataset, it is possible to link it to an existing project
 using either the project object or its identifier. In this case, the group
-context is determined by the parent project:
+context is determined by the parent project::
 
     % Create two new projects in different groups
     project1 = createProject(session, 'project name');
@@ -736,7 +736,7 @@ achieved by passing the group identifier using the `group` parameter::
 
 When creating a plate, it is possible to link it to an existing screen
 using either the screen object or its identifier. In this case, the group
-context is determined by the parent screen:
+context is determined by the parent screen::
 
     % Create two new projects in different groups
     screen1 = createScreen(session, 'screen name');
