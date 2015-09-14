@@ -320,7 +320,7 @@ Write data
     dataset.setName(omero.rtypes.rstring("new Name 1"));
     dataset.setDescription(omero.rtypes.rstring("new description 1"));
         
-    //Using the pojo
+    //Using the model object
     DatasetData datasetData = new DatasetData();
     datasetData.setName("new Name 2");
     datasetData.setDescription("new description 2");
@@ -330,7 +330,7 @@ Write data
     link.setChild(dataset);
     link.setParent(new ProjectI(info.getProjectId(), false));
     IObject r = dm.saveAndReturnObject(ctx, link);
-    //With pojo
+    //With model object
     link = new ProjectDatasetLinkI();
     link.setChild(datasetData.asDataset());
     link.setParent(new ProjectI(info.getProjectId(), false));
@@ -346,7 +346,7 @@ Write data
     tag.setTextValue(omero.rtypes.rstring("new tag 1"));
     tag.setDescription(omero.rtypes.rstring("new tag 1"));
         
-    //Using the pojo
+    //Using the model object
     TagAnnotationData tagData = new TagAnnotationData("new tag 2");
     tagData.setTagDescription("new tag 2");
         
@@ -354,7 +354,7 @@ Write data
     link.setChild(tag);
     link.setParent(new ProjectI(info.getProjectId(), false));
     IObject r = dm.saveAndReturnObject(ctx, link);
-    //With pojo
+    //With model object
     link = new ProjectAnnotationLinkI();
     link.setChild(tagData.asAnnotation());
     link.setParent(new ProjectI(info.getProjectId(), false));
@@ -412,7 +412,7 @@ created:
     originalFile = rawFileStore.save();
     rawFileStore.close();
 
-    //now we have an original File in DB and raw data uploaded.
+    // now we have an original File in DB and raw data uploaded.
     // We now need to link the Original file to the image using 
     // the File annotation object. That's the way to do it.
     FileAnnotation fa = new FileAnnotationI();
@@ -466,13 +466,13 @@ First load the annotations, cf. above.
         annotation = j.next();
         if (annotation instanceof FileAnnotation && index == 0) {
             fa = new FileAnnotationData((FileAnnotation) annotation);
-            //The id of te original file
+            // The id of te original file
             of = getOriginalFile(fa.getFileID());
             store.setFileId(fa.getFileID());
             int offset = 0;
             long size = of.getSize().getValue();
-            //name of the file
-            of.getName().getValue();
+            // name of the file
+            String fileName = of.getName().getValue();
             try {
                 for (offset = 0; (offset+INC) < size;) {
                     stream.write(store.read(offset, INC));
@@ -517,13 +517,13 @@ In the following example, we create a table with 2 columns.
     String name = UUID.randomUUID().toString();
     Column[] columns = createColumns(rows);
 
-    //create a new table.
+    // create a new table.
     SharedResourcesPrx store = gateway.getSharedResources(ctx);
     TablePrx table = store.newTable(1, name);
 
-    //initialize the table
+    // initialize the table
     table.initialize(columns);
-    //add data to the table.
+    // add data to the table.
     rows = 2;
     Column[] newRow = createColumns(rows);
 
@@ -545,7 +545,7 @@ In the following example, we create a table with 2 columns.
     file = new OriginalFileI(file.getId(), false);
     table = store.openTable(file);
 
-    //read headers
+    // read headers
     Column[] cols = table.getHeaders();
 
     for (int i = 0; i < cols.length; i++) {
@@ -575,7 +575,7 @@ ROIs
 
 To learn about the model see the
 :model_doc:`ROI Model documentation <developers/roi.html>`. Note that
-annotations can be linked to ROI.
+annotations can be linked to ROI or shape.
 
 -  **Create ROI.**
 
@@ -587,7 +587,7 @@ to an image.
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
     ROIFacility roifac = gateway.getFacility(ROIFacility.class);
 
-    //to retrieve he image see above.
+    // To retrieve the image see above.
     Roi roi = new RoiI();
     roi.setImage(image);
     Rect rect;
@@ -599,10 +599,10 @@ to an image.
     rect.setTheZ(omero.rtypes.rint(0));
     rect.setTheT(omero.rtypes.rint(0));
 
-    //Add the shape
+    // Add the shape
     roi.addShape(rect);
 
-    //Create an ellipse.
+    // Create an ellipse.
     EllipseI ellipse = new EllipseI();
     ellipse.setCx(omero.rtypes.rdouble(10));
     ellipse.setCy(omero.rtypes.rdouble(10));
@@ -612,34 +612,34 @@ to an image.
     ellipse.setTheT(omero.rtypes.rint(0));
     ellipse.setTextValue(omero.rtypes.rstring("ellipse text"));
 
-    //Add the shape
+    // Add the shape
     roi.addShape(ellipse);
 
-    //Save ROI and shape
+    // Save ROI and shape
     ROIData roiData = roifac.saveROIs(ctx, image.getId(), Arrays.asList(new ROIData(roi))).iterator().next();
 
-    //now check that the shape has been added.
-    //Retrieve the shape on plane )z, t) = (0, 0)
+    // now check that the shape has been added.
+    // Retrieve the shape on plane (z, t) = (0, 0)
     List<ShapeData> shapes = roiData.getShapes(0, 0);
     Iterator<ShapeData> i = shapes.iterator();
     while (i.hasNext()) {
       ShapeData shape = i.next();
-    //plane info
+      // plane info
       int z = shape.getZ();
       int t = shape.getT();
       long id = shape.getId();
       if (shape instanceof RectangleData) {
         RectangleData rectData = (RectangleData) shape;
-       //Handle rectangle
+        // Handle rectangle
       } else if (shape instanceof EllipseData) {
         EllipseData ellipseData = (EllipseData) shape;
-        //Handle ellipse
+        // Handle ellipse
       } else if (shape instanceof LineData) {
         LineData lineData = (LineData) shape;
-        //Handle line
+        // Handle line
       } else if (shape instanceof PointData) {
         PointData pointData = (PointData) shape;
-        //Handle point
+        // Handle point
       }
     }
 
@@ -659,7 +659,7 @@ to an image.
     while (j.hasNext()) {
       roi = j.next();
       list = roi.copyShapes();
-      //Do something
+      // Do something
     }
 
 -  **Remove a shape from ROI.**
@@ -678,10 +678,10 @@ to an image.
     while (j.hasNext()) {
       roi = j.next();
       list = roi.copyShapes();
-      //remove the first shape.
+      // remove the first shape.
       if (list.size() > 0) {
         roi.removeShape(list.get(0));
-        //update the roi.
+        // update the roi.
         dm.saveAndReturnObject(ctx, roi).saveAndReturnObject(roi);
       }
     }
@@ -701,7 +701,7 @@ In the following example, we create an image and delete it.
 
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
     
-    //First create an image.
+    // First create an image.
     Image img = new ImageI();
     img.setName(omero.rtypes.rstring("image1"));
     img.setDescription(omero.rtypes.rstring("descriptionImage1"));
@@ -728,15 +728,14 @@ Render Images
     proxy.load();
     // Now can interact with the rendering engine.
     proxy.setActive(0, Boolean.valueOf(false));
-    // to render the image uncompressed
     PlaneDef pDef = new PlaneDef();
     pDef.z = 0;
     pDef.t = 0;
     pDef.slice = omero.romio.XY.value;
-    //render the data uncompressed.
+    // render the data uncompressed.
     int[] uncompressed = proxy.renderAsPackedInt(pDef);
     byte[] compressed = proxy.renderCompressed(pDef);
-    //Create a buffered image
+    // Create a buffered image
     ByteArrayInputStream stream = new ByteArrayInputStream(compressed);
     BufferedImage image = ImageIO.read(stream);
     proxy.close();
@@ -770,7 +769,7 @@ in OMERO. Similar approach can be applied when uploading an image.
 
 ::
 
-    //See above how to load an image.
+    // See above how to load an image.
     PixelsData pixels = image.getDefaultPixels();
     int sizeZ = pixels.getSizeZ();
     int sizeT = pixels.getSizeT();
@@ -779,7 +778,7 @@ in OMERO. Similar approach can be applied when uploading an image.
     int sizeY = pixels.getSizeY();
     long pixelsId = pixels.getId();
 
-    //Read the pixels from the source image.
+    // Read the pixels from the source image.
     RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
     store.setPixelsId(pixelsId, false);
 
@@ -791,10 +790,10 @@ in OMERO. Similar approach can be applied when uploading an image.
         }
     }
 
-    //Better to close to free space.
+    // Better to close to free space.
     store.close();
 
-    //Now we are going to create the new image.
+    // Now we are going to create the new image.
     IPixelsPrx proxy = gateway.getPixelsService(ctx);
 
     //Search for PixelsType object matching the source image.
@@ -806,14 +805,14 @@ in OMERO. Similar approach can be applied when uploading an image.
         PixelsType o =  (PixelsType) i.next();
         String value = o.getValue().getValue();
         if (value.equals(original)) {
-        type = o;
-        break;
+            type = o;
+            break;
         }
     }
     if (type == null)
         throw new Exception("Pixels Type not valid.");
 
-    //Create new image.
+    // Create new image.
     String name = "newImageFrom"+image.getId();
     RLong idNew = proxy.createImage(sizeX, sizeY, sizeZ, sizeT, Arrays.asList(0), type, name,
             "From Image ID: "+image.getId());
@@ -824,13 +823,13 @@ in OMERO. Similar approach can be applied when uploading an image.
                     Arrays.asList(idNew.getValue()), new ParametersI());
     ImageData newImage = new ImageData(results.get(0));
 
-    //Link the new image and the dataset hosting the source image.
+    // Link the new image and the dataset hosting the source image.
     DatasetImageLink link = new DatasetImageLinkI();
     link.setParent(new DatasetI(datasetId, false));
     link.setChild(new ImageI(newImage.getId(), false));
     gateway.getUpdateService(ctx).saveAndReturnObject(link);
 
-    //Write the data.
+    // Write the data.
     store = gateway.getPixelsStore(ctx);
     store.setPixelsId(newImage.getDefaultPixels().getId(), false);
     int index = 0;
@@ -840,7 +839,7 @@ in OMERO. Similar approach can be applied when uploading an image.
         }
     }
 
-    //Save the data.
+    // Save the data.
     store.save();
 
     store.close();
