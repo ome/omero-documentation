@@ -9,12 +9,11 @@ See |DevelopingOmeroClients| and |OmeroModel|, for an introduction to
 Installing the OMERO.matlab toolbox
 -----------------------------------
 
--  Download the latest released version from the
-   :downloads:`download page <>`.
+-  Download the latest released version from the :downloads:`download page <>`.
 -  Unzip the directory anywhere on your system.
 -  In MATLAB, move to the newly unzipped directory and run ``loadOmero;``.
 -  The MATLAB files are now on your path, and the necessary jars are on
-   your java classpath. You can change directories and still have access
+   your Java classpath. You can change directories and still have access
    to OMERO.
 
 Once OMERO.matlab is installed, the typical workflow is:
@@ -99,6 +98,27 @@ but it is not configurable from within MATLAB::
 
     c.enableKeepAlive(60); % Call session.keepAlive() every 60 seconds
     c.closeSession();      % Close session to end the keep-alive
+
+Working in a different group
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Each session is created within a given context, defining not only the session
+user but also the session group. The session context can be retrieved using the
+administration service::
+
+    eventContext = s.getAdminService().getEventContext();
+    groupId = eventContext.groupId;
+
+Most read and write operations described below are performed in the context
+of the session group when using the default parameters. Since OMERO 5.1.4, it
+is possible to specify a different context than the session group for reading
+and writing data using the ``group`` parameter/key value in the OMERO.matlab
+functions. Retrieving objects by identifiers is also done across all groups by
+default.
+
+.. seealso::
+    :doc:`/developers/Server/Permissions`
+        Developer documentation about the OMERO permissions system
 
 .. _unsecure_client:
 
