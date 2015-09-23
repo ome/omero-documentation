@@ -102,7 +102,7 @@ but it is not configurable from within MATLAB::
 Working in a different group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Each session is created within a given context defining not only the session
+Each session is created within a given context, defining not only the session
 user but also the session group. The session context can be retrieved using the
 administration service::
 
