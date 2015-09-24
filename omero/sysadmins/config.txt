@@ -265,6 +265,14 @@ Name of the "Orphaned images" container located in client tree data manager.
 
 Default: `Orphaned images`
 
+.. property:: omero.client.viewer.interpolate_pixels
+
+omero.client.viewer.interpolate_pixels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client viewers interpolate pixels by default.
+
+Default: `true`
+
 .. property:: omero.client.web.host
 
 omero.client.web.host
@@ -1693,9 +1701,9 @@ Default: `127.0.0.1`
 
 omero.web.application_server.max_requests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The maximum number ofrequests a worker will process before restarting.
 
-
-Default: `400`
+Default: `0`
 
 .. property:: omero.web.application_server.port
 
