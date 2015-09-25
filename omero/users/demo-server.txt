@@ -32,13 +32,7 @@ a stand-alone application. You will need to have permissions allowing you to
 install software on your computer, and you will need to update the client if
 the demo server is upgraded (we will email you to inform you).
 
-2. :ref:`JavaWeb`
-
-This automatically downloads the current version of the client, ensuring you
-are not using an out-of-date version, but it requires re-downloading each
-session.
-
-3. :ref:`OMEROweb`
+2. :ref:`OMEROweb`
 
 The web client does not allow you to import data or use the measurement tools.
 
@@ -100,18 +94,6 @@ Click **Login**
 
 |
 
-.. _JavaWeb:
-
-Using OMERO.insight Java Web Start client
------------------------------------------
-
-To use the OMERO.insight Java Web Start client click on the following link:
-
-`OMERO.insight Java Web Start <http://demo.openmicroscopy.org/webstart/>`_
-
-Follow the instructions to download and run it. Log in as described above.
-
-|
 
 .. _OMEROweb:
 
