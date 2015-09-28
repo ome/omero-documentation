@@ -1701,7 +1701,7 @@ Default: `127.0.0.1`
 
 omero.web.application_server.max_requests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The maximum number ofrequests a worker will process before restarting.
+The maximum number of requests a worker will process before restarting.
 
 Default: `0`
 
