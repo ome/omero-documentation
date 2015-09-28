@@ -51,7 +51,8 @@ deprecated. They are replaced by :javadoc:`Chgrp2
 <slice2html/omero/cmd/Chgrp2.html>`, :javadoc:`Chown2
 <slice2html/omero/cmd/Chown2.html>`, :javadoc:`Delete2
 <slice2html/omero/cmd/Delete2.html>`, and their superclass
-:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>`. To
+:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>`. OMERO
+5.1.2 adds :javadoc:`Chmod2 <slice2html/omero/cmd/Chmod2.html>`. To
 allow each deprecated request to be implemented by its corresponding
 replacement, a partial API compatibility layer is included in OMERO 5.1
 and is activated by default through the new configuration property

@@ -9,12 +9,11 @@ See |DevelopingOmeroClients| and |OmeroModel|, for an introduction to
 Installing the OMERO.matlab toolbox
 -----------------------------------
 
--  Download the latest released version from the
-   :downloads:`download page <>`.
+-  Download the latest released version from the :downloads:`download page <>`.
 -  Unzip the directory anywhere on your system.
 -  In MATLAB, move to the newly unzipped directory and run ``loadOmero;``.
 -  The MATLAB files are now on your path, and the necessary jars are on
-   your java classpath. You can change directories and still have access
+   your Java classpath. You can change directories and still have access
    to OMERO.
 
 Once OMERO.matlab is installed, the typical workflow is:
@@ -99,6 +98,27 @@ but it is not configurable from within MATLAB::
 
     c.enableKeepAlive(60); % Call session.keepAlive() every 60 seconds
     c.closeSession();      % Close session to end the keep-alive
+
+Working in a different group
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Each session is created within a given context, defining not only the session
+user but also the session group. The session context can be retrieved using the
+administration service::
+
+    eventContext = s.getAdminService().getEventContext();
+    groupId = eventContext.groupId;
+
+Most read and write operations described below are performed in the context
+of the session group when using the default parameters. Since OMERO 5.1.4, it
+is possible to specify a different context than the session group for reading
+and writing data using the ``group`` parameter/key value in the OMERO.matlab
+functions. Retrieving objects by identifiers is also done across all groups by
+default.
+
+.. seealso::
+    :doc:`/developers/Server/Permissions`
+        Developer documentation about the OMERO permissions system
 
 .. _unsecure_client:
 
@@ -188,13 +208,14 @@ indicating how to load projects, datasets, screens…
 
 -  **Projects**
 
-The projects owned by the user currently logged in can be retrieved using the
-:source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`
-function::
+The projects owned by the session user in the context of the session group can
+be retrieved using the
+:source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>` function::
 
     projects = getProjects(session)
 
-If the project identifiers are known, they can be specified as::
+If the project identifiers are known, they can be retrieved independently of
+their owner or group using::
 
     projects = getProjects(session, ids)
 
@@ -207,63 +228,138 @@ If the projects contain datasets, the datasets will automatically be loaded::
         end
     end
 
-If the datasets contain images, the images will automatically be loaded::
+If the datasets contain images, the images are not automatically loaded. To
+load the whole graph (projects, datasets, images), pass `true` as an optional
+argument::
 
-    imageList = projects(1).linkedDatasetList.get(0).linkedImageList;
+    myLoadedProjects = getProjects(session, true)
+    loadedProjects = getProjects(session, ids, true)
+    imageList = loadedProjects(1).linkedDatasetList.get(0).linkedImageList;
 
-To avoid loading the whole graph (projects, datasets, images), pass `false` as
-a second optional argument. Only datasets will be loaded::
-
-    unloadedProjects = getProjects(session, ids, false)
+.. warning::
+  Loading the entire projects/datasets/images graph can be time-consuming and
+  memory-consuming depending on the amount of data.
 
 To return the orphaned datasets as well as the projects, you can query the
 second output argument of
 :source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`::
 
     [projects, orphanedDatasets] = getProjects(session)
-    [unloadedProjects, unloadedOrphanedDatasets] = getProjects(session, [], false)
+
+To filter projects by owner, use the ``owner`` parameter/key value. A value of
+-1 means projects are retrieved independently of their owner::
+
+    % Returns all projects owned by the specified user in the context of the
+    % session group
+    projects = getProjects(session, 'owner', ownerId);
+    % Returns all projects with the input identifiers owned by the specified
+    % user
+    projects = getProjects(session, ids, 'owner', ownerId);
+    % Returns all projects owned by any user in the context of the session
+    % group
+    projects = getProjects(session, 'owner', -1);
+
+To filter projects by group, use the ``group`` parameter/key value. A value of
+-1 means projects are retrieved independently of their group::
+
+    % Returns all projects owned by the session user in the specified group
+    projects = getProjects(session, 'group', groupId);
+    % Returns all projects with the input identifiers in the specified group
+    projects = getProjects(session, ids, 'group', groupId);
+    % Returns all projects owned by the session user across groups
+    projects = getProjects(session, 'group', -1);
 
 -  **Datasets**
 
-The datasets owned by the user currently logged in can be retrieved using the
-:source:`getDatasets <components/tools/OmeroM/src/io/getDatasets.m>`
-function::
+The datasets owned by the session user in the context of the session group can
+be retrieved using the
+:source:`getDatasets <components/tools/OmeroM/src/io/getDatasets.m>` function::
 
     datasets = getDatasets(session)
 
-If the dataset identifiers are known, they can be specified as::
+If the dataset identifiers are known, they can be retrieved independently of
+their owner or group using::
 
     datasets = getDatasets(session, ids)
 
-If the datasets contain images, the images will automatically be loaded::
+If the datasets contain images, the images are not automatically loaded. To
+load the whole graph (datasets, images), pass `true` as an optional argument::
 
-    imageList = datasets(1).linkedImageList;
+    loadedDatasets = getDatasets(session, ids, true);
+    imageList = loadedDatasets(1).linkedImageList;
 
-To avoid loading the images, pass `false` as a second optional argument::
+.. warning::
+  Loading the entire datasets/images graph can be time-consuming and
+  memory-consuming depending on the amount of data.
 
-    unloadedDatasets = getDatasets(session, ids, false)
+To filter datasets by owner, use the ``owner`` parameter/key value. A value of
+-1 means datasets are retrieved independently of their owner::
+
+    % Returns all datasets owned by the specified user in the context of the
+    % session group
+    datasets = getDatasets(session, 'owner', ownerId);
+    % Returns all datasets with the input identifiers owned by the specified
+    % user
+    datasets = getDatasets(session, ids, 'owner', ownerId);
+    % Returns all datasets owned by any user in the context of the session
+    % group
+    datasets = getDatasets(session, 'owner', -1);
+
+To filter datasets by group, use the ``group`` parameter/key value. A value of
+-1 means datasets are retrieved independently of their group::
+
+    % Returns all datasets owned by the session user in the specified group
+    datasets = getDatasets(session, 'group', groupId);
+    % Returns all datasets with the input identifiers in the specified group
+    datasets = getDatasets(session, ids, 'group', groupId);
+    % Returns all datasets owned by the session user across groups
+    datasets = getDatasets(session, 'group', -1);
 
 -  **Images**
 
-All the images owned by the user currently logged in can be retrieved using
-the :source:`getImages <components/tools/OmeroM/src/io/getImages.m>`
-function::
+The images owned by the session user in the context of the session group can
+be retrieved using the
+:source:`getImages <components/tools/OmeroM/src/io/getImages.m>` function::
 
     images = getImages(session)
 
-If the image identifiers are known, they can be specified as::
+If the image identifiers are known, they can be retrieved independently of
+their owner or group using::
 
     images = getImages(session, ids)
 
 All the images contained in a subset of datasets of known identifiers
-``datasetsIds`` can be returned using::
+``datasetsIds`` can be returned independently of their owner or group using::
 
     datasetImages = getImages(session, 'dataset', datasetsIds)
 
 All the images contained in all the datasets under a subset of projects of
-known identifiers ``projectIds`` can be returned using::
+known identifiers ``projectIds`` can be returned independently of their owner
+or group using::
 
     projectImages = getImages(session, 'project', projectIds)
+
+To filter images by owner, use the ``owner`` parameter/key value. A value of
+-1 means images are retrieved independently of their owner::
+
+    % Returns all images owned by the specified user in the context of the
+    % session group
+    images = getImages(session, 'owner', ownerId);
+    % Returns all images with the input identifiers owned by the specified user
+    images = getImages(session, ids, 'owner', ownerId);
+    % Returns all images owned by any user in the context of the session
+    % group
+    images = getImages(session, 'owner', -1);
+
+To filter images by group, use the ``group`` parameter/key value. A value of
+-1 means images are retrieved independently of their group::
+
+    % Returns all images owned by the session user in the specified group
+    images = getImages(session, 'group', groupId);
+    % Returns all images with the input identifiers in the specified group
+    images = getImages(session, ids, 'group', groupId);
+    % Returns all images owned by the session user across groups
+    images = getImages(session, 'group', -1);
 
 The ``Image``-``Pixels`` model implies you need to use the ``Pixels`` objects
 to access valuable data about the ``Image``::
@@ -277,13 +373,14 @@ to access valuable data about the ``Image``::
 
 -  **Screens**
 
-The screens owned by the user currently logged in can be retrieved using the
-:source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>`
-function::
+The screens owned by the session user in the context of the session group can
+be retrieved using the
+:source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>` function::
 
     screens = getScreens(session)
 
-If the screen identifiers are known, they can be specified as::
+If the screen identifiers are known, they can be retrieved independently of
+their owner or group using::
 
     screens = getScreens(session, ids)
 
@@ -304,19 +401,64 @@ second output argument of
 :source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>`::
 
     [screens, orphanedPlates] = getScreens(session)
-    [unloadedScreens, unloadedOrphanedPlates] = getScreens(session, [], false)
+
+To filter screens by owner, use the ``owner`` parameter/key value. A value of
+-1 means screens are retrieved independently of their owner::
+
+    % Returns all screens owned by the specified user in the context of the
+    % session group
+    screens = getScreens(session, 'owner', ownerId);
+    % Returns all screens with the input identifiers owned by the specified
+    % user
+    screens = getScreens(session, ids, 'owner', ownerId);
+    % Returns all screens owned by any user in the context of the session
+    % group
+    screens = getScreens(session, 'owner', -1);
+
+To filter screens by group, use the ``group`` parameter/key value. A value of
+-1 means screens are retrieved independently of their group::
+
+    % Returns all screens owned by the session user in the specified group
+    screens = getScreens(session, 'group', groupId);
+    % Returns all screens with the input identifiers in the specified group
+    screens = getScreens(session, ids, 'group', groupId);
+    % Returns all screens owned by the session user across groups
+    screens = getScreens(session, 'group', -1);
 
 -  **Plates**
 
-The plates owned by the user currently logged in can be retrieved using the
-:source:`getPlates <components/tools/OmeroM/src/io/getPlates.m>`
-function::
+The screens owned by the session user in the context of the session group can
+be retrieved using the
+:source:`getPlates <components/tools/OmeroM/src/io/getPlates.m>` function::
 
     plates = getPlates(session)
 
-If the plate identifiers are known, they can be specified as::
+If the plate identifiers are known, they can be retrieved independently of
+their owner or group using::
 
     plates = getPlates(session, ids)
+
+To filter plates by owner, use the ``owner`` parameter/key value. A value of
+-1 means plates are retrieved independently of their owner::
+
+    % Returns all plates owned by the specified user in the context of the
+    % session group
+    plates = getPlates(session, 'owner', ownerId);
+    % Returns all plates with the input identifiers owned by the specified user
+    plates = getPlates(session, ids, 'owner', ownerId);
+    % Returns all plates owned by any user in the context of the session
+    % group
+    plates = getPlates(session, 'owner', -1);
+
+To filter plates by group, use the ``group`` parameter/key value. A value of
+-1 means plates are retrieved independently of their group::
+
+    % Returns all plates owned by the session user in the specified group
+    plates = getPlates(session, 'group', groupId);
+    % Returns all plates with the input identifiers in the specified group
+    plates = getPlates(session, ids, 'group', groupId);
+    % Returns all plates owned by the session user across groups
+    plates = getPlates(session, 'group', -1);
 
 -  **Wells**
 
@@ -509,14 +651,37 @@ known::
 -  **Writing and linking annotations**
 
 New annotations can be created using the corresponding ``write*Annotation``
-function. For example, to create a new tag annotation with value
-``tag_name``::
+function::
+    
+    % Create a comment annotation
+    commentAnnotation = writeCommentAnnotation(session, 'comment');
+    % Create a double annotation
+    doubleAnnotation = writeDoubleAnnotation(session, .5);
+    % Create a map annotation
+    mapAnnotation = writeMapAnnotation(session, 'key', value);
+    % Create a tag annotation
+    tagAnnotation = writeTagAnnotation(session, 'tag name');
+    % Create a timestamp annotation
+    timestampAnnotation = writeTimestampAnnotation(session, now);
+    % Create an XML annotation
+    xmlAnnotation = writeXmlAnnotation(session, xmlString);
 
-    tagAnnotation = writeTagAnnotation(session, tag_name);
-
-To create a file annotations from the content of a ``local_file_path``::
+File annotations can also be created from the content of a
+:file:`local_file_path`::
 
     fileAnnotation = writeFileAnnotation(session, local_file_path);
+
+Each annotation creation function uses the context of the session group by
+default. To create the annotation in a different group, use the ``group``
+key/value pair::
+
+    commentAnnotation = writeCommentAnnotation(session, 'comment', 'group', groupId);
+    doubleAnnotation = writeDoubleAnnotation(session, .5, 'group', groupId);
+    mapAnnotation = writeMapAnnotation(session, 'key', value, 'group', groupId);
+    tagAnnotation = writeTagAnnotation(session, 'tag name', 'group', groupId);
+    timestampAnnotation = writeTimestampAnnotation(session, now, 'group', groupId);
+    xmlAnnotation = writeXmlAnnotation(session, xmlString, 'group', groupId);
+    fileAnnotation = writeFileAnnotation(session, local_file_path, 'group', groupId);
 
 Existing annotations can be linked to existing objects on the server using the
 :source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
@@ -542,21 +707,68 @@ by the content of ``local_file_path`` using::
 Writing data
 ------------
 
--  **Create a Dataset** and link it to an existing project.
+-  **Projects/Datasets**
 
-::
+Projects and datasets can be created in the context of the session group
+using the :source:`createProject <components/tools/OmeroM/src/io/createProject.m>` and :source:`createDataset <components/tools/OmeroM/src/io/createDataset.m>` functions::
 
-    dataset = omero.model.DatasetI;
-    dataset.setName(omero.rtypes.rstring(char('name dataset')));
-    dataset.setDescription(omero.rtypes.rstring(char('description dataset')));
+    % Create a new project in the context of the session group
+    newproject = createProject(session, 'project name');
+    % Create a new dataset in the context of the session group
+    newdataset = createDataset(session, 'dataset name');
 
-    % Link Dataset and Project
+Writing projects/datasets in a different context than the session group can be
+achieved by passing the group identifier using the `group` parameter::
 
-    link = omero.model.ProjectDatasetLinkI;
-    link.setChild(dataset);
-    link.setParent(omero.model.ProjectI(projectId, false));
+    % Create a new project in the specified group
+    newproject = createProject(session, 'project name', 'group', groupId);
+    % Create a new dataset in the specified group
+    newdataset = createDataset(session, 'dataset name', 'group', groupId);
 
-    session.getUpdateService().saveAndReturnObject(link);
+When creating a dataset, it is possible to link it to an existing project
+using either the project object or its identifier. In this case, the group
+context is determined by the parent project:
+
+    % Create two new projects in different groups
+    project1 = createProject(session, 'project name');
+    project2 = createProject(session, 'project name', 'group', groupId);
+    % Create new datasets linked to each project
+    dataset1 = createDataset(session, 'dataset name', project1);
+    dataset2 = createDataset(session, 'dataset name', project2.getId().getValue());
+
+-  **Screens/Plates**
+
+Screens and plates can be created in the context of the session group
+using the :source:`createScreen <components/tools/OmeroM/src/io/createScreen.m>` and :source:`createPlate <components/tools/OmeroM/src/io/createPlate.m>` functions::
+
+    % Create a new screen in the context of the session group
+    newscreen = createScreen(session, 'screen name');
+    % Create a new plate in the context of the session group
+    newplate = createPlate(session, 'plate name');
+
+Writing screens/plates in a different context than the session group can be
+achieved by passing the group identifier using the `group` parameter::
+
+    % Create a new screen in the specified group
+    newscreen = createScreen(session, 'screen name', 'group', groupId);
+    % Create a new plate in the specified group
+    newplate = createPlate(session, 'plate name', 'group', groupId);
+
+When creating a plate, it is possible to link it to an existing screen
+using either the screen object or its identifier. In this case, the group
+context is determined by the parent screen:
+
+    % Create two new projects in different groups
+    screen1 = createScreen(session, 'screen name');
+    screen2 = createScreen(session, 'screen name', 'group', groupId
+    % Create new datasets linked to each project
+    plate1 = createPlate(session, 'plate name', screen1);
+    plate2 = createPlate(session, 'plate name', screen2.getId().getValue());
+
+.. seealso::
+  :source:`WriteData.m <examples/Training/matlab/WriteData.m>`
+    Example script showing methods to create projects, datasets, plates and
+    screens
 
 How to use OMERO tables
 -----------------------

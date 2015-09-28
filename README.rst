@@ -65,12 +65,14 @@ To add the MacTeX fonts system-wide:
 Structure and organization
 ==========================
 
-The OME documentation is organized into multiple folders:
+The OME documentation is organized into multiple folders but most of these are
+only maintained on the develop branch:
 
 * the OMERO documentation is under the ``omero`` folder,
-* the OME Model and Formats documentation is under the ``formats`` folder,
+* the OME Model and Formats documentation is under the ``formats`` folder
+  (develop-only)
 * the OME Contributing Developer documentation is under the ``contributing`` 
-  folder,
+  folder (develop-only)
 * the shared configuration and themes are under the ``common`` folder.
 
 The structure of each documentation folder follows the Sphinx system
@@ -105,14 +107,6 @@ To build a set of documentation, first move to the documentation folder. To
 build the OMERO documentation::
 
     cd omero/
-
-or to build the OME Model and Formats documentation::
-
-    cd formats/
-
-or to build the Contributing Developer documentation::
-
-   cd contributing/
 
 To clean the build directory of any previous builds, use one of::
     
@@ -161,7 +155,7 @@ Top-level build command
 -----------------------
 
 The top-level directory Makefile also defines targets for building all the
-OMERO, Contributing, and Model and Formats sets of documentation at once.
+sets of documentation at once.
 
 To clean the build directories of any previous builds, use one of::
 
