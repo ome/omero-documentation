@@ -199,15 +199,6 @@ built. Namely, the builds for the non-Java components stored under
 :sourcedir:`components/tools` are a bit more complex. Each tools component
 installs its artifacts to the tools/target directory which is copied **on top of** the :file:`dist` top-level distribution directory.
 
-Code-signing
-^^^^^^^^^^^^
-
-The OMERO source tree includes a self-signed certificate for testing
-OMERO.insight webstart. This is not used by default to avoid problems with
-double signing official releases. The "release-webstart-signed" target can be
-used, alternatively see :source:`docs/hudson/OMERO.sh` and/or
-:ref:`server_webstart_insight_codesign`.
-
 
 Jenkins
 ^^^^^^^
