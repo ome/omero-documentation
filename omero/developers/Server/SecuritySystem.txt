@@ -62,9 +62,9 @@ Top-level and build
 :source:`omero.properties <etc/omero.properties>`
     contains login and connection information for the database and OMERO.
 
-:source:`local.properties.example <etc/local.properties.example>`
+:source:`build.properties.example <etc/build.properties>`
     contains the default root password. This can be overridden with your
-    own ``etc/local.properties`` file.
+    own :file:`etc/local.properties` file.
 
 :source:`hibernate.properties <etc/hibernate.properties>`
     contains default connection information for the database, this

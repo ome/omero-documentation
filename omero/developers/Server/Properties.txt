@@ -5,17 +5,21 @@ Under the :file:`etc/` directory in both the source and the binary
 distributions, several files are provided which help to configure
 OMERO.server:
 
-::
+:source:`etc/omero.properties`
+  Our central configuration file with all defaults
 
-      etc/omero.properties             - Our central configuration file with all defaults.
-      etc/hibernate.properties         - Required by Hibernate since some properties are only configurable 
-                                         via a classpath:hibernate.properties file.
-      etc/logback.xml                  - Logging configuration
-      etc/local.properties.example     - The properties that you will most likely want to change.
-                                         This file can be copied to etc/local.properties to being, or 
-                                         alternatively you can run "java omero setup"
-                                         (Name will change to "…default")
-      etc/local.properties             - Local overrides for other properties (used by build only)
+:source:`etc/hibernate.properties`
+  Required by Hibernate since some properties are only configurable via a 
+  classpath:hibernate.properties file
+
+:source:`etc/logback.xml`
+  Logging configuration
+
+:source:`etc/build.properties`
+  The properties that you will most likely want to change
+
+:file:`etc/local.properties`
+  Local file overriding :file:`etc/build.properties` (used by build only)
 
 The most useful of the properties are listed in a :doc:`glossary
 </sysadmins/config>`.

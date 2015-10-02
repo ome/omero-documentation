@@ -30,7 +30,7 @@ OMERO::
       |   |-- grid ........................... Deployment files folder
       |   |-- ivysettings.xml ................ Main Ivy configuration file
       |   |-- hibernate.properties
-      |   |-- local.properties.example
+      |   |-- build.properties
       |   |-- logback.xml
       |   |-- omero.properties
       |   \-- profiles
