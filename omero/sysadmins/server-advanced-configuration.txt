@@ -7,15 +7,14 @@ In some cases, the configuration properties will not suffice to fully
 configure your server. In that case, it may be necessary to make use of
 IceGrid's XML configuration files. Like the :file:`config.xml` file mentioned
 above, these are stored under :file:`etc/grid`:
-:source:`default.xml <etc/grid/default.xml>` is used on Unix systems,
-:source:`windefault.xml <etc/grid/windefault.xml>` is used on
+:file:`etc/grid/default.xml` is used on Unix systems,
+:file:`etc/grid/windefault.xml` is used on
 Windows systems and both make use of
-:source:`templates.xml <etc/grid/templates.xml>`.
+:file:`etc/grid/templates.xml`.
 
 The default OMERO application descriptor deploys multiple server instances
 (Blitz-0, FileServer, Indexer-0, PixelData-0, ...) on
-a single node. Each server instance is defined by a ``server-template`` element in
-:source:`templates.xml <etc/grid/templates.xml>` with is own parameters.
+a single node. Each server instance is defined by a ``server-template`` element in :file:`etc/grid/templates.xml` with is own parameters.
 
 Modifying the application descriptors
 -------------------------------------
@@ -50,7 +49,7 @@ parameters:
       targets               Targets within the application descriptor which should be activated.
 
 If a file is passed in as the first argument, then that **application
-descriptor** as opposed to :source:`default.xml <etc/grid/default.xml>` will
+descriptor** as opposed to :file:`etc/grid/default.xml` will
 be used. You can also modify the default application descriptors in place.
 
 .. note::
@@ -123,29 +122,35 @@ to do so directly in the application descriptor XML.
 Changing ports / multiple servers on a single host
 --------------------------------------------------
 
-Since changing all the references to port numbers (4061, 4063, 4064,
-etc) in the grid configuration can be cumbersome, a
-:omerocmd:`admin` command is provided to make the modifications for
-you. See the :ref:`security_ssl`
-section of the :doc:`/sysadmins/server-security` page for more information.
-
 By modifying the default OMERO ports, it is possible to run multiple
-OMERO servers on the same physical machine.
+OMERO servers on the same physical machine. All port numbers can be adjusted
+using the relevant :ref:`ports_configuration <configuration properties>`.
 
-::
+To run multiple servers on a single host, the easiest approach is prefix all
+ports (SSL, TCP, registry) using :property:`omero.ports.prefix`::
 
-          # First server
-          cd /usr/local/omero-4.2
-          bin/omero admin ports --prefix=1
-          bin/omero admin start
-          # Second server
-          cd /usr/local/omero-4.3
-          bin/omero admin ports --prefix=2
-          bin/omero admin start
+    # First server
+    cd ~/OMERO.server-1
+    bin/omero admin start
+
+    # Second server
+    cd ~/OMERO.server-2
+    bin/omero config set omero.ports.prefix 1
+    bin/omero admin start
+
+    # Third server
+    cd ~/OMERO.server-3
+    bin/omero config set omero.ports.prefix 2
+    bin/omero admin start
 
 
-Clients will need to use the appropriate port (either 14064 or 24064) to
+Clients will need to use the appropriate port (4064, 14064 or 24064) to
 connect to OMERO.
+
+.. seealso::
+
+  :ref:`security_ssl`
+    Section of the :doc:`/sysadmins/server-security` page.
 
 Extending OMERO
 ---------------

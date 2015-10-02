@@ -181,15 +181,13 @@ the clear is your session id.
 
 Administrators can configure OMERO such that unencrypted connections are
 not allowed, and the user's choice will be silently ignored. The |SSL| and
-non-SSL ports are configured in the etc/grid/default.xml and
-windefault.xml files, and as described above, default to 4064 and 4063
-respectively, and can be modified with command:
+non-SSL ports are configured in the :file:`etc/grid/default.xml` and
+:file:`etc/grid/windefault.xml` files, and as described above, default to 4064
+and 4063 respectively, and can be modified using the
+:ref:`ports_configuration` configuration properties. For instance, to prefix
+all ports by 1, use :property:`omero.ports.prefix`::
 
-::
-
-    $ bin/omero admin ports --help
-
-.. literalinclude:: /downloads/cli/admin-ports-help.txt
+    $ bin/omero config set omero.ports.prefix 1
 
 
 --------------
