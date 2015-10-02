@@ -33,7 +33,7 @@ Installation
 ------------
 
 If you are using the default |OmeroGrid|
-:source:`application descriptor <etc/grid/default.xml>`
+:source:`application descriptor <etc/templates/grid/default.xml>`
 quickly enabling clustering is as simple as executing:
 
 ::
