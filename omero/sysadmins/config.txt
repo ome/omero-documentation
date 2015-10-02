@@ -265,6 +265,14 @@ Name of the "Orphaned images" container located in client tree data manager.
 
 Default: `Orphaned images`
 
+.. property:: omero.client.viewer.interpolate_pixels
+
+omero.client.viewer.interpolate_pixels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client viewers interpolate pixels by default.
+
+Default: `true`
+
 .. property:: omero.client.web.host
 
 omero.client.web.host
@@ -435,22 +443,6 @@ only developers will change this version to bump
 to a new major version.
 
 Default: `OMERO5.1`
-
-
-.. _graphs_configuration:
-
-Graphs
-------
-
-.. property:: omero.graphs.wrap
-
-omero.graphs.wrap
-^^^^^^^^^^^^^^^^^
-Whether to use the new Chgrp, Chmod, Chown, Delete implementations.
-Available only for OMERO 5.1:
-from OMERO 5.2 the new implementations must be used.
-
-Default: `true`
 
 
 .. _grid_configuration:
@@ -1258,6 +1250,45 @@ Default: `+read,
 +image`
 
 
+.. _ports_configuration:
+
+Ports
+-----
+
+.. property:: omero.ports.prefix
+
+omero.ports.prefix
+^^^^^^^^^^^^^^^^^^
+The prefix to apply to all port numbers (SSL, TCP, registry) used by the
+server
+
+Default: `[empty]`
+
+.. property:: omero.ports.registry
+
+omero.ports.registry
+^^^^^^^^^^^^^^^^^^^^
+The IceGrid registry port number to use
+
+Default: `4061`
+
+.. property:: omero.ports.ssl
+
+omero.ports.ssl
+^^^^^^^^^^^^^^^
+The Glacier2 SSL port number to use
+
+Default: `4064`
+
+.. property:: omero.ports.tcp
+
+omero.ports.tcp
+^^^^^^^^^^^^^^^
+The Glacier2 TCP port number to use
+
+Default: `4063`
+
+
 .. _scripts_configuration:
 
 Scripts
@@ -1693,9 +1724,9 @@ Default: `127.0.0.1`
 
 omero.web.application_server.max_requests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The maximum number of requests a worker will process before restarting.
 
-
-Default: `400`
+Default: `0`
 
 .. property:: omero.web.application_server.port
 
@@ -1741,7 +1772,7 @@ Default: `false`
 
 omero.web.index_template
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Define template used as an index page ``http://your_host/omero/``.If None user is automatically redirected to the login page.For example use 'webstart/start.html'. 
+Define template used as an index page ``http://your_host/omero/``.If None user is automatically redirected to the login page.For example use 'webclient/index.html'. 
 
 Default: `None`
 
