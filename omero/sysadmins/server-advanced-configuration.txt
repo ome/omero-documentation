@@ -124,7 +124,7 @@ Changing ports / multiple servers on a single host
 
 By modifying the default OMERO ports, it is possible to run multiple
 OMERO servers on the same physical machine. All port numbers can be adjusted
-using the relevant :ref:`ports_configuration <configuration properties>`.
+using the relevant :ref:`configuration properties <ports_configuration>`.
 
 To run multiple servers on a single host, the easiest approach is prefix all
 ports (SSL, TCP, registry) using :property:`omero.ports.prefix`::
