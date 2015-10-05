@@ -14,7 +14,8 @@ Windows systems and both make use of
 
 The default OMERO application descriptor deploys multiple server instances
 (Blitz-0, FileServer, Indexer-0, PixelData-0, ...) on
-a single node. Each server instance is defined by a ``server-template`` element in :file:`etc/grid/templates.xml` with is own parameters.
+a single node. Each server instance is defined by a ``server-template`` 
+element in :file:`etc/grid/templates.xml` with its own parameters.
 
 Modifying the application descriptors
 -------------------------------------
@@ -126,7 +127,7 @@ By modifying the default OMERO ports, it is possible to run multiple
 OMERO servers on the same physical machine. All port numbers can be adjusted
 using the relevant :ref:`configuration properties <ports_configuration>`.
 
-To run multiple servers on a single host, the easiest approach is prefix all
+To run multiple servers on a single host, the easiest approach is to prefix all
 ports (SSL, TCP, registry) using :property:`omero.ports.prefix`::
 
     # First server
