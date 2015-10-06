@@ -1,88 +1,13 @@
-What's new for OMERO 5.1 for sysadmins
+What's new for OMERO 5.2 for sysadmins
 ======================================
 
-- The :doc:`version-requirements` section provides extensive details about
-  which operating systems and dependency versions we will be supporting for
-  the life of 5.1 and the likely changes to these for the next major release
-  (currently planned to be 5.2).
+- OMERO clients are no longer distributed as Java Web Start applications. This
+  decision is discussed at length in our `Java Web Start blog post <http://blog.openmicroscopy.org/tech-issues/future-plans/2015/09/23/java-web-start/>`_.
+  We recognize that this will be problematic for some institutional users and
+  are working to expand the functionality of OMERO.web to mitigate this as far
+  as possible.
 
-- A new configuration property :property:`omero.graphs.wrap` allows
-  switching back to the old server code for moving and deleting data. If
-  a regression with the new code requires changing this setting, ensure
-  that a bug is filed with the OME team so it can be fixed before this
-  configuration property is *removed* in OMERO 5.2.
-
-- The server download policy can now be configured to restrict users' ability
-  to download the original data e.g. by user or by data type. This is one of
-  the features we have introduced to help support using OMERO for data
-  publication. More information about how to configure your server for this
-  purpose is available in the updated :ref:`index-public-data` section.
-
-- OMERO usernames can now be made :ref:`case insensitive <case-sensitivity>`.
-
-Database
---------
-
-- OMERO 5.1 requires Postgres 9.2 or later, the OMERO database upgrade script
-  will not run on older versions.
-
-- OMERO 5.1 requires a Unicode-encoded (UTF8) database, the
-  :doc:`server-upgrade` page has been updated to reflect this.
-
-
-.. _web-breaking-changes:
-
-OMERO.web
----------
-
-- OMERO.web now defaults to being mounted at the root on all webservers with
-  the exception of IIS (Windows production deployment) where it continues to
-  be mounted on ``/omero``. Static files continue to be served from
-  ``/static``. :ref:`Both prefixes can be customized
-  <customizing_your_omero_web_installation_unix>` (including on IIS) but note
-  the configuration property :property:`omero.web.force_script_name` has
-  changed to :property:`omero.web.prefix`.
-
-- :ref:`Apache 2.4 with mod_proxy_fcgi <apache24_configuration>` is now
-  supported.
-
-- OMERO.web FastCGI processes default to listening on 127.0.0.1 instead of
-  all network interfaces. This improves security, see
-  :ref:`customizing_your_omero_web_installation_unix` if you need to listen
-  on another interface.
-
-- If OMERO.web is disabled the generated Nginx and Apache configurations
-  automatically display a maintenance page.
-
-- The semantics of the command for generating the Nginx configuration has
-  been modified as described below:
-
-  .. list-table::
-    :header-rows: 1
-
-    * - Version
-      - 5.0.x command
-      - 5.1.x command
-    * - System configuration
-      - ``omero web config nginx --system``
-      - ``omero web config nginx``
-    * - User configuration
-      - ``omero web config nginx``
-      - ``omero web config nginx-development``
-
-OMERO.mail
-----------
-
-A new :doc:`additional feature <advanced-install>` has been added. :doc:`mail`
-allows you to configure the server to email users, for example to alert group
-owners to broken links in OMERO.web.
-
-OMERO permissions system
-------------------------
-
-Read-Write groups are now (as of OMERO version 5.1.2) supported in the
-clients. This group type essentially allows all members to act as if they
-co-own the data except for the ability to move it between groups. Existing
-groups can be promoted to this permissions level via your usual OMERO admin
-tool. See :doc:`server-permissions` for more details.
+- The configuration property :property:`omero.graphs.wrap` which allowed
+  switching back to the old server code for moving and deleting data has now
+  been removed. You must migrate to using the new request operations.
 
