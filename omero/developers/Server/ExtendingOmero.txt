@@ -340,7 +340,7 @@ to add it to the "application descriptor" for your site. When using:
 
       bin/omero admin start
 
-the application descriptor used is :source:`etc/grid/default.xml`.
+the application descriptor used is :file:`etc/grid/default.xml`.
 The ``<application>`` element contains various ``<node>``\ s. Each node
 is a single daemon process that can start and stop other processes.
 Inside the nodes, you can either directly add a ``<server>`` element, or

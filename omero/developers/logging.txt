@@ -21,10 +21,9 @@ controls the output for the command line importer: all logging goes
 to standard err, while useful output (pixel ids, or used files) goes to
 standard out. It is contained within the blitz.jar itself. Therefore, to
 modify the settings use `-Dlogback.configurationFile=/path/to/logback.xml` or
-similar.`
+similar.
 
-OMERO.insight logging is configured via
-`logback.xml`
+OMERO.insight logging is configured via `logback.xml`
 which is available in the config/ directory of any OMERO.insight install.
 
 Java servers
@@ -62,11 +61,11 @@ Python servers are configured by a call to
 taken from the configuration file passed to the server via icegridnode.
 For example, the config file for Processor-0 can be found in
 ``var/master/servers/Processor-0/config/config``. These values come from
-the :source:`templates.xml <etc/grid/templates.xml>`.
+:file:`etc/grid/templates.xml`.
 
 All the "omero.logging.\*" properties can be overwritten in your
-:source:`default.xml <etc/grid/default.xml>` file (or on Windows,
-:source:`etc/grid/windefault.xml <etc/grid/windefault.xml>`).
+:file:`etc/grid/default.xml` file (or on Windows,
+:file:`etc/grid/windefault.xml`).
 See the "Profile" properties block for how to configure for your site.
 
 Similar to logback, logging is configured to be written to

@@ -100,9 +100,9 @@ Deployment descriptors
 
 All the resources for a single OMERO site are described by one
 **application descriptor**. OMERO ships with several example descriptors
-under :sourcedir:`etc/grid`. These
+under :file:`etc/grid`. These
 descriptors describe what processes will be started on what nodes,
-identified by simple names. For example the :source:`default descriptor <etc/grid/default.xml>`, used if
+identified by simple names. For example the :source:`default descriptor <etc/templates/grid/default.xml>`, used if
 no other file is specified, defines the ``master`` node. As you will see,
 these files are critical both for the correct
 functioning of your server as well as its security.
@@ -111,8 +111,7 @@ The deployment descriptors provided define which server instances are started
 on which nodes. The default descriptor configures the ``master`` node to
 start the :doc:`/developers/server-blitz` server, the Glacier2 router for
 firewalling, as well as a single processor - ``Processor0``. The master node
-is also configured via
-:source:`master.cfg <etc/master.cfg>` to host the
+is also configured via :file:`etc/master.cfg` to host the
 registry, though this process can be started elsewhere.
 
 Deployment commands
@@ -180,7 +179,7 @@ performance gains.
 
 The first change that you will want to make to your application
 descriptor is to add additional processors. Take a look at
-:source:`etc/grid/default.xml`.
+:source:`etc/templates/grid/default.xml`.
 There you can define two new nodes - ``node1`` and ``node2`` by simply adding
 a new XML element below the ``master`` node definition:
 
@@ -296,7 +295,7 @@ authenticating users. |SSL|-based authentication, however, can be
 difficult to configure especially for within the firewall, and so
 instead you may want to configure a "permissions verifier" to prevent
 non-trusted users from accessing a system within your firewall. From
-:source:`etc/master.cfg`:
+:source:`master.cfg <etc/templates/master.cfg>`:
 
 ::
 
@@ -383,8 +382,8 @@ Targets
 
 In application descriptors, it is possible to surround sections of the
 description with ``<target/>`` elements. For example, in
-:source:`templates.xml <etc/grid/templates.xml>` the section which defines
-the main :doc:`/developers/server-blitz` server includes:
+:source:`templates.xml <etc/templates/grid/templates.xml>` the section which
+defines the main :doc:`/developers/server-blitz` server includes:
 
 ::
 
@@ -410,9 +409,9 @@ Ice.MessageSizeMax
 
 Ice imposes an upper limit on all method invocations. This limit,
 ``Ice.MessageSizeMax``, is configured in your application descriptor
-(e.g. :source:`templates.xml <etc/grid/templates.xml>`)
+(e.g. :source:`templates.xml <etc/templates/grid/templates.xml>`)
 and configuration files (e.g.
-:source:`ice.config <etc/ice.config>`). The setting must
+:source:`ice.config <etc/templates/ice.config>`). The setting must
 be applied to all servers which will be handling the invocation. For
 example, a call to ``InteractiveProcessor.execute(omero::RMap inputs)``
 which passes the inputs all the way down to :file:`processor.py` will need
@@ -479,7 +478,7 @@ Running as root
 
 One exception to this rule is that starting OMERO.grid as root may actually
 delegate to another user, if the "user" attribute is set on the ``<server/>``
-elements in :source:`etc/grid/templates.xml` (this holds only for Unix-based
+elements in :file:`etc/grid/templates.xml` (this holds only for Unix-based
 platforms including Apple OS X. See :ref:`grid_installation_windows_xp` for
 information on changing the server user under Windows).
 

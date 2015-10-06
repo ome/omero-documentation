@@ -1592,7 +1592,7 @@ Example: :source:`examples/OmeroClients/configuration.py`
 Example: :source:`examples/OmeroClients/configuration.java`
 
 To find out more about using the ``Ice.Config`` file for configuration,
-see :source:`etc/ice.config`.
+see :source:`etc/templates/ice.config`.
 
 What is a ServiceFactory?
 ^^^^^^^^^^^^^^^^^^^^^^^^^
