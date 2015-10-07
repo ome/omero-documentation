@@ -29,28 +29,23 @@ Most of the OME code is split between four repositories: openmicroscopy.git_,
 bioformats.git_, scripts.git_, ome-documentation.git_. Each repository
 contains several development branches associated with development series:
 
-* The "dev_5_0" branch contains work on the 5.0.x series.
-* The "dev_5_1" branch contains work on the 5.1.x series.
-* The "develop" branch contains work on the 5.2.x series.
+* The "dev_5_y" branch(es) containing work on the current 5.y.x series.
+* The "develop" branch containing work on the next major release series.
 
-Note that only two branches are maintained simultaneously. With this workflow,
-it is possible to have a point release immediately, while still working on
-more major releases by ensuring that (nearly) all commits that are applied to
-dev_5_0 are applied to develop in order to prevent regressions.
+Note that only two branches are usually maintained simultaneously. With this
+workflow, it is possible to have a point release immediately, while still
+working on more major releases by ensuring that (nearly) all commits that are
+applied to dev_5_y are applied to develop in order to prevent regressions.
 
 Labels
 ^^^^^^
 
 Labels are applied to PRs on GitHub under the “Issues” tab of each repository.
 
-The 5.0.x series consists of PRs labeled with “dev_5_0”, which is also
-the name of the branch which they will be merged into.
-
-The 5.1.x series consists of PRs labeled with “dev_5_1”, which is also
-the name of the branch which they will be merged into.
-
-The 5.2.x series consists of PRs labeled with “develop”, which is also
-the name of the branch which they will be merged into.
+Each release series consists of PRs labeled according to the release version,
+which also matches the name of the branch they will be merged into e.g. 5.1.x
+series PRs will be labelled as "dev_5_1" and be merged into the dev_5_1
+branch.
 
 Multiple labels are used in the PR reviewing process:
 

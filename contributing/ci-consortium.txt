@@ -20,10 +20,6 @@ Jenkins.
 		  | :term:`FLIMfit-release-win`
 		  | :term:`FLIMfit-release-downloads`
 
-	-	* OMERO.figure
-		*
-		* :term:`FIGURE-release-downloads`
-
 	-	* OMERO.mtools
 		*
 		* :term:`MTOOLS-release-downloads`
@@ -101,24 +97,6 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 		#. Build the FLIMfit downloads pages using :command:`make flimfit`
 		#. Copy the FLIMfit downloads page over SSH to
 		   :file:`/ome/apache_repo/public/flimfit/RELEASE`
-
-OMERO.figure
-^^^^^^^^^^^^
-
-.. glossary::
-
-	:jenkinsjob:`FIGURE-release-downloads`
-
-		This job is used to build the OMERO.figure downloads page
-
-		#. Download the :envvar:`RELEASE` artifacts from
-		   https://github.com/will-moore/figure
-		#. Copy the OMERO.figure source zip over SSH to
-		   :file:`/ome/apache_repo/public/figure/RELEASE`
-		#. Merge PRs opened against `dev_5_0`
-		#. Build the OMERO.figure downloads pages using :command:`make figure`
-		#. Copy the OMERO.figure downloads page over SSH to
-		   :file:`/ome/apache_repo/public/figure/RELEASE`
 
 OMERO.mtools
 ^^^^^^^^^^^^
