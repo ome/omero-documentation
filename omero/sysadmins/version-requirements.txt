@@ -40,7 +40,7 @@ Operating systems
   * Test server only on 10.10+ for 5.2.
   * Rationale: 10.8 no longer has security support and it still leaves 3
     versions to support. MacOS X is typically suited only to client
-    use, not serious server deployment, so limit testing accordingly
+    use, not serious server deployment, so limit testing accordingly.
 
 * Linux (CentOS/RHEL)
 
