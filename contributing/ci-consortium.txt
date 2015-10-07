@@ -44,7 +44,7 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 	:jenkinsjob:`FLIMfit-latest-mac`
 
 		This job is used to build the latest Mac OS X compiled version of
-		FLIMfit with OMERO 4.4 or 5.0
+		FLIMfit with OMERO 5.1
 
 		#. Polls the repo for SCM change
 		#. Checks out the `master` branch of FLIMfit
@@ -54,7 +54,7 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 	:jenkinsjob:`FLIMfit-latest-win`
 
 		This job is used to build the latest Windows compiled version of
-		FLIMfit with OMERO 4.4 or 5.0
+		FLIMfit with OMERO 5.1
 
 		#. Checks out the `master` branch of FLIMfit
 		#. Build FLIMfit using :file:`compile.m`
@@ -72,7 +72,7 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 	:jenkinsjob:`FLIMfit-release-mac`
 
 		This job is used to build the release Mac OS X compiled version of
-		FLIMfit with OMERO 4.4 or 5.0
+		FLIMfit with OMERO 5.1
 
 		#. Build FLIMfit using :file:`compile.m`
 		#. Copy the FLIMfit artifacts over SSH to
@@ -81,7 +81,7 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 	:jenkinsjob:`FLIMfit-release-win`
 
 		This job is used to build the release Windows compiled version of
-		FLIMfit with OMERO 4.4 or 5.0
+		FLIMfit with OMERO 5.1
 
 		#. Build FLIMfit using :file:`compile.m`
 
@@ -89,9 +89,9 @@ https://github.com/openmicroscopy/Imperial-FLIMfit
 
 		This job is used to build the FLIMfit downloads page
 
-		#. Checks out the `dev_5_0` branch of
+		#. Checks out the `develop` branch of
 		   https://github.com/openmicroscopy/ome-release
-		#. Merge PRs opened against `dev_5_0`
+		#. Merge PRs opened against `develop`
 		#. Copy the FLIMfit Windows artifacts over SSH to
 		   :file:`/ome/apache_repo/public/flimfit/RELEASE`
 		#. Build the FLIMfit downloads pages using :command:`make flimfit`
@@ -107,7 +107,7 @@ OMERO.mtools
 
 		This job is used to build the OMERO.mtools downloads page
 
-		#. Merge PRs opened against `dev_5_0`
+		#. Merge PRs opened against `develop`
 		#. Build the OMERO.mtools downloads pages using :command:`make mtools`
 		#. Copy the OMERO.mtools downloads page over SSH to
 		   :file:`/ome/apache_repo/public/mtools/RELEASE`
@@ -125,7 +125,7 @@ OMERO.webtagging
 		   https://github.com/dpwrussell/webtagging
 		#. Copy the OMERO.webtagging source zip over SSH to
 		   :file:`/ome/apache_repo/public/webtagging/RELEASE`
-		#. Merge PRs opened against `dev_5_0`
+		#. Merge PRs opened against `develop`
 		#. Build the OMERO.webtagging downloads pages using
 		   :command:`make webtagging`
 		#. Copy the OMERO.webtagging downloads page over SSH to
@@ -158,9 +158,9 @@ u-track
 
 		This job is used to build the u-track downloads page
 
-		#. Checks out the `dev_5_0` branch of
+		#. Checks out the `develop` branch of
 		   https://github.com/openmicroscopy/ome-release
-		#. Merge PRs opened against `dev_5_0`
+		#. Merge PRs opened against `develop`
 		#. Build the u-track downloads pages using :command:`make u-track`
 		#. Copy the u-track downloads page over SSH to
 		   :file:`/ome/apache_repo/public/u-track/RELEASE`
