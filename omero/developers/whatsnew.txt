@@ -1,6 +1,12 @@
 What's new for OMERO 5.2 for developers
 =======================================
 
+- The :doc:`/sysadmins/version-requirements` section provides extensive
+  details about which operating systems and dependency versions we intend to
+  support for the life of 5.2 and the likely changes to these for the next
+  major release (currently planned to be 5.3). Most notably for development
+  purposes, we have dropped support for Java 1.6.
+
 The Java gateway has undergone a major overhaul [details to follow]
 
 Breaking changes
@@ -18,12 +24,15 @@ information.
 Graphs
 ^^^^^^
 
-The API's request operations :javadoc:`Chgrp
+The API's request operations :javadoc:`Chmod
+<slice2html/omero/cmd/Chmod.html>`, :javadoc:`Chgrp
 <slice2html/omero/cmd/Chgrp.html>`, :javadoc:`Chown
 <slice2html/omero/cmd/Chown.html>`, :javadoc:`Delete
 <slice2html/omero/cmd/Delete.html>`, and their superclass
-:javadoc:`GraphModify <slice2html/omero/cmd/GraphModify.html>`, are now
-deprecated and will be removed in 5.3. They are replaced by :javadoc:`Chgrp2
+:javadoc:`GraphModify <slice2html/omero/cmd/GraphModify.html>`, were
+deprecated in 5.1 and will be removed in 5.3. They are replaced by
+:javadoc:`Chmod2
+<slice2html/omero/cmd/Chmod2.html>`:javadoc:`Chgrp2
 <slice2html/omero/cmd/Chgrp2.html>`, :javadoc:`Chown2
 <slice2html/omero/cmd/Chown2.html>`, :javadoc:`Delete2
 <slice2html/omero/cmd/Delete2.html>`, and their superclass
