@@ -34,10 +34,10 @@ point you back to this page for packaging and deploying your new code.
    password backend
 -  :doc:`/developers/Modules/Search/Bridges` - write Java Lucene parsers
    to extend search
--  :doc:`/sysadmins/mail` - server email sender (new for OMERO 5.1, no
+-  :doc:`/sysadmins/mail` - server email sender (added in OMERO 5.1, no
    developer documentation as yet)
 -  :property:`omero.policy.bean` - policy configuration point e.g. for setting
-   download restriction policy on users (new for OMERO 5.1, no developer
+   download restriction policy on users (added in OMERO 5.1, no developer
    documentation as yet)
 
 Extending the Model
