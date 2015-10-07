@@ -73,7 +73,7 @@ on all platforms with the exception of MacOS X (64-bit only).
 * [5.3] Deprecate 32-bit support for Ice and native code [client]
 * Rationale: It’s not practical to run a server on a 32-bit system due
   to its memory requirements, so it’s safe to drop 32-bit support for
-  OMERO.server in 5.2 given that it’s de-facto 64-bit-only
+  OMERO.server in 5.2 given that it is de-facto 64-bit-only
   today. There are still a significant number of 32-bit Windows
   clients (~60%), so support should be retained until this changes.
   Maintaining custom builds of Ice for 32-bit systems is extremely
@@ -96,26 +96,30 @@ Components
   * [5.2] 2.6 dropped, 2.7 recommended, 3.x not supported
   * [5.3] 2.6 dropped, 2.7 recommended, 3.x not supported
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
-    6.x, however it is available officially via SCL so could be made
+    6.x, however it is available officially via SCL so has been made
     the minimum. Note that 3.3 is also available via SCL, so there is
-    potential for a 3.x migration in the 5.2 timeframe. Dropping 2.6
-    would unify python support to a single major version, and remove a
-    number of portability issues; now it is restricted to CentOS/RHEL
-    6, in practice it is much less tested than 2.7 since no developer
-    is using it routinely. Removing 2.6 support will be dependent upon
-    internal testing of the SCL python in CentOS.
+    potential for a 3.x migration in the 5.3 timeframe. Dropping 2.6
+    unifies python support with a single major version, and removes a
+    number of portability issues, but most importantly is a
+    requirement of django 1.8.
 
 * GCC
 
   * [5.2] 4.4 dropped, 4.6+ deprecated, 4.8+ recommended, 5 supported
   * [5.3] 4.6+ dropped, 4.8 and 4.9 supported, 5 recommended
-  * Rationale: 4.4 is the CentOS/RHEL 6.x default. It would be
-    desirable to update but is probably not what external users will
-    want given the compatibility concerns. The SCL DeveloperToolset3
-    could bring this up to GCC 4.9.1, which would make the new
-    baseline GCC 4.6 (Ubuntu 12.04 and Travis).  The planned changes
-    for 5.2 depend upon our support of CentOS/RHEL 6.x and Ubuntu
-    12.04.
+
+  * Rationale: 4.4 is the CentOS/RHEL 6.x default, 4.8 the 7.x
+    default. The SCL DeveloperToolset3 brings CentOS 6 up to GCC
+    4.9.1, which makes the new baseline GCC 4.6 (Ubuntu 12.04 and
+    Travis). This will allow use of a limited subset of C++11 features
+    across all platforms in 5.2+. The downside is that while programs
+    and libraries built with the SCL DeveloperToolset3 will generally
+    be link-compatible with the system libraries, use of these
+    libraries with end user code will require the DeveloperToolset3
+    toolchain and libraries.
+
+The planned changes for 5.2 depend upon our support of
+    CentOS/RHEL 6.x and Ubuntu 12.04.
 
 * LLVM/clang
 
@@ -164,17 +168,17 @@ Components
 * Apache
 
   * [5.2] 2.2 deprecated, 2.4 recommended
-  * [5.3] 2.2 deprecated, 2.4 recommended
-  * Rationale: 2.2 is the CentOS/RHEL 6.x and Ubuntu 12.04
-    version which will be deprecated in 5.2.
+  * [5.3] 2.4 recommended
+  * Rationale: 2.2 is the CentOS/RHEL 6.x and Ubuntu 12.04 version,
+    both of which will be dropped in 5.3 if CentOS 6 is dropped,
+    otherwise they will remain deprecated.
 
 * nginx
 
-  * [5.2] 1.0 dropped, 1.2/1.4 deprecated, 1.6 recommemded
-  * [5.3] 1.0 dropped, 1.2/1.4 deprecated, 1.6 recommemded
-  * Rationale: All versions work; 1.0 is the Ubuntu 12.04 version, 1.4
-    is the Ubuntu 14.04 and Debian 8 version.  Deprecate and drop for
-    5.2 accordingly.
+  * [5.2] 1.0 dropped, 1.2 deprecated, 1.4 supported, 1.6 recommemded
+  * [5.3] 1.2 dropped, 1.4 deprecated, 1.6 recommemded
+  * Rationale: 1.4 is the Ubuntu 14.04 and Debian 8 version.
+    Deprecate for 5.3 accordingly.
 
 Support levels
 ==============
@@ -377,7 +381,7 @@ UNIX (MacOS X)
 
 Apple do not formally announce end of life for their releases, but
 with the three latest releases being supported this puts 10.9 as the
-minimim version suitable for use.  We have regular CI testing of 10.9,
+minimum version suitable for use.  We have regular CI testing of 10.9,
 10.10 and 10.11 builds plus developer testing of building and client
 and server deployment. 10.8 is marked as dropped since is is no longer
 longer tested by the CI infrastructure (node retired).
@@ -1299,10 +1303,11 @@ Distribution support
       - 
       - 
 
-Note that clang++ 3.4 FreeBSD 10.1 and MacOS 10.9 and 10.10.  clang++
-3.6 is used in MacOS 10.10 and 10.11 (newer Xcode).  Note that the
-MacOS version deviates from the official releases and has some
-features disabled.
+Note that clang++ 3.4 is used in FreeBSD 10.1 and MacOS 10.9 and
+10.10.  clang++ 3.6 is used in MacOS 10.10 and 10.11 (Xcode 7).  Also
+note that the MacOS version deviates from the official releases and
+has some features disabled or crippled such as the address sanitizer
+and OpenMP.
 
 Microsoft Visual Studio
 -----------------------
