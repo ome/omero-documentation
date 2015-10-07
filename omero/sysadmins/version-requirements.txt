@@ -44,9 +44,11 @@ Operating systems
 
 * Linux (CentOS/RHEL)
 
-  * [5.2] 7.x recommended, 6.x deprecated/dropped
-  * [5.3] 7.x recommended, 6.x deprecated/dropped
-  * Rationale: No change in this timeframe.
+  * [5.2] 7.x recommended, 6.x supported
+  * [5.3] 7.x recommended, 6.x deprecated
+  * Rationale: There's still a significat CentOS 6 userbase, so retain
+    support for 5.2 and potentially continue to support for 5.3
+    depending upon demand and usage.
 
 * Linux (Ubuntu LTS)
 
@@ -336,24 +338,10 @@ UNIX (MacOS X)
       - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 10.6
-      - from Jun 2008
-      - Ended
-      - Ended
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 10.7
-      - from Oct 2010
-      - Ended
-      - Supported for the moment
-      - Dropped
-      - Dropped
-      - Dropped
     * - 10.8
       - from Feb 2012
-      - Supported for the moment
-      - Supported
+      - Ended
+      - Ended
       - Deprecated
       - Dropped
       - Dropped
@@ -424,7 +412,7 @@ General overview for `RHEL
       - to Nov 2020
       - Recommended
       - Supported
-      - Dropped
+      - Deprecated
       - `Ref <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 7
       - from June 2014
@@ -469,52 +457,10 @@ Linux (Ubuntu)
       - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 10.04 (.4) LTS
-      - from Apr 2010
-      - to Apr 2015 (server only)
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 10.10
-      - from Oct 2010
-      - to Apr 2012
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 11.04
-      - from Apr 2011
-      - to Oct 2012
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 11.10
-      - from Oct 2011
-      - to May 2013
-      - Dropped
-      - Dropped
-      - Dropped
     * - 12.04 (.4) LTS
       - from Apr 2012
       - to Apr 2017
       - Deprecated
-      - Dropped
-      - Dropped
-    * - 12.10
-      - from Oct 2012
-      - to May 2014
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 13.04
-      - from Apr 2013
-      - to Jan 2014
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 13.10
-      - from Oct 2013
-      - to Jul 2014
-      - Dropped
       - Dropped
       - Dropped
     * - 14.04 LTS
@@ -565,13 +511,6 @@ Linux (Debian stable)
       - OMERO 5.2
       - OMERO 5.3
       - Details
-    * - 5.0
-      - from Feb 2009
-      - to Feb 2012
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Reference <https://www.debian.org/releases/lenny/>`__
     * - 6.0
       - from Feb 2011
       - to Feb 2016
@@ -716,24 +655,6 @@ PostgreSQL
       - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 8.4
-      - from Jul 2009
-      - to Jul 2014
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 9.0
-      - from Sep 2010
-      - to Sep 2015
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 9.1
-      - from Sep 2011
-      - to Sep 2016
-      - Dropped
-      - Dropped
-      - Dropped
     * - 9.2
       - from Sep 2012
       - to Sep 2017
@@ -780,27 +701,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 8.4
-      - 6.x
-      - N/A
-      - 10.04, 12.04
-      - 6.0, 7.0
-      - Yes
-      - Yes
-    * - 9.0
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - Yes
-      - Yes
-    * - 9.1
-      - N/A
-      - N/A
-      - 12.04, 13.04, 13.10
-      - 7.0, (8.0), 6.0 bpo
-      - Yes
-      - Yes
     * - 9.2
       - 7.x
       - 19
@@ -857,14 +757,6 @@ Python
       - OMERO 5.2
       - OMERO 5.3
       - Details
-    * - 2.5
-      - from Sep 2006
-      - to Oct 2011
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Reference <https://mail.python.org/pipermail/python-committers/2011-October/001844.html>`__
-        `Download <https://www.python.org/download/releases/2.5/>`__
     * - 2.6
       - from Oct 2008
       - to Oct 2013
@@ -879,20 +771,6 @@ Python
       - Recommended
       - Recommended
       - `Reference <http://legacy.python.org/dev/peps/pep-0373/>`__
-    * - 3.0
-      - from Dec 2008
-      - to Feb 2009
-      - Unsupported
-      - Unsupported
-      - Unsupported
-      - `Reference <http://legacy.python.org/dev/peps/pep-0361/>`__
-    * - 3.1
-      - from Jun 2009
-      - to June 2014
-      - Unsupported
-      - Unsupported
-      - Unsupported
-      - `Reference <http://legacy.python.org/dev/peps/pep-0375/>`__
     * - 3.2
       - from Feb 2011
       - to Feb 2016
@@ -937,13 +815,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 2.5
-      - N/A
-      - N/A
-      - N/A
-      - 6.0
-      - N/A
-      - N/A
     * - 2.6
       - 6.x
       - N/A
@@ -958,20 +829,6 @@ Distribution support
       - 7.0, (8.0)
       - Yes
       - Yes
-    * - 3.0
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-    * - 3.1
-      - N/A
-      - N/A
-      - 10.04
-      - 6.0
-      - N/A
-      - N/A
     * - 3.2
       - N/A
       - N/A
@@ -1035,18 +892,6 @@ GCC
       - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 4.2
-      - from May 2007
-      - to May 2008
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 4.3
-      - from Mar 2008
-      - to Jun 2011
-      - Dropped
-      - Dropped
-      - Dropped
     * - 4.4
       - from Apr 2009
       - to Mar 2012
@@ -1105,20 +950,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 4.2
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - Yes
-      - N/A
-    * - 4.3
-      - N/A
-      - N/A
-      - 10.04
-      - 6.0
-      - Yes
-      - N/A
     * - 4.4
       - 6.x
       - N/A
@@ -1195,24 +1026,6 @@ LLVM/clang
       - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 3.1
-      - from May 2012
-      - to May 2012
-      - Unsupported
-      - Unsupported
-      - Unsupported
-    * - 3.2
-      - from Dec 2012
-      - to Dec 2012
-      - Unsupported
-      - Unsupported
-      - Unsupported
-    * - 3.3
-      - from Jen 2013
-      - to Jen 2013
-      - Dropped
-      - Dropped
-      - Dropped
     * - 3.4
       - from Jan 2014 to May 2014
       - from Jan 2014 to May 2014
@@ -1253,27 +1066,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 3.1
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - Yes
-      - N/A
-    * - 3.2
-      - N/A
-      - N/A
-      - 13.04, 13.10
-      - N/A
-      - Yes
-      - Yes
-    * - 3.3
-      - N/A
-      - 19
-      - 12.04, 13.10, 14.04. 14.10, (15.04)
-      - (8.0)
-      - Yes
-      - Yes
     * - 3.4
       - N/A
       - 20, 21
@@ -1293,6 +1085,13 @@ Distribution support
       - N/A
       - N/A
       - (8.0)
+      - N/A
+      - N/A
+    * - 3.7
+      - N/A
+      - N/A
+      - N/A
+      - N/A
       - N/A
       - N/A
     * - Details
@@ -1333,13 +1132,6 @@ Microsoft Visual Studio
       - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 2008
-      - from Aug 2008
-      - to Apr 2013
-      - to Apr 2018
-      - Unsupported
-      - Unsupported
-      - Unsupported
     * - 2010
       - from Jun 2010
       - to Jul 2015
@@ -1491,13 +1283,6 @@ Java
       - OMERO 5.2
       - OMERO 5.3
       - Details
-    * - 5
-      - from May 2004
-      - to Oct 2009
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 6
       - from Dec 2006
       - to Feb 2013
@@ -1535,13 +1320,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 5
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
     * - 6
       - 6.x, 7.x
       - N/A
@@ -1826,12 +1604,6 @@ Apache
       - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 2.0
-      - from Nov 2001
-      - to Jul2013
-      - Dropped
-      - Dropped
-      - Dropped
     * - 2.2
       - from Dec 2005
       - TBA
@@ -1860,13 +1632,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 2.0
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
     * - 2.2
       - 6.x
       - N/A
