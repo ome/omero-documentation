@@ -71,7 +71,7 @@ Bitness
 Currently 32- and 64-bit systems are supported for client and server
 on all platforms with the exception of MacOS X (64-bit only).
 
-* [5.2] Drop 32-bit support for Ice and native code [server]
+* [5.2] Dropped 32-bit support for Ice and native code [server]
 * [5.3] Deprecate 32-bit support for Ice and native code [client]
 * Rationale: It’s not practical to run a server on a 32-bit system due
   to its memory requirements, so it’s safe to drop 32-bit support for
