@@ -44,7 +44,7 @@ Labels are applied to PRs on GitHub under the “Issues” tab of each repositor
 
 Each release series consists of PRs labeled according to the release version,
 which also matches the name of the branch they will be merged into e.g. 5.1.x
-series PRs will be labelled as "dev_5_1" and be merged into the dev_5_1
+series PRs will be labeled as "dev_5_1" and be merged into the dev_5_1
 branch.
 
 Multiple labels are used in the PR reviewing process:
