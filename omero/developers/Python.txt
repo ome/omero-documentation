@@ -143,7 +143,7 @@ Connect to OMERO
 
 ::
 
-        # New in OMERO 5
+        # Added in OMERO 5.0
         print "Admins:"
         for exp in conn.getAdministrators():
             print "   ID: %s %s Name: %s" % (
@@ -532,7 +532,7 @@ Write data
     project = conn.getObject("Project", projectId)
     project.linkAnnotation(tagAnn)
 
--  **New in OMERO 5.1: 'Map' annotations (list of key: value pairs)**
+-  **Added in OMERO 5.1: 'Map' annotations (list of key: value pairs)**
 
 ::
 
@@ -1143,7 +1143,7 @@ Create Image
 
     print 'Created new Image:%s Name:"%s"' % (i.getId(), i.getName())
 
--  **Set the pixel size using units (new in 5.1.0)**
+-  **Set the pixel size using units (added in 5.1.0)**
 
 
 Lengths are specified by value and a unit enumeration
@@ -1215,8 +1215,8 @@ Here we set the pixel size X and Y to be 9.8 Angstroms
     # When you are done, close the session to free up server resources.
     conn._closeSession()
 
-Filesets - New in OMERO 5
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Filesets - added in OMERO 5.0
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  **Create a connection**
 

@@ -1,27 +1,13 @@
-What's new for OMERO 5.1 for developers
+What's new for OMERO 5.2 for developers
 =======================================
 
 - The :doc:`/sysadmins/version-requirements` section provides extensive
-  details about which operating systems and dependency versions we will be
-  supporting for the life of 5.1 and the likely changes to these for the next
-  major release (currently planned to be 5.2). Most notably for development
-  purposes, we are deprecating support for Java 1.6 and Python 2.6.
-- :doc:`Model/Units` introduces the new Units-types which are available
-  for use from :doc:`Model Objects <Model/EveryObject>` (note that this
-  documentation has been expanded since the release of 5.1.2 and is still a
-  work in progress).
-- Similarly, :doc:`Model/KeyValuePairs` introduces the new concept of a
-  "map" type, which consists of ordered lists of key-value pairs.
-- :doc:`Server/ObjectGraphs` explains how the new graph operations of
-  :javadoc:`omero::cmd <slice2html/omero/cmd.html>` are implemented.
-- Deprecated methods in IContainer and RenderingEngine have been removed, as
-  have the deprecated services IDelete and Gateway.
-- Pojos methods have been deprecated and replaced by corresponding units
-  methods.
-- OMERO 5.1 requires a Unicode-encoded (UTF8) database.
-- Since OMERO 5.1.3, the Bio-Formats submodule has been removed from the source
-  code and Bio-Formats is managed as another dependency using Ivy. See
-  :doc:`build-system` for more details.
+  details about which operating systems and dependency versions we intend to
+  support for the life of 5.2 and the likely changes to these for the next
+  major release (currently planned to be 5.3). Most notably for development
+  purposes, we have dropped support for Java 1.6.
+
+The Java gateway has undergone a major overhaul [details to follow]
 
 Breaking changes
 ----------------
@@ -29,69 +15,29 @@ Breaking changes
 OMERO.web
 ^^^^^^^^^
 
-There have been many updates to this client for 5.1. See the
-:ref:`web-breaking-changes` section on the :doc:`/sysadmins/whatsnew` page for
-further details.
+OMERO.web has undergone a major upgrade, updating jsTree to version 3 and
+using json for all tree loading to substantially improve performance.
 
-OMERO.web template and view writers need to use the ``@render_response()``
-decorator, see :ref:`render-response` for more details.
-
-The redundant ``-locked`` flag has been removed from data manager tree nodes
-e.g. ``dataset-locked`` is now simply ``dataset``.
+See the :pythondoc:`OMERO.web python docs <omeroweb/omeroweb.html>` for more
+information.
 
 Graphs
 ^^^^^^
 
-The API's request operations :javadoc:`Chgrp
+The API's request operations :javadoc:`Chmod
+<slice2html/omero/cmd/Chmod.html>`, :javadoc:`Chgrp
 <slice2html/omero/cmd/Chgrp.html>`, :javadoc:`Chown
 <slice2html/omero/cmd/Chown.html>`, :javadoc:`Delete
 <slice2html/omero/cmd/Delete.html>`, and their superclass
-:javadoc:`GraphModify <slice2html/omero/cmd/GraphModify.html>`, are now
-deprecated. They are replaced by :javadoc:`Chgrp2
+:javadoc:`GraphModify <slice2html/omero/cmd/GraphModify.html>`, were
+deprecated in 5.1 and will be removed in 5.3. They are replaced by
+:javadoc:`Chmod2
+<slice2html/omero/cmd/Chmod2.html>`:javadoc:`Chgrp2
 <slice2html/omero/cmd/Chgrp2.html>`, :javadoc:`Chown2
 <slice2html/omero/cmd/Chown2.html>`, :javadoc:`Delete2
 <slice2html/omero/cmd/Delete2.html>`, and their superclass
-:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>`. To
-allow each deprecated request to be implemented by its corresponding
-replacement, a partial API compatibility layer is included in OMERO 5.1
-and is activated by default through the new configuration property
-:property:`omero.graphs.wrap`. If the new request implementations
-introduce regressions, setting that property to ``false`` will
-reactivate the implementations from OMERO 5.0. However, the
-configuration property :property:`omero.graphs.wrap` will be *removed*
-in OMERO 5.2 and :javadoc:`Chgrp <slice2html/omero/cmd/Chgrp.html>`,
-:javadoc:`Chown <slice2html/omero/cmd/Chown.html>`, :javadoc:`Delete
-<slice2html/omero/cmd/Delete.html>`, and :javadoc:`GraphModify
-<slice2html/omero/cmd/GraphModify.html>`, will be *removed* in OMERO
-5.3. OMERO 5.1 users should thus be :doc:`using the new 5.1 graph
-requests <Server/GraphsMigration>` so that problems may be detected and
-corrected before the deprecated features are removed.
-
-Tables
-^^^^^^
-
-OMERO.tables attribute names beginning with `__` are reserved for internal
-use, see :doc:`Tables`.
-
-ImportContainer
-^^^^^^^^^^^^^^^
-
-Changes to ImportContainer will break any listeners implemented by external
-developers.
-
-Units
-^^^^^
-
-A number of Objects formerly of numerical type are now unit quantities. As a
-result, code working with these types will no longer compile and queries of
-these types will now return different values. For example, as explained in
-:ref:`querying-units`, to return the floating point number using::
-
-   select planeInfo.exposureTime from PlaneInfo planeInfo ...
-
-you now need to add ``.value`` as follows::
-
-   select planeInfo.exposureTime.value from PlaneInfo planeInfo ...
-
-and you also need the enum to go along with it.
+:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>`.
+OMERO developers who have not migrated yet should refer to
+:doc:`Server/GraphsMigration` and take action before the deprecated features
+are removed.
 

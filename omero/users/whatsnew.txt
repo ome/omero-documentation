@@ -1,25 +1,9 @@
-What's new for OMERO 5.1 for users
+What's new for OMERO 5.2 for users
 ==================================
 
-Updates and new features for OMERO 5.1 include:
+Updates and new features for OMERO 5.2 include:
 
-- support for units throughout the Data Model allowing for example, pixel
-  sizes for electron microscopy to be stored in nanometers rather than being
-  set as micrometers
-- new, searchable key-value pair annotations for adding experimental metadata
-- improved performance for moving and deleting data
-- improved performance for many file formats, including much faster import for
-  HCS data and new supported formats via Bio-Formats (now over 140)
-- improvements in rendering settings workflow to make it more transparent and
-  also to align the functionality between OMERO.insight and OMERO.web
-- improved functionality of the OMERO ImageJ plugin allowing you to import
-  images to OMERO from ImageJ (both modified e.g. cropped and unmodified) and
-  also save ROIs and overlays from ImageJ into OMERO without having to
-  re-import if your image is already stored in OMERO
-
-See the updated user guides for :help:`managing data <managing-data.html>`,
-:help:`viewing data <viewing-data.html>` and
-:help:`using ImageJ with OMERO <imagej.html>` for further information.
-
-OMERO 5.1.2 introduced support for Read-Write groups - see the updated
-:help:`sharing data <sharing-data.html>` guide for details.
+-  improved support for screen data
+-  improved support for attaching analytical results
+-  significant improvement in client performance including for loading data
+   and drag and drop actions
