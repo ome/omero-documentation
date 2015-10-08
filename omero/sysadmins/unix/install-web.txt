@@ -30,7 +30,7 @@ Prerequisites
 
 -  OMERO and its prerequisites (see :doc:`server-installation`).
 
--  Python 2 (2.6 or later)
+-  Python 2.7
 
    -  `Pillow`_ should be available for your distribution
 
