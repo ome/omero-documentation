@@ -72,7 +72,7 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
                 * :term:`BIOFORMATS-CPP-5.1-latest-superbuild`
                 *
 
-        -       * Builds the latest native C++ implementation for Bio-Formats ("Windows superbuild)
+        -       * Builds the latest native C++ implementation for Bio-Formats (Windows superbuild)
                 * :term:`BIOFORMATS-CPP-5.1-latest-win-superbuild`
                 *
 
@@ -88,7 +88,7 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
                 * :term:`BIOFORMATS-CPP-5.1-merge-superbuild`
                 *
 
-        -       * Builds the merge native C++ implementation for Bio-Formats ("Windows superbuild)
+        -       * Builds the merge native C++ implementation for Bio-Formats (Windows superbuild)
                 * :term:`BIOFORMATS-CPP-5.1-merge-win-superbuild`
                 *
 
@@ -240,10 +240,6 @@ The branch for the 5.1.x series of Bio-Formats is develop.
                    directories specified by
                    :file:`BIOFORMATS-openbytes-performance.txt`
 
-        :jenkinsjob:`BIOFORMATS-CPP-5.1-breaking`
-
-                This job builds the breaking native C++ implementation for Bio-Formats
-
         :jenkinsjob:`BIOFORMATS-CPP-5.1-latest`
 
                 This job builds the latest native C++ implementation for Bio-Formats
@@ -349,11 +345,6 @@ Jenkins.
                    :bf_scc_branch:`develop/latest/generated_sources` and archives
                    the artifacts
 
-        :jenkinsjob:`BIOFORMATS-5.1-breaking-cpp`
-
-                This job is used to build the merge native C++ implementation for
-                Bio-Formats
-
         :jenkinsjob:`BIOFORMATS-5.1-breaking-test_images_good`
 
                 This job runs automated tests against the test_images_good subset on
@@ -388,3 +379,8 @@ Jenkins.
                    :file:`/ome/data_repo/from_skyking/`. The list of directories to
                    test by setting a space-separated list of formats for the
                    ``DEFAULT_FORMAT_LIST`` variable.
+
+        :jenkinsjob:`BIOFORMATS-CPP-5.1-breaking`
+
+                This job is used to build the breaking native C++ implementation for
+                Bio-Formats

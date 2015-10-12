@@ -38,9 +38,9 @@ jobs should be listed under the :jenkinsview:`Release` view.
     -   * Generate the Bio-Formats Java downloads page
         * :jenkinsjob:`BIOFORMATS-5.0-release-downloads`
         * :jenkinsjob:`BIOFORMATS-5.1-release-downloads`
-    -   * Generate the Bio-Formats C++ downloads page
+    -   * Trigger the Bio-Formats C++ release jobs
         *
-        * :jenkinsjob:`BIOFORMATS-CPP-5.1-release-downloads`
+        * :jenkinsjob:`BIOFORMATS-CPP-5.1-release-trigger`
     -   * Tags the Bio-Formats SuperBuild source code repository
         *
         * :jenkinsjob:`BIOFORMATS-CPP-5.1-release-push-superbuild`
@@ -53,9 +53,9 @@ jobs should be listed under the :jenkinsview:`Release` view.
     -   * Builds the release native C++ implementation for Bio-Formats ("Windows superbuild)
         *
         * :jenkinsjob:`BIOFORMATS-CPP-5.1-release-win-superbuild`
-    -   * Trigger the Bio-Formats C++ release jobs
+    -   * Generate the Bio-Formats C++ downloads page
         *
-        * :jenkinsjob:`BIOFORMATS-CPP-5.1-release-trigger`
+        * :jenkinsjob:`BIOFORMATS-CPP-5.1-release-downloads`
 
 Deployment servers
 ^^^^^^^^^^^^^^^^^^

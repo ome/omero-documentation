@@ -60,7 +60,7 @@ rst_epilog += """
 .. _openmicroscopy.git: https://github.com/openmicroscopy/openmicroscopy
 .. _bioformats.git: https://github.com/openmicroscopy/bioformats
 .. _ome-documentation.git: https://github.com/openmicroscopy/ome-documentation
-.. _ome-cmake-superbuild.git: https://github.com/openmicroscopy/ome-cmake-superbuild
+.. _ome-cmake-superbuild.git: https://github.com/ome/ome-cmake-superbuild
 .. _scripts.git: https://github.com/ome/scripts
 ..  |merge| replace:: Merges PRs using :ref:`scc merge`
 ..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :omero_source:`OMERO.sh <docs/hudson/OMERO.sh>`
