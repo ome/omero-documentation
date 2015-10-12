@@ -60,6 +60,7 @@ rst_epilog += """
 .. _openmicroscopy.git: https://github.com/openmicroscopy/openmicroscopy
 .. _bioformats.git: https://github.com/openmicroscopy/bioformats
 .. _ome-documentation.git: https://github.com/openmicroscopy/ome-documentation
+.. _ome-cmake-superbuild.git: https://github.com/ome/ome-cmake-superbuild
 .. _scripts.git: https://github.com/ome/scripts
 ..  |merge| replace:: Merges PRs using :ref:`scc merge`
 ..  |buildOMERO| replace:: Builds the OMERO.server and the clients using :omero_source:`OMERO.sh <docs/hudson/OMERO.sh>`
@@ -68,6 +69,7 @@ rst_epilog += """
 ..  |promoteOMERO| replace:: copies the artifacts to necromancer
 ..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
 ..  |buildBF| replace:: Builds Bio-Formats using ``ant clean jars tools tools-ome utils dist-bftools``
+..  |buildBFcpp| replace:: Builds Bio-Formats using ``cmake``
 ..  |testBF| replace:: Runs Bio-Formats tests using ``ant test-common test-ome-xml test-formats test-ome-io``
 ..  |fulltestBF| replace:: Runs Bio-Formats full test-suite using ``ant test``
 ..  |sphinxbuild| replace:: Runs ``make clean html latexpdf`` to build the HTML and PDF versions of the Sphinx documentation
