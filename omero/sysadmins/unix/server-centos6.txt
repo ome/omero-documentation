@@ -1,0 +1,123 @@
+Installing Python 2.7 and Ice 3.5 on CentOS 6
+=============================================
+
+Running OMERO on CentOS 6 has a number of special requirements which
+deviate from the standard installation instructions.  The instructions
+below will set up Python 2.7 and Ice 3.5 on CentOS 6.
+
+Python 2.7
+----------
+
+CentOS 6 provides Python 2.6.  However, OMERO.web requires Python 2.7
+in order to use django 1.8.  While django 1.6 may be used with Python
+2.6, this version of django no longer has security support.  In
+consequence, it's necessary to upgrade to Python 2.7 in order to
+obtain django security updates, which are required for a production
+deployment.
+
+As root, run::
+
+    yum install centos-release-SCL
+    yum install python27
+
+To use this version of Python, run::
+
+    source /opt/rh/python27/enable
+
+To demonstrate its use::
+
+    $ python --version
+    Python 2.6.6
+    $ source /opt/rh/python27/enable 
+    $ python --version
+    Python 2.7.5
+
+Development packages
+--------------------
+
+The following sections require a number of libraries and a compiler.
+Run the following commands to install them::
+
+    yum groupinstall "Development Tools"
+    yum install epel-release
+    # Ice dependencies
+    yum install expat-devel libbz2-devel openssl-devel zlib-devel
+    # Python module dependencies
+    yum install hdf5-devel freetype-devel libjpeg-devel libpng-devel
+
+Additional Python modules
+-------------------------
+
+Install ``pytables``, ``pillow`` and ``matplotlib``::
+
+    # Note: Warnings disabled due to using an old version of Python 2.7.
+    source /opt/rh/python27/enable
+    easy_install pip
+    export PYTHONWARNINGS="ignore:Unverified HTTPS request"
+    pip install tables pillow matplotlib
+
+Ice 3.5
+-------
+
+The RPM packages provided by ZeroC for CentOS 6 use the Python 2.6
+provided by the system.  OMERO will need an Ice build which uses
+Python 2.7.  The following steps will rebuild Ice from source using
+the Python 2.7 installed above and install it into :file:`/opt`::
+
+    # Download and install needed Ice build dependencies (db and mcpp)
+    mkdir icerpm
+    cd icerpm
+    wget https://zeroc.com/download/Ice/3.5/Ice-3.5.1-el6-x86_64-rpm.tar.gz
+    tar xfv Ice-3.5.1-el6-x86_64-rpm.tar.gz
+    yum install db53-5.3.21-1ice.el6.x86_64.rpm db53-devel-5.3.21-1ice.el6.x86_64.rpm db53-utils-5.3.21-1ice.el6.x86_64.rpm mcpp-devel-2.7.2-2ice.el6.x86_64.rpm 
+    cd ..
+
+    # Download Ice 3.5.1 source
+    wget https://zeroc.com/download/Ice/3.5/Ice-3.5.1.tar.gz
+    tar xfv Ice-3.5.1.tar.gz
+    cd Ice-3.5.1
+
+    # Build and install main Ice libraries and programs
+    cd cpp
+    make
+    make test
+    make install
+
+    # Build and install Python module
+    cd ../py
+    source /opt/rh/python27/enable
+    make
+    make test
+    make install
+
+Additional packages required by OMERO
+-------------------------------------
+
+Install Java::
+
+    yum install java-1.8.0-openjdk
+
+Install and start PostgreSQL::
+
+    yum install http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-1.noarch.rpm 
+    yum install postgresql94-server postgresql94-contrib
+    service postgresql-9.4 initdb
+    chkconfig postgresql-9.4 on
+    service postgresql-9.4 start
+
+Running OMERO
+-------------
+
+The following settings will need adding to your OMERO startup script
+or to the OMERO user's environment (for example in a shell startup
+script)::
+
+    source /opt/rh/python27/enable
+    ICE_HOME=/opt/Ice-3.5.1
+    PATH="${ICE_HOME}/bin:$PATH"
+    export LD_LIBRARY_PATH="${ICE_HOME}/lib64:${ICE_HOME}/lib:$LD_LIBRARY_PATH"
+    export PYTHONPATH="${ICE_HOME}/python:$PYTHONPATH"
+    export SLICEPATH="${ICE_HOME}/slice"
+
+These settings will enable Python 2.7, and set the necessary
+environment variables for Ice 3.5 to work.
