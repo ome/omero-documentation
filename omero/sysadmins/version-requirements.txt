@@ -95,15 +95,18 @@ Components
 
 * Python
 
-  * [5.2] 2.6 dropped, 2.7 recommended, 3.x not supported
+  * [5.2] 2.6 deprecated and not recommended, 2.7 recommended, 3.x not
+    supported
   * [5.3] 2.6 dropped, 2.7 recommended, 3.x not supported
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
-    6.x, however it is available officially via SCL so has been made
-    the minimum. Note that 3.3 is also available via SCL, so there is
-    potential for a 3.x migration in the 5.3 timeframe. Dropping 2.6
-    unifies python support with a single major version, and removes a
-    number of portability issues, but most importantly is a
-    requirement of django 1.8.
+    6.x, however it is available officially via SCL. Note that 3.3 is
+    also available via SCL, so there is potential for a 3.x migration
+    in the 5.3 timeframe. Dropping 2.6 for 5.3 unifies python support
+    with a single major version, and removes a number of portability
+    issues, but most importantly is a requirement of django 1.8.
+    Python 2.6 will continue to work for 5.2 with django 1.6, but this
+    not a recommended combination due to the potential for future
+    security vulnerabilities in the absence of security support.
 
 * GCC
 
@@ -761,7 +764,7 @@ Python
       - from Oct 2008
       - to Oct 2013
       - Deprecated
-      - Dropped
+      - Deprecated
       - Dropped
       - `Reference <http://legacy.python.org/dev/peps/pep-0361/>`__
     * - 2.7
@@ -873,8 +876,15 @@ future; 3.x versions continue to be released and retired regularly in
 parallel. The limiting factor will be distribution support for 2.7 as
 major packages are slowly switching to 3.x, and this might cause
 problems if our python module dependencies are no longer available
-without major effort. Ice in particular has dropped 2.7 support for
-Windows, and has a significant cost in providing custom rebuilds.
+without major effort. Ice 3.5 in particular has dropped 2.7 support
+for Windows, and has a significant cost in providing custom rebuilds;
+this has been rectified in Ice 3.6 with the Python module being
+installable with ``pip`` using any Python version.
+
+The supported version of the django module used by OMERO.web (1.8)
+requires Python 2.7.  The older version (1.6) will work with Python
+2.6 but lacks security support, and is consequently not recommended
+for production use..
 
 GCC
 ---
