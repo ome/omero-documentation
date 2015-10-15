@@ -190,8 +190,8 @@ Images
    :align: center
    :alt:
 
-Images in OMERO are made up many entities. These include core image components
-such as :javadoc:`Pixels <slice2html/omero/model/Pixels.html>` and
+Images in OMERO are made up of many entities. These include core image
+components such as :javadoc:`Pixels <slice2html/omero/model/Pixels.html>` and
 :javadoc:`Channels <slice2html/omero/model/Channel.html>`, as well as a large
 number of additional metadata objects such as Instrument (microscope),
 Objective, Filters, Light Sources, and Detectors.

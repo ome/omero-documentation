@@ -148,7 +148,7 @@ Main methods
 
     .. attribute:: rowNumbers
 
-        The row indicies of the values retrieved from the table.
+        The row indices of the values retrieved from the table.
 
     .. attribute:: columns
 
@@ -174,7 +174,7 @@ Main methods
 
         Read a set of entire rows in the table.
 
-        :param long[] rowNumbers: A list of row indicies to be retrieved from
+        :param long[] rowNumbers: A list of row indices to be retrieved from
             the table.
         :return: The requested rows as a :class:`~omero.grid.Data` object.
 
@@ -182,7 +182,7 @@ Main methods
 
         Read a subset of columns and rows from a table.
 
-        :param long[] colNumber: A list of column indicies to be retrieved
+        :param long[] colNumber: A list of column indices to be retrieved
             from the table.
         :param long start: The index of the first row to retrieve.
         :param long stop: The index of the `last+1` row to retrieve (uses
