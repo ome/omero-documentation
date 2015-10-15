@@ -442,10 +442,10 @@ Other release jobs
         #. Download the :envvar:`RELEASE` artifacts from
            https://github.com/ome/figure
         #. Copy the OMERO.figure source zip over SSH to
-           :file:`/ome/apache_repo/public/figure/RELEASE`
-        #. Merge PRs opened against `dev_5_0`
+           :file:`/ome/www/downloads.openmicroscopy.org/figure/RELEASE`
+        #. Merge PRs opened against `develop`
         #. Build the OMERO.figure downloads pages using :command:`make figure`
         #. Copy the OMERO.figure downloads page over SSH to
-           :file:`/ome/apache_repo/public/figure/RELEASE`
+           :file:`/ome/www/downloads.openmicroscopy.org/figure/RELEASE`
 
 Documentation release jobs are documented on :doc:`ci-docs`.
