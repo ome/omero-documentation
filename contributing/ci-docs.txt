@@ -379,7 +379,7 @@ The repository for OMERO.figure is https://github.com/ome/figure.
 
 	:jenkinsjob:`FIGURE-help-release`
 
-		This job is used to deploy the OME help documentation
+		This job is used to deploy the Figure gh-pages website
 
 		#. Opens a Pull Request from
 		   https://github.com/ome/figure/tree/gh-pages-staging
