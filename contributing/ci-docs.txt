@@ -72,7 +72,9 @@ independent of the current OMERO/Bio-Formats version.
 	-	* Publish OME help documentation
 		* :term:`OME-help-release`
 
-Since OMERO.figure came under the management of the wider OME team, there are also builds to manage its GitHub pages website, which operate the same way as the help builds.
+Since OMERO.figure came under the management of the wider OME team, there are
+also builds to manage its GitHub pages website, which operate the same way as
+the help builds.
 
 .. list-table::
 	:header-rows: 1

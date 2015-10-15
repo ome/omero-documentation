@@ -428,3 +428,24 @@ clients of the deployment jobs described above:
         #. Triggers :term:`BIOFORMATS-CPP-5.1-release`
         #. Triggers :term:`BIOFORMATS-CPP-5.1-release-superbuild`
         #. Triggers :term:`BIOFORMATS-CPP-5.1-release-win-superbuild`
+
+
+Other release jobs
+^^^^^^^^^^^^^^^^^^
+
+.. glossary::
+
+    :jenkinsjob:`FIGURE-release-downloads`
+
+        This job is used to build the OMERO.figure downloads page
+
+        #. Download the :envvar:`RELEASE` artifacts from
+           https://github.com/ome/figure
+        #. Copy the OMERO.figure source zip over SSH to
+           :file:`/ome/apache_repo/public/figure/RELEASE`
+        #. Merge PRs opened against `dev_5_0`
+        #. Build the OMERO.figure downloads pages using :command:`make figure`
+        #. Copy the OMERO.figure downloads page over SSH to
+           :file:`/ome/apache_repo/public/figure/RELEASE`
+
+Documentation release jobs are documented on :doc:`ci-docs`.
