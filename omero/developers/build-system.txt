@@ -147,14 +147,14 @@ resolves the following locations in order:
 #. the local dependency repository under :file:`lib/repository`
 #. the local Maven cache under :file:`~/.m2/repository`
 #. the `Maven central repository <http://central.sonatype.org>`_
-#. the `OME artifactory <http://artifacts.openmicroscopy.org>`_
+#. the `OME artifactory`_
 
 Bio-Formats dependencies are resolved using a specific
 :ivydoc:`chain resolver <resolver/chain.html>` called ``ome-resolver`` which
 resolves the following locations in order:
 
 #. the local Maven cache under :file:`~/.m2/repository`
-#. the `OME artifactory <http://artifacts.openmicroscopy.org>`_
+#. the `OME artifactory`_
 
 To define its dependencies, each component uses a top-level
 :ivydoc:`Ivy file <ivyfile.html>`, :file:`ivy.xml`, for the build and
