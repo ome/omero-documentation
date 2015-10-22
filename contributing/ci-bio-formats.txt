@@ -440,45 +440,45 @@ breaking jobs are listed under the :jenkinsview:`Breaking` view tab of
 Jenkins.
 
 .. glossary::
-        :jenkinsjob:`BIOFORMATS-5.1-breaking-trigger`
+        :jenkinsjob:`BIOFORMATS-DEV-breaking-trigger`
 
                 This job runs the daily Bio-Formats jobs used for reviewing the PRs
                 opened against the develop branch of Bio-Formats by running basic unit
                 tests, checking for open file handles, and checking for regressions
                 across a representative subset of the data repository
 
-                #. Triggers :term:`BIOFORMATS-5.1-breaking-push`
+                #. Triggers :term:`BIOFORMATS-DEV-breaking-push`
                 #. Triggers downstream jobs
 
-                See :jenkinsjob:`the build graph <BIOFORMATS-5.1-breaking-trigger/lastSuccessfulBuild/BuildGraph>`
+                See :jenkinsjob:`the build graph <BIOFORMATS-DEV-breaking-trigger/lastSuccessfulBuild/BuildGraph>`
 
-        :jenkinsjob:`BIOFORMATS-5.1-breaking-push`
+        :jenkinsjob:`BIOFORMATS-DEV-breaking-push`
 
                 This job merges all the breaking PRs opened against develop
 
                 #. |merge| labeled as breaking
                 #. Pushes the branch to :bf_scc_branch:`develop/breaking/trigger`
 
-        :jenkinsjob:`BIOFORMATS-5.1-breaking-build`
+        :jenkinsjob:`BIOFORMATS-DEV-breaking-build`
 
                 This job builds the merge artifacts of Bio-Formats
 
                 #. Checks out :bf_scc_branch:`develop/breaking/trigger`
                 #. |buildBF|
                 #. |fulltestBF|
-                #. Triggers :term:`BIOFORMATS-5.1-breaking-matlab`
+                #. Triggers :term:`BIOFORMATS-DEV-breaking-matlab`
 
 
-        :jenkinsjob:`BIOFORMATS-5.1-breaking-matlab`
+        :jenkinsjob:`BIOFORMATS-DEV-breaking-matlab`
 
                 This job runs the MATLAB tests of Bio-Formats
 
                 #. Collects the MATLAB artifacts and unit tests from
-                   :term:`BIOFORMATS-5.1-breaking-build`
+                   :term:`BIOFORMATS-DEV-breaking-build`
                 #. Runs the MATLAB unit tests under
                    :file:`components/bio-formats/test/matlab` and collect the results
 
-        :jenkinsjob:`BIOFORMATS-5.1-breaking-generated-sources`
+        :jenkinsjob:`BIOFORMATS-DEV-breaking-generated-sources`
 
                 This job builds the breaking generated sources of Bio-Formats
 
@@ -491,7 +491,7 @@ Jenkins.
                    :bf_scc_branch:`develop/latest/generated_sources` and archives
                    the artifacts
 
-        :jenkinsjob:`BIOFORMATS-5.1-breaking-test_images_good`
+        :jenkinsjob:`BIOFORMATS-DEV-breaking-test_images_good`
 
                 This job runs automated tests against the test_images_good subset on
                 Linux
@@ -500,7 +500,7 @@ Jenkins.
                 #. Runs automated tests against
                    :file:`/ome/data_repo/test_images_good`
 
-        :jenkinsjob:`BIOFORMATS-5.1-breaking-test_images_good-win`
+        :jenkinsjob:`BIOFORMATS-DEV-breaking-test_images_good-win`
 
                 This job runs automated tests against the test_images_good subset on
                 Windows
@@ -509,14 +509,14 @@ Jenkins.
                 #. Runs automated tests against
                    :file:`\\\\squig.openmicroscopy.org.uk\\ome-data-repo\\test_images_good`
 
-        :jenkinsjob:`BIOFORMATS-5.1-breaking-full-repository`
+        :jenkinsjob:`BIOFORMATS-DEV-breaking-full-repository`
 
                 This job runs automated tests against the full repository on Linux
 
                 #. Checks out :bf_scc_branch:`develop/breaking/trigger`
                 #. Runs automated tests against :file:`/ome/data_repo/from_skyking/`
 
-        :jenkinsjob:`BIOFORMATS-5.1-breaking-repository-subset`
+        :jenkinsjob:`BIOFORMATS-DEV-breaking-repository-subset`
 
                 This job runs automated tests against a subset of the data repository
 
@@ -526,7 +526,3 @@ Jenkins.
                    test by setting a space-separated list of formats for the
                    ``DEFAULT_FORMAT_LIST`` variable.
 
-        :jenkinsjob:`BIOFORMATS-CPP-5.1-breaking`
-
-                This job is used to build the breaking native C++ implementation for
-                Bio-Formats
