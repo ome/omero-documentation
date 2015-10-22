@@ -65,10 +65,6 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
                 * :term:`BIOFORMATS-5.1-merge-openbytes-performance`
                 * :term:`BIOFORMATS-DEV-merge-openbytes-performance`
 
-        -       * Builds the breaking native C++ implementation for Bio-Formats
-                * :term:`BIOFORMATS-CPP-5.1-breaking`
-                *
-
         -       * Builds the latest native C++ implementation for Bio-Formats
                 * :term:`BIOFORMATS-CPP-5.1-latest`
                 *
