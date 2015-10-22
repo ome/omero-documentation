@@ -496,15 +496,6 @@ Jenkins.
                 #. Runs automated tests against
                    :file:`/ome/data_repo/test_images_good`
 
-        :jenkinsjob:`BIOFORMATS-DEV-breaking-test_images_good-win`
-
-                This job runs automated tests against the test_images_good subset on
-                Windows
-
-                #. Checks out :bf_scc_branch:`develop/breaking/trigger`
-                #. Runs automated tests against
-                   :file:`\\\\squig.openmicroscopy.org.uk\\ome-data-repo\\test_images_good`
-
         :jenkinsjob:`BIOFORMATS-DEV-breaking-full-repository`
 
                 This job runs automated tests against the full repository on Linux
