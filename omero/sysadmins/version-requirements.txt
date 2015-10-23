@@ -35,7 +35,7 @@ Operating systems
 
 * MacOS X
 
-  * [5.2] 10.8 dropped. 10.9 deprecated, 10.10 recommended, 10.11 supported
+  * [5.2] 10.8 dropped. 10.9 deprecated, 10.10 recommended, 10.11 upcoming
   * [5.3] 10.8 dropped, 10.9 deprecated, 10.10 supported , 10.11 recommended
   * Test server only on 10.10+ for 5.2.
   * Rationale: 10.8 no longer has security support and it still leaves 3
@@ -73,7 +73,7 @@ on all platforms with the exception of MacOS X (64-bit only).
 
 * [5.2] Dropped 32-bit support for Ice and native code [server]
 * [5.3] Deprecate 32-bit support for Ice and native code [client]
-* Rationale: It’s not practical to run a server on a 32-bit system due
+* Rationale: It is not practical to run a server on a 32-bit system due
   to its memory requirements, so it’s safe to drop 32-bit support for
   OMERO.server in 5.2 given that it is de-facto 64-bit-only
   today. There are still a significant number of 32-bit Windows
@@ -146,7 +146,7 @@ The planned changes for 5.2 depend upon our support of
 
 * Ice
 
-  * [5.2] 3.4 dropped, 3.5 deprecated, 3.6 recommended
+  * [5.2] 3.4 dropped, 3.5 deprecated, 3.6 not supported
   * [5.3] 3.4 dropped, 3.5 deprecated, 3.6 recommended
   * Rationale: 3.4 is no longer supported by ZeroC with 3.5 being
     current. By the release of 5.2, Ice 3.6 will have been out for
@@ -367,7 +367,7 @@ UNIX (MacOS X)
       - Supported
       - Supported
       - Supported
-      - Supported
+      - Upcoming
       - Recommended
 
 Apple do not formally announce end of life for their releases, but
@@ -1227,7 +1227,7 @@ Ice
       - from June 2015
       - to TBA
       - Unsupported
-      - Supported
+      - Unsupported
       - Recommended
       - :zerocforum:`Ice 3.6.0 <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
 
