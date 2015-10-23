@@ -44,7 +44,7 @@ model_extlinks = {
     # API
     'javadoc' : (downloads_root + '/latest/bio-formats5.1/api/%s', ''),
     # Doc links
-    'omero_doc' : (oo_site_root + '/support/omero5.1/%s', ''),
+    'omero_doc' : (oo_site_root + '/support/omero5.2/%s', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats5.1/%s', ''),
     # Downloads
     'bf_downloads' : (downloads_root + '/latest/bio-formats5.1/%s', ''),
