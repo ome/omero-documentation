@@ -85,15 +85,15 @@ The following packages are required:
 +--------------+-------------+---------+
 | Package      | Recommended | Minimum |
 +==============+=============+=========+
-| Ice          | 3.5         | 3.4     |
+| Ice          | 3.5         | 3.5     |
 +--------------+-------------+---------+
-| Java         | 1.8         | 1.6     |
+| Java         | 1.8         | 1.7     |
 +--------------+-------------+---------+
 | OMERO.server | |release|             |
 +--------------+-------------+---------+
 | Python       | 2.7         | 2.6     |
 +--------------+-------------+---------+
-| PostgreSQL   | 9.3         | 9.2     |
+| PostgreSQL   | 9.4         | 9.3     |
 +--------------+-------------+---------+
 
 One of the following packages is recommended if you wish to use
@@ -177,9 +177,9 @@ Check you have Python (and check its version) by running:
 ::
 
     $ python --version
-    Python 2.7.5+
+    Python 2.7.10
 
-.. note:: OMERO does not currently support Python 3; you must use 2.6 or 2.7.
+.. note:: OMERO does not currently support Python 3; you must use 2.7.
 
 The following Python packages are required:
 
@@ -192,7 +192,11 @@ The following Python packages are required:
       - Functionality
       - Downloads
 
-    * - `Pillow`_ [1]_
+    * - `Django`_ (1.8 or higher) [1]_
+      - OMERO.web
+      - :pypi:`Django` page
+
+    * - `Pillow`_ [2]_
       - OMERO.web and Figure Export
       - :pypi:`Pillow` page
 
@@ -200,7 +204,7 @@ The following Python packages are required:
       - OMERO.web
       - `Matplotlib page <http://matplotlib.org/>`_
 
-    * - NumPy (1.2.0 or higher) [2]_
+    * - NumPy (1.2.0 or higher) [3]_
       - Scripting
       - `Numpy/Scipy page <http://www.scipy.org/Download>`_
 
@@ -208,9 +212,15 @@ The following Python packages are required:
       - :doc:`OMERO.tables </sysadmins/server-tables>`
       - `PyTables page <https://pytables.github.io/downloads.html>`_
 
-.. [1] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ installed when building `Pillow`_.
+.. [1] The currently supported version of the django module used by
+       OMERO.web (1.8) requires Python 2.7.  The older version (1.6)
+       will work with Python 2.6 but lacks security support, and is
+       consequently *not recommended for production use*. Python 2.7
+       and django 1.8 are required for security support.
 
-.. [2] May already have been installed as a dependency of Matplot Lib.
+.. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ installed when building `Pillow`_.
+
+.. [3] May already have been installed as a dependency of Matplot Lib.
 
 .. note::
     Some of these can be ignored if you wish to forego some
@@ -247,9 +257,9 @@ Ice
 
 .. note::
 
-    OMERO |version| supports 3.5 and 3.4 on UNIX and UNIX-like
-    platforms. You must install the correct version of OMERO.server
-    (see :downloads:`Downloads <>`).
+    OMERO |version| supports 3.5 on UNIX and UNIX-like platforms. You
+    must install the correct version of OMERO.server (see
+    :downloads:`Downloads <>`).
 
 If possible, install one of the following packages:
 
@@ -375,7 +385,7 @@ Once you have obtained the OMERO.server zip archive, unpack it:
 
 .. parsed-literal::
 
-    $ unzip OMERO.server-|release|-ice34-byy.zip
+    $ unzip OMERO.server-|release|-ice35-byy.zip
 
 If your system does not provide an :program:`unzip` command by
 default, install one of the following:
@@ -399,7 +409,7 @@ typing later, to reflect what you set :envvar:`OMERO_PREFIX` to in the
 
 .. parsed-literal::
 
-    $ ln -s OMERO.server-|release|-ice34-byy OMERO.server
+    $ ln -s OMERO.server-|release|-ice35-byy OMERO.server
 
 This will also ease installation of newer versions of the server at a
 later date, by simply updating the link.

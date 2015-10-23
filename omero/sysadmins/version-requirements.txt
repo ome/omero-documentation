@@ -2,12 +2,12 @@
 Version requirements
 ********************
 
-Summary of changes for OMERO 5.1 and planned changes for 5.2
+Summary of changes for OMERO 5.2 and planned changes for 5.3
 ============================================================
 
 Criteria for what is considered to be supportable includes whether
 support by both upstream developers and operating system distributions
-will be available for the lifetime of the 5.1 release (including
+will be available for the lifetime of the 5.2 release (including
 security support), and also upon our resources allocated to CI and
 testing. If we are not actively testing it, we cannot claim it is
 supported or functional.  Software components must be provided and
@@ -15,8 +15,8 @@ supported either by an operating system distribution or their original
 developers.
 
 This section contains a summary of the changes made to the minimum
-version requirements for the 5.1 release and also planned changes for
-the following 5.2 release, albeit tentatively at this point.  The
+version requirements for the 5.2 release and also planned changes for
+the following 5.3 release, albeit tentatively at this point.  The
 intent is to provide a roadmap in order that sysadmins may plan ahead
 and ensure that prerequisites are in place ahead of time to ease
 future upgrades.  The following sections provide more detailed
@@ -27,59 +27,43 @@ Operating systems
 
 * Microsoft Windows
 
-  * [5.1] XP/Server 2003/Vista dropped, 7 (client) recommended /
-    Server 2008R2 (server) recommended
   * [5.2] 7 / Server 2008R2 supported, 8 (client) recommended / Server
     2012R2 (server) recommended
-  * Rationale: All prior versions prior to this are/will be out of
-    support shortly except Vista (which we do not test and is not
-    widely used). We have no testing of these older systems.
+  * [5.3] 7 / Server 2008R2 supported, 8 (client) recommended / Server
+    2012R2 (server) recommended
+  * Rationale: No change in this timeframe.
 
 * MacOS X
 
-  * [5.1] 10.6 and 10.7 dropped, 10.8 supported, 10.9 recommended,
-    10.10 supported
-  * [5.2] 10.8 deprecated, 10.9 supported, 10.10 recommended
-  * Support 10.8 for client only, test server only on 10.9/10.10 (for
-    5.1); test server only on 10.10+ for 5.2.
-  * Rationale: 10.6 and 10.7 no longer have security support and it
-    still leaves 3 versions to support. MacOS X is typically suited
-    only to client use, not serious server deployment, so limit
-    testing accordingly
+  * [5.2] 10.8 dropped. 10.9 deprecated, 10.10 recommended, 10.11 upcoming
+  * [5.3] 10.8 dropped, 10.9 deprecated, 10.10 supported , 10.11 recommended
+  * Test server only on 10.10+ for 5.2.
+  * Rationale: 10.8 no longer has security support and it still leaves 3
+    versions to support. MacOS X is typically suited only to client
+    use, not serious server deployment, so limit testing accordingly.
 
 * Linux (CentOS/RHEL)
 
-  * [5.1] 6.x recommended, 7.x supported
-  * [5.2] 7.x recommended, 6.x deprecated/dropped
-  * Rationale: 7 is quite new and not yet widely adopted, and so it is
-    likely many institutions will wish to continue using 6 for the
-    foreseeable future. However, the versions in 6 are getting quite
-    old and this does affect the support for other components (see
-    below); schedule its deprecation/dropping in 5.2 depending upon
-    the circumstances
+  * [5.2] 7.x recommended, 6.x supported
+  * [5.3] 7.x recommended, 6.x deprecated
+  * Rationale: There is still a significant CentOS 6 userbase, so retain
+    support for 5.2 and potentially continue to support for 5.3
+    depending upon demand and usage.
 
 * Linux (Ubuntu LTS)
 
-  * [5.1] 10.04 dropped, 12.04 deprecated, 14.04 recommended
   * [5.2] 12.04 dropped, 14.04 recommended
+  * [5.3] 12.04 dropped, 14.04 recommended
   * Only LTS versions are supported and tested. Non-LTS versions
     following a supported LTS release are likely to work but are not
     officially supported or tested.
-  * Rationale: Both are newer than CentOS/RHEL 6.x, so both could be
-    supported since all version requirements are satisfied. However,
-    14.04 comes with Ice 3.5 and is generally more up to date, and we
-    do not have testing in place for either at present. We do not have
-    the resources to test non-LTS versions, though recent releases are
-    in use by developers.
+  * Rationale: No change in this timeframe.
 
 * Linux (Debian)
 
-  * [5.1] 6 deprecated, 7 recommended
   * [5.2] 7 deprecated, 8 recommended
-  * Rationale: 6 is older than Ubuntu 12.04 and only has Ice 3.3;
-    extended support will be present for the 5.1 lifetime however so
-    will be usable if Ice is upgraded, but will not have official
-    support.
+  * [5.3] 7 deprecated, 8 recommended
+  * Rationale: No change in this timeframe.
 
 Bitness
 -------
@@ -87,71 +71,73 @@ Bitness
 Currently 32- and 64-bit systems are supported for client and server
 on all platforms with the exception of MacOS X (64-bit only).
 
-* [5.1] Drop 32-bit support for server, retain 32-bit support for
-  clients
-* [5.2] Drop 32-bit support for Ice and native code
-* Rationale: It’s not practical to run a server on a 32-bit system due
+* [5.2] Dropped 32-bit support for Ice and native code [server]
+* [5.3] Deprecate 32-bit support for Ice and native code [client]
+* Rationale: It is not practical to run a server on a 32-bit system due
   to its memory requirements, so it’s safe to drop 32-bit support for
-  OMERO.server in 5.1 given that it’s de-facto 64-bit-only
+  OMERO.server in 5.2 given that it is de-facto 64-bit-only
   today. There are still a significant number of 32-bit Windows
   clients (~60%), so support should be retained until this changes.
   Maintaining custom builds of Ice for 32-bit systems is extremely
-  costly, and so we could consider dropping them for 5.2.
+  costly, and so we could consider dropping them for 5.3.  This also
+  depends upon Ice support for 32-bit systems.
 
 Components
 ----------
 
 * PostgreSQL
 
-  * [5.1] 8.4/9.0/9.1 dropped, 9.2 deprecated, 9.3+ recommended
   * [5.2] 9.2 dropped, 9.3 deprecated, 9.4+ recommended
+  * [5.3] 9.2 dropped, 9.3 deprecated, 9.4+ recommended
   * Rationale: Current releases available for all supported systems
     from upstream and for CentOS/RHEL 6.x officially via SCL (software
-    collections). At a bare minimum, 8.4 and 9.0 must be dropped (end
-    of security support); dropping 9.1 removes the floating point
-    issues fixed by 9.2+. Due to its age, 8.4 no longer receives
-    adequate testing and so we can’t claim to support it. The same
-    applies to 9.0 and 9.1.  Given the annual release cycle, it would
-    make sense to deprecate 9.2 for 5.2.
+    collections).
 
 * Python
 
-  * [5.1] 2.6 deprecated, 2.7 recommended, 3.x not supported
-  * [5.2] 2.6 dropped, 2.7 recommended, 3.x not supported
+  * [5.2] 2.6 deprecated and not recommended, 2.7 recommended, 3.x not
+    supported
+  * [5.3] 2.6 dropped, 2.7 recommended, 3.x not supported
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
-    6.x, however it is available officially via SCL so could be made
-    the minimum. Note that 3.3 is also available via SCL, so there is
-    potential for a 3.x migration in the 5.2 timeframe. Dropping 2.6
-    would unify python support to a single major version, and remove a
-    number of portability issues; now it is restricted to CentOS/RHEL
-    6, in practice it is much less tested than 2.7 since no developer
-    is using it routinely. Removing 2.6 support will be dependent upon
-    internal testing of the SCL python in CentOS.
+    6.x, however it is available officially via SCL. Note that 3.3 is
+    also available via SCL, so there is potential for a 3.x migration
+    in the 5.3 timeframe. Dropping 2.6 for 5.3 unifies python support
+    with a single major version, and removes a number of portability
+    issues, but most importantly is a requirement of django 1.8.
+    Python 2.6 will continue to work for 5.2 with django 1.6, but this
+    not a recommended combination due to the potential for future
+    security vulnerabilities in the absence of security support.
 
 * GCC
 
-  * [5.1] 4.4 deprecated, 4.6+ supported, 4.8+ recommended
-  * [5.2] 4.4 dropped, 4.6+ deprecated, 4.8+ recommended
-  * Rationale: 4.4 is the CentOS/RHEL 6.x default. It would be
-    desirable to update but is probably not what external users will
-    want given the compatibility concerns. The SCL DeveloperToolset3
-    could bring this up to GCC 4.9.1, which would make the new
-    baseline GCC 4.6 (Ubuntu 12.04 and Travis).  The planned changes
-    for 5.2 depend upon our support of CentOS/RHEL 6.x and Ubuntu
-    12.04.
+  * [5.2] 4.4 dropped, 4.6+ deprecated, 4.8+ recommended, 5 supported
+  * [5.3] 4.6+ dropped, 4.8 and 4.9 supported, 5 recommended
+
+  * Rationale: 4.4 is the CentOS/RHEL 6.x default, 4.8 the 7.x
+    default. The SCL DeveloperToolset3 brings CentOS 6 up to GCC
+    4.9.1, which makes the new baseline GCC 4.6 (Ubuntu 12.04 and
+    Travis). This will allow use of a limited subset of C++11 features
+    across all platforms in 5.2+. The downside is that while programs
+    and libraries built with the SCL DeveloperToolset3 will generally
+    be link-compatible with the system libraries, use of these
+    libraries with end user code will require the DeveloperToolset3
+    toolchain and libraries.
+
+The planned changes for 5.2 depend upon our support of
+    CentOS/RHEL 6.x and Ubuntu 12.04.
 
 * LLVM/clang
 
-  * [5.1] 3.3 dropped, 3.4 recommended, 3.5 supported 
-  * [5.2] 3.4 supported, 3.5 recommended
+  * [5.2] 3.4 and 3.5 supported, 3.6 recommended and 3.7 supported
+  * [5.3] 3.4 deprecated, 3.5 and 3.6 supported, 3.7 recommended
   * Rationale: It is the current toolchain on MacOS/FreeBSD and is
     working well; 3.3 dropped due to no longer being used by current
     toolchains
 
 * Microsoft Visual Studio
 
-  * [5.1] 2010 deprecated, 2012 supported, 2013 recommended
   * [5.2] 2010 dropped, 2012 deprecated, 2013 recommended,
+  * [5.3] 2012 deprecated, 2013 recommended, 2015 supported
     2015 supported
   * Rationale: The minimum (and maximum) MSVC version is determined by
     the Windows Ice builds provided by ZeroC, and as such is limited
@@ -160,16 +146,16 @@ Components
 
 * Ice
 
-  * [5.1] 3.4 deprecated, 3.5 recommended, 3.6 not supported
-  * [5.2] 3.4 dropped, 3.5 deprecated, 3.6 recommended
+  * [5.2] 3.4 dropped, 3.5 deprecated, 3.6 not supported
+  * [5.3] 3.4 dropped, 3.5 deprecated, 3.6 recommended
   * Rationale: 3.4 is no longer supported by ZeroC with 3.5 being
     current. By the release of 5.2, Ice 3.6 will have been out for
     some time and should be well tested.
 
 * Java
 
-  * [5.1] 6 deprecated, 7 recommended, 8 supported
   * [5.2] 6 dropped, 7 deprecated, 8 recommended
+  * [5.3] 7 deprecated, 8 recommended
   * Rationale: It will be 2 years this February since the last Java 6
     security update. Java 7 is supported on all supported operating
     systems above, and in most cases is the default Java version on
@@ -180,26 +166,24 @@ Components
     or 8 (Oracle and OpenJDK), and there are some client issues with
     OpenJDK6.  Also note that Ice 3.6 drops Java 6 support.  For 5.2
     deprecate 7; this is because security support ends in April 2015.
-  * For MacOS X, separate application bundles for Java 6 and Java 7+
-    allow the use of Java 7 or 8 on all supported MacOS X versions.
   * The requirement for 7 in the Windows clients is less urgent, but
     will encourage migration to a non-deprecated Java version ahead of
     the removal of support for 6.
 
 * Apache
 
-  * [5.1] 2.2 supported, 2.4 recommended
   * [5.2] 2.2 deprecated, 2.4 recommended
-  * Rationale: 2.2 is the CentOS/RHEL 6.x and Ubuntu 12.04
-    version which will be deprecated in 5.2.
+  * [5.3] 2.4 recommended
+  * Rationale: 2.2 is the CentOS/RHEL 6.x and Ubuntu 12.04 version,
+    both of which will be dropped in 5.3 if CentOS 6 is dropped,
+    otherwise they will remain deprecated.
 
 * nginx
 
-  * [5.1] 1.0 deprecated, 1.2/1.4 supported, 1.6 recommended
-  * [5.2] 1.0 dropped, 1.2/1.4 deprecated, 1.6 recommemded
-  * Rationale: All versions work; 1.0 is the Ubuntu 12.04 version, 1.4
-    is the Ubuntu 14.04 and Debian 8 version.  Deprecate and drop for
-    5.2 accordingly.
+  * [5.2] 1.0 dropped, 1.2 deprecated, 1.4 supported, 1.6 recommemded
+  * [5.3] 1.2 dropped, 1.4 deprecated, 1.6 recommemded
+  * Rationale: 1.4 is the Ubuntu 14.04 and Debian 8 version.
+    Deprecate for 5.3 accordingly.
 
 Support levels
 ==============
@@ -271,15 +255,15 @@ Microsoft Windows
       - Release date
       - (mainline)
       - (extended)
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
+      - OMERO 5.3
       - Details
     * - XP
       - from Dec 2001
       - to Apr 2014
       - to Apr 2014
-      - Deprecated
+      - Dropped
       - Dropped
       - Dropped
       - `Ref <http://support.microsoft.com/lifecycle/?p1=12757>`__
@@ -287,7 +271,7 @@ Microsoft Windows
       - from May 2003
       - to Jul 2010
       - to Jul 2015
-      - Deprecated
+      - Dropped
       - Dropped
       - Dropped
       - `Ref <http://support.microsoft.com/lifecycle/?p1=10394>`__
@@ -295,7 +279,7 @@ Microsoft Windows
       - from Jan 2007
       - to Apr 2012
       - to Apr 2017
-      - Deprecated
+      - Dropped
       - Dropped
       - Dropped
       - `Ref <http://support.microsoft.com/lifecycle/?p1=11737>`__
@@ -304,7 +288,7 @@ Microsoft Windows
       - to Jan 2015
       - to Jan 2020
       - Recommended
-      - Recommended
+      - Supported
       - Supported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=14481>`__
     * - Server 2008 R2
@@ -312,23 +296,23 @@ Microsoft Windows
       - to Jan 2018
       - to Jan 2023
       - Recommended
-      - Recommended
+      - Supported
       - Supported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=17383>`__
     * - Win 8
       - from Oct 2012
       - to Jan 2018
       - to Jan 2023
-      - Upcoming
       - Supported
+      - Recommended
       - Recommended
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16799>`__
     * - Server 2012
       - from Oct 2012
       - to Jan 2018
       - to Jan 2023
-      - Upcoming
       - Supported
+      - Recommended
       - Recommended
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16526>`__
 
@@ -354,53 +338,44 @@ UNIX (MacOS X)
       - Release date
       - Upstream support
       - Homebrew support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
-    * - 10.6
-      - from Jun 2008
-      - Ended
-      - Ended
-      - Deprecated
-      - Dropped
-      - Dropped
-    * - 10.7
-      - from Oct 2010
-      - Ended
-      - Supported for the moment
-      - Deprecated
-      - Dropped
-      - Dropped
+      - OMERO 5.3
     * - 10.8
       - from Feb 2012
-      - Supported for the moment
-      - Supported
-      - Recommended
+      - Ended
+      - Ended
       - Deprecated
+      - Dropped
       - Dropped
     * - 10.9
       - from Jun 2013
       - Supported
       - Supported
-      - Supported
       - Recommended
       - Supported
+      - Deprecated
     * - 10.10
       - from Oct 2014
       - Supported
       - Supported
       - Supported
+      - Recommended
       - Supported
+    * - 10.11
+      - from Sep 2015
+      - Supported
+      - Supported
+      - Supported
+      - Upcoming
       - Recommended
 
 Apple do not formally announce end of life for their releases, but
-10.6 security fixes ended some time back, and 10.7 has now also ended
-with the release of 10.10. We have regular CI testing of 10.8, 10.9
-and 10.10 builds plus developer testing of building and client and
-server deployment. 10.6 and 10.7 are marked as dropped since we no
-longer use 10.6 internally, and never used 10.7, and they are no
-longer tested by the CI infrastructure (all 10.6 and 10.7 nodes
-retired).
+with the three latest releases being supported this puts 10.9 as the
+minimum version suitable for use.  We have regular CI testing of 10.9,
+10.10 and 10.11 builds plus developer testing of building and client
+and server deployment. 10.8 is marked as dropped since is is no longer
+longer tested by the CI infrastructure (node retired).
 
 UNIX (FreeBSD)
 --------------
@@ -409,7 +384,7 @@ It only really makes sense to support the base toolchain for major
 releases and the Ports tree (which is continually updated); these will
 be covered in the dependencies, below.
 
-Linux (Centos and RHEL)
+Linux (CentOS and RHEL)
 -----------------------
 
 General overview for `RHEL
@@ -424,9 +399,9 @@ General overview for `RHEL
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
+      - OMERO 5.3
       - Details
     * - 5
       - from Mar 2007
@@ -439,14 +414,14 @@ General overview for `RHEL
       - from Nov 2010
       - to Nov 2020
       - Recommended
-      - Recommended
-      - Dropped
+      - Supported
+      - Deprecated
       - `Ref <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 7
       - from June 2014
       - to June 2024
-      - Unsupported
       - Supported
+      - Recommended
       - Recommended
       - `Ref <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
@@ -482,70 +457,34 @@ Linux (Ubuntu)
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
-    * - 10.04 (.4) LTS
-      - from Apr 2010
-      - to Apr 2015 (server only)
-      - Deprecated
-      - Dropped
-      - Dropped
-    * - 10.10
-      - from Oct 2010
-      - to Apr 2012
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 11.04
-      - from Apr 2011
-      - to Oct 2012
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 11.10
-      - from Oct 2011
-      - to May 2013
-      - Dropped
-      - Dropped
-      - Dropped
+      - OMERO 5.3
     * - 12.04 (.4) LTS
       - from Apr 2012
       - to Apr 2017
-      - Recommended
       - Deprecated
-      - Dropped
-    * - 12.10
-      - from Oct 2012
-      - to May 2014
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 13.04
-      - from Apr 2013
-      - to Jan 2014
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 13.10
-      - from Oct 2013
-      - to Jul 2014
-      - Dropped
       - Dropped
       - Dropped
     * - 14.04 LTS
       - from Apr 2014
       - to Apr 2019
-      - Supported
+      - Recommended
       - Recommended
       - Recommended
     * - 14.10
       - from Oct 2014
       - to Jul 2015
-      - Supported
-      - Supported
-      - Supported
+      - Dropped
+      - Dropped
+      - Dropped
     * - 15.04
+      - TBA
+      - TBA
+      - Supported
+      - Supported
+      - Dropped
+    * - 15.10
       - TBA
       - TBA
       - Unsupported
@@ -571,36 +510,29 @@ Linux (Debian stable)
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
+      - OMERO 5.3
       - Details
-    * - 5.0
-      - from Feb 2009
-      - to Feb 2012
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Reference <https://www.debian.org/releases/lenny/>`__
     * - 6.0
       - from Feb 2011
       - to Feb 2016
-      - Supported
-      - Deprecated
+      - Dropped
+      - Dropped
       - Dropped
       - `Reference <https://www.debian.org/releases/squeeze/>`__
     * - 7.0
       - from May 2013
       - TBA
       - Recommended
-      - Recommended
+      - Deprecated
       - Deprecated
       - `Reference <https://www.debian.org/releases/wheezy/>`__
     * - 8.0
       - TBA
       - TBA
       - Unsupported
-      - Unsupported
+      - Supported
       - Supported
       - `Reference <https://www.debian.org/releases/jessie/>`__
 
@@ -723,44 +655,26 @@ PostgreSQL
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
-    * - 8.4
-      - from Jul 2009
-      - to Jul 2014
-      - Deprecated
-      - Dropped
-      - Dropped
-    * - 9.0
-      - from Sep 2010
-      - to Sep 2015
-      - Deprecated
-      - Dropped
-      - Dropped
-    * - 9.1
-      - from Sep 2011
-      - to Sep 2016
-      - Deprecated
-      - Dropped
-      - Dropped
+      - OMERO 5.3
     * - 9.2
       - from Sep 2012
       - to Sep 2017
-      - Recommended
       - Deprecated
+      - Dropped
       - Dropped
     * - 9.3
       - from Sep 2013
       - to Sep 2018
-      - Supported
       - Recommended
+      - Deprecated
       - Deprecated
     * - 9.4
       - from Dec 2014
       - to Dec 2019
-      - Unsupported
       - Supported
+      - Recommended
       - Recommended
     * - 9.5
       - TBA
@@ -790,27 +704,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 8.4
-      - 6.x
-      - N/A
-      - 10.04, 12.04
-      - 6.0, 7.0
-      - Yes
-      - Yes
-    * - 9.0
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - Yes
-      - Yes
-    * - 9.1
-      - N/A
-      - N/A
-      - 12.04, 13.04, 13.10
-      - 7.0, (8.0), 6.0 bpo
-      - Yes
-      - Yes
     * - 9.2
       - 7.x
       - 19
@@ -863,22 +756,14 @@ Python
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
+      - OMERO 5.3
       - Details
-    * - 2.5
-      - from Sep 2006
-      - to Oct 2011
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Reference <https://mail.python.org/pipermail/python-committers/2011-October/001844.html>`__
-        `Download <https://www.python.org/download/releases/2.5/>`__
     * - 2.6
       - from Oct 2008
       - to Oct 2013
-      - Supported
+      - Deprecated
       - Deprecated
       - Dropped
       - `Reference <http://legacy.python.org/dev/peps/pep-0361/>`__
@@ -889,20 +774,6 @@ Python
       - Recommended
       - Recommended
       - `Reference <http://legacy.python.org/dev/peps/pep-0373/>`__
-    * - 3.0
-      - from Dec 2008
-      - to Feb 2009
-      - Unsupported
-      - Unsupported
-      - Unsupported
-      - `Reference <http://legacy.python.org/dev/peps/pep-0361/>`__
-    * - 3.1
-      - from Jun 2009
-      - to June 2014
-      - Unsupported
-      - Unsupported
-      - Unsupported
-      - `Reference <http://legacy.python.org/dev/peps/pep-0375/>`__
     * - 3.2
       - from Feb 2011
       - to Feb 2016
@@ -947,13 +818,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 2.5
-      - N/A
-      - N/A
-      - N/A
-      - 6.0
-      - N/A
-      - N/A
     * - 2.6
       - 6.x
       - N/A
@@ -968,20 +832,6 @@ Distribution support
       - 7.0, (8.0)
       - Yes
       - Yes
-    * - 3.0
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-    * - 3.1
-      - N/A
-      - N/A
-      - 10.04
-      - 6.0
-      - N/A
-      - N/A
     * - 3.2
       - N/A
       - N/A
@@ -1026,8 +876,15 @@ future; 3.x versions continue to be released and retired regularly in
 parallel. The limiting factor will be distribution support for 2.7 as
 major packages are slowly switching to 3.x, and this might cause
 problems if our python module dependencies are no longer available
-without major effort. Ice in particular has dropped 2.7 support for
-Windows, and has a significant cost in providing custom rebuilds.
+without major effort. Ice 3.5 in particular has dropped 2.7 support
+for Windows, and has a significant cost in providing custom rebuilds;
+this has been rectified in Ice 3.6 with the Python module being
+installable with ``pip`` using any Python version.
+
+The supported version of the django module used by OMERO.web (1.8)
+requires Python 2.7.  The older version (1.6) will work with Python
+2.6 but lacks security support, and is consequently not recommended
+for production use..
 
 GCC
 ---
@@ -1042,63 +899,51 @@ GCC
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
-    * - 4.2
-      - from May 2007
-      - to May 2008
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 4.3
-      - from Mar 2008
-      - to Jun 2011
-      - Dropped
-      - Dropped
-      - Dropped
+      - OMERO 5.3
     * - 4.4
       - from Apr 2009
       - to Mar 2012
-      - Supported
       - Deprecated
+      - Dropped
       - Dropped
     * - 4.5
       - from Apr 2010
       - to Jul 2012
-      - Supported
       - Deprecated
+      - Dropped
       - Dropped
     * - 4.6
       - from Mar 2011
       - to Apr 2013
       - Supported
-      - Supported
       - Deprecated
+      - Dropped
     * - 4.7
       - from Mar 2012
       - to Apr 2013
       - Supported
-      - Supported
       - Deprecated
+      - Dropped
     * - 4.8
       - from Mar 2013
       - to May 2014
-      - Supported
       - Recommended
       - Recommended
+      - Deprecated
     * - 4.9
       - from Apr 2014
+      - to Jun 2015
+      - Recommended
+      - Recommended
+      - Supported
+    * - 5
+      - from Apr 2015
       - TBA
+      - Unsupported
       - Supported
       - Recommended
-      - Recommended
-    * - 5.0
-      - TBA
-      - TBA
-      - Unsupported
-      - Unsupported
-      - Upcoming
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
@@ -1115,20 +960,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 4.2
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - Yes
-      - N/A
-    * - 4.3
-      - N/A
-      - N/A
-      - 10.04
-      - 6.0
-      - Yes
-      - N/A
     * - 4.4
       - 6.x
       - N/A
@@ -1202,45 +1033,33 @@ LLVM/clang
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
-    * - 3.1
-      - from May 2012
-      - to May 2012
-      - Unsupported
-      - Unsupported
-      - Unsupported
-    * - 3.2
-      - from Dec 2012
-      - to Dec 2012
-      - Unsupported
-      - Unsupported
-      - Unsupported
-    * - 3.3
-      - from Jen 2013
-      - to Jen 2013
-      - Deprecated
-      - Dropped
-      - Dropped
+      - OMERO 5.3
     * - 3.4
       - from Jan 2014 to May 2014
       - from Jan 2014 to May 2014
       - Recommended
-      - Recommended
+      - Supported
       - Supported
     * - 3.5
       - from Sep 2014
       - to Sep 2014
+      - Supported
+      - Recommended
+      - Supported
+    * - 3.6
+      - from Feb 2015
+      - to Jul 2015
       - Unsupported
       - Supported
       - Recommended
-    * - 3.6
-      - TBA
+    * - 3.7
+      - from Sep 2015
       - TBA
       - Unsupported
       - Unsupported
-      - Upcoming
+      - Supported
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
@@ -1257,27 +1076,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 3.1
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - Yes
-      - N/A
-    * - 3.2
-      - N/A
-      - N/A
-      - 13.04, 13.10
-      - N/A
-      - Yes
-      - Yes
-    * - 3.3
-      - N/A
-      - 19
-      - 12.04, 13.10, 14.04. 14.10, (15.04)
-      - (8.0)
-      - Yes
-      - Yes
     * - 3.4
       - N/A
       - 20, 21
@@ -1299,6 +1097,13 @@ Distribution support
       - (8.0)
       - N/A
       - N/A
+    * - 3.7
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
     * - Details
       - 
       - `Ref <https://apps.fedoraproject.org/packages/clang>`__
@@ -1307,10 +1112,11 @@ Distribution support
       - 
       - 
 
-Note that clang++ 3.3 is used in MacOS 10.8 and FreeBSD 10; earlier
-versions were not much used as a default compiler and are probably not
-worth supporting; 3.4 is used in MacOS X 10.9 and 10.10 and in FreeBSD
-10.1. Until 3.4, no point releases were made for major versions.
+Note that clang++ 3.4 is used in FreeBSD 10.1 and MacOS 10.9 and
+10.10.  clang++ 3.6 is used in MacOS 10.10 and 10.11 (Xcode 7).  Also
+note that the MacOS version deviates from the official releases and
+has some features disabled or crippled such as the address sanitizer
+and OpenMP.
 
 Microsoft Visual Studio
 -----------------------
@@ -1333,48 +1139,41 @@ Microsoft Visual Studio
       - Release date
       - (mainline)
       - (extended)
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
-    * - 2008
-      - from Aug 2008
-      - to Apr 2013
-      - to Apr 2018
-      - Unsupported
-      - Unsupported
-      - Unsupported
+      - OMERO 5.3
     * - 2010
       - from Jun 2010
       - to Jul 2015
       - to Jul 2020
-      - Supported
       - Deprecated
+      - Dropped
       - Dropped
     * - 2012
       - from Oct 2012
       - to Jan 2018
       - to Jan 2023
       - Supported
-      - Supported
-      - Supported
+      - Deprecated
+      - Deprecated
     * - 2013
       - from Jan 2014
       - to Apr 2019
       - to Apr 2024
       - Recommended
       - Recommended
-      - Recommended
+      - Supported
     * - 2015
-      - from TBA
-      - to TBA
-      - to TBA
+      - from Jun 2015
+      - to Oct 2020
+      - to Oct 2025
       - Unsupported
       - Unsupported
       - Supported
 
 The version to use is largely dependent upon the Ice support for a particular Visual Studio version.
 
-- Ice 3.6 supports 2013 and 2012
+- Ice 3.6 supports 2015, 2013 and 2012
 - Ice 3.5 supports 2013, 2012 and 2010
 - Ice 3.4 supports 2010 and 2008
 
@@ -1396,8 +1195,8 @@ Ice
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
+      - OMERO 5.2
       - OMERO 5.2
       - Details
     * - 3.3
@@ -1411,8 +1210,8 @@ Ice
     * - 3.4
       - from Mar 2010
       - to Jun 2011
-      - Supported
       - Deprecated
+      - Dropped
       - Dropped
       - :zerocforum:`Ice 3.4 <announcements/4946-ice-3-4-released>`
         :zerocforum:`Ice 3.4.2 <announcements/5541-ice-3-4-2-released>`
@@ -1420,7 +1219,7 @@ Ice
       - from Mar 2013
       - to Oct 2013
       - Recommended
-      - Recommended
+      - Deprecated
       - Deprecated
       - :zerocforum:`Ice 3.5 <announcements/6093-ice-3-5-0-released>`
         :zerocforum:`Ice 3.5.1 <announcements/6283-ice-3-5-1-released>`
@@ -1490,35 +1289,28 @@ Java
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
+      - OMERO 5.3
       - Details
-    * - 5
-      - from May 2004
-      - to Oct 2009
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 6
       - from Dec 2006
       - to Feb 2013
-      - Supported
       - Deprecated
+      - Dropped
       - Dropped
       - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 7
       - From Jul 2011
       - to Apr 2015
-      - Recommended
       - Supported
+      - Deprecated
       - Deprecated
       - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 8
       - From Mar 2014
       - to Mar 2017
-      - Supported
+      - Recommended
       - Recommended
       - Recommended
       - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
@@ -1538,13 +1330,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 5
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
     * - 6
       - 6.x, 7.x
       - N/A
@@ -1599,9 +1384,9 @@ OpenGL
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
+      - OMERO 5.3
     * - 2.0
       - in Sep 2004
       - N/A
@@ -1826,25 +1611,19 @@ Apache
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
-    * - 2.0
-      - from Nov 2001
-      - to Jul2013
-      - Dropped
-      - Dropped
-      - Dropped
+      - OMERO 5.3
     * - 2.2
       - from Dec 2005
       - TBA
-      - Recommended
+      - Supported
       - Supported
       - Supported
     * - 2.4
       - from Feb 2012
       - TBA
-      - Supported
+      - Recommended
       - Recommended
       - Recommended
 
@@ -1863,13 +1642,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 2.0
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
-      - N/A
     * - 2.2
       - 6.x
       - N/A
@@ -1909,31 +1681,31 @@ nginx
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.0
       - OMERO 5.1
       - OMERO 5.2
+      - OMERO 5.3
     * - 1.0
       - from Apr 2011
       - to Apr 2012
-      - Supported
       - Deprecated
+      - Dropped
       - Dropped
     * - 1.2
       - from Apr 2012
       - to May 2013
       - Supported
-      - Supported
+      - Deprecated
       - Deprecated
     * - 1.4
       - from Apr 2013
       - to Mar 2014
-      - Recommended
+      - Supported
       - Supported
       - Supported
     * - 1.6
       - from Apr 2014
       - TBA
-      - Supported
+      - Recommended
       - Recommended
       - Recommended
 

@@ -190,6 +190,7 @@ rst_epilog = """
 .. _Matplotlib: http://matplotlib.org/
 .. _Python: http://www.python.org
 .. _Libjpeg: http://libjpeg.sourceforge.net/
+.. _Django: https://www.djangoproject.com/
 
 .. |SSH| replace:: :abbr:`SSH (Secure Shell)`
 .. |VM| replace:: :abbr:`VM (Virtual Machine)`
