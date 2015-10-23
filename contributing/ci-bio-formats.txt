@@ -111,7 +111,7 @@ The branch for the 5.1.x series of Bio-Formats is dev_5_1.
 
         :jenkinsjob:`BIOFORMATS-5.1-latest`
 
-            This job builds the dev_5_1 branch of Bio-Formats
+                This job builds the dev_5_1 branch of Bio-Formats
 
                 #. |buildBF|
                 #. |testBF|
@@ -126,8 +126,8 @@ The branch for the 5.1.x series of Bio-Formats is dev_5_1.
 
         :jenkinsjob:`BIOFORMATS-5.1-latest-generated-sources`
 
-            This job builds the generated sources of Bio-Formats for the 
-            dev_5_1 branch
+                This job builds the generated sources of Bio-Formats for the
+                dev_5_1 branch
 
                 #. Builds the Java generated sources using ``ant clean ome-xml-src``
                 #. Builds the C++ generated sources using ``cmake .. && make gensrc``
@@ -296,7 +296,7 @@ The branch for the 5.2.x series of Bio-Formats is develop.
 
         :jenkinsjob:`BIOFORMATS-DEV-latest`
 
-            This job builds the develop branch of Bio-Formats
+                This job builds the develop branch of Bio-Formats
 
                 #. |buildBF|
                 #. |testBF|
@@ -311,8 +311,8 @@ The branch for the 5.2.x series of Bio-Formats is develop.
 
         :jenkinsjob:`BIOFORMATS-DEV-latest-generated-sources`
 
-            This job builds the generated sources of Bio-Formats for the 
-            develop branch
+                This job builds the generated sources of Bio-Formats for the 
+                develop branch
 
                 #. Builds the Java generated sources using ``ant clean ome-xml-src``
                 #. Builds the C++ generated sources using ``cmake .. && make gensrc``
