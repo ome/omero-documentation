@@ -14,10 +14,9 @@ Java bindings available on the classpath.
 
 The required :file:`.jar` files can be obtained in a number of ways:
 
-* manually from the OME
-  `Artifactory server <http://artifacts.openmicroscopy.org/artifactory>`_. All
-  available artifacts and their POM files can be browsed using the
-  `maven repository
+* manually from the `OME artifactory`_. All available artifacts and their POM
+  files can be browsed using the
+  `Maven repository
   <http://artifacts.openmicroscopy.org/artifactory/maven/>`_.
 * using the :file:`OMERO.java` ZIP file downloaded from the
   :downloads:`Java <#java>` section of the OMERO download page.

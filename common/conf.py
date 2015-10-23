@@ -183,6 +183,7 @@ rst_epilog = """
 .. _Ice: https://zeroc.com
 .. _Jenkins: http://jenkins-ci.org
 .. _roadmap: https://trac.openmicroscopy.org/ome/roadmap
+.. _OME artifactory: http://artifacts.openmicroscopy.org
 .. _Open Microscopy Environment: http://www.openmicroscopy.org/site
 .. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
 .. _Pillow: http://pillow.readthedocs.org
