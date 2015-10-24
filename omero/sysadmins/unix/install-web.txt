@@ -44,18 +44,16 @@ Deployment
 
 There is a number of good ways to easily deploy OMERO.web.
 If you have installed Nginx or Apache OMERO can automatically generate a
-configuration file for your web server, see :doc:`install-web/install-wsgi`
-(or :doc:`install-web/install-fastcgi`). The location of the file will depend
-on your system, please refer to your web server's manual. See
-:ref:`customizing_your_omero_web_installation_unix` for additional
-customization options.
+configuration file for your web server, see :doc:`install-web/install-wsgi`.
+The location of the file will depend on your system, please refer to your web
+server's manual. See :ref:`customizing_your_omero_web_installation_unix` for
+additional customization options.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
     install-web/install-wsgi
-    install-web/install-fastcgi
 
 
 Logging in to OMERO.web
@@ -155,8 +153,7 @@ This can be changed by setting :property:`omero.web.prefix` and
     $ bin/omero config set omero.web.prefix '/omero'
     $ bin/omero config set omero.web.static_url '/omero/static/'
 
-and regenerate your web-server configuration
-(see :ref:`fastcgi_configuration` or :ref:`wsgi_configuration`).
+and regenerate your web-server configuration (see :ref:`wsgi_configuration`).
 
 The front-end webserver (Nginx, Apache) can be setup to run on a different
 host from OMERO.web. You will need to set

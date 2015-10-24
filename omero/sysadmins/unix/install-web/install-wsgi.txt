@@ -31,9 +31,9 @@ configuration redirect the output of the following command into a file:
 
 ::
 
-    $ bin/omero web config apache-wsgi
+    $ bin/omero web config apache
 
-.. literalinclude:: apache-wsgi-omero.conf
+.. literalinclude:: apache-omero.conf
    :lines: 55-
 
 To configure an HTTPS server follow
@@ -59,9 +59,9 @@ configuration redirect the output of the following command into a file:
 
 ::
 
-    $ bin/omero web config nginx-wsgi
+    $ bin/omero web config nginx
 
-.. literalinclude:: nginx-wsgi-omero.conf
+.. literalinclude:: nginx-omero.conf
 
 .. note::
     OMERO.web requires ``body_in_file_only`` adjusted in your default nginx 
