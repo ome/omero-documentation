@@ -17,10 +17,6 @@ with:
    `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
 -  The built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page).
--  FastCGI is DEPRECATED as of 5.1.4 and note that support will be removed in
-   5.2. You can find more information about FastCGI and where to get modules
-   or packages for your distribution on the
-   `FastCGI website <http://www.fastcgi.com/drupal/node/3>`_.
 
 If you need help configuring your firewall rules, see the
 :doc:`/sysadmins/server-security` page.

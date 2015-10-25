@@ -65,7 +65,7 @@ using the following command:
 
 ::
 
-    $ bin/omero web config nginx-wsgi-development > nginx-wsgi-development.conf
+    $ bin/omero web config nginx-development > nginx-development.conf
 
 Start nginx and the Gunicorn worker processes running one thread
 listening on 127.0.0.1:4080 that will autoreload on source change:
@@ -76,28 +76,5 @@ listening on 127.0.0.1:4080 that will autoreload on source change:
     $ bin/omero config set omero.web.application_server 'wsgi-tcp'
     $ bin/omero config set omero.web.application_server.max_requests 1
     $ bin/omero web start  --wsgi-args ' --reload'
-
-Using FastCGI (Unix/Linux) (DEPRECATED)
----------------------------------------
-
-.. deprecated:: 5.1.4
-    OMERO.web deployment using FastCGI
-    is deprecated and will be removed in OMERO 5.2.
-    Use :ref:`wsgi_configuration` as an alternative.
-
-
-As above, install Nginx (See :doc:`/sysadmins/unix/install-web`) but generate
-a configuration file using the following command:
-
-::
-
-    $ bin/omero web config nginx-development > nginx-development.conf
-
-Start nginx, and the Django FASTCGI workers:
-
-::
-
-    $ nginx -c $PWD/nginx-development.conf
-    $ bin/omero web start
 
 Next: Get started by :doc:`/developers/Web/CreateApp`....
