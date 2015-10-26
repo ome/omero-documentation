@@ -51,11 +51,13 @@ actual database user and database name for your installation.
 OMERO.web configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+Check :ref:`unix_omero_web_deployment` or :ref:`windows_omero_web_deployment`,
+what is the most recent OMERO.web deployment on your platform.
 If you generated configuration stanzas using :omerocmd:`web config` which
 enable OMERO.web via Apache or Nginx, they may include hard-coded links to
 your previous version of OMERO. We recommend using a future-proof symlink
 if possible, so that these stanzas do not need updating with each OMERO
-server upgrade. See also the :doc:`unix/install-web` page.
+server upgrade.
 
 Web plugin updates
 ^^^^^^^^^^^^^^^^^^
@@ -263,15 +265,16 @@ See :ref:`jvm_memory_settings` for more information.
 OMERO.web server configuration
 """"""""""""""""""""""""""""""
 
-The generated web-server configurations for Nginx and Apache have been
-revised in OMERO 5.1. It is highly recommended that you regenerate your
-:ref:`wsgi_configuration`, remembering to merge in any of your own
+The FastCGI support was removed in OMERO 5.2 and OMERO.web can be deployed
+using WSGI :ref:`unix_omero_web_deployment`. If you already deployed
+OMERO.web using WSGI it is highly recommended that you regenerate your
+:ref:`unix_omero_web_deployment`, remembering to merge in any of your own
 modifications if necessary. See :doc:`/sysadmins/whatsnew` for details
 of changes.
 
 If necessary ensure you have set up a regular task to clear out any stale
-OMERO.web session files as described in :ref:`unix_omero_web_maintenance`.
-
+OMERO.web session files as described in :ref:`unix_omero_web_maintenance`
+or :ref:`windows_omero_web_maintenance`.
 
 Restart your server
 ^^^^^^^^^^^^^^^^^^^
