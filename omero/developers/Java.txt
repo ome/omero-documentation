@@ -586,38 +586,27 @@ to an image.
     ROIFacility roifac = gateway.getFacility(ROIFacility.class);
 
     //To retrieve the image see above.
-    Roi roi = new RoiI();
-    roi.setImage(image);
-    Rect rect;
-    rect = new RectI();
-    rect.setX(omero.rtypes.rdouble(10));
-    rect.setY(omero.rtypes.rdouble(10));
-    rect.setWidth(omero.rtypes.rdouble(10));
-    rect.setHeight(omero.rtypes.rdouble(10));
-    rect.setTheZ(omero.rtypes.rint(0));
-    rect.setTheT(omero.rtypes.rint(0));
 
-    //Add the shape
-    roi.addShape(rect);
+    ROIData data = new ROIData();
+    data.setImage(image);
+    //Create a rectangle.
+    RectangleData rectangle = new RectangleData(10, 10, 10, 10);
+    rectangle.setZ(0);
+    rectangle.setT(0);
+    data.addShapeData(rectangle);
 
-    // Create an ellipse.
-    EllipseI ellipse = new EllipseI();
-    ellipse.setCx(omero.rtypes.rdouble(10));
-    ellipse.setCy(omero.rtypes.rdouble(10));
-    ellipse.setRx(omero.rtypes.rdouble(10));
-    ellipse.setRy(omero.rtypes.rdouble(10));
-    ellipse.setTheZ(omero.rtypes.rint(0));
-    ellipse.setTheT(omero.rtypes.rint(0));
-    ellipse.setTextValue(omero.rtypes.rstring("ellipse text"));
-
-    // Add the shape
-    roi.addShape(ellipse);
+    //Create an ellipse.
+    EllipseData ellipse = new Ellipse(10, 10, 10, 10);
+    ellipse.setZ(0);
+    ellipse.setT(0);
+    ellipse.setText("ellipse text");
+    data.addShapeData(ellipse);
 
     // Save ROI and shape
-    ROIData roiData = roifac.saveROIs(ctx, image.getId(), Arrays.asList(new ROIData(roi))).iterator().next();
+    ROIData roiData = roifac.saveROIs(ctx, image.getId(), Arrays.asList(data)).iterator().next();
 
-    // now check that the shape has been added.
-    // Retrieve the shape on plane (z, t) = (0, 0)
+    //now check that the shape has been added.
+    //Retrieve the shape on plane (z, t) = (0, 0)
     List<ShapeData> shapes = roiData.getShapes(0, 0);
     Iterator<ShapeData> i = shapes.iterator();
     while (i.hasNext()) {
