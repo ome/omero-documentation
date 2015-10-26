@@ -187,10 +187,9 @@ Note that the wells are not loaded.
         }
     }
 
--  **Retrieve Wells within a Plate**.
+-  **Retrieve Wells within a Plate.**
 
-Given a plate ID, load the wells. You will have to use the
-``findAllByQuery`` method from the ``IQuery`` service.
+Given a plate ID, load the wells.
 
 ::
 
@@ -208,9 +207,9 @@ Given a plate ID, load the wells. You will have to use the
 Raw data access
 ---------------
 
--  **Retrieve a given plane**.
+-  **Retrieve a given plane.**
 
-This is useful when you need the pixels intensity.
+This is useful when you need for example the pixels intensity.
 
 ::
 
@@ -292,7 +291,7 @@ This is useful when you need the pixels intensity.
     size.add(pixels.getSizeC());
     size.add(pixels.getSizeT());
 
-    // indicate the step in each direction, step = 1, 
+    //indicate the step in each direction, step = 1, 
     //will return values at index 0, 1, 2.
     //step = 2, values at index 0, 2, 4 etc.
     List<Integer> step = new ArrayList<Integer>();
