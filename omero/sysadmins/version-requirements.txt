@@ -103,8 +103,8 @@ Components
     also available via SCL, so there is potential for a 3.x migration
     in the 5.3 timeframe. Dropping 2.6 for 5.3 unifies python support
     with a single major version, and removes a number of portability
-    issues, but most importantly is a requirement of Django 1.8.
-    Python 2.6 will continue to work for 5.2 with Django 1.6, but this
+    issues, but most importantly is a requirement of `Django 1.8`_.
+    Python 2.6 will continue to work for 5.2 with `Django 1.6`_, but this
     not a recommended combination due to the potential for future
     security vulnerabilities in the absence of security support.
 

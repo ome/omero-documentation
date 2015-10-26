@@ -69,7 +69,7 @@ working with your IIS deployment.
    .. note::  You can make manual changes to the IIS OMERO configuration
        but they may be lost when OMERO.server is upgraded.
 
-   .. note::  As OMERO.web 5 is based on Django 1.6,
+   .. note::  As OMERO.web 5 is based on `Django 1.6`_,
        :property:`omero.web.session_engine` and 
        :property:`omero.web.caches` should be unset.
 

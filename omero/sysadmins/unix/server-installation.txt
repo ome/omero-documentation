@@ -216,7 +216,7 @@ The following Python packages are required:
        OMERO.web (1.8) requires Python 2.7.  The older version (1.6)
        will work with Python 2.6 but lacks security support, and is
        consequently *not recommended for production use*. Python 2.7
-       and django 1.8 are required for security support.
+       and `Django 1.8`_ are required for security support.
 
 .. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ installed when building `Pillow`_.
 

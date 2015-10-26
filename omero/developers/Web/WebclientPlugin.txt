@@ -267,14 +267,13 @@ are three things to consider:
 URLs in templates
 ^^^^^^^^^^^^^^^^^
 
-The `url` tag has `changed in Django 1.8
-<https://docs.djangoproject.com/en/dev/releases/1.5/#overview>`_ from
-`{% url myview %}` to `{% url 'myview' %}`. In order for your OMERO 4.4.x
-install to understand the new syntax, it is simply a matter of adding
-`{% load url from future %}` to the top of the template file. By using the
-new-style syntax and the `{% load url from future %}` the template
-will be valid in both OMERO 4.4.x and OMERO 5. The
-`{% load url from future %}` line does no harm when used on Django 1.8.
+The :djangodoc:`url tag <ref/templates/builtins/#url>` has changed in
+`Django 1.8`_ from `{% url myview %}` to `{% url 'myview' %}`. In order
+for your OMERO 4.4.x install to understand the new syntax, it is simply
+a matter of adding `{% load url from future %}` to the top of the template
+file. By using the new-style syntax and the `{% load url from future %}`
+the template will be valid in both OMERO 4.4.x and OMERO 5. The
+`{% load url from future %}` line does no harm when used on `Django 1.8`_.
 
 URL imports
 ^^^^^^^^^^^
@@ -308,7 +307,7 @@ in the plugin's :file:`settings.py` like so:
         ["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]
     )
 
-This is no longer possible in OMERO 5 with Django 1.8 and it is necessary to
+This is no longer possible in OMERO 5 with `Django 1.8`_ and it is necessary to
 use :omerocmd:`config set` to change this setting as documented here:
 :ref:`Plugin Installation <plugin-installation-label>`.
 
