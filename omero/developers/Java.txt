@@ -277,7 +277,7 @@ This is useful when you need the pixels intensity.
 
     PixelsData pixels = image.getDefaultPixels();
     long pixelsId = pixels.getId();
-    // offset values in each dimension XYZCT
+    //offset values in each dimension XYZCT
     List<Integer> offset = new ArrayList<Integer>();
     int n = 5;
     for (int i = 0; i < n; i++) {
@@ -318,7 +318,7 @@ Write data
     dataset.setName(omero.rtypes.rstring("new Name 1"));
     dataset.setDescription(omero.rtypes.rstring("new description 1"));
         
-    //Using the model object
+    //Using the model object (recommended)
     DatasetData datasetData = new DatasetData();
     datasetData.setName("new Name 2");
     datasetData.setDescription("new description 2");
@@ -344,7 +344,7 @@ Write data
     tag.setTextValue(omero.rtypes.rstring("new tag 1"));
     tag.setDescription(omero.rtypes.rstring("new tag 1"));
         
-    //Using the model object
+    //Using the model object (recommended)
     TagAnnotationData tagData = new TagAnnotationData("new tag 2");
     tagData.setTagDescription("new tag 2");
         
@@ -636,7 +636,7 @@ to an image.
 
     ROIFacility roifac = gateway.getFacility(ROIFacility.class);
 
-    // Retrieve the roi linked to an image
+    //Retrieve the roi linked to an image
     List<ROIResult> roiresults = roifac.loadROIs(ctx, image.getId());
     ROIResult r = roiresults.iterator().next();
     if (r == null) return;
@@ -656,7 +656,7 @@ to an image.
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
     ROIFacility roifac = gateway.getFacility(ROIFacility.class);
 
-    // Retrieve the roi linked to an image
+    //Retrieve the roi linked to an image
     List<ROIResult> roiresults = roifac.loadROIs(ctx, image.getId());
     ROIResult r = roiresults.iterator().next();
     List<Roi> rois = r.rois;
@@ -680,7 +680,7 @@ It is possible to delete Projects, datasets, images, ROIs etc. and
 objects linked to them depending on the specified options (see
 :doc:`/developers/Modules/Delete`).
 
--  **Delete Image**.
+-  **Delete Image.**
 
 In the following example, we create an image and delete it.
 
@@ -688,13 +688,13 @@ In the following example, we create an image and delete it.
 
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
     
-    // First create an image.
-    Image img = new ImageI();
-    img.setName(omero.rtypes.rstring("image1"));
-    img.setDescription(omero.rtypes.rstring("descriptionImage1"));
-    img = (Image) dm.saveAndReturnObject(ctx, img);
+    //First create an image.
+    ImageData img = new ImageData();
+    img.setName("image1");
+    img.setDescription("descriptionImage1");
+    IObject object = dm.saveAndReturnObject(ctx, img.asIObject());
 
-    Response rsp = dm.deleteObject(ctx, img);
+    Response rsp = dm.deleteObject(ctx, object);
 
 Render Images
 -------------
@@ -713,16 +713,16 @@ Render Images
         proxy.lookupRenderingDef(pixelsId);
     }
     proxy.load();
-    // Now can interact with the rendering engine.
+    //Now can interact with the rendering engine.
     proxy.setActive(0, Boolean.valueOf(false));
     PlaneDef pDef = new PlaneDef();
     pDef.z = 0;
     pDef.t = 0;
     pDef.slice = omero.romio.XY.value;
-    // render the data uncompressed.
+    //render the data uncompressed.
     int[] uncompressed = proxy.renderAsPackedInt(pDef);
     byte[] compressed = proxy.renderCompressed(pDef);
-    // Create a buffered image
+    //Create a buffered image
     ByteArrayInputStream stream = new ByteArrayInputStream(compressed);
     BufferedImage image = ImageIO.read(stream);
     proxy.close();
@@ -756,7 +756,7 @@ in OMERO. Similar approach can be applied when uploading an image.
 
 ::
 
-    // See above how to load an image.
+    //See above how to load an image.
     PixelsData pixels = image.getDefaultPixels();
     int sizeZ = pixels.getSizeZ();
     int sizeT = pixels.getSizeT();
@@ -765,7 +765,7 @@ in OMERO. Similar approach can be applied when uploading an image.
     int sizeY = pixels.getSizeY();
     long pixelsId = pixels.getId();
 
-    // Read the pixels from the source image.
+    //Read the pixels from the source image.
     RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
     store.setPixelsId(pixelsId, false);
 
@@ -777,10 +777,10 @@ in OMERO. Similar approach can be applied when uploading an image.
         }
     }
 
-    // Better to close to free space.
+    //Better to close to free space.
     store.close();
 
-    // Now we are going to create the new image.
+    //Now we are going to create the new image.
     IPixelsPrx proxy = gateway.getPixelsService(ctx);
 
     //Search for PixelsType object matching the source image.
@@ -799,7 +799,7 @@ in OMERO. Similar approach can be applied when uploading an image.
     if (type == null)
         throw new Exception("Pixels Type not valid.");
 
-    // Create new image.
+    //Create new image.
     String name = "newImageFrom"+image.getId();
     RLong idNew = proxy.createImage(sizeX, sizeY, sizeZ, sizeT, Arrays.asList(0), type, name,
             "From Image ID: "+image.getId());
@@ -810,13 +810,13 @@ in OMERO. Similar approach can be applied when uploading an image.
                     Arrays.asList(idNew.getValue()), new ParametersI());
     ImageData newImage = new ImageData(results.get(0));
 
-    // Link the new image and the dataset hosting the source image.
+    //Link the new image and the dataset hosting the source image.
     DatasetImageLink link = new DatasetImageLinkI();
     link.setParent(new DatasetI(datasetId, false));
     link.setChild(new ImageI(newImage.getId(), false));
     gateway.getUpdateService(ctx).saveAndReturnObject(link);
 
-    // Write the data.
+    //Write the data.
     store = gateway.getPixelsStore(ctx);
     store.setPixelsId(newImage.getDefaultPixels().getId(), false);
     int index = 0;
@@ -826,7 +826,7 @@ in OMERO. Similar approach can be applied when uploading an image.
         }
     }
 
-    // Save the data.
+    //Save the data.
     store.save();
 
     store.close();
