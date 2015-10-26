@@ -38,7 +38,6 @@ the dependencies in the ivy.xml files (e.g.
 
 Connect to OMERO
 ----------------
-(**Note:** The usage of the :source:`Gateway.java <components/blitz/src/omero/gateway/Gateway.java>` API is currently still experimental)
 
 -  **Connect to the server**. Remember to close the session.
 
@@ -50,16 +49,16 @@ Connect to OMERO
     cred.getUser().setUsername(userName);
     cred.getUser().setPassword(password);
 
-    // Create a simple Logger object which just writes
-    // to System.out or System.err
+    //Create a simple Logger object which just writes
+    //to System.out or System.err
     Logger simpleLogger = new SimpleLogger();
 
     Gateway gateway = new Gateway(simpleLogger);
     ExperimenterData user = gateway.connect(cred);
 
-    // for every subsequent call to the server you'll need the
-    // SecurityContext for a certain group; in this case create
-    // a SecurityContext for the user's default group.
+    //for every subsequent call to the server you'll need the
+    //SecurityContext for a certain group; in this case create
+    //a SecurityContext for the user's default group.
     SecurityContext ctx = new SecurityContext(user.getGroupId());
 
 -  **Close connection**. **IMPORTANT**
