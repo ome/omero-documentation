@@ -103,8 +103,8 @@ Components
     also available via SCL, so there is potential for a 3.x migration
     in the 5.3 timeframe. Dropping 2.6 for 5.3 unifies python support
     with a single major version, and removes a number of portability
-    issues, but most importantly is a requirement of django 1.8.
-    Python 2.6 will continue to work for 5.2 with django 1.6, but this
+    issues, but most importantly is a requirement of Django 1.8.
+    Python 2.6 will continue to work for 5.2 with Django 1.6, but this
     not a recommended combination due to the potential for future
     security vulnerabilities in the absence of security support.
 
@@ -745,6 +745,8 @@ The PostgreSQL project provides `packages
 Therefore distribution support is not critical since 9.3 and 9.4 are
 available for all platforms.
 
+.. _python-requirements:
+
 Python
 ------
 
@@ -881,8 +883,8 @@ for Windows, and has a significant cost in providing custom rebuilds;
 this has been rectified in Ice 3.6 with the Python module being
 installable with ``pip`` using any Python version.
 
-The supported version of the django module used by OMERO.web (1.8)
-requires Python 2.7.  The older version (1.6) will work with Python
+The supported version of the Django module used by OMERO.web (1.8)
+requires Python 2.7. The older version (1.6) will work with Python
 2.6 but lacks security support, and is consequently not recommended
 for production use..
 

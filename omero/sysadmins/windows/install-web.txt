@@ -13,15 +13,9 @@ with:
 -  IIS 6.0 or 7.0 on Microsoft Windows
 -  `WSGI <http://wsgi.readthedocs.org/en/latest/>`_ using a WSGI capable web
    server such as `Apache 2.2+ <http://httpd.apache.org>`_ (with
-   `mod wsgi <http://modwsgi.readthedocs.org/en/develop/>`_ enabled) or
-   `nginx <http://nginx.org>`_ and
-   `gunicorn <http://docs.gunicorn.org/en/19.3/>`_.
+   `mod wsgi <http://modwsgi.readthedocs.org/en/develop/>`_ enabled).
 -  The built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page)
--  FastCGI is DEPRECATED as of 5.1.4 and note that support will be removed in
-   5.2. You can find more information about FastCGI and where to get modules
-   or packages for your distribution on the
-   `FastCGI website <http://www.fastcgi.com/drupal/node/3>`_.
 
 If you need help configuring your firewall rules, see the
 :doc:`/sysadmins/server-security` page.
@@ -35,99 +29,42 @@ Prerequisites
 
    -  `Pillow`_ should be available for your distribution
 
-   -  Matplotlib_ should be available for your distribution
+   -  `Matplotlib`_ should be available for your distribution
 
--  IIS or WSGI (or FastCGI) capable web server
+   -  `Django 1.8`_ should be available for your distribution.
 
-Quick start
------------
+   .. note:: Since OMERO 5.2, the web framework is no loger shipped with Django
+       package and requires manual installation of Django dependency. It is
+       highly recomanded to use Django 1.8 (LTS) that requires Python 2.7.
+       For more information about Python 2.6 and Django 1.6
+       see :ref:`python-requirements` of the
+       :doc:`/sysadmins/version-requirements` page.
 
-.. _using_iis:
-
-Using IIS
-~~~~~~~~~
-
-Once you have IIS installed on your system, a straightforward set of
-steps is required to get the `ISAPI
-WSGI <http://code.google.com/p/isapi-wsgi/>`_ handler for OMERO.web
-working with your IIS deployment.
-
--  Ensure that the ISAPI for IIS options are installed
--  Download and install `an ISAPI WSGI
-   <http://code.google.com/p/isapi-wsgi/downloads/list>`_.
-   If you download the *Source Distribution* (should be compatible with all
-   versions of Windows/IIS) unzip the archive and run::
-
-        python setup.py install
-
-   Alternatively if you are using a 32-bit system you can use the *Windows
-   Installer*.
--  For extended compatibility with multiple IIS versions ISAPI WSGI uses
-   the IIS 6 WMI interface to interact with your IIS deployment. If
-   you are using IIS 7 you must enable the IIS 6 WMI backwards
-   compatibility options, as shown on the figure:
-
-.. figure:: /images/installation-images/IIS7Requirements.png
-   :align: center
-   :width: 35%
-   :alt: IIS 7 configuration options
-
-   IIS 7 configuration options
-
--  The :guilabel:`Advanced Settings...` for the application pool
-   assigned to your default site require modification using the *IIS Manager* as follows:
-
-   - :guilabel:`Idle Time-out (minutes)` - to stop the worker process from
-     suspending during inactivity periods, this setting needs to be
-     changed to 0.
-
-.. figure:: /images/installation-images/IIS7ApplicationPool.png
-   :align: center
-   :width: 35%
-   :alt: IIS 7 Application Pool Advanced Settings
-
-   IIS 7 Application Pool Advanced Settings
+-  IIS or WSGI capable web server
 
 
--  To avoid rendering errors on OMERO.web it is recomended to add the custom
-   HTTP response header in the Web site pane.
+.. _windows_omero_web_deployment:
 
-.. figure:: /images/installation-images/IIS7HTTPresponseheader.png
-   :align: center
-   :alt: IIS 7 HTTP response header
+Deployment (Windows)
+--------------------
 
--  Configure OMERO.web bindings for IIS
+See :ref:`customizing_your_omero_web_installation_unix` for additional
+customization options.
 
-   ::
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
 
-       C:\omero_dist>bin\omero web iis
+    install-web/install-iis
 
-   This will automatically add two applications, `/omero` and `/static`,
-   to the default web site and application pool. You can customise these
-   locations by setting :property:`omero.web.prefix` and
-   :property:`omero.web.static_url`.
+If you wish to use Apache or Nginx please follow the Unix instructions
 
-   .. note::  You can make manual changes to the IIS OMERO configuration
-       but they may be lost when OMERO.server is upgraded.
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
 
-   .. note::  As OMERO.web 5 is based on Django 1.6,
-       :property:`omero.web.session_engine` and 
-       :property:`omero.web.caches` should be unset.
-
-       ::
-
-           C:\omero_dist>bin\omero config set omero.web.session_engine
-           C:\omero_dist>bin\omero config set omero.web.caches
-
-       If your deployment requires additional cache store please follow
-       :djangodoc:`Django documentation <topics/cache/>`
-       for more details.
-
-Using Apache or Nginx
-~~~~~~~~~~~~~~~~~~~~~
-
-If you wish to use Apache or Nginx please follow the Unix instructions,
-see :doc:`/sysadmins/unix/install-web`.
+    /sysadmins/unix/install-web/install-apache
+    /sysadmins/unix/install-web/install-nginx
 
 
 Logging in to OMERO.web
@@ -152,14 +89,17 @@ to access OMERO.webadmin or the OMERO.webclient:
 	manage its shutdown.
 
 
-OMERO.web Maintenance
----------------------
+.. _windows_omero_web_maintenance:
+
+OMERO.web Maintenance (Windows)
+-------------------------------
 
 -  Session cookies :property:`omero.web.session_expire_at_browser_close`:
 
    -  A boolean that determines whether to expire the session when the user
-      closes their browser. See :djangodoc:`Django Browser-length sessions vs.
-      persistent sessions documentation  <topics/http/sessions/#browser-length-vs-persistent-sessions>`
+      closes their browser.
+      See :djangodoc:`Django Browser-length sessions vs. persistent
+      sessions documentation <topics/http/sessions/#browser-length-vs-persistent-sessions>`
       for more details. Default: ``True``.
 
       ::
@@ -177,7 +117,7 @@ OMERO.web Maintenance
    -  Each session for a logged-in user in OMERO.web is kept in the session 
       store. Stale sessions can cause the store to grow with time. OMERO.web 
       uses by default the OS file system as the session store backend and 
-      does not automatically purge stale sessions, see
+      does not automatically purge stale sessions, see 
       :djangodoc:`Django file-based session documentation <topics/http/sessions/#using-file-based-sessions>`
       for more details. It is therefore the responsibility of the OMERO 
       administrator to purge the session cache using the provided management 
@@ -188,7 +128,7 @@ OMERO.web Maintenance
           C:\omero_dist>bin\omero web clearsessions
 
       It is recommended to call this command on a regular basis, for example 
-      as a daily cron job, see
+      as a :ref:`daily cron job<linux_walkthrough_regular_tasks>`, see
       :djangodoc:`Django clearing the session store documentation <topics/http/sessions/#clearing-the-session-store>`
       for more information.
 
@@ -211,11 +151,11 @@ Customizing your OMERO.web installation
 
 All configuration options can be found on various sections of
 :ref:`web_index` developers documentation. For the full list, refer to
-:ref:`web_configuration` properties or: 
+:ref:`web_configuration` properties or:
 
 ::
 
-	C:\omero_dist>bin\omero web -h
+	C:\omero_dist>bin\omero web -h 
 
 The most popular configuration options include:
 

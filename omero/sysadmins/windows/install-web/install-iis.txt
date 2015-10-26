@@ -1,0 +1,84 @@
+OMERO.web IIS deployment (Windows)
+==================================
+
+.. _iis_configuration:
+
+IIS configuration (Windows)
+---------------------------
+
+Once you have IIS installed on your system, a straightforward set of
+steps is required to get the `ISAPI
+WSGI <http://code.google.com/p/isapi-wsgi/>`_ handler for OMERO.web
+working with your IIS deployment.
+
+-  Ensure that the ISAPI for IIS options are installed
+-  Download and install `an ISAPI WSGI
+   <http://code.google.com/p/isapi-wsgi/downloads/list>`_.
+   If you download the *Source Distribution* (should be compatible with all
+   versions of Windows/IIS) unzip the archive and run::
+
+        python setup.py install
+
+   Alternatively if you are using a 32-bit system you can use the *Windows
+   Installer*.
+-  For extended compatibility with multiple IIS versions ISAPI WSGI uses
+   the IIS 6 WMI interface to interact with your IIS deployment. If
+   you are using IIS 7 you must enable the IIS 6 WMI backwards
+   compatibility options, as shown on the figure:
+
+.. figure:: /images/installation-images/IIS7Requirements.png
+   :align: center
+   :width: 35%
+   :alt: IIS 7 configuration options
+
+   IIS 7 configuration options
+
+-  The :guilabel:`Advanced Settings...` for the application pool
+   assigned to your default site require modification using the *IIS Manager* as follows:
+
+   - :guilabel:`Idle Time-out (minutes)` - to stop the worker process from
+     suspending during inactivity periods, this setting needs to be
+     changed to 0.
+
+.. figure:: /images/installation-images/IIS7ApplicationPool.png
+   :align: center
+   :width: 35%
+   :alt: IIS 7 Application Pool Advanced Settings
+
+   IIS 7 Application Pool Advanced Settings
+
+
+-  To avoid rendering errors on OMERO.web it is recomended to add the custom
+   HTTP response header in the Web site pane.
+
+.. figure:: /images/installation-images/IIS7HTTPresponseheader.png
+   :align: center
+   :alt: IIS 7 HTTP response header
+
+-  Configure OMERO.web bindings for IIS
+
+   ::
+
+       C:\omero_dist>bin\omero web iis
+
+   This will automatically add two applications, `/omero` and `/static`,
+   to the default web site and application pool. You can customise these
+   locations by setting :property:`omero.web.prefix` and
+   :property:`omero.web.static_url`.
+
+   .. note::  You can make manual changes to the IIS OMERO configuration
+       but they may be lost when OMERO.server is upgraded.
+
+   .. note::  As OMERO.web 5 is based on Django 1.6,
+       :property:`omero.web.session_engine` and 
+       :property:`omero.web.caches` should be unset.
+
+       ::
+
+           C:\omero_dist>bin\omero config set omero.web.session_engine
+           C:\omero_dist>bin\omero config set omero.web.caches
+
+       If your deployment requires additional cache store please follow
+       :djangodoc:`Django documentation <topics/cache/>`
+       for more details.
+

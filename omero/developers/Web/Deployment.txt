@@ -11,6 +11,12 @@ external OMERO server. You can add the server to the
 You should enable :property:`omero.web.debug` and start a lightweight
 development Web server on your local machine.
 
+.. note:: Since OMERO 5.2, the web framework is no loger shipped with Django
+    package and requires manual installation of Django dependency. It is
+    highly recomanded to use Django 1.8 (LTS) that requires Python 2.7.
+    For more information see :ref:`python-requirements` of the
+    :doc:`/sysadmins/version-requirements` page.
+
 Using the lightweight development server on Unix
 ------------------------------------------------
 

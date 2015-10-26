@@ -30,27 +30,38 @@ Prerequisites
 
    -  `Pillow`_ should be available for your distribution
 
-   -  Matplotlib_ should be available for your distribution
+   -  `Matplotlib`_ should be available for your distribution
 
--  A WSGI (or FastCGI) capable web server
+   -  `Django 1.8`_ should be available for your distribution.
+
+   .. note:: Since OMERO 5.2, the web framework is no loger shipped with Django
+       package and requires manual installation of Django dependency. It is
+       highly recomanded to use Django 1.8 (LTS) that requires Python 2.7.
+       For more information about Python 2.6 and Django 1.6
+       see :ref:`python-requirements` of the
+       :doc:`/sysadmins/version-requirements` page.
+
+-  A WSGI capable web server
 
 
-Deployment
-----------
+.. _unix_omero_web_deployment:
+
+Deployment (Unix/Linux)
+-----------------------
 
 There is a number of good ways to easily deploy OMERO.web.
 If you have installed Nginx or Apache OMERO can automatically generate a
-configuration file for your web server, see :doc:`install-web/install-wsgi`.
-The location of the file will depend on your system, please refer to your web
-server's manual. See :ref:`customizing_your_omero_web_installation_unix` for
-additional customization options.
+configuration file for your web server. The location of the file will depend
+on your system, please refer to your web server's manual. See
+:ref:`customizing_your_omero_web_installation_unix` for additional
+customization options.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
-    install-web/install-wsgi
-
+    install-web/install-apache
+    install-web/install-nginx
 
 Logging in to OMERO.web
 -----------------------
@@ -76,8 +87,8 @@ to access OMERO.webadmin or the OMERO.webclient:
 
 .. _unix_omero_web_maintenance:
 
-OMERO.web Maintenance
----------------------
+OMERO.web Maintenance (Unix/Linux)
+----------------------------------
 
 -  Session cookies :property:`omero.web.session_expire_at_browser_close`:
 
@@ -149,7 +160,7 @@ This can be changed by setting :property:`omero.web.prefix` and
     $ bin/omero config set omero.web.prefix '/omero'
     $ bin/omero config set omero.web.static_url '/omero/static/'
 
-and regenerate your web-server configuration (see :ref:`wsgi_configuration`).
+and regenerate your web-server configuration (see :ref:`unix_omero_web_deployment`).
 
 The front-end webserver (Nginx, Apache) can be setup to run on a different
 host from OMERO.web. You will need to set

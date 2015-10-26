@@ -1,51 +1,17 @@
-OMERO.web WSGI deployment
-=========================
-
-.. _wsgi_configuration:
-
-WSGI Configuration (Unix/Linux)
--------------------------------
-
-If you have installed Nginx or Apache OMERO can automatically generate a
-configuration file for your web server, see :ref:`apache_wsgi_configuration`
-or :ref:`nginx_gunicorn_wsgi_configuration`.
-The location of the file will depend on your system, please refer to your
-web server's manual. See :ref:`customizing_your_omero_web_installation_unix`
-for additional customization options.
-
-.. _apache_wsgi_configuration:
-
-Apache 2.2+ configuration (mod_wsgi)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Install `mod\_wsgi <https://www.modwsgi.org/>`_.
-
-Set the following:
-
-::
-
-    $bin/omero config set omero.web.application_server "wsgi"
-
-To create a site configuration file for inclusion in the main Apache
-configuration redirect the output of the following command into a file:
-
-::
-
-    $ bin/omero web config apache
-
-.. literalinclude:: apache-omero.conf
-   :lines: 55-
-
-To configure an HTTPS server follow
-`the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
-
-Then reload apache.
-
+OMERO.web Nginx and Gunicorn deployment (Unix/Linux)
+====================================================
 
 .. _nginx_gunicorn_wsgi_configuration:
 
-Nginx Gunicorn configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Nginx Gunicorn configuration (Unix/Linux)
+-----------------------------------------
+
+If you have installed Nginx OMERO can automatically generate a
+configuration file for your web server,
+see :ref:`nginx_gunicorn_wsgi_configuration`.
+The location of the file will depend on your system, please refer to your
+web server's manual. See :ref:`customizing_your_omero_web_installation_unix`
+for additional customization options.
 
 Set the following:
 

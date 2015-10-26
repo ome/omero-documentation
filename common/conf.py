@@ -172,7 +172,7 @@ extlinks = {
     'zeroc' : ('https://zeroc.com/%s', ''),
     'zerocforum' : ('https://forums.zeroc.com/forum/%s', ''),
     'zerocdoc' : ('https://doc.zeroc.com/%s', ''),
-    'djangodoc' : ('https://docs.djangoproject.com/en/1.6/%s', ''),
+    'djangodoc' : ('https://docs.djangoproject.com/en/1.8/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
     'pypi': ('https://pypi.python.org/pypi/%s', '')
     }
@@ -188,6 +188,7 @@ rst_epilog = """
 .. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
 .. _Pillow: http://pillow.readthedocs.org
 .. _Matplotlib: http://matplotlib.org/
+.. _Django 1.8: https://docs.djangoproject.com/en/1.8/releases/1.8/
 .. _Python: http://www.python.org
 .. _Libjpeg: http://libjpeg.sourceforge.net/
 .. _Django: https://www.djangoproject.com/
