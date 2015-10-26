@@ -372,14 +372,14 @@ created:
     int INC = 262144;
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
         
-    // To retrieve the image see above.
+    //To retrieve the image see above.
     File file = File.createTempFile("temp-file-name_", ".tmp"); 
     String name = file.getName();
     String absolutePath = file.getAbsolutePath();
     String path = absolutePath.substring(0, 
             absolutePath.length()-name.length());
     
-    // create the original file object.
+    //create the original file object.
     OriginalFile originalFile = new OriginalFileI();
     originalFile.setName(omero.rtypes.rstring(name));
     originalFile.setPath(omero.rtypes.rstring(path));
@@ -388,13 +388,13 @@ created:
     checksumAlgorithm.setValue(omero.rtypes.rstring(ChecksumAlgorithmSHA1160.value));
     originalFile.setHasher(checksumAlgorithm);
     originalFile.setMimetype(omero.rtypes.rstring(fileMimeType)); // or "application/octet-stream"
-    // now we save the originalFile object
+    //Now we save the originalFile object
     originalFile = (OriginalFile) dm.saveAndReturnObject(ctx, originalFile);
 
-    // Initialize the service to load the raw data
+    //Initialize the service to load the raw data
     RawFileStorePrx rawFileStore = gateway.getRawFileService(ctx);
     rawFileStore.setFileId(originalFile.getId().getValue());
-    // open file and read stream.
+    //Open file and read stream.
     FileInputStream stream = new FileInputStream(file);
     long pos = 0;
     int rlen;
@@ -410,24 +410,24 @@ created:
     originalFile = rawFileStore.save();
     rawFileStore.close();
 
-    // now we have an original File in DB and raw data uploaded.
-    // We now need to link the Original file to the image using 
-    // the File annotation object. That's the way to do it.
+    //now we have an original File in DB and raw data uploaded.
+    //We now need to link the Original file to the image using 
+    //the File annotation object. That's the way to do it.
     FileAnnotation fa = new FileAnnotationI();
     fa.setFile(originalFile);
     fa.setDescription(omero.rtypes.rstring(description)); // The description set above e.g. PointsModel
     fa.setNs(omero.rtypes.rstring(NAME_SPACE_TO_SET)); // The name space you have set to identify the file annotation.
 
-    // save the file annotation.
+    //save the file annotation.
     fa = (FileAnnotation) dm.saveAndReturnObject(ctx, fa);
 
-    // now link the image and the annotation
+    //now link the image and the annotation
     ImageAnnotationLink link = new ImageAnnotationLinkI();
     link.setChild(fa);
     link.setParent(image.asImage());
-    // save the link back to the server.
+    //save the link back to the server.
     link = (ImageAnnotationLink) dm.saveAndReturnObject(ctx, link);
-    // To attach to a Dataset use DatasetAnnotationLink;
+    // o attach to a Dataset use DatasetAnnotationLink;
 
 -  **Load all the annotations with a given namespace linked to images.**
 
@@ -440,12 +440,12 @@ created:
     ParametersI param = new ParametersI();
     param.exp(omero.rtypes.rlong(userId)); //load the annotation for a given user.
     IMetadataPrx proxy = gateway.getMetadataService(ctx);
-    // retrieve the annotations linked to images, for datasets use: omero.model.Dataset.class
+    //retrieve the annotations linked to images, for datasets use: omero.model.Dataset.class
     List<Annotation> annotations = proxy.loadSpecifiedAnnotations(
             FileAnnotation.class.getName(), nsToInclude, nsToExclude, param);
     //Do something with annotations.
 
--  **Read the attachment**.
+-  **Read the attachment.**
 
 First load the annotations, cf. above.
 
@@ -464,12 +464,12 @@ First load the annotations, cf. above.
         annotation = j.next();
         if (annotation instanceof FileAnnotation && index == 0) {
             fa = new FileAnnotationData((FileAnnotation) annotation);
-            // The id of te original file
+            //The id of te original file
             of = getOriginalFile(fa.getFileID());
             store.setFileId(fa.getFileID());
             int offset = 0;
             long size = of.getSize().getValue();
-            // name of the file
+            //name of the file
             String fileName = of.getName().getValue();
             try {
                 for (offset = 0; (offset+INC) < size;) {
@@ -490,7 +490,7 @@ First load the annotations, cf. above.
 How to use OMERO tables
 -----------------------
 
--  **Create a table**.
+-  **Create a table.**
 
 In the following example, we create a table with 2 columns.
 
@@ -515,13 +515,13 @@ In the following example, we create a table with 2 columns.
     String name = UUID.randomUUID().toString();
     Column[] columns = createColumns(rows);
 
-    // create a new table.
+    //create a new table.
     SharedResourcesPrx store = gateway.getSharedResources(ctx);
     TablePrx table = store.newTable(1, name);
 
-    // initialize the table
+    //initialize the table
     table.initialize(columns);
-    // add data to the table.
+    //add data to the table.
     rows = 2;
     Column[] newRow = createColumns(rows);
 
@@ -534,7 +534,7 @@ In the following example, we create a table with 2 columns.
 
     table.addData(newRow);
 
-    OriginalFile file = table.getOriginalFile(); // if you need to interact with the table
+    OriginalFile file = table.getOriginalFile(); //if you need to interact with the table
 
 -  **Read the contents of the table.**
 
@@ -543,20 +543,20 @@ In the following example, we create a table with 2 columns.
     file = new OriginalFileI(file.getId(), false);
     table = store.openTable(file);
 
-    // read headers
+    //read headers
     Column[] cols = table.getHeaders();
 
     for (int i = 0; i < cols.length; i++) {
       String colName = cols[i].name;
     }
 
-    // Depending on size of table, you may only want to read some blocks.
+    //Depending on size of table, you may only want to read some blocks.
     long[] columnsToRead = new long[cols.length];
     for (int i = 0; i < cols.length; i++) {
       columnsToRead[i] = i;
     }
 
-    // The number of columns we wish to read.
+    //The number of columns we wish to read.
     long[] rowSubset = new long[(int) (table.getNumberOfRows()-1)];
     for (int j = 0; j < rowSubset.length; j++) {
       rowSubset[j] = j;
@@ -585,7 +585,7 @@ to an image.
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
     ROIFacility roifac = gateway.getFacility(ROIFacility.class);
 
-    // To retrieve the image see above.
+    //To retrieve the image see above.
     Roi roi = new RoiI();
     roi.setImage(image);
     Rect rect;
@@ -597,7 +597,7 @@ to an image.
     rect.setTheZ(omero.rtypes.rint(0));
     rect.setTheT(omero.rtypes.rint(0));
 
-    // Add the shape
+    //Add the shape
     roi.addShape(rect);
 
     // Create an ellipse.
