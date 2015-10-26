@@ -36,7 +36,7 @@ Prerequisites
 
    .. note:: Since OMERO 5.2, the web framework is no loger shipped with Django
        package and requires manual installation of Django dependency. It is
-       highly recomanded to use Django 1.8 (LTS) that requires Python 2.7.
+       highly recommended to use Django 1.8 (LTS) that requires Python 2.7.
        For more information about Python 2.6 and Django 1.6
        see :ref:`python-requirements` of the
        :doc:`/sysadmins/version-requirements` page.
