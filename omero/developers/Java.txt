@@ -689,10 +689,10 @@ In the following example, we create an image and delete it.
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
     
     //First create an image.
-    ImageData img = new ImageData();
-    img.setName("image1");
-    img.setDescription("descriptionImage1");
-    IObject object = dm.saveAndReturnObject(ctx, img.asIObject());
+    ImageData image = new ImageData();
+    image.setName("image1");
+    image.setDescription("descriptionImage1");
+    IObject object = dm.saveAndReturnObject(ctx, image.asIObject());
 
     Response rsp = dm.deleteObject(ctx, object);
 
@@ -734,18 +734,13 @@ Render Images
 
     ThumbnailStorePrx store = gateway.getThumbnailService(ctx);
     PixelsData pixels = image.getDefaultPixels();
-    Map<Long, byte[]> map = store.getThumbnailByLongestSideSet(
-            omero.rtypes.rint(96), Arrays.asList(pixels.getId()));
-    Entry<Long, byte[]> entry;
-    Iterator<Entry<Long, byte[]>> i = map.entrySet().iterator();
-    ByteArrayInputStream stream;
+    store.setPixelsId(pixels.getId())
+    //retrieve a 96x96 thumbnail.
+    byte[] array = store.getThumbnail(
+            omero.rtypes.rint(96), omero.rtypes.rint(96));
+    ByteArrayInputStream stream = new ByteArrayInputStream(array);
     //Create a buffered image to display
-    Map<Long, BufferedImage> results = new HashMap<Long, BufferedImage>();
-    while (i.hasNext()) {
-        entry = i.next();
-        stream = new ByteArrayInputStream(entry.getValue());
-        results.put(entry.getKey(), ImageIO.read(stream));
-    }
+    ImageIO.read(stream);
     store.close();
 
 Create Image
