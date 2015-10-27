@@ -38,7 +38,6 @@ the dependencies in the ivy.xml files (e.g.
 
 Connect to OMERO
 ----------------
-(**Note:** The usage of the :source:`Gateway.java <components/blitz/src/omero/gateway/Gateway.java>` API is currently still experimental)
 
 -  **Connect to the server**. Remember to close the session.
 
@@ -50,16 +49,16 @@ Connect to OMERO
     cred.getUser().setUsername(userName);
     cred.getUser().setPassword(password);
 
-    // Create a simple Logger object which just writes
-    // to System.out or System.err
+    //Create a simple Logger object which just writes
+    //to System.out or System.err
     Logger simpleLogger = new SimpleLogger();
 
     Gateway gateway = new Gateway(simpleLogger);
     ExperimenterData user = gateway.connect(cred);
 
-    // for every subsequent call to the server you'll need the
-    // SecurityContext for a certain group; in this case create
-    // a SecurityContext for the user's default group.
+    //for every subsequent call to the server you'll need the
+    //SecurityContext for a certain group; in this case create
+    //a SecurityContext for the user's default group.
     SecurityContext ctx = new SecurityContext(user.getGroupId());
 
 -  **Close connection**. **IMPORTANT**
@@ -187,10 +186,9 @@ Note that the wells are not loaded.
         }
     }
 
--  **Retrieve Wells within a Plate**.
+-  **Retrieve Wells within a Plate.**
 
-Given a plate ID, load the wells. You will have to use the
-``findAllByQuery`` method from the ``IQuery`` service.
+Given a plate ID, load the wells.
 
 ::
 
@@ -208,9 +206,9 @@ Given a plate ID, load the wells. You will have to use the
 Raw data access
 ---------------
 
--  **Retrieve a given plane**.
+-  **Retrieve a given plane.**
 
-This is useful when you need the pixels intensity.
+This is useful when you need for example the pixels intensity.
 
 ::
 
@@ -278,7 +276,7 @@ This is useful when you need the pixels intensity.
 
     PixelsData pixels = image.getDefaultPixels();
     long pixelsId = pixels.getId();
-    // offset values in each dimension XYZCT
+    //offset values in each dimension XYZCT
     List<Integer> offset = new ArrayList<Integer>();
     int n = 5;
     for (int i = 0; i < n; i++) {
@@ -292,7 +290,7 @@ This is useful when you need the pixels intensity.
     size.add(pixels.getSizeC());
     size.add(pixels.getSizeT());
 
-    // indicate the step in each direction, step = 1, 
+    //indicate the step in each direction, step = 1, 
     //will return values at index 0, 1, 2.
     //step = 2, values at index 0, 2, 4 etc.
     List<Integer> step = new ArrayList<Integer>();
@@ -319,7 +317,7 @@ Write data
     dataset.setName(omero.rtypes.rstring("new Name 1"));
     dataset.setDescription(omero.rtypes.rstring("new description 1"));
         
-    //Using the model object
+    //Using the model object (recommended)
     DatasetData datasetData = new DatasetData();
     datasetData.setName("new Name 2");
     datasetData.setDescription("new description 2");
@@ -345,7 +343,7 @@ Write data
     tag.setTextValue(omero.rtypes.rstring("new tag 1"));
     tag.setDescription(omero.rtypes.rstring("new tag 1"));
         
-    //Using the model object
+    //Using the model object (recommended)
     TagAnnotationData tagData = new TagAnnotationData("new tag 2");
     tagData.setTagDescription("new tag 2");
         
@@ -373,14 +371,14 @@ created:
     int INC = 262144;
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
         
-    // To retrieve the image see above.
+    //To retrieve the image see above.
     File file = File.createTempFile("temp-file-name_", ".tmp"); 
     String name = file.getName();
     String absolutePath = file.getAbsolutePath();
     String path = absolutePath.substring(0, 
             absolutePath.length()-name.length());
     
-    // create the original file object.
+    //create the original file object.
     OriginalFile originalFile = new OriginalFileI();
     originalFile.setName(omero.rtypes.rstring(name));
     originalFile.setPath(omero.rtypes.rstring(path));
@@ -389,13 +387,13 @@ created:
     checksumAlgorithm.setValue(omero.rtypes.rstring(ChecksumAlgorithmSHA1160.value));
     originalFile.setHasher(checksumAlgorithm);
     originalFile.setMimetype(omero.rtypes.rstring(fileMimeType)); // or "application/octet-stream"
-    // now we save the originalFile object
+    //Now we save the originalFile object
     originalFile = (OriginalFile) dm.saveAndReturnObject(ctx, originalFile);
 
-    // Initialize the service to load the raw data
+    //Initialize the service to load the raw data
     RawFileStorePrx rawFileStore = gateway.getRawFileService(ctx);
     rawFileStore.setFileId(originalFile.getId().getValue());
-    // open file and read stream.
+    //Open file and read stream.
     FileInputStream stream = new FileInputStream(file);
     long pos = 0;
     int rlen;
@@ -411,24 +409,24 @@ created:
     originalFile = rawFileStore.save();
     rawFileStore.close();
 
-    // now we have an original File in DB and raw data uploaded.
-    // We now need to link the Original file to the image using 
-    // the File annotation object. That's the way to do it.
+    //now we have an original File in DB and raw data uploaded.
+    //We now need to link the Original file to the image using 
+    //the File annotation object. That's the way to do it.
     FileAnnotation fa = new FileAnnotationI();
     fa.setFile(originalFile);
     fa.setDescription(omero.rtypes.rstring(description)); // The description set above e.g. PointsModel
     fa.setNs(omero.rtypes.rstring(NAME_SPACE_TO_SET)); // The name space you have set to identify the file annotation.
 
-    // save the file annotation.
+    //save the file annotation.
     fa = (FileAnnotation) dm.saveAndReturnObject(ctx, fa);
 
-    // now link the image and the annotation
+    //now link the image and the annotation
     ImageAnnotationLink link = new ImageAnnotationLinkI();
     link.setChild(fa);
     link.setParent(image.asImage());
-    // save the link back to the server.
+    //save the link back to the server.
     link = (ImageAnnotationLink) dm.saveAndReturnObject(ctx, link);
-    // To attach to a Dataset use DatasetAnnotationLink;
+    // o attach to a Dataset use DatasetAnnotationLink;
 
 -  **Load all the annotations with a given namespace linked to images.**
 
@@ -441,12 +439,12 @@ created:
     ParametersI param = new ParametersI();
     param.exp(omero.rtypes.rlong(userId)); //load the annotation for a given user.
     IMetadataPrx proxy = gateway.getMetadataService(ctx);
-    // retrieve the annotations linked to images, for datasets use: omero.model.Dataset.class
+    //retrieve the annotations linked to images, for datasets use: omero.model.Dataset.class
     List<Annotation> annotations = proxy.loadSpecifiedAnnotations(
             FileAnnotation.class.getName(), nsToInclude, nsToExclude, param);
     //Do something with annotations.
 
--  **Read the attachment**.
+-  **Read the attachment.**
 
 First load the annotations, cf. above.
 
@@ -465,12 +463,12 @@ First load the annotations, cf. above.
         annotation = j.next();
         if (annotation instanceof FileAnnotation && index == 0) {
             fa = new FileAnnotationData((FileAnnotation) annotation);
-            // The id of te original file
+            //The id of te original file
             of = getOriginalFile(fa.getFileID());
             store.setFileId(fa.getFileID());
             int offset = 0;
             long size = of.getSize().getValue();
-            // name of the file
+            //name of the file
             String fileName = of.getName().getValue();
             try {
                 for (offset = 0; (offset+INC) < size;) {
@@ -491,7 +489,7 @@ First load the annotations, cf. above.
 How to use OMERO tables
 -----------------------
 
--  **Create a table**.
+-  **Create a table.**
 
 In the following example, we create a table with 2 columns.
 
@@ -516,13 +514,13 @@ In the following example, we create a table with 2 columns.
     String name = UUID.randomUUID().toString();
     Column[] columns = createColumns(rows);
 
-    // create a new table.
+    //create a new table.
     SharedResourcesPrx store = gateway.getSharedResources(ctx);
     TablePrx table = store.newTable(1, name);
 
-    // initialize the table
+    //initialize the table
     table.initialize(columns);
-    // add data to the table.
+    //add data to the table.
     rows = 2;
     Column[] newRow = createColumns(rows);
 
@@ -535,7 +533,7 @@ In the following example, we create a table with 2 columns.
 
     table.addData(newRow);
 
-    OriginalFile file = table.getOriginalFile(); // if you need to interact with the table
+    OriginalFile file = table.getOriginalFile(); //if you need to interact with the table
 
 -  **Read the contents of the table.**
 
@@ -544,20 +542,20 @@ In the following example, we create a table with 2 columns.
     file = new OriginalFileI(file.getId(), false);
     table = store.openTable(file);
 
-    // read headers
+    //read headers
     Column[] cols = table.getHeaders();
 
     for (int i = 0; i < cols.length; i++) {
       String colName = cols[i].name;
     }
 
-    // Depending on size of table, you may only want to read some blocks.
+    //Depending on size of table, you may only want to read some blocks.
     long[] columnsToRead = new long[cols.length];
     for (int i = 0; i < cols.length; i++) {
       columnsToRead[i] = i;
     }
 
-    // The number of columns we wish to read.
+    //The number of columns we wish to read.
     long[] rowSubset = new long[(int) (table.getNumberOfRows()-1)];
     for (int j = 0; j < rowSubset.length; j++) {
       rowSubset[j] = j;
@@ -586,39 +584,28 @@ to an image.
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
     ROIFacility roifac = gateway.getFacility(ROIFacility.class);
 
-    // To retrieve the image see above.
-    Roi roi = new RoiI();
-    roi.setImage(image);
-    Rect rect;
-    rect = new RectI();
-    rect.setX(omero.rtypes.rdouble(10));
-    rect.setY(omero.rtypes.rdouble(10));
-    rect.setWidth(omero.rtypes.rdouble(10));
-    rect.setHeight(omero.rtypes.rdouble(10));
-    rect.setTheZ(omero.rtypes.rint(0));
-    rect.setTheT(omero.rtypes.rint(0));
+    //To retrieve the image see above.
 
-    // Add the shape
-    roi.addShape(rect);
+    ROIData data = new ROIData();
+    data.setImage(image);
+    //Create a rectangle.
+    RectangleData rectangle = new RectangleData(10, 10, 10, 10);
+    rectangle.setZ(0);
+    rectangle.setT(0);
+    data.addShapeData(rectangle);
 
-    // Create an ellipse.
-    EllipseI ellipse = new EllipseI();
-    ellipse.setCx(omero.rtypes.rdouble(10));
-    ellipse.setCy(omero.rtypes.rdouble(10));
-    ellipse.setRx(omero.rtypes.rdouble(10));
-    ellipse.setRy(omero.rtypes.rdouble(10));
-    ellipse.setTheZ(omero.rtypes.rint(0));
-    ellipse.setTheT(omero.rtypes.rint(0));
-    ellipse.setTextValue(omero.rtypes.rstring("ellipse text"));
-
-    // Add the shape
-    roi.addShape(ellipse);
+    //Create an ellipse.
+    EllipseData ellipse = new Ellipse(10, 10, 10, 10);
+    ellipse.setZ(0);
+    ellipse.setT(0);
+    ellipse.setText("ellipse text");
+    data.addShapeData(ellipse);
 
     // Save ROI and shape
-    ROIData roiData = roifac.saveROIs(ctx, image.getId(), Arrays.asList(new ROIData(roi))).iterator().next();
+    ROIData roiData = roifac.saveROIs(ctx, image.getId(), Arrays.asList(data)).iterator().next();
 
-    // now check that the shape has been added.
-    // Retrieve the shape on plane (z, t) = (0, 0)
+    //now check that the shape has been added.
+    //Retrieve the shape on plane (z, t) = (0, 0)
     List<ShapeData> shapes = roiData.getShapes(0, 0);
     Iterator<ShapeData> i = shapes.iterator();
     while (i.hasNext()) {
@@ -648,7 +635,7 @@ to an image.
 
     ROIFacility roifac = gateway.getFacility(ROIFacility.class);
 
-    // Retrieve the roi linked to an image
+    //Retrieve the roi linked to an image
     List<ROIResult> roiresults = roifac.loadROIs(ctx, image.getId());
     ROIResult r = roiresults.iterator().next();
     if (r == null) return;
@@ -668,7 +655,7 @@ to an image.
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
     ROIFacility roifac = gateway.getFacility(ROIFacility.class);
 
-    // Retrieve the roi linked to an image
+    //Retrieve the roi linked to an image
     List<ROIResult> roiresults = roifac.loadROIs(ctx, image.getId());
     ROIResult r = roiresults.iterator().next();
     List<Roi> rois = r.rois;
@@ -692,7 +679,7 @@ It is possible to delete Projects, datasets, images, ROIs etc. and
 objects linked to them depending on the specified options (see
 :doc:`/developers/Modules/Delete`).
 
--  **Delete Image**.
+-  **Delete Image.**
 
 In the following example, we create an image and delete it.
 
@@ -700,13 +687,13 @@ In the following example, we create an image and delete it.
 
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
     
-    // First create an image.
-    Image img = new ImageI();
-    img.setName(omero.rtypes.rstring("image1"));
-    img.setDescription(omero.rtypes.rstring("descriptionImage1"));
-    img = (Image) dm.saveAndReturnObject(ctx, img);
+    //First create an image.
+    ImageData image = new ImageData();
+    image.setName("image1");
+    image.setDescription("descriptionImage1");
+    IObject object = dm.saveAndReturnObject(ctx, image.asIObject());
 
-    Response rsp = dm.deleteObject(ctx, img);
+    Response rsp = dm.deleteObject(ctx, object);
 
 Render Images
 -------------
@@ -725,16 +712,16 @@ Render Images
         proxy.lookupRenderingDef(pixelsId);
     }
     proxy.load();
-    // Now can interact with the rendering engine.
+    //Now can interact with the rendering engine.
     proxy.setActive(0, Boolean.valueOf(false));
     PlaneDef pDef = new PlaneDef();
     pDef.z = 0;
     pDef.t = 0;
     pDef.slice = omero.romio.XY.value;
-    // render the data uncompressed.
+    //render the data uncompressed.
     int[] uncompressed = proxy.renderAsPackedInt(pDef);
     byte[] compressed = proxy.renderCompressed(pDef);
-    // Create a buffered image
+    //Create a buffered image
     ByteArrayInputStream stream = new ByteArrayInputStream(compressed);
     BufferedImage image = ImageIO.read(stream);
     proxy.close();
@@ -746,18 +733,13 @@ Render Images
 
     ThumbnailStorePrx store = gateway.getThumbnailService(ctx);
     PixelsData pixels = image.getDefaultPixels();
-    Map<Long, byte[]> map = store.getThumbnailByLongestSideSet(
-            omero.rtypes.rint(96), Arrays.asList(pixels.getId()));
-    Entry<Long, byte[]> entry;
-    Iterator<Entry<Long, byte[]>> i = map.entrySet().iterator();
-    ByteArrayInputStream stream;
+    store.setPixelsId(pixels.getId())
+    //retrieve a 96x96 thumbnail.
+    byte[] array = store.getThumbnail(
+            omero.rtypes.rint(96), omero.rtypes.rint(96));
+    ByteArrayInputStream stream = new ByteArrayInputStream(array);
     //Create a buffered image to display
-    Map<Long, BufferedImage> results = new HashMap<Long, BufferedImage>();
-    while (i.hasNext()) {
-        entry = i.next();
-        stream = new ByteArrayInputStream(entry.getValue());
-        results.put(entry.getKey(), ImageIO.read(stream));
-    }
+    ImageIO.read(stream);
     store.close();
 
 Create Image
@@ -768,7 +750,7 @@ in OMERO. Similar approach can be applied when uploading an image.
 
 ::
 
-    // See above how to load an image.
+    //See above how to load an image.
     PixelsData pixels = image.getDefaultPixels();
     int sizeZ = pixels.getSizeZ();
     int sizeT = pixels.getSizeT();
@@ -777,7 +759,7 @@ in OMERO. Similar approach can be applied when uploading an image.
     int sizeY = pixels.getSizeY();
     long pixelsId = pixels.getId();
 
-    // Read the pixels from the source image.
+    //Read the pixels from the source image.
     RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
     store.setPixelsId(pixelsId, false);
 
@@ -789,10 +771,10 @@ in OMERO. Similar approach can be applied when uploading an image.
         }
     }
 
-    // Better to close to free space.
+    //Better to close to free space.
     store.close();
 
-    // Now we are going to create the new image.
+    //Now we are going to create the new image.
     IPixelsPrx proxy = gateway.getPixelsService(ctx);
 
     //Search for PixelsType object matching the source image.
@@ -811,7 +793,7 @@ in OMERO. Similar approach can be applied when uploading an image.
     if (type == null)
         throw new Exception("Pixels Type not valid.");
 
-    // Create new image.
+    //Create new image.
     String name = "newImageFrom"+image.getId();
     RLong idNew = proxy.createImage(sizeX, sizeY, sizeZ, sizeT, Arrays.asList(0), type, name,
             "From Image ID: "+image.getId());
@@ -822,13 +804,13 @@ in OMERO. Similar approach can be applied when uploading an image.
                     Arrays.asList(idNew.getValue()), new ParametersI());
     ImageData newImage = new ImageData(results.get(0));
 
-    // Link the new image and the dataset hosting the source image.
+    //Link the new image and the dataset hosting the source image.
     DatasetImageLink link = new DatasetImageLinkI();
     link.setParent(new DatasetI(datasetId, false));
     link.setChild(new ImageI(newImage.getId(), false));
     gateway.getUpdateService(ctx).saveAndReturnObject(link);
 
-    // Write the data.
+    //Write the data.
     store = gateway.getPixelsStore(ctx);
     store.setPixelsId(newImage.getDefaultPixels().getId(), false);
     int index = 0;
@@ -838,7 +820,7 @@ in OMERO. Similar approach can be applied when uploading an image.
         }
     }
 
-    // Save the data.
+    //Save the data.
     store.save();
 
     store.close();
