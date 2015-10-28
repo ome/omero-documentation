@@ -7,7 +7,6 @@ What's new for OMERO 5.2 for developers
   major release (currently planned to be 5.3). Most notably for development
   purposes, we have dropped support for Java 1.6.
 
-The Java gateway has undergone a major overhaul [details to follow]
 
 Breaking changes
 ----------------
@@ -41,3 +40,9 @@ OMERO developers who have not migrated yet should refer to
 :doc:`Server/GraphsMigration` and take action before the deprecated features
 are removed.
 
+Java Gateway
+^^^^^^^^^^^^
+The Java gateway has undergone a major overhaul. 
+This should make the development of Java applications much easier. See
+:doc:`/developers/Java` for more information or follow the example in
+  `minimal-omero-client <https://github.com/ome/minimal-omero-client>`_.
