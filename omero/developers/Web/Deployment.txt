@@ -11,6 +11,12 @@ external OMERO server. You can add the server to the
 You should enable :property:`omero.web.debug` and start a lightweight
 development Web server on your local machine.
 
+.. note:: Since OMERO 5.2, the web framework is no longer shipped with the
+    Django package and requires manual installation of the Django dependency.
+    It is highly recommended to use `Django 1.8`_ (LTS) which requires
+    Python 2.7. For more information see :ref:`python-requirements` on the
+    :doc:`/sysadmins/version-requirements` page.
+
 Using the lightweight development server on Unix
 ------------------------------------------------
 
@@ -65,7 +71,7 @@ using the following command:
 
 ::
 
-    $ bin/omero web config nginx-wsgi-development > nginx-wsgi-development.conf
+    $ bin/omero web config nginx-development > nginx-development.conf
 
 Start nginx and the Gunicorn worker processes running one thread
 listening on 127.0.0.1:4080 that will autoreload on source change:
@@ -76,28 +82,5 @@ listening on 127.0.0.1:4080 that will autoreload on source change:
     $ bin/omero config set omero.web.application_server 'wsgi-tcp'
     $ bin/omero config set omero.web.application_server.max_requests 1
     $ bin/omero web start  --wsgi-args ' --reload'
-
-Using FastCGI (Unix/Linux) (DEPRECATED)
----------------------------------------
-
-.. deprecated:: 5.1.4
-    OMERO.web deployment using FastCGI
-    is deprecated and will be removed in OMERO 5.2.
-    Use :ref:`wsgi_configuration` as an alternative.
-
-
-As above, install Nginx (See :doc:`/sysadmins/unix/install-web`) but generate
-a configuration file using the following command:
-
-::
-
-    $ bin/omero web config nginx-development > nginx-development.conf
-
-Start nginx, and the Django FASTCGI workers:
-
-::
-
-    $ nginx -c $PWD/nginx-development.conf
-    $ bin/omero web start
 
 Next: Get started by :doc:`/developers/Web/CreateApp`....

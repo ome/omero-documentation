@@ -523,7 +523,7 @@ then start by
     Starting development server at http://0.0.0.0:4080/
     Quit the server with CTRL-BREAK.
 
-.. note::  As OMERO.web 5 is based on Django 1.6,
+.. note::  As OMERO.web 5 is based on `Django 1.6`_,
     :property:`omero.web.session_engine` and :property:`omero.web.caches` should be
     unset.
     

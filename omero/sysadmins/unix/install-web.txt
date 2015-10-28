@@ -17,10 +17,6 @@ with:
    `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
 -  The built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page).
--  FastCGI is DEPRECATED as of 5.1.4 and note that support will be removed in
-   5.2. You can find more information about FastCGI and where to get modules
-   or packages for your distribution on the
-   `FastCGI website <http://www.fastcgi.com/drupal/node/3>`_.
 
 If you need help configuring your firewall rules, see the
 :doc:`/sysadmins/server-security` page.
@@ -34,27 +30,42 @@ Prerequisites
 
    -  `Pillow`_ should be available for your distribution
 
-   -  Matplotlib_ should be available for your distribution
+   -  `Matplotlib`_ should be available for your distribution
 
--  A WSGI (or FastCGI) capable web server
+   -  `Django 1.8`_ should be available for your distribution.
+
+      .. note:: For more details refer to
+          :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
+          or :djangodoc:`hot to upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
+
+   .. note:: Since OMERO 5.2, the web framework is no longer shipped with the
+       Django package and requires manual installation of the Django
+       dependency. It is highly recommended to use `Django 1.8`_ (LTS) which
+       requires Python 2.7. For more information see :ref:`python-requirements`
+       on the :doc:`/sysadmins/version-requirements` page.
 
 
-Deployment
-----------
+-  A WSGI capable web server
 
-There is a number of good ways to easily deploy OMERO.web.
+
+.. _unix_omero_web_deployment:
+
+Deployment (Unix/Linux)
+-----------------------
+
+There are a number of good ways to easily deploy OMERO.web.
 If you have installed Nginx or Apache OMERO can automatically generate a
-configuration file for your web server, see :doc:`install-web/install-wsgi`.
-The location of the file will depend on your system, please refer to your web
-server's manual. See :ref:`customizing_your_omero_web_installation_unix` for
-additional customization options.
+configuration file for your web server. The location of the file will depend
+on your system, please refer to your web server's manual. See
+:ref:`customizing_your_omero_web_installation_unix` for additional
+customization options.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
-    install-web/install-wsgi
-
+    install-web/install-apache
+    install-web/install-nginx
 
 Logging in to OMERO.web
 -----------------------
@@ -80,8 +91,8 @@ to access OMERO.webadmin or the OMERO.webclient:
 
 .. _unix_omero_web_maintenance:
 
-OMERO.web Maintenance
----------------------
+OMERO.web Maintenance (Unix/Linux)
+----------------------------------
 
 -  Session cookies :property:`omero.web.session_expire_at_browser_close`:
 
@@ -106,7 +117,7 @@ OMERO.web Maintenance
    -  Each session for a logged-in user in OMERO.web is kept in the session 
       store. Stale sessions can cause the store to grow with time. OMERO.web 
       uses by default the OS file system as the session store backend and 
-      does not automatically purge stale sessions, see 
+      does not automatically purge stale sessions, see
       :djangodoc:`Django file-based session documentation <topics/http/sessions/#using-file-based-sessions>`
       for more details. It is therefore the responsibility of the OMERO 
       administrator to purge the session cache using the provided management 
@@ -153,7 +164,7 @@ This can be changed by setting :property:`omero.web.prefix` and
     $ bin/omero config set omero.web.prefix '/omero'
     $ bin/omero config set omero.web.static_url '/omero/static/'
 
-and regenerate your web-server configuration (see :ref:`wsgi_configuration`).
+and regenerate your web-server configuration (see :ref:`unix_omero_web_deployment`).
 
 The front-end webserver (Nginx, Apache) can be setup to run on a different
 host from OMERO.web. You will need to set
@@ -166,7 +177,7 @@ All configuration options can be found on various sections of
 
 ::
 
-	$ bin/omero web -h 
+	$ bin/omero web -h
 
 The most popular configuration options include:
 
