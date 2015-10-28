@@ -149,7 +149,7 @@ The planned changes for 5.2 depend upon our support of
   * [5.2] 3.4 dropped, 3.5 deprecated, 3.6 not supported
   * [5.3] 3.4 dropped, 3.5 deprecated, 3.6 recommended
   * Rationale: 3.4 is no longer supported by ZeroC with 3.5 being
-    current. By the release of 5.2, Ice 3.6 will have been out for
+    current. By the release of 5.3, Ice 3.6 will have been out for
     some time and should be well tested.
 
 * Java
