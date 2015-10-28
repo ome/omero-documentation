@@ -1666,8 +1666,10 @@ Distribution support
       - 
       - 
 
-Apache 2.2 requires mod_fastcgi (from external repository, for
-CentOS6). Apache 2.4 requires mod_proxy_fcgi.
+Apache 2.2+ requires mod_wsgi which is included in the standard distribution
+on CentOS 7 (or has to installed from external repository, for CentOS6).
+For more information see refer to
+`mod_wsgi installation <https://modwsgi.readthedocs.org/en/develop/installation.html>`__.
 
 nginx
 -----

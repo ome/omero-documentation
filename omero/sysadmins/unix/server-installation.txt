@@ -316,19 +316,19 @@ further details.
 OMERO.web
 ^^^^^^^^^
 
-Please install one of :program:`apache` (and its fastcgi module) or
-:program:`nginx` in order to run OMERO.web.
+Please install one of :program:`apache` (and its wsgi module) or
+:program:`nginx` and gunicorn in order to run OMERO.web.
 
 +-----------+--------------------------------------+
 | System    | Packages                             |
 +===========+======================================+
 | BSD Ports | www/apache24 www/nginx               |
 +-----------+--------------------------------------+
-| Debian    | apache2 libapache2-mod-fastcgi nginx |
+| Debian    | apache2 libapache2-mod-wsgi    nginx |
 +-----------+--------------------------------------+
 | Homebrew  | nginx                                |
 +-----------+--------------------------------------+
-| RedHat    | httpd mod_fastcgi nginx              |
+| RedHat    | httpd mod_wsgi nginx                 |
 +-----------+--------------------------------------+
 
 OMERO.scripts
