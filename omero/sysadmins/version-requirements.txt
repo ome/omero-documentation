@@ -1667,8 +1667,8 @@ Distribution support
       - 
 
 Apache 2.2+ requires mod_wsgi which is included in the standard distribution
-on CentOS 7 (or has to installed from external repository, for CentOS6).
-For more information see refer to
+on CentOS 7 (or has to be installed from external repository, for CentOS6).
+For more information refer to
 `mod_wsgi installation <https://modwsgi.readthedocs.org/en/develop/installation.html>`__.
 
 nginx

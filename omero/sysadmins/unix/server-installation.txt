@@ -317,7 +317,7 @@ OMERO.web
 ^^^^^^^^^
 
 Please install one of :program:`apache` (and its wsgi module) or
-:program:`nginx` and gunicorn in order to run OMERO.web.
+:program:`nginx` and Gunicorn in order to run OMERO.web.
 
 +-----------+--------------------------------------+
 | System    | Packages                             |
