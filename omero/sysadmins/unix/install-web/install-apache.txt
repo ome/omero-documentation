@@ -1,4 +1,4 @@
-OMERO.web Aapache and mod_wsgi deployment (Unix/Linux)
+OMERO.web Apache and mod_wsgi deployment (Unix/Linux)
 ======================================================
 
 .. _apache_wsgi_configuration:
@@ -6,19 +6,25 @@ OMERO.web Aapache and mod_wsgi deployment (Unix/Linux)
 Apache 2.2+ with mod_wsgi configuration (Unix/Linux)
 ----------------------------------------------------
 
-If you have installed Apache OMERO can automatically generate a
-configuration file for your web server, see :ref:`apache_wsgi_configuration`.
-The location of the file will depend on your system, please refer to your
-web server's manual. See :ref:`customizing_your_omero_web_installation_unix`
+If you have installed Apache, OMERO can automatically generate a
+configuration file for your web server. The location of the file
+will depend on your system, please refer to your web server's manual.
+See :ref:`customizing_your_omero_web_installation_unix`
 for additional customization options.
 
-Install `mod\_wsgi <https://www.modwsgi.org/>`_.
+Install `mod\_wsgi <http://www.modwsgi.org/>`_.
 
 Set the following:
 
 ::
 
     $bin/omero config set omero.web.application_server "wsgi"
+
+Creates symlinks for static media files
+
+::
+
+    $bin/omero web syncmedia
 
 To create a site configuration file for inclusion in the main Apache
 configuration redirect the output of the following command into a file:
@@ -33,4 +39,5 @@ configuration redirect the output of the following command into a file:
 To configure an HTTPS server follow
 `the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
 
-Then reload apache.
+
+Then reload Apache.

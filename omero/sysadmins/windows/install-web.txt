@@ -114,7 +114,7 @@ OMERO.web Maintenance (Windows)
    -  Each session for a logged-in user in OMERO.web is kept in the session 
       store. Stale sessions can cause the store to grow with time. OMERO.web 
       uses by default the OS file system as the session store backend and 
-      does not automatically purge stale sessions, see 
+      does not automatically purge stale sessions, see
       :djangodoc:`Django file-based session documentation <topics/http/sessions/#using-file-based-sessions>`
       for more details. It is therefore the responsibility of the OMERO 
       administrator to purge the session cache using the provided management 
@@ -125,7 +125,7 @@ OMERO.web Maintenance (Windows)
           C:\omero_dist>bin\omero web clearsessions
 
       It is recommended to call this command on a regular basis, for example 
-      as a :ref:`daily cron job<linux_walkthrough_regular_tasks>`, see
+      as a daily cron job, see
       :djangodoc:`Django clearing the session store documentation <topics/http/sessions/#clearing-the-session-store>`
       for more information.
 
@@ -152,7 +152,7 @@ All configuration options can be found on various sections of
 
 ::
 
-	C:\omero_dist>bin\omero web -h 
+	C:\omero_dist>bin\omero web -h
 
 The most popular configuration options include:
 

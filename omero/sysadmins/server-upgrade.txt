@@ -52,9 +52,9 @@ OMERO.web configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Check :ref:`unix_omero_web_deployment` or :ref:`windows_omero_web_deployment`,
-what is the most recent OMERO.web deployment on your platform.
+what is the most recent OMERO.web deployment for the platform.
 If you generated configuration stanzas using :omerocmd:`web config` which
-enable OMERO.web via Apache or Nginx, they may include hard-coded links to
+enables OMERO.web via Apache or Nginx, they may include hard-coded links to
 your previous version of OMERO. We recommend using a future-proof symlink
 if possible, so that these stanzas do not need updating with each OMERO
 server upgrade.
@@ -266,9 +266,9 @@ OMERO.web server configuration
 """"""""""""""""""""""""""""""
 
 The FastCGI support was removed in OMERO 5.2 and OMERO.web can be deployed
-using WSGI :ref:`unix_omero_web_deployment`. If you already deployed
-OMERO.web using WSGI it is highly recommended that you regenerate your
-:ref:`unix_omero_web_deployment`, remembering to merge in any of your own
+using WSGI (see, :ref:`unix_omero_web_deployment` for more details).
+If you already deployed OMERO.web using WSGI it is highly recommended that
+you regenerate your config files, remembering to merge in any of your own
 modifications if necessary. See :doc:`/sysadmins/whatsnew` for details
 of changes.
 

@@ -11,7 +11,7 @@ steps is required to get the `ISAPI
 WSGI <http://code.google.com/p/isapi-wsgi/>`_ handler for OMERO.web
 working with your IIS deployment.
 
--  Ensure that the ISAPI for IIS options are installed
+-  Ensure that the ISAPI for IIS options are installed.
 -  Download and install `an ISAPI WSGI
    <http://code.google.com/p/isapi-wsgi/downloads/list>`_.
    If you download the *Source Distribution* (should be compatible with all
@@ -24,7 +24,7 @@ working with your IIS deployment.
 -  For extended compatibility with multiple IIS versions ISAPI WSGI uses
    the IIS 6 WMI interface to interact with your IIS deployment. If
    you are using IIS 7 you must enable the IIS 6 WMI backwards
-   compatibility options, as shown on the figure:
+   compatibility options, as shown in the figure:
 
 .. figure:: /images/installation-images/IIS7Requirements.png
    :align: center
@@ -48,7 +48,7 @@ working with your IIS deployment.
    IIS 7 Application Pool Advanced Settings
 
 
--  To avoid rendering errors on OMERO.web it is recomended to add the custom
+-  To avoid rendering errors on OMERO.web it is recommended to add the custom
    HTTP response header in the Web site pane.
 
 .. figure:: /images/installation-images/IIS7HTTPresponseheader.png
@@ -62,7 +62,7 @@ working with your IIS deployment.
        C:\omero_dist>bin\omero web iis
 
    This will automatically add two applications, `/omero` and `/static`,
-   to the default web site and application pool. You can customise these
+   to the default web site and application pool. You can customize these
    locations by setting :property:`omero.web.prefix` and
    :property:`omero.web.static_url`.
 
@@ -78,7 +78,7 @@ working with your IIS deployment.
            C:\omero_dist>bin\omero config set omero.web.session_engine
            C:\omero_dist>bin\omero config set omero.web.caches
 
-       If your deployment requires additional cache store please follow
+       If your deployment requires additional cache store please follow the
        :djangodoc:`Django documentation <topics/cache/>`
        for more details.
 

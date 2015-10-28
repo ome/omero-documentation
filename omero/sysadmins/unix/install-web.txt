@@ -34,12 +34,12 @@ Prerequisites
 
    -  `Django 1.8`_ should be available for your distribution.
 
-   .. note:: Since OMERO 5.2, the web framework is no loger shipped with Django
-       package and requires manual installation of Django dependency. It is
-       highly recommended to use `Django 1.8`_ (LTS) that requires Python 2.7.
-       For more information about Python 2.6 and `Django 1.6`_
-       see :ref:`python-requirements` of the
-       :doc:`/sysadmins/version-requirements` page.
+   .. note:: Since OMERO 5.2, the web framework is no longer shipped with the
+       Django package and requires manual installation of the Django
+       dependency. It is highly recommended to use `Django 1.8`_ (LTS) which
+       requires Python 2.7. For more information see :ref:`python-requirements`
+       on the :doc:`/sysadmins/version-requirements` page.
+
 
 -  A WSGI capable web server
 
@@ -49,7 +49,7 @@ Prerequisites
 Deployment (Unix/Linux)
 -----------------------
 
-There is a number of good ways to easily deploy OMERO.web.
+There are a number of good ways to easily deploy OMERO.web.
 If you have installed Nginx or Apache OMERO can automatically generate a
 configuration file for your web server. The location of the file will depend
 on your system, please refer to your web server's manual. See
@@ -113,7 +113,7 @@ OMERO.web Maintenance (Unix/Linux)
    -  Each session for a logged-in user in OMERO.web is kept in the session 
       store. Stale sessions can cause the store to grow with time. OMERO.web 
       uses by default the OS file system as the session store backend and 
-      does not automatically purge stale sessions, see 
+      does not automatically purge stale sessions, see
       :djangodoc:`Django file-based session documentation <topics/http/sessions/#using-file-based-sessions>`
       for more details. It is therefore the responsibility of the OMERO 
       administrator to purge the session cache using the provided management 
@@ -173,7 +173,7 @@ All configuration options can be found on various sections of
 
 ::
 
-	$ bin/omero web -h 
+	$ bin/omero web -h
 
 The most popular configuration options include:
 

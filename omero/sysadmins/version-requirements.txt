@@ -886,7 +886,7 @@ installable with ``pip`` using any Python version.
 The supported version of the Django module used by OMERO.web (1.8)
 requires Python 2.7. The older version (1.6) will work with Python
 2.6 but lacks security support, and is consequently not recommended
-for production use..
+for production use.
 
 GCC
 ---

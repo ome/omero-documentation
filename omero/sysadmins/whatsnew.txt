@@ -11,13 +11,13 @@ What's new for OMERO 5.2 for sysadmins
   details about which operating systems and dependency versions we intend to
   support for the life of 5.2 and the likely changes to these for the next
   major release (currently planned to be 5.3). Most notably, we have dropped
-  support for Java 1.6 and changes in Python dependences.
+  support for Java 1.6 and changed the Python dependencies.
 
-- OMERO.web is no loger shipped with Django package and requires manual installation
+- OMERO.web is no longer shipped with Django package and requires manual installation
   of Django dependency. For more information about Python and Django version see 
-  :ref:`python-requirements` of the :doc:`/sysadmins/version-requirements` page.
+  :ref:`python-requirements` on the :doc:`/sysadmins/version-requirements` page.
 
-- The FastCGI support was removed in OMERO 5.2 and OMERO.web can be deployed
+- FastCGI support was removed in OMERO 5.2 and OMERO.web can be deployed
   using WSGI :ref:`unix_omero_web_deployment`.
 
 - The configuration property :property:`omero.graphs.wrap` which allowed
