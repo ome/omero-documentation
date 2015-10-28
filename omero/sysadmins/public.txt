@@ -101,7 +101,7 @@ To set this up on your OMERO.web installation:
 
     ::
 
-       $ bin/omero config set omero.web.public.url_filter '^/(webadmin/myphoto/|webclient/(?!(action|annotate_(file|tags|comment|rating|map)|script_ui|ome_tiff|figure_script))|webgateway/(?!(archived_files|download_as)))'
+       $ bin/omero config set omero.web.public.url_filter '^/(webadmin/myphoto/|webclient/(?!(action|logout|annotate_(file|tags|comment|rating|map)|script_ui|ome_tiff|figure_script))|webgateway/(?!(archived_files|download_as)))'
 
 - Set the :property:`omero.web.public.server_id` which the public user will be
   automatically connected to. Default: 1 (the first server in the
