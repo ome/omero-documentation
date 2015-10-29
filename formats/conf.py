@@ -42,12 +42,12 @@ model_extlinks = {
     'sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
     'omero_source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     # API
-    'javadoc' : (downloads_root + '/latest/bio-formats5.1/api/%s', ''),
+    'javadoc' : (downloads_root + '/latest/bio-formats/api/%s', ''),
     # Doc links
-    'omero_doc' : (oo_site_root + '/support/omero5.1/%s', ''),
-    'bf_doc' : (oo_site_root + '/support/bio-formats5.1/%s', ''),
+    'omero_doc' : (oo_site_root + '/support/omero/%s', ''),
+    'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
     # Downloads
-    'bf_downloads' : (downloads_root + '/latest/bio-formats5.1/%s', ''),
+    'bf_downloads' : (downloads_root + '/latest/bio-formats/%s', ''),
     }
 extlinks.update(model_extlinks)
 
