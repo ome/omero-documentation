@@ -103,9 +103,7 @@ Jenkins: Continuous integration
 -------------------------------
 
 Our Jenkins_ server is available :jenkins:`here <>` and also uses LDAP
-authentication. The name “Hudson”, by which Jenkins is referred to in the
-OME team, comes from before the Jenkins fork after Sun’s acquisition by
-Oracle. Jenkins provides a mechanism to run arbitrary tasks (“jobs”) on one or
+authentication. Jenkins provides a mechanism to run arbitrary tasks (“jobs”) on one or
 more platforms after particular events (time of day, git push, etc.) These
 jobs build all of the binaries released by the team, and also run automated
 testing.
