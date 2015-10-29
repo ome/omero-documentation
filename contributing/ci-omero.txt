@@ -365,7 +365,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
     :jenkinsjob:`OMERO-DEV-latest`
 
-        This job builds the develop branch of OMERO with Ice 3.5 or 3.6
+        This job builds the develop branch of OMERO with Ice 3.5
 
         #. |buildOMERO|
         #. |archiveOMEROartifacts|
@@ -407,7 +407,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
     :jenkinsjob:`OMERO-DEV-merge-build`
 
-        These jobs builds the OMERO components with Ice 3.5 or 3.6
+        This matrix job builds the OMERO components with Ice 3.5
 
         #. Checks out :omero_scc_branch:`develop/merge/daily` 
         #. |buildOMERO| for each version of Ice
