@@ -17,10 +17,10 @@ OMERO.web
 OMERO.web has undergone a major upgrade, updating jsTree to version 3.0.8 and
 using json for all tree loading to substantially improve performance.
 
-If you have web code that directly works with the jsTree, you'll need to
+If you have web code that directly works with the jsTree, you will need to
 update it according to the `jsTree docs <https://www.jstree.com/>`.
 
-A number of new urls are available in webclient, with the /api/ prefix that
+A number of new URLs are available in webclient, with the /api/ prefix that
 provide json data for the jsTree. However, these may soon be moved to a
 different Django app and should not yet be considered stable.
 
