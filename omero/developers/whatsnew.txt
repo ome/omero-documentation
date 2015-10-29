@@ -56,4 +56,3 @@ OMERO model
 The :literal:`Rect` class has been renamed to :literal:`Rectangle` to match
 the OME-XML schema. This requires the corresponding change to be made in
 client software that uses the OMERO.blitz server API to work with ROIs.
->>>>>>> 987f3d4... add what's new note about Rect → Rectangle
