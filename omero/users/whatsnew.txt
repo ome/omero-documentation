@@ -3,7 +3,13 @@ What's new for OMERO 5.2 for users
 
 Updates and new features for OMERO 5.2 include:
 
--  improved support for screen data
+-  improved support for screen data formats (amongst others) and import times
+   for images with many ROIs
+-  reworked display of metadata and annotations in the righthand pane of both
+   clients
 -  improved support for attaching analytical results
 -  significant improvement in client performance including for loading data
    and drag and drop actions
+
+Note that you can no longer launch the desktop clients via Java Web Start as
+we have dropped support for this due to technical issues beyond our control.
