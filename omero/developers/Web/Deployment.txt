@@ -74,7 +74,7 @@ using the following command:
 
     $ bin/omero web config nginx-development > nginx-development.conf
 
-Start nginx and the Gunicorn worker processes running one thread
+Start Nginx and the Gunicorn worker processes running one thread
 listening on 127.0.0.1:4080 that will autoreload on source change:
 
 ::

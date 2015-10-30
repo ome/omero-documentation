@@ -6,17 +6,24 @@ OMERO.web Nginx and Gunicorn deployment (Unix/Linux)
 Nginx Gunicorn configuration (Unix/Linux)
 -----------------------------------------
 
+Install `Django 1.8`_ and `Gunicorn <http://docs.gunicorn.org/>`_
+using package requirements file:
+
+::
+
+    $ pip install -r share/web/requirements-py27-nginx.txt
+
+.. note:: For more details refer to
+    :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
+    or
+    :djangodoc:`hot to upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`
+
+
 If you have installed Nginx, OMERO can automatically generate a
 configuration file for your web server. The location of the file
 will depend on your system, please refer to your web server's manual.
 See :ref:`customizing_your_omero_web_installation_unix`
 for additional customization options.
-
-Install `gunicorn <http://docs.gunicorn.org/>`_:
-
-::
-
-    $ pip install gunicorn
 
 To create a site configuration file for inclusion in a system-wide nginx
 configuration redirect the output of the following command into a file:
