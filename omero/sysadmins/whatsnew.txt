@@ -13,9 +13,11 @@ What's new for OMERO 5.2 for sysadmins
   major release (currently planned to be 5.3). Most notably, we have dropped
   support for Java 1.6 and changed the Python dependencies.
 
-- OMERO.web is no longer shipped with Django package and requires manual installation
-  of Django dependency. For more information about Python and Django version see 
-  :ref:`python-requirements` on the :doc:`/sysadmins/unix/server-installation` page.
+- The OMERO web framework no longer bundles a copy of the Django package,
+  instead manual installation of the Django dependency is required. It is
+  highly recommended to use `Django 1.8`_ (LTS) which requires Python 2.7.
+  For more information see :ref:`python-requirements` on the
+  :doc:`/sysadmins/version-requirements` page.
 
 - FastCGI support was removed in OMERO 5.2 and OMERO.web can be deployed
   using WSGI :ref:`unix_omero_web_deployment`.
