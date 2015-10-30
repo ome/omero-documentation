@@ -9,6 +9,7 @@ set -u
 set -e
 set -x
 WORKSPACE=${WORKSPACE:-$(pwd)}
+USER=${USER:-$(whoami)}
 
 echo "Copying history"
 cp $WORKSPACE/OMERO.server/history.txt omero/users/
@@ -34,7 +35,7 @@ echo "Generating Web configuration templates"
 $WORKSPACE/OMERO.server/bin/omero web config nginx | sed "s|$WORKSPACE|/home/omero|g" > omero/sysadmins/unix/install-web/nginx-omero.conf
 # Apache / WSGI
 $WORKSPACE/OMERO.server/bin/omero config set omero.web.application_server "wsgi"
-$WORKSPACE/OMERO.server/bin/omero web config apache | sed "s|$WORKSPACE|/home/omero|g" > omero/sysadmins/unix/install-web/apache-omero.conf
+$WORKSPACE/OMERO.server/bin/omero web config apache | sed -e "s|$WORKSPACE|/home/omero|g" -e "s|$USER|omero|g" > omero/sysadmins/unix/install-web/apache-omero.conf
 $WORKSPACE/OMERO.server/bin/omero config set omero.web.application_server
 echo "Copying omero-install Linux scripts"
 mkdir -p omero/sysadmins/unix/walkthrough/
