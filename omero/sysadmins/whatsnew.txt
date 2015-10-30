@@ -15,7 +15,7 @@ What's new for OMERO 5.2 for sysadmins
 
 - OMERO.web is no longer shipped with Django package and requires manual installation
   of Django dependency. For more information about Python and Django version see 
-  :ref:`python-requirements` on the :doc:`/sysadmins/version-requirements` page.
+  :ref:`python-requirements` on the :doc:`/sysadmins/unix/server-installation` page.
 
 - FastCGI support was removed in OMERO 5.2 and OMERO.web can be deployed
   using WSGI :ref:`unix_omero_web_deployment`.
