@@ -41,7 +41,7 @@ Run the following commands to install them::
     yum groupinstall "Development Tools"
     yum install epel-release
     # Ice dependencies
-    yum install expat-devel libbz2-devel openssl-devel zlib-devel
+    yum install expat-devel bzip2-devel openssl-devel zlib-devel
     # Python module dependencies
     yum install hdf5-devel freetype-devel libjpeg-devel libpng-devel
 
