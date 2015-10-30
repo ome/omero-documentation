@@ -17,7 +17,7 @@ Install `Django 1.8`_ using package requirements file:
 .. note:: For more details refer to
     :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
     or
-    :djangodoc:`hot to upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`
+    :djangodoc:`how to upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`
 
 OMERO can automatically generate a
 configuration file for your web server. The location of the file
