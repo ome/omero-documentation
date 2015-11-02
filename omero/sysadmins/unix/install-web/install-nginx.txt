@@ -13,7 +13,8 @@ Nginx Gunicorn configuration (Unix/Linux)
       see :ref:`python-requirements` on the
       :doc:`/sysadmins/version-requirements` page.
 
-Install `Django 1.8`_ using package requirements file:
+Install `Django 1.8`_ and `Gunicorn <http://docs.gunicorn.org/>`_ using
+package requirements file:
 
 ::
 
