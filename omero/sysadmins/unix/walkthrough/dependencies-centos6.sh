@@ -12,7 +12,7 @@ yum -y install \
 	ice ice-python ice-servers
 
 yum -y install \
-	python-pip python-devel \
+	python-pip python-devel python-virtualenv \
 	numpy scipy python-matplotlib Cython \
 	gcc \
 	libjpeg-devel \
@@ -26,6 +26,9 @@ pip install pillow
 pip install numexpr==1.4.2
 # Requires gcc, Cython, hdf5-devel
 pip install tables==2.4.0
+
+# Django
+pip install Django==1.6.11
 
 # Postgres, reconfigure to allow TCP connections
 yum -y install http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-centos94-9.4-1.noarch.rpm

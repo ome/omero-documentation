@@ -188,6 +188,14 @@ Default: `${omero.data.dir}/ManagedRepository`
 Client
 ------
 
+.. property:: omero.client.download_as.max_size
+
+omero.client.download_as.max_size
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Clients disable download as jpg/png/tiff above max pixel count.
+
+Default: `144000000`
+
 .. property:: omero.client.scripts_to_ignore
 
 omero.client.scripts_to_ignore
@@ -273,6 +281,14 @@ Client viewers interpolate pixels by default.
 
 Default: `true`
 
+.. property:: omero.client.viewer.roi_limit
+
+omero.client.viewer.roi_limit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client viewers roi limit.
+
+Default: `2000`
+
 .. property:: omero.client.web.host
 
 omero.client.web.host
@@ -357,7 +373,7 @@ server that is is being used with. Any changes by
 developers to the database schema will result in
 a bump to this value.
 
-Default: `1`
+Default: `0`
 
 .. property:: omero.db.poolsize
 
@@ -442,7 +458,7 @@ of the server that it is being used with. Typically,
 only developers will change this version to bump
 to a new major version.
 
-Default: `OMERO5.1`
+Default: `OMERO5.2`
 
 
 .. _grid_configuration:
@@ -1465,7 +1481,7 @@ ome.model.annotations.RoiAnnotationLink,
 ome.model.roi.Roi,
 ome.model.roi.Shape,
 ome.model.roi.Text,
-ome.model.roi.Rect,
+ome.model.roi.Rectangle,
 ome.model.roi.Mask,
 ome.model.roi.Ellipse,
 ome.model.roi.Point,
@@ -1708,9 +1724,9 @@ Default: `[]`
 
 omero.web.application_server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-OMERO.web is configured to use FastCGI TCP by default. If you are using a non-standard web server configuration you may wish to change this before generating your web server configuration. Available options: "fastcgi-tcp", "wsgi-tcp", "wsgi"
+OMERO.web is configured to run in Gunicorn as a generic WSGI application by default. If you are using Apache change this to "wsgi" before generating your web server configuration. Available options: "wsgi-tcp" (Gunicorn), "wsgi" (Apache)
 
-Default: `fastcgi-tcp`
+Default: `wsgi-tcp`
 
 .. property:: omero.web.application_server.host
 
@@ -1941,6 +1957,14 @@ Default: `^/(?!webadmin)`
 omero.web.public.user
 ^^^^^^^^^^^^^^^^^^^^^
 Username to use during authentication.
+
+Default: `None`
+
+.. property:: omero.web.secret_key
+
+omero.web.secret_key
+^^^^^^^^^^^^^^^^^^^^
+A boolean that sets SECRET_KEY for a particular Django installation.
 
 Default: `None`
 

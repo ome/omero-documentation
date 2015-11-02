@@ -46,5 +46,5 @@ Examples:
   $ importer-cli -s localhost -u username -w password -d 50 --debug ALL foo.tiff
 
 For additional information, see:
-http://www.openmicroscopy.org/site/support/omero5.1/users/cli/import.html
+http://www.openmicroscopy.org/site/support/omero5.2/users/cli/import.html
 Report bugs to <ome-users@lists.openmicroscopy.org.uk>

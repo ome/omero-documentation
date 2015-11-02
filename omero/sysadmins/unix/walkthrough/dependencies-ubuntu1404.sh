@@ -9,4 +9,7 @@ apt-get -y install \
 	ice-services python-zeroc-ice \
 	postgresql
 
+# Django
+pip install "Django<1.9"
+
 service postgresql start
