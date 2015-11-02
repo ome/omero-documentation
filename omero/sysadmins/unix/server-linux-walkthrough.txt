@@ -58,9 +58,9 @@ Note that this script requires the same environment variables that were set
 earlier in `settings.env`, so you may need to copy and/or source this file as
 the omero user.
 
-.. literalinclude:: walkthrough/setup_omero51.sh
+.. literalinclude:: walkthrough/setup_omero.sh
 
-:download:`setup_omero51.sh <walkthrough/setup_omero51.sh>`
+:download:`setup_omero.sh <walkthrough/setup_omero.sh>`
 
 
 Installing Nginx
