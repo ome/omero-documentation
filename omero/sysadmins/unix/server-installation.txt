@@ -8,6 +8,9 @@ more specific walk-through listed below.
 
 .. seealso::
 
+    :doc:`server-centos6`
+        Instructions for installing Python and Ice on CentOS 6.
+
     :doc:`server-linux-walkthrough`
         Instructions for installing OMERO.server from scratch on
         Ubuntu 14.04 and CentOS 6.
@@ -252,6 +255,10 @@ If possible, install the following packages:
     * - RedHat
       - python
 
+.. note::
+    CentOS 6 users should read :doc:`server-centos6` and follow the
+    instructions there to install Python and the required modules.
+
 Ice
 ^^^
 
@@ -288,6 +295,10 @@ bugfixes which are not present in the upstream releases.
 If needed, source and binary packages are available from ZeroC_. The
 latest release is available from the :zeroc:`ZeroC website
 <download.html>`.
+
+.. note::
+    CentOS 6 users should read :doc:`server-centos6` and follow the
+    instructions there to install Ice.
 
 .. note::
     ZeroC_ Ice can always be built from source code for specific
@@ -491,6 +502,10 @@ The following environment variables may be configured:
 
 After making any needed changes, either source the corresponding file
 or log back in for them to take effect. Run ``env`` to check them.
+
+.. note::
+    CentOS 6 users should read :doc:`server-centos6` and set the
+    needed environment variables as documented.
 
 Creating a database
 -------------------
