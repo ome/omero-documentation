@@ -17,7 +17,7 @@ Install `Django 1.6`_ using package requirements file:
 
 ::
 
-   $ pip install -r requirements-py26-iis.txt
+   $ pip install -r share/web/requirements-py26-iis.txt
 
 .. note:: For more details refer to `Django 1.6 installation on Windows <https://docs.djangoproject.com/en/1.6/howto/windows/>`_.
 
