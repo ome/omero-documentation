@@ -146,7 +146,7 @@ The planned changes for 5.2 depend upon our support of
 
 * Ice
 
-  * [5.2] 3.4 dropped, 3.5 supported, 3.6 not supported
+  * [5.2] 3.4 dropped, 3.5 recommended, 3.6 not supported
   * [5.3] 3.4 dropped, 3.5 deprecated, 3.6 recommended
   * Rationale: 3.4 is no longer supported by ZeroC with 3.5 being
     current. By the release of 5.3, Ice 3.6 will have been out for
@@ -886,7 +886,9 @@ installable with ``pip`` using any Python version.
 The supported version of the Django module used by OMERO.web (1.8)
 requires Python 2.7. The older version (1.6) will work with Python
 2.6 but lacks security support, and is consequently not recommended
-for production use.
+for production use. However, if you are using Windows, Django 1.8 support is
+still upcoming and you must use 1.6 for now. We aim to add support for Django
+1.8 in OMERO.web within the 5.2.x development line.
 
 GCC
 ---
@@ -1199,7 +1201,7 @@ Ice
       - Upstream support
       - OMERO 5.1
       - OMERO 5.2
-      - OMERO 5.2
+      - OMERO 5.3
       - Details
     * - 3.3
       - from May 2008
@@ -1221,7 +1223,7 @@ Ice
       - from Mar 2013
       - to Oct 2013
       - Recommended
-      - Deprecated
+      - Recommended
       - Deprecated
       - :zerocforum:`Ice 3.5 <announcements/6093-ice-3-5-0-released>`
         :zerocforum:`Ice 3.5.1 <announcements/6283-ice-3-5-1-released>`
