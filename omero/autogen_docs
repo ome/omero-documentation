@@ -52,8 +52,9 @@ for f in \
     setup_nginx_centos6.sh \
     setup_centos6_selinux.sh \
     setup_nginx_ubuntu1404.sh \
-    setup_omero51.sh \
+    setup_omero.sh \
     setup_omero_daemon_centos6.sh \
+    setup_omero_daemon_noweb_centos6.sh \
     setup_omero_daemon_ubuntu1404.sh \
     setup_permissions.sh \
     setup_postgres.sh \
