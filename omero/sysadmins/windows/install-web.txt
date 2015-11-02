@@ -31,18 +31,6 @@ Prerequisites
 
    -  `Matplotlib`_ should be available for your distribution
 
-   -  `Django 1.6`_ should be available for your distribution.
-
-      .. note:: For more details refer to
-          `install Django 1.6 on Windows <https://docs.djangoproject.com/en/1.6/howto/windows/>`_.
-
-   .. note:: Since OMERO 5.2, the OMERO web framework no longer bundles
-       a copy of the Django package, instead manual installation of
-       the Django dependency is required. It is highly recommended to use
-       `Django 1.6`_ on Windows. For more information
-       see :ref:`python-requirements` on the
-       :doc:`/sysadmins/version-requirements` page.
-
 -  IIS or WSGI capable web server
 
 

@@ -32,19 +32,6 @@ Prerequisites
 
    -  `Matplotlib`_ should be available for your distribution
 
-   -  `Django 1.8`_ should be available for your distribution.
-
-      .. note:: For more details refer to
-          :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
-          or :djangodoc:`hot to upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
-
-   .. note:: Since OMERO 5.2, the OMERO web framework no longer bundles
-       a copy of the Django package, instead manual installation of
-       the Django dependency is required. It is highly recommended to use
-       `Django 1.8`_ (LTS) which requires Python 2.7. For more information
-       see :ref:`python-requirements` on the
-       :doc:`/sysadmins/version-requirements` page.
-
 -  A WSGI capable web server
 
 
