@@ -4,7 +4,7 @@ set -e -u -x
 
 DISTRO=
 WEBSERVER=nginx
-OMEROVER=omero51
+OMEROVER=omero
 
 for arg in "$@"; do
 	case "$arg" in
@@ -14,7 +14,7 @@ for arg in "$@"; do
 	nginx|apache)
 		WEBSERVER="$arg"
 		;;
-	omero50|omero51)
+	omero|omerodev)
 		OMEROVER="$arg"
 		;;
 	*)
@@ -65,7 +65,11 @@ fi
 #su - omero -c "OMERO.server/bin/omero web start"
 
 if [ $DISTRO = centos6 ]; then
-	bash -eux setup_omero_daemon_centos6.sh
+	if [ $WEBSERVER = apache ]; then
+		bash -eux setup_omero_daemon_noweb_centos6.sh
+	else
+		bash -eux setup_omero_daemon_centos6.sh
+	fi
 else
 	bash -eux setup_omero_daemon_ubuntu1404.sh
 fi
