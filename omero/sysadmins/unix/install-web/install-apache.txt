@@ -6,13 +6,32 @@ OMERO.web Apache and mod_wsgi deployment (Unix/Linux)
 Apache 2.2+ with mod_wsgi configuration (Unix/Linux)
 ----------------------------------------------------
 
-If you have installed Apache, OMERO can automatically generate a
+.. note:: Since OMERO 5.2, the OMERO web framework no longer bundles
+      a copy of the Django package, instead manual installation of
+      the Django dependency is required. It is highly recommended to use
+      `Django 1.8`_ (LTS) which requires Python 2.7. For more information
+      see :ref:`python-requirements` on the
+      :doc:`/sysadmins/version-requirements` page.
+
+If you have installed Apache, install `mod\_wsgi <http://www.modwsgi.org/>`_.
+
+Install `Django 1.8`_ using package requirements file:
+
+::
+
+   $ pip install -r share/web/requirements-py27-apache.txt
+
+
+.. note:: For more details refer to
+          :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
+          or :djangodoc:`hot to upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
+
+
+OMERO can automatically generate a
 configuration file for your web server. The location of the file
 will depend on your system, please refer to your web server's manual.
 See :ref:`customizing_your_omero_web_installation_unix`
 for additional customization options.
-
-Install `mod\_wsgi <http://www.modwsgi.org/>`_.
 
 Set the following:
 

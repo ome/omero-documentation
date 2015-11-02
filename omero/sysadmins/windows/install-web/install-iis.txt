@@ -6,6 +6,22 @@ OMERO.web IIS deployment (Windows)
 IIS configuration (Windows)
 ---------------------------
 
+.. note:: Since OMERO 5.2, the OMERO web framework no longer bundles
+       a copy of the Django package, instead manual installation of
+       the Django dependency is required. It is highly recommended to use
+       `Django 1.6`_ on Windows. For more information
+       see :ref:`python-requirements` on the
+       :doc:`/sysadmins/version-requirements` page.
+
+Install `Django 1.6`_ using package requirements file:
+
+::
+
+   $ pip install -r share/web/requirements-py26-iis.txt
+
+.. note:: For more details refer to `Django 1.6 installation on Windows <https://docs.djangoproject.com/en/1.6/howto/windows/>`_.
+
+
 Once you have IIS installed on your system, a straightforward set of
 steps is required to get the `ISAPI
 WSGI <http://code.google.com/p/isapi-wsgi/>`_ handler for OMERO.web
