@@ -886,9 +886,9 @@ installable with ``pip`` using any Python version.
 The supported version of the Django module used by OMERO.web (1.8)
 requires Python 2.7. The older version (1.6) will work with Python
 2.6 but lacks security support, and is consequently not recommended
-for production use. However, if you are using Windows, Django 1.8 support is
-still upcoming and you must use 1.6 for now. We aim to add support for Django
-1.8 in OMERO.web within the 5.2.x development line.
+for production use. However, if you are using IIS on Windows, Django 1.8
+support is still upcoming and you must use 1.6 for now. We aim to add support
+for Django 1.8 in OMERO.web within the 5.2.x development line.
 
 GCC
 ---
