@@ -41,7 +41,7 @@ Some of the options available to the import command are:
 
 .. option:: -f
 
-    Display all the files used for importing, then exit::
+    Display all the files that would be imported, then exit::
 
         $ bin/omero import -f image.tif
         $ bin/omero import -f images_folder
@@ -142,8 +142,8 @@ Command Line Importer
 
 The |CLI| import plugin calls the
 ``ome.formats.importer.cli.CommandLineImporter`` Java class. The Linux
-OMERO.importer also includes an :file:`importer-cli` shell script allowing to
-call the importer directly from Java. Using :file:`importer-cli`
+OMERO.importer also includes an :file:`importer-cli` shell script allowing
+calls to the importer directly from Java. Using :file:`importer-cli`
 might look like this::
 
     ./importer-cli -s localhost -u user -w pass image.tif
