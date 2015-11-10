@@ -9,34 +9,7 @@ A minimum specification OME file has been defined. This is best viewed
 as being the minimum required for the display of an image. A sample of
 the structure is:
 
-::
-
-    <?xml version="1.0" encoding="UTF-8"?>
-    <OME xmlns:bf="http://www.openmicroscopy.org/Schemas/BinaryFile/2015-01"
-        xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2015-01
-                            http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd">
-        <Image ID="Image:1" Name="Name92">
-            <AcquisitionDate>2009-03-16T15:41:51.0Z</AcquisitionDate>
-            <Pixels 
-                ID="Pixels:1" 
-                DimensionOrder="XYZCT" 
-                Type="int8" 
-                SizeX="2" 
-                SizeY="2" 
-                SizeZ="2"
-                SizeC="2" 
-                SizeT="2">
-                <bf:BinData 
-                    BigEndian="false" 
-                    Compression="none" 
-                    Length="12"
-                    >ZGVmYXVsdA==</bf:BinData>
-            </Pixels>
-        </Image>
-    </OME>
-    The data in this sample is nonsense.
+.. literalinclude:: minimum-specification.ome
 
 Alternative valid forms:
 
