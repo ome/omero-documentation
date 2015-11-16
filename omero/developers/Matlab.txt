@@ -882,7 +882,7 @@ attaches it to an image::
         numShapes = roi.sizeOfShapes;
         for ns = 1:numShapes
             shape = roi.getShape(ns-1);
-            if (isa(shape, 'omero.model.Rect'))
+            if (isa(shape, 'omero.model.Rectangle'))
                rectangle = shape;
                rectangle.getX().getValue()
             elseif (isa(shape, 'omero.model.Ellipse'))
