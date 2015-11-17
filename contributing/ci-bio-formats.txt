@@ -268,11 +268,6 @@ The branch for the 5.1.x series of Bio-Formats is dev_5_1.
 
                 This job builds the merge native C++ implementation for Bio-Formats
 
-        :jenkinsjob:`BIOFORMATS-CPP-5.1-merge-homebrew`
-
-                This job builds the merge native C++ implementation
-                for Bio-Formats (MacOS X homebrew build)
-
         :jenkinsjob:`BIOFORMATS-CPP-5.1-merge-superbuild`
 
                 This job builds the merge native C++ implementation
