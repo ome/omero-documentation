@@ -816,7 +816,7 @@ ROIs
     # create a rectangle shape and add to ROI
     print ("Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s,"
            " height: %s" % (theZ, theT, x, y, width, height))
-    rect = omero.model.RectI()
+    rect = omero.model.RectangleI()
     rect.x = rdouble(x)
     rect.y = rdouble(y)
     rect.width = rdouble(width)
@@ -887,7 +887,7 @@ ROIs
             shape['theZ'] = s.getTheZ().getValue()
             if s.getTextValue():
                 shape['textValue'] = s.getTextValue().getValue()
-            if type(s) == omero.model.RectI:
+            if type(s) == omero.model.RectangleI:
                 shape['type'] = 'Rectangle'
                 shape['x'] = s.getX().getValue()
                 shape['y'] = s.getY().getValue()
