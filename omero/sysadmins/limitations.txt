@@ -18,7 +18,10 @@ the current Ubuntu build of 8u40) have broken JPEG support, reported
 for `OpenJDK
 <http://icedtea.classpath.org/bugzilla/show_bug.cgi?id=1393>`__ and
 `Ubuntu
-<https://bugs.launchpad.net/ubuntu/+source/openjdk-8/+bug/1421501>`__.
+<https://bugs.launchpad.net/ubuntu/+source/openjdk-8/+bug/1421501>`__. See
+:ticket:`ticket 12612` and
+:mailinglist:`this ome-users thread <ome-users/2015-November/005723.html>` for
+more information.
 OracleJDK8 is also supported, but the earliest releases have had
 problems.  The latest OpenJDK8 or OracleJDK8 should work
 correctly. OpenJDK and OracleJDK versions 6 and 7 are also supported.
