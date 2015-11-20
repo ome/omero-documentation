@@ -68,7 +68,6 @@ https://github.com/Homebrew/homebrew-science for the HDF5 formula and
 https://github.com/ome/homebrew-alt for all the OME-provided formulae
 and older versions of Ice.  To add these, run::
 
-    $ brew tap homebrew/python
     $ brew tap homebrew/science
     $ brew tap ome/alt
 
