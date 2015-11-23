@@ -45,6 +45,11 @@ else:
     previousversion = 'UNKNOWN'
     release = 'UNKNOWN'
 
+rst_prolog = """
+.. note:: **This documentation is for the superseded OMERO 5.1 line.** See the `latest
+    OMERO 5.2.x version <http://www.openmicroscopy.org/site/support/omero5.2/>`_ for the
+    most up-to-date documentation.
+"""
 
 rst_epilog += """
 .. |OmeroPy| replace:: :doc:`/developers/Python`
