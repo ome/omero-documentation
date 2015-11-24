@@ -51,8 +51,7 @@ building distributed-object systems is different from both building
 standalone clients and writing web applications in frameworks like
 mod\_perl, django, or Ruby on Rails. The remoting framework used by
 OMERO is Ice_ from ZeroC. Ice is comparable
-to CORBA in many ways, but is typically easier to use. For ZeroC's
-comparison of Ice to CORBA, see :zeroc:`iceVsCorba.html`.
+to CORBA in many ways, but is typically easier to use.
 
 A good first step is to be aware of the difference between remote and
 local invocations. Any invocation on a proxy (``<class_name>Prx``,
