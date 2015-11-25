@@ -1,5 +1,9 @@
 #!/bin/bash
 
+set +u
+source /opt/rh/python27/enable
+set -u
+
 cat << EOF > /etc/yum.repos.d/nginx.repo
 [nginx]
 name=nginx repo
@@ -17,3 +21,5 @@ mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
 cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
 
 service nginx start
+
+bash -eux setup_centos6_selinux.sh
