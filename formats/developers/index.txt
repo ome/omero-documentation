@@ -60,6 +60,11 @@ Support for additional dimensions is also covered:
 
 -  :doc:`6D, 7D and 8D Storage <6d-7d-and-8d-storage>`
 
+The new 'key-value pairs' Map Annotations introduced in the
+:doc:`/schemas/january-2015` are a type of Structured Annotation. Further
+information is available in the :omero_doc:`OMERO developer documentation on
+Key-value pairs <developers/Model/KeyValuePairs.html>`.
+
 Legacy solutions for tiled images and Single (or Selective) Plane Illumination
 Microscopy (also known as Light Sheet Microscopy) are detailed in the
 following sections for reference but **both these methods have been superseded
