@@ -5,7 +5,7 @@ OMERO.server Mac OS X installation walk-through with Homebrew
 .. topic:: Overview
 
     This walk-through demonstrates how to install OMERO on a clean Mac
-    OS X system (10.8 or later) using Homebrew.  Note that this
+    OS X system (10.9 or later) using Homebrew.  Note that this
     demonstrates how to install OMERO.server *from the source code*
     via Homebrew, in addition to all its prerequisites. **The default
     instructions for UNIX platforms in the**
@@ -83,9 +83,8 @@ Python 2.7
 
 .. _`Homebrew and Python`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
 
-You can install OMERO using either the Python 2.7 provided by
-Homebrew, or the system-wide Python 2.7 provided by MacOS X. Homebrew
-Python is recommended since it makes using Homebrew-provided modules
+You should install OMERO using Python 2.7 provided by
+Homebrew since it makes using Homebrew-provided modules
 simpler, for example the Ice python bindings needed by OMERO. For a
 more thorough description of the Homebrew solution, see the `Homebrew
 and Python`_ page. Note that the automated script linked above tests
@@ -100,20 +99,7 @@ Check that Python is working and is version 2.7::
     $ /usr/local/bin/python --version
     Python 2.7.9
 
-If using system Python, add the following to :file:`~/.profile` and
-then start a new shell for the change to take effect::
-
-    export PYTHONPATH=$(brew --prefix omero)/lib/python
-
-If using Homebrew Python, this will be on the default module path.
-
-.. note::
-
-    If you have a local :file:`.bash_profile` file, it will override
-    your :file:`.profile` configuration file.
-
-
-Independently of the chosen Python, you can set up and use `virtual
+To create isolated Python environemnt you can set up and use `virtual
 environments <http://www.virtualenv.org/en/latest/>`_ to install the OMERO
 Python dependencies (see :ref:`python_dependencies`).
 
