@@ -47,6 +47,12 @@ folders named 'web....'. These include webgateway, as
 discussed above, as well as released tools (webadmin, webclient) and
 other apps in development:
 
+.. note::
+    Although it is possible to access functionality from any installed app,
+    only webgateway should be considered as a stable public API. URLs and methods
+    within other web apps are purely designed to provide internal functionality for
+    the app itself and may change in minor releases.
+
 .. glossary::
     webclient
         Main web client for viewing images, annotating etc. More
