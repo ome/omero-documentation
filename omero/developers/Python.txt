@@ -794,8 +794,8 @@ ROIs
     # We are using the core Python API and omero.model objects here, since ROIs
     # are not yet supported in the Python Blitz Gateway.
     #
-    # In this example, we create an ROI with a rectangular shape and attach it to
-    # an image.
+    # In this example, we create an ROI linked to several shapes
+    # and attach it to an image.
     x = 50
     y = 200
     width = 100
@@ -803,8 +803,6 @@ ROIs
     image = conn.getObject("Image", imageId)
     theZ = image.getSizeZ() / 2
     theT = 0
-    print ("Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s,"
-           " height: %s" % (theZ, theT, x, y, width, height))
 
 ::
 
@@ -816,6 +814,8 @@ ROIs
 ::
 
     # create a rectangle shape and add to ROI
+    print ("Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s,"
+           " height: %s" % (theZ, theT, x, y, width, height))
     rect = omero.model.RectangleI()
     rect.x = rdouble(x)
     rect.y = rdouble(y)
@@ -829,6 +829,8 @@ ROIs
 ::
 
     # create an Ellipse shape and add to ROI
+    print ("Adding ellipse at theZ: %s, theT: %s, cx: %s, cy: %s, rx: %s,"
+           " ry: %s" % (theZ, theT, x, y, width, height))
     ellipse = omero.model.EllipseI()
     ellipse.cx = rdouble(y)
     ellipse.cy = rdouble(x)
@@ -837,12 +839,38 @@ ROIs
     ellipse.theZ = rint(theZ)
     ellipse.theT = rint(theT)
     ellipse.textValue = rstring("test-Ellipse")
-    roi.addShape(ellipse)
+    roi.addShape(ellipse) 
+
+::
+
+    # create a line shape and add to ROI
+    print ("Adding line at theZ: %s, theT: %s, x1: %s, y1: %s, x2: %s,"
+       " y2: %s" % (theZ, theT, x, y, x+width, y+height))
+    line = omero.model.LineI()
+    line.x1 = rdouble(x)
+    line.x2 = rdouble(x+width)
+    line.y1 = rdouble(y)
+    line.y2 = rdouble(y+height)
+    line.theZ = rint(theZ)
+    line.theT = rint(theT)
+    line.textValue = rstring("test-Line")
+    roi.addShape(line) 
+
+::
+
+    # create a point shape and add to ROI
+    point = omero.model.PointI()
+    point.cx = rdouble(x)
+    point.cy = rdouble(y)
+    point.theZ = rint(theZ)
+    point.theT = rint(theT)
+    point.textValue = rstring("test-Point")
+    roi.addShape(point) 
 
 ::
 
     # Save the ROI (saves any linked shapes too)
-    r = updateService.saveAndReturnObject(roi)
+    r = updateService.saveAndReturnObject(roi) 
 
 -  **Retrieve ROIs linked to an Image.**
 
