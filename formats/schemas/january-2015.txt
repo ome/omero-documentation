@@ -121,7 +121,7 @@ OME
     | ``UnitsElectricPotential``
     | ``UnitsPower``
     | ``UnitsFrequency``
-- Added a new ``GenericExcitationSource`` to light source types. This using a
+- Added a new ``GenericExcitationSource`` to light source types. This uses a
   ``Map`` of key-value pairs to store metadata for a light source that cannot
   be expressed as one of the other types.
 

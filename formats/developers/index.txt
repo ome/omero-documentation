@@ -60,8 +60,8 @@ Support for additional dimensions is also covered:
 
 -  :doc:`6D, 7D and 8D Storage <6d-7d-and-8d-storage>`
 
-The new 'key-value pairs' Map Annotations introduced in the
-:doc:`/schemas/january-2015` are a type of Structured Annotation. Further
+Map Annotations, storing 'key-value pairs', are a type of Structured
+Annotation which were introduced in the :doc:`/schemas/january-2015`. Further
 information is available in the :omero_doc:`OMERO developer documentation on
 Key-value pairs <developers/Model/KeyValuePairs.html>`.
 
