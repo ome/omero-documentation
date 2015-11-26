@@ -28,6 +28,13 @@ The Sphinx documentation system can be obtained by issuing::
 Most Linux distributions will also provide it in a python-sphinx package
 (or similar).
 
+Ant
+---
+You will also need ant for building the documentation. This can be installed
+on Mac OSX by using homebrew::
+
+    brew install ant
+
 LaTeX
 -----
 
