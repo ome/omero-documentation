@@ -107,7 +107,7 @@ OME
     | ``Filter: CutOutTolerance``
     | ``Laser: Wavelength``
     | ``LightSourceSettings: Wavelength``
-- Added a general ``Map`` to ``ImagingEnvironment`` to store key/value pairs
+- Added a general ``Map`` to ``ImagingEnvironment`` to store key-value pairs
 - Added a new core type ``NonNegativeFloat``
 - Added a new core element ``Map`` and associated complex type ``MapPairs``.
   This in turn contains a collection of ``M`` elements that store a mapped
@@ -121,8 +121,8 @@ OME
     | ``UnitsElectricPotential``
     | ``UnitsPower``
     | ``UnitsFrequency``
-- Added a new ``GenericExcitationSource`` to light source types. This using a
-  ``Map`` of key/value pairs to store metadata for a light source that cannot
+- Added a new ``GenericExcitationSource`` to light source types. This uses a
+  ``Map`` of key-value pairs to store metadata for a light source that cannot
   be expressed as one of the other types.
 
 OMERO
@@ -143,7 +143,7 @@ SA
 ^^
 
 - Added a new ``MapAnnotation`` type. This makes use of the new
-  ``Map`` element from ``ome.xsd`` to store a collection of key/value pairs.
+  ``Map`` element from ``ome.xsd`` to store a collection of key-value pairs.
 
 SPW
 ^^^
