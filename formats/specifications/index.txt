@@ -30,11 +30,11 @@ attributes were then manually added to the files to make them compliant.
 
 Sample structure one:
 
-.. literalinclude:: sample-one.ome
+.. literalinclude:: olympus.ome.xml
 
 Sample structure two:
 
-.. literalinclude:: sample-two.ome
+.. literalinclude:: deltavision.ome.xml
 
 .. note::
     The data (BinData element content) in these sample was removed for
