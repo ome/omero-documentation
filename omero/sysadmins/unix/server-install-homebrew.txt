@@ -56,10 +56,13 @@ Requirements
 
 All the requirements for OMERO will be installed under :file:`/usr/local`. See also: Installation instructions on the `Homebrew wiki`_.
 
-::
+Install homebrew::
 
     $ export PATH=/usr/local/bin:$PATH
     $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+Update homebrew and run 'brew doctor' to fix potential issues beforehand::
+
     $ brew update
     $ brew doctor
 
@@ -95,7 +98,7 @@ The installation of OMERO via Homebrew depends upon two alternate
 repositories containing extra formulae:
 https://github.com/Homebrew/homebrew-science for the HDF5 formula and
 https://github.com/ome/homebrew-alt for all the OME-provided formulae
-and older versions of Ice.  To add these, run::
+and older versions of Ice. To add these, run::
 
     $ brew tap homebrew/science
     $ brew tap ome/alt
@@ -152,7 +155,7 @@ Create and run script to initialize the OMERO database::
     $ psql -h localhost -U db_user omero_database < $PSQL_SCRIPT_NAME
     $ rm $PSQL_SCRIPT_NAME
 
-Setup OMERO data directory::
+Set up OMERO data directory::
 
     $ export OMERO_DATA_DIR=${OMERO_DATA_DIR:-/var/OMERO.data}
     $ mkdir -p $OMERO_DATA_DIR
@@ -260,7 +263,7 @@ any previous OMERO installation artifacts from your system.
 
 Database
 ^^^^^^^^
-Check to make sure the database has been created.
+Check to make sure the database has been created and 'UTF8' encoding is used
 
 ::
 

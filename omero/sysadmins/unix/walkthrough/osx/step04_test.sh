@@ -29,7 +29,6 @@ omero version | grep -v UNKNOWN
 omero login -s localhost -u root -w $ROOT_PASSWORD
 touch test.fake
 omero import test.fake
-rm test.fake
 
 # Test simple Web connection
 brew install wget
