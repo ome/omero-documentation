@@ -230,7 +230,7 @@ Now connect to your OMERO.server using OMERO.insight or OMERO.web with the follo
 ::
 
     U: root
-    P: root_password
+    P: omero
 
 Stop OMERO.web::
 
