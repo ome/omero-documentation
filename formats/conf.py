@@ -48,6 +48,7 @@ model_extlinks = {
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
     # Downloads
     'bf_downloads' : (downloads_root + '/latest/bio-formats/%s', ''),
+    'image_downloads' : (downloads_root + '/images/%s', ''),
     }
 extlinks.update(model_extlinks)
 
