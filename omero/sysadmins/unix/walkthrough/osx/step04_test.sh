@@ -9,8 +9,6 @@ set -x
 export PATH=/usr/local/bin:$PATH
 export HTTPPORT=${HTTPPORT:-8080}
 export ROOT_PASSWORD=${ROOT_PASSWORD:-omero}
-export ICE_CONFIG=$(bin/brew --prefix omero52)/etc/ice.config
-export PYTHONPATH=$(bin/brew --prefix omero52)/lib/python
 
 # Start PostgreSQL
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
@@ -29,6 +27,7 @@ omero version | grep -v UNKNOWN
 omero login -s localhost -u root -w $ROOT_PASSWORD
 touch test.fake
 omero import test.fake
+omero logout
 
 # Test simple Web connection
 brew install wget
@@ -40,7 +39,7 @@ resp=$(wget --keep-session-cookies --load-cookies cookies.txt --post-data $post_
 echo "$resp"
 
 # Stop OMERO.web
-nginx -c $(bin/brew --prefix omero52)/etc/nginx.conf -s stop
+nginx -c $(brew --prefix omero52)/etc/nginx.conf -s stop
 omero web stop
 
 # Stop the server
