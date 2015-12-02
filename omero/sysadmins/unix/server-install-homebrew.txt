@@ -189,6 +189,13 @@ able to build the server, i.e.
 
 .. include:: development-server
 
+Then change into the `dist` directory::
+
+    $ cd ~/code/projects/OMERO/dist
+
+and follow the steps for setting up the database and OMERO data directory like mentioned
+in the previous section.
+
 OMERO.web
 ^^^^^^^^^
 
