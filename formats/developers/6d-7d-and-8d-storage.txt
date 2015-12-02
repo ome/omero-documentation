@@ -1,11 +1,10 @@
 6D, 7D and 8D storage
 =====================
 
-
-This outlines how to store 6D, 7D and 8D data in our 5D structure.
-
-Interim storage of additional dimensions in the OME model using Z, T and C
---------------------------------------------------------------------------
+.. topic:: Overview
+    
+    This outlines an interim storage solution for storing 6D, 7D and
+    8D data in our 5D structure using Z, T and C
 
 This has been produced as part of our transition to N-dimensional
 support. It will take a large amount of work throughout the OME
@@ -167,14 +166,14 @@ extra Phase(P) for each T then
     C2 , Z4 , T6  | C2 , Z2 , A2, T2 , P3
 
 How to order the plane data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 
 The order of the plane data is defined by the BinData or TiffData block, and
 is interleaved as it would be for the 5D view of the Z plane i.e. it is
 governed by the value of DimensionOrder on the Pixels element.
 
 How to represent tiles
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 The Plane element stores the location of each tile.
 
@@ -207,22 +206,32 @@ mosaic as above or to overlap e.g.
     E   <Plane TheC="0" TheT="12" TheZ="0" PositionX="80" PositionY="110" PositionZ="0.1"/>
 
 Sample files
-^^^^^^^^^^^^
+------------
 
 Sample files are available from the
-:image_downloads:`Modulo <OME-TIFF/2015-01/modulo/>` folder of the image downloads page:
+:image_downloads:`Modulo <OME-TIFF/2015-01/modulo/>` folder of the image downloads resource.
 
-- ``SPIM-modulo-sample.ome.tiff`` - a 2x2 tile of planes each recorded at 4
-  angles.
+SPIM
+^^^^
 
-- ``LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff`` - excitation of 5 wavelength 
-  [Λ, big-lambda] each recorded at 10 emission wavelength ranges [λ, lambda].
+- :image_downloads:`SPIM-modulo-sample.ome.tiff <OME-TIFF/2015-01/modulo/SPIM-modulo-sample.ome.tiff>` - a 2x2 tile of planes
+  each recorded at 4 angles.
 
-- ``FLIM-ModuloAlongT-TSCPC.ome.tiff`` - two channels and eight histogram bins
-  each recorded at two real timepoints.
+Big Lambda
+^^^^^^^^^^
 
-- ``FLIM-ModuloAlongC.ome.tiff`` - two real channels and eight histogram bins
-  each recorded at two timepoints.
+- :image_downloads:`LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff <OME-TIFF/2015-01/modulo/LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff>` -
+  excitation of 5 wavelength [Λ, big-lambda] each recorded at 10 emission
+  wavelength ranges [λ, lambda].
+
+FLIM
+^^^^
+
+- :image_downloads:`FLIM-ModuloAlongT-TSCPC.ome.tiff <OME-TIFF/2015-01/modulo/FLIM-ModuloAlongT-TSCPC.ome.tiff>` -
+  two channels and eight histogram bins each recorded at two real timepoints.
+
+- :image_downloads:`FLIM-ModuloAlongC.ome.tiff <OME-TIFF/2015-01/modulo/FLIM-ModuloAlongC.ome.tiff>` -
+  two real channels and eight histogram bins each recorded at two timepoints.
 
 .. note:: The ModuloAlong annotation allows FLIM data to be encoded in any of
     three dimensions (ZCT). However, a number of issues of future

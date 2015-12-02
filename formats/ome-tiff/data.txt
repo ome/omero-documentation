@@ -10,10 +10,9 @@ illustrate some possible data organizations, which should be useful if you are
 interested in implementing support for OME-TIFF within your software.
 
 All the OME-TIFF sample data discussed below are available from our
-:image_downloads:`OME-TIFF sample images page <OME-TIFF/2015-01>/`. In
-addition to the artificial datasets and the biological sample images, there
-are also examples of modulo data for :doc:`/developers/6d-7d-and-8d-storage`
-and the samples discussed in :doc:`/developers/sample-files`.
+:image_downloads:`OME-TIFF sample images resource <OME-TIFF/2015-01/>`. In
+addition, there are examples of modulo data for
+:doc:`/developers/6d-7d-and-8d-storage`.
 
 Artificial datasets
 -------------------
@@ -54,8 +53,8 @@ OME-TIFF dataset distributed across multiple TIFF files, see the
 .. _4D-series.ome.tif: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/bioformats-artificial/4D-series.ome.tif
 .. _multi-channel-4D-series.ome.tif: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/bioformats-artificial/multi-channel-4D-series.ome.tif
 
-A sample biological dataset
----------------------------
+Sample biological dataset
+-------------------------
 
 The following OME-TIFF datasets consist of tubulin histone GFP
 coexpressing *C. elegans* embryos. Many thanks to `Josh
@@ -78,7 +77,7 @@ types.
     byte counts between the downloadable ZIP files and the "zipped
     OME-TIFF" entry do not precisely match. Unzipped files are also available
     from our
-    :image_downloads:`OME-TIFF sample images page <OME-TIFF/2015-01>/`.
+    :image_downloads:`OME-TIFF sample images resource <OME-TIFF/2015-01/>`.
 
 
 +-------------------------------------------------------------+-----------------------+-------------------------+--------------------------+
@@ -117,6 +116,16 @@ types.
 .. _tubhiswt-2D.zip: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/tubhiswt-2D.zip
 .. _tubhiswt-3D.zip: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/tubhiswt-3D.zip
 .. _tubhiswt-4D.zip: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/tubhiswt-4D.zip
+
+Multi-file image example
+------------------------
+
+The :image_downloads:`Companion <OME-TIFF/2015-01/companion/>` OME-TIFF image
+folder contains a set of 18 by 24 pixel images (with black and white text on
+each plane giving its time, z-depth and channel) where each of the five Z
+sections are saved as a separate file and there is a companion file to
+identify them as a single fileset (meaning :OMERO_doc:`OMERO can treat them as
+a single image <developers/ImportFS.html>`).
 
 Efficiency of planar access
 ---------------------------
