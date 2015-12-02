@@ -81,7 +81,7 @@ OMERO jobs
         *
 
     -   * Installs OMERO using Homebrew
-        * :term:`OME-5.1-merge-homebrew`
+        * :term:`OMERO-5.1-merge-homebrew`
         *
         *
 
@@ -337,7 +337,7 @@ under the :jenkinsview:`5.1` view tab of Jenkins.
         #. Builds OMERO.server and starts it
         #. Runs the robot framework tests and collect the results
 
-    :jenkinsjob:`OME-5.1-merge-homebrew`
+    :jenkinsjob:`OMERO-5.1-merge-homebrew`
 
         This job tests the installation of OMERO 5.1 using Homebrew
 
