@@ -9,17 +9,17 @@ IIS configuration (Windows)
 .. note:: Since OMERO 5.2, the OMERO web framework no longer bundles
        a copy of the Django package, instead manual installation of
        the Django dependency is required. It is highly recommended to use
-       `Django 1.6`_ on Windows. For more information
+       `Django 1.8`_ on Windows. For more information
        see :ref:`python-requirements` on the
        :doc:`/sysadmins/version-requirements` page.
 
-Install `Django 1.6`_ using package requirements file:
+Install `Django 1.8`_ using package requirements file:
 
 ::
 
-   $ pip install -r share/web/requirements-py26-iis.txt
+   $ pip install -r share/web/requirements-py27-iis.txt
 
-.. note:: For more details refer to `Django 1.6 installation on Windows <https://docs.djangoproject.com/en/1.6/howto/windows/>`_.
+.. note:: For more details refer to `Django 1.8 installation on Windows <https://docs.djangoproject.com/en/1.8/howto/windows/>`_.
 
 
 Once you have IIS installed on your system, a straightforward set of
@@ -85,7 +85,7 @@ working with your IIS deployment.
    .. note::  You can make manual changes to the IIS OMERO configuration
        but they may be lost when OMERO.server is upgraded.
 
-   .. note::  As OMERO.web 5 is based on `Django 1.6`_,
+   .. note::  As OMERO.web 5 is based on `Django 1.8`_,
        :property:`omero.web.session_engine` and 
        :property:`omero.web.caches` should be unset.
 

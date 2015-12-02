@@ -51,7 +51,8 @@ Java SE Development Kit (JDK)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
-Java 7 is recommended, Java 6 is supported.
+
+Java 8 is recommended.
 
 Ice
 ^^^
@@ -69,7 +70,9 @@ Ice
     Python 2.7.
 
 You can download Ice 3.5.1 built against Python 2.7 from our
-`Ice downloads page <http://downloads.openmicroscopy.org/ice/3.5.1/>`_.
+`Ice downloads page <http://downloads.openmicroscopy.org/ice/3.5.1/>`_,
+unzip the archive and move the extracted directory to ``C:\``.
+
 If you plan to develop for C++, be sure to read the instructions on the
 |OmeroCpp| page.
 
@@ -124,6 +127,10 @@ The following are optional depending on what services you require:
       - Functionality
       - Downloads
 
+    * - Django (1.8.5)
+      - OMERO.web
+      - `Django website <https://www.djangoproject.com/>`_
+
     * - `Pillow`_
       - OMERO.web and Figure Export
       - :pypi:`Pillow` page
@@ -132,13 +139,37 @@ The following are optional depending on what services you require:
       - OMERO.web
       - `Matplotlib page <http://matplotlib.org/>`_
 
-    * - NumPy (1.2.0 or higher) [1]_
-      - Scripting
-      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
-
     * - PyTables (2.1.0 or higher)
       - :doc:`OMERO.tables </sysadmins/server-tables>`
       - `PyTables page <https://pytables.github.io/downloads.html>`_
+
+    * - NumPy (1.2.0 or higher) [1]_
+      - Scripting
+      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
+    
+    * - Numexpr (2.4.3 or higher)
+      - Scripting ?
+      - `Numexpr page <https://pypi.python.org/pypi/numexpr>`_
+    
+    * - pyparsing (2.0.3 or higher)
+      - Scripting ?
+      - `pyparsing page <http://pyparsing.wikispaces.com>`_
+
+    * - python-dateutil (2.4.2 or higher)
+      - Scripting ?
+      - `python-dateutil page <https://pypi.python.org/pypi/python-dateutil>`_
+
+    * - pytz 
+      - Scripting ?
+      - `pytz page <http://pytz.sourceforge.net/>`_
+
+    * - six (1.9.0 or higher)
+      - ?
+      - `six page <https://pypi.python.org/pypi/six>`_
+
+    * - virtualenv (12.1.1 or higher)
+      - ?
+      - `virtualenv page <http://docs.python-guide.org/en/latest/dev/virtualenvs/>`_
 
 .. [1] May already have been installed as a dependency of Matplot Lib.
 
@@ -239,9 +270,6 @@ Ice, which does not set the required variables by default.
    - PYTHONPATH pointing to the python folder in the ICE installation (e.g. 
      "C:\\Ice-3.5.1\\python;")
 
-   - For 64-bit you will need to use the 64-bit Ice directories, for example
-     "C:\\Ice-3.5.1\\bin\\x64;" and "C:\\Ice-3.5.1\\python\\x64;".
-
    .. warning:: Remember that the Windows path separator is the semicolon ; 
        and must be appended after every entry.
 
@@ -286,6 +314,9 @@ Creating a database for OMERO
    #. On the :guilabel:`Properties` tab, enter a name for the OMERO
       database (referenced as ``omero_database`` below) as the ``Name``, for
       example ``omero``, then press :guilabel:`OK`.
+
+   #. Switch to the :guilabel:`Definition` tab and make sure ``UTF8`` is set
+      for the ``Encoding`` property.
 
 Location for your OMERO binary repository
 -----------------------------------------
@@ -523,7 +554,7 @@ then start by
     Starting development server at http://0.0.0.0:4080/
     Quit the server with CTRL-BREAK.
 
-.. note::  As OMERO.web 5 is based on `Django 1.6`_,
+.. note::  As OMERO.web 5 is based on `Django 1.8`_,
     :property:`omero.web.session_engine` and :property:`omero.web.caches` should be
     unset.
     
