@@ -7,11 +7,7 @@ OMERO.server Mac OS X installation walk-through with Homebrew
     This walk-through demonstrates how to install OMERO on a clean Mac
     OS X system (10.9 or later) using Homebrew.  Note that this
     demonstrates how to install OMERO.server *from the source code*
-    via Homebrew, in addition to all its prerequisites. **The default
-    instructions for UNIX platforms in the**
-    :doc:`server-installation` **guide are all you need to install the
-    prerequisites with Homebrew and then install the server zip from
-    the downloads page or build from source.**
+    via Homebrew, in addition to all its prerequisites. 
 
 These instructions are implemented in a series of `automated scripts
 <https://github.com/ome/omero-install/tree/develop/osx>`_ which
@@ -193,7 +189,7 @@ Then change into the `dist` directory::
 
     $ cd ~/code/projects/OMERO/dist
 
-and follow the steps for setting up the database and OMERO data directory like mentioned
+and follow the steps for setting up the database and OMERO data directory as mentioned
 in the previous section.
 
 OMERO.web
