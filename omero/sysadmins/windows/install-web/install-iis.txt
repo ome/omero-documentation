@@ -17,7 +17,7 @@ Install `Django 1.8`_ using package requirements file:
 
 ::
 
-   $ pip install -r share/web/requirements-py27-iis.txt
+   $ pip install -r share/web/requirements-py27-win.txt
 
 .. note:: For more details refer to `Django 1.8 installation on Windows <https://docs.djangoproject.com/en/1.8/howto/windows/>`_.
 
@@ -70,6 +70,12 @@ working with your IIS deployment.
 .. figure:: /images/installation-images/IIS7HTTPresponseheader.png
    :align: center
    :alt: IIS 7 HTTP response header
+
+-  Make sure the OMERO's log directory has full read/write permissions for all users
+
+.. figure:: /images/installation-images/log_permissions.png
+   :align: center
+   :alt: Log folder permissions
 
 -  Configure OMERO.web bindings for IIS
 
