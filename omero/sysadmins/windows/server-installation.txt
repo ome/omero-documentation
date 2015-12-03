@@ -522,6 +522,66 @@ to access the OMERO.web interface:
 Post-installation items
 -----------------------
 
+Additional libraries
+^^^^^^^^^^^^^^^^^^^^
+
+The following are optional depending on what services you require:
+
+.. tabularcolumns:: |l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Package
+      - Functionality
+      - Downloads
+
+    * - Django (1.8)
+      - OMERO.web
+      - `Django website <https://www.djangoproject.com/>`_
+
+    * - Pillow (2.9.0)
+      - OMERO.web and Figure Export
+      - `Pillow`_
+
+    * - Matplotlib
+      - OMERO.web
+      - `Matplotlib page <http://matplotlib.org/>`_
+
+    * - PyTables (2.1.0 or higher)
+      - :doc:`OMERO.tables </sysadmins/server-tables>`
+      - `PyTables page <https://pytables.github.io/downloads.html>`_
+
+    * - NumPy (1.2.0 or higher) [1]_
+      - Scripting
+      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
+    
+    * - Numexpr (2.4.3 or higher)
+      - 
+      - `Numexpr page <https://pypi.python.org/pypi/numexpr>`_
+    
+    * - pyparsing (2.0.3 or higher)
+      - 
+      - `pyparsing page <http://pyparsing.wikispaces.com>`_
+
+    * - python-dateutil (2.4.2 or higher)
+      - 
+      - `python-dateutil page <https://pypi.python.org/pypi/python-dateutil>`_
+
+    * - pytz 
+      - 
+      - `pytz page <http://pytz.sourceforge.net/>`_
+
+    * - six (1.9.0 or higher)
+      - 
+      - `six page <https://pypi.python.org/pypi/six>`_
+
+    * - virtualenv (12.1.1 or higher)
+      - 
+      - `virtualenv page <http://docs.python-guide.org/en/latest/dev/virtualenvs/>`_
+
+.. [1] May already have been installed as a dependency of Matplot Lib.
+
 Backup
 ^^^^^^
 
