@@ -178,6 +178,12 @@ The planned changes for 5.2 depend upon our support of
     both of which will be dropped in 5.3 if CentOS 6 is dropped,
     otherwise they will remain deprecated.
 
+* mod_wsgi
+
+  * 3.5 recommended
+  * Rationale: Support for the version of mod_wsgi is down to the OS
+    vendor, not the mod_wsgi maintainers
+
 * nginx
 
   * [5.2] 1.0 dropped, 1.2 deprecated, 1.4 supported, 1.6 recommemded
