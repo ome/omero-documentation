@@ -10,5 +10,6 @@ version :schema_plone:`OME/2015-01`.
 
 See the :doc:`/ome-tiff/data` section for more information about the sample
 TIFF files. The OME-XML files contained in the :image_downloads:`OME-XML`
-folder have all been renamed so they should be self-explanatory.
+folder are named to reflect the aspects of the Data Model they demonstrate so
+they should be self-explanatory.
 

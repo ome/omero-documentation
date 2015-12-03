@@ -10,7 +10,7 @@ illustrate some possible data organizations, which should be useful if you are
 interested in implementing support for OME-TIFF within your software.
 
 All the OME-TIFF sample data discussed below are available from our
-:image_downloads:`OME-TIFF sample images resource <OME-TIFF/2015-01/>`. In
+:ometiff_downloads:`OME-TIFF sample images resource <>`. In
 addition, there are examples of modulo data for
 :doc:`/developers/6d-7d-and-8d-storage`.
 
@@ -77,7 +77,7 @@ types.
     byte counts between the downloadable ZIP files and the "zipped
     OME-TIFF" entry do not precisely match. Unzipped files are also available
     from our
-    :image_downloads:`OME-TIFF sample images resource <OME-TIFF/2015-01/>`.
+    :ometiff_downloads:`OME-TIFF sample images resource <>`.
 
 
 +-------------------------------------------------------------+-----------------------+-------------------------+--------------------------+
@@ -120,7 +120,7 @@ types.
 Multi-file image example
 ------------------------
 
-The :image_downloads:`Companion <OME-TIFF/2015-01/companion/>` OME-TIFF image
+The :ometiff_downloads:`Companion <companion>` OME-TIFF image
 folder contains a set of 18 by 24 pixel images (with black and white text on
 each plane giving its time, z-depth and channel) where each of the five Z
 sections are saved as a separate file and there is a companion file to

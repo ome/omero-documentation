@@ -173,7 +173,7 @@ Sample pieces of .ome.xml files
 -------------------------------
 
 .. note:: The sample sections below are taken from 
-    :image_downloads:`filter.ome.xml </OME-XML/2015-01/filter.ome.xml>`
+    :omexml_downloads:`filter.ome.xml`
 
 This first example shows the Instrument side - the Filter/Dichroic/FilterSet
 structure of the resulting xml.

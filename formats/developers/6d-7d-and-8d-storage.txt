@@ -209,28 +209,28 @@ Sample files
 ------------
 
 Sample files are available from the
-:image_downloads:`Modulo <OME-TIFF/2015-01/modulo/>` folder of the image downloads resource.
+:ometiff_downloads:`Modulo <modulo>` folder of the image downloads resource.
 
 SPIM
 ^^^^
 
-- :image_downloads:`SPIM-ModuloAlongZ.ome.tiff <OME-TIFF/2015-01/modulo/SPIM-ModuloAlongZ.ome.tiff>` - a 2x2 tile of planes
+- :ometiff_downloads:`SPIM-ModuloAlongZ.ome.tiff <modulo/SPIM-ModuloAlongZ.ome.tiff>` - a 2x2 tile of planes
   each recorded at 4 angles.
 
 Big lambda
 ^^^^^^^^^^
 
-- :image_downloads:`LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff <OME-TIFF/2015-01/modulo/LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff>` -
+- :ometiff_downloads:`LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff <modulo/LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff>` -
   excitation of 5 wavelength [Λ, big-lambda] each recorded at 10 emission
   wavelength ranges [λ, lambda].
 
 FLIM
 ^^^^
 
-- :image_downloads:`FLIM-ModuloAlongT-TSCPC.ome.tiff <OME-TIFF/2015-01/modulo/FLIM-ModuloAlongT-TSCPC.ome.tiff>` -
+- :ometiff_downloads:`FLIM-ModuloAlongT-TSCPC.ome.tiff <modulo/FLIM-ModuloAlongT-TSCPC.ome.tiff>` -
   2 channels and 8 histogram bins each recorded at 2 real timepoints.
 
-- :image_downloads:`FLIM-ModuloAlongC.ome.tiff <OME-TIFF/2015-01/modulo/FLIM-ModuloAlongC.ome.tiff>` -
+- :ometiff_downloads:`FLIM-ModuloAlongC.ome.tiff <modulo/FLIM-ModuloAlongC.ome.tiff>` -
   2 real channels and 8 histogram bins each recorded at 2 timepoints.
 
 .. note:: The ModuloAlong annotation allows FLIM data to be encoded in any of

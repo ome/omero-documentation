@@ -49,6 +49,8 @@ model_extlinks = {
     # Downloads
     'bf_downloads' : (downloads_root + '/latest/bio-formats/%s', ''),
     'image_downloads' : (downloads_root + '/images/%s', ''),
+    'ometiff_downloads' : (downloads_root + '/images/OME-TIFF/' + release + '/%s', ''),
+    'omexml_downloads' : (downloads_root + 'images/OME-XML/' + release + '/%s', ''),
     }
 extlinks.update(model_extlinks)
 
