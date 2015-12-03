@@ -228,10 +228,14 @@ FLIM
 ^^^^
 
 - :ometiff_downloads:`FLIM-ModuloAlongT-TSCPC.ome.tiff <modulo/FLIM-ModuloAlongT-TSCPC.ome.tiff>` -
-  2 channels and 8 histogram bins each recorded at 2 real timepoints.
+  2 channels and 8 histogram bins each recorded at 2 'real-time' points T,
+  with additional relative-time points (time relative to the
+  excitation pulse) interleaved as ModuloAlongT.
 
 - :ometiff_downloads:`FLIM-ModuloAlongC.ome.tiff <modulo/FLIM-ModuloAlongC.ome.tiff>` -
-  2 real channels and 8 histogram bins each recorded at 2 timepoints.
+  2 real channels and 8 histogram bins each recorded at 2 timepoints, with
+  additional relative-time points interleaved between channels as
+  ModuloAlongC.
 
 .. note:: The ModuloAlong annotation allows FLIM data to be encoded in any of
     three dimensions (ZCT). However, a number of issues of future
