@@ -4,7 +4,7 @@
 .. topic:: Overview
     
     This outlines an interim storage solution for storing 6D, 7D and
-    8D data in our 5D structure using Z, T and C
+    8D data in our 5D structure using Z, T and C.
 
 This has been produced as part of our transition to N-dimensional
 support. It will take a large amount of work throughout the OME
@@ -217,7 +217,7 @@ SPIM
 - :image_downloads:`SPIM-ModuloAlongZ.ome.tiff <OME-TIFF/2015-01/modulo/SPIM-ModuloAlongZ.ome.tiff>` - a 2x2 tile of planes
   each recorded at 4 angles.
 
-Big Lambda
+Big lambda
 ^^^^^^^^^^
 
 - :image_downloads:`LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff <OME-TIFF/2015-01/modulo/LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff>` -
@@ -228,10 +228,10 @@ FLIM
 ^^^^
 
 - :image_downloads:`FLIM-ModuloAlongT-TSCPC.ome.tiff <OME-TIFF/2015-01/modulo/FLIM-ModuloAlongT-TSCPC.ome.tiff>` -
-  two channels and eight histogram bins each recorded at two real timepoints.
+  2 channels and 8 histogram bins each recorded at 2 real timepoints.
 
 - :image_downloads:`FLIM-ModuloAlongC.ome.tiff <OME-TIFF/2015-01/modulo/FLIM-ModuloAlongC.ome.tiff>` -
-  two real channels and eight histogram bins each recorded at two timepoints.
+  2 real channels and 8 histogram bins each recorded at 2 timepoints.
 
 .. note:: The ModuloAlong annotation allows FLIM data to be encoded in any of
     three dimensions (ZCT). However, a number of issues of future
@@ -240,6 +240,6 @@ FLIM
     
     The developers of our partner application
     :partner_plone:`FLIMfit <flimfit>` intend to use only ModuloAlongT for
-    FLIM data and we would ask other developers to do the same. Thus leaving
+    FLIM data and we would ask other developers to do the same. This leaves
     ModuloAlong Z and C free for other modalities.
 
