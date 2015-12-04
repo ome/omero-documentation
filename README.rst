@@ -197,24 +197,19 @@ variable. The ``-W`` option turns all warnings into errors::
 Release number
 --------------
 
-The release number of two sets of the documentation is `UNKNOWN` by default.
-To modify this value:
+The release number of the OMERO documentation is `UNKNOWN` by default.
+To modify this value set the environment variable ``OMERO_RELEASE`` e.g.::
 
-* for the OMERO documentation, set the environment variable ``OMERO_RELEASE``,
-  e.g.::
-
-      cd omero && OMERO_RELEASE=4.4.6 make clean html
-      cd omero && OMERO_RELEASE=4.4.6 ant clean html
-
-* for the OME Model and Formats documentation, set the environment variable
-  ``FORMATS_RELEASE``, e.g.::
-
-    cd formats && FORMATS_RELEASE=2012-06 make clean html
-    cd formats && FORMATS_RELEASE=2012-06 ant clean html
+    cd omero && OMERO_RELEASE=4.4.6 make clean html
+    cd omero && OMERO_RELEASE=4.4.6 ant clean html
 
 The Contributing Developer documentation has the release version removed as
 the intention is to update these files as and when necessary, so that they
 always reflect our current practices.
+
+The OME Model and Formats documentation has the current schema release
+hard-coded as the release version in the conf.py to avoid broken sample image
+links in merge and local builds.
 
 Auto-generated content
 ----------------------
