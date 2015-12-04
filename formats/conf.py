@@ -28,12 +28,8 @@ title = project + u' Documentation'
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-if "FORMATS_RELEASE" in os.environ and len(os.environ.get('FORMATS_RELEASE')) > 0:
-    release = os.environ.get('FORMATS_RELEASE')
-    version = release
-else:
-    version = 'UNKNOWN'
-    release = 'UNKNOWN'
+release = '2015-01'
+version = '2015-01'
 
 # OME model-specific extlinks
 model_extlinks = {
@@ -50,7 +46,7 @@ model_extlinks = {
     'bf_downloads' : (downloads_root + '/latest/bio-formats/%s', ''),
     'image_downloads' : (downloads_root + '/images/%s', ''),
     'ometiff_downloads' : (downloads_root + '/images/OME-TIFF/' + release + '/%s', ''),
-    'omexml_downloads' : (downloads_root + 'images/OME-XML/' + release + '/%s', ''),
+    'omexml_downloads' : (downloads_root + '/images/OME-XML/' + release + '/%s', ''),
     }
 extlinks.update(model_extlinks)
 
