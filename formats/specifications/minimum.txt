@@ -1,4 +1,4 @@
-Minimum Specification
+Minimum specification
 =====================
 
 
@@ -9,7 +9,7 @@ A minimum specification OME file has been defined. This is best viewed
 as being the minimum required for the display of an image. A sample of
 the structure is:
 
-.. literalinclude:: minimum-specification.ome
+.. literalinclude:: minimum-specification.ome.xml
 
 Alternative valid forms:
 

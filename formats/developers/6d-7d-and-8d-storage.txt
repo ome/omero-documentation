@@ -1,11 +1,10 @@
-6D, 7D And 8D Storage
+6D, 7D and 8D storage
 =====================
 
-
-This outlines how to store 6D, 7D and 8D data in our 5D structure.
-
-Interim storage of additional dimensions in the OME model using Z, T and C
---------------------------------------------------------------------------
+.. topic:: Overview
+    
+    This outlines an interim storage solution for storing 6D, 7D and
+    8D data in our 5D structure using Z, T and C.
 
 This has been produced as part of our transition to N-dimensional
 support. It will take a large amount of work throughout the OME
@@ -167,14 +166,14 @@ extra Phase(P) for each T then
     C2 , Z4 , T6  | C2 , Z2 , A2, T2 , P3
 
 How to order the plane data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 
 The order of the plane data is defined by the BinData or TiffData block, and
 is interleaved as it would be for the 5D view of the Z plane i.e. it is
 governed by the value of DimensionOrder on the Pixels element.
 
 How to represent tiles
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 The Plane element stores the location of each tile.
 
@@ -206,29 +205,45 @@ mosaic as above or to overlap e.g.
 
     E   <Plane TheC="0" TheT="12" TheZ="0" PositionX="80" PositionY="110" PositionZ="0.1"/>
 
-Sample Files
-^^^^^^^^^^^^
+Sample files
+------------
 
+Sample files are available from the
+:ometiff_downloads:`Modulo <modulo>` folder of the image downloads resource.
 
 SPIM
-""""
+^^^^
 
-:schema_plone:`SPIM-modulo-sample.ome.tiff <Samples/2015-01/SPIM-modulo-sample.ome.tiff>`
+- :ometiff_downloads:`SPIM-ModuloAlongZ.ome.tiff <modulo/SPIM-ModuloAlongZ.ome.tiff>` - a 2x2 tile of planes
+  each recorded at 4 angles.
 
-A 2x2 tile of planes each recorded at 4 angles.
+Big lambda
+^^^^^^^^^^
 
-Big Lambda
-""""""""""
-
-:schema_plone:`LAMBDA-modulo-sample.ome.tiff <Samples/2015-01/LAMBDA-modulo-sample.ome.tiff>`
-
-Excitation of 5 wavelength [Λ, big-lambda] each recorded at 10 emission
-wavelength ranges [λ, lambda].
+- :ometiff_downloads:`LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff <modulo/LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff>` -
+  excitation of 5 wavelength [Λ, big-lambda] each recorded at 10 emission
+  wavelength ranges [λ, lambda].
 
 FLIM
-""""
+^^^^
 
-:schema_plone:`FLIM-modulo-sample.ome.tiff <Samples/2015-01/FLIM-modulo-sample.ome.tiff>`
+- :ometiff_downloads:`FLIM-ModuloAlongT-TSCPC.ome.tiff <modulo/FLIM-ModuloAlongT-TSCPC.ome.tiff>` -
+  2 channels and 8 histogram bins each recorded at 2 'real-time' points T,
+  with additional relative-time points (time relative to the
+  excitation pulse) interleaved as ModuloAlongT.
 
-Two channels each recorded at two timepoints and eight histogram bins.
+- :ometiff_downloads:`FLIM-ModuloAlongC.ome.tiff <modulo/FLIM-ModuloAlongC.ome.tiff>` -
+  2 real channels and 8 histogram bins each recorded at 2 timepoints, with
+  additional relative-time points interleaved between channels as
+  ModuloAlongC.
+
+.. note:: The ModuloAlong annotation allows FLIM data to be encoded in any of
+    three dimensions (ZCT). However, a number of issues of future
+    compatibility with other modalities can be avoided by standardizing on the
+    use of one dimension for FLIM.
+    
+    The developers of our partner application
+    :partner_plone:`FLIMfit <flimfit>` intend to use only ModuloAlongT for
+    FLIM data and we would ask other developers to do the same. This leaves
+    ModuloAlong Z and C free for other modalities.
 

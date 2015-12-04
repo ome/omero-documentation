@@ -1,4 +1,4 @@
-OME-TIFF Specification
+OME-TIFF specification
 ======================
 
 
@@ -325,9 +325,7 @@ stored sequentially within the TIFF) makes for very easy TiffData elements.
 Multi-file example
 ^^^^^^^^^^^^^^^^^^
 
-Please use the following example-as well as the :doc:`tubhiswt sample
-datasets <data>` - as a guide for how to distribute OME-TIFF
-datasets across multiple files.
+Both the :ref:`tubhiswt_samples` and the :ometiff_downloads:`Companion <companion>` OME-TIFF images demonstrate how OME-TIFF datasets can be distributed across multiple files. Another example is described below:
 
 Each of the files in the set has identical metadata apart from the 
 `UUID`, the unique identifier in each file. For example the identifiers

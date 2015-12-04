@@ -1,13 +1,18 @@
-OME-TIFF Sample Data
+OME-TIFF sample data
 ====================
 
 
 This section provides some sample data in OME-TIFF format, as well as an
 analysis of several file formats (including :doc:`/ome-xml/index`) and 
-compression techniques. There are also some artificial sample datasets (i.e. 
-not produced from an acquisition system) designed for developer testing that 
+compression techniques. There are also some artificial sample datasets (i.e.
+not produced from an acquisition system) designed for developer testing that
 illustrate some possible data organizations, which should be useful if you are
 interested in implementing support for OME-TIFF within your software.
+
+All the OME-TIFF sample data discussed below are available from our
+:ometiff_downloads:`OME-TIFF sample images resource <>`. In
+addition, there are examples of modulo data for
+:doc:`/developers/6d-7d-and-8d-storage`.
 
 Artificial datasets
 -------------------
@@ -21,35 +26,37 @@ OME-TIFF dataset distributed across multiple TIFF files, see the
 ``tubhiswt`` biological example in the next section.
 
 +----------------------------------------------+-------------------------------------------------------+
-| `single-channel.ome.tif.zip`_                | 2D (single image)                                     |
+| `single-channel.ome.tif`_                    | 2D (single image)                                     |
 +----------------------------------------------+-------------------------------------------------------+
-| `multi-channel.ome.tif.zip`_                 | 2D (3 channels)                                       |
+| `multi-channel.ome.tif`_                     | 2D (3 channels)                                       |
 +----------------------------------------------+-------------------------------------------------------+
-| `z-series.ome.tif.zip`_                      | 3D (5 focal planes)                                   |
+| `z-series.ome.tif`_                          | 3D (5 focal planes)                                   |
 +----------------------------------------------+-------------------------------------------------------+
-| `multi-channel-z-series.ome.tif.zip`_        | 3D (5 focal planes, 3 channels)                       |
+| `multi-channel-z-series.ome.tif`_            | 3D (5 focal planes, 3 channels)                       |
 +----------------------------------------------+-------------------------------------------------------+
-| `time-series.ome.tif.zip`_                   | 3D (7 time points)                                    |
+| `time-series.ome.tif`_                       | 3D (7 time points)                                    |
 +----------------------------------------------+-------------------------------------------------------+
-| `multi-channel-time-series.ome.tif.zip`_     | 3D (7 time points, 3 channels)                        |
+| `multi-channel-time-series.ome.tif`_         | 3D (7 time points, 3 channels)                        |
 +----------------------------------------------+-------------------------------------------------------+
-| `4D-series.ome.tif.zip`_                     | 4D (7 time points, 5 focal planes)                    |
+| `4D-series.ome.tif`_                         | 4D (7 time points, 5 focal planes)                    |
 +----------------------------------------------+-------------------------------------------------------+
-| `multi-channel-4D-series.ome.tif.zip`_       | 4D (7 time points, 5 focal planes, 3 channels)        |
+| `multi-channel-4D-series.ome.tif`_           | 4D (7 time points, 5 focal planes, 3 channels)        |
 +----------------------------------------------+-------------------------------------------------------+
 
 
-.. _single-channel.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2015-01/bioformats-artificial/single-channel.ome.tif.zip
-.. _multi-channel.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2015-01/bioformats-artificial/multi-channel.ome.tif.zip
-.. _z-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2015-01/bioformats-artificial/z-series.ome.tif.zip
-.. _multi-channel-z-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2015-01/bioformats-artificial/multi-channel-z-series.ome.tif.zip
-.. _time-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2015-01/bioformats-artificial/time-series.ome.tif.zip
-.. _multi-channel-time-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2015-01/bioformats-artificial/multi-channel-time-series.ome.tif.zip
-.. _4D-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2015-01/bioformats-artificial/4D-series.ome.tif.zip
-.. _multi-channel-4D-series.ome.tif.zip: http://www.openmicroscopy.org/Schemas/Samples/2015-01/bioformats-artificial/multi-channel-4D-series.ome.tif.zip
+.. _single-channel.ome.tif: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/bioformats-artificial/single-channel.ome.tif
+.. _multi-channel.ome.tif: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/bioformats-artificial/multi-channel.ome.tif
+.. _z-series.ome.tif: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/bioformats-artificial/z-series.ome.tif
+.. _multi-channel-z-series.ome.tif: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/bioformats-artificial/multi-channel-z-series.ome.tif
+.. _time-series.ome.tif: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/bioformats-artificial/time-series.ome.tif
+.. _multi-channel-time-series.ome.tif: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/bioformats-artificial/multi-channel-time-series.ome.tif
+.. _4D-series.ome.tif: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/bioformats-artificial/4D-series.ome.tif
+.. _multi-channel-4D-series.ome.tif: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/bioformats-artificial/multi-channel-4D-series.ome.tif
 
-A sample biological dataset
----------------------------
+.. _tubhiswt_samples:
+
+Sample biological dataset
+-------------------------
 
 The following OME-TIFF datasets consist of tubulin histone GFP
 coexpressing *C. elegans* embryos. Many thanks to `Josh
@@ -70,7 +77,9 @@ types.
     schema version since their initial creation. The figures regarding
     various storage formats were computed before this update; thus, the
     byte counts between the downloadable ZIP files and the "zipped
-    OME-TIFF" entry do not precisely match.
+    OME-TIFF" entry do not precisely match. Unzipped files are also available
+    from our
+    :ometiff_downloads:`OME-TIFF sample images resource <>`.
 
 
 +-------------------------------------------------------------+-----------------------+-------------------------+--------------------------+
@@ -106,9 +115,19 @@ types.
 | **Size (7-zipped OME-TIFF with LZW)**                       | 264,292 bytes         | 4,950,897 bytes         | 116,567,097 bytes        |
 +-------------------------------------------------------------+-----------------------+-------------------------+--------------------------+
 
-.. _tubhiswt-2D.zip: http://www.openmicroscopy.org/Schemas/Samples/2015-01/tubhiswt-2D.zip
-.. _tubhiswt-3D.zip: http://www.openmicroscopy.org/Schemas/Samples/2015-01/tubhiswt-3D.zip
-.. _tubhiswt-4D.zip: http://www.openmicroscopy.org/Schemas/Samples/2015-01/tubhiswt-4D.zip
+.. _tubhiswt-2D.zip: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/tubhiswt-2D.zip
+.. _tubhiswt-3D.zip: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/tubhiswt-3D.zip
+.. _tubhiswt-4D.zip: http://downloads.openmicroscopy.org/images/OME-TIFF/2015-01/tubhiswt-4D.zip
+
+Multi-file image example
+------------------------
+
+The :ometiff_downloads:`Companion <companion>` OME-TIFF image
+folder contains a set of 18 by 24 pixel images (with black and white text on
+each plane giving its time, z-depth and channel) where each of the five Z
+sections are saved as a separate file and there is a companion file to
+identify them as a single fileset (meaning :OMERO_doc:`OMERO can treat them as
+a single image <developers/ImportFS.html>`).
 
 Efficiency of planar access
 ---------------------------
