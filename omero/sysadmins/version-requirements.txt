@@ -180,9 +180,9 @@ The planned changes for 5.2 depend upon our support of
 
 * mod_wsgi
 
-  * 3.5 recommended
+  * 3.5+ recommended
   * Rationale: Support for the version of mod_wsgi is down to the OS
-    vendor, not the mod_wsgi maintainers
+    vendor, not the mod_wsgi maintainers.
 
 * nginx
 
