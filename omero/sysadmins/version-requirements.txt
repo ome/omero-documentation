@@ -181,8 +181,10 @@ The planned changes for 5.2 depend upon our support of
 * mod_wsgi
 
   * 3.5+ recommended
-  * Rationale: Support for the version of mod_wsgi is down to the OS
-    vendor, not the mod_wsgi maintainers.
+  * Rationale: Choice of mod_wsgi version support is made by the OS vendors,
+    who may choose to continue with a older version with security patches
+    applied. For more information refer to
+    `mod_wsgi installation <https://modwsgi.readthedocs.org/en/develop/installation.html>`__.
 
 * nginx
 
