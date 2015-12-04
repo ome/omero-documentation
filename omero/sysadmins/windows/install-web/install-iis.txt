@@ -17,7 +17,7 @@ Install `Django 1.8`_ using package requirements file:
 
 ::
 
-   $ pip install -r share/web/requirements-py27-win.txt
+   C:\> pip install -r C:\OMERO.server\share\web\requirements-py27-win.txt
 
 .. note:: For more details refer to `Django 1.8 installation on Windows <https://docs.djangoproject.com/en/1.8/howto/windows/>`_.
 
@@ -40,14 +40,19 @@ working with your IIS deployment.
 -  For extended compatibility with multiple IIS versions ISAPI WSGI uses
    the IIS 6 WMI interface to interact with your IIS deployment. If
    you are using IIS 7 you must enable the IIS 6 WMI backwards
-   compatibility options, as shown in the figure:
+   compatibility options. Also make sure to install the ISAPI extensions
+   and filters, as shown in the figure below. 
+   For further information see `IIS Documentation - ISAPI Filters <https://www.iis.net/configreference/system.webserver/isapifilters>`_ 
+   respectively `IIS Documentation - ISAPI/CGI Restrictions <https://www.iis.net/configreference/system.webserver/security/isapicgirestriction>`_
 
-.. figure:: /images/installation-images/IIS7Requirements.png
+.. figure:: /images/installation-images/IIS8Requirements.png
    :align: center
    :width: 35%
-   :alt: IIS 7 configuration options
+   :alt: IIS 8 configuration options
 
-   IIS 7 configuration options
+   IIS 8 configuration options
+
+
 
 -  The :guilabel:`Advanced Settings...` for the application pool
    assigned to your default site require modification using the *IIS Manager* as follows:
@@ -56,12 +61,12 @@ working with your IIS deployment.
      suspending during inactivity periods, this setting needs to be
      changed to 0.
 
-.. figure:: /images/installation-images/IIS7ApplicationPool.png
+.. figure:: /images/installation-images/IIS8ApplicationPool.png
    :align: center
    :width: 35%
-   :alt: IIS 7 Application Pool Advanced Settings
+   :alt: IIS 8 Application Pool Advanced Settings
 
-   IIS 7 Application Pool Advanced Settings
+   IIS 8 Application Pool Advanced Settings
 
 
 -  To avoid rendering errors on OMERO.web it is recommended to add the custom
@@ -71,7 +76,7 @@ working with your IIS deployment.
    :align: center
    :alt: IIS 7 HTTP response header
 
--  Make sure the OMERO's log directory has full read/write permissions for all users
+-  Make sure that OMERO's log directory has full read/write permissions for all users
 
 .. figure:: /images/installation-images/log_permissions.png
    :align: center
