@@ -28,23 +28,23 @@ Prerequisites
 
 As **root** install Ice, Java, Postgres:
 
-.. literalinclude:: walkthrough/dependencies-ubuntu1404.sh
+.. literalinclude:: walkthrough/step01_ubuntu1404_deps.sh
 
-| :download:`dependencies-ubuntu1404.sh <walkthrough/dependencies-ubuntu1404.sh>`
-| :download:`dependencies-centos6.sh <walkthrough/dependencies-centos6.sh>`
+| :download:`step01_ubuntu1404_deps.sh <walkthrough/step01_ubuntu1404_deps.sh>`
+| :download:`step01_centos6_deps.sh <walkthrough/step01_centos6_deps.sh>`
 
 Create an omero system user, and a directory for the OMERO repository:
 
-.. literalinclude:: walkthrough/system_setup.sh
+.. literalinclude:: walkthrough/step02_all_setup.sh
 
-:download:`system_setup.sh <walkthrough/system_setup.sh>`
+:download:`step02_all_setup.sh <walkthrough/step02_all_setup.sh>`
 
 
 Create a database user and initialize a new database for OMERO:
 
-.. literalinclude:: walkthrough/setup_postgres.sh
+.. literalinclude:: walkthrough/step03_all_postgres.sh
 
-:download:`setup_postgres.sh <walkthrough/setup_postgres.sh>`
+:download:`step03_all_postgres.sh <walkthrough/step03_all_postgres.sh>`
 
 
 Installing OMERO.server
@@ -58,9 +58,9 @@ Note that this script requires the same environment variables that were set
 earlier in `settings.env`, so you may need to copy and/or source this file as
 the omero user.
 
-.. literalinclude:: walkthrough/setup_omero.sh
+.. literalinclude:: walkthrough/step04_all_omero.sh
 
-:download:`setup_omero.sh <walkthrough/setup_omero.sh>`
+:download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>`
 
 
 Installing Nginx
@@ -69,10 +69,10 @@ Installing Nginx
 As **root** install Nginx, copy the Nginx OMERO configuration file into the
 Nginx configuration directory, and disable the default configuration:
 
-.. literalinclude:: walkthrough/setup_nginx_ubuntu1404.sh
+.. literalinclude:: walkthrough/step05_ubuntu1404_nginx.sh
 
-| :download:`setup_nginx_ubuntu1404.sh <walkthrough/setup_nginx_ubuntu1404.sh>`
-| :download:`setup_nginx_centos6.sh <walkthrough/setup_nginx_centos6.sh>`
+| :download:`step05_ubuntu1404_nginx.sh <walkthrough/step05_ubuntu1404_nginx.sh>`
+| :download:`step05_centos6_nginx.sh <walkthrough/step05_centos6_nginx.sh>`
 
 
 Running OMERO
@@ -93,12 +93,12 @@ root user by going to http://localhost/ in your web browser.
 In addition some example `init.d` scripts are available should you wish to
 start OMERO and OMERO.web automatically:
 
-.. literalinclude:: walkthrough/setup_omero_daemon_ubuntu1404.sh
+.. literalinclude:: walkthrough/step06_ubuntu1404_daemon.sh
 
-| :download:`setup_omero_daemon_ubuntu1404.sh
-  <walkthrough/setup_omero_daemon_ubuntu1404.sh>`
-| :download:`setup_omero_daemon_centos6.sh
-  <walkthrough/setup_omero_daemon_centos6.sh>`
+| :download:`step06_ubuntu1404_daemon.sh
+  <walkthrough/step06_ubuntu1404_daemon.sh>`
+| :download:`step06_centos6_daemon.sh
+  <walkthrough/step06_centos6_daemon.sh>`
 | :download:`omero-init.d <walkthrough/omero-init.d>`
 | :download:`omero-web-init.d <walkthrough/omero-web-init.d>`
 
@@ -110,9 +110,9 @@ If multiple users have access to the machine running OMERO you should restrict
 access to OMERO.server's configuration and runtime directories, and optionally
 the OMERO data directory:
 
-.. literalinclude:: walkthrough/setup_permissions.sh
+.. literalinclude:: walkthrough/step07_all_perms.sh
 
-| :download:`setup_permissions.sh <walkthrough/setup_permissions.sh>`
+| :download:`step07_all_perms.sh <walkthrough/step07_all_perms.sh>`
 
 
 .. _linux_walkthrough_regular_tasks:
@@ -128,10 +128,10 @@ job:
 
 Copy this script into the appropriate location:
 
-.. literalinclude:: walkthrough/setup_cron.sh
+.. literalinclude:: walkthrough/step08_all_cron.sh
 
 | :download:`omero-web-cron <walkthrough/omero-web-cron>`
-| :download:`setup_cron.sh <walkthrough/setup_cron.sh>`
+| :download:`step08_all_cron.sh <walkthrough/step08_all_cron.sh>`
 
 
 SELinux

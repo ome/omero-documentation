@@ -38,29 +38,21 @@ $WORKSPACE/OMERO.server/bin/omero config set omero.web.application_server "wsgi"
 $WORKSPACE/OMERO.server/bin/omero web config apache | sed -e "s|$WORKSPACE|/home/omero|g" -e "s|$USER|omero|g" > omero/sysadmins/unix/install-web/apache-omero.conf
 $WORKSPACE/OMERO.server/bin/omero config set omero.web.application_server
 echo "Copying omero-install Linux scripts"
-mkdir -p omero/sysadmins/unix/walkthrough/
+DIRECTORY=omero/sysadmins/unix/walkthrough/
+if [ -d "$DIRECTORY" ]; then
+	rm -rf $DIRECTORY
+fi
+
+mkdir -p $DIRECTORY
 for f in \
     README.md \
-    dependencies-centos6.sh \
-    dependencies-ubuntu1404.sh \
-    install.sh \
-    omero-init.d \
-    omero-web-cron \
-    omero-web-init.d \
+    step* \
+    install_* \
+    omero-* \
     settings.env \
-    setup_cron.sh \
-    setup_nginx_centos6.sh \
-    setup_centos6_selinux.sh \
-    setup_nginx_ubuntu1404.sh \
-    setup_omero.sh \
-    setup_omero_daemon_centos6.sh \
-    setup_omero_daemon_noweb_centos6.sh \
-    setup_omero_daemon_ubuntu1404.sh \
-    setup_permissions.sh \
-    setup_postgres.sh \
-    system_setup.sh \
+    setup_* \
     ; do
-    cp $WORKSPACE/omero-install/linux/$f omero/sysadmins/unix/walkthrough/
+    cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
 done
 
 echo "Getting db properties"
