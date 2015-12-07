@@ -48,6 +48,8 @@ running::
 Requirements
 ------------
 
+See installation script :download:`step01_deps.sh <walkthrough/osx/step01_deps.sh>`
+
 .. _`Homebrew wiki`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Installation.md
 
 All the requirements for OMERO will be installed under :file:`/usr/local`. See also: Installation instructions on the `Homebrew wiki`_.
@@ -99,8 +101,6 @@ and older versions of Ice. To add these, run::
     $ brew tap homebrew/science
     $ brew tap ome/alt
 
-:download:`step01_deps.sh <walkthrough/osx/step01_deps.sh>`
-
 .. note::
 
     The Homebrew formulae used below provide Python bindings. As
@@ -111,6 +111,8 @@ and older versions of Ice. To add these, run::
 OMERO installation
 ------------------
 
+See installation script :download:`step02_omero.sh <walkthrough/osx/step02_omero.sh>`
+
 OMERO |release| server
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -120,6 +122,9 @@ To install and deploy the |release| release of OMERO.server, run::
     $ brew install omero52 --with-nginx --with-cpp
     $ export PYTHONPATH=$(brew --prefix omero52)/lib/python
     $ export ICE_CONFIG=$(brew --prefix omero52)/etc/ice.config
+
+This will install the OMERO server to /usr/local/Cellar/omero, which means you'll find the
+log files in /usr/local/Cellar/omero/|release|/var/log. The binaries will be linked to /usr/local/bin.
 
 Install OMERO python dependencies::
 
@@ -157,8 +162,6 @@ Set up OMERO data directory::
     $ mkdir -p $OMERO_DATA_DIR
     $ omero config set omero.data.dir $OMERO_DATA_DIR
 
-:download:`step02_omero.sh <walkthrough/osx/step02_omero.sh>`
-
 
 Development server
 ^^^^^^^^^^^^^^^^^^
@@ -195,12 +198,12 @@ in the previous section.
 OMERO.web
 ^^^^^^^^^
 
+See installation script :download:`step03_nginx.sh <walkthrough/osx/step03_nginx.sh>`
+
 Basic setup for OMERO using nginx::
 
     $ export HTTPPORT=${HTTPPORT:-8080}
     $ omero web config nginx-development --http $HTTPPORT > $(brew --prefix omero52)/etc/nginx.conf
-
-:download:`step03_nginx.sh <walkthrough/osx/step03_nginx.sh>`
 
 For detailed instructions on how to deploy OMERO.web in a production environment such as Apache or
 Nginx please see :doc:`install-web`.
@@ -244,7 +247,7 @@ Stop OMERO::
 
     $ omero admin stop
 
-:download:`step04_test.sh <walkthrough/osx/step04_test.sh>`
+See example script for a basic functionality test: :download:`step04_test.sh <walkthrough/osx/step04_test.sh>`
 
 Common issues
 -------------
