@@ -59,6 +59,12 @@ other apps in development:
         A web services interface, providing rendered images and
         data. See :doc:`/developers/Web/WebGateway`.
 
+.. note::
+    Although it is possible to access functionality from any installed app,
+    **ONLY webgateway** should be considered as a stable public API. URLs and methods
+    within other web apps are purely designed to provide internal functionality for
+    the app itself and may change in minor releases without warning.
+
 Additional apps can be easily added to your OMERO.web deployment.
 One example is the `webtest app <https://github.com/openmicroscopy/webtest/>`_
 that contains several code samples mentioned in the following pages.
