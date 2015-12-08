@@ -64,8 +64,6 @@ above is available at http://downloads.openmicroscopy.org/ice/experimental.
 
 The following steps will install Ice into :file:`/opt`::
 
-    virtualenv /tmp/omero-ice
-    source /tmp/omero-ice/bin/activate
     # Download and install needed Ice build dependencies (db and mcpp)
     curl -o /etc/yum.repos.d/zeroc-ice-el6.repo http://download.zeroc.com/Ice/3.5/el6/zeroc-ice-el6.repo
     mkdir /home/ice-download
@@ -75,7 +73,6 @@ The following steps will install Ice into :file:`/opt`::
     cd ..
     tar -zxvf /home/ice-download/Ice-3.5.1-b1-centos6-iuspy27-x86_64.tar.gz
     mv /home/Ice-3.5.1-b1-centos6-iuspy27-x86_64 /opt/Ice-3.5.1
-    deactivate
 
 Additional packages required by OMERO
 -------------------------------------
@@ -92,9 +89,9 @@ Install and start PostgreSQL::
     chkconfig postgresql-9.4 on
     service postgresql-9.4 start
 
-For the steps described above:
+For the steps described above: 
 
-| :download:`step01_centos6_py27_ius_deps.sh <walkthrough/step01_centos6_py27_ius_deps.sh>`
+	link to be added
 
 Setting up the OMERO.server
 ---------------------------
@@ -217,4 +214,4 @@ and create a configuration file for ``wsgi``::
 	service httpd start
 
 To run OMERO, secure OMERO and perform regular tasks, please read the
-relevant section of :doc:`server-linux-walkthrough` 
+relevant section of :doc:`server-linux-walkthrough` #
