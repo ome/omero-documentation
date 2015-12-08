@@ -107,8 +107,8 @@ Running OMERO
 
 The following settings will need adding to your OMERO startup script
 or to the OMERO user's environment (for example in a shell startup
-script). Add the absolute path to the ``bin`` folder of 
-the virtual environment ``/home/omeroenv`` to the PATH
+script). Add the absolute path to the :file:`bin` directory of 
+the virtual environment :file:`/home/omeroenv` to the PATH
 variable::
 
     ICE_HOME=/opt/Ice-3.5.1
