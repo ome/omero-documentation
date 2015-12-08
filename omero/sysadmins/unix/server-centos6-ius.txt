@@ -214,4 +214,4 @@ and create a configuration file for ``wsgi``::
 	service httpd start
 
 To run OMERO, secure OMERO and perform regular tasks, please read the
-relevant section of :doc:`server-linux-walkthrough` #
+relevant section of :doc:`server-linux-walkthrough`.
