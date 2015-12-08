@@ -34,11 +34,11 @@ To demonstrate its use::
 
     $ python --version
     Python 2.6.6
-    $ virtualenv /home/omeroenv
-    $ source /home/omeroenv/bin/activate
+    $ virtualenv /home/omero/omeroenv
+    $ source /home/omero/omeroenv/bin/activate
     $ python --version
     Python 2.7.10
-    $ deactivate # back to default python
+    $ deactivate # back to the default python
 
 Development packages
 --------------------
@@ -53,19 +53,6 @@ Run the following commands to install them::
     # Python module dependencies
     yum install hdf5-devel freetype-devel libjpeg-devel libpng-devel
 
-Additional Python modules
--------------------------
-
-The instructions below assume that virtualenv has been installed
-using pip2.7. 
-
-Install ``pytables``, ``pillow`` and ``matplotlib``::
-
-    # Note: Warnings disabled due to using an old version of Python 2.7.
-    export PYTHONWARNINGS="ignore:Unverified HTTPS request"
-    virtualenv /home/omeroenv
-    /home/omeroenv/bin/activate
-    /home/omeroenv/bin/pip2.7 install tables pillow matplotlib
 
 Ice 3.5
 -------
@@ -77,6 +64,8 @@ above is available at http://downloads.openmicroscopy.org/ice/experimental.
 
 The following steps will install Ice into :file:`/opt`::
 
+    virtualenv /tmp/omero-ice
+    source /tmp/omero-ice/bin/activate
     # Download and install needed Ice build dependencies (db and mcpp)
     curl -o /etc/yum.repos.d/zeroc-ice-el6.repo http://download.zeroc.com/Ice/3.5/el6/zeroc-ice-el6.repo
     mkdir /home/ice-download
@@ -86,6 +75,7 @@ The following steps will install Ice into :file:`/opt`::
     cd ..
     tar -zxvf /home/ice-download/Ice-3.5.1-b1-centos6-iuspy27-x86_64.tar.gz
     mv /home/Ice-3.5.1-b1-centos6-iuspy27-x86_64 /opt/Ice-3.5.1
+    deactivate
 
 Additional packages required by OMERO
 -------------------------------------
@@ -102,20 +92,129 @@ Install and start PostgreSQL::
     chkconfig postgresql-9.4 on
     service postgresql-9.4 start
 
-Running OMERO
--------------
+For the steps described above:
+
+| :download:`step01_centos6_py27_ius_deps.sh <walkthrough/step01_centos6_py27_ius_deps.sh>`
+
+Setting up the OMERO.server
+---------------------------
+This is an example walkthrough for installing OMERO on Centos6 with Python 2.7using
+a dedicated system user.
+You can use this as a guide for setting up your own test server. For production use you should also read the pages listed under :ref:`index-optimizing-server`.
+
+For convenience in this walkthrough the main OMERO configuration options have
+been defined as environment variables. When following this walkthrough you can
+either use your own values, or alternatively source the following file:
+
+.. literalinclude:: walkthrough/settings.env
+   :start-after: Substitute
+
+:download:`settings.env <walkthrough/settings.env>`
+
+Once Python2.7, Ice3.5 and the additional packages are installed,
+
+Create an omero system user, and a directory for the OMERO repository:
+
+.. literalinclude:: walkthrough/step02_all_setup.sh
+
+:download:`step02_all_setup.sh <walkthrough/step02_all_setup.sh>`
+
+
+Create a database user and initialize a new database for OMERO:
+
+.. literalinclude:: walkthrough/step03_all_postgres.sh
+
+:download:`step03_all_postgres.sh <walkthrough/step03_all_postgres.sh>`
+
+
+To use Nginx, as **root**, run::
+	
+	yum install nginx
+
+To use Apache 2.4, as **root**, run::
+	
+	yum install httpd24u
+
+The instructions below assume that virtualenv has been installed
+using pip2.7.
+
+Create a virtual environment::
+
+	virtualenv /home/omero/omeroenv
+	source /home/omero/omeroenv/bin/activate
+
 
 The following settings will need adding to your OMERO startup script
 or to the OMERO user's environment (for example in a shell startup
 script). Add the absolute path to the :file:`bin` directory of 
-the virtual environment :file:`/home/omeroenv` to the PATH
+the virtual environment :file:`/home/omero/omeroenv` to the ``PATH``
 variable::
 
     ICE_HOME=/opt/Ice-3.5.1
-    PATH="${ICE_HOME}/bin:/home/omeroenv/bin:$PATH"
+    PATH="${ICE_HOME}/bin:/home/omero/omeroenv/bin:$PATH"
     export LD_LIBRARY_PATH="${ICE_HOME}/lib64:${ICE_HOME}/lib:$LD_LIBRARY_PATH"
     export PYTHONPATH="${ICE_HOME}/python:$PYTHONPATH"
     export SLICEPATH="${ICE_HOME}/slice"
 
 These settings will enable Python 2.7, and set the necessary
-environment variables for Ice 3.5 to work.
+environment variables for Ice 3.5 to work.	
+
+Install additional Python modules::
+
+	/home/omero/omeroenv/bin/pip2.7 install pillow numpy matplotlib
+
+Install Django::
+
+	/home/omero/omeroenv/bin/pip2.7 install "Django>=1.8,<1.9"
+
+To use Nginx, install Gunicorn::
+
+	/home/omero/omeroenv/bin/pip2.7 install gunicorn
+
+To use Apache 2.4, install mod_wsgi::
+
+	/home/omero/omeroenv/bin/pip2.7 install mod_wsgi-httpd
+	/home/omero/omeroenv/bin/pip2.7 install mod_wsgi
+
+Install the OMERO.server
+
+As the **omero** system user download, unzip and configure OMERO, and create a
+configuration file for Nginx. The rest of this walkthrough assumes the
+OMERO.server is installed into the home directory of this user.
+
+Note that this script requires the same environment variables that were set
+earlier in `settings.env`, so you may need to copy and/or source this file as
+the omero user.
+
+.. literalinclude:: walkthrough/step04_all_omero.sh
+
+:download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>`
+
+Copy the Nginx OMERO configuration file into the Nginx configuration directory, and disable the default configuration::
+
+	mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
+	cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
+
+To use Apache 2.4, run:
+
+.. literalinclude:: walkthrough/setup_omero_apache24.sh
+
+:download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
+
+Open the Apache OMERO configuration file i.e. :file:`omero/OMERO.server/apache.conf.tmp`, and add to the ``python-path`` parameter of ``WSGIDaemonProcess``::
+
+	/home/omero/omeroenv/lib64/python2.7/site-packages
+
+Copy the Apache OMERO configuration file into the Apache confiuration directory,
+and create a configuration file for ``wsgi``.::
+
+	cp ~omero/OMERO.server/apache.conf.tmp /etc/httpd/conf.d/omero-web.conf
+	cat << EOF > /etc/httpd/conf.d/wsgi.conf
+	LoadModule wsgi_module /home/omero/omeroenv/lib64/python2.7/site-packages/mod_wsgi/server/mod_wsgi-py27.so
+	EOF
+
+	chkconfig httpd on
+	service httpd start
+
+To run OMERO, secure OMERO and perform regular tasks, please read the
+relevant section of :doc:`server-linux-wlakthrough` 
