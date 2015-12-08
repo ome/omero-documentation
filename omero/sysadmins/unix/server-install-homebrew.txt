@@ -123,7 +123,7 @@ To install and deploy the |release| release of OMERO.server, run::
     $ export PYTHONPATH=$(brew --prefix omero52)/lib/python
     $ export ICE_CONFIG=$(brew --prefix omero52)/etc/ice.config
 
-This will install the OMERO server to /usr/local/Cellar/omero, which means you'll find the
+This will install the OMERO server to /usr/local/Cellar/omero, which means you will find the
 log files in /usr/local/Cellar/omero/|release|/var/log. The binaries will be linked to /usr/local/bin.
 
 Install OMERO python dependencies::
