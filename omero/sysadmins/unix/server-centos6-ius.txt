@@ -206,7 +206,7 @@ Open the Apache OMERO configuration file i.e. :file:`omero/OMERO.server/apache.c
 	/home/omero/omeroenv/lib64/python2.7/site-packages
 
 Copy the Apache OMERO configuration file into the Apache confiuration directory,
-and create a configuration file for ``wsgi``.::
+and create a configuration file for ``wsgi``::
 
 	cp ~omero/OMERO.server/apache.conf.tmp /etc/httpd/conf.d/omero-web.conf
 	cat << EOF > /etc/httpd/conf.d/wsgi.conf
