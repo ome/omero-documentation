@@ -19,14 +19,14 @@ deployment.
 
 As root, run::
 
-	yum install https://centos6.iuscommunity.org/ius-release.rpm
+    yum install https://centos6.iuscommunity.org/ius-release.rpm
     yum install python27
 
 Note that ``epel-release`` will be pulled as a dependency.
 
-To use this version of Python, it is preferrable to install
-the various dependencies in a virtual environment. 
-If virtualenv is not already installed, install it using pip run::
+To use the newly installed version of Python, it is preferrable to
+install the various dependencies in a virtual environment. 
+If virtualenv is **not** already installed, install it using pip::
 
 	yum install python27-pip
 	pip2.7 install virtualenv
@@ -35,7 +35,7 @@ To demonstrate its use::
 
     $ python --version
     Python 2.6.6
-    $ virtualenv /home/omero/omeroenv
+    $ virtualenv -p /usr/bin/python2.7 /home/omero/omeroenv
     $ source /home/omero/omeroenv/bin/activate
     $ python --version
     Python 2.7.10
@@ -48,10 +48,8 @@ The following sections require a number of libraries and a compiler.
 Run the following commands to install them::
 
     yum groupinstall "Development Tools"
-    # Ice dependencies
-    yum install expat-devel bzip2-devel openssl-devel zlib-devel
     # Python module dependencies
-    yum install hdf5-devel freetype-devel libjpeg-devel libpng-devel
+    yum install python27-devel hdf5-devel freetype-devel libjpeg-devel libpng-devel
 
 
 Ice 3.5
@@ -107,7 +105,7 @@ either use your own values, or alternatively source the following file:
 
 :download:`settings.env <walkthrough/settings.env>`
 
-Once Python2.7, Ice3.5 and the additional packages are installed,
+Once Python2.7, Ice3.5 and the additional packages are installed:
 
 Create an omero system user, and a directory for the OMERO repository:
 
@@ -131,14 +129,12 @@ To use Apache 2.4, as **root**, run::
 	
 	yum install httpd24u
 
-The instructions below assume that virtualenv has been installed
-using pip2.7.
+To install the remaining dependencies, create a virtual environment::
 
-Create a virtual environment::
-
-	virtualenv /home/omero/omeroenv
+	virtualenv -p /usr/bin/python2.7 /home/omero/omeroenv
 	source /home/omero/omeroenv/bin/activate
-
+	#upgrade pip
+	pip install --upgrade pip
 
 The following settings will need adding to your OMERO startup script
 or to the OMERO user's environment (for example in a shell startup
@@ -201,7 +197,7 @@ Open the Apache OMERO configuration file i.e. :file:`omero/OMERO.server/apache.c
 
 	/home/omero/omeroenv/lib64/python2.7/site-packages
 
-Copy the Apache OMERO configuration file into the Apache confiuration directory,
+Copy the Apache OMERO configuration file into the Apache configuration directory,
 and create a configuration file for ``wsgi``::
 
 	cp ~omero/OMERO.server/apache.conf.tmp /etc/httpd/conf.d/omero-web.conf
@@ -213,4 +209,4 @@ and create a configuration file for ``wsgi``::
 	service httpd start
 
 To run OMERO, secure OMERO and perform regular tasks, please read the
-relevant section of :doc:`server-linux-walkthrough`.
+relevant sections of :doc:`server-linux-walkthrough`.
