@@ -20,7 +20,7 @@ deployment.
 As root, run::
 
     wget https://centos6.iuscommunity.org/ius-release.rpm
-	rpm -Uvh ius-release*.rpm
+    rpm -Uvh ius-release*.rpm
     yum install python27
 
 To use this version of Python, it is preferrable to install
@@ -28,14 +28,14 @@ the various dependencies in a virtual environment.
 If virtualenv is not already installed, install it using pip run::
 
 	yum install python27-pip
-    pip2.7 install virtualenv
+	pip2.7 install virtualenv
 
 To demonstrate its use::
 
     $ python --version
     Python 2.6.6
     $ virtualenv /home/omeroenv
-	$ source /home/omeroenv/bin/activate
+    $ source /home/omeroenv/bin/activate
     $ python --version
     Python 2.7.10
     $ deactivate # back to default python
@@ -73,7 +73,8 @@ Ice 3.5
 The RPM packages provided by ZeroC for CentOS 6 use the Python 2.6
 provided by the system.  OMERO will need an Ice build which uses
 Python 2.7. A version of Ice 3.5 built using Python 2.7 installed
-above is available at http://downloads.openmicroscopy.org/ice/experimental
+above is available at http://downloads.openmicroscopy.org/ice/experimental.
+
 The following steps will install Ice into :file:`/opt`::
 
     # Download and install needed Ice build dependencies (db and mcpp)
@@ -106,11 +107,12 @@ Running OMERO
 
 The following settings will need adding to your OMERO startup script
 or to the OMERO user's environment (for example in a shell startup
-script). Add the absolute path to the virtual environment to the PATH
+script). Add the absolute path to the ``bin`` folder of 
+the virtual environment ``/home/omeroenv`` to the PATH
 variable::
 
     ICE_HOME=/opt/Ice-3.5.1
-    PATH="${ICE_HOME}/bin:/home/omeroenv/bin:/bin:$PATH"
+    PATH="${ICE_HOME}/bin:/home/omeroenv/bin:$PATH"
     export LD_LIBRARY_PATH="${ICE_HOME}/lib64:${ICE_HOME}/lib:$LD_LIBRARY_PATH"
     export PYTHONPATH="${ICE_HOME}/python:$PYTHONPATH"
     export SLICEPATH="${ICE_HOME}/slice"
