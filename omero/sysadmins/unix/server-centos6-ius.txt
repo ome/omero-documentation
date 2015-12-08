@@ -1,0 +1,119 @@
+Installing Python 2.7 and Ice 3.5 on CentOS 6
+=============================================
+
+Running OMERO on CentOS 6 has a number of special requirements which
+deviate from the standard installation instructions.  The instructions
+below will set up Python 2.7 and Ice 3.5 on CentOS 6. We tested the
+installation with Python 2.7 from `IUS <https://ius.io/>`_ and used
+a `virtual environment <https://virtualenv.readthedocs.org/en/latest/>`_. 
+
+Python 2.7
+----------
+
+CentOS 6 provides Python 2.6.  However, OMERO.web requires Python 2.7
+in order to use django 1.8.  While django 1.6 may be used with Python
+2.6, this version of django no longer has security support.  In
+consequence, it is necessary to upgrade to Python 2.7 in order to
+obtain django security updates, which are required for a production
+deployment.
+
+As root, run::
+
+    wget https://centos6.iuscommunity.org/ius-release.rpm
+	rpm -Uvh ius-release*.rpm
+    yum install python27
+
+To use this version of Python, it is preferrable to install
+the various dependencies in a virtual environment. 
+If virtualenv is not already installed, install it using pip run::
+
+	yum install python27-pip
+    pip2.7 install virtualenv
+
+To demonstrate its use::
+
+    $ python --version
+    Python 2.6.6
+    $ virtualenv /home/omeroenv
+	$ source /home/omeroenv/bin/activate
+    $ python --version
+    Python 2.7.10
+    $ deactivate # back to default python
+
+Development packages
+--------------------
+
+The following sections require a number of libraries and a compiler.
+Run the following commands to install them::
+
+    yum groupinstall "Development Tools"
+    yum install epel-release
+    # Ice dependencies
+    yum install expat-devel bzip2-devel openssl-devel zlib-devel
+    # Python module dependencies
+    yum install hdf5-devel freetype-devel libjpeg-devel libpng-devel
+
+Additional Python modules
+-------------------------
+
+The instructions below assume that virtualenv has been installed
+using pip2.7. 
+
+Install ``pytables``, ``pillow`` and ``matplotlib``::
+
+    # Note: Warnings disabled due to using an old version of Python 2.7.
+    export PYTHONWARNINGS="ignore:Unverified HTTPS request"
+    virtualenv /home/omeroenv
+    /home/omeroenv/bin/activate
+    /home/omeroenv/bin/pip2.7 install tables pillow matplotlib
+
+Ice 3.5
+-------
+
+The RPM packages provided by ZeroC for CentOS 6 use the Python 2.6
+provided by the system.  OMERO will need an Ice build which uses
+Python 2.7. A version of Ice 3.5 built using Python 2.7 installed
+above is available at http://downloads.openmicroscopy.org/ice/experimental
+The following steps will install Ice into :file:`/opt`::
+
+    # Download and install needed Ice build dependencies (db and mcpp)
+    curl -o /etc/yum.repos.d/zeroc-ice-el6.repo http://download.zeroc.com/Ice/3.5/el6/zeroc-ice-el6.repo
+    mkdir /home/ice-download
+    cd /home/ice-download
+    wget http://downloads.openmicroscopy.org/ice/experimental/Ice-3.5.1-b1-centos6-iuspy27-x86_64.tar.gz
+    yum install db53 db53-devel db53-utils mcpp-devel 
+    cd ..
+    tar -zxvf /home/ice-download/Ice-3.5.1-b1-centos6-iuspy27-x86_64.tar.gz
+    mv /home/Ice-3.5.1-b1-centos6-iuspy27-x86_64 /opt/Ice-3.5.1
+
+Additional packages required by OMERO
+-------------------------------------
+
+Install Java::
+
+    yum install java-1.8.0-openjdk
+
+Install and start PostgreSQL::
+
+    yum install http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-1.noarch.rpm 
+    yum install postgresql94-server postgresql94-contrib
+    service postgresql-9.4 initdb
+    chkconfig postgresql-9.4 on
+    service postgresql-9.4 start
+
+Running OMERO
+-------------
+
+The following settings will need adding to your OMERO startup script
+or to the OMERO user's environment (for example in a shell startup
+script). Add the absolute path to the virtual environment to the PATH
+variable::
+
+    ICE_HOME=/opt/Ice-3.5.1
+    PATH="${ICE_HOME}/bin:/home/omeroenv/bin:/bin:$PATH"
+    export LD_LIBRARY_PATH="${ICE_HOME}/lib64:${ICE_HOME}/lib:$LD_LIBRARY_PATH"
+    export PYTHONPATH="${ICE_HOME}/python:$PYTHONPATH"
+    export SLICEPATH="${ICE_HOME}/slice"
+
+These settings will enable Python 2.7, and set the necessary
+environment variables for Ice 3.5 to work.
