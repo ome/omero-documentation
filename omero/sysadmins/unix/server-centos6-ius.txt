@@ -19,9 +19,10 @@ deployment.
 
 As root, run::
 
-    wget https://centos6.iuscommunity.org/ius-release.rpm
-    rpm -Uvh ius-release*.rpm
+	yum install https://centos6.iuscommunity.org/ius-release.rpm
     yum install python27
+
+Note that ``epel-release``` will be pulled as a dependency.
 
 To use this version of Python, it is preferrable to install
 the various dependencies in a virtual environment. 
@@ -47,7 +48,6 @@ The following sections require a number of libraries and a compiler.
 Run the following commands to install them::
 
     yum groupinstall "Development Tools"
-    yum install epel-release
     # Ice dependencies
     yum install expat-devel bzip2-devel openssl-devel zlib-devel
     # Python module dependencies
