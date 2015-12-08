@@ -66,13 +66,12 @@ The following steps will install Ice into :file:`/opt`::
 
     # Download and install needed Ice build dependencies (db and mcpp)
     curl -o /etc/yum.repos.d/zeroc-ice-el6.repo http://download.zeroc.com/Ice/3.5/el6/zeroc-ice-el6.repo
-    mkdir /home/ice-download
-    cd /home/ice-download
+    mkdir /tmp/ice-download
+    cd /tmp/ice-download
     wget http://downloads.openmicroscopy.org/ice/experimental/Ice-3.5.1-b1-centos6-iuspy27-x86_64.tar.gz
     yum install db53 db53-devel db53-utils mcpp-devel 
-    cd ..
-    tar -zxvf /home/ice-download/Ice-3.5.1-b1-centos6-iuspy27-x86_64.tar.gz
-    mv /home/Ice-3.5.1-b1-centos6-iuspy27-x86_64 /opt/Ice-3.5.1
+    tar -zxvf /tmp/ice-download/Ice-3.5.1-b1-centos6-iuspy27-x86_64.tar.gz
+    mv Ice-3.5.1-b1-centos6-iuspy27-x86_64 /opt/Ice-3.5.1
 
 Additional packages required by OMERO
 -------------------------------------
