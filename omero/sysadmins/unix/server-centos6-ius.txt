@@ -22,7 +22,7 @@ As root, run::
 	yum install https://centos6.iuscommunity.org/ius-release.rpm
     yum install python27
 
-Note that ``epel-release``` will be pulled as a dependency.
+Note that ``epel-release`` will be pulled as a dependency.
 
 To use this version of Python, it is preferrable to install
 the various dependencies in a virtual environment. 
