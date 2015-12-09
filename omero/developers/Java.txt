@@ -428,7 +428,7 @@ created:
     link = (ImageAnnotationLink) dm.saveAndReturnObject(ctx, link);
     // o attach to a Dataset use DatasetAnnotationLink;
 
--  **Load all the annotations with a given namespace linked to images.**
+-  **Load all the file annotations with a given namespace.**
 
 ::
 
@@ -439,7 +439,6 @@ created:
     ParametersI param = new ParametersI();
     param.exp(omero.rtypes.rlong(userId)); //load the annotation for a given user.
     IMetadataPrx proxy = gateway.getMetadataService(ctx);
-    //retrieve the annotations linked to images, for datasets use: omero.model.Dataset.class
     List<Annotation> annotations = proxy.loadSpecifiedAnnotations(
             FileAnnotation.class.getName(), nsToInclude, nsToExclude, param);
     //Do something with annotations.
@@ -463,7 +462,7 @@ First load the annotations, cf. above.
         annotation = j.next();
         if (annotation instanceof FileAnnotation && index == 0) {
             fa = new FileAnnotationData((FileAnnotation) annotation);
-            //The id of te original file
+            //The id of the original file
             of = getOriginalFile(fa.getFileID());
             store.setFileId(fa.getFileID());
             int offset = 0;
