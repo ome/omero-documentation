@@ -92,7 +92,7 @@ For the steps described above:
 
 Setting up the OMERO.server
 ---------------------------
-This is an example walkthrough for installing OMERO on Centos6 with Python 2.7using
+This is an example walkthrough for installing OMERO on Centos6 with Python 2.7 using
 a dedicated system user.
 You can use this as a guide for setting up your own test server. For production use you should also read the pages listed under :ref:`index-optimizing-server`.
 
