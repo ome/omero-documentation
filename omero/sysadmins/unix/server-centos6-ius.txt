@@ -120,21 +120,13 @@ Create a database user and initialize a new database for OMERO:
 
 :download:`step03_all_postgres.sh <walkthrough/step03_all_postgres.sh>`
 
-
-To use Nginx, as **root**, run::
-	
-	yum install nginx
-
-To use Apache 2.4, as **root**, run::
-	
-	yum install httpd24u
-
 To install the remaining dependencies, create a virtual environment::
 
 	virtualenv -p /usr/bin/python2.7 /home/omero/omeroenv
 	source /home/omero/omeroenv/bin/activate
 	#upgrade pip
 	/home/omero/omeroenv/bin/pip install --upgrade pip
+
 
 The following settings will need adding to your OMERO startup script
 or to the OMERO user's environment (for example in a shell startup
@@ -155,20 +147,9 @@ Install additional Python modules::
 
 	/home/omero/omeroenv/bin/pip2.7 install pillow numpy matplotlib
 
-Install Django::
-
-	/home/omero/omeroenv/bin/pip2.7 install "Django>=1.8,<1.9"
-
-To use Nginx, install Gunicorn::
-
-	/home/omero/omeroenv/bin/pip2.7 install gunicorn
-
-To use Apache 2.4, install mod_wsgi::
-
-	/home/omero/omeroenv/bin/pip2.7 install mod_wsgi-httpd
-	/home/omero/omeroenv/bin/pip2.7 install mod_wsgi
 
 Install the OMERO.server
+------------------------
 
 As the **omero** system user download, unzip and configure OMERO, and create a
 configuration file for Nginx. The rest of this walkthrough assumes the
@@ -182,10 +163,47 @@ the omero user.
 
 :download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>`
 
+
+To run OMERO, secure OMERO and perform regular tasks, please read the
+relevant sections of :doc:`server-linux-walkthrough`.
+
+
+Installing Nginx
+----------------
+
+To use Nginx, as **root**, run::
+	
+	yum install nginx
+
+Install Django and Gunicorn::
+
+	/home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/bin/omero/share/web/requirements-py27-nginx.txt
+
 Copy the Nginx OMERO configuration file into the Nginx configuration directory, and disable the default configuration::
 
 	mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
 	cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
+
+
+Installing Apache
+-----------------
+
+To use Apache 2.4, as **root**, run::
+	
+	yum install httpd24u
+
+To install a mod_wsgi that is compiled against Python 2.7 install it as a Python package into your Python installation::
+
+	/home/omero/omeroenv/bin/pip2.7 install mod_wsgi-httpd
+	/home/omero/omeroenv/bin/pip2.7 install mod_wsgi
+
+Install Django 1.8 using package requirements file::
+
+	/home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/bin/omero/share/web/requirements-py27-apache.txt
+
+To use Apache 2.4, install mod_wsgi::
+
+	/home/omero/omeroenv/bin/pip2.7 install mod_wsgi
 
 To use Apache 2.4, run:
 
@@ -208,5 +226,3 @@ and create a configuration file for ``wsgi``::
 	chkconfig httpd on
 	service httpd start
 
-To run OMERO, secure OMERO and perform regular tasks, please read the
-relevant sections of :doc:`server-linux-walkthrough`.
