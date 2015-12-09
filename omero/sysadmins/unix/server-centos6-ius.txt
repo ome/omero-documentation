@@ -78,6 +78,10 @@ The following steps will install Ice into :file:`/opt`::
     yum install db53 db53-devel db53-utils mcpp-devel 
     tar -zxvf /tmp/ice-download/Ice-3.5.1-b1-centos6-iuspy27-x86_64.tar.gz
     mv Ice-3.5.1-b1-centos6-iuspy27-x86_64 /opt/Ice-3.5.1
+    # make path to Ice globally accessible
+    echo /opt/Ice-3.5.1/lib64 > /etc/ld.so.conf.d/ice-x86_64.conf
+    ldconfig
+
 
 Additional packages required by OMERO
 -------------------------------------
