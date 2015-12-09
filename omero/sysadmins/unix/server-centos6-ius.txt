@@ -134,7 +134,7 @@ To install the remaining dependencies, create a virtual environment::
 	virtualenv -p /usr/bin/python2.7 /home/omero/omeroenv
 	source /home/omero/omeroenv/bin/activate
 	#upgrade pip
-	pip install --upgrade pip
+	/home/omero/omeroenv/bin/pip install --upgrade pip
 
 The following settings will need adding to your OMERO startup script
 or to the OMERO user's environment (for example in a shell startup
