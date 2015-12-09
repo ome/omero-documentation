@@ -145,7 +145,8 @@ environment variables for Ice 3.5 to work.
 
 Install additional Python modules::
 
-	/home/omero/omeroenv/bin/pip2.7 install pillow numpy matplotlib
+	/home/omero/omeroenv/bin/pip2.7 install "Pillow<3.0"
+    /home/omero/omeroenv/bin/pip2.7 install numpy matplotlib
 
 
 Install the OMERO.server
