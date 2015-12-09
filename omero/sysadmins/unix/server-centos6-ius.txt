@@ -184,7 +184,7 @@ the omero user.
 .. literalinclude:: walkthrough/step04_all_omero.sh
 
 
-For example, place :download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>`
+For example, download :download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>`
 and :download:`settings.env <walkthrough/settings.env>` in the ``/home/omero`` 
 directory and run::
 
@@ -228,7 +228,7 @@ As the **omero** system user, run:
 
 .. literalinclude:: walkthrough/setup_omero_apache22.sh
 
-For example, place :download:`setup_omero_apache22.sh <walkthrough/setup_omero_apache22.sh>` in the ``/home/omero`` directory and run::
+For example, download :download:`setup_omero_apache22.sh <walkthrough/setup_omero_apache22.sh>` in the ``/home/omero`` directory and run::
 
     su - omero -c "bash -eux setup_omero_apache22.sh"
 
