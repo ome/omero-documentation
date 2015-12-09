@@ -255,13 +255,13 @@ OMERO.server
 
 Now configure OMERO.server to connect to the newly-created database::
 
-    $ omero config set omero.db.name omero_database
-    $ omero config set omero.db.user db_user
-    $ omero config set omero.db.pass db_password
+    $ bin/omero config set omero.db.name omero_database
+    $ bin/omero config set omero.db.user db_user
+    $ bin/omero config set omero.db.pass db_password
 
 And then, generate the database schema::
 
-    $ omero db script --password secretpassword
+    $ bin/omero db script --password secretpassword
 
 You should see output similar to this:
 
@@ -280,15 +280,15 @@ Now create a location to store OMERO data, for example::
 
 and configure OMERO.server to use this location::
 
-    $ omero config set omero.data.dir ~/var/OMERO.data
+    $ bin/omero config set omero.data.dir ~/var/OMERO.data
 
 The OMERO.server configuration settings can be inspected using::
 
-    $ omero config get
+    $ bin/omero config get
 
 Next, start the OMERO.server::
 
-    $ omero admin start
+    $ bin/omero admin start
 
 Now connect to your OMERO.server using OMERO.insight with the following credentials:
 
