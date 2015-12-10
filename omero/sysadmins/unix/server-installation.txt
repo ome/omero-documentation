@@ -9,11 +9,12 @@ more specific walk-through listed below.
 .. seealso::
 
     :doc:`server-centos6`
-        Instructions for installing Python and Ice on CentOS 6.
+        Instructions for installing OMERO.server from scratch on
+        CentOS 6 with Python 2.7 and Ice 3.5.
 
     :doc:`server-linux-walkthrough`
         Instructions for installing OMERO.server from scratch on
-        Ubuntu 14.04 and CentOS 6.
+        Ubuntu 14.04 and CentOS 7.
 
     :doc:`server-install-homebrew`
         Instructions for installing and building OMERO.server on Mac
@@ -22,7 +23,7 @@ more specific walk-through listed below.
         page to install the prerequisites with Homebrew and then
         install the server zip from the downloads page.**
 
-    Monash University also have a guide for `installing OMERO on
+    Monash University also has a guide for `installing OMERO on
     CentOS 6.3 (64-bit)
     <https://confluence-vre.its.monash.edu.au/display/CVL/Installing+Omero+on+CentOS+6.3+(64-bit)>`_
     which you may find useful.
@@ -92,7 +93,7 @@ The following packages are required:
 +--------------+-------------+---------+
 | Python       | 2.7         | 2.6     |
 +--------------+-------------+---------+
-| PostgreSQL   | 9.4         | 9.3     |
+| PostgreSQL   | 9.4         | 9.2     |
 +--------------+-------------+---------+
 
 One of the following packages is recommended if you wish to use
@@ -136,12 +137,11 @@ If possible, install one of the following packages:
 +-----------+---------------------------+
 | Homebrew  | N/A (install Oracle Java) |
 +-----------+---------------------------+
-| RedHat    | java-1.7.0-openjdk        |
+| RedHat    | java-1.8.0-openjdk        |
 +-----------+---------------------------+
 
 OMERO works with the OpenJDK JRE provided by most systems, or with
-Oracle Java. Version 7 or later is
-recommended. **OpenJDK version 8 is not currently supported**.
+Oracle Java. Version 7 or later is recommended.
 
 Your system may already provide a suitable JRE, in which case no extra steps
 are necessary. Linux distributions usually provide OpenJDK, and older MacOS X
@@ -191,7 +191,7 @@ The following Python packages are required:
       - Functionality
       - Downloads
 
-    * - `Django`_ (1.8 or higher) [1]_
+    * - `Django`_ (1.8) [1]_
       - OMERO.web
       - :pypi:`Django` page
 
@@ -212,7 +212,7 @@ The following Python packages are required:
       - `PyTables page <https://pytables.github.io/downloads.html>`_
 
 .. [1] The currently supported version of the django module used by
-       OMERO.web (1.8) requires Python 2.7.  The older version (1.6)
+       OMERO.web (1.8) requires Python 2.7. The older version (1.6)
        will work with Python 2.6 but lacks security support, and is
        consequently *not recommended for production use*. Python 2.7
        and `Django 1.8`_ are required for security support.
@@ -283,7 +283,8 @@ are using. The Ice versions in currently supported versions of Debian
 and `Ubuntu <https://wiki.ubuntu.com/Releases>`_ are shown in the
 :ref:`ice-requirements` of the :doc:`/sysadmins/version-requirements` page.
 
-Using the latest version of Ice is recommended, where possible. If
+Using the latest version of Ice is recommended, where possible. OMERO
+currently does not support Ice version 3.6. If
 your package manager provides Ice packages, using these is recommended
 where possible. Distribution-provided packages often have additional
 bugfixes which are not present in the upstream releases.
