@@ -40,17 +40,6 @@ If virtualenv is **not** already installed, install it using pip::
 	yum install python27-pip
 	pip2.7 install virtualenv
 
-To demonstrate its use::
-
-    python --version
-    # print in console Python 2.6.6
-    # -p option is not required if installed using pip2.7
-    virtualenv -p /usr/bin/python2.7 /home/omero/omeroenv
-    source /home/omero/omeroenv/bin/activate
-    python --version
-    # print in console Python 2.7.10
-    deactivate # back to the default python
-
 Development packages
 --------------------
 
