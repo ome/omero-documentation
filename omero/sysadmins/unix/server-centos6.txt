@@ -208,7 +208,7 @@ Installing Apache
 
 See also :doc:`install-web/install-apache`.
 
-The version of Apache installed is 2.2, see the note below if you wish to use
+The version of Apache installed is 2.2, see the note belowe if you wish to use
 version 2.4.
 
 To install Apache 2.2, as **root**, run::
@@ -247,7 +247,7 @@ and start Apache::
 	service httpd start
 
 
-
+.. _apache24:
 .. note:: If you wish to use Apache 2.4 with mod_wsgi, the following link [link to be added] offers a possible solution.
 
 
