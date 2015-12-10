@@ -90,9 +90,6 @@ Additional settings can be configured from command line arguments:
     Additional arguments. For more details check
     `Gunicorn Documentation <http://docs.gunicorn.org/en/latest/settings.html>`_.
 
-    .. note:: wsgi-args can be set permanently using
-        :property:`omero.web.wsgi_args` string that always take priority.
-
 The Gunicorn workers are managed **separately** from other OMERO.server
 processes. You can check their status or stop them using the
 following commands:
