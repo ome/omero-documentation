@@ -33,7 +33,7 @@ As **root** install Ice, Java, PostgreSQL:
 | :download:`step01_ubuntu1404_deps.sh <walkthrough/step01_ubuntu1404_deps.sh>`
 | :download:`step01_centos7_deps.sh <walkthrough/step01_centos7_deps.sh>`
 
-.. note:: PostgreSQL needs to be reconfigure to accept TCP connections on Centos7
+.. note:: PostgreSQL needs to be reconfigured to accept TCP connections on Centos7
 
 Create an omero system user, and a directory for the OMERO repository:
 
