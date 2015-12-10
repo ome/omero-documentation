@@ -126,12 +126,6 @@ The various permission levels are:
     :help:`Help guide for sharing data <sharing-data.html>`
      Workflow guide covering the groups and permissions system
 
-    :snapshot:`OMERO.insight Permissions update in OMERO 4.4 <movies/omero-4-4/mov/InsightMultiGroups-4.4.mov>`
-     Movie describing the permissions update under OMERO.insight in OMERO 4.4
-
-    :snapshot:`Web Permissions update in OMERO 4.4 <movies/omero-4-4/mov/WebMultiGroups-4.4.mov>`
-     Movie describing the permissions update under Web in OMERO 4.4
-
 Changing group permissions
 --------------------------
 
@@ -139,12 +133,10 @@ It is possible for the :term:`Group owner` or server :term:`Administrator` to
 change the permissions level on a group after it has been created and filled
 with data, with the following limitations:
 
--  It is not possible to 'reduce' permissions to :term:`Private`. Once links
-   have been created in the database under :term:`Read-only` or
-   :term:`Read-annotate` permissions, these cannot be severed. However, it is
-   possible to 'promote' a :term:`Private` group to be more permissive
--  It is possible to toggle permissions of a group between :term:`Read-only`
-   and :term:`Read-annotate` groups.
+-  It is not possible to 'reduce' permissions to :term:`Private` if the group
+   contains a projection made by one member from data owned by another user.
+   In other circumstances, reducing permissions to private will warn of loss
+   of annotations etc as noted below, but will still be possible.
 -  Only :term:`Administrator` can promote a group to :term:`Read-write`
    permissions. **Make certain all the members understand that this allows
    anyone in the group to permanently delete any of the data before performing
@@ -154,6 +146,7 @@ with data, with the following limitations:
     permission level. If a user has annotated other users' data and
     the group is downgraded, any links to annotations that are not
     permitted by the new permissions level will be lost.
+
 
 Permissions on your and other users' data
 -----------------------------------------
