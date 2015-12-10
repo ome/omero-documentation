@@ -70,6 +70,7 @@ The following steps will install Ice into :file:`/opt`::
     tar -zxvf /tmp/ice-download/Ice-3.5.1-b1-centos6-iuspy27-x86_64.tar.gz
     mv Ice-3.5.1-b1-centos6-iuspy27-x86_64 /opt/Ice-3.5.1
     # make path to Ice globally accessible
+    # if globally set, there is no need to export LD_LIBRARY_PATH
     echo /opt/Ice-3.5.1/lib64 > /etc/ld.so.conf.d/ice-x86_64.conf
     ldconfig
 
