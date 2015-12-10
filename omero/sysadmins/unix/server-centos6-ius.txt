@@ -19,8 +19,6 @@ in order to use `Django 1.8`. While `Django 1.6` may be used with Python
 consequence, it is necessary to upgrade to Python 2.7 in order to
 obtain Django security updates, which are required for a production
 deployment.
-This walkthrough assumes that packages like ``wget, zip, tar, pip`` are
-already installed.
 
 As **root**, run::
 
