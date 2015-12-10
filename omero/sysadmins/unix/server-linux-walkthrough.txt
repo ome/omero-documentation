@@ -1,7 +1,7 @@
 OMERO.server installation on Ubuntu and Centos7
 ===============================================
 
-This is an example walkthrough for installing OMERO on Linux with Nginx, using
+This is an example walkthrough for installing OMERO on Linux, using
 a dedicated system user, and should be read in conjunction with
 :doc:`server-installation` and :doc:`install-web`. You can use this as a guide
 for setting up your own test server. For production use you should also read
@@ -77,6 +77,29 @@ Nginx configuration directory, and disable the default configuration:
 
 | :download:`step05_ubuntu1404_nginx.sh <walkthrough/step05_ubuntu1404_nginx.sh>`
 | :download:`step05_centos7_nginx.sh <walkthrough/step05_centos7_nginx.sh>`
+
+Installing Apache
+-----------------
+
+As **root** install Apache 2.4::
+
+	apt-get -y install apache2 libapache2-mod-wsgi
+
+As the **omero** system user, configure OMERO.web:
+	
+.. literalinclude:: walkthrough/setup_omero_apache24.sh
+
+Copy the Apache OMERO configuration file into the
+Apache configuration directory, and disable the default configuration::
+
+    cp ~omero/OMERO.server/apache.conf.tmp /etc/apache2/sites-available/omero-web.conf
+    a2dissite 000-default.conf
+    a2ensite omero-web.conf
+
+    service apache2 start
+
+| :download:`step05_ubuntu1404_apache24.sh <walkthrough/step05_ubuntu1404_apache24.sh>`
+| :download:`step05_centos7_apache24.sh <walkthrough/step05_centos7_apache24.sh>`
 
 Running OMERO
 -------------
