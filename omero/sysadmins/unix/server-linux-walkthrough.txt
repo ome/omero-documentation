@@ -1,5 +1,5 @@
-OMERO.server Linux walkthrough
-==============================
+OMERO.server installation on Ubuntu and Centos7
+===============================================
 
 This is an example walkthrough for installing OMERO on Linux with Nginx, using
 a dedicated system user, and should be read in conjunction with
@@ -9,7 +9,7 @@ the pages listed under :ref:`index-optimizing-server`.
 
 Example shell scripts for installing OMERO on Ubuntu 14.04 are included
 in-line, and can be downloaded. Separate instructions for installing on
-CentOS 6 are also available where this differs from the Ubuntu instructions.
+CentOS 7 are also available where this differs from the Ubuntu instructions.
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
 
@@ -26,12 +26,12 @@ either use your own values, or alternatively source the following file:
 Prerequisites
 -------------
 
-As **root** install Ice, Java, Postgres:
+As **root** install Ice, Java, PostgreSQL:
 
 .. literalinclude:: walkthrough/step01_ubuntu1404_deps.sh
 
 | :download:`step01_ubuntu1404_deps.sh <walkthrough/step01_ubuntu1404_deps.sh>`
-| :download:`step01_centos6_deps.sh <walkthrough/step01_centos6_deps.sh>`
+| :download:`step01_centos7_deps.sh <walkthrough/step01_centos7_deps.sh>`
 
 Create an omero system user, and a directory for the OMERO repository:
 
@@ -72,7 +72,7 @@ Nginx configuration directory, and disable the default configuration:
 .. literalinclude:: walkthrough/step05_ubuntu1404_nginx.sh
 
 | :download:`step05_ubuntu1404_nginx.sh <walkthrough/step05_ubuntu1404_nginx.sh>`
-| :download:`step05_centos6_nginx.sh <walkthrough/step05_centos6_nginx.sh>`
+| :download:`step05_centos7_nginx.sh <walkthrough/step05_centos7_nginx.sh>`
 
 
 Running OMERO
