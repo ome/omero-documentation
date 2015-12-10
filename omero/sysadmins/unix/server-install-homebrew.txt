@@ -7,14 +7,10 @@ OMERO.server Mac OS X installation walk-through with Homebrew
     This walk-through demonstrates how to install OMERO on a clean Mac
     OS X system (10.9 or later) using Homebrew.  Note that this
     demonstrates how to install OMERO.server *from the source code*
-    via Homebrew, in addition to all its prerequisites. **The default
-    instructions for UNIX platforms in the**
-    :doc:`server-installation` **guide are all you need to install the
-    prerequisites with Homebrew and then install the server zip from
-    the downloads page or build from source.**
+    via Homebrew, in addition to all its prerequisites. 
 
 These instructions are implemented in a series of `automated scripts
-<https://github.com/ome/omero-install/tree/master/homebrew>`_ which
+<https://github.com/ome/omero-install/tree/develop/osx>`_ which
 install OMERO via Homebrew from a fresh configuration.
 
 Prerequisites
@@ -49,37 +45,34 @@ running::
     $ javac -version
     javac 1.8.0_31
 
-Homebrew
-^^^^^^^^
+Requirements
+------------
+
+See installation script :download:`step01_deps.sh <walkthrough/osx/step01_deps.sh>`
 
 .. _`Homebrew wiki`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Installation.md
 
-Follow the installation instructions on the `Homebrew wiki`_. All the
-requirements for OMERO will be installed under :file:`/usr/local`.
+All the requirements for OMERO will be installed under :file:`/usr/local`. See also: Installation instructions on the `Homebrew wiki`_.
 
-::
+Install homebrew::
 
+    $ export PATH=/usr/local/bin:$PATH
     $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    $ brew install git
 
-The installation of OMERO via Homebrew depends upon two alternate
-repositories containing extra formulae:
-https://github.com/Homebrew/homebrew-science for the HDF5 formula and
-https://github.com/ome/homebrew-alt for all the OME-provided formulae
-and older versions of Ice.  To add these, run::
+Update homebrew and run 'brew doctor' to fix potential issues beforehand::
 
-    $ brew tap homebrew/science
-    $ brew tap ome/alt
+    $ brew update
+    $ brew doctor
 
-Lastly, make sure :file:`/usr/local/bin` is before :file:`/usr/bin` in
-your :envvar:`PATH`.  For example, add the following to
-:file:`~/.profile` and then start a new shell for the change to take
-effect::
+Install git if not already present::
 
-    export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+    $ brew list | grep "\bgit\b" || brew install git
 
-Python 2.7
-^^^^^^^^^^
+Install PostgreSQL database server::
+
+    $ export LANG=${LANG:-en_US.UTF-8}
+    $ export LANGUAGE=${LANGUAGE:-en_US:en}
+    $ brew install postgres
 
 .. _`Homebrew and Python`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
 
@@ -92,16 +85,21 @@ the OMERO installation using the Homebrew Python.
 
 To install the Python provided by Homebrew::
 
-	$ brew install python
+    $ brew install python
 
 Check that Python is working and is version 2.7::
 
     $ /usr/local/bin/python --version
     Python 2.7.9
 
-To create isolated Python environemnt you can set up and use `virtual
-environments <http://www.virtualenv.org/en/latest/>`_ to install the OMERO
-Python dependencies (see :ref:`python_dependencies`).
+The installation of OMERO via Homebrew depends upon two alternate
+repositories containing extra formulae:
+https://github.com/Homebrew/homebrew-science for the HDF5 formula and
+https://github.com/ome/homebrew-alt for all the OME-provided formulae
+and older versions of Ice. To add these, run::
+
+    $ brew tap homebrew/science
+    $ brew tap ome/alt
 
 .. note::
 
@@ -113,23 +111,56 @@ Python dependencies (see :ref:`python_dependencies`).
 OMERO installation
 ------------------
 
-OMERO |release|
-^^^^^^^^^^^^^^^
+See installation script :download:`step02_omero.sh <walkthrough/osx/step02_omero.sh>`
+
+OMERO |release| server
+^^^^^^^^^^^^^^^^^^^^^^
 
 To install and deploy the |release| release of OMERO.server, run::
 
-    $ brew install omero
+    $ export PATH=/usr/local/bin:$PATH
+    $ brew install omero52 --with-nginx --with-cpp
+    $ export PYTHONPATH=$(brew --prefix omero52)/lib/python
+    $ export ICE_CONFIG=$(brew --prefix omero52)/etc/ice.config
 
-This should install OMERO along with most of the non-Python
-requirements.
+This will install the OMERO server to /usr/local/Cellar/omero, which means you will find the
+log files in /usr/local/Cellar/omero/|release|/var/log. The binaries will be linked to /usr/local/bin.
 
-Additional installation options can be listed using the ``info``
-command::
+Install OMERO python dependencies::
 
-    $ brew info omero
+    $ pip install -r $(brew --prefix omero52)/share/web/requirements-py27-nginx.txt
+    $ cd /usr/local
+    $ bash bin/omero_python_deps
 
-The default version of Ice installed by the OMERO formula is currently
-Ice 3.5.
+Start database server::
+
+    $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
+
+Create database and user::
+
+    $ createuser -w -D -R -S db_user
+    $ createdb -E UTF8 -O db_user omero_database
+    $ psql -h localhost -U db_user -l
+
+Set database parameters in OMERO::
+
+    $ bin/omero config set omero.db.name omero_database
+    $ bin/omero config set omero.db.user db_user
+    $ bin/omero config set omero.db.pass db_password
+
+Create and run script to initialize the OMERO database::
+
+    $ export ROOT_PASSWORD=${ROOT_PASSWORD:-omero}
+    $ export PSQL_SCRIPT_NAME=${PSQL_SCRIPT_NAME:-OMERO.sql}
+    $ bin/omero db script --password $ROOT_PASSWORD -f $PSQL_SCRIPT_NAME
+    $ psql -h localhost -U db_user omero_database < $PSQL_SCRIPT_NAME
+    $ rm $PSQL_SCRIPT_NAME
+
+Set up OMERO data directory::
+
+    $ export OMERO_DATA_DIR=${OMERO_DATA_DIR:-/var/OMERO.data}
+    $ mkdir -p $OMERO_DATA_DIR
+    $ bin/omero config set omero.data.dir $OMERO_DATA_DIR
 
 
 Development server
@@ -157,151 +188,25 @@ able to build the server, i.e.
 
 .. include:: development-server
 
-Additional OMERO requirements
------------------------------
+Then change into the `dist` directory::
 
-PostgreSQL
-^^^^^^^^^^
+    $ cd ~/code/projects/OMERO/dist
 
-Install PostgreSQL::
-
-    $ brew install postgresql
-    $ postgres --version
-    postgres (PostgreSQL) 9.4.1
-
-.. _python_dependencies:
-
-Python dependencies
-^^^^^^^^^^^^^^^^^^^
-
-The Python dependencies can be installed in the system-wide Python
-:file:`site-packages`, in the Homebrew Python :file:`site-packages` or
-within a virtual environment. If you are using the system-wide Python
-:file:`site-packages`, you may need to use :program:`sudo` to install
-the dependencies. If you are using a virtual environment, activate it
-before calling the Python dependencies installation script.
-
-If you installed OMERO using Homebrew, execute the ``omero_python_deps``
-script::
-
-    $ omero_python_deps
-
-If you use a development server, execute the ``python_deps.sh`` script under
-:file:`docs/install`::
-
-    $ cd ~/code/projects/OMERO
-    $ docs/install/python_deps.sh
-
-If you encounter problems with the installation script, please take a look at
-:ref:`install_homebrew_common_issues`.
-
-Configuration
--------------
-
-Database creation
-^^^^^^^^^^^^^^^^^
-
-#. Create a new database cluster::
-
-    $ initdb -E UTF8 /usr/local/var/postgres
-
-#. Start the PostgreSQL server.
-
-   If you wish to use ``brew services`` to start postgresql, you will
-   first need to install it, then start the service::
-
-    $ brew tap gapple/services
-    $ brew services start postgresql
-
-   Alternatively, to start by hand::
-
-    $ pg_ctl -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log start
-
-   It is also possible to configure :program:`launchd` to start
-   PostgreSQL at boot
-
-#. Create a user and database::
-
-    $ createuser -P -D -R -S db_user
-    Enter password for new role:       # enter db_password
-    Enter it again:                    # enter db_password
-    $ createdb -E UTF8 -O db_user omero_database
-
-   Note ``db_user`` and ``db_password`` should be replaced with a
-   username and password of your choice.  Record these for future use.
-
-#. Check to make sure the database has been created.
-
-::
-
-    $ psql -h localhost -U db_user -l
-
-This command should give similar output to the following::
-
-                            List of databases
-
-       Name         | Owner   | Encoding |  Collation  |    Ctype    | Access privileges
-    ----------------+---------+----------+-------------+-------------+-------------------
-     omero_database | db_user | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 |
-     postgres       | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 |
-     template0      | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/ome           +
-                    |         |          |             |             | ome=CTc/ome
-     template1      | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/ome           +
-                    |         |          |             |             | ome=CTc/ome
-    (4 rows)
-
-OMERO.server
-^^^^^^^^^^^^
-
-Now configure OMERO.server to connect to the newly-created database::
-
-    $ bin/omero config set omero.db.name omero_database
-    $ bin/omero config set omero.db.user db_user
-    $ bin/omero config set omero.db.pass db_password
-
-And then, generate the database schema::
-
-    $ bin/omero db script --password secretpassword
-
-You should see output similar to this:
-
-.. literalinclude:: /downloads/cli/db-script-example.txt
-
-Then run the SQL commands in the generated schema file to create the
-database:
-
-.. parsed-literal::
-
-    $ psql -h localhost -U db_user omero_database < |current_dbver|.sql
-
-Now create a location to store OMERO data, for example::
-
-    $ mkdir -p ~/var/OMERO.data
-
-and configure OMERO.server to use this location::
-
-    $ bin/omero config set omero.data.dir ~/var/OMERO.data
-
-The OMERO.server configuration settings can be inspected using::
-
-    $ bin/omero config get
-
-Next, start the OMERO.server::
-
-    $ bin/omero admin start
-
-Now connect to your OMERO.server using OMERO.insight with the following credentials:
-
-::
-
-    U: root
-    P: root_password
+and follow the steps for setting up the database and OMERO data directory as mentioned
+in the previous section.
 
 OMERO.web
 ^^^^^^^^^
 
-In order to deploy OMERO.web in a production environment such as Apache or
-Nginx please follow the instructions under :doc:`install-web`.
+See installation script :download:`step03_nginx.sh <walkthrough/osx/step03_nginx.sh>`
+
+Basic setup for OMERO using nginx::
+
+    $ export HTTPPORT=${HTTPPORT:-8080}
+    $ bin/omero web config nginx-development --http $HTTPPORT > $(brew --prefix omero52)/etc/nginx.conf
+
+For detailed instructions on how to deploy OMERO.web in a production environment such as Apache or
+Nginx please see :doc:`install-web`.
 
 .. note::
     The internal Django webserver can be used for evaluation and development.
@@ -309,6 +214,40 @@ Nginx please follow the instructions under :doc:`install-web`.
     :doc:`/developers/Web/Deployment`.
 
 .. _install_homebrew_common_issues:
+
+Startup/Shutdown
+^^^^^^^^^^^^^^^^
+
+If necessary start PostgreSQL database server::
+
+    $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
+
+Start OMERO::
+
+    $ bin/omero admin start
+
+Start OMERO.web::
+
+    $ bin/omero web start
+    $ nginx -c $(brew --prefix omero52)/etc/nginx.conf
+
+Now connect to your OMERO.server using OMERO.insight or OMERO.web with the following credentials:
+
+::
+
+    U: root
+    P: omero
+
+Stop OMERO.web::
+
+    $ nginx -c $(brew --prefix omero52)/etc/nginx.conf -s stop
+    $ bin/omero web stop
+
+Stop OMERO::
+
+    $ bin/omero admin stop
+
+See example script for a basic functionality test: :download:`step04_test.sh <walkthrough/osx/step04_test.sh>`
 
 Common issues
 -------------
@@ -327,6 +266,28 @@ Also, please check the Homebrew `Bug Fixing Checklist
 Below is a non-exhaustive list of errors/warnings specific to the OMERO
 installation. Some if not all of them could possibly be avoided by removing
 any previous OMERO installation artifacts from your system.
+
+Database
+^^^^^^^^
+Check to make sure the database has been created and 'UTF8' encoding is used
+
+::
+
+    $ psql -h localhost -U db_user -l
+
+This command should give similar output to the following::
+
+                            List of databases
+
+       Name         | Owner   | Encoding |  Collation  |    Ctype    | Access privileges
+    ----------------+---------+----------+-------------+-------------+-------------------
+     omero_database | db_user | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 |
+     postgres       | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 |
+     template0      | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/ome           +
+                    |         |          |             |             | ome=CTc/ome
+     template1      | ome     | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/ome           +
+                    |         |          |             |             | ome=CTc/ome
+    (4 rows)
 
 Macports/Fink
 ^^^^^^^^^^^^^
