@@ -151,7 +151,7 @@ with the variables above or download [Add link] and run::
     echo source /home/omero/omero.env >> /home/omero/.bashrc
 
 
-Install additional Python modules::
+Install additional Python modules in the virtual environment::
 
     # Cap version due to a limitation in OMERO.figure
     /home/omero/omeroenv/bin/pip2.7 install "Pillow<3.0"
@@ -174,9 +174,9 @@ the omero user.
 .. literalinclude:: walkthrough/step04_all_omero.sh
 
 
-For example, download :download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>`
-and :download:`settings.env <walkthrough/settings.env>` in the ``/home/omero`` 
-directory and run::
+A convenient way to do it is to download :download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>`
+and place `settings.env` (already edited in a previous step) into the
+``/home/omero`` directory, and run the following command as omero::
 
     su - omero -c "bash -eux step04_all_omero.sh"
 
@@ -189,9 +189,13 @@ To install Nginx, as **root**, run::
 	
 	yum install nginx
 
-Install the requirements to run OMERO.web using the requirements file::
+In the virtual environment, install the requirements to run OMERO.web using the requirements file::
 
 	/home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-nginx.txt
+
+Now deactivate the virtual environment::
+
+    deactivate
 
 Copy the Nginx OMERO configuration file into the Nginx configuration directory, and disable the default configuration and start Nginx::
 
@@ -199,32 +203,35 @@ Copy the Nginx OMERO configuration file into the Nginx configuration directory, 
     cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
     service nginx start
 
-Now deactivate the virtual environment::
-
-    deactivate
-
 Installing Apache
 -----------------
 
 See also :doc:`install-web/install-apache`.
 
-To use Apache 2.2, as **root**, run::
+The version of Apache installed is 2.2, see the note below if you wish to use
+version 2.4.
+
+To install Apache 2.2, as **root**, run::
 	
     yum install httpd
     # install mod_wsgi compiled against Python 2.7
     yum install python27-mod_wsgi
 
-Install the requirements to run OMERO.web using the requirements file::
+In the virtual environment, install the requirements to run OMERO.web using the requirements file::
 
     /home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-apache.txt
 
-As the **omero** system user, run:
+As the **omero** system user, configure OMERO.web:
 
 .. literalinclude:: walkthrough/setup_omero_apache22.sh
 
-For example, download :download:`setup_omero_apache22.sh <walkthrough/setup_omero_apache22.sh>` in the ``/home/omero`` directory and run::
+A convenient way to do it is to download :download:`setup_omero_apache22.sh <walkthrough/setup_omero_apache22.sh>` in the ``/home/omero`` directory and run as omero::
 
     su - omero -c "bash -eux setup_omero_apache22.sh"
+
+Deactivate the virtual environment::
+
+    deactivate
 
 Open the Apache OMERO configuration file i.e. :file:`omero/OMERO.server/apache.conf.tmp`, and add the line below to the ``python-path`` parameter of ``WSGIDaemonProcess``::
 
@@ -239,9 +246,7 @@ and start Apache::
 	chkconfig httpd on
 	service httpd start
 
-Now Deactivate the virtual environment::
 
-    deactivate
 
 .. note:: If you wish to use Apache 2.4 with mod_wsgi, the following link [link to be added] offers a possible solution.
 
@@ -249,7 +254,7 @@ Now Deactivate the virtual environment::
 Final tasks
 -----------
 
-The installation should now be completed.
+The installation should now be complete.
 To run OMERO, secure OMERO and perform regular tasks, please read the
 relevant sections of :doc:`server-linux-walkthrough`.
 
