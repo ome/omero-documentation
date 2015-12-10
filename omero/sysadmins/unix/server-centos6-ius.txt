@@ -65,7 +65,7 @@ Ice 3.5
 
 The RPM packages provided by ZeroC for CentOS 6 use the Python 2.6
 provided by the system.  OMERO will need an Ice build which uses
-Python 2.7. A version of Ice 3.5 built using Python 2.7 installed
+Python 2.7. A version of Ice 3.5 built against Python 2.7 installed
 above is available at http://downloads.openmicroscopy.org/ice/experimental.
 
 The following steps will install Ice into :file:`/opt`::
@@ -90,7 +90,7 @@ Install Java::
 
     yum install java-1.8.0-openjdk
 
-Install PostgreSQL, reconfigure to allow TCP connections and start PostgreSQL::
+Install PostgreSQL, reconfigure to allow TCP connections and start it::
 
     yum install http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-1.noarch.rpm 
     yum install postgresql94-server postgresql94-contrib
@@ -111,12 +111,10 @@ You can use this as a guide for setting up your own test server. For production 
 
 For convenience in this walkthrough the main OMERO configuration options have
 been defined as environment variables. When following this walkthrough you can
-either use your own values, or alternatively source the following file:
+either use your own values, or alternatively source the following file :download:`settings.env <walkthrough/settings.env>`:
 
 .. literalinclude:: walkthrough/settings.env
    :start-after: Substitute
-
-:download:`settings.env <walkthrough/settings.env>`
 
 Once Python2.7, Ice3.5 and the additional packages are installed:
 
@@ -209,7 +207,7 @@ Copy the Nginx OMERO configuration file into the Nginx configuration directory, 
     cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
     service nginx start
 
-The installation is now completed, deactivate the virtual environment::
+Now deactivate the virtual environment::
 
     deactivate
 
@@ -245,11 +243,11 @@ and start Apache::
 	chkconfig httpd on
 	service httpd start
 
-Deactivate the virtual environment::
+Now Deactivate the virtual environment::
 
     deactivate
 
-.. note:: If you wish to use Apache 2.4, the following link [link to be added] offers a potential solution. This solution has not been tested in a production environment.
+.. note:: If you wish to use Apache 2.4 with mod_wsgi, the following link [link to be added] offers a potential solution. This solution has not been tested in a production environment.
 
 
 Final tasks
