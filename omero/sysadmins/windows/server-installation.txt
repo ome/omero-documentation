@@ -51,7 +51,8 @@ Java SE Development Kit (JDK)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Java SE Downloads are available from `<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
-Java 7 is recommended, Java 6 is supported.
+
+Java 8 is recommended.
 
 Ice
 ^^^
@@ -69,7 +70,9 @@ Ice
     Python 2.7.
 
 You can download Ice 3.5.1 built against Python 2.7 from our
-`Ice downloads page <http://downloads.openmicroscopy.org/ice/3.5.1/>`_.
+`Ice downloads page <http://downloads.openmicroscopy.org/ice/3.5.1/>`_,
+unzip the archive and move the extracted directory to ``C:\``.
+
 If you plan to develop for C++, be sure to read the instructions on the
 |OmeroCpp| page.
 
@@ -109,39 +112,6 @@ the latest release number and A and B stand for the Python version, for example
 :file:`pywin32-218.win32-py2.7.exe`.
 
 .. _windows_additional_libraries:
-
-Additional libraries
-""""""""""""""""""""
-
-The following are optional depending on what services you require:
-
-.. tabularcolumns:: |l|l|l|
-
-.. list-table::
-    :header-rows: 1
-
-    * - Package
-      - Functionality
-      - Downloads
-
-    * - `Pillow`_
-      - OMERO.web and Figure Export
-      - :pypi:`Pillow` page
-
-    * - Matplotlib
-      - OMERO.web
-      - `Matplotlib page <http://matplotlib.org/>`_
-
-    * - NumPy (1.2.0 or higher) [1]_
-      - Scripting
-      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
-
-    * - PyTables (2.1.0 or higher)
-      - :doc:`OMERO.tables </sysadmins/server-tables>`
-      - `PyTables page <https://pytables.github.io/downloads.html>`_
-
-.. [1] May already have been installed as a dependency of Matplot Lib.
-
 
 PostgreSQL (9.2 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -239,9 +209,6 @@ Ice, which does not set the required variables by default.
    - PYTHONPATH pointing to the python folder in the ICE installation (e.g. 
      "C:\\Ice-3.5.1\\python;")
 
-   - For 64-bit you will need to use the 64-bit Ice directories, for example
-     "C:\\Ice-3.5.1\\bin\\x64;" and "C:\\Ice-3.5.1\\python\\x64;".
-
    .. warning:: Remember that the Windows path separator is the semicolon ; 
        and must be appended after every entry.
 
@@ -287,6 +254,9 @@ Creating a database for OMERO
       database (referenced as ``omero_database`` below) as the ``Name``, for
       example ``omero``, then press :guilabel:`OK`.
 
+   #. Switch to the :guilabel:`Definition` tab and make sure ``UTF8`` is set
+      for the ``Encoding`` property.
+
 Location for your OMERO binary repository
 -----------------------------------------
 
@@ -305,7 +275,7 @@ Location for your OMERO binary repository
 
       C:\mkdir OMERO
 
--  Change the ownership of the directory. :file:`C:\\OMERO` *must* either
+-  If necessary change the ownership of the directory. :file:`C:\\OMERO` *must* either
    be owned by the user starting the server or that user *must* have
    permission to write to the directory. Please see :doc:`OMERO.server
    binary repository <server-binary-repository>` for more details.
@@ -500,11 +470,12 @@ OMERO.web and administration
     IIS please follow the instructions under :doc:`install-web`.
 
 Otherwise, the internal Django webserver can be used for evaluation and 
-development. In this case, you need to
+development. In this case, you need to install Django and
 turn debugging on, in order that static files can be served by Django:
 
 ::
 
+    C:\OMERO.server> C:\Pyhton27\Scripts\pip.exe install -r share/web/requirements-py27-win.txt
     C:\OMERO.server> bin\omero config set omero.web.application_server development
     C:\OMERO.server> bin\omero config set omero.web.debug True
 
@@ -523,7 +494,7 @@ then start by
     Starting development server at http://0.0.0.0:4080/
     Quit the server with CTRL-BREAK.
 
-.. note::  As OMERO.web 5 is based on `Django 1.6`_,
+.. note::  As OMERO.web 5 is based on `Django 1.8`_,
     :property:`omero.web.session_engine` and :property:`omero.web.caches` should be
     unset.
     
@@ -550,6 +521,66 @@ to access the OMERO.web interface:
 
 Post-installation items
 -----------------------
+
+Additional libraries
+^^^^^^^^^^^^^^^^^^^^
+
+The following are optional depending on what services you require:
+
+.. tabularcolumns:: |l|l|l|
+
+.. list-table::
+    :header-rows: 1
+
+    * - Package
+      - Functionality
+      - Downloads
+
+    * - Django (1.8)
+      - OMERO.web
+      - `Django website <https://www.djangoproject.com/>`_
+
+    * - Pillow (2.9.0)
+      - OMERO.web and Figure Export
+      - `Pillow`_
+
+    * - Matplotlib
+      - OMERO.web
+      - `Matplotlib page <http://matplotlib.org/>`_
+
+    * - PyTables (2.1.0 or higher)
+      - :doc:`OMERO.tables </sysadmins/server-tables>`
+      - `PyTables page <https://pytables.github.io/downloads.html>`_
+
+    * - NumPy (1.2.0 or higher) [1]_
+      - Scripting
+      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
+    
+    * - Numexpr (2.4.3 or higher)
+      - 
+      - `Numexpr page <https://pypi.python.org/pypi/numexpr>`_
+    
+    * - pyparsing (2.0.3 or higher)
+      - 
+      - `pyparsing page <http://pyparsing.wikispaces.com>`_
+
+    * - python-dateutil (2.4.2 or higher)
+      - 
+      - `python-dateutil page <https://pypi.python.org/pypi/python-dateutil>`_
+
+    * - pytz 
+      - 
+      - `pytz page <http://pytz.sourceforge.net/>`_
+
+    * - six (1.9.0 or higher)
+      - 
+      - `six page <https://pypi.python.org/pypi/six>`_
+
+    * - virtualenv (12.1.1 or higher)
+      - 
+      - `virtualenv page <http://docs.python-guide.org/en/latest/dev/virtualenvs/>`_
+
+.. [1] May already have been installed as a dependency of Matplot Lib.
 
 Backup
 ^^^^^^
