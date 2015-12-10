@@ -220,6 +220,10 @@ To use Apache 2.2, as **root**, run::
     # install mod_wsgi compiled against Python 2.7
     yum install python27-mod_wsgi
 
+Install the requirements to run OMERO.web using the requirements file::
+
+    /home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-apache.txt
+
 As the **omero** system user, run:
 
 .. literalinclude:: walkthrough/setup_omero_apache22.sh
