@@ -9,8 +9,8 @@ version and that it is installed and configured correctly.
 Ensuring you have a valid PostgreSQL version
 --------------------------------------------
 
-For OMERO |version|, PostgreSQL version 9.2 or later is required; version 9.3
-or later is recommended. Make sure you are using a
+For OMERO |version|, PostgreSQL version 9.3 or later is required; version 9.4
+is recommended. Make sure you are using a
 `supported version <http://www.postgresql.org/support/versioning/>`_.
 
 You can check which version of PostgreSQL you have installed with any of
