@@ -93,7 +93,7 @@ Install PostgreSQL, reconfigure to allow TCP connections and start it::
 
 For the steps described above, download: 
 
-	[link to be added]
+| :download:`step01_centos6_py27_ius_deps.sh <walkthrough/step01_centos6_py27_ius_deps.sh>`
 
 Setting up the OMERO.server
 ---------------------------
@@ -135,25 +135,21 @@ The following settings will need adding to your OMERO startup script
 or to the omero user's environment (for example in a shell startup
 script). Add the absolute path to the :file:`bin` directory of 
 the virtual environment :file:`/home/omero/omeroenv` to the ``PATH``
-variable::
+variable:
 
-    ICE_HOME=/opt/Ice-3.5.1
-    PATH="${ICE_HOME}/bin:/home/omero/omeroenv/bin:$PATH"
-    export LD_LIBRARY_PATH="${ICE_HOME}/lib64:${ICE_HOME}/lib:$LD_LIBRARY_PATH"
-    export PYTHONPATH="${ICE_HOME}/python:$PYTHONPATH"
-    export SLICEPATH="${ICE_HOME}/slice"
+.. literalinclude:: walkthrough/omero-centos6py27ius.env
 
 These settings will enable Python 2.7, and set the necessary
 environment variables for Ice 3.5 to work.
-For example, create a file ``omero.env``
-with the variables above or download [Add link] and run::
+For example, download :download:`walkthrough/omero-centos6py27ius.env 
+<walkthrough/omero-centos6py27ius.env>` into ``/home/omero`` and run::
 
-    echo source /home/omero/omero.env >> /home/omero/.bashrc
+    echo source /home/omero/omero-centos6py27ius.env >> /home/omero/.bashrc
 
 
 Install additional Python modules in the virtual environment::
 
-    # Cap version due to a limitation in OMERO.figure
+    # Cap Pillow version due to a limitation in OMERO.figure
     /home/omero/omeroenv/bin/pip2.7 install "Pillow<3.0"
     /home/omero/omeroenv/bin/pip2.7 install numpy matplotlib
 
@@ -193,7 +189,7 @@ In the virtual environment, install the requirements to run OMERO.web using the 
 
 	/home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-nginx.txt
 
-Now deactivate the virtual environment::
+Deactivate the virtual environment::
 
     deactivate
 
@@ -247,7 +243,7 @@ and start Apache::
 	service httpd start
 
 
-.. note:: If you wish to use Apache 2.4 with mod_wsgi, the following link [link to be added] offers a possible solution.
+.. note:: If you wish to use Apache 2.4 with mod_wsgi, see :download:`docker_virtualenv_ius_apache24.sh <walkthrough/docker_virtualenv_ius_apache24.sh>` for a possible solution.
 
 
 Final tasks
