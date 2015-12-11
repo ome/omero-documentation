@@ -475,7 +475,7 @@ turn debugging on, in order that static files can be served by Django:
 
 ::
 
-    C:\OMERO.server> C:\Pyhton27\Scripts\pip.exe install -r share/web/requirements-py27-win.txt
+    C:\OMERO.server> C:\Python27\Scripts\pip.exe install -r share/web/requirements-py27-win.txt
     C:\OMERO.server> bin\omero config set omero.web.application_server development
     C:\OMERO.server> bin\omero config set omero.web.debug True
 
