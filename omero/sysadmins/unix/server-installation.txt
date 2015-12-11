@@ -219,7 +219,7 @@ The following Python packages are required:
 
 .. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ 
        installed when building `Pillow`_. Version 3.0.0 is currently
-       not supported.
+       not supported by OMERO.figure.
 
 .. [3] May already have been installed as a dependency of Matplot Lib.
 
