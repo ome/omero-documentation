@@ -63,7 +63,9 @@ the omero user.
 .. literalinclude:: walkthrough/step04_all_omero.sh
 
 A convenient way to do it is to download
-:download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>` and place `settings.env` (already edited in a previous step) into the ``/home/omero`` directory, and run the following command as omero::
+:download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>` and place it
+with `settings.env` (already edited in a previous step) into the
+``/home/omero`` directory, and run the following command as omero::
 
     su - omero -c "bash -eux step04_all_omero.sh"
 
@@ -89,6 +91,14 @@ As the **omero** system user, configure OMERO.web:
 	
 .. literalinclude:: walkthrough/setup_omero_apache24.sh
 
+When installing on Ubuntu, edit the Apache OMERO configuration ``apache.conf.tmp``
+to set ``WSGISocketPrefix``::
+
+  #see https://code.google.com/p/modwsgi/wiki/ConfigurationIssues
+  WSGISocketPrefix run/wsgi
+  # Use this on Ubuntu/Debian systems:
+  # WSGISocketPrefix /var/run/wsgi
+
 Copy the Apache OMERO configuration file into the
 Apache configuration directory, and disable the default configuration::
 
@@ -100,6 +110,7 @@ Apache configuration directory, and disable the default configuration::
 
 | :download:`step05_ubuntu1404_apache24.sh <walkthrough/step05_ubuntu1404_apache24.sh>`
 | :download:`step05_centos7_apache24.sh <walkthrough/step05_centos7_apache24.sh>`
+| :download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
 
 Running OMERO
 -------------
@@ -113,7 +124,7 @@ To start the OMERO.web client run::
 
     OMERO.server/bin/omero web start
 
-Nginx should already be running, so you should be able to log in as the OMERO
+Nginx or Apache should already be running, so you should be able to log in as the OMERO
 root user by going to http://localhost/ in your web browser.
 
 In addition some example `init.d` scripts are available should you wish to
