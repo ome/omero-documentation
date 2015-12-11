@@ -171,7 +171,7 @@ the omero user.
 
 
 A convenient way to do it is to download :download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>`
-and place `settings.env` (already edited in a previous step) into the
+and place it with `settings.env` (already edited in a previous step) into the
 ``/home/omero`` directory, and run the following command as omero::
 
     su - omero -c "bash -eux step04_all_omero.sh"
