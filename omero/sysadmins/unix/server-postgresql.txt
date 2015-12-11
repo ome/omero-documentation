@@ -25,7 +25,7 @@ the following commands:
        $ createdb -V
        createdb (PostgreSQL) 9.3q.4
 
-If your existing PostgreSQL installation is version 9.2 or earlier, it
+If your existing PostgreSQL installation is version 9.3 or earlier, it
 is recommended that you upgrade to a more up-to-date version.  Before
 upgrading, stop the OMERO server and then perform a full dump of the
 database using :program:`pg_dump`.  See the :ref:`server_backup`
