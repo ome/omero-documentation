@@ -850,7 +850,7 @@ output of the diagnostics command:
     JVM settings: PixelData-${index}            -Xmx621m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
     JVM settings: Repository-${index}           -Xmx414m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
 
-    OMERO.web status... DYou are deploying OMERO.web using apache and mod_wsgi. Cannot check status.
+    OMERO.web status... You are deploying OMERO.web using apache and mod_wsgi. Cannot check status.
     Django version: 1.8.7
 
 
