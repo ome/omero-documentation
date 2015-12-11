@@ -29,14 +29,6 @@ and OpenJDK 1.7.0_85).
 Windows OS issues
 -----------------
 
-Django 1.8 will not work with IIS on Windows
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-OMERO.web has been upgraded to use Django 1.8 but support for deploying it
-using IIS on Windows is still upcoming and you must use Django 1.6 for now. We
-aim to add support for Django 1.8 in OMERO.web within the 5.2.x development
-line.
-
 .. _windows-database-encoding:
 
 Failure response on import for new databases
