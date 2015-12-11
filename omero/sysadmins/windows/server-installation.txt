@@ -113,11 +113,11 @@ the latest release number and A and B stand for the Python version, for example
 
 .. _windows_additional_libraries:
 
-PostgreSQL (9.2 or higher)
+PostgreSQL (9.3 or higher)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 PostgreSQL has to be installed and configured to accept TCP connections.
-PostgreSQL 9.1 and earlier are not supported. 9.3 or later is recommended.
+PostgreSQL 9.2 and earlier are not supported. 9.3 or later is recommended.
 
 The *One click installer* can be found on the `PostgreSQL Windows
 download page <http://www.postgresql.org/download/windows>`_.
