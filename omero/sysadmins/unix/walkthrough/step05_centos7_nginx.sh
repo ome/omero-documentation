@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yum -y install nginx python-gunicorn
+yum -y --enablerepo=cr install nginx python-gunicorn
 
 # See setup_omero*.sh for the nginx config file creation
 
