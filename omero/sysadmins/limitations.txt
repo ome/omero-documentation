@@ -133,8 +133,8 @@ the shared images by cutting the links.
 Changing group permissions
 --------------------------
 
-If you have data which has been linked by other users, you cannot make the
-group that data is in into a private group.
+If a group contains a projection made by one member from data owned by another
+user, you cannot make the group into a private group.
 
 File format support
 -------------------
@@ -169,7 +169,8 @@ Flex data in OMERO.tables
 
 If you are using the advanced configuration setting ``FlexReaderServerMaps``
 for importing Flex data split between multiple directories for use with
-:doc:`OMERO.tables </developers/analysis>`, you should not upgrade to 5.1.0.
+:doc:`OMERO.tables </developers/analysis>`, you should not upgrade beyond
+5.0.x. Neither the 5.1 line nor OMERO 5.2 support this functionality.
 
 LDAP
 ----

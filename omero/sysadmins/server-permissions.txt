@@ -136,7 +136,7 @@ with data, with the following limitations:
 -  It is not possible to 'reduce' permissions to :term:`Private` if the group
    contains a projection made by one member from data owned by another user.
    In other circumstances, reducing permissions to private will warn of loss
-   of annotations etc as noted below, but will still be possible.
+   of annotations etc. as noted below, but will still be possible.
 -  Only :term:`Administrator` can promote a group to :term:`Read-write`
    permissions. **Make certain all the members understand that this allows
    anyone in the group to permanently delete any of the data before performing
