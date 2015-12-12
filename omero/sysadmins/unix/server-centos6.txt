@@ -253,4 +253,15 @@ The installation should now be complete.
 To run OMERO, secure OMERO and perform regular tasks, please read the
 relevant sections of :doc:`server-linux-walkthrough`.
 
+Installing Web apps
+-------------------
+
+It is possible to add Web applications to OMERO. If your app required some extra Python packages installed
+using ``pip``, those packages should be also installed in the virtual environment. For example,
+`OMERO.figure <http://figure.openmicroscopy.org/>`_ requires ``reportlab`` to generate PDF::
+
+    virtualenv -p /usr/bin/python2.7 /home/omero/omeroenv
+    source /home/omero/omeroenv/bin/activate
+    /home/omero/omeroenv/bin/pip2.7 install reportlab
+
 
