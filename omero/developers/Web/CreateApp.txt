@@ -47,7 +47,7 @@ Add your app to your PYTHONPATH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Your app needs to be within a directory that is on your :envvar:`PYTHONPATH`.
-We usually create a new container for a new app, and add it to my
+We usually create a new container for a new app, and add it to the
 :envvar:`PYTHONPATH`.
 
 ::
@@ -95,7 +95,7 @@ Add the essential files to your app
 
 -  Create an empty file ``<your-app>/__init__.py`` (NB: both double
    underscores)
--  Create ``urls.py``
+-  Create :file:`urls.py`
 
    ::
 
@@ -109,7 +109,7 @@ Add the essential files to your app
 
         )
 
--  Create ``views.py``
+-  Create :file:`views.py`
 
    ::
 
@@ -128,7 +128,7 @@ For more details on how to write views, forms, using templates, etc. check the
 Add your app to OMERO.web
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:property:`omero.web.apps` adds your custom application to the INSTALLED\_APPS,
+:property:`omero.web.apps` adds your custom application to the ``INSTALLED_APPS``,
 so that URLs are registered etc.
 
 .. note::
@@ -142,7 +142,7 @@ so that URLs are registered etc.
 
 
 Now you can view the home-page we created above (NB: you will need to
-restart the OMERO.web server for the config settings to take effect)
+restart the OMERO.web server for the config settings to take effect).
 
 ::
 
@@ -173,7 +173,7 @@ We have got our new app working, but it is not connecting to OMERO yet.
 Let us create a simple "stack preview" for an Image with multiple
 Z-sections. We are going to display the image name and 5 planes evenly
 spaced across the Z-stack. You should be able to add the appropriate
-code to urls.py, views.py that you created above, and add a template
+code to :file:`urls.py`, :file:`views.py` that you created above, and add a template
 under /omeroweb/<your-app>/templates/<your-app>/ 
 
 .. note::
@@ -339,7 +339,7 @@ of links at the top of the webclient main pages.
        url( r'^$', views.index, name='webmobile_index' ),
 
 
-   You can then refer to this link using this ``name``, or you can simply use a full url for external links.
+   You can then refer to the link defined above using this ``name``, or you can simply use a full url for external links.
 
 
 -  **Update configuration** Use the OMERO command line interface to append the link to the ``top_links`` list.
