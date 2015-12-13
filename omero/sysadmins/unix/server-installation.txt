@@ -9,11 +9,12 @@ more specific walk-through listed below.
 .. seealso::
 
     :doc:`server-centos6`
-        Instructions for installing Python and Ice on CentOS 6.
+        Instructions for installing OMERO.server from scratch on
+        CentOS 6 with Python 2.7 and Ice 3.5.
 
     :doc:`server-linux-walkthrough`
         Instructions for installing OMERO.server from scratch on
-        Ubuntu 14.04 and CentOS 6.
+        Ubuntu 14.04 and CentOS 7.
 
     :doc:`server-install-homebrew`
         Instructions for installing and building OMERO.server on Mac
@@ -21,11 +22,6 @@ more specific walk-through listed below.
         source code via Homebrew). **You do not need to refer to this
         page to install the prerequisites with Homebrew and then
         install the server zip from the downloads page.**
-
-    Monash University also have a guide for `installing OMERO on
-    CentOS 6.3 (64-bit)
-    <https://confluence-vre.its.monash.edu.au/display/CVL/Installing+Omero+on+CentOS+6.3+(64-bit)>`_
-    which you may find useful.
 
 
 Prerequisites
@@ -136,12 +132,11 @@ If possible, install one of the following packages:
 +-----------+---------------------------+
 | Homebrew  | N/A (install Oracle Java) |
 +-----------+---------------------------+
-| RedHat    | java-1.7.0-openjdk        |
+| RedHat    | java-1.8.0-openjdk        |
 +-----------+---------------------------+
 
 OMERO works with the OpenJDK JRE provided by most systems, or with
-Oracle Java. Version 7 or later is
-recommended. **OpenJDK version 8 is not currently supported**.
+Oracle Java. Version 7 or later is recommended.
 
 Your system may already provide a suitable JRE, in which case no extra steps
 are necessary. Linux distributions usually provide OpenJDK, and older MacOS X
@@ -191,7 +186,7 @@ The following Python packages are required:
       - Functionality
       - Downloads
 
-    * - `Django`_ (1.8 or higher) [1]_
+    * - `Django`_ (1.8) [1]_
       - OMERO.web
       - :pypi:`Django` page
 
@@ -212,12 +207,14 @@ The following Python packages are required:
       - `PyTables page <https://pytables.github.io/downloads.html>`_
 
 .. [1] The currently supported version of the django module used by
-       OMERO.web (1.8) requires Python 2.7.  The older version (1.6)
+       OMERO.web (1.8) requires Python 2.7. The older version (1.6)
        will work with Python 2.6 but lacks security support, and is
        consequently *not recommended for production use*. Python 2.7
        and `Django 1.8`_ are required for security support.
 
-.. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ installed when building `Pillow`_.
+.. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ 
+       installed when building `Pillow`_. Version 3.0.0 is currently
+       not supported by OMERO.figure.
 
 .. [3] May already have been installed as a dependency of Matplot Lib.
 
@@ -283,7 +280,8 @@ are using. The Ice versions in currently supported versions of Debian
 and `Ubuntu <https://wiki.ubuntu.com/Releases>`_ are shown in the
 :ref:`ice-requirements` of the :doc:`/sysadmins/version-requirements` page.
 
-Using the latest version of Ice is recommended, where possible. If
+Using the latest version of Ice is recommended, where possible. OMERO
+currently does not support Ice version 3.6. If
 your package manager provides Ice packages, using these is recommended
 where possible. Distribution-provided packages often have additional
 bugfixes which are not present in the upstream releases.
@@ -317,7 +315,7 @@ If possible, install the following packages:
 | RedHat    | postgresql postgresql-server                                |
 +-----------+-------------------------------------------------------------+
 
-PostgreSQL 9.2 or later is required. See :doc:`server-postgresql` for
+PostgreSQL 9.3 or later is required. See :doc:`server-postgresql` for
 further details.
 
 OMERO.web
@@ -795,10 +793,10 @@ output of the diagnostics command:
     ================================================================================
 
     Commands:   java -version                  1.7.0     (/usr/bin/java)
-    Commands:   python -V                      2.7.6     (/usr/bin/python)
+    Commands:   python -V                      2.7.9     (/usr/bin/python)
     Commands:   icegridnode --version          3.5.1     (/usr/bin/icegridnode)
     Commands:   icegridadmin --version         3.5.1     (/usr/bin/icegridadmin)
-    Commands:   psql --version                 9.1.13    (/usr/bin/psql)
+    Commands:   psql --version                 9.4.5    (/usr/bin/psql)
 
     Server:     icegridnode                    running
     Server:     Blitz-0                        active (pid = 30324, enabled)
@@ -842,9 +840,19 @@ output of the diagnostics command:
     Environment:LD_LIBRARY_PATH=(unset)
     Environment:DYLD_LIBRARY_PATH=(unset)
 
+    OMERO SSL port:4064                           
+    OMERO TCP port:4063  
     OMERO data dir: '/OMERO'        Exists? True    Is writable? True
     OMERO temp dir: '/home/omero/tmp'        Exists? True    Is writable? True   (Size: 0)
-    OMERO.web status... DEVELOPMENT: You will have to check status by hand!
+
+    JVM settings: Blitz-${index}                -Xmx621m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
+    JVM settings: Indexer-${index}              -Xmx414m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
+    JVM settings: PixelData-${index}            -Xmx621m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
+    JVM settings: Repository-${index}           -Xmx414m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
+
+    OMERO.web status... You are deploying OMERO.web using apache and mod_wsgi. Cannot check status.
+    Django version: 1.8.7
+
 
 Update notification
 ^^^^^^^^^^^^^^^^^^^
