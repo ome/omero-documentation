@@ -42,7 +42,7 @@ Deployment (Unix/Linux)
 -----------------------
 
 There are a number of good ways to easily deploy OMERO.web.
-If you have installed Nginx or Apache OMERO can automatically generate a
+If you have installed Nginx or Apache, OMERO can automatically generate a
 configuration file for your web server. The location of the file will depend
 on your system, please refer to your web server's manual. See
 :ref:`customizing_your_omero_web_installation_unix` for additional
