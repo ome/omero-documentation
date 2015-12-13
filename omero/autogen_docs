@@ -51,6 +51,7 @@ for f in \
     omero-* \
     settings.env \
     setup_* \
+    docker_virtualenv*\
     ; do
     cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
 done
