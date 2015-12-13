@@ -339,7 +339,7 @@ of links at the top of the webclient main pages.
        url( r'^$', views.index, name='webmobile_index' ),
 
 
-   You can then refer to the link defined above using this ``name``, or you can simply use a full url for external links.
+   You can then refer to the link defined above using this ``name``, or you can simply use a full URL for external links.
 
 
 -  **Update configuration** Use the OMERO command line interface to append the link to the ``top_links`` list.
