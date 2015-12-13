@@ -29,14 +29,6 @@ and OpenJDK 1.7.0_85).
 Windows OS issues
 -----------------
 
-Django 1.8 will not work with IIS on Windows
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-OMERO.web has been upgraded to use Django 1.8 but support for deploying it
-using IIS on Windows is still upcoming and you must use Django 1.6 for now. We
-aim to add support for Django 1.8 in OMERO.web within the 5.2.x development
-line.
-
 .. _windows-database-encoding:
 
 Failure response on import for new databases
@@ -76,32 +68,12 @@ Windows does not handle non-Latin characters well in the command prompt
 are not correctly formed. Therefore, we recommend you avoid them if at all
 possible.
 
-OMERO.web 'development server' does not work under Windows XP
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The development server included with OMERO.web does not work under
-Windows XP. This server is included to allow you to easily evaluate
-and develop the OMERO.web component. As it should not be used in a
-production environment, while an inconvenience, this should not stop
-the deployment of a production version of OMERO.web. See :forum:`OME forum
-topic <viewtopic.php?f=5&t=640>`.
-
 Binary delete
 ^^^^^^^^^^^^^
 
 On Windows servers not all binary files corresponding to a delete may
 be removed from the binary repository. See :ref:`DeleteBinaryData` for more
 details.
-
-Mac OS X issues
----------------
-
-C++ compilation problems on Mac OS X 10.6 (Snow Leopard)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Under certain circumstances building OmeroCpp can fail with "ld: symbol(s) not
-found". You can find further details, a potential solution and make any
-comments on your experience with the problem on :ticket:`3210`.
 
 Ubuntu issues
 -------------
@@ -161,8 +133,8 @@ the shared images by cutting the links.
 Changing group permissions
 --------------------------
 
-If you have data which has been linked by other users, you cannot make the
-group that data is in into a private group.
+If a group contains a projection made by one member from data owned by another
+user, you cannot make the group into a private group.
 
 File format support
 -------------------
@@ -197,7 +169,8 @@ Flex data in OMERO.tables
 
 If you are using the advanced configuration setting ``FlexReaderServerMaps``
 for importing Flex data split between multiple directories for use with
-:doc:`OMERO.tables </developers/analysis>`, you should not upgrade to 5.1.0.
+:doc:`OMERO.tables </developers/analysis>`, you should not upgrade beyond
+5.0.x. Neither the 5.1 line nor OMERO 5.2 support this functionality.
 
 LDAP
 ----
