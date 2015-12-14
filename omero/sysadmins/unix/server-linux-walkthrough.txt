@@ -97,8 +97,11 @@ As the **omero** system user, configure OMERO.web:
 	
 .. literalinclude:: walkthrough/setup_omero_apache24.sh
 
-When installing on Ubuntu, edit the Apache OMERO configuration ``apache.conf.tmp``
-to set ``WSGISocketPrefix``::
+In the Apache OMERO configuration ``apache.conf.tmp``, we explicitly set
+an alternate directory for placing sockets and lock files used by Apache modules
+using the ``WSGISocketPrefix`` directive. 
+The default location set in ``apache.conf.tmp`` needs to be modified when 
+installing OMERO on an Ubuntu/Debian system::
 
   #see https://code.google.com/p/modwsgi/wiki/ConfigurationIssues
   WSGISocketPrefix run/wsgi
