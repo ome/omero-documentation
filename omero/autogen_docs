@@ -57,6 +57,7 @@ done
 for f in \
     step* \
     install_* \
+    ; do
     cp $WORKSPACE/omero-install/osx/$f $DIRECTORY
 done
 
