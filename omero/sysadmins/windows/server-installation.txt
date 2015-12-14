@@ -88,7 +88,7 @@ Python 2
 - If you have downloaded Ice 3.5.1 from our downloads page, you will
   need to install the `latest Python 2.7 release <http://www.python.org/downloads/windows/>`_.
 
-As these are the "vanilla" python distributions (no extra libraries), you will
+As these are the "vanilla" python distributions (no extra libraries), you might
 need to install further dependencies, making sure to download the correct
 version (32/64-bit) for your Python distribution.
 
