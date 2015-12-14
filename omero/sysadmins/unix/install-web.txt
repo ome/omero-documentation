@@ -28,7 +28,8 @@ Prerequisites
 
 -  Python 2.7
 
-   -  `Pillow`_ should be available for your distribution
+   -  `Pillow`_ should be available for your distribution. We currently do not
+      support version 3.0 due to a limitation in `OMERO.figure <http://figure.openmicroscopy.org/>`_
 
    -  `Matplotlib`_ should be available for your distribution
 
@@ -41,7 +42,7 @@ Deployment (Unix/Linux)
 -----------------------
 
 There are a number of good ways to easily deploy OMERO.web.
-If you have installed Nginx or Apache OMERO can automatically generate a
+If you have installed Nginx or Apache, OMERO can automatically generate a
 configuration file for your web server. The location of the file will depend
 on your system, please refer to your web server's manual. See
 :ref:`customizing_your_omero_web_installation_unix` for additional
