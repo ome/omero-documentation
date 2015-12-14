@@ -67,6 +67,10 @@ the omero user.
 
 .. literalinclude:: walkthrough/step04_all_omero.sh
 
+
+To Deploy OMERO.web, you can use either Nginx or Apache.
+Follow the steps to install your chosen web server.
+
 Installing Nginx
 ----------------
 
@@ -127,8 +131,9 @@ To start the OMERO.web client run::
 
     OMERO.server/bin/omero web start
 
-Nginx or Apache should already be running, so you should be able to log in as the OMERO
-root user by going to http://localhost/ in your web browser.
+Nginx or Apache should already be running so you should be able to log in as the OMERO
+root user by going to http://localhost/ in your web browser. If this is not the case, and 
+you are running centOS 7, please read the SELinux_ section below.
 
 In addition some example `init.d` scripts are available should you wish to
 start OMERO and OMERO.web automatically:
@@ -174,11 +179,13 @@ Copy this script into the appropriate location:
 | :download:`step08_all_cron.sh <walkthrough/step08_all_cron.sh>`
 
 
+.. _SELinux:
+
 SELinux
 -------
 
 If you are running a system with SELinux enabled (for example, it is
-`enabled by default on CentOS6 <http://wiki.centos.org/HowTos/SELinux>`_)
+`enabled by default on CentOS 6 <http://wiki.centos.org/HowTos/SELinux>`_)
 and are unable to access OMERO.web you may need to adjust the security policy:
 
 .. literalinclude:: walkthrough/setup_centos6_selinux.sh
