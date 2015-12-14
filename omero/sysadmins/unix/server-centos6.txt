@@ -24,7 +24,10 @@ consequence, it is necessary to upgrade to Python 2.7 in order to
 obtain Django security updates, which are required for a production
 deployment.
 
-As **root**, run::
+**The following steps are run as root.**
+
+
+Install:
 
     yum install https://centos6.iuscommunity.org/ius-release.rpm
     yum install python27
@@ -55,7 +58,7 @@ Ice 3.5
 -------
 
 The RPM packages provided by ZeroC for CentOS 6 use the Python 2.6
-provided by the system.  OMERO will need an Ice build which uses
+provided by the system. OMERO will need an Ice build which uses
 Python 2.7. A version of Ice 3.5 built against Python 2.7 installed
 above is available at http://downloads.openmicroscopy.org/ice/experimental.
 
@@ -108,7 +111,7 @@ either use your own values, or alternatively source the following file :download
 .. literalinclude:: walkthrough/settings.env
    :start-after: Substitute
 
-Once Python2.7, Ice3.5 and the additional packages are installed:
+Once Python 2.7, Ice 3.5 and the additional packages are installed:
 
 Create an omero system user, and a directory for the OMERO repository:
 
@@ -159,7 +162,9 @@ Install additional Python modules in the virtual environment::
 Install the OMERO.server
 ------------------------
 
-As the **omero** system user download, unzip and configure OMERO, and create a
+**The following steps are run as the omero system user.**
+
+Download, unzip and configure OMERO, and create a
 configuration file for Nginx. The rest of this walkthrough assumes the
 OMERO.server is installed into the home directory of this user.
 
@@ -170,18 +175,14 @@ the omero user.
 .. literalinclude:: walkthrough/step04_all_omero.sh
 
 
-A convenient way to do it is to download :download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>`
-and place it with `settings.env` (already edited in a previous step) into the
-``/home/omero`` directory, and run the following command as omero::
-
-    su - omero -c "bash -eux step04_all_omero.sh"
-
 Installing Nginx
 ----------------
 
 See also :doc:`install-web/install-nginx`.
 
-To install Nginx, as **root**, run::
+**The following steps are run as root.**
+
+To install Nginx run::
 	
 	yum install nginx
 
@@ -204,10 +205,12 @@ Installing Apache
 
 See also :doc:`install-web/install-apache`.
 
+**The following steps are run as root.**
+
 The version of Apache installed is 2.2, see the note below if you wish to use
 version 2.4.
 
-To install Apache 2.2, as **root**, run::
+To install Apache 2.2 run::
 	
     yum install httpd
     # install mod_wsgi compiled against Python 2.7
@@ -217,15 +220,14 @@ In the virtual environment, install the requirements to run OMERO.web using the 
 
     /home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-apache.txt
 
-As the **omero** system user, configure OMERO.web:
+**The following steps are run as the omero system user.**
+
+Configure OMERO.web:
 
 .. literalinclude:: walkthrough/setup_omero_apache22.sh
 
-A convenient way to do it is to download :download:`setup_omero_apache22.sh <walkthrough/setup_omero_apache22.sh>` in the ``/home/omero`` directory and run as omero::
 
-    su - omero -c "bash -eux setup_omero_apache22.sh"
-
-Deactivate the virtual environment::
+As **root**, deactivate the virtual environment::
 
     deactivate
 
