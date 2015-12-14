@@ -1,4 +1,4 @@
-OMERO.server installation on Centos 6 with Python 2.7 and Ice 3.5
+OMERO.server installation on CentOS 6 with Python 2.7 and Ice 3.5
 =================================================================
 
 This installation walkthrough should be read in conjunction with
@@ -97,7 +97,7 @@ For the steps described above, download:
 
 Setting up the OMERO.server
 ---------------------------
-This is an example walkthrough for installing OMERO on Centos6 with Python 2.7 using
+This is an example walkthrough for installing OMERO on CentOS 6 with Python 2.7 using
 a dedicated system user.
 You can use this as a guide for setting up your own test server. For production use you should also read the pages listed under :ref:`index-optimizing-server`.
 
