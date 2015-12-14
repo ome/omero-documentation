@@ -58,7 +58,7 @@ for f in \
     step* \
     install_* \
     ; do
-    cp $WORKSPACE/omero-install/osx/$f $DIRECTORY
+    cp $WORKSPACE/omero-install/osx/$f $DIRECTORY/osx/
 done
 
 echo "Getting db properties"
