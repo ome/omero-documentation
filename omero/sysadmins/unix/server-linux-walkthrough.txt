@@ -26,7 +26,10 @@ either use your own values, or alternatively source the following file:
 Prerequisites
 -------------
 
-As **root** install Ice, Java, PostgreSQL:
+**The following steps are run as root.**
+
+
+Install Ice, Java, PostgreSQL:
 
 .. literalinclude:: walkthrough/step01_ubuntu1404_deps.sh
 
@@ -52,7 +55,9 @@ Create a database user and initialize a new database for OMERO:
 Installing OMERO.server
 -----------------------
 
-As the **omero** system user download, unzip and configure OMERO, and create a
+**The following steps are run as the omero system user.**
+
+Download, unzip and configure OMERO, and create a
 configuration file for Nginx. The rest of this walkthrough assumes the
 OMERO.server is installed into the home directory of this user.
 
@@ -72,7 +77,9 @@ with `settings.env` (already edited in a previous step) into the
 Installing Nginx
 ----------------
 
-As **root** install Nginx, copy the Nginx OMERO configuration file into the
+**The following steps are run as root.**
+
+Install Nginx, copy the Nginx OMERO configuration file into the
 Nginx configuration directory, and disable the default configuration:
 
 .. literalinclude:: walkthrough/step05_ubuntu1404_nginx.sh
@@ -83,7 +90,9 @@ Nginx configuration directory, and disable the default configuration:
 Installing Apache
 -----------------
 
-As **root** install Apache 2.4::
+**The following steps are run as root.**
+
+Install Apache 2.4::
 
 	apt-get -y install apache2 libapache2-mod-wsgi
 
@@ -115,8 +124,9 @@ Apache configuration directory, and disable the default configuration::
 Running OMERO
 -------------
 
-OMERO should now be set up. To start the server log in as the **omero** system
-user, and run::
+**The following steps are run the omero system user.**
+
+OMERO should now be set up. To start the server log in and run::
 
     OMERO.server/bin/omero admin start
 
