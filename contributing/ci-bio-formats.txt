@@ -207,7 +207,7 @@ The branch for the 5.1.x series of Bio-Formats is dev_5_1.
                 This job runs automated tests against the full repository on Linux
 
                 #. Checks out :bf_scc_branch:`dev_5_1/merge/daily`
-                #. Runs automated tests against :file:`/ome/data_repo/from_skyking/`
+                #. Runs automated tests against :file:`/ome/data_repo/curated/`
 
         :jenkinsjob:`BIOFORMATS-5.1-merge-full-repository-win`
 
@@ -215,7 +215,7 @@ The branch for the 5.1.x series of Bio-Formats is dev_5_1.
 
                 #. Checks out :bf_scc_branch:`dev_5_1/merge/daily`
                 #. Runs automated tests against
-                   :file:`\\\\squig.openmicroscopy.org.uk\\ome-data-repo\\from_skyking`
+                   :file:`\\\\squig.openmicroscopy.org.uk\\ome-data-repo\\curated`
 
         :jenkinsjob:`BIOFORMATS-5.1-merge-test_images_good`
 
@@ -232,7 +232,7 @@ The branch for the 5.1.x series of Bio-Formats is dev_5_1.
 
                 #. |merge|
                 #. Runs automated tests against a subset of format directories under
-                   :file:`/ome/data_repo/from_skyking/`. The list of directories to
+                   :file:`/ome/data_repo/curated/`. The list of directories to
                    test by setting a space-separated list of formats for the
                    ``DEFAULT_FORMAT_LIST`` variable.
 
@@ -386,7 +386,7 @@ The branch for the 5.2.x series of Bio-Formats is develop.
                 This job runs automated tests against the full repository on Linux
 
                 #. Checks out :bf_scc_branch:`develop/merge/daily`
-                #. Runs automated tests against :file:`/ome/data_repo/from_skyking/`
+                #. Runs automated tests against :file:`/ome/data_repo/curated/`
 
         :jenkinsjob:`BIOFORMATS-DEV-merge-full-repository-win`
 
@@ -394,7 +394,7 @@ The branch for the 5.2.x series of Bio-Formats is develop.
 
                 #. Checks out :bf_scc_branch:`develop/merge/daily`
                 #. Runs automated tests against
-                   :file:`\\\\squig.openmicroscopy.org.uk\\ome-data-repo\\from_skyking`
+                   :file:`\\\\squig.openmicroscopy.org.uk\\ome-data-repo\\curated`
 
         :jenkinsjob:`BIOFORMATS-DEV-merge-test_images_good`
 
@@ -411,7 +411,7 @@ The branch for the 5.2.x series of Bio-Formats is develop.
 
                 #. |merge|
                 #. Runs automated tests against a subset of format directories under
-                   :file:`/ome/data_repo/from_skyking/`. The list of directories to
+                   :file:`/ome/data_repo/curated/`. The list of directories to
                    test by setting a space-separated list of formats for the
                    ``DEFAULT_FORMAT_LIST`` variable.
 
@@ -501,7 +501,7 @@ Jenkins.
                 This job runs automated tests against the full repository on Linux
 
                 #. Checks out :bf_scc_branch:`develop/breaking/trigger`
-                #. Runs automated tests against :file:`/ome/data_repo/from_skyking/`
+                #. Runs automated tests against :file:`/ome/data_repo/curated/`
 
         :jenkinsjob:`BIOFORMATS-DEV-breaking-repository-subset`
 
@@ -509,7 +509,7 @@ Jenkins.
 
                 #. |merge| labeled as breaking
                 #. Runs automated tests against a subset of format directories under
-                   :file:`/ome/data_repo/from_skyking/`. The list of directories to
+                   :file:`/ome/data_repo/curated/`. The list of directories to
                    test by setting a space-separated list of formats for the
                    ``DEFAULT_FORMAT_LIST`` variable.
 
