@@ -53,6 +53,10 @@ for f in \
     setup_* \
     ; do
     cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
+done
+for f in \
+    step* \
+    install_* \
     cp $WORKSPACE/omero-install/osx/$f $DIRECTORY
 done
 
