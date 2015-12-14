@@ -246,7 +246,7 @@ and start Apache::
 	service httpd start
 
 
-.. note:: If you wish to use Apache 2.4 with mod_wsgi, see :download:`docker_virtualenv_ius_apache24.sh <walkthrough/docker_virtualenv_ius_apache24.sh>` for a possible solution.
+.. note:: If you wish to use Apache 2.4 with mod_wsgi, see `omero-install <https://github.com/ome/omero-install>`_ for a possible solution.
 
 
 Final tasks
