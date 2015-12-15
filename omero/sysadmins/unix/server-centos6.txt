@@ -226,9 +226,7 @@ In the virtual environment, install the requirements to run OMERO.web using the 
 
     /home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-apache.txt
 
-**The following steps are run as the omero system user.**
-
-Configure OMERO.web:
+As the **omero** system user, configure OMERO.web by running the following commands:
 
 .. literalinclude:: walkthrough/setup_omero_apache22.sh
 
@@ -237,7 +235,7 @@ Deactivate the virtual environment::
 
     deactivate
 
-Open the Apache OMERO configuration file i.e. :file:`omero/OMERO.server/apache.conf.tmp`, and add the line below to the ``python-path`` parameter of ``WSGIDaemonProcess``::
+Open the Apache OMERO configuration file i.e. :file:`omero/OMERO.server/apache.conf.tmp`, and add the line below to the ``python-path`` parameter of the ``WSGIDaemonProcess`` directive::
 
 	/home/omero/omeroenv/lib64/python2.7/site-packages
 
