@@ -149,6 +149,8 @@ start OMERO and OMERO.web automatically:
 Securing OMERO
 --------------
 
+**The following steps are run as root.**
+
 If multiple users have access to the machine running OMERO you should restrict
 access to OMERO.server's configuration and runtime directories, and optionally
 the OMERO data directory:
@@ -162,6 +164,8 @@ the OMERO data directory:
 
 Regular tasks
 -------------
+
+**The following steps are run as root.**
 
 The default OMERO.web session handler uses temporary files to store sessions
 which should be deleted at regular intervals, for instance by creating a cron
