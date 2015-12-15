@@ -70,8 +70,8 @@ Follow the steps to install your chosen web server.
 
 
 
-Installing Nginx
-^^^^^^^^^^^^^^^^
+Nginx
+^^^^^
 
 **The following steps are run as root.**
 
@@ -82,8 +82,8 @@ Nginx configuration directory, and disable the default configuration:
 
 | :download:`step05_ubuntu1404_nginx.sh <walkthrough/step05_ubuntu1404_nginx.sh>`
 
-Installing Apache
-^^^^^^^^^^^^^^^^^
+Apache
+^^^^^^
 
 **The following steps are run as root unless specified.**
 
@@ -91,20 +91,10 @@ Install Apache 2.4::
 
 	apt-get -y install apache2 libapache2-mod-wsgi
 
-As the **omero** system user, configure OMERO.web:
+As the **omero** system user, configure OMERO.web by running the following commands:
 	
 .. literalinclude:: walkthrough/setup_omero_apache24.sh
 
-.. note::
-        The default value set for the ``WSGISocketPrefix`` directive in ``apache.conf.tmp``
-        needs to be modified:
-
-        ::
-
-            #see https://code.google.com/p/modwsgi/wiki/ConfigurationIssues
-            WSGISocketPrefix run/wsgi
-            # Use this on Ubuntu/Debian systems:
-            # WSGISocketPrefix /var/run/wsgi
 
 Copy the Apache OMERO configuration file into the
 Apache configuration directory, and disable the default configuration::
@@ -117,6 +107,17 @@ Apache configuration directory, and disable the default configuration::
 
 | :download:`step05_ubuntu1404_apache24.sh <walkthrough/step05_ubuntu1404_apache24.sh>`
 | :download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
+
+.. note::
+        The default value set for the ``WSGISocketPrefix`` directive in ``apache.conf.tmp``
+        needs to be modified:
+
+        ::
+
+            #see https://code.google.com/p/modwsgi/wiki/ConfigurationIssues
+            WSGISocketPrefix run/wsgi
+            # Use this on Ubuntu/Debian systems:
+            # WSGISocketPrefix /var/run/wsgi
 
 Running OMERO
 -------------

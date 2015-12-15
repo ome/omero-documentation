@@ -69,8 +69,8 @@ Installing a web server
 To Deploy OMERO.web, you can use either Nginx or Apache.
 Follow the steps to install your chosen web server.
 
-Installing Nginx
-^^^^^^^^^^^^^^^^
+Nginx
+^^^^^
 
 **The following steps are run as root.**
 
@@ -81,8 +81,8 @@ Nginx configuration directory, and disable the default configuration:
 
 | :download:`step05_centos7_nginx.sh <walkthrough/step05_centos7_nginx.sh>`
 
-Installing Apache
-^^^^^^^^^^^^^^^^^
+Apache
+^^^^^^
 
 **The following steps are run as root unless specified.**
 
@@ -90,7 +90,7 @@ Install Apache 2.4::
 
 	yum -y install httpd mod_wsgi
 
-As the **omero** system user, configure OMERO.web:
+As the **omero** system user, configure OMERO.web by running the following commands:
 	
 .. literalinclude:: walkthrough/setup_omero_apache24.sh
 
