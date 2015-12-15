@@ -1,0 +1,179 @@
+OMERO.server installation on CentOS 7
+=====================================
+
+This is an example walkthrough for installing OMERO on CentOS 7, using
+a dedicated system user, and should be read in conjunction with
+:doc:`server-installation` and :doc:`install-web`. You can use this as a guide
+for setting up your own test server. For production use you should also read
+the pages listed under :ref:`index-optimizing-server`.
+
+Example shell scripts for installing OMERO are included in-line, and can be
+downloaded.
+These instructions assume your Linux distribution is configured with a UTF-8
+locale (this is normally the default).
+
+For convenience in this walkthrough the main OMERO configuration options have
+been defined as environment variables. When following this walkthrough you can
+either use your own values, or alternatively source the following file:
+
+.. literalinclude:: walkthrough/settings.env
+   :start-after: Substitute
+
+:download:`settings.env <walkthrough/settings.env>`
+
+
+Prerequisites
+-------------
+
+**The following steps are run as root.**
+
+
+Install Ice, Java, PostgreSQL. Note that PostgreSQL needs to be reconfigured to accept TCP
+connections:
+
+.. literalinclude:: walkthrough/step01_centos7_deps.sh
+
+| :download:`step01_centos7_deps.sh <walkthrough/step01_centos7_deps.sh>`
+
+Create an omero system user, and a directory for the OMERO repository:
+
+.. literalinclude:: walkthrough/step02_all_setup.sh
+
+:download:`step02_all_setup.sh <walkthrough/step02_all_setup.sh>`
+
+
+Create a database user and initialize a new database for OMERO:
+
+.. literalinclude:: walkthrough/step03_all_postgres.sh
+
+:download:`step03_all_postgres.sh <walkthrough/step03_all_postgres.sh>`
+
+
+Installing OMERO.server
+-----------------------
+
+**The following steps are run as the omero system user.**
+
+Download, unzip and configure OMERO, and create a
+configuration file for Nginx. The rest of this walkthrough assumes the
+OMERO.server is installed into the home directory of the omero system user.
+
+Note that this script requires the same environment variables that were set
+earlier in `settings.env`, so you may need to copy and/or source this file as
+the omero user.
+
+.. literalinclude:: walkthrough/step04_all_omero.sh
+
+
+To Deploy OMERO.web, you can use either Nginx or Apache.
+Follow the steps to install your chosen web server.
+
+Installing Nginx
+----------------
+
+**The following steps are run as root.**
+
+Install Nginx, copy the Nginx OMERO configuration file into the
+Nginx configuration directory, and disable the default configuration:
+
+.. literalinclude:: walkthrough/step05_centos7_nginx.sh
+
+| :download:`step05_centos7_nginx.sh <walkthrough/step05_centos7_nginx.sh>`
+
+Installing Apache
+-----------------
+
+**The following steps are run as root.**
+
+Install Apache 2.4::
+
+	yum -y install httpd mod_wsgi
+
+As the **omero** system user, configure OMERO.web:
+	
+.. literalinclude:: walkthrough/setup_omero_apache24.sh
+
+Copy the Apache OMERO configuration file into the
+Apache configuration directory::
+
+    cp ~omero/OMERO.server/apache.conf.tmp /etc/httpd/conf.d/omero-web.conf
+
+    rm -rf /run/httpd/* /tmp/httpd*
+
+    systemctl enable httpd.service
+    systemctl start httpd
+
+| :download:`step05_centos7_apache24.sh <walkthrough/step05_centos7_apache24.sh>`
+| :download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
+
+Running OMERO
+-------------
+
+**The following steps are run the omero system user.**
+
+OMERO should now be set up. To start the server log in and run::
+
+    OMERO.server/bin/omero admin start
+
+To start the OMERO.web client run::
+
+    OMERO.server/bin/omero web start
+
+Nginx or Apache should already be running so you should be able to log in as the OMERO
+root user by going to http://localhost/ in your web browser.
+Please read the SELinux_ section below.
+
+In addition some example `init.d` scripts are available should you wish to
+start OMERO and OMERO.web automatically:
+
+.. literalinclude:: walkthrough/step06_centos6_daemon.sh
+
+| :download:`step06_centos6_daemon.sh
+  <walkthrough/step06_centos6_daemon.sh>`
+| :download:`omero-init.d <walkthrough/omero-init.d>`
+| :download:`omero-web-init.d <walkthrough/omero-web-init.d>`
+
+
+Securing OMERO
+--------------
+
+If multiple users have access to the machine running OMERO you should restrict
+access to OMERO.server's configuration and runtime directories, and optionally
+the OMERO data directory:
+
+.. literalinclude:: walkthrough/step07_all_perms.sh
+
+| :download:`step07_all_perms.sh <walkthrough/step07_all_perms.sh>`
+
+
+.. _linux_walkthrough_regular_tasks:
+
+Regular tasks
+-------------
+
+The default OMERO.web session handler uses temporary files to store sessions
+which should be deleted at regular intervals, for instance by creating a cron
+job:
+
+.. literalinclude:: walkthrough/omero-web-cron
+
+Copy this script into the appropriate location:
+
+.. literalinclude:: walkthrough/step08_all_cron.sh
+
+| :download:`omero-web-cron <walkthrough/omero-web-cron>`
+| :download:`step08_all_cron.sh <walkthrough/step08_all_cron.sh>`
+
+
+.. _SELinux:
+
+SELinux
+-------
+
+If you are running a system with SELinux enabled (for example, it is
+`enabled by default on CentOS 6 <http://wiki.centos.org/HowTos/SELinux>`_)
+and are unable to access OMERO.web you may need to adjust the security policy:
+
+.. literalinclude:: walkthrough/setup_centos_selinux.sh
+
+| :download:`setup_centos_selinux.sh <walkthrough/setup_centos_selinux.sh>`
