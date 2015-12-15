@@ -211,7 +211,11 @@ Apache
 
 See also :doc:`install-web/install-apache`.
 
-**The following steps are run as root unless specified.**
+As the **omero** system user, configure OMERO.web by running the following commands:
+
+.. literalinclude:: walkthrough/setup_omero_apache22.sh
+
+**The following steps are run as root.**
 
 The version of Apache installed is 2.2, see the note below if you wish to use
 version 2.4.
@@ -226,9 +230,7 @@ In the virtual environment, install the requirements to run OMERO.web using the 
 
     /home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-apache.txt
 
-As the **omero** system user, configure OMERO.web by running the following commands:
 
-.. literalinclude:: walkthrough/setup_omero_apache22.sh
 
 
 Deactivate the virtual environment::
