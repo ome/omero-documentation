@@ -1,6 +1,10 @@
 OMERO.web deployment
 ====================
 
+.. Warning:: The guidance below applies to OMERO **5.2**. Code fixes for
+    OMERO.web deployment on Windows have not been back-ported to the 5.1 line
+    and this guide cannot be used to deploy OMERO.web 5.1.x on Windows.
+
 OMERO.web is the web application component of the OMERO platform which
 allows for the management, visualization (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
