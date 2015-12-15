@@ -14,8 +14,12 @@ It is also possible to use SCL Python (for example
 :download:`install_centos6_py27_nginx.sh <walkthrough/install_centos6_py27_nginx.sh>`) but such solution could have
 potential side effects.
 
-Python 2.7
+
+Setting up
 ----------
+
+Python 2.7
+^^^^^^^^^^
 
 CentOS 6 provides Python 2.6. However, OMERO.web requires Python 2.7
 in order to use `Django 1.8`. While `Django 1.6` may be used with Python
@@ -44,7 +48,7 @@ If virtualenv is **not** already installed, install it using pip::
 	pip2.7 install virtualenv
 
 Development packages
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 The following sections require a number of libraries and a compiler.
 Run the following commands to install them::
@@ -55,7 +59,7 @@ Run the following commands to install them::
 
 
 Ice 3.5
--------
+^^^^^^^
 
 The RPM packages provided by ZeroC for CentOS 6 use the Python 2.6
 provided by the system. OMERO will need an Ice build which uses
@@ -77,9 +81,22 @@ The following steps will install Ice into :file:`/opt`::
     echo /opt/Ice-3.5.1/lib64 > /etc/ld.so.conf.d/ice-x86_64.conf
     ldconfig
 
+Prerequisites
+-------------
 
-Additional packages required by OMERO
--------------------------------------
+This is an example walkthrough for installing OMERO on CentOS 6 with Python 2.7 using
+a dedicated system user.
+You can use this as a guide for setting up your own test server. For production use you should also read the pages listed under :ref:`index-optimizing-server`.
+
+For convenience in this walkthrough the main OMERO configuration options have
+been defined as environment variables. When following this walkthrough you can
+either use your own values, or alternatively source the following file :download:`settings.env <walkthrough/settings.env>`:
+
+.. literalinclude:: walkthrough/settings.env
+   :start-after: Substitute
+
+
+Once Python 2.7, Ice 3.5 are installed,
 
 Install Java::
 
@@ -97,21 +114,6 @@ Install PostgreSQL, reconfigure to allow TCP connections and start it::
 For the steps described above, download: 
 
 | :download:`step01_centos6_py27_ius_deps.sh <walkthrough/step01_centos6_py27_ius_deps.sh>`
-
-Setting up the OMERO.server
----------------------------
-This is an example walkthrough for installing OMERO on CentOS 6 with Python 2.7 using
-a dedicated system user.
-You can use this as a guide for setting up your own test server. For production use you should also read the pages listed under :ref:`index-optimizing-server`.
-
-For convenience in this walkthrough the main OMERO configuration options have
-been defined as environment variables. When following this walkthrough you can
-either use your own values, or alternatively source the following file :download:`settings.env <walkthrough/settings.env>`:
-
-.. literalinclude:: walkthrough/settings.env
-   :start-after: Substitute
-
-Once Python 2.7, Ice 3.5 and the additional packages are installed:
 
 Create an omero system user, and a directory for the OMERO repository:
 
@@ -159,8 +161,8 @@ Install additional Python modules in the virtual environment::
     # Install Django
     /home/omero/omeroenv/bin/pip2.7 install "Django>=1.8,<1.9"
 
-Install the OMERO.server
-------------------------
+Install OMERO.server
+--------------------
 
 **The following steps are run as the omero system user.**
 
@@ -174,10 +176,13 @@ the omero user.
 
 .. literalinclude:: walkthrough/step04_all_omero.sh
 
+Installing a web server
+-----------------------
+
 To Deploy OMERO.web, you can use either Nginx or Apache. Follow the steps to install your chosen web server.
 
-Installing Nginx
-----------------
+Nginx
+^^^^^
 
 See also :doc:`install-web/install-nginx`.
 
@@ -201,8 +206,8 @@ Copy the Nginx OMERO configuration file into the Nginx configuration directory, 
     cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
     service nginx start
 
-Installing Apache
------------------
+Apache
+^^^^^^
 
 See also :doc:`install-web/install-apache`.
 
