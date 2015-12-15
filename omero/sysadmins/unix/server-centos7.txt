@@ -84,15 +84,18 @@ Nginx configuration directory, and disable the default configuration:
 Apache
 ^^^^^^
 
+As the **omero** system user, configure OMERO.web:
+  
+.. literalinclude:: walkthrough/setup_omero_apache24.sh
+
+| :download:`step05_centos7_apache24.sh <walkthrough/step05_centos7_apache24.sh>`
+| :download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
+
 **The following steps are run as root unless specified.**
 
 Install Apache 2.4::
 
 	yum -y install httpd mod_wsgi
-
-As the **omero** system user, configure OMERO.web by running the following commands:
-	
-.. literalinclude:: walkthrough/setup_omero_apache24.sh
 
 Copy the Apache OMERO configuration file into the
 Apache configuration directory::
@@ -103,9 +106,6 @@ Apache configuration directory::
 
     systemctl enable httpd.service
     systemctl start httpd
-
-| :download:`step05_centos7_apache24.sh <walkthrough/step05_centos7_apache24.sh>`
-| :download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
 
 Running OMERO
 -------------

@@ -85,16 +85,18 @@ Nginx configuration directory, and disable the default configuration:
 Apache
 ^^^^^^
 
-**The following steps are run as root unless specified.**
+As the **omero** system user, configure OMERO.web:
+    
+.. literalinclude:: walkthrough/setup_omero_apache24.sh
+
+| :download:`step05_ubuntu1404_apache24.sh <walkthrough/step05_ubuntu1404_apache24.sh>`
+| :download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
+
+**The following steps are run as root.**
 
 Install Apache 2.4::
 
 	apt-get -y install apache2 libapache2-mod-wsgi
-
-As the **omero** system user, configure OMERO.web by running the following commands:
-	
-.. literalinclude:: walkthrough/setup_omero_apache24.sh
-
 
 Copy the Apache OMERO configuration file into the
 Apache configuration directory, and disable the default configuration::
@@ -104,9 +106,6 @@ Apache configuration directory, and disable the default configuration::
     a2ensite omero-web.conf
 
     service apache2 start
-
-| :download:`step05_ubuntu1404_apache24.sh <walkthrough/step05_ubuntu1404_apache24.sh>`
-| :download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
 
 .. note::
         The default value set for the ``WSGISocketPrefix`` directive in ``apache.conf.tmp``
