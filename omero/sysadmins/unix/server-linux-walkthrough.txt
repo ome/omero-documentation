@@ -81,7 +81,7 @@ Nginx configuration directory, and disable the default configuration:
 Installing Apache
 -----------------
 
-**The following steps are run as root.**
+**The following steps are run as root unless specified.**
 
 Install Apache 2.4::
 
