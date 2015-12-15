@@ -89,7 +89,6 @@ As the **omero** system user, configure OMERO.web:
     
 .. literalinclude:: walkthrough/setup_omero_apache24.sh
 
-| :download:`step05_ubuntu1404_apache24.sh <walkthrough/step05_ubuntu1404_apache24.sh>`
 | :download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
 
 **The following steps are run as root.**
@@ -117,6 +116,8 @@ Apache configuration directory, and disable the default configuration::
             WSGISocketPrefix run/wsgi
             # Use this on Ubuntu/Debian systems:
             # WSGISocketPrefix /var/run/wsgi
+
+| :download:`step05_ubuntu1404_apache24.sh <walkthrough/step05_ubuntu1404_apache24.sh>`
 
 Running OMERO
 -------------

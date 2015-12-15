@@ -88,7 +88,6 @@ As the **omero** system user, configure OMERO.web:
   
 .. literalinclude:: walkthrough/setup_omero_apache24.sh
 
-| :download:`step05_centos7_apache24.sh <walkthrough/step05_centos7_apache24.sh>`
 | :download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
 
 **The following steps are run as root unless specified.**
@@ -106,6 +105,8 @@ Apache configuration directory::
 
     systemctl enable httpd.service
     systemctl start httpd
+
+| :download:`step05_centos7_apache24.sh <walkthrough/step05_centos7_apache24.sh>`
 
 Running OMERO
 -------------
