@@ -81,14 +81,17 @@ Python 2
 
 .. note::
 
-    OMERO does not currently support Python 3.
+    OMERO does not currently support Python 3. 
 
 **Make sure you install the correct Python 2 version for your Ice version:**
 
 - If you have downloaded Ice 3.5.1 from our downloads page, you will
-  need to install the `latest Python 2.7 release <http://www.python.org/downloads/windows/>`_.
+  need to install `Python 2.7 <https://www.python.org/downloads/release/python-279/>`_.
 
-As these are the "vanilla" python distributions (no extra libraries), you will
+**Python 2.7.9 is strongly recommended.** OMERO has been successfully tested with this
+version and there were problems noticed with later versions.
+
+As these are the "vanilla" python distributions (no extra libraries), you might
 need to install further dependencies, making sure to download the correct
 version (32/64-bit) for your Python distribution.
 

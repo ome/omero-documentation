@@ -21,9 +21,28 @@ Install `Django 1.8`_ using package requirements file:
 
 .. note:: For more details refer to `Django 1.8 installation on Windows <https://docs.djangoproject.com/en/1.8/howto/windows/>`_.
 
+Install additional Python libraries:
 
-Once you have IIS installed on your system, a straightforward set of
-steps is required to get the `ISAPI
+Download the following whl files then run::
+
+   set PYTHONPIP=C:\Python27\Scripts\pip.exe
+
+   %PYTHONPIP% install matplotlib-1.4.3-cp27-none-win_amd64.whl
+   %PYTHONPIP% install numpy-1.9.2+mkl-cp27-none-win_amd64.whl
+   %PYTHONPIP% install numexpr-2.4.3-cp27-none-win_amd64.whl
+   %PYTHONPIP% install Pillow-2.8.1-cp27-none-win_amd64.whl
+   %PYTHONPIP% install pyparsing-2.0.3-py2-none-any.whl
+   %PYTHONPIP% install python_dateutil-2.4.2-py2.py3-none-any.whl
+   %PYTHONPIP% install pytz-2015.2-py2.py3-none-any.whl
+   %PYTHONPIP% install six-1.9.0-py2.py3-none-any.whl
+   %PYTHONPIP% install tables-3.1.1-cp27-none-win_amd64.whl
+   %PYTHONPIP% install virtualenv-12.1.1-py2.py3-none-any.whl
+
+   %PYTHONPIP% install pywin32-219-cp27-none-win_amd64.whl
+   C:\Python27\Scripts\pywin32_postinstall.py -install
+
+
+A straightforward set of steps is required to get the `ISAPI
 WSGI <http://code.google.com/p/isapi-wsgi/>`_ handler for OMERO.web
 working with your IIS deployment.
 
@@ -86,7 +105,7 @@ working with your IIS deployment.
 
    ::
 
-       C:\omero_dist>bin\omero web iis
+       C:\OMERO.server> bin\omero web iis
 
    This will automatically add two applications, `/omero` and `/static`,
    to the default web site and application pool. You can customize these
