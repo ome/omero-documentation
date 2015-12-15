@@ -3,7 +3,7 @@ OMERO.server installation on Ubuntu 14.04
 
 This is an example walkthrough for installing OMERO on Ubuntu, using
 a dedicated system user, and should be read in conjunction with
-:doc:`server-installation` and :doc:`install-web`. You can use this as a guide
+:doc:`install-web`. You can use this as a guide
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
 
