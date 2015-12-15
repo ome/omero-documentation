@@ -206,7 +206,7 @@ Installing Apache
 
 See also :doc:`install-web/install-apache`.
 
-**The following steps are run as root.**
+**The following steps are run as root unless specified.**
 
 The version of Apache installed is 2.2, see the note below if you wish to use
 version 2.4.
