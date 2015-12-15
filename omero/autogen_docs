@@ -43,7 +43,7 @@ if [ -d "$DIRECTORY" ]; then
 	rm -rf $DIRECTORY
 fi
 
-mkdir -p $DIRECTORY
+mkdir -p $DIRECTORY/osx/
 for f in \
     README.md \
     step* \
