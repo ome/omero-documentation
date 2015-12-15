@@ -231,8 +231,6 @@ In the virtual environment, install the requirements to run OMERO.web using the 
     /home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-apache.txt
 
 
-
-
 Deactivate the virtual environment::
 
     deactivate
@@ -254,15 +252,91 @@ and start Apache::
 .. note:: If you wish to use Apache 2.4 with mod_wsgi, see `omero-install <https://github.com/ome/omero-install>`_ for a possible solution.
 
 
-Final tasks
------------
+Running OMERO
+-------------
 
-The installation should now be complete.
-To run OMERO, secure OMERO and perform regular tasks, please read the
-relevant sections of :doc:`server-linux-walkthrough`.
+**The following steps are run the omero system user.**
+
+OMERO should now be set up. To start the server log in as the **omero** system
+user, and run::
+
+    OMERO.server/bin/omero admin start
+
+To start the OMERO.web client run::
+
+    OMERO.server/bin/omero web start
+
+Nginx or Apache should already be running so you should be able to log in as the OMERO
+root user by going to http://localhost/ in your web browser.
+Please read the selinux_ section below.
+
+In addition some example `init.d` scripts are available should you wish to
+start OMERO and OMERO.web automatically:
+
+.. literalinclude:: walkthrough/step06_ubuntu1404_daemon.sh
+
+| :download:`step06_ubuntu1404_daemon.sh
+  <walkthrough/step06_ubuntu1404_daemon.sh>`
+| :download:`step06_centos6_daemon.sh
+  <walkthrough/step06_centos6_daemon.sh>`
+| :download:`omero-init.d <walkthrough/omero-init.d>`
+| :download:`omero-web-init.d <walkthrough/omero-web-init.d>`
+
+
+Securing OMERO
+--------------
+
+**The following steps are run as root.**
+
+If multiple users have access to the machine running OMERO you should restrict
+access to OMERO.server's configuration and runtime directories, and optionally
+the OMERO data directory:
+
+.. literalinclude:: walkthrough/step07_all_perms.sh
+
+| :download:`step07_all_perms.sh <walkthrough/step07_all_perms.sh>`
+
+
+.. _linux_walkthrough_regular_tasks:
+
+Regular tasks
+-------------
+
+**The following steps are run as root.**
+
+The default OMERO.web session handler uses temporary files to store sessions
+which should be deleted at regular intervals, for instance by creating a cron
+job:
+
+.. literalinclude:: walkthrough/omero-web-cron
+
+Copy this script into the appropriate location:
+
+.. literalinclude:: walkthrough/step08_all_cron.sh
+
+| :download:`omero-web-cron <walkthrough/omero-web-cron>`
+| :download:`step08_all_cron.sh <walkthrough/step08_all_cron.sh>`
+
+
+.. _selinux:
+
+SELinux
+-------
+
+**The following steps are run as root.**
+
+If you are running a system with SELinux enabled (it is
+`enabled by default on CentOS 6 <http://wiki.centos.org/HowTos/SELinux>`_)
+and are unable to access OMERO.web you may need to adjust the security policy:
+
+.. literalinclude:: walkthrough/setup_centos6_selinux.sh
+
+| :download:`setup_centos6_selinux.sh <walkthrough/setup_centos6_selinux.sh>`
 
 Installing Web apps
 -------------------
+
+**The following steps are run as root.**
 
 It is possible to add Web applications to OMERO. If your app required some extra Python packages installed
 using ``pip``, those packages should be also installed in the virtual environment. For example,
