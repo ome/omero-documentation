@@ -43,7 +43,7 @@ if [ -d "$DIRECTORY" ]; then
 	rm -rf $DIRECTORY
 fi
 
-mkdir -p $DIRECTORY
+mkdir -p $DIRECTORY/osx/
 for f in \
     README.md \
     step* \
@@ -53,6 +53,12 @@ for f in \
     setup_* \
     ; do
     cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
+done
+for f in \
+    step* \
+    install_* \
+    ; do
+    cp $WORKSPACE/omero-install/osx/$f $DIRECTORY/osx/
 done
 
 echo "Getting db properties"
