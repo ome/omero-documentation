@@ -63,11 +63,15 @@ the omero user.
 .. literalinclude:: walkthrough/step04_all_omero.sh
 
 
+Installing a web server
+-----------------------
 To Deploy OMERO.web, you can use either Nginx or Apache.
 Follow the steps to install your chosen web server.
 
+
+
 Installing Nginx
-----------------
+^^^^^^^^^^^^^^^^
 
 **The following steps are run as root.**
 
@@ -79,7 +83,7 @@ Nginx configuration directory, and disable the default configuration:
 | :download:`step05_ubuntu1404_nginx.sh <walkthrough/step05_ubuntu1404_nginx.sh>`
 
 Installing Apache
------------------
+^^^^^^^^^^^^^^^^^
 
 **The following steps are run as root unless specified.**
 
