@@ -28,8 +28,7 @@ Prerequisites
 **The following steps are run as root.**
 
 
-Install Ice, Java, PostgreSQL. Note that PostgreSQL needs to be reconfigured to accept TCP
-connections:
+Install Ice, Java, PostgreSQL:
 
 .. literalinclude:: walkthrough/step01_centos7_deps.sh
 
