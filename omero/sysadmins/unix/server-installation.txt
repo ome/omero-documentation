@@ -12,9 +12,13 @@ more specific walk-through listed below.
         Instructions for installing OMERO.server from scratch on
         CentOS 6 with Python 2.7 and Ice 3.5.
 
+    :doc:`server-centos7`
+        Instructions for installing OMERO.server from scratch on
+        CentOS 7.
+
     :doc:`server-linux-walkthrough`
         Instructions for installing OMERO.server from scratch on
-        Ubuntu 14.04 and CentOS 7.
+        Ubuntu 14.04.
 
     :doc:`server-install-homebrew`
         Instructions for installing and building OMERO.server on Mac
