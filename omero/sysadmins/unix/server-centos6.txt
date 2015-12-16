@@ -96,7 +96,7 @@ either use your own values, or alternatively source the following file :download
    :start-after: Substitute
 
 
-Once Python 2.7, Ice 3.5 are installed,
+Once Python 2.7 and Ice 3.5 are installed,
 
 Install Java::
 
@@ -200,7 +200,7 @@ Deactivate the virtual environment::
 
     deactivate
 
-Copy the Nginx OMERO configuration file into the Nginx configuration directory, and disable the default configuration and start Nginx::
+Copy the Nginx OMERO configuration file into the Nginx configuration directory, disable the default configuration and start Nginx::
 
     mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
     cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
@@ -255,10 +255,9 @@ and start Apache::
 Running OMERO
 -------------
 
-**The following steps are run the omero system user.**
+**The following steps are run as the omero system user.**
 
-OMERO should now be set up. To start the server log in as the **omero** system
-user, and run::
+OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
 
@@ -268,15 +267,13 @@ To start the OMERO.web client run::
 
 Nginx or Apache should already be running so you should be able to log in as the OMERO
 root user by going to http://localhost/ in your web browser.
-Please read the selinux_ section below.
+Please read the SELinux_ section below.
 
 In addition some example `init.d` scripts are available should you wish to
 start OMERO and OMERO.web automatically:
 
 .. literalinclude:: walkthrough/step06_ubuntu1404_daemon.sh
 
-| :download:`step06_ubuntu1404_daemon.sh
-  <walkthrough/step06_ubuntu1404_daemon.sh>`
 | :download:`step06_centos6_daemon.sh
   <walkthrough/step06_centos6_daemon.sh>`
 | :download:`omero-init.d <walkthrough/omero-init.d>`
