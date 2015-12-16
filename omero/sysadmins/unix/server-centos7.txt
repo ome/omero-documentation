@@ -153,7 +153,7 @@ Running OMERO
 
 **The following steps are run as the omero system user.**
 
-OMERO should now be set up. To start the server log in and run::
+OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
 
