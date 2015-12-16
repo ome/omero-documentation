@@ -8,7 +8,7 @@ OMERO.web deployment
 OMERO.web is the web application component of the OMERO platform which
 allows for the management, visualization (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
-includes OMERO.webadmin for managing users and groups.
+includes the ability to manage users and groups.
 
 
 OMERO.web is an integral part of the OMERO platform and can be deployed
@@ -67,7 +67,7 @@ Logging in to OMERO.web
 -----------------------
 
 Once you have deployed and started the server, you can use your browser
-to access OMERO.webadmin or the OMERO.webclient:
+to access the OMERO.webclient:
 
 -  **http://your\_host/omero** OR, for development server:
    **http://localhost:4080**
@@ -75,9 +75,9 @@ to access OMERO.webadmin or the OMERO.webclient:
 .. figure:: /images/installation-images/login.png
    :align: center
    :width: 55%
-   :alt: OMERO.webadmin login
+   :alt: OMERO.web login
 
-   OMERO.webadmin login
+   OMERO.web login
 
 .. note::
 	This starts the server in the foreground. It is your
