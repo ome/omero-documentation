@@ -255,7 +255,7 @@ and start Apache::
 Running OMERO
 -------------
 
-**The following steps are run the omero system user.**
+**The following steps are run as the omero system user.**
 
 OMERO should now be set up. To start the server log in as the **omero** system
 user, and run::
