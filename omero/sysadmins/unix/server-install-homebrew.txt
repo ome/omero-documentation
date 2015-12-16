@@ -43,8 +43,6 @@ running::
 Requirements
 ------------
 
-See installation script :download:`step01_deps.sh <walkthrough/osx/step01_deps.sh>`
-
 .. _`Homebrew wiki`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Installation.md
 
 All the requirements for OMERO will be installed under :file:`/usr/local`. See also: Installation instructions on the `Homebrew wiki`_.
@@ -105,11 +103,11 @@ and older versions of Ice. To add these, run::
     described in `Homebrew and Python`_, you should **not** be in an
     active virtual environment when you ``brew install`` them.
 
+See the :download:`step01_deps.sh <walkthrough/osx/step01_deps.sh>` script for
+the steps described above.
 
 OMERO installation
 ------------------
-
-See installation script :download:`step02_omero.sh <walkthrough/osx/step02_omero.sh>`
 
 OMERO |release| server
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -163,6 +161,7 @@ Set up OMERO data directory::
     $ mkdir -p $OMERO_DATA_DIR
     $ omero config set omero.data.dir $OMERO_DATA_DIR
 
+See the OMERO installation script :download:`step02_omero.sh <walkthrough/osx/step02_omero.sh>`
 
 Development server
 ^^^^^^^^^^^^^^^^^^
@@ -222,15 +221,15 @@ and follow the steps for setting up the database and OMERO data directory as men
 OMERO.web
 ^^^^^^^^^
 
-See installation script :download:`step03_nginx.sh <walkthrough/osx/step03_nginx.sh>`
-
-Basic setup for OMERO using nginx::
+Basic setup for OMERO using Nginx::
 
     $ export HTTPPORT=${HTTPPORT:-8080}
     $ omero web config nginx-development --http $HTTPPORT > $(brew --prefix omero52)/etc/nginx.conf
 
-For detailed instructions on how to deploy OMERO.web in a production environment such as Apache or
-Nginx please see :doc:`install-web`.
+See installation script :download:`step03_nginx.sh <walkthrough/osx/step03_nginx.sh>`
+
+For detailed instructions on how to deploy OMERO.web in a production
+environment such as Apache or Nginx please see :doc:`install-web`.
 
 .. note::
     The internal Django webserver can be used for evaluation and development.
