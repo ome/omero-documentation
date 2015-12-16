@@ -267,7 +267,7 @@ To start the OMERO.web client run::
 
 Nginx or Apache should already be running so you should be able to log in as the OMERO
 root user by going to http://localhost/ in your web browser.
-Please read the selinux_ section below.
+Please read the SELinux_ section below.
 
 In addition some example `init.d` scripts are available should you wish to
 start OMERO and OMERO.web automatically:
