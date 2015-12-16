@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Main OMERO/Bio-Formats installation script
+
+set -e
+set -u
+set -x
+
+cd /usr/local
+
+###################################################################
+# Bio-Formats-C++ installation
+###################################################################
+
+# Install Bio-Formats C++ from the Homebrew science repository
+bin/brew install bioformats-cpp
+VERBOSE=1 bin/brew test bioformats-cpp

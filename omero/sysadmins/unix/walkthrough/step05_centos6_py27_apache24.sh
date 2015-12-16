@@ -12,4 +12,4 @@ cp ~omero/OMERO.server/apache.conf.tmp /opt/rh/httpd24/root/etc/httpd/conf.d/ome
 chkconfig httpd24-httpd on
 service httpd24-httpd start
 
-bash -eux setup_centos6_selinux.sh
+bash -eux setup_centos_selinux.sh
