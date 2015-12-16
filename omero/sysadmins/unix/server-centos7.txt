@@ -1,14 +1,14 @@
-OMERO.server installation on Ubuntu 14.04
-=========================================
+OMERO.server installation on CentOS 7
+=====================================
 
-This is an example walkthrough for installing OMERO on Ubuntu, using
+This is an example walkthrough for installing OMERO on CentOS 7, using
 a dedicated system user, and should be read in conjunction with
 :doc:`install-web`. You can use this as a guide
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
 
-Example shell scripts for installing OMERO on Ubuntu 14.04 are included
-in-line, and can be downloaded.
+Example shell scripts for installing OMERO are included in-line, and can be
+downloaded.
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
 
@@ -28,17 +28,56 @@ Prerequisites
 **The following steps are run as root.**
 
 
-Install Ice, Java, PostgreSQL:
+Install Ice, Java, PostgreSQL::
 
-.. literalinclude:: walkthrough/step01_ubuntu1404_deps.sh
+  yum -y install epel-release
 
-| :download:`step01_ubuntu1404_deps.sh <walkthrough/step01_ubuntu1404_deps.sh>`
+  curl -o /etc/yum.repos.d/zeroc-ice-el7.repo \
+  http://download.zeroc.com/Ice/3.5/el7/zeroc-ice-el7.repo
+
+  yum -y install \
+    unzip \
+    wget \
+    java-1.8.0-openjdk \
+    ice ice-python ice-servers
+
+  yum -y install \
+    python-pip python-devel python-virtualenv \
+    numpy scipy python-matplotlib python-tables
+
+  # upgrade pip to run 7.1.2
+  pip install --upgrade pip
+
+  # install Pillow via pip
+  yum -y install \
+    zlib-devel \
+    libjpeg-devel \
+    gcc
+
+  # Cap Pillow version due to a limitation in OMERO.figure with v3.0.0
+  pip install 'Pillow<3.0'
+
+  # Django
+  pip install 'Django>=1.8,<1.9'
+
+  # Postgres, reconfigure to allow TCP connections
+  yum -y install http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-2.noarch.rpm
+  yum -y install postgresql94-server postgresql94
+
+  PGSETUP_INITDB_OPTIONS=--encoding=UTF8 /usr/pgsql-9.4/bin/postgresql94-setup initdb
+  sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/9.4/data/pg_hba.conf
+
+  systemctl start postgresql-9.4.service
+  systemctl enable postgresql-9.4.service
+
+| :download:`step01_centos7_deps.sh <walkthrough/step01_centos7_deps.sh>`
 
 Create an omero system user, and a directory for the OMERO repository:
 
 .. literalinclude:: walkthrough/step02_all_setup.sh
 
 :download:`step02_all_setup.sh <walkthrough/step02_all_setup.sh>`
+
 
 Create a database user and initialize a new database for OMERO:
 
@@ -62,13 +101,11 @@ the omero user.
 
 .. literalinclude:: walkthrough/step04_all_omero.sh
 
-
 Installing a web server
 -----------------------
+
 To Deploy OMERO.web, you can use either Nginx or Apache.
 Follow the steps to install your chosen web server.
-
-
 
 Nginx
 ^^^^^
@@ -78,15 +115,15 @@ Nginx
 Install Nginx, copy the Nginx OMERO configuration file into the
 Nginx configuration directory, and disable the default configuration:
 
-.. literalinclude:: walkthrough/step05_ubuntu1404_nginx.sh
+.. literalinclude:: walkthrough/step05_centos7_nginx.sh
 
-| :download:`step05_ubuntu1404_nginx.sh <walkthrough/step05_ubuntu1404_nginx.sh>`
+| :download:`step05_centos7_nginx.sh <walkthrough/step05_centos7_nginx.sh>`
 
 Apache
 ^^^^^^
 
 As the **omero** system user, configure OMERO.web:
-    
+  
 .. literalinclude:: walkthrough/setup_omero_apache24.sh
 
 | :download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
@@ -95,29 +132,19 @@ As the **omero** system user, configure OMERO.web:
 
 Install Apache 2.4::
 
-	apt-get -y install apache2 libapache2-mod-wsgi
+	yum -y install httpd mod_wsgi
 
 Copy the Apache OMERO configuration file into the
-Apache configuration directory, and disable the default configuration::
+Apache configuration directory::
 
-    cp ~omero/OMERO.server/apache.conf.tmp /etc/apache2/sites-available/omero-web.conf
-    a2dissite 000-default.conf
-    a2ensite omero-web.conf
+    cp ~omero/OMERO.server/apache.conf.tmp /etc/httpd/conf.d/omero-web.conf
 
-    service apache2 start
+    rm -rf /run/httpd/* /tmp/httpd*
 
-.. note::
-        The default value set for the ``WSGISocketPrefix`` directive in ``apache.conf.tmp``
-        needs to be modified:
+    systemctl enable httpd.service
+    systemctl start httpd
 
-        ::
-
-            #see https://code.google.com/p/modwsgi/wiki/ConfigurationIssues
-            WSGISocketPrefix run/wsgi
-            # Use this on Ubuntu/Debian systems:
-            # WSGISocketPrefix /var/run/wsgi
-
-| :download:`step05_ubuntu1404_apache24.sh <walkthrough/step05_ubuntu1404_apache24.sh>`
+| :download:`step05_centos7_apache24.sh <walkthrough/step05_centos7_apache24.sh>`
 
 Running OMERO
 -------------
@@ -134,14 +161,15 @@ To start the OMERO.web client run::
 
 Nginx or Apache should already be running so you should be able to log in as the OMERO
 root user by going to http://localhost/ in your web browser.
+Please read the SELinux_ section below.
 
 In addition some example `init.d` scripts are available should you wish to
 start OMERO and OMERO.web automatically:
 
-.. literalinclude:: walkthrough/step06_ubuntu1404_daemon.sh
+.. literalinclude:: walkthrough/step06_centos6_daemon.sh
 
-| :download:`step06_ubuntu1404_daemon.sh
-  <walkthrough/step06_ubuntu1404_daemon.sh>`
+| :download:`step06_centos6_daemon.sh
+  <walkthrough/step06_centos6_daemon.sh>`
 | :download:`omero-init.d <walkthrough/omero-init.d>`
 | :download:`omero-web-init.d <walkthrough/omero-web-init.d>`
 
@@ -159,8 +187,6 @@ the OMERO data directory:
 
 | :download:`step07_all_perms.sh <walkthrough/step07_all_perms.sh>`
 
-
-.. _linux_walkthrough_regular_tasks:
 
 Regular tasks
 -------------
@@ -180,3 +206,18 @@ Copy this script into the appropriate location:
 | :download:`omero-web-cron <walkthrough/omero-web-cron>`
 | :download:`step08_all_cron.sh <walkthrough/step08_all_cron.sh>`
 
+
+.. _SELinux:
+
+SELinux
+-------
+
+**The following steps are run as root.**
+
+If you are running a system with
+`SELinux enabled <http://wiki.centos.org/HowTos/SELinux>`_
+and are unable to access OMERO.web you may need to adjust the security policy:
+
+.. literalinclude:: walkthrough/setup_centos_selinux.sh
+
+| :download:`setup_centos_selinux.sh <walkthrough/setup_centos_selinux.sh>`
