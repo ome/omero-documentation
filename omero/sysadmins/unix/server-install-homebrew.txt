@@ -176,23 +176,46 @@ OMERO dependencies::
 The default version of Ice installed by the OMERO formula is currently
 Ice 3.5.
 
-Prepare a place for your OMERO code to live, e.g.
+Prepare a place for your OMERO code to live, e.g.::
 
-::
-
-    $ mkdir -p ~/code/projects/OMERO
-    $ cd ~/code/projects/OMERO
+    $ mkdir -p ~/code/projects
+    $ cd ~/code/projects
 
 If you installed Ice 3.5, you will need to set :envvar:`SLICEPATH` to be
 able to build the server, i.e.
 ``export SLICEPATH=/usr/local/share/Ice-3.5/slice``.
 
-.. include:: development-server
+
+If you want the development version of OMERO.server, you can clone the source
+code from the project's GitHub account to build locally::
+
+    $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
+    $ cd openmicroscopy && ./build.py
+
+.. note::
+    If you have a GitHub account and you plan to develop code for OMERO, you
+    should make a fork into your own account and then clone this fork to your
+    local development machine, e.g.
+
+    ::
+
+        $ git remote add  git://github.com/YOURNAMEHERE/openmicroscopy
+        $ cd openmicroscopy && ./build.py
+
+.. seealso::
+
+    :doc:`/developers/installation`
+        Developer documentation page on how to check out to source code
+
+    :doc:`/developers/build-system`
+        Developer documentation page on how to build the OMERO.server
+
+
 
 Then prepend the development :file:`bin` directory to your :envvar:`PATH` to
 pick the right executbale::
 
-    $ export PATH=~/code/projects/OMERO/dist/bin:$PATH
+    $ export PATH=~/code/projects/openmicroscopy/dist/bin:$PATH
 
 and follow the steps for setting up the database and OMERO data directory as mentioned in the previous section.
 
