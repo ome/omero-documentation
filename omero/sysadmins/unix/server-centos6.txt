@@ -200,7 +200,7 @@ Deactivate the virtual environment::
 
     deactivate
 
-Copy the Nginx OMERO configuration file into the Nginx configuration directory, and disable the default configuration and start Nginx::
+Copy the Nginx OMERO configuration file into the Nginx configuration directory, disable the default configuration and start Nginx::
 
     mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
     cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
