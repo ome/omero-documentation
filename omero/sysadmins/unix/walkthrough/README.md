@@ -2,8 +2,8 @@ Example OMERO Linux install scripts
 ===================================
 
 This directory contains examples of installing OMERO on clean Ubuntu 14.04,
-Debian 8, CentOS 6 and Centos7 64-bit systems, see
-http://www.openmicroscopy.org/site/support/omero5/sysadmins/unix/server-linux-walkthrough.html
+Debian 8, CentOS 6 and CentOS 7 64-bit systems, see
+http://www.openmicroscopy.org/site/support/omero5/sysadmins/unix/index.html
 
 Copy the files from this directory, then run one of the install scripts,
 
