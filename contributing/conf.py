@@ -107,4 +107,10 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     r'.*[.]?example\.com/.*',
     r'^https?://www\.openmicroscopy\.org/site/support/faq.*',
     r'^https://spreadsheets.google.com/.*',
-    r'^http://trac.openmicroscopy.org/ome/admin/.*']
+    r'^http://trac.openmicroscopy.org/ome/admin/.*',
+    r'^https?://hake.openmicroscopy.org/.*',
+    r'^https?://eel.openmicroscopy.org/.*',
+    r'^https?://burbot.openmicroscopy.org/.*',
+    r'^https?://seabass.openmicroscopy.org/.*',
+    r'^https?://trout.openmicroscopy.org/.*',
+]
