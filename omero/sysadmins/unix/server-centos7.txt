@@ -165,15 +165,15 @@ Nginx or Apache should already be running so you should be able to log in as the
 root user by going to http://localhost/ in your web browser.
 Please read the SELinux_ section below.
 
-In addition some example `init.d` scripts are available should you wish to
+In addition some example `systemd.service` scripts are available should you wish to
 start OMERO and OMERO.web automatically:
 
-.. literalinclude:: walkthrough/step06_centos6_daemon.sh
+.. literalinclude:: walkthrough/step06_centos7_daemon.sh
 
-| :download:`step06_centos6_daemon.sh
-  <walkthrough/step06_centos6_daemon.sh>`
-| :download:`omero-init.d <walkthrough/omero-init.d>`
-| :download:`omero-web-init.d <walkthrough/omero-web-init.d>`
+| :download:`step06_centos7_daemon.sh
+  <walkthrough/step06_centos7_daemon.sh>`
+| :download:`omero-systemd.service <walkthrough/omero-systemd.service>`
+| :download:`omero-web-systemd.service <walkthrough/omero-web-systemd.service>`
 
 
 Securing OMERO
