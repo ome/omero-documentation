@@ -333,6 +333,49 @@ Write data
     link.setParent(new ProjectI(info.getProjectId(), false));
     r = dm.saveAndReturnObject(ctx, link);
 
+- **Import images into a dataset.**
+
+::
+
+    String paths = new String[] {"/home/user/image1.dv", "/home/user/image2.dv"};
+
+    ImportConfig config = new ome.formats.importer.ImportConfig();
+    
+    config.email.set("");
+    config.sendFiles.set(true);
+    config.sendReport.set(false);
+    config.contOnError.set(false);
+    config.debug.set(false);
+
+    config.hostname.set("localhost");
+    config.port.set(4064);
+    config.username.set("root");
+    config.password.set("omero");
+    
+    // import images into dataset with id=1    
+    config.targetClass.set("omero.model.Dataset");
+    config.targetId.set(1L);
+        
+    OMEROMetadataStoreClient store;
+    try {
+        store = config.createStore();
+        store.logVersionInfo(config.getIniVersionNumber());
+        OMEROWrapper reader = new OMEROWrapper(config);
+        ImportLibrary library = new ImportLibrary(store, reader);
+
+        ErrorHandler handler = new ErrorHandler(config);
+        library.addObserver(new LoggingImportMonitor());
+
+        ImportCandidates candidates = new ImportCandidates(reader, paths, handler);
+        reader.setMetadataOptions(new DefaultMetadataOptions(MetadataLevel.ALL));
+        library.importCandidates(config, candidates);
+
+        store.logout();
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
 -  **Create a tag (tag annotation) and link it to an existing project.**
 
 ::
