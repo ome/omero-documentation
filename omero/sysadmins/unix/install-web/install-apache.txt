@@ -6,7 +6,7 @@ OMERO.web Apache and mod_wsgi deployment (Unix/Linux)
 Apache 2.2+ with mod_wsgi configuration (Unix/Linux)
 ----------------------------------------------------
 
-.. note:: Since OMERO 5.2, the OMERO web framework no longer bundles
+.. note:: Since OMERO 5.2, the OMERO.web framework no longer bundles
       a copy of the Django package, instead manual installation of
       the Django dependency is required. It is highly recommended to use
       `Django 1.8`_ (LTS) which requires Python 2.7. For more information

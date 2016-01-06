@@ -41,7 +41,7 @@ These templates are described in more detail below.
 Getting Started
 ---------------
 
-Within your :doc:`OMERO web app <CreateApp>`, create a new page template and
+Within your :doc:`OMERO.web app <CreateApp>`, create a new page template and
 add this line at the top:
 
 ::
@@ -63,7 +63,7 @@ like the screen-shot above. You could add a 'title' block to set the page
 ::
 
     {% block title %}
-        My OMERO web app page
+        My OMERO.web app page
     {% endblock %}
 
 Additional blocks can be used to customize the page further. See below for
