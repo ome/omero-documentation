@@ -33,10 +33,10 @@ then go to ``webgateway/…`` or if you have logged in to a server at
 
 .. _urls_from_within_OMERO_web:
 
-URLs from within OMERO web
+URLs from within OMERO.web
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Images rendered within OMERO web templates should use Django's ``{% url %}``
+Images rendered within OMERO.web templates should use Django's ``{% url %}``
 tag to generate URLs for webgateway, passing in the ID of the image. This is
 shown for each of the URLs below:
 

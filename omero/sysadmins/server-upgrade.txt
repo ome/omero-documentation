@@ -59,7 +59,7 @@ your previous version of OMERO. We recommend using a future-proof symlink
 if possible, so that these stanzas do not need updating with each OMERO
 server upgrade.
 
-.. note:: Since OMERO 5.2, the OMERO web framework no longer bundles
+.. note:: Since OMERO 5.2, the OMERO.web framework no longer bundles
     a copy of the Django package, instead manual installation of
     the Django dependency is required. It is highly recommended to use
     `Django 1.8`_ (LTS) which requires Python 2.7. For more information
