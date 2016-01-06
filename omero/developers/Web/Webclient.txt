@@ -1,0 +1,82 @@
+OMERO.webclient
+===============
+
+The webclient Django app provides the main OMERO.web client UI.
+
+Data from OMERO is rendered to html using Django templates before being
+sent to the browser. Additional javascript (jQuery-based) functionality in the browser
+is used to update the UI in response to user interactions such as 
+browsing or modifying the data.
+
+
+Top level pages
+---------------
+
+There are a small number of top level html pages that the user will start at.
+These are all handled by the load_template view:
+
+ - / (homepage delegates to /userdata)
+ - /userdata
+ - /usertags
+ - /public
+ - /history
+ - /search
+
+These pages contain many different jQuery scripts that run when the page loads,
+to setup event listeners and to load additional data.
+
+Additional top-level pages are used in popup windows for running scripts and
+downloading data.
+
+JsTree
+------
+
+A jsTree is used by the userdata, usertags and public pages to browse hierarchical
+data. Each time a node is expanded, it uses appropriate AJAX calls to load children as
+json data.
+Further POST or DELETE AJAX calls are made to modify the data hierachy by
+creating or deleting links between objects.
+
+Selection changes and other updates to the jsTree trigger loading 
+of the centre and right panels.
+The html for these panels contains additional scripts that also run when they load
+to setup thier own event listeners.
+
+
+Switching Groups & Users
+------------------------
+
+The current group and user are stored in the html session as 'active_group' and
+'user_id'. These are used to define the data that is loaded in the
+main 'userdata' and 'usertags' pages.
+
+The group and user are switched by the Groups and Users menu, which updates the
+session and reloads the page.
+
+
+Show queries
+------------
+
+Data in OMERO can be linked from the webclient with urls of the form
+/webclient/?show=image-23|image-34
+
+In the load_template view, the first object is queried from OMERO parent
+containers are also loaded. The owner and group of the top container is
+used to set the 'active_group' and 'user_id' so that the main page loads
+the appropriate data hierarchy.
+
+The jsTree does it's own lookup from the query string, retrieving json
+data and using this to expand the appropriate nodes to show the
+specified objects.
+
+
+Javascript code
+---------------
+
+The majority of javascript code is jQuery-based code that is embedded within the
+html templates and is run when the page loads.
+
+Additional code is in static scripts, with functions generally name-spaced
+under an 'OME' module. 
+
+
