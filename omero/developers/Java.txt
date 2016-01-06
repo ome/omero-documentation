@@ -335,8 +335,25 @@ Write data
 
 - **Import images into a dataset.**
 
+Using the Gateway:
+	
 ::
 
+    ImportCallback cb = new ImportCallback();
+    TransferFacility tf = gateway.getFacility(TransferFacility.class);
+    tf.uploadImage(ctx, new File("/home/user/image1.dv"), cb);
+    
+    //wait for the upload to finish
+    while (!cb.isFinished()) {
+        try {
+            Thread.sleep(250);
+        } catch (InterruptedException e) {}
+    }
+
+Using the Java API directly:
+
+::
+    
     String paths = new String[] {"/home/user/image1.dv", "/home/user/image2.dv"};
 
     ImportConfig config = new ome.formats.importer.ImportConfig();
