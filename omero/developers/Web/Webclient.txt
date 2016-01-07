@@ -8,6 +8,11 @@ sent to the browser. Additional javascript (jQuery-based) functionality in the b
 is used to update the UI in response to user interactions such as 
 browsing or modifying the data.
 
+.. note::
+    The webclient should **NOT** be considered as a stable public API. URLs and methods
+    within the app are purely designed to provide internal functionality for
+    the webclient itself and may change in minor releases without warning.
+
 Top level pages
 ---------------
 
@@ -80,6 +85,6 @@ The majority of javascript code is jQuery-based code that is embedded within the
 html templates and is run when the page loads.
 
 Additional code is in static scripts, with functions generally name-spaced
-under an 'OME' module. 
+under an ``OME`` module.
 
 
