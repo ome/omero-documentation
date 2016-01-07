@@ -15,12 +15,12 @@ Top level pages
 There are a small number of top level html pages that the user will start at.
 These are all handled by the load_template view:
 
- - / (homepage delegates to /userdata)
- - /userdata
- - /usertags
- - /public
- - /history
- - /search
+- / (homepage delegates to /userdata)
+- /userdata
+- /usertags
+- /public
+- /history
+- /search
 
 These pages contain many different jQuery scripts that run when the page loads,
 to setup event listeners and to load additional data.
@@ -40,11 +40,11 @@ creating or deleting links between objects.
 Selection changes and other updates to the jsTree trigger loading 
 of the centre and right panels.
 The html for these panels contains additional scripts that also run when they load
-to setup thier own event listeners.
+to setup their own event listeners.
 
 
-Switching Groups & Users
-------------------------
+Switching Groups and Users
+--------------------------
 
 The current group and user are stored in the html session as 'active_group' and
 'user_id'. These are used to define the data that is loaded in the
@@ -57,15 +57,15 @@ session and reloads the page.
 Show queries
 ------------
 
-Data in OMERO can be linked from the webclient with urls of the form
-/webclient/?show=image-23|image-34
+Data in OMERO can be linked from the webclient with URLs of the form
+```/webclient/?show=image-23|image-34```
 
-In the load_template view, the first object is queried from OMERO parent
+In the load_template view, the first object is queried from OMERO and its parent
 containers are also loaded. The owner and group of the top container is
 used to set the 'active_group' and 'user_id' so that the main page loads
 the appropriate data hierarchy.
 
-The jsTree does it's own lookup from the query string, retrieving json
+The jsTree does its own lookup from the query string, retrieving json
 data and using this to expand the appropriate nodes to show the
 specified objects.
 
