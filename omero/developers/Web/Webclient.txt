@@ -42,7 +42,7 @@ Further POST or DELETE AJAX calls are made to modify the data hierachy by
 creating or deleting links between objects.
 
 Selection changes in the jsTree and centre panel thumbnails cause events to be
-triggered by jQuery on the ``body`` element of the page, allowing other scripts
+triggered by jQuery on the ``$("body")`` element of the page, allowing other scripts
 to listen for these events.
 These are used to load selected data into the centre and right panels.
 The html for these panels contains additional scripts that also run when they load
