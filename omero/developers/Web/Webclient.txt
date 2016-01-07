@@ -46,9 +46,9 @@ to setup their own event listeners.
 Switching Groups and Users
 --------------------------
 
-The current group and user are stored in the html session as 'active_group' and
-'user_id'. These are used to define the data that is loaded in the
-main 'userdata' and 'usertags' pages.
+The current group and user are stored in the html session as ``active_group`` and
+``user_id``. These are used to define the data that is loaded in the
+main ``userdata`` and ``usertags`` pages.
 
 The group and user are switched by the Groups and Users menu, which updates the
 session and reloads the page.
@@ -58,11 +58,11 @@ Show queries
 ------------
 
 Data in OMERO can be linked from the webclient with URLs of the form
-```/webclient/?show=image-23|image-34```
+``/webclient/?show=image-23|image-34``
 
 In the load_template view, the first object is queried from OMERO and its parent
 containers are also loaded. The owner and group of the top container is
-used to set the 'active_group' and 'user_id' so that the main page loads
+used to set the ``active_group`` and ``user_id`` so that the main page loads
 the appropriate data hierarchy.
 
 The jsTree does its own lookup from the query string, retrieving json
