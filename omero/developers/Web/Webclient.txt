@@ -8,7 +8,6 @@ sent to the browser. Additional javascript (jQuery-based) functionality in the b
 is used to update the UI in response to user interactions such as 
 browsing or modifying the data.
 
-
 Top level pages
 ---------------
 
@@ -37,11 +36,16 @@ json data.
 Further POST or DELETE AJAX calls are made to modify the data hierachy by
 creating or deleting links between objects.
 
-Selection changes and other updates to the jsTree trigger loading 
-of the centre and right panels.
+Selection changes in the jsTree and centre panel thumbnails cause events to be
+triggered by jQuery on the ``body`` element of the page, allowing other scripts
+to listen for these events.
+These are used to load selected data into the centre and right panels.
 The html for these panels contains additional scripts that also run when they load
 to setup their own event listeners.
 
+There is also a global ``update_thumbnails_panel`` function that can be called
+by any script that needs to refresh the centre panel. For example, when the jsTree
+is used to add or remove Images from a selected Dataset.
 
 Switching Groups and Users
 --------------------------
@@ -52,7 +56,6 @@ main ``userdata`` and ``usertags`` pages.
 
 The group and user are switched by the Groups and Users menu, which updates the
 session and reloads the page.
-
 
 Show queries
 ------------
