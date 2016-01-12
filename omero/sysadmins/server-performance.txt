@@ -237,7 +237,7 @@ Useful metrics include:
       Time taken to generate tiled-pyramids for a big image. (PixelData-only)
 
 .. _Check_MK: https://mathias-kettner.de/check_mk.html
-.. _Codahale: http://metrics.codahale.com/
+.. _Codahale: http://codahale.com
 .. _JConsole: http://openjdk.java.net/tools/svc/jconsole/
 .. _JVisualVM: http://visualvm.java.net/
 .. _Nagios: http://www.nagios.org/
