@@ -1,12 +1,14 @@
-OMERO.webclient
-===============
+The OMERO.webclient application
+===============================
 
 The webclient Django app provides the main OMERO.web client UI.
 
-Data from OMERO is rendered to html using Django templates before being
+Data is retrieved from OMERO using the :doc:`/developers/Python` and
+is rendered to html using :djangodoc:`Django templates <topics/templates/>` before being
 sent to the browser. Additional javascript (jQuery-based) functionality in the browser
 is used to update the UI in response to user interactions such as 
 browsing or modifying the data.
+This will often involve AJAX calls to load more data as html or JSON objects.
 
 .. note::
     The webclient should **NOT** be considered as a stable public API. URLs and methods
@@ -55,8 +57,10 @@ is used to add or remove Images from a selected Dataset.
 Switching Groups and Users
 --------------------------
 
-The current group and user are stored in the html session as ``active_group`` and
-``user_id``. These are used to define the data that is loaded in the
+The current group and user are stored in
+the :djangodoc:`HTTP session <topics/http/sessions/>`
+as ``request.session['active_group']`` and ``request.session['user_id']``.
+These are used to define the data that is loaded in the
 main ``userdata`` and ``usertags`` pages.
 
 The group and user are switched by the Groups and Users menu, which updates the
