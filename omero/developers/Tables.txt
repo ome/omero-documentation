@@ -180,10 +180,10 @@ Main methods
 
     .. method:: read(colNumbers, start, stop)
 
-        Read a subset of columns and rows from a table.
+        Read a subset of columns and consecutive rows from a table.
 
         :param long[] colNumber: A list of column indices to be retrieved
-            from the table.
+            from the table (may be non-consecutive).
         :param long start: The index of the first row to retrieve.
         :param long stop: The index of the `last+1` row to retrieve (uses
             similar semantics to :func:`range`).
@@ -193,6 +193,18 @@ Main methods
         .. note:: `start=0, stop=0` currently returns the first row instead
             of empty as would be expected using the normal Python range
             semantics. This may change in future.
+
+    .. method:: slice(colNumbers, rowNumbers)
+
+        Read a subset of non-consecutive columns and rows from a table.
+
+        :param long[] colNumbers: A list of column indices to be retrieved.
+            The results will be returned in the same order as these indices.
+        :param long[] rowNumbers: A list of row indices to be retrieved.
+            The results will be returned in the same order as these indices.
+
+        :return: The requested columns and rows as a
+            :class:`~omero.grid.Data` object.
 
     .. method:: getWhereList(condition, variables, start, stop, step)
 
