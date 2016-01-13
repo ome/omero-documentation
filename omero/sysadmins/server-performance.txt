@@ -179,7 +179,7 @@ care must be taken to protect the exposed ports.
 Metrics
 -------
 
-Building on top of the Coda Hale's `Metrics`_ library, OMERO provides
+Building on top of Coda Hale's `Metrics`_ library, OMERO provides
 the ome.system.metrics package which measures a number of internal
 events and makes them available both via |JMX| as described under
 :ref:`jvm_monitoring` but also prints them to the log files.
