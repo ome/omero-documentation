@@ -196,7 +196,8 @@ Main methods
 
     .. method:: slice(colNumbers, rowNumbers)
 
-        Read a subset of non-consecutive columns and rows from a table.
+        Read a subset of columns and rows (may be non-consecutive) from a
+        table.
 
         :param long[] colNumbers: A list of column indices to be retrieved.
             The results will be returned in the same order as these indices.
