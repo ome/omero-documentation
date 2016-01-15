@@ -4,11 +4,11 @@ The OMERO.web client application
 The webclient Django app provides the main OMERO.web client UI.
 
 Data is retrieved from OMERO using the :doc:`/developers/Python` and
-is rendered to html using :djangodoc:`Django templates <topics/templates/>` before being
+is rendered to HTML using :djangodoc:`Django templates <topics/templates/>` before being
 sent to the browser. Additional javascript (jQuery-based) functionality in the browser
 is used to update the UI in response to user interactions such as 
 browsing or modifying the data.
-This will often involve AJAX calls to load more data as html or JSON objects.
+This will often involve AJAX calls to load more data as HTML or JSON objects.
 
 .. note::
     The webclient should **NOT** be considered as a stable public API. URLs and methods
@@ -18,7 +18,7 @@ This will often involve AJAX calls to load more data as html or JSON objects.
 Top level pages
 ---------------
 
-There are a small number of top level html pages that the user will start at.
+There are a small number of top level HTML pages that the user will start at.
 These are all handled by the load_template view:
 
 - / (homepage delegates to /userdata)
@@ -47,7 +47,7 @@ Selection changes in the jsTree and centre panel thumbnails cause events to be
 triggered by jQuery on the ``$("body")`` element of the page, allowing other scripts
 to listen for these events.
 These are used to load selected data into the centre and right panels.
-The html for these panels contains additional scripts that also run when they load
+The HTML for these panels contains additional scripts that also run when they load
 to setup their own event listeners.
 
 There is also a global ``update_thumbnails_panel`` function that can be called
@@ -86,7 +86,7 @@ Javascript code
 ---------------
 
 The majority of javascript code is jQuery-based code that is embedded within the
-html templates and is run when the page loads.
+HTML templates and is run when the page loads.
 
 Additional code is in static scripts, with functions generally name-spaced
 under an ``OME`` module.
