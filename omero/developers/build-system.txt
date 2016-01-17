@@ -248,3 +248,49 @@ it is put, and what role it plays in the distribution.
     By default, |OmeroCpp| are not built. Use ``build-all`` for that.
 
 These files are then zipped to OMERO.server-<version>.zip via ``release-zip``
+
+Coupled development
+-------------------
+
+Since OMERO 5.1.3, Bio-Formats is decoupled from the OMERO build system who
+consumes Bio-Formats artifacts from the OME Maven repository via Ivy_.
+
+While this decoupling matches most of the development use cases, it is
+sometimes necessary to work on coupled Bio-Formats and OMERO branches
+especially during breaking changes of the OME Data Model or the Bio-Formats
+API.
+
+The generic rule for coupled branches is to build each component in their
+dependency order and use the local Maven repository under :file:`~/.m2/repository` to share artifacts.
+
+Building Bio-Formats
+^^^^^^^^^^^^^^^^^^^^
+
+From the top-level folder of the Bio-Formats repository,
+
+#. adjust the version of Bio-Formats which will be built, installed locally
+   and consumed by OMERO e.g. for 5.2.0-SNAPSHOT::
+
+     $ ./tools/bump_maven_version.py 5.2.0-SNAPSHOT
+
+#. run the Maven command allowing to build and install the artifacts under the
+   local Maven cache::
+
+     $ mvn clean install
+
+Building OMERO
+^^^^^^^^^^^^^^
+
+From the top-level folder of the OMERO repository,
+
+#. adjust the ``versions.bioformats`` property under
+   :source:`etc/omero.properties` to the version chosen for the Bio-Formats
+   build
+
+#. optionally, adjust the ``ome.resolver`` property under
+   :source:`etc/build.properties` to ``user-maven`` to ensure OME artifacts
+   are retrieved exclusively from the local Maven repository
+
+#. run the build system as usual::
+
+     $ ./build.py build-dev
