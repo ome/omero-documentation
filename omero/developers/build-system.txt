@@ -252,7 +252,7 @@ These files are then zipped to OMERO.server-<version>.zip via ``release-zip``
 Coupled development
 -------------------
 
-Since OMERO 5.1.3, Bio-Formats is decoupled from the OMERO build system who
+Since OMERO 5.1.3, Bio-Formats is decoupled from the OMERO build system which
 consumes Bio-Formats artifacts from the OME Maven repository via Ivy_.
 
 While this decoupling matches most of the development use cases, it is
