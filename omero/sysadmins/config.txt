@@ -766,7 +766,9 @@ omero.ldap.user_mapping
 Default: `omeName=cn,
 firstName=givenName,
 lastName=sn,
-email=mail`
+email=mail,
+institution=department,
+middleName=middleName`
 
 .. property:: omero.ldap.username
 
