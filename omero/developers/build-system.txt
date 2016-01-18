@@ -287,10 +287,6 @@ From the top-level folder of the OMERO repository,
    :source:`etc/omero.properties` to the version chosen for the Bio-Formats
    build
 
-#. optionally, adjust the ``ome.resolver`` property under
-   :source:`etc/build.properties` to ``user-maven`` to ensure OME artifacts
-   are retrieved exclusively from the local Maven repository
-
 #. run the build system as usual::
 
      $ ./build.py build-dev
