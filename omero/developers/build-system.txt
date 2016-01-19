@@ -260,7 +260,7 @@ sometimes necessary to work on coupled Bio-Formats and OMERO branches
 especially during breaking changes of the OME Data Model or the Bio-Formats
 API.
 
-The generic rule for coupled branches is to build each component in their
+The general rule for coupled branches is to build each component in their
 dependency order and use the local Maven repository under :file:`~/.m2/repository` to share artifacts.
 
 Building Bio-Formats
@@ -286,6 +286,9 @@ From the top-level folder of the OMERO repository,
 #. adjust the ``versions.bioformats`` property under
    :source:`etc/omero.properties` to the version chosen for the Bio-Formats
    build
+
+#. adjust the ``ome.resolver`` property under :source:`etc/build.properties` to
+   be ``ome-resolver``
 
 #. run the build system as usual::
 
