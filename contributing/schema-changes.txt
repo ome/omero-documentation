@@ -140,10 +140,10 @@ changes to :omero_source:`omero.properties <etc/omero.properties>` and
 Review workflow
 ---------------
 
-Any Pull Request introducing a schema change will be initially marked and
+Any pull request introducing a schema change will be initially marked and
 reviewed with a `breaking` label (see :doc:`ci-introduction`) so after
-opening your Pull Request please have it labeled as being breaking. This
-implies the Pull Request will first be included in the
+opening your pull request please have it labeled as being breaking. This
+implies the pull request will first be included in the
 :ref:`omero_breaking` and :ref:`bf_breaking` exclusively. Once positively
-reviewed, the `breaking` label will be removed so that the Pull Request is
+reviewed, the `breaking` label will be removed so that the pull request is
 included in the daily merge builds before final merging.
