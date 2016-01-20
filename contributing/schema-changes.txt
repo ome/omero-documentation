@@ -20,6 +20,12 @@ necessary, if your pull request affects the schema then you **must**
 increment the database patch number and provide an updated schema as
 described below.
 
+Changes to the :model_doc:`OME-XML model <developers/model-overview.html>`
+typically require corresponding changes in the OMERO data schema as
+defined in its :omero_source:`XML mappings files
+<components/model/resources/mappings/>`. These feed into OMERO's database
+schema so this process is then required.
+
 Patch number conflicts
 ----------------------
 
