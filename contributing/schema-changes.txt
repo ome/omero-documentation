@@ -142,8 +142,8 @@ Review workflow
 
 Any Pull Request introducing a schema change will be initially marked and
 reviewed with a `breaking` label (see :doc:`ci-introduction`) so after
-opening your Pull Request please have it labeled as being breaking. This implies
-the Pull Request will first be included in the :ref:`omero_breaking` and
-:ref:`bf_breaking` exclusively. Once positively reviewed, the `breaking` label
-will be removed so that the Pull Request is included in the daily merge builds
-before final merging.
+opening your Pull Request please have it labeled as being breaking. This
+implies the Pull Request will first be included in the
+:ref:`omero_breaking` and :ref:`bf_breaking` exclusively. Once positively
+reviewed, the `breaking` label will be removed so that the Pull Request is
+included in the daily merge builds before final merging.
