@@ -108,9 +108,16 @@ Move the previous patch's SQL scripts into their new directory.
 
         $ git mv sql/psql/OMERO5.1DEV__4 sql/psql/OMERO5.1DEV__5
 
+Restore the upgrade to that previous patch.
+
+::
+
+        $ mkdir sql/psql/OMERO5.1DEV__4
+        $ git mv sql/psql/OMERO5.1DEV__5/OMERO5.1DEV__3.sql sql/psql/OMERO5.1DEV__4/OMERO5.1DEV__3.sql
+
 Build OMERO.server with your code that changes the schema, then use
 the :literal:`build-schema` build target to update the SQL scripts in
-the new :literal:`sql/psql/OMERO5.1DEV__5` directory.
+the new :file:`sql/psql/OMERO5.1DEV__5` directory.
 
 ::
 
@@ -120,6 +127,11 @@ Now, when you use :omerocmd:`db script` in setting up a database for
 your modified server, the generated SQL script creates the new schema
 that your code requires. Use this script to set up your database so
 that you can start OMERO.server and test your changes thoroughly.
+
+A combination of :file:`sql/psql/OMERO5.1DEV__4/OMERO5.1DEV__3.sql` and
+the changes within :file:`sql/psql/OMERO5.1DEV__5` that :command:`git
+diff` reports should help you to create a new
+:file:`sql/psql/OMERO5.1DEV__5/OMERO5.1DEV__4.sql`.
 
 When you commit your code and issue a pull request, include the
 changes to :omero_source:`omero.properties <etc/omero.properties>` and
