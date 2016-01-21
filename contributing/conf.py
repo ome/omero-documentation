@@ -45,6 +45,7 @@ contributing_extlinks = {
     # Doc links
     'omero_doc' : (oo_site_root + '/support/omero/%s', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
+    'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),
     }
 extlinks.update(contributing_extlinks)
 
