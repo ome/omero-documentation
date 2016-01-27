@@ -90,6 +90,10 @@ to, you can apply for an account on our demo server. Alternatively, you can
 create your own using a virtual appliance (a step-by-step guide for how to do
 this is provided).
 
+.. note:: The virtual appliance is being discontinued. Previous versions will
+    remain available for download but OMERO 5.2.1 will be the most recent
+    release.
+
 .. toctree::
     :maxdepth: 1
     :titlesonly:
