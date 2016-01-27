@@ -43,11 +43,12 @@ Connect to OMERO
 
 ::
 
-    LoginCredentials cred = new LoginCredentials();
-    cred.getServer().setHostname(hostName);
-    cred.getServer().setPort(port);
-    cred.getUser().setUsername(userName);
-    cred.getUser().setPassword(password);
+    LoginCredentials cred = new LoginCredentials(userName, password, host, port);
+
+    // Alternative using args array:
+    // args = new String[] { "--omero.host=" + hostName, "--omero.port=" + port,
+    //                "--omero.user=" + userName, "--omero.pass=" + password };
+    // LoginCredentials cred = new LoginCredentials(args);
 
     //Create a simple Logger object which just writes
     //to System.out or System.err
@@ -344,7 +345,7 @@ Using the Gateway:
     
     // the uploadImage method will automatically create a dataset with
     // the same name as the directory, the image file is located in
-    tf.uploadImage(ctx, new File("/home/user/image1.dv"), cb);
+    tf.uploadImage(ctx, new File("/pathTo/image.dv"), cb);
     
     //wait for the upload to finish
     while (!cb.isFinished()) {
@@ -357,7 +358,7 @@ Using the Java API directly:
 
 ::
     
-    String paths = new String[] {"/home/user/image1.dv", "/home/user/image2.dv"};
+    String paths = new String[] {"/pathTo/image1.dv", "/pathTo/image2.dv"};
 
     ImportConfig config = new ome.formats.importer.ImportConfig();
     
