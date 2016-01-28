@@ -85,9 +85,15 @@ Additional settings can be configured from command line arguments:
 
     The maximum number of simultaneous clients.
 
-.. option:: --wsgi-args WSGI_ARGS
+.. note::
+    Additional wsgi arguments can be set using property
+    :property:`omero.web.wsgi_args`
 
-    Additional arguments. For more details check
+    ::
+
+        $ bin/omero config set omero.web.wsgi_args -- "--forwarded-allow-ips=127.0.0.1".
+
+    For more details check
     `Gunicorn Documentation <http://docs.gunicorn.org/en/latest/settings.html>`_.
 
 The Gunicorn workers are managed **separately** from other OMERO.server
