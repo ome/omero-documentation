@@ -43,11 +43,12 @@ Connect to OMERO
 
 ::
 
-    LoginCredentials cred = new LoginCredentials();
-    cred.getServer().setHostname(hostName);
-    cred.getServer().setPort(port);
-    cred.getUser().setUsername(userName);
-    cred.getUser().setPassword(password);
+    LoginCredentials cred = new LoginCredentials(userName, password, host, port);
+
+    // Alternative using args array:
+    // args = new String[] { "--omero.host=" + hostName, "--omero.port=" + port,
+    //                "--omero.user=" + userName, "--omero.pass=" + password };
+    // LoginCredentials cred = new LoginCredentials(args);
 
     //Create a simple Logger object which just writes
     //to System.out or System.err
@@ -332,6 +333,70 @@ Write data
     link.setChild(datasetData.asDataset());
     link.setParent(new ProjectI(info.getProjectId(), false));
     r = dm.saveAndReturnObject(ctx, link);
+
+- **Import images into a dataset.**
+
+Using the Gateway:
+	
+::
+
+    ImportCallback cb = new ImportCallback();
+    TransferFacility tf = gateway.getFacility(TransferFacility.class);
+    
+    // the uploadImage method will automatically create a dataset with
+    // the same name as the directory, the image file is located in
+    tf.uploadImage(ctx, new File("/pathTo/image.dv"), cb);
+    
+    //wait for the upload to finish
+    while (!cb.isFinished()) {
+        try {
+            Thread.sleep(250);
+        } catch (InterruptedException e) {}
+    }
+
+Using the Java API directly:
+
+::
+    
+    String paths = new String[] {"/pathTo/image1.dv", "/pathTo/image2.dv"};
+
+    ImportConfig config = new ome.formats.importer.ImportConfig();
+    
+    config.email.set("");
+    config.sendFiles.set(true);
+    config.sendReport.set(false);
+    config.contOnError.set(false);
+    config.debug.set(false);
+
+    config.hostname.set("localhost");
+    config.port.set(4064);
+    config.username.set("root");
+    config.password.set("omero");
+    
+    // the imported image will go into 'orphaned images' unless
+    // you specify a particular existing dataset like this:    
+    // config.targetClass.set("omero.model.Dataset");
+    // config.targetId.set(1L);
+        
+    OMEROMetadataStoreClient store;
+    try {
+        store = config.createStore();
+        store.logVersionInfo(config.getIniVersionNumber());
+        OMEROWrapper reader = new OMEROWrapper(config);
+        ImportLibrary library = new ImportLibrary(store, reader);
+
+        ErrorHandler handler = new ErrorHandler(config);
+        library.addObserver(new LoggingImportMonitor());
+
+        ImportCandidates candidates = new ImportCandidates(reader, paths, handler);
+        reader.setMetadataOptions(new DefaultMetadataOptions(MetadataLevel.ALL));
+        library.importCandidates(config, candidates);
+
+        store.logout();
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 
 -  **Create a tag (tag annotation) and link it to an existing project.**
 
