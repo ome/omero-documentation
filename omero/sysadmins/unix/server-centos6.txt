@@ -154,8 +154,7 @@ For example, download :download:`walkthrough/omero-centos6py27ius.env
 
 Install additional Python modules in the virtual environment::
 
-    # Cap Pillow version due to a limitation in OMERO.figure
-    /home/omero/omeroenv/bin/pip2.7 install "Pillow<3.0"
+    /home/omero/omeroenv/bin/pip2.7 install Pillow
     /home/omero/omeroenv/bin/pip2.7 install numpy matplotlib
 
     # Install Django
