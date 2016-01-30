@@ -118,13 +118,14 @@ workers starting with (2 x $num_cores) + 1 workers. For more details refer to
 `Gunicorn design <http://docs.gunicorn.org/en/stable/design.html>`_.
 
 
-Download issues
-^^^^^^^^^^^^^^^
+Download limitations
+^^^^^^^^^^^^^^^^^^^^
 
-By default OMERO.web allows to stream binary data from OMERO.server.
-Depend of the traffic and scale of the repository you should configure
-connections and speed limits on your server to avoid blocking resources.
-We recomand you to run benchmark and test performance.
+OMERO.web is able to handle multiple clients on a single worker
+thread switching context as necessary while streaming binary data from
+OMERO.server. Depends on the traffic and scale of the repository you should
+configure connections and speed limits on your server to avoid blocking
+resources. We recomand you to run benchmark and test performance.
 It is also possible to apply :ref:`download_restrictions` and
 offer alternative access to binary data.
 
