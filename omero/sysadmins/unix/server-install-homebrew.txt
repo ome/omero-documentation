@@ -157,7 +157,7 @@ Create and run script to initialize the OMERO database::
 
 Set up OMERO data directory::
 
-    $ export OMERO_DATA_DIR=${OMERO_DATA_DIR:-/tmp/var/OMERO.data}
+    $ export OMERO_DATA_DIR=${OMERO_DATA_DIR:-~/OMERO.data}
     $ mkdir -p $OMERO_DATA_DIR
     $ omero config set omero.data.dir $OMERO_DATA_DIR
 
