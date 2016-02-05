@@ -91,7 +91,7 @@ Additional settings can be configured from command line arguments:
 
     ::
 
-        $ bin/omero config set omero.web.wsgi_args -- "--forwarded-allow-ips=127.0.0.1".
+        $ bin/omero config set omero.web.wsgi_args -- "--forwarded-allow-ips=127.0.0.1"
 
     For more details check
     `Gunicorn Documentation <http://docs.gunicorn.org/en/latest/settings.html>`_.
