@@ -134,11 +134,14 @@ offer alternative access to binary data.
     to turn off. For more details refer to
     `Gunicorn deployment <http://docs.gunicorn.org/en/stable/deploy.html>`_.
 
+.. note::
+    :property:`omero.web.application_server.max_requests` should be set to 0
+
 
 Debbuging
 ^^^^^^^^^
 
-To run gunicorn in debug mode set
+To run gunicorn in a debug mode set
 `Gunicorn logging <http://docs.gunicorn.org/en/19.4.3/settings.html#logging>`_
 using :property:`omero.web.wsgi_args`:
 
