@@ -82,7 +82,7 @@ listening on 127.0.0.1:4080 that will autoreload on source change:
 
     $ nginx -c $PWD/nginx-development.conf
     $ bin/omero config set omero.web.application_server.max_requests 1
-    $ bin/omero config set omero.web.wsgi_args -- "--reload".
+    $ bin/omero config set omero.web.wsgi_args -- "--reload"
     $ bin/omero web start
 
 Next: Get started by :doc:`/developers/Web/CreateApp`....
