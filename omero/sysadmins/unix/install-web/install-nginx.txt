@@ -1,11 +1,6 @@
 OMERO.web Nginx and Gunicorn deployment (Unix/Linux)
 ====================================================
 
-.. _nginx_gunicorn_wsgi_configuration:
-
-Nginx Gunicorn configuration (Unix/Linux)
------------------------------------------
-
 .. note:: Since OMERO 5.2, the OMERO.web framework no longer bundles
       a copy of the Django package, instead manual installation of
       the Django dependency is required. It is highly recommended to use
@@ -13,9 +8,14 @@ Nginx Gunicorn configuration (Unix/Linux)
       see :ref:`python-requirements` on the
       :doc:`/sysadmins/version-requirements` page.
 
+.. _gunicorn_default_configuration:
+
+Gunicorn default configuration (Unix/Linux)
+-------------------------------------------
+
 Install `Django 1.8`_,
-`Gunicorn >= 19.3 <http://docs.gunicorn.org/en/stable/design.html>`_
-and `Gevent >= 0.13 <http://www.gevent.org/>`_ using package requirements file:
+`Gunicorn >= 19.3 <http://gunicorn.org>`_
+and `futures <https://pypi.python.org/pypi/futures>`_ using package requirements file:
 
 ::
 
@@ -23,7 +23,66 @@ and `Gevent >= 0.13 <http://www.gevent.org/>`_ using package requirements file:
 
 .. note:: For more details refer to
       :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
-      or :djangodoc:`hot to upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
+      or :djangodoc:`upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
+
+
+Additional settings can be configured by the following properties:
+
+- :property:`omero.web.application_server.max_requests` to 500
+
+- :property:`omero.web.wsgi.workers` (2 x NUM_CORES) + 1
+
+  .. note::
+      DO NOT scale the number of workers to the number of clients
+      you expect to have. OMERO.web should only need 4-12 worker
+      processes to handle hundreds or thousands of requests per second.
+
+- :property:`omero.web.wsgi.threads` 2-4 x NUM_CORES the number of worker threads
+  for handling requests.
+
+- :property:`omero.web.wsgi.args` Additional arguments. For more details
+  check `Gunicorn Documentation <http://docs.gunicorn.org/en/latest/settings.html>`_.
+
+.. _gunicorn_async_configuration:
+
+Gunicorn asyncronious configuration (Unix/Linux)
+------------------------------------------------
+
+Install `Django 1.8`_,
+`Gunicorn >= 19.3 <http://gunicorn.org>`_
+and `Gevent >= 0.13 <http://www.gevent.org/>`_ using package requirements file:
+
+::
+
+   $ pip install -r share/web/requirements-py27-async-nginx.txt
+
+.. note:: For more details refer to
+      :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
+      or :djangodoc:`upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
+
+
+Additional settings can be configured the following properties:
+
+- :property:`omero.web.application_server.max_requests` to 0
+
+- :property:`omero.web.wsgi.workers` (2 x NUM_CORES) + 1
+
+  .. note::
+      DO NOT scale the number of workers to the number of clients
+      you expect to have. OMERO.web should only need 4-12 worker
+      processes to handle hundreds or thousands of requests per second.
+
+- :property:`omero.web.wsgi.worker_connections` the maximum number
+  of simultaneous clients.
+
+- :property:`omero.web.wsgi.args` Additional arguments. For more details
+  check `Gunicorn Documentation <http://docs.gunicorn.org/en/latest/settings.html>`_.
+
+
+.. _nginx_gunicorn_wsgi_configuration:
+
+Nginx configuration (Unix/Linux)
+--------------------------------
 
 If you have installed Nginx, OMERO can automatically generate a
 configuration file for your web server. The location of the file
@@ -41,8 +100,8 @@ configuration redirect the output of the following command into a file:
 .. literalinclude:: nginx-omero.conf
 
 .. note::
-    OMERO.web requires ``body_in_file_only`` adjusted in your default nginx 
-    config because nginx must buffer incoming data. Make sure you have that 
+    OMERO.web requires ``body_in_file_only`` adjusted in your default nginx
+    config because nginx must buffer incoming data. Make sure you have that
     set to the following config:
 
     ::
@@ -58,36 +117,16 @@ configuration redirect the output of the following command into a file:
 To configure an HTTPS server follow
 `the nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
 
-Start the Gunicorn asyncronious worker processes listening by default on 127.0.0.1:4080:
+Running OMERO.web (Unix/Linux)
+------------------------------
+
+Start the Gunicorn worker processes listening by default on 127.0.0.1:4080:
 
 ::
 
     $ bin/omero web start
-    ... static files copied to '/usr/local/dev/openmicroscopy/dist/lib/python/omeroweb/static'.
+    ... static files copied to '/home/omero/OMERO.server/lib/python/omeroweb/static'.
     Starting OMERO.web... [OK]
-
-Additional settings can be configured from command line arguments:
-
-.. program:: omero web start
-
-.. option:: --workers WORKERS
-
-    The number of worker processes for handling requests.
-
-.. option:: --worker-connections WORKER_CONNECTIONS
-
-    The maximum number of simultaneous clients.
-
-.. note::
-    Additional wsgi arguments can be set using property
-    :property:`omero.web.wsgi_args`
-
-    ::
-
-        $ bin/omero config set omero.web.wsgi_args -- "--forwarded-allow-ips=127.0.0.1"
-
-    For more details check
-    `Gunicorn Documentation <http://docs.gunicorn.org/en/latest/settings.html>`_.
 
 The Gunicorn workers are managed **separately** from other OMERO.server
 processes. You can check their status or stop them using the
@@ -102,25 +141,11 @@ following commands:
     Django WSGI workers (PID 59217) killed.
 
 
-Troubleshooting
----------------
-
-OMERO.web not responding
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-    [CRITICAL] WORKER TIMEOUT (pid:1234)
-
-OMERO.web deployed with Gunicorn relies on the operating system to provide
-all of the load balancing while handling requests. Scale the number of
-workers starting with (2 x $num_cores) + 1 workers. For more details refer to
-`Gunicorn design <http://docs.gunicorn.org/en/stable/design.html>`_.
-
-
 Download limitations
 ^^^^^^^^^^^^^^^^^^^^
 
+In order to offer users to download data from OMERO.web you have to deploy
+using :ref:`gunicorn_async_configuration`.
 OMERO.web is able to handle multiple clients on a single worker
 thread switching context as necessary while streaming binary data from
 OMERO.server. Depends on the traffic and scale of the repository you should
@@ -138,13 +163,164 @@ offer alternative access to binary data.
     :property:`omero.web.application_server.max_requests` should be set to 0
 
 
+.. _nginx_wsgi_benchmark:
+
+Benchamrk
+---------
+
+We run example banchmark on rendering 96 pixels thumbnail and 512 pixels plane:
+
+::
+
+    $ ab -n 5000 -c 100 https://server.openmicroscopy.org/omero/webclient/render_thumbnail/size/96/1234/
+    This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+    Licensed to The Apache Software Foundation, http://www.apache.org/
+
+    Server Software:        nginx/1.9.9
+    Server Hostname:        server.openmicroscopy.org
+    Server Port:            80
+
+    Document Path:          /omero/webclient/render_thumbnail/size/96/31851/
+    Document Length:        1880 bytes
+
+    Concurrency Level:      100
+    Time taken for tests:   224.488 seconds
+    Complete requests:      5000
+    Failed requests:        0
+    Write errors:           0
+    Total transferred:      10450000 bytes
+    HTML transferred:       9400000 bytes
+    Requests per second:    22.27 [#/sec] (mean)
+    Time per request:       4489.763 [ms] (mean)
+    Time per request:       44.898 [ms] (mean, across all concurrent requests)
+    Transfer rate:          45.46 [Kbytes/sec] received
+
+    Connection Times (ms)
+                  min  mean[+/-sd] median   max
+    Connect:        0    0   0.3      0       3
+    Processing:   435 4446 685.2   4363    7644
+    Waiting:      432 4446 685.3   4362    7644
+    Total:        435 4446 685.1   4363    7644
+
+    Percentage of the requests served within a certain time (ms)
+      50%   4363
+      66%   4553
+      75%   4670
+      80%   4750
+      90%   5072
+      95%   5398
+      98%   6795
+      99%   6955
+     100%   7644 (longest request)
+
+
+::
+
+    $ ab -n 5000 -c 100 http://server.openmicroscopy.org/omero/webclient/render_image/1234/20/0/
+    This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+    Licensed to The Apache Software Foundation, http://www.apache.org/
+
+    Server Software:        nginx/1.9.9
+    Server Hostname:        ola-test-c7.docker.openmicroscopy.org
+    Server Port:            80
+
+    Document Path:          /omero/webclient/render_image/1234/20/0/
+    Document Length:        24293 bytes
+
+    Concurrency Level:      100
+    Time taken for tests:   247.154 seconds
+    Complete requests:      5000
+    Failed requests:        0
+    Write errors:           0
+    Total transferred:      122515000 bytes
+    HTML transferred:       121465000 bytes
+    Requests per second:    20.23 [#/sec] (mean)
+    Time per request:       4943.080 [ms] (mean)
+    Time per request:       49.431 [ms] (mean, across all concurrent requests)
+    Transfer rate:          484.09 [Kbytes/sec] received
+
+    Connection Times (ms)
+                  min  mean[+/-sd] median   max
+    Connect:        0    0   0.4      0       4
+    Processing:   482 4898 855.3   4737    8303
+    Waiting:      476 4898 855.3   4737    8303
+    Total:        482 4898 855.2   4737    8303
+
+    Percentage of the requests served within a certain time (ms)
+      50%   4737
+      66%   5041
+      75%   5250
+      80%   5397
+      90%   5862
+      95%   6621
+      98%   7301
+      99%   8062
+     100%   8303 (longest request)
+
+
+.. _nginx_troubleshooting:
+
+Troubleshooting
+---------------
+
+In order to identify why OMERO.web is not available run:
+
+::
+
+    $ bin/omero web status
+
+Then consult nginx ``error.log`` and ``OMERO.server/var/log/OMEROweb.log``
+
+OMERO.web runing but status says not started
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you upgraded OMERO but forgot to stop OMERO.web, proceses will be still
+runing. In order to kill stale processes by hand, run:
+
+::
+
+    $ ps aux | grep /home/omero/OMERO.server/var/django.pid
+
+.. note::
+    As Gunicorn is based on the pre-fork worker model it is enough to kill
+    master proces, the one with the lowest PID.
+
+
 Debbuging
 ^^^^^^^^^
 
-To run gunicorn in a debug mode set
+To run WSGI server in a debug mode set
 `Gunicorn logging <http://docs.gunicorn.org/en/19.4.3/settings.html#logging>`_
 using :property:`omero.web.wsgi_args`:
 
 ::
 
     $ bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.server/var/log/error.log".
+
+
+OMERO.web not available HTTP 404
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Consult nginx error.log for more details.
+
+The most common problem appeares when default configuration for ``location /``
+is loaded prior to omeroweb.conf
+
+::
+
+    2016/01/01 00:00:00 [error] 1234#0: *5 "/usr/share/nginx/html/webclient/login/index.html" is not found (2: No such file or directory), client: 1.2.3.4, server: localhost, request: "GET /webclient/login/ HTTP/1.1", host: "1.2.3.4"
+
+
+OMERO.web not responding
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    [CRITICAL] WORKER TIMEOUT (pid:1234)
+
+OMERO.web deployed with Gunicorn relies on the operating system to provide
+all of the load balancing while handling requests. Scale the number of
+workers starting with (2 x NUM_CORES) + 1 workers. For more details refer to
+`Gunicorn design <http://docs.gunicorn.org/en/stable/design.html>`_.
