@@ -168,7 +168,8 @@ offer alternative access to binary data.
 Benchamrk
 ---------
 
-We run example banchmark on rendering 96 pixels thumbnail and 512 pixels plane:
+We run example banchmark on rendering thumbnail and 512x512 pixels plane
+for 100 concurent users making in total 5000 requests:
 
 ::
 
