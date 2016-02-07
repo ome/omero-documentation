@@ -35,7 +35,7 @@ Additional settings can be configured by the following properties:
   .. note::
       DO NOT scale the number of workers to the number of clients
       you expect to have. OMERO.web should only need 4-12 worker
-      processes to handle hundreds or thousands of requests per second.
+      processes to handle many requests per second.
 
 - :property:`omero.web.wsgi.threads` 2-4 x NUM_CORES the number of worker threads
   for handling requests.
