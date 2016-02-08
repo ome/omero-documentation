@@ -344,11 +344,11 @@ OMERO.web did not start
 
      :ome-users:`upgrade 5.0.5 to 5.1.1 omero.web forbidden <2015-April/005316.html>`
 
-OMERO.web runing but status says not started
+OMERO.web running but status says not started
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you upgraded OMERO but forgot to stop OMERO.web, proceses will be still
-runing. In order to kill stale processes by hand, run:
+If you upgraded OMERO but forgot to stop OMERO.web, processes will be still
+running. In order to kill stale processes by hand, run:
 
 ::
 
@@ -356,14 +356,14 @@ runing. In order to kill stale processes by hand, run:
 
 .. note::
     As Gunicorn is based on the pre-fork worker model it is enough to kill
-    master proces, the one with the lowest PID.
+    master process, the one with the lowest PID.
 
 OMERO.web not available HTTP 404
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Consult nginx error.log for more details.
 
-The most common problem appeares when default configuration for ``location /``
+The most common problem appears when default configuration for ``location /``
 is loaded prior to omeroweb.conf
 
 ::

@@ -13,11 +13,11 @@ OMERO.web uses
 `Web Server Gateway Interface (WSGI) <http://wsgi.readthedocs.org/en/latest/learn.html>`_
 as a primary deployment platform, the Python standard
 `PEP 3333 <https://www.python.org/dev/peps/pep-3333/>`_
-that describes a web server communicates with web applications.
+that describes how a web server communicates with web applications.
 OMERO.web deployment can be configured with synch and async workers.
-Sync workers are faster and recomanded for a data reposority with
-:ref:`download_restrictions`. If you wish to offer users abbility
-to downlaod data you have to user async workers, read more about
+Sync workers are faster and recommended for a data reposority with
+:ref:`download_restrictions`. If you wish to offer users the ability
+to download data you have to use async workers, read more about
 :ref:`download_limitation`.
 
 
@@ -158,19 +158,19 @@ following commands:
 Download limitations
 ^^^^^^^^^^^^^^^^^^^^
 
-In order to offer users to download data from OMERO.web you have to deploy
-using :ref:`gunicorn_async_configuration`.
+In order to offer users the ability to download data from OMERO.web you have
+to deploy using :ref:`gunicorn_async_configuration`.
 OMERO.web is able to handle multiple clients on a single worker
 thread switching context as necessary while streaming binary data from
-OMERO.server. Depends on the traffic and scale of the repository you should
+OMERO.server. Depending on the traffic and scale of the repository you should
 configure connections and speed limits on your server to avoid blocking
-resources. We recomand you to run benchmark and test performance.
+resources. We recommend you run benchmark and performance tests.
 It is also possible to apply :ref:`download_restrictions` and
 offer alternative access to binary data.
 
 .. note::
-    Handle streaming request/responses requires proxy buffering
-    to turn off. For more details refer to
+    Handling streaming request/responses requires proxy buffering
+    to be turned off. For more details refer to
     `Gunicorn deployment <http://docs.gunicorn.org/en/stable/deploy.html>`_.
 
 .. note::
@@ -179,11 +179,11 @@ offer alternative access to binary data.
 
 .. _nginx_wsgi_benchmark:
 
-Benchamrk
+Benchmark
 ---------
 
-We run example banchmark on rendering thumbnail and 512x512 pixels plane
-for 100 concurent users making in total 5000 requests:
+We run example banchmarks on rendering thumbnail and 512x512 pixels plane
+for 100 concurrent users making in total 5000 requests:
 
 ::
 
@@ -291,7 +291,7 @@ Then consult nginx ``error.log`` and ``OMERO.server/var/log/OMEROweb.log``
 For more details check :ref:`troubleshooting-omeroweb`.
 
 
-Debbuging
+Debugging
 ^^^^^^^^^
 
 To run WSGI server in a debug mode set

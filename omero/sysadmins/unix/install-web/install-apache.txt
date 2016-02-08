@@ -17,7 +17,7 @@ OMERO.web uses
 `Web Server Gateway Interface (WSGI) <http://wsgi.readthedocs.org/en/latest/learn.html>`_
 as a primary deployment platform, the Python standard
 `PEP 3333 <https://www.python.org/dev/peps/pep-3333/>`_
-that describes a web server communicates with web applications.
+that describes how a web server communicates with web applications.
 
 .. _apache_default_configuration:
 
@@ -94,6 +94,4 @@ Running OMERO.web (Unix/Linux)
 
 OMERO.web is used in 'daemon' mode where UNIX sockets are used to communicate
 between the Apache child processes and the daemon processes which are
-to handle a request.
-
-Then reload Apache.
+to handle a request. Reload Apache.
