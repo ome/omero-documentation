@@ -36,8 +36,8 @@ turn :property:`omero.web.debug` on and start the server up:
     Validating models...
 
     0 errors found
-    Django version 1.6, using settings 'omeroweb.settings'
-    Starting development server at http://0.0.0.0:4080/
+    Django version 1.8, using settings 'omeroweb.settings'
+    Starting development server at http://127.0.0.1:4080/
     Quit the server with CONTROL-C.
 
 Using the lightweight development server on Windows
@@ -58,8 +58,8 @@ Debugging on and start the server up:
     Validating models...
 
     0 errors found
-    Django version 1.6, using settings 'omeroweb.settings'
-    Starting development server at http://0.0.0.0:4080/
+    Django version 1.8, using settings 'omeroweb.settings'
+    Starting development server at http://127.0.0.1:4080/
     Quit the server with CTRL-BREAK.
 
 Using WSGI (Unix/Linux)
@@ -82,6 +82,7 @@ listening on 127.0.0.1:4080 that will autoreload on source change:
 
     $ nginx -c $PWD/nginx-development.conf
     $ bin/omero config set omero.web.application_server.max_requests 1
-    $ bin/omero web start  --wsgi-args ' --reload'
+    $ bin/omero config set omero.web.wsgi_args -- "--reload"
+    $ bin/omero web start
 
 Next: Get started by :doc:`/developers/Web/CreateApp`....
