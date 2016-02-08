@@ -41,7 +41,7 @@ Additional settings can be configured by the following properties:
   for handling requests.
 
 - :property:`omero.web.wsgi.args` Additional arguments. For more details
-  check `Gunicorn Documentation <http://docs.gunicorn.org/en/latest/settings.html>`_.
+  check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
 
 .. _gunicorn_async_configuration:
 
@@ -76,7 +76,7 @@ Additional settings can be configured the following properties:
   of simultaneous clients.
 
 - :property:`omero.web.wsgi.args` Additional arguments. For more details
-  check `Gunicorn Documentation <http://docs.gunicorn.org/en/latest/settings.html>`_.
+  check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
 
 
 .. _nginx_gunicorn_wsgi_configuration:
@@ -293,7 +293,7 @@ Debbuging
 ^^^^^^^^^
 
 To run WSGI server in a debug mode set
-`Gunicorn logging <http://docs.gunicorn.org/en/19.4.3/settings.html#logging>`_
+`Gunicorn logging <http://docs.gunicorn.org/en/stable/settings.html#logging>`_
 using :property:`omero.web.wsgi_args`:
 
 ::
