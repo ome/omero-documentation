@@ -1824,30 +1824,6 @@ omero.web.login_view
 
 Default: `weblogin`
 
-.. property:: omero.web.open_astex_max_side
-
-omero.web.open_astex_max_side
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Default: `400`
-
-.. property:: omero.web.open_astex_max_voxels
-
-omero.web.open_astex_max_voxels
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Default: `27000000`
-
-.. property:: omero.web.open_astex_min_side
-
-omero.web.open_astex_min_side
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Default: `20`
-
 .. property:: omero.web.page_size
 
 omero.web.page_size
@@ -2085,6 +2061,14 @@ Default: `false`
 omero.web.webgateway_cache
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
+Default: `None`
+
+.. property:: omero.web.wsgi_args
+
+omero.web.wsgi_args
+^^^^^^^^^^^^^^^^^^^
+A string representing Gunicorn additional arguments. Check Gunicorn Documentation http://docs.gunicorn.org/en/latest/settings.html
 
 Default: `None`
 

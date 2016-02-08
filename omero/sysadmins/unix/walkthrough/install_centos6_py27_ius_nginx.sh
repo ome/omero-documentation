@@ -7,19 +7,21 @@ WEBAPPS=${WEBAPPS:-false}
 
 source settings.env
 
-bash -eux step01_centos6_py27_deps.sh
+bash -eux step01_centos6_py27_ius_deps.sh
+bash -eux step02_centos6_py27_ius_setup.sh
 
-bash -eux step02_centos6_py27_setup.sh
 bash -eux step03_all_postgres.sh
 
-cp settings.env omero-centos6py27.env step04_centos6_py27_${OMEROVER}.sh ~omero
+OMEROVER=${OMEROVER} bash -eux step03_centos6_py27_ius_virtualenv_deps.sh
 
-su - omero -c "bash -eux step04_centos6_py27_${OMEROVER}.sh"
+cp settings.env omero-centos6py27ius.env step04_centos6_py27_ius_${OMEROVER}.sh ~omero
 
-bash -eux step05_centos6_py27_nginx.sh
+su - omero -c "bash -eux step04_centos6_py27_ius_${OMEROVER}.sh"
+
+bash -eux step05_centos6_py27_ius_nginx.sh
 
 if [ $WEBAPPS = true ]; then
-	PY_ENV=py27_scl bash -eux step05_1_all_webapps.sh
+	PY_ENV=py27_ius bash -eux step05_1_all_webapps.sh
 fi
 
 #If you don't want to use the init.d scripts you can start OMERO manually:
