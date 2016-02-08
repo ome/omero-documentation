@@ -9,7 +9,16 @@ OMERO.web Nginx and Gunicorn deployment (Unix/Linux)
       :doc:`/sysadmins/version-requirements` page.
 
 
-OMERO.web uses `Web Server Gateway Interface (WSGI)<http://wsgi.readthedocs.org/en/latest/learn.html>`_ as a primary deployment platform, the Python standard `PEP 3333 <https://www.python.org/dev/peps/pep-3333/>`_ that describes a web server communicates with web applications.
+OMERO.web uses
+`Web Server Gateway Interface (WSGI) <http://wsgi.readthedocs.org/en/latest/learn.html>`_
+as a primary deployment platform, the Python standard
+`PEP 3333 <https://www.python.org/dev/peps/pep-3333/>`_
+that describes a web server communicates with web applications.
+OMERO.web deployment can be configured with synch and async workers.
+Sync workers are faster and recomanded for a data reposority with
+:ref:`download_restrictions`. If you wish to offer users abbility
+to downlaod data you have to user async workers, read more about
+:ref:`download_limitation`.
 
 
 .. _gunicorn_default_configuration:
@@ -144,6 +153,7 @@ following commands:
     Stopping OMERO.web... [OK]
     Django WSGI workers (PID 59217) killed.
 
+.. _download_limitation:
 
 Download limitations
 ^^^^^^^^^^^^^^^^^^^^
