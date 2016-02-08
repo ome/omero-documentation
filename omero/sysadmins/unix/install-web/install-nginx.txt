@@ -288,19 +288,7 @@ In order to identify why OMERO.web is not available run:
 
 Then consult nginx ``error.log`` and ``OMERO.server/var/log/OMEROweb.log``
 
-OMERO.web runing but status says not started
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you upgraded OMERO but forgot to stop OMERO.web, proceses will be still
-runing. In order to kill stale processes by hand, run:
-
-::
-
-    $ ps aux | grep /home/omero/OMERO.server/var/django.pid
-
-.. note::
-    As Gunicorn is based on the pre-fork worker model it is enough to kill
-    master proces, the one with the lowest PID.
+For more details check :ref:`troubleshooting-omeroweb`.
 
 
 Debbuging
@@ -313,29 +301,3 @@ using :property:`omero.web.wsgi_args`:
 ::
 
     $ bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.server/var/log/error.log".
-
-
-OMERO.web not available HTTP 404
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Consult nginx error.log for more details.
-
-The most common problem appeares when default configuration for ``location /``
-is loaded prior to omeroweb.conf
-
-::
-
-    2016/01/01 00:00:00 [error] 1234#0: *5 "/usr/share/nginx/html/webclient/login/index.html" is not found (2: No such file or directory), client: 1.2.3.4, server: localhost, request: "GET /webclient/login/ HTTP/1.1", host: "1.2.3.4"
-
-
-OMERO.web not responding
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-    [CRITICAL] WORKER TIMEOUT (pid:1234)
-
-OMERO.web deployed with Gunicorn relies on the operating system to provide
-all of the load balancing while handling requests. Scale the number of
-workers starting with (2 x NUM_CORES) + 1 workers. For more details refer to
-`Gunicorn design <http://docs.gunicorn.org/en/stable/design.html>`_.

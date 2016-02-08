@@ -320,6 +320,8 @@ images annotated with that tag), there are a few things that may have gone
 wrong. See :ref:`search-failures` for more details.
 
 
+.. _troubleshooting-omeroweb:
+
 OMERO.web issues
 ----------------
 
@@ -341,6 +343,33 @@ OMERO.web did not start
      :forum:`What are your LDAP requirements? <viewtopic.php?f=5&t=14>`
 
      :ome-users:`upgrade 5.0.5 to 5.1.1 omero.web forbidden <2015-April/005316.html>`
+
+OMERO.web runing but status says not started
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you upgraded OMERO but forgot to stop OMERO.web, proceses will be still
+runing. In order to kill stale processes by hand, run:
+
+::
+
+    $ ps aux | grep /home/omero/OMERO.server/var/django.pid
+
+.. note::
+    As Gunicorn is based on the pre-fork worker model it is enough to kill
+    master proces, the one with the lowest PID.
+
+OMERO.web not available HTTP 404
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Consult nginx error.log for more details.
+
+The most common problem appeares when default configuration for ``location /``
+is loaded prior to omeroweb.conf
+
+::
+
+    2016/01/01 00:00:00 [error] 1234#0: *5 "/usr/share/nginx/html/webclient/login/index.html" is not found (2: No such file or directory), client: 1.2.3.4, server
+
 
 OMERO.web piecharts
 ^^^^^^^^^^^^^^^^^^^
