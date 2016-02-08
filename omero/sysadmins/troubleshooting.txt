@@ -345,7 +345,7 @@ OMERO.web did not start
      :ome-users:`upgrade 5.0.5 to 5.1.1 omero.web forbidden <2015-April/005316.html>`
 
 OMERO.web running but status says not started
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you upgraded OMERO but forgot to stop OMERO.web, processes will be still
 running. In order to kill stale processes by hand, run:
