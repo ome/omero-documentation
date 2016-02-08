@@ -2,6 +2,8 @@
 
 set -e -u -x
 
+WEBAPPS=${WEBAPPS:-false}
+
 source settings.env
 
 bash -eux step01_centos7_deps.sh
@@ -13,6 +15,10 @@ cp settings.env step04_all_omero.sh ~omero
 su - omero -c "bash -eux step04_all_omero.sh"
 
 bash -eux step05_centos7_nginx.sh
+
+if [ $WEBAPPS = true ]; then
+	bash -eux step05_1_all_webapps.sh
+fi
 
 #If you don't want to use the systemd scripts you can start OMERO manually:
 #su - omero -c "OMERO.server/bin/omero admin start"
