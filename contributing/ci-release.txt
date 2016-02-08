@@ -2,60 +2,60 @@ Release jobs
 ------------
 
 The following table lists the main Jenkins jobs used during the release
-process depending on the release branch (5.0 or 5.1 release). All release
+process depending on the release branch (5.1 or 5.2 release). All release
 jobs should be listed under the :jenkinsview:`Release` view.
 
 .. list-table::
     :header-rows: 1
 
     -   * Job task
-        * 5.0.x
         * 5.1.x
+        * 5.2.x
     -   * Trigger the OMERO release jobs
-        * :jenkinsjob:`OME-5.0-release-trigger`
         * :jenkinsjob:`OMERO-5.1-release-trigger`
+        * :jenkinsjob:`OMERO-DEV-release-trigger`
     -   * Tags the OMERO source code repository
-        * :jenkinsjob:`OME-5.0-release-push`
         * :jenkinsjob:`OMERO-5.1-release-push`
+        * :jenkinsjob:`OME-DEV-release-push`
     -   * Build the OMERO download artifacts
-        * :jenkinsjob:`OMERO-5.0-release`
         * :jenkinsjob:`OMERO-5.1-release`
+        * :jenkinsjob:`OMERO-DEV-release`
     -   * Generate the OMERO downloads page
-        * :jenkinsjob:`OMERO-5.0-release-downloads`
         * :jenkinsjob:`OMERO-5.1-release-downloads`
+        * :jenkinsjob:`OMERO-DEV-release-downloads`
     -   * Run the OMERO integration tests
-        * :jenkinsjob:`OMERO-5.0-release-integration`
         * :jenkinsjob:`OMERO-5.1-release-integration`
+        * :jenkinsjob:`OMERO-DEV-release-integration`
     -   * Trigger the Bio-Formats release jobs
-        *
         * :jenkinsjob:`BIOFORMATS-5.1-release-trigger`
+        *
     -   * Tags the Bio-Formats source code repository
-        * :jenkinsjob:`OME-5.0-release-push`
         * :jenkinsjob:`BIOFORMATS-5.1-release-push`
+        *
     -   * Build the Bio-Formats Java download artifacts
-        * :jenkinsjob:`BIOFORMATS-5.0-release`
         * :jenkinsjob:`BIOFORMATS-5.1-release-java`
+        *
     -   * Generate the Bio-Formats Java downloads page
-        * :jenkinsjob:`BIOFORMATS-5.0-release-downloads`
         * :jenkinsjob:`BIOFORMATS-5.1-release-downloads`
+        *
     -   * Trigger the Bio-Formats C++ release jobs
-        *
         * :jenkinsjob:`BIOFORMATS-CPP-5.1-release-trigger`
+        *
     -   * Tags the Bio-Formats SuperBuild source code repository
-        *
         * :jenkinsjob:`BIOFORMATS-CPP-5.1-release-push-superbuild`
+        *
     -   * Builds the release native C++ implementation for Bio-Formats
-        *
         * :jenkinsjob:`BIOFORMATS-CPP-5.1-release`
+        *
     -   * Builds the release native C++ implementation for Bio-Formats (Unix superbuild)
-        *
         * :jenkinsjob:`BIOFORMATS-CPP-5.1-release-superbuild`
+        *
     -   * Builds the release native C++ implementation for Bio-Formats ("Windows superbuild)
-        *
         * :jenkinsjob:`BIOFORMATS-CPP-5.1-release-win-superbuild`
-    -   * Generate the Bio-Formats C++ downloads page
         *
+    -   * Generate the Bio-Formats C++ downloads page
         * :jenkinsjob:`BIOFORMATS-CPP-5.1-release-downloads`
+        *
 
 Deployment servers
 ^^^^^^^^^^^^^^^^^^
@@ -73,148 +73,18 @@ clients of the deployment jobs described above:
         * Port
         * Webclient
 
-    -   * 5.0.x
-        * :term:`OMERO-5.0-release-integration`
-        * seabass.openmicroscopy.org
-        * 4064
-        * https://seabass.openmicroscopy.org/5.0
-
     -   * 5.1.x
         * :term:`OMERO-5.1-release-integration`
         * seabass.openmicroscopy.org
         * 14064
         * https://seabass.openmicroscopy.org/5.1
 
-5.0.x series
-^^^^^^^^^^^^
+    -   * 5.2.x
+        * :term:`OMERO-DEV-release-integration`
+        * eel.openmicroscopy.org
+        * 14064
+        * https://eel.openmicroscopy.org/
 
-.. glossary::
-
-    :jenkinsjob:`OME-5.0-release-trigger`
-
-        This job triggers the release jobs. Prior to running it, its variables
-        need to be properly configured:
-
-        - :envvar:`RELEASE` is the release number for OMERO and Bio-Formats.
-        - :envvar:`ANNOUNCEMENT_URL` is the URL of the forum release
-          announcement and should be set to the value of the URL of the
-          private post until it becomes public.
-        - :envvar:`MILESTONE` is the name of the Trac milestone which the
-          download pages should be linked to.
-
-
-        #. Triggers :term:`OME-5.0-release-push`
-        #. Triggers :term:`OMERO-5.0-release-integration`
-        #. Triggers :term:`OMERO-5.0-release` and
-           :term:`BIOFORMATS-5.0-release`
-
-        See :jenkinsjob:`the build graph <OME-5.0-release-trigger/lastSuccessfulBuild/BuildGraph>`
-
-    :jenkinsjob:`OME-5.0-release-push`
-
-        This job creates a tag on the `dev_5_0` branch
-
-        #. Runs `scc tag-release $RELEASE` and pushes the tag to the
-           snoopycrimecop fork of openmicroscopy.git_
-
-    :jenkinsjob:`OMERO-5.0-release`
-
-        This matrix job builds the OMERO components with Ice 3.3, 3.4 or 3.5
-
-        #. Checks out the :envvar:`RELEASE` tag of the
-           snoopycrimecop fork of openmicroscopy.git_
-        #. |buildOMERO| for each version of Ice
-        #. Executes the `release-hudson` target for the `ome.staging` Maven
-           repository
-        #. |copyreleaseartifacts|
-        #. Triggers :term:`OMERO-5.0-release-downloads`
-
-    :jenkinsjob:`OMERO-5.0-release-downloads`
-
-        This job builds the OMERO downloads page
-
-        #. Checks out the `dev_5_0` branch of
-           https://github.com/openmicroscopy/ome-release.git
-        #. Runs `make clean omero`
-
-    :jenkinsjob:`OMERO-5.0-release-integration`
-
-        This job runs the integration tests
-
-        #. Checks out the :envvar:`RELEASE` tag of the
-           snoopycrimecop fork of openmicroscopy.git_
-        #. Builds OMERO.server and starts it
-        #. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
-        #. Archives the results
-        #. Triggers downstream collection jobs:
-           :term:`OMERO-5.0-release-integration-broken`,
-           :term:`OMERO-5.0-release-integration-java`,
-           :term:`OMERO-5.0-release-integration-python`,
-           :term:`OMERO-5.0-release-integration-web`
-        #. Triggers :term:`OMERO-5.0-release-robotframework`
-
-    :jenkinsjob:`OMERO-5.0-release-integration-broken`
-
-        This job collects the OMERO.java broken test results
-
-        #. Receives TestNG results under
-           :file:`components/tools/OmeroJava/target/reports/broken` from
-           :term:`OMERO-5.0-release-integration`
-        #. Generates TestNG report
-
-    :jenkinsjob:`OMERO-5.0-release-integration-java`
-
-        This job collects the OMERO.java integration test results
-
-        #. Receives TestNG results under
-           :file:`components/tools/OmeroJava/target/reports/integration` from
-           :term:`OMERO-5.0-release-integration`
-        #. Generates TestNG report
-
-    :jenkinsjob:`OMERO-5.0-release-integration-python`
-
-        This job collects the OMERO.py integration test results
-
-        #. Receives pytest results under
-           :file:`components/tools/OmeroPy/target/reports` from
-           :term:`OMERO-5.0-release-integration`
-        #. Generates pytest report
-
-    :jenkinsjob:`OMERO-5.0-release-integration-web`
-
-        This job collects the OMERO.web integration test results
-
-        #. Receives pytest results under
-           :file:`components/tools/OmeroWeb/target/reports` from
-           :term:`OMERO-5.0-release-integration`
-        #. Generates pytest report
-
-    :jenkinsjob:`OMERO-5.0-release-robotframework`
-
-        This job runs the robot framework tests of OMERO
-
-        #. Checks out the :envvar:`RELEASE` tag of the
-           snoopycrimecop fork of openmicroscopy.git_
-        #. Runs the robot framework tests and collect the results
-
-    :jenkinsjob:`BIOFORMATS-5.0-release`
-
-        This job builds the downloads artifacts of Bio-Formats
-
-        #. Checks out the :envvar:`RELEASE` tag of the
-           snoopycrimecop fork of bioformats.git_
-        #. |buildBF|
-        #. |fulltestBF|
-        #. |copyreleaseartifacts|
-        #. Triggers :term:`BIOFORMATS-5.0-release-downloads`
-
-    :jenkinsjob:`BIOFORMATS-5.0-release-downloads`
-
-        This job builds the Bio-Formats downloads page
-
-        #. Checks out the `dev_5_0` branch of
-           https://github.com/openmicroscopy/ome-release.git
-        #. Runs `make clean bf`
 
 5.1.x series
 ^^^^^^^^^^^^
@@ -241,7 +111,7 @@ clients of the deployment jobs described above:
 
     :jenkinsjob:`OMERO-5.1-release-push`
 
-        This job creates a tag on the `develop` branch
+        This job creates a tag on the `dev_5_1` branch
 
         #. Runs `scc tag-release $RELEASE` and pushes the tag to the
            snoopycrimecop fork of openmicroscopy.git_
@@ -262,7 +132,7 @@ clients of the deployment jobs described above:
 
         This job builds the OMERO downloads page
 
-        #. Checks out the `develop` branch of
+        #. Checks out the `dev_5_1` branch of
            https://github.com/openmicroscopy/ome-release.git
         #. Runs `make clean omero`
 
@@ -344,7 +214,7 @@ clients of the deployment jobs described above:
 
     :jenkinsjob:`BIOFORMATS-5.1-release-push`
 
-        This job creates a tag on the `develop` branch
+        This job creates a tag on the `dev_5_1` branch
 
         #. Runs `scc tag-release $RELEASE` and pushes the tag to the
            snoopycrimecop fork of bioformats.git_
@@ -364,7 +234,7 @@ clients of the deployment jobs described above:
 
         This job builds the Bio-Formats Java downloads page
 
-        #. Checks out the `develop` branch of
+        #. Checks out the `dev_5_1` branch of
            https://github.com/openmicroscopy/ome-release.git
         #. Runs `make clean bf`
 
@@ -372,13 +242,13 @@ clients of the deployment jobs described above:
 
         This job builds the Bio-Formats C++ downloads page
 
-        #. Checks out the `develop` branch of
+        #. Checks out the `dev_5_1` branch of
            https://github.com/openmicroscopy/ome-release.git
         #. Runs `make clean bfcpp`
 
     :jenkinsjob:`BIOFORMATS-CPP-5.1-release-push-superbuild`
 
-        This job creates a tag on the ome-cmake-superbuild `develop` branch
+        This job creates a tag on the ome-cmake-superbuild `dev_5_1` branch
 
         #. Runs `scc tag-release $RELEASE` and pushes the tag to the
            snoopycrimecop fork of ome-cmake-superbuild.git_
@@ -428,6 +298,123 @@ clients of the deployment jobs described above:
         #. Triggers :term:`BIOFORMATS-CPP-5.1-release`
         #. Triggers :term:`BIOFORMATS-CPP-5.1-release-superbuild`
         #. Triggers :term:`BIOFORMATS-CPP-5.1-release-win-superbuild`
+
+
+5.2.x series
+^^^^^^^^^^^^
+
+.. glossary::
+
+    :jenkinsjob:`OMERO-DEV-release-trigger`
+
+        This job triggers the OMERO release jobs. Prior to running it, its
+        variables need to be properly configured:
+
+        - :envvar:`RELEASE` is the OMERO release number.
+        - :envvar:`ANNOUNCEMENT_URL` is the URL of the forum release
+          announcement and should be set to the value of the URL of the
+          private post until it becomes public.
+        - :envvar:`MILESTONE` is the name of the Trac milestone which the
+          download pages should be linked to.
+
+        #. Triggers :term:`OMERO-DEV-release-push`
+        #. Triggers :term:`OMERO-DEV-release-integration`
+        #. Triggers :term:`OMERO-DEV-release`
+
+        See :jenkinsjob:`the build graph <OMERO-DEV-release-trigger/lastSuccessfulBuild/BuildGraph>`
+
+    :jenkinsjob:`OMERO-DEV-release-push`
+
+        This job creates a tag on the `develop` branch
+
+        #. Runs `scc tag-release $RELEASE` and pushes the tag to the
+           snoopycrimecop fork of openmicroscopy.git_
+
+    :jenkinsjob:`OMERO-DEV-release`
+
+        This matrix job builds the OMERO components with Ice 3.5
+
+        #. Checks out the :envvar:`RELEASE` tag of the
+           snoopycrimecop fork of openmicroscopy.git_
+        #. |buildOMERO|
+        #. Executes the `release-hudson` target for the `ome.staging` Maven
+           repository
+        #. |copyreleaseartifacts|
+        #. Triggers :term:`OMERO-DEV-release-downloads`
+
+    :jenkinsjob:`OMERO-DEV-release-downloads`
+
+        This job builds the OMERO downloads page
+
+        #. Checks out the `develop` branch of
+           https://github.com/openmicroscopy/ome-release.git
+        #. Runs `make clean omero`
+
+    :jenkinsjob:`OMERO-DEV-release-integration`
+
+        This job runs the integration tests
+
+        #. Checks out the :envvar:`RELEASE` tag of the
+           snoopycrimecop fork of openmicroscopy.git_
+        #. Builds OMERO.server and starts it
+        #. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
+        #. Archives the results
+        #. Triggers downstream collection jobs:
+           :term:`OMERO-DEV-release-integration-broken`,
+           :term:`OMERO-DEV-release-integration-java`,
+           :term:`OMERO-DEV-release-integration-python`,
+           :term:`OMERO-DEV-release-integration-web`,
+           :term:`OMERO-DEV-release-training`,
+           :term:`OMERO-DEV-release-robotframework`
+
+    :jenkinsjob:`OMERO-DEV-release-integration-broken`
+
+        This job collects the OMERO.java broken test results
+
+        #. Receives TestNG results under
+           :file:`components/tools/OmeroJava/target/reports/broken` from
+           :term:`OMERO-DEV-release-integration`
+        #. Generates TestNG report
+
+    :jenkinsjob:`OMERO-DEV-release-integration-java`
+
+        This job collects the OMERO.java integration test results
+
+        #. Receives TestNG results under
+           :file:`components/tools/OmeroJava/target/reports/integration` from
+           :term:`OMERO-DEV-release-integration`
+        #. Generates TestNG report
+
+    :jenkinsjob:`OMERO-DEV-release-integration-python`
+
+        This job collects the OMERO.py integration test results
+
+        #. Receives pytest results under
+           :file:`components/tools/OmeroPy/target/reports` from
+           :term:`OMERO-DEV-release-integration`
+        #. Generates pytest report
+
+    :jenkinsjob:`OMERO-DEV-release-integration-web`
+
+        This job collects the OMERO.web integration test results
+
+        #. Receives pytest results under
+           :file:`components/tools/OmeroWeb/target/reports` from
+           :term:`OMERO-DEV-release-integration`
+        #. Generates pytest report
+
+    :jenkinsjob:`OMERO-DEV-release-training`
+
+        This job runs the Java, MATLAB and Python training examples under
+        :file:`examples/Training`
+
+    :jenkinsjob:`OMERO-DEV-release-robotframework`
+
+        This job runs the robot framework tests of OMERO
+
+        #. Checks out the :envvar:`RELEASE` tag of the
+           snoopycrimecop fork of openmicroscopy.git_
+        #. Runs the robot framework tests and collect the results
 
 
 Other release jobs

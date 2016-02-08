@@ -527,7 +527,7 @@ Jenkins.
 
     :jenkinsjob:`OMERO-DEV-breaking-build`
 
-        This matrix jobs builds the OMERO components with Ice 3.4 or 3.5
+        This matrix jobs builds the OMERO components with Ice 3.5
 
         #. Checks out :omero_scc_branch:`develop/breaking/trigger` 
         #. |buildOMERO| for each version of Ice
