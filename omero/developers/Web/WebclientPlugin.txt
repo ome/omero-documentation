@@ -29,9 +29,9 @@ framework.
 .. note::
 
     When you embed your pages in the webclient, there is potential for
-    conflicts between Javascript and CSS in the host page and your own code.
-    Care must be taken not to overwrite global Javascript functions (such as
-    jQuery or the 'OME' namespace) or to add css codes that may affect
+    conflicts between JavaScript and CSS in the host page and your own code.
+    Care must be taken not to overwrite global JavaScript functions (such as
+    jQuery or the 'OME' namespace) or to add CSS codes that may affect
     host elements.
 
 The webclient plugins work by adding some custom JavaScript snippets into the
