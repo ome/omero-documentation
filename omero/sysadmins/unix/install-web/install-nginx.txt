@@ -14,8 +14,8 @@ OMERO.web uses
 as a primary deployment platform, the Python standard
 `PEP 3333 <https://www.python.org/dev/peps/pep-3333/>`_
 that describes how a web server communicates with web applications.
-OMERO.web deployment can be configured with synch and async workers.
-Sync workers are faster and recommended for a data reposority with
+OMERO.web deployment can be configured with sync and async workers.
+Sync workers are faster and recommended for a data repository with
 :ref:`download_restrictions`. If you wish to offer users the ability
 to download data you have to use async workers, read more about
 :ref:`download_limitation`.
@@ -294,7 +294,7 @@ For more details check :ref:`troubleshooting-omeroweb`.
 Debugging
 ^^^^^^^^^
 
-To run WSGI server in a debug mode set
+To run WSGI server in a debug mode set the
 `Gunicorn logging <http://docs.gunicorn.org/en/stable/settings.html#logging>`_
 using :property:`omero.web.wsgi_args`:
 

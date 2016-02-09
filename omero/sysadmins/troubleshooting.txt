@@ -356,7 +356,7 @@ running. In order to kill stale processes by hand, run:
 
 .. note::
     As Gunicorn is based on the pre-fork worker model it is enough to kill
-    master process, the one with the lowest PID.
+    the master process, the one with the lowest PID.
 
 OMERO.web not available HTTP 404
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
