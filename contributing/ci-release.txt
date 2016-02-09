@@ -16,7 +16,7 @@ jobs should be listed under the :jenkinsview:`Release` view.
         * :jenkinsjob:`OMERO-DEV-release-trigger`
     -   * Tags the OMERO source code repository
         * :jenkinsjob:`OMERO-5.1-release-push`
-        * :jenkinsjob:`OME-DEV-release-push`
+        * :jenkinsjob:`OMERO-DEV-release-push`
     -   * Build the OMERO download artifacts
         * :jenkinsjob:`OMERO-5.1-release`
         * :jenkinsjob:`OMERO-DEV-release`
@@ -81,9 +81,9 @@ clients of the deployment jobs described above:
 
     -   * 5.2.x
         * :term:`OMERO-DEV-release-integration`
-        * eel.openmicroscopy.org
-        * 14064
-        * https://eel.openmicroscopy.org/
+        * seabass.openmicroscopy.org
+        * 24064
+        * https://seabass.openmicroscopy.org/5.2
 
 
 5.1.x series
