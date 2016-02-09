@@ -53,7 +53,7 @@ Additional settings can be configured by the following properties:
 - :property:`omero.web.wsgi.threads` 2-4 x NUM_CORES the number of worker threads
   for handling requests.
 
-- :property:`omero.web.wsgi.args` Additional arguments. For more details
+- :property:`omero.web.wsgi_args` Additional arguments. For more details
   check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
 
 .. _gunicorn_async_configuration:
@@ -88,7 +88,7 @@ Additional settings can be configured the following properties:
 - :property:`omero.web.wsgi.worker_connections` the maximum number
   of simultaneous clients.
 
-- :property:`omero.web.wsgi.args` Additional arguments. For more details
+- :property:`omero.web.wsgi_args` Additional arguments. For more details
   check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
 
 
@@ -238,7 +238,7 @@ for 100 concurrent users making in total 5000 requests:
     Licensed to The Apache Software Foundation, http://www.apache.org/
 
     Server Software:        nginx/1.9.9
-    Server Hostname:        ola-test-c7.docker.openmicroscopy.org
+    Server Hostname:        server.openmicroscopy.org
     Server Port:            80
 
     Document Path:          /omero/webclient/render_image/1234/20/0/
