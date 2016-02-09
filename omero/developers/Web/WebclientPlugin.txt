@@ -26,6 +26,14 @@ their own URLs, views and templates.
 Then you can display these pages within the webclient UI, using the plugin
 framework.
 
+.. note::
+
+    When you embed your pages in the webclient, there is potential for
+    conflicts between JavaScript and CSS in the host page and your own code.
+    Care must be taken not to overwrite global JavaScript functions (such as
+    jQuery or the 'OME' namespace) or to add CSS codes that may affect
+    host elements.
+
 The webclient plugins work by adding some custom JavaScript snippets into the
 main pages of the webclient and adding HTML elements to specified locations in
 the webclient. These snippets of JavaScript can be used to load content into
@@ -53,8 +61,7 @@ These URLs should simply display the content that you want to show in the
 webclient.
 NB: when these pages load in the webclient, they will have all the webclient
 CSS and JavaScript (such as jQuery) available so you do not need to include
-these in your page. Furthermore, it is important not to overwrite CSS or
-JavaScript in the webclient (for example by including jQuery).
+these in your page.
 
 
 Configuring the plugin
