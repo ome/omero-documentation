@@ -13,9 +13,9 @@ Apache 2.2+ with mod_wsgi configuration (Unix/Linux)
       see :ref:`python-requirements` on the
       :doc:`/sysadmins/version-requirements` page.
 
-OMERO.web uses
+OMERO.web uses the
 `Web Server Gateway Interface (WSGI) <http://wsgi.readthedocs.org/en/latest/learn.html>`_
-as a primary deployment platform, the Python standard
+as a primary deployment platform. The Python standard
 `PEP 3333 <https://www.python.org/dev/peps/pep-3333/>`_
 that describes how a web server communicates with web applications.
 
@@ -35,18 +35,18 @@ Install `Django 1.8`_ using package requirements file:
           :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
           or :djangodoc:`hot to upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
 
-Additional settings can be configured by the following properties:
+Additional settings can be configured by changing the following properties:
 
 - :property:`omero.web.application_server.max_requests` to 500
 
-- :property:`omero.web.wsgi.workers` (2 x NUM_CORES) + 1
+- :property:`omero.web.wsgi.workers` to (2 x NUM_CORES) + 1
 
   .. note::
-      DO NOT scale the number of workers to the number of clients
+      **Do not** scale the number of workers to the number of clients
       you expect to have. OMERO.web should only need 4-12 worker
       processes to handle many requests per second.
 
-- :property:`omero.web.wsgi.threads` 2-4 x NUM_CORES the number of worker threads
+- :property:`omero.web.wsgi.threads` to 2—4 x NUM_CORES the number of worker threads
   for handling requests.
 
 
@@ -88,10 +88,12 @@ configuration redirect the output of the following command into a file:
 To configure an HTTPS server follow
 `the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
 
+Then reload Apache.
+
 
 Running OMERO.web (Unix/Linux)
 ------------------------------
 
 OMERO.web is used in 'daemon' mode where UNIX sockets are used to communicate
 between the Apache child processes and the daemon processes which are
-to handle a request. Reload Apache.
+to handle a request.

@@ -347,12 +347,8 @@ OMERO.web did not start
 OMERO.web running but status says not started
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you upgraded OMERO but forgot to stop OMERO.web, processes will be still
-running. In order to kill stale processes by hand, run:
-
-::
-
-    $ ps aux | grep /home/omero/OMERO.server/var/django.pid
+If you upgraded OMERO but forgot to stop OMERO.web, processes will still be
+running. In order to kill stale processes by hand, run:: $ ps aux | grep /home/omero/OMERO.server/var/django.pid
 
 .. note::
     As Gunicorn is based on the pre-fork worker model it is enough to kill
@@ -361,9 +357,9 @@ running. In order to kill stale processes by hand, run:
 OMERO.web not available HTTP 404
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Consult nginx error.log for more details.
+Consult nginx :file:`error.log` for more details.
 
-The most common problem appears when default configuration for ``location /``
+The most common problem appears when the default configuration for ``location /``
 is loaded prior to omeroweb.conf
 
 ::

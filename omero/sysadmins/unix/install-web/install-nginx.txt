@@ -9,15 +9,15 @@ OMERO.web Nginx and Gunicorn deployment (Unix/Linux)
       :doc:`/sysadmins/version-requirements` page.
 
 
-OMERO.web uses
+OMERO.web uses the
 `Web Server Gateway Interface (WSGI) <http://wsgi.readthedocs.org/en/latest/learn.html>`_
-as a primary deployment platform, the Python standard
+as a primary deployment platform. The Python standard
 `PEP 3333 <https://www.python.org/dev/peps/pep-3333/>`_
 that describes how a web server communicates with web applications.
 OMERO.web deployment can be configured with sync and async workers.
 Sync workers are faster and recommended for a data repository with
 :ref:`download_restrictions`. If you wish to offer users the ability
-to download data you have to use async workers, read more about
+to download data then you have to use async workers; read more about
 :ref:`download_limitation`.
 
 
@@ -28,7 +28,7 @@ Gunicorn default configuration (Unix/Linux)
 
 Install `Django 1.8`_,
 `Gunicorn >= 19.3 <http://gunicorn.org>`_
-and `futures <https://pypi.python.org/pypi/futures>`_ using package requirements file:
+and `futures <https://pypi.python.org/pypi/futures>`_ using the package requirements file:
 
 ::
 
@@ -39,18 +39,18 @@ and `futures <https://pypi.python.org/pypi/futures>`_ using package requirements
       or :djangodoc:`upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
 
 
-Additional settings can be configured by the following properties:
+Additional settings can be configured by changing the following properties:
 
 - :property:`omero.web.application_server.max_requests` to 500
 
-- :property:`omero.web.wsgi.workers` (2 x NUM_CORES) + 1
+- :property:`omero.web.wsgi.workers` to (2 x NUM_CORES) + 1
 
   .. note::
       DO NOT scale the number of workers to the number of clients
       you expect to have. OMERO.web should only need 4-12 worker
       processes to handle many requests per second.
 
-- :property:`omero.web.wsgi.threads` 2-4 x NUM_CORES the number of worker threads
+- :property:`omero.web.wsgi.threads` to 2-4 x NUM_CORES the number of worker threads
   for handling requests.
 
 - :property:`omero.web.wsgi_args` Additional arguments. For more details
@@ -63,7 +63,7 @@ Gunicorn asyncronious configuration (Unix/Linux)
 
 Install `Django 1.8`_,
 `Gunicorn >= 19.3 <http://gunicorn.org>`_
-and `Gevent >= 0.13 <http://www.gevent.org/>`_ using package requirements file:
+and `Gevent >= 0.13 <http://www.gevent.org/>`_ using the package requirements file:
 
 ::
 
@@ -182,10 +182,8 @@ offer alternative access to binary data.
 Benchmark
 ---------
 
-We run example banchmarks on rendering thumbnail and 512x512 pixels plane
-for 100 concurrent users making in total 5000 requests:
-
-::
+We run example banchmarks on rendering thumbnails and 512x512 pixels planes
+for 100 concurrent users making 5000 requests in total::
 
     $ ab -n 5000 -c 100 https://server.openmicroscopy.org/omero/webclient/render_thumbnail/size/96/1234/
     This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
@@ -286,7 +284,7 @@ In order to identify why OMERO.web is not available run:
 
     $ bin/omero web status
 
-Then consult nginx ``error.log`` and ``OMERO.server/var/log/OMEROweb.log``
+Then consult nginx :file:`error.log` and :file:`OMERO.server/var/log/OMEROweb.log`
 
 For more details check :ref:`troubleshooting-omeroweb`.
 
@@ -294,7 +292,7 @@ For more details check :ref:`troubleshooting-omeroweb`.
 Debugging
 ^^^^^^^^^
 
-To run WSGI server in a debug mode set the
+To run the WSGI server in debug mode, enable
 `Gunicorn logging <http://docs.gunicorn.org/en/stable/settings.html#logging>`_
 using :property:`omero.web.wsgi_args`:
 
