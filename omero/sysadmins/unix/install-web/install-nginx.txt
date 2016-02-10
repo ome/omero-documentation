@@ -43,14 +43,14 @@ Additional settings can be configured by changing the following properties:
 
 - :property:`omero.web.application_server.max_requests` to 500
 
-- :property:`omero.web.wsgi.workers` to (2 x NUM_CORES) + 1
+- :property:`omero.web.wsgi_workers` to (2 x NUM_CORES) + 1
 
   .. note::
       DO NOT scale the number of workers to the number of clients
       you expect to have. OMERO.web should only need 4-12 worker
       processes to handle many requests per second.
 
-- :property:`omero.web.wsgi.threads` to 2-4 x NUM_CORES the number of worker threads
+- :property:`omero.web.wsgi_threads` to 2-4 x NUM_CORES the number of worker threads
   for handling requests.
 
 - :property:`omero.web.wsgi_args` Additional arguments. For more details
@@ -78,7 +78,7 @@ Additional settings can be configured the following properties:
 
 - :property:`omero.web.application_server.max_requests` to 0
 
-- :property:`omero.web.wsgi.workers` (2 x NUM_CORES) + 1
+- :property:`omero.web.wsgi_workers` (2 x NUM_CORES) + 1
 
   .. note::
       DO NOT scale the number of workers to the number of clients
