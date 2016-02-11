@@ -24,9 +24,11 @@ Requirements
 ^^^^^^^^^^^^
 
 The normal OMERO installation actually makes use of OMERO.grid internally.
+Note that multi-node OMERO.grid configurations are only tested with Unix-like
+systems, multi-node configurations on Windows are untested and deprecated,
+and any remaining support will be dropped in OMERO 5.3.
 If you have followed the instructions under :doc:`unix/server-installation`
-(Unix) or :doc:`windows/server-installation` (Windows), then you
-will have everything you need to start working with OMERO.grid.
+you will have everything you need to start working with OMERO.grid.
 
 The standard install should also be used to install other hosts in the grid,
 such as a computation-only host. Some elements can be omitted for a
@@ -80,9 +82,7 @@ stopping the :doc:`/developers/server-blitz` server and other
 processes. Instead, that job is delegated to the native Windows service
 system. A brief explanation is available under :doc:`windows/service-tools`.
 
-As noted below, multi-node deployment is not supported for Windows - no
-testing of this type of configuration is carried out and you use it at your
-own risk.
+Multi-node deployment is not supported for Windows.
 
 How it works
 ------------
@@ -226,9 +226,7 @@ Nodes on multiple hosts
     Before attempting this type of deployment, make sure that the hosts
     can ping each other and that required ports are open and not firewalled.
     
-    Note that we do not carry out any testing for Windows multi-node
-    configurations so you should consider this unsupported and
-    use-at-your-own-risk.
+    Windows multi-node configurations are not supported.
 
 A more complex deployment example is running multiple nodes on networked
 hosts. Initially, the host's loopback IP address (127.0.0.1) is used in the grid configuration files.
