@@ -28,8 +28,7 @@ Note that multi-node OMERO.grid configurations are only tested with Unix-like
 systems, multi-node configurations on Windows are untested and deprecated,
 and any remaining support will be dropped in OMERO 5.3.
 If you have followed the instructions under :doc:`unix/server-installation`
-(Unix) or :doc:`windows/server-installation` (Windows), then you
-will have everything you need to start working with OMERO.grid.
+you will have everything you need to start working with OMERO.grid.
 
 The standard install should also be used to install other hosts in the grid,
 such as a computation-only host. Some elements can be omitted for a
