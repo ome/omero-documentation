@@ -90,7 +90,7 @@ if necessary, create new users based on the information in LDAP.
 ::
 
     omero.ldap.user_filter=(objectClass=person)
-    omero.ldap.user_mapping=omeName=cn,firstName=givenName,lastName=sn,email=mail
+    omero.ldap.user_mapping=omeName=cn,firstName=givenName,lastName=sn,email=mail,institution=department,middleName=middleName
 
 :property:`omero.ldap.user_filter` will be AND'ed to the username query, and can
 contain any valid LDAP filter string. The username query is taken from
