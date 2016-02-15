@@ -79,12 +79,6 @@ to access the OMERO.webclient:
 
    OMERO.web login
 
-.. note::
-	This starts the server in the foreground. It is your
-	responsibility to place it in the background, if required, and
-	manage its shutdown.
-
-
 .. _windows_omero_web_maintenance:
 
 OMERO.web Maintenance (Windows)
