@@ -23,9 +23,9 @@ This command performs the following operations in order:
 
 Most configuration files under :file:`etc/grid` are generated using the
 templates under :file:`etc/grid/templates` and the server configuration stored
-in :file:`etc/grid/config.xml`. During this rewriting step, the JVM memory
-settings are recalculated (see :ref:`jvm_memory_settings`) and the new server
-ports (see :ref:`ports_configuration`).
+in :file:`etc/grid/config.xml`. The rewriting step updates the JVM memory
+settings (see :ref:`jvm_memory_settings`) and the server ports (see
+:ref:`ports_configuration`) based on the server configuration.
 
 .. program:: omero admin start
 
