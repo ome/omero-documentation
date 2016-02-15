@@ -35,9 +35,9 @@ ports (see :ref:`ports_configuration`).
 
 .. option:: --foreground
 
-    This option is particularly useful for debugging and maintenance option
-    and allows for starting the server up in the foreground, that is
-    without creating a daemon on UNIX-like systems or service on Windows.
+    This option is particularly useful for debugging and maintenance and
+    allows for starting the server up in the foreground, that is without
+    creating a daemon on UNIX-like systems or service on Windows.
     During the lifetime of the server, the prompt from which it was launched
     will be blocked.
 
