@@ -348,7 +348,9 @@ OMERO.web running but status says not started
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you upgraded OMERO but forgot to stop OMERO.web, processes will still be
-running. In order to kill stale processes by hand, run:: $ ps aux | grep /home/omero/OMERO.server/var/django.pid
+running. In order to kill stale processes by hand, run::
+
+    $ ps aux | grep /home/omero/OMERO.server/var/django.pid
 
 .. note::
     As Gunicorn is based on the pre-fork worker model it is enough to kill

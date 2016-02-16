@@ -61,11 +61,13 @@ Sync workers are faster and recommended for a data repository with
 to download data then you have to use async workers; read more about
 :ref:`download_limitation`.
 
+For more details refer to
+`Gunicorn design <http://docs.gunicorn.org/en/stable/design.html>`_.
 
 .. _gunicorn_sync_configuration:
 
-Sync workers
-^^^^^^^^^^^^
+EXPERIMENTAL: Sync workers
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Install `futures <https://pypi.python.org/pypi/futures>`_ ::
 
@@ -76,10 +78,7 @@ Additional settings can be configured by changing the following properties:
 - :property:`omero.web.wsgi_worker_class` unset
 
 - :property:`omero.web.wsgi_threads` to 2-4 x NUM_CORES the number of worker threads
-  for handling requests.
-
-
-::
+  for handling requests::
 
       $ bin/omero config set omero.web.wsgi_worker_class
       $ bin/omero config set omero.web.wsgi_threads 10
@@ -87,8 +86,8 @@ Additional settings can be configured by changing the following properties:
 
 .. _gunicorn_async_configuration:
 
-Async workers
-^^^^^^^^^^^^^
+EXPERIMENTAL: Async workers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Install `Gevent >= 0.13 <http://www.gevent.org/>`_ ::
 
@@ -99,12 +98,9 @@ Additional settings can be configured by changing the following properties:
 
 - :property:`omero.web.wsgi_worker_class` to gevent
 
-- :property:`omero.web.wsgi_worker_connections` to 2-4 x NUM_CORES the number of worker threads
-  for handling requests.
+- :property:`omero.web.wsgi_worker_connections` to 1000
 
-- :property:`omero.web.application_server.max_requests` to 0
-
-::
+- :property:`omero.web.application_server.max_requests` to 0::
 
       $ bin/omero config set omero.web.wsgi_worker_class gevent
       $ bin/omero config set omero.web.wsgi_worker_connections 1000
@@ -201,7 +197,7 @@ offer alternative access to binary data.
 Benchmark
 ---------
 
-We run example banchmarks on rendering thumbnails and 512x512 pixels planes
+We run example benchmarks on rendering thumbnails and 512x512 pixels planes
 for 100 concurrent users making 5000 requests in total::
 
     $ ab -n 5000 -c 100 https://server.openmicroscopy.org/omero/webclient/render_thumbnail/size/96/1234/
