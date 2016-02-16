@@ -14,11 +14,7 @@ OMERO.web uses the
 as a primary deployment platform. The Python standard
 `PEP 3333 <https://www.python.org/dev/peps/pep-3333/>`_
 that describes how a web server communicates with web applications.
-OMERO.web deployment can be configured with sync and async workers.
-Sync workers are faster and recommended for a data repository with
-:ref:`download_restrictions`. If you wish to offer users the ability
-to download data then you have to use async workers; read more about
-:ref:`download_limitation`.
+
 
 
 .. _gunicorn_default_configuration:
@@ -26,9 +22,8 @@ to download data then you have to use async workers; read more about
 Gunicorn default configuration (Unix/Linux)
 -------------------------------------------
 
-Install `Django 1.8`_,
-`Gunicorn >= 19.3 <http://gunicorn.org>`_
-and `futures <https://pypi.python.org/pypi/futures>`_ using the package requirements file:
+Install `Django 1.8`_ and `Gunicorn >= 19.3 <http://gunicorn.org>`_
+using the package requirements file:
 
 ::
 
@@ -46,50 +41,74 @@ Additional settings can be configured by changing the following properties:
 - :property:`omero.web.wsgi_workers` to (2 x NUM_CORES) + 1
 
   .. note::
-      DO NOT scale the number of workers to the number of clients
+      **Do not** scale the number of workers to the number of clients
       you expect to have. OMERO.web should only need 4-12 worker
       processes to handle many requests per second.
+
+- :property:`omero.web.wsgi_args` Additional arguments. For more details
+  check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
+
+.. _gunicorn_advance_configuration:
+
+EXPERIMENTAL: Gunicorn advance configuration (Unix/Linux)
+---------------------------------------------------------
+
+.. note:: This section is experimental and still under development
+
+OMERO.web deployment can be configured with sync and async workers.
+Sync workers are faster and recommended for a data repository with
+:ref:`download_restrictions`. If you wish to offer users the ability
+to download data then you have to use async workers; read more about
+:ref:`download_limitation`.
+
+
+.. _gunicorn_sync_configuration:
+
+Sync workers
+^^^^^^^^^^^^
+
+- Install `futures <https://pypi.python.org/pypi/futures>`_ ::
+
+      $ pip install futures
+
+Additional settings can be configured by changing the following properties:
+
+- :property:`omero.web.wsgi_worker_class` unset
 
 - :property:`omero.web.wsgi_threads` to 2-4 x NUM_CORES the number of worker threads
   for handling requests.
 
-- :property:`omero.web.wsgi_args` Additional arguments. For more details
-  check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
-
-.. _gunicorn_async_configuration:
-
-Gunicorn asyncronious configuration (Unix/Linux)
-------------------------------------------------
-
-Install `Django 1.8`_,
-`Gunicorn >= 19.3 <http://gunicorn.org>`_
-and `Gevent >= 0.13 <http://www.gevent.org/>`_ using the package requirements file:
 
 ::
 
-   $ pip install -r share/web/requirements-py27-async-nginx.txt
-
-.. note:: For more details refer to
-      :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
-      or :djangodoc:`upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
+      $ bin/omero config set omero.web.wsgi_worker_class
+      $ bin/omero config set omero.web.wsgi_threads 10
 
 
-Additional settings can be configured the following properties:
+.. _gunicorn_async_configuration:
+
+Async workers
+^^^^^^^^^^^^^
+
+- Install `Gevent >= 0.13 <http://www.gevent.org/>`_ ::
+
+      $ pip install gevent
+
+Additional settings can be configured by changing the following properties:
+
+
+- :property:`omero.web.wsgi_worker_class` to gevent
+
+- :property:`omero.web.wsgi_worker_connections` to 2-4 x NUM_CORES the number of worker threads
+  for handling requests.
 
 - :property:`omero.web.application_server.max_requests` to 0
 
-- :property:`omero.web.wsgi_workers` (2 x NUM_CORES) + 1
+::
 
-  .. note::
-      DO NOT scale the number of workers to the number of clients
-      you expect to have. OMERO.web should only need 4-12 worker
-      processes to handle hundreds or thousands of requests per second.
-
-- :property:`omero.web.wsgi.worker_connections` the maximum number
-  of simultaneous clients.
-
-- :property:`omero.web.wsgi_args` Additional arguments. For more details
-  check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
+      $ bin/omero config set omero.web.wsgi_worker_class gevent
+      $ bin/omero config set omero.web.wsgi_worker_connections 1000
+      $ bin/omero config set omero.web.application_server.max_requests 0
 
 
 .. _nginx_gunicorn_wsgi_configuration:
