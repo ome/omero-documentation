@@ -105,7 +105,7 @@ Components
     with a single major version, and removes a number of portability
     issues, but most importantly is a requirement of `Django 1.8`_.
     Python 2.6 will continue to work for 5.2 with Django 1.6, but this
-    not a recommended combination due to security vulnerabilities.
+    is not recommended due to security vulnerabilities.
 
 * GCC
 
