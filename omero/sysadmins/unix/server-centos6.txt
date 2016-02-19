@@ -22,7 +22,7 @@ Python 2.7
 ^^^^^^^^^^
 
 CentOS 6 provides Python 2.6. However, OMERO.web requires Python 2.7
-in order to use `Django 1.8`_. While `Django 1.6`_ may be used with Python
+in order to use `Django 1.8`_. While Django 1.6 may be used with Python
 2.6, this version of Django no longer has security support.  In
 consequence, it is necessary to upgrade to Python 2.7 in order to
 obtain Django security updates, which are required for a production
