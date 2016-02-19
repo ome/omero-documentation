@@ -17,7 +17,7 @@ Map Annotations, storing 'key-value pairs', are a type of Structured
 Annotation which were introduced in the :doc:`/schemas/january-2015`. Further
 information is available in the :omero_doc:`OMERO developer documentation on
 Key-value pairs <developers/Model/KeyValuePairs.html>` and a
-:omexml_downloads:`sample OME-XML file <>` is also available.
+:omexml_downloads:`sample OME-XML file <mapannotation.ome.xml>` is also available.
 
 The structure of the SA used in the schema is shown below,
 along with all the possible attachment points in the model.
