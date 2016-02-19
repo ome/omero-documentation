@@ -1,5 +1,12 @@
-Queries
-=======
+Using server queries internally
+===============================
+
+.. topic:: Overview
+
+    This page is aimed at internal server developers and does not
+    contain information of how to perform API queries. If that is the kind of
+    information you are looking for, you may find
+    :doc:`/developers/Modules/Api` more useful as a starting point.
 
 .. figure:: /images/omero-queries-queryfactory-collaboration.png
   :align: center
