@@ -107,10 +107,10 @@ re-calculate its arguments on each invocation, use the
 `NSDYNAMIC` namespace:
 
 
-.. literalinclude:: example-dynamic-script.py
+.. literalinclude:: Example_Dynamic_Script.py
    :start-after: # Included in
 
-:download:`example-dynamic-script.py <example-dynamic-script.py>`
+:download:`Example_Dynamic_Script.py <Example_Dynamic_Script.py>`
 
 
 Script writing as 'Admin'
