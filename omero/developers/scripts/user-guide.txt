@@ -108,7 +108,7 @@ re-calculate its arguments on each invocation, use the
 
 
 .. literalinclude:: example-dynamic-script.py
-   :lines: 4-
+   :start-after: # Included in
 
 :download:`example-dynamic-script.py <example-dynamic-script.py>`
 

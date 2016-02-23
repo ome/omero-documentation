@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # Example OMERO.script using dynamic arguments
+# Included in omero/developers/scripts/user-guide.txt
+# A list of datasets will be dynamically generated and used to populate the
+# script parameters every time the script is called
 
 import omero
 import omero.gateway
