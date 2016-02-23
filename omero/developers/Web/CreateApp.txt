@@ -362,22 +362,22 @@ Custom image viewer
 ^^^^^^^^^^^^^^^^^^^
 
 If you have created your own image viewer and would like to have it replace the existing image viewer in the
-webclient, this can be configured using :property:'omeroweb.webclient.views.image_viewer'.
+webclient, this can be configured using :property:`omeroweb.webclient.views.image_viewer`.
 
-You will need your views.py method to take an Image ID with a parameter named ``iid``. For example, see
+You will need your :file:`views.py` method to take an Image ID with a parameter named ``iid``. For example, see
 ``channel_overlay_viewer`` from the `webtest <https://github.com/openmicroscopy/webtest/>`_ app:
 
-   ::
+::
 
-       @login_required()
-       def channel_overlay_viewer(request, iid, conn=None, **kwargs):
+    @login_required()
+    def channel_overlay_viewer(request, iid, conn=None, **kwargs):
 
 You can then configure the webclient to use this viewer by providing the full path name to this view method.
-For example, if you have webtest installed you can use the 'channel_overlay_viewer':
+For example, if you have webtest installed you can use the ``channel_overlay_viewer``:
 
-   ::
+::
 
-       $ bin/omero config set omero.web.viewer.view webtest.views.channel_overlay_viewer
+    $ bin/omero config set omero.web.viewer.view webtest.views.channel_overlay_viewer
 
 This will now direct the image viewer url at ``webclient/img_detail/<iid>/`` to this viewer.
 However, the existing viewer will still be available under webgateway at ``webgateway/img_detail/<iid>/``.
@@ -386,10 +386,10 @@ If you want to use a different viewer for different images, you can conditionall
 the webgateway viewer or elsewhere.
 For example:
 
-   ::
+::
 
-       if image.getSizeC() == 1:
-           return HttpResponseRedirect(reverse("webgateway.views.full_viewer", args=(iid,)))
+    if image.getSizeC() == 1:
+        return HttpResponseRedirect(reverse("webgateway.views.full_viewer", args=(iid,)))
 
 
 OMERO.web plugins
