@@ -279,22 +279,21 @@ If you are unclear about how hard-linking works, please see the
 `Hard link <http://en.wikipedia.org/wiki/Hard_link>`_ article on
 Wikipedia.
 
-.. note:: The semantics of hard-linking have changed recently on Linux
-    systems with the "protected hardlinks" feature, which is enabled
-    by default and is in use on Ubuntu 14.04, CentOS 7 and other
-    contemporary systems.  Linux now requires that when you create a
-    hard-link to a file that you are either the *owner* of the file,
-    or that you have *read/write access* to the file.  Other Unix
-    systems, and older Linux systems, allow a hard link to be made if
-    you have *search access* to the file (i.e. you have read/execute
-    permission on the directory containing the file), but do not check
-    the file permissions themselves.  See the `kernel-hardening
-    mailing list post
-    <http://www.openwall.com/lists/kernel-hardening/2012/02/21/20>`__
-    which describes the change in more detail.  The implication for
-    in-place import is that the user performing the import must own or
-    have read-write permissions on the data files being imported
-    in-place.
+The semantics of hard-linking have changed recently on Linux systems
+with the "protected hardlinks" feature, which is enabled by default
+and is in use on Ubuntu 14.04, CentOS 7 and other contemporary
+systems.  When you create a hard-link to a file, Linux now requires
+that you are either the *owner* of the file, or that you have
+*read-write permissions* to the file.  Other Unix systems, and older
+Linux systems, allow a hard-link to be made if you have *search
+access* to the file (i.e. you have appopriate read and execute
+permissions on the directory path containing the file), but do
+not check the file permissions themselves.  See the `kernel-hardening
+mailing list post
+<http://www.openwall.com/lists/kernel-hardening/2012/02/21/20>`__
+which describes the change in more detail.  The implication for
+in-place import is that the user performing the import must own or
+have read-write permissions on the data files being imported in-place.
 
 .. _inplace_import_ln_rm:
 
