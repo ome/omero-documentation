@@ -32,23 +32,23 @@ data directory is to be moved then the following steps should be used:
     mv OLD NEW
 
 For example, moving the OMERO data directory from ``/Users/omero/var/omero``
-to ``/Users/omero/var/omero-new``:
+to ``/Volumes/omero``:
 
 ::
 
     $ bin/omero admin stop
     ...
-    $ bin/omero config omero.data.dir /Users/omero/var/omero-new
-    $ mv /Users/omero/var/omero /Users/omero/var/omero-new
+    $ bin/omero config omero.data.dir /Volumes/omero
+    $ mv /Users/omero/var/omero /Volumes/omero
     $ bin/omero admin start
     ...
     $ bin/omero fs repos
 
      # | Id | UUID                                 | Type    | Path
-    ---+----+--------------------------------------+---------+---------------------------------------------
-     0 | 1  | 309ea513-a23c-48d1-abd2-9ceed1b3ffa4 | Managed | /Users/omero/var/omero-new/ManagedRepository
+    ---+----+--------------------------------------+---------+---------------------------------
+     0 | 1  | 309ea513-a23c-48d1-abd2-9ceed1b3ffa4 | Managed | /Volumes/omero/ManagedRepository
      1 | 2  | ScriptRepo                           | Script  | /Users/omero/dist/lib/scripts
-     2 | 3  | 3ec8c878-c776-48a3-b57e-2a11b0c97045 | Public  | /Users/omero/var/omero-new
+     2 | 3  | 3ec8c878-c776-48a3-b57e-2a11b0c97045 | Public  | /Volumes/omero
     (3 rows)
 
 If the Managed Repository is in a separate location to OMERO data directory
@@ -61,22 +61,21 @@ should be used:
     mv OLD NEW
 
 For example, moving the Managed Repository from ``/Users/omero/var/omero/ManagedRepository``
-to ``/Users/omero/var/omero-new/ManagedRepository``:
+to ``/Volumes/imports/ManagedRepository``:
 
 ::
 
     $ bin/omero admin stop
     ...
-    $ bin/omero config omero.managed.dir /Users/omero/var/omero-new/ManagedRepository
-    $ mkdir /Users/omero/var/omero-new
-    $ mv /Users/omero/var/omero/ManagedRepository /Users/omero/var/omero-new/ManagedRepository
+    $ bin/omero config omero.managed.dir /Volumes/imports/ManagedRepository
+    $ mv /Users/omero/var/omero/ManagedRepository /Volumes/imports/ManagedRepository
     $ bin/omero admin start
     ...
     $ bin/omero fs repos
 
      # | Id | UUID                                 | Type    | Path
-    ---+----+--------------------------------------+---------+---------------------------------------------
-     0 | 1  | 309ea513-a23c-48d1-abd2-9ceed1b3ffa4 | Managed | /Users/omero/var/omero-new/ManagedRepository
+    ---+----+--------------------------------------+---------+-----------------------------------
+     0 | 1  | 309ea513-a23c-48d1-abd2-9ceed1b3ffa4 | Managed | /Volumes/imports/ManagedRepository
      1 | 2  | ScriptRepo                           | Script  | /Users/omero/dist/lib/scripts
      2 | 3  | 3ec8c878-c776-48a3-b57e-2a11b0c97045 | Public  | /Users/omero/var/omero
     (3 rows)
