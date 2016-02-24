@@ -54,7 +54,7 @@ EXPERIMENTAL:
     Configuration may change. Features may not work properly.
 
 
-Apache can operate in a different modes dependents on the platform and
+Apache can operate in a different modes depending on the platform and
 configuration. Which MPM is being used can be determined from the ‘Server MPM’
 field by running the Apache web server executable with the ‘-V’ option.
 
