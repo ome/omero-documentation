@@ -98,6 +98,20 @@ and the script returns them as outputs.
     # Cleanup
     client.closeSession()
 
+Dynamic arguments
+^^^^^^^^^^^^^^^^^
+
+In general, script parameters are processed on server startup
+and cached for later use. If you have a script which should
+recalculate its arguments on each invocation, use the
+`NSDYNAMIC` namespace:
+
+
+.. literalinclude:: Example_Dynamic_Script.py
+   :start-after: # Included in
+
+:download:`Example_Dynamic_Script.py <Example_Dynamic_Script.py>`
+
 
 Script writing as 'Admin'
 -------------------------
