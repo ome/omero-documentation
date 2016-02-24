@@ -46,8 +46,24 @@ Additional settings can be configured by changing the following properties:
       you expect to have. OMERO.web should only need 4-12 worker
       processes to handle many requests per second.
 
-- :property:`omero.web.wsgi_threads` to 2—4 x NUM_CORES the number of worker threads
-  for handling requests.
+
+EXPERIMENTAL:
+^^^^^^^^^^^^^
+
+.. note:: experimental configuration are not ready for production use.
+    Configuration may change. Features may not work properly.
+
+
+Apache can operate in a different modes dependents on the platform and
+configuration. Which MPM is being used can be determined from the ‘Server MPM’
+field by running the Apache web server executable with the ‘-V’ option.
+
+Additional settings can be configured by changing the following properties:
+
+- `omero.web.wsgi_threads` number of concurrent requests each process can
+  handle::
+
+      $ bin/omero config set omero.web.wsgi_threads $(2-4 x NUM_CORES)
 
 
 .. _apache_mod_wsgi_configuration:

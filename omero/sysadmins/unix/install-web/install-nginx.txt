@@ -264,6 +264,9 @@ using :property:`omero.web.wsgi_args`:
 EXPERIMENTAL: Gunicorn advance configuration (Unix/Linux)
 ---------------------------------------------------------
 
+.. note:: Experimental configuration are not ready for production use.
+    Configuration may change. Features may not work properly.
+
 .. note:: This section is experimental and still under development
 
 OMERO.web deployment can be configured with sync and async workers.
@@ -280,19 +283,18 @@ For more details refer to
 EXPERIMENTAL: Sync workers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. note:: Experimental configuration are not ready for production use.
+    Configuration may change. Features may not work properly.
+
+
 - Install `futures <https://pypi.python.org/pypi/futures>`_ ::
 
       $ pip install futures
 
-Additional settings can be configured by changing the following properties:
-
-- :property:`omero.web.wsgi_worker_class` unset
-
-- :property:`omero.web.wsgi_threads` to 2-4 x NUM_CORES the number of worker threads
-  for handling requests::
+Additional settings can be configured by changing the following properties::
 
       $ bin/omero config set omero.web.wsgi_worker_class
-      $ bin/omero config set omero.web.wsgi_threads 10
+      $ bin/omero config set omero.web.wsgi_threads $(2-4 x NUM_CORES)
 
 
 .. _gunicorn_async_configuration:
@@ -300,18 +302,15 @@ Additional settings can be configured by changing the following properties:
 EXPERIMENTAL: Async workers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. note:: experimental configuration are not ready for production use.
+    Configuration may change. Features may not work properly.
+
+
 - Install `Gevent >= 0.13 <http://www.gevent.org/>`_ ::
 
-      $ pip install gevent
+      $ pip install "gevent>=0.13"
 
 Additional settings can be configured by changing the following properties:
-
-
-- :property:`omero.web.wsgi_worker_class` to gevent
-
-- :property:`omero.web.wsgi_worker_connections` to 1000
-
-- :property:`omero.web.application_server.max_requests` to 0::
 
       $ bin/omero config set omero.web.wsgi_worker_class gevent
       $ bin/omero config set omero.web.wsgi_worker_connections 1000
