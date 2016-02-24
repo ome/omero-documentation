@@ -117,10 +117,9 @@ For the steps described above, download:
 
 Create an omero system user, and a directory for the OMERO repository:
 
-.. literalinclude:: walkthrough/step02_all_setup.sh
+.. literalinclude:: walkthrough/step02_centos6_py27_ius_setup.sh
 
-| :download:`step02_all_setup.sh <walkthrough/step02_all_setup.sh>`
-
+| :download:`step02_centos6_py27_ius_setup.sh <walkthrough/step02_centos6_py27_ius_setup.sh>`
 
 Create a database user and initialize a new database for OMERO:
 
@@ -161,6 +160,8 @@ Install additional Python modules in the virtual environment::
     # Install Django
     /home/omero/omeroenv/bin/pip2.7 install "Django>=1.8,<1.9"
 
+| :download:`step03_centos6_py27_ius_virtualenv_deps.sh <walkthrough/step03_centos6_py27_ius_virtualenv_deps.sh>`
+
 Install OMERO.server
 --------------------
 
@@ -174,7 +175,7 @@ Note that this script requires the same environment variables that were set
 earlier in `settings.env`, so you may need to copy and/or source this file as
 the omero user.
 
-.. literalinclude:: walkthrough/step04_all_omero.sh
+.. literalinclude:: walkthrough/step04_centos6_py27_ius_omero.sh
 
 Installing a web server
 -----------------------
@@ -205,6 +206,8 @@ Copy the Nginx OMERO configuration file into the Nginx configuration directory, 
     mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
     cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
     service nginx start
+
+| :download:`step05_centos6_py27_ius_nginx.sh <walkthrough/step05_centos6_py27_ius_nginx.sh>`
 
 Apache
 ^^^^^^
@@ -248,8 +251,12 @@ and start Apache::
 	chkconfig httpd on
 	service httpd start
 
+| :download:`step05_centos6_py27_ius_apache24.sh <walkthrough/step05_centos6_py27_ius_apache24.sh>`
+
 
 .. note:: If you wish to use Apache 2.4 with mod_wsgi, see `omero-install <https://github.com/ome/omero-install>`_ for a possible solution.
+| :download:`step05_centos6_py27_ius_apache22.sh <walkthrough/step05_centos6_py27_ius_apache22.sh>`
+
 
 
 Running OMERO
