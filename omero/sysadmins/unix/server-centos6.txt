@@ -189,23 +189,12 @@ See also :doc:`install-web/install-nginx`.
 
 **The following steps are run as root.**
 
-To install Nginx run::
-	
-	yum install nginx
+Install Nginx, install the requirements to run OMERO.web in the virtual environment, deactivate it
+and copy the Nginx OMERO configuration file into the
+Nginx configuration directory, and disable the default configuration::
 
-In the virtual environment, install the requirements to run OMERO.web using the requirements file::
 
-	/home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-nginx.txt
-
-Deactivate the virtual environment::
-
-    deactivate
-
-Copy the Nginx OMERO configuration file into the Nginx configuration directory, disable the default configuration and start Nginx::
-
-    mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
-    cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
-    service nginx start
+.. literalinclude:: walkthrough/step05_centos6_py27_ius_nginx.sh
 
 | :download:`step05_centos6_py27_ius_nginx.sh <walkthrough/step05_centos6_py27_ius_nginx.sh>`
 
@@ -223,39 +212,17 @@ As the **omero** system user, configure OMERO.web by running the following comma
 The version of Apache installed is 2.2, see the note below if you wish to use
 version 2.4.
 
-To install Apache 2.2 run::
+Install Apache 2.2, install the requirements to run OMERO.web in the virtual environment, deactivate it
+and add the path to the virtual environment python to the ``python-path`` parameter of the ``WSGIDaemonProcess`` directive::
 	
-    yum install httpd
-    # install mod_wsgi compiled against Python 2.7
-    yum install python27-mod_wsgi
+.. literalinclude:: walkthrough/step05_centos6_py27_ius_apache22.sh
 
-In the virtual environment, install the requirements to run OMERO.web using the requirements file::
-
-    /home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-apache.txt
-
-
-Deactivate the virtual environment::
-
-    deactivate
-
-Open the Apache OMERO configuration file i.e. :file:`omero/OMERO.server/apache.conf.tmp`, and add the line below to the ``python-path`` parameter of the ``WSGIDaemonProcess`` directive::
-
-	/home/omero/omeroenv/lib64/python2.7/site-packages
-
-
-Copy the Apache OMERO configuration file into the Apache configuration directory
-and start Apache::
-
-	cp ~omero/OMERO.server/apache.conf.tmp /etc/httpd/conf.d/omero-web.conf
-
-	chkconfig httpd on
-	service httpd start
-
-| :download:`step05_centos6_py27_ius_apache24.sh <walkthrough/step05_centos6_py27_ius_apache24.sh>`
+| :download:`step05_centos6_py27_ius_apache22.sh <walkthrough/step05_centos6_py27_ius_apache22.sh>`
 
 
 .. note:: If you wish to use Apache 2.4 with mod_wsgi, see `omero-install <https://github.com/ome/omero-install>`_ for a possible solution.
-| :download:`step05_centos6_py27_ius_apache22.sh <walkthrough/step05_centos6_py27_ius_apache22.sh>`
+
+| :download:`step05_centos6_py27_ius_apache24.sh <walkthrough/step05_centos6_py27_ius_apache24.sh>`
 
 
 
