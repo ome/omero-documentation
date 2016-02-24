@@ -36,7 +36,7 @@ Install `gunicorn <http://docs.gunicorn.org/>`_:
 
 ::
 
-    $ pip install gunicorn
+    $ pip install "gunicorn>=19.3"
 
 To create a site configuration file for inclusion in a system-wide nginx
 configuration redirect the output of the following command into a file:
