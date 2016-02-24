@@ -1,0 +1,85 @@
+.. _repository_move:
+
+Moving the data repository
+==========================
+
+It may be necessary to move either the whole OMERO data directory or only the
+Managed Repository to a new location on the file system. This should be done
+with care following the steps below.
+
+.. note::
+    Before moving OMERO data it is wise to ensure that both the data and the
+    database are fully backed up. See :ref:`server_backup`.
+
+The current location of the data repositories can be found using ``fs repos``
+command:
+
+::
+
+    $ bin/omero fs repos
+
+     # | Id | UUID                                 | Type    | Path
+    ---+----+--------------------------------------+---------+-----------------------------------------
+     0 | 1  | 309ea513-a23c-48d1-abd2-9ceed1b3ffa4 | Managed | /Users/omero/var/omero/ManagedRepository
+     1 | 2  | ScriptRepo                           | Script  | /Users/omero/dist/lib/scripts
+     2 | 3  | 3ec8c878-c776-48a3-b57e-2a11b0c97045 | Public  | /Users/omero/var/omero
+    (3 rows)
+
+If the Managed Repository is within the OMERO data directory and the whole
+data directory is to be moved then the following steps should be used:
+
+::
+
+    bin/omero config omero.data.dir NEW
+    mv OLD NEW
+
+For example, moving the OMERO data directory from ``/Users/omero/var/omero``
+to ``/Users/omero/var/omero-new``:
+
+::
+
+    $ bin/omero admin stop
+    ...
+    $ bin/omero config omero.data.dir /Users/omero/var/omero-new
+    $ mv /Users/omero/var/omero /Users/omero/var/omero-new
+    $ bin/omero admin start
+    ...
+    $ bin/omero fs repos
+
+     # | Id | UUID                                 | Type    | Path
+    ---+----+--------------------------------------+---------+---------------------------------------------
+     0 | 1  | 309ea513-a23c-48d1-abd2-9ceed1b3ffa4 | Managed | /Users/omero/var/omero-new/ManagedRepository
+     1 | 2  | ScriptRepo                           | Script  | /Users/omero/dist/lib/scripts
+     2 | 3  | 3ec8c878-c776-48a3-b57e-2a11b0c97045 | Public  | /Users/omero/var/omero-new
+    (3 rows)
+
+If the Managed Repository is in a separate location to OMERO data directory
+or only the Managed Repository is to be moved then the following steps
+should be used:
+
+::
+
+    bin/omero config omero.managed.dir NEW
+    mv OLD NEW
+
+For example, moving the Managed Repository from ``/Users/omero/var/omero/ManagedRepository``
+to ``/Users/omero/var/omero-new/ManagedRepository``:
+
+::
+
+    $ bin/omero admin stop
+    ...
+    $ bin/omero config omero.managed.dir /Users/omero/var/omero-new/ManagedRepository
+    $ mkdir /Users/omero/var/omero-new
+    $ mv /Users/omero/var/omero/ManagedRepository /Users/omero/var/omero-new/ManagedRepository
+    $ bin/omero admin start
+    ...
+    $ bin/omero fs repos
+
+     # | Id | UUID                                 | Type    | Path
+    ---+----+--------------------------------------+---------+---------------------------------------------
+     0 | 1  | 309ea513-a23c-48d1-abd2-9ceed1b3ffa4 | Managed | /Users/omero/var/omero-new/ManagedRepository
+     1 | 2  | ScriptRepo                           | Script  | /Users/omero/dist/lib/scripts
+     2 | 3  | 3ec8c878-c776-48a3-b57e-2a11b0c97045 | Public  | /Users/omero/var/omero
+    (3 rows)
+
