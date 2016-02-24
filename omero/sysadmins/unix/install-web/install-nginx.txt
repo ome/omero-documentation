@@ -267,7 +267,6 @@ EXPERIMENTAL: Gunicorn advance configuration (Unix/Linux)
 .. note:: Experimental configuration are not ready for production use.
     Configuration may change. Features may not work properly.
 
-.. note:: This section is experimental and still under development
 
 OMERO.web deployment can be configured with sync and async workers.
 Sync workers are faster and recommended for a data repository with
@@ -302,7 +301,7 @@ Additional settings can be configured by changing the following properties::
 EXPERIMENTAL: Async workers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note:: experimental configuration are not ready for production use.
+.. note:: Experimental configuration are not ready for production use.
     Configuration may change. Features may not work properly.
 
 
