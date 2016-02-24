@@ -36,7 +36,7 @@ Creating an app
 We suggest you use `GitHub <https://github.com/>`_ (as we do) since it is much easier for us to
 help you with any problems you have if we can see your code. The steps below
 describe how to create a stand-alone git repository for your app, similar to
-`webtagging <https://github.com/dpwrussell/webtagging>`_.
+`webtagging <https://github.com/MicronOxford/webtagging>`_.
 If you do not want to use GitHub, simply ignore the steps related to GitHub.
 
 The steps below describe how to set up a new app. You should choose an
@@ -64,8 +64,8 @@ OR you could simply choose an existing location:
     $ cd /somewhere/on/your/pythonpath/
 
 
-Create and checkout a new GitHub repository OR manually create a new directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create and check out a new GitHub repository OR manually create a new directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Login to your GitHub account homepage (e.g.
    `<https://github.com/>`_\ <your-name>/) and click
@@ -73,7 +73,7 @@ Create and checkout a new GitHub repository OR manually create a new directory
 -  Enter the name of <your-app>, add a description and choose to add a
    README.
 
--  Checkout your new repository (into a new directory)
+-  Check out your new repository (into a new directory)
 
    ::
 
@@ -336,7 +336,7 @@ of links at the top of the webclient main pages.
 
    ::
 
-       url( r'^$', views.index, name='webmobile_index' ),
+       url( r'^$', views.index, name='figure_index' ),
 
 
    You can then refer to the link defined above using this ``name``, or you can simply use a full URL for external links.
@@ -348,7 +348,7 @@ of links at the top of the webclient main pages.
 
    ::
 
-       $ bin/omero config append omero.web.ui.top_links '["Mobile", "webmobile_index"]'
+       $ bin/omero config append omero.web.ui.top_links '["Figure", "figure_index"]'
 
    From OMERO 5.1, you can add additional attributes to links using the format ``['Link Text', 'link', attrs]``.
    This can be used to add tool-tips and to open the link in a new "target" tab. For example:
@@ -356,6 +356,40 @@ of links at the top of the webclient main pages.
    ::
 
        $ bin/omero config append omero.web.ui.top_links '["Homepage", "http://myhome.com", {"title": "Homepage", "target": "new"}]'
+
+
+Custom image viewer
+^^^^^^^^^^^^^^^^^^^
+
+If you have created your own image viewer and would like to have it replace the existing image viewer in the
+webclient, this can be configured using :property:`omero.web.viewer.view`.
+
+You will need your :file:`views.py` method to take an Image ID with a parameter named ``iid``. For example, see
+``channel_overlay_viewer`` from the `webtest <https://github.com/openmicroscopy/webtest/>`_ app:
+
+::
+
+    @login_required()
+    def channel_overlay_viewer(request, iid, conn=None, **kwargs):
+
+You can then configure the webclient to use this viewer by providing the full path name to this view method.
+For example, if you have webtest installed you can use the ``channel_overlay_viewer``:
+
+::
+
+    $ bin/omero config set omero.web.viewer.view webtest.views.channel_overlay_viewer
+
+This will now direct the image viewer url at ``webclient/img_detail/<iid>/`` to this viewer.
+However, the existing viewer will still be available under webgateway at ``webgateway/img_detail/<iid>/``.
+
+If you want to use a different viewer for different images, you can conditionally redirect to
+the webgateway viewer or elsewhere.
+For example:
+
+::
+
+    if image.getSizeC() == 1:
+        return HttpResponseRedirect(reverse("webgateway.views.full_viewer", args=(iid,)))
 
 
 OMERO.web plugins
