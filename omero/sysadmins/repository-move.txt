@@ -1,5 +1,3 @@
-.. _repository_move:
-
 Moving the data repository
 ==========================
 
@@ -7,7 +5,7 @@ It may be necessary to move either the whole OMERO data directory or only the
 Managed Repository to a new location on the file system. This should be done
 with care following the steps below.
 
-.. note::
+.. warning::
     Before moving OMERO data it is wise to ensure that both the data and the
     database are fully backed up. See :ref:`server_backup`.
 
