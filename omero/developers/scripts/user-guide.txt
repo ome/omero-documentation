@@ -103,7 +103,7 @@ Dynamic arguments
 
 In general, script parameters are processed on server startup
 and cached for later use. If you have a script which should
-re-calculate its arguments on each invocation, use the
+recalculate its arguments on each invocation, use the
 `NSDYNAMIC` namespace:
 
 
