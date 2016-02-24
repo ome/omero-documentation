@@ -64,8 +64,8 @@ OR you could simply choose an existing location:
     $ cd /somewhere/on/your/pythonpath/
 
 
-Create and checkout a new GitHub repository OR manually create a new directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create and check out a new GitHub repository OR manually create a new directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Login to your GitHub account homepage (e.g.
    `<https://github.com/>`_\ <your-name>/) and click
@@ -73,7 +73,7 @@ Create and checkout a new GitHub repository OR manually create a new directory
 -  Enter the name of <your-app>, add a description and choose to add a
    README.
 
--  Checkout your new repository (into a new directory)
+-  Check out your new repository (into a new directory)
 
    ::
 
