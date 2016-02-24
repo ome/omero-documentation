@@ -362,7 +362,7 @@ Custom image viewer
 ^^^^^^^^^^^^^^^^^^^
 
 If you have created your own image viewer and would like to have it replace the existing image viewer in the
-webclient, this can be configured using :property:`omeroweb.webclient.views.image_viewer`.
+webclient, this can be configured using :property:`omero.web.viewer.view`.
 
 You will need your :file:`views.py` method to take an Image ID with a parameter named ``iid``. For example, see
 ``channel_overlay_viewer`` from the `webtest <https://github.com/openmicroscopy/webtest/>`_ app:
