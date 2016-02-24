@@ -127,7 +127,9 @@ offer alternative access to binary data.
 .. note::
     Handling streaming request/responses requires proxy buffering
     to be turned off. For more details refer to
-    `Gunicorn deployment <http://docs.gunicorn.org/en/stable/deploy.html>`_.
+    `Gunicorn deployment <http://docs.gunicorn.org/en/stable/deploy.html>`_
+    and
+    `Nginx configuration <http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering>`_.
 
 .. note::
     :property:`omero.web.application_server.max_requests` should be set to 0
