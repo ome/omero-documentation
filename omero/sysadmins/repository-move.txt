@@ -7,10 +7,10 @@ with care following the steps below.
 
 .. warning::
     Before moving OMERO data it is wise to ensure that both the data and the
-    database are fully backed up. See :ref:`server_backup`.
+    database are fully backed up. See :doc:`server-backup-and-restore`.
 
-The current location of the data repositories can be found using ``fs repos``
-command:
+The current location of the data repositories can be found using the
+:omerocmd:`fs repos` command:
 
 ::
 
@@ -81,14 +81,14 @@ to ``/Volumes/imports/ManagedRepository``:
     (3 rows)
 
 .. note::
-    If ``omero.managed.dir`` is not set then the location of the Managed
-    Repository will be determined by ``omero.data.dir`` and the OMERO
-    directory should only be moved as a whole.
+    If :property:`omero.managed.dir` is not set then the location of the
+    Managed Repository will be determined by :property:`omero.data.dir` and
+    the OMERO directory should only be moved as a whole.
 
     If the Managed Repository needs to be moved to a location other than that
-    set by ``omero.data.dir``, to a location outside of the OMERO, for
-    example, data directory, then ``omero.managed.dir`` must be set.
+    set by :property:`omero.data.dir`, to a location outside of the OMERO, for
+    example, data directory, then :property:`omero.managed.dir` must be set.
 
-    If ``omero.managed.dir`` is set then the Managed Repository and the OMERO
-    data directory should be treated independently and thus be moved
+    If :property:`omero.managed.dir` is set then the Managed Repository and
+    the OMERO data directory should be treated independently and thus be moved
     separately if necessary.
