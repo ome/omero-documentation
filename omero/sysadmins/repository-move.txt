@@ -51,7 +51,7 @@ to ``/Volumes/omero``:
      2 | 3  | 3ec8c878-c776-48a3-b57e-2a11b0c97045 | Public  | /Volumes/omero
     (3 rows)
 
-If the Managed Repository is in a separate location to OMERO data directory
+If the Managed Repository is in a separate location from OMERO data directory
 or only the Managed Repository is to be moved then the following steps
 should be used:
 
@@ -86,8 +86,8 @@ to ``/Volumes/imports/ManagedRepository``:
     the OMERO directory should only be moved as a whole.
 
     If the Managed Repository needs to be moved to a location other than that
-    set by :property:`omero.data.dir`, to a location outside of the OMERO, for
-    example, data directory, then :property:`omero.managed.dir` must be set.
+    set by :property:`omero.data.dir`, to a location outside of the OMERO data
+    directory, for example, then :property:`omero.managed.dir` must be set.
 
     If :property:`omero.managed.dir` is set then the Managed Repository and
     the OMERO data directory should be treated independently and thus be moved
