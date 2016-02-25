@@ -57,9 +57,9 @@ to ``/Volumes/omero``:
 Moving the Managed Repository
 -----------------------------
 
-If the Managed Repository is in a separate location from OMERO data directory
-or only the Managed Repository is to be moved then the following steps
-should be used:
+If the Managed Repository is in a separate location from the OMERO data
+directory or only the Managed Repository is to be moved then the following
+steps should be used:
 
 ::
 
