@@ -23,6 +23,9 @@ The current location of the data repositories can be found using the
      2 | 3  | 3ec8c878-c776-48a3-b57e-2a11b0c97045 | Public  | /Users/omero/var/omero
     (3 rows)
 
+Moving the OMERO data directory
+-------------------------------
+
 If the Managed Repository is within the OMERO data directory and the whole
 data directory is to be moved then the following steps should be used:
 
@@ -50,6 +53,9 @@ to ``/Volumes/omero``:
      1 | 2  | ScriptRepo                           | Script  | /Users/omero/dist/lib/scripts
      2 | 3  | 3ec8c878-c776-48a3-b57e-2a11b0c97045 | Public  | /Volumes/omero
     (3 rows)
+
+Moving the Managed Repository
+-----------------------------
 
 If the Managed Repository is in a separate location from OMERO data directory
 or only the Managed Repository is to be moved then the following steps
