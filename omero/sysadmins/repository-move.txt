@@ -80,3 +80,15 @@ to ``/Volumes/imports/ManagedRepository``:
      2 | 3  | 3ec8c878-c776-48a3-b57e-2a11b0c97045 | Public  | /Users/omero/var/omero
     (3 rows)
 
+.. note::
+    If ``omero.managed.dir`` is not set then the location of the Managed
+    Repository will be determined by ``omero.data.dir`` and the OMERO
+    directory should only be moved as a whole.
+
+    If the Managed Repository needs to be moved to a location other than that
+    set by ``omero.data.dir``, to a location outside of the OMERO, for
+    example, data directory, then ``omero.managed.dir`` must be set.
+
+    If ``omero.managed.dir`` is set then the Managed Repository and the OMERO
+    data directory should be treated independently and thus be moved
+    separately if necessary.
