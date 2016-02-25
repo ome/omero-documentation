@@ -51,7 +51,7 @@ For example::
 The first case is equivalent to the previous example, the most recent Dataset
 will be used. In the second case the oldest Dataset will be used. In the third
 case the import should fail if multiple datasets with that name exist. In the
-first three cases a new Dataset will be created is none exists. In the last
+first three cases a new Dataset will be created if none exists. In the last
 case a new Dataset should be created even if one or more already exist.
 
 If the name contains spaces or other characters that cannot be used on the
@@ -77,7 +77,7 @@ expression. For example::
     $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:^.*images/(?<Container1>.*?)"
 
 would use a Dataset with name being the path following ``images/``,
-ie just ``dv``.
+in this case ``dv``.
 
 The name discriminator can be explicitly used and, as in the previous section,
 also qualified::
