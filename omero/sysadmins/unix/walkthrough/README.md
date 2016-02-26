@@ -11,11 +11,15 @@ Copy the files from this directory, then run one of the install scripts,
 	bash install_centos6_nginx.sh
 	bash install_centos6_py27_apache24.sh
 	bash install_centos6_py27_nginx.sh
+	bash install_centos6_py27_ius_apache22.sh
+	bash install_centos6_py27_ius_apache24.sh
+	bash install_centos6_py27_ius_nginx.sh
 	bash install_debian8_nginx.sh
+	bash install_debian8_apache24.sh
 	bash install_ubuntu1404_apache24.sh
 	bash install_ubuntu1404_nginx.sh
 
-corresponding to the required OS and web platform. Note that for Centos 6
+corresponding to the required OS and web platform. Note that for CentOS 6
 there are separate scripts for Python 2.7, the default is Python 2.6.
 
 Usernames and passwords can be customized in `settings.env`.

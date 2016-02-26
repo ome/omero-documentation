@@ -13,7 +13,7 @@ enabled=1
 EOF
 
 yum -y install nginx
-pip install gunicorn
+pip install "gunicorn>=19.3"
 
 # See setup_omero*.sh for the nginx config file creation
 

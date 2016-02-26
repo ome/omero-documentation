@@ -47,7 +47,7 @@ and introducing new user features and many fixes and performance improvements:
 
 Developer and system administrator updates include:
 
-- the OMERO.web framework no longer bundles a copy of the Django package, this
+- the OMERO web framework no longer bundles a copy of the Django package, this
   dependency must be installed manually
 - updated jstree to 3.08 and now using json for all tree loading to
   substantially improve performance

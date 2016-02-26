@@ -210,14 +210,6 @@ Default: `/omero/figure_scripts/Movie_Figure.py,
 /omero/setup_scripts/FLIM_initialise.py,
 /omero/import_scripts/Populate_ROI.py`
 
-.. property:: omero.client.ui.menu.dropdown.colleagues
-
-omero.client.ui.menu.dropdown.colleagues
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Client dropdown menu colleagues label.
-
-Default: `Members`
-
 .. property:: omero.client.ui.menu.dropdown.colleagues.enabled
 
 omero.client.ui.menu.dropdown.colleagues.enabled
@@ -226,13 +218,13 @@ Flag to show/hide colleagues
 
 Default: `true`
 
-.. property:: omero.client.ui.menu.dropdown.everyone
+.. property:: omero.client.ui.menu.dropdown.colleagues.label
 
-omero.client.ui.menu.dropdown.everyone
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Client dropdown menu all users label.
+omero.client.ui.menu.dropdown.colleagues.label
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client dropdown menu colleagues label.
 
-Default: `All Members`
+Default: `${omero.client.ui.menu.dropdown.colleagues}`
 
 .. property:: omero.client.ui.menu.dropdown.everyone.enabled
 
@@ -242,20 +234,29 @@ Flag to show/hide all users.
 
 Default: `true`
 
-.. property:: omero.client.ui.menu.dropdown.leaders
+.. property:: omero.client.ui.menu.dropdown.everyone.label
 
-omero.client.ui.menu.dropdown.leaders
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Client dropdown menu leader label.
+omero.client.ui.menu.dropdown.everyone.label
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client dropdown menu all users label.
 
-Default: `Owners`
+Default: `${omero.client.ui.menu.dropdown.everyone}`
 
 .. property:: omero.client.ui.menu.dropdown.leaders.enabled
 
 omero.client.ui.menu.dropdown.leaders.enabled
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Flag to show/hide leader.
 
 Default: `true`
+
+.. property:: omero.client.ui.menu.dropdown.leaders.label
+
+omero.client.ui.menu.dropdown.leaders.label
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client dropdown menu leader label.
+
+Default: `${omero.client.ui.menu.dropdown.leaders}`
 
 .. property:: omero.client.ui.tree.orphans.description
 
@@ -265,13 +266,29 @@ Description of the "Orphaned images" container.
 
 Default: `This is a virtual container with orphaned images. These images are not linked anywhere. Just drag them to the selected container.`
 
+.. property:: omero.client.ui.tree.orphans.enabled
+
+omero.client.ui.tree.orphans.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Flag to show/hide "Orphaned images" container. Only accept "true" or "false"
+
+Default: `true`
+
 .. property:: omero.client.ui.tree.orphans.name
 
 omero.client.ui.tree.orphans.name
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Name of the "Orphaned images" container located in client tree data manager.
 
-Default: `Orphaned images`
+Default: `Orphaned Images`
+
+.. property:: omero.client.viewer.initial_zoom_level
+
+omero.client.viewer.initial_zoom_level
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Initial client image viewer zoom level for big images
+
+Default: `0`
 
 .. property:: omero.client.viewer.interpolate_pixels
 
@@ -1770,6 +1787,14 @@ OMERO.web offers alternative session backends to automatically delete stale data
 
 Default: `{"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}`
 
+.. property:: omero.web.chunk_size
+
+omero.web.chunk_size
+^^^^^^^^^^^^^^^^^^^^
+Size, in bytes, of the “chunk”
+
+Default: `1048576`
+
 .. property:: omero.web.databases
 
 omero.web.databases
@@ -1838,7 +1863,7 @@ Default: `200`
 
 omero.web.ping_interval
 ^^^^^^^^^^^^^^^^^^^^^^^
-description
+Timeout interval between ping invocations in seconds
 
 Default: `60000`
 
@@ -2058,6 +2083,14 @@ Specifies whether to use the X-Forwarded-Host header in preference to the Host h
 
 Default: `false`
 
+.. property:: omero.web.viewer.view
+
+omero.web.viewer.view
+^^^^^^^^^^^^^^^^^^^^^
+Django view which handles display of, or redirection to, the desired full image viewer.
+
+Default: `omeroweb.webclient.views.image_viewer`
+
 .. property:: omero.web.webgateway_cache
 
 omero.web.webgateway_cache
@@ -2073,5 +2106,21 @@ omero.web.wsgi_args
 A string representing Gunicorn additional arguments. Check Gunicorn Documentation http://docs.gunicorn.org/en/latest/settings.html
 
 Default: `None`
+
+.. property:: omero.web.wsgi_timeout
+
+omero.web.wsgi_timeout
+^^^^^^^^^^^^^^^^^^^^^^
+Workers silent for more than this many seconds are killed and restarted. Check Gunicorn Documentation http://docs.gunicorn.org/en/stable/settings.html#timeout
+
+Default: `60`
+
+.. property:: omero.web.wsgi_workers
+
+omero.web.wsgi_workers
+^^^^^^^^^^^^^^^^^^^^^^
+The number of worker processes for handling requests. Check Gunicorn Documentation http://docs.gunicorn.org/en/stable/settings.html#workers
+
+Default: `5`
 
 

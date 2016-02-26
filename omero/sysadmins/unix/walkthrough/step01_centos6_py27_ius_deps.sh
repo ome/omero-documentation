@@ -30,9 +30,9 @@ yum -y install \
 
 # install pip and virtualenv using Python 2.6 
 yum -y install \
-	python-pip \
-	python-virtualenv
+	python-pip
 
+pip install --upgrade virtualenv
 
 #if virtualenv is not installed (unlikely)
 #yum -y install python27-pip
