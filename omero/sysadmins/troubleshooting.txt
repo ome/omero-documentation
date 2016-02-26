@@ -369,6 +369,14 @@ is loaded prior to omeroweb.conf
     2016/01/01 00:00:00 [error] 1234#0: *5 "/usr/share/nginx/html/webclient/login/index.html" is not found (2: No such file or directory), client: 1.2.3.4, server
 
 
+Issues with downloading data from OMERO.web
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+An :ref:`gunicorn_advance_configuration` is available for testing with nginx
+if you are encountering problems with downloads failing. You can also
+configure OMERO.web to limit downloads - refer to the :doc:`unix/install-web`
+documentation and :ref:`download_restrictions` for further details.
+
 OMERO.web piecharts
 ^^^^^^^^^^^^^^^^^^^
 
