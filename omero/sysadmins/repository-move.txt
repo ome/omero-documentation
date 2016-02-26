@@ -23,6 +23,11 @@ The current location of the data repositories can be found using the
      2 | 3  | 3ec8c878-c776-48a3-b57e-2a11b0c97045 | Public  | /Users/omero/var/omero
     (3 rows)
 
+.. note::
+    This command can be slow, :omerocmd:`config get` can also be used to
+    determine if :property:`omero.data.dir` or :property:`omero.managed.dir`
+    have non-default values.
+
 Moving the OMERO data directory
 -------------------------------
 
@@ -31,8 +36,15 @@ data directory is to be moved then the following steps should be used:
 
 ::
 
+    bin/omero admin stop
     bin/omero config set omero.data.dir NEW
     mv OLD NEW
+    bin/omero admin start
+
+.. warning::
+    The use of :omerocmd:`config set` is absolutely necessary here. The steps:
+    :omerocmd:`admin stop`, ``mv``, :omerocmd:`admin start` without
+    :omerocmd:`config set` could lead to an unstable situation.
 
 For example, moving the OMERO data directory from ``/Users/omero/var/omero``
 to ``/Volumes/omero``:
@@ -63,8 +75,15 @@ steps should be used:
 
 ::
 
+    bin/omero admin stop
     bin/omero config set omero.managed.dir NEW
     mv OLD NEW
+    bin/omero admin start
+
+.. warning::
+    The use of :omerocmd:`config set` is absolutely necessary here. The steps:
+    :omerocmd:`admin stop`, ``mv``, :omerocmd:`admin start` without
+    :omerocmd:`config set` could lead to an unstable situation.
 
 For example, moving the Managed Repository from ``/Users/omero/var/omero/ManagedRepository``
 to ``/Volumes/imports/ManagedRepository``:
