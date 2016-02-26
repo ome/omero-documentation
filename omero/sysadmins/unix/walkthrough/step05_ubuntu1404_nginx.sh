@@ -1,6 +1,8 @@
 #!/bin/bash
 
-apt-get -y install nginx gunicorn
+apt-get -y install nginx
+
+pip install "gunicorn>=19.3"
 
 # See setup_omero*.sh for the nginx config file creation
 

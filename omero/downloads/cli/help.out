@@ -29,6 +29,7 @@ Optional arguments:
   -l READER_FILE			Use the list of readers rather than the default
   -d DATASET_ID				OMERO dataset ID to import image into
   -r SCREEN_ID				OMERO screen ID to import plate into
+  -T TARGET				target for imports
   --report				Report errors to the OME team
   --upload				Upload broken files and log file (if any) with report. Required --report
   --logs				Upload log file (if any) with report. Required --report

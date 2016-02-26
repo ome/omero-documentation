@@ -35,7 +35,7 @@ brew doctor
 brew list | grep "\bgit\b" || brew install git
 
 # Install PostgreSQL
-brew install postgres
+brew install postgresql
 
 ###################################################################
 # Python pip installation

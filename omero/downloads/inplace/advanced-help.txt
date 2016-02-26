@@ -49,6 +49,8 @@ ADVANCED OPTIONS:
 
     --exclude=filename      	Exclude files based on filename.
 
+    --exclude=clientpath    	Exclude files based on the original path.
+
 
   e.g. $ bin/omero import -- --exclude=filename foo.tiff # First-time imports
        $ bin/omero import -- --exclude=filename foo.tiff # Second-time skips

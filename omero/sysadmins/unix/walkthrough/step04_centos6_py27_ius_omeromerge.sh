@@ -4,7 +4,7 @@ set -e -u -x
 
 source settings.env
 
-BRANCH=OMERO-DEV-latest
+BRANCH=OMERO-DEV-merge-build
 
 /home/omero/omeroenv/bin/omego download --branch $BRANCH server
 ln -s OMERO.server-*/ OMERO.server
