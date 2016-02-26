@@ -53,29 +53,13 @@ Building OMERO
 
 To install the dependencies required to run the OMERO.server on Linux
 or Mac OS X, take a look at the
-:doc:`/sysadmins/unix/server-installation` or the
-:doc:`/sysadmins/unix/server-install-homebrew` sections.
+:doc:`/sysadmins/unix/server-installation` page where you will also find links
+to walk-throughs for specific platforms.
 
-Additional dependencies are necessary for building the server and clients:
-
-- Ice Python and Java development packages may need to be explicitly installed
-  on Linux.
-
-Finally, some environment variables may need to be set up before building
-the server:
+Some environment variables may need to be set up before building the server:
 
 - If the system slice files cannot be found you must set :envvar:`SLICEPATH`
   to point to the :file:`slice` directory of the Ice installation.
-
-For example, on CentOS 6 the following should be sufficient to run the default
-build::
-
-    yum install java-1.7.0-openjdk-devel python-genshi python-setuptools \
-        ice-servers ice-python-devel ice-java-devel ice-c++-devel
-
-On Ubuntu 14.04::
-
-    apt-get install openjdk-7-jdk python-genshi python-setuptools zeroc-ice
 
 Once all the dependencies and environment variables are set up, you can build
 the server using::
