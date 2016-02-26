@@ -376,9 +376,10 @@ OMERO.web not responding/timeout issues
     [CRITICAL] WORKER TIMEOUT (pid:1234)
 
 OMERO.web deployed with Gunicorn relies on the operating system to provide
-all of the load balancing while handling requests. Scale the number of
-workers starting with (2 x NUM_CORES) + 1 workers. For more details refer to
-:ref:`gunicorn_default_configuration`.
+all of the load balancing while handling requests. Adjust the timeout using
+:property:`omero.web.wsgi_timeout` and scale the number of
+:property:`omero.web.wsgi_workers` starting with (2 x NUM_CORES) + 1 workers.
+For more details refer to :ref:`gunicorn_default_configuration`.
 
 Issues with downloading data from OMERO.web
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
