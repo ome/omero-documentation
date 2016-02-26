@@ -368,6 +368,17 @@ is loaded prior to omeroweb.conf
 
     2016/01/01 00:00:00 [error] 1234#0: *5 "/usr/share/nginx/html/webclient/login/index.html" is not found (2: No such file or directory), client: 1.2.3.4, server
 
+OMERO.web not responding/timeout issues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    [CRITICAL] WORKER TIMEOUT (pid:1234)
+
+OMERO.web deployed with Gunicorn relies on the operating system to provide
+all of the load balancing while handling requests. Scale the number of
+workers starting with (2 x NUM_CORES) + 1 workers. For more details refer to
+:ref:`gunicorn_default_configuration`.
 
 Issues with downloading data from OMERO.web
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
