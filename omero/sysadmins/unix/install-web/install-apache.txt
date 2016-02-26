@@ -47,22 +47,6 @@ Additional settings can be configured by changing the following properties:
       processes to handle many requests per second.
 
 
-EXPERIMENTAL:
-^^^^^^^^^^^^^
-
-.. note:: Experimental configurations are not ready for production use.
-    Configuration may change. Features may not work properly.
-
-
-Apache can operate in a different modes depending on the platform and
-configuration. Which MPM is being used can be determined from the ‘Server MPM’
-field by running the Apache web server executable with the ‘-V’ option.
-
-- Number of concurrent requests each process can handle::
-
-      $ bin/omero config set omero.web.wsgi_threads $(2-4 x NUM_CORES)
-
-
 .. _apache_mod_wsgi_configuration:
 
 Apache configuration (Unix/Linux)
