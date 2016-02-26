@@ -13,7 +13,16 @@ Apache 2.2+ with mod_wsgi configuration (Unix/Linux)
       see :ref:`python-requirements` on the
       :doc:`/sysadmins/version-requirements` page.
 
-If you have installed Apache, install `mod\_wsgi <http://www.modwsgi.org/>`_.
+OMERO.web uses the
+`Web Server Gateway Interface (WSGI) <http://wsgi.readthedocs.org/en/latest/learn.html>`_
+as a primary deployment platform. The Python standard
+`PEP 3333 <https://www.python.org/dev/peps/pep-3333/>`_
+that describes how a web server communicates with web applications.
+
+.. _apache_default_configuration:
+
+Apache default configuration (Unix/Linux)
+-----------------------------------------
 
 Install `Django 1.8`_ using package requirements file:
 
@@ -26,6 +35,24 @@ Install `Django 1.8`_ using package requirements file:
           :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
           or :djangodoc:`hot to upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
 
+Additional settings can be configured by changing the following properties:
+
+- :property:`omero.web.application_server.max_requests` to 500
+
+- :property:`omero.web.wsgi_workers` to (2 x NUM_CORES) + 1
+
+  .. note::
+      **Do not** scale the number of workers to the number of clients
+      you expect to have. OMERO.web should only need 4-12 worker
+      processes to handle many requests per second.
+
+
+.. _apache_mod_wsgi_configuration:
+
+Apache configuration (Unix/Linux)
+---------------------------------
+
+If you have installed Apache, install `mod\_wsgi <http://www.modwsgi.org/>`_.
 
 OMERO can automatically generate a
 configuration file for your web server. The location of the file
@@ -58,5 +85,12 @@ configuration redirect the output of the following command into a file:
 To configure an HTTPS server follow
 `the Apache documentation <http://httpd.apache.org/docs/trunk/mod/mod_ssl.html>`_.
 
-
 Then reload Apache.
+
+
+Running OMERO.web (Unix/Linux)
+------------------------------
+
+OMERO.web is used in 'daemon' mode where UNIX sockets are used to communicate
+between the Apache child processes and the daemon processes which are
+to handle a request.
