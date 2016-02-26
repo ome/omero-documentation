@@ -70,9 +70,10 @@ Importing using regular expressions
 The local path of the file to be imported can be used to specify the target
 Dataset or Screen using a regular expression using the action ``regex``. For
 this action the only discriminator is ``name`` and if the discriminator is
-omitted the qualified form of this ``+name`` will be used. The variable
-``<Container1>`` is used to specify the Dataset or Screen in the regular
-expression. For example::
+omitted the qualified form of this ``+name`` will be used. The sequence
+``(?<Container1>.*?)`` is a named-capturing group used to specify the Dataset
+or Screen name in the regular expression, the specific name ``Container1``
+must be used here. For example::
 
     $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:^.*images/(?<Container1>.*?)"
 
@@ -87,4 +88,8 @@ also qualified::
     $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:%name:^.*images/(?<Container1>.*?)"
     $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:@name:^.*images/(?<Container1>.*?)"
 
-These work as in the previous Dataset examples.
+These each work in the same way as the previous Dataset examples.
+
+For more information on the regular expression syntax that can be used in
+templates see:
+`java.util.regex.Pattern documentation <http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html>`_.
