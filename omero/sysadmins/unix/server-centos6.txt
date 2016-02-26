@@ -191,7 +191,7 @@ See also :doc:`install-web/install-nginx`.
 
 Install Nginx, install the requirements to run OMERO.web in the virtual environment, deactivate it
 and copy the Nginx OMERO configuration file into the
-Nginx configuration directory, and disable the default configuration::
+Nginx configuration directory, and disable the default configuration:
 
 
 .. literalinclude:: walkthrough/step05_centos6_py27_ius_nginx.sh
@@ -213,7 +213,7 @@ The version of Apache installed is 2.2, see the note below if you wish to use
 version 2.4.
 
 Install Apache 2.2, install the requirements to run OMERO.web in the virtual environment, deactivate it
-and add the path to the virtual environment python to the ``python-path`` parameter of the ``WSGIDaemonProcess`` directive::
+and add the path to the virtual environment python to the ``python-path`` parameter of the ``WSGIDaemonProcess`` directive:
 	
 .. literalinclude:: walkthrough/step05_centos6_py27_ius_apache22.sh
 
