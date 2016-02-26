@@ -31,7 +31,7 @@ data directory is to be moved then the following steps should be used:
 
 ::
 
-    bin/omero config omero.data.dir NEW
+    bin/omero config set omero.data.dir NEW
     mv OLD NEW
 
 For example, moving the OMERO data directory from ``/Users/omero/var/omero``
@@ -41,7 +41,7 @@ to ``/Volumes/omero``:
 
     $ bin/omero admin stop
     ...
-    $ bin/omero config omero.data.dir /Volumes/omero
+    $ bin/omero config set omero.data.dir /Volumes/omero
     $ mv /Users/omero/var/omero /Volumes/omero
     $ bin/omero admin start
     ...
@@ -63,7 +63,7 @@ steps should be used:
 
 ::
 
-    bin/omero config omero.managed.dir NEW
+    bin/omero config set omero.managed.dir NEW
     mv OLD NEW
 
 For example, moving the Managed Repository from ``/Users/omero/var/omero/ManagedRepository``
@@ -73,7 +73,7 @@ to ``/Volumes/imports/ManagedRepository``:
 
     $ bin/omero admin stop
     ...
-    $ bin/omero config omero.managed.dir /Volumes/imports/ManagedRepository
+    $ bin/omero config set omero.managed.dir /Volumes/imports/ManagedRepository
     $ mv /Users/omero/var/omero/ManagedRepository /Volumes/imports/ManagedRepository
     $ bin/omero admin start
     ...
