@@ -101,6 +101,10 @@ Some of the options available to the import command are:
 
         $ bin/omero import large_image --skip checksum --skip minmax
 
+.. option:: -T, --target TARGET
+
+    Select an import target. See :doc:`import-target` for more information.
+
 .. option:: --debug DEBUG
 
     Set the debug level for the command line import output::
