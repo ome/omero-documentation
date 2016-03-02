@@ -69,15 +69,20 @@ server upgrade.
 OMERO.web dependences
 ^^^^^^^^^^^^^^^^^^^^^
 
-Upgrade OMERO.web dependences
+It is best when updating the server to also upgrade OMERO.web dependences
 
-- Nginx::
+- Nginx on Unix::
 
      $ pip install --upgrade -r share/web/requirements-py27-nginx.txt
 
-- Apache::
+- Apache on Unix::
 
      $ pip install --upgrade -r share/web/requirements-py27-apache.txt
+
+- Windows::
+
+     $ pip install --upgrade -r share/web/requirements-py27-win.txt
+
 
 Web plugin updates
 ^^^^^^^^^^^^^^^^^^
