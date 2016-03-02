@@ -69,7 +69,7 @@ server upgrade.
 OMERO.web dependences
 ^^^^^^^^^^^^^^^^^^^^^
 
-It is best when updating the server to also upgrade OMERO.web dependences
+It is best when updating the server to also upgrade OMERO.web dependences:
 
 - Nginx on Unix::
 
