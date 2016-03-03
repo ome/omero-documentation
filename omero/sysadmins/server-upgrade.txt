@@ -66,8 +66,8 @@ server upgrade.
     see :ref:`python-requirements` on the
     :doc:`/sysadmins/version-requirements` page.
 
-OMERO.web dependences
-^^^^^^^^^^^^^^^^^^^^^
+OMERO.web dependencies
+^^^^^^^^^^^^^^^^^^^^^^
 
 While upgrading the server it is recommended to keep OMERO.web dependencies
 up to date to ensure that security updates are applied.
