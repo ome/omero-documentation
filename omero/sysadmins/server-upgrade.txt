@@ -66,6 +66,25 @@ server upgrade.
     see :ref:`python-requirements` on the
     :doc:`/sysadmins/version-requirements` page.
 
+OMERO.web dependencies
+^^^^^^^^^^^^^^^^^^^^^^
+
+While upgrading the server it is recommended to keep OMERO.web dependencies
+up to date to ensure that security updates are applied.
+
+- Nginx on Unix::
+
+     $ pip install --upgrade -r share/web/requirements-py27-nginx.txt
+
+- Apache on Unix::
+
+     $ pip install --upgrade -r share/web/requirements-py27-apache.txt
+
+- Windows::
+
+     $ pip install --upgrade -r share/web/requirements-py27-win.txt
+
+
 Web plugin updates
 ^^^^^^^^^^^^^^^^^^
 OMERO.web plugins are very closely integrated into the webclient. For this
