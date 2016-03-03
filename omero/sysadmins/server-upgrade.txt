@@ -69,7 +69,8 @@ server upgrade.
 OMERO.web dependences
 ^^^^^^^^^^^^^^^^^^^^^
 
-It is best when updating the server to also upgrade OMERO.web dependences:
+While upgrading the server it is recommended to keep OMERO.web dependencies
+up to date to ensure that security updates are applied.
 
 - Nginx on Unix::
 
