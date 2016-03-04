@@ -54,10 +54,11 @@ OMERO.web configuration
 Check :ref:`unix_omero_web_deployment` or :ref:`windows_omero_web_deployment`,
 what is the most recent OMERO.web deployment for the platform.
 If you generated configuration stanzas using :omerocmd:`web config` which
-enables OMERO.web via Apache or Nginx, they may include hard-coded links to
-your previous version of OMERO. We recommend using a future-proof symlink
-if possible, so that these stanzas do not need updating with each OMERO
-server upgrade.
+enables OMERO.web via Apache or Nginx, they will include hard-coded links to
+your previous version of OMERO. Therefore, you should regenerate your config
+files when upgrading, remembering to merge in any of your own modifications if
+necessary. You should carry out this step even for minor version upgrades as
+there may be fixes which require it.
 
 .. note:: Since OMERO 5.2, the OMERO.web framework no longer bundles
     a copy of the Django package, instead manual installation of
