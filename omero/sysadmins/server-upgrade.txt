@@ -300,7 +300,7 @@ If you have already deployed OMERO.web using WSGI you should regenerate your
 config files, remembering to merge in any of your own modifications if
 necessary. Due to the nature of OMERO.web development for the 5.2.x line, you
 should carry out this step even for minor version upgrades as there may be
-breaking changes.
+fixes which require it.
 
 If necessary ensure you have set up a regular task to clear out any stale
 OMERO.web session files as described in :ref:`unix_omero_web_maintenance`
