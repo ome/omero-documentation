@@ -273,8 +273,8 @@ For further information on managing your scripts, refer to
 :doc:`installing-scripts`. If you require help, please contact the OME
 developers.
 
-Update your configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Update your environment variables and memory settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Environment variables
 """""""""""""""""""""
@@ -291,15 +291,16 @@ Your memory settings should be copied along with :file:`etc/grid/config.xml`,
 but you can check the current settings by running :omerocmd:`admin jvmcfg`.
 See :ref:`jvm_memory_settings` for more information.
 
-OMERO.web server configuration
-""""""""""""""""""""""""""""""
+Update your OMERO.web server configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The FastCGI support was removed in OMERO 5.2 and OMERO.web can be deployed
-using WSGI (see, :ref:`unix_omero_web_deployment` for more details).
-If you already deployed OMERO.web using WSGI it is highly recommended that
-you regenerate your config files, remembering to merge in any of your own
-modifications if necessary. See :doc:`/sysadmins/whatsnew` for details
-of changes.
+FastCGI support was removed in OMERO 5.2 and OMERO.web can be deployed
+using WSGI (see :ref:`unix_omero_web_deployment` for more details).
+If you have already deployed OMERO.web using WSGI you should regenerate your
+config files, remembering to merge in any of your own modifications if
+necessary. Due to the nature of OMERO.web development for the 5.2.x line, you
+should carry out this step even for minor version upgrades as there may be
+breaking changes.
 
 If necessary ensure you have set up a regular task to clear out any stale
 OMERO.web session files as described in :ref:`unix_omero_web_maintenance`
