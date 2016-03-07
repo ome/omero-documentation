@@ -15,7 +15,7 @@ Getting set up
 In order to deploy OMERO.web in a development or testing environment please 
 follow the instructions under :doc:`Deployment`.
 
-You should make sure that you can access the webclient and webadmin on
+You should make sure that you can access the webclient on
 your local machine before starting to develop your own code. Be sure to
 use the correct port number, e.g.:
 
