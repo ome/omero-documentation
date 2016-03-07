@@ -21,6 +21,12 @@ enter::
 Additional parameters such as the email address, institution, middle name etc
 can be passed as optional arguments to the :omerocmd:`user add` command.
 
+    $ bin/omero ldap create jsmith 
+
+If you are using ldap as an authentication backend this command will create
+an OMERO user account for `jsmith`. This allows the administrator to add 
+`jsmith` to an OMERO group, before they have ever logged in to OMERO. 
+
 .. _ldap_setdn:
 
 Converting non-LDAP users to LDAP authentication
