@@ -16,6 +16,11 @@ newly created files. The header of existing files should not be
 modified without previous discussion except with regard to keeping the
 year line up to date, for example changing "2008-2011" to "2008-2013".
 
+Character encoding
+------------------
+
+OME Python and Java source files are all encoded in UTF-8.
+
 Copyrights
 ----------
 
