@@ -218,8 +218,7 @@ Run the upgrade script
 """"""""""""""""""""""
 
 You **must** use the same username and password you have defined during
-:doc:`unix/server-installation`. The |version| upgrade script should execute
-in a short time.
+:doc:`unix/server-installation`.
 
 .. parsed-literal::
 
