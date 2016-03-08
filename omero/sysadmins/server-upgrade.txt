@@ -219,7 +219,8 @@ Run the upgrade script
 
 You **must** use the same username and password you have defined during
 :doc:`unix/server-installation`. For a large production system you
-should plan for the upgrade script to take hours to run.
+should plan for the fact that the upgrade script may take several hours
+to run.
 
 .. parsed-literal::
 
