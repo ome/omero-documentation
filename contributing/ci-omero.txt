@@ -36,12 +36,12 @@ OMERO jobs
         * :term:`OMERO-DEV-merge-push`
         * :term:`OMERO-DEV-breaking-push`
 
-    -   * Builds the OMERO artifacts
+    -   * Builds the merge OMERO artifacts
         * :term:`OMERO-5.1-merge-build`
         * :term:`OMERO-DEV-merge-build`
         * :term:`OMERO-DEV-breaking-build`
 
-    -   * Deploys the OMERO server
+    -   * Deploys the merge OMERO server
         * | :term:`OMERO-5.1-merge-deploy`
           | :term:`OMERO-5.1-merge-deploy-win`
           | :term:`OMERO-5.1-merge-deploy-win2012`
