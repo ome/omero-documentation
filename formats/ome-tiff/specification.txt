@@ -466,32 +466,38 @@ a copy of that metadata in every file would result in a dataset nearly
 20 times larger than before, requiring ~5.5MB of disk per file, and more
 than 5GB total.
 
-Therefore,, as of the 
+Therefore, as of the
 :doc:`2011-06 version of the OME-XML schema </schemas/june-2011>` 
-onwards, a solution to this problem has been implemented: the ``BinaryOnly``
+onwards, a solution to this problem has been implemented: the
+:schema_plone:`Binary-Only <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_BinaryOnly>`
 element.
 
 With this approach, you can embed the OME-XML metadata in as many or as
 few files as you like. For example, you may want to store it in every
 tenth file to retain some level of redundancy.
 
-To do this, choose one OME-TIFF file to serve as the "master" file containing
-the metadata. In the remaining files where you do not want to store the 
-metadata, use an OME-XML block similar to:
+To do this:
 
-::
+- either store the OME-XML metadata in a companion file with the extension
+  ``.companion.ome`` - see also the :ometiff_downloads:`companion fileset sample <companion>`
+- or choose one OME-TIFF file to serve as the "master" file containing the
+  metadata
+
+
+In the remaining OME-TIFF files where you do not want to store the metadata,
+use an OME-XML block similar to::
 
     <?xml version="1.0" encoding="UTF-8"?>
     <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2015-01
-                            http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd">
-    <BinaryOnly MetadataFile="master.ome.tif"
+            http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd"
+        UUID="urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+
+    <BinaryOnly MetadataFile="multifile.companion.ome"
         UUID="urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
     </OME>
 
-Where ``MetadataFile`` is the master OME-TIFF file containing the actual
-OME-XML metadata block, and ``UUID`` is that file's UUID.
-
-
-
+where :schema_plone:`MetadataFile <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_MetadataFile>` is the name of the companion OME-XML file or of the
+master OME-TIFF file containing the actual OME-XML metadata block, and
+:schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_UUID>` is that file's UUID.
