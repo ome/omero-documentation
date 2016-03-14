@@ -12,7 +12,7 @@ from data retrieved from the OMERO server. OMERO.web acts as a Python
 client of the OMERO server using the OMERO API, as well as being a web
 server itself (see 'infrastructure' info below). It uses Django 'apps'
 to provide modular web tools, such as the webclient (working with image
-data) and webadmin (administrator management). This modular framework
+data, administrator management). This modular framework
 makes it possible to extend OMERO.web with your own apps.
 
 One of the apps, :doc:`/developers/Web/WebGateway`, provides
@@ -44,16 +44,14 @@ Web apps
 
 The OMERO.web framework consists of several Django apps denoted by
 folders named 'web....'. These include webgateway, as
-discussed above, as well as released tools (webadmin, webclient) and
+discussed above, as well as released tools (webclient) and
 other apps in development:
 
 .. glossary::
     webclient
-        Main web client for viewing images, annotating etc. More
-        information available under :ref:`OMERO.web <omero-web>`.
-
-    webadmin
-        For administration of user and group settings.
+        Main web client for viewing images, annotating, administration
+        of user and group settings etc. More information available
+        under :ref:`OMERO.web <omero-web>`.
 
     webgateway
         A web services interface, providing rendered images and
