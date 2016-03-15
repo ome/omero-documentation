@@ -479,7 +479,7 @@ tenth file to retain some level of redundancy.
 To do this:
 
 - either store the OME-XML metadata in a companion file with the extension
-  ``.companion.ome`` - see also the :ometiff_downloads:`companion fileset sample <companion>`
+  ``.companion.ome`` (see the :ometiff_downloads:`companion fileset sample <companion>`)
 - or choose one OME-TIFF file to serve as the "master" file containing the
   metadata
 
