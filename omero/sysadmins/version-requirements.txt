@@ -29,9 +29,9 @@ Operating systems
 
   * [5.2] 7 / Server 2008R2 supported, 8 (client) recommended / Server
     2012R2 (server) recommended
-  * [5.3] 7 / Server 2008R2 supported, 8 (client) recommended / Server
-    2012R2 (server) recommended
-  * Rationale: No change in this timeframe.
+  * [5.3] Unsupported for OMERO.server or hosting OMERO.web, client
+    support only
+  * Rationale: see `blog post explanation <http://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_
 
 * MacOS X
 
@@ -296,7 +296,7 @@ Microsoft Windows
       - to Jan 2020
       - Recommended
       - Supported
-      - Supported
+      - Unsupported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=14481>`__
     * - Server 2008 R2
       - from May 2008
@@ -304,7 +304,7 @@ Microsoft Windows
       - to Jan 2023
       - Recommended
       - Supported
-      - Supported
+      - Unsupported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=17383>`__
     * - Win 8
       - from Oct 2012
@@ -312,7 +312,7 @@ Microsoft Windows
       - to Jan 2023
       - Supported
       - Recommended
-      - Recommended
+      - Unsupported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16799>`__
     * - Server 2012
       - from Oct 2012
@@ -320,16 +320,12 @@ Microsoft Windows
       - to Jan 2023
       - Supported
       - Recommended
-      - Recommended
+      - Unsupported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16526>`__
 
-XP is now unsupported upstream, and Server 2003 will be unsupported
-within the timeframe of 5.1 support. Vista is likely supported but
-usage is minimal and it is untested, hence marked as dropped. 7/Server
-2008 and 8/Server 2012 are both supported and used. Server 2008 builds
-in place; no 2012 builds or testing in place yet. No regular Windows
-CI deployment and testing is in place other than manually. Some manual
-testing on Windows 7 VMs and machines.
+Insufficient resources are available for regular CI deployment and testing so
+a decision has been made to drop support in favour of other priorities. See
+`this blog post for full details <http://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_.
 
 UNIX (MacOS X)
 --------------
