@@ -164,8 +164,6 @@ Edge cases
 These are 'known issues' that may cause problems for some users (not for
 most). These will be resolved in future depending on priority.
 
--  Annotations of annotations are not deleted, e.g. a Tag is not deleted
-   if a Tag Set is deleted (only true if directly using the API).
 -  Other users' ROIs (and associated measurements) are deleted from
    images.
 -  Multiply-linked objects are unlinked and not deleted e.g. Project p1 
