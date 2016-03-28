@@ -266,22 +266,6 @@ Microsoft Windows
       - OMERO 5.2
       - OMERO 5.3
       - Details
-    * - XP
-      - from Dec 2001
-      - to Apr 2014
-      - to Apr 2014
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Ref <http://support.microsoft.com/lifecycle/?p1=12757>`__
-    * - Server 2003 R2
-      - from May 2003
-      - to Jul 2010
-      - to Jul 2015
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Ref <http://support.microsoft.com/lifecycle/?p1=10394>`__
     * - Vista
       - from Jan 2007
       - to Apr 2012
@@ -322,10 +306,18 @@ Microsoft Windows
       - Recommended
       - Unsupported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16526>`__
+    * - Win 10
+      - from July 2015
+      - to Oct 2020
+      - to Oct 2025
+      - Unsupported
+      - Unsupported
+      - Unsupported†
+      - `Ref <https://support.microsoft.com/en-gb/lifecycle?C2=18165>`__
 
 †
-   Unsupported for OMERO.server and OMERO.web hosting. Client support will
-   continue, including OMERO.web browsing.
+   Unsupported for OMERO.server and OMERO.web deployment. Client support will
+   continue or is upcoming (Windows 10)
 
 
 Insufficient resources are available for regular CI deployment and testing of
