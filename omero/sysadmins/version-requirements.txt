@@ -296,7 +296,7 @@ Microsoft Windows
       - to Jan 2020
       - Recommended
       - Supported
-      - Unsupported
+      - Unsupported†
       - `Ref <http://support.microsoft.com/lifecycle/?p1=14481>`__
     * - Server 2008 R2
       - from May 2008
@@ -312,7 +312,7 @@ Microsoft Windows
       - to Jan 2023
       - Supported
       - Recommended
-      - Unsupported
+      - Unsupported†
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16799>`__
     * - Server 2012
       - from Oct 2012
@@ -323,9 +323,14 @@ Microsoft Windows
       - Unsupported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16526>`__
 
-Insufficient resources are available for regular CI deployment and testing so
-a decision has been made to drop support in favor of other priorities. See
-`this blog post for full details <http://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_.
+†
+   Unsupported for OMERO.server and OMERO.web hosting. Client support will
+   continue, including OMERO.web browsing.
+
+
+Insufficient resources are available for regular CI deployment and testing of
+OMERO.server so a decision has been made to drop support in favor of other
+priorities. See `this blog post for full details <http://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_.
 
 UNIX (MacOS X)
 --------------
