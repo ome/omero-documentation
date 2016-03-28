@@ -374,8 +374,8 @@ Apple do not formally announce end of life for their releases, but
 with the three latest releases being supported this puts 10.9 as the
 minimum version suitable for use.  We have regular CI testing of 10.9,
 10.10 and 10.11 builds plus developer testing of building and client
-and server deployment. 10.8 is marked as dropped since is is no longer
-longer tested by the CI infrastructure (node retired).
+and server deployment. 10.8 is marked as dropped since it is no longer
+tested by the CI infrastructure (node retired).
 
 UNIX (FreeBSD)
 --------------
