@@ -64,7 +64,7 @@ Move images
   chgrps.requests = [Chgrp(type="/Image", id=n, grp=5) for n in [1,2,3]]
   sf.submit(chgrps)
 
-becomes,
+used in OMERO 5.0 should now be written as,
 
 .. code-block:: python
 
@@ -81,7 +81,7 @@ Delete plate, but not annotations
   delete = Delete(type="/Plate", id=8, options=keepAnn)
   sf.submit(delete)
 
-becomes,
+used in OMERO 5.0 should now be written as,
 
 .. code-block:: python
 
@@ -98,7 +98,7 @@ Delete an image's rendering settings
   delete = Delete(type="/Image/Pixels/RenderingDef", id=6)
   sf.submit(delete)
 
-becomes,
+used in OMERO 5.0 should now be written as,
 
 .. code-block:: python
 
