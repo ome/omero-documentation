@@ -34,9 +34,8 @@ set ``startFrom`` to ``RenderingDef``.
 Translating options
 -------------------
 
-:javadoc:`GraphModify2
-<slice2html/omero/cmd/GraphModify2.html>` offers ``childOptions``, an ordered
-list of :javadoc:`ChildOption
+:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>` offers
+``childOptions``, an ordered list of :javadoc:`ChildOption
 <slice2html/omero/cmd/graphs/ChildOption.html>` instances, each of which
 allows its applicability to annotations to be limited by namespace. Some
 examples:
