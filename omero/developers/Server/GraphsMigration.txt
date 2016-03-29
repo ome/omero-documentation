@@ -121,12 +121,15 @@ the requests from the above Python examples to be created by,
 .. code-block:: java
 
   // move images
-  Chgrp2 example1 = Requests.chgrp("Image", Arrays.asList(1L,2L,3L), 5L);
+  Chgrp2 example1 = Requests.chgrp().target("Image").id(1L,2L,3L)
+      .toGroup(5L).build();
 
   // delete plate, but not annotations
-  ChildOption childOption = Requests.option(null, "Annotation");
-  Delete2 example2 = Requests.delete("Plate", 8L, childOption);
+  ChildOption childOption = Requests.option()
+      .excludeType("Annotation").build();
+  Delete2 example2 = Requests.delete().target("Plate").id(8L)
+      .option(childOption).build();
 
   // delete an image's rendering settings
-  SkipHead example3 =
-      Requests.skipHead("Image", 6L, "RenderingDef", new Delete2());
+  SkipHead example3 = Requests.skipHead().target("Image").id(6L)
+      .startFrom("RenderingDef").request(Delete2.class).build();
