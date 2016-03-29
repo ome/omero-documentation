@@ -11,24 +11,15 @@ offered through the API via :javadoc:`Chgrp2
 <slice2html/omero/cmd/Delete2.html>`, and their superclass
 :javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>`. OMERO
 5.1.2 added :javadoc:`Chmod2 <slice2html/omero/cmd/Chmod2.html>`. The
-legacy request operations :javadoc:`Chgrp
-<slice2html/omero/cmd/Chgrp.html>`, :javadoc:`Chmod
-<slice2html/omero/cmd/Chmod.html>`, :javadoc:`Chown
-<slice2html/omero/cmd/Chown.html>`, :javadoc:`Delete
-<slice2html/omero/cmd/Delete.html>`, and their superclass
-:javadoc:`GraphModify <slice2html/omero/cmd/GraphModify.html>`, are now
-deprecated and will be *removed* in OMERO 5.3. *Now* is the time to
-adjust client code accordingly so that the OME team can fix any
-regressions before the release of OMERO 5.3.
+corresponding deprecated legacy request operations are *removed* in
+OMERO 5.3. Client code must be adjusted accordingly.
 
 
 Target objects
 --------------
 
 For specifying which model objects to operate on, instead of using one
-request for each object through :javadoc:`GraphModify
-<slice2html/omero/cmd/GraphModify.html>`'s ``type`` and ``id`` data
-members, use :javadoc:`GraphModify2
+request for each object, use :javadoc:`GraphModify2
 <slice2html/omero/cmd/GraphModify2.html>`'s ``targetObjects`` which
 allows specification of multiple model object classes, each with an
 unordered list of IDs, all in a single request. To specify a type, no
@@ -43,9 +34,8 @@ set ``startFrom`` to ``RenderingDef``.
 Translating options
 -------------------
 
-:javadoc:`GraphModify <slice2html/omero/cmd/GraphModify.html>`'s
-``options`` data member has its related analog in :javadoc:`GraphModify2
-<slice2html/omero/cmd/GraphModify2.html>`'s ``childOptions``, an ordered
+:javadoc:`GraphModify2
+<slice2html/omero/cmd/GraphModify2.html>` offers ``childOptions``, an ordered
 list of :javadoc:`ChildOption
 <slice2html/omero/cmd/graphs/ChildOption.html>` instances, each of which
 allows its applicability to annotations to be limited by namespace. Some
@@ -61,12 +51,6 @@ examples:
 - To delete annotations except for the tags that are in a specific
   namespace, use ``Delete2`` with a ``ChildOption``'s ``excludeType``
   set to ``TagAnnotation`` and ``includeNs`` set to that namespace.
-
-:source:`GraphUtil.java
-<components/blitz/src/omero/cmd/graphs/GraphUtil.java>` includes the
-``translateOptions`` method that may give additional insight on how to
-translate the previous style of option. This method too will be removed
-in OMERO 5.3.
 
 
 Examples in Python
