@@ -90,6 +90,46 @@ also qualified::
 
 These each work in the same way as the previous Dataset examples.
 
+In some cases the importable files may be in nested directories, this is often
+the case with plates and some multi-image formats. A regular expression can be
+used to pick a higher level directory as the Screen or Dataset name. For
+example, if several BD Pathway HCS files are under the following paths::
+
+    ~/images/bd-pathway/week-1/2015-12-01_000/
+    ~/images/bd-pathway/week-2/2015-12-09_000/
+    ~/images/bd-pathway/week-2/2015-12-11_000/
+
+and the intended Screens for the import are ``week-1`` and ``week-2`` then
+the following could be used::
+
+    $ bin/omero import ~/images/bd-pathway/ -T "regex:+name:^.*bd-pathway/(?<Container1>[^/]*)/.*"
+
+which would import one Plate into the Screen ``week-1`` and two Plates into
+the Screen ``week-2``, creating those Screens if necessary.
+
+A useful way of determining the nested structure to help in constructing
+regular expressions is the option ``-f`` which displays the used files but
+does not import them::
+
+    $ bin/omero import -f ~/images/bd-pathway/week-1
+    ...
+    2016-03-30 15:58:56,574 701        [      main] INFO      ome.formats.importer.ImportCandidates - 59 file(s) parsed into 1 group(s) with 1 call(s) to setId in 92ms. (99ms total) [0 unknowns]
+    #======================================
+    # Group: /Users/colin/images/bd-pathway/week-1/2009-05-01_000/Experiment.exp SPW: true Reader: loci.formats.in.BDReader
+    /Users/colin/images/bd-pathway/week-1/2009-05-01_000/Experiment.exp
+    /Users/colin/images/bd-pathway/week-1/2009-05-01_000/20X NA 075 Olympus Confocal.geo
+    ...
+    /Users/colin/images/bd-pathway/week-1/2009-05-01_000/Well D11/DsRed - Confocal - n000000.tif
+    /Users/colin/images/bd-pathway/week-1/2009-05-01_000/Well D11/DsRed - Confocal - n000001.tif
+    /Users/colin/images/bd-pathway/week-1/2009-05-01_000/Well D11/DsRed - Confocal - n000002.tif
+    /Users/colin/images/bd-pathway/week-1/2009-05-01_000/Well D11/Transmitted Light - n000000.tif
+
+which shows that all the files are under::
+
+    /Users/colin/images/bd-pathway/week-1/2009-05-01_000/
+
+as in the example above.
+
 For more information on the regular expression syntax that can be used in
 templates see:
 `java.util.regex.Pattern documentation <http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html>`_.
