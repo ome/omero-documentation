@@ -4,6 +4,12 @@ OMERO.web deployment
 .. Warning:: The guidance below applies to OMERO **5.2**. Code fixes for
     OMERO.web deployment on Windows have not been back-ported to the 5.1 line
     and this guide cannot be used to deploy OMERO.web 5.1.x on Windows.
+    
+    OMERO 5.2 is the last major version which will feature Windows
+    support for OMERO.web deployment. See
+    `this blog post <http://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_ for details. If you are deploying a new installation of
+    OMERO.web, we highly recommend you use a different OS (see
+    :doc:`/sysadmins/version-requirements`).
 
 OMERO.web is the web application component of the OMERO platform which
 allows for the management, visualization (in a fully multi-dimensional
