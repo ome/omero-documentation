@@ -26,9 +26,8 @@ users is:
 Hard drive space should be proportional to the image sizes expected. The drive
 space should permit **proper locking**, which is often not the case with
 remotely mounted shares. See the
-:doc:`Unix </sysadmins/unix/server-binary-repository>`
-and :doc:`Windows </sysadmins/windows/server-binary-repository>` binary
-repository sections for more information.
+:doc:`binary repository section </sysadmins/unix/server-binary-repository>`
+for more information.
 
 RAM is not going to scale linearly, particularly with the way the JVM
 works. You are probably going to hit a hard ceiling between 4 and 6GB for

@@ -35,8 +35,7 @@ These are accounts on your machine or directory server (e.g. LDAP, Active
 Directory). One account is used for running the OMERO server (either your own 
 or one you created specially for running OMERO, referred to here as 
 “omero_user”). There is also a user
-called the "administrator-level user" on the :doc:`Windows installation
-page <windows/server-installation>` and "root-level user" on the :doc:`UNIX installation
+called the "root-level user" on the :doc:`UNIX installation
 page <unix/server-installation>` (which includes Mac OS X). A separate 
 “postgres” user is used for 
 running the database server. The “omero_user” account runs the OMERO 
@@ -89,13 +88,11 @@ Server fails to start
 ---------------------
 
 1. Check that you are able to successfully connect to your PostgreSQL
-   installation as outlined on the PostgreSQL page for your OS 
-   (:doc:`Windows PostgreSQL page <windows/server-postgresql>` or 
-   :doc:`UNIX/Mac PostgreSQL page <unix/server-postgresql>`).
+   installation as outlined on the
+   :doc:`PostgreSQL page <unix/server-postgresql>`).
 2. Check the permissions on your :property:`omero.data.dir` (:file:`/OMERO` or
    :file:`C:\OMERO` by default) as outlined on the
-   :doc:`unix/server-installation` page for Unix/Mac users, or the 
-   :doc:`windows/server-binary-repository` page for Windows users.
+   :doc:`unix/server-installation` page.
 3. Are you on a laptop? If you see an error message mentioning 
    :ticket:`"node master couldn't be reached" <7325>`, you
    may be suffering from a network address swap. Ice does not like to
@@ -260,12 +257,6 @@ Python versions prior to 2.7.0. See
 :ticket:`6201` and Python `Issue #3392
 <http://bugs.python.org/issue3392>`_ for more details.
 
-Windows import errors
-^^^^^^^^^^^^^^^^^^^^^
-
-See :ref:`windows-database-encoding`.
-
-
 Directory exists but is not registered
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -404,9 +395,8 @@ more details. There are a few known possibilities:
 -  'ImportError: No module named Image'. Install `Pillow`_
    (packages should be available for your distribution). Also double 
    check
-   if all of the prerequisites were installed from OMERO.web deployment 
-   (:doc:`UNIX instructions <unix/install-web>` or :doc:`Windows instructions 
-   <windows/install-web>`).
+   if all of the prerequisites were installed from
+   :doc:`OMERO.web deployment <unix/install-web>`.
 
 .. _client_performance:
 
