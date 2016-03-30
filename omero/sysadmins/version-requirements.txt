@@ -29,9 +29,9 @@ Operating systems
 
   * [5.2] 7 / Server 2008R2 supported, 8 (client) recommended / Server
     2012R2 (server) recommended
-  * [5.3] 7 / Server 2008R2 supported, 8 (client) recommended / Server
-    2012R2 (server) recommended
-  * Rationale: No change in this timeframe.
+  * [5.3] Unsupported for OMERO.server or hosting OMERO.web, client
+    support only
+  * Rationale: see `blog post explanation <http://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_
 
 * MacOS X
 
@@ -266,22 +266,6 @@ Microsoft Windows
       - OMERO 5.2
       - OMERO 5.3
       - Details
-    * - XP
-      - from Dec 2001
-      - to Apr 2014
-      - to Apr 2014
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Ref <http://support.microsoft.com/lifecycle/?p1=12757>`__
-    * - Server 2003 R2
-      - from May 2003
-      - to Jul 2010
-      - to Jul 2015
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Ref <http://support.microsoft.com/lifecycle/?p1=10394>`__
     * - Vista
       - from Jan 2007
       - to Apr 2012
@@ -296,7 +280,7 @@ Microsoft Windows
       - to Jan 2020
       - Recommended
       - Supported
-      - Supported
+      - Unsupported†
       - `Ref <http://support.microsoft.com/lifecycle/?p1=14481>`__
     * - Server 2008 R2
       - from May 2008
@@ -304,7 +288,7 @@ Microsoft Windows
       - to Jan 2023
       - Recommended
       - Supported
-      - Supported
+      - Unsupported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=17383>`__
     * - Win 8
       - from Oct 2012
@@ -312,7 +296,7 @@ Microsoft Windows
       - to Jan 2023
       - Supported
       - Recommended
-      - Recommended
+      - Unsupported†
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16799>`__
     * - Server 2012
       - from Oct 2012
@@ -320,16 +304,25 @@ Microsoft Windows
       - to Jan 2023
       - Supported
       - Recommended
-      - Recommended
+      - Unsupported
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16526>`__
+    * - Win 10
+      - from July 2015
+      - to Oct 2020
+      - to Oct 2025
+      - Unsupported
+      - Unsupported
+      - Unsupported†
+      - `Ref <https://support.microsoft.com/en-gb/lifecycle?C2=18165>`__
 
-XP is now unsupported upstream, and Server 2003 will be unsupported
-within the timeframe of 5.1 support. Vista is likely supported but
-usage is minimal and it is untested, hence marked as dropped. 7/Server
-2008 and 8/Server 2012 are both supported and used. Server 2008 builds
-in place; no 2012 builds or testing in place yet. No regular Windows
-CI deployment and testing is in place other than manually. Some manual
-testing on Windows 7 VMs and machines.
+†
+   Unsupported for OMERO.server and OMERO.web deployment. Client support will
+   continue or is upcoming (Windows 10)
+
+
+Insufficient resources are available for regular CI deployment and testing of
+OMERO.server so a decision has been made to drop support in favor of other
+priorities. See `this blog post for full details <http://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_.
 
 UNIX (MacOS X)
 --------------
@@ -381,8 +374,8 @@ Apple do not formally announce end of life for their releases, but
 with the three latest releases being supported this puts 10.9 as the
 minimum version suitable for use.  We have regular CI testing of 10.9,
 10.10 and 10.11 builds plus developer testing of building and client
-and server deployment. 10.8 is marked as dropped since is is no longer
-longer tested by the CI infrastructure (node retired).
+and server deployment. 10.8 is marked as dropped since it is no longer
+tested by the CI infrastructure (node retired).
 
 UNIX (FreeBSD)
 --------------
