@@ -533,17 +533,13 @@ Properties:
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontStretch: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontVariant: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontWeight: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | radiusX: ``double`` (optional)
   | radiusY: ``double`` (optional)
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeLineCap: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
@@ -1359,15 +1355,11 @@ Properties:
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontStretch: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontVariant: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontWeight: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeLineCap: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
@@ -1603,15 +1595,13 @@ Properties:
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontStretch: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontVariant: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontWeight: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | markerEnd: ``string`` (optional)
+  | markerStart: ``string`` (optional)
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeLineCap: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
@@ -1745,17 +1735,13 @@ Properties:
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontStretch: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontVariant: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontWeight: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | height: ``double`` (optional)
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | pixels: :ref:`Pixels <OMERO model class Pixels>` (optional)
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeLineCap: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
@@ -2127,15 +2113,11 @@ Properties:
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontStretch: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontVariant: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontWeight: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeLineCap: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
@@ -2422,15 +2404,11 @@ Properties:
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontStretch: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontVariant: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontWeight: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeLineCap: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
@@ -2459,16 +2437,12 @@ Properties:
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontStretch: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontVariant: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontWeight: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | points: ``text`` (optional)
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeLineCap: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
@@ -2495,16 +2469,14 @@ Properties:
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontStretch: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontVariant: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontWeight: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | markerEnd: ``string`` (optional)
+  | markerStart: ``string`` (optional)
   | points: ``text`` (optional)
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeLineCap: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
@@ -2651,16 +2623,12 @@ Properties:
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontStretch: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontVariant: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontWeight: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | height: ``double`` (optional)
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeLineCap: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
@@ -2909,15 +2877,11 @@ Properties:
   | fontFamily: ``string`` (optional)
   | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
   | fontSize.value: ``double`` (optional)
-  | fontStretch: ``string`` (optional)
   | fontStyle: ``string`` (optional)
-  | fontVariant: ``string`` (optional)
-  | fontWeight: ``string`` (optional)
   | locked: ``boolean`` (optional)
   | roi: :ref:`Roi <OMERO model class Roi>`
   | strokeColor: ``integer`` (optional)
   | strokeDashArray: ``string`` (optional)
-  | strokeLineCap: ``string`` (optional)
   | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
   | strokeWidth.value: ``double`` (optional)
   | theC: ``integer`` (optional)
