@@ -172,9 +172,10 @@ it is important to encrypt the transport channel between clients and the
 Glacier2 router to keep your passwords safe.
 
 By default, all logins to OMERO occur over |SSL| using an anonymous
-handshake. After the initial connection, clients can request to have
-communication un-encrypted to speed up image loading by clicking on the
-lock symbol. An unlocked symbol means that non-password related
+handshake. After the initial connection, communication is un-encrypted to
+speed up image loading. Clients can still request to have all communications
+encrypted by clicking on the lock symbol.
+An unlocked symbol means that non-password related
 activities (i.e. anything other than login and changing your password)
 will be unencrypted, and the only critical connection which is passed in
 the clear is your session id.
