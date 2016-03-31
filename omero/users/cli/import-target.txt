@@ -124,11 +124,11 @@ does not import them::
     /Users/colin/images/bd-pathway/week-1/2009-05-01_000/Well D11/DsRed - Confocal - n000002.tif
     /Users/colin/images/bd-pathway/week-1/2009-05-01_000/Well D11/Transmitted Light - n000000.tif
 
-which shows that all the files are under::
+which shows that all the files for one particular Plate from the example above
+are under::
 
     /Users/colin/images/bd-pathway/week-1/2009-05-01_000/
 
-as in the example above.
 
 For more information on the regular expression syntax that can be used in
 templates see:
