@@ -80,8 +80,8 @@ must be used here. For example::
 would use a Dataset with name being the path following ``images/``,
 in this case ``dv``.
 
-The name discriminator can be explicitly used and, as in the previous section,
-also qualified::
+The ``name`` discriminator can be explicitly used and, as in the previous
+section, also qualified::
 
     $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:+name:^.*images/(?<Container1>.*?)"
     $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:-name:^.*images/(?<Container1>.*?)"
