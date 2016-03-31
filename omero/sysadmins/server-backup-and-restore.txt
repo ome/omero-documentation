@@ -64,8 +64,8 @@ OMERO.server has three main backup sources:
 
 1.  PostgreSQL database (assumed to be ``omero_database``)
 2.  OMERO.server
-    :doc:`binary data store <unix/server-binary-repository>`;
-    assumed to be ``/OMERO`` or ``C:\OMERO``)
+    :doc:`binary data store <unix/server-binary-repository>`
+    (assumed to be :file:`/OMERO`)
 3.  OMERO.server configuration
 
     .. note::
@@ -75,12 +75,7 @@ OMERO.server has three main backup sources:
         `<https://github.com/ome/scripts>`_ which provides help for merging 
         your lib/scripts directories.
 
-You should back up *(1)* and *(2)* regularly. 
-
-.. warning:: **Although losing your PostgreSQL database is not as 
-    catastrophic for OMERO version 5.x as it is for 4.4, you still do not want 
-    to be in the position of trying to recover your server without a backup of 
-    this resource.**
+.. warning:: You must back up *(1)* and *(2)* regularly.
 
 You need to back up *(3)* only before you make changes. You can copy it into 
 ``/OMERO/backup`` to ensure it is kept safe:

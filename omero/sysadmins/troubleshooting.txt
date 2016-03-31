@@ -31,21 +31,19 @@ accounts.
 System accounts
 ^^^^^^^^^^^^^^^
 
-These are accounts on your machine or directory server (e.g. LDAP, Active 
-Directory). One account is used for running the OMERO server (either your own 
-or one you created specially for running OMERO, referred to here as 
-“omero_user”). There is also a user
-called the "root-level user" on the :doc:`UNIX installation
-page <unix/server-installation>` (which includes Mac OS X). A separate 
-“postgres” user is used for 
-running the database server. The “omero_user” account runs the OMERO 
-server, and owns the files uploaded to OMERO. This account must have 
-permission to write to the `/OMERO/` binary repository. Some operations in the 
-install scripts require the root-level/administrator-level privileges in order 
-to use another account to perform particular actions e.g. the “postgres” 
-user to create a database. However **the OMERO.server should never be run as 
-the root-level/administrator-level user or as the system-level “postgres” 
-user**.
+These are accounts on your machine or directory server (e.g. LDAP, Active
+Directory). One account is used for running the OMERO server (either your own
+or one you created specially for running OMERO, referred to here as
+“omero_user”). There is also a user called the "root-level user" on the
+:doc:`installation page <unix/server-installation>`. A separate
+“postgres” user is used for running the database server. The “omero_user”
+account runs the OMERO server, and owns the files uploaded to OMERO. This
+account must have permission to write to the `/OMERO/` binary repository. Some
+operations in the install scripts require the root-level/administrator-level
+privileges in order to use another account to perform particular actions e.g.
+the “postgres” user to create a database. However **the OMERO.server should
+never be run as the root-level/administrator-level user or as the system-level
+“postgres” user**.
 
 Database accounts
 ^^^^^^^^^^^^^^^^^
@@ -90,9 +88,8 @@ Server fails to start
 1. Check that you are able to successfully connect to your PostgreSQL
    installation as outlined on the
    :doc:`PostgreSQL page <unix/server-postgresql>`).
-2. Check the permissions on your :property:`omero.data.dir` (:file:`/OMERO` or
-   :file:`C:\OMERO` by default) as outlined on the
-   :doc:`unix/server-installation` page.
+2. Check the permissions on your :property:`omero.data.dir` (:file:`/OMERO` by
+   default) as outlined on the :doc:`unix/server-installation` page.
 3. Are you on a laptop? If you see an error message mentioning 
    :ticket:`"node master couldn't be reached" <7325>`, you
    may be suffering from a network address swap. Ice does not like to

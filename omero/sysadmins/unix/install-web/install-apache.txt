@@ -1,10 +1,10 @@
-OMERO.web Apache and mod_wsgi deployment (Unix/Linux)
-======================================================
+OMERO.web Apache and mod_wsgi deployment
+========================================
 
 .. _apache_wsgi_configuration:
 
-Apache 2.2+ with mod_wsgi configuration (Unix/Linux)
-----------------------------------------------------
+Apache 2.2+ with mod_wsgi configuration
+---------------------------------------
 
 .. note:: Since OMERO 5.2, the OMERO.web framework no longer bundles
       a copy of the Django package, instead manual installation of
@@ -21,8 +21,8 @@ that describes how a web server communicates with web applications.
 
 .. _apache_default_configuration:
 
-Apache default configuration (Unix/Linux)
------------------------------------------
+Apache default configuration
+----------------------------
 
 Install `Django 1.8`_ using package requirements file:
 
@@ -49,15 +49,15 @@ Additional settings can be configured by changing the following properties:
 
 .. _apache_mod_wsgi_configuration:
 
-Apache configuration (Unix/Linux)
----------------------------------
+Apache configuration
+--------------------
 
 If you have installed Apache, install `mod\_wsgi <http://www.modwsgi.org/>`_.
 
 OMERO can automatically generate a
 configuration file for your web server. The location of the file
 will depend on your system, please refer to your web server's manual.
-See :ref:`customizing_your_omero_web_installation_unix`
+See :ref:`customizing_your_omero_web_installation`
 for additional customization options.
 
 Set the following:
@@ -88,8 +88,8 @@ To configure an HTTPS server follow
 Then reload Apache.
 
 
-Running OMERO.web (Unix/Linux)
-------------------------------
+Running OMERO.web
+-----------------
 
 OMERO.web is used in 'daemon' mode where UNIX sockets are used to communicate
 between the Apache child processes and the daemon processes which are
