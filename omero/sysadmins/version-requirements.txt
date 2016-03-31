@@ -187,8 +187,8 @@ The planned changes for 5.2 depend upon our support of
 
 * nginx
 
-  * [5.2] 1.0 dropped, 1.2 deprecated, 1.4 deprecated, 1.6 supported, 1.8 or 1.9 recommemded
-  * [5.3] 1.2 dropped, 1.4 dropped, 1.6 supported, 1.8 or 1.9 recommemded
+  * [5.2] 1.0 dropped, 1.2 deprecated, 1.4 deprecated, 1.6 supported, 1.8 or 1.9 recommended
+  * [5.3] 1.2 dropped, 1.4 dropped, 1.6 supported, 1.8 or 1.9 recommended
   * Rationale: 1.4 is the Ubuntu 14.04 and Debian 8 version.
     Removed for 5.3 accordingly.
 
