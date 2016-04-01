@@ -61,9 +61,9 @@ Changing the model object graph
 :javadoc:`ChildOption <slice2html/omero/cmd/graphs/ChildOption.html>`
   By default if a 'child' object is contained by a 'parent' targeted
   object then it is processed along with its parent if it is not also
-  contained by another parent object that is not targeted. Child options
-  override this behavior, to either process children or not regardless
-  of other parents.
+  contained by another parent object that is not targeted. Use requests'
+  ``childOptions`` property to specify that children should be processed
+  or not regardless of other parents.
 
   The ``includeType`` and ``excludeType`` properties specify for which
   types of children to override the behavior. For children that are
