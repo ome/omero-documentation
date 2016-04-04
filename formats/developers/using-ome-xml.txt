@@ -72,7 +72,7 @@ Things to avoid
    Direct copying of our structure is not necessary as XML already has a
    method of including items from another schema, **see below**. From
    our point of view this is important as it allows us to control which
-   parts of our model can be used as stand alone objects in others' work.
+   parts of our model can be used as stand-alone objects in others' work.
 
 Correct approaches
 ------------------
