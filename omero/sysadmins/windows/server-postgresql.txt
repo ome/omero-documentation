@@ -1,6 +1,12 @@
 OMERO.server and PostgreSQL
 ===========================
 
+.. warning:: OMERO 5.2 is the last major version which will feature Windows
+    support for OMERO.server and OMERO.web deployment. See
+    `this blog post <http://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_ for details. If you are installing a new server, we highly
+    recommend you use a different OS (see
+    :doc:`/sysadmins/version-requirements`).
+
 In order to be installed, OMERO.server requires a running PostgreSQL
 instance that is configured to accept connections over TCP. This
 section explains how to ensure that you have the correct PostgreSQL
