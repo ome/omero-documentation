@@ -21,7 +21,7 @@ Querying the model object graph
   <slice2html/omero/cmd/LegalGraphTargets.html>` request can be used to
   determine which types of model object may be targeted.
 
-:javadoc:`DiskUsage <slice2html/omero/cmd/DiskUsage.html>`
+:javadoc:`DiskUsage2 <slice2html/omero/cmd/DiskUsage2.html>`
   Report on the disk usage of the target objects and their contents by
   type, user and group. Includes a ``targetClasses`` property to allow
   specifying every visible instance of a type.
@@ -110,7 +110,7 @@ OMERO's :doc:`command-line interface client </users/cli/index>` includes
 ``chgrp``, ``chown``, ``delete`` plugins that construct the
 corresponding ``Chgrp2``, ``Chown2``, ``Delete2`` requests.
 Additionally, the ``group`` plugin offers the ``Chmod2`` request and the
-``fs`` plugin offers the ``DiskUsage`` request.
+``fs`` plugin offers the ``DiskUsage2`` request.
 
 
 Request builders for Java
