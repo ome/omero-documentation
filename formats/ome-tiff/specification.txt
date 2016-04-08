@@ -325,7 +325,11 @@ stored sequentially within the TIFF) makes for very easy TiffData elements.
 Multi-file example
 ^^^^^^^^^^^^^^^^^^
 
-Both the :ref:`tubhiswt_samples` and the :ometiff_downloads:`Companion <companion>` OME-TIFF images demonstrate how OME-TIFF datasets can be distributed across multiple files. Another example is described below:
+The :ref:`tubhiswt_samples`, the
+:ometiff_downloads:`binary only OME-TIFF fileset sample <binaryonly>` and the
+:ometiff_downloads:`companion fileset sample <companion>` demonstrate how
+OME-TIFF datasets can be distributed across multiple files. Another example is
+described below.
 
 Each of the files in the set has identical metadata apart from the 
 `UUID`, the unique identifier in each file. For example the identifiers
@@ -481,8 +485,7 @@ To do this:
 - either store the OME-XML metadata in a companion file with the extension
   ``.companion.ome`` (see the :ometiff_downloads:`companion fileset sample <companion>`)
 - or choose one OME-TIFF file to serve as the "master" file containing the
-  metadata
-
+  metadata (see the :ometiff_downloads:`binary only OME-TIFF fileset sample <binaryonly>`)
 
 In the remaining OME-TIFF files where you do not want to store the metadata,
 use an OME-XML block similar to::
