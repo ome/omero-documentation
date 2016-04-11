@@ -156,6 +156,7 @@ of the supported languages.
     Modules/TempFileManager
     Modules/ExceptionHandling
     logging
+    Server/GraphRequests
     Server/GraphsMigration
 
 
