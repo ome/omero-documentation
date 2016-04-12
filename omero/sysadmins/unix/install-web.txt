@@ -114,22 +114,21 @@ OMERO.web Maintenance (Unix/Linux)
       :djangodoc:`Django clearing the session store documentation <topics/http/sessions/#clearing-the-session-store>`
       for more information.
 
-      .. note::
-          OMERO.web offers alternative session backends to automatically 
-          delete stale data using the cache session store backend, see
-          :djangodoc:`Django cached session documentation <topics/http/sessions/#using-cached-sessions>`
-          for more details. After installing all the cache prerequisites set the following::
+   -  OMERO.web offers alternative session backends to automatically 
+      delete stale data using the cache session store backend, see
+      :djangodoc:`Django cached session documentation <topics/http/sessions/#using-cached-sessions>`
+      for more details. After installing all the cache prerequisites set the following::
 
-              $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
+          $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
 
-          - `Memcached <https://memcached.org/>`_::
+      - `Memcached <https://memcached.org/>`_::
 
-              $ bin/omero config set omero.web.caches '{"default": { "BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400" } }'
+          $ bin/omero config set omero.web.caches '{"default": { "BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400" } }'
 
-          - EXPERIMENTAL: `Redis 2.4+ <http://redis.io/>`_ requires `django-redis-cache 1.6.5+ <http://django-redis-cache.readthedocs.org/en/latest/intro_quick_start.html>`_::
+      - EXPERIMENTAL: `Redis 2.4+ <http://redis.io/>`_ requires `django-redis-cache 1.6.5+ <http://django-redis-cache.readthedocs.org/en/latest/intro_quick_start.html>`_::
 
-              $ pip install django-redis-cache>=1.6.5
-              $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "redis_cache.RedisCache", "LOCATION": "127.0.0.1:6379"}}'
+          $ pip install django-redis-cache>=1.6.5
+          $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "redis_cache.RedisCache", "LOCATION": "127.0.0.1:6379"}}'
 
 .. note::
     The generated Nginx and Apache configuration files will automatically
