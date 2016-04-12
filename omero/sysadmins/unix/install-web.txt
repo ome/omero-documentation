@@ -128,7 +128,7 @@ OMERO.web Maintenance (Unix/Linux)
 
           - EXPERIMENTAL: `Redis 2.4+ <http://redis.io/>`_ requires `django-redis-cache 1.6.5+ <http://django-redis-cache.readthedocs.org/en/latest/intro_quick_start.html>`_::
 
-              $ pip install django-redis-cache=>1.6.5
+              $ pip install django-redis-cache>=1.6.5
               $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "redis_cache.RedisCache", "LOCATION": "127.0.0.1:6379"}}'
 
 .. note::
