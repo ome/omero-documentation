@@ -1,5 +1,5 @@
-OMERO.web Nginx and Gunicorn deployment (Unix/Linux)
-====================================================
+OMERO.web Nginx and Gunicorn deployment
+=======================================
 
 .. note:: Since OMERO 5.2, the OMERO.web framework no longer bundles
       a copy of the Django package, instead manual installation of
@@ -19,8 +19,8 @@ that describes how a web server communicates with web applications.
 
 .. _gunicorn_default_configuration:
 
-Gunicorn default configuration (Unix/Linux)
--------------------------------------------
+Gunicorn default configuration
+------------------------------
 
 Install `Django 1.8`_ and `Gunicorn >= 19.3 <http://gunicorn.org>`_
 using the package requirements file:
@@ -50,13 +50,13 @@ Additional settings can be configured by changing the following properties:
 
 .. _nginx_gunicorn_wsgi_configuration:
 
-Nginx configuration (Unix/Linux)
---------------------------------
+Nginx configuration
+-------------------
 
 If you have installed Nginx, OMERO can automatically generate a
 configuration file for your web server. The location of the file
 will depend on your system, please refer to your web server's manual.
-See :ref:`customizing_your_omero_web_installation_unix`
+See :ref:`customizing_your_omero_web_installation`
 for additional customization options.
 
 To create a site configuration file for inclusion in a system-wide nginx
@@ -86,8 +86,8 @@ configuration redirect the output of the following command into a file:
 To configure an HTTPS server follow
 `the nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
 
-Running OMERO.web (Unix/Linux)
-------------------------------
+Running OMERO.web
+-----------------
 
 Start the Gunicorn worker processes listening by default on 127.0.0.1:4080:
 
@@ -261,8 +261,8 @@ using :property:`omero.web.wsgi_args`:
 
 .. _gunicorn_advance_configuration:
 
-EXPERIMENTAL: Gunicorn advance configuration (Unix/Linux)
----------------------------------------------------------
+EXPERIMENTAL: Gunicorn advance configuration
+--------------------------------------------
 
 .. note:: Experimental configurations are not ready for production use.
     Configuration may change. Features may not work properly.

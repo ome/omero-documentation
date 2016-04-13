@@ -64,14 +64,11 @@ package are:
 - ``:query:`` -
    :source:`QueryNewUserGroupBean <components/server/src/ome/security/auth/QueryNewUserGroupBean.java>`
 
-.. seealso:: 
+.. seealso::
 
     :doc:`/sysadmins/unix/server-installation`
         Instructions for installing OMERO.server on UNIX and UNIX-like
         platforms
-
-    :doc:`/sysadmins/windows/server-installation`
-        Instructions for installing OMERO.server on Windows platforms
 
     :doc:`/sysadmins/server-security`
         General instructions on server security

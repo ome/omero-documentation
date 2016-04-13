@@ -24,9 +24,6 @@ Requirements
 ^^^^^^^^^^^^
 
 The normal OMERO installation actually makes use of OMERO.grid internally.
-Note that multi-node OMERO.grid configurations are only tested with Unix-like
-systems, multi-node configurations on Windows are untested and deprecated,
-and any remaining support will be dropped in OMERO 5.3.
 If you have followed the instructions under :doc:`unix/server-installation`
 you will have everything you need to start working with OMERO.grid.
 
@@ -70,19 +67,6 @@ JAR is provided in the OMERO source code under :file:`lib/repository`.
     :zerocdoc:`IceGrid Admin Graphical Tool <display/Ice/IceGrid+Admin+Graphical+Tool>`
         Chapter of the ZeroC_ manual about the GridGUI tool
 
-.. _grid_installation_windows_xp:
-
-
-OMERO.grid on Windows
-^^^^^^^^^^^^^^^^^^^^^
-
-Unlike all other supported platforms, the :file:`bin\\omero` script and
-OMERO.grid are not directly responsible for starting and
-stopping the :doc:`/developers/server-blitz` server and other
-processes. Instead, that job is delegated to the native Windows service
-system. A brief explanation is available under :doc:`windows/service-tools`.
-
-Multi-node deployment is not supported for Windows.
 
 How it works
 ------------
@@ -225,8 +209,6 @@ Nodes on multiple hosts
 .. warning::
     Before attempting this type of deployment, make sure that the hosts
     can ping each other and that required ports are open and not firewalled.
-    
-    Windows multi-node configurations are not supported.
 
 A more complex deployment example is running multiple nodes on networked
 hosts. Initially, the host's loopback IP address (127.0.0.1) is used in the grid configuration files.
@@ -347,8 +329,8 @@ have secured your endpoints via one of the methods outlined above.
 Absolute paths
 ^^^^^^^^^^^^^^
 
-Except under Windows, the example application descriptors shipped with
-OMERO, all use relative paths to make installation easier. Once you are
+The example application descriptors shipped with
+OMERO all use relative paths to make installation easier. Once you are
 comfortable with configuring OMERO.grid, it
 would most likely be safer to configure absolute paths. For example,
 specifying that nodes execute under ``/usr/lib/omero`` requires that whoever
@@ -476,8 +458,6 @@ Running as root
 
 One exception to this rule is that starting OMERO.grid as root may actually
 delegate to another user, if the "user" attribute is set on the ``<server/>``
-elements in :file:`etc/grid/templates.xml` (this holds only for Unix-based
-platforms including Apple OS X. See :ref:`grid_installation_windows_xp` for
-information on changing the server user under Windows).
+elements in :file:`etc/grid/templates.xml`.
 
 .. seealso:: |OmeroSessions|

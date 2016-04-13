@@ -80,10 +80,8 @@ latest release.
 
 
     :doc:`/sysadmins/unix/server-installation`
-        Instructions for installing OMERO.server on UNIX & UNIX-like platforms
-
-    :doc:`/sysadmins/windows/server-installation`
-        Instructions for installing OMERO.server on Windows platforms
+        Instructions for installing OMERO.server on UNIX and UNIX-like
+        platforms
 
     :doc:`/sysadmins/server-upgrade`
         Instructions for upgrading OMERO.server 
