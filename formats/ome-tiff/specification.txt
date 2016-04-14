@@ -1,7 +1,6 @@
 OME-TIFF specification
 ======================
 
-
 The following provides technical details on the OME-TIFF
 format. It assumes familiarity with both the
 `TIFF <http://partners.adobe.com/public/developer/tiff/index.html>`_ and
@@ -58,12 +57,12 @@ obtain an OME-TIFF file's entire set of metadata as OME-XML.
     OME-XML metadata block is stored only in the first IFD structure.
     However, for an image sequence distributed across multiple OME-TIFF
     files, each file will contain a copy of the OME-XML metadata block
-    (see `Storing partial metadata blocks`_ below for exceptions to
+    (see :ref:`binary_only` below for exceptions to
     this rule). Thus, if any files are lost, the metadata is preserved. The
     OME-XML block in each file is nearly identical—the only difference is in
     the TiffData elements appearing beneath Pixels elements, since each TIFF
-    file contains a different portion of the image data (see `Distributing
-    an image sequence across multiple OME-TIFF files`_ below).
+    file contains a different portion of the image data (see
+    :ref:`multifile-ometiff` below).
 
 
 DimensionOrder
@@ -84,7 +83,7 @@ can contain, the same scheme described above for specifying the
 rasterization order works within the OME-TIFF file. The only difference
 is that instead of the pixels being encoded in base64 inside BinData
 elements, they are stored within the TIFF file in the standard fashion,
-one per IFD; see `The TiffData element`_ below for specifics.
+one per IFD; see the :ref:`TiffData element <tiffdata>` below for specifics.
 
 TIFF comments
 ^^^^^^^^^^^^^
@@ -100,7 +99,7 @@ preface it with the following informative comment:
     For more information, see the OME-TIFF web site:
     http://www.openmicroscopy.org/site/support/ome-model/ome-tiff/ -->
 
-.. _element:
+.. _tiffdata:
 
 The TiffData element
 --------------------
@@ -285,13 +284,14 @@ reverse temporal order.
 For details on validating your OME-XML metadata block, see the
 validating OME-XML section on the :doc:`tools` page.
 
-.. _files:
+.. _multifile-ometiff:
 
 Distributing an image sequence across multiple OME-TIFF files
 -------------------------------------------------------------
 
 As demonstrated above, the OME-TIFF format is capable of storing the
 entire multidimensional image series in one master OME-TIFF file.
+
 Alternatively, a collection of multiple OME-TIFF files may be used. Using
 the TiffData attributes outlined above together with
 `UUID <http://en.wikipedia.org/wiki/Universally_Unique_Identifier>`_
@@ -299,28 +299,86 @@ elements and attributes, the OME-XML metadata block can unambiguously
 define which dimensional positions correspond to which IFDs from which
 files. Each OME-TIFF need not contain the same number of images.
 
-When using this multiple file method, a nearly identical OME-XML metadata 
-block should be inserted into the first IFD of each constituent OME-TIFF file 
-(although `storing partial metadata blocks`_ is also possible, see below).
-This is for redundancy purposes: if even one of the
-constituent files survives a data crash, the metadata survives. The
-space tradeoff of this duplication is acceptable when compared to the bulk of 
-the pixel data in most cases, provided a suitable number of planes are stored 
-in each TIFF.
+Discussion
+^^^^^^^^^^
 
-The only difference between the OME-XML metadata block per file is the
-UUID attribute of the root OME element. This value should be a distinct
-UUID value for each file, so that each TiffData element can
-unambiguously reference its relevant file using a UUID child element.
+The following section discusses various considerations when designing
+OME-TIFF filesets distributed over multiple files.
 
-.. note::
-    The FileName attribute of the UUID is optional, but strongly
-    recommended—otherwise, the OME-TIFF reader must scan OME-TIFF files in
-    the working directory looking for matching UUID signatures.
+.. seealso::
+    :ome-devel:`Proposed tweak to µManager data files in 2.0 <2016-April/003618.html>`
+        Community discussion about OME-TIFF multi-file
 
-OME-TIFF can support any image organization. However, using one TIFF file per 
-timepoint per channel (with the focal planes for that timepoint and channel 
-stored sequentially within the TIFF) makes for very easy TiffData elements.
+Number of files
+"""""""""""""""
+
+Splitting a fileset across multiple files can have advantages in terms of
+acquisition but also processing purposes. OME-TIFF can support any image
+organization. However, using one TIFF file per timepoint per channel with the
+focal planes for that timepoint and channel stored sequentially within the
+TIFF makes for very easy :ref:`TiffData` elements.
+
+One of main downside of splitting OME-TIFF over multiple files is their
+inherent fragility to common file-system operations such as file renaming or
+file copying which have the potential to "break" the fileset.
+
+File size
+"""""""""
+
+The TIFF file format internally uses 32-bit byte offsets. The largest offset
+which can be represented is 4GB, making this value the upper limit of the file
+size supported by the design.
+
+The OME-TIFF file format supports the BigTIFF file extensions allowing to
+use 64-bit byte offsets to overcome this size limit.
+
+The main limitation of the BigTIFF file extension is the degree of its
+adoption in the community. Although OME Bio-Formats and OMERO will handle
+OME-TIFF using the BigTIFF file extension, other tools might not be able to
+open it.
+
+OME-XML Metadata
+""""""""""""""""
+
+When splitting an OME-TIFF across multiple files, there are two strategies to
+store the OME-XML metadata either copy it into each TIFF file or use partial
+metadata blocks.
+
+#. In the first case, a nearly identical OME-XML metadata block must be
+   inserted into the first IFD of each constituent OME-TIFF file.
+
+   The only difference between the OME-XML metadata block per TIFF file is the
+   :schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_UUID>`
+   attribute of the root OME element. This value should be a distinct
+   UUID value for each file, so that each TiffData element can
+   unambiguously reference its relevant file using a UUID child element.
+
+   .. note::
+     The :schema_plone:`FileName <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_TiffData_UUID_FileName>`
+     attribute of the UUID is optional, but strongly recommended—otherwise,
+     the OME-TIFF reader must scan OME-TIFF files in the working directory
+     looking for matching UUID signatures.
+
+   One of the advantages of this approach is redundancy: if even one of the
+   constituent files survives a data crash, the metadata survives. The space
+   tradeoff of this duplication is acceptable when compared to the bulk of the
+   pixel data in most cases, provided a suitable
+   number of planes are stored in each TIFF.
+
+#. It is also possible to store partial OME-XML metadata blocks in some or all
+   of the TIFF files and use a master file containing the full OME-XML
+   metadata.
+
+   The master file can either be another OME-TIFF from the fileset or a
+   standalone companion OME-XML file.
+
+   Using a companion OME-XML file allows to easily append information that can
+   only be generated at the end of the acquisition without the need to
+   manipulate existing TIFF IFDs. It has the same drawbacks as the ones
+   highlighted above in the sense that this companion file needs to be
+   preserved as part of the fileset to prevent metadata loss.
+
+   See the :ref:`binary_only` section for more technical information.
 
 Multi-file example
 ^^^^^^^^^^^^^^^^^^
@@ -448,10 +506,10 @@ And so on for files:
 - **spicule\_C2\_TP2.ome.tif** with ID 6dd975be-587e-4f06-864a-54b0ec5ab2a0
 - **spicule\_C2\_TP3.ome.tif** with ID f139aef6-be53-4694-b5a5-3e95fff7ddf9
 
-.. _blocks:
+.. _binary_only:
 
 Storing partial metadata blocks
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Storing multiple planes per OME-TIFF file, and keeping the OME-XML metadata 
 embedded in every file's header, is recommended but it is not always 
