@@ -92,7 +92,9 @@ useradd -m omero
 
 mkdir -p "$OMERO_DATA_DIR"
 chown omero "$OMERO_DATA_DIR"
+#start-configuration-env
 echo source \~omero/omero-centos6py27ius.env >> ~omero/.bashrc
+#end-configuration-env
 #end-step02
 
 #start-step03: As root, create a database user and a database

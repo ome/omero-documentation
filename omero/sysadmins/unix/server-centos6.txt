@@ -58,7 +58,7 @@ Create an omero system user, and a directory for the OMERO repository:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
     :start-after: #start-step02
-    :end-before: #end-step02
+    :end-before: #start-configuration-env
 
 Create a database user and initialize a new database for OMERO:
 
@@ -78,9 +78,11 @@ variable:
 These settings will enable Python 2.7, and set the necessary
 environment variables for Ice 3.5 to work.
 For example, download :download:`omero-centos6py27ius.env 
-<walkthrough/omero-centos6py27ius.env>` into ``/home/omero`` and run::
+<walkthrough/omero-centos6py27ius.env>` into ``/home/omero`` and run:
 
-    echo source /home/omero/omero-centos6py27ius.env >> /home/omero/.bashrc
+.. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
+    :start-after: #start-configuration-env
+    :end-before: #end-configuration-env
 
 Install OMERO.server
 --------------------
