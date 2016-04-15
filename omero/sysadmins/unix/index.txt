@@ -21,3 +21,12 @@ additional pages listed below.
     server-binary-repository
     server-postgresql
     install-web
+
+.. toctree::
+    :maxdepth: 2
+    :hidden:
+
+    walkthrough/requirements
+    walkthrough/requirements_centos6
+    walkthrough/requirements_centos6_py27
+    walkthrough/requirements_centos6_py27_ius

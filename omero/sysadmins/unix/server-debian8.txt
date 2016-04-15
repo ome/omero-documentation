@@ -31,6 +31,8 @@ Install Ice 3.5, Java 1.8, PostgreSQL 9.4:
     :start-after: #start-step01
     :end-before: #end-step01
 
+See :download:`requirements.txt<walkthrough/requirements.txt>`
+
 Create an omero system user, and a directory for the OMERO repository:
 
 .. literalinclude:: walkthrough/walkthrough_debian8.sh

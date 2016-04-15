@@ -51,6 +51,9 @@ The remaining dependencies will be installed in a virtual environment:
     :start-after: #start-step01.1
     :end-before: #end-step01.1
 
+See :download:`requirements_centos6_py27_ius.txt
+<walkthrough/requirements_centos6_py27_ius.txt>`
+
 Create an omero system user, and a directory for the OMERO repository:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
@@ -74,7 +77,7 @@ variable:
 
 These settings will enable Python 2.7, and set the necessary
 environment variables for Ice 3.5 to work.
-For example, download :download:`walkthrough/omero-centos6py27ius.env 
+For example, download :download:`omero-centos6py27ius.env 
 <walkthrough/omero-centos6py27ius.env>` into ``/home/omero`` and run::
 
     echo source /home/omero/omero-centos6py27ius.env >> /home/omero/.bashrc
