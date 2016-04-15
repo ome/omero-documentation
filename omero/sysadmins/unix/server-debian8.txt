@@ -25,8 +25,7 @@ Prerequisites
 
 **The following steps are run as root.**
 
-
-Install Ice, Java, PostgreSQL:
+Install Ice 3.5, Java 1.8, PostgreSQL 9.4:
 
 .. literalinclude:: walkthrough/walkthrough_debian8.sh
     :start-after: #start-step01
@@ -74,7 +73,7 @@ Nginx
 
 **The following steps are run as root.**
 
-Install Nginx, copy the Nginx OMERO configuration file into the
+Install Nginx 1.8, copy the Nginx OMERO configuration file into the
 Nginx configuration directory, and disable the default configuration:
 
 .. literalinclude:: walkthrough/walkthrough_debian8.sh

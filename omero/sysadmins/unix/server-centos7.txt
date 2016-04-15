@@ -27,6 +27,7 @@ Prerequisites
 
 **The following steps are run as root.**
 
+Install Ice 3.5, Java 1.8, PostgreSQL 9.4:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #start-step01
@@ -37,7 +38,6 @@ Create an omero system user, and a directory for the OMERO repository:
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
     :start-after: #start-step02
     :end-before: #end-step02
-
 
 Create a database user and initialize a new database for OMERO:
 
@@ -74,7 +74,7 @@ Nginx
 
 **The following steps are run as root.**
 
-Install Nginx, copy the Nginx OMERO configuration file into the
+Install Nginx 1.8, copy the Nginx OMERO configuration file into the
 Nginx configuration directory, and disable the default configuration:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
