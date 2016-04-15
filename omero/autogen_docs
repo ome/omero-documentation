@@ -44,16 +44,20 @@ if [ -d "$DIRECTORY" ]; then
 fi
 
 mkdir -p $DIRECTORY/osx/
+#generate walkthrough for all os
+ALL=true bash $WORKSPACE/omero-install/autogenerate.sh
+cp $WORKSPACE/omero-install/linux/walkthrough_*.sh $DIRECTORY
+rm $WORKSPACE/omero-install/linux/walkthrough_*.sh
+
 for f in \
     README.md \
-    step* \
-    install_* \
-    omero-* \
+    requirements* \
     settings.env \
     setup_* \
     ; do
     cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
 done
+
 for f in \
     step* \
     install_* \
