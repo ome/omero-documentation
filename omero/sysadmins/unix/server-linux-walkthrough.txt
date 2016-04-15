@@ -30,21 +30,21 @@ Prerequisites
 
 Install Ice, Java, PostgreSQL:
 
-.. literalinclude:: walkthrough/step01_ubuntu1404_deps.sh
-
-| :download:`step01_ubuntu1404_deps.sh <walkthrough/step01_ubuntu1404_deps.sh>`
+.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+    :start-after: #start-step01
+    :end-before: #end-step01
 
 Create an omero system user, and a directory for the OMERO repository:
 
-.. literalinclude:: walkthrough/step02_all_setup.sh
-
-:download:`step02_all_setup.sh <walkthrough/step02_all_setup.sh>`
+.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+    :start-after: #start-step02
+    :end-before: #end-step02
 
 Create a database user and initialize a new database for OMERO:
 
-.. literalinclude:: walkthrough/step03_all_postgres.sh
-
-:download:`step03_all_postgres.sh <walkthrough/step03_all_postgres.sh>`
+.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+    :start-after: #start-step03
+    :end-before: #end-step03
 
 
 Installing OMERO.server
@@ -60,9 +60,9 @@ Note that this script requires the same environment variables that were set
 earlier in `settings.env`, so you may need to copy and/or source this file as
 the omero user.
 
-.. literalinclude:: walkthrough/step04_all_omero.sh
-
-| :download:`step04_all_omero.sh <walkthrough/step04_all_omero.sh>`
+.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+    :start-after: #end-copy-omeroscript
+    :end-before: #end-step04
 
 Installing a web server
 -----------------------
@@ -79,46 +79,28 @@ Nginx
 Install Nginx, copy the Nginx OMERO configuration file into the
 Nginx configuration directory, and disable the default configuration:
 
-.. literalinclude:: walkthrough/step05_ubuntu1404_nginx.sh
-
-| :download:`step05_ubuntu1404_nginx.sh <walkthrough/step05_ubuntu1404_nginx.sh>`
+.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+    :start-after: #start-nginx
+    :end-before: #end-nginx
 
 Apache
 ^^^^^^
 
 As the **omero** system user, configure OMERO.web:
     
-.. literalinclude:: walkthrough/setup_omero_apache24.sh
-
-| :download:`setup_omero_apache24.sh <walkthrough/setup_omero_apache24.sh>`
+.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+    :start-after: #start-configure-apache
+    :end-before: #end-configure-apache
 
 **The following steps are run as root.**
 
-Install Apache 2.4::
+Install Apache 2.4 and copy the Apache OMERO configuration file into the
+Apache configuration directory, and disable the default configuration:
 
-	apt-get -y install apache2 libapache2-mod-wsgi
 
-Copy the Apache OMERO configuration file into the
-Apache configuration directory, and disable the default configuration::
-
-    cp ~omero/OMERO.server/apache.conf.tmp /etc/apache2/sites-available/omero-web.conf
-    a2dissite 000-default.conf
-    a2ensite omero-web.conf
-
-    service apache2 start
-
-.. note::
-        The default value set for the ``WSGISocketPrefix`` directive in ``apache.conf.tmp``
-        needs to be modified:
-
-        ::
-
-            #see https://code.google.com/p/modwsgi/wiki/ConfigurationIssues
-            WSGISocketPrefix run/wsgi
-            # Use this on Ubuntu/Debian systems:
-            # WSGISocketPrefix /var/run/wsgi
-
-| :download:`step05_ubuntu1404_apache24.sh <walkthrough/step05_ubuntu1404_apache24.sh>`
+.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+    :start-after: #start-apache-install
+    :end-before: #end-apache-install
 
 Running OMERO
 -------------
@@ -139,10 +121,10 @@ root user by going to http://localhost/ in your web browser.
 In addition some example `init.d` scripts are available should you wish to
 start OMERO and OMERO.web automatically:
 
-.. literalinclude:: walkthrough/step06_ubuntu1404_daemon.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+    :start-after: #start-step06
+    :end-before: #end-step06
 
-| :download:`step06_ubuntu1404_daemon.sh
-  <walkthrough/step06_ubuntu1404_daemon.sh>`
 | :download:`omero-init.d <walkthrough/omero-init.d>`
 | :download:`omero-web-init.d <walkthrough/omero-web-init.d>`
 
@@ -156,10 +138,9 @@ If multiple users have access to the machine running OMERO you should restrict
 access to OMERO.server's configuration and runtime directories, and optionally
 the OMERO data directory:
 
-.. literalinclude:: walkthrough/step07_all_perms.sh
-
-| :download:`step07_all_perms.sh <walkthrough/step07_all_perms.sh>`
-
+.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+    :start-after: #start-step07
+    :end-before: #end-step07
 
 .. _linux_walkthrough_regular_tasks:
 
@@ -172,12 +153,13 @@ The default OMERO.web session handler uses temporary files to store sessions
 which should be deleted at regular intervals, for instance by creating a cron
 job:
 
-.. literalinclude:: walkthrough/omero-web-cron
+.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+    :start-after: #start-omeroweb-cron
+    :end-before: #end-omeroweb-cron
 
 Copy this script into the appropriate location:
 
 .. literalinclude:: walkthrough/step08_all_cron.sh
 
 | :download:`omero-web-cron <walkthrough/omero-web-cron>`
-| :download:`step08_all_cron.sh <walkthrough/step08_all_cron.sh>`
 
