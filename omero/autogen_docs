@@ -53,7 +53,6 @@ for f in \
     README.md \
     requirements* \
     settings.env \
-    setup_* \
     omero-* \
     ; do
     cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
