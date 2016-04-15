@@ -157,9 +157,11 @@ job:
     :start-after: #start-omeroweb-cron
     :end-before: #end-omeroweb-cron
 
-Copy this script into the appropriate location:
+Copy the following commands into the appropriate location:
 
-.. literalinclude:: walkthrough/step08_all_cron.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+    :start-after: #start-copy-omeroweb-cron
+    :end-before: #end-copy-omeroweb-cron
 
 | :download:`omero-web-cron <walkthrough/omero-web-cron>`
 
