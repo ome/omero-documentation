@@ -45,7 +45,7 @@ fi
 
 mkdir -p $DIRECTORY/osx/
 #generate walkthrough for all os
-ALL=true bash $WORKSPACE/omero-install/autogenerate.sh
+ALL=true bash $WORKSPACE/omero-install/linux/autogenerate.sh
 cp $WORKSPACE/omero-install/linux/walkthrough_*.sh $DIRECTORY
 rm $WORKSPACE/omero-install/linux/walkthrough_*.sh
 
