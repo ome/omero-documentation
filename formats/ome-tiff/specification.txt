@@ -6,19 +6,21 @@ format. It assumes familiarity with both the
 `TIFF <http://partners.adobe.com/public/developer/tiff/index.html>`_ and
 :schema_plone:`OME-XML <>` formats, although there is some review of both.
 
-Storing OME-XML within a TIFF
------------------------------
+An OME-TIFF dataset consists of;
 
-An OME-TIFF dataset consists of one or more files in standard TIFF or
-`BigTIFF format <http://bigtiff.org/>`_, with the file extension
-``.ome.tif`` or ``.ome.tiff``, and an identical (or in the case of
-multiple files, nearly identical) string of OME-XML metadata embedded
-in the ImageDescription tag of each file's first IFD (Image File
-Directory).  BigTIFF file extensions are also permitted, with the file
-extension ``.ome.tf2``, ``.ome.tf8`` or ``.ome.btf``, but note these
+- one or more files in standard TIFF format with the file extension
+  ``.ome.tif`` or ``.ome.tiff`` or `BigTIFF format <http://bigtiff.org/>`_
+  with the file extension ``.ome.tf2``, ``.ome.tf8`` or ``.ome.btf``
+- a string of OME-XML metadata embedded in the ImageDescription tag of each
+  file first IFD (Image File Directory).
+
+BigTIFF file extensions are also permitted, with the file extension ``.ome.tf2``, ``.ome.tf8`` or ``.ome.btf``, but note these
 file extensions are an addition to the original specification, and
 software using an older version of the specification may not be able
 to handle these file extensions.
+
+OME-XML metadata
+----------------
 
 This string is a standard block of OME-XML, except that instead of
 storing pixels as BinData elements with base64-encoded pixel data
@@ -286,8 +288,8 @@ validating OME-XML section on the :doc:`tools` page.
 
 .. _multifile-ometiff:
 
-Distributing an image sequence across multiple OME-TIFF files
--------------------------------------------------------------
+Multi-file OME-TIFF
+-------------------
 
 As demonstrated above, the OME-TIFF format is capable of storing the
 entire multidimensional image series in one master OME-TIFF file.
@@ -299,59 +301,11 @@ elements and attributes, the OME-XML metadata block can unambiguously
 define which dimensional positions correspond to which IFDs from which
 files. Each OME-TIFF need not contain the same number of images.
 
-Discussion
-^^^^^^^^^^
-
-The following section discusses various considerations when designing
-OME-TIFF filesets distributed over multiple files.
-
-.. seealso::
-    :ome-devel:`Proposed tweak to µManager data files in 2.0 <2016-April/003618.html>`
-        Community discussion about OME-TIFF multi-file
-
-Number of files
-"""""""""""""""
-
-Splitting a fileset across multiple files can have advantages in terms of
-acquisition but also processing purposes. OME-TIFF can support any image
-organization. However, using one TIFF file per timepoint per channel with the
-focal planes for that timepoint and channel stored sequentially within the
-TIFF makes for very easy :ref:`TiffData` elements.
-
-One of main downside of splitting OME-TIFF over multiple files is their
-inherent fragility to common file-system operations such as file renaming or
-file copying which have the potential to "break" the fileset.
-
-File size
-"""""""""
-
-The TIFF file format internally uses 32-bit byte offsets. The largest offset
-which can be represented is 4GB, making this value the upper limit of the file
-size supported by the design.
-
-The OME-TIFF file format supports the BigTIFF file extensions allowing to
-use 64-bit byte offsets to overcome this size limit.
-
-The main limitation of the BigTIFF file extension is the degree of its
-adoption in the community. Although OME Bio-Formats and OMERO will handle
-OME-TIFF using the BigTIFF file extension, other tools might not be able to
-open it.
-
-OME-XML Metadata
-""""""""""""""""
-
-When splitting an OME-TIFF across multiple files, there are two strategies to
-store the OME-XML metadata either copy it into each TIFF file or use partial
-metadata blocks.
-
-#. In the first case, a nearly identical OME-XML metadata block must be
-   inserted into the first IFD of each constituent OME-TIFF file.
-
-   The only difference between the OME-XML metadata block per TIFF file is the
-   :schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_UUID>`
-   attribute of the root OME element. This value should be a distinct
-   UUID value for each file, so that each TiffData element can
-   unambiguously reference its relevant file using a UUID child element.
+The only difference between the OME-XML metadata block per TIFF file is the
+:schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_UUID>`
+attribute of the root OME element. This value should be a distinct
+UUID value for each file, so that each TiffData element can
+unambiguously reference its relevant file using a UUID child element.
 
    .. note::
      The :schema_plone:`FileName <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_TiffData_UUID_FileName>`
@@ -359,39 +313,21 @@ metadata blocks.
      the OME-TIFF reader must scan OME-TIFF files in the working directory
      looking for matching UUID signatures.
 
-   One of the advantages of this approach is redundancy: if even one of the
-   constituent files survives a data crash, the metadata survives. The space
-   tradeoff of this duplication is acceptable when compared to the bulk of the
-   pixel data in most cases, provided a suitable
-   number of planes are stored in each TIFF.
+When splitting an OME-TIFF across multiple files, the OME-XML metadata must either be embedded into each TIFF file or use partial metadata blocks.
 
-#. It is also possible to store partial OME-XML metadata blocks in some or all
-   of the TIFF files and use a master file containing the full OME-XML
-   metadata.
+Embedded OME-XML metadata
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   The master file can either be another OME-TIFF from the fileset or a
-   standalone companion OME-XML file.
+In the first case, a nearly identical OME-XML metadata block must be inserted
+into the first IFD of each constituent OME-TIFF file.
 
-   Using a companion OME-XML file allows to easily append information that can
-   only be generated at the end of the acquisition without the need to
-   manipulate existing TIFF IFDs. It has the same drawbacks as the ones
-   highlighted above in the sense that this companion file needs to be
-   preserved as part of the fileset to prevent metadata loss.
+The only difference between the OME-XML metadata block per TIFF file is the
+:schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_UUID>`
+attribute of the root OME element. This value should be a distinct
+UUID value for each file, so that each TiffData element can
+unambiguously reference its relevant file using a UUID child element.
 
-   See the :ref:`binary_only` section for more technical information.
-
-Multi-file example
-^^^^^^^^^^^^^^^^^^
-
-The :ref:`tubhiswt_samples`, the
-:ometiff_downloads:`binary only OME-TIFF fileset sample <binaryonly>` and the
-:ometiff_downloads:`companion fileset sample <companion>` demonstrate how
-OME-TIFF datasets can be distributed across multiple files. Another example is
-described below.
-
-Each of the files in the set has identical metadata apart from the 
-`UUID`, the unique identifier in each file. For example the identifiers
-could be distributed as follows:
+The :ref:`tubhiswt_samples` demonstrate how OME-TIFF datasets can be distributed across multiple files. Each of the files in the set has identical metadata apart from the `UUID`, the unique identifier in each file. For example the identifiers could be distributed as follows:
 
 **spicule\_C1\_TP1.ome.tif** with ID 386a0ee1-336f-4a8d-afc3-d4c81bc0fd86
 
@@ -508,25 +444,13 @@ And so on for files:
 
 .. _binary_only:
 
-Storing partial metadata blocks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Partial OME-XML metadata
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-Storing multiple planes per OME-TIFF file, and keeping the OME-XML metadata 
-embedded in every file's header, is recommended but it is not always 
-practical. Normally, the OME-XML metadata block is small in comparison with 
-the binary pixel data in the file, but in some cases, it may be 
-proportionately larger. Common reasons for this situation including storing 
-each image plane in its own TIFF file, and/or having a large amount of 
-metadata such as plane-specific timestamps and many structured annotations in 
-the OME-XML.
+It is also possible to store partial OME-XML metadata blocks in some or all
+of the TIFF files referring to a master file containing the full OME-XML metadata.
 
-For example, if you have a dataset with 1,000 time points, with each
-plane recorded at 512x512 as uint8 pixel type, storing each plane in its
-own file uncompressed requires ~256KB of disk per file, and ~256MB
-total. But if you have 5MB of corresponding OME-XML metadata, embedding
-a copy of that metadata in every file would result in a dataset nearly
-20 times larger than before, requiring ~5.5MB of disk per file, and more
-than 5GB total.
+The master file should either be another OME-TIFF from the fileset or a standalone companion OME-XML file with a.
 
 Therefore, as of the
 :doc:`2011-06 version of the OME-XML schema </schemas/june-2011>` 
@@ -555,7 +479,7 @@ use an OME-XML block similar to::
             http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd"
         UUID="urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 
-    <BinaryOnly MetadataFile="multifile.companion.ome"
+    <BinaryOnly MetadataFile="masterfile"
         UUID="urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
     </OME>
 
