@@ -18,7 +18,7 @@ How it works
 ------------
 
 Whenever a log message is generated, OMERO's logging framework will forward
-that message to any configured ``appenders``.
+that message to any configured appenders.
 
 By default, OMERO is configured to log everything to files.
 
@@ -27,7 +27,8 @@ By default, OMERO is configured to log everything to files.
     OMERO is configured to log a record of events for operations such as
     import. These are written directly to the Managed Repository. It is very
     likely that even if replacing file logging with syslog, this aspect should
-    be retained in files.
+    be retained in files. This is easily achieved by not changing any loggers
+    using `SIFT`.
 
 
 Configuration
