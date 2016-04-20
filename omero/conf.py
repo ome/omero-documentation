@@ -126,5 +126,4 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     'http://www.hibernate.org',
     r'^https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
-    r'^https://spreadsheets.google.com/.*',
-    r'/slice2html/omero/cmd/.*\.html']
+    r'^https://spreadsheets.google.com/.*']
