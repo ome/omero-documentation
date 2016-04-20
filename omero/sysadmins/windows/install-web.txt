@@ -39,8 +39,7 @@ Prerequisites
 
 -  Python 2.7
 
-   -  `Pillow`_ should be available for your distribution. We currently do not
-      support version 3.0 due to a limitation in `OMERO.figure <http://figure.openmicroscopy.org/>`_
+   -  `Pillow`_ should be available for your distribution.
 
    -  `Matplotlib`_ should be available for your distribution
 
