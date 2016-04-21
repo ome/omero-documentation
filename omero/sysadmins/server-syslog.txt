@@ -65,18 +65,38 @@ Create the new file ``OMERO.server/current/etc/logback_syslog.xml``:
     <?xml version="1.0" encoding="UTF-8"?>
     <included>
         <!-- syslog -->
-        <appender name="SYSLOG" class="ch.qos.logback.classic.net.SyslogAppender">
-          <syslogHost>localhost</syslogHost>
-          <facility>local6</facility>
-          <suffixPattern>OMERO [%thread] %logger %msg</suffixPattern>
-        </appender>
+      <appender name="SYSLOG" class="ch.qos.logback.classic.net.SyslogAppender">
+
+        <!-- Exclude debug level logging from ome.services.blitz.repo.ManagedImportRequestI -->
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+          <evaluator> <!-- defaults to type ch.qos.logback.classic.boolex.JaninoEventEvaluator -->
+            <expression>return Level.DEBUG.equals(Level.toLevel(level)) &amp;&amp; logger.equals("ome.services.blitz.repo.ManagedImportRequestI");</expression>
+          </evaluator>
+          <OnMismatch>NEUTRAL</OnMismatch>
+          <OnMatch>DENY</OnMatch>
+        </filter>
+        <!-- Exclude debug level logging from omero.* (except allow omero.cmd.*) -->
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+          <evaluator> <!-- defaults to type ch.qos.logback.classic.boolex.JaninoEventEvaluator -->
+            <expression>return Level.DEBUG.equals(Level.toLevel(level)) &amp;&amp; logger.startsWith("omero.") &amp;&amp; !logger.startsWith("omero.cmd.");</expression>
+          </evaluator>
+          <OnMismatch>NEUTRAL</OnMismatch>
+          <OnMatch>DENY</OnMatch>
+        </filter>
+
+        <syslogHost>localhost</syslogHost>
+        <facility>local6</facility>
+        <suffixPattern>OMERO [%level] [%thread] %logger %msg</suffixPattern>
+      </appender>
+
     </included>
 
 This creates an appender that logs to syslog. `syslogHost` is the host on
 which syslog is running. No port is specified as `514` is the default. The
 `suffixPattern` is customizable. In this instance it is identical to OMERO's
 FILE logger except an added "OMERO" identifier has been added for clarity. The
-name of the appender has been set to `SYSLOG`.
+name of the appender has been set to `SYSLOG`. The filters replicate the same
+behaviour from the default `FILE` appender.
 
 .. note::
 
