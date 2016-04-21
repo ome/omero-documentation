@@ -52,7 +52,7 @@ The following information is required to configure OMERO to log to syslog.
     The facility is important because it determines how syslog will handle the
     messages it receives. It is unlikely that OMERO's log output will be desired
     in a local systems primary message log for example. On Linux this is often
-    ``/var/log/messages``. Remember to configuring the syslog configuration
+    ``/var/log/messages``. Remember to configure the syslog configuration
     to avoid this. This is also where configuration of onward forwarding can
     be configured (to a service such as `splunk <http://www.splunk.com/>`_).
     Finally, syslog can be configured to specifically output this facility
@@ -93,7 +93,7 @@ Within the `configuration` tag of ``OMERO.server/current/etc/logback.xml`` add:
 .. note::
 
     The included file path can be relative, but note that it is NOT relative
-    to the ``OMERO.server/current/etc/logback_syslog.xml`` file, but to the
+    to the ``OMERO.server/current/etc/logback.xml`` file, but to the
     current directory set by OMERO. It is highly recommended to use a full
     path.
 
