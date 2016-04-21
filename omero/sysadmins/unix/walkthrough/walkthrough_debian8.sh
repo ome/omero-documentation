@@ -15,7 +15,20 @@ apt-get update
 apt-get -y install openjdk-8-jre-headless=8u72-b15-1~bpo8+1 ca-certificates-java=20140324
 
 # install Ice
+#start-recommended-ice
 apt-get -y install ice-services python-zeroc-ice
+#end-recommended-ice
+#start-supported-ice
+apt-get -y install db5.3-util
+apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev
+
+apt-key adv --keyserver keyserver.ubuntu.com --recv 5E6DA83306132997
+apt-add-repository "deb http://zeroc.com/download/apt/ubuntu`lsb_release -rs` stable main"
+apt-get update
+apt-get -y install zeroc-ice-all-runtime zeroc-ice-all-dev
+
+pip install zeroc-ice
+#end-supported-ice
 
 
 apt-get -y install \
@@ -69,8 +82,10 @@ cp settings.env omero-.env step04_all_omero.sh setup_omero_db.sh ~omero
 #end-copy-omeroscript
 virtualenv /home/omero/omeroenv
 /home/omero/omeroenv/bin/pip install omego==0.3.0
-/home/omero/omeroenv/bin/omego download --branch latest server
-
+cd ~omero
+SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
+wget $SERVER
+unzip -q OMERO.server*
 ln -s OMERO.server-*/ OMERO.server
 OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
@@ -143,7 +158,7 @@ update-rc.d -f omero-web defaults 98 02
 #start-step07: As root, secure OMERO
 chmod go-rwx ~omero/OMERO.server/etc ~omero/OMERO.server/var
 
-#Optionally restrict accesss to the OMERO data directory
+# Optionally restrict access to the OMERO data directory
 #chmod go-rwx "$OMERO_DATA_DIR"
 #end-step07
 

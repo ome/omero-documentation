@@ -13,10 +13,24 @@ yum -y install unzip wget
 yum -y install java-1.8.0-openjdk
 
 # install Ice
+#start-recommended-ice
 curl -o /etc/yum.repos.d/zeroc-ice-el7.repo \
 http://download.zeroc.com/Ice/3.5/el7/zeroc-ice-el7.repo
 
 yum -y install ice ice-python ice-servers
+#end-recommended-ice
+#start-supported-ice
+cd /etc/yum.repos.d
+wget https://zeroc.com/download/rpm/zeroc-ice-el7.repo
+
+yum -y install gcc-c++
+yum -y install libdb-utils
+yum -y install openssl-devel bzip2-devel expat-devel
+
+yum -y install ice-all-runtime ice-all-devel
+
+pip install zeroc-ice
+#end-supported-ice
 
 
 yum -y install \
@@ -68,8 +82,10 @@ cp settings.env omero-.env step04_all_omero.sh setup_omero_db.sh ~omero
 #end-copy-omeroscript
 virtualenv /home/omero/omeroenv
 /home/omero/omeroenv/bin/pip install omego==0.3.0
-/home/omero/omeroenv/bin/omego download --branch latest server
-
+cd ~omero
+SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
+wget $SERVER
+unzip -q OMERO.server*
 ln -s OMERO.server-*/ OMERO.server
 OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
@@ -149,7 +165,7 @@ systemctl enable omero-web.service
 #start-step07: As root, secure OMERO
 chmod go-rwx ~omero/OMERO.server/etc ~omero/OMERO.server/var
 
-#Optionally restrict accesss to the OMERO data directory
+# Optionally restrict access to the OMERO data directory
 #chmod go-rwx "$OMERO_DATA_DIR"
 #end-step07
 

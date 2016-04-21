@@ -14,6 +14,7 @@ yum -y install unzip wget tar
 yum -y install java-1.8.0-openjdk
 
 # install Ice
+#start-recommended-ice
 curl -o /etc/yum.repos.d/zeroc-ice-el6.repo \
 http://download.zeroc.com/Ice/3.5/el6/zeroc-ice-el6.repo
 
@@ -32,6 +33,26 @@ mv Ice-3.5.1-b1-centos6-iuspy27-x86_64 /opt/Ice-3.5.1
 # if globally set, there is no need to export LD_LIBRARY_PATH
 echo /opt/Ice-3.5.1/lib64 > /etc/ld.so.conf.d/ice-x86_64.conf
 ldconfig
+#end-recommended-ice
+#start-supported-ice
+cd /etc/yum.repos.d
+wget https://zeroc.com/download/rpm/zeroc-ice-el6.repo
+
+yum -y install gcc-c++
+yum -y install db53 db53-utils
+yum -y install ice-all-runtime ice-all-devel
+
+yum -y install openssl-devel bzip2-devel expat-devel
+
+virtualenv -p /usr/bin/python2.7 /home/omero/omeroenv
+set +u
+source /home/omero/omeroenv/bin/activate
+set -u
+
+/home/omero/omeroenv/bin/pip2.7 install zeroc-ice
+
+deactivate
+#end-supported-ice
 
 
 yum -y install \
@@ -92,9 +113,12 @@ useradd -m omero
 
 mkdir -p "$OMERO_DATA_DIR"
 chown omero "$OMERO_DATA_DIR"
-#start-configuration-env
+#start-configuration-env-ice35
 echo source \~omero/omero-centos6py27ius.env >> ~omero/.bashrc
-#end-configuration-env
+#end-configuration-env-ice35
+#start-configuration-env-ice36
+echo "export PATH=\"/home/omero/omeroenv/bin:$PATH\"" >> ~omero/.bashrc
+#end-configuration-env-ice36
 #end-step02
 
 #start-step03: As root, create a database user and a database
@@ -110,8 +134,10 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 #start-copy-omeroscript
 cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero
 #end-copy-omeroscript
-/home/omero/omeroenv/bin/omego download --branch latest server
-
+cd ~omero
+SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
+wget $SERVER
+unzip -q OMERO.server*
 ln -s OMERO.server-*/ OMERO.server
 OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
@@ -207,7 +233,7 @@ chkconfig --add omero-web
 #start-step07: As root, secure OMERO
 chmod go-rwx ~omero/OMERO.server/etc ~omero/OMERO.server/var
 
-#Optionally restrict accesss to the OMERO data directory
+# Optionally restrict access to the OMERO data directory
 #chmod go-rwx "$OMERO_DATA_DIR"
 #end-step07
 
