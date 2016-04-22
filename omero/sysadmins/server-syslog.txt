@@ -64,7 +64,7 @@ Create the new file ``OMERO.server/current/etc/logback_syslog.xml``:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <included>
-        <!-- syslog -->
+      <!-- syslog -->
       <appender name="SYSLOG" class="ch.qos.logback.classic.net.SyslogAppender">
 
         <!-- Exclude debug level logging from ome.services.blitz.repo.ManagedImportRequestI -->
@@ -91,10 +91,10 @@ Create the new file ``OMERO.server/current/etc/logback_syslog.xml``:
 
     </included>
 
-This creates an appender that logs to syslog. `syslogHost` is the host on
-which syslog is running. No port is specified as `514` is the default. The
-`suffixPattern` is customizable. In this instance it is identical to OMERO's
-FILE logger except an added "OMERO" identifier has been added for clarity. The
+This creates an appender that sends messages to syslog. `syslogHost` is the
+host on which syslog is running. No port is specified as `514` is the default.
+The `suffixPattern` is customizable. In this instance it is identical to OMERO's
+file logger except an added "OMERO" identifier has been added for clarity. The
 name of the appender has been set to `SYSLOG`. The filters replicate the same
 behaviour from the default `FILE` appender.
 
@@ -125,8 +125,8 @@ behalf):
 ::
 
     <root level="OFF">
-        <appender-ref ref="SYSLOG"/>
-        <appender-ref ref="FILE"/>
+      <appender-ref ref="SYSLOG"/>
+      <appender-ref ref="FILE"/>
     </root>
 
 .. note::
