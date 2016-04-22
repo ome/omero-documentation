@@ -10,11 +10,11 @@ more specific walk-through listed below.
 
     :doc:`server-centos6`
         Instructions for installing OMERO.server from scratch on
-        CentOS 6 with Python 2.7 and Ice 3.5.
+        CentOS 6 with Python 2.7 and Ice 3.5 or Ice 3.6.
 
     :doc:`server-centos7`
         Instructions for installing OMERO.server from scratch on
-        CentOS 7.
+        CentOS 7
 
     :doc:`server-linux-walkthrough`
         Instructions for installing OMERO.server from scratch on
@@ -261,7 +261,7 @@ Ice
 
 .. note::
 
-    OMERO |version| supports 3.5 on UNIX and UNIX-like platforms. You
+    OMERO |version| supports 3.5 and 3.6 on UNIX and UNIX-like platforms. You
     must install the correct version of OMERO.server (see
     :downloads:`Downloads <>`).
 
@@ -284,8 +284,7 @@ are using. The Ice versions in currently supported versions of Debian
 and `Ubuntu <https://wiki.ubuntu.com/Releases>`_ are shown in the
 :ref:`ice-requirements` of the :doc:`/sysadmins/version-requirements` page.
 
-Using the latest version of Ice is recommended, where possible. OMERO
-currently does not support Ice version 3.6. If
+Using the latest version of Ice is recommended, where possible. If
 your package manager provides Ice packages, using these is recommended
 where possible. Distribution-provided packages often have additional
 bugfixes which are not present in the upstream releases.
