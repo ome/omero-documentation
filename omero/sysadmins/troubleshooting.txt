@@ -112,7 +112,7 @@ Server fails to start
    restarting OMERO, the registry will be automatically re-created.
 5. If you see an error message mentioning "Protocol family unavailable",
    you will need to set the :property:`Ice.IPv6` property with
-   :omerocmd:`config set IPv6 0`.
+   :omerocmd:`config set Ice.IPv6 0`.
 6. If you upgraded from a 5.0.2 server or older and copied the entire content
    of the :file:`etc/grid` directory from the old server to the new server,
    you will need to revert the changes made to :file:`templates.xml` to
