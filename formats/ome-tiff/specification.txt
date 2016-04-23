@@ -329,111 +329,33 @@ unambiguously reference its relevant file using a UUID child element.
 
 The :ref:`tubhiswt_samples` demonstrate how OME-TIFF datasets can be distributed across multiple files. Each of the files in the set has identical metadata apart from the `UUID`, the unique identifier in each file. For example the identifiers could be distributed as follows:
 
-**spicule\_C1\_TP1.ome.tif** with ID 386a0ee1-336f-4a8d-afc3-d4c81bc0fd86
+**tubhiswt_C0_TP0.ome.tif** with ID 69bfd94f-2d95-41ae-887d-26e0c11fd606
 
-::
+.. literalinclude:: tubhiswt_C0_TP0.ome.xml
+    :lines: 3-7
 
-    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
-        ...
+.. literalinclude:: tubhiswt_C0_TP0.ome.xml
+    :lines: 40-42
 
-::
+.. literalinclude:: tubhiswt_C0_TP0.ome.xml
+    :lines: 53-57
 
-    UUID="urn:uuid:386a0ee1-336f-4a8d-afc3-d4c81bc0fd86"
+.. literalinclude:: tubhiswt_C0_TP0.ome.xml
+    :lines: 103-107
 
-::
+**tubhiswt_C0_TP1.ome.tif** with ID 16093e77-8531-43c5-83df-c71efbd212d0
 
-        ...
-    >
-    ...
-        <Pixels ID="urn:lsid:loci.wisc.edu:Pixels:ows581"
-                Type="uint8" DimensionOrder="XYZTC"
-                SizeX="512" SizeY="512" SizeZ="4" SizeT="3" SizeC="2">
-            <TiffData FirstT="0" FirstC="0">
-                <UUID FileName="spicule_C1_TP1.ome.tif">
-                    urn:uuid:386a0ee1-336f-4a8d-afc3-d4c81bc0fd86
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="1" FirstC="0">
-                <UUID FileName="spicule_C1_TP2.ome.tif">
-                    urn:uuid:c33985d6-1162-4775-97cd-472c3f92414f
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="2" FirstC="0">
-                <UUID FileName="spicule_C1_TP3.ome.tif">
-                    urn:uuid:f39c4fa6-1227-4cea-b62c-a86f31d76012
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="0" FirstC="1">
-                <UUID FileName="spicule_C2_TP1.ome.tif">
-                    urn:uuid:bc1bd47a-8302-4a37-a7bd-8dfceb5b959b
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="1" FirstC="1">
-                <UUID FileName="spicule_C2_TP2.ome.tif">
-                    urn:uuid:6dd975be-587e-4f06-864a-54b0ec5ab2a0
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="2" FirstC="1">
-                <UUID FileName="spicule_C2_TP3.ome.tif">
-                    urn:uuid:f139aef6-be53-4694-b5a5-3e95fff7ddf9
-                </UUID>
-            </TiffData>
-        </Pixels>
-        ...
-    </OME>
+.. literalinclude:: tubhiswt_C0_TP1.ome.xml
+    :lines: 3-7
 
-**spicule\_C1\_TP2.ome.tif** with ID c33985d6-1162-4775-97cd-472c3f92414f
+.. literalinclude:: tubhiswt_C0_TP1.ome.xml
+    :lines: 40-42
 
-::
+.. literalinclude:: tubhiswt_C0_TP1.ome.xml
+    :lines: 53-57
 
-    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
-        ...
-
-::
-
-    UUID="urn:uuid:c33985d6-1162-4775-97cd-472c3f92414f" 
-
-::
-
-        ...
-    >
-    ...
-        <Pixels ID="urn:lsid:loci.wisc.edu:Pixels:ows581"
-                Type="uint8" DimensionOrder="XYZTC"
-                SizeX="512" SizeY="512" SizeZ="4" SizeT="3" SizeC="2">
-            <TiffData FirstT="0" FirstC="0">
-                <UUID FileName="spicule_C1_TP1.ome.tif">
-                    urn:uuid:386a0ee1-336f-4a8d-afc3-d4c81bc0fd86
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="1" FirstC="0">
-                <UUID FileName="spicule_C1_TP2.ome.tif">
-                    urn:uuid:c33985d6-1162-4775-97cd-472c3f92414f
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="2" FirstC="0">
-                <UUID FileName="spicule_C1_TP3.ome.tif">
-                    urn:uuid:f39c4fa6-1227-4cea-b62c-a86f31d76012
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="0" FirstC="1">
-                <UUID FileName="spicule_C2_TP1.ome.tif">
-                    urn:uuid:bc1bd47a-8302-4a37-a7bd-8dfceb5b959b
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="1" FirstC="1">
-                <UUID FileName="spicule_C2_TP2.ome.tif">
-                    urn:uuid:6dd975be-587e-4f06-864a-54b0ec5ab2a0
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="2" FirstC="1">
-                <UUID FileName="spicule_C2_TP3.ome.tif">
-                    urn:uuid:f139aef6-be53-4694-b5a5-3e95fff7ddf9
-                </UUID>
-            </TiffData>
-        </Pixels>
-        ...
-    </OME>
+.. literalinclude:: tubhiswt_C0_TP1.ome.xml
+    :lines: 103-107
 
 And so on for files:
 
@@ -441,6 +363,7 @@ And so on for files:
 - **spicule\_C2\_TP1.ome.tif** with ID bc1bd47a-8302-4a37-a7bd-8dfceb5b959b
 - **spicule\_C2\_TP2.ome.tif** with ID 6dd975be-587e-4f06-864a-54b0ec5ab2a0
 - **spicule\_C2\_TP3.ome.tif** with ID f139aef6-be53-4694-b5a5-3e95fff7ddf9
+- ...
 
 .. _binary_only:
 
@@ -470,18 +393,9 @@ To do this:
   metadata (see the :ometiff_downloads:`binary only OME-TIFF fileset sample <binaryonly>`)
 
 In the remaining OME-TIFF files where you do not want to store the metadata,
-use an OME-XML block similar to::
+use an OME-XML block similar to:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2015-01
-            http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd"
-        UUID="urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
-
-    <BinaryOnly MetadataFile="masterfile"
-        UUID="urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
-    </OME>
+.. literalinclude:: multifile-Z2.ome.xml
 
 where :schema_plone:`MetadataFile <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_MetadataFile>` is the name of the companion OME-XML file or of the
 master OME-TIFF file containing the actual OME-XML metadata block, and
