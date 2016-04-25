@@ -241,6 +241,11 @@ to run.
     (1 row)
 
 
+If you are upgrading from a server earlier than |previousversion| then
+it suffices to run the earlier upgrade scripts in sequence before the
+one above. There is no need to download and run the server from an
+intermediate major release.
+
 .. note::
 
    If you perform the database upgrade using *SQL shell*, make sure you are
