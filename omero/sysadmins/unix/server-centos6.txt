@@ -1,18 +1,18 @@
-OMERO.server installation on CentOS 6 with Python 2.7 and Ice 3.5
-=================================================================
+OMERO.server installation on CentOS 6 with Python 2.7
+=====================================================
 
 This installation walkthrough should be read in conjunction with
 :doc:`server-installation` and :doc:`install-web`.
 
 Running OMERO on CentOS 6 has a number of special requirements which
 deviate from the standard installation instructions. The instructions
-below will set up Python 2.7 and Ice 3.5 on CentOS 6. We tested the
-installation with Python 2.7 from `IUS <https://ius.io/>`_ and used
-a `virtual environment <https://virtualenv.readthedocs.org/en/latest/>`_
+below will set up Python 2.7 and Ice 3.5 or 3.6 on CentOS 6.
+We tested the installation with Python 2.7 from `IUS <https://ius.io/>`_
+and used a `virtual environment <https://virtualenv.readthedocs.org/en/latest/>`_
 to install the various dependencies required to install an OMERO.server.
 It is also possible to use SCL Python (for example 
-:download:`walkthrough_centos6_py27.sh <walkthrough/walkthrough_centos6_py27.sh>`) but such solution could have
-potential side effects.
+:download:`walkthrough_centos6_py27.sh <walkthrough/walkthrough_centos6_py27.sh>`)
+but such solution could have potential side effects.
 
 
 Setting up
@@ -28,29 +28,33 @@ consequence, it is necessary to upgrade to Python 2.7 in order to
 obtain Django security updates, which are required for a production
 deployment.
 
-Ice 3.5
-^^^^^^^
+Ice
+^^^
+ 
+* **Version 3.5**. 
 
-The RPM packages provided by ZeroC for CentOS 6 use the Python 2.6
-provided by the system. OMERO will need an Ice build which uses
-Python 2.7. A version of Ice 3.5 built against Python 2.7 installed
-above is available at http://downloads.openmicroscopy.org/ice/experimental.
-Ice will be installed into :file:`/opt`.
+    The RPM packages provided by ZeroC for CentOS 6 use the Python 2.6 
+    provided by the system. OMERO will need an Ice build which uses
+    Python 2.7. A version of Ice 3.5 built against Python 2.7 installed
+    above is available at http://downloads.openmicroscopy.org/ice/experimental.
+    Ice will be installed into :file:`/opt`.
 
-Ice 3.6
-^^^^^^^
-With Ice 3.6, the Python bindings are provided separately.
-This allows to install the RPM packages provided by ZeroC for CentOS 6.
-Then run ``pip install zeroc-ice`` to install the Ice Python bindings if
-your package manager does not provide the Ice python packages.
-See `Using the Python Distribution
-<https://doc.zeroc.com/display/Ice36/Using+the+Python+Distribution>`__
-for further details.
+* **Version 3.6**. 
 
+    With Ice 3.6, the Python bindings are provided separately.
+    This allows to install the RPM packages provided by ZeroC for CentOS 6.
+    Then run ``pip install zeroc-ice`` to install the Ice Python bindings if
+    your package manager does not provide the Ice python packages.
+    See `Using the Python Distribution
+    <https://doc.zeroc.com/display/Ice36/Using+the+Python+Distribution>`__
+    for further details.
+
+Installating Prerequisites
+--------------------------
 
 **The following steps are run as root.**
 
-Install Java 1.8, Ice 3.5 or 3.6 and PostgreSQL 9.4:
+Install Java 1.8, Ice 3.5 **or** 3.6 and PostgreSQL 9.4:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
     :start-after: #start-step01
@@ -96,7 +100,7 @@ Create a database user and initialize a new database for OMERO:
     :end-before: #end-step03
 
 
-If you have installed Ice 3.5, 
+If you have installed **Ice 3.5**, 
 The following settings will need adding to your OMERO startup script
 or to the omero user's environment (for example in a shell startup
 script). Add the absolute path to the :file:`bin` directory of 
@@ -108,14 +112,14 @@ variable:
 These settings will enable Python 2.7, and set the necessary
 environment variables for Ice 3.5 to work.
 
-For Ice 3.5, for example, download :download:`omero-centos6py27ius.env 
+For **Ice 3.5**, for example, download :download:`omero-centos6py27ius.env 
 <walkthrough/omero-centos6py27ius.env>` into ``/home/omero`` and run:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
     :start-after: #start-configuration-env-ice35
     :end-before: #end-configuration-env-ice35
 
-For Ice 3.6, you will have to enable Python 2.7. For example run:
+For **Ice 3.6**, you will have to enable Python 2.7. For example run:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
     :start-after: #start-configuration-env-ice36

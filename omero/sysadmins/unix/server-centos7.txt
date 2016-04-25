@@ -22,12 +22,12 @@ either use your own values, or alternatively source the following file:
 :download:`settings.env <walkthrough/settings.env>`
 
 
-Prerequisites
--------------
+Installating Prerequisites
+--------------------------
 
 **The following steps are run as root.**
 
-Install Java 1.8, Ice 3.5 or 3.6,  PostgreSQL 9.4:
+Install Java 1.8, Ice 3.5 **or** 3.6,  PostgreSQL 9.4:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #start-step01
