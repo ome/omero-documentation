@@ -365,10 +365,8 @@ The :ref:`tubhiswt_samples` demonstrate how OME-TIFF datasets can be distributed
 
 And so on for files:
 
-- **spicule\_C1\_TP3.ome.tif** with ID f39c4fa6-1227-4cea-b62c-a86f31d76012
-- **spicule\_C2\_TP1.ome.tif** with ID bc1bd47a-8302-4a37-a7bd-8dfceb5b959b
-- **spicule\_C2\_TP2.ome.tif** with ID 6dd975be-587e-4f06-864a-54b0ec5ab2a0
-- **spicule\_C2\_TP3.ome.tif** with ID f139aef6-be53-4694-b5a5-3e95fff7ddf9
+- **tubhiswt_C0_TP2.ome.tif** with ID 6d56fc81-8529-4804-bedd-0161435a00b6
+- **tubhiswt_C0_TP3.ome.tif** with ID be825495-1923-4ecd-9ed8-5d5e327cb90b
 - ...
 
 .. _binary_only:
@@ -376,33 +374,21 @@ And so on for files:
 Partial OME-XML metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-It is also possible to store partial OME-XML metadata blocks in some or all
-of the TIFF files referring to a master file containing the full OME-XML metadata.
-
-The master file should either be another OME-TIFF from the fileset or a standalone companion OME-XML file with a.
-
-Therefore, as of the
-:doc:`2011-06 version of the OME-XML schema </schemas/june-2011>` 
-onwards, a solution to this problem has been implemented: the
+Instead of embedding the full OME-XML metadata into the header each OME-TIFF,
+partial OME-XML metadata blocks can be stored in some or all of the OME-TIFF
+files using the
 :schema_plone:`Binary-Only <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_BinaryOnly>`
-element.
-
-With this approach, you can embed the OME-XML metadata in as many or as
-few files as you like. For example, you may want to store it in every
-tenth file to retain some level of redundancy.
-
-To do this:
-
-- either store the OME-XML metadata in a companion file with the extension
-  ``.companion.ome`` (see the :ometiff_downloads:`companion fileset sample <companion>`)
-- or choose one OME-TIFF file to serve as the "master" file containing the
-  metadata (see the :ometiff_downloads:`binary only OME-TIFF fileset sample <binaryonly>`)
-
-In the remaining OME-TIFF files where you do not want to store the metadata,
-use an OME-XML block similar to:
+element as illustrated below:
 
 .. literalinclude:: multifile-Z2.ome.xml
 
-where :schema_plone:`MetadataFile <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_MetadataFile>` is the name of the companion OME-XML file or of the
-master OME-TIFF file containing the actual OME-XML metadata block, and
-:schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_UUID>` is that file's UUID.
+The :schema_plone:`MetadataFile <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_MetadataFile>` element should contain the name of the master file containing the full
+OME-XML metadata  block and :schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_UUID>`
+should contain the UUID of this master file.
+
+The master file containing the full OME-XML metadata should be:
+
+- either an OME-XML companion file with the extension :file:`.companion.ome`
+  (see the :ometiff_downloads:`companion fileset sample <companion>`)
+- or an OME-TIFF file containing the full metadata (see the
+  :ometiff_downloads:`binary only OME-TIFF fileset sample <binaryonly>`)
