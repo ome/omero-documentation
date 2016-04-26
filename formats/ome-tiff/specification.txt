@@ -107,8 +107,9 @@ The TiffData element
 --------------------
 
 As the illustration :ref:`figure-tiff-header` shows, all that is needed to 
-indicate that the pixels are located within the enclosing TIFF structure is a 
-TiffData element with no attributes. By default, the first IFD corresponds to 
+indicate that the pixels are located within the enclosing TIFF structure is a
+:schema_plone:`TiffData <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData>`
+element with no attributes. By default, the first IFD corresponds to
 the first image plane (Z0-T0-C0), and the rasterization order of subsequent
 IFDs is given by the Pixels element's DimensionOrder attribute, as
 described above.
@@ -116,15 +117,20 @@ described above.
 However, there are several attributes for TiffData elements allowing
 greater control over the dimensional position of each IFD:
 
--  **IFD** - gives the IFD(s) for which this element is applicable.
+-  :schema_plone:`IFD <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_IFD>`
+   - gives the IFD(s) for which this element is applicable.
    Indexed from 0. Default is 0 (the first IFD).
--  **FirstZ** - gives the Z position of the image plane at the specified
+-  :schema_plone:`FirstZ <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_FirstZ>`
+   - gives the Z position of the image plane at the specified
    IFD. Indexed from 0. Default is 0 (the first Z position).
--  **FirstT** - gives the T position of the image plane at the specified
+-  :schema_plone:`FirstT <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_FirstT>`
+   - gives the T position of the image plane at the specified
    IFD. Indexed from 0. Default is 0 (the first T position).
--  **FirstC** - gives the C position of the image plane at the specified
+-  :schema_plone:`FirstC <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_FirstC>`
+   - gives the C position of the image plane at the specified
    IFD. Indexed from 0. Default is 0 (the first C position).
--  **PlaneCount** - gives the number of IFDs affected. Dimension order of
+-  :schema_plone:`PlaneCount <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_PlaneCount>`
+   - gives the number of IFDs affected. Dimension order of
    IFDs is given by the enclosing Pixels element's DimensionOrder
    attribute. Default is the number of IFDs in the TIFF file, unless an
    IFD is specified, in which case the default is 1.
