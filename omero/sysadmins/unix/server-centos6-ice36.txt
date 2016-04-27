@@ -58,7 +58,7 @@ To install Ice 3.6:
     :start-after: #start-supported-ice
     :end-before: #end-supported-ice
 
-To install PostgreSQL 9.4 and other dependencies:
+To install PostgreSQL 9.4:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
     :start-after: #end-supported-ice
@@ -113,10 +113,17 @@ earlier in `settings.env`, so you may need to copy and/or source this file as
 the omero user.
 
 You will need to install the server corresponding to your Ice version.
-In this case, install ``server-ice36.zip``.
+
+Install ``server-ice36.zip``:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
-    :start-after: #end-copy-omeroscript
+    :start-after: #start-release-ice36
+    :end-before: #end-release-ice36
+
+Configure:
+
+.. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
+    :start-after: #end-release-ice36
     :end-before: #end-step04
 
 Installing a web server
