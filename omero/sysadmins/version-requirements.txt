@@ -1688,26 +1688,26 @@ nginx
       - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 1.0
-      - from Apr 2011
-      - to Apr 2012
-      - Deprecated
-      - Dropped
-      - Dropped
-    * - 1.2
-      - from Apr 2012
-      - to May 2013
-      - Supported
-      - Deprecated
-      - Deprecated
     * - 1.4
       - from Apr 2013
       - to Mar 2014
       - Supported
-      - Supported
+      - Deprecated
       - Supported
     * - 1.6
       - from Apr 2014
+      - TBA
+      - Recommended
+      - Supported
+      - Supported
+    * - 1.8
+      - from Apr 2015
+      - TBA
+      - Recommended
+      - Recommended
+      - Recommended
+    * - 1.10
+      - from April 2016
       - TBA
       - Recommended
       - Recommended
@@ -1728,13 +1728,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 1.2
-      - N/A
-      - N/A
-      - 13.04
-      - 7.0, 6.0 bpo
-      - N/A
-      - N/A
     * - 1.4
       - N/A
       - 19, 20
@@ -1756,11 +1749,11 @@ Distribution support
       - N/A
       - Yes
       - Yes
-    * - 1.9
+    * - 1.10
       - N/A
       - N/A
-      - 14.10
-      - (8.0), 7.0 bpo
+      - N/A
+      - N/A
       - N/A
       - N/A
     * - Details
