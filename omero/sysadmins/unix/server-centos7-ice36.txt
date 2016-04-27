@@ -1,4 +1,4 @@
-OMERO.server installation on CentOS 7 and Ice 3.5
+OMERO.server installation on CentOS 7 and Ice 3.6
 =================================================
 
 This is an example walkthrough for installing OMERO on CentOS 7, using
@@ -27,7 +27,7 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install Java 1.8, Ice 3.5 and PostgreSQL 9.4:
+Install Java 1.8, Ice 3.6 and PostgreSQL 9.4:
 
 To install Java 1.8 and other dependencies:
 
@@ -35,11 +35,11 @@ To install Java 1.8 and other dependencies:
     :start-after: #start-step01
     :end-before: # install Ice
 
-To install Ice 3.5:
+To install Ice 3.6:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
-    :start-after: #start-recommended-ice
-    :end-before: #end-recommended-ice
+    :start-after: #start-supported-ice
+    :end-before: #end-supported-ice
 
 To install PostgreSQL 9.4:
 
@@ -48,6 +48,8 @@ To install PostgreSQL 9.4:
     :end-before: #end-step01
 
 See :download:`requirements.txt<walkthrough/requirements.txt>`
+
+
 
 Create an omero system user, and a directory for the OMERO repository:
 
@@ -75,7 +77,7 @@ earlier in `settings.env`, so you may need to copy and/or source this file as
 the omero user.
 
 You will need to install the server corresponding to your Ice version.
-In this case, install ``server-ice35.zip``.
+In this case, install ``server-ice36.zip``.
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #end-copy-omeroscript
@@ -180,7 +182,6 @@ Copy this script into the appropriate location:
 
 | :download:`omero-web-cron <walkthrough/omero-web-cron>`
 
-.. _SELinux_centos7:
 
 SELinux
 -------

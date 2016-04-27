@@ -46,6 +46,8 @@ Installing prerequisites
 
 Install Java 1.8, Ice 3.6 and PostgreSQL 9.4:
 
+To install Java 1.8 and other dependencies:
+
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
     :start-after: #start-step01
     :end-before: # install Ice
