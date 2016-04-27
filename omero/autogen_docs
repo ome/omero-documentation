@@ -55,7 +55,9 @@ for f in \
     settings.env \
     omero-* \
     ; do
-    cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
+    if [[ ! "$f" = "requirements_centos6.txt" ]]; then
+        cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
+    fi
 done
 
 for f in \
