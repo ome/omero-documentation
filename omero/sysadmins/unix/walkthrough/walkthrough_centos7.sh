@@ -12,6 +12,19 @@ yum -y install unzip wget
 # install Java
 yum -y install java-1.8.0-openjdk
 
+# install dependencies
+
+yum -y install \
+	python-pip python-devel python-virtualenv \
+	numpy scipy python-matplotlib python-tables
+
+yum -y install \
+	zlib-devel \
+	libjpeg-devel \
+	gcc
+pip install --upgrade pip
+
+pip install -r `dirname $0`/requirements.txt
 # install Ice
 #start-recommended-ice
 curl -o /etc/yum.repos.d/zeroc-ice-el7.repo \
@@ -32,18 +45,6 @@ yum -y install ice-all-runtime ice-all-devel
 pip install zeroc-ice
 #end-supported-ice
 
-
-yum -y install \
-	python-pip python-devel python-virtualenv \
-	numpy scipy python-matplotlib python-tables
-
-yum -y install \
-	zlib-devel \
-	libjpeg-devel \
-	gcc
-pip install --upgrade pip
-
-pip install -r `dirname $0`/requirements.txt
 
 # install Postgres
 # Postgres, reconfigure to allow TCP connections
@@ -80,12 +81,18 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 #start-copy-omeroscript
 cp settings.env omero-.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
-virtualenv /home/omero/omeroenv
-/home/omero/omeroenv/bin/pip install omego==0.3.0
+#start-release-ice35
 cd ~omero
 SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
 wget $SERVER
 unzip -q OMERO.server*
+#end-release-ice35
+#start-release-ice36
+cd ~omero
+SERVER=https://ci.openmicroscopy.org/view/OMERO-DEV/job/OMERO-DEV-merge-build/ICE=3.6,jdk=8_LATEST,label=octopus/lastSuccessfulBuild/artifact/src/target/OMERO.server-5.2.2-393-e464f65-ice36-b292.zip
+wget $SERVER
+unzip -q OMERO.server*
+#end-release-ice36
 ln -s OMERO.server-*/ OMERO.server
 OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"

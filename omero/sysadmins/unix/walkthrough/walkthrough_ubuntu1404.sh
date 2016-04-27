@@ -15,22 +15,7 @@ add-apt-repository -y ppa:openjdk-r/ppa
 apt-get update
 apt-get -y install openjdk-8-jre
 
-# install Ice
-#start-recommended-ice
-apt-get -y install ice-services python-zeroc-ice
-#end-recommended-ice
-#start-supported-ice
-apt-get -y install db5.3-util
-apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev
-
-apt-key adv --keyserver keyserver.ubuntu.com --recv 5E6DA83306132997
-apt-add-repository "deb http://zeroc.com/download/apt/ubuntu`lsb_release -rs` stable main"
-apt-get update
-apt-get -y install zeroc-ice-all-runtime zeroc-ice-all-dev
-
-pip install zeroc-ice
-#end-supported-ice
-
+# install dependencies
 
 apt-get update
 apt-get -y install \
@@ -53,6 +38,22 @@ pip install --upgrade pip
 
 # upgrade required since pillow is already installed
 pip install --upgrade -r requirements.txt
+# install Ice
+#start-recommended-ice
+apt-get -y install ice-services python-zeroc-ice
+#end-recommended-ice
+#start-supported-ice
+apt-get -y install db5.3-util
+apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev
+
+apt-key adv --keyserver keyserver.ubuntu.com --recv 5E6DA83306132997
+apt-add-repository "deb http://zeroc.com/download/apt/ubuntu`lsb_release -rs` stable main"
+apt-get update
+apt-get -y install zeroc-ice-all-runtime zeroc-ice-all-dev
+
+pip install zeroc-ice
+#end-supported-ice
+
 
 # install Postgres
 apt-get -y install apt-transport-https
@@ -85,12 +86,18 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 #start-copy-omeroscript
 cp settings.env omero-.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
-virtualenv /home/omero/omeroenv
-/home/omero/omeroenv/bin/pip install omego==0.3.0
+#start-release-ice35
 cd ~omero
 SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
 wget $SERVER
 unzip -q OMERO.server*
+#end-release-ice35
+#start-release-ice36
+cd ~omero
+SERVER=https://ci.openmicroscopy.org/view/OMERO-DEV/job/OMERO-DEV-merge-build/ICE=3.6,jdk=8_LATEST,label=octopus/lastSuccessfulBuild/artifact/src/target/OMERO.server-5.2.2-393-e464f65-ice36-b292.zip
+wget $SERVER
+unzip -q OMERO.server*
+#end-release-ice36
 ln -s OMERO.server-*/ OMERO.server
 OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"

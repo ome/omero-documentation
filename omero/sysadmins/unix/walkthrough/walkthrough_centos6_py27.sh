@@ -13,6 +13,30 @@ yum -y install unzip wget tar
 # install Java
 yum -y install java-1.8.0-openjdk
 
+# install dependencies
+
+yum -y install \
+	python27 \
+	python27-virtualenv \
+	python27-numpy \
+	libjpeg-devel \
+	libpng-devel \
+	libtiff-devel \
+	zlib-devel \
+	hdf5-devel \
+	freetype-devel \
+	expat-devel
+
+# TODO: this installs a lot of unecessary packages:
+yum -y groupinstall "Development Tools"
+
+set +u
+source /opt/rh/python27/enable
+set -u
+easy_install pip
+
+export PYTHONWARNINGS="ignore:Unverified HTTPS request"
+pip install -r requirements_centos6_py27.txt
 # install Ice
 #start-recommended-ice
 curl -o /etc/yum.repos.d/zeroc-ice-el6.repo \
@@ -52,29 +76,6 @@ pip install zeroc-ice
 #end-supported-ice
 
 
-yum -y install \
-	python27 \
-	python27-virtualenv \
-	python27-numpy \
-	libjpeg-devel \
-	libpng-devel \
-	libtiff-devel \
-	zlib-devel \
-	hdf5-devel \
-	freetype-devel \
-	expat-devel
-
-# TODO: this installs a lot of unecessary packages:
-yum -y groupinstall "Development Tools"
-
-set +u
-source /opt/rh/python27/enable
-set -u
-easy_install pip
-
-export PYTHONWARNINGS="ignore:Unverified HTTPS request"
-pip install -r requirements_centos6_py27.txt
-
 # install Postgres
 # Postgres, reconfigure to allow TCP connections
 yum -y install http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-centos94-9.4-2.noarch.rpm
@@ -112,15 +113,20 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step04: As the omero system user, install the OMERO.server
 #start-copy-omeroscript
-cp settings.env omero-.env ./linux/step04_all_omero.sh setup_omero_db.sh ~omero 
+cp settings.env omero-.env ./step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
-set +u
-source /opt/rh/python27/enable
-set -u
+#start-release-ice35
 cd ~omero
 SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
 wget $SERVER
 unzip -q OMERO.server*
+#end-release-ice35
+#start-release-ice36
+cd ~omero
+SERVER=https://ci.openmicroscopy.org/view/OMERO-DEV/job/OMERO-DEV-merge-build/ICE=3.6,jdk=8_LATEST,label=octopus/lastSuccessfulBuild/artifact/src/target/OMERO.server-5.2.2-393-e464f65-ice36-b292.zip
+wget $SERVER
+unzip -q OMERO.server*
+#end-release-ice36
 ln -s OMERO.server-*/ OMERO.server
 OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
