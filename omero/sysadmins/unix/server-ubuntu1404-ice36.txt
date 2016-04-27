@@ -7,8 +7,6 @@ a dedicated system user, and should be read in conjunction with
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
 
-Example shell scripts for installing OMERO on Ubuntu 14.04 are included
-in-line, and can be downloaded.
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
 
