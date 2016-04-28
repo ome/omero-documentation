@@ -10,8 +10,8 @@ An OME-TIFF dataset consists of;
 
 - one or more files in standard TIFF format with the file extension
   ``.ome.tif`` or ``.ome.tiff`` or `BigTIFF format <http://bigtiff.org/>`_
-  with the file extension ``.ome.tiff``, ``.ome.tiff``, ``.ome.tf2``,
-  ``.ome.tf8`` or ``.ome.btf``
+  with one of these same file extensions or a BigTIFF-specific
+  extension ``.ome.tf2``, ``.ome.tf8`` or ``.ome.btf``
 - a string of OME-XML metadata embedded in the ImageDescription tag of the
   first IFD (Image File Directory) of each file.
 
