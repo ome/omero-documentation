@@ -86,50 +86,6 @@ Fedora and Scientific Linux.
 
 .. _server-requirements:
 
-Overview
-^^^^^^^^
-
-The following packages are required:
-
-+--------------+-------------+---------+
-|              |          Version      |
-+--------------+-------------+---------+
-| Package      | Recommended | Minimum |
-+==============+=============+=========+
-| Ice          | 3.5         | 3.5     |
-+--------------+-------------+---------+
-| Java         | 1.8         | 1.7     |
-+--------------+-------------+---------+
-| OMERO.server | |release|             |
-+--------------+-------------+---------+
-| Python       | 2.7         | 2.6     |
-+--------------+-------------+---------+
-| PostgreSQL   | 9.4         | 9.3     |
-+--------------+-------------+---------+
-
-One of the following packages is recommended if you wish to use
-OMERO.web.
-
-+--------------+-------------+---------+
-|              |          Version      |
-+--------------+-------------+---------+
-| Package      | Recommended | Minimum |
-+==============+=============+=========+
-| Apache       | 2.4         | 2.2     |
-+--------------+-------------+---------+
-| Nginx        | 1.6         | 1.4.2   |
-+--------------+-------------+---------+
-
-These packages are required to make full use of OMERO.scripts:
-
-+--------------+-------------+---------+
-|              |          Version      |
-+--------------+-------------+---------+
-| Package      | Recommended | Minimum |
-+==============+=============+=========+
-| MEncoder     | 2           | 1       |
-+--------------+-------------+---------+
-
 
 The following subsections cover the details for each package, in the
 order recommended for installation.
@@ -264,8 +220,8 @@ If possible, install the following packages:
       - python
 
 .. note::
-    CentOS 6 users should read :doc:`server-centos6` and follow the
-    instructions there to install Python and the required modules.
+    CentOS 6 users should read :doc:`server-centos6` or :doc:`server-centos6-ice36`
+    and follow the instructions there to install Python and the required modules.
 
 Ice
 ^^^
@@ -275,20 +231,6 @@ Ice
     OMERO |version| supports 3.5 and 3.6 on UNIX and UNIX-like platforms. You
     must install the correct version of OMERO.server (see
     :downloads:`Downloads <>`).
-
-If possible, install one of the following packages:
-
-+-----------+---------------------------------+
-| System    | Package                         |
-+===========+=================================+
-| BSD Ports | devel/ice                       |
-+-----------+---------------------------------+
-| Debian    | zeroc-ice                       |
-+-----------+---------------------------------+
-| Homebrew  | ice (with --with-java option)   |
-+-----------+---------------------------------+
-| RedHat    | N/A (install ZeroC RPMs)        |
-+-----------+---------------------------------+
 
 The Ice version may vary, depending upon the distribution version you
 are using. The Ice versions in currently supported versions of Debian
@@ -305,8 +247,8 @@ latest release is available from the :zeroc:`ZeroC website
 <download.html>`.
 
 .. note::
-    CentOS 6 users should read :doc:`server-centos6` and follow the
-    instructions there to install Ice.
+    CentOS 6 users should read :doc:`server-centos6` or :doc:`server-centos6-ice36`
+    and follow the instructions there to install Ice.
 
 .. note::
     ZeroC_ Ice can always be built from source code for specific
@@ -319,26 +261,6 @@ latest release is available from the :zeroc:`ZeroC website
     See `Using the Python Distribution
     <https://doc.zeroc.com/display/Ice36/Using+the+Python+Distribution>`__
     for further details.
-
-PostgreSQL
-^^^^^^^^^^
-
-If possible, install the following packages:
-
-+-----------+-------------------------------------------------------------+
-| System    | Packages                                                    |
-+===========+=============================================================+
-| BSD Ports | databases/postgresql93-client databases/postgresql93-server |
-+-----------+-------------------------------------------------------------+
-| Debian    | postgresql                                                  |
-+-----------+-------------------------------------------------------------+
-| Homebrew  | postgresql                                                  |
-+-----------+-------------------------------------------------------------+
-| RedHat    | postgresql postgresql-server                                |
-+-----------+-------------------------------------------------------------+
-
-PostgreSQL 9.3 or later is required. See :doc:`server-postgresql` for
-further details.
 
 OMERO.web
 ^^^^^^^^^
@@ -408,7 +330,8 @@ Installing a development version from source is also possible. See the
 recommended unless you have a specific reason *not* to use a release
 version.
 
-Once you have obtained the OMERO.server zip archive, unpack it:
+Once you have obtained the OMERO.server zip archive matching the version
+of Ice installed, unpack it:
 
 .. parsed-literal::
 
@@ -521,8 +444,8 @@ After making any needed changes, either source the corresponding file
 or log back in for them to take effect. Run ``env`` to check them.
 
 .. note::
-    CentOS 6 users should read :doc:`server-centos6` and set the
-    needed environment variables as documented.
+    CentOS 6 users should read :doc:`server-centos6` or :doc:`server-centos6-ice36` 
+    and set the needed environment variables as documented.
 
 Creating a database
 -------------------
