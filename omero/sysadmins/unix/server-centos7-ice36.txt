@@ -96,6 +96,8 @@ Follow the steps to install your chosen web server.
 Nginx
 ^^^^^
 
+See also :doc:`install-web/install-nginx`.
+
 **The following steps are run as root.**
 
 Install Nginx 1.8, copy the Nginx OMERO configuration file into the
@@ -107,6 +109,8 @@ Nginx configuration directory, and disable the default configuration:
 
 Apache
 ^^^^^^
+
+See also :doc:`install-web/install-apache`.
 
 As the **omero** system user, configure OMERO.web:
   
