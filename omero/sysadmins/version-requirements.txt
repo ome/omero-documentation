@@ -187,8 +187,8 @@ The planned changes for 5.2 depend upon our support of
 
 * nginx
 
-  * [5.2] 1.2 deprecated, 1.4 deprecated, 1.6 supported, 1.8+ recommended
-  * [5.3] 1.2 dropped, 1.4 dropped, 1.6 supported, 1.8+ recommended
+  * [5.2] 1.4 deprecated, 1.6 supported, 1.8 recommended, 1.10 supported
+  * [5.3] 1.4 dropped, 1.6 supported, 1.8 supported, 1.10 recommended
 
 Support levels
 ==============
@@ -1701,14 +1701,14 @@ nginx
     * - 1.8
       - from Apr 2015
       - TBA
+      - Unsupported
       - Recommended
-      - Recommended
-      - Recommended
+      - Supported
     * - 1.10
       - from April 2016
       - TBA
-      - Recommended
-      - Recommended
+      - Unsupported
+      - Supported
       - Recommended
 
 Distribution support
@@ -1738,8 +1738,8 @@ Distribution support
       - 21, (22)
       - 14.10, (15.04)
       - (8.0), 7.0 bpo
-      - Yes
-      - Yes
+      - N/A
+      - N/A
     * - 1.8
       - N/A
       - N/A
@@ -1750,7 +1750,7 @@ Distribution support
     * - 1.10
       - N/A
       - N/A
-      - N/A
+      - 16.04
       - N/A
       - N/A
       - N/A
