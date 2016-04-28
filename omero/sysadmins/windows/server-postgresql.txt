@@ -18,7 +18,7 @@ For Windows-specific installation instructions, first see
 Ensuring you have a valid PostgreSQL version
 --------------------------------------------
 
-For OMERO |version|, PostgreSQL version 9.3 or later is required; version 9.4
+For OMERO |version|, PostgreSQL version 9.4 or later is required; version 9.4
 is recommended. Make sure you are using a `supported version <http://www.postgresql.org/support/versioning/>`_.
 
 If your existing PostgreSQL installation is version 9.3 or earlier, it
