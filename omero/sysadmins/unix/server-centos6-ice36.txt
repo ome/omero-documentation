@@ -182,7 +182,7 @@ OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
 
-If you deploy with Nginx, start the OMERO.web client run::
+If you deploy with Nginx, to start the OMERO.web client run::
 
     OMERO.server/bin/omero web start
 
