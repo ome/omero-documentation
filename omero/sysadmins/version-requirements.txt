@@ -145,7 +145,7 @@ The planned changes for 5.2 depend upon our support of
 
 * Ice
 
-  * [5.2] 3.4 dropped, 3.5 recommended, 3.6 not supported
+  * [5.2] 3.4 dropped, 3.5 recommended, 3.6 supported
   * [5.3] 3.4 dropped, 3.5 deprecated, 3.6 recommended
   * Rationale: 3.4 is no longer supported by ZeroC with 3.5 being
     current. By the release of 5.3, Ice 3.6 will have been out for
@@ -163,7 +163,7 @@ The planned changes for 5.2 depend upon our support of
     deprecate or preferably drop Java 6. Also note that we no longer
     actively test with a Java 6 JVM; all internal testing is on Java 7
     or 8 (Oracle and OpenJDK), and there are some client issues with
-    OpenJDK6.  Also note that Ice 3.6 drops Java 6 support.  For 5.2
+    OpenJDK6. Also note that Ice 3.6 drops Java 6 support. For 5.2
     deprecate 7; this is because security support ends in April 2015.
   * The requirement for 7 in the Windows clients is less urgent, but
     will encourage migration to a non-deprecated Java version ahead of
@@ -1227,9 +1227,11 @@ Ice
       - from June 2015
       - to TBA
       - Unsupported
-      - Unsupported
+      - Supported
       - Recommended
-      - :zerocforum:`Ice 3.6.0 <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
+      - :zerocforum:`Ice 3.6.0 <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
+        :zerocforum:`Ice 3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>`
+        :zerocforum:`Ice 3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`
 
 
 Distribution support

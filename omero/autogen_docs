@@ -44,16 +44,22 @@ if [ -d "$DIRECTORY" ]; then
 fi
 
 mkdir -p $DIRECTORY/osx/
+#generate walkthrough for all os
+ALL=true bash $WORKSPACE/omero-install/linux/autogenerate.sh
+cp walkthrough_*.sh $DIRECTORY
+rm walkthrough_*.sh
+
 for f in \
     README.md \
-    step* \
-    install_* \
-    omero-* \
+    requirements* \
     settings.env \
-    setup_* \
+    omero-* \
     ; do
-    cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
+    if [[ ! "$f" = "requirements_centos6.txt" ]]; then
+        cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
+    fi
 done
+
 for f in \
     step* \
     install_* \
