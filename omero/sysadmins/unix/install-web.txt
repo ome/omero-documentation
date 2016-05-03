@@ -28,7 +28,8 @@ Prerequisites
 
 -  Python 2.7
 
-   -  `Pillow`_ should be available for your distribution.
+   -  `Pillow`_ should be available for your distribution. We currently do not 
+       support version 3.0+.
 
    -  `Matplotlib`_ should be available for your distribution
 
