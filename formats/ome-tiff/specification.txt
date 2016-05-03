@@ -337,31 +337,57 @@ The :ref:`tubhiswt_samples` demonstrate how OME-TIFF datasets can be distributed
 
 **tubhiswt_C0_TP0.ome.tif** with ID 69bfd94f-2d95-41ae-887d-26e0c11fd606
 
-.. literalinclude:: tubhiswt_C0_TP0.ome.xml
-    :lines: 3-7
+::
 
-.. literalinclude:: tubhiswt_C0_TP0.ome.xml
-    :lines: 40-42
-
-.. literalinclude:: tubhiswt_C0_TP0.ome.xml
-    :lines: 53-57
-
-.. literalinclude:: tubhiswt_C0_TP0.ome.xml
-    :lines: 103-107
+    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         UUID="urn:uuid:69bfd94f-2d95-41ae-887d-26e0c11fd606"
+         xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2015-01
+                             http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd">
+    ...
+        <Pixels BigEndian="false" DimensionOrder="XYZTC" ID="Pixels:0"
+                Interleaved="false" SignificantBits="8" SizeC="2" SizeT="43"
+                SizeX="512" SizeY="512" SizeZ="10" Type="uint8">
+    ...
+          <TiffData FirstC="0" FirstT="0" FirstZ="0" IFD="0" PlaneCount="1">
+            <UUID FileName="tubhiswt_C0_TP0.ome.tif">
+              urn:uuid:69bfd94f-2d95-41ae-887d-26e0c11fd606
+            </UUID>
+          </TiffData>
+    ...
+          <TiffData FirstC="0" FirstT="1" FirstZ="0" IFD="0" PlaneCount="1">
+            <UUID FileName="tubhiswt_C0_TP1.ome.tif">
+              urn:uuid:16093e77-8531-43c5-83df-c71efbd212d0
+            </UUID>
+          </TiffData>
+    ...
 
 **tubhiswt_C0_TP1.ome.tif** with ID 16093e77-8531-43c5-83df-c71efbd212d0
 
-.. literalinclude:: tubhiswt_C0_TP1.ome.xml
-    :lines: 3-7
+::
 
-.. literalinclude:: tubhiswt_C0_TP1.ome.xml
-    :lines: 40-42
-
-.. literalinclude:: tubhiswt_C0_TP1.ome.xml
-    :lines: 53-57
-
-.. literalinclude:: tubhiswt_C0_TP1.ome.xml
-    :lines: 103-107
+    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         UUID="urn:uuid:16093e77-8531-43c5-83df-c71efbd212d0"
+         xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2015-01
+                             http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd">
+    ...
+        <Pixels BigEndian="false" DimensionOrder="XYZTC" ID="Pixels:0"
+                Interleaved="false" SignificantBits="8" SizeC="2" SizeT="43"
+                SizeX="512" SizeY="512" SizeZ="10" Type="uint8">
+    ...
+          <TiffData FirstC="0" FirstT="0" FirstZ="0" IFD="0" PlaneCount="1">
+            <UUID FileName="tubhiswt_C0_TP0.ome.tif">
+              urn:uuid:69bfd94f-2d95-41ae-887d-26e0c11fd606
+            </UUID>
+          </TiffData>
+    ...
+          <TiffData FirstC="0" FirstT="1" FirstZ="0" IFD="0" PlaneCount="1">
+            <UUID FileName="tubhiswt_C0_TP1.ome.tif">
+              urn:uuid:16093e77-8531-43c5-83df-c71efbd212d0
+            </UUID>
+          </TiffData>
+    ...
 
 And so on for files:
 
@@ -378,9 +404,21 @@ Instead of embedding the full OME-XML metadata into the header each OME-TIFF,
 partial OME-XML metadata blocks can be stored in some or all of the OME-TIFF
 files using the
 :schema_plone:`Binary-Only <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_BinaryOnly>`
-element as illustrated below:
+element as illustrated below::
 
-.. literalinclude:: multifile-Z2.ome.xml
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <OME UUID="urn:uuid:f2307570-bede-47a7-aa2b-4e23231ac295"
+         xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
+         xmlns:Bin="http://www.openmicroscopy.org/Schemas/BinaryFile/2015-01"
+         xmlns:SPW="http://www.openmicroscopy.org/Schemas/SPW/2015-01"
+         xmlns:SA="http://www.openmicroscopy.org/Schemas/SA/2015-01"
+         xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2015-01"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2015-01
+                             http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd">
+       <BinaryOnly MetadataFile="multifile-Z1.ome.tiff"
+                   UUID="urn:uuid:4978087c-a670-4b12-af53-256c62d8d101"/>
+    </OME>
 
 The :schema_plone:`MetadataFile <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_MetadataFile>` element should contain the name of the master file containing the full
 OME-XML metadata  block and :schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_UUID>`
