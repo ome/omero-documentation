@@ -11,7 +11,7 @@ Splitting a fileset across multiple files can have advantages in terms of
 acquisition but also processing purposes. The OME-TIFF file format can support
 any image organization. However, using one TIFF file per timepoint per channel
 with the focal planes for that timepoint and channel stored sequentially
-within the TIFF makes for very easy :ref:`TiffData` elements.
+within the TIFF makes for very easy creation of :ref:`TiffData` elements.
 
 The main downside of splitting OME-TIFF over multiple files is their
 inherent fragility to common file-system operations such as file renaming or
