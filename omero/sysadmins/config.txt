@@ -2030,6 +2030,14 @@ A boolean that determines whether to expire the session when the user closes the
 
 Default: `true`
 
+.. property:: omero.web.static_root
+
+omero.web.static_root
+^^^^^^^^^^^^^^^^^^^^^
+The absolute path to the directory where collectstatic will collect static files for deployment. If the staticfiles contrib app is enabled (default) the collectstatic management command will collect static files into this directory.
+
+Default: `/home/omero/OMERO.server/lib/python/omeroweb/static`
+
 .. property:: omero.web.static_url
 
 omero.web.static_url
