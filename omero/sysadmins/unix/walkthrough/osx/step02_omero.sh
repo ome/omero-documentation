@@ -8,7 +8,7 @@ set -x
 export PATH=/usr/local/bin:$PATH
 export OMERO_DATA_DIR=${OMERO_DATA_DIR:-~/OMERO.data}
 export PSQL_SCRIPT_NAME=${PSQL_SCRIPT_NAME:-OMERO.sql}
-export ROOT_PASSWORD=${ROOT_PASSWORD:-omero}
+export ROOT_PASSWORD=${ROOT_PASSWORD:-omero_root_password}
 export ICE=${ICE:-3.5}
 export HTTPPORT=${HTTPPORT:-8080}
 export LANG=${LANG:-en_US.UTF-8}
