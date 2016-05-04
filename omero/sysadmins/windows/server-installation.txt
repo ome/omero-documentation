@@ -544,7 +544,7 @@ The following are optional depending on what services you require:
       - OMERO.web
       - `Django website <https://www.djangoproject.com/>`_
 
-    * - Pillow
+    * - Pillow (2.9.0)
       - OMERO.web and Figure Export
       - `Pillow`_
 
