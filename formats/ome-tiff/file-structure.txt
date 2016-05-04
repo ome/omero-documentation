@@ -55,10 +55,10 @@ in every file would result in a dataset nearly 20 times larger than before,
 requiring ~5.5MB of disk per file, and more than 5GB total.
 
 One of the advantages of reproducing the OME-XML metadata across files is
-redundancy. If even one of the constituent files survives data loss, the
-metadata survives. The space tradeoff of this duplication is acceptable when
-compared to the bulk of the pixel data in most cases, provided a suitable
-number of planes are stored in each TIFF.
+redundancy. If one of the constituent files survives data loss, the metadata
+survives. The space tradeoff of this duplication is acceptable when compared
+to the bulk of the pixel data in most cases, provided a suitable number of
+planes are stored in each TIFF.
 
 Companion file vs master OME-TIFF file
 --------------------------------------

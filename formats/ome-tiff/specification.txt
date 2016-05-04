@@ -6,7 +6,7 @@ format. It assumes familiarity with both the
 `TIFF <http://partners.adobe.com/public/developer/tiff/index.html>`_ and
 :schema_plone:`OME-XML <>` formats, although there is some review of both.
 
-An OME-TIFF dataset consists of;
+An OME-TIFF dataset consists of:
 
 - one or more files in standard TIFF format with the file extension
   ``.ome.tif`` or ``.ome.tiff`` or `BigTIFF format <http://bigtiff.org/>`_
@@ -319,7 +319,8 @@ unambiguously reference its relevant file using a UUID child element.
      the OME-TIFF reader must scan OME-TIFF files in the working directory
      looking for matching UUID signatures.
 
-When splitting an OME-TIFF across multiple files, the OME-XML metadata must either be embedded into each TIFF file or use partial metadata blocks.
+When splitting an OME-TIFF across multiple files, the OME-XML metadata must
+either be embedded into each TIFF file or use partial metadata blocks.
 
 Embedded OME-XML metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -333,7 +334,10 @@ attribute of the root OME element. This value should be a distinct
 UUID value for each file, so that each TiffData element can
 unambiguously reference its relevant file using a UUID child element.
 
-The :ref:`tubhiswt_samples` demonstrate how OME-TIFF datasets can be distributed across multiple files. Each of the files in the set has identical metadata apart from the `UUID`, the unique identifier in each file. For example the identifiers could be distributed as follows:
+The :ref:`tubhiswt_samples` demonstrate how OME-TIFF datasets can be
+distributed across multiple files. Each of the files in the set has identical
+metadata apart from the `UUID`, the unique identifier in each file. For
+example the identifiers could be distributed as follows:
 
 **tubhiswt_C0_TP0.ome.tif** with ID 69bfd94f-2d95-41ae-887d-26e0c11fd606
 
@@ -400,9 +404,9 @@ And so on for files:
 Partial OME-XML metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Instead of embedding the full OME-XML metadata into the header each OME-TIFF,
-partial OME-XML metadata blocks can be stored in some or all of the OME-TIFF
-files using the
+Instead of embedding the full OME-XML metadata into the header of each
+OME-TIFF, partial OME-XML metadata blocks can be stored in some or all of the
+OME-TIFF files using the
 :schema_plone:`Binary-Only <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_BinaryOnly>`
 element as illustrated below::
 
@@ -420,7 +424,8 @@ element as illustrated below::
                    UUID="urn:uuid:4978087c-a670-4b12-af53-256c62d8d101"/>
     </OME>
 
-The :schema_plone:`MetadataFile <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_MetadataFile>` element should contain the name of the master file containing the full
+The :schema_plone:`MetadataFile <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_MetadataFile>`
+element should contain the name of the master file containing the full
 OME-XML metadata  block and :schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_UUID>`
 should contain the UUID of this master file.
 
