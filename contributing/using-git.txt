@@ -843,7 +843,7 @@ Pull Request.
     # Now go to the new_stuff branch on github.com and open the PR
 
 GitHub's "Open a pull request" page invites you to leave a comment under
-the PR title. A good choice of PR title and description are both helpful
+the PR title: we use this comment to describe the PR. A good choice of PR title and description are both helpful
 to reviewers of your work. If there is template text already provided in
 the comment box for you to fill in then do consider what it says but
 also feel free to change that text as much as necessary for it to make
