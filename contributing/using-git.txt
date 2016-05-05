@@ -844,10 +844,10 @@ Pull Request.
 
 GitHub's "Open a pull request" page invites you to leave a comment under
 the PR title: we use this comment to describe the PR. A good choice of
-PR title and description are both helpful to reviewers of your work. If
-there is template text already provided in the comment box for you to
-fill in then do consider what it says but also feel free to change that
-text as much as necessary for it to make sense for your PR.
+PR title and description are both helpful to reviewers of your work. For
+the PR description there may be template text already provided for you
+to edit. If so then do consider what it says but also feel free to
+change that template as much as makes sense for describing your PR.
 
 Pull Request conflicts
 """"""""""""""""""""""
