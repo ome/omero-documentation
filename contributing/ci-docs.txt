@@ -185,7 +185,7 @@ The branch for the 5.2.x series of the OMERO documentation is dev_5_2.
 	:jenkinsjob:`OMERO-5.2-latest-docs`
 
 		This job is used to build the dev_5_2 branch of the OMERO
-		documentation and publish the official documentation for the 5.1.x
+		documentation and publish the official documentation for the 5.2.x
 		release of OMERO
 
 		#. |sphinxbuild|
@@ -216,18 +216,18 @@ The branch for the 5.3.x series of the OMERO documentation is develop.
 	:jenkinsjob:`OMERO-DEV-latest-docs`
 
 		This job is used to review the PRs opened against the develop branch
-		of the OMERO documentation
+		of the OMERO 5.3.x documentation
 
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`omero-5.2.tmp`
+		#. |ssh-doc| :file:`omero-5.3.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.3/
 
 	:jenkinsjob:`OMERO-DEV-merge-docs`
 
 		This job is used to review the PRs opened against the develop branch
-		of the OMERO documentation
+		of the OMERO 5.3.x documentation
 
 		#. |merge|
 		#. Pushes the branch to :omedoc_scc_branch:`develop/merge/daily`
