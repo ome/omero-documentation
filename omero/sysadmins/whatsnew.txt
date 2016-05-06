@@ -26,3 +26,8 @@ What's new for OMERO 5.2 for sysadmins
   switching back to the old server code for moving and deleting data has now
   been removed. You must migrate to using the new request operations.
 
+- Add support for Ice 3.6. With Ice 3.6, the Python bindings are provided separately.
+  This allows to install the RPM packages provided by ZeroC.
+  Then run ``pip install zeroc-ice`` to install the Ice Python bindings if
+  your package manager does not provide the Ice python packages.
+
