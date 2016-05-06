@@ -66,13 +66,13 @@ Bio-Formats
 
     :jenkinsjob:`BIOFORMATS-DEV-release-trigger`
 
-        This job triggers the Bio-Formats release  jobs. Prior
+        This job triggers the Bio-Formats release jobs. Prior
         to running it, its variables need to be properly configured:
 
         - :envvar:`RELEASE` is the Bio-Formats release number.
 
         #. Triggers :term:`BIOFORMATS-DEV-release-push`
-        #. Triggers :term:`BIOFORMATS-DEV-release-java`
+        #. Triggers :term:`BIOFORMATS-DEV-release`
 
     :jenkinsjob:`BIOFORMATS-DEV-release-push`
 
@@ -81,7 +81,7 @@ Bio-Formats
         #. Runs `scc tag-release $RELEASE` and pushes the tag to the
            snoopycrimecop fork of bioformats.git_
 
-    :jenkinsjob:`BIOFORMATS-DEV-release-java`
+    :jenkinsjob:`BIOFORMATS-DEV-release`
 
         This job builds the Java downloads artifacts of Bio-Formats
 
