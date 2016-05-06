@@ -12,10 +12,6 @@ Jenkins.
 		* Latest jobs
 		* Release jobs
 
-	-	* FLIMfit
-		*
-		* :term:`FLIMfit-release-downloads`
-
 	-	* OMERO.mtools
 		*
 		* :term:`MTOOLS-release-downloads`
@@ -24,31 +20,12 @@ Jenkins.
 		*
 		* :term:`WEBTAGGING-release-downloads`
 
-	-	* u-track
-		* | :term:`U-TRACK-latest`
-		* | :term:`U-TRACK-release`
-		  | :term:`U-TRACK-release-downloads`
-
 FLIMfit
 ^^^^^^^
 
 The source code for the FLIMfit is hosted under
-https://github.com/imperial-photonics/FLIMfit
-
-.. glossary::
-
-	:jenkinsjob:`FLIMfit-release-downloads`
-
-		This job is used to build the FLIMfit downloads page
-
-		#. Checks out the `develop` branch of
-		   https://github.com/openmicroscopy/ome-release
-		#. Merge PRs opened against `develop`
-		#. Copy the FLIMfit Windows artifacts over SSH to
-		   :file:`/ome/www/download.openmicroscopy.org/flimfit/RELEASE`
-		#. Build the FLIMfit downloads pages using :command:`make flimfit`
-		#. Copy the FLIMfit downloads page over SSH to
-		   :file:`/ome/www/download.openmicroscopy.org/flimfit/RELEASE`
+https://github.com/imperial-photonics/FLIMfit. Since 4.11.1, the downloads are
+hosted at http://flimfit.org/.
 
 OMERO.mtools
 ^^^^^^^^^^^^
@@ -82,37 +59,3 @@ OMERO.webtagging
 		   :command:`make webtagging`
 		#. Copy the OMERO.webtagging downloads page over SSH to
 		   :file:`/ome/www/download.openmicroscopy.org/webtagging/RELEASE`
-
-
-
-u-track
-^^^^^^^
-
-.. glossary::
-
-	:jenkinsjob:`U-TRACK-latest`
-
-		This job is used to build the latest version of u-track
-
-		#. Build u-track
-		#. Runs the unit and integration tests
-
-	:jenkinsjob:`U-TRACK-release`
-
-		This job is used to build the release artifacts for u-track
-
-		#. Build u-track
-		#. Copy the u-track artifacts over SSH to
-		   :file:`/ome/www/download.openmicroscopy.org/u-track/RELEASE`
-		#. Trigger :term:`U-TRACK-release-downloads`
-
-	:jenkinsjob:`U-TRACK-release-downloads`
-
-		This job is used to build the u-track downloads page
-
-		#. Checks out the `develop` branch of
-		   https://github.com/openmicroscopy/ome-release
-		#. Merge PRs opened against `develop`
-		#. Build the u-track downloads pages using :command:`make u-track`
-		#. Copy the u-track downloads page over SSH to
-		   :file:`/ome/www/download.openmicroscopy.org/u-track/RELEASE`
