@@ -5,60 +5,42 @@ OMERO jobs
     :header-rows: 1
 
     -   * Job task
-        * 5.1.x series
         * DEV series
         * Breaking series
 
     -   * Builds the latest OMERO artifacts
-        * :term:`OMERO-5.1-latest`
         * :term:`OMERO-DEV-latest`
         *
 
     -   * Deploys the latest OMERO server
-        * | :term:`OMERO-5.1-latest-deploy`
-          | :term:`OMERO-5.1-latest-deploy-win`
-          | :term:`OMERO-5.1-latest-deploy-win2012`
         * :term:`OMERO-DEV-latest-deploy`
         *
 
     -   * Updates submodules
-        * :term:`OMERO-5.1-latest-submods`
-        *
+        * :term:`OMERO-DEV-latest-submods`
         *
 
     -   * Runs the daily OMERO merge builds
-        * :term:`OMERO-5.1-merge-daily`
         * :term:`OMERO-DEV-merge-daily`
         * :term:`OMERO-DEV-breaking-trigger`
 
     -   * Merges the PRs
-        * :term:`OMERO-5.1-merge-push`
         * :term:`OMERO-DEV-merge-push`
         * :term:`OMERO-DEV-breaking-push`
 
     -   * Builds the merge OMERO artifacts
-        * :term:`OMERO-5.1-merge-build`
         * :term:`OMERO-DEV-merge-build`
         * :term:`OMERO-DEV-breaking-build`
 
     -   * Deploys the merge OMERO server
-        * | :term:`OMERO-5.1-merge-deploy`
-          | :term:`OMERO-5.1-merge-deploy-win`
-          | :term:`OMERO-5.1-merge-deploy-win2012`
         * :term:`OMERO-DEV-merge-deploy`
         * :term:`OMERO-DEV-breaking-deploy`
 
     -   * Runs the OMERO upgrade scripts
-        * :term:`OMERO-5.1-merge-upgrade`
         *
         * :term:`OMERO-DEV-breaking-upgrade`
 
     -   * Runs the OMERO integration tests
-        * | :term:`OMERO-5.1-merge-integration`
-          | :term:`OMERO-5.1-merge-integration-broken`
-          | :term:`OMERO-5.1-merge-integration-java`
-          | :term:`OMERO-5.1-merge-integration-python`
-          | :term:`OMERO-5.1-merge-integration-web`
         * | :term:`OMERO-DEV-merge-integration`
           | :term:`OMERO-DEV-merge-integration-broken`
           | :term:`OMERO-DEV-merge-integration-java`
@@ -71,23 +53,18 @@ OMERO jobs
           | :term:`OMERO-DEV-breaking-integration-web`
 
     -   * Runs the OMERO.matlab tests
-        * :term:`OMERO-5.1-merge-matlab`
         * :term:`OMERO-DEV-merge-matlab`
         *
 
     -   * Runs the robot framework tests
-        * :term:`OMERO-5.1-merge-robotframework`
         * :term:`OMERO-DEV-merge-robotframework`
         *
 
     -   * Installs OMERO using Homebrew
-        * :term:`OMERO-5.1-merge-homebrew`
-        *
+        * :term:`OMERO-DEV-merge-homebrew`
         *
 
     -   * Pushes SNAPSHOTS to Maven
-        * | :term:`OMERO-5.1-latest-maven`
-          | :term:`OMERO-5.1-merge-maven`
         * | :term:`OMERO-DEV-latest-maven`
           | :term:`OMERO-DEV-merge-maven`
         *
@@ -109,48 +86,6 @@ clients of the deployment jobs described above:
         * Hostname
         * Port
         * Webclient
-
-    -   * 5.1.x
-        * :term:`OMERO-5.1-merge-deploy`
-        * trout.openmicroscopy.org
-        * 4064
-        * https://trout.openmicroscopy.org/merge
-
-    -   * 5.1.x
-        * :term:`OMERO-5.1-merge-deploy-win`
-        * hake.openmicroscopy.org
-        * 4064
-        * http://hake.openmicroscopy.org/merge
-
-    -   * 5.1.x
-        * :term:`OMERO-5.1-merge-deploy-win2012`
-        * burbot.openmicroscopy.org
-        * 4064
-        * http://burbot.openmicroscopy.org/merge
-
-    -   * 5.1.x
-        * :term:`OMERO-5.1-latest-deploy`
-        * trout.openmicroscopy.org
-        * 14064
-        * https://trout.openmicroscopy.org/latest
-
-    -   * 5.1.x
-        * :term:`OMERO-5.1-latest-deploy-win`
-        * hake.openmicroscopy.org
-        * 14064
-        * http://hake.openmicroscopy.org/latest
-
-    -   * 5.1.x
-        * :term:`OMERO-5.1-latest-deploy-win2012`
-        * burbot.openmicroscopy.org
-        * 14064
-        * http://burbot.openmicroscopy.org/latest
-
-    -   * 5.1.x
-        * :term:`OMERO-5.1-merge-integration`
-        * trout.openmicroscopy.org
-        * 24064
-        * https://trout.openmicroscopy.org/integration
 
     -   * 5.2.x
         * :term:`OMERO-DEV-merge-deploy`
@@ -176,184 +111,6 @@ clients of the deployment jobs described above:
         * 34064
         * https://trout.openmicroscopy.org/breaking
 
-5.1.x series
-^^^^^^^^^^^^
-
-The branch for the 5.1.x series of OMERO is dev_5_1. All jobs are listed
-under the :jenkinsview:`5.1` view tab of Jenkins.
-
-.. glossary::
-
-    :jenkinsjob:`OMERO-5.1-latest`
-
-        This job builds the dev_5_1 branch of OMERO with Ice 3.4 or 3.5
-
-        #. |buildOMERO|
-        #. |archiveOMEROartifacts|
-
-        See :jenkinsjob:`the build graph <OMERO-5.1-latest/lastSuccessfulBuild/BuildGraph>`
-
-    :jenkinsjob:`OMERO-5.1-latest-deploy`
-
-        This job deploys the latest 5.1.x server (see
-        :ref:`deployment_servers`)
-
-    :jenkinsjob:`OMERO-5.1-latest-deploy-win`
-
-        This job deploys the latest 5.1.x server on Windows (see
-        :ref:`deployment_servers`)
-
-    :jenkinsjob:`OMERO-5.1-latest-deploy-win2012`
-
-        This job deploys the latest 5.1.x server on Windows 2012
-        (see :ref:`deployment_servers`)
-
-    :jenkinsjob:`OMERO-5.1-latest-submods`
-
-        This job updates the submodules on the dev_5_1 branch
-
-        #. |updatesubmodules| and pushes the merge branch to
-           :omero_scc_branch:`dev_5_1/latest/submodules`
-        #. If the submodules are updated, opens a new PR or updates the
-           existing dev_5_1 submodules PR
-
-    :jenkinsjob:`OMERO-5.1-merge-daily`
-
-        This job triggers all the morning merge builds listed below
-
-        #. Triggers :term:`OMERO-5.1-merge-push`
-        #. Triggers :term:`OMERO-5.1-merge-build` and
-           :term:`OMERO-5.1-merge-integration`
-        #. Triggers :term:`OMERO-5.1-merge-deploy`
-        #. Triggers other downstream merge jobs
-
-        See :jenkinsjob:`the build graph <OMERO-5.1-merge-daily/lastSuccessfulBuild/BuildGraph>`
-
-    :jenkinsjob:`OMERO-5.1-merge-push`
-
-        This job merges all the PRs opened against dev_5_1
-
-        #. |merge|
-        #. Pushes the branch to :omero_scc_branch:`dev_5_1/merge/daily`
-
-    :jenkinsjob:`OMERO-5.1-merge-build`
-
-        These jobs builds the OMERO components with Ice 3.4 or 3.5
-
-        #. Checks out :omero_scc_branch:`dev_5_1/merge/daily`
-        #. |buildOMERO| for each version of Ice
-        #. |archiveOMEROartifacts|
-
-    :jenkinsjob:`OMERO-5.1-merge-deploy`
-
-        This job deploys the merge 5.1.x server (see
-        :ref:`deployment_servers`)
-
-    :jenkinsjob:`OMERO-5.1-merge-deploy-win`
-
-        This job deploys the merge 5.1.x server on Windows (see
-        :ref:`deployment_servers`)
-
-    :jenkinsjob:`OMERO-5.1-merge-deploy-win2012`
-
-        This job deploys the merge 5.1.x server on Windows 2012
-        (see :ref:`deployment_servers`)
-
-    :jenkinsjob:`OMERO-5.1-merge-integration`
-
-        This job runs the integration tests of OMERO
-
-        #. Checks out :omero_scc_branch:`dev_5_1/merge/daily`
-        #. Builds OMERO.server and starts it
-        #. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
-        #. Archives the results
-        #. Triggers downstream collection jobs:
-           :term:`OMERO-5.1-merge-integration-broken`,
-           :term:`OMERO-5.1-merge-integration-java`,
-           :term:`OMERO-5.1-merge-integration-python`,
-           :term:`OMERO-5.1-merge-integration-web`
-
-    :jenkinsjob:`OMERO-5.1-merge-integration-broken`
-
-        This job collects the OMERO.java broken test results
-
-        #. Receives TestNG results under
-           :file:`components/tools/OmeroJava/target/reports/broken` from
-           :term:`OMERO-5.1-merge-integration`,
-        #. Generates TestNG report
-
-    :jenkinsjob:`OMERO-5.1-merge-integration-java`
-
-        This job collects the OMERO.java integration test results
-
-        #. Receives TestNG results under
-           :file:`components/tools/OmeroJava/target/reports/integration` from
-           :term:`OMERO-5.1-merge-integration`,
-        #. Generates TestNG report
-
-    :jenkinsjob:`OMERO-5.1-merge-integration-python`
-
-        This job collects the OMERO.py integration test results
-
-        #. Receives pytest results under
-           :file:`components/tools/OmeroPy/target/reports` from
-           :term:`OMERO-5.1-merge-integration`,
-        #. Generates pytest report
-
-    :jenkinsjob:`OMERO-5.1-merge-integration-web`
-
-        This job collects the OMERO.web integration test results
-
-        #. Receives pytest results under
-           :file:`components/tools/OmeroWeb/target/reports` from
-           :term:`OMERO-5.1-merge-integration`,
-        #. Generates pytest report
-
-    :jenkinsjob:`OMERO-5.1-merge-matlab`
-
-        This job runs the OMERO.matlab tests
-
-        #. Checks out :omero_scc_branch:`dev_5_1/merge/daily`
-        #. Collects the MATLAB artifacts from :term:`OMERO-5.1-merge-build`
-        #. Runs the MATLAB unit tests under
-           :file:`components/tools/OmeroM/test/unit` and collect the results
-
-    :jenkinsjob:`OMERO-5.1-merge-maven`
-
-        This job is used to generate SNAPSHOT jars and push them to artifactory.
-
-        #. Runs :file:`docs/hudson/OMERO.sh`
-        #. Executes the `release-hudson` target for the `ome.unstable` repository.
-
-    :jenkinsjob:`OMERO-5.1-latest-maven`
-
-        The same as :term:`OMERO-5.1-merge-maven`, but pushes to `ome.snapshots`.
-
-    :jenkinsjob:`OMERO-5.1-merge-robotframework`
-
-        This job runs the robot framework tests of OMERO
-
-        #. Checks out :omero_scc_branch:`dev_5_1/merge/daily`
-        #. Builds OMERO.server and starts it
-        #. Runs the robot framework tests and collect the results
-
-    :jenkinsjob:`OMERO-5.1-merge-homebrew`
-
-        This job tests the installation of OMERO 5.1 using Homebrew
-
-        #. Cleans :file:`/usr/local`
-        #. Installs Homebrew from https://github.com/ome/omero-install
-        #. Installs OMERO via :file:`homebrew/install_omero51`
-
-    :jenkinsjob:`OMERO-5.1-merge-upgrade`
-
-        This job tests the DB upgrade script from the 5.0.0 server
-
-        #. Initializes a database using the script from the 5.0.0 release
-        #. Starts the OMERO server
-        #. Stops the OMERO server
-        #. Runs the upgrade script under :file:`sql/psql/OMERO5.1_DEVx/`
-        #. Restarts the OMERO server
 
 5.2.x series
 ^^^^^^^^^^^^
@@ -495,6 +252,14 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         #. Checks out :omero_scc_branch:`develop/merge/daily` 
         #. Builds OMERO.server and starts it
         #. Runs the robot framework tests and collect the results
+
+    :jenkinsjob:`OMERO-DEV-merge-homebrew`
+
+        This job tests the installation of OMERO 5.2 using Homebrew
+
+        #. Cleans :file:`/usr/local`
+        #. Installs Homebrew from https://github.com/ome/omero-install
+        #. Installs OMERO via :file:`osx/nstall_homebrew.sh`
 
 .. _omero_breaking:
 
