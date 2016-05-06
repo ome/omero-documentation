@@ -1,25 +1,26 @@
 OME-TIFF specification
 ======================
 
-
 The following provides technical details on the OME-TIFF
 format. It assumes familiarity with both the
 `TIFF <http://partners.adobe.com/public/developer/tiff/index.html>`_ and
 :schema_plone:`OME-XML <>` formats, although there is some review of both.
 
-Storing OME-XML within a TIFF
------------------------------
+An OME-TIFF dataset consists of:
 
-An OME-TIFF dataset consists of one or more files in standard TIFF or
-`BigTIFF format <http://bigtiff.org/>`_, with the file extension
-``.ome.tif`` or ``.ome.tiff``, and an identical (or in the case of
-multiple files, nearly identical) string of OME-XML metadata embedded
-in the ImageDescription tag of each file's first IFD (Image File
-Directory).  BigTIFF file extensions are also permitted, with the file
-extension ``.ome.tf2``, ``.ome.tf8`` or ``.ome.btf``, but note these
-file extensions are an addition to the original specification, and
-software using an older version of the specification may not be able
-to handle these file extensions.
+- one or more files in standard TIFF format with the file extension
+  ``.ome.tif`` or ``.ome.tiff`` or `BigTIFF format <http://bigtiff.org/>`_
+  with one of these same file extensions or a BigTIFF-specific
+  extension ``.ome.tf2``, ``.ome.tf8`` or ``.ome.btf``
+- a string of OME-XML metadata embedded in the ImageDescription tag of the
+  first IFD (Image File Directory) of each file.
+
+Note that BigTIFF-specific file extensions are an addition to the original
+specification, and software using an older version of the specification may
+not be able to handle these file extensions.
+
+OME-XML metadata
+----------------
 
 This string is a standard block of OME-XML, except that instead of
 storing pixels as BinData elements with base64-encoded pixel data
@@ -58,12 +59,12 @@ obtain an OME-TIFF file's entire set of metadata as OME-XML.
     OME-XML metadata block is stored only in the first IFD structure.
     However, for an image sequence distributed across multiple OME-TIFF
     files, each file will contain a copy of the OME-XML metadata block
-    (see `Storing partial metadata blocks`_ below for exceptions to
+    (see :ref:`binary_only` below for exceptions to
     this rule). Thus, if any files are lost, the metadata is preserved. The
     OME-XML block in each file is nearly identical—the only difference is in
     the TiffData elements appearing beneath Pixels elements, since each TIFF
-    file contains a different portion of the image data (see `Distributing
-    an image sequence across multiple OME-TIFF files`_ below).
+    file contains a different portion of the image data (see
+    :ref:`multifile-ometiff` below).
 
 
 DimensionOrder
@@ -84,7 +85,7 @@ can contain, the same scheme described above for specifying the
 rasterization order works within the OME-TIFF file. The only difference
 is that instead of the pixels being encoded in base64 inside BinData
 elements, they are stored within the TIFF file in the standard fashion,
-one per IFD; see `The TiffData element`_ below for specifics.
+one per IFD; see the :ref:`TiffData element <tiffdata>` below for specifics.
 
 TIFF comments
 ^^^^^^^^^^^^^
@@ -100,14 +101,15 @@ preface it with the following informative comment:
     For more information, see the OME-TIFF web site:
     http://www.openmicroscopy.org/site/support/ome-model/ome-tiff/ -->
 
-.. _element:
+.. _tiffdata:
 
 The TiffData element
 --------------------
 
 As the illustration :ref:`figure-tiff-header` shows, all that is needed to 
-indicate that the pixels are located within the enclosing TIFF structure is a 
-TiffData element with no attributes. By default, the first IFD corresponds to 
+indicate that the pixels are located within the enclosing TIFF structure is a
+:schema_plone:`TiffData <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData>`
+element with no attributes. By default, the first IFD corresponds to
 the first image plane (Z0-T0-C0), and the rasterization order of subsequent
 IFDs is given by the Pixels element's DimensionOrder attribute, as
 described above.
@@ -115,15 +117,20 @@ described above.
 However, there are several attributes for TiffData elements allowing
 greater control over the dimensional position of each IFD:
 
--  **IFD** - gives the IFD(s) for which this element is applicable.
+-  :schema_plone:`IFD <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_IFD>`
+   - gives the IFD(s) for which this element is applicable.
    Indexed from 0. Default is 0 (the first IFD).
--  **FirstZ** - gives the Z position of the image plane at the specified
+-  :schema_plone:`FirstZ <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_FirstZ>`
+   - gives the Z position of the image plane at the specified
    IFD. Indexed from 0. Default is 0 (the first Z position).
--  **FirstT** - gives the T position of the image plane at the specified
+-  :schema_plone:`FirstT <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_FirstT>`
+   - gives the T position of the image plane at the specified
    IFD. Indexed from 0. Default is 0 (the first T position).
--  **FirstC** - gives the C position of the image plane at the specified
+-  :schema_plone:`FirstC <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_FirstC>`
+   - gives the C position of the image plane at the specified
    IFD. Indexed from 0. Default is 0 (the first C position).
--  **PlaneCount** - gives the number of IFDs affected. Dimension order of
+-  :schema_plone:`PlaneCount <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_PlaneCount>`
+   - gives the number of IFDs affected. Dimension order of
    IFDs is given by the enclosing Pixels element's DimensionOrder
    attribute. Default is the number of IFDs in the TIFF file, unless an
    IFD is specified, in which case the default is 1.
@@ -285,13 +292,14 @@ reverse temporal order.
 For details on validating your OME-XML metadata block, see the
 validating OME-XML section on the :doc:`tools` page.
 
-.. _files:
+.. _multifile-ometiff:
 
-Distributing an image sequence across multiple OME-TIFF files
--------------------------------------------------------------
+Multi-file OME-TIFF
+-------------------
 
 As demonstrated above, the OME-TIFF format is capable of storing the
 entire multidimensional image series in one master OME-TIFF file.
+
 Alternatively, a collection of multiple OME-TIFF files may be used. Using
 the TiffData attributes outlined above together with
 `UUID <http://en.wikipedia.org/wiki/Universally_Unique_Identifier>`_
@@ -299,208 +307,131 @@ elements and attributes, the OME-XML metadata block can unambiguously
 define which dimensional positions correspond to which IFDs from which
 files. Each OME-TIFF need not contain the same number of images.
 
-When using this multiple file method, a nearly identical OME-XML metadata 
-block should be inserted into the first IFD of each constituent OME-TIFF file 
-(although `storing partial metadata blocks`_ is also possible, see below).
-This is for redundancy purposes: if even one of the
-constituent files survives a data crash, the metadata survives. The
-space tradeoff of this duplication is acceptable when compared to the bulk of 
-the pixel data in most cases, provided a suitable number of planes are stored 
-in each TIFF.
-
-The only difference between the OME-XML metadata block per file is the
-UUID attribute of the root OME element. This value should be a distinct
+The only difference between the OME-XML metadata block per TIFF file is the
+:schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_UUID>`
+attribute of the root OME element. This value should be a distinct
 UUID value for each file, so that each TiffData element can
 unambiguously reference its relevant file using a UUID child element.
 
-.. note::
-    The FileName attribute of the UUID is optional, but strongly
-    recommended—otherwise, the OME-TIFF reader must scan OME-TIFF files in
-    the working directory looking for matching UUID signatures.
+   .. note::
+     The :schema_plone:`FileName <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_TiffData_UUID_FileName>`
+     attribute of the UUID is optional, but strongly recommended—otherwise,
+     the OME-TIFF reader must scan OME-TIFF files in the working directory
+     looking for matching UUID signatures.
 
-OME-TIFF can support any image organization. However, using one TIFF file per 
-timepoint per channel (with the focal planes for that timepoint and channel 
-stored sequentially within the TIFF) makes for very easy TiffData elements.
+When splitting an OME-TIFF across multiple files, the OME-XML metadata must
+either be embedded into each TIFF file or use partial metadata blocks.
 
-Multi-file example
-^^^^^^^^^^^^^^^^^^
+Embedded OME-XML metadata
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :ref:`tubhiswt_samples`, the
-:ometiff_downloads:`binary only OME-TIFF fileset sample <binaryonly>` and the
-:ometiff_downloads:`companion fileset sample <companion>` demonstrate how
-OME-TIFF datasets can be distributed across multiple files. Another example is
-described below.
+In the first case, a nearly identical OME-XML metadata block must be inserted
+into the first IFD of each constituent OME-TIFF file.
 
-Each of the files in the set has identical metadata apart from the 
-`UUID`, the unique identifier in each file. For example the identifiers
-could be distributed as follows:
+The only difference between the OME-XML metadata block per TIFF file is the
+:schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_UUID>`
+attribute of the root OME element. This value should be a distinct
+UUID value for each file, so that each TiffData element can
+unambiguously reference its relevant file using a UUID child element.
 
-**spicule\_C1\_TP1.ome.tif** with ID 386a0ee1-336f-4a8d-afc3-d4c81bc0fd86
+The :ref:`tubhiswt_samples` demonstrate how OME-TIFF datasets can be
+distributed across multiple files. Each of the files in the set has identical
+metadata apart from the `UUID`, the unique identifier in each file. For
+example the identifiers could be distributed as follows:
 
-::
-
-    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
-        ...
-
-::
-
-    UUID="urn:uuid:386a0ee1-336f-4a8d-afc3-d4c81bc0fd86"
-
-::
-
-        ...
-    >
-    ...
-        <Pixels ID="urn:lsid:loci.wisc.edu:Pixels:ows581"
-                Type="uint8" DimensionOrder="XYZTC"
-                SizeX="512" SizeY="512" SizeZ="4" SizeT="3" SizeC="2">
-            <TiffData FirstT="0" FirstC="0">
-                <UUID FileName="spicule_C1_TP1.ome.tif">
-                    urn:uuid:386a0ee1-336f-4a8d-afc3-d4c81bc0fd86
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="1" FirstC="0">
-                <UUID FileName="spicule_C1_TP2.ome.tif">
-                    urn:uuid:c33985d6-1162-4775-97cd-472c3f92414f
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="2" FirstC="0">
-                <UUID FileName="spicule_C1_TP3.ome.tif">
-                    urn:uuid:f39c4fa6-1227-4cea-b62c-a86f31d76012
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="0" FirstC="1">
-                <UUID FileName="spicule_C2_TP1.ome.tif">
-                    urn:uuid:bc1bd47a-8302-4a37-a7bd-8dfceb5b959b
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="1" FirstC="1">
-                <UUID FileName="spicule_C2_TP2.ome.tif">
-                    urn:uuid:6dd975be-587e-4f06-864a-54b0ec5ab2a0
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="2" FirstC="1">
-                <UUID FileName="spicule_C2_TP3.ome.tif">
-                    urn:uuid:f139aef6-be53-4694-b5a5-3e95fff7ddf9
-                </UUID>
-            </TiffData>
-        </Pixels>
-        ...
-    </OME>
-
-**spicule\_C1\_TP2.ome.tif** with ID c33985d6-1162-4775-97cd-472c3f92414f
+**tubhiswt_C0_TP0.ome.tif** with ID 69bfd94f-2d95-41ae-887d-26e0c11fd606
 
 ::
 
     <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
-        ...
-
-::
-
-    UUID="urn:uuid:c33985d6-1162-4775-97cd-472c3f92414f" 
-
-::
-
-        ...
-    >
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         UUID="urn:uuid:69bfd94f-2d95-41ae-887d-26e0c11fd606"
+         xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2015-01
+                             http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd">
     ...
-        <Pixels ID="urn:lsid:loci.wisc.edu:Pixels:ows581"
-                Type="uint8" DimensionOrder="XYZTC"
-                SizeX="512" SizeY="512" SizeZ="4" SizeT="3" SizeC="2">
-            <TiffData FirstT="0" FirstC="0">
-                <UUID FileName="spicule_C1_TP1.ome.tif">
-                    urn:uuid:386a0ee1-336f-4a8d-afc3-d4c81bc0fd86
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="1" FirstC="0">
-                <UUID FileName="spicule_C1_TP2.ome.tif">
-                    urn:uuid:c33985d6-1162-4775-97cd-472c3f92414f
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="2" FirstC="0">
-                <UUID FileName="spicule_C1_TP3.ome.tif">
-                    urn:uuid:f39c4fa6-1227-4cea-b62c-a86f31d76012
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="0" FirstC="1">
-                <UUID FileName="spicule_C2_TP1.ome.tif">
-                    urn:uuid:bc1bd47a-8302-4a37-a7bd-8dfceb5b959b
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="1" FirstC="1">
-                <UUID FileName="spicule_C2_TP2.ome.tif">
-                    urn:uuid:6dd975be-587e-4f06-864a-54b0ec5ab2a0
-                </UUID>
-            </TiffData>
-            <TiffData FirstT="2" FirstC="1">
-                <UUID FileName="spicule_C2_TP3.ome.tif">
-                    urn:uuid:f139aef6-be53-4694-b5a5-3e95fff7ddf9
-                </UUID>
-            </TiffData>
-        </Pixels>
-        ...
-    </OME>
+        <Pixels BigEndian="false" DimensionOrder="XYZTC" ID="Pixels:0"
+                Interleaved="false" SignificantBits="8" SizeC="2" SizeT="43"
+                SizeX="512" SizeY="512" SizeZ="10" Type="uint8">
+    ...
+          <TiffData FirstC="0" FirstT="0" FirstZ="0" IFD="0" PlaneCount="1">
+            <UUID FileName="tubhiswt_C0_TP0.ome.tif">
+              urn:uuid:69bfd94f-2d95-41ae-887d-26e0c11fd606
+            </UUID>
+          </TiffData>
+    ...
+          <TiffData FirstC="0" FirstT="1" FirstZ="0" IFD="0" PlaneCount="1">
+            <UUID FileName="tubhiswt_C0_TP1.ome.tif">
+              urn:uuid:16093e77-8531-43c5-83df-c71efbd212d0
+            </UUID>
+          </TiffData>
+    ...
+
+**tubhiswt_C0_TP1.ome.tif** with ID 16093e77-8531-43c5-83df-c71efbd212d0
+
+::
+
+    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         UUID="urn:uuid:16093e77-8531-43c5-83df-c71efbd212d0"
+         xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2015-01
+                             http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd">
+    ...
+        <Pixels BigEndian="false" DimensionOrder="XYZTC" ID="Pixels:0"
+                Interleaved="false" SignificantBits="8" SizeC="2" SizeT="43"
+                SizeX="512" SizeY="512" SizeZ="10" Type="uint8">
+    ...
+          <TiffData FirstC="0" FirstT="0" FirstZ="0" IFD="0" PlaneCount="1">
+            <UUID FileName="tubhiswt_C0_TP0.ome.tif">
+              urn:uuid:69bfd94f-2d95-41ae-887d-26e0c11fd606
+            </UUID>
+          </TiffData>
+    ...
+          <TiffData FirstC="0" FirstT="1" FirstZ="0" IFD="0" PlaneCount="1">
+            <UUID FileName="tubhiswt_C0_TP1.ome.tif">
+              urn:uuid:16093e77-8531-43c5-83df-c71efbd212d0
+            </UUID>
+          </TiffData>
+    ...
 
 And so on for files:
 
-- **spicule\_C1\_TP3.ome.tif** with ID f39c4fa6-1227-4cea-b62c-a86f31d76012
-- **spicule\_C2\_TP1.ome.tif** with ID bc1bd47a-8302-4a37-a7bd-8dfceb5b959b
-- **spicule\_C2\_TP2.ome.tif** with ID 6dd975be-587e-4f06-864a-54b0ec5ab2a0
-- **spicule\_C2\_TP3.ome.tif** with ID f139aef6-be53-4694-b5a5-3e95fff7ddf9
+- **tubhiswt_C0_TP2.ome.tif** with ID 6d56fc81-8529-4804-bedd-0161435a00b6
+- **tubhiswt_C0_TP3.ome.tif** with ID be825495-1923-4ecd-9ed8-5d5e327cb90b
+- ...
 
-.. _blocks:
+.. _binary_only:
 
-Storing partial metadata blocks
--------------------------------
+Partial OME-XML metadata
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-Storing multiple planes per OME-TIFF file, and keeping the OME-XML metadata 
-embedded in every file's header, is recommended but it is not always 
-practical. Normally, the OME-XML metadata block is small in comparison with 
-the binary pixel data in the file, but in some cases, it may be 
-proportionately larger. Common reasons for this situation including storing 
-each image plane in its own TIFF file, and/or having a large amount of 
-metadata such as plane-specific timestamps and many structured annotations in 
-the OME-XML.
-
-For example, if you have a dataset with 1,000 time points, with each
-plane recorded at 512x512 as uint8 pixel type, storing each plane in its
-own file uncompressed requires ~256KB of disk per file, and ~256MB
-total. But if you have 5MB of corresponding OME-XML metadata, embedding
-a copy of that metadata in every file would result in a dataset nearly
-20 times larger than before, requiring ~5.5MB of disk per file, and more
-than 5GB total.
-
-Therefore, as of the
-:doc:`2011-06 version of the OME-XML schema </schemas/june-2011>` 
-onwards, a solution to this problem has been implemented: the
+Instead of embedding the full OME-XML metadata into the header of each
+OME-TIFF, partial OME-XML metadata blocks can be stored in some or all of the
+OME-TIFF files using the
 :schema_plone:`Binary-Only <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_BinaryOnly>`
-element.
+element as illustrated below::
 
-With this approach, you can embed the OME-XML metadata in as many or as
-few files as you like. For example, you may want to store it in every
-tenth file to retain some level of redundancy.
-
-To do this:
-
-- either store the OME-XML metadata in a companion file with the extension
-  ``.companion.ome`` (see the :ometiff_downloads:`companion fileset sample <companion>`)
-- or choose one OME-TIFF file to serve as the "master" file containing the
-  metadata (see the :ometiff_downloads:`binary only OME-TIFF fileset sample <binaryonly>`)
-
-In the remaining OME-TIFF files where you do not want to store the metadata,
-use an OME-XML block similar to::
-
-    <?xml version="1.0" encoding="UTF-8"?>
-    <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2015-01
-            http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd"
-        UUID="urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
-
-    <BinaryOnly MetadataFile="multifile.companion.ome"
-        UUID="urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <OME UUID="urn:uuid:f2307570-bede-47a7-aa2b-4e23231ac295"
+         xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
+         xmlns:Bin="http://www.openmicroscopy.org/Schemas/BinaryFile/2015-01"
+         xmlns:SPW="http://www.openmicroscopy.org/Schemas/SPW/2015-01"
+         xmlns:SA="http://www.openmicroscopy.org/Schemas/SA/2015-01"
+         xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2015-01"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2015-01
+                             http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd">
+       <BinaryOnly MetadataFile="multifile-Z1.ome.tiff"
+                   UUID="urn:uuid:4978087c-a670-4b12-af53-256c62d8d101"/>
     </OME>
 
-where :schema_plone:`MetadataFile <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_MetadataFile>` is the name of the companion OME-XML file or of the
-master OME-TIFF file containing the actual OME-XML metadata block, and
-:schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_UUID>` is that file's UUID.
+The :schema_plone:`MetadataFile <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_MetadataFile>`
+element should contain the name of the master file containing the full
+OME-XML metadata  block and :schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_UUID>`
+should contain the UUID of this master file.
+
+The master file containing the full OME-XML metadata should be:
+
+- either an OME-XML companion file with the extension :file:`.companion.ome`
+  (see the :ometiff_downloads:`companion fileset sample <companion>`)
+- or an OME-TIFF file containing the full metadata (see the
+  :ometiff_downloads:`binary only OME-TIFF fileset sample <binaryonly>`)

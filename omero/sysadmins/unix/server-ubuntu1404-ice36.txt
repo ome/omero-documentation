@@ -1,4 +1,4 @@
-OMERO.server installation on Ubuntu 14.04 and Ice 3.5
+OMERO.server installation on Ubuntu 14.04 and Ice 3.6
 =====================================================
 
 This is an example walkthrough for installing OMERO on Ubuntu, using
@@ -25,7 +25,7 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install Java 1.8, Ice 3.5 and PostgreSQL 9.4:
+Install Java 1.8, Ice 3.6 and PostgreSQL 9.4:
 
 To install Java 1.8 and other dependencies:
 
@@ -33,11 +33,11 @@ To install Java 1.8 and other dependencies:
     :start-after: #start-step01
     :end-before: # install Ice
 
-To install Ice 3.5:
+To install Ice 3.6:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
-    :start-after: #start-recommended-ice
-    :end-before: #end-recommended-ice
+    :start-after: #start-supported-ice
+    :end-before: #end-supported-ice
 
 To install PostgreSQL 9.4:
 
@@ -75,11 +75,11 @@ the omero user.
 
 You will need to install the server corresponding to your Ice version.
 
-Install ``server-ice35.zip``:
+Install ``server-ice36.zip``:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
-    :start-after: #start-release-ice35
-    :end-before: #end-release-ice35
+    :start-after: #start-release-ice36
+    :end-before: #end-release-ice36
 
 Configure:
 
@@ -138,15 +138,14 @@ OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
 
-
 If you deploy with Nginx, to start the OMERO.web client run::
 
     OMERO.server/bin/omero web start
 
 The last command is **not** necessary if you deploy with Apache.
 
-Nginx or Apache should already be running so you should be able to log in
-as the OMERO root user by going to http://localhost/ in your web browser.
+Nginx or Apache should already be running so you should be able to log in as the OMERO
+root user by going to http://localhost/ in your web browser.
 
 In addition some example `init.d` scripts are available should you wish to
 start OMERO and OMERO.web automatically:
@@ -171,8 +170,6 @@ the OMERO data directory:
 .. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
     :start-after: #start-step07
     :end-before: #end-step07
-
-.. _linux_walkthrough_regular_tasks:
 
 Regular tasks
 -------------

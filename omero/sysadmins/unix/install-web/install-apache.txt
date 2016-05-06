@@ -93,4 +93,6 @@ Running OMERO.web
 
 OMERO.web is used in 'daemon' mode where UNIX sockets are used to communicate
 between the Apache child processes and the daemon processes which are
-to handle a request.
+to handle a request. **OMERO.web does not provide any management for these
+'daemon' processes;** ``bin/omero web start/status/stop``
+**will not work as they are for managing gunicorn processes only.** 
