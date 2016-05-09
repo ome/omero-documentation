@@ -87,19 +87,19 @@ clients of the deployment jobs described above:
         * Port
         * Webclient
 
-    -   * 5.2.x
+    -   * DEV
         * :term:`OMERO-DEV-merge-deploy`
         * eel.openmicroscopy.org
         * 4064
         * https://eel.openmicroscopy.org/merge
 
-    -   * 5.2.x
+    -   * DEV
         * :term:`OMERO-DEV-latest-deploy`
         * eel.openmicroscopy.org
         * 14064
         * https://eel.openmicroscopy.org/latest
 
-    -   * 5.2.x
+    -   * DEV
         * :term:`OMERO-DEV-merge-integration`
         * eel.openmicroscopy.org
         * 24064
@@ -112,10 +112,10 @@ clients of the deployment jobs described above:
         * https://trout.openmicroscopy.org/breaking
 
 
-5.2.x series
+5.3.x series
 ^^^^^^^^^^^^
 
-The branch for the 5.2.x series of OMERO is develop. All jobs are listed
+The branch for the 5.3.x series of OMERO is develop. All jobs are listed
 under the :jenkinsview:`DEV` view tab of Jenkins.
 
 .. glossary::
@@ -131,7 +131,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
     :jenkinsjob:`OMERO-DEV-latest-deploy`
 
-        This job deploys the latest 5.2.x server (see
+        This job deploys the latest 5.3.x server (see
         :ref:`deployment_servers`)
 
     :jenkinsjob:`OMERO-DEV-latest-submods`
@@ -172,7 +172,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
     :jenkinsjob:`OMERO-DEV-merge-deploy`
 
-        This job deploys the merge 5.2.x server (see
+        This job deploys the merge 5.3.x server (see
         :ref:`deployment_servers`)
 
     :jenkinsjob:`OMERO-DEV-merge-integration`
@@ -354,12 +354,12 @@ Jenkins.
 
     :jenkinsjob:`OMERO-DEV-breaking-upgrade`
 
-        This job tests the DB upgrade script from a 5.1.0 server and the
-        last patch number of the 5.2.x series
+        This job tests the DB upgrade script from a 5.2.0 server and the
+        last patch number of the 5.3.x series
 
-        #. Initializes a database using the script from the 5.1.0 release or
-           the last patch number of the 5.2.x series
+        #. Initializes a database using the script from the 5.2.0 release or
+           the last patch number of the 5.3.x series
         #. Starts the OMERO server
         #. Stops the OMERO server
-        #. Runs the upgrade script under :file:`sql/psql/OMERO5.2_DEVx/`
+        #. Runs the upgrade script under :file:`sql/psql/OMERO5.3_DEVx/`
         #. Restarts the OMERO server
