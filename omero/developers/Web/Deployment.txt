@@ -18,8 +18,8 @@ development Web server on your local machine.
     see :ref:`python-requirements` on the
     :doc:`/sysadmins/version-requirements` page.
 
-Using the lightweight development server on Unix
-------------------------------------------------
+Using the lightweight development server
+----------------------------------------
 
 All that is required to use the Django lightweight development server
 is to set the :property:`omero.web.application_server` configuration option,
@@ -40,30 +40,8 @@ turn :property:`omero.web.debug` on and start the server up:
     Starting development server at http://127.0.0.1:4080/
     Quit the server with CONTROL-C.
 
-Using the lightweight development server on Windows
----------------------------------------------------
-
-All that is required to use the Django lightweight development server
-is to set the :property:`omero.web.application_server` configuration option, turn
-Debugging on and start the server up:
-
-::
-
-    C:\omero_dist>bin\omero config set omero.web.application_server development
-    C:\omero_dist>bin\omero config set omero.web.debug True
-    C:\omero_dist>bin\omero web start
-    INFO:__main__:Application Starting...
-    INFO:root:Processing custom settings for module omeroweb.settings
-    ...
-    Validating models...
-
-    0 errors found
-    Django version 1.8, using settings 'omeroweb.settings'
-    Starting development server at http://127.0.0.1:4080/
-    Quit the server with CTRL-BREAK.
-
-Using WSGI (Unix/Linux)
------------------------
+Using WSGI
+----------
 
 For convenience you may wish to run a web server under your local user account
 instead of using a system server for testing. Install Nginx and Gunicorn

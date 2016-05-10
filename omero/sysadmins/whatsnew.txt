@@ -20,7 +20,7 @@ What's new for OMERO 5.2 for sysadmins
   :doc:`/sysadmins/version-requirements` page.
 
 - FastCGI support was removed in OMERO 5.2 and OMERO.web can be deployed
-  using WSGI :ref:`unix_omero_web_deployment`.
+  using WSGI :ref:`omero_web_deployment`.
 
 - The configuration property :property:`omero.graphs.wrap` which allowed
   switching back to the old server code for moving and deleting data has now

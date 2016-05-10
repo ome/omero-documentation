@@ -26,55 +26,6 @@ have checked both OpenJDK 1.8.0_45-internal and OracleJDK 1.8.0_66). OpenJDK
 and OracleJDK version 7 are also supported (we have tested OracleJDK 1.7.0_80
 and OpenJDK 1.7.0_85).
 
-Windows OS issues
------------------
-
-.. _windows-database-encoding:
-
-Failure response on import for new databases
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you have import failures with an error such as::
-
-   java.lang.RuntimeException: Failure response on import!
-   Category: ::omero::grid::ImportRequest
-   Name: import-request-failure
-   Parameters: {stacktrace=java.lang.RuntimeException: omero.ValidationException
-       serverStackTrace = "ome.conditions.ValidationException: could not
-       insert: [ome.model.core.Pixels]; SQL [insert into pixels (creation_id,
-       external_id, group_id, owner_id, permissions, update_id,
-       dimensionOrder, methodology, physicalSizeXUnit, physicalSizeX,
-       physicalSizeYUnit, physicalSizeY, physicalSizeZUnit, physicalSizeZ,
-       pixelsType, relatedTo, sha1, significantBits, sizeC, sizeT, sizeX,
-       sizeY, sizeZ, timeIncrementUnit, timeIncrement, version, waveIncrement,
-       waveStart, image, image_index, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?,
-       ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)];
-       nested exception is org.hibernate.exception.DataException: could not
-       insert: [ome.model.core.Pixels]
-
-when trying to import data to a new database (or possibly one just upgraded to
-5.1), it may be an issue with the language encoding during database
-initialization leading to corrupted Unicode characters, such that any import
-containing these characters (e.g. µ) will fail with the above exception. A
-``SET CLIENT_ENCODING TO 'UTF8';`` command has been added to the database
-initialization instructions on :doc:`windows/server-installation` to prevent
-this.
-
-UTF-8 character limitations in passwords
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Windows does not handle non-Latin characters well in the command prompt
-(console). If you use Unicode characters in your passwords, you may find they
-are not correctly formed. Therefore, we recommend you avoid them if at all
-possible.
-
-Binary delete
-^^^^^^^^^^^^^
-
-On Windows servers not all binary files corresponding to a delete may
-be removed from the binary repository. See :ref:`DeleteBinaryData` for more
-details.
-
 Ubuntu issues
 -------------
 
@@ -83,17 +34,6 @@ Importing using desktop clients
 
 Under older Ubuntu installations, the 'import folder' option in the desktop
 clients currently does not work.
-
-Windows issues
---------------
-
-C++ compilation problems
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-OMERO.cpp will not currently build on Windows due to exceeding DLL
-symbol limits on this platform, leading to a failure when linking
-the DLL.  It is hoped that this platform limitation can be worked
-around in a future OMERO release.
 
 Searching
 ---------

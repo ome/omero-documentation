@@ -83,17 +83,3 @@ After that, the following should succeed:
 Once the required Python libraries are installed, starting OMERO will
 automatically start up the OMERO.tables service; there should be no need
 for further configuration or interaction.
-
-
-Windows
--------
-
-After installing all the Windows prerequisites OMERO.tables should start up
-during the OMERO.server startup. It can be verified by looking at the output
-of ``omero admin diagnostics``::
-
-    (…)
-    Server:     Tables-0                       active (pid = 3176, enabled)
-
-.. seealso::
-	:ref:`windows_additional_libraries`

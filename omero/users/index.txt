@@ -55,6 +55,9 @@ Additional resources
     of the platform features with those that are new for OMERO 5.2
     highlighted.
 
+-   You can try out OMERO without committing to installing your own server by
+    applying for an account on our :help:`demo server <demo-server>`.
+
 -   Workflow-based user assistance guides are provided on our
     :help:`help website <>`.
 
@@ -80,24 +83,3 @@ Additional resources
     community-resources
     whatsnew
     history
-
-************************
-Quickstart server access
-************************
-
-If your institution does not have an existing OMERO.server for you to connect
-to, you can apply for an account on our demo server. Alternatively, you can
-create your own using a virtual appliance (a step-by-step guide for how to do
-this is provided).
-
-.. note:: The virtual appliance is being discontinued. Previous versions will
-    remain available for download but OMERO 5.2.1 will be the most recent
-    release.
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    demo-server
-    virtual-appliance
-

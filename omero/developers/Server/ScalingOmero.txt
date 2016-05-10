@@ -55,15 +55,8 @@ The bottlenecks for throughput are:
 
 .. seealso::
     :doc:`/sysadmins/unix/server-postgresql`
-        Instructions about OMERO.server and PostgreSQL under UNIX & UNIX-like 
-        platforms.
+        Instructions about OMERO.server and PostgreSQL under UNIX and
+        UNIX-like platforms.
 
-    :doc:`/sysadmins/windows/server-postgresql`
-        Instructions about OMERO.server and PostgreSQL under Windows  
-        platforms.
+    :doc:`/sysadmins/grid`
 
-
-
-    |OmeroGrid|
-
-    :ticket:`906`

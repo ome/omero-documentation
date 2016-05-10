@@ -128,7 +128,6 @@ Insight
 
     Insight/Architecture
     Insight/Configuration
-    Insight/Contributing
     Insight/DirectoryContents
     Insight/EventBus
     Insight/HowTo/BuildAgent
@@ -157,6 +156,7 @@ of the supported languages.
     Modules/TempFileManager
     Modules/ExceptionHandling
     logging
+    Server/GraphRequests
     Server/GraphsMigration
 
 
