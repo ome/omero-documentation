@@ -2,8 +2,8 @@ Release jobs
 ------------
 
 The following table lists the main Jenkins jobs used during the release
-process depending on the release branch (5.1 or 5.2 release). All release
-jobs should be listed under the :jenkinsview:`Release` view.
+process. All release jobs should be listed under the :jenkinsview:`Release`
+view.
 
 .. list-table::
     :header-rows: 1
@@ -52,7 +52,7 @@ clients of the deployment jobs described above:
         * Port
         * Webclient
 
-    -   * 5.2.x
+    -   * DEV
         * :term:`OMERO-DEV-release-integration`
         * seabass.openmicroscopy.org
         * 24064
