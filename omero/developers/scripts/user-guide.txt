@@ -344,9 +344,7 @@ To list scripts on the server:
     $ omero script list
     Using session 09fcf689-cc85-409d-91ac-f9865dbfd650 (root@localhost:4064). Idle timeout: 10.0 min. Current group: system
      id  | Official scripts                            
-    -----+---------------------------------------------
-     201 | /omero/analysis_scripts/flim-omero.py       
-     1   | /omero/analysis_scripts/FLIM.py             
+    -----+---------------------------------------------         
      202 | /omero/export_scripts/Batch_Image_Export.py 
      203 | /omero/export_scripts/Make_Movie.py         
      204 | /omero/figure_scripts/Movie_Figure.py       
@@ -354,8 +352,7 @@ To list scripts on the server:
      206 | /omero/figure_scripts/ROI_Split_Figure.py   
      207 | /omero/figure_scripts/Split_View_Figure.py  
      208 | /omero/figure_scripts/Thumbnail_Figure.py   
-     8   | /omero/import_scripts/Populate_ROI.py       
-     9   | /omero/setup_scripts/FLIM_initialise.py     
+     8   | /omero/import_scripts/Populate_ROI.py         
      209 | /omero/util_scripts/Channel_Offsets.py      
      210 | /omero/util_scripts/Combine_Images.py       
      211 | /omero/util_scripts/Images_From_ROIs.py     
