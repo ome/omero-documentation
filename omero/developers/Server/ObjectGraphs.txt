@@ -380,12 +380,10 @@ SkipHead
 --------
 
 The :javadoc:`SkipHead <slice2html/omero/cmd/SkipHead.html>` request
-allows specification of the
-target objects with reference to a common parent.
-It wraps an inner ``request`` data member that
-starts acting only after graph traversal reaches types listed in
-``startFrom``. For example, to target the images of a specific plate,
-give the plate in
+allows specification of the target objects with reference to a common
+parent. It wraps an inner ``request`` data member that starts acting
+only after graph traversal reaches types listed in ``startFrom``. For
+example, to target the images of a specific plate, give the plate in
 ``targetObjects`` and name ``Image`` in ``startFrom``.
 
 This feature is achieved by running the initial request with ``dryRun``
