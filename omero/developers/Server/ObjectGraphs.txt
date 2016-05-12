@@ -379,38 +379,17 @@ new requests are,
 SkipHead
 --------
 
-The request object classes derived from :javadoc:`GraphModify
-<slice2html/omero/cmd/GraphModify.html>` allow specification of the
-target objects with reference to a common parent. For example, setting
-the request's ``type`` to ``/Plate/Well/WellSample/Image`` targets the
-images of a specific plate.
-
 The :javadoc:`SkipHead <slice2html/omero/cmd/SkipHead.html>` request
-offers a similar feature. It wraps an inner ``request`` data member that
+allows specification of the
+target objects with reference to a common parent.
+It wraps an inner ``request`` data member that
 starts acting only after graph traversal reaches types listed in
-``startFrom``. For that inner request to behave as if given the previous
-``/Plate/Well/WellSample/Image`` type, a plate may be given in
-``targetObjects`` and ``Image`` named in ``startFrom``.
+``startFrom``. For example, to target the images of a specific plate,
+give the plate in
+``targetObjects`` and name ``Image`` in ``startFrom``.
 
 This feature is achieved by running the initial request with ``dryRun``
 set to ``true`` and the graph traversal policy modified so as to not
 examine included nodes of types listed in ``startFrom``. A subsequent
 request then runs, targeting the ``startFrom`` model objects that were
 included in the first request.
-
-
-Compatibility
--------------
-
-The previous implementation of model graph traversal has request object
-classes derived from :javadoc:`GraphModify
-<slice2html/omero/cmd/GraphModify.html>` instead of the newer
-:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>`. For
-API compatibility a set of "facade" requests are defined by the new
-implementation that offer an approximation of the older API but run the
-newer code under the hood. For instance, :javadoc:`Chgrp
-<slice2html/omero/cmd/Chgrp.html>` is implemented by
-:source:`ChgrpFacadeI.java
-<components/blitz/src/omero/cmd/graphs/ChgrpFacadeI.java>` by means of
-:source:`Chgrp2I.java
-<components/blitz/src/omero/cmd/graphs/Chgrp2I.java>`.
