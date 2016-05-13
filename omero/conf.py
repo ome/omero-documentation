@@ -47,8 +47,8 @@ else:
 
 rst_prolog = """
 .. note:: **This documentation is for the OMERO 5.1 line which is now unsupported
-    and will not be updated.** You should upgrade to take advantage of fixes and
-    performance improvements. See the
+    and will not be updated.** You should upgrade to take advantage of major fixes
+    and improvements. See the
     `latest documentation <http://www.openmicroscopy.org/site/support/omero/>`_
     for the current release version.
 """
