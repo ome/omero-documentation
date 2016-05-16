@@ -1414,7 +1414,7 @@ many script JobParams will be kept in memory
 for how long.
 
 For more information, see
-http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/cache/CacheBuilderSpec.html
+http://google.github.io/guava/releases/17.0/api/docs/com/google/common/cache/CacheBuilderSpec.html
 
 Default: `maximumSize=1000`
 
