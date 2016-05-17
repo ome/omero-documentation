@@ -18,22 +18,60 @@ Server Background
     limitations
     server-permissions
 
-***********************************
-Server Installation and Maintenance
-***********************************
+*******************
+Server Installation
+*******************
 
-This chapter contains instructions for installing OMERO.server, and for
-troubleshooting, backing-up, and upgrading your server installation.
+This section provides guidance on how to install and set up OMERO.server on
+any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
+provided for several systems, with detailed step-by-step instructions.
+However, reading through the :doc:`unix/server-installation` first
+is recommended as this explains the entire process rather than just being a
+series of commands.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
-    unix/index
-    cli/index
-    maintenance
+    unix/server-installation
+    unix/server-centos6
+    unix/server-centos6-ice36
+    unix/server-centos7
+    unix/server-centos7-ice36
+    unix/server-linux-walkthrough
+    unix/server-ubuntu1404-ice36
+    unix/server-install-homebrew
+    unix/server-binary-repository
+    unix/server-postgresql
+    unix/install-web
     advanced-install
+
+.. toctree::
+    :maxdepth: 2
+    :hidden:
+
+    unix/walkthrough/requirements
+    unix/walkthrough/requirements_centos6
+    unix/walkthrough/requirements_centos6_py27
+    unix/walkthrough/requirements_centos6_py27_ius
+
+********************************
+Server Maintenance and Upgrading
+********************************
+
+This section contains instructions for administering, troubleshooting,
+backing-up, and upgrading your server installation.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    cli/index
     troubleshooting
+    server-backup-and-restore
+    server-upgrade
+    UpgradeCheck
+    repository-move
 
 .. _index-optimizing-server:
 
@@ -41,7 +79,7 @@ troubleshooting, backing-up, and upgrading your server installation.
 Optimizing Server Configuration
 *******************************
 
-This chapter discusses the options for configuring OMERO.server for optimum
+This section discusses the options for configuring OMERO.server for optimum
 performance and security.
 
 .. toctree::
@@ -64,7 +102,7 @@ performance and security.
 Optimizing OMERO as a Data Repository
 *************************************
 
-This chapter explains how to customize the appearance and functionality of
+This section explains how to customize the appearance and functionality of
 OMERO clients to host images for groups or public viewing.
 
 .. toctree::
@@ -78,7 +116,7 @@ OMERO clients to host images for groups or public viewing.
 Data Import and Storage
 ***********************
 
-This chapter contains details of how OMERO.fs allows you to import and store
+This section contains details of how OMERO.fs allows you to import and store
 data with OMERO 5.
 
 .. toctree::
