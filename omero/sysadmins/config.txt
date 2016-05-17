@@ -390,7 +390,7 @@ server that is is being used with. Any changes by
 developers to the database schema will result in
 a bump to this value.
 
-Default: `0`
+Default: `4`
 
 .. property:: omero.db.poolsize
 
@@ -475,7 +475,7 @@ of the server that it is being used with. Typically,
 only developers will change this version to bump
 to a new major version.
 
-Default: `OMERO5.2`
+Default: `OMERO5.3DEV`
 
 
 .. _grid_configuration:
@@ -1414,7 +1414,7 @@ many script JobParams will be kept in memory
 for how long.
 
 For more information, see
-http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/cache/CacheBuilderSpec.html
+http://google.github.io/guava/releases/17.0/api/docs/com/google/common/cache/CacheBuilderSpec.html
 
 Default: `maximumSize=1000`
 

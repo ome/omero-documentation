@@ -118,7 +118,7 @@ cp settings.env omero-.env /opt/hudson/workspace/OMERO-DEV-latest-docs-autogen/o
 #start-release-ice35
 cd ~omero
 SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
-wget $SERVER
+wget $SERVER -O OMERO.server-ice35.zip
 unzip -q OMERO.server*
 #end-release-ice35
 #start-release-ice36

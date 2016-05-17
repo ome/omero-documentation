@@ -138,7 +138,7 @@ cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero
 #start-release-ice35
 cd ~omero
 SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
-wget $SERVER
+wget $SERVER -O OMERO.server-ice35.zip
 unzip -q OMERO.server*
 #end-release-ice35
 #start-release-ice36
