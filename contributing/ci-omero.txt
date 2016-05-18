@@ -36,10 +36,6 @@ OMERO jobs
         * :term:`OMERO-DEV-merge-deploy`
         * :term:`OMERO-DEV-breaking-deploy`
 
-    -   * Runs the OMERO upgrade scripts
-        *
-        * :term:`OMERO-DEV-breaking-upgrade`
-
     -   * Runs the OMERO integration tests
         * | :term:`OMERO-DEV-merge-integration`
           | :term:`OMERO-DEV-merge-integration-broken`
@@ -351,15 +347,3 @@ Jenkins.
            :file:`components/tools/OmeroWeb/target/reports` from
            :term:`OMERO-DEV-breaking-integration`,
         #. Generates pytest report
-
-    :jenkinsjob:`OMERO-DEV-breaking-upgrade`
-
-        This job tests the DB upgrade script from a 5.2.0 server and the
-        last patch number of the 5.3.x series
-
-        #. Initializes a database using the script from the 5.2.0 release or
-           the last patch number of the 5.3.x series
-        #. Starts the OMERO server
-        #. Stops the OMERO server
-        #. Runs the upgrade script under :file:`sql/psql/OMERO5.3_DEVx/`
-        #. Restarts the OMERO server
