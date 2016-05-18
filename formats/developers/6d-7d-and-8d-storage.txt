@@ -208,42 +208,5 @@ mosaic as above or to overlap e.g.
 Sample files
 ------------
 
-Sample files are available from the
-:ometiff_downloads:`Modulo <modulo>` folder of the image downloads resource.
-
-SPIM
-^^^^
-
-- :ometiff_downloads:`SPIM-ModuloAlongZ.ome.tiff <modulo/SPIM-ModuloAlongZ.ome.tiff>` - a 2x2 tile of planes
-  each recorded at 4 angles.
-
-Big lambda
-^^^^^^^^^^
-
-- :ometiff_downloads:`LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff <modulo/LAMBDA-ModuloAlongZ-ModuloAlongT.ome.tiff>` -
-  excitation of 5 wavelength [Λ, big-lambda] each recorded at 10 emission
-  wavelength ranges [λ, lambda].
-
-FLIM
-^^^^
-
-- :ometiff_downloads:`FLIM-ModuloAlongT-TSCPC.ome.tiff <modulo/FLIM-ModuloAlongT-TSCPC.ome.tiff>` -
-  2 channels and 8 histogram bins each recorded at 2 'real-time' points T,
-  with additional relative-time points (time relative to the
-  excitation pulse) interleaved as ModuloAlongT.
-
-- :ometiff_downloads:`FLIM-ModuloAlongC.ome.tiff <modulo/FLIM-ModuloAlongC.ome.tiff>` -
-  2 real channels and 8 histogram bins each recorded at 2 timepoints, with
-  additional relative-time points interleaved between channels as
-  ModuloAlongC.
-
-.. note:: The ModuloAlong annotation allows FLIM data to be encoded in any of
-    three dimensions (ZCT). However, a number of issues of future
-    compatibility with other modalities can be avoided by standardizing on the
-    use of one dimension for FLIM.
-    
-    The developers of our partner application
-    :partner_plone:`FLIMfit <flimfit>` intend to use only ModuloAlongT for
-    FLIM data and we would ask other developers to do the same. This leaves
-    ModuloAlong Z and C free for other modalities.
-
+Sample files are available in the :ref:`modulo-dataset` section of the OME-TIFF
+sample data.
