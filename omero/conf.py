@@ -72,6 +72,7 @@ rst_epilog += """
 .. |previous_dbver|  replace:: %s
 .. |iceversion| replace:: 3.5.1
 .. |postgresversion| replace:: 9.4
+.. |javaversion| replace:: 1.7
 """ % (previousversion, conf_autogen.current_dbver,
        conf_autogen.previous_dbver)
 
