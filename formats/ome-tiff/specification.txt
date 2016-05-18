@@ -432,6 +432,6 @@ should contain the UUID of this master file.
 The master file containing the full OME-XML metadata should be:
 
 - either an OME-XML companion file with the extension :file:`.companion.ome`
-  (see the :ometiff_downloads:`companion fileset sample <companion>`)
+  (see the :ref:`companion-sample`)
 - or an OME-TIFF file containing the full metadata (see the
-  :ometiff_downloads:`binary only OME-TIFF fileset sample <binaryonly>`)
+  :ref:`binary-only-sample`)
