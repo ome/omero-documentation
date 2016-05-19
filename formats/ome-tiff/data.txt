@@ -52,7 +52,7 @@ version) containing every constituent image plane.
      * 5
      * 1
 
-  -  * :ometiff_downloads:`time-series.ome.tif <bioformats-artificial/tim-series.ome.tif>`
+  -  * :ometiff_downloads:`time-series.ome.tif <bioformats-artificial/time-series.ome.tif>`
      * 1
      * 1
      * 7
@@ -176,12 +176,12 @@ Partial OME-XML metadata datasets
 Binary only OME-TIFF fileset
 """"""""""""""""""""""""""""
 
-The :ometiff_downloads:`binary only OME-TIFF fileset <binary-only>` contains a
+The :ometiff_downloads:`binary only OME-TIFF fileset <binaryonly>` contains a
 set of 18 by 24 pixel images (with black and white text on each plane giving
 its time, z-depth and channel) where each of the five Z sections are saved as
 a separate file.
 
-The header of the :ometiff_downloads:`master OME-TIFF file <binary-only/multifile-Z1.ome.tiff>` 
+The header of the :ometiff_downloads:`master OME-TIFF file <binaryonly/multifile-Z1.ome.tiff>` 
 contains the complete OME-XML metadata while the OME-XML metadata stored into
 the header of the four other files refer to this master OME-TIFF file using the
 :ref:`partial OME-XML metadata <binary_only>` specification.
