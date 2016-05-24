@@ -11,8 +11,8 @@ Splitting a fileset across multiple files can have advantages in terms of
 acquisition but also processing purposes. The OME-TIFF file format can support
 any image organization. However, using one TIFF file per timepoint per channel
 with the focal planes for that timepoint and channel stored sequentially
-within the TIFF makes for very easy creation of :ref:`TiffData` elements (see
-:ref:`tubhiswt_samples`).
+within the TIFF makes for very easy creation of :ref:`TiffData <TiffData>`
+elements (see :ref:`tubhiswt_samples`).
 
 The main downside of splitting OME-TIFF over multiple files is their
 inherent fragility to common file-system operations such as file renaming or
@@ -70,7 +70,9 @@ Companion file vs master OME-TIFF file
 
 Since the :doc:`2011-06 version</schemas/june-2011>` of the OME-XML schema, it
 is possible to store partial OME-XML metadata blocks in some or all of the
-TIFF files pointing to a master file containing the full OME-XML metadata.
+TIFF files pointing to a master file containing the full OME-XML metadata (see
+the :ref:`technical specification<binary_only>` for more details).
+
 The master file can be either a master OME-TIFF file  (see the
 :ref:`master-sample`) or a companion OME-XML file (see the
 :ref:`companion-sample`).
@@ -82,9 +84,6 @@ highlighted above in the sense that this companion file needs to be preserved
 as part of the fileset to prevent metadata loss.
 
 .. seealso::
-
-   :ref:`binary_only`
-      Technical specification about partial OME-XML metadata
 
    :ome-devel:`Proposed tweak to µManager data files in 2.0 <2016-April/003618.html>`
       Community discussion about usage of companion file in OME-TIFF filesets
