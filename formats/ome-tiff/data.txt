@@ -167,34 +167,36 @@ The files available for download have been updated to the current schema version
      * 43
      * 86
 
-Partial OME-XML metadata datasets
+Partial OME-XML metadata filesets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _binary-only-sample:
+The :ometiff_downloads:`master OME-TIFF fileset <binaryonly>` and
+:ometiff_downloads:`companion OME-XML fileset <companion>` both contain a set
+of 18 by 24 pixel images with black and white text on each plane giving
+its time, z-depth and channel. Each of the five focal planes is saved as a
+separate OME-TIFF named :file:`multifile-Zxx.ome.tiff` where `xx` is the index
+of the focal plane.
 
-Binary only OME-TIFF fileset
-""""""""""""""""""""""""""""
+.. _master-sample:
 
-The :ometiff_downloads:`binary only OME-TIFF fileset <binaryonly>` contains a
-set of 18 by 24 pixel images (with black and white text on each plane giving
-its time, z-depth and channel) where each of the five Z sections are saved as
-a separate file.
+Master OME-TIFF fileset
+"""""""""""""""""""""""
 
-The header of the :ometiff_downloads:`master OME-TIFF file <binaryonly/multifile-Z1.ome.tiff>` 
-contains the complete OME-XML metadata while the OME-XML metadata stored into
-the header of the four other files refer to this master OME-TIFF file using the
-:ref:`partial OME-XML metadata <binary_only>` specification.
+For this sample, the full OME-XML metadata describing the whole fileset is
+embedded into a
+:ometiff_downloads:`master OME-TIFF file <binaryonly/multifile-Z1.ome.tiff>`.
+Partial OME-XML metadata blocks are embedded into the four other OME-TIFF
+files and refer to the master OME-TIFF file as described in the
+:ref:`specification <binary_only>`.
 
 .. _companion-sample:
 
 Companion OME-TIFF fileset
 """"""""""""""""""""""""""
 
-The :ometiff_downloads:`companion OME-TIFF fileset<companion>` contains a set 
-of 18 by 24 pixel images (with black and white text on each plane giving its 
-time, z-depth and channel) where each of the five Z sections are saved as a separate file and a companion file.
-
-The :ometiff_downloads:`companion fileset<companion/multifile.companion.ome>` contains the complete OME-XML metadata
-for the fileset while the five OME-TIFF files refer to this companion file 
-using the :ref:`partial OME-XML metadata<binary_only>` specification.
-
+For this sample, the full OME-XML metadata describing the whole fileset is
+stored into a separate
+:ometiff_downloads:`companion OME-XML file<companion/multifile.companion.ome>`.
+Partial OME-XML metadata blocks are embedded into the five OME-TIFF
+files and refer to the companion OME-XML file as described in the
+:ref:`specification <binary_only>`.

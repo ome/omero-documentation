@@ -433,5 +433,5 @@ The master file containing the full OME-XML metadata should be:
 
 - either an OME-XML companion file with the extension :file:`.companion.ome`
   (see the :ref:`companion-sample`)
-- or an OME-TIFF file containing the full metadata (see the
-  :ref:`binary-only-sample`)
+- or a master OME-TIFF file containing the full metadata (see the
+  :ref:`master-sample`)

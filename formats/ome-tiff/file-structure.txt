@@ -71,8 +71,8 @@ Companion file vs master OME-TIFF file
 Since the :doc:`2011-06 version</schemas/june-2011>` of the OME-XML schema, it
 is possible to store partial OME-XML metadata blocks in some or all of the
 TIFF files pointing to a master file containing the full OME-XML metadata.
-The master file can be either another OME-TIFF file  (see the
-:ref:`binary-only-sample`) or a companion OME-XML file (see the
+The master file can be either a master OME-TIFF file  (see the
+:ref:`master-sample`) or a companion OME-XML file (see the
 :ref:`companion-sample`).
 
 Using a companion OME-XML file allows information that can only be generated
