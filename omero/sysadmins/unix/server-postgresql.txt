@@ -10,7 +10,7 @@ Ensuring you have a valid PostgreSQL version
 --------------------------------------------
 
 For OMERO |version|, PostgreSQL version |postgresversion| or later is
-required. Make sure you are using a
+recommended. Make sure you are using a
 `supported version <http://www.postgresql.org/support/versioning/>`_.
 
 You can check which version of PostgreSQL you have installed with any of
