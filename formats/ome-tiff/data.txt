@@ -88,8 +88,7 @@ Sample files implementing the :doc:`/developers/6d-7d-and-8d-storage` are availa
 SPIM
 """"
 
-- :ometiff_downloads:`SPIM-ModuloAlongZ.ome.tiff <modulo/SPIM-ModuloAlongZ.ome.tiff>` - a 2x2 tile of planes
-  each recorded at 4 angles.
+- :ometiff_downloads:`SPIM-ModuloAlongZ.ome.tiff <modulo/SPIM-ModuloAlongZ.ome.tiff>` - 4 tiles each recorded at 4 angles.
 
 Big lambda
 """"""""""
