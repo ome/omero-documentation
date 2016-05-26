@@ -42,6 +42,7 @@ model_extlinks = {
     # Doc links
     'omero_doc' : (oo_site_root + '/support/omero/%s', ''),
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
+    'schema_doc' : (oo_root + '/schema_doc/' + release + '/%s', ''),
     # Downloads
     'bf_downloads' : (downloads_root + '/latest/bio-formats/%s', ''),
     'image_downloads' : (downloads_root + '/images/%s', ''),
