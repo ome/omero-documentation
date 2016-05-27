@@ -185,3 +185,9 @@ are locked for any reason. This is a known problem on Windows servers.
 In this case, the undeleted files can be removed manually via
 :omerocmd:`admin cleanse`\ . This also deletes any empty directories
 left behind after the binary data that they contained has been deleted.
+
+.. warning:: Do not run cleanse as an operating system user while logged
+    into OMERO as a non-administrative user as this will lead to data loss.
+    Instead, you should always run as an administrative user such as "root".
+    See this :forum:`announcement <viewtopic.php?f=11&t=8060>` for further
+    details.

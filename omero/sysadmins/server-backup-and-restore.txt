@@ -27,6 +27,12 @@ This can be performed daily using cron with a script such as:
     OMERO_PREFIX=/home/omero/OMERO-CURRENT
     $OMERO_PREFIX/bin/omero -s localhost -u $USERNAME -w $PASSWORD admin cleanse $BINARY_REPOSITORY
 
+.. warning:: Do not run this script as an operating system user while logged
+    into OMERO as a non-administrative user as this will lead to data loss.
+    Instead, you should always run as an administrative user such as "root".
+    See this :forum:`announcement <viewtopic.php?f=11&t=8060>` for further
+    details.
+
 Managing OMERO.server log files
 -------------------------------
 
