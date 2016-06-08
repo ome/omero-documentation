@@ -108,7 +108,7 @@ The TiffData element
 
 As the illustration :ref:`figure-tiff-header` shows, all that is needed to 
 indicate that the pixels are located within the enclosing TIFF structure is a
-:schema_plone:`TiffData <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData>`
+:schema_doc:`TiffData <ome_xsd.html#TiffData>`
 element with no attributes. By default, the first IFD corresponds to
 the first image plane (Z0-T0-C0), and the rasterization order of subsequent
 IFDs is given by the Pixels element's DimensionOrder attribute, as
@@ -117,19 +117,19 @@ described above.
 However, there are several attributes for TiffData elements allowing
 greater control over the dimensional position of each IFD:
 
--  :schema_plone:`IFD <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_IFD>`
+-  :schema_doc:`IFD <ome_xsd.html#TiffData_IFD>`
    - gives the IFD(s) for which this element is applicable.
    Indexed from 0. Default is 0 (the first IFD).
--  :schema_plone:`FirstZ <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_FirstZ>`
+-  :schema_doc:`FirstZ <ome_xsd.html#TiffData_FirstZ>`
    - gives the Z position of the image plane at the specified
    IFD. Indexed from 0. Default is 0 (the first Z position).
--  :schema_plone:`FirstT <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_FirstT>`
+-  :schema_doc:`FirstT <ome_xsd.html#TiffData_FirstT>`
    - gives the T position of the image plane at the specified
    IFD. Indexed from 0. Default is 0 (the first T position).
--  :schema_plone:`FirstC <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_FirstC>`
+-  :schema_doc:`FirstC <ome_xsd.html#TiffData_FirstC>`
    - gives the C position of the image plane at the specified
    IFD. Indexed from 0. Default is 0 (the first C position).
--  :schema_plone:`PlaneCount <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_PlaneCount>`
+-  :schema_doc:`PlaneCount <ome_xsd.html#TiffData_PlaneCount>`
    - gives the number of IFDs affected. Dimension order of
    IFDs is given by the enclosing Pixels element's DimensionOrder
    attribute. Default is the number of IFDs in the TIFF file, unless an
@@ -308,13 +308,13 @@ define which dimensional positions correspond to which IFDs from which
 files. Each OME-TIFF need not contain the same number of images.
 
 The only difference between the OME-XML metadata block per TIFF file is the
-:schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_UUID>`
+:schema_doc:`UUID <ome_xsd.html#OME_UUID>`
 attribute of the root OME element. This value should be a distinct
 UUID value for each file, so that each TiffData element can
 unambiguously reference its relevant file using a UUID child element.
 
    .. note::
-     The :schema_plone:`FileName <Documentation/Generated/OME-2015-01/ome_xsd.html#TiffData_TiffData_UUID_FileName>`
+     The :schema_doc:`FileName <ome_xsd.html#TiffData_TiffData_UUID_FileName>`
      attribute of the UUID is optional, but strongly recommended—otherwise,
      the OME-TIFF reader must scan OME-TIFF files in the working directory
      looking for matching UUID signatures.
@@ -329,7 +329,7 @@ In the first case, a nearly identical OME-XML metadata block must be inserted
 into the first IFD of each constituent OME-TIFF file.
 
 The only difference between the OME-XML metadata block per TIFF file is the
-:schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_UUID>`
+:schema_doc:`UUID <ome_xsd.html#OME_UUID>`
 attribute of the root OME element. This value should be a distinct
 UUID value for each file, so that each TiffData element can
 unambiguously reference its relevant file using a UUID child element.
@@ -407,7 +407,7 @@ Partial OME-XML metadata
 Instead of embedding the full OME-XML metadata into the header of each
 OME-TIFF, partial OME-XML metadata blocks can be stored in some or all of the
 OME-TIFF files using the
-:schema_plone:`Binary-Only <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_BinaryOnly>`
+:schema_doc:`Binary-Only <ome_xsd.html#OME_BinaryOnly>`
 element as illustrated below::
 
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -424,9 +424,10 @@ element as illustrated below::
                    UUID="urn:uuid:4978087c-a670-4b12-af53-256c62d8d101"/>
     </OME>
 
-The :schema_plone:`MetadataFile <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_MetadataFile>`
+The :schema_doc:`MetadataFile <ome_xsd.html#OME_OME_BinaryOnly_MetadataFile>`
 element should contain the name of the master file containing the full
-OME-XML metadata  block and :schema_plone:`UUID <Documentation/Generated/OME-2015-01/ome_xsd.html#OME_OME_BinaryOnly_UUID>`
+OME-XML metadata  block and
+:schema_doc:`UUID <ome_xsd.html#OME_OME_BinaryOnly_UUID>`
 should contain the UUID of this master file.
 
 The master file containing the full OME-XML metadata should be:
