@@ -13,15 +13,14 @@ correctly using this new release. Some files that failed to validate
 before will now be valid. It is important to update any file readers and
 writers to understand the changes.
 
-The version number of all schema files is now 1.
-
 This schema uses the new namespace:
 
 ::
 
     http://www.openmicroscopy.org/Schemas/OME/2016-06/
 
-All the schema files are now located at this same namespace.
+All the schema files have been unified into a single ome.xsd file located at
+this namespace. The version number of this schema file is 1.
 
 Overview of changes
 -------------------
