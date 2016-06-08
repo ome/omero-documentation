@@ -4,6 +4,7 @@ Schema version information
 
 .. only:: html
 
+    - :doc:`june-2016`
     - :doc:`january-2015`
     - :doc:`june-2013`
     - :doc:`june-2012`
@@ -47,9 +48,8 @@ and that the schema file will be located at
 
     http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd
 
-Major versions will normally be released about twice a year. There will
-be a consultation period before each major release. Major releases may
-include breaking changes.
+There will be a consultation period before each major release. Major releases
+may include breaking changes.
 
 Minor
 ^^^^^

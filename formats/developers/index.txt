@@ -1,8 +1,8 @@
 Developer introduction
 ======================
 
-All the OME code is stored in a central Git repository. The OME Data
-Model part of this is available under :sourcedir:`components/specification`.
+The OME Data Model is currently available as part of the Bio-Formats code
+repository under :sourcedir:`components/specification`.
 
 There are sample files, along with an explanation of their structure, on
 the :doc:`sample-files` page.
@@ -10,32 +10,8 @@ the :doc:`sample-files` page.
 OME Model development process
 -----------------------------
 
-Regular meetings are held to review the model and discuss additions or
-changes. Before making any changes, we come up with a proposal. This
-outlines the changes required and why we think it is necessary. We can then
-publish this to the OME community and provide links to the relevant
-work tickets. We generally only publish major changes or breaking
-changes in advance. Minor additions can usually be safely made so these
-are just published on release. We regularly ask the community for
-comments on what they would like added, especially when we are moving
-into a new imaging area.
-
-Process workflow:
-
--  Write a document that we can attach to the relevant ticket
--  Propose time frames for announcement, implementation
--  If elements have to be removed/replaced, make an announcement to the
-   community
--  Generate UML diagrams
--  Generate the updated XSD files
--  Generate XSLT to transform XML files
--  Write same files
--  Write tests
--  Include into next Schema Release. It is worth noting that at present
-   we are trying to keep schema changes in step with new versions of
-   OMERO so they are released simultaneous. This is why the tickets for
-   OME-XML development have been moved to the main `OME
-   Trac <https://trac.openmicroscopy.org/ome>`_
+The Model development process is currently being revised but we always aim to
+keep the community informed of major and breaking changes in advance.
 
 For more information about the OME team workflows, see the
 :devs_doc:`Contributing Developer <index.html>` documentation.
@@ -87,8 +63,8 @@ The :doc:`Schema versions</schemas/index>` section shows the Model changes
 with each release, helpful for those working with several versions of the OME
 Model, for example to support the loading/saving of a variety of files.
 
--  The **current major release** - see :doc:`Changes For January
-   2015 </schemas/january-2015>`.
+-  The **current major release** - see :doc:`Changes For June
+   2016 </schemas/june-2016>`.
 
 For further information, see the 
 :omero_doc:`OME Data Model <developers/index.html#the-ome-data-model>` section

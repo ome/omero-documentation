@@ -1,0 +1,66 @@
+Changes for June 2016
+=====================
+
+
+The list of the key changes for the June 2016 major release of the
+OME-XML data model. This schema release will tie in with the Bio-Formats
+5.2 release.
+
+The new major release of the schema has a new namespace and all version
+numbers are reset to 1. As a major release, any file that validated
+correctly using the last major release will probably not validate
+correctly using this new release. Some files that failed to validate
+before will now be valid. It is important to update any file readers and
+writers to understand the changes.
+
+The version number of all schema files is now 1.
+
+This schema uses the new namespace:
+
+::
+
+    http://www.openmicroscopy.org/Schemas/OME/2016-06/
+
+All the schema files are now located at this same namespace.
+
+Overview of changes
+-------------------
+
+- This release will be implemented in Bio-Formats 5.2 and OMERO 5.3.
+- This release introduces the concept of Folders, a new Model Object which may
+  contain Images, ROIs and other Folders, and which has a strict tree
+  hierarchy.
+
+
+Details
+^^^^^^^
+
+- The model element ``Folder`` was added. A Folder specifies a possibly
+  heterogeneous collection of data and may contain other Folders, Images and
+  ROIs. Data may be in multiple Folders but a Folder may not be in more than
+  one other Folder, giving a strict tree hierarchy.
+- The ROI properties ``ROI.Namespace``, ``Shape.Linecap`` and
+  ``Shape.Visible`` have been dropped.
+- The (Poly)Line Markers ``Circle`` and ``Square`` have been dropped.
+
+The following are simplifications for code generation purposes only and have
+no functional effects:
+
+- The model element ``LightSource`` has become an abstract class, meaning it
+  is now a complexType in the .xsd.
+- The model element ``Shape`` has become an abstract class, meaning it
+  is now a complexType in the .xsd.
+- The MapPairs model element has been removed and the Map model element has
+  been made a complexType.
+- xsd:appinfo has been extended to provide more detail for enumeration code
+  generation, in particular for units.
+
+Upgrading and Downgrading
+-------------------------
+
+The XSLT transforms between January 2015 and june 2016 versions are
+available here:
+
+`http://www.openmicroscopy.org/Schemas/Transforms/2015-01-to-2016-06.xsl <http://www.openmicroscopy.org/Schemas/Transforms/2015-01-to-2016-06.xsl>`_
+
+`http://www.openmicroscopy.org/Schemas/Transforms/2016-06-to-2015-01.xsl <http://www.openmicroscopy.org/Schemas/Transforms/2016-06-to-2015-01.xsl>`_
