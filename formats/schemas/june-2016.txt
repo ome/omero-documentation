@@ -19,14 +19,14 @@ This schema uses the new namespace:
 
     http://www.openmicroscopy.org/Schemas/OME/2016-06/
 
-All the schema files have been unified into a single ome.xsd file located at
-this namespace. The version number of this schema file is 1.
+All the schema files have been unified into a single :file:`ome.xsd` file
+located at this namespace. The version number of this schema file is 1.
 
 Overview of changes
 -------------------
 
 - This release will be implemented in Bio-Formats 5.2 and OMERO 5.3.
-- This release introduces the concept of Folders, a new Model Object which may
+- This release introduces the concept of Folders, a new model object which may
   contain Images, ROIs and other Folders, and which has a strict tree
   hierarchy.
 
@@ -37,27 +37,39 @@ Details
 - The model element ``Folder`` was added. A Folder specifies a possibly
   heterogeneous collection of data and may contain other Folders, Images and
   ROIs. Data may be in multiple Folders but a Folder may not be in more than
-  one other Folder, giving a strict tree hierarchy.
+  one other Folder, giving a strict tree hierarchy. The primary driver for
+  this addition is to allow the organization of ROI elements into hierarchical
+  structures (see this `Folders blog post <http://blog.openmicroscopy.org/data-model/future-plans/2016/05/23/folders-upcoming/>`_ for further discussion).
 - The ROI properties ``ROI.Namespace``, ``Shape.Linecap`` and
-  ``Shape.Visible`` have been dropped.
-- The (Poly)Line Markers ``Circle`` and ``Square`` have been dropped.
+  ``Shape.Visible`` have been dropped. This simplifies graphical aspects in
+  the data model in favor of more generic enumerated values independent of the
+  rendering framework, making it easier to implement across clients (see this
+  `Design issue <https://github.com/openmicroscopy/design/issues/19>`_ for an
+  example discussion).
+- The (Poly)Line Markers ``Circle`` and ``Square`` have also been dropped for
+  similar reasons to the ROI properties.
 
-The following are simplifications for code generation purposes only and have
+The following are simplifications for code generation purposes and have
 no functional effects:
 
-- The model element ``LightSource`` has become an abstract class, meaning it
-  is now a complexType in the .xsd.
-- The model element ``Shape`` has become an abstract class, meaning it
-  is now a complexType in the .xsd.
-- The MapPairs model element has been removed and the Map model element has
-  been made a complexType.
+- The model elements ``LightSource`` and ``Shape`` have become abstract
+  classes, meaning they are now complexTypes in the :file:`.xsd`. This
+  provides a more intuitive object oriented design (e.g. Rectangle is a type
+  of Shape rather than Shape containing a Rectangle) and simplifies the data
+  representation (schema) as well as the code generation because two different
+  ways to model inheritance and polymorphism have been changed to one.
+- The ``MapPairs`` model element has been removed as an unnecessary container
+  which is superseded by using the maps directly in the generated code.
+- The ``Map`` model element has been made a complexType. This element was
+  never used directly, only as a base, so the change allows for the removal of
+  a redundant model object.
 - xsd:appinfo has been extended to provide more detail for enumeration code
   generation, in particular for units.
 
 Upgrading and Downgrading
 -------------------------
 
-The XSLT transforms between January 2015 and june 2016 versions are
+The XSLT transforms between January 2015 and June 2016 versions are
 available here:
 
 `http://www.openmicroscopy.org/Schemas/Transforms/2015-01-to-2016-06.xsl <http://www.openmicroscopy.org/Schemas/Transforms/2015-01-to-2016-06.xsl>`_
