@@ -112,12 +112,6 @@ read by XML validators and parsers but are viewable as text files.
 Alternatively, you can browse the
 :schema_doc:`current version of the entire Schema <ome.html>` online.
 
-.. note:: 
-    Any schemas and documentation below
-    http://www.openmicroscopy.org/XMLschemas/ are preserved for legacy
-    support only. This includes the 2003FC schema used by the original
-    OME server.
-
 Transforms are available which convert between the the different versions
 of the schemas. They can be downloaded from:
 
