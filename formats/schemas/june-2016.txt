@@ -46,8 +46,11 @@ Details
   rendering framework, making it easier to implement across clients (see this
   `Design issue <https://github.com/openmicroscopy/design/issues/19>`_ for an
   example discussion).
-- The (Poly)Line Markers ``Circle`` and ``Square`` have also been dropped for
-  similar reasons to the ROI properties.
+- The ``Marker`` enumeration has been reduced to ``Arrow`` only, dropping
+  ``Circle`` and ``Square``. This affects the ``Line.MarkerStart``,
+  ``Line.MarkerEnd``, ``Polyline.MarkerStart`` and ``Polyline.MarkerEnd``
+  attributes. As with the ROI property changes, these are also intended to
+  simplify the graphical aspects of the data model.
 
 The following are simplifications for code generation purposes and have
 no functional effects:
