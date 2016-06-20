@@ -57,7 +57,7 @@ no functional effects:
 
 - The model elements ``LightSource`` and ``Shape`` have become abstract
   classes, meaning they are now complexTypes in the :file:`.xsd`. This
-  provides a more intuitive object oriented design (e.g. Rectangle is a type
+  provides a more intuitive object-oriented design (e.g. Rectangle is a type
   of Shape rather than Shape containing a Rectangle) and simplifies the data
   representation (schema) as well as the code generation because two different
   ways to model inheritance and polymorphism have been changed to one.
