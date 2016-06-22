@@ -13,7 +13,8 @@ An OME-TIFF dataset consists of:
   with one of these same file extensions or a BigTIFF-specific
   extension ``.ome.tf2``, ``.ome.tf8`` or ``.ome.btf``
 - a string of OME-XML metadata embedded in the ImageDescription tag of the
-  first IFD (Image File Directory) of each file.
+  first IFD (Image File Directory) of each file. The XML string must be UTF-8
+  encoded.
 
 Note that BigTIFF-specific file extensions are an addition to the original
 specification, and software using an older version of the specification may
