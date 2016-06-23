@@ -247,16 +247,14 @@ example illustrates how to include ``<LightSource>`` and ``<Objective>``:
         </YourNodes>
 
         <!-- Insert a LightSource node from the 2016-06 version of our schema -->
-        <LightSource xmlns="http://www.openmicroscopy.org/Schemas/OME/2016-06"
-            xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2016-06
+        <Laser xmlns="http://www.openmicroscopy.org/Schemas/OME/2016-06"
+               xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2016-06
                  http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd"
-            ID="LightSource:1">
-            <Laser Type="Dye" FrequencyMultiplication="2" LaserMedium="CoumarinC30"
-                PockelCell="true" Pulse="Single" RepetitionRate="1.3" Tuneable="true"
-                Wavelength="640">
-                <Pump ID="LightSource:4"/>
-            </Laser>
-        </LightSource>
+            ID="LightSource:1" Type="Dye" FrequencyMultiplication="2"
+            LaserMedium="CoumarinC30" PockelCell="true" Pulse="Single"
+            RepetitionRate="1.3" Tuneable="true" Wavelength="640">
+          <Pump ID="LightSource:4"/>
+        </Laser>
         <!-- Finish the LightSource node, and continue with your custom schema -->
 
         <MoreOfYourNodes>
