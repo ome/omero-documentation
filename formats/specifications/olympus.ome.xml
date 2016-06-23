@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OME:OME xmlns:ROI="http://www.openmicroscopy.org/Schemas/ROI/2015-01"
-    xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2015-01"
-    xmlns:BIN="http://www.openmicroscopy.org/Schemas/BinaryFile/2015-01"
+<OME:OME xmlns:OME="http://www.openmicroscopy.org/Schemas/OME/2016-06"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2015-01
-                        http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd">
+    xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2016-06
+                        http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd">
 
     <OME:Image ID="Image:0" Name="Series 1">
         <OME:AcquisitionDate>2008-02-06T13:43:19</OME:AcquisitionDate>
