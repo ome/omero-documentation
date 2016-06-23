@@ -20,6 +20,16 @@ means that they can be referred to from more than one point within the model:
     MicrobeamManipulation without realizing it.
 
 
+.. note:: An updated overview diagram will be published as soon as possible.
+
+.. 
+   figure:: /images/Ome-ROI-overview.*
+   :align: center
+   :alt: ROI Model Overview
+
+   ROI Model Overview
+
+
 ROI attributes and simple children
 ----------------------------------
 
@@ -122,10 +132,4 @@ At the moment the choice is:
 The current method of defining a ROI in three dimensions is as a Union
 of Shape objects, each of which defines the geometry where that 3D ROI
 would cut the 2D Plane the Shape is attached to.
-
-.. figure:: /images/Ome-ROI-overview.*
-   :align: center
-   :alt: ROI Model Overview
-
-   ROI Model Overview
 
