@@ -351,8 +351,8 @@ example the identifiers could be distributed as follows:
          xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2016-06
          http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd">
     ...
-        <Pixels BigEndian="false" DimensionOrder="XYZTC" ID="Pixels:0" 
-                Interleaved="false" SignificantBits="8" SizeC="2" SizeT="43" 
+        <Pixels BigEndian="false" DimensionOrder="XYZTC" ID="Pixels:0"
+                Interleaved="false" SignificantBits="8" SizeC="2" SizeT="43"
                 SizeX="512" SizeY="512" SizeZ="10" Type="uint8">
     ...
           <TiffData FirstC="0" FirstT="0" FirstZ="0" IFD="0" PlaneCount="1">
@@ -375,7 +375,7 @@ example the identifiers could be distributed as follows:
     <OME xmlns="http://www.openmicroscopy.org/Schemas/OME/2016-06"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          Creator="OME Bio-Formats 5.2.0-m4" 
-         UUID="urn:uuid:743275b7-6726-46bd-b7bb-aca3085f429a" 
+         UUID="urn:uuid:743275b7-6726-46bd-b7bb-aca3085f429a"
          xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2016-06
          http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd"
     ...
@@ -418,7 +418,7 @@ element as illustrated below::
          xmlns="http://www.openmicroscopy.org/Schemas/OME/2016-06"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2016-06
-            http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd">
+         http://www.openmicroscopy.org/Schemas/OME/2016-06/ome.xsd">
        <BinaryOnly MetadataFile="multifile.companion.ome"
                    UUID="urn:uuid:07504f88-7bc3-11e0-b937-2faf67bc00b3"/>
     </OME>
