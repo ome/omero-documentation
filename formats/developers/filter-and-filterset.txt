@@ -121,6 +121,9 @@ TransmittanceRange element that describes its optical characteristics.
    :alt: Where FilterSet sits in the OME Schema
 
    Where FilterSet sits in the OME Schema
+   
+   **(Note that this diagram is still to
+   be updated to show Folders at the top level)**
 
 The FilterSet contains three kinds of references, one to a dichroic ID
 called DichroicRef, and two sets to filter IDs called
@@ -152,6 +155,9 @@ percentage fraction.
    :alt: Where LightPath sits in the OME Schema
 
    Where LightPath sits in the OME Schema
+   
+   **(Note that this diagram is still to
+   be updated to show Folders at the top level)**
 
 The LightPath contains three kinds of references, one to a dichroic ID
 called DichroicRef, and two sets to filter IDs called

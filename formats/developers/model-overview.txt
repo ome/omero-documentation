@@ -6,7 +6,11 @@ are given on the following pages. Generated documentation for the
 :schema_doc:`current version of the entire Schema <ome.html>` is also
 available.
 
-.. figure:: /images/Image-Overview.*
+.. Note:: Updated diagrams including Folders and the ROI model changes will be
+    published as soon as possible.
+
+.. 
+   figure:: /images/Image-Overview.*
    :align: center
    :alt: Image Overview
    
@@ -14,7 +18,8 @@ available.
 
 |
 
-.. figure:: /images/Instrument-Overview.*
+.. 
+   figure:: /images/Instrument-Overview.*
    :align: center
    :alt: Instrument Overview
    
@@ -22,7 +27,8 @@ available.
 
 |
 
-.. figure:: /images/LightPathFilterSet-Top.*
+.. 
+   figure:: /images/LightPathFilterSet-Top.*
    :align: center
    :alt: LightPathFilterSet Top
    
@@ -30,16 +36,18 @@ available.
 
 |
 
-.. figure:: /images/Project-Dataset-Top.*
+.. 
+   figure:: /images/Project-Dataset-Top.*
    :align: center
    :alt: Project Dataset Top
    
-   Organisational structures (Project, Dataset, Group, Experiment, 
+   Organizational structures (Project, Dataset, Group, Experiment,
    Experimenter) of the OME Model
 
 |
 
-.. figure:: /images/Project-Dataset-Ownership.*
+.. 
+   figure:: /images/Project-Dataset-Ownership.*
    :align: center
    :alt: Project Dataset Ownership
    
@@ -47,7 +55,8 @@ available.
 
 |
 
-.. figure:: /images/Ome-ROI-overview.*
+.. 
+   figure:: /images/Ome-ROI-overview.*
    :align: center
    :alt: ROI Overview Standard
    
@@ -63,7 +72,8 @@ available.
 
 |
 
-.. figure:: /images/Annotation-Top.*
+.. 
+   figure:: /images/Annotation-Top.*
    :align: center
    :alt: Annotation Top
    
@@ -71,7 +81,8 @@ available.
 
 |
 
-.. figure:: /images/Annotation-Points.*
+.. 
+   figure:: /images/Annotation-Points.*
    :align: center
    :alt: Annotation Points
    

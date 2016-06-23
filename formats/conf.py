@@ -28,8 +28,8 @@ title = project + u' Documentation'
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-release = '2015-01'
-version = '2015-01'
+release = '2016-06'
+version = '2016-06'
 
 # OME model-specific extlinks
 model_extlinks = {
