@@ -35,18 +35,18 @@ released. The format for the new URI for the namespace will be
 
     http://www.openmicroscopy.org/Schemas/[NameSpaceTitle]/[YearAsFourDigits]-[MonthAsTwoDigits]
 
-This means the January 2015 major release for the OME schema uses the
+This means the June 2016 major release for the OME schema uses the
 namespace
 
 ::
 
-    http://www.openmicroscopy.org/Schemas/OME/2015-01/
+    http://www.openmicroscopy.org/Schemas/OME/2016-06/
 
 and that the schema file will be located at
 
 ::
 
-    http://www.openmicroscopy.org/Schemas/OME/2015-01/ome.xsd
+    http://www.openmicroscopy.org/Schemas/OME/2016-006/ome.xsd
 
 There will be a consultation period before each major release. Major releases
 may include breaking changes.
@@ -58,7 +58,7 @@ In the schema element of the XSD file, there is a version attribute:
 
 ::
 
-    <xsd:schema xmlns="http://www.openmicroscopy.org/Schemas/OME/2015-01"
+    <xsd:schema xmlns="http://www.openmicroscopy.org/Schemas/OME/2016-06"
         …
         version="1" 
         … >

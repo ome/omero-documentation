@@ -25,7 +25,7 @@ Artificial datasets
 All datasets in the following table were :source:`artificially
 generated <components/formats-bsd/src/loci/formats/tools/MakeTestOmeTiff.java>`
 with each plane labeled according to its dimensional position for easy
-testing. Each one consists of a single OME-TIFF file (2015-01 schema
+testing. Each one consists of a single OME-TIFF file (2016-06 schema
 version) containing every constituent image plane. 
 
 .. list-table::
@@ -133,7 +133,8 @@ XP 3200+ with 1GB of RAM) using
 planes were collected at 512x512 resolution in 8-bit grayscale, with an
 integration value of 2.
 
-The files available for download have been updated to the current schema version since their initial creation.
+The files available for download have been updated to the current schema
+version since their initial creation.
 
 .. list-table::
   :header-rows: 1
