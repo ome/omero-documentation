@@ -13,10 +13,10 @@ the structure is:
 
 Alternative valid forms:
 
--  would have a ``<ome:TiffData/>`` block instead of the ``bf:BinData``
+-  would have a ``<TiffData/>`` block instead of the ``BinData``
    block (this would be used in the header of an OME-TIFF file)
--  would have a ``<ome:MetadataOnly/>`` block instead of the ``bf:BinData``
-   block (this would be used as a companion to one or more ``ome:BinaryOnly``
+-  would have a ``<MetadataOnly/>`` block instead of the ``BinData``
+   block (this would be used as a companion to one or more ``BinaryOnly``
    OME-TIFF files)
 
 .. note:: A units system was added in January 2015. This sample assumes the
