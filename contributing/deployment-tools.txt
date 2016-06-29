@@ -33,6 +33,10 @@ The OMERO-install repository is available from:
 
 -  https://github.com/ome/omero-install
 
+
+Testing workflow
+----------------
+
 Devspace (Experimental)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -50,6 +54,7 @@ Continues Delivery (Production)
 Production Continuous Delivery (CD) platform managed by
 `Jenkins <http://jenkins-ci.org>`_ available on http://ci.openmicroscopy.org.
 More details about CI-master available on :doc:`continuous-integration`
+
 
 How to add new/upgrade prerequisites
 ------------------------------------
