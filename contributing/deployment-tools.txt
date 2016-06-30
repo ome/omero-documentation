@@ -49,6 +49,11 @@ The Devspace repository is available from:
 
 -  https://github.com/openmicroscopy/devspace
 
+Devspace Dockerfiles uses common devslave image. The Devslave repository
+is available from:
+
+-  https://github.com/openmicroscopy/devslave-c7-docker
+
 
 Continuous Delivery (Production)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,5 +93,21 @@ Pre release testing
 -------------------
 
 It is also very important to test all the dependencies before release
-to make sure sysadmin instructions are fully tested. The easiest way is
-to start Devspace.
+to make sure sysadmin instructions are fully tested. The easiest way to
+test is to use Devspace.
+
+Initial testing can be done by uncommenting::
+
+    ## update omero-install to the latest one
+
+on each of the Dockerfile. This section of Docker file should not be
+left uncommented in main repository.
+
+
+Post release
+------------
+
+After adding new prerequisites to Infrastructure and OMERO-install,
+both repositories should be tagged. Tag should be propageted first to
+Devslave docker image and tagged as the following version number.
+New Devslave tag should be then poropagated to all Devspace Docker images.
