@@ -71,9 +71,11 @@ listed repositories may require updates. Depends on the nature of
 packages developers must consider:
 
 -  adding new Ansible role or complete Ansible playbook to Infrastructure
+
 -  adding new scripts installing appropriate package and its dependencies
    to OMERO-install, that includes:
-     - updating Linux and Mac installation scropts
+
+     - updating Linux and Mac installation scripts
      - updating documentation autogen
 - deploying Devspace to test OMERO-install scripts, that includes:
      - adding new Docker container if requires to support additional processes
@@ -111,3 +113,20 @@ After adding new prerequisites to Infrastructure and OMERO-install,
 both repositories should be tagged. Tag should be propageted first to
 Devslave docker image and tagged as the following version number.
 New Devslave tag should be then poropagated to all Devspace Docker images.
+
+
+EXAMPLE
+-------
+
+-  adding `Ansible role <https://github.com/openmicroscopy/infrastructure/pull/56>`
+-  adding new scripts to OMERO-install, that includes
+     - `UNIX PR <https://github.com/ome/omero-install/pull/95>`
+       tested via `travis <https://travis-ci.org/ome/omero-install/builds/124104512>`
+     - `Mac PR https://github.com/ome/omero-install/pull/101`
+       tested via `CI-master homebrew job <https://ci.openmicroscopy.org/job/OMERO-DEV-merge-homebrew/>`
+     - `Documentation <https://github.com/openmicroscopy/ome-documentation/pull/1431>`,
+       no autogen PR this time
+-  deploying Devspace to test OMERO-install scripts, that includes:
+     - adding `redis container <https://github.com/openmicroscopy/devspace/blob/0.2.0/docker-compose.yml#L74-L75>`
+     - adjusting `OMERO-web job <https://github.com/openmicroscopy/devspace/blob/0.2.0/home/jobs/OMERO-web/config.xml#L70-L71>`
+-  tagging above repositories and propagating tags as required.
