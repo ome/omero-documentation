@@ -1,10 +1,10 @@
 OME deployment tools
 ====================
 
-This section discribes deployment tools supported by OME team.
+This section describes deployment tools supported by the OME team.
 It is primarily designed for the core OME developers who want to
 bring new or upgrade existing prerequisites. The following steps explain
-the connections between basic repositories and testing workflow.
+the connections between basic repositories and the testing workflow.
 
 Prerequisites locations
 -----------------------
@@ -15,12 +15,13 @@ which is available from several locations.
 Infrastructure (Experimental)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Infrastructure are privided to simplify deployment using 
-`Ansible <https://www.ansible.com>`.
+Infrastructure is provided to simplify deployment using 
+`Ansible Tower<https://www.ansible.com>`.
 
 The Infrastructure repository is available from:
 
 -  https://github.com/openmicroscopy/infrastructure
+
 
 OMERO-install
 ^^^^^^^^^^^^^
@@ -40,16 +41,17 @@ Testing workflow
 Devspace (Experimental)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Continuous integration tools managed by Jenkins CI allowing
-automation framework runs repeated jobs. The default deployment
+Continuous integration tools managed by Jenkins CI providing
+an automation framework that runs repeated jobs. The default deployment
 initializes a Jenkins CI master with a predefined set of jobs.
 
 The Devspace repository is available from:
 
 -  https://github.com/openmicroscopy/devspace
 
-Continues Delivery (Production)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Continuous Delivery (Production)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Production Continuous Delivery (CD) platform managed by
 `Jenkins <http://jenkins-ci.org>`_ available on http://ci.openmicroscopy.org.
@@ -59,28 +61,32 @@ More details about CI-master available on :doc:`continuous-integration`
 How to add new/upgrade prerequisites
 ------------------------------------
 
-When OME platform requires new set of prerequisites all the above
+When the OME platform requires a new set of prerequisites all the above
 listed repositories may require updates. Depends on the nature of 
-packages developer must consider:
+packages developers must consider:
 
-- adding new ansible role or complete ansible playbook to Infrastructure
-- adding new scripts installing appropriate package and its dependencies
-  to OMERO-install, that includes:
-    - updating Linux and Mac installation scropts
-    - updating documention autogen
+-  adding new Ansible role or complete Ansible playbook to Infrastructure
+-  adding new scripts installing appropriate package and its dependencies
+   to OMERO-install, that includes:
+     - updating Linux and Mac installation scropts
+     - updating documentation autogen
 - deploying Devspace to test OMERO-install scripts, that includes:
-    - adding new Docker container if requires to support additional processes
-    - adjusting predefined Jenkins jobs
+     - adding new Docker container if requires to support additional processes
+     - adjusting predefined Jenkins jobs
 
-After successful testing new prerequesits can be proposed as a permanent
+After successful testing new prerequisites can be proposed as a permanent
 adjustment to production CD.
 
 .. note::
 
-    Any Python module, that is distributed from Linux distro packages
-    must be installed from RPM file. Python module only available
-    on PyPI should be added as PiP requirement.
+    Any Python module that is distributed from Linux distro packages
+    must be installed from RPM file. Python modules only available
+    on PyPI should be added as PIP requirement.
 
-It is also very important to test all the dependences before release
+
+Pre release testing
+-------------------
+
+It is also very important to test all the dependencies before release
 to make sure sysadmin instructions are fully tested. The easiest way is
 to start Devspace.
