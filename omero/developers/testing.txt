@@ -5,6 +5,14 @@ The following guidelines apply to tests in both the Java and Python test
 components. However, some of the presented options apply to only one or the
 other.
 
+The default build target does not compile all the required testing resources.
+You should run `test-compile` (or `build-dev` if you are using Eclipse) first:
+
+::
+
+    ./build.py build-default test-compile
+
+
 Running tests
 -------------
 
