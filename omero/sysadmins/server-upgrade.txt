@@ -280,6 +280,31 @@ intermediate major release.
    connected to the database using **db_user** before running the script. See
    :forum:`this forum thread <viewtopic.php?f=5&t=7778>` for more information.
 
+Delete certain annotations (optional)
+"""""""""""""""""""""""""""""""""""""
+
+For various reasons production databases may accumulate non-sharable
+annotations that are orphaned. These are :doc:`structured annotations
+</developers/Model/StructuredAnnotations>` that are 'basic' (`Boolean`,
+`TimeStamp`, `Term`), 'numeric' (`Double`, `Long`), or `Comment`, and
+that are *not* annotating an object. An illustrative example is that
+deleting a rating in OMERO.insight 5.2 may have left behind the
+corresponding `Long` annotation that captured the rating's number of
+stars. The script does *not* delete annotations that have a
+custom/non-OME namespace (ns) set.
+
+.. parsed-literal::
+
+    $ cd OMERO.server
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/delete-ns-orphans.sql
+
+This script may be used during some maintenance window subsequent to the
+actual upgrade as long as it runs on a |current_dbver| database. If at
+upgrade time you have questions about the script then you may perform
+further research before :ref:`backing up the database again
+<back-up-the-db>` then running the script. There is no obligation to
+ever use it.
+
 Optimize an upgraded database (optional)
 """"""""""""""""""""""""""""""""""""""""
 
