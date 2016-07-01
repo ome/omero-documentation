@@ -131,6 +131,38 @@ below. Please refer to each section for additional details.
     :local:
     :depth: 1
 
+Check ahead for upgrade issues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There *may* be a "precheck" SQL script provided that performs various
+database checks to verify readiness for upgrade. The precheck script
+works even with the OMERO server running so it may be used before
+downtime for the actual upgrade is scheduled. Issues that the script
+reports will need to be resolved before the upgrade may proceed. The
+precheck script will *not* make any changes to the database.
+
+.. parsed-literal::
+
+    $ cd OMERO.server
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/|previous_dbver|-precheck.sql
+    Password for user **db_user**:
+    ...
+    ...
+                               status
+    ---------------------------------------------------------------------
+                                                                        +
+                                                                        +
+                                                                        +
+    YOUR DATABASE IS READY FOR UPGRADE TO VERSION |current_dbver|           +
+                                                                        +
+                                                                        +
+
+    (1 row)
+
+If a precheck script is not included in the OMERO.server distribution
+then no such check need be performed.
+
+
 .. _back-up-the-db:
 
 Perform a database backup
