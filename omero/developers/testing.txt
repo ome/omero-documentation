@@ -5,6 +5,23 @@ The following guidelines apply to tests in both the Java and Python test
 components. However, some of the presented options apply to only one or the
 other.
 
+The default build target does not compile all the required testing resources.
+You should run `test-compile` (or `build-dev` if you are using Eclipse) first:
+
+::
+
+    ./build.py build-default test-compile
+
+
+You must rebuild the `test-compile` target if you subsequently modify any of
+the Java tests.
+
+
+.. note::
+    The OMERO C++ components and tests are under heavy development, and
+    are not compiled or run by the targets mentioned on this page.
+
+
 Running tests
 -------------
 
