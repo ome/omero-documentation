@@ -284,7 +284,7 @@ Delete certain annotations (optional)
 For various reasons production databases may accumulate non-sharable
 annotations that are orphaned. These are :doc:`structured annotations
 </developers/Model/StructuredAnnotations>` that are 'basic' (`Boolean`,
-`TimeStamp`, `Term`), 'numeric' (`Double`, `Long`), or `Comment`, and
+`Timestamp`, `Term`), 'numeric' (`Double`, `Long`), or `Comment`, and
 that are *not* annotating an object. An illustrative example is that
 deleting a rating in OMERO.insight 5.2 may have left behind the
 corresponding `Long` annotation that captured the rating's number of
