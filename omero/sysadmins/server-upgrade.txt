@@ -134,14 +134,13 @@ below. Please refer to each section for additional details.
 Check ahead for upgrade issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There is a "precheck" SQL script provided that performs various
-database checks to verify readiness for upgrade. The precheck script
-works even with the OMERO server running so it may be used before
-downtime for the actual upgrade is scheduled. Issues that the script
-reports will need to be resolved before the upgrade may proceed. The
-precheck script will *not* make any changes to the database: it merely
-performs various precautionary checks also done by the actual upgrade
-script.
+There is a "precheck" SQL script provided that performs various database
+checks to verify readiness for upgrade. The precheck script works even
+with the OMERO server running so it may be used before downtime for the
+actual upgrade is scheduled. Issues that the script reports will need to
+be resolved before the upgrade may proceed. The precheck script will
+*not* make any changes to the database: it merely performs various
+precautionary checks also done by the actual upgrade script.
 
 .. parsed-literal::
 
