@@ -288,7 +288,10 @@ annotations that are orphaned. These are :doc:`structured annotations
 that are *not* annotating an object. An illustrative example is that
 deleting a rating in OMERO.insight 5.2 may have left behind the
 corresponding `Long` annotation that captured the rating's number of
-stars. The script does *not* delete annotations that have a
+stars. Non-sharable annotations, like comments and ratings, cannot be
+viewed from OMERO.insight or OMERO.web after they have been orphaned
+because they are no longer associated with any model object such as an
+image. The deletion script does *not* delete annotations that have a
 custom/non-OME namespace (ns) set.
 
 .. parsed-literal::
