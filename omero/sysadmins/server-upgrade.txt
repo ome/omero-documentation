@@ -303,7 +303,7 @@ This script may be used during some maintenance window subsequent to the
 actual upgrade as long as it runs on a |current_dbver| database. If at
 upgrade time you have questions about the script then you may perform
 further research before :ref:`backing up the database again
-<back-up-the-db>` then running the script. There is no obligation to
+<back-up-the-db>` then running the script. There is no requirement to
 ever use it.
 
 Optimize an upgraded database (optional)
