@@ -4,6 +4,10 @@ Customize OMERO clients
 The OMERO clients offer a flexible user interface that can be customized.
 The sections below describe how to set up these features.
 
+.. Note:: Depending on how your OMERO.web server is deployed, you may need to 
+    restart it for these changes to take effect.
+
+
 Index page
 ----------
 
