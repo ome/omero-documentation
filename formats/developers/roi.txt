@@ -19,11 +19,7 @@ means that they can be referred to from more than one point within the model:
     can inadvertently change the ROI set during the
     MicrobeamManipulation without realizing it.
 
-
-.. note:: An updated overview diagram will be published as soon as possible.
-
-.. 
-   figure:: /images/Ome-ROI-overview.*
+.. figure:: /images/Ome-ROI-overview.png
    :align: center
    :alt: ROI Model Overview
 
@@ -99,6 +95,9 @@ attributes or simple children.
    -  Transform - a transformation matrix represented by 6 values
       (optional).
 
+.. note:: More information on transforms is available in
+    `this blog post <http://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/>`_.
+
 
 Shape concrete implementations
 ------------------------------
@@ -110,20 +109,19 @@ At the moment the choice is:
    a radius in the Y-axis.
 -  Label - specified by a start point for the baseline for the first
    character.
--  Line - specified by two end points, a markerStart (any marker applied
-   to the start of the line e.g. an arrowhead) and markerEnd (any
-   marker applied to the end of the line e.g. an arrowhead) (optional).
+-  Line - specified by two end points, a markerStart (an arrowhead marker 
+   applied to the start of the line) and markerEnd (an arrowhead
+   marker applied to the end of the line) (optional).
 -  Mask - specified by an upper left corner and a BinData block.
 -  Point - a simple x, y position.
 -  Polygon - specified by an array of coordinates that are connected by
-   straight lines that are closed, a markerStart (any marker applied to
-   the start of the line e.g. an arrowhead) and markerEnd
-   (any marker applied to the end of the line e.g. an arrowhead)
-   (optional).
+   straight lines that are closed, a markerStart (an arrowhead marker applied
+   to the start of the line) and markerEnd (an arrowhead marker applied to the
+   end of the line) (optional).
 -  Polyline - specified by an array of coordinates that are connected by
-   straight lines, a markerStart (any marker applied to the start of the
-   line e.g. an arrowhead) and markerEnd (any marker applied
-   to the end of the line e.g. an arrowhead) (optional).
+   straight lines, a markerStart (an arrowhead marker applied to the start of
+   the line) and markerEnd (an arrowhead marker applied to the end of the
+   line) (optional).
 -  Rectangle - specified by an upper left corner and a width and height.
 
 3D ROI
