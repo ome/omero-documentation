@@ -176,3 +176,7 @@ The most popular configuration options include:
 -  Customizing index page, see :property:`omero.web.index_template`.
 
 -  Enabling a public user see :doc:`/sysadmins/public`.
+
+.. Note:: Depending on how your OMERO.web server is deployed, you may need to
+    restart it for these changes to take effect.
+
