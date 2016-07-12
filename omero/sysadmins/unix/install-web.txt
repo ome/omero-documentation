@@ -166,19 +166,19 @@ All configuration options can be found on various sections of
 
 	$ bin/omero web -h
 
-The most popular configuration options include:
-
--  Debug mode, see :property:`omero.web.debug`.
-
--  Customize login page with your own logo, see
-   :property:`omero.web.login_logo`.
-
--  Customizing index page, see :property:`omero.web.index_template`.
-
--  Enabling a public user see :doc:`/sysadmins/public`.
-
 .. Note:: Depending on the deployment choice, OMERO.web will not activate
     configuration changes until either gunicorn is restarted using
     ``bin/omero web restart`` (nginx) or the Apache webserver has been
     reloaded.
+
+The most popular configuration options include:
+
+-  Debug mode, see :property:`omero.web.debug`.
+
+-  Customizing OMERO clients e.g to add your own logo to the login page
+   (:property:`omero.web.login_logo`) or use an index page as an alternative
+   landing page for users (:property:`omero.web.index_template`). See
+   :doc:`/sysadmins/customization` for further information.
+
+-  Enabling a public user see :doc:`/sysadmins/public`.
 
