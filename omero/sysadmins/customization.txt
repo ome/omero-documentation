@@ -4,8 +4,10 @@ Customize OMERO clients
 The OMERO clients offer a flexible user interface that can be customized.
 The sections below describe how to set up these features.
 
-.. Note:: Depending on how your OMERO.web server is deployed, you may need to 
-    restart it for these changes to take effect.
+.. Note:: Depending on the deployment choice, OMERO.web will not activate
+    configuration changes until either gunicorn is restarted using
+    ``bin/omero web restart`` (nginx) or the Apache webserver has been
+    reloaded.
 
 
 Index page
