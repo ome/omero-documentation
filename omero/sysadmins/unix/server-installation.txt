@@ -108,7 +108,7 @@ If possible, install one of the following packages:
 +-----------+---------------------------+
 
 OMERO works with the OpenJDK JRE provided by most systems, or with
-Oracle Java. Version 7 or later is recommended.
+Oracle Java. Version |javaversion| or later is required.
 
 Your system may already provide a suitable JRE, in which case no extra steps
 are necessary. Linux distributions usually provide OpenJDK, and older MacOS X
@@ -632,12 +632,6 @@ Configuration
     The required permissions will depend on whether you are using
     :doc:`/sysadmins/import-scenarios`.
 
-.. note Windows
-
-   If you would like to move the directory again, see
-   ``bin\winconfig.bat --help``, which gets called automatically on an
-   initial install.
-
 -   Test that you can log in as "root", either with the OMERO.insight
     client or on the command-line::
 
@@ -648,6 +642,11 @@ Configuration
 
     You will be prompted for an OMERO username and password. Use the
     username and password set when running ``bin/omero db script``.
+
+-   If your users are going to be importing many files in one go, for example
+    multiple plates, you should make sure you set the maximum number of open
+    files to a sensible level (i.e. at least 8K for production systems, 16K
+    for bigger machines). See :ref:`ulimit` for more information.
 
 JVM memory settings
 -------------------
@@ -709,11 +708,6 @@ want to watch :snapshot:`the HCS configuration screencast
 :omero_plone:`Feature list <feature-list>` for more advanced features
 you may want to use, and :doc:`/sysadmins/config` on how to get the
 most out of your server.
-
-If your users are going to be importing many files in one go, for example
-multiple plates, you should make sure you set the maximum number of open files
-to a sensible level (i.e. at least 8K for production systems, 16K for bigger
-machines). See :ref:`ulimit` for more information.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^

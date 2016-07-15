@@ -16,17 +16,18 @@ installations worldwide, OMERO has been shown to be relatively easy to install
 and get running.
 
 OMERO.insight and OMERO.importer are desktop applications written in Java
-and require Java 1.7 (or higher) to be installed on the user's computer
-(automatically installed on most up-to-date OS X and Windows systems).
+and require Java |javaversion| (or higher) to be installed on the user's
+computer (this can easily be installed from `<http://java.com/>`_ if it is not
+already included in your OS).
 
-Our user assistance :help:`help website<>` provides a series of 
-workflow-based guides to performing common actions in the client applications, 
-such as importing and viewing data, exporting images and using the measuring 
+Our user assistance :help:`help website<>` provides a series of
+workflow-based guides to performing common actions in the client applications,
+such as importing and viewing data, exporting images and using the measuring
 tool. 
 
-Our partners within the OME consortium are also producing new clients and 
-modules for OMERO, integrating additional functionality, particularly for more 
-complex image analysis. See the :partner_plone:`Partner Projects <>` page for 
+Our partners within the OME consortium are also producing new clients and
+modules for OMERO, integrating additional functionality, particularly for more
+complex image analysis. See the :partner_plone:`Partner Projects <>` page for
 more details.
 
 .. _omero-web:
