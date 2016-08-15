@@ -36,6 +36,10 @@ OMERO jobs
         * :term:`OMERO-DEV-merge-deploy`
         * :term:`OMERO-DEV-breaking-deploy`
 
+    -   * Deploys the merge OMERO web
+        * :term:`WEB-DEV-merge-deploy`
+        * :term:`WEB-DEV-breaking-deploy`
+
     -   * Runs the OMERO integration tests
         * | :term:`OMERO-DEV-merge-integration`
           | :term:`OMERO-DEV-merge-integration-broken`
@@ -67,8 +71,8 @@ OMERO jobs
 
 .. _deployment_servers:
 
-Deployment servers
-^^^^^^^^^^^^^^^^^^
+Deployment servers and web
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The table below lists all the hostnames, ports and URLs of the OMERO.web
 clients of the deployment jobs described above:
@@ -78,34 +82,39 @@ clients of the deployment jobs described above:
     :widths: 10,20,20,10,40
 
     -   * Series
-        * Deployment job
+        * Deployment job (server)
         * Hostname
         * Port
+        * Deployment job (web)
         * Webclient
 
     -   * DEV
         * :term:`OMERO-DEV-merge-deploy`
         * eel.openmicroscopy.org
         * 4064
-        * https://eel.openmicroscopy.org/merge
+        * :term:`WEB-DEV-merge-deploy`
+        * https://cowfish.openmicroscopy.org/webmerge
 
     -   * DEV
         * :term:`OMERO-DEV-latest-deploy`
         * eel.openmicroscopy.org
         * 14064
-        * https://eel.openmicroscopy.org/latest
+        * :term:`WEB-DEV-latest-deploy`
+        * https://cowfish.openmicroscopy.org/weblatest
 
     -   * DEV
         * :term:`OMERO-DEV-merge-integration`
         * eel.openmicroscopy.org
         * 24064
-        * https://eel.openmicroscopy.org/integration
+        * :term:`WEB-DEV-merge-integration`
+        * https://cowfish.openmicroscopy.org/webintegration
 
     -   * Breaking
         * :term:`OMERO-DEV-breaking-deploy`
         * trout.openmicroscopy.org
         * 34064
-        * https://trout.openmicroscopy.org/breaking
+        * :term:`WEB-DEV-breaking-deploy`
+        * https://cowfish.openmicroscopy.org/webbreaking
 
 
 5.3.x series
@@ -130,6 +139,11 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         This job deploys the latest 5.3.x server (see
         :ref:`deployment_servers`)
 
+    :jenkinsjob:`WEB-DEV-latest-deploy`
+
+        This job deploys the latest 5.3.x webclient (see
+        :ref:`deployment_servers`)
+
     :jenkinsjob:`OMERO-DEV-latest-submods`
 
         This job updates the submodules on the develop branch
@@ -147,6 +161,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         #. Triggers :term:`OMERO-DEV-merge-build` and
            :term:`OMERO-DEV-merge-integration`
         #. Triggers :term:`OMERO-DEV-merge-deploy`
+        #. Triggers :term:`WEV-DEV-merge-deploy`
         #. Triggers other downstream merge jobs
 
         See :jenkinsjob:`the build graph <OMERO-DEV-merge-daily/lastSuccessfulBuild/BuildGraph>`
@@ -169,6 +184,11 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
     :jenkinsjob:`OMERO-DEV-merge-deploy`
 
         This job deploys the merge 5.3.x server (see
+        :ref:`deployment_servers`)
+
+    :jenkinsjob:`WEB-DEV-merge-deploy`
+
+        This job deploys the merge 5.3.x web (see
         :ref:`deployment_servers`)
 
     :jenkinsjob:`OMERO-DEV-merge-integration`
@@ -277,6 +297,7 @@ Jenkins.
         #. Triggers :term:`OMERO-DEV-breaking-build` and
            :term:`OMERO-DEV-breaking-integration`
         #. Triggers :term:`OMERO-DEV-breaking-deploy`
+        #. Triggers :term:`WEB-DEV-breaking-deploy`
         #. Triggers other downstream breaking jobs
 
     :jenkinsjob:`OMERO-DEV-breaking-push`
@@ -297,6 +318,10 @@ Jenkins.
     :jenkinsjob:`OMERO-DEV-breaking-deploy`
 
         This job deploys the breaking server (see :ref:`deployment_servers`)
+
+    :jenkinsjob:`WEB-DEV-breaking-deploy`
+
+        This job deploys the breaking web (see :ref:`deployment_servers`)
 
     :jenkinsjob:`OMERO-DEV-breaking-integration`
 
