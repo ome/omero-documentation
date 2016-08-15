@@ -79,9 +79,9 @@ clients of the deployment jobs described above:
 
 .. list-table::
     :header-rows: 1
-    :widths: 10,20,20,10,40
+    :widths: 10,20,20,10,20,40
 
-    -   * Series
+    -   * Series,
         * Deployment job (server)
         * Hostname
         * Port
@@ -115,7 +115,6 @@ clients of the deployment jobs described above:
         * 34064
         * :term:`WEB-DEV-breaking-deploy`
         * https://cowfish.openmicroscopy.org/webbreaking
-
 
 5.3.x series
 ^^^^^^^^^^^^
@@ -197,13 +196,12 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
         #. Checks out :omero_scc_branch:`develop/merge/daily` 
         #. Builds OMERO.server and starts it
-        #. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
+        #. Runs the OMERO.java and OMERO.py integration tests
         #. Archives the results
         #. Triggers downstream collection jobs:
            :term:`OMERO-DEV-merge-integration-broken`,
            :term:`OMERO-DEV-merge-integration-java`,
-           :term:`OMERO-DEV-merge-integration-python`,
-           :term:`OMERO-DEV-merge-integration-web`
+           :term:`OMERO-DEV-merge-integration-python`
 
     :jenkinsjob:`OMERO-DEV-merge-integration-broken`
 
@@ -240,6 +238,20 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
            :file:`components/tools/OmeroWeb/target/reports` from
            :term:`OMERO-DEV-merge-integration`,
         #. Generates pytest report
+
+    :jenkinsjob:`WEB-DEV-merge-integration`
+
+        This job deploys the merge 5.3.x web (see
+        :ref:`deployment_servers`)
+
+    :jenkinsjob:`OMERO-DEV-merge-integration-Python27`
+
+        This job runs Python integration tests of OMERO on Python 2.7
+
+        #. Checks out :omero_scc_branch:`develop/breaking/trigger`
+        #. Builds OMERO.server and starts it
+        #. Runs the OMERO.py and OMERO.web integration tests
+        #. Archives the results
 
     :jenkinsjob:`OMERO-DEV-merge-matlab`
 
@@ -329,13 +341,12 @@ Jenkins.
 
         #. Checks out :omero_scc_branch:`develop/breaking/trigger` 
         #. Builds OMERO.server and starts it
-        #. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
+        #. Runs the OMERO.java and OMERO.py integration tests
         #. Archives the results
         #. Triggers downstream collection jobs:
            :term:`OMERO-DEV-breaking-integration-broken`,
            :term:`OMERO-DEV-breaking-integration-java`,
-           :term:`OMERO-DEV-breaking-integration-python`,
-           :term:`OMERO-DEV-breaking-integration-web`
+           :term:`OMERO-DEV-breaking-integration-python`
 
     :jenkinsjob:`OMERO-DEV-breaking-integration-broken`
 
@@ -372,3 +383,16 @@ Jenkins.
            :file:`components/tools/OmeroWeb/target/reports` from
            :term:`OMERO-DEV-breaking-integration`,
         #. Generates pytest report
+
+    :jenkinsjob:`WEB-DEV-breaking-integration`
+
+        This job deploys the breaking web (see :ref:`deployment_servers`)
+
+    :jenkinsjob:`OMERO-DEV-breaking-integration-Python27`
+
+        This job runs Python integration tests of OMERO on Python 2.7
+
+        #. Checks out :omero_scc_branch:`develop/breaking/trigger`
+        #. Builds OMERO.server and starts it
+        #. Runs the OMERO.py and OMERO.web integration tests
+        #. Archives the results
