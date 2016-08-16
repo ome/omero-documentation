@@ -384,10 +384,6 @@ Jenkins.
            :term:`OMERO-DEV-breaking-integration`,
         #. Generates pytest report
 
-    :jenkinsjob:`WEB-DEV-breaking-integration`
-
-        This job deploys the breaking web (see :ref:`deployment_servers`)
-
     :jenkinsjob:`OMERO-DEV-breaking-integration-Python27`
 
         This job runs Python integration tests of OMERO on Python 2.7
