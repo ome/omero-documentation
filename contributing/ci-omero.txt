@@ -160,7 +160,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         #. Triggers :term:`OMERO-DEV-merge-build` and
            :term:`OMERO-DEV-merge-integration`
         #. Triggers :term:`OMERO-DEV-merge-deploy`
-        #. Triggers :term:`WEV-DEV-merge-deploy`
+        #. Triggers :term:`WEB-DEV-merge-deploy`
         #. Triggers other downstream merge jobs
 
         See :jenkinsjob:`the build graph <OMERO-DEV-merge-daily/lastSuccessfulBuild/BuildGraph>`
