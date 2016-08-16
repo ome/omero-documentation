@@ -106,7 +106,7 @@ clients of the deployment jobs described above:
         * :term:`OMERO-DEV-merge-integration`
         * eel.openmicroscopy.org
         * 24064
-        * :term:`WEB-DEV-merge-integration`
+        * :term:`WEB-DEV-integration-deploy`
         * https://cowfish.openmicroscopy.org/webintegration
 
     -   * Breaking
@@ -239,7 +239,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
            :term:`OMERO-DEV-merge-integration`,
         #. Generates pytest report
 
-    :jenkinsjob:`WEB-DEV-merge-integration`
+    :jenkinsjob:`WEB-DEV-integration-deploy`
 
         This job deploys the merge 5.3.x web (see
         :ref:`deployment_servers`)
