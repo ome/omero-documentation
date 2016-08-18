@@ -8,7 +8,7 @@ source settings.env
 yum -y install https://centos6.iuscommunity.org/ius-release.rpm
 
 # installed for convenience
-yum -y install unzip wget tar
+yum -y install unzip wget tar bc
 
 # install Java
 yum -y install java-1.8.0-openjdk
@@ -152,6 +152,7 @@ OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
 OMERO.server/bin/omero config set omero.db.user "$OMERO_DB_USER"
 OMERO.server/bin/omero config set omero.db.pass "$OMERO_DB_PASS"
+OMERO.server/bin/omero db script -f OMERO.server/db.sql "" "" "$OMERO_ROOT_PASS"
 OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
@@ -175,13 +176,12 @@ source /home/omero/omeroenv/bin/activate
 set -u
 
 # Install OMERO.web requirements
-/home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-nginx.txt
-
-deactivate
-
-# set up as the omero user.
-su - omero -c "bash -eux setup_omero_nginx.sh"
-
+file=~omero/OMERO.server/share/web/requirements-py27-nginx.txt
+/home/omero/omeroenv/bin/pip2.7 install -r $file
+#start-configure-nginx: As the omero system user, configure OMERO.web
+OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
+OMERO.server/bin/omero web config nginx --http "$OMERO_WEB_PORT" > OMERO.server/nginx.conf.tmp
+#end-configure-nginx
 mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
 cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
 
@@ -210,9 +210,13 @@ source /home/omero/omeroenv/bin/activate
 set -u
 
 # Install OMERO.web requirements
-/home/omero/omeroenv/bin/pip2.7 install -r ~omero/OMERO.server/share/web/requirements-py27-apache.txt
-
+file=~omero/OMERO.server/share/web/requirements-py27-apache.txt
+# introduce in 5.2.0
+if [ -f $file ]; then
+	/home/omero/omeroenv/bin/pip2.7 install -r $file
+fi
 deactivate
+
 
 # Add virtual env python to the python-path parameter of the WSGIDaemonProcess directive
 sed -i 's/\(python-path\=\)/\1\/home\/omero\/omeroenv\/lib64\/python2.7\/site-packages:/' ~omero/OMERO.server/apache.conf.tmp

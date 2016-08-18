@@ -207,7 +207,6 @@ Default: `/omero/figure_scripts/Movie_Figure.py,
 /omero/figure_scripts/Thumbnail_Figure.py,
 /omero/figure_scripts/ROI_Split_Figure.py,
 /omero/export_scripts/Make_Movie.py,
-/omero/setup_scripts/FLIM_initialise.py,
 /omero/import_scripts/Populate_ROI.py`
 
 .. property:: omero.client.ui.menu.dropdown.colleagues.enabled
@@ -281,6 +280,24 @@ omero.client.ui.tree.orphans.name
 Name of the "Orphaned images" container located in client tree data manager.
 
 Default: `Orphaned Images`
+
+.. property:: omero.client.ui.tree.type_order
+
+omero.client.ui.tree.type_order
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client tree type order rank list
+first type is ranked 1 (the highest), last is the lowest
+if set to 'false' empty list allows mixing all types and
+sorting them by default client ordering strategy
+
+Default: `tagset,
+tag,
+project,
+dataset,
+screen,
+plate,
+acquisition,
+image`
 
 .. property:: omero.client.viewer.initial_zoom_level
 
@@ -390,7 +407,7 @@ server that is is being used with. Any changes by
 developers to the database schema will result in
 a bump to this value.
 
-Default: `4`
+Default: `8`
 
 .. property:: omero.db.poolsize
 
@@ -1842,7 +1859,7 @@ Default: `None`
 
 omero.web.login_redirect
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Redirect to the given location after logging in. It only supports arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#django.core.urlresolvers.reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'``
+Redirect to the given location after logging in. It only supports arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#django.core.urlresolvers.reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": {"experimenter": -1}}'``
 
 Default: `{}`
 
@@ -2082,7 +2099,7 @@ Default: `[["Acquisition", "webclient/data/includes/right_plugin.acquisition.js.
 
 omero.web.ui.top_links
 ^^^^^^^^^^^^^^^^^^^^^^
-Add links to the top header: links are ``['Link Text', 'link', options]``, where the url is reverse('link') OR simply 'link' (for external urls). E.g. ``'[["Webtest", "webtest_index"], ["Homepage", "http://...", {"title": "Homepage", "target": "new"} ]]'``
+Add links to the top header: links are ``['Link Text', 'link|lookup_view', options]``, where the url is reverse('link'), simply 'link' (for external urls) or lookup_view is a detailed dictionary {"viewname": "str", "args": [], "query_string": {"param": "value" }], E.g. ``'["Webtest", "webtest_index"] or ["Homepage", "http://...", {"title": "Homepage", "target": "new"} ] or ["Repository", {"viewname": "webindex", "query_string": {"experimenter": -1}}, {"title": "Repo"}]'``
 
 Default: `[["Data", "webindex", {"title": "Browse Data via Projects, Tags etc"}],["History", "history", {"title": "History"}],["Help", "http://help.openmicroscopy.org/",{"title":"Open OMERO user guide in a new tab", "target":"new"}]]`
 
