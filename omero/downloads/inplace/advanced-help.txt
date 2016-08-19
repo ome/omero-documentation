@@ -28,21 +28,21 @@ ADVANCED OPTIONS:
   Background imports:
   -------------------
 
-    --auto_close            	Close completed imports immediately.
+    --auto-close            	Close completed imports immediately.
 
-    --minutes_wait=ARG      	Choose how long the importer will wait on server-side processing.
+    --minutes-wait=ARG      	Choose how long the importer will wait on server-side processing.
                             	ARG > 0 implies the number of minutes to wait.
-                            	ARG = 0 exits immediately. Use a *_completed option to clean up.
+                            	ARG = 0 exits immediately. Use a *-completed option to clean up.
                             	ARG < 0 waits indefinitely. This is the default.
 
-    --close_completed       	Close completed imports.
+    --close-completed       	Close completed imports.
 
-    --wait_completed        	Wait for all background imports to complete.
+    --wait-completed        	Wait for all background imports to complete.
 
 
-  e.g. $ bin/omero import -- --minutes_wait=0 file1.tiff file2.tiff file3.tiff
-       $ ./importer-cli --minutes_wait=0 some_directory/
-       $ ./importer-cli --wait_completed # Waits on all 3 imports.
+  e.g. $ bin/omero import -- --minutes-wait=0 file1.tiff file2.tiff file3.tiff
+       $ ./importer-cli --minutes-wait=0 some_directory/
+       $ ./importer-cli --wait-completed # Waits on all 3 imports.
 
   File exclusion:
   ---------------
