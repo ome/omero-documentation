@@ -22,7 +22,7 @@ line:
 
 If you are working in C/C++, we recommend the open source
 `LibTIFF <http://www.libtiff.org/>`_ library or the
-`OME Files C++ implementation <http://downloads.openmicroscopy.org/latest/ome-files-cpp/>`_.
+:cpp_downloads:`OME Files C++ implementation <>`.
 
 If you are looking for a solution in Java, there are several options.
 Bio-Formats can read OME-TIFF files, as well as convert from many

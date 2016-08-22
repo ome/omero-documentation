@@ -45,6 +45,7 @@ model_extlinks = {
     'schema_doc' : (oo_root + '/Schemas/Documentation/Generated/OME-' + release + '/%s', ''),
     # Downloads
     'bf_downloads' : (downloads_root + '/latest/bio-formats/%s', ''),
+    'cpp_downloads' : (downloads_root + '/latest/ome-files-cpp/%s', ''),
     'image_downloads' : (downloads_root + '/images/%s', ''),
     'ometiff_downloads' : (downloads_root + '/images/OME-TIFF/' + release + '/%s', ''),
     'omexml_downloads' : (downloads_root + '/images/OME-XML/' + release + '/%s', ''),
