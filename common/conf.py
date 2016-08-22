@@ -161,6 +161,7 @@ extlinks = {
     'secvuln' : (oo_root + '/info/vulnerabilities/%s', ''),
     'bf_plone' : (oo_site_root + '/products/bio-formats/%s', ''),
     'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
+    'cpp_plone' : (oo_site_root + '/products/ome-files-cpp/%s', ''),
     # One branch only doc links. Branched docs links in conf.py files for
     # individual doc sets
     'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),
