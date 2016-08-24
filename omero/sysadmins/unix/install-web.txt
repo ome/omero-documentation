@@ -42,6 +42,15 @@ Deployment
 ----------
 
 There are a number of good ways to easily deploy OMERO.web.
+
+
+.. note:: To achive the best performance it is recommanged to separate
+      OMERO.web and OMERO.server deployment. Those two activities perform
+      best under different circumstances and requires different set
+      of dependencies. Please consider using
+      :doc:`OMERO.web experimental deployment <unix/install-web-experimental>`.
+
+
 If you have installed Nginx or Apache, OMERO can automatically generate a
 configuration file for your web server. The location of the file will depend
 on your system, please refer to your web server's manual. See
