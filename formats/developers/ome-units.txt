@@ -14,8 +14,7 @@ attribute pairs into a single unit aware attribute in the output java classes.
 The java classes make use of the types from the new `ome.units.*` classes.
 
 The classes in `ome.units` are inspired by but not a direct implementation of
-the specification for a Units of Measurement API available from
-http://www.unitsofmeasurement.org.
+the specification for a `Units of Measurement API <http://unitsofmeasurement.github.io/unit-api/site/>`_.
 
 These classes have been constructed to allow for future wrapping of the
 Units of Measurement API implementation developed at
