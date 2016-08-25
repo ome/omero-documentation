@@ -12,11 +12,9 @@ with:
 
 -  `WSGI <http://wsgi.readthedocs.org>`_ using a WSGI capable web server
    such as
-   `Apache 2.2+ <http://httpd.apache.org/>`_ (with
-   `mod\_wsgi <http://www.modwsgi.org/>`_ enabled) or 
-   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
--  The built-in Django lightweight development server (for **testing**
-   only; see the :doc:`/developers/Web/Deployment` page).
+   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_
+-  the built-in Django lightweight development server (for **testing**
+   only; see the :doc:`/developers/Web/Deployment` page)
 
 If you need help configuring your firewall rules, see the
 :doc:`/sysadmins/server-security` page.
@@ -28,7 +26,7 @@ Prerequisites
 
 -  Python 2.7
 
-   -  `Pillow`_ should be available for your distribution. We currently do not 
+   -  `Pillow`_ should be available for your distribution. We currently do not
        support version 3.0+.
 
    -  `Matplotlib`_ should be available for your distribution
@@ -43,13 +41,9 @@ Deployment
 
 There are a number of good ways to easily deploy OMERO.web.
 
-
-.. note:: To achive the best performance it is recommanged to separate
-      OMERO.web and OMERO.server deployment. Those two activities perform
-      best under different circumstances and requires different set
-      of dependencies. Please consider using
-      :doc:`OMERO.web experimental deployment <unix/install-web-experimental>`.
-
+Deploying OMERO.web separately to OMERO.server is recommended as they
+perform best under different circumstances and require a different set of
+dependencies. Please consider using :doc:`OMERO.web trial deployment <install-web-trial>`.
 
 If you have installed Nginx or Apache, OMERO can automatically generate a
 configuration file for your web server. The location of the file will depend
@@ -61,8 +55,8 @@ customization options.
     :maxdepth: 1
     :titlesonly:
 
-    install-web/install-apache
     install-web/install-nginx
+    install-web/install-apache
 
 Logging in to OMERO.web
 -----------------------

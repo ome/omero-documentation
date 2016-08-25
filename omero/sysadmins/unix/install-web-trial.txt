@@ -1,66 +1,63 @@
-OMERO.web WSGI deployment (EXPERIMENTAL)
-========================================
+OMERO.web WSGI deployment (TRIAL)
+=================================
 
 OMERO.web is the web application component of the OMERO platform which
 allows for the management, visualization (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
 includes the ability to manage users and groups.
 
-.. note:: To achive the best performance it is recommanged to separate
-      OMERO.web and OMERO.server deployment. Those two activities perform
-      best under different circumstances and requires different set
-      of dependencies.
-
+Deploying OMERO.web separately to OMERO.server is recommended as they
+perform best under different circumstances and require a different set of
+dependencies. This guide uses the example of deploying with nginx and
+gunicorn.
 
 Prerequisites
 -------------
 
 -  Python 2.7
 
-   -  `Virtualenv`_ (optional) tool to create isolated Python environments.
+   -  :pypi:`virtualenv` (optional) tool to create isolated Python environments
 
-   -  `PiPy`_ a package management system used to install and manage software
-      packages written in Python. `Pipy`_ is already installed if you're using
-      Python 2 >=2.7.9
+   -  :pypi:`PyPI <>` a package management system used to install and manage
+      software packages written in Python. PyPI is already installed if
+      you are using Python 2 >=2.7.9
 
-   -  `omego`_ OME package management system
+   -  `omego <https://github.com/ome/omego>`_ OME package management system
 
-   -  `ZeroC IcePy 3.6`_ (IcePy 3.5 is also supported although requires global
+   -  `ZeroC`_ IcePy 3.6 (IcePy 3.5 is also supported although requires global
       installation from RPM)
 
    -  `Pillow`_ <3.4
 
-   -  `numpy`_ >=1.9 
+   -  `NumPy <http://www.numpy.org>`_ >=1.9 
 
 -  A `WSGI <http://wsgi.readthedocs.org>`_ capable web server such as
    `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
 
-
-.. _gunicorn_default_configuration:
 
 Gunicorn default configuration
 ------------------------------
 
 Install above OMERO.web dependences using the package management tools:
 
-.. note::
-      Virtualenv is optional step:
+Virtualenv is an optional step:
 
-      ::
+::
 
-         $ virtualenv omeroweb
-         $ source omeroweb/bin/activate
+   $ virtualenv omeroweb
+   $ source omeroweb/bin/activate
 
 
 ::
 
    $ pip install omego
-   $ pip install -r OMERO.py/web/requirements-py27-experimental.txt
    $ omego download py
    2016-08-24 16:20:14,252 [omego.artifa] INFO  Checking http://downloads.openmicroscopy.org/omero/5.2.5/./artifacts/OMERO.py-5.3.0-ice36-b29.zip
    2016-08-24 16:20:14,252 [omego.fileut] INFO  Downloading http://downloads.openmicroscopy.org/omero/5.2.5/./artifacts/OMERO.py-5.3.0-ice36-b29.zip
    2016-08-24 16:20:14,514 [omego.artifa] INFO  Unzipping OMERO.py-5.3.0-ice36-b29.zip
-   $ ln -s `pwd`/OMERO.py-5.2.5-ice36-b28 `pwd`/OMERO.py
+  $ pip install -r OMERO.py/web/requirements-py27-experimental.txt
+  $ ln -s `pwd`/OMERO.py-5.2.5-ice36-b28 `pwd`/OMERO.py
+
 
 .. note:: For more details refer to
       :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
@@ -81,8 +78,6 @@ Additional settings can be configured by changing the following properties:
 - :property:`omero.web.wsgi_args` Additional arguments. For more details
   check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
 
-.. _nginx_gunicorn_configuration:
-
 Nginx configuration
 -------------------
 
@@ -99,22 +94,20 @@ configuration redirect the output of the following command into a file:
 
     $ OMERO.py/bin/omero web config nginx
 
-.. literalinclude:: nginx-omero.conf
+.. literalinclude:: install-web/nginx-omero.conf
 
-.. note::
-    OMERO.web requires ``body_in_file_only`` adjusted in your default nginx
-    config because nginx must buffer incoming data. Make sure you have that
-    set to the following config:
 
-    ::
+OMERO.web requires ``body_in_file_only`` adjusted in your default nginx
+config because nginx must buffer incoming data. Make sure you have that
+set to the following config::
 
-        http {
-            ...
-            sendfile on;
-            send_timeout 60s;
-            client_max_body_size 0;
-            ...
-        }
+   http {
+       ...
+       sendfile on;
+       send_timeout 60s;
+       client_max_body_size 0;
+       ...
+   }
 
 To configure an HTTPS server follow
 `the nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
@@ -149,13 +142,13 @@ following commands:
     Stopping OMERO.web... [OK]
     Django WSGI workers (PID 59217) killed.
 
-.. _download_limitation:
+.. _trial_download_limitation:
 
 Download limitations
 ^^^^^^^^^^^^^^^^^^^^
 
 In order to offer users the ability to download data from OMERO.web you have
-to deploy using :ref:`gunicorn_async_configuration`.
+to deploy using :ref:`async_workers`.
 OMERO.web is able to handle multiple clients on a single worker
 thread switching context as necessary while streaming binary data from
 OMERO.server. Depending on the traffic and scale of the repository you should
@@ -174,8 +167,6 @@ offer alternative access to binary data.
 .. note::
     :property:`omero.web.application_server.max_requests` should be set to 0
 
-
-.. _nginx_wsgi_benchmark:
 
 Benchmark
 ---------
@@ -271,8 +262,6 @@ for 100 concurrent users making 5000 requests in total::
      100%   8303 (longest request)
 
 
-.. _nginx_troubleshooting:
-
 Troubleshooting
 ---------------
 
@@ -299,8 +288,6 @@ using :property:`omero.web.wsgi_args`:
     $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.server/var/log/error.log".
 
 
-.. _gunicorn_advance_configuration:
-
 EXPERIMENTAL: Gunicorn advance configuration
 --------------------------------------------
 
@@ -312,13 +299,11 @@ OMERO.web deployment can be configured with sync and async workers.
 Sync workers are faster and recommended for a data repository with
 :ref:`download_restrictions`. If you wish to offer users the ability
 to download data then you have to use async workers; read more about
-:ref:`download_limitation`.
+:ref:`trial_download_limitation` above.
 
 For more details refer to
 `Gunicorn design <http://docs.gunicorn.org/en/stable/design.html>`_.
 
-
-.. _gunicorn_sync_configuration:
 
 EXPERIMENTAL: Sync workers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -339,8 +324,7 @@ Additional settings can be configured by changing the following properties:
       $ OMERO.py/bin/omero config set omero.web.wsgi_worker_class
       $ OMERO.py/bin/omero config set omero.web.wsgi_threads $(2-4 x NUM_CORES)
 
-
-.. _gunicorn_async_configuration:
+.. _async_workers:
 
 EXPERIMENTAL: Async workers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
