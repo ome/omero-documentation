@@ -41,7 +41,7 @@ Deployment
 
 There are a number of good ways to easily deploy OMERO.web.
 
-Deploying OMERO.web separately to OMERO.server is recommended as they
+Deploying OMERO.web separately from OMERO.server is recommended as they
 perform best under different circumstances and require a different set of
 dependencies. Please consider using :doc:`OMERO.web trial deployment <install-web-trial>`.
 

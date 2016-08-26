@@ -6,7 +6,7 @@ allows for the management, visualization (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
 includes the ability to manage users and groups.
 
-Deploying OMERO.web separately to OMERO.server is recommended as they
+Deploying OMERO.web separately from OMERO.server is recommended as they
 perform best under different circumstances and require a different set of
 dependencies. This guide uses the example of deploying with nginx and
 gunicorn.
@@ -31,14 +31,14 @@ Prerequisites
 
    -  `NumPy <http://www.numpy.org>`_ >=1.9 
 
--  A `WSGI <http://wsgi.readthedocs.org>`_ capable web server such as
+-  A `WSGI <http://wsgi.readthedocs.org>`_-capable web server such as
    `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
 
 
 Gunicorn default configuration
 ------------------------------
 
-Install above OMERO.web dependences using the package management tools:
+Install the above OMERO.web dependences using the package management tools:
 
 Virtualenv is an optional step:
 
@@ -55,7 +55,7 @@ Virtualenv is an optional step:
    2016-08-24 16:20:14,252 [omego.artifa] INFO  Checking http://downloads.openmicroscopy.org/omero/5.2.5/./artifacts/OMERO.py-5.3.0-ice36-b29.zip
    2016-08-24 16:20:14,252 [omego.fileut] INFO  Downloading http://downloads.openmicroscopy.org/omero/5.2.5/./artifacts/OMERO.py-5.3.0-ice36-b29.zip
    2016-08-24 16:20:14,514 [omego.artifa] INFO  Unzipping OMERO.py-5.3.0-ice36-b29.zip
-  $ pip install -r OMERO.py/web/requirements-py27-experimental.txt
+  $ pip install -r OMERO.py/web/requirements-py27-trial.txt
   $ ln -s `pwd`/OMERO.py-5.2.5-ice36-b28 `pwd`/OMERO.py
 
 
@@ -288,8 +288,8 @@ using :property:`omero.web.wsgi_args`:
     $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.server/var/log/error.log".
 
 
-EXPERIMENTAL: Gunicorn advance configuration
---------------------------------------------
+EXPERIMENTAL: Gunicorn advanced configuration
+---------------------------------------------
 
 .. note:: Experimental configurations are not ready for production use.
     Configuration may change. Features may not work properly.
