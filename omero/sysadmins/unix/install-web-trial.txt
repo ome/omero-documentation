@@ -34,10 +34,6 @@ Prerequisites
 -  A `WSGI <http://wsgi.readthedocs.org>`_-capable web server such as
    `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
 
-
-Gunicorn default configuration
-------------------------------
-
 Install the above OMERO.web dependences using the package management tools:
 
 Virtualenv is an optional step:
@@ -55,14 +51,16 @@ Virtualenv is an optional step:
    2016-08-24 16:20:14,252 [omego.artifa] INFO  Checking http://downloads.openmicroscopy.org/omero/5.2.5/./artifacts/OMERO.py-5.3.0-ice36-b29.zip
    2016-08-24 16:20:14,252 [omego.fileut] INFO  Downloading http://downloads.openmicroscopy.org/omero/5.2.5/./artifacts/OMERO.py-5.3.0-ice36-b29.zip
    2016-08-24 16:20:14,514 [omego.artifa] INFO  Unzipping OMERO.py-5.3.0-ice36-b29.zip
-  $ pip install -r OMERO.py/web/requirements-py27-trial.txt
   $ ln -s `pwd`/OMERO.py-5.2.5-ice36-b28 `pwd`/OMERO.py
+  $ pip install -r OMERO.py/share/web/requirements-py27-trial.txt
 
 
 .. note:: For more details refer to
       :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
       or :djangodoc:`upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
 
+Additional Gunicorn configuration
+---------------------------------
 
 Additional settings can be configured by changing the following properties:
 
