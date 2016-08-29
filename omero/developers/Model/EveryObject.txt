@@ -11,7 +11,6 @@ reference document lists every OMERO model object and their more useful
 properties, with an emphasis on enumerating every direct relationship
 among the objects.
 
-
 Reference
 ---------
 
@@ -212,7 +211,7 @@ Properties:
 ChannelBinding
 """"""""""""""
 
-Used by: :ref:`RenderingDef.waveRendering <OMERO model class RenderingDef>`
+Used by: :ref:`CodomainMapContext.channelBinding <OMERO model class CodomainMapContext>`, :ref:`RenderingDef.waveRendering <OMERO model class RenderingDef>`
 
 Properties:
   | active: ``boolean``
@@ -232,6 +231,7 @@ Properties:
   | noiseReduction: ``boolean``
   | red: ``integer``
   | renderingDef: :ref:`RenderingDef <OMERO model class RenderingDef>`
+  | spatialDomainEnhancement: :ref:`CodomainMapContext <OMERO model class CodomainMapContext>` (multiple)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ChecksumAlgorithm:
@@ -252,15 +252,15 @@ CodomainMapContext
 
 Subclasses: :ref:`ContrastStretchingContext <OMERO model class ContrastStretchingContext>`, :ref:`PlaneSlicingContext <OMERO model class PlaneSlicingContext>`, :ref:`ReverseIntensityContext <OMERO model class ReverseIntensityContext>`
 
-Used by: :ref:`RenderingDef.spatialDomainEnhancement <OMERO model class RenderingDef>`
+Used by: :ref:`ChannelBinding.spatialDomainEnhancement <OMERO model class ChannelBinding>`
 
 Properties:
+  | channelBinding: :ref:`ChannelBinding <OMERO model class ChannelBinding>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | renderingDef: :ref:`RenderingDef <OMERO model class RenderingDef>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class CommentAnnotation:
@@ -298,12 +298,12 @@ ContrastStretchingContext
 """""""""""""""""""""""""
 
 Properties:
+  | channelBinding: :ref:`ChannelBinding <OMERO model class ChannelBinding>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional) from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
-  | renderingDef: :ref:`RenderingDef <OMERO model class RenderingDef>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | version: ``integer`` (optional) from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | xend: ``integer``
   | xstart: ``integer``
@@ -2307,6 +2307,7 @@ PlaneSlicingContext
 """""""""""""""""""
 
 Properties:
+  | channelBinding: :ref:`ChannelBinding <OMERO model class ChannelBinding>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | constant: ``boolean``
   | details.creationEvent: :ref:`Event <OMERO model class Event>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional) from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
@@ -2316,7 +2317,6 @@ Properties:
   | lowerLimit: ``integer``
   | planePrevious: ``integer``
   | planeSelected: ``integer``
-  | renderingDef: :ref:`RenderingDef <OMERO model class RenderingDef>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | upperLimit: ``integer``
   | version: ``integer`` (optional) from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
 
@@ -2712,7 +2712,7 @@ Properties:
 RenderingDef
 """"""""""""
 
-Used by: :ref:`ChannelBinding.renderingDef <OMERO model class ChannelBinding>`, :ref:`CodomainMapContext.renderingDef <OMERO model class CodomainMapContext>`, :ref:`Pixels.settings <OMERO model class Pixels>`, :ref:`ProjectionDef.renderingDef <OMERO model class ProjectionDef>`
+Used by: :ref:`ChannelBinding.renderingDef <OMERO model class ChannelBinding>`, :ref:`Pixels.settings <OMERO model class Pixels>`, :ref:`ProjectionDef.renderingDef <OMERO model class ProjectionDef>`
 
 Properties:
   | compression: ``double`` (optional)
@@ -2728,7 +2728,6 @@ Properties:
   | pixels: :ref:`Pixels <OMERO model class Pixels>`
   | projections: :ref:`ProjectionDef <OMERO model class ProjectionDef>` (multiple)
   | quantization: :ref:`QuantumDef <OMERO model class QuantumDef>`
-  | spatialDomainEnhancement: :ref:`CodomainMapContext <OMERO model class CodomainMapContext>` (multiple)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
   | waveRendering: :ref:`ChannelBinding <OMERO model class ChannelBinding>` (multiple)
 
@@ -2749,12 +2748,12 @@ ReverseIntensityContext
 """""""""""""""""""""""
 
 Properties:
+  | channelBinding: :ref:`ChannelBinding <OMERO model class ChannelBinding>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional) from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
-  | renderingDef: :ref:`RenderingDef <OMERO model class RenderingDef>` from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
   | reverse: ``boolean``
   | version: ``integer`` (optional) from :ref:`CodomainMapContext <OMERO model class CodomainMapContext>`
 
