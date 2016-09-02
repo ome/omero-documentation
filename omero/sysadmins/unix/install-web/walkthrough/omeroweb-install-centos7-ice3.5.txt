@@ -1,0 +1,122 @@
+
+OMERO.web walkthrough installation
+==================================
+
+
+Create local user omero, homedir `/home/omero`::
+    
+    if [ -z "$(getent passwd omero)" ]; then
+    
+        useradd -m omero
+    
+    fi
+    
+    chmod a+X /home/omero
+
+Install ZeroC IcePy 3.5. IcePy is managed by PyPi and will be installed as a part of OMERO.web requirements::
+    
+    curl -o /etc/yum.repos.d/zeroc-ice-el7.repo \
+    http://download.zeroc.com/Ice/3.5/el7/zeroc-ice-el7.repo
+    
+    yum -y install \
+        ice-python
+
+Install other dependences::
+    
+    yum -y install epel-release
+    
+    yum -y install git
+    
+    yum -y install gcc gcc-c++ zlib-devel
+    
+    yum -y install \
+        python-pip \
+        python-virtualenv \
+        libjpeg-devel \
+        libtiff libtiff-devel
+
+
+
+Generate VirtualEnv::
+    
+    virtualenv /home/omero/omerowebvenv --system-site-packages
+    
+    set +u
+    source /home/omero/omerowebvenv/bin/activate
+    set -u
+    
+    pip install omego
+    /home/omero/omerowebvenv/bin/omego download --ice "3.5" --branch "OMERO-DEV-breaking-build" py
+    
+    zip=$(ls OMERO.py*.zip)
+    zipname=${zip%.zip}
+    rm -f $zip
+    if [ ! -d "/home/omero/OMERO.py" ]; then
+        mv $(find . -name 'OMERO.py*' -type d) /home/omero/OMERO.py
+    fi
+    
+    pip install -r /home/omero/OMERO.py/share/web/requirements-py27-nginx.txt
+    pip install -r /home/omero/OMERO.py/share/web/requirements-common-trial.txt
+
+
+Configure OMERO.web and generate nginx template::
+    
+    set +u
+    source /home/omero/omerowebvenv/bin/activate
+    set -u
+    
+    if [[ $WEBPREFIX = *[!\ ]* ]]; then
+        /home/omero/OMERO.py/bin/omero config set omero.web.prefix "${WEBPREFIX}"
+        /home/omero/OMERO.py/bin/omero config set omero.web.static_url "${WEBPREFIX}/static/"
+    fi
+    
+    /home/omero/OMERO.py/bin/omero config set omero.web.application_server wsgi-tcp
+    /home/omero/OMERO.py/bin/omero web config nginx --http "${WEBPORT}" --servername "${WEBSERVER_NAME}" > /home/omero/nginx.conf.tmp
+    
+    cat /home/omero/nginx.conf.tmp
+
+Install NGINX::
+    
+    # The following is only required to install
+    # latest stable version of nginx
+    # Default will be 1.6.3 if not set
+    cat << EOF > /etc/yum.repos.d/nginx.repo
+    [nginx]
+    name=nginx repo
+    baseurl=http://nginx.org/packages/centos/\$releasever/\$basearch/
+    gpgcheck=0
+    enabled=1
+    EOF
+    
+    yum -y install nginx
+    
+    sed -i.bak -re 's/( default_server.*)/; #\1/' /etc/nginx/nginx.conf
+    if [ -f /etc/nginx/conf.d/default.conf ]; then
+        mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
+    fi
+    cp /home/omero/nginx.conf.tmp /etc/nginx/conf.d/omeroweb.conf
+    
+    systemctl enable nginx
+    
+    systemctl start nginx
+
+Disable SELINUX::
+    
+    if [ $(getenforce) != Disabled ]; then
+    
+        yum -y install policycoreutils-python
+        setsebool -P httpd_read_user_content 1
+        setsebool -P httpd_enable_homedirs 1
+        semanage port -a -t http_port_t -p tcp 4080
+    
+    fi
+
+Daemon::
+    
+    cp centos7/omero-web-systemd.service /etc/systemd/system/omero-web.service
+    
+    systemctl daemon-reload
+    
+    systemctl enable omero-web.service
+    
+    systemctl start omero-web.service
