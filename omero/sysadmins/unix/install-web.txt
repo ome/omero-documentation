@@ -19,20 +19,6 @@ with:
 If you need help configuring your firewall rules, see the
 :doc:`/sysadmins/server-security` page.
 
-Prerequisites
--------------
-
--  OMERO and its prerequisites (see :doc:`server-installation`).
-
--  Python 2.7
-
-   -  `Pillow`_ should be available for your distribution. We currently do not
-       support version 3.0+.
-
-   -  `Matplotlib`_ should be available for your distribution
-
--  A WSGI capable web server
-
 
 .. _omero_web_deployment:
 
@@ -43,7 +29,7 @@ There are a number of good ways to easily deploy OMERO.web.
 
 Deploying OMERO.web separately from OMERO.server is recommended as they
 perform best under different circumstances and require a different set of
-dependencies. Please consider using :doc:`OMERO.web trial deployment <install-web-trial>`.
+dependencies. Please consider using :doc:`OMERO.web trial deployment <install-web/install-web-trial>`.
 
 If you have installed Nginx or Apache, OMERO can automatically generate a
 configuration file for your web server. The location of the file will depend
@@ -57,6 +43,13 @@ customization options.
 
     install-web/install-nginx
     install-web/install-apache
+    install-web/install-web-trial
+    install-web/walkthrough/omeroweb-install-centos7-ice3.6
+    install-web/walkthrough/omeroweb-install-centos7-ice3.5
+    install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
+    install-web/walkthrough/omeroweb-install-ubuntu-ice3.5
+    install-web/walkthrough/omeroweb-install-osx-ice3.6
+
 
 Logging in to OMERO.web
 -----------------------
