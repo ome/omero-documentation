@@ -34,6 +34,7 @@ Prerequisites
 -  A `WSGI <http://wsgi.readthedocs.org>`_-capable web server such as
    `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
 
+
 Install the above OMERO.web dependences using the package management tools:
 
 Virtualenv is an optional step:
@@ -92,7 +93,7 @@ configuration redirect the output of the following command into a file:
 
     $ OMERO.py/bin/omero web config nginx
 
-.. literalinclude:: install-web/nginx-omero.conf
+.. literalinclude:: nginx-omero.conf
 
 
 OMERO.web requires ``body_in_file_only`` adjusted in your default nginx

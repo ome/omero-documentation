@@ -12,14 +12,16 @@ OMERO.web Nginx and Gunicorn deployment
 Prerequisites
 -------------
 
--  OMERO and its prerequisites (see :doc:`server-installation`).
+-  OMERO and its prerequisites (see
+   :doc:`/sysadmins/unix/server-installation`).
 
 -  Python 2.7
 
    -  `Pillow`_ should be available for your distribution. We currently do not
        support version 3.0+.
 
-   -  `Numy`_ should be available for your distribution
+   -  `NumPy <http://www.numpy.org>`_ should be available for your 
+      distribution
 
 
 OMERO.web uses the

@@ -4,10 +4,10 @@ OMERO.web walkthrough installation
 
 Install Homebrew in /usr/local::
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew update
-brew doctor
+    brew update
+    brew doctor
 
 
 
