@@ -9,12 +9,24 @@ OMERO.web Nginx and Gunicorn deployment
       :doc:`/sysadmins/version-requirements` page.
 
 
+Prerequisites
+-------------
+
+-  OMERO and its prerequisites (see :doc:`server-installation`).
+
+-  Python 2.7
+
+   -  `Pillow`_ should be available for your distribution. We currently do not
+       support version 3.0+.
+
+   -  `Numy`_ should be available for your distribution
+
+
 OMERO.web uses the
 `Web Server Gateway Interface (WSGI) <http://wsgi.readthedocs.org/en/latest/learn.html>`_
 as a primary deployment platform. The Python standard
 `PEP 3333 <https://www.python.org/dev/peps/pep-3333/>`_
 that describes how a web server communicates with web applications.
-
 
 
 .. _gunicorn_default_configuration:
