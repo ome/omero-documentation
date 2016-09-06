@@ -45,12 +45,10 @@ OMERO jobs
           | :term:`OMERO-DEV-merge-integration-broken`
           | :term:`OMERO-DEV-merge-integration-java`
           | :term:`OMERO-DEV-merge-integration-python`
-          | :term:`OMERO-DEV-merge-integration-web`
         * | :term:`OMERO-DEV-breaking-integration`
           | :term:`OMERO-DEV-breaking-integration-broken`
           | :term:`OMERO-DEV-breaking-integration-java`
           | :term:`OMERO-DEV-breaking-integration-python`
-          | :term:`OMERO-DEV-breaking-integration-web`
 
     -   * Runs the OMERO.matlab tests
         * :term:`OMERO-DEV-merge-matlab`
@@ -230,15 +228,6 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
            :term:`OMERO-DEV-merge-integration`,
         #. Generates pytest report
 
-    :jenkinsjob:`OMERO-DEV-merge-integration-web`
-
-        This job collects the OMERO.web integration test results
-
-        #. Receives pytest results under
-           :file:`components/tools/OmeroWeb/target/reports` from
-           :term:`OMERO-DEV-merge-integration`,
-        #. Generates pytest report
-
     :jenkinsjob:`WEB-DEV-integration-deploy`
 
         This job deploys the merge 5.3.x web (see
@@ -372,15 +361,6 @@ Jenkins.
 
         #. Receives pytest results under
            :file:`components/tools/OmeroPy/target/reports` from
-           :term:`OMERO-DEV-breaking-integration`,
-        #. Generates pytest report
-
-    :jenkinsjob:`OMERO-DEV-breaking-integration-web`
-
-        This job collects the OMERO.web integration test results
-
-        #. Receives pytest results under
-           :file:`components/tools/OmeroWeb/target/reports` from
            :term:`OMERO-DEV-breaking-integration`,
         #. Generates pytest report
 
