@@ -1,5 +1,24 @@
-OMERO.web Apache and mod_wsgi deployment
-========================================
+DEPRECATED OMERO.web Apache and mod_wsgi deployment
+===================================================
+
+.. note:: Since OMERO 5.3 the Apache and mod_wsgi deployment is deprecated.
+      Please consider using :doc:`install-nginx` or
+      :doc:`OMERO.web trial deployment </sysadmins/unix/install-web/install-web-trial>`.
+
+Prerequisites
+-------------
+
+-  OMERO and its prerequisites (see
+   :doc:`/sysadmins/unix/server-installation`).
+
+-  Python 2.7
+
+   -  `Pillow`_ should be available for your distribution. We currently do not
+       support version 3.0+.
+
+   -  `NumPy <http://www.numpy.org>`_ should be available for your
+      distribution
+
 
 .. _apache_wsgi_configuration:
 
