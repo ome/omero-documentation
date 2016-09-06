@@ -93,28 +93,28 @@ clients of the deployment jobs described above:
         * eel.openmicroscopy.org
         * 4064
         * :term:`WEB-DEV-merge-deploy`
-        * https://cowfish.openmicroscopy.org/webmerge
+        * https://web-dev-merge.openmicroscopy.org
 
     -   * DEV
         * :term:`OMERO-DEV-latest-deploy`
         * eel.openmicroscopy.org
         * 14064
         * :term:`WEB-DEV-latest-deploy`
-        * https://cowfish.openmicroscopy.org/weblatest
+        * http://web-dev-latest.openmicroscopy.org
 
     -   * DEV
         * :term:`OMERO-DEV-merge-integration`
         * eel.openmicroscopy.org
         * 24064
         * :term:`WEB-DEV-integration-deploy`
-        * https://cowfish.openmicroscopy.org/webintegration
+        * https://web-dev-integration.openmicroscopy.org
 
     -   * Breaking
         * :term:`OMERO-DEV-breaking-deploy`
         * trout.openmicroscopy.org
         * 34064
         * :term:`WEB-DEV-breaking-deploy`
-        * https://cowfish.openmicroscopy.org/webbreaking
+        * https://web-dev-breaking.openmicroscopy.org
 
 5.3.x series
 ^^^^^^^^^^^^
