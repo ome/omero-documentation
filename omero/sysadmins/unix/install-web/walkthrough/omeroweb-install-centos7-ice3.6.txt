@@ -50,9 +50,7 @@ Install and generate VirtualEnv (run as omero)::
     zip=$(ls OMERO.py*.zip)
     zipname=${zip%.zip}
     rm -f $zip
-    if [ ! -d "/home/omero/OMERO.py" ]; then
-        mv $(find . -name 'OMERO.py*' -type d) /home/omero/OMERO.py
-    fi
+    mv $(find . -name 'OMERO.py*' -type d) /home/omero/OMERO.py
     
     pip install -r /home/omero/OMERO.py/share/web/requirements-py27-trial.txt
 
