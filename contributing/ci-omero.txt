@@ -53,8 +53,7 @@ OMERO jobs
           | :term:`OMERO-DEV-breaking-integration-java`
           | :term:`OMERO-DEV-breaking-integration-python`
 
-    -   * Deploys the integration OMERO web and runs Robot tests using first
-          server from the list
+    -   * Deploys the integration OMERO web and runs Robot tests using first server from the list
         * :term:`WEB-DEV-integration-deploy`
 
     -   * Runs the OMERO.matlab tests
