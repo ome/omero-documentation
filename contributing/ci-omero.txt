@@ -18,6 +18,7 @@ OMERO jobs
 
     -   * Deploys the latest OMERO web
         * :term:`WEB-DEV-latest-deploy`
+        *
 
     -   * Updates submodules
         * :term:`OMERO-DEV-latest-submods`
@@ -55,6 +56,7 @@ OMERO jobs
 
     -   * Deploys the integration OMERO web and runs Robot tests using first server from the list
         * :term:`WEB-DEV-integration-deploy`
+        *
 
     -   * Runs the OMERO.matlab tests
         * :term:`OMERO-DEV-merge-matlab`
