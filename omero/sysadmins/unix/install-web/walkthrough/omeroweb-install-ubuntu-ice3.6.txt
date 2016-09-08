@@ -4,7 +4,7 @@ OMERO.web walkthrough installation
 
 
 
-Create local user omero, homedir `/home/omero`::
+Create local user omero, homedir `/home/omero` (run as root)::
     
     if [ -z "$(getent passwd omero)" ]; then
     
@@ -14,12 +14,12 @@ Create local user omero, homedir `/home/omero`::
     
     chmod a+X /home/omero
 
-Install ZeroC IcePy 3.6. IcePy is managed by PyPi and will be installed as a part of OMERO.web requirements::
+Install ZeroC IcePy 3.6. IcePy is managed by PyPi and will be installed as a part of OMERO.web requirements (run as root)::
     
     apt-get -y install db5.3-util
     apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev
 
-Install other dependences::
+Install other dependences (run as root)::
     
     apt-get update
     apt-get -y install \
@@ -42,7 +42,7 @@ Install other dependences::
     pip install virtualenv
 
 
-Install and generate VirtualEnv::
+Install and generate VirtualEnv (run as omero)::
     
     virtualenv /home/omero/omerowebvenv 
     source /home/omero/omerowebvenv/bin/activate
@@ -59,7 +59,7 @@ Install and generate VirtualEnv::
     
     pip install -r /home/omero/OMERO.py/share/web/requirements-py27-trial.txt
 
-Configure OMERO.web and generate nginx template::
+Configure OMERO.web and generate nginx template (run as omero)::
     
     source /home/omero/omerowebvenv/bin/activate
     
@@ -73,7 +73,7 @@ Configure OMERO.web and generate nginx template::
     
     cat /home/omero/nginx.conf.tmp
 
-Install NGINX::
+Install NGINX (run as root)::
     
     #start-install
     apt-get -y install software-properties-common
@@ -89,7 +89,7 @@ Install NGINX::
     service nginx start
 
 
-Daemon::
+Daemon (run as root)::
     
     cp ubuntu/omero-web-init.d /etc/init.d/omero-web
     chmod a+x /etc/init.d/omero-web
@@ -98,3 +98,80 @@ Daemon::
     update-rc.d -f omero-web defaults 98 02
     
     ubuntu/run
+
+Example::
+    
+    #!/bin/bash
+    #
+    # /etc/init.d/omero
+    # Subsystem file for "omero" server
+    #
+    ### BEGIN INIT INFO
+    # Provides:             omero-web
+    # Required-Start:       $local_fs $remote_fs $network $time omero postgresql
+    # Required-Stop:        $local_fs $remote_fs $network $time omero postgresql
+    # Default-Start:        2 3 4 5
+    # Default-Stop:         0 1 6
+    # Short-Description:    OMERO.web
+    ### END INIT INFO
+    #
+    ### Redhat
+    # chkconfig: - 98 02
+    # description: Init script for OMERO.web
+    ###
+    
+    RETVAL=0
+    prog=omero-web
+    
+    # Read configuration variable file if it is present
+    [ -r /etc/default/$prog ] && . /etc/default/$prog
+    
+    
+    OMERO_PY=${OMERO_PY:-/home/omero/OMERO.py}
+    OMERO_USER=${OMERO_USER:-omero}
+    OMERO=${OMERO_PY}/bin/omero
+    VENVDIR=${VENVDIR:-/home/omero/omerowebvenv}
+    
+    start() {
+        echo -n $"Starting $prog:"
+        su - ${OMERO_USER} -c "source $VENVDIR/bin/activate; ${OMERO} web start" &> /dev/null && echo -n ' OMERO.web'
+        sleep 5
+        ls $OMERO_PY/var/log
+        RETVAL=$?
+        [ "$RETVAL" = 0 ]
+            echo
+    }
+    
+    stop() {
+        echo -n $"Stopping $prog:"
+        su - ${OMERO_USER} -c "source $VENVDIR/bin/activate; ${OMERO} web stop" &> /dev/null && echo -n ' OMERO.web'
+        RETVAL=$?
+        [ "$RETVAL" = 0 ]
+            echo
+    }
+    
+    status() {
+        echo -n $"Status $prog:"
+        su - ${OMERO_USER} -c "source $VENVDIR/bin/activate; ${OMERO} web status"
+        RETVAL=$?
+    }
+    
+    case "$1" in
+        start)
+            start
+            ;;
+        stop)
+            stop
+            ;;
+        restart)
+            stop
+            start
+            ;;
+        status)
+            status
+            ;;
+        *)
+            echo $"Usage: $0 {start|stop|restart|status}"
+            RETVAL=1
+    esac
+    exit $RETVAL

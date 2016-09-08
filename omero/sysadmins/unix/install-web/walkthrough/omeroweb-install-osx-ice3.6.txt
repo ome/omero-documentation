@@ -19,7 +19,7 @@ Install other dependences::
     pip install virtualenv
 
 
-Install and generate VirtualEnv::
+Install and generate VirtualEnv (run as )::
     
     virtualenv ~/omerowebvenv 
     source ~/omerowebvenv/bin/activate
@@ -36,7 +36,7 @@ Install and generate VirtualEnv::
     
     pip install -r ~/OMERO.py/share/web/requirements-py27-trial.txt
 
-Configure OMERO.web and generate nginx template::
+Configure OMERO.web and generate nginx template (run as )::
     
     source ~/omerowebvenv/bin/activate
     
@@ -58,5 +58,6 @@ Install NGINX::
     
     # Restart webserver
     brew services restart nginx
+
 
 

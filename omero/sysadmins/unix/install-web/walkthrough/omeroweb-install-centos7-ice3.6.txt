@@ -4,7 +4,7 @@ OMERO.web walkthrough installation
 
 
 
-Create local user omero, homedir `/home/omero`::
+Create local user omero, homedir `/home/omero` (run as root)::
     
     if [ -z "$(getent passwd omero)" ]; then
     
@@ -14,13 +14,13 @@ Create local user omero, homedir `/home/omero`::
     
     chmod a+X /home/omero
 
-Install ZeroC IcePy 3.6. IcePy is managed by PyPi and will be installed as a part of OMERO.web requirements::
+Install ZeroC IcePy 3.6. IcePy is managed by PyPi and will be installed as a part of OMERO.web requirements (run as root)::
     
     yum -y install \
         libdb-utils \
         openssl-devel bzip2-devel expat-devel
 
-Install other dependences::
+Install other dependences (run as root)::
     
     yum -y install epel-release
     
@@ -39,7 +39,7 @@ Install other dependences::
     pip install virtualenv
 
 
-Install and generate VirtualEnv::
+Install and generate VirtualEnv (run as omero)::
     
     virtualenv /home/omero/omerowebvenv 
     source /home/omero/omerowebvenv/bin/activate
@@ -56,7 +56,7 @@ Install and generate VirtualEnv::
     
     pip install -r /home/omero/OMERO.py/share/web/requirements-py27-trial.txt
 
-Configure OMERO.web and generate nginx template::
+Configure OMERO.web and generate nginx template (run as omero)::
     
     source /home/omero/omerowebvenv/bin/activate
     
@@ -70,7 +70,7 @@ Configure OMERO.web and generate nginx template::
     
     cat /home/omero/nginx.conf.tmp
 
-Install NGINX::
+Install NGINX (run as root)::
     
     # The following is only required to install
     # latest stable version of nginx
@@ -95,7 +95,7 @@ Install NGINX::
     
     systemctl start nginx
 
-Disable SELINUX::
+Disable SELINUX (run as root)::
     
     if [ $(getenforce) != Disabled ]; then
     
@@ -106,7 +106,7 @@ Disable SELINUX::
     
     fi
 
-Daemon::
+Daemon (run as root)::
     
     cp centos7/omero-web-systemd.service /etc/systemd/system/omero-web.service
     
@@ -115,3 +115,22 @@ Daemon::
     systemctl enable omero-web.service
     
     systemctl start omero-web.service
+
+Example::
+    
+    [Unit]
+    Description=OMERO.web
+    Requires=nginx.service
+    
+    [Service]
+    User=omero
+    Type=forking
+    PIDFile=/home/omero/OMERO.py/var/django.pid
+    Restart=on-failure
+    RestartSec=10
+    Environment="VENVDIR=/home/omero/omerowebvenv" "BINDIR=/home/omero/OMERO.py/bin"
+    ExecStart=/usr/bin/bash -c "source $VENVDIR/bin/activate; $BINDIR/omero web start"
+    ExecStop=/usr/bin/bash -c "source $VENVDIR/bin/activate; $BINDIR/omero web stop"
+    
+    [Install]
+    WantedBy=multi-user.target
