@@ -3,6 +3,7 @@ OMERO.web walkthrough installation
 ==================================
 
 
+
 Create local user omero, homedir `/home/omero`::
     
     if [ -z "$(getent passwd omero)" ]; then
@@ -22,7 +23,7 @@ Install other dependences::
     apt-get update
     apt-get -y install \
         git \
-        python-{dev,pip,virtualenv}
+        python-{dev,pip}
     
     # require to install Pillow
     apt-get -y install \
@@ -34,16 +35,16 @@ Install other dependences::
         libwebp-dev \
         tcl8.6-dev \
         tk8.6-dev
+    
+    # install the latest version
+    pip install --upgrade pip
+    pip install virtualenv
 
 
-
-Generate VirtualEnv::
+Install and generate VirtualEnv::
     
     virtualenv /home/omero/omerowebvenv --system-site-packages
-    
-    set +u
     source /home/omero/omerowebvenv/bin/activate
-    set -u
     
     pip install omego
     /home/omero/omerowebvenv/bin/omego download --ice "3.5" --branch "OMERO-DEV-breaking-build" py
@@ -58,12 +59,9 @@ Generate VirtualEnv::
     pip install -r /home/omero/OMERO.py/share/web/requirements-py27-nginx.txt
     pip install -r /home/omero/OMERO.py/share/web/requirements-common-trial.txt
 
-
 Configure OMERO.web and generate nginx template::
     
-    set +u
     source /home/omero/omerowebvenv/bin/activate
-    set -u
     
     if [[ $WEBPREFIX = *[!\ ]* ]]; then
         /home/omero/OMERO.py/bin/omero config set omero.web.prefix "${WEBPREFIX}"
