@@ -267,8 +267,8 @@ Patch database functions (optional)
 """""""""""""""""""""""""""""""""""
 
 An additional database script is provided for fixing an error that
-affects *only* systems that were upgraded from OMERO 4.4. More recent
-OMERO installations should skip this patching step.
+affects *only* systems that were once upgraded from OMERO 4.4. More
+recent OMERO installations should skip this patching step.
 
 The script patches OMERO 5.1 and 5.2 databases, runs quickly, and can be
 applied anytime, even under a running OMERO server. Although the problem
