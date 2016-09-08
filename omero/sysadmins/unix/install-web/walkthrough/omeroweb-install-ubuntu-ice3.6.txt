@@ -97,7 +97,7 @@ Daemon (run as root)::
     
     ubuntu/run
 
-Example::
+omero-web-init.d example::
     
     #!/bin/bash
     #
