@@ -1,18 +1,15 @@
-OMERO.web walkthrough installation Ubuntu 14.04 and IcePy 3.5
-=============================================================
+TRIAL: OMERO.web walkthrough installation Ubuntu 14.04 and IcePy 3.5
+====================================================================
 
 
 For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively source the following file::
     
-    OMERO_USER=${OMERO_USER:-omero}
-    
-    OMEROVER=${OMEROVER:-OMERO-DEV-merge-build}
-    
-    WEBSESSION=${WEBSESSION:-}
-    
-    WEBPREFIX=${WEBPREFIX:-}
-    WEBPORT=${WEBPORT:-80}
-    WEBSERVER_NAME=${WEBSERVER_NAME:-localhost}
+    OMERO_USER=omero
+    OMEROVER=OMERO-DEV-merge-build
+    WEBSESSION=
+    WEBPREFIX=
+    WEBPORT=80
+    WEBSERVER_NAME=localhost
 
 
 
