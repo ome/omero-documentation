@@ -70,38 +70,6 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
                 * :term:`BIOFORMATS-5.1-merge-homebrew`
                 *
 
-        -       * Builds the latest native C++ implementation for Bio-Formats
-                * :term:`BIOFORMATS-CPP-5.1-latest`
-                *
-
-        -       * Builds the latest native C++ implementation for Bio-Formats (Unix superbuild)
-                * :term:`BIOFORMATS-CPP-5.1-latest-superbuild`
-                *
-
-        -       * Builds the latest native C++ implementation for Bio-Formats (Windows superbuild)
-                * :term:`BIOFORMATS-CPP-5.1-latest-win-superbuild`
-                *
-
-        -       * Builds the merge native C++ implementation for Bio-Formats
-                * :term:`BIOFORMATS-CPP-5.1-merge`
-                *
-
-        -       * Builds the merge native C++ implementation for Bio-Formats (Unix superbuild)
-                * :term:`BIOFORMATS-CPP-5.1-merge-superbuild`
-                *
-
-        -       * Builds the merge native C++ implementation for Bio-Formats (Windows superbuild)
-                * :term:`BIOFORMATS-CPP-5.1-merge-win-superbuild`
-                *
-
-        -       * Merges the ome-cmake-superbuild PRs 
-                * :term:`BIOFORMATS-CPP-5.1-merge-push-superbuild`
-                *
-
-        -       * Triggers the building of the merge native C++ implementation for Bio-Formats (all merge build jobs)
-                * :term:`BIOFORMATS-CPP-5.1-merge-trigger`
-                *
-
 
 5.1.x series
 ^^^^^^^^^^^^
@@ -147,7 +115,6 @@ The branch for the 5.1.x series of Bio-Formats is dev_5_1.
 
                 #. Triggers :term:`BIOFORMATS-5.1-merge-push`
                 #. Triggers :term:`BIOFORMATS-5.1-merge-build`,
-                   :term:`BIOFORMATS-CPP-5.1-merge`,
                    :term:`BIOFORMATS-5.1-merge-docs`,
                    :term:`BIOFORMATS-5.1-merge-test_images_good` and
                    BIOFORMATS-5.1-merge-performance
@@ -250,42 +217,6 @@ The branch for the 5.1.x series of Bio-Formats is dev_5_1.
 
                 This job builds Bio-Formats Java using MacOS X Homebrew
 
-        :jenkinsjob:`BIOFORMATS-CPP-5.1-latest`
-
-                This job builds the latest native C++ implementation for Bio-Formats
-
-        :jenkinsjob:`BIOFORMATS-CPP-5.1-latest-superbuild`
-
-                This job builds the latest native C++ implementation
-                for Bio-Formats (Unix superbuild)
-
-        :jenkinsjob:`BIOFORMATS-CPP-5.1-latest-win-superbuild`
-
-                This job builds the latest native C++ implementation
-                for Bio-Formats (Windows superbuild)
-
-        :jenkinsjob:`BIOFORMATS-CPP-5.1-merge`
-
-                This job builds the merge native C++ implementation for Bio-Formats
-
-        :jenkinsjob:`BIOFORMATS-CPP-5.1-merge-superbuild`
-
-                This job builds the merge native C++ implementation
-                for Bio-Formats (Unix superbuild)
-
-        :jenkinsjob:`BIOFORMATS-CPP-5.1-merge-win-superbuild`
-
-                This job builds the merge native C++ implementation
-                for Bio-Formats (Windows superbuild)
-
-        :jenkinsjob:`BIOFORMATS-CPP-5.1-merge-push-superbuild`
-
-                This job merges the ome-cmake-superbuild PRs 
-
-        :jenkinsjob:`BIOFORMATS-CPP-5.1-merge-trigger`
-
-                This job triggers the building of the merge native C++
-                implementation for Bio-Formats (all merge build jobs)
 
 5.2.x series
 ^^^^^^^^^^^^
