@@ -1,5 +1,5 @@
-DEPRECATED OMERO.web Apache and mod_wsgi deployment
-===================================================
+DEPRECATED: OMERO.web Apache and mod_wsgi deployment
+====================================================
 
 .. note:: Since OMERO 5.3 the Apache and mod_wsgi deployment is deprecated.
       Please consider using :doc:`install-nginx` or
