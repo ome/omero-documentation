@@ -48,7 +48,7 @@ Install and generate VirtualEnv (run as omero)::
     source /home/omero/omerowebvenv/bin/activate
     
     pip install omego
-    /home/omero/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-breaking-build" py
+    /home/omero/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-merge-build" py
     
     zip=$(ls OMERO.py*.zip)
     zipname=${zip%.zip}
