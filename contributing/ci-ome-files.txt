@@ -7,47 +7,36 @@ All jobs are listed under the :jenkinsview:`Files` view tab of Jenkins.
         :header-rows: 1
 
         -       * Job task
-                * stable series
-                * development series (0.1.x)
+                * Development series (0.x.y)
 
         -       * Builds the latest OME Files C++ components (Unix superbuild)
-                * N/A
                 * :term:`OME-FILES-CPP-DEV-latest-superbuild`
 
         -       * Builds the latest OME Files C++ components (Windows superbuild)
-                * N/A
                 * :term:`OME-FILES-CPP-DEV-latest-win-superbuild`
 
         -       * Builds the latest OME Files C++ documentation
-                * N/A
                 * :term:`OME-FILES-CPP-DEV-latest-docs`
 
         -       * Triggers the building of the merge OME Files C++ components (all merge build jobs)
-                * N/A
                 * :term:`OME-FILES-CPP-DEV-merge-trigger`
 
         -       * Merges the ome-cmake-superbuild PRs
-                * N/A
                 * :term:`OME-FILES-CPP-DEV-merge-push-superbuild`
 
         -       * Builds the merge OME Files C++ components (Unix)
-                * N/A
                 * :term:`OME-FILES-CPP-DEV-merge`
 
         -       * Builds the merge OME Files C++ source releases (Unix)
-                * N/A
                 * :term:`OME-FILES-CPP-DEV-merge-sourcebuild`
 
         -       * Builds the merge OME Files C++ components (Unix superbuild)
-                * N/A
                 * :term:`OME-FILES-CPP-DEV-merge-superbuild`
 
         -       * Builds the merge OME Files C++ components (Windows superbuild)
-                * N/A
                 * :term:`OME-FILES-CPP-DEV-merge-win-superbuild`
 
         -       * Builds the merge OME Files C++ documentation
-                * N/A
                 * :term:`OME-FILES-CPP-DEV-merge-docs`
 
 Stable series
