@@ -282,7 +282,7 @@ nonetheless recommend that the patch is applied promptly.
 An unpatched system may exhibit serious problems if run with PostgreSQL
 9.5. OMERO 5.2 does *not* support PostgreSQL 9.5 and the upgrade script
 for OMERO 5.3 *will* ensure that these PL/pgSQL functions are patched
-regardless of if you used this provided script before that upgrade.
+regardless of whether you used this provided script before that upgrade.
 
 .. _upgrademergescript:
 
