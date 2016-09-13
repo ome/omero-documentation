@@ -70,7 +70,9 @@ rst_epilog += """
 ..  |promoteOMERO| replace:: copies the artifacts to necromancer
 ..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
 ..  |buildBF| replace:: Builds Bio-Formats using ``ant clean jars tools tools-ome utils dist-bftools``
-..  |buildBFcpp| replace:: Builds Bio-Formats using ``cmake``
+..  |buildFiles| replace:: Builds OME Files components from git using ``cmake``
+..  |buildFilesSB| replace:: Builds OME Files components and third-party dependencies using ``cmake``
+..  |buildFilesSRC| replace:: Builds OME Files components from source release archives using ``cmake``
 ..  |testBF| replace:: Runs Bio-Formats tests using ``ant test-common test-ome-xml test-formats test-ome-io``
 ..  |fulltestBF| replace:: Runs Bio-Formats full test-suite using ``ant test``
 ..  |sphinxbuild| replace:: Runs ``make clean html latexpdf`` to build the HTML and PDF versions of the Sphinx documentation
