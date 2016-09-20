@@ -1,23 +1,18 @@
-Releasing the OME model schema
-==============================
+Development of the OME Data Model
+=================================
 
 Introduction
 ------------
 
-This is a preliminary document describing a way to get the OME model
-schema published on the OME website, based on observations of the
-2015-01 release being performed; that release version is used in the
-examples below. Throughout the process it is important to not just copy
-and paste, but to understand what is actually being done and why. It is
-likely that there are clear opportunities to improve the steps, fit them
-to your natural workflow, even rethink or automate some aspects, such as
-with some of the scripts on squig in
-:file:`ome/team/ajpatterson/UsefullFiles/bftools-using`. The text below
-is not quite yet a step-by-step guide, more a set of explanations that
-should make the necessary steps clear. Many of the command-line scripts
-below assume that you start at the top level of your Bio-Formats
-repository, and they include some :file:`/path/to` directories for you
-to adjust as appropriate.
+This is a document describing a way to work and publish the OME model schema
+on the OME website, based on observations of the 2016-06 release being
+performed; that release version is used in the examples below. Throughout the
+process it is important to not just copy and paste, but to understand what is
+actually being done and why. The text below is not quite yet a step-by-step
+guide, more a set of explanations that should make the necessary steps clear. 
+Many of the command-line scripts below assume that you start at the top level
+of your Bio-Formats repository, and they include some :file:`/path/to`
+directories for you to adjust as appropriate.
 
 Schema development
 ------------------
@@ -172,8 +167,8 @@ that the :command:`ctest` step can take a long time.
 Sample files
 ------------
 
-Sample files in Bio-Formats
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OME-XML sample files
+^^^^^^^^^^^^^^^^^^^^
 
 Once the schemas and transforms are moved and named to fit the release
 version, then the sample files can be upgraded. A new copy of the sample
@@ -201,11 +196,11 @@ editor is important; the other non-text data must be preserved. One of
 several suitable options is Emacs' `Hexl mode
 <https://www.gnu.org/software/emacs/manual/html_node/emacs/Editing-Binary-Files.html>`_.
 
-Sample files on squig
+OME-TIFF sample files
 ^^^^^^^^^^^^^^^^^^^^^
 
-On squig in :file:`ome/Documentation/Specification/Samples` there are
-sample files for each schema release version. The sample files in the
+Sample files for each schema release version are available under
+http://downloads.openmicroscopy.org/images/OME-TIFF/. The sample files in the
 previous release's directory, and the multi-file samples in its
 :file:`tubhiswt-*` directories, are upgraded to the new schema using
 :command:`bfconvert` from the updated Bio-Formats repository: in that
