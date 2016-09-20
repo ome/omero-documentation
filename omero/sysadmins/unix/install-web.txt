@@ -12,9 +12,10 @@ with:
 
 -  `WSGI <http://wsgi.readthedocs.org>`_ using a WSGI capable web server
    such as
-   `Apache 2.2+ <http://httpd.apache.org/>`_ (with
-   `mod\_wsgi <http://www.modwsgi.org/>`_ enabled) or 
-   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
+   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_
+   (you can also use `Apache 2.2+ <http://httpd.apache.org/>`_ with
+   `mod\_wsgi <http://www.modwsgi.org/>`_ enabled but this is not
+   recommended for new installations as support is due to be removed in 5.3)
 -  The built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page).
 
@@ -54,6 +55,9 @@ customization options.
 
     install-web/install-apache
     install-web/install-nginx
+
+.. note:: Apache is deprecated as of OMERO 5.2.6 and will not be supported for
+    5.3.
 
 Logging in to OMERO.web
 -----------------------
