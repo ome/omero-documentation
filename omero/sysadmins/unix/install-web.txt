@@ -15,7 +15,8 @@ with:
    `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_
    (you can also use `Apache 2.2+ <http://httpd.apache.org/>`_ with
    `mod\_wsgi <http://www.modwsgi.org/>`_ enabled but this is not
-   recommended for new installations as support is due to be removed in 5.3)
+   recommended for new installations as it has been deprecated as of OMERO
+   5.2.6 and is likely to be dropped during the 5.3.x line)
 -  The built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page).
 
