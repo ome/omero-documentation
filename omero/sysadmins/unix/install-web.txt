@@ -50,6 +50,14 @@ customization options.
     install-web/walkthrough/omeroweb-install-ubuntu-ice3.5
     install-web/walkthrough/omeroweb-install-osx-ice3.6
 
+.. note:: Apache has been deprecated and official support is likely to be
+    dropped during the 5.3.x line.
+    
+    If an Apache HTTP server is the only way to provide internet access to
+    internal clients that are otherwise restricted by a firewall, you should
+    configure the Apache HTTP server as a reverse proxy to Nginx (refer to the
+    `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_ for further
+    details).
 
 Logging in to OMERO.web
 -----------------------
