@@ -56,8 +56,8 @@ customization options.
     install-web/install-apache
     install-web/install-nginx
 
-.. note:: Apache is deprecated as of OMERO 5.2.6 and may not be officially
-    supported for 5.3.
+.. note:: Apache is deprecated as of OMERO 5.2.6 and official
+    support is likely be dropped during the 5.3.x line.
     
     If an Apache HTTP server is the only way to provide internet access to
     internal clients that are otherwise restricted by a firewall, you should

@@ -171,8 +171,8 @@ The planned changes for 5.2 depend upon our support of
 
 * Apache
 
-  * [5.2] 2.2 deprecated, 2.4 recommended
-  * [5.3] deprecated for all versions
+  * [5.2] deprecated in OMERO 5.2.6
+  * [5.3] deprecated, likely to be dropped during the 5.3.x line
   * Rationale: 2.2 is the CentOS/RHEL 6.x and Ubuntu 12.04 version,
     both of which will be dropped in 5.3 if CentOS 6 is dropped,
     otherwise they will remain deprecated.
