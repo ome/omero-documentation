@@ -56,8 +56,14 @@ customization options.
     install-web/install-apache
     install-web/install-nginx
 
-.. note:: Apache is deprecated as of OMERO 5.2.6 and will not be supported for
-    5.3.
+.. note:: Apache is deprecated as of OMERO 5.2.6 and may not be officially
+    supported for 5.3.
+    
+    If an Apache HTTP server is the only way to provide internet access to
+    internal clients that are otherwise restricted by a firewall, you should
+    configure the Apache HTTP server as a reverse proxy to Nginx (refer to the
+    `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_ for further
+    details).
 
 Logging in to OMERO.web
 -----------------------
