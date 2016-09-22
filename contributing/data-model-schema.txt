@@ -312,6 +312,9 @@ generate the published schemas pages from the HEAD of Bio-Formats develop
 branch. When the job is promoted, the generated content is deployed under
 :file:`/var/www/html/www.openmicroscopy.org/specification/Schemas` on
 `web-prod` under using the :devs_doc:`scc deploy<scc.html>` script.
+Because :bf_doc:`xmlvalid <users/comlinetools/xml-validation.html>` uses
+the published schema then files that use the new schema features will
+validate only after the job is promoted successfully.
 
 Generated documentation
 ^^^^^^^^^^^^^^^^^^^^^^^
