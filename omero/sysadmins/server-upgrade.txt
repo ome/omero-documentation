@@ -67,8 +67,8 @@ there may be fixes which require it.
     see :ref:`python-requirements` on the
     :doc:`/sysadmins/version-requirements` page.
     
-    Also note that Apache is now deprecated and official support is likely to
-    be dropped during the 5.3.x line.
+    Also note that support for Apache deployment is now deprecated and is
+    likely to be dropped during the 5.3.x line.
 
 OMERO.web dependencies
 ^^^^^^^^^^^^^^^^^^^^^^
