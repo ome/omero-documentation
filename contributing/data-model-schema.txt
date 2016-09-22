@@ -137,14 +137,10 @@ Avoid changing:
 Testing
 ^^^^^^^
 
-.. TODO:
-   After the 5.1 release and redirect, the link below can become
-   :bf_doc:`C++ implementation <developers/cpp.html>`
-
 Once the above changes have been made and committed, it is time to test.
 This requires having various prerequisites installed for Bio-Formats
 development, including for the `C++ implementation
-<http://www.openmicroscopy.org/site/support/bio-formats5.1/developers/cpp/overview.html>`_.
+<http://downloads.openmicroscopy.org/latest/ome-files-cpp/>`_.
 Before each test, :ref:`clean the repository <clean_bf_repo>`::
 
   git clean -dfx
