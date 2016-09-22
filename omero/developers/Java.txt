@@ -50,6 +50,10 @@ Connect to OMERO
     //                "--omero.user=" + userName, "--omero.pass=" + password };
     // LoginCredentials cred = new LoginCredentials(args);
 
+    // If you want to join an existing session you can use the session ID as 
+    // user name and a 'null' password:
+    // LoginCredentials cred = new LoginCredentials(sessionID, null, host, port);
+    
     //Create a simple Logger object which just writes
     //to System.out or System.err
     Logger simpleLogger = new SimpleLogger();
