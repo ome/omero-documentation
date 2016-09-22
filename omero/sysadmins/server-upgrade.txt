@@ -67,8 +67,8 @@ there may be fixes which require it.
     see :ref:`python-requirements` on the
     :doc:`/sysadmins/version-requirements` page.
     
-    Also note that as of OMERO 5.2.6, Apache is deprecated and official
-    support is likely be dropped during the 5.3.x line.
+    Also note that as of OMERO 5.2.6, support for Apache deployment is
+    deprecated and is likely be dropped during the 5.3.x line.
 
 OMERO.web dependencies
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -80,7 +80,7 @@ up to date to ensure that security updates are applied.
 
      $ pip install --upgrade -r share/web/requirements-py27-nginx.txt
 
-- Apache on Unix::
+- Apache (deprecated) on Unix::
 
      $ pip install --upgrade -r share/web/requirements-py27-apache.txt
 

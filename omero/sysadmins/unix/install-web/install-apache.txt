@@ -13,8 +13,8 @@ Apache 2.2+ with mod_wsgi configuration (Unix/Linux)
       see :ref:`python-requirements` on the
       :doc:`/sysadmins/version-requirements` page.
       
-      Also note that Apache is deprecated as of OMERO 5.2.6 and official
-      support is likely be dropped during the 5.3.x line.
+      Also note that support for Apache deployment is deprecated as of OMERO
+      5.2.6 and is likely be dropped during the 5.3.x line.
 
 OMERO.web uses the
 `Web Server Gateway Interface (WSGI) <http://wsgi.readthedocs.org/en/latest/learn.html>`_
