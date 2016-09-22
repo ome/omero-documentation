@@ -29,8 +29,31 @@ wastes your time. From the top-level :file:`bioformats` folder, while
 the most thorough is :command:`git clean -dfx`.
 
 
+Major or minor release?
+^^^^^^^^^^^^^^^^^^^^^^^
+
+A minor release of the OME model schema may suffice for changes like
+adding new legal values to an existing enumeration. A release *must*
+be major if,
+
+* some documents that validate under the current release will not
+  validate under the new one (a major "data-level" change)
+
+* some terms in the schema have changed meaning and may thus be acted on
+  differently (a major "information-level" change)
+
+A major release requires changing the schema's namespace. For a minor
+release it suffices to increment the value of the `version` attribute of
+the `xsd:schema` element, leaving the namespace unchanged.
+
+
 Create the new schema directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note::
+
+  This subsection is for major releases only. A minor release can reuse
+  the schema directory for the current release, so skip over this part.
 
 For the schema release process a high fraction of the necessary work
 occurs in Bio-Formats' :bf_source:`components/specification` directory.
@@ -90,10 +113,14 @@ XML transforms
 
 The changes made to the released schemas should be accompanied by
 changes to the XML transforms in
-:bf_source:`components/specification/transforms`, again using
+:bf_source:`components/specification/transforms`. For major releases use
 :command:`git mv` in renaming the upgrade and downgrade for the latest
 patch. Remember to restore the originals in a later commit, as above
 when restoring the schema definition files for the latest patch.
+
+For minor releases it suffices to adjust the existing upgrade and
+downgrade transforms for the current release. Remember that users may be
+downgrading from an earlier minor version than this newest version.
 
 The transforms' analog of the catalog files is
 :bf_source:`ome-transforms.xml
@@ -103,6 +130,11 @@ describe the transforms in its directory for that commit.
 
 Search and replace
 ^^^^^^^^^^^^^^^^^^
+
+.. note::
+
+  This subsection is for major releases only. A minor release reuses the
+  current release and patch versions, so skip over this part.
 
 There are various references to the latest patch version and even the
 latest release version to be updated; the whole Bio-Formats repository
