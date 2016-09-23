@@ -46,6 +46,11 @@ A major release requires changing the schema's namespace. For a minor
 release it suffices to increment the value of the `version` attribute of
 the `xsd:schema` element, leaving the namespace unchanged.
 
+.. seealso::
+
+  :bf_pr:`PR #1999 <1999>` (major schema change), :bf_pr:`PR #2553
+  <2553>` (minor schema change)
+
 
 Create the new schema directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
