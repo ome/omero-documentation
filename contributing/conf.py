@@ -25,7 +25,12 @@ from conf import *
 project = u'OME Contributing Developer'
 title = project + u' Documentation'
 
+main_github_root = github_root + 'openmicroscopy'
 scc_github_root = github_root + 'snoopycrimecop'
+
+# cf. omero_github_root, bf_github_root
+omero_main_github_root = main_github_root + '/openmicroscopy/'
+bf_main_github_root = main_github_root + '/bioformats/'
 
 # OME contributing-specific extlinks
 contributing_extlinks = {
@@ -33,12 +38,12 @@ contributing_extlinks = {
     'omero_source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'omero_sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
     'omero_commit' : (omero_github_root + 'commit/%s', ''),
-    'omero_pr' : (omero_github_root + 'pull/%s', ''),
+    'omero_pr' : (omero_main_github_root + 'pull/%s', ''),
     'omero_scc_branch' : (scc_github_root + '/openmicroscopy/tree/%s', ''),
     'bf_source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
     'bf_sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
     'bf_commit' : (bf_github_root + 'commit/%s', ''),
-    'bf_pr' : (bf_github_root + 'pull/%s', ''),
+    'bf_pr' : (bf_main_github_root + 'pull/%s', ''),
     'bf_scc_branch' : (scc_github_root + '/bioformats/tree/%s', ''),
     'omedoc_scc_branch' : (scc_github_root + '/ome-documentation/tree/%s', ''),
     'omehelp_scc_branch' : (scc_github_root + '/ome-help/tree/%s', ''),
