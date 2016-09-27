@@ -54,6 +54,20 @@ project 51 and datasets 53 and 54.
     $ bin/omero delete Dataset:54,53 Project:51
     $ bin/omero delete Dataset:53 Project:51 Dataset:54
 
+To delete a number of objects with sequentially numbered IDs an abbreviated
+form using a hyphen to specify an ID range can be used. This form can also be
+mixed with comma-separated IDs.
+::
+
+    $ bin/omero delete Project:51 Dataset:53-56
+    $ bin/omero delete Dataset:53-56,65,101-105,201,202
+
+.. note::
+    When deleting multiple objects in a single command, if one object cannot
+    be deleted then the whole command will fail and none of the specified
+    objects will be deleted. The :option:`--dry-run` can be useful as a check
+    before trying to delete large numbers of objects.
+
 Deleting lower level objects
 ============================
 
