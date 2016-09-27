@@ -167,7 +167,7 @@ Provide the :option:`-g` login option as part of the import command::
     $ bin/omero import -g group_name ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
 
-Use the :command:`sessions group` to switch group before running the import
+Use :omerocmd:`sessions group` to switch group before running the import
 command::
 
     $ bin/omero sessions group 51
@@ -176,5 +176,5 @@ command::
 .. note::
 
     The ::option:`-g` login option requires the group name as its argument,
-    while the :command:`sessions group` command uses either the group ID
+    while the :omerocmd:`sessions group` subcommand uses either the group ID
     or the group name.
