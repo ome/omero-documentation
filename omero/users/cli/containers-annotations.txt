@@ -11,12 +11,12 @@ examples of some simple but fairly common workflows.
 Creating containers
 ^^^^^^^^^^^^^^^^^^^
 
-Creating a dataset with a name::
+Create a dataset with a name::
 
    $ bin/omero obj new Dataset name=NewDVSet
    Dataset:51
 
-And then updating that dataset to add a description::
+And then update that dataset to add a description::
 
    $ bin/omero obj update Dataset:51 description='A dataset for new DV images'
    Dataset:51
