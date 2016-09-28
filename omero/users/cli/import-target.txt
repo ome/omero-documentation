@@ -144,13 +144,16 @@ likely to be created as it will be created in the current group, which may not
 be the group intended.
 
 If no group is specified by using the :option:`-g` login option as part of the
-import, the current group will depend on whether the user is currently logged
-in, is logged out but has active sessions or is logged out with no active
-sessions. If the user is logged in then their current group will be the one they
-are logged in to. If the user is logged out but has active sessions then the
-most recent session will be used to connect and that will determine the current
-group. Finally, if the user is logged out and has no active sessions then the
-current group will be their default group.
+import, the current group will be dependent on the user's login status.
+
+-   If the user is currently logged in then their current group will be the one
+    they are logged in to.
+
+-   If the user is logged out but has active sessions then the most recent
+    session will be used to connect and that will determine the current group.
+
+-   If the user is logged out and has no active sessions then the current group
+    will be their default group.
 
 If the user knows which group the import target is in, or needs to be created
 in, then one of the following methods can be used to ensure the target group is
