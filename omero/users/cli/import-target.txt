@@ -148,7 +148,7 @@ import, the current group will depend on whether the user is currently logged
 in, is logged out but has active sessions or is logged out with no active
 sessions. If the user is logged in then their current group will be the one they
 are logged in to. If the user is logged out but has active sessions then the
-most recent session will be used to connect and that will determin the current
+most recent session will be used to connect and that will determine the current
 group. Finally, if the user is logged out and has no active sessions then the
 current group will be their default group.
 
@@ -175,6 +175,6 @@ command::
 
 .. note::
 
-    The ::option:`-g` login option requires the group name as its argument,
+    The :option:`-g` login option requires the group name as its argument,
     while the :omerocmd:`sessions group` subcommand uses either the group ID
     or the group name.
