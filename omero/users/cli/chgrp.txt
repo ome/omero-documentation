@@ -54,9 +54,8 @@ project 51 and datasets 53 and 54 to group 5.
     $ bin/omero chgrp 5 Dataset:54,53 Project:51
     $ bin/omero chgrp 5 Dataset:53 Project:51 Dataset:54
 
-To move a number of objects with sequentially numbered IDs an abbreviated
-form using a hyphen to specify an ID range can be used. This form can also be
-mixed with comma-separated IDs.
+To move a number of objects with sequentially numbered IDs a hyphen can be used
+to specify an ID range. This form can also be mixed with comma-separated IDs.
 ::
 
     $ bin/omero chgrp 5 Project:51 Dataset:53-56
