@@ -176,6 +176,9 @@ the current group for the import.
         $ bin/omero sessions group 51
         $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
+For further information on the commands :omerocmd:`login` and
+:omerocmd:`sessions` see :doc:`sessions`.
+
 .. note::
 
     The :option:`-g` login option requires the group name as its argument,
