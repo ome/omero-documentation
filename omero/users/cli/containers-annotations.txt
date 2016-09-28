@@ -18,7 +18,7 @@ Creating a dataset with a name::
 
 And then updating that dataset to add a description::
 
-   $ bin/omero omero obj update Dataset:51 description='A dataset for new DV images'
+   $ bin/omero obj update Dataset:51 description='A dataset for new DV images'
    Dataset:51
 
 Creating a screen with a name and description::
@@ -46,9 +46,9 @@ Creating and attaching annotations
 
 Create a comment annotation and attach it to a dataset::
 
-	$ bin/omero omero obj new CommentAnnotation textValue='Hello World!'
+	$ bin/omero obj new CommentAnnotation textValue='Hello World!'
 	CommentAnnotation:2
-	$ bin/omero omero obj new DatasetAnnotationLink parent=Dataset:51 child=CommentAnnotation:2
+	$ bin/omero obj new DatasetAnnotationLink parent=Dataset:51 child=CommentAnnotation:2
 	DatasetAnnotationLink:2
 
 Upload a file and then use it as file annotation on an image::
