@@ -159,22 +159,22 @@ If the user knows which group the import target is in, or needs to be created
 in, then one of the following methods can be used to ensure the target group is
 the current group for the import.
 
-Explicitly log in using the :option:`-g` login option before running the import
-command::
+-   Explicitly log in using the :option:`-g` login option before running the import
+    command::
 
-    $ bin/omero login -g group_name
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+        $ bin/omero login -g group_name
+        $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
-Provide the :option:`-g` login option as part of the import command::
+-   Provide the :option:`-g` login option as part of the import command::
 
-    $ bin/omero import -g group_name ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+        $ bin/omero import -g group_name ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
 
-Use :omerocmd:`sessions group` to switch group before running the import
-command::
+-   Use :omerocmd:`sessions group` to switch group before running the import
+    command::
 
-    $ bin/omero sessions group 51
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+        $ bin/omero sessions group 51
+        $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
 .. note::
 
