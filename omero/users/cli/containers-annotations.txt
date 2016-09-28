@@ -18,12 +18,12 @@ Creating a dataset with a name::
 
 And then updating that dataset to add a description::
 
-   $ bin/omero omero obj update Dataset:51 description="A dataset for new DV images"
+   $ bin/omero omero obj update Dataset:51 description='A dataset for new DV images'
    Dataset:51
 
 Creating a screen with a name and description::
 
-	$ bin/omero obj new Screen name=Screen001 description="A short description"
+	$ bin/omero obj new Screen name=Screen001 description='A short description'
 
 To create a project/dataset hierarchy a link must be created between the two
 containers::
@@ -46,7 +46,7 @@ Creating and attaching annotations
 
 Create a comment annotation and attach it to a dataset::
 
-	$ bin/omero omero obj new CommentAnnotation textValue="Hello World\!"
+	$ bin/omero omero obj new CommentAnnotation textValue='Hello World!'
 	CommentAnnotation:2
 	$ bin/omero omero obj new DatasetAnnotationLink parent=Dataset:51 child=CommentAnnotation:2
 	DatasetAnnotationLink:2
