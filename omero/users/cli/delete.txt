@@ -65,8 +65,8 @@ IDs.
 .. note::
     When deleting multiple objects in a single command, if one object cannot
     be deleted then the whole command will fail and none of the specified
-    objects will be deleted. The :option:`--dry-run` can be useful as a check
-    before trying to delete large numbers of objects.
+    objects will be deleted. The :option:`--dry-run` option can be useful as a
+    check before trying to delete large numbers of objects.
 
 Deleting lower level objects
 ============================
