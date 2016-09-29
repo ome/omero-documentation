@@ -53,11 +53,8 @@ customization options.
 .. note:: Support for Apache deployment has been deprecated and is likely to
     be dropped during the 5.3.x line.
     
-    If an Apache HTTP server is the only way to provide internet access to
-    internal clients that are otherwise restricted by a firewall, you should
-    configure the Apache HTTP server as a reverse proxy to Nginx (refer to the
-    `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_ for further
-    details).
+    If your organisation's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an Nginx instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
+    `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
 
 Logging in to OMERO.web
 -----------------------
