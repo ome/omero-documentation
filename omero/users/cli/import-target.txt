@@ -144,7 +144,7 @@ likely to be created as it will be created in the current group, which may not
 be the group intended.
 
 If no group is specified by using the :option:`-g` login option as part of the
-import, the current group will be dependent on the user's login status.
+import, the current group will be dependent on the user's login status:
 
 -   If the user is currently logged in then their current group will be the one
     they are logged in to.
@@ -157,7 +157,7 @@ import, the current group will be dependent on the user's login status.
 
 If the user knows which group the import target is in, or needs to be created
 in, then one of the following methods can be used to ensure the target group is
-the current group for the import.
+the current group for the import:
 
 -   Explicitly log in using the :option:`-g` login option before running the import
     command::
