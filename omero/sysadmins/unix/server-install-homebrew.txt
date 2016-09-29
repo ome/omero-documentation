@@ -330,6 +330,16 @@ try::
     $ brew cleanup
     $ brew link ossp-uuid
 
+For recent versions of OSX, some directories are missing preventing PostgreSQL
+from starting up. In that case, it should be sufficient to reinitialize a
+PostgreSQL database cluster as:
+
+    $ rm -rf /usr/local/var/postgres
+    $ initdb -E UTF8 /usr/local/var/postgres
+
+.. seealso::
+  http://stackoverflow.com/questions/25970132/pg-tblspc-missing-after-installation-of-latest-version-of-os-x-yosemite-or-el
+
 szip
 ^^^^
 
