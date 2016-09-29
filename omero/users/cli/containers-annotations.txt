@@ -21,7 +21,7 @@ And then update that dataset to add a description::
    $ bin/omero obj update Dataset:51 description='A dataset for new DV images'
    Dataset:51
 
-Creating a screen with a name and description::
+Create a screen with a name and description::
 
 	$ bin/omero obj new Screen name=Screen001 description='A short description'
 
