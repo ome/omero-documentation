@@ -36,9 +36,9 @@ Operating systems
 * MacOS X
 
   * [5.2] 10.8 dropped. 10.9 deprecated, 10.10 recommended, 10.11 upcoming
-  * [5.3] 10.8 dropped, 10.9 deprecated, 10.10 supported , 10.11 recommended
+  * [5.3] 10.9 dropped, 10.10 deprecated, 10.11 recommended, 10.12 upcoming
   * Test server only on 10.10+ for 5.2.
-  * Rationale: 10.8 no longer has security support and it still leaves 3
+  * Rationale: 10.9 no longer has security support and it still leaves 3
     versions to support. MacOS X is typically suited only to client
     use, not serious server deployment, so limit testing accordingly.
 
@@ -339,27 +339,20 @@ UNIX (MacOS X)
       - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 10.8
-      - from Feb 2012
-      - Ended
-      - Ended
-      - Deprecated
-      - Dropped
-      - Dropped
     * - 10.9
       - from Jun 2013
-      - Supported
-      - Supported
+      - Ended
+      - Ended
       - Recommended
       - Supported
-      - Deprecated
+      - Dropped
     * - 10.10
       - from Oct 2014
       - Supported
       - Supported
       - Supported
       - Recommended
-      - Supported
+      - Deprecated
     * - 10.11
       - from Sep 2015
       - Supported
@@ -367,13 +360,21 @@ UNIX (MacOS X)
       - Supported
       - Upcoming
       - Recommended
+    * - 10.12
+      - from Sep 2016
+      - Supported
+      - Supported
+      - Unsupported
+      - Unsupported
+      - Upcoming
 
 Apple do not formally announce end of life for their releases, but
-with the three latest releases being supported this puts 10.9 as the
-minimum version suitable for use.  We have regular CI testing of 10.9,
-10.10 and 10.11 builds plus developer testing of building and client
-and server deployment. 10.8 is marked as dropped since it is no longer
-tested by the CI infrastructure (node retired).
+with the three latest releases being supported this puts 10.10 as the
+minimum version suitable for use.  We have regular CI testing of 10.11
+and 10.12 builds plus developer testing of building and client and
+server deployment. 10.9 and 10.10 are marked as dropped and deprecated
+since they are no longer tested by the CI infrastructure (nodes
+retired).
 
 UNIX (FreeBSD)
 --------------
