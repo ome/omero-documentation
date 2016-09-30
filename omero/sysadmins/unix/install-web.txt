@@ -12,9 +12,11 @@ with:
 
 -  `WSGI <http://wsgi.readthedocs.org>`_ using a WSGI capable web server
    such as
-   `Apache 2.2+ <http://httpd.apache.org/>`_ (with
-   `mod\_wsgi <http://www.modwsgi.org/>`_ enabled) or 
-   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
+   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_
+   (you can also use `Apache 2.2+ <http://httpd.apache.org/>`_ with
+   `mod\_wsgi <http://www.modwsgi.org/>`_ enabled but this is not
+   recommended for new installations as support has been deprecated as of
+   OMERO 5.2.6 and is likely to be dropped during the 5.3.x line)
 -  The built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page).
 
@@ -54,6 +56,12 @@ customization options.
 
     install-web/install-apache
     install-web/install-nginx
+
+.. note:: Support for Apache deployment is deprecated as of OMERO 5.2.6 and is
+    likely be dropped during the 5.3.x line.
+    
+    If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an Nginx instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
+    `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
 
 Logging in to OMERO.web
 -----------------------
