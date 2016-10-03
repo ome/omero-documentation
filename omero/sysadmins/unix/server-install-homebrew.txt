@@ -330,7 +330,7 @@ try::
     $ brew cleanup
     $ brew link ossp-uuid
 
-For recent versions of OS X (10.10 and above), some directories may be missing
+For recent versions of OS X (10.10 and above) some directories may be missing,
 preventing PostgreSQL from starting up. In that case, it should be sufficient
 to reinitialize a PostgreSQL database cluster as::
 
