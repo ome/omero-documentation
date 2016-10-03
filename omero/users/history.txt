@@ -14,8 +14,8 @@ Improvements include:
 - fixed a MATLAB regression introduced in 5.2.2, casting error.
 - fixed error in logs on getProjectedThumbnail
 
- Support for OMERO.web deployment using Apache has also been deprecated and is
- likely to be removed during the 5.3.x line.
+Support for OMERO.web deployment using Apache has also been deprecated and is
+likely to be removed during the 5.3.x line.
 
 5.2.5 (August 2016)
 -------------------
