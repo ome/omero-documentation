@@ -53,6 +53,7 @@ openmicroscopy.org.uk and user: will
 You should see an output similar to the one below
 
 ::
+
     Created session afdbba21-35dc-462a-ab6e-15cc94f93957 (user-4@openmicroscopy.org.uk:4064). Idle timeout: 10 min. Current group: read-only-1
     2016-10-03 10:12:45,964 INFO  [                    omero.util.Resources] (Thread-2  ) Starting
     2016-10-03 10:12:45,965 INFO  [              omero.processor.ProcessorI] (MainThread) Registering processor %fOr(Up>[ERUV%B8$.N</omero.scripts.serve-fa53ba-3959-4d85-876a-00e8b932eb -t -e 1.0:tcp -h openmicroscopy.org.uk -p 54385
