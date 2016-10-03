@@ -144,6 +144,7 @@ that handle these.
 Add one or both of these function calls to a script, E.g. ```openwith.js```
 
 ::
+
     // Here we set an 'enabled' handler that is passed a list of selected
     // objects and should return ``true`` if the 'Open with' option should
     // be enabled.
