@@ -323,7 +323,7 @@ Users can then configure this on the command line as follows:
 
     $ bin/omero config set omero.web.yourapp.foo '{"userkey": "userval"}'
 
-Linking From Webclient
+Linking from Webclient
 ----------------------
 
 If you want to add links to your app from the webclient, a number of options are
