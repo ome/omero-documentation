@@ -150,10 +150,7 @@ Set database parameters in OMERO::
 Create and run script to initialize the OMERO database::
 
     $ export ROOT_PASSWORD=${ROOT_PASSWORD:-omero}
-    $ export PSQL_SCRIPT_NAME=${PSQL_SCRIPT_NAME:-OMERO.sql}
-    $ omero db script --password $ROOT_PASSWORD -f $PSQL_SCRIPT_NAME
-    $ psql -h localhost -U db_user omero_database < $PSQL_SCRIPT_NAME
-    $ rm $PSQL_SCRIPT_NAME
+    $ omero db script --password $ROOT_PASSWORD -f - | psql -h localhost -U db_user omero_database
 
 Set up OMERO data directory::
 
@@ -332,6 +329,16 @@ try::
 
     $ brew cleanup
     $ brew link ossp-uuid
+
+For recent versions of OS X (10.10 and above) some directories may be missing,
+preventing PostgreSQL from starting up. In that case, it should be sufficient
+to reinitialize a PostgreSQL database cluster as::
+
+    $ rm -rf /usr/local/var/postgres
+    $ initdb -E UTF8 /usr/local/var/postgres
+
+.. seealso::
+  http://stackoverflow.com/questions/25970132/pg-tblspc-missing-after-installation-of-latest-version-of-os-x-yosemite-or-el
 
 szip
 ^^^^
