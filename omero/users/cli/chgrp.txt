@@ -54,6 +54,19 @@ project 51 and datasets 53 and 54 to group 5.
     $ bin/omero chgrp 5 Dataset:54,53 Project:51
     $ bin/omero chgrp 5 Dataset:53 Project:51 Dataset:54
 
+To move a number of objects with sequentially numbered IDs a hyphen can be used
+to specify an ID range. This form can also be mixed with comma-separated IDs.
+::
+
+    $ bin/omero chgrp 5 Project:51 Dataset:53-56
+    $ bin/omero chgrp 5 Dataset:53-56,65,101-105,201,202
+
+.. note::
+    When moving multiple objects in a single command, if one object cannot
+    be moved then the whole command will fail and none of the specified
+    objects will be moved. The :option:`--dry-run` option can be useful as a
+    check before trying to move large numbers of objects.
+
 Moving lower level objects
 ==========================
 
