@@ -88,27 +88,41 @@ For example:
 Currently, 'Open With' options are shown in the context menu of the left-panel tree
 and are therefore only available for objects shown in the tree.
 
-Open image in viewer
-^^^^^^^^^^^^^^^^^^^^
+Label, name and supported objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the simplest case the minimum needed to add a viewer is "label" and "url_name".
+In the simplest case the minimum needed to add an ``Open with`` option is "label",
+"url_name", and a list of the types of objects that are supported by your app.
+For example:
 
 ::
 
-    $ bin/omero config append omero.web.open_with '["My viewer", "url_name"]'
+    $ bin/omero config append omero.web.open_with '["My viewer", "url_name", {"supported_objects": ["image"]}]'
+
+This will create a menu option named "My viewer" that is only enabled when a
+single "image" is selected.
 
 We use ``reverse(url_name)`` to resolve a url from the url_name. If the url_name
 is not recognised (E.g. for external urls) the ``url_name`` will be used directly.
 
-By default, the ``Open With > My viewer`` menu option will only be enabled when a
-single image is selected. When the user clicks the image, a new popup window will be opened
-with the specified url, passing the image ID in the query string:
+When the "My viewer" option is clicked, a new window will be opened with the
+selected object(s) added to the url as a query string
 
 ::
 
     url?image=:id
 
-Further parameters can be specified in an options object, as described below.
+Supported objects can be configured to support multiple images or other data types.
+Data types are ``project, dataset, image, screen, plate, acquisition``
+or use plurals to indicate that multiple objects are supported.
+For example, ```images``` will enable the 'Open with' option when 1 or more images are selected.
+In the following example, we support a single ``dataset`` or multiple ``images``.
+
+::
+
+    "supported_objects": ["dataset", "images"]
+
+Further parameters can be specified in the options object, as described below.
 
 Open in new tab
 ^^^^^^^^^^^^^^^
@@ -118,22 +132,7 @@ attribute to the options:
 
 ::
 
-    $ bin/omero config append omero.web.open_with '["My viewer", "url_name"], {"target":"_blank"}]'
-
-Supported objects
-^^^^^^^^^^^^^^^^^
-
-By default, 'Open with' options are enabled when only a single image is selected.
-This can be configured to support multiple images or other data types by adding a
-``supported_objects`` list to the options.
-Specify data types as E.g. ``project, dataset, image, screen, plate, acquisition``
-or use plurals to indicate that multiple objects are supported.
-E.g. ```images``` will enable the 'Open with' option when 1 or more images are selected.
-In the following example, we support a single ``dataset`` or multiple ``images``.
-
-::
-
-    $ bin/omero config append omero.web.open_with '["My viewer", "url_name"], {"supported_objects":["dataset", "images"]}]'
+    $ bin/omero config append omero.web.open_with '["My viewer", "url_name"], {"supported_objects": ["image"], "target": "_blank"}]'
 
 JavaScript handlers
 ^^^^^^^^^^^^^^^^^^^
@@ -148,6 +147,7 @@ Add one or both of these function calls to a script, E.g. ```openwith.js```
     // Here we set an 'enabled' handler that is passed a list of selected
     // objects and should return ``true`` if the 'Open with' option should
     // be enabled.
+    // The ``supported_objects`` parameter will not be needed.
     // First argument is the label that we used above to identify the option
     OME.setOpenWithEnabledHandler("My viewer", function(selected){
         // selected is a list of objects containing id, name, type
@@ -176,9 +176,9 @@ Then specify this location using the ``script_url`` option.
 ::
 
     # E.g. script is saved at myviewer/static/myviewer/openwith.js
-    $ bin/omero config append omero.web.open_with '["My viewer", "url_name"], {"script_url":"myviewer/openwith.js"}]'
+    $ bin/omero config append omero.web.open_with '["My viewer", "url_name"], {"script_url": "myviewer/openwith.js"}]'
 
-    # E.g. this 'Open with' option will open any object at http://www.ncbi.nlm.nih.gov/protein/:name
+    # E.g. this 'Open with' option loads a script that will open any object at http://www.ncbi.nlm.nih.gov/protein/:name
     # and is enabled when the :name of the object is a number (all digits)
     $ bin/omero config append omero.web.open_with '["GenBank Protein", "http://www.ncbi.nlm.nih.gov/protein/", {"script_url": "http://will-moore.github.io/presentations/2016/OpenWith-Filtering-June-2016/openwith.js"}]'
 
