@@ -46,7 +46,7 @@ openmicroscopy.org.uk and user: will
 
 ::
 
-    $ cd Desktop/OMERO.server-Beta-4.2/
+    $ cd Desktop/OMERO.server-5.3.x-icexx-bxx/
     $ bin/omero -s openmicroscopy.org.uk -u will script serve user
     $ password: ......
 
@@ -68,7 +68,7 @@ start the user processor and give it the user's ID:
 
 ::
 
-    $ cd Desktop/OMERO.server-Beta-4.2/
+    $ cd Desktop/OMERO.server-5.3.x-icexx-bxx/
     $ bin/omero -s openmicroscopy.org.uk -u will user list
     $ bin/omero -s openmicroscopy.org.uk -u will script serve user=5
 
