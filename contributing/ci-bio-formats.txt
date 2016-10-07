@@ -50,7 +50,6 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
         -       * Runs openBytes performance test
                 * :term:`BIOFORMATS-DEV-merge-openbytes-performance`
 
-
         -       * Installs Bio-Formats using Homebrew
                 * :term:`BIOFORMATS-DEV-merge-homebrew`
 
@@ -192,6 +191,10 @@ The branch for the 5.2.x series of Bio-Formats is develop.
                    directories specified by
                    :file:`BIOFORMATS-openbytes-performance.txt`
 
+        :jenkinsjob:`BIOFORMATS-DEV-merge-homebrew`
+
+                This job builds Bio-Formats using MacOS X Homebrew
+
 .. _bf_breaking:
 
 Breaking jobs
@@ -279,8 +282,3 @@ Jenkins.
                    :file:`/ome/data_repo/curated/`. The list of directories to
                    test by setting a space-separated list of formats for the
                    ``DEFAULT_FORMAT_LIST`` variable.
-
-        :jenkinsjob:`BIOFORMATS-DEV-merge-homebrew`
-
-                This job builds Bio-Formats using MacOS X Homebrew
-
