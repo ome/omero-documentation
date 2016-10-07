@@ -31,23 +31,18 @@ tab of Jenkins.
 	:header-rows: 1
 
 	-	* Job task
-		* Bio-Formats 5.1.x series
 		* Bio-Formats 5.2.x series
 
 	-	* Builds the latest Bio-Formats documentation for publishing
-		* :term:`BIOFORMATS-5.1-latest-docs`
 		* :term:`BIOFORMATS-DEV-latest-docs`
 
 	-	* Builds the Bio-Formats documentation for review
-		* :term:`BIOFORMATS-5.1-merge-docs`
 		* :term:`BIOFORMATS-DEV-merge-docs`
 
 	-	* Builds the auto-generated Bio-Formats documentation
-		* :term:`BIOFORMATS-5.1-latest-docs-autogen`
 		* :term:`BIOFORMATS-DEV-latest-docs-autogen`
 
 	-	* Builds the auto-generated Bio-Formats documentation for review
-		* :term:`BIOFORMATS-5.1-merge-docs-autogen`
 		* :term:`BIOFORMATS-DEV-merge-docs-autogen`
 
 The OME Model, OME help and OME Contributing documentation sets are
@@ -118,62 +113,6 @@ necromancer.openmicroscopy.org.uk under the
 :file:`/var/www/www.openmicroscopy.org/sphinx-docs` directory using the
 :program:`scc deploy` command. The :jenkinsjob:`OME-docs-deployment-setup` job
 is used to initialize new deployment folders.
-
-Bio-Formats 5.1.x series
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-The branch for the 5.1.x series of the OMERO documentation is dev_5_1.
-
-.. glossary::
-
-	:jenkinsjob:`BIOFORMATS-5.1-latest-docs`
-
-		This job is used to build the dev_5_1 branch of the Bio-Formats
-		documentation and publish the official documentation for the 5.1.x
-		release of Bio-Formats
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. If the build is promoted,
-			#. |ssh-doc| :file:`bf-5.1-release.tmp`
-			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.1/
-
-	:jenkinsjob:`BIOFORMATS-5.1-merge-docs`
-
-		This job is used to review the PRs opened against the dev_5_1 branch
-		of the Bio-Formats documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. |ssh-doc| :file:`bf-5.1-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.1-staging/
-
-	:jenkinsjob:`BIOFORMATS-5.1-latest-docs-autogen`
-
-		This job is used to build the latest auto-generated formats and
-		readers pages for the dev_5_1 branch of the Bio-Formats documentation
-
-		#. Builds Bio-Formats using ``ant clean jars``
-		#. Runs the auto-generation using ``ant gen-format-pages gen-structure-table gen-meta-support gen-meta-support``
-		   from :file:`components/autogen`
-		#. Checks for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to
-		   :bf_scc_branch:`dev_5_1/latest/autogen`
-
-
-	:jenkinsjob:`BIOFORMATS-5.1-merge-docs-autogen`
-
-		This job is used to build the merge auto-generated pages for the
-		dev_5_1 branch of the Bio-Formats documentation
-
-		#. Checks out :bf_scc_branch:`dev_5_1/merge/daily`
-		#. Builds Bio-Formats using ``ant clean jars``
-		#. Runs the auto-generation using ``ant gen-format-pages gen-structure-table gen-meta-support gen-meta-support``
-		   from :file:`components/autogen`
-		#. Checks for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to 
-		   :bf_scc_branch:`dev_5_1/merge/autogen`
 
 OMERO 5.2.x series
 ^^^^^^^^^^^^^^^^^^
