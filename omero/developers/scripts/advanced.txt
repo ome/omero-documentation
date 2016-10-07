@@ -32,7 +32,7 @@ the client (see diagram, below).
 
       OMERO scripting workflow
 
--  You need to download 'Ice' from ZeroC and set the environment
+-  Install 'Ice' from ZeroC and set the environment
    variables, as described in the
    :doc:`server installation page </sysadmins/unix/server-installation>`.
 -  You also need the OMERO server download. Go to the :downloads:`OMERO
@@ -69,8 +69,8 @@ start the user processor and give it the user's ID:
 ::
 
     $ cd Desktop/OMERO.server-5.3.x-icexx-bxx/
-    $ bin/omero -s openmicroscopy.org.uk -u will user list
-    $ bin/omero -s openmicroscopy.org.uk -u will script serve user=5
+    $ bin/omero user list
+    $ bin/omero script serve user=5
 
 From this point on, the user and admin workflows are the same, except
 for a couple of options that are not available to regular users. Also
@@ -89,7 +89,7 @@ To list user scripts:
 
 ::
 
-    $ omero -s openmicroscopy -u will script list user      # lists user scripts
+    $ omero script list user      # lists user scripts
      id  | Scripts for user                                                                            
         -----+---------------------------------------------------------------------------------------------
      151 | examples/HelloWorld.py        
