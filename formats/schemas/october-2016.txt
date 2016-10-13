@@ -1,0 +1,29 @@
+Changes for October 2016
+========================
+
+
+List of the key changes made for the October 2016 minor release of the
+ome-xml data model.
+
+The new minor release of the schema has the same namespace (2016-06) and a new
+version number. As a minor release, any file that validated correctly
+using the last major release will also validate correctly using this new
+release. Some files that failed to validate before will now be valid. It
+is important to update any file readers to understand the changes. File
+writers will not necessarily need corrected.
+
+-  The version number of the :file:`ome.xsd` schema is now 2.
+
+Overview of changes
+-------------------
+
+Channel
+^^^^^^^
+
+Added the following as valid values for ``AcquisitionMode``:
+
+-  ``BrightField``
+-  ``SweptFieldConfocal``
+-  ``SPIM``
+
+Also added parsing for Laser Scan Confocal and Swept Field Confocal.
