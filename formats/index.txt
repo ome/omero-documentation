@@ -126,6 +126,7 @@ Data Model history
     :titlesonly:
 
     schemas/index
+    schemas/june-2016-2
     schemas/june-2016
     schemas/january-2015
     schemas/june-2013
@@ -136,6 +137,10 @@ Data Model history
     schemas/september-2009
     schemas/september-2008
     schemas/february-2008
-    schemas/september-2007
+    schemas/june-2007-2
     schemas/june-2007
 
+.. toctree::
+    :hidden:
+
+    schemas/september-2007
