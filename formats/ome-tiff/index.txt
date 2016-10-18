@@ -16,12 +16,12 @@ An OME-TIFF dataset has the following characteristics:
 #. A complete OME-XML metadata block describing the dataset is embedded
    in each TIFF file's header. Thus, even if some of the TIFF files in a
    dataset are misplaced, the metadata remains intact.
-#. The OME-XML metadata block may contain anything allowed in a standard 
+#. The OME-XML metadata block may contain anything allowed in a standard
    OME-XML file.
-#. OME-TIFF uses the standard TIFF mechanism for storing one or more image 
-   planes in each of the constituent files, instead of encoding pixels as 
+#. OME-TIFF uses the standard TIFF mechanism for storing one or more image
+   planes in each of the constituent files, instead of encoding pixels as
    base64 chunks within the XML. Since TIFF is an image
-   format, it makes sense to only use OME-TIFF as opposed to OME-XML, when 
+   format, it makes sense to only use OME-TIFF as opposed to OME-XML, when
    there is at least one image plane.
 
 Support
@@ -32,10 +32,10 @@ OME-TIFF is supported by:
 * `Accelrys Inc. <http://accelrys.com/>`_
 * `GE Healthcare Life Sciences (formerly Applied Precision) <http://www.gelifesciences.com/webapp/wcs/stores/servlet/catalog/en/GELifeSciences-UK/brands/deltavision/>`_
 * `Bitplane AG <http://www.bitplane.com/>`_
-* `Carl Zeiss Microscopy GmbH <http://www.zeiss.com/microscopy/>`_ 
+* `Carl Zeiss Microscopy GmbH <http://www.zeiss.com/microscopy/int/home.html>`_
 * `Definiens <http://www.definiens.com>`_
 * `DRVision Technologies LLC <http://www.svisionllc.com/>`_
-* `iMagic <http://www.imagic.ch/index.php?id=15&L=2/>`_  
+* `iMagic <http://www.imagic.ch/index.php?id=15&L=2/>`_
 * `Intelligent Imaging Innovations, Inc. <http://www.intelligent-imaging.com>`_
 * `Leica Inc. <http://www.leica-microsystems.com/>`_
 * `Mayachitra Inc. <http://www.mayachitra.com/>`_
