@@ -82,7 +82,7 @@ using :property:`omero.web.open_with`.
 For example:
 
 - Open images in a custom viewer
-- Add images to OMERO.figure
+- Open images in a new figure with OMERO.figure
 - Link to external resources, e.g. open Dataset named '000397' with url https://www.ncbi.nlm.nih.gov/protein/000397
 
 Currently, 'Open With' options are shown in the context menu of the left-panel tree
@@ -137,9 +137,11 @@ attribute to the options:
 JavaScript handlers
 ^^^^^^^^^^^^^^^^^^^
 
-For complete control over handling of your 'Open with' action, or to specify
-more precise behaviour of the enabled status, you can write JavaScript functions
-that handle these.
+For more control over the enabled status of your plugin or to configure how urls
+are created from selected objects, you can write JavaScript functions
+that handle these steps.
+These functions use the label specified above as an ID for your ``Open with``
+option. In this example it is "My viewer".
 Add one or both of these function calls to a script, for example ```openwith.js```
 
 ::
@@ -160,13 +162,13 @@ Add one or both of these function calls to a script, for example ```openwith.js`
         return (obj.type === 'image' && obj.name.endsWith('.svs'))
     });
 
-    // Here we set an 'action' handler that is passed the selected objects
-    // and the url that was specified in the 'Open with' configuration
-    OME.setOpenWithActionHandler("My viewer", function(selected, url) {
+    // Here we configure a url provider. This function will be passed the selected
+    // objects and the base url that was specified in the 'Open with' configuration above.
+    OME.setOpenWithUrlProvider("My viewer", function(selected, url) {
 
-        // E.g. build a url using data from selected objects
+        // E.g. build a url using id from selected objects
         url += selected[0].id + "/";
-        window.open(url, '_blank');
+        return url;
     });
 
 Save the script to a static location, either within an OMERO.web app's static directory
@@ -178,7 +180,8 @@ Then specify this location using the ``script_url`` option.
     # E.g. script is saved at myviewer/static/myviewer/openwith.js
     $ bin/omero config append omero.web.open_with '["My viewer", "url_name"], {"script_url": "myviewer/openwith.js"}]'
 
-    # E.g. this 'Open with' option loads a script that will open any object at http://www.ncbi.nlm.nih.gov/protein/:name
+    # E.g. this 'Open with' option loads a script from the specified url.
+    # The script will open any object with url http://www.ncbi.nlm.nih.gov/protein/:name
     # and is enabled when the :name of the object is a number (all digits)
     $ bin/omero config append omero.web.open_with '["GenBank Protein", "http://www.ncbi.nlm.nih.gov/protein/", {"script_url": "http://will-moore.github.io/presentations/2016/OpenWith-Filtering-June-2016/openwith.js"}]'
 
