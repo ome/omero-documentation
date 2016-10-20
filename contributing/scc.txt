@@ -85,8 +85,8 @@ filter is a label filter (see below). These filters can be passed to an :option:
 The available filter types are described below:
 
 - Label filters can be specified using the `label` key i.e. `label:<LABEL>`.
-  This filter type will select a Pull Request if one the following condition
-  is met in order of precedence:
+  This filter type will match a Pull Request if one the following conditions
+  is met:
 
   1. a label named `<LABEL>` is applied to the Pull Request
   2. the Pull Request description contains a line starting with `--<LABEL>`
@@ -98,12 +98,12 @@ The available filter types are described below:
   This filter type will select a Pull Request if it has been opened by the
   user `USERNAME`. Additionally, two special user values are allowed:
 
-  1. the `#org` value will filter all PRs opened by public members of the
+  1. the `#org` value will match all PRs opened by public members of the
      organization of the upstream repository
-  2. the `#all` value will filter all PRs opened by any user
+  2. the `#all` value will match all PRs opened by any user
 
 - PR filters can be specified using the `pr` key i.e. `pr:<NUMBER>`. This will
-  filter Pull Requests which ID matches the input number. The form `#number` is
+  select Pull Requests whose ID matches the input number. The form `#number` is
   also recognized as a PR filter. For repositories containing submodules, it
   is possible to filter submodule PRs using `user/repo#number`.
 
@@ -209,18 +209,18 @@ Use cases
 
 The basic command will use the default filters and merge all PRs opened
 against `master` by any public members of the organization, include any PR
-labelled as `include` and exclude any PR labelled as `breaking` or `exclude`::
+labeled as `include` and exclude any PR labeled as `breaking` or `exclude`::
 
    $ scc merge master
 
 The following command overrides the default set of filters and will only merge
-PRs opened against `master` labelled as `my_label`::
+PRs opened against `master` labeled as `my_label`::
 
     $ scc merge master -Dnone -Ilabel:my_label
 
 The following command overrides the default set of filters and will merge all
 PRs opened against `master` by public members of the organization, include any
-PR labelled with `my_label` and exclude any PR labelled as `exclude`::
+PR labeled with `my_label` and exclude any PR labeled as `exclude`::
 
     $ scc merge master -Dnone -Iuser#org -Ilabel:my_label -Elabel:exclude
 
