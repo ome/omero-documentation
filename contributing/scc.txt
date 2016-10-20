@@ -79,7 +79,7 @@ Description
 
 Filters of different types can be specified and combined to include and
 exclude a set of PRs in the merge command. Each filter needs to be formatted
-as `key:value`. If no key but only a value is specified, it is assumed the
+as ``key:value``. If no key but only a value is specified, it is assumed the
 filter is a label filter (see below). These filters can be passed to an
 :option:`scc merge --include` or :option:`scc merge --exclude` option.
 
