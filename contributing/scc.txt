@@ -15,7 +15,7 @@ Installation
 The scc tools are a set of Python_ based utility programs. The tools suite
 can be installed using :command:`pip`::
 
-	$ pip install -U scc
+    $ pip install -U scc
 
 This command will install and/or upgrade the **PyGithub** and **yaclifw**
 package dependencies. If the version of Python installed is older than 2.7,
@@ -36,22 +36,22 @@ create an OAuth token, see
 for details on how to create Personal Access Tokens via the GitHub interface.
 This token can then be stored in the global Git configuration file::
 
-	git config --global github.token REPLACE_BY_PERSONAL_ACCESS_TOKEN
+    git config --global github.token REPLACE_BY_PERSONAL_ACCESS_TOKEN
 
 Unless the :option:`--token` option is passed to the scc command, the
 command first looks for the ``github.token`` specified in the git config file
 and, if found, uses this token to connect to GitHub::
 
-	$ scc merge master --info -v
-	2013-01-16 22:03:49,633 [  scc.config] DEBUG Found github.token
-	...
+    $ scc merge master --info -v
+    2013-01-16 22:03:49,633 [  scc.config] DEBUG Found github.token
+    ...
 
 If no token is found, the command looks for a ``github.user`` in the git config
 file and, if found, uses this username to connect to Github::
 
-	$ scc merge master --info -v
-	2013-01-16 22:06:00,256 [  scc.config] DEBUG Found github.user
-	Enter password for http://github.com/sbesson:
+    $ scc merge master --info -v
+    2013-01-16 22:06:00,256 [  scc.config] DEBUG Found github.user
+    Enter password for http://github.com/sbesson:
 
 .. note::
    The password to be entered here is the GitHub password. Connecting using
@@ -60,11 +60,11 @@ file and, if found, uses this username to connect to Github::
 Finally, if no token or user is found, both the GitHub username and password
 are queried at the prompt::
 
-	$ scc merge master --info -v
-	# github.token and github.user not found.
-	# See `scc token` for simpifying use.
-	Username or token: sbesson
-	Enter password for http://github.com/sbesson:
+    $ scc merge master --info -v
+    # github.token and github.user not found.
+    # See `scc token` for simpifying use.
+    Username or token: sbesson
+    Enter password for http://github.com/sbesson:
 
 .. _scc merge:
 
@@ -114,16 +114,16 @@ Arguments
 
 The first argument is the name of the base branch of origin, e.g.::
 
-	$ scc merge develop
+    $ scc merge develop
 
 .. program:: scc merge
 
 .. option:: --comment
 
-	Add a comment to the PR if there is a conflict while merging the PR
-	::
+    Add a comment to the PR if there is a conflict while merging the PR
+    ::
 
-		$ scc merge develop --comment
+        $ scc merge develop --comment
 
 .. option:: --default <filterset>, -D <filterset>
 
@@ -136,76 +136,76 @@ The first argument is the name of the base branch of origin, e.g.::
     exclude filters. The ``all`` filter set uses ``user:#all`` as the default
     include filters.
 
-	Default: ``org``
+    Default: ``org``
 
 .. option:: --exclude <filter>, -E <filter>
 
-	Exclude PR by filter (see filter semantics above)::
+    Exclude PR by filter (see filter semantics above)::
 
-		$ scc merge develop -E label:l1 -E user:u1 -E #45 -E org/repo#40
+        $ scc merge develop -E label:l1 -E user:u1 -E #45 -E org/repo#40
 
 .. option:: --include <filter>, -I <filter>
 
-	Include PR by filter (see filter semantics above)::
+    Include PR by filter (see filter semantics above)::
 
-		$ scc merge develop -I label:l1 -I user:u1 -I #45 -I org/repo#40
+        $ scc merge develop -I label:l1 -I user:u1 -I #45 -I org/repo#40
 
 .. option:: --check-commit-status <status>, -S <status>
 
-	Exclude PR based on the status of the last commit
+    Exclude PR based on the status of the last commit
 
-	Three options are currently implemented: ``none``, ``no-error`` and
-	``success-only``. By default (``none``), the status of the last commit on
+    Three options are currently implemented: ``none``, ``no-error`` and
+    ``success-only``. By default (``none``), the status of the last commit on
     the PR is not taken into account.
-	To include PRs which have a successful status only, e.g. PRs where the
-	Travis build is green, use the ``success-only`` option::
+    To include PRs which have a successful status only, e.g. PRs where the
+    Travis build is green, use the ``success-only`` option::
 
-		$ scc merge develop -S success-only
+        $ scc merge develop -S success-only
 
-	To exclude all PRs with an ``error`` or ``failure`` status, use the
+    To exclude all PRs with an ``error`` or ``failure`` status, use the
     ``no-error`` option::
 
-	$ scc merge develop -S no-error
+    $ scc merge develop -S no-error
 
 .. option:: --info
 
-	Display the candidate PRs to merge but do not merge them
-	::
+    Display the candidate PRs to merge but do not merge them
+    ::
 
-	$ scc merge develop --info
+    $ scc merge develop --info
 
 .. option:: --push <branchname>
 
-	Push the locally merged branch to Github
-	::
+    Push the locally merged branch to Github
+    ::
 
-		$ scc merge develop --push my-merged-branch
+        $ scc merge develop --push my-merged-branch
 
 .. option:: --reset
 
-	Recursively reset each repository to the HEAD of the base branch
-	::
+    Recursively reset each repository to the HEAD of the base branch
+    ::
 
-		$ scc merge develop --reset
+        $ scc merge develop --reset
 
 .. option:: --shallow
 
-	Merge the PRs for the top-level directory only, excluding submodules::
+    Merge the PRs for the top-level directory only, excluding submodules::
 
-		$ scc merge develop --shallow
+        $ scc merge develop --shallow
 
 .. option:: --remote <remote>
 
-	Specify the name of the remote to use as the origin. Default: origin::
+    Specify the name of the remote to use as the origin. Default: origin::
 
-		$ scc merge develop --remote gh
+        $ scc merge develop --remote gh
 
 As a concrete example, the first step of the :term:`FORMATS-merge-docs` job
 is calling the following merge command:
 
 ::
 
-	$ scc merge develop --no-ask --reset --comment --push merge/develop/latest
+    $ scc merge develop --no-ask --reset --comment --push merge/develop/latest
 
 Use cases
 ^^^^^^^^^
@@ -229,14 +229,14 @@ any PR labeled with ``my_label`` and exclude any PR labeled as ``exclude``::
     $ scc merge master -Dnone -Iuser#org -Ilabel:my_label -Elabel:exclude
 
 .. versionchanged:: 0.3.0
-	Added default values for :option:`--include` and :option:`--exclude`
-	options.
+    Added default values for :option:`--include` and :option:`--exclude`
+    options.
 
 .. versionchanged:: 0.3.8
-	Added :option:`--shallow` and :option:`--remote` options.
+    Added :option:`--shallow` and :option:`--remote` options.
 
 .. versionchanged:: 0.4.0
-	Added :option:`--check-commit-status` option.
+    Added :option:`--check-commit-status` option.
 
 scc travis-merge
 ----------------
@@ -247,7 +247,7 @@ filters.
 
 ::
 
-	$ scc travis-merge
+    $ scc travis-merge
 
 This command internally defines all the filter options exposed in
 :program:`scc merge`.
@@ -281,27 +281,27 @@ Update the pointer of all submodules based on specified branch.
 
 The first argument is the name of the base branch of origin, e.g.::
 
-	$ scc update-submodules develop
+    $ scc update-submodules develop
 
 .. option:: --push <branchname>
 
-	Push the locally merged branch to Github and open a PR against the base
-	branch::
+    Push the locally merged branch to Github and open a PR against the base
+    branch::
 
-		$ scc merge develop --push submodules_branch
+        $ scc merge develop --push submodules_branch
 
 .. option:: --no-pr
 
-	Combined with :option:`--push` option, push the locally merged branch to
-	Github but skip PR opening::
+    Combined with :option:`--push` option, push the locally merged branch to
+    Github but skip PR opening::
 
-		$ scc merge develop --push submodules_branch --no-pr
+        $ scc merge develop --push submodules_branch --no-pr
 
 .. option:: --remote <remote>
 
-	Specify the name of the remote to use as the origin (default: origin)::
+    Specify the name of the remote to use as the origin (default: origin)::
 
-		$ scc update-submodules develop --remote gh
+        $ scc update-submodules develop --remote gh
 
 
 scc rebase
@@ -313,7 +313,7 @@ Rebase a PR (open or closed) onto another branch and open a new PR.
 The first argument is the number of the PR to rebase and the second argument
 is the name of the branch onto which the PR should be rebased::
 
-	$ scc rebase 142 develop
+    $ scc rebase 142 develop
 
 Assuming the head branch used to open the PR 142 was called ``branch_142``,
 this command will rebase the tip of ``branch_142`` onto origin/develop, create
@@ -326,66 +326,66 @@ branch prior to rebasing and delete the local ``rebased/develop/branch_142``.
 
 .. note::
 
-	By default, :program:`scc rebase` uses the branches of the ``origin``
+    By default, :program:`scc rebase` uses the branches of the ``origin``
     remote to rebase the PR. To specify another remote, use the
-	:option:`--remote` option.
+    :option:`--remote` option.
 
 .. option:: --no-pr
 
-	Skip the opening of the PR
-	::
+    Skip the opening of the PR
+    ::
 
-		$ scc rebase 142 develop --no-pr
+        $ scc rebase 142 develop --no-pr
 
 .. option:: --no-delete
 
-	Do not delete the local rebased branch
+    Do not delete the local rebased branch
 
-	::
+    ::
 
-		$ scc rebase 142 develop --no-delete
+        $ scc rebase 142 develop --no-delete
 
 .. option:: --remote <remote>
 
-	Specify the name of the remote to use for the rebase (default: origin)
+    Specify the name of the remote to use for the rebase (default: origin)
 
-	::
+    ::
 
-		$ scc rebase 142 develop --remote snoopycrimecop
+        $ scc rebase 142 develop --remote snoopycrimecop
 
 .. option:: --continue
 
-	Re-run the command after manually fixing conflicts
+    Re-run the command after manually fixing conflicts
 
-	If :program:`scc rebase` fails due to conflict during the rebase, you will
-	end up in a detached HEAD state.
+    If :program:`scc rebase` fails due to conflict during the rebase, you will
+    end up in a detached HEAD state.
 
-	If you want to continue the rebase operation, you will need to manually
-	fix the conflicts::
+    If you want to continue the rebase operation, you will need to manually
+    fix the conflicts::
 
-		# fix files locally
-		$ git add conflicting_files # add conflicting files
-		$ git rebase --continue
+        # fix files locally
+        $ git add conflicting_files # add conflicting files
+        $ git rebase --continue
 
-	This conflict solving operation may need to be repeated multiple times
-	until the branch is fully rebased.
+    This conflict solving operation may need to be repeated multiple times
+    until the branch is fully rebased.
 
-	Once all the conflicts are resolved, call :program:`scc rebase` with the
-	:option:`--continue` option::
+    Once all the conflicts are resolved, call :program:`scc rebase` with the
+    :option:`--continue` option::
 
-		$ scc rebase --continue 142 develop
+        $ scc rebase --continue 142 develop
 
-	Depending on the input options, this command will perform all the steps of
-	the rebase command (Github pushing, PR opening) skipping the rebase part.
+    Depending on the input options, this command will perform all the steps of
+    the rebase command (Github pushing, PR opening) skipping the rebase part.
 
-	Alternatively, you can abort the rebase and switch to your previous branch::
+    Alternatively, you can abort the rebase and switch to your previous branch::
 
-		$ git rebase --abort
-		$ git checkout old_branch
+        $ git rebase --abort
+        $ git checkout old_branch
 
 .. versionchanged:: 0.3.10
-	Automatically add ``--rebased-to`` and ``--rebased-from`` comments to the
-	source and target PRs.
+    Automatically add ``--rebased-to`` and ``--rebased-from`` comments to the
+    source and target PRs.
 
 scc check-prs
 -------------
@@ -397,13 +397,13 @@ been merged to the other.
 The basic workflow of the :program:`scc check-prs` command is the
 following:
 
-- 	list all first-parent merge commits for each branch including git notes
-	referenced as ``see_also/other_branch`` where other_branch is the name of
-	the branch to check against.
-- 	exclude all merge commits with a note containing either "See gh-" or "n/a"
-- 	for each remaining merge commit, parse the PR number and look into the PR
-	body/comments for lines starting with ``--rebased-to``, ``--rebased-from``
-	or ``--no-rebase``.
+-   list all first-parent merge commits for each branch including git notes
+    referenced as ``see_also/other_branch`` where other_branch is the name of
+    the branch to check against.
+-   exclude all merge commits with a note containing either "See gh-" or "n/a"
+-   for each remaining merge commit, parse the PR number and look into the PR
+    body/comments for lines starting with ``--rebased-to``, ``--rebased-from``
+    or ``--no-rebase``.
 
 Additionally, for each line of each PR starting with ``--rebased-to`` or
 ``--rebased-from``, the existence of a matching line is checked in the
@@ -414,35 +414,35 @@ corresponding source/target PR. For instance, if PR 70 has a
 This command requires two positional arguments corresponding to the name of
 the branch of origin to compare::
 
-	$ scc check-prs dev_4_4 develop
+    $ scc check-prs dev_4_4 develop
 
 .. option:: --shallow
 
-	Check PRs in the top-level directory only, excluding submodules::
+    Check PRs in the top-level directory only, excluding submodules::
 
-		$ scc check-prs dev_4_4 develop --shallow
+        $ scc check-prs dev_4_4 develop --shallow
 
 .. option:: --remote <remote>
 
-	Specify the name of the remote to use as the origin (default: origin)::
+    Specify the name of the remote to use as the origin (default: origin)::
 
-		$ scc check-prs dev_4_4 develop --remote gh
+        $ scc check-prs dev_4_4 develop --remote gh
 
 .. option:: --no-check
 
-	Do not check links between rebased comments::
+    Do not check links between rebased comments::
 
-		$ scc check-prs dev_4_4 develop --no-check
+        $ scc check-prs dev_4_4 develop --no-check
 
 .. versionadded:: 0.3.10
-	Added support for body/comment parsing and ``--rebased-to/from``
-	linkcheck
+    Added support for body/comment parsing and ``--rebased-to/from``
+    linkcheck
 
 .. versionchanged:: 0.4.0
-	Improved command output and added support for submodule processing
+    Improved command output and added support for submodule processing
 
 .. versionchanged:: 0.5.0
-	Renamed command
+    Renamed command
 
 scc version
 -----------
@@ -450,8 +450,8 @@ scc version
 
 Return the version of the scc tools::
 
-	$ scc version
-	0.3.0
+    $ scc version
+    0.3.0
 
 .. versionadded:: 0.2.0
 
@@ -464,7 +464,7 @@ scc deploy
 
 Deploy a website update using `file symlink replacement <https://gist.github.com/datagrok/3807742#file-symlink-replacement-md>`_::
 
-	$ scc deploy folder
+    $ scc deploy folder
 
 The goal of this command is to enable overwriting of deployed doc content and
 allow for “hot-swapping” content served by Apache without downtime and HTTP
@@ -472,11 +472,11 @@ allow for “hot-swapping” content served by Apache without downtime and HTTP
 
 .. option:: --init
 
-	Prepare folder for symlink replacement. Should only be run once
+    Prepare folder for symlink replacement. Should only be run once
 
-	::
+    ::
 
-		$ scc deploy folder --init
+        $ scc deploy folder --init
 
 .. versionadded:: 0.3.1
 
@@ -494,18 +494,18 @@ scc check-status
 
 Check the status of the Github API::
 
-	$ scc check-status && echo "Passing"
-	Passing
+    $ scc check-status && echo "Passing"
+    Passing
 
 .. option:: -n <N>
 
-	Display N last status messages from Github API history::
+    Display N last status messages from Github API history::
 
-		$ scc check-status -n 4
-		2013-11-04 13:40:48 (minor) We're investigating an increase in error responses from the API.
-		2013-11-04 14:33:55 (good) Everything operating normally.
-		2013-11-05 12:59:50 (minor) We're investigating reports of an increase in 502s from the GitHub API.
-		2013-11-05 13:07:15 (good) Everything operating normally.
+        $ scc check-status -n 4
+        2013-11-04 13:40:48 (minor) We're investigating an increase in error responses from the API.
+        2013-11-04 14:33:55 (good) Everything operating normally.
+        2013-11-05 12:59:50 (minor) We're investigating reports of an increase in 502s from the GitHub API.
+        2013-11-05 13:07:15 (good) Everything operating normally.
 
 
 .. versionadded:: 0.4.0
