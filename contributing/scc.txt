@@ -85,7 +85,7 @@ filter is a label filter (see below). These filters can be passed to an :option:
 The available filter types are described below:
 
 - Label filters can be specified using the `label` key i.e. `label:<LABEL>`.
-  This filter type will match a Pull Request if one the following conditions
+  This filter type will match a Pull Request if one of the following conditions
   is met:
 
   1. a label named `<LABEL>` is applied to the Pull Request
