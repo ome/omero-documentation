@@ -13,7 +13,7 @@ Installation
 ------------
 
 The scc tools are a set of Python_ based utility programs. The tools suite
-can be installed using ``pip``::
+can be installed using :command:`pip`::
 
 	$ pip install -U scc
 
@@ -71,24 +71,50 @@ are queried at the prompt::
 scc merge
 ---------
 
-.. program:: scc merge
-
 Merge all the PRs based on specified branch matching the input filters
 including all submodules.
+
+Description
+^^^^^^^^^^^
+
+Filters of different types can be specified and combined to include and
+exclude a set of PRs in the merge command. Each filter needs to be formatted
+as `key:value`. If no key but only a value is specified, it is assumed the
+filter is a label filter (see below). These filters can be passed to an :option:`scc merge --include` or :option:`scc merge --exclude` option.
+
+The available filter types are described below:
+
+- Label filters can be specified using the `label` key i.e. `label:<LABEL>`.
+  This filter type will select a Pull Request if one the following condition
+  is met in order of precedence:
+
+  1. a label named `<LABEL>` is applied to the Pull Request
+  2. the Pull Request description contains a line starting with `--<LABEL>`
+  3. one of the Pull Request comments contains a line starting with
+     `--<LABEL>`. Note this comment needs to be written by one of the public
+     members of the organization owning the upstream repository.
+
+- User filters can be specified using the `user` key i.e. `user:<USERNAME>`.
+  This filter type will select a Pull Request if it has been opened by the
+  user `USERNAME`. Additionally, two special user values are allowed:
+
+  1. the `#org` value will filter all PRs opened by public members of the
+     organization of the upstream repository
+  2. the `#all` value will filter all PRs opened by any user
+
+- PR filters can be specified using the `pr` key i.e. `pr:<NUMBER>`. This will
+  filter Pull Requests which ID matches the input number. The form `#number` is
+  also recognized as a PR filter. For repositories containing submodules, it
+  is possible to filter submodule PRs using `user/repo#number`.
+
+Arguments
+^^^^^^^^^
 
 The first argument is the name of the base branch of origin, e.g.::
 
 	$ scc merge develop
 
-Filters of different types can be specified to include/exclude PRs:
-
-- Label filters can be specified using `label:LABEL`
-- User filters can be specified using `user:USERNAME`. The `user:#org` filter
-  specifies all users belonging to the public organization and `user:#all`
-  specifies all users.
-- PR filters can be specified using `pr:number` or `#number`. Submodule PR
-  filters can be specified using `user/repo#number`.
-- If no key is specified, it is assumed the filter is a label filter.
+.. program:: scc merge
 
 .. option:: --comment
 
@@ -178,6 +204,25 @@ is calling the following merge command:
 
 	$ scc merge develop --no-ask --reset --comment --push merge/develop/latest
 
+Use cases
+^^^^^^^^^
+
+The basic command will use the default filters and merge all PRs opened
+against `master` by any public members of the organization, include any PR
+labelled as `include` and exclude any PR labelled as `breaking` or `exclude`::
+
+   $ scc merge master
+
+The following command overrides the default set of filters and will only merge
+PRs opened against `master` labelled as `my_label`::
+
+    $ scc merge master -Dnone -Ilabel:my_label
+
+The following command overrides the default set of filters and will merge all
+PRs opened against `master` by public members of the organization, include any
+PR labelled with `my_label` and exclude any PR labelled as `exclude`::
+
+    $ scc merge master -Dnone -Iuser#org -Ilabel:my_label -Elabel:exclude
 
 .. versionchanged:: 0.3.0
 	Added default values for :option:`--include` and :option:`--exclude`
