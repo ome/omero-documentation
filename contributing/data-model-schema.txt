@@ -61,9 +61,8 @@ Create the new schema directory
   the schema directory for the current release, so skip over this part.
 
 For the schema release process a high fraction of the necessary work
-occurs in Bio-Formats' :bf_source:`components/specification` directory.
-Inside there, :bf_source:`released-schema
-<components/specification/released-schema>` contains a subdirectory for
+occurs in Bio-Formats' `components/specification` directory.
+Inside there, `components/specification/released-schema` contains a subdirectory for
 each schema, even before its actual release.
 
 To preserve the version history, the creation of the new schema
@@ -118,7 +117,7 @@ XML transforms
 
 The changes made to the released schemas should be accompanied by
 changes to the XML transforms in
-:bf_source:`components/specification/transforms`. For major releases use
+`components/specification/transforms`. For major releases use
 :command:`git mv` in renaming the upgrade and downgrade for the latest
 patch. Remember to restore the originals in a later commit, as above
 when restoring the schema definition files for the latest patch.
@@ -128,8 +127,7 @@ downgrade transforms for the current release. Remember that users may be
 downgrading from an earlier minor version than this newest version.
 
 The transforms' analog of the catalog files is
-:bf_source:`ome-transforms.xml
-<components/specification/transforms/ome-transforms.xml>` which should
+`components/specification/transforms/ome-transforms.xml` which should
 describe the transforms in its directory for that commit.
 
 
@@ -150,15 +148,15 @@ schema definition files in the new :file:`released-schema/2015-01`
 directory, also update the copyright date in their headers, and the date
 in :file:`ome.xsd`'s first `xsd:documentation` tag. Likewise, with the
 XML transforms, update the copyright date in their headers, and in the
-attributes appearing near the start of :bf_source:`ome-transforms.xml
-<components/specification/transforms/ome-transforms.xml>`.
+attributes appearing near the start of
+`components/specification/transforms/ome-transforms.xml`.
 
 Other files in which to fix the schema version include:
 
-* :bf_source:`build.properties <components/autogen/build.properties>`
-  and :bf_source:`xsd-fu.xml <ant/xsd-fu.xml>` for code generation
-* the Project Object Model, Maven's :bf_source:`pom.xml`
-* the :bf_source:`publish script <components/specification/publish>`
+* `components/autogen/build.properties>`
+  and `ant/xsd-fu.xml>` for code generation
+* the Project Object Model, Maven's `pom.xml`
+* the `components/specification/publish>`
   because of the HTML within
 * checks in the Bio-Formats code for the latest schema version,
   including various Java classes (`version.equals`, `SCHEMA_LOCATION`,
@@ -166,7 +164,7 @@ Other files in which to fix the schema version include:
 
 Avoid changing:
 
-* sample files in :bf_source:`components/specification/samples`
+* sample files in `components/specification/samples`
 * documentation in :bf_source:`docs/sphinx`
 * old schema releases
 
