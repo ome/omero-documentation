@@ -1,8 +1,9 @@
 Developer introduction
 ======================
 
-The OME Data Model is currently available as part of the Bio-Formats code
-repository under :sourcedir:`components/specification`.
+The OME Data Model is now decoupled from the Bio-Formats code repository and
+available as a
+`stand-alone ome-model GitHub repository <https://github.com/ome/ome-model>`_.
 
 There are sample files, along with an explanation of their structure, on
 the :doc:`sample-files` page.
