@@ -153,10 +153,10 @@ attributes appearing near the start of
 
 Other files in which to fix the schema version include:
 
-* `components/autogen/build.properties>`
-  and `ant/xsd-fu.xml>` for code generation
+* `components/autogen/build.properties`
+  and `ant/xsd-fu.xml` for code generation
 * the Project Object Model, Maven's `pom.xml`
-* the `components/specification/publish>`
+* the `components/specification/publish`
   because of the HTML within
 * checks in the Bio-Formats code for the latest schema version,
   including various Java classes (`version.equals`, `SCHEMA_LOCATION`,
