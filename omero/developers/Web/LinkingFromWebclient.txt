@@ -142,7 +142,7 @@ are created from selected objects, you can write JavaScript functions
 that handle these steps.
 These functions use the label specified above as an ID for your ``Open with``
 option. In this example it is "My viewer".
-Add one or both of these function calls to a script, for example ```openwith.js```
+Add one or both of these function calls to a script, for example ``openwith.js``
 
 ::
 
