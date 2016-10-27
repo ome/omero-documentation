@@ -175,6 +175,11 @@ Save the script to a static location, either within an OMERO.web app's static di
 or make it available at another url.
 Then specify this location using the ``script_url`` option.
 
+.. note::
+
+    Once you've added a script and updated the config, you will need to restart OMERO.web.
+    This will ``syncmedia`` to copy the script to the static files location.
+
 ::
 
     # E.g. script is saved at myviewer/static/myviewer/openwith.js
