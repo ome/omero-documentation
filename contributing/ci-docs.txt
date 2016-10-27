@@ -31,7 +31,7 @@ tab of Jenkins.
 	:header-rows: 1
 
 	-	* Job task
-		* Bio-Formats 5.2.x series
+		* Bio-Formats 5.3.x series
 
 	-	* Builds the latest Bio-Formats documentation for publishing
 		* :term:`BIOFORMATS-DEV-latest-docs`
@@ -199,24 +199,24 @@ The branch for the 5.3.x series of the OMERO documentation is develop.
 		#. Pushes the auto-generated changes to
 		   :omedoc_scc_branch:`develop/merge/autogen`
 
-Bio-Formats 5.2.x series
+Bio-Formats 5.3.x series
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The branch for the 5.2.x series of the Bio-Formats documentation is develop.
+The branch for the 5.3.x series of the Bio-Formats documentation is develop.
 
 .. glossary::
 
 	:jenkinsjob:`BIOFORMATS-DEV-latest-docs`
 
 		This job is used to build the develop branch of the Bio-Formats
-		documentation and publish the official documentation for the 5.2.x
+		documentation and publish the official documentation for the 5.3.x
 		release of Bio-Formats
 
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. If the build is promoted,
-			#. |ssh-doc| :file:`bf-5.2-release.tmp`
-			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.2/
+			#. |ssh-doc| :file:`bf-5.3-release.tmp`
+			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.3/
 
 	:jenkinsjob:`BIOFORMATS-DEV-merge-docs`
 
@@ -226,8 +226,8 @@ The branch for the 5.2.x series of the Bio-Formats documentation is develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`bf-5.2-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.2-staging/
+		#. |ssh-doc| :file:`bf-5.3-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.3-staging/
 
 	:jenkinsjob:`BIOFORMATS-DEV-latest-docs-autogen`
 
