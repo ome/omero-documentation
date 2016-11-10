@@ -11,7 +11,7 @@ details.updateEvent.id	Id of the Event of this objects last modification
 details.updateEvent.time	When that Event took place
 details.permissions	Permissions in the form `rwrwrw` or `rw-`
 tag	Contents from a ``TagAnnotation``.
-annotation	Contents from any annotations, including ``TagAnnotation`` and any ``TextAnnotation`` on another ``TextAnnotation`` (a.k.a. a `description`). Non-string annotations like file annotations are not covered by this definition and are handled separately. See below.
+annotation	Contents from annotations, including ``TagAnnotation`` and any ``TextAnnotation`` on another ``TextAnnotation`` (a.k.a. a `description`). Non-string annotations like ``FileAnnotations`` are not covered by this definition and are handled separately. See below.
 annotation.ns	Namespace (if present) for any annotations on an object
 annotation.type	Short type name, e.g. ``TextAnnotation`` or ``FileAnnotation`` for any annotations on an object
 file.name	For ``FileAnnotations`` and objects they are attached to, the name of the ``OriginalFile``
