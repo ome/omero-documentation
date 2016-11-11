@@ -28,7 +28,7 @@ Currently, these are:
 -  ``Annotation`` and all annotation subtypes in order to form hierarchies
 -  ScreenPlateWell: ``Screen``, ``ScreenAcquisition``, ``Plate``, ``Well``, 
    ``Reagent``
--  ``Folders``
+-  ``Folder``
 
 Annotation hierarchy
 ^^^^^^^^^^^^^^^^^^^^
@@ -49,7 +49,7 @@ validation of the input string and/or file.
            NumericAnnotation (A*) ............ Floating point and integer values
              DoubleAnnotation
              LongAnnotation
-         MapAnnotation ....................... A set of key-value pairs
+         MapAnnotation ....................... A list of key-value pairs
          TextAnnotation (A*) ................. A single text field
            CommentAnnotation ................. A user comment
            TagAnnotation ..................... Interpreted as a Web 2.0 "tag" on an object, tags on tags form tag bundles
