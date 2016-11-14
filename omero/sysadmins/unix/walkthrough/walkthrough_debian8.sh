@@ -51,11 +51,7 @@ pip install "zeroc-ice>3.5,<3.7"
 
 
 # install Postgres
-apt-get -y install apt-transport-https
-add-apt-repository -y "deb https://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main"
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-apt-get update
-apt-get -y install postgresql-9.4
+apt-get -y install postgresql
 service postgresql start
 
 #end-step01
@@ -79,7 +75,7 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step04: As the omero system user, install the OMERO.server
 #start-copy-omeroscript
-cp settings.env omero-.env step04_all_omero.sh setup_omero_db.sh ~omero 
+cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero
@@ -151,17 +147,6 @@ service apache2 start
 #end-step05
 
 #start-step06: As root, run the scripts to start OMERO and OMERO.web automatically
-
-cp omero-init.d /etc/init.d/omero
-chmod a+x /etc/init.d/omero
-
-cp omero-web-init.d /etc/init.d/omero-web
-chmod a+x /etc/init.d/omero-web
-
-update-rc.d -f omero remove
-update-rc.d -f omero defaults 98 02
-update-rc.d -f omero-web remove
-update-rc.d -f omero-web defaults 98 02
 #end-step06
 
 #start-step07: As root, secure OMERO

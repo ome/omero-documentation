@@ -79,7 +79,7 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step04: As the omero system user, install the OMERO.server
 #start-copy-omeroscript
-cp settings.env omero-.env step04_all_omero.sh setup_omero_db.sh ~omero 
+cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero

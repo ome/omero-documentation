@@ -84,7 +84,7 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step04: As the omero system user, install the OMERO.server
 #start-copy-omeroscript
-cp settings.env omero-.env step04_all_omero.sh setup_omero_db.sh ~omero 
+cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero
@@ -157,17 +157,6 @@ service apache2 start
 #end-step05
 
 #start-step06: As root, run the scripts to start OMERO and OMERO.web automatically
-
-cp omero-init.d /etc/init.d/omero
-chmod a+x /etc/init.d/omero
-
-cp omero-web-init.d /etc/init.d/omero-web
-chmod a+x /etc/init.d/omero-web
-
-update-rc.d -f omero remove
-update-rc.d -f omero defaults 98 02
-update-rc.d -f omero-web remove
-update-rc.d -f omero-web defaults 98 02
 #end-step06
 
 #start-step07: As root, secure OMERO

@@ -90,6 +90,7 @@ service postgresql-9.4 start
 
 #start-step02: As root, create an omero system user and directory for the OMERO repository
 useradd -m omero
+chmod a+X ~omero
 
 mkdir -p "$OMERO_DATA_DIR"
 chown omero "$OMERO_DATA_DIR"
@@ -113,7 +114,7 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step04: As the omero system user, install the OMERO.server
 #start-copy-omeroscript
-cp settings.env omero-.env /opt/hudson/workspace/OMERO-DEV-latest-docs-autogen/omero-install/linux/step04_all_omero.sh setup_omero_db.sh ~omero 
+cp settings.env omero-centos6_py27.env /opt/hudson/workspace/OMERO-DEV-latest-docs-autogen/omero-install/linux/step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero
