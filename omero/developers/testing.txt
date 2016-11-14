@@ -544,7 +544,7 @@ Additionally, for the ``self.client`` object, different shortcuts are available:
 The example below inherits the ``ITest`` class and would create a read-write
 group by default ::
 
-  from library import ITest
+  from omero.testlib import ITest
 
   class TestExample(ITest):
 
@@ -592,7 +592,7 @@ class creates:
 
 ::
 
-  from weblibrary import IWebTest
+  from omeroweb.testlib import IWebTest
 
   class TestExample(IWebTest):
       def testSimple():
