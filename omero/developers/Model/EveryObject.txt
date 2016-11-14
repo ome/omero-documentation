@@ -20,6 +20,15 @@ Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
+.. _OMERO model class AdminPrivilege:
+
+AdminPrivilege
+""""""""""""""
+
+Properties:
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+
 .. _OMERO model class AffineTransform:
 
 AffineTransform
@@ -58,8 +67,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | name: ``string`` (optional)
-  | ns: ``string`` (optional)
+  | name: ``text`` (optional)
+  | ns: ``text`` (optional)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class AnnotationAnnotationLink:
@@ -127,8 +136,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
 .. _OMERO model class Binning:
@@ -156,8 +165,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
 .. _OMERO model class Channel:
@@ -178,7 +187,7 @@ Properties:
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | green: ``integer`` (optional)
   | logicalChannel: :ref:`LogicalChannel <OMERO model class LogicalChannel>`
-  | lookupTable: ``string`` (optional)
+  | lookupTable: ``text`` (optional)
   | pixels: :ref:`Pixels <OMERO model class Pixels>`
   | red: ``integer`` (optional)
   | statsInfo: :ref:`StatsInfo <OMERO model class StatsInfo>` (optional)
@@ -271,8 +280,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | textValue: ``text`` (optional) from :ref:`TextAnnotation <OMERO model class TextAnnotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
@@ -346,7 +355,7 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | imageLinks: :ref:`DatasetImageLink <OMERO model class DatasetImageLink>` (multiple)
-  | name: ``string``
+  | name: ``text``
   | projectLinks: :ref:`ProjectDatasetLink <OMERO model class ProjectDatasetLink>` (multiple)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -528,8 +537,8 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
   | doubleValue: ``double`` (optional)
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
 .. _OMERO model class Ellipse:
@@ -644,7 +653,7 @@ Properties:
 Experimenter
 """"""""""""
 
-Used by: :ref:`AffineTransform.details.owner <OMERO model class AffineTransform>`, :ref:`Annotation.details.owner <OMERO model class Annotation>`, :ref:`AnnotationAnnotationLink.details.owner <OMERO model class AnnotationAnnotationLink>`, :ref:`Channel.details.owner <OMERO model class Channel>`, :ref:`ChannelAnnotationLink.details.owner <OMERO model class ChannelAnnotationLink>`, :ref:`ChannelBinding.details.owner <OMERO model class ChannelBinding>`, :ref:`CodomainMapContext.details.owner <OMERO model class CodomainMapContext>`, :ref:`Dataset.details.owner <OMERO model class Dataset>`, :ref:`DatasetAnnotationLink.details.owner <OMERO model class DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.owner <OMERO model class DatasetImageLink>`, :ref:`Detector.details.owner <OMERO model class Detector>`, :ref:`DetectorAnnotationLink.details.owner <OMERO model class DetectorAnnotationLink>`, :ref:`DetectorSettings.details.owner <OMERO model class DetectorSettings>`, :ref:`Dichroic.details.owner <OMERO model class Dichroic>`, :ref:`DichroicAnnotationLink.details.owner <OMERO model class DichroicAnnotationLink>`, :ref:`Event.experimenter <OMERO model class Event>`, :ref:`Experiment.details.owner <OMERO model class Experiment>`, :ref:`ExperimenterAnnotationLink.details.owner <OMERO model class ExperimenterAnnotationLink>`, :ref:`ExperimenterAnnotationLink.parent <OMERO model class ExperimenterAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.details.owner <OMERO model class ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.owner <OMERO model class ExternalInfo>`, :ref:`Fileset.details.owner <OMERO model class Fileset>`, :ref:`FilesetAnnotationLink.details.owner <OMERO model class FilesetAnnotationLink>`, :ref:`FilesetEntry.details.owner <OMERO model class FilesetEntry>`, :ref:`FilesetJobLink.details.owner <OMERO model class FilesetJobLink>`, :ref:`Filter.details.owner <OMERO model class Filter>`, :ref:`FilterAnnotationLink.details.owner <OMERO model class FilterAnnotationLink>`, :ref:`FilterSet.details.owner <OMERO model class FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.owner <OMERO model class FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.owner <OMERO model class FilterSetExcitationFilterLink>`, :ref:`Folder.details.owner <OMERO model class Folder>`, :ref:`FolderAnnotationLink.details.owner <OMERO model class FolderAnnotationLink>`, :ref:`FolderImageLink.details.owner <OMERO model class FolderImageLink>`, :ref:`FolderRoiLink.details.owner <OMERO model class FolderRoiLink>`, :ref:`GroupExperimenterMap.child <OMERO model class GroupExperimenterMap>`, :ref:`Image.details.owner <OMERO model class Image>`, :ref:`ImageAnnotationLink.details.owner <OMERO model class ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.owner <OMERO model class ImagingEnvironment>`, :ref:`Instrument.details.owner <OMERO model class Instrument>`, :ref:`InstrumentAnnotationLink.details.owner <OMERO model class InstrumentAnnotationLink>`, :ref:`Job.details.owner <OMERO model class Job>`, :ref:`JobOriginalFileLink.details.owner <OMERO model class JobOriginalFileLink>`, :ref:`LightPath.details.owner <OMERO model class LightPath>`, :ref:`LightPathAnnotationLink.details.owner <OMERO model class LightPathAnnotationLink>`, :ref:`LightPathEmissionFilterLink.details.owner <OMERO model class LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.owner <OMERO model class LightPathExcitationFilterLink>`, :ref:`LightSettings.details.owner <OMERO model class LightSettings>`, :ref:`LightSource.details.owner <OMERO model class LightSource>`, :ref:`LightSourceAnnotationLink.details.owner <OMERO model class LightSourceAnnotationLink>`, :ref:`Link.details.owner <OMERO model class Link>`, :ref:`LogicalChannel.details.owner <OMERO model class LogicalChannel>`, :ref:`MicrobeamManipulation.details.owner <OMERO model class MicrobeamManipulation>`, :ref:`Microscope.details.owner <OMERO model class Microscope>`, :ref:`NamespaceAnnotationLink.details.owner <OMERO model class NamespaceAnnotationLink>`, :ref:`NodeAnnotationLink.details.owner <OMERO model class NodeAnnotationLink>`, :ref:`OTF.details.owner <OMERO model class OTF>`, :ref:`Objective.details.owner <OMERO model class Objective>`, :ref:`ObjectiveAnnotationLink.details.owner <OMERO model class ObjectiveAnnotationLink>`, :ref:`ObjectiveSettings.details.owner <OMERO model class ObjectiveSettings>`, :ref:`OriginalFile.details.owner <OMERO model class OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.owner <OMERO model class OriginalFileAnnotationLink>`, :ref:`Pixels.details.owner <OMERO model class Pixels>`, :ref:`PixelsOriginalFileMap.details.owner <OMERO model class PixelsOriginalFileMap>`, :ref:`PlaneInfo.details.owner <OMERO model class PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.owner <OMERO model class PlaneInfoAnnotationLink>`, :ref:`Plate.details.owner <OMERO model class Plate>`, :ref:`PlateAcquisition.details.owner <OMERO model class PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.owner <OMERO model class PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.owner <OMERO model class PlateAnnotationLink>`, :ref:`Project.details.owner <OMERO model class Project>`, :ref:`ProjectAnnotationLink.details.owner <OMERO model class ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.owner <OMERO model class ProjectDatasetLink>`, :ref:`ProjectionDef.details.owner <OMERO model class ProjectionDef>`, :ref:`QuantumDef.details.owner <OMERO model class QuantumDef>`, :ref:`Reagent.details.owner <OMERO model class Reagent>`, :ref:`ReagentAnnotationLink.details.owner <OMERO model class ReagentAnnotationLink>`, :ref:`RenderingDef.details.owner <OMERO model class RenderingDef>`, :ref:`Roi.details.owner <OMERO model class Roi>`, :ref:`RoiAnnotationLink.details.owner <OMERO model class RoiAnnotationLink>`, :ref:`Screen.details.owner <OMERO model class Screen>`, :ref:`ScreenAnnotationLink.details.owner <OMERO model class ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.owner <OMERO model class ScreenPlateLink>`, :ref:`Session.owner <OMERO model class Session>`, :ref:`SessionAnnotationLink.details.owner <OMERO model class SessionAnnotationLink>`, :ref:`Shape.details.owner <OMERO model class Shape>`, :ref:`ShapeAnnotationLink.details.owner <OMERO model class ShapeAnnotationLink>`, :ref:`ShareMember.child <OMERO model class ShareMember>`, :ref:`StageLabel.details.owner <OMERO model class StageLabel>`, :ref:`StatsInfo.details.owner <OMERO model class StatsInfo>`, :ref:`Thumbnail.details.owner <OMERO model class Thumbnail>`, :ref:`TransmittanceRange.details.owner <OMERO model class TransmittanceRange>`, :ref:`Well.details.owner <OMERO model class Well>`, :ref:`WellAnnotationLink.details.owner <OMERO model class WellAnnotationLink>`, :ref:`WellReagentLink.details.owner <OMERO model class WellReagentLink>`, :ref:`WellSample.details.owner <OMERO model class WellSample>`
+Used by: :ref:`AffineTransform.details.owner <OMERO model class AffineTransform>`, :ref:`Annotation.details.owner <OMERO model class Annotation>`, :ref:`AnnotationAnnotationLink.details.owner <OMERO model class AnnotationAnnotationLink>`, :ref:`Channel.details.owner <OMERO model class Channel>`, :ref:`ChannelAnnotationLink.details.owner <OMERO model class ChannelAnnotationLink>`, :ref:`ChannelBinding.details.owner <OMERO model class ChannelBinding>`, :ref:`CodomainMapContext.details.owner <OMERO model class CodomainMapContext>`, :ref:`Dataset.details.owner <OMERO model class Dataset>`, :ref:`DatasetAnnotationLink.details.owner <OMERO model class DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.owner <OMERO model class DatasetImageLink>`, :ref:`Detector.details.owner <OMERO model class Detector>`, :ref:`DetectorAnnotationLink.details.owner <OMERO model class DetectorAnnotationLink>`, :ref:`DetectorSettings.details.owner <OMERO model class DetectorSettings>`, :ref:`Dichroic.details.owner <OMERO model class Dichroic>`, :ref:`DichroicAnnotationLink.details.owner <OMERO model class DichroicAnnotationLink>`, :ref:`Event.experimenter <OMERO model class Event>`, :ref:`Experiment.details.owner <OMERO model class Experiment>`, :ref:`ExperimenterAnnotationLink.details.owner <OMERO model class ExperimenterAnnotationLink>`, :ref:`ExperimenterAnnotationLink.parent <OMERO model class ExperimenterAnnotationLink>`, :ref:`ExperimenterGroupAnnotationLink.details.owner <OMERO model class ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.owner <OMERO model class ExternalInfo>`, :ref:`Fileset.details.owner <OMERO model class Fileset>`, :ref:`FilesetAnnotationLink.details.owner <OMERO model class FilesetAnnotationLink>`, :ref:`FilesetEntry.details.owner <OMERO model class FilesetEntry>`, :ref:`FilesetJobLink.details.owner <OMERO model class FilesetJobLink>`, :ref:`Filter.details.owner <OMERO model class Filter>`, :ref:`FilterAnnotationLink.details.owner <OMERO model class FilterAnnotationLink>`, :ref:`FilterSet.details.owner <OMERO model class FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.owner <OMERO model class FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.owner <OMERO model class FilterSetExcitationFilterLink>`, :ref:`Folder.details.owner <OMERO model class Folder>`, :ref:`FolderAnnotationLink.details.owner <OMERO model class FolderAnnotationLink>`, :ref:`FolderImageLink.details.owner <OMERO model class FolderImageLink>`, :ref:`FolderRoiLink.details.owner <OMERO model class FolderRoiLink>`, :ref:`GroupExperimenterMap.child <OMERO model class GroupExperimenterMap>`, :ref:`Image.details.owner <OMERO model class Image>`, :ref:`ImageAnnotationLink.details.owner <OMERO model class ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.owner <OMERO model class ImagingEnvironment>`, :ref:`Instrument.details.owner <OMERO model class Instrument>`, :ref:`InstrumentAnnotationLink.details.owner <OMERO model class InstrumentAnnotationLink>`, :ref:`Job.details.owner <OMERO model class Job>`, :ref:`JobOriginalFileLink.details.owner <OMERO model class JobOriginalFileLink>`, :ref:`LightPath.details.owner <OMERO model class LightPath>`, :ref:`LightPathAnnotationLink.details.owner <OMERO model class LightPathAnnotationLink>`, :ref:`LightPathEmissionFilterLink.details.owner <OMERO model class LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.owner <OMERO model class LightPathExcitationFilterLink>`, :ref:`LightSettings.details.owner <OMERO model class LightSettings>`, :ref:`LightSource.details.owner <OMERO model class LightSource>`, :ref:`LightSourceAnnotationLink.details.owner <OMERO model class LightSourceAnnotationLink>`, :ref:`Link.details.owner <OMERO model class Link>`, :ref:`LogicalChannel.details.owner <OMERO model class LogicalChannel>`, :ref:`MicrobeamManipulation.details.owner <OMERO model class MicrobeamManipulation>`, :ref:`Microscope.details.owner <OMERO model class Microscope>`, :ref:`NamespaceAnnotationLink.details.owner <OMERO model class NamespaceAnnotationLink>`, :ref:`NodeAnnotationLink.details.owner <OMERO model class NodeAnnotationLink>`, :ref:`OTF.details.owner <OMERO model class OTF>`, :ref:`Objective.details.owner <OMERO model class Objective>`, :ref:`ObjectiveAnnotationLink.details.owner <OMERO model class ObjectiveAnnotationLink>`, :ref:`ObjectiveSettings.details.owner <OMERO model class ObjectiveSettings>`, :ref:`OriginalFile.details.owner <OMERO model class OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.owner <OMERO model class OriginalFileAnnotationLink>`, :ref:`Pixels.details.owner <OMERO model class Pixels>`, :ref:`PixelsOriginalFileMap.details.owner <OMERO model class PixelsOriginalFileMap>`, :ref:`PlaneInfo.details.owner <OMERO model class PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.owner <OMERO model class PlaneInfoAnnotationLink>`, :ref:`Plate.details.owner <OMERO model class Plate>`, :ref:`PlateAcquisition.details.owner <OMERO model class PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.owner <OMERO model class PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.owner <OMERO model class PlateAnnotationLink>`, :ref:`Project.details.owner <OMERO model class Project>`, :ref:`ProjectAnnotationLink.details.owner <OMERO model class ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.owner <OMERO model class ProjectDatasetLink>`, :ref:`ProjectionDef.details.owner <OMERO model class ProjectionDef>`, :ref:`QuantumDef.details.owner <OMERO model class QuantumDef>`, :ref:`Reagent.details.owner <OMERO model class Reagent>`, :ref:`ReagentAnnotationLink.details.owner <OMERO model class ReagentAnnotationLink>`, :ref:`RenderingDef.details.owner <OMERO model class RenderingDef>`, :ref:`Roi.details.owner <OMERO model class Roi>`, :ref:`RoiAnnotationLink.details.owner <OMERO model class RoiAnnotationLink>`, :ref:`Screen.details.owner <OMERO model class Screen>`, :ref:`ScreenAnnotationLink.details.owner <OMERO model class ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.owner <OMERO model class ScreenPlateLink>`, :ref:`Session.owner <OMERO model class Session>`, :ref:`Session.sudoer <OMERO model class Session>`, :ref:`SessionAnnotationLink.details.owner <OMERO model class SessionAnnotationLink>`, :ref:`Shape.details.owner <OMERO model class Shape>`, :ref:`ShapeAnnotationLink.details.owner <OMERO model class ShapeAnnotationLink>`, :ref:`ShareMember.child <OMERO model class ShareMember>`, :ref:`StageLabel.details.owner <OMERO model class StageLabel>`, :ref:`StatsInfo.details.owner <OMERO model class StatsInfo>`, :ref:`Thumbnail.details.owner <OMERO model class Thumbnail>`, :ref:`TransmittanceRange.details.owner <OMERO model class TransmittanceRange>`, :ref:`Well.details.owner <OMERO model class Well>`, :ref:`WellAnnotationLink.details.owner <OMERO model class WellAnnotationLink>`, :ref:`WellReagentLink.details.owner <OMERO model class WellReagentLink>`, :ref:`WellSample.details.owner <OMERO model class WellSample>`
 
 Properties:
   | annotationLinks: :ref:`ExperimenterAnnotationLink <OMERO model class ExperimenterAnnotationLink>` (multiple)
@@ -716,7 +725,7 @@ Properties:
 ExternalInfo
 """"""""""""
 
-Used by: :ref:`AcquisitionMode.details.externalInfo <OMERO model class AcquisitionMode>`, :ref:`AffineTransform.details.externalInfo <OMERO model class AffineTransform>`, :ref:`Annotation.details.externalInfo <OMERO model class Annotation>`, :ref:`AnnotationAnnotationLink.details.externalInfo <OMERO model class AnnotationAnnotationLink>`, :ref:`ArcType.details.externalInfo <OMERO model class ArcType>`, :ref:`Binning.details.externalInfo <OMERO model class Binning>`, :ref:`Channel.details.externalInfo <OMERO model class Channel>`, :ref:`ChannelAnnotationLink.details.externalInfo <OMERO model class ChannelAnnotationLink>`, :ref:`ChannelBinding.details.externalInfo <OMERO model class ChannelBinding>`, :ref:`ChecksumAlgorithm.details.externalInfo <OMERO model class ChecksumAlgorithm>`, :ref:`CodomainMapContext.details.externalInfo <OMERO model class CodomainMapContext>`, :ref:`ContrastMethod.details.externalInfo <OMERO model class ContrastMethod>`, :ref:`Correction.details.externalInfo <OMERO model class Correction>`, :ref:`DBPatch.details.externalInfo <OMERO model class DBPatch>`, :ref:`Dataset.details.externalInfo <OMERO model class Dataset>`, :ref:`DatasetAnnotationLink.details.externalInfo <OMERO model class DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.externalInfo <OMERO model class DatasetImageLink>`, :ref:`Detector.details.externalInfo <OMERO model class Detector>`, :ref:`DetectorAnnotationLink.details.externalInfo <OMERO model class DetectorAnnotationLink>`, :ref:`DetectorSettings.details.externalInfo <OMERO model class DetectorSettings>`, :ref:`DetectorType.details.externalInfo <OMERO model class DetectorType>`, :ref:`Dichroic.details.externalInfo <OMERO model class Dichroic>`, :ref:`DichroicAnnotationLink.details.externalInfo <OMERO model class DichroicAnnotationLink>`, :ref:`DimensionOrder.details.externalInfo <OMERO model class DimensionOrder>`, :ref:`Event.details.externalInfo <OMERO model class Event>`, :ref:`EventLog.details.externalInfo <OMERO model class EventLog>`, :ref:`EventType.details.externalInfo <OMERO model class EventType>`, :ref:`Experiment.details.externalInfo <OMERO model class Experiment>`, :ref:`ExperimentType.details.externalInfo <OMERO model class ExperimentType>`, :ref:`Experimenter.details.externalInfo <OMERO model class Experimenter>`, :ref:`ExperimenterAnnotationLink.details.externalInfo <OMERO model class ExperimenterAnnotationLink>`, :ref:`ExperimenterGroup.details.externalInfo <OMERO model class ExperimenterGroup>`, :ref:`ExperimenterGroupAnnotationLink.details.externalInfo <OMERO model class ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.externalInfo <OMERO model class ExternalInfo>`, :ref:`Family.details.externalInfo <OMERO model class Family>`, :ref:`FilamentType.details.externalInfo <OMERO model class FilamentType>`, :ref:`Fileset.details.externalInfo <OMERO model class Fileset>`, :ref:`FilesetAnnotationLink.details.externalInfo <OMERO model class FilesetAnnotationLink>`, :ref:`FilesetEntry.details.externalInfo <OMERO model class FilesetEntry>`, :ref:`FilesetJobLink.details.externalInfo <OMERO model class FilesetJobLink>`, :ref:`Filter.details.externalInfo <OMERO model class Filter>`, :ref:`FilterAnnotationLink.details.externalInfo <OMERO model class FilterAnnotationLink>`, :ref:`FilterSet.details.externalInfo <OMERO model class FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.externalInfo <OMERO model class FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.externalInfo <OMERO model class FilterSetExcitationFilterLink>`, :ref:`FilterType.details.externalInfo <OMERO model class FilterType>`, :ref:`Folder.details.externalInfo <OMERO model class Folder>`, :ref:`FolderAnnotationLink.details.externalInfo <OMERO model class FolderAnnotationLink>`, :ref:`FolderImageLink.details.externalInfo <OMERO model class FolderImageLink>`, :ref:`FolderRoiLink.details.externalInfo <OMERO model class FolderRoiLink>`, :ref:`Format.details.externalInfo <OMERO model class Format>`, :ref:`GroupExperimenterMap.details.externalInfo <OMERO model class GroupExperimenterMap>`, :ref:`Illumination.details.externalInfo <OMERO model class Illumination>`, :ref:`Image.details.externalInfo <OMERO model class Image>`, :ref:`ImageAnnotationLink.details.externalInfo <OMERO model class ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.externalInfo <OMERO model class ImagingEnvironment>`, :ref:`Immersion.details.externalInfo <OMERO model class Immersion>`, :ref:`Instrument.details.externalInfo <OMERO model class Instrument>`, :ref:`InstrumentAnnotationLink.details.externalInfo <OMERO model class InstrumentAnnotationLink>`, :ref:`Job.details.externalInfo <OMERO model class Job>`, :ref:`JobOriginalFileLink.details.externalInfo <OMERO model class JobOriginalFileLink>`, :ref:`JobStatus.details.externalInfo <OMERO model class JobStatus>`, :ref:`LaserMedium.details.externalInfo <OMERO model class LaserMedium>`, :ref:`LaserType.details.externalInfo <OMERO model class LaserType>`, :ref:`LightPath.details.externalInfo <OMERO model class LightPath>`, :ref:`LightPathAnnotationLink.details.externalInfo <OMERO model class LightPathAnnotationLink>`, :ref:`LightPathEmissionFilterLink.details.externalInfo <OMERO model class LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.externalInfo <OMERO model class LightPathExcitationFilterLink>`, :ref:`LightSettings.details.externalInfo <OMERO model class LightSettings>`, :ref:`LightSource.details.externalInfo <OMERO model class LightSource>`, :ref:`LightSourceAnnotationLink.details.externalInfo <OMERO model class LightSourceAnnotationLink>`, :ref:`Link.details.externalInfo <OMERO model class Link>`, :ref:`LogicalChannel.details.externalInfo <OMERO model class LogicalChannel>`, :ref:`Medium.details.externalInfo <OMERO model class Medium>`, :ref:`MicrobeamManipulation.details.externalInfo <OMERO model class MicrobeamManipulation>`, :ref:`MicrobeamManipulationType.details.externalInfo <OMERO model class MicrobeamManipulationType>`, :ref:`Microscope.details.externalInfo <OMERO model class Microscope>`, :ref:`MicroscopeType.details.externalInfo <OMERO model class MicroscopeType>`, :ref:`Namespace.details.externalInfo <OMERO model class Namespace>`, :ref:`NamespaceAnnotationLink.details.externalInfo <OMERO model class NamespaceAnnotationLink>`, :ref:`Node.details.externalInfo <OMERO model class Node>`, :ref:`NodeAnnotationLink.details.externalInfo <OMERO model class NodeAnnotationLink>`, :ref:`OTF.details.externalInfo <OMERO model class OTF>`, :ref:`Objective.details.externalInfo <OMERO model class Objective>`, :ref:`ObjectiveAnnotationLink.details.externalInfo <OMERO model class ObjectiveAnnotationLink>`, :ref:`ObjectiveSettings.details.externalInfo <OMERO model class ObjectiveSettings>`, :ref:`OriginalFile.details.externalInfo <OMERO model class OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.externalInfo <OMERO model class OriginalFileAnnotationLink>`, :ref:`PhotometricInterpretation.details.externalInfo <OMERO model class PhotometricInterpretation>`, :ref:`Pixels.details.externalInfo <OMERO model class Pixels>`, :ref:`PixelsOriginalFileMap.details.externalInfo <OMERO model class PixelsOriginalFileMap>`, :ref:`PixelsType.details.externalInfo <OMERO model class PixelsType>`, :ref:`PlaneInfo.details.externalInfo <OMERO model class PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.externalInfo <OMERO model class PlaneInfoAnnotationLink>`, :ref:`Plate.details.externalInfo <OMERO model class Plate>`, :ref:`PlateAcquisition.details.externalInfo <OMERO model class PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.externalInfo <OMERO model class PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.externalInfo <OMERO model class PlateAnnotationLink>`, :ref:`Project.details.externalInfo <OMERO model class Project>`, :ref:`ProjectAnnotationLink.details.externalInfo <OMERO model class ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.externalInfo <OMERO model class ProjectDatasetLink>`, :ref:`ProjectionAxis.details.externalInfo <OMERO model class ProjectionAxis>`, :ref:`ProjectionDef.details.externalInfo <OMERO model class ProjectionDef>`, :ref:`ProjectionType.details.externalInfo <OMERO model class ProjectionType>`, :ref:`Pulse.details.externalInfo <OMERO model class Pulse>`, :ref:`QuantumDef.details.externalInfo <OMERO model class QuantumDef>`, :ref:`Reagent.details.externalInfo <OMERO model class Reagent>`, :ref:`ReagentAnnotationLink.details.externalInfo <OMERO model class ReagentAnnotationLink>`, :ref:`RenderingDef.details.externalInfo <OMERO model class RenderingDef>`, :ref:`RenderingModel.details.externalInfo <OMERO model class RenderingModel>`, :ref:`Roi.details.externalInfo <OMERO model class Roi>`, :ref:`RoiAnnotationLink.details.externalInfo <OMERO model class RoiAnnotationLink>`, :ref:`Screen.details.externalInfo <OMERO model class Screen>`, :ref:`ScreenAnnotationLink.details.externalInfo <OMERO model class ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.externalInfo <OMERO model class ScreenPlateLink>`, :ref:`Session.details.externalInfo <OMERO model class Session>`, :ref:`SessionAnnotationLink.details.externalInfo <OMERO model class SessionAnnotationLink>`, :ref:`Shape.details.externalInfo <OMERO model class Shape>`, :ref:`ShapeAnnotationLink.details.externalInfo <OMERO model class ShapeAnnotationLink>`, :ref:`ShareMember.details.externalInfo <OMERO model class ShareMember>`, :ref:`StageLabel.details.externalInfo <OMERO model class StageLabel>`, :ref:`StatsInfo.details.externalInfo <OMERO model class StatsInfo>`, :ref:`Thumbnail.details.externalInfo <OMERO model class Thumbnail>`, :ref:`TransmittanceRange.details.externalInfo <OMERO model class TransmittanceRange>`, :ref:`Well.details.externalInfo <OMERO model class Well>`, :ref:`WellAnnotationLink.details.externalInfo <OMERO model class WellAnnotationLink>`, :ref:`WellReagentLink.details.externalInfo <OMERO model class WellReagentLink>`, :ref:`WellSample.details.externalInfo <OMERO model class WellSample>`
+Used by: :ref:`AcquisitionMode.details.externalInfo <OMERO model class AcquisitionMode>`, :ref:`AdminPrivilege.details.externalInfo <OMERO model class AdminPrivilege>`, :ref:`AffineTransform.details.externalInfo <OMERO model class AffineTransform>`, :ref:`Annotation.details.externalInfo <OMERO model class Annotation>`, :ref:`AnnotationAnnotationLink.details.externalInfo <OMERO model class AnnotationAnnotationLink>`, :ref:`ArcType.details.externalInfo <OMERO model class ArcType>`, :ref:`Binning.details.externalInfo <OMERO model class Binning>`, :ref:`Channel.details.externalInfo <OMERO model class Channel>`, :ref:`ChannelAnnotationLink.details.externalInfo <OMERO model class ChannelAnnotationLink>`, :ref:`ChannelBinding.details.externalInfo <OMERO model class ChannelBinding>`, :ref:`ChecksumAlgorithm.details.externalInfo <OMERO model class ChecksumAlgorithm>`, :ref:`CodomainMapContext.details.externalInfo <OMERO model class CodomainMapContext>`, :ref:`ContrastMethod.details.externalInfo <OMERO model class ContrastMethod>`, :ref:`Correction.details.externalInfo <OMERO model class Correction>`, :ref:`DBPatch.details.externalInfo <OMERO model class DBPatch>`, :ref:`Dataset.details.externalInfo <OMERO model class Dataset>`, :ref:`DatasetAnnotationLink.details.externalInfo <OMERO model class DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.externalInfo <OMERO model class DatasetImageLink>`, :ref:`Detector.details.externalInfo <OMERO model class Detector>`, :ref:`DetectorAnnotationLink.details.externalInfo <OMERO model class DetectorAnnotationLink>`, :ref:`DetectorSettings.details.externalInfo <OMERO model class DetectorSettings>`, :ref:`DetectorType.details.externalInfo <OMERO model class DetectorType>`, :ref:`Dichroic.details.externalInfo <OMERO model class Dichroic>`, :ref:`DichroicAnnotationLink.details.externalInfo <OMERO model class DichroicAnnotationLink>`, :ref:`DimensionOrder.details.externalInfo <OMERO model class DimensionOrder>`, :ref:`Event.details.externalInfo <OMERO model class Event>`, :ref:`EventLog.details.externalInfo <OMERO model class EventLog>`, :ref:`EventType.details.externalInfo <OMERO model class EventType>`, :ref:`Experiment.details.externalInfo <OMERO model class Experiment>`, :ref:`ExperimentType.details.externalInfo <OMERO model class ExperimentType>`, :ref:`Experimenter.details.externalInfo <OMERO model class Experimenter>`, :ref:`ExperimenterAnnotationLink.details.externalInfo <OMERO model class ExperimenterAnnotationLink>`, :ref:`ExperimenterGroup.details.externalInfo <OMERO model class ExperimenterGroup>`, :ref:`ExperimenterGroupAnnotationLink.details.externalInfo <OMERO model class ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.externalInfo <OMERO model class ExternalInfo>`, :ref:`Family.details.externalInfo <OMERO model class Family>`, :ref:`FilamentType.details.externalInfo <OMERO model class FilamentType>`, :ref:`Fileset.details.externalInfo <OMERO model class Fileset>`, :ref:`FilesetAnnotationLink.details.externalInfo <OMERO model class FilesetAnnotationLink>`, :ref:`FilesetEntry.details.externalInfo <OMERO model class FilesetEntry>`, :ref:`FilesetJobLink.details.externalInfo <OMERO model class FilesetJobLink>`, :ref:`Filter.details.externalInfo <OMERO model class Filter>`, :ref:`FilterAnnotationLink.details.externalInfo <OMERO model class FilterAnnotationLink>`, :ref:`FilterSet.details.externalInfo <OMERO model class FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.externalInfo <OMERO model class FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.externalInfo <OMERO model class FilterSetExcitationFilterLink>`, :ref:`FilterType.details.externalInfo <OMERO model class FilterType>`, :ref:`Folder.details.externalInfo <OMERO model class Folder>`, :ref:`FolderAnnotationLink.details.externalInfo <OMERO model class FolderAnnotationLink>`, :ref:`FolderImageLink.details.externalInfo <OMERO model class FolderImageLink>`, :ref:`FolderRoiLink.details.externalInfo <OMERO model class FolderRoiLink>`, :ref:`Format.details.externalInfo <OMERO model class Format>`, :ref:`GroupExperimenterMap.details.externalInfo <OMERO model class GroupExperimenterMap>`, :ref:`Illumination.details.externalInfo <OMERO model class Illumination>`, :ref:`Image.details.externalInfo <OMERO model class Image>`, :ref:`ImageAnnotationLink.details.externalInfo <OMERO model class ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.externalInfo <OMERO model class ImagingEnvironment>`, :ref:`Immersion.details.externalInfo <OMERO model class Immersion>`, :ref:`Instrument.details.externalInfo <OMERO model class Instrument>`, :ref:`InstrumentAnnotationLink.details.externalInfo <OMERO model class InstrumentAnnotationLink>`, :ref:`Job.details.externalInfo <OMERO model class Job>`, :ref:`JobOriginalFileLink.details.externalInfo <OMERO model class JobOriginalFileLink>`, :ref:`JobStatus.details.externalInfo <OMERO model class JobStatus>`, :ref:`LaserMedium.details.externalInfo <OMERO model class LaserMedium>`, :ref:`LaserType.details.externalInfo <OMERO model class LaserType>`, :ref:`LightPath.details.externalInfo <OMERO model class LightPath>`, :ref:`LightPathAnnotationLink.details.externalInfo <OMERO model class LightPathAnnotationLink>`, :ref:`LightPathEmissionFilterLink.details.externalInfo <OMERO model class LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.externalInfo <OMERO model class LightPathExcitationFilterLink>`, :ref:`LightSettings.details.externalInfo <OMERO model class LightSettings>`, :ref:`LightSource.details.externalInfo <OMERO model class LightSource>`, :ref:`LightSourceAnnotationLink.details.externalInfo <OMERO model class LightSourceAnnotationLink>`, :ref:`Link.details.externalInfo <OMERO model class Link>`, :ref:`LogicalChannel.details.externalInfo <OMERO model class LogicalChannel>`, :ref:`Medium.details.externalInfo <OMERO model class Medium>`, :ref:`MicrobeamManipulation.details.externalInfo <OMERO model class MicrobeamManipulation>`, :ref:`MicrobeamManipulationType.details.externalInfo <OMERO model class MicrobeamManipulationType>`, :ref:`Microscope.details.externalInfo <OMERO model class Microscope>`, :ref:`MicroscopeType.details.externalInfo <OMERO model class MicroscopeType>`, :ref:`Namespace.details.externalInfo <OMERO model class Namespace>`, :ref:`NamespaceAnnotationLink.details.externalInfo <OMERO model class NamespaceAnnotationLink>`, :ref:`Node.details.externalInfo <OMERO model class Node>`, :ref:`NodeAnnotationLink.details.externalInfo <OMERO model class NodeAnnotationLink>`, :ref:`OTF.details.externalInfo <OMERO model class OTF>`, :ref:`Objective.details.externalInfo <OMERO model class Objective>`, :ref:`ObjectiveAnnotationLink.details.externalInfo <OMERO model class ObjectiveAnnotationLink>`, :ref:`ObjectiveSettings.details.externalInfo <OMERO model class ObjectiveSettings>`, :ref:`OriginalFile.details.externalInfo <OMERO model class OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.externalInfo <OMERO model class OriginalFileAnnotationLink>`, :ref:`PhotometricInterpretation.details.externalInfo <OMERO model class PhotometricInterpretation>`, :ref:`Pixels.details.externalInfo <OMERO model class Pixels>`, :ref:`PixelsOriginalFileMap.details.externalInfo <OMERO model class PixelsOriginalFileMap>`, :ref:`PixelsType.details.externalInfo <OMERO model class PixelsType>`, :ref:`PlaneInfo.details.externalInfo <OMERO model class PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.externalInfo <OMERO model class PlaneInfoAnnotationLink>`, :ref:`Plate.details.externalInfo <OMERO model class Plate>`, :ref:`PlateAcquisition.details.externalInfo <OMERO model class PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.externalInfo <OMERO model class PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.externalInfo <OMERO model class PlateAnnotationLink>`, :ref:`Project.details.externalInfo <OMERO model class Project>`, :ref:`ProjectAnnotationLink.details.externalInfo <OMERO model class ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.externalInfo <OMERO model class ProjectDatasetLink>`, :ref:`ProjectionAxis.details.externalInfo <OMERO model class ProjectionAxis>`, :ref:`ProjectionDef.details.externalInfo <OMERO model class ProjectionDef>`, :ref:`ProjectionType.details.externalInfo <OMERO model class ProjectionType>`, :ref:`Pulse.details.externalInfo <OMERO model class Pulse>`, :ref:`QuantumDef.details.externalInfo <OMERO model class QuantumDef>`, :ref:`Reagent.details.externalInfo <OMERO model class Reagent>`, :ref:`ReagentAnnotationLink.details.externalInfo <OMERO model class ReagentAnnotationLink>`, :ref:`RenderingDef.details.externalInfo <OMERO model class RenderingDef>`, :ref:`RenderingModel.details.externalInfo <OMERO model class RenderingModel>`, :ref:`Roi.details.externalInfo <OMERO model class Roi>`, :ref:`RoiAnnotationLink.details.externalInfo <OMERO model class RoiAnnotationLink>`, :ref:`Screen.details.externalInfo <OMERO model class Screen>`, :ref:`ScreenAnnotationLink.details.externalInfo <OMERO model class ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.externalInfo <OMERO model class ScreenPlateLink>`, :ref:`Session.details.externalInfo <OMERO model class Session>`, :ref:`SessionAnnotationLink.details.externalInfo <OMERO model class SessionAnnotationLink>`, :ref:`Shape.details.externalInfo <OMERO model class Shape>`, :ref:`ShapeAnnotationLink.details.externalInfo <OMERO model class ShapeAnnotationLink>`, :ref:`ShareMember.details.externalInfo <OMERO model class ShareMember>`, :ref:`StageLabel.details.externalInfo <OMERO model class StageLabel>`, :ref:`StatsInfo.details.externalInfo <OMERO model class StatsInfo>`, :ref:`Thumbnail.details.externalInfo <OMERO model class Thumbnail>`, :ref:`TransmittanceRange.details.externalInfo <OMERO model class TransmittanceRange>`, :ref:`Well.details.externalInfo <OMERO model class Well>`, :ref:`WellAnnotationLink.details.externalInfo <OMERO model class WellAnnotationLink>`, :ref:`WellReagentLink.details.externalInfo <OMERO model class WellReagentLink>`, :ref:`WellSample.details.externalInfo <OMERO model class WellSample>`
 
 Properties:
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
@@ -786,8 +795,8 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
   | file: :ref:`OriginalFile <OMERO model class OriginalFile>` (optional)
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
 .. _OMERO model class Fileset:
@@ -990,7 +999,7 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | imageLinks: :ref:`FolderImageLink <OMERO model class FolderImageLink>` (multiple)
-  | name: ``string``
+  | name: ``text``
   | parentFolder: :ref:`Folder <OMERO model class Folder>` (optional)
   | roiLinks: :ref:`FolderRoiLink <OMERO model class FolderRoiLink>` (multiple)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
@@ -1128,7 +1137,7 @@ Properties:
   | format: :ref:`Format <OMERO model class Format>` (optional)
   | imagingEnvironment: :ref:`ImagingEnvironment <OMERO model class ImagingEnvironment>` (optional)
   | instrument: :ref:`Instrument <OMERO model class Instrument>` (optional)
-  | name: ``string``
+  | name: ``text``
   | objectiveSettings: :ref:`ObjectiveSettings <OMERO model class ObjectiveSettings>` (optional)
   | partial: ``boolean`` (optional)
   | pixels: :ref:`Pixels <OMERO model class Pixels>` (multiple)
@@ -1201,8 +1210,8 @@ Properties:
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Job <OMERO model class Job>`
   | finished: ``timestamp`` (optional) from :ref:`Job <OMERO model class Job>`
   | groupname: ``string`` from :ref:`Job <OMERO model class Job>`
-  | imageDescription: ``string``
-  | imageName: ``string``
+  | imageDescription: ``text``
+  | imageName: ``text``
   | message: ``string`` from :ref:`Job <OMERO model class Job>`
   | originalFileLinks: :ref:`JobOriginalFileLink <OMERO model class JobOriginalFileLink>` (multiple) from :ref:`Job <OMERO model class Job>`
   | scheduledFor: ``timestamp`` from :ref:`Job <OMERO model class Job>`
@@ -1658,8 +1667,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
 .. _OMERO model class LogicalChannel:
@@ -1688,7 +1697,7 @@ Properties:
   | lightPath: :ref:`LightPath <OMERO model class LightPath>` (optional)
   | lightSourceSettings: :ref:`LightSettings <OMERO model class LightSettings>` (optional)
   | mode: :ref:`AcquisitionMode <OMERO model class AcquisitionMode>` (optional)
-  | name: ``string`` (optional)
+  | name: ``text`` (optional)
   | ndFilter: ``double`` (optional)
   | otf: :ref:`OTF <OMERO model class OTF>` (optional)
   | photometricInterpretation: :ref:`PhotometricInterpretation <OMERO model class PhotometricInterpretation>` (optional)
@@ -1712,8 +1721,8 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
   | longValue: ``long`` (optional)
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
 .. _OMERO model class MapAnnotation:
@@ -1730,8 +1739,8 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
   | mapValue: list (multiple)
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
 .. _OMERO model class Mask:
@@ -1879,10 +1888,10 @@ Properties:
   | description: ``text`` (optional)
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | display: ``boolean`` (optional)
-  | displayName: ``string`` (optional)
+  | displayName: ``text`` (optional)
   | keywords: list (optional)
   | multivalued: ``boolean`` (optional)
-  | name: ``string``
+  | name: ``text``
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class NamespaceAnnotationLink:
@@ -1952,8 +1961,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
 .. _OMERO model class OTF:
@@ -2061,11 +2070,11 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | filesetEntries: :ref:`FilesetEntry <OMERO model class FilesetEntry>` (multiple)
-  | hash: ``string`` (optional)
+  | hash: ``text`` (optional)
   | hasher: :ref:`ChecksumAlgorithm <OMERO model class ChecksumAlgorithm>` (optional)
   | mimetype: ``string`` (optional)
   | mtime: ``timestamp`` (optional)
-  | name: ``string``
+  | name: ``text``
   | path: ``text``
   | pixelsFileMaps: :ref:`PixelsOriginalFileMap <OMERO model class PixelsOriginalFileMap>` (multiple)
   | size: ``long`` (optional)
@@ -2334,12 +2343,12 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | externalIdentifier: ``string`` (optional)
-  | name: ``string``
+  | name: ``text``
   | plateAcquisitions: :ref:`PlateAcquisition <OMERO model class PlateAcquisition>` (multiple)
   | rowNamingConvention: ``string`` (optional)
   | rows: ``integer`` (optional)
   | screenLinks: :ref:`ScreenPlateLink <OMERO model class ScreenPlateLink>` (multiple)
-  | status: ``string`` (optional)
+  | status: ``text`` (optional)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
   | wellOriginX.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
   | wellOriginX.value: ``double`` (optional)
@@ -2364,7 +2373,7 @@ Properties:
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | endTime: ``timestamp`` (optional)
   | maximumFieldCount: ``integer`` (optional)
-  | name: ``string`` (optional)
+  | name: ``text`` (optional)
   | plate: :ref:`Plate <OMERO model class Plate>`
   | startTime: ``timestamp`` (optional)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
@@ -2519,7 +2528,7 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | name: ``string``
+  | name: ``text``
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ProjectAnnotationLink:
@@ -2644,7 +2653,7 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | name: ``string`` (optional)
+  | name: ``text`` (optional)
   | reagentIdentifier: ``string`` (optional)
   | screen: :ref:`Screen <OMERO model class Screen>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
@@ -2719,7 +2728,7 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | model: :ref:`RenderingModel <OMERO model class RenderingModel>`
-  | name: ``string`` (optional)
+  | name: ``text`` (optional)
   | pixels: :ref:`Pixels <OMERO model class Pixels>`
   | projections: :ref:`ProjectionDef <OMERO model class ProjectionDef>` (multiple)
   | quantization: :ref:`QuantumDef <OMERO model class QuantumDef>`
@@ -2769,7 +2778,7 @@ Properties:
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | folderLinks: :ref:`FolderRoiLink <OMERO model class FolderRoiLink>` (multiple)
   | image: :ref:`Image <OMERO model class Image>` (optional)
-  | name: ``string`` (optional)
+  | name: ``text`` (optional)
   | shapes: :ref:`Shape <OMERO model class Shape>` (multiple)
   | source: :ref:`OriginalFile <OMERO model class OriginalFile>` (optional)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
@@ -2806,11 +2815,11 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | name: ``string``
+  | name: ``text``
   | plateLinks: :ref:`ScreenPlateLink <OMERO model class ScreenPlateLink>` (multiple)
-  | protocolDescription: ``string`` (optional)
+  | protocolDescription: ``text`` (optional)
   | protocolIdentifier: ``string`` (optional)
-  | reagentSetDescription: ``string`` (optional)
+  | reagentSetDescription: ``text`` (optional)
   | reagentSetIdentifier: ``string`` (optional)
   | reagents: :ref:`Reagent <OMERO model class Reagent>` (multiple)
   | type: ``string`` (optional)
@@ -2893,6 +2902,7 @@ Properties:
   | node: :ref:`Node <OMERO model class Node>`
   | owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | started: ``timestamp``
+  | sudoer: :ref:`Experimenter <OMERO model class Experimenter>` (optional)
   | timeToIdle: ``long``
   | timeToLive: ``long``
   | userAgent: ``string`` (optional)
@@ -2989,6 +2999,7 @@ Properties:
   | node: :ref:`Node <OMERO model class Node>` from :ref:`Session <OMERO model class Session>`
   | owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Session <OMERO model class Session>`
   | started: ``timestamp`` from :ref:`Session <OMERO model class Session>`
+  | sudoer: :ref:`Experimenter <OMERO model class Experimenter>` (optional) from :ref:`Session <OMERO model class Session>`
   | timeToIdle: ``long`` from :ref:`Session <OMERO model class Session>`
   | timeToLive: ``long`` from :ref:`Session <OMERO model class Session>`
   | userAgent: ``string`` (optional) from :ref:`Session <OMERO model class Session>`
@@ -3020,7 +3031,7 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | name: ``string``
+  | name: ``text``
   | positionX.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
   | positionX.value: ``double`` (optional)
   | positionY.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
@@ -3059,8 +3070,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | textValue: ``text`` (optional) from :ref:`TextAnnotation <OMERO model class TextAnnotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
@@ -3077,8 +3088,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | termValue: ``text`` (optional)
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
@@ -3097,8 +3108,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | textValue: ``text`` (optional)
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
@@ -3158,8 +3169,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | timeValue: ``timestamp`` (optional)
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
@@ -3202,8 +3213,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
 .. _OMERO model class UploadJob:
@@ -3247,7 +3258,7 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | externalDescription: ``string`` (optional)
+  | externalDescription: ``text`` (optional)
   | externalIdentifier: ``string`` (optional)
   | green: ``integer`` (optional)
   | plate: :ref:`Plate <OMERO model class Plate>`
@@ -3329,8 +3340,8 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>` from :ref:`Annotation <OMERO model class Annotation>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>` from :ref:`Annotation <OMERO model class Annotation>`
-  | name: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
-  | ns: ``string`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | name: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
+  | ns: ``text`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
   | textValue: ``text`` (optional) from :ref:`TextAnnotation <OMERO model class TextAnnotation>`
   | version: ``integer`` (optional) from :ref:`Annotation <OMERO model class Annotation>`
 
