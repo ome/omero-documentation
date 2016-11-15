@@ -407,7 +407,7 @@ server that is is being used with. Any changes by
 developers to the database schema will result in
 a bump to this value.
 
-Default: `8`
+Default: `14`
 
 .. property:: omero.db.poolsize
 
@@ -1759,6 +1759,14 @@ A list of people who get code error notifications whenever the application ident
 
 Default: `[]`
 
+.. property:: omero.web.api.absolute_url
+
+omero.web.api.absolute_url
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+URL to use for generating urls within API json responses. By default this is None, and we use Django's request.build_absolute_uri() to generate absolute urls based on each request. If set to a string or empty string, this will be used as prefix to relative urls.
+
+Default: `None`
+
 .. property:: omero.web.application_server
 
 omero.web.application_server
@@ -1870,6 +1878,14 @@ omero.web.login_view
 
 
 Default: `weblogin`
+
+.. property:: omero.web.open_with
+
+omero.web.open_with
+^^^^^^^^^^^^^^^^^^^
+A list of viewers that can be used to display selected Images or other objects. Each viewer is defined as ``["Name", "url", options]``. Url is reverse(url). Selected objects are added to the url as ?image=:1&image=2Objects supported must be specified in options withE.g. ``{"supported_objects":["images"]}`` to enable viewer for one or more images, ``{"target":"_blank"}`` to open in new tab.
+
+Default: `[["Image viewer", "webindex", {"supported_objects": ["image"],"script_url": "webclient/javascript/ome.openwith_viewer.js"}]]`
 
 .. property:: omero.web.page_size
 
@@ -2075,7 +2091,7 @@ Default: `[]`
 
 omero.web.template_dirs
 ^^^^^^^^^^^^^^^^^^^^^^^
-List of locations of the template source files, in search order. Note that these paths should use Unix-style forward slashes, even on Windows.
+List of locations of the template source files, in search order. Note that these paths should use Unix-style forward slashes.
 
 Default: `[]`
 

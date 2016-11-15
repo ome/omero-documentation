@@ -1,2 +1,101 @@
-TRIAL: OMERO.web walkthrough installation Ubuntu 14.04 and IcePy 3.6
-====================================================================
+
+OMERO.web walkthrough installation
+==================================
+
+
+
+Create local user omero, homedir `/home/omero`::
+    
+    if [ -z "$(getent passwd omero)" ]; then
+    
+        useradd -m omero
+    
+    fi
+    
+    chmod a+X /home/omero
+
+Install ZeroC IcePy 3.6. IcePy is managed by PyPi and will be installed as a part of OMERO.web requirements::
+    
+    apt-get -y install db5.3-util
+    apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev
+
+Install other dependences::
+    
+    apt-get update
+    apt-get -y install \
+        git \
+        python-{dev,pip,virtualenv}
+    
+    # require to install Pillow
+    apt-get -y install \
+        libtiff5-dev \
+        libjpeg8-dev \
+        zlib1g-dev \
+        libfreetype6-dev \
+        liblcms2-dev \
+        libwebp-dev \
+        tcl8.6-dev \
+        tk8.6-dev
+
+
+Generate VirtualEnv::
+    
+    virtualenv /home/omero/omerowebvenv 
+    
+    set +u
+    source /home/omero/omerowebvenv/bin/activate
+    set -u
+    
+    pip install omego
+    /home/omero/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-breaking-build" py
+    
+    zip=$(ls OMERO.py*.zip)
+    zipname=${zip%.zip}
+    rm -f $zip
+    if [ ! -d "/home/omero/OMERO.py" ]; then
+        mv $(find . -name 'OMERO.py*' -type d) /home/omero/OMERO.py
+    fi
+    
+    pip install -r /home/omero/OMERO.py/share/web/requirements-py27-trial.txt
+
+Configure OMERO.web and generate nginx template::
+    
+    set +u
+    source /home/omero/omerowebvenv/bin/activate
+    set -u
+    
+    if [[ $WEBPREFIX = *[!\ ]* ]]; then
+        /home/omero/OMERO.py/bin/omero config set omero.web.prefix "${WEBPREFIX}"
+        /home/omero/OMERO.py/bin/omero config set omero.web.static_url "${WEBPREFIX}/static/"
+    fi
+    
+    /home/omero/OMERO.py/bin/omero config set omero.web.application_server wsgi-tcp
+    /home/omero/OMERO.py/bin/omero web config nginx --http "${WEBPORT}" --servername "${WEBSERVER_NAME}" > /home/omero/nginx.conf.tmp
+    
+    cat /home/omero/nginx.conf.tmp
+
+Install NGINX::
+    
+    #start-install
+    apt-get -y install software-properties-common
+    add-apt-repository -y ppa:nginx/stable
+    apt-get update
+    apt-get -y install nginx
+    
+    #end-install
+    sed -i.bak -re 's/( default_server.*)/; #\1/' /etc/nginx/nginx.conf
+    rm /etc/nginx/sites-enabled/default
+    cp /home/omero/nginx.conf.tmp /etc/nginx/conf.d/omeroweb.conf
+    
+    service nginx start
+
+
+Daemon::
+    
+    cp ubuntu/omero-web-init.d /etc/init.d/omero-web
+    chmod a+x /etc/init.d/omero-web
+    
+    update-rc.d -f omero-web remove
+    update-rc.d -f omero-web defaults 98 02
+    
+    ubuntu/run

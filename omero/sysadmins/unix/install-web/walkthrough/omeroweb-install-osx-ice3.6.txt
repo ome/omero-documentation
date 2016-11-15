@@ -1,2 +1,67 @@
-TRIAL: OMERO.web walkthrough installation Mac OS X and IcePy 3.6
-================================================================
+
+OMERO.web walkthrough installation
+==================================
+
+Install Homebrew in /usr/local::
+    
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    
+    brew update
+    brew doctor
+
+
+
+
+Install other dependences::
+    
+    brew install python
+    
+    pip install virtualenv
+
+
+Generate VirtualEnv::
+    
+    virtualenv ~/omerowebvenv 
+    
+    set +u
+    source ~/omerowebvenv/bin/activate
+    set -u
+    
+    pip install omego
+    ~/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-breaking-build" py
+    
+    zip=$(ls OMERO.py*.zip)
+    zipname=${zip%.zip}
+    rm -f $zip
+    if [ ! -d "~/OMERO.py" ]; then
+        mv $(find . -name 'OMERO.py*' -type d) ~/OMERO.py
+    fi
+    
+    pip install -r ~/OMERO.py/share/web/requirements-py27-trial.txt
+
+Configure OMERO.web and generate nginx template::
+    
+    set +u
+    source ~/omerowebvenv/bin/activate
+    set -u
+    
+    if [[ $WEBPREFIX = *[!\ ]* ]]; then
+        ~/OMERO.py/bin/omero config set omero.web.prefix "${WEBPREFIX}"
+        ~/OMERO.py/bin/omero config set omero.web.static_url "${WEBPREFIX}/static/"
+    fi
+    
+    ~/OMERO.py/bin/omero config set omero.web.application_server wsgi-tcp
+    ~/OMERO.py/bin/omero web config nginx --http "${WEBPORT}" --servername "${WEBSERVER_NAME}" > ~/nginx.conf.tmp
+    
+    cat ~/nginx.conf.tmp
+
+Install NGINX::
+    
+    brew install nginx
+    
+    cp ~/nginx.conf.tmp /usr/local/etc/nginx/servers/omeroweb-nginx.conf
+    
+    # Restart webserver
+    brew services restart nginx
+
+

@@ -27,8 +27,8 @@ brew install redis
 brew services start redis
 
 # Install django-cache-redis
-pip install django-redis-cache>=1.6.5
+pip install django-redis>=4.4
 
 # Set up redis session backend
 omero config set omero.web.session_engine 'django.contrib.sessions.backends.cache'
-omero config set omero.web.caches '{"default": {"BACKEND": "redis_cache.RedisCache","LOCATION": "127.0.0.1:6379"}}'
+omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.RedisCache","LOCATION": "redis://127.0.0.1:6379/0"}}'
