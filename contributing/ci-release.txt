@@ -88,7 +88,6 @@ Bio-Formats
         #. Checks out the :envvar:`RELEASE` tag of the
            snoopycrimecop fork of bioformats.git_
         #. |buildBF|
-        #. |fulltestBF|
         #. |copyreleaseartifacts|
         #. Triggers :term:`BIOFORMATS-DEV-release-downloads`
 
