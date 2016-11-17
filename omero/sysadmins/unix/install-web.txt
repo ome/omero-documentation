@@ -125,11 +125,11 @@ OMERO.web maintenance
       - `Redis 2.8+ <http://redis.io/>`_ requires `django-redis 4.4+ <http://niwinz.github.io/django-redis/latest/>`_::
 
           $ pip install -r OMERO.py/share/web/requirements-redis.txt
-          $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.RedisCache","LOCATION": "redis://redis:6379/0"}}'
+          $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.RedisCache", "LOCATION": "redis://redis:6379/0"}}'
 
       - DEPRECATED: `Memcached <https://memcached.org/>`_::
 
-          $ bin/omero config set omero.web.caches '{"default": { "BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400" } }'
+          $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400"}}'
 
 .. note::
     The generated Nginx and Apache configuration files will automatically
