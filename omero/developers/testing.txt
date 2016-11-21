@@ -443,7 +443,7 @@ with `test_` for the tests to be found by `pytest`.
 
 ::
 
-    import omero.all
+    import omero.clients
 
     class TestExample(object)
 

@@ -7,7 +7,7 @@ connection e.g. Python:
 
 ::
 
-    import omero.all
+    import omero.clients
 
     client = omero.client("localhost")
     session = client.createSession("username", "password")   # this is the service factory
