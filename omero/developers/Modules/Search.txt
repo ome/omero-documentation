@@ -2,7 +2,7 @@ OMERO search
 ============
 
 OMERO.server uses `Lucene <http://lucene.apache.org>`_ to index all string and
-timestamp information in the database, as well as all ``OriginalFiles`` which
+timestamp information in the database, as well as all ``OriginalFile`` which
 can be parsed to simple text (see :doc:`/developers/Search/FileParsers` for
 more information). The index is stored under :file:`/OMERO/FullText` or the
 :file:`FullText` subdirectory of your :property:`omero.data.dir`, and can be
