@@ -39,8 +39,8 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
         -       * Runs automated tests against a subset of the data repository on squig
                 * :term:`BIOFORMATS-DEV-merge-repository-subset`
 
-        -       * Runs openBytes performance test
-                * :term:`BIOFORMATS-DEV-merge-openbytes-performance`
+        -       * Runs performance tests
+                * :term:`BIOFORMATS-DEV-merge-performance`
 
         -       * Installs Bio-Formats using Homebrew
                 * :term:`BIOFORMATS-DEV-merge-homebrew`
@@ -57,7 +57,6 @@ The branch for the 5.3.x series of Bio-Formats is develop.
                 This job builds the latest Bio-Formats artifacts using Ant
 
                 #. |buildBF|
-                #. |testBF|
                 #. Triggers downstream latest jobs
 
             See :jenkinsjob:`the build graph <BIOFORMATS-DEV-latest/lastSuccessfulBuild/BuildGraph>`
@@ -98,7 +97,6 @@ The branch for the 5.3.x series of Bio-Formats is develop.
 
                 #. Checks out :bf_scc_branch:`develop/merge/daily`
                 #. |buildBF|
-                #. |fulltestBF|
                 #. Triggers :term:`BIOFORMATS-DEV-merge-matlab`
 
         :jenkinsjob:`BIOFORMATS-DEV-merge-build-win`
@@ -147,16 +145,13 @@ The branch for the 5.3.x series of Bio-Formats is develop.
                    directories to test by setting a space-separated list of
                    formats for the ``DEFAULT_FORMAT_LIST`` variable.
 
-        :jenkinsjob:`BIOFORMATS-DEV-merge-openbytes-performance`
+        :jenkinsjob:`BIOFORMATS-DEV-merge-performance`
 
-                This job runs openBytes performance tests against directories
-                on squig
+                This job runs performance tests against directories on squig
 
                 #. Checks out the :bf_scc_branch:`develop/merge/daily`
-                #. Runs ``loci.tests.testng.OmeroOpenBytesTest`` and
-                   ``loci.tests.testng.OpenBytesPerformanceTest`` tests against
-                   directories specified by
-                   :file:`BIOFORMATS-openbytes-performance.txt`
+                #. Runs file-handles and openbytes-performance tests against
+                   files specified by :file:`performance_files.txt`
 
         :jenkinsjob:`BIOFORMATS-DEV-merge-homebrew`
 
@@ -198,7 +193,6 @@ Jenkins.
 
                 #. Checks out :bf_scc_branch:`develop/breaking/trigger`
                 #. |buildBF|
-                #. |fulltestBF|
                 #. Triggers :term:`BIOFORMATS-DEV-breaking-matlab`
 
         :jenkinsjob:`BIOFORMATS-DEV-breaking-maven`
@@ -233,3 +227,12 @@ Jenkins.
                    :file:`/ome/data_repo/curated/`. The list of directories to
                    test by setting a space-separated list of formats for the
                    ``DEFAULT_FORMAT_LIST`` variable.
+
+        :jenkinsjob:`BIOFORMATS-DEV-breaking-performance`
+
+                This job runs performance tests against directories on squig
+
+                #. Checks out the :bf_scc_branch:`develop/breaking/trigger`
+                #. Runs file-handles and openbytes-performance tests against
+                   files specified by :file:`performance_files.txt`
+
