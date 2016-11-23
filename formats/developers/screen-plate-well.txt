@@ -231,7 +231,7 @@ associated with some time-point or step in a protocol. It is a
 collection of individual **WellSample**\ s across the **Plate**\ s collected
 between two time points.
 
-.. figure:: /images/Spw-structure.*
+.. figure:: /images/hcs_structures.png
    :align: center
    :width: 80%
    :alt: SPW Schema structure

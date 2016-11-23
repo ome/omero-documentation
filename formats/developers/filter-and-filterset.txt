@@ -75,7 +75,7 @@ Filters and Dichroics in the optical path
 
 .. _figure-light-path:
 
-.. figure:: /images/FilterSet-Overview.*
+.. figure:: /images/FilterSet-Overview.png
    :align: center
    :alt: Sample instrument light path
 
@@ -116,7 +116,7 @@ Filters and Dichroics are both extensions of the ManufacturerSpec
 element so store this common data. A filter also contains one
 TransmittanceRange element that describes its optical characteristics.
 
-.. figure:: /images/FilterSet-Top.*
+.. figure:: /images/instrument_filterset.png
    :align: center
    :alt: Where FilterSet sits in the OME Schema
 
@@ -148,7 +148,7 @@ along with the CutInTolerance and CutOutTolerance, all expressed in
 nanometers. There is also the Transmittance of the filter expressed as a
 percentage fraction.
 
-.. figure:: /images/LightPath-Top.*
+.. figure:: /images/image_lightpath.png
    :align: center
    :alt: Where LightPath sits in the OME Schema
 
@@ -165,7 +165,7 @@ either an ExcitationFilterRef or EmissionFilterRef. The key difference
 between LightPath and FilterSet is that ALL the filters in a LightPath
 have been used and their order is specified.
 
-.. figure:: /images/FilterSet-LightPath.*
+.. figure:: /images/filter_lightpath_details.png
    :align: center
    :alt: Attributes within the Filter objects
 
