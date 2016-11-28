@@ -17,7 +17,7 @@ apt-get -y install openjdk-8-jre-headless
 # install dependencies
 
 apt-get -y install \
-	python-{matplotlib,numpy,pip,scipy,tables,virtualenv}
+	python-{matplotlib,numpy,pip,scipy,tables,virtualenv,yaml,jinja2}
 
 # require to install Pillow
 apt-get -y install \
