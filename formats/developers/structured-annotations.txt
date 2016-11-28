@@ -22,14 +22,14 @@ Key-value pairs <developers/Model/KeyValuePairs.html>` and a
 The structure of the SA used in the schema is shown below,
 along with all the possible attachment points in the model.
 
-.. figure:: /images/Annotation-Top.*
+.. figure:: /images/structured_annotation_branch.png
    :align: center
    :alt: StructuredAnnotation Model branch
 
    The StructuredAnnotation branch of the OME Model
 
 
-.. figure:: /images/Annotation-Points.*
+.. figure:: /images/annotation_points.png
    :align: center
    :alt: Annotation Points
 

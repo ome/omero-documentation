@@ -19,12 +19,11 @@ means that they can be referred to from more than one point within the model:
     can inadvertently change the ROI set during the
     MicrobeamManipulation without realizing it.
 
-.. figure:: /images/Ome-ROI-overview.png
+.. figure:: /images/roi_branch.png
    :align: center
    :alt: ROI Model Overview
 
    ROI Model Overview
-
 
 ROI attributes and simple children
 ----------------------------------
@@ -101,6 +100,12 @@ attributes or simple children.
 
 Shape concrete implementations
 ------------------------------
+
+.. figure:: /images/shape_types.png
+   :align: center
+   :alt: Shape implementations
+
+   Shape Implementations
 
 The Shape abstract type has eight geometry implementations.
 At the moment the choice is:
