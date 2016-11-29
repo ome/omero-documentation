@@ -313,11 +313,34 @@ wrong. See :ref:`search-failures` for more details.
 OMERO.web issues
 ----------------
 
-OMERO.web and Apache
-^^^^^^^^^^^^^^^^^^^^
+OMERO.web and Apache (deprecated)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Do not enable mod_python and mod_wsgi in the same apache process.
 mod_wsgi will deadlock if run in daemon mode while mod_python is enabled
+
+.. _troubleshooting-omeroweb-migrate-to-nginx:
+
+OMERO.web migrating from Apache to Nginx
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since OMERO 5.2.6 support for Apache and mod_wsgi deployment is deprecated.
+It is recomanded using :doc:`install-nginx` or
+:doc:`OMERO.web trial deployment </sysadmins/unix/install-web/install-web-trial>`.
+Official support is likely to be dropped during the 5.3.x line.
+
+::
+
+    Cannot configure omero web to use nginx:
+    Error running bin/omero  web config nginx - I get the error
+    Configuration mismatch omero.web.application_server=wsgi cannot be used with omero web config nginx.
+
+Make sure :property:`omero.web.application_server` is set to the following:
+
+::
+
+    $bin/omero config set omero.web.application_server "wsgi-tcp"
+
 
 OMERO.web did not start
 ^^^^^^^^^^^^^^^^^^^^^^^
