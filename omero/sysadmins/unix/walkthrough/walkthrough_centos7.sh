@@ -16,6 +16,7 @@ yum -y install java-1.8.0-openjdk
 
 yum -y install \
 	python-pip python-devel python-virtualenv \
+	python-yaml python-jinja2 \
 	numpy scipy python-matplotlib python-tables
 
 yum -y install \
