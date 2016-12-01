@@ -54,6 +54,7 @@ for f in \
     requirements* \
     settings.env \
     omero-* \
+    setup_*
     ; do
     cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
 done
