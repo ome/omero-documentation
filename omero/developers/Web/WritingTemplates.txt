@@ -113,7 +113,7 @@ This should give you something like the screen-shot below.
   :alt: Webclient Base container
 
   The ``webclient/base/base_container.html`` template extended in
-  omero-webtest with dummy content
+  OMERO.webtest with dummy content
 
 
 
@@ -154,7 +154,7 @@ Webtest examples
 
 You can find examples of how to extend the base templates in the 
 `OMERO.webtest <https://github.com/openmicroscopy/omero-webtest/>`_
-application within the ``omero_webtest/templates/webtest/webgateway``
+repository within the ``omero_webtest/templates/webtest/webgateway``
 directory. If you install the OMERO.webtest app, you can view the template
 examples live at <your-server-name>/webtest/webgateway_templates/base_header/>
 
