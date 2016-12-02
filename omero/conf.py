@@ -48,7 +48,7 @@ else:
 rst_prolog = """
 .. note:: **This documentation is for OMERO 5.2.** This version is now in
     maintenance mode and will only be updated in the event of critical bugs
-    or security concerns. OMERO 5.3 is expected before the end of 2016.
+    or security concerns. OMERO 5.3 is expected in the first quarter of 2017.
 """
 
 rst_epilog += """
