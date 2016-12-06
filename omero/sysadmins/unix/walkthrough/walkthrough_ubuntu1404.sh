@@ -7,7 +7,7 @@ source settings.env
 apt-get update
 
 # installed for convenience
-apt-get -y install unzip wget
+apt-get -y install unzip wget bc
 
 # install Java
 apt-get -y install software-properties-common
@@ -75,8 +75,7 @@ chown omero "$OMERO_DATA_DIR"
 
 #start-step03: As root, create a database user and a database
 
-echo "CREATE USER $OMERO_DB_USER PASSWORD '$OMERO_DB_PASS'" | \
-    su - postgres -c psql
+echo "CREATE USER $OMERO_DB_USER PASSWORD '$OMERO_DB_PASS'" | su - postgres -c psql
 su - postgres -c "createdb -E UTF8 -O '$OMERO_DB_USER' '$OMERO_DB_NAME'"
 
 psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
@@ -84,12 +83,12 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step04: As the omero system user, install the OMERO.server
 #start-copy-omeroscript
-cp settings.env omero-.env step04_all_omero.sh setup_omero_db.sh ~omero 
+cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero
 SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
-wget $SERVER
+wget $SERVER -O OMERO.server-ice35.zip
 unzip -q OMERO.server*
 #end-release-ice35
 #start-release-ice36
@@ -103,6 +102,7 @@ OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
 OMERO.server/bin/omero config set omero.db.user "$OMERO_DB_USER"
 OMERO.server/bin/omero config set omero.db.pass "$OMERO_DB_PASS"
+OMERO.server/bin/omero db script -f OMERO.server/db.sql "" "" "$OMERO_ROOT_PASS"
 OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
@@ -116,11 +116,12 @@ add-apt-repository -y ppa:nginx/stable
 apt-get update
 apt-get -y install nginx
 
-pip install -r ~omero/OMERO.server/share/web/requirements-py27-nginx.txt
-
-# set up as the omero user.
-su - omero -c "bash -eux setup_omero_nginx.sh"
-
+file=~omero/OMERO.server/share/web/requirements-py27-nginx.txt
+pip install -r $file
+#start-configure-nginx: As the omero system user, configure OMERO.web
+OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
+OMERO.server/bin/omero web config nginx --http "$OMERO_WEB_PORT" > OMERO.server/nginx.conf.tmp
+#end-configure-nginx
 cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/sites-available/omero-web
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/omero-web /etc/nginx/sites-enabled/
