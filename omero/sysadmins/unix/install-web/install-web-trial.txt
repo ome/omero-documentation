@@ -88,7 +88,7 @@ for additional customization options.
 
 Set the following::
 
-    $bin/omero config set omero.web.application_server "wsgi-tcp"
+    $ bin/omero config set omero.web.application_server "wsgi-tcp"
 
 To create a site configuration file for inclusion in a system-wide nginx
 configuration redirect the output of the following command into a file:
