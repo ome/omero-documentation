@@ -109,6 +109,8 @@ Nginx configuration directory, and disable the default configuration:
     :start-after: #start-nginx
     :end-before: #end-nginx
 
+See :download:`setup_omero_nginx.sh<walkthrough/setup_omero_nginx.sh>`
+
 Apache
 ^^^^^^
 

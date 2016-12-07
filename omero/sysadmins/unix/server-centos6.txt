@@ -123,6 +123,8 @@ Install ``server-ice35.zip``:
     :start-after: #start-release-ice35
     :end-before: #end-release-ice35
 
+See :download:`setup_omero_nginx.sh<walkthrough/setup_omero_nginx.sh>`
+
 Configure:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
