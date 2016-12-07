@@ -47,7 +47,8 @@ To install PostgreSQL 9.4:
 
 See :download:`requirements.txt<walkthrough/requirements.txt>`
 
-Create an omero system user, and a directory for the OMERO repository:
+Create an omero system user, and a directory for the OMERO repository.
+As postgres who is the admin for a PostgreSQL installation, run:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
     :start-after: #start-step02

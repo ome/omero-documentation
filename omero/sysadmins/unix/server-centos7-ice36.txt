@@ -55,7 +55,8 @@ Create an omero system user, and a directory for the OMERO repository:
     :start-after: #start-step02
     :end-before: #end-step02
 
-Create a database user and initialize a new database for OMERO:
+Create a database user and initialize a new database for OMERO.
+As postgres who is the admin for a PostgreSQL installation, run:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #start-step03
