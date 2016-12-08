@@ -151,7 +151,6 @@ OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
 OMERO.server/bin/omero config set omero.db.user "$OMERO_DB_USER"
 OMERO.server/bin/omero config set omero.db.pass "$OMERO_DB_PASS"
-OMERO.server/bin/omero db script -f OMERO.server/db.sql "" "" "$OMERO_ROOT_PASS"
 OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
@@ -210,7 +209,7 @@ set -u
 
 # Install OMERO.web requirements
 file=~omero/OMERO.server/share/web/requirements-py27-apache.txt
-# introduce in 5.2.0
+# introduced in 5.2.0
 if [ -f $file ]; then
 	/home/omero/omeroenv/bin/pip2.7 install -r $file
 fi
