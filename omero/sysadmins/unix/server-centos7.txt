@@ -108,8 +108,8 @@ Nginx configuration directory, and disable the default configuration:
 
 See :download:`setup_omero_nginx.sh<walkthrough/setup_omero_nginx.sh>`
 
-Apache
-^^^^^^
+Apache (deprecated)
+^^^^^^^^^^^^^^^^^^^
 
 See also :doc:`install-web/install-apache`.
 

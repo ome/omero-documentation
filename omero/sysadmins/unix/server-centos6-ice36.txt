@@ -148,8 +148,8 @@ Nginx configuration directory, and disable the default configuration:
     :end-before: #end-nginx
 
 
-Apache
-^^^^^^
+Apache (deprecated)
+^^^^^^^^^^^^^^^^^^^
 
 See also :doc:`install-web/install-apache`.
 
