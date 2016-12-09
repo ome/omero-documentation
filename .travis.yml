@@ -14,5 +14,6 @@ env:
 
 before_install:
   - pip install Sphinx==1.2.3
+  - pip install docutils==0.12
 
 script: make clean html
