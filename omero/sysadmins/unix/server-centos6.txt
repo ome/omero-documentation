@@ -77,7 +77,8 @@ Create an omero system user, and a directory for the OMERO repository:
     :start-after: #start-step02
     :end-before: #start-configuration-env
 
-Create a database user and initialize a new database for OMERO:
+Create a database user and initialize a new database for OMERO.
+As postgres who is the admin for a PostgreSQL installation, run:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
     :start-after: #start-step03
@@ -122,6 +123,8 @@ Install ``server-ice35.zip``:
     :start-after: #start-release-ice35
     :end-before: #end-release-ice35
 
+See :download:`setup_omero_nginx.sh<walkthrough/setup_omero_nginx.sh>`
+
 Configure:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
@@ -131,7 +134,7 @@ Configure:
 Installing a web server
 -----------------------
 
-To Deploy OMERO.web, you can use either Nginx or Apache. Follow the steps to install your chosen web server.
+To deploy OMERO.web, you can use either Nginx or Apache. Follow the steps to install your chosen web server.
 
 Nginx
 ^^^^^
@@ -149,8 +152,8 @@ Nginx configuration directory, and disable the default configuration:
     :start-after: #start-nginx
     :end-before: #end-nginx
 
-Apache
-^^^^^^
+Apache (deprecated)
+^^^^^^^^^^^^^^^^^^^
 
 See also :doc:`install-web/install-apache`.
 

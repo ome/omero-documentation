@@ -7,7 +7,7 @@ source settings.env
 yum -y install epel-release
 
 # installed for convenience
-yum -y install unzip wget
+yum -y install unzip wget bc
 
 # install Java
 yum -y install java-1.8.0-openjdk
@@ -24,7 +24,7 @@ yum -y install \
 	gcc
 pip install --upgrade pip
 
-pip install -r `dirname $0`/requirements.txt
+pip install -r requirements.txt
 # install Ice
 #start-recommended-ice
 curl -o /etc/yum.repos.d/zeroc-ice-el7.repo \
@@ -70,8 +70,7 @@ chown omero "$OMERO_DATA_DIR"
 
 #start-step03: As root, create a database user and a database
 
-echo "CREATE USER $OMERO_DB_USER PASSWORD '$OMERO_DB_PASS'" | \
-    su - postgres -c psql
+echo "CREATE USER $OMERO_DB_USER PASSWORD '$OMERO_DB_PASS'" | su - postgres -c psql
 su - postgres -c "createdb -E UTF8 -O '$OMERO_DB_USER' '$OMERO_DB_NAME'"
 
 psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
@@ -79,12 +78,12 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step04: As the omero system user, install the OMERO.server
 #start-copy-omeroscript
-cp settings.env omero-.env step04_all_omero.sh setup_omero_db.sh ~omero 
+cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero
 SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
-wget $SERVER
+wget $SERVER -O OMERO.server-ice35.zip
 unzip -q OMERO.server*
 #end-release-ice35
 #start-release-ice36
@@ -118,11 +117,12 @@ EOF
 #install nginx
 yum -y install nginx
 
-pip install -r ~omero/OMERO.server/share/web/requirements-py27-nginx.txt
-
-# set up as the omero user.
-su - omero -c "bash -eux setup_omero_nginx.sh"
-
+file=~omero/OMERO.server/share/web/requirements-py27-nginx.txt
+pip install -r $file
+#start-configure-nginx: As the omero system user, configure OMERO.web
+OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
+OMERO.server/bin/omero web config nginx --http "$OMERO_WEB_PORT" > OMERO.server/nginx.conf.tmp
+#end-configure-nginx
 sed -i.bak -re 's/( default_server.*)/; #\1/' /etc/nginx/nginx.conf
 mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
 cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf

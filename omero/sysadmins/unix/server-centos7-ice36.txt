@@ -55,7 +55,8 @@ Create an omero system user, and a directory for the OMERO repository:
     :start-after: #start-step02
     :end-before: #end-step02
 
-Create a database user and initialize a new database for OMERO:
+Create a database user and initialize a new database for OMERO.
+As postgres who is the admin for a PostgreSQL installation, run:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #start-step03
@@ -90,7 +91,7 @@ Configure:
 Installing a web server
 -----------------------
 
-To Deploy OMERO.web, you can use either Nginx or Apache.
+To deploy OMERO.web, you can use either Nginx or Apache.
 Follow the steps to install your chosen web server.
 
 Nginx
@@ -107,8 +108,8 @@ Nginx configuration directory, and disable the default configuration:
     :start-after: #start-nginx
     :end-before: #end-nginx
 
-Apache
-^^^^^^
+Apache (deprecated)
+^^^^^^^^^^^^^^^^^^^
 
 See also :doc:`install-web/install-apache`.
 
