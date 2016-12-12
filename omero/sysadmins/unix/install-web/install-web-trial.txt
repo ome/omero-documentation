@@ -86,6 +86,10 @@ will depend on your system, please refer to your web server's manual.
 See :ref:`customizing_your_omero_web_installation`
 for additional customization options.
 
+Set the following::
+
+    $ bin/omero config set omero.web.application_server "wsgi-tcp"
+
 To create a site configuration file for inclusion in a system-wide nginx
 configuration redirect the output of the following command into a file:
 
