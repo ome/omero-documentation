@@ -91,8 +91,9 @@ and are therefore only available for objects shown in the tree.
 Label, name and supported objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the simplest case the minimum needed to add an ``Open with`` option is "ID",
-"url_name", and a list of the types of objects that are supported by your app.
+In the simplest case the minimum needed to add an ``Open with`` option is a
+unique identifier for your extension, a
+url name, and a list of the types of objects that are supported by your app.
 For example:
 
 ::
@@ -101,6 +102,10 @@ For example:
 
 This will create a menu option named "xyz_viewer" that is only enabled when a
 single "image" is selected.
+
+The unique ID string, "xyz_viewer" can be used to identify your plugin
+if you add extra scripts, as shown below. If you want your ``Open with`` option
+to appear under a different menu label, see "UI Label" section below.
 
 We use ``reverse(url_name)`` to resolve a url from the url_name. If the url_name
 is not recognised (for external urls) the ``url_name`` will be used directly.
