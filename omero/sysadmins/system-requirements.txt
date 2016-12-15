@@ -72,8 +72,6 @@ When performing some operations the clients make use of temporary file
 storage and log directories. The table below indicates the default values for
 each directory and the environment variables for overriding their locations:
 
-.. tabularcolumns:: |l|l|l|l|
-
 .. list-table::
   :header-rows: 1
 
