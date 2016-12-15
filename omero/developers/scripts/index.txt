@@ -28,22 +28,11 @@ download files or images.
 
   Running a script from an OMERO client
 
-.. only:: html
+.. figure:: /images/scriptUI.png
+  :align: center
+  :alt: Scripts user interface
 
-    .. figure:: /images/scriptUI.png
-      :align: center
-      :alt: Scripts user interface
-
-      A script user interface
-
-.. only:: latex
-
-    .. figure:: /images/scriptUI.png
-      :align: center
-      :width: 70%
-      :alt: Scripts user interface
-
-      A script user interface
+  A script user interface
 
 
 Finding scripts

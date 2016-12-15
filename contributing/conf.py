@@ -93,18 +93,18 @@ edit_on_github_prefix = 'contributing'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-target = 'OME-Contributing-Developer' + '.tex'
-latex_documents = [
-  (master_doc, target, title, author, 'manual'),
-]
+#target = 'OME-Contributing-Developer' + '.tex'
+#latex_documents = [
+#  (master_doc, target, title, author, 'manual'),
+#]
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
-latex_use_parts = False
+#latex_use_parts = False
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = '../common/images/ome-tight.pdf'
+#latex_logo = '../common/images/ome-tight.pdf'
 
 # -- Options for the linkcheck builder ----------------------------------------
 
