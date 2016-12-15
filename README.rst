@@ -114,6 +114,8 @@ The output should look something like::
       qthelp     to make HTML files and a qthelp project
       devhelp    to make HTML files and a Devhelp project
       epub       to make an epub
+      latex      to make LaTeX files, you can set PAPER=a4 or PAPER=letter
+      latexpdf   to make LaTeX files and run them through pdflatex
       text       to make text files
       man        to make manual pages
       texinfo    to make Texinfo files
@@ -139,7 +141,6 @@ To build the sets of documentation locally in the form of HTML pages, use one of
 
     make html
     ant html
-
 
 Makefile options
 ----------------
@@ -315,7 +316,8 @@ Tables
 ======
 
 Please do not use tables for collections of links and figures, and leave them
-solely for use as actual tables.
+solely for use as actual tables. While it can be used in HTML to shoehorn
+content into boxes, it does not work too well for other output.
 
 Big tables (typically wider than 50 characters) should be managed as external
 files using the comma-separated values (CSV) format. These tables can then be

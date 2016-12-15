@@ -290,42 +290,6 @@ html_sidebars = { '**' : ['pagetoc.html', 'relations.html', 'searchbox.html', 's
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'projstandardsdoc'
 
-
-# -- Options for LaTeX output --------------------------------------------------
-
-latex_elements = {
-    'classoptions': ',oneside',
-    'pointsize': '10pt',
-    'inputenc': '%% Unused',
-    'utf8extra': '%% Unused',
-    'fontenc' : '%% Unused',
-    'fontpkg': '%% Unused',
-    'babel': '%% Unused',
-    'printindex': '''\\phantomsection
-\\addcontentsline{toc}{part}{\indexname}
-\\printindex''',
-    'preamble': '''
-\input{../../../common/preamble.tex}
-''',
-}
-
-# For "manual" documents, if this is true, then toplevel headings are parts,
-# not chapters.
-latex_use_parts = True
-
-# If true, show page references after internal links.
-#latex_show_pagerefs = False
-
-# If true, show URL addresses after external links.
-latex_show_urls = 'footnote'
-
-# Documents to append as an appendix to all manuals.
-#latex_appendices = []
-
-# If false, no module index is generated.
-#latex_domain_indices = True
-
-
 # -- Options for the linkcheck builder ----------------------------------------
 
 # Timeout value, in seconds, for the linkcheck builder
