@@ -75,7 +75,6 @@ Structure and organization
 The OME documentation is organized into multiple folders:
 
 * the OMERO documentation is under the ``omero`` folder,
-* the OME Model and Formats documentation is under the ``formats`` folder,
 * the OME Contributing Developer documentation is under the ``contributing`` 
   folder,
 * the shared configuration and themes are under the ``common`` folder.
@@ -112,10 +111,6 @@ To build a set of documentation, first move to the documentation folder. To
 build the OMERO documentation::
 
     cd omero/
-
-or to build the OME Model and Formats documentation::
-
-    cd formats/
 
 or to build the Contributing Developer documentation::
 
@@ -167,8 +162,8 @@ The output should look something like::
 Top-level build command
 -----------------------
 
-The top-level directory Makefile also defines targets for building all the
-OMERO, Contributing, and Model and Formats sets of documentation at once.
+The top-level directory Makefile also defines targets for building both the
+OMERO and Contributing sets of documentation at once.
 
 To clean the build directories of any previous builds, use one of::
 
@@ -206,10 +201,6 @@ To modify this value set the environment variable ``OMERO_RELEASE`` e.g.::
 The Contributing Developer documentation has the release version removed as
 the intention is to update these files as and when necessary, so that they
 always reflect our current practices.
-
-The OME Model and Formats documentation has the current schema release
-hard-coded as the release version in the conf.py to avoid broken sample image
-links in merge and local builds.
 
 Auto-generated content
 ----------------------
