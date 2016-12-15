@@ -200,7 +200,7 @@ The first argument is the name of the base branch of origin, e.g.::
 
         $ scc merge develop --remote gh
 
-As a concrete example, the first step of the :term:`MODEL-DEV-merge-docs` job
+As a concrete example, the first step of the :term:`MODEL-merge-docs` job
 is calling the following merge command:
 
 ::
