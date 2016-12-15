@@ -55,13 +55,13 @@ independent of the current OMERO/Bio-Formats version.
 		*
 
 	-	* Publish OME Model documentation
-		* :term:`MODEL-DEV-latest-docs`
+		* :term:`MODEL-latest-docs`
 
 	-	* Publish OME Contributing documentation
 		* :term:`CONTRIBUTING-latest-docs`
 
 	-	* Review OME Model documentation PRs
-		* :term:`MODEL-DEV-merge-docs`
+		* :term:`MODEL-merge-docs`
 
 	-	* Review OME Contributing documentation PRs
 		* :term:`CONTRIBUTING-merge-docs`
@@ -98,12 +98,12 @@ to the relevant :file:`themes/` folder. The following environment variables
 are then used:
 
 - the Sphinx building options, :envvar:`SPHINXOPTS`, is set to
-  ``-W -D html_theme=sphinx_theme``,
+  ``-W -D html_theme=sphinx_theme``
 
 - the release number of the documentation is set by :envvar:`OMERO_RELEASE`,
-  :envvar:`BF_RELEASE` or :envvar:`MODEL_RELEASE`,
+  :envvar:`BF_RELEASE` or by the relevant POM
 
-- the source code links use :envvar:`SOURCE_USER` and :envvar:`SOURCE_BRANCH`,
+- the source code links use :envvar:`SOURCE_USER` and :envvar:`SOURCE_BRANCH`
 
 - for the Bio-Formats and OMERO sets of documentation, the name of the
   Jenkins job is set by :envvar:`JENKINS_JOB`.
@@ -259,22 +259,21 @@ The branch for the 5.3.x series of the Bio-Formats documentation is develop.
 OME Model and OME Contributing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The branch for the OME Model and the OME Contributing documentation
-sets is develop. Note that while the Contributing documentation is a folder
-within the ome-documentation repository, the Model documentation is now
-located in the ome-model repository on GitHub.
+The OME Contributing documentation is located in the ome-documentation
+repository and is built from the develop branch. The Model documentation is
+now located in the ome-model repository and is built from the master branch.
 
 .. glossary::
 
-	:jenkinsjob:`MODEL-DEV-merge-docs`
+	:jenkinsjob:`MODEL-merge-docs`
 
-		This job is used to review the PRs opened against the develop branch
+		This job is used to review the PRs opened against the master branch
 		of the OME Model documentation
 
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`model-staging.tmp`
+		#. |ssh-doc| :file:`ome-model-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-staging/
 
 	:jenkinsjob:`CONTRIBUTING-merge-docs`
@@ -288,14 +287,14 @@ located in the ome-model repository on GitHub.
 		#. |ssh-doc| :file:`contributing-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing-staging/
 
-	:jenkinsjob:`MODEL-DEV-latest-docs`
+	:jenkinsjob:`MODEL-latest-docs`
 
-		This job is used to build the develop branch of the OME Model
+		This job is used to build the master branch of the OME Model
 		documentation and publish the official documentation
 
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`model-release.tmp`
+		#. |ssh-doc| :file:`ome-model-release.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
 
 	:jenkinsjob:`CONTRIBUTING-latest-docs`
