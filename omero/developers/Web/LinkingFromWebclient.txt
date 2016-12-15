@@ -91,26 +91,31 @@ and are therefore only available for objects shown in the tree.
 Label, name and supported objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the simplest case the minimum needed to add an ``Open with`` option is "label",
-"url_name", and a list of the types of objects that are supported by your app.
+In the simplest case the minimum needed to add an ``Open with`` option is a
+unique identifier for your extension, a
+url name, and a list of the types of objects that are supported by your app.
 For example:
 
 ::
 
-    $ bin/omero config append omero.web.open_with '["My viewer", "url_name", {"supported_objects": ["image"]}]'
+    $ bin/omero config append omero.web.open_with '["xyz_viewer", "url_name", {"supported_objects": ["image"]}]'
 
-This will create a menu option named "My viewer" that is only enabled when a
+This will create a menu option named "xyz_viewer" that is only enabled when a
 single "image" is selected.
+
+The unique ID string, "xyz_viewer" can be used to identify your plugin
+if you add extra scripts, as shown below. If you want your ``Open with`` option
+to appear under a different menu label, see "UI Label" section below.
 
 We use ``reverse(url_name)`` to resolve a url from the url_name. If the url_name
 is not recognised (for external urls) the ``url_name`` will be used directly.
 
-When the "My viewer" option is clicked, a new window will be opened with the
+When the "xyz_viewer" option is clicked, a new window will be opened with the
 selected object(s) added to the url as a query string
 
 ::
 
-    url?image=:id
+    url?image=:imageId
 
 Supported objects can be configured to support multiple images or other data types.
 Data types are ``project, dataset, image, screen, plate, acquisition``
@@ -132,7 +137,17 @@ attribute to the options:
 
 ::
 
-    $ bin/omero config append omero.web.open_with '["My viewer", "url_name"], {"supported_objects": ["image"], "target": "_blank"}]'
+    $ bin/omero config append omero.web.open_with '["xyz_viewer", "url_name"], {"supported_objects": ["image"], "target": "_blank"}]'
+
+UI Label
+^^^^^^^^
+
+If a "label" is specified in the options object, this will be used as the display label in the webclient context menu
+instead of using the ID.
+
+::
+
+    $ bin/omero config append omero.web.open_with '["xyz_viewer", "url_name"], {"supported_objects": ["image"], "label": "X-Y-Z viewer"}]'
 
 JavaScript handlers
 ^^^^^^^^^^^^^^^^^^^
@@ -141,7 +156,7 @@ For more control over the enabled status of your plugin or to configure how urls
 are created from selected objects, you can write JavaScript functions
 that handle these steps.
 These functions use the label specified above as an ID for your ``Open with``
-option. In this example it is "My viewer".
+option. In this example it is "xyz_viewer".
 Add one or both of these function calls to a script, for example ``openwith.js``
 
 ::
@@ -151,7 +166,7 @@ Add one or both of these function calls to a script, for example ``openwith.js``
     // be enabled.
     // The ``supported_objects`` parameter will not be needed.
     // First argument is the label that we used above to identify the option
-    OME.setOpenWithEnabledHandler("My viewer", function(selected){
+    OME.setOpenWithEnabledHandler("xyz_viewer", function(selected){
         // selected is a list of objects containing id, name, type
 
         // E.g. only support single objects
@@ -164,7 +179,7 @@ Add one or both of these function calls to a script, for example ``openwith.js``
 
     // Here we configure a url provider. This function will be passed the selected
     // objects and the base url that was specified in the 'Open with' configuration above.
-    OME.setOpenWithUrlProvider("My viewer", function(selected, url) {
+    OME.setOpenWithUrlProvider("xyz_viewer", function(selected, url) {
 
         // E.g. build a url using id from selected objects
         url += selected[0].id + "/";
@@ -183,7 +198,7 @@ Then specify this location using the ``script_url`` option.
 ::
 
     # E.g. script is saved at myviewer/static/myviewer/openwith.js
-    $ bin/omero config append omero.web.open_with '["My viewer", "url_name"], {"script_url": "myviewer/openwith.js"}]'
+    $ bin/omero config append omero.web.open_with '["xyz_viewer", "url_name"], {"script_url": "myviewer/openwith.js"}]'
 
     # E.g. this 'Open with' option loads a script from the specified url.
     # The script will open any object with url http://www.ncbi.nlm.nih.gov/protein/:name
