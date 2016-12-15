@@ -4,10 +4,6 @@ ifdef SPHINXOPTS
 ANT_SPHINXOPTS := -Dsphinx.opts="$(SPHINXOPTS)"
 endif
 
-ifdef FORMATS_RELEASE
-ANT_FORMATS_RELEASE := -Dformats.release="$(FORMATS_RELEASE)"
-endif
-
 ifdef OMERO_RELEASE
 ANT_OMERO_RELEASE := -Domero.release="$(OMERO_RELEASE)"
 endif

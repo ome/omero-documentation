@@ -5,7 +5,7 @@ This repository hosts the documentation for OMERO, and **on the** `develop`
 documentation is part of the
 [main Bio-Formats repository](https://github.com/openmicroscopy/bioformats)
 and similarly, other OME projects have their documentation within the same
-repository as the code.
+repository as the code they are documenting.
 
 We welcome contributions from the community to update or improve our
 documentation but please read the style guidance in the README before opening
