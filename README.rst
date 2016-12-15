@@ -35,39 +35,6 @@ on Mac OSX by using homebrew::
 
     brew install ant
 
-LaTeX
------
-
-To build the PDF documentation, XeLaTeX is also required (the
-``xelatex`` command must be available on the ``PATH``).
-This is available via
-`TeX Live <http://www.tug.org/texlive/acquire-netinstall.html>`_) for Linux
-and MacOS X. Many Linux distributions also have it packaged; so long as
-it is version 2010 or greater, it should be fine. If you install by hand,
-note that you must run
-
-::
-
-    ln -s $TEXMFSYSVAR/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
-    fc-cache -rsvf
-
-to add the TeX fonts to the system font configuration. ``TEXMFSYSVAR``
-is the path to ``texmf-var``, e.g.
-``/usr/local/texlive/2013/texmf-var``.
-
-MacOS X users can also install MacTeX instead of TeXLive, but we have
-noticed that fonts do not work without extra configuration. See:
-
-* `Mail on macosx-tex <https://email.esm.psu.edu/pipermail/macosx-tex/2012-July/049583.html>`_
-* `TeX Gyre on Stack Exchange <http://apple.stackexchange.com/questions/90841/how-to-use-tex-gyre-fonts-installed-by-tex-live>`_
-
-To add the MacTeX fonts system-wide:
-
-* Open ``Font Book.app``
-* Select ``File-->New Library``; call the new library ``TeX Gyre``
-* Right-click on ``TeX Gyre`` and select ``Add Font…``
-* Navigate to ``/usr/local/texlive/2013/texmf-dist/fonts/opentype/public/tex-gyre``
-  and click ``Open``. (Type ``/usr/local`` to get there initially.)
 
 Structure and organization
 ==========================
@@ -147,8 +114,6 @@ The output should look something like::
       qthelp     to make HTML files and a qthelp project
       devhelp    to make HTML files and a Devhelp project
       epub       to make an epub
-      latex      to make LaTeX files, you can set PAPER=a4 or PAPER=letter
-      latexpdf   to make LaTeX files and run them through pdflatex
       text       to make text files
       man        to make manual pages
       texinfo    to make Texinfo files
@@ -175,10 +140,6 @@ To build the sets of documentation locally in the form of HTML pages, use one of
     make html
     ant html
 
-To build the sets of documentation locally in the form of a PDF file, use one of::
-
-    make latexpdf
-    ant latexpdf
 
 Makefile options
 ----------------
@@ -354,8 +315,7 @@ Tables
 ======
 
 Please do not use tables for collections of links and figures, and leave them
-solely for use as actual tables. While it can be used in HTML to shoehorn
-content into boxes, it does not work too well for other output, e.g. latex.
+solely for use as actual tables.
 
 Big tables (typically wider than 50 characters) should be managed as external
 files using the comma-separated values (CSV) format. These tables can then be
@@ -369,10 +329,6 @@ set the table delimiter to `tab` e.g.::
         :file: searchfieldnames.tsv
         :delim: tab
 
-To control the column width in the LaTeX output, precede the table directive
-with ``tabularcolumns``, e.g.::
-
-    .. tabularcolumns:: |p{3.5cm}|p{12cm}|
 
 Substitutions, aliases and hyperlinks
 =====================================
@@ -457,9 +413,9 @@ Glencoe Software, Inc.      http://www.glencoesoftware.com/
 Abbreviations
 -------------
 
-The table below lists substitutions for common abbreviations. These 
-substitutions use the ``:abbr:`` Sphinx role meaning they are shown as 
-tool-tip in HTML and output only once in LaTeX.
+The table below lists substitutions for common abbreviations. These
+substitutions use the ``:abbr:`` Sphinx role meaning they are shown as
+tool-tip in HTML.
 
 ======= ============= ======================
 Name    Abbreviation  Explanation

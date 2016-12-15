@@ -48,31 +48,6 @@ Type "ant -p" for a list of targets.
       </exec>
   </target>
 
-  <target name="latexpdf" depends="sphinx-deps">
-    <exec executable="${sphinx.build}" failonerror="true">
-        <env key="SOURCE_BRANCH" value="${source.branch}"/>
-        <env key="SOURCE_USER" value="${source.user}"/>
-        <env key="OMERO_RELEASE" value="${omero.release}"/>
-        <env key="JENKINS_JOB" value="${jenkins.job}"/>
-        <arg value="-b"/>
-        <arg value="latex"/>
-        <arg line="${sphinx.opts}"/>
-        <arg value="."/>
-        <arg value="${sphinx.builddir}/latex"/>
-    </exec>
-
-    <for param="file">
-      <path>
-       <fileset dir="${sphinx.builddir}/latex" includes="*.tex"/>
-      </path>
-      <sequential>
-        <runlatex file="@{file}"/>
-      </sequential>
-    </for>
-  </target>
-
-  <target name="pdf" depends="latexpdf"/>
-
   <target name="linkcheck" depends="sphinx-deps">
     <exec executable="${sphinx.build}" failonerror="true">
         <env key="SOURCE_BRANCH" value="${source.branch}"/>
