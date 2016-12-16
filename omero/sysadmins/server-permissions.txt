@@ -196,8 +196,6 @@ the type of the user performing the action.
 
 |
 
-.. tabularcolumns:: |l|c|c|c|c|
-
 =============================== ======================= ===================== ====================== ===================
 :term:`Action`                      :term:`Private`      :term:`Read-only`     :term:`Read-annotate`  :term:`Read-write`
 ------------------------------- ----------------------- --------------------- ---------------------- -------------------
@@ -217,8 +215,6 @@ the type of the user performing the action.
 
 |
 
-.. tabularcolumns:: |l|c|c|c|c|
-
 =============================== ======================= ===================== ====================== ===================
 :term:`Action`                      :term:`Private`      :term:`Read-only`     :term:`Read-annotate`  :term:`Read-write`
 ------------------------------- ----------------------- --------------------- ---------------------- -------------------
@@ -237,8 +233,6 @@ the type of the user performing the action.
 ^^^^^^^^^^^^^^^^^^^^
 
 |
-
-.. tabularcolumns:: |l|c|c|c|c|
 
 =============================== ======================= ===================== ====================== ===================
 :term:`Action`                      :term:`Private`      :term:`Read-only`     :term:`Read-annotate`  :term:`Read-write`

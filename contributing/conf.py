@@ -80,9 +80,9 @@ rst_epilog += """
 ..  |buildFiles| replace:: Builds OME Files components from git using ``cmake``
 ..  |buildFilesSB| replace:: Builds OME Files components and third-party dependencies using ``cmake``
 ..  |buildFilesSRC| replace:: Builds OME Files components from source release archives using ``cmake``
-..  |sphinxbuild| replace:: Runs ``make clean html latexpdf`` to build the HTML and PDF versions of the Sphinx documentation
+..  |sphinxbuild| replace:: Runs ``make clean html`` to build the HTML Sphinx documentation
 ..  |linkcheck| replace:: Runs ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`
-..  |ssh-doc| replace:: Copies the HTML and PDF documentation over SSH to
+..  |ssh-doc| replace:: Copies the HTML documentation over SSH to
 ..  |deploy-doc| replace:: Runs :ref:`scc deploy` to update
 """
 
@@ -93,18 +93,18 @@ edit_on_github_prefix = 'contributing'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-target = 'OME-Contributing-Developer' + '.tex'
-latex_documents = [
-  (master_doc, target, title, author, 'manual'),
-]
+#target = 'OME-Contributing-Developer' + '.tex'
+#latex_documents = [
+#  (master_doc, target, title, author, 'manual'),
+#]
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
-latex_use_parts = False
+#latex_use_parts = False
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = '../common/images/ome-tight.pdf'
+#latex_logo = '../common/images/ome-tight.pdf'
 
 # -- Options for the linkcheck builder ----------------------------------------
 

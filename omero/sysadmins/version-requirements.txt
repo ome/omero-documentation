@@ -199,8 +199,6 @@ from being new and not supported, to supported and tested on a
 routine basis, and to finally being old and no longer supported
 nor tested.
 
-.. tabularcolumns:: |l|l|J|
-
 .. list-table::
     :header-rows: 1
 
@@ -242,8 +240,6 @@ Microsoft Windows
 
 `General overview <http://support.microsoft.com/gp/lifeselectindex>`__
 (under 'W' in the index)
-
-.. tabularcolumns:: |l|l|l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 2
@@ -327,8 +323,6 @@ UNIX (MacOS X)
 
 `General overview <http://en.wikipedia.org/wiki/OS_X>`__
 
-.. tabularcolumns:: |l|l|L|L|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -390,8 +384,6 @@ General overview for `RHEL
 <https://access.redhat.com/site/articles/3078>`__ and `CentOS
 <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -448,8 +440,6 @@ Linux (Ubuntu)
 
 `General overview <https://wiki.ubuntu.com/Releases>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -500,8 +490,6 @@ Linux (Debian stable)
 ---------------------
 
 `General overview <https://www.debian.org/releases/>`__
-
-.. tabularcolumns:: |l|l|l|l|l|l|J|
 
 .. list-table::
     :header-rows: 1
@@ -612,8 +600,6 @@ server and client deployment.
 Package lists
 -------------
 
-.. tabularcolumns:: |l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -645,8 +631,6 @@ PostgreSQL
 ----------
 
 `General overview <http://www.postgresql.org/support/versioning/>`__
-
-.. tabularcolumns:: |l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -690,8 +674,6 @@ PostgreSQL
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -749,8 +731,6 @@ available for all platforms.
 Python
 ------
 
-.. tabularcolumns:: |l|l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -806,8 +786,6 @@ Python
 
 Distribution support
 --------------------
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -892,8 +870,6 @@ GCC
 
 `General overview <https://gcc.gnu.org/develop.html#timeline>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -948,8 +924,6 @@ GCC
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1026,8 +1000,6 @@ LLVM/clang
 
 `General overview <http://llvm.org/releases/>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1064,8 +1036,6 @@ LLVM/clang
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1123,8 +1093,6 @@ Microsoft Visual Studio
 -----------------------
 
 `General overview <http://support2.microsoft.com/lifecycle/search/?sort=PN&alpha=Visual+Studio>`__
-
-.. tabularcolumns:: |l|l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 2
@@ -1188,8 +1156,6 @@ Ice
 
 :zeroc:`General overview <download.html>`
 
-.. tabularcolumns:: |l|l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1238,8 +1204,6 @@ Ice
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
 
-.. tabularcolumns:: |l|l|L|L|L|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1284,8 +1248,6 @@ Java
 
 `General overview <http://www.oracle.com/technetwork/java/eol-135779.html>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1320,8 +1282,6 @@ Java
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1378,8 +1338,6 @@ OpenGL
 ------
 
 `General overview <http://en.wikipedia.org/wiki/OpenGL>`__
-
-.. tabularcolumns:: |l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1465,8 +1423,6 @@ OpenGL
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|l|l|l|l|J|l|
 
 .. list-table::
     :header-rows: 1
@@ -1606,8 +1562,6 @@ Apache
 
 `General overview <http://www.apachehaus.com/index.php?option=com_content&view=article&id=119&Itemid=104>`__ and `website <http://httpd.apache.org/>`__.
 
-.. tabularcolumns:: |l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1632,8 +1586,6 @@ Apache
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1678,8 +1630,6 @@ nginx
 `General overview <http://nginx.org/en/download.html>`__ and `roadmap
 <http://trac.nginx.org/nginx/roadmap>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1716,8 +1666,6 @@ nginx
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|l|L|L|l|l|
 
 .. list-table::
     :header-rows: 1

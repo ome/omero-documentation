@@ -15,22 +15,11 @@ client machine.
 The first step is to connect to the server and set up the processor on
 the client (see diagram, below).
 
-.. only:: html
+.. figure:: /images/omero-scripting-workflow.png
+  :align: center
+  :alt: OMERO scripting workflow
 
-    .. figure:: /images/omero-scripting-workflow.png
-      :align: center
-      :alt: OMERO scripting workflow
-
-      OMERO scripting workflow
-
-.. only:: latex
-
-    .. figure:: /images/omero-scripting-workflow.png
-      :align: center
-      :width: 70%
-      :alt: OMERO scripting workflow
-
-      OMERO scripting workflow
+  OMERO scripting workflow
 
 -  Install 'Ice' from ZeroC and set the environment
    variables, as described in the
