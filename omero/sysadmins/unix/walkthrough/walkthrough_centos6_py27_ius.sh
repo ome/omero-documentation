@@ -20,12 +20,7 @@ yum -y install \
 	python27-devel \
 	python27-yaml \
 	python27-jinja2 \
-	libjpeg-devel \
-	libpng-devel \
-	libtiff-devel \
-	hdf5-devel \
-	zlib-devel \
-	freetype-devel
+	hdf5-devel
 
 # install pip and virtualenv using Python 2.6 
 yum -y install python-pip

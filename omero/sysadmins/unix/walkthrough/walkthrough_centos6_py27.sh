@@ -21,12 +21,7 @@ yum -y install \
 	python27-numpy \
 	python27-yaml \
 	python27-jinja2 \
-	libjpeg-devel \
-	libpng-devel \
-	libtiff-devel \
-	zlib-devel \
 	hdf5-devel \
-	freetype-devel \
 	expat-devel
 
 # TODO: this installs a lot of unecessary packages:

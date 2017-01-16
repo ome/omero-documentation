@@ -2103,6 +2103,14 @@ Add plugins to the center panels. Plugins are ``['Channel overlay', 'webtest/web
 
 Default: `[]`
 
+.. property:: omero.web.ui.metadata_panes
+
+omero.web.ui.metadata_panes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Manage Metadata pane accordion. This functionality is limited to the exiting sections.
+
+Default: `[{"name": "tag", "label": "Tags", "index": 1},{"name": "map", "label": "Key-Value Pairs", "index": 2},{"name": "table", "label": "Tables", "index": 3},{"name": "file", "label": "Attachments", "index": 4},{"name": "comment", "label": "Comments", "index": 5},{"name": "rating", "label": "Ratings", "index": 6},{"name": "other", "label": "Others", "index": 7}]`
+
 .. property:: omero.web.ui.right_plugins
 
 omero.web.ui.right_plugins
