@@ -6,21 +6,32 @@ It is primarily designed for the core OME developers who want to
 bring new or upgrade existing prerequisites. The following steps explain
 the connections between basic repositories and the testing workflow.
 
+
+.. note::
+
+    This section requires brief understanding of ansible 
+    http://docs.ansible.com/ansible/intro_getting_started.html
+    and Docker containers https://docs.docker.com/.
+
 Prerequisites locations
 -----------------------
 
 List of OME prerequisites is stored in multiple git repositories, each of 
 which is available from several locations.
 
-Infrastructure (Experimental)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OME Infrastructure (Experimental)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Infrastructure is provided to simplify deployment using 
-`Ansible Tower<https://www.ansible.com>`.
+`Ansible <https://www.ansible.com>`.
 
 The Infrastructure repository is available from:
 
 -  https://github.com/openmicroscopy/infrastructure
+
+Roles repositories are available in:
+
+-  https://github.com/openmicroscopy?q=ansible-role
 
 
 OMERO-install
@@ -38,6 +49,9 @@ The OMERO-install repository is available from:
 Testing workflow
 ----------------
 
+Testing environment is split into two tiers: developer and production
+testing platform.
+
 Devspace (Experimental)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -45,7 +59,7 @@ Continuous integration tools managed by Jenkins CI providing
 an automation framework that runs repeated jobs. The default deployment
 initializes a Jenkins CI master with a predefined set of jobs.
 
-The Devspace repository is available from:
+The :doc:`Devspace <devspace>` repository is available from:
 
 -  https://github.com/openmicroscopy/devspace
 
@@ -131,33 +145,3 @@ and tag should be propageted accordingly.
 
     We are working very hard to improve and simplify that process.
 
-
-Deploy devspace
----------------
-
-To deploy devspace you are required to obtain basic knowlesge about
-Ansible and Docker containers. For more details read https://github.com/openmicroscopy/devspace
-
-
-Deploy devspace in OpenStack
-----------------------------
-
-Checkout management tools and run:
-
-::
-
-   $ source tenancy.rc
-   $ cd infrastructure/ansible
-   $ ansible-playbook os-devspace.yml -e vm_name=devspace-test -e vm_key_name=your_key
-   $ ansible-playbook -l devspace-test -u centos devspace.yml
-
-
-To deploy devspace from custom branch, first set up vars:
-
-::
-
-   omero_branch: develop
-   snoopy_dir_path: "/path/to/snoopy"
-
-   git_repo: "https://github.com/user_name/devspace.git"
-   version: "your_branch"
