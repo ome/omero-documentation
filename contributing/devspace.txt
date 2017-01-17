@@ -12,19 +12,40 @@ please `open an issue <https://github.com/openmicroscopy/devspace/issues>`_.
 
 Running and maintaining Devspace require:
 
--  brief understanding of ansible http://docs.ansible.com/ansible/intro_getting_started.html,
+-  Docker engine https://docs.docker.com/.
+
+optionally brief understanding of ansible http://docs.ansible.com/ansible/intro_getting_started.html,
 -  inventory http://docs.ansible.com/ansible/intro_inventory.html,
 -  playbook http://docs.ansible.com/ansible/playbooks.html,
--  Docker containers https://docs.docker.com/.
+
 
 
 Installation
 ------------
 
+Manual
+^^^^^^
+
+Install following prerequesits:
+
+-  Docker engine https://docs.docker.com/engine/installation/
+-  Docker compose
+
+   ::
+
+      $ pip install docker-compose
+
+Checkout `git repository <https://github.com/openmicroscopy/devspace>`_ and run
+
+::
+
+   $ docker-compose -f docker-compose.yml up --build
+
+
 OpenStack
 ^^^^^^^^^
 
-
+This is an exampel of how to provision and deploy Devspace using ansible on openstack.
 Checkout management tools and run:
 
 ::
