@@ -15,24 +15,13 @@ client machine.
 The first step is to connect to the server and set up the processor on
 the client (see diagram, below).
 
-.. only:: html
+.. figure:: /images/omero-scripting-workflow.png
+  :align: center
+  :alt: OMERO scripting workflow
 
-    .. figure:: /images/omero-scripting-workflow.png
-      :align: center
-      :alt: OMERO scripting workflow
+  OMERO scripting workflow
 
-      OMERO scripting workflow
-
-.. only:: latex
-
-    .. figure:: /images/omero-scripting-workflow.png
-      :align: center
-      :width: 70%
-      :alt: OMERO scripting workflow
-
-      OMERO scripting workflow
-
--  You need to download 'Ice' from ZeroC and set the environment
+-  Install 'Ice' from ZeroC and set the environment
    variables, as described in the
    :doc:`server installation page </sysadmins/unix/server-installation>`.
 -  You also need the OMERO server download. Go to the :downloads:`OMERO
@@ -46,9 +35,20 @@ openmicroscopy.org.uk and user: will
 
 ::
 
-    $ cd Desktop/OMERO.server-Beta-4.2/
+    $ cd Desktop/OMERO.server-5.3.x-icexx-bxx/
     $ bin/omero -s openmicroscopy.org.uk -u will script serve user
     $ password: ......
+
+You should see an output similar to the one below
+
+::
+
+    Created session afdbba21-35dc-462a-ab6e-15cc94f93957 (user-4@openmicroscopy.org.uk:4064). Idle timeout: 10 min. Current group: read-only-1
+    2016-10-03 10:12:45,964 INFO  [                    omero.util.Resources] (Thread-2  ) Starting
+    2016-10-03 10:12:45,965 INFO  [              omero.processor.ProcessorI] (MainThread) Registering processor %fOr(Up>[ERUV%B8$.N</omero.scripts.serve-fa53ba-3959-4d85-876a-00e8b932eb -t -e 1.0:tcp -h openmicroscopy.org.uk -p 54385
+    Press any key to exit...
+
+Now you need to open a new terminal window in order to continue with your workflow. 
 
 If you want to run scripts belonging to another user in the same
 collaborative group you need to set up your local user processor to
@@ -57,9 +57,9 @@ start the user processor and give it the user's ID:
 
 ::
 
-    $ cd Desktop/OMERO.server-Beta-4.2/
-    $ bin/omero -s openmicroscopy.org.uk -u will user list
-    $ bin/omero -s openmicroscopy.org.uk -u will script serve user=5
+    $ cd Desktop/OMERO.server-5.3.x-icexx-bxx/
+    $ bin/omero user list
+    $ bin/omero script serve user=5
 
 From this point on, the user and admin workflows are the same, except
 for a couple of options that are not available to regular users. Also
@@ -78,7 +78,7 @@ To list user scripts:
 
 ::
 
-    $ omero -s openmicroscopy -u will script list user      # lists user scripts
+    $ omero script list user      # lists user scripts
      id  | Scripts for user                                                                            
         -----+---------------------------------------------------------------------------------------------
      151 | examples/HelloWorld.py        

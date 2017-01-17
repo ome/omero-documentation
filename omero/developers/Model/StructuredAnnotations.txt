@@ -28,10 +28,10 @@ Currently, these are:
 -  ``Annotation`` and all annotation subtypes in order to form hierarchies
 -  ScreenPlateWell: ``Screen``, ``ScreenAcquisition``, ``Plate``, ``Well``, 
    ``Reagent``
--  …
+-  ``Folder``
 
 Annotation hierarchy
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
 Though they largely are all String or numeric values, a hierarchy of
 annotations makes differentiating between just what interpretation
@@ -46,14 +46,14 @@ validation of the input string and/or file.
            BooleanAnnotation ................. A simple true/false flag
            TimeStampAnnotation ............... A date/time
            TermAnnotation .................... A term used in an ontology
-         NumericAnnotation (A*) .............. Floating point and integer values
-           DoubleAnnotation
-           LongAnnotation
+           NumericAnnotation (A*) ............ Floating point and integer values
+             DoubleAnnotation
+             LongAnnotation
+         MapAnnotation ....................... A list of key-value pairs
          TextAnnotation (A*) ................. A single text field
            CommentAnnotation ................. A user comment
            TagAnnotation ..................... Interpreted as a Web 2.0 "tag" on an object, tags on tags form tag bundles
            XmlAnnotation ..................... An xml snippet attached to some object
-           MapAnnotation ..................... A set of key-value pairs
          TypeAnnotation (A*) ................. Links some entity to another (possibly to be replaced by <any/>)
            FileAnnotation .................... Uses the Format field on OriginalFile to specify type
 
@@ -116,7 +116,7 @@ Examples
 --------
 
 Basics
-~~~~~~
+^^^^^^
 
 ::
 
@@ -130,7 +130,7 @@ Basics
      // do something with list
 
 Attaching a tag
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 ::
 
@@ -143,7 +143,7 @@ Attaching a tag
       iUpdate.saveObject(link);
 
 Attaching a file
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 ::
 

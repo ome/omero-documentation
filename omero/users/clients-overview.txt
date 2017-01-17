@@ -17,8 +17,8 @@ and get running.
 
 OMERO.insight and OMERO.importer are desktop applications written in Java
 and require Java |javaversion| (or higher) to be installed on the user's
-computer (automatically installed on most up-to-date OS X and Windows
-systems).
+computer (this can easily be installed from `<http://java.com/>`_ if it is not
+already included in your OS).
 
 Our user assistance :help:`help website<>` provides a series of
 workflow-based guides to performing common actions in the client applications,

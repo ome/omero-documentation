@@ -31,23 +31,18 @@ tab of Jenkins.
 	:header-rows: 1
 
 	-	* Job task
-		* Bio-Formats 5.1.x series
-		* Bio-Formats 5.2.x series
+		* Bio-Formats 5.3.x series
 
 	-	* Builds the latest Bio-Formats documentation for publishing
-		* :term:`BIOFORMATS-5.1-latest-docs`
 		* :term:`BIOFORMATS-DEV-latest-docs`
 
 	-	* Builds the Bio-Formats documentation for review
-		* :term:`BIOFORMATS-5.1-merge-docs`
 		* :term:`BIOFORMATS-DEV-merge-docs`
 
 	-	* Builds the auto-generated Bio-Formats documentation
-		* :term:`BIOFORMATS-5.1-latest-docs-autogen`
 		* :term:`BIOFORMATS-DEV-latest-docs-autogen`
 
 	-	* Builds the auto-generated Bio-Formats documentation for review
-		* :term:`BIOFORMATS-5.1-merge-docs-autogen`
 		* :term:`BIOFORMATS-DEV-merge-docs-autogen`
 
 The OME Model, OME help and OME Contributing documentation sets are
@@ -60,13 +55,13 @@ independent of the current OMERO/Bio-Formats version.
 		*
 
 	-	* Publish OME Model documentation
-		* :term:`FORMATS-latest-docs`
+		* :term:`MODEL-latest-docs`
 
 	-	* Publish OME Contributing documentation
 		* :term:`CONTRIBUTING-latest-docs`
 
 	-	* Review OME Model documentation PRs
-		* :term:`FORMATS-merge-docs`
+		* :term:`MODEL-merge-docs`
 
 	-	* Review OME Contributing documentation PRs
 		* :term:`CONTRIBUTING-merge-docs`
@@ -103,12 +98,12 @@ to the relevant :file:`themes/` folder. The following environment variables
 are then used:
 
 - the Sphinx building options, :envvar:`SPHINXOPTS`, is set to
-  ``-W -D html_theme=sphinx_theme``,
+  ``-W -D html_theme=sphinx_theme``
 
 - the release number of the documentation is set by :envvar:`OMERO_RELEASE`,
-  :envvar:`BF_RELEASE` or :envvar:`FORMATS_RELEASE`,
+  :envvar:`BF_RELEASE` or by the relevant POM
 
-- the source code links use :envvar:`SOURCE_USER` and :envvar:`SOURCE_BRANCH`,
+- the source code links use :envvar:`SOURCE_USER` and :envvar:`SOURCE_BRANCH`
 
 - for the Bio-Formats and OMERO sets of documentation, the name of the
   Jenkins job is set by :envvar:`JENKINS_JOB`.
@@ -118,62 +113,6 @@ necromancer.openmicroscopy.org.uk under the
 :file:`/var/www/www.openmicroscopy.org/sphinx-docs` directory using the
 :program:`scc deploy` command. The :jenkinsjob:`OME-docs-deployment-setup` job
 is used to initialize new deployment folders.
-
-Bio-Formats 5.1.x series
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-The branch for the 5.1.x series of the OMERO documentation is dev_5_1.
-
-.. glossary::
-
-	:jenkinsjob:`BIOFORMATS-5.1-latest-docs`
-
-		This job is used to build the dev_5_1 branch of the Bio-Formats
-		documentation and publish the official documentation for the 5.1.x
-		release of Bio-Formats
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. If the build is promoted,
-			#. |ssh-doc| :file:`bf-5.1-release.tmp`
-			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.1/
-
-	:jenkinsjob:`BIOFORMATS-5.1-merge-docs`
-
-		This job is used to review the PRs opened against the dev_5_1 branch
-		of the Bio-Formats documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. |ssh-doc| :file:`bf-5.1-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.1-staging/
-
-	:jenkinsjob:`BIOFORMATS-5.1-latest-docs-autogen`
-
-		This job is used to build the latest auto-generated formats and
-		readers pages for the dev_5_1 branch of the Bio-Formats documentation
-
-		#. Builds Bio-Formats using ``ant clean jars``
-		#. Runs the auto-generation using ``ant gen-format-pages gen-structure-table gen-meta-support gen-meta-support``
-		   from :file:`components/autogen`
-		#. Checks for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to
-		   :bf_scc_branch:`dev_5_1/latest/autogen`
-
-
-	:jenkinsjob:`BIOFORMATS-5.1-merge-docs-autogen`
-
-		This job is used to build the merge auto-generated pages for the
-		dev_5_1 branch of the Bio-Formats documentation
-
-		#. Checks out :bf_scc_branch:`dev_5_1/merge/daily`
-		#. Builds Bio-Formats using ``ant clean jars``
-		#. Runs the auto-generation using ``ant gen-format-pages gen-structure-table gen-meta-support gen-meta-support``
-		   from :file:`components/autogen`
-		#. Checks for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to 
-		   :bf_scc_branch:`dev_5_1/merge/autogen`
 
 OMERO 5.2.x series
 ^^^^^^^^^^^^^^^^^^
@@ -260,24 +199,24 @@ The branch for the 5.3.x series of the OMERO documentation is develop.
 		#. Pushes the auto-generated changes to
 		   :omedoc_scc_branch:`develop/merge/autogen`
 
-Bio-Formats 5.2.x series
+Bio-Formats 5.3.x series
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The branch for the 5.2.x series of the Bio-Formats documentation is develop.
+The branch for the 5.3.x series of the Bio-Formats documentation is develop.
 
 .. glossary::
 
 	:jenkinsjob:`BIOFORMATS-DEV-latest-docs`
 
 		This job is used to build the develop branch of the Bio-Formats
-		documentation and publish the official documentation for the 5.2.x
+		documentation and publish the official documentation for the 5.3.x
 		release of Bio-Formats
 
 		#. |sphinxbuild|
 		#. |linkcheck|
 		#. If the build is promoted,
-			#. |ssh-doc| :file:`bf-5.2-release.tmp`
-			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.2/
+			#. |ssh-doc| :file:`bf-5.3-release.tmp`
+			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.3/
 
 	:jenkinsjob:`BIOFORMATS-DEV-merge-docs`
 
@@ -287,8 +226,8 @@ The branch for the 5.2.x series of the Bio-Formats documentation is develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`bf-5.2-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.2-staging/
+		#. |ssh-doc| :file:`bf-5.3-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.3-staging/
 
 	:jenkinsjob:`BIOFORMATS-DEV-latest-docs-autogen`
 
@@ -320,20 +259,21 @@ The branch for the 5.2.x series of the Bio-Formats documentation is develop.
 OME Model and OME Contributing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The branch for the OME model and the OME Contributing documentation
-sets is develop.
+The OME Contributing documentation is located in the ome-documentation
+repository and is built from the develop branch. The Model documentation is
+located in the ome-model repository and is built from the master branch.
 
 .. glossary::
 
-	:jenkinsjob:`FORMATS-merge-docs`
+	:jenkinsjob:`MODEL-merge-docs`
 
-		This job is used to review the PRs opened against the develop branch
+		This job is used to review the PRs opened against the master branch
 		of the OME Model documentation
 
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`formats-staging.tmp`
+		#. |ssh-doc| :file:`ome-model-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-staging/
 
 	:jenkinsjob:`CONTRIBUTING-merge-docs`
@@ -347,14 +287,14 @@ sets is develop.
 		#. |ssh-doc| :file:`contributing-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing-staging/
 
-	:jenkinsjob:`FORMATS-latest-docs`
+	:jenkinsjob:`MODEL-latest-docs`
 
-		This job is used to build the develop branch of the OME Model
+		This job is used to build the master branch of the OME Model
 		documentation and publish the official documentation
 
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`formats-release.tmp`
+		#. |ssh-doc| :file:`ome-model-release.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
 
 	:jenkinsjob:`CONTRIBUTING-latest-docs`
@@ -403,7 +343,7 @@ The repository for the OME help is https://github.com/openmicroscopy/ome-help.
 OMERO.figure website
 ^^^^^^^^^^^^^^^^^^^^
 
-The repository for OMERO.figure is https://github.com/ome/figure.
+The repository for OMERO.figure is https://github.com/ome/omero-figure.
 
 .. glossary::
 
@@ -425,8 +365,8 @@ The repository for OMERO.figure is https://github.com/ome/figure.
 		This job is used to deploy the Figure gh-pages website
 
 		#. Opens a Pull Request from
-		   https://github.com/ome/figure/tree/gh-pages-staging
-		   to https://github.com/ome/figure/tree/gh-pages. If
+		   https://github.com/ome/omero-figure/tree/gh-pages-staging
+		   to https://github.com/ome/omero-figure/tree/gh-pages. If
 		   this PR is merged, the GitHub Pages service updates the content of
 		   http://figure.openmicroscopy.org
 

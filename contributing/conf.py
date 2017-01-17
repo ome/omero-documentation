@@ -25,7 +25,12 @@ from conf import *
 project = u'OME Contributing Developer'
 title = project + u' Documentation'
 
+main_github_root = github_root + 'openmicroscopy'
 scc_github_root = github_root + 'snoopycrimecop'
+
+# cf. omero_github_root, bf_github_root
+omero_main_github_root = main_github_root + '/openmicroscopy/'
+bf_main_github_root = main_github_root + '/bioformats/'
 
 # OME contributing-specific extlinks
 contributing_extlinks = {
@@ -33,10 +38,12 @@ contributing_extlinks = {
     'omero_source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'omero_sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
     'omero_commit' : (omero_github_root + 'commit/%s', ''),
+    'omero_pr' : (omero_main_github_root + 'pull/%s', ''),
     'omero_scc_branch' : (scc_github_root + '/openmicroscopy/tree/%s', ''),
     'bf_source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
     'bf_sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
     'bf_commit' : (bf_github_root + 'commit/%s', ''),
+    'bf_pr' : (bf_main_github_root + 'pull/%s', ''),
     'bf_scc_branch' : (scc_github_root + '/bioformats/tree/%s', ''),
     'omedoc_scc_branch' : (scc_github_root + '/ome-documentation/tree/%s', ''),
     'omehelp_scc_branch' : (scc_github_root + '/ome-help/tree/%s', ''),
@@ -69,13 +76,13 @@ rst_epilog += """
 ..  |copyreleaseartifacts| replace:: Copies the build artifacts to a LDAP-protected folder under downloads.openmicroscopy.org
 ..  |promoteOMERO| replace:: copies the artifacts to necromancer
 ..  |updatesubmodules| replace:: Updates submodules using ``scc update-submodules``
-..  |buildBF| replace:: Builds Bio-Formats using ``ant clean jars tools tools-ome utils dist-bftools``
-..  |buildBFcpp| replace:: Builds Bio-Formats using ``cmake``
-..  |testBF| replace:: Runs Bio-Formats tests using ``ant test-common test-ome-xml test-formats test-ome-io``
-..  |fulltestBF| replace:: Runs Bio-Formats full test-suite using ``ant test``
-..  |sphinxbuild| replace:: Runs ``make clean html latexpdf`` to build the HTML and PDF versions of the Sphinx documentation
+..  |buildBF| replace:: Builds Bio-Formats using ``clean release tools utils docs docs-sphinx dist-bftools dist-matlab dist-octave test``
+..  |buildFiles| replace:: Builds OME Files components from git using ``cmake``
+..  |buildFilesSB| replace:: Builds OME Files components and third-party dependencies using ``cmake``
+..  |buildFilesSRC| replace:: Builds OME Files components from source release archives using ``cmake``
+..  |sphinxbuild| replace:: Runs ``make clean html`` to build the HTML Sphinx documentation
 ..  |linkcheck| replace:: Runs ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`
-..  |ssh-doc| replace:: Copies the HTML and PDF documentation over SSH to
+..  |ssh-doc| replace:: Copies the HTML documentation over SSH to
 ..  |deploy-doc| replace:: Runs :ref:`scc deploy` to update
 """
 
@@ -86,18 +93,18 @@ edit_on_github_prefix = 'contributing'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-target = 'OME-Contributing-Developer' + '.tex'
-latex_documents = [
-  (master_doc, target, title, author, 'manual'),
-]
+#target = 'OME-Contributing-Developer' + '.tex'
+#latex_documents = [
+#  (master_doc, target, title, author, 'manual'),
+#]
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
-latex_use_parts = False
+#latex_use_parts = False
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = '../common/images/ome-tight.pdf'
+#latex_logo = '../common/images/ome-tight.pdf'
 
 # -- Options for the linkcheck builder ----------------------------------------
 

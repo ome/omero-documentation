@@ -36,9 +36,9 @@ Operating systems
 * MacOS X
 
   * [5.2] 10.8 dropped. 10.9 deprecated, 10.10 recommended, 10.11 upcoming
-  * [5.3] 10.8 dropped, 10.9 deprecated, 10.10 supported , 10.11 recommended
+  * [5.3] 10.9 dropped, 10.10 deprecated, 10.11 recommended, 10.12 upcoming
   * Test server only on 10.10+ for 5.2.
-  * Rationale: 10.8 no longer has security support and it still leaves 3
+  * Rationale: 10.9 no longer has security support and it still leaves 3
     versions to support. MacOS X is typically suited only to client
     use, not serious server deployment, so limit testing accordingly.
 
@@ -171,8 +171,8 @@ The planned changes for 5.2 depend upon our support of
 
 * Apache
 
-  * [5.2] 2.2 deprecated, 2.4 recommended
-  * [5.3] 2.4 recommended
+  * [5.2] deprecated in OMERO 5.2.6
+  * [5.3] deprecated, likely to be dropped during the 5.3.x line
   * Rationale: 2.2 is the CentOS/RHEL 6.x and Ubuntu 12.04 version,
     both of which will be dropped in 5.3 if CentOS 6 is dropped,
     otherwise they will remain deprecated.
@@ -199,8 +199,6 @@ from being new and not supported, to supported and tested on a
 routine basis, and to finally being old and no longer supported
 nor tested.
 
-.. tabularcolumns:: |l|l|J|
-
 .. list-table::
     :header-rows: 1
 
@@ -218,7 +216,7 @@ nor tested.
       - Version which is regularly tested, confirmed to work correctly, recommended for optimal performance/experience
     * - Deprecated
       - supported/deprecated
-      - Version which is less tested, expected to work correctly, but may not offer optimal performance/experience; official support will be dropped in the next major OMERO release
+      - Version which is less tested, expected to work correctly, but may not offer optimal performance/experience; official support may be dropped in the next major OMERO release
     * - Dropped
       - unsupported/old
       - Old version no longer tested and no longer officially supported; may or may not work (use at own risk)
@@ -242,8 +240,6 @@ Microsoft Windows
 
 `General overview <http://support.microsoft.com/gp/lifeselectindex>`__
 (under 'W' in the index)
-
-.. tabularcolumns:: |l|l|l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 2
@@ -271,7 +267,7 @@ Microsoft Windows
       - Dropped
       - Dropped
       - Dropped
-      - `Ref <http://support.microsoft.com/lifecycle/?p1=11737>`__
+      - `Ref <https://support.microsoft.com/en-gb/help/13853>`__
     * - Win 7
       - from Oct 2009
       - to Jan 2015
@@ -279,7 +275,7 @@ Microsoft Windows
       - Recommended
       - Supported
       - Unsupported†
-      - `Ref <http://support.microsoft.com/lifecycle/?p1=14481>`__
+      - `Ref <https://support.microsoft.com/en-gb/help/13853>`__
     * - Server 2008 R2
       - from May 2008
       - to Jan 2018
@@ -295,7 +291,7 @@ Microsoft Windows
       - Supported
       - Recommended
       - Unsupported†
-      - `Ref <http://support.microsoft.com/lifecycle/?p1=16799>`__
+      - `Ref <https://support.microsoft.com/en-gb/help/13853>`__
     * - Server 2012
       - from Oct 2012
       - to Jan 2018
@@ -311,7 +307,7 @@ Microsoft Windows
       - Unsupported
       - Unsupported
       - Unsupported†
-      - `Ref <https://support.microsoft.com/en-gb/lifecycle?C2=18165>`__
+      - `Ref <https://support.microsoft.com/en-gb/help/13853>`__
 
 †
    Unsupported for OMERO.server and OMERO.web deployment. Client support will
@@ -327,8 +323,6 @@ UNIX (MacOS X)
 
 `General overview <http://en.wikipedia.org/wiki/OS_X>`__
 
-.. tabularcolumns:: |l|l|L|L|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -339,27 +333,20 @@ UNIX (MacOS X)
       - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 10.8
-      - from Feb 2012
-      - Ended
-      - Ended
-      - Deprecated
-      - Dropped
-      - Dropped
     * - 10.9
       - from Jun 2013
-      - Supported
-      - Supported
+      - Ended
+      - Ended
       - Recommended
       - Supported
-      - Deprecated
+      - Dropped
     * - 10.10
       - from Oct 2014
       - Supported
       - Supported
       - Supported
       - Recommended
-      - Supported
+      - Deprecated
     * - 10.11
       - from Sep 2015
       - Supported
@@ -367,13 +354,21 @@ UNIX (MacOS X)
       - Supported
       - Upcoming
       - Recommended
+    * - 10.12
+      - from Sep 2016
+      - Supported
+      - Supported
+      - Unsupported
+      - Unsupported
+      - Upcoming
 
 Apple do not formally announce end of life for their releases, but
-with the three latest releases being supported this puts 10.9 as the
-minimum version suitable for use.  We have regular CI testing of 10.9,
-10.10 and 10.11 builds plus developer testing of building and client
-and server deployment. 10.8 is marked as dropped since it is no longer
-tested by the CI infrastructure (node retired).
+with the three latest releases being supported this puts 10.10 as the
+minimum version suitable for use.  We have regular CI testing of 10.11
+and 10.12 builds plus developer testing of building and client and
+server deployment. 10.9 and 10.10 are marked as dropped and deprecated
+since they are no longer tested by the CI infrastructure (nodes
+retired).
 
 UNIX (FreeBSD)
 --------------
@@ -388,8 +383,6 @@ Linux (CentOS and RHEL)
 General overview for `RHEL
 <https://access.redhat.com/site/articles/3078>`__ and `CentOS
 <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
-
-.. tabularcolumns:: |l|l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -447,8 +440,6 @@ Linux (Ubuntu)
 
 `General overview <https://wiki.ubuntu.com/Releases>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -499,8 +490,6 @@ Linux (Debian stable)
 ---------------------
 
 `General overview <https://www.debian.org/releases/>`__
-
-.. tabularcolumns:: |l|l|l|l|l|l|J|
 
 .. list-table::
     :header-rows: 1
@@ -611,8 +600,6 @@ server and client deployment.
 Package lists
 -------------
 
-.. tabularcolumns:: |l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -644,8 +631,6 @@ PostgreSQL
 ----------
 
 `General overview <http://www.postgresql.org/support/versioning/>`__
-
-.. tabularcolumns:: |l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -689,8 +674,6 @@ PostgreSQL
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -748,8 +731,6 @@ available for all platforms.
 Python
 ------
 
-.. tabularcolumns:: |l|l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -805,8 +786,6 @@ Python
 
 Distribution support
 --------------------
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -891,8 +870,6 @@ GCC
 
 `General overview <https://gcc.gnu.org/develop.html#timeline>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -947,8 +924,6 @@ GCC
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1025,8 +1000,6 @@ LLVM/clang
 
 `General overview <http://llvm.org/releases/>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1063,8 +1036,6 @@ LLVM/clang
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1122,8 +1093,6 @@ Microsoft Visual Studio
 -----------------------
 
 `General overview <http://support2.microsoft.com/lifecycle/search/?sort=PN&alpha=Visual+Studio>`__
-
-.. tabularcolumns:: |l|l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 2
@@ -1187,8 +1156,6 @@ Ice
 
 :zeroc:`General overview <download.html>`
 
-.. tabularcolumns:: |l|l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1237,8 +1204,6 @@ Ice
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
 
-.. tabularcolumns:: |l|l|L|L|L|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1283,8 +1248,6 @@ Java
 
 `General overview <http://www.oracle.com/technetwork/java/eol-135779.html>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1319,8 +1282,6 @@ Java
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1377,8 +1338,6 @@ OpenGL
 ------
 
 `General overview <http://en.wikipedia.org/wiki/OpenGL>`__
-
-.. tabularcolumns:: |l|l|l|l|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1464,8 +1423,6 @@ OpenGL
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|l|l|l|l|J|l|
 
 .. list-table::
     :header-rows: 1
@@ -1605,8 +1562,6 @@ Apache
 
 `General overview <http://www.apachehaus.com/index.php?option=com_content&view=article&id=119&Itemid=104>`__ and `website <http://httpd.apache.org/>`__.
 
-.. tabularcolumns:: |l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1620,19 +1575,17 @@ Apache
       - from Dec 2005
       - TBA
       - Supported
-      - Supported
-      - Supported
+      - Deprecated
+      - Deprecated
     * - 2.4
       - from Feb 2012
       - TBA
       - Recommended
-      - Recommended
-      - Recommended
+      - Deprecated
+      - Deprecated
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|L|L|L|l|l|
 
 .. list-table::
     :header-rows: 1
@@ -1677,8 +1630,6 @@ nginx
 `General overview <http://nginx.org/en/download.html>`__ and `roadmap
 <http://trac.nginx.org/nginx/roadmap>`__
 
-.. tabularcolumns:: |l|l|l|l|l|l|
-
 .. list-table::
     :header-rows: 1
 
@@ -1715,8 +1666,6 @@ nginx
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
-
-.. tabularcolumns:: |l|l|l|L|L|l|l|
 
 .. list-table::
     :header-rows: 1

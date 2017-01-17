@@ -64,9 +64,10 @@ other apps in development:
     the app itself and may change in minor releases without warning.
 
 Additional apps can be easily added to your OMERO.web deployment.
-One example is the `webtest app <https://github.com/openmicroscopy/webtest/>`_
+One example is the
+`OMERO.webtest app <https://github.com/openmicroscopy/omero-webtest/>`_
 that contains several code samples mentioned in the following pages.
-You will find install instructions on the webtest app page itself.
+You will find install instructions on the OMERO.webtest repository itself.
 
 Getting started
 ---------------
@@ -79,23 +80,24 @@ documentation on editing the core OMERO.web code is at
 :doc:`/developers/Web/EditingOmeroWeb`.
 If you want to have a quick look at some example code, see below.
 
-Quick example - webtest
-^^^^^^^^^^^^^^^^^^^^^^^
+Quick example - OMERO.webtest
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: /images/webtest-dataset.png
   :align: center
-  :alt: Screen-shot of the webtest/dataset/example
+  :alt: Screen-shot of the omero-webtest/dataset/example
 
 This tiny example gives you a feel for how the OMERO.web framework gets data
 from OMERO and displays it on a web page. You can find this and other examples
-in the `webtest <https://github.com/openmicroscopy/webtest/>`_ app.
+in the `OMERO.webtest <https://github.com/openmicroscopy/omero-webtest/>`_
+repository.
 
 There are 3 parts to each page: url, view and template. For example, this code
 below is for generating an HTML page of a Dataset (see screen-shot). If you
 have OMERO.web running, you can view the page under
 `http://servername.example.org/webtest/dataset/`\ `<datasetId>`.
 
--  **url** goes in omeroweb/webtest/urls.py This maps the URL
+-  **url** goes in omeroweb/omero_webtest/urls.py This maps the URL
    'webtest/dataset/<datasetId>/' to the View function
    'dataset', passing it the datasetId.
 
@@ -103,7 +105,7 @@ have OMERO.web running, you can view the page under
 
        url( r'^dataset/(?P<datasetId>[0-9]+)/$', views.dataset ),
 
--  **View** function, in omeroweb/webtest/views.py. NB: @login\_required
+-  **View** function, in omeroweb/omero_webtest/views.py. NB: @login\_required
    decorator retrieves connection to OMERO as 'conn' passed in args to
    method. See :doc:`/developers/Web/WritingViews` for more
    details.
@@ -119,7 +121,7 @@ have OMERO.web running, you can view the page under
            return render(request, 'webtest/dataset.html', {'dataset': ds})
 
 -  **Template:** The template web page, in
-   omeroweb/webtest/templates/webtest/dataset.html
+   omero-webtest/omero_webtest/templates/webtest/dataset.html
 
    ::
 

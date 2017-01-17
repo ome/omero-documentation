@@ -5,6 +5,23 @@ The following guidelines apply to tests in both the Java and Python test
 components. However, some of the presented options apply to only one or the
 other.
 
+The default build target does not compile all the required testing resources.
+You should run `test-compile` (or `build-dev` if you are using Eclipse) first:
+
+::
+
+    ./build.py build-default test-compile
+
+
+You must rebuild the `test-compile` target if you subsequently modify any of
+the Java tests.
+
+
+.. note::
+    The OMERO C++ components and tests are under heavy development, and
+    are not compiled or run by the targets mentioned on this page.
+
+
 Running tests
 -------------
 
@@ -309,7 +326,7 @@ To make use of the more advanced options available in `pytest` that are not
 accessible using :program:`setup.py test`, the :program:`py.test` script can
 be used directly. To use this :envvar:`PYTHONPATH` must contain the path to
 the OMERO Python libraries, see |BlitzGateway| as well as the  path to the
-:sourcedir:`OMERO Python test library <components/tests/python>`.
+:sourcedir:`OMERO Python test library <components/tools/OmeroPy/src/omero/testlib/>`.
 Alternatively, the `pytest` plugin :pypi:`pytest-pythonpath` can be used to
 add paths to :envvar:`PYTHONPATH` specifically for `pytest`.
 
@@ -426,7 +443,7 @@ with `test_` for the tests to be found by `pytest`.
 
 ::
 
-    import omero
+    import omero.clients
 
     class TestExample(object)
 
@@ -498,7 +515,7 @@ There are a small number of custom markers defined:
 Using the Python test library
 """""""""""""""""""""""""""""
 
-The :source:`OMERO Python test library <components/tests/python/library/__init__.py>`
+The :source:`OMERO Python test library <components/tools/OmeroPy/src/omero/testlib/__init__.py>`
 defines an abstract ``ITest`` class that implements the connection set up as
 well as many methods shared amongst all Python integration tests.
 
@@ -527,7 +544,7 @@ Additionally, for the ``self.client`` object, different shortcuts are available:
 The example below inherits the ``ITest`` class and would create a read-write
 group by default ::
 
-  from library import ITest
+  from omero.testlib import ITest
 
   class TestExample(ITest):
 
@@ -561,7 +578,7 @@ Images can be imported using the ``ITest.importSingleImage()`` or
 Writing OMERO.web tests
 """""""""""""""""""""""
 
-For OMERO.web integration tests, the :source:`OMERO.web test library <components/tools/OmeroWeb/test/integration/weblibrary.py>`
+For OMERO.web integration tests, the :source:`OMERO.web test library <components/tools/OmeroWeb/omeroweb/testlib/__init__.py>`
 defines an abstract ``IWebTest`` class that inherits from ``ITest`` and
 also implements Django clients at the class setup using the
 :djangodoc:`Django testing tools <topics/testing/tools>`.
@@ -575,7 +592,7 @@ class creates:
 
 ::
 
-  from weblibrary import IWebTest
+  from omeroweb.testlib import IWebTest
 
   class TestExample(IWebTest):
       def testSimple():

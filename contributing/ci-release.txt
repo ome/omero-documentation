@@ -88,7 +88,6 @@ Bio-Formats
         #. Checks out the :envvar:`RELEASE` tag of the
            snoopycrimecop fork of bioformats.git_
         #. |buildBF|
-        #. |fulltestBF|
         #. |copyreleaseartifacts|
         #. Triggers :term:`BIOFORMATS-DEV-release-downloads`
 
@@ -227,7 +226,7 @@ Other release jobs
         This job is used to build the OMERO.figure downloads page
 
         #. Download the :envvar:`RELEASE` artifacts from
-           https://github.com/ome/figure
+           https://github.com/ome/omero-figure
         #. Copy the OMERO.figure source zip over SSH to
            :file:`/ome/www/downloads.openmicroscopy.org/figure/RELEASE`
         #. Merge PRs opened against `develop`

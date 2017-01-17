@@ -12,28 +12,12 @@ with:
 
 -  `WSGI <http://wsgi.readthedocs.org>`_ using a WSGI capable web server
    such as
-   `Apache 2.2+ <http://httpd.apache.org/>`_ (with
-   `mod\_wsgi <http://www.modwsgi.org/>`_ enabled) or 
-   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
--  The built-in Django lightweight development server (for **testing**
-   only; see the :doc:`/developers/Web/Deployment` page).
+   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_
+-  the built-in Django lightweight development server (for **testing**
+   only; see the :doc:`/developers/Web/Deployment` page)
 
 If you need help configuring your firewall rules, see the
 :doc:`/sysadmins/server-security` page.
-
-Prerequisites
--------------
-
--  OMERO and its prerequisites (see :doc:`server-installation`).
-
--  Python 2.7
-
-   -  `Pillow`_ should be available for your distribution. We currently do not 
-       support version 3.0+.
-
-   -  `Matplotlib`_ should be available for your distribution
-
--  A WSGI capable web server
 
 
 .. _omero_web_deployment:
@@ -42,6 +26,11 @@ Deployment
 ----------
 
 There are a number of good ways to easily deploy OMERO.web.
+
+Deploying OMERO.web separately from OMERO.server is recommended as they
+perform best under different circumstances and require a different set of
+dependencies. Please consider using :doc:`OMERO.web trial deployment <install-web/install-web-trial>`.
+
 If you have installed Nginx or Apache, OMERO can automatically generate a
 configuration file for your web server. The location of the file will depend
 on your system, please refer to your web server's manual. See
@@ -52,8 +41,20 @@ customization options.
     :maxdepth: 1
     :titlesonly:
 
-    install-web/install-apache
     install-web/install-nginx
+    install-web/install-apache
+    install-web/install-web-trial
+    install-web/walkthrough/omeroweb-install-centos7-ice3.6
+    install-web/walkthrough/omeroweb-install-centos7-ice3.5
+    install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
+    install-web/walkthrough/omeroweb-install-ubuntu-ice3.5
+    install-web/walkthrough/omeroweb-install-osx-ice3.6
+
+.. note:: Support for Apache deployment has been deprecated and is likely to
+    be dropped during the 5.3.x line.
+    
+    If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an Nginx instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
+    `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
 
 Logging in to OMERO.web
 -----------------------
@@ -121,14 +122,14 @@ OMERO.web maintenance
 
           $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
 
-      - `Memcached <https://memcached.org/>`_::
+      - `Redis 2.8+ <http://redis.io/>`_ requires `django-redis 4.4+ <http://niwinz.github.io/django-redis/latest/>`_::
 
-          $ bin/omero config set omero.web.caches '{"default": { "BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400" } }'
+          $ pip install -r OMERO.py/share/web/requirements-redis.txt
+          $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.RedisCache", "LOCATION": "redis://redis:6379/0"}}'
 
-      - EXPERIMENTAL: `Redis 2.4+ <http://redis.io/>`_ requires `django-redis-cache 1.6.5+ <http://django-redis-cache.readthedocs.org/en/latest/intro_quick_start.html>`_::
+      - DEPRECATED: `Memcached <https://memcached.org/>`_::
 
-          $ pip install django-redis-cache>=1.6.5
-          $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "redis_cache.RedisCache", "LOCATION": "127.0.0.1:6379"}}'
+          $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400"}}'
 
 .. note::
     The generated Nginx and Apache configuration files will automatically
@@ -166,13 +167,19 @@ All configuration options can be found on various sections of
 
 	$ bin/omero web -h
 
+.. Note:: Depending on the deployment choice, OMERO.web will not activate
+    configuration changes until either gunicorn is restarted using
+    ``bin/omero web restart`` (nginx) or the Apache webserver has been
+    reloaded.
+
 The most popular configuration options include:
 
 -  Debug mode, see :property:`omero.web.debug`.
 
--  Customize login page with your own logo, see
-   :property:`omero.web.login_logo`.
-
--  Customizing index page, see :property:`omero.web.index_template`.
+-  Customizing OMERO clients e.g to add your own logo to the login page
+   (:property:`omero.web.login_logo`) or use an index page as an alternative
+   landing page for users (:property:`omero.web.index_template`). See
+   :doc:`/sysadmins/customization` for further information.
 
 -  Enabling a public user see :doc:`/sysadmins/public`.
+

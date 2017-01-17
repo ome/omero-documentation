@@ -7,7 +7,7 @@ source settings.env
 apt-get update
 
 # installed for convenience
-apt-get -y install unzip wget
+apt-get -y install unzip wget bc
 
 # install Java
 apt-get -y install software-properties-common
@@ -21,18 +21,7 @@ apt-get update
 apt-get -y install \
 	unzip \
 	wget \
-	python-{matplotlib,numpy,pip,scipy,tables,virtualenv}
-
-# require to install Pillow
-apt-get -y install \
-	libtiff5-dev \
-	libjpeg8-dev \
-	zlib1g-dev \
-	libfreetype6-dev \
-	liblcms2-dev \
-	libwebp-dev \
-	tcl8.6-dev \
-	tk8.6-dev
+	python-{pip,pillow,numpy,scipy,tables,virtualenv,yaml,jinja2}
 
 pip install --upgrade pip
 
@@ -84,7 +73,7 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step04: As the omero system user, install the OMERO.server
 #start-copy-omeroscript
-cp settings.env omero-.env step04_all_omero.sh setup_omero_db.sh ~omero 
+cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero
@@ -103,6 +92,7 @@ OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
 OMERO.server/bin/omero config set omero.db.user "$OMERO_DB_USER"
 OMERO.server/bin/omero config set omero.db.pass "$OMERO_DB_PASS"
+OMERO.server/bin/omero db script -f OMERO.server/db.sql "" "" "$OMERO_ROOT_PASS"
 OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
@@ -116,11 +106,12 @@ add-apt-repository -y ppa:nginx/stable
 apt-get update
 apt-get -y install nginx
 
-pip install -r ~omero/OMERO.server/share/web/requirements-py27-nginx.txt
-
-# set up as the omero user.
-su - omero -c "bash -eux setup_omero_nginx.sh"
-
+file=~omero/OMERO.server/share/web/requirements-py27-nginx.txt
+pip install -r $file
+#start-configure-nginx: As the omero system user, configure OMERO.web
+OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
+OMERO.server/bin/omero web config nginx --http "$OMERO_WEB_PORT" > OMERO.server/nginx.conf.tmp
+#end-configure-nginx
 cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/sites-available/omero-web
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/omero-web /etc/nginx/sites-enabled/
@@ -155,17 +146,6 @@ service apache2 start
 #end-step05
 
 #start-step06: As root, run the scripts to start OMERO and OMERO.web automatically
-
-cp omero-init.d /etc/init.d/omero
-chmod a+x /etc/init.d/omero
-
-cp omero-web-init.d /etc/init.d/omero-web
-chmod a+x /etc/init.d/omero-web
-
-update-rc.d -f omero remove
-update-rc.d -f omero defaults 98 02
-update-rc.d -f omero-web remove
-update-rc.d -f omero-web defaults 98 02
 #end-step06
 
 #start-step07: As root, secure OMERO

@@ -18,6 +18,7 @@ be valuable to a wider audience.
     - :doc:`deployment-tools`
     - :doc:`continuous-integration`
     - :doc:`jekyll`
+    - :doc:`data-model-schema`
     - :doc:`schema-changes`
 
 
@@ -29,7 +30,7 @@ sections:
 
 -  :bf_doc:`Bio-Formats developer documentation <developers/index.html>`
 
--  :model_doc:`OME Data Model, OME-TIFF and OME-XML documentation <index.html>`
+-  :model_doc:`OME Data Model and File Formats documentation <index.html>`
 
 If you have any questions, please see our :community_plone:`Community page <>`
 for ways to get in touch.
@@ -47,5 +48,6 @@ for ways to get in touch.
     deployment-tools
     continuous-integration
     jekyll
+    data-model-schema
     schema-changes
 

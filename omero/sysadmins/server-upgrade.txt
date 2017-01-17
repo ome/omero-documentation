@@ -66,6 +66,9 @@ there may be fixes which require it.
     `Django 1.8`_ (LTS) which requires Python 2.7. For more information
     see :ref:`python-requirements` on the
     :doc:`/sysadmins/version-requirements` page.
+    
+    Also note that support for Apache deployment is now deprecated and is
+    likely to be dropped during the 5.3.x line.
 
 OMERO.web dependencies
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -77,7 +80,7 @@ up to date to ensure that security updates are applied.
 
      $ pip install --upgrade -r share/web/requirements-py27-nginx.txt
 
-- Apache on Unix::
+- Apache (deprecated) on Unix::
 
      $ pip install --upgrade -r share/web/requirements-py27-apache.txt
 
@@ -130,6 +133,36 @@ below. Please refer to each section for additional details.
 .. contents::
     :local:
     :depth: 1
+
+Check ahead for upgrade issues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There is a "precheck" SQL script provided that performs various database
+checks to verify readiness for upgrade. The precheck script works even
+with the OMERO server running so it may be used before downtime for the
+actual upgrade is scheduled. Issues that the script reports will need to
+be resolved before the upgrade may proceed. The precheck script will
+*not* make any changes to the database: it merely performs various
+precautionary checks also done by the actual upgrade script.
+
+.. parsed-literal::
+
+    $ cd OMERO.server
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/|previous_dbver|-precheck.sql
+    Password for user **db_user**:
+    ...
+    ...
+                               status
+    ---------------------------------------------------------------------
+                                                                        +
+                                                                        +
+                                                                        +
+    YOUR DATABASE IS READY FOR UPGRADE TO VERSION |current_dbver|           +
+                                                                        +
+                                                                        +
+
+    (1 row)
+
 
 .. _back-up-the-db:
 
@@ -248,6 +281,34 @@ intermediate major release.
    connected to the database using **db_user** before running the script. See
    :forum:`this forum thread <viewtopic.php?f=5&t=7778>` for more information.
 
+Delete certain annotations (optional)
+"""""""""""""""""""""""""""""""""""""
+
+For various reasons production databases may accumulate non-sharable
+annotations that are orphaned. These are :doc:`structured annotations
+</developers/Model/StructuredAnnotations>` that are 'basic' (`Boolean`,
+`Timestamp`, `Term`), 'numeric' (`Double`, `Long`), or `Comment`, and
+that are *not* annotating an object. An illustrative example is that
+deleting a rating in OMERO.insight 5.2 may have left behind the
+corresponding `Long` annotation that captured the rating's number of
+stars. Non-sharable annotations, like comments and ratings, cannot be
+viewed from OMERO.insight or OMERO.web after they have been orphaned
+because they are no longer associated with any model object such as an
+image. The deletion script does *not* delete annotations that have a
+custom/non-OME namespace (ns) set.
+
+.. parsed-literal::
+
+    $ cd OMERO.server
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/delete-ns-orphans.sql
+
+This script may be used during some maintenance window subsequent to the
+actual upgrade as long as it runs on a |current_dbver| database. If at
+upgrade time you have questions about the script then you may perform
+further research before :ref:`backing up the database again
+<back-up-the-db>` then running the script. There is no requirement to
+ever use it.
+
 Optimize an upgraded database (optional)
 """"""""""""""""""""""""""""""""""""""""
 
@@ -256,7 +317,6 @@ database which can both save disk space and speed up access times.
 
 .. parsed-literal::
 
-    $ psql -h localhost -U **db_user** **omero_database** -c 'REINDEX DATABASE "**omero_database**" FORCE;'
     $ psql -h localhost -U **db_user** **omero_database** -c 'VACUUM FULL VERBOSE ANALYZE;'
 
 .. _upgrademergescript:
@@ -307,6 +367,18 @@ fixes which require it.**
 
 If necessary ensure you have set up a regular task to clear out any stale
 OMERO.web session files as described in :ref:`omero_web_maintenance`.
+
+OMERO.web migrating from Apache to Nginx
+""""""""""""""""""""""""""""""""""""""""
+
+Since OMERO 5.2.6 support for Apache and mod_wsgi deployment is deprecated.
+It is recommended to use :doc:`/sysadmins/unix/install-web/install-nginx` or
+:doc:`OMERO.web trial deployment </sysadmins/unix/install-web/install-web-trial>`.
+Official support is likely to be dropped during the 5.3.x line.
+
+.. seealso::
+
+    :ref:`troubleshooting-omeroweb-migrate-to-nginx`
 
 Restart your server
 ^^^^^^^^^^^^^^^^^^^

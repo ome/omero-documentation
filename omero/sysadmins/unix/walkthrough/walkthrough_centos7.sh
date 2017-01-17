@@ -7,7 +7,7 @@ source settings.env
 yum -y install epel-release
 
 # installed for convenience
-yum -y install unzip wget
+yum -y install unzip wget bc
 
 # install Java
 yum -y install java-1.8.0-openjdk
@@ -16,12 +16,8 @@ yum -y install java-1.8.0-openjdk
 
 yum -y install \
 	python-pip python-devel python-virtualenv \
-	numpy scipy python-matplotlib python-tables
-
-yum -y install \
-	zlib-devel \
-	libjpeg-devel \
-	gcc
+	python-yaml python-jinja2 \
+	python-pillow numpy scipy python-tables
 pip install --upgrade pip
 
 pip install -r `dirname $0`/requirements.txt
@@ -79,7 +75,7 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step04: As the omero system user, install the OMERO.server
 #start-copy-omeroscript
-cp settings.env omero-.env step04_all_omero.sh setup_omero_db.sh ~omero 
+cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero
@@ -98,6 +94,7 @@ OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
 OMERO.server/bin/omero config set omero.db.user "$OMERO_DB_USER"
 OMERO.server/bin/omero config set omero.db.pass "$OMERO_DB_PASS"
+OMERO.server/bin/omero db script -f OMERO.server/db.sql "" "" "$OMERO_ROOT_PASS"
 OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
@@ -118,11 +115,12 @@ EOF
 #install nginx
 yum -y install nginx
 
-pip install -r ~omero/OMERO.server/share/web/requirements-py27-nginx.txt
-
-# set up as the omero user.
-su - omero -c "bash -eux setup_omero_nginx.sh"
-
+file=~omero/OMERO.server/share/web/requirements-py27-nginx.txt
+pip install -r $file
+#start-configure-nginx: As the omero system user, configure OMERO.web
+OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
+OMERO.server/bin/omero web config nginx --http "$OMERO_WEB_PORT" > OMERO.server/nginx.conf.tmp
+#end-configure-nginx
 sed -i.bak -re 's/( default_server.*)/; #\1/' /etc/nginx/nginx.conf
 mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
 cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf

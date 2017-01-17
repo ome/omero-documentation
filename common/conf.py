@@ -161,6 +161,7 @@ extlinks = {
     'secvuln' : (oo_root + '/info/vulnerabilities/%s', ''),
     'bf_plone' : (oo_site_root + '/products/bio-formats/%s', ''),
     'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
+    'cpp_plone' : (oo_site_root + '/products/ome-files-cpp/%s', ''),
     # One branch only doc links. Branched docs links in conf.py files for
     # individual doc sets
     'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),
@@ -289,41 +290,39 @@ html_sidebars = { '**' : ['pagetoc.html', 'relations.html', 'searchbox.html', 's
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'projstandardsdoc'
 
-
 # -- Options for LaTeX output --------------------------------------------------
 
-latex_elements = {
-    'classoptions': ',oneside',
-    'pointsize': '10pt',
-    'inputenc': '%% Unused',
-    'utf8extra': '%% Unused',
-    'fontenc' : '%% Unused',
-    'fontpkg': '%% Unused',
-    'babel': '%% Unused',
-    'printindex': '''\\phantomsection
-\\addcontentsline{toc}{part}{\indexname}
-\\printindex''',
-    'preamble': '''
-\input{../../../common/preamble.tex}
-''',
-}
+#latex_elements = {
+#    'classoptions': ',oneside',
+#    'pointsize': '10pt',
+#    'inputenc': '%% Unused',
+#    'utf8extra': '%% Unused',
+#    'fontenc' : '%% Unused',
+#    'fontpkg': '%% Unused',
+#    'babel': '%% Unused',
+#    'printindex': '''\\phantomsection
+#\\addcontentsline{toc}{part}{\indexname}
+#\\printindex''',
+#    'preamble': '''
+#\input{../../../common/preamble.tex}
+#''',
+#}
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
-latex_use_parts = True
+#latex_use_parts = True
 
 # If true, show page references after internal links.
 #latex_show_pagerefs = False
 
 # If true, show URL addresses after external links.
-latex_show_urls = 'footnote'
+#latex_show_urls = 'footnote'
 
 # Documents to append as an appendix to all manuals.
 #latex_appendices = []
 
 # If false, no module index is generated.
 #latex_domain_indices = True
-
 
 # -- Options for the linkcheck builder ----------------------------------------
 

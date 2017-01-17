@@ -49,5 +49,5 @@ following set of commands creates a dataset and a project and links them
 together::
 
    $ dataset=$(bin/omero obj new Dataset name=dataset-1)
-   $ project=$(bin/omero obj new Project name=plate-1)
+   $ project=$(bin/omero obj new Project name=project-1)
    $ bin/omero obj new ProjectDatasetLink parent=$project child=$dataset

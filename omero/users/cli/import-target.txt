@@ -133,3 +133,63 @@ are under::
 For more information on the regular expression syntax that can be used in
 templates see:
 `java.util.regex.Pattern documentation <http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html>`_.
+
+Importing to targets across groups
+----------------------------------
+
+Currently, in all the above cases the import target must be in the user's
+current group for the import to succeed. It is hoped that this limitation can be
+removed in a later version of OMERO. This is also pertinent if the target is
+likely to be created as it will be created in the current group, which may not
+be the group intended.
+
+If no group is specified by using the :option:`-g` login option as part of the
+import, the current group will be dependent on the user's login status:
+
+-   If the user is currently logged in then their current group will be the one
+    they are logged in to.
+
+-   If the user is logged out but has active sessions then the most recent
+    session will be used to connect and that will determine the current group.
+
+-   If the user is logged out and has no active sessions then the current group
+    will be their default group.
+
+If the user knows which group the import target is in, or needs to be created
+in, then one of the following methods can be used to ensure the target group is
+the current group for the import:
+
+-   Explicitly log in using the :option:`-g` login option before running the import
+    command::
+
+        $ bin/omero login -g group_name
+        $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+
+-   Provide the :option:`-g` login option as part of the import command::
+
+        $ bin/omero import -g group_name ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+
+-   Use :omerocmd:`sessions group` to switch group before running the import
+    command::
+
+        $ bin/omero sessions group 51
+        $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+
+-   Use the :option:`-k` login option to reconnect to an active session for the
+    target group::
+
+        $ bin/omero login -k c41a6f78-ba6e-4caf-aba3-a94378d5484c
+        $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+        # or alternatively
+        $ bin/omero import -k c41a6f78-ba6e-4caf-aba3-a94378d5484c ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+
+    The session ID can be found using the :omerocmd:`sessions list` command.
+
+For further information on the commands :omerocmd:`login` and
+:omerocmd:`sessions` see :doc:`sessions`.
+
+.. note::
+
+    The :option:`-g` login option requires the group name as its argument,
+    while the :omerocmd:`sessions group` subcommand uses either the group ID
+    or the group name.

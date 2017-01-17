@@ -9,8 +9,8 @@ using the :option:`-h` option::
 The :command:`delete` command will remove entire graphs of objects based on
 the IDs of the topmost objects. The command can be modified to include the
 deletion of objects that would, by default, be excluded or exclude objects
-that would, by default, be included using the :option:`--include` and
-:option:`--exclude` options.
+that would, by default, be included using the :option:`delete --include` and
+:option:`delete --exclude` options.
 
 Additionally, objects of the three annotation types, `FileAnnotation`,
 `TagAnnotation` and `TermAnnotation` are not deleted by default when the
@@ -22,8 +22,9 @@ instance, deleting all of the images under a given project.
 
 By default the command confirms the deletion of the target objects but
 it can also provide a detailed report of all the deleted objects via a
-:option:`--report` option. A :option:`--dry-run` option can be used to report
-on what objects would be deleted without actually deleting them.
+:option:`delete --report` option. A :option:`delete --dry-run` option can be
+used to report on what objects would be deleted without actually deleting
+them.
 
 Examples
 ^^^^^^^^
@@ -54,6 +55,20 @@ project 51 and datasets 53 and 54.
     $ bin/omero delete Dataset:54,53 Project:51
     $ bin/omero delete Dataset:53 Project:51 Dataset:54
 
+To delete a number of objects with sequentially numbered IDs a hyphen can be
+used to specify an ID range. This form can also be mixed with comma-separated
+IDs.
+::
+
+    $ bin/omero delete Project:51 Dataset:53-56
+    $ bin/omero delete Dataset:53-56,65,101-105,201,202
+
+.. note::
+    When deleting multiple objects in a single command, if one object cannot
+    be deleted then the whole command will fail and none of the specified
+    objects will be deleted. The :option:`delete --dry-run` option can be
+    useful as a check before trying to delete large numbers of objects.
+
 Deleting lower level objects
 ============================
 
@@ -78,6 +93,8 @@ not also under other datasets.
 
 Including and excluding objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. program:: delete
 
 .. option:: --include
 
@@ -116,6 +133,8 @@ For an example on deleting tags directly see :ref:`delete_tags`.
 
 Further options
 ^^^^^^^^^^^^^^^
+
+.. program:: delete
 
 .. option:: --ordered
 

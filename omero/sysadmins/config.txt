@@ -207,7 +207,6 @@ Default: `/omero/figure_scripts/Movie_Figure.py,
 /omero/figure_scripts/Thumbnail_Figure.py,
 /omero/figure_scripts/ROI_Split_Figure.py,
 /omero/export_scripts/Make_Movie.py,
-/omero/setup_scripts/FLIM_initialise.py,
 /omero/import_scripts/Populate_ROI.py`
 
 .. property:: omero.client.ui.menu.dropdown.colleagues.enabled
@@ -281,6 +280,24 @@ omero.client.ui.tree.orphans.name
 Name of the "Orphaned images" container located in client tree data manager.
 
 Default: `Orphaned Images`
+
+.. property:: omero.client.ui.tree.type_order
+
+omero.client.ui.tree.type_order
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Client tree type order rank list
+first type is ranked 1 (the highest), last is the lowest
+if set to 'false' empty list allows mixing all types and
+sorting them by default client ordering strategy
+
+Default: `tagset,
+tag,
+project,
+dataset,
+screen,
+plate,
+acquisition,
+image`
 
 .. property:: omero.client.viewer.initial_zoom_level
 
@@ -390,7 +407,7 @@ server that is is being used with. Any changes by
 developers to the database schema will result in
 a bump to this value.
 
-Default: `4`
+Default: `14`
 
 .. property:: omero.db.poolsize
 
@@ -1742,6 +1759,14 @@ A list of people who get code error notifications whenever the application ident
 
 Default: `[]`
 
+.. property:: omero.web.api.absolute_url
+
+omero.web.api.absolute_url
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+URL to use for generating urls within API json responses. By default this is None, and we use Django's request.build_absolute_uri() to generate absolute urls based on each request. If set to a string or empty string, this will be used as prefix to relative urls.
+
+Default: `None`
+
 .. property:: omero.web.application_server
 
 omero.web.application_server
@@ -1842,7 +1867,7 @@ Default: `None`
 
 omero.web.login_redirect
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Redirect to the given location after logging in. It only supports arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#django.core.urlresolvers.reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'``
+Redirect to the given location after logging in. It only supports arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#django.core.urlresolvers.reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": {"experimenter": -1}}'``
 
 Default: `{}`
 
@@ -1853,6 +1878,14 @@ omero.web.login_view
 
 
 Default: `weblogin`
+
+.. property:: omero.web.open_with
+
+omero.web.open_with
+^^^^^^^^^^^^^^^^^^^
+A list of viewers that can be used to display selected Images or other objects. Each viewer is defined as ``["Name", "url", options]``. Url is reverse(url). Selected objects are added to the url as ?image=:1&image=2Objects supported must be specified in options withE.g. ``{"supported_objects":["images"]}`` to enable viewer for one or more images, ``{"target":"_blank"}`` to open in new tab.
+
+Default: `[["Image viewer", "webindex", {"supported_objects": ["image"],"script_url": "webclient/javascript/ome.openwith_viewer.js"}]]`
 
 .. property:: omero.web.page_size
 
@@ -2058,7 +2091,7 @@ Default: `[]`
 
 omero.web.template_dirs
 ^^^^^^^^^^^^^^^^^^^^^^^
-List of locations of the template source files, in search order. Note that these paths should use Unix-style forward slashes, even on Windows.
+List of locations of the template source files, in search order. Note that these paths should use Unix-style forward slashes.
 
 Default: `[]`
 
@@ -2069,6 +2102,14 @@ omero.web.ui.center_plugins
 Add plugins to the center panels. Plugins are ``['Channel overlay', 'webtest/webclient_plugins/center_plugin.overlay.js.html', 'channel_overlay_panel']``. The javascript loads data into ``$('#div_id')``.
 
 Default: `[]`
+
+.. property:: omero.web.ui.metadata_panes
+
+omero.web.ui.metadata_panes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Manage Metadata pane accordion. This functionality is limited to the exiting sections.
+
+Default: `[{"name": "tag", "label": "Tags", "index": 1},{"name": "map", "label": "Key-Value Pairs", "index": 2},{"name": "table", "label": "Tables", "index": 3},{"name": "file", "label": "Attachments", "index": 4},{"name": "comment", "label": "Comments", "index": 5},{"name": "rating", "label": "Ratings", "index": 6},{"name": "other", "label": "Others", "index": 7}]`
 
 .. property:: omero.web.ui.right_plugins
 
@@ -2082,7 +2123,7 @@ Default: `[["Acquisition", "webclient/data/includes/right_plugin.acquisition.js.
 
 omero.web.ui.top_links
 ^^^^^^^^^^^^^^^^^^^^^^
-Add links to the top header: links are ``['Link Text', 'link', options]``, where the url is reverse('link') OR simply 'link' (for external urls). E.g. ``'[["Webtest", "webtest_index"], ["Homepage", "http://...", {"title": "Homepage", "target": "new"} ]]'``
+Add links to the top header: links are ``['Link Text', 'link|lookup_view', options]``, where the url is reverse('link'), simply 'link' (for external urls) or lookup_view is a detailed dictionary {"viewname": "str", "args": [], "query_string": {"param": "value" }], E.g. ``'["Webtest", "webtest_index"] or ["Homepage", "http://...", {"title": "Homepage", "target": "new"} ] or ["Repository", {"viewname": "webindex", "query_string": {"experimenter": -1}}, {"title": "Repo"}]'``
 
 Default: `[["Data", "webindex", {"title": "Browse Data via Projects, Tags etc"}],["History", "history", {"title": "History"}],["Help", "http://help.openmicroscopy.org/",{"title":"Open OMERO user guide in a new tab", "target":"new"}]]`
 

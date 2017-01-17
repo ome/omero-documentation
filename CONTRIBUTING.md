@@ -1,10 +1,11 @@
 # Contributing to OME Documentation
 
 This repository hosts the documentation for OMERO, and **on the** `develop`
-**branch only**, the OME Data Model and File Formats documentation and the
-guidance for contributing developers. The Bio-Formats documentation is part of
-the
-[main Bio-Formats repository](https://github.com/openmicroscopy/bioformats).
+**branch only**, the guidance for contributing developers. The Bio-Formats
+documentation is part of the
+[main Bio-Formats repository](https://github.com/openmicroscopy/bioformats)
+and similarly, other OME projects have their documentation within the same
+repository as the code they are documenting.
 
 We welcome contributions from the community to update or improve our
 documentation but please read the style guidance in the README before opening
@@ -14,7 +15,7 @@ a PR.
 
 * Fork the repository on Github.
 * Create a branch for your work. If you want to make changes in
-  `/contributing` or `/formats`, or for a future major version of
+  `/contributing` or for a future major version of
   OMERO, this should be based on the `develop` branch. For changes for the
   current version of OMERO, base your branch on the latest `dev_x` branch e.g.
   `dev_5_0`.
