@@ -52,8 +52,9 @@ Testing workflow
 Testing environment is split into two tiers: developer and production
 testing platform.
 
-Devspace (Experimental)
-^^^^^^^^^^^^^^^^^^^^^^^
+
+Devspace - Continuous Integration (Dev Testing)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Continuous integration tools managed by Jenkins CI providing
 an automation framework that runs repeated jobs. The default deployment
@@ -69,7 +70,7 @@ is available from:
 -  https://github.com/openmicroscopy/devslave-c7-docker
 
 
-Continuous Delivery (Production)
+CI-master - Continuous Delivery (Production)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Production Continuous Delivery (CD) platform managed by
