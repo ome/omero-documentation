@@ -66,17 +66,17 @@ Type "ant -p" for a list of targets.
             destdir="${sphinx.builddir}/html"
             opts="${sphinx.opts}"
             warnopts="${sphinx.warnopts}"/>
-    <delete dir="${artifact.dir}/omero-doc-${omero.release}"/>
-    <copy todir="${artifact.dir}/omero-doc-${omero.release}">
+    <delete dir="${artifact.dir}/OMERO-${omero.release}"/>
+    <copy todir="${artifact.dir}/OMERO-${omero.release}">
       <!--
         include (none) to prevent problems if component.resources-bin is empty
       -->
       <fileset dir="_build/html"/>
     </copy>
-    <zip destfile="${artifact.dir}/omero-doc-${omero.release}.zip">
-      <zipfileset dir="_build/html" includes="**/*" prefix="omero-doc-${omero.release}"/>
+    <zip destfile="${artifact.dir}/OMERO-${omero.release}.zip">
+      <zipfileset dir="_build/html" includes="**/*" prefix="OMERO-${omero.release}"/>
     </zip>
-    <delete dir="${artifact.dir}/omero-doc-${omero.release}"/>
+    <delete dir="${artifact.dir}/OMERO-${omero.release}"/>
   </target>
 
   <target name="linkcheck" depends="sphinx-deps, init">
