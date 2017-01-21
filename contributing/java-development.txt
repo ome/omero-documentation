@@ -1,0 +1,149 @@
+Java components
+===============
+
+This document describes the workflow used by the OME team for developing,
+maintaining and releasing some of the new Java components.
+The set of rules and procedures described below applies to all the components
+uploaded to the `Central repository <http://search.maven.org/>`__.
+
+The current list
+
+.. list-table::
+    :header-rows: 1
+
+    -   * GitHub URL
+        * Component name
+        * groupId:artifactId
+
+    -   * https://github.com/ome/ome-common-java
+        * OME Common Java libary
+        * `org.openmicroscopy:ome-common`
+
+    -   * https://github.com/ome/ome-model
+        * OME Data model
+        * | `org.openmicroscopy:ome-model`
+            `org.openmicroscopy:ome-xml`
+            `org.openmicroscopy:specification`
+            `org.openmicroscopy:ome-model-doc`
+
+    -   * https://github.com/ome/ome-poi
+        * OME POI
+        * `org.openmicroscopy:ome-poi`
+
+
+    -   * https://github.com/ome/ome-mdbtools
+        * OME Common Java libary
+        * `org.openmicroscopy:ome-common`
+
+
+Release process
+---------------
+
+Maintainer prerequisites
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is important to get familiar with the
+`OSSRH guide <http://central.sonatype.org/pages/ossrh-guide.html>`__ and
+especially the
+`Maven section for performing a release deployment <http://central.sonatype.org/pages/apache-maven.html#performing-a-release-deployment>`__.
+
+To be able to maintain a Java component, a developer must:
+
+- have a GitHub_ account and have push rights to the GitHub source code
+  repository
+- have a Sonatype_ account and be registered as a maintainer of the
+  `org.openmicroscopy` repository (JIRA issues should be opened for each
+  developer)
+- have a valid PGP key for signing the tags and the JARs
+
+Release strategies
+^^^^^^^^^^^^^^^^^^
+
+There are different strategies to release Maven component. At the moment we
+are pushing 2 successive commits (or Pull Requests) to the master branch. The
+first commit/Pull Request bumps the version number to the release version and
+is used for generating the release while the second commit bumps the version
+to the next development cycle.
+
+.. seealso::
+    http://imagej.net/Development_Lifecycle
+       A section of the  approaches which OME might be considering.
+
+Release preparation
+^^^^^^^^^^^^^^^^^^^
+
+The first step of the Java component release is to prepare a release
+candidate on the GitHub_ and Sonatype_ repositories.
+
+The first operation to perform a Maven release is to bump the version out of
+SNAPSHOT either via editing the :file:`pom.xml` manually or using the Maven
+versions plugin::
+
+    $ mvn versions:set -DnewVersion=x.y.z -DgenerateBackupPoms=false
+    $ git add .
+    $ git commit -m “Bump release version to x.y.z”
+
+Additionally, a PGP signed tag should be created for the released version e.g.
+using :command:`scc tag-release` or more simply :command:`git tag -s`::
+
+    $ scc tag-release -s x.y.z --prefix v
+
+Push the master branch and the tag to your fork for validation by another
+member of the team::
+
+    $ git push <fork_name> master
+    $ git push <fork_name> vx.y.z
+
+Once you have updated all the versions and ensured that your build passes
+without deployment you can perform the deployment with the usage of the
+release profile with::
+
+    $ mvn clean deploy -P release
+    # Potentially add -D gpg.keyname=keyname if desired.
+
+This will upload the artifacts to a staging Sonatype repository and perform
+all the validation steps. The uploaded artifacts can be examined at
+\https://oss.sonatype.org/content/repositories/orgopenmicroscopy-xxxx/ where
+xxxx is an number incremented for each release.
+
+Release promotion
+^^^^^^^^^^^^^^^^^
+
+At the moment all Java components use the Nexus Staging Maven plugin with the
+`autoReleaseAfterClose` option set to `false`. A separate promotion step is
+necessary for releasing the component to the Sonatype releases repository.
+This promotion can happen either via the Sonatype UI using the Release button
+or using the release phase of the nexus-staging plugin::
+
+    $ mvn nexus-staging:release -P release
+
+See
+http://central.sonatype.org/pages/apache-maven.html#manually-releasing-the-deployment-to-the-central-repository for more instructions
+
+The rsync to Central Maven and the update of Maven search usually happen
+within a couple of hours but the components are accessible beforehand.
+
+Once the tag is validated, the master branch and the tag can also be pushed to
+the organization repository together::
+
+    $ git push origin vx.y.z
+    $ git push origin master
+
+Next development version
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Then finally restore the new development version using e.g. the Maven versions
+plugin again::
+
+    # Where w == z+1
+    $ mvn versions:set -DnewVersion=x.y.w-SNAPSHOT -DgenerateBackupPoms=false
+    $ git add .
+    $ git commit -m “Bump release version to x.y.w-SNAPSHOT”
+    $ git push origin master
+
+Javadoc
+^^^^^^^
+At the moment, we use the service provided http://javadoc.io/ for public
+hosting of the Javadoc. For each release to Maven Central, the new Javadoc
+should be automatically deployed within 24h. It is possible to trigger the
+generation of the Javadoc by visiting the URL.

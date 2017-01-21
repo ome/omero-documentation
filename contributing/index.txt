@@ -7,20 +7,21 @@ consortium projects. It includes internal developer practices and workflows,
 standard procedures for tasks such as release, and other information which may
 be valuable to a wider audience.
 
-.. only:: html
+.. toctree::
+    :maxdepth: 1
 
-    - :doc:`source-code`
-    - :doc:`using-git`
-    - :doc:`code-contributions`
-    - :doc:`team-communication`
-    - :doc:`team-workflow`
-    - :doc:`development-tools`
-    - :doc:`deployment-tools`
-    - :doc:`continuous-integration`
-    - :doc:`jekyll`
-    - :doc:`data-model-schema`
-    - :doc:`schema-changes`
-
+    source-code
+    using-git
+    code-contributions
+    team-communication
+    team-workflow
+    java-development
+    development-tools
+    deployment-tools
+    continuous-integration
+    jekyll
+    data-model-schema
+    schema-changes
 
 Information specific to developing OMERO, the OME Data Model and file formats,
 and Bio-Formats can be found in their respective developer documentation
@@ -34,20 +35,3 @@ sections:
 
 If you have any questions, please see our :community_plone:`Community page <>`
 for ways to get in touch.
-
-.. toctree::
-    :maxdepth: 1
-    :hidden:
-
-    source-code
-    using-git
-    code-contributions
-    team-communication
-    team-workflow
-    development-tools
-    deployment-tools
-    continuous-integration
-    jekyll
-    data-model-schema
-    schema-changes
-
