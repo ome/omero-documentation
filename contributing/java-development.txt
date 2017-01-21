@@ -6,35 +6,41 @@ maintaining and releasing some of the new Java components.
 The set of rules and procedures described below applies to all the components
 uploaded to the `Central repository <http://search.maven.org/>`__.
 
-The current list
-
 .. list-table::
     :header-rows: 1
 
-    -   * GitHub URL
-        * Component name
+    -   * Component name
+        * GitHub URL
         * groupId:artifactId
 
-    -   * https://github.com/ome/ome-common-java
-        * OME Common Java libary
+    -   * OME Common Java libary
+        * https://github.com/ome/ome-common-java
         * `org.openmicroscopy:ome-common`
 
-    -   * https://github.com/ome/ome-model
-        * OME Data model
+    -   * OME Data model
+        * https://github.com/ome/ome-model
         * | `org.openmicroscopy:ome-model`
             `org.openmicroscopy:ome-xml`
             `org.openmicroscopy:specification`
             `org.openmicroscopy:ome-model-doc`
 
-    -   * https://github.com/ome/ome-poi
-        * OME POI
+    -   * OME POI
+        * https://github.com/ome/ome-poi
         * `org.openmicroscopy:ome-poi`
 
+    -   * OME MDB Tools
+        * https://github.com/ome/ome-mdbtools
+        * `org.openmicroscopy:ome-mdbtools`
 
-    -   * https://github.com/ome/ome-mdbtools
-        * OME Common Java libary
-        * `org.openmicroscopy:ome-common`
+    -   * OME Stubs
+        * https://github.com/ome/ome-mdbtools
+        * | `org.openmicroscopy:ome-stubs`
+            `org.openmicroscopy:lwf-stubs`
+            `org.openmicroscopy:mipav-stubs`
 
+    -   * OME Metakit
+        * https://github.com/ome/ome-metakit
+        * `org.openmicroscopy:metakit`
 
 Release process
 ---------------
