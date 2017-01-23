@@ -10,8 +10,6 @@ Type "ant -p" for a list of targets.
   <description>Common sphinx targets</description>
   <dirname property="imported.basedir" file="${ant.file.rules}"/>
   <import file="${imported.basedir}/sphinx.xml"/>
-  <property name="root.dir" location=".."/>
-  <property name="artifact.dir" location="${root.dir}/build"/>
 
   <!-- Ant-Contrib Tasks: http://ant-contrib.sourceforge.net/ -->
   <taskdef resource="net/sf/antcontrib/antcontrib.properties"
@@ -66,17 +64,17 @@ Type "ant -p" for a list of targets.
             destdir="${sphinx.builddir}/html"
             opts="${sphinx.opts}"
             warnopts="${sphinx.warnopts}"/>
-    <delete dir="${artifact.dir}/OMERO-${omero.release}"/>
-    <copy todir="${artifact.dir}/OMERO-${omero.release}">
+    <delete dir="${sphinx.builddir}/OMERO-${omero.release}"/>
+    <copy todir="${sphinx.builddir}/OMERO-${omero.release}">
       <!--
         include (none) to prevent problems if component.resources-bin is empty
       -->
-      <fileset dir="_build/html"/>
+      <fileset dir="${sphinx.builddir}/html"/>
     </copy>
-    <zip destfile="${artifact.dir}/OMERO-${omero.release}.zip">
-      <zipfileset dir="_build/html" includes="**/*" prefix="OMERO-${omero.release}"/>
+    <zip destfile="${sphinx.builddir}/OMERO-${omero.release}.zip">
+      <zipfileset dir="${sphinx.builddir}/html" includes="**/*" prefix="OMERO-${omero.release}"/>
     </zip>
-    <delete dir="${artifact.dir}/OMERO-${omero.release}"/>
+    <delete dir="${sphinx.builddir}/OMERO-${omero.release}"/>
   </target>
 
   <target name="linkcheck" depends="sphinx-deps, init">
@@ -88,8 +86,6 @@ Type "ant -p" for a list of targets.
 
   <target name="clean" depends="clean-deps">
     <delete dir="${sphinx.builddir}"/>
-    <delete dir="${artifact.dir}"/>
-    <mkdir dir="${artifact.dir}"/>
   </target>
 
 </project>
