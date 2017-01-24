@@ -130,7 +130,7 @@ clients of the deployment jobs described above:
 
         #. Cleans :file:`/usr/local`
         #. Installs Homebrew from https://github.com/ome/omero-install
-        #. Installs OMERO via :file:`osx/nstall_homebrew.sh`
+        #. Installs OMERO via :file:`osx/install_homebrew.sh`
 
 
 5.3.x series
