@@ -9,7 +9,7 @@ the connections between basic repositories and the testing workflow.
 
 .. note::
 
-    This section requires brief understanding of ansible 
+    This section requires a brief understanding of Ansible 
     http://docs.ansible.com/ansible/intro_getting_started.html
     and Docker engine https://docs.docker.com/.
 
@@ -19,11 +19,11 @@ Prerequisites locations
 List of OME prerequisites is stored in multiple git repositories, each of 
 which is available from several locations.
 
-OME Infrastructure (Experimental)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OME Infrastructure
+^^^^^^^^^^^^^^^^^^
 
 Infrastructure is provided to simplify deployment using 
-`Ansible <https://www.ansible.com>`.
+`Ansible <https://www.ansible.com>`_.
 
 The Infrastructure repository is available from:
 
@@ -45,6 +45,9 @@ The OMERO-install repository is available from:
 
 -  https://github.com/ome/omero-install
 
+The OMEROWEB-install repository is available from:
+
+-  https://github.com/ome/omeroweb-install
 
 Testing workflow
 ----------------
@@ -123,7 +126,7 @@ test is to use Devspace.
 EXAMPLE
 -------
 
-This example shows how to test and upgrading OMERO dependences.
+This example shows how to test and upgrade OMERO dependencies.
 
 1. open a PR against omero-install (e.g. install Pillow from RPM
    https://github.com/ome/omero-install/pull/129)
@@ -132,6 +135,8 @@ This example shows how to test and upgrading OMERO dependences.
    (e.g. https://github.com/aleksandra-tarkowska/devslave-c7-docker/commit/4f95a4fd603dc84ae31c1908a4a5c3ecd786476a)
    and release container to docker hub
    (e.g. https://hub.docker.com/r/olat/devslave-c7-docker/)
+   For more details about configuring automated builds on Docker Hub, see
+   https://docs.docker.com/docker-hub/builds/.
 3. update devspace to use newly released container (e.g.
    https://github.com/openmicroscopy/devspace/pull/63/files#diff-296e14ae0dc392c7edd9369908467953)
 4. commit and push your changes to github (e.g. https://github.com/openmicroscopy/devspace/pull/63),
@@ -139,7 +144,7 @@ This example shows how to test and upgrading OMERO dependences.
 
 
 If all tests are passing, above repositories should be tagged
-and tag should be propageted accordingly.
+and tag should be propagated accordingly.
 
 
 .. note::

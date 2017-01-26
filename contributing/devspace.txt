@@ -1,7 +1,7 @@
 OME development platform: devspace
 ==================================
 
-Devspace is a Continuous Integration tools managed by Jenkins CI
+Devspace is a Continuous Integration tool managed by Jenkins CI
 providing an automation framework that runs repeated jobs.
 The default deployment initializes a Jenkins CI master with
 a predefined set of jobs. More information can be found in the
@@ -10,7 +10,7 @@ a predefined set of jobs. More information can be found in the
 If you find a bug or if you want an additional feature to be implemented,
 please `open an issue <https://github.com/openmicroscopy/devspace/issues>`_.
 
-Running and maintaining Devspace require:
+Running and maintaining Devspace requires:
 
 -  Docker engine https://docs.docker.com/.
 
@@ -45,8 +45,8 @@ Checkout `git repository <https://github.com/openmicroscopy/devspace>`_ and run
 OpenStack
 ^^^^^^^^^
 
-This is an exampel of how to provision and deploy Devspace using ansible on openstack.
-Checkout management tools and run:
+This is an example of how to provision and deploy Devspace using ansible on openstack.
+Check out management tools and run:
 
 ::
 
