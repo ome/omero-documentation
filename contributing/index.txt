@@ -15,11 +15,11 @@ be valuable to a wider audience.
     - :doc:`team-communication`
     - :doc:`team-workflow`
     - :doc:`development-tools`
+    - :doc:`deployment-tools`
     - :doc:`continuous-integration`
     - :doc:`jekyll`
     - :doc:`data-model-schema`
     - :doc:`schema-changes`
-
 
 
 Information specific to developing OMERO, the OME Data Model and file formats,
@@ -45,6 +45,7 @@ for ways to get in touch.
     team-communication
     team-workflow
     development-tools
+    deployment-tools
     continuous-integration
     jekyll
     data-model-schema
