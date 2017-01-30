@@ -3,7 +3,6 @@ Java components
 
 .. _Central Repository: http://search.maven.org
 .. _Semantic Versioning: http://semver.org
-.. _OME Artifactory: http://artifacts.openmicroscopy.org/
 .. _Git: https://git-scm.com/
 .. _Maven: http://maven.apache.org/
 
@@ -102,7 +101,7 @@ Distribution
 
 For all the repositories listed above, the release should be deployed to the
 `Central repository`_ followed the process described below
-Artifacts that are hosted on the `OME Artifactory`_.
+Artifacts that are hosted on the `OME artifactory`_.
 
 Release process
 ---------------
