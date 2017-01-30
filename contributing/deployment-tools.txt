@@ -16,7 +16,7 @@ the connections between basic repositories and the testing workflow.
 Prerequisites locations
 -----------------------
 
-List of OME prerequisites is stored in multiple git repositories, each of 
+The list of OME prerequisites is stored in multiple git repositories, each of 
 which is available from several locations.
 
 OME Infrastructure
@@ -52,7 +52,7 @@ The OMEROWEB-install repository is available from:
 Testing workflow
 ----------------
 
-Testing environment is split into two tiers: developer and production
+The testing environment is split into two tiers: developer and production
 testing platform.
 
 
@@ -90,20 +90,20 @@ packages developers must consider:
 
 -  infrastructure repository:
 
-     - adding new Ansible role in its own repo or update existing one
-       https://github.com/openmicroscopy?q=ansible-role
-     - adding complete Ansible playbook to Infrastructure
+    - adding new Ansible role in its own repo or update existing one
+      https://github.com/openmicroscopy?q=ansible-role
+    - adding complete Ansible playbook to Infrastructure
 
 -  adding new scripts installing appropriate package and its dependencies
    to OMERO-install or OMEROWEB-install, that includes:
 
-     - updating Linux and Mac installation scripts
-     - updating documentation autogen
+    - updating Linux and Mac installation scripts
+    - updating documentation autogen
 
 - deploying Devspace to test OMERO-install scripts, that includes:
 
-     - adding new Docker container if requires to support additional processes
-     - adjusting predefined Jenkins jobs
+    - adding new Docker container if requires to support additional processes
+    - adjusting predefined Jenkins jobs
 
 After successful testing new prerequisites can be proposed as a permanent
 adjustment to production CD.
