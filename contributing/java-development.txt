@@ -61,7 +61,7 @@ Source code and build system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The source code of a Java library should be maintained under version control
-using Git_ and hosted of GitHub_
+using Git_ and hosted on GitHub_.
 
 Maven_ should be used as the primary build system. The directory layout should
 follow the standard Maven layout i.e. in the case of a single module project::
