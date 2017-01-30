@@ -1,10 +1,16 @@
 Java components
 ===============
 
-This document describes the workflow used by the OME team for developing,
-maintaining and releasing some of the new Java components.
-The set of rules and procedures described below applies to all the components
-uploaded to the `Central repository <http://search.maven.org/>`__.
+.. _Central Repository: http://search.maven.org
+.. _Semantic Versioning: http://semver.org
+.. _OME Artifactory: http://artifacts.openmicroscopy.org/
+.. _Git: https://git-scm.com/
+.. _Maven: http://maven.apache.org/
+
+This document describes the conventions and process used by the OME team for developing, maintaining and releasing its Java components.
+
+The set of rules and procedures described below applies to all the following
+Java libraries.
 
 .. list-table::
     :header-rows: 1
@@ -42,6 +48,62 @@ uploaded to the `Central repository <http://search.maven.org/>`__.
         * https://github.com/ome/ome-metakit
         * `org.openmicroscopy:metakit`
 
+.. note::
+   Some of the historical monolithical Java projects, including Bio-Formats and
+   OMERO, do not strictly comply to these guidelines yet. As the project
+   evolves and components are migrated, any new Java repository should follow 
+   this set of rules.
+
+Conventions
+-----------
+
+Source code and build system
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The source code of a Java library should be maintained under version control
+using Git_ and hosted of GitHub_
+
+Maven_ should be used as the primary build system. The directory layout should
+follow the standard Maven layout i.e. in the case of a single module project::
+
+   pom.xml
+   src/
+     main/
+       java/
+         <package>
+   test/
+     main/
+       java/
+         <package>
+
+Additionally, the top-level :file:`pom.xml` should be structured according to
+the Maven guidelines.
+
+.. seealso::
+   :doc:`using-git`
+
+Development
+^^^^^^^^^^^
+
+Java components use `Semantic Versioning`_ i.e. given a version number
+MAJOR.MINOR.PATCH, increment the:
+
+- MAJOR version when you make incompatible API changes,
+- MINOR version when you add functionality in a backwards-compatible manner,
+  and
+- PATCH version when you make backwards-compatible bug fixes.
+
+In between releases the version is bumped to the next SNAPSHOT version.
+
+Code contributions should follow the guidelines highlighted in :doc:`code-contributions`.
+
+Distribution
+^^^^^^^^^^^^
+
+For all the repositories listed above, the release should be deployed to the
+`Central repository`_ followed the process described below
+Artifacts that are hosted on the `OME Artifactory`_.
+
 Release process
 ---------------
 
@@ -73,7 +135,7 @@ to the next development cycle.
 
 .. seealso::
     http://imagej.net/Development_Lifecycle
-       A section of the  approaches which OME might be considering.
+       A section describing approaches which OME might be considering.
 
 Release preparation
 ^^^^^^^^^^^^^^^^^^^
