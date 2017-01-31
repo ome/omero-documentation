@@ -48,8 +48,8 @@ Java libraries.
         * `org.openmicroscopy:metakit`
 
 .. note::
-   Some of the historical monolithical Java projects, including Bio-Formats and
-   OMERO, do not strictly comply to these guidelines yet. As the project
+   Some of the historical monolithic Java projects, including Bio-Formats and
+   OMERO, do not strictly comply with these guidelines yet. As the project
    evolves and components are migrated, any new Java repository should follow 
    this set of rules.
 
@@ -63,7 +63,7 @@ The source code of a Java library should be maintained under version control
 using Git_ and hosted on GitHub_.
 
 Maven_ should be used as the primary build system. The directory layout should
-follow the standard Maven layout i.e. in the case of a single module project::
+follow the standard Maven layout i.e. in the case of a single-module project::
 
    pom.xml
    src/
@@ -76,7 +76,7 @@ follow the standard Maven layout i.e. in the case of a single module project::
          <package>
 
 Additionally, the top-level :file:`pom.xml` should be structured according to
-the Maven guidelines.
+the `Maven guidelines <https://maven.apache.org/developers/conventions/code.html>`_.
 
 .. seealso::
    :doc:`using-git`
@@ -99,9 +99,9 @@ Code contributions should follow the guidelines highlighted in :doc:`code-contri
 Distribution
 ^^^^^^^^^^^^
 
-For all the repositories listed above, the release should be deployed to the
-`Central repository`_ followed the process described below
-Artifacts that are hosted on the `OME artifactory`_.
+All the release artifacts for the repositories listed above should be deployed
+to the Central Repository according to the process described in the next
+section.
 
 Release process
 ---------------
@@ -126,7 +126,7 @@ To be able to maintain a Java component, a developer must:
 Release strategies
 ^^^^^^^^^^^^^^^^^^
 
-There are different strategies to release Maven component. At the moment we
+There are different strategies to release a Maven component. At the moment we
 are pushing 2 successive commits (or Pull Requests) to the master branch. The
 first commit/Pull Request bumps the version number to the release version and
 is used for generating the release while the second commit bumps the version
@@ -150,7 +150,7 @@ versions plugin::
     $ git add .
     $ git commit -m “Bump release version to x.y.z”
 
-Additionally, a PGP signed tag should be created for the released version e.g.
+Additionally, a PGP-signed tag should be created for the released version e.g.
 using :command:`scc tag-release` or more simply :command:`git tag -s`::
 
     $ scc tag-release -s x.y.z --prefix v
@@ -162,8 +162,8 @@ member of the team::
     $ git push <fork_name> vx.y.z
 
 Once you have updated all the versions and ensured that your build passes
-without deployment you can perform the deployment with the usage of the
-release profile with::
+without deployment you can perform the deployment by using the release profile
+with::
 
     $ mvn clean deploy -P release
     # Potentially add -D gpg.keyname=keyname if desired.
