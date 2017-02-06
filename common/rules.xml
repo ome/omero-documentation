@@ -72,7 +72,7 @@ Type "ant -p" for a list of targets.
       <fileset dir="${sphinx.builddir}/html"/>
     </copy>
     <zip destfile="${sphinx.builddir}/OMERO-doc-${omero.release}.zip">
-      <zipfileset dir="${sphinx.builddir}/html" includes="**/*" prefix="OMERO-${omero.release}"/>
+      <zipfileset dir="${sphinx.builddir}/html" includes="**/*" prefix="OMERO-doc-${omero.release}"/>
     </zip>
     <delete dir="${sphinx.builddir}/OMERO-${omero.release}"/>
   </target>
