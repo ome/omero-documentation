@@ -5,7 +5,7 @@ Updates and new features for OMERO 5.3 include:
 
 - ROI Folders which allow you to organize your ROIs into a hierarchical tree
   structure of folders so they can be sorted e.g. by phenotypes or ontologies
-- support for LookUp Tables (LUT) and reverse intensity rendering
+- support for lookup tables (LUT) and reverse intensity rendering
 - annotations can now be added to Wells and the UI for viewing Screen Plate
   Well data has been redesigned
 - rendering engine improvements mean that full projection thumbnails are now
