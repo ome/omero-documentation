@@ -6,12 +6,11 @@ Updates and new features for OMERO 5.3 include:
 - ROI Folders which allow you to organize your ROIs into a hierarchical tree
   structure of folders so they can be sorted e.g. by phenotypes or ontologies
 - support for lookup tables (LUT) and reverse intensity rendering
-- annotations can now be added to Wells and the UI for viewing Screen Plate
-  Well data has been redesigned
-- rendering engine improvements mean that full projection thumbnails are now
-  available
-- the new 'Open With...' functionality allows OMERO.figure or other plugin
-  custom viewers to be launched directly from OMERO.web (coming soon is a new
+- annotations can now be added to Wells in the clients and the UI for viewing
+  Screen Plate Well data has been redesigned
+- images can now be projected along T
+- the new 'Open With...' functionality allows images to be opened with
+  OMERO.figure or other plugins directly from OMERO.web (coming soon is a new
   web-based full image viewer - OMERO.iviewer.)
 
 See the :help:`User help website <>` for information on how to incorporate
