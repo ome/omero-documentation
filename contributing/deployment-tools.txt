@@ -128,19 +128,18 @@ EXAMPLE
 
 This example shows how to test and upgrade OMERO dependencies.
 
-1. open a PR against omero-install (e.g. install Pillow from RPM
-   https://github.com/ome/omero-install/pull/129)
-2. upgrade base docker image using your own branch
-   https://github.com/openmicroscopy/devslave-c7-docker/blob/master/Dockerfile#L19
-   (e.g. https://github.com/aleksandra-tarkowska/devslave-c7-docker/commit/4f95a4fd603dc84ae31c1908a4a5c3ecd786476a)
-   and release container to docker hub
-   (e.g. https://hub.docker.com/r/olat/devslave-c7-docker/)
+1. Open a PR against omero-install (e.g. install Pillow from RPM
+   https://github.com/ome/omero-install/pull/129).
+2. Upgrade base docker image using
+   (e.g. https://github.com/openmicroscopy/devslave-c7-docker/blob/master/Dockerfile#L19)
+   and open a PR against `devslave-c7-docker <https://github.com/openmicroscopy/devslave-c7-docker>`_ 
+   Run `DOCKER-merge <https://ci.openmicroscopy.org/view/Docker/job/DOCKER-merge/>`_. Latest merge image will be released to `Docker hub <https://hub.docker.com/r/snoopycrimecop/devslave-c7-docker/builds/>`_.
    For more details about configuring automated builds on Docker Hub, see
    https://docs.docker.com/docker-hub/builds/.
-3. update devspace to use newly released container (e.g.
-   https://github.com/openmicroscopy/devspace/pull/63/files#diff-296e14ae0dc392c7edd9369908467953)
-4. commit and push your changes to github (e.g. https://github.com/openmicroscopy/devspace/pull/63),
-   set your branch in devspace ansible config and deploy
+3. Update devspace to use newly released container (e.g.
+   https://github.com/openmicroscopy/devspace/pull/63/files#diff-296e14ae0dc392c7edd9369908467953).
+4. Commit and push your changes to github (e.g. https://github.com/openmicroscopy/devspace/pull/63),
+   set your branch in devspace ansible config and deploy.
 
 
 If all tests are passing, above repositories should be tagged
