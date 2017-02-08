@@ -1,4 +1,10 @@
 What's new for OMERO 5.3 for sysadmins
 ======================================
 
+- Ice 3.6 is now the default supported version. With Ice 3.6, the Python
+  bindings are provided separately, allowing you to install the RPM
+  packages provided by ZeroC. Then run ``pip install zeroc-ice`` to install
+  the Ice Python bindings if your package manager does not provide the Ice
+  Python packages.
 
+- All OMERO web apps can now be installed using ``pip install``.
