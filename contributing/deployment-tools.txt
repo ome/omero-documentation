@@ -132,7 +132,7 @@ This example shows how to test and upgrade OMERO dependencies.
    https://github.com/ome/omero-install/pull/129).
 2. Upgrade base docker image using
    (e.g. https://github.com/openmicroscopy/devslave-c7-docker/blob/master/Dockerfile#L19)
-   and open a PR against `devslave-c7-docker <https://github.com/openmicroscopy/devslave-c7-docker>`_ 
+   and open a PR against `devslave-c7-docker <https://github.com/openmicroscopy/devslave-c7-docker>`_.
    Run `DOCKER-merge <https://ci.openmicroscopy.org/view/Docker/job/DOCKER-merge/>`_. Latest merge image will be released to `Docker hub <https://hub.docker.com/r/snoopycrimecop/devslave-c7-docker/builds/>`_.
    For more details about configuring automated builds on Docker Hub, see
    https://docs.docker.com/docker-hub/builds/.
