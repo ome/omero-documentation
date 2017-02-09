@@ -10,6 +10,10 @@ Type "ant -p" for a list of targets.
   <description>Build file for sphinx documentation</description>
   <property name="root.dir" location="."/>
 
+  <target name="zip" depends="html">
+    <ant dir="omero" target="zip"/>
+  </target>
+
   <target name="html">
     <ant dir="omero" target="html"/>
     <ant dir="contributing" target="html"/>
