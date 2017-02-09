@@ -88,6 +88,21 @@ the help builds.
 	-	* Publish Figure website
 		* :term:`FIGURE-help-release`
 
+OME Files comprises OME Files C++ and OME CMake Super-Build sphinx manuals,
+which are taken from separate repositories but built and hosted as a bundle.
+
+.. list-table::
+	:header-rows: 1
+
+	-	* Job task
+		*
+
+	-	* Publish OME Files documentation
+		* :term:`OME-FILES-CPP-DEV-release-bundle-docs`
+
+	-	* Review OME Files documentation PRs
+		* :term:`OME-FILES-CPP-DEV-merge-docs`
+
 
 Configuration
 ^^^^^^^^^^^^^
@@ -369,6 +384,34 @@ The repository for OMERO.figure is https://github.com/ome/omero-figure.
 		   to https://github.com/ome/omero-figure/tree/gh-pages. If
 		   this PR is merged, the GitHub Pages service updates the content of
 		   http://figure.openmicroscopy.org
+
+
+OME Files
+^^^^^^^^^
+
+This bundle of sphinx documentation has two components: OME Files C++
+documentation is located in the ome-files-cpp repository; OME CMake
+Super-Build documentation is located in the ome-cmake-superbuild repository.
+Both are currently built from the master branches despite the build names.
+
+.. glossary::
+
+     :jenkinsjob:`OME-FILES-CPP-DEV-release-bundle-docs`
+
+	    This job is used to publish the master branches of the OME Files C++
+	    and OME CMake Super-Build sphinx documentation as a single bundle
+
+	    #. |buildFilesSB|
+	    #. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-files-cpp/
+
+The merge and latest builds for this documentation set are detailed on the
+:doc:`ci-ome-files` page. The staging location for reviewing documentation PRs
+opened against either of these repositories is
+https://www.openmicroscopy.org/site/support/ome-files-cpp-staging/
+
+Note that because of the bundle nature of these builds, they does not use the
+standard Sphinx configuration described above nor report broken links parsed
+through the warnings plugin as below.
 
 .. _linkcheck_parser:
 
