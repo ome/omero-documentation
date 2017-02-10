@@ -88,7 +88,7 @@ the help builds.
 	-	* Publish Figure website
 		* :term:`FIGURE-help-release`
 
-OME Files comprises OME Files C++ and OME CMake Super-Build sphinx manuals,
+OME Files comprises OME Files C++ and OME CMake Super-Build Sphinx manuals,
 which are taken from separate repositories but built and hosted as a bundle.
 
 .. list-table::
@@ -389,7 +389,7 @@ The repository for OMERO.figure is https://github.com/ome/omero-figure.
 OME Files
 ^^^^^^^^^
 
-This bundle of sphinx documentation has two components: OME Files C++
+This bundle of Sphinx documentation has two components: OME Files C++
 documentation is located in the ome-files-cpp repository; OME CMake
 Super-Build documentation is located in the ome-cmake-superbuild repository.
 Both are currently built from the master branches despite the build names.
@@ -399,7 +399,7 @@ Both are currently built from the master branches despite the build names.
      :jenkinsjob:`OME-FILES-CPP-DEV-release-bundle-docs`
 
 	    This job is used to publish the master branches of the OME Files C++
-	    and OME CMake Super-Build sphinx documentation as a single bundle
+	    and OME CMake Super-Build Sphinx documentation as a single bundle
 
 	    #. |buildFilesSB|
 	    #. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-files-cpp/
