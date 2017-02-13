@@ -1,6 +1,24 @@
 OMERO version history
 =====================
 
+5.3.0-m8 (February 2017)
+------------------------
+
+Developer preview release - **only intended as a developer preview for
+updating code before the full public release of 5.3.0. Use at your own risk**.
+
+Changes include:
+
+- bumped Bio-Formats version to 5.3.3. This includes several bug fixes.
+  See `Bio-Formats 5.3.3 release history <https://www.openmicroscopy.org/site/support/bio-formats5.3/about/whats-new.html>`_
+- work on the Web API
+- removal pdf doc generation
+- improvement to how colors are assigned to channels
+- disabled jquery cache
+- support for projection along T
+- fixed numerous tests
+- bug fixes in OMERO.web
+
 5.3.0-m7 (January 2017)
 -----------------------
 
