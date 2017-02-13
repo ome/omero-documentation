@@ -328,7 +328,8 @@ located in the ome-model repository and is built from the master branch.
 		This job is used to build the master branch of the OME Model
 		documentation and publish the official documentation
 
-		#. |sphinxbuild|
+		#. |sphinxbuild| from the tag specified by the :envvar:`RELEASE`
+		   parameter
 		#. |ssh-doc| :file:`ome-model-release.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
 
