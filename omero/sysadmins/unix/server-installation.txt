@@ -15,7 +15,7 @@ more specific walk-through listed below.
     :doc:`server-centos7-ice36`
         Instructions for installing OMERO.server from scratch on
         CentOS 7 with Ice 3.6.
-  
+
     :doc:`server-ubuntu1404-ice36`
         Instructions for installing OMERO.server from scratch on
         Ubuntu 14.04 with Ice 3.6.
@@ -205,7 +205,7 @@ If possible, install the following packages:
       - python
 
 .. note::
-    CentOS 6 users should read :doc:`server-centos6` or :doc:`server-centos6-ice36`
+    CentOS 6 users should read :doc:`server-centos6-ice36`
     and follow the instructions there to install Python and the required modules.
 
 Ice
@@ -232,7 +232,7 @@ latest release is available from the :zeroc:`ZeroC website
 <download.html>`.
 
 .. note::
-    CentOS 6 users should read :doc:`server-centos6` or :doc:`server-centos6-ice36`
+    CentOS 6 users should read :doc:`server-centos6-ice36`
     and follow the instructions there to install Ice.
 
 .. note::
@@ -429,7 +429,7 @@ After making any needed changes, either source the corresponding file
 or log back in for them to take effect. Run ``env`` to check them.
 
 .. note::
-    CentOS 6 users should read :doc:`server-centos6` or :doc:`server-centos6-ice36` 
+    CentOS 6 users should read :doc:`server-centos6-ice36` 
     and set the needed environment variables as documented.
 
 Creating a database
