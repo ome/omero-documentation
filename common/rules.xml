@@ -55,6 +55,15 @@ Type "ant -p" for a list of targets.
   </macrodef>
 
 
+<!-- Change the value to upper case for the zip -->
+  <scriptdef language="javascript" name="upper">
+    <attribute name="string" /> 
+    <attribute name="to" />
+
+    project.setProperty(attributes.get("to"),
+                        attributes.get("string").toUpperCase());
+  </scriptdef>
+
   <target name="sphinx-deps"/>
   <target name="clean-deps"/>
 
@@ -64,18 +73,25 @@ Type "ant -p" for a list of targets.
             destdir="${sphinx.builddir}/html"
             opts="${sphinx.opts}"
             warnopts="${sphinx.warnopts}"/>
-    <delete dir="${sphinx.builddir}/OMERO-${omero.release}"/>
-    <copy todir="${sphinx.builddir}/OMERO-${omero.release}">
+  </target>
+
+  <target name="zip" depends="html">
+    <basename property="component" file="${basedir}"/>
+    <upper string="${component}" to="upper"/>
+    <property name="output" value="${upper}.doc"/>
+    <delete dir="${sphinx.builddir}/${output}-${omero.release}"/>
+    <copy todir="${sphinx.builddir}/${output}-${omero.release}">
       <!--
         include (none) to prevent problems if component.resources-bin is empty
       -->
       <fileset dir="${sphinx.builddir}/html"/>
     </copy>
-    <zip destfile="${sphinx.builddir}/OMERO.doc-${omero.release}.zip">
-      <zipfileset dir="${sphinx.builddir}/html" includes="**/*" prefix="OMERO.doc-${omero.release}"/>
+    <zip destfile="${sphinx.builddir}/${output}-${omero.release}.zip">
+      <zipfileset dir="${sphinx.builddir}/html" includes="**/*" prefix="${output}-${omero.release}"/>
     </zip>
-    <delete dir="${sphinx.builddir}/OMERO-${omero.release}"/>
+    <delete dir="${sphinx.builddir}/${output}-${omero.release}"/>
   </target>
+
 
   <target name="linkcheck" depends="sphinx-deps, init">
     <sphinx buildtype="linkcheck" srcdir="."

@@ -6,9 +6,13 @@ Download Apache Ant from http://ant.apache.org/.
 Type "ant -p" for a list of targets.
 -->
 
-<project name="sphinx" default="html" basedir=".">
+<project name="sphinx" default="zip" basedir=".">
   <description>Build file for sphinx documentation</description>
   <property name="root.dir" location="."/>
+
+  <target name="zip" depends="html">
+    <ant dir="omero" target="zip"/>
+  </target>
 
   <target name="html">
     <ant dir="omero" target="html"/>
