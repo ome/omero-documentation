@@ -320,7 +320,7 @@ of Ice installed, unpack it:
 
 .. parsed-literal::
 
-    $ unzip OMERO.server-|release|-ice35-byy.zip
+    $ unzip OMERO.server-|release|-ice36-byy.zip
 
 If your system does not provide an :program:`unzip` command by
 default, install one of the following:
@@ -344,7 +344,7 @@ typing later, to reflect what you set :envvar:`OMERO_PREFIX` to in the
 
 .. parsed-literal::
 
-    $ ln -s OMERO.server-|release|-ice35-byy OMERO.server
+    $ ln -s OMERO.server-|release|-ice36-byy OMERO.server
 
 This will also ease installation of newer versions of the server at a
 later date, by simply updating the link.
@@ -719,8 +719,8 @@ output of the diagnostics command:
 
     Commands:   java -version                  1.7.0     (/usr/bin/java)
     Commands:   python -V                      2.7.9     (/usr/bin/python)
-    Commands:   icegridnode --version          3.5.1     (/usr/bin/icegridnode)
-    Commands:   icegridadmin --version         3.5.1     (/usr/bin/icegridadmin)
+    Commands:   icegridnode --version          3.6.3     (/usr/bin/icegridnode)
+    Commands:   icegridadmin --version         3.6.3     (/usr/bin/icegridadmin)
     Commands:   psql --version                 9.4.5    (/usr/bin/psql)
 
     Server:     icegridnode                    running
