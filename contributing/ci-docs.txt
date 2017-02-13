@@ -54,7 +54,10 @@ independent of the current OMERO/Bio-Formats version.
 	-	* Job task
 		*
 
-	-	* Publish OME Model documentation
+	-	* Build and publish the OME Model documentation
+		* :term:`MODEL-release-docs`
+
+	-	* Build the latest OME Model documentation
 		* :term:`MODEL-latest-docs`
 
 	-	* Publish OME Contributing documentation
@@ -309,8 +312,6 @@ located in the ome-model repository and is built from the master branch.
 
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`ome-model-release.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
 
 	:jenkinsjob:`CONTRIBUTING-latest-docs`
 
@@ -321,6 +322,15 @@ located in the ome-model repository and is built from the master branch.
 		#. |linkcheck|
 		#. |ssh-doc| :file:`contributing-release.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing/
+
+	:jenkinsjob:`MODEL-release-docs`
+
+		This job is used to build the master branch of the OME Model
+		documentation and publish the official documentation
+
+		#. |sphinxbuild|
+		#. |ssh-doc| :file:`ome-model-release.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
 
 OME Help
 ^^^^^^^^
