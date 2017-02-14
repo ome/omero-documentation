@@ -20,15 +20,9 @@ yum -y install \
 	python-pillow numpy scipy python-tables
 pip install --upgrade pip
 
-pip install -r `dirname $0`/requirements.txt
+pip install -r requirements.txt
 # install Ice
 #start-recommended-ice
-curl -o /etc/yum.repos.d/zeroc-ice-el7.repo \
-http://download.zeroc.com/Ice/3.5/el7/zeroc-ice-el7.repo
-
-yum -y install ice ice-python ice-servers
-#end-recommended-ice
-#start-supported-ice
 cd /etc/yum.repos.d
 wget https://zeroc.com/download/rpm/zeroc-ice-el7.repo
 
@@ -39,6 +33,12 @@ yum -y install openssl-devel bzip2-devel expat-devel
 yum -y install ice-all-runtime ice-all-devel
 
 pip install "zeroc-ice>3.5,<3.7"
+#end-recommended-ice
+#start-supported-ice
+curl -o /etc/yum.repos.d/zeroc-ice-el7.repo \
+http://download.zeroc.com/Ice/3.5/el7/zeroc-ice-el7.repo
+
+yum -y install ice ice-python ice-servers
 #end-supported-ice
 
 
@@ -66,8 +66,7 @@ chown omero "$OMERO_DATA_DIR"
 
 #start-step03: As root, create a database user and a database
 
-echo "CREATE USER $OMERO_DB_USER PASSWORD '$OMERO_DB_PASS'" | \
-    su - postgres -c psql
+echo "CREATE USER $OMERO_DB_USER PASSWORD '$OMERO_DB_PASS'" | su - postgres -c psql
 su - postgres -c "createdb -E UTF8 -O '$OMERO_DB_USER' '$OMERO_DB_NAME'"
 
 psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
@@ -94,7 +93,6 @@ OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
 OMERO.server/bin/omero config set omero.db.user "$OMERO_DB_USER"
 OMERO.server/bin/omero config set omero.db.pass "$OMERO_DB_PASS"
-OMERO.server/bin/omero db script -f OMERO.server/db.sql "" "" "$OMERO_ROOT_PASS"
 OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
