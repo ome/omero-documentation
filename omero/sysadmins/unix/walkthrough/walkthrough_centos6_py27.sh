@@ -36,6 +36,21 @@ export PYTHONWARNINGS="ignore:Unverified HTTPS request"
 pip install -r requirements_centos6_py27.txt
 # install Ice
 #start-recommended-ice
+cd /etc/yum.repos.d
+wget https://zeroc.com/download/rpm/zeroc-ice-el6.repo
+
+yum -y install gcc-c++
+yum -y install db53 db53-utils
+yum -y install ice-all-runtime ice-all-devel
+
+yum -y install openssl-devel bzip2-devel expat-devel
+
+set +u
+source /opt/rh/python27/enable
+set -u
+pip install "zeroc-ice>3.5,<3.7"
+#end-recommended-ice
+#start-supported-ice
 curl -o /etc/yum.repos.d/zeroc-ice-el6.repo \
 http://download.zeroc.com/Ice/3.5/el6/zeroc-ice-el6.repo
 
@@ -55,21 +70,6 @@ mv Ice-3.5.1-b1-centos6-sclpy27-x86_64 /opt/Ice-3.5.1
 # if globally set, there is no need to export LD_LIBRARY_PATH
 echo /opt/Ice-3.5.1/lib64 > /etc/ld.so.conf.d/ice-x86_64.conf
 ldconfig
-#end-recommended-ice
-#start-supported-ice
-cd /etc/yum.repos.d
-wget https://zeroc.com/download/rpm/zeroc-ice-el6.repo
-
-yum -y install gcc-c++
-yum -y install db53 db53-utils
-yum -y install ice-all-runtime ice-all-devel
-
-yum -y install openssl-devel bzip2-devel expat-devel
-
-set +u
-source /opt/rh/python27/enable
-set -u
-pip install "zeroc-ice>3.5,<3.7"
 #end-supported-ice
 
 
@@ -102,8 +102,7 @@ echo "export PATH=\"/opt/rh/python27/root/usr/bin:$PATH\"" >> ~omero/.bashrc
 
 #start-step03: As root, create a database user and a database
 
-echo "CREATE USER $OMERO_DB_USER PASSWORD '$OMERO_DB_PASS'" | \
-    su - postgres -c psql
+echo "CREATE USER $OMERO_DB_USER PASSWORD '$OMERO_DB_PASS'" | su - postgres -c psql
 su - postgres -c "createdb -E UTF8 -O '$OMERO_DB_USER' '$OMERO_DB_NAME'"
 
 psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
@@ -130,7 +129,6 @@ OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
 OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
 OMERO.server/bin/omero config set omero.db.user "$OMERO_DB_USER"
 OMERO.server/bin/omero config set omero.db.pass "$OMERO_DB_PASS"
-OMERO.server/bin/omero db script -f OMERO.server/db.sql "" "" "$OMERO_ROOT_PASS"
 OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
