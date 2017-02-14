@@ -89,15 +89,7 @@ Configure:
 
 Installing a web server
 -----------------------
-To Deploy OMERO.web, you can use either Nginx or Apache.
-Follow the steps to install your chosen web server.
-
-
-
-Nginx
-^^^^^
-
-See also :doc:`install-web/install-nginx`.
+OMERO.web is deployed using Nginx see :doc:`install-web/install-nginx`.
 
 **The following steps are run as root.**
 
