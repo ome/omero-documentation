@@ -128,12 +128,8 @@ Configure:
 Installing a web server
 -----------------------
 
-To Deploy OMERO.web, you can use either Nginx or Apache. Follow the steps to install your chosen web server.
+OMERO.web is deployed using Nginx see :doc:`install-web/install-nginx`.
 
-Nginx
-^^^^^
-
-See also :doc:`install-web/install-nginx`.
 
 **The following steps are run as root.**
 
@@ -146,31 +142,6 @@ Nginx configuration directory, and disable the default configuration:
     :start-after: #start-nginx
     :end-before: #end-nginx
 
-Apache
-^^^^^^
-
-See also :doc:`install-web/install-apache`.
-
-As the **omero** system user, configure OMERO.web by running the following commands:
-
-.. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
-    :start-after: #start-configure-apache
-    :end-before: #end-configure-apache
-
-**The following steps are run as root.**
-
-The version of Apache installed is 2.2, see the note below if you wish to use
-version 2.4.
-
-Install Apache 2.2, install the requirements to run OMERO.web in the virtual environment, deactivate it
-and add the path to the virtual environment python to the ``python-path`` parameter of the ``WSGIDaemonProcess`` directive:
-	
-.. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
-    :start-after: #start-apache-install
-    :end-before: #end-apache-install
-
-
-.. note:: If you wish to use Apache 2.4 with mod_wsgi, see `omero-install <https://github.com/ome/omero-install>`_ for a possible solution.
 
 
 Running OMERO
@@ -182,13 +153,11 @@ OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
 
-If you deploy with Nginx, to start the OMERO.web client run::
+To start the OMERO.web client run::
 
     OMERO.server/bin/omero web start
 
-The last command is **not** necessary if you deploy with Apache.
-
-Nginx or Apache should already be running so you should be able to log in as the OMERO
+Nginx should already be running so you should be able to log in as the OMERO
 root user by going to http://localhost/ in your web browser.
 Please read the SELinux_ section below.
 
