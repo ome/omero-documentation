@@ -8,25 +8,13 @@ more specific walk-through listed below.
 
 .. seealso::
 
-    :doc:`server-centos6`
-        Instructions for installing OMERO.server from scratch on
-        CentOS 6 with Python 2.7 and Ice 3.5.
-
     :doc:`server-centos6-ice36`
         Instructions for installing OMERO.server from scratch on
         CentOS 6 with Python 2.7 and Ice 3.6.
 
-    :doc:`server-centos7`
-        Instructions for installing OMERO.server from scratch on
-        CentOS 7 with Ice 3.5.
-
     :doc:`server-centos7-ice36`
         Instructions for installing OMERO.server from scratch on
         CentOS 7 with Ice 3.6.
-
-    :doc:`server-linux-walkthrough`
-        Instructions for installing OMERO.server from scratch on
-        Ubuntu 14.04 with Ice 3.5.
 
     :doc:`server-ubuntu1404-ice36`
         Instructions for installing OMERO.server from scratch on
@@ -217,7 +205,7 @@ If possible, install the following packages:
       - python
 
 .. note::
-    CentOS 6 users should read :doc:`server-centos6` or :doc:`server-centos6-ice36`
+    CentOS 6 users should read :doc:`server-centos6-ice36`
     and follow the instructions there to install Python and the required modules.
 
 Ice
@@ -244,7 +232,7 @@ latest release is available from the :zeroc:`ZeroC website
 <download.html>`.
 
 .. note::
-    CentOS 6 users should read :doc:`server-centos6` or :doc:`server-centos6-ice36`
+    CentOS 6 users should read :doc:`server-centos6-ice36`
     and follow the instructions there to install Ice.
 
 .. note::
@@ -332,7 +320,7 @@ of Ice installed, unpack it:
 
 .. parsed-literal::
 
-    $ unzip OMERO.server-|release|-ice35-byy.zip
+    $ unzip OMERO.server-|release|-ice36-byy.zip
 
 If your system does not provide an :program:`unzip` command by
 default, install one of the following:
@@ -356,7 +344,7 @@ typing later, to reflect what you set :envvar:`OMERO_PREFIX` to in the
 
 .. parsed-literal::
 
-    $ ln -s OMERO.server-|release|-ice35-byy OMERO.server
+    $ ln -s OMERO.server-|release|-ice36-byy OMERO.server
 
 This will also ease installation of newer versions of the server at a
 later date, by simply updating the link.
@@ -441,7 +429,7 @@ After making any needed changes, either source the corresponding file
 or log back in for them to take effect. Run ``env`` to check them.
 
 .. note::
-    CentOS 6 users should read :doc:`server-centos6` or :doc:`server-centos6-ice36` 
+    CentOS 6 users should read :doc:`server-centos6-ice36` 
     and set the needed environment variables as documented.
 
 Creating a database
@@ -731,8 +719,8 @@ output of the diagnostics command:
 
     Commands:   java -version                  1.7.0     (/usr/bin/java)
     Commands:   python -V                      2.7.9     (/usr/bin/python)
-    Commands:   icegridnode --version          3.5.1     (/usr/bin/icegridnode)
-    Commands:   icegridadmin --version         3.5.1     (/usr/bin/icegridadmin)
+    Commands:   icegridnode --version          3.6.3     (/usr/bin/icegridnode)
+    Commands:   icegridadmin --version         3.6.3     (/usr/bin/icegridadmin)
     Commands:   psql --version                 9.4.5    (/usr/bin/psql)
 
     Server:     icegridnode                    running
