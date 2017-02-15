@@ -97,7 +97,7 @@ OMERO.web is deployed using Nginx see :doc:`install-web/install-nginx`.
 Install Nginx 1.8, copy the Nginx OMERO configuration file into the
 Nginx configuration directory, and disable the default configuration:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-nginx
     :end-before: #end-nginx
 
