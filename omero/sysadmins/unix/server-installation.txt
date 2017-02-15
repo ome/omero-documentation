@@ -250,19 +250,18 @@ latest release is available from the :zeroc:`ZeroC website
 OMERO.web
 ^^^^^^^^^
 
-Please install one of :program:`apache` (and its wsgi module) or
-:program:`nginx` and Gunicorn in order to run OMERO.web.
+Please install :program:`nginx` and Gunicorn in order to run OMERO.web.
 
 +-----------+--------------------------------------+
 | System    | Packages                             |
 +===========+======================================+
-| BSD Ports | www/apache24 www/nginx               |
+| BSD Ports | www/nginx                            |
 +-----------+--------------------------------------+
-| Debian    | apache2 libapache2-mod-wsgi    nginx |
+| Debian    | nginx                                |
 +-----------+--------------------------------------+
 | Homebrew  | nginx                                |
 +-----------+--------------------------------------+
-| RedHat    | httpd mod_wsgi nginx                 |
+| RedHat    | nginx                                |
 +-----------+--------------------------------------+
 
 OMERO.scripts
@@ -645,7 +644,7 @@ OMERO.web and administration
 ----------------------------
 
 In order to deploy OMERO.web in a production environment such as
-Apache or Nginx please follow the instructions under
+Nginx please follow the instructions under
 :doc:`install-web`.
 
 
@@ -775,7 +774,7 @@ output of the diagnostics command:
     JVM settings: PixelData-${index}            -Xmx621m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
     JVM settings: Repository-${index}           -Xmx414m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
 
-    OMERO.web status... You are deploying OMERO.web using apache and mod_wsgi. Cannot check status.
+    OMERO.web status... [RUNNING] (PID 16952)
     Django version: 1.8.7
 
 
