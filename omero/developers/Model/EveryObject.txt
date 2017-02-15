@@ -2077,6 +2077,7 @@ Properties:
   | name: ``text``
   | path: ``text``
   | pixelsFileMaps: :ref:`PixelsOriginalFileMap <OMERO model class PixelsOriginalFileMap>` (multiple)
+  | repo: ``string`` (optional)
   | size: ``long`` (optional)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
