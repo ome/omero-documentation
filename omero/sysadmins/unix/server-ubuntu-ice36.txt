@@ -36,8 +36,8 @@ To install Java 1.8 and other dependencies:
 To install Ice 3.6:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
-    :start-after: #start-supported-ice
-    :end-before: #end-supported-ice
+    :start-after: #start-recommended-ice
+    :end-before: #end-recommended-ice
 
 To install PostgreSQL 9.4 on Ubuntu 14.04:
 
