@@ -345,44 +345,26 @@ Linux (Ubuntu)
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 12.04 (.4) LTS
-      - from Apr 2012
-      - to Apr 2017
-      - Deprecated
-      - Dropped
-      - Dropped
+      - OMERO 5.4
     * - 14.04 LTS
       - from Apr 2014
       - to Apr 2019
       - Recommended
-      - Recommended
-      - Recommended
-    * - 14.10
-      - from Oct 2014
-      - to Jul 2015
-      - Dropped
-      - Dropped
-      - Dropped
-    * - 15.04
-      - TBA
-      - TBA
       - Supported
       - Supported
-      - Dropped
-    * - 15.10
-      - TBA
-      - TBA
-      - Unsupported
-      - Unsupported
-      - Upcoming
+    * - 16.04 LTS
+      - from Apr 2016
+      - to Apr 2021
+      - Recommended
+      - Recommended
+      - Recommended
 
 Only the LTS releases are supported due to resource limitations upon
 CI and testing. Only the last two LTS releases are supported (being a
 bit more frequent than CentOS/RHEL). There is currently no CI testing
-for any version, but some developer use of 12.04 LTS, 14.04 LTS and
+for any version, but some developer use of 14.04 LTS, 16.04 LTS and
 more recent non-LTS releases.
 
 Linux (Debian stable)
