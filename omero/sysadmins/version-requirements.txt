@@ -88,42 +88,6 @@ Components
     in the 5.3 timeframe. Python 2.6 has been dropped for OMERO.web,
     the server can still be used with Python 2.6.
 
-* GCC
-
-  * [5.2] 4.4 dropped, 4.6+ deprecated, 4.8+ recommended, 5 supported
-  * [5.3] 4.6+ dropped, 4.8 and 4.9 supported, 5 recommended
-
-  * Rationale: 4.4 is the CentOS/RHEL 6.x default, 4.8 the 7.x
-    default. The SCL DeveloperToolset3 brings CentOS 6 up to GCC
-    4.9.1, which makes the new baseline GCC 4.6 (Ubuntu 12.04 and
-    Travis). This will allow use of a limited subset of C++11 features
-    across all platforms in 5.2+. The downside is that while programs
-    and libraries built with the SCL DeveloperToolset3 will generally
-    be link-compatible with the system libraries, use of these
-    libraries with end user code will require the DeveloperToolset3
-    toolchain and libraries.
-
-The planned changes for 5.2 depend upon our support of
-    CentOS/RHEL 6.x and Ubuntu 12.04.
-
-* LLVM/clang
-
-  * [5.2] 3.4 and 3.5 supported, 3.6 recommended and 3.7 supported
-  * [5.3] 3.4 deprecated, 3.5 and 3.6 supported, 3.7 recommended
-  * Rationale: It is the current toolchain on MacOS/FreeBSD and is
-    working well; 3.3 dropped due to no longer being used by current
-    toolchains
-
-* Microsoft Visual Studio
-
-  * [5.2] 2010 dropped, 2012 deprecated, 2013 recommended,
-  * [5.3] 2012 deprecated, 2013 recommended, 2015 supported
-    2015 supported
-  * Rationale: The minimum (and maximum) MSVC version is determined by
-    the Windows Ice builds provided by ZeroC, and as such is limited
-    by our Ice version requirements. Raising the limit in 5.2 will
-    permit use of newer language features.
-
 * Ice
 
   * [5.3] 3.4 dropped, 3.5 deprecated, 3.6 recommended, 3.7 upcoming
