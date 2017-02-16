@@ -460,33 +460,34 @@ PostgreSQL
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
-    * - 9.2
-      - from Sep 2012
-      - to Sep 2017
-      - Deprecated
-      - Dropped
-      - Dropped
+      - OMERO 5.4
     * - 9.3
       - from Sep 2013
       - to Sep 2018
       - Recommended
       - Deprecated
       - Deprecated
+      - Deprecated
     * - 9.4
       - from Dec 2014
       - to Dec 2019
       - Supported
-      - Recommended
-      - Recommended
+      - Supported
+      - Supported
     * - 9.5
       - TBA
       - TBA
       - Unsupported
+      - Supported
+      - Supported
+    * - 9.6
+      - TBA
+      - TBA
       - Unsupported
-      - Upcoming
+      - Recommended
+      - Recommended
     * - Details
       - 
       - `Reference <http://www.postgresql.org/support/versioning/>`__
@@ -507,13 +508,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 9.2
-      - 7.x
-      - 19
-      - N/A
-      - N/A
-      - Yes
-      - Yes
     * - 9.3
       - N/A
       - 20, 21
@@ -529,6 +523,13 @@ Distribution support
       - N/A
       - Yes
     * - 9.5
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+    * - 9.6
       - N/A
       - N/A
       - N/A
