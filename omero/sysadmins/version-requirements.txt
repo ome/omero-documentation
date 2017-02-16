@@ -2,24 +2,24 @@
 Version requirements
 ********************
 
-Summary of changes for OMERO 5.2 and planned changes for 5.3
+Summary of changes for OMERO 5.3 and planned changes for 5.4
 ============================================================
 
 Criteria for what is considered to be supportable includes whether
 support by both upstream developers and operating system distributions
-will be available for the lifetime of the 5.2 release (including
+will be available for the lifetime of the 5.3 release (including
 security support), and also upon our resources allocated to CI and
-testing. If we are not actively testing it, we cannot claim it is
+testing. If we are not actively testing it, we **cannot** claim it is
 supported or functional.  Software components must be provided and
 supported either by an operating system distribution or their original
 developers.
 
 This section contains a summary of the changes made to the minimum
-version requirements for the 5.2 release and also planned changes for
-the following 5.3 release, albeit tentatively at this point.  The
+version requirements for the 5.3 release and also planned changes for
+the following 5.4 release, albeit tentatively at this point. The
 intent is to provide a roadmap in order that sysadmins may plan ahead
 and ensure that prerequisites are in place ahead of time to ease
-future upgrades.  The following sections provide more detailed
+future upgrades. The following sections provide more detailed
 information and the rationale for the changes.
 
 Operating systems
@@ -27,42 +27,27 @@ Operating systems
 
 * Microsoft Windows
 
-  * [5.2] 7 / Server 2008R2 supported, 8 (client) recommended / Server
-    2012R2 (server) recommended
-  * [5.3] Unsupported for OMERO.server or hosting OMERO.web, client
-    support only
+  * From [5.3] client support only
   * Rationale: see `blog post explanation <http://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_
 
 * MacOS X
 
-  * [5.2] 10.8 dropped. 10.9 deprecated, 10.10 recommended, 10.11 upcoming
   * [5.3] 10.9 dropped, 10.10 deprecated, 10.11 recommended, 10.12 upcoming
-  * Test server only on 10.10+ for 5.2.
-  * Rationale: 10.9 no longer has security support and it still leaves 3
-    versions to support. MacOS X is typically suited only to client
-    use, not serious server deployment, so limit testing accordingly.
+  * [5.4] 10.10 dropped, 10.11 deprecated, 10.12 recommended, 10.13 upcoming
+  * Rationale: MacOS X is typically suited only to client use, not serious server deployment, so limit testing accordingly.
 
 * Linux (CentOS/RHEL)
 
-  * [5.2] 7.x recommended, 6.x supported
   * [5.3] 7.x recommended, 6.x deprecated
-  * Rationale: There is still a significant CentOS 6 userbase, so retain
-    support for 5.2 and potentially continue to support for 5.3
-    depending upon demand and usage.
+  * [5.4] 7.x recommended, 6.x dropped
 
 * Linux (Ubuntu LTS)
 
-  * [5.2] 12.04 dropped, 14.04 recommended
-  * [5.3] 12.04 dropped, 14.04 recommended
+  * [5.3] 12.04 dropped, 14.04 supported, 16.04 recommended
+  * [5.4] 14.04 supported, 16.04 recommended
   * Only LTS versions are supported and tested. Non-LTS versions
     following a supported LTS release are likely to work but are not
     officially supported or tested.
-  * Rationale: No change in this timeframe.
-
-* Linux (Debian)
-
-  * [5.2] 7 deprecated, 8 recommended
-  * [5.3] 7 deprecated, 8 recommended
   * Rationale: No change in this timeframe.
 
 Bitness
@@ -71,8 +56,8 @@ Bitness
 Currently 32- and 64-bit systems are supported for client and server
 on all platforms with the exception of MacOS X (64-bit only).
 
-* [5.2] Dropped 32-bit support for Ice and native code [server]
 * [5.3] Deprecate 32-bit support for Ice and native code [client]
+* [5.4] Drop 32-bit support for Ice and native code [client]
 * Rationale: It is not practical to run a server on a 32-bit system due
   to its memory requirements, so it is safe to drop 32-bit support for
   OMERO.server in 5.2 given that it is de-facto 64-bit-only
@@ -87,25 +72,21 @@ Components
 
 * PostgreSQL
 
-  * [5.2] 9.2 dropped, 9.3 deprecated, 9.4+ recommended
-  * [5.3] 9.2 dropped, 9.3 deprecated, 9.4+ recommended
+  * [5.3] 9.2 dropped, 9.3 deprecated, 9.4 supported, 9.5 supported, 9.6 recommended
+  * [5.4] 9.4 supported, 9.5 supported, 9.6 recommended
   * Rationale: Current releases available for all supported systems
     from upstream and for CentOS/RHEL 6.x officially via SCL (software
     collections).
 
 * Python
 
-  * [5.2] 2.6 deprecated and not recommended, 2.7 recommended, 3.x not
-    supported
-  * [5.3] 2.6 dropped, 2.7 recommended, 3.x not supported
+  * [5.3] 2.6 dropped (OMERO.web only), 2.7 recommended, 3.x not supported
+  * [5.4] 2.6 dropped (server), 2.7 recommended, 3.x not supported
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
     6.x, however it is available officially via SCL. Note that 3.3 is
     also available via SCL, so there is potential for a 3.x migration
-    in the 5.3 timeframe. Dropping 2.6 for 5.3 unifies python support
-    with a single major version, and removes a number of portability
-    issues, but most importantly is a requirement of `Django 1.8`_.
-    Python 2.6 will continue to work for 5.2 with Django 1.6, but this
-    is not recommended due to security vulnerabilities.
+    in the 5.3 timeframe. Python 2.6 has been dropped for OMERO.web,
+    the server can still be used with Python 2.6.
 
 * GCC
 
@@ -145,50 +126,19 @@ The planned changes for 5.2 depend upon our support of
 
 * Ice
 
-  * [5.2] 3.4 dropped, 3.5 recommended, 3.6 supported
-  * [5.3] 3.4 dropped, 3.5 deprecated, 3.6 recommended
-  * Rationale: 3.4 is no longer supported by ZeroC with 3.5 being
-    current. By the release of 5.3, Ice 3.6 will have been out for
-    some time and should be well tested.
+  * [5.3] 3.4 dropped, 3.5 deprecated, 3.6 recommended, 3.7 upcoming
+  * [5.4] 3.5 dropped, 3.6 supported, 3.7 recommended
 
 * Java
 
-  * [5.2] 6 dropped, 7 deprecated, 8 recommended
-  * [5.3] 7 deprecated, 8 recommended
-  * Rationale: It will be 2 years this February since the last Java 6
-    security update. Java 7 is supported on all supported operating
-    systems above, and in most cases is the default Java version on
-    those systems (it is now 8 on some). This was mentioned recently,
-    and also by the Fiji developers; 5.1 would be an opportune time to
-    deprecate or preferably drop Java 6. Also note that we no longer
-    actively test with a Java 6 JVM; all internal testing is on Java 7
-    or 8 (Oracle and OpenJDK), and there are some client issues with
-    OpenJDK6. Also note that Ice 3.6 drops Java 6 support. For 5.2
-    deprecate 7; this is because security support ends in April 2015.
-  * The requirement for 7 in the Windows clients is less urgent, but
-    will encourage migration to a non-deprecated Java version ahead of
-    the removal of support for 6.
-
-* Apache
-
-  * [5.2] deprecated in OMERO 5.2.6
-  * [5.3] deprecated, likely to be dropped during the 5.3.x line
-  * Rationale: 2.2 is the CentOS/RHEL 6.x and Ubuntu 12.04 version,
-    both of which will be dropped in 5.3 if CentOS 6 is dropped,
-    otherwise they will remain deprecated.
-
-* mod_wsgi
-
-  * 3.5+ recommended
-  * Rationale: Choice of mod_wsgi version support is made by the OS vendors,
-    who may choose to continue with an older version with security patches
-    applied. For more information refer to
-    `mod_wsgi installation <https://modwsgi.readthedocs.org/en/develop/installation.html>`__.
+  * [5.3] 7 deprecated, 8 recommended, 9 upcoming
+  * [5.4] 7 dropped, 8 supported, 9 recommended
+  * Rationale: For 5.3 deprecate 7; this is because security support ends in April 2015.
 
 * nginx
 
-  * [5.2] 1.4 deprecated, 1.6 supported, 1.8 recommended, 1.10 upcoming
   * [5.3] 1.4 dropped, 1.6 supported, 1.8 supported, 1.10 recommended
+  * [5.4] 1.6 supported, 1.8 supported, 1.10 recommended
 
 Support levels
 ==============
