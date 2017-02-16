@@ -378,34 +378,27 @@ Linux (Debian stable)
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
+      - OMERO 5.4
       - Details
-    * - 6.0
-      - from Feb 2011
-      - to Feb 2016
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Reference <https://www.debian.org/releases/squeeze/>`__
     * - 7.0
       - from May 2013
       - TBA
-      - Recommended
+      - Deprecated
       - Deprecated
       - Deprecated
       - `Reference <https://www.debian.org/releases/wheezy/>`__
     * - 8.0
       - TBA
       - TBA
-      - Unsupported
       - Supported
-      - Supported
+      - Recommended
+      - Recommended
       - `Reference <https://www.debian.org/releases/jessie/>`__
 
-Stable releases 7.x and 6.x are supported. There is no CI testing for
-any version, and some developer use of 7.x.
+Stable releases 7.x and 8.x are supported. There is no CI testing for
+any version, and some developer use of 8.x.
 
 Linux (Debian testing and unstable)
 -----------------------------------
