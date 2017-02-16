@@ -466,10 +466,9 @@ PostgreSQL
     * - 9.3
       - from Sep 2013
       - to Sep 2018
-      - Recommended
       - Deprecated
       - Deprecated
-      - Deprecated
+      - Dropped
     * - 9.4
       - from Dec 2014
       - to Dec 2019
@@ -477,14 +476,14 @@ PostgreSQL
       - Supported
       - Supported
     * - 9.5
-      - TBA
-      - TBA
+      - from Jan 2016
+      - to Jan 2021
       - Unsupported
       - Supported
       - Supported
     * - 9.6
-      - TBA
-      - TBA
+      - from Sep 2016
+      - to Sep 2021
       - Unsupported
       - Recommended
       - Recommended
