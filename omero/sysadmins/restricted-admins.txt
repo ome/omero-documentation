@@ -1,0 +1,33 @@
+Administrators with restricted permissions
+==========================================
+
+.. seealso:: :doc:`/sysadmins/Server/Permissions`
+
+Summary
+-------
+
+An administrator with restricted permissions is a way to cater for the need for a more powerful users, which would in real world typically be imaging facility managers, image analysts, or anybody who needs to organize users' data, users themselves and groups in OMERO. The only other way how to create users with necessary powers for abovementioned actions would be to create new administrators in OMERO, which is not advisable for security reasons. Administrators with restricted permissions can be created and and their permissions tailored for the task they are meant to perform on behalf of other OMERO users.
+
+4 suggested workflows
+---------------------
+
+
+
+.. tabularcolumns:: |l|c|c|c|c|
+
+=============================== ======================= ===================== ====================== ===================
+:term:`Workflow`                :term:`Importer`        :term:`Analyst`       :term:`Group Manager`  :term:`Data viewer`
+------------------------------- ----------------------- --------------------- ---------------------- -------------------
+:term:`Sudo`                              Y                      Y                       Y              Y
+:term:`Write`                          N                      Y                       Y              Y
+:term:`Delete`                            Y                      Y                       Y              Y
+:term:`Chgrp`                              Y                      Y                       Y              Y
+:term:`Chown`               Y                      Y                       Y              Y
+:term:`Edit Groups`                Y                      Y                       Y              Y
+:term:`Edit Users`                          N                      Y                       Y              Y
+:term:`Add Users to Groups`
+
+:term:`Upload Scripts`
+
+
+=============================== ======================= ===================== ====================== ===================
