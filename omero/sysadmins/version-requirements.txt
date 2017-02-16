@@ -407,58 +407,6 @@ Due to the fast pace of Debian developement, it only really makes
 sense to support the last one or two stable releases; the testing and
 unstable requirements will be covered in the dependencies, below.
 
-Hardware support
-================
-
-
-Microsoft Windows
------------------
-
-Supports amd64 (64-bit) and i386 / x86 (32-bit) for all supported
-versions; most systems are today running x64 with most hardware being
-x64, but there is still a niche of x86 users, estimated <25% and
-falling globally.  On Windows, crude estimates are that OMERO.server
-is 66% amd64, OMERO.insight is 40% amd64, Bio-Formats is 70% amd64.
-However, note that OMERO.server deployment on Windows is rare, and the
-i386 systems are not likely to be production servers.
-
-Unix (MacOS X)
---------------
-
-Currently all supported versions are amd64 (64-bit) only.
-
-Unix (FreeBSD)
---------------
-
-Supports amd64 (64-bit) and i386 / x86 (32-bit) for all supported
-releases. Other platforms are supported, but may require manual
-building of prerequisites.
-
-Linux (RHEL and CentOS)
------------------------
-
-Version 6 supports amd64 (64-bit) and i386 / x86 (32-bit). Version 7
-supports amd64 (64-bit) only.  Crude estimates (Linux+MacOS) are that
-OMERO.server is 98% amd64, OMERO.insight is 98% amd64, Bio-Formats is
-78% amd64.
-
-Linux (other)
--------------
-
-Most distributions support i386 / x86 (32-bit) as well, while some
-support additional architectures such as 32-bit and/or 64-bit arm and
-powerpc.
-
-Additional notes
-----------------
-
-The OMERO server is 64-bit-only due to the large memory requirements.
-On the client side, there is a requirement for 32-bit support for
-Windows clients and to a lesser extent on Linux, and zero on MacOS X
-at present. Dropping 32-bit support for OMERO.server and C++ Ice and
-other builds should be considered, given the vast reduction in the
-support burden and steadily dropping need for these builds.
-
 Dependencies
 ============
 
