@@ -700,44 +700,35 @@ Ice
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
+      - OMERO 5.4
       - Details
-    * - 3.3
-      - from May 2008
-      - to May 2009
-      - Dropped
-      - Dropped
-      - Dropped
-      - :zerocforum:`Ice 3.3 <announcements/3851-ice-3-3-released>`
-        :zerocforum:`Ice 3.3.1 <announcements/4362-ice-3-3-1-released>`
-    * - 3.4
-      - from Mar 2010
-      - to Jun 2011
-      - Deprecated
-      - Dropped
-      - Dropped
-      - :zerocforum:`Ice 3.4 <announcements/4946-ice-3-4-released>`
-        :zerocforum:`Ice 3.4.2 <announcements/5541-ice-3-4-2-released>`
     * - 3.5
       - from Mar 2013
       - to Oct 2013
       - Recommended
-      - Recommended
       - Deprecated
+      - Dropped
       - :zerocforum:`Ice 3.5 <announcements/6093-ice-3-5-0-released>`
         :zerocforum:`Ice 3.5.1 <announcements/6283-ice-3-5-1-released>`
     * - 3.6
       - from June 2015
       - to TBA
-      - Unsupported
       - Supported
       - Recommended
+      - Supported
       - :zerocforum:`Ice 3.6.0 <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
         :zerocforum:`Ice 3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>`
         :zerocforum:`Ice 3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`
-
+        :zerocforum:`Ice 3.6.3 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`
+    * - 3.7
+      - from TBA
+      - to TBA
+      - Unsupported
+      - Upcoming
+      - Recommended
+      -
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
@@ -752,20 +743,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 3.3
-      - N/A
-      - N/A
-      - 10.04
-      - 6.0
-      - N/A
-      - N/A
-    * - 3.4
-      - N/A
-      - N/A
-      - 12.04, 13.04, 13.10
-      - 7.0
-      - N/A
-      - N/A
     * - 3.5
       - N/A
       - 19, 20, 21
@@ -774,6 +751,13 @@ Distribution support
       - Yes
       - Yes
     * - 3.6
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+    * - 3.7
       - N/A
       - N/A
       - N/A
@@ -792,31 +776,31 @@ Java
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
+      - OMERO 5.4
       - Details
-    * - 6
-      - from Dec 2006
-      - to Feb 2013
-      - Deprecated
-      - Dropped
-      - Dropped
-      - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 7
       - From Jul 2011
       - to Apr 2015
-      - Supported
       - Deprecated
       - Deprecated
+      - Dropped
       - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 8
       - From Mar 2014
       - to Mar 2017
       - Recommended
       - Recommended
-      - Recommended
+      - Supported
       - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+    * - 9
+      - TBA
+      - TBA
+      - Unsupported
+      - Upcoming
+      - Recommended
+      - 
 
 Distribution support
 ^^^^^^^^^^^^^^^^^^^^
@@ -831,13 +815,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 6
-      - 6.x, 7.x
-      - N/A
-      - 10.04, 12.04, 13.04, 13.10, 14.04, 14.10, (15.04)
-      - 6.0, 7.0, (8.0)
-      - N/A
-      - Yes
     * - 7
       - 6.x, 7.x
       - 19, 20, 21, (22)
@@ -852,6 +829,13 @@ Distribution support
       - (8.0)
       - N/A
       - Yes
+    * - 9
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
+      - N/A
     * - Details
       - 
       - `Ref 1 <https://apps.fedoraproject.org/packages/java-1.7.0-openjdk>`__
@@ -861,12 +845,11 @@ Distribution support
       - 
       - 
 
-Note that all distributions provide OpenJDK 6, 7 and/or 8 due to
+Note that all distributions provide OpenJDK 7 and/or 8 due to
 distribution restrictions by Oracle. Oracle Java may be used if
 downloaded separately.
 
-Oracle no longer allow general downloading of Java 6. Java 7 is
-available for all platforms except for OSX 10.6 (where it is
+Java 7 is available for all platforms except for OSX 10.6 (where it is
 installable manually by unpacking the 10.7 installer). Some 1.8
 OpenJDK versions are broken (Debian/Ubuntu 1.8.0u40 broken), but some
 work (1.8.0u25, FreeBSD). 1.8 should become recommended once working
@@ -884,32 +867,38 @@ nginx
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
+      - OMERO 5.4
     * - 1.4
       - from Apr 2013
       - to Mar 2014
-      - Supported
       - Deprecated
+      - Dropped
       - Dropped
     * - 1.6
       - from Apr 2014
-      - TBA
-      - Recommended
+      - to Apr 2015
       - Supported
-      - Supported
+      - Deprecated
+      - Dropped
     * - 1.8
       - from Apr 2015
       - TBA
-      - Unsupported
       - Recommended
+      - Supported
       - Supported
     * - 1.10
       - from April 2016
       - TBA
-      - Unsupported
       - Upcoming
+      - Recommended
+      - Supported
+    * - 1.11
+      - from May 2016
+      - TBA
+      - Upcoming
+      - Recommended
       - Recommended
 
 Distribution support
@@ -925,13 +914,6 @@ Distribution support
       - Debian
       - Homebrew
       - FreeBSD Ports
-    * - 1.4
-      - N/A
-      - 19, 20
-      - 13.10, 14.04
-      - N/A
-      - N/A
-      - N/A
     * - 1.6
       - EPEL
       - 21, (22)
@@ -947,6 +929,13 @@ Distribution support
       - Yes
       - Yes
     * - 1.10
+      - N/A
+      - N/A
+      - 16.04
+      - N/A
+      - N/A
+      - N/A
+    * - 1.11
       - N/A
       - N/A
       - 16.04
