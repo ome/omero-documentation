@@ -1,5 +1,5 @@
-OMERO.server installation on CentOS 7 and Ice 3.6
-=================================================
+OMERO.server installation on CentOS 7
+=====================================
 
 This is an example walkthrough for installing OMERO on CentOS 7, using
 a dedicated system user, and should be read in conjunction with
@@ -36,8 +36,8 @@ To install Java 1.8 and other dependencies:
 To install Ice 3.6:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
-    :start-after: #start-supported-ice
-    :end-before: #end-supported-ice
+    :start-after: #start-recommended-ice
+    :end-before: #end-recommended-ice
 
 To install PostgreSQL 9.4:
 
