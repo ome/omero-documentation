@@ -1,33 +1,111 @@
 Administrators with restricted permissions
 ==========================================
 
-.. seealso:: :doc:`/sysadmins/Server/Permissions`
 
 Summary
 -------
 
-An administrator with restricted permissions is a way to cater for the need for a more powerful users, which would in real world typically be imaging facility managers, image analysts, or anybody who needs to organize users' data, users themselves and groups in OMERO. The only other way how to create users with necessary powers for abovementioned actions would be to create new administrators in OMERO, which is not advisable for security reasons. Administrators with restricted permissions can be created and and their permissions tailored for the task they are meant to perform on behalf of other OMERO users.
+An administrator with restricted permissions is a way to cater for the need for more powerful users. In the real world, these will typically be imaging facility managers, image analysts, or anybody who needs to organize users and data in OMERO. The only other way how to create users with necessary powers for abovementioned actions would be to create new administrators in OMERO, which is not advisable for security reasons. Administrators with restricted permissions can be created and and their permissions tailored for the task they are meant to perform on behalf of other OMERO users.
+
+Typically, a full administrator in OMERO would create new administrators with restricted permissions using OMERO.web interface (hook to Help with Webadmin graphic screenshots)
+
+We suggest here 4 setups that should cover the 4 most mainstream workflows. Please note that it is fully possible to combine the permissions (check the checkboxes in the OMERO.web interface) in any way you see fit. The permission groupings were designed in such a way that they still bear useful functionality even when used in isolation. For example checking the Chown checkbox will indeed give the new administrator with restricted permissions the power to change (transfer) ownership of other users' data with no other ifs and buts. Nevertheless, please od not expect for any workflows mentioned here that all OMERO.clients (OMERO.web, OMERO.insight, command line interface (CLI)) are fully equipped to execute them (see details below). New features will be added in OMERO.clients in 5.3.x series of OMERO releases.
+
+Note on group allegiance: All the workflows here do not assume that the administrator with restricted permissions is not a member of any group except the System group. This does not preclude such administrator from being a member of any number of groups though, just as any other user, and still be able to perform his/her workflows dealing with other users' data in the groups which he/she is not a member of. See note on OMERO.insight in the Worfkflow 1 below though (hook to Workflow 1).
+
+Note on Delete: Even if the Delete permission is not given, the administrator is still able to Delete in case he/she has the Sudo privilege. In such case, he/she is able to delete the data of the user he/she is sudoed in as. Only not giving Delete AND not giving Sudo privilege prevents the administrator with restricted privileges truly from deleting of other user's data.
+
 
 4 suggested workflows
 ---------------------
 
 
-
-.. tabularcolumns:: |l|c|c|c|c|
-
-=============================== ======================= ===================== ====================== ===================
-:term:`Workflow`                :term:`Importer`        :term:`Analyst`       :term:`Group Manager`  :term:`Data viewer`
-------------------------------- ----------------------- --------------------- ---------------------- -------------------
-:term:`Sudo`                              Y                      Y                       Y              Y
-:term:`Write`                          N                      Y                       Y              Y
-:term:`Delete`                            Y                      Y                       Y              Y
-:term:`Chgrp`                              Y                      Y                       Y              Y
-:term:`Chown`               Y                      Y                       Y              Y
-:term:`Edit Groups`                Y                      Y                       Y              Y
-:term:`Edit Users`                          N                      Y                       Y              Y
-:term:`Add Users to Groups`
-
-:term:`Upload Scripts`
+=============================== ======================= ======================= ===================== =======================
+OMERO.web interface checkbox    Data viewer             Importer                Analyst               Group and Data Manager
+------------------------------- ----------------------- ----------------------- --------------------- -----------------------
+Sudo                                      N                     Y                      N                       N            
+Write                                     N                     N                      Y                       Y            
+Delete                                    N                     N                      N                       Y            
+Chgrp                                     N                     N                      N                       Y            
+Chown                                     N                     N                      Y (O)                   Y            
+Edit Groups                               N                     N                      N                       Y            
+Edit Users                                N                     N                      N                       Y            
+Add Users to groups                       N                     N                      N                       Y            
+Upload Scripts                            N                     N                      Y                       N            
 
 
-=============================== ======================= ===================== ====================== ===================
+=============================== ======================= ======================= ===================== =======================
+
+Y == checkbox is checked, N == checkbox is not checked (left empty), (O) == this permission is suggested as optional for the role, i.e. not crucial for the typically used workflow
+
+Workflow 1: Data viewer
+-----------------------
+Even if you do not give any explicit privileges to the administrator with restricted permissions, this new administrator has some useful powers. These include browsing and viewing all the data of all users in all groups (including the groups where he/she is not a member). The administrator with restricted permissions is also able to Download all the data in all types of groups. Further, he/she can view user and group information, such as usernames, e-mail addresses, group permission levels and lists of all users and groups. He/she is not able to annotate, edit or delete any of the data or change any user or group informations though. Note that any administrator with restricted privileges described below or otherwise created combining the privileges at will would be able to perform the Data viewer workflow as well.
+
+Workflow 1 in clients: OMERO.insight is not designed to show any groups or data you are not a member of. This workflow is preferably executed using OMERO.web (for viewing and downloading the data, add link to help ?) and command line interface (CLI, for listing all images, groups and users or download).
+
+            TO BE FORMATTED
+            bin/omero user list # gives list of all users on server
+            bin/omero group list # gives list of all groups on server
+            bin/omero fs images # gives list of all images on server
+
+
+Workflow 2: Importer
+--------------------
+The Importer's task is to import images into OMERO for other users, i.e. in such a manner that the imported images are owned by the users in OMERO, not by the Importer. This is typically an imaging facility manager who is importing data acquired by users on microscopes into OMERO.
+
+In its most basic form, this workflow can be achieved fully with only the Sudo permission (first line in the above table). This permission allows them factically to "become" the user they are importing the data for. 
+There might be reasons though why the Importer needs to re-organize the imported data. For example, he/she made a mistake, Sudoed as a wrong user in a wrong group and needs to rectify the mistake using the command line interface (CLI) client. Whilst being sudoed, the Importer can Delete the wrongly imported data (even without Delete permission given, see the Note above), logout, login and sudo as the correct user and repeat the import process. In short, whilst Sudoed, Importer can do any action which the user he/she is sudoed in as is allowed to do too. In case any more post-import cleaning and data organizing is necessary for Importer, this might be enabled by giving him/her also permissions necessary for Data organizer (see Workflow 4 below).
+
+If you have any doubts about giving the administrators with restricted permissions the Sudo privilege, there are 2 workarounds which enable Importer to achieve import for others without Sudo. The workarounds are described in more detailed documentation page (hook to more involved workflows).
+ 
+The basic command line workflow (see also Movie Hook to Balaji's video): bin/omero --sudo.....
+The basic graphical Importer or OMERO.insight workflow: You have to be a member of the group you want to import to in graphical Importer or Insight. Login as the administrator with restricted permissions (Importer) and perform the import for as described in (link to Help or other docs where this is described).
+
+Workflow 3: Analyst
+-------------------
+Typically, an image analyst in OMERO needs to 
+   - read the data (always possible, see Workflow 1 Data viewer)
+   - change and save the rendering settings of the images (enabled by Write privilege, exception is Private groups, where he/she cannot save Rnd settings)
+   - annotate the data (enabled by Write privilege, but not possible in Private groups)
+   - draw and save ROIs on other users' images (enabled by Write privilege, but no saving in Private groups possible)
+   - upload and attaching of result files to the analyzed images (enabled by Write privilege, except Private groups, where attaching is not possible)
+   - create Projects and Datasets for newly imported images in groups he/she is not a member of (enabled by Write privilege)
+   - import new images resulting from image analysis into these containers (enabled by Write privilege)
+   - (possibly) changing the ownership of the newly created conainers and contained result images to the users (enabled by Chown privilege) 
+   - upload, edit and delete official scripts usable by all OMERO users (enabled by Upload Scripts privilege)
+
+Analysts' workflow in clients: OMERO.insight Insight-ImageJ plugin: Need to be a member of the group where the data is. Can draw ROIs and extract analysis results from them in any type of group. Can save ROIs except in Private groups. Upload of official scripts is possible using OMERO.insight.
+OMERO.web, OMERO.insight, Insight-ImageJ plugin: Adjusting the rendering settings and saving them, upload of attachments with results, annotating such as tagging, key-value pairs, rating, commenting, all except Private groups when done on other peoples images (hook to Help Annotate in Clients). 
+CLI: Upload of official scripts (any group type, see hook to scripts doc), upload of attachments with results, annotating as above (not in private group), creating containers, import of resulting images into groups you are not a member of, and changing ownership of these containers (any group type), changing ownership of any other object (annotation, ROI, uploaded attachment with results).
+
+NOTE FOR OURSELVES: we have to ask Mark once more if this "import to groups you are not a member of" will really work (see notoriously failing tests and the non-merged PR danger). Maybe I will just not mention any import of new images and refer to the Importer workflow. The other workaround does not really work on CLI, so maybe we should wash our hands from imports of images in the Analyst workflow ?
+
+
+bin/omero script upload --official /PATH/TO?YOUR_SCRIPT # to upload an official script
+bin/omero -g testgroup login # login to the group the original data are in
+bin/omero obj new Dataset name=real-workflow3 # create a new Dataset
+bin/omero import -T Dataset:name:real-workflow3 /PATH/TO/RESULT/IMAGES # import the resulting images into the Dataset  
+bin/omero chown 55 Dataset:112 # transfer the ownership of the Dataset and imported images to the user with ID:55
+
+
+Workflow 4: Group and Data Organizer
+------------------------------------
+For that, the additional Write (e.g. for creating new Datasets or Projects in OMERO.web when Moving the data into another group), the Chgrp and Chown will come handy for moving the data into the right group (Chgrop) and changing the ownership of the data (Chown). 
+
+
+Paragraph about data organizing, explaining that you cannot link in private but can be worked around using chown.
+In the part about Chgrp mention nice Web workflow and allude to coming features dealing with creation of containers for somebody else in Web and linking them. 
+Mention the ChownAll option, mention that this is also prepared for the CLI (maybe Web ?)
+
+Mention the possible split of Group organizer and Data Organizer.
+Mention that the Group organizer gets better all three Modifyxxx privileges, otherwise trouble in web, but this will also come as a feature (soon).
+
+
+Glossary: 
+Sudo
+Write
+...
+Importer
+Analyst
+...
