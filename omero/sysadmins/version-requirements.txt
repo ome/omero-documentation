@@ -236,37 +236,37 @@ UNIX (MacOS X)
       - Release date
       - Upstream support
       - Homebrew support
-      - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
+      - OMERO 5.4
     * - 10.9
       - from Jun 2013
       - Ended
       - Ended
-      - Recommended
       - Supported
+      - Dropped
       - Dropped
     * - 10.10
       - from Oct 2014
       - Supported
       - Supported
-      - Supported
       - Recommended
       - Deprecated
+      - Dropped
     * - 10.11
       - from Sep 2015
       - Supported
       - Supported
-      - Supported
       - Upcoming
-      - Recommended
+      - Supported
+      - Supported
     * - 10.12
       - from Sep 2016
       - Supported
       - Supported
       - Unsupported
-      - Unsupported
-      - Upcoming
+      - Supported
+      - Recommended
 
 Apple do not formally announce end of life for their releases, but
 with the three latest releases being supported this puts 10.10 as the
