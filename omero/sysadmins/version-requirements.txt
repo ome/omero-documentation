@@ -170,62 +170,54 @@ Microsoft Windows
       - Release date
       - (mainline)
       - (extended)
-      - OMERO 5.1
       - OMERO 5.2
       - OMERO 5.3
+      - OMERO 5.4
       - Details
-    * - Vista
-      - from Jan 2007
-      - to Apr 2012
-      - to Apr 2017
-      - Dropped
-      - Dropped
-      - Dropped
-      - `Ref <https://support.microsoft.com/en-gb/help/13853>`__
     * - Win 7
       - from Oct 2009
       - to Jan 2015
       - to Jan 2020
-      - Recommended
       - Supported
+      - Unsupported†
       - Unsupported†
       - `Ref <https://support.microsoft.com/en-gb/help/13853>`__
     * - Server 2008 R2
       - from May 2008
       - to Jan 2018
       - to Jan 2023
-      - Recommended
       - Supported
       - Unsupported
+      - Unsupported†
       - `Ref <http://support.microsoft.com/lifecycle/?p1=17383>`__
     * - Win 8
       - from Oct 2012
       - to Jan 2018
       - to Jan 2023
-      - Supported
       - Recommended
+      - Unsupported†
       - Unsupported†
       - `Ref <https://support.microsoft.com/en-gb/help/13853>`__
     * - Server 2012
       - from Oct 2012
       - to Jan 2018
       - to Jan 2023
-      - Supported
       - Recommended
       - Unsupported
+      - Unsupported†
       - `Ref <http://support.microsoft.com/lifecycle/?p1=16526>`__
     * - Win 10
       - from July 2015
       - to Oct 2020
       - to Oct 2025
       - Unsupported
-      - Unsupported
+      - Unsupported†
       - Unsupported†
       - `Ref <https://support.microsoft.com/en-gb/help/13853>`__
 
 †
    Unsupported for OMERO.server and OMERO.web deployment. Client support will
-   continue or is upcoming (Windows 10)
+   continue.
 
 
 Insufficient resources are available for regular CI deployment and testing of
