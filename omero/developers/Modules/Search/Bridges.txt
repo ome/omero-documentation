@@ -1,6 +1,10 @@
 Search bridges
 ==============
 
+.. Warning:: All search bridge classes have been deprecated in 5.3.0. This
+    extension has never really been used and is now out of date. A new modern
+    search functionality is under development.
+
 A "bridge" is the mapping between your metadata and how it is stored in
 the ` Lucene <http://lucene.apache.org>`_ index.
 :doc:`/developers/Modules/Search` uses one internal bridge to parse
