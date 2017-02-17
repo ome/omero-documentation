@@ -94,7 +94,7 @@ OMERO.web is deployed using Nginx see :doc:`install-web/install-nginx`.
 
 **The following steps are run as root.**
 
-Install Nginx 1.8, copy the Nginx OMERO configuration file into the
+Install the latest stable version of Nginx (1.10), copy the Nginx OMERO configuration file into the
 Nginx configuration directory, and disable the default configuration:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
