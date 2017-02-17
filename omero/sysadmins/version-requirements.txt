@@ -458,12 +458,12 @@ If no version is provided, a suitable repository is indicated.
       - 6 (`postgresql <http://yum.postgresql.org/9.5/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/>`__)
       - 14.04, 16.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - N/A
-      - N/A
+      - Yes
     * - 9.6
       - 6 (`postgresql <http://yum.postgresql.org/9.6/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/>`__)
       - 14.04, 16.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - N/A
-      - N/A
+      - Yes
     * - Details
       - 
       - `Reference <http://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
@@ -583,12 +583,12 @@ Version provided by distribution
       - N/A
       - 16.04
       - N/A
-      - N/A
+      - Yes
     * - 3.6
       - N/A
       - N/A
       - Yes
-      - N/A
+      - Yes
     * - Details
       - 
       - `Python 2 <http://packages.ubuntu.com/search?keywords=python2&searchon=names&suite=all&section=all>`__
@@ -678,7 +678,7 @@ If no version is provided, a suitable repository is indicated.
       - 6, 7 (`zeroc <https://zeroc.com/distributions/ice/>`__)
       - 14.04, 16.04 (`zeroc <https://zeroc.com/distributions/ice/>`__)
       - Yes
-      - N/A
+      - Yes
     * - 3.7
       - N/A
       - N/A
@@ -836,12 +836,12 @@ If no version is provided, a suitable repository is indicated.
       - N/A
       - N/A
       - N/A
-      - Yes
+      - N/A
     * - 1.10
       - 6 (`EPEL <https://dl.fedoraproject.org/pub/epel/6/x86_64/>`__), 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/n/>`__)
       - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__), 16.04
       - Yes
-      - N/A
+      - Yes
     * - Details
       - 
       - 
