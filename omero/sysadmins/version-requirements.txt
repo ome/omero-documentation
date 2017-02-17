@@ -535,6 +535,13 @@ OMERO support policies
       - Unsupported
       - Unsupported
       - `Reference <https://www.python.org/dev/peps/pep-0478>`__
+    * - 3.6
+      - from Dec 2016
+      - TBA
+      - Unsupported
+      - Unsupported
+      - Unsupported
+      - `Reference <https://www.python.org/dev/peps/pep-0494/>`__
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -570,12 +577,17 @@ Version provided by distribution
     * - 3.4
       - N/A
       - 14.04
-      - Yes
+      - N/A
       - Yes
     * - 3.5
       - N/A
       - 16.04
       - N/A
+      - N/A
+    * - 3.6
+      - N/A
+      - N/A
+      - Yes
       - N/A
     * - Details
       - 
@@ -665,7 +677,7 @@ If no version is provided, a suitable repository is indicated.
     * - 3.6
       - 6, 7 (`zeroc <https://zeroc.com/distributions/ice/>`__)
       - 14.04, 16.04 (`zeroc <https://zeroc.com/distributions/ice/>`__)
-      - N/A
+      - Yes
       - N/A
     * - 3.7
       - N/A
@@ -823,12 +835,12 @@ If no version is provided, a suitable repository is indicated.
     * - 1.8
       - N/A
       - N/A
-      - Yes
+      - N/A
       - Yes
     * - 1.10
       - 6 (`EPEL <https://dl.fedoraproject.org/pub/epel/6/x86_64/>`__), 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/n/>`__)
       - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__), 16.04
-      - N/A
+      - Yes
       - N/A
     * - Details
       - 
