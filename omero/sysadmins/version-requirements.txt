@@ -325,15 +325,6 @@ support. There is currently extensive CI support for building and
 deployment with CentOS 6 but it is not used directly by developers in
 general.
 
-Linux (Fedora)
---------------
-
-`General overview <https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle>`__
-
-Due to the fast pace of Fedora development, it only really makes sense
-to support the current and perhaps the previous release; these will be
-covered in the dependencies, below.
-
 Linux (Ubuntu)
 --------------
 
@@ -367,45 +358,6 @@ bit more frequent than CentOS/RHEL). There is currently no CI testing
 for any version, but some developer use of 14.04 LTS, 16.04 LTS and
 more recent non-LTS releases.
 
-Linux (Debian stable)
----------------------
-
-`General overview <https://www.debian.org/releases/>`__
-
-.. list-table::
-    :header-rows: 1
-
-    * - Version
-      - Release date
-      - Upstream support
-      - OMERO 5.2
-      - OMERO 5.3
-      - OMERO 5.4
-      - Details
-    * - 7.0
-      - from May 2013
-      - TBA
-      - Deprecated
-      - Deprecated
-      - Deprecated
-      - `Reference <https://www.debian.org/releases/wheezy/>`__
-    * - 8.0
-      - TBA
-      - TBA
-      - Supported
-      - Recommended
-      - Recommended
-      - `Reference <https://www.debian.org/releases/jessie/>`__
-
-Stable releases 7.x and 8.x are supported. There is no CI testing for
-any version, and some developer use of 8.x.
-
-Linux (Debian testing and unstable)
------------------------------------
-
-Due to the fast pace of Debian developement, it only really makes
-sense to support the last one or two stable releases; the testing and
-unstable requirements will be covered in the dependencies, below.
 
 Dependencies
 ============
@@ -431,18 +383,8 @@ Package lists
       - `Reference <http://mirror.centos.org/centos/6/os/x86_64/Packages/>`__
     * - CentOS 7 / RHEL 7
       - `Reference <http://mirror.centos.org/centos/7/os/x86_64/Packages/>`__
-    * - Fedora (general)
-      - `Reference <https://fedoraproject.org/wiki/Releases>`__
-    * - Fedora 19
-      - `Reference <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f19&status=&owner=>`__
-    * - Fedora 20
-      - `Reference <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f20&status=&owner=>`__
-    * - Fedora 21
-      - `Reference <https://admin.fedoraproject.org/pkgdb/packages/*/?branches=f21&status=&owner=>`__
     * - Ubuntu
       - `Reference <http://packages.ubuntu.com/search?keywords=foo&searchon=names&suite=all&section=all>`__
-    * - Debian
-      - `Reference <https://packages.debian.org/search?keywords=foo&searchon=names&suite=all&section=all>`__
     * - Homebrew
       - `Reference <https://github.com/Homebrew/homebrew-core/tree/master/Formula>`__
     * - FreeBSD Ports
@@ -453,6 +395,9 @@ PostgreSQL
 ----------
 
 `General overview <http://www.postgresql.org/support/versioning/>`__
+
+OMERO support policies
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
     :header-rows: 1
@@ -494,36 +439,28 @@ PostgreSQL
       - 
       - 
 
-Distribution support
-^^^^^^^^^^^^^^^^^^^^
+Version provided by distribution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
     :header-rows: 1
 
     * - Version
       - CentOS/RHEL
-      - Fedora
       - Ubuntu
-      - Debian
       - Homebrew
       - FreeBSD Ports
     * - 9.3
       - N/A
-      - 20, 21
       - 14.04
-      - N/A
       - N/A
       - Yes
     * - 9.4
       - N/A
-      - N/A
-      - 14.10
-      - (8.0)
+      - 16.04
       - N/A
       - Yes
     * - 9.5
-      - N/A
-      - N/A
       - N/A
       - N/A
       - N/A
@@ -533,13 +470,9 @@ Distribution support
       - N/A
       - N/A
       - N/A
-      - N/A
-      - N/A
     * - Details
       - 
-      - `Ref <https://apps.fedoraproject.org/packages/postgresql>`__
       - `Ref <http://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
-      - `Ref <https://packages.debian.org/search?keywords=postgresql&searchon=sourcenames&suite=all&section=all>`__
       - 
       - 
 
@@ -552,6 +485,9 @@ available for all platforms.
 
 Python
 ------
+
+OMERO support policies
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
     :header-rows: 1
@@ -606,52 +542,40 @@ Python
       - Unsupported
       - `Reference <https://www.python.org/dev/peps/pep-0478>`__
 
-Distribution support
---------------------
+Version provided by distribution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
     :header-rows: 1
 
     * - Version
       - CentOS/RHEL
-      - Fedora
       - Ubuntu
-      - Debian
       - Homebrew
       - FreeBSD Ports
     * - 2.6
       - 6.x
-      - N/A
       - 10.04
-      - 6.0, 7.0
       - N/A
       - Yes
     * - 2.7
       - 7.x
-      - 19, 20, 21
-      - 12.04, 13.04, 13.10, 14.04, 14.10, (15.04)
-      - 7.0, (8.0)
+      - 14.04
       - Yes
       - Yes
     * - 3.2
       - N/A
       - N/A
-      - 12.04
-      - 7.0
       - N/A
       - Yes
     * - 3.3
       - N/A
-      - 19, 20
-      - 13.04, 13.10
       - N/A
       - N/A
       - Yes
     * - 3.4
       - N/A
-      - 21
-      - 14.04, 14.10, (15.04)
-      - (8.0)
+      - 14.04
       - Yes
       - Yes
     * - 3.5
@@ -659,16 +583,10 @@ Distribution support
       - N/A
       - N/A
       - N/A
-      - N/A
-      - N/A
     * - Details
       - 
-      - `Python 2 <https://apps.fedoraproject.org/packages/python>`__
-        `Python 3 <https://apps.fedoraproject.org/packages/python3>`__
       - `Python 2 <http://packages.ubuntu.com/search?keywords=python2&searchon=names&suite=all&section=all>`__
         `Python 3 <http://packages.ubuntu.com/search?keywords=python3&searchon=names&suite=all&section=all>`__
-      - `Python 2 <https://packages.debian.org/search?keywords=python2&searchon=sourcenames&suite=all&section=all>`__
-        `Python 3 <https://packages.debian.org/search?keywords=python3&searchon=sourcenames&suite=all&section=all>`__
       - 
       - 
 
@@ -693,6 +611,9 @@ Ice
 ---
 
 :zeroc:`General overview <download.html>`
+
+OMERO support policies
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
     :header-rows: 1
@@ -719,7 +640,7 @@ Ice
       - Recommended
       - Supported
       - :zerocforum:`Ice 3.6.0 <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
-        :zerocforum:`Ice 3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>`
+        :zerocforum:`Ice 3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>` (broken)
         :zerocforum:`Ice 3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`
         :zerocforum:`Ice 3.6.3 <announcements/46475-ice-ice-e-and-ice-touch-3-6-3-released>`
     * - 3.7
@@ -730,29 +651,23 @@ Ice
       - Recommended
       -
 
-Distribution support
-^^^^^^^^^^^^^^^^^^^^
+Version provided by distribution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
     :header-rows: 1
 
     * - Version
       - CentOS/RHEL
-      - Fedora
       - Ubuntu
-      - Debian
       - Homebrew
       - FreeBSD Ports
     * - 3.5
       - N/A
-      - 19, 20, 21
-      - 14.04, 14.10, (15.04)
-      - (8.0)
+      - 14.04
       - Yes
       - Yes
     * - 3.6
-      - N/A
-      - N/A
       - N/A
       - N/A
       - N/A
@@ -762,13 +677,14 @@ Distribution support
       - N/A
       - N/A
       - N/A
-      - N/A
-      - N/A
 
 Java
 ----
 
 `General overview <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+
+OMERO support policies
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
     :header-rows: 1
@@ -802,31 +718,25 @@ Java
       - Recommended
       - 
 
-Distribution support
-^^^^^^^^^^^^^^^^^^^^
+Version provided by distribution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
     :header-rows: 1
 
     * - Version
       - CentOS/RHEL
-      - Fedora
       - Ubuntu
-      - Debian
       - Homebrew
       - FreeBSD Ports
     * - 7
       - 6.x, 7.x
-      - 19, 20, 21, (22)
-      - 12.04, 13.04, 13.10, 14.04, 14.10, (15.04)
-      - 7.0, (8.0)
+      - 14.04
       - N/A
       - Yes
     * - 8
       - N/A
-      - 19, 20, 21, (22)
-      - 14.10, (15.04)
-      - (8.0)
+      - 14.10
       - N/A
       - Yes
     * - 9
@@ -834,14 +744,9 @@ Distribution support
       - N/A
       - N/A
       - N/A
-      - N/A
-      - N/A
     * - Details
       - 
-      - `Ref 1 <https://apps.fedoraproject.org/packages/java-1.7.0-openjdk>`__
-        `Ref 2 <https://admin.fedoraproject.org/pkgdb/package/java-1.8.0-openjdk/>`__
       - `Ref <http://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
-      - `Ref <https://packages.debian.org/search?keywords=jdk&searchon=names&suite=all&section=all>`__
       - 
       - 
 
@@ -860,6 +765,9 @@ nginx
 
 `General overview <http://nginx.org/en/download.html>`__ and `roadmap
 <http://trac.nginx.org/nginx/roadmap>`__
+
+OMERO support policies
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
     :header-rows: 1
@@ -901,44 +809,34 @@ nginx
       - Recommended
       - Recommended
 
-Distribution support
-^^^^^^^^^^^^^^^^^^^^
+Version provided by distribution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
     :header-rows: 1
 
     * - Version
       - CentOS/RHEL
-      - Fedora
       - Ubuntu
-      - Debian
       - Homebrew
       - FreeBSD Ports
     * - 1.6
       - EPEL
-      - 21, (22)
-      - 14.10, (15.04)
-      - (8.0), 7.0 bpo
+      - N/A
       - N/A
       - N/A
     * - 1.8
-      - N/A
-      - N/A
       - N/A
       - N/A
       - Yes
       - Yes
     * - 1.10
       - N/A
-      - N/A
       - 16.04
-      - N/A
       - N/A
       - N/A
     * - 1.11
       - N/A
-      - N/A
-      - 16.04
       - N/A
       - N/A
       - N/A
@@ -946,6 +844,4 @@ Distribution support
       - 
       - 
       - `Ref <http://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
-      - `Ref <https://packages.debian.org/search?keywords=nginx&searchon=names&suite=all&section=all>`__
-      - 
       - 
