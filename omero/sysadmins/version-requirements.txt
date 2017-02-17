@@ -58,14 +58,7 @@ on all platforms with the exception of MacOS X (64-bit only).
 
 * [5.3] Deprecate 32-bit support for Ice and native code [client]
 * [5.4] Drop 32-bit support for Ice and native code [client]
-* Rationale: It is not practical to run a server on a 32-bit system due
-  to its memory requirements, so it is safe to drop 32-bit support for
-  OMERO.server in 5.2 given that it is de-facto 64-bit-only
-  today. There are still a significant number of 32-bit Windows
-  clients (~60%), so support should be retained until this changes.
-  Maintaining custom builds of Ice for 32-bit systems is extremely
-  costly, and so we could consider dropping them for 5.3.  This also
-  depends upon Ice support for 32-bit systems.
+
 
 Components
 ----------
