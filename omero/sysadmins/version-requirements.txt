@@ -441,6 +441,7 @@ OMERO support policies
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If no version is provided, a suitable repository is indicated.
 
 .. list-table::
     :header-rows: 1
@@ -456,23 +457,23 @@ Version provided by distribution
       - N/A
       - Yes
     * - 9.4
-      - N/A
+      - 6 (`postgresql <http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/>`__)
       - 16.04
       - N/A
       - Yes
     * - 9.5
-      - N/A
-      - N/A
+      - 6 (`postgresql <http://yum.postgresql.org/9.5/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/>`__)
+      - 14.04, 16.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - N/A
       - N/A
     * - 9.6
-      - N/A
-      - N/A
+      - 6 (`postgresql <http://yum.postgresql.org/9.6/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/>`__)
+      - 14.04, 16.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - N/A
       - N/A
     * - Details
       - 
-      - `Ref <http://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
+      - `Reference <http://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
       - 
       - 
 
@@ -554,13 +555,13 @@ Version provided by distribution
       - Homebrew
       - FreeBSD Ports
     * - 2.6
-      - 6.x
+      - 6
       - 10.04
       - N/A
       - Yes
     * - 2.7
-      - 7.x
-      - 14.04
+      - 7
+      - 14.04, 16.04
       - Yes
       - Yes
     * - 3.2
@@ -580,7 +581,7 @@ Version provided by distribution
       - Yes
     * - 3.5
       - N/A
-      - N/A
+      - 16.04
       - N/A
       - N/A
     * - Details
@@ -653,6 +654,7 @@ OMERO support policies
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If no version is provided, a suitable repository is indicated.
 
 .. list-table::
     :header-rows: 1
@@ -663,13 +665,13 @@ Version provided by distribution
       - Homebrew
       - FreeBSD Ports
     * - 3.5
-      - N/A
-      - 14.04
+      - 6, 7 (`zeroc <https://zeroc.com/distributions/ice/3.5/>`__)
+      - 14.04, 16.04
       - Yes
       - Yes
     * - 3.6
-      - N/A
-      - N/A
+      - 6, 7 (`zeroc <https://zeroc.com/distributions/ice/>`__)
+      - 14.04, 16.04 (`zeroc <https://zeroc.com/distributions/ice/>`__)
       - N/A
       - N/A
     * - 3.7
@@ -677,6 +679,11 @@ Version provided by distribution
       - N/A
       - N/A
       - N/A
+    * - Details
+      -
+      - `Reference <http://packages.ubuntu.com/search?keywords=ice&searchon=names&suite=all&section=all>`__
+      -
+      -
 
 Java
 ----
@@ -730,13 +737,13 @@ Version provided by distribution
       - Homebrew
       - FreeBSD Ports
     * - 7
-      - 6.x, 7.x
+      - 6, 7
       - 14.04
       - N/A
       - Yes
     * - 8
-      - N/A
-      - 14.10
+      - 6, 7
+      - 16.04
       - N/A
       - Yes
     * - 9
@@ -746,7 +753,7 @@ Version provided by distribution
       - N/A
     * - Details
       - 
-      - `Ref <http://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
+      - `Reference <http://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
       - 
       - 
 
@@ -802,15 +809,10 @@ OMERO support policies
       - Upcoming
       - Recommended
       - Supported
-    * - 1.11
-      - from May 2016
-      - TBA
-      - Upcoming
-      - Recommended
-      - Recommended
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If no version is provided, a suitable repository is indicated.
 
 .. list-table::
     :header-rows: 1
@@ -821,7 +823,7 @@ Version provided by distribution
       - Homebrew
       - FreeBSD Ports
     * - 1.6
-      - EPEL
+      - N/A
       - N/A
       - N/A
       - N/A
@@ -831,17 +833,12 @@ Version provided by distribution
       - Yes
       - Yes
     * - 1.10
-      - N/A
-      - 16.04
-      - N/A
-      - N/A
-    * - 1.11
-      - N/A
-      - N/A
+      - 6 (`EPEL <https://dl.fedoraproject.org/pub/epel/6/x86_64/>`__), 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/n/>`__)
+      - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__), 16.04
       - N/A
       - N/A
     * - Details
       - 
       - 
-      - `Ref <http://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
+      - `Reference <http://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
       - 
