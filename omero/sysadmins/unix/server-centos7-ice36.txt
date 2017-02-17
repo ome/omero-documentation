@@ -7,6 +7,9 @@ a dedicated system user, and should be read in conjunction with
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
 
+This guide describes how to install the **recommended** versions.
+This should be read in conjunction with :doc:`../version-requirements`
+
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
 
@@ -25,7 +28,7 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install Java 1.8, Ice 3.6 and PostgreSQL 9.4:
+Install Java 1.8, Ice 3.6 and PostgreSQL 9.6:
 
 To install Java 1.8 and other dependencies:
 
@@ -39,7 +42,7 @@ To install Ice 3.6:
     :start-after: #start-recommended-ice
     :end-before: #end-recommended-ice
 
-To install PostgreSQL 9.4:
+To install PostgreSQL 9.6:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #end-supported-ice
