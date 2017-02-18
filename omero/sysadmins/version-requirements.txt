@@ -78,7 +78,7 @@ Components
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
     6.x, however it is available officially via SCL. Note that 3.3 is
     also available via SCL, so there is potential for a 3.x migration
-    in the 5.3 timeframe. Python 2.6 is **no longer** supported for OMERO.web,
+    in the 5.3 timeframe. OMERO.web **no longer** works with Python 2.6,
     the server can still be used with Python 2.6.
 
 * Ice
