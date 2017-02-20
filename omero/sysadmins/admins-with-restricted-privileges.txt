@@ -7,9 +7,9 @@ Summary
 
 OMERO allows you to create administrators with a subset of the full administrator privileges. This is a way to cater for the need for more powerful users acting on behalf of all other OMERO users, with no group allegiance but with access to all groups and data of all users in OMERO. This should be achieved without creating new full administrators in OMERO. In the real world, these administrators with restricted privileges (restricted admins) will typically be imaging facility managers, image analysts, or anybody who needs to organize users and data of others' in OMERO.
 
-Full administrators in OMERO can create new administrators with restricted permissions using the OMERO.web interface (hook to Help with Webadmin graphic screenshots).
+Full administrators in OMERO can create new administrators with restricted privileges using the OMERO.web interface (hook to Help with Webadmin graphic screenshots).
 
-We suggest here four setups that should cover the four mainstream workflows. Nevertheless, you can combine the permissions (check the checkboxes in the OMERO.web interface) in any way you see fit. The permission groupings were designed in such a way that they still bear useful functionality even when used in isolation. For example checking the :term:`Chown` checkbox will indeed give the new administrator with restricted permissions the power to transfer ownership of other users' data with no other ifs and buts.
+We suggest here four setups that should cover the four mainstream workflows. Nevertheless, you can combine the privileges (check the checkboxes in the OMERO.web interface) in any way you see fit. The privilege were designed in such a way that they still bear useful functionality even when used in isolation. For example checking the :term:`Chown` checkbox will indeed give the new administrator with restricted privileges the power to transfer ownership of other users' data with no other ifs and buts.
 
 
 Four suggested workflows
@@ -38,20 +38,20 @@ Y == privilege required, checkbox in OMERO.web interface is checked, N == privil
     **Restricted admins workflows in OMERO.clients:** Please do not expect for any workflows mentioned here that all OMERO.clients (OMERO.web, OMERO.insight, command line interface (CLI)) are fully equipped to execute them (see details below). New features will be added in OMERO.clients in the 5.3.x series of OMERO releases.
 
 .. note::
-    **Group allegiances** All the workflows here do not assume that the administrator with restricted permissions is not a member of any group except the System group. This does not preclude such administrator from being a member of any number of groups. Inside the groups the restricted admin is a member of, he/she has the same privileges as other group members of that group additionally to his adminstrative permissions.
+    **Group allegiances** All the workflows here do not assume that the administrator with restricted privileges is not a member of any group except the System group. This does not preclude such administrator from being a member of any number of groups. Inside the groups the restricted admin is a member of, he/she has the same privileges as other group members of that group additionally to his adminstrative privileges.
 
 .. note::
     **Deleting privileges**: :term:`Sudo` privilege has implicitly in itself a Delete power over the data the administrator is sudoed in as. If you want to prevent restricted admin from Deleting of others' data entirely, do not give :term:`Delete Data` AND do not give :term:`Sudo` privileges.
 
 .. note::
-    **Privilege escalation**: Administrator with restricted privileges (restricted admin) are prevented from escalation of their privileges. Escalation cannot be achieved by them neither by sudoing as full administrator or higher-privileged restricted admin, nor by creating a full administraotor or new restricted admin with permissions higher than the creating restricted admin. A restricted admin can use their :term:`Sudo` privilege, the prevention of escalation means they will be able to execute maximally the privileges level they were enjoying before sudoing, no more privileges can be acquired by the sudoing itself. In case the sudoed-as user has less privileges than the sudoing restricted admin, these lesser privileges will apply also for the restricted admin as long as sudoed-in.
+    **Privilege escalation**: Administrator with restricted privileges (restricted admin) are prevented from escalation of their privileges. Escalation cannot be achieved by them neither by sudoing as full administrator or higher-privileged restricted admin, nor by creating a full administraotor or new restricted admin with privileges higher than the creating restricted admin. A restricted admin can use their :term:`Sudo` privilege, the prevention of escalation means they will be able to execute maximally the privileges level they were enjoying before sudoing, no more privileges can be acquired by the sudoing itself. In case the sudoed-as user has less privileges than the sudoing restricted admin, these lesser privileges will apply also for the restricted admin as long as sudoed-in.
 
 
 .. _Workflow 1:
 
 Workflow 1: Data viewer
 -----------------------
-Even if you do not give any explicit privileges to the administrator with restricted permissions, this new administrator has some useful powers. These include browsing and viewing all the data of all users in all groups (including the groups where he/she is not a member). The administrator with restricted permissions is also able to Download all the data in all types of groups. Further, he/she can view user and group information, such as usernames, e-mail addresses, group permission levels and lists of all users and groups. He/she is not able to annotate, edit or delete any of the data or change any user or group informations though. Note that any administrator with restricted privileges described below or otherwise created combining the privileges at will would be able to perform the Data viewer workflow as well.
+Even if you do not give any explicit privileges to the administrator with restricted privileges, this new administrator has some useful powers. These include browsing and viewing all the data of all users in all groups (including the groups where he/she is not a member). The administrator with restricted privileges is also able to Download all the data in all types of groups. Further, he/she can view user and group information, such as usernames, e-mail addresses, group permission levels and lists of all users and groups. He/she is not able to annotate, edit or delete any of the data or change any user or group informations though. Note that any administrator with restricted privileges described below or otherwise created combining the privileges at will would be able to perform the Data viewer workflow as well.
 
 Workflow 1: Data viewer in clients:
 
@@ -72,16 +72,16 @@ Workflow 2: Importer
 --------------------
 The Importer's task is to import images into OMERO for other users, i.e. in such a manner that the imported images are owned by the users in OMERO, not by the Importer. This is typically an imaging facility manager who is importing data acquired by users on microscopes into OMERO.
 
-Importer workflow can be achieved fully with only the :term:`Sudo` privilege (first line in the above table). This permission allows them factically to "become" the user they are importing the data for.
-There might be reasons though why the Importer needs to re-organize the imported data. For example, he/she made a mistake, Sudoed as a wrong user in a wrong group and needs to rectify the mistake using the command line interface (CLI) client. Whilst being sudoed, the Importer can Delete the wrongly imported data (even without Delete permission given, see the Note above), logout, login and :term:`Sudo` as the correct user and repeat the import process. In short, whilst Sudoed, Importer can do any action which the user he/she is sudoed in as is allowed to do too. In case any more post-import cleaning and data organizing is necessary for Importer, this might be enabled by giving him/her also permissions necessary for Data organizer (see :ref:`Workflow 4` below).
+Importer workflow can be achieved fully with only the :term:`Sudo` privilege (first line in the above table). This privilege allows them factically to "become" the user they are importing the data for.
+There might be reasons though why the Importer needs to re-organize the imported data. For example, he/she made a mistake, Sudoed as a wrong user in a wrong group and needs to rectify the mistake using the command line interface (CLI) client. Whilst being sudoed, the Importer can Delete the wrongly imported data (even without Delete privilege given, see the Note above), logout, login and :term:`Sudo` as the correct user and repeat the import process. In short, whilst Sudoed, Importer can do any action which the user he/she is sudoed in as is allowed to do too. In case any more post-import cleaning and data organizing is necessary for Importer, this might be enabled by giving him/her also privilege necessary for Data organizer (see :ref:`Workflow 4` below).
 
-If you have any doubts about giving the administrators with restricted permissions the :term:`Sudo` privilege (which gives the ability to delete users' data), there are 2 workarounds which enable Importer to achieve import for others without :term:`Sudo`.
+If you have any doubts about giving the administrators with restricted privilege the :term:`Sudo` privilege (which gives the ability to delete users' data), there are 2 workarounds which enable Importer to achieve import for others without :term:`Sudo`.
 
 The first workaround involves importing the data as Importer into the group of the future data owner and then trasferring the ownership of the data (see details in :ref:`Workflow 3`: Analyst). The second workaround involves importing into the group of the Importer as the importer, then moving the data into the group of the future data owner and then changing the ownership of the data to the owner (necessary tools are described in :ref:`Workflow 4`: Group and Data Organizer).
 
 Workflow 2: Importer in clients:
 
-- OMERO.importer or OMERO.insight: You have to be a member of the group you want to import to in OMERO.importer or OMERO.insight. Login as the administrator with restricted permissions and perform the import for others as described in (link to Help or other docs where this is described).
+- OMERO.importer or OMERO.insight: You have to be a member of the group you want to import to in OMERO.importer or OMERO.insight. Login as the administrator with restricted privileges and perform the import for others as described in (link to Help or other docs where this is described).
 
 - CLI: (see also Movie Hook to Balaji's video)::
 
@@ -158,7 +158,7 @@ Workflow 4: Group and Data Organizer in clients:
       $ bin/omero group removeuser --name testgroup --user-name thegoner
       $ bin/omero group adduser --name testgroup --user-name ownertobe --as-owner # works also when the ownertobe is already a member of the group
       $ bin/omero user leavegroup testgroup --name formerowner  --as-owner # does not remove the formerowner from group,
-      just unsets the ownership, works fine with Create and Edit Group permissions only
+      just unsets the ownership, works fine with Create and Edit Group privilege only
       $ bin/omero chown 55 Project:112 # will transfer ownership to user 55 of the whole hierarchy of the Project 112
       including the links, as long as all the objects and links in the hierarchy belong to the same user
       $ bin/omero chown 55 ProjectDatasetLink:123 # will transfer the ownership of a Project-Dataset link in case this was linked by the Organizer
