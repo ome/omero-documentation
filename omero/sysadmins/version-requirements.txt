@@ -92,8 +92,8 @@ Components
 
   * [5.3] 7 deprecated, 8 recommended, 9 upcoming
   * [5.4] 7 deprecated, 8 supported, 9 recommended
-  * Rationale: For 5.3 deprecate 7; this is because security support ends in April 2015.
-    Currently, Matlab is currently shipped with Java 7 so 7 is not marked as dropped yet.
+  * Rationale: For 5.3 deprecate 7; this is because security support ended in April 2015.
+    Currently, Matlab is shipped with Java 7 so it cannot be marked as dropped yet.
 
 * nginx
 
@@ -255,8 +255,8 @@ UNIX (MacOS X)
       - from Sep 2015
       - Supported
       - Supported
-      - Upcoming
       - Supported
+      - Recommended
       - Supported
     * - 10.12
       - from Sep 2016
@@ -320,11 +320,11 @@ General overview for `RHEL
       - Recommended
       - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
-Only RHEL and CentOS 6 are supported at present. Given the long life
+RHEL, CentOS 6 and 7 are supported at present. Given the long life
 of enterprise releases, we intend to support only the latest release
 at any given time or else it ties us into very old dependencies; 6.x
 is already quite long in the tooth, however is in wide use and so will
-require supporting for 5.2 at a minimum.
+require supporting for 5.2 and for at least 5.3.0.
 
 Linux (Ubuntu)
 --------------
@@ -609,10 +609,7 @@ future; 3.x versions continue to be released and retired regularly in
 parallel. The limiting factor will be distribution support for 2.7 as
 major packages are slowly switching to 3.x, and this might cause
 problems if our python module dependencies are no longer available
-without major effort. Ice 3.5 in particular has dropped 2.7 support
-for Windows, and has a significant cost in providing custom rebuilds;
-this has been rectified in Ice 3.6 with the Python module being
-installable with ``pip`` using any Python version.
+without major effort.
 
 The supported version of the Django module used by OMERO.web (1.8)
 requires Python 2.7. The older version (1.6) will work with Python
@@ -771,14 +768,8 @@ Version provided by distribution
       - 
 
 Note that all distributions provide OpenJDK 7 and/or 8 due to
-distribution restrictions by Oracle. Oracle Java may be used if
+distribution restrictions by Oracle. `Oracle Java <http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html>`__ may be used if
 downloaded separately.
-
-Java 7 is available for all platforms except for OSX 10.6 (where it is
-installable manually by unpacking the 10.7 installer). Some 1.8
-OpenJDK versions are broken (Debian/Ubuntu 1.8.0u40 broken), but some
-work (1.8.0u25, FreeBSD). 1.8 should become recommended once working
-versions exist in all distributions.
 
 nginx
 -----
