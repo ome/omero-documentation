@@ -122,9 +122,6 @@ Workflow 3: Analyst in clients:
       $ bin/omero import -T Dataset:name:real-workflow3 /PATH/TO/RESULT/IMAGES # import the resulting images into the Dataset
       $ bin/omero chown 55 Dataset:112 # transfer the ownership of the Dataset and imported images to the user with ID:55
 
-NOTE FOR OURSELVES: we have to ask Mark once more if this "import to groups you are not a member of" will really work (see notoriously failing tests and the non-merged PR danger). Maybe I will just not mention any import of new images and refer to the Importer workflow. The other workaround does not really work on CLI, so maybe we should wash our hands from imports of images in the Analyst workflow ?
-
-
 
 .. _Workflow 4:
 
