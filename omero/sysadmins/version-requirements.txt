@@ -10,7 +10,7 @@ support by both upstream developers and operating system distributions
 will be available for the lifetime of the 5.3 release (including
 security support), and also upon our resources allocated to CI and
 testing. If we are not actively testing it, we **cannot** claim it is
-supported or functional.  Software components must be provided and
+supported or functional. Software components must be provided and
 supported either by an operating system distribution or their original
 developers.
 
@@ -21,6 +21,8 @@ intent is to provide a roadmap in order that sysadmins may plan ahead
 and ensure that prerequisites are in place ahead of time to ease
 future upgrades. The following sections provide more detailed
 information and the rationale for the changes.
+
+Please check the meaning of the various :ref:`terms <support-levels>` terms used in this documents.
 
 Operating systems
 -----------------
@@ -66,7 +68,7 @@ Components
 * PostgreSQL
 
   * [5.3] 9.2 dropped, 9.3 deprecated, 9.4 supported, 9.5 supported, 9.6 recommended
-  * [5.4] 9.4 supported, 9.5 supported, 9.6 recommended
+  * [5.4] 9.3 dropped, 9.4 deprecated, 9.5 supported, 9.6 recommended
   * Rationale: Current releases available for all supported systems
     from upstream and for CentOS/RHEL 6.x officially via SCL (software
     collections).
@@ -74,12 +76,12 @@ Components
 * Python
 
   * [5.3] 2.6 dropped (OMERO.web only), 2.7 recommended, 3.x not supported
-  * [5.4] 2.6 dropped (server), 2.7 recommended, 3.x not supported
+  * [5.4] 2.6 dropped (OMERO.server), 2.7 recommended, 3.x not supported
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
     6.x, however it is available officially via SCL. Note that 3.3 is
     also available via SCL, so there is potential for a 3.x migration
     in the 5.3 timeframe. OMERO.web **no longer** works with Python 2.6,
-    the server can still be used with Python 2.6.
+    the OMERO.server can still be used with Python 2.6.
 
 * Ice
 
@@ -89,13 +91,16 @@ Components
 * Java
 
   * [5.3] 7 deprecated, 8 recommended, 9 upcoming
-  * [5.4] 7 dropped, 8 supported, 9 recommended
+  * [5.4] 7 deprecated, 8 supported, 9 recommended
   * Rationale: For 5.3 deprecate 7; this is because security support ends in April 2015.
+    Currently, Matlab is currently shipped with Java 7 so 7 is not marked as dropped yet.
 
 * nginx
 
   * [5.3] 1.4 dropped, 1.6 supported, 1.8 supported, 1.10 recommended
   * [5.4] 1.6 supported, 1.8 supported, 1.10 recommended
+
+.. _support-levels:
 
 Support levels
 ==============
@@ -174,7 +179,7 @@ Microsoft Windows
       - Supported
       - Unsupported†
       - Unsupported†
-      - `Ref <https://support.microsoft.com/en-gb/help/13853>`__
+      - `Reference <https://support.microsoft.com/en-gb/help/13853>`__
     * - Server 2008 R2
       - from May 2008
       - to Jan 2018
@@ -182,7 +187,7 @@ Microsoft Windows
       - Supported
       - Unsupported
       - Unsupported†
-      - `Ref <http://support.microsoft.com/lifecycle/?p1=17383>`__
+      - `Reference <http://support.microsoft.com/lifecycle/?p1=17383>`__
     * - Win 8
       - from Oct 2012
       - to Jan 2018
@@ -190,7 +195,7 @@ Microsoft Windows
       - Recommended
       - Unsupported†
       - Unsupported†
-      - `Ref <https://support.microsoft.com/en-gb/help/13853>`__
+      - `Reference <https://support.microsoft.com/en-gb/help/13853>`__
     * - Server 2012
       - from Oct 2012
       - to Jan 2018
@@ -198,7 +203,7 @@ Microsoft Windows
       - Recommended
       - Unsupported
       - Unsupported†
-      - `Ref <http://support.microsoft.com/lifecycle/?p1=16526>`__
+      - `Reference <http://support.microsoft.com/lifecycle/?p1=16526>`__
     * - Win 10
       - from July 2015
       - to Oct 2020
@@ -206,7 +211,7 @@ Microsoft Windows
       - Unsupported
       - Unsupported†
       - Unsupported†
-      - `Ref <https://support.microsoft.com/en-gb/help/13853>`__
+      - `Reference <https://support.microsoft.com/en-gb/help/13853>`__
 
 †
    Unsupported for OMERO.server and OMERO.web deployment. Client support will
@@ -260,6 +265,13 @@ UNIX (MacOS X)
       - Unsupported
       - Supported
       - Recommended
+    * - 10.13
+      - from TBA
+      - to TBA
+      - Upcoming
+      - Upcoming
+      - Upcoming
+      - Upcoming
 
 Apple do not formally announce end of life for their releases, but
 with the three latest releases being supported this puts 10.10 as the
@@ -299,24 +311,20 @@ General overview for `RHEL
       - Supported
       - Deprecated
       - Dropped
-      - `Ref <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 7
       - from June 2014
       - to June 2024
       - Recommended
       - Recommended
       - Recommended
-      - `Ref <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
 Only RHEL and CentOS 6 are supported at present. Given the long life
 of enterprise releases, we intend to support only the latest release
 at any given time or else it ties us into very old dependencies; 6.x
 is already quite long in the tooth, however is in wide use and so will
-require supporting for 5.2 at a minimum. 7.x can be the recommended
-version once it is properly tested by us and has appropriate CI
-support. There is currently extensive CI support for building and
-deployment with CentOS 6 but it is not used directly by developers in
-general.
+require supporting for 5.2 at a minimum.
 
 Linux (Ubuntu)
 --------------
@@ -412,7 +420,7 @@ OMERO support policies
       - to Dec 2019
       - Supported
       - Supported
-      - Supported
+      - Deprecated
     * - 9.5
       - from Jan 2016
       - to Jan 2021
@@ -452,17 +460,17 @@ If no version is provided, a suitable repository is indicated.
     * - 9.4
       - 6 (`postgresql <http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/>`__)
       - 16.04
-      - N/A
+      - Yes
       - Yes
     * - 9.5
       - 6 (`postgresql <http://yum.postgresql.org/9.5/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/>`__)
       - 14.04, 16.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - N/A
+      - Yes
       - Yes
     * - 9.6
       - 6 (`postgresql <http://yum.postgresql.org/9.6/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/>`__)
       - 14.04, 16.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - N/A
+      - Yes
       - Yes
     * - Details
       - 
@@ -672,8 +680,8 @@ If no version is provided, a suitable repository is indicated.
     * - 3.5
       - 6, 7 (`zeroc <https://zeroc.com/distributions/ice/3.5/>`__)
       - 14.04, 16.04
-      - Yes
-      - Yes
+      - N/A
+      - N/A
     * - 3.6
       - 6, 7 (`zeroc <https://zeroc.com/distributions/ice/>`__)
       - 14.04, 16.04 (`zeroc <https://zeroc.com/distributions/ice/>`__)
