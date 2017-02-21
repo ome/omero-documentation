@@ -2,8 +2,8 @@
 Version requirements
 ********************
 
-Summary of changes for OMERO 5.3 and planned changes for 5.4
-============================================================
+Summary of changes for OMERO 5.3 and most likely changes for 5.4
+================================================================
 
 Criteria for what is considered to be supportable includes whether
 support by both upstream developers and operating system distributions
@@ -22,7 +22,7 @@ and ensure that prerequisites are in place ahead of time to ease
 future upgrades. The following sections provide more detailed
 information and the rationale for the changes.
 
-Please check the meaning of the various :ref:`terms <support-levels>` terms used in this documents.
+Please check the meaning of the various :ref:`terms <support-levels>` used in this documents.
 
 Operating systems
 -----------------
