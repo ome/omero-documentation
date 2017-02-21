@@ -343,7 +343,7 @@ If no version is provided, a suitable repository is indicated.
 
 The PostgreSQL project provides `packages
 <http://www.postgresql.org/download/>`__ for supported platforms.
-Therefore distribution support is not critical since 9.3 and 9.4 are
+Therefore distribution support is not critical since 9.4, 9.5 and 9.6 are
 available for all platforms.
 
 .. _python-requirements:
