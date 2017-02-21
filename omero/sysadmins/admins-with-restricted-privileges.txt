@@ -18,7 +18,7 @@ users and data of others' in OMERO.
 
 Full administrators in OMERO can create new administrators with
 restricted privileges using the OMERO.web
-interface (hook to Help with Webadmin graphic screenshots).
+interface (:help:`see managing users <facility-manager#manage>`).
 
 We suggest here four setups that should cover the four mainstream
 workflows. Nevertheless, you can combine the privileges
@@ -113,7 +113,8 @@ Workflow 1: Data viewer in clients:
   a member of. The Data Viewer workflow is preferably
   executed using OMERO.web or CLI
 
-- OMERO.web: viewing and downloading the data, add link to help ?)
+- OMERO.web: viewing and downloading the data,
+  see :help:`Viewing Data <viewing-data>`
 
 - CLI: listing all images, groups and users, download::
 
@@ -167,10 +168,12 @@ Workflow 2: Importer in clients:
 - OMERO.importer or OMERO.insight: You have to be a member of the group
   you want to import to in OMERO.importer or OMERO.insight. Login as the
   administrator with restricted privileges and perform the import for
-  others as described in (link to Help or other docs
-  where this is described).
+  others as described in the chapter of Help documentation
+  :help:`import for others <facility-manager#import>`.
 
-- CLI: (see also Movie Hook to Balaji's video)::
+- CLI: (see also the videos on import on
+  `OME YouTube channel
+  <https://www.youtube.com/channel/UCyySB9ZzNi8aBGYqcxSrauQ>`_)::
 
     # Login as the Importer and sudo as the user you want to import for
     $ bin/omero --sudo Importer -u user login
@@ -221,14 +224,18 @@ Workflow 3: Analyst in clients:
   rendering settings and save them, upload
   attachments with results, annotate (for example tag, key-value pairs,
   rating, commenting). All works except in Private groups when done on
-  images belonging to others (hook to Help Annotate in Clients).
+  images belonging to others. See :help:`rendering <managing-data#rendering>`,
+  :help:`annotating <managing-data#annotating>`,
+  :help:`attaching files <managing-data#attach>`,
+  :help:`attaching data <managing-data#attach>`.
 
-- CLI: Upload of official scripts (any group type, see hook to scripts
-  doc), upload of attachments with results, annotating as above
+- CLI: Upload of official scripts (any group type,
+  see :doc:`/developers/scripts/user-guide` and below),
+  upload of attachments with results, annotating
   (not in private group), creating containers, import of resulting images
   into groups you are not a member of, and transferring ownership of these
-  containers (any group type), changing ownership of any other
-  object (annotation, ROI, uploaded attachment with results)::
+  containers (any group type), transferring ownership of objects
+  (annotation, ROI, uploaded attachment with results)::
 
     # Upload an official script
     $ bin/omero script upload --official /PATH/TO?YOUR_SCRIPT
