@@ -15,8 +15,8 @@ supported either by an operating system distribution or their original
 developers.
 
 This section contains a summary of the changes made to the minimum
-version requirements for the 5.3 release and also planned changes for
-the following 5.4 release, albeit tentatively at this point. The
+version requirements for the 5.3 release and also **possible** changes for
+the following 5.4 release, albeit **tentatively at this point**. The
 intent is to provide a roadmap in order that sysadmins may plan ahead
 and ensure that prerequisites are in place ahead of time to ease
 future upgrades. The following sections provide more detailed
@@ -86,7 +86,7 @@ Components
 * Ice
 
   * [5.3] 3.4 dropped, 3.5 deprecated, 3.6 recommended, 3.7 upcoming
-  * [5.4] 3.5 dropped, 3.6 supported, 3.7 recommended
+  * [5.4] 3.5 dropped, 3.6 supported, 3.7 upcoming
 
 * Java
 
