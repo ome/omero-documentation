@@ -322,7 +322,7 @@ If no version is provided, a suitable repository is indicated.
       - Yes
     * - 9.4
       - 6 (`postgresql <http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/>`__)
-      - N/A
+      - 14.04, 16.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - Yes
       - Yes
     * - 9.5
