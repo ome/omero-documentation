@@ -18,7 +18,8 @@ users and data of others' in OMERO.
 
 Full administrators in OMERO can create new administrators with
 restricted privileges using the OMERO.web
-interface (:help:`see managing users <facility-manager#manage>`).
+interface, see :help:`create new users <sharing-data#admin>` chapter
+of our Help documentation.
 
 We suggest here four setups that should cover the four mainstream
 workflows. Nevertheless, you can combine the privileges
