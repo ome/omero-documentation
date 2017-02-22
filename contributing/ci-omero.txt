@@ -119,20 +119,6 @@ clients of the deployment jobs described above:
         * http://web-dev-breaking.openmicroscopy.org
 
 
-5.2.x series
-^^^^^^^^^^^^
-
-.. glossary::
-
-    :jenkinsjob:`OMERO-5.2-merge-homebrew`
-
-        This job tests the installation of OMERO 5.2 using Homebrew
-
-        #. Cleans :file:`/usr/local`
-        #. Installs Homebrew from https://github.com/ome/omero-install
-        #. Installs OMERO via :file:`osx/install_homebrew.sh`
-
-
 5.3.x series
 ^^^^^^^^^^^^
 
@@ -289,6 +275,13 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         #. Builds OMERO.server and starts it
         #. Runs the robot framework tests and collect the results
 
+    :jenkinsjob:`OMERO-DEV-merge-homebrew`
+
+        This job tests the installation of OMERO 5.3 using Homebrew
+
+        #. Cleans :file:`/usr/local`
+        #. Installs Homebrew from https://github.com/ome/omero-install
+        #. Installs OMERO via :file:`osx/install_homebrew.sh`
 
 .. _omero_breaking:
 
