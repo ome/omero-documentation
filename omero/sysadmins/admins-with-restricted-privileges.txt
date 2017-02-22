@@ -77,18 +77,13 @@ N == privilege not required, checkbox is not checked
     AND do not give :term:`Sudo` privileges.
 
 .. note::
-    **Privilege escalation**: Administrator with restricted privileges
+    **Privilege escalation**: The administrator with restricted privileges
     (restricted admin) are prevented from escalation of their privileges.
-    Escalation cannot be achieved by them neither by sudoing as full
-    administrator or higher-privileged restricted admin, nor by creating
-    a full administraotor or new restricted admin with privileges higher
-    than the creating restricted admin. A restricted admin can use
-    their :term:`Sudo` privilege, the prevention of escalation means
-    they will be able to execute maximally the privileges level they
-    were enjoying before sudoing, no more privileges can be acquired
-    by the sudoing itself. In case the sudoed-as user has less privileges
-    than the sudoing restricted admin, these lesser privileges will apply
-    also for the restricted admin as long as sudoed-in.
+    Creation of a restricted admin with higher privileges than the creator
+    or creation of a full administrator are prevented. Furthermore, although
+    a restricted admin can Sudo on behalf of a full administrator, their
+    privileges will not expand to the full administrator privilege set
+    by this action. See also :term:`Sudo`.
 
 .. _Workflow 1:
 
@@ -358,8 +353,11 @@ Key
 
     Sudo
         Administrator can log in as another user, with all the permissions
-        of that user. See Note on privilege
-        escalation, Note on Delete and :ref:`Workflow 2` for more details.
+        of that user. When the restricted admin is working on
+        behalf of a user and using Sudo, their privileges are a common least
+        denominator of the privileges of the user and of the restricted
+        admin. See also Note on privilege escalation,
+        Note on Delete and :ref:`Workflow 2` for more details.
 
     Write Data
         Administrator can create data in groups of which he/she is not
