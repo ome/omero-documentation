@@ -126,6 +126,10 @@ The binaries will be linked to :file:`/usr/local/bin`::
     $ which omero
     /usr/local/bin/omero
 
+Install ICe extension for Python::
+
+    $ pip install "zeroc-ice>3.5,<3.7"
+
 Install OMERO python dependencies::
 
     $ pip install -r $(brew --prefix omero53)/share/web/requirements-py27-nginx.txt
