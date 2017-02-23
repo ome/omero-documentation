@@ -277,7 +277,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
     :jenkinsjob:`OMERO-DEV-merge-homebrew`
 
-        This job tests the installation of OMERO 5.3 using Homebrew
+        This job tests the installation of OMERO using Homebrew
 
         #. Cleans :file:`/usr/local`
         #. Installs Homebrew from https://github.com/ome/omero-install
