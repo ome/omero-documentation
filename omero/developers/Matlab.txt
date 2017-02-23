@@ -232,7 +232,7 @@ If the datasets contain images, the images are not automatically loaded. To
 load the whole graph (projects, datasets, images), pass `true` as an optional
 argument::
 
-    myLoadedProjects = getProjects(session, true)
+    myLoadedProjects = getProjects(session, [], true)
     loadedProjects = getProjects(session, ids, true)
     imageList = loadedProjects(1).linkedDatasetList.get(0).linkedImageList;
 
@@ -774,7 +774,7 @@ How to use OMERO tables
 -----------------------
 
 -  **Create a table**. In the following example, a table is created with
-   2 columns.
+   2 columns and is linked to an Image
 
 ::
 
@@ -797,6 +797,15 @@ How to use OMERO tables
     data(2) = omero.grid.StringColumn('MyStringColumn', '', 64, valuesString);
     table.addData(data);
     file = table.getOriginalFile(); % if you need to interact with the table
+
+    % link table to an Image
+    fa = omero.model.FileAnnotationI;
+    fa.setFile(file);
+    % Currently OMERO.tables are displayed only for Screen/plate/wells
+    % and in all cases the file annotation contains the following name
+    % space
+    fa.setNs(rstring('NSBULKANNOTATIONS'));
+    link = linkAnnotation(session, fa, 'image', imageId);
 
 -  **Read the contents of the table**.
 
@@ -887,7 +896,7 @@ attaches it to an image::
                rectangle.getX().getValue()
             elseif (isa(shape, 'omero.model.Ellipse'))
                ellipse = shape;
-               ellipse.getCx().getValue()
+               ellipse.getX().getValue()
             elseif (isa(shape, 'omero.model.Point'))
                point = shape;
                point.getX().getValue();
@@ -897,6 +906,63 @@ attaches it to an image::
             end
         end
     end
+
+- **Adding Transforms to a Shape object
+
+::
+    
+    % Apply rotation alone to an ellipse object
+    % (angle of rotation set to 10 degrees)
+    % create ellipse (shape object)
+    ellipse = createEllipse(0, 0, 10, 20);
+    setShapeCoordinates(ellipse, 0, 0, 0);
+    % set angle of rotation
+    theta = 10;
+    % create transform object
+    newTform = omero.model.AffineTransformI;
+    newTform.setA00(rdouble(cos(theta)));
+    newTform.setA10(rdouble(-sin(theta)));
+    newTform.setA01(rdouble(sin(theta)));
+    newTform.setA11(rdouble(cos(theta)));
+    newTform.setA02(rdouble(0));
+    newTform.setA12(rdouble(0));
+    % apply transform
+    ellipse.setTransform(newTform);
+    % Create the roi.
+    roi = omero.model.RoiI;
+    roi.addShape(ellipse);
+    roi = session.getUpdateService().saveAndReturnObject(roi);
+
+-  **Retrieving Transforms linked to an Image
+
+::  
+
+    for i = 1 : nShapes
+        shape = roi.getShape(i - 1);
+        
+        %http://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
+        transform = shape.getTransform;
+        xScaling = transform.getA00.getValue;
+        xShearing = transform.getA01.getValue;
+        xTranslation = transform.getA02.getValue;
+            
+        yScaling = transform.getA11.getValue;
+        yShearing = transform.getA10.getValue;
+        yTranslation = transform.getA12.getValue;
+        
+        %tformMatrix = [A00, A10, 0; A01, A11, 0; A02, A12, 1];
+        tformMatrix = [xScaling, yShearing, 0; xShearing, yScaling, 0; xTranslation, yTranslation, 1];
+        
+        fprintf(1, 'Shape Type : %s\n', char(shape.toString));
+        fprintf(1, 'xScaling : %s\n', num2str(tformMatrix(1,1)));
+        fprintf(1, 'yScaling : %s\n', num2str(tformMatrix(2,2)));
+        fprintf(1, 'xShearing : %s\n', num2str(tformMatrix(2,1)));
+        fprintf(1, 'yShearing : %s\n', num2str(tformMatrix(1,2)));
+        fprintf(1, 'xTranslation: %s\n', num2str(tformMatrix(3,1)));
+        fprintf(1, 'yTranslation: %s\n', num2str(tformMatrix(3,2)));
+    end
+
+
 
 -  **Removing a shape from ROI**
 
