@@ -126,7 +126,7 @@ The binaries will be linked to :file:`/usr/local/bin`::
     $ which omero
     /usr/local/bin/omero
 
-Install ICe extension for Python::
+Install Ice extension for Python::
 
     $ pip install "zeroc-ice>3.5,<3.7"
 
