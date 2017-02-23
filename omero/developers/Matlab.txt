@@ -907,7 +907,7 @@ attaches it to an image::
         end
     end
 
-- **Adding Transforms to a Shape object
+- **Adding Transforms to a Shape object**
 
 ::
     
@@ -933,7 +933,7 @@ attaches it to an image::
     roi.addShape(ellipse);
     roi = session.getUpdateService().saveAndReturnObject(roi);
 
--  **Retrieving Transforms linked to an Image
+-  **Retrieving Transforms linked to an Image**
 
 ::  
 
@@ -961,8 +961,6 @@ attaches it to an image::
         fprintf(1, 'xTranslation: %s\n', num2str(tformMatrix(3,1)));
         fprintf(1, 'yTranslation: %s\n', num2str(tformMatrix(3,2)));
     end
-
-
 
 -  **Removing a shape from ROI**
 
