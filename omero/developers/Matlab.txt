@@ -774,7 +774,7 @@ How to use OMERO tables
 -----------------------
 
 -  **Create a table**. In the following example, a table is created with
-   2 columns and is linked to an Image
+   2 columns and is linked to an Image.
 
 ::
 
@@ -801,9 +801,9 @@ How to use OMERO tables
     % link table to an Image
     fa = omero.model.FileAnnotationI;
     fa.setFile(file);
-    % Currently OMERO.tables are displayed only for Screen/plate/wells
-    % and in all cases the file annotation contains the following name
-    % space
+    % Currently OMERO.tables are displayed only in the web-client and 
+    % for Screen/plate/wells alone. In all cases the 
+    % file annotation contains the following namespace.
     fa.setNs(rstring('NSBULKANNOTATIONS'));
     link = linkAnnotation(session, fa, 'image', imageId);
 
