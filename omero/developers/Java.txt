@@ -677,14 +677,22 @@ to an image.
     rectangle.setT(0);
     data.addShapeData(rectangle);
 
+    //Add a mask
+    PixelsData pixels = image.getDefaultPixels();
+    long pixelsId = pixels.getId();
+    RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
+    store.setPixelsId(pixelsId, false);
+    byte[] mask = store.getStack(0, 0);
+    MaskData maskData = new MaskData(10, 10, 100.0, 100.0, mask);
+    maskData.setZ(0);
+    maskData.setT(0);
+    data.addShapeData(maskData);
+    store.close();
+
     //Create an ellipse.
-    ellipse.setX(omero.rtypes.rdouble(10));
-    ellipse.setY(omero.rtypes.rdouble(10));
-    ellipse.setRadiusX(omero.rtypes.rdouble(10));
-    ellipse.setRadiusY(omero.rtypes.rdouble(10));
-    ellipse.setTheZ(omero.rtypes.rint(1));
-    ellipse.setTheT(omero.rtypes.rint(0));
-    ellipse.setTextValue(omero.rtypes.rstring("ellipse text"));
+    EllipseData ellipse = new EllipseData(10, 10, 10, 10);
+    ellipse.setZ(1);
+    ellipse.setT(0);
     % set angle of rotation
     double theta = 10;
     % create transform object
@@ -724,7 +732,11 @@ to an image.
       } else if (shape instanceof PointData) {
         PointData pointData = (PointData) shape;
         // Handle point
+      } else if (shape instanceof MaskData) {
+        MaskData maskData1 = (MaskData) shape;
+        //Handle mask
       }
+
       //Check if the shape has transform
       //http://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
       AffineTransformI transform = shape.getTransform();
@@ -751,7 +763,7 @@ to an image.
     List<ROIResult> roiresults = roifac.loadROIs(ctx, image.getId());
     ROIResult r = roiresults.iterator().next();
     if (r == null) return;
-    List<Roi> rois = r.rois;
+    Collection<ROIData> rois = r.getROIs();
     List<Shape> list;
     Iterator<Roi> j = rois.iterator();
     while (j.hasNext()) {
