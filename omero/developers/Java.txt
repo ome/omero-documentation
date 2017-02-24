@@ -730,13 +730,14 @@ to an image.
       AffineTransformI transform = shape.getTransform();
       if (transform != null){
 
-        int xScaling = transform.getA00.getValue;
-        int xShearing = transform.getA01.getValue;
-        int xTranslation = transform.getA02.getValue;
+        int xScaling = transform.getA00.getValue();
+        int xShearing = transform.getA01.getValue();
+        int xTranslation = transform.getA02.getValue();
             
-        int yScaling = transform.getA11.getValue;
-        int yShearing = transform.getA10.getValue;
-        int yTranslation = transform.getA12.getValue;
+        int yScaling = transform.getA11.getValue();
+        int yShearing = transform.getA10.getValue();
+        int yTranslation = transform.getA12.getValue();
+        // Handle transforms
       }
     }
 
