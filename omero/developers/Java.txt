@@ -686,7 +686,7 @@ to an image.
     ellipse.setTheT(omero.rtypes.rint(0));
     ellipse.setTextValue(omero.rtypes.rstring("ellipse text"));
     % set angle of rotation
-    int theta = 10;
+    double theta = 10;
     % create transform object
     AffineTransformI newTform = omero.model.AffineTransformI();
     newTform.setA00(rdouble(cos(theta)));
@@ -730,13 +730,13 @@ to an image.
       AffineTransformI transform = shape.getTransform();
       if (transform != null){
 
-        int xScaling = transform.getA00.getValue();
-        int xShearing = transform.getA01.getValue();
-        int xTranslation = transform.getA02.getValue();
+        double xScaling = transform.getA00.getValue();
+        double xShearing = transform.getA01.getValue();
+        double xTranslation = transform.getA02.getValue();
             
-        int yScaling = transform.getA11.getValue();
-        int yShearing = transform.getA10.getValue();
-        int yTranslation = transform.getA12.getValue();
+        double yScaling = transform.getA11.getValue();
+        double yShearing = transform.getA10.getValue();
+        double yTranslation = transform.getA12.getValue();
         // Handle transforms
       }
     }
