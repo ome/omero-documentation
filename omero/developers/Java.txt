@@ -682,6 +682,18 @@ to an image.
     ellipse.setZ(0);
     ellipse.setT(0);
     ellipse.setText("ellipse text");
+    % set angle of rotation
+    int theta = 10;
+    % create transform object
+    AffineTransformI newTform = omero.model.AffineTransformI();
+    newTform.setA00(rdouble(cos(theta)));
+    newTform.setA10(rdouble(-sin(theta)));
+    newTform.setA01(rdouble(sin(theta)));
+    newTform.setA11(rdouble(cos(theta)));
+    newTform.setA02(rdouble(0));
+    newTform.setA12(rdouble(0));
+    % add transform
+    ellipse.setTransform(newTform);
     data.addShapeData(ellipse);
 
     // Save ROI and shape
@@ -709,6 +721,18 @@ to an image.
       } else if (shape instanceof PointData) {
         PointData pointData = (PointData) shape;
         // Handle point
+      }
+      //Check if the shape has transform
+      if (){
+        %http://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
+        AffineTransformI transform = shape.getTransform();
+        int xScaling = transform.getA00.getValue;
+        int xShearing = transform.getA01.getValue;
+        int xTranslation = transform.getA02.getValue;
+            
+        int yScaling = transform.getA11.getValue;
+        int yShearing = transform.getA10.getValue;
+        int yTranslation = transform.getA12.getValue;
       }
     }
 
