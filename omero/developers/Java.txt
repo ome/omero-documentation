@@ -689,12 +689,12 @@ to an image.
     double theta = 10;
     % create transform object
     AffineTransformI newTform = omero.model.AffineTransformI();
-    newTform.setA00(rdouble(cos(theta)));
-    newTform.setA10(rdouble(-sin(theta)));
-    newTform.setA01(rdouble(sin(theta)));
-    newTform.setA11(rdouble(cos(theta)));
-    newTform.setA02(rdouble(0));
-    newTform.setA12(rdouble(0));
+    newTform.setA00(omero.rtypes.rdouble(cos(theta)));
+    newTform.setA10(omero.rypes.rdouble(-sin(theta)));
+    newTform.setA01(omero.rypes.rdouble(sin(theta)));
+    newTform.setA11(omero.rypes.rdouble(cos(theta)));
+    newTform.setA02(omero.rypes.rdouble(0));
+    newTform.setA12(omero.rypes.rdouble(0));
     % add transform
     ellipse.setTransform(newTform);
     data.addShapeData(ellipse);
