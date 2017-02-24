@@ -1759,14 +1759,6 @@ A list of people who get code error notifications whenever the application ident
 
 Default: `[]`
 
-.. property:: omero.web.api.absolute_url
-
-omero.web.api.absolute_url
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-URL to use for generating urls within API json responses. By default this is None, and we use Django's request.build_absolute_uri() to generate absolute urls based on each request. If set to a string or empty string, this will be used as prefix to relative urls.
-
-Default: `None`
-
 .. property:: omero.web.application_server
 
 omero.web.application_server

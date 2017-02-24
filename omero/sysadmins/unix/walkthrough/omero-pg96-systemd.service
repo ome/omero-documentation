@@ -1,0 +1,14 @@
+[Unit]
+Description=OMERO.server
+Requires=postgresql-9.6.service
+After=docker-postgresql-9.6.service
+
+[Service]
+User=omero
+Type=simple
+Restart=on-failure
+RestartSec=10
+ExecStart=/home/omero/OMERO.server/bin/omero admin start --foreground
+
+[Install]
+WantedBy=multi-user.target
