@@ -678,10 +678,13 @@ to an image.
     data.addShapeData(rectangle);
 
     //Create an ellipse.
-    EllipseData ellipse = new Ellipse(10, 10, 10, 10);
-    ellipse.setZ(0);
-    ellipse.setT(0);
-    ellipse.setText("ellipse text");
+    ellipse.setX(omero.rtypes.rdouble(10));
+    ellipse.setY(omero.rtypes.rdouble(10));
+    ellipse.setRadiusX(omero.rtypes.rdouble(10));
+    ellipse.setRadiusY(omero.rtypes.rdouble(10));
+    ellipse.setTheZ(omero.rtypes.rint(1));
+    ellipse.setTheT(omero.rtypes.rint(0));
+    ellipse.setTextValue(omero.rtypes.rstring("ellipse text"));
     % set angle of rotation
     int theta = 10;
     % create transform object
