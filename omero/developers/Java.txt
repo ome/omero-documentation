@@ -723,9 +723,10 @@ to an image.
         // Handle point
       }
       //Check if the shape has transform
-      if (){
-        %http://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
-        AffineTransformI transform = shape.getTransform();
+      //http://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
+      AffineTransformI transform = shape.getTransform();
+      if (transform != null){
+
         int xScaling = transform.getA00.getValue;
         int xShearing = transform.getA01.getValue;
         int xTranslation = transform.getA02.getValue;
