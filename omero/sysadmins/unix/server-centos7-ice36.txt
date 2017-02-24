@@ -91,8 +91,8 @@ Configure:
     :start-after: #end-release-ice36
     :end-before: #end-step04
 
-Installing a web server
------------------------
+Installing Nginx
+----------------
 
 OMERO.web is deployed using Nginx see :doc:`install-web/install-nginx`.
 
