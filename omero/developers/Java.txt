@@ -603,6 +603,21 @@ In the following example, we create a table with 2 columns.
 
     OriginalFile file = table.getOriginalFile(); //if you need to interact with the table
 
+    //link table to image.
+    FileAnnotation annotation = new FileAnnotationI();
+    annotation.setFile(file);
+    annotation.setNs(omero.rtypes
+            .rstring(omero.constants.namespaces.NSBULKANNOTATIONS.value));
+    annotation = (FileAnnotation) dm.saveAndReturnObject(ctx, annotation);
+    ImageAnnotationLink link = new ImageAnnotationLinkI();
+
+    //now link the image and the annotation
+    ImageAnnotationLink link = new ImageAnnotationLinkI();
+    link.setChild(annotation);
+    link.setParent(image.asImage());
+    //save the link back to the server.
+    link = (ImageAnnotationLink) dm.saveAndReturnObject(ctx, link);    
+
 -  **Read the contents of the table.**
 
 ::
