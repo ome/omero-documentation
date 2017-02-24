@@ -79,13 +79,13 @@ ldconfig
 
 # install Postgres
 # Postgres, reconfigure to allow TCP connections
-yum -y install http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-centos94-9.4-2.noarch.rpm
-yum -y install postgresql94-server postgresql94
+yum -y install http://yum.postgresql.org/9.6/redhat/rhel-6-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+yum -y install postgresql96-server postgresql96
 
-service postgresql-9.4 initdb
-sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/9.4/data/pg_hba.conf
-chkconfig postgresql-9.4 on
-service postgresql-9.4 start
+service postgresql-9.6 initdb
+sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/9.6/data/pg_hba.conf
+chkconfig postgresql-9.6 on
+service postgresql-9.6 start
 
 #end-step01
 
@@ -153,7 +153,7 @@ OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
 
-#start-step05: As root, install a Web server: Nginx or Apache
+#start-step05: As root, install Nginx
 #start-nginx
 cat << EOF > /etc/yum.repos.d/nginx.repo
 [nginx]
@@ -184,45 +184,6 @@ cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
 service nginx start
 #end-nginx
 
-#start-apache
-#start-copy
-cp setup_omero_apache22.sh ~omero
-#end-copy
-#start-configure-apache: As the omero system user, configure OMERO.web
-OMERO.server/bin/omero config set omero.web.application_server wsgi
-OMERO.server/bin/omero web config apache --http "$OMERO_WEB_PORT" > OMERO.server/apache.conf.tmp
-OMERO.server/bin/omero web syncmedia
-#end-configure-apache
-#start-apache-install
-#install Apache 2.2
-yum -y install httpd
-
-# install mod_wsgi compiled against 2.7
-yum -y install python27-mod_wsgi
-
-virtualenv -p /usr/bin/python2.7 /home/omero/omeroenv
-set +u
-source /home/omero/omeroenv/bin/activate
-set -u
-
-# Install OMERO.web requirements
-file=~omero/OMERO.server/share/web/requirements-py27-apache.txt
-# introduced in 5.2.0
-if [ -f $file ]; then
-	/home/omero/omeroenv/bin/pip2.7 install -r $file
-fi
-deactivate
-
-
-# Add virtual env python to the python-path parameter of the WSGIDaemonProcess directive
-sed -i 's/\(python-path\=\)/\1\/home\/omero\/omeroenv\/lib64\/python2.7\/site-packages:/' ~omero/OMERO.server/apache.conf.tmp
-
-cp ~omero/OMERO.server/apache.conf.tmp /etc/httpd/conf.d/omero-web.conf
-
-chkconfig httpd on
-service httpd start
-#end-apache-install
-#end-apache
 #end-step05
 
 #start-step06: As root, run the scripts to start OMERO and OMERO.web automatically
