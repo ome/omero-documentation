@@ -104,9 +104,21 @@ specified with ``?childCount=true`` parameter.
 This will add an ``omero:childCount`` value to the json data.
 
 
+Filtering by Owner and Group
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Most data in OMERO has an ``Owner`` and is assigned to a permissions
+``Group``. By default, queries will return data from all owners
+accross all groups that are accessible to the current user.
+Use the query strings to filter by owner and/or group:
+
 ::
 
-    **Parameters**
+    /api/v0/m/projects/?owner=3&group=5
+
+
+**Parameters**
+
+::
 
     Name        Type        Description
     ------------------------------------------------------------------
@@ -118,6 +130,9 @@ This will add an ``omero:childCount`` value to the json data.
                             of nesting within objects
     childCount  Boolean     Use ?childCount=true to include an omero:childCount attribute
                             for container objects
+    owner       Number      Filter by Experimenter ID
+
+    group       Number      Filter by Group ID
 
 
 Error handling
@@ -238,8 +253,6 @@ cookie of any request or from the following request:
 
 ::
 
-
-
     {
       "data": "eNoVq528bOqlhQqbCzKuviODTRX3PUO2"
     }
@@ -256,6 +269,8 @@ The EventContext for this session will be returned to you.
 
 **Parameters**
 
+::
+
     Name        Type        Description
     ------------------------------------------------------------------
     server      Number      ID of the server
@@ -266,9 +281,6 @@ The EventContext for this session will be returned to you.
 **Response**
 
 ::
-
-
-
 
     {
       "eventContext": {
@@ -305,16 +317,6 @@ List projects
     GET     /api/v0/m/projects/
 
 
-**Parameters**
-
-::
-
-    Name        Type        Description
-    ------------------------------------------------------------------
-    group       Number      Only return projects from this group
-    owner       Number      Only return projects owned by this user
-
-
 **Response**
 
 ::
@@ -322,7 +324,7 @@ List projects
     {
       "data": [
         {
-          "Name": "New data"
+          "Name": "New data",
           "Description": "Example project",
           "url:project": "http://localhost:4080/api/v0/m/projects/11601/",
           "url:datasets": "http://localhost:4080/api/v0/m/projects/11601/datasets/",
@@ -407,4 +409,52 @@ Get a single project
 ::
 
     GET   /api/v0/m/projects/:projectId
+
+
+List datasets
+-------------
+
+::
+
+    GET     /api/v0/m/datasets/
+
+
+**Parameters**
+
+::
+
+    Name        Type        Description
+    ------------------------------------------------------------------
+    group       Number      Only return datasets from this group
+    owner       Number      Only return datasets owned by this user
+
+
+**Response**
+
+::
+
+    {
+      "data": [
+        {
+          "Name": "Test data",
+          "Description": "",
+          "url:dataset": "http://localhost:4080/api/v0/m/dataset/112/",
+          "url:images": "http://localhost:4080/api/v0/m/datasets/112/images/",
+          "url:projects": "http://localhost:4080/api/v0/m/datasets/112/projects/",
+          "@id": 112,
+          "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
+          "omero:details": {
+            // omitted for brevity
+          }
+        }
+      ]
+    }
+
+
+Get a single dataset
+--------------------
+
+::
+
+    GET   /api/v0/m/datasets/:datasetId
 
