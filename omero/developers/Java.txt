@@ -722,19 +722,19 @@ to an image.
       long id = shape.getId();
       if (shape instanceof RectangleData) {
         RectangleData rectData = (RectangleData) shape;
-        // Handle rectangle
+        //Insert code to handle rectangle
       } else if (shape instanceof EllipseData) {
         EllipseData ellipseData = (EllipseData) shape;
-        // Handle ellipse
+        //Insert code to handle ellipse
       } else if (shape instanceof LineData) {
         LineData lineData = (LineData) shape;
-        // Handle line
+        //Insert code to handle line
       } else if (shape instanceof PointData) {
         PointData pointData = (PointData) shape;
-        // Handle point
+        //Insert code to handle point
       } else if (shape instanceof MaskData) {
         MaskData maskData1 = (MaskData) shape;
-        //Handle mask
+        //Insert code to handle mask
       }
 
       //Check if the shape has transform
@@ -749,7 +749,7 @@ to an image.
         double yScaling = transform.getA11.getValue();
         double yShearing = transform.getA10.getValue();
         double yTranslation = transform.getA12.getValue();
-        // Handle transforms
+        //Insert code to handle transforms
       }
     }
 
