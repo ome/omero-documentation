@@ -21,12 +21,12 @@ Most of the points below are implemented in the example :source:`Edit_Descriptio
 Script naming and file path
 ---------------------------
 
--  Script Name should be in the form 'Script\_Name.py'. OMERO.insight
-   will replace underscores with spaces in the script selection menu.
--  File paths - OMERO.insight will use the parent folder to build a
+-  Script Name should be in the form 'Script\_Name.py'. The OMERO.web and Insight
+   clints will replace underscores with spaces in the script selection menu.
+-  File paths - The clients will use the parent folder to build a
    scripts menu, capitalising and removing underscores. For example, a script
    uploaded from /omero/export\_scripts/Batch\_Image\_Export.py will be
-   displayed in OMERO.insight under "Export Scripts".
+   displayed in the clients under "Export Scripts".
 -  Script Descriptions should give a brief summary of what
    the script does. If a longer description or instructions for using
    the script are desired, it is suggested that a URL is included. The
@@ -38,7 +38,7 @@ Parameters
 
 -  Parameter Names should be in the form 'Parameter\_Name'.
    Underscores will be replaced by spaces in the UI generated in
-   OMERO.insight.
+   the clients.
 -  Where applicable, Parameters should be supplied with a list of
    options. For example:
 
@@ -47,7 +47,7 @@ Parameters
        scripts.String("Algorithm", values=[rstring('Maximum_Intensity'),rstring('Mean_Intensity')] )
 
 -  Where possible, parameters should be supplied with default values.
-   These will be used to populate fields in the OMERO.insight script UI
+   These will be used to populate fields in the clients script UI
    and will be used by default when launching the script from the
    command line.
 
@@ -104,14 +104,14 @@ Script outputs
 
 -  Scripts may return a short message to report success or failure. This
    should use the key: 'Message' in the output map. This will be
-   displayed in OMERO.insight when the script completes.
+   displayed in clients when the script completes.
 
    ::
 
        client.setOutput("Message", rstring("Script generated new Image"))
 
 -  Scripts that generate an Image should return the ImageI object.
-   OMERO.insight will provide a link to view the Image. The key that is used
+   The clients will provide a link to view the Image. The key that is used
    ("Image" in this example) is not important for this to work, but
    'image' should be an omero.model.ImageI object.
 
@@ -120,7 +120,7 @@ Script outputs
            client.setOutput("Image",robject(image))
 
 -  Scripts that generate a File Annotation or Original File should
-   return these objects. OMERO.insight will give users the option of
+   return these objects. OMERO.web and Insight will give users the option of
    downloading the File, and may also allow viewing of the file if it is
    of a suitable type. This should be set as the mimetype of the File
    Annotation (E.g. 'plain/text', 'image/jpeg' etc). In this example,
