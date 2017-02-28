@@ -268,8 +268,8 @@ Building Bio-Formats
 
 From the top-level folder of the Bio-Formats repository,
 
-#. adjust the version of Bio-Formats which will be built, installed locally
-   and consumed by OMERO e.g. for 5.2.0-SNAPSHOT::
+#. if necessary, adjust the version of Bio-Formats which will be built,
+   installed locally and consumed by OMERO e.g. for 5.2.0-SNAPSHOT::
 
      $ ./tools/bump_maven_version.py 5.2.0-SNAPSHOT
 
@@ -284,11 +284,8 @@ Building OMERO
 From the top-level folder of the OMERO repository,
 
 #. adjust the ``versions.bioformats`` property under
-   :source:`etc/omero.properties` to the version chosen for the Bio-Formats
+   :file:`etc/omero.properties` to the version chosen for the Bio-Formats
    build
-
-#. adjust the ``ome.resolver`` property under :source:`etc/build.properties` to
-   be ``ome-resolver``
 
 #. run the build system as usual::
 
