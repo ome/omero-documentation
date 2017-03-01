@@ -606,6 +606,7 @@ In the following example, we create a table with 2 columns.
     //link table to image.
     FileAnnotation annotation = new FileAnnotationI();
     annotation.setFile(file);
+    //Use your desired namespace
     annotation.setNs(omero.rtypes
             .rstring(omero.constants.namespaces.NSBULKANNOTATIONS.value));
     annotation = (FileAnnotation) dm.saveAndReturnObject(ctx, annotation);
@@ -668,7 +669,6 @@ to an image.
     ROIFacility roifac = gateway.getFacility(ROIFacility.class);
 
     //To retrieve the image see above.
-
     ROIData data = new ROIData();
     data.setImage(image);
     //Create a rectangle.
@@ -693,9 +693,9 @@ to an image.
     EllipseData ellipse = new EllipseData(10, 10, 10, 10);
     ellipse.setZ(1);
     ellipse.setT(0);
-    % set angle of rotation
+    //set angle of rotation
     double theta = 10;
-    % create transform object
+    //create transform object
     AffineTransformI newTform = omero.model.AffineTransformI();
     newTform.setA00(omero.rtypes.rdouble(cos(theta)));
     newTform.setA10(omero.rypes.rdouble(-sin(theta)));
@@ -703,7 +703,7 @@ to an image.
     newTform.setA11(omero.rypes.rdouble(cos(theta)));
     newTform.setA02(omero.rypes.rdouble(0));
     newTform.setA12(omero.rypes.rdouble(0));
-    % add transform
+    //add transform
     ellipse.setTransform(newTform);
     data.addShapeData(ellipse);
 
