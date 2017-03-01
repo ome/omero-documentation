@@ -691,8 +691,7 @@ to an image.
 
     //Create an ellipse.
     EllipseData ellipse = new EllipseData(10, 10, 10, 10);
-    ellipse.setZ(1);
-    ellipse.setT(0);
+    //Not setting the Z and T for this shape object, this is also allowed in the model.
     //set angle of rotation
     double theta = 10;
     //create transform object
