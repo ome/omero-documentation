@@ -801,7 +801,7 @@ How to use OMERO tables
     % link table to an Image
     fa = omero.model.FileAnnotationI;
     fa.setFile(file);
-    % Currently OMERO.tables are displayed only in the web-client and 
+    % Currently OMERO.tables are displayed only in the OMERO.web and 
     % for Screen/plate/wells alone. In all cases the 
     % file annotation contains the following namespace.
     fa.setNs(rstring('NSBULKANNOTATIONS'));
@@ -928,7 +928,7 @@ attaches it to an image::
     newTform.setA12(rdouble(0));
     % apply transform
     ellipse.setTransform(newTform);
-    % Create the roi.
+    % Create the ROI
     roi = omero.model.RoiI;
     roi.addShape(ellipse);
     roi = session.getUpdateService().saveAndReturnObject(roi);
