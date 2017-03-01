@@ -1,6 +1,12 @@
 Event bus
 ---------
 
+.. note:: With the release of OMERO 5.3.0, the OMERO.insight desktop client
+    has entered **maintenance mode**, meaning it will only be updated if a
+    major bug is discovered. Instead, the OME team will be focusing on
+    developing the web clients. As a result, coding against this client is no
+    longer recommended.
+
 Interactions among agents are event-driven. Agents communicate by using
 a shared event bus provided by the container. The event bus is an event
 propagation mechanism loosely based on the
