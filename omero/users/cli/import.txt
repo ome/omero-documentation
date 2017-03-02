@@ -183,7 +183,7 @@ Advanced Import Commands
        $ bin/omero login --sudo owner -s servername -u username -g groupname
        $ bin/omero import image.tif
 
-    Some advanced import options are described in the :doc:`inplace_import`
+    Some advanced import options are described in the :doc:`in-place-import`
     section. Visit :doc:`sessions` to get a basic overview of how user sessions 
     are managed.
 
