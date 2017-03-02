@@ -391,4 +391,16 @@ be on the same file system. This option is much faster than `upload_rm`.
 Please read :ref:`inplace_import_ln_rm` carefully to ensure you fully
 understand the implications of using this option.
 
+For more information on OMERO.fs, please visit :doc:`/developers/ImportFS`.
+
 .. warning:: **Use at your own risk!**
+
+.. seealso:: 
+    
+    :doc:`/sysadmins/import-scenarios`
+
+    :doc:`/sysadmins/dropbox`
+
+    :doc:`/developers/ImportFS`
+    
+    :doc:`/users/cli/index`

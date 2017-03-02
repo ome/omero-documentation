@@ -133,6 +133,8 @@ their data in "their" directory which has special permissions for writing.
 The DropBox service monitors those directories for modifications and imports
 the files on a first-come-first-serve basis.
 
+* :doc:`/sysadmins/dropbox`
+
 Advantages
 """"""""""
 
@@ -177,6 +179,8 @@ In-place import
 
 The following sections outline :ref:`in-place <inplace_import>` based
 scenarios to help you judge if the functionality may be useful for you.
+
+* :doc:`/sysadmins/in-place-import`
 
 Common advantages
 ^^^^^^^^^^^^^^^^^
@@ -259,3 +263,14 @@ Disadvantages
 * This option is only available if the filesystem which DropBox watches is
   the same as the file system which the ManagedRepository lives on. This
   prevents the use of network file systems and similar remote shares.
+
+.. seealso:: 
+
+    :doc:`/sysadmins/in-place-import`
+
+    :doc:`/sysadmins/dropbox`
+
+    :doc:`/users/cli/import`
+
+    :doc:`/users/cli/import-target`
+
