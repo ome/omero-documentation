@@ -87,7 +87,7 @@ rst_epilog += """
 .. |Unsupported| image:: /images/unsupported.png
                   :alt: Unsupported
 .. |Upcoming| image:: /images/upcoming.png
-               :alt: /images/upcoming.png
+               :alt: Upcoming
 """ % (previousversion, conf_autogen.current_dbver,
        conf_autogen.previous_dbver)
 
