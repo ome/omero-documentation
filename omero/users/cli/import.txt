@@ -166,7 +166,7 @@ Advanced Import Commands
        $ bin/omero import image.tif -- --name=test --description=description
 
     The above command will import the image "image.tif" with the name "test" and with a
-    description: "description". Visit :doc:`container-annotations` to get a basic overview of how 
+    description: "description". Visit :doc:`containers-annotations` to get a basic overview of how 
     annotations can be created and linked to OMERO objects (an image, in this case).
 
 .. option:: --advanced-help
