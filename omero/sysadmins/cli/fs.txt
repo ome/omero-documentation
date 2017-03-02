@@ -33,11 +33,12 @@ The options available to this subcommand are:
 
     Display the help for this subcommand.
 
-.. option:: --style <{plain,csv,sql}>
+.. option:: --style <{plain,csv,json,sql}>
 
     This option determines the output style, tabular `sql` being the default as
     in the previous example. The `csv` style is comma-separated values with an
     initial header row, `plain` is the same as `csv` but without the header row.
+    `json` returns an array of JSON objects that can be piped to other tools.
 
 .. option:: --managed
 
@@ -83,7 +84,7 @@ The options available to this subcommand are:
 
     Display the help for this subcommand.
 
-.. option:: --style <{plain,csv,sql}>
+.. option:: --style <{plain,csv,json,sql}>
 
     See :option:`omero fs repos --style`.
 
@@ -167,7 +168,7 @@ The options available to this subcommand are:
 
     Display the help for this subcommand.
 
-.. option:: --style {plain,csv,sql}
+.. option:: --style {plain,csv,json,sql}
 
     See :option:`omero fs repos --style`.
 
@@ -304,7 +305,7 @@ The options available to this subcommand are:
 
     Display the help for this subcommand.
 
-.. option:: --style {plain,csv,sql}
+.. option:: --style {plain,csv,json,sql}
 
     See :option:`omero fs repos --style`.
 
