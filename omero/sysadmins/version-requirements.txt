@@ -81,11 +81,20 @@ Bitness
 -------
 
 Currently both client and server will work on 32- and 64-bit systems on all
-platforms with the exception of MacOS X (64-bit only).
+platforms **with the exception of MacOS X (64-bit only)**.
 
-* [5.3] |Deprecated| 32-bit support for Ice and native code [client]
-* [5.4] |Dropped| 32-bit support for Ice and native code [client]
+.. list-table::
+   :header-rows: 1
 
+   * - Bitness
+     - OMERO 5.3
+     - OMERO 5.4
+   * - 32-bit
+     - |Deprecated| for Ice and native code [client]
+     - |Dropped| for Ice and native code [client]
+   * - 64-bit
+     - |Supported|
+     - |Supported|
 
 Components
 ----------
@@ -124,17 +133,21 @@ Components
        :header-rows: 1
 
        * - Python
-         - OMERO 5.3
+         - OMERO.web 5.3
+         - OMERO.server 5.3
          - OMERO 5.4
        * - 2.6
-         - |Broken| OMERO.web/|Supported| OMERO.server
+         - |Broken|
+         - |Supported|
          - |Dropped|
        * - 2.7
          - |Recommended|
          - |Recommended|
+         - |Recommended|
        * - 3.x
-         - |Unsupported|
-         - |Unsupported|
+         - |Broken|
+         - |Broken|
+         - |Broken|
 
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
     6.x, however it is available officially via SCL. Note that 3.3 is
@@ -488,37 +501,37 @@ OMERO support policies
     * - 3.2
       - from Feb 2011
       - to Feb 2016
-      - |Unsupported|
-      - |Unsupported|
-      - |Unsupported|
+      - |Broken|
+      - |Broken|
+      - |Broken|
       - `Reference <http://legacy.python.org/dev/peps/pep-0392/>`__
     * - 3.3
       - from Sep 2012
       - to Sep 2017
-      - |Unsupported|
-      - |Unsupported|
-      - |Unsupported|
+      - |Broken|
+      - |Broken|
+      - |Broken|
       - `Reference <http://legacy.python.org/dev/peps/pep-0398/>`__
     * - 3.4
       - from Mar 2014
       - TBA
-      - |Unsupported|
-      - |Unsupported|
-      - |Unsupported|
+      - |Broken|
+      - |Broken|
+      - |Broken|
       - `Reference <http://legacy.python.org/dev/peps/pep-0429/>`__
     * - 3.5
       - from Sept 2015
       - TBA
-      - |Unsupported|
-      - |Unsupported|
-      - |Unsupported|
+      - |Broken|
+      - |Broken|
+      - |Broken|
       - `Reference <https://www.python.org/dev/peps/pep-0478>`__
     * - 3.6
       - from Dec 2016
       - TBA
-      - |Unsupported|
-      - |Unsupported|
-      - |Unsupported|
+      - |Broken|
+      - |Broken|
+      - |Broken|
       - `Reference <https://www.python.org/dev/peps/pep-0494/>`__
 
 Version provided by distribution
