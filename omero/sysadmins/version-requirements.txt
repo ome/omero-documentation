@@ -22,7 +22,8 @@ and ensure that prerequisites are in place ahead of time to ease
 future upgrades. The following sections provide more detailed
 information and the rationale for the changes.
 
-Please check the meaning of the various :ref:`terms <support-levels>` used in this page.
+Please check the meaning of the various :ref:`symbols <support-levels>` used
+on this page. Any system/component with a green tick symbol is supported.
 
 Operating systems
 -----------------
@@ -34,17 +35,43 @@ Operating systems
 
 * MacOS X
 
-  * MacOS X is typically suited only to client use, not serious server deployment, so limit testing accordingly.
+  * MacOS X is typically suited only to client use, not serious server
+    deployment, although the server can be expected to build on versions with
+    current security support for development purposes.
 
 * Linux (CentOS/RHEL)
 
-  * [5.3] 7.x recommended, 6.x deprecated
-  * [5.4] 7.x recommended, 6.x dropped
+  .. list-table::
+     :header-rows: 1
+
+     * - Linux version
+       - OMERO 5.3
+       - OMERO 5.4
+     * - 6.x
+       - |Deprecated|
+       - |Dropped|
+     * - 7.x
+       - |Recommended|
+       - |Recommended|
 
 * Linux (Ubuntu LTS)
 
-  * [5.3] 12.04 dropped, 14.04 supported, 16.04 recommended
-  * [5.4] 14.04 supported, 16.04 recommended
+  .. list-table::
+     :header-rows: 1
+
+     * - Linux version
+       - OMERO 5.3
+       - OMERO 5.4
+     * - 12.04
+       - |Dropped|
+       - |Dropped|
+     * - 14.04
+       - |Supported|
+       - |Supported|
+     * - 16.04
+       - |Recommended|
+       - |Recommended|
+       
   * Only LTS versions are supported and tested. Non-LTS versions
     following a supported LTS release are likely to work but are not
     officially supported or tested.
@@ -53,11 +80,11 @@ Operating systems
 Bitness
 -------
 
-Currently 32- and 64-bit systems are supported for client and server
-on all platforms with the exception of MacOS X (64-bit only).
+Currently both client and server will work on 32- and 64-bit systems on all
+platforms with the exception of MacOS X (64-bit only).
 
-* [5.3] Deprecate 32-bit support for Ice and native code [client]
-* [5.4] Drop 32-bit support for Ice and native code [client]
+* [5.3] |Deprecated| 32-bit support for Ice and native code [client]
+* [5.4] |Dropped| 32-bit support for Ice and native code [client]
 
 
 Components
@@ -65,16 +92,50 @@ Components
 
 * PostgreSQL
 
-  * [5.3] 9.2 dropped, 9.3 deprecated, 9.4 supported, 9.5 supported, 9.6 recommended
-  * [5.4] 9.3 dropped, 9.4 deprecated, 9.5 supported, 9.6 recommended
+  .. list-table::
+     :header-rows: 1
+
+     * - PostgreSQL
+       - OMERO 5.3
+       - OMERO 5.4
+     * - 9.2
+       - |Dropped|
+       - |Dropped|
+     * - 9.3
+       - |Deprecated|
+       - |Dropped|
+     * - 9.4
+       - |Supported|
+       - |Deprecated|
+     * - 9.5
+       - |Supported|
+       - |Supported|
+     * - 9.6
+       - |Recommended|
+       - |Recommended|
+
   * Rationale: Current releases available for all supported systems
     from upstream and for CentOS/RHEL 6.x officially via SCL (software
     collections).
 
 * Python
 
-  * [5.3] 2.6 dropped (OMERO.web only), 2.7 recommended, 3.x not supported
-  * [5.4] 2.6 dropped (OMERO.server), 2.7 recommended, 3.x not supported
+  .. list-table::
+       :header-rows: 1
+
+       * - Python
+         - OMERO 5.3
+         - OMERO 5.4
+       * - 2.6
+         - |Broken| OMERO.web/|Supported| OMERO.server
+         - |Dropped|
+       * - 2.7
+         - |Recommended|
+         - |Recommended|
+       * - 3.x
+         - |Unsupported|
+         - |Unsupported|
+
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
     6.x, however it is available officially via SCL. Note that 3.3 is
     also available via SCL, so there is potential for a 3.x migration
@@ -83,27 +144,73 @@ Components
 
 * Ice
 
-  * [5.3] 3.4 dropped, 3.5 deprecated, 3.6 recommended, 3.7 upcoming
-  * [5.4] 3.5 dropped, 3.6 supported, 3.7 upcoming
+  .. list-table::
+       :header-rows: 1
+
+       * - Ice
+         - OMERO 5.3
+         - OMERO 5.4
+       * - 3.4
+         - |Dropped|
+         - |Dropped|
+       * - 3.5
+         - |Deprecated|
+         - |Dropped|
+       * - 3.6
+         - |Recommended|
+         - |Supported|
+       * - 3.7
+         - |Upcoming|
+         - |Upcoming|
 
 * Java
 
-  * [5.3] 7 deprecated, 8 recommended, 9 upcoming
-  * [5.4] 7 deprecated, 8 supported, 9 recommended
+  .. list-table::
+       :header-rows: 1
+
+       * - Java
+         - OMERO 5.3
+         - OMERO 5.4
+       * - 7
+         - |Deprecated|
+         - |Deprecated|
+       * - 8
+         - |Recommended|
+         - |Supported|
+       * - 9
+         - |Upcoming|
+         - |Recommended|
+
   * Rationale: For 5.3 deprecate 7; this is because security support ended in April 2015.
     Currently, Matlab is shipped with Java 7 so it cannot be marked as dropped yet.
 
 * nginx
 
-  * [5.3] 1.4 dropped, 1.6 supported, 1.8 supported, 1.10 recommended
-  * [5.4] 1.6 supported, 1.8 supported, 1.10 recommended
+  .. list-table::
+       :header-rows: 1
+
+       * - nginx
+         - OMERO 5.3
+         - OMERO 5.4
+       * - 1.4
+         - |Dropped|
+         - |Dropped|
+       * - 1.6
+         - |Supported|
+         - |Supported|
+       * - 1.8
+         - |Supported|
+         - |Supported|
+       * - 1.10
+         - |Recommended|
+         - |Recommended|
 
 .. _support-levels:
 
 Support levels
 ==============
 
-The following sections use the terminology in the table below to
+The following table defines the symbols used throughout this page to
 describe the support status of a given component, as it progresses
 from being new and not supported, to supported and tested on a
 routine basis, and to finally being old and no longer supported
@@ -115,25 +222,25 @@ nor tested.
     * - Level
       - Meaning
       - Description
-    * - Upcoming
+    * - |Upcoming|
       - unsupported/new
       - New version not yet regularly tested and not officially supported; may or may not work (use at own risk)
-    * - Supported
+    * - |Supported|
       - supported/suboptimal
       - Version which is tested, confirmed to work correctly, but may not offer optimal performance/experience
-    * - Recommended
+    * - |Recommended|
       - supported/optimal
       - Version which is regularly tested, confirmed to work correctly, recommended for optimal performance/experience
-    * - Deprecated
+    * - |Deprecated|
       - supported/deprecated
       - Version which is less tested, expected to work correctly, but may not offer optimal performance/experience; official support may be dropped in the next major OMERO release
-    * - Dropped
+    * - |Dropped|
       - unsupported/old
       - Old version no longer tested and no longer officially supported; may or may not work (use at own risk)
-    * - Broken
+    * - |Broken|
       - unsupported/broken
       - Known to not work
-    * - Unsupported
+    * - |Unsupported|
       - unsupported/misc
       - Not supported for some reason other than the above
 
@@ -171,23 +278,23 @@ General overview for `RHEL
     * - 6
       - from Nov 2010
       - to Nov 2020
-      - Supported
-      - Deprecated
-      - Dropped
+      - |Supported|
+      - |Deprecated|
+      - |Dropped|
       - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 7
       - from June 2014
       - to June 2024
-      - Recommended
-      - Recommended
-      - Recommended
+      - |Recommended|
+      - |Recommended|
+      - |Recommended|
       - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
 RHEL, CentOS 6 and 7 are supported at present. Given the long life
 of enterprise releases, we intend to support only the latest release
 at any given time or else it ties us into very old dependencies; 6.x
 is already quite long in the tooth, however is in wide use and so will
-require supporting for 5.2 and for at least 5.3.0.
+require supporting at least 5.3.0.
 
 Linux (Ubuntu)
 --------------
@@ -206,15 +313,15 @@ Linux (Ubuntu)
     * - 14.04 LTS
       - from Apr 2014
       - to Apr 2019
-      - Recommended
-      - Supported
-      - Supported
+      - |Recommended|
+      - |Supported|
+      - |Supported|
     * - 16.04 LTS
       - from Apr 2016
       - to Apr 2021
-      - Recommended
-      - Recommended
-      - Recommended
+      - |Recommended|
+      - |Recommended|
+      - |Recommended|
 
 Only the LTS releases are supported due to resource limitations upon
 CI and testing. Only the last two LTS releases are supported (being a
@@ -275,27 +382,27 @@ OMERO support policies
     * - 9.3
       - from Sep 2013
       - to Sep 2018
-      - Deprecated
-      - Deprecated
-      - Dropped
+      - |Deprecated|
+      - |Deprecated|
+      - |Dropped|
     * - 9.4
       - from Dec 2014
       - to Dec 2019
-      - Supported
-      - Supported
-      - Deprecated
+      - |Supported|
+      - |Supported|
+      - |Deprecated|
     * - 9.5
       - from Jan 2016
       - to Jan 2021
-      - Unsupported
-      - Supported
-      - Supported
+      - |Unsupported|
+      - |Supported|
+      - |Supported|
     * - 9.6
       - from Sep 2016
       - to Sep 2021
-      - Unsupported
-      - Recommended
-      - Recommended
+      - |Unsupported|
+      - |Recommended|
+      - |Recommended|
     * - Details
       - 
       - `Reference <http://www.postgresql.org/support/versioning/>`__
@@ -367,51 +474,51 @@ OMERO support policies
     * - 2.6
       - from Oct 2008
       - to Oct 2013
-      - Deprecated
-      - Dropped (Web only)
-      - Dropped
+      - |Deprecated|
+      - |Dropped| (Web only)
+      - |Dropped|
       - `Reference <http://legacy.python.org/dev/peps/pep-0361/>`__
     * - 2.7
       - from Jul 2010
       - to 2020
-      - Recommended
-      - Recommended
-      - Recommended
+      - |Recommended|
+      - |Recommended|
+      - |Recommended|
       - `Reference <http://legacy.python.org/dev/peps/pep-0373/>`__
     * - 3.2
       - from Feb 2011
       - to Feb 2016
-      - Unsupported
-      - Unsupported
-      - Unsupported
+      - |Unsupported|
+      - |Unsupported|
+      - |Unsupported|
       - `Reference <http://legacy.python.org/dev/peps/pep-0392/>`__
     * - 3.3
       - from Sep 2012
       - to Sep 2017
-      - Unsupported
-      - Unsupported
-      - Unsupported
+      - |Unsupported|
+      - |Unsupported|
+      - |Unsupported|
       - `Reference <http://legacy.python.org/dev/peps/pep-0398/>`__
     * - 3.4
       - from Mar 2014
       - TBA
-      - Unsupported
-      - Unsupported
-      - Unsupported
+      - |Unsupported|
+      - |Unsupported|
+      - |Unsupported|
       - `Reference <http://legacy.python.org/dev/peps/pep-0429/>`__
     * - 3.5
       - from Sept 2015
       - TBA
-      - Unsupported
-      - Unsupported
-      - Unsupported
+      - |Unsupported|
+      - |Unsupported|
+      - |Unsupported|
       - `Reference <https://www.python.org/dev/peps/pep-0478>`__
     * - 3.6
       - from Dec 2016
       - TBA
-      - Unsupported
-      - Unsupported
-      - Unsupported
+      - |Unsupported|
+      - |Unsupported|
+      - |Unsupported|
       - `Reference <https://www.python.org/dev/peps/pep-0494/>`__
 
 Version provided by distribution
@@ -502,27 +609,27 @@ OMERO support policies
     * - 3.5
       - from Mar 2013
       - to Oct 2013
-      - Recommended
-      - Deprecated
-      - Dropped
+      - |Recommended|
+      - |Deprecated|
+      - |Dropped|
       - :zerocforum:`Ice 3.5 <announcements/6093-ice-3-5-0-released>`
         :zerocforum:`Ice 3.5.1 <announcements/6283-ice-3-5-1-released>`
     * - 3.6
       - from June 2015
       - to TBA
-      - Supported
-      - Recommended
-      - Supported
+      - |Supported|
+      - |Recommended|
+      - |Supported|
       - :zerocforum:`Ice 3.6.0 <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
-        :zerocforum:`Ice 3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>` (broken)
+        :zerocforum:`Ice 3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|
         :zerocforum:`Ice 3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`
         :zerocforum:`Ice 3.6.3 <announcements/46475-ice-ice-e-and-ice-touch-3-6-3-released>`
     * - 3.7
       - from TBA
       - to TBA
-      - Unsupported
-      - Upcoming
-      - Recommended
+      - |Unsupported|
+      - |Upcoming|
+      - |Recommended|
       -
 
 Version provided by distribution
@@ -579,23 +686,23 @@ OMERO support policies
     * - 7
       - from Jul 2011
       - to Apr 2015
-      - Deprecated
-      - Deprecated
-      - Dropped
+      - |Deprecated|
+      - |Deprecated|
+      - |Dropped|
       - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 8
       - from Mar 2014
       - to Mar 2017
-      - Recommended
-      - Recommended
-      - Supported
+      - |Recommended|
+      - |Recommended|
+      - |Supported|
       - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 9
       - TBA
       - TBA
-      - Unsupported
-      - Upcoming
-      - Recommended
+      - |Unsupported|
+      - |Upcoming|
+      - |Recommended|
       - 
 
 Version provided by distribution
@@ -655,27 +762,27 @@ OMERO support policies
     * - 1.4
       - from Apr 2013
       - to Mar 2014
-      - Deprecated
-      - Dropped
-      - Dropped
+      - |Deprecated|
+      - |Dropped|
+      - |Dropped|
     * - 1.6
       - from Apr 2014
       - to Apr 2015
-      - Supported
-      - Deprecated
-      - Dropped
+      - |Supported|
+      - |Deprecated|
+      - |Dropped|
     * - 1.8
       - from Apr 2015
       - to Jan 2016
-      - Supported
-      - Deprecated
-      - Dropped
+      - |Supported|
+      - |Deprecated|
+      - |Dropped|
     * - 1.10
       - from April 2016
       - TBA
-      - Recommended
-      - Recommended
-      - Supported
+      - |Recommended|
+      - |Recommended|
+      - |Supported|
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
