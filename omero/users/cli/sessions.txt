@@ -76,16 +76,16 @@ Some of the options available to the :program:`omero login` command are:
 
     Set the password to use for the connection.
 
-.. option:: --sudo ADMINUSER
+.. option:: --sudo ADMINUSER, —sudo GROUPOWNER
 
     Create a connection as another user.
 
     The sudo functionality is available to administrators as well as group
     owners::
 
-        $ bin/omero login --sudo root -s servername -u username
+        $ bin/omero login --sudo root -s servername -u username -g groupname
         Password for root:
-        $ bin/omero login --sudo owner -s servername -u username
+        $ bin/omero login --sudo owner -s servername -u username -g groupname
         Password for owner:
 
 Multiple sessions
