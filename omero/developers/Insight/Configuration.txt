@@ -1,6 +1,12 @@
 Configuration
 =============
 
+.. note:: With the release of OMERO 5.3.0, the OMERO.insight desktop client
+    has entered **maintenance mode**, meaning it will only be updated if a
+    major bug is discovered. Instead, the OME team will be focusing on
+    developing the web clients. As a result, coding against this client is no
+    longer recommended.
+
 The container provides a flexible and extensible configuration
 mechanism. Each agent has its own configuration file which is parsed at
 start-up by the container. The configuration entries in this file are
