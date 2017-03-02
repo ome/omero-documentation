@@ -7,6 +7,10 @@ a dedicated system user, and should be read in conjunction with
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
 
+This guide describes how to install the **recommended** versions, not all
+the supported versions.
+This should be read in conjunction with :doc:`../version-requirements`.
+
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
 
@@ -25,7 +29,7 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install Java 1.8, Ice 3.6 and PostgreSQL 9.4:
+Install Java 1.8, Ice 3.6 and PostgreSQL 9.6:
 
 To install Java 1.8 and other dependencies:
 
@@ -39,13 +43,13 @@ To install Ice 3.6:
     :start-after: #start-recommended-ice
     :end-before: #end-recommended-ice
 
-To install PostgreSQL 9.4 on Ubuntu 14.04:
+To install PostgreSQL 9.6 on Ubuntu 14.04:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
     :start-after: #end-supported-ice
     :end-before: #end-step01
 
-To install PostgreSQL 9.4 on Ubuntu 16.04:
+To install PostgreSQL 9.6 on Ubuntu 16.04:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #end-supported-ice
@@ -93,18 +97,32 @@ Configure:
     :start-after: #end-release-ice36
     :end-before: #end-step04
 
-Installing a web server
------------------------
+Installing Nginx
+----------------
 
 OMERO.web is deployed using Nginx see :doc:`install-web/install-nginx`.
 
 **The following steps are run as root.**
 
-Install Nginx 1.8, copy the Nginx OMERO configuration file into the
+Install the latest stable version of Nginx, copy the Nginx OMERO configuration file into the
 Nginx configuration directory, and disable the default configuration:
+
+To install the latest stable version on Ubuntu 14.04:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
     :start-after: #start-nginx
+    :end-before: #start-configure-nginx
+
+To install the latest stable version on Ubuntu 16.04:
+
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
+    :start-after: #start-nginx
+    :end-before: #start-configure-nginx
+
+Configure and start Nginx:
+
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
+    :start-after: #start-configure-nginx
     :end-before: #end-nginx
 
 Running OMERO
