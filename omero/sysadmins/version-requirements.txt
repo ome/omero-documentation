@@ -93,8 +93,8 @@ platforms **with the exception of MacOS X (64-bit only)**.
      - |Deprecated| for Ice and native code [client]
      - |Dropped| for Ice and native code [client]
    * - 64-bit
-     - |Supported|
-     - |Supported|
+     - |Recommended|
+     - |Recommended|
 
 Components
 ----------
@@ -625,18 +625,18 @@ OMERO support policies
       - |Recommended|
       - |Deprecated|
       - |Dropped|
-      - :zerocforum:`Ice 3.5 <announcements/6093-ice-3-5-0-released>`
-        :zerocforum:`Ice 3.5.1 <announcements/6283-ice-3-5-1-released>`
+      - :zerocforum:`3.5 <announcements/6093-ice-3-5-0-released>`
+        :zerocforum:`3.5.1 <announcements/6283-ice-3-5-1-released>`
     * - 3.6
       - from June 2015
       - to TBA
       - |Supported|
       - |Recommended|
       - |Supported|
-      - :zerocforum:`Ice 3.6.0 <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
-        :zerocforum:`Ice 3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|
-        :zerocforum:`Ice 3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`
-        :zerocforum:`Ice 3.6.3 <announcements/46475-ice-ice-e-and-ice-touch-3-6-3-released>`
+      - :zerocforum:`3.6.0, <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
+        (:zerocforum:`3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|)
+        :zerocforum:`3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`
+        :zerocforum:`3.6.3 <announcements/46475-ice-ice-e-and-ice-touch-3-6-3-released>`
     * - 3.7
       - from TBA
       - to TBA
