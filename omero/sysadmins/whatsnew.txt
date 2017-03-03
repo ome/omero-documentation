@@ -8,3 +8,6 @@ What's new for OMERO 5.3 for sysadmins
   Python packages.
 
 - All OMERO web apps can now be installed using ``pip install``.
+
+- Windows support discontinued, see :doc:`/sysadmins/windowsmigration`
+

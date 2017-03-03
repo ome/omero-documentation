@@ -1,0 +1,48 @@
+Migration from OMERO 5.2 on Windows to OMERO 5.3 on Linux
+=========================================================
+
+Backup (Windows)
+----------------
+
+- Create a dump of the OMERO SQL database, either using PGAdmin or the pg_dump
+  command line program.
+- Backup the OMERO data directory (e.g. C:\\OMERO ).
+
+
+Install OMERO 5.3 (Linux)
+-------------------------
+
+Follow the :doc:`/sysadmins/unix/server-installation` documentation to install
+OMERO 5.3 on your Linux system, until (including) step 3 of the Configuration
+part (setting the OMERO binary repository location)
+
+There is no need to generate the database initialization script, as you are
+going to use the previously generated database backup from your old 5.2 
+server installation
+
+
+Restore Data (Linux)
+--------------------
+
+- Restore the previously generated 5.2 database dump
+
+::
+
+     sudo -u postgres pg_restore -Fc -d omero_database omero52.pg_dump
+
+- Upgrade the database to 5.3 following
+  :doc:`/sysadmins/server-upgrade#upgrade-your-database` documentation
+
+- Adjust the paths stored in the database from Windows style to Unix style, 
+  e. g. using psql command line
+
+::
+
+    UPDATE pixels SET path = regexp_replace(path,'\\','/','g');
+
+- Copy the OMERO data directory from your Windows system (e.g. C:\\OMERO) over
+  to the Linux system (e.g. /OMERO).
+  
+- Finally startup OMERO server and check the log files for errors.
+
+
