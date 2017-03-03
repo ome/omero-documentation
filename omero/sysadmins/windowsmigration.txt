@@ -30,8 +30,7 @@ Restore Data (Linux)
 
      sudo -u postgres pg_restore -Fc -d omero_database omero52.pg_dump
 
-- Upgrade the database to 5.3 following
-  :doc:`/sysadmins/server-upgrade#upgrade-your-database` documentation
+- Upgrade the database to 5.3 following the :ref:`upgradedb` documentation
 
 - Adjust the paths stored in the database from Windows style to Unix style, 
   e. g. using psql command line
