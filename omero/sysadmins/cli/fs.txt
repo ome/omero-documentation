@@ -88,17 +88,17 @@ The options available to this subcommand are:
 
     See :option:`omero fs repos --style`.
 
-.. option:: --limit <LIMIT>
+.. option:: --limit LIMIT
 
     This option specifies the maximum number of return values, the default
     is 25.
 
-.. option:: --offset <OFFSET>
+.. option:: --offset OFFSET
 
     This option specifies the number of entries to skip before starting the
     listing, the default, 0, is to skip no entries.
 
-.. option:: --order <{newest,oldest,prefix}>
+.. option:: --order {newest,oldest,prefix}
 
     This option determines the order of the rows returned, `newest` is the
     default.
@@ -108,7 +108,7 @@ The options available to this subcommand are:
     This option lists only those filesets without images, these may be corrupt
     filesets.
 
-.. option:: --with-transfer <WITH_TRANSFER [WITH_TRANSFER ...]>
+.. option:: --with-transfer WITH_TRANSFER [WITH_TRANSFER ...]
 
     This option lists only those filesets imported using the given in-place
     import methods.
@@ -172,15 +172,15 @@ The options available to this subcommand are:
 
     See :option:`omero fs repos --style`.
 
-.. option:: --limit <LIMIT>
+.. option:: --limit LIMIT
 
     See :option:`omero fs sets --limit`.
 
-.. option:: --offset <OFFSET>
+.. option:: --offset OFFSET
 
     See :option:`omero fs sets --offset`
 
-.. option:: --order <{newest,oldest,prefix}>
+.. option:: --order {newest,oldest,prefix}
 
     See :option:`omero fs sets --order`.
 
