@@ -407,7 +407,7 @@ server that is is being used with. Any changes by
 developers to the database schema will result in
 a bump to this value.
 
-Default: `14`
+Default: `0`
 
 .. property:: omero.db.poolsize
 
@@ -492,7 +492,7 @@ of the server that it is being used with. Typically,
 only developers will change this version to bump
 to a new major version.
 
-Default: `OMERO5.3DEV`
+Default: `OMERO5.3`
 
 
 .. _grid_configuration:
@@ -551,9 +551,14 @@ omero.jvmcfg.append
 ^^^^^^^^^^^^^^^^^^^
 Contains other parameters which should be passed to the
 JVM. The value of "append" is treated as if it were on
-the command-line and so will be separated on whitespace.
+the command line so will be separated on whitespace.
 For example, '-XX:-PrintGC -XX:+UseCompressedOops' would
 results in two new arguments.
+Note that when using `config set` from the command line
+one may need to give a prior `--` option to prevent a value
+starting with `-` from already being parsed as an option,
+and values may need quoting to prevent whitespace or other
+significant characters from being interpreted prematurely.
 
 Default: `[empty]`
 
@@ -1562,7 +1567,8 @@ ome.model.containers.Project,
 ome.model.containers.Dataset,
 ome.model.screen.Plate,
 ome.model.screen.Screen,
-ome.model.screen.PlateAcquisition`
+ome.model.screen.PlateAcquisition,
+ome.model.screen.Well`
 
 .. property:: omero.search.locking_strategy
 
@@ -1875,7 +1881,7 @@ Default: `weblogin`
 
 omero.web.open_with
 ^^^^^^^^^^^^^^^^^^^
-A list of viewers that can be used to display selected Images or other objects. Each viewer is defined as ``["Name", "url", options]``. Url is reverse(url). Selected objects are added to the url as ?image=:1&image=2Objects supported must be specified in options withE.g. ``{"supported_objects":["images"]}`` to enable viewer for one or more images, ``{"target":"_blank"}`` to open in new tab.
+A list of viewers that can be used to display selected Images or other objects. Each viewer is defined as ``["Name", "url", options]``. Url is reverse(url). Selected objects are added to the url as ?image=:1&image=2Objects supported must be specified in options withE.g. ``{"supported_objects":["images"]}`` to enable viewer for one or more images.
 
 Default: `[["Image viewer", "webindex", {"supported_objects": ["image"],"script_url": "webclient/javascript/ome.openwith_viewer.js"}]]`
 
