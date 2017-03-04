@@ -1,8 +1,20 @@
+TRIAL: OMERO.web walkthrough installation Mac OS X and IcePy 3.6
+================================================================
 
-OMERO.web walkthrough installation
-==================================
+
+For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively source the following file::
+    
+    OMERO_USER=
+    OMEROVER=OMERO-DEV-latest
+    WEBSESSION=
+    WEBPREFIX=
+    WEBPORT=80
+    WEBSERVER_NAME=localhost
 
 Install Homebrew in /usr/local::
+    
+    xcode-select --install
+    
     
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     
@@ -14,36 +26,28 @@ Install Homebrew in /usr/local::
 
 Install other dependences::
     
-    brew install python
-    
+    brew install python 
     pip install virtualenv
 
 
-Generate VirtualEnv::
+Install and generate VirtualEnv (run as )::
     
     virtualenv ~/omerowebvenv 
-    
-    set +u
     source ~/omerowebvenv/bin/activate
-    set -u
     
     pip install omego
-    ~/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-breaking-build" py
+    ~/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-latest" py
     
     zip=$(ls OMERO.py*.zip)
     zipname=${zip%.zip}
     rm -f $zip
-    if [ ! -d "~/OMERO.py" ]; then
-        mv $(find . -name 'OMERO.py*' -type d) ~/OMERO.py
-    fi
+    mv $(find . -name 'OMERO.py*' -type d) ~/OMERO.py
     
     pip install -r ~/OMERO.py/share/web/requirements-py27-trial.txt
 
-Configure OMERO.web and generate nginx template::
+Configure OMERO.web and generate nginx template (run as )::
     
-    set +u
     source ~/omerowebvenv/bin/activate
-    set -u
     
     if [[ $WEBPREFIX = *[!\ ]* ]]; then
         ~/OMERO.py/bin/omero config set omero.web.prefix "${WEBPREFIX}"
@@ -63,5 +67,6 @@ Install NGINX::
     
     # Restart webserver
     brew services restart nginx
+
 
 
