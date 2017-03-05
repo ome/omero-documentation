@@ -313,8 +313,8 @@ wrong. See :ref:`search-failures` for more details.
 OMERO.web issues
 ----------------
 
-OMERO.web and Apache (deprecated)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OMERO.web and Apache (dropped)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Do not enable mod_python and mod_wsgi in the same apache process.
 mod_wsgi will deadlock if run in daemon mode while mod_python is enabled
