@@ -128,7 +128,7 @@ OMERO.web maintenance
           $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400"}}'
 
 .. note::
-    The generated Nginx and Apache configuration files will automatically
+    The generated Nginx configuration file will automatically
     display a maintenance page if an attempt is made to access OMERO.web whilst
     it is not running.
 
@@ -150,7 +150,7 @@ This can be changed by setting :property:`omero.web.prefix` and
 
 and regenerate your web-server configuration (see :ref:`omero_web_deployment`).
 
-The front-end webserver (Nginx, Apache) can be setup to run on a different
+The front-end webserver e.g. Nginx can be setup to run on a different
 host from OMERO.web. You will need to set
 :property:`omero.web.application_server.host` to ensure OMERO.web is
 accessible on an external IP.
@@ -165,14 +165,13 @@ All configuration options can be found on various sections of
 
 .. Note:: Depending on the deployment choice, OMERO.web will not activate
     configuration changes until either gunicorn is restarted using
-    ``bin/omero web restart`` (nginx) or the Apache webserver has been
-    reloaded.
+    ``bin/omero web restart`` (nginx).
 
 The most popular configuration options include:
 
 -  Debug mode, see :property:`omero.web.debug`.
 
--  Customizing OMERO clients e.g to add your own logo to the login page
+-  Customizing OMERO clients e.g. to add your own logo to the login page
    (:property:`omero.web.login_logo`) or use an index page as an alternative
    landing page for users (:property:`omero.web.index_template`). See
    :doc:`/sysadmins/customization` for further information.
