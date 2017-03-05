@@ -6,7 +6,7 @@ The sections below describe how to set up these features.
 
 Note that depending on the deployment choice, OMERO.web will not activate
 configuration changes until either gunicorn is restarted using ``bin/omero web
-restart`` (nginx) or the Apache webserver has been reloaded.
+restart`` (nginx).
 
 Index page
 ----------
@@ -60,12 +60,12 @@ Group and Users in dropdown menu
 Customize the groups and users dropdown menu by changing the labels or hiding
 the entire list::
 
-    $ bin/omero config set omero.client.ui.menu.dropdown.leaders "Owners"
+    $ bin/omero config set omero.client.ui.menu.dropdown.leaders.label "Owners"
+    $ bin/omero config set omero.client.ui.menu.dropdown.leaders.enabled true
+    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.label "Members"
     $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.enabled true
-    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues "Members"
-    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.enabled true
-    $ bin/omero config set omero.client.ui.menu.dropdown.all "All Members"
-    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.enabled true
+    $ bin/omero config set omero.client.ui.menu.dropdown.everyone.label "All Members"
+    $ bin/omero config set omero.client.ui.menu.dropdown.everyone.enabled true
 
 .. figure:: /images/dropdownMenu.png
 
