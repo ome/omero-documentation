@@ -163,22 +163,22 @@ Advanced Import Commands
 
     Java options can be passed after ``--``, e.g.::
 
-       $ bin/omero import image.tif -- --name=test --description=description
+       $ bin/omero import image.tif -- --name=test --description=TestDescription
 
-    The above command will import the image "image.tif" with the name "test" and with a
-    description: "description". Visit :doc:`containers-annotations` to get a basic overview of how 
-    annotations can be created and linked to OMERO objects (an image, in this case).
+    The above command will import the image "image.tif" with the name "test" within OMERO and with a
+    description: "TestDescription". Visit :doc:`containers-annotations` to get a basic overview of how 
+    annotations can be created and linked to OMERO objects (object being an image, in this case).
 
 .. option:: --advanced-help
 
     Display the advanced help for the import command, e.g.
 
-    As a OMERO-administrator, to import images for other users, use::
+    As a OMERO administrator, to import images for other users, use::
 
        $ bin/omero login --sudo root -s servername -u username -g groupname
        $ bin/omero import image.tif
 
-    As a OMERO-group owner, to import images for others, use::
+    As a OMERO group owner, to import images for others, use::
 
        $ bin/omero login --sudo owner -s servername -u username -g groupname
        $ bin/omero import image.tif
