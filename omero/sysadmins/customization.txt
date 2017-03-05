@@ -48,10 +48,19 @@ Top links menu
 
 :property:`omero.web.ui.top_links` adds links to the top header::
 
-    $ bin/omero config append omero.web.ui.top_links '["Figure", "webfigure"]'
+    $ bin/omero config append omero.web.ui.top_links '["Figure", "figure_index",
+      {"title": "Open Figure in new tab", "target": "_blank"}]'
     $ bin/omero config set omero.web.ui.top_links '["GRE", "http://lifesci.dundee.ac.uk/gre"]'
 
 .. figure:: /images/topLink.png
+
+Open With option
+----------------
+
+:property:`omero.web.open_with` adds entry to the Open with right-click menu in tree::
+
+    $ bin/omero config append omero.web.open_with '["omero_figure", "new_figure",
+      {"supported_objects":["images"], "target": "_blank", "label": "OMERO.figure"}]'
 
 
 Group and Users in dropdown menu
