@@ -160,92 +160,55 @@ Benchmark
 We run example benchmarks on rendering thumbnails and 512x512 pixels planes
 for 100 concurrent users making 5000 requests in total::
 
-    $ ab -n 5000 -c 100 https://server.openmicroscopy.org/omero/webclient/render_thumbnail/size/96/1234/
-    This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+    $ ab -n 5000 -c 100 https://server.openmicroscopy.org/omero/webclient/render_thumbnail/1234/
+    This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
     Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
     Licensed to The Apache Software Foundation, http://www.apache.org/
 
-    Server Software:        nginx/1.9.9
+    Benchmarking idr-testing.openmicroscopy.org (be patient)
+    Completed 100 requests
+    Completed 200 requests
+    Completed 300 requests
+    Completed 400 requests
+    Completed 500 requests
+    Finished 500 requests
+
+
+    Server Software:        nginx/1.11.10
     Server Hostname:        server.openmicroscopy.org
     Server Port:            80
 
-    Document Path:          /omero/webclient/render_thumbnail/size/96/31851/
-    Document Length:        1880 bytes
+    Document Path:          /omero/webclient/render_thumbnail/1234/
+    Document Length:        4405 bytes
 
-    Concurrency Level:      100
-    Time taken for tests:   224.488 seconds
-    Complete requests:      5000
+    Concurrency Level:      20
+    Time taken for tests:   17.904 seconds
+    Complete requests:      500
     Failed requests:        0
-    Write errors:           0
-    Total transferred:      10450000 bytes
-    HTML transferred:       9400000 bytes
-    Requests per second:    22.27 [#/sec] (mean)
-    Time per request:       4489.763 [ms] (mean)
-    Time per request:       44.898 [ms] (mean, across all concurrent requests)
-    Transfer rate:          45.46 [Kbytes/sec] received
+    Total transferred:      2271500 bytes
+    HTML transferred:       2202500 bytes
+    Requests per second:    27.93 [#/sec] (mean)
+    Time per request:       716.144 [ms] (mean)
+    Time per request:       35.807 [ms] (mean, across all concurrent requests)
+    Transfer rate:          123.90 [Kbytes/sec] received
 
     Connection Times (ms)
                   min  mean[+/-sd] median   max
-    Connect:        0    0   0.3      0       3
-    Processing:   435 4446 685.2   4363    7644
-    Waiting:      432 4446 685.3   4362    7644
-    Total:        435 4446 685.1   4363    7644
+    Connect:       45   49   4.3     48      83
+    Processing:   245  650 113.4    620    1167
+    Waiting:      244  649 113.4    620    1167
+    Total:        294  699 113.0    670    1214
 
     Percentage of the requests served within a certain time (ms)
-      50%   4363
-      66%   4553
-      75%   4670
-      80%   4750
-      90%   5072
-      95%   5398
-      98%   6795
-      99%   6955
-     100%   7644 (longest request)
-
-
-::
-
-    $ ab -n 5000 -c 100 http://server.openmicroscopy.org/omero/webclient/render_image/1234/20/0/
-    This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
-    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-    Licensed to The Apache Software Foundation, http://www.apache.org/
-
-    Server Software:        nginx/1.9.9
-    Server Hostname:        server.openmicroscopy.org
-    Server Port:            80
-
-    Document Path:          /omero/webclient/render_image/1234/20/0/
-    Document Length:        24293 bytes
-
-    Concurrency Level:      100
-    Time taken for tests:   247.154 seconds
-    Complete requests:      5000
-    Failed requests:        0
-    Write errors:           0
-    Total transferred:      122515000 bytes
-    HTML transferred:       121465000 bytes
-    Requests per second:    20.23 [#/sec] (mean)
-    Time per request:       4943.080 [ms] (mean)
-    Time per request:       49.431 [ms] (mean, across all concurrent requests)
-    Transfer rate:          484.09 [Kbytes/sec] received
-
-    Connection Times (ms)
-                  min  mean[+/-sd] median   max
-    Connect:        0    0   0.4      0       4
-    Processing:   482 4898 855.3   4737    8303
-    Waiting:      476 4898 855.3   4737    8303
-    Total:        482 4898 855.2   4737    8303
-
-    Percentage of the requests served within a certain time (ms)
-      50%   4737
-      66%   5041
-      75%   5250
-      80%   5397
-      90%   5862
-      95%   6621
-      98%   7301
-      99%   8062
-     100%   8303 (longest request)
+      50%    670
+      66%    698
+      75%    737
+      80%    754
+      90%    814
+      95%    951
+      98%   1070
+      99%   1080
+     100%   1214 (longest request)
 
 
 .. _nginx_troubleshooting:
