@@ -73,6 +73,11 @@ to access the OMERO.webclient:
 OMERO.web maintenance
 ---------------------
 
+If an attempt is made to access OMERO.web whilst
+it is not running, the generated Nginx configuration file will automatically
+display a maintenance page.
+ 
+
 -  Session cookies :property:`omero.web.session_expire_at_browser_close`:
 
    -  A boolean that determines whether to expire the session when the user
@@ -126,11 +131,6 @@ OMERO.web maintenance
       - DEPRECATED: `Memcached <https://memcached.org/>`_::
 
           $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400"}}'
-
-.. note::
-    The generated Nginx configuration file will automatically
-    display a maintenance page if an attempt is made to access OMERO.web whilst
-    it is not running.
 
 
 .. _customizing_your_omero_web_installation:
