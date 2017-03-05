@@ -35,7 +35,7 @@ Prerequisites
    `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
 
 
-Install the above OMERO.web dependences using the package management tools:
+Install the above OMERO.web dependencies using the package management tools:
 
 Virtualenv is an optional step:
 
