@@ -138,6 +138,11 @@ OMERO.web maintenance
 Customizing your OMERO.web installation
 ---------------------------------------
 
+OMERO.web offers a number of configuration options.
+Depending on the deployment choice, OMERO.web will not activate
+configuration changes until either gunicorn is restarted using
+``bin/omero web restart`` (nginx).
+
 By default OMERO.web expects to be run from the root URL of the web server.
 This can be changed by setting :property:`omero.web.prefix` and
 :property:`omero.web.static_url`. For example, to make OMERO.web appear at
@@ -162,10 +167,6 @@ All configuration options can be found on various sections of
 ::
 
 	$ bin/omero web -h
-
-.. Note:: Depending on the deployment choice, OMERO.web will not activate
-    configuration changes until either gunicorn is restarted using
-    ``bin/omero web restart`` (nginx).
 
 The most popular configuration options include:
 
