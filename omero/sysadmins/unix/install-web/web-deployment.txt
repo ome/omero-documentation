@@ -113,7 +113,7 @@ set to the following config::
    }
 
 To configure an HTTPS server follow
-`the nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
+`the Nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
 
 
 .. note::
@@ -291,8 +291,8 @@ using :property:`omero.web.wsgi_args`:
     $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.server/var/log/error.log".
 
 
-EXPERIMENTAL: Gunicorn advanced configuration
----------------------------------------------
+Gunicorn advanced configuration
+-------------------------------
 
 .. note:: Experimental configurations are not ready for production use.
     Configuration may change. Features may not work properly.
@@ -308,11 +308,8 @@ For more details refer to
 `Gunicorn design <http://docs.gunicorn.org/en/stable/design.html>`_.
 
 
-EXPERIMENTAL: Sync workers
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. note:: Experimental configurations are not ready for production use.
-    Configuration may change. Features may not work properly.
+Sync workers
+^^^^^^^^^^^^
 
 
 - Install `futures <https://pypi.python.org/pypi/futures>`_ ::
@@ -329,12 +326,8 @@ Additional settings can be configured by changing the following properties:
 
 .. _async_workers:
 
-EXPERIMENTAL: Async workers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. note:: Experimental configurations are not ready for production use.
-    Configuration may change. Features may not work properly.
-
+Async workers
+^^^^^^^^^^^^^
 
 - Install `Gevent >= 0.13 <http://www.gevent.org/>`_ ::
 
