@@ -48,8 +48,7 @@ Top links menu
 
 :property:`omero.web.ui.top_links` adds links to the top header::
 
-    $ bin/omero config append omero.web.ui.top_links '["Figure", "figure_index",
-      {"title": "Open Figure in new tab", "target": "_blank"}]'
+    $ bin/omero config append omero.web.ui.top_links '["Figure", "figure_index", {"title": "Open Figure in new tab", "target": "_blank"}]'
     $ bin/omero config set omero.web.ui.top_links '["GRE", "http://lifesci.dundee.ac.uk/gre"]'
 
 .. figure:: /images/topLink.png
