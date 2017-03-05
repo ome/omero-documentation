@@ -241,8 +241,8 @@ using :property:`omero.web.wsgi_args`:
 
 .. _gunicorn_advance_configuration:
 
-Gunicorn advanced configuration
--------------------------------
+EXPERIMENTAL: Gunicorn advanced configuration
+---------------------------------------------
 
 OMERO.web deployment can be configured with sync and async workers.
 Sync workers are faster and recommended for a data repository with
@@ -256,8 +256,8 @@ For more details refer to
 
 .. _gunicorn_sync_configuration:
 
-Sync workers
-^^^^^^^^^^^^
+EXPERIMENTAL: Sync workers
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Install `futures <https://pypi.python.org/pypi/futures>`_ ::
 
@@ -274,8 +274,8 @@ Additional settings can be configured by changing the following properties:
 
 .. _gunicorn_async_configuration:
 
-Async workers
-^^^^^^^^^^^^^
+EXPERIMENTAL: Async workers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Install `Gevent >= 0.13 <http://www.gevent.org/>`_ ::
 
