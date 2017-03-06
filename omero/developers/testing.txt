@@ -568,11 +568,11 @@ New clients can be instantiated by individual tests using the
           ec = new_client.getSession().getAdminService().getEventContext()
           assert ec, "No EventContext!"
 
-Images can be imported using the ``ITest.importSingleImage()`` or
-``ITest.importSingleImageWithCompanion()`` or ``ITest.importMIF()`` methods::
+Images can be imported using the ``ITest.import_fake_file()`` method::
 
-      def testImportMIF():
-          images = self.importMIF(2)
+      def testFileset():
+          # 2 images sharing a fileset
+          images = self.import_fake_file(2)
           assert len(images) == 2
 
 Writing OMERO.web tests
