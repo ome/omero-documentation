@@ -802,7 +802,7 @@ How to use OMERO tables
     fa = omero.model.FileAnnotationI;
     fa.setFile(file);
     % Currently OMERO.tables are displayed only in OMERO.web and 
-    % for Screen/plate/wells alone.In all cases the file annotation
+    % for Screen/plate/wells alone. In all cases the file annotation
     % needs to contain a namespace.
     fa.setNs(rstring('NSBULKANNOTATIONS'));
     link = linkAnnotation(session, fa, 'image', imageId);
