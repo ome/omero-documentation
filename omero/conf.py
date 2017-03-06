@@ -144,4 +144,5 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     r'.*[.]?example\.com/.*',
     r'https://spreadsheets.google.com/.*']
 
-exclude_patterns = ['sysadmins/unix/walkthrough/requirements*']
+exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
+                    'downloads/inplace', 'downloads/cli']
