@@ -50,7 +50,7 @@ Restore Data (Linux)
 
 - Copy the OMERO data directory from your Windows system (e.g. :file:`C:\\OMERO`) over
   to the Linux system (e.g. :file:`/OMERO`), or if you use a network storage
-  system, mount it onto the Linux system (**make sure you have a backup beforehand**)
+  system then mount it onto the Linux system (**make sure you have a backup beforehand**)
 
 - Restore custom configuration properties (see Backup step 3)::
 
