@@ -6,8 +6,20 @@ Backup (Windows)
 
 - Create a dump of the OMERO SQL database, either using
   `pgAdmin <https://www.pgadmin.org/>`_ or the :command:`pg_dump` command line
-  program.
-- Backup the OMERO data directory (e.g. :file:`C:\\OMERO`).
+  program::
+
+    pg_dump -Fc -f omero52.pg_dump omero_database
+
+- Please keep a pristine copy of your Windows OMERO server, until you are
+  sure that the new 5.3 installation works flawlessly. That means
+  if you use a network storage system for hosting the OMERO data directory,
+  back it up before mounting it onto the new Linux system.
+
+- Note custom configuration properties you might have set::
+
+    omero config get
+
+- See also :doc:`/sysadmins/server-backup-and-restore`.
 
 
 Install OMERO 5.3 (Linux)
@@ -25,7 +37,7 @@ server installation.
 Restore Data (Linux)
 --------------------
 
-- Restore the previously generated 5.2 database dump::
+- Restore the 5.2 database dump::
 
      sudo -u postgres pg_restore -Fc -d omero_database omero52.pg_dump
 
@@ -37,7 +49,12 @@ Restore Data (Linux)
     UPDATE pixels SET path = regexp_replace(path,'\\','/','g');
 
 - Copy the OMERO data directory from your Windows system (e.g. :file:`C:\\OMERO`) over
-  to the Linux system (e.g. :file:`/OMERO`).
+  to the Linux system (e.g. :file:`/OMERO`), or if you use a network storage
+  system, mount it onto the Linux system (**make sure you have a backup beforehand**)
+
+- Restore custom configuration properties (see Backup step 3)::
+
+    omero config set ...
 
 
 Finally start the OMERO server and check the log files for errors.
