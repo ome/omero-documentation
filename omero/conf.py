@@ -143,3 +143,5 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     r'https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
     r'https://spreadsheets.google.com/.*']
+
+exclude_patterns = ['sysadmins/unix/walkthrough/requirements*']

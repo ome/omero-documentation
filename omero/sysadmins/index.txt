@@ -43,15 +43,6 @@ series of commands.
     unix/install-web
     advanced-install
 
-.. toctree::
-    :maxdepth: 2
-    :hidden:
-
-    unix/walkthrough/requirements
-    unix/walkthrough/requirements_centos6
-    unix/walkthrough/requirements_centos6_py27
-    unix/walkthrough/requirements_centos6_py27_ius
-
 ********************************
 Server Maintenance and Upgrading
 ********************************
