@@ -328,7 +328,7 @@ Servers
 
 With the |OmeroGrid| infrastructure, it is
 possible to have your own processes managed by the OMERO infrastructure.
-For example, at some sites, `Nginx <http://wiki.nginx.org/Main>`_ is
+For example, at some sites, `Nginx <https://www.nginx.com/resources/wiki/>`_ is
 started to host |OmeroWeb|. Better integration is
 possible however, if your server also uses the Ice_ remoting framework.
 
