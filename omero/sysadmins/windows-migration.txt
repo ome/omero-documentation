@@ -11,15 +11,17 @@ Backup (Windows)
     pg_dump -Fc -f omero52.pg_dump omero_database
 
 - Please keep a pristine copy of your Windows OMERO server, until you are
-  sure that the new 5.3 installation works flawlessly. That means
-  if you use a network storage system for hosting the OMERO data directory,
-  back it up before mounting it onto the new Linux system.
+  sure that the new 5.3 installation works flawlessly. That means if you use
+  a network storage system for hosting the 
+  :doc:`binary data store <unix/server-binary-repository>`, back it up before
+  mounting it onto the new Linux system.
 
-- Note custom configuration properties you might have set::
+- Save custom configuration properties which might have been set::
 
-    omero config get
+    omero config get > omero.config
 
-- See also :doc:`/sysadmins/server-backup-and-restore`.
+- For more details on the standard backup procedure, 
+  see :doc:`/sysadmins/server-backup-and-restore`.
 
 
 Install OMERO 5.3 (Linux)
@@ -27,7 +29,7 @@ Install OMERO 5.3 (Linux)
 
 Follow the :doc:`/sysadmins/unix/server-installation` documentation to install
 OMERO 5.3 on your Linux system, until (including) step 3 of the Configuration
-part (setting the OMERO binary repository location).
+part (setting the binary repository location).
 
 There is no need to generate the database initialization script, as you are
 going to use the previously generated database backup from your old 5.2 
@@ -48,13 +50,14 @@ Restore Data (Linux)
 
     UPDATE pixels SET path = regexp_replace(path,'\\','/','g');
 
-- Copy the OMERO data directory from your Windows system (e.g. :file:`C:\\OMERO`) over
-  to the Linux system (e.g. :file:`/OMERO`), or if you use a network storage
-  system then mount it onto the Linux system (**make sure you have a backup beforehand**)
+- Copy the :doc:`binary data store <unix/server-binary-repository>` from your
+  Windows system (e.g. :file:`C:\\OMERO`) over to the Linux system 
+  (e.g. :file:`/OMERO`), or if you use a network storage system then mount it
+  onto the Linux system (**make sure you have a backup beforehand**)
 
 - Restore custom configuration properties (see Backup step 3)::
 
-    omero config set ...
+    omero config load omero.config
 
 
 Finally start the OMERO server and check the log files for errors.
