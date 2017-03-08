@@ -253,6 +253,8 @@ This is useful when you need for example the pixels intensity.
         }
     }
 
+    rdf.close();
+
 -  **Retrieve a given stack.**
 
 This is useful when you need the pixels intensity.
