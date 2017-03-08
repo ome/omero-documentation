@@ -203,6 +203,8 @@ directory, you are safe to follow the following upgrade procedure:
     ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice
     version and build number of OMERO.server.
 
+.. _upgradedb:
+
 Upgrade your database
 ^^^^^^^^^^^^^^^^^^^^^
 
