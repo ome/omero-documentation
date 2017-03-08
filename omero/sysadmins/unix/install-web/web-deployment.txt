@@ -8,7 +8,7 @@ includes the ability to manage users and groups.
 
 Deploying OMERO.web separately from OMERO.server is recommended as they
 perform best under different circumstances and require a different set of
-dependencies. This guide uses the example of deploying with nginx and
+dependencies. This guide uses the example of deploying with Nginx and
 gunicorn.
 
 Prerequisites
@@ -80,7 +80,7 @@ Additional settings can be configured by changing the following properties:
 Nginx configuration
 -------------------
 
-If you have installed Nginx, OMERO can automatically generate a
+OMERO can automatically generate a
 configuration file for your web server. The location of the file
 will depend on your system, please refer to your web server's manual.
 See :ref:`customizing_your_omero_web_installation`
@@ -257,8 +257,8 @@ using :property:`omero.web.wsgi_args`:
 EXPERIMENTAL: Gunicorn advanced configuration
 ---------------------------------------------
 
-.. note:: Experimental configurations are not ready for production use.
-    Configuration may change. Features may not work properly.
+.. note:: The following configuration options have yet to be extensively tested in a
+          production environment, use at your own risk.
 
 
 OMERO.web deployment can be configured with sync and async workers.
@@ -273,7 +273,6 @@ For more details refer to
 
 EXPERIMENTAL: Sync workers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
 - Install `futures <https://pypi.python.org/pypi/futures>`_ ::
 
