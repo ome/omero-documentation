@@ -345,7 +345,7 @@ Make sure :property:`omero.web.application_server` is set to the following:
 OMERO.web did not start
 ^^^^^^^^^^^^^^^^^^^^^^^
 
--  If the Apache error logs contain lines of type
+-  **(Dropped)** If the Apache error logs contain lines of type
    ``Permission denied: access to xxx denied``, you need to check the
    permissions of the folder and make sure it is readable and executable by
    the Apache user.
