@@ -35,15 +35,15 @@ Prerequisites
    `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
 
 
-Install the above OMERO.web dependencies using the package management tools:
-
-Virtualenv is an optional step:
+If you wish to install the dependencies in a virtual environment, you will
+first have to create one and activate it. This step is optional:
 
 ::
 
    $ virtualenv omeroweb
    $ source omeroweb/bin/activate
 
+Install the OMERO.web dependencies using the package management tools:
 
 ::
 
@@ -52,8 +52,8 @@ Virtualenv is an optional step:
    2016-08-24 16:20:14,252 [omego.artifa] INFO  Checking http://downloads.openmicroscopy.org/omero/5.2.5/./artifacts/OMERO.py-5.3.0-ice36-b29.zip
    2016-08-24 16:20:14,252 [omego.fileut] INFO  Downloading http://downloads.openmicroscopy.org/omero/5.2.5/./artifacts/OMERO.py-5.3.0-ice36-b29.zip
    2016-08-24 16:20:14,514 [omego.artifa] INFO  Unzipping OMERO.py-5.3.0-ice36-b29.zip
-  $ ln -s `pwd`/OMERO.py-5.2.5-ice36-b28 `pwd`/OMERO.py
-  $ pip install -r OMERO.py/share/web/requirements-py27-trial.txt
+   $ ln -s `pwd`/OMERO.py-5.2.5-ice36-b28 `pwd`/OMERO.py
+   $ pip install -r OMERO.py/share/web/requirements-py27-trial.txt
 
 
 .. note:: For more details refer to
