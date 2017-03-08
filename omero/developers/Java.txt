@@ -681,13 +681,16 @@ to an image.
     PixelsData pixels = image.getDefaultPixels();
     long pixelsId = pixels.getId();
     RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
-    store.setPixelsId(pixelsId, false);
-    byte[] mask = store.getStack(0, 0);
-    MaskData maskData = new MaskData(10, 10, 100.0, 100.0, mask);
-    maskData.setZ(0);
-    maskData.setT(0);
-    data.addShapeData(maskData);
-    store.close();
+    try {
+        store.setPixelsId(pixelsId, false);
+        byte[] mask = store.getStack(0, 0);
+        MaskData maskData = new MaskData(10, 10, 100.0, 100.0, mask);
+        maskData.setZ(0);
+        maskData.setT(0);
+        data.addShapeData(maskData);
+    } finally {
+        store.close();
+    }
 
     //Create an ellipse.
     EllipseData ellipse = new EllipseData(10, 10, 10, 10);
@@ -853,17 +856,20 @@ Render Images
 -  **Retrieve thumbnails.**
 
 ::
-
+    
     ThumbnailStorePrx store = gateway.getThumbnailService(ctx);
-    PixelsData pixels = image.getDefaultPixels();
-    store.setPixelsId(pixels.getId())
-    //retrieve a 96x96 thumbnail.
-    byte[] array = store.getThumbnail(
-            omero.rtypes.rint(96), omero.rtypes.rint(96));
-    ByteArrayInputStream stream = new ByteArrayInputStream(array);
-    //Create a buffered image to display
-    ImageIO.read(stream);
-    store.close();
+    try {
+        PixelsData pixels = image.getDefaultPixels();
+        store.setPixelsId(pixels.getId())
+        //retrieve a 96x96 thumbnail.
+        byte[] array = store.getThumbnail(
+                omero.rtypes.rint(96), omero.rtypes.rint(96));
+        ByteArrayInputStream stream = new ByteArrayInputStream(array);
+        //Create a buffered image to display
+        ImageIO.read(stream);
+    } finally {
+        store.close();
+    }
 
 Create Image
 ------------
@@ -884,18 +890,20 @@ in OMERO. Similar approach can be applied when uploading an image.
 
     //Read the pixels from the source image.
     RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
-    store.setPixelsId(pixelsId, false);
+    try{
+        store.setPixelsId(pixelsId, false);
 
-    List<byte[]> planes = new ArrayList<byte[]>();
+        List<byte[]> planes = new ArrayList<byte[]>();
 
-    for (int z = 0; z < sizeZ; z++) {
-        for (int t = 0; t < sizeT; t++) {
-            planes.add(store.getPlane(z, 0, t));
+        for (int z = 0; z < sizeZ; z++) {
+            for (int t = 0; t < sizeT; t++) {
+                planes.add(store.getPlane(z, 0, t));
+            }
         }
+    } finally {
+        //Better to close to free space.
+        store.close();
     }
-
-    //Better to close to free space.
-    store.close();
 
     //Now we are going to create the new image.
     IPixelsPrx proxy = gateway.getPixelsService(ctx);
@@ -934,19 +942,21 @@ in OMERO. Similar approach can be applied when uploading an image.
     gateway.getUpdateService(ctx).saveAndReturnObject(link);
 
     //Write the data.
-    store = gateway.getPixelsStore(ctx);
-    store.setPixelsId(newImage.getDefaultPixels().getId(), false);
-    int index = 0;
-    for (int z = 0; z < sizeZ; z++) {
-        for (int t = 0; t < sizeT; t++) {
-            store.setPlane(planes.get(index++), z, 0, t);
+    try {
+        store = gateway.getPixelsStore(ctx);
+        store.setPixelsId(newImage.getDefaultPixels().getId(), false);
+        int index = 0;
+        for (int z = 0; z < sizeZ; z++) {
+            for (int t = 0; t < sizeT; t++) {
+                store.setPlane(planes.get(index++), z, 0, t);
+            }
         }
+
+        //Save the data.
+        store.save();
+    } finally {
+        store.close();
     }
-
-    //Save the data.
-    store.save();
-
-    store.close();
 
 Further information
 -------------------
