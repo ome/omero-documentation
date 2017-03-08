@@ -327,7 +327,7 @@ OMERO.web migrating from Apache to Nginx
 Support for Apache and mod_wsgi deployment was deprecated
 in OMERO 5.2.6. It is recommended to use
 :doc:`/sysadmins/unix/install-web/install-nginx` or
-:doc:`OMERO.web deployment </sysadmins/unix/install-web/web-deployment>`.
+:doc:`OMERO.web WSGI deployment </sysadmins/unix/install-web/web-deployment>`.
 
 ::
 

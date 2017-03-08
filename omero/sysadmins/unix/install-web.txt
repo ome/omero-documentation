@@ -1,4 +1,4 @@
-OMERO.web deployment
+Setting up OMERO.web
 ====================
 
 OMERO.web is the web application component of the OMERO platform which
@@ -29,7 +29,7 @@ There are a number of good ways to easily deploy OMERO.web.
 
 Deploying OMERO.web separately from OMERO.server is recommended as they
 perform best under different circumstances and require a different set of
-dependencies. Please consider using :doc:`OMERO.web deployment <install-web/web-deployment>`.
+dependencies. Please consider using :doc:`OMERO.web WSGI deployment <install-web/web-deployment>`.
 
 If you have installed Nginx, OMERO can automatically generate a
 configuration file for your web server. The location of the file will depend
