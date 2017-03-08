@@ -76,7 +76,6 @@ OMERO.web maintenance
 If an attempt is made to access OMERO.web whilst
 it is not running, the generated Nginx configuration file will automatically
 display a maintenance page.
- 
 
 -  Session cookies :property:`omero.web.session_expire_at_browser_close`:
 
@@ -139,9 +138,8 @@ Customizing your OMERO.web installation
 ---------------------------------------
 
 OMERO.web offers a number of configuration options.
-Depending on the deployment choice, OMERO.web will not activate
-configuration changes until either gunicorn is restarted using
-``bin/omero web restart`` (nginx).
+The configuration changes will not be applied until
+gunicorn is restarted using ``bin/omero web restart``.
 
 By default OMERO.web expects to be run from the root URL of the web server.
 This can be changed by setting :property:`omero.web.prefix` and
