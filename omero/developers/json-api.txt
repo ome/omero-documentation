@@ -213,7 +213,7 @@ logging on and getting started.
 
 
 List available OMERO servers
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Your API may allow you to connect to several different OMERO servers.
 
@@ -241,7 +241,7 @@ Your API may allow you to connect to several different OMERO servers.
 
 
 Get CSRF token
---------------
+^^^^^^^^^^^^^^
 
 In order to prevent CSRF attacks, CSRF tokens are required for any
 POST, PUT and DELETE requests. You will need to obtain a CSRF token
@@ -264,7 +264,7 @@ cookie of any request or from the following URL:
 
 
 Login
------
+^^^^^
 
 You can login to create an OMERO session. You must also include the CSRF token,
 either in the POST parameters as 'csrfmiddlewaretoken' or in the session
@@ -311,8 +311,8 @@ The EventContext for this session will be returned to you.
     }
 
 
-Image containers
-----------------
+Projects, Datasets and Images
+-----------------------------
 
 OMERO organises images in two types of many-to-many hierarchies:
 ``screen/plate/[run]/well/image`` for HCS data and ``project/dataset/image``
@@ -340,18 +340,25 @@ These query parameters are used by many queries below:
 
     group       Number      Filter by Group ID
 
-    orphaned    Boolean     Use ?orphaned=true to filter for objects that are not in any
-                            parent container.
-
 
 List projects
--------------
+^^^^^^^^^^^^^
 
-Supported query paramters (see above):
+**Parameters**
+
+::
+
+    Name        Type        Description
+    ------------------------------------------------------------------
+    dataset     Number      Filter Projects by child Dataset ID
+
+
+These query paramters are also supported (see above):
 
 ::
 
     offset, limit, owner, group, childCount, normalize
+
 
 ::
 
@@ -445,15 +452,15 @@ Supported query paramters (see above):
 
 
 Get a single project
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    GET   /api/v0/m/projects/:projectId
+    GET   /api/v0/m/projects/{project_id}/
 
 
 List datasets
--------------
+^^^^^^^^^^^^^
 
 **Parameters**
 
@@ -493,19 +500,30 @@ These query paramters are also supported (see above):
           "@id": 112,
           "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
           "omero:details": {
-            // omitted for brevity
+            # omitted for brevity
           }
         }
       ]
     }
 
 
-Get a single dataset
---------------------
+**Datasets in a Project**
+
+Datasets can be filtered by parent Project using the ``?project=id`` query string but
+you can also show Datasets in a Project using this URL:
+
 
 ::
 
-    GET   /api/v0/m/datasets/:datasetId
+    GET     /api/v0/m/projects/{project_id}/datasets/
+
+
+Get a single dataset
+^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    GET   /api/v0/m/datasets/{dataset_id}/
 
 **Response**
 
@@ -519,8 +537,408 @@ Get a single dataset
         "url:images": "http://localhost:4080/api/v0/m/datasets/9702/images/",
         "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Dataset",
         "omero:details": {
-          // omitted for brevity
+          # omitted for brevity
         }
       }
     }
+
+
+List images
+^^^^^^^^^^^
+
+When images are listed, their "Pixels" object is also loaded, which
+includes dimensions and pixel sizes of the image.
+When a single Image is retrieved, the "Channels" data is additionally
+loaded.
+
+
+**Parameters**
+
+::
+
+    Name        Type        Description
+    ------------------------------------------------------------------
+    dataset     Number      Filter Images by parent Dataset ID
+
+    orphaned    Boolean     Find Images that are not in any Dataset or Well
+
+
+These query paramters are also supported (see above):
+
+::
+
+    offset, limit, owner, group, normalize
+
+::
+
+    GET     /api/v0/m/images/
+
+
+**Response**
+
+::
+
+    {
+      "data": [
+        {
+          "@id": 16783,
+          "Name": "CFP_AurB_R3D.dv",
+          "AcquisitionDate": 1235730332000,
+          "omero:details": {
+            # omitted for brevity
+          },
+          "url:image": "http://localhost:4080/api/v0/m/images/16783/",
+          "Pixels": {
+            "@id": 12801,
+            "SizeX": 512,
+            "SizeY": 512,
+            "SizeZ": 29,
+            "SizeC": 2,
+            "SizeT": 1,
+            "PhysicalSizeX": {
+              "Symbol": "µm",
+              "Value": 0.12698,
+              "@type": "TBD#LengthI",
+              "Unit": "MICROMETER"
+            },
+            "PhysicalSizeY": {
+              "Symbol": "µm",
+              "Value": 0.12698,
+              "@type": "TBD#LengthI",
+              "Unit": "MICROMETER"
+            },
+            "PhysicalSizeZ": {
+              "Symbol": "µm",
+              "Value": 0.2,
+              "@type": "TBD#LengthI",
+              "Unit": "MICROMETER"
+            },
+            "Type": {
+              "omero:details": {
+                # omitted for brevity
+              },
+              "@id": 6,
+              "@type": "TBD#PixelsType",
+              "value": "uint16"
+            },
+            "omero:sha1": "eae01c54191fd9cf4b09e3651e1899d677375b7d",
+            "omero:details": {
+              # omitted for brevity
+            },
+            "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Pixels",
+            "SignificantBits": 16
+          },
+          "omero:series": 0,
+          "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Image"
+        }
+      ]
+    }
+
+
+Get a single image
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    GET   /api/v0/m/images/{image_id}/
+
+**Response**
+
+The response for a single image is the same as for listing images
+above with the addition of "Channels" data.
+
+::
+
+    {
+      "data": [
+        {
+          "@id": 16783,
+          "Name": "CFP_AurB_R3D.dv",
+          "AcquisitionDate": 1235730332000,
+          "omero:details": {
+            # omitted for brevity
+          },
+          "Pixels": {
+            "@id": 12801,
+            "Channels": [
+              {
+                "omero:photometricInterpretation": {
+                  "omero:details": {},
+                  "@id": 5,
+                  "@type": "TBD#PhotometricInterpretation",
+                  "value": "Monochrome"
+                },
+                "Name": "CFP_JP4",
+                "Color": 65535,
+                "omero:details": {},
+                "ExcitationWavelength": {
+                  "Symbol": "nm",
+                  "Value": 436,
+                  "@type": "TBD#LengthI",
+                  "Unit": "NANOMETER"
+                },
+                "SamplesPerPixel": 1,
+                "NDFilter": 1,
+                "EmissionWavelength": {
+                  "Symbol": "nm",
+                  "Value": 470,
+                  "@type": "TBD#LengthI",
+                  "Unit": "NANOMETER"
+                },
+                "omero:LogicalChannelId": 12301,
+                "@id": 14451,
+                "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Channel"
+              },
+              {
+                "omero:photometricInterpretation": {
+                  "omero:details": {},
+                  "@id": 5,
+                  "@type": "TBD#PhotometricInterpretation",
+                  "value": "Monochrome"
+                },
+                "Name": "RD_TR-PE",
+                "Color": -16776961,
+                "omero:details": {},
+                "ExcitationWavelength": {
+                  "Symbol": "nm",
+                  "Value": 555,
+                  "@type": "TBD#LengthI",
+                  "Unit": "NANOMETER"
+                },
+                "SamplesPerPixel": 1,
+                "NDFilter": 0,
+                "EmissionWavelength": {
+                  "Symbol": "nm",
+                  "Value": 617,
+                  "@type": "TBD#LengthI",
+                  "Unit": "NANOMETER"
+                },
+                "omero:LogicalChannelId": 12303,
+                "@id": 14453,
+                "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Channel"
+              }
+            ],
+            "SizeX": 512,
+            "SizeY": 512,
+            "SizeZ": 29,
+            "SizeC": 2,
+            "SizeT": 1,
+            "PhysicalSizeX": {
+              "Symbol": "µm",
+              "Value": 0.12698,
+              "@type": "TBD#LengthI",
+              "Unit": "MICROMETER"
+            },
+            "PhysicalSizeY": {
+              "Symbol": "µm",
+              "Value": 0.12698,
+              "@type": "TBD#LengthI",
+              "Unit": "MICROMETER"
+            },
+            "PhysicalSizeZ": {
+              "Symbol": "µm",
+              "Value": 0.2,
+              "@type": "TBD#LengthI",
+              "Unit": "MICROMETER"
+            },
+            "Type": {
+              "omero:details": {
+                # omitted for brevity
+              },
+              "@id": 6,
+              "@type": "TBD#PixelsType",
+              "value": "uint16"
+            },
+            "omero:sha1": "eae01c54191fd9cf4b09e3651e1899d677375b7d",
+            "omero:details": {
+              # omitted for brevity
+            },
+            "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Pixels",
+            "SignificantBits": 16
+          },
+          "omero:series": 0,
+          "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Image"
+        }
+      ]
+    }
+
+
+Screens, Plates and Wells
+-------------------------
+
+List screens
+^^^^^^^^^^^^
+
+**Parameters**
+
+::
+
+    Name        Type        Description
+    ------------------------------------------------------------------
+    plate       Number      Filter Datasets by child Plate ID
+
+
+These query paramters are also supported (see above):
+
+::
+
+    offset, limit, owner, group, childCount, normalize
+
+::
+
+    GET     /api/v0/m/screens/
+
+**Response**
+
+::
+
+    {
+      "data": [
+        {
+          "@id": 582,
+          "Name": "Test data",
+          "Description": "This is the Screen description",
+          "url:screen": "http://localhost:4080/api/v0/m/screen/582/",
+          "url:plates": "http://localhost:4080/api/v0/m/screen/582/plates/",
+          "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Screen",
+          "omero:details": {
+            # omitted for brevity
+          }
+        }
+      ]
+    }
+
+
+Get a single screen
+^^^^^^^^^^^^^^^^^^^
+
+::
+
+    GET   /api/v0/m/screens/{screen_id}/
+
+**Response**
+
+::
+
+    {
+      "data": {
+        "@id": 582,
+        "Name": "Test data",
+        "Description": "This is the Screen description",
+        "url:plates": "http://localhost:4080/api/v0/m/screen/582/plates/",
+        "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Screen",
+        "omero:details": {
+          # omitted for brevity
+        }
+      }
+    }
+
+
+List plates
+^^^^^^^^^^^
+
+**Parameters**
+
+::
+
+    Name        Type        Description
+    ------------------------------------------------------------------
+    screen      Number      Filter Plates by parent Screen ID
+
+    well        Number      Filter Plates by child Well ID
+
+    orphaned    Boolean     Find Plates that are not in any Screen
+
+
+These query paramters are also supported (see above):
+
+::
+
+    offset, limit, owner, group, childCount, normalize
+
+::
+
+    GET     /api/v0/m/plates/
+
+**Response**
+
+::
+
+    {
+      "data": [
+        {
+          "@id": 5067,
+          "Name": "Plate name",
+          "Rows": 8,
+          "Columns": 12,
+          "RowNamingConvention": "letter",
+          "ColumnNamingConvention": "number",
+          "ExternalIdentifier": "003857",
+          "url:plate": "http://localhost:4080/api/v0/m/plates/5067/",
+          "url:plateacquisitions": "http://localhost:4080/api/v0/m/plates/5067/plateacquisitions/",
+          "url:wells": "http://localhost:4080/api/v0/m/plates/5067/wells/",
+          "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Plate",
+          "omero:details": {
+            # omitted for brevity
+          }
+        },
+      ]
+    }
+
+
+**Plates in a Screen**
+
+Plates can be filtered by parent Screen using the ``?screen=id`` query string but
+you can also show Plates in a Screen using this URL:
+
+
+::
+
+    GET     /api/v0/m/screens/{screen_id}/plates/
+
+
+Get a single plate
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    GET   /api/v0/m/plates/{plate_id}/
+
+**Response**
+
+::
+
+    {
+      "data": {
+        "@id": 5067,
+        "Name": "Plate name",
+        "Rows": 8,
+        "Columns": 12,
+        "RowNamingConvention": "letter",
+        "ColumnNamingConvention": "number",
+        "ExternalIdentifier": "003857",
+        "url:plate": "http://localhost:4080/api/v0/m/plates/5067/",
+        "url:plateacquisitions": "http://localhost:4080/api/v0/m/plates/5067/plateacquisitions/",
+        "url:wells": "http://localhost:4080/api/v0/m/plates/5067/wells/",
+        "url:wellsampleindex_wells": [
+          "http://localhost:4080/api/v0/m/plates/5068/wellsampleindex/0/wells/",
+          "http://localhost:4080/api/v0/m/plates/5068/wellsampleindex/1/wells/",
+          "http://localhost:4080/api/v0/m/plates/5068/wellsampleindex/2/wells/",
+          "http://localhost:4080/api/v0/m/plates/5068/wellsampleindex/3/wells/"
+        ],
+        "omero:wellsampleIndex": [
+          0,
+          3
+        ],
+        "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Plate",
+        "omero:details": {
+          # omitted for brevity
+        }
+      }
+    }
+
+
+
+
+
 
