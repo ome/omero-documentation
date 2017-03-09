@@ -258,7 +258,7 @@ EXPERIMENTAL: Gunicorn advanced configuration
 ---------------------------------------------
 
 .. note:: The following configuration options have yet to be extensively tested in a
-          production environment, use at your own risk.
+    production environment, use at your own risk.
 
 
 OMERO.web deployment can be configured with sync and async workers.
