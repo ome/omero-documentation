@@ -39,7 +39,7 @@ Default configuration
 ---------------------
 
 If you wish to install the dependencies in a virtual environment, you will
-first have to create one and activate it. This step is optional:
+first have to create one and activate it. The following step is optional:
 
 ::
 
@@ -242,7 +242,7 @@ In order to identify why OMERO.web is not available run:
 
 Then consult nginx :file:`error.log` and :file:`OMERO.server/var/log/OMEROweb.log`
 
-For more details check :ref:`troubleshooting-omeroweb`.
+Check :ref:`troubleshooting-omeroweb` for more details.
 
 
 Debugging
@@ -256,13 +256,14 @@ using :property:`omero.web.wsgi_args`:
 
     $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.server/var/log/error.log".
 
+.. note:: The following configuration options marked as **EXPERIMENTAL** have yet to be extensively tested in a
+    production environment, use at your own risk.
+
 .. _gunicorn_advance_configuration:
 
 EXPERIMENTAL: Gunicorn advanced configuration
 ---------------------------------------------
 
-.. note:: The following configuration options have yet to be extensively tested in a
-    production environment, use at your own risk.
 
 
 OMERO.web deployment can be configured with sync and async workers.
@@ -271,8 +272,8 @@ Sync workers are faster and recommended for a data repository with
 to download data then you have to use async workers; read more about
 :ref:`trial_download_limitation` above.
 
-For more details refer to
-`Gunicorn design <http://docs.gunicorn.org/en/stable/design.html>`_.
+See
+`Gunicorn design <http://docs.gunicorn.org/en/stable/design.html>`_ for more details.
 
 
 EXPERIMENTAL: Sync workers
@@ -297,7 +298,7 @@ EXPERIMENTAL: Async workers
 
 - Install `Gevent >= 0.13 <http://www.gevent.org/>`_ ::
 
-      $ OMERO.py/pip install "gevent>=0.13"
+      $ pip install "gevent>=0.13"
 
 Additional settings can be configured by changing the following properties:
 
