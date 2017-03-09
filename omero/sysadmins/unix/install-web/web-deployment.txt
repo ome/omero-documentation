@@ -256,14 +256,14 @@ using :property:`omero.web.wsgi_args`:
 
     $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.server/var/log/error.log".
 
-.. note:: The following configuration options marked as **EXPERIMENTAL** have yet to be extensively tested in a
-    production environment, use at your own risk.
 
 .. _gunicorn_advance_configuration:
 
 EXPERIMENTAL: Gunicorn advanced configuration
 ---------------------------------------------
 
+.. note:: The following configuration options marked as **EXPERIMENTAL** have yet to be extensively tested in a
+    production environment, use at your own risk.
 
 
 OMERO.web deployment can be configured with sync and async workers.
