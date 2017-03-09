@@ -43,8 +43,11 @@ Sysadmin changes include:
 -  dropped support for Windows for OMERO.server
 -  OMERO.web deployment via Apache is no longer supported
 -  CLI improvements
+-  options added for customizing the tree in OMERO.web
 -  changed DB setup script to require PostgreSQL 9.3
 -  introduced hide-password option in CLI
+-  new options added to ``omero config``
+-  removed deprecated client menu properties
 
 Developer updates include:
 
