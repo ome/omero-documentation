@@ -6,10 +6,8 @@ allows for the management, visualization (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
 includes the ability to manage users and groups.
 
-Deploying OMERO.web separately from OMERO.server is recommended as they
-perform best under different circumstances and require a different set of
-dependencies. This guide uses the example of deploying with Nginx and
-gunicorn.
+This guide uses the example of deploying OMERO.web separately from OMERO.server
+with Nginx and gunicorn.
 
 Prerequisites
 -------------

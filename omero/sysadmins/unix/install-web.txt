@@ -16,8 +16,8 @@ with:
 -  the built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page)
 
-If you need help configuring your firewall rules, please read
-:doc:`/sysadmins/server-security`.
+If you need help configuring your firewall rules, see
+:doc:`/sysadmins/server-security` for more details.
 
 
 .. _omero_web_deployment:
@@ -25,11 +25,9 @@ If you need help configuring your firewall rules, please read
 Deployment
 ----------
 
-There are a number of good ways to easily deploy OMERO.web.
-
-**Deploying OMERO.web separately from OMERO.server is recommended as they
+Deploying OMERO.web **separately** from OMERO.server is **recommended** as they
 perform best under different circumstances and require a different set of
-dependencies. Please consider using :doc:`install-web/web-deployment`.**
+dependencies. See :doc:`install-web/web-deployment` for more details.
 
 If you have installed Nginx, OMERO can automatically generate a
 configuration file for your web server. The location of the file will depend
