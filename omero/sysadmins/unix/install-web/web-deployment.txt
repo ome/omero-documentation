@@ -253,6 +253,7 @@ using :property:`omero.web.wsgi_args`:
 
     $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.server/var/log/error.log".
 
+.. _gunicorn_advance_configuration:
 
 EXPERIMENTAL: Gunicorn advanced configuration
 ---------------------------------------------
