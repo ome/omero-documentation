@@ -33,7 +33,7 @@ If you have installed Nginx, OMERO can automatically generate a
 configuration file for your web server. The location of the file will depend
 on your system, please refer to your web server's manual. See
 :ref:`customizing_your_omero_web_installation` for additional
-customization options. Below is a list of OS specific walkthroughs.
+customization options.
 
 .. toctree::
     :maxdepth: 1
@@ -42,9 +42,28 @@ customization options. Below is a list of OS specific walkthroughs.
 
     install-web/web-deployment
 
+Depending upon which platform you are using, you may find a
+more specific walk-through listed below.
+
+.. seealso::
+
+    :doc:`install-web/walkthrough/omeroweb-install-centos7-ice3.6`
+        Instructions for installing OMERO.web from scratch on
+        CentOS 7 with Ice 3.6.
+
+    :doc:`install-web/walkthrough/omeroweb-install-ubuntu-ice3.6`
+        Instructions for installing OMERO.web from scratch on
+        Ubuntu 16.04 with Ice 3.6.
+
+    :doc:`install-web/walkthrough/omeroweb-install-osx-ice3.6`
+        Instructions for installing OMERO.web from scratch on
+        on Mac OS X with Homebrew. It is aimed at **developers**
+        since typically MacOS X is not suited for serious deployment.
+
 .. toctree::
     :maxdepth: 1
     :titlesonly:
+    :hidden:
 
     install-web/walkthrough/omeroweb-install-centos7-ice3.6
     install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
