@@ -38,18 +38,17 @@ customization options. Below is a list of OS specific walkthroughs.
 .. toctree::
     :maxdepth: 1
     :titlesonly:
-
-    install-web/walkthrough/omeroweb-install-centos7-ice3.6
-    install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
-    install-web/walkthrough/omeroweb-install-osx-ice3.6
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
     :hidden:
 
     install-web/web-deployment
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    install-web/walkthrough/omeroweb-install-centos7-ice3.6
+    install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
+    install-web/walkthrough/omeroweb-install-osx-ice3.6
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.
     
