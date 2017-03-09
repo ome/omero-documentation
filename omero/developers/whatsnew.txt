@@ -23,6 +23,28 @@ by :javadoc:`Chmod2
 Java Gateway
 ^^^^^^^^^^^^
 
-OMERO model
+OMERO Model
 ^^^^^^^^^^^
 
+-  Added ``Folder``, ``FolderImageLink`` and ``FolderRoiLink``
+-  Added ``ProjectionDef`` to ``RenderingDef``
+-  Added "Arrow" ``markerStart`` and ``markerEnd`` to ``Line`` and
+   ``Polyline``
+-  Added `ReverseIntensityMapContext` for ROMIO
+-  Moved ``CodomainMapContext`` from ``RenderingDef`` to ``ChannelBinding``
+-  Removed ``g``, ``vectorEffect``, ``visibility`` and various stroke and font
+   properties from ``Shape`` (considering removing ``fontFamily`` in future)
+-  Removed various ``Label`` properties and ``Rectangle.rx``
+-  Removed ``keywords`` and ``namespaces`` from ``Roi``
+-  Adjusted ``Shape.transform`` from string to six separate numerical
+   properties using ``AffineTransform``
+-  Renamed ``Ellipse`` and ``Point`` properties
+-  ``Units.PASCAL`` is now wholly capitalized
+
+Deprecations
+------------
+
+-  ``Ishare``
+-  Enumeration getters in ``IPixels`` in favor of ``ITypes``
+-  ``DiskUsage`` in favor of ``DiskUsage2``
+-  Analysis namespace ``openmicroscopy.org/omero/analysis/flim``
