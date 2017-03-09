@@ -33,6 +33,11 @@ Prerequisites
    `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
 
 
+.. _gunicorn_default_configuration:
+
+Default configuration
+---------------------
+
 If you wish to install the dependencies in a virtual environment, you will
 first have to create one and activate it. This step is optional:
 
