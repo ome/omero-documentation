@@ -629,6 +629,7 @@ In the following example, we create a table with 2 columns.
         link = (ImageAnnotationLink) dm.saveAndReturnObject(ctx, link);
     } finally {
         store.close();
+        table.close();
     }
 
 -  **Read the contents of the table.**
