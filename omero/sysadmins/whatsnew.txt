@@ -11,3 +11,6 @@ What's new for OMERO 5.3 for sysadmins
 
 - Windows support discontinued, see :doc:`/sysadmins/windows-migration`.
 
+- OMERO.web has been decoupled from the server and can now be deployed
+  separately. Support for deployment using Apache has been dropped.
+

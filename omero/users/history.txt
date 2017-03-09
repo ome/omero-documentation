@@ -10,45 +10,60 @@ and introducing new user features and many fixes and performance improvements:
 
 -  improved support for many file formats via Bio-Formats 5.3.4
 -  introduced ROI Folders
+-  new grid view layout for OMERO.web UI when displaying Screen Plate Well
+   data
 -  support for lookup tables and reverse intensity rendering
+-  color mapping for multiple channels without set colors has been improved to
+   use RGBRGB rather than RGBBB (i.e. to loop through red, green, blue rather
+   than setting all later channels to blue)
 -  support for histograms in the clients and server
 -  ability to filter by ratings in OMERO.web
 -  added 'Open With...' functionality to OMERO.web
 -  images can now be projected along T
--  new grid view layout for OMERO.web UI when displaying Screen Plate Well
-   data
--  color of shapes is now handled according to the data model
+-  color of shapes is now handled according to the data model, using RGBA
+   rather than ARGB format
 -  improved performance for moving and deleting data
 -  Wells can now be annotated and searched by annotations
 -  enabled downloading/export of plate data
 -  improved reading of tables data
--  many bugs fixed
+-  script improvements including ability to create tiled images from big ROIs,
+   fixes for creating standard images from ROIs, and to stop the
+   Combine_Images script from ignoring pixel sizes set on the target images
+-  names for plates and images set in the metadata read by Bio-Formats are now
+   imported into OMERO and the filename (which was previously used) is only
+   used where an alternative has not been set
+-  many bug fixes
 
 Sysadmin changes include:
 
--  dropped support for Windows for OMERO.server
 -  added support for Ice 3.6.3
 -  OMERO.web apps are now all installable via pip
 -  OMERO.web has been decoupled from the server and can now be deployed
    separately
+-  dropped support for Windows for OMERO.server
 -  OMERO.web deployment via Apache is no longer supported
 -  CLI improvements
 -  changed DB setup script to require PostgreSQL 9.3
+-  introduced hide-password option in CLI
 
 Developer updates include:
 
 -  performed major code cleanup
 -  major Web API rework
 -  adjustment to support the upcoming Java 1.9
+-  made python testing package public so it can be used by external clients
+-  improved build system integration with local Maven
+-  made Scripts repository pep8 and flake8 compatible
+-  removed restriction on name length
+-  added support for enumeration changes
 -  utils script classes deprecated
 -  deprecated shares
 -  deprecated search bridges
--  introduced hide-password option in CLI
 -  disabled jquery cache
--  made python testing package public so it can be used by external clients
--  improved build system integration with local Maven
--  removed restriction on name length
--  added support for enumeration changes
+
+Further details on breaking changes are available on
+:doc:`/developers/whatsnew`. Work on the Web API is ongoing and will include
+moving away from the use of JSONP and introducing Django CORS.
 
 5.2.7 (December 2016)
 ---------------------
