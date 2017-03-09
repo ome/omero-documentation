@@ -9,6 +9,8 @@ database mapping, since all data comes from the OMERO server and is
 saved back there. You will notice that the models.py files in each app
 are empty.
 
+All OMERO applications can now be installed from :pypi:`Python Package Index <>`.
+
 Getting set up
 --------------
 
@@ -36,11 +38,11 @@ Creating an app
 We suggest you use `GitHub <https://github.com/>`_ (as we do) since it is much easier for us to
 help you with any problems you have if we can see your code. The steps below
 describe how to create a stand-alone git repository for your app, similar to
-`webtagging <https://github.com/MicronOxford/webtagging>`_.
+`omero-webtest <https://github.com/openmicroscopy/omero-webtest>`_.
 If you do not want to use GitHub, simply ignore the steps related to GitHub.
 
 The steps below describe how to set up a new app. You should choose an
-appropriate name for your app and use it in place of <your-app>:
+appropriate name for your app and use it in place of <organisation-appname>:
 
 
 Add your app to your PYTHONPATH
@@ -52,9 +54,9 @@ We usually create a new container for a new app, and add it to the
 
 ::
 
-    $ mkdir PARENT-APP-DIR
-    $ cd PARENT-APP-DIR
-    $ export PYTHONPATH=$PYTHONPATH:/path/to/PARENT-APP-DIR
+    $ mkdir organisation-appname e.g. omero-webtest
+    $ cd organisation-appname
+    $ export PYTHONPATH=$PYTHONPATH:/path/to/organisation-appname
 
 
 OR you could simply choose an existing location:
@@ -67,49 +69,70 @@ OR you could simply choose an existing location:
 Create and check out a new GitHub repository OR manually create a new directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Login to your GitHub account homepage (e.g.
-   `<https://github.com/>`_\ <your-name>/) and click
+-  Login to your GitHub account homepage e.g.
+   `<https://github.com/>`_\<your-name>/) and click
    "New repository"
--  Enter the name of <your-app>, add a description and choose to add a
-   README.
 
--  Check out your new repository (into a new directory)
+-  Enter the name of your repository i.e. ``<organisation-app>`` e.g. ``omero-webtest``,
+   add a description and choose to add a ``README.rst``. Change the extension to ``.rst`` so
+   it can be rendered correctly on PyPI. Its contain should cover the goal of the app
+   and the configuration instructions.
+
+-  Check out your new repository into a new directory
 
    ::
 
-       $ git clone git@github.com:<your-name>/<your-app>.git
+       $ git clone git@github.com:<your-name>/<organisation-app>.git
 
 
 -  OR: If you have not used git to create your app directory above, then
 
    ::
 
-        $ mkdir <your-app>
+        $ mkdir <organisation-app>
 
--  In either case, you should now have a directory called ``your-app`` within
+-  In either case, you should now have a directory called ``organisation-app`` within
    a directory that is on your :envvar:`PYTHONPATH`.
 
+Make your app installable from PyPI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is not required but it is highly recommended to make your app
+installable from PyPI. Few files need to be added:
+
+- A ``MANIFEST.in`` file. This is needed in certain cases to package files not automatically included
+
+- A configuration file ``setup.cfg``: an ini file that contains option defaults for ``setup.py`` commands
+
+- A set-up file ``setup.py``. This is used to configure various aspects of the app and also is also a command line interface for packaging the app.
+
+
+See `Packaging and Distributing Projects <https://packaging.python.org/distributing/>`_ for more details. 
 
 Add the essential files to your app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Create an empty file ``<your-app>/__init__.py`` (NB: both double
-   underscores)
--  Create :file:`urls.py`
+-  Create a directory ``<organisation_appname>`` where to add the essential files 
+   e.g. ``omero_webtest``. Note the underscore
+
+-  Create an empty file ``<organisation_appname>/__init__.py``. Note double
+   underscores
+
+-  Create :file:`<organisation_appname>/urls.py`
 
    ::
 
-       from django.conf.urls import *
-       from <your-app> import views
+       from django.conf.urls import url, patterns
+       from . import views
 
        urlpatterns = patterns('django.views.generic.simple',
 
-            # index 'home page' of the <your-app> app
-            url( r'^$', views.index, name='<your-app>_index' ),
+            # index 'home page' of the appname e.g. webtest
+            url(r'^$', views.index, name='<appname>_index'),
 
         )
 
--  Create :file:`views.py`
+-  Create :file:`<organisation_appname>/views.py`
 
    ::
 
@@ -120,6 +143,17 @@ Add the essential files to your app
             Just a place-holder while we get started
             """
             return HttpResponse("Welcome to your app home-page!")
+
+-  Create :file:`<organisation_appname>/apps.py`
+
+   ::
+
+        from django.apps import AppConfig
+
+        class AppNameAppConfig(AppConfig):
+            name = "organisation_appname"
+            label = "appname"
+
 
 For more details on how to write views, forms, using templates, etc. check the
 :djangodoc:`Django documentation <intro/tutorial03/#write-your-first-view>`.
@@ -138,19 +172,18 @@ so that URLs are registered etc.
 
 ::
 
-    $ bin/omero config append omero.web.apps '"<your-app>"'
+    $ bin/omero config append omero.web.apps '"<organisation_appname>"'
 
 
-Now you can view the home-page we created above (NB: you will need to
-restart the OMERO.web server for the config settings to take effect).
+Now you can view the home-page we created above. Now restart OMERO.web as normal
+for the config settings to take effect.
 
 ::
 
-     $ bin/omero web stop
-     $ bin/omero web start
+     $ bin/omero web restart
 
-Go to `http://localhost:4080/ <http://localhost:4080/>`_\ <your-app>/
-OR `http://localhost:8000/ <http://localhost:8000/>`_\ <your-app>/
+Go to `http://localhost:4080/ <http://localhost:4080/>`_\<appname>/
+OR `http://localhost:8000/ <http://localhost:8000/>`_\<appname>/
 and you should see 'Welcome'.
 
 Commit your code and push to GitHub
@@ -174,26 +207,24 @@ Let us create a simple "stack preview" for an Image with multiple
 Z-sections. We are going to display the image name and 5 planes evenly
 spaced across the Z-stack. You should be able to add the appropriate
 code to :file:`urls.py`, :file:`views.py` that you created above, and add a template
-under /omeroweb/<your-app>/templates/<your-app>/ 
+under /omeroweb/<organisation-appname>/<organisation_appname>/templates/<appname>/ 
 
-.. note::
 
-   note that /<your-app>/ appears twice in that path (need an extra folder
-   under templates).
-
-The following example can be found in the `OMERO.webtest <https://github.com/openmicroscopy/omero-webtest/>`_ repository.
+The following example can be found in the
+`OMERO.webtest <https://github.com/openmicroscopy/omero-webtest/>`_ repository.
 
 -  **urls.py**
 
    ::
 
-       url( r'^stack_preview/(?P<imageId>[0-9]+)/$', views.stack_preview, 
-            name="<your-app>_stack_preview" ),
+       url(r'^stack_preview/(?P<image_id>[0-9]+)/$', views.stack_preview, 
+            name="<appname>_stack_preview"),
 
--  **views.py** Here we are using the ``@login_required`` decorator to
+-  **views.py**
+   Here we are using the ``@login_required`` decorator to
    retrieve a connection to OMERO from the session key in the HTTP
    request (or provide a login page and redirect here). ``conn`` is passed
-   to the method arguments. NB: Note a couple of new imports to add at
+   to the method arguments. A couple of new imports must be added at
    the top of your page.
 
    ::
@@ -203,20 +234,18 @@ The following example can be found in the `OMERO.webtest <https://github.com/ope
 
 
        @login_required()
-       def stack_preview (request, imageId, conn=None, **kwargs):
-           """ Shows a subset of Z-planes for an image """
-           image = conn.getObject("Image", imageId)       # Get Image from OMERO
-           image_name = image.getName()
-           sizeZ = image.getSizeZ()                        # get the Z size
-           # 5 Z-planes
-           z_indexes = [0, int(sizeZ*0.25), 
-                    int(sizeZ*0.5), int(sizeZ*0.75), sizeZ-1]
-           return render(request, 'webtest/stack_preview.html',
-                {'imageId':imageId, 
-                'image_name':image_name, 
-                'z_indexes':z_indexes})
+       def stack_preview(request, imageId, conn=None, **kwargs):
+            """ Shows a subset of Z-planes for an image """
+            image = conn.getObject("Image", image_id)
+            image_name = image.getName()
+            size_z = image.getSizeZ()
+            z_indexes = [0, int(size_z*0.25), int(size_z*0.5),
+                 int(size_z*0.75), size_z-1]
+            return render(request, 'webtest/stack_preview.html',
+                  {'imageId': image_id, 'image_name': image_name,
+                   'z_indexes': z_indexes})
 
--  **<your-app>/templates/<your-app>/stack\_preview.html**
+-  **<organisation-appname>/<organisation_appname>/templates/<appname>/stack\_preview.html**
 
    ::
 
@@ -235,7 +264,7 @@ The following example can be found in the `OMERO.webtest <https://github.com/ope
        </html>
 
 
-Viewing the page at http://localhost:4080/<your-app>/stack_preview/<image-id>/
+Viewing the page at http://localhost:4080/<appname>/stack_preview/<image-id>/
 should give you the image name and 5 planes from the Z stack. You will notice
 that we are using the ``webgateway`` to handle the image rendering using a URL
 auto-generated by Django - see :doc:`/developers/Web/WebGateway`.
