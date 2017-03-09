@@ -301,10 +301,6 @@ add the following statements to the ``<head>`` of your page templates:
     <!-- jQuery UI - includes js and css -->
     {% include "webgateway/base/includes/jquery-ui.html" %}
 
-The OMERO 5.1.0 release included an upgrade to jQuery 1.11.1 and
-jQuery UI 1.10.4. We have added jQuery-migrate library (1.2.1) to reduce the
-effects of this upgrade. You should inspect the javascript console
-during development to observe any warning messages.
 
 Extending templates
 ^^^^^^^^^^^^^^^^^^^
