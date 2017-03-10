@@ -177,6 +177,16 @@ Advanced import commands
 
     Display the advanced help for the import command, e.g.
 
+    ::
+
+    $ bin/omero import -- --advanced-help
+
+    Examples of usage,
+
+    To upload and remove the raw file from the local file-system after a successful import into OMERO, use::
+
+        $ bin/omero import -- --transfer=upload_rm my_file.dv
+
     As an OMERO administrator, to import images for other users, use::
 
        $ bin/omero login --sudo root -s servername -u username -g groupname
