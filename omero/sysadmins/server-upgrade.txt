@@ -54,7 +54,7 @@ OMERO.web configuration
 Check :ref:`omero_web_deployment` for the latest advice on how to deploy
 OMERO.web.
 If you generated configuration stanzas using :omerocmd:`web config` which
-enables OMERO.web via Apache or Nginx, they will include hard-coded links to
+enables OMERO.web via Nginx, they will include hard-coded links to
 your previous version of OMERO. Therefore, you should regenerate your config
 files when upgrading, remembering to merge in any of your own modifications if
 necessary. You should carry out this step even for minor version upgrades as
@@ -67,8 +67,7 @@ there may be fixes which require it.
     see :ref:`python-requirements` on the
     :doc:`/sysadmins/version-requirements` page.
     
-    Also note that support for Apache deployment is now deprecated and is
-    likely to be dropped during the 5.3.x line.
+    Also note that support for Apache deployment has been dropped in 5.3.0.
 
 OMERO.web dependencies
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -79,10 +78,6 @@ up to date to ensure that security updates are applied.
 - Nginx on Unix::
 
      $ pip install --upgrade -r share/web/requirements-py27-nginx.txt
-
-- Apache (deprecated) on Unix::
-
-     $ pip install --upgrade -r share/web/requirements-py27-apache.txt
 
 .. note:: This is mainly for new major releases. If carrying out a minor
     release upgrade, you should check that updates will not break your set-up
@@ -373,10 +368,10 @@ OMERO.web session files as described in :ref:`omero_web_maintenance`.
 OMERO.web migrating from Apache to Nginx
 """"""""""""""""""""""""""""""""""""""""
 
-Since OMERO 5.2.6 support for Apache and mod_wsgi deployment is deprecated.
-It is recommended to use :doc:`/sysadmins/unix/install-web/install-nginx` or
-:doc:`OMERO.web trial deployment </sysadmins/unix/install-web/install-web-trial>`.
-Official support is likely to be dropped during the 5.3.x line.
+Support for Apache and mod_wsgi deployment was deprecated
+in OMERO 5.2.6 and dropped in 5.3.0.
+It is recommended to use
+:doc:`/sysadmins/unix/install-web/web-deployment`.
 
 .. seealso::
 
