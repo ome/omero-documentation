@@ -789,12 +789,15 @@ How to use OMERO tables
 
     % Initialize the table
     table.initialize(columns);
-    % Add data to the table.
+    
+    % Create and populate omero.grid (The following java wrapping logic is compatible Matlab2014b onwards)
     data = javaArray('omero.grid.Column', 2);
     data(1) = omero.grid.LongColumn('Uid', 'test Long', [2]);
     valuesString = javaArray('java.lang.String', 1);
     valuesString(1) = java.lang.String('add');
     data(2) = omero.grid.StringColumn('MyStringColumn', '', 64, valuesString);
+    
+    % Add data to the table.
     table.addData(data);
     file = table.getOriginalFile(); % if you need to interact with the table
 
