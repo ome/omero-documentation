@@ -30,7 +30,6 @@ OMERO Model
 -  Added ``ProjectionDef`` to ``RenderingDef``
 -  Added "Arrow" ``markerStart`` and ``markerEnd`` to ``Line`` and
    ``Polyline``
--  Added `ReverseIntensityMapContext` for ROMIO
 -  Moved ``CodomainMapContext`` from ``RenderingDef`` to ``ChannelBinding``
 -  Removed ``g``, ``vectorEffect``, ``visibility`` and various stroke and font
    properties from ``Shape`` (considering removing ``fontFamily`` in future)
@@ -45,6 +44,7 @@ Deprecations
 ------------
 
 -  ``Ishare``
+-  Search bridges
 -  Enumeration getters in ``IPixels`` in favor of ``ITypes``
 -  ``DiskUsage`` in favor of ``DiskUsage2``
 -  Analysis namespace ``openmicroscopy.org/omero/analysis/flim``
