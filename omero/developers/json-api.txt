@@ -5,7 +5,8 @@ Overview
 --------
 
 The OMERO json API described here provides create, read, update and delete
-access to an underlying OMERO server.
+access to an underlying OMERO server. It is implemented as a Django app
+named ``api`` in the OMERO.web framework.
 
 
 Omero-marshal and Projection-based APIs
@@ -38,7 +39,7 @@ and non-breaking changes respectively. Non-breaking changes include simple
 addition of attributes to JSON data or addition of new URLs.
 The API version is not tied to the version of OMERO.server.
 
-The major version is included in the URL ``v0`` whereas the full
+The major version is included in the URL such as ``/v0/`` whereas the full
 version number can be found in the header:
 
 ::
@@ -62,6 +63,15 @@ which will be omitted.
 Where supported, modifying the JSON object and saving this back to OMERO will update the object accordingly.
 
 
+URLs in JSON
+^^^^^^^^^^^^
+
+URLs are included in JSON objects using keys with the ``url:`` prefix. URLs are added for
+related objects to facilitate exploration of the API in a browser. You may find that a
+JSON formatting plugin for your browser improves both the presentation and
+navigation of JSON data.
+
+
 Pagination
 ^^^^^^^^^^
 Requests that return a list of items will be paginated, showing
@@ -71,10 +81,10 @@ parameters:
 
 ::
 
-    # List the first 100 objects (offset=0 by default)
+    # List the first 100 projects (offset=0 by default)
     <server>/api/v0/m/projects/?limit=100
 
-    # List the next 100 objects
+    # List the next 100 projects
     <server>/api/v0/m/projects/?limit=100&offset=100
 
 
@@ -98,6 +108,26 @@ for their server, for example:
 
     $ bin/omero config set omero.web.api.limit 100
     $ bin/omero config set omero.web.api.max_limit 300
+
+The ``maxLimit`` setting prevents API consumers from requesting very
+large amounts of data by limiting the number of top-level objects that
+are loaded.
+
+
+Loading of linked objects
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In most cases the API loads only the requested objects along with
+their ``omero:details``. For example, ``/api/v0/m/projects/`` loads
+Projects but does not also load their child Datasets.
+However, it is sometimes useful to load a number of closely related objects.
+For example, loading Images also loads their Pixels data (but not Channels)
+and loading Wells also loads WellSamples and Images (but not Pixels).
+The number of objects loaded when listing Images or Wells is kept to
+a minimum to avoid requesting too much data. This restriction is relaxed when
+a single Image or Well is loaded. For example, loading a single Image will also
+load Channels.
+
 
 
 Normalizing Experimenters and Groups
@@ -156,6 +186,11 @@ error "message" and may also include a "stactrace".
 
 Getting Started
 ---------------
+
+You may find this
+`example python script <https://github.com/openmicroscopy/openmicroscopy/blob/develop/examples/Training/python/Json_Api/Login.py>`_ useful.
+It uses the python ``requests`` library to connect to the JSON api, login, query data, create and delete Projects.
+These steps are covered in more detail below.
 
 
 List supported versions
@@ -267,8 +302,8 @@ Login
 ^^^^^
 
 You can login to create an OMERO session. You must also include the CSRF token,
-either in the POST parameters as 'csrfmiddlewaretoken' or in the session
-header as 'X-CSRFToken'.
+either in the POST parameters as ``csrfmiddlewaretoken`` or in the session
+header as ``X-CSRFToken``.
 
 The EventContext for this session will be returned to you.
 
@@ -458,6 +493,23 @@ Get a single project
 
     GET   /api/v0/m/projects/{project_id}/
 
+
+**Response**
+
+::
+
+    {
+      "data": {
+        "@id": 3872,
+        "Name": "RNAi experiments",
+        "Description": "Knockout assays",
+        "url:datasets": "http://localhost:4080/api/v0/m/projects/3872/datasets/",
+        "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
+        "omero:details": {
+          # omitted for brevity
+        }
+      }
+    }
 
 List datasets
 ^^^^^^^^^^^^^
@@ -906,6 +958,9 @@ Get a single plate
 
 **Response**
 
+The response for a single plate includes information on the Well Samples (fields) for
+each Well such as the min/max WellSampleIndex for the Plate.
+
 ::
 
     {
@@ -938,7 +993,168 @@ Get a single plate
     }
 
 
+List plate acquisitions
+^^^^^^^^^^^^^^^^^^^^^^^
+
+A plate-acquisition is a collection of WellSamples, grouped by an acquisition time.
+A plate may contain zero, one or more plate-acquisitions.
+
+::
+
+    GET   /api/v0/m/plates/{plate_id}/plateacquisitions/
 
 
+**Response**
+
+::
+
+    {
+      "data": [
+        {
+          "@id": 4217,
+          "url:wellsampleindex_wells": [
+            "http://localhost:4080/api/v0/m/plateacquisitions/4217/wellsampleindex/0/wells/"
+            "http://localhost:4080/api/v0/m/plateacquisitions/4217/wellsampleindex/1/wells/"
+            "http://localhost:4080/api/v0/m/plateacquisitions/4217/wellsampleindex/2/wells/"
+          ],
+          "omero:details": {
+            # omitted for brevity
+          },
+          "MaximumFieldCount": 3,
+          "url:plateacquisition": "http://localhost:4080/api/v0/m/plateacquisitions/4217/",
+          "omero:wellsampleIndex": [
+            0,
+            2
+          ],
+          "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#PlateAcquisition"
+        }
+      ]
+    }
+
+
+List Wells in a Plate
+^^^^^^^^^^^^^^^^^^^^^
+
+Each Well in a Plate may contain zero, one or many WellSamples (fields).
+By default, when listing Wells in a Plate, *all* of the WellSamples and Images
+will be loaded for each Well. Wells are ordered by Column and Row.
+
+
+**Paramters**
+
+The following query parameters can be used (as described above)
+::
+
+    offset, limit, owner, normalize
+
+::
+
+    GET   /api/v0/m/plates/{plate_id}/wells/
+
+
+.. note::
+
+    If there are a large number of WellSamples per Well, this has the
+    potential to load a large amount of data. This can be reduced by using
+    a smaller ``limit`` on the number of Wells loaded or only loading a single
+    WellSample per Well, as described below.
+
+
+**Response**
+
+::
+
+    {
+      "data": [
+        {
+          "@id": 139,
+          "Column": 0,
+          "Row": 0,
+          "omero:details": {
+            # omitted for brevity
+          },
+          "url:well": "http://localhost:4080/api/v0/m/wells/139/",
+          "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Well",
+          "WellSamples": [
+            {
+              "PositionX": {
+                "Symbol": "reference frame",
+                "Value": 21864.47,
+                "@type": "TBD#LengthI",
+                "Unit": "REFERENCEFRAME"
+              },
+              "PositionY": {
+                "Symbol": "reference frame",
+                "Value": 36711.98,
+                "@type": "TBD#LengthI",
+                "Unit": "REFERENCEFRAME"
+              },
+              "omero:details": {
+                # omitted for brevity
+              },
+              "Image": {
+                "Name": "plate1.HTD [Well E02 Field #1]",
+                "AcquisitionDate": 1252939626000,
+                "omero:details": {
+                  # omitted for brevity
+                },
+                "url:image": "http://localhost:4080/api/v0/m/images/2942/",
+                "omero:series": 120,
+                "@id": 2942,
+                "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Image",
+                "Description": "Scan Time: Mon Sep 14 11:36:58 2009"
+              },
+              "PlateAcquisition": {
+                "omero:details": {
+                  # omitted for brevity
+                },
+                "MaximumFieldCount": 4,
+                "StartTime": 1252938959000,
+                "EndTime": 1252939813000,
+                "@id": 102,
+                "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#PlateAcquisition"
+              },
+              "@id": 203,
+              "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#WellSample"
+            }
+          ]
+        }
+      ]
+    }
+
+It is also possible to list all Wells without filtering by Plate, using the top-level
+URL ``/api/v0/m/wells/`` optionally filtering by the ``plate`` query parameter.
+
+
+List Wells by WellSample Index
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To list Wells in a Plate, loading only a *single* WellSample and Image per Well,
+you can filter by WellSample Index. This list of Wells will not include empty
+Wells (Wells that have no WellSamples and Images).
+
+::
+
+    GET   /api/v0/m/plates/{plate_id}/wellsampleindex/{index}/wells/
+
+
+It is also possible to use the Plate Acquisition ID instead of
+Plate ID, when the WellSample (field) at the specified index was acquired
+as part of that Plate Acquisition:
+
+::
+
+    GET   /api/v0/m/plateacquisitions/{plateacquisition_id}/wellsampleindex/{index}/wells/
+
+
+Get a single Well
+^^^^^^^^^^^^^^^^^
+
+When a single Well is loaded, this will include all the WellSamples and Images
+with Pixels loaded.
+
+::
+
+    GET   /api/v0/m/wells/{well_id}/
 
 
