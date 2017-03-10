@@ -4,9 +4,10 @@ OMERO version history
 5.3.0 (March 2017)
 ------------------
 
-A full, production-ready release of OMERO 5.3.0; featuring a major re-working
-of OMERO.web and web apps; dropping support for Windows for the server;
-and introducing new user features and many fixes and performance improvements:
+A full, production-ready release of OMERO 5.3.0; featuring a major reworking
+of OMERO.web and web apps; dropping support for Windows for the server and for
+deploying OMERO.web using Apache; and introducing new user features and many
+fixes and performance improvements:
 
 -  improved support for many file formats via Bio-Formats 5.3.4
 -  introduced ROI Folders
@@ -19,9 +20,9 @@ and introducing new user features and many fixes and performance improvements:
 -  support for histograms in the clients and server
 -  ability to filter by ratings in OMERO.web
 -  added 'Open With...' functionality to OMERO.web
--  images can now be projected along T
 -  color of shapes is now handled according to the data model, using RGBA
-   rather than ARGB format
+   rather than ARGB format (an upgrade script is available to upgrade existing
+   shapes)
 -  improved performance for moving and deleting data
 -  Wells can now be annotated and searched by annotations
 -  enabled downloading/export of plate data
@@ -37,14 +38,13 @@ and introducing new user features and many fixes and performance improvements:
 Sysadmin changes include:
 
 -  added support for Ice 3.6.3
--  OMERO.web apps are now all installable via pip
+-  official OMERO.web apps are now all installable via pip
 -  OMERO.web has been decoupled from the server and can now be deployed
    separately
 -  dropped support for Windows for OMERO.server
 -  OMERO.web deployment via Apache is no longer supported
 -  CLI improvements
 -  options added for customizing the tree in OMERO.web
--  changed DB setup script to require PostgreSQL 9.3
 -  introduced hide-password option in CLI
 -  new options added to ``omero config``
 -  removed deprecated client menu properties
@@ -56,7 +56,8 @@ Developer updates include:
 -  adjustment to support the upcoming Java 1.9
 -  made python testing package public so it can be used by external clients
 -  improved build system integration with local Maven
--  made Scripts repository pep8 and flake8 compatible
+-  made Scripts repository and official OMERO.web apps pep8 and flake8
+   compatible
 -  removed restriction on name length
 -  added support for enumeration changes
 -  utils script classes deprecated
