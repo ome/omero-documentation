@@ -100,17 +100,17 @@ For example:
 
     $ bin/omero config append omero.web.open_with '["xyz_viewer", "url_name", {"supported_objects": ["image"]}]'
 
-This will create a menu option named "xyz_viewer" that is only enabled when a
+This will create a menu option named``xyz_viewe` that is only enabled when a
 single "image" is selected.
 
-The unique ID string, "xyz_viewer" can be used to identify your plugin
+The unique ID string,``xyz_viewe`` can be used to identify your plugin
 if you add extra scripts, as shown below. If you want your ``Open with`` option
 to appear under a different menu label, see "UI Label" section below.
 
 We use ``reverse(url_name)`` to resolve a url from the url_name. If the url_name
 is not recognised (for external urls) the ``url_name`` will be used directly.
 
-When the "xyz_viewer" option is clicked, a new window will be opened with the
+When the ``xyz_viewer`` option is clicked, a new window will be opened with the
 selected object(s) added to the url as a query string
 
 ::
@@ -156,7 +156,7 @@ For more control over the enabled status of your plugin or to configure how urls
 are created from selected objects, you can write JavaScript functions
 that handle these steps.
 These functions use the label specified above as an ID for your ``Open with``
-option. In this example it is ``xyz_viewe``.
+option. In this example it is ``xyz_viewer``.
 Add one or both of these function calls to a script, for example ``openwith.js``
 
 ::
