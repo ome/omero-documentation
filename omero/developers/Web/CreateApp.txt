@@ -19,14 +19,14 @@ follow the instructions under :doc:`Deployment`.
 
 You should make sure that you can access the webclient on
 your local machine before starting to develop your own code. Be sure to
-use the correct port number, e.g.:
+use the correct port number, e.g.
 
 -  `http://localhost:4080/webclient/ <http://localhost:4080/webclient/>`_
 
 When you edit and save your app, Django will automatically detect this and you
 only need to refresh your browser to see the changes.
 
-If you want to make changes to the OMERO.web code itself, you should see
+If you want to make changes to the OMERO.web code itself, go to
 :doc:`/developers/Web/EditingOmeroWeb`.
 
 You can place your app anywhere on your :envvar:`PYTHONPATH`,
@@ -42,7 +42,7 @@ describe how to create a stand-alone git repository for your app, similar to
 If you do not want to use GitHub, simply ignore the steps related to GitHub.
 
 The steps below describe how to set up a new app. You should choose an
-appropriate name for your app and use it in place of <organisation-appname>:
+appropriate name for your app and use it in place of <organization-appname>:
 
 
 Add your app to your PYTHONPATH
@@ -51,12 +51,11 @@ Add your app to your PYTHONPATH
 Your app needs to be within a directory that is on your :envvar:`PYTHONPATH`.
 We usually create a new container for a new app, and add it to the
 :envvar:`PYTHONPATH`.
-
 ::
 
-    $ mkdir organisation-appname e.g. omero-webtest
-    $ cd organisation-appname
-    $ export PYTHONPATH=$PYTHONPATH:/path/to/organisation-appname
+    $ mkdir organization-appname
+    $ cd organization-appname
+    $ export PYTHONPATH=$PYTHONPATH:/path/to/organization-appname
 
 
 OR you could simply choose an existing location:
@@ -73,46 +72,43 @@ Create and check out a new GitHub repository OR manually create a new directory
    `<https://github.com/>`_\<your-name>/) and click
    "New repository"
 
--  Enter the name of your repository e.g. ``<organisation-appname>``,
-   add a ``README.rst`` file (using the .rst extension allows it to be rendered correctly on PyPI).
+-  Enter the name of your repository e.g. ``<organization-appname>``,
+   add a ``README.rst`` file (using the ``.rst`` extension allows it to be rendered correctly on PyPI).
    Its contents should cover the goal of the app and the configuration instructions.
 
 -  Check out your new repository into a new directory::
 
-       $ git clone git@github.com:<your-name>/<organisation-appname>.git
-
+       $ git clone git@github.com:<your-name>/<organization-appname>.git
 
 -  OR: If you have not used git to create your app directory above, then::
 
-        $ mkdir <organisation-app>
+        $ mkdir <organization-app>
 
--  In either case, you should now have a directory called ``organisation-appname`` within
+-  In either case, you should now have a directory called ``organization-appname`` within
    a directory that is on your :envvar:`PYTHONPATH`.
 
 Make your app installable from PyPI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is not required but it is highly recommended to make your app
+This is not required but it is recommended to make your app
 installable from PyPI. If you opt to do so, a few files need to be added:
 
-- ``MANIFEST.in`` - a file is needed in certain cases to package files not automatically included
+- ``setup.py`` - a set-up file used to configure various aspects of the app and also used as a command line interface for packaging the app
 
 - ``setup.cfg`` - a configuration file that contains option defaults for ``setup.py`` commands
 
-- ``setup.py`` - a set-up file used to configure various aspects of the app and also used as a command line interface for packaging the app.
-
+- ``MANIFEST.in`` - a file needed in certain cases to package files not automatically included
 
 See `Packaging and Distributing Projects <https://packaging.python.org/distributing/>`_ for more details. 
 
 Add the essential files to your app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Create a directory ``<organisation_appname>`` (note the underscore) to add the essential files to
-   e.g. ``omero_webtest``
+-  Create a directory ``<organization_appname>`` e.g. ``omero_webtest`` (note the underscore) to add the essential files to
+   
+-  Create an empty file ``<organization_appname>/__init__.py`` (double underscores)
 
--  Create an empty file ``<organisation_appname>/__init__.py`` (double underscores)
-
--  Create :file:`<organisation_appname>/urls.py`::
+-  Create :file:`<organization_appname>/urls.py`::
 
        from django.conf.urls import url, patterns
        from . import views
@@ -124,7 +120,7 @@ Add the essential files to your app
 
         )
 
--  Create :file:`<organisation_appname>/views.py`::
+-  Create :file:`<organization_appname>/views.py`::
 
         from django.http import HttpResponse
 
@@ -134,14 +130,13 @@ Add the essential files to your app
             """
             return HttpResponse("Welcome to your app home-page!")
 
--  Create :file:`<organisation_appname>/apps.py`::
+-  Create :file:`<organization_appname>/apps.py`::
 
         from django.apps import AppConfig
 
         class AppNameAppConfig(AppConfig):
-            name = "organisation_appname"
+            name = "organization_appname"
             label = "appname"
-
 
 For more details on how to write views, forms, using templates, etc. check the
 :djangodoc:`Django documentation <intro/tutorial03/#write-your-first-view>`.
@@ -160,8 +155,7 @@ so that URLs are registered etc.
 
 ::
 
-    $ bin/omero config append omero.web.apps '"<organisation_appname>"'
-
+    $ bin/omero config append omero.web.apps '"<organization_appname>"'
 
 Now you can view the home-page we created above. Now restart OMERO.web as normal
 for the config settings to take effect.
@@ -183,15 +177,15 @@ Commit your code and push to GitHub
     $ git commit -m "Initial commit of bare-bones OMERO.web app"
     $ git push origin master
 
-Connect to OMERO: example
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Connect to OMERO: an example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We have got our new app working, but it is not connecting to OMERO yet.
 Let us create a simple "stack preview" for an Image with multiple
 Z-sections. We are going to display the image name and 5 planes evenly
 spaced across the Z-stack. You should be able to add the appropriate
 code to :file:`urls.py`, :file:`views.py` that you created above, and add a template
-under /omeroweb/<organisation-appname>/<organisation_appname>/templates/<appname>/ 
+under /omeroweb/<organization-appname>/<organization_appname>/templates/<appname>/ 
 
 
 The following example can be found in the
@@ -225,7 +219,7 @@ The following example can be found in the
                   {'imageId': image_id, 'image_name': image_name,
                    'z_indexes': z_indexes})
 
--  **<organisation-appname>/<organisation_appname>/templates/<appname>/stack\_preview.html**::
+-  **<organization-appname>/<organization_appname>/templates/<appname>/stack\_preview.html**::
 
        <html>
        <head>
@@ -287,7 +281,7 @@ the feeling that they have not left the webclient, if you are providing
 additional functionality for webclient users. You may choose not to use
 this if you are building a 'stand-alone' web application. In either
 case, it is good practice to create your own templates with common
-components (links, logout etc.), so you can make changes to all your
+components (links, logout, etc.), so you can make changes to all your
 pages at once. See :doc:`/developers/Web/WritingTemplates` for more info.
 
 App settings
@@ -299,24 +293,24 @@ The list of ``CUSTOM_SETTINGS_MAPPINGS`` in
 :sourcedir:`components/tools/OmeroWeb/omeroweb/settings.py` is a good
 source for examples of the different data types and parsers you can use.
 
-For example, if you want to create a user-defined setting yourapp.foo,
+For example, if you want to create a user-defined setting organization-appname.foo,
 that contains a dictionary of key-value pairs, you can add to
-``CUSTOM_SETTINGS_MAPPINGS`` in ``yourapp/settings.py``::
+``CUSTOM_SETTINGS_MAPPINGS`` in ``organization-appname/settings.py``::
 
     import json
     CUSTOM_SETTINGS_MAPPINGS = {
-        "omero.web.yourapp.foo": ["FOO", '{"key": "val"}', json.loads]
+        "omero.web.organization-appname.foo": ["FOO", '{"key": "val"}', json.loads]
     }
 
 From somewhere else in your app, you can then access the settings::
 
-    from yourapp import settings
+    from organization-appname import settings
 
     print settings.FOO
 
 Users can then configure this on the command line as follows::
 
-    $ bin/omero config set omero.web.yourapp.foo '{"userkey": "userval"}'
+    $ bin/omero config set omero.web.organization-appname.foo '{"userkey": "userval"}'
 
 Linking from Webclient
 ----------------------
