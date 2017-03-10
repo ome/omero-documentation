@@ -388,7 +388,7 @@ List projects
     dataset     Number      Filter Projects by child Dataset ID
 
 
-These query paramters are also supported (see above):
+These query parameters are also supported (see above):
 
 ::
 
@@ -527,7 +527,7 @@ List datasets
     orphaned    Boolean     Find Dataset that are not in any Project
 
 
-These query paramters are also supported (see above):
+These query parameters are also supported (see above):
 
 ::
 
@@ -615,7 +615,7 @@ loaded.
     orphaned    Boolean     Find Images that are not in any Dataset or Well
 
 
-These query paramters are also supported (see above):
+These query parameters are also supported (see above):
 
 ::
 
@@ -830,7 +830,7 @@ List screens
     plate       Number      Filter Datasets by child Plate ID
 
 
-These query paramters are also supported (see above):
+These query parameters are also supported (see above):
 
 ::
 
@@ -902,7 +902,7 @@ List plates
     orphaned    Boolean     Find Plates that are not in any Screen
 
 
-These query paramters are also supported (see above):
+These query parameters are also supported (see above):
 
 ::
 
@@ -1040,7 +1040,7 @@ By default, when listing Wells in a Plate, *all* of the WellSamples and Images
 will be loaded for each Well. Wells are ordered by Column and Row.
 
 
-**Paramters**
+**Parameters**
 
 The following query parameters can be used (as described above)
 ::
