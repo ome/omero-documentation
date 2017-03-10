@@ -1158,3 +1158,162 @@ with Pixels loaded.
     GET   /api/v0/m/wells/{well_id}/
 
 
+Creating and Saving Objects
+---------------------------
+
+The JSON API currently supports creating and saving of a limited number of
+object types, namely Projects, Datasets and Screens.
+This is due to technical issues with saving unloaded objects, such as an Image
+without Pixels or Channels loaded. We will be working to resolve these issues
+in future releases.
+
+Creating and saving of JSON objects is handled by a single ``save`` URL
+and objects are identified by their ``@type`` and ``@id`` attributes.
+
+
+Object Types
+^^^^^^^^^^^^
+
+The object ``@type`` must be based on the currently supported Schema URL
+which can be retrieved with:
+
+::
+
+    GET     /api/v0/
+
+
+**Response**
+
+::
+
+    {
+      "url:schema": "http://www.openmicroscopy.org/Schemas/OME/2016-06",
+      # other urls not shown
+    }
+
+
+This can then be used to create a ``@type`` by appending ``#`` and the
+object name, such as:
+
+::
+
+    http://www.openmicroscopy.org/Schemas/OME/2016-06#Project
+
+
+Creating Objects
+^^^^^^^^^^^^^^^^
+
+To create an object, POST the JSON for that object, including the ID of the
+OMERO group that the object should be saved in.
+Currently only creation of Projects, Datasets and Screens is supported.
+
+::
+
+    POST  /api/v0/m/save/?group={group_id}
+
+
+**Content**
+
+::
+
+    {
+      "Name": "My new Project",
+      "Description": "Created via the JSON API",
+      "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project"
+    }
+
+
+**Response**
+
+::
+
+    {
+      "data": {
+        "@id": 567,
+        "Name": "My new Project",
+        "Description": "Created via the JSON API",
+        "url:datasets": "http://localhost:4080/api/v0/m/projects/3872/datasets/",
+        "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
+        "omero:details": {
+          # omitted for brevity
+        }
+      }
+    }
+
+
+Updating Objects
+^^^^^^^^^^^^^^^^
+
+The API supports PUT to replace existing objects with the submitted data.
+The submitted JSON data can be constructed from scratch, but it will generally
+be more convenient and safer to GET the object, update it and save
+the edited JSON.
+
+For example, to edit the Name of the Project in the previous example:
+
+::
+
+    POST  /api/v0/m/save/
+
+
+**Content**
+
+::
+
+    {
+      "@id": 567,
+      "Name": "Edited Project Name",
+      "Description": "Created via the JSON API",
+      "url:datasets": "http://localhost:4080/api/v0/m/projects/3872/datasets/",
+      "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
+      "omero:details": {
+        # omitted for brevity
+      }
+    }
+
+
+**Response**
+
+::
+
+    {
+      "data": {
+        "@id": 567,
+        "Name": "Edited Project Name",
+        "Description": "Created via the JSON API",
+        "url:datasets": "http://localhost:4080/api/v0/m/projects/3872/datasets/",
+        "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
+        "omero:details": {
+          # omitted for brevity
+        }
+      }
+    }
+
+
+Deleting Objects
+^^^^^^^^^^^^^^^^
+
+To delete a Project, Dataset or Screen, simply DELETE using the URL to that
+object. The deleted object will be returned. For example, to delete a Project:
+
+::
+
+    DELETE  /api/v0/m/projects/{project_id}/
+
+
+**Response**
+
+::
+
+    {
+      "data": {
+        "@id": 567,
+        "Name": "Edited Project Name",
+        "Description": "Created via the JSON API",
+        "url:datasets": "http://localhost:4080/api/v0/m/projects/3872/datasets/",
+        "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
+        "omero:details": {
+          # omitted for brevity
+        }
+      }
+    }
