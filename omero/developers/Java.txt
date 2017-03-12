@@ -264,14 +264,17 @@ This is useful when you need the pixels intensity.
     int sizeC = pixels.getSizeC();
     long pixelsId = pixels.getId();
     RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
-    store.setPixelsId(pixelsId, false);
-    for (int t = 0; t < sizeT; t++) {
-        for (int c = 0; c < sizeC; c++) {
-            byte[] plane = store.getStack(c, t);
-            //Do something
+    try{
+        store.setPixelsId(pixelsId, false);
+        for (int t = 0; t < sizeT; t++) {
+            for (int c = 0; c < sizeC; c++) {
+                byte[] plane = store.getStack(c, t);
+                //Do something
+            }
         }
-    }
-    store.close();
+    } finally {
+        store.close();
+    }   
 
 -  **Retrieve a given hypercube.**
 
@@ -303,10 +306,13 @@ This is useful when you need the pixels intensity.
         step.add(i, 1);
     }
     RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
-    store.setPixelsId(pixelsId, false);
-    byte[] values = store.getHypercube(offset, size, step);
-    //Do something
-    store.close();
+    try {
+        store.setPixelsId(pixelsId, false);
+        byte[] values = store.getHypercube(offset, size, step);
+        //Do something
+    } finally {
+        store.close();
+    }
 
 Write data
 ----------
@@ -461,23 +467,24 @@ created:
 
     //Initialize the service to load the raw data
     RawFileStorePrx rawFileStore = gateway.getRawFileService(ctx);
-    rawFileStore.setFileId(originalFile.getId().getValue());
-    //Open file and read stream.
-    FileInputStream stream = new FileInputStream(file);
+    
     long pos = 0;
     int rlen;
     byte[] buf = new byte[INC];
     ByteBuffer bbuf;
-    while ((rlen = stream.read(buf)) > 0) {
-        rawFileStore.write(buf, pos, rlen);
-        pos += rlen;
-        bbuf = ByteBuffer.wrap(buf);
-        bbuf.limit(rlen);
+    //Open file and read stream
+    try (FileInputStream stream = new FileInputStream(file)) {
+        rawFileStore.setFileId(originalFile.getId().getValue());
+        while ((rlen = stream.read(buf)) > 0) {
+            rawFileStore.write(buf, pos, rlen);
+            pos += rlen;
+            bbuf = ByteBuffer.wrap(buf);
+            bbuf.limit(rlen);
+        }
+        originalFile = rawFileStore.save();
+    } finally {
+       rawFileStore.close();
     }
-    stream.close();
-    originalFile = rawFileStore.save();
-    rawFileStore.close();
-
     //now we have an original File in DB and raw data uploaded.
     //We now need to link the Original file to the image using 
     //the File annotation object. That's the way to do it.
@@ -521,36 +528,38 @@ First load the annotations, cf. above.
     Iterator<Annotation> j = annotations.iterator();
     Annotation annotation;
     FileAnnotationData fa;
-    RawFileStorePrx store = null;
+    RawFileStorePrx store = gateway.getRawFileService(ctx);
     File file = File.createTempFile("temp-file-name_", ".tmp"); 
-    store = gateway.getRawFileService(ctx);
     int index = 0;
-    FileOutputStream stream = new FileOutputStream(file);
+    
     OriginalFile of;
-    while (j.hasNext()) {
-        annotation = j.next();
-        if (annotation instanceof FileAnnotation && index == 0) {
-            fa = new FileAnnotationData((FileAnnotation) annotation);
-            //The id of the original file
-            of = getOriginalFile(fa.getFileID());
-            store.setFileId(fa.getFileID());
-            int offset = 0;
-            long size = of.getSize().getValue();
-            //name of the file
-            String fileName = of.getName().getValue();
-            try {
-                for (offset = 0; (offset+INC) < size;) {
-                    stream.write(store.read(offset, INC));
-                    offset += INC;
-                }   
-            } finally {
-                stream.write(store.read(offset, (int) (size-offset))); 
-                stream.close();
+    try (FileOutputStream stream = new FileOutputStream(file)) {
+        while (j.hasNext()) {
+            annotation = j.next();
+            if (annotation instanceof FileAnnotation && index == 0) {
+                fa = new FileAnnotationData((FileAnnotation) annotation);
+                //The id of the original file
+                of = getOriginalFile(fa.getFileID());
+                store.setFileId(fa.getFileID());
+                int offset = 0;
+                long size = of.getSize().getValue();
+                //name of the file
+                String fileName = of.getName().getValue();
+                try {
+                    for (offset = 0; (offset+INC) < size;) {
+                        stream.write(store.read(offset, INC));
+                        offset += INC;
+                    }   
+                } finally {
+                    stream.write(store.read(offset, (int) (size-offset))); 
+                }
+                index++;
             }
-            index++;
         }
+    } finally {
+        store.close();
     }
-    store.close();
+    file.delete();
 
 .. _java_omero_tables_code_samples:
 
@@ -584,56 +593,81 @@ In the following example, we create a table with 2 columns.
 
     //create a new table.
     SharedResourcesPrx store = gateway.getSharedResources(ctx);
-    TablePrx table = store.newTable(1, name);
+    try {
+        TablePrx table = store.newTable(1, name);
+        //initialize the table
+        table.initialize(columns);
+        //add data to the table.
+        rows = 2;
+        Column[] newRow = createColumns(rows);
 
-    //initialize the table
-    table.initialize(columns);
-    //add data to the table.
-    rows = 2;
-    Column[] newRow = createColumns(rows);
+        LongColumn uids = (LongColumn) newRow[0];
+        LongColumn myLongs = (LongColumn) newRow[1];
+        for (int i = 0; i < rows; i++) {
+            uids.values[i] = i;
+            myLongs.values[i] = i;
+        }
 
-    LongColumn uids = (LongColumn) newRow[0];
-    LongColumn myLongs = (LongColumn) newRow[1];
-    for (int i = 0; i < rows; i++) {
-        uids.values[i] = i;
-        myLongs.values[i] = i;
+        table.addData(newRow);
+
+        OriginalFile file = table.getOriginalFile(); //if you need to interact with the table
+
+        //link table to image.
+        FileAnnotation annotation = new FileAnnotationI();
+        annotation.setFile(file);
+        //Use your desired namespace
+        annotation.setNs(omero.rtypes
+                .rstring(omero.constants.namespaces.NSBULKANNOTATIONS.value));
+        annotation = (FileAnnotation) dm.saveAndReturnObject(ctx, annotation);
+        ImageAnnotationLink link = new ImageAnnotationLinkI();
+
+        //now link the image and the annotation
+        ImageAnnotationLink link = new ImageAnnotationLinkI();
+        link.setChild(annotation);
+        link.setParent(image.asImage());
+        //save the link back to the server.
+        link = (ImageAnnotationLink) dm.saveAndReturnObject(ctx, link);
+    } finally {
+        store.close();
+        table.close();
     }
-
-    table.addData(newRow);
-
-    OriginalFile file = table.getOriginalFile(); //if you need to interact with the table
 
 -  **Read the contents of the table.**
 
 ::
-
+    
+    SharedResourcesPrx store = gateway.getSharedResources(ctx);
     file = new OriginalFileI(file.getId(), false);
-    table = store.openTable(file);
+    try {
+        table = store.openTable(file);
 
-    //read headers
-    Column[] cols = table.getHeaders();
+        //read headers
+        Column[] cols = table.getHeaders();
 
-    for (int i = 0; i < cols.length; i++) {
-      String colName = cols[i].name;
-    }
+        for (int i = 0; i < cols.length; i++) {
+          String colName = cols[i].name;
+        }
 
-    //Depending on size of table, you may only want to read some blocks.
-    long[] columnsToRead = new long[cols.length];
-    for (int i = 0; i < cols.length; i++) {
-      columnsToRead[i] = i;
-    }
+        //Depending on size of table, you may only want to read some blocks.
+        long[] columnsToRead = new long[cols.length];
+        for (int i = 0; i < cols.length; i++) {
+          columnsToRead[i] = i;
+        }
 
-    //The number of columns we wish to read.
-    long[] rowSubset = new long[(int) (table.getNumberOfRows()-1)];
-    for (int j = 0; j < rowSubset.length; j++) {
-      rowSubset[j] = j;
-    }
-    Data data = table.slice(columnsToRead, rowSubset); // read the data.
-    cols = data.columns;
-    for (int j = 0; j < cols.length; j++) {
-      Column c = cols[j];
-    }
-    table.close();
+        //The number of columns we wish to read.
+        long[] rowSubset = new long[(int) (table.getNumberOfRows()-1)];
+        for (int j = 0; j < rowSubset.length; j++) {
+          rowSubset[j] = j;
+        }
+        Data data = table.slice(columnsToRead, rowSubset); // read the data.
+        cols = data.columns;
+        for (int j = 0; j < cols.length; j++) {
+          Column c = cols[j];
+        }
+    } finally {
+        store.close();
+        table.close();
+    }  
 
 ROIs
 ----
@@ -653,7 +687,6 @@ to an image.
     ROIFacility roifac = gateway.getFacility(ROIFacility.class);
 
     //To retrieve the image see above.
-
     ROIData data = new ROIData();
     data.setImage(image);
     //Create a rectangle.
@@ -662,11 +695,36 @@ to an image.
     rectangle.setT(0);
     data.addShapeData(rectangle);
 
+    //Add a mask
+    PixelsData pixels = image.getDefaultPixels();
+    long pixelsId = pixels.getId();
+    RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
+    try {
+        store.setPixelsId(pixelsId, false);
+        byte[] mask = store.getStack(0, 0);
+        MaskData maskData = new MaskData(10, 10, 100.0, 100.0, mask);
+        maskData.setZ(0);
+        maskData.setT(0);
+        data.addShapeData(maskData);
+    } finally {
+        store.close();
+    }
+
     //Create an ellipse.
-    EllipseData ellipse = new Ellipse(10, 10, 10, 10);
-    ellipse.setZ(0);
-    ellipse.setT(0);
-    ellipse.setText("ellipse text");
+    EllipseData ellipse = new EllipseData(10, 10, 10, 10);
+    //Not setting the Z and T for this shape object, this is also allowed in the model.
+    //set angle of rotation
+    double theta = 10;
+    //create transform object
+    AffineTransformI newTform = omero.model.AffineTransformI();
+    newTform.setA00(omero.rtypes.rdouble(cos(theta)));
+    newTform.setA10(omero.rypes.rdouble(-sin(theta)));
+    newTform.setA01(omero.rypes.rdouble(sin(theta)));
+    newTform.setA11(omero.rypes.rdouble(cos(theta)));
+    newTform.setA02(omero.rypes.rdouble(0));
+    newTform.setA12(omero.rypes.rdouble(0));
+    //add transform
+    ellipse.setTransform(newTform);
     data.addShapeData(ellipse);
 
     // Save ROI and shape
@@ -684,16 +742,34 @@ to an image.
       long id = shape.getId();
       if (shape instanceof RectangleData) {
         RectangleData rectData = (RectangleData) shape;
-        // Handle rectangle
+        //Insert code to handle rectangle
       } else if (shape instanceof EllipseData) {
         EllipseData ellipseData = (EllipseData) shape;
-        // Handle ellipse
+        //Insert code to handle ellipse
       } else if (shape instanceof LineData) {
         LineData lineData = (LineData) shape;
-        // Handle line
+        //Insert code to handle line
       } else if (shape instanceof PointData) {
         PointData pointData = (PointData) shape;
-        // Handle point
+        //Insert code to handle point
+      } else if (shape instanceof MaskData) {
+        MaskData maskData1 = (MaskData) shape;
+        //Insert code to handle mask
+      }
+
+      //Check if the shape has transform
+      //http://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
+      AffineTransformI transform = shape.getTransform();
+      if (transform != null){
+
+        double xScaling = transform.getA00.getValue();
+        double xShearing = transform.getA01.getValue();
+        double xTranslation = transform.getA02.getValue();
+            
+        double yScaling = transform.getA11.getValue();
+        double yShearing = transform.getA10.getValue();
+        double yTranslation = transform.getA12.getValue();
+        //Insert code to handle transforms
       }
     }
 
@@ -707,7 +783,7 @@ to an image.
     List<ROIResult> roiresults = roifac.loadROIs(ctx, image.getId());
     ROIResult r = roiresults.iterator().next();
     if (r == null) return;
-    List<Roi> rois = r.rois;
+    Collection<ROIData> rois = r.getROIs();
     List<Shape> list;
     Iterator<Roi> j = rois.iterator();
     while (j.hasNext()) {
@@ -774,41 +850,51 @@ Render Images
     long pixelsId = pixels.getId();
     RenderingEnginePrx proxy = null;
     proxy = gateway.getRenderingService(ctx, pixelsId);
-    proxy.lookupPixels(pixelsId);
-    if (!(proxy.lookupRenderingDef(pixelsId))) {
-        proxy.resetDefaultSettings(true);
-        proxy.lookupRenderingDef(pixelsId);
+    ByteArrayInputStream stream = bull;
+    try {
+        proxy.lookupPixels(pixelsId);
+        if (!(proxy.lookupRenderingDef(pixelsId))) {
+            proxy.resetDefaultSettings(true);
+            proxy.lookupRenderingDef(pixelsId);
+        }
+        proxy.load();
+        //Now can interact with the rendering engine.
+        proxy.setActive(0, Boolean.valueOf(false));
+        PlaneDef pDef = new PlaneDef();
+        pDef.z = 0;
+        pDef.t = 0;
+        pDef.slice = omero.romio.XY.value;
+        //render the data uncompressed.
+        int[] uncompressed = proxy.renderAsPackedInt(pDef);
+        byte[] compressed = proxy.renderCompressed(pDef);
+        //Create a buffered image
+        stream = new ByteArrayInputStream(compressed);
+        BufferedImage image = ImageIO.read(stream);
+    } finally {
+        proxy.close();
+        if (stream != null) stream.close();
     }
-    proxy.load();
-    //Now can interact with the rendering engine.
-    proxy.setActive(0, Boolean.valueOf(false));
-    PlaneDef pDef = new PlaneDef();
-    pDef.z = 0;
-    pDef.t = 0;
-    pDef.slice = omero.romio.XY.value;
-    //render the data uncompressed.
-    int[] uncompressed = proxy.renderAsPackedInt(pDef);
-    byte[] compressed = proxy.renderCompressed(pDef);
-    //Create a buffered image
-    ByteArrayInputStream stream = new ByteArrayInputStream(compressed);
-    BufferedImage image = ImageIO.read(stream);
-    proxy.close();
-        
+   
 
 -  **Retrieve thumbnails.**
 
 ::
-
+    
     ThumbnailStorePrx store = gateway.getThumbnailService(ctx);
-    PixelsData pixels = image.getDefaultPixels();
-    store.setPixelsId(pixels.getId())
-    //retrieve a 96x96 thumbnail.
-    byte[] array = store.getThumbnail(
-            omero.rtypes.rint(96), omero.rtypes.rint(96));
-    ByteArrayInputStream stream = new ByteArrayInputStream(array);
-    //Create a buffered image to display
-    ImageIO.read(stream);
-    store.close();
+    ByteArrayInputStream stream = null;
+    try {
+        PixelsData pixels = image.getDefaultPixels();
+        store.setPixelsId(pixels.getId())
+        //retrieve a 96x96 thumbnail.
+        byte[] array = store.getThumbnail(
+                omero.rtypes.rint(96), omero.rtypes.rint(96));
+        stream = new ByteArrayInputStream(array);
+        //Create a buffered image to display
+        ImageIO.read(stream);
+    } finally {
+        store.close();
+        if (stream != null) stream.close();
+    }
 
 Create Image
 ------------
@@ -829,18 +915,20 @@ in OMERO. Similar approach can be applied when uploading an image.
 
     //Read the pixels from the source image.
     RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
-    store.setPixelsId(pixelsId, false);
+    try{
+        store.setPixelsId(pixelsId, false);
 
-    List<byte[]> planes = new ArrayList<byte[]>();
+        List<byte[]> planes = new ArrayList<byte[]>();
 
-    for (int z = 0; z < sizeZ; z++) {
-        for (int t = 0; t < sizeT; t++) {
-            planes.add(store.getPlane(z, 0, t));
+        for (int z = 0; z < sizeZ; z++) {
+            for (int t = 0; t < sizeT; t++) {
+                planes.add(store.getPlane(z, 0, t));
+            }
         }
+    } finally {
+        //Better to close to free space.
+        store.close();
     }
-
-    //Better to close to free space.
-    store.close();
 
     //Now we are going to create the new image.
     IPixelsPrx proxy = gateway.getPixelsService(ctx);
@@ -879,19 +967,21 @@ in OMERO. Similar approach can be applied when uploading an image.
     gateway.getUpdateService(ctx).saveAndReturnObject(link);
 
     //Write the data.
-    store = gateway.getPixelsStore(ctx);
-    store.setPixelsId(newImage.getDefaultPixels().getId(), false);
-    int index = 0;
-    for (int z = 0; z < sizeZ; z++) {
-        for (int t = 0; t < sizeT; t++) {
-            store.setPlane(planes.get(index++), z, 0, t);
+    try {
+        store = gateway.getPixelsStore(ctx);
+        store.setPixelsId(newImage.getDefaultPixels().getId(), false);
+        int index = 0;
+        for (int z = 0; z < sizeZ; z++) {
+            for (int t = 0; t < sizeT; t++) {
+                store.setPlane(planes.get(index++), z, 0, t);
+            }
         }
+
+        //Save the data.
+        store.save();
+    } finally {
+        store.close();
     }
-
-    //Save the data.
-    store.save();
-
-    store.close();
 
 Further information
 -------------------
