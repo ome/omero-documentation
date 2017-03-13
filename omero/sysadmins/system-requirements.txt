@@ -8,14 +8,10 @@ OMERO.server
 ^^^^^^^^^^^^
 
 The system requirements for OMERO.server vary greatly depending on image
-size and number of users. At a minimum we suggest:
+size and number of users. The minimum requirements should be easily exceeded
+by any recently bought hardware.
 
--  Single core 1.33GHz Intel or AMD CPU
--  2GB RAM
--  500MB of hard drive space for OMERO.server distribution
-
-The recommended OMERO.server specification we suggest for between 25-50
-users is:
+The OMERO.server specification for between 25-50 users might be:
 
 -  Quad core 1.33GHz Intel or AMD CPU
 -  8GB RAM
@@ -23,11 +19,25 @@ users is:
 -  Hard drive space proportional to the image sizes expected (likely
    between 10 and 100TB)
 
+A specification for a server future-proofed for 3-4 years might be:
+
+-  dual Intel Xeon Processor E5-2637 v3 4C 3.5GHz 15MB 2133MHz 135W
+-  256GB RAM
+-  2 x 200GB SSD RAID1 for OS
+-  2 x 400GB SSD RAID1 for PostgreSQL DB
+-  2 x 1.2 TB SAS RAID1 for scratch, log files, etc.
+
+Storage
+"""""""
+
 Hard drive space should be proportional to the image sizes expected. The drive
 space should permit **proper locking**, which is often not the case with
 remotely mounted shares. See the
 :doc:`binary repository </sysadmins/unix/server-binary-repository>` section
 for more information.
+
+RAM
+"""
 
 RAM is not going to scale linearly, particularly with the way the JVM
 works. You are probably going to hit a hard ceiling between 4 and 6GB for
@@ -41,12 +51,19 @@ server processes' memory usage. In summary, depending on hardware layout 16,
 database server more than 16GB of RAM may not be of much benefit to you at
 all.
 
+CPU
+"""
+
 CPU is not something that an OMERO system is usually ever limited
 by. However, when it is limited, it is almost always limited by GHz and
-not by the CPU count. So you are not going to get a huge OMERO
-performance increase by, for example, throwing 24 cores at the problem. In
-summary, depending on hardware layout 2 × 4, 2 × 6 system core count should be
-more than enough.
+not by the CPU count. Depending on hardware layout 2 × 4, 2 × 6 system core
+count should be more than enough. You are not going to get a huge OMERO
+performance increase by, for example, throwing 24 cores at the problem; a
+specification with a focus on higher clock speed is going to give you better
+performance.
+
+Further examples
+""""""""""""""""
 
 :doc:`server-setup-examples` provides details on some production set-ups
 currently in use by OMERO admins, along with how many users and the amount of
