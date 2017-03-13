@@ -54,7 +54,7 @@ OMERO.web configuration
 Check :ref:`omero_web_deployment` for the latest advice on how to deploy
 OMERO.web.
 If you generated configuration stanzas using :omerocmd:`web config` which
-enables OMERO.web via Nginx, they will include hard-coded links to
+enables OMERO.web via Nginx, they will include **hard-coded links** to
 your previous version of OMERO. Therefore, you should regenerate your config
 files when upgrading, remembering to merge in any of your own modifications if
 necessary. You should carry out this step even for minor version upgrades as
@@ -73,11 +73,9 @@ OMERO.web dependencies
 ^^^^^^^^^^^^^^^^^^^^^^
 
 While upgrading the server it is recommended to keep OMERO.web dependencies
-up to date to ensure that security updates are applied.
+up to date to ensure that security updates are applied::
 
-- Nginx on Unix::
-
-     $ pip install --upgrade -r share/web/requirements-py27-nginx.txt
+    $ pip install --upgrade -r share/web/requirements-py27.txt
 
 .. note:: This is mainly for new major releases. If carrying out a minor
     release upgrade, you should check that updates will not break your set-up
@@ -107,7 +105,7 @@ delete everything under this directory before starting the upgraded server.
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-If you encounter errors during an OMERO upgrade, database upgrade, etc. you
+If you encounter errors during an OMERO upgrade, database upgrade, etc., you
 should retain as much log information as possible and notify the OMERO.server
 team via the mailing lists available on the :community_plone:`community <>`
 page.
@@ -132,12 +130,12 @@ below. Please refer to each section for additional details.
 Check ahead for upgrade issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There is a "precheck" SQL script provided that performs various database
+There is a ``precheck`` SQL script provided that performs various database
 checks to verify readiness for upgrade. The precheck script works even
 with the OMERO server running so it may be used before downtime for the
 actual upgrade is scheduled. Issues that the script reports will need to
 be resolved before the upgrade may proceed. The precheck script will
-*not* make any changes to the database: it merely performs various
+**not** make any changes to the database: it merely performs various
 precautionary checks also done by the actual upgrade script.
 
 .. parsed-literal::
@@ -214,8 +212,8 @@ Ensure Unicode character encoding
 """""""""""""""""""""""""""""""""
 
 Versions of OMERO from 5.1.0 onwards require a Unicode-encoded database;
-without it, the upgrade script aborts with a message warning how the "OMERO
-database character encoding must be UTF8". From :command:`psql`::
+without it, the upgrade script aborts with a message warning how the ``OMERO
+database character encoding must be UTF8``. From :command:`psql`::
 
   # SELECT datname, pg_encoding_to_char(encoding) FROM pg_database;
     datname   | pg_encoding_to_char
@@ -281,7 +279,7 @@ intermediate major release.
 Delete certain annotations (optional)
 """""""""""""""""""""""""""""""""""""
 
-For various reasons production databases may accumulate non-sharable
+For various reasons, production databases may accumulate non-sharable
 annotations that are orphaned. These are :doc:`structured annotations
 </developers/Model/StructuredAnnotations>` that are 'basic' (`Boolean`,
 `Timestamp`, `Term`), 'numeric' (`Double`, `Long`), or `Comment`, and
