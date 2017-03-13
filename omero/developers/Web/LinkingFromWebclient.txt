@@ -100,10 +100,10 @@ For example:
 
     $ bin/omero config append omero.web.open_with '["xyz_viewer", "url_name", {"supported_objects": ["image"]}]'
 
-This will create a menu option named``xyz_viewe` that is only enabled when a
+This will create a menu option named ``xyz_viewer`` that is only enabled when a
 single "image" is selected.
 
-The unique ID string,``xyz_viewe`` can be used to identify your plugin
+The unique ID string,``xyz_viewer`` can be used to identify your plugin
 if you add extra scripts, as shown below. If you want your ``Open with`` option
 to appear under a different menu label, see "UI Label" section below.
 

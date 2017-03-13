@@ -85,8 +85,8 @@ All the JavaScript should be within `<script>` and `</script>` tags.
 Your plugin initialization should happen after the page has loaded, so you use
 the jQuery on-ready function.
 
-You use custom jQuery functions, called `omeroweb_right_plugin` or
-`omeroweb_center_plugin`, to initialize the webclient plugin. These will
+You use custom jQuery functions, called ``omeroweb_right_plugin`` or
+``omeroweb_center_plugin``, to initialize the webclient plugin. These will
 handle all the selection change events.
 You simply need to specify how the panel is loaded, based on the selected
 object(s) and what objects are supported. The plugin will be disabled when
