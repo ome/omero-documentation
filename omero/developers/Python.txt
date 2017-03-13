@@ -40,7 +40,7 @@ All the code examples below can be found at
 
 
 If you want to run the examples, you will need to download and
-configure them to connect to your own server. E.g. ``HOST = "localhost"``
+configure them to connect to your own server e.g. ``HOST = "localhost"``.
 You can edit ``HOST, PORT, USERNAME and PASSWORD`` in
 the ``Parse_OMERO_Properties.py`` file and these values will be imported
 into the other scripts.
@@ -160,7 +160,7 @@ Connect to OMERO
         # Close connection:
         # =================================================================
         # When you are done, close the session to free up server resources.
-        conn._closeSession() 
+        conn.close() 
 
 Read data
 ^^^^^^^^^
@@ -269,14 +269,14 @@ Read data
 
 ::
 
-    sizeX = image.getPixelSizeX()       # E.g. 0.132
+    size_x = image.getPixelSizeX()       # e.g. 0.132
     print " Pixel Size X:", sizeX
     # Units support, new in OMERO 5.1.0
-    sizeXobj = image.getPixelSizeX(units=True)
-    print " Pixel Size X:", sizeXobj.getValue(), "(%s)" % sizeXobj.getSymbol()
-    # To get the size with different units, E.g. Angstroms
-    sizeXang = image.getPixelSizeX(units="ANGSTROM")
-    print " Pixel Size X:", sizeXang.getValue(), "(%s)" % sizeXang.getSymbol()
+    size_x_obj = image.getPixelSizeX(units=True)
+    print " Pixel Size X:", size_x_obj.getValue(), "(%s)" % size_x_obj.getSymbol()
+    # To get the size with different units, e.g. Angstroms
+    size_x_ang = image.getPixelSizeX(units="ANGSTROM")
+    print " Pixel Size X:", size_x_ang.getValue(), "(%s)" % size_x_ang.getSymbol()
 
 -  **Retrieve Screening data:**
 
@@ -314,7 +314,7 @@ Read data
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession()
+    conn.close()
 
 Groups and permissions
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -349,7 +349,7 @@ Groups and permissions
         'rw----': 'PRIVATE',
         'rwr---': 'READ-ONLY',
         'rwra--': 'READ-ANNOTATE',
-        'rwrw--': 'READ-WRITE'}  # Not exposed in clients
+        'rwrw--': 'READ-WRITE'}
     print "Permissions: %s (%s)" % (permission_names[perm_string], perm_string)
 
 -  **By default, any query applies to ALL data that we can access in our
@@ -380,15 +380,15 @@ Read-Annotate groups, this will include other users' data - see
     print "Image: ", image,
     if image is not None:
         print "Group: ", image.getDetails().getGroup().getName(),
-        print image.details.group.id.val    # access groupId without loading group
+        print image.getDetails().getGroup().getId()    # access groupId without loading group
 
 -  **To query only a single group (not necessarily your 'current' group)**
 
 ::
 
-    groupId = image.details.group.id.val
+    group_id = image.getDetails().getGroup().getId()
     # This is how we 'switch group' in webclient
-    conn.SERVICE_OPTS.setOmeroGroup(groupId)
+    conn.SERVICE_OPTS.setOmeroGroup(group_id)
     projects = conn.listProjects()
     image = conn.getObject("Image", imageId)
     print "Image: ", image,
@@ -398,7 +398,7 @@ Read-Annotate groups, this will include other users' data - see
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession()
+    conn.close()
 
 Raw data access
 ^^^^^^^^^^^^^^^
@@ -421,7 +421,7 @@ Raw data access
 ::
 
     # Use the pixelswrapper to retrieve the plane as
-    # a 2D numpy array. See [http://www.scipy.org/Tentative_NumPy_Tutorial]
+    # a 2D numpy array see [https://github.com/scipy/scipy]
     #
     # Numpy array can be used for various analysis routines
     #
@@ -478,7 +478,7 @@ Raw data access
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession()
+    conn.close()
 
 Write data
 ^^^^^^^^^^
@@ -495,7 +495,7 @@ Write data
 ::
 
     projectId = 2
-    # Specify a local file. E.g. could be result of some analysis
+    # Specify a local file e.g. could be result of some analysis
     fileToUpload = "README.txt"   # This file should already exist
 
 -  **Create a new Dataset**
@@ -620,7 +620,7 @@ Write data
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession()
+    conn.close()
 
 .. _python_omero_tables_code_samples:
 
@@ -660,7 +660,7 @@ OMERO tables
 
 ::
 
-    repositoryId = 1
+    repositoryId = conn.c.sf.sharedResources().repositories().descriptions.get(0).getId().getValue()
     table = conn.c.sf.sharedResources().newTable(repositoryId, tablename)
     table.initialize(columns)
 
@@ -768,7 +768,7 @@ OMERO tables
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession()
+    conn.close()
 
 ROIs
 ^^^^
@@ -838,10 +838,10 @@ ROIs
 
     # create an Ellipse shape (added to ROI below)
     ellipse = omero.model.EllipseI()
-    ellipse.cx = rdouble(y)
-    ellipse.cy = rdouble(x)
-    ellipse.rx = rdouble(width)
-    ellipse.ry = rdouble(height)
+    ellipse.x = rdouble(y)
+    ellipse.y = rdouble(x)
+    ellipse.radiusX = rdouble(width)
+    ellipse.radiusY = rdouble(height)
     ellipse.theZ = rint(theZ)
     ellipse.theT = rint(theT)
     ellipse.textValue = rstring("test-Ellipse")
@@ -939,8 +939,8 @@ ROIs
 
     # create an ROI with single point shape
     point = omero.model.PointI()
-    point.cx = rdouble(x)
-    point.cy = rdouble(y)
+    point.x = rdouble(x)
+    point.y = rdouble(y)
     point.theZ = rint(theZ)
     point.theT = rint(theT)
     point.textValue = rstring("test-Point")
@@ -948,11 +948,6 @@ ROIs
 
 ::
 
-    def pointsToString(points):
-        """ Returns legacy format supported by Insight """
-        points = ["%s,%s" % (p[0], p[1]) for p in points]
-        csv = ", ".join(points)
-        return "points[%s] points1[%s] points2[%s]" % (csv, csv, csv)
     # create an ROI with a single polygon, setting colors and lineWidth
     polygon = omero.model.PolygonI()
     polygon.theZ = rint(theZ)
@@ -960,7 +955,7 @@ ROIs
     polygon.fillColor = rint(rgbaToInt(255, 0, 255, 50))
     polygon.strokeColor = rint(rgbaToInt(255, 255, 0))
     polygon.strokeWidth = omero.model.LengthI(10, UnitsLength.PIXEL)
-    points = [[10, 20], [50, 150], [200, 200], [250, 75]]
+    points = "10,20, 50,150, 200,200, 250,75"
     polygon.points = rstring(pointsToString(points))
     createROI(image, [polygon])
 
@@ -987,14 +982,14 @@ ROIs
                 shape['height'] = s.getHeight().getValue()
             elif type(s) == omero.model.EllipseI:
                 shape['type'] = 'Ellipse'
-                shape['cx'] = s.getCx().getValue()
-                shape['cy'] = s.getCy().getValue()
-                shape['rx'] = s.getRx().getValue()
-                shape['ry'] = s.getRy().getValue()
+                shape['x'] = s.getX().getValue()
+                shape['y'] = s.getY().getValue()
+                shape['radiusX'] = s.getRadiusX().getValue()
+                shape['radiusY'] = s.getRadiusY().getValue()
             elif type(s) == omero.model.PointI:
                 shape['type'] = 'Point'
-                shape['cx'] = s.getCx().getValue()
-                shape['cy'] = s.getCy().getValue()
+                shape['x'] = s.getX().getValue()
+                shape['y'] = s.getY().getValue()
             elif type(s) == omero.model.LineI:
                 shape['type'] = 'Line'
                 shape['x1'] = s.getX1().getValue()
@@ -1034,7 +1029,7 @@ ROIs
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession()
+    conn.close()
 
 Delete data
 ^^^^^^^^^^^
@@ -1076,7 +1071,7 @@ Delete data
     obj_ids = [projectId]
     deleteChildren = False
     handle = conn.deleteObjects(
-        "Project", obj_ids, deleteAnns=True, deleteChildren=deleteChildren)
+        "Project", obj_ids, deleteAnns=True, deleteChildren=deleteChildren, wait=True)
 
 -  **Retrieve callback and wait until delete completes**
 
@@ -1099,7 +1094,7 @@ Delete data
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession()
+    conn.close()
 
 Render Images
 ^^^^^^^^^^^^^
@@ -1215,7 +1210,7 @@ Render Images
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession()
+    conn.close()
 
 Create Image
 ^^^^^^^^^^^^
@@ -1339,7 +1334,7 @@ Here we set the pixel size X and Y to be 9.8 Angstroms
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession()
+    conn.close()
 
 Filesets - added in OMERO 5.0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1401,7 +1396,7 @@ Filesets - added in OMERO 5.0
 ::
 
     # When you are done, close the session to free up server resources.
-    conn._closeSession()
+    conn.close()
 
 Python OMERO.scripts
 ^^^^^^^^^^^^^^^^^^^^
