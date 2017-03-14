@@ -51,8 +51,12 @@ actual database user and database name for your installation.
 OMERO.web configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Check :ref:`omero_web_deployment` for the latest advice on how to deploy
+Since OMERO 5.3, OMERO.web can be deployed **separately** from OMERO.server.
+This is the recommended installation set-up as they
+perform best under different circumstances and require a different set of
+dependencies. Please check :ref:`omero_web_deployment` for the latest advice on how to deploy
 OMERO.web.
+
 If you generated configuration stanzas using :omerocmd:`web config` which
 enables OMERO.web via Nginx, they will include **hard-coded links** to
 your previous version of OMERO. Therefore, you should regenerate your config
@@ -83,10 +87,14 @@ up to date to ensure that security updates are applied::
 
 Web plugin updates
 ^^^^^^^^^^^^^^^^^^
+
 OMERO.web plugins are very closely integrated into the webclient. For this
 reason, it is possible that an update of OMERO will cause issues with an older
 version of a plugin. It is best when updating the server to also install any
 available plugin updates according to their own documentation.
+
+Since 5.3, all official OMERO.web plugins can be installed from :pypi:`Python Package Index <>`.
+You should remove all previously installed plugins and re-installed the latest versions using `pip <https://pip.pypa.io/en/stable/>`_.
 
 Memoization files invalidation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
