@@ -60,7 +60,7 @@ Service Level 1 (direct database and Hibernate connections)
    :javadoc:`API <slice2html/omero/api/IPixels.html>`
    for pixels stats and creating Images with existing or new Pixels.
 -  ProjectionService
-   :javadoc:`API <slice2html/omero/api/IProjection.html>`
+   :javadoc:`API <slice2html/omero/api/IProjection.html>`.
 -  QueryService:
    :source:`src <components/common/src/ome/api/IQuery.java>`,
    :javadoc:`API <ome/api/IQuery.html>`
@@ -73,7 +73,7 @@ Service Level 1 (direct database and Hibernate connections)
    disk space stats.
 -  RoiService
    :javadoc:`API <slice2html/omero/api/IRoi.html>`
-   working with ROIs. (now deprecated)
+   working with ROIs (now deprecated).
 -  ScriptService
    :javadoc:`API <slice2html/omero/api/IScript.html>`
    for uploading and launching Python scripts.
@@ -81,7 +81,7 @@ Service Level 1 (direct database and Hibernate connections)
    :javadoc:`API <slice2html/omero/api/ISession.html>`
    for creating and working with OMERO sessions.
 -  ShareService
-   :javadoc:`API <slice2html/omero/api/IShare.html>` (now deprecated)
+   :javadoc:`API <slice2html/omero/api/IShare.html>` (now deprecated).
 -  TimelineService
    :javadoc:`API <slice2html/omero/api/ITimeline.html>`
    for queries based on time.
