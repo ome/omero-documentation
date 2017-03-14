@@ -814,11 +814,16 @@ ROIs
 
     # Another helper for generating the color integers for shapes
     def rgbaToInt(red, green, blue, alpha=255):
-        """ Convert an R,G,B,A value to an int """
+        """ Return the color as an Integer in RGBA encoding """
+        r = red << 24
+        g = green << 16
+        b = blue << 8
+        a = alpha 
+        rgba_int = r+g+b+a
         RGBAInt = (alpha << 24) + (red << 16) + (green << 8) + blue
-        if (RGBAInt > (2**31-1)):       # convert to signed 32-bit int
-            RGBAInt = RGBAInt - 2**32
-        return int(RGBAInt)
+        if (rgba_int > (2**31-1)):       # convert to signed 32-bit int
+            rgba_int = rgba_int - 2**32
+        return rgba_int
 
 ::
 
