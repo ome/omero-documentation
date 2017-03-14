@@ -661,8 +661,9 @@ OMERO tables
 
 ::
 
-    repositoryId = conn.c.sf.sharedResources().repositories().descriptions.get(0).getId().getValue()
-    table = conn.c.sf.sharedResources().newTable(repositoryId, tablename)
+    resources = conn.c.sf.sharedResources()
+    repositoryId = resources.repositories().descriptions.get(0).getId().getValue()
+    table = resources.newTable(repositoryId, tablename)
     table.initialize(columns)
 
 -  **Add data to the table.**
@@ -678,7 +679,7 @@ OMERO tables
     table.addData(data)
     table.close()           # when we are done, close.
 
--  **Get the table as an original file...**
+-  **Get the table as an original file.**
 
 ::
 
@@ -702,7 +703,7 @@ OMERO tables
 
 ::
 
-    openTable = conn.c.sf.sharedResources().openTable(orig_file)
+    openTable = resources.openTable(orig_file)
 
 ::
 
@@ -761,7 +762,7 @@ OMERO tables
 
     orig_table_file = conn.getObject(
         "OriginalFile", attributes={'name': tablename})    # if name is unique
-    savedTable = conn.c.sf.sharedResources().openTable(orig_table_file._obj)
+    savedTable = resources.openTable(orig_table_file._obj)
     print "Opened table with row-count:", savedTable.getNumberOfRows()
 
 -  **Close connection:**
