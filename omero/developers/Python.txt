@@ -822,7 +822,6 @@ ROIs
         b = blue << 8
         a = alpha 
         rgba_int = r+g+b+a
-        RGBAInt = (alpha << 24) + (red << 16) + (green << 8) + blue
         if (rgba_int > (2**31-1)):       # convert to signed 32-bit int
             rgba_int = rgba_int - 2**32
         return rgba_int
