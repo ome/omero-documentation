@@ -7,14 +7,17 @@ Updates and new features for OMERO 5.3 include:
   hierarchical tree structure of folders so they can be sorted e.g. by
   phenotypes or ontologies (support for these is still upcoming for OMERO.web)
 - support for lookup tables (LUT) and reverse/inverted intensity rendering
-- annotations can now be added to Wells in the clients and a new script
-  allows you to migrate existing annotations made on Images to Wells
-- the UI for viewing Screen Plate Well data has been redesigned
+- support for histograms
+- Wells can now be annotated in the clients, searched by annotations, and a
+  new script allows you to migrate existing annotations made on Images to
+  Wells
+- the OMERO.web UI for viewing Screen Plate Well data has been redesigned
 - the new 'Open With...' functionality allows images to be opened with
   OMERO.figure or other plugins directly from OMERO.web (coming soon is a new
-  web-based full image viewer - OMERO.iviewer.)
-- updated Bio-Formats version to the 5.3 line, bringing improved file format
-  support including support for JPEG-XR compressed CZI data
+  web-based full image viewer - OMERO.iviewer)
+- ability to filter by ratings in OMERO.web
+- updated Bio-Formats bringing improved file format support including support
+  for JPEG-XR compressed CZI data
 
 See the :help:`User help website <>` for information on how to incorporate
 these new features into your current workflows.
