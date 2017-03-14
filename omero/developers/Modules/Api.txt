@@ -73,7 +73,7 @@ Service Level 1 (direct database and Hibernate connections)
    disk space stats.
 -  RoiService
    :javadoc:`API <slice2html/omero/api/IRoi.html>`
-   working with ROIs.
+   working with ROIs. (now deprecated)
 -  ScriptService
    :javadoc:`API <slice2html/omero/api/IScript.html>`
    for uploading and launching Python scripts.
