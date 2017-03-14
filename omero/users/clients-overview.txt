@@ -56,7 +56,12 @@ views.
     :alt: OMERO.web image viewer
     
     OMERO.web image viewer
-    
+
+OMERO.web now features almost all of the functionality of OMERO.insight
+including the ability to administrate users and groups. Work is ongoing to
+introduce new functionality, including a new image viewer OMERO.iviewer, which
+will feature improved ROI support, allowing you to draw and edit ROIs from the
+web.
 
 For more information and guides to using OMERO.web, see our
 :help:`help website <>`.
