@@ -186,7 +186,7 @@ Read data
             obj.getName(),
             obj.getOwnerOmeName())
 
--  **List all Projects available to me, and their Datasets and Images:**
+-  **List all Projects available to me, and their Datasets and Images**
 
 ::
 
@@ -201,7 +201,7 @@ Read data
             for image in dataset.listChildren():
                 print_obj(image, 4)
 
--  **Retrieve the datasets owned by the user currently logged in:**
+-  **Retrieve the datasets owned by the user currently logged in**
 
 ::
 
@@ -215,7 +215,7 @@ Read data
     for dataset in datasets:
         print_obj(dataset)
 
--  **Retrieve the images contained in a dataset:**
+-  **Retrieve the images contained in a dataset**
 
 ::
 
@@ -224,7 +224,7 @@ Read data
     for image in dataset.listChildren():
         print_obj(image)
 
--  **Retrieve an image by Image ID:**
+-  **Retrieve an image by Image ID**
 
 ::
 
@@ -243,7 +243,7 @@ Read data
     # rendered_image.show()               # popup (use for debug only)
     # rendered_image.save("test.jpg")     # save in the current folder
 
--  **Get Pixel Sizes for the above Image:**
+-  **Get Pixel Sizes for the above Image**
 
 ::
 
@@ -256,7 +256,7 @@ Read data
     size_x_ang = image.getPixelSizeX(units="ANGSTROM")
     print " Pixel Size X:", size_x_ang.getValue(), "(%s)" % size_x_ang.getSymbol()
 
--  **Retrieve Screening data:**
+-  **Retrieve Screening data**
 
 ::
 
@@ -266,7 +266,7 @@ Read data
             print_obj(plate, 2)
             plateId = plate.getId()
 
--  **Retrieve Wells and Images within a Plate:**
+-  **Retrieve Wells and Images within a Plate**
 
 ::
 
@@ -282,7 +282,7 @@ Read data
                 well.getImage(index).getName(),\
                 well.getImage(index).getId()
 
--  **Close connection:**
+-  **Close connection**
 
 ::
 
@@ -360,7 +360,7 @@ Read-Annotate groups, this will include other users' data - see
     image = conn.getObject("Image", imageId)
     print "Image: ", image,
 
--  **Close connection:**
+-  **Close connection**
 
 ::
 
@@ -432,7 +432,7 @@ Raw data access
     for i, p in enumerate(planes):
         print "plane zct:", zct_list[i], " min:", p.min(), " max:", p.max()
 
--  **Close connection:**
+-  **Close connection**
 
 ::
 
@@ -554,7 +554,7 @@ Write data
     ann = dataset.getAnnotation(namespace)
     print "Found Annotation with namespace: ", ann.getNs()
 
--  **Close connection:**
+-  **Close connection**
 
 ::
 
@@ -592,7 +592,7 @@ OMERO tables
     table = resources.newTable(repository_id, table_name)
     table.initialize(columns)
 
--  **Add data to the table.**
+-  **Add data to the table**
 
 ::
 
@@ -605,7 +605,7 @@ OMERO tables
     table.addData(data)
     table.close()           # when we are done, close.
 
--  **Get the table as an original file.**
+-  **Get the table as an original file**
 
 ::
 
@@ -686,7 +686,7 @@ OMERO tables
     print "Opened table with row-count:", saved_table.getNumberOfRows()
     saved_table.close()
 
--  **Close connection:**
+-  **Close connection**
 
 ::
 
@@ -704,7 +704,7 @@ ROIs
     conn.connect()
     updateService = conn.getUpdateService()
 
--  **Create ROI.**
+-  **Create ROI**
 
 ::
 
@@ -886,7 +886,7 @@ ROIs
     polygon.points = rstring(points)
     create_roi(image, [polygon])
 
--  **Retrieve ROIs linked to an Image.**
+-  **Retrieve ROIs linked to an Image**
 
 ::
 
@@ -951,7 +951,7 @@ ROIs
                 roi.removeShape(s)
                 roi = updateService.saveAndReturnObject(roi)
 
--  **Close connection:**
+-  **Close connection**
 
 ::
 
@@ -998,7 +998,7 @@ Delete data
         print cb.getResponse()
     cb.close(True)      # close handle too
 
--  **Close connection:**
+-  **Close connection**
 
 ::
 
@@ -1112,7 +1112,7 @@ Render Images
 
     image.resetDefaults(save=True)
 
--  **Close connection:**
+-  **Close connection**
 
 ::
 
@@ -1225,7 +1225,7 @@ Here we set the pixel size X and Y to be 9.8 Angstroms
         plane_gen(), "new image", size_z, new_size_c, size_t, description=desc,
         dataset=dataset)
 
--  **Close connection:**
+-  **Close connection**
 
 ::
 
