@@ -839,6 +839,8 @@ ROIs
     rect.theZ = rint(theZ)
     rect.theT = rint(theT)
     rect.textValue = rstring("test-Rectangle")
+    rect.fillColor = rint(rgbaToInt(255, 255, 255, 255))
+    rect.strokeColor = rint(rgbaToInt(255, 255, 0, 255))
 
 ::
 
@@ -962,7 +964,7 @@ ROIs
     polygon.strokeColor = rint(rgbaToInt(255, 255, 0))
     polygon.strokeWidth = omero.model.LengthI(10, UnitsLength.PIXEL)
     points = "10,20, 50,150, 200,200, 250,75"
-    polygon.points = rstring(pointsToString(points))
+    polygon.points = rstring(points)
     createROI(image, [polygon])
 
 -  **Retrieve ROIs linked to an Image.**
@@ -1307,9 +1309,6 @@ Here we set the pixel size X and Y to be 9.8 Angstroms
     def planeGen():
         """
         set up a generator of 2D numpy arrays.
-
-::
-
         The createImage method below expects planes in the order specified here
         (for z.. for c.. for t..)
         """
