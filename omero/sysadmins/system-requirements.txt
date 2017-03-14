@@ -29,7 +29,7 @@ A specification for a server future-proofed for 3-4 years might be:
 
 The `Image Data Resource <http://idr-demo.openmicroscopy.org>`_ has 32 CPUs
 and 128GB of memory but this is used to host 42TB of data in 14 million files
-so far exceeds a standard OMERO installation.
+so it far exceeds the requirements of a standard OMERO installation.
 
 Storage
 """""""
