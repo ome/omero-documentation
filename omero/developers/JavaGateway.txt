@@ -1,5 +1,6 @@
-Java Gateway documentation
----------------------------
+Java Gateway
+------------
+
 The Java :javadoc:`Gateway <omero/gateway/Gateway.html>` is a
 wrapper around the :zerocdoc:`Ice Java language mapping
 <display/Ice/Hello+World+Application>` and the :doc:`Modules/Api` which makes
@@ -10,7 +11,7 @@ for maintaining the connection to the server.
 See :ref:`gatewayconnect`
 
 Functionality for interacting with the server is encapsulated into different
-Facilities: http://downloads.openmicroscopy.org/omero/5.2.5/api/omero/gateway/facility/package-summary.html (TODO: Replace with proper javadoc link. How link to package-summary page?)
+:javadoc:`Facilities </omero/gateway/facility/package-summary.html>`
 For example using the :javadoc:`BrowseFacility <omero/gateway/facility/BrowseFacility.html>`
 to access Projects, Datasets, etc.: :ref:`gatewaybrowse`
 
