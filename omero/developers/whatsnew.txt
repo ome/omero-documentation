@@ -46,6 +46,7 @@ Deprecations
 
 -  ``Ishare``
 -  Search bridges
+-  OMERO reader
 -  Enumeration getters in ``IPixels`` in favor of ``ITypes``
 -  ``DiskUsage`` in favor of ``DiskUsage2``
 -  Analysis namespace ``openmicroscopy.org/omero/analysis/flim``
