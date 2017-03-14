@@ -554,10 +554,14 @@ Write data
 
     dataset = conn.getObject("Dataset", datasetId)
     # create the original file and file annotation (uploads the file etc.)
+    # Specify a local file e.g. could be result of some analysis
+    file_to_upload = "analysis.txt"   # This file should already exist
+    with open(file_to_upload, 'w') as f:
+        f.write('annotation test')
     namespace = "imperial.training.demo"
     print "\nCreating an OriginalFile and FileAnnotation"
     fileAnn = conn.createFileAnnfromLocalFile(
-        fileToUpload, mimetype="text/plain", ns=namespace, desc=None)
+        file_to_upload, mimetype="text/plain", ns=namespace, desc=None)
     print "Attaching FileAnnotation to Dataset: ", "File ID:", fileAnn.getId(), \
         ",", fileAnn.getFile().getName(), "Size:", fileAnn.getFile().getSize()
     dataset.linkAnnotation(fileAnn)     # link it to dataset.
@@ -587,14 +591,11 @@ Write data
 
 ::
 
-            f = open(str(file_path), 'w')
-            print "\nDownloading file to", file_path, "..."
-            try:
+            with open(str(file_path), 'w') as f:
+                print "\nDownloading file to", file_path, "..."
                 for chunk in ann.getFileInChunks():
                     f.write(chunk)
-            finally:
-                f.close()
-                print "File downloaded!"
+            print "File downloaded!"
 
 -  **Load all the file annotations with a given namespace**
 
