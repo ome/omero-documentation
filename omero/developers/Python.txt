@@ -172,14 +172,6 @@ Read data
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
     conn.connect() 
 
--  **Configuration**
-
-::
-
-    imageId = 1
-    datasetId = 2
-    plateId = -1        # Don't need to set this
-
 ::
 
     def print_obj(obj, indent=0):
@@ -201,15 +193,13 @@ Read data
     # The only_owned=True parameter limits the Projects which are returned.
     # If the parameter is omitted or the value is False, then all Projects
     # visible in the current group are returned.
-    print "\nList Projects:"
-    print "=" * 50
-    my_expId = conn.getUser().getId()
-    for project in conn.listProjects(my_expId):
+    my_exp_id = conn.getUser().getId()
+    for project in conn.listProjects(my_exp_id):
         print_obj(project)
         for dataset in project.listChildren():
             print_obj(dataset, 2)
             for image in dataset.listChildren():
-                print_obj(image, 4) 
+                print_obj(image, 4)
 
 -  **Retrieve the datasets owned by the user currently logged in:**
 
@@ -219,16 +209,8 @@ Read data
     # can use to filter the results that are returned. If we did
     # not pass the params argument to getObjects, then all Datasets
     # in the current group would be returned.
-    print "\nList Datasets:"
-    print "=" * 50 
-
-::
-
     params = omero.sys.ParametersI()
     params.exp(conn.getUser().getId())  # only show current user's Datasets
-
-::
-
     datasets = conn.getObjects("Dataset", params=params)
     for dataset in datasets:
         print_obj(dataset)
@@ -237,8 +219,6 @@ Read data
 
 ::
 
-    print "\nDataset:%s" % datasetId
-    print "=" * 50
     dataset = conn.getObject("Dataset", datasetId)
     print "\nImages in Dataset:", dataset.getName()
     for image in dataset.listChildren():
@@ -249,8 +229,6 @@ Read data
 ::
 
     image = conn.getObject("Image", imageId)
-    print "\nImage:%s" % imageId
-    print "=" * 50
     print image.getName(), image.getDescription()
     # Retrieve information about an image.
     print " X:", image.getSizeX()
@@ -261,9 +239,9 @@ Read data
     # render the first timepoint, mid Z section
     z = image.getSizeZ() / 2
     t = 0
-    renderedImage = image.renderImage(z, t)
-    # renderedImage.show()               # popup (use for debug only)
-    # renderedImage.save("test.jpg")     # save in the current folder
+    rendered_image = image.renderImage(z, t)
+    # rendered_image.show()               # popup (use for debug only)
+    # rendered_image.save("test.jpg")     # save in the current folder
 
 -  **Get Pixel Sizes for the above Image:**
 
@@ -282,8 +260,6 @@ Read data
 
 ::
 
-    print "\nList Screens:"
-    print "=" * 50
     for screen in conn.getObjects("Screen"):
         print_obj(screen)
         for plate in screen.listChildren():
@@ -294,20 +270,17 @@ Read data
 
 ::
 
-    if plateId >= 0:
-        print "\nPlate:%s" % plateId
-        print "=" * 50
-        plate = conn.getObject("Plate", plateId)
-        print "\nNumber of fields:", plate.getNumberOfFields()
-        print "\nGrid size:", plate.getGridSize()
-        print "\nWells in Plate:", plate.getName()
-        for well in plate.listChildren():
-            index = well.countWellSample()
-            print "  Well: ", well.row, well.column, " Fields:", index
-            for index in xrange(0, index):
-                print "    Image: ", \
-                    well.getImage(index).getName(),\
-                    well.getImage(index).getId()
+    plate = conn.getObject("Plate", plateId)
+    print "\nNumber of fields:", plate.getNumberOfFields()
+    print "\nGrid size:", plate.getGridSize()
+    print "\nWells in Plate:", plate.getName()
+    for well in plate.listChildren():
+        index = well.countWellSample()
+        print "  Well: ", well.row, well.column, " Fields:", index
+        for index in xrange(0, index):
+            print "    Image: ", \
+                well.getImage(index).getName(),\
+                well.getImage(index).getId()
 
 -  **Close connection:**
 
@@ -325,12 +298,6 @@ Groups and permissions
 
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
     conn.connect()
-
--  **Configuration**
-
-::
-
-    imageId = 1
 
 -  **We are logged in to our 'default' group**
 
@@ -410,12 +377,6 @@ Raw data access
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
     conn.connect()
 
--  **Configuration**
-
-::
-
-    imageId = 27544
-
 -  **Retrieve a given plane**
 
 ::
@@ -426,9 +387,9 @@ Raw data access
     # Numpy array can be used for various analysis routines
     #
     image = conn.getObject("Image", imageId)
-    sizeZ = image.getSizeZ()
-    sizeC = image.getSizeC()
-    sizeT = image.getSizeT()
+    size_z = image.getSizeZ()
+    size_c = image.getSizeC()
+    size_t = image.getSizeT()
     z, t, c = 0, 0, 0                     # first plane of the image
     pixels = image.getPrimaryPixels()
     plane = pixels.getPlane(z, c, t)      # get a numpy array.
@@ -449,29 +410,27 @@ Raw data access
     c, t = 0, 0                 # First channel and timepoint
     tile = (50, 50, 10, 10)     # x, y, width, height of tile
 
-::
-
     # list of [ (0,0,0,(x,y,w,h)), (1,0,0,(x,y,w,h)), (2,0,0,(x,y,w,h))... ]
-    zctList = [(iz, c, t, tile) for iz in range(sizeZ)]
+    zct_list = [(iz, c, t, tile) for iz in range(size_z)]
     print "\nZ stack of tiles:"
-    planes = pixels.getTiles(zctList)
+    planes = pixels.getTiles(zct_list)
     for i, p in enumerate(planes):
-        print "Tile:", zctList[i], " min:", p.min(),\
+        print "Tile:", zct_list[i], " min:", p.min(),\
             " max:", p.max(), " sum:", p.sum()
 
 -  **Retrieve a given hypercube**
 
 ::
 
-    zctList = []
-    for z in range(sizeZ / 2, sizeZ):     # get the top half of the Z-stack
-        for c in range(sizeC):          # all channels
-            for t in range(sizeT):      # all time-points
-                zctList.append((z, c, t))
+    zct_list = []
+    for z in range(size_z / 2, size_z):     # get the top half of the Z-stack
+        for c in range(size_c):          # all channels
+            for t in range(size_t):      # all time-points
+                zct_list.append((z, c, t))
     print "\nHyper stack of planes:"
-    planes = pixels.getPlanes(zctList)
+    planes = pixels.getPlanes(zct_list)
     for i, p in enumerate(planes):
-        print "plane zct:", zctList[i], " min:", p.min(), " max:", p.max()
+        print "plane zct:", zct_list[i], " min:", p.min(), " max:", p.max()
 
 -  **Close connection:**
 
@@ -490,81 +449,68 @@ Write data
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
     conn.connect()
 
--  **Configuration**
-
-::
-
-    projectId = 2
-    # Specify a local file e.g. could be result of some analysis
-    fileToUpload = "README.txt"   # This file should already exist
-
 -  **Create a new Dataset**
 
 ::
 
-    datasetObj = omero.model.DatasetI()
-    datasetObj.setName(rstring("New Dataset"))
-    datasetObj = conn.getUpdateService().saveAndReturnObject(datasetObj)
-    datasetId = datasetObj.getId().getValue()
-    print "New dataset, Id:", datasetId
+    dataset_obj = omero.model.DatasetI()
+    dataset_obj.setName(rstring("New Dataset"))
+    dataset_obj = conn.getUpdateService().saveAndReturnObject(dataset_obj)
+    dataset_id = dataset_obj.getId().getValue()
+    print "New dataset, Id:", dataset_id
 
 -  **Link to Project**
 
 ::
 
     project = conn.getObject("Project", projectId)
-    if project is None:
-        import sys
-        sys.stderr.write("Error: Object does not exist.\n")
-        sys.exit(1)
     link = omero.model.ProjectDatasetLinkI()
     link.setParent(omero.model.ProjectI(project.getId(), False))
-    link.setChild(datasetObj)
+    link.setChild(dataset_obj)
     conn.getUpdateService().saveObject(link)
 
 -  **Annotate Project with a new 'tag'**
 
 ::
 
-    tagAnn = omero.gateway.TagAnnotationWrapper(conn)
-    tagAnn.setValue("New Tag")
-    tagAnn.save()
+    tag_ann = omero.gateway.TagAnnotationWrapper(conn)
+    tag_ann.setValue("New Tag")
+    tag_ann.save()
     project = conn.getObject("Project", projectId)
-    project.linkAnnotation(tagAnn)
+    project.linkAnnotation(tag_ann)
 
 -  **Added in OMERO 5.1: 'Map' annotations (list of key: value pairs)**
 
 ::
 
-    keyValueData = [["Drug Name", "Monastrol"],
-                    ["Concentration", "5 mg/ml"]]
-    mapAnn = omero.gateway.MapAnnotationWrapper(conn)
+    key_value_data = [["Drug Name", "Monastrol"], ["Concentration", "5 mg/ml"]]
+    map_ann = omero.gateway.MapAnnotationWrapper(conn)
     # Use 'client' namespace to allow editing in Insight & web
     namespace = omero.constants.metadata.NSCLIENTMAPANNOTATION
-    mapAnn.setNs(namespace)
-    mapAnn.setValue(keyValueData)
-    mapAnn.save()
+    map_ann.setNs(namespace)
+    map_ann.setValue(key_value_data)
+    map_ann.save()
     project = conn.getObject("Project", projectId)
     # NB: only link a client map annotation to a single object
-    project.linkAnnotation(mapAnn)
+    project.linkAnnotation(map_ann)
 
 -  **How to create a file annotation and link to a Dataset**
 
 ::
 
-    dataset = conn.getObject("Dataset", datasetId)
-    # create the original file and file annotation (uploads the file etc.)
+    dataset = conn.getObject("Dataset", dataset_id)
     # Specify a local file e.g. could be result of some analysis
-    file_to_upload = "analysis.txt"   # This file should already exist
+    file_to_upload = "README.txt"   # This file should already exist
     with open(file_to_upload, 'w') as f:
         f.write('annotation test')
+    # create the original file and file annotation (uploads the file etc.)
     namespace = "imperial.training.demo"
     print "\nCreating an OriginalFile and FileAnnotation"
-    fileAnn = conn.createFileAnnfromLocalFile(
+    file_ann = conn.createFileAnnfromLocalFile(
         file_to_upload, mimetype="text/plain", ns=namespace, desc=None)
-    print "Attaching FileAnnotation to Dataset: ", "File ID:", fileAnn.getId(), \
-        ",", fileAnn.getFile().getName(), "Size:", fileAnn.getFile().getSize()
-    dataset.linkAnnotation(fileAnn)     # link it to dataset.
+    print "Attaching FileAnnotation to Dataset: ", "File ID:", file_ann.getId(), \
+        ",", file_ann.getFile().getName(), "Size:", file_ann.getFile().getSize()
+    dataset.linkAnnotation(file_ann)     # link it to dataset.
 
 -  **Download a file annotation linked to a Dataset**
 
@@ -574,9 +520,6 @@ Write data
     path = os.path.join(os.path.dirname(__file__), "download")
     if not os.path.exists(path):
         os.makedirs(path)
-
-::
-
     # Go through all the annotations on the Dataset. Download any file annotations
     # we find.
     print "\nAnnotations on Dataset:", dataset.getName()
@@ -584,12 +527,7 @@ Write data
         if isinstance(ann, omero.gateway.FileAnnotationWrapper):
             print "File ID:", ann.getFile().getId(), ann.getFile().getName(), \
                 "Size:", ann.getFile().getSize()
-
-::
-
             file_path = os.path.join(path, ann.getFile().getName())
-
-::
 
             with open(str(file_path), 'w') as f:
                 print "\nDownloading file to", file_path, "..."
@@ -601,13 +539,13 @@ Write data
 
 ::
 
-    nsToInclude = [namespace]
-    nsToExclude = []
+    ns_to_include = [namespace]
+    ns_to_exclude = []
     metadataService = conn.getMetadataService()
     annotations = metadataService.loadSpecifiedAnnotations(
-        'omero.model.FileAnnotation', nsToInclude, nsToExclude, None)
+        'omero.model.FileAnnotation', ns_to_include, ns_to_exclude, None)
     for ann in annotations:
-        print ann.getId().getValue(), ann.file.name.val
+        print ann.getId().getValue(), ann.getFile().getName().getValue()
 
 -  **Get first annotation with specified namespace**
 
@@ -635,26 +573,14 @@ OMERO tables
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
     conn.connect()
 
--  **Configuration**
-
-::
-
-    datasetId = 33
-
 -  **Create a name for the Original File (should be unique)**
 
 ::
 
     from random import random
-    tablename = "TablesDemo:%s" % str(random())
-
-::
-
+    table_name = "TablesDemo:%s" % str(random())
     col1 = omero.grid.LongColumn('Uid', 'testLong', [])
     col2 = omero.grid.StringColumn('MyStringColumnInit', '', 64, [])
-
-::
-
     columns = [col1, col2]
 
 -  **Create and initialize a new table.**
@@ -662,8 +588,8 @@ OMERO tables
 ::
 
     resources = conn.c.sf.sharedResources()
-    repositoryId = resources.repositories().descriptions.get(0).getId().getValue()
-    table = resources.newTable(repositoryId, tablename)
+    repository_id = resources.repositories().descriptions.get(0).getId().getValue()
+    table = resources.newTable(repository_id, table_name)
     table.initialize(columns)
 
 -  **Add data to the table.**
@@ -685,14 +611,14 @@ OMERO tables
 
     orig_file = table.getOriginalFile()
     orig_file_id = orig_file.id.val
-    # ...so you can attach this data to an object. E.g. Dataset
-    fileAnn = omero.model.FileAnnotationI()
+    # ...so you can attach this data to an object e.g. Dataset
+    file_ann = omero.model.FileAnnotationI()
     # use unloaded OriginalFileI
-    fileAnn.setFile(omero.model.OriginalFileI(orig_file_id, False))
-    fileAnn = conn.getUpdateService().saveAndReturnObject(fileAnn)
+    file_ann.setFile(omero.model.OriginalFileI(orig_file_id, False))
+    file_ann = conn.getUpdateService().saveAndReturnObject(file_ann)
     link = omero.model.DatasetAnnotationLinkI()
     link.setParent(omero.model.DatasetI(datasetId, False))
-    link.setChild(omero.model.FileAnnotationI(fileAnn.id.val, False))
+    link.setChild(omero.model.FileAnnotationI(file_ann.getId().getValue(), False))
     conn.getUpdateService().saveAndReturnObject(link)
 
 -  **Table API**
@@ -703,23 +629,20 @@ OMERO tables
 
 ::
 
-    openTable = resources.openTable(orig_file)
-
-::
-
+    open_table = resources.openTable(orig_file)
     print "Table Columns:"
-    for col in openTable.getHeaders():
+    for col in open_table.getHeaders():
         print "   ", col.name
-    rowCount = openTable.getNumberOfRows()
+    rowCount = open_table.getNumberOfRows()
     print "Row count:", rowCount
 
 -  **Get data from every column of the specified rows**
 
 ::
 
-    rowNumbers = [3, 5, 7]
-    print "\nGet All Data for rows: ", rowNumbers
-    data = openTable.readCoordinates(range(rowCount))
+    row_numbers = [3, 5, 7]
+    print "\nGet All Data for rows: ", row_numbers
+    data = open_table.readCoordinates(range(rowCount))
     for col in data.columns:
         print "Data for Column: ", col.name
         for v in col.values:
@@ -729,15 +652,12 @@ OMERO tables
 
 ::
 
-    colNumbers = [1]
+    col_numbers = [1]
     start = 3
     stop = 7
-    print "\nGet Data for cols: ", colNumbers,\
+    print "\nGet Data for cols: ", col_numbers,\
         " and between rows: ", start, "-", stop
-
-::
-
-    data = openTable.read(colNumbers, start, stop)
+    data = open_table.read(col_numbers, start, stop)
     for col in data.columns:
         print "Data for Column: ", col.name
         for v in col.values:
@@ -747,23 +667,24 @@ OMERO tables
 
 ::
 
-    queryRows = openTable.getWhereList(
+    query_rows = open_table.getWhereList(
         "(Uid > 2) & (Uid <= 8)", variables={}, start=0, stop=rowCount, step=0)
-    data = openTable.readCoordinates(queryRows)
+    data = open_table.readCoordinates(query_rows)
     for col in data.columns:
         print "Query Results for Column: ", col.name
         for v in col.values:
             print "   ", v
-    openTable.close()           # we're done
+    open_table.close()           # we're done
 
 -  **In future, to get the table back from Original File**
 
 ::
 
     orig_table_file = conn.getObject(
-        "OriginalFile", attributes={'name': tablename})    # if name is unique
-    savedTable = resources.openTable(orig_table_file._obj)
-    print "Opened table with row-count:", savedTable.getNumberOfRows()
+        "OriginalFile", attributes={'name': table_name})    # if name is unique
+    saved_table = resources.openTable(orig_table_file._obj)
+    print "Opened table with row-count:", saved_table.getNumberOfRows()
+    saved_table.close()
 
 -  **Close connection:**
 
@@ -796,13 +717,13 @@ ROIs
     width = 100
     height = 50
     image = conn.getObject("Image", imageId)
-    theZ = image.getSizeZ() / 2
-    theT = 0
+    z = image.getSizeZ() / 2
+    t = 0
 
 ::
 
     # We have a helper function for creating an ROI and linking it to new shapes
-    def createROI(img, shapes):
+    def create_roi(img, shapes):
         # create an ROI, link it to Image
         roi = omero.model.RoiI()
         # use the omero.model.ImageI that underlies the 'image' wrapper
@@ -810,12 +731,12 @@ ROIs
         for shape in shapes:
             roi.addShape(shape)
         # Save the ROI (saves any linked shapes too)
-        updateService.saveObject(roi)
+        return updateService.saveAndReturnObject(roi)
 
 ::
 
     # Another helper for generating the color integers for shapes
-    def rgbaToInt(red, green, blue, alpha=255):
+    def rgba_to_int(red, green, blue, alpha=255):
         """ Return the color as an Integer in RGBA encoding """
         r = red << 24
         g = green << 16
@@ -830,17 +751,17 @@ ROIs
 
     # create a rectangle shape (added to ROI below)
     print ("Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s,"
-           " height: %s" % (theZ, theT, x, y, width, height))
+       " height: %s" % (z, t, x, y, width, height))
     rect = omero.model.RectangleI()
     rect.x = rdouble(x)
     rect.y = rdouble(y)
     rect.width = rdouble(width)
     rect.height = rdouble(height)
-    rect.theZ = rint(theZ)
-    rect.theT = rint(theT)
+    rect.theZ = rint(z)
+    rect.theT = rint(t)
     rect.textValue = rstring("test-Rectangle")
-    rect.fillColor = rint(rgbaToInt(255, 255, 255, 255))
-    rect.strokeColor = rint(rgbaToInt(255, 255, 0, 255))
+    rect.fillColor = rint(rgba_to_int(255, 255, 255, 255))
+    rect.strokeColor = rint(rgba_to_int(255, 255, 0, 255))
 
 ::
 
@@ -850,8 +771,8 @@ ROIs
     ellipse.y = rdouble(x)
     ellipse.radiusX = rdouble(width)
     ellipse.radiusY = rdouble(height)
-    ellipse.theZ = rint(theZ)
-    ellipse.theT = rint(theT)
+    ellipse.theZ = rint(z)
+    ellipse.theT = rint(t)
     ellipse.textValue = rstring("test-Ellipse")
 
 ::
@@ -860,7 +781,7 @@ ROIs
     # NB: OMERO.insight client doesn't support display
     # of multiple shapes on a single plane.
     # Therefore the ellipse is removed later (see below)
-    createROI(image, [rect, ellipse])
+    create_roi(image, [rect, ellipse])
 
 ::
 
@@ -870,10 +791,10 @@ ROIs
     line.x2 = rdouble(x+width)
     line.y1 = rdouble(y)
     line.y2 = rdouble(y+height)
-    line.theZ = rint(theZ)
-    line.theT = rint(theT)
+    line.theZ = rint(z)
+    line.theT = rint(t)
     line.textValue = rstring("test-Line")
-    createROI(image, [line])
+    create_roi(image, [line])
 
 ::
 
@@ -884,7 +805,7 @@ ROIs
             byte_factor = 0.5
         elif bytes_per_pixel == 1:
             divider = 8.0
-            format_string = "B"  # Unsiged char
+            format_string = "B"  # Unsigned char
             byte_factor = 1
         else:
             message = "Format %s not supported"
@@ -900,7 +821,7 @@ ROIs
             for bit in binary:
                 s += str(bit)
             mask.append(int(s, 2))
-        return bytearray(mask) 
+        return bytearray(mask)
 
 ::
 
@@ -916,16 +837,14 @@ ROIs
     # Convert the mask to bytes
     mask_array = mask_array.tostring()
     # Pack the bytes to a bit mask
-    mask_packed = create_mask(mask_array, 1) 
-
-::
+    mask_packed = create_mask(mask_array, 1)
 
     # Define mask's fill color
     mask_color = ColorHolder()
     mask_color.setRed(255)
     mask_color.setBlue(0)
     mask_color.setGreen(0)
-    mask_color.setAlpha(100) 
+    mask_color.setAlpha(100)
 
 ::
 
@@ -941,7 +860,7 @@ ROIs
     mask.setFillColor(rint(mask_color.getInt()))
     mask.setTextValue(rstring("test-Mask"))
     mask.setBytes(mask_packed)
-    createROI(image, [mask])
+    create_roi(image, [mask])
 
 ::
 
@@ -949,30 +868,30 @@ ROIs
     point = omero.model.PointI()
     point.x = rdouble(x)
     point.y = rdouble(y)
-    point.theZ = rint(theZ)
-    point.theT = rint(theT)
+    point.theZ = rint(z)
+    point.theT = rint(t)
     point.textValue = rstring("test-Point")
-    createROI(image, [point])
+    create_roi(image, [point])
 
 ::
 
     # create an ROI with a single polygon, setting colors and lineWidth
     polygon = omero.model.PolygonI()
-    polygon.theZ = rint(theZ)
-    polygon.theT = rint(theT)
-    polygon.fillColor = rint(rgbaToInt(255, 0, 255, 50))
-    polygon.strokeColor = rint(rgbaToInt(255, 255, 0))
+    polygon.theZ = rint(z)
+    polygon.theT = rint(t)
+    polygon.fillColor = rint(rgba_to_int(255, 0, 255, 50))
+    polygon.strokeColor = rint(rgba_to_int(255, 255, 0))
     polygon.strokeWidth = omero.model.LengthI(10, UnitsLength.PIXEL)
     points = "10,20, 50,150, 200,200, 250,75"
     polygon.points = rstring(points)
-    createROI(image, [polygon])
+    create_roi(image, [polygon])
 
 -  **Retrieve ROIs linked to an Image.**
 
 ::
 
-    roiService = conn.getRoiService()
-    result = roiService.findByImage(imageId, None)
+    roi_service = conn.getRoiService()
+    result = roi_service.findByImage(imageId, None)
     for roi in result.rois:
         print "ROI:  ID:", roi.getId().getValue()
         for s in roi.copyShapes():
@@ -1023,7 +942,7 @@ ROIs
 
 ::
 
-    result = roiService.findByImage(imageId, None)
+    result = roi_service.findByImage(imageId, None)
     for roi in result.rois:
         for s in roi.copyShapes():
             # Find and remove the Shape we added above
@@ -1049,26 +968,6 @@ Delete data
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
     conn.connect()
 
--  **Configuration**
-
-::
-
-    projectId = 507        # NB: This will be deleted!
-
--  **Load the Project**
-
-::
-
-    project = conn.getObject("Project", projectId)
-    if project is None:
-        import sys
-        sys.stderr.write("Error: Object does not exist.\n")
-        sys.exit(1)
-
-::
-
-    print "\nProject:", project.getName()
-
 -  **Delete Project**
 
 ::
@@ -1076,10 +975,11 @@ Delete data
     # You can delete a number of objects of the same type at the same
     # time. In this case 'Project'. Use deleteChildren=True if you are
     # deleting a Project and you want to delete Datasets and Images.
-    obj_ids = [projectId]
-    deleteChildren = False
-    handle = conn.deleteObjects(
-        "Project", obj_ids, deleteAnns=True, deleteChildren=deleteChildren, wait=True)
+    obj_ids = [project_id]
+    delete_children = False
+    conn.deleteObjects(
+        "Project", obj_ids, deleteAnns=True,
+        deleteChildren=delete_children, wait=True)
 
 -  **Retrieve callback and wait until delete completes**
 
@@ -1087,6 +987,7 @@ Delete data
 
     # This is not necessary for the Delete to complete. Can be used
     # if you want to know when delete is finished or if there were any errors
+    handle = conn.deleteObjects("Project", [project_id])
     cb = omero.callbacks.CmdCallbackI(conn.c, handle)
     print "Deleting, please wait."
     while not cb.block(500):
@@ -1114,12 +1015,6 @@ Render Images
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
     conn.connect()
 
--  **Configuration**
-
-::
-
-    imageId = 27544
-
 -  **Get thumbnail**
 
 ::
@@ -1127,9 +1022,9 @@ Render Images
     # Thumbnail is created using the current rendering settings on the image
     image = conn.getObject("Image", imageId)
     img_data = image.getThumbnail()
-    renderedThumb = Image.open(StringIO(img_data))
+    rendered_thumb = Image.open(StringIO(img_data))
     # renderedThumb.show()           # shows a pop-up
-    renderedThumb.save("thumbnail.jpg")
+    rendered_thumb.save("thumbnail.jpg")
 
 -  **Get current settings**
 
@@ -1146,6 +1041,7 @@ Render Images
     print "Default Z/T positions:"
     print "    Z = %s, T = %s" % (image.getDefaultZ(), image.getDefaultT())
 
+
 -  **Show the saved rendering settings on this image**
 
 ::
@@ -1156,20 +1052,23 @@ Render Images
         print "   ID: %s (owner: %s %s)" % (
             rdef['id'], rdef['owner']['firstName'], rdef['owner']['lastName'])
 
--  **Render each channel as a separate greyscale image**
+
+
+-  **Render each channel as a separate grayscale image**
 
 ::
 
     image.setGreyscaleRenderingModel()
-    sizeC = image.getSizeC()
+    size_c = image.getSizeC()
     z = image.getSizeZ() / 2
     t = 0
-    for c in range(1, sizeC + 1):       # Channel index starts at 1
+    for c in range(1, size_c + 1):       # Channel index starts at 1
         channels = [c]                  # Turn on a single channel at a time
         image.setActiveChannels(channels)
-        renderedImage = image.renderImage(z, t)
+        rendered_image = image.renderImage(z, t)
         # renderedImage.show()                        # popup (use for debug only)
-        renderedImage.save("channel%s.jpg" % c)     # save in the current folder
+        rendered_image.save("channel%s.jpg" % c)     # save in the current folder
+
 
 -  **Turn 3 channels on, setting their colors**
 
@@ -1177,13 +1076,13 @@ Render Images
 
     image.setColorRenderingModel()
     channels = [1, 2, 3]
-    colorList = ['F00', None, 'FFFF00']  # do not change color of 2nd channel
-    image.setActiveChannels(channels, colors=colorList)
+    color_list = ['F00', None, 'FFFF00']  # do not change color of 2nd channel
+    image.setActiveChannels(channels, colors=color_list)
     # max intensity projection 'intmean' for mean-intensity
     image.setProjection('intmax')
-    renderedImage = image.renderImage(z, t)  # z and t are ignored for projections
+    rendered_image = image.renderImage(z, t)  # z and t are ignored for projections
     # renderedImage.show()
-    renderedImage.save("all_channels.jpg")
+    rendered_image.save("all_channels.jpg")
     image.setProjection('normal')               # turn off projection
 
 -  **Turn 2 channels on, setting levels of the first one**
@@ -1191,15 +1090,15 @@ Render Images
 ::
 
     channels = [1, 2]
-    rangeList = [[100.0, 120.2], [None, None]]
-    image.setActiveChannels(channels, windows=rangeList)
-    # Set default Z & T. These will be used as defaults for further rendering
+    range_list = [[100.0, 120.2], [None, None]]
+    image.setActiveChannels(channels, windows=range_list)
+    # Set default Z and T. These will be used as defaults for further rendering
     image.setDefaultZ(0)
     image.setDefaultT(0)
     # default compression is 0.9
-    renderedImage = image.renderImage(z=None, t=None, compression=0.5)
-    renderedImage.show()
-    renderedImage.save("two_channels.jpg")
+    rendered_image = image.renderImage(z=None, t=None, compression=0.5)
+    rendered_image.show()
+    rendered_image.save("two_channels.jpg")
 
 -  **Save the current rendering settings & default Z/T**
 
@@ -1230,12 +1129,6 @@ Create Image
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
     conn.connect()
 
--  **Configuration**
-
-::
-
-    imageId = 27544     # This image must have at least 2 channels
-
 -  **Create an image from scratch**
 
 ::
@@ -1245,7 +1138,7 @@ Create Image
     # hard-coded array of data.
     from numpy import array, int8
     import omero
-    sizeX, sizeY, sizeZ, sizeC, sizeT = 5, 4, 1, 2, 1
+    size_x, size_y, size_z, size_c, size_t = 5, 4, 1, 2, 1
     plane1 = array(
         [[0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [5, 6, 7, 8, 9]],
         dtype=int8)
@@ -1265,11 +1158,8 @@ Create Image
 
     desc = "Image created from a hard-coded arrays"
     i = conn.createImageFromNumpySeq(
-        planeGen(), "numpy image", sizeZ, sizeC, sizeT, description=desc,
+        plane_gen(), "numpy image", size_z, size_c, size_t, description=desc,
         dataset=None)
-
-::
-
     print 'Created new Image:%s Name:"%s"' % (i.getId(), i.getName())
 
 -  **Set the pixel size using units (added in 5.1.0)**
@@ -1297,41 +1187,42 @@ Here we set the pixel size X and Y to be 9.8 Angstroms
     # We are going to create a new image by passing the method a 'generator' of 2D
     # planes This will come from an existing image, by taking the average of 2
     # channels.
-    zctList = []
+    zct_list = []
     image = conn.getObject('Image', imageId)
-    sizeZ, sizeC, sizeT = image.getSizeZ(), image.getSizeC(), image.getSizeT()
+    size_z, size_c, size_t = image.getSizeZ(), image.getSizeC(), image.getSizeT()
     dataset = image.getParent()
     pixels = image.getPrimaryPixels()
-    newSizeC = 1
+    new_size_c = 1
 
 ::
 
     def planeGen():
         """
         set up a generator of 2D numpy arrays.
+
         The createImage method below expects planes in the order specified here
         (for z.. for c.. for t..)
         """
-        for z in range(sizeZ):              # all Z sections
+        for z in range(size_z):              # all Z sections
             # Illustrative purposes only, since we only have 1 channel
-            for c in range(newSizeC):
-                for t in range(sizeT):      # all time-points
+            for c in range(new_size_c):
+                for t in range(size_t):      # all time-points
                     channel0 = pixels.getPlane(z, 0, t)
                     channel1 = pixels.getPlane(z, 1, t)
                     # Here we can manipulate the data in many different ways. As
                     # an example we are doing "average"
                     # average of 2 channels
-                    newPlane = (channel0 + channel1) / 2
-                    print "newPlane for z,t:", z, t, newPlane.dtype, \
-                        newPlane.min(), newPlane.max()
-                    yield newPlane
+                    new_plane = (channel0 + channel1) / 2
+                    print "newPlane for z,t:", z, t, new_plane.dtype, \
+                        new_plane.min(), new_plane.max()
+                    yield new_plane
 
 ::
 
     desc = ("Image created from Image ID: %s by averaging Channel 1 and Channel 2"
-            % imageId)
+        % imageId)
     i = conn.createImageFromNumpySeq(
-        planeGen(), "new image", sizeZ, newSizeC, sizeT, description=desc,
+        plane_gen(), "new image", size_z, new_size_c, size_t, description=desc,
         dataset=dataset)
 
 -  **Close connection:**
@@ -1351,12 +1242,6 @@ Filesets - added in OMERO 5.0
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
     conn.connect()
 
--  **Configuration**
-
-::
-
-    imageId = 101
-
 -  **Get the 'Fileset' for an Image**
 
 ::
@@ -1365,14 +1250,14 @@ Filesets - added in OMERO 5.0
     # create an image or set of images in OMERO.
     image = conn.getObject("Image", imageId)
     fileset = image.getFileset()       # will be None for pre-FS images
-    fsId = fileset.getId()
+    fs_id = fileset.getId()
     # List all images that are in this fileset
-    for fsImage in fileset.copyImages():
-        print fsImage.getId(), fsImage.getName()
+    for fs_image in fileset.copyImages():
+        print fs_image.getId(), fs_image.getName()
     # List original imported files
-    for origFile in fileset.listFiles():
-        name = origFile.getName()
-        path = origFile.getPath()
+    for orig_file in fileset.listFiles():
+        name = orig_file.getName()
+        path = orig_file.getPath()
         print path, name
 
 -  **Get Original Imported Files directly from the image**
@@ -1382,19 +1267,19 @@ Filesets - added in OMERO 5.0
     # this will include pre-FS data IF images were archived on import
     print image.countImportedImageFiles()
     # specifically count Fileset files
-    fileCount = image.countFilesetFiles()
+    file_count = image.countFilesetFiles()
     # list files
-    if fileCount > 0:
-        for origFile in image.getImportedImageFiles():
-            name = origFile.getName()
-            path = origFile.getPath()
+    if file_count > 0:
+        for orig_file in image.getImportedImageFiles():
+            name = orig_file.getName()
+            path = orig_file.getPath()
             print path, name
 
 -  **Can get the Fileset using conn.getObject()**
 
 ::
 
-    fileset = conn.getObject("Fileset", fsId)
+    fileset = conn.getObject("Fileset", fs_id)
 
 -  **Close connection:**
 
