@@ -36,6 +36,8 @@ take a look at the builds on :jenkins:`jenkins <>`, or alternatively examine
 the dependencies in the ivy.xml files (e.g.
 :source:`components/insight/ivy.xml`)
 
+.. _gatewayconnect:
+
 Connect to OMERO
 ----------------
 
@@ -71,6 +73,8 @@ Connect to OMERO
 ::
 
     gateway.disconnect();
+
+.. _gatewaybrowse:
 
 Read data
 ---------
