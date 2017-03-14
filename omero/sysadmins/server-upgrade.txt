@@ -317,11 +317,17 @@ database which can both save disk space and speed up access times.
 Reset ROI shape color (optional)
 """"""""""""""""""""""""""""""""
 
-Region of interest generated using OMERO.insight did not follow the
+Regions of interest generated using OMERO.insight did not follow the
 OME model specification. The color of shapes is now handled according
-to the data model, using RGBA rather than ARGB format
+to the data model, using RGBA rather than ARGB format.
+To upgrade the color settings of shapes created using OMERO.insight or a client
+saving them in the ARGB format, run the following script:
 
-TODO: insert sql script
+.. parsed-literal::
+
+    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/shape_color_argb_to_rgba.sql
+
+If for some reasons, you need to roll back the changes, a reverse script ``reverse_shape_color_argb_to_rgba.sql`` is also available in the same folder.
 
 .. _upgrademergescript:
 
