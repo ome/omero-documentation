@@ -81,7 +81,7 @@ Service Level 1 (direct database and Hibernate connections)
    :javadoc:`API <slice2html/omero/api/ISession.html>`
    for creating and working with OMERO sessions.
 -  ShareService
-   :javadoc:`API <slice2html/omero/api/IShare.html>`
+   :javadoc:`API <slice2html/omero/api/IShare.html>` (now deprecated)
 -  TimelineService
    :javadoc:`API <slice2html/omero/api/ITimeline.html>`
    for queries based on time.
