@@ -1245,6 +1245,8 @@ Updating Objects
 ^^^^^^^^^^^^^^^^
 
 The API supports PUT to replace existing objects with the submitted data.
+As mentioned above, the only objects that you can currently update are
+Projects, Datasets and Screens.
 The submitted JSON data can be constructed from scratch, but it will generally
 be more convenient and safer to GET the object, update it and save
 the edited JSON.
@@ -1253,7 +1255,7 @@ For example, to edit the Name of the Project in the previous example:
 
 ::
 
-    POST  /api/v0/m/save/
+    PUT   /api/v0/m/save/
 
 
 **Content**
