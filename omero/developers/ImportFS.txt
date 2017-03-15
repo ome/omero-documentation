@@ -285,4 +285,8 @@ directly retrievable from ``ServiceFactoryPrx``.
     call to ``helper.cancel()`` has been made. At this point,
     ``ImportLibrary.importImage()`` returns successfully.
 
-.. seealso:: :doc:`/sysadmins/fs-upload-configuration`
+.. seealso:: 
+
+    :doc:`/sysadmins/fs-upload-configuration`
+
+    :doc:`/sysadmins/in-place-import`
