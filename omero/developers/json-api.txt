@@ -81,10 +81,10 @@ parameters:
 
 ::
 
-    # List the first 100 projects (offset=0 by default)
+    # List the first 100 Projects (offset=0 by default)
     <server>/api/v0/m/projects/?limit=100
 
-    # List the next 100 projects
+    # List the next 100 Projects
     <server>/api/v0/m/projects/?limit=100&offset=100
 
 
@@ -349,7 +349,7 @@ The EventContext for this session will be returned to you.
 Projects, Datasets and Images
 -----------------------------
 
-OMERO organises images in two types of many-to-many hierarchies:
+OMERO organises Images in two types of many-to-many hierarchies:
 ``screen/plate/[run]/well/image`` for HCS data and ``project/dataset/image``
 for other data. Plates, Datasets and Images can also be ``Orphaned`` if not
 contained within any parent container.
@@ -376,7 +376,7 @@ These query parameters are used by many queries below:
     group       Number      Filter by Group ID
 
 
-List projects
+List Projects
 ^^^^^^^^^^^^^
 
 **Parameters**
@@ -408,7 +408,7 @@ These query parameters are also supported (see above):
       "data": [
         {
           "Name": "New data",
-          "Description": "Example project",
+          "Description": "Example Project",
           "url:project": "http://localhost:4080/api/v0/m/projects/11601/",
           "url:datasets": "http://localhost:4080/api/v0/m/projects/11601/datasets/",
           "@id": 11601,
@@ -486,7 +486,7 @@ These query parameters are also supported (see above):
     }
 
 
-Get a single project
+Get a single Project
 ^^^^^^^^^^^^^^^^^^^^
 
 ::
@@ -511,7 +511,7 @@ Get a single project
       }
     }
 
-List datasets
+List Datasets
 ^^^^^^^^^^^^^
 
 **Parameters**
@@ -570,7 +570,7 @@ you can also show Datasets in a Project using this URL:
     GET     /api/v0/m/projects/{project_id}/datasets/
 
 
-Get a single dataset
+Get a single Dataset
 ^^^^^^^^^^^^^^^^^^^^
 
 ::
@@ -595,12 +595,12 @@ Get a single dataset
     }
 
 
-List images
+List Images
 ^^^^^^^^^^^
 
-When images are listed, their "Pixels" object is also loaded, which
-includes dimensions and pixel sizes of the image.
-When a single Image is retrieved, the "Channels" data is additionally
+When Images are listed, their ``Pixels`` object is also loaded, which
+includes dimensions and pixel sizes of the Image.
+When a single Image is retrieved, the ``Channels`` data is additionally
 loaded.
 
 
@@ -687,7 +687,7 @@ These query parameters are also supported (see above):
     }
 
 
-Get a single image
+Get a single Image
 ^^^^^^^^^^^^^^^^^^
 
 ::
@@ -696,8 +696,8 @@ Get a single image
 
 **Response**
 
-The response for a single image is the same as for listing images
-above with the addition of "Channels" data.
+The response for a single Image is the same as for listing Images
+above with the addition of ``Channels`` data.
 
 ::
 
@@ -818,7 +818,7 @@ above with the addition of "Channels" data.
 Screens, Plates and Wells
 -------------------------
 
-List screens
+List Screens
 ^^^^^^^^^^^^
 
 **Parameters**
@@ -861,7 +861,7 @@ These query parameters are also supported (see above):
     }
 
 
-Get a single screen
+Get a single Screen
 ^^^^^^^^^^^^^^^^^^^
 
 ::
@@ -886,7 +886,7 @@ Get a single screen
     }
 
 
-List plates
+List Plates
 ^^^^^^^^^^^
 
 **Parameters**
@@ -949,7 +949,7 @@ you can also show Plates in a Screen using this URL:
     GET     /api/v0/m/screens/{screen_id}/plates/
 
 
-Get a single plate
+Get a single Plate
 ^^^^^^^^^^^^^^^^^^
 
 ::
@@ -958,7 +958,7 @@ Get a single plate
 
 **Response**
 
-The response for a single plate includes information on the Well Samples (fields) for
+The response for a single Plate includes information on the Well Samples (fields) for
 each Well such as the min/max WellSampleIndex for the Plate.
 
 ::
@@ -993,11 +993,11 @@ each Well such as the min/max WellSampleIndex for the Plate.
     }
 
 
-List plate acquisitions
+List Plate Acquisitions
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-A plate-acquisition is a collection of WellSamples, grouped by an acquisition time.
-A plate may contain zero, one or more plate-acquisitions.
+A Plate Acquisition is a collection of WellSamples, grouped by an acquisition time.
+A Plate may contain zero, one or more Plate Acquisitions.
 
 ::
 
