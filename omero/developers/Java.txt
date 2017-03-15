@@ -816,6 +816,31 @@ to an image.
       }
     }
 
+-  **Organize ROIs in Folders.**
+
+::
+    
+    ROIFacility roifac = gateway.getFacility(ROIFacility.class);
+    
+    Collection<ROIData> rois = ...
+    
+    // Add each ROI to a different folder
+    for (ROIData r : rois) {
+        FolderData folder = new FolderData();
+        folder.setName("Folder for ROI " + r.getId());
+        roifac.addRoisToFolders(ctx, image.getId(), Arrays.asList(r),
+                Arrays.asList(folder));
+    }
+
+    // Get the ROI folders associated with an image
+    Collection<FolderData> folders = roifac.getROIFolders(ctx, image.getId());
+    for (FolderData folder : folders) {
+        Collection<ROIResult> result = roifac.loadROIsForFolder(ctx,
+                image.getId(), folder.getId());
+        Collection<ROIData> folderRois = result.iterator().next().getROIs();
+        // Do something with the ROIs
+    }
+
 Delete data
 -----------
 
