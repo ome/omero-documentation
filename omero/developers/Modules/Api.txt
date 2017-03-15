@@ -170,8 +170,8 @@ been collected in the
 :source:`IContainer <components/common/src/ome/api/IContainer.java>`
 interface. IContainer simplifies a few very common queries, and there is a
 related package ("omero.gateway.model.\*") for working with the returned graphs.
-OMERO.insight works almost exclusively with the IContainer interface for its
-non-binary needs.
+OMERO.insight works almost exclusively with the IContainer interface mostly 
+indirectly via the :ref:`javagateway`.
 
 Examples
 --------
