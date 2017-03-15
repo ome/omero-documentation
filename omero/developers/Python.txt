@@ -162,6 +162,8 @@ Read data
                                                 'order_by': 'lower(obj.name)',
                                                 'limit': 5, 'offset': 0}):
         print_obj(project)
+        # We can get Datasets with listChildren, since we have the Project already.
+        # Or conn.getObjects("Dataset", opts={'project', id}) if we have Project ID
         for dataset in project.listChildren():
             print_obj(dataset, 2)
             for image in dataset.listChildren():
