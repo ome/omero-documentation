@@ -41,7 +41,7 @@ Service Level 1 (direct database and Hibernate connections)
    :source:`src <components/common/src/ome/api/IAdmin.java>`,
    :javadoc:`API <slice2html/omero/api/IAdmin.html>`
    for working with Experimenters, Groups and the current Context
-   (switching groups etc).
+   (switching groups etc.).
 -  ConfigService:
    :source:`src <components/common/src/ome/api/IConfig.java>`,
    :javadoc:`API <slice2html/omero/api/IConfig.html>`
@@ -60,7 +60,8 @@ Service Level 1 (direct database and Hibernate connections)
    :javadoc:`API <slice2html/omero/api/IPixels.html>`
    for pixels stats and creating Images with existing or new Pixels.
 -  ProjectionService
-   :javadoc:`API <slice2html/omero/api/IProjection.html>`.
+   :javadoc:`API <slice2html/omero/api/IProjection.html>`
+   for performing projections of Pixels sets.
 -  QueryService:
    :source:`src <components/common/src/ome/api/IQuery.java>`,
    :javadoc:`API <ome/api/IQuery.html>`
@@ -91,7 +92,7 @@ Service Level 1 (direct database and Hibernate connections)
 -  UpdateService:
    :source:`src <components/common/src/ome/api/IUpdate.java>`,
    :javadoc:`API <ome/api/IUpdate.html>`
-   for saving and deleting omero.model objects.
+   for saving and editing omero.model objects.
 
 Service Level 2
 ^^^^^^^^^^^^^^^
