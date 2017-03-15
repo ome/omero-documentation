@@ -85,8 +85,8 @@ up to date to ensure that security updates are applied::
     release upgrade, you should check that updates will not break your set-up
     before performing this on your production system.
 
-Web plugin updates
-^^^^^^^^^^^^^^^^^^
+OMERO.web plugin updates
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 OMERO.web plugins are very closely integrated into the webclient. For this
 reason, it is possible that an update of OMERO will cause issues with an older
@@ -94,7 +94,8 @@ version of a plugin. It is best when updating the server to also install any
 available plugin updates according to their own documentation.
 
 Since 5.3, all official OMERO.web plugins can be installed from :pypi:`Python Package Index <>`.
-You should remove all previously installed plugins and re-installed the latest versions using `pip <https://pip.pypa.io/en/stable/>`_.
+You should remove all previously installed plugins and reinstalled the latest
+versions using `pip <https://pip.pypa.io/en/stable/>`_.
 
 Memoization files invalidation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -327,15 +328,17 @@ Reset ROI shape color (optional)
 
 Regions of interest generated using OMERO.insight did not follow the
 OME model specification. The color of shapes is now handled according
-to the data model, using RGBA rather than ARGB format.
-To upgrade the color settings of shapes created using OMERO.insight or a client
-saving them in the ARGB format, run the following script:
+to the data model, using RGBA rather than ARGB format. 
+A script is provided to upgrade the color settings of shapes created using OMERO.insight
+or a client saving them in the ARGB format. If you only wish to apply the changes
+to a subset of ROIs, edit the ``TRUE`` in the script below before running it:
 
 .. parsed-literal::
 
     $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/shape_color_argb_to_rgba.sql
 
-If for some reasons, you need to roll back the changes, a reverse script ``reverse_shape_color_argb_to_rgba.sql`` is also available in the same folder.
+If for some reasons, you need to roll back the changes, a reverse script ``reverse_shape_color_argb_to_rgba.sql`` is also available in the same folder. Edit the ``TRUE`` if you wish to roll back the changes to a
+subset of ROIs.
 
 .. _upgrademergescript:
 
