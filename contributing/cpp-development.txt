@@ -45,7 +45,7 @@ Conventions
 Source code and build system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The source code of a Java library should be maintained under version control
+The source code of a C++ library should be maintained under version control
 using Git_ and hosted on GitHub_.
 
 CMake_ should be used as the primary build system. There is no standard CMake
@@ -60,8 +60,8 @@ directory layout::
    lib/
    test/
 
-Components c both Java and C++ code like `ome-model` organize the C++ sources
-according to the Maven recommended layout i.e.::
+Components containing both Java and C++ code like `ome-model` organize the C++
+sources according to the Maven recommended layout i.e.::
 
    src/main/cpp             Contains the C++ code
    src/main/java            Contains the Java code
