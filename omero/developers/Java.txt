@@ -36,6 +36,29 @@ take a look at the builds on :jenkins:`jenkins <>`, or alternatively examine
 the dependencies in the ivy.xml files (e.g.
 :source:`components/insight/ivy.xml`)
 
+.. _javagateway:
+
+Java Gateway
+------------
+
+The Java :javadoc:`Gateway <omero/gateway/Gateway.html>` is a
+wrapper around the :zerocdoc:`Ice Java language mapping
+<display/Ice/Hello+World+Application>` and the :doc:`Modules/Api` which makes
+it easier to interact with an OMERO server in Java.
+
+The :javadoc:`Gateway <omero/gateway/Gateway.html>` is the central object
+for maintaining the connection to the server, see :ref:`gatewayconnect`
+
+Functionality for interacting with the server is encapsulated into different
+:javadoc:`facilities </omero/gateway/facility/package-summary.html>`.
+For an example using the :javadoc:`BrowseFacility <omero/gateway/facility/BrowseFacility.html>`
+to access Projects, Datasets, etc. see :ref:`gatewaybrowse`.
+
+As the plain Ice objects can be a bit 'bulky' to handle, they are usually wrapped
+into Java  :javadoc:`DataObjects <omero/gateway/model/DataObject.html>`.
+
+.. _gatewayconnect:
+
 Connect to OMERO
 ----------------
 
@@ -71,6 +94,8 @@ Connect to OMERO
 ::
 
     gateway.disconnect();
+
+.. _gatewaybrowse:
 
 Read data
 ---------

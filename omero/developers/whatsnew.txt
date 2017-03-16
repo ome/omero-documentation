@@ -23,6 +23,10 @@ by :javadoc:`Chmod2
 Java Gateway
 ^^^^^^^^^^^^
 
+-  Added :ref:`javagateway` documentation
+-  Added :javadoc:`TablesFacility <omero/gateway/facility/TablesFacility.html>`
+   for easier handling of :doc:`Tables` 
+
 OMERO Model
 ^^^^^^^^^^^
 
