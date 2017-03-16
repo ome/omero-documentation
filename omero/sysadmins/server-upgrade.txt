@@ -341,6 +341,15 @@ If you need to roll back the changes, a reverse script ``reverse_shape_color_arg
 is also available in the same folder. Edit the ``TRUE`` if you wish to roll back the changes to a
 subset of ROIs.
 
+Move annotation from Image to Well (optional)
+"""""""""""""""""""""""""""""""""""""""""""""
+
+Since 5.3, users can annotate Wells in both OMERO.web and OMERO.insight and not only
+annotate Images linked to WellSamples.
+The offical script `Move_Annotations.py <https://github.com/ome/scripts/blob/develop/omero/util_scripts/Move_Annotations.py>`_
+can be run by users but an administrator can run the script on any user's data.
+
+
 .. _upgrademergescript:
 
 Merge script changes
