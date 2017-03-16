@@ -79,7 +79,7 @@ OMERO.web dependencies
 While upgrading the server it is recommended to keep OMERO.web dependencies
 up to date to ensure that security updates are applied::
 
-    $ pip install --upgrade -r share/web/requirements-py27.txt
+    $ pip install --upgrade -r share/web/requirements-py27-all.txt
 
 .. note:: This is mainly for new major releases. If carrying out a minor
     release upgrade, you should check that updates will not break your set-up
