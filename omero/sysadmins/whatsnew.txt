@@ -13,7 +13,8 @@ What's new for OMERO 5.3 for sysadmins
 - All official OMERO.web apps can now be installed from PyPI. You should
   reinstall your plugins when you upgrade.
 
-- Windows support discontinued, see :doc:`/sysadmins/windows-migration`.
+- Windows support has been discontinued, see
+  :doc:`/sysadmins/windows-migration`.
 
 - OMERO.web has been decoupled from the server and can now be deployed
   separately. Support for deployment using Apache has been dropped; if your
@@ -22,3 +23,8 @@ What's new for OMERO 5.3 for sysadmins
   instance running on your OMERO server i.e. use Apache as a reverse proxy.
 
 - jquery cache is now disabled by default.
+
+- A new script is available to allow users to migrate annotations from Images
+  to Wells which you may wish to run server-side when upgrading. These
+  annotations will be reindexed during upgrade so your users can search Wells
+  by annotations in the new clients UI for Screen Plate Well data.
