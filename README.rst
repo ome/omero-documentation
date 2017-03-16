@@ -157,12 +157,40 @@ Release number
 The release number of the OMERO documentation is `UNKNOWN` by default.
 To modify this value set the environment variable ``OMERO_RELEASE`` e.g.::
 
-    cd omero && OMERO_RELEASE=4.4.6 make clean html
-    cd omero && OMERO_RELEASE=4.4.6 ant clean html
+    cd omero && OMERO_RELEASE=5.2.6 make clean html
+    cd omero && OMERO_RELEASE=5.2.6 ant clean html
 
 The Contributing Developer documentation has the release version removed as
 the intention is to update these files as and when necessary, so that they
 always reflect our current practices.
+
+Zip bundles
+-----------
+
+To build the documentation as a zipped bundle, use::
+
+    ant zip
+
+From the top level directory::
+
+    ant zip -Domero.release="5.3.0-m8"
+
+will generate the HTML documentation for OMERO and Contributing and create an
+OMERO.doc-5.3.0-m8.zip under omero/_build.
+
+From omero directory::
+
+    ant zip -Domero.release="5.3.0-m8"
+
+will generate the HTML documentation for OMERO and create an
+OMERO.doc-5.3.0-m8.zip under omero/_build.
+
+From the contributing directory::
+
+    ant zip -Domero.release="5.3.0-m8"
+
+will generate the HTML documentation for contributing and create a
+CONTRIBUTING.doc-5.3.0-m8.zip under contributing/_build.
 
 Auto-generated content
 ----------------------
