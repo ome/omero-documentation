@@ -8,10 +8,11 @@ Updates and new features for OMERO 5.3 include:
   phenotypes or ontologies (support for these is still upcoming for OMERO.web)
 - support for lookup tables (LUT) and reverse/inverted intensity rendering
 - support for histograms
-- Wells can now be annotated in the clients, searched by annotations, and a
-  new script allows you to migrate existing annotations made on Images to
-  Wells
-- the OMERO.web UI for viewing Screen Plate Well data has been redesigned
+- the clients UI for viewing Screen Plate Well data has been redesigned to
+  show the spatial layout of fields within each Well
+- Wells can now be annotated in the clients
+- Wells can also be searched by annotations, and a new script allows you to
+  migrate existing annotations from Images to Wells
 - the new 'Open With...' functionality allows images to be opened with
   OMERO.figure or other plugins directly from OMERO.web (coming soon is a new
   web-based full image viewer - OMERO.iviewer)
