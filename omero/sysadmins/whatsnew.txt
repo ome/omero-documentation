@@ -28,3 +28,6 @@ What's new for OMERO 5.3 for sysadmins
   to Wells which you may wish to run server-side when upgrading. These
   annotations will be reindexed during upgrade so your users can search Wells
   by annotations in the new clients UI for Screen Plate Well data.
+
+- New options have been added for customizing the tree in the clients, see
+  :ref:`client configuration properties <client_configuration>`.
