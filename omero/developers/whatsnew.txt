@@ -30,8 +30,10 @@ Java Gateway
 OMERO Model
 ^^^^^^^^^^^
 
--  Added ``Folder``, ``FolderImageLink`` and ``FolderRoiLink`` (see this
-   `blog post <http://blog.openmicroscopy.org/data-model/future-plans/2016/05/23/folders-upcoming/>`_  and :doc:`Model/Containers` for further information)
+-  Added ``Folder``, ``FolderImageLink`` and ``FolderRoiLink``
+   (see this `blog post
+   <http://blog.openmicroscopy.org/data-model/future-plans/2016/05/23/folders-upcoming/>`_
+   and :doc:`Model/Containers` for further information)
 -  Added ``ProjectionDef`` to ``RenderingDef``
 -  Added "Arrow" ``markerStart`` and ``markerEnd`` to ``Line`` and
    ``Polyline``
