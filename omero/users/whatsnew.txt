@@ -12,7 +12,8 @@ Updates and new features for OMERO 5.3 include:
   show the spatial layout of fields within each Well
 - Wells can now be annotated in the clients
 - Wells can also be searched by annotations, and a new script allows you to
-  migrate existing annotations from Images to Wells
+  migrate existing annotations from Images to Wells (see
+  :help:`utility scripts <scripts.html#utility>`)
 - the new 'Open With...' functionality allows images to be opened with
   OMERO.figure or other plugins directly from OMERO.web (coming soon is a new
   web-based full image viewer - OMERO.iviewer)
