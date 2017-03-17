@@ -173,24 +173,24 @@ To build the documentation as a zipped bundle, use::
 
 From the top level directory::
 
-    ant zip -Domero.release="5.3.0-m8"
+    ant zip -Domero.release="5.3.0"
 
 will generate the HTML documentation for OMERO and Contributing and create an
-OMERO.doc-5.3.0-m8.zip under omero/_build.
+OMERO.doc-5.3.0.zip under omero/_build.
 
 From omero directory::
 
-    ant zip -Domero.release="5.3.0-m8"
+    ant zip -Domero.release="5.3.0"
 
 will generate the HTML documentation for OMERO and create an
-OMERO.doc-5.3.0-m8.zip under omero/_build.
+OMERO.doc-5.3.0.zip under omero/_build.
 
 From the contributing directory::
 
-    ant zip -Domero.release="5.3.0-m8"
+    ant zip -Domero.release="5.3.0"
 
 will generate the HTML documentation for contributing and create a
-CONTRIBUTING.doc-5.3.0-m8.zip under contributing/_build.
+CONTRIBUTING.doc-5.3.0.zip under contributing/_build.
 
 Auto-generated content
 ----------------------
