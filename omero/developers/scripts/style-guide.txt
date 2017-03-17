@@ -22,7 +22,7 @@ Script naming and file path
 ---------------------------
 
 -  Script Name should be in the form 'Script\_Name.py'. The OMERO.web and Insight
-   clints will replace underscores with spaces in the script selection menu.
+   clients will replace underscores with spaces in the script selection menu.
 -  File paths - The clients will use the parent folder to build a
    scripts menu, capitalising and removing underscores. For example, a script
    uploaded from /omero/export\_scripts/Batch\_Image\_Export.py will be
@@ -120,10 +120,10 @@ Script outputs
            client.setOutput("Image",robject(image))
 
 -  Scripts that generate a File Annotation or Original File should
-   return these objects. OMERO.web and Insight will give users the option of
+   return these objects. The clients will give users the option of
    downloading the File, and may also allow viewing of the file if it is
    of a suitable type. This should be set as the mimetype of the File
-   Annotation (E.g. 'plain/text', 'image/jpeg' etc). In this example,
+   Annotation (e.g. 'plain/text', 'image/jpeg' etc.). In this example,
    fileAnnotation should be an omero.model.FileAnnotationI object, but
    could also be an omero.model.OriginalFileI object.
 

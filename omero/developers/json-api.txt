@@ -11,6 +11,7 @@ named ``api`` in the OMERO.web framework.
 
 Omero-marshal and Projection-based APIs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 The majority of the API URLs use `omero-marshal <https://github.com/openmicroscopy/omero-marshal>`_
 to generate json dictionaries from OMERO **model** objects.
 All these URLs are under the ``m`` prefix:
@@ -20,7 +21,7 @@ All these URLs are under the ``m`` prefix:
     <server>/api/v0/m/
 
 
-The webclient currently uses a small number of URLs to perform customised
+The webclient currently uses a small number of URLs to perform customized
 queries for browsing Project, Dataset and Image hierarchies.
 These queries use **projections** and typically load a subset of fields for
 OMERO objects in order to improve performance for large data counts.
@@ -34,6 +35,7 @@ but are not yet supported in OMERO 5.3.0.
 
 Versioning
 ^^^^^^^^^^
+
 The JSON API uses major and minor version numbers to reflect breaking
 and non-breaking changes respectively. Non-breaking changes include simple
 addition of attributes to JSON data or addition of new URLs.
@@ -74,6 +76,7 @@ navigation of JSON data.
 
 Pagination
 ^^^^^^^^^^
+
 Requests that return a list of items will be paginated, showing
 a ``limit`` of the first 200 objects by default.
 Pagination can be specified using the ``limit`` and ``offset`` query
@@ -132,6 +135,7 @@ load Channels.
 
 Normalizing Experimenters and Groups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 When returning a list of JSON objects that each contain ``omero:details`` with
 ``owner`` and ``group`` data, these will typically be nested many times
 within the list. In order to avoid this duplication, we can remove objects from
@@ -146,6 +150,7 @@ of these objects will not be affected by the ``?normalize=true`` parameter.
 
 Child Counts
 ^^^^^^^^^^^^
+
 For container objects such as Projects, Datasets and Screens it is
 often useful to know the number of children within them. This can be
 specified with ``?childCount=true`` parameter.
@@ -154,6 +159,7 @@ This will add an ``omero:childCount`` value to the json data.
 
 Filtering by Owner and Group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Most data in OMERO has an ``Owner`` and is assigned to a permissions
 ``Group``. By default, queries will return data from all owners
 accross all groups that are accessible to the current user.
@@ -181,7 +187,7 @@ For example, ``?limit=foo`` will give a response of:
 
 
 Unhandled exceptions are handled with a ``500`` error response with an
-error "message" and may also include a "stactrace".
+error "message" and may also include a "stacktrace".
 
 
 Getting Started
@@ -363,9 +369,9 @@ These query parameters are used by many queries below:
 
     Name        Type        Description
     ------------------------------------------------------------------
-    offset      Number      Pagination offset. The default is 0.
+    offset      Number      Pagination offset. The default is 0
 
-    limit       Number      The size of each page. The default is 200.
+    limit       Number      The size of each page. The default is 200
 
     normalize   Boolean     Place Experimenters and Groups into top-level lists instead
                             of nesting within objects
@@ -524,7 +530,7 @@ List Datasets
 
     image       Number      Filter Datasets by child Image ID
 
-    orphaned    Boolean     Find Dataset that are not in any Project
+    orphaned    Boolean     Find Datasets that are not in any Project
 
 
 These query parameters are also supported (see above):
