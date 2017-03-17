@@ -23,3 +23,7 @@ Updates and new features for OMERO 5.3 include:
 
 See the :help:`User help website <>` for information on how to incorporate
 these new features into your current workflows.
+
+Note that thumbnail caching is still being worked on for OMERO.web. If you
+have an issue with out-of-sync thumbnails you should refresh your entire
+browser window rather than just using the OMERO.web refresh function.
