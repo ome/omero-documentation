@@ -41,13 +41,15 @@ the following more specific requirements:
 
 .. note:: It is likely, but not guaranteed, that DropBox will run on later
     versions of Windows, however only tested versions are supported by default.
-    Setting the property :property:`omero.fs.platformCheck` to ``False`` in
-    :file:`etc/grid/templates.xml` or using
-    :omerocmd:`config set` and restarting the server will allow DropBox to be
-    started on an untested version of Windows.
-
-    If you do successfully run DropBox on an as yet untested version of Windows
-    please do let us know via the
+    
+    Setting the property :property:`omero.fs.platformCheck` to ``False``
+    in :file:`etc/grid/templates.xml`
+    
+    or using :omerocmd:`config set`
+    
+    and restarting the server will allow DropBox to be started on an untested 
+    version of Windows. If you do successfully run DropBox on an as yet untested
+    version of Windows please do let us know via the 
     :community_plone:`forums and mailing lists <>`.
 
 Using DropBox
@@ -370,3 +372,11 @@ Here's a full example of a configuration for two users:
     <property name="omero.fs.throttleImport"  value="10;10"/>
     <property name="omero.fs.readers"         value="/home/amy/my_readers.txt;"/>
     <property name="omero.fs.importArgs"      value="--report;--report --email zak@example.com"/>
+
+.. seealso:: 
+
+    :doc:`/users/cli/import`
+
+    :doc:`/users/cli/import-target`
+
+    :doc:`/sysadmins/in-place-import`
