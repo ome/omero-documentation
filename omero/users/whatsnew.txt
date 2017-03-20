@@ -22,7 +22,8 @@ Updates and new features for OMERO 5.3 include:
   for JPEG-XR compressed CZI data
 
 See the :help:`User help website <>` for information on how to incorporate
-these new features into your current workflows.
+these new features into your current workflows. There is also a
+`short demo movie <http://downloads.openmicroscopy.org/movies/omero-5-3/mov/OMERO.web-5.3.0.mov>`_ for the new features of OMERO.web.
 
 Note that thumbnail caching is still being worked on for OMERO.web. If you
 have an issue with out-of-sync thumbnails you should refresh your entire
