@@ -17,7 +17,10 @@ What's new for OMERO 5.3 for sysadmins
   :doc:`/sysadmins/windows-migration`.
 
 - OMERO.web has been decoupled from the server and can now be deployed
-  separately. Support for deployment using Apache has been dropped; if your
+  separately. It now requires Python 2.7 meaning systems still running on
+  CentOS 6 will require upgrading.
+  
+- Support for deploying OMERO.web using Apache has been dropped; if your
   organization’s policies only allow Apache to be used as the external-facing
   web-server you should configure Apache to proxy connections to an Nginx
   instance running on your OMERO server i.e. use Apache as a reverse proxy.
@@ -26,7 +29,7 @@ What's new for OMERO 5.3 for sysadmins
 
 - A new script is available to allow users to migrate annotations from Images
   to Wells which you may wish to run server-side when upgrading. These
-  annotations will be reindexed during upgrade so your users can search Wells
+  annotations will be reindexed automatically so your users can search Wells
   by annotations in the new GUI for Screen Plate Well data.
 
 - New options have been added for customizing the tree in the clients, see
