@@ -1,5 +1,5 @@
-TRIAL: OMERO.web walkthrough installation Ubuntu 14.04 and IcePy 3.6
-====================================================================
+OMERO.web walkthrough installation Ubuntu 16.04 and IcePy 3.6
+=============================================================
 
 
 For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively source the following file::
@@ -28,43 +28,41 @@ Install ZeroC IcePy 3.6. IcePy is managed by PyPi and will be installed as a par
     apt-get -y install db5.3-util
     apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev
 
-Install other dependences (run as root)::
+Install other dependencies (run as root)::
     
     apt-get update
     apt-get -y install \
         git \
-        python-{dev,pip}
+        python-pip
     
-    # require to install Pillow
+    
     apt-get -y install \
-        libtiff5-dev \
-        libjpeg8-dev \
-        zlib1g-dev \
-        libfreetype6-dev \
-        liblcms2-dev \
-        libwebp-dev \
-        tcl8.6-dev \
-        tk8.6-dev
+        python-pillow \
+        python-numpy
+    
     
     # install the latest version
     pip install --upgrade pip
-    pip install virtualenv
+    pip install --upgrade virtualenv
 
 
-Install and generate VirtualEnv (run as omero)::
+Install VirtualEnv - optional (run as root)::
     
-    virtualenv /home/omero/omerowebvenv 
-    source /home/omero/omerowebvenv/bin/activate
+    virtualenv /home/omero/omerowebvenv --system-site-packages
+    /home/omero/omerowebvenv/bin/pip install --upgrade omego
+
+Install OMERO.web (run as omero)::
     
-    pip install omego
     /home/omero/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-latest" py
     
     zip=$(ls OMERO.py*.zip)
     zipname=${zip%.zip}
     rm -f $zip
     mv $(find . -name 'OMERO.py*' -type d) /home/omero/OMERO.py
+
+Install VirtualEnv (run as root)::
     
-    pip install -r /home/omero/OMERO.py/share/web/requirements-py27-trial.txt
+    /home/omero/omerowebvenv/bin/pip install --upgrade -r /home/omero/OMERO.py/share/web/requirements-py27.txt
 
 Configure OMERO.web and generate nginx template (run as omero)::
     
@@ -83,8 +81,6 @@ Configure OMERO.web and generate nginx template (run as omero)::
 Install NGINX (run as root)::
     
     #start-install
-    apt-get -y install software-properties-common
-    add-apt-repository -y ppa:nginx/stable
     apt-get update
     apt-get -y install nginx
     

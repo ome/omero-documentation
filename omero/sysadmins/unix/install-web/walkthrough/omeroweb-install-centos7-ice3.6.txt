@@ -1,5 +1,5 @@
-TRIAL: OMERO.web walkthrough installation CentOS 7 and IcePy 3.6
-================================================================
+OMERO.web walkthrough installation CentOS 7 and IcePy 3.6
+=========================================================
 
 
 For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively source the following file::
@@ -26,42 +26,49 @@ Create local user omero, homedir :file:`/home/omero` (run as root)::
 Install ZeroC IcePy 3.6. IcePy is managed by PyPi and will be installed as a part of OMERO.web requirements (run as root)::
     
     yum -y install \
+        gcc \
+        gcc-c++ \
+        python-devel
+    
+    yum -y install \
         libdb-utils \
         openssl-devel bzip2-devel expat-devel
 
-Install other dependences (run as root)::
+Install other dependencies (run as root)::
     
     yum -y install epel-release
     
     yum -y install git
     
-    yum -y install gcc gcc-c++ zlib-devel
+    yum -y install python-pip
     
     yum -y install \
-        python-devel \
-        python-pip \
-        libjpeg-devel \
-        libtiff libtiff-devel
+        python-pillow \
+        numpy
+    
     
     # install the latest version
     pip install --upgrade pip
-    pip install virtualenv
+    pip install --upgrade virtualenv
 
 
-Install and generate VirtualEnv (run as omero)::
+Install VirtualEnv - optional (run as root)::
     
-    virtualenv /home/omero/omerowebvenv 
-    source /home/omero/omerowebvenv/bin/activate
+    virtualenv /home/omero/omerowebvenv --system-site-packages
+    /home/omero/omerowebvenv/bin/pip install --upgrade omego
+
+Install OMERO.web (run as omero)::
     
-    pip install omego
     /home/omero/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-latest" py
     
     zip=$(ls OMERO.py*.zip)
     zipname=${zip%.zip}
     rm -f $zip
     mv $(find . -name 'OMERO.py*' -type d) /home/omero/OMERO.py
+
+Install VirtualEnv (run as root)::
     
-    pip install -r /home/omero/OMERO.py/share/web/requirements-py27-trial.txt
+    /home/omero/omerowebvenv/bin/pip install --upgrade -r /home/omero/OMERO.py/share/web/requirements-py27.txt
 
 Configure OMERO.web and generate nginx template (run as omero)::
     
@@ -78,17 +85,6 @@ Configure OMERO.web and generate nginx template (run as omero)::
     cat /home/omero/nginx.conf.tmp
 
 Install NGINX (run as root)::
-    
-    # The following is only required to install
-    # latest stable version of nginx
-    # Default will be 1.6.3 if not set
-    cat << EOF > /etc/yum.repos.d/nginx.repo
-    [nginx]
-    name=nginx repo
-    baseurl=http://nginx.org/packages/centos/\$releasever/\$basearch/
-    gpgcheck=0
-    enabled=1
-    EOF
     
     yum -y install nginx
     

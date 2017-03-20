@@ -1,5 +1,5 @@
-TRIAL: OMERO.web walkthrough installation Mac OS X and IcePy 3.6
-================================================================
+OMERO.web walkthrough installation Mac OS X and IcePy 3.6
+=============================================================
 
 
 For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively source the following file::
@@ -24,26 +24,29 @@ Install Homebrew in /usr/local::
 
 
 
-Install other dependences::
+Install other dependencies::
     
     brew install python 
-    pip install virtualenv
+    pip install --upgrade virtualenv
 
 
-Install and generate VirtualEnv (run as )::
+Install VirtualEnv - optional (run as root)::
     
     virtualenv ~/omerowebvenv 
-    source ~/omerowebvenv/bin/activate
+    ~/omerowebvenv/bin/pip install --upgrade omego
+
+Install OMERO.web (run as )::
     
-    pip install omego
     ~/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-latest" py
     
     zip=$(ls OMERO.py*.zip)
     zipname=${zip%.zip}
     rm -f $zip
     mv $(find . -name 'OMERO.py*' -type d) ~/OMERO.py
+
+Install VirtualEnv (run as root)::
     
-    pip install -r ~/OMERO.py/share/web/requirements-py27-trial.txt
+    ~/omerowebvenv/bin/pip install --upgrade -r ~/OMERO.py/share/web/requirements-py27-all.txt
 
 Configure OMERO.web and generate nginx template (run as )::
     
