@@ -168,6 +168,18 @@ Individual parameters are:
        ?m=g    # greyscale (only the first active channel will be shown in grey)
        ?m=c    # colour
 
+-  **Codomain maps**: OMERO's rendering engine supports mapping from input -> output
+   pixel intensity via application of "codomain maps". Currently only the 'reverse'
+   intensity map is supported, but the use of JSON encoding for the ``maps`` query
+   parameter is designed to support more maps in future.
+   In the case of the 'reverse' map, we only need to specify whether it is enabled
+   for each channel. For a 2 channel image, to enable ``reverse`` map for the
+   first channel, we can use this query string:
+
+   ::
+
+       ?maps=[{"reverse":{"enabled":true}},{"reverse":{"enabled":false}}]
+
 -  Parameters can be combined, e.g.
 
    ::
@@ -205,6 +217,20 @@ JSON methods
 
 -  Lots of metadata for the image. See
    below: ``webgateway/imgData/<imageId>/``
+
+-  Histogram of pixel intensity data for an image plane. Channel index is zero-based.
+   By default the Z and T index are 0 and the number of histogram bins is 256, but these
+   can be specified in the query string.
+   The range of the histogram will be the pixel intensity range for that channel of the
+   image (see "window": "min" and "max" in imgData below)
+
+   ::
+
+       URL: webgateway/histogram_json/<imageId>/channel/<index>/?theT=0&theZ=0&bins=20
+
+   ::
+
+       {"data": [ 24354, 93878, 87555, 45323, 27365, 14690, 9346, 2053, 60, 7, 19, 14, 15, 9, 5, 5, 3, 0, 2, 1]}
 
 
 Saving etc
