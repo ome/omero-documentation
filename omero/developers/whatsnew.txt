@@ -2,11 +2,18 @@ What's new for OMERO 5.3 for developers
 =======================================
 
 
-Breaking changes
-----------------
-
 OMERO.web
 ^^^^^^^^^
+
+-  New ``api`` app to provide a new JSON API. See :doc:`/developers/json-api`
+-  Login functionality moved to Class-based LoginView in webgateway
+-  "Open with" config for opening apps from webclient. See :doc:`/developers/Web/LinkingFromWebclient'
+
+Python BlitzGateway
+^^^^^^^^^^^^^^^^^^^
+
+-  getObjects() supports many more filtering and query options
+   via an additional 'opts' parameter
 
 Graphs
 ^^^^^^
